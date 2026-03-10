@@ -1,10 +1,14 @@
 * arith_loop.sno
-* Bottleneck: pure interpreter dispatch, tight counter loop.
-* Increments N from 0 to 1000 with no I/O or pattern matching.
-* Expected: 1000
+* Benchmark: pure arithmetic dispatch — tight counter loop, no I/O or patterns.
+* 1,000,000 iterations.  Reports elapsed ms via TIME().
+* Expected last line: 1000000
     &TRIM = 1
+    &STLIMIT = 10000000
+    T1 = TIME()
     N = 0
 LOOP    N = N + 1
-    N = LT(N, 1000) N          :S(LOOP)
-    OUTPUT = N
+    N = LT(N, 1000000) N        :S(LOOP)
+    T2 = TIME()
+    OUTPUT = "iterations: " N
+    OUTPUT = "ms: " (T2 - T1)
 END
