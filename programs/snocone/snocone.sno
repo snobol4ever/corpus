@@ -1,0 +1,781 @@
+*	    nspan(str)
+*	    like span, but the pattern returned
+*	    can also match the null string
+nspan   nspan             =   SPAN(str) | ""                    :(RETURN)
+*
+*	    list(item,delim)
+*	    a pattern that matches a list of zero or more
+*	    "item"s separated by "delim"s
+list    list              =   (item ARBNO(delim item) | "")     :(RETURN)
+*
+*	    push()
+*	    return the name of the (new) top stack element
+push    stack[0]          =   stack[0] + 1
+        push              =   .stack[stack[0]]                  :(NRETURN)
+*
+*	    pop()
+*	    return the value of the (old) top stack element
+pop     pop               =   stack[stack[0]]
+        stack[stack[0]]   =   ""
+        stack[0]          =   stack[0] - 1                      :(RETURN)
+*
+*	    peek(n)
+*	    return the name of the stack element n away from the top
+peek    GE(n, stack[0])                                         :S(err)
+        peek              =   .stack[stack[0] - n]              :(NRETURN)
+*
+*	    top()
+*	    return the name of the top stack element
+top     top               =   .peek(0)                          :(NRETURN)
+*
+*	    isbin(x)
+*	    is x a structure describing a binary operator?
+*	    things like == and ||, which syntactically look
+*	    more like functions than operators in their snobol form,
+*	    are considered not to be operators.
+isbin   IDENT(DATATYPE(x), 'B')                                 :F(FRETURN)
+        IDENT(fn(op(x)))                                        :S(RETURN)F(FRETURN)
+*
+*	    dprint(x)op,l,r,d,i,del
+*	    print an expression in snobol form
+dprint  d                 =   DATATYPE(x)
+        (IDENT(d, 'STRING') emit(x))                            :S(RETURN)
+*
+*	    unary operator
+        IDENT(d, 'U')                                           :F(dpr.1)
+        emit(op(x))
+        (isbin(r(x)) emit('('))
+        dprint(r(x))
+        (isbin(r(x)) emit(')'))                                 :(RETURN)
+*
+*	    function call or array reference
+dpr.1   IDENT(d, 'FCALL')                                       :F(dpr.4)
+        emit(name(x))
+        emit(l(x))
+        r                 =   args(x)
+dpr.2   IDENT(r)                                                :S(dpr.3)
+        emit(del)
+        dprint(expr(r))
+        del               =   ','
+        r                 =   next(r)                           :(dpr.2)
+dpr.3   emit(r(x))                                              :(RETURN)
+*
+*	    binary operator
+dpr.4   IDENT(d, 'B')                                           :F(dpr.5)
+        op                =   op(x)
+        (IDENT(op, or.binfo) emit('(') bprint(x) emit(')'))     :S(RETURN)
+        l                 =   (isbin(l(x)) LT(slp(op(l(x))), srp(op)) 1, "")
+        r                 =   (isbin(r(x)) GT(slp(op), srp(op(r(x)))) 1, "")
+*
+*	    check for [f](a,b)
+        IDENT(fn(op))                                           :S(dpr.4a)
+        emit(out(op))
+        emit('(')
+        dprint(l(x))
+        emit(',')
+        dprint(r(x))
+        emit(')')                                               :(RETURN)
+*
+*	    ordinary binary operator
+dpr.4a  (DIFFER(l) emit('('))
+        dprint(l(x))
+        (DIFFER(l) emit(')'))
+        emitb(out(op))
+        (DIFFER(r) emit('('))
+        dprint(r(x))
+        (DIFFER(r) emit(')'))                                   :(RETURN)
+*
+*	    unknown datatype
+dpr.5   i                 =   1
+        del               =   '('
+        emit(d)
+dpr.6   emit(del)
+        dprint(APPLY(FIELD(d, i), x))                           :F(dpr.7)
+        del               =   ','
+        i                 =   i + 1                             :(dpr.6)
+dpr.7   emit(')')                                               :(RETURN)
+*
+*	    bprint(x)
+*	    subroutine of dprint -- used to handle printing of
+*	    things of the form (a,b), which are inherently
+*	    associative and can therefore be grouped as follows
+*	    ((a,b),c) <=>  (a,(b,c)) <=>  (a,b,c)
+bprint  ( (DIFFER(DATATYPE(x), 'B'), DIFFER(op(x), or.binfo))
++         dprint(x)
++       )                                                       :S(RETURN)
+        bprint(l(x))
+        emit(',')
+        bprint(r(x))                                            :(RETURN)
+*
+*	    sprint(x)
+*	    like dprint, but print in a form appropriate for
+*	    an entire statement.  Problem:  if the top level
+*	    operator is a concatenation, it is necessary to
+*	    enclose the whole thing in parentheses, because
+*	    otherwise it would be mistaken for a pattern match.
+sprint  (IDENT(DATATYPE(x), 'B') IDENT(op(x), cat.binfo) emit('('))
+        dprint(x)
+        (IDENT(DATATYPE(x), 'B') IDENT(op(x), cat.binfo) emit(')'))
+        emiteob()                                               :(RETURN)
+*
+*	    invoke(f)
+*	    call an argument-free function in a context where
+*	    a name is required, such as    arb . *invoke(.foo)
+invoke  APPLY(f)
+        invoke            =   .dummy                            :(NRETURN)
+*
+*	    unop()r,op
+*	    a unary operator has been detected during parsing
+unop    r                 =   pop()
+        op                =   pop()
+        push()            =   u(op, r)                          :(RETURN)
+*
+*	    mkfcall()
+*	    Parsing has detected the beginning of a function call
+mkfcall  push()           =   i.fcall()
+        mkfcall           =   .name(top())                      :(NRETURN)
+*
+*	    mkarg()x,f
+*	    parsing has detected an argument to a function
+mkarg   x                 =   argexp(pop(), "")
+        f                 =   top()
+        (DIFFER(tail(f)) (next(tail(f)) = x))
+        tail(f)           =   x
+        head(f)           =   IDENT(head(f)) x                  :(RETURN)
+*
+*	    endfc()f
+*	    parsing has detected the end of a function call
+endfc   f                 =   pop()
+        push()            =   fcall(name(f), head(f), '(', ')')  :(RETURN)
+*
+*	    mkarray()t
+*	    the fcall at the head of the stack is really an array
+mkarray  t                =   top()
+        l(t)              =   '<'
+        r(t)              =   '>'                               :(RETURN)
+*
+*	    begexp()
+*	    the beginning of an expression has been detected
+begexp  push()            =   bconv['(']
+        begexp            =   .dummy                            :(NRETURN)
+*
+*	    binop()l,r,op,newr,newop
+*	    a binary operator has been detected.  We handle
+*	    precedence here rather than in the grammar
+*	    because it is less work.
+binop   GE(lp(peek(3)), rp(peek(1)))                            :F(RETURN)
+        newr              =   pop()
+        newop             =   pop()
+        r                 =   pop()
+        op                =   pop()
+        l                 =   pop()
+        push()            =   b(op, l, r)
+        push()            =   newop
+        push()            =   newr                              :(binop)
+*
+*	    endexp()l,r,op
+*	    the end of an expression has been detected
+endexp  IDENT(in(peek(1)), '(')                                 :S(ee.1)
+        r                 =   pop()
+        op                =   pop()
+        l                 =   pop()
+        push()            =   b(op, l, r)                       :(endexp)
+ee.1    r                 =   pop()
+        pop()
+        push()            =   r
+        endexp            =   .dummy                            :(NRETURN)
+*
+*	    bcat(x,y)
+*
+*	    catenate x and y, making sure that at least one
+*	    blank separate them.
+bcat    bcat              =   IDENT(x) y                        :S(RETURN)
+        bcat              =   IDENT(y) x                        :S(RETURN)
+        bcat              =   x
++                             ( ?(x ? ' ' RPOS(0), y ? FENCE ' ')
++                               ''
++                             , ' '
++                             )
++                             y                                 :(RETURN)
+*
+*	    mkbinfo()op
+*	    locate the binfo structure that describes the
+*	    binary operator whose input character representation
+*	    has been placed on the top of the stack.
+mkbinfo  op               =   bconv[pop()]
+        IDENT(op)                                               :S(err)
+        push()            =   op                                :(RETURN)
+*
+*	    dotck()
+*	    if necessary, append a leading zero to a floating-point
+*	    constant that begins with a decimal point.  The idea
+*	    that .5 is syntactically correct but semantically illegal
+*	    is just too scary to leave in.
+dotck   dotck             =   .dummy
+        top()             FENCE '.' = '0.'                      :(NRETURN)
+*
+*	    emitlab(l)
+*	    write label l to the output
+emitlab  emitlab          =   .dummy
+        IDENT(l)                                                :S(NRETURN)
+        emiteos()
+        st.lab            =   l                                 :(NRETURN)
+*
+*	    emit(s)
+*	    put string s in the output
+emit    (DIFFER(emit.eob) emiteos())
+        st.body           =   st.body s                         :(RETURN)
+*
+*	    emiteob()
+*	    we are done with the body of the generated statement
+emiteob  emit.eob         =   1                                 :(RETURN)
+*
+*	    emits(l)
+*	    write success branch l
+emits   emiteob()
+        st.s              =   l                                 :(RETURN)
+*
+*	    emitf(l)
+*	    write failure branch l
+emitf   emiteob()
+        st.f              =   l                                 :(RETURN)
+*
+*	    emitg(l)
+*	    write unconditional branch l
+emitg   emiteob()
+        st.s              =   IDENT(st.s) l
+        st.f              =   IDENT(st.f) l                     :(RETURN)
+*
+*	    emitb(s)
+*	    write s surrounded by blanks
+emitb   emit(' ')
+        IDENT(s, ' ')                                           :S(RETURN)
+        emit(s)
+        emit(' ')                                               :(RETURN)
+*
+*	    emiteos()out,goto,s,del
+*	    we are done with the entire statement
+emiteos  emit.eob         =   ""
+        (IDENT(st.lab) IDENT(st.body) IDENT(st.s) IDENT(st.f))  :S(RETURN)
+        out               =   st.lab ht st.body
+        out               =   out DUPL(ht, 5 - SIZE(st.lab) / 8 - SIZE(st.body) / 8)
+        goto              =   (DIFFER(st.s), DIFFER(st.f))
++                             ht
++                             ':'                               :F(emeos.1)
+        goto              =   IDENT(st.s, st.f)
++                             goto
++                             "("
++                             st.s
++                             ")"                               :S(emeos.1)
+        goto              =   DIFFER(st.s) goto "S(" st.s ")"
+        goto              =   DIFFER(st.f) goto "F(" st.f ")"
+emeos.1  out              =   out goto
+emeos.2  LT(SIZE(out), 70)                                      :S(emeos.3)
+        out               FENCE
++                         ( ARBNO(
+                              BREAK(CHAR(32) CHAR(39) CHAR(34))
++                             ( " "
++                             | ANY("'" '"') $ del
++                               BREAK(*del)
++                               LEN(1)
++                             )
++                           )
++                         $ s
++                           *GT(SIZE(s), 50)
++                         )
++                       . outf = "+	"                           :S(emeos.2)F(err)
+emeos.3  outf             =   out
+        st.lab            =   st.body = st.s = st.f = ""        :(RETURN)
+*
+*	    getline()del
+getline  IDENT(infnam)                                          :S(glin.1)
+        DIFFER(gl.eof)                                          :S(FRETURN)
+        getline           =   getline inf                       :F(glin.1)
+        gl.lineno         =   gl.lineno + 1
+        getline           FENCE
++                         ( ARBNO(BREAK("'" '"') LEN(1) $ del BREAK(*del) LEN(1))
++                           BREAK('#"' "'")
++                         )
++                       . getline
++                         "#"
+        getline           ANY("@$%^&*(-+=[<|~,?") blank RPOS(0)  :S(getline)F(RETURN)
+*
+*	    input was unsuccessful -- start a new input file
+glin.1  (DIFFER(infnam) ENDFILE(1))
+        infnam            =   HOST(2, infile)                   :F(glin.2)
+        INPUT(.inf, 1, infnam)
+        gl.lineno         =   0
+        infile            =   infile + 1                        :(getline)
+*
+glin.2  gl.eof            =   1                                 :(FRETURN)
+*
+*	    phrase()del
+*	    return the next phrase from the input
+phrase  ph.buf            FENCE blank RPOS(0)                   :F(ph.1)
+        ph.buf            =   phbuf getline()                   :S(phrase)F(FRETURN)
+*
+ph.1    ph.buf            FENCE
++                         ARBNO(
+                            BREAK('"' "';")
++                           FENCE
++                           ( ANY('"' "'") $ del BREAK(*del) LEN(1)
++                           | ""
++                           )
++                         )
++                       . phrase
++                         ';' = ''                              :S(RETURN)
+        phrase            =   ph.buf
+        ph.buf            =   ''                                :(RETURN)
+*
+*	    newlab()
+*	    return a new label
+newlab  nl.count          =   nl.count + 1
+        newlab            =   "L." nl.count                     :(RETURN)
+*
+*	    marklab()
+*	    return a new label and place it on the current statement.
+*	    If the current statement already has a label, use that.
+marklab  marklab          =   DIFFER(st.lab)
++                             IDENT(emit.eob)
++                             st.lab                            :S(RETURN)
+        marklab           =   newlab()
+        emitlab(marklab)                                        :(RETURN)
+*
+*	    little routines to indicate what type of clause was read
+*
+*	    expcl()x
+*	    expression clause
+expcl   cl.type           =   "exp"                             :(RETURN)
+*
+*	    gocl()t
+*	    goto clause
+gocl    cl.type           =   "goto"                            :(RETURN)
+*
+*	    nclause(okeof)del
+*	    read a new clause and classify it
+*	    if end of input, error unless "okeof" argument is non-null,
+*	    in which case we merely fail
+*	    if rep.clause is set, give us the last clause again
+nclause  rep.clause       =   DIFFER(rep.clause) ""             :S(ncl.2)
+        linebuf           FENCE *blank RPOS(0)                  :F(ncl.1)
+        linebuf           =   phrase()                          :S(nclause)
+*
+*	    end of input
+        IDENT(okeof)                                            :S(premeof)
+        eof               =   1                                 :(FRETURN)
+*
+*	    we really have some input
+ncl.1   linebuf           clause = del                          :S(RETURN)
+        error("Syntax: " linebuf)
+        linebuf           =   ""                                :(nclause)
+*
+*	    we want to reiterate a clause
+ncl.2   IDENT(eof)                                              :S(RETURN)F(FRETURN)
+*
+*	    error(msg)
+error   TERMINAL          =   "Line " gl.lineno ": " msg
+        &CODE             =   1                                 :(RETURN)
+*
+*	    dostmt()lab,lab2,e1,e2,e3
+*	    handle a statement
+dostmt  IDENT(cl.type, "exp")                                   :F(ds.1)
+*
+*	    The clause is an expression, so that's the whole statement
+        sprint(pop())                                           :(RETURN)
+*
+*	    It might be a sequence of statements in braces
+ds.1    IDENT(cl.type, "{")                                     :F(ds.3)
+ds.2    nclause()
+        IDENT(cl.type, "}")                                     :S(RETURN)
+        dostmt()                                                :(ds.2)
+*
+*	    It might be a goto statement
+ds.3    IDENT(cl.type, "goto")                                  :F(ds.4)
+        emitg(dest)                                             :(RETURN)
+*
+*	    It might be an if statement
+ds.4    IDENT(cl.type, "if")                                    :F(ds.8)
+        sprint(pop())
+*
+*	    Check for if(...)goto
+        nclause()
+        IDENT(cl.type, "goto")                                  :F(ds.5)
+        emits(dest)
+*
+*	    In the case of if (e) goto l; else ...
+*	    we can pretend the else wasn't there
+        nclause(1)                                              :F(ds.7)
+        IDENT(cl.type, "else")                                  :F(ds.7)
+        nclause()
+        dostmt()                                                :(RETURN)
+*
+*	    Not if...goto, emit conditional jump over
+*	    the statement which follows.
+ds.5    lab               =   newlab()
+        emitf(lab)
+        dostmt()
+*
+*	    Check for else clause
+ds.6    nclause(1)                                              :F(ds.7)
+        IDENT(cl.type, "else")                                  :F(ds.7)
+*
+*	    There is indeed an else clause
+        lab2              =   newlab()
+        emitg(lab2)
+        emitlab(lab)
+        nclause()
+        dostmt()
+        emitlab(lab2)                                           :(RETURN)
+*
+*	    No else clause; we must look at this clause again later
+ds.7    rep.clause        =   1
+        emitlab(lab)                                            :(RETURN)
+*
+*	    Check for a while clause
+ds.8    IDENT(cl.type, "while")                                 :F(ds.9)
+        lab               =   marklab()
+        sprint(pop())
+        lab2              =   newlab()
+        emitf(lab2)
+        nclause()
+        dostmt()
+        emitg(lab)
+        emitlab(lab2)                                           :(RETURN)
+*
+*	    Check for a do clause
+ds.9    IDENT(cl.type, "do")                                    :F(ds.11)
+        lab               =   marklab()
+        nclause()
+        dostmt()
+        nclause()
+        IDENT(cl.type, "while")                                 :F(ds.10)
+        sprint(pop())
+        emits(lab)                                              :(RETURN)
+*
+ds.10   error             ("expected while, found " cl.type)
+        rep.clause        =   1                                 :(RETURN)
+*
+*	    Check for a "for" clause
+ds.11   IDENT(cl.type, "for")                                   :F(ds.12)
+        e3                =   pop()
+        e2                =   pop()
+        e1                =   pop()
+        sprint(e1)
+        emiteob()
+        lab               =   marklab()
+        lab2              =   newlab()
+        sprint(e2)
+        emitf(lab2)
+        nclause()
+        dostmt()
+        sprint(e3)
+        emitg(lab)
+        emitlab(lab2)                                           :(RETURN)
+*
+*	    could be some kind of return statement
+ds.12   cl.type           "return"                              :F(ds.15)
+        e1                =   pop()
+        IDENT(e1)                                               :S(ds.14)
+        IDENT(fname)                                            :S(ds.13)
+        e1                =   b(bconv["="], fname, e1)
+ds.13   sprint(e1)
+ds.14   emitg(
+          REPLACE(
+            cl.type
++         , "abcdefghijklmnopqrstuvwxyz"
++         , "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
++         )
++       )                                                       :(RETURN)
+*
+*	    could even be a null statement
+ds.15   IDENT(cl.type)                                          :S(RETURN)
+*
+ds.e    error("bad " cl.type " clause, ignored")                :(RETURN)
+*
+*	    funct()args,locals,flabel
+*	    We have seen "procedure" -- we must now parse the header
+funct   expect('(')                                             :F(fu.1)
+        args              =   getlist(')')                      :F(fu.e)
+        expect(')')
+        locals            =   getlist('{')                      :F(fu.e)
+fu.1    deflist[deflist[0] = deflist[0] + 1]  =  fname '(' args ')' locals
+*
+*	    if we just emitted the end of a previous procedure,
+*	    we can jump around this one in one go
+        st.lab            ".END"                                :S(fu.2)
+        emitg(fname '.END')
+        emitlab(fname)
+        nclause()
+        dostmt()
+        emitg("RETURN")
+        emitlab(fname '.END')                                   :(RETURN)
+*
+*	    here for multiple-procedure optimization
+fu.2    flabel            =   st.lab
+        st.lab            =   ""
+        emitlab(fname)
+        nclause()
+        dostmt()
+        emitg("RETURN")
+        emitlab(flabel)                                         :(RETURN)
+*
+fu.e    error("bad function definition")                        :(RETURN)
+*
+*	    expect(p)
+*	    the input should now contain something matching "p"
+*	    possibly surrounded by white space.  If not, fail
+expect  linebuf           FENCE blank RPOS(0)                   :F(ex.1)
+        linebuf           =   phrase()                          :S(expect)F(FRETURN)
+ex.1    linebuf           FENCE blank *p = ""                   :S(RETURN)F(FRETURN)
+*
+*	    getid()
+*	    expect an identifier in the input; return it.
+getid   expect(*identifier . getid)                             :S(RETURN)F(FRETURN)
+*
+*	    getlist(tail)del
+*	    expect a list of identifiers followed by tail
+getlist  expect(tail)                                           :S(gl.1)
+        getlist           =   getlist del getid()               :F(gl.2)
+        expect(',')
+        del               =   ','                               :(getlist)
+gl.1    linebuf           =   tail linebuf                      :(RETURN)
+gl.2    expect(tail)                                            :S(RETURN)F(FRETURN)
+*
+*
+START   CODE("start")
+        EVAL(" &fullscan = 1")		;* for C SNOBOL4
+        DEFINE("nspan(str)")
+        DEFINE("list(item,delim)")
+        DEFINE("push()")
+        DEFINE("pop()")
+        DEFINE("peek(n)")
+        DEFINE("top()")
+        DEFINE("isbin(x)")
+        DEFINE("dprint(x)op,l,r,d,i,del")
+        DEFINE("invoke(f)")
+        DEFINE("unop()r,op")
+        DEFINE("mkfcall()")
+        DEFINE("mkarg()x,f")
+        DEFINE("endfc()f")
+        DEFINE("mkarray()t")
+        DEFINE("begexp()")
+        DEFINE("binop()l,r,op,newr,newop")
+        DEFINE("endexp()l,r,op")
+        DEFINE("bcat(x,y)")
+        DEFINE("mkbinfo()op")
+        DEFINE("bprint(x)")
+        DEFINE("sprint(x)")
+        DEFINE("dotck()")
+        DEFINE("emitlab(l)")
+        DEFINE("emit(s)")
+        DEFINE("emiteob()")
+        DEFINE("emits(l)")
+        DEFINE("emitf(l)")
+        DEFINE("emitg(l)")
+        DEFINE("emitb(s)")
+        DEFINE("emiteos()out,goto,s,del")
+        DEFINE("getline()del")
+        DEFINE("phrase()del")
+        DEFINE("newlab()")
+        DEFINE("marklab()")
+        DEFINE("expcl()")
+        DEFINE("gocl()")
+        DEFINE("nclause(okeof)del")
+        DEFINE("error(msg)")
+        DEFINE("dostmt()lab,lab2,e1,e2,e3")
+        DEFINE("funct()args,locals,flabel")
+        DEFINE("expect(p)")
+        DEFINE("getid()")
+        DEFINE("getlist(tail)del")
+*
+        DATA("b(op,l,r)")
+        DATA("u(op,r)")
+        DATA("i.fcall(name,head,tail)")
+        DATA("fcall(name,args,l,r)")
+        DATA("argexp(expr,next)")
+        DATA("binfo(in,out,lp,rp,slp,srp,fn)")
+*
+        stack             =   TABLE()
+        bconv             =   TABLE()
+        deflist           =   TABLE(50)
+*
+        bconv['(']        =   binfo('(', , 0)
+*
+        bconv['=']        =   binfo('=', '=', 1, 2, 0, 1)
+        bconv['?']        =   binfo('?', '?', 2, 2, 1, 1)
+        bconv['|']        =   binfo('|', '|', 3, 3, 2, 2)
+        bconv['||']       =   or.binfo = binfo('||', , 4, 4, 0, 0, 1)
+        bconv['&&']       =   cat.binfo = binfo('&&', ' ', 5, 5, 4, 4)
+        bconv['>']        =   binfo('>', 'GT', 6, 6, 0, 0, 1)
+        bconv['<']        =   binfo('<', 'LT', 6, 6, 0, 0, 1)
+        bconv['>=']       =   binfo('>=', 'GE', 6, 6, 0, 0, 1)
+        bconv['<=']       =   binfo('<=', 'LE', 6, 6, 0, 0, 1)
+        bconv['==']       =   binfo('==', 'EQ', 6, 6, 0, 0, 1)
+        bconv['!=']       =   binfo('!=', 'NE', 6, 6, 0, 0, 1)
+        bconv[':>:']      =   binfo(':>:', 'LGT', 6, 6, 0, 0, 1)
+        bconv[':<:']      =   binfo(':<:', 'LLT', 6, 6, 0, 0, 1)
+        bconv[':>=:']     =   binfo(':>=:', 'LGE', 6, 6, 0, 0, 1)
+        bconv[':<=:']     =   binfo(':<=:', 'LLE', 6, 6, 0, 0, 1)
+        bconv[':==:']     =   binfo(':==:', 'LEQ', 6, 6, 0, 0, 1)
+	bconv['::']       =   binfo('::', 'IDENT', 6, 6, 0, 0, 1)
+        bconv[':!=:']     =   binfo(':!=:', 'LNE', 6, 6, 0, 0, 1)
+        bconv['+']        =   binfo('+', '+', 7, 7, 5, 5)
+        bconv['-']        =   binfo('-', '-', 7, 7, 5, 5)
+        bconv['/']        =   binfo('/', '/', 8, 8, 7, 7)
+        bconv['*']        =   binfo('*', '*', 8, 8, 8, 8)
+        bconv['%']        =   binfo('%', 'REMDR', 8, 8, 0, 0, 1)
+        bconv['^']        =   binfo('^', '**', 9, 10, 10, 11)
+        bconv['.']        =   binfo('.', '.', 10, 10, 11, 11)
+        bconv['$']        =   binfo('$', '$', 10, 10, 11, 11)
+*
+        ht                =   CHAR(9)
+        blank             =   nspan(" " ht)
+        digits            =   "0123456789"
+        letters           =   "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_"
+*
+        integer           =   SPAN(digits)
+        exponent          =   ANY("eEdD") (ANY("+-") | "") integer
+        real              =   integer "." (integer | "") (exponent | "")
++                           | integer exponent
++                           | "." integer (exponent | "")
+        number            =   real | integer
+*
+        string            =   ANY("'" '"') $ squote BREAK(*squote) LEN(1)
+*
+        constant          =   number | string
+        identifier        =   ANY(letters) nspan(letters digits)
+        unaryop           =   ANY("+-*&@~?.$")
+        binaryop          =   ANY("+-*/<>=^.$?|%")
++                           | "=="
++                           | "!="
++                           | "<="
++                           | ">="
++                           | "&&"
++                           | "||"
++                           | ":==:"
++                           | ":!=:"
++                           | ":>:"
++                           | ":<:"
++                           | ":>="
++                           | ":<=:" | "::"
+*
+        fcall             =   identifier . *mkfcall()
++                             blank
++                             ( ( "("
++                                 list(*exp . *invoke(.mkarg), blank ",")
++                                 blank
++                                 ")" . *invoke(.endfc)
++                               )
++                             | ( "["
++                                 list(*exp . *invoke(.mkarg), blank ",")
++                                 blank
++                                 "]" . *invoke(.endfc) . *invoke(.mkarray)
++                               )
++                             )
+*
+        term              =   blank
++                             ( constant . *push() . *dotck()
++                             | identifier . *push()
++                             | "(" *exp blank ")"
++                             | fcall
++                             )
+        operand           =   term | blank unaryop . *push() *operand . *invoke(.unop)
+        exp               =   "" . *begexp()
++                             *operand
++                             ARBNO(
+                                blank
++                               binaryop . *push() . *invoke(.mkbinfo)
++                               *operand . *invoke(.binop)
++                             )
++                             "" . *endexp()
+*
+        label             =   blank identifier . lab . *emitlab(lab) blank ":"
+*
+        clause            =   FENCE
++                             ARBNO(label)
++                             blank
++                             ( "if" . cl.type blank "(" *exp blank ")"
++                             | "while" . cl.type blank "(" *exp blank ")"
++                             | ("return" | "freturn" | "nreturn") . cl.type
++                               blank
++                               ("" . *push() | *exp)
++                               blank
++                               (ANY("{}") . del | RPOS(0))
++                             | "go"
++                               blank
++                               "to"
++                               SPAN(" " ht)
++                               identifier . dest . *invoke(.gocl)
++                             | ("{" | "}") . cl.type
++                             | ("do" | "else") . cl.type (SPAN(" " ht) | RPOS(0))
++                             | "procedure" . cl.type blank identifier . fname
++                             | "for" . cl.type
++                               blank
++                               "("
++                               *exp
++                               blank
++                               ","
++                               *exp
++                               blank
++                               ","
++                               *exp
++                               blank
++                               ")"
++                             | RPOS(0) . cl.type *invoke(.emiteos)
++                             | *exp blank (ANY("{}") . del | RPOS(0)) . *invoke(.expcl)
++                             )
+*
+        &STLIMIT          =   1000000000
+        SETEXIT(.errtrap)
+        &ERRLIMIT         =   10
+        EXIT(3)
+        &DUMP             =   2
+*
+*	    establish the "object" file
+        outfile           =   "a.out"
+        OUTPUT(.outf, 0, outfile)
+        outf              =   "#!D:/spitbol/spitbol -bs64k"
+*
+*	    Establish a starting point for input files
+        infile            =   HOST(3)
+*
+*	    Prologue
+        emitlab("MAIN.")
+*
+*	    The main loop.  We expect to read a series of statements.
+loop    nclause(1)                                              :F(exit)
+        IDENT(cl.type, "procedure")                             :S(fndef)
+        dostmt()                                                :(loop)
+*
+*	    we have found the beginning of a function definition
+fndef   funct()                                                 :(loop)
+*
+errtrap  OUTPUT           =   'in statement '
++                             &LASTNO
++                             ' '
++                             &ERRTEXT                          :(exit)
+*
+premeof  error("premature eof")
+*
+*	    Epilogue
+exit    emitg("END")
+        emitlab("START.")
+        emit("CODE('START.')")
+        emiteos()
+        emit("&FULLSCAN = 1")
+        i                 =   1
+exit.0  GT(i, deflist[0])                                       :S(exit.1)
+        emiteos()
+        emit("DEFINE('")
+        emit(deflist[i])
+        emit("')")
+        i                 =   i + 1                             :(exit.0)
+exit.1  emitg("MAIN.")
+        emitlab("END")
+        emit("START.")
+        emiteos()
+        &DUMP             =   0
+        ENDFILE(0)
+        EXIT("chmod +x " outfile)
+*
+END     START
