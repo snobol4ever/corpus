@@ -2,10 +2,14 @@
 * Bottleneck: EVAL() of a dynamically constructed expression — no reuse possible.
 * 200 iterations, expression changes every iteration.
     &TRIM = 1
+    &STLIMIT = 10000000
+    T1 = TIME()
     N = 0
 LOOP    N = LT(N, 200) N + 1           :F(DONE)
     EXPR = 'N + ' N
     R = EVAL(EXPR)
     :(LOOP)
-DONE    OUTPUT = R
+DONE    T2 = TIME()
+    OUTPUT = "result: " R
+    OUTPUT = "ms: " (T2 - T1)
 END

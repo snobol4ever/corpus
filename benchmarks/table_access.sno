@@ -1,5 +1,8 @@
 * table_access.sno
 * Bottleneck: TABLE creation, integer-key write and read (500 entries).
+    &TRIM = 1
+    &STLIMIT = 10000000
+    T1 = TIME()
     T = TABLE(512)
     I = 0
 FILL    I = LT(I, 500) I + 1           :F(READ)
@@ -8,5 +11,7 @@ READ    SUM = 0
     I = 0
 LOOP    I = LT(I, 500) I + 1           :F(DONE)
     SUM = SUM + T<I>                   :(LOOP)
-DONE    OUTPUT = SUM
+DONE    T2 = TIME()
+    OUTPUT = "result: " SUM
+    OUTPUT = "ms: " (T2 - T1)
 END
