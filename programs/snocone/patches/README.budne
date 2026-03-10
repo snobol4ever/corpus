@@ -1,0 +1,22 @@
+Diffs to Mark Emmer's distribution of snocone to run under C-MAINBOL
+on Unix.
+
+The licence conditions on Mark's distribution prohibit redistribution
+of the snocone sources (unmodified or otherwise). You can get snocone
+sources from: ftp://ftp.snobol4.com/snocone/snocone.zip Be sure to
+unzip the file using the "-a" option on Unix so that line termination
+is handled properly!
+
+Apply the diffs using the "patch" program;
+
+	patch < snocone.sc.diff
+	patch < snocone.sno.diff
+
+If you didn't unzip with the "-a" flag, the patches will notbe applied
+properly!!
+
+The Unix Makefile create a "snocone" executable script that compiles
+snocone .sc files into .sno files.
+
+Phil Budne
+8/15/2000

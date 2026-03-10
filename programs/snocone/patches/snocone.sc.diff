@@ -1,0 +1,129 @@
+*** snocone.sc.orig	Fri Aug  1 23:15:56 1997
+--- snocone.sc	Mon Aug 14 13:23:26 2000
+***************
+*** 1,6 ****
+--- 1,20 ----
+  # Modified to use -LINE control statements to perform source error tracking.
+  # We no longer need the epilogue file.
+  #
++ 	gl_options = ""
++ 	if (.A :: 'A') {
++ 		# here if running under Macro SNOBOL4 (ie; SNOBOL4+, C-MAINBOL)
++ 		OPSYN("MB_INPUT", "INPUT")
++ 		OPSYN("MB_OUTPUT", "OUTPUT")
++ 		CODE("SETEXIT :(RETURN)")
++ 		CODE("INPUT MB_INPUT(n,u,,fn) :S(RETURN)F(FRETURN)")
++ 		CODE("OUTPUT MB_OUTPUT(n,u,,fn) :S(RETURN)F(FRETURN)")
++ 		DEFINE("SETEXIT()")
++ 		DEFINE("INPUT(n,u,fn)")
++ 		DEFINE("OUTPUT(n,u,fn)")
++ 		gl_options = "-+ "
++ 	}
++ 
+  	DATA("b(op,l,r)")
+  	DATA("u(op,r)")
+  	DATA("i_fcall(name,head,tail)")
+***************
+*** 121,128 ****
+  
+  	gl_files = TABLE()
+  	gl_lines = TABLE()
+! 	gl_index = -1
+! 	gl_options = ""
+  
+  	emit_stno = 0
+  
+--- 135,142 ----
+  
+  	gl_files = TABLE()
+  	gl_lines = TABLE()
+! 	gl_index = 9
+! 	gl_first = 10
+  
+  	emit_stno = 0
+  
+***************
+*** 162,168 ****
+  	else
+  		extension = ".spt"
+  
+! 	if (~OUTPUT(.outf,-1,outfile && extension)) {
+  		OUTPUT = "cannot write " && outfile && extension
+  		go to END
+  	}
+--- 176,182 ----
+  	else
+  		extension = ".spt"
+  
+! 	if (~OUTPUT(.outf,9,outfile && extension)) {
+  		OUTPUT = "cannot write " && outfile && extension
+  		go to END
+  	}
+***************
+*** 216,222 ****
+  
+  #	Epilogue
+  	outf = "END	START."
+! 	ENDFILE(-1)
+  
+  #       Compile output file.  (removed)
+  #	If not SNOBOL4+
+--- 230,236 ----
+  
+  #	Epilogue
+  	outf = "END	START."
+! 	ENDFILE(9)
+  
+  #       Compile output file.  (removed)
+  #	If not SNOBOL4+
+***************
+*** 416,422 ****
+  #	call an argument-free function in a context where
+  #	a name is required, such as    arb . *invoke(.foo)
+  procedure invoke (f) {
+! 	APPLY (f)
+  	nreturn .dummy
+  }
+  
+--- 430,436 ----
+  #	call an argument-free function in a context where
+  #	a name is required, such as    arb . *invoke(.foo)
+  procedure invoke (f) {
+! 	APPLY (f,'')
+  	nreturn .dummy
+  }
+  
+***************
+*** 641,647 ****
+  		# We've reached the end of this file.
+  		ENDFILE (gl_index)
+  		gl_close()
+! 	} while (gl_index >= 0 || gl_nextfile());
+  
+  	freturn
+  }
+--- 655,661 ----
+  		# We've reached the end of this file.
+  		ENDFILE (gl_index)
+  		gl_close()
+! 	} while (gl_index >= gl_first || gl_nextfile());
+  
+  	freturn
+  }
+***************
+*** 662,668 ****
+  	gl_index = gl_index - 1
+  	gl_file = gl_files[gl_index]
+  	gl_line = gl_lines[gl_index]
+! 	if (gl_index >= 0)
+  		INPUT(.gl_in, gl_index)
+  	gl_files[gl_index] = gl_lines[gl_index] = ""
+  }
+--- 676,682 ----
+  	gl_index = gl_index - 1
+  	gl_file = gl_files[gl_index]
+  	gl_line = gl_lines[gl_index]
+! 	if (gl_index >= gl_first)
+  		INPUT(.gl_in, gl_index)
+  	gl_files[gl_index] = gl_lines[gl_index] = ""
+  }

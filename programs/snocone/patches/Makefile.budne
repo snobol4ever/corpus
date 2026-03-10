@@ -1,0 +1,50 @@
+# create snocone command using C-MAINBOL under Unix
+
+# used to create #! interp line; need to keep options together?
+SNOCMD=/usr/local/bin/snobol4 -bP100k
+# or /usr/local/bin/spitbol -b
+EXT=sno
+# or spt (if using spitbol)
+SRC=snocone.sc
+BOOT=snocone.sno
+# SNOCONE options for final version
+OPTS=
+
+all:	snocone
+
+# use bootstrap (hand coded SNOBOL program) to translate snocone.sc
+sc1.$(EXT): $(BOOT) $(SRC)
+	$(SNOCMD) $(BOOT) < $(SRC) > sc1.$(EXT)
+
+sc2.sc:	$(SRC)	
+	ln $(SRC) sc2.sc
+
+# run version translated by bootstrap to generate final version
+snocone: sc1.$(EXT) sc2.sc
+	rm -f sc2.$(EXT)
+	$(SNOCMD) sc1.$(EXT) $(OPTS) sc2.sc
+	(echo '#!'$(SNOCMD); cat sc2.$(EXT)) > snocone
+	chmod +x snocone
+
+# run generated binary to see if it can regenerate itself
+TESTED:	snocone sc2.sc
+	rm -f sc2.$(EXT)
+	./snocone $(OPTS) sc2.sc
+	(echo '#!'$(SNOCMD); cat sc2.$(EXT)) > sctest
+	cmp snocone sctest && rm sctest && date > TESTED
+
+clean:
+	rm -f sc?.* sctest
+
+SHAR=README Makefile snocone.sc.diff snocone.sno.diff
+SHARFILE=snocone-patches.shar
+shar:
+	rm -f $(SHARFILE).gz
+	shar $(SHAR) > $(SHARFILE)
+	gzip -v9 $(SHARFILE)
+
+TARFILE=snocone-patches.tar
+tar:
+	rm -rf $(TARFILE).gz
+	tar cf $(TARFILE) $(SHAR)
+	gzip -v9 $(TARFILE)

@@ -1,0 +1,67 @@
+*** snocone.sno.orig	Sat Sep  7 08:10:28 1996
+--- snocone.sno	Mon Aug 14 13:25:23 2000
+***************
+*** 516,521 ****
+--- 516,522 ----
+  *
+  start
+  *       &fullscan = 1                 ;* needed for SNOBOL4+
++ 	eval(" &fullscan = 1")		;* for C SNOBOL4
+          &trim = 1                     ;* needed for SNOBOL4+
+          define("nspan(str)")
+  	define("list(item,delim)")
+***************
+*** 591,596 ****
+--- 592,598 ----
+  	bconv[':<=:'] = binfo(':<=:','LLE',6,6,0,0,1)
+  	bconv[':==:'] = binfo(':==:','LEQ',6,6,0,0,1)
+  	bconv[':!=:'] = binfo(':!=:','LNE',6,6,0,0,1)
++ 	bconv['::'] = binfo('::','IDENT',6,6,0,0,1)
+  	bconv['+'] = binfo('+','+',7,7,5,5)
+  	bconv['-'] = binfo('-','-',7,7,5,5)
+  	bconv['/'] = binfo('/','/',8,8,7,7)
+***************
+*** 617,623 ****
+  	identifier = any(letters) nspan(letters digits)
+  	unaryop = any("+-*&@~?.$")
+  	binaryop = any("+-*/<>=^.$?|%") | "==" | "!=" | "<=" | ">=" | "&&" |
+! +		"||" | ":==:" | ":!=:" | ":>:" | ":<:" | ":>=" | ":<=:"
+  *
+  	fcall = identifier . *mkfcall() blank
+  +		(("(" list(*expr . *invoke(.mkarg), blank ",")
+--- 619,625 ----
+  	identifier = any(letters) nspan(letters digits)
+  	unaryop = any("+-*&@~?.$")
+  	binaryop = any("+-*/<>=^.$?|%") | "==" | "!=" | "<=" | ">=" | "&&" |
+! +		"||" | ":==:" | ":!=:" | ":>:" | ":<:" | ":>=" | ":<=:" | "::"
+  *
+  	fcall = identifier . *mkfcall() blank
+  +		(("(" list(*expr . *invoke(.mkarg), blank ",")
+***************
+*** 651,657 ****
+  +	)
+  *
+  	&stlimit = -1
+! 	&dump = 2
+  *
+  *	establish the "object" file
+  *	output = "#!/usr/bin/spitbol -s16k"
+--- 653,659 ----
+  +	)
+  *
+  	&stlimit = -1
+! *	&dump = 2
+  *
+  *	establish the "object" file
+  *	output = "#!/usr/bin/spitbol -s16k"
+***************
+*** 673,678 ****
+--- 675,682 ----
+  exit	emitg("END")
+  	emitlab("START.")
+  	emit("CODE('START.')")
++ 	emiteos()
++ 	emit("&FULLSCAN = 1")
+  	i = 1
+  exit.0	gt(i,deflist[0])				:s(exit.1)
+  	emiteos()
