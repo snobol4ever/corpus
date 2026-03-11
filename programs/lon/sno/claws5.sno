@@ -1,0 +1,56 @@
+*----------------------------------------------------------------------------------
+* claws5.sno - CLAWS5 POS-tagged corpus tokenizer
+* Author: translated from Lon Cherryholmes' SNOBOL4python pattern (assignment3.py)
+*
+* Input:  CLAWS5-tagged corpus, one or more lines. Format:
+*           N_CRD :_PUN word1_TAG1 word2_TAG2 ... ._PUN 
+*         N_CRD :_PUN marks sentence number N (suppressed in output).
+*         Each token is  word_TAG  followed by a space.
+*         TAG = uppercase letters + digits (AT0, VVG, NN1, AJ0, PUN, etc.)
+*         Punctuation tokens: ,_PUN  ._PUN  etc.
+*
+* Output: one line per token:   sentno TAB word TAB tag
+*
+* Reads all input into a buffer first (trees may span multiple lines),
+* then tokenizes left-to-right consuming the buffer.
+*
+* Corresponds to Python pattern: claws_info (assignment3.py).
+*----------------------------------------------------------------------------------
+
+        &TRIM    = 0
+        digits   = '0123456789'
+        nl       = CHAR(10)
+        TAB      = CHAR(9)
+        sentno   = 0
+        buf      = ''
+
+*----- read all input -------------------------------------------------------------
+
+rdloop  line     = INPUT                                :F(tokenize)
+        buf      = buf line nl                          :(rdloop)
+
+*----- tokenize -------------------------------------------------------------------
+*
+*       sentpat  anchored sentence marker at start of buf
+*       wrdpat   skip leading whitespace, capture word and tag
+*
+*       Key: sentpat must be POS(0)-anchored so it cannot match mid-buffer
+*            (BREAKX would otherwise find digits inside words like NN2).
+
+tokenize
+        sentpat  = POS(0) SPAN(digits) . num '_CRD :_PUN '
+        wrdpat   = (SPAN(' ' nl) | '') BREAKX('_ ' nl) . wrd
++                  '_' BREAK(' ' nl) . tag (ANY(' ' nl) | RPOS(0))
+
+tokloop buf      (SPAN(' ' nl) | '') =
+        buf      POS(0) RPOS(0)                         :S(END)
+        buf      sentpat =                              :S(new_sent)
+        buf      wrdpat =                               :S(token)
+        OUTPUT   = '*** unmatched: [' buf ']'           :(END)
+
+new_sent
+        sentno   = num + 0                              :(tokloop)
+
+token
+        OUTPUT   = sentno TAB wrd TAB tag               :(tokloop)
+END
