@@ -563,12 +563,6 @@ ss_()             ss             =  '(' ss(c[1], len - 2) ')'                   
 ss_snoCall        ss             =  ss(c[1]) '(' ss(c[2], len - SIZE(v) - 2) ')'    :S(RETURN)F(FRETURN)
 ssEnd
 *================ ============== == =============================================== ========================
-                  DEFINE('visit(x,fnc)i')                                           :(visitEnd)
-visit             APPLY(fnc, x)                                                     :F(RETURN)
-                  i              =  0
-visit_1           i              =  LT(i, n(x)) i + 1                               :F(RETURN)
-                  visit(c(x)[i], fnc)                                               :(visit_1)
-visitEnd
 *---------------- -------------- -- ----------------------------------------------- ------------------------
                   DEFINE('findRefs(x)n,v')
                   snoRefs        =                                                  :(findRefsEnd)
