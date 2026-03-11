@@ -16,7 +16,7 @@
 *   world
 *   hello
 *-----------------------------------------------------------------------------------
--include 'library/stack.sno'
+-include 'stack.inc'
 
         &TRIM = 1
 

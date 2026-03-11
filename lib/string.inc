@@ -14,7 +14,7 @@
 *   index(s, t)     return 1-based position of first t in s, 0 if absent
 *
 * Usage:
-*   -include 'library/string.sno'
+*   -include 'string.inc'
 *-----------------------------------------------------------------------------------
 
                DEFINE('lpad(s,n,c)')                               :(lpad_end)
