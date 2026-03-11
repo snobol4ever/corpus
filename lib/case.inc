@@ -8,7 +8,7 @@
 *   icase(s)        return pattern that matches s case-insensitively
 *
 * Usage:
-*   -include 'library/case.sno'
+*   -include 'case.inc'
 *   ...
 *   OUTPUT = upr('hello')         ;* HELLO
 *   OUTPUT = lwr('WORLD')         ;* world

@@ -12,7 +12,7 @@
 * max/min/abs/sign work on reals. gcd/lcm require positive integers.
 *
 * Usage:
-*   -include 'library/math.sno'
+*   -include 'math.inc'
 *   ...
 *   OUTPUT = max(3, 7)            ;* 7
 *   OUTPUT = min(3.5, 2.1)        ;* 2.1

@@ -17,7 +17,7 @@
 *   Prefixed to avoid collision with application DATA/variable names.
 *
 * Usage:
-*   -include 'library/stack.sno'
+*   -include 'stack.inc'
 *   ...
 *   stack_init()
 *   stack_push('hello')
