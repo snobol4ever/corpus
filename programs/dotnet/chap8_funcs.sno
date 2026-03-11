@@ -57,3 +57,4 @@ Roman    n           RPOS(1) LEN(1) . units =                           :F(RETUR
          Roman       =  REPLACE(Roman(n), 'IVXLCDM', 'XLCDM**') units   :S(RETURN)F(FRETURN) ;* Convert rest of n and multiply by 10.  Propagate a
                                                                                              ;* failure return from recursive call back to caller
 RomanEnd
+END

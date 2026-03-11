@@ -1,0 +1,9 @@
+*     word2.spt - Fixed-column record parsing
+
+      PAT      =  POS(0) LEN(4) . WHEN
++                 TAB(6) ARB . WHO " :"
++                 TAB(24) REM . WHAT
+LOOP  LINE     =  INPUT                            :F(END)
+      LINE     ?  PAT                              :F(LOOP)
+      OUTPUT   =  WHO " invented the " WHAT " in " WHEN  :(LOOP)
+END

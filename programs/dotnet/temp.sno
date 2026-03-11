@@ -1,0 +1,17 @@
+*        temp.spt - Temperature conversion
+
+         &TRIM    =  1
+AGAIN    TERMINAL =  'Enter low temperature (F), or <EOF> to end:'
+         LOW      =  TERMINAL                               :F(END)
+         TERMINAL =  'Enter high temperature:'
+         HIGH     =  TERMINAL                               :F(END)
+         TERMINAL =  'Enter temperature step or Return for 1:'
+         STEP     =  TERMINAL                               :F(END)
+         STEP     =  IDENT(STEP) 1
+         (  INTEGER(LOW) INTEGER(HIGH) INTEGER(STEP)
++           LT(LOW, HIGH) GT(STEP,0)
++        )                                                  :S(GO)
+         TERMINAL =  'Must be integers, low<high, step>0'   :(AGAIN)
+GO       TERMINAL =  LOW ' ' (LOW - 32) * 5.0 / 9.0
+         LOW      =  LT(LOW, HIGH) LOW + STEP               :S(GO)F(AGAIN)
+END

@@ -1,0 +1,9 @@
+*        palin.spt - Palindromes
+*        Accepts an input line and checks if it is a palindrome.
+
+         &TRIM    =  1
+         TERMINAL =  'Enter test lines, terminate with EOF'
+LOOP     S        =  REPLACE(TERMINAL, &LCASE, &UCASE)      :F(END)
+         TERMINAL =  IDENT(S, REVERSE(S)) 'Palindrome!'     :S(LOOP)
+         TERMINAL =  'No, try again.'                       :(LOOP)
+END

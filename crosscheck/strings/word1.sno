@@ -1,0 +1,6 @@
+*     word1.spt - Extract phrases matching "the X of|a Y"
+
+      PAT      =  " the " ARB . OUTPUT (" of " | " a ")
+LOOP  LINE     =  INPUT                            :F(END)
+      LINE     ?  PAT                              :(LOOP)
+END

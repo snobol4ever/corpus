@@ -1,0 +1,9 @@
+*     word3.spt - Field parsing using BREAK/SPAN
+
+      PAT      =  POS(0) BREAK(' ') . WHEN (' ' SPAN(' '))
++                 ARB . WHO (' ' SPAN(' :'))
++                 REM . WHAT
+LOOP  LINE     =  INPUT                            :F(END)
+      LINE     ?  PAT                              :F(LOOP)
+      OUTPUT   =  WHO " invented the " WHAT " in " WHEN  :(LOOP)
+END
