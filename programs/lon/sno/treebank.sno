@@ -1,0 +1,65 @@
+*----------------------------------------------------------------------------------
+* treebank.sno - Penn Treebank S-expression parser
+* Author: translated from Lon Cherryholmes' SNOBOL4python pattern (assignment3.py)
+*
+* Input:  Penn Treebank S-expressions, one per paragraph (blank-line delimited).
+*         Trees may span multiple lines. Example:
+*           (S (NP (DT The) (NN cat))
+*              (VP (VBZ sat)))
+*
+* Output: indented pretty-print, 2 spaces per depth level.
+*
+* Tags:    uppercase letters, digits, hyphen, $, comma, dot
+* Words:   any non-paren non-space token
+*
+* Corresponds to Python patterns: group / treebank (assignment3.py).
+*----------------------------------------------------------------------------------
+
+        &TRIM    = 1
+        tagch    = &UCASE '0123456789-$,.'
+        wordend  = '() '
+        optsp    = (SPAN(' ') | '')
+
+*----- parse_node(depth) ----------------------------------------------------------
+
+        DEFINE('parse_node(depth)tag,wrd')              :(parse_node_end)
+
+parse_node
+        subject  optsp =
+        subject  POS(0) '(' =                           :F(FRETURN)
+        subject  SPAN(tagch) . tag =                    :F(FRETURN)
+        OUTPUT   =  DUPL('  ', depth) '(' tag
+
+pn_loop subject  optsp =
+        subject  POS(0) ')' =                           :S(pn_close)
+        subject  POS(0) '('                             :S(pn_child)
+        subject  BREAK(wordend) . wrd =                 :F(pn_close)
+        OUTPUT   =  DUPL('  ', depth + 1) wrd           :(pn_loop)
+
+pn_child
+        parse_node(depth + 1)                           :(pn_loop)
+
+pn_close
+        OUTPUT   =  DUPL('  ', depth) ')'               :(RETURN)
+
+parse_node_end
+
+*----- main -----------------------------------------------------------------------
+*       Accumulate non-blank lines into subject; parse on blank line or EOF.
+*----------------------------------------------------------------------------------
+
+        subject  = ''
+
+rdloop  line     = INPUT                                :F(eof)
+        line POS(0) RPOS(0)                             :S(parse)
+        subject  = subject ' ' line                     :(rdloop)
+
+parse   subject (SPAN(' ') | '') POS(0) RPOS(0)        :S(next)
+        parse_node(0)                                   :S(next)
+        OUTPUT   = '*** parse error at: [' subject ']'
+next    subject  = ''                                   :(rdloop)
+
+eof     subject (SPAN(' ') | '') POS(0) RPOS(0)        :S(END)
+        parse_node(0)                                   :S(END)
+        OUTPUT   = '*** parse error at: [' subject ']'
+END
