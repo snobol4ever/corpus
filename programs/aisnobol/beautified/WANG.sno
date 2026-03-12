@@ -1,3 +1,4 @@
+* --auto: n=24 p90=53 s1=13 s2=28 s3=31 s4=59 smbump=4 lgbump=23
 *  WANG.SNO - SNOBOL4+ Version
 *
 * Wang's algorlthm
@@ -14,46 +15,52 @@
              UNOP           =  'NOT'
              BINOP          =  ('AND' | 'IMP' | 'OR' | 'EQU')
              UNOP.FORMULA   =  ' ' (UNOP . OP) '(' (BAL . PHI) ')'
-             BINOP.FORMULA  =  ' ' (BINOP . OP) '(' (BAL . PHI) ',' (BAL . PSI) ')'
+             BINOP.FORMULA  =  ' '
++                              (BINOP . OP)
++                              '('
++                              (BAL . PHI)
++                              ','
++                              (BAL . PSI)
++                              ')'
              FORMULA        =  UNOP.FORMULA | BINOP.FORMULA
              ATOM           =  ( NOTANY(' ')
 +                                (BREAK(' ') | REM)
 +                              )
-+                            . A                            :(WANG.END)
++                            . A                           :(WANG.END)
 *
 WANG
              OUTPUT         =  ANTECEDENT ' >>> ' CONSEQUENT
-             ANTECEDENT     FORMULA = NULL                  :F(WANG1)S($('WANG.A.' OP))
+             ANTECEDENT     FORMULA = NULL                 :F(WANG1)S($('WANG.A.' OP))
 WANG.A.NOT
-             WANG(ANTECEDENT, CONSEQUENT ' ' PHI)           :S(RETURN)F(FRETURN)
+             WANG(ANTECEDENT, CONSEQUENT ' ' PHI)          :S(RETURN)F(FRETURN)
 WANG.A.AND
-             WANG(ANTECEDENT ' ' PHI ' ' PSI, CONSEQUENT)   :S(RETURN)F(FRETURN)
+             WANG(ANTECEDENT ' ' PHI ' ' PSI, CONSEQUENT)  :S(RETURN)F(FRETURN)
 WANG.A.OR
-             WANG(ANTECEDENT ' ' PHI, CONSEQUENT)           :F(FRETURN)
-             WANG(ANTECEDENT ' ' PSI, CONSEQUENT)           :S(RETURN)F(FRETURN)
+             WANG(ANTECEDENT ' ' PHI, CONSEQUENT)          :F(FRETURN)
+             WANG(ANTECEDENT ' ' PSI, CONSEQUENT)          :S(RETURN)F(FRETURN)
 WANG.A.IMP
-             WANG(ANTECEDENT ' ' PSI, CONSEQUENT)           :F(FRETURN)
-             WANG(ANTECEDENT, CONSEQUENT ' ' PHI)           :S(RETURN)F(FRETURN)
+             WANG(ANTECEDENT ' ' PSI, CONSEQUENT)          :F(FRETURN)
+             WANG(ANTECEDENT, CONSEQUENT ' ' PHI)          :S(RETURN)F(FRETURN)
 WANG.A.EQU
-             WANG(ANTECEDENT ' ' PHI ' ' PSI, CONSEQUENT)   :F(FRETURN)
-             WANG(ANTECEDENT, CONSEQUENT ' ' PHI ' ' PSI)   :S(RETURN)F(FRETURN)
+             WANG(ANTECEDENT ' ' PHI ' ' PSI, CONSEQUENT)  :F(FRETURN)
+             WANG(ANTECEDENT, CONSEQUENT ' ' PHI ' ' PSI)  :S(RETURN)F(FRETURN)
 WANG1
-             CONSEQUENT     FORMULA =                       :F(WANG2)S($('WANG.C.' OP))
+             CONSEQUENT     FORMULA =                      :F(WANG2)S($('WANG.C.' OP))
 WANG.C.NOT
-             WANG(ANTECEDENT ' ' PHI, CONSEQUENT)           :S(RETURN)F(FRETURN)
+             WANG(ANTECEDENT ' ' PHI, CONSEQUENT)          :S(RETURN)F(FRETURN)
 WANG.C.AND
-             WANG(ANTECEDENT, CONSEQUENT ' ' PHI)           :F(FRETURN)
-             WANG(ANTECEDENT, CONSEQUENT ' ' PSI)           :S(RETURN)F(FRETURN)
+             WANG(ANTECEDENT, CONSEQUENT ' ' PHI)          :F(FRETURN)
+             WANG(ANTECEDENT, CONSEQUENT ' ' PSI)          :S(RETURN)F(FRETURN)
 WANG.C.OR
-             WANG(ANTECEDENT, CONSEQUENT ' ' PHI ' ' PSI)   :S(RETURN)F(FRETURN)
+             WANG(ANTECEDENT, CONSEQUENT ' ' PHI ' ' PSI)  :S(RETURN)F(FRETURN)
 WANG.C.IMP
-             WANG(ANTECEDENT ' ' PHI, CONSEQUENT ' ' PSI)   :S(RETURN)F(FRETURN)
+             WANG(ANTECEDENT ' ' PHI, CONSEQUENT ' ' PSI)  :S(RETURN)F(FRETURN)
 WANG.C.EQU
-             WANG(ANTECEDENT ' ' PHI, CONSEQUENT ' ' PSI)   :F(FRETURN)
-             WANG(ANTECEDENT ' ' PSI, CONSEQUENT ' ' PHI)   :S(RETURN)F(FRETURN)
+             WANG(ANTECEDENT ' ' PHI, CONSEQUENT ' ' PSI)  :F(FRETURN)
+             WANG(ANTECEDENT ' ' PSI, CONSEQUENT ' ' PHI)  :S(RETURN)F(FRETURN)
 WANG2
-             ANTECEDENT     ATOM =                          :F(FRETURN)
-             CONSEQUENT     A                               :S(RETURN)F(WANG2)
+             ANTECEDENT     ATOM =                         :F(FRETURN)
+             CONSEQUENT     A                              :S(RETURN)F(WANG2)
 WANG.END
 *
 *
@@ -63,11 +70,11 @@ WANG.END
              &TRIM          =  1
 *
 READ
-             EXPRESSION     =  INPUT                        :F(END)
+             EXPRESSION     =  INPUT                       :F(END)
              OUTPUT         =
              OUTPUT         =  'FORMULA:  ' EXPRESSION
              OUTPUT         =
              OUTPUT         =  WANG(NULL, ' ' EXPRESSION)
-+                              'VALID'                      :S(READ)
-             OUTPUT         =  'INVALID'                    :(READ)
++                              'VALID'                     :S(READ)
+             OUTPUT         =  'INVALID'                   :(READ)
 END

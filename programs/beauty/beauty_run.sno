@@ -129,8 +129,92 @@ ppArgChk5        IDENT(ppTokName, 'smbump')                                     
                   ppSmBump       =  +ppTokVal                                       :(ppArgLoop)
 ppArgChk6        IDENT(ppTokName, 'lgbump')                                         :F(ppArgUnk)
                   ppLgBump       =  +ppTokVal                                       :(ppArgLoop)
-ppArgUnk         OUTPUT         =  '* Warning: unknown switch --' ppTokName         :(ppArgLoop)
+ppArgUnk         IDENT(ppTokName, 'auto')                                          :F(ppArgWarn)
+                  ppAutoMode     =  1                                             :(ppArgLoop)
+ppArgWarn        OUTPUT         =  '* Warning: unknown switch --' ppTokName         :(ppArgLoop)
 ppArgDone
+*---------------- -------------- -- ----------------------------------------------- ------------------------
+*                 --auto: two-pass mode.
+*                 Pass 1: spool stdin to temp file; measure p90 content width
+*                         of statements that carry a goto field.
+*                         Derive s4 = p90 + 6, then scale s1/s2/s3/smbump/lgbump.
+*                 Pass 2: reassign INPUT from temp file; run normal beauty loop.
+*
+*                 Only entered when --auto flag was set in arg loop.
+*
+                  DIFFER(ppAutoMode)                                               :F(ppAutoSkip)
+*
+*                 Measurement patterns (same logic as test_measure_final.sno)
+*
+                  ppTab          =  CHAR(9)
+                  ppGSfx         =  (SPAN(' ' ppTab) | '') ':'
++                                   (ANY('SF') | '') (ANY('(<') | '') REM
+                  ppGPat         =  BREAK(':') . ppGCon ppGSfx
+                  ppTrimPat      =  (SPAN(' ' ppTab) RPOS(0)) . ppDrop
+*
+                  ppNg           =  0
+                  ppWArr         =  ARRAY(2000)
+                  ppTmpFile      =  '/tmp/beauty_auto_' HOST(1) '.sno'
+                  output__(.ppTmp, 3, '', ppTmpFile)
+*
+ppAutoR          ppLn           =  INPUT                                          :F(ppAutoSort)
+                 ppTmp          =  ppLn
+                 ppLn           POS(0) ANY('*-')                                  :S(ppAutoR)
+                 ppLn           POS(0) ANY('+.')                                  :S(ppAutoCont)
+                 DIFFER(ppStmt)                                                   :F(ppAutoNew)
+                 ppStmt         ppGPat                                            :F(ppAutoNew)
+                 ppGConT        =  ppGCon
+                 ppGConT        ppTrimPat =
+                 ppW            =  SIZE(ppGConT)
+                 DIFFER(ppW, 0)                                                   :F(ppAutoNew)
+                 ppNg           =  ppNg + 1
+                 ppWArr[ppNg]   =  ppW
+ppAutoNew        ppStmt         =  ppLn                                           :(ppAutoR)
+ppAutoCont       ppStmt         =  ppStmt ' ' ppLn                                :(ppAutoR)
+*
+*                 Insertion sort ascending
+ppAutoSort       ENDFILE(3)
+                 ppI            =  1
+ppAS1            ppI            =  LT(ppI, ppNg) ppI + 1                          :F(ppAutoCalc)
+                 ppJ            =  ppI
+                 ppKey          =  ppWArr[ppJ]
+ppAS2            ppJ1           =  ppJ - 1
+                 LT(ppJ1, 1)                                                      :S(ppASins)
+                 LT(ppKey, ppWArr[ppJ1])                                          :F(ppASins)
+                 ppWArr[ppJ]    =  ppWArr[ppJ1]
+                 ppJ            =  ppJ1                                           :(ppAS2)
+ppASins          ppWArr[ppJ]    =  ppKey                                          :(ppAS1)
+*
+*                 Derive stops from p90
+ppAutoCalc       ppP90i         =  (ppNg * 9) / 10
+                 LT(ppP90i, 1)                                                    :F(ppAP90ok)
+                 ppP90i         =  1
+ppAP90ok         ppP90          =  ppWArr[ppP90i]
+                 LT(ppP90, 20)                                                    :F(ppAscale)
+                 ppP90          =  20
+ppAscale
+*                 s4 = p90 + 6, min 40
+                 ppStop[4]      =  ppP90 + 6
+                 LT(ppStop[4], 40)                                                :F(ppAs1)
+                 ppStop[4]      =  40
+*                 s1 scales 11..19 across s4 range 40..110
+ppAs1            ppStop[1]      =  11 + (ppStop[4] - 40) * 8 / 70
+*                 s2 = s1 + 15, s3 = s2 + 3
+                 ppStop[2]      =  ppStop[1] + 15
+                 ppStop[3]      =  ppStop[2] + 3
+*                 smbump 3..7, lgbump = s4 - s3 - 5 min 10
+                 ppSmBump       =  3 + (ppStop[4] - 40) * 4 / 70
+                 ppLgBump       =  ppStop[4] - ppStop[3] - 5
+                 LT(ppLgBump, 10)                                                 :F(ppAutoMsg)
+                 ppLgBump       =  10
+ppAutoMsg        OUTPUT         =  '* --auto: n=' ppNg ' p90=' ppP90
++                                  ' s1=' ppStop[1] ' s2=' ppStop[2]
++                                  ' s3=' ppStop[3] ' s4=' ppStop[4]
++                                  ' smbump=' ppSmBump ' lgbump=' ppLgBump
+*
+*                 Reopen temp file as INPUT for pass 2
+                 input__(.INPUT, 1, '', ppTmpFile)
+ppAutoSkip
 *---------------- -------------- -- ----------------------------------------------- ------------------------
 *                 Parser patterns:
 *

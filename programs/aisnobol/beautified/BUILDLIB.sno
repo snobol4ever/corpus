@@ -1,3 +1,4 @@
+* --auto: n=4 p90=20 s1=11 s2=26 s3=29 s4=40 smbump=3 lgbump=10
 *	BUILDLIB.SNO
 *
 *	Build index to functions in INPUT to file OUTPUT.
@@ -7,21 +8,25 @@
            &TRIM          =  1
            &ANCHOR        =  1
 
-           PAT            =  (ANY(&UCASE) (BREAK(' ' CHAR(9)) | REM))
+           PAT            =  ( ANY(&UCASE)
++                              ( BREAK(' ' CHAR(9))
++                              | REM
++                              )
++                            )
 +                          . LABEL
 
 * Scan for starting label, noting file position preceeding label.
 *
 LOOP       FILE_POS       =  TELL(5)
-           LINE           =  INPUT                     :F(END)
-           LINE           PAT                          :F(LOOP)
+           LINE           =  INPUT      :F(END)
+           LINE           PAT           :F(LOOP)
 
 * Found the start of a function.  Record it.
            OUTPUT         =  LABEL ',' FILE_POS
 
 * Scan for end of function
            END_PAT        =  LABEL '.END'
-LOOP2      LINE           =  INPUT                     :F(END)
-           LINE           END_PAT                      :F(LOOP2)S(LOOP)
+LOOP2      LINE           =  INPUT      :F(END)
+           LINE           END_PAT       :F(LOOP2)S(LOOP)
 
 END

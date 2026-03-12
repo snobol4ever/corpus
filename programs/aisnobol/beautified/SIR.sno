@@ -1,3 +1,4 @@
+* --auto: n=109 p90=78 s1=16 s2=31 s3=34 s4=84 smbump=5 lgbump=45
 * SIR.SNO - SNOBOL4+ Version
 *
 * This version of Bertram Raphael's SIR program
@@ -25,41 +26,41 @@
 * Gets and processes sentences until a sentence begins with the
 * word "BYE," then returns "GOODBYE."
 *
-               DEFINE('SIR()S')                                                 :(SIR.END)
-SIR            S              =  GET.SENTENCE()                                 :F(FRETURN)
-               SIR            =  EQU(CAR(S), "BYE") "GOOD-BYE"                  :S(RETURN)
-               PROCESS(S)                                                       :S(SIR)F(FRETURN)
+                DEFINE('SIR()S')                                                    :(SIR.END)
+SIR             S              =  GET.SENTENCE()                                    :F(FRETURN)
+                SIR            =  EQU(CAR(S), "BYE") "GOOD-BYE"                     :S(RETURN)
+                PROCESS(S)                                                          :S(SIR)F(FRETURN)
 SIR.END
 *
 *---------------------------------------------------------------------------
 * Reads in one sentence, which must end either with a "!" or a "?"
 * and returns the sentence in a list.
 *
-               DEFINE('GET.SENTENCE()S,P')                                      :(GET.SENTENCE.END)
-GET.SENTENCE   S              =  S " " REPLACE(IN(.OUTPUT.), &LCASE, &UCASE)    :F(FRETURN)
-               S              RPOS(1) ANY("!?") . P = " " P                     :F(GET.SENTENCE)
-               GET.SENTENCE   =  READ("(" S ")")                                :S(RETURN)F(FRETURN)
+                DEFINE('GET.SENTENCE()S,P')                                         :(GET.SENTENCE.END)
+GET.SENTENCE    S              =  S " " REPLACE(IN(.OUTPUT.), &LCASE, &UCASE)       :F(FRETURN)
+                S              RPOS(1) ANY("!?") . P = " " P                        :F(GET.SENTENCE)
+                GET.SENTENCE   =  READ("(" S ")")                                   :S(RETURN)F(FRETURN)
 GET.SENTENCE.END
 *
 *---------------------------------------------------------------------------
 * Processes the sentence SENTENCE according to the rules in the
 * global list RULE.LIST.
 *
-               DEXP('PROCESS(SENTENCE) = PROCESS.1(SENTENCE,RULE.LIST)')
+                DEXP('PROCESS(SENTENCE) = PROCESS.1(SENTENCE,RULE.LIST)')
 *
 *---------------------------------------------------------------------------
 * The first rule in the list RULES that is applicable to the sentence
 * SENTENCE is applied, and its value is printed.  If no rule is
 * applicable, an error message is printed.
 *
-               DEFINE('PROCESS.1(SENTENCE,RULES)RESP,CA')                       :(PROCESS.1.END)
-PROCESS.1      CA             =  POP(.RULES)                                    :F(PROCESS.1.ERR)
-               RESP           =  APPLY.RULE(CA, SENTENCE)
-               IDENT(RESP, NIL)                                                 :S(PROCESS.1)
-               PROCESS.1      =  |RESP                                          :(RETURN)
-PROCESS.1.ERR  |"STATEMENT FORM NOT RECOGNIZED."
-               |"   IN PROCESS.1, "
-               |("    SENTENCE = " CONCAT(SENTENCE, " "))                       :(RETURN)
+                DEFINE('PROCESS.1(SENTENCE,RULES)RESP,CA')                          :(PROCESS.1.END)
+PROCESS.1       CA             =  POP(.RULES)                                       :F(PROCESS.1.ERR)
+                RESP           =  APPLY.RULE(CA, SENTENCE)
+                IDENT(RESP, NIL)                                                    :S(PROCESS.1)
+                PROCESS.1      =  |RESP                                             :(RETURN)
+PROCESS.1.ERR   |"STATEMENT FORM NOT RECOGNIZED."
+                |"   IN PROCESS.1, "
+                |("    SENTENCE = " CONCAT(SENTENCE, " "))                          :(RETURN)
 PROCESS.1.END
 -EJECT
 ********************************
@@ -93,7 +94,7 @@ PROCESS.1.END
 *    which, when applied to the list of test results, gives the ith
 *    argument for ACT.
 *
-               DATA('RULE(PATTERN,VARIABLES,TESTS,ACTION)')
+                DATA('RULE(PATTERN,VARIABLES,TESTS,ACTION)')
 -EJECT
 ************************************
 * FUNCTIONS FOR INTERPRETING RULES *
@@ -103,13 +104,13 @@ PROCESS.1.END
 * if the rule does not apply, otherwise, returns a message that depends
 * on the rule.
 *
-               DEFINE('APPLY.RULE(RULE,INP)')                                   :(APPLY.RULE.END)
-APPLY.RULE     APPLY.RULE     =  NIL
-               APPLY.RULE     =  DIFFER(NIL, MATCH(INP, PATTERN(RULE), VARIABLES(RULE)))
-+                                APPLY.RULE.1(
-+                                  APPLY.TESTS(TESTS(RULE), EVLIS(VARIABLES(RULE)))
-+                                , ACTION(RULE)
-+                                )                                              :(RETURN)
+                DEFINE('APPLY.RULE(RULE,INP)')                                      :(APPLY.RULE.END)
+APPLY.RULE      APPLY.RULE     =  NIL
+                APPLY.RULE     =  DIFFER(NIL, MATCH(INP, PATTERN(RULE), VARIABLES(RULE)))
++                                 APPLY.RULE.1(
++                                   APPLY.TESTS(TESTS(RULE), EVLIS(VARIABLES(RULE)))
++                                 , ACTION(RULE)
++                                 )                                                 :(RETURN)
 APPLY.RULE.END
 *
 *---------------------------------------------------------------------------
@@ -123,35 +124,35 @@ APPLY.RULE.END
 * T, the variables still have the values they had when the previous rule
 * matched.
 *
-               DEFINE('MATCH(INP,PAT,VARS)')                                    :(MATCH.END)
-MATCH          ATOM(PAT)                                                        :S(MATCH.A)
-               INITIALIZE(VARS)
-               MATCH.FLAG     =  MATCH1(INP, PAT, VARS)
-MATCH.A        MATCH          =  MATCH.FLAG                                     :(RETURN)
+                DEFINE('MATCH(INP,PAT,VARS)')                                       :(MATCH.END)
+MATCH           ATOM(PAT)                                                           :S(MATCH.A)
+                INITIALIZE(VARS)
+                MATCH.FLAG     =  MATCH1(INP, PAT, VARS)
+MATCH.A         MATCH          =  MATCH.FLAG                                        :(RETURN)
 MATCH.END
 *
 *---------------------------------------------------------------------------
 * Initializes each variable in the list LVARS to the value NIL.
 *
-               DEXP('INITIALIZE(LVARS) = MAPC( .' DEXP('LAMBDA(LAMBDA...V) = SET.(LAMBDA...V,NIL)') ',LVARS)')
+                DEXP('INITIALIZE(LVARS) = MAPC( .' DEXP('LAMBDA(LAMBDA...V) = SET.(LAMBDA...V,NIL)') ',LVARS)')
 *
 *---------------------------------------------------------------------------
 * Tries to match the pattern PAT to the input sentence INP, setting the
 * variables in the list VARS to the substring of INPU which they match.
 * Returns T if PAT matches INP.  Otherwise, it returns NIL.
 *
-               DEFINE('MATCH1(INP,PAT,VARS)CA')                                 :(MATCH1.END)
-MATCH1         MATCH1         =  NULL(INP) NULLP(PAT)                           :S(RETURN)
-               MATCH1         =  NULL(PAT) NIL                                  :S(RETURN)
-               CA             =  CAR(PAT)
-               MEMQ(CA, VARS)                                                   :F(MATCH1A)
-               MATCH1         =  NULL(CDR(PAT)) SET.(CA, APPEND($CA ~ INP ~ NIL))  :S(RETURN)
-               MATCH1         =  EQU(CAR(INP), CADR(PAT))
-+                                MATCH1(CDR(INP), CDDR(PAT), VARS)              :S(RETURN)
-               MATCH1         =  DIFFER(NIL, SET.(CA, SNOC($CA, CAR(INP))))
-+                                MATCH1(CDR(INP), PAT, VARS)                    :(RETURN)
-MATCH1A        MATCH1         =  EQU(CAR(INP), CA) MATCH1(CDR(INP), CDR(PAT), VARS)  :S(RETURN)
-               MATCH1         =  NIL                                            :(RETURN)
+                DEFINE('MATCH1(INP,PAT,VARS)CA')                                    :(MATCH1.END)
+MATCH1          MATCH1         =  NULL(INP) NULLP(PAT)                              :S(RETURN)
+                MATCH1         =  NULL(PAT) NIL                                     :S(RETURN)
+                CA             =  CAR(PAT)
+                MEMQ(CA, VARS)                                                      :F(MATCH1A)
+                MATCH1         =  NULL(CDR(PAT)) SET.(CA, APPEND($CA ~ INP ~ NIL))  :S(RETURN)
+                MATCH1         =  EQU(CAR(INP), CADR(PAT))
++                                 MATCH1(CDR(INP), CDDR(PAT), VARS)                 :S(RETURN)
+                MATCH1         =  DIFFER(NIL, SET.(CA, SNOC($CA, CAR(INP))))
++                                 MATCH1(CDR(INP), PAT, VARS)                       :(RETURN)
+MATCH1A         MATCH1         =  EQU(CAR(INP), CA) MATCH1(CDR(INP), CDR(PAT), VARS)  :S(RETURN)
+                MATCH1         =  NIL                                               :(RETURN)
 MATCH1.END
 *
 *---------------------------------------------------------------------------
@@ -160,35 +161,35 @@ MATCH1.END
 * results is NIL, in which case NIL is returned.  NIL is also returned
 * if the two lists are of different lengths or if PHRASES is an empty list.
 *
-               DEFINE('APPLY.TESTS(TESTS,PHRASES)L')                            :(APPLY.TESTS.END)
-APPLY.TESTS    APPLY.TESTS    =  NIL
-               L              =  NIL
-APPLY.TESTS1   L              =  DIFFER(NIL, PHRASES)
-+                                DIFFER(NIL, TESTS)
-+                                APPLY(CAR(TESTS), CAR(PHRASES)) ~ L            :F(RETURN)
-               DIFFER(NIL, CAR(L))  ?POP(.TESTS) ?POP(.PHRASES)                 :F(RETURN)
-               APPLY.TESTS    =  NULL(TESTS) NULL(PHRASES) LREVERSE(L)          :S(RETURN)F(APPLY.TESTS1)
+                DEFINE('APPLY.TESTS(TESTS,PHRASES)L')                               :(APPLY.TESTS.END)
+APPLY.TESTS     APPLY.TESTS    =  NIL
+                L              =  NIL
+APPLY.TESTS1    L              =  DIFFER(NIL, PHRASES)
++                                 DIFFER(NIL, TESTS)
++                                 APPLY(CAR(TESTS), CAR(PHRASES)) ~ L               :F(RETURN)
+                DIFFER(NIL, CAR(L))  ?POP(.TESTS) ?POP(.PHRASES)                    :F(RETURN)
+                APPLY.TESTS    =  NULL(TESTS) NULL(PHRASES) LREVERSE(L)             :S(RETURN)F(APPLY.TESTS1)
 APPLY.TESTS.END
 *
 *---------------------------------------------------------------------------
 * Applies the action ACT, which his a list of functions, to L, which is
 * a list of values, and returns the result.
 *
-               DEFINE('APPLY.RULE.1(L,ACT)XPR')                                 :(APPLY.RULE.1.END)
-APPLY.RULE.1   APPLY.RULE.1   =  NULL(L) NIL                                    :S(RETURN)
-               XPR            =  CAR(ACT) '(' CONCAT(RMAPCAR(L, CDR(ACT)), ',', '"') ')'
-               APPLY.RULE.1   =  EVALCODE(XPR)                                  :(RETURN)
+                DEFINE('APPLY.RULE.1(L,ACT)XPR')                                    :(APPLY.RULE.1.END)
+APPLY.RULE.1    APPLY.RULE.1   =  NULL(L) NIL                                       :S(RETURN)
+                XPR            =  CAR(ACT) '(' CONCAT(RMAPCAR(L, CDR(ACT)), ',', '"') ')'
+                APPLY.RULE.1   =  EVALCODE(XPR)                                     :(RETURN)
 APPLY.RULE.1.END
 *
 *---------------------------------------------------------------------------
 * Applies each function on the list LF to the S-expression S, and
 * returns a list of the results.
 *
-               DEFINE('RMAPCAR(S,LF)F')                                         :(RMAPCAR.END)
-RMAPCAR        RMAPCAR        =  NIL
-RMAPCAR1       F              =  POP(.LF)                                       :F(RMAPCAR2)
-               RMAPCAR        =  APPLY(F, S) ~ RMAPCAR                          :(RMAPCAR1)
-RMAPCAR2       RMAPCAR        =  LREVERSE(RMAPCAR)                              :(RETURN)
+                DEFINE('RMAPCAR(S,LF)F')                                            :(RMAPCAR.END)
+RMAPCAR         RMAPCAR        =  NIL
+RMAPCAR1        F              =  POP(.LF)                                          :F(RMAPCAR2)
+                RMAPCAR        =  APPLY(F, S) ~ RMAPCAR                             :(RMAPCAR1)
+RMAPCAR2        RMAPCAR        =  LREVERSE(RMAPCAR)                                 :(RETURN)
 RMAPCAR.END
 -EJECT
 *******************************************
@@ -198,10 +199,10 @@ RMAPCAR.END
 * Inserts an arc labeled REL from node X to node Y unless such an arc
 * already exists.
 *
-               DEFINE('ADDXRY(X,REL,Y)')                                        :(ADDXRY.END)
-ADDXRY         ADDXRY         =  MEMQ(Y, GET(X, REL)) NIL                       :S(RETURN)
-               ADDXRY         =  PUTPROP(X, Y, REL)                             :(RETURN)
-ADDXRY.END     OPSYN(.ADDYRX, .ADDXRY)
+                DEFINE('ADDXRY(X,REL,Y)')                                           :(ADDXRY.END)
+ADDXRY          ADDXRY         =  MEMQ(Y, GET(X, REL)) NIL                          :S(RETURN)
+                ADDXRY         =  PUTPROP(X, Y, REL)                                :(RETURN)
+ADDXRY.END      OPSYN(.ADDYRX, .ADDXRY)
 *
 *---------------------------------------------------------------------------
 * Returns T if a path of arcs described by ARC_PATH exists from node X to
@@ -216,19 +217,19 @@ ADDXRY.END     OPSYN(.ADDYRX, .ADDXRY)
 * of that basic path element.  A basic path element followed by a "+"
 * means one or more occurrences of that basic path element.
 *
-               DEXP('PATH(PATH...X,PATH...R,PATH...Y) = ' 'MEMQ( $PATH...Y,' 'PATH1( $PATH...X ~ NIL, PATH...R))')
+                DEXP('PATH(PATH...X,PATH...R,PATH...Y) = ' 'MEMQ( $PATH...Y,' 'PATH1( $PATH...X ~ NIL, PATH...R))')
 *
 *---------------------------------------------------------------------------
 * Returns all nodes reachable from any of the nodes in the list LN
 * by following the ARC_PATH LR.
-               DEFINE('PATH1(LN,LR)')                                           :(PATH1.END)
-PATH1          DIFFER(NIL, LN)  DIFFER(NIL, LR)                                 :F(PATH1C)
-               DIFFER(NIL, CDR(LR))  MEMQ(CADR(LR), "*" ~ "+" ~ NIL)            :F(PATH1A)
-               LN             =  EXTENDM(CADR(LR), LN, CAR(LR))
-               LR             =  CDR(LR)                                        :(PATH1B)
-PATH1A         LN             =  EXTEND(LN, CAR(LR))
-PATH1B         LR             =  CDR(LR)                                        :(PATH1)
-PATH1C         PATH1          =  LN                                             :(RETURN)
+                DEFINE('PATH1(LN,LR)')                                              :(PATH1.END)
+PATH1           DIFFER(NIL, LN)  DIFFER(NIL, LR)                                    :F(PATH1C)
+                DIFFER(NIL, CDR(LR))  MEMQ(CADR(LR), "*" ~ "+" ~ NIL)               :F(PATH1A)
+                LN             =  EXTENDM(CADR(LR), LN, CAR(LR))
+                LR             =  CDR(LR)                                           :(PATH1B)
+PATH1A          LN             =  EXTEND(LN, CAR(LR))
+PATH1B          LR             =  CDR(LR)                                           :(PATH1)
+PATH1C          PATH1          =  LN                                                :(RETURN)
 PATH1.END
 *
 *---------------------------------------------------------------------------
@@ -236,29 +237,29 @@ PATH1.END
 * by following the path element consisting of the basic path element R
 * followed by OP, which is either "*" or "+".
 *
-               DEFINE('EXTENDM(OP,LN,R)')                                       :(EXTENDM.END)
-EXTENDM        LN             =  IDENT(OP, "+") EXTEND(LN, R)
-               EXTENDM        =  LN
-EXTENDM1       DIFFER(NIL, LN)                                                  :F(RETURN)
-               LN             =  COMPLEMENT(EXTEND(LN, R), EXTENDM)
-               EXTENDM        =  APPEND(EXTENDM ~ LN ~ NIL)                     :(EXTENDM1)
+                DEFINE('EXTENDM(OP,LN,R)')                                          :(EXTENDM.END)
+EXTENDM         LN             =  IDENT(OP, "+") EXTEND(LN, R)
+                EXTENDM        =  LN
+EXTENDM1        DIFFER(NIL, LN)                                                     :F(RETURN)
+                LN             =  COMPLEMENT(EXTEND(LN, R), EXTENDM)
+                EXTENDM        =  APPEND(EXTENDM ~ LN ~ NIL)                        :(EXTENDM1)
 EXTENDM.END
 *
 *---------------------------------------------------------------------------
 * Returns the list of nodes reachable from any of the nodes on the list LN
 * by following one instance of the basic path element R.
 *
-               DEFINE('EXTEND(LN,R)')                                           :(EXTEND.END)
-EXTEND         EXTEND         =  NULL(LN) NIL                                   :S(RETURN)
-               EXTEND         =  ~ATOM(R) PATH1(LN, R)                          :S(RETURN)
-               EXTEND         =  UNION(GET(CAR(LN), R), EXTEND(CDR(LN), R))     :(RETURN)
+                DEFINE('EXTEND(LN,R)')                                              :(EXTEND.END)
+EXTEND          EXTEND         =  NULL(LN) NIL                                      :S(RETURN)
+                EXTEND         =  ~ATOM(R) PATH1(LN, R)                             :S(RETURN)
+                EXTEND         =  UNION(GET(CAR(LN), R), EXTEND(CDR(LN), R))        :(RETURN)
 EXTEND.END
 *
 *---------------------------------------------------------------------------
 * Returns a set consisting of those elements of the set S1 that are not
 * also elements of the set S2.  (COMPLEMENT(S1,S2))
 *
-               OPSYN(.COMPLEMENT, .EXCLUDE)
+                OPSYN(.COMPLEMENT, .EXCLUDE)
 -EJECT
 *********************************************************
 * TEST FUNCTIONS FOR THE SYNTAX OF ENGLISH NOUN PHRASES *
@@ -269,67 +270,62 @@ EXTEND.END
 * global lists, one of generic determiners, and one of specific
 * (definite) determiners.
 *
-               G.DETS         =  READ("(EACH EVERY ANY A AN)")
-               S.DETS         =  READ("(THE)")
+                G.DETS         =  READ("(EACH EVERY ANY A AN)")
+                S.DETS         =  READ("(THE)")
 *
 *---------------------------------------------------------------------------
 * If NP is a list of a single word, it is presumed to be a unique noun
 * phrase, and that word is returned.  Otherwise NIL is returned.
 *
-               DEXP('UNIQUE(NP) = NIL ; UNIQUE = ' 'NULL(CDR(NP)) CAR(NP) ; ')
+                DEXP('UNIQUE(NP) = NIL ; UNIQUE = ' 'NULL(CDR(NP)) CAR(NP) ; ')
 *
 *---------------------------------------------------------------------------
 * If NP is a list of words beginning with a G.DET, it is presumed to
 * be a generic noun phrase, and that last word is returned.  Otherwise,
 * NIL is returned.
 *
-               DEXP('GENERIC(NP) = NIL ; GENERIC = ' 'MEMQ(CAR(NP),G.DETS) RAC(NP) ; ')
+                DEXP('GENERIC(NP) = NIL ; GENERIC = ' 'MEMQ(CAR(NP),G.DETS) RAC(NP) ; ')
 *
 *---------------------------------------------------------------------------
 * If NP is a list of words beginning with S.DET, it is presumed to be a
 * specific noun phrase, and the last word is returned.  Otherwise, NIL
 * is returned.
 *
-               DEXP('SPECIFIC(NP) = NIL ; SPECIFIC = ' 'MEMQ(CAR(NP),S.DETS) RAC(NP) ; ')
+                DEXP('SPECIFIC(NP) = NIL ; SPECIFIC = ' 'MEMQ(CAR(NP),S.DETS) RAC(NP) ; ')
 *
 *---------------------------------------------------------------------------
 * If NPNP is a unique noun phrase followed by a generic noun phrase, a list
 * is returned containing the one word of the forming and the last word of
 * of the latter.  Otherwise, NIL is returned.
 *
-               DEXP('UNIQUE.GENERIC(NPNP) = ' 'APPLY.TESTS( #"(UNIQUE GENERIC)", SPLIT(NPNP,G.DETS))')
+                DEXP('UNIQUE.GENERIC(NPNP) = ' 'APPLY.TESTS( #"(UNIQUE GENERIC)", SPLIT(NPNP,G.DETS))')
 *
 *---------------------------------------------------------------------------
 * IF NPNP is a specific noun phrase followed by a generic noun phrase, a
 * list is returned containing the last word of each.  Otherwise, NIL is
 * returned.
 *
-               DEXP('SPECIFIC.GENERIC(NPNP) = ' 'APPLY.TESTS( #"(SPECIFIC GENERIC)", SPLIT(NPNP,G.DETS))')
+                DEXP('SPECIFIC.GENERIC(NPNP) = ' 'APPLY.TESTS( #"(SPECIFIC GENERIC)", SPLIT(NPNP,G.DETS))')
 *
 *---------------------------------------------------------------------------
 * If NPNP is a generic noun phrase followed by another generic noun phrase,
 * a list is returned containing the last word of each of them.  Otherwise,
 * NIL is returned.
 *
-               DEXP('GENERIC.GENERIC(NPNP) = ' 'APPLY.TESTS( #"(GENERIC GENERIC)", SPLIT(NPNP,G.DETS))')
+                DEXP('GENERIC.GENERIC(NPNP) = ' 'APPLY.TESTS( #"(GENERIC GENERIC)", SPLIT(NPNP,G.DETS))')
 *
 *---------------------------------------------------------------------------
 * SNP is a list consisting of one or more noun phrases, and LD is a list
 * of initial words of noun phrases (determiners).  SPLIT returns a list
 * of sublists, the ith sublist being the ith noun phrase in SNP.
 *
-               DEXP('SPLIT(SNP,LD) = SPLIT1(CDR(SNP),LD,CAR(SNP) ~ NIL,NIL)')
+                DEXP('SPLIT(SNP,LD) = SPLIT1(CDR(SNP),LD,CAR(SNP) ~ NIL,NIL)')
 *
-               DEFINE('SPLIT1(SNP,LD,NP,LNP)')                                  :(SPLIT1.END)
-SPLIT1         SPLIT1         =  NULL(SNP) LREVERSE(LREVERSE(NP) ~ LNP)         :S(RETURN)
-               SPLIT1         =  MEMQ(CAR(SNP), LD)
-+                                SPLIT1(
-+                                  CDR(SNP)
-+                                , LD
-+                                , CAR(SNP) ~ NIL
-+                                , LREVERSE(NP) ~ LNP
-+                                )                                              :S(RETURN)
-               SPLIT1         =  SPLIT1(CDR(SNP), LD, CAR(SNP) ~ NP, LNP)       :(RETURN)
+                DEFINE('SPLIT1(SNP,LD,NP,LNP)')                                     :(SPLIT1.END)
+SPLIT1          SPLIT1         =  NULL(SNP) LREVERSE(LREVERSE(NP) ~ LNP)            :S(RETURN)
+                SPLIT1         =  MEMQ(CAR(SNP), LD)
++                                 SPLIT1(CDR(SNP), LD, CAR(SNP) ~ NIL, LREVERSE(NP) ~ LNP)  :S(RETURN)
+                SPLIT1         =  SPLIT1(CDR(SNP), LD, CAR(SNP) ~ NP, LNP)          :(RETURN)
 SPLIT1.END
 -EJECT
 ********************
@@ -344,11 +340,11 @@ SPLIT1.END
 *
 * Some responses returned from semantic routines
 *
-               UNDERSTAND     =  "I UNDERSTAND."
-               YES            =  "YES."
-               SOMETIMES      =  "SOMETIMES."
-               INSUFFICIENT   =  "INSUFFICIENT INFORMATION"
-               SILENCE        =  ""
+                UNDERSTAND     =  "I UNDERSTAND."
+                YES            =  "YES."
+                SOMETIMES      =  "SOMETIMES."
+                INSUFFICIENT   =  "INSUFFICIENT INFORMATION"
+                SILENCE        =  ""
 -EJECT
 ***********************************************
 * ACTION FUNCTIONS FOR INFORMATION ABOUT SETS *
@@ -356,45 +352,45 @@ SPLIT1.END
 *
 * Adds the information that X is a subset of Y.
 *
-               DEFINE('SETR(X,Y)')                                              :(SETR.END)
-SETR           ADDXRY(X, "SUBSET", Y)
-               ADDYRX(Y, "SUPERSET", X)
-               SETR           =  UNDERSTAND                                     :(RETURN)
+                DEFINE('SETR(X,Y)')                                                 :(SETR.END)
+SETR            ADDXRY(X, "SUBSET", Y)
+                ADDYRX(Y, "SUPERSET", X)
+                SETR           =  UNDERSTAND                                        :(RETURN)
 SETR.END
 *
 *---------------------------------------------------------------------------
 * Determines if X is a subset of Y.
 *
-               DEFINE('SETRQ(X,Y)')                                             :(SETRQ.END)
-SETRQ          SETRQ          =  PATH(.X, #"(SUBSET *)", .Y) YES                :S(RETURN)
-               SETRQ          =  PATH(.Y, #"(SUBSET +)", .X) SOMETIMES          :S(RETURN)
-               SETRQ          =  INSUFFICIENT                                   :(RETURN)
+                DEFINE('SETRQ(X,Y)')                                                :(SETRQ.END)
+SETRQ           SETRQ          =  PATH(.X, #"(SUBSET *)", .Y) YES                   :S(RETURN)
+                SETRQ          =  PATH(.Y, #"(SUBSET +)", .X) SOMETIMES             :S(RETURN)
+                SETRQ          =  INSUFFICIENT                                      :(RETURN)
 SETRQ.END
 *
 *---------------------------------------------------------------------------
 * Adds the information that X is a member of the set Y.
 *
-               DEFINE('SETRS(X,Y)')                                             :(SETRS.END)
-SETRS          ADDXRY(X, "MEMBER", Y)
-               ADDYRX(Y, "ELEMENTS", X)
-               SETRS          =  UNDERSTAND                                     :(RETURN)
+                DEFINE('SETRS(X,Y)')                                                :(SETRS.END)
+SETRS           ADDXRY(X, "MEMBER", Y)
+                ADDYRX(Y, "ELEMENTS", X)
+                SETRS          =  UNDERSTAND                                        :(RETURN)
 SETRS.END
 *
 *---------------------------------------------------------------------------
 * Determines if X is a member of the set Y.
 *
-               DEFINE('SETRSQ(X,Y)')                                            :(SETRSQ.END)
-SETRSQ         SETRSQ         =  PATH(.X, #"(EQUIV * MEMBER SUBSET *)", .Y) YES  :S(RETURN)
-               SETRSQ         =  INSUFFICIENT                                   :(RETURN)
+                DEFINE('SETRSQ(X,Y)')                                               :(SETRSQ.END)
+SETRSQ          SETRSQ         =  PATH(.X, #"(EQUIV * MEMBER SUBSET *)", .Y) YES    :S(RETURN)
+                SETRSQ         =  INSUFFICIENT                                      :(RETURN)
 SETRSQ.END
 *
 *---------------------------------------------------------------------------
 * Adds the information that the unique element of the set X is an
 * element of the set Y.  Does nothing if X has more than one element.
 *
-               DEFINE('SETRS1(X,Y)')                                            :(SETRS1.END)
-SETRS1         SETRS1         =  DIFFER(NIL, SET.(.X, SPECIFY(X))) SETRS(X, Y)  :S(RETURN)
-               SETRS1         =  SILENCE                                        :(RETURN)
+                DEFINE('SETRS1(X,Y)')                                               :(SETRS1.END)
+SETRS1          SETRS1         =  DIFFER(NIL, SET.(.X, SPECIFY(X))) SETRS(X, Y)     :S(RETURN)
+                SETRS1         =  SILENCE                                           :(RETURN)
 SETRS1.END
 *
 *---------------------------------------------------------------------------
@@ -402,38 +398,38 @@ SETRS1.END
 * is created and returned.  If X has more than one element, a message is
 * printed and NIL is returned.
 *
-               DEXP('SPECIFY(X) = ' 'SPECIFY1(EQUIV.COMPRESS(GET(X,"ELEMENTS")),X)')
+                DEXP('SPECIFY(X) = ' 'SPECIFY1(EQUIV.COMPRESS(GET(X,"ELEMENTS")),X)')
 *
-               DEFINE('SPECIFY1(U,X)')                                          :(SPECIFY1.END)
-SPECIFY1       NULL(U)                                                          :F(SPECIFY1A)
-               SPECIFY1       =  SET.(.U, GENSYM())
-               SETRS(U, X)
-               |(U " IS A " X ".")                                              :(RETURN)
-SPECIFY1A      SPECIFY1       =  NULL(CDR(U)) CAR(U)                            :S(RETURN)
-               |("WHICH " X "? ... " !U)
-               SPECIFY1       =  NIL                                            :(RETURN)
+                DEFINE('SPECIFY1(U,X)')                                             :(SPECIFY1.END)
+SPECIFY1        NULL(U)                                                             :F(SPECIFY1A)
+                SPECIFY1       =  SET.(.U, GENSYM())
+                SETRS(U, X)
+                |(U " IS A " X ".")                                                 :(RETURN)
+SPECIFY1A       SPECIFY1       =  NULL(CDR(U)) CAR(U)                               :S(RETURN)
+                |("WHICH " X "? ... " !U)
+                SPECIFY1       =  NIL                                               :(RETURN)
 SPECIFY1.END
 *
 *---------------------------------------------------------------------------
 * LX is a list of which some elements may be equivalent to some others.  A
 * list is returned of the elements of LX without such redundant members.
 *
-               DEXP('EQUIV.COMPRESS(LX) = EQUIV.COMP1(LX,NIL)')
+                DEXP('EQUIV.COMPRESS(LX) = EQUIV.COMP1(LX,NIL)')
 *
-               DEFINE('EQUIV.COMP1(LX,LEX)')                                    :(EQUIV.COMP1.END)
-EQUIV.COMP1    EQUIV.COMP1    =  NULL(LX) NIL                                   :S(RETURN)
-               EQUIV.COMP1    =  MEMQ(CAR(LX), LEX) EQUIV.COMP1(CDR(LX), LEX)   :S(RETURN)
-               EQUIV.COMP1    =  CAR(LX)
-+                              ~ EQUIV.COMP1(CDR(LX), APPEND(GET(CAR(LX), "EQUIV") ~ LEX ~ NIL))  :(RETURN)
+                DEFINE('EQUIV.COMP1(LX,LEX)')                                       :(EQUIV.COMP1.END)
+EQUIV.COMP1     EQUIV.COMP1    =  NULL(LX) NIL                                      :S(RETURN)
+                EQUIV.COMP1    =  MEMQ(CAR(LX), LEX) EQUIV.COMP1(CDR(LX), LEX)      :S(RETURN)
+                EQUIV.COMP1    =  CAR(LX)
++                               ~ EQUIV.COMP1(CDR(LX), APPEND(GET(CAR(LX), "EQUIV") ~ LEX ~ NIL))  :(RETURN)
 EQUIV.COMP1.END
 *
 *---------------------------------------------------------------------------
 * Determines if the unique element of the set X (if there is one) is a
 * member of the set Y.
 *
-               DEFINE('SETRS1Q(X,Y)')                                           :(SETRS1Q.END)
-SETRS1Q        SETRS1Q        =  DIFFER(NIL, SET.(.X, SPECIFY(X))) SETRSQ(X, Y)  :S(RETURN)
-               SETRS1Q        =  SILENCE                                        :(RETURN)
+                DEFINE('SETRS1Q(X,Y)')                                              :(SETRS1Q.END)
+SETRS1Q         SETRS1Q        =  DIFFER(NIL, SET.(.X, SPECIFY(X))) SETRSQ(X, Y)    :S(RETURN)
+                SETRS1Q        =  SILENCE                                           :(RETURN)
 SETRS1Q.END
 -EJECT
 *************************************************
@@ -442,19 +438,19 @@ SETRS1Q.END
 *
 * Adds the information that X is equivalent to Y.
 *
-               DEFINE('EQUIV(X,Y)')                                             :(EQUIV.END)
-EQUIV          ADDXRY(X, "EQUIV", Y)
-               ADDYRX(Y, "EQUIV", X)
-               EQUIV          =  UNDERSTAND                                     :(RETURN)
+                DEFINE('EQUIV(X,Y)')                                                :(EQUIV.END)
+EQUIV           ADDXRY(X, "EQUIV", Y)
+                ADDYRX(Y, "EQUIV", X)
+                EQUIV          =  UNDERSTAND                                        :(RETURN)
 EQUIV.END
 *
 *---------------------------------------------------------------------------
 * If there is a unique element of the set Y, adds the information that it
 * is equivalent to X.
 *
-               DEFINE('EQUIV1(X,Y)')                                            :(EQUIV1.END)
-EQUIV1         EQUIV1         =  DIFFER(NIL, SET.(.Y, SPECIFY(Y))) EQUIV(X, Y)  :S(RETURN)
-               EQUIV1         =  SILENCE                                        :(RETURN)
+                DEFINE('EQUIV1(X,Y)')                                               :(EQUIV1.END)
+EQUIV1          EQUIV1         =  DIFFER(NIL, SET.(.Y, SPECIFY(Y))) EQUIV(X, Y)     :S(RETURN)
+                EQUIV1         =  SILENCE                                           :(RETURN)
 EQUIV1.END
 -EJECT
 ************************************
@@ -464,55 +460,55 @@ EQUIV1.END
 * Adds the information that every member of the set Y owns a member of
 * the set X.
 *
-               DEFINE('OWNR(X,Y)')                                              :(OWNR.END)
-OWNR           ADDXRY(X, "OWNED.BY", Y)
-               ADDYRX(Y, "POSSESS.BY.EACH", X)
-               OWNR           =  UNDERSTAND                                     :(RETURN)
+                DEFINE('OWNR(X,Y)')                                                 :(OWNR.END)
+OWNR            ADDXRY(X, "OWNED.BY", Y)
+                ADDYRX(Y, "POSSESS.BY.EACH", X)
+                OWNR           =  UNDERSTAND                                        :(RETURN)
 OWNR.END
 *
 *---------------------------------------------------------------------------
 * Determines if every member of the set Y owns a member of the set X.
 *
-               DEFINE('OWNRQ(X,Y)')                                             :(OWNRQ.END)
-OWNRQ          OWNRQ          =  EQU(X, Y) "NO, THEY ARE THE SAME."             :S(RETURN)
-               OWNRQ          =  PATH(.Y, #"(SUBSET * POSSESS.BY.EACH)", .X) YES  :S(RETURN)
-               OWNRQ          =  INSUFFICIENT                                   :(RETURN)
+                DEFINE('OWNRQ(X,Y)')                                                :(OWNRQ.END)
+OWNRQ           OWNRQ          =  EQU(X, Y) "NO, THEY ARE THE SAME."                :S(RETURN)
+                OWNRQ          =  PATH(.Y, #"(SUBSET * POSSESS.BY.EACH)", .X) YES   :S(RETURN)
+                OWNRQ          =  INSUFFICIENT                                      :(RETURN)
 OWNRQ.END
 *
 *---------------------------------------------------------------------------
 * Adds the information that Y owns a member of the set X.
 *
-               DEFINE('OWNRGU(X,Y)')                                            :(OWNRGU.END)
-OWNRGU         ADDYRX(Y, "POSSESS", X)
-               ADDXRY(X, "OWNED", Y)
-               OWNRGU         =  UNDERSTAND                                     :(RETURN)
+                DEFINE('OWNRGU(X,Y)')                                               :(OWNRGU.END)
+OWNRGU          ADDYRX(Y, "POSSESS", X)
+                ADDXRY(X, "OWNED", Y)
+                OWNRGU         =  UNDERSTAND                                        :(RETURN)
 OWNRGU.END
 *
 *---------------------------------------------------------------------------
 * Determines if Y owns a member of the set X.
 *
-               DEFINE('OWNRGUQ(X,Y)')                                           :(OWNRGUQ.END)
-OWNRGUQ        OWNRGUQ        =  PATH(.Y, #"(EQUIV * POSSESS SUBSET *)", .X) YES  :S(RETURN)
-               OWNRGUQ        =  PATH(
-+                                  .Y
-+                                , #( "(EQUIV * MEMBER SUBSET *"
-+                                    " POSSESS.BY.EACH SUBSET *)"
-+                                  )
-+                                , .X
-+                                )
-+                                YES                                            :S(RETURN)
-               OWNRGUQ        =  INSUFFICIENT                                   :(RETURN)
+                DEFINE('OWNRGUQ(X,Y)')                                              :(OWNRGUQ.END)
+OWNRGUQ         OWNRGUQ        =  PATH(.Y, #"(EQUIV * POSSESS SUBSET *)", .X) YES   :S(RETURN)
+                OWNRGUQ        =  PATH(
++                                   .Y
++                                 , #( "(EQUIV * MEMBER SUBSET *"
++                                     " POSSESS.BY.EACH SUBSET *)"
++                                   )
++                                 , .X
++                                 )
++                                 YES                                               :S(RETURN)
+                OWNRGUQ        =  INSUFFICIENT                                      :(RETURN)
 OWNRGUQ.END
 *
 *---------------------------------------------------------------------------
 * Determines if some member of the set Y owns the unique element of
 * the set X (if such exists).
 *
-               DEFINE('OWNRSGQ(X,Y)')                                           :(OWNRSGQ.END)
-OWNRSGQ        OWNRSGQ        =  IDENT(NIL, SPECIFY(X)) SILENCE                 :S(RETURN)
-               OWNRSGQ        =  PATH(.X, #"(OWNED EQUIV * MEMBER SUBSET *)", .Y)
-+                                YES                                            :S(RETURN)
-               OWNRSGQ        =  INSUFFICIENT                                   :(RETURN)
+                DEFINE('OWNRSGQ(X,Y)')                                              :(OWNRSGQ.END)
+OWNRSGQ         OWNRSGQ        =  IDENT(NIL, SPECIFY(X)) SILENCE                    :S(RETURN)
+                OWNRSGQ        =  PATH(.X, #"(OWNED EQUIV * MEMBER SUBSET *)", .Y)
++                                 YES                                               :S(RETURN)
+                OWNRSGQ        =  INSUFFICIENT                                      :(RETURN)
 OWNRSGQ.END
 -EJECT
 ********************************************
@@ -521,39 +517,39 @@ OWNRSGQ.END
 *
 * Take a string of rules and convert them to the RULE data structure.
 *
-               DEFINE('MAKE.RULES(STL)ST,R')                                    :(MAKE.RULES.END)
-MAKE.RULES     MAKE.RULES     =  NIL
-MAKE.RULES1    ST             =  POP(.STL)                                      :F(MAKE.RULES2)
-               ST             =  READ("(" ST ")")
-               R              =  RULE(CAR(ST), CADR(ST), CADDR(ST), CADDDR(ST))
-               MAKE.RULES     =  R ~ MAKE.RULES                                 :(MAKE.RULES1)
-MAKE.RULES2    MAKE.RULES     =  LREVERSE(MAKE.RULES)                           :(RETURN)
+                DEFINE('MAKE.RULES(STL)ST,R')                                       :(MAKE.RULES.END)
+MAKE.RULES      MAKE.RULES     =  NIL
+MAKE.RULES1     ST             =  POP(.STL)                                         :F(MAKE.RULES2)
+                ST             =  READ("(" ST ")")
+                R              =  RULE(CAR(ST), CADR(ST), CADDR(ST), CADDDR(ST))
+                MAKE.RULES     =  R ~ MAKE.RULES                                    :(MAKE.RULES1)
+MAKE.RULES2     MAKE.RULES     =  LREVERSE(MAKE.RULES)                              :(RETURN)
 MAKE.RULES.END
 *
 *---------------------------------------------------------------------------
 * Rules
 *
-               RULE.LIST      =  MAKE.RULES(
-+                                  '(IS *X* ?) (*X*) (UNIQUE.GENERIC) (SETRSQ CAAR CADAR)'
-+                                ~ '   -     (*X*) (SPECIFIC.GENERIC) (SETRS1Q CAAR CADAR)'
-+                                ~ '   -     (*X*) (GENERIC.GENERIC) (SETRQ CAAR CADAR)'
-+                                ~ '(DOES *X* OWN *Y* ?) (*X* *Y*) (GENERIC GENERIC) (OWNRQ CADR CAR)'
-+                                ~ '   -     (*X* *Y*) (UNIQUE GENERIC) (OWNRGUQ CADR CAR)'
-+                                ~ '   -     (*X* *Y*) (GENERIC SPECIFIC) (OWNRSGQ CADR CAR)'
-+                                ~ '(*X* IS *Y* !) (*X* *Y*) (UNIQUE GENERIC) (SETRS CAR CADR)'
-+                                ~ '   -     (*X* *Y*) (GENERIC GENERIC) (SETR CAR CADR)'
-+                                ~ '   -     (*X* *Y*) (SPECIFIC GENERIC) (SETRS1 CAR CADR)'
-+                                ~ '   -     (*X* *Y*) (UNIQUE UNIQUE) (EQUIV CAR CADR)'
-+                                ~ '   -     (*X* *Y*) (UNIQUE SPECIFIC) (EQUIV1 CAR CADR)'
-+                                ~ '   -     (*X* *Y*) (SPECIFIC UNIQUE) (EQUIV1 CADR CAR)'
-+                                ~ '(*X* OWNS *Y* !) (*X* *Y*)  (GENERIC GENERIC) (OWNR CADR CAR)'
-+                                ~ '   -     (*X* *Y*) (UNIQUE GENERIC) (OWNRGU CADR CAR)' ~ NIL
-+                                )
+                RULE.LIST      =  MAKE.RULES(
++                                   '(IS *X* ?) (*X*) (UNIQUE.GENERIC) (SETRSQ CAAR CADAR)'
++                                 ~ '   -     (*X*) (SPECIFIC.GENERIC) (SETRS1Q CAAR CADAR)'
++                                 ~ '   -     (*X*) (GENERIC.GENERIC) (SETRQ CAAR CADAR)'
++                                 ~ '(DOES *X* OWN *Y* ?) (*X* *Y*) (GENERIC GENERIC) (OWNRQ CADR CAR)'
++                                 ~ '   -     (*X* *Y*) (UNIQUE GENERIC) (OWNRGUQ CADR CAR)'
++                                 ~ '   -     (*X* *Y*) (GENERIC SPECIFIC) (OWNRSGQ CADR CAR)'
++                                 ~ '(*X* IS *Y* !) (*X* *Y*) (UNIQUE GENERIC) (SETRS CAR CADR)'
++                                 ~ '   -     (*X* *Y*) (GENERIC GENERIC) (SETR CAR CADR)'
++                                 ~ '   -     (*X* *Y*) (SPECIFIC GENERIC) (SETRS1 CAR CADR)'
++                                 ~ '   -     (*X* *Y*) (UNIQUE UNIQUE) (EQUIV CAR CADR)'
++                                 ~ '   -     (*X* *Y*) (UNIQUE SPECIFIC) (EQUIV1 CAR CADR)'
++                                 ~ '   -     (*X* *Y*) (SPECIFIC UNIQUE) (EQUIV1 CADR CAR)'
++                                 ~ '(*X* OWNS *Y* !) (*X* *Y*)  (GENERIC GENERIC) (OWNR CADR CAR)'
++                                 ~ '   -     (*X* *Y*) (UNIQUE GENERIC) (OWNRGU CADR CAR)' ~ NIL
++                                 )
 *
 *
 *************************
 * EXECUTION BEGINS HERE *
 *************************
 *
-               |SIR()
+                |SIR()
 END

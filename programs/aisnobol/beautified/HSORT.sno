@@ -1,3 +1,4 @@
+* --auto: n=15 p90=34 s1=11 s2=26 s3=29 s4=40 smbump=3 lgbump=10
 *  HSORT.SNO - SNOBOL4+ Version
 *
 *  C.A.R. Hoare's Quicksort algorithm
@@ -18,39 +19,39 @@
 *  To run with sample data:
 *  SNOBOL4 HSORT /I:HSORT
 *
-             DEFINE('HSORT(A,I,N,P)J,K,C')
-             DEFINE('HSORT.KO(V1,V2)')
-             DEFINE('HSORT.OK(V1,V2)')
-             DEFINE('HSORT.SWAP(I1,I2)T')                   :(HSORT.END)
+           DEFINE('HSORT(A,I,N,P)J,K,C')
+           DEFINE('HSORT.KO(V1,V2)')
+           DEFINE('HSORT.OK(V1,V2)')
+           DEFINE('HSORT.SWAP(I1,I2)T')  :(HSORT.END)
 *
 HSORT
-             GT(N - I, 1)                                   :S(HSORT1)
-             GE(I, N)                                       :S(RETURN)
-             (HSORT.KO(A[I], A[N]) HSORT.SWAP(I, N))
-                                                            :(RETURN)
+           GT(N - I, 1)                 :S(HSORT1)
+           GE(I, N)                     :S(RETURN)
+           (HSORT.KO(A[I], A[N]) HSORT.SWAP(I, N))
+                                        :(RETURN)
 *
 HSORT1
-             C              =  A[(I + N) / 2]
-             J              =  I - 1
-             K              =  N + 1
+           C              =  A[(I + N) / 2]
+           J              =  I - 1
+           K              =  N + 1
 *
-HSORT2       J              =  J + 1
-             HSORT.OK(C, A[J])                              :F(HSORT2)
-HSORT3       K              =  K - 1
-             HSORT.OK(A[K], C)                              :F(HSORT3)
+HSORT2     J              =  J + 1
+           HSORT.OK(C, A[J])            :F(HSORT2)
+HSORT3     K              =  K - 1
+           HSORT.OK(A[K], C)            :F(HSORT3)
 *
-             (LT(J, K) HSORT.SWAP(J, K))                    :S(HSORT2)
+           (LT(J, K) HSORT.SWAP(J, K))  :S(HSORT2)
 *
-             HSORT(A, I, K, P)
-             HSORT(A, K + 1, N, P)                          :(RETURN)
+           HSORT(A, I, K, P)
+           HSORT(A, K + 1, N, P)        :(RETURN)
 *
-HSORT.SWAP   T              =  A[I1]
-             A[I1]          =  A[I2]
-             A[I2]          =  T                            :(RETURN)
+HSORT.SWAP  T             =  A[I1]
+           A[I1]          =  A[I2]
+           A[I2]          =  T          :(RETURN)
 *
-HSORT.OK     APPLY(P, V1, V2)                               :S(RETURN)F(FRETURN)
+HSORT.OK   APPLY(P, V1, V2)             :S(RETURN)F(FRETURN)
 *
-HSORT.KO     APPLY(P, V1, V2)                               :S(FRETURN)F(RETURN)
+HSORT.KO   APPLY(P, V1, V2)             :S(FRETURN)F(RETURN)
 *
 HSORT.END
 *
@@ -58,29 +59,34 @@ HSORT.END
 * Begin main program *****
 *
 *
-             &TRIM          =  1
+           &TRIM          =  1
 
 * Make two passes through input file -- First to count the number of lines
 * in the file to allocate an array of the correct size, second pass to read
 * in the values.
 
-             N              =  0
+           N              =  0
 COUNT
-             N              =  ?INPUT N + 1                 :S(COUNT)
+           N              =  ?INPUT
++                            N + 1      :S(COUNT)
 *
-             A              =  ARRAY(N)
-             REWIND(5)
-             I              =  0
+           A              =  ARRAY(N)
+           REWIND(5)
+           I              =  0
 INPUT.LOOP
-             I              =  LT(I, N) I + 1               :F(INPUT.LOOP.END)
-             A[I]           =  INPUT                        :(INPUT.LOOP)
+           I              =  LT(I, N)
++                            I + 1      :F(INPUT.LOOP.END)
+           A[I]           =  INPUT      :(INPUT.LOOP)
 INPUT.LOOP.END
 *
-             HSORT(A, 1, N, .LLE)
+           HSORT(A, 1, N, .LLE)
 *
-             I              =  0
+           I              =  0
 OUTPUT.LOOP
-             I              =  LT(I, N) I + 1               :F(OUTPUT.LOOP.END)
-             OUTPUT         =  LPAD(I, 5) ".   " A[I]       :(OUTPUT.LOOP)
+           I              =  LT(I, N)
++                            I + 1      :F(OUTPUT.LOOP.END)
+           OUTPUT         =  LPAD(I, 5)
++                            ".   "
++                            A[I]       :(OUTPUT.LOOP)
 OUTPUT.LOOP.END
 END
