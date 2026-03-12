@@ -30,20 +30,73 @@ START
                   &MAXLNGTH      =  524288
 *
 *                 Four tab-stops defined for the pretty-print routine.
-*                 ppStop[1] - subject
-*                 ppStop[2] - pattern or =
-*                 ppStop[3] - object of assignment
-*                 ppStop[4] - goto field
-*                 ppSmBump - the amount of extra space when within multi-line nesting
-*                 ppLgBump - the amount of extra space when no goto field is present
+*                 ppStop[1] - subject field start column
+*                 ppStop[2] - pattern or = field start column
+*                 ppStop[3] - replacement object start column
+*                 ppStop[4] - goto field start column
+*                 ppSmBump  - extra indent when inside multi-line nesting
+*                 ppLgBump  - extra width budget when no goto field present
+*
+*                 Defaults (--wide profile):  18  33  36  81   6  21
+*                 Tight profile (--tight):    11  28  31  66   4  14
+*
+*                 Command-line switches (all optional, override defaults):
+*                   --wide          use wide profile (default)
+*                   --tight         use tight profile
+*                   --s1=N          override ppStop[1]
+*                   --s2=N          override ppStop[2]
+*                   --s3=N          override ppStop[3]
+*                   --s4=N          override ppStop[4]
+*                   --smbump=N      override ppSmBump
+*                   --lgbump=N      override ppLgBump
+*
+*                 Examples:
+*                   snobol4 beauty_run.sno --tight < prog.sno
+*                   snobol4 beauty_run.sno --s4=66 < prog.sno
+*                   snobol4 beauty_run.sno --s1=11 --s2=28 --s3=31 --s4=66 < prog.sno
 *
                   ppStop         =  ARRAY('1:4')
-                  ppStop[1]      =  18 ;*   11
-                  ppStop[2]      =  33 ;*   28
-                  ppStop[3]      =  36 ;*   31
-                  ppStop[4]      =  81 ;*   66
+*
+*                 Set wide defaults, then check for --tight profile override,
+*                 then apply any individual --sN / --smbump / --lgbump overrides.
+*
+                  ppStop[1]      =  18
+                  ppStop[2]      =  33
+                  ppStop[3]      =  36
+                  ppStop[4]      =  81
                   ppSmBump       =  6
                   ppLgBump       =  21
+*
+*                 Parse HOST(0) for --name=value or bare --flag tokens.
+*
+                  ppArgs         =  HOST(0)
+                  ppTokPat       =  '--' (BREAK('= ') | REM) . ppTokName
++                                   ('=' (BREAK(' ') | REM) . ppTokVal | '' . ppTokVal)
+ppArgLoop        ppArgs          POS(0) SPAN(' ') =
+                  DIFFER(ppArgs)                                                    :F(ppArgDone)
+                  ppArgs         ppTokPat =                                         :F(ppArgDone)
+                  IDENT(ppTokName, 'wide')                                          :S(ppArgLoop)
+                  IDENT(ppTokName, 'tight')                                         :F(ppArgChk1)
+                  ppStop[1]      =  11
+                  ppStop[2]      =  28
+                  ppStop[3]      =  31
+                  ppStop[4]      =  66
+                  ppSmBump       =  4
+                  ppLgBump       =  14                                              :(ppArgLoop)
+ppArgChk1        IDENT(ppTokName, 's1')                                             :F(ppArgChk2)
+                  ppStop[1]      =  +ppTokVal                                       :(ppArgLoop)
+ppArgChk2        IDENT(ppTokName, 's2')                                             :F(ppArgChk3)
+                  ppStop[2]      =  +ppTokVal                                       :(ppArgLoop)
+ppArgChk3        IDENT(ppTokName, 's3')                                             :F(ppArgChk4)
+                  ppStop[3]      =  +ppTokVal                                       :(ppArgLoop)
+ppArgChk4        IDENT(ppTokName, 's4')                                             :F(ppArgChk5)
+                  ppStop[4]      =  +ppTokVal                                       :(ppArgLoop)
+ppArgChk5        IDENT(ppTokName, 'smbump')                                         :F(ppArgChk6)
+                  ppSmBump       =  +ppTokVal                                       :(ppArgLoop)
+ppArgChk6        IDENT(ppTokName, 'lgbump')                                         :F(ppArgUnk)
+                  ppLgBump       =  +ppTokVal                                       :(ppArgLoop)
+ppArgUnk         OUTPUT         =  '* Warning: unknown switch --' ppTokName         :(ppArgLoop)
+ppArgDone
 *---------------- -------------- -- ----------------------------------------------- ------------------------
 *                 Parser patterns:
 *
