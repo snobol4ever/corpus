@@ -20,7 +20,7 @@ SNOBOL4-corpus/
 ├── benchmarks/          ← performance programs (timing comparisons)
 │
 ├── programs/            ← real-world programs (may need I/O, -INCLUDE, input)
-│   ├── beauty/          ← beauty.sno beautifier + beauty_run.sno driver
+│   ├── beauty/          ← beauty.sno — merged beautifier + driver
 │   ├── lon/             ← Lon's collection
 │   │   ├── sno/         ← general programs
 │   │   └── rinky/       ← rinky/social media programs
