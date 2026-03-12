@@ -15,15 +15,15 @@
 *   3
 *   0
 *-----------------------------------------------------------------------------------
--include 'string.sno'
+-include 'lib/string.sno'
 
         &TRIM = 1
 
-        OUTPUT = lpad('hi', 6, '*')     ;* ****hi
-        OUTPUT = rpad('hi', 6, '*')     ;* hi****
+        OUTPUT = pad_left('hi', 6, '*')     ;* ****hi
+        OUTPUT = pad_right('hi', 6, '*')     ;* hi****
         OUTPUT = ltrim('   hello')      ;* hello
         OUTPUT = rtrim('hello   ')      ;* hello
-        OUTPUT = trim('  hello  ')      ;* hello
+        OUTPUT = trimws('  hello  ')      ;* hello
         OUTPUT = repeat('hi', 3)        ;* hihihi
 
         contains('foobar', 'oba')       :F(bad_c1)
