@@ -2,11 +2,11 @@
 * string.sno  --  String utility functions
 *
 * Exports:
-*   lpad(s, n, c)   left-pad s to width n with fill char c (default space)
-*   rpad(s, n, c)   right-pad s to width n with fill char c (default space)
+*   pad_left(s, n, c)   left-pad s to width n with fill char c (default space)
+*   pad_right(s, n, c)   right-pad s to width n with fill char c (default space)
 *   ltrim(s)        remove leading whitespace (space, tab, CR, LF)
 *   rtrim(s)        remove trailing whitespace
-*   trim(s)         remove leading and trailing whitespace
+*   trimws(s)         remove leading and trailing whitespace
 *   repeat(s, n)    return s repeated n times
 *   contains(s, t)  succeed if s contains t, else FRETURN
 *   startswith(s,t) succeed if s starts with t, else FRETURN
@@ -17,17 +17,17 @@
 *   -include 'string.sno'
 *-----------------------------------------------------------------------------------
 
-               DEFINE('lpad(s,n,c)')                               :(lpad_end)
-lpad           c              =   IDENT(c) ' '
-               lpad           =   GE(SIZE(s),n) s                 :S(RETURN)
-               lpad           =   DUPL(c, n - SIZE(s)) s           :(RETURN)
-lpad_end
+               DEFINE('pad_left(s,n,c)')                               :(pad_left_end)
+pad_left           c              =   IDENT(c) ' '
+               pad_left       =   GE(SIZE(s),n) s                 :S(RETURN)
+               pad_left       =   DUPL(c, n - SIZE(s)) s           :(RETURN)
+pad_left_end
 
-               DEFINE('rpad(s,n,c)')                               :(rpad_end)
-rpad           c              =   IDENT(c) ' '
-               rpad           =   GE(SIZE(s),n) s                 :S(RETURN)
-               rpad           =   s DUPL(c, n - SIZE(s))           :(RETURN)
-rpad_end
+               DEFINE('pad_right(s,n,c)')                               :(pad_right_end)
+pad_right           c              =   IDENT(c) ' '
+               pad_right      =   GE(SIZE(s),n) s                 :S(RETURN)
+               pad_right      =   s DUPL(c, n - SIZE(s))           :(RETURN)
+pad_right_end
 
                DEFINE('ltrim(s)ws,r')                              :(ltrim_end)
 ltrim          ws             =   ' ' CHAR(9) CHAR(10) CHAR(13)
@@ -45,9 +45,9 @@ rtrim0         LE(i, 0)                                            :S(rtrim1)
 rtrim1         rtrim          =   SUBSTR(s, 1, i)                  :(RETURN)
 rtrim_end
 
-               DEFINE('trim(s)')                                   :(trim_end)
-trim           trim           =   ltrim(rtrim(s))                  :(RETURN)
-trim_end
+               DEFINE('trimws(s)')                                   :(trimws_end)
+trimws           trimws         =   ltrim(rtrim(s))                  :(RETURN)
+trimws_end
 
                DEFINE('repeat(s,n)')                               :(repeat_end)
 repeat         repeat         =   DUPL(s, n)                       :(RETURN)
