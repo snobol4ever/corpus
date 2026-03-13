@@ -1,0 +1,6 @@
+*  096 - DATATYPE returns user type name
+        DATA('node(val,next)')
+        N = node('hello', '')
+        OUTPUT = DATATYPE(N)
+        OUTPUT = val(N)
+END
