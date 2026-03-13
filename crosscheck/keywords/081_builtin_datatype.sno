@@ -1,0 +1,5 @@
+*  081 - DATATYPE returns type name of value
+        OUTPUT = DATATYPE('hello')
+        OUTPUT = DATATYPE(42)
+        OUTPUT = DATATYPE(3.14)
+END
