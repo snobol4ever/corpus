@@ -218,44 +218,44 @@ ppAutoSkip
 *---------------- -------------- -- ----------------------------------------------- ------------------------
 *                 Parser patterns:
 *
-                  snoInteger     =  SPAN(digits)
-                  snoDQ          =  '"' BREAK('"' nl) '"'
-                  snoSQ          =  "'" BREAK("'" nl) "'"
-                  snoString      =  *snoSQ | *snoDQ
-                  snoReal        =  (  SPAN(digits)
+                  Integer     =  SPAN(digits)
+                  DQ          =  '"' BREAK('"' nl) '"'
+                  SQ          =  "'" BREAK("'" nl) "'"
+                  String      =  *SQ | *DQ
+                  Real        =  (  SPAN(digits)
 +                                      ('.' FENCE(SPAN(digits) | epsilon) | epsilon)
 +                                      ('E' | 'e')
 +                                      ('+' | '-' | epsilon)
 +                                      SPAN(digits)
 +                                   |  SPAN(digits) '.' FENCE(SPAN(digits) | epsilon)
 +                                   )
-                  snoId          =  ANY(&UCASE &LCASE)
+                  Id          =  ANY(&UCASE &LCASE)
 +                                   FENCE(SPAN('.' digits &UCASE '_' &LCASE) | epsilon)
-                  snoFunction    =  SPAN('.' digits &UCASE '_' &LCASE)
-+                                $  tx $ *match(snoFunctions, snoTxInList)
-                  snoBuiltinVar  =  SPAN('.' digits &UCASE '_' &LCASE)
-+                                $  tx $ *match(snoBuiltinVars, snoTxInList)
-                  snoSpecialNm   =  SPAN('.' digits &UCASE '_' &LCASE)
-+                                $  tx $ *match(snoSpecialNms, snoTxInList)
-                  snoProtKwd     =  '&' SPAN(&UCASE &LCASE) $ tx $ *match(snoProtKwds, snoTxInList)
-                  snoUnprotKwd   =  '&' SPAN(&UCASE &LCASE) $ tx $ *match(snoUnprotKwds, snoTxInList)
+                  Function    =  SPAN('.' digits &UCASE '_' &LCASE)
++                                $  tx $ *match(Functions, TxInList)
+                  BuiltinVar  =  SPAN('.' digits &UCASE '_' &LCASE)
++                                $  tx $ *match(BuiltinVars, TxInList)
+                  SpecialNm   =  SPAN('.' digits &UCASE '_' &LCASE)
++                                $  tx $ *match(SpecialNms, TxInList)
+                  ProtKwd     =  '&' SPAN(&UCASE &LCASE) $ tx $ *match(ProtKwds, TxInList)
+                  UnprotKwd   =  '&' SPAN(&UCASE &LCASE) $ tx $ *match(UnprotKwds, TxInList)
 
-                  snoGray        =  *snoWhite | epsilon
-                  snoWhite       =  (  SPAN(' ' tab)
+                  Gray        =  *White | epsilon
+                  White       =  (  SPAN(' ' tab)
 +                                      FENCE(nl ('+' | '.') FENCE(SPAN(' ' tab) | epsilon) | epsilon)
 +                                   |  nl ('+' | '.') FENCE(SPAN(' ' tab) | epsilon)
 +                                   )
 
-                  snoTxInList    =  (POS(0) | ' ') *upr(tx) (' ' | RPOS(0))
-                  snoSpecialNms  =  'ABORT CONTINUE END FRETURN NRETURN RETURN SCONTINUE START'
-                  snoBuiltinVars =  'ABORT ARB BAL FAIL FENCE INPUT OUTPUT REM TERMINAL'
-                  snoProtKwds    =  'ABORT ALPHABET ARB BAL FAIL FENCE FILE FNCLEVEL '
+                  TxInList    =  (POS(0) | ' ') *upr(tx) (' ' | RPOS(0))
+                  SpecialNms  =  'ABORT CONTINUE END FRETURN NRETURN RETURN SCONTINUE START'
+                  BuiltinVars =  'ABORT ARB BAL FAIL FENCE INPUT OUTPUT REM TERMINAL'
+                  ProtKwds    =  'ABORT ALPHABET ARB BAL FAIL FENCE FILE FNCLEVEL '
 +                                   'LASTFILE LASTLINE LASTNO LCASE LINE REM RTNTYPE '
 +                                   'STCOUNT STNO SUCCEED UCASE'
-                  snoUnprotKwds  =  'ABEND ANCHOR CASE CODE COMPARE DUMP ERRLIMIT '
+                  UnprotKwds  =  'ABEND ANCHOR CASE CODE COMPARE DUMP ERRLIMIT '
 +                                   'ERRTEXT ERRTYPE FTRACE INPUT MAXLNGTH OUTPUT '
 +                                   'PROFILE STLIMIT TRACE TRIM FULLSCAN'
-                  snoFunctions   =  'ANY APPLY ARBNO ARG ARRAY ATAN BACKSPACE BREAK BREAKX '
+                  Functions   =  'ANY APPLY ARBNO ARG ARRAY ATAN BACKSPACE BREAK BREAKX '
 +                                   'CHAR CHOP CLEAR CODE COLLECT CONVERT COPY COS DATA '
 +                                   'DATATYPE DATE DEFINE DETACH DIFFER DUMP DUPL EJECT '
 +                                   'ENDFILE EQ EVAL EXIT EXP FENCE FIELD GE GT HOST '
@@ -265,156 +265,156 @@ ppAutoSkip
 +                                   'RSORT RTAB SET SETEXIT SIN SIZE SORT SPAN SQRT STOPTR '
 +                                   'SUBSTR TAB TABLE TAN TIME TRACE TRIM UNLOAD'
 
-                  $'='           =  *snoWhite '=' *snoWhite
-                  $'?'           =  *snoWhite '?' *snoWhite
-                  $'|'           =  *snoWhite '|' *snoWhite
-                  $'+'           =  *snoWhite '+' *snoWhite
-                  $'-'           =  *snoWhite '-' *snoWhite
-                  $'/'           =  *snoWhite '/' *snoWhite
-                  $'*'           =  *snoWhite '*' *snoWhite
-                  $'^'           =  *snoWhite '^' *snoWhite
-                  $'!'           =  *snoWhite '!' *snoWhite
-                  $'**'          =  *snoWhite '**' *snoWhite
-                  $'$'           =  *snoWhite '$' *snoWhite
-                  $'.'           =  *snoWhite '.' *snoWhite
-                  $'&'           =  *snoWhite '&' *snoWhite
-                  $'@'           =  *snoWhite '@' *snoWhite
-                  $'#'           =  *snoWhite '#' *snoWhite
-                  $'%'           =  *snoWhite '%' *snoWhite
-                  $'~'           =  *snoWhite '~' *snoWhite
-                  $','           =  *snoGray ',' *snoGray
-                  $'('           =  '(' *snoGray
-                  $'['           =  '[' *snoGray
-                  $'<'           =  '<' *snoGray
-                  $')'           =  *snoGray ')'
-                  $']'           =  *snoGray ']'
-                  $'>'           =  *snoGray '>'
+                  $'='           =  *White '=' *White
+                  $'?'           =  *White '?' *White
+                  $'|'           =  *White '|' *White
+                  $'+'           =  *White '+' *White
+                  $'-'           =  *White '-' *White
+                  $'/'           =  *White '/' *White
+                  $'*'           =  *White '*' *White
+                  $'^'           =  *White '^' *White
+                  $'!'           =  *White '!' *White
+                  $'**'          =  *White '**' *White
+                  $'$'           =  *White '$' *White
+                  $'.'           =  *White '.' *White
+                  $'&'           =  *White '&' *White
+                  $'@'           =  *White '@' *White
+                  $'#'           =  *White '#' *White
+                  $'%'           =  *White '%' *White
+                  $'~'           =  *White '~' *White
+                  $','           =  *Gray ',' *Gray
+                  $'('           =  '(' *Gray
+                  $'['           =  '[' *Gray
+                  $'<'           =  '<' *Gray
+                  $')'           =  *Gray ')'
+                  $']'           =  *Gray ']'
+                  $'>'           =  *Gray '>'
 
-                  snoExprList    =  nPush()
-+                                   *snoXList
-+                                   ("'snoExprList'" & '*(GT(nTop(), 1) nTop())')
+                  ExprList    =  nPush()
++                                   *XList
++                                   ("'ExprList'" & '*(GT(nTop(), 1) nTop())')
 +                                   nPop()
-                  snoXList       =  nInc() (*snoExpr | epsilon ~ '') FENCE($',' *snoXList | epsilon)
-                  snoExpr        =  *snoExpr0
-                  snoExpr0       =  *snoExpr1 FENCE($'=' *snoExpr0 ("'='" & 2) | epsilon)
-                  snoExpr1       =  *snoExpr2 FENCE($'?' *snoExpr1 ("'?'" & 2) | epsilon)
-                  snoExpr2       =  *snoExpr3 FENCE($'&' *snoExpr2 ("'&'" & 2) | epsilon)
-                  snoExpr3       =  nPush() *snoX3 ("'|'" & '*(GT(nTop(), 1) nTop())') nPop()
-                  snoX3          =  nInc() *snoExpr4 FENCE($'|' *snoX3 | epsilon)
-                  snoExpr4       =  nPush() *snoX4 ("'..'" & '*(GT(nTop(), 1) nTop())') nPop()
-                  snoX4          =  nInc() *snoExpr5 FENCE(*snoWhite *snoX4 | epsilon)
-                  snoExpr5       =  *snoExpr6 FENCE($'@' *snoExpr5 ("'@'" & 2) | epsilon)
-                  snoExpr6       =  *snoExpr7
+                  XList       =  nInc() (*Expr | epsilon ~ '') FENCE($',' *XList | epsilon)
+                  Expr        =  *Expr0
+                  Expr0       =  *Expr1 FENCE($'=' *Expr0 ("'='" & 2) | epsilon)
+                  Expr1       =  *Expr2 FENCE($'?' *Expr1 ("'?'" & 2) | epsilon)
+                  Expr2       =  *Expr3 FENCE($'&' *Expr2 ("'&'" & 2) | epsilon)
+                  Expr3       =  nPush() *X3 ("'|'" & '*(GT(nTop(), 1) nTop())') nPop()
+                  X3          =  nInc() *Expr4 FENCE($'|' *X3 | epsilon)
+                  Expr4       =  nPush() *X4 ("'..'" & '*(GT(nTop(), 1) nTop())') nPop()
+                  X4          =  nInc() *Expr5 FENCE(*White *X4 | epsilon)
+                  Expr5       =  *Expr6 FENCE($'@' *Expr5 ("'@'" & 2) | epsilon)
+                  Expr6       =  *Expr7
 +                                   FENCE(
-+                                      $'+' *snoExpr6 ("'+'" & 2) | $'-' *snoExpr6 ("'-'" & 2) | epsilon
++                                      $'+' *Expr6 ("'+'" & 2) | $'-' *Expr6 ("'-'" & 2) | epsilon
 +                                   )
-                  snoExpr7       =  *snoExpr8 FENCE($'#' *snoExpr7 ("'#'" & 2) | epsilon)
-                  snoExpr8       =  *snoExpr9 FENCE($'/' *snoExpr8 ("'/'" & 2) | epsilon)
-                  snoExpr9       =  *snoExpr10 FENCE($'*' *snoExpr9 ("'*'" & 2) | epsilon)
-                  snoExpr10      =  *snoExpr11 FENCE($'%' *snoExpr10 ("'%'" & 2) | epsilon)
-                  snoExpr11      =  *snoExpr12
-+                                   FENCE(($'^' | $'!' | $'**') *snoExpr11 ("'^'" & 2) | epsilon)
-                  snoExpr12      =  *snoExpr13
+                  Expr7       =  *Expr8 FENCE($'#' *Expr7 ("'#'" & 2) | epsilon)
+                  Expr8       =  *Expr9 FENCE($'/' *Expr8 ("'/'" & 2) | epsilon)
+                  Expr9       =  *Expr10 FENCE($'*' *Expr9 ("'*'" & 2) | epsilon)
+                  Expr10      =  *Expr11 FENCE($'%' *Expr10 ("'%'" & 2) | epsilon)
+                  Expr11      =  *Expr12
++                                   FENCE(($'^' | $'!' | $'**') *Expr11 ("'^'" & 2) | epsilon)
+                  Expr12      =  *Expr13
 +                                   FENCE(
-+                                      $'$' *snoExpr12 ("'$'" & 2)
-+                                   |  $'.' *snoExpr12 ("'.'" & 2)
++                                      $'$' *Expr12 ("'$'" & 2)
++                                   |  $'.' *Expr12 ("'.'" & 2)
 +                                   |  epsilon
 +                                   )
-                  snoExpr13      =  *snoExpr14 FENCE($'~' *snoExpr13 ("'~'" & 2) | epsilon)
-                  snoExpr14      =  '@' *snoExpr14 ("'@'" & 1)
-+                                |  '~' *snoExpr14 ("'~'" & 1)
-+                                |  '?' *snoExpr14 ("'?'" & 1)
-+                                |  *snoProtKwd ~ 'snoProtKwd'
-+                                |  *snoUnprotKwd ~ 'snoUnprotKwd'
-+                                |  '&' *snoExpr14 ("'&'" & 1)
-+                                |  '+' *snoExpr14 ("'+'" & 1)
-+                                |  '-' *snoExpr14 ("'-'" & 1)
-+                                |  '*' *snoExpr14 ("'*'" & 1)
-+                                |  '$' *snoExpr14 ("'$'" & 1)
-+                                |  '.' *snoExpr14 ("'.'" & 1)
-+                                |  '!' *snoExpr14 ("'!'" & 1)
-+                                |  '%' *snoExpr14 ("'%'" & 1)
-+                                |  '/' *snoExpr14 ("'/'" & 1)
-+                                |  '#' *snoExpr14 ("'#'" & 1)
-+                                |  '=' *snoExpr14 ("'='" & 1)
-+                                |  '|' *snoExpr14 ("'|'" & 1)
-+                                |  *snoExpr15
-                  snoExpr15      =  *snoExpr17
-+                                   FENCE(nPush() *snoExpr16 ("'[]'" & 'nTop() + 1') nPop() | epsilon)
-                  snoExpr16      =  nInc()
-+                                   ($'[' *snoExprList $']' | $'<' *snoExprList $'>')
-+                                   FENCE(*snoExpr16 | epsilon)
-                  snoExpr17      =  FENCE(
+                  Expr13      =  *Expr14 FENCE($'~' *Expr13 ("'~'" & 2) | epsilon)
+                  Expr14      =  '@' *Expr14 ("'@'" & 1)
++                                |  '~' *Expr14 ("'~'" & 1)
++                                |  '?' *Expr14 ("'?'" & 1)
++                                |  *ProtKwd ~ 'ProtKwd'
++                                |  *UnprotKwd ~ 'UnprotKwd'
++                                |  '&' *Expr14 ("'&'" & 1)
++                                |  '+' *Expr14 ("'+'" & 1)
++                                |  '-' *Expr14 ("'-'" & 1)
++                                |  '*' *Expr14 ("'*'" & 1)
++                                |  '$' *Expr14 ("'$'" & 1)
++                                |  '.' *Expr14 ("'.'" & 1)
++                                |  '!' *Expr14 ("'!'" & 1)
++                                |  '%' *Expr14 ("'%'" & 1)
++                                |  '/' *Expr14 ("'/'" & 1)
++                                |  '#' *Expr14 ("'#'" & 1)
++                                |  '=' *Expr14 ("'='" & 1)
++                                |  '|' *Expr14 ("'|'" & 1)
++                                |  *Expr15
+                  Expr15      =  *Expr17
++                                   FENCE(nPush() *Expr16 ("'[]'" & 'nTop() + 1') nPop() | epsilon)
+                  Expr16      =  nInc()
++                                   ($'[' *ExprList $']' | $'<' *ExprList $'>')
++                                   FENCE(*Expr16 | epsilon)
+                  Expr17      =  FENCE(
 +                                      nPush()
 +                                      $'('
-+                                      *snoExpr
-+                                      (  $',' *snoXList ("','" & 'nTop() + 1')
++                                      *Expr
++                                      (  $',' *XList ("','" & 'nTop() + 1')
 +                                      |  epsilon ("'()'" & 1)
 +                                      )
 +                                      $')'
 +                                      nPop()
-+                                   |  *snoFunction ~ 'snoFunction' $'(' *snoExprList $')' ("'snoCall'" & 2)
-+                                   |  *snoId ~ 'snoId' $'(' *snoExprList $')' ("'snoCall'" & 2)
-+                                   |  *snoBuiltinVar ~ 'snoBuiltinVar'
-+                                   |  *snoSpecialNm ~ 'snoSpecialNm'
-+                                   |  *snoId ~ 'snoId'
-+                                   |  *snoString ~ 'snoString'
-+                                   |  *snoReal ~ 'snoReal'
-+                                   |  *snoInteger ~ 'snoInteger'
++                                   |  *Function ~ 'Function' $'(' *ExprList $')' ("'Call'" & 2)
++                                   |  *Id ~ 'Id' $'(' *ExprList $')' ("'Call'" & 2)
++                                   |  *BuiltinVar ~ 'BuiltinVar'
++                                   |  *SpecialNm ~ 'SpecialNm'
++                                   |  *Id ~ 'Id'
++                                   |  *String ~ 'String'
++                                   |  *Real ~ 'Real'
++                                   |  *Integer ~ 'Integer'
 +                                   )
 
-                  snoSGoto       =  ('S' | 's') . *assign(.SorF, *'S')
-                  snoFGoto       =  ('F' | 'f') . *assign(.SorF, *'F')
-                  snoSorF        =  *snoSGoto | *snoFGoto
-                  snoTarget      =  $'(' . *assign(.snoBrackets, *'()') *snoExpr $')'
-+                                |  $'<' . *assign(.snoBrackets, *'<>') *snoExpr $'>'
-                  snoGoto        =  *snoGray ':'
-+                                   *snoGray
+                  SGoto       =  ('S' | 's') . *assign(.SorF, *'S')
+                  FGoto       =  ('F' | 'f') . *assign(.SorF, *'F')
+                  SorF        =  *SGoto | *FGoto
+                  Target      =  $'(' . *assign(.Brackets, *'()') *Expr $')'
++                                |  $'<' . *assign(.Brackets, *'<>') *Expr $'>'
+                  Goto        =  *Gray ':'
++                                   *Gray
 +                                   FENCE(
-+                                      *snoTarget ("*(':' snoBrackets)" & 1) epsilon ~ ''
-+                                   |  *snoSorF *snoTarget ("*(':' SorF snoBrackets)" & 1)
-+                                      FENCE(*snoGray *snoSorF *snoTarget ("*(':' SorF snoBrackets)" & 1) | epsilon ~ '')
++                                      *Target ("*(':' Brackets)" & 1) epsilon ~ ''
++                                   |  *SorF *Target ("*(':' SorF Brackets)" & 1)
++                                      FENCE(*Gray *SorF *Target ("*(':' SorF Brackets)" & 1) | epsilon ~ '')
 +                                   )
-                  snoControl     =  '-' BREAK(nl ';')
-                  snoComment     =  '*' BREAK(nl)
-                  snoLabel       =  BREAK(' ' tab nl ';') ~ 'snoLabel'
-                  snoStmt        =  *snoLabel
-+                                   (  *snoWhite
-+                                      *snoExpr14
+                  Control     =  '-' BREAK(nl ';')
+                  Comment     =  '*' BREAK(nl)
+                  Label       =  BREAK(' ' tab nl ';') ~ 'Label'
+                  Stmt        =  *Label
++                                   (  *White
++                                      *Expr14
 +                                      FENCE(
 +                                         epsilon ~ ''
-+                                         *snoWhite
-+                                         ('=' ~ '=' *snoWhite *snoExpr | '=' ~ '=' epsilon ~ '')
-+                                      |  ($'?' | *snoWhite)
-+                                         *snoExpr1
++                                         *White
++                                         ('=' ~ '=' *White *Expr | '=' ~ '=' epsilon ~ '')
++                                      |  ($'?' | *White)
++                                         *Expr1
 +                                         FENCE(
-+                                            *snoWhite
-+                                            ('=' ~ '=' *snoWhite *snoExpr | '=' ~ '=' epsilon ~ '')
++                                            *White
++                                            ('=' ~ '=' *White *Expr | '=' ~ '=' epsilon ~ '')
 +                                         |  epsilon ~ '' epsilon ~ ''
 +                                         )
 +                                      |  epsilon ~ '' epsilon ~ '' epsilon ~ ''
 +                                      )
 +                                   |  epsilon ~ '' epsilon ~ '' epsilon ~ '' epsilon ~ ''
 +                                   )
-+                                   FENCE(*snoGoto | epsilon ~ '' epsilon ~ '')
-+                                   *snoGray
++                                   FENCE(*Goto | epsilon ~ '' epsilon ~ '')
++                                   *Gray
 
-                  snoCommands    =  *snoCommand FENCE(*snoCommands | epsilon)
-                  snoCommand     =  nInc()
+                  Commands    =  *Command FENCE(*Commands | epsilon)
+                  Command     =  nInc()
 +                                   FENCE(
-+                                      *snoComment ~ 'comment' ("'snoComment'" & 1) nl
-+                                   |  *snoControl ~ 'control' ("'snoControl'" & 1) (nl | ';')
-+                                   |  *snoStmt ("'snoStmt'" & 7) (nl | ';')
++                                      *Comment ~ 'comment' ("'Comment'" & 1) nl
++                                   |  *Control ~ 'control' ("'Control'" & 1) (nl | ';')
++                                   |  *Stmt ("'Stmt'" & 7) (nl | ';')
 +                                   )
 
-                  snoParse       =  nPush()
-+                                   ARBNO(*snoCommand)
-+                                   ("'snoParse'" & 'nTop()')
+                  Parse       =  nPush()
++                                   ARBNO(*Command)
++                                   ("'Parse'" & 'nTop()')
 +                                   nPop()
 
-                  snoCompiland   =  nPush()
-+                                   ARBNO(*snoCommand)
-+                                   ("'snoParse'" & 'nTop()')
+                  Compiland   =  nPush()
++                                   ARBNO(*Command)
++                                   ("'Parse'" & 'nTop()')
 +                                   (icase('END') (' ' BREAK(nl) nl | nl) ARBNO(BREAK(nl) nl) | epsilon)
 +                                   nPop()
 
@@ -432,21 +432,21 @@ pp                DIFFER(x)                                                     
                   OUTPUT         =  GT(doDebug, 0) 'pp(' t ')' ', sz = ' level '+' SIZE(v) ', v = ' v
                   DIFFER(t)                                                         :S($('pp_' t))F(RETURN)
 *---------------- -------------- -- ----------------------------------------------- ------------------------
-pp_snoParse       ppWidth        =  ppStop[4]                                       :(pp_0)
+pp_Parse       ppWidth        =  ppStop[4]                                       :(pp_0)
 pp_0              i              =  0
 pp_1              i              =  LT(i, n) i + 1                                  :F(RETURN)
                   pp(c[i])                                                          :(pp_1)
 *---------------- -------------- -- ----------------------------------------------- ------------------------
-pp_snoBuiltinVar  Gen(ss(x))                                                        :S(RETURN)F(error)
-pp_snoFunction    Gen(ss(x))                                                        :S(RETURN)F(error)
-pp_snoId          Gen(ss(x))                                                        :S(RETURN)F(error)
-pp_snoInteger     Gen(ss(x))                                                        :S(RETURN)F(error)
-pp_snoLabel       Gen(ss(x))                                                        :S(RETURN)F(error)
-pp_snoProtKwd     Gen(ss(x))                                                        :S(RETURN)F(error)
-pp_snoReal        Gen(ss(x))                                                        :S(RETURN)F(error)
-pp_snoSpecialNm   Gen(ss(x))                                                        :S(RETURN)F(error)
-pp_snoString      Gen(ss(x))                                                        :S(RETURN)F(error)
-pp_snoUnprotKwd   Gen(ss(x))                                                        :S(RETURN)F(error)
+pp_BuiltinVar  Gen(ss(x))                                                        :S(RETURN)F(error)
+pp_Function    Gen(ss(x))                                                        :S(RETURN)F(error)
+pp_Id          Gen(ss(x))                                                        :S(RETURN)F(error)
+pp_Integer     Gen(ss(x))                                                        :S(RETURN)F(error)
+pp_Label       Gen(ss(x))                                                        :S(RETURN)F(error)
+pp_ProtKwd     Gen(ss(x))                                                        :S(RETURN)F(error)
+pp_Real        Gen(ss(x))                                                        :S(RETURN)F(error)
+pp_SpecialNm   Gen(ss(x))                                                        :S(RETURN)F(error)
+pp_String      Gen(ss(x))                                                        :S(RETURN)F(error)
+pp_UnprotKwd   Gen(ss(x))                                                        :S(RETURN)F(error)
 *---------------- -------------- -- ----------------------------------------------- ------------------------
 pp_:()            Gen(ss(x))                                                        :S(RETURN)F(error)
 pp_:<>            Gen(ss(x))                                                        :S(RETURN)F(error)
@@ -496,15 +496,15 @@ pp_^              EQ(n, 2)                                                      
 pp_~              EQ(n, 1)                                                          :S(ppUnOp)
                   EQ(n, 2)                                                          :S(ppBinOp)F(error)
 *---------------- -------------- -- ----------------------------------------------- ------------------------
-pp_snoComment     SetLevel(0)
+pp_Comment     SetLevel(0)
                   GenSetCont()
                   Gen(v(c[1]) nl)                                                   :(RETURN)
 *---------------- -------------- -- ----------------------------------------------- ------------------------
-pp_snoControl     SetLevel(0)
+pp_Control     SetLevel(0)
                   GenSetCont()
                   Gen(v(c[1]) nl)                                                   :(RETURN)
 *---------------- -------------- -- ----------------------------------------------- ------------------------
-pp_snoStmt        SetLevel(0)
+pp_Stmt        SetLevel(0)
                   GenSetCont('+')
                   ppWidth        =  ppStop[4]
                   ppLbl          =  ss(c[1])
@@ -515,55 +515,55 @@ pp_snoStmt        SetLevel(0)
                   ppGo1          =  c[6]
                   ppGo2          =  c[7]
                   Gen(ppLbl)
-                  DIFFER(t(ppSubj))                                                 :F(pp_snoStmt7)
+                  DIFFER(t(ppSubj))                                                 :F(pp_Stmt7)
                   Gen(' ')
                   GenTab(ppStop[1])
                   SetLevel(ppStop[1])
                   ppWidth        =  IDENT(t(ppPatrn)) IDENT(ppAsgn) IDENT(t(ppGo1)) ppStop[4] + ppLgBump
                   pp(ppSubj)
-                  DIFFER(t(ppPatrn))                                                :F(pp_snoStmt5)
+                  DIFFER(t(ppPatrn))                                                :F(pp_Stmt5)
                   Gen(' ')
                   GenTab(ppStop[2])
                   SetLevel(ppStop[2])
                   ppWidth        =  IDENT(ppAsgn) IDENT(t(ppGo1)) ppStop[4] + ppLgBump
                   pp(ppPatrn)
-                  DIFFER(ppAsgn)                                                    :F(pp_snoStmt7)
+                  DIFFER(ppAsgn)                                                    :F(pp_Stmt7)
                   Gen(' =')
-                  DIFFER(t(ppRepl))                                                 :F(pp_snoStmt7)
+                  DIFFER(t(ppRepl))                                                 :F(pp_Stmt7)
                   Gen(' ')
-                  pp(ppRepl)                                                        :(pp_snoStmt7)
-pp_snoStmt5       DIFFER(ppAsgn)                                                    :F(pp_snoStmt7)
+                  pp(ppRepl)                                                        :(pp_Stmt7)
+pp_Stmt5       DIFFER(ppAsgn)                                                    :F(pp_Stmt7)
                   Gen(' ')
                   GenTab(ppStop[2])
                   SetLevel(ppStop[2])
                   Gen('=')
-                  DIFFER(t(ppRepl))                                                 :F(pp_snoStmt7)
+                  DIFFER(t(ppRepl))                                                 :F(pp_Stmt7)
                   Gen(' ')
                   GenTab(ppStop[3])
                   SetLevel(ppStop[3])
                   ppWidth        =  IDENT(t(ppGo1)) ppStop[4] + ppLgBump
-                  pp(ppRepl)                                                        :(pp_snoStmt7)
-pp_snoStmt7       DIFFER(t(ppGo1))                                                  :F(pp_snoStmt9)
+                  pp(ppRepl)                                                        :(pp_Stmt7)
+pp_Stmt7       DIFFER(t(ppGo1))                                                  :F(pp_Stmt9)
                   ppWidth        =  256
                   Gen(' ')
                   GenTab(ppStop[4])
                   SetLevel(ppStop[4])
                   Gen(':')
                   pp(ppGo1)
-                  DIFFER(t(ppGo2))                                                  :F(pp_snoStmt9)
-                  pp(ppGo2)                                                         :(pp_snoStmt9)
-pp_snoStmt9       Gen(nl)                                                           :(RETURN)
+                  DIFFER(t(ppGo2))                                                  :F(pp_Stmt9)
+                  pp(ppGo2)                                                         :(pp_Stmt9)
+pp_Stmt9       Gen(nl)                                                           :(RETURN)
 *---------------- -------------- -- ----------------------------------------------- ------------------------
-pp_snoExprList    Gen(ss(x, ppWidth - GetLevel()))                                  :S(RETURN)
+pp_ExprList    Gen(ss(x, ppWidth - GetLevel()))                                  :S(RETURN)
                   pp(c[1])
                   i              =  1
-pp_snoExprList0   i              =  LT(i, n) i + 1                                  :F(RETURN)
+pp_ExprList0   i              =  LT(i, n) i + 1                                  :F(RETURN)
                   Gen(nl)
                   DecLevel()
                   Gen(',')
                   IncLevel()
                   GenTab()
-                  pp(c[i])                                                          :(pp_snoExprList0)
+                  pp(c[i])                                                          :(pp_ExprList0)
 *---------------- -------------- -- ----------------------------------------------- ------------------------
 pp_,              Gen(ss(x, ppWidth - GetLevel()))                                  :S(RETURN)
                   Gen('(')
@@ -622,7 +622,7 @@ pp_()             Gen(ss(x, ppWidth - GetLevel()))                              
                   DecLevel()
                   Gen(')')                                                          :(RETURN)
 *---------------- -------------- -- ----------------------------------------------- ------------------------
-pp_snoCall        Gen(ss(x, ppWidth - GetLevel()))                                  :S(RETURN)
+pp_Call        Gen(ss(x, ppWidth - GetLevel()))                                  :S(RETURN)
                   pp(c[1])
                   Gen('(' nl)
                   IncLevel()
@@ -648,18 +648,18 @@ ss                DIFFER(x)                                                     
                   OUTPUT         =  GT(doDebug, 0) 'ss(' t ')' ', sz = ' level '+' SIZE(v) ', v = ' v
                   DIFFER(t)                                                         :S($('ss_' t))F(RETURN)
 *---------------- -------------- -- ----------------------------------------------- ------------------------
-ss_snoBuiltinVar  ss             =  upr(v)                                          :(ss_atomic)
-ss_snoFunction    ss             =  upr(v)                                          :(ss_atomic)
-ss_snoId          ss             =  v                                               :(ss_atomic)
-ss_snoInteger     ss             =  v                                               :(ss_atomic)
-ss_snoLabel       v              POS(0) *snoSpecialNm RPOS(0)                       :S(ss_snoLabel0)F(ss_snoLabel1)
-ss_snoLabel0      ss             =  upr(v)                                          :(ss_atomic)
-ss_snoLabel1      ss             =  v                                               :(ss_atomic)
-ss_snoProtKwd     ss             =  upr(v)                                          :(ss_atomic)
-ss_snoReal        ss             =  v                                               :(ss_atomic)
-ss_snoSpecialNm   ss             =  upr(v)                                          :(ss_atomic)
-ss_snoString      ss             =  v                                               :(ss_atomic)
-ss_snoUnprotKwd   ss             =  upr(v)                                          :(ss_atomic)
+ss_BuiltinVar  ss             =  upr(v)                                          :(ss_atomic)
+ss_Function    ss             =  upr(v)                                          :(ss_atomic)
+ss_Id          ss             =  v                                               :(ss_atomic)
+ss_Integer     ss             =  v                                               :(ss_atomic)
+ss_Label       v              POS(0) *SpecialNm RPOS(0)                       :S(ss_Label0)F(ss_Label1)
+ss_Label0      ss             =  upr(v)                                          :(ss_atomic)
+ss_Label1      ss             =  v                                               :(ss_atomic)
+ss_ProtKwd     ss             =  upr(v)                                          :(ss_atomic)
+ss_Real        ss             =  v                                               :(ss_atomic)
+ss_SpecialNm   ss             =  upr(v)                                          :(ss_atomic)
+ss_String      ss             =  v                                               :(ss_atomic)
+ss_UnprotKwd   ss             =  upr(v)                                          :(ss_atomic)
 ss_atomic         LE(SIZE(ss), len)                                                 :S(RETURN)F(FRETURN)
 *---------------- -------------- -- ----------------------------------------------- ------------------------
 ss_:()            ss             =  '(' ss(c[1], len - 2) ')'                       :S(RETURN)F(error)
@@ -702,10 +702,10 @@ ss_^              EQ(n, 2)                                                      
 ss_~              EQ(n, 1)                                                          :S(ssUnOp)
                   EQ(n, 2)                                                          :S(ssBinOp)F(error)
 *---------------- -------------- -- ----------------------------------------------- ------------------------
-ss_snoExprList    ss             =  ss(c[1], len)                                   :F(FRETURN)
+ss_ExprList    ss             =  ss(c[1], len)                                   :F(FRETURN)
                   i              =  1
-ss_snoExprList0   i              =  LT(i, n) i + 1                                  :F(RETURN)
-                  ss             =  ss ', ' ss(c[i], len - SIZE(ss) - 2)            :S(ss_snoExprList0)F(FRETURN)
+ss_ExprList0   i              =  LT(i, n) i + 1                                  :F(RETURN)
+                  ss             =  ss ', ' ss(c[i], len - SIZE(ss) - 2)            :S(ss_ExprList0)F(FRETURN)
 *---------------- -------------- -- ----------------------------------------------- ------------------------
 ss_,              ss             =  '(' ss(c[1], len - 4)                           :F(FRETURN)
                   i              =  1
@@ -731,7 +731,7 @@ ss_[]0            i              =  LT(i, n) i + 1                              
 *---------------- -------------- -- ----------------------------------------------- ------------------------
 ss_()             ss             =  '(' ss(c[1], len - 2) ')'                       :S(RETURN)F(FRETURN)
 *---------------- -------------- -- ----------------------------------------------- ------------------------
-ss_snoCall        ss             =  ss(c[1]) '(' ss(c[2], len - SIZE(v) - 2) ')'    :S(RETURN)F(FRETURN)
+ss_Call        ss             =  ss(c[1]) '(' ss(c[2], len - SIZE(v) - 2) ')'    :S(RETURN)F(FRETURN)
 ssEnd
 *================ ============== == =============================================== ========================
                   DEFINE('bVisit(x,fnc)i', 'bVisit_')                              :(bVisitEnd)
@@ -742,35 +742,35 @@ bVisit_1          i              =  LT(i, n(x)) i + 1                           
 bVisitEnd
 *---------------- -------------- -- ----------------------------------------------- ------------------------
                   DEFINE('findRefs(x)n,v')
-                  snoRefs        =                                                  :(findRefsEnd)
+                  Refs        =                                                  :(findRefsEnd)
 findRefs          DIFFER(x)                                                         :F(RETURN)
-                  IDENT(t(x), 'snoCall')                                            :F(findRefs_1)
+                  IDENT(t(x), 'Call')                                            :F(findRefs_1)
                   n              =  1
 findRefs_0        n              =  LT(n, n(x)) n + 1                               :F(FRETURN)
                   bVisit(c(x)[n], .findRefs)                                         :(findRefs_0)
 findRefs_1        (IDENT(t(x), '&') EQ(n(x), 1))                                    :F(findRefs_2)
                   v              =  ss(x)                                           :(findRefs_9)
-findRefs_2        IDENT(t(x), 'snoId')                                              :F(RETURN)
+findRefs_2        IDENT(t(x), 'Id')                                              :F(RETURN)
                   v              =  v(x)                                            :(findRefs_9)
 findRefs_9        v              POS(0) SPAN('0123456789' &UCASE '_') RPOS(0)       :F(FRETURN)
-                  snoRefs        =  DIFFER(snoRefs) snoRefs ' ' v                   :S(FRETURN)
-                  snoRefs        =  IDENT(snoRefs) v                                :(FRETURN)
+                  Refs        =  DIFFER(Refs) Refs ' ' v                   :S(FRETURN)
+                  Refs        =  IDENT(Refs) v                                :(FRETURN)
 findRefsEnd
 *---------------- -------------- -- ----------------------------------------------- ------------------------
                   DEFINE('refs(p)c,n,s,subj')                                       :(refsEnd)
 refs              c              =  c(p)
                   n              =  0
 refs_0            n              =  LT(n, n(p)) n + 1                               :F(RETURN)
-                  IDENT(t(c[n]), 'snoStmt')                                         :F(refs_0)
+                  IDENT(t(c[n]), 'Stmt')                                         :F(refs_0)
                   s              =  s + 1
                   IDENT(t(c(c[n])[3]))                                              :F(refs_0)
                   IDENT(t(c(c[n])[4]), '=')                                         :F(refs_0)
-                  IDENT(t(c(c[n])[2]), 'snoId')                                     :S(refs_1)
+                  IDENT(t(c(c[n])[2]), 'Id')                                     :S(refs_1)
                   IDENT(t(c(c[n])[2]), '$')                                         :S(refs_1)F(refs_0)
 refs_1            subj           =  ss(c(c[n])[2])
-                  snoRefs        =
+                  Refs        =
                   bVisit(c(c[n])[5], .findRefs)
-                  OUTPUT         =  LPAD(s, 3, 0) ': ' RPAD(subj, 38) ' ' snoRefs   :(refs_0)
+                  OUTPUT         =  LPAD(s, 3, 0) ': ' RPAD(subj, 38) ' ' Refs   :(refs_0)
 refsEnd
 *================ ============== == =============================================== ========================
 *                 Main program.
@@ -779,23 +779,23 @@ refsEnd
 *                 Generate a more beautiful SNOBOL4 program.
 *
                   doDebug        =  0
-                  snoSpace       =  SPAN(' ' tab) | epsilon
-main00            snoLine        =  INPUT                                           :F(END)
-main01            snoSrc         =
-                  snoLine        POS(0) ANY('*-')                                   :F(main02)
-                  OUTPUT         =  snoLine                                         :(main00)
-main02            snoSrc         =  snoSrc snoLine nl
-                  snoLine        =  INPUT                                           :F(main05)
-                  snoLine        POS(0) ANY('.+')                                   :S(main02)
-                  snoSrc         POS(0) *snoParse *snoSpace RPOS(0)                 :F(mainErr1)
+                  Space       =  SPAN(' ' tab) | epsilon
+main00            Line        =  INPUT                                           :F(END)
+main01            Src         =
+                  Line        POS(0) ANY('*-')                                   :F(main02)
+                  OUTPUT         =  Line                                         :(main00)
+main02            Src         =  Src Line nl
+                  Line        =  INPUT                                           :F(main05)
+                  Line        POS(0) ANY('.+')                                   :S(main02)
+                  Src         POS(0) *Parse *Space RPOS(0)                 :F(mainErr1)
                   DIFFER(sno = Pop())                                               :F(mainErr2)
                   pp(sno)                                                           :(main01)
-main05            snoSrc         POS(0) *snoParse *snoSpace RPOS(0)                 :F(mainErr1)
+main05            Src         POS(0) *Parse *Space RPOS(0)                 :F(mainErr1)
                   DIFFER(sno = Pop())                                               :F(mainErr2)
                   pp(sno)                                                           :(END)
 mainErr1          OUTPUT         =  'Parse Error'
-                  OUTPUT         =  snoSrc                                          :(END)
+                  OUTPUT         =  Src                                          :(END)
 mainErr2          OUTPUT         =  'Internal Error'
-                  OUTPUT         =  snoSrc                                          :(END)
+                  OUTPUT         =  Src                                          :(END)
 *-INCLUDE 'debug.sno'
 END
