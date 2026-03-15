@@ -402,8 +402,8 @@ ppAutoSkip
                   Commands    =  *Command FENCE(*Commands | epsilon)
                   Command     =  nInc()
 +                                   FENCE(
-+                                      *Comment ~ 'comment' ("'Comment'" & 1) nl
-+                                   |  *Control ~ 'control' ("'Control'" & 1) (nl | ';')
++                                      *Comment ~ 'Comment' ("'Comment'" & 1) nl
++                                   |  *Control ~ 'Control' ("'Control'" & 1) (nl | ';')
 +                                   |  *Stmt ("'Stmt'" & 7) (nl | ';')
 +                                   )
 
