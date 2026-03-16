@@ -1,0 +1,5 @@
+        N = 1
+LOOP    OUTPUT = N
+        N = N + 1
+        GT(N,3)         :F(LOOP)
+END
