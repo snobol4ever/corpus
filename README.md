@@ -1,5 +1,7 @@
 # SNOBOL4-corpus
 
+[![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
+
 Shared SNOBOL4 programs, libraries, and benchmarks for the
 [SNOBOL4-plus](https://github.com/SNOBOL4-plus) organization.
 
