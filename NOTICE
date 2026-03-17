@@ -1,0 +1,27 @@
+SNOBOL4-corpus
+Copyright (c) 2026 Lon Jones Cherryholmes
+
+This corpus is dedicated to the public domain under CC0 1.0 Universal.
+See LICENSE for the full dedication text.
+
+---
+
+THIRD-PARTY CONTENT
+
+The files in programs/gimpel/ are derived from or reproduce programs
+originally published in:
+
+  James F. Gimpel, "Algorithms in SNOBOL4"
+  Wiley-Interscience, 1976
+  Redistributed by Catspaw, Inc.
+
+These programs are included for reference, testing, and educational purposes.
+Catspaw, Inc. redistributed them with permission from the original publisher.
+The CC0 dedication in LICENSE applies to original SNOBOL4-plus contributions
+in this repository; it does not retroactively affect the copyright status of
+Gimpel's original programs.
+
+The files in programs/aisnobol/ are derived from programs originally
+published in:
+
+  Michael G. Shafto (ed.), "AI
