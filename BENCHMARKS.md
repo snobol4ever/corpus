@@ -1,11 +1,11 @@
 # snobol4ever Cross-Engine Benchmark Results
 
-**Date**: 2026-03-10  
-**Host**: Linux x86-64, Java 21.0.10, .NET 10.0.103  
+**Date**: 2026-03-17 (DOTNET updated session154/156; SPITBOL/CSNOBOL4/JVM from 2026-03-10)
+**Host**: Linux x86-64, Java 21.0.10, .NET 10.0.103
 **Engines**:
 - SPITBOL v4.0f — compiled native x64 (`spitbol -b -`)
 - CSNOBOL4 2.3.3 — compiled C (`snobol4 -`)
-- snobol4dotnet 0.1 — C#/.NET 10 threaded executor
+- snobol4dotnet — C#/.NET 10 threaded executor HEAD `d8f11f9` (session154 BenchmarkSuite2)
 - snobol4jvm 0.2.0 — Clojure/JVM uberjar
 
 **Methodology**: Each engine runs each benchmark at a count suited to its
@@ -88,3 +88,33 @@ and has pattern match issues in the uberjar `vm/run-program!` entry point.
 - `indirect_dispatch.sno` excluded — SPITBOL error 022 on `$FN()` indirect call syntax.
 - EVAL benchmarks show very high interpreter overhead in both DOTNET and JVM vs SPITBOL.
   Sprint 23E (JVM inline EVAL!) targets this bottleneck.
+
+---
+
+## DOTNET Wall-Clock Baseline (session154 BenchmarkSuite2)
+
+Full pipeline: lex → parse → emit → compile → execute. 5 reps, 1 warmup.
+HEAD `d8f11f9`. Build: Release, net10.0, `-p:EnableWindowsTargeting=true`.
+
+| Benchmark | Iterations | Mean | ±StdDev | Alloc/run | Result |
+|-----------|:----------:|-----:|--------:|----------:|--------|
+| Roman_1776 | — | 23.4ms | 22.2ms | 438 KB | MDCCLXXVI |
+| ArithLoop | 1000 | 41.6ms | 24.5ms | 1662 KB | 1000 |
+| StringPattern | 200 | 92.0ms | 33.6ms | 5699 KB | alphabeta… |
+| Fibonacci | FIB(18) | 237.4ms | 32.5ms | 11853 KB | 2584 |
+| StringManip | 500 | 44.2ms | 25.1ms | 2707 KB | 43 |
+| FuncCallOverhead | 3000 | 19.0ms | 18.4ms | 877 KB | 300 |
+| StringConcat | 500 | 18.8ms | 25.6ms | 394 KB | 100 |
+| VarAccess | 2000 | 98.0ms | 33.2ms | 6282 KB | 12012 |
+| OperatorDispatch | 100 | 21.0ms | 27.0ms | 611 KB | 165116 |
+| PatternBacktrack | 500 | 59.0ms | 35.6ms | 1971 KB | 500 |
+| TableAccess | 500 | 33.6ms | 21.9ms | 1623 KB | 250500 |
+| MixedWorkload | 200 | 220.6ms | 20.5ms | 13930 KB | 550 |
+| CodeFixed | 200 | 65.8ms | 25.0ms | 6125 KB | 200 |
+| CodeDynamic | 200 | 89.4ms | 54.9ms | 6432 KB | 200 |
+| EvalFixed | 200 | 54.6ms | 30.2ms | 5935 KB | 11 |
+| EvalDynamic | 200 | 39.4ms | 14.5ms | 6134 KB | 400 |
+| IndirectDispatch | 500 | 5.0ms | 0.0ms | 264 KB | *(error 22 — known gap)* |
+
+*Note: StdDev is high due to single warmup + container noise. Production measurements
+should use `--reps 20 --warmup 5` or BenchmarkDotNet for stable numbers.*
