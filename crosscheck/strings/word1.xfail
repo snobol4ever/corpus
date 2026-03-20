@@ -1,1 +1,1 @@
-JVM: pattern-valued variable (WPAT/PAT stored as '' not pattern object); requires runtime pattern repr
+JVM: ARB . OUTPUT in named-pattern INPUT loop — deferred commit fires but INPUT loop skips matches; needs J-206 investigation

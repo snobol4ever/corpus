@@ -1,1 +1,1 @@
-JVM: pattern-valued variable (WPAT/PAT stored as '' not pattern object); requires runtime pattern repr
+JVM: @ position capture (E_ATP) not implemented in JVM backend
