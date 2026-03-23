@@ -1,6 +1,6 @@
 *-------------------------------------------------------------------------------------------------------
--INCLUDE 'datetime.sno'
--INCLUDE 'dq.sno'
+-INCLUDE 'datetime.inc'
+-INCLUDE 'dq.inc'
 *------------ --------------------------------------------------------------------- --------------------
               DEFINE('system(verb,args,errName,outFile)'
 +                'cmd,cmdLine,errFile,errInfo,line,noCat,noDate,noEcho,silent,stdout,syserr,sysout'

@@ -260,8 +260,8 @@ ArgsErr3    OUTPUT      =   'Error: Missing argument input.'                    
 ArgsEnd
 *========== =========== === ======================================================= ====================
 *           EXIT(3, 'Blogzilla.exe')
--INCLUDE    'env.sno'
--INCLUDE    'curl.sno'
+-INCLUDE    'env.inc'
+-INCLUDE    'curl.inc'
             Args()                                                                  :F(END)
             system("@-rm", cookies)
             curl        =   curl_easy_init()                                        :F(error)

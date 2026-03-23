@@ -1,7 +1,7 @@
 START
--INCLUDE 'global.sno'
--INCLUDE 'ReadWrite.sno'
--INCLUDE 'match.sno'
+-INCLUDE 'global.inc'
+-INCLUDE 'ReadWrite.inc'
+-INCLUDE 'match.inc'
 *----------------------------------------------------------------------------------------------------
         ii          =   22 ;* 20
         tt          =   4

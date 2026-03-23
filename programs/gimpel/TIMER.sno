@@ -2,7 +2,7 @@
 *	      to it as argument.  Example:  TIMER(" A = B + C ").
 *	      Multiple statements should be separated by semicolon.
 *
--INCLUDE "system.sno"
+-INCLUDE "system.inc"
 -INCLUDE "resolution.sno"
 	DEFINE('TIMER(S_,N_)C_,T_,I_')		:(TIMER_END)
 TIMER	EQ(N_,0)				:F(TIMER_N)

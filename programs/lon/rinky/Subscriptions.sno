@@ -1,6 +1,6 @@
 START
--INCLUDE 'global.sno'
--INCLUDE 'ReadWrite.sno'
+-INCLUDE 'global.inc'
+-INCLUDE 'ReadWrite.inc'
     &MAXLNGTH = 4000000
     $' ' = FENCE(SPAN(' ' nl) | epsilon)
     json = Read('YouTube Subscriptions.html') :F(Yikes)

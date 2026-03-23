@@ -1,9 +1,9 @@
 */---------------------------------------------------------------------------------------------------------
 start
--INCLUDE    'env.sno'
--INCLUDE    'portable.sno'
--INCLUDE    'ini.sno'
--INCLUDE    'ss.sno'
+-INCLUDE    'env.inc'
+-INCLUDE    'portable.inc'
+-INCLUDE    'ini.inc'
+-INCLUDE    'ss.inc'
 *---------- ----------------- ----- -------------------------------------------------- -----------------------------
             DEFINE('diff(src1Path,src2Path,diffPath)'
 +              'diffCmd,diffInput,diffLine,diffOutput'

@@ -1,9 +1,9 @@
 *-------------------------------------------------------------------------------------------------------------------------
--INCLUDE 'omega.sno'
--INCLUDE 'Populate.sno'
--INCLUDE 'semantic.sno'
--INCLUDE 'opsyn.sno'
--INCLUDE 'trace.sno'
+-INCLUDE 'omega.inc'
+-INCLUDE 'Populate.inc'
+-INCLUDE 'semantic.inc'
+-INCLUDE 'opsyn.inc'
+-INCLUDE 'trace.inc'
 *---------- ----------------- ----- -------------------------------------------------------- -----------------------------
             DEFINE('T8DbgPos(sOfs)i')                                                        :(T8DbgPosEnd)
 T8DbgPos    T8DbgPos          =     .dummy
