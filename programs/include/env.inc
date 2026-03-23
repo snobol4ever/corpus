@@ -1,5 +1,5 @@
 * Miscellaneous functions.
--INCLUDE 'is.sno'
+-INCLUDE 'is.inc'
 * Useful for manipulating environment variables, input/output streams, and process-id.
 * Usage:
 *

@@ -1,7 +1,7 @@
 *-------------------------------------------------------------------------------------------------------------------------
 START
--INCLUDE    'utility.sno'
--INCLUDE    'build.sno'
+-INCLUDE    'utility.inc'
+-INCLUDE    'build.inc'
             &STLIMIT          =     -1
             &ERRLIMIT         =     0
 *           &DUMP             =     3

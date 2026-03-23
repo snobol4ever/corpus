@@ -4,7 +4,7 @@
 *	       amount and type of litter.
 *
 -INCLUDE "resolution.sno"
--INCLUDE "system.sno"
+-INCLUDE "system.inc"
 
 	DEFINE('TIMEGC(N)I,S,A,L,T,K,FREED')
 	DATA('LINK(VALUE,NEXT)')		:(TIMEGC_END)

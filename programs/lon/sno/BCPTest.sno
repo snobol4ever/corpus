@@ -1,5 +1,5 @@
 START
--INCLUDE 'sqlncli.sno'
+-INCLUDE 'sqlncli.inc'
 *---------- ----------- --- ---------------------------------------------------
             iColumns              =  16
             tsColumns             =  ARRAY('1:' iColumns)

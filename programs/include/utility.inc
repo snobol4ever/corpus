@@ -1,14 +1,14 @@
 *---------------------------------------------------------------------------------------------------------------
 * utility.inc
 *---------------------------------------------------------------------------------------------------------------
--INCLUDE      'global.sno'
--INCLUDE      'case.sno'
--INCLUDE      'exec.sno'
+-INCLUDE      'global.inc'
+-INCLUDE      'case.inc'
+-INCLUDE      'exec.inc'
 *---------------------------------------------------------------------------------------------------------------
               DEFINE('Utility()idResult,unameResult')                               :(UtilityEnd)
 Utility       env            =   TABLE()
               exe            =   TABLE()
--INCLUDE      'env.sno'
+-INCLUDE      'env.inc'
               idResult       =   exec('id')
               idResult       POS(0) 'uid=' SPAN(digits) '(' BREAK(')') . userId ')'
               userId         POS(0) SPAN(&UCASE) bSlash =

@@ -1,5 +1,5 @@
 *----------------------------------------------------------------------------------------------------
--INCLUDE 'global.sno'
+-INCLUDE 'global.inc'
 *------------ --------------------------------------------------------------------- -----------------
               textExtList    =   'aix,att,bas,bat,bnf,c,cpp,d,def,dep,dsp,dsw,dyn,ec,h,hh,history,hp,hpp,'
 +                                'inf,ini,ini_bk,inl,ksh,log,lst,mak,map,osf,pl,psl,rc,rc2,sh,sin,sno,'
@@ -44,24 +44,24 @@
 +                            |   *pathDrive *pathDir slash (slash | epsilon)
 +                            |   *pathNode '.' *pathExt
 *------------ --------------------------------------------------------------------- -----------------
--INCLUDE 'is.sno'
--INCLUDE 'FENCE.sno'
--INCLUDE 'io.sno'
--INCLUDE 'assign.sno'
--INCLUDE 'match.sno'
--INCLUDE 'slash.sno'
--INCLUDE 'case.sno'
--INCLUDE 'export.sno'
--INCLUDE 'counter.sno'
--INCLUDE 'stack.sno'
--INCLUDE 'tree.sno'
--INCLUDE 'ShiftReduce.sno'
--INCLUDE 'TDump.sno'
--INCLUDE 'Gen.sno'
--INCLUDE 'Qize.sno'
--INCLUDE 'XDump.sno'
--INCLUDE 'ReadWrite.sno'
--INCLUDE 'system.sno'
+-INCLUDE 'is.inc'
+-INCLUDE 'FENCE.inc'
+-INCLUDE 'io.inc'
+-INCLUDE 'assign.inc'
+-INCLUDE 'match.inc'
+-INCLUDE 'slash.inc'
+-INCLUDE 'case.inc'
+-INCLUDE 'export.inc'
+-INCLUDE 'counter.inc'
+-INCLUDE 'stack.inc'
+-INCLUDE 'tree.inc'
+-INCLUDE 'ShiftReduce.inc'
+-INCLUDE 'TDump.inc'
+-INCLUDE 'Gen.inc'
+-INCLUDE 'Qize.inc'
+-INCLUDE 'XDump.inc'
+-INCLUDE 'ReadWrite.inc'
+-INCLUDE 'system.inc'
 *------------ --------------------------------------------------------------------- -----------------
               DEFINE('mkdir(dirnm,options)lsResponse')
               mkdirs         =   TABLE()                                            :(mkdir_end)
@@ -111,4 +111,4 @@ Vector5       n              =   LT(n, aMax) n + 1                              
               Vector[n]      =   a[n + 1, 2]                                        :S(Vector5)F(error)
 VectorEnd
 *------------ --------------------------------------------------------------------- -----------------
--INCLUDE 'datetime.sno'
+-INCLUDE 'datetime.inc'

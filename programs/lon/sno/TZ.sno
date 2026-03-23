@@ -3,8 +3,8 @@
 * Author: Lon Cherryholmes
 *-------------------------------------------------------------------------------------------------------------------------
 START
--INCLUDE 'portable.sno'
--INCLUDE 'transl8.sno'
+-INCLUDE 'portable.inc'
+-INCLUDE 'transl8.inc'
 -INCLUDE 'transl8tweetish.sno'
 *-INCLUDE 'transl8html.sno'
 *-INCLUDE 'transl8ebnf.sno'

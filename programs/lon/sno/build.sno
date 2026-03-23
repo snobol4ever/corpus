@@ -4,12 +4,12 @@
 * %date_modified: Tue Jun 19 15:08:11 2001 %
 *----------------------------------------------------------------------------------------------------------
 START
--INCLUDE    'utility.sno'
--INCLUDE    'dsw.sno'
+-INCLUDE    'utility.inc'
+-INCLUDE    'dsw.inc'
 -INCLUDE    'nmake.sno'
--INCLUDE    'ss.sno'
--INCLUDE    'build.sno'
--INCLUDE    'ini.sno'
+-INCLUDE    'ss.inc'
+-INCLUDE    'build.inc'
+-INCLUDE    'ini.inc'
 *----------------------------------------------------------------------------------------------------------
     ContinuusFileinfo = 'build.sno %version: 10 %	%date_modified: Tue Jun 19 15:08:11 2001 %'
 *----------------------------------------------------------------------------------------------------------

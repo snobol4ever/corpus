@@ -1,6 +1,6 @@
--INCLUDE 'case.sno'
--INCLUDE 'match.sno'
--INCLUDE 'WordNet.sno'
+-INCLUDE 'case.inc'
+-INCLUDE 'match.inc'
+-INCLUDE 'WordNet.inc'
 *---------- ----------------- ----- -------------------------------------------------------- -----------------------------
             DEFINE('Quotize(pattern)')
             OPSYN('=', 'Quotize', 1)                                                         :S(QuotizeEnd)F(error)

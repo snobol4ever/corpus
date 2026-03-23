@@ -1,7 +1,7 @@
 *-------------------------------------------------------------------------------------------------------------------
 START
--INCLUDE    'global.sno'
--INCLUDE    'utility.sno'
+-INCLUDE    'global.inc'
+-INCLUDE    'utility.inc'
 *------------- ------------------- --- ------------------------------- ----------------------------------------------------
                DEFINE('RunCmd(cmd)runInput')                           :(RunCmdEnd)
 RunCmd         INPUT(.runInput, 6, '!!' cmd)                           :F(FRETURN)

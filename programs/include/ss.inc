@@ -1,7 +1,7 @@
 *---------------------------------------------------------------------------------------------------------------
--INCLUDE 'case.sno'
--INCLUDE 'datetime.sno'
--INCLUDE 'splitname.sno'
+-INCLUDE 'case.inc'
+-INCLUDE 'datetime.inc'
+-INCLUDE 'splitname.inc'
 *---------------------------------------------------------------------------------------------------------------
                SSINIENV                 =   TABLE()
                SSINIENV['SNOBOL4']      =   'SNOBOL4'

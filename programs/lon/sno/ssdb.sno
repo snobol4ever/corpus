@@ -1,9 +1,9 @@
 *----------------------------------------------------------------------------------------------------------
 START
--INCLUDE    'utility.sno'
--INCLUDE    'ini.sno'
--INCLUDE    'ss.sno'
--INCLUDE    'build.sno'
+-INCLUDE    'utility.inc'
+-INCLUDE    'ini.inc'
+-INCLUDE    'ss.inc'
+-INCLUDE    'build.inc'
 *---------- ----------------- ----- -------------------------------------------------------- -----------------------------
             DEFINE('SSdbCmnt(ssNm)ssdb,ssLNm,ssdbTbl,ver,verTbl')                            :(SSdbCmntEnd)
 SSdbCmnt    ssdbTbl           =     SSdbRead(bldSSdb, bldSSRootProj)

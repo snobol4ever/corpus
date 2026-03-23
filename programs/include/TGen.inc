@@ -1,8 +1,8 @@
 *---------------------------------------------------------------------------------------------------
 * This program will generate random test strings given a grammar.
 *---------------------------------------------------------------------------------------------------
--INCLUDE 'tree.sno'
--INCLUDE 'RANDOM.sno'
+-INCLUDE 'tree.inc'
+-INCLUDE 'RANDOM.inc'
 *---------------------------------------------------------------------------------------------------
                DEFINE('LookUp(bnf,name)i,tProd,tName,tBody')                  :(LookUpEnd)
 LookUp         IDENT(t(bnf), 'productions')                                   :F(error)
