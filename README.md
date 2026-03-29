@@ -1,4 +1,4 @@
-# snobol4corpus
+# corpus
 
 [![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
 
@@ -39,14 +39,14 @@ CSNOBOL4 resolves `-include` files via (in order):
 To use the `lib/` standard library without a path prefix:
 
 ```bash
-export SNOPATH=/path/to/snobol4corpus/lib
+export SNOPATH=/path/to/corpus/lib
 snobol4 -f myprogram.sno
 ```
 
 Or invoke directly:
 
 ```bash
-snobol4 -I /path/to/snobol4corpus/lib -f myprogram.sno
+snobol4 -I /path/to/corpus/lib -f myprogram.sno
 ```
 
 ---
@@ -54,7 +54,7 @@ snobol4 -I /path/to/snobol4corpus/lib -f myprogram.sno
 ## Layout
 
 ```
-snobol4corpus/
+corpus/
 │
 ├── lib/                 ← Standard library (.inc files, -include by name)
 │   ├── stack.inc        ← stack_push/pop/peek/top/depth
