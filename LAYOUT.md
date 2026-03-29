@@ -1,10 +1,10 @@
-# snobol4corpus Layout
+# corpus Layout
 
 All SNOBOL4 source programs live here. One canonical home per file.
 Engine repos do not keep their own copies.
 
 ```
-snobol4corpus/
+corpus/
 │
 ├── crosscheck/          ← PRIMARY harness feed — self-contained, deterministic, fast
 │   ├── hello/           ← smoke tests: hello world, empty string, multi-line output

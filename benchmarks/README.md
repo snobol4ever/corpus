@@ -1,4 +1,4 @@
-# snobol4corpus / benchmarks
+# corpus / benchmarks
 
 Canonical benchmark programs for all snobol4ever implementations.
 
