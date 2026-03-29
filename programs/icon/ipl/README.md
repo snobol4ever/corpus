@@ -3,7 +3,7 @@
 Source: Icon 9.5.20b distribution (`icon-master`), IPL subdirectory.
 Copied verbatim — no modifications. 851 `.icn` files total.
 
-These are the canonical reference programs for the Tiny-ICON frontend.
+These are the canonical reference programs for the Icon frontend.
 They serve as:
 - Oracle inputs (run through `icont`/`iconx` to generate expected output)
 - Feature coverage targets for rung 4+ corpus expansion
