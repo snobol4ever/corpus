@@ -18,7 +18,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 # Defaults
-SNO2C="${SNO2C:-$REPO_ROOT/../one4all/src/scrip-cc/scrip-cc}"
+SCRIP_CC="${SCRIP_CC:-$REPO_ROOT/../one4all/src/scrip-cc/scrip-cc}"
 RUNTIME="$REPO_ROOT/../one4all/src/runtime"
 FILTER="${1:-}"
 TMPDIR_RUN=$(mktemp -d)
@@ -29,8 +29,8 @@ PASS=0; FAIL=0; SKIP=0; ERROR=0
 # Colors
 GREEN='\033[0;32m'; RED='\033[0;31m'; YELLOW='\033[0;33m'; RESET='\033[0m'
 
-if [[ ! -x "$SNO2C" ]]; then
-    echo "ERROR: scrip-cc not found at $SNO2C"
+if [[ ! -x "$SCRIP_CC" ]]; then
+    echo "ERROR: scrip-cc not found at $SCRIP_CC"
     echo "Build with: make -C ../one4all/src/scrip-cc"
     exit 1
 fi
@@ -48,7 +48,7 @@ run_test() {
     local bin="$TMPDIR_RUN/${name}"
 
     # Compile SNOBOL4 → C
-    if ! "$SNO2C" "$sno" > "$c_file" 2>/dev/null; then
+    if ! "$SCRIP_CC" "$sno" > "$c_file" 2>/dev/null; then
         echo -e "${RED}FAIL${RESET} $name  [scrip-cc error]"
         FAIL=$((FAIL+1)); return
     fi
@@ -81,7 +81,7 @@ run_test() {
 }
 
 echo "=== one4all crosscheck ==="
-echo "scrip-cc: $SNO2C"
+echo "scrip-cc: $SCRIP_CC"
 echo ""
 
 DIRS=(output assign concat arith_new control_new patterns capture strings functions data keywords)
