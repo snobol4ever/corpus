@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-# run_all.sh — snobol4x crosscheck harness
+# run_all.sh — one4all crosscheck harness
 #
-# Runs every .sno file through sno2c, compiles the C, runs the binary,
+# Runs every .sno file through scrip-cc, compiles the C, runs the binary,
 # diffs output against the .ref oracle. Pass = green, fail = red.
 #
 # Usage:
-#   bash run_all.sh [--sno2c path/to/sno2c] [--filter pattern]
+#   bash run_all.sh [--scrip-cc path/to/scrip-cc] [--filter pattern]
 #
 # Dependencies:
-#   sno2c     — snobol4x compiler (default: ../snobol4x/src/sno2c/sno2c)
+#   scrip-cc     — one4all compiler (default: ../one4all/src/scrip-cc/scrip-cc)
 #   gcc       — C compiler with -lgc available
 #   libgc-dev — Boehm GC
 
@@ -18,8 +18,8 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 # Defaults
-SNO2C="${SNO2C:-$REPO_ROOT/../snobol4x/src/sno2c/sno2c}"
-RUNTIME="$REPO_ROOT/../snobol4x/src/runtime"
+SNO2C="${SNO2C:-$REPO_ROOT/../one4all/src/scrip-cc/scrip-cc}"
+RUNTIME="$REPO_ROOT/../one4all/src/runtime"
 FILTER="${1:-}"
 TMPDIR_RUN=$(mktemp -d)
 trap "rm -rf $TMPDIR_RUN" EXIT
@@ -30,8 +30,8 @@ PASS=0; FAIL=0; SKIP=0; ERROR=0
 GREEN='\033[0;32m'; RED='\033[0;31m'; YELLOW='\033[0;33m'; RESET='\033[0m'
 
 if [[ ! -x "$SNO2C" ]]; then
-    echo "ERROR: sno2c not found at $SNO2C"
-    echo "Build with: make -C ../snobol4x/src/sno2c"
+    echo "ERROR: scrip-cc not found at $SNO2C"
+    echo "Build with: make -C ../one4all/src/scrip-cc"
     exit 1
 fi
 
@@ -49,7 +49,7 @@ run_test() {
 
     # Compile SNOBOL4 → C
     if ! "$SNO2C" "$sno" > "$c_file" 2>/dev/null; then
-        echo -e "${RED}FAIL${RESET} $name  [sno2c error]"
+        echo -e "${RED}FAIL${RESET} $name  [scrip-cc error]"
         FAIL=$((FAIL+1)); return
     fi
 
@@ -80,8 +80,8 @@ run_test() {
     fi
 }
 
-echo "=== snobol4x crosscheck ==="
-echo "sno2c: $SNO2C"
+echo "=== one4all crosscheck ==="
+echo "scrip-cc: $SNO2C"
 echo ""
 
 DIRS=(output assign concat arith_new control_new patterns capture strings functions data keywords)
