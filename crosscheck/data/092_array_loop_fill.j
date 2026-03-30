@@ -163,12 +163,12 @@ L_FILL:
     dload 2
     dcmpl
     ifne Larf_0
-    lload 4
-    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
+    dload 2
+    invokestatic _92_array_loop_fill/sno_fmt_double(D)Ljava/lang/String;
     goto Lard_0
 Larf_0:
     dload 2
-    invokestatic java/lang/Double/toString(D)Ljava/lang/String;
+    invokestatic _92_array_loop_fill/sno_fmt_double(D)Ljava/lang/String;
 Lard_0:
     invokestatic _92_array_loop_fill/sno_array_put(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 ; unhandled stmt form
@@ -193,12 +193,12 @@ Lard_0:
     dload 2
     dcmpl
     ifne Larf_1
-    lload 4
-    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
+    dload 2
+    invokestatic _92_array_loop_fill/sno_fmt_double(D)Ljava/lang/String;
     goto Lard_1
 Larf_1:
     dload 2
-    invokestatic java/lang/Double/toString(D)Ljava/lang/String;
+    invokestatic _92_array_loop_fill/sno_fmt_double(D)Ljava/lang/String;
 Lard_1:
     dup
     ifnonnull Lvar_ok_2
@@ -290,12 +290,12 @@ Lout_fail_0:
     dload 2
     dcmpl
     ifne Larf_2
-    lload 4
-    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
+    dload 2
+    invokestatic _92_array_loop_fill/sno_fmt_double(D)Ljava/lang/String;
     goto Lard_2
 Larf_2:
     dload 2
-    invokestatic java/lang/Double/toString(D)Ljava/lang/String;
+    invokestatic _92_array_loop_fill/sno_fmt_double(D)Ljava/lang/String;
 Lard_2:
     dup
     ifnonnull Lvar_ok_4
@@ -352,6 +352,30 @@ L_END:
 Lsno_pd_zero:
     dconst_0
     dreturn
+.end method
+
+.method static sno_fmt_double(D)Ljava/lang/String;
+    .limit stack 6
+    .limit locals 4
+    dload_0
+    dstore_0
+    dload_0
+    d2l
+    lstore_2
+    lload_2
+    l2d
+    dload_0
+    dcmpl
+    ifne Lsfd_frac
+    lload_2
+    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
+    ldc "."
+    invokevirtual java/lang/String/concat(Ljava/lang/String;)Ljava/lang/String;
+    areturn
+Lsfd_frac:
+    dload_0
+    invokestatic java/lang/Double/toString(D)Ljava/lang/String;
+    areturn
 .end method
 
 .method static sno_str_eq(Ljava/lang/String;Ljava/lang/String;)Z

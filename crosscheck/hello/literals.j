@@ -175,12 +175,12 @@ Lout_fail_3:
     dload 2
     dcmpl
     ifne Lmnsf_0
-    lload 4
-    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
+    dload 2
+    invokestatic literals/sno_fmt_double(D)Ljava/lang/String;
     goto Lmnsd_0
 Lmnsf_0:
     dload 2
-    invokestatic java/lang/Double/toString(D)Ljava/lang/String;
+    invokestatic literals/sno_fmt_double(D)Ljava/lang/String;
 Lmnsd_0:
     dup
     ifnonnull Lout_ok_4
@@ -300,12 +300,12 @@ Lout_fail_10:
     dload 2
     dcmpl
     ifne Larf_0
-    lload 4
-    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
+    dload 2
+    invokestatic literals/sno_fmt_double(D)Ljava/lang/String;
     goto Lard_0
 Larf_0:
     dload 2
-    invokestatic java/lang/Double/toString(D)Ljava/lang/String;
+    invokestatic literals/sno_fmt_double(D)Ljava/lang/String;
 Lard_0:
     dup
     ifnonnull Lout_ok_11
@@ -335,12 +335,12 @@ Lout_fail_11:
     dload 2
     dcmpl
     ifne Larf_1
-    lload 4
-    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
+    dload 2
+    invokestatic literals/sno_fmt_double(D)Ljava/lang/String;
     goto Lard_1
 Larf_1:
     dload 2
-    invokestatic java/lang/Double/toString(D)Ljava/lang/String;
+    invokestatic literals/sno_fmt_double(D)Ljava/lang/String;
 Lard_1:
     dup
     ifnonnull Lout_ok_12
@@ -370,12 +370,12 @@ Lout_fail_12:
     dload 2
     dcmpl
     ifne Larf_2
-    lload 4
-    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
+    dload 2
+    invokestatic literals/sno_fmt_double(D)Ljava/lang/String;
     goto Lard_2
 Larf_2:
     dload 2
-    invokestatic java/lang/Double/toString(D)Ljava/lang/String;
+    invokestatic literals/sno_fmt_double(D)Ljava/lang/String;
 Lard_2:
     dup
     ifnonnull Lout_ok_13
@@ -553,12 +553,12 @@ Lout_fail_17:
     dload 2
     dcmpl
     ifne Larf_3
-    lload 4
-    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
+    dload 2
+    invokestatic literals/sno_fmt_double(D)Ljava/lang/String;
     goto Lard_3
 Larf_3:
     dload 2
-    invokestatic java/lang/Double/toString(D)Ljava/lang/String;
+    invokestatic literals/sno_fmt_double(D)Ljava/lang/String;
 Lard_3:
     dup
     ifnonnull Lout_ok_18
@@ -590,12 +590,12 @@ Lout_fail_18:
     dload 2
     dcmpl
     ifne Larf_4
-    lload 4
-    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
+    dload 2
+    invokestatic literals/sno_fmt_double(D)Ljava/lang/String;
     goto Lard_4
 Larf_4:
     dload 2
-    invokestatic java/lang/Double/toString(D)Ljava/lang/String;
+    invokestatic literals/sno_fmt_double(D)Ljava/lang/String;
 Lard_4:
     invokestatic literals/sno_to_double(Ljava/lang/String;)D
     dadd
@@ -608,12 +608,12 @@ Lard_4:
     dload 2
     dcmpl
     ifne Larf_5
-    lload 4
-    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
+    dload 2
+    invokestatic literals/sno_fmt_double(D)Ljava/lang/String;
     goto Lard_5
 Larf_5:
     dload 2
-    invokestatic java/lang/Double/toString(D)Ljava/lang/String;
+    invokestatic literals/sno_fmt_double(D)Ljava/lang/String;
 Lard_5:
     dup
     ifnonnull Lout_ok_19
@@ -643,12 +643,12 @@ Lout_fail_19:
     dload 2
     dcmpl
     ifne Larf_6
-    lload 4
-    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
+    dload 2
+    invokestatic literals/sno_fmt_double(D)Ljava/lang/String;
     goto Lard_6
 Larf_6:
     dload 2
-    invokestatic java/lang/Double/toString(D)Ljava/lang/String;
+    invokestatic literals/sno_fmt_double(D)Ljava/lang/String;
 Lard_6:
     invokestatic literals/sno_to_double(Ljava/lang/String;)D
     ldc "3"
@@ -663,12 +663,12 @@ Lard_6:
     dload 2
     dcmpl
     ifne Larf_7
-    lload 4
-    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
+    dload 2
+    invokestatic literals/sno_fmt_double(D)Ljava/lang/String;
     goto Lard_7
 Larf_7:
     dload 2
-    invokestatic java/lang/Double/toString(D)Ljava/lang/String;
+    invokestatic literals/sno_fmt_double(D)Ljava/lang/String;
 Lard_7:
     dup
     ifnonnull Lout_ok_20
@@ -700,12 +700,12 @@ Lout_fail_20:
     dload 2
     dcmpl
     ifne Larf_8
-    lload 4
-    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
+    dload 2
+    invokestatic literals/sno_fmt_double(D)Ljava/lang/String;
     goto Lard_8
 Larf_8:
     dload 2
-    invokestatic java/lang/Double/toString(D)Ljava/lang/String;
+    invokestatic literals/sno_fmt_double(D)Ljava/lang/String;
 Lard_8:
     invokestatic literals/sno_to_double(Ljava/lang/String;)D
     dadd
@@ -718,12 +718,12 @@ Lard_8:
     dload 2
     dcmpl
     ifne Larf_9
-    lload 4
-    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
+    dload 2
+    invokestatic literals/sno_fmt_double(D)Ljava/lang/String;
     goto Lard_9
 Larf_9:
     dload 2
-    invokestatic java/lang/Double/toString(D)Ljava/lang/String;
+    invokestatic literals/sno_fmt_double(D)Ljava/lang/String;
 Lard_9:
     dup
     ifnonnull Lout_ok_21
@@ -755,6 +755,30 @@ L_END:
 Lsno_pd_zero:
     dconst_0
     dreturn
+.end method
+
+.method static sno_fmt_double(D)Ljava/lang/String;
+    .limit stack 6
+    .limit locals 4
+    dload_0
+    dstore_0
+    dload_0
+    d2l
+    lstore_2
+    lload_2
+    l2d
+    dload_0
+    dcmpl
+    ifne Lsfd_frac
+    lload_2
+    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
+    ldc "."
+    invokevirtual java/lang/String/concat(Ljava/lang/String;)Ljava/lang/String;
+    areturn
+Lsfd_frac:
+    dload_0
+    invokestatic java/lang/Double/toString(D)Ljava/lang/String;
+    areturn
 .end method
 
 .method static sno_str_eq(Ljava/lang/String;Ljava/lang/String;)Z
