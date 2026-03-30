@@ -358,9 +358,9 @@ Lvar_ok_4:
     ldc "bump"
     swap
     invokestatic _84_define_loop_call/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
-    goto Jfn0_return
+    goto sno_fn0_return
 Lvar_fail_4:
-Jfn0_return:
+sno_fn0_return:
     ldc "v"
     aload 1
     invokestatic _84_define_loop_call/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -370,7 +370,7 @@ Jfn0_return:
     aload 2
     invokestatic _84_define_loop_call/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn0_freturn:
+sno_fn0_freturn:
     ldc "v"
     aload 1
     invokestatic _84_define_loop_call/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V

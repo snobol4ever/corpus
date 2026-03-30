@@ -492,7 +492,7 @@ Lout_ok_8:
     swap
     invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
 Lout_fail_8:
-Jfn0_return:
+sno_fn0_return:
     ldc "a"
     aload 3
     invokestatic _017_arg_local/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -517,7 +517,7 @@ Jfn0_return:
     aload 9
     invokestatic _017_arg_local/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn0_freturn:
+sno_fn0_freturn:
     ldc "a"
     aload 3
     invokestatic _017_arg_local/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V

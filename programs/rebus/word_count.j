@@ -259,14 +259,14 @@ Lf0_rb_7:
     invokestatic word_count/sno_stcount_tick()V
     ldc ""
     pop
-Jfn0_return:
+sno_fn0_return:
     ldc "MAIN"
     invokestatic word_count/sno_indr_get(Ljava/lang/String;)Ljava/lang/String;
     ldc "MAIN"
     aload 0
     invokestatic word_count/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn0_freturn:
+sno_fn0_freturn:
     ldc "MAIN"
     aload 0
     invokestatic word_count/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V

@@ -303,16 +303,16 @@ Lvar_ok_1:
     ldc "ref_a"
     swap
     invokestatic _013_func_nreturn/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
-    goto Jfn0_return
+    goto sno_fn0_return
 Lvar_fail_1:
-Jfn0_return:
+sno_fn0_return:
     ldc "ref_a"
     invokestatic _013_func_nreturn/sno_indr_get(Ljava/lang/String;)Ljava/lang/String;
     ldc "ref_a"
     aload 0
     invokestatic _013_func_nreturn/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn0_freturn:
+sno_fn0_freturn:
     ldc "ref_a"
     aload 0
     invokestatic _013_func_nreturn/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V

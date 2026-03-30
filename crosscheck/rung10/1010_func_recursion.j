@@ -501,7 +501,7 @@ Lvar_ok_2:
     ldc "fact"
     swap
     invokestatic _010_func_recursion/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
-    goto Jfn0_return
+    goto sno_fn0_return
 Lvar_fail_2:
     getstatic _010_func_recursion/sno_kw_STNO I
     iconst_1
@@ -560,9 +560,9 @@ Lvar_ok_3:
     ldc "fact"
     swap
     invokestatic _010_func_recursion/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
-    goto Jfn0_return
+    goto sno_fn0_return
 Lvar_fail_3:
-Jfn0_return:
+sno_fn0_return:
     ldc "n"
     aload 1
     invokestatic _010_func_recursion/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -572,7 +572,7 @@ Jfn0_return:
     aload 2
     invokestatic _010_func_recursion/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn0_freturn:
+sno_fn0_freturn:
     ldc "n"
     aload 1
     invokestatic _010_func_recursion/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -599,7 +599,7 @@ Jfn0_freturn:
     ldc "fact2"
     ldc ""
     invokestatic _010_func_recursion/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
-Jfn1_return:
+sno_fn1_return:
     ldc "n"
     aload 1
     invokestatic _010_func_recursion/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -609,7 +609,7 @@ Jfn1_return:
     aload 2
     invokestatic _010_func_recursion/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn1_freturn:
+sno_fn1_freturn:
     ldc "n"
     aload 1
     invokestatic _010_func_recursion/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V

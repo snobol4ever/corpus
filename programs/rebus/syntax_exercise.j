@@ -1592,7 +1592,7 @@ Jpat4_fail:
     invokestatic syntax_exercise/sno_stcount_tick()V
     ldc ""
     pop
-Jfn0_return:
+sno_fn0_return:
     ldc "/I"
     aload 0
     invokestatic syntax_exercise/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -1614,7 +1614,7 @@ Jfn0_return:
     aload 5
     invokestatic syntax_exercise/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn0_freturn:
+sno_fn0_freturn:
     ldc "/I"
     aload 0
     invokestatic syntax_exercise/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -1715,7 +1715,7 @@ Lf1_rb_63:
     invokestatic syntax_exercise/sno_stcount_tick()V
     ldc ""
     pop
-Jfn1_return:
+sno_fn1_return:
     ldc "N"
     aload 1
     invokestatic syntax_exercise/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -1725,7 +1725,7 @@ Jfn1_return:
     aload 2
     invokestatic syntax_exercise/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn1_freturn:
+sno_fn1_freturn:
     ldc "N"
     aload 1
     invokestatic syntax_exercise/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -1935,7 +1935,7 @@ Lf2_rb_73:
     invokestatic syntax_exercise/sno_stcount_tick()V
     ldc ""
     pop
-Jfn2_return:
+sno_fn2_return:
     ldc "N"
     aload 1
     invokestatic syntax_exercise/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -1954,7 +1954,7 @@ Jfn2_return:
     aload 5
     invokestatic syntax_exercise/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn2_freturn:
+sno_fn2_freturn:
     ldc "N"
     aload 1
     invokestatic syntax_exercise/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
