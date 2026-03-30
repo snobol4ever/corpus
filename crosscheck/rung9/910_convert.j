@@ -94,7 +94,9 @@ Lsmi_done:
     putstatic _10_convert/sno_kw_STNO I
     invokestatic _10_convert/sno_stcount_tick()V
     ldc "12"
-    invokestatic _10_convert/sno_convert_table(Ljava/lang/String;)Ljava/lang/String;
+    invokestatic _10_convert/sno_to_double(Ljava/lang/String;)D
+    d2l
+    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
     dup
     ifnonnull Ldiff_n0_0
     pop
@@ -145,7 +147,9 @@ L_e001:
     putstatic _10_convert/sno_kw_STNO I
     invokestatic _10_convert/sno_stcount_tick()V
     ldc "2.5"
-    invokestatic _10_convert/sno_convert_table(Ljava/lang/String;)Ljava/lang/String;
+    invokestatic _10_convert/sno_to_double(Ljava/lang/String;)D
+    d2l
+    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
     dup
     ifnonnull Ldiff_n0_1
     pop
@@ -196,7 +200,8 @@ L_e002:
     putstatic _10_convert/sno_kw_STNO I
     invokestatic _10_convert/sno_stcount_tick()V
     ldc "2"
-    invokestatic _10_convert/sno_convert_table(Ljava/lang/String;)Ljava/lang/String;
+    invokestatic _10_convert/sno_to_double(Ljava/lang/String;)D
+    invokestatic _10_convert/sno_fmt_double(D)Ljava/lang/String;
     dup
     ifnonnull Ldiff_n0_2
     pop
@@ -247,7 +252,8 @@ L_e003:
     putstatic _10_convert/sno_kw_STNO I
     invokestatic _10_convert/sno_stcount_tick()V
     ldc ".2"
-    invokestatic _10_convert/sno_convert_table(Ljava/lang/String;)Ljava/lang/String;
+    invokestatic _10_convert/sno_to_double(Ljava/lang/String;)D
+    invokestatic _10_convert/sno_fmt_double(D)Ljava/lang/String;
     dup
     ifnonnull Ldiff_n0_3
     pop
@@ -313,6 +319,47 @@ L_END:
 ; program end
     return
 .end method
+.method static sno_to_double(Ljava/lang/String;)D
+    .limit stack 4
+    .limit locals 1
+    aload_0
+    ifnull Lsno_pd_zero
+    aload_0
+    invokevirtual java/lang/String/trim()Ljava/lang/String;
+    invokevirtual java/lang/String/isEmpty()Z
+    ifne Lsno_pd_zero
+    aload_0
+    invokestatic java/lang/Double/parseDouble(Ljava/lang/String;)D
+    dreturn
+Lsno_pd_zero:
+    dconst_0
+    dreturn
+.end method
+
+.method static sno_fmt_double(D)Ljava/lang/String;
+    .limit stack 6
+    .limit locals 4
+    dload_0
+    dstore_0
+    dload_0
+    d2l
+    lstore_2
+    lload_2
+    l2d
+    dload_0
+    dcmpl
+    ifne Lsfd_frac
+    lload_2
+    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
+    ldc "."
+    invokevirtual java/lang/String/concat(Ljava/lang/String;)Ljava/lang/String;
+    areturn
+Lsfd_frac:
+    dload_0
+    invokestatic java/lang/Double/toString(D)Ljava/lang/String;
+    areturn
+.end method
+
 .method static sno_str_eq(Ljava/lang/String;Ljava/lang/String;)Z
     .limit stack 4
     .limit locals 2
@@ -576,189 +623,5 @@ Lsig_done_indr:
     invokevirtual java/util/HashMap/put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     pop
     return
-.end method
-
-.method static sno_array_new(Ljava/lang/String;)Ljava/lang/String;
-    .limit stack 6
-    .limit locals 2
-    new java/util/HashMap
-    dup
-    invokespecial java/util/HashMap/<init>()V
-    astore_1
-    aload_1
-    invokestatic java/lang/System/identityHashCode(Ljava/lang/Object;)I
-    invokestatic java/lang/Integer/toString(I)Ljava/lang/String;
-    dup
-    getstatic _10_convert/sno_arrays Ljava/util/HashMap;
-    swap
-    aload_1
-    invokevirtual java/util/HashMap/put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    pop
-    areturn
-.end method
-
-.method static sno_array_new2(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .limit stack 8
-    .limit locals 6
-    new java/util/HashMap
-    dup
-    invokespecial java/util/HashMap/<init>()V
-    astore_2
-    aload_2
-    invokestatic java/lang/System/identityHashCode(Ljava/lang/Object;)I
-    invokestatic java/lang/Integer/toString(I)Ljava/lang/String;
-    astore_3
-    getstatic _10_convert/sno_arrays Ljava/util/HashMap;
-    aload_3
-    aload_2
-    invokevirtual java/util/HashMap/put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    pop
-    aload_0
-    invokestatic java/lang/Double/parseDouble(Ljava/lang/String;)D
-    d2i
-    istore 4
-    aload_1
-    invokevirtual java/lang/String/isEmpty()Z
-    ifne La2_done
-    iconst_1
-    istore 5
-La2_loop:
-    iload 5
-    iload 4
-    if_icmpgt La2_done
-    aload_2
-    iload 5
-    invokestatic java/lang/Integer/toString(I)Ljava/lang/String;
-    aload_1
-    invokevirtual java/util/HashMap/put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    pop
-    iinc 5 1
-    goto La2_loop
-La2_done:
-    aload_3
-    areturn
-.end method
-
-.method static sno_table_new()Ljava/lang/String;
-    .limit stack 6
-    .limit locals 2
-    new java/util/HashMap
-    dup
-    invokespecial java/util/HashMap/<init>()V
-    astore_0
-    aload_0
-    invokestatic java/lang/System/identityHashCode(Ljava/lang/Object;)I
-    invokestatic java/lang/Integer/toString(I)Ljava/lang/String;
-    dup
-    getstatic _10_convert/sno_arrays Ljava/util/HashMap;
-    swap
-    aload_0
-    invokevirtual java/util/HashMap/put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    pop
-    areturn
-.end method
-
-.method static sno_array_get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .limit stack 4
-    .limit locals 3
-    getstatic _10_convert/sno_arrays Ljava/util/HashMap;
-    aload_0
-    invokevirtual java/util/HashMap/get(Ljava/lang/Object;)Ljava/lang/Object;
-    checkcast java/util/HashMap
-    astore_2
-    aload_2
-    ifnull Lag_null
-    aload_2
-    aload_1
-    invokevirtual java/util/HashMap/get(Ljava/lang/Object;)Ljava/lang/Object;
-    checkcast java/lang/String
-    areturn
-Lag_null:
-    aconst_null
-    areturn
-.end method
-
-.method static sno_array_put(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .limit stack 4
-    .limit locals 4
-    getstatic _10_convert/sno_arrays Ljava/util/HashMap;
-    aload_0
-    invokevirtual java/util/HashMap/get(Ljava/lang/Object;)Ljava/lang/Object;
-    checkcast java/util/HashMap
-    astore_3
-    aload_3
-    ifnull Lap_done
-    aload_3
-    aload_1
-    aload_2
-    invokevirtual java/util/HashMap/put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    pop
-Lap_done:
-    return
-.end method
-
-.method static sno_convert_table(Ljava/lang/String;)Ljava/lang/String;
-    .limit stack 8
-    .limit locals 8
-    getstatic _10_convert/sno_arrays Ljava/util/HashMap;
-    aload_0
-    invokevirtual java/util/HashMap/get(Ljava/lang/Object;)Ljava/lang/Object;
-    checkcast java/util/HashMap
-    astore_1
-    aload_1
-    ifnonnull Lct_have_table
-    ldc ""
-    areturn
-Lct_have_table:
-    aload_1
-    invokevirtual java/util/HashMap/size()I
-    istore 4
-    iload 4
-    invokestatic java/lang/Integer/toString(I)Ljava/lang/String;
-    ldc "2"
-    invokestatic _10_convert/sno_array_new2(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    astore 5
-    aload_1
-    invokevirtual java/util/HashMap/entrySet()Ljava/util/Set;
-    invokeinterface java/util/Set/iterator()Ljava/util/Iterator; 1
-    astore_3
-    iconst_0
-    istore 4
-Lct_loop:
-    aload_3
-    invokeinterface java/util/Iterator/hasNext()Z 1
-    ifeq Lct_done
-    iinc 4 1
-    aload_3
-    invokeinterface java/util/Iterator/next()Ljava/lang/Object; 1
-    checkcast java/util/Map$Entry
-    astore 6
-    aload 5
-    iload 4
-    invokestatic java/lang/Integer/toString(I)Ljava/lang/String;
-    ldc ",1"
-    invokevirtual java/lang/String/concat(Ljava/lang/String;)Ljava/lang/String;
-    aload 6
-    invokeinterface java/util/Map$Entry/getKey()Ljava/lang/Object; 1
-    checkcast java/lang/String
-    invokestatic _10_convert/sno_array_put(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    aload 5
-    iload 4
-    invokestatic java/lang/Integer/toString(I)Ljava/lang/String;
-    ldc ",2"
-    invokevirtual java/lang/String/concat(Ljava/lang/String;)Ljava/lang/String;
-    aload 6
-    invokeinterface java/util/Map$Entry/getValue()Ljava/lang/Object; 1
-    checkcast java/lang/String
-    invokestatic _10_convert/sno_array_put(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    goto Lct_loop
-Lct_done:
-    aload 5
-    ldc "__nrows__"
-    iload 4
-    invokestatic java/lang/Integer/toString(I)Ljava/lang/String;
-    invokestatic _10_convert/sno_array_put(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    aload 5
-    areturn
 .end method
 

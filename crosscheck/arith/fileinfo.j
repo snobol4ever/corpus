@@ -144,12 +144,12 @@ Jhoist0_ok:
     dload 2
     dcmpl
     ifne Larf_0
-    lload 4
-    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
+    dload 2
+    invokestatic fileinfo/sno_fmt_double(D)Ljava/lang/String;
     goto Lard_0
 Larf_0:
     dload 2
-    invokestatic java/lang/Double/toString(D)Ljava/lang/String;
+    invokestatic fileinfo/sno_fmt_double(D)Ljava/lang/String;
 Lard_0:
     dup
     ifnonnull Lvar_ok_0
@@ -180,12 +180,12 @@ Lvar_fail_0:
     dload 2
     dcmpl
     ifne Larf_1
-    lload 4
-    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
+    dload 2
+    invokestatic fileinfo/sno_fmt_double(D)Ljava/lang/String;
     goto Lard_1
 Larf_1:
     dload 2
-    invokestatic java/lang/Double/toString(D)Ljava/lang/String;
+    invokestatic fileinfo/sno_fmt_double(D)Ljava/lang/String;
 Lard_1:
     dup
     ifnonnull Lvar_ok_1
@@ -277,6 +277,30 @@ L_END:
 Lsno_pd_zero:
     dconst_0
     dreturn
+.end method
+
+.method static sno_fmt_double(D)Ljava/lang/String;
+    .limit stack 6
+    .limit locals 4
+    dload_0
+    dstore_0
+    dload_0
+    d2l
+    lstore_2
+    lload_2
+    l2d
+    dload_0
+    dcmpl
+    ifne Lsfd_frac
+    lload_2
+    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
+    ldc "."
+    invokevirtual java/lang/String/concat(Ljava/lang/String;)Ljava/lang/String;
+    areturn
+Lsfd_frac:
+    dload_0
+    invokestatic java/lang/Double/toString(D)Ljava/lang/String;
+    areturn
 .end method
 
 .method static sno_str_eq(Ljava/lang/String;Ljava/lang/String;)Z

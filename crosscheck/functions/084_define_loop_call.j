@@ -195,12 +195,12 @@ Lconc_ok_0_0:
     dload 2
     dcmpl
     ifne Larf_0
-    lload 4
-    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
+    dload 2
+    invokestatic _84_define_loop_call/sno_fmt_double(D)Ljava/lang/String;
     goto Lard_0
 Larf_0:
     dload 2
-    invokestatic java/lang/Double/toString(D)Ljava/lang/String;
+    invokestatic _84_define_loop_call/sno_fmt_double(D)Ljava/lang/String;
 Lard_0:
     invokestatic _84_define_loop_call/sno_userfn_bump(Ljava/lang/String;)Ljava/lang/String;
     dup
@@ -242,12 +242,12 @@ Lvar_fail_2:
     dload 2
     dcmpl
     ifne Larf_1
-    lload 4
-    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
+    dload 2
+    invokestatic _84_define_loop_call/sno_fmt_double(D)Ljava/lang/String;
     goto Lard_1
 Larf_1:
     dload 2
-    invokestatic java/lang/Double/toString(D)Ljava/lang/String;
+    invokestatic _84_define_loop_call/sno_fmt_double(D)Ljava/lang/String;
 Lard_1:
     dup
     ifnonnull Lvar_ok_3
@@ -343,12 +343,12 @@ Lf0_bump:
     dload 4
     dcmpl
     ifne Larf_2
-    lload 6
-    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
+    dload 4
+    invokestatic _84_define_loop_call/sno_fmt_double(D)Ljava/lang/String;
     goto Lard_2
 Larf_2:
     dload 4
-    invokestatic java/lang/Double/toString(D)Ljava/lang/String;
+    invokestatic _84_define_loop_call/sno_fmt_double(D)Ljava/lang/String;
 Lard_2:
     dup
     ifnonnull Lvar_ok_4
@@ -396,6 +396,30 @@ Jfn0_freturn:
 Lsno_pd_zero:
     dconst_0
     dreturn
+.end method
+
+.method static sno_fmt_double(D)Ljava/lang/String;
+    .limit stack 6
+    .limit locals 4
+    dload_0
+    dstore_0
+    dload_0
+    d2l
+    lstore_2
+    lload_2
+    l2d
+    dload_0
+    dcmpl
+    ifne Lsfd_frac
+    lload_2
+    invokestatic java/lang/Long/toString(J)Ljava/lang/String;
+    ldc "."
+    invokevirtual java/lang/String/concat(Ljava/lang/String;)Ljava/lang/String;
+    areturn
+Lsfd_frac:
+    dload_0
+    invokestatic java/lang/Double/toString(D)Ljava/lang/String;
+    areturn
 .end method
 
 .method static sno_str_eq(Ljava/lang/String;Ljava/lang/String;)Z
