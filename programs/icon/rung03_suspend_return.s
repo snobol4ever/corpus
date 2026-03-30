@@ -44,41 +44,41 @@ _start:
 ; === procedure double ===
     ; MUL  id=1
     ; INT 2  id=2
-icon_2_α:
+icn_2_α:
     push    2
     jmp     icon_1_compute
-icon_2_β:
+icn_2_β:
     jmp     icon_1_lb
     ; VAR n  id=3
-icon_3_α:
+icn_3_α:
     mov     rax, [rbp-8]
     push    rax
     jmp     icon_1_lstore
-icon_3_β:
+icn_3_β:
     jmp     icon_0_ret_store
 icon_1_lb:
-    jmp     icon_3_β
-icon_1_α:
+    jmp     icn_3_β
+icn_1_α:
     mov     qword [rbp-24], 0
-    jmp     icon_3_α
-icon_1_β:
+    jmp     icn_3_α
+icn_1_β:
     mov     qword [rbp-24], 1
-    jmp     icon_3_α
+    jmp     icn_3_α
 icon_1_lstore:
     pop     rax
     mov     [rbp-16], rax
     cmp     qword [rbp-24], 0
-    je      icon_2_α
-    jmp     icon_2_β
+    je      icn_2_α
+    jmp     icn_2_β
 icon_1_compute:
     pop     rax
     mov     rcx, [rbp-16]
     imul    rcx, rax
     push    rcx
     jmp     icon_0_ret_store
-icon_0_α:
-    jmp     icon_1_α
-icon_0_β:
+icn_0_α:
+    jmp     icn_1_α
+icn_0_β:
     jmp     icn_double_ret
 icon_0_ret_store:
     pop     rax
@@ -91,7 +91,7 @@ icn_double:
     sub     rsp, 32
     call    icn_pop
     mov     [rbp-8], rax
-    jmp     icon_0_α
+    jmp     icn_0_α
 icn_double_ret:
     add     rsp, 32
     pop     rbp
@@ -106,18 +106,18 @@ icn_double_done:
     ; CALL write  id=4
     ; CALL double  id=5
     ; INT 7  id=6
-icon_6_α:
+icn_6_α:
     push    7
     jmp     icon_5_push0
-icon_6_β:
+icn_6_β:
     jmp     icn_main_done
 icon_5_push0:
     pop     rdi
     call    icn_push
     jmp     icon_5_docall
-icon_5_α:
-    jmp     icon_6_α
-icon_5_β:
+icn_5_α:
+    jmp     icn_6_α
+icn_5_β:
     jmp     icn_main_done
 icon_5_docall:
     call    icn_double
@@ -127,10 +127,10 @@ icon_5_docall:
     mov     rax, [rel icn_retval]
     push    rax
     jmp     icon_4_call
-icon_4_α:
-    jmp     icon_5_α
-icon_4_β:
-    jmp     icon_5_β
+icn_4_α:
+    jmp     icn_5_α
+icn_4_β:
+    jmp     icn_5_β
 icon_4_call:
     pop     rdi
     call    icn_write_int
@@ -138,39 +138,39 @@ icon_4_call:
     ; CALL write  id=7
     ; CALL double  id=8
     ; INT 3  id=9
-icon_9_α:
+icn_9_α:
     push    3
     jmp     icon_8_push0
-icon_9_β:
-    jmp     icon_4_α
+icn_9_β:
+    jmp     icn_4_α
 icon_8_push0:
     pop     rdi
     call    icn_push
     jmp     icon_8_docall
-icon_8_α:
-    jmp     icon_9_α
-icon_8_β:
-    jmp     icon_4_α
+icn_8_α:
+    jmp     icn_9_α
+icn_8_β:
+    jmp     icn_4_α
 icon_8_docall:
     call    icn_double
     movzx   rax, byte [rel icn_failed]
     test    rax, rax
-    jnz     icon_4_α
+    jnz     icn_4_α
     mov     rax, [rel icn_retval]
     push    rax
     jmp     icon_7_call
-icon_7_α:
-    jmp     icon_8_α
-icon_7_β:
-    jmp     icon_8_β
+icn_7_α:
+    jmp     icn_8_α
+icn_7_β:
+    jmp     icn_8_β
 icon_7_call:
     pop     rdi
     call    icn_write_int
-    jmp     icon_4_α
+    jmp     icn_4_α
 icn_main:
     push    rbp
     mov     rbp, rsp
-    jmp     icon_7_α
+    jmp     icn_7_α
 icn_main_done:
     mov     byte [rel icn_failed], 1
     pop     rbp

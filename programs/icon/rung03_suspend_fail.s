@@ -43,15 +43,15 @@ _start:
 
 ; === procedure positive ===
     ; VAR n  id=2
-icon_2_α:
+icn_2_α:
     mov     rax, [rbp-8]
     push    rax
     jmp     icon_1_ret_store
-icon_2_β:
+icn_2_β:
     jmp     icon_1_ret_store
-icon_1_α:
-    jmp     icon_2_α
-icon_1_β:
+icn_1_α:
+    jmp     icn_2_α
+icn_1_β:
     jmp     icn_positive_ret
 icon_1_ret_store:
     pop     rax
@@ -60,51 +60,51 @@ icon_1_ret_store:
     jmp     icn_positive_ret
     ; GT  id=3
     ; INT 0  id=4
-icon_4_α:
+icn_4_α:
     push    0
     jmp     icon_3_check
-icon_4_β:
+icn_4_β:
     jmp     icon_3_lb
     ; VAR n  id=5
-icon_5_α:
+icn_5_α:
     mov     rax, [rbp-8]
     push    rax
     jmp     icon_3_lstore
-icon_5_β:
+icn_5_β:
     jmp     icon_0_else
 icon_3_lb:
-    jmp     icon_5_β
-icon_3_α:
-    jmp     icon_5_α
-icon_3_β:
-    jmp     icon_4_β
+    jmp     icn_5_β
+icn_3_α:
+    jmp     icn_5_α
+icn_3_β:
+    jmp     icn_4_β
 icon_3_lstore:
     pop     rax
     mov     [rbp-16], rax
-    jmp     icon_4_α
+    jmp     icn_4_α
 icon_3_check:
     pop     rcx
     mov     rax, [rbp-16]
     cmp     rax, rcx
-    jle      icon_4_β
+    jle      icn_4_β
     push    rcx
     jmp     icon_0_then
 icon_0_then:
     add     rsp, 8
-    jmp     icon_1_α
+    jmp     icn_1_α
 icon_0_else:
     jmp     icn_positive_done
-icon_0_α:
-    jmp     icon_3_α
-icon_0_β:
-    jmp     icon_3_β
+icn_0_α:
+    jmp     icn_3_α
+icn_0_β:
+    jmp     icn_3_β
 icn_positive:
     push    rbp
     mov     rbp, rsp
     sub     rsp, 32
     call    icn_pop
     mov     [rbp-8], rax
-    jmp     icon_0_α
+    jmp     icn_0_α
 icn_positive_ret:
     add     rsp, 32
     pop     rbp
@@ -118,48 +118,48 @@ icn_positive_done:
 ; === procedure main ===
     ; CALL write  id=7
     ; INT 2  id=8
-icon_8_α:
+icn_8_α:
     push    2
     jmp     icon_7_call
-icon_8_β:
+icn_8_β:
     jmp     icn_main_done
-icon_7_α:
-    jmp     icon_8_α
-icon_7_β:
-    jmp     icon_8_β
+icn_7_α:
+    jmp     icn_8_α
+icn_7_β:
+    jmp     icn_8_β
 icon_7_call:
     pop     rdi
     call    icn_write_int
     jmp     icn_main_done
     ; CALL write  id=9
     ; INT 3  id=10
-icon_10_α:
+icn_10_α:
     push    3
     jmp     icon_9_call
-icon_10_β:
+icn_10_β:
     jmp     icn_main_done
-icon_9_α:
-    jmp     icon_10_α
-icon_9_β:
-    jmp     icon_10_β
+icn_9_α:
+    jmp     icn_10_α
+icn_9_β:
+    jmp     icn_10_β
 icon_9_call:
     pop     rdi
     call    icn_write_int
     jmp     icn_main_done
     ; CALL positive  id=11
     ; INT 0  id=12
-icon_12_α:
+icn_12_α:
     push    0
     jmp     icon_11_push0
-icon_12_β:
+icn_12_β:
     jmp     icon_6_else
 icon_11_push0:
     pop     rdi
     call    icn_push
     jmp     icon_11_docall
-icon_11_α:
-    jmp     icon_12_α
-icon_11_β:
+icn_11_α:
+    jmp     icn_12_α
+icn_11_β:
     jmp     icon_6_else
 icon_11_docall:
     call    icn_positive
@@ -171,42 +171,42 @@ icon_11_docall:
     jmp     icon_6_then
 icon_6_then:
     add     rsp, 8
-    jmp     icon_7_α
+    jmp     icn_7_α
 icon_6_else:
-    jmp     icon_9_α
-icon_6_α:
-    jmp     icon_11_α
-icon_6_β:
-    jmp     icon_11_β
+    jmp     icn_9_α
+icn_6_α:
+    jmp     icn_11_α
+icn_6_β:
+    jmp     icn_11_β
     ; CALL write  id=14
     ; INT 1  id=15
-icon_15_α:
+icn_15_α:
     push    1
     jmp     icon_14_call
-icon_15_β:
-    jmp     icon_6_α
-icon_14_α:
-    jmp     icon_15_α
-icon_14_β:
-    jmp     icon_15_β
+icn_15_β:
+    jmp     icn_6_α
+icn_14_α:
+    jmp     icn_15_α
+icn_14_β:
+    jmp     icn_15_β
 icon_14_call:
     pop     rdi
     call    icn_write_int
-    jmp     icon_6_α
+    jmp     icn_6_α
     ; CALL positive  id=16
     ; INT 5  id=17
-icon_17_α:
+icn_17_α:
     push    5
     jmp     icon_16_push0
-icon_17_β:
+icn_17_β:
     jmp     icon_13_else
 icon_16_push0:
     pop     rdi
     call    icn_push
     jmp     icon_16_docall
-icon_16_α:
-    jmp     icon_17_α
-icon_16_β:
+icn_16_α:
+    jmp     icn_17_α
+icn_16_β:
     jmp     icon_13_else
 icon_16_docall:
     call    icn_positive
@@ -218,17 +218,17 @@ icon_16_docall:
     jmp     icon_13_then
 icon_13_then:
     add     rsp, 8
-    jmp     icon_14_α
+    jmp     icn_14_α
 icon_13_else:
-    jmp     icon_6_α
-icon_13_α:
-    jmp     icon_16_α
-icon_13_β:
-    jmp     icon_16_β
+    jmp     icn_6_α
+icn_13_α:
+    jmp     icn_16_α
+icn_13_β:
+    jmp     icn_16_β
 icn_main:
     push    rbp
     mov     rbp, rsp
-    jmp     icon_13_α
+    jmp     icn_13_α
 icn_main_done:
     mov     byte [rel icn_failed], 1
     pop     rbp
