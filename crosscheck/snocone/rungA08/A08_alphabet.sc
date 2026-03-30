@@ -1,0 +1,4 @@
+// A08_alphabet.sc — &ALPHABET and &UCASE &LCASE keywords
+OUTPUT = SIZE(&ALPHABET);
+OUTPUT = SIZE(&UCASE);
+OUTPUT = SIZE(&LCASE);
