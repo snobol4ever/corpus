@@ -4,7 +4,7 @@ default rel
 
 section .bss
     icn_retval: resq 1
-    icon_2_I: resq 1
+    icn_2_I: resq 1
     icon_2_bound: resq 1
     icon_2_e1cur: resq 1
     icon_2_e2seen: resq 1
@@ -50,28 +50,28 @@ _start:
     ; CALL write  id=1
     ; TO  id=2
     ; INT 5  id=3
-icon_3_α:
+icn_3_α:
     push    5
     jmp     icon_2_init
-icon_3_β:
+icn_3_β:
     jmp     icon_2_e1b
     ; INT 1  id=4
-icon_4_α:
+icn_4_α:
     push    1
-    jmp     icon_3_α
-icon_4_β:
+    jmp     icn_3_α
+icn_4_β:
     jmp     icn_main_done
 icon_2_e1b:
     mov     qword [rel icon_2_e2seen], 0
-    jmp     icon_4_β
+    jmp     icn_4_β
 icon_2_e2b:
-    jmp     icon_3_β
-icon_2_α:
+    jmp     icn_3_β
+icn_2_α:
     mov     qword [rel icon_2_e2seen], 0
-    jmp     icon_4_α
-icon_2_β:
-    inc     qword [rel icon_2_I]
-    jmp     icon_2_code
+    jmp     icn_4_α
+icn_2_β:
+    inc     qword [rel icn_2_I]
+    jmp     icn_2_code
 icon_2_init:
     pop     rax
     mov     [rel icon_2_bound], rax
@@ -79,37 +79,37 @@ icon_2_init:
     jne     icon_2_init_e2adv
     pop     rax
     mov     [rel icon_2_e1cur], rax
-    mov     [rel icon_2_I], rax
+    mov     [rel icn_2_I], rax
     mov     qword [rel icon_2_e2seen], 1
-    jmp     icon_2_code
+    jmp     icn_2_code
 icon_2_init_e2adv:
     mov     rax, [rel icon_2_e1cur]
-    mov     [rel icon_2_I], rax
-    jmp     icon_2_code
-icon_2_code:
-    mov     rax, [rel icon_2_I]
+    mov     [rel icn_2_I], rax
+    jmp     icn_2_code
+icn_2_code:
+    mov     rax, [rel icn_2_I]
     cmp     rax, [rel icon_2_bound]
     jg      icon_2_e2b
     push    rax
     jmp     icon_1_call
-icon_1_α:
-    jmp     icon_2_α
-icon_1_β:
-    jmp     icon_2_β
+icn_1_α:
+    jmp     icn_2_α
+icn_1_β:
+    jmp     icn_2_β
 icon_1_call:
     pop     rdi
     call    icn_write_int
     jmp     icon_0_genb
 icon_0_genb:
-    jmp     icon_1_β
-icon_0_α:
-    jmp     icon_1_α
-icon_0_β:
+    jmp     icn_1_β
+icn_0_α:
+    jmp     icn_1_α
+icn_0_β:
     jmp     icn_main_done
 icn_main:
     push    rbp
     mov     rbp, rsp
-    jmp     icon_0_α
+    jmp     icn_0_α
 icn_main_done:
     mov     byte [rel icn_failed], 1
     pop     rbp

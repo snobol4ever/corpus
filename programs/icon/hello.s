@@ -46,22 +46,22 @@ _start:
 
 ; === procedure main ===
     ; CALL write  id=0
-icon_1_α:
+icn_1_α:
     lea     rdi, [rel icn_str_0]
     jmp     icon_0_call
-icon_1_β:
+icn_1_β:
     jmp     icn_main_done
-icon_0_α:
-    jmp     icon_1_α
-icon_0_β:
-    jmp     icon_1_β
+icn_0_α:
+    jmp     icn_1_α
+icn_0_β:
+    jmp     icn_1_β
 icon_0_call:
     call    icn_write_str
     jmp     icn_main_done
 icn_main:
     push    rbp
     mov     rbp, rsp
-    jmp     icon_0_α
+    jmp     icn_0_α
 icn_main_done:
     mov     byte [rel icn_failed], 1
     pop     rbp

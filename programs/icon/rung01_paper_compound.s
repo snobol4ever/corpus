@@ -4,11 +4,11 @@ default rel
 
 section .bss
     icn_retval: resq 1
-    icon_4_I: resq 1
+    icn_4_I: resq 1
     icon_4_bound: resq 1
     icon_4_e1cur: resq 1
     icon_4_e2seen: resq 1
-    icon_7_I: resq 1
+    icn_7_I: resq 1
     icon_7_bound: resq 1
     icon_7_e1cur: resq 1
     icon_7_e2seen: resq 1
@@ -56,28 +56,28 @@ _start:
     ; MUL  id=3
     ; TO  id=4
     ; INT 2  id=5
-icon_5_α:
+icn_5_α:
     push    2
     jmp     icon_4_init
-icon_5_β:
+icn_5_β:
     jmp     icon_4_e1b
     ; INT 1  id=6
-icon_6_α:
+icn_6_α:
     push    1
-    jmp     icon_5_α
-icon_6_β:
+    jmp     icn_5_α
+icn_6_β:
     jmp     icon_3_lb
 icon_4_e1b:
     mov     qword [rel icon_4_e2seen], 0
-    jmp     icon_6_β
+    jmp     icn_6_β
 icon_4_e2b:
-    jmp     icon_5_β
-icon_4_α:
+    jmp     icn_5_β
+icn_4_α:
     mov     qword [rel icon_4_e2seen], 0
-    jmp     icon_6_α
-icon_4_β:
-    inc     qword [rel icon_4_I]
-    jmp     icon_4_code
+    jmp     icn_6_α
+icn_4_β:
+    inc     qword [rel icn_4_I]
+    jmp     icn_4_code
 icon_4_init:
     pop     rax
     mov     [rel icon_4_bound], rax
@@ -85,43 +85,43 @@ icon_4_init:
     jne     icon_4_init_e2adv
     pop     rax
     mov     [rel icon_4_e1cur], rax
-    mov     [rel icon_4_I], rax
+    mov     [rel icn_4_I], rax
     mov     qword [rel icon_4_e2seen], 1
-    jmp     icon_4_code
+    jmp     icn_4_code
 icon_4_init_e2adv:
     mov     rax, [rel icon_4_e1cur]
-    mov     [rel icon_4_I], rax
-    jmp     icon_4_code
-icon_4_code:
-    mov     rax, [rel icon_4_I]
+    mov     [rel icn_4_I], rax
+    jmp     icn_4_code
+icn_4_code:
+    mov     rax, [rel icn_4_I]
     cmp     rax, [rel icon_4_bound]
     jg      icon_4_e2b
     push    rax
     jmp     icon_3_compute
     ; TO  id=7
     ; INT 3  id=8
-icon_8_α:
+icn_8_α:
     push    3
     jmp     icon_7_init
-icon_8_β:
+icn_8_β:
     jmp     icon_7_e1b
     ; INT 1  id=9
-icon_9_α:
+icn_9_α:
     push    1
-    jmp     icon_8_α
-icon_9_β:
+    jmp     icn_8_α
+icn_9_β:
     jmp     icon_2_lb
 icon_7_e1b:
     mov     qword [rel icon_7_e2seen], 0
-    jmp     icon_9_β
+    jmp     icn_9_β
 icon_7_e2b:
-    jmp     icon_8_β
-icon_7_α:
+    jmp     icn_8_β
+icn_7_α:
     mov     qword [rel icon_7_e2seen], 0
-    jmp     icon_9_α
-icon_7_β:
-    inc     qword [rel icon_7_I]
-    jmp     icon_7_code
+    jmp     icn_9_α
+icn_7_β:
+    inc     qword [rel icn_7_I]
+    jmp     icn_7_code
 icon_7_init:
     pop     rax
     mov     [rel icon_7_bound], rax
@@ -129,32 +129,32 @@ icon_7_init:
     jne     icon_7_init_e2adv
     pop     rax
     mov     [rel icon_7_e1cur], rax
-    mov     [rel icon_7_I], rax
+    mov     [rel icn_7_I], rax
     mov     qword [rel icon_7_e2seen], 1
-    jmp     icon_7_code
+    jmp     icn_7_code
 icon_7_init_e2adv:
     mov     rax, [rel icon_7_e1cur]
-    mov     [rel icon_7_I], rax
-    jmp     icon_7_code
-icon_7_code:
-    mov     rax, [rel icon_7_I]
+    mov     [rel icn_7_I], rax
+    jmp     icn_7_code
+icn_7_code:
+    mov     rax, [rel icn_7_I]
     cmp     rax, [rel icon_7_bound]
     jg      icon_7_e2b
     push    rax
     jmp     icon_3_lstore
 icon_3_lb:
-    jmp     icon_7_β
-icon_3_α:
+    jmp     icn_7_β
+icn_3_α:
     mov     qword [rbp-24], 0
-    jmp     icon_7_α
-icon_3_β:
-    jmp     icon_4_β
+    jmp     icn_7_α
+icn_3_β:
+    jmp     icn_4_β
 icon_3_lstore:
     pop     rax
     mov     [rbp-16], rax
     cmp     qword [rbp-24], 0
-    je      icon_4_α
-    jmp     icon_4_β
+    je      icn_4_α
+    jmp     icn_4_β
 icon_3_compute:
     pop     rax
     mov     rcx, [rbp-16]
@@ -162,47 +162,47 @@ icon_3_compute:
     push    rcx
     jmp     icon_2_check
     ; INT 3  id=10
-icon_10_α:
+icn_10_α:
     push    3
     jmp     icon_2_lstore
-icon_10_β:
+icn_10_β:
     jmp     icn_main_done
 icon_2_lb:
-    jmp     icon_10_β
-icon_2_α:
-    jmp     icon_10_α
-icon_2_β:
-    jmp     icon_3_β
+    jmp     icn_10_β
+icn_2_α:
+    jmp     icn_10_α
+icn_2_β:
+    jmp     icn_3_β
 icon_2_lstore:
     pop     rax
     mov     [rbp-8], rax
-    jmp     icon_3_α
+    jmp     icn_3_α
 icon_2_check:
     pop     rcx
     mov     rax, [rbp-8]
     cmp     rax, rcx
-    jge      icon_3_β
+    jge      icn_3_β
     push    rcx
     jmp     icon_1_call
-icon_1_α:
-    jmp     icon_2_α
-icon_1_β:
-    jmp     icon_2_β
+icn_1_α:
+    jmp     icn_2_α
+icn_1_β:
+    jmp     icn_2_β
 icon_1_call:
     pop     rdi
     call    icn_write_int
     jmp     icon_0_genb
 icon_0_genb:
-    jmp     icon_1_β
-icon_0_α:
-    jmp     icon_1_α
-icon_0_β:
+    jmp     icn_1_β
+icn_0_α:
+    jmp     icn_1_α
+icn_0_β:
     jmp     icn_main_done
 icn_main:
     push    rbp
     mov     rbp, rsp
     sub     rsp, 32
-    jmp     icon_0_α
+    jmp     icn_0_α
 icn_main_done:
     mov     byte [rel icn_failed], 1
     add     rsp, 32
