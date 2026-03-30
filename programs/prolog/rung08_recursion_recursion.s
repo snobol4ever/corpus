@@ -257,7 +257,7 @@ pl_fib_sl_2_c2_cmpfail0:
 pl_fib_sl_2_c2_cmpok0:
                             mov         rax, [rbp - 88]  ; var slot 2 (_V2)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid0
+                            sub         rsp, 16          ; arith compound args[2] pl_uid0
                             mov         rax, [rbp - 72]  ; var slot 0 (_V0)
                             mov         [rsp + 0], rax
                             mov         rdi, 1
@@ -282,7 +282,7 @@ pl_fib_sl_2_c2_isfail1:
 pl_fib_sl_2_c2_isok1:
                             mov         rax, [rbp - 96]  ; var slot 3 (_V3)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid1
+                            sub         rsp, 16          ; arith compound args[2] pl_uid1
                             mov         rax, [rbp - 72]  ; var slot 0 (_V0)
                             mov         [rsp + 0], rax
                             mov         rdi, 2
@@ -367,7 +367,7 @@ pl_fib_sl_2_c2_γ4:
                             xor         edx, edx               ; next ucall starts fresh
                             mov         rax, [rbp - 80]  ; var slot 1 (_V1)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid2
+                            sub         rsp, 16          ; arith compound args[2] pl_uid2
                             mov         rax, [rbp - 104]  ; var slot 4 (_V4)
                             mov         [rsp + 0], rax
                             mov         rax, [rbp - 112]  ; var slot 5 (_V5)
@@ -570,7 +570,7 @@ pl_factorial_sl_2_c1_cmpfail0:
 pl_factorial_sl_2_c1_cmpok0:
                             mov         rax, [rbp - 72]  ; var slot 2 (_V2)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid3
+                            sub         rsp, 16          ; arith compound args[2] pl_uid3
                             mov         rax, [rbp - 56]  ; var slot 0 (_V0)
                             mov         [rsp + 0], rax
                             mov         rdi, 1
@@ -620,7 +620,7 @@ pl_factorial_sl_2_c1_γ2:
                             xor         edx, edx               ; next ucall starts fresh
                             mov         rax, [rbp - 64]  ; var slot 1 (_V1)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid4
+                            sub         rsp, 16          ; arith compound args[2] pl_uid4
                             mov         rax, [rbp - 56]  ; var slot 0 (_V0)
                             mov         [rsp + 0], rax
                             mov         rax, [rbp - 80]  ; var slot 3 (_V3)

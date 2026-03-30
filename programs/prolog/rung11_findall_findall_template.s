@@ -270,7 +270,7 @@ pl_main_sl_0_c0_body_fresh:
 pl_main_sl_0_c0_α0:
                             sub         rsp, 32              ; args array for findall/3
                             mov         rbx, rsp               ; stable base (immune to rsp shifts)
-                            sub         rsp, 16          ; arith compound args[2] uid0
+                            sub         rsp, 16          ; arith compound args[2] pl_uid0
                             mov         rax, [rbp - 56]  ; var slot 0 (_V0)
                             mov         [rsp + 0], rax
                             mov         rax, [rbp - 64]  ; var slot 1 (_V1)

@@ -448,7 +448,7 @@ pl_length_sl_2_c1_γ0:
                             xor         edx, edx               ; next ucall starts fresh
                             mov         rax, [rbp - 64]  ; var slot 1 (_V1)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid3
+                            sub         rsp, 16          ; arith compound args[2] pl_uid3
                             mov         rax, [rbp - 72]  ; var slot 2 (_V2)
                             mov         [rsp + 0], rax
                             mov         rdi, 1

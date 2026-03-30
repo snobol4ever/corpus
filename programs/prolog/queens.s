@@ -584,7 +584,7 @@ pl_board_sl_6_c1_body_fresh:
                             xor         edx, edx               ; sub_cs=0 for first ucall
                             mov         rax, [rbp - 112]  ; var slot 7 (_V7)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid4
+                            sub         rsp, 16          ; arith compound args[2] pl_uid4
                             mov         rax, [rbp - 80]  ; var slot 3 (_V3)
                             mov         [rsp + 0], rax
                             mov         rdi, 1
@@ -1286,7 +1286,7 @@ pl_no_attack_sl_3_c1_body:
                             jmp         pl_no_attack_sl_3_c1_α0
 pl_no_attack_sl_3_c1_body_fresh:
                             xor         edx, edx               ; sub_cs=0 for first ucall
-                            sub         rsp, 16          ; arith compound args[2] uid8
+                            sub         rsp, 16          ; arith compound args[2] pl_uid8
                             mov         rax, [rbp - 64]  ; var slot 1 (_V1)
                             mov         [rsp + 0], rax
                             mov         rax, [rbp - 56]  ; var slot 0 (_V0)
@@ -1309,7 +1309,7 @@ pl_no_attack_sl_3_c1_cmpfail0:
                             call        trail_unwind
                             jmp         pl_no_attack_sl_3_ω
 pl_no_attack_sl_3_c1_cmpok0:
-                            sub         rsp, 16          ; arith compound args[2] uid9
+                            sub         rsp, 16          ; arith compound args[2] pl_uid9
                             mov         rax, [rbp - 56]  ; var slot 0 (_V0)
                             mov         [rsp + 0], rax
                             mov         rax, [rbp - 64]  ; var slot 1 (_V1)
@@ -1334,7 +1334,7 @@ pl_no_attack_sl_3_c1_cmpfail1:
 pl_no_attack_sl_3_c1_cmpok1:
                             mov         rax, [rbp - 88]  ; var slot 4 (_V4)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid10
+                            sub         rsp, 16          ; arith compound args[2] pl_uid10
                             mov         rax, [rbp - 80]  ; var slot 3 (_V3)
                             mov         [rsp + 0], rax
                             mov         rdi, 1

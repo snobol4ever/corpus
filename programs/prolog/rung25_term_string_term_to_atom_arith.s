@@ -91,7 +91,7 @@ pl_main_sl_0_c0_body_fresh:
 pl_main_sl_0_c0_α0:
                             sub         rsp, 16              ; args array for term_to_atom/2
                             mov         rbx, rsp               ; stable base (immune to rsp shifts)
-                            sub         rsp, 16          ; arith compound args[2] uid0
+                            sub         rsp, 16          ; arith compound args[2] pl_uid0
                             mov         rdi, 1
                             call        term_new_int
                             mov         [rsp + 0], rax

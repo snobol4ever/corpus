@@ -68,7 +68,7 @@ pl_main_sl_0_c0_body:
                             xor         edx, edx               ; sub_cs=0 for first ucall
                             mov         rax, [rbp - 40]  ; var slot 0 (_V0)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid0
+                            sub         rsp, 16          ; arith compound args[2] pl_uid0
                             mov         rdi, 2
                             call        term_new_int
                             mov         [rsp + 0], rax
