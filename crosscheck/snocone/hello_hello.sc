@@ -1,2 +1,2 @@
 # hello.sc - Minimal output test.
-OUTPUT = 'HELLO WORLD'
+OUTPUT = 'hello world'
