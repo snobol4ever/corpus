@@ -210,14 +210,14 @@ patdef_sexp_ω:              NAMED_PAT_ω P_sexp_ret_ω ; named pat ω
 
 ; P_fexp_α (α entry) [r12=DATA block]
 
-; E_STAR/E_INDR *ident → runtime DT_P dispatch
+; E_DEFER/E_INDR *ident → runtime DT_P dispatch
 ;  fexp ================================================================================================================
 P_fexp_α:                   lea         rdi, [rel S_ident]
                             call        stmt_get
                             mov         [rpat0_t], rax
                             mov         [rpat0_p], rdx
                             CALL_PAT_α  rpat0_t, rpat0_p, rpat0_s, cursor, patdef_fexp_γ, patdef_fexp_ω
-P_fexp_β:                   CALL_PAT_β  rpat0_s, cursor, patdef_fexp_ω ; E_STAR β
+P_fexp_β:                   CALL_PAT_β  rpat0_s, cursor, patdef_fexp_ω ; E_DEFER β
 ;  γ/ω ---------------------------------------------------------------------------------------------------------------
 patdef_fexp_γ:              NAMED_PAT_γ P_fexp_ret_γ ; named pat γ
 patdef_fexp_ω:              NAMED_PAT_ω P_fexp_ret_ω ; named pat ω
