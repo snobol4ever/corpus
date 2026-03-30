@@ -1,0 +1,8 @@
+// A05_array_create.sc — create array, set and get elements
+A = ARRAY(5);
+A<1> = 'first';
+A<3> = 'third';
+A<5> = 'fifth';
+OUTPUT = A<1>;
+OUTPUT = A<3>;
+OUTPUT = A<5>;
