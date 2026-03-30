@@ -44,6 +44,8 @@ section .text
     extern icn_pow
     extern icn_str_subscript
     extern icn_str_section
+    extern icn_bang_char_at
+    extern icn_match_pat
 
 _start:
     call    icn_main

@@ -272,66 +272,52 @@ pl_main_sl_0_c0_body:
                             xor         edx, edx               ; sub_cs=0 for first ucall
                             mov         dword [rbp - 32], 0    ; _cs
 disj_main_sl_0_0_0_retry:
-                            sub         rsp, 32
-                            sub         rsp, 16            ; args[2] for compound member/2
+                            sub         rsp, 16
                             mov         rax, [rbp - 40]  ; var slot 0 (_V0)
-                            mov         [rsp + 0], rax  ; compound arg 0
-                            sub         rsp, 16            ; args[2] for compound ./2
-                            lea         rax, [rel pl_atom_a_2]
-                            mov         [rsp + 0], rax  ; compound arg 0
-                            sub         rsp, 16            ; args[2] for compound ./2
-                            lea         rax, [rel pl_atom_b_3]
-                            mov         [rsp + 0], rax  ; compound arg 0
-                            sub         rsp, 16            ; args[2] for compound ./2
-                            lea         rax, [rel pl_atom_c_4]
-                            mov         [rsp + 0], rax  ; compound arg 0
-                            lea         rax, [rel pl_atom____5]
-                            mov         [rsp + 8], rax  ; compound arg 1
-                            mov         edi, dword [rel pl_atom___0 + 8]  ; functor atom_id
-                            mov         esi, 2                   ; arity
-                            mov         rdx, rsp                   ; args ptr
-                            call        term_new_compound
-                            add         rsp, 16
-                            mov         [rsp + 8], rax  ; compound arg 1
-                            mov         edi, dword [rel pl_atom___0 + 8]  ; functor atom_id
-                            mov         esi, 2                   ; arity
-                            mov         rdx, rsp                   ; args ptr
-                            call        term_new_compound
-                            add         rsp, 16
-                            mov         [rsp + 8], rax  ; compound arg 1
-                            mov         edi, dword [rel pl_atom___0 + 8]  ; functor atom_id
-                            mov         esi, 2                   ; arity
-                            mov         rdx, rsp                   ; args ptr
-                            call        term_new_compound
-                            add         rsp, 16
-                            mov         [rsp + 8], rax  ; compound arg 1
-                            mov         edi, dword [rel pl_atom_member_1 + 8]  ; functor atom_id
-                            mov         esi, 2                   ; arity
-                            mov         rdx, rsp                   ; args ptr
-                            call        term_new_compound
-                            add         rsp, 16
                             mov         [rsp + 0], rax
-                            sub         rsp, 8            ; args[1] for compound write/1
-                            mov         rax, [rbp - 40]  ; var slot 0 (_V0)
+                            sub         rsp, 16            ; args[2] for compound ./2
+                            lea         rax, [rel pl_atom_a_1]
                             mov         [rsp + 0], rax  ; compound arg 0
-                            mov         edi, dword [rel pl_atom_write_6 + 8]  ; functor atom_id
-                            mov         esi, 1                   ; arity
+                            sub         rsp, 16            ; args[2] for compound ./2
+                            lea         rax, [rel pl_atom_b_2]
+                            mov         [rsp + 0], rax  ; compound arg 0
+                            sub         rsp, 16            ; args[2] for compound ./2
+                            lea         rax, [rel pl_atom_c_3]
+                            mov         [rsp + 0], rax  ; compound arg 0
+                            lea         rax, [rel pl_atom____4]
+                            mov         [rsp + 8], rax  ; compound arg 1
+                            mov         edi, dword [rel pl_atom___0 + 8]  ; functor atom_id
+                            mov         esi, 2                   ; arity
                             mov         rdx, rsp                   ; args ptr
                             call        term_new_compound
-                            add         rsp, 8
+                            add         rsp, 16
+                            mov         [rsp + 8], rax  ; compound arg 1
+                            mov         edi, dword [rel pl_atom___0 + 8]  ; functor atom_id
+                            mov         esi, 2                   ; arity
+                            mov         rdx, rsp                   ; args ptr
+                            call        term_new_compound
+                            add         rsp, 16
+                            mov         [rsp + 8], rax  ; compound arg 1
+                            mov         edi, dword [rel pl_atom___0 + 8]  ; functor atom_id
+                            mov         esi, 2                   ; arity
+                            mov         rdx, rsp                   ; args ptr
+                            call        term_new_compound
+                            add         rsp, 16
                             mov         [rsp + 8], rax
-                            lea         rax, [rel pl_atom_nl_7]
-                            mov         [rsp + 16], rax
-                            lea         rax, [rel pl_atom_fail_8]
-                            mov         [rsp + 24], rax
                             mov         rdi, rsp
                             lea         rsi, [rel pl_trail]
                             mov         edx, [rbp - 32]
-                            call        pl__cm__sl_4_r
-                            add         rsp, 32
+                            call        pl_member_sl_2_r
+                            add         rsp, 16
                             test        eax, eax
                             js          disj_main_sl_0_0_0_else
                             mov         [rbp - 32], eax
+                            mov         rax, [rbp - 40]  ; var slot 0 (_V0)
+                            mov         rdi, rax
+                            call        pl_write
+                            mov         edi,10
+                            call        putchar
+                            jmp         disj_main_sl_0_0_0_retry_back
 disj_main_sl_0_0_0_retry_back:
                             lea         rdi, [rel pl_trail]
                             mov         esi, [rbp - 8]
@@ -373,28 +359,16 @@ pl_rt_init:
                             mov         dword [rel pl_atom___0 + 8], eax
                             lea         rdi, [rel pl_astr_1]
                             call        prolog_atom_intern
-                            mov         dword [rel pl_atom_member_1 + 8], eax
+                            mov         dword [rel pl_atom_a_1 + 8], eax
                             lea         rdi, [rel pl_astr_2]
                             call        prolog_atom_intern
-                            mov         dword [rel pl_atom_a_2 + 8], eax
+                            mov         dword [rel pl_atom_b_2 + 8], eax
                             lea         rdi, [rel pl_astr_3]
                             call        prolog_atom_intern
-                            mov         dword [rel pl_atom_b_3 + 8], eax
+                            mov         dword [rel pl_atom_c_3 + 8], eax
                             lea         rdi, [rel pl_astr_4]
                             call        prolog_atom_intern
-                            mov         dword [rel pl_atom_c_4 + 8], eax
-                            lea         rdi, [rel pl_astr_5]
-                            call        prolog_atom_intern
-                            mov         dword [rel pl_atom____5 + 8], eax
-                            lea         rdi, [rel pl_astr_6]
-                            call        prolog_atom_intern
-                            mov         dword [rel pl_atom_write_6 + 8], eax
-                            lea         rdi, [rel pl_astr_7]
-                            call        prolog_atom_intern
-                            mov         dword [rel pl_atom_nl_7 + 8], eax
-                            lea         rdi, [rel pl_astr_8]
-                            call        prolog_atom_intern
-                            mov         dword [rel pl_atom_fail_8 + 8], eax
+                            mov         dword [rel pl_atom____4 + 8], eax
                             pop         rbp
                             ret
 
@@ -424,14 +398,10 @@ main:
 
 section .rodata
 pl_astr_0: db `.`,0
-pl_astr_1: db `m`,`e`,`m`,`b`,`e`,`r`,0
-pl_astr_2: db `a`,0
-pl_astr_3: db `b`,0
-pl_astr_4: db `c`,0
-pl_astr_5: db `[`,`]`,0
-pl_astr_6: db `w`,`r`,`i`,`t`,`e`,0
-pl_astr_7: db `n`,`l`,0
-pl_astr_8: db `f`,`a`,`i`,`l`,0
+pl_astr_1: db `a`,0
+pl_astr_2: db `b`,0
+pl_astr_3: db `c`,0
+pl_astr_4: db `[`,`]`,0
 
 section .data
 ; TT_ATOM=0 — term_tag(4B) + saved_slot(4B) + atom_id(8B) = 16 bytes
@@ -441,49 +411,25 @@ dd      0               ; saved_slot
 dd      0               ; atom_id — filled by pl_rt_init
 dd      0               ; atom_id high dword (padding)
 dq      0               ; union padding (compound.args* slot)
-pl_atom_member_1:
+pl_atom_a_1:
 dd      0               ; tag = TT_ATOM
 dd      0               ; saved_slot
 dd      0               ; atom_id — filled by pl_rt_init
 dd      0               ; atom_id high dword (padding)
 dq      0               ; union padding (compound.args* slot)
-pl_atom_a_2:
+pl_atom_b_2:
 dd      0               ; tag = TT_ATOM
 dd      0               ; saved_slot
 dd      0               ; atom_id — filled by pl_rt_init
 dd      0               ; atom_id high dword (padding)
 dq      0               ; union padding (compound.args* slot)
-pl_atom_b_3:
+pl_atom_c_3:
 dd      0               ; tag = TT_ATOM
 dd      0               ; saved_slot
 dd      0               ; atom_id — filled by pl_rt_init
 dd      0               ; atom_id high dword (padding)
 dq      0               ; union padding (compound.args* slot)
-pl_atom_c_4:
-dd      0               ; tag = TT_ATOM
-dd      0               ; saved_slot
-dd      0               ; atom_id — filled by pl_rt_init
-dd      0               ; atom_id high dword (padding)
-dq      0               ; union padding (compound.args* slot)
-pl_atom____5:
-dd      0               ; tag = TT_ATOM
-dd      0               ; saved_slot
-dd      0               ; atom_id — filled by pl_rt_init
-dd      0               ; atom_id high dword (padding)
-dq      0               ; union padding (compound.args* slot)
-pl_atom_write_6:
-dd      0               ; tag = TT_ATOM
-dd      0               ; saved_slot
-dd      0               ; atom_id — filled by pl_rt_init
-dd      0               ; atom_id high dword (padding)
-dq      0               ; union padding (compound.args* slot)
-pl_atom_nl_7:
-dd      0               ; tag = TT_ATOM
-dd      0               ; saved_slot
-dd      0               ; atom_id — filled by pl_rt_init
-dd      0               ; atom_id high dword (padding)
-dq      0               ; union padding (compound.args* slot)
-pl_atom_fail_8:
+pl_atom____4:
 dd      0               ; tag = TT_ATOM
 dd      0               ; saved_slot
 dd      0               ; atom_id — filled by pl_rt_init
