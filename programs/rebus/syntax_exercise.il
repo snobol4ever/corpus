@@ -249,8 +249,10 @@
 
     // --- END ---
   L_END:
-                        nop
-                        ret
+
+nop
+
+ret
   }
 
   .method static string net_fn_MAIN() cil managed
@@ -2230,7 +2232,7 @@
     // --- rb_64 ---
   L_rb_64:
     nop
-  Nfn0_return:
+  sno_fn0_return:
     ldloc.s    V_30
     stsfld     string Syntax_exercise::_I
     ldloc.s    V_31
@@ -2245,7 +2247,7 @@
     ldloc.s    V_35
     stsfld     string Syntax_exercise::MAIN
     ret
-  Nfn0_freturn:
+  sno_fn0_freturn:
     ldloc.s    V_30
     stsfld     string Syntax_exercise::_I
     ldloc.s    V_31
@@ -2602,14 +2604,14 @@
     // --- rb_64 ---
   L_rb_64:
     nop
-  Nfn1_return:
+  sno_fn1_return:
     ldloc.s    V_30
     stsfld     string Syntax_exercise::N
     ldsfld     string Syntax_exercise::FACTORIAL
     ldloc.s    V_31
     stsfld     string Syntax_exercise::FACTORIAL
     ret
-  Nfn1_freturn:
+  sno_fn1_freturn:
     ldloc.s    V_30
     stsfld     string Syntax_exercise::N
     ldloc.s    V_31
@@ -2870,7 +2872,7 @@
     // --- rb_64 ---
   L_rb_64:
     nop
-  Nfn2_return:
+  sno_fn2_return:
     ldloc.s    V_30
     stsfld     string Syntax_exercise::N
     ldloc.s    V_31
@@ -2883,7 +2885,7 @@
     ldloc.s    V_34
     stsfld     string Syntax_exercise::FIB
     ret
-  Nfn2_freturn:
+  sno_fn2_freturn:
     ldloc.s    V_30
     stsfld     string Syntax_exercise::N
     ldloc.s    V_31

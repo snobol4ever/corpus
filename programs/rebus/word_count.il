@@ -205,8 +205,10 @@
 
     // --- END ---
   L_END:
-                        nop
-                        ret
+
+nop
+
+ret
   }
 
   .method static string net_fn_MAIN() cil managed
@@ -496,12 +498,12 @@
     // --- rb_1 ---
   L_rb_1:
     nop
-  Nfn0_return:
+  sno_fn0_return:
     ldsfld     string Word_count::MAIN
     ldloc.s    V_30
     stsfld     string Word_count::MAIN
     ret
-  Nfn0_freturn:
+  sno_fn0_freturn:
     ldloc.s    V_30
     stsfld     string Word_count::MAIN
     ldnull

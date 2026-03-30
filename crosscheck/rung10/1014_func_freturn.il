@@ -211,7 +211,7 @@
     ldc.i4.1
     stloc.0
     br         L_end
-  L_Nasgn0_skip:
+  L_sno_0_skip:
     ldsfld     string _014_func_freturn::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -228,14 +228,16 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn1_skip:
+  L_sno_1_skip:
 
     // --- END statement ---
 
     // --- END ---
   L_END:
-                        nop
-                        ret
+
+nop
+
+ret
   }
 
   .method static string net_fn_always_fail() cil managed
@@ -265,13 +267,13 @@
     // --- always_fail ---
   L_always_fail:
     nop
-    br         Nfn0_freturn
-  Nfn0_return:
+    br         sno_fn0_freturn
+  sno_fn0_return:
     ldsfld     string _014_func_freturn::ALWAYS_FAIL
     ldloc.s    V_30
     stsfld     string _014_func_freturn::ALWAYS_FAIL
     ret
-  Nfn0_freturn:
+  sno_fn0_freturn:
     ldloc.s    V_30
     stsfld     string _014_func_freturn::ALWAYS_FAIL
     ldnull

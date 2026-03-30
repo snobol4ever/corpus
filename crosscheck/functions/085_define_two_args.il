@@ -210,7 +210,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn0_skip:
+  L_sno_0_skip:
     ldsfld     string _85_define_two_args::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -232,14 +232,16 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn1_skip:
+  L_sno_1_skip:
 
     // --- END statement ---
 
     // --- END ---
   L_END:
-                        nop
-                        ret
+
+nop
+
+ret
   }
 
   .method static string net_fn_add(string, string) cil managed
@@ -287,9 +289,9 @@
     call       void _85_define_two_args::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-    br         Nfn0_return
-  L_Nasgn2_skip:
-  Nfn0_return:
+    br         sno_fn0_return
+  L_sno_2_skip:
+  sno_fn0_return:
     ldloc.s    V_30
     stsfld     string _85_define_two_args::A
     ldloc.s    V_31
@@ -298,7 +300,7 @@
     ldloc.s    V_32
     stsfld     string _85_define_two_args::ADD
     ret
-  Nfn0_freturn:
+  sno_fn0_freturn:
     ldloc.s    V_30
     stsfld     string _85_define_two_args::A
     ldloc.s    V_31

@@ -219,7 +219,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn0_skip:
+  L_sno_0_skip:
     ldsfld     string _87_define_freturn::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -237,7 +237,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn1_skip:
+  L_sno_1_skip:
     ldsfld     string _87_define_freturn::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -275,7 +275,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn2_skip:
+  L_sno_2_skip:
     ldsfld     string _87_define_freturn::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -293,14 +293,16 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn3_skip:
+  L_sno_3_skip:
 
     // --- END statement ---
 
     // --- END ---
   L_END:
-                        nop
-                        ret
+
+nop
+
+ret
   }
 
   .method static string net_fn_ispos(string) cil managed
@@ -340,17 +342,17 @@
     ldstr      "0"
     pop
     ldloc.0
-    brtrue     Nfn0_return
+    brtrue     sno_fn0_return
     ldloc.0
-    brfalse    Nfn0_freturn
-  Nfn0_return:
+    brfalse    sno_fn0_freturn
+  sno_fn0_return:
     ldloc.s    V_30
     stsfld     string _87_define_freturn::X
     ldsfld     string _87_define_freturn::ISPOS
     ldloc.s    V_31
     stsfld     string _87_define_freturn::ISPOS
     ret
-  Nfn0_freturn:
+  sno_fn0_freturn:
     ldloc.s    V_30
     stsfld     string _87_define_freturn::X
     ldloc.s    V_31

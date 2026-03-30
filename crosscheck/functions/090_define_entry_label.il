@@ -206,14 +206,16 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn0_skip:
+  L_sno_0_skip:
 
     // --- END statement ---
 
     // --- END ---
   L_END:
-                        nop
-                        ret
+
+nop
+
+ret
   }
 
   .method static string net_fn_bumpit(string) cil managed
@@ -257,16 +259,16 @@
     call       void _90_define_entry_label::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-    br         Nfn0_return
-  L_Nasgn1_skip:
-  Nfn0_return:
+    br         sno_fn0_return
+  L_sno_1_skip:
+  sno_fn0_return:
     ldloc.s    V_30
     stsfld     string _90_define_entry_label::V
     ldsfld     string _90_define_entry_label::BUMPIT
     ldloc.s    V_31
     stsfld     string _90_define_entry_label::BUMPIT
     ret
-  Nfn0_freturn:
+  sno_fn0_freturn:
     ldloc.s    V_30
     stsfld     string _90_define_entry_label::V
     ldloc.s    V_31

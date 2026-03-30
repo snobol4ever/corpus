@@ -251,8 +251,10 @@
 
     // --- END ---
   L_END:
-                        nop
-                        ret
+
+nop
+
+ret
   }
 
   .method static string net_fn_MAIN() cil managed
@@ -1015,12 +1017,12 @@
     // --- rb_14 ---
   L_rb_14:
     nop
-  Nfn0_return:
+  sno_fn0_return:
     ldsfld     string Binary_trees::MAIN
     ldloc.s    V_30
     stsfld     string Binary_trees::MAIN
     ret
-  Nfn0_freturn:
+  sno_fn0_freturn:
     ldloc.s    V_30
     stsfld     string Binary_trees::MAIN
     ldnull
@@ -1737,7 +1739,7 @@
     // --- rb_14 ---
   L_rb_14:
     nop
-  Nfn1_return:
+  sno_fn1_return:
     ldloc.s    V_30
     stsfld     string Binary_trees::N1
     ldloc.s    V_31
@@ -1746,7 +1748,7 @@
     ldloc.s    V_32
     stsfld     string Binary_trees::ADDL
     ret
-  Nfn1_freturn:
+  sno_fn1_freturn:
     ldloc.s    V_30
     stsfld     string Binary_trees::N1
     ldloc.s    V_31
@@ -2417,7 +2419,7 @@
     // --- rb_14 ---
   L_rb_14:
     nop
-  Nfn2_return:
+  sno_fn2_return:
     ldloc.s    V_30
     stsfld     string Binary_trees::N1
     ldloc.s    V_31
@@ -2426,7 +2428,7 @@
     ldloc.s    V_32
     stsfld     string Binary_trees::ADDR
     ret
-  Nfn2_freturn:
+  sno_fn2_freturn:
     ldloc.s    V_30
     stsfld     string Binary_trees::N1
     ldloc.s    V_31
@@ -3055,7 +3057,7 @@
     // --- rb_14 ---
   L_rb_14:
     nop
-  Nfn3_return:
+  sno_fn3_return:
     ldloc.s    V_30
     stsfld     string Binary_trees::S
     ldloc.s    V_31
@@ -3068,7 +3070,7 @@
     ldloc.s    V_34
     stsfld     string Binary_trees::BTREE
     ret
-  Nfn3_freturn:
+  sno_fn3_freturn:
     ldloc.s    V_30
     stsfld     string Binary_trees::S
     ldloc.s    V_31
@@ -3337,7 +3339,7 @@
     // --- rb_14 ---
   L_rb_14:
     nop
-  Nfn4_return:
+  sno_fn4_return:
     ldloc.s    V_30
     stsfld     string Binary_trees::T
     ldloc.s    V_31
@@ -3352,7 +3354,7 @@
     ldloc.s    V_35
     stsfld     string Binary_trees::BEXP
     ret
-  Nfn4_freturn:
+  sno_fn4_freturn:
     ldloc.s    V_30
     stsfld     string Binary_trees::T
     ldloc.s    V_31

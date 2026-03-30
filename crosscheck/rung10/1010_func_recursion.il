@@ -228,7 +228,7 @@
     ldc.i4.1
     stloc.0
     br         L_end
-  L_Nasgn0_skip:
+  L_sno_0_skip:
     ldsfld     string _010_func_recursion::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -259,7 +259,7 @@
     ldc.i4.1
     stloc.0
     br         L_end
-  L_Nasgn1_skip:
+  L_sno_1_skip:
     ldsfld     string _010_func_recursion::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -290,7 +290,7 @@
     ldc.i4.1
     stloc.0
     br         L_end
-  L_Nasgn2_skip:
+  L_sno_2_skip:
     ldsfld     string _010_func_recursion::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -327,7 +327,7 @@
     ldloc.0
     brtrue     Ncc0_ok0
     pop
-    br         L_Nasgn3_skip
+    br         L_sno_3_skip
   Ncc0_ok0:
     ldstr      "1"
     call       string [mscorlib]System.String::Concat(string, string)
@@ -341,7 +341,7 @@
     stloc.0
     ldloc.0
     brtrue     L_return
-  L_Nasgn3_skip:
+  L_sno_3_skip:
     ldsfld     string _010_func_recursion::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -372,7 +372,7 @@
     ldc.i4.1
     stloc.0
     br         L_return
-  L_Nasgn4_skip:
+  L_sno_4_skip:
     ldsfld     string _010_func_recursion::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -414,7 +414,7 @@
     ldc.i4.1
     stloc.0
     br         L_end
-  L_Nasgn5_skip:
+  L_sno_5_skip:
     ldsfld     string _010_func_recursion::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -431,14 +431,16 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn6_skip:
+  L_sno_6_skip:
 
     // --- END statement ---
 
     // --- END ---
   L_END:
-                        nop
-                        ret
+
+nop
+
+ret
   }
 
   .method static string net_fn_fact(string) cil managed
@@ -479,7 +481,7 @@
     ldloc.0
     brtrue     Ncc1_ok0
     pop
-    br         L_Nasgn7_skip
+    br         L_sno_7_skip
   Ncc1_ok0:
     ldstr      "1"
     call       string [mscorlib]System.String::Concat(string, string)
@@ -492,8 +494,8 @@
     ldc.i4.1
     stloc.0
     ldloc.0
-    brtrue     Nfn0_return
-  L_Nasgn7_skip:
+    brtrue     sno_fn0_return
+  L_sno_7_skip:
     ldsfld     string _010_func_recursion::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -523,16 +525,16 @@
     call       void _010_func_recursion::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-    br         Nfn0_return
-  L_Nasgn8_skip:
-  Nfn0_return:
+    br         sno_fn0_return
+  L_sno_8_skip:
+  sno_fn0_return:
     ldloc.s    V_30
     stsfld     string _010_func_recursion::N
     ldsfld     string _010_func_recursion::FACT
     ldloc.s    V_31
     stsfld     string _010_func_recursion::FACT
     ret
-  Nfn0_freturn:
+  sno_fn0_freturn:
     ldloc.s    V_30
     stsfld     string _010_func_recursion::N
     ldloc.s    V_31
@@ -564,14 +566,14 @@
     stsfld     string _010_func_recursion::N
     ldstr      ""
     stsfld     string _010_func_recursion::FACT2
-  Nfn1_return:
+  sno_fn1_return:
     ldloc.s    V_30
     stsfld     string _010_func_recursion::N
     ldsfld     string _010_func_recursion::FACT2
     ldloc.s    V_31
     stsfld     string _010_func_recursion::FACT2
     ret
-  Nfn1_freturn:
+  sno_fn1_freturn:
     ldloc.s    V_30
     stsfld     string _010_func_recursion::N
     ldloc.s    V_31

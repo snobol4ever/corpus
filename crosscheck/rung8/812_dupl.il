@@ -188,7 +188,7 @@
     ldc.i4.1
     stloc.0
     br         L_end
-  L_Nasgn0_skip:
+  L_sno_0_skip:
     ldsfld     string _12_dupl::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -222,7 +222,7 @@
     ldc.i4.1
     stloc.0
     br         L_end
-  L_Nasgn1_skip:
+  L_sno_1_skip:
     ldsfld     string _12_dupl::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -256,7 +256,7 @@
     ldc.i4.1
     stloc.0
     br         L_end
-  L_Nasgn2_skip:
+  L_sno_2_skip:
     ldsfld     string _12_dupl::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -290,7 +290,7 @@
     ldc.i4.1
     stloc.0
     br         L_end
-  L_Nasgn3_skip:
+  L_sno_3_skip:
     ldsfld     string _12_dupl::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -307,14 +307,16 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn4_skip:
+  L_sno_4_skip:
 
     // --- END statement ---
 
     // --- END ---
   L_END:
-                        nop
-                        ret
+
+nop
+
+ret
   }
 
 } // end class _12_dupl
