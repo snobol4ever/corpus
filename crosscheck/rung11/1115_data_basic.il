@@ -213,7 +213,7 @@
     call       void _115_data_basic::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn0_skip:
+  L_sno_0_skip:
     ldsfld     string _115_data_basic::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -257,7 +257,7 @@
     ldc.i4.1
     stloc.0
     br         L_end
-  L_Nasgn1_skip:
+  L_sno_1_skip:
     ldsfld     string _115_data_basic::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -291,7 +291,7 @@
     ldc.i4.1
     stloc.0
     br         L_end
-  L_Nasgn2_skip:
+  L_sno_2_skip:
     ldsfld     string _115_data_basic::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -332,7 +332,7 @@
     call       void _115_data_basic::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn3_skip:
+  L_sno_3_skip:
     ldsfld     string _115_data_basic::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -358,7 +358,7 @@
     ldc.i4.1
     stloc.0
     br         L_end
-  L_Nasgn4_skip:
+  L_sno_4_skip:
     ldsfld     string _115_data_basic::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -406,7 +406,7 @@
     ldc.i4.1
     stloc.0
     br         L_end
-  L_Nasgn5_skip:
+  L_sno_5_skip:
     ldsfld     string _115_data_basic::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -437,7 +437,7 @@
     ldc.i4.1
     stloc.0
     br         L_end
-  L_Nasgn6_skip:
+  L_sno_6_skip:
     ldsfld     string _115_data_basic::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -481,7 +481,7 @@
     ldc.i4.1
     stloc.0
     br         L_end
-  L_Nasgn7_skip:
+  L_sno_7_skip:
     ldsfld     string _115_data_basic::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -498,14 +498,16 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn8_skip:
+  L_sno_8_skip:
 
     // --- END statement ---
 
     // --- END ---
   L_END:
-                        nop
-                        ret
+
+nop
+
+ret
   }
 
   .method static string net_array_new(string) cil managed

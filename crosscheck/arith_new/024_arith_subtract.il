@@ -173,14 +173,16 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn0_skip:
+  L_sno_0_skip:
 
     // --- END statement ---
 
     // --- END ---
   L_END:
-                        nop
-                        ret
+
+nop
+
+ret
   }
 
 } // end class _24_arith_subtract

@@ -258,12 +258,14 @@
     ldc.i4.1
     stloc.0
     br         L_PushEnd
-  L_Nasgn0_skip:
+  L_sno_0_skip:
 
     // --- END ---
   L_END:
-                        nop
-                        ret
+
+nop
+
+ret
   }
 
   .method static string net_fn_Push(string) cil managed
@@ -320,7 +322,7 @@
     call       void Expr_eval::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn1_skip:
+  L_sno_1_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -367,7 +369,7 @@
     call       void Expr_eval::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn2_skip:
+  L_sno_2_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -382,7 +384,7 @@
     call       void Expr_eval::net_array_put(string, string, string)
     ldc.i4.1
     stloc.0
-    br         Nfn0_return
+    br         sno_fn0_return
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -426,7 +428,7 @@
     call       void Expr_eval::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn3_skip:
+  L_sno_3_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -451,7 +453,7 @@
     call       void Expr_eval::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn4_skip:
+  L_sno_4_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -472,7 +474,7 @@
     ldc.i4.1
     stloc.0
     br         L_NRETURN
-  L_Nasgn5_skip:
+  L_sno_5_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -516,7 +518,7 @@
     call       void Expr_eval::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn6_skip:
+  L_sno_6_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -541,7 +543,7 @@
     call       void Expr_eval::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn7_skip:
+  L_sno_7_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -566,7 +568,7 @@
     call       void Expr_eval::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn8_skip:
+  L_sno_8_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -587,7 +589,7 @@
     ldc.i4.1
     stloc.0
     br         L_NRETURN
-  L_Nasgn9_skip:
+  L_sno_9_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -610,7 +612,7 @@
     call       void Expr_eval::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn10_skip:
+  L_sno_10_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -629,7 +631,7 @@
     call       void Expr_eval::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn11_skip:
+  L_sno_11_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -643,7 +645,7 @@
     call       void Expr_eval::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn12_skip:
+  L_sno_12_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -658,7 +660,7 @@
     call       void Expr_eval::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn13_skip:
+  L_sno_13_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -673,7 +675,7 @@
     call       void Expr_eval::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn14_skip:
+  L_sno_14_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -688,7 +690,7 @@
     call       void Expr_eval::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn15_skip:
+  L_sno_15_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -702,7 +704,7 @@
     call       void Expr_eval::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn16_skip:
+  L_sno_16_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -716,7 +718,7 @@
     call       void Expr_eval::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn17_skip:
+  L_sno_17_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -730,7 +732,7 @@
     call       void Expr_eval::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn18_skip:
+  L_sno_18_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -744,7 +746,7 @@
     call       void Expr_eval::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn19_skip:
+  L_sno_19_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -753,7 +755,7 @@
     pop
     ldc.i4.1
     stloc.0
-  L_Nasgn20_skip:
+  L_sno_20_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -908,7 +910,7 @@
     ldc.i4.1
     stloc.0
     br         L_loop
-  L_Nasgn21_skip:
+  L_sno_21_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -921,15 +923,15 @@
     ldc.i4.1
     stloc.0
     br         L_loop
-  L_Nasgn22_skip:
-  Nfn0_return:
+  L_sno_22_skip:
+  sno_fn0_return:
     ldloc.s    V_30
     stsfld     string Expr_eval::X
     ldsfld     string Expr_eval::PUSH
     ldloc.s    V_31
     stsfld     string Expr_eval::PUSH
     ret
-  Nfn0_freturn:
+  sno_fn0_freturn:
     ldloc.s    V_30
     stsfld     string Expr_eval::X
     ldloc.s    V_31
@@ -977,7 +979,7 @@
     call       void Expr_eval::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn23_skip:
+  L_sno_23_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -992,13 +994,13 @@
     call       void Expr_eval::net_array_put(string, string, string)
     ldc.i4.1
     stloc.0
-    br         Nfn1_return
-  Nfn1_return:
+    br         sno_fn1_return
+  sno_fn1_return:
     ldsfld     string Expr_eval::POP
     ldloc.s    V_30
     stsfld     string Expr_eval::POP
     ret
-  Nfn1_freturn:
+  sno_fn1_freturn:
     ldloc.s    V_30
     stsfld     string Expr_eval::POP
     ldnull
@@ -1059,7 +1061,7 @@
     call       void Expr_eval::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn24_skip:
+  L_sno_24_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -1084,7 +1086,7 @@
     call       void Expr_eval::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn25_skip:
+  L_sno_25_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -1105,8 +1107,8 @@
     ldc.i4.1
     stloc.0
     br         L_NRETURN
-  L_Nasgn26_skip:
-  Nfn2_return:
+  L_sno_26_skip:
+  sno_fn2_return:
     ldloc.s    V_30
     stsfld     string Expr_eval::ARG
     ldloc.s    V_31
@@ -1115,7 +1117,7 @@
     ldloc.s    V_32
     stsfld     string Expr_eval::UNARY
     ret
-  Nfn2_freturn:
+  sno_fn2_freturn:
     ldloc.s    V_30
     stsfld     string Expr_eval::ARG
     ldloc.s    V_31
@@ -1184,7 +1186,7 @@
     call       void Expr_eval::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn27_skip:
+  L_sno_27_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -1209,7 +1211,7 @@
     call       void Expr_eval::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn28_skip:
+  L_sno_28_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -1234,7 +1236,7 @@
     call       void Expr_eval::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn29_skip:
+  L_sno_29_skip:
     ldsfld     string Expr_eval::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -1255,8 +1257,8 @@
     ldc.i4.1
     stloc.0
     br         L_NRETURN
-  L_Nasgn30_skip:
-  Nfn3_return:
+  L_sno_30_skip:
+  sno_fn3_return:
     ldloc.s    V_30
     stsfld     string Expr_eval::OP
     ldloc.s    V_31
@@ -1267,7 +1269,7 @@
     ldloc.s    V_33
     stsfld     string Expr_eval::BINARY
     ret
-  Nfn3_freturn:
+  sno_fn3_freturn:
     ldloc.s    V_30
     stsfld     string Expr_eval::OP
     ldloc.s    V_31

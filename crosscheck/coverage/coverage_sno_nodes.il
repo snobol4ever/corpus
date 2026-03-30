@@ -239,7 +239,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn0_skip:
+  L_sno_0_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -248,7 +248,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn1_skip:
+  L_sno_1_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -262,7 +262,7 @@
     call       void Coverage_sno_nodes::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn2_skip:
+  L_sno_2_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -271,7 +271,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn3_skip:
+  L_sno_3_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -285,7 +285,7 @@
     call       void Coverage_sno_nodes::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn4_skip:
+  L_sno_4_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -294,7 +294,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn5_skip:
+  L_sno_5_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -303,7 +303,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn6_skip:
+  L_sno_6_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -314,7 +314,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn7_skip:
+  L_sno_7_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -325,7 +325,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn8_skip:
+  L_sno_8_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -336,7 +336,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn9_skip:
+  L_sno_9_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -347,7 +347,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn10_skip:
+  L_sno_10_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -362,7 +362,7 @@
     call       void Coverage_sno_nodes::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn11_skip:
+  L_sno_11_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -371,7 +371,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn12_skip:
+  L_sno_12_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -382,7 +382,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn13_skip:
+  L_sno_13_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -393,7 +393,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn14_skip:
+  L_sno_14_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -407,7 +407,7 @@
     call       void Coverage_sno_nodes::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn15_skip:
+  L_sno_15_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -452,7 +452,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn16_skip:
+  L_sno_16_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -466,7 +466,7 @@
     call       void Coverage_sno_nodes::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn17_skip:
+  L_sno_17_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -544,7 +544,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn18_skip:
+  L_sno_18_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -558,7 +558,7 @@
     call       void Coverage_sno_nodes::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn19_skip:
+  L_sno_19_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -640,7 +640,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn20_skip:
+  L_sno_20_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -654,7 +654,7 @@
     call       void Coverage_sno_nodes::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn21_skip:
+  L_sno_21_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -721,7 +721,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn22_skip:
+  L_sno_22_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -735,7 +735,7 @@
     call       void Coverage_sno_nodes::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn23_skip:
+  L_sno_23_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -806,7 +806,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn24_skip:
+  L_sno_24_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -820,7 +820,7 @@
     call       void Coverage_sno_nodes::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn25_skip:
+  L_sno_25_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -868,7 +868,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn26_skip:
+  L_sno_26_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -882,7 +882,7 @@
     call       void Coverage_sno_nodes::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn27_skip:
+  L_sno_27_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -966,7 +966,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn28_skip:
+  L_sno_28_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -980,7 +980,7 @@
     call       void Coverage_sno_nodes::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn29_skip:
+  L_sno_29_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -1071,7 +1071,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn30_skip:
+  L_sno_30_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -1086,7 +1086,7 @@
     call       void Coverage_sno_nodes::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn31_skip:
+  L_sno_31_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -1100,7 +1100,7 @@
     call       void Coverage_sno_nodes::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn32_skip:
+  L_sno_32_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -1145,7 +1145,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn33_skip:
+  L_sno_33_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -1159,7 +1159,7 @@
     call       void Coverage_sno_nodes::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn34_skip:
+  L_sno_34_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -1169,7 +1169,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn35_skip:
+  L_sno_35_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -1181,7 +1181,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn36_skip:
+  L_sno_36_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -1198,7 +1198,7 @@
     call       void Coverage_sno_nodes::net_mon_var(string, string)
     ldc.i4.1
     stloc.0
-  L_Nasgn37_skip:
+  L_sno_37_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -1219,7 +1219,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn38_skip:
+  L_sno_38_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -1234,7 +1234,7 @@
     stloc.0
     ldloc.0
     brtrue     L_NULLOK
-  L_Nasgn39_skip:
+  L_sno_39_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -1244,7 +1244,7 @@
     ldc.i4.1
     stloc.0
     br         L_DONE
-  L_Nasgn40_skip:
+  L_sno_40_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -1256,7 +1256,7 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn41_skip:
+  L_sno_41_skip:
     ldsfld     string Coverage_sno_nodes::kw_stno
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
@@ -1281,14 +1281,16 @@
     call       void [mscorlib]System.Console::WriteLine(string)
     ldc.i4.1
     stloc.0
-  L_Nasgn42_skip:
+  L_sno_42_skip:
 
     // --- END statement ---
 
     // --- END ---
   L_END:
-                        nop
-                        ret
+
+nop
+
+ret
   }
 
   .method static string net_array_new(string) cil managed
