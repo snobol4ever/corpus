@@ -754,8 +754,8 @@ Lvar_fail_11:
     ldc "x"
     invokestatic expr_eval/sno_indr_get(Ljava/lang/String;)Ljava/lang/String;
     invokestatic expr_eval/sno_indr_set(Ljava/lang/String;Ljava/lang/String;)V
-    goto Jfn0_return
-Jfn0_return:
+    goto sno_fn0_return
+sno_fn0_return:
     ldc "x"
     aload 1
     invokestatic expr_eval/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -765,7 +765,7 @@ Jfn0_return:
     aload 2
     invokestatic expr_eval/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn0_freturn:
+sno_fn0_freturn:
     ldc "x"
     aload 1
     invokestatic expr_eval/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -842,17 +842,17 @@ Larf_1:
     invokestatic expr_eval/sno_fmt_double(D)Ljava/lang/String;
 Lard_1:
     invokestatic expr_eval/sno_array_put(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    goto Jfn1_return
+    goto sno_fn1_return
 ; unhandled stmt form
     nop
-Jfn1_return:
+sno_fn1_return:
     ldc "Pop"
     invokestatic expr_eval/sno_indr_get(Ljava/lang/String;)Ljava/lang/String;
     ldc "Pop"
     aload 0
     invokestatic expr_eval/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn1_freturn:
+sno_fn1_freturn:
     ldc "Pop"
     aload 0
     invokestatic expr_eval/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -935,9 +935,9 @@ Lvar_ok_15:
     ldc "Unary"
     swap
     invokestatic expr_eval/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
-    goto Jfn2_return
+    goto sno_fn2_return
 Lvar_fail_15:
-Jfn2_return:
+sno_fn2_return:
     ldc "arg"
     aload 0
     invokestatic expr_eval/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -950,7 +950,7 @@ Jfn2_return:
     aload 2
     invokestatic expr_eval/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn2_freturn:
+sno_fn2_freturn:
     ldc "arg"
     aload 0
     invokestatic expr_eval/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -1060,9 +1060,9 @@ Lvar_ok_19:
     ldc "Binary"
     swap
     invokestatic expr_eval/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
-    goto Jfn3_return
+    goto sno_fn3_return
 Lvar_fail_19:
-Jfn3_return:
+sno_fn3_return:
     ldc "op"
     aload 0
     invokestatic expr_eval/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -1078,7 +1078,7 @@ Jfn3_return:
     aload 3
     invokestatic expr_eval/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn3_freturn:
+sno_fn3_freturn:
     ldc "op"
     aload 0
     invokestatic expr_eval/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V

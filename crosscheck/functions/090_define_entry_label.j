@@ -189,9 +189,9 @@ Lvar_ok_0:
     ldc "bumpit"
     swap
     invokestatic _90_define_entry_label/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
-    goto Jfn0_return
+    goto sno_fn0_return
 Lvar_fail_0:
-Jfn0_return:
+sno_fn0_return:
     ldc "v"
     aload 1
     invokestatic _90_define_entry_label/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -201,7 +201,7 @@ Jfn0_return:
     aload 2
     invokestatic _90_define_entry_label/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn0_freturn:
+sno_fn0_freturn:
     ldc "v"
     aload 1
     invokestatic _90_define_entry_label/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V

@@ -198,14 +198,14 @@ Lf0_rb_3:
     invokestatic binary_trees/sno_stcount_tick()V
     ldc ""
     pop
-Jfn0_return:
+sno_fn0_return:
     ldc "MAIN"
     invokestatic binary_trees/sno_indr_get(Ljava/lang/String;)Ljava/lang/String;
     ldc "MAIN"
     aload 0
     invokestatic binary_trees/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn0_freturn:
+sno_fn0_freturn:
     ldc "MAIN"
     aload 0
     invokestatic binary_trees/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -258,7 +258,7 @@ Lf1_ADDL:
     invokestatic binary_trees/sno_stcount_tick()V
     ldc ""
     pop
-Jfn1_return:
+sno_fn1_return:
     ldc "N1"
     aload 2
     invokestatic binary_trees/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -271,7 +271,7 @@ Jfn1_return:
     aload 4
     invokestatic binary_trees/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn1_freturn:
+sno_fn1_freturn:
     ldc "N1"
     aload 2
     invokestatic binary_trees/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -330,7 +330,7 @@ Lf2_ADDR:
     invokestatic binary_trees/sno_stcount_tick()V
     ldc ""
     pop
-Jfn2_return:
+sno_fn2_return:
     ldc "N1"
     aload 2
     invokestatic binary_trees/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -343,7 +343,7 @@ Jfn2_return:
     aload 4
     invokestatic binary_trees/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn2_freturn:
+sno_fn2_freturn:
     ldc "N1"
     aload 2
     invokestatic binary_trees/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -670,7 +670,7 @@ Lf3_rb_13:
     invokestatic binary_trees/sno_stcount_tick()V
     ldc ""
     pop
-Jfn3_return:
+sno_fn3_return:
     ldc "S"
     aload 1
     invokestatic binary_trees/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -689,7 +689,7 @@ Jfn3_return:
     aload 5
     invokestatic binary_trees/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn3_freturn:
+sno_fn3_freturn:
     ldc "S"
     aload 1
     invokestatic binary_trees/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -923,7 +923,7 @@ Lf4_rb_23:
     invokestatic binary_trees/sno_stcount_tick()V
     ldc ""
     pop
-Jfn4_return:
+sno_fn4_return:
     ldc "T"
     aload 1
     invokestatic binary_trees/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -945,7 +945,7 @@ Jfn4_return:
     aload 6
     invokestatic binary_trees/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn4_freturn:
+sno_fn4_freturn:
     ldc "T"
     aload 1
     invokestatic binary_trees/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V

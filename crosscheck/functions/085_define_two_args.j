@@ -258,9 +258,9 @@ Lvar_ok_0:
     ldc "add"
     swap
     invokestatic _85_define_two_args/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
-    goto Jfn0_return
+    goto sno_fn0_return
 Lvar_fail_0:
-Jfn0_return:
+sno_fn0_return:
     ldc "a"
     aload 2
     invokestatic _85_define_two_args/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -273,7 +273,7 @@ Jfn0_return:
     aload 4
     invokestatic _85_define_two_args/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn0_freturn:
+sno_fn0_freturn:
     ldc "a"
     aload 2
     invokestatic _85_define_two_args/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V

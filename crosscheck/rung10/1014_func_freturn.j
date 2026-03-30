@@ -163,15 +163,15 @@ L_END:
     invokestatic _014_func_freturn/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
 ; === always_fail =====================================================
 Lf0_always_fail:
-    goto Jfn0_freturn
-Jfn0_return:
+    goto sno_fn0_freturn
+sno_fn0_return:
     ldc "always_fail"
     invokestatic _014_func_freturn/sno_indr_get(Ljava/lang/String;)Ljava/lang/String;
     ldc "always_fail"
     aload 0
     invokestatic _014_func_freturn/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn0_freturn:
+sno_fn0_freturn:
     ldc "always_fail"
     aload 0
     invokestatic _014_func_freturn/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V

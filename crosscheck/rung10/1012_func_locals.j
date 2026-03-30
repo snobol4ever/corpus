@@ -716,9 +716,9 @@ Lvar_ok_5:
     ldc "lfunc"
     swap
     invokestatic _012_func_locals/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
-    goto Jfn0_return
+    goto sno_fn0_return
 Lvar_fail_5:
-Jfn0_return:
+sno_fn0_return:
     ldc "a"
     aload 3
     invokestatic _012_func_locals/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -743,7 +743,7 @@ Jfn0_return:
     aload 9
     invokestatic _012_func_locals/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn0_freturn:
+sno_fn0_freturn:
     ldc "a"
     aload 3
     invokestatic _012_func_locals/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -828,7 +828,7 @@ Lvar_ok_6:
     ldc "checklocal"
     swap
     invokestatic _012_func_locals/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
-    goto Jfn1_return
+    goto sno_fn1_return
 Lvar_fail_6:
 ; === e007_inner ======================================================
 Lf1_e007_inner:
@@ -840,8 +840,8 @@ Lf1_e007_inner:
     ldc "checklocal"
     ldc ""
     invokestatic _012_func_locals/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
-    goto Jfn1_return
-Jfn1_return:
+    goto sno_fn1_return
+sno_fn1_return:
     ldc "x"
     aload 0
     invokestatic _012_func_locals/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -851,7 +851,7 @@ Jfn1_return:
     aload 1
     invokestatic _012_func_locals/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn1_freturn:
+sno_fn1_freturn:
     ldc "x"
     aload 0
     invokestatic _012_func_locals/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V

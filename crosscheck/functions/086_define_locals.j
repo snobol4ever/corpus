@@ -262,10 +262,10 @@ Lout_ok_0:
     getstatic _86_define_locals/sno_stdout Ljava/io/PrintStream;
     swap
     invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
-    goto Jfn0_return
+    goto sno_fn0_return
 Lout_fail_0:
-    goto Jfn0_return
-Jfn0_return:
+    goto sno_fn0_return
+sno_fn0_return:
     ldc "a"
     aload 2
     invokestatic _86_define_locals/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -281,7 +281,7 @@ Jfn0_return:
     aload 5
     invokestatic _86_define_locals/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn0_freturn:
+sno_fn0_freturn:
     ldc "a"
     aload 2
     invokestatic _86_define_locals/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V

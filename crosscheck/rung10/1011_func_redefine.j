@@ -416,9 +416,9 @@ Lvar_ok_1:
     ldc "myfunc"
     swap
     invokestatic _011_func_redefine/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
-    goto Jfn0_return
+    goto sno_fn0_return
 Lvar_fail_1:
-Jfn0_return:
+sno_fn0_return:
     ldc "n"
     aload 1
     invokestatic _011_func_redefine/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -428,7 +428,7 @@ Jfn0_return:
     aload 2
     invokestatic _011_func_redefine/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn0_freturn:
+sno_fn0_freturn:
     ldc "n"
     aload 1
     invokestatic _011_func_redefine/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V

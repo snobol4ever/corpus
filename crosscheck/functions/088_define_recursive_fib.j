@@ -305,7 +305,7 @@ Lvar_ok_0:
     ldc "fib"
     swap
     invokestatic _88_define_recursive_fib/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
-    goto Jfn0_return
+    goto sno_fn0_return
 Lvar_fail_0:
 ; === base ============================================================
 Lf0_base:
@@ -324,9 +324,9 @@ Lvar_ok_1:
     ldc "fib"
     swap
     invokestatic _88_define_recursive_fib/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
-    goto Jfn0_return
+    goto sno_fn0_return
 Lvar_fail_1:
-Jfn0_return:
+sno_fn0_return:
     ldc "n"
     aload 1
     invokestatic _88_define_recursive_fib/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -336,7 +336,7 @@ Jfn0_return:
     aload 2
     invokestatic _88_define_recursive_fib/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn0_freturn:
+sno_fn0_freturn:
     ldc "n"
     aload 1
     invokestatic _88_define_recursive_fib/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V

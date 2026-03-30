@@ -262,12 +262,12 @@ Lcmp_d_0:
     dup
     ifnonnull Lef_nn_2
     pop
-    goto Jfn0_freturn
+    goto sno_fn0_freturn
 Lef_nn_2:
     pop
-    goto Jfn0_return
+    goto sno_fn0_return
 Lef_dn_2:
-Jfn0_return:
+sno_fn0_return:
     ldc "x"
     aload 1
     invokestatic _87_define_freturn/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
@@ -277,7 +277,7 @@ Jfn0_return:
     aload 2
     invokestatic _87_define_freturn/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
     areturn
-Jfn0_freturn:
+sno_fn0_freturn:
     ldc "x"
     aload 1
     invokestatic _87_define_freturn/sno_var_put(Ljava/lang/String;Ljava/lang/String;)V
