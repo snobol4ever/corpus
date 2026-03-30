@@ -949,7 +949,7 @@ icn_2_scan_bfail:
     putstatic wordcount/icn_pos I
     goto icn_3_β
 icn_2_scan_beta:
-;  SCAN restore (outer beta)
+;  SCAN restore (outer β)
     getstatic wordcount/icn_scan_oldsubj_2 Ljava/lang/String;
     putstatic wordcount/icn_subject Ljava/lang/String;
     getstatic wordcount/icn_scan_oldpos_2 I

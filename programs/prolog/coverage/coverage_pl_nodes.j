@@ -2696,7 +2696,7 @@ pjnv_done:
     invokestatic coverage_pl_nodes/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     astore 4
     aload 4
-    ldc "alpha"
+    ldc "α"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
     ifeq pjct_try_alnum
     iload_3
@@ -5098,7 +5098,7 @@ pj_db1_miss:
     .limit locals 71
     iconst_0
     istore 69
-    iload 2 ; cs == 0x7fffffff (cutgamma sentinel)? -> omega
+    iload 2 ; cs == 0x7fffffff (cutgamma sentinel)? -> ω
     ldc 2147483647
     if_icmpeq p_memberchk_2_omega
     iload 2
@@ -5415,7 +5415,7 @@ pj_db4_miss:
     .limit locals 63
     iconst_0
     istore 61
-    iload 1 ; cs >= 3 (all clauses exhausted)? → omega
+    iload 1 ; cs >= 3 (all clauses exhausted)? → ω
     ldc 3
     if_icmpge p_color_1_omega
     iload 1
@@ -5675,7 +5675,7 @@ pj_db6_miss:
     .limit locals 65
     iconst_0
     istore 63
-    iload 2 ; cs >= 1 (all clauses exhausted)? → omega
+    iload 2 ; cs >= 1 (all clauses exhausted)? → ω
     ldc 1
     if_icmpge p_unify_test_2_omega
     iload 2
@@ -5817,7 +5817,7 @@ pj_db8_miss:
     .limit locals 69
     iconst_0
     istore 67
-    iload 1 ; cs == 0x7fffffff (cutgamma sentinel)? -> omega
+    iload 1 ; cs == 0x7fffffff (cutgamma sentinel)? -> ω
     ldc 2147483647
     if_icmpeq p_first_color_1_omega
     iload 1
@@ -5974,7 +5974,7 @@ pj_db11_miss:
     .limit locals 66
     iconst_0
     istore 64
-    iload 0 ; cs >= 1 (all clauses exhausted)? → omega
+    iload 0 ; cs >= 1 (all clauses exhausted)? → ω
     ldc 1
     if_icmpge p_arith_test_0_omega
     iload 0
@@ -6190,7 +6190,7 @@ pj_db25_miss:
     .limit locals 63
     iconst_0
     istore 61
-    iload 0 ; cs >= 1 (all clauses exhausted)? → omega
+    iload 0 ; cs >= 1 (all clauses exhausted)? → ω
     ldc 1
     if_icmpge p_atom_test_0_omega
     iload 0
@@ -6319,7 +6319,7 @@ pj_db29_miss:
     .limit locals 63
     iconst_0
     istore 61
-    iload 0 ; cs >= 1 (all clauses exhausted)? → omega
+    iload 0 ; cs >= 1 (all clauses exhausted)? → ω
     ldc 1
     if_icmpge p_float_test_0_omega
     iload 0
@@ -6459,7 +6459,7 @@ pj_db33_miss:
     .limit locals 64
     iconst_0
     istore 62
-    iload 1 ; cs >= 1 (all clauses exhausted)? → omega
+    iload 1 ; cs >= 1 (all clauses exhausted)? → ω
     ldc 1
     if_icmpge p_var_test_1_omega
     iload 1
@@ -6599,7 +6599,7 @@ pj_db36_miss:
     .limit locals 68
     iconst_0
     istore 66
-    iload 0 ; cs >= 2 (all clauses exhausted)? → omega
+    iload 0 ; cs >= 2 (all clauses exhausted)? → ω
     ldc 2
     if_icmpge p_trail_test_0_omega
     iload 0

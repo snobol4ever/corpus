@@ -2696,7 +2696,7 @@ pjnv_done:
     invokestatic rung30_dcg_nonterminals/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     astore 4
     aload 4
-    ldc "alpha"
+    ldc "α"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
     ifeq pjct_try_alnum
     iload_3
@@ -5098,7 +5098,7 @@ pj_db1_miss:
     .limit locals 71
     iconst_0
     istore 69
-    iload 2 ; cs == 0x7fffffff (cutgamma sentinel)? -> omega
+    iload 2 ; cs == 0x7fffffff (cutgamma sentinel)? -> ω
     ldc 2147483647
     if_icmpeq p_memberchk_2_omega
     iload 2
@@ -6115,7 +6115,7 @@ pj_db17_miss:
     .limit locals 66
     iconst_0
     istore 64
-    iload 2 ; cs >= 3 (all clauses exhausted)? → omega
+    iload 2 ; cs >= 3 (all clauses exhausted)? → ω
     ldc 3
     if_icmpge p_noun_2_omega
     iload 2
@@ -6457,7 +6457,7 @@ pj_db22_miss:
     .limit locals 66
     iconst_0
     istore 64
-    iload 2 ; cs >= 2 (all clauses exhausted)? → omega
+    iload 2 ; cs >= 2 (all clauses exhausted)? → ω
     ldc 2
     if_icmpge p_verb_2_omega
     iload 2
@@ -6712,7 +6712,7 @@ pj_db26_miss:
     .limit locals 62
     iconst_0
     istore 60
-    iload 0 ; cs >= 1 (all clauses exhausted)? → omega
+    iload 0 ; cs >= 1 (all clauses exhausted)? → ω
     ldc 1
     if_icmpge p_main_0_omega
     iload 0

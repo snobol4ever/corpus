@@ -2696,7 +2696,7 @@ pjnv_done:
     invokestatic coverage_net_gaps/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     astore 4
     aload 4
-    ldc "alpha"
+    ldc "α"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
     ifeq pjct_try_alnum
     iload_3
@@ -4786,7 +4786,7 @@ pj_otb_int:
     .limit locals 71
     iconst_0
     istore 69
-    iload 2 ; cs == 0x7fffffff (cutgamma sentinel)? -> omega
+    iload 2 ; cs == 0x7fffffff (cutgamma sentinel)? -> ω
     ldc 2147483647
     if_icmpeq p_memberchk_2_omega
     iload 2
@@ -5103,7 +5103,7 @@ pj_db1_miss:
     .limit locals 74
     iconst_0
     istore 72
-    iload 6 ; cs >= 1 (all clauses exhausted)? → omega
+    iload 6 ; cs >= 1 (all clauses exhausted)? → ω
     ldc 1
     if_icmpge p_arith_6_omega
     iload 6
@@ -5361,7 +5361,7 @@ pj_db7_miss:
     .limit locals 64
     iconst_0
     istore 62
-    iload 1 ; cs >= 1 (all clauses exhausted)? → omega
+    iload 1 ; cs >= 1 (all clauses exhausted)? → ω
     ldc 1
     if_icmpge p_float_check_1_omega
     iload 1
@@ -5509,7 +5509,7 @@ pj_db10_miss:
     .limit locals 67
     iconst_0
     istore 65
-    iload 3 ; cs >= 2 (all clauses exhausted)? → omega
+    iload 3 ; cs >= 2 (all clauses exhausted)? → ω
     ldc 2
     if_icmpge p_max_3_omega
     iload 3
@@ -5740,7 +5740,7 @@ pj_db13_miss:
     .limit locals 65
     iconst_0
     istore 63
-    iload 2 ; cs >= 1 (all clauses exhausted)? → omega
+    iload 2 ; cs >= 1 (all clauses exhausted)? → ω
     ldc 1
     if_icmpge p_unify_test_2_omega
     iload 2
@@ -6194,7 +6194,7 @@ pj_db18_miss:
     .limit locals 103
     iconst_0
     istore 101
-    iload 0 ; cs >= 1 (all clauses exhausted)? → omega
+    iload 0 ; cs >= 1 (all clauses exhausted)? → ω
     ldc 1
     if_icmpge p_main_0_omega
     iload 0
