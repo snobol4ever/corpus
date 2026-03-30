@@ -71,8 +71,10 @@ section .bss
     icon_199_bound: resq 1
     icon_199_e1cur: resq 1
     icon_199_e2seen: resq 1
+    icon_204_bang_str: resq 1
+    icon_204_bang_pos: resq 1
     icn_gvar_lst: resq 1
-    icn_init_flag_207: resq 1
+    icn_init_flag_208: resq 1
     icn_failed: resb 1
     icn_suspended: resb 1
     icn_suspend_resume: resq 1
@@ -100,6 +102,8 @@ section .text
     extern icn_pow
     extern icn_str_subscript
     extern icn_str_section
+    extern icn_bang_char_at
+    extern icn_match_pat
 
 _start:
     call    icn_main
@@ -1806,10 +1810,32 @@ icon_189_β:
     jmp     icon_187_α
     ; EVERY  id=202
     ; CALL write  id=203
+    ; VAR lst  id=205
+icon_205_α:
+    mov     rax, [rel icn_gvar_lst]
+    push    rax
+    jmp     icon_204_bang_as
+icon_205_β:
+    jmp     icon_189_α
+icon_204_bang_as:
+    pop     rax
+    mov     [rel icon_204_bang_str], rax
+    mov     qword [rel icon_204_bang_pos], 0
+icon_204_bang_chk:
+    mov     rdi, [rel icon_204_bang_str]
+    call    icn_strlen
+    cmp     [rel icon_204_bang_pos], rax
+    jge     icon_189_α
+    mov     rdi, [rel icon_204_bang_str]
+    mov     rsi, [rel icon_204_bang_pos]
+    call    icn_bang_char_at
+    push    rax
+    inc     qword [rel icon_204_bang_pos]
+    jmp     icon_203_call
 icon_204_α:
-    jmp     icon_189_α
+    jmp     icon_205_α
 icon_204_β:
-    jmp     icon_189_α
+    jmp     icon_204_bang_chk
 icon_203_α:
     jmp     icon_204_α
 icon_203_β:
@@ -1824,47 +1850,47 @@ icon_202_α:
     jmp     icon_203_α
 icon_202_β:
     jmp     icon_189_α
-icon_206_α:
+icon_207_α:
     push    0
-    jmp     icon_205_store
-icon_206_β:
+    jmp     icon_206_store
+icon_207_β:
     jmp     icon_202_α
-icon_205_α:
-    jmp     icon_206_α
-icon_205_β:
-    jmp     icon_206_β
-icon_205_store:
+icon_206_α:
+    jmp     icon_207_α
+icon_206_β:
+    jmp     icon_207_β
+icon_206_store:
     pop     rax
     mov     [rel icn_gvar_lst], rax
     jmp     icon_202_α
-    ; INT 0  id=209
-icon_209_α:
+    ; INT 0  id=210
+icon_210_α:
     push    0
-    jmp     icon_208_store
+    jmp     icon_209_store
+icon_210_β:
+    jmp     icon_208_init_skip
+icon_209_α:
+    jmp     icon_210_α
 icon_209_β:
-    jmp     icon_207_init_skip
-icon_208_α:
-    jmp     icon_209_α
-icon_208_β:
-    jmp     icon_209_β
-icon_208_store:
+    jmp     icon_210_β
+icon_209_store:
     pop     rax
     mov     [rel icn_gvar_gcount], rax
-    jmp     icon_207_init_skip
-icon_207_α:
-    cmp     qword [rel icn_init_flag_207], 0
-    jne     icon_207_init_skip
-    mov     qword [rel icn_init_flag_207], 1
-    jmp     icon_208_α
-icon_207_init_skip:
-    jmp     icon_205_α
-icon_207_β:
-    jmp     icon_205_α
+    jmp     icon_208_init_skip
+icon_208_α:
+    cmp     qword [rel icn_init_flag_208], 0
+    jne     icon_208_init_skip
+    mov     qword [rel icn_init_flag_208], 1
+    jmp     icon_209_α
+icon_208_init_skip:
+    jmp     icon_206_α
+icon_208_β:
+    jmp     icon_206_α
 icn_main:
     push    rbp
     mov     rbp, rsp
     sub     rsp, 224
-    jmp     icon_207_α
+    jmp     icon_208_α
 icn_main_done:
     mov     byte [rel icn_failed], 1
     add     rsp, 224

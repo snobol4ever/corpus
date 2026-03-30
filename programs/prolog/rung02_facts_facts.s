@@ -198,37 +198,23 @@ pl_main_sl_0_c0_body:
                             xor         edx, edx               ; sub_cs=0 for first ucall
                             mov         dword [rbp - 32], 0    ; _cs
 disj_main_sl_0_0_0_retry:
-                            sub         rsp, 32
-                            sub         rsp, 8            ; args[1] for compound person/1
+                            sub         rsp, 16
                             mov         rax, [rbp - 40]  ; var slot 0 (_V0)
-                            mov         [rsp + 0], rax  ; compound arg 0
-                            mov         edi, dword [rel pl_atom_person_3 + 8]  ; functor atom_id
-                            mov         esi, 1                   ; arity
-                            mov         rdx, rsp                   ; args ptr
-                            call        term_new_compound
-                            add         rsp, 8
                             mov         [rsp + 0], rax
-                            sub         rsp, 8            ; args[1] for compound write/1
-                            mov         rax, [rbp - 40]  ; var slot 0 (_V0)
-                            mov         [rsp + 0], rax  ; compound arg 0
-                            mov         edi, dword [rel pl_atom_write_4 + 8]  ; functor atom_id
-                            mov         esi, 1                   ; arity
-                            mov         rdx, rsp                   ; args ptr
-                            call        term_new_compound
-                            add         rsp, 8
-                            mov         [rsp + 8], rax
-                            lea         rax, [rel pl_atom_nl_5]
-                            mov         [rsp + 16], rax
-                            lea         rax, [rel pl_atom_fail_6]
-                            mov         [rsp + 24], rax
                             mov         rdi, rsp
                             lea         rsi, [rel pl_trail]
                             mov         edx, [rbp - 32]
-                            call        pl__cm__sl_4_r
-                            add         rsp, 32
+                            call        pl_person_sl_1_r
+                            add         rsp, 16
                             test        eax, eax
                             js          disj_main_sl_0_0_0_else
                             mov         [rbp - 32], eax
+                            mov         rax, [rbp - 40]  ; var slot 0 (_V0)
+                            mov         rdi, rax
+                            call        pl_write
+                            mov         edi,10
+                            call        putchar
+                            jmp         disj_main_sl_0_0_0_retry_back
 disj_main_sl_0_0_0_retry_back:
                             lea         rdi, [rel pl_trail]
                             mov         esi, [rbp - 8]
@@ -274,18 +260,6 @@ pl_rt_init:
                             lea         rdi, [rel pl_astr_2]
                             call        prolog_atom_intern
                             mov         dword [rel pl_atom_smith_2 + 8], eax
-                            lea         rdi, [rel pl_astr_3]
-                            call        prolog_atom_intern
-                            mov         dword [rel pl_atom_person_3 + 8], eax
-                            lea         rdi, [rel pl_astr_4]
-                            call        prolog_atom_intern
-                            mov         dword [rel pl_atom_write_4 + 8], eax
-                            lea         rdi, [rel pl_astr_5]
-                            call        prolog_atom_intern
-                            mov         dword [rel pl_atom_nl_5 + 8], eax
-                            lea         rdi, [rel pl_astr_6]
-                            call        prolog_atom_intern
-                            mov         dword [rel pl_atom_fail_6 + 8], eax
                             pop         rbp
                             ret
 
@@ -317,10 +291,6 @@ section .rodata
 pl_astr_0: db `b`,`r`,`o`,`w`,`n`,0
 pl_astr_1: db `j`,`o`,`n`,`e`,`s`,0
 pl_astr_2: db `s`,`m`,`i`,`t`,`h`,0
-pl_astr_3: db `p`,`e`,`r`,`s`,`o`,`n`,0
-pl_astr_4: db `w`,`r`,`i`,`t`,`e`,0
-pl_astr_5: db `n`,`l`,0
-pl_astr_6: db `f`,`a`,`i`,`l`,0
 
 section .data
 ; TT_ATOM=0 — term_tag(4B) + saved_slot(4B) + atom_id(8B) = 16 bytes
@@ -337,30 +307,6 @@ dd      0               ; atom_id — filled by pl_rt_init
 dd      0               ; atom_id high dword (padding)
 dq      0               ; union padding (compound.args* slot)
 pl_atom_smith_2:
-dd      0               ; tag = TT_ATOM
-dd      0               ; saved_slot
-dd      0               ; atom_id — filled by pl_rt_init
-dd      0               ; atom_id high dword (padding)
-dq      0               ; union padding (compound.args* slot)
-pl_atom_person_3:
-dd      0               ; tag = TT_ATOM
-dd      0               ; saved_slot
-dd      0               ; atom_id — filled by pl_rt_init
-dd      0               ; atom_id high dword (padding)
-dq      0               ; union padding (compound.args* slot)
-pl_atom_write_4:
-dd      0               ; tag = TT_ATOM
-dd      0               ; saved_slot
-dd      0               ; atom_id — filled by pl_rt_init
-dd      0               ; atom_id high dword (padding)
-dq      0               ; union padding (compound.args* slot)
-pl_atom_nl_5:
-dd      0               ; tag = TT_ATOM
-dd      0               ; saved_slot
-dd      0               ; atom_id — filled by pl_rt_init
-dd      0               ; atom_id high dword (padding)
-dq      0               ; union padding (compound.args* slot)
-pl_atom_fail_6:
 dd      0               ; tag = TT_ATOM
 dd      0               ; saved_slot
 dd      0               ; atom_id — filled by pl_rt_init
