@@ -1,7 +1,7 @@
 // A11_capture_loop.sc — capture inside loop (LOOP/DONE → while + break)
-X = 'aaa';
-N = 0;
-while (X ? POS(N) && 'a' . V) {
-    OUTPUT = V;
-    N = N + 1;
+x = 'aaa';
+n = 0;
+while (x ? POS(n) && 'a' . v) {
+    OUTPUT = v;
+    n = n + 1;
 }

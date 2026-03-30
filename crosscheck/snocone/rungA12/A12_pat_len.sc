@@ -1,7 +1,7 @@
 // A12_pat_len.sc — LEN matches exactly N characters
-X = 'abcdef';
-if (X ? LEN(3) . V) {
-    OUTPUT = V;
+x = 'abcdef';
+if (x ? LEN(3) . v) {
+    OUTPUT = v;
 } else {
     OUTPUT = 'fail';
 }

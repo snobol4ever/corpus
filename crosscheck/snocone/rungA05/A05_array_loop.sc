@@ -1,12 +1,12 @@
 // A05_array_loop.sc — fill array in while loop, read back
-A = ARRAY(5);
-I = 1;
-while (LE(I, 5)) {
-    A<I> = I * I;
-    I = I + 1;
+arr = ARRAY(5);
+i = 1;
+while (LE(i, 5)) {
+    arr<i> = i * i;
+    i = i + 1;
 }
-I = 1;
-while (LE(I, 5)) {
-    OUTPUT = A<I>;
-    I = I + 1;
+i = 1;
+while (LE(i, 5)) {
+    OUTPUT = arr<i>;
+    i = i + 1;
 }

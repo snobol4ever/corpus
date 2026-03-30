@@ -1,4 +1,4 @@
-// A02_assign_chain.sc — chain assignment X=a, Y=X, output Y
-X = 'alpha';
-Y = X;
-OUTPUT = Y;
+// A02_assign_chain.sc — chain assignment x=a, y=x, output y
+x = 'alpha';
+y = x;
+OUTPUT = y;

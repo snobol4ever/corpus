@@ -1,7 +1,7 @@
 // A12_pat_rpos.sc — RPOS anchors match from right
-X = 'hello';
-if (X ? RPOS(2) && LEN(2) . V) {
-    OUTPUT = V;
+x = 'hello';
+if (x ? RPOS(2) && LEN(2) . v) {
+    OUTPUT = v;
 } else {
     OUTPUT = 'fail';
 }
