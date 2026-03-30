@@ -1055,9 +1055,10 @@ icon_107_call:
     call    icn_write_int
     jmp     icn_105_α
     ; CALL write  id=111
-    ; UNIMPL ??? id=112
+    ; INT 42  id=112
 icn_112_α:
-    jmp     icn_107_α
+    push    42
+    jmp     icon_111_call
 icn_112_β:
     jmp     icn_107_α
 icn_111_α:
