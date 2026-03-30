@@ -33,6 +33,10 @@ section .text
     extern icn_str_section
     extern icn_bang_char_at
     extern icn_match_pat
+    extern icn_cset_complement
+    extern icn_cset_union
+    extern icn_cset_diff
+    extern icn_cset_inter
 
 _start:
     call    icn_main

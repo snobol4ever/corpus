@@ -63,18 +63,25 @@ section .bss
     icn_gvar_s2: resq 1
     icn_gvar_s1: resq 1
     icn_gvar_p: resq 1
+    icn_cbo161_lptr: resq 1
+    icn_cbo161_rptr: resq 1
     icn_gvar_b: resq 1
     icn_gvar_a: resq 1
+    icn_cbo166_lptr: resq 1
+    icn_cbo166_rptr: resq 1
+    icn_cbo171_lptr: resq 1
+    icn_cbo171_rptr: resq 1
+    icn_csc180_ptr: resq 1
     icn_gvar_digits: resq 1
     icn_gvar_x: resq 1
-    icn_199_I: resq 1
-    icon_199_bound: resq 1
-    icon_199_e1cur: resq 1
-    icon_199_e2seen: resq 1
-    icon_204_bang_str: resq 1
-    icon_204_bang_pos: resq 1
+    icn_206_I: resq 1
+    icon_206_bound: resq 1
+    icon_206_e1cur: resq 1
+    icon_206_e2seen: resq 1
+    icon_211_bang_str: resq 1
+    icon_211_bang_pos: resq 1
     icn_gvar_lst: resq 1
-    icn_init_flag_208: resq 1
+    icn_init_flag_215: resq 1
     icn_failed: resb 1
     icn_suspended: resb 1
     icn_suspend_resume: resq 1
@@ -104,6 +111,10 @@ section .text
     extern icn_str_section
     extern icn_bang_char_at
     extern icn_match_pat
+    extern icn_cset_complement
+    extern icn_cset_union
+    extern icn_cset_diff
+    extern icn_cset_inter
 
 _start:
     call    icn_main
@@ -1456,11 +1467,38 @@ icon_157_store:
     mov     [rel icn_gvar_p], rax
     jmp     icn_155_α
     ; CALL write  id=159
-    ; UNIMPL ??? id=161
+    ; VAR b  id=162
+icn_162_α:
+    mov     rax, [rel icn_gvar_b]
+    push    rax
+    jmp     icon_161_cbo_cmp
+icn_162_β:
+    jmp     icon_161_cbo_lb
+    ; VAR a  id=163
+icn_163_α:
+    mov     rax, [rel icn_gvar_a]
+    push    rax
+    jmp     icon_161_cbo_ls
+icn_163_β:
+    jmp     icn_157_α
+icon_161_cbo_lb:
+    jmp     icn_163_β
 icn_161_α:
-    jmp     icn_157_α
+    jmp     icn_163_α
 icn_161_β:
-    jmp     icn_157_α
+    jmp     icn_162_β
+icon_161_cbo_ls:
+    pop     rax
+    mov     [rel icn_cbo161_lptr], rax
+    jmp     icn_162_α
+icon_161_cbo_cmp:
+    pop     rax
+    mov     [rel icn_cbo161_rptr], rax
+    mov     rdi, [rel icn_cbo161_lptr]
+    mov     rsi, [rel icn_cbo161_rptr]
+    call    icn_cset_diff
+    push    rax
+    jmp     icon_160_size_relay
 icn_160_α:
     jmp     icn_161_α
 icn_160_β:
@@ -1478,419 +1516,486 @@ icon_159_call:
     pop     rdi
     call    icn_write_int
     jmp     icn_157_α
-    ; CALL write  id=162
-    ; UNIMPL ??? id=164
-icn_164_α:
-    jmp     icn_159_α
-icn_164_β:
-    jmp     icn_159_α
-icn_163_α:
-    jmp     icn_164_α
-icn_163_β:
-    jmp     icn_164_β
-icon_163_size_relay:
-    pop     rdi
-    call    icn_strlen
-    push    rax
-    jmp     icon_162_call
-icn_162_α:
-    jmp     icn_163_α
-icn_162_β:
-    jmp     icn_163_β
-icon_162_call:
-    pop     rdi
-    call    icn_write_int
-    jmp     icn_159_α
-    ; CALL write  id=165
-    ; UNIMPL ??? id=167
+    ; CALL write  id=164
+    ; VAR b  id=167
 icn_167_α:
-    jmp     icn_162_α
+    mov     rax, [rel icn_gvar_b]
+    push    rax
+    jmp     icon_166_cbo_cmp
 icn_167_β:
-    jmp     icn_162_α
+    jmp     icon_166_cbo_lb
+    ; VAR a  id=168
+icn_168_α:
+    mov     rax, [rel icn_gvar_a]
+    push    rax
+    jmp     icon_166_cbo_ls
+icn_168_β:
+    jmp     icn_159_α
+icon_166_cbo_lb:
+    jmp     icn_168_β
 icn_166_α:
-    jmp     icn_167_α
+    jmp     icn_168_α
 icn_166_β:
     jmp     icn_167_β
-icon_166_size_relay:
-    pop     rdi
-    call    icn_strlen
+icon_166_cbo_ls:
+    pop     rax
+    mov     [rel icn_cbo166_lptr], rax
+    jmp     icn_167_α
+icon_166_cbo_cmp:
+    pop     rax
+    mov     [rel icn_cbo166_rptr], rax
+    mov     rdi, [rel icn_cbo166_lptr]
+    mov     rsi, [rel icn_cbo166_rptr]
+    call    icn_cset_inter
     push    rax
-    jmp     icon_165_call
+    jmp     icon_165_size_relay
 icn_165_α:
     jmp     icn_166_α
 icn_165_β:
     jmp     icn_166_β
-icon_165_call:
+icon_165_size_relay:
+    pop     rdi
+    call    icn_strlen
+    push    rax
+    jmp     icon_164_call
+icn_164_α:
+    jmp     icn_165_α
+icn_164_β:
+    jmp     icn_165_β
+icon_164_call:
     pop     rdi
     call    icn_write_int
-    jmp     icn_162_α
-icn_169_α:
-    lea     rdi, [rel icn_str_25]
-    jmp     icon_168_store
-icn_169_β:
-    jmp     icn_165_α
-icn_168_α:
-    jmp     icn_169_α
-icn_168_β:
-    jmp     icn_169_β
-icon_168_store:
-    ; str assign: rdi already has pointer
-    mov     [rel icn_gvar_b], rdi
-    jmp     icn_165_α
+    jmp     icn_159_α
+    ; CALL write  id=169
+    ; VAR b  id=172
+icn_172_α:
+    mov     rax, [rel icn_gvar_b]
+    push    rax
+    jmp     icon_171_cbo_cmp
+icn_172_β:
+    jmp     icon_171_cbo_lb
+    ; VAR a  id=173
+icn_173_α:
+    mov     rax, [rel icn_gvar_a]
+    push    rax
+    jmp     icon_171_cbo_ls
+icn_173_β:
+    jmp     icn_164_α
+icon_171_cbo_lb:
+    jmp     icn_173_β
 icn_171_α:
-    lea     rdi, [rel icn_str_26]
-    jmp     icon_170_store
+    jmp     icn_173_α
 icn_171_β:
-    jmp     icn_168_α
+    jmp     icn_172_β
+icon_171_cbo_ls:
+    pop     rax
+    mov     [rel icn_cbo171_lptr], rax
+    jmp     icn_172_α
+icon_171_cbo_cmp:
+    pop     rax
+    mov     [rel icn_cbo171_rptr], rax
+    mov     rdi, [rel icn_cbo171_lptr]
+    mov     rsi, [rel icn_cbo171_rptr]
+    call    icn_cset_union
+    push    rax
+    jmp     icon_170_size_relay
 icn_170_α:
     jmp     icn_171_α
 icn_170_β:
     jmp     icn_171_β
-icon_170_store:
-    ; str assign: rdi already has pointer
-    mov     [rel icn_gvar_a], rdi
-    jmp     icn_168_α
-    ; CALL write  id=172
-    ; UNIMPL ??? id=174
-icn_174_α:
-    jmp     icn_170_α
-icn_174_β:
-    jmp     icn_170_α
-icn_173_α:
-    jmp     icn_174_α
-icn_173_β:
-    jmp     icn_174_β
-icon_173_size_relay:
+icon_170_size_relay:
     pop     rdi
     call    icn_strlen
     push    rax
-    jmp     icon_172_call
-icn_172_α:
-    jmp     icn_173_α
-icn_172_β:
-    jmp     icn_173_β
-icon_172_call:
+    jmp     icon_169_call
+icn_169_α:
+    jmp     icn_170_α
+icn_169_β:
+    jmp     icn_170_β
+icon_169_call:
     pop     rdi
     call    icn_write_int
-    jmp     icn_170_α
-icn_176_α:
-    lea     rdi, [rel icn_str_27]
-    jmp     icon_175_store
-icn_176_β:
-    jmp     icn_172_α
+    jmp     icn_164_α
 icn_175_α:
-    jmp     icn_176_α
+    lea     rdi, [rel icn_str_25]
+    jmp     icon_174_store
 icn_175_β:
-    jmp     icn_176_β
-icon_175_store:
+    jmp     icn_169_α
+icn_174_α:
+    jmp     icn_175_α
+icn_174_β:
+    jmp     icn_175_β
+icon_174_store:
     ; str assign: rdi already has pointer
-    mov     [rel icn_gvar_digits], rdi
-    jmp     icn_172_α
-    ; VAR x  id=178
-icn_178_α:
-    mov     rax, [rel icn_gvar_x]
-    push    rax
-    jmp     icon_177_case_sel
-icn_178_β:
-    jmp     icn_175_α
+    mov     [rel icn_gvar_b], rdi
+    jmp     icn_169_α
 icn_177_α:
-    jmp     icn_178_α
+    lea     rdi, [rel icn_str_26]
+    jmp     icon_176_store
 icn_177_β:
-    jmp     icn_178_β
-icon_177_case_sel:
-    pop     rax
-    mov     [rbp-200], rax
-    ; INT 1  id=179
-icn_179_α:
-    push    1
-    jmp     icon_177_key_0
-icn_179_β:
-    jmp     icon_177_arm_0
-    jmp     icn_179_α
-icon_177_key_0:
-    pop     rax
-    cmp     rax, [rbp-200]
-    jne     icon_177_arm_0
-    ; CALL write  id=180
+    jmp     icn_174_α
+icn_176_α:
+    jmp     icn_177_α
+icn_176_β:
+    jmp     icn_177_β
+icon_176_store:
+    ; str assign: rdi already has pointer
+    mov     [rel icn_gvar_a], rdi
+    jmp     icn_174_α
+    ; CALL write  id=178
+    ; VAR digits  id=181
 icn_181_α:
-    lea     rdi, [rel icn_str_28]
-    jmp     icon_180_call
+    mov     rax, [rel icn_gvar_digits]
+    push    rax
+    jmp     icon_180_csc_relay
 icn_181_β:
-    jmp     icn_175_α
+    jmp     icn_176_α
 icn_180_α:
     jmp     icn_181_α
 icn_180_β:
     jmp     icn_181_β
-icon_180_call:
-    call    icn_write_str
-    jmp     icn_175_α
+icon_180_csc_relay:
+    pop     rax
+    mov     [rel icn_csc180_ptr], rax
+    mov     rdi, [rel icn_csc180_ptr]
+    call    icn_cset_complement
+    push    rax
+    jmp     icon_179_size_relay
+icn_179_α:
     jmp     icn_180_α
-icon_177_arm_0:
-    ; INT 2  id=182
+icn_179_β:
+    jmp     icn_180_β
+icon_179_size_relay:
+    pop     rdi
+    call    icn_strlen
+    push    rax
+    jmp     icon_178_call
+icn_178_α:
+    jmp     icn_179_α
+icn_178_β:
+    jmp     icn_179_β
+icon_178_call:
+    pop     rdi
+    call    icn_write_int
+    jmp     icn_176_α
+icn_183_α:
+    lea     rdi, [rel icn_str_27]
+    jmp     icon_182_store
+icn_183_β:
+    jmp     icn_178_α
 icn_182_α:
-    push    2
-    jmp     icon_177_key_1
+    jmp     icn_183_α
 icn_182_β:
-    jmp     icon_177_arm_1
+    jmp     icn_183_β
+icon_182_store:
+    ; str assign: rdi already has pointer
+    mov     [rel icn_gvar_digits], rdi
+    jmp     icn_178_α
+    ; VAR x  id=185
+icn_185_α:
+    mov     rax, [rel icn_gvar_x]
+    push    rax
+    jmp     icon_184_case_sel
+icn_185_β:
     jmp     icn_182_α
-icon_177_key_1:
+icn_184_α:
+    jmp     icn_185_α
+icn_184_β:
+    jmp     icn_185_β
+icon_184_case_sel:
+    pop     rax
+    mov     [rbp-200], rax
+    ; INT 1  id=186
+icn_186_α:
+    push    1
+    jmp     icon_184_key_0
+icn_186_β:
+    jmp     icon_184_arm_0
+    jmp     icn_186_α
+icon_184_key_0:
     pop     rax
     cmp     rax, [rbp-200]
-    jne     icon_177_arm_1
-    ; CALL write  id=183
-icn_184_α:
-    lea     rdi, [rel icn_str_29]
-    jmp     icon_183_call
-icn_184_β:
-    jmp     icn_175_α
-icn_183_α:
-    jmp     icn_184_α
-icn_183_β:
-    jmp     icn_184_β
-icon_183_call:
-    call    icn_write_str
-    jmp     icn_175_α
-    jmp     icn_183_α
-icon_177_arm_1:
-    ; CALL write  id=185
-icn_186_α:
-    lea     rdi, [rel icn_str_30]
-    jmp     icon_185_call
-icn_186_β:
-    jmp     icn_175_α
-icn_185_α:
-    jmp     icn_186_α
-icn_185_β:
-    jmp     icn_186_β
-icon_185_call:
-    call    icn_write_str
-    jmp     icn_175_α
-    jmp     icn_185_α
-    ; INT 2  id=188
+    jne     icon_184_arm_0
+    ; CALL write  id=187
 icn_188_α:
-    push    2
-    jmp     icon_187_store
+    lea     rdi, [rel icn_str_28]
+    jmp     icon_187_call
 icn_188_β:
-    jmp     icn_177_α
+    jmp     icn_182_α
 icn_187_α:
     jmp     icn_188_α
 icn_187_β:
     jmp     icn_188_β
-icon_187_store:
+icon_187_call:
+    call    icn_write_str
+    jmp     icn_182_α
+    jmp     icn_187_α
+icon_184_arm_0:
+    ; INT 2  id=189
+icn_189_α:
+    push    2
+    jmp     icon_184_key_1
+icn_189_β:
+    jmp     icon_184_arm_1
+    jmp     icn_189_α
+icon_184_key_1:
+    pop     rax
+    cmp     rax, [rbp-200]
+    jne     icon_184_arm_1
+    ; CALL write  id=190
+icn_191_α:
+    lea     rdi, [rel icn_str_29]
+    jmp     icon_190_call
+icn_191_β:
+    jmp     icn_182_α
+icn_190_α:
+    jmp     icn_191_α
+icn_190_β:
+    jmp     icn_191_β
+icon_190_call:
+    call    icn_write_str
+    jmp     icn_182_α
+    jmp     icn_190_α
+icon_184_arm_1:
+    ; CALL write  id=192
+icn_193_α:
+    lea     rdi, [rel icn_str_30]
+    jmp     icon_192_call
+icn_193_β:
+    jmp     icn_182_α
+icn_192_α:
+    jmp     icn_193_α
+icn_192_β:
+    jmp     icn_193_β
+icon_192_call:
+    call    icn_write_str
+    jmp     icn_182_α
+    jmp     icn_192_α
+    ; INT 2  id=195
+icn_195_α:
+    push    2
+    jmp     icon_194_store
+icn_195_β:
+    jmp     icn_184_α
+icn_194_α:
+    jmp     icn_195_α
+icn_194_β:
+    jmp     icn_195_β
+icon_194_store:
     pop     rax
     mov     [rel icn_gvar_x], rax
-    jmp     icn_177_α
-    ; EVERY  id=189
-    ; CALL write  id=191
-    ; VAR i  id=192
-icn_192_α:
-    mov     rax, [rel icn_gvar_i]
-    push    rax
-    jmp     icon_191_call
-icn_192_β:
-    jmp     icon_189_genb
-icn_191_α:
-    jmp     icn_192_α
-icn_191_β:
-    jmp     icn_192_β
-icon_191_call:
-    pop     rdi
-    call    icn_write_int
-    jmp     icon_189_genb
-icn_194_α:
-    jmp     icn_187_α
-icn_194_β:
-    jmp     icn_187_α
-    ; EQ  id=195
-    ; INT 3  id=196
-icn_196_α:
-    push    3
-    jmp     icon_195_check
-icn_196_β:
-    jmp     icon_195_lb
-    ; VAR i  id=197
-icn_197_α:
-    mov     rax, [rel icn_gvar_i]
-    push    rax
-    jmp     icon_195_lstore
-icn_197_β:
-    jmp     icon_193_else
-icon_195_lb:
-    jmp     icn_197_β
-icn_195_α:
-    jmp     icn_197_α
-icn_195_β:
-    jmp     icn_196_β
-icon_195_lstore:
-    pop     rax
-    mov     [rbp-208], rax
-    jmp     icn_196_α
-icon_195_check:
-    pop     rcx
-    mov     rax, [rbp-208]
-    cmp     rax, rcx
-    jne      icn_196_β
-    push    rcx
-    jmp     icon_193_then
-icon_193_then:
-    add     rsp, 8
-    jmp     icn_194_α
-icon_193_else:
-    jmp     icon_189_genb
-icn_193_α:
-    jmp     icn_195_α
-icn_193_β:
-    jmp     icn_195_β
-icon_190_seq_0:
-    add     rsp, 8
-    jmp     icn_191_α
-icn_190_α:
-    jmp     icn_193_α
-icn_190_β:
-    jmp     icon_189_genb
-    ; TO  id=199
-    ; INT 5  id=200
-icn_200_α:
-    push    5
-    jmp     icon_199_init
-icn_200_β:
-    jmp     icon_199_e1b
-    ; INT 1  id=201
-icn_201_α:
-    push    1
-    jmp     icn_200_α
-icn_201_β:
-    jmp     icn_187_α
-icon_199_e1b:
-    mov     qword [rel icon_199_e2seen], 0
-    jmp     icn_201_β
-icon_199_e2b:
-    jmp     icn_200_β
+    jmp     icn_184_α
+    ; EVERY  id=196
+    ; CALL write  id=198
+    ; VAR i  id=199
 icn_199_α:
-    mov     qword [rel icon_199_e2seen], 0
-    jmp     icn_201_α
-icn_199_β:
-    inc     qword [rel icn_199_I]
-    jmp     icn_199_code
-icon_199_init:
-    pop     rax
-    mov     [rel icon_199_bound], rax
-    cmp     qword [rel icon_199_e2seen], 0
-    jne     icon_199_init_e2adv
-    pop     rax
-    mov     [rel icon_199_e1cur], rax
-    mov     [rel icn_199_I], rax
-    mov     qword [rel icon_199_e2seen], 1
-    jmp     icn_199_code
-icon_199_init_e2adv:
-    mov     rax, [rel icon_199_e1cur]
-    mov     [rel icn_199_I], rax
-    jmp     icn_199_code
-icn_199_code:
-    mov     rax, [rel icn_199_I]
-    cmp     rax, [rel icon_199_bound]
-    jg      icon_199_e2b
+    mov     rax, [rel icn_gvar_i]
     push    rax
-    jmp     icon_198_store
+    jmp     icon_198_call
+icn_199_β:
+    jmp     icon_196_genb
 icn_198_α:
     jmp     icn_199_α
 icn_198_β:
     jmp     icn_199_β
-icon_198_store:
-    pop     rax
-    mov     [rel icn_gvar_i], rax
-    jmp     icon_189_body
-icon_189_body:
-    jmp     icn_190_α
-icon_189_genb:
-    jmp     icn_198_β
-icn_189_α:
-    jmp     icn_198_α
-icn_189_β:
-    jmp     icn_187_α
-    ; EVERY  id=202
-    ; CALL write  id=203
-    ; VAR lst  id=205
-icn_205_α:
-    mov     rax, [rel icn_gvar_lst]
-    push    rax
-    jmp     icon_204_bang_as
-icn_205_β:
-    jmp     icn_189_α
-icon_204_bang_as:
-    pop     rax
-    mov     [rel icon_204_bang_str], rax
-    mov     qword [rel icon_204_bang_pos], 0
-icon_204_bang_chk:
-    mov     rdi, [rel icon_204_bang_str]
-    call    icn_strlen
-    cmp     [rel icon_204_bang_pos], rax
-    jge     icn_189_α
-    mov     rdi, [rel icon_204_bang_str]
-    mov     rsi, [rel icon_204_bang_pos]
-    call    icn_bang_char_at
-    push    rax
-    inc     qword [rel icon_204_bang_pos]
-    jmp     icon_203_call
-icn_204_α:
-    jmp     icn_205_α
-icn_204_β:
-    jmp     icon_204_bang_chk
-icn_203_α:
-    jmp     icn_204_α
-icn_203_β:
-    jmp     icn_204_β
-icon_203_call:
+icon_198_call:
     pop     rdi
     call    icn_write_int
-    jmp     icon_202_genb
-icon_202_genb:
-    jmp     icn_203_β
+    jmp     icon_196_genb
+icn_201_α:
+    jmp     icn_194_α
+icn_201_β:
+    jmp     icn_194_α
+    ; EQ  id=202
+    ; INT 3  id=203
+icn_203_α:
+    push    3
+    jmp     icon_202_check
+icn_203_β:
+    jmp     icon_202_lb
+    ; VAR i  id=204
+icn_204_α:
+    mov     rax, [rel icn_gvar_i]
+    push    rax
+    jmp     icon_202_lstore
+icn_204_β:
+    jmp     icon_200_else
+icon_202_lb:
+    jmp     icn_204_β
 icn_202_α:
-    jmp     icn_203_α
+    jmp     icn_204_α
 icn_202_β:
-    jmp     icn_189_α
-icn_207_α:
-    push    0
-    jmp     icon_206_store
-icn_207_β:
-    jmp     icn_202_α
-icn_206_α:
-    jmp     icn_207_α
-icn_206_β:
-    jmp     icn_207_β
-icon_206_store:
+    jmp     icn_203_β
+icon_202_lstore:
     pop     rax
-    mov     [rel icn_gvar_lst], rax
+    mov     [rbp-208], rax
+    jmp     icn_203_α
+icon_202_check:
+    pop     rcx
+    mov     rax, [rbp-208]
+    cmp     rax, rcx
+    jne      icn_203_β
+    push    rcx
+    jmp     icon_200_then
+icon_200_then:
+    add     rsp, 8
+    jmp     icn_201_α
+icon_200_else:
+    jmp     icon_196_genb
+icn_200_α:
     jmp     icn_202_α
-    ; INT 0  id=210
+icn_200_β:
+    jmp     icn_202_β
+icon_197_seq_0:
+    add     rsp, 8
+    jmp     icn_198_α
+icn_197_α:
+    jmp     icn_200_α
+icn_197_β:
+    jmp     icon_196_genb
+    ; TO  id=206
+    ; INT 5  id=207
+icn_207_α:
+    push    5
+    jmp     icon_206_init
+icn_207_β:
+    jmp     icon_206_e1b
+    ; INT 1  id=208
+icn_208_α:
+    push    1
+    jmp     icn_207_α
+icn_208_β:
+    jmp     icn_194_α
+icon_206_e1b:
+    mov     qword [rel icon_206_e2seen], 0
+    jmp     icn_208_β
+icon_206_e2b:
+    jmp     icn_207_β
+icn_206_α:
+    mov     qword [rel icon_206_e2seen], 0
+    jmp     icn_208_α
+icn_206_β:
+    inc     qword [rel icn_206_I]
+    jmp     icn_206_code
+icon_206_init:
+    pop     rax
+    mov     [rel icon_206_bound], rax
+    cmp     qword [rel icon_206_e2seen], 0
+    jne     icon_206_init_e2adv
+    pop     rax
+    mov     [rel icon_206_e1cur], rax
+    mov     [rel icn_206_I], rax
+    mov     qword [rel icon_206_e2seen], 1
+    jmp     icn_206_code
+icon_206_init_e2adv:
+    mov     rax, [rel icon_206_e1cur]
+    mov     [rel icn_206_I], rax
+    jmp     icn_206_code
+icn_206_code:
+    mov     rax, [rel icn_206_I]
+    cmp     rax, [rel icon_206_bound]
+    jg      icon_206_e2b
+    push    rax
+    jmp     icon_205_store
+icn_205_α:
+    jmp     icn_206_α
+icn_205_β:
+    jmp     icn_206_β
+icon_205_store:
+    pop     rax
+    mov     [rel icn_gvar_i], rax
+    jmp     icon_196_body
+icon_196_body:
+    jmp     icn_197_α
+icon_196_genb:
+    jmp     icn_205_β
+icn_196_α:
+    jmp     icn_205_α
+icn_196_β:
+    jmp     icn_194_α
+    ; EVERY  id=209
+    ; CALL write  id=210
+    ; VAR lst  id=212
+icn_212_α:
+    mov     rax, [rel icn_gvar_lst]
+    push    rax
+    jmp     icon_211_bang_as
+icn_212_β:
+    jmp     icn_196_α
+icon_211_bang_as:
+    pop     rax
+    mov     [rel icon_211_bang_str], rax
+    mov     qword [rel icon_211_bang_pos], 0
+icon_211_bang_chk:
+    mov     rdi, [rel icon_211_bang_str]
+    call    icn_strlen
+    cmp     [rel icon_211_bang_pos], rax
+    jge     icn_196_α
+    mov     rdi, [rel icon_211_bang_str]
+    mov     rsi, [rel icon_211_bang_pos]
+    call    icn_bang_char_at
+    push    rax
+    inc     qword [rel icon_211_bang_pos]
+    jmp     icon_210_call
+icn_211_α:
+    jmp     icn_212_α
+icn_211_β:
+    jmp     icon_211_bang_chk
 icn_210_α:
-    push    0
-    jmp     icon_209_store
+    jmp     icn_211_α
 icn_210_β:
-    jmp     icon_208_init_skip
+    jmp     icn_211_β
+icon_210_call:
+    pop     rdi
+    call    icn_write_int
+    jmp     icon_209_genb
+icon_209_genb:
+    jmp     icn_210_β
 icn_209_α:
     jmp     icn_210_α
 icn_209_β:
-    jmp     icn_210_β
-icon_209_store:
+    jmp     icn_196_α
+icn_214_α:
+    push    0
+    jmp     icon_213_store
+icn_214_β:
+    jmp     icn_209_α
+icn_213_α:
+    jmp     icn_214_α
+icn_213_β:
+    jmp     icn_214_β
+icon_213_store:
+    pop     rax
+    mov     [rel icn_gvar_lst], rax
+    jmp     icn_209_α
+    ; INT 0  id=217
+icn_217_α:
+    push    0
+    jmp     icon_216_store
+icn_217_β:
+    jmp     icon_215_init_skip
+icn_216_α:
+    jmp     icn_217_α
+icn_216_β:
+    jmp     icn_217_β
+icon_216_store:
     pop     rax
     mov     [rel icn_gvar_gcount], rax
-    jmp     icon_208_init_skip
-icn_208_α:
-    cmp     qword [rel icn_init_flag_208], 0
-    jne     icon_208_init_skip
-    mov     qword [rel icn_init_flag_208], 1
-    jmp     icn_209_α
-icon_208_init_skip:
-    jmp     icn_206_α
-icn_208_β:
-    jmp     icn_206_α
+    jmp     icon_215_init_skip
+icn_215_α:
+    cmp     qword [rel icn_init_flag_215], 0
+    jne     icon_215_init_skip
+    mov     qword [rel icn_init_flag_215], 1
+    jmp     icn_216_α
+icon_215_init_skip:
+    jmp     icn_213_α
+icn_215_β:
+    jmp     icn_213_α
 icn_main:
     push    rbp
     mov     rbp, rsp
     sub     rsp, 224
-    jmp     icn_208_α
+    jmp     icn_215_α
 icn_main_done:
     mov     byte [rel icn_failed], 1
     add     rsp, 224
