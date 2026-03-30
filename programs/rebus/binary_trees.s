@@ -332,7 +332,7 @@ scan_retry_39:
                             jmp         P_39_α
 
 
-; E_VART TFORM → CALL_PAT (runtime DT_P/DT_S dispatch)
+; E_VAR TFORM → CALL_PAT (runtime DT_P/DT_S dispatch)
 P_39_α:                     lea         rdi, [rel S_TFORM]
                             call        stmt_get
                             mov         [r12+64], rax
