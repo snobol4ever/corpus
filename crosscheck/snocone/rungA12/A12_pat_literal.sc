@@ -1,6 +1,6 @@
 // A12_pat_literal.sc — literal pattern match
-X = 'hello world';
-if (X ? 'hello') {
+x = 'hello world';
+if (x ? 'hello') {
     OUTPUT = 'matched';
 } else {
     OUTPUT = 'no match';

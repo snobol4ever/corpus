@@ -1,5 +1,5 @@
 // A11_capture_multiple.sc — multiple captures in one pattern
-X = 'John Smith';
-if (X ? BREAK(' ') . FIRST && LEN(1) && REM . LAST) {
-    OUTPUT = FIRST && ' / ' && LAST;
+x = 'John Smith';
+if (x ? BREAK(' ') . first && LEN(1) && REM . last) {
+    OUTPUT = first && ' / ' && last;
 }

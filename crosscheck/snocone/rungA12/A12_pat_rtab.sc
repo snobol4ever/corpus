@@ -1,7 +1,7 @@
 // A12_pat_rtab.sc — RTAB leaves N chars from right
-X = 'abcdef';
-if (X ? RTAB(2) . V) {
-    OUTPUT = V;
+x = 'abcdef';
+if (x ? RTAB(2) . v) {
+    OUTPUT = v;
 } else {
     OUTPUT = 'fail';
 }

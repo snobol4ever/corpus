@@ -1,4 +1,4 @@
 # 013 - Overwrite variable, output second value
-X = 'first'
-X = 'second'
-OUTPUT = X
+x = 'first'
+x = 'second'
+OUTPUT = x

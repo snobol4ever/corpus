@@ -1,8 +1,8 @@
 // A05_table.sc — create table, set and get keyed values
-T = TABLE();
-T['name'] = 'Alice';
-T['age'] = 30;
-T['lang'] = 'SNOBOL4';
-OUTPUT = T['name'];
-OUTPUT = T['age'];
-OUTPUT = T['lang'];
+t = TABLE();
+t['name'] = 'Alice';
+t['age'] = 30;
+t['lang'] = 'SNOBOL4';
+OUTPUT = t['name'];
+OUTPUT = t['age'];
+OUTPUT = t['lang'];

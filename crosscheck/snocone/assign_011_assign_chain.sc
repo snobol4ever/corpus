@@ -1,4 +1,4 @@
-# 011 - Chain assignment X=a, Y=X, output Y
-X = 'alpha'
-Y = X
-OUTPUT = Y
+# 011 - Chain assignment x=a, y=x, output y
+x = 'alpha'
+y = x
+OUTPUT = y

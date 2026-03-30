@@ -1,5 +1,5 @@
 // A10_capture_conditional.sc — match succeeds, output result
-X = 'hello';
-if (X ? 'hello') {
+x = 'hello';
+if (x ? 'hello') {
     OUTPUT = 'found';
 }

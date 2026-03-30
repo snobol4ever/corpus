@@ -2,10 +2,10 @@
 procedure bump(v) {
     return v + 1;
 }
-S = '';
-J = 0;
-while (LT(J, 5)) {
-    S = S && bump(2 * J);
-    J = J + 1;
+s = '';
+j = 0;
+while (LT(j, 5)) {
+    s = s && bump(2 * j);
+    j = j + 1;
 }
-OUTPUT = S;
+OUTPUT = s;
