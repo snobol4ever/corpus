@@ -2696,7 +2696,7 @@ pjnv_done:
     invokestatic rung13_assertz_static_dynamic_mix/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     astore 4
     aload 4
-    ldc "α"
+    ldc "alpha"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
     ifeq pjct_try_alnum
     iload_3
