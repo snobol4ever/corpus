@@ -994,7 +994,7 @@ icn_3_scan_bfail:
     putstatic meander/icn_pos I
     goto icn_4_β
 icn_3_scan_beta:
-;  SCAN restore (outer beta)
+;  SCAN restore (outer β)
     getstatic meander/icn_scan_oldsubj_3 Ljava/lang/String;
     putstatic meander/icn_subject Ljava/lang/String;
     getstatic meander/icn_scan_oldpos_3 I
