@@ -1,0 +1,4 @@
+// A08_datatype.sc — DATATYPE returns type name of value
+OUTPUT = REPLACE(DATATYPE('hello'), &LCASE, &UCASE);
+OUTPUT = REPLACE(DATATYPE(42),      &LCASE, &UCASE);
+OUTPUT = REPLACE(DATATYPE(3.14),    &LCASE, &UCASE);
