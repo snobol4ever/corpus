@@ -177,7 +177,7 @@ pl_arith_sl_6_c0_body:
                             xor         edx, edx               ; sub_cs=0 for first ucall
                             mov         rax, [rbp - 56]  ; var slot 2 (_V2)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid0
+                            sub         rsp, 16          ; arith compound args[2] pl_uid0
                             mov         rax, [rbp - 40]  ; var slot 0 (_V0)
                             mov         [rsp + 0], rax
                             mov         rax, [rbp - 48]  ; var slot 1 (_V1)
@@ -201,7 +201,7 @@ pl_arith_sl_6_c0_isfail0:
 pl_arith_sl_6_c0_isok0:
                             mov         rax, [rbp - 64]  ; var slot 3 (_V3)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid1
+                            sub         rsp, 16          ; arith compound args[2] pl_uid1
                             mov         rax, [rbp - 40]  ; var slot 0 (_V0)
                             mov         [rsp + 0], rax
                             mov         rax, [rbp - 48]  ; var slot 1 (_V1)
@@ -225,7 +225,7 @@ pl_arith_sl_6_c0_isfail1:
 pl_arith_sl_6_c0_isok1:
                             mov         rax, [rbp - 72]  ; var slot 4 (_V4)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid2
+                            sub         rsp, 16          ; arith compound args[2] pl_uid2
                             mov         rax, [rbp - 40]  ; var slot 0 (_V0)
                             mov         [rsp + 0], rax
                             mov         rax, [rbp - 48]  ; var slot 1 (_V1)
@@ -249,7 +249,7 @@ pl_arith_sl_6_c0_isfail2:
 pl_arith_sl_6_c0_isok2:
                             mov         rax, [rbp - 80]  ; var slot 5 (_V5)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid3
+                            sub         rsp, 16          ; arith compound args[2] pl_uid3
                             mov         rax, [rbp - 40]  ; var slot 0 (_V0)
                             mov         [rsp + 0], rax
                             mov         rax, [rbp - 48]  ; var slot 1 (_V1)
@@ -341,7 +341,7 @@ pl_float_check_sl_1_c0_body:
                             xor         edx, edx               ; sub_cs=0 for first ucall
                             mov         rax, [rbp - 40]  ; var slot 0 (_V0)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid4
+                            sub         rsp, 16          ; arith compound args[2] pl_uid4
                             mov         rax, 0x40091eb851eb851f   ; float 3.1400000000000001
                             movq        xmm0, rax
                             call        term_new_float

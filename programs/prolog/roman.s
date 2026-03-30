@@ -223,7 +223,7 @@ pl_roman_sl_2_c1_cmpok0:
                             mov         byte [rbp - 17], 1    ; _cut = 1
                             mov         rax, [rbp - 88]  ; var slot 2 (_V2)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid0
+                            sub         rsp, 16          ; arith compound args[2] pl_uid0
                             mov         rax, [rbp - 72]  ; var slot 0 (_V0)
                             mov         [rsp + 0], rax
                             mov         rdi, 1000
@@ -408,7 +408,7 @@ pl_roman_sl_2_c2_cmpok0:
                             mov         byte [rbp - 17], 1    ; _cut = 1
                             mov         rax, [rbp - 88]  ; var slot 2 (_V2)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid1
+                            sub         rsp, 16          ; arith compound args[2] pl_uid1
                             mov         rax, [rbp - 72]  ; var slot 0 (_V0)
                             mov         [rsp + 0], rax
                             mov         rdi, 900
@@ -593,7 +593,7 @@ pl_roman_sl_2_c3_cmpok0:
                             mov         byte [rbp - 17], 1    ; _cut = 1
                             mov         rax, [rbp - 88]  ; var slot 2 (_V2)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid2
+                            sub         rsp, 16          ; arith compound args[2] pl_uid2
                             mov         rax, [rbp - 72]  ; var slot 0 (_V0)
                             mov         [rsp + 0], rax
                             mov         rdi, 500
@@ -778,7 +778,7 @@ pl_roman_sl_2_c4_cmpok0:
                             mov         byte [rbp - 17], 1    ; _cut = 1
                             mov         rax, [rbp - 88]  ; var slot 2 (_V2)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid3
+                            sub         rsp, 16          ; arith compound args[2] pl_uid3
                             mov         rax, [rbp - 72]  ; var slot 0 (_V0)
                             mov         [rsp + 0], rax
                             mov         rdi, 400
@@ -963,7 +963,7 @@ pl_roman_sl_2_c5_cmpok0:
                             mov         byte [rbp - 17], 1    ; _cut = 1
                             mov         rax, [rbp - 88]  ; var slot 2 (_V2)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid4
+                            sub         rsp, 16          ; arith compound args[2] pl_uid4
                             mov         rax, [rbp - 72]  ; var slot 0 (_V0)
                             mov         [rsp + 0], rax
                             mov         rdi, 100
@@ -1148,7 +1148,7 @@ pl_roman_sl_2_c6_cmpok0:
                             mov         byte [rbp - 17], 1    ; _cut = 1
                             mov         rax, [rbp - 88]  ; var slot 2 (_V2)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid5
+                            sub         rsp, 16          ; arith compound args[2] pl_uid5
                             mov         rax, [rbp - 72]  ; var slot 0 (_V0)
                             mov         [rsp + 0], rax
                             mov         rdi, 90
@@ -1333,7 +1333,7 @@ pl_roman_sl_2_c7_cmpok0:
                             mov         byte [rbp - 17], 1    ; _cut = 1
                             mov         rax, [rbp - 88]  ; var slot 2 (_V2)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid6
+                            sub         rsp, 16          ; arith compound args[2] pl_uid6
                             mov         rax, [rbp - 72]  ; var slot 0 (_V0)
                             mov         [rsp + 0], rax
                             mov         rdi, 50
@@ -1518,7 +1518,7 @@ pl_roman_sl_2_c8_cmpok0:
                             mov         byte [rbp - 17], 1    ; _cut = 1
                             mov         rax, [rbp - 88]  ; var slot 2 (_V2)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid7
+                            sub         rsp, 16          ; arith compound args[2] pl_uid7
                             mov         rax, [rbp - 72]  ; var slot 0 (_V0)
                             mov         [rsp + 0], rax
                             mov         rdi, 40
@@ -1703,7 +1703,7 @@ pl_roman_sl_2_c9_cmpok0:
                             mov         byte [rbp - 17], 1    ; _cut = 1
                             mov         rax, [rbp - 88]  ; var slot 2 (_V2)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid8
+                            sub         rsp, 16          ; arith compound args[2] pl_uid8
                             mov         rax, [rbp - 72]  ; var slot 0 (_V0)
                             mov         [rsp + 0], rax
                             mov         rdi, 10
@@ -1888,7 +1888,7 @@ pl_roman_sl_2_c10_cmpok0:
                             mov         byte [rbp - 17], 1    ; _cut = 1
                             mov         rax, [rbp - 88]  ; var slot 2 (_V2)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid9
+                            sub         rsp, 16          ; arith compound args[2] pl_uid9
                             mov         rax, [rbp - 72]  ; var slot 0 (_V0)
                             mov         [rsp + 0], rax
                             mov         rdi, 9
@@ -2073,7 +2073,7 @@ pl_roman_sl_2_c11_cmpok0:
                             mov         byte [rbp - 17], 1    ; _cut = 1
                             mov         rax, [rbp - 88]  ; var slot 2 (_V2)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid10
+                            sub         rsp, 16          ; arith compound args[2] pl_uid10
                             mov         rax, [rbp - 72]  ; var slot 0 (_V0)
                             mov         [rsp + 0], rax
                             mov         rdi, 5
@@ -2258,7 +2258,7 @@ pl_roman_sl_2_c12_cmpok0:
                             mov         byte [rbp - 17], 1    ; _cut = 1
                             mov         rax, [rbp - 88]  ; var slot 2 (_V2)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid11
+                            sub         rsp, 16          ; arith compound args[2] pl_uid11
                             mov         rax, [rbp - 72]  ; var slot 0 (_V0)
                             mov         [rsp + 0], rax
                             mov         rdi, 4
@@ -2443,7 +2443,7 @@ pl_roman_sl_2_c13_cmpok0:
                             mov         byte [rbp - 17], 1    ; _cut = 1
                             mov         rax, [rbp - 88]  ; var slot 2 (_V2)
                             mov         [rel pl_tmp], rax
-                            sub         rsp, 16          ; arith compound args[2] uid12
+                            sub         rsp, 16          ; arith compound args[2] pl_uid12
                             mov         rax, [rbp - 72]  ; var slot 0 (_V0)
                             mov         [rsp + 0], rax
                             mov         rdi, 1

@@ -5,16 +5,16 @@
 .super java/lang/Object
 
 ; Trail field
-.field static pj_trail Ljava/util/ArrayList;
+.field static pl_trail Ljava/util/ArrayList;
 
 ; M-PJ-EXCEPTIONS — throw/catch term carrier
-.field static pj_throw_term Ljava/lang/Object;
+.field static pl_throw_term Ljava/lang/Object;
 
 ; Dynamic DB field: HashMap<String, ArrayList<Object[]>>
-.field static pj_db Ljava/util/HashMap;
+.field static pl_db Ljava/util/HashMap;
 
 ; Global nb_setval/nb_getval store: HashMap<String, Object[]>
-.field static pj_nb Ljava/util/HashMap;
+.field static pl_nb Ljava/util/HashMap;
 
 .method static <clinit>()V
     .limit stack 3
@@ -22,47 +22,47 @@
     new java/util/ArrayList
     dup
     invokespecial java/util/ArrayList/<init>()V
-    putstatic roman/pj_trail Ljava/util/ArrayList;
+    putstatic roman/pl_trail Ljava/util/ArrayList;
     new java/util/HashMap
     dup
     invokespecial java/util/HashMap/<init>()V
-    putstatic roman/pj_db Ljava/util/HashMap;
+    putstatic roman/pl_db Ljava/util/HashMap;
     new java/util/HashMap
     dup
     invokespecial java/util/HashMap/<init>()V
-    putstatic roman/pj_nb Ljava/util/HashMap;
+    putstatic roman/pl_nb Ljava/util/HashMap;
     return
 .end method
 
 ; === Runtime helpers =================================================
-.method static pj_trail_mark()I
+.method static pl_trail_mark()I
     .limit stack 2
     .limit locals 0
-    getstatic roman/pj_trail Ljava/util/ArrayList;
+    getstatic roman/pl_trail Ljava/util/ArrayList;
     invokevirtual java/util/ArrayList/size()I
     ireturn
 .end method
 
-.method static pj_trail_push([Ljava/lang/Object;)V
+.method static pl_trail_push([Ljava/lang/Object;)V
     .limit stack 4
     .limit locals 1
-    getstatic roman/pj_trail Ljava/util/ArrayList;
+    getstatic roman/pl_trail Ljava/util/ArrayList;
     aload_0
     invokevirtual java/util/ArrayList/add(Ljava/lang/Object;)Z
     pop
     return
 .end method
 
-.method static pj_trail_unwind(I)V
+.method static pl_trail_unwind(I)V
     .limit stack 4
     .limit locals 2
-pj_unwind_loop:
-    getstatic roman/pj_trail Ljava/util/ArrayList;
+pl_unwind_loop:
+    getstatic roman/pl_trail Ljava/util/ArrayList;
     invokevirtual java/util/ArrayList/size()I
     iload_0
-    if_icmple pj_unwind_done
-    getstatic roman/pj_trail Ljava/util/ArrayList;
-    getstatic roman/pj_trail Ljava/util/ArrayList;
+    if_icmple pl_unwind_done
+    getstatic roman/pl_trail Ljava/util/ArrayList;
+    getstatic roman/pl_trail Ljava/util/ArrayList;
     invokevirtual java/util/ArrayList/size()I
     iconst_1
     isub
@@ -75,38 +75,38 @@ pj_unwind_loop:
     iconst_1
     aconst_null
     aastore
-    goto pj_unwind_loop
-pj_unwind_done:
+    goto pl_unwind_loop
+pl_unwind_done:
     return
 .end method
 
-.method static pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+.method static pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     .limit stack 3
     .limit locals 2
     aload_0
     astore_1
-pj_deref_loop:
+pl_deref_loop:
     aload_1
-    ifnull pj_deref_done
+    ifnull pl_deref_done
     aload_1
     checkcast [Ljava/lang/Object;
     iconst_0
     aaload
     ldc "ref"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_deref_done
+    ifeq pl_deref_done
     aload_1
     checkcast [Ljava/lang/Object;
     iconst_1
     aaload
     astore_1
-    goto pj_deref_loop
-pj_deref_done:
+    goto pl_deref_loop
+pl_deref_done:
     aload_1
     areturn
 .end method
 
-.method static pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+.method static pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     .limit stack 5
     .limit locals 1
     iconst_2
@@ -122,7 +122,7 @@ pj_deref_done:
     areturn
 .end method
 
-.method static pj_term_int(J)[Ljava/lang/Object;
+.method static pl_term_int(J)[Ljava/lang/Object;
     .limit stack 5
     .limit locals 2
     iconst_2
@@ -139,7 +139,7 @@ pj_deref_done:
     areturn
 .end method
 
-.method static pj_term_float(D)[Ljava/lang/Object;
+.method static pl_term_float(D)[Ljava/lang/Object;
     .limit stack 5
     .limit locals 2
     iconst_2
@@ -156,7 +156,7 @@ pj_deref_done:
     areturn
 .end method
 
-.method static pj_term_var()[Ljava/lang/Object;
+.method static pl_term_var()[Ljava/lang/Object;
     .limit stack 4
     .limit locals 0
     iconst_2
@@ -168,32 +168,32 @@ pj_deref_done:
     areturn
 .end method
 
-.method static pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+.method static pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     .limit stack 6
     .limit locals 4
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_0
     aload_1
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_1
     aload_0
     aload_1
-    if_acmpeq pj_unify_true
+    if_acmpeq pl_unify_true
     aload_0
-    ifnull pj_unify_check_b_var
+    ifnull pl_unify_check_b_var
     aload_0
     checkcast [Ljava/lang/Object;
     iconst_0
     aaload
     ldc "var"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_unify_check_b_var
+    ifeq pl_unify_check_b_var
     aload_0
     checkcast [Ljava/lang/Object;
     iconst_1
     aaload
-    ifnonnull pj_unify_check_b_var
+    ifnonnull pl_unify_check_b_var
     aload_0
     checkcast [Ljava/lang/Object;
     dup
@@ -205,23 +205,23 @@ pj_deref_done:
     aastore
     aload_0
     checkcast [Ljava/lang/Object;
-    invokestatic roman/pj_trail_push([Ljava/lang/Object;)V
-    goto pj_unify_true
-pj_unify_check_b_var:
+    invokestatic roman/pl_trail_push([Ljava/lang/Object;)V
+    goto pl_unify_true
+pl_unify_check_b_var:
     aload_1
-    ifnull pj_unify_check_atoms
+    ifnull pl_unify_check_atoms
     aload_1
     checkcast [Ljava/lang/Object;
     iconst_0
     aaload
     ldc "var"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_unify_check_atoms
+    ifeq pl_unify_check_atoms
     aload_1
     checkcast [Ljava/lang/Object;
     iconst_1
     aaload
-    ifnonnull pj_unify_check_atoms
+    ifnonnull pl_unify_check_atoms
     aload_1
     checkcast [Ljava/lang/Object;
     dup
@@ -233,27 +233,27 @@ pj_unify_check_b_var:
     aastore
     aload_1
     checkcast [Ljava/lang/Object;
-    invokestatic roman/pj_trail_push([Ljava/lang/Object;)V
-    goto pj_unify_true
-pj_unify_check_atoms:
+    invokestatic roman/pl_trail_push([Ljava/lang/Object;)V
+    goto pl_unify_true
+pl_unify_check_atoms:
     aload_0
-    ifnull pj_unify_false
+    ifnull pl_unify_false
     aload_1
-    ifnull pj_unify_false
+    ifnull pl_unify_false
     aload_0
     checkcast [Ljava/lang/Object;
     iconst_0
     aaload
     ldc "atom"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_unify_check_int
+    ifeq pl_unify_check_int
     aload_1
     checkcast [Ljava/lang/Object;
     iconst_0
     aaload
     ldc "atom"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_unify_false
+    ifeq pl_unify_false
     aload_0
     checkcast [Ljava/lang/Object;
     iconst_1
@@ -263,23 +263,23 @@ pj_unify_check_atoms:
     iconst_1
     aaload
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_unify_false
-    goto pj_unify_true
-pj_unify_check_int:
+    ifeq pl_unify_false
+    goto pl_unify_true
+pl_unify_check_int:
     aload_0
     checkcast [Ljava/lang/Object;
     iconst_0
     aaload
     ldc "int"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_unify_check_float
+    ifeq pl_unify_check_float
     aload_1
     checkcast [Ljava/lang/Object;
     iconst_0
     aaload
     ldc "int"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_unify_false
+    ifeq pl_unify_false
     aload_0
     checkcast [Ljava/lang/Object;
     iconst_1
@@ -289,23 +289,23 @@ pj_unify_check_int:
     iconst_1
     aaload
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_unify_check_compound
-    goto pj_unify_true
-pj_unify_check_float:
+    ifeq pl_unify_check_compound
+    goto pl_unify_true
+pl_unify_check_float:
     aload_0
     checkcast [Ljava/lang/Object;
     iconst_0
     aaload
     ldc "float"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_unify_check_compound
+    ifeq pl_unify_check_compound
     aload_1
     checkcast [Ljava/lang/Object;
     iconst_0
     aaload
     ldc "float"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_unify_false
+    ifeq pl_unify_false
     aload_0
     checkcast [Ljava/lang/Object;
     iconst_1
@@ -319,23 +319,23 @@ pj_unify_check_float:
     checkcast java/lang/String
     invokestatic java/lang/Double/parseDouble(Ljava/lang/String;)D
     dcmpl
-    ifne pj_unify_false
-    goto pj_unify_true
-pj_unify_check_compound:
+    ifne pl_unify_false
+    goto pl_unify_true
+pl_unify_check_compound:
     aload_0
     checkcast [Ljava/lang/Object;
     iconst_0
     aaload
     ldc "compound"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_unify_false
+    ifeq pl_unify_false
     aload_1
     checkcast [Ljava/lang/Object;
     iconst_0
     aaload
     ldc "compound"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_unify_false
+    ifeq pl_unify_false
     aload_0
     checkcast [Ljava/lang/Object;
     iconst_1
@@ -345,14 +345,14 @@ pj_unify_check_compound:
     iconst_1
     aaload
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_unify_false
+    ifeq pl_unify_false
     aload_0
     checkcast [Ljava/lang/Object;
     arraylength
     aload_1
     checkcast [Ljava/lang/Object;
     arraylength
-    if_icmpne pj_unify_false
+    if_icmpne pl_unify_false
     aload_0
     checkcast [Ljava/lang/Object;
     arraylength
@@ -361,10 +361,10 @@ pj_unify_check_compound:
     istore_2
     iconst_0
     istore_3
-pj_unify_cmp_loop:
+pl_unify_cmp_loop:
     iload_3
     iload_2
-    if_icmpge pj_unify_true
+    if_icmpge pl_unify_true
     aload_0
     checkcast [Ljava/lang/Object;
     iload_3
@@ -377,23 +377,23 @@ pj_unify_cmp_loop:
     iconst_2
     iadd
     aaload
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
-    ifeq pj_unify_false
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    ifeq pl_unify_false
     iinc 3 1
-    goto pj_unify_cmp_loop
-pj_unify_true:
+    goto pl_unify_cmp_loop
+pl_unify_true:
     iconst_1
     ireturn
-pj_unify_false:
+pl_unify_false:
     iconst_0
     ireturn
 .end method
 
-.method static pj_term_str(Ljava/lang/Object;)Ljava/lang/String;
+.method static pl_term_str(Ljava/lang/Object;)Ljava/lang/String;
     .limit stack 8
     .limit locals 4
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_0
     aload_0
     ifnonnull pts_notnull
@@ -447,14 +447,14 @@ pts_list_loop:
     checkcast [Ljava/lang/Object;
     iconst_2
     aaload
-    invokestatic roman/pj_term_str(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_str(Ljava/lang/Object;)Ljava/lang/String;
     invokevirtual java/lang/StringBuilder/append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     pop
     aload_3
     checkcast [Ljava/lang/Object;
     iconst_3
     aaload
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_3
     aload_3
     ifnull pts_list_close
@@ -499,7 +499,7 @@ pts_list_improper:
     pop
     aload_2
     aload_3
-    invokestatic roman/pj_term_str(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_str(Ljava/lang/Object;)Ljava/lang/String;
     invokevirtual java/lang/StringBuilder/append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     pop
 pts_list_close:
@@ -527,8 +527,8 @@ pts_plain_compound:
     checkcast [Ljava/lang/Object;
     iconst_2
     aaload
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_int_val(Ljava/lang/Object;)J
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_int_val(Ljava/lang/Object;)J
     l2i
     istore_1
     iload_1
@@ -596,7 +596,7 @@ pts_infix:
     checkcast [Ljava/lang/Object;
     iconst_2
     aaload
-    invokestatic roman/pj_term_str(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_str(Ljava/lang/Object;)Ljava/lang/String;
     invokevirtual java/lang/StringBuilder/append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     pop
     aload_2
@@ -608,7 +608,7 @@ pts_infix:
     checkcast [Ljava/lang/Object;
     iconst_3
     aaload
-    invokestatic roman/pj_term_str(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_str(Ljava/lang/Object;)Ljava/lang/String;
     invokevirtual java/lang/StringBuilder/append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     pop
     aload_2
@@ -655,7 +655,7 @@ pts_compound_nocomma:
     iconst_2
     iadd
     aaload
-    invokestatic roman/pj_term_str(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_str(Ljava/lang/Object;)Ljava/lang/String;
     invokevirtual java/lang/StringBuilder/append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     pop
     iinc 1 1
@@ -681,18 +681,18 @@ pts_scalar:
     areturn
 .end method
 
-.method static pj_write(Ljava/lang/Object;)V
+.method static pl_write(Ljava/lang/Object;)V
     .limit stack 3
     .limit locals 1
     aload_0
-    invokestatic roman/pj_term_str(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_str(Ljava/lang/Object;)Ljava/lang/String;
     getstatic java/lang/System/out Ljava/io/PrintStream;
     swap
     invokevirtual java/io/PrintStream/print(Ljava/lang/String;)V
     return
 .end method
 
-.method static pj_needs_quote(Ljava/lang/String;)Z
+.method static pl_needs_quote(Ljava/lang/String;)Z
     .limit stack 4
     .limit locals 4
     aload_0
@@ -735,7 +735,7 @@ pjnq_check_first:
     invokestatic java/lang/Character/isLowerCase(C)Z
     ifne pjnq_alphaid
     iload_2
-    invokestatic roman/pj_is_sym_char(I)Z
+    invokestatic roman/pl_is_sym_char(I)Z
     ifne pjnq_symbolic
     iconst_1
     ireturn
@@ -772,7 +772,7 @@ pjnq_sym_loop:
     invokevirtual java/lang/String/charAt(I)C
     istore_3
     iload_3
-    invokestatic roman/pj_is_sym_char(I)Z
+    invokestatic roman/pl_is_sym_char(I)Z
     ifeq pjnq_yes
     iinc 2 1
     goto pjnq_sym_loop
@@ -784,7 +784,7 @@ pjnq_no:
     ireturn
 .end method
 
-.method static pj_is_sym_char(I)Z
+.method static pl_is_sym_char(I)Z
     .limit stack 2
     .limit locals 1
     iload_0
@@ -842,7 +842,7 @@ pjsc_yes:
     ireturn
 .end method
 
-.method static pj_quoted_atom_str(Ljava/lang/String;)Ljava/lang/String;
+.method static pl_quoted_atom_str(Ljava/lang/String;)Ljava/lang/String;
     .limit stack 4
     .limit locals 5
     new java/lang/StringBuilder
@@ -893,11 +893,11 @@ pjqa_close:
     areturn
 .end method
 
-.method static pj_term_str_q(Ljava/lang/Object;)Ljava/lang/String;
+.method static pl_term_str_q(Ljava/lang/Object;)Ljava/lang/String;
     .limit stack 8
     .limit locals 5
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_0
     aload_0
     ifnonnull ptsq_notnull
@@ -928,10 +928,10 @@ ptsq_notnull:
     checkcast java/lang/String
     astore_2
     aload_2
-    invokestatic roman/pj_needs_quote(Ljava/lang/String;)Z
+    invokestatic roman/pl_needs_quote(Ljava/lang/String;)Z
     ifeq ptsq_atom_plain
     aload_2
-    invokestatic roman/pj_quoted_atom_str(Ljava/lang/String;)Ljava/lang/String;
+    invokestatic roman/pl_quoted_atom_str(Ljava/lang/String;)Ljava/lang/String;
     areturn
 ptsq_atom_plain:
     aload_2
@@ -972,14 +972,14 @@ ptsq_compound_or_var:
     bipush 2
     if_icmpne ptsq_not_list
     aload_0
-    invokestatic roman/pj_term_str(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_str(Ljava/lang/Object;)Ljava/lang/String;
     areturn
 ptsq_not_list:
     aload 4
-    invokestatic roman/pj_needs_quote(Ljava/lang/String;)Z
+    invokestatic roman/pl_needs_quote(Ljava/lang/String;)Z
     ifeq ptsq_fn_plain
     aload 4
-    invokestatic roman/pj_quoted_atom_str(Ljava/lang/String;)Ljava/lang/String;
+    invokestatic roman/pl_quoted_atom_str(Ljava/lang/String;)Ljava/lang/String;
     goto ptsq_fn_app
 ptsq_fn_plain:
     aload 4
@@ -1017,7 +1017,7 @@ ptsq_no_c:
     iconst_2
     iadd
     aaload
-    invokestatic roman/pj_term_str_q(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_str_q(Ljava/lang/Object;)Ljava/lang/String;
     aload_2
     swap
     invokevirtual java/lang/StringBuilder/append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1037,11 +1037,11 @@ ptsq_var:
     areturn
 .end method
 
-.method static pj_term_str_canonical(Ljava/lang/Object;)Ljava/lang/String;
+.method static pl_term_str_canonical(Ljava/lang/Object;)Ljava/lang/String;
     .limit stack 8
     .limit locals 5
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_0
     aload_0
     ifnonnull ptsc_notnull
@@ -1072,10 +1072,10 @@ ptsc_notnull:
     checkcast java/lang/String
     astore_2
     aload_2
-    invokestatic roman/pj_needs_quote(Ljava/lang/String;)Z
+    invokestatic roman/pl_needs_quote(Ljava/lang/String;)Z
     ifeq ptsc_atom_plain
     aload_2
-    invokestatic roman/pj_quoted_atom_str(Ljava/lang/String;)Ljava/lang/String;
+    invokestatic roman/pl_quoted_atom_str(Ljava/lang/String;)Ljava/lang/String;
     areturn
 ptsc_atom_plain:
     aload_2
@@ -1105,7 +1105,7 @@ ptsc_compound_or_var:
     iconst_4
     if_icmpne ptsc_plain_compound
     aload_0
-    invokestatic roman/pj_term_str(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_str(Ljava/lang/Object;)Ljava/lang/String;
     areturn
 ptsc_plain_compound:
     aload_0
@@ -1125,10 +1125,10 @@ ptsc_plain_compound:
     checkcast java/lang/String
     astore 4
     aload 4
-    invokestatic roman/pj_needs_quote(Ljava/lang/String;)Z
+    invokestatic roman/pl_needs_quote(Ljava/lang/String;)Z
     ifeq ptsc_fn_plain
     aload 4
-    invokestatic roman/pj_quoted_atom_str(Ljava/lang/String;)Ljava/lang/String;
+    invokestatic roman/pl_quoted_atom_str(Ljava/lang/String;)Ljava/lang/String;
     goto ptsc_fn_append
 ptsc_fn_plain:
     aload 4
@@ -1166,7 +1166,7 @@ ptsc_no_comma:
     iconst_2
     iadd
     aaload
-    invokestatic roman/pj_term_str_canonical(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_str_canonical(Ljava/lang/Object;)Ljava/lang/String;
     aload_2
     swap
     invokevirtual java/lang/StringBuilder/append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1186,33 +1186,33 @@ ptsc_var:
     areturn
 .end method
 
-.method static pj_writeq(Ljava/lang/Object;)V
+.method static pl_writeq(Ljava/lang/Object;)V
     .limit stack 3
     .limit locals 1
     aload_0
-    invokestatic roman/pj_term_str_q(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_str_q(Ljava/lang/Object;)Ljava/lang/String;
     getstatic java/lang/System/out Ljava/io/PrintStream;
     swap
     invokevirtual java/io/PrintStream/print(Ljava/lang/String;)V
     return
 .end method
 
-.method static pj_write_canonical(Ljava/lang/Object;)V
+.method static pl_write_canonical(Ljava/lang/Object;)V
     .limit stack 3
     .limit locals 1
     aload_0
-    invokestatic roman/pj_term_str_canonical(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_str_canonical(Ljava/lang/Object;)Ljava/lang/String;
     getstatic java/lang/System/out Ljava/io/PrintStream;
     swap
     invokevirtual java/io/PrintStream/print(Ljava/lang/String;)V
     return
 .end method
 
-.method static pj_term_to_list(Ljava/lang/Object;)[Ljava/lang/Object;
+.method static pl_term_to_list(Ljava/lang/Object;)[Ljava/lang/Object;
     .limit stack 8
     .limit locals 5
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     astore_0
     aload_0
@@ -1220,7 +1220,7 @@ ptsc_var:
     aaload
     astore_1
     ldc "[]"
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     astore_3
     aload_1
     ldc "atom"
@@ -1230,7 +1230,7 @@ ptsc_var:
     iconst_1
     aaload
     checkcast java/lang/String
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     bipush 4
     anewarray java/lang/Object
     dup
@@ -1247,7 +1247,7 @@ ptsc_var:
     iconst_1
     aaload
     checkcast java/lang/String
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aastore
     dup
     bipush 3
@@ -1309,7 +1309,7 @@ ttl_prepend_functor:
     iconst_1
     aaload
     checkcast java/lang/String
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aastore
     dup
     bipush 3
@@ -1318,11 +1318,11 @@ ttl_prepend_functor:
     areturn
 .end method
 
-.method static pj_list_to_term(Ljava/lang/Object;)[Ljava/lang/Object;
+.method static pl_list_to_term(Ljava/lang/Object;)[Ljava/lang/Object;
     .limit stack 8
     .limit locals 6
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_0
     aload_0
     ifnull ltl_fail
@@ -1344,13 +1344,13 @@ ttl_prepend_functor:
     checkcast [Ljava/lang/Object;
     iconst_2
     aaload
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore 4
     aload_0
     checkcast [Ljava/lang/Object;
     bipush 3
     aaload
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_0
     bipush 34
     anewarray java/lang/Object
@@ -1382,7 +1382,7 @@ ltl_loop:
     checkcast [Ljava/lang/Object;
     bipush 3
     aaload
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_0
     goto ltl_loop
 ltl_build:
@@ -1404,7 +1404,7 @@ ltl_compound:
     aload_3
     iconst_1
     aload 4
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     aastore
     iconst_0
     istore 5
@@ -1430,11 +1430,11 @@ ltl_fail:
     areturn
 .end method
 
-.method static pj_univ(Ljava/lang/Object;Ljava/lang/Object;)Z
+.method static pl_univ(Ljava/lang/Object;Ljava/lang/Object;)Z
     .limit stack 4
     .limit locals 4
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_2
     aload_2
     ifnull univ_compose
@@ -1446,30 +1446,30 @@ ltl_fail:
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
     ifne univ_compose
     aload_2
-    invokestatic roman/pj_term_to_list(Ljava/lang/Object;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_to_list(Ljava/lang/Object;)[Ljava/lang/Object;
     aload_1
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
 univ_compose:
     aload_1
-    invokestatic roman/pj_list_to_term(Ljava/lang/Object;)[Ljava/lang/Object;
+    invokestatic roman/pl_list_to_term(Ljava/lang/Object;)[Ljava/lang/Object;
     astore_3
     aload_3
     ifnull univ_fail
     aload_0
     aload_3
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
 univ_fail:
     iconst_0
     ireturn
 .end method
 
-.method static pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+.method static pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     .limit stack 4
     .limit locals 2
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     astore_0
     aload_0
@@ -1491,11 +1491,11 @@ pan_atom:
     areturn
 .end method
 
-.method static pj_int_val(Ljava/lang/Object;)J
+.method static pl_int_val(Ljava/lang/Object;)J
     .limit stack 3
     .limit locals 2
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     iconst_1
     aaload
@@ -1504,14 +1504,14 @@ pan_atom:
     lreturn
 .end method
 
-.method static pj_string_to_char_list(Ljava/lang/String;)[Ljava/lang/Object;
+.method static pl_string_to_char_list(Ljava/lang/String;)[Ljava/lang/Object;
     .limit stack 8
     .limit locals 5
     aload_0
     invokevirtual java/lang/String/length()I
     istore_1
     ldc "[]"
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     astore_3
     iload_1
     iconst_1
@@ -1524,7 +1524,7 @@ scl_loop:
     iload_2
     invokevirtual java/lang/String/charAt(I)C
     invokestatic java/lang/String/valueOf(C)Ljava/lang/String;
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     astore 4
     bipush 4
     anewarray java/lang/Object
@@ -1552,14 +1552,14 @@ scl_done:
     areturn
 .end method
 
-.method static pj_string_to_code_list(Ljava/lang/String;)[Ljava/lang/Object;
+.method static pl_string_to_code_list(Ljava/lang/String;)[Ljava/lang/Object;
     .limit stack 8
     .limit locals 5
     aload_0
     invokevirtual java/lang/String/length()I
     istore_1
     ldc "[]"
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     astore_3
     iload_1
     iconst_1
@@ -1572,7 +1572,7 @@ scol_loop:
     iload_2
     invokevirtual java/lang/String/charAt(I)C
     i2l
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     astore 4
     bipush 4
     anewarray java/lang/Object
@@ -1600,11 +1600,11 @@ scol_done:
     areturn
 .end method
 
-.method static pj_atom_chars_2(Ljava/lang/Object;Ljava/lang/Object;)Z
+.method static pl_atom_chars_2(Ljava/lang/Object;Ljava/lang/Object;)Z
     .limit stack 8
     .limit locals 6
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     astore_2
     aload_2
@@ -1614,25 +1614,25 @@ scol_done:
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
     ifne ac2_reverse
     aload_2
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
-    invokestatic roman/pj_string_to_char_list(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_string_to_char_list(Ljava/lang/String;)[Ljava/lang/Object;
     aload_1
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
 ac2_reverse:
     aload_1
-    invokestatic roman/pj_char_list_to_string(Ljava/lang/Object;)Ljava/lang/String;
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_char_list_to_string(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aload_0
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
 .end method
 
-.method static pj_atom_codes_2(Ljava/lang/Object;Ljava/lang/Object;)Z
+.method static pl_atom_codes_2(Ljava/lang/Object;Ljava/lang/Object;)Z
     .limit stack 8
     .limit locals 4
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     astore_2
     aload_2
@@ -1642,25 +1642,25 @@ ac2_reverse:
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
     ifne acd2_reverse
     aload_2
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
-    invokestatic roman/pj_string_to_code_list(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_string_to_code_list(Ljava/lang/String;)[Ljava/lang/Object;
     aload_1
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
 acd2_reverse:
     aload_1
-    invokestatic roman/pj_code_list_to_string(Ljava/lang/Object;)Ljava/lang/String;
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_code_list_to_string(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aload_0
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
 .end method
 
-.method static pj_char_code_2(Ljava/lang/Object;Ljava/lang/Object;)Z
+.method static pl_char_code_2(Ljava/lang/Object;Ljava/lang/Object;)Z
     .limit stack 8
     .limit locals 4
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     astore_2
     aload_2
@@ -1670,27 +1670,27 @@ acd2_reverse:
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
     ifne cc2_reverse
     aload_2
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     iconst_0
     invokevirtual java/lang/String/charAt(I)C
     i2l
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     aload_1
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
 cc2_reverse:
     aload_1
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_int_val(Ljava/lang/Object;)J
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_int_val(Ljava/lang/Object;)J
     l2i
     invokestatic java/lang/String/valueOf(C)Ljava/lang/String;
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aload_0
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
 .end method
 
-.method static pj_char_list_to_string(Ljava/lang/Object;)Ljava/lang/String;
+.method static pl_char_list_to_string(Ljava/lang/Object;)Ljava/lang/String;
     .limit stack 6
     .limit locals 3
     new java/lang/StringBuilder
@@ -1698,7 +1698,7 @@ cc2_reverse:
     invokespecial java/lang/StringBuilder/<init>()V
     astore_1
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_2
 clts_loop:
     aload_2
@@ -1712,8 +1712,8 @@ clts_loop:
     checkcast [Ljava/lang/Object;
     iconst_2
     aaload
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     aload_1
     swap
     invokevirtual java/lang/StringBuilder/append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1722,7 +1722,7 @@ clts_loop:
     checkcast [Ljava/lang/Object;
     bipush 3
     aaload
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_2
     goto clts_loop
 clts_done:
@@ -1731,7 +1731,7 @@ clts_done:
     areturn
 .end method
 
-.method static pj_code_list_to_string(Ljava/lang/Object;)Ljava/lang/String;
+.method static pl_code_list_to_string(Ljava/lang/Object;)Ljava/lang/String;
     .limit stack 6
     .limit locals 3
     new java/lang/StringBuilder
@@ -1739,7 +1739,7 @@ clts_done:
     invokespecial java/lang/StringBuilder/<init>()V
     astore_1
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_2
 colts_loop:
     aload_2
@@ -1753,8 +1753,8 @@ colts_loop:
     checkcast [Ljava/lang/Object;
     iconst_2
     aaload
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_int_val(Ljava/lang/Object;)J
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_int_val(Ljava/lang/Object;)J
     l2i
     i2c
     aload_1
@@ -1765,7 +1765,7 @@ colts_loop:
     checkcast [Ljava/lang/Object;
     bipush 3
     aaload
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_2
     goto colts_loop
 colts_done:
@@ -1774,15 +1774,15 @@ colts_done:
     areturn
 .end method
 
-; === Dynamic DB helpers: pj_db_assert_key, pj_db_assert, pj_db_query =
-; pj_db_assert_key(Object) -> String
-.method static pj_db_assert_key(Ljava/lang/Object;)Ljava/lang/String;
+; === Dynamic DB helpers: pl_db_assert_key, pl_db_assert, pl_db_query =
+; pl_db_assert_key(Object) -> String
+.method static pl_db_assert_key(Ljava/lang/Object;)Ljava/lang/String;
     .limit stack 6
     .limit locals 3
     aload_0
     dup
     instanceof [Ljava/lang/Object;
-    ifeq pj_db_key_atom
+    ifeq pl_db_key_atom
     checkcast [Ljava/lang/Object;
     iconst_1
     aaload
@@ -1805,7 +1805,7 @@ colts_done:
     invokevirtual java/lang/StringBuilder/append(I)Ljava/lang/StringBuilder;
     invokevirtual java/lang/StringBuilder/toString()Ljava/lang/String;
     areturn
-pj_db_key_atom:
+pl_db_key_atom:
     aload_0
     checkcast java/lang/String
     astore_1
@@ -1820,41 +1820,41 @@ pj_db_key_atom:
     areturn
 .end method
 
-; pj_db_assert(String key, Object term, int prepend) -> void
-.method static pj_db_assert(Ljava/lang/String;Ljava/lang/Object;I)V
+; pl_db_assert(String key, Object term, int prepend) -> void
+.method static pl_db_assert(Ljava/lang/String;Ljava/lang/Object;I)V
     .limit stack 6
     .limit locals 4
-    getstatic roman/pj_db Ljava/util/HashMap;
+    getstatic roman/pl_db Ljava/util/HashMap;
     aload_0
     invokevirtual java/util/HashMap/get(Ljava/lang/Object;)Ljava/lang/Object;
     dup
-    ifnonnull pj_db_assert_have_list
+    ifnonnull pl_db_assert_have_list
     pop
     new java/util/ArrayList
     dup
     invokespecial java/util/ArrayList/<init>()V
     astore_3
-    getstatic roman/pj_db Ljava/util/HashMap;
+    getstatic roman/pl_db Ljava/util/HashMap;
     aload_0
     aload_3
     invokevirtual java/util/HashMap/put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     pop
-    goto pj_db_assert_join
-pj_db_assert_have_list:
+    goto pl_db_assert_join
+pl_db_assert_have_list:
     checkcast java/util/ArrayList
     astore_3
-pj_db_assert_join:
+pl_db_assert_join:
     aload_1
-    invokestatic roman/pj_copy_term_ground(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_copy_term_ground(Ljava/lang/Object;)Ljava/lang/Object;
     astore_1
     iload_2
-    ifeq pj_db_assert_append
+    ifeq pl_db_assert_append
     aload_3
     iconst_0
     aload_1
     invokevirtual java/util/ArrayList/add(ILjava/lang/Object;)V
     return
-pj_db_assert_append:
+pl_db_assert_append:
     aload_3
     aload_1
     invokevirtual java/util/ArrayList/add(Ljava/lang/Object;)Z
@@ -1862,84 +1862,84 @@ pj_db_assert_append:
     return
 .end method
 
-; pj_db_query(String key, int idx) -> Object | null
-.method static pj_db_query(Ljava/lang/String;I)Ljava/lang/Object;
+; pl_db_query(String key, int idx) -> Object | null
+.method static pl_db_query(Ljava/lang/String;I)Ljava/lang/Object;
     .limit stack 4
     .limit locals 3
-    getstatic roman/pj_db Ljava/util/HashMap;
+    getstatic roman/pl_db Ljava/util/HashMap;
     aload_0
     invokevirtual java/util/HashMap/get(Ljava/lang/Object;)Ljava/lang/Object;
     dup
-    ifnonnull pj_db_query_have
+    ifnonnull pl_db_query_have
     areturn
-pj_db_query_have:
+pl_db_query_have:
     checkcast java/util/ArrayList
     astore_2
     aload_2
     invokevirtual java/util/ArrayList/size()I
     iload_1
-    if_icmpgt pj_db_query_ok
+    if_icmpgt pl_db_query_ok
     aconst_null
     areturn
-pj_db_query_ok:
+pl_db_query_ok:
     aload_2
     iload_1
     invokevirtual java/util/ArrayList/get(I)Ljava/lang/Object;
     areturn
 .end method
 
-; pj_db_retract(String key, int idx) -> Object | null
-.method static pj_db_retract(Ljava/lang/String;I)Ljava/lang/Object;
+; pl_db_retract(String key, int idx) -> Object | null
+.method static pl_db_retract(Ljava/lang/String;I)Ljava/lang/Object;
     .limit stack 4
     .limit locals 3
-    getstatic roman/pj_db Ljava/util/HashMap;
+    getstatic roman/pl_db Ljava/util/HashMap;
     aload_0
     invokevirtual java/util/HashMap/get(Ljava/lang/Object;)Ljava/lang/Object;
     dup
-    ifnonnull pj_db_retract_have
+    ifnonnull pl_db_retract_have
     areturn
-pj_db_retract_have:
+pl_db_retract_have:
     checkcast java/util/ArrayList
     astore_2
     aload_2
     invokevirtual java/util/ArrayList/size()I
     iload_1
-    if_icmpgt pj_db_retract_ok
+    if_icmpgt pl_db_retract_ok
     aconst_null
     areturn
-pj_db_retract_ok:
+pl_db_retract_ok:
     aload_2
     iload_1
     invokevirtual java/util/ArrayList/remove(I)Ljava/lang/Object;
     areturn
 .end method
 
-; pj_db_abolish(String key) -> void
-.method static pj_db_abolish(Ljava/lang/String;)V
+; pl_db_abolish(String key) -> void
+.method static pl_db_abolish(Ljava/lang/String;)V
     .limit stack 2
     .limit locals 1
-    getstatic roman/pj_db Ljava/util/HashMap;
+    getstatic roman/pl_db Ljava/util/HashMap;
     aload_0
     invokevirtual java/util/HashMap/remove(Ljava/lang/Object;)Ljava/lang/Object;
     pop
     return
 .end method
 
-; pj_db_abolish_key(Object) -> String
-.method static pj_db_abolish_key(Ljava/lang/Object;)Ljava/lang/String;
+; pl_db_abolish_key(Object) -> String
+.method static pl_db_abolish_key(Ljava/lang/Object;)Ljava/lang/String;
     .limit stack 6
     .limit locals 4
     aload_0
     checkcast [Ljava/lang/Object;
     iconst_2
     aaload
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     astore_1
     aload_0
     checkcast [Ljava/lang/Object;
     iconst_3
     aaload
-    invokestatic roman/pj_int_val(Ljava/lang/Object;)J
+    invokestatic roman/pl_int_val(Ljava/lang/Object;)J
     l2i
     istore_2
     new java/lang/StringBuilder
@@ -1955,16 +1955,16 @@ pj_db_retract_ok:
     areturn
 .end method
 
-; pj_copy_term_ground(Object) -> Object
-.method static pj_copy_term_ground(Ljava/lang/Object;)Ljava/lang/Object;
+; pl_copy_term_ground(Object) -> Object
+.method static pl_copy_term_ground(Ljava/lang/Object;)Ljava/lang/Object;
     .limit stack 8
     .limit locals 5
     aload_0
     dup
     instanceof [Ljava/lang/Object;
-    ifne pj_ctg_compound
+    ifne pl_ctg_compound
     areturn
-pj_ctg_compound:
+pl_ctg_compound:
     checkcast [Ljava/lang/Object;
     astore_1
     aload_1
@@ -1981,26 +1981,26 @@ pj_ctg_compound:
     aastore
     iconst_1
     istore 4
-pj_ctg_loop:
+pl_ctg_loop:
     iload 4
     iload_2
-    if_icmpge pj_ctg_done
+    if_icmpge pl_ctg_done
     aload_3
     iload 4
     aload_1
     iload 4
     aaload
-    invokestatic roman/pj_copy_term_ground(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_copy_term_ground(Ljava/lang/Object;)Ljava/lang/Object;
     aastore
     iinc 4 1
-    goto pj_ctg_loop
-pj_ctg_done:
+    goto pl_ctg_loop
+pl_ctg_done:
     aload_3
     areturn
 .end method
 
-; pj_list_to_arraylist(Object) -> ArrayList
-.method static pj_list_to_arraylist(Ljava/lang/Object;)Ljava/util/ArrayList;
+; pl_list_to_arraylist(Object) -> ArrayList
+.method static pl_list_to_arraylist(Ljava/lang/Object;)Ljava/util/ArrayList;
     .limit stack 4
     .limit locals 3
     new java/util/ArrayList
@@ -2008,12 +2008,12 @@ pj_ctg_done:
     invokespecial java/util/ArrayList/<init>()V
     astore_1
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_2
-pj_lta_loop:
+pl_lta_loop:
     aload_2
     instanceof [Ljava/lang/Object;
-    ifeq pj_lta_done
+    ifeq pl_lta_done
     aload_2
     checkcast [Ljava/lang/Object;
     iconst_1
@@ -2023,7 +2023,7 @@ pj_lta_loop:
     aload_0
     ldc "[]"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifne pj_lta_done
+    ifne pl_lta_done
     aload_1
     aload_2
     checkcast [Ljava/lang/Object;
@@ -2035,66 +2035,66 @@ pj_lta_loop:
     checkcast [Ljava/lang/Object;
     iconst_3
     aaload
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_2
-    goto pj_lta_loop
-pj_lta_done:
+    goto pl_lta_loop
+pl_lta_done:
     aload_1
     areturn
 .end method
 
-; pj_length_2(Object list, Object n) -> Z
-.method static pj_length_2(Ljava/lang/Object;Ljava/lang/Object;)Z
+; pl_length_2(Object list, Object n) -> Z
+.method static pl_length_2(Ljava/lang/Object;Ljava/lang/Object;)Z
     .limit stack 6
     .limit locals 4
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_2
     iconst_0
     istore_3
-pj_len_loop:
+pl_len_loop:
     aload_2
     instanceof [Ljava/lang/Object;
-    ifeq pj_len_done
+    ifeq pl_len_done
     aload_2
     checkcast [Ljava/lang/Object;
     iconst_1
     aaload
     ldc "[]"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifne pj_len_done
+    ifne pl_len_done
     iinc 3 1
     aload_2
     checkcast [Ljava/lang/Object;
     iconst_3
     aaload
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_2
-    goto pj_len_loop
-pj_len_done:
+    goto pl_len_loop
+pl_len_done:
     iload_3
     i2l
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     aload_1
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
 .end method
 
-; pj_arraylist_to_list(ArrayList) -> Object
-.method static pj_arraylist_to_list(Ljava/util/ArrayList;)Ljava/lang/Object;
+; pl_arraylist_to_list(ArrayList) -> Object
+.method static pl_arraylist_to_list(Ljava/util/ArrayList;)Ljava/lang/Object;
     .limit stack 8
     .limit locals 4
     ldc "[]"
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     astore_1
     aload_0
     invokevirtual java/util/ArrayList/size()I
     iconst_1
     isub
     istore_2
-pj_atl_loop:
+pl_atl_loop:
     iload_2
-    iflt pj_atl_done
+    iflt pl_atl_done
     bipush 4
     anewarray java/lang/Object
     dup
@@ -2117,28 +2117,28 @@ pj_atl_loop:
     aastore
     astore_1
     iinc 2 -1
-    goto pj_atl_loop
-pj_atl_done:
+    goto pl_atl_loop
+pl_atl_done:
     aload_1
     areturn
 .end method
 
-; pj_sort_list(Object list, int dedup) -> Object
-.method static pj_sort_list(Ljava/lang/Object;I)Ljava/lang/Object;
+; pl_sort_list(Object list, int dedup) -> Object
+.method static pl_sort_list(Ljava/lang/Object;I)Ljava/lang/Object;
     .limit stack 8
     .limit locals 8
     aload_0
-    invokestatic roman/pj_list_to_arraylist(Ljava/lang/Object;)Ljava/util/ArrayList;
+    invokestatic roman/pl_list_to_arraylist(Ljava/lang/Object;)Ljava/util/ArrayList;
     astore_2
     aload_2
     invokevirtual java/util/ArrayList/size()I
     istore_3
     iconst_1
     istore 4
-pj_sl_outer:
+pl_sl_outer:
     iload 4
     iload_3
-    if_icmpge pj_sl_sorted
+    if_icmpge pl_sl_sorted
     aload_2
     iload 4
     invokevirtual java/util/ArrayList/get(I)Ljava/lang/Object;
@@ -2147,17 +2147,17 @@ pj_sl_outer:
     iconst_1
     isub
     istore 6
-pj_sl_inner:
+pl_sl_inner:
     iload 6
-    iflt pj_sl_insert
+    iflt pl_sl_insert
     aload_2
     iload 6
     invokevirtual java/util/ArrayList/get(I)Ljava/lang/Object;
-    invokestatic roman/pj_term_str(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_str(Ljava/lang/Object;)Ljava/lang/String;
     aload 5
-    invokestatic roman/pj_term_str(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_str(Ljava/lang/Object;)Ljava/lang/String;
     invokevirtual java/lang/String/compareTo(Ljava/lang/String;)I
-    ifle pj_sl_insert
+    ifle pl_sl_insert
     aload_2
     iload 6
     iconst_1
@@ -2168,8 +2168,8 @@ pj_sl_inner:
     invokevirtual java/util/ArrayList/set(ILjava/lang/Object;)Ljava/lang/Object;
     pop
     iinc 6 -1
-    goto pj_sl_inner
-pj_sl_insert:
+    goto pl_sl_inner
+pl_sl_insert:
     aload_2
     iload 6
     iconst_1
@@ -2178,115 +2178,115 @@ pj_sl_insert:
     invokevirtual java/util/ArrayList/set(ILjava/lang/Object;)Ljava/lang/Object;
     pop
     iinc 4 1
-    goto pj_sl_outer
-pj_sl_sorted:
+    goto pl_sl_outer
+pl_sl_sorted:
     iload_1
-    ifeq pj_sl_build
+    ifeq pl_sl_build
     iconst_0
     istore 4
-pj_sl_dedup:
+pl_sl_dedup:
     iload 4
     aload_2
     invokevirtual java/util/ArrayList/size()I
     iconst_1
     isub
-    if_icmpge pj_sl_build
+    if_icmpge pl_sl_build
     aload_2
     iload 4
     invokevirtual java/util/ArrayList/get(I)Ljava/lang/Object;
-    invokestatic roman/pj_term_str(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_str(Ljava/lang/Object;)Ljava/lang/String;
     aload_2
     iload 4
     iconst_1
     iadd
     invokevirtual java/util/ArrayList/get(I)Ljava/lang/Object;
-    invokestatic roman/pj_term_str(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_str(Ljava/lang/Object;)Ljava/lang/String;
     invokevirtual java/lang/String/compareTo(Ljava/lang/String;)I
-    ifne pj_sl_dedup_next
+    ifne pl_sl_dedup_next
     aload_2
     iload 4
     iconst_1
     iadd
     invokevirtual java/util/ArrayList/remove(I)Ljava/lang/Object;
     pop
-    goto pj_sl_dedup
-pj_sl_dedup_next:
+    goto pl_sl_dedup
+pl_sl_dedup_next:
     iinc 4 1
-    goto pj_sl_dedup
-pj_sl_build:
+    goto pl_sl_dedup
+pl_sl_build:
     aload_2
-    invokestatic roman/pj_arraylist_to_list(Ljava/util/ArrayList;)Ljava/lang/Object;
+    invokestatic roman/pl_arraylist_to_list(Ljava/util/ArrayList;)Ljava/lang/Object;
     areturn
 .end method
 
-; pj_is_var(Object) -> Z
-.method static pj_is_var(Ljava/lang/Object;)Z
+; pl_is_var(Object) -> Z
+.method static pl_is_var(Ljava/lang/Object;)Z
     .limit stack 3
     .limit locals 1
     aload_0
-    ifnull pj_isvar_true
+    ifnull pl_isvar_true
     aload_0
     checkcast [Ljava/lang/Object;
     iconst_0
     aaload
     ldc "var"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_isvar_false
+    ifeq pl_isvar_false
     aload_0
     checkcast [Ljava/lang/Object;
     iconst_1
     aaload
-    ifnonnull pj_isvar_false
-pj_isvar_true:
+    ifnonnull pl_isvar_false
+pl_isvar_true:
     iconst_1
     ireturn
-pj_isvar_false:
+pl_isvar_false:
     iconst_0
     ireturn
 .end method
 
-; pj_succ_2(Object x, Object y) -> Z
-.method static pj_succ_2(Ljava/lang/Object;Ljava/lang/Object;)Z
+; pl_succ_2(Object x, Object y) -> Z
+.method static pl_succ_2(Ljava/lang/Object;Ljava/lang/Object;)Z
     .limit stack 6
     .limit locals 6
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_0
     aload_1
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_1
     aload_0
-    invokestatic roman/pj_is_var(Ljava/lang/Object;)Z
-    ifne pj_succ2_x_unbound
+    invokestatic roman/pl_is_var(Ljava/lang/Object;)Z
+    ifne pl_succ2_x_unbound
     aload_0
-    invokestatic roman/pj_int_val(Ljava/lang/Object;)J
+    invokestatic roman/pl_int_val(Ljava/lang/Object;)J
     lconst_1
     ladd
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     aload_1
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
-pj_succ2_x_unbound:
+pl_succ2_x_unbound:
     aload_1
-    invokestatic roman/pj_int_val(Ljava/lang/Object;)J
+    invokestatic roman/pl_int_val(Ljava/lang/Object;)J
     lconst_1
     lsub
     dup2
     lstore_2
     lconst_0
     lcmp
-    iflt pj_succ2_neg
+    iflt pl_succ2_neg
     lload_2
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     aload_0
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
-pj_succ2_neg:
+pl_succ2_neg:
     lload_2
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     pop
     aload_1
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     bipush 4
     anewarray java/lang/Object
     dup
@@ -2300,12 +2300,12 @@ pj_succ2_neg:
     dup
     iconst_2
     ldc "not_less_than_zero"
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aastore
     dup
     bipush 3
     aload_1
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     aastore
     astore 4
     bipush 4
@@ -2325,9 +2325,9 @@ pj_succ2_neg:
     dup
     bipush 3
     ldc "succ/2"
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aastore
-    putstatic roman/pj_throw_term Ljava/lang/Object;
+    putstatic roman/pl_throw_term Ljava/lang/Object;
     new java/lang/RuntimeException
     dup
     ldc "PROLOG_THROW"
@@ -2335,66 +2335,66 @@ pj_succ2_neg:
     athrow
 .end method
 
-; pj_plus_3(Object x, Object y, Object z) -> Z
-.method static pj_plus_3(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
+; pl_plus_3(Object x, Object y, Object z) -> Z
+.method static pl_plus_3(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
     .limit stack 8
     .limit locals 8
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_0
     aload_1
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_1
     aload_2
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_2
     aload_0
-    invokestatic roman/pj_is_var(Ljava/lang/Object;)Z
-    ifne pj_plus3_x_var
+    invokestatic roman/pl_is_var(Ljava/lang/Object;)Z
+    ifne pl_plus3_x_var
     aload_1
-    invokestatic roman/pj_is_var(Ljava/lang/Object;)Z
-    ifne pj_plus3_y_var
+    invokestatic roman/pl_is_var(Ljava/lang/Object;)Z
+    ifne pl_plus3_y_var
     aload_0
-    invokestatic roman/pj_int_val(Ljava/lang/Object;)J
+    invokestatic roman/pl_int_val(Ljava/lang/Object;)J
     aload_1
-    invokestatic roman/pj_int_val(Ljava/lang/Object;)J
+    invokestatic roman/pl_int_val(Ljava/lang/Object;)J
     ladd
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     aload_2
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
-pj_plus3_y_var:
+pl_plus3_y_var:
     aload_2
-    invokestatic roman/pj_int_val(Ljava/lang/Object;)J
+    invokestatic roman/pl_int_val(Ljava/lang/Object;)J
     aload_0
-    invokestatic roman/pj_int_val(Ljava/lang/Object;)J
+    invokestatic roman/pl_int_val(Ljava/lang/Object;)J
     lsub
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     aload_1
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
-pj_plus3_x_var:
+pl_plus3_x_var:
     aload_2
-    invokestatic roman/pj_int_val(Ljava/lang/Object;)J
+    invokestatic roman/pl_int_val(Ljava/lang/Object;)J
     aload_1
-    invokestatic roman/pj_int_val(Ljava/lang/Object;)J
+    invokestatic roman/pl_int_val(Ljava/lang/Object;)J
     lsub
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     aload_0
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
 .end method
 
-; pj_nb_setval_2(Object name, Object value) -> V
-.method static pj_nb_setval_2(Ljava/lang/Object;Ljava/lang/Object;)V
+; pl_nb_setval_2(Object name, Object value) -> V
+.method static pl_nb_setval_2(Ljava/lang/Object;Ljava/lang/Object;)V
     .limit stack 4
     .limit locals 2
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     aload_1
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    getstatic roman/pj_nb Ljava/util/HashMap;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    getstatic roman/pl_nb Ljava/util/HashMap;
     dup_x2
     pop
     invokevirtual java/util/HashMap/put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -2402,64 +2402,64 @@ pj_plus3_x_var:
     return
 .end method
 
-; pj_nb_getval_2(Object name, Object var) -> Z
-.method static pj_nb_getval_2(Ljava/lang/Object;Ljava/lang/Object;)Z
+; pl_nb_getval_2(Object name, Object var) -> Z
+.method static pl_nb_getval_2(Ljava/lang/Object;Ljava/lang/Object;)Z
     .limit stack 4
     .limit locals 3
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     astore_2
-    getstatic roman/pj_nb Ljava/util/HashMap;
+    getstatic roman/pl_nb Ljava/util/HashMap;
     aload_2
     invokevirtual java/util/HashMap/get(Ljava/lang/Object;)Ljava/lang/Object;
     dup
-    ifnonnull pj_nb_getval_found
+    ifnonnull pl_nb_getval_found
     pop
     iconst_0
     ireturn
-pj_nb_getval_found:
+pl_nb_getval_found:
     aload_1
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
 .end method
 
-; pj_succ_or_zero_2(Object x, Object y) -> Z
-.method static pj_succ_or_zero_2(Ljava/lang/Object;Ljava/lang/Object;)Z
+; pl_succ_or_zero_2(Object x, Object y) -> Z
+.method static pl_succ_or_zero_2(Ljava/lang/Object;Ljava/lang/Object;)Z
     .limit stack 6
     .limit locals 4
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_int_val(Ljava/lang/Object;)J
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_int_val(Ljava/lang/Object;)J
     lstore_2
     lload_2
     lconst_0
     lcmp
-    ifle pj_soz_zero
+    ifle pl_soz_zero
     lload_2
     lconst_1
     lsub
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     aload_1
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
-pj_soz_zero:
+pl_soz_zero:
     lconst_0
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     aload_1
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
 .end method
 
-; pj_format_2(Object fmt, Object arglist) -> V
-.method static pj_format_2(Ljava/lang/Object;Ljava/lang/Object;)V
+; pl_format_2(Object fmt, Object arglist) -> V
+.method static pl_format_2(Ljava/lang/Object;Ljava/lang/Object;)V
     .limit stack 6
     .limit locals 7
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_0
     aload_0
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     astore_2
     aload_2
     invokevirtual java/lang/String/length()I
@@ -2504,24 +2504,24 @@ pjfmt_loop:
     goto pjfmt_loop
 pjfmt_write:
     aload_1
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     iconst_2
     aaload
     astore 6
     aload_1
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     bipush 3
     aaload
     astore_1
     aload 6
-    invokestatic roman/pj_write(Ljava/lang/Object;)V
+    invokestatic roman/pl_write(Ljava/lang/Object;)V
     iinc 4 1
     goto pjfmt_loop
 pjfmt_ignore:
     aload_1
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     bipush 3
     aaload
@@ -2545,12 +2545,12 @@ pjfmt_done:
     return
 .end method
 
-; pj_numbervars_walk(Object term, int[] counter) -> V
-.method static pj_numbervars_walk(Ljava/lang/Object;[I)V
+; pl_numbervars_walk(Object term, int[] counter) -> V
+.method static pl_numbervars_walk(Ljava/lang/Object;[I)V
     .limit stack 8
     .limit locals 6
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_0
     aload_0
     checkcast [Ljava/lang/Object;
@@ -2572,7 +2572,7 @@ pjfmt_done:
     istore_3
     iload_3
     i2l
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     astore 4
     bipush 3
     anewarray java/lang/Object
@@ -2632,20 +2632,20 @@ pjnv_arg_loop:
     iadd
     aaload
     aload_1
-    invokestatic roman/pj_numbervars_walk(Ljava/lang/Object;[I)V
+    invokestatic roman/pl_numbervars_walk(Ljava/lang/Object;[I)V
     iinc 4 1
     goto pjnv_arg_loop
 pjnv_done:
     return
 .end method
 
-; pj_numbervars_3(Object term, Object start, Object end) -> Z
-.method static pj_numbervars_3(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
+; pl_numbervars_3(Object term, Object start, Object end) -> Z
+.method static pl_numbervars_3(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
     .limit stack 6
     .limit locals 5
     aload_1
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_int_val(Ljava/lang/Object;)J
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_int_val(Ljava/lang/Object;)J
     l2i
     iconst_1
     newarray int
@@ -2657,33 +2657,33 @@ pjnv_done:
     astore_3
     aload_0
     aload_3
-    invokestatic roman/pj_numbervars_walk(Ljava/lang/Object;[I)V
+    invokestatic roman/pl_numbervars_walk(Ljava/lang/Object;[I)V
     aload_3
     iconst_0
     iaload
     i2l
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     aload_2
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
 .end method
 
-; pj_char_type_2(Object ch, Object type) -> Z
-.method static pj_char_type_2(Ljava/lang/Object;Ljava/lang/Object;)Z
+; pl_char_type_2(Object ch, Object type) -> Z
+.method static pl_char_type_2(Ljava/lang/Object;Ljava/lang/Object;)Z
     .limit stack 6
     .limit locals 6
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_0
     aload_0
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     astore_2
     aload_2
     iconst_0
     invokevirtual java/lang/String/charAt(I)C
     istore_3
     aload_1
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_1
     aload_1
     checkcast [Ljava/lang/Object;
@@ -2693,7 +2693,7 @@ pjnv_done:
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
     ifne pjct_compound_type
     aload_1
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     astore 4
     aload 4
     ldc "alpha"
@@ -2787,12 +2787,12 @@ pjct_compound_type:
     bipush 48
     isub
     i2l
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     aload_1
     checkcast [Ljava/lang/Object;
     iconst_2
     aaload
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
 pjct_try_upper_l:
     aload 4
@@ -2805,12 +2805,12 @@ pjct_try_upper_l:
     iload_3
     invokestatic java/lang/Character/toLowerCase(C)C
     invokestatic java/lang/Character/toString(C)Ljava/lang/String;
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aload_1
     checkcast [Ljava/lang/Object;
     iconst_2
     aaload
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
 pjct_try_lower_u:
     aload 4
@@ -2823,12 +2823,12 @@ pjct_try_lower_u:
     iload_3
     invokestatic java/lang/Character/toUpperCase(C)C
     invokestatic java/lang/Character/toString(C)Ljava/lang/String;
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aload_1
     checkcast [Ljava/lang/Object;
     iconst_2
     aaload
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
 pjct_try_to_upper:
     aload 4
@@ -2838,12 +2838,12 @@ pjct_try_to_upper:
     iload_3
     invokestatic java/lang/Character/toUpperCase(C)C
     invokestatic java/lang/Character/toString(C)Ljava/lang/String;
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aload_1
     checkcast [Ljava/lang/Object;
     iconst_2
     aaload
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
 pjct_try_to_lower:
     aload 4
@@ -2853,12 +2853,12 @@ pjct_try_to_lower:
     iload_3
     invokestatic java/lang/Character/toLowerCase(C)C
     invokestatic java/lang/Character/toString(C)Ljava/lang/String;
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aload_1
     checkcast [Ljava/lang/Object;
     iconst_2
     aaload
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
 pjct_try_ascii:
     aload 4
@@ -2867,21 +2867,21 @@ pjct_try_ascii:
     ifeq pjct_fail
     iload_3
     i2l
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     aload_1
     checkcast [Ljava/lang/Object;
     iconst_2
     aaload
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
 .end method
 
-; pj_atom_string_2
-.method static pj_atom_string_2(Ljava/lang/Object;Ljava/lang/Object;)Z
+; pl_atom_string_2
+.method static pl_atom_string_2(Ljava/lang/Object;Ljava/lang/Object;)Z
     .limit stack 4
     .limit locals 4
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     astore_2
     aload_2
@@ -2891,30 +2891,30 @@ pjct_try_ascii:
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
     ifne as2_rev
     aload_2
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aload_1
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
 as2_rev:
     aload_1
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     astore_3
     aload_3
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aload_0
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
 .end method
 
-; pj_number_string_2
-.method static pj_number_string_2(Ljava/lang/Object;Ljava/lang/Object;)Z
+; pl_number_string_2
+.method static pl_number_string_2(Ljava/lang/Object;Ljava/lang/Object;)Z
     .limit stack 4
     .limit locals 5
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     astore_2
     aload_2
@@ -2924,40 +2924,40 @@ as2_rev:
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
     ifne ns2_rev
     aload_2
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aload_1
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
 ns2_rev:
     aload_1
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_3
     aload_3
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     astore 4
     aload 4
     invokestatic java/lang/Long/parseLong(Ljava/lang/String;)J
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     aload_0
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
 .end method
 
-; pj_term_to_atom_2
-.method static pj_term_to_atom_2(Ljava/lang/Object;Ljava/lang/Object;)Z
+; pl_term_to_atom_2
+.method static pl_term_to_atom_2(Ljava/lang/Object;Ljava/lang/Object;)Z
     .limit stack 4
     .limit locals 2
     aload_0
-    invokestatic roman/pj_term_str(Ljava/lang/Object;)Ljava/lang/String;
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_str(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aload_1
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ireturn
 .end method
 
-; pj_alc_sep(Object list, String sep) -> String
-.method static pj_alc_sep(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
+; pl_alc_sep(Object list, String sep) -> String
+.method static pl_alc_sep(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
     .limit stack 6
     .limit locals 5
     new java/lang/StringBuilder
@@ -2967,7 +2967,7 @@ ns2_rev:
     iconst_1
     istore 4
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_3
 alcs_loop:
     aload_3
@@ -2990,8 +2990,8 @@ alcs_skip_sep:
     checkcast [Ljava/lang/Object;
     iconst_2
     aaload
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     aload_2
     swap
     invokevirtual java/lang/StringBuilder/append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -3000,7 +3000,7 @@ alcs_skip_sep:
     checkcast [Ljava/lang/Object;
     bipush 3
     aaload
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_3
     goto alcs_loop
 alcs_done:
@@ -3014,13 +3014,13 @@ alcs_done:
     .limit stack 6
     .limit locals 6
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     iconst_0
     istore 3
 p_forall_2_loop:
     dup
     iload 3
-    invokestatic roman/pj_call_goal(Ljava/lang/Object;I)I
+    invokestatic roman/pl_call_goal(Ljava/lang/Object;I)I
     istore 4
     iload 4
     ldc -1
@@ -3028,9 +3028,9 @@ p_forall_2_loop:
     iload 4
     istore 3
     aload_1
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     iconst_0
-    invokestatic roman/pj_call_goal(Ljava/lang/Object;I)I
+    invokestatic roman/pl_call_goal(Ljava/lang/Object;I)I
     ldc -1
     if_icmpeq p_forall_2_fail
     goto p_forall_2_loop
@@ -3057,7 +3057,7 @@ p_forall_2_fail:
     iload_3
     ifne p_between_3_generate
     aload_2
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     iconst_0
     aaload
@@ -3065,7 +3065,7 @@ p_forall_2_fail:
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
     ifne p_between_3_generate
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     iconst_1
     aaload
@@ -3073,7 +3073,7 @@ p_forall_2_fail:
     invokestatic java/lang/Long/parseLong(Ljava/lang/String;)J
     lstore 4
     aload_1
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     iconst_1
     aaload
@@ -3081,7 +3081,7 @@ p_forall_2_fail:
     invokestatic java/lang/Long/parseLong(Ljava/lang/String;)J
     lstore 6
     aload_2
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     iconst_1
     aaload
@@ -3106,7 +3106,7 @@ p_forall_2_fail:
     areturn
 p_between_3_generate:
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     iconst_1
     aaload
@@ -3117,7 +3117,7 @@ p_between_3_generate:
     ladd
     lstore 8
     aload_1
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     iconst_1
     aaload
@@ -3129,9 +3129,9 @@ p_between_3_generate:
     lcmp
     ifgt p_between_3_fail
     lload 8
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     aload_2
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq p_between_3_fail
     iconst_1
     anewarray java/lang/Object
@@ -3148,18 +3148,18 @@ p_between_3_fail:
     areturn
 .end method
 
-; === pj_copy_term (deep copy for findall) ===========================
-.method static pj_copy_term(Ljava/lang/Object;)Ljava/lang/Object;
+; === pl_copy_term (deep copy for findall) ===========================
+.method static pl_copy_term(Ljava/lang/Object;)Ljava/lang/Object;
     .limit stack 10
     .limit locals 6
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_0
     aload_0
-    ifnonnull pj_ct_notnull
+    ifnonnull pl_ct_notnull
     aconst_null
     areturn
-pj_ct_notnull:
+pl_ct_notnull:
     aload_0
     checkcast [Ljava/lang/Object;
     astore_1
@@ -3170,24 +3170,24 @@ pj_ct_notnull:
     aload_2
     ldc "var"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_ct_not_var
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    ifeq pl_ct_not_var
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     areturn
-pj_ct_not_var:
+pl_ct_not_var:
     aload_2
     ldc "atom"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_ct_not_atom
+    ifeq pl_ct_not_atom
     aload_1
     areturn
-pj_ct_not_atom:
+pl_ct_not_atom:
     aload_2
     ldc "int"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_ct_not_int
+    ifeq pl_ct_not_int
     aload_1
     areturn
-pj_ct_not_int:
+pl_ct_not_int:
     aload_1
     arraylength
     istore_3
@@ -3208,36 +3208,36 @@ pj_ct_not_int:
     aastore
     iconst_2
     istore 5
-pj_ct_arg_loop:
+pl_ct_arg_loop:
     iload 5
     iload_3
-    if_icmpge pj_ct_done
+    if_icmpge pl_ct_done
     aload 4
     iload 5
     aload_1
     iload 5
     aaload
-    invokestatic roman/pj_copy_term(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_copy_term(Ljava/lang/Object;)Ljava/lang/Object;
     aastore
     iinc 5 1
-    goto pj_ct_arg_loop
-pj_ct_done:
+    goto pl_ct_arg_loop
+pl_ct_done:
     aload 4
     areturn
 .end method
 
-; === pj_is_ground (recursive ground check) ===========================
-.method static pj_is_ground(Ljava/lang/Object;)Z
+; === pl_is_ground (recursive ground check) ===========================
+.method static pl_is_ground(Ljava/lang/Object;)Z
     .limit stack 8
     .limit locals 5
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_0
     aload_0
-    ifnull pj_isg_false
+    ifnull pl_isg_false
     aload_0
     instanceof [Ljava/lang/Object;
-    ifeq pj_isg_string
+    ifeq pl_isg_string
     aload_0
     checkcast [Ljava/lang/Object;
     astore 1
@@ -3249,29 +3249,29 @@ pj_ct_done:
     aload 2
     ldc "var"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifne pj_isg_false
+    ifne pl_isg_false
     aload 2
     ldc "ref"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_isg_not_ref
+    ifeq pl_isg_not_ref
     aload 1
     iconst_1
     aaload
-    invokestatic roman/pj_is_ground(Ljava/lang/Object;)Z
+    invokestatic roman/pl_is_ground(Ljava/lang/Object;)Z
     ireturn
-pj_isg_not_ref:
+pl_isg_not_ref:
     aload 2
     ldc "atom"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifne pj_isg_true
+    ifne pl_isg_true
     aload 2
     ldc "int"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifne pj_isg_true
+    ifne pl_isg_true
     aload 2
     ldc "float"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifne pj_isg_true
+    ifne pl_isg_true
     aload 1
     arraylength
     iconst_2
@@ -3279,54 +3279,54 @@ pj_isg_not_ref:
     istore 3
     iconst_0
     istore 4
-pj_isg_compound_loop:
+pl_isg_compound_loop:
     iload 4
     iload 3
-    if_icmpge pj_isg_true
+    if_icmpge pl_isg_true
     aload 1
     iload 4
     iconst_2
     iadd
     aaload
-    invokestatic roman/pj_is_ground(Ljava/lang/Object;)Z
-    ifeq pj_isg_false
+    invokestatic roman/pl_is_ground(Ljava/lang/Object;)Z
+    ifeq pl_isg_false
     iinc 4 1
-    goto pj_isg_compound_loop
-pj_isg_string:
-pj_isg_true:
+    goto pl_isg_compound_loop
+pl_isg_string:
+pl_isg_true:
     iconst_1
     ireturn
-pj_isg_false:
+pl_isg_false:
     iconst_0
     ireturn
 .end method
 
-; === pj_can_compare (?= operator) ====================================
-.method static pj_can_compare(Ljava/lang/Object;Ljava/lang/Object;)Z
+; === pl_can_compare (?= operator) ====================================
+.method static pl_can_compare(Ljava/lang/Object;Ljava/lang/Object;)Z
     .limit stack 4
     .limit locals 2
     aload_0
-    invokestatic roman/pj_is_ground(Ljava/lang/Object;)Z
-    ifeq pj_cc_false
+    invokestatic roman/pl_is_ground(Ljava/lang/Object;)Z
+    ifeq pl_cc_false
     aload_1
-    invokestatic roman/pj_is_ground(Ljava/lang/Object;)Z
-    ifeq pj_cc_false
+    invokestatic roman/pl_is_ground(Ljava/lang/Object;)Z
+    ifeq pl_cc_false
     iconst_1
     ireturn
-pj_cc_false:
+pl_cc_false:
     iconst_0
     ireturn
 .end method
 
-; === pj_call_goal (goal interpreter for findall) ====================
-.method static pj_call_goal(Ljava/lang/Object;I)I
+; === pl_call_goal (goal interpreter for findall) ====================
+.method static pl_call_goal(Ljava/lang/Object;I)I
     .limit stack 20
     .limit locals 16
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_0
     aload_0
-    ifnull pj_cg_fail
+    ifnull pl_cg_fail
     aload_0
     checkcast [Ljava/lang/Object;
     astore 2
@@ -3338,7 +3338,7 @@ pj_cc_false:
     aload 3
     ldc "atom"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_cg_not_atom
+    ifeq pl_cg_not_atom
     aload 2
     iconst_1
     aaload
@@ -3347,36 +3347,36 @@ pj_cc_false:
     aload 4
     ldc "fail"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_cg_not_fail_atom
+    ifeq pl_cg_not_fail_atom
     ldc -1
     ireturn
-pj_cg_not_fail_atom:
+pl_cg_not_fail_atom:
     aload 4
     ldc "true"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_cg_atom_user
+    ifeq pl_cg_atom_user
     iconst_0
     ireturn
-pj_cg_atom_user:
+pl_cg_atom_user:
     aload 4
     iconst_0
     aconst_null
     iload_1
-    invokestatic roman/pj_reflect_call(Ljava/lang/String;I[Ljava/lang/Object;I)[Ljava/lang/Object;
+    invokestatic roman/pl_reflect_call(Ljava/lang/String;I[Ljava/lang/Object;I)[Ljava/lang/Object;
     astore 5
     aload 5
-    ifnull pj_cg_fail
+    ifnull pl_cg_fail
     aload 5
     iconst_0
     aaload
     checkcast java/lang/Integer
     invokevirtual java/lang/Integer/intValue()I
     ireturn
-pj_cg_not_atom:
+pl_cg_not_atom:
     aload 3
     ldc "compound"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_cg_fail
+    ifeq pl_cg_fail
     aload 2
     iconst_1
     aaload
@@ -3390,30 +3390,30 @@ pj_cg_not_atom:
     aload 4
     ldc ","
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_cg_not_conj
+    ifeq pl_cg_not_conj
     aload 2
     iconst_2
     aaload
     iload_1
-    invokestatic roman/pj_call_goal(Ljava/lang/Object;I)I
+    invokestatic roman/pl_call_goal(Ljava/lang/Object;I)I
     istore 9
     iload 9
     ldc -1
-    if_icmpeq pj_cg_fail
+    if_icmpeq pl_cg_fail
     aload 2
     iconst_3
     aaload
     iconst_0
-    invokestatic roman/pj_call_goal(Ljava/lang/Object;I)I
+    invokestatic roman/pl_call_goal(Ljava/lang/Object;I)I
     ldc -1
-    if_icmpeq pj_cg_fail
+    if_icmpeq pl_cg_fail
     iload 9
     ireturn
-pj_cg_not_conj:
+pl_cg_not_conj:
     aload 4
     ldc "is"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_cg_not_is
+    ifeq pl_cg_not_is
     aload 2
     iconst_2
     aaload
@@ -3423,20 +3423,20 @@ pj_cg_not_conj:
     aaload
     astore 7
     aload 7
-    invokestatic roman/pj_eval_arith(Ljava/lang/Object;)J
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_eval_arith(Ljava/lang/Object;)J
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     astore 8
     aload 6
     aload 8
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
-    ifeq pj_cg_fail
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    ifeq pl_cg_fail
     iconst_0
     ireturn
-pj_cg_not_is:
+pl_cg_not_is:
     aload 4
     ldc "phrase"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_cg_not_phrase
+    ifeq pl_cg_not_phrase
     aload 2
     arraylength
     iconst_2
@@ -3444,18 +3444,18 @@ pj_cg_not_is:
     istore 5
     iload 5
     iconst_2
-    if_icmplt pj_cg_not_phrase
+    if_icmplt pl_cg_not_phrase
     iload 5
     iconst_3
-    if_icmpgt pj_cg_not_phrase
+    if_icmpgt pl_cg_not_phrase
     aload 2
     iconst_2
     aaload
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore 6
     aload 6
     instanceof [Ljava/lang/Object;
-    ifeq pj_cg_phrase_atom_nt
+    ifeq pl_cg_phrase_atom_nt
     aload 6
     checkcast [Ljava/lang/Object;
     astore 7
@@ -3469,8 +3469,8 @@ pj_cg_not_is:
     iconst_2
     isub
     istore 9
-    goto pj_cg_phrase_have_nt
-pj_cg_phrase_atom_nt:
+    goto pl_cg_phrase_have_nt
+pl_cg_phrase_atom_nt:
     aconst_null
     astore 7
     aload 6
@@ -3478,30 +3478,30 @@ pj_cg_phrase_atom_nt:
     astore 8
     iconst_0
     istore 9
-pj_cg_phrase_have_nt:
+pl_cg_phrase_have_nt:
     aload 8
     ldc "[]"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_cg_phrase_not_nil_nt
+    ifeq pl_cg_phrase_not_nil_nt
     aload 2
     iconst_3
     aaload
     iload 5
     iconst_3
-    if_icmpeq pj_cg_phrase_nil_has_rest
+    if_icmpeq pl_cg_phrase_nil_has_rest
     ldc "[]"
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
-    goto pj_cg_phrase_nil_do_unify
-pj_cg_phrase_nil_has_rest:
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    goto pl_cg_phrase_nil_do_unify
+pl_cg_phrase_nil_has_rest:
     aload 2
     bipush 4
     aaload
-pj_cg_phrase_nil_do_unify:
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
-    ifeq pj_cg_fail
+pl_cg_phrase_nil_do_unify:
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    ifeq pl_cg_fail
     iconst_0
     ireturn
-pj_cg_phrase_not_nil_nt:
+pl_cg_phrase_not_nil_nt:
     iload 9
     iconst_2
     iadd
@@ -3511,10 +3511,10 @@ pj_cg_phrase_not_nil_nt:
     astore 11
     iconst_0
     istore 12
-pj_cg_phrase_nt_args_loop:
+pl_cg_phrase_nt_args_loop:
     iload 12
     iload 9
-    if_icmpge pj_cg_phrase_nt_args_done
+    if_icmpge pl_cg_phrase_nt_args_done
     aload 11
     iload 12
     aload 7
@@ -3524,8 +3524,8 @@ pj_cg_phrase_nt_args_loop:
     aaload
     aastore
     iinc 12 1
-    goto pj_cg_phrase_nt_args_loop
-pj_cg_phrase_nt_args_done:
+    goto pl_cg_phrase_nt_args_loop
+pl_cg_phrase_nt_args_done:
     aload 11
     iload 9
     aload 2
@@ -3538,47 +3538,47 @@ pj_cg_phrase_nt_args_done:
     iadd
     iload 5
     iconst_3
-    if_icmpeq pj_cg_phrase_has_rest
+    if_icmpeq pl_cg_phrase_has_rest
     ldc "[]"
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
-    goto pj_cg_phrase_store_rest
-pj_cg_phrase_has_rest:
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    goto pl_cg_phrase_store_rest
+pl_cg_phrase_has_rest:
     aload 2
     bipush 4
     aaload
-pj_cg_phrase_store_rest:
+pl_cg_phrase_store_rest:
     aastore
     aload 8
     iload 10
     aload 11
     iload_1
-    invokestatic roman/pj_reflect_call(Ljava/lang/String;I[Ljava/lang/Object;I)[Ljava/lang/Object;
+    invokestatic roman/pl_reflect_call(Ljava/lang/String;I[Ljava/lang/Object;I)[Ljava/lang/Object;
     astore 13
     aload 13
-    ifnull pj_cg_fail
+    ifnull pl_cg_fail
     aload 13
     iconst_0
     aaload
     checkcast java/lang/Integer
     invokevirtual java/lang/Integer/intValue()I
     ireturn
-pj_cg_not_phrase:
+pl_cg_not_phrase:
     aload 4
     ldc "assertz"
     invokevirtual java/lang/String/equals(Ljava/lang/Object;)Z
-    ifeq pj_cg_not_assertz
+    ifeq pl_cg_not_assertz
     aload 2
     iconst_2
     aaload
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     dup
-    invokestatic roman/pj_db_assert_key(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_db_assert_key(Ljava/lang/Object;)Ljava/lang/String;
     swap
     iconst_0
-    invokestatic roman/pj_db_assert(Ljava/lang/String;Ljava/lang/Object;I)V
+    invokestatic roman/pl_db_assert(Ljava/lang/String;Ljava/lang/Object;I)V
     iconst_0
     ireturn
-pj_cg_not_assertz:
+pl_cg_not_assertz:
     aload 2
     arraylength
     iconst_2
@@ -3589,10 +3589,10 @@ pj_cg_not_assertz:
     astore 6
     iconst_0
     istore 7
-pj_cg_args_loop:
+pl_cg_args_loop:
     iload 7
     iload 5
-    if_icmpge pj_cg_args_done
+    if_icmpge pl_cg_args_done
     aload 6
     iload 7
     aload 2
@@ -3602,33 +3602,33 @@ pj_cg_args_loop:
     aaload
     aastore
     iinc 7 1
-    goto pj_cg_args_loop
-pj_cg_args_done:
+    goto pl_cg_args_loop
+pl_cg_args_done:
     aload 4
     iload 5
     aload 6
     iload_1
-    invokestatic roman/pj_reflect_call(Ljava/lang/String;I[Ljava/lang/Object;I)[Ljava/lang/Object;
+    invokestatic roman/pl_reflect_call(Ljava/lang/String;I[Ljava/lang/Object;I)[Ljava/lang/Object;
     astore 8
     aload 8
-    ifnull pj_cg_fail
+    ifnull pl_cg_fail
     aload 8
     iconst_0
     aaload
     checkcast java/lang/Integer
     invokevirtual java/lang/Integer/intValue()I
     ireturn
-pj_cg_fail:
+pl_cg_fail:
     ldc -1
     ireturn
 .end method
 
-; === pj_eval_arith (arithmetic evaluator for findall/is) ============
-.method static pj_eval_arith(Ljava/lang/Object;)J
+; === pl_eval_arith (arithmetic evaluator for findall/is) ============
+.method static pl_eval_arith(Ljava/lang/Object;)J
     .limit stack 10
     .limit locals 8
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_0
     aload_0
     checkcast [Ljava/lang/Object;
@@ -3641,14 +3641,14 @@ pj_cg_fail:
     aload_2
     ldc "int"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_ea_not_int
+    ifeq pl_ea_not_int
     aload_1
     iconst_1
     aaload
     checkcast java/lang/String
     invokestatic java/lang/Long/parseLong(Ljava/lang/String;)J
     lreturn
-pj_ea_not_int:
+pl_ea_not_int:
     aload_1
     iconst_1
     aaload
@@ -3657,83 +3657,83 @@ pj_ea_not_int:
     aload_1
     iconst_2
     aaload
-    invokestatic roman/pj_eval_arith(Ljava/lang/Object;)J
+    invokestatic roman/pl_eval_arith(Ljava/lang/Object;)J
     lstore 4
     aload_1
     arraylength
     iconst_3
-    if_icmplt pj_ea_unary
+    if_icmplt pl_ea_unary
     aload_1
     iconst_3
     aaload
-    invokestatic roman/pj_eval_arith(Ljava/lang/Object;)J
+    invokestatic roman/pl_eval_arith(Ljava/lang/Object;)J
     lstore 6
     aload_3
     ldc "+"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_ea_not_add
+    ifeq pl_ea_not_add
     lload 4
     lload 6
     ladd
     lreturn
-pj_ea_not_add:
+pl_ea_not_add:
     aload_3
     ldc "-"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_ea_not_sub
+    ifeq pl_ea_not_sub
     lload 4
     lload 6
     lsub
     lreturn
-pj_ea_not_sub:
+pl_ea_not_sub:
     aload_3
     ldc "*"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_ea_not_mul
+    ifeq pl_ea_not_mul
     lload 4
     lload 6
     lmul
     lreturn
-pj_ea_not_mul:
+pl_ea_not_mul:
     aload_3
     ldc "/"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_ea_not_div
+    ifeq pl_ea_not_div
     lload 4
     lload 6
     ldiv
     lreturn
-pj_ea_not_div:
+pl_ea_not_div:
     aload_3
     ldc "mod"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_ea_not_mod
+    ifeq pl_ea_not_mod
     lload 4
     lload 6
     lrem
     lreturn
-pj_ea_not_mod:
+pl_ea_not_mod:
     lload 4
     lreturn
-pj_ea_unary:
+pl_ea_unary:
     aload_3
     ldc "-"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_ea_unary_other
+    ifeq pl_ea_unary_other
     lload 4
     lneg
     lreturn
-pj_ea_unary_other:
+pl_ea_unary_other:
     lload 4
     lreturn
 .end method
 
-; === pj_reflect_call (reflection dispatch for findall) ==============
-.method static pj_reflect_call(Ljava/lang/String;I[Ljava/lang/Object;I)[Ljava/lang/Object;
+; === pl_reflect_call (reflection dispatch for findall) ==============
+.method static pl_reflect_call(Ljava/lang/String;I[Ljava/lang/Object;I)[Ljava/lang/Object;
     .limit stack 20
     .limit locals 15
-    .catch java/lang/Exception from pj_rc_try_start to pj_rc_try_end using pj_rc_catch
-pj_rc_try_start:
+    .catch java/lang/Exception from pl_rc_try_start to pl_rc_try_end using pl_rc_catch
+pl_rc_try_start:
     ldc "p_"
     aload_0
     invokevirtual java/lang/String/concat(Ljava/lang/String;)Ljava/lang/String;
@@ -3750,10 +3750,10 @@ pj_rc_try_start:
     astore 5
     iconst_0
     istore 6
-pj_rc_param_loop:
+pl_rc_param_loop:
     iload 6
     iload_1
-    if_icmpge pj_rc_param_done
+    if_icmpge pl_rc_param_done
     aload 5
     iload 6
     iconst_0
@@ -3761,8 +3761,8 @@ pj_rc_param_loop:
     invokevirtual java/lang/Object/getClass()Ljava/lang/Class;
     aastore
     iinc 6 1
-    goto pj_rc_param_loop
-pj_rc_param_done:
+    goto pl_rc_param_loop
+pl_rc_param_done:
     aload 5
     iload_1
     getstatic java/lang/Integer/TYPE Ljava/lang/Class;
@@ -3785,10 +3785,10 @@ pj_rc_param_done:
     astore 9
     iconst_0
     istore 6
-pj_rc_invoke_loop:
+pl_rc_invoke_loop:
     iload 6
     iload_1
-    if_icmpge pj_rc_invoke_done
+    if_icmpge pl_rc_invoke_done
     aload 9
     iload 6
     aload_2
@@ -3796,8 +3796,8 @@ pj_rc_invoke_loop:
     aaload
     aastore
     iinc 6 1
-    goto pj_rc_invoke_loop
-pj_rc_invoke_done:
+    goto pl_rc_invoke_loop
+pl_rc_invoke_done:
     aload 9
     iload_1
     iload_3
@@ -3807,36 +3807,36 @@ pj_rc_invoke_done:
     aconst_null
     aload 9
     invokevirtual java/lang/reflect/Method/invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-pj_rc_try_end:
+pl_rc_try_end:
     checkcast [Ljava/lang/Object;
     areturn
-pj_rc_catch:
+pl_rc_catch:
     astore 10
     aload 10
     instanceof java/lang/reflect/InvocationTargetException
-    ifeq pj_rc_not_ite
+    ifeq pl_rc_not_ite
     aload 10
     checkcast java/lang/reflect/InvocationTargetException
     invokevirtual java/lang/reflect/InvocationTargetException/getCause()Ljava/lang/Throwable;
     dup
-    ifnull pj_rc_ite_null
+    ifnull pl_rc_ite_null
     astore 10
-    goto pj_rc_not_ite
-pj_rc_ite_null:
+    goto pl_rc_not_ite
+pl_rc_ite_null:
     pop
-    goto pj_rc_swallow
-pj_rc_not_ite:
+    goto pl_rc_swallow
+pl_rc_not_ite:
     aload 10
     invokevirtual java/lang/Throwable/getMessage()Ljava/lang/String;
-    ifnull pj_rc_swallow
+    ifnull pl_rc_swallow
     aload 10
     invokevirtual java/lang/Throwable/getMessage()Ljava/lang/String;
     ldc "PROLOG_THROW"
     invokevirtual java/lang/String/equals(Ljava/lang/Object;)Z
-    ifeq pj_rc_swallow
+    ifeq pl_rc_swallow
     aload 10
     athrow
-pj_rc_swallow:
+pl_rc_swallow:
     new java/lang/StringBuilder
     dup
     invokespecial java/lang/StringBuilder/<init>()V
@@ -3848,9 +3848,9 @@ pj_rc_swallow:
     invokevirtual java/lang/StringBuilder/append(I)Ljava/lang/StringBuilder;
     invokevirtual java/lang/StringBuilder/toString()Ljava/lang/String;
     iload_3
-    invokestatic roman/pj_db_query(Ljava/lang/String;I)Ljava/lang/Object;
+    invokestatic roman/pl_db_query(Ljava/lang/String;I)Ljava/lang/Object;
     dup
-    ifnull pj_rc_db_miss
+    ifnull pl_rc_db_miss
     checkcast [Ljava/lang/Object;
     astore 11
     aconst_null
@@ -3859,10 +3859,10 @@ pj_rc_swallow:
     istore 13
     iconst_0
     istore 14
-pj_rc_db_unify_loop:
+pl_rc_db_unify_loop:
     iload 14
     iload_1
-    if_icmpge pj_rc_db_unify_done
+    if_icmpge pl_rc_db_unify_done
     aload_2
     iload 14
     aaload
@@ -3871,11 +3871,11 @@ pj_rc_db_unify_loop:
     iconst_2
     iadd
     aaload
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
-    ifeq pj_rc_db_unify_fail
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    ifeq pl_rc_db_unify_fail
     iinc 14 1
-    goto pj_rc_db_unify_loop
-pj_rc_db_unify_done:
+    goto pl_rc_db_unify_loop
+pl_rc_db_unify_done:
     iconst_1
     anewarray java/lang/Object
     dup
@@ -3886,10 +3886,10 @@ pj_rc_db_unify_done:
     invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
     aastore
     areturn
-pj_rc_db_unify_fail:
+pl_rc_db_unify_fail:
     aconst_null
     areturn
-pj_rc_db_miss:
+pl_rc_db_miss:
     pop
     aconst_null
     areturn
@@ -3903,42 +3903,42 @@ pj_rc_db_miss:
     dup
     invokespecial java/util/ArrayList/<init>()V
     astore 4
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 5
     iconst_0
     istore 6
-pj_fa_loop:
+pl_fa_loop:
     aload_1
     iload 6
-    invokestatic roman/pj_call_goal(Ljava/lang/Object;I)I
+    invokestatic roman/pl_call_goal(Ljava/lang/Object;I)I
     istore 6
     iload 6
     ldc -1
-    if_icmpeq pj_fa_done
+    if_icmpeq pl_fa_done
     aload_0
-    invokestatic roman/pj_copy_term(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_copy_term(Ljava/lang/Object;)Ljava/lang/Object;
     astore 8
     aload 4
     aload 8
     invokevirtual java/util/ArrayList/add(Ljava/lang/Object;)Z
     pop
     iload 5
-    invokestatic roman/pj_trail_unwind(I)V
-    goto pj_fa_loop
-pj_fa_done:
+    invokestatic roman/pl_trail_unwind(I)V
+    goto pl_fa_loop
+pl_fa_done:
     iload 5
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     ldc "[]"
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     astore 9
     aload 4
     invokevirtual java/util/ArrayList/size()I
     iconst_1
     isub
     istore 10
-pj_fa_list_loop:
+pl_fa_list_loop:
     iload 10
-    iflt pj_fa_list_done
+    iflt pl_fa_list_done
     bipush 4
     anewarray java/lang/Object
     astore 11
@@ -3963,12 +3963,12 @@ pj_fa_list_loop:
     aload 11
     astore 9
     iinc 10 -1
-    goto pj_fa_list_loop
-pj_fa_list_done:
+    goto pl_fa_list_loop
+pl_fa_list_done:
     aload_2
     aload 9
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
-    ifeq pj_fa_fail
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    ifeq pl_fa_fail
     iconst_1
     anewarray java/lang/Object
     dup
@@ -3977,7 +3977,7 @@ pj_fa_list_done:
     invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
     aastore
     areturn
-pj_fa_fail:
+pl_fa_fail:
     aconst_null
     areturn
 .end method
@@ -3987,37 +3987,37 @@ pj_fa_fail:
     .limit stack 20
     .limit locals 20
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore_0
     new java/util/ArrayList
     dup
     invokespecial java/util/ArrayList/<init>()V
     astore 4
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 5
     iconst_0
     istore 6
-pj_agg_loop:
+pl_agg_loop:
     aload_1
     iload 6
-    invokestatic roman/pj_call_goal(Ljava/lang/Object;I)I
+    invokestatic roman/pl_call_goal(Ljava/lang/Object;I)I
     istore 6
     iload 6
     ldc -1
-    if_icmpeq pj_agg_done
+    if_icmpeq pl_agg_done
     aload_0
-    invokestatic roman/pj_copy_term(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_copy_term(Ljava/lang/Object;)Ljava/lang/Object;
     astore 9
     aload 4
     aload 9
     invokevirtual java/util/ArrayList/add(Ljava/lang/Object;)Z
     pop
     iload 5
-    invokestatic roman/pj_trail_unwind(I)V
-    goto pj_agg_loop
-pj_agg_done:
+    invokestatic roman/pl_trail_unwind(I)V
+    goto pl_agg_loop
+pl_agg_done:
     iload 5
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     aload_0
     checkcast [Ljava/lang/Object;
     iconst_1
@@ -4027,37 +4027,37 @@ pj_agg_done:
     aload 7
     ldc "count"
     invokevirtual java/lang/String/equals(Ljava/lang/Object;)Z
-    ifeq pj_agg_not_count
+    ifeq pl_agg_not_count
     aload 4
     invokevirtual java/util/ArrayList/size()I
     i2l
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     aload_2
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
-    ifeq pj_agg_fail
-    goto pj_agg_succeed
-pj_agg_not_count:
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    ifeq pl_agg_fail
+    goto pl_agg_succeed
+pl_agg_not_count:
     aload 7
     ldc "bag"
     invokevirtual java/lang/String/equals(Ljava/lang/Object;)Z
-    ifne pj_agg_build_list
+    ifne pl_agg_build_list
     aload 7
     ldc "set"
     invokevirtual java/lang/String/equals(Ljava/lang/Object;)Z
-    ifne pj_agg_build_sorted_list
-    goto pj_agg_not_bag
-pj_agg_build_list:
+    ifne pl_agg_build_sorted_list
+    goto pl_agg_not_bag
+pl_agg_build_list:
     ldc "[]"
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     astore 10
     aload 4
     invokevirtual java/util/ArrayList/size()I
     iconst_1
     isub
     istore 11
-pj_agg_bag_loop:
+pl_agg_bag_loop:
     iload 11
-    iflt pj_agg_bag_done
+    iflt pl_agg_bag_done
     aload 4
     iload 11
     invokevirtual java/util/ArrayList/get(I)Ljava/lang/Object;
@@ -4087,25 +4087,25 @@ pj_agg_bag_loop:
     aload 13
     astore 10
     iinc 11 -1
-    goto pj_agg_bag_loop
-pj_agg_bag_done:
+    goto pl_agg_bag_loop
+pl_agg_bag_done:
     aload_2
     aload 10
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
-    ifeq pj_agg_fail
-    goto pj_agg_succeed
-pj_agg_build_sorted_list:
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    ifeq pl_agg_fail
+    goto pl_agg_succeed
+pl_agg_build_sorted_list:
     ldc "[]"
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     astore 10
     aload 4
     invokevirtual java/util/ArrayList/size()I
     iconst_1
     isub
     istore 11
-pj_agg_set_bld_loop:
+pl_agg_set_bld_loop:
     iload 11
-    iflt pj_agg_set_bld_done
+    iflt pl_agg_set_bld_done
     bipush 4
     anewarray java/lang/Object
     astore 12
@@ -4130,18 +4130,18 @@ pj_agg_set_bld_loop:
     aload 12
     astore 10
     iinc 11 -1
-    goto pj_agg_set_bld_loop
-pj_agg_set_bld_done:
+    goto pl_agg_set_bld_loop
+pl_agg_set_bld_done:
     aload 10
     iconst_1
-    invokestatic roman/pj_sort_list(Ljava/lang/Object;I)Ljava/lang/Object;
+    invokestatic roman/pl_sort_list(Ljava/lang/Object;I)Ljava/lang/Object;
     astore 10
     aload_2
     aload 10
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
-    ifeq pj_agg_fail
-    goto pj_agg_succeed
-pj_agg_not_bag:
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    ifeq pl_agg_fail
+    goto pl_agg_succeed
+pl_agg_not_bag:
     lconst_0
     lstore 11
     lconst_0
@@ -4151,134 +4151,134 @@ pj_agg_not_bag:
     aload 7
     ldc "sum"
     invokevirtual java/lang/String/equals(Ljava/lang/Object;)Z
-    ifne pj_agg_sum
+    ifne pl_agg_sum
     aload 7
     ldc "max"
     invokevirtual java/lang/String/equals(Ljava/lang/Object;)Z
-    ifne pj_agg_max
+    ifne pl_agg_max
     aload 7
     ldc "min"
     invokevirtual java/lang/String/equals(Ljava/lang/Object;)Z
-    ifne pj_agg_min
-    goto pj_agg_unknown
-pj_agg_sum:
+    ifne pl_agg_min
+    goto pl_agg_unknown
+pl_agg_sum:
     iconst_0
     istore 10
-pj_agg_sum_loop:
+pl_agg_sum_loop:
     iload 10
     aload 4
     invokevirtual java/util/ArrayList/size()I
-    if_icmpge pj_agg_sum_done
+    if_icmpge pl_agg_sum_done
     aload 4
     iload 10
     invokevirtual java/util/ArrayList/get(I)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     iconst_2
     aaload
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_int_val(Ljava/lang/Object;)J
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_int_val(Ljava/lang/Object;)J
     lload 11
     ladd
     lstore 11
     iinc 10 1
-    goto pj_agg_sum_loop
-pj_agg_sum_done:
+    goto pl_agg_sum_loop
+pl_agg_sum_done:
     lload 11
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     aload_2
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
-    ifeq pj_agg_fail
-    goto pj_agg_succeed
-pj_agg_max:
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    ifeq pl_agg_fail
+    goto pl_agg_succeed
+pl_agg_max:
     iconst_0
     istore 10
-pj_agg_max_loop:
+pl_agg_max_loop:
     iload 10
     aload 4
     invokevirtual java/util/ArrayList/size()I
-    if_icmpge pj_agg_max_done
+    if_icmpge pl_agg_max_done
     aload 4
     iload 10
     invokevirtual java/util/ArrayList/get(I)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     iconst_2
     aaload
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_int_val(Ljava/lang/Object;)J
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_int_val(Ljava/lang/Object;)J
     lstore 13
     iload 15
-    ifne pj_agg_max_cmp
+    ifne pl_agg_max_cmp
     lload 13
     lstore 11
     iconst_1
     istore 15
-    goto pj_agg_max_next
-pj_agg_max_cmp:
+    goto pl_agg_max_next
+pl_agg_max_cmp:
     lload 13
     lload 11
     lcmp
-    ifle pj_agg_max_next
+    ifle pl_agg_max_next
     lload 13
     lstore 11
-pj_agg_max_next:
+pl_agg_max_next:
     iinc 10 1
-    goto pj_agg_max_loop
-pj_agg_max_done:
+    goto pl_agg_max_loop
+pl_agg_max_done:
     iload 15
-    ifeq pj_agg_fail
+    ifeq pl_agg_fail
     lload 11
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     aload_2
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
-    ifeq pj_agg_fail
-    goto pj_agg_succeed
-pj_agg_min:
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    ifeq pl_agg_fail
+    goto pl_agg_succeed
+pl_agg_min:
     iconst_0
     istore 10
-pj_agg_min_loop:
+pl_agg_min_loop:
     iload 10
     aload 4
     invokevirtual java/util/ArrayList/size()I
-    if_icmpge pj_agg_min_done
+    if_icmpge pl_agg_min_done
     aload 4
     iload 10
     invokevirtual java/util/ArrayList/get(I)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     iconst_2
     aaload
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_int_val(Ljava/lang/Object;)J
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_int_val(Ljava/lang/Object;)J
     lstore 13
     iload 15
-    ifne pj_agg_min_cmp
+    ifne pl_agg_min_cmp
     lload 13
     lstore 11
     iconst_1
     istore 15
-    goto pj_agg_min_next
-pj_agg_min_cmp:
+    goto pl_agg_min_next
+pl_agg_min_cmp:
     lload 13
     lload 11
     lcmp
-    ifge pj_agg_min_next
+    ifge pl_agg_min_next
     lload 13
     lstore 11
-pj_agg_min_next:
+pl_agg_min_next:
     iinc 10 1
-    goto pj_agg_min_loop
-pj_agg_min_done:
+    goto pl_agg_min_loop
+pl_agg_min_done:
     iload 15
-    ifeq pj_agg_fail
+    ifeq pl_agg_fail
     lload 11
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     aload_2
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
-    ifeq pj_agg_fail
-    goto pj_agg_succeed
-pj_agg_unknown:
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    ifeq pl_agg_fail
+    goto pl_agg_succeed
+pl_agg_unknown:
     aconst_null
     areturn
-pj_agg_succeed:
+pl_agg_succeed:
     iconst_1
     anewarray java/lang/Object
     dup
@@ -4287,7 +4287,7 @@ pj_agg_succeed:
     invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
     aastore
     areturn
-pj_agg_fail:
+pl_agg_fail:
     aconst_null
     areturn
 .end method
@@ -4303,7 +4303,7 @@ pj_agg_fail:
     invokespecial java/util/ArrayList/<init>()V
     astore_3
     aload_0
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore 4
 p_rev_walk:
     aload 4
@@ -4324,12 +4324,12 @@ p_rev_walk:
     checkcast [Ljava/lang/Object;
     iconst_3
     aaload
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     astore 4
     goto p_rev_walk
 p_rev_build:
     ldc "[]"
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     astore 5
     iconst_0
     istore 6
@@ -4364,7 +4364,7 @@ p_rev_loop:
 p_rev_unify:
     aload 5
     aload_1
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq p_reverse_2_fail
     iconst_1
     anewarray java/lang/Object
@@ -4379,7 +4379,7 @@ p_reverse_2_fail:
     areturn
 .end method
 
-.method static pj_gcd(JJ)J
+.method static pl_gcd(JJ)J
     .limit stack 4
     .limit locals 4
     lload_0
@@ -4388,36 +4388,36 @@ p_reverse_2_fail:
     lload_2
     invokestatic java/lang/Math/abs(J)J
     lstore_2
-pj_gcd_loop:
+pl_gcd_loop:
     lload_2
     lconst_0
     lcmp
-    ifeq pj_gcd_done
+    ifeq pl_gcd_done
     lload_0
     lload_2
     lrem
     lload_2
     lstore_0
     lstore_2
-    goto pj_gcd_loop
-pj_gcd_done:
+    goto pl_gcd_loop
+pl_gcd_done:
     lload_0
     lreturn
 .end method
 
-.method static pj_shr(JJ)J
+.method static pl_shr(JJ)J
     .limit stack 4
     .limit locals 4
     lload_2
     ldc2_w 63
     lcmp
-    ifle pj_shr_ok
+    ifle pl_shr_ok
     lload_0
     ldc2_w 63
     l2i
     lshr
     lreturn
-pj_shr_ok:
+pl_shr_ok:
     lload_0
     lload_2
     l2i
@@ -4425,16 +4425,16 @@ pj_shr_ok:
     lreturn
 .end method
 
-.method static pj_shl(JJ)J
+.method static pl_shl(JJ)J
     .limit stack 4
     .limit locals 4
     lload_2
     ldc2_w 63
     lcmp
-    ifle pj_shl_ok
+    ifle pl_shl_ok
     lconst_0
     lreturn
-pj_shl_ok:
+pl_shl_ok:
     lload_0
     lload_2
     l2i
@@ -4442,7 +4442,7 @@ pj_shl_ok:
     lreturn
 .end method
 
-.method static pj_mod(JJ)J
+.method static pl_mod(JJ)J
     .limit stack 6
     .limit locals 6
     lload_0
@@ -4452,23 +4452,23 @@ pj_shl_ok:
     lload 4
     lconst_0
     lcmp
-    ifeq pj_mod_done
+    ifeq pl_mod_done
     lload 4
     lload_2
     lxor
     lconst_0
     lcmp
-    ifge pj_mod_done
+    ifge pl_mod_done
     lload 4
     lload_2
     ladd
     lstore 4
-pj_mod_done:
+pl_mod_done:
     lload 4
     lreturn
 .end method
 
-.method static pj_asinh(D)D
+.method static pl_asinh(D)D
     .limit stack 6
     .limit locals 2
     dload_0
@@ -4483,7 +4483,7 @@ pj_mod_done:
     dreturn
 .end method
 
-.method static pj_acosh(D)D
+.method static pl_acosh(D)D
     .limit stack 6
     .limit locals 2
     dload_0
@@ -4498,7 +4498,7 @@ pj_mod_done:
     dreturn
 .end method
 
-.method static pj_atanh(D)D
+.method static pl_atanh(D)D
     .limit stack 6
     .limit locals 2
     dconst_1
@@ -4515,7 +4515,7 @@ pj_mod_done:
     dreturn
 .end method
 
-.method static pj_num_as_double([Ljava/lang/Object;)D
+.method static pl_num_as_double([Ljava/lang/Object;)D
     .limit stack 4
     .limit locals 1
     aload_0
@@ -4523,14 +4523,14 @@ pj_mod_done:
     aaload
     ldc "float"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_num_as_double_int
+    ifeq pl_num_as_double_int
     aload_0
     iconst_1
     aaload
     checkcast java/lang/String
     invokestatic java/lang/Double/parseDouble(Ljava/lang/String;)D
     dreturn
-pj_num_as_double_int:
+pl_num_as_double_int:
     aload_0
     iconst_1
     aaload
@@ -4540,18 +4540,18 @@ pj_num_as_double_int:
     dreturn
 .end method
 
-.method static pj_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
+.method static pl_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
     .limit stack 6
     .limit locals 2
     aload_0
-    invokestatic roman/pj_num_as_double([Ljava/lang/Object;)D
+    invokestatic roman/pl_num_as_double([Ljava/lang/Object;)D
     aload_1
-    invokestatic roman/pj_num_as_double([Ljava/lang/Object;)D
+    invokestatic roman/pl_num_as_double([Ljava/lang/Object;)D
     dcmpl
     ireturn
 .end method
 
-.method static pj_min_mixed(JJ)[Ljava/lang/Object;
+.method static pl_min_mixed(JJ)[Ljava/lang/Object;
     .limit stack 8
     .limit locals 4
     lload_0
@@ -4559,18 +4559,18 @@ pj_num_as_double_int:
     lload_2
     invokestatic java/lang/Double/longBitsToDouble(J)D
     dcmpl
-    ifgt pj_min_mixed_float
+    ifgt pl_min_mixed_float
     lload_0
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     areturn
-pj_min_mixed_float:
+pl_min_mixed_float:
     lload_2
     invokestatic java/lang/Double/longBitsToDouble(J)D
-    invokestatic roman/pj_term_float(D)[Ljava/lang/Object;
+    invokestatic roman/pl_term_float(D)[Ljava/lang/Object;
     areturn
 .end method
 
-.method static pj_max_mixed(JJ)[Ljava/lang/Object;
+.method static pl_max_mixed(JJ)[Ljava/lang/Object;
     .limit stack 8
     .limit locals 4
     lload_0
@@ -4578,18 +4578,18 @@ pj_min_mixed_float:
     lload_2
     invokestatic java/lang/Double/longBitsToDouble(J)D
     dcmpl
-    iflt pj_max_mixed_float
+    iflt pl_max_mixed_float
     lload_0
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     areturn
-pj_max_mixed_float:
+pl_max_mixed_float:
     lload_2
     invokestatic java/lang/Double/longBitsToDouble(J)D
-    invokestatic roman/pj_term_float(D)[Ljava/lang/Object;
+    invokestatic roman/pl_term_float(D)[Ljava/lang/Object;
     areturn
 .end method
 
-.method static pj_obj_to_double([Ljava/lang/Object;)D
+.method static pl_obj_to_double([Ljava/lang/Object;)D
     .limit stack 4
     .limit locals 2
     aload_0
@@ -4597,14 +4597,14 @@ pj_max_mixed_float:
     aaload
     ldc "float"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_o2d_int
+    ifeq pl_o2d_int
     aload_0
     iconst_1
     aaload
     checkcast java/lang/String
     invokestatic java/lang/Double/parseDouble(Ljava/lang/String;)D
     dreturn
-pj_o2d_int:
+pl_o2d_int:
     aload_0
     iconst_1
     aaload
@@ -4614,7 +4614,7 @@ pj_o2d_int:
     dreturn
 .end method
 
-.method static pj_obj_is_float([Ljava/lang/Object;)Z
+.method static pl_obj_is_float([Ljava/lang/Object;)Z
     .limit stack 3
     .limit locals 1
     aload_0
@@ -4625,23 +4625,23 @@ pj_o2d_int:
     ireturn
 .end method
 
-.method static pj_varnum_mul([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
+.method static pl_varnum_mul([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
     .limit stack 8
     .limit locals 2
     aload_0
-    invokestatic roman/pj_obj_is_float([Ljava/lang/Object;)Z
+    invokestatic roman/pl_obj_is_float([Ljava/lang/Object;)Z
     aload_1
-    invokestatic roman/pj_obj_is_float([Ljava/lang/Object;)Z
+    invokestatic roman/pl_obj_is_float([Ljava/lang/Object;)Z
     ior
-    ifeq pj_vn_mul_int
+    ifeq pl_vn_mul_int
     aload_0
-    invokestatic roman/pj_obj_to_double([Ljava/lang/Object;)D
+    invokestatic roman/pl_obj_to_double([Ljava/lang/Object;)D
     aload_1
-    invokestatic roman/pj_obj_to_double([Ljava/lang/Object;)D
+    invokestatic roman/pl_obj_to_double([Ljava/lang/Object;)D
     dmul
-    invokestatic roman/pj_term_float(D)[Ljava/lang/Object;
+    invokestatic roman/pl_term_float(D)[Ljava/lang/Object;
     areturn
-pj_vn_mul_int:
+pl_vn_mul_int:
     aload_0
     iconst_1
     aaload
@@ -4653,27 +4653,27 @@ pj_vn_mul_int:
     checkcast java/lang/String
     invokestatic java/lang/Long/parseLong(Ljava/lang/String;)J
     lmul
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     areturn
 .end method
 
-.method static pj_varnum_add([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
+.method static pl_varnum_add([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
     .limit stack 8
     .limit locals 2
     aload_0
-    invokestatic roman/pj_obj_is_float([Ljava/lang/Object;)Z
+    invokestatic roman/pl_obj_is_float([Ljava/lang/Object;)Z
     aload_1
-    invokestatic roman/pj_obj_is_float([Ljava/lang/Object;)Z
+    invokestatic roman/pl_obj_is_float([Ljava/lang/Object;)Z
     ior
-    ifeq pj_vn_add_int
+    ifeq pl_vn_add_int
     aload_0
-    invokestatic roman/pj_obj_to_double([Ljava/lang/Object;)D
+    invokestatic roman/pl_obj_to_double([Ljava/lang/Object;)D
     aload_1
-    invokestatic roman/pj_obj_to_double([Ljava/lang/Object;)D
+    invokestatic roman/pl_obj_to_double([Ljava/lang/Object;)D
     dadd
-    invokestatic roman/pj_term_float(D)[Ljava/lang/Object;
+    invokestatic roman/pl_term_float(D)[Ljava/lang/Object;
     areturn
-pj_vn_add_int:
+pl_vn_add_int:
     aload_0
     iconst_1
     aaload
@@ -4685,27 +4685,27 @@ pj_vn_add_int:
     checkcast java/lang/String
     invokestatic java/lang/Long/parseLong(Ljava/lang/String;)J
     ladd
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     areturn
 .end method
 
-.method static pj_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
+.method static pl_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
     .limit stack 8
     .limit locals 2
     aload_0
-    invokestatic roman/pj_obj_is_float([Ljava/lang/Object;)Z
+    invokestatic roman/pl_obj_is_float([Ljava/lang/Object;)Z
     aload_1
-    invokestatic roman/pj_obj_is_float([Ljava/lang/Object;)Z
+    invokestatic roman/pl_obj_is_float([Ljava/lang/Object;)Z
     ior
-    ifeq pj_vn_sub_int
+    ifeq pl_vn_sub_int
     aload_0
-    invokestatic roman/pj_obj_to_double([Ljava/lang/Object;)D
+    invokestatic roman/pl_obj_to_double([Ljava/lang/Object;)D
     aload_1
-    invokestatic roman/pj_obj_to_double([Ljava/lang/Object;)D
+    invokestatic roman/pl_obj_to_double([Ljava/lang/Object;)D
     dsub
-    invokestatic roman/pj_term_float(D)[Ljava/lang/Object;
+    invokestatic roman/pl_term_float(D)[Ljava/lang/Object;
     areturn
-pj_vn_sub_int:
+pl_vn_sub_int:
     aload_0
     iconst_1
     aaload
@@ -4717,27 +4717,27 @@ pj_vn_sub_int:
     checkcast java/lang/String
     invokestatic java/lang/Long/parseLong(Ljava/lang/String;)J
     lsub
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     areturn
 .end method
 
-.method static pj_varnum_div([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
+.method static pl_varnum_div([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
     .limit stack 8
     .limit locals 2
     aload_0
-    invokestatic roman/pj_obj_is_float([Ljava/lang/Object;)Z
+    invokestatic roman/pl_obj_is_float([Ljava/lang/Object;)Z
     aload_1
-    invokestatic roman/pj_obj_is_float([Ljava/lang/Object;)Z
+    invokestatic roman/pl_obj_is_float([Ljava/lang/Object;)Z
     ior
-    ifeq pj_vn_div_int
+    ifeq pl_vn_div_int
     aload_0
-    invokestatic roman/pj_obj_to_double([Ljava/lang/Object;)D
+    invokestatic roman/pl_obj_to_double([Ljava/lang/Object;)D
     aload_1
-    invokestatic roman/pj_obj_to_double([Ljava/lang/Object;)D
+    invokestatic roman/pl_obj_to_double([Ljava/lang/Object;)D
     ddiv
-    invokestatic roman/pj_term_float(D)[Ljava/lang/Object;
+    invokestatic roman/pl_term_float(D)[Ljava/lang/Object;
     areturn
-pj_vn_div_int:
+pl_vn_div_int:
     aload_0
     iconst_1
     aaload
@@ -4749,11 +4749,11 @@ pj_vn_div_int:
     checkcast java/lang/String
     invokestatic java/lang/Long/parseLong(Ljava/lang/String;)J
     ldiv
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     areturn
 .end method
 
-.method static pj_obj_to_bits([Ljava/lang/Object;)J
+.method static pl_obj_to_bits([Ljava/lang/Object;)J
     .limit stack 4
     .limit locals 1
     aload_0
@@ -4761,7 +4761,7 @@ pj_vn_div_int:
     aaload
     ldc "float"
     invokevirtual java/lang/Object/equals(Ljava/lang/Object;)Z
-    ifeq pj_otb_int
+    ifeq pl_otb_int
     aload_0
     iconst_1
     aaload
@@ -4769,7 +4769,7 @@ pj_vn_div_int:
     invokestatic java/lang/Double/parseDouble(Ljava/lang/String;)D
     invokestatic java/lang/Double/doubleToRawLongBits(D)J
     lreturn
-pj_otb_int:
+pl_otb_int:
     aload_0
     iconst_1
     aaload
@@ -4807,7 +4807,7 @@ p_member_2_initcs_clamp_0:
     istore 4
     iconst_0
     istore 5
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 3
     aload 0
     astore 6
@@ -4828,18 +4828,18 @@ p_member_2_initcs_clamp_0:
     aastore
     dup
     bipush 3
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     aastore
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq p_member_2_alphafail_0
     goto p_member_2_beta_0
 p_member_2_alphafail_0:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_member_2_clause1
 p_member_2_alpha_0:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     aload 0
     astore 6
     aload 1
@@ -4859,15 +4859,15 @@ p_member_2_alpha_0:
     aastore
     dup
     bipush 3
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     aastore
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq p_member_2_clause1
 p_member_2_beta_0:
     goto p_member_2_gamma_0
 p_member_2_bodyfail_0:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_member_2_clause1
 p_member_2_gamma_0:
     iconst_1
@@ -4903,11 +4903,11 @@ p_member_2_initcs_clamp_1:
     istore 4
     iconst_0
     istore 5
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 3
     aload 0
     astore 6
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 7
     aload 1
     bipush 4
@@ -4922,25 +4922,25 @@ p_member_2_initcs_clamp_1:
     aastore
     dup
     bipush 2
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     aastore
     dup
     bipush 3
     aload 7
     aastore
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq p_member_2_alphafail_1
     goto p_member_2_beta_1
 p_member_2_alphafail_1:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_member_2_omega
 p_member_2_alpha_1:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     aload 0
     astore 6
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 7
     aload 1
     bipush 4
@@ -4955,19 +4955,19 @@ p_member_2_alpha_1:
     aastore
     dup
     bipush 2
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     aastore
     dup
     bipush 3
     aload 7
     aastore
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq p_member_2_omega
 p_member_2_beta_1:
     iload 4
     istore 8
 call0_alpha:
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 10
     aload 6
     aload 7
@@ -4991,7 +4991,7 @@ call0_alpha:
     goto p_member_2_gamma_1
 call0_beta:
     iload 10
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto call0_alpha
 call0_omega:
     iconst_0
@@ -4999,7 +4999,7 @@ call0_omega:
     goto p_member_2_bodyfail_1
 p_member_2_bodyfail_1:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_member_2_omega
 p_member_2_gamma_1:
     iconst_1
@@ -5028,43 +5028,43 @@ p_member_2_omega:
     ldc 2
     isub
     dup
-    ifge pj_db1_store
+    ifge pl_db1_store
     pop
     iconst_0
-pj_db1_store:
+pl_db1_store:
     istore 69
-pj_db1_loop:
+pl_db1_loop:
     ldc "member/2"
     iload 69
-    invokestatic roman/pj_db_query(Ljava/lang/String;I)Ljava/lang/Object;
+    invokestatic roman/pl_db_query(Ljava/lang/String;I)Ljava/lang/Object;
     dup
-    ifnonnull pj_db1_hit
+    ifnonnull pl_db1_hit
     pop
-    goto pj_db1_miss
-pj_db1_hit:
+    goto pl_db1_miss
+pl_db1_hit:
     checkcast [Ljava/lang/Object;
     astore 70
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 3
     aload 0
     aload 70
     ldc 2
     aaload
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
-    ifeq pj_dbu2_fail
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    ifeq pl_dbu2_fail
     aload 1
     aload 70
     ldc 3
     aaload
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
-    ifeq pj_dbu2_fail
-    goto pj_dbu2_ok
-pj_dbu2_fail:
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    ifeq pl_dbu2_fail
+    goto pl_dbu2_ok
+pl_dbu2_fail:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     iinc 69 1
-    goto pj_db1_loop
-pj_dbu2_ok:
+    goto pl_db1_loop
+pl_dbu2_ok:
     ldc 3
     anewarray java/lang/Object
     dup
@@ -5085,7 +5085,7 @@ pj_dbu2_ok:
     aload 1
     aastore
     areturn
-pj_db1_miss:
+pl_db1_miss:
     aconst_null
     areturn
 .end method
@@ -5122,7 +5122,7 @@ p_memberchk_2_initcs_clamp_0:
     istore 4
     iconst_0
     istore 5
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 3
     aload 0
     astore 6
@@ -5143,18 +5143,18 @@ p_memberchk_2_initcs_clamp_0:
     aastore
     dup
     bipush 3
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     aastore
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq p_memberchk_2_alphafail_0
     goto p_memberchk_2_beta_0
 p_memberchk_2_alphafail_0:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_memberchk_2_clause1
 p_memberchk_2_alpha_0:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     aload 0
     astore 6
     aload 1
@@ -5174,9 +5174,9 @@ p_memberchk_2_alpha_0:
     aastore
     dup
     bipush 3
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     aastore
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq p_memberchk_2_clause1
 p_memberchk_2_beta_0:
     ldc 2
@@ -5184,7 +5184,7 @@ p_memberchk_2_beta_0:
     goto p_memberchk_2_cutgamma_0
 p_memberchk_2_bodyfail_0:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_memberchk_2_clause1
 p_memberchk_2_gamma_0:
     iconst_1
@@ -5220,11 +5220,11 @@ p_memberchk_2_initcs_clamp_1:
     istore 4
     iconst_0
     istore 5
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 3
     aload 0
     astore 6
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 7
     aload 1
     bipush 4
@@ -5239,25 +5239,25 @@ p_memberchk_2_initcs_clamp_1:
     aastore
     dup
     bipush 2
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     aastore
     dup
     bipush 3
     aload 7
     aastore
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq p_memberchk_2_alphafail_1
     goto p_memberchk_2_beta_1
 p_memberchk_2_alphafail_1:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_memberchk_2_omega
 p_memberchk_2_alpha_1:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     aload 0
     astore 6
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 7
     aload 1
     bipush 4
@@ -5272,19 +5272,19 @@ p_memberchk_2_alpha_1:
     aastore
     dup
     bipush 2
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     aastore
     dup
     bipush 3
     aload 7
     aastore
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq p_memberchk_2_omega
 p_memberchk_2_beta_1:
     iload 4
     istore 8
 call3_alpha:
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 10
     aload 6
     aload 7
@@ -5308,7 +5308,7 @@ call3_alpha:
     goto p_memberchk_2_gamma_1
 call3_beta:
     iload 10
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto call3_alpha
 call3_omega:
     iconst_0
@@ -5316,7 +5316,7 @@ call3_omega:
     goto p_memberchk_2_bodyfail_1
 p_memberchk_2_bodyfail_1:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_memberchk_2_omega
 p_memberchk_2_gamma_1:
     iconst_1
@@ -5345,43 +5345,43 @@ p_memberchk_2_omega:
     ldc 2
     isub
     dup
-    ifge pj_db4_store
+    ifge pl_db4_store
     pop
     iconst_0
-pj_db4_store:
+pl_db4_store:
     istore 69
-pj_db4_loop:
+pl_db4_loop:
     ldc "memberchk/2"
     iload 69
-    invokestatic roman/pj_db_query(Ljava/lang/String;I)Ljava/lang/Object;
+    invokestatic roman/pl_db_query(Ljava/lang/String;I)Ljava/lang/Object;
     dup
-    ifnonnull pj_db4_hit
+    ifnonnull pl_db4_hit
     pop
-    goto pj_db4_miss
-pj_db4_hit:
+    goto pl_db4_miss
+pl_db4_hit:
     checkcast [Ljava/lang/Object;
     astore 70
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 3
     aload 0
     aload 70
     ldc 2
     aaload
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
-    ifeq pj_dbu5_fail
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    ifeq pl_dbu5_fail
     aload 1
     aload 70
     ldc 3
     aaload
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
-    ifeq pj_dbu5_fail
-    goto pj_dbu5_ok
-pj_dbu5_fail:
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    ifeq pl_dbu5_fail
+    goto pl_dbu5_ok
+pl_dbu5_fail:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     iinc 69 1
-    goto pj_db4_loop
-pj_dbu5_ok:
+    goto pl_db4_loop
+pl_dbu5_ok:
     ldc 3
     anewarray java/lang/Object
     dup
@@ -5402,7 +5402,7 @@ pj_dbu5_ok:
     aload 1
     aastore
     areturn
-pj_db4_miss:
+pl_db4_miss:
     aconst_null
     areturn
 .end method
@@ -5475,35 +5475,35 @@ p_roman_2_initcs_clamp_0:
     istore 4
     iconst_0
     istore 5
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 3
     aload 0
     ldc2_w 0
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq p_roman_2_alphafail_0
     aload 1
     ldc ""
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq p_roman_2_alphafail_0
     goto p_roman_2_beta_0
 p_roman_2_alphafail_0:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause1
 p_roman_2_alpha_0:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     aload 0
     ldc2_w 0
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq p_roman_2_clause1
     aload 1
     ldc ""
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq p_roman_2_clause1
 p_roman_2_beta_0:
     ldc 14
@@ -5511,7 +5511,7 @@ p_roman_2_beta_0:
     goto p_roman_2_cutgamma_0
 p_roman_2_bodyfail_0:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause1
 p_roman_2_gamma_0:
     iconst_1
@@ -5547,60 +5547,60 @@ p_roman_2_initcs_clamp_1:
     istore 4
     iconst_0
     istore 5
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 3
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
     goto p_roman_2_beta_1
 p_roman_2_alphafail_1:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause2
 p_roman_2_alpha_1:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
 p_roman_2_beta_1:
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 1000
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
     iflt dg6_omega
     goto dg6_gamma
 dg6_gamma:
     ldc 14
     istore 2
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 1000
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
     aload 8
     swap
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg7_omega
     goto dg7_gamma
 dg7_gamma:
     iload 4
     istore 10
 call8_alpha:
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 12
     aload 8
     aload 9
@@ -5622,16 +5622,16 @@ call8_alpha:
     iconst_0
     istore 14
     ldc "M"
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     aload 9
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     invokevirtual java/lang/String/concat(Ljava/lang/String;)Ljava/lang/String;
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aload 7
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg9_omega
     goto dg9_gamma
 dg9_gamma:
@@ -5640,7 +5640,7 @@ dg9_omega:
     goto call8_beta
 call8_beta:
     iload 12
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto call8_alpha
 call8_omega:
     iconst_0
@@ -5652,7 +5652,7 @@ dg6_omega:
     goto p_roman_2_bodyfail_1
 p_roman_2_bodyfail_1:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause2
 p_roman_2_gamma_1:
     iconst_1
@@ -5688,60 +5688,60 @@ p_roman_2_initcs_clamp_2:
     istore 4
     iconst_0
     istore 5
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 3
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
     goto p_roman_2_beta_2
 p_roman_2_alphafail_2:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause3
 p_roman_2_alpha_2:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
 p_roman_2_beta_2:
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 900
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
     iflt dg10_omega
     goto dg10_gamma
 dg10_gamma:
     ldc 14
     istore 2
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 900
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
     aload 8
     swap
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg11_omega
     goto dg11_gamma
 dg11_gamma:
     iload 4
     istore 10
 call12_alpha:
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 12
     aload 8
     aload 9
@@ -5763,16 +5763,16 @@ call12_alpha:
     iconst_0
     istore 14
     ldc "CM"
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     aload 9
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     invokevirtual java/lang/String/concat(Ljava/lang/String;)Ljava/lang/String;
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aload 7
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg13_omega
     goto dg13_gamma
 dg13_gamma:
@@ -5781,7 +5781,7 @@ dg13_omega:
     goto call12_beta
 call12_beta:
     iload 12
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto call12_alpha
 call12_omega:
     iconst_0
@@ -5793,7 +5793,7 @@ dg10_omega:
     goto p_roman_2_bodyfail_2
 p_roman_2_bodyfail_2:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause3
 p_roman_2_gamma_2:
     iconst_1
@@ -5829,60 +5829,60 @@ p_roman_2_initcs_clamp_3:
     istore 4
     iconst_0
     istore 5
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 3
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
     goto p_roman_2_beta_3
 p_roman_2_alphafail_3:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause4
 p_roman_2_alpha_3:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
 p_roman_2_beta_3:
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 500
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
     iflt dg14_omega
     goto dg14_gamma
 dg14_gamma:
     ldc 14
     istore 2
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 500
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
     aload 8
     swap
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg15_omega
     goto dg15_gamma
 dg15_gamma:
     iload 4
     istore 10
 call16_alpha:
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 12
     aload 8
     aload 9
@@ -5904,16 +5904,16 @@ call16_alpha:
     iconst_0
     istore 14
     ldc "D"
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     aload 9
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     invokevirtual java/lang/String/concat(Ljava/lang/String;)Ljava/lang/String;
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aload 7
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg17_omega
     goto dg17_gamma
 dg17_gamma:
@@ -5922,7 +5922,7 @@ dg17_omega:
     goto call16_beta
 call16_beta:
     iload 12
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto call16_alpha
 call16_omega:
     iconst_0
@@ -5934,7 +5934,7 @@ dg14_omega:
     goto p_roman_2_bodyfail_3
 p_roman_2_bodyfail_3:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause4
 p_roman_2_gamma_3:
     iconst_1
@@ -5970,60 +5970,60 @@ p_roman_2_initcs_clamp_4:
     istore 4
     iconst_0
     istore 5
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 3
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
     goto p_roman_2_beta_4
 p_roman_2_alphafail_4:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause5
 p_roman_2_alpha_4:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
 p_roman_2_beta_4:
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 400
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
     iflt dg18_omega
     goto dg18_gamma
 dg18_gamma:
     ldc 14
     istore 2
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 400
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
     aload 8
     swap
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg19_omega
     goto dg19_gamma
 dg19_gamma:
     iload 4
     istore 10
 call20_alpha:
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 12
     aload 8
     aload 9
@@ -6045,16 +6045,16 @@ call20_alpha:
     iconst_0
     istore 14
     ldc "CD"
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     aload 9
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     invokevirtual java/lang/String/concat(Ljava/lang/String;)Ljava/lang/String;
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aload 7
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg21_omega
     goto dg21_gamma
 dg21_gamma:
@@ -6063,7 +6063,7 @@ dg21_omega:
     goto call20_beta
 call20_beta:
     iload 12
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto call20_alpha
 call20_omega:
     iconst_0
@@ -6075,7 +6075,7 @@ dg18_omega:
     goto p_roman_2_bodyfail_4
 p_roman_2_bodyfail_4:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause5
 p_roman_2_gamma_4:
     iconst_1
@@ -6111,60 +6111,60 @@ p_roman_2_initcs_clamp_5:
     istore 4
     iconst_0
     istore 5
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 3
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
     goto p_roman_2_beta_5
 p_roman_2_alphafail_5:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause6
 p_roman_2_alpha_5:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
 p_roman_2_beta_5:
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 100
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
     iflt dg22_omega
     goto dg22_gamma
 dg22_gamma:
     ldc 14
     istore 2
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 100
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
     aload 8
     swap
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg23_omega
     goto dg23_gamma
 dg23_gamma:
     iload 4
     istore 10
 call24_alpha:
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 12
     aload 8
     aload 9
@@ -6186,16 +6186,16 @@ call24_alpha:
     iconst_0
     istore 14
     ldc "C"
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     aload 9
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     invokevirtual java/lang/String/concat(Ljava/lang/String;)Ljava/lang/String;
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aload 7
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg25_omega
     goto dg25_gamma
 dg25_gamma:
@@ -6204,7 +6204,7 @@ dg25_omega:
     goto call24_beta
 call24_beta:
     iload 12
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto call24_alpha
 call24_omega:
     iconst_0
@@ -6216,7 +6216,7 @@ dg22_omega:
     goto p_roman_2_bodyfail_5
 p_roman_2_bodyfail_5:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause6
 p_roman_2_gamma_5:
     iconst_1
@@ -6252,60 +6252,60 @@ p_roman_2_initcs_clamp_6:
     istore 4
     iconst_0
     istore 5
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 3
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
     goto p_roman_2_beta_6
 p_roman_2_alphafail_6:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause7
 p_roman_2_alpha_6:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
 p_roman_2_beta_6:
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 90
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
     iflt dg26_omega
     goto dg26_gamma
 dg26_gamma:
     ldc 14
     istore 2
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 90
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
     aload 8
     swap
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg27_omega
     goto dg27_gamma
 dg27_gamma:
     iload 4
     istore 10
 call28_alpha:
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 12
     aload 8
     aload 9
@@ -6327,16 +6327,16 @@ call28_alpha:
     iconst_0
     istore 14
     ldc "XC"
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     aload 9
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     invokevirtual java/lang/String/concat(Ljava/lang/String;)Ljava/lang/String;
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aload 7
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg29_omega
     goto dg29_gamma
 dg29_gamma:
@@ -6345,7 +6345,7 @@ dg29_omega:
     goto call28_beta
 call28_beta:
     iload 12
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto call28_alpha
 call28_omega:
     iconst_0
@@ -6357,7 +6357,7 @@ dg26_omega:
     goto p_roman_2_bodyfail_6
 p_roman_2_bodyfail_6:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause7
 p_roman_2_gamma_6:
     iconst_1
@@ -6393,60 +6393,60 @@ p_roman_2_initcs_clamp_7:
     istore 4
     iconst_0
     istore 5
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 3
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
     goto p_roman_2_beta_7
 p_roman_2_alphafail_7:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause8
 p_roman_2_alpha_7:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
 p_roman_2_beta_7:
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 50
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
     iflt dg30_omega
     goto dg30_gamma
 dg30_gamma:
     ldc 14
     istore 2
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 50
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
     aload 8
     swap
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg31_omega
     goto dg31_gamma
 dg31_gamma:
     iload 4
     istore 10
 call32_alpha:
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 12
     aload 8
     aload 9
@@ -6468,16 +6468,16 @@ call32_alpha:
     iconst_0
     istore 14
     ldc "L"
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     aload 9
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     invokevirtual java/lang/String/concat(Ljava/lang/String;)Ljava/lang/String;
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aload 7
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg33_omega
     goto dg33_gamma
 dg33_gamma:
@@ -6486,7 +6486,7 @@ dg33_omega:
     goto call32_beta
 call32_beta:
     iload 12
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto call32_alpha
 call32_omega:
     iconst_0
@@ -6498,7 +6498,7 @@ dg30_omega:
     goto p_roman_2_bodyfail_7
 p_roman_2_bodyfail_7:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause8
 p_roman_2_gamma_7:
     iconst_1
@@ -6534,60 +6534,60 @@ p_roman_2_initcs_clamp_8:
     istore 4
     iconst_0
     istore 5
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 3
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
     goto p_roman_2_beta_8
 p_roman_2_alphafail_8:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause9
 p_roman_2_alpha_8:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
 p_roman_2_beta_8:
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 40
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
     iflt dg34_omega
     goto dg34_gamma
 dg34_gamma:
     ldc 14
     istore 2
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 40
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
     aload 8
     swap
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg35_omega
     goto dg35_gamma
 dg35_gamma:
     iload 4
     istore 10
 call36_alpha:
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 12
     aload 8
     aload 9
@@ -6609,16 +6609,16 @@ call36_alpha:
     iconst_0
     istore 14
     ldc "XL"
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     aload 9
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     invokevirtual java/lang/String/concat(Ljava/lang/String;)Ljava/lang/String;
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aload 7
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg37_omega
     goto dg37_gamma
 dg37_gamma:
@@ -6627,7 +6627,7 @@ dg37_omega:
     goto call36_beta
 call36_beta:
     iload 12
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto call36_alpha
 call36_omega:
     iconst_0
@@ -6639,7 +6639,7 @@ dg34_omega:
     goto p_roman_2_bodyfail_8
 p_roman_2_bodyfail_8:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause9
 p_roman_2_gamma_8:
     iconst_1
@@ -6675,60 +6675,60 @@ p_roman_2_initcs_clamp_9:
     istore 4
     iconst_0
     istore 5
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 3
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
     goto p_roman_2_beta_9
 p_roman_2_alphafail_9:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause10
 p_roman_2_alpha_9:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
 p_roman_2_beta_9:
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 10
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
     iflt dg38_omega
     goto dg38_gamma
 dg38_gamma:
     ldc 14
     istore 2
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 10
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
     aload 8
     swap
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg39_omega
     goto dg39_gamma
 dg39_gamma:
     iload 4
     istore 10
 call40_alpha:
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 12
     aload 8
     aload 9
@@ -6750,16 +6750,16 @@ call40_alpha:
     iconst_0
     istore 14
     ldc "X"
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     aload 9
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     invokevirtual java/lang/String/concat(Ljava/lang/String;)Ljava/lang/String;
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aload 7
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg41_omega
     goto dg41_gamma
 dg41_gamma:
@@ -6768,7 +6768,7 @@ dg41_omega:
     goto call40_beta
 call40_beta:
     iload 12
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto call40_alpha
 call40_omega:
     iconst_0
@@ -6780,7 +6780,7 @@ dg38_omega:
     goto p_roman_2_bodyfail_9
 p_roman_2_bodyfail_9:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause10
 p_roman_2_gamma_9:
     iconst_1
@@ -6816,60 +6816,60 @@ p_roman_2_initcs_clamp_10:
     istore 4
     iconst_0
     istore 5
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 3
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
     goto p_roman_2_beta_10
 p_roman_2_alphafail_10:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause11
 p_roman_2_alpha_10:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
 p_roman_2_beta_10:
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 9
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
     iflt dg42_omega
     goto dg42_gamma
 dg42_gamma:
     ldc 14
     istore 2
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 9
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
     aload 8
     swap
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg43_omega
     goto dg43_gamma
 dg43_gamma:
     iload 4
     istore 10
 call44_alpha:
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 12
     aload 8
     aload 9
@@ -6891,16 +6891,16 @@ call44_alpha:
     iconst_0
     istore 14
     ldc "IX"
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     aload 9
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     invokevirtual java/lang/String/concat(Ljava/lang/String;)Ljava/lang/String;
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aload 7
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg45_omega
     goto dg45_gamma
 dg45_gamma:
@@ -6909,7 +6909,7 @@ dg45_omega:
     goto call44_beta
 call44_beta:
     iload 12
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto call44_alpha
 call44_omega:
     iconst_0
@@ -6921,7 +6921,7 @@ dg42_omega:
     goto p_roman_2_bodyfail_10
 p_roman_2_bodyfail_10:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause11
 p_roman_2_gamma_10:
     iconst_1
@@ -6957,60 +6957,60 @@ p_roman_2_initcs_clamp_11:
     istore 4
     iconst_0
     istore 5
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 3
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
     goto p_roman_2_beta_11
 p_roman_2_alphafail_11:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause12
 p_roman_2_alpha_11:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
 p_roman_2_beta_11:
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 5
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
     iflt dg46_omega
     goto dg46_gamma
 dg46_gamma:
     ldc 14
     istore 2
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 5
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
     aload 8
     swap
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg47_omega
     goto dg47_gamma
 dg47_gamma:
     iload 4
     istore 10
 call48_alpha:
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 12
     aload 8
     aload 9
@@ -7032,16 +7032,16 @@ call48_alpha:
     iconst_0
     istore 14
     ldc "V"
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     aload 9
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     invokevirtual java/lang/String/concat(Ljava/lang/String;)Ljava/lang/String;
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aload 7
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg49_omega
     goto dg49_gamma
 dg49_gamma:
@@ -7050,7 +7050,7 @@ dg49_omega:
     goto call48_beta
 call48_beta:
     iload 12
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto call48_alpha
 call48_omega:
     iconst_0
@@ -7062,7 +7062,7 @@ dg46_omega:
     goto p_roman_2_bodyfail_11
 p_roman_2_bodyfail_11:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause12
 p_roman_2_gamma_11:
     iconst_1
@@ -7098,60 +7098,60 @@ p_roman_2_initcs_clamp_12:
     istore 4
     iconst_0
     istore 5
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 3
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
     goto p_roman_2_beta_12
 p_roman_2_alphafail_12:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause13
 p_roman_2_alpha_12:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
 p_roman_2_beta_12:
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 4
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
     iflt dg50_omega
     goto dg50_gamma
 dg50_gamma:
     ldc 14
     istore 2
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 4
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
     aload 8
     swap
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg51_omega
     goto dg51_gamma
 dg51_gamma:
     iload 4
     istore 10
 call52_alpha:
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 12
     aload 8
     aload 9
@@ -7173,16 +7173,16 @@ call52_alpha:
     iconst_0
     istore 14
     ldc "IV"
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     aload 9
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     invokevirtual java/lang/String/concat(Ljava/lang/String;)Ljava/lang/String;
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aload 7
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg53_omega
     goto dg53_gamma
 dg53_gamma:
@@ -7191,7 +7191,7 @@ dg53_omega:
     goto call52_beta
 call52_beta:
     iload 12
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto call52_alpha
 call52_omega:
     iconst_0
@@ -7203,7 +7203,7 @@ dg50_omega:
     goto p_roman_2_bodyfail_12
 p_roman_2_bodyfail_12:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_clause13
 p_roman_2_gamma_12:
     iconst_1
@@ -7239,60 +7239,60 @@ p_roman_2_initcs_clamp_13:
     istore 4
     iconst_0
     istore 5
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 3
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
     goto p_roman_2_beta_13
 p_roman_2_alphafail_13:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_omega
 p_roman_2_alpha_13:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     aload 0
     astore 6
     aload 1
     astore 7
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 8
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 9
 p_roman_2_beta_13:
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 1
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_num_cmp([Ljava/lang/Object;[Ljava/lang/Object;)I
     iflt dg54_omega
     goto dg54_gamma
 dg54_gamma:
     ldc 14
     istore 2
     aload 6
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
     checkcast [Ljava/lang/Object;
     ldc2_w 1
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
-    invokestatic roman/pj_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_varnum_sub([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
     aload 8
     swap
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg55_omega
     goto dg55_gamma
 dg55_gamma:
     iload 4
     istore 10
 call56_alpha:
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 12
     aload 8
     aload 9
@@ -7314,16 +7314,16 @@ call56_alpha:
     iconst_0
     istore 14
     ldc "I"
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     aload 9
-    invokestatic roman/pj_deref(Ljava/lang/Object;)Ljava/lang/Object;
-    invokestatic roman/pj_atom_name(Ljava/lang/Object;)Ljava/lang/String;
+    invokestatic roman/pl_deref(Ljava/lang/Object;)Ljava/lang/Object;
+    invokestatic roman/pl_atom_name(Ljava/lang/Object;)Ljava/lang/String;
     invokevirtual java/lang/String/concat(Ljava/lang/String;)Ljava/lang/String;
-    invokestatic roman/pj_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
+    invokestatic roman/pl_term_atom(Ljava/lang/String;)[Ljava/lang/Object;
     aload 7
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
     ifeq dg57_omega
     goto dg57_gamma
 dg57_gamma:
@@ -7332,7 +7332,7 @@ dg57_omega:
     goto call56_beta
 call56_beta:
     iload 12
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto call56_alpha
 call56_omega:
     iconst_0
@@ -7344,7 +7344,7 @@ dg54_omega:
     goto p_roman_2_bodyfail_13
 p_roman_2_bodyfail_13:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_roman_2_omega
 p_roman_2_gamma_13:
     iconst_1
@@ -7373,43 +7373,43 @@ p_roman_2_omega:
     ldc 14
     isub
     dup
-    ifge pj_db58_store
+    ifge pl_db58_store
     pop
     iconst_0
-pj_db58_store:
+pl_db58_store:
     istore 71
-pj_db58_loop:
+pl_db58_loop:
     ldc "roman/2"
     iload 71
-    invokestatic roman/pj_db_query(Ljava/lang/String;I)Ljava/lang/Object;
+    invokestatic roman/pl_db_query(Ljava/lang/String;I)Ljava/lang/Object;
     dup
-    ifnonnull pj_db58_hit
+    ifnonnull pl_db58_hit
     pop
-    goto pj_db58_miss
-pj_db58_hit:
+    goto pl_db58_miss
+pl_db58_hit:
     checkcast [Ljava/lang/Object;
     astore 72
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 3
     aload 0
     aload 72
     ldc 2
     aaload
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
-    ifeq pj_dbu59_fail
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    ifeq pl_dbu59_fail
     aload 1
     aload 72
     ldc 3
     aaload
-    invokestatic roman/pj_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
-    ifeq pj_dbu59_fail
-    goto pj_dbu59_ok
-pj_dbu59_fail:
+    invokestatic roman/pl_unify(Ljava/lang/Object;Ljava/lang/Object;)Z
+    ifeq pl_dbu59_fail
+    goto pl_dbu59_ok
+pl_dbu59_fail:
     iload 3
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     iinc 71 1
-    goto pj_db58_loop
-pj_dbu59_ok:
+    goto pl_db58_loop
+pl_dbu59_ok:
     ldc 3
     anewarray java/lang/Object
     dup
@@ -7430,7 +7430,7 @@ pj_dbu59_ok:
     aload 1
     aastore
     areturn
-pj_db58_miss:
+pl_db58_miss:
     aconst_null
     areturn
 .end method
@@ -7461,36 +7461,36 @@ p_main_0_initcs_clamp_0:
     istore 2
     iconst_0
     istore 3
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 1
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 4
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 5
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 6
     goto p_main_0_beta_0
 p_main_0_alphafail_0:
     iload 1
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_main_0_omega
 p_main_0_alpha_0:
     iload 1
-    invokestatic roman/pj_trail_unwind(I)V
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_trail_unwind(I)V
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 4
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 5
-    invokestatic roman/pj_term_var()[Ljava/lang/Object;
+    invokestatic roman/pl_term_var()[Ljava/lang/Object;
     astore 6
 p_main_0_beta_0:
     iload 2
     istore 7
 call60_alpha:
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 9
     ldc2_w 1776
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     aload 4
     iload 7
     invokestatic roman/p_roman_2([Ljava/lang/Object;[Ljava/lang/Object;I)[Ljava/lang/Object;
@@ -7510,7 +7510,7 @@ call60_alpha:
     iconst_0
     istore 11
     aload 4
-    invokestatic roman/pj_write(Ljava/lang/Object;)V
+    invokestatic roman/pl_write(Ljava/lang/Object;)V
     goto dg61_gamma
 dg61_gamma:
     getstatic java/lang/System/out Ljava/io/PrintStream;
@@ -7520,10 +7520,10 @@ dg62_gamma:
     iload 10
     istore 12
 call63_alpha:
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 14
     ldc2_w 42
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     aload 5
     iload 12
     invokestatic roman/p_roman_2([Ljava/lang/Object;[Ljava/lang/Object;I)[Ljava/lang/Object;
@@ -7543,7 +7543,7 @@ call63_alpha:
     iconst_0
     istore 16
     aload 5
-    invokestatic roman/pj_write(Ljava/lang/Object;)V
+    invokestatic roman/pl_write(Ljava/lang/Object;)V
     goto dg64_gamma
 dg64_gamma:
     getstatic java/lang/System/out Ljava/io/PrintStream;
@@ -7553,10 +7553,10 @@ dg65_gamma:
     iload 15
     istore 17
 call66_alpha:
-    invokestatic roman/pj_trail_mark()I
+    invokestatic roman/pl_trail_mark()I
     istore 19
     ldc2_w 9
-    invokestatic roman/pj_term_int(J)[Ljava/lang/Object;
+    invokestatic roman/pl_term_int(J)[Ljava/lang/Object;
     aload 6
     iload 17
     invokestatic roman/p_roman_2([Ljava/lang/Object;[Ljava/lang/Object;I)[Ljava/lang/Object;
@@ -7576,7 +7576,7 @@ call66_alpha:
     iconst_0
     istore 21
     aload 6
-    invokestatic roman/pj_write(Ljava/lang/Object;)V
+    invokestatic roman/pl_write(Ljava/lang/Object;)V
     goto dg67_gamma
 dg67_gamma:
     getstatic java/lang/System/out Ljava/io/PrintStream;
@@ -7590,7 +7590,7 @@ dg67_omega:
     goto call66_beta
 call66_beta:
     iload 19
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto call66_alpha
 call66_omega:
     iconst_0
@@ -7602,7 +7602,7 @@ dg64_omega:
     goto call63_beta
 call63_beta:
     iload 14
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto call63_alpha
 call63_omega:
     iconst_0
@@ -7614,7 +7614,7 @@ dg61_omega:
     goto call60_beta
 call60_beta:
     iload 9
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto call60_alpha
 call60_omega:
     iconst_0
@@ -7622,7 +7622,7 @@ call60_omega:
     goto p_main_0_bodyfail_0
 p_main_0_bodyfail_0:
     iload 1
-    invokestatic roman/pj_trail_unwind(I)V
+    invokestatic roman/pl_trail_unwind(I)V
     goto p_main_0_omega
 p_main_0_gamma_0:
     iconst_1
@@ -7647,20 +7647,20 @@ p_main_0_omega:
     ldc 1
     isub
     dup
-    ifge pj_db69_store
+    ifge pl_db69_store
     pop
     iconst_0
-pj_db69_store:
+pl_db69_store:
     istore 78
-pj_db69_loop:
+pl_db69_loop:
     ldc "main/0"
     iload 78
-    invokestatic roman/pj_db_query(Ljava/lang/String;I)Ljava/lang/Object;
+    invokestatic roman/pl_db_query(Ljava/lang/String;I)Ljava/lang/Object;
     dup
-    ifnonnull pj_db69_hit
+    ifnonnull pl_db69_hit
     pop
-    goto pj_db69_miss
-pj_db69_hit:
+    goto pl_db69_miss
+pl_db69_hit:
     pop
     ldc 1
     anewarray java/lang/Object
@@ -7674,7 +7674,7 @@ pj_db69_hit:
     invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
     aastore
     areturn
-pj_db69_miss:
+pl_db69_miss:
     aconst_null
     areturn
 .end method

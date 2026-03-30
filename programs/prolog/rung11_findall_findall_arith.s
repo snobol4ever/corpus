@@ -237,7 +237,7 @@ pl_main_sl_0_c0_α0:
                             sub         rsp, 16            ; args[2] for compound is/2
                             mov         rax, [rbp - 56]  ; var slot 0 (_V0)
                             mov         [rsp + 0], rax  ; compound arg 0
-                            sub         rsp, 16          ; arith compound args[2] uid3
+                            sub         rsp, 16          ; arith compound args[2] pl_uid3
                             mov         rax, [rbp - 64]  ; var slot 1 (_V1)
                             mov         [rsp + 0], rax
                             mov         rax, [rbp - 64]  ; var slot 1 (_V1)
