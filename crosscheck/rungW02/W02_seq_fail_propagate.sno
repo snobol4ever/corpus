@@ -1,0 +1,9 @@
+* W02_seq_fail_propagate.sno - sequential pattern: right side fails, whole seq fails
+* Rung W02. 'foo' 'xyz' should NOT match 'foobar'.
+
+        subject = 'foobar'
+        pat = 'foo' 'xyz'
+        subject pat              :s(e001)
+        OUTPUT = 'PASS W02/003: seq rightly failed'          :(END)
+e001    OUTPUT = 'FAIL W02/003: seq should have failed'
+END
