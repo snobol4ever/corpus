@@ -1,0 +1,6 @@
+* W05_break — BREAK(':') advances up to the colon
+        subject = 'key:value'
+        subject BREAK(':')  :f(e001)
+        OUTPUT = 'PASS W05/004: break matched'   :(END)
+e001    OUTPUT = 'FAIL W05/004: break should match'
+END

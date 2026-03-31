@@ -1,0 +1,6 @@
+* W05_breakx — BREAKX(':') advances past the colon
+        subject = 'key:value'
+        subject BREAKX(':')  :f(e001)
+        OUTPUT = 'PASS W05/005: breakx matched'   :(END)
+e001    OUTPUT = 'FAIL W05/005: breakx should match'
+END

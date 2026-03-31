@@ -1,0 +1,6 @@
+* W05_notany — NOTANY('aeiou') matches a consonant
+        subject = 'hello'
+        subject NOTANY('aeiou')  :f(e001)
+        OUTPUT = 'PASS W05/002: notany matched'   :(END)
+e001    OUTPUT = 'FAIL W05/002: notany should match'
+END

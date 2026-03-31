@@ -1,0 +1,6 @@
+* W05_any — ANY('aeiou') matches one vowel
+        subject = 'hello'
+        subject ANY('aeiou')  :f(e001)
+        OUTPUT = 'PASS W05/001: any matched'   :(END)
+e001    OUTPUT = 'FAIL W05/001: any should match'
+END
