@@ -1,0 +1,9 @@
+* W02_seq_nested.sno - sequential pattern: three literals (nested SEQ)
+* Rung W02. 'a' 'b' 'c' matches inside 'xabc'.
+
+        subject = 'xabc'
+        pat = 'a' 'b' 'c'
+        subject pat              :f(e001)
+        OUTPUT = 'PASS W02/002: nested seq match succeeded'  :(END)
+e001    OUTPUT = 'FAIL W02/002: nested seq match should succeed'
+END

@@ -1,0 +1,9 @@
+* W02_seq_basic.sno - sequential pattern: two literals matched left-then-right
+* Rung W02. E_SEQ: 'foo' 'bar' matches 'foobar'.
+
+        subject = 'foobar'
+        pat = 'foo' 'bar'
+        subject pat              :f(e001)
+        OUTPUT = 'PASS W02/001: seq match succeeded'         :(END)
+e001    OUTPUT = 'FAIL W02/001: seq match should succeed'
+END
