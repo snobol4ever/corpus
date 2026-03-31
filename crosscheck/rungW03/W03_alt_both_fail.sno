@@ -1,0 +1,8 @@
+* W03_alt_both_fail.sno — alternation: both alternatives fail
+* Rung W03. E_ALT: ('baz' | 'qux') — neither in subject; statement fails.
+
+        subject = 'foobar'
+        subject ('baz' | 'qux')  :s(e001)
+        OUTPUT = 'PASS W03/003: alt both fail as expected'   :(END)
+e001    OUTPUT = 'FAIL W03/003: alt should have failed but succeeded'
+END
