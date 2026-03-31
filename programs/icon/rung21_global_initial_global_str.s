@@ -90,7 +90,7 @@ icn_2_β:
     jmp     icn_3_β
 icon_2_call:
     pop     rdi
-    call    icn_write_int
+    call    icn_write_str
     jmp     icn_main_done
     ; CALL setup  id=4
 icn_4_α:

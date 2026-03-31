@@ -77,7 +77,7 @@ icn_3_β:
     jmp     icn_4_β
 icon_3_call:
     pop     rdi
-    call    icn_write_int
+    call    icn_write_str
     jmp     icon_0_top
     jmp     icn_3_α
 icon_0_top:

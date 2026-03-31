@@ -71,7 +71,7 @@ icn_0_β:
     jmp     icn_1_β
 icon_0_call:
     pop     rdi
-    call    icn_write_int
+    call    icn_write_str
     jmp     icn_main_done
     ; CONCAT  id=3
     ; VAR b  id=4
