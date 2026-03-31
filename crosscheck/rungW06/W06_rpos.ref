@@ -1,0 +1,3 @@
+PASS W06/001: RPOS(0) at end matched
+PASS W06/002: RPOS(2) after HEL matched
+PASS W06/003: RPOS(1) LO correctly fails

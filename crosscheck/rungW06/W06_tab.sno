@@ -1,0 +1,14 @@
+* W06_tab — TAB(n) advances cursor to absolute position n
+        subject = 'ABCDE'
+        subject TAB(3) 'DE'  :f(e001)
+        OUTPUT = 'PASS W06/001: TAB(3) then DE matched'   :(t002)
+e001    OUTPUT = 'FAIL W06/001: TAB(3) then DE should match'
+t002    subject = 'ABCDE'
+        subject 'AB' TAB(2) 'CDE'  :f(e002)
+        OUTPUT = 'PASS W06/002: AB TAB(2) CDE matched'  :(t003)
+e002    OUTPUT = 'FAIL W06/002: AB TAB(2) CDE should match'
+t003    subject = 'ABCDE'
+        subject 'ABC' TAB(1)  :s(e003)
+        OUTPUT = 'PASS W06/003: TAB(1) behind cursor correctly fails'  :(END)
+e003    OUTPUT = 'FAIL W06/003: TAB(1) behind cursor should fail'
+END
