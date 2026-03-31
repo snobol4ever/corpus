@@ -1,0 +1,8 @@
+* W04_arbno_basic — ARBNO('ab') matches zero-or-more 'ab'; then 'X' must follow
+* Rung W04. E_ARBNO: subject 'ababX' matches ARBNO('ab') then 'X'.
+
+        subject = 'ababX'
+        subject (ARBNO('ab') 'X')  :f(e001)
+        OUTPUT = 'PASS W04/001: arbno matched'   :(END)
+e001    OUTPUT = 'FAIL W04/001: arbno should match'
+END

@@ -1,0 +1,8 @@
+* W04_arbno_zero — ARBNO matches zero times then literal succeeds
+* Rung W04. ARBNO zero match: subject 'hello' matches ARBNO('xyz') (zero) then 'hello'.
+
+        subject = 'hello'
+        subject (ARBNO('xyz') 'hello')  :f(e001)
+        OUTPUT = 'PASS W04/002: arbno zero match'   :(END)
+e001    OUTPUT = 'FAIL W04/002: arbno zero should succeed'
+END
