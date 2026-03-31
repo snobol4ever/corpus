@@ -1,0 +1,8 @@
+* W04_arbno_backtrack — ARBNO fails when subject has no match for literal after
+* Rung W04. ARBNO('ab') on 'xxx': zero matches, then 'xxx' literal succeeds.
+
+        subject = 'xxx'
+        subject (ARBNO('ab') 'xxx')  :f(e001)
+        OUTPUT = 'PASS W04/003: arbno zero then literal'   :(END)
+e001    OUTPUT = 'FAIL W04/003: should have matched'
+END
