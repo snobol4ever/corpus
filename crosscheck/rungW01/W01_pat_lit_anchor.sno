@@ -1,0 +1,9 @@
+* W01_pat_lit_anchor.sno — unanchored match finds substring; anchored fails if not at start
+* Rung W01.
+
+*       unanchored: 'world' is a substring of 'hello world' — succeeds
+        subject = 'hello world'
+        subject 'world'                    :f(e001)
+        output = 'PASS W01/003: unanchored substring match'  :(end)
+e001    output = 'FAIL W01/003: unanchored substring match should succeed'
+end

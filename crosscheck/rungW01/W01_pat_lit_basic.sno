@@ -1,0 +1,8 @@
+* W01_pat_lit_basic.sno — literal pattern match: basic succeed case
+* Rung W01. SNOBOL4 pattern matching with string literal.
+
+        subject = 'hello world'
+        subject 'world'                    :f(e001)
+        output = 'PASS W01/001: literal match succeeded'   :(end)
+e001    output = 'FAIL W01/001: literal match should succeed'
+end
