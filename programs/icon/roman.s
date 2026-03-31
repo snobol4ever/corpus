@@ -69,12 +69,12 @@ icn_1_β:
 icn_0_α:
     jmp     icn_1_α
 icn_0_β:
-    jmp     icn_roman_ret
+    jmp     icn_u_roman_ret
 icon_0_ret_store:
     pop     rax
     mov     [rel icn_retval], rax
     mov     byte [rel icn_failed], 0
-    jmp     icn_roman_ret
+    jmp     icn_u_roman_ret
     ; EVERY  id=2
     ; WHILE  id=3
     ; GE  id=4
@@ -392,18 +392,18 @@ icon_31_store:
     pop     rax
     mov     [rel icn_gvar_vals], rax
     jmp     icn_29_α
-icn_roman:
+icn_u_roman:
     push    rbp
     mov     rbp, rsp
     sub     rsp, 80
     call    icn_pop
     mov     [rbp-8], rax
     jmp     icn_31_α
-icn_roman_ret:
+icn_u_roman_ret:
     add     rsp, 80
     pop     rbp
     ret
-icn_roman_done:
+icn_u_roman_done:
     mov     byte [rel icn_failed], 1
     add     rsp, 80
     pop     rbp
@@ -427,7 +427,7 @@ icn_34_α:
 icn_34_β:
     jmp     icn_main_done
 icon_34_docall:
-    call    icn_roman
+    call    icn_u_roman
     movzx   rax, byte [rel icn_failed]
     test    rax, rax
     jnz     icn_main_done
@@ -459,7 +459,7 @@ icn_37_α:
 icn_37_β:
     jmp     icn_33_α
 icon_37_docall:
-    call    icn_roman
+    call    icn_u_roman
     movzx   rax, byte [rel icn_failed]
     test    rax, rax
     jnz     icn_33_α
@@ -491,7 +491,7 @@ icn_40_α:
 icn_40_β:
     jmp     icn_36_α
 icon_40_docall:
-    call    icn_roman
+    call    icn_u_roman
     movzx   rax, byte [rel icn_failed]
     test    rax, rax
     jnz     icn_36_α

@@ -4,7 +4,8 @@ default rel
 
 section .bss
     icn_retval: resq 1
-    icn_downto_caller_ret: resq 1
+    icn_gvar_i: resq 1
+    icn_u_downto_caller_ret: resq 1
     icn_failed: resb 1
     icn_suspended: resb 1
     icn_suspend_resume: resq 1
@@ -57,11 +58,11 @@ icn_2_β:
     jmp     icon_1_lb
     ; VAR i  id=3
 icn_3_α:
-    mov     rax, [rbp-16]
+    mov     rax, [rel icn_gvar_i]
     push    rax
     jmp     icon_1_lstore
 icn_3_β:
-    jmp     icn_downto_done
+    jmp     icn_u_downto_done
 icon_1_lb:
     jmp     icn_3_β
 icn_1_α:
@@ -70,11 +71,11 @@ icn_1_β:
     jmp     icn_2_β
 icon_1_lstore:
     pop     rax
-    mov     [rbp-24], rax
+    mov     [rbp-16], rax
     jmp     icn_2_α
 icon_1_check:
     pop     rcx
-    mov     rax, [rbp-24]
+    mov     rax, [rbp-16]
     cmp     rax, rcx
     jl      icn_2_β
     push    rcx
@@ -83,11 +84,11 @@ icon_0_condok:
     add     rsp, 8
     ; VAR i  id=5
 icn_5_α:
-    mov     rax, [rbp-16]
+    mov     rax, [rel icn_gvar_i]
     push    rax
     jmp     icon_4_yield
 icn_5_β:
-    jmp     icn_downto_done
+    jmp     icn_u_downto_done
 icn_4_α:
     jmp     icn_5_α
 icn_4_β:
@@ -100,7 +101,7 @@ icon_4_yield:
     lea     rax, [rel icon_4_resume]
     mov     [rel icn_suspend_resume], rax
     mov     [rel icn_suspend_rbp], rbp
-    jmp     icn_downto_sret
+    jmp     icn_u_downto_sret
     ; SUB  id=7
     ; INT 1  id=8
 icn_8_α:
@@ -110,7 +111,7 @@ icn_8_β:
     jmp     icon_7_lb
     ; VAR i  id=9
 icn_9_α:
-    mov     rax, [rbp-16]
+    mov     rax, [rel icn_gvar_i]
     push    rax
     jmp     icon_7_lstore
 icn_9_β:
@@ -118,20 +119,20 @@ icn_9_β:
 icon_7_lb:
     jmp     icn_9_β
 icn_7_α:
-    mov     qword [rbp-40], 0
+    mov     qword [rbp-32], 0
     jmp     icn_9_α
 icn_7_β:
-    mov     qword [rbp-40], 1
+    mov     qword [rbp-32], 1
     jmp     icn_9_α
 icon_7_lstore:
     pop     rax
-    mov     [rbp-32], rax
-    cmp     qword [rbp-40], 0
+    mov     [rbp-24], rax
+    cmp     qword [rbp-32], 0
     je      icn_8_α
     jmp     icn_8_β
 icon_7_compute:
     pop     rax
-    mov     rcx, [rbp-32]
+    mov     rcx, [rbp-24]
     sub     rcx, rax
     push    rcx
     jmp     icon_6_store
@@ -141,7 +142,7 @@ icn_6_β:
     jmp     icn_7_β
 icon_6_store:
     pop     rax
-    mov     [rbp-16], rax
+    mov     [rel icn_gvar_i], rax
     jmp     icon_0_top
 icon_4_resume:
     jmp     icn_6_α
@@ -151,7 +152,7 @@ icon_0_top:
 icn_0_α:
     jmp     icn_1_α
 icn_0_β:
-    jmp     icn_downto_done
+    jmp     icn_u_downto_done
     ; VAR n  id=11
 icn_11_α:
     mov     rax, [rbp-8]
@@ -165,26 +166,26 @@ icn_10_β:
     jmp     icn_11_β
 icon_10_store:
     pop     rax
-    mov     [rbp-16], rax
+    mov     [rel icn_gvar_i], rax
     jmp     icn_0_α
-icn_downto:
+icn_u_downto:
     push    rbp
     mov     rbp, rsp
     sub     rsp, 48
     call    icn_pop
     mov     [rbp-8], rax
     jmp     icn_10_α
-icn_downto_ret:
+icn_u_downto_ret:
     add     rsp, 48
     pop     rbp
-    jmp     [rel icn_downto_caller_ret]
-icn_downto_sret:
-    jmp     [rel icn_downto_caller_ret]
-icn_downto_done:
+    jmp     [rel icn_u_downto_caller_ret]
+icn_u_downto_sret:
+    jmp     [rel icn_u_downto_caller_ret]
+icn_u_downto_done:
     mov     byte [rel icn_failed], 1
     add     rsp, 48
     pop     rbp
-    jmp     [rel icn_downto_caller_ret]
+    jmp     [rel icn_u_downto_caller_ret]
 
 ; === procedure main ===
     ; EVERY  id=12
@@ -213,8 +214,8 @@ icn_14_β:
 icon_14_docall:
     mov     byte [rel icn_suspended], 0
     lea     rax, [rel icon_14_after_call]
-    mov     [rel icn_downto_caller_ret], rax
-    jmp     icn_downto
+    mov     [rel icn_u_downto_caller_ret], rax
+    jmp     icn_u_downto
 icon_14_after_call:
     movzx   rax, byte [rel icn_failed]
     test    rax, rax
