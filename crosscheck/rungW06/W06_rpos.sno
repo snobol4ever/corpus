@@ -1,0 +1,14 @@
+* W06_rpos — RPOS(n) asserts cursor is n chars from end
+        subject = 'HELLO'
+        subject 'HELLO' RPOS(0)  :f(e001)
+        OUTPUT = 'PASS W06/001: RPOS(0) at end matched'   :(t002)
+e001    OUTPUT = 'FAIL W06/001: RPOS(0) at end should match'
+t002    subject = 'HELLO'
+        subject 'HEL' RPOS(2)  :f(e002)
+        OUTPUT = 'PASS W06/002: RPOS(2) after HEL matched'  :(t003)
+e002    OUTPUT = 'FAIL W06/002: RPOS(2) after HEL should match'
+t003    subject = 'HELLO'
+        subject RPOS(1) 'LO'  :s(e003)
+        OUTPUT = 'PASS W06/003: RPOS(1) LO correctly fails'  :(END)
+e003    OUTPUT = 'FAIL W06/003: RPOS(1) LO should fail'
+END

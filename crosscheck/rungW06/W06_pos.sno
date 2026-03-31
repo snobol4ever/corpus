@@ -1,0 +1,14 @@
+* W06_pos — POS(n) asserts cursor is at position n
+        subject = 'HELLO'
+        subject POS(0) 'H'  :f(e001)
+        OUTPUT = 'PASS W06/001: POS(0) matched'   :(t002)
+e001    OUTPUT = 'FAIL W06/001: POS(0) should match'
+t002    subject = 'HELLO'
+        subject 'EL' POS(3)  :f(e002)
+        OUTPUT = 'PASS W06/002: POS(3) after EL matched'  :(t003)
+e002    OUTPUT = 'FAIL W06/002: POS(3) after EL should match'
+t003    subject = 'HELLO'
+        subject POS(2) 'H'  :s(e003)
+        OUTPUT = 'PASS W06/003: POS(2) H correctly fails'  :(END)
+e003    OUTPUT = 'FAIL W06/003: POS(2) H should fail'
+END

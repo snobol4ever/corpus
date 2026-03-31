@@ -1,0 +1,3 @@
+PASS W06/001: LEN(3) then DE matched
+PASS W06/002: LEN(0) then full string matched
+PASS W06/003: LEN(5) on 2-char string correctly fails

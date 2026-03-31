@@ -1,0 +1,14 @@
+* W06_len — LEN(n) advances cursor by n characters
+        subject = 'ABCDE'
+        subject LEN(3) 'DE'  :f(e001)
+        OUTPUT = 'PASS W06/001: LEN(3) then DE matched'   :(t002)
+e001    OUTPUT = 'FAIL W06/001: LEN(3) then DE should match'
+t002    subject = 'ABCDE'
+        subject LEN(0) 'ABCDE'  :f(e002)
+        OUTPUT = 'PASS W06/002: LEN(0) then full string matched'  :(t003)
+e002    OUTPUT = 'FAIL W06/002: LEN(0) then full string should match'
+t003    subject = 'AB'
+        subject LEN(5)  :s(e003)
+        OUTPUT = 'PASS W06/003: LEN(5) on 2-char string correctly fails'  :(END)
+e003    OUTPUT = 'FAIL W06/003: LEN(5) on short string should fail'
+END
