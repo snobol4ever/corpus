@@ -1,1 +1,0 @@
-SC-9: FOR loop step expr with nested calls (ADD(i,1)) — step segment not compiled correctly
