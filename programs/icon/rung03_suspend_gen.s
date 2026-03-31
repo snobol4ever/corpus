@@ -194,18 +194,40 @@ icn_u_upto_done:
     ; INT 4  id=15
 icn_15_α:
     push    4
-    jmp     icon_14_sbuiltin
+    jmp     icon_14_push0
 icn_15_β:
     jmp     icn_main_done
+icon_14_push0:
+    pop     rdi
+    call    icn_push
+    jmp     icon_14_docall
 icn_14_α:
     jmp     icn_15_α
 icn_14_β:
-    jmp     icn_15_β
-icon_14_sbuiltin:
-    pop     rdi
-    call    icn_upto
+    ; call β — resume if suspended, fail otherwise
+    movzx   rax, byte [rel icn_suspended]
     test    rax, rax
     jz      icn_main_done
+    mov     byte [rel icn_suspended], 0
+    mov     rbp, [rel icn_suspend_rbp]
+    jmp     [rel icn_suspend_resume]
+icon_14_docall:
+    mov     byte [rel icn_suspended], 0
+    lea     rax, [rel icon_14_after_call]
+    mov     [rel icn_u_upto_caller_ret], rax
+    jmp     icn_u_upto
+icon_14_after_call:
+    movzx   rax, byte [rel icn_failed]
+    test    rax, rax
+    jnz     icn_main_done
+    movzx   rax, byte [rel icn_suspended]
+    test    rax, rax
+    jz      icon_14_returned
+    mov     rax, [rel icn_retval]
+    push    rax
+    jmp     icon_13_call
+icon_14_returned:
+    mov     rax, [rel icn_retval]
     push    rax
     jmp     icon_13_call
 icn_13_α:
