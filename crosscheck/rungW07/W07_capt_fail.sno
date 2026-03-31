@@ -1,0 +1,6 @@
+* W07_capt_fail — capture variable not set when match fails
+        subject = 'HELLO'
+        subject ('WORLD' . cap1)  :s(e001)
+        OUTPUT = 'PASS W07/001: no match, cap1 unchanged'  :(END)
+e001    OUTPUT = 'FAIL W07/001: failed pattern should not branch success'
+END
