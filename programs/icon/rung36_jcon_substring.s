@@ -418,7 +418,7 @@ icn_41_β:
     jmp     icn_42_β
 icon_41_call:
     pop     rdi
-    call    icn_write_int
+    call    icn_write_str
     jmp     icon_38_genb
     ; CALL write  id=43
     ; VAR s  id=44
@@ -434,7 +434,7 @@ icn_43_β:
     jmp     icn_44_β
 icon_43_call:
     pop     rdi
-    call    icn_write_int
+    call    icn_write_str
     jmp     icon_38_genb
 icn_46_α:
     lea     rdi, [rel icn_str_14]
@@ -681,7 +681,7 @@ icn_66_β:
     jmp     icn_67_β
 icon_66_call:
     pop     rdi
-    call    icn_write_int
+    call    icn_write_str
     jmp     icon_63_genb
     ; CALL write  id=68
     ; VAR s  id=69
@@ -697,7 +697,7 @@ icn_68_β:
     jmp     icn_69_β
 icon_68_call:
     pop     rdi
-    call    icn_write_int
+    call    icn_write_str
     jmp     icon_63_genb
 icn_71_α:
     lea     rdi, [rel icn_str_16]

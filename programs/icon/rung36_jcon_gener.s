@@ -853,7 +853,7 @@ icn_82_β:
     jmp     icn_83_β
 icon_82_call:
     pop     rdi
-    call    icn_write_int
+    call    icn_write_str
     jmp     icn_u_check_done
     ; VAR &null  id=87
 icn_87_α:

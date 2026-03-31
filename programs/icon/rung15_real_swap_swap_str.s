@@ -68,7 +68,7 @@ icn_0_β:
     jmp     icn_1_β
 icon_0_call:
     pop     rdi
-    call    icn_write_int
+    call    icn_write_str
     jmp     icn_main_done
     ; CALL write  id=2
     ; VAR a  id=3
@@ -84,7 +84,7 @@ icn_2_β:
     jmp     icn_3_β
 icon_2_call:
     pop     rdi
-    call    icn_write_int
+    call    icn_write_str
     jmp     icn_0_α
 icn_4_α:
     mov     rax, [rel icn_var_a]
