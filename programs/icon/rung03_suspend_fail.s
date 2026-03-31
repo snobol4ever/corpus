@@ -56,12 +56,12 @@ icn_2_β:
 icn_1_α:
     jmp     icn_2_α
 icn_1_β:
-    jmp     icn_positive_ret
+    jmp     icn_u_positive_ret
 icon_1_ret_store:
     pop     rax
     mov     [rel icn_retval], rax
     mov     byte [rel icn_failed], 0
-    jmp     icn_positive_ret
+    jmp     icn_u_positive_ret
     ; GT  id=3
     ; INT 0  id=4
 icn_4_α:
@@ -97,23 +97,23 @@ icon_0_then:
     add     rsp, 8
     jmp     icn_1_α
 icon_0_else:
-    jmp     icn_positive_done
+    jmp     icn_u_positive_done
 icn_0_α:
     jmp     icn_3_α
 icn_0_β:
     jmp     icn_3_β
-icn_positive:
+icn_u_positive:
     push    rbp
     mov     rbp, rsp
     sub     rsp, 32
     call    icn_pop
     mov     [rbp-8], rax
     jmp     icn_0_α
-icn_positive_ret:
+icn_u_positive_ret:
     add     rsp, 32
     pop     rbp
     ret
-icn_positive_done:
+icn_u_positive_done:
     mov     byte [rel icn_failed], 1
     add     rsp, 32
     pop     rbp
@@ -166,7 +166,7 @@ icn_11_α:
 icn_11_β:
     jmp     icon_6_else
 icon_11_docall:
-    call    icn_positive
+    call    icn_u_positive
     movzx   rax, byte [rel icn_failed]
     test    rax, rax
     jnz     icon_6_else
@@ -213,7 +213,7 @@ icn_16_α:
 icn_16_β:
     jmp     icon_13_else
 icon_16_docall:
-    call    icn_positive
+    call    icn_u_positive
     movzx   rax, byte [rel icn_failed]
     test    rax, rax
     jnz     icon_13_else

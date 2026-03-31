@@ -63,12 +63,12 @@ icn_1_β:
 icn_0_α:
     jmp     icn_1_α
 icn_0_β:
-    jmp     icn_palindrome_ret
+    jmp     icn_u_palindrome_ret
 icon_0_ret_store:
     pop     rax
     mov     [rel icn_retval], rax
     mov     byte [rel icn_failed], 0
-    jmp     icn_palindrome_ret
+    jmp     icn_u_palindrome_ret
     ; WHILE  id=2
     ; LT  id=3
     ; VAR j  id=4
@@ -199,12 +199,12 @@ icn_17_β:
 icn_16_α:
     jmp     icn_17_α
 icn_16_β:
-    jmp     icn_palindrome_ret
+    jmp     icn_u_palindrome_ret
 icon_16_ret_store:
     pop     rax
     mov     [rel icn_retval], rax
     mov     byte [rel icn_failed], 0
-    jmp     icn_palindrome_ret
+    jmp     icn_u_palindrome_ret
     ; VAR j  id=20
 icn_20_α:
     mov     rax, [rel icn_gvar_j]
@@ -353,18 +353,18 @@ icon_30_store:
     pop     rax
     mov     [rbp-8], rax
     jmp     icn_28_α
-icn_palindrome:
+icn_u_palindrome:
     push    rbp
     mov     rbp, rsp
     sub     rsp, 80
     call    icn_pop
     mov     [rbp-8], rax
     jmp     icn_30_α
-icn_palindrome_ret:
+icn_u_palindrome_ret:
     add     rsp, 80
     pop     rbp
     ret
-icn_palindrome_done:
+icn_u_palindrome_done:
     mov     byte [rel icn_failed], 1
     add     rsp, 80
     pop     rbp
@@ -387,7 +387,7 @@ icn_33_α:
 icn_33_β:
     jmp     icn_main_done
 icon_33_docall:
-    call    icn_palindrome
+    call    icn_u_palindrome
     movzx   rax, byte [rel icn_failed]
     test    rax, rax
     jnz     icn_main_done
@@ -418,7 +418,7 @@ icn_36_α:
 icn_36_β:
     jmp     icn_32_α
 icon_36_docall:
-    call    icn_palindrome
+    call    icn_u_palindrome
     movzx   rax, byte [rel icn_failed]
     test    rax, rax
     jnz     icn_32_α
@@ -449,7 +449,7 @@ icn_39_α:
 icn_39_β:
     jmp     icn_35_α
 icon_39_docall:
-    call    icn_palindrome
+    call    icn_u_palindrome
     movzx   rax, byte [rel icn_failed]
     test    rax, rax
     jnz     icn_35_α

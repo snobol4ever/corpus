@@ -18,11 +18,15 @@ section .bss
     icn_gvar_rows: resq 1
     icn_cc39_lptr: resq 1
     icn_cc39_rptr: resq 1
+    icn_gvar_line: resq 1
     icn_45_I: resq 1
     icon_45_bound: resq 1
     icon_45_e1cur: resq 1
     icon_45_e2seen: resq 1
+    icn_gvar_col: resq 1
+    icn_gvar_sep: resq 1
     icn_gvar_qcount: resq 1
+    icn_gvar_r: resq 1
     icn_81_I: resq 1
     icon_81_bound: resq 1
     icon_81_e1cur: resq 1
@@ -73,12 +77,12 @@ _start:
 icn_0_α:
     mov     qword [rel icn_retval], 0
     mov     byte [rel icn_failed], 0
-    jmp     icn_safe_ret
+    jmp     icn_u_safe_ret
 icn_0_β:
-    jmp     icn_safe_ret
+    jmp     icn_u_safe_ret
 icn_2_α:
     mov     byte [rel icn_failed], 1
-    jmp     icn_safe_done
+    jmp     icn_u_safe_done
 icn_2_β:
     jmp     icn_0_α
     ; NE  id=3
@@ -199,7 +203,7 @@ icn_1_β:
     jmp     icn_3_β
 icn_13_α:
     mov     byte [rel icn_failed], 1
-    jmp     icn_safe_done
+    jmp     icn_u_safe_done
 icn_13_β:
     jmp     icn_1_α
     ; NE  id=14
@@ -321,7 +325,7 @@ icn_12_β:
     jmp     icn_14_β
 icn_24_α:
     mov     byte [rel icn_failed], 1
-    jmp     icn_safe_done
+    jmp     icn_u_safe_done
 icn_24_β:
     jmp     icn_12_α
     ; NE  id=25
@@ -386,7 +390,7 @@ icn_23_α:
     jmp     icn_25_α
 icn_23_β:
     jmp     icn_25_β
-icn_safe:
+icn_u_safe:
     push    rbp
     mov     rbp, rsp
     sub     rsp, 144
@@ -395,11 +399,11 @@ icn_safe:
     call    icn_pop
     mov     [rbp-8], rax
     jmp     icn_23_α
-icn_safe_ret:
+icn_u_safe_ret:
     add     rsp, 144
     pop     rbp
     ret
-icn_safe_done:
+icn_u_safe_done:
     mov     byte [rel icn_failed], 1
     add     rsp, 144
     pop     rbp
@@ -411,14 +415,14 @@ icn_31_α:
     lea     rdi, [rel icn_str_0]
     jmp     icon_30_call
 icn_31_β:
-    jmp     icn_show_done
+    jmp     icn_u_show_done
 icn_30_α:
     jmp     icn_31_α
 icn_30_β:
     jmp     icn_31_β
 icon_30_call:
     call    icn_write_str
-    jmp     icn_show_done
+    jmp     icn_u_show_done
     ; EVERY  id=32
     ; CALL write  id=34
 icn_35_α:
@@ -469,13 +473,13 @@ icon_39_rrelay:
 icon_39_lb:
     jmp     icn_41_β
 icn_39_α:
-    mov     qword [rbp-32], 0
+    mov     qword [rbp-8], 0
     jmp     icn_41_α
 icn_39_β:
-    mov     qword [rbp-32], 1
+    mov     qword [rbp-8], 1
     jmp     icn_41_α
 icon_39_lstore:
-    cmp     qword [rbp-32], 0
+    cmp     qword [rbp-8], 0
     je      icn_40_α
     jmp     icn_40_β
 icon_39_compute:
@@ -490,7 +494,7 @@ icn_38_β:
     jmp     icn_39_β
 icon_38_store:
     pop     rax
-    mov     [rbp-16], rax
+    mov     [rel icn_gvar_line], rax
     jmp     icon_33_seq_1
 icon_33_seq_1:
     add     rsp, 8
@@ -566,7 +570,7 @@ icn_44_β:
     jmp     icn_45_β
 icon_44_store:
     pop     rax
-    mov     [rbp-24], rax
+    mov     [rel icn_gvar_col], rax
     jmp     icon_32_body
 icon_32_body:
     jmp     icn_33_α
@@ -600,7 +604,7 @@ icn_50_β:
     jmp     icn_51_β
 icon_50_store:
     pop     rax
-    mov     [rbp-8], rax
+    mov     [rel icn_gvar_sep], rax
     jmp     icn_48_α
     ; ADD  id=53
     ; INT 1  id=54
@@ -619,20 +623,20 @@ icn_55_β:
 icon_53_lb:
     jmp     icn_55_β
 icn_53_α:
-    mov     qword [rbp-48], 0
+    mov     qword [rbp-24], 0
     jmp     icn_55_α
 icn_53_β:
-    mov     qword [rbp-48], 1
+    mov     qword [rbp-24], 1
     jmp     icn_55_α
 icon_53_lstore:
     pop     rax
-    mov     [rbp-40], rax
-    cmp     qword [rbp-48], 0
+    mov     [rbp-16], rax
+    cmp     qword [rbp-24], 0
     je      icn_54_α
     jmp     icn_54_β
 icon_53_compute:
     pop     rax
-    mov     rcx, [rbp-40]
+    mov     rcx, [rbp-16]
     add     rcx, rax
     push    rcx
     jmp     icon_52_aug_store
@@ -644,18 +648,18 @@ icon_52_aug_store:
     pop     rax
     mov     [rel icn_gvar_qcount], rax
     jmp     icn_50_α
-icn_show:
+icn_u_show:
     push    rbp
     mov     rbp, rsp
-    sub     rsp, 64
+    sub     rsp, 32
     jmp     icn_52_α
-icn_show_ret:
-    add     rsp, 64
+icn_u_show_ret:
+    add     rsp, 32
     pop     rbp
     ret
-icn_show_done:
+icn_u_show_done:
     mov     byte [rel icn_failed], 1
-    add     rsp, 64
+    add     rsp, 32
     pop     rbp
     ret
 
@@ -724,20 +728,20 @@ icn_68_β:
 icon_66_lb:
     jmp     icn_68_β
 icn_66_α:
-    mov     qword [rbp-32], 0
+    mov     qword [rbp-24], 0
     jmp     icn_68_α
 icn_66_β:
-    mov     qword [rbp-32], 1
+    mov     qword [rbp-24], 1
     jmp     icn_68_α
 icon_66_lstore:
     pop     rax
-    mov     [rbp-24], rax
-    cmp     qword [rbp-32], 0
+    mov     [rbp-16], rax
+    cmp     qword [rbp-24], 0
     je      icn_67_α
     jmp     icn_67_β
 icon_66_compute:
     pop     rax
-    mov     rcx, [rbp-24]
+    mov     rcx, [rbp-16]
     add     rcx, rax
     push    rcx
     jmp     icon_65_push0
@@ -750,7 +754,7 @@ icn_65_α:
 icn_65_β:
     jmp     icon_56_genb
 icon_65_docall:
-    call    icn_try_col
+    call    icn_u_try_col
     movzx   rax, byte [rel icn_failed]
     test    rax, rax
     jnz     icon_56_genb
@@ -810,7 +814,7 @@ icon_58_seq_1:
     jmp     icn_71_α
     ; VAR r  id=76
 icn_76_α:
-    mov     rax, [rbp-16]
+    mov     rax, [rel icn_gvar_r]
     push    rax
     jmp     icon_75_store
 icn_76_β:
@@ -832,7 +836,7 @@ icn_58_β:
     ; CALL safe  id=77
     ; VAR r  id=78
 icn_78_α:
-    mov     rax, [rbp-16]
+    mov     rax, [rel icn_gvar_r]
     push    rax
     jmp     icon_77_push1
 icn_78_β:
@@ -857,7 +861,7 @@ icn_77_α:
 icn_77_β:
     jmp     icon_57_else
 icon_77_docall:
-    call    icn_safe
+    call    icn_u_safe
     movzx   rax, byte [rel icn_failed]
     test    rax, rax
     jnz     icon_57_else
@@ -886,7 +890,7 @@ icn_83_α:
     push    1
     jmp     icn_82_α
 icn_83_β:
-    jmp     icn_try_col_done
+    jmp     icn_u_try_col_done
 icon_81_e1b:
     mov     qword [rel icon_81_e2seen], 0
     jmp     icn_83_β
@@ -924,7 +928,7 @@ icn_80_β:
     jmp     icn_81_β
 icon_80_store:
     pop     rax
-    mov     [rbp-16], rax
+    mov     [rel icn_gvar_r], rax
     jmp     icon_56_body
 icon_56_body:
     jmp     icn_57_α
@@ -933,20 +937,20 @@ icon_56_genb:
 icn_56_α:
     jmp     icn_80_α
 icn_56_β:
-    jmp     icn_try_col_done
+    jmp     icn_u_try_col_done
 icn_86_α:
     mov     qword [rel icn_retval], 0
     mov     byte [rel icn_failed], 0
-    jmp     icn_try_col_ret
+    jmp     icn_u_try_col_ret
 icn_86_β:
-    jmp     icn_try_col_ret
+    jmp     icn_u_try_col_ret
     ; CALL show  id=87
 icn_87_α:
     jmp     icon_87_docall
 icn_87_β:
     jmp     icn_56_α
 icon_87_docall:
-    call    icn_show
+    call    icn_u_show
     movzx   rax, byte [rel icn_failed]
     test    rax, rax
     jnz     icn_56_α
@@ -983,11 +987,11 @@ icn_88_β:
     jmp     icn_89_β
 icon_88_lstore:
     pop     rax
-    mov     [rbp-40], rax
+    mov     [rbp-32], rax
     jmp     icn_89_α
 icon_88_check:
     pop     rcx
-    mov     rax, [rbp-40]
+    mov     rax, [rbp-32]
     cmp     rax, rcx
     jle      icn_89_β
     push    rcx
@@ -1001,18 +1005,18 @@ icn_84_α:
     jmp     icn_88_α
 icn_84_β:
     jmp     icn_88_β
-icn_try_col:
+icn_u_try_col:
     push    rbp
     mov     rbp, rsp
     sub     rsp, 48
     call    icn_pop
     mov     [rbp-8], rax
     jmp     icn_84_α
-icn_try_col_ret:
+icn_u_try_col_ret:
     add     rsp, 48
     pop     rbp
     ret
-icn_try_col_done:
+icn_u_try_col_done:
     mov     byte [rel icn_failed], 1
     add     rsp, 48
     pop     rbp
@@ -1051,7 +1055,7 @@ icn_93_α:
 icn_93_β:
     jmp     icn_91_α
 icon_93_docall:
-    call    icn_try_col
+    call    icn_u_try_col
     movzx   rax, byte [rel icn_failed]
     test    rax, rax
     jnz     icn_91_α

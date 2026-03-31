@@ -83,24 +83,24 @@ icon_1_compute:
 icn_0_α:
     jmp     icn_1_α
 icn_0_β:
-    jmp     icn_double_ret
+    jmp     icn_u_double_ret
 icon_0_ret_store:
     pop     rax
     mov     [rel icn_retval], rax
     mov     byte [rel icn_failed], 0
-    jmp     icn_double_ret
-icn_double:
+    jmp     icn_u_double_ret
+icn_u_double:
     push    rbp
     mov     rbp, rsp
     sub     rsp, 32
     call    icn_pop
     mov     [rbp-8], rax
     jmp     icn_0_α
-icn_double_ret:
+icn_u_double_ret:
     add     rsp, 32
     pop     rbp
     ret
-icn_double_done:
+icn_u_double_done:
     mov     byte [rel icn_failed], 1
     add     rsp, 32
     pop     rbp
@@ -124,7 +124,7 @@ icn_5_α:
 icn_5_β:
     jmp     icn_main_done
 icon_5_docall:
-    call    icn_double
+    call    icn_u_double
     movzx   rax, byte [rel icn_failed]
     test    rax, rax
     jnz     icn_main_done
@@ -156,7 +156,7 @@ icn_8_α:
 icn_8_β:
     jmp     icn_4_α
 icon_8_docall:
-    call    icn_double
+    call    icn_u_double
     movzx   rax, byte [rel icn_failed]
     test    rax, rax
     jnz     icn_4_α
