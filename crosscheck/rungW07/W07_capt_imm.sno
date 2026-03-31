@@ -1,0 +1,10 @@
+* W07_capt_imm — $var captures matched substring immediately
+        subject = 'FOOBAR'
+        subject ('FOO' $ cap1)  :f(e001)
+        OUTPUT = 'PASS W07/001: imm cap=' cap1   :(t002)
+e001    OUTPUT = 'FAIL W07/001: imm capture should match'
+t002    subject = 'FOOBAR'
+        subject ('BAR' $ cap2)  :f(e002)
+        OUTPUT = 'PASS W07/002: imm cap BAR=' cap2   :(END)
+e002    OUTPUT = 'FAIL W07/002: BAR capture should match'
+END

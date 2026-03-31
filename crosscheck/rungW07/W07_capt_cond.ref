@@ -1,0 +1,2 @@
+PASS W07/001: cond cap=HELLO
+PASS W07/002: cond cap correctly fails

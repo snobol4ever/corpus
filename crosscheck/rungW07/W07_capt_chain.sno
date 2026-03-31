@@ -1,0 +1,6 @@
+* W07_capt_chain — multiple captures in one pattern
+        subject = 'ABCDEF'
+        subject (('ABC' . c1) ('DEF' . c2))  :f(e001)
+        OUTPUT = 'PASS W07/001: c1=' c1 ' c2=' c2   :(END)
+e001    OUTPUT = 'FAIL W07/001: chained captures should match'
+END
