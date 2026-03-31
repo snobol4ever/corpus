@@ -1,1 +1,1 @@
-SC-7: FOR loop not yet emitted in emit_x64_snocone.c — scrip-cc hangs
+SC-9: FOR loop step expr with nested calls (ADD(i,1)) — step segment not compiled correctly
