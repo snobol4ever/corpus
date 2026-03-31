@@ -1,0 +1,6 @@
+* W05_span — SPAN('0123456789') matches run of digits
+        subject = '42abc'
+        subject SPAN('0123456789')  :f(e001)
+        OUTPUT = 'PASS W05/003: span matched'   :(END)
+e001    OUTPUT = 'FAIL W05/003: span should match'
+END
