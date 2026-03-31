@@ -1,0 +1,8 @@
+* W03_alt_basic.sno — alternation pattern: first alternative matches
+* Rung W03. E_ALT: ('foo' | 'baz') matches when subject contains 'foo'.
+
+        subject = 'foobar'
+        subject ('foo' | 'baz')  :f(e001)
+        OUTPUT = 'PASS W03/001: alt first branch matched'    :(END)
+e001    OUTPUT = 'FAIL W03/001: alt first branch should match'
+END

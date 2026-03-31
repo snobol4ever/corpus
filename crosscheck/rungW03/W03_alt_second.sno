@@ -1,0 +1,9 @@
+* W03_alt_second.sno — alternation: first alternative fails, second matches
+* Rung W03. E_ALT: 'baz' | 'bar' — subject contains 'bar', not 'baz'.
+
+        subject = 'foobar'
+        pat = 'baz' | 'bar'
+        subject pat              :f(e001)
+        OUTPUT = 'PASS W03/002: alt second branch matched'   :(END)
+e001    OUTPUT = 'FAIL W03/002: alt second branch should match'
+END
