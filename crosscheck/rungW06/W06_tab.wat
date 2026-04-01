@@ -2,7 +2,7 @@
 (module
   ;; Memory imported from runtime module
   (import "sno" "memory" (memory 2))  ;; runtime exports 2 pages; data segment at 65536
-  ;; Runtime function imports
+  ;; Runtime function imports (base set — shared by SNOBOL4 and Icon)
   (import "sno" "sno_output_str"   (func $sno_output_str   (param i32 i32)))
   (import "sno" "sno_output_int"   (func $sno_output_int   (param i64)))
   (import "sno" "sno_output_flush" (func $sno_output_flush (result i32)))
@@ -25,6 +25,26 @@
   (import "sno" "sno_span"         (func $sno_span         (param i32 i32 i32 i32 i32) (result i32)))
   (import "sno" "sno_break"        (func $sno_break        (param i32 i32 i32 i32 i32) (result i32)))
   (import "sno" "sno_breakx"       (func $sno_breakx       (param i32 i32 i32 i32 i32) (result i32)))
+  (import "sno" "sno_arr_alloc"        (func $sno_arr_alloc        (param i32) (result i32)))
+  (import "sno" "sno_array_create"     (func $sno_array_create     (param i32 i32 i32) (result i32)))
+  (import "sno" "sno_array_create2"    (func $sno_array_create2    (param i32 i32 i32 i32) (result i32)))
+  (import "sno" "sno_array_get"        (func $sno_array_get        (param i32 i32) (result i32 i32)))
+  (import "sno" "sno_array_get2"       (func $sno_array_get2       (param i32 i32 i32) (result i32 i32)))
+  (import "sno" "sno_array_set"        (func $sno_array_set        (param i32 i32 i32 i32) (result i32)))
+  (import "sno" "sno_array_set2"       (func $sno_array_set2       (param i32 i32 i32 i32 i32) (result i32)))
+  (import "sno" "sno_array_prototype"  (func $sno_array_prototype  (param i32 i32) (result i32)))
+  (import "sno" "sno_table_create"     (func $sno_table_create     (param i32) (result i32)))
+  (import "sno" "sno_table_get"        (func $sno_table_get        (param i32 i32 i32) (result i32 i32)))
+  (import "sno" "sno_table_set"        (func $sno_table_set        (param i32 i32 i32 i32 i32)))
+  (import "sno" "sno_table_count"      (func $sno_table_count      (param i32) (result i32)))
+  (import "sno" "sno_table_get_bucket" (func $sno_table_get_bucket (param i32 i32) (result i32 i32 i32 i32)))
+  (import "sno" "sno_table_cap"        (func $sno_table_cap        (param i32) (result i32)))
+  (import "sno" "sno_data_define"      (func $sno_data_define      (param i32 i32 i32 i32) (result i32)))
+  (import "sno" "sno_data_new"         (func $sno_data_new         (param i32 i32) (result i32)))
+  (import "sno" "sno_data_get_field"   (func $sno_data_get_field   (param i32 i32) (result i32 i32)))
+  (import "sno" "sno_data_set_field"   (func $sno_data_set_field   (param i32 i32 i32 i32)))
+  (import "sno" "sno_data_typename"    (func $sno_data_typename    (param i32) (result i32 i32)))
+  (import "sno" "sno_handle_type"      (func $sno_handle_type      (param i32) (result i32)))
   ;; String heap pointer: programs use sno_str_alloc from runtime
   ;; (global $str_ptr is internal to runtime; programs use sno_str_alloc)
 
@@ -56,6 +76,11 @@
     (local $pat_ndl_len i32)
     (local $pat_save_cursor i32)
     (local $pat_n i32)
+    (local $pat_before i32)
+    (local $arr_h i32)
+    (local $arr_ok i32)
+    (local $proto_len i32)
+    (local $arr_h2 i32)
     (local.set $pc (i32.const 7)) ;; sentinel: sequential start
     (block $exit
     (loop $dispatch
