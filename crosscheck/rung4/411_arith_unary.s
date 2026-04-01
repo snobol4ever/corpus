@@ -75,7 +75,7 @@ L_e001_0:                   mov         edi, 6
 Ln_2:                       mov         edi, 9
                             call        comm_stno
                             sub         rsp, 32
-                            LOAD_STR    S_4
+                            CALL1_STR   S_pos, S_4
                             STORE_ARG32 0
                             LOAD_INT    4
                             STORE_ARG32 16
@@ -135,3 +135,4 @@ S_PASS_SP_411_arith_unary_SP_LP_2_SL_2_RP db 80, 65, 83, 83, 32, 52, 49, 49, 95,
 S_end                db 101, 110, 100, 0  ; "end"
 S_neg                db 110, 101, 103, 0  ; "neg"
 S_sub                db 115, 117, 98, 0  ; "sub"
+S_pos                db 112, 111, 115, 0  ; "pos"
