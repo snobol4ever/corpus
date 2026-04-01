@@ -385,8 +385,7 @@ L_DONE:
     new java/lang/StringBuilder
     dup
     invokespecial java/lang/StringBuilder/<init>()V
-    ldc "N"
-    invokestatic wordcount/sno_indr_get(Ljava/lang/String;)Ljava/lang/String;
+    ldc ""
     dup
     ifnonnull Lconc_ok_2_0
     pop

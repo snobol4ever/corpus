@@ -365,7 +365,8 @@
 
     // --- DONE ---
   L_DONE:
-    ldsfld     string Wordcount::N
+    // unhandled expr kind — stub
+    ldstr      ""
     ldstr      " words"
     call       string [mscorlib]System.String::Concat(string, string)
     call       void [mscorlib]System.Console::WriteLine(string)

@@ -227,7 +227,7 @@ scan_retry_16:
                             jmp         P_16_α
 
 
-; UNIMPLEMENTED node kind 44 → ω
+; UNIMPLEMENTED node kind 45 → ω
 P_16_α:
 P_16_β:                     jmp         P_16_ω
 

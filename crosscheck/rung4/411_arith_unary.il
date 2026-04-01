@@ -200,7 +200,8 @@
     ldstr      "1"
     call       string [snobol4lib]Snobol4Lib::sno_add(string, string)
     stsfld     string _11_arith_unary::kw_stno
-    ldstr      "4"
+    // unhandled expr kind — stub
+    ldstr      ""
     ldstr      "4"
     call       int32 [snobol4lib]Snobol4Lib::sno_differ(string, string)
     stloc.0

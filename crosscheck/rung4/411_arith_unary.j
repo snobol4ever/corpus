@@ -181,7 +181,7 @@ L_e001:
     iadd
     putstatic _11_arith_unary/sno_kw_STNO I
     invokestatic _11_arith_unary/sno_stcount_tick()V
-    ldc "4"
+    ldc ""
     dup
     ifnonnull Ldiff_n0_1
     pop

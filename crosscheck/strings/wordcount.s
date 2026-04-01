@@ -191,7 +191,17 @@ Ln_6:
 ;  DONE ================================================================================================================
 L_DONE_1:                   mov         edi, 12
                             call        comm_stno
-                            CAT2_VS     S_N, S_SP_words
+                            CALL1_VAR   S___num_pos, S_N
+                            push        rdx
+                            push        rax
+                            LOAD_STR    S_SP_words
+                            mov         rcx, rdx
+                            mov         rdx, rax
+                            pop         rdi
+                            pop         rsi
+                            call        stmt_concat
+                            mov         [rbp-32], rax
+                            mov         [rbp-24], rdx
                             FAIL_BR     Ln_7
                             SET_OUTPUT
                             jmp         Ln_7
@@ -232,3 +242,4 @@ S_OUTPUT             db 79, 85, 84, 80, 85, 84, 0  ; "OUTPUT"
 S_SP_words           db 32, 119, 111, 114, 100, 115, 0  ; " words"
 S_END                db 69, 78, 68, 0  ; "END"
 S_add                db 97, 100, 100, 0  ; "add"
+S___num_pos          db 95, 95, 110, 117, 109, 95, 112, 111, 115, 0  ; "__num_pos"

@@ -422,7 +422,7 @@
   Npat0_retry:
     ldloc.s    V_3
     stloc.s    V_5
-    // STUB: unhandled pattern node kind=44
+    // STUB: unhandled pattern node kind=45
     br         Npat0_tok
   Npat0_fail:
     ldsfld     string Coverage_sno_nodes::kw_anchor
