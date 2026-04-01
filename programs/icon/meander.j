@@ -9,10 +9,10 @@
 .field public static icn_retval_obj Ljava/lang/Object;
 .field public static icn_retval J
 .field public static icn_retval_str Ljava/lang/String;
-.field public static icn_pv_meander_result Ljava/lang/String;
 .field public static icn_gvar_result Ljava/lang/String;
-.field public static icn_pv_meander_c Ljava/lang/String;
+.field public static icn_pv_meander_result Ljava/lang/String;
 .field public static icn_gvar_c Ljava/lang/String;
+.field public static icn_pv_meander_c Ljava/lang/String;
 .field public static icn_pv_main_line Ljava/lang/String;
 .field public static icn_gvar_line Ljava/lang/String;
 .field public static icn_stdin_reader Ljava/lang/Object;
@@ -21,7 +21,7 @@
 .field public static icn_scan_oldpos_3 I
 .field public static icn_subject Ljava/lang/String;
 .field public static icn_pos I
-.field public static icn_pv_main_n J
+.field public static icn_gvar_n J
 .field public static icn_arg_1 J
 .field public static icn_pv_main_alpha J
 .field public static icn_arg_0 J
@@ -833,7 +833,7 @@ icn_4_β:
     goto icn_0_top
 ;  VAR
 icn_8_α:
-    getstatic meander/icn_pv_main_n J
+    getstatic meander/icn_gvar_n J
     goto icn_7_arg1
 icn_8_β:
     goto icn_3_scan_bfail
@@ -854,14 +854,10 @@ icn_7_α:
 icn_7_β:
     goto icn_8_β
 icn_7_docall:
-    getstatic meander/icn_pv_main_n J
-    lstore 152
     getstatic meander/icn_pv_main_alpha J
-    lstore 154
+    lstore 152
     invokestatic meander/icn_meander()V
     lload 152
-    putstatic meander/icn_pv_main_n J
-    lload 154
     putstatic meander/icn_pv_main_alpha J
     getstatic meander/icn_failed B
     ifne icn_7_after_call
@@ -921,12 +917,12 @@ icn_13_int_after:
     astore 149
     aload 149
     invokestatic meander/icn_builtin_parse_long(Ljava/lang/String;)J
-    lstore 6
-    lload 6
+    lstore 4
+    lload 4
     ldc2_w -9223372036854775808
     lcmp
     ifeq icn_13_int_fail
-    lload 6
+    lload 4
     goto icn_12_store
 icn_13_int_fail:
     goto icn_5_else
@@ -1003,7 +999,7 @@ icn_3_scan_beta:
 icn_0_wbstart:
     goto icn_3_α
 icn_0_wbdrain:
-    pop2
+    pop
 icn_0_top:
     goto icn_1_α
 icn_0_α:

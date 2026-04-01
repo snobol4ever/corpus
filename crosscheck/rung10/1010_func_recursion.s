@@ -9,6 +9,7 @@ extern  stmt_get, stmt_set, stmt_output, stmt_input
 extern  stmt_concat, stmt_is_fail, stmt_finish
 extern  stmt_realval, stmt_set_null, stmt_set_indirect
 extern  stmt_apply, stmt_goto_dispatch
+extern  execute_code_dyn
 extern  stmt_setup_subject, stmt_apply_replacement
 extern  stmt_apply_replacement_splice
 extern  stmt_set_capture, stmt_match_var, stmt_match_descr
@@ -620,8 +621,53 @@ fn_fact2_ω:                 FN_ω        P_fact2_ret_ω ; fn ω
 P_fact2_β:                  jmp         [P_fact2_ret_ω] ; fn β — backtrack = fail
 
 section .text
-L_fact2_8:  ; STUB → _SNO_END (dangling or computed goto)
+L_fact2_8:  ; CODE-block dispatch or dangling
 ;  STUB LABELS =========================================================================================================
+                            sub         rsp, 32
+                            lea         rdi, [rel S_fact2]
+                            call        stmt_get
+                            mov         rdi, rax
+                            mov         rsi, rdx
+                            call        execute_code_dyn
+                            test        rax, rax
+                            jz          Lstub_nm_8
+                            cmp         byte [rax], 0
+                            je          Lstub_nm_8
+                            mov         rsi, rax
+                            mov         edi, 1
+                            lea         rdx, [rel Lstub_nt_8]
+                            mov         ecx, 9
+                            call        stmt_goto_dispatch
+                            movsxd      rax, eax
+                            cmp         rax, -1
+                            lea         rsp, [rsp+32]
+                            je          Lstub_nm_8
+                            lea         rdx, [rel Lstub_jt_8]
+                            jmp         [rdx + rax*8]
+section .data
+align 8
+Lstub_jt_8:
+dq  L_fact_end_0
+dq  L_fact_1
+dq  L_e001_2
+dq  L_e002_3
+dq  L_e003_4
+dq  L_fact2_end_5
+dq  L_fact2_entry_6
+dq  L_e004_7
+dq  L_fact2_8
+Lstub_nt_8:
+dq  S_fact_end
+dq  S_fact
+dq  S_e001
+dq  S_e002
+dq  S_e003
+dq  S_fact2_end
+dq  S_fact2_entry
+dq  S_e004
+dq  S_fact2
+section .text
+Lstub_nm_8:
                             GOTO_ALWAYS L_SNO_END
 
 section .rodata

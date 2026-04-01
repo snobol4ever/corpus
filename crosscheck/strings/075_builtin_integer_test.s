@@ -9,6 +9,7 @@ extern  stmt_get, stmt_set, stmt_output, stmt_input
 extern  stmt_concat, stmt_is_fail, stmt_finish
 extern  stmt_realval, stmt_set_null, stmt_set_indirect
 extern  stmt_apply, stmt_goto_dispatch
+extern  execute_code_dyn
 extern  stmt_setup_subject, stmt_apply_replacement
 extern  stmt_apply_replacement_splice
 extern  stmt_set_capture, stmt_match_var, stmt_match_descr
