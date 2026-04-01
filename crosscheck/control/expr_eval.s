@@ -4,6 +4,7 @@
 %include "snobol4_asm.mac"
 global  main
 extern  stmt_init, stmt_strval, stmt_intval
+extern  VARVAL_fn, to_int
 extern  stmt_realval, stmt_set_null, stmt_set_indirect, stmt_get_indirect, stmt_nreturn_deref
 extern  stmt_get, stmt_set, stmt_output, stmt_input
 extern  stmt_concat, stmt_is_fail, stmt_finish
@@ -20,6 +21,14 @@ extern  stmt_breakx_var, stmt_breakx_lit
 extern  stmt_any_var, stmt_notany_var, stmt_any_ptr
 extern  stmt_break_ptr, stmt_span_ptr
 extern  stmt_at_capture
+extern  stmt_exec_dyn
+extern  pat_lit, pat_cat, pat_alt, pat_span, pat_break_
+extern  pat_any_cs, pat_notany, pat_len, pat_pos, pat_rpos
+extern  pat_tab, pat_rtab, pat_arb, pat_arbno, pat_rem
+extern  pat_fence, pat_fence_p, pat_fail, pat_succeed
+extern  pat_abort, pat_bal, pat_ref, pat_ref_val
+extern  pat_assign_imm, pat_assign_cond, pat_epsilon
+extern  pat_at_cursor
 extern  kw_anchor
 extern  stmt_aref, stmt_aset, stmt_field_set
 extern  stmt_aref2, stmt_aset2
@@ -953,59 +962,54 @@ Lf_34:                      GOTO_ALWAYS L_SNO_END     ; END
 ; ======================================================================================================================
 Ln_34:                      mov         edi, 54
                             call        comm_stno
-                            GET_VAR     S_line
-                            SUBJ_FROM16
+                            sub         rsp, 48
+                            lea         rdi, [rel S_line]
+                            xor         esi, esi
+                            mov         [rsp+32], rdi
+                            mov         [rsp+40], rsi
+                            LOAD_INT    0
+                            mov         rdi, [rbp-32]
+                            mov         rsi, [rbp-24]
+                            call        to_int
+                            mov         rdi, rax
+                            call        pat_pos
+                            push        rdx
+                            push        rax
+                            lea         rdi, [rel S_expr]
+                            call        pat_ref
+                            mov         rcx, rdx
+                            mov         rdx, rax
+                            pop         rdi
+                            pop         rsi
+                            call        pat_cat
+                            push        rdx
+                            push        rax
+                            LOAD_INT    0
+                            mov         rdi, [rbp-32]
+                            mov         rsi, [rbp-24]
+                            call        to_int
+                            mov         rdi, rax
+                            call        pat_rpos
+                            mov         rcx, rdx
+                            mov         rdx, rax
+                            pop         rdi
+                            pop         rsi
+                            call        pat_cat
+                            mov         [rsp+16], rax
+                            mov         [rsp+24], rdx
+                            mov         rdi, [rsp+32]
+                            mov         rsi, [rsp+40]
+                            mov         rdx, [rsp+16]
+                            mov         rcx, [rsp+24]
+                            xor         r8d, r8d
+                            mov         r9d, 0
+                            call        stmt_exec_dyn
+                            add         rsp, 48
                             test        eax, eax
-                            jnz         P_35_ω
-                            mov         qword [scan_start_35], 0
-scan_retry_35:
-                            mov         rax, [scan_start_35]
-                            mov         [cursor], rax
-                            jmp         P_35_α
-
-P_35_α:                     jmp         seq_l0_α ; SEQ
-P_35_β:                     jmp         seq_r0_β
-seq_l0_α:                   POS_α       0, cursor, seq_r0_α, P_35_ω ; POS(%ld)
-seq_l0_β:                   POS_β       cursor, P_35_ω
-seq_r0_α:                   jmp         seq_l1_α ; SEQ
-seq_r0_β:                   jmp         seq_r1_β
-
-seq_l1_α: ; REF(expr)
-                            lea         rax, [rel nref2_γ]
-                            mov         [P_expr_ret_γ], rax
-                            lea         rax, [rel nref2_ω]
-                            mov         [P_expr_ret_ω], rax
-                            mov         [nref2_r12], r12
-                            lea         r12, [rel box_expr_data_template]
-                            jmp         P_expr_α
-seq_l1_β:                   lea         rax, [rel nref2_γ] ; REF(%s)
-                            mov         [P_expr_ret_γ], rax
-                            lea         rax, [rel nref2_ω]
-                            mov         [P_expr_ret_ω], rax
-                            mov         [nref2_r12], r12
-                            lea         r12, [rel box_expr_data_template]
-                            jmp         P_expr_β
-
-nref2_γ:
-                            mov         r12, [nref2_r12]
-                            jmp         seq_r1_α
-nref2_ω:                    mov         r12, [nref2_r12]
-                            jmp         seq_l0_β
-seq_r1_α:                   RPOS_α      0, cursor, subject_len_val, P_35_γ, seq_l1_β ; RPOS(%ld)
-seq_r1_β:                   RPOS_β      cursor, seq_l1_β
-
-P_35_γ:                     mov         rax, [cursor]
-                            mov         [scan_start_35], rax
-                            jmp         Ln_35
-P_35_ω:                     cmp         qword [rel kw_anchor], 0
-                            jne         L_error_9
-                            mov         rax, [scan_start_35]
-                            inc         rax
-                            cmp         rax, [subject_len_val]
-                            jg          L_error_9
-                            mov         [scan_start_35], rax
-                            jmp         scan_retry_35
+                            jnz         dyn_done_35
                             jmp         L_error_9
+dyn_done_35:
+                            jmp         Ln_35
 
 ; ======================================================================================================================
 Ln_35:                      mov         edi, 55
@@ -1169,8 +1173,8 @@ P_Binary_β:                 jmp         [P_Binary_ret_ω] ; fn β — backtrack
 ; P_integer_α (α entry) [r12=DATA block]
 ;  integer =============================================================================================================
 P_integer_α:                mov         qword [r12+16], 0
-pat_integer_body:           SPAN_α      lit_str_1, 10, r12+16, cursor, subject_data, subject_len_val, patdef_integer_γ, patdef_integer_ω ; SPAN α
-P_integer_β:                SPAN_β      r12+16, cursor, patdef_integer_ω ; SPAN β
+pat_integer_body:           SPAN_α      lit_str_1, 10, r12+24, cursor, subject_data, subject_len_val, patdef_integer_γ, patdef_integer_ω ; SPAN α
+P_integer_β:                SPAN_β      r12+24, cursor, patdef_integer_ω ; SPAN β
 ;  γ/ω ---------------------------------------------------------------------------------------------------------------
 patdef_integer_γ:           NAMED_PAT_γ P_integer_ret_γ ; named pat γ
 patdef_integer_ω:           NAMED_PAT_ω P_integer_ret_ω ; named pat ω
@@ -1181,12 +1185,12 @@ P_addop_α:                  mov         qword [r12+16], 0
                             mov         qword [r12+24], 0
 
 pat_addop_body: ; DOL(cap $  cap)
-                            DOL_SAVE    r12+16, cursor, dol4_child_α ; DOL α — save entry cursor
-P_addop_β:                  jmp         dol4_child_β ; DOL β
-dol4_child_α:               ANY_α       lit_str_2, 2, r12+24, cursor, subject_data, subject_len_val, dol4_γ, dol4_ω ; ANY α
-dol4_child_β:               ANY_β       r12+24, cursor, dol4_ω ; ANY β
-dol4_γ:                     DOL_CAPTURE r12+16, cursor, cap_cap_buf, cap_cap_len, subject_data, patdef_addop_γ ; DOL γ — capture span
-dol4_ω:                     jmp         patdef_addop_ω ; DOL ω — child failed
+                            DOL_SAVE    r12+16, cursor, dol1_child_α ; DOL α — save entry cursor
+P_addop_β:                  jmp         dol1_child_β ; DOL β
+dol1_child_α:               ANY_α       lit_str_2, 2, r12+32, cursor, subject_data, subject_len_val, dol1_γ, dol1_ω ; ANY α
+dol1_child_β:               ANY_β       r12+32, cursor, dol1_ω ; ANY β
+dol1_γ:                     DOL_CAPTURE r12+16, cursor, cap_cap_buf, cap_cap_len, subject_data, patdef_addop_γ ; DOL γ — capture span
+dol1_ω:                     jmp         patdef_addop_ω ; DOL ω — child failed
 ;  γ/ω ---------------------------------------------------------------------------------------------------------------
 patdef_addop_γ:             NAMED_PAT_γ P_addop_ret_γ ; named pat γ
 patdef_addop_ω:             NAMED_PAT_ω P_addop_ret_ω ; named pat ω
@@ -1197,12 +1201,12 @@ P_mulop_α:                  mov         qword [r12+16], 0
                             mov         qword [r12+24], 0
 
 pat_mulop_body: ; DOL(cap $  cap)
-                            DOL_SAVE    r12+16, cursor, dol6_child_α ; DOL α — save entry cursor
-P_mulop_β:                  jmp         dol6_child_β ; DOL β
-dol6_child_α:               ANY_α       lit_str_3, 2, r12+24, cursor, subject_data, subject_len_val, dol6_γ, dol6_ω ; ANY α
-dol6_child_β:               ANY_β       r12+24, cursor, dol6_ω ; ANY β
-dol6_γ:                     DOL_CAPTURE r12+16, cursor, cap_cap_buf, cap_cap_len, subject_data, patdef_mulop_γ ; DOL γ — capture span
-dol6_ω:                     jmp         patdef_mulop_ω ; DOL ω — child failed
+                            DOL_SAVE    r12+16, cursor, dol3_child_α ; DOL α — save entry cursor
+P_mulop_β:                  jmp         dol3_child_β ; DOL β
+dol3_child_α:               ANY_α       lit_str_3, 2, r12+32, cursor, subject_data, subject_len_val, dol3_γ, dol3_ω ; ANY α
+dol3_child_β:               ANY_β       r12+32, cursor, dol3_ω ; ANY β
+dol3_γ:                     DOL_CAPTURE r12+16, cursor, cap_cap_buf, cap_cap_len, subject_data, patdef_mulop_γ ; DOL γ — capture span
+dol3_ω:                     jmp         patdef_mulop_ω ; DOL ω — child failed
 ;  γ/ω ---------------------------------------------------------------------------------------------------------------
 patdef_mulop_γ:             NAMED_PAT_γ P_mulop_ret_γ ; named pat γ
 patdef_mulop_ω:             NAMED_PAT_ω P_mulop_ret_ω ; named pat ω
@@ -1216,52 +1220,52 @@ P_constant_α:               mov         qword [r12+16], 0
                             mov         qword [r12+48], 0
 
 pat_constant_body: ; DOL(cap $  cap)
-                            DOL_SAVE    r12+16, cursor, dol8_child_α ; DOL α — save entry cursor
-P_constant_β:               jmp         dol8_child_β ; DOL β
-dol8_child_α:               ALT_α       r12+24, cursor, alt_l9_α ; ALT α — save cursor, enter left
-dol8_child_β:               SEQ_β       alt_r9_β ; ALT β — resume right
+                            DOL_SAVE    r12+16, cursor, dol5_child_α ; DOL α — save entry cursor
+P_constant_β:               jmp         dol5_child_β ; DOL β
+dol5_child_α:               ALT_α       r12+56, cursor, alt_l6_α ; ALT α — save cursor, enter left
+dol5_child_β:               SEQ_β       alt_r6_β ; ALT β — resume right
 
 ; E_VAR real → CALL_PAT (runtime DT_P/DT_S dispatch)
-alt_l9_α:                   lea         rdi, [rel S_real]
+alt_l6_α:                   lea         rdi, [rel S_real]
                             call        stmt_get
-                            mov         [r12+32], rax
-                            mov         [r12+40], rdx
+                            mov         [r12+64], rax
+                            mov         [r12+72], rdx
                             mov         rax, [cursor]
-                            mov         [r12+48], rax
-                            mov         rdi, [r12+32]
-                            mov         rsi, [r12+40]
+                            mov         [r12+80], rax
+                            mov         rdi, [r12+64]
+                            mov         rsi, [r12+72]
                             call        stmt_match_descr
                             test        eax, eax
-                            jz          alt9_left_ω
-                            jmp         dol8_γ
-alt_l9_β:                   mov         rax, [r12+48]
+                            jz          alt6_left_ω
+                            jmp         dol5_γ
+alt_l6_β:                   mov         rax, [r12+80]
                             mov         [cursor], rax
-                            jmp         alt9_left_ω
-alt9_left_ω:                ALT_ω       r12+24, cursor, alt_r9_α ; ALT left_ω — restore cursor, enter right
+                            jmp         alt6_left_ω
+alt6_left_ω:                ALT_ω       r12+56, cursor, alt_r6_α ; ALT left_ω — restore cursor, enter right
 
-alt_r9_α: ; REF(integer)
-                            lea         rax, [rel nref11_γ]
+alt_r6_α: ; REF(integer)
+                            lea         rax, [rel nref8_γ]
                             mov         [P_integer_ret_γ], rax
-                            lea         rax, [rel nref11_ω]
+                            lea         rax, [rel nref8_ω]
                             mov         [P_integer_ret_ω], rax
-                            mov         [nref11_r12], r12
+                            mov         [nref8_r12], r12
                             lea         r12, [rel box_integer_data_template]
                             jmp         P_integer_α
-alt_r9_β:                   lea         rax, [rel nref11_γ] ; REF(%s)
+alt_r6_β:                   lea         rax, [rel nref8_γ] ; REF(%s)
                             mov         [P_integer_ret_γ], rax
-                            lea         rax, [rel nref11_ω]
+                            lea         rax, [rel nref8_ω]
                             mov         [P_integer_ret_ω], rax
-                            mov         [nref11_r12], r12
+                            mov         [nref8_r12], r12
                             lea         r12, [rel box_integer_data_template]
                             jmp         P_integer_β
 
-nref11_γ:
-                            mov         r12, [nref11_r12]
-                            jmp         dol8_γ
-nref11_ω:                   mov         r12, [nref11_r12]
-                            jmp         dol8_ω
-dol8_γ:                     DOL_CAPTURE r12+16, cursor, cap_cap_buf, cap_cap_len, subject_data, patdef_constant_γ ; DOL γ — capture span
-dol8_ω:                     jmp         patdef_constant_ω ; DOL ω — child failed
+nref8_γ:
+                            mov         r12, [nref8_r12]
+                            jmp         dol5_γ
+nref8_ω:                    mov         r12, [nref8_r12]
+                            jmp         dol5_ω
+dol5_γ:                     DOL_CAPTURE r12+16, cursor, cap_cap_buf, cap_cap_len, subject_data, patdef_constant_γ ; DOL γ — capture span
+dol5_ω:                     jmp         patdef_constant_ω ; DOL ω — child failed
 ;  γ/ω ---------------------------------------------------------------------------------------------------------------
 patdef_constant_γ:          NAMED_PAT_γ P_constant_ret_γ ; named pat γ
 patdef_constant_ω:          NAMED_PAT_ω P_constant_ret_ω ; named pat ω
@@ -1271,61 +1275,61 @@ patdef_constant_ω:          NAMED_PAT_ω P_constant_ret_ω ; named pat ω
 P_primary_α:                mov         qword [r12+16], 0
                             mov         qword [r12+24], 0
                             mov         qword [r12+32], 0
-pat_primary_body:           ALT_α       r12+16, cursor, alt_l12_α ; ALT α — save cursor, enter left
-P_primary_β:                SEQ_β       alt_r12_β ; ALT β — resume right
+pat_primary_body:           ALT_α       r12+40, cursor, alt_l9_α ; ALT α — save cursor, enter left
+P_primary_β:                SEQ_β       alt_r9_β ; ALT β — resume right
 
-alt_l12_α: ; REF(constant)
-                            lea         rax, [rel nref13_γ]
+alt_l9_α: ; REF(constant)
+                            lea         rax, [rel nref10_γ]
                             mov         [P_constant_ret_γ], rax
-                            lea         rax, [rel nref13_ω]
+                            lea         rax, [rel nref10_ω]
                             mov         [P_constant_ret_ω], rax
-                            mov         [nref13_r12], r12
+                            mov         [nref10_r12], r12
                             lea         r12, [rel box_constant_data_template]
                             jmp         P_constant_α
-alt_l12_β:                  lea         rax, [rel nref13_γ] ; REF(%s)
+alt_l9_β:                   lea         rax, [rel nref10_γ] ; REF(%s)
                             mov         [P_constant_ret_γ], rax
-                            lea         rax, [rel nref13_ω]
+                            lea         rax, [rel nref10_ω]
                             mov         [P_constant_ret_ω], rax
-                            mov         [nref13_r12], r12
+                            mov         [nref10_r12], r12
                             lea         r12, [rel box_constant_data_template]
                             jmp         P_constant_β
 
-nref13_γ:
-                            mov         r12, [nref13_r12]
+nref10_γ:
+                            mov         r12, [nref10_r12]
                             jmp         patdef_primary_γ
-nref13_ω:                   mov         r12, [nref13_r12]
-                            jmp         alt12_left_ω
-alt12_left_ω:               ALT_ω       r12+16, cursor, alt_r12_α ; ALT left_ω — restore cursor, enter right
-alt_r12_α:                  jmp         seq_l14_α ; SEQ
-alt_r12_β:                  jmp         seq_r14_β
-seq_l14_α:                  LIT_α1      40, r12+24, cursor, subject_data, subject_len_val, seq_r14_α, patdef_primary_ω ; LIT α
-seq_l14_β:                  LIT_β       r12+24, cursor, patdef_primary_ω ; LIT β
-seq_r14_α:                  jmp         seq_l15_α ; SEQ
-seq_r14_β:                  jmp         seq_r15_β
+nref10_ω:                   mov         r12, [nref10_r12]
+                            jmp         alt9_left_ω
+alt9_left_ω:                ALT_ω       r12+40, cursor, alt_r9_α ; ALT left_ω — restore cursor, enter right
+alt_r9_α:                   jmp         seq_l11_α ; SEQ
+alt_r9_β:                   jmp         seq_r11_β
+seq_l11_α:                  LIT_α1      40, r12+48, cursor, subject_data, subject_len_val, seq_r11_α, patdef_primary_ω ; LIT α
+seq_l11_β:                  LIT_β       r12+48, cursor, patdef_primary_ω ; LIT β
+seq_r11_α:                  jmp         seq_l12_α ; SEQ
+seq_r11_β:                  jmp         seq_r12_β
 
-seq_l15_α: ; REF(expr)
-                            lea         rax, [rel nref16_γ]
+seq_l12_α: ; REF(expr)
+                            lea         rax, [rel nref13_γ]
                             mov         [P_expr_ret_γ], rax
-                            lea         rax, [rel nref16_ω]
+                            lea         rax, [rel nref13_ω]
                             mov         [P_expr_ret_ω], rax
-                            mov         [nref16_r12], r12
+                            mov         [nref13_r12], r12
                             lea         r12, [rel box_expr_data_template]
                             jmp         P_expr_α
-seq_l15_β:                  lea         rax, [rel nref16_γ] ; REF(%s)
+seq_l12_β:                  lea         rax, [rel nref13_γ] ; REF(%s)
                             mov         [P_expr_ret_γ], rax
-                            lea         rax, [rel nref16_ω]
+                            lea         rax, [rel nref13_ω]
                             mov         [P_expr_ret_ω], rax
-                            mov         [nref16_r12], r12
+                            mov         [nref13_r12], r12
                             lea         r12, [rel box_expr_data_template]
                             jmp         P_expr_β
 
-nref16_γ:
-                            mov         r12, [nref16_r12]
-                            jmp         seq_r15_α
-nref16_ω:                   mov         r12, [nref16_r12]
-                            jmp         seq_l14_β
-seq_r15_α:                  LIT_α1      41, r12+32, cursor, subject_data, subject_len_val, patdef_primary_γ, seq_l15_β ; LIT α
-seq_r15_β:                  LIT_β       r12+32, cursor, seq_l15_β ; LIT β
+nref13_γ:
+                            mov         r12, [nref13_r12]
+                            jmp         seq_r12_α
+nref13_ω:                   mov         r12, [nref13_r12]
+                            jmp         seq_l11_β
+seq_r12_α:                  LIT_α1      41, r12+56, cursor, subject_data, subject_len_val, patdef_primary_γ, seq_l12_β ; LIT α
+seq_r12_β:                  LIT_β       r12+56, cursor, seq_l12_β ; LIT β
 ;  γ/ω ---------------------------------------------------------------------------------------------------------------
 patdef_primary_γ:           NAMED_PAT_γ P_primary_ret_γ ; named pat γ
 patdef_primary_ω:           NAMED_PAT_ω P_primary_ret_ω ; named pat ω
@@ -1334,82 +1338,82 @@ patdef_primary_ω:           NAMED_PAT_ω P_primary_ret_ω ; named pat ω
 ;  factor ==============================================================================================================
 P_factor_α:                 mov         qword [r12+16], 0
                             mov         qword [r12+24], 0
-pat_factor_body:            ALT_α       r12+16, cursor, alt_l17_α ; ALT α — save cursor, enter left
-P_factor_β:                 SEQ_β       alt_r17_β ; ALT β — resume right
-alt_l17_α:                  jmp         seq_l18_α ; SEQ
-alt_l17_β:                  jmp         seq_r18_β
+pat_factor_body:            ALT_α       r12+32, cursor, alt_l14_α ; ALT α — save cursor, enter left
+P_factor_β:                 SEQ_β       alt_r14_β ; ALT β — resume right
+alt_l14_α:                  jmp         seq_l15_α ; SEQ
+alt_l14_β:                  jmp         seq_r15_β
 
-seq_l18_α: ; REF(addop)
-                            lea         rax, [rel nref19_γ]
+seq_l15_α: ; REF(addop)
+                            lea         rax, [rel nref16_γ]
                             mov         [P_addop_ret_γ], rax
-                            lea         rax, [rel nref19_ω]
+                            lea         rax, [rel nref16_ω]
                             mov         [P_addop_ret_ω], rax
-                            mov         [nref19_r12], r12
+                            mov         [nref16_r12], r12
                             lea         r12, [rel box_addop_data_template]
                             jmp         P_addop_α
-seq_l18_β:                  lea         rax, [rel nref19_γ] ; REF(%s)
+seq_l15_β:                  lea         rax, [rel nref16_γ] ; REF(%s)
                             mov         [P_addop_ret_γ], rax
-                            lea         rax, [rel nref19_ω]
+                            lea         rax, [rel nref16_ω]
                             mov         [P_addop_ret_ω], rax
-                            mov         [nref19_r12], r12
+                            mov         [nref16_r12], r12
                             lea         r12, [rel box_addop_data_template]
                             jmp         P_addop_β
 
-nref19_γ:
-                            mov         r12, [nref19_r12]
-                            jmp         seq_r18_α
-nref19_ω:                   mov         r12, [nref19_r12]
-                            jmp         alt17_left_ω
+nref16_γ:
+                            mov         r12, [nref16_r12]
+                            jmp         seq_r15_α
+nref16_ω:                   mov         r12, [nref16_r12]
+                            jmp         alt14_left_ω
 
-seq_r18_α: ; DOL(cap $  cap)
-                            DOL_SAVE    r12+24, cursor, dol20_child_α ; DOL α — save entry cursor
-seq_r18_β:                  jmp         dol20_child_β ; DOL β
+seq_r15_α: ; DOL(cap $  cap)
+                            DOL_SAVE    r12+24, cursor, dol17_child_α ; DOL α — save entry cursor
+seq_r15_β:                  jmp         dol17_child_β ; DOL β
 
-dol20_child_α: ; REF(factor)
-                            lea         rax, [rel nref21_γ]
+dol17_child_α: ; REF(factor)
+                            lea         rax, [rel nref18_γ]
                             mov         [P_factor_ret_γ], rax
-                            lea         rax, [rel nref21_ω]
+                            lea         rax, [rel nref18_ω]
                             mov         [P_factor_ret_ω], rax
-                            mov         [nref21_r12], r12
+                            mov         [nref18_r12], r12
                             lea         r12, [rel box_factor_data_template]
                             jmp         pat_factor_body
-dol20_child_β:              lea         rax, [rel nref21_γ] ; REF(%s)
+dol17_child_β:              lea         rax, [rel nref18_γ] ; REF(%s)
                             mov         [P_factor_ret_γ], rax
-                            lea         rax, [rel nref21_ω]
+                            lea         rax, [rel nref18_ω]
                             mov         [P_factor_ret_ω], rax
-                            mov         [nref21_r12], r12
+                            mov         [nref18_r12], r12
                             lea         r12, [rel box_factor_data_template]
                             jmp         P_factor_β
 
-nref21_γ:
-                            mov         r12, [nref21_r12]
-                            jmp         dol20_γ
-nref21_ω:                   mov         r12, [nref21_r12]
-                            jmp         dol20_ω
-dol20_γ:                    DOL_CAPTURE r12+24, cursor, cap_cap_buf, cap_cap_len, subject_data, patdef_factor_γ ; DOL γ — capture span
-dol20_ω:                    jmp         seq_l18_β ; DOL ω — child failed
-alt17_left_ω:               ALT_ω       r12+16, cursor, alt_r17_α ; ALT left_ω — restore cursor, enter right
+nref18_γ:
+                            mov         r12, [nref18_r12]
+                            jmp         dol17_γ
+nref18_ω:                   mov         r12, [nref18_r12]
+                            jmp         dol17_ω
+dol17_γ:                    DOL_CAPTURE r12+24, cursor, cap_cap_buf, cap_cap_len, subject_data, patdef_factor_γ ; DOL γ — capture span
+dol17_ω:                    jmp         seq_l15_β ; DOL ω — child failed
+alt14_left_ω:               ALT_ω       r12+32, cursor, alt_r14_α ; ALT left_ω — restore cursor, enter right
 
-alt_r17_α: ; REF(primary)
-                            lea         rax, [rel nref22_γ]
+alt_r14_α: ; REF(primary)
+                            lea         rax, [rel nref19_γ]
                             mov         [P_primary_ret_γ], rax
-                            lea         rax, [rel nref22_ω]
+                            lea         rax, [rel nref19_ω]
                             mov         [P_primary_ret_ω], rax
-                            mov         [nref22_r12], r12
+                            mov         [nref19_r12], r12
                             lea         r12, [rel box_primary_data_template]
                             jmp         P_primary_α
-alt_r17_β:                  lea         rax, [rel nref22_γ] ; REF(%s)
+alt_r14_β:                  lea         rax, [rel nref19_γ] ; REF(%s)
                             mov         [P_primary_ret_γ], rax
-                            lea         rax, [rel nref22_ω]
+                            lea         rax, [rel nref19_ω]
                             mov         [P_primary_ret_ω], rax
-                            mov         [nref22_r12], r12
+                            mov         [nref19_r12], r12
                             lea         r12, [rel box_primary_data_template]
                             jmp         P_primary_β
 
-nref22_γ:
-                            mov         r12, [nref22_r12]
+nref19_γ:
+                            mov         r12, [nref19_r12]
                             jmp         patdef_factor_γ
-nref22_ω:                   mov         r12, [nref22_r12]
+nref19_ω:                   mov         r12, [nref19_r12]
                             jmp         patdef_factor_ω
 ;  γ/ω ---------------------------------------------------------------------------------------------------------------
 patdef_factor_γ:            NAMED_PAT_γ P_factor_ret_γ ; named pat γ
@@ -1419,106 +1423,106 @@ patdef_factor_ω:            NAMED_PAT_ω P_factor_ret_ω ; named pat ω
 ;  term ================================================================================================================
 P_term_α:                   mov         qword [r12+16], 0
                             mov         qword [r12+24], 0
-pat_term_body:              ALT_α       r12+16, cursor, alt_l23_α ; ALT α — save cursor, enter left
-P_term_β:                   SEQ_β       alt_r23_β ; ALT β — resume right
-alt_l23_α:                  jmp         seq_l24_α ; SEQ
-alt_l23_β:                  jmp         seq_r24_β
+pat_term_body:              ALT_α       r12+32, cursor, alt_l20_α ; ALT α — save cursor, enter left
+P_term_β:                   SEQ_β       alt_r20_β ; ALT β — resume right
+alt_l20_α:                  jmp         seq_l21_α ; SEQ
+alt_l20_β:                  jmp         seq_r21_β
 
-seq_l24_α: ; REF(factor)
-                            lea         rax, [rel nref25_γ]
+seq_l21_α: ; REF(factor)
+                            lea         rax, [rel nref22_γ]
                             mov         [P_factor_ret_γ], rax
-                            lea         rax, [rel nref25_ω]
+                            lea         rax, [rel nref22_ω]
                             mov         [P_factor_ret_ω], rax
-                            mov         [nref25_r12], r12
+                            mov         [nref22_r12], r12
                             lea         r12, [rel box_factor_data_template]
                             jmp         P_factor_α
-seq_l24_β:                  lea         rax, [rel nref25_γ] ; REF(%s)
+seq_l21_β:                  lea         rax, [rel nref22_γ] ; REF(%s)
                             mov         [P_factor_ret_γ], rax
-                            lea         rax, [rel nref25_ω]
+                            lea         rax, [rel nref22_ω]
                             mov         [P_factor_ret_ω], rax
-                            mov         [nref25_r12], r12
+                            mov         [nref22_r12], r12
                             lea         r12, [rel box_factor_data_template]
                             jmp         P_factor_β
 
-nref25_γ:
-                            mov         r12, [nref25_r12]
-                            jmp         seq_r24_α
-nref25_ω:                   mov         r12, [nref25_r12]
-                            jmp         alt23_left_ω
-seq_r24_α:                  jmp         seq_l26_α ; SEQ
-seq_r24_β:                  jmp         seq_r26_β
+nref22_γ:
+                            mov         r12, [nref22_r12]
+                            jmp         seq_r21_α
+nref22_ω:                   mov         r12, [nref22_r12]
+                            jmp         alt20_left_ω
+seq_r21_α:                  jmp         seq_l23_α ; SEQ
+seq_r21_β:                  jmp         seq_r23_β
 
-seq_l26_α: ; REF(mulop)
-                            lea         rax, [rel nref27_γ]
+seq_l23_α: ; REF(mulop)
+                            lea         rax, [rel nref24_γ]
                             mov         [P_mulop_ret_γ], rax
-                            lea         rax, [rel nref27_ω]
+                            lea         rax, [rel nref24_ω]
                             mov         [P_mulop_ret_ω], rax
-                            mov         [nref27_r12], r12
+                            mov         [nref24_r12], r12
                             lea         r12, [rel box_mulop_data_template]
                             jmp         P_mulop_α
-seq_l26_β:                  lea         rax, [rel nref27_γ] ; REF(%s)
+seq_l23_β:                  lea         rax, [rel nref24_γ] ; REF(%s)
                             mov         [P_mulop_ret_γ], rax
-                            lea         rax, [rel nref27_ω]
+                            lea         rax, [rel nref24_ω]
                             mov         [P_mulop_ret_ω], rax
-                            mov         [nref27_r12], r12
+                            mov         [nref24_r12], r12
                             lea         r12, [rel box_mulop_data_template]
                             jmp         P_mulop_β
 
-nref27_γ:
-                            mov         r12, [nref27_r12]
-                            jmp         seq_r26_α
-nref27_ω:                   mov         r12, [nref27_r12]
-                            jmp         seq_l24_β
+nref24_γ:
+                            mov         r12, [nref24_r12]
+                            jmp         seq_r23_α
+nref24_ω:                   mov         r12, [nref24_r12]
+                            jmp         seq_l21_β
 
-seq_r26_α: ; DOL(cap $  cap)
-                            DOL_SAVE    r12+24, cursor, dol28_child_α ; DOL α — save entry cursor
-seq_r26_β:                  jmp         dol28_child_β ; DOL β
+seq_r23_α: ; DOL(cap $  cap)
+                            DOL_SAVE    r12+24, cursor, dol25_child_α ; DOL α — save entry cursor
+seq_r23_β:                  jmp         dol25_child_β ; DOL β
 
-dol28_child_α: ; REF(term)
-                            lea         rax, [rel nref29_γ]
+dol25_child_α: ; REF(term)
+                            lea         rax, [rel nref26_γ]
                             mov         [P_term_ret_γ], rax
-                            lea         rax, [rel nref29_ω]
+                            lea         rax, [rel nref26_ω]
                             mov         [P_term_ret_ω], rax
-                            mov         [nref29_r12], r12
+                            mov         [nref26_r12], r12
                             lea         r12, [rel box_term_data_template]
                             jmp         pat_term_body
-dol28_child_β:              lea         rax, [rel nref29_γ] ; REF(%s)
+dol25_child_β:              lea         rax, [rel nref26_γ] ; REF(%s)
                             mov         [P_term_ret_γ], rax
-                            lea         rax, [rel nref29_ω]
+                            lea         rax, [rel nref26_ω]
                             mov         [P_term_ret_ω], rax
-                            mov         [nref29_r12], r12
+                            mov         [nref26_r12], r12
                             lea         r12, [rel box_term_data_template]
                             jmp         P_term_β
 
-nref29_γ:
-                            mov         r12, [nref29_r12]
-                            jmp         dol28_γ
-nref29_ω:                   mov         r12, [nref29_r12]
-                            jmp         dol28_ω
-dol28_γ:                    DOL_CAPTURE r12+24, cursor, cap_cap_buf, cap_cap_len, subject_data, patdef_term_γ ; DOL γ — capture span
-dol28_ω:                    jmp         seq_l26_β ; DOL ω — child failed
-alt23_left_ω:               ALT_ω       r12+16, cursor, alt_r23_α ; ALT left_ω — restore cursor, enter right
+nref26_γ:
+                            mov         r12, [nref26_r12]
+                            jmp         dol25_γ
+nref26_ω:                   mov         r12, [nref26_r12]
+                            jmp         dol25_ω
+dol25_γ:                    DOL_CAPTURE r12+24, cursor, cap_cap_buf, cap_cap_len, subject_data, patdef_term_γ ; DOL γ — capture span
+dol25_ω:                    jmp         seq_l23_β ; DOL ω — child failed
+alt20_left_ω:               ALT_ω       r12+32, cursor, alt_r20_α ; ALT left_ω — restore cursor, enter right
 
-alt_r23_α: ; REF(factor)
-                            lea         rax, [rel nref30_γ]
+alt_r20_α: ; REF(factor)
+                            lea         rax, [rel nref27_γ]
                             mov         [P_factor_ret_γ], rax
-                            lea         rax, [rel nref30_ω]
+                            lea         rax, [rel nref27_ω]
                             mov         [P_factor_ret_ω], rax
-                            mov         [nref30_r12], r12
+                            mov         [nref27_r12], r12
                             lea         r12, [rel box_factor_data_template]
                             jmp         P_factor_α
-alt_r23_β:                  lea         rax, [rel nref30_γ] ; REF(%s)
+alt_r20_β:                  lea         rax, [rel nref27_γ] ; REF(%s)
                             mov         [P_factor_ret_γ], rax
-                            lea         rax, [rel nref30_ω]
+                            lea         rax, [rel nref27_ω]
                             mov         [P_factor_ret_ω], rax
-                            mov         [nref30_r12], r12
+                            mov         [nref27_r12], r12
                             lea         r12, [rel box_factor_data_template]
                             jmp         P_factor_β
 
-nref30_γ:
-                            mov         r12, [nref30_r12]
+nref27_γ:
+                            mov         r12, [nref27_r12]
                             jmp         patdef_term_γ
-nref30_ω:                   mov         r12, [nref30_r12]
+nref27_ω:                   mov         r12, [nref27_r12]
                             jmp         patdef_term_ω
 ;  γ/ω ---------------------------------------------------------------------------------------------------------------
 patdef_term_γ:              NAMED_PAT_γ P_term_ret_γ ; named pat γ
@@ -1528,106 +1532,106 @@ patdef_term_ω:              NAMED_PAT_ω P_term_ret_ω ; named pat ω
 ;  expr ================================================================================================================
 P_expr_α:                   mov         qword [r12+16], 0
                             mov         qword [r12+24], 0
-pat_expr_body:              ALT_α       r12+16, cursor, alt_l31_α ; ALT α — save cursor, enter left
-P_expr_β:                   SEQ_β       alt_r31_β ; ALT β — resume right
-alt_l31_α:                  jmp         seq_l32_α ; SEQ
-alt_l31_β:                  jmp         seq_r32_β
+pat_expr_body:              ALT_α       r12+32, cursor, alt_l28_α ; ALT α — save cursor, enter left
+P_expr_β:                   SEQ_β       alt_r28_β ; ALT β — resume right
+alt_l28_α:                  jmp         seq_l29_α ; SEQ
+alt_l28_β:                  jmp         seq_r29_β
 
-seq_l32_α: ; REF(term)
-                            lea         rax, [rel nref33_γ]
+seq_l29_α: ; REF(term)
+                            lea         rax, [rel nref30_γ]
                             mov         [P_term_ret_γ], rax
-                            lea         rax, [rel nref33_ω]
+                            lea         rax, [rel nref30_ω]
                             mov         [P_term_ret_ω], rax
-                            mov         [nref33_r12], r12
+                            mov         [nref30_r12], r12
                             lea         r12, [rel box_term_data_template]
                             jmp         P_term_α
-seq_l32_β:                  lea         rax, [rel nref33_γ] ; REF(%s)
+seq_l29_β:                  lea         rax, [rel nref30_γ] ; REF(%s)
                             mov         [P_term_ret_γ], rax
-                            lea         rax, [rel nref33_ω]
+                            lea         rax, [rel nref30_ω]
                             mov         [P_term_ret_ω], rax
-                            mov         [nref33_r12], r12
+                            mov         [nref30_r12], r12
                             lea         r12, [rel box_term_data_template]
                             jmp         P_term_β
 
-nref33_γ:
-                            mov         r12, [nref33_r12]
-                            jmp         seq_r32_α
-nref33_ω:                   mov         r12, [nref33_r12]
-                            jmp         alt31_left_ω
-seq_r32_α:                  jmp         seq_l34_α ; SEQ
-seq_r32_β:                  jmp         seq_r34_β
+nref30_γ:
+                            mov         r12, [nref30_r12]
+                            jmp         seq_r29_α
+nref30_ω:                   mov         r12, [nref30_r12]
+                            jmp         alt28_left_ω
+seq_r29_α:                  jmp         seq_l31_α ; SEQ
+seq_r29_β:                  jmp         seq_r31_β
 
-seq_l34_α: ; REF(addop)
-                            lea         rax, [rel nref35_γ]
+seq_l31_α: ; REF(addop)
+                            lea         rax, [rel nref32_γ]
                             mov         [P_addop_ret_γ], rax
-                            lea         rax, [rel nref35_ω]
+                            lea         rax, [rel nref32_ω]
                             mov         [P_addop_ret_ω], rax
-                            mov         [nref35_r12], r12
+                            mov         [nref32_r12], r12
                             lea         r12, [rel box_addop_data_template]
                             jmp         P_addop_α
-seq_l34_β:                  lea         rax, [rel nref35_γ] ; REF(%s)
+seq_l31_β:                  lea         rax, [rel nref32_γ] ; REF(%s)
                             mov         [P_addop_ret_γ], rax
-                            lea         rax, [rel nref35_ω]
+                            lea         rax, [rel nref32_ω]
                             mov         [P_addop_ret_ω], rax
-                            mov         [nref35_r12], r12
+                            mov         [nref32_r12], r12
                             lea         r12, [rel box_addop_data_template]
                             jmp         P_addop_β
 
-nref35_γ:
-                            mov         r12, [nref35_r12]
-                            jmp         seq_r34_α
-nref35_ω:                   mov         r12, [nref35_r12]
-                            jmp         seq_l32_β
+nref32_γ:
+                            mov         r12, [nref32_r12]
+                            jmp         seq_r31_α
+nref32_ω:                   mov         r12, [nref32_r12]
+                            jmp         seq_l29_β
 
-seq_r34_α: ; DOL(cap $  cap)
-                            DOL_SAVE    r12+24, cursor, dol36_child_α ; DOL α — save entry cursor
-seq_r34_β:                  jmp         dol36_child_β ; DOL β
+seq_r31_α: ; DOL(cap $  cap)
+                            DOL_SAVE    r12+24, cursor, dol33_child_α ; DOL α — save entry cursor
+seq_r31_β:                  jmp         dol33_child_β ; DOL β
 
-dol36_child_α: ; REF(expr)
-                            lea         rax, [rel nref37_γ]
+dol33_child_α: ; REF(expr)
+                            lea         rax, [rel nref34_γ]
                             mov         [P_expr_ret_γ], rax
-                            lea         rax, [rel nref37_ω]
+                            lea         rax, [rel nref34_ω]
                             mov         [P_expr_ret_ω], rax
-                            mov         [nref37_r12], r12
+                            mov         [nref34_r12], r12
                             lea         r12, [rel box_expr_data_template]
                             jmp         pat_expr_body
-dol36_child_β:              lea         rax, [rel nref37_γ] ; REF(%s)
+dol33_child_β:              lea         rax, [rel nref34_γ] ; REF(%s)
                             mov         [P_expr_ret_γ], rax
-                            lea         rax, [rel nref37_ω]
+                            lea         rax, [rel nref34_ω]
                             mov         [P_expr_ret_ω], rax
-                            mov         [nref37_r12], r12
+                            mov         [nref34_r12], r12
                             lea         r12, [rel box_expr_data_template]
                             jmp         P_expr_β
 
-nref37_γ:
-                            mov         r12, [nref37_r12]
-                            jmp         dol36_γ
-nref37_ω:                   mov         r12, [nref37_r12]
-                            jmp         dol36_ω
-dol36_γ:                    DOL_CAPTURE r12+24, cursor, cap_cap_buf, cap_cap_len, subject_data, patdef_expr_γ ; DOL γ — capture span
-dol36_ω:                    jmp         seq_l34_β ; DOL ω — child failed
-alt31_left_ω:               ALT_ω       r12+16, cursor, alt_r31_α ; ALT left_ω — restore cursor, enter right
+nref34_γ:
+                            mov         r12, [nref34_r12]
+                            jmp         dol33_γ
+nref34_ω:                   mov         r12, [nref34_r12]
+                            jmp         dol33_ω
+dol33_γ:                    DOL_CAPTURE r12+24, cursor, cap_cap_buf, cap_cap_len, subject_data, patdef_expr_γ ; DOL γ — capture span
+dol33_ω:                    jmp         seq_l31_β ; DOL ω — child failed
+alt28_left_ω:               ALT_ω       r12+32, cursor, alt_r28_α ; ALT left_ω — restore cursor, enter right
 
-alt_r31_α: ; REF(term)
-                            lea         rax, [rel nref38_γ]
+alt_r28_α: ; REF(term)
+                            lea         rax, [rel nref35_γ]
                             mov         [P_term_ret_γ], rax
-                            lea         rax, [rel nref38_ω]
+                            lea         rax, [rel nref35_ω]
                             mov         [P_term_ret_ω], rax
-                            mov         [nref38_r12], r12
+                            mov         [nref35_r12], r12
                             lea         r12, [rel box_term_data_template]
                             jmp         P_term_α
-alt_r31_β:                  lea         rax, [rel nref38_γ] ; REF(%s)
+alt_r28_β:                  lea         rax, [rel nref35_γ] ; REF(%s)
                             mov         [P_term_ret_γ], rax
-                            lea         rax, [rel nref38_ω]
+                            lea         rax, [rel nref35_ω]
                             mov         [P_term_ret_ω], rax
-                            mov         [nref38_r12], r12
+                            mov         [nref35_r12], r12
                             lea         r12, [rel box_term_data_template]
                             jmp         P_term_β
 
-nref38_γ:
-                            mov         r12, [nref38_r12]
+nref35_γ:
+                            mov         r12, [nref35_r12]
                             jmp         patdef_expr_γ
-nref38_ω:                   mov         r12, [nref38_r12]
+nref35_ω:                   mov         r12, [nref35_r12]
                             jmp         patdef_expr_ω
 ;  γ/ω ---------------------------------------------------------------------------------------------------------------
 patdef_expr_γ:              NAMED_PAT_γ P_expr_ret_γ ; named pat γ
@@ -1771,36 +1775,39 @@ dq 0  ; [r12+56] = fn_Binary_tmp3_p
 global  box_integer_data_template, box_integer_data_size
 section .data
                             align       8
-box_integer_data_size: dq 24
+box_integer_data_size: dq 32
 box_integer_data_template:
 dq 0  ; [r12+0] = P_integer_ret_γ
 dq 0  ; [r12+8] = P_integer_ret_ω
 dq 0  ; [r12+16] = span3_saved
+dq 0  ; [r12+24] = span0_saved
 
 global  box_addop_data_template, box_addop_data_size
 section .data
                             align       8
-box_addop_data_size: dq 32
+box_addop_data_size: dq 40
 box_addop_data_template:
 dq 0  ; [r12+0] = P_addop_ret_γ
 dq 0  ; [r12+8] = P_addop_ret_ω
 dq 0  ; [r12+16] = dol_entry_cap
 dq 0  ; [r12+24] = any5_saved
+dq 0  ; [r12+32] = any2_saved
 
 global  box_mulop_data_template, box_mulop_data_size
 section .data
                             align       8
-box_mulop_data_size: dq 32
+box_mulop_data_size: dq 40
 box_mulop_data_template:
 dq 0  ; [r12+0] = P_mulop_ret_γ
 dq 0  ; [r12+8] = P_mulop_ret_ω
 dq 0  ; [r12+16] = dol_entry_cap
 dq 0  ; [r12+24] = any7_saved
+dq 0  ; [r12+32] = any4_saved
 
 global  box_constant_data_template, box_constant_data_size
 section .data
                             align       8
-box_constant_data_size: dq 56
+box_constant_data_size: dq 88
 box_constant_data_template:
 dq 0  ; [r12+0] = P_constant_ret_γ
 dq 0  ; [r12+8] = P_constant_ret_ω
@@ -1809,47 +1816,57 @@ dq 0  ; [r12+24] = alt9_cur_save
 dq 0  ; [r12+32] = rpat10_t
 dq 0  ; [r12+40] = rpat10_p
 dq 0  ; [r12+48] = rpat10_s
+dq 0  ; [r12+56] = alt6_cur_save
+dq 0  ; [r12+64] = rpat7_t
+dq 0  ; [r12+72] = rpat7_p
+dq 0  ; [r12+80] = rpat7_s
 
 global  box_primary_data_template, box_primary_data_size
 section .data
                             align       8
-box_primary_data_size: dq 40
+box_primary_data_size: dq 64
 box_primary_data_template:
 dq 0  ; [r12+0] = P_primary_ret_γ
 dq 0  ; [r12+8] = P_primary_ret_ω
 dq 0  ; [r12+16] = alt12_cur_save
 dq 0  ; [r12+24] = seq_l14_α_saved
 dq 0  ; [r12+32] = seq_r15_α_saved
+dq 0  ; [r12+40] = alt9_cur_save
+dq 0  ; [r12+48] = seq_l11_α_saved
+dq 0  ; [r12+56] = seq_r12_α_saved
 
 global  box_factor_data_template, box_factor_data_size
 section .data
                             align       8
-box_factor_data_size: dq 32
+box_factor_data_size: dq 40
 box_factor_data_template:
 dq 0  ; [r12+0] = P_factor_ret_γ
 dq 0  ; [r12+8] = P_factor_ret_ω
 dq 0  ; [r12+16] = alt17_cur_save
 dq 0  ; [r12+24] = dol_entry_cap
+dq 0  ; [r12+32] = alt14_cur_save
 
 global  box_term_data_template, box_term_data_size
 section .data
                             align       8
-box_term_data_size: dq 32
+box_term_data_size: dq 40
 box_term_data_template:
 dq 0  ; [r12+0] = P_term_ret_γ
 dq 0  ; [r12+8] = P_term_ret_ω
 dq 0  ; [r12+16] = alt23_cur_save
 dq 0  ; [r12+24] = dol_entry_cap
+dq 0  ; [r12+32] = alt20_cur_save
 
 global  box_expr_data_template, box_expr_data_size
 section .data
                             align       8
-box_expr_data_size: dq 32
+box_expr_data_size: dq 40
 box_expr_data_template:
 dq 0  ; [r12+0] = P_expr_ret_γ
 dq 0  ; [r12+8] = P_expr_ret_ω
 dq 0  ; [r12+16] = alt31_cur_save
 dq 0  ; [r12+24] = dol_entry_cap
+dq 0  ; [r12+32] = alt28_cur_save
 
 
 section .data

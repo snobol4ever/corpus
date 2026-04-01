@@ -4,6 +4,7 @@
 %include "snobol4_asm.mac"
 global  main
 extern  stmt_init, stmt_strval, stmt_intval
+extern  VARVAL_fn, to_int
 extern  stmt_realval, stmt_set_null, stmt_set_indirect, stmt_get_indirect, stmt_nreturn_deref
 extern  stmt_get, stmt_set, stmt_output, stmt_input
 extern  stmt_concat, stmt_is_fail, stmt_finish
@@ -20,6 +21,14 @@ extern  stmt_breakx_var, stmt_breakx_lit
 extern  stmt_any_var, stmt_notany_var, stmt_any_ptr
 extern  stmt_break_ptr, stmt_span_ptr
 extern  stmt_at_capture
+extern  stmt_exec_dyn
+extern  pat_lit, pat_cat, pat_alt, pat_span, pat_break_
+extern  pat_any_cs, pat_notany, pat_len, pat_pos, pat_rpos
+extern  pat_tab, pat_rtab, pat_arb, pat_arbno, pat_rem
+extern  pat_fence, pat_fence_p, pat_fail, pat_succeed
+extern  pat_abort, pat_bal, pat_ref, pat_ref_val
+extern  pat_assign_imm, pat_assign_cond, pat_epsilon
+extern  pat_at_cursor
 extern  kw_anchor
 extern  stmt_aref, stmt_aset, stmt_field_set
 extern  stmt_aref2, stmt_aset2
@@ -136,47 +145,30 @@ Ln_4:
 ;  NEXTW ===============================================================================================================
 L_NEXTW_2:                  mov         edi, 10
                             call        comm_stno
-                            GET_VAR     S_LINE
-                            SUBJ_FROM16
+                            sub         rsp, 48
+                            lea         rdi, [rel S_LINE]
+                            xor         esi, esi
+                            mov         [rsp+32], rdi
+                            mov         [rsp+40], rsi
+                            lea         rdi, [rel S_WPAT]
+                            call        pat_ref
+                            mov         [rsp+16], rax
+                            mov         [rsp+24], rdx
+                            mov         rdi, [rsp+32]
+                            mov         rsi, [rsp+40]
+                            mov         rdx, [rsp+16]
+                            mov         rcx, [rsp+24]
+                            mov         qword [rsp+0], 0
+                            mov         qword [rsp+8], 0
+                            lea         r8, [rsp+0]
+                            mov         r9d, 1
+                            call        stmt_exec_dyn
+                            add         rsp, 48
                             test        eax, eax
-                            jnz         P_5_ω
-                            mov         qword [scan_start_5], 0
-scan_retry_5:
-                            mov         rax, [scan_start_5]
-                            mov         [cursor], rax
-                            jmp         P_5_α
-
-
-; E_VAR WPAT → CALL_PAT (runtime DT_P/DT_S dispatch)
-P_5_α:                      lea         rdi, [rel S_WPAT]
-                            call        stmt_get
-                            mov         [rpat0_t], rax
-                            mov         [rpat0_p], rdx
-                            mov         rax, [cursor]
-                            mov         [rpat0_s], rax
-                            mov         rdi, [rpat0_t]
-                            mov         rsi, [rpat0_p]
-                            call        stmt_match_descr
-                            test        eax, eax
-                            jz          P_5_ω
-                            jmp         P_5_γ
-P_5_β:                      mov         rax, [rpat0_s]
-                            mov         [cursor], rax
-                            jmp         P_5_ω
-
-P_5_γ:                      mov         qword [rbp-32], 1
-                            mov         qword [rbp-24], 0
-                            APPLY_REPL_SPLICE S_LINE, scan_start_5
-                            jmp         Ln_5
-P_5_ω:                      cmp         qword [rel kw_anchor], 0
-                            jne         L_NEXTL_0
-                            mov         rax, [scan_start_5]
-                            inc         rax
-                            cmp         rax, [subject_len_val]
-                            jg          L_NEXTL_0
-                            mov         [scan_start_5], rax
-                            jmp         scan_retry_5
+                            jnz         dyn_done_5
                             jmp         L_NEXTL_0
+dyn_done_5:
+                            jmp         Ln_5
 
 ; ======================================================================================================================
 Ln_5:                       mov         edi, 11

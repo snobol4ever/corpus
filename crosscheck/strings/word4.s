@@ -4,6 +4,7 @@
 %include "snobol4_asm.mac"
 global  main
 extern  stmt_init, stmt_strval, stmt_intval
+extern  VARVAL_fn, to_int
 extern  stmt_realval, stmt_set_null, stmt_set_indirect, stmt_get_indirect, stmt_nreturn_deref
 extern  stmt_get, stmt_set, stmt_output, stmt_input
 extern  stmt_concat, stmt_is_fail, stmt_finish
@@ -20,6 +21,14 @@ extern  stmt_breakx_var, stmt_breakx_lit
 extern  stmt_any_var, stmt_notany_var, stmt_any_ptr
 extern  stmt_break_ptr, stmt_span_ptr
 extern  stmt_at_capture
+extern  stmt_exec_dyn
+extern  pat_lit, pat_cat, pat_alt, pat_span, pat_break_
+extern  pat_any_cs, pat_notany, pat_len, pat_pos, pat_rpos
+extern  pat_tab, pat_rtab, pat_arb, pat_arbno, pat_rem
+extern  pat_fence, pat_fence_p, pat_fail, pat_succeed
+extern  pat_abort, pat_bal, pat_ref, pat_ref_val
+extern  pat_assign_imm, pat_assign_cond, pat_epsilon
+extern  pat_at_cursor
 extern  kw_anchor
 extern  stmt_aref, stmt_aset, stmt_field_set
 extern  stmt_aref2, stmt_aset2
@@ -78,54 +87,28 @@ Lf_1:                       GOTO_ALWAYS L_SNO_END     ; END
 ; ======================================================================================================================
 Ln_1:                       mov         edi, 11
                             call        comm_stno
-                            GET_VAR     S_LINE
-                            SUBJ_FROM16
+                            sub         rsp, 48
+                            lea         rdi, [rel S_LINE]
+                            xor         esi, esi
+                            mov         [rsp+32], rdi
+                            mov         [rsp+40], rsi
+                            lea         rdi, [rel S_PAT]
+                            call        pat_ref
+                            mov         [rsp+16], rax
+                            mov         [rsp+24], rdx
+                            mov         rdi, [rsp+32]
+                            mov         rsi, [rsp+40]
+                            mov         rdx, [rsp+16]
+                            mov         rcx, [rsp+24]
+                            xor         r8d, r8d
+                            mov         r9d, 0
+                            call        stmt_exec_dyn
+                            add         rsp, 48
                             test        eax, eax
-                            jnz         P_2_ω
-                            mov         qword [scan_start_2], 0
-scan_retry_2:
-                            mov         rax, [scan_start_2]
-                            mov         [cursor], rax
-                            jmp         P_2_α
-
-
-P_2_α: ; REF(PAT)
-                            lea         rax, [rel nref0_γ]
-                            mov         [P_PAT_ret_γ], rax
-                            lea         rax, [rel nref0_ω]
-                            mov         [P_PAT_ret_ω], rax
-                            mov         [nref0_r12], r12
-                            lea         r12, [rel box_PAT_data_template]
-                            jmp         P_PAT_α
-P_2_β:                      lea         rax, [rel nref0_γ] ; REF(%s)
-                            mov         [P_PAT_ret_γ], rax
-                            lea         rax, [rel nref0_ω]
-                            mov         [P_PAT_ret_ω], rax
-                            mov         [nref0_r12], r12
-                            lea         r12, [rel box_PAT_data_template]
-                            jmp         P_PAT_β
-
-nref0_γ:
-                            mov         r12, [nref0_r12]
-                            jmp         P_2_γ
-nref0_ω:                    mov         r12, [nref0_r12]
-                            jmp         P_2_ω
-
-P_2_γ:                      mov         rax, [cursor]
-                            mov         [scan_start_2], rax
-                            SET_CAPTURE S_WHEN, cap_WHEN_buf, cap_WHEN_len
-                            SET_CAPTURE S_WHO, cap_WHO_buf, cap_WHO_len
-                            SET_CAPTURE S_WHAT, cap_WHAT_buf, cap_WHAT_len
-                            jmp         Ln_2
-P_2_ω:                      cmp         qword [rel kw_anchor], 0
-                            jne         L_LOOP_0
-                            mov         rax, [scan_start_2]
-                            inc         rax
-                            cmp         rax, [subject_len_val]
-                            jg          L_LOOP_0
-                            mov         [scan_start_2], rax
-                            jmp         scan_retry_2
+                            jnz         dyn_done_2
                             jmp         L_LOOP_0
+dyn_done_2:
+                            jmp         Ln_2
 
 ; ======================================================================================================================
 Ln_2:                       mov         edi, 12
@@ -204,54 +187,54 @@ P_PAT_α:                    mov         qword [r12+16], 0
                             mov         qword [r12+72], 0
                             mov         qword [r12+80], 0
                             mov         qword [r12+88], 0
-pat_PAT_body:               jmp         seq_l1_α ; SEQ
-P_PAT_β:                    jmp         seq_r1_β
-seq_l1_α:                   POS_α       0, cursor, seq_r1_α, patdef_PAT_ω ; POS(%ld)
-seq_l1_β:                   POS_β       cursor, patdef_PAT_ω
-seq_r1_α:                   jmp         seq_l2_α ; SEQ
-seq_r1_β:                   jmp         seq_r2_β
+pat_PAT_body:               jmp         seq_l0_α ; SEQ
+P_PAT_β:                    jmp         seq_r0_β
+seq_l0_α:                   POS_α       0, cursor, seq_r0_α, patdef_PAT_ω ; POS(%ld)
+seq_l0_β:                   POS_β       cursor, patdef_PAT_ω
+seq_r0_α:                   jmp         seq_l1_α ; SEQ
+seq_r0_β:                   jmp         seq_r1_β
 
-seq_l2_α: ; DOL(WHEN $  WHEN)
-                            DOL_SAVE    r12+16, cursor, dol3_child_α ; DOL α — save entry cursor
-seq_l2_β:                   jmp         dol3_child_β ; DOL β
-dol3_child_α:               BREAK_α     lit_str_1, 1, r12+24, cursor, subject_data, subject_len_val, dol3_γ, dol3_ω ; BREAK α
-dol3_child_β:               BREAK_β     r12+24, cursor, dol3_ω ; BREAK β
-dol3_γ:                     DOL_CAPTURE r12+16, cursor, cap_WHEN_buf, cap_WHEN_len, subject_data, seq_r2_α ; DOL γ — capture span
-dol3_ω:                     jmp         seq_l1_β ; DOL ω — child failed
-seq_r2_α:                   jmp         seq_l5_α ; SEQ
-seq_r2_β:                   jmp         seq_r5_β
-seq_l5_α:                   jmp         seq_l6_α ; SEQ
-seq_l5_β:                   jmp         seq_r6_β
-seq_l6_α:                   LIT_α1      32, r12+32, cursor, subject_data, subject_len_val, seq_r6_α, seq_l2_β ; LIT α
-seq_l6_β:                   LIT_β       r12+32, cursor, seq_l2_β ; LIT β
-seq_r6_α:                   SPAN_α      lit_str_1, 1, r12+40, cursor, subject_data, subject_len_val, seq_r5_α, seq_l6_β ; SPAN α
-seq_r6_β:                   SPAN_β      r12+40, cursor, seq_l6_β ; SPAN β
-seq_r5_α:                   jmp         seq_l8_α ; SEQ
-seq_r5_β:                   jmp         seq_r8_β
+seq_l1_α: ; DOL(WHEN $  WHEN)
+                            DOL_SAVE    r12+16, cursor, dol2_child_α ; DOL α — save entry cursor
+seq_l1_β:                   jmp         dol2_child_β ; DOL β
+dol2_child_α:               BREAK_α     lit_str_1, 1, r12+96, cursor, subject_data, subject_len_val, dol2_γ, dol2_ω ; BREAK α
+dol2_child_β:               BREAK_β     r12+96, cursor, dol2_ω ; BREAK β
+dol2_γ:                     DOL_CAPTURE r12+16, cursor, cap_WHEN_buf, cap_WHEN_len, subject_data, seq_r1_α ; DOL γ — capture span
+dol2_ω:                     jmp         seq_l0_β ; DOL ω — child failed
+seq_r1_α:                   jmp         seq_l4_α ; SEQ
+seq_r1_β:                   jmp         seq_r4_β
+seq_l4_α:                   jmp         seq_l5_α ; SEQ
+seq_l4_β:                   jmp         seq_r5_β
+seq_l5_α:                   LIT_α1      32, r12+104, cursor, subject_data, subject_len_val, seq_r5_α, seq_l1_β ; LIT α
+seq_l5_β:                   LIT_β       r12+104, cursor, seq_l1_β ; LIT β
+seq_r5_α:                   SPAN_α      lit_str_1, 1, r12+112, cursor, subject_data, subject_len_val, seq_r4_α, seq_l5_β ; SPAN α
+seq_r5_β:                   SPAN_β      r12+112, cursor, seq_l5_β ; SPAN β
+seq_r4_α:                   jmp         seq_l7_α ; SEQ
+seq_r4_β:                   jmp         seq_r7_β
 
-seq_l8_α: ; DOL(WHO $  WHO)
-                            DOL_SAVE    r12+48, cursor, dol9_child_α ; DOL α — save entry cursor
-seq_l8_β:                   jmp         dol9_child_β ; DOL β
-dol9_child_α:               BREAKX_α_LIT lit_str_1, r12+56, cursor, subject_data, subject_len_val, dol9_γ, dol9_ω ; BREAKX(lit) α
-dol9_child_β:               BREAKX_β_LIT r12+56, cursor, dol9_ω ; BREAKX(lit) β
-dol9_γ:                     DOL_CAPTURE r12+48, cursor, cap_WHO_buf, cap_WHO_len, subject_data, seq_r8_α ; DOL γ — capture span
-dol9_ω:                     jmp         seq_l5_β ; DOL ω — child failed
-seq_r8_α:                   jmp         seq_l11_α ; SEQ
-seq_r8_β:                   jmp         seq_r11_β
-seq_l11_α:                  jmp         seq_l12_α ; SEQ
-seq_l11_β:                  jmp         seq_r12_β
-seq_l12_α:                  LIT_α1      32, r12+64, cursor, subject_data, subject_len_val, seq_r12_α, seq_l8_β ; LIT α
-seq_l12_β:                  LIT_β       r12+64, cursor, seq_l8_β ; LIT β
-seq_r12_α:                  SPAN_α      lit_str_2, 2, r12+72, cursor, subject_data, subject_len_val, seq_r11_α, seq_l12_β ; SPAN α
-seq_r12_β:                  SPAN_β      r12+72, cursor, seq_l12_β ; SPAN β
+seq_l7_α: ; DOL(WHO $  WHO)
+                            DOL_SAVE    r12+48, cursor, dol8_child_α ; DOL α — save entry cursor
+seq_l7_β:                   jmp         dol8_child_β ; DOL β
+dol8_child_α:               BREAKX_α_LIT lit_str_1, r12+120, cursor, subject_data, subject_len_val, dol8_γ, dol8_ω ; BREAKX(lit) α
+dol8_child_β:               BREAKX_β_LIT r12+120, cursor, dol8_ω ; BREAKX(lit) β
+dol8_γ:                     DOL_CAPTURE r12+48, cursor, cap_WHO_buf, cap_WHO_len, subject_data, seq_r7_α ; DOL γ — capture span
+dol8_ω:                     jmp         seq_l4_β ; DOL ω — child failed
+seq_r7_α:                   jmp         seq_l10_α ; SEQ
+seq_r7_β:                   jmp         seq_r10_β
+seq_l10_α:                  jmp         seq_l11_α ; SEQ
+seq_l10_β:                  jmp         seq_r11_β
+seq_l11_α:                  LIT_α1      32, r12+128, cursor, subject_data, subject_len_val, seq_r11_α, seq_l7_β ; LIT α
+seq_l11_β:                  LIT_β       r12+128, cursor, seq_l7_β ; LIT β
+seq_r11_α:                  SPAN_α      lit_str_2, 2, r12+136, cursor, subject_data, subject_len_val, seq_r10_α, seq_l11_β ; SPAN α
+seq_r11_β:                  SPAN_β      r12+136, cursor, seq_l11_β ; SPAN β
 
-seq_r11_α: ; DOL(WHAT $  WHAT)
-                            DOL_SAVE    r12+80, cursor, dol14_child_α ; DOL α — save entry cursor
-seq_r11_β:                  jmp         dol14_child_β ; DOL β
-dol14_child_α:              REM_α       r12+88, cursor, subject_len_val, dol14_γ ; REM
-dol14_child_β:              REM_β       r12+88, cursor, dol14_ω ; REM β
-dol14_γ:                    DOL_CAPTURE r12+80, cursor, cap_WHAT_buf, cap_WHAT_len, subject_data, patdef_PAT_γ ; DOL γ — capture span
-dol14_ω:                    jmp         seq_l11_β ; DOL ω — child failed
+seq_r10_α: ; DOL(WHAT $  WHAT)
+                            DOL_SAVE    r12+80, cursor, dol13_child_α ; DOL α — save entry cursor
+seq_r10_β:                  jmp         dol13_child_β ; DOL β
+dol13_child_α:              REM_α       r12+144, cursor, subject_len_val, dol13_γ ; REM
+dol13_child_β:              REM_β       r12+144, cursor, dol13_ω ; REM β
+dol13_γ:                    DOL_CAPTURE r12+80, cursor, cap_WHAT_buf, cap_WHAT_len, subject_data, patdef_PAT_γ ; DOL γ — capture span
+dol13_ω:                    jmp         seq_l10_β ; DOL ω — child failed
 ;  γ/ω ---------------------------------------------------------------------------------------------------------------
 patdef_PAT_γ:               NAMED_PAT_γ P_PAT_ret_γ ; named pat γ
 patdef_PAT_ω:               NAMED_PAT_ω P_PAT_ret_ω ; named pat ω
@@ -272,7 +255,7 @@ global  box_PAT_data_template, box_PAT_data_size
 section .data
 ;  BOX DATA TEMPLATES ==================================================================================================
                             align       8
-box_PAT_data_size: dq 96
+box_PAT_data_size: dq 152
 box_PAT_data_template:
 dq 0  ; [r12+0] = P_PAT_ret_γ
 dq 0  ; [r12+8] = P_PAT_ret_ω
@@ -286,6 +269,13 @@ dq 0  ; [r12+64] = seq_l12_α_saved
 dq 0  ; [r12+72] = span13_saved
 dq 0  ; [r12+80] = dol_entry_WHAT
 dq 0  ; [r12+88] = rem15_saved
+dq 0  ; [r12+96] = brk3_saved
+dq 0  ; [r12+104] = seq_l5_α_saved
+dq 0  ; [r12+112] = span6_saved
+dq 0  ; [r12+120] = brkx9_saved
+dq 0  ; [r12+128] = seq_l11_α_saved
+dq 0  ; [r12+136] = span12_saved
+dq 0  ; [r12+144] = rem14_saved
 
 
 section .data

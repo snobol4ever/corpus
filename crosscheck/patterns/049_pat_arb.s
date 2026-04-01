@@ -4,6 +4,7 @@
 %include "snobol4_asm.mac"
 global  main
 extern  stmt_init, stmt_strval, stmt_intval
+extern  VARVAL_fn, to_int
 extern  stmt_realval, stmt_set_null, stmt_set_indirect, stmt_get_indirect, stmt_nreturn_deref
 extern  stmt_get, stmt_set, stmt_output, stmt_input
 extern  stmt_concat, stmt_is_fail, stmt_finish
@@ -20,6 +21,14 @@ extern  stmt_breakx_var, stmt_breakx_lit
 extern  stmt_any_var, stmt_notany_var, stmt_any_ptr
 extern  stmt_break_ptr, stmt_span_ptr
 extern  stmt_at_capture
+extern  stmt_exec_dyn
+extern  pat_lit, pat_cat, pat_alt, pat_span, pat_break_
+extern  pat_any_cs, pat_notany, pat_len, pat_pos, pat_rpos
+extern  pat_tab, pat_rtab, pat_arb, pat_arbno, pat_rem
+extern  pat_fence, pat_fence_p, pat_fail, pat_succeed
+extern  pat_abort, pat_bal, pat_ref, pat_ref_val
+extern  pat_assign_imm, pat_assign_cond, pat_epsilon
+extern  pat_at_cursor
 extern  kw_anchor
 extern  stmt_aref, stmt_aset, stmt_field_set
 extern  stmt_aref2, stmt_aset2
@@ -58,42 +67,47 @@ main:
 ; ======================================================================================================================
 Ln_0:                       mov         edi, 3
                             call        comm_stno
-                            GET_VAR     S_X
-                            SUBJ_FROM16
+                            sub         rsp, 48
+                            lea         rdi, [rel S_X]
+                            xor         esi, esi
+                            mov         [rsp+32], rdi
+                            mov         [rsp+40], rsi
+                            call        pat_arb
+                            push        rdx
+                            push        rax
+                            mov         rdx, 1
+                            lea         rcx, [rel S_V]
+                            pop         rdi
+                            pop         rsi
+                            call        pat_assign_cond
+                            push        rdx
+                            push        rax
+                            LOAD_INT    1
+                            mov         rdi, [rbp-32]
+                            mov         rsi, [rbp-24]
+                            call        to_int
+                            mov         rdi, rax
+                            call        pat_len
+                            mov         rcx, rdx
+                            mov         rdx, rax
+                            pop         rdi
+                            pop         rsi
+                            call        pat_cat
+                            mov         [rsp+16], rax
+                            mov         [rsp+24], rdx
+                            mov         rdi, [rsp+32]
+                            mov         rsi, [rsp+40]
+                            mov         rdx, [rsp+16]
+                            mov         rcx, [rsp+24]
+                            xor         r8d, r8d
+                            mov         r9d, 0
+                            call        stmt_exec_dyn
+                            add         rsp, 48
                             test        eax, eax
-                            jnz         P_1_ω
-                            mov         qword [scan_start_1], 0
-scan_retry_1:
-                            mov         rax, [scan_start_1]
-                            mov         [cursor], rax
-                            jmp         P_1_α
-
-P_1_α:                      jmp         seq_l0_α ; SEQ
-P_1_β:                      jmp         seq_r0_β
-
-seq_l0_α: ; DOL(V $  V)
-                            DOL_SAVE    dol_entry_V, cursor, dol1_child_α ; DOL α — save entry cursor
-seq_l0_β:                   jmp         dol1_child_β ; DOL β
-dol1_child_α:               ARB_α       arb2_start, arb2_step, cursor, dol1_γ ; ARB α
-dol1_child_β:               ARB_β       arb2_start, arb2_step, cursor, subject_len_val, dol1_γ, dol1_ω ; ARB β
-dol1_γ:                     DOL_CAPTURE dol_entry_V, cursor, cap_V_buf, cap_V_len, subject_data, seq_r0_α ; DOL γ — capture span
-dol1_ω:                     jmp         P_1_ω ; DOL ω — child failed
-seq_r0_α:                   LEN_α       1, len3_saved, cursor, subject_len_val, P_1_γ, seq_l0_β ; LEN(%ld)
-seq_r0_β:                   LEN_β       len3_saved, cursor, seq_l0_β ; LEN β
-
-P_1_γ:                      mov         rax, [cursor]
-                            mov         [scan_start_1], rax
-                            SET_CAPTURE S_V, cap_V_buf, cap_V_len
-                            jmp         L_YES_0
-P_1_ω:                      cmp         qword [rel kw_anchor], 0
-                            jne         Ln_1
-                            mov         rax, [scan_start_1]
-                            inc         rax
-                            cmp         rax, [subject_len_val]
-                            jg          Ln_1
-                            mov         [scan_start_1], rax
-                            jmp         scan_retry_1
+                            jnz         dyn_done_1
                             jmp         Ln_1
+dyn_done_1:
+                            jmp         L_YES_0
 
 ; ======================================================================================================================
 Ln_1:                       mov         edi, 4

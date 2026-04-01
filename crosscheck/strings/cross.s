@@ -4,6 +4,7 @@
 %include "snobol4_asm.mac"
 global  main
 extern  stmt_init, stmt_strval, stmt_intval
+extern  VARVAL_fn, to_int
 extern  stmt_realval, stmt_set_null, stmt_set_indirect, stmt_get_indirect, stmt_nreturn_deref
 extern  stmt_get, stmt_set, stmt_output, stmt_input
 extern  stmt_concat, stmt_is_fail, stmt_finish
@@ -20,6 +21,14 @@ extern  stmt_breakx_var, stmt_breakx_lit
 extern  stmt_any_var, stmt_notany_var, stmt_any_ptr
 extern  stmt_break_ptr, stmt_span_ptr
 extern  stmt_at_capture
+extern  stmt_exec_dyn
+extern  pat_lit, pat_cat, pat_alt, pat_span, pat_break_
+extern  pat_any_cs, pat_notany, pat_len, pat_pos, pat_rpos
+extern  pat_tab, pat_rtab, pat_arb, pat_arbno, pat_rem
+extern  pat_fence, pat_fence_p, pat_fail, pat_succeed
+extern  pat_abort, pat_bal, pat_ref, pat_ref_val
+extern  pat_assign_imm, pat_assign_cond, pat_epsilon
+extern  pat_at_cursor
 extern  kw_anchor
 extern  stmt_aref, stmt_aset, stmt_field_set
 extern  stmt_aref2, stmt_aset2
@@ -104,42 +113,60 @@ Ln_3:
 ;  NEXTH ===============================================================================================================
 L_NEXTH_1:                  mov         edi, 10
                             call        comm_stno
-                            GET_VAR     S_HC
-                            SUBJ_FROM16
-                            test        eax, eax
-                            jnz         P_4_ω
-                            mov         qword [scan_start_4], 0
-scan_retry_4:
-                            mov         rax, [scan_start_4]
-                            mov         [cursor], rax
-                            jmp         P_4_α
-
-P_4_α:                      jmp         seq_l0_α ; SEQ
-P_4_β:                      jmp         seq_r0_β
-seq_l0_α:                   AT_α        S_NH, cursor, seq_r0_α, P_4_ω ; @VAR α
-seq_l0_β:                   AT_β        P_4_ω ; @VAR β
-
-seq_r0_α: ; DOL(CROSS $  CROSS)
-                            DOL_SAVE    dol_entry_CROSS, cursor, dol1_child_α ; DOL α — save entry cursor
-seq_r0_β:                   jmp         dol1_child_β ; DOL β
-dol1_child_α:               ANY_α_VAR   S_V, any2_saved, cursor, subject_data, subject_len_val, dol1_γ, dol1_ω ; ANY(var) α
-dol1_child_β:               ANY_β_VAR   any2_saved, cursor, dol1_ω ; ANY(var) β
-dol1_γ:                     DOL_CAPTURE dol_entry_CROSS, cursor, cap_CROSS_buf, cap_CROSS_len, subject_data, P_4_γ ; DOL γ — capture span
-dol1_ω:                     jmp         seq_l0_β ; DOL ω — child failed
-
-P_4_γ:                      SET_CAPTURE S_CROSS, cap_CROSS_buf, cap_CROSS_len
+                            sub         rsp, 48
+                            lea         rdi, [rel S_HC]
+                            xor         esi, esi
+                            mov         [rsp+32], rdi
+                            mov         [rsp+40], rsi
+                            lea         rdi, [rel S_NH]
+                            call        pat_at_cursor
+                            push        rdx
+                            push        rax
+                            lea         rdi, [rel S_V]
+                            call        stmt_get
+                            mov         [rbp-32], rax
+                            mov         [rbp-24], rdx
+                            mov         rdi, [rbp-32]
+                            mov         rsi, [rbp-24]
+                            call        VARVAL_fn
+                            mov         rdi, rax
+                            call        pat_any_cs
+                            push        rdx
+                            push        rax
+                            mov         rdx, 1
+                            lea         rcx, [rel S_CROSS]
+                            pop         rdi
+                            pop         rsi
+                            call        pat_assign_cond
+                            mov         rcx, rdx
+                            mov         rdx, rax
+                            pop         rdi
+                            pop         rsi
+                            call        pat_cat
+                            mov         [rsp+16], rax
+                            mov         [rsp+24], rdx
+                            mov         rdi, [rsp+32]
+                            mov         rsi, [rsp+40]
+                            push        rdi
+                            push        rsi
                             LOAD_STR    S_ST
-                            APPLY_REPL_SPLICE S_HC, scan_start_4
-                            jmp         Ln_4
-P_4_ω:                      cmp         qword [rel kw_anchor], 0
-                            jne         L_AGAIN_0
-                            mov         rax, [scan_start_4]
-                            inc         rax
-                            cmp         rax, [subject_len_val]
-                            jg          L_AGAIN_0
-                            mov         [scan_start_4], rax
-                            jmp         scan_retry_4
+                            mov         [rbp-16], rax
+                            mov         [rbp-8],  rdx
+                            mov         [rsp+16], rax
+                            mov         [rsp+24], rdx
+                            pop         rsi
+                            pop         rdi
+                            mov         rdx, [rsp+16]
+                            mov         rcx, [rsp+24]
+                            lea         r8, [rsp+0]
+                            mov         r9d, 1
+                            call        stmt_exec_dyn
+                            add         rsp, 48
+                            test        eax, eax
+                            jnz         dyn_done_4
                             jmp         L_AGAIN_0
+dyn_done_4:
+                            jmp         Ln_4
 
 ; ======================================================================================================================
 Ln_4:                       mov         edi, 11
@@ -156,50 +183,46 @@ Ln_5:
 ;  NEXTV ===============================================================================================================
 L_NEXTV_2:                  mov         edi, 12
                             call        comm_stno
-                            GET_VAR     S_VC
-                            SUBJ_FROM16
+                            sub         rsp, 48
+                            lea         rdi, [rel S_VC]
+                            xor         esi, esi
+                            mov         [rsp+32], rdi
+                            mov         [rsp+40], rsi
+                            lea         rdi, [rel S_NV]
+                            call        pat_at_cursor
+                            push        rdx
+                            push        rax
+                            lea         rdi, [rel S_CROSS]
+                            call        pat_ref
+                            mov         rcx, rdx
+                            mov         rdx, rax
+                            pop         rdi
+                            pop         rsi
+                            call        pat_cat
+                            mov         [rsp+16], rax
+                            mov         [rsp+24], rdx
+                            mov         rdi, [rsp+32]
+                            mov         rsi, [rsp+40]
+                            push        rdi
+                            push        rsi
+                            LOAD_STR    S_HS
+                            mov         [rbp-16], rax
+                            mov         [rbp-8],  rdx
+                            mov         [rsp+16], rax
+                            mov         [rsp+24], rdx
+                            pop         rsi
+                            pop         rdi
+                            mov         rdx, [rsp+16]
+                            mov         rcx, [rsp+24]
+                            lea         r8, [rsp+0]
+                            mov         r9d, 1
+                            call        stmt_exec_dyn
+                            add         rsp, 48
                             test        eax, eax
-                            jnz         P_6_ω
-                            mov         qword [scan_start_6], 0
-scan_retry_6:
-                            mov         rax, [scan_start_6]
-                            mov         [cursor], rax
-                            jmp         P_6_α
-
-P_6_α:                      jmp         seq_l3_α ; SEQ
-P_6_β:                      jmp         seq_r3_β
-seq_l3_α:                   AT_α        S_NV, cursor, seq_r3_α, P_6_ω ; @VAR α
-seq_l3_β:                   AT_β        P_6_ω ; @VAR β
-
-; E_VAR CROSS → CALL_PAT (runtime DT_P/DT_S dispatch)
-seq_r3_α:                   lea         rdi, [rel S_CROSS]
-                            call        stmt_get
-                            mov         [rpat4_t], rax
-                            mov         [rpat4_p], rdx
-                            mov         rax, [cursor]
-                            mov         [rpat4_s], rax
-                            mov         rdi, [rpat4_t]
-                            mov         rsi, [rpat4_p]
-                            call        stmt_match_descr
-                            test        eax, eax
-                            jz          seq_l3_β
-                            jmp         P_6_γ
-seq_r3_β:                   mov         rax, [rpat4_s]
-                            mov         [cursor], rax
-                            jmp         seq_l3_β
-
-P_6_γ:                      LOAD_STR    S_HS
-                            APPLY_REPL_SPLICE S_VC, scan_start_6
-                            jmp         Ln_6
-P_6_ω:                      cmp         qword [rel kw_anchor], 0
-                            jne         L_NEXTH_1
-                            mov         rax, [scan_start_6]
-                            inc         rax
-                            cmp         rax, [subject_len_val]
-                            jg          L_NEXTH_1
-                            mov         [scan_start_6], rax
-                            jmp         scan_retry_6
+                            jnz         dyn_done_6
                             jmp         L_NEXTH_1
+dyn_done_6:
+                            jmp         Ln_6
 
 ; ======================================================================================================================
 Ln_6:                       mov         edi, 13
@@ -222,73 +245,97 @@ Ln_7:                       mov         edi, 14
 ; ======================================================================================================================
 Ln_8:                       mov         edi, 15
                             call        comm_stno
-                            GET_VAR     S_PRINTV
-                            SUBJ_FROM16
+                            sub         rsp, 48
+                            lea         rdi, [rel S_PRINTV]
+                            xor         esi, esi
+                            mov         [rsp+32], rdi
+                            mov         [rsp+40], rsi
+                            lea         rdi, [rel S_NV]
+                            call        stmt_get
+                            mov         [rbp-32], rax
+                            mov         [rbp-24], rdx
+                            mov         rdi, [rbp-32]
+                            mov         rsi, [rbp-24]
+                            call        to_int
+                            mov         rdi, rax
+                            call        pat_pos
+                            push        rdx
+                            push        rax
+                            LOAD_INT    1
+                            mov         rdi, [rbp-32]
+                            mov         rsi, [rbp-24]
+                            call        to_int
+                            mov         rdi, rax
+                            call        pat_len
+                            mov         rcx, rdx
+                            mov         rdx, rax
+                            pop         rdi
+                            pop         rsi
+                            call        pat_cat
+                            mov         [rsp+16], rax
+                            mov         [rsp+24], rdx
+                            mov         rdi, [rsp+32]
+                            mov         rsi, [rsp+40]
+                            push        rdi
+                            push        rsi
+                            LOAD_STR    S_HS
+                            mov         [rbp-16], rax
+                            mov         [rbp-8],  rdx
+                            mov         [rsp+16], rax
+                            mov         [rsp+24], rdx
+                            pop         rsi
+                            pop         rdi
+                            mov         rdx, [rsp+16]
+                            mov         rcx, [rsp+24]
+                            lea         r8, [rsp+0]
+                            mov         r9d, 1
+                            call        stmt_exec_dyn
+                            add         rsp, 48
                             test        eax, eax
-                            jnz         P_9_ω
-                            mov         qword [scan_start_9], 0
-scan_retry_9:
-                            mov         rax, [scan_start_9]
-                            mov         [cursor], rax
-                            jmp         P_9_α
-
-P_9_α:                      jmp         seq_l5_α ; SEQ
-P_9_β:                      jmp         seq_r5_β
-seq_l5_α:                   POS_α_VAR   S_NV, cursor, seq_r5_α, P_9_ω ; POS(var)
-seq_l5_β:                   POS_β       cursor, P_9_ω
-seq_r5_α:                   LEN_α       1, len6_saved, cursor, subject_len_val, P_9_γ, seq_l5_β ; LEN(%ld)
-seq_r5_β:                   LEN_β       len6_saved, cursor, seq_l5_β ; LEN β
-
-P_9_γ:                      LOAD_STR    S_HS
-                            APPLY_REPL_SPLICE S_PRINTV, scan_start_9
+                            jnz         dyn_done_9
                             jmp         Ln_9
-P_9_ω:                      cmp         qword [rel kw_anchor], 0
-                            jne         Ln_9
-                            mov         rax, [scan_start_9]
-                            inc         rax
-                            cmp         rax, [subject_len_val]
-                            jg          Ln_9
-                            mov         [scan_start_9], rax
-                            jmp         scan_retry_9
+dyn_done_9:
                             jmp         Ln_9
 
 Ln_9:
 ;  PRINT ===============================================================================================================
 L_PRINT_3:                  mov         edi, 16
                             call        comm_stno
-                            GET_VAR     S_PRINTV
-                            SUBJ_FROM16
+                            sub         rsp, 48
+                            lea         rdi, [rel S_PRINTV]
+                            xor         esi, esi
+                            mov         [rsp+32], rdi
+                            mov         [rsp+40], rsi
+                            LOAD_INT    1
+                            mov         rdi, [rbp-32]
+                            mov         rsi, [rbp-24]
+                            call        to_int
+                            mov         rdi, rax
+                            call        pat_len
+                            push        rdx
+                            push        rax
+                            mov         rdx, 1
+                            lea         rcx, [rel S_C]
+                            pop         rdi
+                            pop         rsi
+                            call        pat_assign_cond
+                            mov         [rsp+16], rax
+                            mov         [rsp+24], rdx
+                            mov         rdi, [rsp+32]
+                            mov         rsi, [rsp+40]
+                            mov         rdx, [rsp+16]
+                            mov         rcx, [rsp+24]
+                            mov         qword [rsp+0], 0
+                            mov         qword [rsp+8], 0
+                            lea         r8, [rsp+0]
+                            mov         r9d, 1
+                            call        stmt_exec_dyn
+                            add         rsp, 48
                             test        eax, eax
-                            jnz         P_10_ω
-                            mov         qword [scan_start_10], 0
-scan_retry_10:
-                            mov         rax, [scan_start_10]
-                            mov         [cursor], rax
-                            jmp         P_10_α
-
-
-P_10_α: ; DOL(C $  C)
-                            DOL_SAVE    dol_entry_C, cursor, dol7_child_α ; DOL α — save entry cursor
-P_10_β:                     jmp         dol7_child_β ; DOL β
-dol7_child_α:               LEN_α       1, len8_saved, cursor, subject_len_val, dol7_γ, dol7_ω ; LEN(%ld)
-dol7_child_β:               LEN_β       len8_saved, cursor, dol7_ω ; LEN β
-dol7_γ:                     DOL_CAPTURE dol_entry_C, cursor, cap_C_buf, cap_C_len, subject_data, P_10_γ ; DOL γ — capture span
-dol7_ω:                     jmp         P_10_ω ; DOL ω — child failed
-
-P_10_γ:                     SET_CAPTURE S_C, cap_C_buf, cap_C_len
-                            mov         qword [rbp-32], 1
-                            mov         qword [rbp-24], 0
-                            APPLY_REPL_SPLICE S_PRINTV, scan_start_10
-                            jmp         Ln_10
-P_10_ω:                     cmp         qword [rel kw_anchor], 0
-                            jne         L_NEXTV_2
-                            mov         rax, [scan_start_10]
-                            inc         rax
-                            cmp         rax, [subject_len_val]
-                            jg          L_NEXTV_2
-                            mov         [scan_start_10], rax
-                            jmp         scan_retry_10
+                            jnz         dyn_done_10
                             jmp         L_NEXTV_2
+dyn_done_10:
+                            jmp         Ln_10
 
 ; ======================================================================================================================
 Ln_10:                      mov         edi, 17
