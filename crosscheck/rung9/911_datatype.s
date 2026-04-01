@@ -43,10 +43,15 @@ main:
                             PROG_INIT
 
 ; ======================================================================================================================
-                            mov         edi, 4
+                            mov         edi, 6
                             call        comm_stno
                             sub         rsp, 32
+                            sub         rsp, 16
                             CALL1_STR   S_datatype, S_hello
+                            STORE_ARG32 0
+                            APPLY_FN_N  S_lcase, 1
+                            add         rsp, 16
+                            STORE_RESULT
                             STORE_ARG32 0
                             LOAD_STR    S_string
                             STORE_ARG32 16
@@ -58,7 +63,7 @@ main:
 Lf_0:                       jmp         L_e001_0
 
 ; ======================================================================================================================
-Ln_0:                       mov         edi, 5
+Ln_0:                       mov         edi, 7
                             call        comm_stno
                             LOAD_STR    S_FAIL_SP_911_SL_001_CL_SP_string_SP_literal_SP_datatype
                             FAIL_BR     Lf_1
@@ -68,14 +73,19 @@ Lf_1:                       GOTO_ALWAYS L_SNO_END     ; end
 
 Ln_1:
 ;  e001 ================================================================================================================
-L_e001_0:                   mov         edi, 6
+L_e001_0:                   mov         edi, 8
                             call        comm_stno
 
 ; ======================================================================================================================
-Ln_2:                       mov         edi, 8
+Ln_2:                       mov         edi, 10
                             call        comm_stno
                             sub         rsp, 32
+                            sub         rsp, 16
                             CALL1_INT   S_datatype, 12
+                            STORE_ARG32 0
+                            APPLY_FN_N  S_lcase, 1
+                            add         rsp, 16
+                            STORE_RESULT
                             STORE_ARG32 0
                             LOAD_STR    S_integer
                             STORE_ARG32 16
@@ -87,7 +97,7 @@ Ln_2:                       mov         edi, 8
 Lf_3:                       jmp         L_e002_1
 
 ; ======================================================================================================================
-Ln_3:                       mov         edi, 9
+Ln_3:                       mov         edi, 11
                             call        comm_stno
                             LOAD_STR    S_FAIL_SP_911_SL_002_CL_SP_integer_SP_datatype
                             FAIL_BR     Lf_4
@@ -97,17 +107,22 @@ Lf_4:                       GOTO_ALWAYS L_SNO_END     ; end
 
 Ln_4:
 ;  e002 ================================================================================================================
-L_e002_1:                   mov         edi, 10
+L_e002_1:                   mov         edi, 12
                             call        comm_stno
 
 ; ======================================================================================================================
-Ln_5:                       mov         edi, 12
+Ln_5:                       mov         edi, 14
                             call        comm_stno
                             sub         rsp, 32
+                            sub         rsp, 16
                             sub         rsp, 16
                             LOAD_REAL   F_1
                             STORE_ARG32 0
                             APPLY_FN_N  S_datatype, 1
+                            add         rsp, 16
+                            STORE_RESULT
+                            STORE_ARG32 0
+                            APPLY_FN_N  S_lcase, 1
                             add         rsp, 16
                             STORE_RESULT
                             STORE_ARG32 0
@@ -121,7 +136,7 @@ Ln_5:                       mov         edi, 12
 Lf_6:                       jmp         L_e003_2
 
 ; ======================================================================================================================
-Ln_6:                       mov         edi, 13
+Ln_6:                       mov         edi, 15
                             call        comm_stno
                             LOAD_STR    S_FAIL_SP_911_SL_003_CL_SP_real_SP_datatype
                             FAIL_BR     Lf_7
@@ -131,14 +146,19 @@ Lf_7:                       GOTO_ALWAYS L_SNO_END     ; end
 
 Ln_7:
 ;  e003 ================================================================================================================
-L_e003_2:                   mov         edi, 14
+L_e003_2:                   mov         edi, 16
                             call        comm_stno
 
 ; ======================================================================================================================
-Ln_8:                       mov         edi, 17
+Ln_8:                       mov         edi, 19
                             call        comm_stno
                             sub         rsp, 32
-                            CALL1_STR   S_datatype, S_14
+                            sub         rsp, 16
+                            CALL1_STR   S_datatype, S_15
+                            STORE_ARG32 0
+                            APPLY_FN_N  S_lcase, 1
+                            add         rsp, 16
+                            STORE_RESULT
                             STORE_ARG32 0
                             LOAD_STR    S_string
                             STORE_ARG32 16
@@ -150,7 +170,7 @@ Ln_8:                       mov         edi, 17
 Lf_9:                       jmp         L_e004_3
 
 ; ======================================================================================================================
-Ln_9:                       mov         edi, 18
+Ln_9:                       mov         edi, 20
                             call        comm_stno
                             LOAD_STR    S_FAIL_SP_911_SL_004_CL_SP_null_SP_is_SP_string
                             FAIL_BR     Lf_10
@@ -160,11 +180,11 @@ Lf_10:                      GOTO_ALWAYS L_SNO_END     ; end
 
 Ln_10:
 ;  e004 ================================================================================================================
-L_e004_3:                   mov         edi, 19
+L_e004_3:                   mov         edi, 21
                             call        comm_stno
 
 ; ======================================================================================================================
-Ln_11:                      mov         edi, 21
+Ln_11:                      mov         edi, 23
                             call        comm_stno
                             LOAD_STR    S_PASS_SP_911_datatype_SP_LP_4_SL_4_RP
                             FAIL_BR     Ln_12
@@ -189,6 +209,7 @@ section .rodata
 section .data
 S_differ             db 100, 105, 102, 102, 101, 114, 0  ; "differ"
 S_string             db 115, 116, 114, 105, 110, 103, 0  ; "string"
+S_lcase              db 108, 99, 97, 115, 101, 0  ; "lcase"
 S_datatype           db 100, 97, 116, 97, 116, 121, 112, 101, 0  ; "datatype"
 S_hello              db 104, 101, 108, 108, 111, 0  ; "hello"
 S_output             db 111, 117, 116, 112, 117, 116, 0  ; "output"
@@ -200,7 +221,7 @@ S_e002               db 101, 48, 48, 50, 0  ; "e002"
 S_real               db 114, 101, 97, 108, 0  ; "real"
 S_FAIL_SP_911_SL_003_CL_SP_real_SP_datatype db 70, 65, 73, 76, 32, 57, 49, 49, 47, 48, 48, 51, 58, 32, 114, 101, 97, 108, 32, 100, 97, 116, 97, 116, 121, 112, 101, 0  ; "FAIL 911/003: real datatype"
 S_e003               db 101, 48, 48, 51, 0  ; "e003"
-S_14                 db 0  ; 
+S_15                 db 0  ; 
 S_FAIL_SP_911_SL_004_CL_SP_null_SP_is_SP_string db 70, 65, 73, 76, 32, 57, 49, 49, 47, 48, 48, 52, 58, 32, 110, 117, 108, 108, 32, 105, 115, 32, 115, 116, 114, 105, 110, 103, 0  ; "FAIL 911/004: null is string"
 S_e004               db 101, 48, 48, 52, 0  ; "e004"
 S_PASS_SP_911_datatype_SP_LP_4_SL_4_RP db 80, 65, 83, 83, 32, 57, 49, 49, 95, 100, 97, 116, 97, 116, 121, 112, 101, 32, 40, 52, 47, 52, 41, 0  ; "PASS 911_datatype (4/4)"

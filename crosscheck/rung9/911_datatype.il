@@ -185,6 +185,9 @@
   Ndt0_done:
     ldc.i4.1
     stloc.0
+    callvirt   instance string [mscorlib]System.String::ToLower()
+    ldc.i4.1
+    stloc.0
     ldstr      "string"
     call       int32 [snobol4lib]Snobol4Lib::sno_differ(string, string)
     stloc.0
@@ -230,6 +233,9 @@
     pop
     call       string [snobol4lib]Snobol4Lib::sno_datatype(string)
   Ndt1_done:
+    ldc.i4.1
+    stloc.0
+    callvirt   instance string [mscorlib]System.String::ToLower()
     ldc.i4.1
     stloc.0
     ldstr      "integer"
@@ -279,6 +285,9 @@
   Ndt2_done:
     ldc.i4.1
     stloc.0
+    callvirt   instance string [mscorlib]System.String::ToLower()
+    ldc.i4.1
+    stloc.0
     ldstr      "real"
     call       int32 [snobol4lib]Snobol4Lib::sno_differ(string, string)
     stloc.0
@@ -324,6 +333,9 @@
     pop
     call       string [snobol4lib]Snobol4Lib::sno_datatype(string)
   Ndt3_done:
+    ldc.i4.1
+    stloc.0
+    callvirt   instance string [mscorlib]System.String::ToLower()
     ldc.i4.1
     stloc.0
     ldstr      "string"
