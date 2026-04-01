@@ -1,0 +1,14 @@
+*  f14: M-DYN-OPT — invariant pattern cache
+*  Same literal pattern used in a loop — cache must return same result
+*  each iteration; correctness verified by counting PASSes.
+        COUNT = 0
+        I = 0
+LOOP    LT(I, 10)                               :F(DONE)
+        S = 'hello world'
+        S 'hello'                               :F(FAIL)
+        COUNT = COUNT + 1
+        I = I + 1                               :(LOOP)
+DONE    EQ(COUNT, 10)                           :F(FAIL)
+        OUTPUT = 'PASS'                         :(END)
+FAIL    OUTPUT = 'FAIL'
+END
