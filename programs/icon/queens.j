@@ -9,10 +9,10 @@
 .field public static icn_retval_obj Ljava/lang/Object;
 .field public static icn_retval J
 .field public static icn_retval_str Ljava/lang/String;
-.field public static icn_pv_show_sep Ljava/lang/String;
 .field public static icn_gvar_sep Ljava/lang/String;
-.field public static icn_pv_show_line Ljava/lang/String;
+.field public static icn_pv_show_sep Ljava/lang/String;
 .field public static icn_gvar_line Ljava/lang/String;
+.field public static icn_pv_show_line Ljava/lang/String;
 .field public static icn_3_relop_lc Ljava/lang/String;
 .field public static icn_3_relop_rc Ljava/lang/String;
 .field public static icn_5_sub_s Ljava/lang/String;
@@ -67,7 +67,7 @@
 .field public static icn_60_e2seen I
 .field public static icn_60_e1val J
 .field public static icn_60_e2val J
-.field public static icn_gvar_qcount J
+.field public static icn_pv_show_qcount J
 .field public static icn_70_binop_lc J
 .field public static icn_70_binop_rc J
 .field public static icn_70_binop_bf I
@@ -135,6 +135,12 @@
 .field public static icn_132_e2val J
 .field public static icn_139_relop_lc J
 .field public static icn_139_relop_rc J
+.field public static icn_pv_main_placed Ljava/util/ArrayList;
+.field public static icn_pv_main_rows Ljava/util/ArrayList;
+.field public static icn_pv_main_up Ljava/util/ArrayList;
+.field public static icn_pv_main_down Ljava/util/ArrayList;
+.field public static icn_pv_main_qcount J
+.field public static icn_pv_main_n J
 .field public static icn_153_ln J
 .field public static icn_153_lx Ljava/lang/Object;
 .field public static icn_153_ll Ljava/util/ArrayList;
@@ -1352,16 +1358,16 @@ icn_41_repl_after:
     invokespecial java/lang/StringBuilder/<init>()V
     astore 153
     iconst_0
-    istore 6
+    istore 8
 icn_41_repl_loop:
-    iload 6
+    iload 8
     iload 85
     if_icmpge icn_41_repl_done
     aload 153
     aload 152
     invokevirtual java/lang/StringBuilder/append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     pop
-    iinc 6 1
+    iinc 8 1
     goto icn_41_repl_loop
 icn_41_repl_done:
     aload 153
@@ -1712,7 +1718,7 @@ icn_64_β:
     goto icn_33_α
 ;  VAR
 icn_65_α:
-    getstatic queens/icn_gvar_qcount J
+    getstatic queens/icn_pv_show_qcount J
     goto icn_63_waft_1
 icn_65_β:
     goto icn_33_α
@@ -1734,9 +1740,9 @@ icn_63_waft_0:
     invokevirtual java/io/PrintStream/print(Ljava/lang/String;)V
     goto icn_65_α
 icn_63_waft_1:
-    lstore 8
+    lstore 10
     getstatic java/lang/System/out Ljava/io/PrintStream;
-    lload 8
+    lload 10
     invokevirtual java/io/PrintStream/print(J)V
     goto icn_66_α
 icn_63_waft_2:
@@ -1841,16 +1847,16 @@ icn_68_repl_after:
     invokespecial java/lang/StringBuilder/<init>()V
     astore 159
     iconst_0
-    istore 10
+    istore 12
 icn_68_repl_loop:
-    iload 10
+    iload 12
     iload 87
     if_icmpge icn_68_repl_done
     aload 159
     aload 158
     invokevirtual java/lang/StringBuilder/append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     pop
-    iinc 10 1
+    iinc 12 1
     goto icn_68_repl_loop
 icn_68_repl_done:
     aload 159
@@ -1879,11 +1885,11 @@ icn_75_β:
     goto icn_76_β
 icn_75_rhsok:
     putstatic queens/icn_75_augtemp J
-    getstatic queens/icn_gvar_qcount J
+    getstatic queens/icn_pv_show_qcount J
     getstatic queens/icn_75_augtemp J
     ladd
     dup2
-    putstatic queens/icn_gvar_qcount J
+    putstatic queens/icn_pv_show_qcount J
     goto icn_show_s1_sdrain
 icn_show_s1_sdrain:
     pop2
@@ -3454,7 +3460,7 @@ icn_try_col_sret:
 
 .method public static icn_main()V
     .limit stack 16
-    .limit locals 483
+    .limit locals 495
     lconst_0
     lstore 0
     lconst_0
@@ -3546,7 +3552,7 @@ icn_try_col_sret:
     goto icn_176_α
 ;  VAR
 icn_143_α:
-    getstatic queens/icn_gvar_qcount J
+    getstatic queens/icn_pv_main_qcount J
     goto icn_142_waft_0
 icn_143_β:
     goto icn_main_done
@@ -3562,9 +3568,9 @@ icn_142_β:
     goto icn_143_β
     goto icn_142_wentry
 icn_142_waft_0:
-    lstore 2
+    lstore 14
     getstatic java/lang/System/out Ljava/io/PrintStream;
-    lload 2
+    lload 14
     invokevirtual java/io/PrintStream/print(J)V
     goto icn_144_α
 icn_142_waft_1:
@@ -3724,6 +3730,8 @@ icn_145_docall:
     lstore 277
     getstatic queens/icn_139_relop_rc J
     lstore 279
+    getstatic queens/icn_pv_main_qcount J
+    lstore 281
     invokestatic queens/icn_try_col()V
     lload 153
     putstatic queens/icn_6_binop_lc J
@@ -3853,6 +3861,8 @@ icn_145_docall:
     putstatic queens/icn_139_relop_lc J
     lload 279
     putstatic queens/icn_139_relop_rc J
+    lload 281
+    putstatic queens/icn_pv_main_qcount J
     getstatic queens/icn_failed B
     ifne icn_145_after_call
     getstatic queens/icn_retval J
@@ -3864,7 +3874,7 @@ icn_main_s7_sdrain:
     goto icn_142_α
 ;  VAR
 icn_148_α:
-    getstatic queens/icn_gvar_n J
+    getstatic queens/icn_pv_main_n J
     goto icn_147_waft_0
 icn_148_β:
     goto icn_145_α
@@ -3880,9 +3890,9 @@ icn_147_β:
     goto icn_148_β
     goto icn_147_wentry
 icn_147_waft_0:
-    lstore 4
+    lstore 16
     getstatic java/lang/System/out Ljava/io/PrintStream;
-    lload 4
+    lload 16
     invokevirtual java/io/PrintStream/print(J)V
     goto icn_149_α
 icn_147_waft_1:
@@ -3911,8 +3921,8 @@ icn_150_α:
 icn_150_β:
     goto icn_151_β
 icn_150_store:
-    putstatic queens/icn_gvar_qcount J
-    getstatic queens/icn_gvar_qcount J
+    putstatic queens/icn_pv_main_qcount J
+    getstatic queens/icn_pv_main_qcount J
     goto icn_main_s5_sdrain
 icn_main_s5_sdrain:
     pop2
@@ -3925,7 +3935,7 @@ icn_155_β:
     goto icn_154_lb
 ;  VAR
 icn_157_α:
-    getstatic queens/icn_gvar_n J
+    getstatic queens/icn_pv_main_n J
     goto icn_156_rrelay
 icn_157_β:
     goto icn_156_lb
@@ -4026,8 +4036,8 @@ icn_152_α:
 icn_152_β:
     goto icn_153_β
 icn_152_store:
-    putstatic queens/icn_gvar_down Ljava/util/ArrayList;
-    getstatic queens/icn_gvar_down Ljava/util/ArrayList;
+    putstatic queens/icn_pv_main_down Ljava/util/ArrayList;
+    getstatic queens/icn_pv_main_down Ljava/util/ArrayList;
     goto icn_main_s4_sdrain
 icn_main_s4_sdrain:
     pop
@@ -4040,7 +4050,7 @@ icn_163_β:
     goto icn_162_lb
 ;  VAR
 icn_165_α:
-    getstatic queens/icn_gvar_n J
+    getstatic queens/icn_pv_main_n J
     goto icn_164_rrelay
 icn_165_β:
     goto icn_164_lb
@@ -4141,15 +4151,15 @@ icn_160_α:
 icn_160_β:
     goto icn_161_β
 icn_160_store:
-    putstatic queens/icn_gvar_up Ljava/util/ArrayList;
-    getstatic queens/icn_gvar_up Ljava/util/ArrayList;
+    putstatic queens/icn_pv_main_up Ljava/util/ArrayList;
+    getstatic queens/icn_pv_main_up Ljava/util/ArrayList;
     goto icn_main_s3_sdrain
 icn_main_s3_sdrain:
     pop
     goto icn_152_α
 ;  VAR
 icn_170_α:
-    getstatic queens/icn_gvar_n J
+    getstatic queens/icn_pv_main_n J
     goto icn_169_nlr
 icn_170_β:
     goto icn_160_α
@@ -4196,15 +4206,15 @@ icn_168_α:
 icn_168_β:
     goto icn_169_β
 icn_168_store:
-    putstatic queens/icn_gvar_rows Ljava/util/ArrayList;
-    getstatic queens/icn_gvar_rows Ljava/util/ArrayList;
+    putstatic queens/icn_pv_main_rows Ljava/util/ArrayList;
+    getstatic queens/icn_pv_main_rows Ljava/util/ArrayList;
     goto icn_main_s2_sdrain
 icn_main_s2_sdrain:
     pop
     goto icn_160_α
 ;  VAR
 icn_174_α:
-    getstatic queens/icn_gvar_n J
+    getstatic queens/icn_pv_main_n J
     goto icn_173_nlr
 icn_174_β:
     goto icn_168_α
@@ -4251,8 +4261,8 @@ icn_172_α:
 icn_172_β:
     goto icn_173_β
 icn_172_store:
-    putstatic queens/icn_gvar_placed Ljava/util/ArrayList;
-    getstatic queens/icn_gvar_placed Ljava/util/ArrayList;
+    putstatic queens/icn_pv_main_placed Ljava/util/ArrayList;
+    getstatic queens/icn_pv_main_placed Ljava/util/ArrayList;
     goto icn_main_s1_sdrain
 icn_main_s1_sdrain:
     pop
@@ -4326,12 +4336,12 @@ icn_179_int_after:
     astore 150
     aload 150
     invokestatic queens/icn_builtin_parse_long(Ljava/lang/String;)J
-    lstore 6
-    lload 6
+    lstore 18
+    lload 18
     ldc2_w -9223372036854775808
     lcmp
     ifeq icn_179_int_fail
-    lload 6
+    lload 18
     goto icn_177_alt_g0
 icn_179_int_fail:
     goto icn_178_α
@@ -4362,8 +4372,8 @@ icn_176_α:
 icn_176_β:
     goto icn_177_β
 icn_176_store:
-    putstatic queens/icn_gvar_n J
-    getstatic queens/icn_gvar_n J
+    putstatic queens/icn_pv_main_n J
+    getstatic queens/icn_pv_main_n J
     goto icn_main_s0_sdrain
 icn_main_s0_sdrain:
     pop2

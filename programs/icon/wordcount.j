@@ -956,7 +956,7 @@ icn_2_scan_beta:
     putstatic wordcount/icn_pos I
     goto icn_4_β
 icn_main_s2_sdrain:
-    pop2
+    pop
     goto icn_0_α
 ;  INT
 icn_14_α:
