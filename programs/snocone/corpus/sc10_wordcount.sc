@@ -1,11 +1,11 @@
 procedure count_down(n) {
-    total = 0
-    i = n
+    total = 0;
+    i = n;
     while (i > 0) do {
-        total = total + i
-        i = i - 1
+        total = total + i;
+        i = i - 1;
     }
-    return total
+    return total;
 }
-OUTPUT = count_down(10)
-OUTPUT = count_down(5)
+OUTPUT = count_down(10);
+OUTPUT = count_down(5);
