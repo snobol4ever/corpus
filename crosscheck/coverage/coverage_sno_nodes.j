@@ -675,7 +675,7 @@ Lvar_fail_3:
 Jpat0_retry:
     iload 7
     istore 9
-    ; STUB: unhandled pattern node kind 44
+    ; STUB: unhandled pattern node kind 45
     goto Jpat0_tok
 Jpat0_tok:
     goto Jpat0_success
