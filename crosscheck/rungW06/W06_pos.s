@@ -21,7 +21,7 @@ extern  stmt_breakx_var, stmt_breakx_lit
 extern  stmt_any_var, stmt_notany_var, stmt_any_ptr
 extern  stmt_break_ptr, stmt_span_ptr
 extern  stmt_at_capture
-extern  stmt_exec_dyn
+extern  exec_stmt
 extern  pat_lit, pat_cat, pat_alt, pat_span, pat_break_, pat_breakx
 extern  pat_any_cs, pat_notany, pat_len, pat_pos, pat_rpos
 extern  pat_tab, pat_rtab, pat_arb, pat_arbno, pat_rem
@@ -94,7 +94,7 @@ Ln_0:                       mov         edi, 3
                             mov         rcx, [rsp+24]
                             xor         r8d, r8d
                             mov         r9d, 0
-                            call        stmt_exec_dyn
+                            call        exec_stmt
                             add         rsp, 48
                             test        eax, eax
                             jnz         dyn_done_1
@@ -158,7 +158,7 @@ Ln_4:                       mov         edi, 7
                             mov         rcx, [rsp+24]
                             xor         r8d, r8d
                             mov         r9d, 0
-                            call        stmt_exec_dyn
+                            call        exec_stmt
                             add         rsp, 48
                             test        eax, eax
                             jnz         dyn_done_5
@@ -222,7 +222,7 @@ Ln_8:                       mov         edi, 11
                             mov         rcx, [rsp+24]
                             xor         r8d, r8d
                             mov         r9d, 0
-                            call        stmt_exec_dyn
+                            call        exec_stmt
                             add         rsp, 48
                             test        eax, eax
                             jnz         dyn_done_9

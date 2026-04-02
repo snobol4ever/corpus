@@ -21,7 +21,7 @@ extern  stmt_breakx_var, stmt_breakx_lit
 extern  stmt_any_var, stmt_notany_var, stmt_any_ptr
 extern  stmt_break_ptr, stmt_span_ptr
 extern  stmt_at_capture
-extern  stmt_exec_dyn
+extern  exec_stmt
 extern  pat_lit, pat_cat, pat_alt, pat_span, pat_break_, pat_breakx
 extern  pat_any_cs, pat_notany, pat_len, pat_pos, pat_rpos
 extern  pat_tab, pat_rtab, pat_arb, pat_arbno, pat_rem
@@ -162,7 +162,7 @@ L_NEXTW_2:                  mov         edi, 10
                             mov         qword [rsp+8], 0
                             lea         r8, [rsp+0]
                             mov         r9d, 1
-                            call        stmt_exec_dyn
+                            call        exec_stmt
                             add         rsp, 48
                             test        eax, eax
                             jnz         dyn_done_5
