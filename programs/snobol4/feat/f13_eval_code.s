@@ -4,11 +4,13 @@
 %include "snobol4_asm.mac"
 global  main
 extern  stmt_init, stmt_strval, stmt_intval
+extern  VARVAL_fn, to_int
 extern  stmt_realval, stmt_set_null, stmt_set_indirect, stmt_get_indirect, stmt_nreturn_deref
 extern  stmt_get, stmt_set, stmt_output, stmt_input
 extern  stmt_concat, stmt_is_fail, stmt_finish
 extern  stmt_realval, stmt_set_null, stmt_set_indirect
 extern  stmt_apply, stmt_goto_dispatch
+extern  execute_code_dyn
 extern  stmt_setup_subject, stmt_apply_replacement
 extern  stmt_apply_replacement_splice
 extern  stmt_set_capture, stmt_match_var, stmt_match_descr
@@ -19,6 +21,14 @@ extern  stmt_breakx_var, stmt_breakx_lit
 extern  stmt_any_var, stmt_notany_var, stmt_any_ptr
 extern  stmt_break_ptr, stmt_span_ptr
 extern  stmt_at_capture
+extern  stmt_exec_dyn
+extern  pat_lit, pat_cat, pat_alt, pat_span, pat_break_
+extern  pat_any_cs, pat_notany, pat_len, pat_pos, pat_rpos
+extern  pat_tab, pat_rtab, pat_arb, pat_arbno, pat_rem
+extern  pat_fence, pat_fence_p, pat_fail, pat_succeed
+extern  pat_abort, pat_bal, pat_ref, pat_ref_val
+extern  pat_assign_imm, pat_assign_cond, pat_epsilon
+extern  pat_at_cursor
 extern  kw_anchor
 extern  stmt_aref, stmt_aset, stmt_field_set
 extern  stmt_aref2, stmt_aset2
@@ -97,8 +107,41 @@ section .text
 ;  NAMED PATTERN BODIES ================================================================================================
 
 section .text
-L_C_1:  ; STUB → _SNO_END (dangling or computed goto)
+L_C_1:  ; CODE-block dispatch or dangling
 ;  STUB LABELS =========================================================================================================
+                            sub         rsp, 32
+                            lea         rdi, [rel S_C]
+                            call        stmt_get
+                            mov         rdi, rax
+                            mov         rsi, rdx
+                            call        execute_code_dyn
+                            test        rax, rax
+                            jz          Lstub_nm_1
+                            cmp         byte [rax], 0
+                            je          Lstub_nm_1
+                            mov         rsi, rax
+                            mov         edi, 1
+                            lea         rdx, [rel Lstub_nt_1]
+                            mov         ecx, 3
+                            call        stmt_goto_dispatch
+                            movsxd      rax, eax
+                            cmp         rax, -1
+                            lea         rsp, [rsp+32]
+                            je          Lstub_nm_1
+                            lea         rdx, [rel Lstub_jt_1]
+                            jmp         [rdx + rax*8]
+section .data
+align 8
+Lstub_jt_1:
+dq  L_FAIL_0
+dq  L_C_1
+dq  L_CPASS_2
+Lstub_nt_1:
+dq  S_FAIL
+dq  S_C
+dq  S_CPASS
+section .text
+Lstub_nm_1:
                             GOTO_ALWAYS L_SNO_END
 
 section .rodata
