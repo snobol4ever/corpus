@@ -21,7 +21,7 @@ extern  stmt_breakx_var, stmt_breakx_lit
 extern  stmt_any_var, stmt_notany_var, stmt_any_ptr
 extern  stmt_break_ptr, stmt_span_ptr
 extern  stmt_at_capture
-extern  stmt_exec_dyn
+extern  exec_stmt
 extern  pat_lit, pat_cat, pat_alt, pat_span, pat_break_, pat_breakx
 extern  pat_any_cs, pat_notany, pat_len, pat_pos, pat_rpos
 extern  pat_tab, pat_rtab, pat_arb, pat_arbno, pat_rem
@@ -255,7 +255,7 @@ Ln_15:                      mov         edi, 42
                             mov         rcx, [rsp+24]
                             xor         r8d, r8d
                             mov         r9d, 0
-                            call        stmt_exec_dyn
+                            call        exec_stmt
                             add         rsp, 48
                             test        eax, eax
                             jnz         dyn_done_16
@@ -307,7 +307,7 @@ Ln_18:                      mov         edi, 47
                             mov         rcx, [rsp+24]
                             xor         r8d, r8d
                             mov         r9d, 0
-                            call        stmt_exec_dyn
+                            call        exec_stmt
                             add         rsp, 48
                             test        eax, eax
                             jnz         dyn_done_19
@@ -356,7 +356,7 @@ Ln_21:                      mov         edi, 52
                             mov         rcx, [rsp+24]
                             xor         r8d, r8d
                             mov         r9d, 0
-                            call        stmt_exec_dyn
+                            call        exec_stmt
                             add         rsp, 48
                             test        eax, eax
                             jnz         dyn_done_22
@@ -407,7 +407,7 @@ Ln_24:                      mov         edi, 57
                             mov         rcx, [rsp+24]
                             xor         r8d, r8d
                             mov         r9d, 0
-                            call        stmt_exec_dyn
+                            call        exec_stmt
                             add         rsp, 48
                             test        eax, eax
                             jnz         dyn_done_25
@@ -457,7 +457,7 @@ Ln_27:                      mov         edi, 62
                             mov         rcx, [rsp+24]
                             xor         r8d, r8d
                             mov         r9d, 0
-                            call        stmt_exec_dyn
+                            call        exec_stmt
                             add         rsp, 48
                             test        eax, eax
                             jnz         dyn_done_28
@@ -509,7 +509,7 @@ Ln_30:                      mov         edi, 67
                             mov         rcx, [rsp+24]
                             xor         r8d, r8d
                             mov         r9d, 0
-                            call        stmt_exec_dyn
+                            call        exec_stmt
                             add         rsp, 48
                             test        eax, eax
                             jnz         dyn_done_31
@@ -560,7 +560,7 @@ Ln_33:                      mov         edi, 72
                             mov         rcx, [rsp+24]
                             xor         r8d, r8d
                             mov         r9d, 0
-                            call        stmt_exec_dyn
+                            call        exec_stmt
                             add         rsp, 48
                             test        eax, eax
                             jnz         dyn_done_34
@@ -612,7 +612,7 @@ Ln_36:                      mov         edi, 77
                             mov         rcx, [rsp+24]
                             xor         r8d, r8d
                             mov         r9d, 0
-                            call        stmt_exec_dyn
+                            call        exec_stmt
                             add         rsp, 48
                             test        eax, eax
                             jnz         dyn_done_37
@@ -666,7 +666,7 @@ Ln_40:                      mov         edi, 83
                             mov         rcx, [rsp+24]
                             xor         r8d, r8d
                             mov         r9d, 0
-                            call        stmt_exec_dyn
+                            call        exec_stmt
                             add         rsp, 48
                             test        eax, eax
                             jnz         dyn_done_41
