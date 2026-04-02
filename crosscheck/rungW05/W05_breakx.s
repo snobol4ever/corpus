@@ -22,7 +22,7 @@ extern  stmt_any_var, stmt_notany_var, stmt_any_ptr
 extern  stmt_break_ptr, stmt_span_ptr
 extern  stmt_at_capture
 extern  stmt_exec_dyn
-extern  pat_lit, pat_cat, pat_alt, pat_span, pat_break_
+extern  pat_lit, pat_cat, pat_alt, pat_span, pat_break_, pat_breakx
 extern  pat_any_cs, pat_notany, pat_len, pat_pos, pat_rpos
 extern  pat_tab, pat_rtab, pat_arb, pat_arbno, pat_rem
 extern  pat_fence, pat_fence_p, pat_fail, pat_succeed
@@ -67,9 +67,12 @@ Ln_0:                       mov         edi, 3
                             xor         esi, esi
                             mov         [rsp+32], rdi
                             mov         [rsp+40], rsi
-                            CALL1_STR   S_BREAKX, S_CL
-                            mov         rax, [rbp-32]
-                            mov         rdx, [rbp-24]
+                            LOAD_STR    S_CL
+                            mov         rdi, [rbp-32]
+                            mov         rsi, [rbp-24]
+                            call        VARVAL_fn
+                            mov         rdi, rax
+                            call        pat_breakx
                             mov         [rsp+16], rax
                             mov         [rsp+24], rdx
                             mov         rdi, [rsp+32]

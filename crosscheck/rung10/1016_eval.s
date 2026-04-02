@@ -22,7 +22,7 @@ extern  stmt_any_var, stmt_notany_var, stmt_any_ptr
 extern  stmt_break_ptr, stmt_span_ptr
 extern  stmt_at_capture
 extern  stmt_exec_dyn
-extern  pat_lit, pat_cat, pat_alt, pat_span, pat_break_
+extern  pat_lit, pat_cat, pat_alt, pat_span, pat_break_, pat_breakx
 extern  pat_any_cs, pat_notany, pat_len, pat_pos, pat_rpos
 extern  pat_tab, pat_rtab, pat_arb, pat_arbno, pat_rem
 extern  pat_fence, pat_fence_p, pat_fail, pat_succeed
@@ -63,10 +63,9 @@ main:
 ; ======================================================================================================================
                             mov         edi, 5
                             call        comm_stno
-                            mov         eax, 1
-                            xor         edx, edx
-                            STORE_RESULT
-                            FAIL_BR     Ln_0
+                            call        pat_epsilon
+                            mov         [rbp-32], rax
+                            mov         [rbp-24], rdx
                             SET_VAR     S_expr
                             jmp         Ln_0
 
@@ -110,8 +109,8 @@ Ln_4:                       mov         edi, 12
                             call        comm_stno
                             lea         rdi, [rel S_q]
                             call        pat_ref
-                            STORE_RESULT
-                            FAIL_BR     Ln_5
+                            mov         [rbp-32], rax
+                            mov         [rbp-24], rdx
                             SET_VAR     S_sexp
                             jmp         Ln_5
 
@@ -149,8 +148,8 @@ Ln_8:                       mov         edi, 18
                             call        comm_stno
                             lea         rdi, [rel S_ident]
                             call        pat_ref
-                            STORE_RESULT
-                            FAIL_BR     Ln_9
+                            mov         [rbp-32], rax
+                            mov         [rbp-24], rdx
                             SET_VAR     S_fexp
                             jmp         Ln_9
 
@@ -305,4 +304,3 @@ S_FAIL_SP_1016_SL_003_CL_SP_eval_SP_failing_SP_expr_SP_should_SP_fail db 70, 65,
 S_e003               db 101, 48, 48, 51, 0  ; "e003"
 S_PASS_SP_1016_eval_SP_LP_3_SL_3_RP db 80, 65, 83, 83, 32, 49, 48, 49, 54, 95, 101, 118, 97, 108, 32, 40, 51, 47, 51, 41, 0  ; "PASS 1016_eval (3/3)"
 S_end                db 101, 110, 100, 0  ; "end"
-S_21                 db 0  ; 
