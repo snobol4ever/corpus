@@ -10,7 +10,7 @@ extern  stmt_get, stmt_set, stmt_output, stmt_input
 extern  stmt_concat, stmt_is_fail, stmt_finish
 extern  stmt_realval, stmt_set_null, stmt_set_indirect
 extern  stmt_apply, stmt_goto_dispatch
-extern  execute_code_dyn
+extern  exec_code
 extern  stmt_setup_subject, stmt_apply_replacement
 extern  stmt_apply_replacement_splice
 extern  stmt_set_capture, stmt_match_var, stmt_match_descr
@@ -637,7 +637,7 @@ L_fact2_8:  ; CODE-block dispatch or dangling
                             call        stmt_get
                             mov         rdi, rax
                             mov         rsi, rdx
-                            call        execute_code_dyn
+                            call        exec_code
                             test        rax, rax
                             jz          Lstub_nm_8
                             cmp         byte [rax], 0
