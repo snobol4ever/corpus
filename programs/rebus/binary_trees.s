@@ -4,6 +4,7 @@
 %include "snobol4_asm.mac"
 global  main
 extern  stmt_init, stmt_strval, stmt_intval
+extern  VARVAL_fn, to_int
 extern  stmt_realval, stmt_set_null, stmt_set_indirect, stmt_get_indirect, stmt_nreturn_deref
 extern  stmt_get, stmt_set, stmt_output, stmt_input
 extern  stmt_concat, stmt_is_fail, stmt_finish
@@ -20,6 +21,14 @@ extern  stmt_breakx_var, stmt_breakx_lit
 extern  stmt_any_var, stmt_notany_var, stmt_any_ptr
 extern  stmt_break_ptr, stmt_span_ptr
 extern  stmt_at_capture
+extern  stmt_exec_dyn
+extern  pat_lit, pat_cat, pat_alt, pat_span, pat_break_
+extern  pat_any_cs, pat_notany, pat_len, pat_pos, pat_rpos
+extern  pat_tab, pat_rtab, pat_arb, pat_arbno, pat_rem
+extern  pat_fence, pat_fence_p, pat_fail, pat_succeed
+extern  pat_abort, pat_bal, pat_ref, pat_ref_val
+extern  pat_assign_imm, pat_assign_cond, pat_epsilon
+extern  pat_at_cursor
 extern  kw_anchor
 extern  stmt_aref, stmt_aset, stmt_field_set
 extern  stmt_aref2, stmt_aset2
@@ -322,45 +331,27 @@ L_rb_7_10:                  mov         edi, 0
 ; ======================================================================================================================
 Ln_38:                      mov         edi, 27
                             call        comm_stno
-                            GET_VAR     S_S
-                            SUBJ_FROM16
+                            sub         rsp, 48
+                            lea         rdi, [rel S_S]
+                            xor         esi, esi
+                            mov         [rsp+32], rdi
+                            mov         [rsp+40], rsi
+                            lea         rdi, [rel S_TFORM]
+                            call        pat_ref
+                            mov         [rsp+16], rax
+                            mov         [rsp+24], rdx
+                            mov         rdi, [rsp+32]
+                            mov         rsi, [rsp+40]
+                            mov         rdx, [rsp+16]
+                            mov         rcx, [rsp+24]
+                            xor         r8d, r8d
+                            mov         r9d, 0
+                            call        stmt_exec_dyn
+                            add         rsp, 48
                             test        eax, eax
-                            jnz         P_39_ω
-                            mov         qword [scan_start_39], 0
-scan_retry_39:
-                            mov         rax, [scan_start_39]
-                            mov         [cursor], rax
-                            jmp         P_39_α
-
-
-; E_VAR TFORM → CALL_PAT (runtime DT_P/DT_S dispatch)
-P_39_α:                     lea         rdi, [rel S_TFORM]
-                            call        stmt_get
-                            mov         [r12+64], rax
-                            mov         [r12+72], rdx
-                            mov         rax, [cursor]
-                            mov         [r12+80], rax
-                            mov         rdi, [r12+64]
-                            mov         rsi, [r12+72]
-                            call        stmt_match_descr
-                            test        eax, eax
-                            jz          P_39_ω
-                            jmp         P_39_γ
-P_39_β:                     mov         rax, [r12+80]
-                            mov         [cursor], rax
-                            jmp         P_39_ω
-
-P_39_γ:                     mov         rax, [cursor]
-                            mov         [scan_start_39], rax
+                            jnz         dyn_done_39
                             jmp         Ln_39
-P_39_ω:                     cmp         qword [rel kw_anchor], 0
-                            jne         Ln_39
-                            mov         rax, [scan_start_39]
-                            inc         rax
-                            cmp         rax, [subject_len_val]
-                            jg          Ln_39
-                            mov         [scan_start_39], rax
-                            jmp         scan_retry_39
+dyn_done_39:
                             jmp         Ln_39
 
 ; ======================================================================================================================
@@ -1224,7 +1215,7 @@ dq 0  ; [r12+56] = fn_ADDR_tmp3_p
 global  box_BTREE_data_template, box_BTREE_data_size
 section .data
                             align       8
-box_BTREE_data_size: dq 96
+box_BTREE_data_size: dq 88
 box_BTREE_data_template:
 dq 0  ; [r12+0] = P_BTREE_ret_γ
 dq 0  ; [r12+8] = P_BTREE_ret_ω
@@ -1237,7 +1228,6 @@ dq 0  ; [r12+56] = fn_BTREE_tmp3_p
 dq 0  ; [r12+64] = rpat0_t
 dq 0  ; [r12+72] = rpat0_p
 dq 0  ; [r12+80] = rpat0_s
-dq 0  ; [r12+88] = scan_start_39
 
 global  box_BEXP_data_template, box_BEXP_data_size
 section .data
