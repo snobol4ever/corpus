@@ -22,7 +22,7 @@ extern  stmt_any_var, stmt_notany_var, stmt_any_ptr
 extern  stmt_break_ptr, stmt_span_ptr
 extern  stmt_at_capture
 extern  stmt_exec_dyn
-extern  pat_lit, pat_cat, pat_alt, pat_span, pat_break_
+extern  pat_lit, pat_cat, pat_alt, pat_span, pat_break_, pat_breakx
 extern  pat_any_cs, pat_notany, pat_len, pat_pos, pat_rpos
 extern  pat_tab, pat_rtab, pat_arb, pat_arbno, pat_rem
 extern  pat_fence, pat_fence_p, pat_fail, pat_succeed
@@ -184,10 +184,44 @@ L_Push_1:                   mov         edi, 10
 ; ======================================================================================================================
 Ln_2:                       mov         edi, 11
                             call        comm_stno
-                            mov         qword [rbp-32], 9
-                            lea         rax, [rel S_55]
-                            mov         [rbp-24], rax
-                            FAIL_BR     Ln_3
+                            lea         rdi, [rel S_stk]
+                            call        stmt_get
+                            mov         [rbp-32], rax
+                            mov         [rbp-24], rdx
+                            push        qword [rbp-24]
+                            push        qword [rbp-32]
+                            lea         rdi, [rel S_stk]
+                            call        stmt_get
+                            mov         [rbp-32], rax
+                            mov         [rbp-24], rdx
+                            push        qword [rbp-24]
+                            push        qword [rbp-32]
+                            LOAD_INT    0
+                            mov         rdx, [rbp-32]
+                            mov         rcx, [rbp-24]
+                            pop         rdi
+                            pop         rsi
+                            call        stmt_aref
+                            mov         [rbp-32], rax
+                            mov         [rbp-24], rdx
+                            mov         rdx, [rbp-32]
+                            mov         rcx, [rbp-24]
+                            pop         rdi
+                            pop         rsi
+                            call        stmt_aref
+                            mov         [rbp-32], rax
+                            mov         [rbp-24], rdx
+                            mov         rax, [rbp-32]
+                            mov         rdx, [rbp-24]
+                            push        rdx
+                            push        rax
+                            xor         edx, edx
+                            xor         ecx, ecx
+                            pop         rdi
+                            pop         rsi
+                            call        pat_assign_cond
+                            mov         [rbp-32], rax
+                            mov         [rbp-24], rdx
                             SET_VAR     S_Push
                             jmp         Ln_3
 
@@ -472,10 +506,17 @@ ucall2_done:
 ; ======================================================================================================================
 Ln_13:                      mov         edi, 22
                             call        comm_stno
-                            mov         qword [rbp-32], 9
-                            lea         rax, [rel S_dummy]
-                            mov         [rbp-24], rax
-                            FAIL_BR     Lf_14
+                            lea         rdi, [rel S_dummy]
+                            call        pat_ref
+                            push        rdx
+                            push        rax
+                            xor         edx, edx
+                            xor         ecx, ecx
+                            pop         rdi
+                            pop         rsi
+                            call        pat_assign_cond
+                            mov         [rbp-32], rax
+                            mov         [rbp-24], rdx
                             SET_VAR     S_Unary
                             jmp         fn_Unary_γ     ; NRETURN
 Lf_14:                      jmp         fn_Unary_γ     ; NRETURN
@@ -718,10 +759,17 @@ ucall6_done:
 ; ======================================================================================================================
 Ln_20:                      mov         edi, 29
                             call        comm_stno
-                            mov         qword [rbp-32], 9
-                            lea         rax, [rel S_dummy]
-                            mov         [rbp-24], rax
-                            FAIL_BR     Lf_21
+                            lea         rdi, [rel S_dummy]
+                            call        pat_ref
+                            push        rdx
+                            push        rax
+                            xor         edx, edx
+                            xor         ecx, ecx
+                            pop         rdi
+                            pop         rsi
+                            call        pat_assign_cond
+                            mov         [rbp-32], rax
+                            mov         [rbp-24], rdx
                             SET_VAR     S_Binary
                             jmp         fn_Binary_γ     ; NRETURN
 Lf_21:                      jmp         fn_Binary_γ     ; NRETURN
@@ -734,8 +782,14 @@ L_BinaryEnd_6:              mov         edi, 30
 ; ======================================================================================================================
 Ln_22:                      mov         edi, 32
                             call        comm_stno
-                            CALL1_STR   S_SPAN, S_0123456789
-                            FAIL_BR     Ln_23
+                            LOAD_STR    S_0123456789
+                            mov         rdi, [rbp-32]
+                            mov         rsi, [rbp-24]
+                            call        VARVAL_fn
+                            mov         rdi, rax
+                            call        pat_span
+                            mov         [rbp-32], rax
+                            mov         [rbp-24], rdx
                             SET_VAR     S_integer
                             jmp         Ln_23
 
@@ -827,116 +881,228 @@ Ln_24:                      mov         edi, 34
 ; ======================================================================================================================
 Ln_25:                      mov         edi, 37
                             call        comm_stno
-                            CALL1_STR   S_ANY, S_PL_MI
-                            FAIL_BR     Ln_26
+                            LOAD_STR    S_PL_MI
+                            mov         rdi, [rbp-32]
+                            mov         rsi, [rbp-24]
+                            call        VARVAL_fn
+                            mov         rdi, rax
+                            call        pat_any_cs
+                            push        rdx
+                            push        rax
+                            xor         edx, edx
+                            xor         ecx, ecx
+                            pop         rdi
+                            pop         rsi
+                            call        pat_assign_cond
+                            mov         [rbp-32], rax
+                            mov         [rbp-24], rdx
                             SET_VAR     S_addop
                             jmp         Ln_26
 
 ; ======================================================================================================================
 Ln_26:                      mov         edi, 38
                             call        comm_stno
-                            CALL1_STR   S_ANY, S_ST_SL
-                            FAIL_BR     Ln_27
+                            LOAD_STR    S_ST_SL
+                            mov         rdi, [rbp-32]
+                            mov         rsi, [rbp-24]
+                            call        VARVAL_fn
+                            mov         rdi, rax
+                            call        pat_any_cs
+                            push        rdx
+                            push        rax
+                            xor         edx, edx
+                            xor         ecx, ecx
+                            pop         rdi
+                            pop         rsi
+                            call        pat_assign_cond
+                            mov         [rbp-32], rax
+                            mov         [rbp-24], rdx
                             SET_VAR     S_mulop
                             jmp         Ln_27
 
 ; ======================================================================================================================
 Ln_27:                      mov         edi, 39
                             call        comm_stno
-                            ALT2_VV     S_ALT, S_real, S_integer
+                            lea         rdi, [rel S_real]
+                            call        pat_ref
                             push        rdx
                             push        rax
-                            lea         rdi, [rel S_Push]
+                            lea         rdi, [rel S_integer]
                             call        pat_ref
-                            STORE_RESULT
-                            mov         qword [rbp-32], 9
-                            lea         rax, [rel S_Push]
-                            mov         [rbp-24], rax
-                            mov         rcx, [rbp-24]
-                            mov         rdx, [rbp-32]
+                            mov         rcx, rdx
+                            mov         rdx, rax
                             pop         rdi
                             pop         rsi
-                            call        stmt_concat
+                            call        pat_alt
+                            push        rdx
+                            push        rax
+                            xor         edx, edx
+                            xor         ecx, ecx
+                            pop         rdi
+                            pop         rsi
+                            call        pat_assign_cond
                             mov         [rbp-32], rax
                             mov         [rbp-24], rdx
-                            FAIL_BR     Ln_28
                             SET_VAR     S_constant
                             jmp         Ln_28
 
 ; ======================================================================================================================
 Ln_28:                      mov         edi, 41
                             call        comm_stno
-                            sub         rsp, 32
                             lea         rdi, [rel S_constant]
-                            call        stmt_get
+                            call        pat_ref
+                            push        rdx
+                            push        rax
+                            lea         rdi, [rel S_LP]
+                            call        pat_lit
+                            push        rdx
+                            push        rax
+                            lea         rdi, [rel S_expr]
+                            call        pat_ref
+                            mov         rcx, rdx
+                            mov         rdx, rax
+                            pop         rdi
+                            pop         rsi
+                            call        pat_cat
+                            push        rdx
+                            push        rax
+                            lea         rdi, [rel S_RP]
+                            call        pat_lit
+                            mov         rcx, rdx
+                            mov         rdx, rax
+                            pop         rdi
+                            pop         rsi
+                            call        pat_cat
+                            mov         rcx, rdx
+                            mov         rdx, rax
+                            pop         rdi
+                            pop         rsi
+                            call        pat_alt
                             mov         [rbp-32], rax
                             mov         [rbp-24], rdx
-                            STORE_ARG32 0
-                            mov         qword [rbp-32], 1
-                            mov         qword [rbp-24], 0
-                            STORE_ARG32 16
-                            APPLY_FN_N  S_ALT, 2
-                            add         rsp, 32
-                            mov         [rbp-32], rax
-                            mov         [rbp-24], rdx
-                            FAIL_BR     Ln_29
                             SET_VAR     S_primary
                             jmp         Ln_29
 
 ; ======================================================================================================================
 Ln_29:                      mov         edi, 43
                             call        comm_stno
-                            sub         rsp, 32
-                            mov         qword [rbp-32], 1
-                            mov         qword [rbp-24], 0
-                            STORE_ARG32 0
+                            lea         rdi, [rel S_addop]
+                            call        pat_ref
+                            push        rdx
+                            push        rax
+                            lea         rdi, [rel S_factor]
+                            call        pat_ref
+                            push        rdx
+                            push        rax
+                            xor         edx, edx
+                            xor         ecx, ecx
+                            pop         rdi
+                            pop         rsi
+                            call        pat_assign_cond
+                            mov         rcx, rdx
+                            mov         rdx, rax
+                            pop         rdi
+                            pop         rsi
+                            call        pat_cat
+                            push        rdx
+                            push        rax
                             lea         rdi, [rel S_primary]
                             call        pat_ref
-                            STORE_RESULT
-                            STORE_ARG32 16
-                            APPLY_FN_N  S_ALT, 2
-                            add         rsp, 32
+                            mov         rcx, rdx
+                            mov         rdx, rax
+                            pop         rdi
+                            pop         rsi
+                            call        pat_alt
                             mov         [rbp-32], rax
                             mov         [rbp-24], rdx
-                            FAIL_BR     Ln_30
                             SET_VAR     S_factor
                             jmp         Ln_30
 
 ; ======================================================================================================================
 Ln_30:                      mov         edi, 46
                             call        comm_stno
-                            sub         rsp, 32
-                            mov         qword [rbp-32], 1
-                            mov         qword [rbp-24], 0
-                            STORE_ARG32 0
                             lea         rdi, [rel S_factor]
                             call        pat_ref
-                            STORE_RESULT
-                            STORE_ARG32 16
-                            APPLY_FN_N  S_ALT, 2
-                            add         rsp, 32
+                            push        rdx
+                            push        rax
+                            lea         rdi, [rel S_mulop]
+                            call        pat_ref
+                            mov         rcx, rdx
+                            mov         rdx, rax
+                            pop         rdi
+                            pop         rsi
+                            call        pat_cat
+                            push        rdx
+                            push        rax
+                            lea         rdi, [rel S_term]
+                            call        pat_ref
+                            push        rdx
+                            push        rax
+                            xor         edx, edx
+                            xor         ecx, ecx
+                            pop         rdi
+                            pop         rsi
+                            call        pat_assign_cond
+                            mov         rcx, rdx
+                            mov         rdx, rax
+                            pop         rdi
+                            pop         rsi
+                            call        pat_cat
+                            push        rdx
+                            push        rax
+                            lea         rdi, [rel S_factor]
+                            call        pat_ref
+                            mov         rcx, rdx
+                            mov         rdx, rax
+                            pop         rdi
+                            pop         rsi
+                            call        pat_alt
                             mov         [rbp-32], rax
                             mov         [rbp-24], rdx
-                            FAIL_BR     Ln_31
                             SET_VAR     S_term
                             jmp         Ln_31
 
 ; ======================================================================================================================
 Ln_31:                      mov         edi, 49
                             call        comm_stno
-                            sub         rsp, 32
-                            mov         qword [rbp-32], 1
-                            mov         qword [rbp-24], 0
-                            STORE_ARG32 0
                             lea         rdi, [rel S_term]
                             call        pat_ref
-                            STORE_RESULT
-                            STORE_ARG32 16
-                            APPLY_FN_N  S_ALT, 2
-                            add         rsp, 32
+                            push        rdx
+                            push        rax
+                            lea         rdi, [rel S_addop]
+                            call        pat_ref
+                            mov         rcx, rdx
+                            mov         rdx, rax
+                            pop         rdi
+                            pop         rsi
+                            call        pat_cat
+                            push        rdx
+                            push        rax
+                            lea         rdi, [rel S_expr]
+                            call        pat_ref
+                            push        rdx
+                            push        rax
+                            xor         edx, edx
+                            xor         ecx, ecx
+                            pop         rdi
+                            pop         rsi
+                            call        pat_assign_cond
+                            mov         rcx, rdx
+                            mov         rdx, rax
+                            pop         rdi
+                            pop         rsi
+                            call        pat_cat
+                            push        rdx
+                            push        rax
+                            lea         rdi, [rel S_term]
+                            call        pat_ref
+                            mov         rcx, rdx
+                            mov         rdx, rax
+                            pop         rdi
+                            pop         rsi
+                            call        pat_alt
                             mov         [rbp-32], rax
                             mov         [rbp-24], rdx
-                            FAIL_BR     Ln_32
                             SET_VAR     S_expr
                             jmp         Ln_32
 
@@ -1924,6 +2090,5 @@ S_error              db 101, 114, 114, 111, 114, 0  ; "error"
 S_Bad_SP_input_CM_SP_try_SP_again db 66, 97, 100, 32, 105, 110, 112, 117, 116, 44, 32, 116, 114, 121, 32, 97, 103, 97, 105, 110, 0  ; "Bad input, try again"
 S_END                db 69, 78, 68, 0  ; "END"
 S_add                db 97, 100, 100, 0  ; "add"
-S_55                 db 0  ; 
 S_sub                db 115, 117, 98, 0  ; "sub"
 S_ALT                db 65, 76, 84, 0  ; "ALT"

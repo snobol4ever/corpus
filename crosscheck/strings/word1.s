@@ -22,7 +22,7 @@ extern  stmt_any_var, stmt_notany_var, stmt_any_ptr
 extern  stmt_break_ptr, stmt_span_ptr
 extern  stmt_at_capture
 extern  stmt_exec_dyn
-extern  pat_lit, pat_cat, pat_alt, pat_span, pat_break_
+extern  pat_lit, pat_cat, pat_alt, pat_span, pat_break_, pat_breakx
 extern  pat_any_cs, pat_notany, pat_len, pat_pos, pat_rpos
 extern  pat_tab, pat_rtab, pat_arb, pat_arbno, pat_rem
 extern  pat_fence, pat_fence_p, pat_fail, pat_succeed
@@ -61,9 +61,43 @@ main:
 ; ======================================================================================================================
                             mov         edi, 5
                             call        comm_stno
-                            mov         qword [rbp-32], 1
-                            mov         qword [rbp-24], 0
-                            FAIL_BR     Ln_0
+                            lea         rdi, [rel S_SP_the_SP]
+                            call        pat_lit
+                            push        rdx
+                            push        rax
+                            call        pat_arb
+                            push        rdx
+                            push        rax
+                            mov         rdx, 1
+                            lea         rcx, [rel S_OUTPUT]
+                            pop         rdi
+                            pop         rsi
+                            call        pat_assign_cond
+                            mov         rcx, rdx
+                            mov         rdx, rax
+                            pop         rdi
+                            pop         rsi
+                            call        pat_cat
+                            push        rdx
+                            push        rax
+                            lea         rdi, [rel S_SP_of_SP]
+                            call        pat_lit
+                            push        rdx
+                            push        rax
+                            lea         rdi, [rel S_SP_a_SP]
+                            call        pat_lit
+                            mov         rcx, rdx
+                            mov         rdx, rax
+                            pop         rdi
+                            pop         rsi
+                            call        pat_alt
+                            mov         rcx, rdx
+                            mov         rdx, rax
+                            pop         rdi
+                            pop         rsi
+                            call        pat_cat
+                            mov         [rbp-32], rax
+                            mov         [rbp-24], rdx
                             SET_VAR     S_PAT
                             jmp         Ln_0
 

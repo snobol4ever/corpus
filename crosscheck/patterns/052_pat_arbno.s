@@ -22,7 +22,7 @@ extern  stmt_any_var, stmt_notany_var, stmt_any_ptr
 extern  stmt_break_ptr, stmt_span_ptr
 extern  stmt_at_capture
 extern  stmt_exec_dyn
-extern  pat_lit, pat_cat, pat_alt, pat_span, pat_break_
+extern  pat_lit, pat_cat, pat_alt, pat_span, pat_break_, pat_breakx
 extern  pat_any_cs, pat_notany, pat_len, pat_pos, pat_rpos
 extern  pat_tab, pat_rtab, pat_arb, pat_arbno, pat_rem
 extern  pat_fence, pat_fence_p, pat_fail, pat_succeed
