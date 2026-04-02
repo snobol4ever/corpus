@@ -86,6 +86,19 @@ main:
 ;  PROGRAM BODY ========================================================================================================
                             PROG_INIT
 
+; M-DYN-OPT: pre-build invariant patterns
+
+; pre-build: PAT
+                            LOAD_INT    2
+                            mov         rdi, [rbp-32]
+                            mov         rsi, [rbp-24]
+                            call        to_int
+                            mov         rdi, rax
+                            call        pat_len
+                            mov         [rbp-32], rax
+                            mov         [rbp-24], rdx
+                            SET_VAR     S_PAT
+
 ; ======================================================================================================================
                             mov         edi, 8
                             call        comm_stno
