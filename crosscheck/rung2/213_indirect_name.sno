@@ -1,0 +1,38 @@
+* 213_indirect_name.sno — $X runtime indirect, $NM DT_N deref, NAME lvalue
+* Rung 2 extension. 5 assertions.
+
+*       1. $X: string variable holding a name -> look up by value
+        A = 42
+        X = 'A'
+        differ($X, 42)                             :F(e001)
+        OUTPUT = 'FAIL 213/001: dollar-X indirect'    :(END)
+e001
+
+*       2. $NM: variable holding .A (DT_N NAMEVAL) -> dereference
+        NM = .A
+        differ($NM, 42)                            :F(e002)
+        OUTPUT = 'FAIL 213/002: dollar-NM DT_N deref' :(END)
+e002
+
+*       3. Assign through $X as lvalue
+        $X = 99
+        differ(A, 99)                              :F(e003)
+        OUTPUT = 'FAIL 213/003: dollar-X lvalue assign' :(END)
+e003
+
+*       4. $.VAR literal: $.A is A's value
+        A = 77
+        differ($.A, 77)                            :F(e004)
+        OUTPUT = 'FAIL 213/004: dollar-dot literal'   :(END)
+e004
+
+*       5. NRETURN: function returning .var, read gives value
+        define('ref_b()')                          :(ref_b_end)
+ref_b   ref_b = .A                                 :(NRETURN)
+ref_b_end
+        differ(ref_b(), 77)                        :F(e005)
+        OUTPUT = 'FAIL 213/005: NRETURN read value'   :(END)
+e005
+
+        OUTPUT = 'PASS 213_indirect_name (5/5)'
+END
