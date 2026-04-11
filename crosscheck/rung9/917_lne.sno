@@ -1,0 +1,30 @@
+* 917_lne.sno — LNE: lexicographic not-equal
+* Rung 9. 5 assertions.
+
+*       different strings — LNE succeeds
+        lne('abc', 'xyz')          :s(e001)
+        output = 'FAIL 917/001: lne(abc,xyz) should succeed' :(end)
+e001
+
+*       equal strings — LNE fails
+        lne('abc', 'abc')          :f(e002)
+        output = 'FAIL 917/002: lne(abc,abc) should fail'   :(end)
+e002
+
+*       null vs non-empty — not equal, succeeds
+        lne('', 'a')               :s(e003)
+        output = 'FAIL 917/003: lne(null,a) should succeed' :(end)
+e003
+
+*       null equals null — LNE fails
+        lne('', '')                :f(e004)
+        output = 'FAIL 917/004: lne(null,null) should fail' :(end)
+e004
+
+*       ordinal: 'A' /= 'a' (65 /= 97) — LNE must succeed
+        lne('A', 'a')              :s(e005)
+        output = 'FAIL 917/005: lne(A,a) should succeed (ordinal)' :(end)
+e005
+
+        output = 'PASS 917_lne (5/5)'
+end

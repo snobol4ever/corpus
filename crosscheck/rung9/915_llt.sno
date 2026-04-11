@@ -1,0 +1,35 @@
+* 915_llt.sno — LLT: lexicographic less-than
+* Rung 9. 6 assertions.
+
+*       'abc' < 'xyz' — LLT should succeed
+        llt('abc', 'xyz')          :s(e001)
+        output = 'FAIL 915/001: llt(abc,xyz) should succeed' :(end)
+e001
+
+*       equal strings — LLT fails (strictly less, not <=)
+        llt('abc', 'abc')          :f(e002)
+        output = 'FAIL 915/002: llt(abc,abc) should fail'   :(end)
+e002
+
+*       'xyz' > 'abc' — LLT should fail
+        llt('xyz', 'abc')          :f(e003)
+        output = 'FAIL 915/003: llt(xyz,abc) should fail'   :(end)
+e003
+
+*       null < any non-empty string — LLT succeeds
+        llt('', 'abc')             :s(e004)
+        output = 'FAIL 915/004: llt(null,abc) should succeed' :(end)
+e004
+
+*       any non-empty > null — LLT fails
+        llt('abc', '')             :f(e005)
+        output = 'FAIL 915/005: llt(abc,null) should fail'  :(end)
+e005
+
+*       ordinal: 'A'(65) < 'a'(97) — LLT must succeed (ordinal, not culture)
+        llt('A', 'a')              :s(e006)
+        output = 'FAIL 915/006: llt(A,a) should succeed (ordinal)' :(end)
+e006
+
+        output = 'PASS 915_llt (6/6)'
+end

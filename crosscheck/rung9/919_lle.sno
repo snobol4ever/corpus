@@ -1,0 +1,35 @@
+* 919_lle.sno — LLE: lexicographic less-than-or-equal
+* Rung 9. 6 assertions.
+
+*       equal strings — LLE succeeds
+        lle('abc', 'abc')          :s(e001)
+        output = 'FAIL 919/001: lle(abc,abc) should succeed' :(end)
+e001
+
+*       less — LLE succeeds
+        lle('abc', 'xyz')          :s(e002)
+        output = 'FAIL 919/002: lle(abc,xyz) should succeed' :(end)
+e002
+
+*       greater — LLE fails
+        lle('xyz', 'abc')          :f(e003)
+        output = 'FAIL 919/003: lle(xyz,abc) should fail'   :(end)
+e003
+
+*       null <= any string
+        lle('', 'abc')             :s(e004)
+        output = 'FAIL 919/004: lle(null,abc) should succeed' :(end)
+e004
+
+*       null <= null
+        lle('', '')                :s(e005)
+        output = 'FAIL 919/005: lle(null,null) should succeed' :(end)
+e005
+
+*       ordinal: 'A'(65) <= 'a'(97) — LLE succeeds
+        lle('A', 'a')              :s(e006)
+        output = 'FAIL 919/006: lle(A,a) should succeed (ordinal)' :(end)
+e006
+
+        output = 'PASS 919_lle (6/6)'
+end
