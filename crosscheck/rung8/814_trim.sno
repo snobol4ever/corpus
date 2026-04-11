@@ -1,0 +1,24 @@
+* 814_trim.sno — TRIM: remove trailing blanks
+* Rung 8. 4 assertions.
+
+        differ(trim('hello   '), 'hello')                   :f(e001)
+        output = 'FAIL 814/001: trim trailing spaces'   :(end)
+e001
+
+*       no trailing spaces — unchanged
+        differ(trim('hello'), 'hello')                   :f(e002)
+        output = 'FAIL 814/002: trim no-op'             :(end)
+e002
+
+*       all spaces — becomes null
+        differ(trim('   '), '')                   :f(e003)
+        output = 'FAIL 814/003: trim all-spaces to null' :(end)
+e003
+
+*       null — stays null
+        differ(trim(''), '')                   :f(e004)
+        output = 'FAIL 814/004: trim null is null'      :(end)
+e004
+
+        output = 'PASS 814_trim (4/4)'
+end
