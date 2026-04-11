@@ -1,0 +1,30 @@
+* 916_leq.sno — LEQ: lexicographic equal
+* Rung 9. 5 assertions.
+
+*       equal strings — LEQ succeeds
+        leq('abc', 'abc')          :s(e001)
+        output = 'FAIL 916/001: leq(abc,abc) should succeed' :(end)
+e001
+
+*       different strings — LEQ fails
+        leq('abc', 'xyz')          :f(e002)
+        output = 'FAIL 916/002: leq(abc,xyz) should fail'   :(end)
+e002
+
+*       null equals null
+        leq('', '')                :s(e003)
+        output = 'FAIL 916/003: leq(null,null) should succeed' :(end)
+e003
+
+*       null vs non-empty — fails
+        leq('', 'a')               :f(e004)
+        output = 'FAIL 916/004: leq(null,a) should fail'    :(end)
+e004
+
+*       ordinal: 'A' /= 'a' (65 /= 97) — LEQ must fail
+        leq('A', 'a')              :f(e005)
+        output = 'FAIL 916/005: leq(A,a) should fail (ordinal)' :(end)
+e005
+
+        output = 'PASS 916_leq (5/5)'
+end
