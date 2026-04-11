@@ -1,0 +1,25 @@
+* 815_lpad.sno — LPAD: left-pad string to width
+* Rung 8. 4 assertions.
+
+*       pad 'hi' to 6 with spaces
+        differ(lpad('hi', 6), '    hi')                   :f(e001)
+        output = 'FAIL 815/001: lpad to width 6'        :(end)
+e001
+
+*       string already at width — unchanged
+        differ(lpad('hello', 5), 'hello')                   :f(e002)
+        output = 'FAIL 815/002: lpad no-op'              :(end)
+e002
+
+*       string longer than width — unchanged (no truncation)
+        differ(lpad('hello', 3), 'hello')                   :f(e003)
+        output = 'FAIL 815/003: lpad longer no-truncate' :(end)
+e003
+
+*       custom fill char
+        differ(lpad('hi', 5, '*'), '***hi')                   :f(e004)
+        output = 'FAIL 815/004: lpad custom fill *'     :(end)
+e004
+
+        output = 'PASS 815_lpad (4/4)'
+end
