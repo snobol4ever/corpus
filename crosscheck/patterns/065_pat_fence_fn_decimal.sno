@@ -1,0 +1,7 @@
+*  065 - FENCE(P) decimal literal pattern: ANY(1-9) FENCE(SPAN(digits)|'')
+        digits = '0123456789'
+        &ANCHOR = 1
+        X = '42rest'
+        X  ANY('123456789')  FENCE(SPAN(digits) | '') . N
+        OUTPUT = N
+END
