@@ -6,22 +6,24 @@
 -INCLUDE 'semantic.sno'
 
         &STLIMIT = 1000000
+        dPATTERN   = REPLACE(DATATYPE(LEN(1)), &LCASE, &UCASE)
+        dINTEGER   = REPLACE(DATATYPE(1),      &LCASE, &UCASE)
         InitCounter()
 
 *  1: nPush() returns PATTERN
-        IDENT(DATATYPE(nPush()), 'PATTERN')            :S(P1)F(F1)
+        IDENT(REPLACE(DATATYPE(nPush()), &LCASE, &UCASE), dPATTERN) :S(P1)F(F1)
 P1      OUTPUT = 'PASS: 1 nPush=PATTERN'              :(T1)
 F1      OUTPUT = 'FAIL: 1'
 T1
 
 *  2: nInc() returns PATTERN
-        IDENT(DATATYPE(nInc()), 'PATTERN')             :S(P2)F(F2)
+        IDENT(REPLACE(DATATYPE(nInc()), &LCASE, &UCASE), dPATTERN) :S(P2)F(F2)
 P2      OUTPUT = 'PASS: 2 nInc=PATTERN'               :(T2)
 F2      OUTPUT = 'FAIL: 2'
 T2
 
 *  3: nPop() returns PATTERN
-        IDENT(DATATYPE(nPop()), 'PATTERN')             :S(P3)F(F3)
+        IDENT(REPLACE(DATATYPE(nPop()), &LCASE, &UCASE), dPATTERN) :S(P3)F(F3)
 P3      OUTPUT = 'PASS: 3 nPop=PATTERN'               :(T3)
 F3      OUTPUT = 'FAIL: 3'
 T3
@@ -56,7 +58,7 @@ T7
 
 *  8: nTop returns INTEGER
         v = nTop()
-        IDENT(DATATYPE(v), 'INTEGER')                  :S(P8)F(F8)
+        IDENT(REPLACE(DATATYPE(v), &LCASE, &UCASE), dINTEGER)      :S(P8)F(F8)
 P8      OUTPUT = 'PASS: 8 nTop INTEGER'               :(T8)
 F8      OUTPUT = 'FAIL: 8 DATATYPE=' DATATYPE(v)
 T8

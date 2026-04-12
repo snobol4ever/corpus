@@ -18,9 +18,9 @@ ShiftEnd
 *---------------------------------------------------------------------------------------------------
                DEFINE('Reduce(t,n)c,i,r')                                           :(ReduceEnd)
 Reduce         Reduce         =    .dummy
-               IDENT(DATATYPE(t), 'EXPRESSION')                                     :F(Reduce0)
+               IDENT(REPLACE(DATATYPE(t), &LCASE, &UCASE), 'EXPRESSION')            :F(Reduce0)
                t              =    EVAL(t)                                          :F(NRETURN)
-Reduce0        IDENT(DATATYPE(n), 'EXPRESSION')                                     :F(Reduce1)
+Reduce0        IDENT(REPLACE(DATATYPE(n), &LCASE, &UCASE), 'EXPRESSION')            :F(Reduce1)
                n              =    EVAL(n)                                          :F(NRETURN)
 Reduce1        OUTPUT         =    GT(xTrace, 3) 'Reduce(' t ', ' n ')'
                c              =    GE(n, 1) ARRAY('1:' n)
