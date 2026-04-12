@@ -10,7 +10,7 @@
 *---------------------------------------------------------------------------------------------------
                DEFINE('assign(name,expression)')                                    :(assign_end)
 assign         assign         =  .dummy
-               IDENT(DATATYPE(expression), 'EXPRESSION')                            :F(assign1)
+               IDENT(REPLACE(DATATYPE(expression), &LCASE, &UCASE), 'EXPRESSION')   :F(assign1)
                $name          =  EVAL(expression)                                   :(NRETURN)
 assign1        $name          =  expression                                         :(NRETURN)
 assign_end
