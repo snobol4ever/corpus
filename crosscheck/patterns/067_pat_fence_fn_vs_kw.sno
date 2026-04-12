@@ -1,0 +1,9 @@
+*  067 - FENCE(P) vs &FENCE: FENCE(P) fails gracefully, &FENCE aborts entire match
+*  &FENCE: backtrack into it kills the whole statement (goes to F, not S)
+        X = 'AX'
+        X  LEN(1)  FENCE  LEN(2)                              :S(BAD)
+*  FENCE(P): when P fails, statement takes F branch normally
+        X  FENCE('Z')                                         :S(BAD)
+        OUTPUT = 'both correct'                               :(END)
+BAD     OUTPUT = 'wrong'
+END

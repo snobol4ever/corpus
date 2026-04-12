@@ -1,0 +1,6 @@
+*  060 - FENCE(P) failure: P fails, statement takes F branch (no abort)
+        X = 'hello'
+        X  FENCE('world')                                      :S(YES)F(NO)
+YES     OUTPUT = 'should not reach'                            :(END)
+NO      OUTPUT = 'failed gracefully'
+END
