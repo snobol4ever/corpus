@@ -6,7 +6,7 @@
                DEFINE('XDump(object,nm)'
 +                 'i,iMax,iMin,objArr,objField,objKey,objKeyNm,objType,objVal'
 +              )                                                                    :(XDumpEnd)
-XDump          objType        =    DATATYPE(object)
+XDump          objType        =    REPLACE(DATATYPE(object), &LCASE, &UCASE)
                IDENT(objType, 'CODE')                                               :S(XDump00)
                IDENT(objType, 'EXPRESSION')                                         :S(XDump00)
                IDENT(objType, 'INTEGER')                                            :S(XDump05)
@@ -35,8 +35,8 @@ XDump30        OUTPUT         =    nm ' = ' 'TABLE'
 XDump35        i              =    i + 1
                objKey         =    objArr[i, 1]                                     :F(RETURN)
                objVal         =    objArr[i, 2]
-               objKeyNm       =    IDENT(DATATYPE(objKey), 'INTEGER') objKey        :S(XDump37)
-               objKeyNm       =    IDENT(DATATYPE(objKey), 'STRING') Qize(objKey)   :S(XDump37)
+               objKeyNm       =    IDENT(REPLACE(DATATYPE(objKey), &LCASE, &UCASE), 'INTEGER') objKey        :S(XDump37)
+               objKeyNm       =    IDENT(REPLACE(DATATYPE(objKey), &LCASE, &UCASE), 'STRING') Qize(objKey)   :S(XDump37)
                objKeyNm       =    DATATYPE(objKey)
 XDump37        XDump(objVal, nm '[' objKeyNm ']')                                   :(XDump35)
 XDump40        OUTPUT         =    nm ' = ' objType '()'
