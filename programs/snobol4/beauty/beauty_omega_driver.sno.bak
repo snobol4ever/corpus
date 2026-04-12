@@ -33,8 +33,6 @@
         DEFINE('TY(lvl,name,pat)omega')
         DEFINE('TZ(lvl,name,pat)omega')
 omega_stub_skip
-        dPATTERN   = REPLACE(DATATYPE(LEN(1)), &LCASE, &UCASE)
-        dSTRING    = REPLACE(DATATYPE(''), &LCASE, &UCASE)
         epsilon    = ''
         xTrace     = 0
         t8Max      = 0
@@ -54,13 +52,13 @@ T8TraceEnd
 * -----------------------------------------------------------------------
         xTrace = 0
         p1 = TZ(0, 'lbl', LEN(1))
-        IDENT(REPLACE(DATATYPE(p1), &LCASE, &UCASE), dPATTERN)                :S(P1)F(F1)
+        IDENT(DATATYPE(p1), 'PATTERN')                :S(P1)F(F1)
 P1      OUTPUT = 'PASS: 1 TZ xTrace=0 PATTERN'        :(T1)
 F1      OUTPUT = 'FAIL: 1 ' DATATYPE(p1)
 T1
         xTrace = 1 ; t8Max = 0 ; txOfs = 0 ; tz = ''
         p2 = TZ(1, 'lbl', LEN(1))
-        IDENT(REPLACE(DATATYPE(p2), &LCASE, &UCASE), dPATTERN)                :S(P2)F(F2)
+        IDENT(DATATYPE(p2), 'PATTERN')                :S(P2)F(F2)
 P2      OUTPUT = 'PASS: 2 TZ xTrace=1 PATTERN'        :(T2)
 F2      OUTPUT = 'FAIL: 2 ' DATATYPE(p2)
 T2
@@ -70,13 +68,13 @@ T2
 * -----------------------------------------------------------------------
         xTrace = 0
         p3 = TY(0, 'lbl', LEN(2))
-        IDENT(REPLACE(DATATYPE(p3), &LCASE, &UCASE), dPATTERN)                :S(P3)F(F3)
+        IDENT(DATATYPE(p3), 'PATTERN')                :S(P3)F(F3)
 P3      OUTPUT = 'PASS: 3 TY xTrace=0 PATTERN'        :(T3)
 F3      OUTPUT = 'FAIL: 3 ' DATATYPE(p3)
 T3
         xTrace = 1 ; t8Max = 0 ; txOfs = 0 ; tz = ''
         p4 = TY(1, 'lbl', LEN(2))
-        IDENT(REPLACE(DATATYPE(p4), &LCASE, &UCASE), dPATTERN)                :S(P4)F(F4)
+        IDENT(DATATYPE(p4), 'PATTERN')                :S(P4)F(F4)
 P4      OUTPUT = 'PASS: 4 TY xTrace=1 PATTERN'        :(T4)
 F4      OUTPUT = 'FAIL: 4 ' DATATYPE(p4)
 T4
@@ -86,13 +84,13 @@ T4
 * -----------------------------------------------------------------------
         xTrace = 0 ; doParseTree = FALSE
         p5 = TX(0, LEN(5), 'hello')
-        IDENT(REPLACE(DATATYPE(p5), &LCASE, &UCASE), dPATTERN)                :S(P5)F(F5)
+        IDENT(DATATYPE(p5), 'PATTERN')                :S(P5)F(F5)
 P5      OUTPUT = 'PASS: 5 TX doParseTree=FALSE PATTERN' :(T5)
 F5      OUTPUT = 'FAIL: 5 ' DATATYPE(p5)
 T5
         xTrace = 0 ; doParseTree = TRUE
         p6 = TX(0, LEN(5), 'hello')
-        IDENT(REPLACE(DATATYPE(p6), &LCASE, &UCASE), dPATTERN)                :S(P6)F(F6)
+        IDENT(DATATYPE(p6), 'PATTERN')                :S(P6)F(F6)
 P6      OUTPUT = 'PASS: 6 TX doParseTree=TRUE PATTERN' :(T6)
 F6      OUTPUT = 'FAIL: 6 ' DATATYPE(p6)
 T6
@@ -102,13 +100,13 @@ T6
 * -----------------------------------------------------------------------
         xTrace = 0 ; doParseTree = FALSE
         p7 = TV(0, LEN(5), 'HELLO')
-        IDENT(REPLACE(DATATYPE(p7), &LCASE, &UCASE), dPATTERN)                :S(P7)F(F7)
+        IDENT(DATATYPE(p7), 'PATTERN')                :S(P7)F(F7)
 P7      OUTPUT = 'PASS: 7 TV doParseTree=FALSE PATTERN' :(T7)
 F7      OUTPUT = 'FAIL: 7 ' DATATYPE(p7)
 T7
         xTrace = 0 ; doParseTree = TRUE
         p8 = TV(0, LEN(5), 'HELLO')
-        IDENT(REPLACE(DATATYPE(p8), &LCASE, &UCASE), dPATTERN)                :S(P8)F(F8)
+        IDENT(DATATYPE(p8), 'PATTERN')                :S(P8)F(F8)
 P8      OUTPUT = 'PASS: 8 TV doParseTree=TRUE PATTERN' :(T8)
 F8      OUTPUT = 'FAIL: 8 ' DATATYPE(p8)
 T8
@@ -118,13 +116,13 @@ T8
 * -----------------------------------------------------------------------
         xTrace = 0 ; doParseTree = FALSE
         p9 = TW(0, LEN(5), 'hello')
-        IDENT(REPLACE(DATATYPE(p9), &LCASE, &UCASE), dPATTERN)                :S(P9)F(F9)
+        IDENT(DATATYPE(p9), 'PATTERN')                :S(P9)F(F9)
 P9      OUTPUT = 'PASS: 9 TW doParseTree=FALSE PATTERN' :(T9)
 F9      OUTPUT = 'FAIL: 9 ' DATATYPE(p9)
 T9
         xTrace = 0 ; doParseTree = TRUE
         p10 = TW(0, LEN(5), 'hello')
-        IDENT(REPLACE(DATATYPE(p10), &LCASE, &UCASE), dPATTERN)               :S(P10)F(F10)
+        IDENT(DATATYPE(p10), 'PATTERN')               :S(P10)F(F10)
 P10     OUTPUT = 'PASS: 10 TW doParseTree=TRUE PATTERN' :(T10)
 F10     OUTPUT = 'FAIL: 10 ' DATATYPE(p10)
 T10
@@ -133,7 +131,7 @@ T10
 *  11: TX omega string uses LEQ — verify LEQ(tx,name) logic directly
 *      TX builds "pat $ tx *LEQ(tx, 'name')" — LEQ is case-sensitive LE
 * -----------------------------------------------------------------------
-        IDENT(REPLACE(DATATYPE(LEQ('hello', 'hello')), &LCASE, &UCASE), dSTRING) :S(P11)F(F11)
+        IDENT(DATATYPE(LEQ('hello', 'hello')), 'STRING') :S(P11)F(F11)
 P11     OUTPUT = 'PASS: 11 LEQ same strings STRING'   :(T11)
 F11     OUTPUT = 'FAIL: 11'
 T11
