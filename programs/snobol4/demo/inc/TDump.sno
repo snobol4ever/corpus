@@ -25,10 +25,11 @@ TValue5        i              =  LT(i, n(x)) i + 1                              
 TValueEnd
 *---------------------------------------------------------------------------------------------------
                DEFINE('TDump(x,outNm)i,t')                                          :(TDumpEnd)
-TDump          outNm          =  IDENT(outNm) .OUTPUT
-               x              =  IDENT(DATATYPE(x), 'NAME') $x
-               Gen(TLump(x, 140 - GetLevel()) nl, outNm)                            :S(RETURN)
-               NULL           *IDENT(n(x))                                          :F(TDump0);*  | *IDENT(t(x), '.')
+TDump          outNm          =  IDENT(outNm) 'OUTPUT'
+               IDENT(REPLACE(DATATYPE(x), &LCASE, &UCASE), 'NAME')                 :F(TDump_go)
+               x              =  $x
+TDump_go       Gen(TLump(x, 140 - GetLevel()) nl, outNm)                            :(RETURN)
+               IDENT(REPLACE(DATATYPE(x), &LCASE, &UCASE), 'TREE')                 :S(TDump0)
                Gen(TValue(x) nl, outNm)                                             :(RETURN)
 TDump0         t(x)           POS(0) ANY(&UCASE &LCASE)
 +                             (SPAN( digits &UCASE '_' &LCASE) | epsilon) RPOS(0)   :F(TDump1)
@@ -46,7 +47,7 @@ TDumpEnd
                DEFINE('TLump(x,len)i,t')                                            :(TLumpEnd)
 TLump          GT(len, 0)                                                           :F(FRETURN)
                TLump          =  IDENT(x) '()'                                      :S(RETURN)
-               NULL           *IDENT(n(x))                                          :F(TLump0);* | *IDENT(t(x), '.')
+               IDENT(REPLACE(DATATYPE(x), &LCASE, &UCASE), 'TREE')                 :S(TLump0)
                TLump          =  TValue(x)
                LE(SIZE(TLump), len)                                                 :S(RETURN)F(FRETURN)
 TLump0         TLump          =  '('
