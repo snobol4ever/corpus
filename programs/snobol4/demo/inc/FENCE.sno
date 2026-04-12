@@ -1,7 +1,0 @@
-*---------------------------------------------------------------------------------------------------
-* Define FENCE as a user function (no-op passthrough) for runtimes that support redefinition.
-* SPITBOL has FENCE as a built-in and will error on DEFINE — include only for snobol4dotnet/one4all.
-*---------------------------------------------------------------------------------------------------
-               DEFINE('FENCE(FENCE)')                                               :(FENCEEnd)
-FENCE                                                                               :(RETURN)
-FENCEEnd
