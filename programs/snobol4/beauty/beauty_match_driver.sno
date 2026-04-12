@@ -5,7 +5,6 @@
 *  Pattern usage mirrors beauty.sno line 254:
 *    TxInList = (POS(0) | ' ') *upr(tx) (' ' | RPOS(0))
 -INCLUDE 'global.sno'
--INCLUDE 'is.sno'
 -INCLUDE 'match.sno'
 
         &STLIMIT = 1000000

@@ -10,7 +10,6 @@
 *  Note: assignments to $'#L'/$'$B'/$'$X'/$'$C' must be on separate lines.
 
 -INCLUDE 'global.sno'
--INCLUDE 'is.sno'
         DATA('tree(t,v,n,c)')
         epsilon =
         $'#L'  = 0

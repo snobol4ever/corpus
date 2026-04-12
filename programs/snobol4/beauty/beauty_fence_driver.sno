@@ -3,7 +3,6 @@
 *  Exercises: FENCE primitive in pattern matching
 *  FENCE.sno only defines FENCE() for CSNOBOL4; SPITBOL has it as a builtin.
 -INCLUDE 'global.sno'
--INCLUDE 'is.sno'
 -INCLUDE 'FENCE.sno'
 
         &STLIMIT = 1000000

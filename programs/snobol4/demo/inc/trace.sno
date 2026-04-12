@@ -3,7 +3,7 @@
 *---------- ----------------- ----- -------------------------------------------------------- ---------------------------
             DEFINE('T8Trace(lvl,str,ofs)t8p')
             t8MaxLast         =     0                                                        :(T8TraceEnd)
-T8Trace     T8Trace           =     .dummy
+T8Trace     T8Trace           =     ''
             GT(doDebug, 0)                                                                   :F(NRETURN)
             LE(lvl, doDebug)                                                                 :F(NRETURN)
             GT(doDebug, 1)                                                                   :S(T8Trace1)

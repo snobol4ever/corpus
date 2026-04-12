@@ -7,7 +7,6 @@
 *  Ref: snobol4corpus/programs/include/ShiftReduce.inc
 
 -INCLUDE 'global.sno'
--INCLUDE 'is.sno'
 -INCLUDE 'stack.sno'
 -INCLUDE 'tree.sno'
 -INCLUDE 'ShiftReduce.sno'

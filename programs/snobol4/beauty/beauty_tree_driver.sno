@@ -1,5 +1,4 @@
 -INCLUDE 'global.sno'
--INCLUDE 'is.sno'
 -INCLUDE 'tree.sno'
         &STLIMIT = 1000000
 
