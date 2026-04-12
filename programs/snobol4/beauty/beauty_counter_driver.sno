@@ -2,7 +2,6 @@
 *  Oracle: snobol4 -f -P256k -I$INC driver.sno
 *  Run via: bash test/beauty/run_beauty_subsystem.sh counter
 -INCLUDE 'global.sno'
--INCLUDE 'is.sno'
 -INCLUDE 'counter.sno'
 
         &STLIMIT = 1000000

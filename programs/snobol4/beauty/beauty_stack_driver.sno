@@ -1,5 +1,4 @@
 -INCLUDE 'global.sno'
--INCLUDE 'is.sno'
 -INCLUDE 'stack.sno'
 
         &STLIMIT = 1000000

@@ -4,7 +4,6 @@
 *  All 3 participants (CSNOBOL4, SPITBOL, ASM) must produce identical output.
 *  Exercises: lwr(), upr(), cap(), icase()
 -INCLUDE 'global.sno'
--INCLUDE 'is.sno'
 -INCLUDE 'case.sno'
 
         &STLIMIT = 1000000

@@ -1,7 +1,7 @@
 *---------------------------------------------------------------------------------------------------
-* SNOBOL4 requires a stubbed version of FENCE()
+* Define FENCE as a user function (no-op passthrough) for runtimes that support redefinition.
+* SPITBOL has FENCE as a built-in and will error on DEFINE — include only for snobol4dotnet/one4all.
 *---------------------------------------------------------------------------------------------------
-               IsSnobol4()                                                          :F(FENCEEnd)
                DEFINE('FENCE(FENCE)')                                               :(FENCEEnd)
 FENCE                                                                               :(RETURN)
 FENCEEnd

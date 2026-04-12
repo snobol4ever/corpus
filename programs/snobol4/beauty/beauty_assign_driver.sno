@@ -4,7 +4,6 @@
 *  All 3 participants (CSNOBOL4, SPITBOL, ASM) must produce identical output.
 *  Exercises: assign(var, val) — indirect assignment helper
 -INCLUDE 'global.sno'
--INCLUDE 'is.sno'
 -INCLUDE 'assign.sno'
 
         &STLIMIT = 1000000
