@@ -2,7 +2,6 @@
 *  Oracle: snobol4 -f -P256k -I$INC driver.sno
 *  Exercises: io.sno OPSYN remapping (always installed — snobol4dotnet/one4all only).
 -INCLUDE 'global.sno'
--INCLUDE 'FENCE.sno'
 -INCLUDE 'io.sno'
 
         &STLIMIT = 1000000

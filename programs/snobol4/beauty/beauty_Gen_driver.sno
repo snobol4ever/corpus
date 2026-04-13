@@ -7,7 +7,6 @@
 *  Gimpel parallel: none direct; output buffering pattern used throughout beauty.sno
 
 -INCLUDE 'global.sno'
--INCLUDE 'FENCE.sno'
 -INCLUDE 'io.sno'
 -INCLUDE 'Gen.sno'
 

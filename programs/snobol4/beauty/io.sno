@@ -8,8 +8,13 @@
                DEFINE('output_(name,channel,fileName)bch,cmd,maxreclen,opts,options')
                OPSYN('input__', 'INPUT')
                OPSYN('output__', 'OUTPUT')
-               OPSYN('INPUT', 'input_')
+*  Guard: OPSYN of INPUT/OUTPUT is forbidden under SPITBOL (error 248).
+*  Skip remap when FENCE is a built-in pattern (i.e., running under SPITBOL).
+               dPATTERN       =  REPLACE(DATATYPE(LEN(1)), &LCASE, &UCASE)
+               IDENT(REPLACE(DATATYPE(FENCE), &LCASE, &UCASE), dPATTERN)           :S(io_no_remap)
+               OPSYN('INPUT',  'input_')
                OPSYN('OUTPUT', 'output_')
+io_no_remap
                ioFileOptDash  =  (  '-l'
 +                                   SPAN(digits) . maxreclen . *assign(.options, *(options maxreclen))
 +                                |  '-m' SPAN(digits)
