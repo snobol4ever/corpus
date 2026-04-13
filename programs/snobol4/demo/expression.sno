@@ -10,7 +10,6 @@
 *//
 START
 -INCLUDE 'global.sno'
--INCLUDE 'FENCE.sno'
 -INCLUDE 'io.sno'
 -INCLUDE 'case.sno'
 -INCLUDE 'assign.sno'

@@ -1,9 +1,8 @@
-*  driver.sno — test driver for FENCE.sno
-*  Oracle: SPITBOL -I$INC driver.sno   (scrip-cc targets SPITBOL semantics)
+*  driver.sno — test driver for FENCE primitive
+*  Oracle: SPITBOL -I$INC driver.sno
 *  Exercises: FENCE primitive in pattern matching
-*  FENCE.sno only defines FENCE() for CSNOBOL4; SPITBOL has it as a builtin.
+*  FENCE is a built-in in SPITBOL, snobol4dotnet, and CSNOBOL4 (>=2.3.3).
 -INCLUDE 'global.sno'
--INCLUDE 'FENCE.sno'
 
         &STLIMIT = 1000000
 
