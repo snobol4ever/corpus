@@ -1,0 +1,9 @@
+procedure main()
+  t := table();
+  insert(t, "k1", 1);
+  insert(t, "k2", 2);
+  delete(t, "k1");
+  write(*t);
+  if member(t, "k1") then write("bad"); else write("deleted");
+  write(t["k2"]);
+end

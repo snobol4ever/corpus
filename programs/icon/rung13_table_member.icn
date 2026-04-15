@@ -1,0 +1,7 @@
+procedure main()
+  t := table();
+  insert(t, "a", 42);
+  if member(t, "a") then write("found");
+  if member(t, "b") then write("bad"); else write("absent");
+  write(member(t, "a"));
+end
