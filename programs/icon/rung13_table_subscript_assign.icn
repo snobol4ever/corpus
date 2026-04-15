@@ -1,0 +1,8 @@
+procedure main()
+  t := table();
+  t["p"] := 7;
+  t["q"] := 8;
+  write(t["p"]);
+  write(t["q"]);
+  write(*t);
+end

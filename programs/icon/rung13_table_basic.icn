@@ -1,0 +1,8 @@
+procedure main()
+  t := table();
+  insert(t, "x", 10);
+  insert(t, "y", 20);
+  write(t["x"]);
+  write(t["y"]);
+  write(*t);
+end
