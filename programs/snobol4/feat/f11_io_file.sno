@@ -1,9 +1,9 @@
 *  f11: file I/O — multi-line write/read, DETACH
-        OUTPUT('WR', 3, , '/tmp/sno_f11.tmp')
+        OUTPUT('WR', 3, '/tmp/sno_f11.tmp')
         WR = 'line1'
         WR = 'line2'
         ENDFILE(3)
-        INPUT('RD', 4, , '/tmp/sno_f11.tmp')
+        INPUT('RD', 4, '/tmp/sno_f11.tmp')
         L1 = RD
         L2 = RD
         DETACH(RD)
