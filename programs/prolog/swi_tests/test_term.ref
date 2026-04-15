@@ -1,0 +1,5 @@
+PASS numbervars
+FAIL variant
+PASS compound
+PASS zero_arity_compound
+PASS term_singletons
