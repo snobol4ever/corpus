@@ -150,7 +150,7 @@ ppArgDone
                ppNg           =  0
                ppWArr         =  ARRAY(2000)
                ppTmpFile      =  '/tmp/beauty_auto_' HOST(1) '.sno'
-               output__(.ppTmp, 3, '', ppTmpFile)
+               OUTPUT(.ppTmp, 3, ppTmpFile)
 *
 ppAutoR        ppLn           =  INPUT                                          :F(ppAutoSort)
                ppTmp          =  ppLn
@@ -220,7 +220,7 @@ ppAutoMsg      OUTPUT         =  '* --auto: n='
 +                                ppLgBump
 *
 *                 Reopen temp file as INPUT for pass 2
-               input__(.INPUT, 1, '', ppTmpFile)
+               INPUT(.INPUT, 1, ppTmpFile)
 ppAutoSkip
 *---------------- -------------- -- ----------------------------------------------- ------------------------
 *                 Parser patterns:
