@@ -1,0 +1,8 @@
+*  075 - ARBNO(*var) backtracking: *var must not isolate alternate stack
+*  Root cause test for Graft fix: child scanner discarded ARBNO alternates.
+*  Parse = POS(0) ARBNO(LEN(1)) RPOS(0) must match all of 'AB' via *Parse.
+        Parse = POS(0) ARBNO(LEN(1)) RPOS(0)
+        'AB'  *Parse               :S(WIN)F(LOSE)
+WIN     OUTPUT = 'PASS'            :(END)
+LOSE    OUTPUT = 'FAIL'
+END
