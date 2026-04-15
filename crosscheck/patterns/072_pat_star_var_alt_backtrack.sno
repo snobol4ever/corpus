@@ -1,0 +1,7 @@
+*  072 - *var holding alternation: outer concat forces backtrack into alt
+        PAT = 'A' | 'AB'
+        X = 'AB'
+        X POS(0) *PAT 'B' RPOS(0)  :S(YES)F(NO)
+YES     OUTPUT = 'matched'         :(END)
+NO      OUTPUT = 'fail'
+END

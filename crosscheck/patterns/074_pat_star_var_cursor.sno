@@ -1,0 +1,7 @@
+*  074 - *var with @cursor assignment
+        PAT = LEN(2)
+        X = 'hello'
+        X POS(0) *PAT @POS  :S(YES)F(NO)
+YES     OUTPUT = POS :(END)
+NO      OUTPUT = 'fail'
+END

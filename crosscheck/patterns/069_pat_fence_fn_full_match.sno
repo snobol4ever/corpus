@@ -1,0 +1,6 @@
+*  069 - FENCE(p) where p and full match both succeed
+        X = 'AB'
+        X POS(0) FENCE('AB') RPOS(0)  :S(YES)F(NO)
+YES     OUTPUT = 'matched'                     :(END)
+NO      OUTPUT = 'failed'
+END
