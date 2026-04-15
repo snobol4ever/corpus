@@ -1,0 +1,7 @@
+*  070 - ARBNO(*var) where var holds a simple pattern - repeats correctly
+        DIGIT = ANY('0123456789')
+        X = '123'
+        X POS(0) ARBNO(*DIGIT) . V RPOS(0)  :S(YES)F(NO)
+YES     OUTPUT = V                           :(END)
+NO      OUTPUT = 'fail'
+END

@@ -1,0 +1,7 @@
+*  073 - *var with immediate . capture
+        PAT = LEN(3)
+        X = 'hello'
+        X *PAT . V  :S(YES)F(NO)
+YES     OUTPUT = V  :(END)
+NO      OUTPUT = 'fail'
+END

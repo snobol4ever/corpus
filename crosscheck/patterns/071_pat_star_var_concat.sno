@@ -1,0 +1,7 @@
+*  071 - *var in concatenation: two indirect refs in sequence
+        WORD = SPAN(&LCASE)
+        X = 'hello world'
+        X POS(0) *WORD . V1 ' ' *WORD . V2 RPOS(0)  :S(YES)F(NO)
+YES     OUTPUT = V1 ', ' V2                          :(END)
+NO      OUTPUT = 'fail'
+END
