@@ -1,0 +1,6 @@
+PASS bips
+PASS bips_occurs_check_error
+PASS arg
+PASS eq
+PASS length
+PASS is_most_general_term
