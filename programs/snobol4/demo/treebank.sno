@@ -1,112 +1,206 @@
 *------------------------------------------------------------------------------
-* treebank.sno — Penn Treebank S-expression parser
+* treebank.sno — Penn Treebank s-expression parser
 * ENG 685, Lon Cherryholmes Sr.
 *
-* Faithful SNOBOL4 conversion of assignment3.py treebank pattern.
+* Faithful SNOBOL4 conversion of the treebank pattern from assignment3.py.
 *
 * Python:
-*   group    = σ('(') + word%"tag" + push_list(tag)
-*            + ARBNO(delim + (ζ(λ:group) | word%"wrd" + push_item(wrd)))
-*            + pop_list() + σ(')')
+*   def push_list(v): λ(stack.append(list())); λ(stack[-1].append(v))
+*   def push_item(v): λ(stack[-1].append(v))
+*   def pop_list():   λ(stack[-2].append(tuple(stack.pop())))
+*   def pop_final(v): λ(v = tuple(stack.pop()))
 *
-* group is a PATTERN VARIABLE; *group defers self-reference (ζ(λ:group)).
-* Outer sentence loop explicit — SNOBOL4 *func() side effects are not
-* undone on ARBNO backtrack; only push/pop when '(' confirmed present.
-* Linked list uses DATA('list(head,tail)').
+*   group = ( σ('(')
+*           + word % "tag"   + push_list("tag")
+*           + ARBNO( delim + ( ζ(lambda: group)
+*                            | word % "wrd" + push_item("wrd") ) )
+*           + pop_list() + σ(')') )
+*
+*   treebank = ( POS(0) + init_list("bank") + push_list("'BANK'")
+*              + ARBNO( push_list("'ROOT'") + ARBNO(group)
+*                     + pop_list() + delim )
+*              + pop_final("bank") + RPOS(0) )
+*
+* Translation key:
+*   σ('x')    →  literal 'x'
+*   pat % "v" →  (pat) . v              deferred conditional assignment
+*   λ("stmt") →  epsilon . *fn()        zero-width side-effect hook
+*   ζ(λ: x)   →  *x                    deferred indirect pattern reference
+*
+* DATA('list(head,tail)') — inlined linked list.
+* stk is a linked list of frames; each frame is a linked list of items.
+*   push_list(tag): push new frame [tag] onto stk
+*   push_item(wrd): prepend wrd to top frame
+*   pop_list():     reverse top frame; prepend as child-list to parent frame
+*   pop_final():    reverse top frame into bank
+*
+* SPITBOL note: DATATYPE() returns lowercase ('string', 'integer', etc.)
+*   Use IDENT(DATATYPE(x), 'string') — NOT 'STRING'.
+*
+* Input:  VBGinTASA.dat  (slurped line-by-line into one string)
+* Output: s-expression tree, 3-space indent per level
 *------------------------------------------------------------------------------
 
-               &TRIM      = 1
-               &ANCHOR    = 0
-               &FULLSCAN  = 1
-               NL         = CHAR(10)
-               SPCNL      = ' ' NL
+               &TRIM          =  1
+               &ANCHOR        =  0
+               &FULLSCAN      =  1
+               &ALPHABET      POS(10) LEN(1) . nl
+
+*--- Linked list DATA type ----------------------------------------------------
 
                DATA('list(head,tail)')
 
-               DEFINE('do_push_list(v)')                                       :(do_push_list_end)
-do_push_list   stk            =  list(list(v,), stk)
-               do_push_list   =  .dummy                                        :(NRETURN)
-do_push_list_end
+*--- Linked-list helpers ------------------------------------------------------
 
-               DEFINE('do_push_item(v)')                                       :(do_push_item_end)
-do_push_item   head(stk)      =  list(v, head(stk))
-               do_push_item   =  .dummy                                        :(NRETURN)
-do_push_item_end
+               DEFINE('list_reverse(lst)acc,cur')                              :(list_reverse_end)
+list_reverse   acc            =
+               cur            =  lst
+lr1            DIFFER(cur)                                                     :F(lr_done)
+               acc            =  list(head(cur), acc)
+               cur            =  tail(cur)                                     :(lr1)
+lr_done        list_reverse   =  acc                                           :(RETURN)
+list_reverse_end
 
-               DEFINE('do_pop_list()p,n,i,a')                                 :(do_pop_list_end)
-do_pop_list    p              =  head(stk)
-               n              =  0
-dpl_c          DIFFER(p)                                                       :F(dpl_b)
-               n              =  n + 1
-               p              =  tail(p)                                       :(dpl_c)
-dpl_b          a              =  ARRAY('1:' n)
-               p              =  head(stk)
-               i              =  n + 1
-dpl_f          i              =  GT(i,1) i - 1                                 :F(dpl_m)
-               a[i]           =  head(p)
-               p              =  tail(p)                                       :(dpl_f)
-dpl_m          stk            =  tail(stk)
-               head(stk)      =  list(a, head(stk))
-               do_pop_list    =  .dummy                                        :(NRETURN)
-do_pop_list_end
+*--- Stack operations ---------------------------------------------------------
 
-               DEFINE('do_pop_final(v)p,n,i,a')                               :(do_pop_final_end)
-do_pop_final   p              =  head(stk)
-               n              =  0
-dpf_c          DIFFER(p)                                                       :F(dpf_b)
-               n              =  n + 1
-               p              =  tail(p)                                       :(dpf_c)
-dpf_b          a              =  ARRAY('1:' n)
-               p              =  head(stk)
-               i              =  n + 1
-dpf_f          i              =  GT(i,1) i - 1                                 :F(dpf_m)
-               a[i]           =  head(p)
-               p              =  tail(p)                                       :(dpf_f)
-dpf_m          stk            =  tail(stk)
-               $v             =  a
-               do_pop_final   =  .dummy                                        :(NRETURN)
-do_pop_final_end
+               DEFINE('stk_push_frame(tag)')                                   :(stk_push_frame_end)
+stk_push_frame stk            =  list(list(tag,), stk)
+               stk_push_frame =  .dummy                                        :(RETURN)
+stk_push_frame_end
 
-               DEFINE('print_node(a,depth)i,ch')                              :(print_node_end)
-print_node     IDENT(REPLACE(DATATYPE(a), &LCASE, &UCASE), 'STRING')          :F(pn_node)
-               OUTPUT         =  DUPL('  ', depth) a                          :(RETURN)
-pn_node        OUTPUT         =  DUPL('  ', depth) '(' a[1]
-               i              =  1
-pn_lp          i              =  i + 1
-               ch             =  a[i]                                          :F(pn_cl)
-               dummy          =  print_node(ch, depth + 1)                    :(pn_lp)
-pn_cl          OUTPUT         =  DUPL('  ', depth) ')'                        :(RETURN)
-print_node_end
+               DEFINE('stk_push_item(v)')                                      :(stk_push_item_end)
+stk_push_item  head(stk)      =  list(v, head(stk))
+               stk_push_item  =  .dummy                                        :(RETURN)
+stk_push_item_end
 
-               delim      =  SPAN(SPCNL)
-               WBRKS      =  '() ' NL
-               word       =  NOTANY(WBRKS) BREAK(WBRKS)
+               DEFINE('stk_pop_into_parent()child')                            :(stk_pop_into_parent_end)
+stk_pop_into_parent
+               child          =  list_reverse(head(stk))
+               stk            =  tail(stk)
+               head(stk)      =  list(child, head(stk))
+               stk_pop_into_parent =  .dummy                                   :(RETURN)
+stk_pop_into_parent_end
 
-               group      =  '(' (word . tag) *do_push_list(tag)
-+                             ARBNO(delim (*group | (word . wrd) *do_push_item(wrd)))
-+                             *do_pop_list() ')'
+               DEFINE('stk_pop_final(var)')                                    :(stk_pop_final_end)
+stk_pop_final  $var           =  list_reverse(head(stk))
+               stk            =  tail(stk)
+               stk_pop_final  =  .dummy                                        :(RETURN)
+stk_pop_final_end
 
-               stk            =
-               buf            =  ''
+*--- λ side-effect functions (NRETURN = usable as pattern side-effect) --------
 
-rdloop         line           =  INPUT                                         :F(parse)
-               buf            =  buf line ' '                                  :(rdloop)
+               DEFINE('tb_init()')                                             :(tb_init_end)
+tb_init        stk            =
+               bank           =
+               tb_init        =  .dummy                                        :(NRETURN)
+tb_init_end
 
-parse          dummy          =  do_push_list('BANK')
+               DEFINE('tb_push_bank()')                                        :(tb_push_bank_end)
+tb_push_bank   dummy          =  stk_push_frame('BANK')
+               tb_push_bank   =  .dummy                                        :(NRETURN)
+tb_push_bank_end
 
-sentloop       buf            POS(0) SPAN(SPCNL) =
-               buf            POS(0) '('                                       :F(parse_done)
-               dummy          =  do_push_list('ROOT')
-grouploop      buf            group                                             :F(parse_err)
-               buf            POS(0) '('                                       :S(grouploop)
-               dummy          =  do_pop_list()                                 :(sentloop)
+               DEFINE('tb_push_root()')                                        :(tb_push_root_end)
+tb_push_root   dummy          =  stk_push_frame('ROOT')
+               tb_push_root   =  .dummy                                        :(NRETURN)
+tb_push_root_end
 
-parse_done     dummy          =  do_pop_final('bank')
-               OUTPUT         =  'BANK'
-               i              =  1
-print_lp       i              =  i + 1
-               r              =  bank[i]                                       :F(END)
-               dummy          =  print_node(r, 0)                             :(print_lp)
+               DEFINE('tb_push_list()')                                        :(tb_push_list_end)
+tb_push_list   dummy          =  stk_push_frame(tag)
+               tb_push_list   =  .dummy                                        :(NRETURN)
+tb_push_list_end
 
-parse_err      OUTPUT         =  '*** parse error near: ' SUBSTR(buf, 1, 40)
+               DEFINE('tb_push_item()')                                        :(tb_push_item_end)
+tb_push_item   dummy          =  stk_push_item(wrd)
+               tb_push_item   =  .dummy                                        :(NRETURN)
+tb_push_item_end
+
+               DEFINE('tb_pop_list()')                                         :(tb_pop_list_end)
+tb_pop_list    dummy          =  stk_pop_into_parent()
+               tb_pop_list    =  .dummy                                        :(NRETURN)
+tb_pop_list_end
+
+               DEFINE('tb_pop_final()')                                        :(tb_pop_final_end)
+tb_pop_final   dummy          =  stk_pop_final('bank')
+               tb_pop_final   =  .dummy                                        :(NRETURN)
+tb_pop_final_end
+
+*--- Sub-patterns -------------------------------------------------------------
+
+               delim          =  SPAN(' ' nl)
+               word_p         =  NOTANY('( )' nl) BREAK('( )' nl)
+
+*--- group pattern (recursive via *group) -------------------------------------
+*
+*   '('
+*   (word_p . tag)
+*   (epsilon . *tb_push_list())
+*   ARBNO( *delim ( *group | (word_p . wrd) (epsilon . *tb_push_item()) ) )
+*   (epsilon . *tb_pop_list())
+*   ')'
+
+               group          =
++                 '('
++                 (word_p . tag)
++                 (epsilon . *tb_push_list())
++                 ARBNO(
++                   *delim
++                   ( *group
++                   | (word_p . wrd)
++                     (epsilon . *tb_push_item())
++                   )
++                 )
++                 (epsilon . *tb_pop_list())
++                 ')'
+
+*--- treebank_pat — the one big pattern ---------------------------------------
+
+               treebank_pat   =
++                 POS(0)
++                 (epsilon . *tb_init())
++                 (epsilon . *tb_push_bank())
++                 ARBNO(
++                   (epsilon . *tb_push_root())
++                   ARBNO(*group)
++                   (epsilon . *tb_pop_list())
++                   *delim
++                 )
++                 (epsilon . *tb_pop_final())
++                 RPOS(0)
+
+*--- Pretty-print: s-expression tree, 3-space indent -------------------------
+*
+*   SPITBOL DATATYPE() returns lowercase: 'string', 'integer', 'list'
+*   Leaf node: node is a string  -> IDENT(DATATYPE(node), 'string')
+*   Internal:  node is a list    -> head = tag, tail = linked list of children
+
+               DEFINE('pp_node(node,indent)child,nxt,pad')                    :(pp_node_end)
+pp_node        pad            =  DUPL(' ', indent)
+               IDENT(DATATYPE(node), 'string')                                 :F(pp_node_list)
+               OUTPUT         =  pad node                                      :(RETURN)
+pp_node_list
+               OUTPUT         =  pad '(' head(node)
+               child          =  tail(node)
+pp_ch          DIFFER(child)                                                   :F(pp_close)
+               nxt            =  tail(child)
+               pp_node(head(child), indent + 3)
+               child          =  nxt                                           :(pp_ch)
+pp_close       OUTPUT         =  pad ')'                                       :(RETURN)
+pp_node_end
+
+               DEFINE('pp_bank()cur')                                          :(pp_bank_end)
+pp_bank        pp_node(bank, 0)
+               pp_bank        =  .dummy                                        :(RETURN)
+pp_bank_end
+
+*--- Main: slurp file, match, print -------------------------------------------
+
+               INPUT(.rdch, 8, 'VBGinTASA.dat')                               :F(main_err)
+slurp          line           =  rdch                                          :F(slurp_done)
+               src            =  src line nl                                   :(slurp)
+slurp_done     ENDFILE(8)
+               src            treebank_pat                                     :F(main_fail)
+               dummy          =  pp_bank()                                     :(END)
+main_fail      OUTPUT         =  'Pattern match failed'                        :(END)
+main_err       OUTPUT         =  'Could not read VBGinTASA.dat'
 END
