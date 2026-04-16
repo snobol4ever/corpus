@@ -1,23 +1,13 @@
 *------------------------------------------------------------------------------
 * treebank.sno — Penn Treebank s-expression parser
 * ENG 685, Lon Cherryholmes Sr.
+* Run: csnobol4 -bf treebank.sno < VBGinTASA.dat
 *
 * Faithful SNOBOL4 port of assignment3.py (treebank pattern).
-* Run: sbl -b treebank.sno   (VBGinTASA.dat must be in working directory)
-*
-* Function names match Python exactly:
-*   init_list(v)  push_list(v)  push_item(v)  pop_list()  pop_final(v)
-*
-* Each is a single NRETURN function usable two ways:
-*   (1) Direct deferred call in pattern:  (word . tag) . *push_list(tag)
-*   (2) Zero-width epsilon hook:          (epsilon . *push_list('BANK'))
-*
-* Python:
-*   def init_list(v): λ(f"{v}=None") + λ("stack=[]")
-*   def push_list(v): λ("stack.append(list())") + λ("stack[-1].append(v)")
-*   def push_item(v): λ("stack[-1].append(v)")
-*   def pop_list():   λ("stack[-2].append(tuple(stack.pop()))")
-*   def pop_final(v): λ(f"{v}=tuple(stack.pop())")
+* Uses the double-function trick (case-sensitive, CSNOBOL4 -bf required):
+*   push_list(v)   — NRETURN side-effect, called at match time
+*   Push_list(vs)  — returns EVAL("epsilon . *push_list(" vs ")"), build time
+* Python names: init_list, push_list, push_item, pop_list, pop_final
 *------------------------------------------------------------------------------
                &TRIM          =  1
                &ANCHOR        =  0
@@ -59,62 +49,66 @@ stk_pop_final  $var           =  list_reverse(head(stk))
                stk_pop_final  =  .dummy                     :(RETURN)
 stk_pop_final_end
 *------------------------------------------------------------------------------
-*  init_list(v) — λ(f"{v}=None") + λ("stack=[]")
+*  Double-function pattern (requires CSNOBOL4 -bf for case-sensitive labels):
+*    Lowercase fn(v)  — NRETURN side-effect, called at match time via EVAL
+*    Uppercase Fn(vs) — called at pattern BUILD time, returns deferred pattern
+*
+*  Usage in patterns:
+*    (word . tag) Push_list('tag')     captures tag, pushes it at match time
+*    Push_list("'BANK'")               pushes literal 'BANK' at match time
 *------------------------------------------------------------------------------
-               DEFINE('init_list(v)')                       :(init_list_end)
+               DEFINE('init_list(v)')
+               DEFINE('Init_list(vs)')                      :(init_list_end)
 init_list      $v             =
                stk            =
                init_list      =  .dummy                     :(NRETURN)
+Init_list      Init_list      =  EVAL("epsilon . *init_list(" vs ")")  :(RETURN)
 init_list_end
 *------------------------------------------------------------------------------
-*  push_list(v) — λ("stack.append(list())") + λ("stack[-1].append(v)")
-*  Called as: (word . tag) . *push_list(tag)   or   epsilon . *push_list('BANK')
-*------------------------------------------------------------------------------
-               DEFINE('push_list(v)')                       :(push_list_end)
+               DEFINE('push_list(v)')
+               DEFINE('Push_list(vs)')                      :(push_list_end)
 push_list      dummy          =  stk_push_frame(v)
                push_list      =  .dummy                     :(NRETURN)
+Push_list      Push_list      =  EVAL("epsilon . *push_list(" vs ")")  :(RETURN)
 push_list_end
 *------------------------------------------------------------------------------
-*  push_item(v) — λ("stack[-1].append(v)")
-*  Called as: (word . wrd) . *push_item(wrd)
-*------------------------------------------------------------------------------
-               DEFINE('push_item(v)')                       :(push_item_end)
+               DEFINE('push_item(v)')
+               DEFINE('Push_item(vs)')                      :(push_item_end)
 push_item      dummy          =  stk_push_item(v)
                push_item      =  .dummy                     :(NRETURN)
+Push_item      Push_item      =  EVAL("epsilon . *push_item(" vs ")")  :(RETURN)
 push_item_end
 *------------------------------------------------------------------------------
-*  pop_list() — λ("stack[-2].append(tuple(stack.pop()))")
-*------------------------------------------------------------------------------
-               DEFINE('pop_list()')                         :(pop_list_end)
+               DEFINE('pop_list()')
+               DEFINE('Pop_list()')                         :(pop_list_end)
 pop_list       dummy          =  stk_pop_into_parent()
                pop_list       =  .dummy                     :(NRETURN)
+Pop_list       Pop_list       =  epsilon . *pop_list()      :(RETURN)
 pop_list_end
 *------------------------------------------------------------------------------
-*  pop_final(v) — λ(f"{v}=tuple(stack.pop())")
-*------------------------------------------------------------------------------
-               DEFINE('pop_final(v)')                       :(pop_final_end)
+               DEFINE('pop_final(v)')
+               DEFINE('Pop_final(vs)')                      :(pop_final_end)
 pop_final      dummy          =  stk_pop_final(v)
                pop_final      =  .dummy                     :(NRETURN)
+Pop_final      Pop_final      =  EVAL("epsilon . *pop_final(" vs ")")  :(RETURN)
 pop_final_end
 *------------------------------------------------------------------------------
                delim          =  SPAN(' ' nl)
                word           =  NOTANY('( )' nl) BREAK('( )' nl)
 *------------------------------------------------------------------------------
 *  group — direct port of Python:
-*    σ('(') + word%"tag" + push_list(tag)
-*    + ARBNO(delim + (ζ(λ:group) | word%"wrd" + push_item(wrd)))
-*    + pop_list() + σ(')')
+*    '(' + word%"tag" + push_list(tag) + ARBNO(...) + pop_list() + ')'
 *------------------------------------------------------------------------------
                group          =
 +              '('
-+              (word . tag) . *push_list(tag)
++              (word . tag) Push_list('tag')
 +              ARBNO(
 +                  *delim
 +                  ( *group
-+                  | (word . wrd) . *push_item(wrd)
++                  | (word . wrd) Push_item('wrd')
 +                  )
 +              )
-+              (epsilon . *pop_list())
++              Pop_list()
 +              ')'
 *------------------------------------------------------------------------------
 *  treebank — direct port of Python:
@@ -124,20 +118,20 @@ pop_final_end
 *------------------------------------------------------------------------------
                treebank       =
 +              POS(0)
-+              (epsilon . *init_list('bank'))
-+              (epsilon . *push_list('BANK'))
++              Init_list("'bank'")
++              Push_list("'BANK'")
 +              ARBNO(
-+                  (epsilon . *push_list('ROOT'))
++                  Push_list("'ROOT'")
 +                  ARBNO(*group)
 +                  *delim
-+                  (epsilon . *pop_list())
++                  Pop_list()
 +              )
-+              (epsilon . *pop_final('bank'))
++              Pop_final("'bank'")
 +              RPOS(0)
 *------------------------------------------------------------------------------
                DEFINE('pp_node(node,indent)child,nxt,pad')  :(pp_node_end)
 pp_node        pad            =  DUPL(' ', indent)
-               IDENT(DATATYPE(node), 'string')              :F(pp_node_list)
+               IDENT(REPLACE(DATATYPE(node), &LCASE, &UCASE), 'STRING')  :F(pp_node_list)
                OUTPUT         =  pad node                   :(RETURN)
 pp_node_list   OUTPUT         =  pad '(' head(node)
                child          =  tail(node)
@@ -153,13 +147,10 @@ pp_bank        pp_node(bank, 0)
                pp_bank        =  .dummy                     :(RETURN)
 pp_bank_end
 *------------------------------------------------------------------------------
-               INPUT(.rdch, 8, 'VBGinTASA.dat')             :F(main_err)
-slurp          line           =  rdch                       :F(slurp_done)
+slurp          line           =  INPUT                      :F(slurp_done)
                src            =  src line nl                :(slurp)
-slurp_done     ENDFILE(8)
-               src            treebank                      :F(main_fail)
+slurp_done     src            treebank                      :F(main_fail)
                dummy          =  pp_bank()                  :(END)
-main_fail      OUTPUT         =  'Pattern match failed'     :(END)
-main_err       OUTPUT         =  'Could not read VBGinTASA.dat'
+main_fail      OUTPUT         =  'Pattern match failed'
 *------------------------------------------------------------------------------
 END
