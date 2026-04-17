@@ -1,7 +1,7 @@
 *------------------------------------------------------------------------------
 * claws5.sno — CLAWS5 POS-tagged corpus tokenizer
 * ENG 685, Lon Cherryholmes Sr.
-* Run: sbl -b claws5.sno   (CLAWS5inTASA.dat must be in working directory)
+* Run: csnobol4 -bf claws5.sno < CLAWS5inTASA.dat
 *
 * Faithful SNOBOL4 port of assignment3.py (claws_info pattern).
 * Function names match Python lambda semantics:
@@ -10,6 +10,7 @@
 *   add_tok()   λ("if wrd not in mem[num][wrd]: ...") + λ("mem[num][wrd][tag]+=1")
 *
 * Each is a single NRETURN function; called as  epsilon . *fn()  in the pattern.
+* Reads from stdin (pipe-compatible; replaces SPITBOL-only 3-arg INPUT).
 *------------------------------------------------------------------------------
                &TRIM           =  1
                &ANCHOR         =  0
@@ -20,7 +21,7 @@
 *------------------------------------------------------------------------------
 *  init() — λ("mem = dict()")
 *------------------------------------------------------------------------------
-               DEFINE('init()')                             :(init_end)
+               DEFINE('init()')                              :(init_end)
 init           mem             =  TABLE()
                sentno          =  0
                init            =  .dummy                    :(NRETURN)
@@ -49,17 +50,7 @@ new_tag        mem[sentno][wrd][tag]  =  1
 done           add_tok         =  .dummy                    :(NRETURN)
 add_tok_end
 *------------------------------------------------------------------------------
-*  claws_pat — direct port of Python claws_info pattern:
-*    POS(0)
-*    + λ("mem=dict()")
-*    + ARBNO(
-*        ( SPAN(DIGITS)%"num" + σ('_CRD :_PUN') + λ("num=int(num)") + λ("mem[num]=dict()")
-*        | (NOTANY("_")+BREAK("_"))%"wrd" + σ('_')
-*          + (ANY(UCASE)+SPAN(DIGITS+UCASE))%"tag"
-*          + λ("mem[num][wrd][tag]+=1")
-*        ) + σ(' ')
-*      )
-*    + RPOS(0)
+*  claws_pat — direct port of Python claws_info pattern
 *------------------------------------------------------------------------------
                claws_pat       =
 +              POS(0)
@@ -104,13 +95,10 @@ pp_s_done      OUTPUT          =  '}'
                pp_mem          =  .dummy                    :(RETURN)
 pp_mem_end
 *------------------------------------------------------------------------------
-               INPUT(.rdch, 8, 'CLAWS5inTASA.dat')          :F(main_err)
-slurp          line            =  rdch                      :F(slurp_done)
+slurp          line            =  INPUT                     :F(slurp_done)
                src             =  src line ' '              :(slurp)
-slurp_done     ENDFILE(8)
-               src             ?  claws_pat                 :F(main_fail)
+slurp_done     src             ?  claws_pat                 :F(main_fail)
                pp_mem()                                     :(END)
-main_fail      OUTPUT          =  'Pattern match failed'    :(END)
-main_err       OUTPUT          =  'Could not read CLAWS5inTASA.dat'
+main_fail      OUTPUT          =  'Pattern match failed'
 *------------------------------------------------------------------------------
 END
