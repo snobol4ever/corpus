@@ -34,31 +34,60 @@ new_tag        mem[sentno][wrd][tag]  =  1
 done           add_tok         =  .dummy                    :(NRETURN)
 add_tok_end
 
-               DEFINE('pp_mem()sk,wk,tk,si,wi,ti')         :(pp_mem_end)
-pp_mem         OUTPUT          =  '{'
-               sk              =  SORT(mem)
+               DEFINE('pp_mem(mem)ssk,si,sentno,wsk,wi,wkey,wq,wrd,tsk,ti,tag,tv,tline,pfx,pad,next_wkey,last_sent,lline,ns') :(pp_mem_end)
+pp_mem
+               ssk             =  SORT(mem)
                si              =  0
-pp_s           si              =  si + 1
-               sk[si,1]                                     :F(pp_s_done)
-               si              GT(si, 1) OUTPUT = '   },'
-               OUTPUT          =  '   ' sk[si,1] ': {'
-               wk              =  SORT(mem[sk[si,1]])
+               ns              =  0
+pm_cnt_loop    ns              =  ns + 1
+               ssk[ns,1]                                    :F(pm_cnt_done)
+               :(pm_cnt_loop)
+pm_cnt_done    ns              =  ns - 1
+               si              =  0
+pm_sent_loop   si              =  si + 1
+               sentno          =  ssk[si,1]                :F(pm_done)
+               last_sent       =  ''
+               IDENT(si, ns)                                :F(pm_not_last)
+               last_sent       =  1
+pm_not_last
+               pad             =  DUPL(' ', SIZE(sentno) + 4)
+               IDENT(si, 1)                                 :F(pm_pfx_mid)
+               pfx             =  '{' sentno ': {'         :(pm_wrd_init)
+pm_pfx_mid     pfx             =  ' ' sentno ': {'
+pm_wrd_init    wsk             =  SORT(mem[sentno])
                wi              =  0
-pp_w           wi              =  wi + 1
-               wk[wi,1]                                     :F(pp_w_done)
-               wi              GT(wi, 1) OUTPUT = '      },'
-               OUTPUT          =  '      ' wk[wi,1] ': {'
-               tk              =  SORT(mem[sk[si,1]][wk[wi,1]])
+pm_wrd_loop    wi              =  wi + 1
+               wkey            =  wsk[wi,1]                :F(pm_wrd_close)
+               next_wkey       =  ''
+               next_wkey       =  wsk[wi + 1,1]
+               wrd             =  wkey
+               wrd             ARB "'"  =  ''              :F(pm_sq)
+               wq              =  '"' wkey '"'             :(pm_tdict)
+pm_sq          wq              =  "'" wkey "'"
+pm_tdict       tsk             =  SORT(mem[sentno][wkey])
                ti              =  0
-pp_t           ti              =  ti + 1
-               tk[ti,1]                                     :F(pp_t_done)
-               OUTPUT          =  '         '
-+                                 tk[ti,1] ': '
-+                                 mem[sk[si,1]][wk[wi,1]][tk[ti,1]]
-+                                 ','                        :(pp_t)
-pp_t_done      OUTPUT          =  '      }'                 :(pp_w)
-pp_w_done      OUTPUT          =  '   }'                    :(pp_s)
-pp_s_done      OUTPUT          =  '}'
+               tline           =  '{'
+pm_tag_loop    ti              =  ti + 1
+               tag             =  tsk[ti,1]                :F(pm_tag_close)
+               tv              =  mem[sentno][wkey][tag]
+               IDENT(tline, '{')                            :F(pm_tag_sep)
+               tline           =  tline "'" tag "': " tv   :(pm_tag_loop)
+pm_tag_sep     tline           =  tline ', ' "'" tag "': " tv :(pm_tag_loop)
+pm_tag_close   tline           =  tline '}'
+               GT(SIZE(next_wkey), 0)                       :S(pm_not_last_wrd)
+               :(pm_last_wrd)
+pm_not_last_wrd
+               IDENT(wi, 1)                                 :F(pm_mid_wrd)
+               OUTPUT          =  pfx wq ': ' tline ','    :(pm_wrd_loop)
+pm_mid_wrd     OUTPUT          =  pad wq ': ' tline ','    :(pm_wrd_loop)
+pm_last_wrd    IDENT(wi, 1)                                 :F(pm_last_mid)
+               lline           =  pfx wq ': ' tline        :(pm_last_emit)
+pm_last_mid    lline           =  pad wq ': ' tline
+pm_last_emit   IDENT(last_sent, 1)                          :F(pm_last_mid2)
+               OUTPUT          =  lline '}}'               :(pm_sent_loop)
+pm_last_mid2   OUTPUT          =  lline '},'               :(pm_sent_loop)
+pm_wrd_close   :(pm_sent_loop)
+pm_done
                pp_mem          =  .dummy                    :(RETURN)
 pp_mem_end
 
@@ -82,6 +111,6 @@ slurp_done
 +              RPOS(0)
 
                src             claws_pat                    :F(fail)
-               pp_mem()                                     :(END)
+               pp_mem(mem)                                  :(END)
 fail           OUTPUT          =  'Pattern match failed'
 END
