@@ -73,27 +73,58 @@ procedure stk_pop_final(var,   child) {
     return;
 }
 
-//--- pp_node(f, indent) — walk the frame TABLE directly ---------------------
+//--- node_repr: build full inline repr string --------------------------------
+//  Leaf string -> "'word'"
+//  Frame (integer) -> "('TAG', repr(c1), repr(c2), ...)"
 
-procedure pp_node(f, indent,   tag, n, i, pad) {
-    pad = DUPL(' ', indent);
+procedure node_repr(f,   r, i, n, tag) {
     if (IDENT(REPLACE(DATATYPE(f), &LCASE, &UCASE), 'STRING')) {
-        OUTPUT = pad && f;
+        node_repr = "'" && f && "'";
         return;
     }
-    tag    = stk_tag[f];
-    n      = stk_n[f];
-    OUTPUT = pad && '(' && tag;
-    i      = 0;
+    tag = stk_tag[f];
+    n   = stk_n[f];
+    r   = "('" && tag && "'";
+    i   = 0;
     while (DIFFER(i = LT(i, n) i + 1)) {
-        dummy = pp_node(stk_c[f][i], indent + 3);
+        r = r && ', ' && node_repr(stk_c[f][i]);
     }
-    OUTPUT = pad && ')';
+    node_repr = r && ')';
+    return;
+}
+
+//--- pp_node: Python PrettyPrinter(indent=2, width=80) equivalent ------------
+//  suffix is appended to the last output line ('', ',' or ')').
+//  Rule: indent + SIZE(repr) <= 80 -> inline; else wrap with suffix-threading.
+
+procedure pp_node(f, indent, suffix,   r, pad, tag, n, i) {
+    if (IDENT(REPLACE(DATATYPE(f), &LCASE, &UCASE), 'STRING')) {
+        OUTPUT = DUPL(' ', indent) && "'" && f && "'" && suffix;
+        return;
+    }
+    r   = node_repr(f);
+    pad = DUPL(' ', indent);
+    if (GT(80, indent + SIZE(r))) {
+        OUTPUT = pad && r && suffix;
+        return;
+    }
+    tag = stk_tag[f];
+    n   = stk_n[f];
+    OUTPUT = pad && '( ' && "'" && tag && "',";
+    i = 0;
+    while (DIFFER(i = LT(i, n) i + 1)) {
+        if (GT(n, i)) {
+            dummy = pp_node(stk_c[f][i], indent + 2, ',');
+        } else {
+            dummy = pp_node(stk_c[f][i], indent + 2, ')' && suffix);
+            return;
+        }
+    }
     return;
 }
 
 procedure pp_bank() {
-    dummy   = pp_node(bank, 0);
+    dummy   = pp_node(bank, 0, '');
     pp_bank = .dummy;
     return;
 }

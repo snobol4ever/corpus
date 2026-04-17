@@ -129,27 +129,56 @@ treebank =
     && (epsilon . *pop_final('bank'))
     && RPOS(0);
 
-//--- pp_node: recursive pretty-printer --------------------------------------
+//--- node_repr: build full inline repr string --------------------------------
+//  Leaf string -> "'word'"
+//  List node   -> "('TAG', repr(c1), repr(c2), ...)"
 
-procedure pp_node(node, indent,   child, nxt, pad) {
-    pad = DUPL(' ', indent);
+procedure node_repr(node,   r, sep, c) {
     if (IDENT(REPLACE(DATATYPE(node), &LCASE, &UCASE), 'STRING')) {
-        OUTPUT = pad && node;
+        node_repr = "'" && node && "'";
         return;
     }
-    OUTPUT = pad && '(' && head(node);
-    child  = tail(node);
-    while (DIFFER(child)) {
-        nxt   = tail(child);
-        dummy = pp_node(head(child), indent + 3);
-        child = nxt;
+    r   = '(';
+    sep = '';
+    c   = node;
+    while (DIFFER(c)) {
+        r   = r && sep && node_repr(head(c));
+        sep = ', ';
+        c   = tail(c);
     }
-    OUTPUT = pad && ')';
+    node_repr = r && ')';
+    return;
+}
+
+//--- pp_node: Python PrettyPrinter(indent=2, width=80) equivalent ------------
+//  suffix is appended to the last output line ('', ',' or ')').
+//  Rule: indent + SIZE(repr) <= 80 -> inline; else wrap with suffix-threading.
+//  Non-last child gets suffix ','; last child gets suffix ')' && outer_suffix.
+
+procedure pp_node(node, indent, suffix,   r, pad, c, nxt) {
+    r   = node_repr(node);
+    pad = DUPL(' ', indent);
+    if (GT(80, indent + SIZE(r))) {
+        OUTPUT = pad && r && suffix;
+        return;
+    }
+    OUTPUT = pad && '( ' && "'" && head(node) && "',";
+    c = tail(node);
+    while (DIFFER(c)) {
+        nxt = tail(c);
+        if (DIFFER(nxt)) {
+            dummy = pp_node(head(c), indent + 2, ',');
+        } else {
+            dummy = pp_node(head(c), indent + 2, ')' && suffix);
+            return;
+        }
+        c = nxt;
+    }
     return;
 }
 
 procedure pp_bank() {
-    dummy   = pp_node(bank, 0);
+    dummy   = pp_node(bank, 0, '');
     pp_bank = .dummy;
     return;
 }
