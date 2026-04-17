@@ -70,32 +70,31 @@ claws_pat =
     )
     && RPOS(0);
 
-//--- pp_mem() ---------------------------------------------------------------
+//--- pp_table(tbl, depth, key) — recursive TABLE pretty-printer -------------
+//  depth=0: tbl is mem (top level); prints '{' with no key.
+//  depth>0: prints pad key ': {' then recurses on child TABLEs.
+//  Leaf values printed as: pad '   ' key ': ' val ','
+//  Closing '}' never carries a comma.
 
-procedure pp_mem(   sk, wk, tk, si, wi, ti) {
-    OUTPUT = '{';
-    sk = SORT(mem);
-    si = 0;
-    while (DIFFER(si = si + 1) && sk[si,1]) {
-        if (GT(si, 1)) { OUTPUT = '   },'; }
-        OUTPUT = '   ' && sk[si,1] && ': {';
-        wk = SORT(mem[sk[si,1]]);
-        wi = 0;
-        while (DIFFER(wi = wi + 1) && wk[wi,1]) {
-            if (GT(wi, 1)) { OUTPUT = '      },'; }
-            OUTPUT = '      ' && wk[wi,1] && ': {';
-            tk = SORT(mem[sk[si,1]][wk[wi,1]]);
-            ti = 0;
-            while (DIFFER(ti = ti + 1) && tk[ti,1]) {
-                OUTPUT = '         ' && tk[ti,1] && ': '
-                         && mem[sk[si,1]][wk[wi,1]][tk[ti,1]] && ',';
-            }
-            OUTPUT = '      }';
-        }
-        OUTPUT = '   }';
+procedure pp_table(tbl, depth, key,   pad, sk, i, k, v) {
+    pad = DUPL(' ', depth * 3);
+    if (IDENT(depth, 0)) {
+        OUTPUT = '{';
+    } else {
+        OUTPUT = pad && key && ': {';
     }
-    OUTPUT = '}';
-    pp_mem = .dummy;
+    sk = SORT(tbl);
+    i  = 0;
+    while (DIFFER(k = sk[i = i + 1, 1])) {
+        v = tbl[k];
+        if (IDENT(REPLACE(DATATYPE(v), &LCASE, &UCASE), 'TABLE')) {
+            dummy = pp_table(v, depth + 1, k);
+        } else {
+            OUTPUT = pad && '   ' && k && ': ' && v && ',';
+        }
+    }
+    OUTPUT = pad && '}';
+    pp_table = .dummy;
     return;
 }
 
@@ -106,7 +105,7 @@ while (DIFFER(line = INPUT)) {
     src = src && line && ' ';
 }
 if (src ? claws_pat) {
-    dummy = pp_mem();
+    dummy = pp_table(mem, 0, '');
 } else {
     OUTPUT = 'Pattern match failed';
 }

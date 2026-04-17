@@ -67,38 +67,33 @@ add_tok_end
 +              )
 +              RPOS(0)
 *------------------------------------------------------------------------------
-               DEFINE('pp_mem()sk,wk,tk,si,wi,ti')          :(pp_mem_end)
-pp_mem         OUTPUT          =  '{'
-               sk              =  SORT(mem)
-               si              =  0
-pp_s           si              =  si + 1
-               sk[si,1]                                     :F(pp_s_done)
-               si              GT(si, 1) OUTPUT = '   },'
-               OUTPUT          =  '   ' sk[si,1] ': {'
-               wk              =  SORT(mem[sk[si,1]])
-               wi              =  0
-pp_w           wi              =  wi + 1
-               wk[wi,1]                                     :F(pp_w_done)
-               wi              GT(wi, 1) OUTPUT = '      },'
-               OUTPUT          =  '      ' wk[wi,1] ': {'
-               tk              =  SORT(mem[sk[si,1]][wk[wi,1]])
-               ti              =  0
-pp_t           ti              =  ti + 1
-               tk[ti,1]                                     :F(pp_t_done)
-               OUTPUT          =  '         '
-+                                 tk[ti,1] ': '
-+                                 mem[sk[si,1]][wk[wi,1]][tk[ti,1]]
-+                                 ','                        :(pp_t)
-pp_t_done      OUTPUT          =  '      }'                 :(pp_w)
-pp_w_done      OUTPUT          =  '   }'                    :(pp_s)
-pp_s_done      OUTPUT          =  '}'
-               pp_mem          =  .dummy                    :(RETURN)
-pp_mem_end
+*  pp_table(tbl, depth, key) — recursive TABLE pretty-printer
+*  depth=0: tbl is mem (top level); prints opening '{' with no key.
+*  depth>0: prints pad key ': {' then recurses on child TABLEs.
+*  Leaf values (non-TABLE) printed as: pad '   ' key ': ' val ','
+*  Closing '}' never carries a comma (matches ref format).
+*------------------------------------------------------------------------------
+               DEFINE('pp_table(tbl,depth,key)pad,sk,i,k,v') :(pp_table_end)
+pp_table       pad             =  DUPL(' ', depth * 3)
+               IDENT(depth, 0)                              :F(pp_tbl_inner)
+               OUTPUT          =  '{'                       :(pp_tbl_body)
+pp_tbl_inner   OUTPUT          =  pad key ': {'
+pp_tbl_body    sk              =  SORT(tbl)
+               i               =  0
+pp_tbl_loop    i               =  i + 1
+               k               =  sk[i,1]                  :F(pp_tbl_close)
+               v               =  tbl[k]
+               IDENT(REPLACE(DATATYPE(v), &LCASE, &UCASE), 'TABLE')  :F(pp_tbl_leaf)
+               pp_table(v, depth + 1, k)                   :(pp_tbl_loop)
+pp_tbl_leaf    OUTPUT          =  pad '   ' k ': ' v ','   :(pp_tbl_loop)
+pp_tbl_close   OUTPUT          =  pad '}'
+               pp_table        =  .dummy                    :(RETURN)
+pp_table_end
 *------------------------------------------------------------------------------
 slurp          line            =  INPUT                     :F(slurp_done)
                src             =  src line ' '              :(slurp)
 slurp_done     src             ?  claws_pat                 :F(main_fail)
-               pp_mem()                                     :(END)
+               pp_table(mem, 0, '')                         :(END)
 main_fail      OUTPUT          =  'Pattern match failed'
 *------------------------------------------------------------------------------
 END
