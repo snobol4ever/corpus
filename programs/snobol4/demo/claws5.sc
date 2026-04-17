@@ -41,35 +41,34 @@ procedure new_sent() {
 // Reads globals: sentno, wrd, tag
 
 procedure add_tok() {
-    if (~DIFFER(mem[sentno][wrd])) { goto new_wrd; }
-    if (~DIFFER(mem[sentno][wrd][tag])) { goto new_tag; }
-    mem[sentno][wrd][tag] = mem[sentno][wrd][tag] + 1;
-    goto done;
-    new_wrd:
-    mem[sentno][wrd] = TABLE();
-    new_tag:
-    mem[sentno][wrd][tag] = 1;
-    done:
+    if (~DIFFER(mem[sentno][wrd])) {
+        mem[sentno][wrd] = TABLE();
+    }
+    if (~DIFFER(mem[sentno][wrd][tag])) {
+        mem[sentno][wrd][tag] = 1;
+    } else {
+        mem[sentno][wrd][tag] = mem[sentno][wrd][tag] + 1;
+    }
     add_tok = .dummy;
     nreturn;
 }
 
-//--- claws_pat --------------------------------------------------------------
+//--- claws_pat — direct port of Python claws_info pattern -------------------
 
 claws_pat =
     POS(0)
-    (epsilon . *init())
-    ARBNO(
-        ( (SPAN(DIGITS) . num) '_CRD :_PUN'
-          (epsilon . *new_sent())
-        | (NOTANY('_') BREAK('_')) . wrd
-          '_'
-          (ANY(UCASE) SPAN(DIGITS UCASE)) . tag
-          (epsilon . *add_tok())
+    && (epsilon . *init())
+    && ARBNO(
+        ( (SPAN(DIGITS) . num) && '_CRD :_PUN'
+          && (epsilon . *new_sent())
+        | (NOTANY('_') && BREAK('_')) . wrd
+          && '_'
+          && (ANY(UCASE) && SPAN(DIGITS && UCASE)) . tag
+          && (epsilon . *add_tok())
         )
-        ' '
+        && ' '
     )
-    RPOS(0);
+    && RPOS(0);
 
 //--- pp_mem() ---------------------------------------------------------------
 
@@ -77,49 +76,37 @@ procedure pp_mem(   sk, wk, tk, si, wi, ti) {
     OUTPUT = '{';
     sk = SORT(mem);
     si = 0;
-    pp_s:
-    si = si + 1;
-    if (~sk[si,1]) { goto pp_s_done; }
-    if (GT(si, 1)) { OUTPUT = '   },'; }
-    OUTPUT = '   ' sk[si,1] ': {';
-    wk = SORT(mem[sk[si,1]]);
-    wi = 0;
-    pp_w:
-    wi = wi + 1;
-    if (~wk[wi,1]) { goto pp_w_done; }
-    if (GT(wi, 1)) { OUTPUT = '      },'; }
-    OUTPUT = '      ' wk[wi,1] ': {';
-    tk = SORT(mem[sk[si,1]][wk[wi,1]]);
-    ti = 0;
-    pp_t:
-    ti = ti + 1;
-    if (~tk[ti,1]) { goto pp_t_done; }
-    OUTPUT = '         ' tk[ti,1] ': '
-             mem[sk[si,1]][wk[wi,1]][tk[ti,1]] ',';
-    goto pp_t;
-    pp_t_done:
-    OUTPUT = '      }';
-    goto pp_w;
-    pp_w_done:
-    OUTPUT = '   }';
-    goto pp_s;
-    pp_s_done:
+    while (DIFFER(si = si + 1) && sk[si,1]) {
+        if (GT(si, 1)) { OUTPUT = '   },'; }
+        OUTPUT = '   ' && sk[si,1] && ': {';
+        wk = SORT(mem[sk[si,1]]);
+        wi = 0;
+        while (DIFFER(wi = wi + 1) && wk[wi,1]) {
+            if (GT(wi, 1)) { OUTPUT = '      },'; }
+            OUTPUT = '      ' && wk[wi,1] && ': {';
+            tk = SORT(mem[sk[si,1]][wk[wi,1]]);
+            ti = 0;
+            while (DIFFER(ti = ti + 1) && tk[ti,1]) {
+                OUTPUT = '         ' && tk[ti,1] && ': '
+                         && mem[sk[si,1]][wk[wi,1]][tk[ti,1]] && ',';
+            }
+            OUTPUT = '      }';
+        }
+        OUTPUT = '   }';
+    }
     OUTPUT = '}';
     pp_mem = .dummy;
     return;
 }
 
-//--- main -------------------------------------------------------------------
+//--- Main: slurp stdin, match, print ----------------------------------------
 
-slurp:
-line = INPUT;
-if (~line) { goto slurp_done; }
-src = src line ' ';
-goto slurp;
-slurp_done:
-if (src ? claws_pat) { goto matched; }
-OUTPUT = 'Pattern match failed';
-goto done_main;
-matched:
-pp_mem();
-done_main:
+src = '';
+while (DIFFER(line = INPUT)) {
+    src = src && line && ' ';
+}
+if (src ? claws_pat) {
+    dummy = pp_mem();
+} else {
+    OUTPUT = 'Pattern match failed';
+}

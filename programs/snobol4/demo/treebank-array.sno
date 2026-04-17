@@ -1,12 +1,12 @@
 *------------------------------------------------------------------------------
-* treebank-append.sno — Penn Treebank s-expression parser (append style)
+* treebank-array.sno — Penn Treebank s-expression parser (array/append style)
 * ENG 685, Lon Cherryholmes Sr.
-* Run: csnobol4 -bf -P 200k treebank-append.sno < VBGinTASA.dat
+* Run: csnobol4 -bf -P 200k treebank-array.sno < VBGinTASA.dat
 *
 * TABLE-based implementation: each frame is a TABLE used as a dynamic array.
 * Children are APPENDED at the end (integer keys 1..n).  No reversal needed.
 * Mirrors Python list.append semantics exactly.
-* Compare: treebank-prepend.sno (LISP-style cons-list with reversal).
+* Compare: treebank-list.sno (LISP-style cons-list with reversal).
 *
 * Two-step parsing:
 *   Step 1 — BAL carves individual S-expressions from input (no deep recursion)
