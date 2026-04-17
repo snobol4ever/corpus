@@ -1,7 +1,11 @@
 *------------------------------------------------------------------------------
-* treebank.sno — Penn Treebank s-expression parser
+* treebank-prepend.sno — Penn Treebank s-expression parser (LISP-style)
 * ENG 685, Lon Cherryholmes Sr.
-* Run: csnobol4 -bf treebank.sno < VBGinTASA.dat
+* Run: csnobol4 -bf treebank-prepend.sno < VBGinTASA.dat
+*
+* LISP-style cons-list implementation: children are PREPENDED (pushed to head),
+* then list_reverse corrects order at pop time.  Elegant functional style.
+* Compare: treebank-append.sno (TABLE-based, append at end, no reversal).
 *
 * Faithful SNOBOL4 port of assignment3.py (treebank pattern).
 * Uses the double-function trick (case-sensitive, CSNOBOL4 -bf required):
