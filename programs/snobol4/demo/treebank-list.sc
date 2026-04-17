@@ -164,16 +164,11 @@ procedure pp_node(node, indent, suffix,   r, pad, c, nxt) {
     }
     OUTPUT = pad && '( ' && "'" && head(node) && "',";
     c = tail(node);
-    while (DIFFER(c)) {
-        nxt = tail(c);
-        if (DIFFER(nxt)) {
-            dummy = pp_node(head(c), indent + 2, ',');
-        } else {
-            dummy = pp_node(head(c), indent + 2, ')' && suffix);
-            return;
-        }
+    while (DIFFER(nxt = tail(c))) {
+        dummy = pp_node(head(c), indent + 2, ',');
         c = nxt;
     }
+    dummy = pp_node(head(c), indent + 2, ')' && suffix);
     return;
 }
 
