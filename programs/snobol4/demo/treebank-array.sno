@@ -19,9 +19,6 @@
 *   Push_list(vs)  — returns EVAL("epsilon . *push_list(" vs ")"), build time
 * Python names: init_list, push_list, push_item, pop_list, pop_final
 *------------------------------------------------------------------------------
-               &TRIM          =  1
-               &ANCHOR        =  0
-               &FULLSCAN      =  1
                &ALPHABET      POS(10) LEN(1) . nl
 *------------------------------------------------------------------------------
                DATA('list(head,tail)')

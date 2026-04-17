@@ -14,9 +14,6 @@
 //   (word . tag) . *push_list(tag)    — capture then push at match time
 //   (epsilon . *push_list('BANK'))    — zero-width hook with literal
 
-&TRIM     = 1;
-&ANCHOR   = 0;
-&FULLSCAN = 1;
 &ALPHABET POS(10) LEN(1) . nl;
 
 //--- Stack frame storage (TABLE-of-TABLEs, integer-keyed children) ----------
