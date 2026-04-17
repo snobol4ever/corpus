@@ -3,39 +3,24 @@
 * ENG 685, Lon Cherryholmes Sr.
 * Run: csnobol4 -bf claws5.sno < CLAWS5inTASA.dat
 *
-* Two-phase — no -P flag needed.
-* Single-pass ARBNO over 989 joined lines overflows pattern stack.
-* Two-phase bounds stack per sentence (~244 sentences in CLAWS5inTASA.dat).
+* Two-phase — no -P flag needed. No sentinel character.
 *
-* Phase 1 — split:
-*   Slurp all lines into one string.  Prepend space.
-*   Insert CHAR(1) sentinel before each sentence-start token
-*   (SPAN(DIGITS) '_CRD :_PUN ').  Strip leading sentinel.
-*   Split on sentinel with BREAKX(SEP) into sent[1..n].
-*   Append ' ' to each piece so every last token has its trailing space.
+* Phase 1 — carve sentences with one pattern applied in a loop:
+*   Sentence boundary: SPAN(DIGITS) '_' SPAN(LETTERS) SPAN(' 'nl) ':'
+*   Continuation line: nl NOTANY(DIGITS) BREAKX(nl)
+*   spat carves num + body (first line + continuation lines) per iteration.
 *
-* Phase 2 — parse:
-*   Copy sent[i] to plain variable s; run claws_pat_2 on s.
-*   claws_pat_2: POS(0) header + ARBNO(BREAKX('_') token) + RPOS(0).
-*   Results accumulate into shared mem TABLE (three-level: sent/word/tag).
+* Phase 2 — for each sentence: set sentno, run tok_pat on body.
+*   tok_pat: BREAKX('_').wrd '_' BREAKX(' 'nl).tag (' '|nl|RPOS(0)) *add_tok()
 *
 * pp_table(tbl,depth,key) — recursive depth*3-indent printer.
 *------------------------------------------------------------------------------
                &TRIM           =  1
                &ANCHOR         =  0
                &FULLSCAN       =  1
+               &ALPHABET       POS(10) LEN(1) . nl
                DIGITS          =  '0123456789'
-               SEP             =  CHAR(1)
-*------------------------------------------------------------------------------
-*  new_sent() — sentno = +num; open mem[sentno]
-*  add_tok()  — increment mem[sentno][wrd][tag]
-*  Both NRETURN; called via epsilon . *fn() in claws_pat_2.
-*------------------------------------------------------------------------------
-               DEFINE('new_sent()')                         :(new_sent_end)
-new_sent       sentno          =  +num
-               mem[sentno]     =  TABLE()
-               new_sent        =  .dummy                    :(NRETURN)
-new_sent_end
+               LETTERS         =  'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 *------------------------------------------------------------------------------
                DEFINE('add_tok()')                          :(add_tok_end)
 add_tok        DIFFER(mem[sentno][wrd])                     :F(at_new_wrd)
@@ -46,26 +31,34 @@ at_new_tag     mem[sentno][wrd][tag]  =  1
 at_done        add_tok         =  .dummy                    :(NRETURN)
 add_tok_end
 *------------------------------------------------------------------------------
-*  claws_pat_2 — per-sentence, ANCHOR=1
-*  Header:  SPAN(DIGITS) . num  '_CRD :_PUN '  epsilon . *new_sent()
-*  Token:   BREAKX('_') . wrd  '_'  BREAKX(' ') . tag  ' '
-*           epsilon . *add_tok()
-*  BREAKX('_') grabs word; BREAKX(' ') grabs full tag (e.g. PUN not UN).
+*  tok_pat — token scanner, ANCHOR=1 per sentence
 *------------------------------------------------------------------------------
-               claws_pat_2     =
+               tok_pat         =
 +              POS(0)
-+              (SPAN(DIGITS) . num) '_CRD :_PUN '
-+              (epsilon . *new_sent())
 +              ARBNO(
 +                (BREAKX('_') . wrd) '_'
-+                (BREAKX(' ') . tag) ' '
++                (BREAKX(' ' nl) . tag)
++                (' ' | nl | RPOS(0))
 +                (epsilon . *add_tok())
 +              )
 +              RPOS(0)
 *------------------------------------------------------------------------------
-*  pp_table(tbl, depth, key) — recursive TABLE pretty-printer
-*  Leaf: pad '   ' key ': ' val ','   (comma always)
-*  Close: pad '}'                     (no comma)
+*  cont — continuation line: starts with nl then a non-digit
+*------------------------------------------------------------------------------
+               cont            =  nl  NOTANY(DIGITS)  BREAKX(nl)
+*------------------------------------------------------------------------------
+*  spat — carve one sentence per iteration
+*  SPAN(' ' nl) anchors to whitespace before sentence number (handles mid-line).
+*  ':' BREAKX(' ') ' ' skips the ':_PUN ' header token.
+*  BREAKX(nl).first captures first-line body.
+*  ARBNO(cont).rest captures continuation lines.
+*------------------------------------------------------------------------------
+               spat            =
++              SPAN(' ' nl)
++              (SPAN(DIGITS) . num) '_' SPAN(LETTERS) SPAN(' ' nl) ':'
++              BREAKX(' ') ' '
++              (BREAKX(nl) . first)
++              (ARBNO(cont) . rest)
 *------------------------------------------------------------------------------
                DEFINE('pp_table(tbl,depth,key)pad,sk,i,k,v') :(pp_table_end)
 pp_table       pad             =  DUPL(' ', depth * 3)
@@ -84,36 +77,31 @@ pp_tbl_close   OUTPUT          =  pad '}'
                pp_table        =  .dummy                    :(RETURN)
 pp_table_end
 *------------------------------------------------------------------------------
-*  Phase 1 — slurp, sentinel, split.
-*  Append ' ' to each piece: last token in every sentence needs trailing space.
+*  Phase 1 — slurp preserving newlines, prepend nl, carve with spat.
 *------------------------------------------------------------------------------
+               mem             =  TABLE()
 slurp          line            =  INPUT                     :F(slurp_done)
-               src             =  src line ' '             :(slurp)
-slurp_done
-               src             =  ' ' src
-mark_loop      src (' ' (SPAN(DIGITS) '_CRD :_PUN ') . hdr) =  SEP hdr  :F(mark_done)
-               :(mark_loop)
-mark_done
-               src             SEP  =  ''
+               src             =  src line nl              :(slurp)
+slurp_done     src             =  nl src
                n               =  0
                sent            =  ARRAY(300)
-split_loop     src (BREAKX(SEP) . piece) SEP  =  ''        :F(split_last)
+               nums            =  ARRAY(300)
+loop           src             spat  =  ''                 :F(phase2)
                n               =  n + 1
-               sent[n]         =  TRIM(piece) ' '                :(split_loop)
-split_last     DIFFER(src)                                  :F(phase2)
-               n               =  n + 1
-               sent[n]         =  TRIM(src) ' '
+               nums[n]         =  num
+               sent[n]         =  first rest               :(loop)
 *------------------------------------------------------------------------------
-*  Phase 2 — copy sent[i] to s, run claws_pat_2.
+*  Phase 2 — set sentno, open mem[sentno], run tok_pat on each sentence.
 *------------------------------------------------------------------------------
-phase2         mem             =  TABLE()
-               &ANCHOR         =  1
+phase2         &ANCHOR         =  1
                i               =  0
 ph2_loop       i               =  LT(i, n) i + 1           :F(ph2_done)
+               sentno          =  +nums[i]
+               mem[sentno]     =  TABLE()
                s               =  sent[i]
-               s               claws_pat_2                  :F(ph2_fail)
+               s               tok_pat                      :F(ph2_fail)
                :(ph2_loop)
-ph2_fail       OUTPUT          =  'Pattern match failed on: ' sent[i]
+ph2_fail       OUTPUT          =  'Pattern match failed on sentence ' nums[i]
                :(ph2_loop)
 ph2_done       pp_table(mem, 0, '')
 END
