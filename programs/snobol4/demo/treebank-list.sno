@@ -2,16 +2,6 @@
 * treebank-list.sno — Penn Treebank s-expression parser (LISP-style)
 * ENG 685, Lon Cherryholmes Sr.
 * Run: csnobol4 -bf treebank-list.sno < VBGinTASA.dat
-*
-* LISP-style cons-list implementation: children are PREPENDED (pushed to head),
-* then list_reverse corrects order at pop time.  Elegant functional style.
-* Compare: treebank-array.sno (TABLE-based, append at end, no reversal).
-*
-* Faithful SNOBOL4 port of assignment3.py (treebank pattern).
-* Uses the double-function trick (case-sensitive, CSNOBOL4 -bf required):
-*   push_list(v)   — NRETURN side-effect, called at match time
-*   Push_list(vs)  — returns EVAL("epsilon . *push_list(" vs ")"), build time
-* Python names: init_list, push_list, push_item, pop_list, pop_final
 *------------------------------------------------------------------------------
                &ALPHABET      POS(10) LEN(1) . nl
 *------------------------------------------------------------------------------
@@ -49,14 +39,6 @@ stk_pop_final  $var           =  list_reverse(head(stk))
                stk            =  tail(stk)
                stk_pop_final  =  .dummy                     :(RETURN)
 stk_pop_final_end
-*------------------------------------------------------------------------------
-*  Double-function pattern (requires CSNOBOL4 -bf for case-sensitive labels):
-*    Lowercase fn(v)  — NRETURN side-effect, called at match time via EVAL
-*    Uppercase Fn(vs) — called at pattern BUILD time, returns deferred pattern
-*
-*  Usage in patterns:
-*    (word . tag) Push_list('tag')     captures tag, pushes it at match time
-*    Push_list("'BANK'")               pushes literal 'BANK' at match time
 *------------------------------------------------------------------------------
                DEFINE('init_list(v)')
                DEFINE('Init_list(vs)')                      :(init_list_end)
@@ -97,9 +79,6 @@ pop_final_end
                delim          =  SPAN(' ' nl)
                word           =  NOTANY('( )' nl) BREAK('( )' nl)
 *------------------------------------------------------------------------------
-*  group — direct port of Python:
-*    '(' + word%"tag" + push_list(tag) + ARBNO(...) + pop_list() + ')'
-*------------------------------------------------------------------------------
                group          =
 +              '('
 +              (word . tag) Push_list('tag')
@@ -111,11 +90,6 @@ pop_final_end
 +              )
 +              Pop_list()
 +              ')'
-*------------------------------------------------------------------------------
-*  treebank — direct port of Python:
-*    POS(0) + init_list("bank") + push_list("'BANK'")
-*    + ARBNO(push_list("'ROOT'") + ARBNO(group) + pop_list() + delim)
-*    + pop_final("bank") + RPOS(0)
 *------------------------------------------------------------------------------
                treebank       =
 +              POS(0)
@@ -130,8 +104,6 @@ pop_final_end
 +              Pop_final("'bank'")
 +              RPOS(0)
 *------------------------------------------------------------------------------
-*  node_repr(node) — build full inline repr string, e.g. ('NP', ('DT', 'The'))
-*  Matches Python repr() for nested tuples of strings (no escaping needed).
                DEFINE('node_repr(node)r,c,sep')             :(node_repr_end)
 node_repr      IDENT(REPLACE(DATATYPE(node), &LCASE, &UCASE), 'STRING')  :F(nr_list)
                node_repr      =  "'" node "'"               :(RETURN)
@@ -145,14 +117,6 @@ nr_lp          DIFFER(c)                                    :F(nr_done)
 nr_done        node_repr      =  r ')'                      :(RETURN)
 node_repr_end
 *------------------------------------------------------------------------------
-*  pp_node(node, indent, suffix) — Python PrettyPrinter(indent=2, width=80).
-*
-*  suffix is appended to the LAST output line of this node ('', ',', or ')').
-*  Rule: if indent + SIZE(repr) <= 80, emit inline on one line.
-*        else wrap: "( 'TAG'," then recurse children with suffix threading:
-*          non-last child gets suffix ','
-*          last child    gets suffix ')' suffix_of_this_call
-*
                DEFINE('pp_node(node,indent,suffix)r,pad,c,nxt') :(pp_node_end)
 pp_node        r              =  node_repr(node)
                pad            =  DUPL(' ', indent)

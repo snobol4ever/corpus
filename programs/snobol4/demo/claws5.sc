@@ -1,44 +1,27 @@
 // claws5.sc — CLAWS5 POS-tagged corpus tokenizer (Snocone, one-phase)
 // ENG 685, Lon Cherryholmes Sr.
 // Run: scrip --ir-run claws5.sc < claws5.input
-//
-// Direct Snocone port of claws5.sno (one-phase).
-// Lines joined with no separator — each .dat line already ends with a
-// trailing space, so tokens are cleanly space-separated in src.
-// Pattern is a faithful translation of Python claws_info (assignment3.py).
-//
 // Memory: scrip --ir-run needs -P 34000 for full corpus (CLAWS5inTASA.dat).
 //         claws5.input (4 sentences) runs without -P flag.
-
+//------------------------------------------------------------------------------
 DIGITS  = '0123456789';
 UCASE   = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-//--- new_sent() — sentno = +num; open mem[sentno] ---------------------------
-
+//------------------------------------------------------------------------------
 procedure new_sent() {
     sentno      = +num;
     mem[sentno] = TABLE();
     new_sent    = .dummy;
     nreturn;
 }
-
-//--- add_tok() — increment mem[sentno][wrd][tag] ----------------------------
-
+//------------------------------------------------------------------------------
 procedure add_tok() {
-    if (DIFFER(mem[sentno][wrd])) {
-        mem[sentno][wrd] = TABLE();
-    }
-    if (DIFFER(mem[sentno][wrd][tag])) {
-        mem[sentno][wrd][tag] = 1;
-    } else {
-        mem[sentno][wrd][tag] = mem[sentno][wrd][tag] + 1;
-    }
+    if (DIFFER(mem[sentno][wrd])) mem[sentno][wrd] = TABLE();
+    if (DIFFER(mem[sentno][wrd][tag])) mem[sentno][wrd][tag] = 1;
+    else mem[sentno][wrd][tag] = mem[sentno][wrd][tag] + 1;
     add_tok = .dummy;
     nreturn;
 }
-
-//--- pp_mem(mem) — print mem in Python pprint style -------------------------
-
+//------------------------------------------------------------------------------
 procedure pp_mem(mem) {
     OUTPUT = '{';
     sk = SORT(mem);
@@ -74,14 +57,8 @@ pp_s_done:
     pp_mem = .dummy;
     return;
 }
-
-//--- slurp: join lines with no separator ------------------------------------
-
-while (src ?= '' <- src INPUT) { }
-
-mem = TABLE();
-
-claws_pat =
+//------------------------------------------------------------------------------
+claws =
     POS(0)
     && ARBNO(
          ( (SPAN(DIGITS) . num) && '_CRD :_PUN'
@@ -94,9 +71,8 @@ claws_pat =
          && ' '
        )
     && RPOS(0);
-
-if (src ? claws_pat) {
-    pp_mem(mem);
-} else {
-    OUTPUT = 'Pattern match failed';
-}
+//------------------------------------------------------------------------------
+while (src ?= '' <- src INPUT) { }
+mem = TABLE();
+if (src ? claws) pp_mem(mem);
+else OUTPUT = 'Pattern match failed';

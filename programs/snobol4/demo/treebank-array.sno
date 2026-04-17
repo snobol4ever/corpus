@@ -2,22 +2,6 @@
 * treebank-array.sno — Penn Treebank s-expression parser (array/append style)
 * ENG 685, Lon Cherryholmes Sr.
 * Run: csnobol4 -bf -P 200k treebank-array.sno < VBGinTASA.dat
-*
-* TABLE-based implementation: each frame is a TABLE used as a dynamic array.
-* Children are APPENDED at the end (integer keys 1..n).  No reversal needed.
-* Mirrors Python list.append semantics exactly.
-* Compare: treebank-list.sno (LISP-style cons-list with reversal).
-*
-* Two-step parsing:
-*   Step 1 — BAL carves individual S-expressions from input (no deep recursion)
-*   Step 2 — group pattern parses each S-expression into the tree
-* This avoids pattern stack overflow on deeply nested TASA sentences.
-* -P 200k is sufficient (vs -P 2m needed for single-pass approach).
-*
-* Uses the double-function trick (case-sensitive, CSNOBOL4 -bf required):
-*   push_list(v)   — NRETURN side-effect, called at match time
-*   Push_list(vs)  — returns EVAL("epsilon . *push_list(" vs ")"), build time
-* Python names: init_list, push_list, push_item, pop_list, pop_final
 *------------------------------------------------------------------------------
                &ALPHABET      POS(10) LEN(1) . nl
 *------------------------------------------------------------------------------
@@ -101,9 +85,6 @@ pop_final      dummy          =  stk_pop_final(v)
 Pop_final      Pop_final      =  EVAL('epsilon . *pop_final(' vs ')')  :(RETURN)
 pop_final_end
 *------------------------------------------------------------------------------
-*  node_repr(f) — inline repr of a frame or leaf string.
-*  Leaf (string): "'word'"
-*  Frame (integer): "('TAG', repr(c1), repr(c2), ...)"
                DEFINE('node_repr(f)r,sep,i,n,tag')          :(node_repr_end)
 node_repr      IDENT(REPLACE(DATATYPE(f), &LCASE, &UCASE), 'STRING')  :F(nr_frame)
                node_repr      =  "'" f "'"                  :(RETURN)
@@ -117,9 +98,6 @@ nr_lp          i              =  LT(i, n) i + 1             :F(nr_done)
 nr_done        node_repr      =  r ')'                      :(RETURN)
 node_repr_end
 *------------------------------------------------------------------------------
-*  pp_node(f, indent, suffix) — Python PrettyPrinter(indent=2, width=80).
-*  suffix is appended to the last output line ('', ',', or ')').
-*  Inline if indent + SIZE(repr) <= 80; else wrapped with suffix-threading.
                DEFINE('pp_node(f,indent,suffix)r,pad,tag,n,i,nxt') :(pp_node_end)
 pp_node        IDENT(REPLACE(DATATYPE(f), &LCASE, &UCASE), 'STRING')  :F(pp_frame)
                OUTPUT         =  DUPL(' ', indent) "'" f "'" suffix  :(RETURN)
@@ -147,8 +125,6 @@ pp_bank_end
                delim          =  SPAN(' ' nl)
                word           =  NOTANY('( )' nl) BREAK('( )' nl)
 *------------------------------------------------------------------------------
-*  group — direct port of Python push_list/push_item/pop_list
-*------------------------------------------------------------------------------
                group          =
 +              '('
 +              (word . tag) Push_list('tag')
@@ -160,11 +136,6 @@ pp_bank_end
 +              )
 +              Pop_list()
 +              ')'
-*------------------------------------------------------------------------------
-*  Two-step main:
-*    Step 1: BAL carves each top-level S-expression from src
-*    Step 2: group parses each S-expression into the TABLE-based tree
-*  No single-pass treebank pattern needed — BAL handles the outer structure.
 *------------------------------------------------------------------------------
                spat           =  ('(' BAL ')') . item
 *------------------------------------------------------------------------------
@@ -181,4 +152,5 @@ parse_fail     OUTPUT         =  'Parse failed on: ' item
                dummy          =  stk_pop_into_parent()      :(loop)
 all_done       dummy          =  stk_pop_final('bank')
                dummy          =  pp_bank()                  :(END)
+*------------------------------------------------------------------------------
 END
