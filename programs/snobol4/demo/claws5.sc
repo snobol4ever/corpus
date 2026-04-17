@@ -1,34 +1,27 @@
-// claws5.sc — CLAWS5 POS-tagged corpus tokenizer (Snocone)
+// claws5.sc — CLAWS5 POS-tagged corpus tokenizer (Snocone, two-phase)
 // ENG 685, Lon Cherryholmes Sr.
 // Run: scrip --ir-run claws5.sc < CLAWS5inTASA.dat
 //
-// Faithful Snocone translation of claws5.sno.
-// Function names match Python lambda semantics:
-//   init()      λ("mem = dict()")
-//   new_sent()  λ("num=int(num)") + λ("mem[num]=dict()")
-//   add_tok()   λ("mem[num][wrd][tag]+=1")
+// Two-phase rewrite — no memory overflow, no -P flag needed.
 //
-// Each is a single nreturn procedure called as (epsilon . *fn()) in pattern.
-// Reads from stdin (pipe-compatible).
+// Phase 1: slurp all lines to string; insert CHAR(1) sentinel before each
+//   sentence-start token (SPAN(DIGITS) '_CRD :_PUN '); split on sentinel
+//   with BREAKX(SEP) into sent[1..n].
+//
+// Phase 2: run claws_pat_2 (ANCHOR=1, BREAKX('_') token scanner) per sentence.
+//   Copy sent[i] to plain variable s before matching to avoid ANCHOR cursor issue.
+//
+// helpers: new_sent(), add_tok() — NRETURN, called via epsilon . *fn()
+// printer: pp_table(tbl, depth, key) — recursive, depth*3 indent
 
 &TRIM     = 1;
 &ANCHOR   = 0;
 &FULLSCAN = 1;
-&ALPHABET POS(10) LEN(1) . nl;
 DIGITS    = '0123456789';
 UCASE     = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+SEP       = CHAR(1);
 
-//--- init() — λ("mem = dict()") ---------------------------------------------
-
-procedure init() {
-    mem    = TABLE();
-    sentno = 0;
-    init   = .dummy;
-    nreturn;
-}
-
-//--- new_sent() — λ("num=int(num)") + λ("mem[num]=dict()") -----------------
-// Reads global: num (captured by SPAN(DIGITS) . num just before)
+//--- new_sent() — opens mem[sentno] -----------------------------------------
 
 procedure new_sent() {
     sentno      = +num;
@@ -37,8 +30,7 @@ procedure new_sent() {
     nreturn;
 }
 
-//--- add_tok() — λ("mem[num][wrd][tag]+=1") ---------------------------------
-// Reads globals: sentno, wrd, tag
+//--- add_tok() — increments mem[sentno][wrd][tag] ---------------------------
 
 procedure add_tok() {
     if (~DIFFER(mem[sentno][wrd])) {
@@ -53,28 +45,22 @@ procedure add_tok() {
     nreturn;
 }
 
-//--- claws_pat — direct port of Python claws_info pattern -------------------
+//--- claws_pat_2 — per-sentence, BREAKX('_') token scanner -----------------
+//  Header: SPAN(DIGITS).num '_CRD :_PUN ' epsilon.*new_sent()
+//  Token:  BREAKX('_').wrd '_' BREAKX(' ').tag ' ' epsilon.*add_tok()
 
-claws_pat =
+claws_pat_2 =
     POS(0)
-    && (epsilon . *init())
+    && (SPAN(DIGITS) . num) && '_CRD :_PUN '
+    && (epsilon . *new_sent())
     && ARBNO(
-        ( (SPAN(DIGITS) . num) && '_CRD :_PUN'
-          && (epsilon . *new_sent())
-        | (NOTANY('_') && BREAK('_')) . wrd
-          && '_'
-          && (ANY(UCASE) && SPAN(DIGITS && UCASE)) . tag
-          && (epsilon . *add_tok())
-        )
-        && ' '
+        (BREAKX('_') . wrd) && '_'
+        && (BREAKX(' ') . tag) && ' '
+        && (epsilon . *add_tok())
     )
     && RPOS(0);
 
 //--- pp_table(tbl, depth, key) — recursive TABLE pretty-printer -------------
-//  depth=0: tbl is mem (top level); prints '{' with no key.
-//  depth>0: prints pad key ': {' then recurses on child TABLEs.
-//  Leaf values printed as: pad '   ' key ': ' val ','
-//  Closing '}' never carries a comma.
 
 procedure pp_table(tbl, depth, key,   pad, sk, i, k, v) {
     pad = DUPL(' ', depth * 3);
@@ -98,14 +84,38 @@ procedure pp_table(tbl, depth, key,   pad, sk, i, k, v) {
     return;
 }
 
-//--- Main: slurp stdin, match, print ----------------------------------------
+//--- Phase 1: slurp -> sentinel insert -> BREAKX(SEP) split ----------------
 
 src = '';
 while (DIFFER(line = INPUT)) {
     src = src && line && ' ';
 }
-if (src ? claws_pat) {
-    dummy = pp_table(mem, 0, '');
-} else {
-    OUTPUT = 'Pattern match failed';
+src = ' ' && src;
+while (src ?= (' ' && (SPAN(DIGITS) . _hdr_num) && '_CRD :_PUN ' . _hdr_full)
+              <- (SEP && _hdr_full)) { }
+
+if (src ?= SEP <- '') { }    // strip leading SEP
+
+n    = 0;
+sent = ARRAY(300);
+while (src ?= (BREAKX(SEP) . _piece) && SEP <- '') {
+    sent[n = n + 1] = _piece;
 }
+if (DIFFER(src)) {
+    sent[n = n + 1] = src;
+}
+
+//--- Phase 2: match claws_pat_2 per sentence --------------------------------
+
+mem     = TABLE();
+&ANCHOR = 1;
+i       = 0;
+while (DIFFER(i = LT(i, n) i + 1)) {
+    s = sent[i];
+    if (s ? claws_pat_2) {
+    } else {
+        OUTPUT = 'Pattern match failed on: ' && SUBSTR(s, 1, 40);
+    }
+}
+&ANCHOR = 0;
+dummy = pp_table(mem, 0, '');
