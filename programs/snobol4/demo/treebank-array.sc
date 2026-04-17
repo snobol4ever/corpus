@@ -112,14 +112,10 @@ procedure pp_node(f, indent, suffix,   r, pad, tag, n, i) {
     n   = stk_n[f];
     OUTPUT = pad && '( ' && "'" && tag && "',";
     i = 0;
-    while (DIFFER(i = LT(i, n) i + 1)) {
-        if (GT(n, i)) {
-            dummy = pp_node(stk_c[f][i], indent + 2, ',');
-        } else {
-            dummy = pp_node(stk_c[f][i], indent + 2, ')' && suffix);
-            return;
-        }
+    while (DIFFER(i = LT(i, n - 1) i + 1)) {
+        dummy = pp_node(stk_c[f][i], indent + 2, ',');
     }
+    dummy = pp_node(stk_c[f][n], indent + 2, ')' && suffix);
     return;
 }
 
