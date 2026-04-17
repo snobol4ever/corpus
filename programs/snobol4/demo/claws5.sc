@@ -72,7 +72,11 @@ claws =
        )
     && RPOS(0);
 //------------------------------------------------------------------------------
-while (src ?= '' <- src INPUT) { }
+line = INPUT;
+while (DIFFER(line)) {
+    src = src && line;
+    line = INPUT;
+}
 mem = TABLE();
 if (src ? claws) pp_mem(mem);
 else OUTPUT = 'Pattern match failed';

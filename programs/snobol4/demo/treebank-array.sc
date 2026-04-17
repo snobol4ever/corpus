@@ -125,7 +125,9 @@ while (DIFFER(line = INPUT)) {
 }
 init_list('bank');
 stk_push_frame('BANK');
-while (src ?= spat <- '') {
+rest = '';
+while (src ? (spat && REM . rest)) {
+    src = rest;
     stk_push_frame('ROOT');
     if (item ? group) {
         stk_pop_into_parent();
