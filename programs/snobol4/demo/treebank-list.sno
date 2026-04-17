@@ -130,21 +130,47 @@ pop_final_end
 +              Pop_final("'bank'")
 +              RPOS(0)
 *------------------------------------------------------------------------------
-               DEFINE('pp_node(node,indent)child,nxt,pad')  :(pp_node_end)
-pp_node        pad            =  DUPL(' ', indent)
-               IDENT(REPLACE(DATATYPE(node), &LCASE, &UCASE), 'STRING')  :F(pp_node_list)
-               OUTPUT         =  pad node                   :(RETURN)
-pp_node_list   OUTPUT         =  pad '(' head(node)
-               child          =  tail(node)
-pp_ch          DIFFER(child)                                :F(pp_close)
-               nxt            =  tail(child)
-               pp_node(head(child), indent + 3)
-               child          =  nxt                        :(pp_ch)
-pp_close       OUTPUT         =  pad ')'                    :(RETURN)
+*  node_repr(node) — build full inline repr string, e.g. ('NP', ('DT', 'The'))
+*  Matches Python repr() for nested tuples of strings (no escaping needed).
+               DEFINE('node_repr(node)r,c,sep')             :(node_repr_end)
+node_repr      IDENT(REPLACE(DATATYPE(node), &LCASE, &UCASE), 'STRING')  :F(nr_list)
+               node_repr      =  "'" node "'"               :(RETURN)
+nr_list        r              =  '('
+               sep            =
+               c              =  node
+nr_lp          DIFFER(c)                                    :F(nr_done)
+               r              =  r sep node_repr(head(c))
+               sep            =  ', '
+               c              =  tail(c)                    :(nr_lp)
+nr_done        node_repr      =  r ')'                      :(RETURN)
+node_repr_end
+*------------------------------------------------------------------------------
+*  pp_node(node, indent, suffix) — Python PrettyPrinter(indent=2, width=80).
+*
+*  suffix is appended to the LAST output line of this node ('', ',', or ')').
+*  Rule: if indent + SIZE(repr) <= 80, emit inline on one line.
+*        else wrap: "( 'TAG'," then recurse children with suffix threading:
+*          non-last child gets suffix ','
+*          last child    gets suffix ')' suffix_of_this_call
+*
+               DEFINE('pp_node(node,indent,suffix)r,pad,c,nxt') :(pp_node_end)
+pp_node        r              =  node_repr(node)
+               pad            =  DUPL(' ', indent)
+               GT(80, indent + SIZE(r))                     :F(pp_wrap)
+               OUTPUT         =  pad r suffix               :(RETURN)
+pp_wrap        OUTPUT         =  pad '( ' "'" head(node) "',"
+               c              =  tail(node)
+pp_wch         DIFFER(c)                                    :F(pp_wdone)
+               nxt            =  tail(c)
+               DIFFER(nxt)                                  :F(pp_wlast)
+               pp_node(head(c), indent + 2, ',')
+               c              =  nxt                        :(pp_wch)
+pp_wlast       pp_node(head(c), indent + 2, ')' suffix)     :(RETURN)
+pp_wdone                                                    :(RETURN)
 pp_node_end
 *------------------------------------------------------------------------------
                DEFINE('pp_bank()cur')                       :(pp_bank_end)
-pp_bank        pp_node(bank, 0)
+pp_bank        pp_node(bank, 0, '')
                pp_bank        =  .dummy                     :(RETURN)
 pp_bank_end
 *------------------------------------------------------------------------------

@@ -101,22 +101,46 @@ pop_final      dummy          =  stk_pop_final(v)
 Pop_final      Pop_final      =  EVAL('epsilon . *pop_final(' vs ')')  :(RETURN)
 pop_final_end
 *------------------------------------------------------------------------------
-               DEFINE('pp_node(f,indent,tag,n,i,pad)')      :(pp_node_end)
-pp_node        IDENT(REPLACE(DATATYPE(f), &LCASE, &UCASE), 'STRING')  :F(pp_node_frame)
-               OUTPUT         =  DUPL(' ', indent) f        :(RETURN)
-pp_node_frame  pad            =  DUPL(' ', indent)
-               tag            =  stk_tag[f]
+*  node_repr(f) — inline repr of a frame or leaf string.
+*  Leaf (string): "'word'"
+*  Frame (integer): "('TAG', repr(c1), repr(c2), ...)"
+               DEFINE('node_repr(f)r,sep,i,n,tag')          :(node_repr_end)
+node_repr      IDENT(REPLACE(DATATYPE(f), &LCASE, &UCASE), 'STRING')  :F(nr_frame)
+               node_repr      =  "'" f "'"                  :(RETURN)
+nr_frame       tag            =  stk_tag[f]
                n              =  stk_n[f]
-               OUTPUT         =  pad '(' tag
+               r              =  "('" tag "'"
                i              =  0
-pp_ch          i              =  LT(i, n) i + 1             :F(pp_close)
-               pp_node(stk_c[f][i], indent + 3)
-               i              =  i                          :(pp_ch)
-pp_close       OUTPUT         =  pad ')'                    :(RETURN)
+nr_lp          i              =  LT(i, n) i + 1             :F(nr_done)
+               r              =  r ', ' node_repr(stk_c[f][i])
+               i              =  i                          :(nr_lp)
+nr_done        node_repr      =  r ')'                      :(RETURN)
+node_repr_end
+*------------------------------------------------------------------------------
+*  pp_node(f, indent, suffix) — Python PrettyPrinter(indent=2, width=80).
+*  suffix is appended to the last output line ('', ',', or ')').
+*  Inline if indent + SIZE(repr) <= 80; else wrapped with suffix-threading.
+               DEFINE('pp_node(f,indent,suffix)r,pad,tag,n,i,nxt') :(pp_node_end)
+pp_node        IDENT(REPLACE(DATATYPE(f), &LCASE, &UCASE), 'STRING')  :F(pp_frame)
+               OUTPUT         =  DUPL(' ', indent) "'" f "'" suffix  :(RETURN)
+pp_frame       r              =  node_repr(f)
+               pad            =  DUPL(' ', indent)
+               GT(80, indent + SIZE(r))                     :F(pp_wrap)
+               OUTPUT         =  pad r suffix               :(RETURN)
+pp_wrap        tag            =  stk_tag[f]
+               n              =  stk_n[f]
+               OUTPUT         =  pad '( ' "'" tag "',"
+               i              =  0
+pp_wch         i              =  LT(i, n) i + 1             :F(pp_wdone)
+               nxt            =  LT(i, n) i                 :F(pp_wlast)
+               pp_node(stk_c[f][i], indent + 2, ',')
+               i              =  i                          :(pp_wch)
+pp_wlast       pp_node(stk_c[f][i], indent + 2, ')' suffix) :(RETURN)
+pp_wdone                                                    :(RETURN)
 pp_node_end
 *------------------------------------------------------------------------------
                DEFINE('pp_bank()')                          :(pp_bank_end)
-pp_bank        pp_node(bank, 0)
+pp_bank        pp_node(bank, 0, '')
                pp_bank        =  .dummy                     :(RETURN)
 pp_bank_end
 *------------------------------------------------------------------------------
