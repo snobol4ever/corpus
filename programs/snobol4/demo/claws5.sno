@@ -13,7 +13,7 @@
 *   ANY(UCASE) + SPAN(DIGITS+UCASE)      -> ANY(UCASE) SPAN(DIGITS UCASE)
 *   σ(' ')                               -> ' '
 *
-* Memory: -P 34000 required for full corpus. claws5.input needs no -P flag.
+* Memory: -P 34000 required only for full corpus (CLAWS5inTASA.dat, 989 lines).
 *------------------------------------------------------------------------------
                &ALPHABET       POS(10) LEN(1) . nl
                DIGITS          =  '0123456789'
