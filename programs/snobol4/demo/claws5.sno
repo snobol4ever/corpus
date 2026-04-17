@@ -3,33 +3,33 @@
 * ENG 685, Lon Cherryholmes Sr.
 * Run: csnobol4 -bf claws5.sno < CLAWS5inTASA.dat
 *
-* Two-phase rewrite of claws5.sno — no -P flag needed.
-* Single-pass ARBNO over 989 joined lines overflows pattern stack (-P 2000000).
-* Two-phase bounds stack per sentence.
+* Two-phase — no -P flag needed.
+* Single-pass ARBNO over 989 joined lines overflows pattern stack.
+* Two-phase bounds stack per sentence (~244 sentences in CLAWS5inTASA.dat).
 *
 * Phase 1 — split:
-*   Slurp all lines into one string.  Insert CHAR(1) sentinel before each
-*   sentence-start token (SPAN(DIGITS) '_CRD :_PUN ').
+*   Slurp all lines into one string.  Prepend space.
+*   Insert CHAR(1) sentinel before each sentence-start token
+*   (SPAN(DIGITS) '_CRD :_PUN ').  Strip leading sentinel.
 *   Split on sentinel with BREAKX(SEP) into sent[1..n].
-*   Each sent[i] holds the full sentence: 'N_CRD :_PUN tok_TAG tok_TAG ...'.
+*   Append ' ' to each piece so every last token has its trailing space.
 *
 * Phase 2 — parse:
-*   For each sent[i] run claws_pat_2 (ANCHOR=1, BREAKX('_') token scanner).
-*   claws_pat_2 = header + ARBNO(token).
-*   Results accumulate into shared mem TABLE.
+*   Copy sent[i] to plain variable s; run claws_pat_2 on s.
+*   claws_pat_2: POS(0) header + ARBNO(BREAKX('_') token) + RPOS(0).
+*   Results accumulate into shared mem TABLE (three-level: sent/word/tag).
 *
-* pp_table(tbl,depth,key) — recursive, depth*3 indent, identical to claws5.sno.
+* pp_table(tbl,depth,key) — recursive depth*3-indent printer.
 *------------------------------------------------------------------------------
                &TRIM           =  1
                &ANCHOR         =  0
                &FULLSCAN       =  1
                DIGITS          =  '0123456789'
-               UCASE           =  'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
                SEP             =  CHAR(1)
 *------------------------------------------------------------------------------
-*  new_sent() — sets sentno = +num, opens mem[sentno]
-*  add_tok()  — increments mem[sentno][wrd][tag]
-*  Both are NRETURN; called via epsilon . *fn() inside claws_pat_2.
+*  new_sent() — sentno = +num; open mem[sentno]
+*  add_tok()  — increment mem[sentno][wrd][tag]
+*  Both NRETURN; called via epsilon . *fn() in claws_pat_2.
 *------------------------------------------------------------------------------
                DEFINE('new_sent()')                         :(new_sent_end)
 new_sent       sentno          =  +num
@@ -46,11 +46,11 @@ at_new_tag     mem[sentno][wrd][tag]  =  1
 at_done        add_tok         =  .dummy                    :(NRETURN)
 add_tok_end
 *------------------------------------------------------------------------------
-*  claws_pat_2 — per-sentence pattern (ANCHOR=1)
+*  claws_pat_2 — per-sentence, ANCHOR=1
 *  Header:  SPAN(DIGITS) . num  '_CRD :_PUN '  epsilon . *new_sent()
-*  Token:   BREAKX('_') . wrd  '_'  ANY(UCASE) BREAKX(' ') . tag  ' '
+*  Token:   BREAKX('_') . wrd  '_'  BREAKX(' ') . tag  ' '
 *           epsilon . *add_tok()
-*  Uses BREAKX('_') to grab word, BREAKX(' ') to grab tag — no ARBNO nesting issues.
+*  BREAKX('_') grabs word; BREAKX(' ') grabs full tag (e.g. PUN not UN).
 *------------------------------------------------------------------------------
                claws_pat_2     =
 +              POS(0)
@@ -58,12 +58,14 @@ add_tok_end
 +              (epsilon . *new_sent())
 +              ARBNO(
 +                (BREAKX('_') . wrd) '_'
-+                (ANY(UCASE) BREAKX(' ') . tag) ' '
++                (BREAKX(' ') . tag) ' '
 +                (epsilon . *add_tok())
 +              )
 +              RPOS(0)
 *------------------------------------------------------------------------------
 *  pp_table(tbl, depth, key) — recursive TABLE pretty-printer
+*  Leaf: pad '   ' key ': ' val ','   (comma always)
+*  Close: pad '}'                     (no comma)
 *------------------------------------------------------------------------------
                DEFINE('pp_table(tbl,depth,key)pad,sk,i,k,v') :(pp_table_end)
 pp_table       pad             =  DUPL(' ', depth * 3)
@@ -82,8 +84,8 @@ pp_tbl_close   OUTPUT          =  pad '}'
                pp_table        =  .dummy                    :(RETURN)
 pp_table_end
 *------------------------------------------------------------------------------
-*  Phase 1 — slurp all input into src, insert SEP before each sentence start,
-*             split into sent[1..n] with BREAKX(SEP).
+*  Phase 1 — slurp, sentinel, split.
+*  Append ' ' to each piece: last token in every sentence needs trailing space.
 *------------------------------------------------------------------------------
 slurp          line            =  INPUT                     :F(slurp_done)
                src             =  src line ' '             :(slurp)
@@ -97,18 +99,19 @@ mark_done
                sent            =  ARRAY(300)
 split_loop     src (BREAKX(SEP) . piece) SEP  =  ''        :F(split_last)
                n               =  n + 1
-               sent[n]         =  piece                     :(split_loop)
+               sent[n]         =  TRIM(piece) ' '                :(split_loop)
 split_last     DIFFER(src)                                  :F(phase2)
                n               =  n + 1
-               sent[n]         =  src
+               sent[n]         =  TRIM(src) ' '
 *------------------------------------------------------------------------------
-*  Phase 2 — run claws_pat_2 on each sentence with ANCHOR=1.
+*  Phase 2 — copy sent[i] to s, run claws_pat_2.
 *------------------------------------------------------------------------------
 phase2         mem             =  TABLE()
                &ANCHOR         =  1
                i               =  0
 ph2_loop       i               =  LT(i, n) i + 1           :F(ph2_done)
-               sent[i]         claws_pat_2                  :F(ph2_fail)
+               s               =  sent[i]
+               s               claws_pat_2                  :F(ph2_fail)
                :(ph2_loop)
 ph2_fail       OUTPUT          =  'Pattern match failed on: ' sent[i]
                :(ph2_loop)
