@@ -123,12 +123,12 @@ def register(ruleno, subtree, vbg, *args):
             if tag    not in versus[ruleno]:        versus[ruleno][tag] = dict()
             if vbg    not in versus[ruleno][tag]:   versus[ruleno][tag][vbg] = set()
             versus[ruleno][tag][vbg].add(rootno)
-            ppr.pprint([ruleno, vbg, tag, *args, subtree])
-        else: ppr.pprint([ruleno, vbg, None, *args, subtree])
+            pass # ppr.pprint([ruleno, vbg, tag, *args, subtree])
+        else: pass # ppr.pprint([ruleno, vbg, None, *args, subtree])
 #------------------------------------------------------------------------------
 def classify(t, phrase):
     global root
-    if isinstance(t, str): print([phrase, t])
+    if isinstance(t, str): pass # print([phrase, t])
     elif isinstance(t, tuple):
         match t:
             case (): return
@@ -385,13 +385,15 @@ claws_info = \
     )
 #------------------------------------------------------------------------------
 GLOBALS(globals())
+from SNOBOL4python import set_match_stack_size
+set_match_stack_size(500_000)
 with open("CLAWS5inTASA.dat", "r") as claws_file:
     lines = []
     while line := claws_file.readline():
         lines.append(line[0:-1])
     claws_data = ''.join(lines)
     if not claws_data in claws_info:
-        print("Yikes")
+        pass # print("Yikes")
 #------------------------------------------------------------------------------
 with open("VBGinTASA.dat", "r") as bank_file:
     bank_source = bank_file.read()
@@ -402,15 +404,17 @@ with open("VBGinTASA.dat", "r") as bank_file:
             rootno = 0
             for root in roots:
                 rootno += 1
-                print('#', '=' * 79)
+                # print('#', '=' * 79)
                 display = ""
                 sentence(root)
-                print(f"# {str(rootno)}:")
-                ppr.pprint(display)
-                print('#', '-' * 79)
+                # print(f"# {str(rootno)}:")
+                # ppr.pprint(display)
+                # print('#', '-' * 79)
                 classify(root, None)
-    else: print("Boo!")
+    else: pass # print("Boo!")
 #------------------------------------------------------------------------------
 #pprint(tags)
-pprint(versus, width=80)
+# pprint(versus, width=80)
 #------------------------------------------------------------------------------
+pprint(mem)
+pprint(bank)
