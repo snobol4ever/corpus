@@ -1,0 +1,19 @@
+(BANK
+   (ROOT
+      (S
+         (NP
+            (DT
+               The
+            )
+            (NN
+               cat
+            )
+         )
+         (VP
+            (VBZ
+               sits
+            )
+         )
+      )
+   )
+)
