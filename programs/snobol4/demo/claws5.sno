@@ -1,168 +1,87 @@
 *------------------------------------------------------------------------------
-* claws5.sno — CLAWS5 POS-tagged corpus tokenizer (two-phase)
+* claws5.sno — CLAWS5 POS-tagged corpus tokenizer (one-phase)
 * ENG 685, Lon Cherryholmes Sr.
-* Run: csnobol4 -bf claws5.sno < CLAWS5inTASA.dat
+* Run: csnobol4 -bf -P 34000 claws5.sno < claws5.input
+*      sbl -b -P 34000 claws5.sno < claws5.input
 *
-* Two-phase — no -P flag needed.
-* Single-pass ARBNO over 989 joined lines overflows pattern stack.
-* Two-phase bounds stack per sentence (~244 sentences in CLAWS5inTASA.dat).
+* Direct SNOBOL4 port of Python claws_info pattern (assignment3.py).
+* Lines joined with no separator — each .dat line already ends with a
+* trailing space, so tokens are cleanly space-separated in src.
+* Faithful one-for-one translation:
+*   SPAN(DIGITS)%"num" + σ('_CRD :_PUN') -> (SPAN(DIGITS).num) '_CRD :_PUN'
+*   NOTANY("_") + BREAK("_")             -> NOTANY('_') BREAK('_')
+*   ANY(UCASE) + SPAN(DIGITS+UCASE)      -> ANY(UCASE) SPAN(DIGITS UCASE)
+*   σ(' ')                               -> ' '
 *
-* Phase 1 — split:
-*   Slurp all lines into one string.  Prepend space.
-*   Insert CHAR(1) sentinel before each sentence-start token
-*   (SPAN(DIGITS) '_CRD :_PUN ').  Strip leading sentinel.
-*   Split on sentinel with BREAKX(SEP) into sent[1..n].
-*   Append ' ' to each piece so every last token has its trailing space.
-*
-* Phase 2 — parse:
-*   Copy sent[i] to plain variable s; run claws_pat_2 on s.
-*   claws_pat_2: POS(0) header + ARBNO(BREAKX('_') token) + RPOS(0).
-*   Results accumulate into shared mem TABLE (three-level: sent/word/tag).
-*
-* pp_table(tbl,depth,key) — recursive depth*3-indent printer.
+* Memory: -P 34000 required for full corpus. claws5.input needs no -P flag.
 *------------------------------------------------------------------------------
-               &TRIM           =  1
-               &ANCHOR         =  0
-               &FULLSCAN       =  1
+               &ALPHABET       POS(10) LEN(1) . nl
                DIGITS          =  '0123456789'
-               SEP             =  CHAR(1)
-*------------------------------------------------------------------------------
-*  new_sent() — sentno = +num; open mem[sentno]
-*  add_tok()  — increment mem[sentno][wrd][tag]
-*  Both NRETURN; called via epsilon . *fn() in claws_pat_2.
-*------------------------------------------------------------------------------
+               UCASE           =  'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
                DEFINE('new_sent()')                         :(new_sent_end)
 new_sent       sentno          =  +num
                mem[sentno]     =  TABLE()
                new_sent        =  .dummy                    :(NRETURN)
 new_sent_end
-*------------------------------------------------------------------------------
+
                DEFINE('add_tok()')                          :(add_tok_end)
-add_tok        DIFFER(mem[sentno][wrd])                     :F(at_new_wrd)
-               DIFFER(mem[sentno][wrd][tag])                :F(at_new_tag)
-               mem[sentno][wrd][tag]  =  mem[sentno][wrd][tag] + 1  :(at_done)
-at_new_wrd     mem[sentno][wrd]       =  TABLE()
-at_new_tag     mem[sentno][wrd][tag]  =  1
-at_done        add_tok         =  .dummy                    :(NRETURN)
+add_tok        DIFFER(mem[sentno][wrd])                     :F(new_wrd)
+               DIFFER(mem[sentno][wrd][tag])                :F(new_tag)
+               mem[sentno][wrd][tag]  =  mem[sentno][wrd][tag] + 1  :(done)
+new_wrd        mem[sentno][wrd]       =  TABLE()
+new_tag        mem[sentno][wrd][tag]  =  1
+done           add_tok         =  .dummy                    :(NRETURN)
 add_tok_end
-*------------------------------------------------------------------------------
-*  claws_pat_2 — per-sentence, ANCHOR=1
-*  Header:  SPAN(DIGITS) . num  '_CRD :_PUN '  epsilon . *new_sent()
-*  Token:   BREAKX('_') . wrd  '_'  BREAKX(' ') . tag  ' '
-*           epsilon . *add_tok()
-*  BREAKX('_') grabs word; BREAKX(' ') grabs full tag (e.g. PUN not UN).
-*------------------------------------------------------------------------------
-               claws_pat_2     =
-+              POS(0)
-+              (SPAN(DIGITS) . num) '_CRD :_PUN '
-+              (epsilon . *new_sent())
-+              ARBNO(
-+                (BREAKX('_') . wrd) '_'
-+                (BREAKX(' ') . tag) ' '
-+                (epsilon . *add_tok())
-+              )
-+              RPOS(0)
-*------------------------------------------------------------------------------
-*  pp_mem(mem) — print mem TABLE in Python pprint(mem) format.
-*  Format: {1: {'word': {'TAG': N}, ...}, 2: {...}, ...}
-*  sentno=1 opens on same line as outer '{'.
-*  All other sentnos get 1 leading space prefix.
-*  Word continuation lines: SIZE(sentno)+4 spaces.
-*  Last word of sentence closes with '},' or '}}' (last sentence).
-*------------------------------------------------------------------------------
-               DEFINE('pp_mem(mem)ssk,si,sentno,wsk,wi,wkey,wq,wrd,tsk,ti,tag,tv,tline,pfx,pad,next_wkey,last_sent,lline,ns') :(pp_mem_end)
-pp_mem
-               ssk             =  SORT(mem)
+
+               DEFINE('pp_mem()sk,wk,tk,si,wi,ti')         :(pp_mem_end)
+pp_mem         OUTPUT          =  '{'
+               sk              =  SORT(mem)
                si              =  0
-               ns              =  0
-pm_cnt_loop    ns              =  ns + 1
-               ssk[ns,1]                                    :F(pm_cnt_done)
-               :(pm_cnt_loop)
-pm_cnt_done    ns              =  ns - 1
-               si              =  0
-pm_sent_loop   si              =  si + 1
-               sentno          =  ssk[si,1]                :F(pm_done)
-               last_sent       =  ''
-               IDENT(si, ns)                                :F(pm_not_last)
-               last_sent       =  1
-pm_not_last
-               pad             =  DUPL(' ', SIZE(sentno) + 4)
-*  prefix for this sentence's first word line
-               IDENT(si, 1)                                 :F(pm_pfx_mid)
-               pfx             =  '{' sentno ': {'         :(pm_wrd_init)
-pm_pfx_mid     pfx             =  ' ' sentno ': {'
-pm_wrd_init    wsk             =  SORT(mem[sentno])
+pp_s           si              =  si + 1
+               sk[si,1]                                     :F(pp_s_done)
+               si              GT(si, 1) OUTPUT = '   },'
+               OUTPUT          =  '   ' sk[si,1] ': {'
+               wk              =  SORT(mem[sk[si,1]])
                wi              =  0
-pm_wrd_loop    wi              =  wi + 1
-               wkey            =  wsk[wi,1]                :F(pm_wrd_close)
-               next_wkey       =  ''
-               next_wkey       =  wsk[wi + 1,1]
-*  quote word key: double-quote if contains apostrophe, else single-quote
-               wrd             =  wkey
-               wrd             ARB "'"  =  ''              :F(pm_sq)
-               wq              =  '"' wkey '"'             :(pm_tdict)
-pm_sq          wq              =  "'" wkey "'"
-*  build inline tag dict
-pm_tdict       tsk             =  SORT(mem[sentno][wkey])
+pp_w           wi              =  wi + 1
+               wk[wi,1]                                     :F(pp_w_done)
+               wi              GT(wi, 1) OUTPUT = '      },'
+               OUTPUT          =  '      ' wk[wi,1] ': {'
+               tk              =  SORT(mem[sk[si,1]][wk[wi,1]])
                ti              =  0
-               tline           =  '{'
-pm_tag_loop    ti              =  ti + 1
-               tag             =  tsk[ti,1]                :F(pm_tag_close)
-               tv              =  mem[sentno][wkey][tag]
-               IDENT(tline, '{')                            :F(pm_tag_sep)
-               tline           =  tline "'" tag "': " tv   :(pm_tag_loop)
-pm_tag_sep     tline           =  tline ', ' "'" tag "': " tv :(pm_tag_loop)
-pm_tag_close   tline           =  tline '}'
-*  last word of sentence? if next_wkey is empty, this is the last word
-               GT(SIZE(next_wkey), 0)                       :S(pm_not_last_wrd)
-               :(pm_last_wrd)
-pm_not_last_wrd
-*  not last word — emit with ','
-               IDENT(wi, 1)                                 :F(pm_mid_wrd)
-               OUTPUT          =  pfx wq ': ' tline ','    :(pm_wrd_loop)
-pm_mid_wrd     OUTPUT          =  pad wq ': ' tline ','    :(pm_wrd_loop)
-*  last word of this sentence
-pm_last_wrd    IDENT(wi, 1)                                 :F(pm_last_mid)
-               lline           =  pfx wq ': ' tline        :(pm_last_emit)
-pm_last_mid    lline           =  pad wq ': ' tline
-pm_last_emit   IDENT(last_sent, 1)                          :F(pm_last_mid2)
-               OUTPUT          =  lline '}}'               :(pm_sent_loop)
-pm_last_mid2   OUTPUT          =  lline '},'               :(pm_sent_loop)
-pm_wrd_close   :(pm_sent_loop)
-pm_done
+pp_t           ti              =  ti + 1
+               tk[ti,1]                                     :F(pp_t_done)
+               OUTPUT          =  '         '
++                                 tk[ti,1] ': '
++                                 mem[sk[si,1]][wk[wi,1]][tk[ti,1]]
++                                 ','                        :(pp_t)
+pp_t_done      OUTPUT          =  '      }'                 :(pp_w)
+pp_w_done      OUTPUT          =  '   }'                    :(pp_s)
+pp_s_done      OUTPUT          =  '}'
                pp_mem          =  .dummy                    :(RETURN)
 pp_mem_end
-*------------------------------------------------------------------------------
-*  Phase 1 — slurp, sentinel, split.
-*  Append ' ' to each piece: last token in every sentence needs trailing space.
-*------------------------------------------------------------------------------
+
 slurp          line            =  INPUT                     :F(slurp_done)
-               src             =  src line ' '             :(slurp)
+               src             =  src line                  :(slurp)
 slurp_done
-               src             =  ' ' src
-mark_loop      src (' ' (SPAN(DIGITS) '_CRD :_PUN ') . hdr) =  SEP hdr  :F(mark_done)
-               :(mark_loop)
-mark_done
-               src             SEP  =  ''
-               n               =  0
-               sent            =  ARRAY(300)
-split_loop     src (BREAKX(SEP) . piece) SEP  =  ''        :F(split_last)
-               n               =  n + 1
-               sent[n]         =  TRIM(piece) ' '                :(split_loop)
-split_last     DIFFER(src)                                  :F(phase2)
-               n               =  n + 1
-               sent[n]         =  TRIM(src) ' '
-*------------------------------------------------------------------------------
-*  Phase 2 — copy sent[i] to s, run claws_pat_2.
-*------------------------------------------------------------------------------
-phase2         mem             =  TABLE()
-               &ANCHOR         =  1
-               i               =  0
-ph2_loop       i               =  LT(i, n) i + 1           :F(ph2_done)
-               s               =  sent[i]
-               s               claws_pat_2                  :F(ph2_fail)
-               :(ph2_loop)
-ph2_fail       OUTPUT          =  'Pattern match failed on: ' sent[i]
-               :(ph2_loop)
-ph2_done       pp_mem(mem)
+               mem             =  TABLE()
+
+               claws_pat       =
++              POS(0)
++              ARBNO(
++                ( (SPAN(DIGITS) . num) '_CRD :_PUN'
++                  (epsilon . *new_sent())
++                | (NOTANY('_') BREAK('_')) . wrd
++                  '_'
++                  (ANY(UCASE) SPAN(DIGITS UCASE)) . tag
++                  (epsilon . *add_tok())
++                )
++                ' '
++              )
++              RPOS(0)
+
+               src             claws_pat                    :F(fail)
+               pp_mem()                                     :(END)
+fail           OUTPUT          =  'Pattern match failed'
 END
