@@ -1,119 +1,68 @@
 *------------------------------------------------------------------------------
 * treebank-append.sno — Penn Treebank s-expression parser (append style)
 * ENG 685, Lon Cherryholmes Sr.
-* Run: csnobol4 -bf treebank-append.sno < VBGinTASA.dat
+* Run: csnobol4 -bf -P 200k treebank-append.sno < VBGinTASA.dat
 *
 * TABLE-based implementation: each frame is a TABLE used as a dynamic array.
 * Children are APPENDED at the end (integer keys 1..n).  No reversal needed.
 * Mirrors Python list.append semantics exactly.
 * Compare: treebank-prepend.sno (LISP-style cons-list with reversal).
 *
+* Two-step parsing:
+*   Step 1 — BAL carves individual S-expressions from input (no deep recursion)
+*   Step 2 — group pattern parses each S-expression into the tree
+* This avoids pattern stack overflow on deeply nested TASA sentences.
+* -P 200k is sufficient (vs -P 2m needed for single-pass approach).
+*
 * Uses the double-function trick (case-sensitive, CSNOBOL4 -bf required):
 *   push_list(v)   — NRETURN side-effect, called at match time
 *   Push_list(vs)  — returns EVAL("epsilon . *push_list(" vs ")"), build time
 * Python names: init_list, push_list, push_item, pop_list, pop_final
-*
-* Stack frames use a TABLE as a dynamic array (integer keys 1..n).
-* Children are appended at the end — no reversal needed.
-* Mirrors Python list.append semantics exactly.
 *------------------------------------------------------------------------------
                &TRIM          =  1
                &ANCHOR        =  0
                &FULLSCAN      =  1
                &ALPHABET      POS(10) LEN(1) . nl
 *------------------------------------------------------------------------------
-*  Each stack frame is a TABLE used as a dynamic array:
-*    stk_tag[frame]   — the tag string (head of node)
-*    stk_n[frame]     — current child count
-*    stk_c[frame]     — TABLE of children: stk_c[frame][1..n]
-*  stk is a cons-list of frame-id integers (the stack of open frames).
-*  frame_id is a simple integer counter (unique per push).
-*------------------------------------------------------------------------------
-               DEFINE('stk_push_frame(v)')                  :(stk_push_frame_end)
-stk_push_frame frame_id       =  frame_id + 1
-               stk_tag[frame_id] =  v
-               stk_n[frame_id]   =  0
-               stk_c[frame_id]   =  TABLE()
-               stk            =  list(frame_id, stk)
-               stk_push_frame =  .dummy                     :(RETURN)
-stk_push_frame_end
-*------------------------------------------------------------------------------
-               DEFINE('stk_push_item(v)')                   :(stk_push_item_end)
-stk_push_item  cur            =  head(stk)
-               stk_n[cur]     =  stk_n[cur] + 1
-               stk_c[cur][stk_n[cur]] =  v
-               stk_push_item  =  .dummy                     :(RETURN)
-stk_push_item_end
-*------------------------------------------------------------------------------
-               DEFINE('stk_pop_into_parent(child,par,i,n,arr)')  :(stk_pop_into_parent_end)
-stk_pop_into_parent
-               child          =  head(stk)
-               stk            =  tail(stk)
-               par            =  head(stk)
-               n              =  stk_n[par]
-               stk_n[par]     =  n + 1
-               stk_c[par][n + 1] =  child
-               stk_pop_into_parent =  .dummy                :(RETURN)
-stk_pop_into_parent_end
-*------------------------------------------------------------------------------
-               DEFINE('stk_pop_final(var,child)')        :(stk_pop_final_end)
-stk_pop_final  child          =  head(stk)
-               stk            =  tail(stk)
-               $var           =  child
-               stk_pop_final  =  .dummy                     :(RETURN)
-stk_pop_final_end
-*------------------------------------------------------------------------------
-*  build_node(frame_id) — convert a frame TABLE into a list-of-lists node
-*  Returns: list(tag, child1, child2, ...) built left-to-right
-*  Used by pp_node to walk the tree.
-*------------------------------------------------------------------------------
-               DEFINE('build_node(f,tag,n,i,result,child)')  :(build_node_end)
-build_node     tag            =  stk_tag[f]
-               n              =  stk_n[f]
-               result         =  list(tag, '')
-               i              =  n
-bn1            i              =  GT(i, 0) i - 1             :F(build_node_done)
-               child          =  stk_c[f][i + 1]
-               IDENT(REPLACE(DATATYPE(child), &LCASE, &UCASE), 'INTEGER')  :F(bn_str)
-               result         =  list(build_node(child), tail(result) &
-+                                   LIST(build_node(child)))
-*              child is a frame_id — recurse. Prepend then we reverse below.
-               :(bn_next)
-bn_str         result         =  list(child, '')
-bn_next        i              =  i - 1                      :(bn1)
-build_node_done
-               build_node     =  result                     :(RETURN)
-build_node_end
-*------------------------------------------------------------------------------
-*  Simpler pp_node: walks frame TABLE directly, no conversion needed
-*------------------------------------------------------------------------------
-               DEFINE('pp_node(f,indent,tag,n,i,pad,child)')  :(pp_node_end)
-pp_node        IDENT(REPLACE(DATATYPE(f), &LCASE, &UCASE), 'STRING')  :F(pp_node_frame)
-               OUTPUT         =  DUPL(' ', indent) f        :(RETURN)
-pp_node_frame  pad            =  DUPL(' ', indent)
-               tag            =  stk_tag[f]
-               n              =  stk_n[f]
-               OUTPUT         =  pad '(' tag
-               i              =  0
-pp_ch          i              =  LT(i, n) i + 1             :F(pp_close)
-               pp_node(stk_c[f][i], indent + 3)
-               i              =  i                          :(pp_ch)
-pp_close       OUTPUT         =  pad ')'                    :(RETURN)
-pp_node_end
-*------------------------------------------------------------------------------
-               DEFINE('pp_bank()')                          :(pp_bank_end)
-pp_bank        pp_node(bank, 0)
-               pp_bank        =  .dummy                     :(RETURN)
-pp_bank_end
-*------------------------------------------------------------------------------
-*  Double-function pattern helpers — mirror Python's 5 functions exactly.
-*  No list_reverse anywhere.
-*------------------------------------------------------------------------------
                DATA('list(head,tail)')
                frame_id       =  0
                stk_tag        =  TABLE()
                stk_n          =  TABLE()
                stk_c          =  TABLE()
+*------------------------------------------------------------------------------
+               DEFINE('stk_push_frame(v)')                  :(stk_push_frame_end)
+stk_push_frame frame_id              =  frame_id + 1
+               stk_tag[frame_id]    =  v
+               stk_n[frame_id]      =  0
+               stk_c[frame_id]      =  TABLE()
+               stk                  =  list(frame_id, stk)
+               stk_push_frame       =  .dummy               :(RETURN)
+stk_push_frame_end
+*------------------------------------------------------------------------------
+               DEFINE('stk_push_item(v,cur)')               :(stk_push_item_end)
+stk_push_item  cur                  =  head(stk)
+               stk_n[cur]           =  stk_n[cur] + 1
+               stk_c[cur][stk_n[cur]] =  v
+               stk_push_item        =  .dummy               :(RETURN)
+stk_push_item_end
+*------------------------------------------------------------------------------
+               DEFINE('stk_pop_into_parent(child,par,n)')   :(stk_pop_into_parent_end)
+stk_pop_into_parent
+               child                =  head(stk)
+               stk                  =  tail(stk)
+               par                  =  head(stk)
+               n                    =  stk_n[par]
+               stk_n[par]           =  n + 1
+               stk_c[par][n + 1]    =  child
+               stk_pop_into_parent  =  .dummy               :(RETURN)
+stk_pop_into_parent_end
+*------------------------------------------------------------------------------
+               DEFINE('stk_pop_final(var,child)')           :(stk_pop_final_end)
+stk_pop_final  child                =  head(stk)
+               stk                  =  tail(stk)
+               $var                 =  child
+               stk_pop_final        =  .dummy               :(RETURN)
+stk_pop_final_end
 *------------------------------------------------------------------------------
                DEFINE('init_list(v)')
                DEFINE('Init_list(vs)')                      :(init_list_end)
@@ -155,8 +104,29 @@ pop_final      dummy          =  stk_pop_final(v)
 Pop_final      Pop_final      =  EVAL('epsilon . *pop_final(' vs ')')  :(RETURN)
 pop_final_end
 *------------------------------------------------------------------------------
+               DEFINE('pp_node(f,indent,tag,n,i,pad)')      :(pp_node_end)
+pp_node        IDENT(REPLACE(DATATYPE(f), &LCASE, &UCASE), 'STRING')  :F(pp_node_frame)
+               OUTPUT         =  DUPL(' ', indent) f        :(RETURN)
+pp_node_frame  pad            =  DUPL(' ', indent)
+               tag            =  stk_tag[f]
+               n              =  stk_n[f]
+               OUTPUT         =  pad '(' tag
+               i              =  0
+pp_ch          i              =  LT(i, n) i + 1             :F(pp_close)
+               pp_node(stk_c[f][i], indent + 3)
+               i              =  i                          :(pp_ch)
+pp_close       OUTPUT         =  pad ')'                    :(RETURN)
+pp_node_end
+*------------------------------------------------------------------------------
+               DEFINE('pp_bank()')                          :(pp_bank_end)
+pp_bank        pp_node(bank, 0)
+               pp_bank        =  .dummy                     :(RETURN)
+pp_bank_end
+*------------------------------------------------------------------------------
                delim          =  SPAN(' ' nl)
                word           =  NOTANY('( )' nl) BREAK('( )' nl)
+*------------------------------------------------------------------------------
+*  group — direct port of Python push_list/push_item/pop_list
 *------------------------------------------------------------------------------
                group          =
 +              '('
@@ -170,23 +140,24 @@ pop_final_end
 +              Pop_list()
 +              ')'
 *------------------------------------------------------------------------------
-               treebank       =
-+              POS(0)
-+              Init_list("'bank'")
-+              Push_list("'BANK'")
-+              ARBNO(
-+                  Push_list("'ROOT'")
-+                  ARBNO(*group)
-+                  *delim
-+                  Pop_list()
-+              )
-+              Pop_final("'bank'")
-+              RPOS(0)
+*  Two-step main:
+*    Step 1: BAL carves each top-level S-expression from src
+*    Step 2: group parses each S-expression into the TABLE-based tree
+*  No single-pass treebank pattern needed — BAL handles the outer structure.
+*------------------------------------------------------------------------------
+               spat           =  ('(' BAL ')') . item
 *------------------------------------------------------------------------------
 slurp          line           =  INPUT                      :F(slurp_done)
                src            =  src line nl                :(slurp)
-slurp_done     src            treebank                      :F(main_fail)
+slurp_done
+               dummy          =  init_list('bank')
+               dummy          =  stk_push_frame('BANK')
+loop           src            spat =  ''                    :F(all_done)
+               dummy          =  stk_push_frame('ROOT')
+               item           group                         :F(parse_fail)
+               dummy          =  stk_pop_into_parent()      :(loop)
+parse_fail     OUTPUT         =  'Parse failed on: ' item
+               dummy          =  stk_pop_into_parent()      :(loop)
+all_done       dummy          =  stk_pop_final('bank')
                dummy          =  pp_bank()                  :(END)
-main_fail      OUTPUT         =  'Pattern match failed'
-*------------------------------------------------------------------------------
 END
