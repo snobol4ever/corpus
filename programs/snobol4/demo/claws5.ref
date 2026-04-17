@@ -1,296 +1,95 @@
-{
-   1: {
-      ,: {
-         PUN: 1,
-      }
-      .: {
-         PUN: 1,
-      }
-      That: {
-         CJT: 1,
-      }
-      as: {
-         AV0: 1,
-      }
-      be: {
-         VBI: 2,
-      }
-      by: {
-         PRP: 1,
-      }
-      denied: {
-         VVN: 1,
-      }
-      destroy: {
-         VVI: 1,
-      }
-      exercised: {
-         VVN: 1,
-      }
-      is: {
-         VBZ: 1,
-      }
-      it: {
-         PNP: 2,
-      }
-      may: {
-         VM0: 1,
-      }
-      obvious: {
-         AJ0: 1,
-      }
-      of: {
-         PRF: 1,
-      }
-      power: {
-         NN1: 1,
-      }
-      so: {
-         AV0: 1,
-      }
-      states: {
-         NN2: 1,
-      }
-      taxing: {
-         VVG: 1,
-      }
-      the: {
-         AT0: 2,
-      }
-      to: {
-         TO0: 2,
-      }
-      too: {
-         AV0: 1,
-      }
-   }
-   2: {
-      ,: {
-         PUN: 1,
-      }
-      .: {
-         PUN: 1,
-      }
-      None: {
-         PNI: 1,
-      }
-      a: {
-         AT0: 1,
-      }
-      abolitionist: {
-         NN1: 1,
-      }
-      and: {
-         CJC: 1,
-      }
-      appeared: {
-         VVD: 1,
-      }
-      as: {
-         AV0: 1,
-         CJS: 1,
-      }
-      document: {
-         NN1: 1,
-      }
-      ever: {
-         AV0: 1,
-      }
-      first: {
-         ORD: 1,
-      }
-      in: {
-         PRP: 1,
-      }
-      is: {
-         VBZ: 1,
-      }
-      issue: {
-         NN1: 1,
-      }
-      liberator: {
-         NN1: 1,
-      }
-      manifesto: {
-         NN1: 1,
-      }
-      no: {
-         AT0: 1,
-      }
-      of: {
-         PRF: 1,
-      }
-      one: {
-         PNI: 1,
-      }
-      other: {
-         AJ0: 1,
-      }
-      penned: {
-         VVD: 1,
-      }
-      remembered: {
-         VVN: 1,
-      }
-      so: {
-         AV0: 1,
-      }
-      stirring: {
-         AJ0: 1,
-      }
-      that: {
-         CJT: 1,
-      }
-      the: {
-         AT0: 3,
-      }
-      well: {
-         AV0: 1,
-      }
-   }
-   3: {
-      ': {
-         PUQ: 1,
-      }
-      ,: {
-         PUN: 3,
-      }
-      .: {
-         PUN: 1,
-      }
-      With: {
-         PRP: 1,
-      }
-      `: {
-         PUQ: 1,
-      }
-      and: {
-         CJC: 1,
-      }
-      criticism: {
-         NN1: 1,
-      }
-      few: {
-         DT0: 1,
-      }
-      flourishing: {
-         VVG: 1,
-      }
-      however: {
-         AVQ: 1,
-      }
-      in: {
-         PRP: 1,
-      }
-      institution: {
-         NN1: 1,
-      }
-      masters: {
-         NN2: 1,
-      }
-      moderate: {
-         AJ0: 1,
-      }
-      of: {
-         PRF: 1,
-      }
-      peculiar: {
-         AJ0: 1,
-      }
-      slavery: {
-         NN1: 1,
-      }
-      south: {
-         NN1: 1,
-      }
-      southwest: {
-         NN1: 1,
-      }
-      spreading: {
-         VVG: 1,
-      }
-      the: {
-         AT0: 3,
-      }
-      to: {
-         PRP: 1,
-      }
-      tolerate: {
-         VVI: 1,
-      }
-      would: {
-         VM0: 1,
-      }
-   }
-   4: {
-      ': {
-         POS: 1,
-      }
-      ,: {
-         PUN: 2,
-      }
-      .: {
-         PUN: 1,
-      }
-      But: {
-         CJC: 1,
-      }
-      `: {
-         PUQ: 1,
-      }
-      about: {
-         PRP: 1,
-      }
-      appeared: {
-         VVD: 1,
-      }
-      at: {
-         PRP: 1,
-      }
-      death: {
-         NN1: 1,
-      }
-      first: {
-         ORD: 1,
-      }
-      in: {
-         PRP: 1,
-      }
-      indifferent: {
-         AJ0: 1,
-      }
-      lap: {
-         NN1: 1,
-      }
-      liberator: {
-         NN1: 1,
-      }
-      moral: {
-         AJ0: 1,
-      }
-      most: {
-         DT0: 1,
-      }
-      northerners: {
-         NN2: 1,
-      }
-      of: {
-         PRF: 1,
-      }
-      slavery: {
-         NN1: 1,
-      }
-      slumbering: {
-         VVG: 1,
-      }
-      the: {
-         AT0: 3,
-      }
-      time: {
-         NN1: 1,
-      }
-      were: {
-         VBD: 1,
-      }
-   }
-}
+{1: {',': {'PUN': 1},
+     '.': {'PUN': 1},
+     'That': {'CJT': 1},
+     'as': {'AV0': 1},
+     'be': {'VBI': 2},
+     'by': {'PRP': 1},
+     'denied': {'VVN': 1},
+     'destroy': {'VVI': 1},
+     'exercised': {'VVN': 1},
+     'is': {'VBZ': 1},
+     'it': {'PNP': 2},
+     'may': {'VM0': 1},
+     'obvious': {'AJ0': 1},
+     'of': {'PRF': 1},
+     'power': {'NN1': 1},
+     'so': {'AV0': 1},
+     'states': {'NN2': 1},
+     'taxing': {'VVG': 1},
+     'the': {'AT0': 2},
+     'to': {'TO0': 2},
+     'too': {'AV0': 1}},
+ 2: {',': {'PUN': 1},
+     '.': {'PUN': 1},
+     'None': {'PNI': 1},
+     'a': {'AT0': 1},
+     'abolitionist': {'NN1': 1},
+     'and': {'CJC': 1},
+     'appeared': {'VVD': 1},
+     'as': {'AV0': 1, 'CJS': 1},
+     'document': {'NN1': 1},
+     'ever': {'AV0': 1},
+     'first': {'ORD': 1},
+     'in': {'PRP': 1},
+     'is': {'VBZ': 1},
+     'issue': {'NN1': 1},
+     'liberator': {'NN1': 1},
+     'manifesto': {'NN1': 1},
+     'no': {'AT0': 1},
+     'of': {'PRF': 1},
+     'one': {'PNI': 1},
+     'other': {'AJ0': 1},
+     'penned': {'VVD': 1},
+     'remembered': {'VVN': 1},
+     'so': {'AV0': 1},
+     'stirring': {'AJ0': 1},
+     'that': {'CJT': 1},
+     'the': {'AT0': 3},
+     'well': {'AV0': 1}},
+ 3: {"'": {'PUQ': 1},
+     ',': {'PUN': 3},
+     '.': {'PUN': 1},
+     'With': {'PRP': 1},
+     '`': {'PUQ': 1},
+     'and': {'CJC': 1},
+     'criticism': {'NN1': 1},
+     'few': {'DT0': 1},
+     'flourishing': {'VVG': 1},
+     'however': {'AVQ': 1},
+     'in': {'PRP': 1},
+     'institution': {'NN1': 1},
+     'masters': {'NN2': 1},
+     'moderate': {'AJ0': 1},
+     'of': {'PRF': 1},
+     'peculiar': {'AJ0': 1},
+     'slavery': {'NN1': 1},
+     'south': {'NN1': 1},
+     'southwest': {'NN1': 1},
+     'spreading': {'VVG': 1},
+     'the': {'AT0': 3},
+     'to': {'PRP': 1},
+     'tolerate': {'VVI': 1},
+     'would': {'VM0': 1}},
+ 4: {"'": {'POS': 1},
+     ',': {'PUN': 2},
+     '.': {'PUN': 1},
+     'But': {'CJC': 1},
+     '`': {'PUQ': 1},
+     'about': {'PRP': 1},
+     'appeared': {'VVD': 1},
+     'at': {'PRP': 1},
+     'death': {'NN1': 1},
+     'first': {'ORD': 1},
+     'in': {'PRP': 1},
+     'indifferent': {'AJ0': 1},
+     'lap': {'NN1': 1},
+     'liberator': {'NN1': 1},
+     'moral': {'AJ0': 1},
+     'most': {'DT0': 1},
+     'northerners': {'NN2': 1},
+     'of': {'PRF': 1},
+     'slavery': {'NN1': 1},
+     'slumbering': {'VVG': 1},
+     'the': {'AT0': 3},
+     'time': {'NN1': 1},
+     'were': {'VBD': 1}}}
