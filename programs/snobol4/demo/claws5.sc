@@ -13,7 +13,7 @@
 //   claws_pat_2: POS(0) header + ARBNO(BREAKX('_') token) + RPOS(0).
 //
 // helpers: new_sent(), add_tok() — nreturn, called via epsilon . *fn()
-// printer: pp_table(tbl, depth, key) — recursive, depth*3 indent
+// printer: pp_mem(mem) — pprint-style, identical output to Python pprint(mem)
 
 &TRIM     = 1;
 &ANCHOR   = 0;
@@ -61,27 +61,80 @@ claws_pat_2 =
     )
     && RPOS(0);
 
-//--- pp_table(tbl, depth, key) — recursive TABLE pretty-printer -------------
+//--- pp_mem(mem) — pprint-style TABLE printer matching Python pprint(mem) ----
+// Format: {1: {'word': {'TAG': N}, ...}, 2: {...}, ...}
+// Sentence keys natural width; word continuation lines SIZE(sentno)+4 spaces.
+// Word keys single-quoted; double-quoted if word contains apostrophe.
+// Tag dicts inline: {'TAG': N} or {'TAG1': N1, 'TAG2': N2}.
 
-procedure pp_table(tbl, depth, key,   pad, sk, i, k, v) {
-    pad = DUPL(' ', depth * 3);
-    if (IDENT(depth, 0)) {
-        OUTPUT = '{';
-    } else {
-        OUTPUT = pad && key && ': {';
-    }
-    sk = SORT(tbl);
-    i  = 0;
-    while (DIFFER(k = sk[i = i + 1, 1])) {
-        v = tbl[k];
-        if (IDENT(REPLACE(DATATYPE(v), &LCASE, &UCASE), 'TABLE')) {
-            dummy = pp_table(v, depth + 1, k);
+procedure pp_mem(mem,   ssk, si, ns, sentno, pad, pfx, wsk, wi, wkey, wq,
+                        wrd, next_wkey, tsk, ti, tag, tv, tline, lline,
+                        last_sent, dummy) {
+    ssk = SORT(mem);
+    // count sentences
+    ns  = 0;
+    while (DIFFER(ssk[ns = ns + 1, 1])) { }
+    ns  = ns - 1;
+    si  = 0;
+    OUTPUT = '{';
+    while (DIFFER(sentno = ssk[si = si + 1, 1])) {
+        last_sent = '';
+        if (IDENT(si, ns)) { last_sent = 1; }
+        pad = DUPL(' ', SIZE(sentno) + 4);
+        if (IDENT(si, 1)) {
+            pfx = sentno && ': {';
         } else {
-            OUTPUT = pad && '   ' && k && ': ' && v && ',';
+            pfx = ' ' && sentno && ': {';
+        }
+        wsk = SORT(mem[sentno]);
+        wi  = 0;
+        while (DIFFER(wkey = wsk[wi = wi + 1, 1])) {
+            next_wkey = '';
+            next_wkey = wsk[wi + 1, 1];
+            // quote word key
+            wrd = wkey;
+            if (wrd ?= ARB "'" <- '') {
+                wq = '"' && wkey && '"';
+            } else {
+                wq = "'" && wkey && "'";
+            }
+            // build inline tag dict
+            tsk   = SORT(mem[sentno][wkey]);
+            ti    = 0;
+            tline = '{';
+            while (DIFFER(tag = tsk[ti = ti + 1, 1])) {
+                tv = mem[sentno][wkey][tag];
+                if (IDENT(tline, '{')) {
+                    tline = tline && "'" && tag && "': " && tv;
+                } else {
+                    tline = tline && ', ' && "'" && tag && "': " && tv;
+                }
+            }
+            tline = tline && '}';
+            // emit: last word gets sentence-close suffix
+            if (GT(SIZE(next_wkey), 0)) {
+                // not last word
+                if (IDENT(wi, 1)) {
+                    OUTPUT = pfx && wq && ': ' && tline && ',';
+                } else {
+                    OUTPUT = pad && wq && ': ' && tline && ',';
+                }
+            } else {
+                // last word of sentence
+                if (IDENT(wi, 1)) {
+                    lline = pfx && wq && ': ' && tline;
+                } else {
+                    lline = pad && wq && ': ' && tline;
+                }
+                if (IDENT(last_sent, 1)) {
+                    OUTPUT = lline && '}}';
+                } else {
+                    OUTPUT = lline && '},';
+                }
+            }
         }
     }
-    OUTPUT = pad && '}';
-    pp_table = .dummy;
+    pp_mem = .dummy;
     return;
 }
 
@@ -119,4 +172,4 @@ while (DIFFER(i = LT(i, n) i + 1)) {
     }
 }
 &ANCHOR = 0;
-dummy = pp_table(mem, 0, '');
+dummy = pp_mem(mem);
