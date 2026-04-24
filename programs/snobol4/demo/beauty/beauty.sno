@@ -7,6 +7,9 @@
 *
 START
 -INCLUDE 'global.inc'
+-INCLUDE 'is.inc'
+-INCLUDE 'FENCE.inc'
+-INCLUDE 'io.inc'
 -INCLUDE 'case.inc'
 -INCLUDE 'assign.inc'
 -INCLUDE 'match.inc'
