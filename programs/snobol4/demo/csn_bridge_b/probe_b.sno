@@ -1,0 +1,26 @@
+* SN-26-csn-bridge-b — exercises all four CSNOBOL4 monitor bridge sites:
+*   ASGNVV (plain X = Y)        → monitor_emit_value
+*   SJSRV1 (S 'pat' = 'rep')    → monitor_emit_value
+*   DEFF18 (function call)      → monitor_emit_call
+*   DEFF20 (function return)    → monitor_emit_return
+*
+* Drive via:
+*   MONITOR_READY_PIPE=...  MONITOR_GO_PIPE=...  MONITOR_NAMES_OUT=... \
+*       /home/claude/csnobol4/snobol4 -bf probe_b.sno
+*
+* Expected wire (7 records):
+*   #0 VALUE  S    STRING(11)='hello world'      (ASGNVV)
+*   #1 VALUE  S    STRING(11)='hello there'      (SJSRV1)
+*   #2 CALL   SQR                                (DEFF18)
+*   #3 VALUE  SQR  INTEGER(49)                   (ASGNVV inside body)
+*   #4 RETURN SQR  STRING(6)='RETURN'            (DEFF20: &RTNTYPE)
+*   #5 VALUE  N    INTEGER(49)                   (ASGNVV)
+*   #6 END
+
+        DEFINE('SQR(N)')                        :(SQR_END)
+SQR     SQR = N * N                             :(RETURN)
+SQR_END
+        S = 'hello world'
+        S 'world' = 'there'
+        N = SQR(7)
+END
