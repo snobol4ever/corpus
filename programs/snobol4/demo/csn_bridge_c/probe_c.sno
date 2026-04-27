@@ -1,0 +1,19 @@
+* SN-26-bridge-coverage-a — exercises the new NMD4 fire-point in CSNOBOL4
+* monitor bridge:
+*   NMD4 (pattern .-capture commit) → monitor_emit_value
+*
+* Drive via:
+*   MONITOR_READY_PIPE=...  MONITOR_GO_PIPE=...  MONITOR_NAMES_OUT=... \
+*       /home/claude/csnobol4/snobol4 -bf probe_c.sno
+*
+* Expected wire (3 records):
+*   #0 VALUE  S         STRING(5)='AXBYC'      (ASGNVV — plain assignment)
+*   #1 VALUE  captured  STRING(1)='A'          (NMD4   — pattern .-capture)
+*   #2 END
+*
+* The middle record is the new one — proves NMD4 fires on a successful
+* match's ANY('AB') . captured commit point.
+
+        S = 'AXBYC'
+        S ANY('AB') . captured
+END
