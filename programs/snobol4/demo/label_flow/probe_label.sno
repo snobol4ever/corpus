@@ -1,0 +1,15 @@
+* SN-26-bridge-coverage-f — exercise the new MWK_LABEL fire-point.
+*
+* Three top-level statements + END.  Each runtime emits one LABEL
+* record per stmt entry, with stno = 1, 2, 3 in order on the wire.
+* CSNOBOL4 fires LABEL only on user statements (3 LABELs).
+* SPITBOL counts END as a stmt (4 LABELs: 1, 2, 3, 4).
+* scrip --ir-run matches CSN; --sm-run / --jit-run match SPL.
+*
+* The drivers (test_smoke_sn26_label_flow*.sh) verify each runtime emits
+* its expected LABEL stream interleaved with VALUE records on assignments.
+
+        X = 1
+        Y = 2
+        OUTPUT = X + Y
+END
