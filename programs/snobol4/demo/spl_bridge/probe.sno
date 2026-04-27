@@ -1,0 +1,31 @@
+* SN-26-spl-bridge-b — exercises all three SPITBOL monitor bridge sites:
+*   b_vrs  (universal var-store)  → sysmv (VALUE)
+*   bpf09  (function-call gate)   → sysmc (CALL)
+*   retrn  (return path)          → sysmr (RETURN)
+*
+* Drive via:
+*   MONITOR_READY_PIPE=...  MONITOR_GO_PIPE=...  MONITOR_NAMES_OUT=... \
+*       /home/claude/x64/bin/sbl -bf probe.sno
+*
+* Expected wire (6 records on SPITBOL):
+*   #0 VALUE  S    STRING(11)='hello world'      (b_vrs)
+*   #1 CALL   SQR                                (bpf09)
+*   #2 VALUE  SQR  INTEGER(49)                   (b_vrs inside body)
+*   #3 RETURN SQR  STRING(6)='RETURN'            (retrn: &RTNTYPE)
+*   #4 VALUE  N    INTEGER(49)                   (b_vrs)
+*   #5 END
+*
+* Note SPITBOL diverges from CSNOBOL4 on this probe by ONE record:
+* CSNOBOL4 fires monitor_emit_value at SJSRV1 for the pattern-substitute
+* store `S 'world' = 'there'`, but SPITBOL's pattern-match store path
+* doesn't traverse b_vrs.  This is a known asymmetry — captured as
+* SN-26-spl-bridge-c (deferred).  For cross-oracle comparison purposes,
+* either both probes drop the pattern-substitute line, or the controller
+* allows the asymmetry.
+
+        DEFINE('SQR(N)')                        :(SQR_END)
+SQR     SQR = N * N                             :(RETURN)
+SQR_END
+        S = 'hello world'
+        N = SQR(7)
+END
