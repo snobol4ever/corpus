@@ -1,0 +1,6 @@
+*  104 - FENCE seals: longer alt unreachable even when needed for tail
+        X = 'aXYb'
+        X  POS(0) 'a' FENCE('X' | 'XY')  'b'  RPOS(0)         :S(YES)F(NO)
+YES     OUTPUT = 'longer alt was tried (NOT fenced)'          :(END)
+NO      OUTPUT = 'fenced'
+END

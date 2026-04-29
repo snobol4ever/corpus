@@ -1,0 +1,10 @@
+*  129 - Closest minimal repro of beauty stmt 1074 crash:
+*  *outer where outer = ARBNO(*cmd) where cmd = FENCE(alt|alt).
+*  String chosen so backtrack into seal is forced.
+        cmd   = FENCE('a' | 'ab')
+        outer = ARBNO(*cmd)
+        s = 'aab'
+        s POS(0) *outer RPOS(0)                               :S(BAD)F(GOOD)
+BAD     OUTPUT = 'unexpected match'                           :(END)
+GOOD    OUTPUT = 'beauty-class FENCE seal held'
+END

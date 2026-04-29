@@ -1,0 +1,6 @@
+*  107 - FENCE inside FENCE: outer seal blocks even after inner returns
+        X = 'AB'
+        X  POS(0) FENCE(FENCE(LEN(1)) | LEN(2)) RPOS(0)       :S(YES)F(NO)
+YES     OUTPUT = 'inner LEN(1) then outer alt LEN(2)'         :(END)
+NO      OUTPUT = 'doubly sealed'
+END

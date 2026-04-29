@@ -1,0 +1,7 @@
+*  115 - *var FENCE recursing through itself (tail recursion via right-recursion)
+        cmd = FENCE('a' *cmd | 'a')
+        s = 'aaa'
+        s  POS(0) *cmd RPOS(0)                                :S(YES)F(NO)
+YES     OUTPUT = 'recursive-cmd matched aaa'                  :(END)
+NO      OUTPUT = 'fail'
+END

@@ -1,0 +1,6 @@
+*  101 - FENCE(P) falls through to second alt when first cannot match
+        X = 'AB'
+        X  POS(0) FENCE('X' | LEN(2)) RPOS(0)                 :S(YES)F(NO)
+YES     OUTPUT = 'second alt taken'                           :(END)
+NO      OUTPUT = 'unexpected fail'
+END

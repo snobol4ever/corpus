@@ -1,0 +1,9 @@
+*  123 - Regex-style alternation: FENCE picks first matching token class
+        digit  = ANY('0123456789')
+        alpha  = ANY('abcdefghijklmnopqrstuvwxyz')
+        token  = FENCE(SPAN('0123456789') | SPAN('abcdefghijklmnopqrstuvwxyz'))
+        s = 'abc'
+        s POS(0) token . T RPOS(0)                            :S(YES)F(NO)
+YES     OUTPUT = 'token: ' T                                  :(END)
+NO      OUTPUT = 'fail'
+END

@@ -1,0 +1,8 @@
+*  114 - *var FENCE in inner parenthesized alternation under *outer
+        cmd = FENCE('a' | 'ab')
+        outer = (*cmd 'X' | *cmd 'Y' | LEN(0))
+        s = 'aY'
+        s  POS(0) *outer RPOS(0)                              :S(YES)F(NO)
+YES     OUTPUT = 'second outer alt matched aY'                :(END)
+NO      OUTPUT = 'fail'
+END

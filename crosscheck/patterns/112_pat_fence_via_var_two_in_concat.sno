@@ -1,0 +1,8 @@
+*  112 - Two *var FENCE in concat (mirrors beauty: *snoParse *snoSpace)
+        cmd1 = FENCE('a' | 'ab')
+        cmd2 = LEN(1)
+        s = 'ab'
+        s  POS(0) *cmd1 *cmd2 RPOS(0)                         :S(YES)F(NO)
+YES     OUTPUT = 'two-star-var matched'                       :(END)
+NO      OUTPUT = 'fail'
+END

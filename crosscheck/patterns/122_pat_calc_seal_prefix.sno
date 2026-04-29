@@ -1,0 +1,7 @@
+*  122 - FENCE seals: '<=' must not be re-tried as '<'
+        cmpop = FENCE('<=' | '<' | '>=' | '>' | '==')
+        s = 'a <= b'
+        s POS(0) LEN(1) . X ' ' cmpop . OP ' ' LEN(1) . Y RPOS(0)  :S(YES)F(NO)
+YES     OUTPUT = X ' ' OP ' ' Y                               :(END)
+NO      OUTPUT = 'parse fail'
+END

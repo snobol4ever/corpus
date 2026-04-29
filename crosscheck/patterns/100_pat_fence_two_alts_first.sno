@@ -1,0 +1,6 @@
+*  100 - FENCE(P) two alts: continuation works after first alt
+        X = 'AB'
+        X  POS(0) FENCE(LEN(1) | LEN(2)) LEN(1) RPOS(0)       :S(YES)F(NO)
+YES     OUTPUT = 'matched first alt then continued'           :(END)
+NO      OUTPUT = 'unexpected fail'
+END

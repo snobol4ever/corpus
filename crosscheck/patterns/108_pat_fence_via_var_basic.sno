@@ -1,0 +1,7 @@
+*  108 - FENCE pattern stored in var, dereferenced via *var: simple match
+        cmd = FENCE(LEN(1) | LEN(2))
+        X = 'AB'
+        X  POS(0) *cmd LEN(1) RPOS(0)                         :S(YES)F(NO)
+YES     OUTPUT = 'star-cmd matched LEN(1) then continued'     :(END)
+NO      OUTPUT = 'fail'
+END

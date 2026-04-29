@@ -1,0 +1,7 @@
+*  105 - FENCE on a pattern that matches null
+        X = 'AB'
+        eps = LEN(0)
+        X  POS(0) FENCE(eps) LEN(2) RPOS(0)                   :S(YES)F(NO)
+YES     OUTPUT = 'epsilon then LEN(2)'                        :(END)
+NO      OUTPUT = 'unexpected fail'
+END

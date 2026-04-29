@@ -1,0 +1,12 @@
+*  124 - FENCE on keyword list inside outer alt: must fall through to ident alt
+*  When FENCE('if'|'else'|...) matches 'if' but RPOS(0) fails on 'iffoo',
+*  outer alt 2 (ident) must be tried. Conditional assigns are not committed.
+*  csnobol4 known FAIL — same bug class as test 114.
+        kw     = FENCE('if' | 'else' | 'while' | 'for')
+        ident  = SPAN('abcdefghijklmnopqrstuvwxyz')
+        token  = (kw . K | ident . I)
+        s = 'iffoo'
+        s POS(0) token RPOS(0)                                :S(YES)F(NO)
+YES     OUTPUT = 'id=' I                                      :(END)
+NO      OUTPUT = 'parse fail'
+END

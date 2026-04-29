@@ -1,0 +1,12 @@
+*  113 - Two *var FENCE in concat both with alts: tail anchor needs 2nd alts
+*  cmd1=FENCE('a'|'ab') cmd2=FENCE('b'|'bc'). String 'abc'.
+*  cmd1 first matches 'a', cmd2 first matches 'b' (sealed). Next char 'c' fails RPOS(0).
+*  No backtrack into cmd2 alts (sealed) -> no backtrack into cmd1 alts (sealed).
+*  -> outer fail.
+        cmd1 = FENCE('a' | 'ab')
+        cmd2 = FENCE('b' | 'bc')
+        s = 'abc'
+        s  POS(0) *cmd1 *cmd2 RPOS(0)                         :S(BAD)F(GOOD)
+BAD     OUTPUT = 'unexpected match (alt was tried)'           :(END)
+GOOD    OUTPUT = 'double-sealed'
+END

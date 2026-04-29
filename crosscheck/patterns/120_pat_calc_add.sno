@@ -1,0 +1,9 @@
+*  120 - Calculator: 'N + N' grammar, FENCE seals operator after spaces
+        num    = SPAN('0123456789')
+        ws     = SPAN(' ') | LEN(0)
+        expr   = num . A ws FENCE('+') ws num . B
+        s = '12 + 34'
+        s POS(0) expr RPOS(0)                                 :S(YES)F(NO)
+YES     OUTPUT = 'sum: ' A ' + ' B                            :(END)
+NO      OUTPUT = 'parse fail'
+END

@@ -1,0 +1,6 @@
+*  106 - FENCE composes with $-capture: the matched alt is captured
+        X = 'apple'
+        X  POS(0) FENCE('app' | 'apple') $ FRUIT             :S(YES)F(NO)
+YES     OUTPUT = 'captured ' FRUIT                            :(END)
+NO      OUTPUT = 'no match'
+END

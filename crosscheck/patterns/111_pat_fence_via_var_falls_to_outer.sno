@@ -1,0 +1,7 @@
+*  111 - *var FENCE in outer alt: outer alt gets tried after FENCE fails
+        cmd = FENCE('zz' | 'zzz')
+        s = 'ab'
+        s  POS(0) (*cmd | LEN(2))  RPOS(0)                    :S(YES)F(NO)
+YES     OUTPUT = 'outer alt LEN(2) reached'                   :(END)
+NO      OUTPUT = 'fail'
+END

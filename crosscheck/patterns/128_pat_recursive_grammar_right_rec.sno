@@ -1,0 +1,10 @@
+*  128 - Mini-beauty: right-recursive grammar via *var FENCE
+*  Mirrors:  snoCommands = *snoCommand FENCE(*snoCommands | epsilon)
+        eps = LEN(0)
+        unit = LEN(1)
+        cmds = *unit FENCE(*cmds | eps)
+        s = 'abc'
+        s POS(0) *cmds RPOS(0)                                :S(YES)F(NO)
+YES     OUTPUT = 'recursive matched ' s                       :(END)
+NO      OUTPUT = 'fail'
+END

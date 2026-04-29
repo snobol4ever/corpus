@@ -1,0 +1,12 @@
+*  131 - Boolean expression grammar with FENCE-based dispatch
+*  expr = atom (op atom)?  where op = FENCE('AND'|'OR'|'XOR')
+        atom  = FENCE('true' | 'false')
+        ws    = SPAN(' ') | LEN(0)
+        op    = FENCE('AND' | 'OR' | 'XOR')
+        eps   = LEN(0)
+        expr  = atom . A ws (op . OP ws atom . B | eps)
+        s = 'true AND false'
+        s POS(0) expr RPOS(0)                                 :S(YES)F(NO)
+YES     OUTPUT = A ' ' OP ' ' B                               :(END)
+NO      OUTPUT = 'parse fail'
+END

@@ -1,0 +1,9 @@
+*  119 - *outer where outer = ARBNO(*cmd) where cmd = FENCE(alts).
+*  Triple indirection — closest minimal repro to beauty stmt 1074.
+        cmd = FENCE('a' | 'ab')
+        outer = ARBNO(*cmd)
+        s = 'aab'
+        s POS(0) *outer RPOS(0)                               :S(BAD)F(GOOD)
+BAD     OUTPUT = 'unexpected match (alt was tried)'           :(END)
+GOOD    OUTPUT = 'triple-indirect FENCE sealed'
+END

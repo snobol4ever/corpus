@@ -1,0 +1,7 @@
+*  110 - *var FENCE then more pattern: FENCE seal interacts with continuation
+        cmd = FENCE('aa' | 'a')
+        s = 'aab'
+        s  POS(0) *cmd 'b' RPOS(0)                            :S(YES)F(NO)
+YES     OUTPUT = 'matched aa then b'                          :(END)
+NO      OUTPUT = 'fail'
+END

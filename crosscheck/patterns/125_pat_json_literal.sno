@@ -1,0 +1,7 @@
+*  125 - JSON literal: FENCE picks one of null|true|false
+        lit = FENCE('null' | 'true' | 'false')
+        s = 'true'
+        s POS(0) lit . V RPOS(0)                              :S(YES)F(NO)
+YES     OUTPUT = 'lit=' V                                     :(END)
+NO      OUTPUT = 'fail'
+END
