@@ -17,11 +17,16 @@ procedure cap(s) {
 
 procedure icase(str,   letter, character) {
     if (~DIFFER(str)) { return; }
-    while (str ? (POS(0) && ANY(&UCASE && &LCASE) . letter && '')) {
-        icase = icase && (upr(letter) | lwr(letter));
-    }
-    while (str ? (POS(0) && LEN(1) . character && '')) {
-        icase = icase && character;
+    while (DIFFER(str)) {
+        letter = '';
+        str ? (POS(0) && ANY(&UCASE && &LCASE) . letter) = ;
+        if (DIFFER(letter)) {
+            icase = icase && (upr(letter) | lwr(letter));
+        } else {
+            character = '';
+            str ? (POS(0) && LEN(1) . character) = ;
+            icase = icase && character;
+        }
     }
     return;
 }

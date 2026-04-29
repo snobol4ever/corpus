@@ -1,4 +1,15 @@
-// ReadWrite.sc — Snocone port of ReadWrite.sno — no internal labels
+// ReadWrite.sc — Snocone port of ReadWrite.inc
+// Read(fileName, rdMapName)    — read whole file into one string with line-offset map
+// Write(fileName, fileStr)     — write multi-line string to file, line by line
+// LineMap(str, lmMapName)      — build line-offset map for an in-memory string
+//
+// Notes for the Snocone port:
+//   * Destructive match uses statement form `subj ? (PAT) = ;` (replace match
+//     with empty), or `?`-with-capture-into-`subj`. Plain `?` in a predicate
+//     does not consume; the `&& ''` tail in the previous translation was a no-op.
+//   * `if (~ (subj ? (PAT)))` runs the match but discards captures even on
+//     success (a Snocone emitter property). Use positive-form match instead
+//     with an explicit else branch.
 
 procedure Read(fileName, rdMapName,   rdInput, rdIn, rdLine, rdLineNo, rdMap, rdOfs) {
     if (~input__(.rdInput, 8, '', fileName)) { freturn; }
@@ -21,7 +32,7 @@ procedure Read(fileName, rdMapName,   rdInput, rdIn, rdLine, rdLineNo, rdMap, rd
             $rdMapName = rdMap;
             return;
         }
-        rdLine ? (RPOS(1) && cr && '') = ;
+        rdLine ? (RPOS(1) && cr) = ;
         rdOfs    = rdOfs + SIZE(rdLine) + 1;
         rdLineNo = rdLineNo + 1;
         Read     = Read && rdLine && nl;
@@ -34,12 +45,19 @@ procedure Write(fileName, fileStr,   wrLine, wrOutput) {
         if (fileStr ? (POS(0) && RPOS(0))) {
             ENDFILE(8); return;
         }
-        if (fileStr ? (POS(0) && BREAK(nl) . wrLine && nl && '')) {
+        // First try: extract a complete line ending in nl (destructive).
+        wrLine = '';
+        if (fileStr ? (POS(0) && BREAK(nl) . wrLine && nl)) {
+            fileStr ? (POS(0) && BREAK(nl) && nl) = ;
             wrOutput = wrLine;
-        } else if (fileStr ? (POS(0) && RTAB(0) . wrLine && '')) {
-            wrOutput = wrLine;
-            ENDFILE(8); return;
         } else {
+            // No remaining nl — emit the trailing partial line and finish.
+            wrLine = '';
+            if (fileStr ? (POS(0) && RTAB(0) . wrLine)) {
+                fileStr ? (POS(0) && RTAB(0)) = ;
+                wrOutput = wrLine;
+                ENDFILE(8); return;
+            }
             freturn;
         }
     }
@@ -49,12 +67,17 @@ procedure LineMap(str, lmMapName,   lmLineNo, lmMap, lmOfs, xOfs) {
     lmMap    = TABLE();
     lmOfs    = 0;
     lmLineNo = 1;
-    while (str ? (POS(0) && BREAK(nl) && nl && @xOfs && '')) {
+    while (1) {
         lmMap[lmOfs] = lmLineNo;
-        lmOfs    = lmOfs + xOfs;
-        lmLineNo = lmLineNo + 1;
+        // Need both: capture cursor after nl, AND consume from str. Two-step.
+        xOfs = '';
+        if (str ? (POS(0) && BREAK(nl) && nl && @xOfs)) {
+            str ? (POS(0) && BREAK(nl) && nl) = ;
+            lmOfs    = lmOfs + xOfs;
+            lmLineNo = lmLineNo + 1;
+        } else {
+            $lmMapName = lmMap;
+            return;
+        }
     }
-    lmMap[lmOfs] = lmLineNo;
-    $lmMapName = lmMap;
-    return;
 }

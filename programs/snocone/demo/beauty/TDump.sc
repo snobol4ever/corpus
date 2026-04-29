@@ -1,4 +1,16 @@
-// TDump.sc — Snocone port of TDump.sno
+// TDump.sc — Snocone port of TDump.inc
+// TValue(x)         — short string form of node x's value (or recursive concat for compound)
+// TDump(x, outNm)   — emit tree x to outNm (default OUTPUT) one-per-line indented
+// TLump(x, len)     — try to format tree x as a single line of length ≤ len; fail if too long
+//
+// Notes for the Snocone port:
+//   * Loops use idiomatic `while (cond) { ... i = i + 1; ... }` — the SNOBOL4
+//     `i = LT(i, n) i + 1` juxtaposition does not compose in Snocone.
+//   * Tree-vs-leaf detection uses `IDENT(DATATYPE(x), 'tree')` — in SNOBOL4
+//     this was the deferred-eval `NULL *IDENT(n(x))` trick, catching the
+//     field-access error on non-tree arguments.
+//   * The `(DIFFER(t) '.', '')` SNOBOL4 conditional-value form does not parse
+//     in Snocone; we expand it inline with an if/else instead.
 
 procedure TValue(x,   i) {
     if (~DIFFER(v(x)))               { TValue = '.'; return; }
@@ -11,9 +23,15 @@ procedure TValue(x,   i) {
     if (IDENT(t(x), 'string'))       { TValue = "'" && SqlSQize(v(x)) && "'"; return; }
     if (IDENT(t(x), 'identifier'))   { TValue = v(x); return; }
     if (DIFFER(t(x)))                { TValue = t(x); return; }
+    // Compound: walk children, separator '.' between pieces.
     i = 0;
-    while (DIFFER(i = LT(i, n(x)) i + 1)) {
-        TValue = TValue && (DIFFER(TValue) '.', '') && v(c(x)[i]);
+    while (LT(i, n(x))) {
+        i = i + 1;
+        if (DIFFER(TValue)) {
+            TValue = TValue && '.' && v(c(x)[i]);
+        } else {
+            TValue = v(c(x)[i]);
+        }
     }
     return;
 }
@@ -21,12 +39,14 @@ procedure TValue(x,   i) {
 procedure TDump(x, outNm,   i, _t, _lump) {
     TDump = .dummy;
     if (~DIFFER(outNm)) { outNm = .OUTPUT; }
-    if (IDENT(REPLACE(DATATYPE(x), &LCASE, &UCASE), 'NAME')) { x = $x; }
+    if (IDENT(DATATYPE(x), 'NAME')) { x = $x; }
     _lump = TLump(x, 140 - GetLevel());
     if (DIFFER(_lump)) { Gen(_lump && nl, outNm); return; }
-    if (~IDENT(REPLACE(DATATYPE(x), &LCASE, &UCASE), 'TREE')) {
+    // Not a tree (or no children) — emit value form.
+    if (~IDENT(DATATYPE(x), 'tree')) {
         Gen(TValue(x) && nl, outNm); return;
     }
+    // Multi-line tree form.
     if (t(x) ? (POS(0) && ANY(&UCASE && &LCASE)
                 && (SPAN(digits && &UCASE && '_' && &LCASE) | epsilon) && RPOS(0))) {
         _t = t(x);
@@ -36,7 +56,8 @@ procedure TDump(x, outNm,   i, _t, _lump) {
     Gen('(' && _t && nl, outNm);
     IncLevel();
     i = 0;
-    while (DIFFER(i = LT(i, n(x)) i + 1)) {
+    while (LT(i, n(x))) {
+        i = i + 1;
         TDump(c(x)[i], outNm);
     }
     DecLevel();
@@ -47,7 +68,7 @@ procedure TDump(x, outNm,   i, _t, _lump) {
 procedure TLump(x, len,   i, _t, _child) {
     if (~GT(len, 0)) { freturn; }
     if (~DIFFER(x))  { TLump = '()'; return; }
-    if (~IDENT(REPLACE(DATATYPE(x), &LCASE, &UCASE), 'TREE')) {
+    if (~IDENT(DATATYPE(x), 'tree')) {
         TLump = TValue(x);
         if (LE(SIZE(TLump), len)) { return; }
         freturn;
@@ -60,7 +81,8 @@ procedure TLump(x, len,   i, _t, _child) {
     }
     TLump = '(' && _t;
     i = 0;
-    while (DIFFER(i = LT(i, n(x)) i + 1)) {
+    while (LT(i, n(x))) {
+        i = i + 1;
         _child = TLump(c(x)[i], len - SIZE(TLump) - 2);
         if (~DIFFER(_child)) { freturn; }
         TLump = TLump && ' ' && _child;

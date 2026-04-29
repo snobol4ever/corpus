@@ -21,7 +21,7 @@ procedure DecLevel(delta) {
 procedure SetLevel(level) { SetLevel = .dummy; $'#L' = level; nreturn; }
 procedure GetLevel()      { GetLevel = $'#L'; return; }
 
-procedure Gen(str, outNm,   ind, outline) {
+procedure Gen(str, outNm,   ind, outline, _rest) {
     Gen = .dummy;
     if (~DIFFER(outNm)) { outNm = .OUTPUT; }
     ind = '';
@@ -33,10 +33,19 @@ procedure Gen(str, outNm,   ind, outline) {
     } else {
         $'$B' = $'$X' && ind && str;
     }
-    if (~($'$B' ? (POS(0) && BREAK(nl) . outline && nl && ''))) { nreturn; }
-    $'$X' = $'$C';
-    $outNm = outline;
-    while ($'$B' ? (POS(0) && BREAK(nl) . outline && nl && '')) {
+    // First-line emit (no continuation prefix). Use positive match form because
+    // negation `~(... ? ...)` runs the pattern but discards captures (a Snocone
+    // emitter property — see "positive match form" comment in beauty.sc).
+    if ($'$B' ? (POS(0) && BREAK(nl) . outline && nl && REM . _rest)) {
+        $'$B' = _rest;
+        $'$X' = $'$C';
+        $outNm = outline;
+    } else {
+        nreturn;
+    }
+    // Drain remaining complete lines, each with continuation char + indent.
+    while ($'$B' ? (POS(0) && BREAK(nl) . outline && nl && REM . _rest)) {
+        $'$B' = _rest;
         $outNm = $'$C' && ind && outline;
     }
     nreturn;
