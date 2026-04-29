@@ -1,4 +1,5 @@
-// global.sc — Snocone port of global.sno
+// global.sc — Snocone port of global.inc
+// Faithful conversion: every name defined in global.inc must be defined here.
 
 nul       = CHAR(0);
 bs        = CHAR(8);
@@ -12,6 +13,38 @@ cr        = CHAR(13);
 fSlash    = CHAR(47);
 semicolon = CHAR(59);
 bSlash    = CHAR(92);
+
+// UTF-8 byte-range character classes (canonical global.inc binds these via
+// &ALPHABET POS(p) LEN(n) . name). In Snocone we build the same N-byte string
+// of contiguous codepoints, suitable for use with ANY()/NOTANY()/SPAN().
+// X0xxxxxxx = bytes 0..127  (ASCII / single-byte UTF-8)
+// X1xxxxxxx = bytes 128..255 (multi-byte UTF-8 lead/continuation)
+// X10xxxxxx = bytes 128..191 (UTF-8 continuation bytes)
+// X110xxxxx = bytes 192..223 (2-byte UTF-8 lead)
+// X1110xxxx = bytes 224..239 (3-byte UTF-8 lead)
+// X11110xxx = bytes 240..247 (4-byte UTF-8 lead)
+// X11111xxx = bytes 248..255 (invalid UTF-8 lead)
+// NOTE: scrip's Snocone runtime currently does not preserve all high bytes
+// through CHAR(n)/concat — the resulting strings are shorter than the
+// SPITBOL equivalents. None of these ranges are referenced anywhere in
+// beauty so this does not affect output, but it is a known runtime gap
+// worth tracking when high-byte handling is added.
+_alphabet_run = define_alphabet_run;
+
+procedure define_alphabet_run(start, len, ans, i) {
+    ans = '';
+    i = 0;
+    while (LT(i, len)) { ans = ans && CHAR(start + i); i = i + 1; }
+    define_alphabet_run = ans;
+    return;
+}
+X0xxxxxxx = define_alphabet_run(0,   128);
+X1xxxxxxx = define_alphabet_run(128, 128);
+X10xxxxxx = define_alphabet_run(128, 64);
+X110xxxxx = define_alphabet_run(192, 32);
+X1110xxxx = define_alphabet_run(224, 16);
+X11110xxx = define_alphabet_run(240, 8);
+X11111xxx = define_alphabet_run(248, 8);
 
 TRUE   = 1;
 FALSE  = 0;
@@ -120,6 +153,7 @@ UTF[CHAR(240) && CHAR(159) && CHAR(160) && CHAR(138)] = 'RIGHTWARDS_ARROW_WITH_L
 UTF[CHAR(240) && CHAR(159) && CHAR(160) && CHAR(144)] = 'LEFTWARDS_ARROW_WITH_SMALL_EQUILATERAL_ARROWHEAD';
 UTF[CHAR(240) && CHAR(159) && CHAR(160) && CHAR(146)] = 'RIGHTWARDS_ARROW_WITH_SMALL_EQUILATERAL_ARROWHEAD';
 UTF[CHAR(240) && CHAR(159) && CHAR(160) && CHAR(148)] = 'LEFTWARDS_ARROW_WITH_EQUILATERAL_ARROWHEAD';
+UTF[CHAR(240) && CHAR(159) && CHAR(160) && CHAR(148)] = 'RIGHTWARDS_ARROW_WITH_EQUILATERAL_ARROWHEAD';
 UTF[CHAR(240) && CHAR(159) && CHAR(160) && CHAR(152)] = 'HEAVY_LEFTWARDS_ARROW_WITH_EQUILATERAL_ARROWHEAD';
 UTF[CHAR(240) && CHAR(159) && CHAR(160) && CHAR(154)] = 'HEAVY_RIGHTWARDS_ARROW_WITH_EQUILATERAL_ARROWHEAD';
 UTF[CHAR(240) && CHAR(159) && CHAR(160) && CHAR(156)] = 'HEAVY_LEFTWARDS_ARROW_WITH_LARGE_EQUILATERAL_ARROWHEAD';
