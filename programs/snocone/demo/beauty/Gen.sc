@@ -1,4 +1,5 @@
 // Gen.sc — Snocone port of Gen.sno
+// Globals: $'#L' indent level, $'$B' buffer, $'$C' continuation char, $'$X' cont-spot
 _indent = DUPL(' ', 120);
 $'#L' = 0;
 $'$B' = '';
@@ -32,16 +33,15 @@ procedure Gen(str, outNm,   ind, outline) {
     } else {
         $'$B' = $'$X' && ind && str;
     }
-    gen_flush:
     if (~($'$B' ? (POS(0) && BREAK(nl) . outline && nl && ''))) { nreturn; }
     $'$X' = $'$C';
     $outNm = outline;
-    gen_more:
-    if (~($'$B' ? (POS(0) && BREAK(nl) . outline && nl && ''))) { nreturn; }
-    $outNm = $'$C' && ind && outline;
-    goto gen_more;
+    while ($'$B' ? (POS(0) && BREAK(nl) . outline && nl && '')) {
+        $outNm = $'$C' && ind && outline;
+    }
+    nreturn;
 }
-procedure GenTab(pos,   p) {
+procedure GenTab(pos) {
     GenTab = .dummy;
     if (~DIFFER(pos)) { pos = $'#L'; }
     if (IDENT($'$B')) {
