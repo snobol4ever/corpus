@@ -26,7 +26,9 @@ procedure reduce(t, n,   omega) {
     // t is always a string tag name (e.g. '=', 'ExprList').
     // n is either an integer literal (2, 1, 7) or a SNOBOL4 expression
     // (e.g. '*(GT(nTop(), 1) nTop())') which EVAL evaluates dynamically.
-    omega = "epsilon . *Reduce('" && t && "', " && n && ")";
+    // Use double-quote wrapping so t values containing single-quotes (e.g. "*(':' Brackets)")
+    // do not break the EVAL string. SNOBOL4 accepts either 'string' or "string" delimiters.
+    omega = 'epsilon . *Reduce("' && t && '", ' && n && ')';
     reduce = EVAL(omega);
     return;
 }
