@@ -58,45 +58,45 @@ $'#'  = *White && '#' && *White;   $'%'  = *White && '%' && *White;
 $'~'  = *White && '~' && *White;   $','  = *Gray  && ',' && *Gray;
 $'('  = '(' && *Gray;  $'['  = '[' && *Gray;  $'<'  = '<' && *Gray;
 $')'  = *Gray && ')';  $']'  = *Gray && ']';  $'>'  = *Gray && '>';
-ExprList = nPush() && *XList && ("'ExprList'" & '*(GT(nTop(), 1) nTop())') && nPop();
+ExprList = nPush() && *XList && reduce('ExprList', '*(GT(nTop(), 1) nTop())') && nPop();
 XList    = nInc() && (*Expr | epsilon . '') && FENCE($',' && *XList | epsilon);
 Expr     = *Expr0;
-Expr0    = *Expr1  && FENCE($'='  && *Expr0  && ("'='"  & 2) | epsilon);
-Expr1    = *Expr2  && FENCE($'?'  && *Expr1  && ("'?'"  & 2) | epsilon);
-Expr2    = *Expr3  && FENCE($'&'  && *Expr2  && ("'&'"  & 2) | epsilon);
-Expr3    = nPush() && *X3  && ("'|'"  & '*(GT(nTop(), 1) nTop())') && nPop();
+Expr0    = *Expr1  && FENCE($'='  && *Expr0  && reduce('=',  2) | epsilon);
+Expr1    = *Expr2  && FENCE($'?'  && *Expr1  && reduce('?',  2) | epsilon);
+Expr2    = *Expr3  && FENCE($'&'  && *Expr2  && reduce('&',  2) | epsilon);
+Expr3    = nPush() && *X3  && reduce('|',  '*(GT(nTop(), 1) nTop())') && nPop();
 X3       = nInc()  && *Expr4 && FENCE($'|' && *X3 | epsilon);
-Expr4    = nPush() && *X4  && ("'..'" & '*(GT(nTop(), 1) nTop())') && nPop();
+Expr4    = nPush() && *X4  && reduce('..', '*(GT(nTop(), 1) nTop())') && nPop();
 X4       = nInc()  && *Expr5 && FENCE(*White && *X4 | epsilon);
-Expr5    = *Expr6  && FENCE($'@'  && *Expr5  && ("'@'"  & 2) | epsilon);
-Expr6    = *Expr7  && FENCE($'+'  && *Expr6  && ("'+'"  & 2) | $'-' && *Expr6 && ("'-'" & 2) | epsilon);
-Expr7    = *Expr8  && FENCE($'#'  && *Expr7  && ("'#'"  & 2) | epsilon);
-Expr8    = *Expr9  && FENCE($'/'  && *Expr8  && ("'/'"  & 2) | epsilon);
-Expr9    = *Expr10 && FENCE($'*'  && *Expr9  && ("'*'"  & 2) | epsilon);
-Expr10   = *Expr11 && FENCE($'%'  && *Expr10 && ("'%'"  & 2) | epsilon);
-Expr11   = *Expr12 && FENCE(($'^' | $'!' | $'**') && *Expr11 && ("'^'" & 2) | epsilon);
-Expr12   = *Expr13 && FENCE($'$'  && *Expr12 && ("'$'"  & 2) | $'.' && *Expr12 && ("'.'" & 2) | epsilon);
-Expr13   = *Expr14 && FENCE($'~'  && *Expr13 && ("'~'"  & 2) | epsilon);
-Expr14   = '@' && *Expr14 && ("'@'" & 1) | '~' && *Expr14 && ("'~'" & 1)
-         | '?' && *Expr14 && ("'?'" & 1) | *ProtKwd   . '' && 'ProtKwd'
-         | *UnprotKwd . '' && 'UnprotKwd' | '&' && *Expr14 && ("'&'" & 1)
-         | '+' && *Expr14 && ("'+'" & 1)  | '-' && *Expr14 && ("'-'" & 1)
-         | '*' && *Expr14 && ("'*'" & 1)  | '$' && *Expr14 && ("'$'" & 1)
-         | '.' && *Expr14 && ("'.'" & 1)  | '!' && *Expr14 && ("'!'" & 1)
-         | '%' && *Expr14 && ("'%'" & 1)  | '/' && *Expr14 && ("'/'" & 1)
-         | '#' && *Expr14 && ("'#'" & 1)  | '=' && *Expr14 && ("'='" & 1)
-         | '|' && *Expr14 && ("'|'" & 1)  | *Expr15;
-Expr15   = *Expr17 && FENCE(nPush() && *Expr16 && ("'[]'" & 'nTop() + 1') && nPop() | epsilon);
+Expr5    = *Expr6  && FENCE($'@'  && *Expr5  && reduce('@',  2) | epsilon);
+Expr6    = *Expr7  && FENCE($'+'  && *Expr6  && reduce('+',  2) | $'-' && *Expr6 && reduce('-',  2) | epsilon);
+Expr7    = *Expr8  && FENCE($'#'  && *Expr7  && reduce('#',  2) | epsilon);
+Expr8    = *Expr9  && FENCE($'/'  && *Expr8  && reduce('/',  2) | epsilon);
+Expr9    = *Expr10 && FENCE($'*'  && *Expr9  && reduce('*',  2) | epsilon);
+Expr10   = *Expr11 && FENCE($'%'  && *Expr10 && reduce('%',  2) | epsilon);
+Expr11   = *Expr12 && FENCE(($'^' | $'!' | $'**') && *Expr11 && reduce('^',  2) | epsilon);
+Expr12   = *Expr13 && FENCE($'$'  && *Expr12 && reduce('$',  2) | $'.' && *Expr12 && reduce('.', 2) | epsilon);
+Expr13   = *Expr14 && FENCE($'~'  && *Expr13 && reduce('~',  2) | epsilon);
+Expr14   = '@' && *Expr14 && reduce('@', 1) | '~' && *Expr14 && reduce('~', 1)
+         | '?' && *Expr14 && reduce('?', 1) | shift(*ProtKwd,   'ProtKwd')
+         | shift(*UnprotKwd, 'UnprotKwd')   | '&' && *Expr14 && reduce('&', 1)
+         | '+' && *Expr14 && reduce('+', 1) | '-' && *Expr14 && reduce('-', 1)
+         | '*' && *Expr14 && reduce('*', 1) | '$' && *Expr14 && reduce('$', 1)
+         | '.' && *Expr14 && reduce('.', 1) | '!' && *Expr14 && reduce('!', 1)
+         | '%' && *Expr14 && reduce('%', 1) | '/' && *Expr14 && reduce('/', 1)
+         | '#' && *Expr14 && reduce('#', 1) | '=' && *Expr14 && reduce('=', 1)
+         | '|' && *Expr14 && reduce('|', 1) | *Expr15;
+Expr15   = *Expr17 && FENCE(nPush() && *Expr16 && reduce('[]', 'nTop() + 1') && nPop() | epsilon);
 Expr16   = nInc() && ($'[' && *ExprList && $']' | $'<' && *ExprList && $'>') && FENCE(*Expr16 | epsilon);
 Expr17   = FENCE(
              nPush() && $'(' && *Expr
-               && ($',' && *XList && ("','" & 'nTop() + 1') | epsilon . '' && ("'()'" & 1))
+               && ($',' && *XList && reduce(',', 'nTop() + 1') | epsilon . '' && reduce('()', 1))
                && $')' && nPop()
-           | *Function  . '' && 'Function' && $'(' && *ExprList && $')' && ("'Call'" & 2)
-           | *Id        . '' && 'Id'       && $'(' && *ExprList && $')' && ("'Call'" & 2)
-           | *BuiltinVar . '' && 'BuiltinVar' | *SpecialNm  . '' && 'SpecialNm'
-           | *Id         . '' && 'Id'         | *String     . '' && 'String'
-           | *Real       . '' && 'Real'        | *Integer    . '' && 'Integer'
+           | shift(*Function,   'Function') && $'(' && *ExprList && $')' && reduce('Call', 2)
+           | shift(*Id,         'Id')       && $'(' && *ExprList && $')' && reduce('Call', 2)
+           | shift(*BuiltinVar, 'BuiltinVar') | shift(*SpecialNm,  'SpecialNm')
+           | shift(*Id,         'Id')         | shift(*String,     'String')
+           | shift(*Real,       'Real')        | shift(*Integer,    'Integer')
            );
 SGoto    = ('S' | 's') . *assign(.SorF, *'S');
 FGoto    = ('F' | 'f') . *assign(.SorF, *'F');
@@ -105,13 +105,13 @@ Target   = $'(' . *assign(.Brackets, *'()') && *Expr && $')'
          | $'<' . *assign(.Brackets, *'<>') && *Expr && $'>';
 Goto     = *Gray && ':' && *Gray
         && FENCE(
-             *Target && ("*(':' Brackets)" & 1) && epsilon . ''
-           | (*SGoto | *FGoto) && *Target && ("*(':' SorF Brackets)" & 1)
-             && FENCE(*Gray && (*SGoto | *FGoto) && *Target && ("*(':' SorF Brackets)" & 1) | epsilon . '')
+             *Target && reduce("*(':' Brackets)", 1) && epsilon . ''
+           | (*SGoto | *FGoto) && *Target && reduce("*(':' SorF Brackets)", 1)
+             && FENCE(*Gray && (*SGoto | *FGoto) && *Target && reduce("*(':' SorF Brackets)", 1) | epsilon . '')
            );
 Control   = '-' && BREAK(nl && ';');
 Comment   = '*' && BREAK(nl);
-Label     = BREAK(' ' && tab && nl && ';') . '' && 'Label';
+Label     = shift(BREAK(' ' && tab && nl && ';'), 'Label');
 Stmt      = *Label
          && ( *White && *Expr14
               && FENCE(
@@ -125,14 +125,15 @@ Stmt      = *Label
 Commands  = *Command && FENCE(*Commands | epsilon);
 Command   = nInc()
          && FENCE(
-              *Comment  . '' && 'Comment' && ("'Comment'" & 1) && nl
-            | *Control  . '' && 'Control' && ("'Control'" & 1) && (nl | ';')
-            | *Stmt     && ("'Stmt'" & 7) && (nl | ';')
+              shift(*Comment, 'Comment') && reduce('Comment', 1) && nl
+            | shift(*Control, 'Control') && reduce('Control', 1) && (nl | ';')
+            | *Stmt     && reduce('Stmt', 7) && (nl | ';')
             );
-Parse     = nPush() && ARBNO(*Command) && ("'Parse'" & 'nTop()') && nPop();
-Compiland = nPush() && ARBNO(*Command) && ("'Parse'" & 'nTop()')
+Parse     = nPush() && ARBNO(*Command) && reduce('Parse', 'nTop()') && nPop();
+Compiland = nPush() && ARBNO(*Command) && reduce('Parse', 'nTop()')
          && (icase('END') && (' ' && BREAK(nl) && nl | nl) && ARBNO(BREAK(nl) && nl) | epsilon)
          && nPop();
+
 
 //=============================================================================
 //  ppLeaf(x, t) — emit a leaf node; return 1 on success
@@ -307,9 +308,8 @@ procedure ss(x, len, c, i, n, t, v) {
     // Try leaf first
     ss = ss_leaf(t, v, c, len);
     if (DIFFER(ss)) { return; }
-    // Compound nodes
-    if (IDENT(t, '|') && EQ(n, 1)) { goto ss_unop; }
-    if (IDENT(t, '|')) {
+    // Compound nodes — | with one child falls through to the unary case below
+    if (IDENT(t, '|') && ~EQ(n, 1)) {
         ss = ss(c[1], len);  if (~DIFFER(ss)) { freturn; }
         for (i = 2; LE(i, n); i = i + 1) {
             ss = ss && ' | ' && ss(c[i], len - SIZE(ss) - 3);
@@ -394,17 +394,20 @@ procedure findRefs(x, n, v) {
 procedure refs(p, c, n, s, subj) {
     c = c(p);
     for (n = 1; LE(n, n(p)); n = n + 1) {
-        if (~IDENT(t(c[n]), 'Stmt'))               { goto refs_next; }
-        s = s + 1;
-        if (~IDENT(t(c(c[n])[3])))                 { goto refs_next; }
-        if (~IDENT(t(c(c[n])[4]), '='))             { goto refs_next; }
-        if (~(IDENT(t(c(c[n])[2]), 'Id') ||
-              IDENT(t(c(c[n])[2]), '$'))) { goto refs_next; }
-        subj = ss(c(c[n])[2]);
-        Refs = '';
-        bVisit(c(c[n])[5], .findRefs);
-        OUTPUT = LPAD(s, 3, 0) && ': ' && RPAD(subj, 38) && ' ' && Refs;
-        refs_next:
+        if (IDENT(t(c[n]), 'Stmt')) {
+            s = s + 1;
+            if (IDENT(t(c(c[n])[3]))) {
+                if (IDENT(t(c(c[n])[4]), '=')) {
+                    if (IDENT(t(c(c[n])[2]), 'Id') ||
+                        IDENT(t(c(c[n])[2]), '$')) {
+                        subj = ss(c(c[n])[2]);
+                        Refs = '';
+                        bVisit(c(c[n])[5], .findRefs);
+                        OUTPUT = LPAD(s, 3, 0) && ': ' && RPAD(subj, 38) && ' ' && Refs;
+                    }
+                }
+            }
+        }
     }
     return;
 }
@@ -415,33 +418,53 @@ procedure refs(p, c, n, s, subj) {
 doDebug = 0;
 Space   = SPAN(' ' && tab) | epsilon;
 
-while (DIFFER(Line = INPUT)) {
-    Src = '';
-    while (Line ? (POS(0) && ANY('*-'))) {
-        OUTPUT = Line;
-        Line = INPUT;
-        if (~DIFFER(Line)) { goto END; }
-    }
-    while (1) {
-        Src  = Src && Line && nl;
-        Line = INPUT;
-        if (~DIFFER(Line)) {
-            if (~(Src ? (POS(0) && *Parse && *Space && RPOS(0)))) { goto mainErr1; }
-            sno = Pop();
-            if (~DIFFER(sno)) { goto mainErr2; }
-            pp(sno);
-            goto END;
+done = 0;
+Line = INPUT;
+while (DIFFER(Line)) {
+    if (done) { Line = ''; }       // keep loop predicate falsy when done
+    if (DIFFER(Line)) {
+        Src = '';
+        // Pass through header lines starting with '*' or '-'
+        cont = 1;
+        while (cont) {
+            cont = 0;
+            if (DIFFER(Line) && ~done) {
+                if (Line ? (POS(0) && ANY('*-'))) {
+                    OUTPUT = Line;
+                    Line = INPUT;
+                    if (~DIFFER(Line)) { done = 1; }
+                    else { cont = 1; }
+                }
+            }
         }
-        if (~(Line ? (POS(0) && ANY('.+')))) { break; }
+        if (~done) {
+            // Accumulate this logical unit into Src; consume continuation lines
+            // (starting with '.' or '+') until a non-continuation line or EOF.
+            eof_inside = 0;
+            more = 1;
+            while (more) {
+                Src  = Src && Line && nl;
+                Line = INPUT;
+                if (~DIFFER(Line)) {
+                    eof_inside = 1;
+                    more = 0;
+                } else {
+                    if (~(Line ? (POS(0) && ANY('.+')))) { more = 0; }
+                }
+            }
+            // Parse the accumulated Src.  On error, print and continue;
+            // on success, retrieve the tree and pretty-print it.
+            if (Src ? (POS(0) && *Parse && *Space && RPOS(0))) {
+                sno = Pop();
+                if (DIFFER(sno)) {
+                    pp(sno);
+                } else {
+                    OUTPUT = 'Internal Error'; OUTPUT = Src;
+                }
+            } else {
+                OUTPUT = 'Parse Error';    OUTPUT = Src;
+            }
+            if (eof_inside) { done = 1; }
+        }
     }
-    if (~(Src ? (POS(0) && *Parse && *Space && RPOS(0)))) { goto mainErr1; }
-    sno = Pop();
-    if (~DIFFER(sno)) { goto mainErr2; }
-    pp(sno);
 }
-goto END;
-
-mainErr1:  OUTPUT = 'Parse Error';    OUTPUT = Src;  goto END;
-mainErr2:  OUTPUT = 'Internal Error'; OUTPUT = Src;
-
-END:

@@ -13,13 +13,20 @@
 // epsilon is assumed pre-defined globally (see beauty.sc / global.sc).
 
 procedure shift(p, t,   omega) {
-    omega = "(" && p && ") . thx . *Shift('" && t && "', thx)";
+    // Canonical: EVAL sees the literal name 'p', resolves it dynamically to
+    // the pattern value in this function's scope — same as SNOBOL4's
+    //   shift_ shift = EVAL("p . thx . *Shift('" t "', thx)")
+    omega = "p . thx . *Shift('" && t && "', thx)";
     shift = EVAL(omega);
     return;
 }
 
 procedure reduce(t, n,   omega) {
-    omega = "epsilon . *Reduce(" && t && ", " && n && ")";
+    // Canonical: EVAL sees 'tag' as quoted string literal, n as SNOBOL4 expression.
+    // t is always a string tag name (e.g. '=', 'ExprList').
+    // n is either an integer literal (2, 1, 7) or a SNOBOL4 expression
+    // (e.g. '*(GT(nTop(), 1) nTop())') which EVAL evaluates dynamically.
+    omega = "epsilon . *Reduce('" && t && "', " && n && ")";
     reduce = EVAL(omega);
     return;
 }
