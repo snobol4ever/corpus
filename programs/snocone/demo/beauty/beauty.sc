@@ -443,19 +443,17 @@ procedure ss(x, len, c, i, n, t, v) {
         ss = ss(c[1]) && '(' && ss(c[2], len - SIZE(v) - 2) && ')';
         if (DIFFER(ss)) { return; } else { freturn; }
     }
-    if (EQ(n, 1)) { goto ss_unop; }
-    if (EQ(n, 2)) { goto ss_binop; }
+    if (EQ(n, 1)) {
+        ss = t && ss(c[1], len - SIZE(t));
+        if (DIFFER(ss)) { return; } else { freturn; }
+    }
+    if (EQ(n, 2)) {
+        ss = ss(c[1], len);
+        if (~DIFFER(ss)) { freturn; }
+        ss = ss && ' ' && t && ' ' && ss(c[2], len - SIZE(ss) - SIZE(t) - 2);
+        if (DIFFER(ss)) { return; } else { freturn; }
+    }
     error();
-
-    ss_unop:
-    ss = t && ss(c[1], len - SIZE(t));
-    if (DIFFER(ss)) { return; } else { freturn; }
-
-    ss_binop:
-    ss = ss(c[1], len);
-    if (~DIFFER(ss)) { freturn; }
-    ss = ss && ' ' && t && ' ' && ss(c[2], len - SIZE(ss) - SIZE(t) - 2);
-    if (DIFFER(ss)) { return; } else { freturn; }
 }
 
 procedure bVisit(x, fnc, i) {

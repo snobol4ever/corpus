@@ -1,8 +1,7 @@
-// XDump.sc — Snocone port of XDump.sno
-// XDump(object, nm) — generic SNOBOL4 object dump
+// XDump.sc — Snocone port of XDump.sno — no internal labels
 
 procedure XDump(object, nm,   i, iMax, iMin, objArr, objField, objKey, objKeyNm,
-                               objType, objVal) {
+                               objProto, objType, objVal) {
     objType = REPLACE(DATATYPE(object), &LCASE, &UCASE);
     if (IDENT(objType, 'CODE'))       { OUTPUT = nm && ' = ' && objType; return; }
     if (IDENT(objType, 'EXPRESSION')) { OUTPUT = nm && ' = ' && objType; return; }
@@ -17,39 +16,36 @@ procedure XDump(object, nm,   i, iMax, iMin, objArr, objField, objKey, objKeyNm,
                             && (('+' | '-' | epsilon) && SPAN(digits)) . iMax && RPOS(0));
         OUTPUT = nm && " = ARRAY['" && objProto && "']";
         i = iMin - 1;
-        XDump_array:
-        i = LT(i, iMax) i + 1;
-        if (~DIFFER(i)) { return; }
-        XDump(object[i], nm && '[' && i && ']');
-        goto XDump_array;
+        while (DIFFER(i = LT(i, iMax) i + 1)) {
+            XDump(object[i], nm && '[' && i && ']');
+        }
+        return;
     }
     if (IDENT(objType, 'TABLE')) {
         OUTPUT = nm && ' = TABLE';
         objArr = SORT(object);
         if (~DIFFER(objArr)) { return; }
         i = 0;
-        XDump_table:
-        i = i + 1;
-        objKey = objArr[i, 1];
-        if (~DIFFER(objKey)) { return; }
-        objVal = objArr[i, 2];
-        if (IDENT(REPLACE(DATATYPE(objKey), &LCASE, &UCASE), 'INTEGER')) {
-            objKeyNm = objKey;
-        } else if (IDENT(REPLACE(DATATYPE(objKey), &LCASE, &UCASE), 'STRING')) {
-            objKeyNm = Qize(objKey);
-        } else {
-            objKeyNm = DATATYPE(objKey);
+        while (DIFFER(objKey = (i = i + 1, objArr[i, 1]))) {
+            objVal = objArr[i, 2];
+            if (IDENT(REPLACE(DATATYPE(objKey), &LCASE, &UCASE), 'INTEGER')) {
+                objKeyNm = objKey;
+            } else if (IDENT(REPLACE(DATATYPE(objKey), &LCASE, &UCASE), 'STRING')) {
+                objKeyNm = Qize(objKey);
+            } else {
+                objKeyNm = DATATYPE(objKey);
+            }
+            XDump(objVal, nm && '[' && objKeyNm && ']');
         }
-        XDump(objVal, nm && '[' && objKeyNm && ']');
-        goto XDump_table;
+        return;
     }
     // user-defined DATA type
     OUTPUT = nm && ' = ' && objType && '()';
     i = 0;
-    XDump_data:
-    i = i + 1;
-    objField = FIELD(objType, i);
-    if (~DIFFER(objField)) { return; }
-    XDump(APPLY(objField, object), objField && '(' && nm && ')');
-    goto XDump_data;
+    while (1) {
+        i = i + 1;
+        objField = FIELD(objType, i);
+        if (~DIFFER(objField)) { return; }
+        XDump(APPLY(objField, object), objField && '(' && nm && ')');
+    }
 }
