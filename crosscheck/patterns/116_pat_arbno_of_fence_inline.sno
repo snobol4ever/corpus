@@ -1,0 +1,6 @@
+*  116 - ARBNO of inline FENCE: matches each iteration with FENCE-sealed alt
+        s = 'aaa'
+        s POS(0) ARBNO(FENCE('a' | 'aa')) RPOS(0)             :S(YES)F(NO)
+YES     OUTPUT = 'arbno-of-fence matched aaa'                 :(END)
+NO      OUTPUT = 'fail'
+END

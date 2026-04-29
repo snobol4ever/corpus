@@ -1,0 +1,8 @@
+*  109 - *var FENCE: seal must block when tail anchor fails
+*  This is the canonical beauty.sno bug. Was crash on csnobol4.
+        cmd = FENCE('a' | 'ab')
+        s = 'ab'
+        s  POS(0) *cmd RPOS(0)                                :S(BAD)F(GOOD)
+BAD     OUTPUT = 'should not reach (alt was tried)'           :(END)
+GOOD    OUTPUT = 'sealed via star-var'
+END

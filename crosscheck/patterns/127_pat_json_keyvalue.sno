@@ -1,0 +1,13 @@
+*  127 - JSON-ish key:value pair using FENCE for value-type dispatch
+        ws     = SPAN(' ') | LEN(0)
+        digits = SPAN('0123456789')
+        str    = '"' BREAK('"') . S '"'
+        num    = digits . N
+        bool   = FENCE('true' | 'false') . B
+        value  = FENCE(str | num | bool)
+        pair   = '"' BREAK('"') . K '"' ws ':' ws value
+        s = '"age":42'
+        s POS(0) pair RPOS(0)                                 :S(YES)F(NO)
+YES     OUTPUT = 'k=' K ' s=' S ' n=' N ' b=' B               :(END)
+NO      OUTPUT = 'fail'
+END

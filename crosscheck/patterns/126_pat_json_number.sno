@@ -1,0 +1,9 @@
+*  126 - JSON number: SPAN(digits) [ '.' SPAN(digits) ] - FENCE on optional frac
+        digits = SPAN('0123456789')
+        eps    = LEN(0)
+        num    = digits . INT FENCE('.' digits | eps) . FRAC
+        s = '42.7'
+        s POS(0) num RPOS(0)                                  :S(YES)F(NO)
+YES     OUTPUT = 'int=' INT ' frac=' FRAC                     :(END)
+NO      OUTPUT = 'fail'
+END

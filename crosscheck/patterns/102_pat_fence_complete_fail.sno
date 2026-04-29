@@ -1,0 +1,6 @@
+*  102 - FENCE(P) when no alt matches: outer fail
+        X = 'AB'
+        X  POS(0) FENCE('X' | 'Y' | 'Z')                      :S(YES)F(NO)
+YES     OUTPUT = 'unexpected match'                           :(END)
+NO      OUTPUT = 'no alt matched'
+END

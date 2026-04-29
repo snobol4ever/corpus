@@ -1,0 +1,7 @@
+*  117 - ARBNO of *cmd where cmd=FENCE: success path (string fully consumes)
+        cmd = FENCE('a' | 'ab')
+        s = 'aaa'
+        s POS(0) ARBNO(*cmd) RPOS(0)                          :S(YES)F(NO)
+YES     OUTPUT = 'arbno-star-cmd matched aaa'                 :(END)
+NO      OUTPUT = 'fail'
+END

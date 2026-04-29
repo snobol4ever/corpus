@@ -1,0 +1,9 @@
+*  121 - Calculator op dispatch: FENCE picks first matching operator
+        num    = SPAN('0123456789')
+        ws     = SPAN(' ') | LEN(0)
+        op     = FENCE('+' | '-' | '*' | '/')
+        s = '7 * 3'
+        s POS(0) num . A ws op . OP ws num . B RPOS(0)        :S(YES)F(NO)
+YES     OUTPUT = A ' ' OP ' ' B                               :(END)
+NO      OUTPUT = 'parse fail'
+END

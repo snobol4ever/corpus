@@ -1,0 +1,6 @@
+*  103 - FENCE inside a concatenation, prefix and suffix surround
+        X = 'aXb'
+        X  POS(0) 'a' FENCE('X' | 'XY')  'b'  RPOS(0)         :S(YES)F(NO)
+YES     OUTPUT = 'a-X-b matched'                              :(END)
+NO      OUTPUT = 'unexpected fail'
+END

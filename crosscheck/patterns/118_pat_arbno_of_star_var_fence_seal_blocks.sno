@@ -1,0 +1,9 @@
+*  118 - ARBNO + *cmd FENCE: tail anchor failure cannot retry sealed alts
+*  This is the BEAUTY-CLASS bug. Was crash on csnobol4 baseline.
+        cmd = FENCE('a' | 'ab')
+        s = 'aab'
+        s POS(0) *outer RPOS(0)                               :S(BAD)F(GOOD)
+        outer = ARBNO(*cmd)
+BAD     OUTPUT = 'should fail (alt was tried)'                :(END)
+GOOD    OUTPUT = 'arbno-star-cmd FENCE sealed'
+END

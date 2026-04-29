@@ -1,0 +1,10 @@
+*  130 - *outer where outer = *cmdA *cmdB and cmdA is FENCE-containing
+        eps   = LEN(0)
+        cmdA  = FENCE('x' | 'xy')
+        cmdB  = SPAN(' ') | eps
+        outer = *cmdA *cmdB
+        s = 'xy'
+        s POS(0) *outer RPOS(0)                               :S(YES)F(NO)
+YES     OUTPUT = 'sequence of star-cmd-FENCE matched'         :(END)
+NO      OUTPUT = 'fail'
+END
