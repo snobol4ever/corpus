@@ -418,17 +418,18 @@ procedure refs(p, c, n, s, subj) {
 doDebug = 0;
 Space   = SPAN(' ' && tab) | epsilon;
 
-done = 0;
+// Boolean flags use null=false, 1=true throughout (Snocone: 0 is truthy/non-null).
+done = '';
 Line = INPUT;
 while (DIFFER(Line)) {
-    if (done) { Line = ''; }       // keep loop predicate falsy when done
+    if (DIFFER(done)) { Line = ''; }   // keep loop predicate falsy when done
     if (DIFFER(Line)) {
         Src = '';
         // Pass through header lines starting with '*' or '-'
         cont = 1;
         while (cont) {
-            cont = 0;
-            if (DIFFER(Line) && ~done) {
+            cont = '';
+            if (DIFFER(Line) && ~DIFFER(done)) {
                 if (Line ? (POS(0) && ANY('*-'))) {
                     OUTPUT = Line;
                     Line = INPUT;
@@ -437,19 +438,19 @@ while (DIFFER(Line)) {
                 }
             }
         }
-        if (~done) {
+        if (~DIFFER(done)) {
             // Accumulate this logical unit into Src; consume continuation lines
             // (starting with '.' or '+') until a non-continuation line or EOF.
-            eof_inside = 0;
+            eof_inside = '';
             more = 1;
             while (more) {
                 Src  = Src && Line && nl;
                 Line = INPUT;
                 if (~DIFFER(Line)) {
                     eof_inside = 1;
-                    more = 0;
+                    more = '';
                 } else {
-                    if (~(Line ? (POS(0) && ANY('.+')))) { more = 0; }
+                    if (~(Line ? (POS(0) && ANY('.+')))) { more = ''; }
                 }
             }
             // Parse the accumulated Src.  On error, print and continue;
@@ -464,7 +465,7 @@ while (DIFFER(Line)) {
             } else {
                 OUTPUT = 'Parse Error';    OUTPUT = Src;
             }
-            if (eof_inside) { done = 1; }
+            if (DIFFER(eof_inside)) { done = 1; }
         }
     }
 }
