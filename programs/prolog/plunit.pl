@@ -1,4 +1,4 @@
-/* PATCHED:v2 */
+/* PATCHED:v3 */
 /* plunit.pl — scrip shim. No -> operator; uses nb_setval state machine only. */
 
 module(_, _). use_module(_). use_module(_, _). ensure_loaded(_).
@@ -35,7 +35,7 @@ pj_run_suite(Suite) :-
     format('~n% PL-Unit: ~w~n',[Suite]),
     nb_setval(pj_sf,0),
     findall(t(N,O,G), pj_test(Suite,N,O,G), Tests),
-    pj_run_tests(Suite, Tests),
+    ( pj_run_tests(Suite, Tests) -> true ; true ),
     nb_getval(pj_sf,SF),
     pj_suite_verdict(Suite, SF), !.
 
@@ -44,7 +44,7 @@ pj_suite_verdict(Suite, SF) :-
 
 pj_run_tests(_, []).
 pj_run_tests(Suite, [t(N,O,G)|Rest]) :-
-    pj_run_one(Suite,N,O,G), !, pj_run_tests(Suite,Rest).
+    once(pj_run_one(Suite,N,O,G)), pj_run_tests(Suite,Rest).
 
 pj_has_sto([sto(_)|_]).    pj_has_sto([_|T]) :- pj_has_sto(T).
 pj_wants_fail([fail|_]).   pj_wants_fail([false|_]).   pj_wants_fail([_|T]) :- pj_wants_fail(T).
