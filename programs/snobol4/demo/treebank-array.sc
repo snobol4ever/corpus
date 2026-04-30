@@ -52,7 +52,8 @@ procedure node_repr(f,   r, i, n, tag) {
     n   = stk_n[f];
     r   = "('" && tag && "'";
     i   = 0;
-    while (DIFFER(i = LT(i, n) i + 1)) {
+    while (LT(i, n)) {
+        i = i + 1;
         r = r && ', ' && node_repr(stk_c[f][i]);
     }
     node_repr = r && ')';
@@ -73,11 +74,17 @@ procedure pp_node(f, indent, suffix,   r, pad, tag, n, i) {
     tag = stk_tag[f];
     n   = stk_n[f];
     OUTPUT = pad && '( ' && "'" && tag && "',";
+    // Canonical (treebank-array.sno pp_wch/pp_wlast/pp_wdone):
+    //   process children 1..n-1 with ',' suffix; process n with ')' suffix;
+    //   if n == 0 (pp_wdone), return without emitting.
     i = 0;
-    while (DIFFER(i = LT(i, n - 1) i + 1)) {
-        dummy = pp_node(stk_c[f][i], indent + 2, ',');
+    if (GT(n, 0)) {
+        while (LT(i, n - 1)) {
+            i = i + 1;
+            dummy = pp_node(stk_c[f][i], indent + 2, ',');
+        }
+        dummy = pp_node(stk_c[f][n], indent + 2, ')' && suffix);
     }
-    dummy = pp_node(stk_c[f][n], indent + 2, ')' && suffix);
     return;
 }
 //------------------------------------------------------------------------------
@@ -120,7 +127,7 @@ group =
 //------------------------------------------------------------------------------
 spat = ('(' && BAL && ')') . item;
 src = '';
-while (DIFFER(line = INPUT)) {
+while (line = INPUT) {
     src = src && line && nl;
 }
 init_list('bank');

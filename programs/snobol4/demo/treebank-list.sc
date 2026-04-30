@@ -121,7 +121,7 @@ procedure pp_node(node, indent, suffix,   r, pad, c, nxt) {
 procedure pp_bank() { pp_node(bank, 0, ''); return; }
 //------------------------------------------------------------------------------
 src = '';
-while (DIFFER(line = INPUT))
+while (line = INPUT)
     src = src && line && nl;
 if (src ? treebank) pp_bank();
 else OUTPUT = 'Pattern match failed';
