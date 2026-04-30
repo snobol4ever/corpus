@@ -418,60 +418,61 @@ procedure refs(p, c, n, s, subj) {
 doDebug = 0;
 Space   = SPAN(' ' && tab) | epsilon;
 
-// Boolean flags use null=false, 1=true throughout (Snocone: 0 is truthy/non-null).
-done = '';
-Line = INPUT;
-while (DIFFER(Line)) {
-    if (DIFFER(done)) { Line = ''; }   // keep loop predicate falsy when done
-    if (DIFFER(Line)) {
-        Src = '';
-        // Pass through header lines starting with '*' or '-'
-        cont = 1;
-        while (DIFFER(cont)) {
-            cont = '';
-            if (DIFFER(Line) && ~DIFFER(done)) {
-                if (Line ? (POS(0) && ANY('*-'))) {
-                    OUTPUT = Line;
-                    Line = INPUT;
-                    if (~DIFFER(Line)) { done = 1; }
-                    else { cont = 1; }
-                }
-            }
-        }
-        if (~DIFFER(done)) {
-            // Accumulate this logical unit into Src; consume continuation lines
-            // (starting with '.' or '+') until a non-continuation line or EOF.
-            eof_inside = '';
-            more = 1;
-            while (DIFFER(more)) {
-                Src  = Src && Line && nl;
-                PrevLine = Line;
-                Line = INPUT;
-                if (~DIFFER(Line)) {
-                    eof_inside = 1;
-                    more = '';
-                } else if (IDENT(Line, PrevLine)) {
-                    // INPUT repeated same value = EOF (Snocone INPUT-EOF workaround)
-                    eof_inside = 1;
-                    Line = '';
-                    more = '';
+// Canonical Snocone slurp idiom: `Line = INPUT` is the predicate — the
+// assignment expression evaluates to FAIL on EOF, and the surrounding
+// while-test exits cleanly.  (Per programs/snocone/report.md line 1240.)
+//
+// Algorithm mirrors beauty.sno main00..main05 exactly:
+//   * lines starting with '*' or '-' are header lines, passed through;
+//   * other lines accumulate into Src, with continuation lines
+//     ('.' or '+' first char) folded in;
+//   * each completed logical unit is parsed and pretty-printed;
+//   * on EOF, parse the in-progress unit (if any) and stop.
+//
+// Boolean flags use null=false, 1=true throughout (Snocone: 0 is truthy/
+// non-null).  `have_line` distinguishes "Line holds an unprocessed
+// look-ahead" from "Line was just consumed; refetch on next iteration".
+input_done = '';
+Line = '';
+have_line = '';
+while (~DIFFER(input_done)) {
+    if (~DIFFER(have_line)) {
+        if (Line = INPUT) { have_line = 1; }
+        else              { input_done = 1; }
+    }
+    if (~DIFFER(input_done)) {
+        if (Line ? (POS(0) && ANY('*-'))) {
+            // Header line — pass through verbatim.
+            OUTPUT = Line;
+            have_line = '';
+        } else {
+            // Start a new logical unit; gather continuation lines.
+            Src = Line && nl;
+            have_line = '';
+            cont_more = 1;
+            while (DIFFER(cont_more)) {
+                cont_more = '';
+                if (Line = INPUT) {
+                    have_line = 1;
+                    if (Line ? (POS(0) && ANY('.+'))) {
+                        Src = Src && Line && nl;
+                        have_line = '';
+                        cont_more = 1;
+                    }
+                    // else: non-continuation, keep for next outer iteration
                 } else {
-                    if (Line ? (POS(0) && ANY('.+'))) { } else { more = ''; }
+                    input_done = 1;
+                    have_line = '';
                 }
             }
-            // Parse the accumulated Src.  On error, print and continue;
-            // on success, retrieve the tree and pretty-print it.
+            // Parse the accumulated Src; on error print and continue.
             if (Src ? (POS(0) && *Parse && *Space && RPOS(0))) {
                 sno = Pop();
-                if (DIFFER(sno)) {
-                    pp(sno);
-                } else {
-                    OUTPUT = 'Internal Error'; OUTPUT = Src;
-                }
+                if (DIFFER(sno)) { pp(sno); }
+                else             { OUTPUT = 'Internal Error'; OUTPUT = Src; }
             } else {
-                OUTPUT = 'Parse Error';    OUTPUT = Src;
+                OUTPUT = 'Parse Error'; OUTPUT = Src;
             }
-            if (DIFFER(eof_inside)) { done = 1; }
         }
     }
 }

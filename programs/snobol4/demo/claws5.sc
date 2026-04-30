@@ -117,10 +117,11 @@ claws =
        )
     && RPOS(0);
 //------------------------------------------------------------------------------
-line = INPUT;
-while (DIFFER(line)) {
+// Canonical Snocone slurp idiom: while (line = INPUT) — assignment expression
+// evaluates to FAIL on EOF, the while-test then fails, loop exits cleanly.
+// (Per programs/snocone/report.md line 1240.)
+while (line = INPUT) {
     src = src && line;
-    line = INPUT;
 }
 mem = TABLE();
 if (src ? claws) pp_mem(mem);
