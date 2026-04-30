@@ -427,7 +427,7 @@ while (DIFFER(Line)) {
         Src = '';
         // Pass through header lines starting with '*' or '-'
         cont = 1;
-        while (cont) {
+        while (DIFFER(cont)) {
             cont = '';
             if (DIFFER(Line) && ~DIFFER(done)) {
                 if (Line ? (POS(0) && ANY('*-'))) {
@@ -443,14 +443,20 @@ while (DIFFER(Line)) {
             // (starting with '.' or '+') until a non-continuation line or EOF.
             eof_inside = '';
             more = 1;
-            while (more) {
+            while (DIFFER(more)) {
                 Src  = Src && Line && nl;
+                PrevLine = Line;
                 Line = INPUT;
                 if (~DIFFER(Line)) {
                     eof_inside = 1;
                     more = '';
+                } else if (IDENT(Line, PrevLine)) {
+                    // INPUT repeated same value = EOF (Snocone INPUT-EOF workaround)
+                    eof_inside = 1;
+                    Line = '';
+                    more = '';
                 } else {
-                    if (~(Line ? (POS(0) && ANY('.+')))) { more = ''; }
+                    if (Line ? (POS(0) && ANY('.+'))) { } else { more = ''; }
                 }
             }
             // Parse the accumulated Src.  On error, print and continue;
