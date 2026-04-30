@@ -1,0 +1,13 @@
+*  141 - Double-function trick under ARBNO loop
+        DEFINE('grab(c)')
+        DEFINE('Grab(cs)')                                    :(grab_end)
+grab    out    = out c
+        grab   = .out                                         :(NRETURN)
+Grab    Grab   = EVAL('LEN(1) . *grab(' cs ')')               :(RETURN)
+grab_end
+        out    = ''
+        s      = 'abcde'
+        s POS(0) ARBNO(Grab('cv')) RPOS(0)                    :S(YES)F(NO)
+YES     OUTPUT = 'out=' out                                   :(END)
+NO      OUTPUT = 'fail'
+END

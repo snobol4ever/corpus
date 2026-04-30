@@ -1,0 +1,10 @@
+*  132 - Canonical Gimpel FENCE(*P | epsilon), depth 3
+*  Tests left-recursion-break semantic on 'aaa'
+        DEFINE('makeP()')
+        eps  = LEN(0)
+        P    = LEN(1) FENCE(*P | eps)
+        s    = 'aaa'
+        s POS(0) *P RPOS(0)                                   :S(YES)F(NO)
+YES     OUTPUT = 'matched depth 3'                            :(END)
+NO      OUTPUT = 'fail'
+END

@@ -1,0 +1,9 @@
+*  147 - Minimal: FENCE inside *var inside concat
+        eps   = LEN(0)
+        inner = (FENCE('a') | 'b')
+        outer = (*inner ' ' *inner)
+        s     = 'a b'
+        s POS(0) outer RPOS(0)                                :S(YES)F(NO)
+YES     OUTPUT = 'matched ' s                                 :(END)
+NO      OUTPUT = 'fail'
+END

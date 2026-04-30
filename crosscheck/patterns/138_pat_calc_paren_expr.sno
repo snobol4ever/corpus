@@ -1,0 +1,11 @@
+*  138 - Parenthesized calc: ((1+2)*3) — 2 levels of parens
+        digit = ANY('0123456789')
+        num   = SPAN('0123456789')
+        op    = FENCE('+' | '-' | '*' | '/')
+        ws    = SPAN(' ') | LEN(0)
+        expr  = num | '(' *expr op *expr ')'
+        s     = '((1+2)*3)'
+        s POS(0) *expr RPOS(0)                                :S(YES)F(NO)
+YES     OUTPUT = 'parsed ' s                                  :(END)
+NO      OUTPUT = 'parse fail'
+END

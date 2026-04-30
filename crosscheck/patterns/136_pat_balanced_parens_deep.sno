@@ -1,0 +1,8 @@
+*  136 - Balanced parens via FENCE, depth 40
+        eps  = LEN(0)
+        B    = '(' FENCE(*B | eps) ')'
+        s    = DUPL('(', 40) DUPL(')', 40)
+        s POS(0) *B RPOS(0)                                   :S(YES)F(NO)
+YES     OUTPUT = 'balanced depth 40'                          :(END)
+NO      OUTPUT = 'fail'
+END

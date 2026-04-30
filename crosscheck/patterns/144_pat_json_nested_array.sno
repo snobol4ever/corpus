@@ -1,0 +1,9 @@
+*  144 - Nested choice: each level chooses 'A' first, then must backtrack to 'B' on suffix-fail
+        eps  = LEN(0)
+        choose = FENCE('A' | 'B')
+        layer  = choose ('-' *layer | eps)
+        s      = 'A-A-B'
+        s POS(0) *layer RPOS(0)                               :S(YES)F(NO)
+YES     OUTPUT = 'matched ' s                                 :(END)
+NO      OUTPUT = 'fail'
+END

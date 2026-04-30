@@ -1,0 +1,8 @@
+*  135 - Balanced parens via FENCE(*B | epsilon), depth 3
+        eps  = LEN(0)
+        B    = '(' FENCE(*B | eps) ')'
+        s    = '((()))'
+        s POS(0) *B RPOS(0)                                   :S(YES)F(NO)
+YES     OUTPUT = 'balanced ' s                                :(END)
+NO      OUTPUT = 'fail'
+END

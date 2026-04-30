@@ -1,0 +1,7 @@
+*  142 - ARBNO of (LEN(1) FENCE(LEN(1) | epsilon))
+        eps  = LEN(0)
+        s    = 'abcde'
+        s POS(0) ARBNO(LEN(1) FENCE(LEN(1) | eps)) RPOS(0)    :S(YES)F(NO)
+YES     OUTPUT = 'arbno fence ok'                             :(END)
+NO      OUTPUT = 'fail'
+END

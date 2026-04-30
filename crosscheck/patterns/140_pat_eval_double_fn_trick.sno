@@ -1,0 +1,14 @@
+*  140 - The double-function trick from beauty Shift/Reduce
+        DEFINE('shift(c)')
+        DEFINE('Shift(cs)')                                   :(shift_end)
+shift   stk    = c stk
+        shift  = .stk                                         :(NRETURN)
+Shift   Shift  = EVAL('LEN(1) . *shift(' cs ')')              :(RETURN)
+shift_end
+        stk    = ''
+        s      = 'AB'
+        pat    = Shift('c1') Shift('c2')
+        s POS(0) pat RPOS(0)                                  :S(YES)F(NO)
+YES     OUTPUT = 'stk=' stk                                   :(END)
+NO      OUTPUT = 'fail'
+END

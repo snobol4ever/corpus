@@ -1,0 +1,9 @@
+*  139 - All-parens calc depth 5: (((((1)))))
+        num   = SPAN('0123456789')
+        op    = FENCE('+' | '-' | '*' | '/')
+        expr  = num | '(' *expr op *expr ')' | '(' *expr ')'
+        s     = '(((((1)))))'
+        s POS(0) *expr RPOS(0)                                :S(YES)F(NO)
+YES     OUTPUT = 'parens depth 5 ' s                          :(END)
+NO      OUTPUT = 'parse fail'
+END
