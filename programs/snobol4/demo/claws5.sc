@@ -22,39 +22,84 @@ procedure add_tok() {
     nreturn;
 }
 //------------------------------------------------------------------------------
-procedure pp_mem(mem) {
-    OUTPUT = '{';
-    sk = SORT(mem);
-    si = 0;
-pp_s:
-    si = si + 1;
-    if (DIFFER(sk[si,1])) { goto pp_s_done; }
-    if (GT(si, 1)) { OUTPUT = '   },'; }
-    OUTPUT = '   ' sk[si,1] ': {';
-    wk = SORT(mem[sk[si,1]]);
-    wi = 0;
-pp_w:
-    wi = wi + 1;
-    if (DIFFER(wk[wi,1])) { goto pp_w_done; }
-    if (GT(wi, 1)) { OUTPUT = '      },'; }
-    OUTPUT = '      ' wk[wi,1] ': {';
-    tk = SORT(mem[sk[si,1]][wk[wi,1]]);
-    ti = 0;
-pp_t:
-    ti = ti + 1;
-    if (DIFFER(tk[ti,1])) { goto pp_t_done; }
-    OUTPUT = '         ' tk[ti,1] ': '
-             mem[sk[si,1]][wk[wi,1]][tk[ti,1]] ',';
-    goto pp_t;
-pp_t_done:
-    OUTPUT = '      }';
-    goto pp_w;
-pp_w_done:
-    OUTPUT = '   }';
-    goto pp_s;
-pp_s_done:
-    OUTPUT = '}';
-    pp_mem = .dummy;
+// SB-5c.4: faithful 1-for-1 re-port of claws5.sno::pp_mem (zero gotos).
+// Procedure-locals match the canonical DEFINE() locals list:
+// ssk, si, sentno, wsk, wi, wkey, wq, wrd, tsk, ti, tag, tv,
+// tline, pfx, pad, next_wkey, last_sent, lline, ns.
+procedure pp_mem(mem,
+        ssk, si, sentno, wsk, wi, wkey, wq, wrd,
+        tsk, ti, tag, tv, tline, pfx, pad,
+        next_wkey, last_sent, lline, ns) {
+    ssk             =   SORT(mem);
+    si              =   0;
+    ns              =   0;
+                                                                        // pm_cnt_loop
+    while (DIFFER(ssk[ns + 1, 1])) {
+        ns          =   ns + 1;
+    }
+    si              =   0;
+                                                                        // pm_sent_loop
+    while (DIFFER(ssk[si + 1, 1])) {
+        si          =   si + 1;
+        sentno      =   ssk[si, 1];
+        last_sent   =   '';
+        if (IDENT(si, ns)) last_sent = 1;
+        pad         =   DUPL(' ', SIZE(sentno) + 4);
+        if (EQ(si, 1)) pfx = '{' && sentno && ': {';
+        if (NE(si, 1)) pfx = ' ' && sentno && ': {';
+        wsk         =   SORT(mem[sentno]);
+        wi          =   0;
+                                                                        // pm_wrd_loop
+        while (DIFFER(wsk[wi + 1, 1])) {
+            wi          =   wi + 1;
+            wkey        =   wsk[wi, 1];
+            next_wkey   =   '';
+            next_wkey   =   wsk[wi + 1, 1];
+            wrd         =   wkey;
+            if (wrd ? (ARB && "'") = '') wq = '"' && wkey && '"';
+                                                                        // pm_sq
+            else                         wq = "'" && wkey && "'";
+                                                                        // pm_tdict
+            tsk         =   SORT(mem[sentno][wkey]);
+            ti          =   0;
+            tline       =   '{';
+                                                                        // pm_tag_loop
+            while (DIFFER(tsk[ti + 1, 1])) {
+                ti      =   ti + 1;
+                tag     =   tsk[ti, 1];
+                tv      =   mem[sentno][wkey][tag];
+                if (IDENT(tline, '{'))
+                    tline = tline && "'" && tag && "': " && tv;
+                                                                        // pm_tag_sep
+                else
+                    tline = tline && ', ' && "'" && tag && "': " && tv;
+            }
+                                                                        // pm_tag_close
+            tline       =   tline && '}';
+            if (GT(SIZE(next_wkey), 0)) {
+                if (IDENT(wi, 1))
+                    OUTPUT  =   pfx && wq && ': ' && tline && ',';
+                                                                        // pm_mid_wrd
+                else
+                    OUTPUT  =   pad && wq && ': ' && tline && ',';
+            } else {
+                                                                        // pm_last_wrd
+                if (IDENT(wi, 1))
+                    lline   =   pfx && wq && ': ' && tline;
+                                                                        // pm_last_mid
+                else
+                    lline   =   pad && wq && ': ' && tline;
+                                                                        // pm_last_emit
+                if (IDENT(last_sent, 1))
+                    OUTPUT  =   lline && '}}';
+                                                                        // pm_last_mid2
+                else
+                    OUTPUT  =   lline && '},';
+            }
+        }
+    }
+                                                                        // pm_done
+    pp_mem          =   .dummy;
     return;
 }
 //------------------------------------------------------------------------------
