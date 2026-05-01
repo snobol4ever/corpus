@@ -233,6 +233,54 @@ string_length(S, N) :- atom_length(S, N).
 number_string(N, S) :- atom(S), atom_number(S, N), !.
 number_string(N, S) :- number(N), atom_number(S, N).
 
+/* split_string/4 — naive single-separator-char splitter; pad chars stripped from
+ * each part. Sufficient to define the predicate so the bridge can dispatch
+ * through it without existence_error; passes simple cases like
+ * split_string("a.b.c.d", ".", "", L) → L = [a,b,c,d]. */
+split_string(S, Sep, Pad, Parts) :-
+    atom_codes(S, Codes), atom_codes(Sep, SepCodes), atom_codes(Pad, PadCodes),
+    pj_split_codes(Codes, SepCodes, [], RawParts),
+    pj_strip_pad_each(RawParts, PadCodes, Parts).
+pj_split_codes([], _, AccCodes, [Part]) :-
+    pj_reverse_codes(AccCodes, PartCodes), atom_codes(Part, PartCodes).
+pj_split_codes([C|Rest], SepCodes, AccCodes, [Part|MoreParts]) :-
+    member(C, SepCodes), !,
+    pj_reverse_codes(AccCodes, PartCodes), atom_codes(Part, PartCodes),
+    pj_split_codes(Rest, SepCodes, [], MoreParts).
+pj_split_codes([C|Rest], SepCodes, AccCodes, Parts) :-
+    pj_split_codes(Rest, SepCodes, [C|AccCodes], Parts).
+pj_reverse_codes(L, R) :- pj_rev(L, [], R).
+pj_strip_pad_each([], _, []).
+pj_strip_pad_each([P|T], PadCodes, [Stripped|TT]) :-
+    atom_codes(P, Cs), pj_strip_pad_lr(Cs, PadCodes, Cs2),
+    atom_codes(Stripped, Cs2), pj_strip_pad_each(T, PadCodes, TT).
+pj_strip_pad_lr(Cs, PadCodes, Out) :-
+    pj_strip_pad_left(Cs, PadCodes, Mid),
+    pj_reverse_codes(Mid, RMid),
+    pj_strip_pad_left(RMid, PadCodes, RStripped),
+    pj_reverse_codes(RStripped, Out).
+pj_strip_pad_left([C|T], PadCodes, Out) :- member(C, PadCodes), !, pj_strip_pad_left(T, PadCodes, Out).
+pj_strip_pad_left(L, _, L).
+
+/* string_bytes/3 — encode atom as byte list under given encoding.
+ * ASCII-only is sufficient: utf8 = atom_codes; utf16be/le interleave 0-bytes.
+ * Non-ASCII source is excluded by lexer constraints; non-ASCII tests are
+ * already commented out in test_string.pl. */
+string_bytes(S, Bytes, utf8) :- atom(S), !, atom_codes(S, Bytes).
+string_bytes(S, Bytes, utf8) :- atom_codes(S, Bytes).
+string_bytes(S, Bytes, utf16be) :- atom(S), !, atom_codes(S, Cs), pj_interleave_be(Cs, Bytes).
+string_bytes(S, Bytes, utf16be) :- pj_uninterleave_be(Bytes, Cs), atom_codes(S, Cs).
+string_bytes(S, Bytes, utf16le) :- atom(S), !, atom_codes(S, Cs), pj_interleave_le(Cs, Bytes).
+string_bytes(S, Bytes, utf16le) :- pj_uninterleave_le(Bytes, Cs), atom_codes(S, Cs).
+pj_interleave_be([], []).
+pj_interleave_be([C|T], [0,C|TT]) :- pj_interleave_be(T, TT).
+pj_interleave_le([], []).
+pj_interleave_le([C|T], [C,0|TT]) :- pj_interleave_le(T, TT).
+pj_uninterleave_be([], []).
+pj_uninterleave_be([0,C|T], [C|TT]) :- pj_uninterleave_be(T, TT).
+pj_uninterleave_le([], []).
+pj_uninterleave_le([C,0|T], [C|TT]) :- pj_uninterleave_le(T, TT).
+
 /* atom_to_term/3 — naive: only succeeds if Atom parses as a literal. */
 atom_to_term(A, A, []).
 
