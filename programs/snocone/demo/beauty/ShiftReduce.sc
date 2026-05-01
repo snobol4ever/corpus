@@ -21,15 +21,16 @@
 //   leaves n and c null. The Snocone struct ctor requires all four args;
 //   we pass '' for the unset ones — equivalent to SNOBOL4's null fill.
 // - Canonical's `t = EVAL(t) :F(NRETURN)` is statement-level failure
-//   detection. Snocone's `if (assignment)` does not propagate inner
-//   EVAL failure to the test (verified at /tmp/eval_detect.sc — the
-//   if-arm always succeeds). EVAL failure does, however, leave the
-//   LHS null, so `if (~DIFFER(t))` after the assignment catches the
-//   common-case failure path. For the non-failing-but-evaluates-to-null
-//   edge case (e.g. EVAL of `*('')`) the two semantics diverge: canonical
-//   would proceed; the `~DIFFER` check would NRETURN. This edge case
-//   does not arise in the beauty pipeline and is documented here for
-//   future Snocone-EVAL-failure-detection work.
+//   detection. Snocone's `if (~(t = EVAL(t))) { nreturn; }` is the
+//   direct port: the embedded assignment fails iff EVAL fails (per
+//   SPITBOL's "if a function fails, the statement fails" rule, Manual
+//   Ch.2 p.33), and ~ negates failure to success, firing the nreturn.
+//   Verified scrip-side: matches SPITBOL `:F(NRETURN)` semantics
+//   exactly. The earlier `t = EVAL(t); if (~DIFFER(t))` form was
+//   wrong — when EVAL fails, the assignment is silently skipped and
+//   t keeps its prior EXPRESSION value (non-null), so ~DIFFER fails
+//   to fire nreturn, and execution falls through to GE(n,1) with
+//   n still EXPRESSION → Error 1. SB-6.D root cause.
 
 function Shift(t, v,   s) {
     v ? (POS(0)   whitespace) = ;
@@ -43,12 +44,10 @@ function Shift(t, v,   s) {
 function Reduce(t, n,   c, i, r) {
     Reduce = .dummy;
     if (IDENT(REPLACE(DATATYPE(t), &LCASE, &UCASE), 'EXPRESSION')) {
-        t = EVAL(t);
-        if (~DIFFER(t)) { nreturn; }   // canonical :F(NRETURN) on EVAL-fail
+        if (~(t = EVAL(t))) { nreturn; }   // canonical :F(NRETURN) on EVAL-fail
     }
     if (IDENT(REPLACE(DATATYPE(n), &LCASE, &UCASE), 'EXPRESSION')) {
-        n = EVAL(n);
-        if (~DIFFER(n)) { nreturn; }   // canonical :F(NRETURN) on EVAL-fail
+        if (~(n = EVAL(n))) { nreturn; }   // canonical :F(NRETURN) on EVAL-fail
     }
     OUTPUT = GT(xTrace, 3)   ('Reduce('   t   ', '   n   ')');
     if (GE(n, 1)) { c = ARRAY('1:'   n); }
