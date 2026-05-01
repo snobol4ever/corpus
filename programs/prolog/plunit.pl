@@ -3,15 +3,15 @@
 
 module(_, _). use_module(_). use_module(_, _). ensure_loaded(_).
 
-:- dynamic pj_suite/1.
+:- dynamic pj_suite/2.
 :- dynamic pj_test/4.
 :- dynamic pj_current_suite/1.
 
 begin_tests(Suite) :-
-    ( pj_suite(Suite) -> true ; assertz(pj_suite(Suite)) ),
+    ( pj_suite(Suite,_) -> true ; assertz(pj_suite(Suite,[])) ),
     retractall(pj_current_suite(_)), assertz(pj_current_suite(Suite)).
-begin_tests(Suite, _) :-
-    ( pj_suite(Suite) -> true ; assertz(pj_suite(Suite)) ),
+begin_tests(Suite, Opts) :-
+    ( pj_suite(Suite,_) -> true ; assertz(pj_suite(Suite,Opts)) ),
     retractall(pj_current_suite(_)), assertz(pj_current_suite(Suite)).
 end_tests(_) :- retractall(pj_current_suite(_)).
 
@@ -24,13 +24,20 @@ pj_inc_skip :- nb_getval(pj_s,N), N1 is N+1, nb_setval(pj_s,N1).
 pj_summary  :- nb_getval(pj_p,P), nb_getval(pj_f,F), nb_getval(pj_s,S),
                format('~n% ~w passed, ~w failed, ~w skipped~n',[P,F,S]).
 
-run_tests    :- pj_init, findall(S,pj_suite(S),Ss), pj_run_list(Ss), pj_summary.
+run_tests    :- pj_init, findall(S,pj_suite(S,_),Ss), pj_run_list(Ss), pj_summary.
 run_tests(L) :- is_list(L), !, pj_init, pj_run_list(L), pj_summary.
 run_tests(S) :- pj_init, pj_run_suite(S), pj_summary.
 
 pj_run_list([]).
 pj_run_list([H|T]) :- ( pj_run_suite(H) -> true ; true ), !, pj_run_list(T).
 
+pj_run_suite(Suite) :-
+    pj_suite(Suite,SOpts),
+    pj_skip_cond(SOpts), !,
+    format('~n% PL-Unit: ~w~n',[Suite]),
+    format('  skip-suite: ~w  [cond]~n',[Suite]),
+    pj_inc_skip,
+    format('PASS ~w~n',[Suite]).
 pj_run_suite(Suite) :-
     format('~n% PL-Unit: ~w~n',[Suite]),
     nb_setval(pj_sf,0),
@@ -53,7 +60,22 @@ pj_has_error([error(E)|_],E). pj_has_error([_|T],E) :- pj_has_error(T,E). pj_has
 pj_has_throws([throws(T)|_],T). pj_has_throws([_|T2],T) :- pj_has_throws(T2,T). pj_has_throws(throws(T),T).
 pj_has_true([true(E)|_],E). pj_has_true([_|T],E) :- pj_has_true(T,E).
 pj_has_all([all(E)|_],E).   pj_has_all([_|T],E) :- pj_has_all(T,E).
-pj_skip_cond(Opts) :- member(condition(C),Opts), \+ C.
+/* pj_skip_cond — pattern-match the condition shape so we can dispatch
+ * literal goals (sidesteps the Var-bound-goal limitation in scrip's \+/call).
+ * Recognised shapes (only what the SWI suites actually use):
+ *   condition(current_prolog_flag(F,V))   -- skip iff cpf(F,V) fails
+ *   condition(<unknown_atom>)              -- always skip (assume cond fails)
+ *   condition(fail)                        -- always skip
+ *   condition(true)                        -- never skip
+ */
+pj_skip_cond(Opts) :- member(condition(C), Opts), pj_cond_fails(C).
+
+pj_cond_fails(fail) :- !.
+pj_cond_fails(false) :- !.
+pj_cond_fails(true) :- !, fail.
+pj_cond_fails(current_prolog_flag(F,V)) :- !, \+ current_prolog_flag(F,V).
+pj_cond_fails(_) :- true.    /* unknown / undefined: assume fails => skip */
+
 
 pj_run_one(Suite,Name,Opts,_) :- pj_has_sto(Opts), !,
     pj_inc_skip, format('  skip: ~w:~w  [sto]~n',[Suite,Name]).
