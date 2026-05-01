@@ -166,8 +166,9 @@ pj_not_member(_, []).
 pj_reverse(L, R) :- pj_rev(L, [], R).
 pj_rev([], R, R). pj_rev([H|T], A, R) :- pj_rev(T, [H|A], R).
 
-/* numbervars/4 — like /3 but bind upper bound variable. */
-numbervars(T, S, E) :- numbervars(T, S, E, []).
+/* numbervars/4 — like /3, plus options list (ignored: singletons/etc).
+ * Runtime provides /3 builtin; this defines the /4 form by delegation. */
+numbervars(T, S, E, _Opts) :- numbervars(T, S, E).
 
 /* compound/term identity helpers. */
 compound_name_arity(T, N, A) :- compound(T), !, functor(T, N, A).
