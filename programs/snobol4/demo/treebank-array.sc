@@ -6,7 +6,7 @@
 //------------------------------------------------------------------------------
 DATA('list(head,tail)');
 //------------------------------------------------------------------------------
-procedure stk_push_frame(v) {
+function stk_push_frame(v) {
     frame_id          = frame_id + 1;
     stk_tag[frame_id] = v;
     stk_n[frame_id]   = 0;
@@ -16,7 +16,7 @@ procedure stk_push_frame(v) {
     return;
 }
 //------------------------------------------------------------------------------
-procedure stk_push_item(v,   cur) {
+function stk_push_item(v,   cur) {
     cur                 = head(stk);
     stk_n[cur]          = stk_n[cur] + 1;
     stk_c[cur][stk_n[cur]] = v;
@@ -24,7 +24,7 @@ procedure stk_push_item(v,   cur) {
     return;
 }
 //------------------------------------------------------------------------------
-procedure stk_pop_into_parent(   child, par, n) {
+function stk_pop_into_parent(   child, par, n) {
     child               = head(stk);
     stk                 = tail(stk);
     par                 = head(stk);
@@ -35,7 +35,7 @@ procedure stk_pop_into_parent(   child, par, n) {
     return;
 }
 //------------------------------------------------------------------------------
-procedure stk_pop_final(var,   child) {
+function stk_pop_final(var,   child) {
     child               = head(stk);
     stk                 = tail(stk);
     $var                = child;
@@ -43,7 +43,7 @@ procedure stk_pop_final(var,   child) {
     return;
 }
 //------------------------------------------------------------------------------
-procedure node_repr(f,   r, i, n, tag) {
+function node_repr(f,   r, i, n, tag) {
     if (IDENT(REPLACE(DATATYPE(f), &LCASE, &UCASE), 'STRING')) {
         node_repr = "'"   f   "'";
         return;
@@ -60,7 +60,7 @@ procedure node_repr(f,   r, i, n, tag) {
     return;
 }
 //------------------------------------------------------------------------------
-procedure pp_node(f, indent, suffix,   r, pad, tag, n, i) {
+function pp_node(f, indent, suffix,   r, pad, tag, n, i) {
     if (IDENT(REPLACE(DATATYPE(f), &LCASE, &UCASE), 'STRING')) {
         OUTPUT = DUPL(' ', indent)   "'"   f   "'"   suffix;
         return;
@@ -88,13 +88,13 @@ procedure pp_node(f, indent, suffix,   r, pad, tag, n, i) {
     return;
 }
 //------------------------------------------------------------------------------
-procedure pp_bank() {
+function pp_bank() {
     dummy   = pp_node(bank, 0, '');
     pp_bank = .dummy;
     return;
 }
 //------------------------------------------------------------------------------
-procedure init_list(v) {
+function init_list(v) {
     $v       = '';
     stk      = '';
     frame_id = 0;
@@ -105,10 +105,10 @@ procedure init_list(v) {
     nreturn;
 }
 //------------------------------------------------------------------------------
-procedure push_list(v) { stk_push_frame(v);     push_list = .dummy; nreturn; }
-procedure push_item(v) { stk_push_item(v);      push_item = .dummy; nreturn; }
-procedure pop_list()   { stk_pop_into_parent(); pop_list  = .dummy; nreturn; }
-procedure pop_final(v) { stk_pop_final(v);      pop_final = .dummy; nreturn; }
+function push_list(v) { stk_push_frame(v);     push_list = .dummy; nreturn; }
+function push_item(v) { stk_push_item(v);      push_item = .dummy; nreturn; }
+function pop_list()   { stk_pop_into_parent(); pop_list  = .dummy; nreturn; }
+function pop_final(v) { stk_pop_final(v);      pop_final = .dummy; nreturn; }
 //------------------------------------------------------------------------------
 delim  = SPAN(' '   nl);
 word   = NOTANY('( )'   nl)   BREAK('( )'   nl);

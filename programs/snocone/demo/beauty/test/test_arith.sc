@@ -1,25 +1,25 @@
 // driver.sc — test driver for arith.sc
 
-procedure ISqrt(n, i) {
+function ISqrt(n, i) {
     i = 0; while (LE((i+1)*(i+1), n)) { i = i + 1; } ISqrt = i; return;
 }
-procedure Fibonacci(n, a, b, t, i) {
+function Fibonacci(n, a, b, t, i) {
     if (LE(n, 0)) { Fibonacci = 0; return; }
     if (EQ(n, 1)) { Fibonacci = 1; return; }
     a = 0; b = 1; i = 1;
     while (LT(i, n)) { i = i + 1; t = b; b = a + b; a = t; }
     Fibonacci = b; return;
 }
-procedure GCD(a, b, t) {
+function GCD(a, b, t) {
     while (DIFFER(b, 0)) { t = b; b = REMDR(a, b); a = t; }
     GCD = a; return;
 }
-procedure Factorial(n, acc, i) {
+function Factorial(n, acc, i) {
     acc = 1; i = 0;
     while (LT(i, n)) { i = i + 1; acc = acc * i; }
     Factorial = acc; return;
 }
-procedure IsPrime(n, i, lim) {
+function IsPrime(n, i, lim) {
     if (LE(n, 1)) { freturn; }
     if (EQ(n, 2)) { return; }
     if (IDENT(REMDR(n, 2), 0)) { freturn; }
@@ -28,7 +28,7 @@ procedure IsPrime(n, i, lim) {
         if (IDENT(REMDR(n, i), 0)) { freturn; } }
     return;
 }
-procedure Sieve(n, arr, i, j) {
+function Sieve(n, arr, i, j) {
     arr = TABLE(); i = 2;
     while (LE(i, n)) { arr[i] = 1; i = i + 1; }
     i = 2;

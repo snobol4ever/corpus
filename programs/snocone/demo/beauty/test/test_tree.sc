@@ -1,8 +1,8 @@
 // driver.sc — test driver for tree.sc (Snocone)
 struct tree { t, v, n, c }
 
-procedure MakeLeaf(type, val) { MakeLeaf = tree(type, val, 0, ''); return; }
-procedure MakeNode(type, val, nc, kids) { MakeNode = tree(type, val, nc, kids); return; }
+function MakeLeaf(type, val) { MakeLeaf = tree(type, val, 0, ''); return; }
+function MakeNode(type, val, nc, kids) { MakeNode = tree(type, val, nc, kids); return; }
 
 &STLIMIT = 1000000;
 

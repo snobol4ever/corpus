@@ -5,27 +5,27 @@
 
 struct tree { t, v, n, c }
 
-procedure MakeLeaf(type, val) {
+function MakeLeaf(type, val) {
     MakeLeaf = tree(type, val, 0, '');
     return;
 }
 
-procedure MakeNode(type, val, nc, kids) {
+function MakeNode(type, val, nc, kids) {
     MakeNode = tree(type, val, nc, kids);
     return;
 }
 
-procedure Append(x, y) {
+function Append(x, y) {
     Append = Insert(x, y, n(x) + 1);
     return;
 }
 
-procedure Prepend(x, y) {
+function Prepend(x, y) {
     Prepend = Insert(x, y, 1);
     return;
 }
 
-procedure Insert(x, y, place, c, i) {
+function Insert(x, y, place, c, i) {
     Insert = x;
     c = ARRAY('1:'   (n(x) + 1));
     i = 0;
@@ -43,7 +43,7 @@ procedure Insert(x, y, place, c, i) {
     return;
 }
 
-procedure Remove(x, place, c, i) {
+function Remove(x, place, c, i) {
     Remove = x;
     if (GT(n(x) - 1, 0)) {
         c = ARRAY('1:'   (n(x) - 1));
@@ -65,7 +65,7 @@ procedure Remove(x, place, c, i) {
     return;
 }
 
-procedure Equal(x, y, i) {
+function Equal(x, y, i) {
     // Both null → equal
     if (IDENT(x, '')   IDENT(y, '')) { return; }
     // One null → not equal
@@ -81,7 +81,7 @@ procedure Equal(x, y, i) {
     return;
 }
 
-procedure Visit(x, fnc, i) {
+function Visit(x, fnc, i) {
     if (~APPLY(fnc, x)) { return; }
     i = 0;
     while (LT(i, n(x))) {

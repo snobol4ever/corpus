@@ -12,7 +12,7 @@
 //
 // epsilon is assumed pre-defined globally (see beauty.sc / global.sc).
 
-procedure shift(p, t,   omega) {
+function shift(p, t,   omega) {
     // Canonical: EVAL sees the literal name 'p', resolves it dynamically to
     // the pattern value in this function's scope — same as SNOBOL4's
     //   shift_ shift = EVAL("p . thx . *Shift('" t "', thx)")
@@ -21,7 +21,7 @@ procedure shift(p, t,   omega) {
     return;
 }
 
-procedure reduce(t, n,   omega) {
+function reduce(t, n,   omega) {
     // Canonical: EVAL sees 'tag' as quoted string literal, n as SNOBOL4 expression.
     // t is always a string tag name (e.g. '=', 'ExprList').
     // n is either an integer literal (2, 1, 7) or a SNOBOL4 expression
@@ -33,32 +33,32 @@ procedure reduce(t, n,   omega) {
     return;
 }
 
-procedure pop() {
+function pop() {
     pop = epsilon . *Pop(.dummy);
     return;
 }
 
-procedure nPush() {
+function nPush() {
     nPush = epsilon . *PushCounter();
     return;
 }
 
-procedure nInc() {
+function nInc() {
     nInc = epsilon . *IncCounter();
     return;
 }
 
-procedure nDec() {
+function nDec() {
     nDec = epsilon . *DecCounter();
     return;
 }
 
-procedure nTop() {
+function nTop() {
     nTop = TopCounter();
     return;
 }
 
-procedure nPop() {
+function nPop() {
     nPop = epsilon . *PopCounter();
     return;
 }

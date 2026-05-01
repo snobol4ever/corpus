@@ -1,7 +1,7 @@
 &STLIMIT = 1000000;
 strOfs = 0; t8Max = 0; t8MaxLine = 0; t8MaxLast = 0; doDebug = 0; t8Map = '';
 
-procedure T8Pos(t8Ofs, _map, i) {
+function T8Pos(t8Ofs, _map, i) {
     if (IDENT(_map, '')) { T8Pos = LPAD(t8Ofs, 8); return; }
     i = t8Ofs;
     if (GT(t8Ofs, t8Max)) { t8Max = t8Ofs; }
@@ -25,7 +25,7 @@ procedure T8Pos(t8Ofs, _map, i) {
     return;
 }
 
-procedure T8Trace(lvl, str, ofs) {
+function T8Trace(lvl, str, ofs) {
     T8Trace = .dummy;
     if (~GT(doDebug, 0)) { nreturn; }
     if (~LE(lvl, doDebug)) { nreturn; }

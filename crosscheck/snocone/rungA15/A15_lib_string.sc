@@ -3,17 +3,17 @@
 // Snocone translation of crosscheck/library/test_string.sno + lib/string.sno
 &TRIM = 1;
 
-procedure pad_left(s, n, c) {
+function pad_left(s, n, c) {
     if (IDENT(c, '')) { c = ' '; }
     if (GE(SIZE(s), n)) { return s; }
     return DUPL(c, n - SIZE(s))   s;
 }
-procedure pad_right(s, n, c) {
+function pad_right(s, n, c) {
     if (IDENT(c, '')) { c = ' '; }
     if (GE(SIZE(s), n)) { return s; }
     return s   DUPL(c, n - SIZE(s));
 }
-procedure ltrim(s)(ws) {
+function ltrim(s)(ws) {
     ws = ' ';
     while (GT(SIZE(s), 0)) {
         if (SUBSTR(s, 1, 1) ? ANY(ws)) {
@@ -24,7 +24,7 @@ procedure ltrim(s)(ws) {
     }
     return s;
 }
-procedure rtrim(s)(ws, i, ch) {
+function rtrim(s)(ws, i, ch) {
     ws = ' ';
     i = SIZE(s);
     while (GT(i, 0)) {
@@ -37,22 +37,22 @@ procedure rtrim(s)(ws, i, ch) {
     }
     return SUBSTR(s, 1, i);
 }
-procedure trimws(s) {
+function trimws(s) {
     return ltrim(rtrim(s));
 }
-procedure repeat(s, n) {
+function repeat(s, n) {
     return DUPL(s, n);
 }
-procedure contains(s, t) {
+function contains(s, t) {
     if (s ? BREAK(t)   t) { return; } else { freturn; }
 }
-procedure startswith(s, t) {
+function startswith(s, t) {
     if (s ? POS(0)   t) { return; } else { freturn; }
 }
-procedure endswith(s, t) {
+function endswith(s, t) {
     if (s ? t   RPOS(0)) { return; } else { freturn; }
 }
-procedure index(s, t)(ix) {
+function index(s, t)(ix) {
     ix = s;
     if (ix ? BREAK(t) . ix) { return SIZE(ix) + 1; }
     return 0;

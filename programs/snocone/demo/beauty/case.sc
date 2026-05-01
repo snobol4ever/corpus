@@ -1,21 +1,21 @@
 // case.sc — Snocone port of case.sno
 
-procedure lwr(s) {
+function lwr(s) {
     lwr = REPLACE(s, &UCASE, &LCASE);
     return;
 }
 
-procedure upr(s) {
+function upr(s) {
     upr = REPLACE(s, &LCASE, &UCASE);
     return;
 }
 
-procedure cap(s) {
+function cap(s) {
     cap = REPLACE(SUBSTR(s, 1, 1), &LCASE, &UCASE)   REPLACE(SUBSTR(s, 2), &UCASE, &LCASE);
     return;
 }
 
-procedure icase(str,   letter, character) {
+function icase(str,   letter, character) {
     if (~DIFFER(str)) { return; }
     while (DIFFER(str)) {
         letter = '';

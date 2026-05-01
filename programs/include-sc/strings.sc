@@ -6,14 +6,14 @@
 //   Use DIFFER(ch, ' ') instead — works correctly inside loops.
 //   Use a 'found' flag to distinguish "all whitespace" from "no input".
 
-procedure Reverse(s, i, n, out) {
+function Reverse(s, i, n, out) {
     // Return s reversed character by character.
     n = SIZE(s); out = ''; i = n + 1;
     while (GT(i, 1)) { i = i - 1; out = out   SUBSTR(s, i, 1); }
     Reverse = out; return;
 }
 
-procedure TrimLeft(s, i, n, ch, found) {
+function TrimLeft(s, i, n, ch, found) {
     // Strip leading spaces and tabs. Returns '' if all whitespace.
     n = SIZE(s); i = 0; found = 0;
     while (LT(i, n)) {
@@ -25,7 +25,7 @@ procedure TrimLeft(s, i, n, ch, found) {
     return;
 }
 
-procedure TrimRight(s, i, n, ch, found) {
+function TrimRight(s, i, n, ch, found) {
     // Strip trailing spaces and tabs. Returns '' if all whitespace.
     n = SIZE(s); i = n + 1; found = 0;
     while (GT(i, 1)) {
@@ -37,24 +37,24 @@ procedure TrimRight(s, i, n, ch, found) {
     return;
 }
 
-procedure Trim(s) {
+function Trim(s) {
     // Strip leading and trailing whitespace.
     Trim = TrimLeft(TrimRight(s)); return;
 }
 
-procedure StartsWith(s, prefix) {
+function StartsWith(s, prefix) {
     // Succeeds if s begins with prefix; freturns otherwise.
     if (IDENT(SUBSTR(s, 1, SIZE(prefix)), prefix)) { return; } else { freturn; }
 }
 
-procedure EndsWith(s, suffix, n, sn) {
+function EndsWith(s, suffix, n, sn) {
     // Succeeds if s ends with suffix; freturns otherwise.
     n = SIZE(s); sn = SIZE(suffix);
     if (GT(sn, n)) { freturn; }
     if (IDENT(SUBSTR(s, n - sn + 1, sn), suffix)) { return; } else { freturn; }
 }
 
-procedure Split(s, sep, i, n, slen, out_n, start, arr) {
+function Split(s, sep, i, n, slen, out_n, start, arr) {
     // Split s on sep → TABLE arr where arr[0]=count, arr[1..n]=parts.
     n = SIZE(s); slen = SIZE(sep); out_n = 0;
     arr = TABLE(); i = 1; start = 1;
@@ -71,7 +71,7 @@ procedure Split(s, sep, i, n, slen, out_n, start, arr) {
     Split = arr; return;
 }
 
-procedure Join(arr, sep, i, n, out) {
+function Join(arr, sep, i, n, out) {
     // Join arr[1..arr[0]] with sep. arr[0] must be the count.
     n = arr[0]; out = ''; i = 0;
     while (LT(i, n)) {

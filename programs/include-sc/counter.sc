@@ -6,30 +6,30 @@
 struct link_counter { next, value }
 struct link_tag { next, value }
 
-procedure InitCounter() {
+function InitCounter() {
     $'#N' = '';
     return;
 }
 
-procedure PushCounter() {
+function PushCounter() {
     $'#N' = link_counter($'#N', 0);
     PushCounter = .dummy;
     nreturn;
 }
 
-procedure IncCounter() {
+function IncCounter() {
     value($'#N') = value($'#N') + 1;
     IncCounter = .dummy;
     nreturn;
 }
 
-procedure DecCounter() {
+function DecCounter() {
     value($'#N') = value($'#N') - 1;
     DecCounter = .dummy;
     nreturn;
 }
 
-procedure PopCounter() {
+function PopCounter() {
     if (DIFFER($'#N')) {
         $'#N' = next($'#N');
         PopCounter = .dummy;
@@ -39,7 +39,7 @@ procedure PopCounter() {
     }
 }
 
-procedure TopCounter() {
+function TopCounter() {
     if (DIFFER($'#N')) {
         TopCounter = value($'#N');
         return;
@@ -50,12 +50,12 @@ procedure TopCounter() {
 
 // --- Tag stacks ---
 
-procedure InitBegTag() {
+function InitBegTag() {
     $'@B' = '';
     return;
 }
 
-procedure PushBegTag(t) {
+function PushBegTag(t) {
     $'@B' = link_tag($'@B', upr(t));
     if (IDENT(t, '')) {
         PushBegTag = .value($'@B');
@@ -66,7 +66,7 @@ procedure PushBegTag(t) {
     }
 }
 
-procedure PopBegTag() {
+function PopBegTag() {
     if (DIFFER($'@B')) {
         $'@B' = next($'@B');
         PopBegTag = .dummy;
@@ -76,7 +76,7 @@ procedure PopBegTag() {
     }
 }
 
-procedure TopBegTag() {
+function TopBegTag() {
     if (DIFFER($'@B')) {
         TopBegTag = value($'@B');
         return;
@@ -85,12 +85,12 @@ procedure TopBegTag() {
     }
 }
 
-procedure InitEndTag() {
+function InitEndTag() {
     $'@E' = '';
     return;
 }
 
-procedure PushEndTag(t) {
+function PushEndTag(t) {
     $'@E' = link_tag($'@E', upr(t));
     if (IDENT(t, '')) {
         PushEndTag = .value($'@E');
@@ -101,7 +101,7 @@ procedure PushEndTag(t) {
     }
 }
 
-procedure PopEndTag() {
+function PopEndTag() {
     if (DIFFER($'@E')) {
         $'@E' = next($'@E');
         PopEndTag = .dummy;
@@ -111,7 +111,7 @@ procedure PopEndTag() {
     }
 }
 
-procedure TopEndTag() {
+function TopEndTag() {
     if (DIFFER($'@E')) {
         TopEndTag = value($'@E');
         return;

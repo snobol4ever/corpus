@@ -1,5 +1,5 @@
 // A13_define_recursive_fib.sc — recursive Fibonacci
-procedure fib(n) {
+function fib(n) {
     if (LE(n, 1)) { return n; }
     return fib(n - 1) + fib(n - 2);
 }

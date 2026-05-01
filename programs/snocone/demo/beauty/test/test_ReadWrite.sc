@@ -1,7 +1,7 @@
 // driver.sc — test driver for ReadWrite.sc (Snocone)
 nl = CHAR(10);
 
-procedure LineMap(str, lmMapName, lmLineNo, lmMap, lmAbs, i, n, ch) {
+function LineMap(str, lmMapName, lmLineNo, lmMap, lmAbs, i, n, ch) {
     lmMap = TABLE(); lmLineNo = 1; lmAbs = 0; n = SIZE(str);
     lmMap[0] = lmLineNo; i = 0;
     while (1) {
@@ -16,8 +16,8 @@ procedure LineMap(str, lmMapName, lmLineNo, lmMap, lmAbs, i, n, ch) {
     $lmMapName = lmMap; return;
 }
 
-procedure Read(fileName, rdMapName) { freturn; }
-procedure Write(fileName, fileStr)  { freturn; }
+function Read(fileName, rdMapName) { freturn; }
+function Write(fileName, fileStr)  { freturn; }
 
 &STLIMIT = 1000000;
 

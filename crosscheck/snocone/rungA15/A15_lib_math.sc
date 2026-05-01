@@ -2,24 +2,24 @@
 // Snocone translation of crosscheck/library/test_math.sno + lib/math.sno
 &TRIM = 1;
 
-procedure max(a, b) {
+function max(a, b) {
     if (LT(a, b)) { return b; }
     return a;
 }
-procedure min(a, b) {
+function min(a, b) {
     if (GT(a, b)) { return b; }
     return a;
 }
-procedure abs(n) {
+function abs(n) {
     if (LT(n, 0)) { return -n; }
     return n;
 }
-procedure sign(n) {
+function sign(n) {
     if (LT(n, 0)) { return -1; }
     if (GT(n, 0)) { return 1; }
     return 0;
 }
-procedure gcd(a, b)(r) {
+function gcd(a, b)(r) {
     while (DIFFER(b, 0)) {
         r = REMDR(a, b);
         a = b;
@@ -27,7 +27,7 @@ procedure gcd(a, b)(r) {
     }
     return a;
 }
-procedure lcm(a, b)(g) {
+function lcm(a, b)(g) {
     g = gcd(a, b);
     return (a / g) * b;
 }

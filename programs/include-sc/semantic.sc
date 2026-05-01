@@ -5,8 +5,8 @@
 
 epsilon = '';
 
-procedure nPush() { nPush = epsilon . *PushCounter(); return; }
-procedure nInc()  { nInc  = epsilon . *IncCounter();  return; }
-procedure nDec()  { nDec  = epsilon . *DecCounter();  return; }
-procedure nTop()  { nTop  = TopCounter(); return; }
-procedure nPop()  { nPop  = epsilon . *PopCounter();  return; }
+function nPush() { nPush = epsilon . *PushCounter(); return; }
+function nInc()  { nInc  = epsilon . *IncCounter();  return; }
+function nDec()  { nDec  = epsilon . *DecCounter();  return; }
+function nTop()  { nTop  = TopCounter(); return; }
+function nPop()  { nPop  = epsilon . *PopCounter();  return; }

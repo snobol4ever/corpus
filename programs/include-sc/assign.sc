@@ -2,7 +2,7 @@
 // Conditional assignment during pattern matching.
 // pattern . *assign(name, expression)
 
-procedure assign(name, expression) {
+function assign(name, expression) {
     assign = .dummy;
     if (IDENT(DATATYPE(expression), 'EXPRESSION')) {
         $name = EVAL(expression);

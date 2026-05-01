@@ -4,15 +4,15 @@
 struct link_counter { next, value }
 xTrace = 0;
 
-procedure InitCounter() { $'#N' = ''; return; }
-procedure PushCounter() { $'#N' = link_counter($'#N', 0); PushCounter = .dummy; nreturn; }
-procedure IncCounter()  { value($'#N') = value($'#N') + 1; IncCounter = .dummy; nreturn; }
-procedure DecCounter()  { value($'#N') = value($'#N') - 1; DecCounter = .dummy; nreturn; }
-procedure PopCounter() {
+function InitCounter() { $'#N' = ''; return; }
+function PushCounter() { $'#N' = link_counter($'#N', 0); PushCounter = .dummy; nreturn; }
+function IncCounter()  { value($'#N') = value($'#N') + 1; IncCounter = .dummy; nreturn; }
+function DecCounter()  { value($'#N') = value($'#N') - 1; DecCounter = .dummy; nreturn; }
+function PopCounter() {
     if (DIFFER($'#N')) { $'#N' = next($'#N'); PopCounter = .dummy; nreturn; }
     else { freturn; }
 }
-procedure TopCounter() {
+function TopCounter() {
     if (DIFFER($'#N')) { TopCounter = value($'#N'); return; }
     else { freturn; }
 }

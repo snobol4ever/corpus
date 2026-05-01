@@ -5,15 +5,15 @@
 DATA('slink(snext, sval)');
 stk = '';
 
-procedure stack_init() {
+function stack_init() {
     stk = '';
     return;
 }
-procedure stack_push(x) {
+function stack_push(x) {
     stk = slink(stk, x);
     return;
 }
-procedure stack_pop()(val) {
+function stack_pop()(val) {
     if (DIFFER(stk)) {
         val = sval(stk);
         stk = snext(stk);
@@ -21,11 +21,11 @@ procedure stack_pop()(val) {
     }
     freturn;
 }
-procedure stack_peek() {
+function stack_peek() {
     if (DIFFER(stk)) { return sval(stk); }
     freturn;
 }
-procedure stack_depth()(sd, n) {
+function stack_depth()(sd, n) {
     n = 0;
     sd = stk;
     while (DIFFER(sd)) {

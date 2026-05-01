@@ -6,7 +6,7 @@
 
 t8MaxLast = 0;
 
-procedure T8Trace(lvl, str, ofs,   t8p) {
+function T8Trace(lvl, str, ofs,   t8p) {
     T8Trace = .dummy;
     if (~GT(doDebug, 0))      { nreturn; }
     if (~LE(lvl, doDebug))    { nreturn; }
@@ -28,7 +28,7 @@ procedure T8Trace(lvl, str, ofs,   t8p) {
     nreturn;
 }
 
-procedure T8Pos(t8Ofs, t8Map,   i) {
+function T8Pos(t8Ofs, t8Map,   i) {
     if (IDENT(t8Map)) { T8Pos = LPAD(t8Ofs, 8); return; }
     i = +t8Ofs;
     if (GT(t8Ofs, t8Max)) { t8Max = +t8Ofs; }

@@ -7,14 +7,14 @@
 DIGITS  = '0123456789';
 UCASE   = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 //------------------------------------------------------------------------------
-procedure new_sent() {
+function new_sent() {
     sentno      = +num;
     mem[sentno] = TABLE();
     new_sent    = .dummy;
     nreturn;
 }
 //------------------------------------------------------------------------------
-procedure add_tok() {
+function add_tok() {
     if (DIFFER(mem[sentno][wrd])) mem[sentno][wrd] = TABLE();
     if (DIFFER(mem[sentno][wrd][tag])) mem[sentno][wrd][tag] = 1;
     else mem[sentno][wrd][tag] = mem[sentno][wrd][tag] + 1;
@@ -22,7 +22,7 @@ procedure add_tok() {
     nreturn;
 }
 //------------------------------------------------------------------------------
-procedure pp_mem(mem,
+function pp_mem(mem,
         ssk, si, sentno, wsk, wi, wkey, wq, wrd,
         tsk, ti, tag, tv, tline, pfx, pad,
         next_wkey, last_sent, lline, ns) {

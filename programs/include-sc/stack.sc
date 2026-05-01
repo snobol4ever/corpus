@@ -6,12 +6,12 @@
 
 struct link { next, value }
 
-procedure InitStack() {
+function InitStack() {
     $'@S' = '';
     return;
 }
 
-procedure Push(x) {
+function Push(x) {
     $'@S' = link($'@S', x);
     if (IDENT(x, '')) {
         Push = .value($'@S');
@@ -22,7 +22,7 @@ procedure Push(x) {
     }
 }
 
-procedure Pop(var) {
+function Pop(var) {
     if (~DIFFER($'@S')) { freturn; }
     if (IDENT(var, '')) {
         Pop = value($'@S');
@@ -36,7 +36,7 @@ procedure Pop(var) {
     }
 }
 
-procedure Top() {
+function Top() {
     if (~DIFFER($'@S')) { freturn; }
     Top = .value($'@S');
     nreturn;

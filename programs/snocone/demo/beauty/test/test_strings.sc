@@ -1,33 +1,33 @@
 // driver.sc — test driver for strings.sc
 
-procedure Reverse(s, i, n, out) {
+function Reverse(s, i, n, out) {
     n = SIZE(s); out = ''; i = n + 1;
     while (GT(i, 1)) { i = i - 1; out = out   SUBSTR(s, i, 1); }
     Reverse = out; return;
 }
-procedure TrimLeft(s, i, n, ch, found) {
+function TrimLeft(s, i, n, ch, found) {
     n = SIZE(s); i = 0; found = 0;
     while (LT(i, n)) { i = i + 1; ch = SUBSTR(s, i, 1);
         if (DIFFER(ch, ' ')   DIFFER(ch, CHAR(9))) { found = 1; break; } }
     if (IDENT(found, 0)) { TrimLeft = ''; } else { TrimLeft = SUBSTR(s, i); }
     return;
 }
-procedure TrimRight(s, i, n, ch, found) {
+function TrimRight(s, i, n, ch, found) {
     n = SIZE(s); i = n + 1; found = 0;
     while (GT(i, 1)) { i = i - 1; ch = SUBSTR(s, i, 1);
         if (DIFFER(ch, ' ')   DIFFER(ch, CHAR(9))) { found = 1; break; } }
     if (IDENT(found, 0)) { TrimRight = ''; } else { TrimRight = SUBSTR(s, 1, i); }
     return;
 }
-procedure Trim(s) { Trim = TrimLeft(TrimRight(s)); return; }
-procedure StartsWith(s, prefix) {
+function Trim(s) { Trim = TrimLeft(TrimRight(s)); return; }
+function StartsWith(s, prefix) {
     if (IDENT(SUBSTR(s, 1, SIZE(prefix)), prefix)) { return; } else { freturn; }
 }
-procedure EndsWith(s, suffix, n, sn) {
+function EndsWith(s, suffix, n, sn) {
     n = SIZE(s); sn = SIZE(suffix); if (GT(sn, n)) { freturn; }
     if (IDENT(SUBSTR(s, n - sn + 1, sn), suffix)) { return; } else { freturn; }
 }
-procedure Split(s, sep, i, n, slen, out_n, start, arr) {
+function Split(s, sep, i, n, slen, out_n, start, arr) {
     n = SIZE(s); slen = SIZE(sep); out_n = 0;
     arr = TABLE(); i = 1; start = 1;
     while (LE(i, n)) {
@@ -39,7 +39,7 @@ procedure Split(s, sep, i, n, slen, out_n, start, arr) {
     out_n = out_n + 1; arr[out_n] = SUBSTR(s, start, n - start + 1);
     arr[0] = out_n; Split = arr; return;
 }
-procedure Join(arr, sep, i, n, out) {
+function Join(arr, sep, i, n, out) {
     n = arr[0]; out = ''; i = 0;
     while (LT(i, n)) { i = i + 1;
         if (GT(i, 1)) { out = out   sep; }

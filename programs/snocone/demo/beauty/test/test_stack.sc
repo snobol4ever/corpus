@@ -2,18 +2,18 @@
 struct link { next, value }
 xTrace = 0;
 
-procedure InitStack() { $'@S' = ''; return; }
-procedure Push(x) {
+function InitStack() { $'@S' = ''; return; }
+function Push(x) {
     $'@S' = link($'@S', x);
     if (IDENT(x, '')) { Push = .value($'@S'); nreturn; }
     else { Push = .dummy; nreturn; }
 }
-procedure Pop(var) {
+function Pop(var) {
     if (~DIFFER($'@S')) { freturn; }
     if (IDENT(var, '')) { Pop = value($'@S'); $'@S' = next($'@S'); return; }
     else { $var = value($'@S'); $'@S' = next($'@S'); Pop = .dummy; nreturn; }
 }
-procedure Top() {
+function Top() {
     if (~DIFFER($'@S')) { freturn; }
     Top = .value($'@S');
     nreturn;

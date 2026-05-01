@@ -1,7 +1,7 @@
-procedure count_down(n) {
+function count_down(n) {
     total = 0;
     i = n;
-    while (i > 0) do {
+    while (i > 0) {
         total = total + i;
         i = i - 1;
     }

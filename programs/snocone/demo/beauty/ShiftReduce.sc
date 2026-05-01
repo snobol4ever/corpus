@@ -31,7 +31,7 @@
 //   does not arise in the beauty pipeline and is documented here for
 //   future Snocone-EVAL-failure-detection work.
 
-procedure Shift(t, v,   s) {
+function Shift(t, v,   s) {
     v ? (POS(0)   whitespace) = ;
     s = tree(t, v, '', '');
     Push(s);
@@ -40,7 +40,7 @@ procedure Shift(t, v,   s) {
     else          { Shift = .dummy; nreturn; }
 }
 
-procedure Reduce(t, n,   c, i, r) {
+function Reduce(t, n,   c, i, r) {
     Reduce = .dummy;
     if (IDENT(REPLACE(DATATYPE(t), &LCASE, &UCASE), 'EXPRESSION')) {
         t = EVAL(t);

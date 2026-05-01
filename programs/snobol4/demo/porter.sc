@@ -12,7 +12,7 @@ LC      = 'abcdefghijklmnopqrstuvwxyz';
 // ---------------------------------------------------------------------------------------------------------
 // cons(i): true if stem[i] is a consonant. Letters 1-indexed.
 // ---------------------------------------------------------------------------------------------------------
-procedure cons(i) (c) {
+function cons(i) (c) {
     c = SUBSTR(stem, i, 1);
     if (c ? ANY(VOWELS)) { freturn; }
     if (DIFFER(c, 'y'))  { return; }
@@ -23,7 +23,7 @@ procedure cons(i) (c) {
 // ---------------------------------------------------------------------------------------------------------
 // m(): Porter's measure -- the number of VC sequences in 'stem'.
 // ---------------------------------------------------------------------------------------------------------
-procedure m() (i, n, L) {
+function m() (i, n, L) {
     L = SIZE(stem);
     if (EQ(L, 0)) { m = 0; return; }
     i = 1;
@@ -50,7 +50,7 @@ mC:
 // ---------------------------------------------------------------------------------------------------------
 // vowelinstem(): true if any char of stem is a vowel (y after consonant counts).
 // ---------------------------------------------------------------------------------------------------------
-procedure vowelinstem() (i, L) {
+function vowelinstem() (i, L) {
     L = SIZE(stem);
     i = 1;
 visL:
@@ -62,7 +62,7 @@ visL:
 // ---------------------------------------------------------------------------------------------------------
 // doublec(j): stem[j] == stem[j-1] and both consonants.
 // ---------------------------------------------------------------------------------------------------------
-procedure doublec(j) {
+function doublec(j) {
     if (LT(j, 2)) { freturn; }
     if (DIFFER(SUBSTR(stem, j, 1), SUBSTR(stem, j - 1, 1))) { freturn; }
     if (cons(j))  { return; } else { freturn; }
@@ -71,7 +71,7 @@ procedure doublec(j) {
 // ---------------------------------------------------------------------------------------------------------
 // cvc(i): stem[i-2..i] = c-v-c and stem[i] not in {w,x,y}.
 // ---------------------------------------------------------------------------------------------------------
-procedure cvc(i) (c) {
+function cvc(i) (c) {
     if (LT(i, 3))     { freturn; }
     if (cons(i))      { } else { freturn; }
     if (cons(i - 1))  { freturn; }
@@ -84,46 +84,46 @@ procedure cvc(i) (c) {
 // Guards -- pattern-valued. Return null pattern on success, FAIL on failure.
 // Called as *gX() inside a pattern.
 // ---------------------------------------------------------------------------------------------------------
-procedure g_vis() {
+function g_vis() {
     if (vowelinstem()) { g_vis = ; return; }
     g_vis = FAIL; return;
 }
 
-procedure g_m_gt_0() {
+function g_m_gt_0() {
     if (GT(m(), 0)) { g_m_gt_0 = ; return; }
     g_m_gt_0 = FAIL; return;
 }
 
-procedure g_m_gt_1() {
+function g_m_gt_1() {
     if (GT(m(), 1)) { g_m_gt_1 = ; return; }
     g_m_gt_1 = FAIL; return;
 }
 
-procedure g_m_eq_1() {
+function g_m_eq_1() {
     if (EQ(m(), 1)) { g_m_eq_1 = ; return; }
     g_m_eq_1 = FAIL; return;
 }
 
-procedure g_not_cvc_last() (L) {
+function g_not_cvc_last() (L) {
     L = SIZE(stem);
     if (cvc(L)) { g_not_cvc_last = FAIL; return; }
     g_not_cvc_last = ; return;
 }
 
-procedure g_stem_not_m() (L) {
+function g_stem_not_m() (L) {
     L = SIZE(stem);
     if (DIFFER(SUBSTR(stem, L, 1), 'm')) { g_stem_not_m = ; return; }
     g_stem_not_m = FAIL; return;
 }
 
-procedure g_stem_last_st() (L, last) {
+function g_stem_last_st() (L, last) {
     L = SIZE(stem);
     last = SUBSTR(stem, L, 1);
     if (last ? ANY('st')) { g_stem_last_st = ; return; }
     g_stem_last_st = FAIL; return;
 }
 
-procedure g_m_ll_gt_1() (save, r) {
+function g_m_ll_gt_1() (save, r) {
     save = stem;
     stem = save   'll';
     r = m();
@@ -135,28 +135,28 @@ procedure g_m_ll_gt_1() (save, r) {
 // ---------------------------------------------------------------------------------------------------------
 // Action setters. Each sets target (and sometimes stem) at commit time.
 // ---------------------------------------------------------------------------------------------------------
-procedure s_ss()    { target = 'ss';   s_ss    = .dummy; nreturn; }
-procedure s_i()     { target = 'i';    s_i     = .dummy; nreturn; }
-procedure s_empty() { target = ;       s_empty = .dummy; nreturn; }
-procedure s_ee()    { target = 'ee';   s_ee    = .dummy; nreturn; }
-procedure s_ate()   { target = 'ate';  s_ate   = .dummy; nreturn; }
-procedure s_tion()  { target = 'tion'; s_tion  = .dummy; nreturn; }
-procedure s_ence()  { target = 'ence'; s_ence  = .dummy; nreturn; }
-procedure s_ance()  { target = 'ance'; s_ance  = .dummy; nreturn; }
-procedure s_ize()   { target = 'ize';  s_ize   = .dummy; nreturn; }
-procedure s_ble()   { target = 'ble';  s_ble   = .dummy; nreturn; }
-procedure s_al()    { target = 'al';   s_al    = .dummy; nreturn; }
-procedure s_ent()   { target = 'ent';  s_ent   = .dummy; nreturn; }
-procedure s_e()     { target = 'e';    s_e     = .dummy; nreturn; }
-procedure s_ous()   { target = 'ous';  s_ous   = .dummy; nreturn; }
-procedure s_ive()   { target = 'ive';  s_ive   = .dummy; nreturn; }
-procedure s_ful()   { target = 'ful';  s_ful   = .dummy; nreturn; }
-procedure s_log()   { target = 'log';  s_log   = .dummy; nreturn; }
-procedure s_ic()    { target = 'ic';   s_ic    = .dummy; nreturn; }
-procedure s_l()     { target = 'l';    s_l     = .dummy; nreturn; }
+function s_ss()    { target = 'ss';   s_ss    = .dummy; nreturn; }
+function s_i()     { target = 'i';    s_i     = .dummy; nreturn; }
+function s_empty() { target = ;       s_empty = .dummy; nreturn; }
+function s_ee()    { target = 'ee';   s_ee    = .dummy; nreturn; }
+function s_ate()   { target = 'ate';  s_ate   = .dummy; nreturn; }
+function s_tion()  { target = 'tion'; s_tion  = .dummy; nreturn; }
+function s_ence()  { target = 'ence'; s_ence  = .dummy; nreturn; }
+function s_ance()  { target = 'ance'; s_ance  = .dummy; nreturn; }
+function s_ize()   { target = 'ize';  s_ize   = .dummy; nreturn; }
+function s_ble()   { target = 'ble';  s_ble   = .dummy; nreturn; }
+function s_al()    { target = 'al';   s_al    = .dummy; nreturn; }
+function s_ent()   { target = 'ent';  s_ent   = .dummy; nreturn; }
+function s_e()     { target = 'e';    s_e     = .dummy; nreturn; }
+function s_ous()   { target = 'ous';  s_ous   = .dummy; nreturn; }
+function s_ive()   { target = 'ive';  s_ive   = .dummy; nreturn; }
+function s_ful()   { target = 'ful';  s_ful   = .dummy; nreturn; }
+function s_log()   { target = 'log';  s_log   = .dummy; nreturn; }
+function s_ic()    { target = 'ic';   s_ic    = .dummy; nreturn; }
+function s_l()     { target = 'l';    s_l     = .dummy; nreturn; }
 
 // step1ab_cleanup -- commit-time action that sets target and may mutate stem.
-procedure a_s1ab_cleanup() (L, last, P) {
+function a_s1ab_cleanup() (L, last, P) {
     L = SIZE(stem);
     P = RTAB(2)   ('at' | 'bl' | 'iz')   RPOS(0);
     if (stem ? P) { target = 'e'; goto a_s1_done; }
@@ -284,7 +284,7 @@ p5b =
 // ---------------------------------------------------------------------------------------------------------
 // stemmer(token): run the Porter pipeline.
 // ---------------------------------------------------------------------------------------------------------
-procedure stemmer(token) {
+function stemmer(token) {
     if (LE(SIZE(token), 2)) { stemmer = token; return; }
     token = REPLACE(token, &UCASE, LC);
 

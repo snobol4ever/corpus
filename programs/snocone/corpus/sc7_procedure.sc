@@ -1,7 +1,7 @@
-procedure square(n) {
+function square(n) {
     return n * n;
 }
-procedure cube(n) {
+function cube(n) {
     return n * square(n);
 }
 OUTPUT = square(7);

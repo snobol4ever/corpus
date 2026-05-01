@@ -1,5 +1,5 @@
 // A13_define_freturn.sc — function fails via freturn, caller handles :F
-procedure ispos(x) {
+function ispos(x) {
     if (GT(x, 0)) { return; } else { freturn; }
 }
 if (ispos(5)) {

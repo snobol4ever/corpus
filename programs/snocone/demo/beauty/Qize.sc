@@ -18,20 +18,20 @@
 //     can never appear inside a SNOBOL4 string literal and must be emitted
 //     via their named CHAR-vars.
 
-procedure LEQ(a, b) {
+function LEQ(a, b) {
     if (~DIFFER(a, b)) { LEQ = a; return; }
     if (LLT(a, b))     { LEQ = a; return; }
     freturn;
 }
 
-procedure Ucvt(hex2) {
+function Ucvt(hex2) {
     Ucvt = CHAR(INTEGER('0X'   hex2));
     return;
 }
 
 QizeWierd = bSlash   bs   ff   nl   cr   tab;
 
-procedure Qize(str,   part) {
+function Qize(str,   part) {
     if (~DIFFER(str)) { Qize = "''"; return; }
     while (DIFFER(str)) {
         if (DIFFER(Qize)) { Qize = Qize   ' '; }
@@ -74,7 +74,7 @@ procedure Qize(str,   part) {
     return;
 }
 
-procedure SQize(str,   part) {
+function SQize(str,   part) {
     if (~DIFFER(str)) { return; }
     while (DIFFER(str)) {
         if (DIFFER(SQize)) { SQize = SQize   ' '; }
@@ -90,7 +90,7 @@ procedure SQize(str,   part) {
     return;
 }
 
-procedure DQize(str,   part) {
+function DQize(str,   part) {
     if (~DIFFER(str)) { return; }
     while (DIFFER(str)) {
         if (DIFFER(DQize)) { DQize = DQize   ' '; }
@@ -106,7 +106,7 @@ procedure DQize(str,   part) {
     return;
 }
 
-procedure SqlSQize(str,   part) {
+function SqlSQize(str,   part) {
     SqlSQize = '';
     while (DIFFER(str)) {
         part = '';
@@ -120,7 +120,7 @@ procedure SqlSQize(str,   part) {
     return;
 }
 
-procedure Intize(qqstr,   iq, qqdlm) {
+function Intize(qqstr,   iq, qqdlm) {
     Intize = '';
     qqdlm = '';
     if (~(qqstr ? (POS(0)   ("'" | '"') . qqdlm) = )) { freturn; }
@@ -157,6 +157,6 @@ procedure Intize(qqstr,   iq, qqdlm) {
     }
 }
 
-procedure Extize(str) {
+function Extize(str) {
     return;
 }

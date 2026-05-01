@@ -11,7 +11,7 @@
 //     success (a Snocone emitter property). Use positive-form match instead
 //     with an explicit else branch.
 
-procedure Read(fileName, rdMapName,   rdInput, rdIn, rdLine, rdLineNo, rdMap, rdOfs) {
+function Read(fileName, rdMapName,   rdInput, rdIn, rdLine, rdLineNo, rdMap, rdOfs) {
     if (~input__(.rdInput, 8, '', fileName)) { freturn; }
     rdMap    = TABLE();
     rdOfs    = 0;
@@ -39,7 +39,7 @@ procedure Read(fileName, rdMapName,   rdInput, rdIn, rdLine, rdLineNo, rdMap, rd
     }
 }
 
-procedure Write(fileName, fileStr,   wrLine, wrOutput) {
+function Write(fileName, fileStr,   wrLine, wrOutput) {
     if (~output__(.wrOutput, 8, '', fileName)) { freturn; }
     while (1) {
         if (fileStr ? (POS(0)   RPOS(0))) {
@@ -63,7 +63,7 @@ procedure Write(fileName, fileStr,   wrLine, wrOutput) {
     }
 }
 
-procedure LineMap(str, lmMapName,   lmLineNo, lmMap, lmOfs, xOfs) {
+function LineMap(str, lmMapName,   lmLineNo, lmMap, lmOfs, xOfs) {
     lmMap    = TABLE();
     lmOfs    = 0;
     lmLineNo = 1;

@@ -8,7 +8,7 @@
 //   Snocone rewrite: iterative left-to-right with explicit place symbols.
 //   More readable and avoids subject replacement entirely.
 
-procedure Roman(n, s, i, len, d, place, ones, fives, tens, result) {
+function Roman(n, s, i, len, d, place, ones, fives, tens, result) {
     s = CONVERT(n, 'STRING');
     len = SIZE(s);
     result = '';

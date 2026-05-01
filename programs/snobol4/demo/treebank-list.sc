@@ -6,7 +6,7 @@
 //------------------------------------------------------------------------------
 DATA('list(head,tail)');
 //------------------------------------------------------------------------------
-procedure list_reverse(lst, acc, cur) {
+function list_reverse(lst, acc, cur) {
     acc = '';
     cur = lst;
     while (DIFFER(cur)) {
@@ -17,19 +17,19 @@ procedure list_reverse(lst, acc, cur) {
     return;
 }
 //------------------------------------------------------------------------------
-procedure stk_push_frame(v) {
+function stk_push_frame(v) {
     stk = list(list(v, ''), stk);
     stk_push_frame = .dummy;
     return;
 }
 //------------------------------------------------------------------------------
-procedure stk_push_item(v) {
+function stk_push_item(v) {
     head(stk) = list(v, head(stk));
     stk_push_item = .dummy;
     return;
 }
 //------------------------------------------------------------------------------
-procedure stk_pop_into_parent(child) {
+function stk_pop_into_parent(child) {
     child = list_reverse(head(stk));
     stk = tail(stk);
     head(stk) = list(child, head(stk));
@@ -37,24 +37,24 @@ procedure stk_pop_into_parent(child) {
     return;
 }
 //------------------------------------------------------------------------------
-procedure stk_pop_final(var) {
+function stk_pop_final(var) {
     $var          = list_reverse(head(stk));
     stk           = tail(stk);
     stk_pop_final = .dummy;
     return;
 }
 //------------------------------------------------------------------------------
-procedure init_list(v) {
+function init_list(v) {
     $v        = '';
     stk       = '';
     init_list = .dummy;
     nreturn;
 }
 //------------------------------------------------------------------------------
-procedure push_list(v) { stk_push_frame(v);     push_list = .dummy; nreturn; }
-procedure push_item(v) { stk_push_item(v);      push_item = .dummy; nreturn; }
-procedure pop_list()   { stk_pop_into_parent(); pop_list  = .dummy; nreturn; }
-procedure pop_final(v) { stk_pop_final(v);      pop_final = .dummy; nreturn; }
+function push_list(v) { stk_push_frame(v);     push_list = .dummy; nreturn; }
+function push_item(v) { stk_push_item(v);      push_item = .dummy; nreturn; }
+function pop_list()   { stk_pop_into_parent(); pop_list  = .dummy; nreturn; }
+function pop_final(v) { stk_pop_final(v);      pop_final = .dummy; nreturn; }
 //------------------------------------------------------------------------------
 delim  = SPAN(' '   nl);
 word   = NOTANY('( )'   nl)   BREAK('( )'   nl);
@@ -84,7 +84,7 @@ treebank =
       (epsilon . *pop_final('bank'))
       RPOS(0);
 //------------------------------------------------------------------------------
-procedure node_repr(node,   r, sep, c) {
+function node_repr(node,   r, sep, c) {
     if (IDENT(REPLACE(DATATYPE(node), &LCASE, &UCASE), 'STRING')) {
         node_repr = "'"   node   "'";
         return;
@@ -101,7 +101,7 @@ procedure node_repr(node,   r, sep, c) {
     return;
 }
 //------------------------------------------------------------------------------
-procedure pp_node(node, indent, suffix,   r, pad, c, nxt) {
+function pp_node(node, indent, suffix,   r, pad, c, nxt) {
     r = node_repr(node);
     pad = DUPL(' ', indent);
     if (GT(80, indent + SIZE(r))) {
@@ -118,7 +118,7 @@ procedure pp_node(node, indent, suffix,   r, pad, c, nxt) {
     return;
 }
 //------------------------------------------------------------------------------
-procedure pp_bank() { pp_node(bank, 0, ''); return; }
+function pp_bank() { pp_node(bank, 0, ''); return; }
 //------------------------------------------------------------------------------
 src = '';
 while (line = INPUT)

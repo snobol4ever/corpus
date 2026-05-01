@@ -3,29 +3,29 @@ struct tree { t, v, n, c }
 struct link { next, value }
 xTrace = 0;
 
-procedure InitStack() { $'@S' = ''; return; }
-procedure Push(x) {
+function InitStack() { $'@S' = ''; return; }
+function Push(x) {
     $'@S' = link($'@S', x);
     if (IDENT(x, '')) { Push = .value($'@S'); nreturn; }
     else { Push = .dummy; nreturn; }
 }
-procedure Pop(var) {
+function Pop(var) {
     if (~DIFFER($'@S')) { freturn; }
     if (IDENT(var, '')) { Pop = value($'@S'); $'@S' = next($'@S'); return; }
     else { $var = value($'@S'); $'@S' = next($'@S'); Pop = .dummy; nreturn; }
 }
-procedure Top() {
+function Top() {
     if (~DIFFER($'@S')) { freturn; }
     Top = .value($'@S'); nreturn;
 }
 
-procedure Shift(t, v) {
+function Shift(t, v) {
     _s = tree(t, v, 0, '');
     Push(_s);
     if (IDENT(v, '')) { Shift = .value(_s); nreturn; }
     else { Shift = .dummy; nreturn; }
 }
-procedure Reduce(t, n, c, i, r) {
+function Reduce(t, n, c, i, r) {
     Reduce = .dummy;
     if (GE(n, 1)) { c = ARRAY('1:'   n); } else { c = ''; }
     i = n + 1;

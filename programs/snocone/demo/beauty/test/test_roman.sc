@@ -1,5 +1,5 @@
 // driver.sc — test driver for roman.sc
-procedure Roman(n, s, i, len, d, place, ones, fives, tens, result) {
+function Roman(n, s, i, len, d, place, ones, fives, tens, result) {
     s = CONVERT(n, 'STRING'); len = SIZE(s); result = ''; i = 0;
     while (LT(i, len)) {
         i = i + 1; d = INTEGER(SUBSTR(s, i, 1)); place = len - i;

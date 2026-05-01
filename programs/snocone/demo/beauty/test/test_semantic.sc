@@ -3,22 +3,22 @@ struct link_counter { next, value }
 xTrace = 0;
 epsilon = '';
 
-procedure InitCounter() { $'#N' = ''; return; }
-procedure PushCounter() { $'#N' = link_counter($'#N', 0); PushCounter = .dummy; nreturn; }
-procedure IncCounter()  { value($'#N') = value($'#N') + 1; IncCounter = .dummy; nreturn; }
-procedure DecCounter()  { value($'#N') = value($'#N') - 1; DecCounter = .dummy; nreturn; }
-procedure PopCounter() {
+function InitCounter() { $'#N' = ''; return; }
+function PushCounter() { $'#N' = link_counter($'#N', 0); PushCounter = .dummy; nreturn; }
+function IncCounter()  { value($'#N') = value($'#N') + 1; IncCounter = .dummy; nreturn; }
+function DecCounter()  { value($'#N') = value($'#N') - 1; DecCounter = .dummy; nreturn; }
+function PopCounter() {
     if (DIFFER($'#N')) { $'#N' = next($'#N'); PopCounter = .dummy; nreturn; } else { freturn; }
 }
-procedure TopCounter() {
+function TopCounter() {
     if (DIFFER($'#N')) { TopCounter = value($'#N'); return; } else { freturn; }
 }
 
-procedure nPush() { nPush = epsilon . *PushCounter(); return; }
-procedure nInc()  { nInc  = epsilon . *IncCounter();  return; }
-procedure nDec()  { nDec  = epsilon . *DecCounter();  return; }
-procedure nTop()  { nTop  = TopCounter(); return; }
-procedure nPop()  { nPop  = epsilon . *PopCounter();  return; }
+function nPush() { nPush = epsilon . *PushCounter(); return; }
+function nInc()  { nInc  = epsilon . *IncCounter();  return; }
+function nDec()  { nDec  = epsilon . *DecCounter();  return; }
+function nTop()  { nTop  = TopCounter(); return; }
+function nPop()  { nPop  = epsilon . *PopCounter();  return; }
 
 &STLIMIT = 1000000;
 InitCounter();

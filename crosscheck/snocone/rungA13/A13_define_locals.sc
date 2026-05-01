@@ -1,5 +1,5 @@
 // A13_define_locals.sc — function with local variable
-procedure swap(a, b)(tmp) {
+function swap(a, b)(tmp) {
     tmp = a;
     a = b;
     b = tmp;

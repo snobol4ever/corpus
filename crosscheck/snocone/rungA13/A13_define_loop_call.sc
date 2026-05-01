@@ -1,5 +1,5 @@
 // A13_define_loop_call.sc — function called in loop, concat results
-procedure bump(v) {
+function bump(v) {
     return v + 1;
 }
 s = '';

@@ -1,12 +1,12 @@
 // driver.sc — test driver for match.sc (Snocone)
 // Oracle: compare to beauty_match_driver.ref
 
-procedure match(subject, pattern) {
+function match(subject, pattern) {
     match = .dummy;
     if (subject ? pattern) { nreturn; } else { freturn; }
 }
 
-procedure notmatch(subject, pattern) {
+function notmatch(subject, pattern) {
     notmatch = .dummy;
     if (subject ? pattern) { freturn; } else { nreturn; }
 }

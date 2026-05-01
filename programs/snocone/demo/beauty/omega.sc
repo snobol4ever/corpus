@@ -43,7 +43,7 @@
 //     We translate failure as "fall through to freturn" so callers see
 //     a clean failure rather than a transfer to a nonexistent label.
 
-procedure TV(lvl, pat, name,   omega) {
+function TV(lvl, pat, name,   omega) {
     if (EQ(doParseTree, FALSE)) {
         omega = 'pat';
     } else {
@@ -54,7 +54,7 @@ procedure TV(lvl, pat, name,   omega) {
     if (DIFFER(TV)) { return; } else { freturn; }
 }
 
-procedure TW(lvl, pat, name,   omega) {
+function TW(lvl, pat, name,   omega) {
     if (EQ(doParseTree, FALSE)) {
         omega = 'pat';
     } else {
@@ -65,7 +65,7 @@ procedure TW(lvl, pat, name,   omega) {
     if (DIFFER(TW)) { return; } else { freturn; }
 }
 
-procedure TX(lvl, pat, name,   omega) {
+function TX(lvl, pat, name,   omega) {
     if (EQ(doParseTree, FALSE)) {
         omega = 'pat';
     } else {
@@ -76,7 +76,7 @@ procedure TX(lvl, pat, name,   omega) {
     if (DIFFER(TX)) { return; } else { freturn; }
 }
 
-procedure TY(lvl, name, pat,   omega) {
+function TY(lvl, name, pat,   omega) {
     // Thin path: tracing off — only the txOfs/t8Max bookkeeping pattern.
     if (LE(xTrace, 0)) {
         TY = pat   @txOfs . *assign(.t8Max, *(GT(txOfs, t8Max) txOfs));
@@ -88,7 +88,7 @@ procedure TY(lvl, name, pat,   omega) {
     if (DIFFER(TY)) { return; } else { freturn; }
 }
 
-procedure TZ(lvl, name, pat,   omega) {
+function TZ(lvl, name, pat,   omega) {
     if (LE(xTrace, 0)) {
         TZ = pat   @txOfs . *assign(.t8Max, *(GT(txOfs, t8Max) txOfs));
         return;

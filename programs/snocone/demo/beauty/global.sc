@@ -31,7 +31,7 @@ bSlash    = CHAR(92);
 // worth tracking when high-byte handling is added.
 _alphabet_run = define_alphabet_run;
 
-procedure define_alphabet_run(start, len, ans, i) {
+function define_alphabet_run(start, len, ans, i) {
     ans = '';
     i = 0;
     while (LT(i, len)) { ans = ans   CHAR(start + i); i = i + 1; }

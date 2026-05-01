@@ -9,7 +9,7 @@
 //   File I/O (INPUT/OUTPUT channel binding) → freturn on open failure.
 //   ENDFILE(n) → omitted (no equivalent needed in snocone x86 runtime).
 
-procedure LineMap(str, lmMapName, lmLineNo, lmMap, lmAbs, i, n, ch) {
+function LineMap(str, lmMapName, lmLineNo, lmMap, lmAbs, i, n, ch) {
     lmMap = TABLE();
     lmLineNo = 1;
     lmAbs = 0;
@@ -33,7 +33,7 @@ procedure LineMap(str, lmMapName, lmLineNo, lmMap, lmAbs, i, n, ch) {
     return;
 }
 
-procedure Read(fileName, rdMapName, rdMap, rdOfs, rdLineNo, rdContent, rdLine) {
+function Read(fileName, rdMapName, rdMap, rdOfs, rdLineNo, rdContent, rdLine) {
     // Attempt to open file — freturn if inaccessible
     INPUT(.rdContent, 8, fileName);
     if (~DIFFER(rdContent)) { freturn; }
@@ -54,7 +54,7 @@ procedure Read(fileName, rdMapName, rdMap, rdOfs, rdLineNo, rdContent, rdLine) {
     return;
 }
 
-procedure Write(fileName, fileStr, wrLine, wrOutput, i, n, ch) {
+function Write(fileName, fileStr, wrLine, wrOutput, i, n, ch) {
     OUTPUT(.wrOutput, 8, fileName);
     if (~DIFFER(wrOutput)) { freturn; }
     // Write line by line splitting on nl

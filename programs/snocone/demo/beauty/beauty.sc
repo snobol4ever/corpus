@@ -138,7 +138,7 @@ Compiland = nPush()   ARBNO(*Command)   reduce('Parse', 'nTop()')
 //=============================================================================
 //  ppLeaf(x, t) — emit a leaf node; return 1 on success
 //=============================================================================
-procedure ppLeaf(x, t) {
+function ppLeaf(x, t) {
     if (Gen(ss(x))) { return; }
     error();
 }
@@ -146,7 +146,7 @@ procedure ppLeaf(x, t) {
 //=============================================================================
 //  ppUnOp(x, t, c) — emit a unary operator node
 //=============================================================================
-procedure ppUnOp(x, t, c) {
+function ppUnOp(x, t, c) {
     if (Gen(ss(x, ppWidth - GetLevel()))) { return; }
     Gen(t);  pp(c[1]);
     return;
@@ -155,7 +155,7 @@ procedure ppUnOp(x, t, c) {
 //=============================================================================
 //  ppBinOp(x, t, c) — emit a binary operator node
 //=============================================================================
-procedure ppBinOp(x, t, c) {
+function ppBinOp(x, t, c) {
     if (Gen(ss(x, ppWidth - GetLevel()))) { return; }
     pp(c[1]);
     Gen(nl);  DecLevel();  Gen(t);  IncLevel();  GenTab();
@@ -166,7 +166,7 @@ procedure ppBinOp(x, t, c) {
 //=============================================================================
 //  ppStmt(x) — columnar layout for Stmt nodes
 //=============================================================================
-procedure ppStmt(x, c, ppLbl, ppSubj, ppPatrn, ppAsgn, ppRepl, ppGo1, ppGo2) {
+function ppStmt(x, c, ppLbl, ppSubj, ppPatrn, ppAsgn, ppRepl, ppGo1, ppGo2) {
     SetLevel(0);  GenSetCont('+');
     ppWidth = ppStop[4];
     c       = c(x);
@@ -209,7 +209,7 @@ procedure ppStmt(x, c, ppLbl, ppSubj, ppPatrn, ppAsgn, ppRepl, ppGo1, ppGo2) {
 //  ppList(x, sep, open, close) — emit children with separator
 //  sep: ',' '|' '..' '[]' — controls layout
 //=============================================================================
-procedure ppList(x, sep, open, close, c, i, n) {
+function ppList(x, sep, open, close, c, i, n) {
     c = c(x);  n = n(x);
     if (Gen(ss(x, ppWidth - GetLevel()))) { return; }
     if (DIFFER(open)) { Gen(open);  IncLevel();  GenTab(); }
@@ -225,7 +225,7 @@ procedure ppList(x, sep, open, close, c, i, n) {
 //=============================================================================
 //  pp(x) — pretty-print a tree node to OUTPUT
 //=============================================================================
-procedure pp(x, c, i, n, t, v) {
+function pp(x, c, i, n, t, v) {
     if (~DIFFER(x)) { return; }
     t = t(x);  v = v(x);  n = n(x);  c = c(x);
     if (~DIFFER(t)) { return; }
@@ -273,7 +273,7 @@ procedure pp(x, c, i, n, t, v) {
 //  ss_leaf(t, v, c, len) — stringify leaf/goto nodes; freturn if too long
 //  Returns the string in ss_leaf (caller assigns to ss).
 //=============================================================================
-procedure ss_leaf(t, v, c, len) {
+function ss_leaf(t, v, c, len) {
     if      ((IDENT(t(c(c[n])[2]), 'Id'), IDENT(t(c(c[n])[2]), '$'))) { ss_leaf = upr(v); }
     else if ((IDENT(t(c(c[n])[2]), 'Id'), IDENT(t(c(c[n])[2]), '$'))) {
         ss_leaf = v;
@@ -294,7 +294,7 @@ procedure ss_leaf(t, v, c, len) {
 //=============================================================================
 //  ss(x, len) — stringify a tree node; freturn if result exceeds len chars
 //=============================================================================
-procedure ss(x, len, c, i, n, t, v) {
+function ss(x, len, c, i, n, t, v) {
     if (~DIFFER(x)) { return; }
     if (IDENT(len)) { len = 1024; }
     if (~GT(len, 0)) { freturn; }
@@ -365,14 +365,14 @@ procedure ss(x, len, c, i, n, t, v) {
     error();
 }
 
-procedure bVisit(x, fnc, i) {
+function bVisit(x, fnc, i) {
     if (~APPLY(fnc, x)) { return; }
     for (i = 1; LE(i, n(x)); i = i + 1) { bVisit(c(x)[i], fnc); }
     return;
 }
 
 Refs = '';
-procedure findRefs(x, n, v) {
+function findRefs(x, n, v) {
     if (~DIFFER(x)) { return; }
     if (IDENT(t(x), 'Call')) {
         for (n = 2; LE(n, n(x)); n = n + 1) { bVisit(c(x)[n], .findRefs); }
@@ -386,7 +386,7 @@ procedure findRefs(x, n, v) {
     freturn;
 }
 
-procedure refs(p, c, n, s, subj) {
+function refs(p, c, n, s, subj) {
     c = c(p);
     for (n = 1; LE(n, n(p)); n = n + 1) {
         if (IDENT(t(c[n]), 'Stmt')) {

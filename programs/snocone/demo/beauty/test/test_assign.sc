@@ -2,7 +2,7 @@
 // Oracle: compare output to test/beauty/assign/driver.ref (SNOBOL4 golden)
 
 // inline assign.sc
-procedure assign(name, expression) {
+function assign(name, expression) {
     assign = .dummy;
     if (IDENT(DATATYPE(expression), 'EXPRESSION')) {
         $name = EVAL(expression);

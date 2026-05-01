@@ -24,36 +24,36 @@ struct link_tag     { next, value }
 
 // --------------------------------------------------------------------------- counter-stack family
 
-procedure InitCounter() { $'#N' = ''; return; }
+function InitCounter() { $'#N' = ''; return; }
 
-procedure PushCounter() {
+function PushCounter() {
     OUTPUT = GT(xTrace, 4)   'PushCounter()';
     $'#N' = link_counter($'#N', 0);
     PushCounter = .dummy;
     nreturn;
 }
 
-procedure IncCounter() {
+function IncCounter() {
     value($'#N') = value($'#N') + 1;
     OUTPUT = GT(xTrace, 4)   (value($'#N')   ' = IncCounter()');
     IncCounter = .dummy;
     nreturn;
 }
 
-procedure DecCounter() {
+function DecCounter() {
     value($'#N') = value($'#N') - 1;
     OUTPUT = GT(xTrace, 4)   (value($'#N')   ' = DecCounter()');
     DecCounter = .dummy;
     nreturn;
 }
 
-procedure PopCounter() {
+function PopCounter() {
     OUTPUT = GT(xTrace, 4)   'PopCounter()';
     if (DIFFER($'#N')) { $'#N' = next($'#N'); PopCounter = .dummy; nreturn; }
     else { freturn; }
 }
 
-procedure TopCounter() {
+function TopCounter() {
     if (DIFFER($'#N')) {
         TopCounter = value($'#N');
         OUTPUT = GT(xTrace, 4)   (TopCounter   ' = TopCounter()');
@@ -65,22 +65,22 @@ procedure TopCounter() {
 // --------------------------------------------------------------------------- begin-tag stack family
 // $'@B' holds a stack of XML/HTML begin tags via link_tag().
 
-procedure InitBegTag() { $'@B' = ''; return; }
+function InitBegTag() { $'@B' = ''; return; }
 
-procedure PushBegTag(t) {
+function PushBegTag(t) {
     OUTPUT = GT(xTrace, 4)   ('PushBegTag('   upr(t)   ')');
     $'@B' = link_tag($'@B', upr(t));
     if (IDENT(t)) { PushBegTag = .value($'@B'); nreturn; }
     else          { PushBegTag = .dummy;        nreturn; }
 }
 
-procedure PopBegTag() {
+function PopBegTag() {
     OUTPUT = GT(xTrace, 4)   ((DIFFER($'@B')   value($'@B') | 'FAIL')   ' = PopBegTag()');
     if (DIFFER($'@B')) { $'@B' = next($'@B'); PopBegTag = .dummy; nreturn; }
     else               { freturn; }
 }
 
-procedure TopBegTag() {
+function TopBegTag() {
     if (DIFFER($'@B')) {
         TopBegTag = value($'@B');
         OUTPUT = GT(xTrace, 4)   (TopBegTag   ' = TopBegTag()');
@@ -92,7 +92,7 @@ procedure TopBegTag() {
 // DumpBegTag has zero formal args + three canonical locals (b, list, v).
 // The locals are declared as parameters; SNOBOL4 zero-arg invocation
 // initializes them to null, which is the canonical local-init behavior.
-procedure DumpBegTag(b, list, v) {
+function DumpBegTag(b, list, v) {
     DumpBegTag = .dummy;
     if (~GT(xTrace, 5)) { nreturn; }
     b = $'@B';
@@ -110,22 +110,22 @@ procedure DumpBegTag(b, list, v) {
 // --------------------------------------------------------------------------- end-tag stack family
 // $'@E' holds a stack of XML/HTML end tags via link_tag().
 
-procedure InitEndTag() { $'@E' = ''; return; }
+function InitEndTag() { $'@E' = ''; return; }
 
-procedure PushEndTag(t) {
+function PushEndTag(t) {
     OUTPUT = GT(xTrace, 4)   ('PushEndTag('   upr(t)   ')');
     $'@E' = link_tag($'@E', upr(t));
     if (IDENT(t)) { PushEndTag = .value($'@E'); nreturn; }
     else          { PushEndTag = .dummy;        nreturn; }
 }
 
-procedure PopEndTag() {
+function PopEndTag() {
     OUTPUT = GT(xTrace, 4)   ((DIFFER($'@E')   value($'@E') | 'FAIL')   ' = PopEndTag()');
     if (DIFFER($'@E')) { $'@E' = next($'@E'); PopEndTag = .dummy; nreturn; }
     else               { freturn; }
 }
 
-procedure TopEndTag() {
+function TopEndTag() {
     if (DIFFER($'@E')) {
         TopEndTag = value($'@E');
         OUTPUT = GT(xTrace, 4)   (TopEndTag   ' = TopEndTag()');
@@ -135,7 +135,7 @@ procedure TopEndTag() {
 }
 
 // DumpEndTag — same locals-as-params idiom as DumpBegTag.
-procedure DumpEndTag(e, list, v) {
+function DumpEndTag(e, list, v) {
     DumpEndTag = .dummy;
     if (~GT(xTrace, 5)) { nreturn; }
     e = $'@E';

@@ -1,13 +1,13 @@
-procedure max(a, b) {
-    if (a >= b) then return a;
+function max(a, b) {
+    if (a >= b) return a;
     return b;
 }
-procedure min(a, b) {
-    if (a <= b) then return a;
+function min(a, b) {
+    if (a <= b) return a;
     return b;
 }
-procedure abs_val(n) {
-    if (n >= 0) then return n;
+function abs_val(n) {
+    if (n >= 0) return n;
     return 0 - n;
 }
 OUTPUT = max(3, 7);

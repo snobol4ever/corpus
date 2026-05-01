@@ -6,22 +6,22 @@ $'$B' = '';
 $'$C' = '';
 $'$X' = '';
 
-procedure IncLevel(delta) {
+function IncLevel(delta) {
     IncLevel = .dummy;
     if (~DIFFER(delta)) { delta = 2; }
     $'#L' = $'#L' + delta;
     nreturn;
 }
-procedure DecLevel(delta) {
+function DecLevel(delta) {
     DecLevel = .dummy;
     if (~DIFFER(delta)) { delta = 2; }
     $'#L' = $'#L' - delta;
     nreturn;
 }
-procedure SetLevel(level) { SetLevel = .dummy; $'#L' = level; nreturn; }
-procedure GetLevel()      { GetLevel = $'#L'; return; }
+function SetLevel(level) { SetLevel = .dummy; $'#L' = level; nreturn; }
+function GetLevel()      { GetLevel = $'#L'; return; }
 
-procedure Gen(str, outNm,   ind, outline, _rest) {
+function Gen(str, outNm,   ind, outline, _rest) {
     Gen = .dummy;
     if (~DIFFER(outNm)) { outNm = .OUTPUT; }
     ind = '';
@@ -50,7 +50,7 @@ procedure Gen(str, outNm,   ind, outline, _rest) {
     }
     nreturn;
 }
-procedure GenTab(pos) {
+function GenTab(pos) {
     GenTab = .dummy;
     if (~DIFFER(pos)) { pos = $'#L'; }
     if (IDENT($'$B')) {
@@ -64,7 +64,7 @@ procedure GenTab(pos) {
     }
     nreturn;
 }
-procedure GenSetCont(cont) {
+function GenSetCont(cont) {
     GenSetCont = .dummy;
     $'$X' = '';
     $'$C' = cont;

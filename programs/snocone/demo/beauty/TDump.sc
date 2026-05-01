@@ -12,7 +12,7 @@
 //   * The `(DIFFER(t) '.', '')` SNOBOL4 conditional-value form does not parse
 //     in Snocone; we expand it inline with an if/else instead.
 
-procedure TValue(x,   i) {
+function TValue(x,   i) {
     if (~DIFFER(v(x)))               { TValue = '.'; return; }
     if (IDENT(t(x), 'Name'))         { TValue = v(x); return; }
     if (IDENT(t(x), 'float'))        { TValue = v(x); return; }
@@ -36,7 +36,7 @@ procedure TValue(x,   i) {
     return;
 }
 
-procedure TDump(x, outNm,   i, _t, _lump) {
+function TDump(x, outNm,   i, _t, _lump) {
     TDump = .dummy;
     if (~DIFFER(outNm)) { outNm = .OUTPUT; }
     if (IDENT(DATATYPE(x), 'NAME')) { x = $x; }
@@ -65,7 +65,7 @@ procedure TDump(x, outNm,   i, _t, _lump) {
     return;
 }
 
-procedure TLump(x, len,   i, _t, _child) {
+function TLump(x, len,   i, _t, _child) {
     if (~GT(len, 0)) { freturn; }
     if (~DIFFER(x))  { TLump = '()'; return; }
     if (~IDENT(DATATYPE(x), 'tree')) {

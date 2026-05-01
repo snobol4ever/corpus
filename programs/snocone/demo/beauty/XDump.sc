@@ -12,7 +12,7 @@
 //     do not iterate `struct` fields cleanly, so the TABLE/ARRAY/primitive
 //     branches are the actively-used ones.
 
-procedure XDump(object, nm,   i, iMax, iMin, objArr, objField, objKey, objKeyNm,
+function XDump(object, nm,   i, iMax, iMin, objArr, objField, objKey, objKeyNm,
                                objProto, objType, objVal) {
     objType = DATATYPE(object);
     if (IDENT(objType, 'CODE'))       { OUTPUT = nm   ' = '   objType; return; }
