@@ -6,7 +6,7 @@ while (LE(i, 3)) {
         if (EQ(j, 2)) {
             break;
         }
-        OUTPUT = i && '-' && j;
+        OUTPUT = i   '-'   j;
         j = ADD(j, 1);
     }
     i = ADD(i, 1);

@@ -45,7 +45,7 @@ procedure Read(fileName, rdMapName, rdMap, rdOfs, rdLineNo, rdContent, rdLine) {
     while (1) {
         rdLine = rdContent;
         if (~DIFFER(rdLine)) { break; }
-        Read = Read && rdLine && nl;
+        Read = Read   rdLine   nl;
         rdOfs = rdOfs + SIZE(rdLine) + 1;
         rdLineNo = rdLineNo + 1;
         rdMap[rdOfs] = rdLineNo;
@@ -72,7 +72,7 @@ procedure Write(fileName, fileStr, wrLine, wrOutput, i, n, ch) {
             wrOutput = wrLine;
             wrLine = '';
         } else {
-            wrLine = wrLine && ch;
+            wrLine = wrLine   ch;
         }
     }
     return;

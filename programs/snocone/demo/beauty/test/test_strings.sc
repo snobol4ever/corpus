@@ -2,20 +2,20 @@
 
 procedure Reverse(s, i, n, out) {
     n = SIZE(s); out = ''; i = n + 1;
-    while (GT(i, 1)) { i = i - 1; out = out && SUBSTR(s, i, 1); }
+    while (GT(i, 1)) { i = i - 1; out = out   SUBSTR(s, i, 1); }
     Reverse = out; return;
 }
 procedure TrimLeft(s, i, n, ch, found) {
     n = SIZE(s); i = 0; found = 0;
     while (LT(i, n)) { i = i + 1; ch = SUBSTR(s, i, 1);
-        if (DIFFER(ch, ' ') && DIFFER(ch, CHAR(9))) { found = 1; break; } }
+        if (DIFFER(ch, ' ')   DIFFER(ch, CHAR(9))) { found = 1; break; } }
     if (IDENT(found, 0)) { TrimLeft = ''; } else { TrimLeft = SUBSTR(s, i); }
     return;
 }
 procedure TrimRight(s, i, n, ch, found) {
     n = SIZE(s); i = n + 1; found = 0;
     while (GT(i, 1)) { i = i - 1; ch = SUBSTR(s, i, 1);
-        if (DIFFER(ch, ' ') && DIFFER(ch, CHAR(9))) { found = 1; break; } }
+        if (DIFFER(ch, ' ')   DIFFER(ch, CHAR(9))) { found = 1; break; } }
     if (IDENT(found, 0)) { TrimRight = ''; } else { TrimRight = SUBSTR(s, 1, i); }
     return;
 }
@@ -42,8 +42,8 @@ procedure Split(s, sep, i, n, slen, out_n, start, arr) {
 procedure Join(arr, sep, i, n, out) {
     n = arr[0]; out = ''; i = 0;
     while (LT(i, n)) { i = i + 1;
-        if (GT(i, 1)) { out = out && sep; }
-        out = out && arr[i]; }
+        if (GT(i, 1)) { out = out   sep; }
+        out = out   arr[i]; }
     Join = out; return;
 }
 
@@ -61,7 +61,7 @@ if (~StartsWith('hello', 'xyz'))         { OUTPUT = 'PASS: 10 StartsWith miss'; 
 if (EndsWith('hello', 'llo'))            { OUTPUT = 'PASS: 11 EndsWith hit'; }   else { OUTPUT = 'FAIL: 11 EndsWith hit'; }
 if (~EndsWith('hello', 'xyz'))           { OUTPUT = 'PASS: 12 EndsWith miss'; }  else { OUTPUT = 'FAIL: 12 EndsWith miss'; }
 t = Split('a,b,c', ',');
-if (IDENT(t[1],'a') && IDENT(t[2],'b') && IDENT(t[3],'c') && EQ(t[0],3)) { OUTPUT = 'PASS: 13 Split'; } else { OUTPUT = 'FAIL: 13 Split'; }
+if (IDENT(t[1],'a')   IDENT(t[2],'b')   IDENT(t[3],'c')   EQ(t[0],3)) { OUTPUT = 'PASS: 13 Split'; } else { OUTPUT = 'FAIL: 13 Split'; }
 if (IDENT(Join(t, '-'), 'a-b-c'))        { OUTPUT = 'PASS: 14 Join'; }           else { OUTPUT = 'FAIL: 14 Join'; }
 t2 = Split('hello', ',');
-if (EQ(t2[0], 1) && IDENT(t2[1], 'hello')) { OUTPUT = 'PASS: 15 Split no-sep'; } else { OUTPUT = 'FAIL: 15 Split no-sep'; }
+if (EQ(t2[0], 1)   IDENT(t2[1], 'hello')) { OUTPUT = 'PASS: 15 Split no-sep'; } else { OUTPUT = 'FAIL: 15 Split no-sep'; }

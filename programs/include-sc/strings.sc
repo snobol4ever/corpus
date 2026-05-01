@@ -9,7 +9,7 @@
 procedure Reverse(s, i, n, out) {
     // Return s reversed character by character.
     n = SIZE(s); out = ''; i = n + 1;
-    while (GT(i, 1)) { i = i - 1; out = out && SUBSTR(s, i, 1); }
+    while (GT(i, 1)) { i = i - 1; out = out   SUBSTR(s, i, 1); }
     Reverse = out; return;
 }
 
@@ -19,7 +19,7 @@ procedure TrimLeft(s, i, n, ch, found) {
     while (LT(i, n)) {
         i = i + 1;
         ch = SUBSTR(s, i, 1);
-        if (DIFFER(ch, ' ') && DIFFER(ch, CHAR(9))) { found = 1; break; }
+        if (DIFFER(ch, ' ')   DIFFER(ch, CHAR(9))) { found = 1; break; }
     }
     if (IDENT(found, 0)) { TrimLeft = ''; } else { TrimLeft = SUBSTR(s, i); }
     return;
@@ -31,7 +31,7 @@ procedure TrimRight(s, i, n, ch, found) {
     while (GT(i, 1)) {
         i = i - 1;
         ch = SUBSTR(s, i, 1);
-        if (DIFFER(ch, ' ') && DIFFER(ch, CHAR(9))) { found = 1; break; }
+        if (DIFFER(ch, ' ')   DIFFER(ch, CHAR(9))) { found = 1; break; }
     }
     if (IDENT(found, 0)) { TrimRight = ''; } else { TrimRight = SUBSTR(s, 1, i); }
     return;
@@ -76,8 +76,8 @@ procedure Join(arr, sep, i, n, out) {
     n = arr[0]; out = ''; i = 0;
     while (LT(i, n)) {
         i = i + 1;
-        if (GT(i, 1)) { out = out && sep; }
-        out = out && arr[i];
+        if (GT(i, 1)) { out = out   sep; }
+        out = out   arr[i];
     }
     Join = out; return;
 }

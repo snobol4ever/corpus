@@ -1,4 +1,4 @@
 FIRST = "Hello";
 LAST = "World";
-FULL = FIRST && ", " && LAST && "!";
+FULL = FIRST   ", "   LAST   "!";
 OUTPUT = FULL;

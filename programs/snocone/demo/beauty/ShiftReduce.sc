@@ -32,10 +32,10 @@
 //   future Snocone-EVAL-failure-detection work.
 
 procedure Shift(t, v,   s) {
-    v ? (POS(0) && whitespace) = ;
+    v ? (POS(0)   whitespace) = ;
     s = tree(t, v, '', '');
     Push(s);
-    OUTPUT = GT(xTrace, 3) && ('Shift(' && t && ', ' && v && ')');
+    OUTPUT = GT(xTrace, 3)   ('Shift('   t   ', '   v   ')');
     if (IDENT(v)) { Shift = .v(s); nreturn; }
     else          { Shift = .dummy; nreturn; }
 }
@@ -50,8 +50,8 @@ procedure Reduce(t, n,   c, i, r) {
         n = EVAL(n);
         if (~DIFFER(n)) { nreturn; }   // canonical :F(NRETURN) on EVAL-fail
     }
-    OUTPUT = GT(xTrace, 3) && ('Reduce(' && t && ', ' && n && ')');
-    if (GE(n, 1)) { c = ARRAY('1:' && n); }
+    OUTPUT = GT(xTrace, 3)   ('Reduce('   t   ', '   n   ')');
+    if (GE(n, 1)) { c = ARRAY('1:'   n); }
     else          { c = ''; }
     i = n + 1;
     while (GT(i, 1)) {

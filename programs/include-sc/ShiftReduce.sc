@@ -19,7 +19,7 @@ procedure Shift(t, v) {
 procedure Reduce(t, n, c, i, r) {
     Reduce = .dummy;
     if (GE(n, 1)) {
-        c = ARRAY('1:' && n);
+        c = ARRAY('1:'   n);
     } else {
         c = '';
     }

@@ -28,7 +28,7 @@ if (IDENT(DATATYPE(nInc()),  'PATTERN')) { OUTPUT = 'PASS: 2 nInc=PATTERN';  } e
 if (IDENT(DATATYPE(nPop()),  'PATTERN')) { OUTPUT = 'PASS: 3 nPop=PATTERN';  } else { OUTPUT = 'FAIL: 3'; }
 
 if ('' ? nPush()) { } else { OUTPUT = 'FAIL: 4 nPush match'; }
-if (EQ(nTop(), 0)) { OUTPUT = 'PASS: 4 nPush match; nTop=0'; } else { OUTPUT = 'FAIL: 4 nTop=' && nTop(); }
+if (EQ(nTop(), 0)) { OUTPUT = 'PASS: 4 nPush match; nTop=0'; } else { OUTPUT = 'FAIL: 4 nTop='   nTop(); }
 
 if ('' ? nInc()) { } else { OUTPUT = 'FAIL: 5'; }
 if (EQ(nTop(), 1)) { OUTPUT = 'PASS: 5 nInc match; nTop=1'; } else { OUTPUT = 'FAIL: 5'; }
@@ -40,4 +40,4 @@ if ('' ? nPush()) { } else { OUTPUT = 'FAIL: 7'; }
 if (EQ(nTop(), 0)) { OUTPUT = 'PASS: 7 nested nPush; nTop=0'; } else { OUTPUT = 'FAIL: 7'; }
 
 v = nTop();
-if (IDENT(DATATYPE(v), 'INTEGER')) { OUTPUT = 'PASS: 8 nTop INTEGER'; } else { OUTPUT = 'FAIL: 8 ' && DATATYPE(v); }
+if (IDENT(DATATYPE(v), 'INTEGER')) { OUTPUT = 'PASS: 8 nTop INTEGER'; } else { OUTPUT = 'FAIL: 8 '   DATATYPE(v); }

@@ -46,4 +46,4 @@ if (~Top()) { OUTPUT = 'PASS: 6 empty top fails'; } else { OUTPUT = 'FAIL: 6 emp
 InitStack();
 Push('a'); Push('b'); Push('c');
 Pop('v1'); Pop('v2'); Pop('v3');
-if (IDENT(v1,'c') && IDENT(v2,'b') && IDENT(v3,'a')) { OUTPUT = 'PASS: 7 nested pop order a/b/c'; } else { OUTPUT = 'FAIL: 7 pop order'; }
+if (IDENT(v1,'c')   IDENT(v2,'b')   IDENT(v3,'a')) { OUTPUT = 'PASS: 7 nested pop order a/b/c'; } else { OUTPUT = 'FAIL: 7 pop order'; }

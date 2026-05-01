@@ -25,49 +25,49 @@ procedure LEQ(a, b) {
 }
 
 procedure Ucvt(hex2) {
-    Ucvt = CHAR(INTEGER('0X' && hex2));
+    Ucvt = CHAR(INTEGER('0X'   hex2));
     return;
 }
 
-QizeWierd = bSlash && bs && ff && nl && cr && tab;
+QizeWierd = bSlash   bs   ff   nl   cr   tab;
 
 procedure Qize(str,   part) {
     if (~DIFFER(str)) { Qize = "''"; return; }
     while (DIFFER(str)) {
-        if (DIFFER(Qize)) { Qize = Qize && ' '; }
+        if (DIFFER(Qize)) { Qize = Qize   ' '; }
         // Branch 1: leading "weird" char — emit as named CHAR-var.
         part = '';
-        str ? (POS(0) && (bSlash | bs | ff | nl | cr | tab) . part) = ;
+        str ? (POS(0)   (bSlash | bs | ff | nl | cr | tab) . part) = ;
         if (DIFFER(part)) {
-            if      (IDENT(part, bSlash)) { Qize = Qize && 'bSlash'; }
-            else if (IDENT(part, bs))     { Qize = Qize && 'bs'; }
-            else if (IDENT(part, ff))     { Qize = Qize && 'ff'; }
-            else if (IDENT(part, nl))     { Qize = Qize && 'nl'; }
-            else if (IDENT(part, cr))     { Qize = Qize && 'cr'; }
-            else if (IDENT(part, tab))    { Qize = Qize && 'tab'; }
+            if      (IDENT(part, bSlash)) { Qize = Qize   'bSlash'; }
+            else if (IDENT(part, bs))     { Qize = Qize   'bs'; }
+            else if (IDENT(part, ff))     { Qize = Qize   'ff'; }
+            else if (IDENT(part, nl))     { Qize = Qize   'nl'; }
+            else if (IDENT(part, cr))     { Qize = Qize   'cr'; }
+            else if (IDENT(part, tab))    { Qize = Qize   'tab'; }
         }
         // Branch 2: leading run that includes a '"' but no "'" → wrap in '...'.
         else if (str ? (POS(0)
-                     && (BREAK('"' && "'" && QizeWierd) && '"'
-                         && ARBNO(NOTANY("'" && QizeWierd))) . part
-                     && RTAB(0) . str)) {
-            Qize = Qize && "'" && part && "'";
+                       (BREAK('"'   "'"   QizeWierd)   '"'
+                           ARBNO(NOTANY("'"   QizeWierd))) . part
+                       RTAB(0) . str)) {
+            Qize = Qize   "'"   part   "'";
         }
         // Branch 3: leading run that includes a "'" but no '"' → wrap in "...".
         else if (str ? (POS(0)
-                     && (BREAK("'" && '"' && QizeWierd) && "'"
-                         && ARBNO(NOTANY('"' && QizeWierd))) . part
-                     && RTAB(0) . str)) {
-            Qize = Qize && '"' && part && '"';
+                       (BREAK("'"   '"'   QizeWierd)   "'"
+                           ARBNO(NOTANY('"'   QizeWierd))) . part
+                       RTAB(0) . str)) {
+            Qize = Qize   '"'   part   '"';
         }
         // Branch 4: leading non-weird run (no quotes, no whitespace).
-        else if (str ? (POS(0) && BREAK(QizeWierd) . part) = ) {
-            Qize = Qize && "'" && part && "'";
+        else if (str ? (POS(0)   BREAK(QizeWierd) . part) = ) {
+            Qize = Qize   "'"   part   "'";
         }
         // Branch 5: rest of string is short or pure ' — single-quote and finish.
         else {
             part = str;
-            Qize = Qize && "'" && part && "'";
+            Qize = Qize   "'"   part   "'";
             str = '';
         }
     }
@@ -77,13 +77,13 @@ procedure Qize(str,   part) {
 procedure SQize(str,   part) {
     if (~DIFFER(str)) { return; }
     while (DIFFER(str)) {
-        if (DIFFER(SQize)) { SQize = SQize && ' '; }
+        if (DIFFER(SQize)) { SQize = SQize   ' '; }
         part = '';
-        if (str ? (POS(0) && BREAK("'") . part && "'") = ) {
-            SQize = SQize && "'" && part && "'" && ' "' && "'" && '"';
+        if (str ? (POS(0)   BREAK("'") . part   "'") = ) {
+            SQize = SQize   "'"   part   "'"   ' "'   "'"   '"';
         } else {
             part = str;
-            SQize = SQize && "'" && part && "'";
+            SQize = SQize   "'"   part   "'";
             str = '';
         }
     }
@@ -93,13 +93,13 @@ procedure SQize(str,   part) {
 procedure DQize(str,   part) {
     if (~DIFFER(str)) { return; }
     while (DIFFER(str)) {
-        if (DIFFER(DQize)) { DQize = DQize && ' '; }
+        if (DIFFER(DQize)) { DQize = DQize   ' '; }
         part = '';
-        if (str ? (POS(0) && BREAK('"') . part && '"') = ) {
-            DQize = DQize && '"' && part && '"' && " '" && '"' && "'";
+        if (str ? (POS(0)   BREAK('"') . part   '"') = ) {
+            DQize = DQize   '"'   part   '"'   " '"   '"'   "'";
         } else {
             part = str;
-            DQize = DQize && '"' && part && '"';
+            DQize = DQize   '"'   part   '"';
             str = '';
         }
     }
@@ -110,10 +110,10 @@ procedure SqlSQize(str,   part) {
     SqlSQize = '';
     while (DIFFER(str)) {
         part = '';
-        if (str ? (POS(0) && BREAK("'") . part && "'") = ) {
-            SqlSQize = SqlSQize && part && "''";
+        if (str ? (POS(0)   BREAK("'") . part   "'") = ) {
+            SqlSQize = SqlSQize   part   "''";
         } else {
-            SqlSQize = SqlSQize && str;
+            SqlSQize = SqlSQize   str;
             str = '';
         }
     }
@@ -123,33 +123,33 @@ procedure SqlSQize(str,   part) {
 procedure Intize(qqstr,   iq, qqdlm) {
     Intize = '';
     qqdlm = '';
-    if (~(qqstr ? (POS(0) && ("'" | '"') . qqdlm) = )) { freturn; }
+    if (~(qqstr ? (POS(0)   ("'" | '"') . qqdlm) = )) { freturn; }
     while (1) {
         // End-of-string marker (closing delim)?
-        if (qqstr ? (POS(0) && *qqdlm && RPOS(0))) { return; }
+        if (qqstr ? (POS(0)   *qqdlm   RPOS(0))) { return; }
         // Backslash escape?
-        if (qqstr ? (POS(0) && bSlash) = ) {
+        if (qqstr ? (POS(0)   bSlash) = ) {
             iq = '';
-            if      (qqstr ? (POS(0) && bSlash) = ) { Intize = Intize && bSlash; }
-            else if (qqstr ? (POS(0) && '"')    = ) { Intize = Intize && '"'; }
-            else if (qqstr ? (POS(0) && "'")    = ) { Intize = Intize && "'"; }
-            else if (qqstr ? (POS(0) && 'b')    = ) { Intize = Intize && bs; }
-            else if (qqstr ? (POS(0) && 'f')    = ) { Intize = Intize && ff; }
-            else if (qqstr ? (POS(0) && 'n')    = ) { Intize = Intize && lf; }
-            else if (qqstr ? (POS(0) && 'r')    = ) { Intize = Intize && cr; }
-            else if (qqstr ? (POS(0) && 't')    = ) { Intize = Intize && tab; }
-            else if (qqstr ? (POS(0) && 'u' && '00' && LEN(2) . iq) = ) {
-                Intize = Intize && Ucvt(iq);
-            } else if (qqstr ? (POS(0) && 'u' && LEN(4) . iq) = ) {
-                Intize = Intize && bSlash && 'u' && iq;
+            if      (qqstr ? (POS(0)   bSlash) = ) { Intize = Intize   bSlash; }
+            else if (qqstr ? (POS(0)   '"')    = ) { Intize = Intize   '"'; }
+            else if (qqstr ? (POS(0)   "'")    = ) { Intize = Intize   "'"; }
+            else if (qqstr ? (POS(0)   'b')    = ) { Intize = Intize   bs; }
+            else if (qqstr ? (POS(0)   'f')    = ) { Intize = Intize   ff; }
+            else if (qqstr ? (POS(0)   'n')    = ) { Intize = Intize   lf; }
+            else if (qqstr ? (POS(0)   'r')    = ) { Intize = Intize   cr; }
+            else if (qqstr ? (POS(0)   't')    = ) { Intize = Intize   tab; }
+            else if (qqstr ? (POS(0)   'u'   '00'   LEN(2) . iq) = ) {
+                Intize = Intize   Ucvt(iq);
+            } else if (qqstr ? (POS(0)   'u'   LEN(4) . iq) = ) {
+                Intize = Intize   bSlash   'u'   iq;
             } else {
                 freturn;
             }
         } else {
             // Plain run up to next backslash or closing delim.
             iq = '';
-            if (qqstr ? (POS(0) && BREAK(*qqdlm && bSlash) . iq) = ) {
-                Intize = Intize && iq;
+            if (qqstr ? (POS(0)   BREAK(*qqdlm   bSlash) . iq) = ) {
+                Intize = Intize   iq;
             } else {
                 freturn;
             }

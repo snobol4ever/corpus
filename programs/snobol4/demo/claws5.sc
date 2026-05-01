@@ -39,8 +39,8 @@ procedure pp_mem(mem,
         last_sent   =   '';
         if (IDENT(si, ns)) last_sent = 1;
         pad         =   DUPL(' ', SIZE(sentno) + 4);
-        if (EQ(si, 1)) pfx = '{' && sentno && ': {';
-        if (NE(si, 1)) pfx = ' ' && sentno && ': {';
+        if (EQ(si, 1)) pfx = '{'   sentno   ': {';
+        if (NE(si, 1)) pfx = ' '   sentno   ': {';
         wsk         =   SORT(mem[sentno]);
         wi          =   0;
         while (DIFFER(wsk[wi + 1, 1])) {
@@ -49,8 +49,8 @@ procedure pp_mem(mem,
             next_wkey   =   '';
             next_wkey   =   wsk[wi + 1, 1];
             wrd         =   wkey;
-            if (wrd ? (ARB && "'") = '') wq = '"' && wkey && '"';
-            else                         wq = "'" && wkey && "'";
+            if (wrd ? (ARB   "'") = '') wq = '"'   wkey   '"';
+            else                         wq = "'"   wkey   "'";
             tsk         =   SORT(mem[sentno][wkey]);
             ti          =   0;
             tline       =   '{';
@@ -59,21 +59,21 @@ procedure pp_mem(mem,
                 tag     =   tsk[ti, 1];
                 tv      =   mem[sentno][wkey][tag];
                 if (IDENT(tline, '{'))
-                    tline  = tline && "'" && tag && "': " && tv;
-                else tline = tline && ', ' && "'" && tag && "': " && tv;
+                    tline  = tline   "'"   tag   "': "   tv;
+                else tline = tline   ', '   "'"   tag   "': "   tv;
             }
-            tline = tline && '}';
+            tline = tline   '}';
             if (GT(SIZE(next_wkey), 0)) {
                 if (IDENT(wi, 1))
-                    OUTPUT  =   pfx && wq && ': ' && tline && ',';
-                else OUTPUT =   pad && wq && ': ' && tline && ',';
+                    OUTPUT  =   pfx   wq   ': '   tline   ',';
+                else OUTPUT =   pad   wq   ': '   tline   ',';
             } else {
                 if (IDENT(wi, 1))
-                    lline   =   pfx && wq && ': ' && tline;
-                else lline  =   pad && wq && ': ' && tline;
+                    lline   =   pfx   wq   ': '   tline;
+                else lline  =   pad   wq   ': '   tline;
                 if (IDENT(last_sent, 1))
-                    OUTPUT  =   lline && '}}';
-                else OUTPUT =   lline && '},';
+                    OUTPUT  =   lline   '}}';
+                else OUTPUT =   lline   '},';
             }
         }
     }
@@ -83,23 +83,23 @@ procedure pp_mem(mem,
 //------------------------------------------------------------------------------
 claws =
     POS(0)
-    && ARBNO(
-         ( (SPAN(DIGITS) . num) && '_CRD :_PUN'
-           && (epsilon . *new_sent())
-         | (NOTANY('_') && BREAK('_')) . wrd
-           && '_'
-           && (ANY(UCASE) && SPAN(DIGITS && UCASE)) . tag
-           && (epsilon . *add_tok())
+      ARBNO(
+         ( (SPAN(DIGITS) . num)   '_CRD :_PUN'
+             (epsilon . *new_sent())
+         | (NOTANY('_')   BREAK('_')) . wrd
+             '_'
+             (ANY(UCASE)   SPAN(DIGITS   UCASE)) . tag
+             (epsilon . *add_tok())
          )
-         && ' '
+           ' '
        )
-    && RPOS(0);
+      RPOS(0);
 //------------------------------------------------------------------------------
 // Canonical Snocone slurp idiom: while (line = INPUT) — assignment expression
 // evaluates to FAIL on EOF, the while-test then fails, loop exits cleanly.
 // (Per programs/snocone/report.md line 1240.)
 while (line = INPUT) {
-    src = src && line;
+    src = src   line;
 }
 mem = TABLE();
 if (src ? claws) pp_mem(mem);

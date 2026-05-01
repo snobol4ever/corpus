@@ -18,9 +18,9 @@ procedure TValue(x,   i) {
     if (IDENT(t(x), 'float'))        { TValue = v(x); return; }
     if (IDENT(t(x), 'integer'))      { TValue = v(x); return; }
     if (IDENT(t(x), 'bool'))         { TValue = v(x); return; }
-    if (IDENT(t(x), 'datetime'))     { TValue = "'" && SqlSQize(v(x)) && "'"; return; }
-    if (IDENT(t(x), 'character'))    { TValue = "'" && SqlSQize(v(x)) && "'"; return; }
-    if (IDENT(t(x), 'string'))       { TValue = "'" && SqlSQize(v(x)) && "'"; return; }
+    if (IDENT(t(x), 'datetime'))     { TValue = "'"   SqlSQize(v(x))   "'"; return; }
+    if (IDENT(t(x), 'character'))    { TValue = "'"   SqlSQize(v(x))   "'"; return; }
+    if (IDENT(t(x), 'string'))       { TValue = "'"   SqlSQize(v(x))   "'"; return; }
     if (IDENT(t(x), 'identifier'))   { TValue = v(x); return; }
     if (DIFFER(t(x)))                { TValue = t(x); return; }
     // Compound: walk children, separator '.' between pieces.
@@ -28,7 +28,7 @@ procedure TValue(x,   i) {
     while (LT(i, n(x))) {
         i = i + 1;
         if (DIFFER(TValue)) {
-            TValue = TValue && '.' && v(c(x)[i]);
+            TValue = TValue   '.'   v(c(x)[i]);
         } else {
             TValue = v(c(x)[i]);
         }
@@ -41,19 +41,19 @@ procedure TDump(x, outNm,   i, _t, _lump) {
     if (~DIFFER(outNm)) { outNm = .OUTPUT; }
     if (IDENT(DATATYPE(x), 'NAME')) { x = $x; }
     _lump = TLump(x, 140 - GetLevel());
-    if (DIFFER(_lump)) { Gen(_lump && nl, outNm); return; }
+    if (DIFFER(_lump)) { Gen(_lump   nl, outNm); return; }
     // Not a tree (or no children) — emit value form.
     if (~IDENT(DATATYPE(x), 'tree')) {
-        Gen(TValue(x) && nl, outNm); return;
+        Gen(TValue(x)   nl, outNm); return;
     }
     // Multi-line tree form.
-    if (t(x) ? (POS(0) && ANY(&UCASE && &LCASE)
-                && (SPAN(digits && &UCASE && '_' && &LCASE) | epsilon) && RPOS(0))) {
+    if (t(x) ? (POS(0)   ANY(&UCASE   &LCASE)
+                  (SPAN(digits   &UCASE   '_'   &LCASE) | epsilon)   RPOS(0))) {
         _t = t(x);
     } else {
-        _t = '"' && t(x) && '"';
+        _t = '"'   t(x)   '"';
     }
-    Gen('(' && _t && nl, outNm);
+    Gen('('   _t   nl, outNm);
     IncLevel();
     i = 0;
     while (LT(i, n(x))) {
@@ -61,7 +61,7 @@ procedure TDump(x, outNm,   i, _t, _lump) {
         TDump(c(x)[i], outNm);
     }
     DecLevel();
-    Gen(')' && nl, outNm);
+    Gen(')'   nl, outNm);
     return;
 }
 
@@ -73,20 +73,20 @@ procedure TLump(x, len,   i, _t, _child) {
         if (LE(SIZE(TLump), len)) { return; }
         freturn;
     }
-    if (t(x) ? (POS(0) && ANY(&UCASE && &LCASE)
-                && (SPAN(digits && &UCASE && '_' && &LCASE) | epsilon) && RPOS(0))) {
+    if (t(x) ? (POS(0)   ANY(&UCASE   &LCASE)
+                  (SPAN(digits   &UCASE   '_'   &LCASE) | epsilon)   RPOS(0))) {
         _t = t(x);
     } else {
-        _t = '"' && t(x) && '"';
+        _t = '"'   t(x)   '"';
     }
-    TLump = '(' && _t;
+    TLump = '('   _t;
     i = 0;
     while (LT(i, n(x))) {
         i = i + 1;
         _child = TLump(c(x)[i], len - SIZE(TLump) - 2);
         if (~DIFFER(_child)) { freturn; }
-        TLump = TLump && ' ' && _child;
+        TLump = TLump   ' '   _child;
     }
-    TLump = TLump && ')';
+    TLump = TLump   ')';
     return;
 }

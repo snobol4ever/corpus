@@ -27,7 +27,7 @@ procedure Prepend(x, y) {
 
 procedure Insert(x, y, place, c, i) {
     Insert = x;
-    c = ARRAY('1:' && (n(x) + 1));
+    c = ARRAY('1:'   (n(x) + 1));
     i = 0;
     while (LT(i, place - 1)) {
         i = i + 1;
@@ -46,7 +46,7 @@ procedure Insert(x, y, place, c, i) {
 procedure Remove(x, place, c, i) {
     Remove = x;
     if (GT(n(x) - 1, 0)) {
-        c = ARRAY('1:' && (n(x) - 1));
+        c = ARRAY('1:'   (n(x) - 1));
     } else {
         c = '';
     }
@@ -67,9 +67,9 @@ procedure Remove(x, place, c, i) {
 
 procedure Equal(x, y, i) {
     // Both null → equal
-    if (IDENT(x, '') && IDENT(y, '')) { return; }
+    if (IDENT(x, '')   IDENT(y, '')) { return; }
     // One null → not equal
-    if (IDENT(x, '') || IDENT(y, '')) { freturn; }
+    if ((IDENT(x, ''), IDENT(y, ''))) { freturn; }
     if (~IDENT(t(x), t(y))) { freturn; }
     if (~IDENT(v(x), v(y))) { freturn; }
     if (~IDENT(n(x), n(y))) { freturn; }

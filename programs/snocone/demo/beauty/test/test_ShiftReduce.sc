@@ -27,7 +27,7 @@ procedure Shift(t, v) {
 }
 procedure Reduce(t, n, c, i, r) {
     Reduce = .dummy;
-    if (GE(n, 1)) { c = ARRAY('1:' && n); } else { c = ''; }
+    if (GE(n, 1)) { c = ARRAY('1:'   n); } else { c = ''; }
     i = n + 1;
     while (GT(i, 1)) { i = i - 1; c[i] = Pop(''); }
     r = tree(t, '', n, c);
@@ -41,14 +41,14 @@ procedure Reduce(t, n, c, i, r) {
 InitStack();
 Shift('Id', 'foo');
 nd = Top();
-if (IDENT(t(nd),'Id') && IDENT(v(nd),'foo')) { OUTPUT = 'PASS: 1 Shift leaf'; } else { OUTPUT = 'FAIL: 1'; }
+if (IDENT(t(nd),'Id')   IDENT(v(nd),'foo')) { OUTPUT = 'PASS: 1 Shift leaf'; } else { OUTPUT = 'FAIL: 1'; }
 
 // 2: Shift two + Reduce(2)
 InitStack();
 Shift('Id', 'x'); Shift('Int', '42');
 Reduce('BinOp', 2);
 nd = Top();
-if (IDENT(t(nd),'BinOp') && IDENT(n(nd),2) && IDENT(t(c(nd)[1]),'Id') && IDENT(t(c(nd)[2]),'Int')) {
+if (IDENT(t(nd),'BinOp')   IDENT(n(nd),2)   IDENT(t(c(nd)[1]),'Id')   IDENT(t(c(nd)[2]),'Int')) {
     OUTPUT = 'PASS: 2 Reduce 2 children';
 } else { OUTPUT = 'FAIL: 2'; }
 
@@ -56,19 +56,19 @@ if (IDENT(t(nd),'BinOp') && IDENT(n(nd),2) && IDENT(t(c(nd)[1]),'Id') && IDENT(t
 InitStack();
 Reduce('Epsilon', 0);
 nd = Top();
-if (IDENT(t(nd),'Epsilon') && IDENT(n(nd),0)) { OUTPUT = 'PASS: 3 Reduce 0 children'; } else { OUTPUT = 'FAIL: 3'; }
+if (IDENT(t(nd),'Epsilon')   IDENT(n(nd),0)) { OUTPUT = 'PASS: 3 Reduce 0 children'; } else { OUTPUT = 'FAIL: 3'; }
 
 // 4: Shift empty value
 InitStack();
 Shift('Keyword', '');
 nd = Top();
-if (IDENT(t(nd),'Keyword') && IDENT(v(nd),'')) { OUTPUT = 'PASS: 4 Shift empty value'; } else { OUTPUT = 'FAIL: 4'; }
+if (IDENT(t(nd),'Keyword')   IDENT(v(nd),'')) { OUTPUT = 'PASS: 4 Shift empty value'; } else { OUTPUT = 'FAIL: 4'; }
 
 // 5: Shift 3, Reduce(3) — correct child order
 InitStack();
 Shift('A','a'); Shift('B','b'); Shift('C','c');
 Reduce('List', 3);
 nd = Top();
-if (IDENT(n(nd),3) && IDENT(t(c(nd)[1]),'A') && IDENT(t(c(nd)[2]),'B') && IDENT(t(c(nd)[3]),'C')) {
+if (IDENT(n(nd),3)   IDENT(t(c(nd)[1]),'A')   IDENT(t(c(nd)[2]),'B')   IDENT(t(c(nd)[3]),'C')) {
     OUTPUT = 'PASS: 5 Reduce 3 children order';
 } else { OUTPUT = 'FAIL: 5'; }

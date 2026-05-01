@@ -39,7 +39,7 @@ procedure Prepend(x, y) {
 // `c` and `i` are canonical locals.
 procedure Insert(x, y, place,   c, i) {
     Insert = x;
-    c = ARRAY('1:' && (n(x) + 1));
+    c = ARRAY('1:'   (n(x) + 1));
     for (i = 1; LT(i, place); i = i + 1) { c[i] = c(x)[i]; }
     c[place] = y;
     for (i = place; LE(i, n(x)); i = i + 1) { c[i + 1] = c(x)[i]; }
@@ -53,7 +53,7 @@ procedure Insert(x, y, place,   c, i) {
 // GT(n(x)-1, 0) — when no children remain, c becomes null).
 procedure Remove(x, place,   c, i) {
     Remove = x;
-    if (GT(n(x) - 1, 0)) { c = ARRAY('1:' && (n(x) - 1)); }
+    if (GT(n(x) - 1, 0)) { c = ARRAY('1:'   (n(x) - 1)); }
     else                 { c = ''; }
     for (i = 1; LT(i, place); i = i + 1) { c[i]     = c(x)[i]; }
     for (i = place + 1; LE(i, n(x)); i = i + 1) { c[i - 1] = c(x)[i]; }
@@ -72,16 +72,16 @@ procedure Remove(x, place,   c, i) {
 procedure Tree(t, v, n, c1, c2, c3, c4, c5, c6, c7, c8,   i, nc) {
     nc = 8;
     while (GT(nc, 0)) {
-        if (~IDENT($('c' && nc))) { break; }
+        if (~IDENT($('c'   nc))) { break; }
         nc = nc - 1;
     }
     if (GT(nc, 0)) {
-        Tree = tree(t, v, nc, ARRAY('1:' && nc));
+        Tree = tree(t, v, nc, ARRAY('1:'   nc));
     } else {
         Tree = tree(t, v, '', '');
     }
     for (i = 1; LE(i, nc); i = i + 1) {
-        c(Tree)[i] = $('c' && i);
+        c(Tree)[i] = $('c'   i);
     }
     return;
 }
@@ -91,8 +91,8 @@ procedure Tree(t, v, n, c1, c2, c3, c4, c5, c6, c7, c8,   i, nc) {
 // epsilon *IDENT(x) | *IDENT(y) succeeds iff either is null.
 // In Snocone we express both branches as explicit IDENT calls.
 procedure Equal(x, y,   i) {
-    if (IDENT(x) && IDENT(y))               { return;  }
-    if (IDENT(x) || IDENT(y))               { freturn; }
+    if (IDENT(x)   IDENT(y))               { return;  }
+    if ((IDENT(x), IDENT(y)))               { freturn; }
     if (~IDENT(t(x), t(y)))                 { freturn; }
     if (~IDENT(v(x), v(y)))                 { freturn; }
     if (~IDENT(n(x), n(y)))                 { freturn; }
@@ -128,7 +128,7 @@ procedure Equiv(x, y,   i) {
 // matching APPLY-success short-circuit; otherwise we recurse.
 procedure Find(xn, y, f,   i) {
     if (~DIFFER($xn)) { return; }
-    if (Equiv($xn, y) && APPLY(f, xn)) { return; }
+    if (Equiv($xn, y)   APPLY(f, xn)) { return; }
     for (i = 1; LE(i, n($xn)); i = i + 1) {
         Find(.c($xn)[i], y, f);
     }

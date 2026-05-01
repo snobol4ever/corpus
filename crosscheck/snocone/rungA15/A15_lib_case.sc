@@ -9,7 +9,7 @@ procedure upr(s) {
     return REPLACE(s, &LCASE, &UCASE);
 }
 procedure cap(s) {
-    return REPLACE(SUBSTR(s, 1, 1), &LCASE, &UCASE) && REPLACE(SUBSTR(s, 2), &UCASE, &LCASE);
+    return REPLACE(SUBSTR(s, 1, 1), &LCASE, &UCASE)   REPLACE(SUBSTR(s, 2), &UCASE, &LCASE);
 }
 // icase(subject, pattern): succeed if subject matches pattern case-insensitively
 procedure icase(subject, pat) {

@@ -5,7 +5,7 @@ procedure bump(v) {
 s = '';
 j = 0;
 while (LT(j, 5)) {
-    s = s && bump(2 * j);
+    s = s   bump(2 * j);
     j = j + 1;
 }
 OUTPUT = s;

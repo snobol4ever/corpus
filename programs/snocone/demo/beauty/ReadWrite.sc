@@ -22,7 +22,7 @@ procedure Read(fileName, rdMapName,   rdInput, rdIn, rdLine, rdLineNo, rdMap, rd
         rdLine = '';
         rdIn = rdInput;
         while (DIFFER(rdIn)) {
-            rdLine = rdLine && rdIn;
+            rdLine = rdLine   rdIn;
             if (~LT(SIZE(rdIn), 131072)) { break; }
             rdIn = rdInput;
         }
@@ -32,29 +32,29 @@ procedure Read(fileName, rdMapName,   rdInput, rdIn, rdLine, rdLineNo, rdMap, rd
             $rdMapName = rdMap;
             return;
         }
-        rdLine ? (RPOS(1) && cr) = ;
+        rdLine ? (RPOS(1)   cr) = ;
         rdOfs    = rdOfs + SIZE(rdLine) + 1;
         rdLineNo = rdLineNo + 1;
-        Read     = Read && rdLine && nl;
+        Read     = Read   rdLine   nl;
     }
 }
 
 procedure Write(fileName, fileStr,   wrLine, wrOutput) {
     if (~output__(.wrOutput, 8, '', fileName)) { freturn; }
     while (1) {
-        if (fileStr ? (POS(0) && RPOS(0))) {
+        if (fileStr ? (POS(0)   RPOS(0))) {
             ENDFILE(8); return;
         }
         // First try: extract a complete line ending in nl (destructive).
         wrLine = '';
-        if (fileStr ? (POS(0) && BREAK(nl) . wrLine && nl)) {
-            fileStr ? (POS(0) && BREAK(nl) && nl) = ;
+        if (fileStr ? (POS(0)   BREAK(nl) . wrLine   nl)) {
+            fileStr ? (POS(0)   BREAK(nl)   nl) = ;
             wrOutput = wrLine;
         } else {
             // No remaining nl — emit the trailing partial line and finish.
             wrLine = '';
-            if (fileStr ? (POS(0) && RTAB(0) . wrLine)) {
-                fileStr ? (POS(0) && RTAB(0)) = ;
+            if (fileStr ? (POS(0)   RTAB(0) . wrLine)) {
+                fileStr ? (POS(0)   RTAB(0)) = ;
                 wrOutput = wrLine;
                 ENDFILE(8); return;
             }
@@ -71,8 +71,8 @@ procedure LineMap(str, lmMapName,   lmLineNo, lmMap, lmOfs, xOfs) {
         lmMap[lmOfs] = lmLineNo;
         // Need both: capture cursor after nl, AND consume from str. Two-step.
         xOfs = '';
-        if (str ? (POS(0) && BREAK(nl) && nl && @xOfs)) {
-            str ? (POS(0) && BREAK(nl) && nl) = ;
+        if (str ? (POS(0)   BREAK(nl)   nl   @xOfs)) {
+            str ? (POS(0)   BREAK(nl)   nl) = ;
             lmOfs    = lmOfs + xOfs;
             lmLineNo = lmLineNo + 1;
         } else {

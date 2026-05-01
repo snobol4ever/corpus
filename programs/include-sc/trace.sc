@@ -37,8 +37,8 @@ procedure T8Pos(t8Ofs, _map, i) {
     }
     t8MaxLine = _map[i];
     t8MaxPos  = t8Max - i + 1;
-    T8Pos = '(' && LPAD(t8MaxLine, 5) && ', ' && LPAD(t8MaxPos, 3) &&
-            ', ' && LPAD(t8Line, 5)   && ', ' && LPAD(_t8pos, 3) && ')';
+    T8Pos = '('   LPAD(t8MaxLine, 5)   ', '   LPAD(t8MaxPos, 3)  
+            ', '   LPAD(t8Line, 5)     ', '   LPAD(_t8pos, 3)   ')';
     return;
 }
 
@@ -48,18 +48,18 @@ procedure T8Trace(lvl, str, ofs) {
     if (~LE(lvl, doDebug)) { nreturn; }
     if (~GT(doDebug, 1)) {
         // doDebug == 1: suppress ?-prefixed strings
-        if (str ? (POS(0) && '?')) { nreturn; }
+        if (str ? (POS(0)   '?')) { nreturn; }
         nreturn;
     }
     // doDebug > 1: expand ?-prefix to '? ', else prepend '  '
-    if (str ? (POS(0) && '?')) {
-        str = '? ' && SUBSTR(str, 2);
+    if (str ? (POS(0)   '?')) {
+        str = '? '   SUBSTR(str, 2);
     } else {
-        str = '  ' && str;
+        str = '  '   str;
     }
     _t8p = T8Pos(strOfs + ofs, t8Map);
     if (~GE(t8MaxLine, 621)) { nreturn; }
     if (GE(t8Max, t8MaxLast)) { t8MaxLast = t8Max; }
-    OUTPUT = _t8p && str;
+    OUTPUT = _t8p   str;
     nreturn;
 }

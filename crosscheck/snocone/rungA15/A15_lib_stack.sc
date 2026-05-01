@@ -71,7 +71,7 @@ OUTPUT = myvar;
 // push values from pattern match
 stack_init();
 subject = 'hello world';
-if (subject ? BREAK(' ') . w1 && LEN(1) && REM . w2) {
+if (subject ? BREAK(' ') . w1   LEN(1)   REM . w2) {
     stack_push(w1);
     stack_push(w2);
     OUTPUT = stack_pop();

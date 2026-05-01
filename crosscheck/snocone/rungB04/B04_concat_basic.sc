@@ -1,1 +1,1 @@
-OUTPUT = "hello" && " " && "world";
+OUTPUT = "hello"   " "   "world";

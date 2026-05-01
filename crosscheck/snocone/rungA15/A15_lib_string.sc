@@ -6,12 +6,12 @@
 procedure pad_left(s, n, c) {
     if (IDENT(c, '')) { c = ' '; }
     if (GE(SIZE(s), n)) { return s; }
-    return DUPL(c, n - SIZE(s)) && s;
+    return DUPL(c, n - SIZE(s))   s;
 }
 procedure pad_right(s, n, c) {
     if (IDENT(c, '')) { c = ' '; }
     if (GE(SIZE(s), n)) { return s; }
-    return s && DUPL(c, n - SIZE(s));
+    return s   DUPL(c, n - SIZE(s));
 }
 procedure ltrim(s)(ws) {
     ws = ' ';
@@ -44,13 +44,13 @@ procedure repeat(s, n) {
     return DUPL(s, n);
 }
 procedure contains(s, t) {
-    if (s ? BREAK(t) && t) { return; } else { freturn; }
+    if (s ? BREAK(t)   t) { return; } else { freturn; }
 }
 procedure startswith(s, t) {
-    if (s ? POS(0) && t) { return; } else { freturn; }
+    if (s ? POS(0)   t) { return; } else { freturn; }
 }
 procedure endswith(s, t) {
-    if (s ? t && RPOS(0)) { return; } else { freturn; }
+    if (s ? t   RPOS(0)) { return; } else { freturn; }
 }
 procedure index(s, t)(ix) {
     ix = s;

@@ -4,7 +4,7 @@
 &TRIM = 1;
 n = 0;
 while (s = INPUT) {
-    OUTPUT = DUPL(' ', (80 - SIZE(s)) / 2) && s;
+    OUTPUT = DUPL(' ', (80 - SIZE(s)) / 2)   s;
     n = REMDR(n + 1, 3);
     OUTPUT = EQ(n, 0);
 }

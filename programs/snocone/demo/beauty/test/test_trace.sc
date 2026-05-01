@@ -20,8 +20,8 @@ procedure T8Pos(t8Ofs, _map, i) {
     }
     t8MaxLine = _map[i];
     t8MaxPos  = t8Max - i + 1;
-    T8Pos = '(' && LPAD(t8MaxLine, 5) && ', ' && LPAD(t8MaxPos, 3) &&
-            ', ' && LPAD(t8Line, 5)   && ', ' && LPAD(t8Pos, 3) && ')';
+    T8Pos = '('   LPAD(t8MaxLine, 5)   ', '   LPAD(t8MaxPos, 3)  
+            ', '   LPAD(t8Line, 5)     ', '   LPAD(t8Pos, 3)   ')';
     return;
 }
 
@@ -30,33 +30,33 @@ procedure T8Trace(lvl, str, ofs) {
     if (~GT(doDebug, 0)) { nreturn; }
     if (~LE(lvl, doDebug)) { nreturn; }
     if (~GT(doDebug, 1)) {
-        if (str ? (POS(0) && '?')) { nreturn; }
+        if (str ? (POS(0)   '?')) { nreturn; }
         nreturn;
     }
-    if (str ? (POS(0) && '?')) {
-        str = '? ' && SUBSTR(str, 2);
+    if (str ? (POS(0)   '?')) {
+        str = '? '   SUBSTR(str, 2);
     } else {
-        str = '  ' && str;
+        str = '  '   str;
     }
     _t8p = T8Pos(strOfs + ofs, t8Map);
     if (~GE(t8MaxLine, 621)) { nreturn; }
     if (GE(t8Max, t8MaxLast)) { t8MaxLast = t8Max; }
-    OUTPUT = _t8p && str;
+    OUTPUT = _t8p   str;
     nreturn;
 }
 
 dSTRING = DATATYPE('');
 
 r1 = T8Pos(5, '');
-if (IDENT(r1, '       5')) { OUTPUT = 'PASS: 1 T8Pos nil map=LPAD'; } else { OUTPUT = 'FAIL: 1 [' && r1 && ']'; }
+if (IDENT(r1, '       5')) { OUTPUT = 'PASS: 1 T8Pos nil map=LPAD'; } else { OUTPUT = 'FAIL: 1 ['   r1   ']'; }
 
 t8Map2 = TABLE(); t8Map2[0] = 1; t8Map2[5] = 2; t8Max = 0;
 r2 = T8Pos(7, t8Map2);
-if (IDENT(r2, '(    2,   3,     2,   3)')) { OUTPUT = 'PASS: 2 T8Pos map line/col'; } else { OUTPUT = 'FAIL: 2 [' && r2 && ']'; }
+if (IDENT(r2, '(    2,   3,     2,   3)')) { OUTPUT = 'PASS: 2 T8Pos map line/col'; } else { OUTPUT = 'FAIL: 2 ['   r2   ']'; }
 
 t8Map3 = TABLE(); t8Map3[0] = 1; t8Max = 0;
 T8Pos(12, t8Map3);
-if (EQ(t8Max, 12)) { OUTPUT = 'PASS: 3 T8Pos updates t8Max'; } else { OUTPUT = 'FAIL: 3 t8Max=' && t8Max; }
+if (EQ(t8Max, 12)) { OUTPUT = 'PASS: 3 T8Pos updates t8Max'; } else { OUTPUT = 'FAIL: 3 t8Max='   t8Max; }
 
 doDebug = 0;
 r4 = T8Trace(1, 'hello', 0);
@@ -81,4 +81,4 @@ OUTPUT = 'PASS: 8 T8Trace doDebug=2 ?-expand output';
 
 doDebug = 2; t8Max = 10; t8MaxLine = 621; t8MaxLast = 5; strOfs = 0; t8Map = '';
 T8Trace(1, 'upd', 0);
-if (EQ(t8MaxLast, 10)) { OUTPUT = 'PASS: 9 t8MaxLast updated to t8Max'; } else { OUTPUT = 'FAIL: 9 t8MaxLast=' && t8MaxLast; }
+if (EQ(t8MaxLast, 10)) { OUTPUT = 'PASS: 9 t8MaxLast updated to t8Max'; } else { OUTPUT = 'FAIL: 9 t8MaxLast='   t8MaxLast; }

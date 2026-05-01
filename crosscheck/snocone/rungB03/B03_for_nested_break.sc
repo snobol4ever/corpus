@@ -4,6 +4,6 @@ for (i = 1; LE(i, 3); i = ADD(i, 1)) {
         if (EQ(j, 2)) {
             break;
         }
-        OUTPUT = i && '-' && j;
+        OUTPUT = i   '-'   j;
     }
 }

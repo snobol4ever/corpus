@@ -125,7 +125,7 @@ procedure g_stem_last_st() (L, last) {
 
 procedure g_m_ll_gt_1() (save, r) {
     save = stem;
-    stem = save && 'll';
+    stem = save   'll';
     r = m();
     stem = save;
     if (GT(r, 1)) { g_m_ll_gt_1 = ; return; }
@@ -158,7 +158,7 @@ procedure s_l()     { target = 'l';    s_l     = .dummy; nreturn; }
 // step1ab_cleanup -- commit-time action that sets target and may mutate stem.
 procedure a_s1ab_cleanup() (L, last, P) {
     L = SIZE(stem);
-    P = RTAB(2) && ('at' | 'bl' | 'iz') && RPOS(0);
+    P = RTAB(2)   ('at' | 'bl' | 'iz')   RPOS(0);
     if (stem ? P) { target = 'e'; goto a_s1_done; }
     if (doublec(L)) {
         last = SUBSTR(stem, L, 1);
@@ -182,104 +182,104 @@ a_s1_done:
 // ---------------------------------------------------------------------------------------------------------
 p1a =
     POS(0)
-    && ( RTAB(4) $ stem && 'sses' && (epsilon . *s_ss())
-       | RTAB(3) $ stem && 'ies'  && (epsilon . *s_i())
-       | RTAB(2) $ stem && 'ss'   && (epsilon . *s_ss())
-       | RTAB(1) $ stem && 's'    && (epsilon . *s_empty())
+      ( RTAB(4) $ stem   'sses'   (epsilon . *s_ss())
+       | RTAB(3) $ stem   'ies'    (epsilon . *s_i())
+       | RTAB(2) $ stem   'ss'     (epsilon . *s_ss())
+       | RTAB(1) $ stem   's'      (epsilon . *s_empty())
        )
-    && RPOS(0);
+      RPOS(0);
 
 p1b =
     POS(0)
-    && ( RTAB(3) $ stem && 'eed' && (*g_m_gt_0() && (epsilon . *s_ee()) | epsilon)
-       | RTAB(2) $ stem && 'ed'  && *g_vis() && (epsilon . *a_s1ab_cleanup())
-       | RTAB(3) $ stem && 'ing' && *g_vis() && (epsilon . *a_s1ab_cleanup())
+      ( RTAB(3) $ stem   'eed'   (*g_m_gt_0()   (epsilon . *s_ee()) | epsilon)
+       | RTAB(2) $ stem   'ed'    *g_vis()   (epsilon . *a_s1ab_cleanup())
+       | RTAB(3) $ stem   'ing'   *g_vis()   (epsilon . *a_s1ab_cleanup())
        )
-    && RPOS(0);
+      RPOS(0);
 
 p1c =
     POS(0)
-    && ( RTAB(1) $ stem && 'y' && *g_vis() && (epsilon . *s_i())
+      ( RTAB(1) $ stem   'y'   *g_vis()   (epsilon . *s_i())
        )
-    && RPOS(0);
+      RPOS(0);
 
 p2 =
     POS(0)
-    && ( RTAB(7) $ stem && 'ational' && *g_m_gt_0() && (epsilon . *s_ate())
-       | RTAB(6) $ stem && 'tional'  && *g_m_gt_0() && (epsilon . *s_tion())
-       | RTAB(4) $ stem && 'enci'    && *g_m_gt_0() && (epsilon . *s_ence())
-       | RTAB(4) $ stem && 'anci'    && *g_m_gt_0() && (epsilon . *s_ance())
-       | RTAB(4) $ stem && 'izer'    && *g_m_gt_0() && (epsilon . *s_ize())
-       | RTAB(3) $ stem && 'bli'     && *g_m_gt_0() && (epsilon . *s_ble())
-       | RTAB(4) $ stem && 'alli'    && *g_m_gt_0() && (epsilon . *s_al())
-       | RTAB(5) $ stem && 'entli'   && *g_m_gt_0() && (epsilon . *s_ent())
-       | RTAB(3) $ stem && 'eli'     && *g_m_gt_0() && (epsilon . *s_e())
-       | RTAB(5) $ stem && 'ousli'   && *g_m_gt_0() && (epsilon . *s_ous())
-       | RTAB(7) $ stem && 'ization' && *g_m_gt_0() && (epsilon . *s_ize())
-       | RTAB(5) $ stem && 'ation'   && *g_m_gt_0() && (epsilon . *s_ate())
-       | RTAB(4) $ stem && 'ator'    && *g_m_gt_0() && (epsilon . *s_ate())
-       | RTAB(5) $ stem && 'alism'   && *g_m_gt_0() && (epsilon . *s_al())
-       | RTAB(7) $ stem && 'iveness' && *g_m_gt_0() && (epsilon . *s_ive())
-       | RTAB(7) $ stem && 'fulness' && *g_m_gt_0() && (epsilon . *s_ful())
-       | RTAB(7) $ stem && 'ousness' && *g_m_gt_0() && (epsilon . *s_ous())
-       | RTAB(5) $ stem && 'aliti'   && *g_m_gt_0() && (epsilon . *s_al())
-       | RTAB(5) $ stem && 'iviti'   && *g_m_gt_0() && (epsilon . *s_ive())
-       | RTAB(6) $ stem && 'biliti'  && *g_m_gt_0() && (epsilon . *s_ble())
-       | RTAB(4) $ stem && 'logi'    && *g_m_gt_0() && (epsilon . *s_log())
+      ( RTAB(7) $ stem   'ational'   *g_m_gt_0()   (epsilon . *s_ate())
+       | RTAB(6) $ stem   'tional'    *g_m_gt_0()   (epsilon . *s_tion())
+       | RTAB(4) $ stem   'enci'      *g_m_gt_0()   (epsilon . *s_ence())
+       | RTAB(4) $ stem   'anci'      *g_m_gt_0()   (epsilon . *s_ance())
+       | RTAB(4) $ stem   'izer'      *g_m_gt_0()   (epsilon . *s_ize())
+       | RTAB(3) $ stem   'bli'       *g_m_gt_0()   (epsilon . *s_ble())
+       | RTAB(4) $ stem   'alli'      *g_m_gt_0()   (epsilon . *s_al())
+       | RTAB(5) $ stem   'entli'     *g_m_gt_0()   (epsilon . *s_ent())
+       | RTAB(3) $ stem   'eli'       *g_m_gt_0()   (epsilon . *s_e())
+       | RTAB(5) $ stem   'ousli'     *g_m_gt_0()   (epsilon . *s_ous())
+       | RTAB(7) $ stem   'ization'   *g_m_gt_0()   (epsilon . *s_ize())
+       | RTAB(5) $ stem   'ation'     *g_m_gt_0()   (epsilon . *s_ate())
+       | RTAB(4) $ stem   'ator'      *g_m_gt_0()   (epsilon . *s_ate())
+       | RTAB(5) $ stem   'alism'     *g_m_gt_0()   (epsilon . *s_al())
+       | RTAB(7) $ stem   'iveness'   *g_m_gt_0()   (epsilon . *s_ive())
+       | RTAB(7) $ stem   'fulness'   *g_m_gt_0()   (epsilon . *s_ful())
+       | RTAB(7) $ stem   'ousness'   *g_m_gt_0()   (epsilon . *s_ous())
+       | RTAB(5) $ stem   'aliti'     *g_m_gt_0()   (epsilon . *s_al())
+       | RTAB(5) $ stem   'iviti'     *g_m_gt_0()   (epsilon . *s_ive())
+       | RTAB(6) $ stem   'biliti'    *g_m_gt_0()   (epsilon . *s_ble())
+       | RTAB(4) $ stem   'logi'      *g_m_gt_0()   (epsilon . *s_log())
        )
-    && RPOS(0);
+      RPOS(0);
 
 p3 =
     POS(0)
-    && ( RTAB(5) $ stem && 'icate' && *g_m_gt_0() && (epsilon . *s_ic())
-       | RTAB(5) $ stem && 'ative' && *g_m_gt_0() && (epsilon . *s_empty())
-       | RTAB(5) $ stem && 'alize' && *g_m_gt_0() && (epsilon . *s_al())
-       | RTAB(5) $ stem && 'iciti' && *g_m_gt_0() && (epsilon . *s_ic())
-       | RTAB(4) $ stem && 'ical'  && *g_m_gt_0() && (epsilon . *s_ic())
-       | RTAB(3) $ stem && 'ful'   && *g_m_gt_0() && (epsilon . *s_empty())
-       | RTAB(4) $ stem && 'ness'  && *g_m_gt_0() && (epsilon . *s_empty())
+      ( RTAB(5) $ stem   'icate'   *g_m_gt_0()   (epsilon . *s_ic())
+       | RTAB(5) $ stem   'ative'   *g_m_gt_0()   (epsilon . *s_empty())
+       | RTAB(5) $ stem   'alize'   *g_m_gt_0()   (epsilon . *s_al())
+       | RTAB(5) $ stem   'iciti'   *g_m_gt_0()   (epsilon . *s_ic())
+       | RTAB(4) $ stem   'ical'    *g_m_gt_0()   (epsilon . *s_ic())
+       | RTAB(3) $ stem   'ful'     *g_m_gt_0()   (epsilon . *s_empty())
+       | RTAB(4) $ stem   'ness'    *g_m_gt_0()   (epsilon . *s_empty())
        )
-    && RPOS(0);
+      RPOS(0);
 
 p4 =
     POS(0)
-    && ( RTAB(2) $ stem && 'al'    && *g_m_gt_1() && (epsilon . *s_empty())
-       | RTAB(4) $ stem && 'ance'  && *g_m_gt_1() && (epsilon . *s_empty())
-       | RTAB(4) $ stem && 'ence'  && *g_m_gt_1() && (epsilon . *s_empty())
-       | RTAB(2) $ stem && 'er'    && *g_m_gt_1() && (epsilon . *s_empty())
-       | RTAB(2) $ stem && 'ic'    && *g_m_gt_1() && (epsilon . *s_empty())
-       | RTAB(4) $ stem && 'able'  && *g_m_gt_1() && (epsilon . *s_empty())
-       | RTAB(4) $ stem && 'ible'  && *g_m_gt_1() && (epsilon . *s_empty())
-       | RTAB(3) $ stem && 'ant'   && *g_m_gt_1() && (epsilon . *s_empty())
-       | RTAB(5) $ stem && 'ement' && *g_m_gt_1() && (epsilon . *s_empty())
-       | RTAB(4) $ stem && 'ment'  && *g_m_gt_1() && (epsilon . *s_empty())
-       | RTAB(3) $ stem && 'ent'   && *g_m_gt_1() && *g_stem_not_m() && (epsilon . *s_empty())
-       | RTAB(3) $ stem && 'ion'   && *g_m_gt_1() && *g_stem_last_st() && (epsilon . *s_empty())
-       | RTAB(2) $ stem && 'ou'    && *g_m_gt_1() && (epsilon . *s_empty())
-       | RTAB(3) $ stem && 'ism'   && *g_m_gt_1() && (epsilon . *s_empty())
-       | RTAB(3) $ stem && 'ate'   && *g_m_gt_1() && (epsilon . *s_empty())
-       | RTAB(3) $ stem && 'iti'   && *g_m_gt_1() && (epsilon . *s_empty())
-       | RTAB(3) $ stem && 'ous'   && *g_m_gt_1() && (epsilon . *s_empty())
-       | RTAB(3) $ stem && 'ive'   && *g_m_gt_1() && (epsilon . *s_empty())
-       | RTAB(3) $ stem && 'ize'   && *g_m_gt_1() && (epsilon . *s_empty())
+      ( RTAB(2) $ stem   'al'      *g_m_gt_1()   (epsilon . *s_empty())
+       | RTAB(4) $ stem   'ance'    *g_m_gt_1()   (epsilon . *s_empty())
+       | RTAB(4) $ stem   'ence'    *g_m_gt_1()   (epsilon . *s_empty())
+       | RTAB(2) $ stem   'er'      *g_m_gt_1()   (epsilon . *s_empty())
+       | RTAB(2) $ stem   'ic'      *g_m_gt_1()   (epsilon . *s_empty())
+       | RTAB(4) $ stem   'able'    *g_m_gt_1()   (epsilon . *s_empty())
+       | RTAB(4) $ stem   'ible'    *g_m_gt_1()   (epsilon . *s_empty())
+       | RTAB(3) $ stem   'ant'     *g_m_gt_1()   (epsilon . *s_empty())
+       | RTAB(5) $ stem   'ement'   *g_m_gt_1()   (epsilon . *s_empty())
+       | RTAB(4) $ stem   'ment'    *g_m_gt_1()   (epsilon . *s_empty())
+       | RTAB(3) $ stem   'ent'     *g_m_gt_1()   *g_stem_not_m()   (epsilon . *s_empty())
+       | RTAB(3) $ stem   'ion'     *g_m_gt_1()   *g_stem_last_st()   (epsilon . *s_empty())
+       | RTAB(2) $ stem   'ou'      *g_m_gt_1()   (epsilon . *s_empty())
+       | RTAB(3) $ stem   'ism'     *g_m_gt_1()   (epsilon . *s_empty())
+       | RTAB(3) $ stem   'ate'     *g_m_gt_1()   (epsilon . *s_empty())
+       | RTAB(3) $ stem   'iti'     *g_m_gt_1()   (epsilon . *s_empty())
+       | RTAB(3) $ stem   'ous'     *g_m_gt_1()   (epsilon . *s_empty())
+       | RTAB(3) $ stem   'ive'     *g_m_gt_1()   (epsilon . *s_empty())
+       | RTAB(3) $ stem   'ize'     *g_m_gt_1()   (epsilon . *s_empty())
        )
-    && RPOS(0);
+      RPOS(0);
 
 p5a =
     POS(0)
-    && ( RTAB(1) $ stem && 'e'
-         && ( *g_m_gt_1()
-            | *g_m_eq_1() && *g_not_cvc_last()
+      ( RTAB(1) $ stem   'e'
+           ( *g_m_gt_1()
+            | *g_m_eq_1()   *g_not_cvc_last()
             )
-         && (epsilon . *s_empty())
+           (epsilon . *s_empty())
        )
-    && RPOS(0);
+      RPOS(0);
 
 p5b =
     POS(0)
-    && ( RTAB(2) $ stem && 'll' && *g_m_ll_gt_1() && (epsilon . *s_l())
+      ( RTAB(2) $ stem   'll'   *g_m_ll_gt_1()   (epsilon . *s_l())
        )
-    && RPOS(0);
+      RPOS(0);
 
 // ---------------------------------------------------------------------------------------------------------
 // stemmer(token): run the Porter pipeline.
@@ -290,42 +290,42 @@ procedure stemmer(token) {
 
     target = 'UNSET';
     if (token ? p1a) {
-        if (DIFFER(target, 'UNSET')) { token = stem && target; }
+        if (DIFFER(target, 'UNSET')) { token = stem   target; }
     }
 
     target = 'UNSET';
     if (token ? p1b) {
-        if (DIFFER(target, 'UNSET')) { token = stem && target; }
+        if (DIFFER(target, 'UNSET')) { token = stem   target; }
     }
 
     target = 'UNSET';
     if (token ? p1c) {
-        if (DIFFER(target, 'UNSET')) { token = stem && target; }
+        if (DIFFER(target, 'UNSET')) { token = stem   target; }
     }
 
     target = 'UNSET';
     if (token ? p2) {
-        if (DIFFER(target, 'UNSET')) { token = stem && target; }
+        if (DIFFER(target, 'UNSET')) { token = stem   target; }
     }
 
     target = 'UNSET';
     if (token ? p3) {
-        if (DIFFER(target, 'UNSET')) { token = stem && target; }
+        if (DIFFER(target, 'UNSET')) { token = stem   target; }
     }
 
     target = 'UNSET';
     if (token ? p4) {
-        if (DIFFER(target, 'UNSET')) { token = stem && target; }
+        if (DIFFER(target, 'UNSET')) { token = stem   target; }
     }
 
     target = 'UNSET';
     if (token ? p5a) {
-        if (DIFFER(target, 'UNSET')) { token = stem && target; }
+        if (DIFFER(target, 'UNSET')) { token = stem   target; }
     }
 
     target = 'UNSET';
     if (token ? p5b) {
-        if (DIFFER(target, 'UNSET')) { token = stem && target; }
+        if (DIFFER(target, 'UNSET')) { token = stem   target; }
     }
 
     stemmer = token;

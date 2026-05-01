@@ -8,4 +8,4 @@ while (line = INPUT) {
     chars = chars + SIZE(line);
     lines = lines + 1;
 }
-OUTPUT = chars && ' characters, ' && lines && ' lines read';
+OUTPUT = chars   ' characters, '   lines   ' lines read';

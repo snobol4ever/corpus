@@ -27,7 +27,7 @@ struct link_tag     { next, value }
 procedure InitCounter() { $'#N' = ''; return; }
 
 procedure PushCounter() {
-    OUTPUT = GT(xTrace, 4) && 'PushCounter()';
+    OUTPUT = GT(xTrace, 4)   'PushCounter()';
     $'#N' = link_counter($'#N', 0);
     PushCounter = .dummy;
     nreturn;
@@ -35,20 +35,20 @@ procedure PushCounter() {
 
 procedure IncCounter() {
     value($'#N') = value($'#N') + 1;
-    OUTPUT = GT(xTrace, 4) && (value($'#N') && ' = IncCounter()');
+    OUTPUT = GT(xTrace, 4)   (value($'#N')   ' = IncCounter()');
     IncCounter = .dummy;
     nreturn;
 }
 
 procedure DecCounter() {
     value($'#N') = value($'#N') - 1;
-    OUTPUT = GT(xTrace, 4) && (value($'#N') && ' = DecCounter()');
+    OUTPUT = GT(xTrace, 4)   (value($'#N')   ' = DecCounter()');
     DecCounter = .dummy;
     nreturn;
 }
 
 procedure PopCounter() {
-    OUTPUT = GT(xTrace, 4) && 'PopCounter()';
+    OUTPUT = GT(xTrace, 4)   'PopCounter()';
     if (DIFFER($'#N')) { $'#N' = next($'#N'); PopCounter = .dummy; nreturn; }
     else { freturn; }
 }
@@ -56,7 +56,7 @@ procedure PopCounter() {
 procedure TopCounter() {
     if (DIFFER($'#N')) {
         TopCounter = value($'#N');
-        OUTPUT = GT(xTrace, 4) && (TopCounter && ' = TopCounter()');
+        OUTPUT = GT(xTrace, 4)   (TopCounter   ' = TopCounter()');
         return;
     }
     else { freturn; }
@@ -68,14 +68,14 @@ procedure TopCounter() {
 procedure InitBegTag() { $'@B' = ''; return; }
 
 procedure PushBegTag(t) {
-    OUTPUT = GT(xTrace, 4) && ('PushBegTag(' && upr(t) && ')');
+    OUTPUT = GT(xTrace, 4)   ('PushBegTag('   upr(t)   ')');
     $'@B' = link_tag($'@B', upr(t));
     if (IDENT(t)) { PushBegTag = .value($'@B'); nreturn; }
     else          { PushBegTag = .dummy;        nreturn; }
 }
 
 procedure PopBegTag() {
-    OUTPUT = GT(xTrace, 4) && ((DIFFER($'@B') && value($'@B') | 'FAIL') && ' = PopBegTag()');
+    OUTPUT = GT(xTrace, 4)   ((DIFFER($'@B')   value($'@B') | 'FAIL')   ' = PopBegTag()');
     if (DIFFER($'@B')) { $'@B' = next($'@B'); PopBegTag = .dummy; nreturn; }
     else               { freturn; }
 }
@@ -83,7 +83,7 @@ procedure PopBegTag() {
 procedure TopBegTag() {
     if (DIFFER($'@B')) {
         TopBegTag = value($'@B');
-        OUTPUT = GT(xTrace, 4) && (TopBegTag && ' = TopBegTag()');
+        OUTPUT = GT(xTrace, 4)   (TopBegTag   ' = TopBegTag()');
         return;
     }
     else { freturn; }
@@ -99,11 +99,11 @@ procedure DumpBegTag(b, list, v) {
     list = '';
     while (DIFFER(b)) {
         v = value(b);
-        if (DIFFER(list)) { list = list && ', ' && v; }
+        if (DIFFER(list)) { list = list   ', '   v; }
         else              { list = v; }
         b = next(b);
     }
-    OUTPUT = '@B = (' && list && ')';
+    OUTPUT = '@B = ('   list   ')';
     nreturn;
 }
 
@@ -113,14 +113,14 @@ procedure DumpBegTag(b, list, v) {
 procedure InitEndTag() { $'@E' = ''; return; }
 
 procedure PushEndTag(t) {
-    OUTPUT = GT(xTrace, 4) && ('PushEndTag(' && upr(t) && ')');
+    OUTPUT = GT(xTrace, 4)   ('PushEndTag('   upr(t)   ')');
     $'@E' = link_tag($'@E', upr(t));
     if (IDENT(t)) { PushEndTag = .value($'@E'); nreturn; }
     else          { PushEndTag = .dummy;        nreturn; }
 }
 
 procedure PopEndTag() {
-    OUTPUT = GT(xTrace, 4) && ((DIFFER($'@E') && value($'@E') | 'FAIL') && ' = PopEndTag()');
+    OUTPUT = GT(xTrace, 4)   ((DIFFER($'@E')   value($'@E') | 'FAIL')   ' = PopEndTag()');
     if (DIFFER($'@E')) { $'@E' = next($'@E'); PopEndTag = .dummy; nreturn; }
     else               { freturn; }
 }
@@ -128,7 +128,7 @@ procedure PopEndTag() {
 procedure TopEndTag() {
     if (DIFFER($'@E')) {
         TopEndTag = value($'@E');
-        OUTPUT = GT(xTrace, 4) && (TopEndTag && ' = TopEndTag()');
+        OUTPUT = GT(xTrace, 4)   (TopEndTag   ' = TopEndTag()');
         return;
     }
     else { freturn; }
@@ -142,10 +142,10 @@ procedure DumpEndTag(e, list, v) {
     list = '';
     while (DIFFER(e)) {
         v = value(e);
-        if (DIFFER(list)) { list = list && ', ' && v; }
+        if (DIFFER(list)) { list = list   ', '   v; }
         else              { list = v; }
         e = next(e);
     }
-    OUTPUT = '@E = (' && list && ')';
+    OUTPUT = '@E = ('   list   ')';
     nreturn;
 }

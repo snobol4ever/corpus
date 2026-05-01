@@ -3,7 +3,7 @@ procedure swap(a, b)(tmp) {
     tmp = a;
     a = b;
     b = tmp;
-    OUTPUT = a && ' ' && b;
+    OUTPUT = a   ' '   b;
     return;
 }
 swap('hello', 'world');

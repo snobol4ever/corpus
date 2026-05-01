@@ -21,15 +21,15 @@ procedure Roman(n, s, i, len, d, place, ones, fives, tens, result) {
         if (EQ(place, 1)) { ones = 'X'; fives = 'L'; tens = 'C'; }
         if (EQ(place, 2)) { ones = 'C'; fives = 'D'; tens = 'M'; }
         if (EQ(place, 3)) { ones = 'M'; fives = '';  tens = '';  }
-        if (EQ(d, 1)) { result = result && ones; }
-        else if (EQ(d, 2)) { result = result && ones && ones; }
-        else if (EQ(d, 3)) { result = result && ones && ones && ones; }
-        else if (EQ(d, 4)) { result = result && ones && fives; }
-        else if (EQ(d, 5)) { result = result && fives; }
-        else if (EQ(d, 6)) { result = result && fives && ones; }
-        else if (EQ(d, 7)) { result = result && fives && ones && ones; }
-        else if (EQ(d, 8)) { result = result && fives && ones && ones && ones; }
-        else if (EQ(d, 9)) { result = result && ones && tens; }
+        if (EQ(d, 1)) { result = result   ones; }
+        else if (EQ(d, 2)) { result = result   ones   ones; }
+        else if (EQ(d, 3)) { result = result   ones   ones   ones; }
+        else if (EQ(d, 4)) { result = result   ones   fives; }
+        else if (EQ(d, 5)) { result = result   fives; }
+        else if (EQ(d, 6)) { result = result   fives   ones; }
+        else if (EQ(d, 7)) { result = result   fives   ones   ones; }
+        else if (EQ(d, 8)) { result = result   fives   ones   ones   ones; }
+        else if (EQ(d, 9)) { result = result   ones   tens; }
     }
     Roman = result; return;
 }

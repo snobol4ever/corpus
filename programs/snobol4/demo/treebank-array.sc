@@ -45,35 +45,35 @@ procedure stk_pop_final(var,   child) {
 //------------------------------------------------------------------------------
 procedure node_repr(f,   r, i, n, tag) {
     if (IDENT(REPLACE(DATATYPE(f), &LCASE, &UCASE), 'STRING')) {
-        node_repr = "'" && f && "'";
+        node_repr = "'"   f   "'";
         return;
     }
     tag = stk_tag[f];
     n   = stk_n[f];
-    r   = "('" && tag && "'";
+    r   = "('"   tag   "'";
     i   = 0;
     while (LT(i, n)) {
         i = i + 1;
-        r = r && ', ' && node_repr(stk_c[f][i]);
+        r = r   ', '   node_repr(stk_c[f][i]);
     }
-    node_repr = r && ')';
+    node_repr = r   ')';
     return;
 }
 //------------------------------------------------------------------------------
 procedure pp_node(f, indent, suffix,   r, pad, tag, n, i) {
     if (IDENT(REPLACE(DATATYPE(f), &LCASE, &UCASE), 'STRING')) {
-        OUTPUT = DUPL(' ', indent) && "'" && f && "'" && suffix;
+        OUTPUT = DUPL(' ', indent)   "'"   f   "'"   suffix;
         return;
     }
     r   = node_repr(f);
     pad = DUPL(' ', indent);
     if (GT(80, indent + SIZE(r))) {
-        OUTPUT = pad && r && suffix;
+        OUTPUT = pad   r   suffix;
         return;
     }
     tag = stk_tag[f];
     n   = stk_n[f];
-    OUTPUT = pad && '( ' && "'" && tag && "',";
+    OUTPUT = pad   '( '   "'"   tag   "',";
     // Canonical (treebank-array.sno pp_wch/pp_wlast/pp_wdone):
     //   process children 1..n-1 with ',' suffix; process n with ')' suffix;
     //   if n == 0 (pp_wdone), return without emitting.
@@ -83,7 +83,7 @@ procedure pp_node(f, indent, suffix,   r, pad, tag, n, i) {
             i = i + 1;
             dummy = pp_node(stk_c[f][i], indent + 2, ',');
         }
-        dummy = pp_node(stk_c[f][n], indent + 2, ')' && suffix);
+        dummy = pp_node(stk_c[f][n], indent + 2, ')'   suffix);
     }
     return;
 }
@@ -110,36 +110,36 @@ procedure push_item(v) { stk_push_item(v);      push_item = .dummy; nreturn; }
 procedure pop_list()   { stk_pop_into_parent(); pop_list  = .dummy; nreturn; }
 procedure pop_final(v) { stk_pop_final(v);      pop_final = .dummy; nreturn; }
 //------------------------------------------------------------------------------
-delim  = SPAN(' ' && nl);
-word   = NOTANY('( )' && nl) && BREAK('( )' && nl);
+delim  = SPAN(' '   nl);
+word   = NOTANY('( )'   nl)   BREAK('( )'   nl);
 //------------------------------------------------------------------------------
 group =
     '('
-    && (word . tag) . *push_list(tag)
-    && ARBNO(
+      (word . tag) . *push_list(tag)
+      ARBNO(
         *delim
-        && ( *group
+          ( *group
            | (word . wrd) . *push_item(wrd)
            )
     )
-    && (epsilon . *pop_list())
-    && ')';
+      (epsilon . *pop_list())
+      ')';
 //------------------------------------------------------------------------------
-spat = ('(' && BAL && ')') . item;
+spat = ('('   BAL   ')') . item;
 src = '';
 while (line = INPUT) {
-    src = src && line && nl;
+    src = src   line   nl;
 }
 init_list('bank');
 stk_push_frame('BANK');
 rest = '';
-while (src ? (spat && REM . rest)) {
+while (src ? (spat   REM . rest)) {
     src = rest;
     stk_push_frame('ROOT');
     if (item ? group) {
         stk_pop_into_parent();
     } else {
-        OUTPUT = 'Parse failed on: ' && item;
+        OUTPUT = 'Parse failed on: '   item;
         stk_pop_into_parent();
     }
 }

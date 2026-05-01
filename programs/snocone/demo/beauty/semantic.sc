@@ -16,7 +16,7 @@ procedure shift(p, t,   omega) {
     // Canonical: EVAL sees the literal name 'p', resolves it dynamically to
     // the pattern value in this function's scope — same as SNOBOL4's
     //   shift_ shift = EVAL("p . thx . *Shift('" t "', thx)")
-    omega = "p . thx . *Shift('" && t && "', thx)";
+    omega = "p . thx . *Shift('"   t   "', thx)";
     shift = EVAL(omega);
     return;
 }
@@ -28,7 +28,7 @@ procedure reduce(t, n,   omega) {
     // (e.g. '*(GT(nTop(), 1) nTop())') which EVAL evaluates dynamically.
     // Use double-quote wrapping so t values containing single-quotes (e.g. "*(':' Brackets)")
     // do not break the EVAL string. SNOBOL4 accepts either 'string' or "string" delimiters.
-    omega = 'epsilon . *Reduce("' && t && '", ' && n && ')';
+    omega = 'epsilon . *Reduce("'   t   '", '   n   ')';
     reduce = EVAL(omega);
     return;
 }
