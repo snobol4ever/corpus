@@ -1,13 +1,17 @@
 *  140 - The double-function trick from beauty Shift/Reduce
-        DEFINE('shift(c)')
-        DEFINE('Shift(cs)')                                   :(shift_end)
-shift   stk    = c stk
-        shift  = .stk                                         :(NRETURN)
-Shift   Shift  = EVAL('LEN(1) . *shift(' cs ')')              :(RETURN)
-shift_end
+*  Renamed for SPITBOL/csnobol4 portability (SPITBOL folds label case
+*  internally, so case-distinct labels like 'shift'/'Shift' collide
+*  under SPITBOL while csnobol4 keeps them distinct).  This rename
+*  uses entirely-distinct names and the test passes on both.
+        DEFINE('inner(c)')
+        DEFINE('outer(cs)')                                   :(both_end)
+inner   stk    = c stk
+        inner  = .stk                                         :(NRETURN)
+outer   outer  = EVAL('LEN(1) . *inner(' cs ')')              :(RETURN)
+both_end
         stk    = ''
         s      = 'AB'
-        pat    = Shift('c1') Shift('c2')
+        pat    = outer('c1') outer('c2')
         s POS(0) pat RPOS(0)                                  :S(YES)F(NO)
 YES     OUTPUT = 'stk=' stk                                   :(END)
 NO      OUTPUT = 'fail'

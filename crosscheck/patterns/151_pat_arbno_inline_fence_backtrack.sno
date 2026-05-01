@@ -1,0 +1,10 @@
+*  151 - NEGATIVE DISCRIMINATOR.  ARBNO of INLINE FENCE (no *var
+*  indirection) with seal-required backtrack 'aab'.  Currently PASSES
+*  on csnobol4 — establishes that the bug requires *var indirection
+*  of the FENCE pattern, not inline FENCE.  Any future FENCE fix must
+*  keep this passing.
+        s = 'aab'
+        s POS(0) ARBNO(FENCE('a' | 'ab')) RPOS(0)             :S(BAD)F(GOOD)
+BAD     OUTPUT = 'leak: inline FENCE ab alt retried'          :(END)
+GOOD    OUTPUT = 'inline FENCE in ARBNO sealed'
+END

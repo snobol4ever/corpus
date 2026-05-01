@@ -1,0 +1,18 @@
+*  152 - 127-renamed: capture variables KVAL/SVAL/NVAL/BVAL instead of K/S/N/B.
+*  Test 127 used 'S' as a capture variable, which collides with input variable 's'
+*  under SPITBOL's default case-folding.  This obscured what the test was measuring.
+*  This renamed variant exposes the genuine FENCE bug cleanly:
+*    SPITBOL: captures NVAL=42 (FENCE-protected conditional-assign committed)
+*    csnobol4 baseline: NVAL='' (FENCE bug — conditional-assign inside FENCE lost on success)
+        ws     = SPAN(' ') | LEN(0)
+        digits = SPAN('0123456789')
+        str    = '"' BREAK('"') . SVAL '"'
+        num    = digits . NVAL
+        bool   = FENCE('true' | 'false') . BVAL
+        value  = FENCE(str | num | bool)
+        pair   = '"' BREAK('"') . KVAL '"' ws ':' ws value
+        s = '"age":42'
+        s POS(0) pair RPOS(0)                                 :S(YES)F(NO)
+YES     OUTPUT = 'k=' KVAL ' s=' SVAL ' n=' NVAL ' b=' BVAL   :(END)
+NO      OUTPUT = 'fail'
+END

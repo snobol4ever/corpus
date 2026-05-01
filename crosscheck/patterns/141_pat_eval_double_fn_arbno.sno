@@ -1,13 +1,15 @@
 *  141 - Double-function trick under ARBNO loop
+*  Renamed for SPITBOL/csnobol4 portability (SPITBOL folds label case
+*  internally).  See comment in 140 for explanation.
         DEFINE('grab(c)')
-        DEFINE('Grab(cs)')                                    :(grab_end)
+        DEFINE('catch(cs)')                                   :(both_end)
 grab    out    = out c
         grab   = .out                                         :(NRETURN)
-Grab    Grab   = EVAL('LEN(1) . *grab(' cs ')')               :(RETURN)
-grab_end
+catch   catch  = EVAL('LEN(1) . *grab(' cs ')')               :(RETURN)
+both_end
         out    = ''
         s      = 'abcde'
-        s POS(0) ARBNO(Grab('cv')) RPOS(0)                    :S(YES)F(NO)
+        s POS(0) ARBNO(catch('cv')) RPOS(0)                   :S(YES)F(NO)
 YES     OUTPUT = 'out=' out                                   :(END)
 NO      OUTPUT = 'fail'
 END
