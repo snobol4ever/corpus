@@ -13,16 +13,19 @@
 //     in Snocone; we expand it inline with an if/else instead.
 
 function TValue(x,   i) {
-    if (~DIFFER(v(x)))               { TValue = '.'; return; }
-    if (IDENT(t(x), 'Name'))         { TValue = v(x); return; }
-    if (IDENT(t(x), 'float'))        { TValue = v(x); return; }
-    if (IDENT(t(x), 'integer'))      { TValue = v(x); return; }
-    if (IDENT(t(x), 'bool'))         { TValue = v(x); return; }
-    if (IDENT(t(x), 'datetime'))     { TValue = "'"   SqlSQize(v(x))   "'"; return; }
-    if (IDENT(t(x), 'character'))    { TValue = "'"   SqlSQize(v(x))   "'"; return; }
-    if (IDENT(t(x), 'string'))       { TValue = "'"   SqlSQize(v(x))   "'"; return; }
-    if (IDENT(t(x), 'identifier'))   { TValue = v(x); return; }
-    if (DIFFER(t(x)))                { TValue = t(x); return; }
+    // v=null sets TValue='.' marker and falls through to compound walker
+    // (matching .inc TValue line `TValue = IDENT(v(x)) "." :S(TValue3)`).
+    // For leaf nodes with non-null v, the typed branches below short-circuit.
+    if (~DIFFER(v(x)))               { TValue = '.'; }
+    else if (IDENT(t(x), 'Name'))         { TValue = v(x); return; }
+    else if (IDENT(t(x), 'float'))        { TValue = v(x); return; }
+    else if (IDENT(t(x), 'integer'))      { TValue = v(x); return; }
+    else if (IDENT(t(x), 'bool'))         { TValue = v(x); return; }
+    else if (IDENT(t(x), 'datetime'))     { TValue = "'"   SqlSQize(v(x))   "'"; return; }
+    else if (IDENT(t(x), 'character'))    { TValue = "'"   SqlSQize(v(x))   "'"; return; }
+    else if (IDENT(t(x), 'string'))       { TValue = "'"   SqlSQize(v(x))   "'"; return; }
+    else if (IDENT(t(x), 'identifier'))   { TValue = v(x); return; }
+    else if (DIFFER(t(x)))                { TValue = t(x); return; }
     // Compound: walk children, separator '.' between pieces.
     i = 0;
     while (LT(i, n(x))) {

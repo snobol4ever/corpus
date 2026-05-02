@@ -79,7 +79,7 @@ function TX(lvl, pat, name,   omega) {
 function TY(lvl, name, pat,   omega) {
     // Thin path: tracing off — only the txOfs/t8Max bookkeeping pattern.
     if (LE(xTrace, 0)) {
-        TY = pat   @txOfs . *assign(.t8Max, *(GT(txOfs, t8Max) txOfs));
+        TY = pat   @txOfs $ *assign(.t8Max, *(GT(txOfs, t8Max) txOfs));
         return;
     }
     omega = "pat $ tz @txOfs $ *T8Trace("   lvl   ", "
@@ -90,7 +90,7 @@ function TY(lvl, name, pat,   omega) {
 
 function TZ(lvl, name, pat,   omega) {
     if (LE(xTrace, 0)) {
-        TZ = pat   @txOfs . *assign(.t8Max, *(GT(txOfs, t8Max) txOfs));
+        TZ = pat   @txOfs $ *assign(.t8Max, *(GT(txOfs, t8Max) txOfs));
         return;
     }
     omega = "@txOfs $ *T8Trace("   lvl   ", '?' "   Qize(name)   ", txOfs)"

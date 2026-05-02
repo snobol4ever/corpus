@@ -12,7 +12,7 @@
 //     with an explicit else branch.
 
 function Read(fileName, rdMapName,   rdInput, rdIn, rdLine, rdLineNo, rdMap, rdOfs) {
-    if (~input__(.rdInput, 8, '', fileName)) { freturn; }
+    if (~INPUT(.rdInput, 8, fileName   '[-m10 -l131072]')) { freturn; }
     rdMap    = TABLE();
     rdOfs    = 0;
     rdLineNo = 1;
@@ -40,7 +40,7 @@ function Read(fileName, rdMapName,   rdInput, rdIn, rdLine, rdLineNo, rdMap, rdO
 }
 
 function Write(fileName, fileStr,   wrLine, wrOutput) {
-    if (~output__(.wrOutput, 8, '', fileName)) { freturn; }
+    if (~OUTPUT(.wrOutput, 8, fileName)) { freturn; }
     while (1) {
         if (fileStr ? (POS(0)   RPOS(0))) {
             ENDFILE(8); return;

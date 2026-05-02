@@ -55,7 +55,7 @@ function Reduce(t, n,   c, i, r) {
     i = n + 1;
     while (GT(i, 1)) {
         i = i - 1;
-        c[i] = Pop('');
+        c[i] = Pop();
     }
     r = tree(t, '', n, c);
     Push(r);
