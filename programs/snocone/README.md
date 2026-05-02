@@ -3,7 +3,14 @@
 Andrew Koenig's Snocone preprocessor — C-like syntactic sugar for SNOBOL4.
 Originally presented at USENIX, Portland, Oregon, June 1985.
 
-## What Snocone Adds
+> **Note:** This directory documents **Andrew Koenig's original Snocone**
+> (the historical USENIX 1985 design) plus reference materials. The
+> snobol4ever project implements a *derived* Snocone — same shape, several
+> deliberate deviations (no `&&`, no `||`, no `%`; space-as-concat;
+> `function` instead of `procedure`; etc.). For the snobol4ever Snocone
+> spec, see [`.github/ARCH-SNOCONE.md`](https://github.com/snobol4ever/.github/blob/main/ARCH-SNOCONE.md).
+
+## What Andrew's Snocone Adds (1985 design)
 
 - `if/else`, `while`, `do/while`, `for` — structured control flow
 - `procedure` — replaces `DEFINE()` + label boilerplate
@@ -53,12 +60,8 @@ Not present in this repository. Obtain from the URL above.
 
 ## snobol4ever Snocone front-end
 
-The snobol4ever project implements a Snocone front-end that translates `.sc`
-source to SNOBOL4 IR natively, without using Emmer's compiler as intermediary.
-This is original work derived from the Koenig specification (`report.md`) and
-the operator/precedence tables documented therein.
-
-| Repo | File | Status |
-|------|------|--------|
-| snobol4jvm | `src/SNOBOL4clojure/snocone.clj` | Step 1 (lexer) ✓ |
-| snobol4dotnet | `Snobol4.Common/Builder/SnoconeLexer.cs` | Step 1 (lexer) ✓ |
+The snobol4ever project implements its own Snocone front-end (post-LS-4
+Flex+Bison) that translates `.sc` source to SNOBOL4 IR natively. The
+language it accepts is *derived from* but *not identical to* Andrew's
+original — see `.github/ARCH-SNOCONE.md` for the spec and operator
+tables. The implementation lives at `one4all/src/frontend/snocone/`.
