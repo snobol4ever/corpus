@@ -50,7 +50,7 @@ function DecCounter() {
 function PopCounter() {
     OUTPUT = GT(xTrace, 4) 'PopCounter()';
     if (DIFFER($'#N')) { $'#N' = next($'#N'); PopCounter = .dummy; nreturn; }
-    else freturn;
+    else { freturn; }
 }
 
 function TopCounter() {
@@ -59,7 +59,7 @@ function TopCounter() {
         OUTPUT = GT(xTrace, 4) (TopCounter ' = TopCounter()');
         return;
     }
-    else freturn;
+    else { freturn; }
 }
 
 // --------------------------------------------------------------------------- begin-tag stack family
@@ -71,13 +71,13 @@ function PushBegTag(t) {
     OUTPUT = GT(xTrace, 4) ('PushBegTag(' upr(t) ')');
     $'@B' = link_tag($'@B', upr(t));
     if (IDENT(t)) { PushBegTag = .value($'@B'); nreturn; }
-    else PushBegTag = .dummy; nreturn;
+    else { PushBegTag = .dummy; nreturn; }
 }
 
 function PopBegTag() {
     OUTPUT = GT(xTrace, 4) ((DIFFER($'@B') value($'@B') | 'FAIL') ' = PopBegTag()');
     if (DIFFER($'@B')) { $'@B' = next($'@B'); PopBegTag = .dummy; nreturn; }
-    else freturn;
+    else { freturn; }
 }
 
 function TopBegTag() {
@@ -86,7 +86,7 @@ function TopBegTag() {
         OUTPUT = GT(xTrace, 4) (TopBegTag ' = TopBegTag()');
         return;
     }
-    else freturn;
+    else { freturn; }
 }
 
 // DumpBegTag has zero formal args + three canonical locals (b, list, v).
@@ -100,7 +100,7 @@ function DumpBegTag(b, list, v) {
     while (DIFFER(b)) {
         v = value(b);
         if (DIFFER(list)) { list = list ', ' v; }
-        else list = v;
+        else { list = v; }
         b = next(b);
     }
     OUTPUT = '@B = (' list ')';
@@ -116,13 +116,13 @@ function PushEndTag(t) {
     OUTPUT = GT(xTrace, 4) ('PushEndTag(' upr(t) ')');
     $'@E' = link_tag($'@E', upr(t));
     if (IDENT(t)) { PushEndTag = .value($'@E'); nreturn; }
-    else PushEndTag = .dummy; nreturn;
+    else { PushEndTag = .dummy; nreturn; }
 }
 
 function PopEndTag() {
     OUTPUT = GT(xTrace, 4) ((DIFFER($'@E') value($'@E') | 'FAIL') ' = PopEndTag()');
     if (DIFFER($'@E')) { $'@E' = next($'@E'); PopEndTag = .dummy; nreturn; }
-    else freturn;
+    else { freturn; }
 }
 
 function TopEndTag() {
@@ -131,7 +131,7 @@ function TopEndTag() {
         OUTPUT = GT(xTrace, 4) (TopEndTag ' = TopEndTag()');
         return;
     }
-    else freturn;
+    else { freturn; }
 }
 
 // DumpEndTag — same locals-as-params idiom as DumpBegTag.
@@ -143,7 +143,7 @@ function DumpEndTag(e, list, v) {
     while (DIFFER(e)) {
         v = value(e);
         if (DIFFER(list)) { list = list ', ' v; }
-        else list = v;
+        else { list = v; }
         e = next(e);
     }
     OUTPUT = '@E = (' list ')';

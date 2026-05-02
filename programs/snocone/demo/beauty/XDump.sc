@@ -46,7 +46,7 @@ function XDump(object, nm, i, iMax, iMin, objArr, objField, objKey, objKeyNm,
             objVal = objArr[i, 2];
             if (IDENT(DATATYPE(objKey), 'INTEGER')) { objKeyNm = objKey; }
             else if (IDENT(DATATYPE(objKey), 'STRING')) { objKeyNm = Qize(objKey); }
-            else objKeyNm = DATATYPE(objKey);
+            else { objKeyNm = DATATYPE(objKey); }
             XDump(objVal, nm '[' objKeyNm ']');
         }
     }

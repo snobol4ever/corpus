@@ -406,7 +406,7 @@ function findRefs(x, n, v) {
     }
     if (IDENT(t(x), '&') EQ(n(x), 1)) { v = ss(x); }
     else if (IDENT(t(x), 'Id')) { v = v(x); }
-    else return;
+    else { return; }
     if (~(v ? (POS(0) SPAN('0123456789' &UCASE '_') RPOS(0)))) { freturn; }
     if (DIFFER(Refs)) { Refs = Refs ' ' v; } else { Refs = v; }
     freturn;
@@ -457,8 +457,8 @@ Line = '';
 have_line = '';
 while (IDENT(input_done)) {
     if (IDENT(have_line)) {
-        if (Line = INPUT) have_line = 1;
-        else input_done = 1;
+        if (Line = INPUT) { have_line = 1; }
+        else { input_done = 1; }
     }
     if (IDENT(input_done)) {
         if (Line ? (POS(0) ANY('*-'))) {
@@ -489,7 +489,7 @@ while (IDENT(input_done)) {
             if (Src ? (POS(0) *Parse *Space RPOS(0))) {
                 sno = Pop();
                 if (DIFFER(sno)) { pp(sno); }
-                else OUTPUT = 'Internal Error'; OUTPUT = Src;
+                else { OUTPUT = 'Internal Error'; OUTPUT = Src; }
             } else {
                 OUTPUT = 'Parse Error'; OUTPUT = Src;
             }
