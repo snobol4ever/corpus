@@ -136,14 +136,6 @@ Compiland = nPush() ARBNO(*Command) reduce('Parse', 'nTop()')
 
 
 //=============================================================================
-//  ppLeaf(x, t) — emit a leaf node; return 1 on success
-//=============================================================================
-function ppLeaf(x, t) {
-    if (Gen(ss(x))) { return; }
-    error();
-}
-
-//=============================================================================
 //  ppUnOp(x, t, c) — emit a unary operator node
 //=============================================================================
 function ppUnOp(x, t, c) {
@@ -164,66 +156,9 @@ function ppBinOp(x, t, c) {
 }
 
 //=============================================================================
-//  ppStmt(x) — columnar layout for Stmt nodes
-//=============================================================================
-function ppStmt(x, c, ppLbl, ppSubj, ppPatrn, ppAsgn, ppRepl, ppGo1, ppGo2) {
-    SetLevel(0); GenSetCont('+');
-    ppWidth = ppStop[4];
-    c = c(x);
-    ppLbl = ss(c[1]); ppSubj = c[2]; ppPatrn = c[3];
-    ppAsgn = v(c[4]); ppRepl = c[5]; ppGo1 = c[6]; ppGo2 = c[7];
-    Gen(ppLbl);
-    if (DIFFER(t(ppSubj))) {
-        Gen(' '); GenTab(ppStop[1]); SetLevel(ppStop[1]);
-        ppWidth = IDENT(t(ppPatrn)) IDENT(ppAsgn) IDENT(t(ppGo1)) ppStop[4] + ppLgBump;
-        pp(ppSubj);
-        if (DIFFER(t(ppPatrn))) {
-            Gen(' '); GenTab(ppStop[2]); SetLevel(ppStop[2]);
-            ppWidth = IDENT(ppAsgn) IDENT(t(ppGo1)) ppStop[4] + ppLgBump;
-            pp(ppPatrn);
-            if (DIFFER(ppAsgn)) {
-                Gen(' =');
-                if (DIFFER(t(ppRepl))) { Gen(' '); pp(ppRepl); }
-            }
-        } else if (DIFFER(ppAsgn)) {
-            Gen(' '); GenTab(ppStop[2]); SetLevel(ppStop[2]);
-            Gen('=');
-            if (DIFFER(t(ppRepl))) {
-                Gen(' '); GenTab(ppStop[3]); SetLevel(ppStop[3]);
-                ppWidth = IDENT(t(ppGo1)) ppStop[4] + ppLgBump;
-                pp(ppRepl);
-            }
-        }
-    }
-    if (DIFFER(t(ppGo1))) {
-        ppWidth = 256;
-        Gen(' '); GenTab(ppStop[4]); SetLevel(ppStop[4]);
-        Gen(':'); pp(ppGo1);
-        if (DIFFER(t(ppGo2))) { pp(ppGo2); }
-    }
-    Gen(nl);
-    return;
-}
-
-//=============================================================================
-//  ppList(x, sep, open, close) — emit children with separator
-//  sep: ',' '|' '..' '[]' — controls layout
-//=============================================================================
-function ppList(x, sep, open, close, c, i, n) {
-    c = c(x); n = n(x);
-    if (Gen(ss(x, ppWidth - GetLevel()))) { return; }
-    if (DIFFER(open)) { Gen(open); IncLevel(); GenTab(); }
-    pp(c[1]);
-    for (i = 2; LE(i, n); i = i + 1) {
-        Gen(nl); DecLevel(); Gen(sep); IncLevel(); GenTab();
-        pp(c[i]);
-    }
-    if (DIFFER(close)) { Gen(nl); DecLevel(); Gen(close); }
-    return;
-}
-
-//=============================================================================
-//  pp(x) — pretty-print a tree node to OUTPUT
+//  pp(x) — pretty-print a tree node to OUTPUT.  Per-type body parts mirror
+//  beauty.sno pp_TYPE labels exactly; string-keyed dispatch :S($('pp_' t))
+//  becomes an if-cascade on type-tag t.
 //=============================================================================
 function pp(x, c, i, n, t, v) {
     if (IDENT(x)) { return; }
@@ -231,16 +166,16 @@ function pp(x, c, i, n, t, v) {
     if (IDENT(t)) { return; }
 
     // 10 leaf types — Gen(ss(x)); return on success, error() on fail
-    if (IDENT(t, 'BuiltinVar')) { ppLeaf(x, t); return; }
-    if (IDENT(t, 'Function'))   { ppLeaf(x, t); return; }
-    if (IDENT(t, 'Id'))         { ppLeaf(x, t); return; }
-    if (IDENT(t, 'Integer'))    { ppLeaf(x, t); return; }
-    if (IDENT(t, 'Label'))      { ppLeaf(x, t); return; }
-    if (IDENT(t, 'ProtKwd'))    { ppLeaf(x, t); return; }
-    if (IDENT(t, 'Real'))       { ppLeaf(x, t); return; }
-    if (IDENT(t, 'SpecialNm'))  { ppLeaf(x, t); return; }
-    if (IDENT(t, 'String'))     { ppLeaf(x, t); return; }
-    if (IDENT(t, 'UnprotKwd'))  { ppLeaf(x, t); return; }
+    if (IDENT(t, 'BuiltinVar')) { if (Gen(ss(x))) { return; } error(); }
+    if (IDENT(t, 'Function'))   { if (Gen(ss(x))) { return; } error(); }
+    if (IDENT(t, 'Id'))         { if (Gen(ss(x))) { return; } error(); }
+    if (IDENT(t, 'Integer'))    { if (Gen(ss(x))) { return; } error(); }
+    if (IDENT(t, 'Label'))      { if (Gen(ss(x))) { return; } error(); }
+    if (IDENT(t, 'ProtKwd'))    { if (Gen(ss(x))) { return; } error(); }
+    if (IDENT(t, 'Real'))       { if (Gen(ss(x))) { return; } error(); }
+    if (IDENT(t, 'SpecialNm'))  { if (Gen(ss(x))) { return; } error(); }
+    if (IDENT(t, 'String'))     { if (Gen(ss(x))) { return; } error(); }
+    if (IDENT(t, 'UnprotKwd'))  { if (Gen(ss(x))) { return; } error(); }
 
     // Parse — recursive walk over children
     if (IDENT(t, 'Parse')) {
@@ -257,11 +192,123 @@ function pp(x, c, i, n, t, v) {
         SetLevel(0); GenSetCont(); Gen(v(c[1]) nl); return;
     }
 
-    if (IDENT(t, 'Stmt')) { ppStmt(x); return; }
-    if (IDENT(t, 'ExprList')) { ppList(x, ',', '', ''); return; }
-    if (IDENT(t, ',')) { ppList(x, ',', '(', ')'); return; }
-    if (IDENT(t, '..')) { ppList(x, '', '', ''); return; }
-    if (IDENT(t, '[]')) { ppList(x, ']', '[', ']'); return; }
+    //----------------------------------------------------------------------
+    //  pp_Stmt — columnar layout (label / subject / pattern / asgn / repl /
+    //  goto1 / goto2).  Body parts inlined per beauty.sno lines 333..381 —
+    //  ppLbl/ppSubj/ppPatrn/ppAsgn/ppRepl/ppGo1/ppGo2 are globals (not
+    //  locals) per .sno DEFINE('pp(x)c,i,n,s,t,v').
+    //----------------------------------------------------------------------
+    if (IDENT(t, 'Stmt')) {
+        SetLevel(0); GenSetCont('+');
+        ppWidth = ppStop[4];
+        ppLbl = ss(c[1]); ppSubj = c[2]; ppPatrn = c[3];
+        ppAsgn = v(c[4]); ppRepl = c[5]; ppGo1 = c[6]; ppGo2 = c[7];
+        Gen(ppLbl);
+        if (DIFFER(t(ppSubj))) {
+            Gen(' '); GenTab(ppStop[1]); SetLevel(ppStop[1]);
+            ppWidth = IDENT(t(ppPatrn)) IDENT(ppAsgn) IDENT(t(ppGo1)) ppStop[4] + ppLgBump;
+            pp(ppSubj);
+            if (DIFFER(t(ppPatrn))) {
+                Gen(' '); GenTab(ppStop[2]); SetLevel(ppStop[2]);
+                ppWidth = IDENT(ppAsgn) IDENT(t(ppGo1)) ppStop[4] + ppLgBump;
+                pp(ppPatrn);
+                if (DIFFER(ppAsgn)) {
+                    Gen(' =');
+                    if (DIFFER(t(ppRepl))) { Gen(' '); pp(ppRepl); }
+                }
+            } else if (DIFFER(ppAsgn)) {
+                Gen(' '); GenTab(ppStop[2]); SetLevel(ppStop[2]);
+                Gen('=');
+                if (DIFFER(t(ppRepl))) {
+                    Gen(' '); GenTab(ppStop[3]); SetLevel(ppStop[3]);
+                    ppWidth = IDENT(t(ppGo1)) ppStop[4] + ppLgBump;
+                    pp(ppRepl);
+                }
+            }
+        }
+        if (DIFFER(t(ppGo1))) {
+            ppWidth = 256;
+            Gen(' '); GenTab(ppStop[4]); SetLevel(ppStop[4]);
+            Gen(':'); pp(ppGo1);
+            if (DIFFER(t(ppGo2))) { pp(ppGo2); }
+        }
+        Gen(nl);
+        return;
+    }
+
+    //----------------------------------------------------------------------
+    //  pp_ExprList — first child then nl/dec/','/inc/tab/pp(c[i]) per child
+    //  (beauty.sno lines 383..392)
+    //----------------------------------------------------------------------
+    if (IDENT(t, 'ExprList')) {
+        if (Gen(ss(x, ppWidth - GetLevel()))) { return; }
+        pp(c[1]);
+        for (i = 2; LE(i, n); i = i + 1) {
+            Gen(nl); DecLevel(); Gen(','); IncLevel(); GenTab();
+            pp(c[i]);
+        }
+        return;
+    }
+
+    //----------------------------------------------------------------------
+    //  pp_,  — '(' open, ',' separators, ')' close (beauty.sno 394..409)
+    //----------------------------------------------------------------------
+    if (IDENT(t, ',')) {
+        if (Gen(ss(x, ppWidth - GetLevel()))) { return; }
+        Gen('('); IncLevel(); GenTab();
+        pp(c[1]);
+        for (i = 2; LE(i, n); i = i + 1) {
+            Gen(nl); DecLevel(); Gen(','); IncLevel(); GenTab();
+            pp(c[i]);
+        }
+        Gen(nl); DecLevel(); Gen(')');
+        return;
+    }
+
+    //----------------------------------------------------------------------
+    //  pp_|  — n=1 unary fall-through; else c[1] then ' | '-separated tail
+    //  (beauty.sno 411..421)
+    //----------------------------------------------------------------------
+    if (IDENT(t, '|')) {
+        if (EQ(n, 1)) { ppUnOp(x, t, c); return; }
+        if (Gen(ss(x, ppWidth - GetLevel()))) { return; }
+        pp(c[1]);
+        for (i = 2; LE(i, n); i = i + 1) {
+            Gen(nl); DecLevel(); Gen('|'); IncLevel(); GenTab();
+            pp(c[i]);
+        }
+        return;
+    }
+
+    //----------------------------------------------------------------------
+    //  pp_.. — concat list; Gen(nl) BETWEEN children (not after last)
+    //  (beauty.sno 423..427: i = 0; i < n; i++; pp(c[i]); LT(i,n) Gen(nl))
+    //----------------------------------------------------------------------
+    if (IDENT(t, '..')) {
+        if (Gen(ss(x, ppWidth - GetLevel()))) { return; }
+        for (i = 1; LE(i, n); i = i + 1) {
+            pp(c[i]);
+            (LT(i, n) Gen(nl));
+        }
+        return;
+    }
+
+    //----------------------------------------------------------------------
+    //  pp_[] — c[1] then per-child '['/']' brackets with conditional nl
+    //  (beauty.sno 429..440)
+    //----------------------------------------------------------------------
+    if (IDENT(t, '[]')) {
+        if (Gen(ss(x, ppWidth - GetLevel()))) { return; }
+        pp(c[1]);
+        for (i = 2; LE(i, n); i = i + 1) {
+            Gen('['); IncLevel(); GenTab();
+            pp(c[i]);
+            Gen(nl); DecLevel(); Gen(']');
+            (LT(i, n) Gen(nl));
+        }
+        return;
+    }
+
     if (IDENT(t, '()')) {
         if (Gen(ss(x, ppWidth - GetLevel()))) { return; }
         Gen('('); IncLevel(); GenTab(); pp(c[1]);
@@ -273,52 +320,57 @@ function pp(x, c, i, n, t, v) {
         IncLevel(); GenTab(); pp(c[2]);
         Gen(nl); DecLevel(); Gen(')'); return;
     }
-    if (IDENT(t, '|')) {
-        if (EQ(n, 1)) { ppUnOp(x, t, c); return; }
-        ppList(x, '|', '', ''); return;
-    }
+    //----------------------------------------------------------------------
+    //  15 op types: pp_OP — EQ(n,1) :S(ppUnOp); EQ(n,2) :S(ppBinOp)F(error)
+    //  (beauty.sno 296..323; pp_| handled above as list dispatch)
+    //----------------------------------------------------------------------
+    if (IDENT(t, '!')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '#')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '$')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '%')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '&')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '*')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '+')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '-')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '.')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '/')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '=')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '?')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '@')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '^')) { if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    if (IDENT(t, '~')) { if (EQ(n, 1)) { ppUnOp(x, t, c); return; } if (EQ(n, 2)) { ppBinOp(x, t, c); return; } error(); }
+    //  Safety net for unknown type tags (beauty.sno :F(RETURN) on unmatched
+    //  $('pp_' t) — silent ignore; we route to the same ppUnOp/ppBinOp by
+    //  arity to handle any synthesized operator nodes that lack a label).
     if (EQ(n, 1)) { ppUnOp(x, t, c); return; }
     if (EQ(n, 2)) { ppBinOp(x, t, c); return; }
     error();
 }
 
 //=============================================================================
-//  ss helpers
+//  ssUnOp(x, t, c, len) — unary stringize.  In beauty.sno: 'ssUnOp' label
+//  inside ss; reached via :S(ssUnOp) from per-type EQ(n,1) tests
+//  (beauty.sno line 498).  Symmetric to ppUnOp.
 //=============================================================================
-//=============================================================================
-//  ss_leaf(t, v, c, len) — stringify leaf/goto nodes; freturn if too long
-//  Returns the string in ss_leaf (caller assigns to ss).
-//=============================================================================
-function ss_leaf(t, v, c, len) {
-    // 5 leaf types whose stringization is upr(v) — keywords, identifiers,
-    // function and special names that must canonicalize to upper case
-    if      (IDENT(t, 'BuiltinVar')) { ss_leaf = upr(v); }
-    else if (IDENT(t, 'Function'))   { ss_leaf = upr(v); }
-    else if (IDENT(t, 'ProtKwd'))    { ss_leaf = upr(v); }
-    else if (IDENT(t, 'SpecialNm'))  { ss_leaf = upr(v); }
-    else if (IDENT(t, 'UnprotKwd'))  { ss_leaf = upr(v); }
-    // 4 leaf types whose stringization is verbatim v
-    else if (IDENT(t, 'Id'))         { ss_leaf = v; }
-    else if (IDENT(t, 'Integer'))    { ss_leaf = v; }
-    else if (IDENT(t, 'Real'))       { ss_leaf = v; }
-    else if (IDENT(t, 'String'))     { ss_leaf = v; }
-    // Label is special — upper-case if it is a SpecialNm, else verbatim
-    else if (IDENT(t, 'Label')) {
-        if (v ? (POS(0) *SpecialNm RPOS(0))) { ss_leaf = upr(v); } else { ss_leaf = v; }
-    }
-    // 6 goto-clause types — recursive ss() with size-budget bookkeeping
-    else if (IDENT(t, ':()')) { ss_leaf = '(' ss(c[1], len - 2) ')'; if (DIFFER(ss_leaf)) { return; } else { freturn; } }
-    else if (IDENT(t, ':<>')) { ss_leaf = '<' ss(c[1], len - 2) '>'; if (DIFFER(ss_leaf)) { return; } else { freturn; } }
-    else if (IDENT(t, ':S()')) { ss_leaf = 'S(' ss(c[1], len - 3) ')'; if (DIFFER(ss_leaf)) { return; } else { freturn; } }
-    else if (IDENT(t, ':S<>')) { ss_leaf = 'S<' ss(c[1], len - 3) '>'; if (DIFFER(ss_leaf)) { return; } else { freturn; } }
-    else if (IDENT(t, ':F()')) { ss_leaf = 'F(' ss(c[1], len - 3) ')'; if (DIFFER(ss_leaf)) { return; } else { freturn; } }
-    else if (IDENT(t, ':F<>')) { ss_leaf = 'F<' ss(c[1], len - 3) '>'; if (DIFFER(ss_leaf)) { return; } else { freturn; } }
-    else { freturn; } // not a leaf — caller handles compound
-    if (LE(SIZE(ss_leaf), len)) { return; } else { freturn; }
+function ssUnOp(x, t, c, len) {
+    ssUnOp = t ss(c[1], len - SIZE(t));
+    if (DIFFER(ssUnOp)) { return; } else { freturn; }
 }
 
 //=============================================================================
-//  ss(x, len) — stringify a tree node; freturn if result exceeds len chars
+//  ssBinOp(x, t, c, len, s) — binary stringize.  In beauty.sno: 'ssBinOp'
+//  label inside ss (line 499..500).  Symmetric to ppBinOp.
+//=============================================================================
+function ssBinOp(x, t, c, len, s) {
+    s = ss(c[1], len);
+    if (IDENT(s)) { freturn; }
+    ssBinOp = s ' ' t ' ' ss(c[2], len - SIZE(s) - SIZE(t) - 2);
+    if (DIFFER(ssBinOp)) { return; } else { freturn; }
+}
+
+//=============================================================================
+//  ss(x, len) — stringify a tree node; freturn if result exceeds len chars.
+//  Per-type body parts mirror beauty.sno ss_TYPE labels exactly.
 //=============================================================================
 function ss(x, len, c, i, n, t, v) {
     if (IDENT(x)) { return; }
@@ -326,9 +378,27 @@ function ss(x, len, c, i, n, t, v) {
     if (~GT(len, 0)) { freturn; }
     t = t(x); v = v(x); n = n(x); c = c(x);
     if (IDENT(t)) { return; }
-    // Try leaf first
-    ss = ss_leaf(t, v, c, len);
-    if (DIFFER(ss)) { return; }
+    // 10 leaf types — direct stringization, then ss_atomic budget gate
+    if (IDENT(t, 'BuiltinVar')) { ss = upr(v); if (LE(SIZE(ss), len)) { return; } freturn; }
+    if (IDENT(t, 'Function'))   { ss = upr(v); if (LE(SIZE(ss), len)) { return; } freturn; }
+    if (IDENT(t, 'Id'))         { ss = v;      if (LE(SIZE(ss), len)) { return; } freturn; }
+    if (IDENT(t, 'Integer'))    { ss = v;      if (LE(SIZE(ss), len)) { return; } freturn; }
+    if (IDENT(t, 'Label')) {
+        if (v ? (POS(0) *SpecialNm RPOS(0))) { ss = upr(v); } else { ss = v; }
+        if (LE(SIZE(ss), len)) { return; } freturn;
+    }
+    if (IDENT(t, 'ProtKwd'))    { ss = upr(v); if (LE(SIZE(ss), len)) { return; } freturn; }
+    if (IDENT(t, 'Real'))       { ss = v;      if (LE(SIZE(ss), len)) { return; } freturn; }
+    if (IDENT(t, 'SpecialNm'))  { ss = upr(v); if (LE(SIZE(ss), len)) { return; } freturn; }
+    if (IDENT(t, 'String'))     { ss = v;      if (LE(SIZE(ss), len)) { return; } freturn; }
+    if (IDENT(t, 'UnprotKwd'))  { ss = upr(v); if (LE(SIZE(ss), len)) { return; } freturn; }
+    // 6 goto-clause types — recursive ss with size-budget bookkeeping
+    if (IDENT(t, ':()'))  { ss = '(' ss(c[1], len - 2) ')';  if (DIFFER(ss)) { return; } freturn; }
+    if (IDENT(t, ':<>'))  { ss = '<' ss(c[1], len - 2) '>';  if (DIFFER(ss)) { return; } freturn; }
+    if (IDENT(t, ':S()')) { ss = 'S(' ss(c[1], len - 3) ')'; if (DIFFER(ss)) { return; } freturn; }
+    if (IDENT(t, ':S<>')) { ss = 'S<' ss(c[1], len - 3) '>'; if (DIFFER(ss)) { return; } freturn; }
+    if (IDENT(t, ':F()')) { ss = 'F(' ss(c[1], len - 3) ')'; if (DIFFER(ss)) { return; } freturn; }
+    if (IDENT(t, ':F<>')) { ss = 'F<' ss(c[1], len - 3) '>'; if (DIFFER(ss)) { return; } freturn; }
     // Compound nodes — | with one child falls through to the unary case below
     if (IDENT(t, '|') ~EQ(n, 1)) {
         ss = ss(c[1], len); if (IDENT(ss)) { freturn; }
@@ -378,6 +448,26 @@ function ss(x, len, c, i, n, t, v) {
         ss = ss(c[1]) '(' ss(c[2], len - SIZE(v) - 2) ')';
         if (DIFFER(ss)) { return; } else { freturn; }
     }
+    //----------------------------------------------------------------------
+    //  15 op types: ss_OP — EQ(n,1) :S(ssUnOp); EQ(n,2) :S(ssBinOp)F(error)
+    //  (beauty.sno 502..529; ss_| handled separately above as list)
+    //----------------------------------------------------------------------
+    if (IDENT(t, '!')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
+    if (IDENT(t, '#')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
+    if (IDENT(t, '$')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
+    if (IDENT(t, '%')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
+    if (IDENT(t, '&')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
+    if (IDENT(t, '*')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
+    if (IDENT(t, '+')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
+    if (IDENT(t, '-')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
+    if (IDENT(t, '.')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
+    if (IDENT(t, '/')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
+    if (IDENT(t, '=')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
+    if (IDENT(t, '?')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
+    if (IDENT(t, '@')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
+    if (IDENT(t, '^')) { if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
+    if (IDENT(t, '~')) { if (EQ(n, 1)) { ss = ssUnOp(x, t, c, len); return; } if (EQ(n, 2)) { ss = ssBinOp(x, t, c, len); return; } error(); }
+    //  Safety net for unknown type tags (synthesized op nodes without label)
     if (EQ(n, 1)) {
         ss = t ss(c[1], len - SIZE(t));
         if (DIFFER(ss)) { return; } else { freturn; }
