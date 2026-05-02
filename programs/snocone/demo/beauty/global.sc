@@ -1,50 +1,24 @@
-// global.sc — Snocone port of global.inc
-// Faithful conversion: every name defined in global.inc must be defined here.
+//---------------------------------------------------------------------------------------------------
+&ALPHABET ? (POS(0)  LEN(1) . nul);        // null character
+&ALPHABET ? (POS(8)  LEN(1) . bs);         // backspace
+&ALPHABET ? (POS(9)  LEN(1) . ht);         // horizontal tab
+&ALPHABET ? (POS(9)  LEN(1) . tab);        // tab
+&ALPHABET ? (POS(10) LEN(1) . nl);         // new line
+&ALPHABET ? (POS(10) LEN(1) . lf);         // line feed
+&ALPHABET ? (POS(11) LEN(1) . vt);         // vertical tab
+&ALPHABET ? (POS(12) LEN(1) . ff);         // form feed
+&ALPHABET ? (POS(13) LEN(1) . cr);         // carriage return
+&ALPHABET ? (POS(47) LEN(1) . fSlash);     // forward slash
+&ALPHABET ? (POS(59) LEN(1) . semicolon);  // semi-colon
+&ALPHABET ? (POS(92) LEN(1) . bSlash);     // back slash
 
-nul = CHAR(0);
-bs = CHAR(8);
-ht = CHAR(9);
-tab = CHAR(9);
-nl = CHAR(10);
-lf = CHAR(10);
-vt = CHAR(11);
-ff = CHAR(12);
-cr = CHAR(13);
-fSlash = CHAR(47);
-semicolon = CHAR(59);
-bSlash = CHAR(92);
-
-// UTF-8 byte-range character classes (canonical global.inc binds these via
-// &ALPHABET POS(p) LEN(n) . name). In Snocone we build the same N-byte string
-// of contiguous codepoints, suitable for use with ANY()/NOTANY()/SPAN().
-// X0xxxxxxx = bytes 0..127  (ASCII / single-byte UTF-8)
-// X1xxxxxxx = bytes 128..255 (multi-byte UTF-8 lead/continuation)
-// X10xxxxxx = bytes 128..191 (UTF-8 continuation bytes)
-// X110xxxxx = bytes 192..223 (2-byte UTF-8 lead)
-// X1110xxxx = bytes 224..239 (3-byte UTF-8 lead)
-// X11110xxx = bytes 240..247 (4-byte UTF-8 lead)
-// X11111xxx = bytes 248..255 (invalid UTF-8 lead)
-// NOTE: scrip's Snocone runtime currently does not preserve all high bytes
-// through CHAR(n)/concat — the resulting strings are shorter than the
-// SPITBOL equivalents. None of these ranges are referenced anywhere in
-// beauty so this does not affect output, but it is a known runtime gap
-// worth tracking when high-byte handling is added.
-_alphabet_run = define_alphabet_run;
-
-function define_alphabet_run(start, len, ans, i) {
-    ans = '';
-    i = 0;
-    while (LT(i, len)) { ans = ans CHAR(start + i); i = i + 1; }
-    define_alphabet_run = ans;
-    return;
-}
-X0xxxxxxx = define_alphabet_run(0, 128);
-X1xxxxxxx = define_alphabet_run(128, 128);
-X10xxxxxx = define_alphabet_run(128, 64);
-X110xxxxx = define_alphabet_run(192, 32);
-X1110xxxx = define_alphabet_run(224, 16);
-X11110xxx = define_alphabet_run(240, 8);
-X11111xxx = define_alphabet_run(248, 8);
+&ALPHABET ? (POS(0)                      LEN(128) . X0xxxxxxx);
+&ALPHABET ? (POS(128)                    LEN(128) . X1xxxxxxx);
+&ALPHABET ? (POS(128)                    LEN(64)  . X10xxxxxx);
+&ALPHABET ? (POS(128 + 64)               LEN(32)  . X110xxxxx);
+&ALPHABET ? (POS(128 + 64 + 32)          LEN(16)  . X1110xxxx);
+&ALPHABET ? (POS(128 + 64 + 32 + 16)     LEN(8)   . X11110xxx);
+&ALPHABET ? (POS(128 + 64 + 32 + 16 + 8) LEN(8)   . X11111xxx);
 
 TRUE = 1;
 FALSE = 0;
@@ -182,15 +156,10 @@ UTF[CHAR(240) CHAR(159) CHAR(161) CHAR(176)] = 'WIDE_HEADED_LEFTWARDS_MEDIUM_BAR
 UTF[CHAR(240) CHAR(159) CHAR(161) CHAR(178)] = 'WIDE_HEADED_RIGHTWARDS_MEDIUM_BARB_ARROW';
 
 UTF_Array = SORT(UTF);
-_utf_n = SIZE(UTF_Array);
 i = 0;
 while (1) {
     i = i + 1;
-    if (GT(i, _utf_n)) { break; }
-    _nm = UTF_Array[i, 2];
-    $_nm = UTF_Array[i, 1];
+    if (~($UTF_Array[i, 2] = UTF_Array[i, 1])) break;
 }
-UTF_Array = '';
-_utf_n = '';
-i = '';
-_nm = '';
+UTF_Array = ;
+i = ;

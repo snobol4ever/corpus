@@ -12,8 +12,8 @@ function Shift(t, v, s) {
     Push(s);
     OUTPUT = GT(xTrace, 3) 'Shift(' t ', ' v ')';
     // OUTPUT = GT(xTrace, 4) ' = ' TLump(s, 1024);
-    if (IDENT(v)) Shift = .v(s);
-    else Shift = DIFFER(v) .dummy;
+    if (Shift = IDENT(v) .v(s)) nreturn;
+    Shift = DIFFER(v) .dummy;
     nreturn;
 }
 //---------------------------------------------------------------------------------------------------

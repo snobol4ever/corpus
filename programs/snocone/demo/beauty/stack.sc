@@ -14,8 +14,8 @@ function InitStack() {
 function Push(x) {
     OUTPUT = GT(xTrace, 4) 'Push(' t(x) ')';
     $'@S' = link($'@S', x);
-    if (IDENT(x)) Push = .value($'@S');
-    else Push = DIFFER(x) .dummy;
+    if (Push = IDENT(x) .value($'@S')) nreturn;
+    Push = DIFFER(x) .dummy;
     nreturn;
 }
 //---------------------------------------------------------------------------------------------------

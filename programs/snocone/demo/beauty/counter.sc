@@ -60,8 +60,8 @@ function InitBegTag() {
 function PushBegTag(t) {
     OUTPUT = GT(xTrace, 4) 'PushBegTag(' upr(t) ')';
     $'@B' = link_tag($'@B', upr(t));
-    if (IDENT(t)) PushBegTag = .value($'@B');
-    else PushBegTag = DIFFER(t) .dummy;
+    if (PushBegTag = IDENT(t) .value($'@B')) nreturn;
+    PushBegTag = DIFFER(t) .dummy;
     nreturn;
 }
 //---------------------------------------------------------------------------------------------------
@@ -98,8 +98,8 @@ function InitEndTag() {
 function PushEndTag(t) {
     OUTPUT = GT(xTrace, 4) 'PushEndTag(' upr(t) ')';
     $'@E' = link_tag($'@E', upr(t));
-    if (IDENT(t)) PushEndTag = .value($'@E');
-    else PushEndTag = DIFFER(t) .dummy;
+    if (PushEndTag = IDENT(t) .value($'@E')) nreturn;
+    PushEndTag = DIFFER(t) .dummy;
     nreturn;
 }
 //---------------------------------------------------------------------------------------------------

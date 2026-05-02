@@ -15,7 +15,7 @@ function Read(fileName, rdMapName,
         rdLine = ;
         while (rdIn = rdInput) {
             rdLine = rdLine rdIn;
-            if (~LT(SIZE(rdIn), 131072)) break;
+            if (LT(SIZE(rdIn), 131072)) break;
         }
         if (IDENT(rdIn)) {
             ENDFILE(8);

@@ -391,24 +391,24 @@ function ss(x, len, c, i, n, t, v) {
     error();
 }
 
-function bVisit(x, fnc, i) {
+function visit(x, fnc, i) {
     if (~APPLY(fnc, x)) { return; }
-    for (i = 1; LE(i, n(x)); i = i + 1) { bVisit(c(x)[i], fnc); }
+    for (i = 1; LE(i, n(x)); i = i + 1) { visit(c(x)[i], fnc); }
     return;
 }
 
-Refs = '';
+snoRefs = '';
 function findRefs(x, n, v) {
     if (IDENT(x)) { return; }
     if (IDENT(t(x), 'Call')) {
-        for (n = 2; LE(n, n(x)); n = n + 1) { bVisit(c(x)[n], .findRefs); }
+        for (n = 2; LE(n, n(x)); n = n + 1) { visit(c(x)[n], .findRefs); }
         freturn;
     }
     if (IDENT(t(x), '&') EQ(n(x), 1)) { v = ss(x); }
     else if (IDENT(t(x), 'Id')) { v = v(x); }
     else { return; }
     if (~(v ? (POS(0) SPAN('0123456789' &UCASE '_') RPOS(0)))) { freturn; }
-    if (DIFFER(Refs)) { Refs = Refs ' ' v; } else { Refs = v; }
+    if (DIFFER(snoRefs)) { snoRefs = snoRefs ' ' v; } else { snoRefs = v; }
     freturn;
 }
 
@@ -421,9 +421,9 @@ function refs(p, c, n, s, subj) {
                 if (IDENT(t(c(c[n])[4]), '=')) {
                     if ((IDENT(t(c(c[n])[2]), 'Id'), IDENT(t(c(c[n])[2]), '$'))) {
                         subj = ss(c(c[n])[2]);
-                        Refs = '';
-                        bVisit(c(c[n])[5], .findRefs);
-                        OUTPUT = LPAD(s, 3, 0) ': ' RPAD(subj, 38) ' ' Refs;
+                        snoRefs = '';
+                        visit(c(c[n])[5], .findRefs);
+                        OUTPUT = LPAD(s, 3, 0) ': ' RPAD(subj, 38) ' ' snoRefs;
                     }
                 }
             }

@@ -22,9 +22,9 @@ function cap(s) {
 // pattern = icase(string)
 function icase(str, letter, character) {
     while (~IDENT(str)) {
-        if (str ? (POS(0) ANY(&UCASE &LCASE) . letter) = ) {
+        if (str ? (POS(0) ANY(&UCASE &LCASE) . letter) = )
             icase = icase (upr(letter) | lwr(letter));
-        } else {
+        else {
             str ? (POS(0) LEN(1) . character) = ;
             icase = icase character;
         }

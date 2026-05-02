@@ -8,16 +8,18 @@
 //---------------------------------------------------------------------------------------------------
 function TValue(x, i) {
     // DIFFER(t(x), '.') :F(TValue3)
-    if (TValue = IDENT(v(x)) ".")               return;
-    if (TValue = IDENT(t(x), 'Name')       v(x))                       return;
-    if (TValue = IDENT(t(x), 'float')      v(x))                       return;
-    if (TValue = IDENT(t(x), 'integer')    v(x))                       return;
-    if (TValue = IDENT(t(x), 'bool')       v(x))                       return;
-    if (TValue = IDENT(t(x), 'datetime')   "'" SqlSQize(v(x)) "'")     return;
-    if (TValue = IDENT(t(x), 'character')  "'" SqlSQize(v(x)) "'")     return;
-    if (TValue = IDENT(t(x), 'string')     "'" SqlSQize(v(x)) "'")     return;
-    if (TValue = IDENT(t(x), 'identifier') v(x))                       return;
-    if (TValue = t(x))                                                 return;
+    if (~(TValue = IDENT(v(x)) ".")) {
+        if (TValue = IDENT(t(x), 'Name')       v(x))                       return;
+        if (TValue = IDENT(t(x), 'float')      v(x))                       return;
+        if (TValue = IDENT(t(x), 'integer')    v(x))                       return;
+        if (TValue = IDENT(t(x), 'bool')       v(x))                       return;
+        if (TValue = IDENT(t(x), 'datetime')   "'" SqlSQize(v(x)) "'")     return;
+        if (TValue = IDENT(t(x), 'character')  "'" SqlSQize(v(x)) "'")     return;
+        if (TValue = IDENT(t(x), 'string')     "'" SqlSQize(v(x)) "'")     return;
+        if (TValue = IDENT(t(x), 'identifier') v(x))                       return;
+        if (TValue = t(x))                                                 return;
+    }
+    // TValue3:
     i = 0;
     while (i = LT(i, n(x)) i + 1)
         TValue = TValue (DIFFER(TValue) '.', '') v(c(x)[i]);
