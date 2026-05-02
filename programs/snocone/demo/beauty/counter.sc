@@ -20,14 +20,14 @@
 //   behavior. Callers always invoke the dump procs with zero arguments.
 
 struct link_counter { next, value }
-struct link_tag     { next, value }
+struct link_tag { next, value }
 
 // --------------------------------------------------------------------------- counter-stack family
 
 function InitCounter() { $'#N' = ''; return; }
 
 function PushCounter() {
-    OUTPUT = GT(xTrace, 4)   'PushCounter()';
+    OUTPUT = GT(xTrace, 4) 'PushCounter()';
     $'#N' = link_counter($'#N', 0);
     PushCounter = .dummy;
     nreturn;
@@ -35,20 +35,20 @@ function PushCounter() {
 
 function IncCounter() {
     value($'#N') = value($'#N') + 1;
-    OUTPUT = GT(xTrace, 4)   (value($'#N')   ' = IncCounter()');
+    OUTPUT = GT(xTrace, 4) (value($'#N') ' = IncCounter()');
     IncCounter = .dummy;
     nreturn;
 }
 
 function DecCounter() {
     value($'#N') = value($'#N') - 1;
-    OUTPUT = GT(xTrace, 4)   (value($'#N')   ' = DecCounter()');
+    OUTPUT = GT(xTrace, 4) (value($'#N') ' = DecCounter()');
     DecCounter = .dummy;
     nreturn;
 }
 
 function PopCounter() {
-    OUTPUT = GT(xTrace, 4)   'PopCounter()';
+    OUTPUT = GT(xTrace, 4) 'PopCounter()';
     if (DIFFER($'#N')) { $'#N' = next($'#N'); PopCounter = .dummy; nreturn; }
     else { freturn; }
 }
@@ -56,7 +56,7 @@ function PopCounter() {
 function TopCounter() {
     if (DIFFER($'#N')) {
         TopCounter = value($'#N');
-        OUTPUT = GT(xTrace, 4)   (TopCounter   ' = TopCounter()');
+        OUTPUT = GT(xTrace, 4) (TopCounter ' = TopCounter()');
         return;
     }
     else { freturn; }
@@ -68,22 +68,22 @@ function TopCounter() {
 function InitBegTag() { $'@B' = ''; return; }
 
 function PushBegTag(t) {
-    OUTPUT = GT(xTrace, 4)   ('PushBegTag('   upr(t)   ')');
+    OUTPUT = GT(xTrace, 4) ('PushBegTag(' upr(t) ')');
     $'@B' = link_tag($'@B', upr(t));
     if (IDENT(t)) { PushBegTag = .value($'@B'); nreturn; }
-    else          { PushBegTag = .dummy;        nreturn; }
+    else { PushBegTag = .dummy; nreturn; }
 }
 
 function PopBegTag() {
-    OUTPUT = GT(xTrace, 4)   ((DIFFER($'@B')   value($'@B') | 'FAIL')   ' = PopBegTag()');
+    OUTPUT = GT(xTrace, 4) ((DIFFER($'@B') value($'@B') | 'FAIL') ' = PopBegTag()');
     if (DIFFER($'@B')) { $'@B' = next($'@B'); PopBegTag = .dummy; nreturn; }
-    else               { freturn; }
+    else { freturn; }
 }
 
 function TopBegTag() {
     if (DIFFER($'@B')) {
         TopBegTag = value($'@B');
-        OUTPUT = GT(xTrace, 4)   (TopBegTag   ' = TopBegTag()');
+        OUTPUT = GT(xTrace, 4) (TopBegTag ' = TopBegTag()');
         return;
     }
     else { freturn; }
@@ -99,11 +99,11 @@ function DumpBegTag(b, list, v) {
     list = '';
     while (DIFFER(b)) {
         v = value(b);
-        if (DIFFER(list)) { list = list   ', '   v; }
-        else              { list = v; }
+        if (DIFFER(list)) { list = list ', ' v; }
+        else { list = v; }
         b = next(b);
     }
-    OUTPUT = '@B = ('   list   ')';
+    OUTPUT = '@B = (' list ')';
     nreturn;
 }
 
@@ -113,22 +113,22 @@ function DumpBegTag(b, list, v) {
 function InitEndTag() { $'@E' = ''; return; }
 
 function PushEndTag(t) {
-    OUTPUT = GT(xTrace, 4)   ('PushEndTag('   upr(t)   ')');
+    OUTPUT = GT(xTrace, 4) ('PushEndTag(' upr(t) ')');
     $'@E' = link_tag($'@E', upr(t));
     if (IDENT(t)) { PushEndTag = .value($'@E'); nreturn; }
-    else          { PushEndTag = .dummy;        nreturn; }
+    else { PushEndTag = .dummy; nreturn; }
 }
 
 function PopEndTag() {
-    OUTPUT = GT(xTrace, 4)   ((DIFFER($'@E')   value($'@E') | 'FAIL')   ' = PopEndTag()');
+    OUTPUT = GT(xTrace, 4) ((DIFFER($'@E') value($'@E') | 'FAIL') ' = PopEndTag()');
     if (DIFFER($'@E')) { $'@E' = next($'@E'); PopEndTag = .dummy; nreturn; }
-    else               { freturn; }
+    else { freturn; }
 }
 
 function TopEndTag() {
     if (DIFFER($'@E')) {
         TopEndTag = value($'@E');
-        OUTPUT = GT(xTrace, 4)   (TopEndTag   ' = TopEndTag()');
+        OUTPUT = GT(xTrace, 4) (TopEndTag ' = TopEndTag()');
         return;
     }
     else { freturn; }
@@ -142,10 +142,10 @@ function DumpEndTag(e, list, v) {
     list = '';
     while (DIFFER(e)) {
         v = value(e);
-        if (DIFFER(list)) { list = list   ', '   v; }
-        else              { list = v; }
+        if (DIFFER(list)) { list = list ', ' v; }
+        else { list = v; }
         e = next(e);
     }
-    OUTPUT = '@E = ('   list   ')';
+    OUTPUT = '@E = (' list ')';
     nreturn;
 }

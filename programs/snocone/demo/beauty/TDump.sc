@@ -12,26 +12,26 @@
 //   * The `(DIFFER(t) '.', '')` SNOBOL4 conditional-value form does not parse
 //     in Snocone; we expand it inline with an if/else instead.
 
-function TValue(x,   i) {
+function TValue(x, i) {
     // v=null sets TValue='.' marker and falls through to compound walker
     // (matching .inc TValue line `TValue = IDENT(v(x)) "." :S(TValue3)`).
     // For leaf nodes with non-null v, the typed branches below short-circuit.
-    if (~DIFFER(v(x)))               { TValue = '.'; }
-    else if (IDENT(t(x), 'Name'))         { TValue = v(x); return; }
-    else if (IDENT(t(x), 'float'))        { TValue = v(x); return; }
-    else if (IDENT(t(x), 'integer'))      { TValue = v(x); return; }
-    else if (IDENT(t(x), 'bool'))         { TValue = v(x); return; }
-    else if (IDENT(t(x), 'datetime'))     { TValue = "'"   SqlSQize(v(x))   "'"; return; }
-    else if (IDENT(t(x), 'character'))    { TValue = "'"   SqlSQize(v(x))   "'"; return; }
-    else if (IDENT(t(x), 'string'))       { TValue = "'"   SqlSQize(v(x))   "'"; return; }
-    else if (IDENT(t(x), 'identifier'))   { TValue = v(x); return; }
-    else if (DIFFER(t(x)))                { TValue = t(x); return; }
+    if (~DIFFER(v(x))) { TValue = '.'; }
+    else if (IDENT(t(x), 'Name')) { TValue = v(x); return; }
+    else if (IDENT(t(x), 'float')) { TValue = v(x); return; }
+    else if (IDENT(t(x), 'integer')) { TValue = v(x); return; }
+    else if (IDENT(t(x), 'bool')) { TValue = v(x); return; }
+    else if (IDENT(t(x), 'datetime')) { TValue = "'" SqlSQize(v(x)) "'"; return; }
+    else if (IDENT(t(x), 'character')) { TValue = "'" SqlSQize(v(x)) "'"; return; }
+    else if (IDENT(t(x), 'string')) { TValue = "'" SqlSQize(v(x)) "'"; return; }
+    else if (IDENT(t(x), 'identifier')) { TValue = v(x); return; }
+    else if (DIFFER(t(x))) { TValue = t(x); return; }
     // Compound: walk children, separator '.' between pieces.
     i = 0;
     while (LT(i, n(x))) {
         i = i + 1;
         if (DIFFER(TValue)) {
-            TValue = TValue   '.'   v(c(x)[i]);
+            TValue = TValue '.' v(c(x)[i]);
         } else {
             TValue = v(c(x)[i]);
         }
@@ -39,24 +39,24 @@ function TValue(x,   i) {
     return;
 }
 
-function TDump(x, outNm,   i, _t, _lump) {
+function TDump(x, outNm, i, _t, _lump) {
     TDump = .dummy;
     if (~DIFFER(outNm)) { outNm = .OUTPUT; }
     if (IDENT(DATATYPE(x), 'NAME')) { x = $x; }
     _lump = TLump(x, 140 - GetLevel());
-    if (DIFFER(_lump)) { Gen(_lump   nl, outNm); return; }
+    if (DIFFER(_lump)) { Gen(_lump nl, outNm); return; }
     // Not a tree (or no children) — emit value form.
     if (~IDENT(DATATYPE(x), 'tree')) {
-        Gen(TValue(x)   nl, outNm); return;
+        Gen(TValue(x) nl, outNm); return;
     }
     // Multi-line tree form.
-    if (t(x) ? (POS(0)   ANY(&UCASE   &LCASE)
-                  (SPAN(digits   &UCASE   '_'   &LCASE) | epsilon)   RPOS(0))) {
+    if (t(x) ? (POS(0) ANY(&UCASE &LCASE)
+                  (SPAN(digits &UCASE '_' &LCASE) | epsilon) RPOS(0))) {
         _t = t(x);
     } else {
-        _t = '"'   t(x)   '"';
+        _t = '"' t(x) '"';
     }
-    Gen('('   _t   nl, outNm);
+    Gen('(' _t nl, outNm);
     IncLevel();
     i = 0;
     while (LT(i, n(x))) {
@@ -64,32 +64,32 @@ function TDump(x, outNm,   i, _t, _lump) {
         TDump(c(x)[i], outNm);
     }
     DecLevel();
-    Gen(')'   nl, outNm);
+    Gen(')' nl, outNm);
     return;
 }
 
-function TLump(x, len,   i, _t, _child) {
+function TLump(x, len, i, _t, _child) {
     if (~GT(len, 0)) { freturn; }
-    if (~DIFFER(x))  { TLump = '()'; return; }
+    if (~DIFFER(x)) { TLump = '()'; return; }
     if (~IDENT(DATATYPE(x), 'tree')) {
         TLump = TValue(x);
         if (LE(SIZE(TLump), len)) { return; }
         freturn;
     }
-    if (t(x) ? (POS(0)   ANY(&UCASE   &LCASE)
-                  (SPAN(digits   &UCASE   '_'   &LCASE) | epsilon)   RPOS(0))) {
+    if (t(x) ? (POS(0) ANY(&UCASE &LCASE)
+                  (SPAN(digits &UCASE '_' &LCASE) | epsilon) RPOS(0))) {
         _t = t(x);
     } else {
-        _t = '"'   t(x)   '"';
+        _t = '"' t(x) '"';
     }
-    TLump = '('   _t;
+    TLump = '(' _t;
     i = 0;
     while (LT(i, n(x))) {
         i = i + 1;
         _child = TLump(c(x)[i], len - SIZE(TLump) - 2);
         if (~DIFFER(_child)) { freturn; }
-        TLump = TLump   ' '   _child;
+        TLump = TLump ' ' _child;
     }
-    TLump = TLump   ')';
+    TLump = TLump ')';
     return;
 }

@@ -11,21 +11,21 @@ function upr(s) {
 }
 
 function cap(s) {
-    cap = REPLACE(SUBSTR(s, 1, 1), &LCASE, &UCASE)   REPLACE(SUBSTR(s, 2), &UCASE, &LCASE);
+    cap = REPLACE(SUBSTR(s, 1, 1), &LCASE, &UCASE) REPLACE(SUBSTR(s, 2), &UCASE, &LCASE);
     return;
 }
 
-function icase(str,   letter, character) {
+function icase(str, letter, character) {
     if (~DIFFER(str)) { return; }
     while (DIFFER(str)) {
         letter = '';
-        str ? (POS(0)   ANY(&UCASE   &LCASE) . letter) = ;
+        str ? (POS(0) ANY(&UCASE &LCASE) . letter) = ;
         if (DIFFER(letter)) {
-            icase = icase   (upr(letter) | lwr(letter));
+            icase = icase (upr(letter) | lwr(letter));
         } else {
             character = '';
-            str ? (POS(0)   LEN(1) . character) = ;
-            icase = icase   character;
+            str ? (POS(0) LEN(1) . character) = ;
+            icase = icase character;
         }
     }
     return;

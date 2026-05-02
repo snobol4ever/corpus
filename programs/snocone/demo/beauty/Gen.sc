@@ -19,24 +19,24 @@ function DecLevel(delta) {
     nreturn;
 }
 function SetLevel(level) { SetLevel = .dummy; $'#L' = level; nreturn; }
-function GetLevel()      { GetLevel = $'#L'; return; }
+function GetLevel() { GetLevel = $'#L'; return; }
 
-function Gen(str, outNm,   ind, outline, _rest) {
+function Gen(str, outNm, ind, outline, _rest) {
     Gen = .dummy;
     if (~DIFFER(outNm)) { outNm = .OUTPUT; }
     ind = '';
     if (GT($'#L', 0)) {
-        _indent ? (POS(0)   LEN($'#L' - SIZE($'$X')) . ind);
+        _indent ? (POS(0) LEN($'#L' - SIZE($'$X')) . ind);
     }
     if (DIFFER($'$B')) {
-        $'$B' = $'$B'   str;
+        $'$B' = $'$B' str;
     } else {
-        $'$B' = $'$X'   ind   str;
+        $'$B' = $'$X' ind str;
     }
     // First-line emit (no continuation prefix). Use positive match form because
     // negation `~(... ? ...)` runs the pattern but discards captures (a Snocone
     // emitter property — see "positive match form" comment in beauty.sc).
-    if ($'$B' ? (POS(0)   BREAK(nl) . outline   nl   REM . _rest)) {
+    if ($'$B' ? (POS(0) BREAK(nl) . outline nl REM . _rest)) {
         $'$B' = _rest;
         $'$X' = $'$C';
         $outNm = outline;
@@ -44,9 +44,9 @@ function Gen(str, outNm,   ind, outline, _rest) {
         nreturn;
     }
     // Drain remaining complete lines, each with continuation char + indent.
-    while ($'$B' ? (POS(0)   BREAK(nl) . outline   nl   REM . _rest)) {
+    while ($'$B' ? (POS(0) BREAK(nl) . outline nl REM . _rest)) {
         $'$B' = _rest;
-        $outNm = $'$C'   ind   outline;
+        $outNm = $'$C' ind outline;
     }
     nreturn;
 }
@@ -54,13 +54,13 @@ function GenTab(pos) {
     GenTab = .dummy;
     if (~DIFFER(pos)) { pos = $'#L'; }
     if (IDENT($'$B')) {
-        $'$B' = $'$X'   ' '   DUPL(' ', pos - SIZE($'$X') - 1);
+        $'$B' = $'$X' ' ' DUPL(' ', pos - SIZE($'$X') - 1);
         nreturn;
     }
     if (LE(SIZE($'$B'), pos - 1)) {
-        $'$B' = $'$B'   ' '   DUPL(' ', pos - SIZE($'$B') - 1);
+        $'$B' = $'$B' ' ' DUPL(' ', pos - SIZE($'$B') - 1);
     } else {
-        $'$B' = $'$B'   ' ';
+        $'$B' = $'$B' ' ';
     }
     nreturn;
 }

@@ -11,18 +11,18 @@
 //     success (a Snocone emitter property). Use positive-form match instead
 //     with an explicit else branch.
 
-function Read(fileName, rdMapName,   rdInput, rdIn, rdLine, rdLineNo, rdMap, rdOfs) {
-    if (~INPUT(.rdInput, 8, fileName   '[-m10 -l131072]')) { freturn; }
-    rdMap    = TABLE();
-    rdOfs    = 0;
+function Read(fileName, rdMapName, rdInput, rdIn, rdLine, rdLineNo, rdMap, rdOfs) {
+    if (~INPUT(.rdInput, 8, fileName '[-m10 -l131072]')) { freturn; }
+    rdMap = TABLE();
+    rdOfs = 0;
     rdLineNo = 1;
-    Read     = '';
+    Read = '';
     while (1) {
         rdMap[rdOfs] = rdLineNo;
         rdLine = '';
         rdIn = rdInput;
         while (DIFFER(rdIn)) {
-            rdLine = rdLine   rdIn;
+            rdLine = rdLine rdIn;
             if (~LT(SIZE(rdIn), 131072)) { break; }
             rdIn = rdInput;
         }
@@ -32,29 +32,29 @@ function Read(fileName, rdMapName,   rdInput, rdIn, rdLine, rdLineNo, rdMap, rdO
             $rdMapName = rdMap;
             return;
         }
-        rdLine ? (RPOS(1)   cr) = ;
-        rdOfs    = rdOfs + SIZE(rdLine) + 1;
+        rdLine ? (RPOS(1) cr) = ;
+        rdOfs = rdOfs + SIZE(rdLine) + 1;
         rdLineNo = rdLineNo + 1;
-        Read     = Read   rdLine   nl;
+        Read = Read rdLine nl;
     }
 }
 
-function Write(fileName, fileStr,   wrLine, wrOutput) {
+function Write(fileName, fileStr, wrLine, wrOutput) {
     if (~OUTPUT(.wrOutput, 8, fileName)) { freturn; }
     while (1) {
-        if (fileStr ? (POS(0)   RPOS(0))) {
+        if (fileStr ? (POS(0) RPOS(0))) {
             ENDFILE(8); return;
         }
         // First try: extract a complete line ending in nl (destructive).
         wrLine = '';
-        if (fileStr ? (POS(0)   BREAK(nl) . wrLine   nl)) {
-            fileStr ? (POS(0)   BREAK(nl)   nl) = ;
+        if (fileStr ? (POS(0) BREAK(nl) . wrLine nl)) {
+            fileStr ? (POS(0) BREAK(nl) nl) = ;
             wrOutput = wrLine;
         } else {
             // No remaining nl — emit the trailing partial line and finish.
             wrLine = '';
-            if (fileStr ? (POS(0)   RTAB(0) . wrLine)) {
-                fileStr ? (POS(0)   RTAB(0)) = ;
+            if (fileStr ? (POS(0) RTAB(0) . wrLine)) {
+                fileStr ? (POS(0) RTAB(0)) = ;
                 wrOutput = wrLine;
                 ENDFILE(8); return;
             }
@@ -63,17 +63,17 @@ function Write(fileName, fileStr,   wrLine, wrOutput) {
     }
 }
 
-function LineMap(str, lmMapName,   lmLineNo, lmMap, lmOfs, xOfs) {
-    lmMap    = TABLE();
-    lmOfs    = 0;
+function LineMap(str, lmMapName, lmLineNo, lmMap, lmOfs, xOfs) {
+    lmMap = TABLE();
+    lmOfs = 0;
     lmLineNo = 1;
     while (1) {
         lmMap[lmOfs] = lmLineNo;
         // Need both: capture cursor after nl, AND consume from str. Two-step.
         xOfs = '';
-        if (str ? (POS(0)   BREAK(nl)   nl   @xOfs)) {
-            str ? (POS(0)   BREAK(nl)   nl) = ;
-            lmOfs    = lmOfs + xOfs;
+        if (str ? (POS(0) BREAK(nl) nl @xOfs)) {
+            str ? (POS(0) BREAK(nl) nl) = ;
+            lmOfs = lmOfs + xOfs;
             lmLineNo = lmLineNo + 1;
         } else {
             $lmMapName = lmMap;
