@@ -226,9 +226,9 @@ function ppList(x, sep, open, close, c, i, n) {
 //  pp(x) — pretty-print a tree node to OUTPUT
 //=============================================================================
 function pp(x, c, i, n, t, v) {
-    if (~DIFFER(x)) { return; }
+    if (IDENT(x)) { return; }
     t = t(x); v = v(x); n = n(x); c = c(x);
-    if (~DIFFER(t)) { return; }
+    if (IDENT(t)) { return; }
 
     // 10 leaf types — Gen(ss(x)); return on success, error() on fail
     if (IDENT(t, 'BuiltinVar')) { ppLeaf(x, t); return; }
@@ -321,52 +321,52 @@ function ss_leaf(t, v, c, len) {
 //  ss(x, len) — stringify a tree node; freturn if result exceeds len chars
 //=============================================================================
 function ss(x, len, c, i, n, t, v) {
-    if (~DIFFER(x)) { return; }
+    if (IDENT(x)) { return; }
     if (IDENT(len)) { len = 1024; }
     if (~GT(len, 0)) { freturn; }
     t = t(x); v = v(x); n = n(x); c = c(x);
-    if (~DIFFER(t)) { return; }
+    if (IDENT(t)) { return; }
     // Try leaf first
     ss = ss_leaf(t, v, c, len);
     if (DIFFER(ss)) { return; }
     // Compound nodes — | with one child falls through to the unary case below
     if (IDENT(t, '|') ~EQ(n, 1)) {
-        ss = ss(c[1], len); if (~DIFFER(ss)) { freturn; }
+        ss = ss(c[1], len); if (IDENT(ss)) { freturn; }
         for (i = 2; LE(i, n); i = i + 1) {
             ss = ss ' | ' ss(c[i], len - SIZE(ss) - 3);
-            if (~DIFFER(ss)) { freturn; }
+            if (IDENT(ss)) { freturn; }
         }
         return;
     }
     if (IDENT(t, '..')) {
-        ss = ss(c[1], len); if (~DIFFER(ss)) { freturn; }
+        ss = ss(c[1], len); if (IDENT(ss)) { freturn; }
         for (i = 2; LE(i, n); i = i + 1) {
             ss = ss ' ' ss(c[i], len - SIZE(ss) - 1);
-            if (~DIFFER(ss)) { freturn; }
+            if (IDENT(ss)) { freturn; }
         }
         return;
     }
     if (IDENT(t, 'ExprList')) {
-        ss = ss(c[1], len); if (~DIFFER(ss)) { freturn; }
+        ss = ss(c[1], len); if (IDENT(ss)) { freturn; }
         for (i = 2; LE(i, n); i = i + 1) {
             ss = ss ', ' ss(c[i], len - SIZE(ss) - 2);
-            if (~DIFFER(ss)) { freturn; }
+            if (IDENT(ss)) { freturn; }
         }
         return;
     }
     if (IDENT(t, ',')) {
-        ss = '(' ss(c[1], len - 4); if (~DIFFER(ss)) { freturn; }
+        ss = '(' ss(c[1], len - 4); if (IDENT(ss)) { freturn; }
         for (i = 2; LE(i, n); i = i + 1) {
             ss = ss ', ' ss(c[i], len - SIZE(ss) - 3);
-            if (~DIFFER(ss)) { freturn; }
+            if (IDENT(ss)) { freturn; }
         }
         ss = ss ')'; return;
     }
     if (IDENT(t, '[]')) {
-        ss = ss(c[1], len); if (~DIFFER(ss)) { freturn; }
+        ss = ss(c[1], len); if (IDENT(ss)) { freturn; }
         for (i = 2; LE(i, n); i = i + 1) {
             ss = ss '[' ss(c[i], len - SIZE(ss) - 2) ']';
-            if (~DIFFER(ss)) { freturn; }
+            if (IDENT(ss)) { freturn; }
         }
         return;
     }
@@ -384,7 +384,7 @@ function ss(x, len, c, i, n, t, v) {
     }
     if (EQ(n, 2)) {
         ss = ss(c[1], len);
-        if (~DIFFER(ss)) { freturn; }
+        if (IDENT(ss)) { freturn; }
         ss = ss ' ' t ' ' ss(c[2], len - SIZE(ss) - SIZE(t) - 2);
         if (DIFFER(ss)) { return; } else { freturn; }
     }
@@ -399,7 +399,7 @@ function bVisit(x, fnc, i) {
 
 Refs = '';
 function findRefs(x, n, v) {
-    if (~DIFFER(x)) { return; }
+    if (IDENT(x)) { return; }
     if (IDENT(t(x), 'Call')) {
         for (n = 2; LE(n, n(x)); n = n + 1) { bVisit(c(x)[n], .findRefs); }
         freturn;
@@ -455,12 +455,12 @@ Space = SPAN(' ' tab) | epsilon;
 input_done = '';
 Line = '';
 have_line = '';
-while (~DIFFER(input_done)) {
-    if (~DIFFER(have_line)) {
+while (IDENT(input_done)) {
+    if (IDENT(have_line)) {
         if (Line = INPUT) { have_line = 1; }
         else { input_done = 1; }
     }
-    if (~DIFFER(input_done)) {
+    if (IDENT(input_done)) {
         if (Line ? (POS(0) ANY('*-'))) {
             // Header line — pass through verbatim.
             OUTPUT = Line;

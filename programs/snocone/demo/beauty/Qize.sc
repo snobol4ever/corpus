@@ -19,7 +19,7 @@
 //     via their named CHAR-vars.
 
 function LEQ(a, b) {
-    if (~DIFFER(a, b)) { LEQ = a; return; }
+    if (IDENT(a, b)) { LEQ = a; return; }
     if (LLT(a, b)) { LEQ = a; return; }
     freturn;
 }
@@ -32,7 +32,7 @@ function Ucvt(hex2) {
 QizeWierd = bSlash bs ff nl cr tab;
 
 function Qize(str, part) {
-    if (~DIFFER(str)) { Qize = "''"; return; }
+    if (IDENT(str)) { Qize = "''"; return; }
     while (DIFFER(str)) {
         if (DIFFER(Qize)) { Qize = Qize ' '; }
         // Branch 1: leading "weird" char — emit as named CHAR-var.
@@ -75,7 +75,7 @@ function Qize(str, part) {
 }
 
 function SQize(str, part) {
-    if (~DIFFER(str)) { return; }
+    if (IDENT(str)) { return; }
     while (DIFFER(str)) {
         if (DIFFER(SQize)) { SQize = SQize ' '; }
         part = '';
@@ -91,7 +91,7 @@ function SQize(str, part) {
 }
 
 function DQize(str, part) {
-    if (~DIFFER(str)) { return; }
+    if (IDENT(str)) { return; }
     while (DIFFER(str)) {
         if (DIFFER(DQize)) { DQize = DQize ' '; }
         part = '';

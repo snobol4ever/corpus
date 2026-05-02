@@ -113,7 +113,7 @@ function Equiv(x, y, i) {
     if (~IDENT(v(x), v(y))) { freturn; }
     if (~IDENT(n(x), n(y))) { freturn; }
     for (i = 1; LE(i, n(x)); i = i + 1) {
-        if (~DIFFER(c(y))) { return; }
+        if (IDENT(c(y))) { return; }
         if (~Equiv(c(x)[i], c(y)[i])) { freturn; }
     }
     return;
@@ -127,7 +127,7 @@ function Equiv(x, y, i) {
 // full search — canonical's :S(RETURN) on Equiv-AND-APPLY makes the first
 // matching APPLY-success short-circuit; otherwise we recurse.
 function Find(xn, y, f, i) {
-    if (~DIFFER($xn)) { return; }
+    if (IDENT($xn)) { return; }
     if (Equiv($xn, y) APPLY(f, xn)) { return; }
     for (i = 1; LE(i, n($xn)); i = i + 1) {
         Find(.c($xn)[i], y, f);

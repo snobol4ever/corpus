@@ -16,7 +16,7 @@ function cap(s) {
 }
 
 function icase(str, letter, character) {
-    if (~DIFFER(str)) { return; }
+    if (IDENT(str)) { return; }
     while (DIFFER(str)) {
         letter = '';
         str ? (POS(0) ANY(&UCASE &LCASE) . letter) = ;

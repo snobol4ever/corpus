@@ -11,7 +11,7 @@ function Push(x) {
     else { Push = .dummy; nreturn; }
 }
 function Pop(var) {
-    if (~DIFFER($'@S')) { freturn; }
+    if (IDENT($'@S')) { freturn; }
     if (IDENT(var, '')) {
         Pop = value($'@S');
         OUTPUT = GT(xTrace, 4) ('Pop() = ' t(Pop));
@@ -25,7 +25,7 @@ function Pop(var) {
     nreturn;
 }
 function Top() {
-    if (~DIFFER($'@S')) { freturn; }
+    if (IDENT($'@S')) { freturn; }
     Top = .value($'@S');
     OUTPUT = GT(xTrace, 4) ('Top() = ' t(Top));
     nreturn;

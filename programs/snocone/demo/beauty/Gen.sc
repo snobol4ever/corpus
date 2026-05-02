@@ -8,13 +8,13 @@ $'$X' = '';
 
 function IncLevel(delta) {
     IncLevel = .dummy;
-    if (~DIFFER(delta)) { delta = 2; }
+    if (IDENT(delta)) { delta = 2; }
     $'#L' = $'#L' + delta;
     nreturn;
 }
 function DecLevel(delta) {
     DecLevel = .dummy;
-    if (~DIFFER(delta)) { delta = 2; }
+    if (IDENT(delta)) { delta = 2; }
     $'#L' = $'#L' - delta;
     nreturn;
 }
@@ -23,7 +23,7 @@ function GetLevel() { GetLevel = $'#L'; return; }
 
 function Gen(str, outNm, ind, outline, _rest) {
     Gen = .dummy;
-    if (~DIFFER(outNm)) { outNm = .OUTPUT; }
+    if (IDENT(outNm)) { outNm = .OUTPUT; }
     ind = '';
     if (GT($'#L', 0)) {
         _indent ? (POS(0) LEN($'#L' - SIZE($'$X')) . ind);
@@ -52,7 +52,7 @@ function Gen(str, outNm, ind, outline, _rest) {
 }
 function GenTab(pos) {
     GenTab = .dummy;
-    if (~DIFFER(pos)) { pos = $'#L'; }
+    if (IDENT(pos)) { pos = $'#L'; }
     if (IDENT($'$B')) {
         $'$B' = $'$X' ' ' DUPL(' ', pos - SIZE($'$X') - 1);
         nreturn;

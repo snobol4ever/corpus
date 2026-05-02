@@ -26,9 +26,9 @@ function Read(fileName, rdMapName, rdInput, rdIn, rdLine, rdLineNo, rdMap, rdOfs
             if (~LT(SIZE(rdIn), 131072)) { break; }
             rdIn = rdInput;
         }
-        if (~DIFFER(rdIn)) {
+        if (IDENT(rdIn)) {
             ENDFILE(8);
-            if (~DIFFER(rdMapName)) { return; }
+            if (IDENT(rdMapName)) { return; }
             $rdMapName = rdMap;
             return;
         }

@@ -16,7 +16,7 @@ function TValue(x, i) {
     // v=null sets TValue='.' marker and falls through to compound walker
     // (matching .inc TValue line `TValue = IDENT(v(x)) "." :S(TValue3)`).
     // For leaf nodes with non-null v, the typed branches below short-circuit.
-    if (~DIFFER(v(x))) { TValue = '.'; }
+    if (IDENT(v(x))) { TValue = '.'; }
     else if (IDENT(t(x), 'Name')) { TValue = v(x); return; }
     else if (IDENT(t(x), 'float')) { TValue = v(x); return; }
     else if (IDENT(t(x), 'integer')) { TValue = v(x); return; }
@@ -41,7 +41,7 @@ function TValue(x, i) {
 
 function TDump(x, outNm, i, _t, _lump) {
     TDump = .dummy;
-    if (~DIFFER(outNm)) { outNm = .OUTPUT; }
+    if (IDENT(outNm)) { outNm = .OUTPUT; }
     if (IDENT(DATATYPE(x), 'NAME')) { x = $x; }
     _lump = TLump(x, 140 - GetLevel());
     if (DIFFER(_lump)) { Gen(_lump nl, outNm); return; }
@@ -70,7 +70,7 @@ function TDump(x, outNm, i, _t, _lump) {
 
 function TLump(x, len, i, _t, _child) {
     if (~GT(len, 0)) { freturn; }
-    if (~DIFFER(x)) { TLump = '()'; return; }
+    if (IDENT(x)) { TLump = '()'; return; }
     if (~IDENT(DATATYPE(x), 'tree')) {
         TLump = TValue(x);
         if (LE(SIZE(TLump), len)) { return; }
@@ -87,7 +87,7 @@ function TLump(x, len, i, _t, _child) {
     while (LT(i, n(x))) {
         i = i + 1;
         _child = TLump(c(x)[i], len - SIZE(TLump) - 2);
-        if (~DIFFER(_child)) { freturn; }
+        if (IDENT(_child)) { freturn; }
         TLump = TLump ' ' _child;
     }
     TLump = TLump ')';

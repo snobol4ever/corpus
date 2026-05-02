@@ -37,12 +37,12 @@ function XDump(object, nm, i, iMax, iMin, objArr, objField, objKey, objKeyNm,
     if (IDENT(objType, 'TABLE')) {
         OUTPUT = nm ' = TABLE';
         objArr = SORT(object);
-        if (~DIFFER(objArr)) { return; }
+        if (IDENT(objArr)) { return; }
         i = 0;
         while (1) {
             i = i + 1;
             objKey = objArr[i, 1];
-            if (~DIFFER(objKey)) { return; }
+            if (IDENT(objKey)) { return; }
             objVal = objArr[i, 2];
             if (IDENT(DATATYPE(objKey), 'INTEGER')) { objKeyNm = objKey; }
             else if (IDENT(DATATYPE(objKey), 'STRING')) { objKeyNm = Qize(objKey); }
@@ -56,7 +56,7 @@ function XDump(object, nm, i, iMax, iMin, objArr, objField, objKey, objKeyNm,
     while (1) {
         i = i + 1;
         objField = FIELD(objType, i);
-        if (~DIFFER(objField)) { return; }
+        if (IDENT(objField)) { return; }
         XDump(APPLY(objField, object), objField '(' nm ')');
     }
 }
