@@ -6,9 +6,10 @@
 // Notes for the Snocone port:
 //   * Loops use idiomatic `while (cond) { ... i = i + 1; ... }` — the SNOBOL4
 //     `i = LT(i, n) i + 1` juxtaposition does not compose in Snocone.
-//   * Tree-vs-leaf detection uses `IDENT(DATATYPE(x), 'tree')` — in SNOBOL4
-//     this was the deferred-eval `NULL *IDENT(n(x))` trick, catching the
-//     field-access error on non-tree arguments.
+//   * Tree-vs-leaf detection uses `IDENT(n(x))` — true leaf has null n field.
+//     The earlier port used `IDENT(DATATYPE(x), 'tree')` which always fails
+//     because every tree-struct instance has DATATYPE='tree'. Fixed in
+//     SB-6.E.7-J audit (session 2026-05-02).
 //   * The `(DIFFER(t) '.', '')` SNOBOL4 conditional-value form does not parse
 //     in Snocone; we expand it inline with an if/else instead.
 
@@ -45,8 +46,8 @@ function TDump(x, outNm, i, _t, _lump) {
     if (IDENT(DATATYPE(x), 'NAME')) { x = $x; }
     _lump = TLump(x, 140 - GetLevel());
     if (DIFFER(_lump)) { Gen(_lump nl, outNm); return; }
-    // Not a tree (or no children) — emit value form.
-    if (~IDENT(DATATYPE(x), 'tree')) {
+    // Leaf: n is null — emit value form.
+    if (IDENT(n(x))) {
         Gen(TValue(x) nl, outNm); return;
     }
     // Multi-line tree form.
@@ -71,7 +72,7 @@ function TDump(x, outNm, i, _t, _lump) {
 function TLump(x, len, i, _t, _child) {
     if (~GT(len, 0)) { freturn; }
     if (IDENT(x)) { TLump = '()'; return; }
-    if (~IDENT(DATATYPE(x), 'tree')) {
+    if (IDENT(n(x))) {
         TLump = TValue(x);
         if (LE(SIZE(TLump), len)) { return; }
         freturn;
