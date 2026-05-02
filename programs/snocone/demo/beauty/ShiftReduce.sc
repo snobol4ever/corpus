@@ -38,7 +38,7 @@ function Shift(t, v, s) {
     Push(s);
     OUTPUT = GT(xTrace, 3) ('Shift(' t ', ' v ')');
     if (IDENT(v)) { Shift = .v(s); nreturn; }
-    else { Shift = .dummy; nreturn; }
+    else Shift = .dummy; nreturn;
 }
 
 function Reduce(t, n, c, i, r) {
@@ -51,7 +51,7 @@ function Reduce(t, n, c, i, r) {
     }
     OUTPUT = GT(xTrace, 3) ('Reduce(' t ', ' n ')');
     if (GE(n, 1)) { c = ARRAY('1:' n); }
-    else { c = ''; }
+    else c = '';
     i = n + 1;
     while (GT(i, 1)) {
         i = i - 1;

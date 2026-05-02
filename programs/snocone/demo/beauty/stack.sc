@@ -8,7 +8,7 @@ function Push(x) {
     OUTPUT = GT(xTrace, 4) ('Push(' t(x) ')');
     $'@S' = link($'@S', x);
     if (IDENT(x)) { Push = .value($'@S'); nreturn; }
-    else { Push = .dummy; nreturn; }
+    else Push = .dummy; nreturn;
 }
 function Pop(var) {
     if (IDENT($'@S')) { freturn; }

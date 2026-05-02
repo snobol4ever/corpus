@@ -54,7 +54,7 @@ function Insert(x, y, place, c, i) {
 function Remove(x, place, c, i) {
     Remove = x;
     if (GT(n(x) - 1, 0)) { c = ARRAY('1:' (n(x) - 1)); }
-    else { c = ''; }
+    else c = '';
     for (i = 1; LT(i, place); i = i + 1) { c[i] = c(x)[i]; }
     for (i = place + 1; LE(i, n(x)); i = i + 1) { c[i - 1] = c(x)[i]; }
     n(x) = n(x) - 1;
