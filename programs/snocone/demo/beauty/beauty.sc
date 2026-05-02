@@ -230,17 +230,33 @@ function pp(x, c, i, n, t, v) {
     t = t(x); v = v(x); n = n(x); c = c(x);
     if (~DIFFER(t)) { return; }
 
-    if ((IDENT(t(c(c[n])[2]), 'Id'), IDENT(t(c(c[n])[2]), '$'))) {
-        ppLeaf(x, t); return;
-    }
-    if ((IDENT(t(c(c[n])[2]), 'Id'), IDENT(t(c(c[n])[2]), '$'))) {
+    // 10 leaf types — Gen(ss(x)); return on success, error() on fail
+    if (IDENT(t, 'BuiltinVar')) { ppLeaf(x, t); return; }
+    if (IDENT(t, 'Function'))   { ppLeaf(x, t); return; }
+    if (IDENT(t, 'Id'))         { ppLeaf(x, t); return; }
+    if (IDENT(t, 'Integer'))    { ppLeaf(x, t); return; }
+    if (IDENT(t, 'Label'))      { ppLeaf(x, t); return; }
+    if (IDENT(t, 'ProtKwd'))    { ppLeaf(x, t); return; }
+    if (IDENT(t, 'Real'))       { ppLeaf(x, t); return; }
+    if (IDENT(t, 'SpecialNm'))  { ppLeaf(x, t); return; }
+    if (IDENT(t, 'String'))     { ppLeaf(x, t); return; }
+    if (IDENT(t, 'UnprotKwd'))  { ppLeaf(x, t); return; }
+
+    // Parse — recursive walk over children
+    if (IDENT(t, 'Parse')) {
         ppWidth = ppStop[4];
         for (i = 1; LE(i, n); i = i + 1) { pp(c[i]); }
         return;
     }
-    if ((IDENT(t(c(c[n])[2]), 'Id'), IDENT(t(c(c[n])[2]), '$'))) {
+
+    // Comment / Control — emit verbatim raw text + nl, no continuation
+    if (IDENT(t, 'Comment')) {
         SetLevel(0); GenSetCont(); Gen(v(c[1]) nl); return;
     }
+    if (IDENT(t, 'Control')) {
+        SetLevel(0); GenSetCont(); Gen(v(c[1]) nl); return;
+    }
+
     if (IDENT(t, 'Stmt')) { ppStmt(x); return; }
     if (IDENT(t, 'ExprList')) { ppList(x, ',', '', ''); return; }
     if (IDENT(t, ',')) { ppList(x, ',', '(', ')'); return; }
@@ -274,19 +290,29 @@ function pp(x, c, i, n, t, v) {
 //  Returns the string in ss_leaf (caller assigns to ss).
 //=============================================================================
 function ss_leaf(t, v, c, len) {
-    if ((IDENT(t(c(c[n])[2]), 'Id'), IDENT(t(c(c[n])[2]), '$'))) { ss_leaf = upr(v); }
-    else if ((IDENT(t(c(c[n])[2]), 'Id'), IDENT(t(c(c[n])[2]), '$'))) {
-        ss_leaf = v;
-    }
+    // 5 leaf types whose stringization is upr(v) — keywords, identifiers,
+    // function and special names that must canonicalize to upper case
+    if      (IDENT(t, 'BuiltinVar')) { ss_leaf = upr(v); }
+    else if (IDENT(t, 'Function'))   { ss_leaf = upr(v); }
+    else if (IDENT(t, 'ProtKwd'))    { ss_leaf = upr(v); }
+    else if (IDENT(t, 'SpecialNm'))  { ss_leaf = upr(v); }
+    else if (IDENT(t, 'UnprotKwd'))  { ss_leaf = upr(v); }
+    // 4 leaf types whose stringization is verbatim v
+    else if (IDENT(t, 'Id'))         { ss_leaf = v; }
+    else if (IDENT(t, 'Integer'))    { ss_leaf = v; }
+    else if (IDENT(t, 'Real'))       { ss_leaf = v; }
+    else if (IDENT(t, 'String'))     { ss_leaf = v; }
+    // Label is special — upper-case if it is a SpecialNm, else verbatim
     else if (IDENT(t, 'Label')) {
         if (v ? (POS(0) *SpecialNm RPOS(0))) { ss_leaf = upr(v); } else { ss_leaf = v; }
     }
-    else if (IDENT(t,':()')) { ss_leaf='(' ss(c[1],len - 2) ')'; if(DIFFER(ss_leaf)){return;}else{freturn;} }
-    else if (IDENT(t,':<>')) { ss_leaf='<' ss(c[1],len - 2) '>'; if(DIFFER(ss_leaf)){return;}else{freturn;} }
-    else if (IDENT(t,':S()')) { ss_leaf='S(' ss(c[1],len - 3) ')'; if(DIFFER(ss_leaf)){return;}else{freturn;} }
-    else if (IDENT(t,':S<>')) { ss_leaf='S<' ss(c[1],len - 3) '>'; if(DIFFER(ss_leaf)){return;}else{freturn;} }
-    else if (IDENT(t,':F()')) { ss_leaf='F(' ss(c[1],len - 3) ')'; if(DIFFER(ss_leaf)){return;}else{freturn;} }
-    else if (IDENT(t,':F<>')) { ss_leaf='F<' ss(c[1],len - 3) '>'; if(DIFFER(ss_leaf)){return;}else{freturn;} }
+    // 6 goto-clause types — recursive ss() with size-budget bookkeeping
+    else if (IDENT(t, ':()')) { ss_leaf = '(' ss(c[1], len - 2) ')'; if (DIFFER(ss_leaf)) { return; } else { freturn; } }
+    else if (IDENT(t, ':<>')) { ss_leaf = '<' ss(c[1], len - 2) '>'; if (DIFFER(ss_leaf)) { return; } else { freturn; } }
+    else if (IDENT(t, ':S()')) { ss_leaf = 'S(' ss(c[1], len - 3) ')'; if (DIFFER(ss_leaf)) { return; } else { freturn; } }
+    else if (IDENT(t, ':S<>')) { ss_leaf = 'S<' ss(c[1], len - 3) '>'; if (DIFFER(ss_leaf)) { return; } else { freturn; } }
+    else if (IDENT(t, ':F()')) { ss_leaf = 'F(' ss(c[1], len - 3) ')'; if (DIFFER(ss_leaf)) { return; } else { freturn; } }
+    else if (IDENT(t, ':F<>')) { ss_leaf = 'F<' ss(c[1], len - 3) '>'; if (DIFFER(ss_leaf)) { return; } else { freturn; } }
     else { freturn; } // not a leaf — caller handles compound
     if (LE(SIZE(ss_leaf), len)) { return; } else { freturn; }
 }
