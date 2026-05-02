@@ -12,7 +12,7 @@ function T8Trace(lvl, str, ofs, t8p) {
     if (~LE(lvl, doDebug)) { nreturn; }
     if (~GT(doDebug, 1)) {
         // doDebug == 1: only show '?' lines
-        if (str ? (POS(0) '?')) { } else { nreturn; }
+        if (~(str ? (POS(0) '?'))) { nreturn; }
     } else {
         // doDebug > 1: prefix '? ' or '  '
         if (str ? (POS(0) '?')) {

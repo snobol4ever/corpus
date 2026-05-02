@@ -12,7 +12,8 @@ function upr(s) {
 
 function cap(s) {
     cap = REPLACE(SUBSTR(s, 1, 1), &LCASE, &UCASE) REPLACE(SUBSTR(s, 2), &UCASE, &LCASE);
-    return;
+    if (DIFFER(cap)) { return; }
+    error();
 }
 
 function icase(str, letter, character) {
