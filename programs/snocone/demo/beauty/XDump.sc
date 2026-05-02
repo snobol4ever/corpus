@@ -1,62 +1,50 @@
-// XDump.sc — Snocone port of XDump.inc
-// XDump(object, nm) — generic recursive object-dump for debugging.
-//
-// Notes for the Snocone port:
-//   * Use idiomatic `while (LT(i, iMax)) { i = i + 1; ... }` C-style loops.
-//     The SNOBOL4 `i = LT(i, iMax) i + 1` juxtaposition does not compose
-//     in Snocone.
-//   * Compare DATATYPE results without REPLACE; primitives are already
-//     uppercase ('STRING', 'INTEGER', ...) and user types keep their
-//     original casing for the user-type fallback.
-//   * The user-type field walk uses FIELD/APPLY. In current Snocone these
-//     do not iterate `struct` fields cleanly, so the TABLE/ARRAY/primitive
-//     branches are the actively-used ones.
-
-function XDump(object, nm, i, iMax, iMin, objArr, objField, objKey, objKeyNm,
-                               objProto, objType, objVal) {
+//-----------------------------------------------------------------------------------------------------------------------
+// XDump(object, nm) - Generic SNOBOL4 object dump routine. This recursive routine is useful
+// from within the debugger or as debug code sprinkled throughout the SNOBOL4 application.
+// Needs to be enhanced to handle 2+ dimensional arrays.
+//-----------------------------------------------------------------------------------------------------------------------
+function XDump(object, nm,
+               i, iMax, iMin, objArr, objField, objKey, objKeyNm, objProto, objType, objVal) {
     objType = DATATYPE(object);
-    if (IDENT(objType, 'CODE')) { OUTPUT = nm ' = ' objType; return; }
-    if (IDENT(objType, 'EXPRESSION')) { OUTPUT = nm ' = ' objType; return; }
-    if (IDENT(objType, 'INTEGER')) { OUTPUT = nm ' = ' object; return; }
-    if (IDENT(objType, 'NAME')) { OUTPUT = nm ' = ' objType; return; }
-    if (IDENT(objType, 'PATTERN')) { OUTPUT = nm ' = ' objType; return; }
-    if (IDENT(objType, 'REAL')) { OUTPUT = nm ' = ' object; return; }
-    if (IDENT(objType, 'STRING')) { OUTPUT = nm ' = ' Qize(object); return; }
+    if (IDENT(objType, 'CODE'))       { OUTPUT = nm ' = ' objType;        return; }
+    if (IDENT(objType, 'EXPRESSION')) { OUTPUT = nm ' = ' objType;        return; }
+    if (IDENT(objType, 'INTEGER'))    { OUTPUT = nm ' = ' object;         return; }
+    if (IDENT(objType, 'NAME'))       { OUTPUT = nm ' = ' objType;        return; }
+    if (IDENT(objType, 'PATTERN'))    { OUTPUT = nm ' = ' objType;        return; }
+    if (IDENT(objType, 'REAL'))       { OUTPUT = nm ' = ' object;         return; }
+    if (IDENT(objType, 'STRING'))     { OUTPUT = nm ' = ' Qize(object);   return; }
     if (IDENT(objType, 'ARRAY')) {
         objProto = PROTOTYPE(object);
-        objProto ? (POS(0) (('+' | '-' | epsilon) SPAN(digits)) . iMin ':'
-                              (('+' | '-' | epsilon) SPAN(digits)) . iMax RPOS(0));
-        OUTPUT = nm " = ARRAY['" objProto "']";
+        objProto ? (POS(0)
+                   (('+' | '-' | epsilon) SPAN(digits)) . iMin ':'
+                   (('+' | '-' | epsilon) SPAN(digits)) . iMax
+                   RPOS(0));
+        OUTPUT = nm ' = ' "ARRAY['" objProto "']";
         i = iMin - 1;
-        while (LT(i, iMax)) {
-            i = i + 1;
+        while (i = LT(i, iMax) i + 1)
             XDump(object[i], nm '[' i ']');
-        }
         return;
     }
     if (IDENT(objType, 'TABLE')) {
-        OUTPUT = nm ' = TABLE';
-        objArr = SORT(object);
-        if (IDENT(objArr)) { return; }
+        OUTPUT = nm ' = ' 'TABLE';
+        // objArr = CONVERT(object, 'ARRAY') :F(RETURN)
+        if (~(objArr = SORT(object))) return;
         i = 0;
         while (1) {
             i = i + 1;
-            objKey = objArr[i, 1];
-            if (IDENT(objKey)) { return; }
+            if (~(objKey = objArr[i, 1])) return;
             objVal = objArr[i, 2];
-            if (IDENT(DATATYPE(objKey), 'INTEGER')) { objKeyNm = objKey; }
-            else if (IDENT(DATATYPE(objKey), 'STRING')) { objKeyNm = Qize(objKey); }
-            else { objKeyNm = DATATYPE(objKey); }
+            if (~(objKeyNm = IDENT(DATATYPE(objKey), 'INTEGER') objKey))
+                if (~(objKeyNm = IDENT(DATATYPE(objKey), 'STRING') Qize(objKey)))
+                    objKeyNm = DATATYPE(objKey);
             XDump(objVal, nm '[' objKeyNm ']');
         }
     }
-    // user-defined struct type fallback
     OUTPUT = nm ' = ' objType '()';
     i = 0;
     while (1) {
         i = i + 1;
-        objField = FIELD(objType, i);
-        if (IDENT(objField)) { return; }
+        if (~(objField = FIELD(objType, i))) return;
         XDump(APPLY(objField, object), objField '(' nm ')');
     }
 }

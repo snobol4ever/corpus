@@ -1,63 +1,45 @@
-// semantic.sc — Snocone port of semantic.inc
-//
-// Semantic building routines. These functions are called while BUILDING
-// the parser patterns, not during pattern matching.
-//
-// Snocone has no OPSYN, so the canonical SNOBOL4
-//     OPSYN('~', 'shift', 2)
-//     OPSYN('&', 'reduce', 2)
-// cannot be expressed here. Callers in beauty.sc must use the function
-// forms shift(p, t) and reduce(t, n) directly instead of the operator
-// forms 'pat ~ name' and '"name" & expr'.
-//
-// epsilon is assumed pre-defined globally (see beauty.sc / global.sc).
-
-function shift(p, t, omega) {
-    // Canonical: EVAL sees the literal name 'p', resolves it dynamically to
-    // the pattern value in this function's scope — same as SNOBOL4's
-    //   shift_ shift = EVAL("p . thx . *Shift('" t "', thx)")
-    omega = "p . thx . *Shift('" t "', thx)";
-    shift = EVAL(omega);
+//---------------------------------------------------------------------------------------------------
+// Semantic building routines. These functions are called while building the parser
+// patterns, not during pattern matching.
+//---------------------------------------------------------------------------------------------------
+OPSYN('~', 'shift', 2);   // TODO SB-6.E.7-B — Snocone infix-operator OPSYN runtime
+OPSYN('&', 'reduce', 2);  // TODO SB-6.E.7-B — Snocone infix-operator OPSYN runtime
+//---------------------------------------------------------------------------------------------------
+function shift(p, t) {
+    shift = EVAL("p . thx . *Shift('" t "', thx)");
     return;
 }
-
-function reduce(t, n, omega) {
-    // Canonical: EVAL sees 'tag' as quoted string literal, n as SNOBOL4 expression.
-    // t is always a string tag name (e.g. '=', 'ExprList').
-    // n is either an integer literal (2, 1, 7) or a SNOBOL4 expression
-    // (e.g. '*(GT(nTop(), 1) nTop())') which EVAL evaluates dynamically.
-    // Use double-quote wrapping so t values containing single-quotes (e.g. "*(':' Brackets)")
-    // do not break the EVAL string. SNOBOL4 accepts either 'string' or "string" delimiters.
-    omega = 'epsilon . *Reduce("' t '", ' n ')';
-    reduce = EVAL(omega);
+//---------------------------------------------------------------------------------------------------
+function reduce(t, n) {
+    reduce = EVAL("epsilon . *Reduce(" t ", " n ")");
     return;
 }
-
+//---------------------------------------------------------------------------------------------------
 function pop() {
     pop = epsilon . *Pop(.dummy);
     return;
 }
-
+//---------------------------------------------------------------------------------------------------
 function nPush() {
     nPush = epsilon . *PushCounter();
     return;
 }
-
+//---------------------------------------------------------------------------------------------------
 function nInc() {
     nInc = epsilon . *IncCounter();
     return;
 }
-
+//---------------------------------------------------------------------------------------------------
 function nDec() {
     nDec = epsilon . *DecCounter();
     return;
 }
-
+//---------------------------------------------------------------------------------------------------
 function nTop() {
     nTop = TopCounter();
     return;
 }
-
+//---------------------------------------------------------------------------------------------------
 function nPop() {
     nPop = epsilon . *PopCounter();
     return;

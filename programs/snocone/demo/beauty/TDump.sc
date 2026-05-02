@@ -1,96 +1,71 @@
-// TDump.sc — Snocone port of TDump.inc
-// TValue(x)         — short string form of node x's value (or recursive concat for compound)
-// TDump(x, outNm)   — emit tree x to outNm (default OUTPUT) one-per-line indented
-// TLump(x, len)     — try to format tree x as a single line of length ≤ len; fail if too long
+//---------------------------------------------------------------------------------------------------
+// TDump(x) - Recursive routine to dump tree x to output in a lisp-like parenthetical
+// representation. Uses TLump(x, len) to build string for output on one line, but if it will
+// not fit then uses multiple line format.
 //
-// Notes for the Snocone port:
-//   * Loops use idiomatic `while (cond) { ... i = i + 1; ... }` — the SNOBOL4
-//     `i = LT(i, n) i + 1` juxtaposition does not compose in Snocone.
-//   * Tree-vs-leaf detection uses `IDENT(n(x))` — true leaf has null n field.
-//     The earlier port used `IDENT(DATATYPE(x), 'tree')` which always fails
-//     because every tree-struct instance has DATATYPE='tree'. Fixed in
-//     SB-6.E.7-J audit (session 2026-05-02).
-//   * The `(DIFFER(t) '.', '')` SNOBOL4 conditional-value form does not parse
-//     in Snocone; we expand it inline with an if/else instead.
-
+// TLump(x) - Recursive function to return as a string tree x in a
+// lisp-like parenthetical representation.
+//---------------------------------------------------------------------------------------------------
 function TValue(x, i) {
-    // v=null sets TValue='.' marker and falls through to compound walker
-    // (matching .inc TValue line `TValue = IDENT(v(x)) "." :S(TValue3)`).
-    // For leaf nodes with non-null v, the typed branches below short-circuit.
-    if (IDENT(v(x))) { TValue = '.'; }
-    else if (IDENT(t(x), 'Name')) { TValue = v(x); return; }
-    else if (IDENT(t(x), 'float')) { TValue = v(x); return; }
-    else if (IDENT(t(x), 'integer')) { TValue = v(x); return; }
-    else if (IDENT(t(x), 'bool')) { TValue = v(x); return; }
-    else if (IDENT(t(x), 'datetime')) { TValue = "'" SqlSQize(v(x)) "'"; return; }
-    else if (IDENT(t(x), 'character')) { TValue = "'" SqlSQize(v(x)) "'"; return; }
-    else if (IDENT(t(x), 'string')) { TValue = "'" SqlSQize(v(x)) "'"; return; }
-    else if (IDENT(t(x), 'identifier')) { TValue = v(x); return; }
-    else if (DIFFER(t(x))) { TValue = t(x); return; }
-    // Compound: walk children, separator '.' between pieces.
+    // DIFFER(t(x), '.') :F(TValue3)
+    if (TValue = IDENT(v(x)) ".")               return;
+    if (TValue = IDENT(t(x), 'Name')       v(x))                       return;
+    if (TValue = IDENT(t(x), 'float')      v(x))                       return;
+    if (TValue = IDENT(t(x), 'integer')    v(x))                       return;
+    if (TValue = IDENT(t(x), 'bool')       v(x))                       return;
+    if (TValue = IDENT(t(x), 'datetime')   "'" SqlSQize(v(x)) "'")     return;
+    if (TValue = IDENT(t(x), 'character')  "'" SqlSQize(v(x)) "'")     return;
+    if (TValue = IDENT(t(x), 'string')     "'" SqlSQize(v(x)) "'")     return;
+    if (TValue = IDENT(t(x), 'identifier') v(x))                       return;
+    if (TValue = t(x))                                                 return;
     i = 0;
-    while (LT(i, n(x))) {
-        i = i + 1;
-        if (DIFFER(TValue)) {
-            TValue = TValue '.' v(c(x)[i]);
-        } else {
-            TValue = v(c(x)[i]);
-        }
-    }
+    while (i = LT(i, n(x)) i + 1)
+        TValue = TValue (DIFFER(TValue) '.', '') v(c(x)[i]);
     return;
 }
-
-function TDump(x, outNm, i, _t, _lump) {
-    TDump = .dummy;
-    if (IDENT(outNm)) { outNm = .OUTPUT; }
-    if (IDENT(DATATYPE(x), 'NAME')) { x = $x; }
-    _lump = TLump(x, 140 - GetLevel());
-    if (DIFFER(_lump)) { Gen(_lump nl, outNm); return; }
-    // Leaf: n is null — emit value form.
-    if (IDENT(n(x))) {
-        Gen(TValue(x) nl, outNm); return;
+//---------------------------------------------------------------------------------------------------
+function TDump(x, outNm, i, t) {
+    outNm = IDENT(outNm) .OUTPUT;
+    x = IDENT(DATATYPE(x), 'NAME') $x;
+    if (Gen(TLump(x, 140 - GetLevel()) nl, outNm)) return;
+    if (~(NULL *IDENT(n(x)))) {                  //  | *IDENT(t(x), '.')
+        if (~(t(x) ? (POS(0) ANY(&UCASE &LCASE)
+                     (SPAN(digits &UCASE '_' &LCASE) | epsilon) RPOS(0))))
+            t = '"' t(x) '"';
+        else
+            t = t(x);
+        Gen('(' t nl, outNm);
+        IncLevel();
+        i = 0;
+        while (i = LT(i, n(x)) i + 1)
+            TDump(c(x)[i], outNm);
+        DecLevel();
+        Gen(')' nl, outNm);
+        return;
     }
-    // Multi-line tree form.
-    if (t(x) ? (POS(0) ANY(&UCASE &LCASE)
-                  (SPAN(digits &UCASE '_' &LCASE) | epsilon) RPOS(0))) {
-        _t = t(x);
-    } else {
-        _t = '"' t(x) '"';
-    }
-    Gen('(' _t nl, outNm);
-    IncLevel();
-    i = 0;
-    while (LT(i, n(x))) {
-        i = i + 1;
-        TDump(c(x)[i], outNm);
-    }
-    DecLevel();
-    Gen(')' nl, outNm);
+    Gen(TValue(x) nl, outNm);
     return;
 }
-
-function TLump(x, len, i, _t, _child) {
-    if (~GT(len, 0)) { freturn; }
-    if (IDENT(x)) { TLump = '()'; return; }
-    if (IDENT(n(x))) {
+//---------------------------------------------------------------------------------------------------
+function TLump(x, len, i, t) {
+    if (~GT(len, 0)) freturn;
+    if (TLump = IDENT(x) '()') return;
+    if (NULL *IDENT(n(x))) {                     //  | *IDENT(t(x), '.')
         TLump = TValue(x);
-        if (LE(SIZE(TLump), len)) { return; }
+        if (LE(SIZE(TLump), len)) return;
         freturn;
     }
-    if (t(x) ? (POS(0) ANY(&UCASE &LCASE)
-                  (SPAN(digits &UCASE '_' &LCASE) | epsilon) RPOS(0))) {
-        _t = t(x);
-    } else {
-        _t = '"' t(x) '"';
-    }
-    TLump = '(' _t;
+    TLump = '(';
+    if (~(t(x) ? (POS(0) ANY(&UCASE &LCASE)
+                 (SPAN(digits &UCASE '_' &LCASE) | epsilon) RPOS(0))))
+        t = '"' t(x) '"';
+    else
+        t = t(x);
+    TLump = TLump t;
     i = 0;
-    while (LT(i, n(x))) {
-        i = i + 1;
-        _child = TLump(c(x)[i], len - SIZE(TLump) - 2);
-        if (IDENT(_child)) { freturn; }
-        TLump = TLump ' ' _child;
-    }
+    while (i = LT(i, n(x)) i + 1)
+        if (~(TLump = TLump ' ' TLump(c(x)[i], len - SIZE(TLump) - 2)))
+            freturn;
     TLump = TLump ')';
     return;
 }

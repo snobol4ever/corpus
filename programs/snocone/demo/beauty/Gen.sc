@@ -1,72 +1,75 @@
-// Gen.sc — Snocone port of Gen.sno
-// Globals: $'#L' indent level, $'$B' buffer, $'$C' continuation char, $'$X' cont-spot
-_indent = DUPL(' ', 120);
-$'#L' = 0;
-$'$B' = '';
-$'$C' = '';
-$'$X' = '';
-
+//---------------------------------------------------------------------------------------------------
+// Routines to manage generated output. Since SNOBOL4 naturally writes one line at a time,
+// a way is needed to buffer up the output until a newline character is reached, and a way
+// to automatically handle the indention of each line.
+//
+// IncLevel(delta) -- Increment indention level by delta
+// DecLevel(delta) -- Decrement indention level by delta
+// SetLevel(level) -- Set indention level
+// GetLevel()      -- Get current indention level
+//
+// Gen(string) -- Generate string
+// GenTab(integer) -- Generate tab (spaces) to specified or current margin level
+// GenSetCont(character) -- Set continue character and begin with 1st line.
+//
+// Globals:
+//    $'$B' -- buffer
+//    $'$C' -- continuation character
+//    $'$X' -- marks the spot for $'$C'
+//    $'#L' -- indention level
+//---------------------------------------------------------------------------------------------------
 function IncLevel(delta) {
     IncLevel = .dummy;
-    if (IDENT(delta)) { delta = 2; }
+    delta = IDENT(delta) 2;
     $'#L' = $'#L' + delta;
     nreturn;
 }
+//---------------------------------------------------------------------------------------------------
 function DecLevel(delta) {
     DecLevel = .dummy;
-    if (IDENT(delta)) { delta = 2; }
+    delta = IDENT(delta) 2;
     $'#L' = $'#L' - delta;
     nreturn;
 }
-function SetLevel(level) { SetLevel = .dummy; $'#L' = level; nreturn; }
-function GetLevel() { GetLevel = $'#L'; return; }
-
-function Gen(str, outNm, ind, outline, _rest) {
-    Gen = .dummy;
-    if (IDENT(outNm)) { outNm = .OUTPUT; }
-    ind = '';
-    if (GT($'#L', 0)) {
-        _indent ? (POS(0) LEN($'#L' - SIZE($'$X')) . ind);
-    }
-    if (DIFFER($'$B')) {
-        $'$B' = $'$B' str;
-    } else {
-        $'$B' = $'$X' ind str;
-    }
-    // First-line emit (no continuation prefix). Use positive match form because
-    // negation `~(... ? ...)` runs the pattern but discards captures (a Snocone
-    // emitter property — see "positive match form" comment in beauty.sc).
-    if ($'$B' ? (POS(0) BREAK(nl) . outline nl REM . _rest)) {
-        $'$B' = _rest;
-        $'$X' = $'$C';
-        $outNm = outline;
-    } else {
-        nreturn;
-    }
-    // Drain remaining complete lines, each with continuation char + indent.
-    while ($'$B' ? (POS(0) BREAK(nl) . outline nl REM . _rest)) {
-        $'$B' = _rest;
-        $outNm = $'$C' ind outline;
-    }
+//---------------------------------------------------------------------------------------------------
+function SetLevel(level) {
+    SetLevel = .dummy;
+    $'#L' = level;
     nreturn;
 }
+//---------------------------------------------------------------------------------------------------
+function GetLevel() {
+    GetLevel = $'#L';
+    return;
+}
+//---------------------------------------------------------------------------------------------------
+indent = DUPL(' ', 120);
+//---------------------------------------------------------------------------------------------------
+function Gen(str, outNm, ind, outline) {
+    Gen = .dummy;
+    outNm = IDENT(outNm) .OUTPUT;
+    indent ? (GT($'#L', 0) LEN($'#L' - SIZE($'$X')) . ind);
+    $'$B' = DIFFER($'$B') $'$B' str;
+    $'$B' = IDENT($'$B') $'$X' ind str;
+    if (~($'$B' ? (BREAK(nl) . outline nl REM . $'$B'))) nreturn;
+    $'$X' = $'$C';
+    $outNm = outline;
+    while ($'$B' ? (BREAK(nl) . outline nl REM . $'$B'))
+        $outNm = $'$C' ind outline;
+    nreturn;
+}
+//---------------------------------------------------------------------------------------------------
 function GenTab(pos) {
     GenTab = .dummy;
-    if (IDENT(pos)) { pos = $'#L'; }
-    if (IDENT($'$B')) {
-        $'$B' = $'$X' ' ' DUPL(' ', pos - SIZE($'$X') - 1);
-        nreturn;
-    }
-    if (LE(SIZE($'$B'), pos - 1)) {
-        $'$B' = $'$B' ' ' DUPL(' ', pos - SIZE($'$B') - 1);
-    } else {
+    pos = IDENT(pos) $'#L';
+    if (~($'$B' = $'$B' ' ' DUPL(' ', pos - SIZE($'$B') - 1)))
         $'$B' = $'$B' ' ';
-    }
     nreturn;
 }
+//---------------------------------------------------------------------------------------------------
 function GenSetCont(cont) {
     GenSetCont = .dummy;
-    $'$X' = '';
+    $'$X' = ;
     $'$C' = cont;
     nreturn;
 }
