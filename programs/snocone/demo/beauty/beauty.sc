@@ -281,12 +281,12 @@ function ss_leaf(t, v, c, len) {
     else if (IDENT(t, 'Label')) {
         if (v ? (POS(0)   *SpecialNm   RPOS(0))) { ss_leaf = upr(v); } else { ss_leaf = v; }
     }
-    else if (IDENT(t,':()'))  { ss_leaf='('    ss(c[1],len-2)   ')'; if(DIFFER(ss_leaf)){return;}else{freturn;} }
-    else if (IDENT(t,':<>'))  { ss_leaf='<'    ss(c[1],len-2)   '>'; if(DIFFER(ss_leaf)){return;}else{freturn;} }
-    else if (IDENT(t,':S()')) { ss_leaf='S('   ss(c[1],len-3)   ')'; if(DIFFER(ss_leaf)){return;}else{freturn;} }
-    else if (IDENT(t,':S<>')) { ss_leaf='S<'   ss(c[1],len-3)   '>'; if(DIFFER(ss_leaf)){return;}else{freturn;} }
-    else if (IDENT(t,':F()')) { ss_leaf='F('   ss(c[1],len-3)   ')'; if(DIFFER(ss_leaf)){return;}else{freturn;} }
-    else if (IDENT(t,':F<>')) { ss_leaf='F<'   ss(c[1],len-3)   '>'; if(DIFFER(ss_leaf)){return;}else{freturn;} }
+    else if (IDENT(t,':()'))  { ss_leaf='('    ss(c[1],len - 2)   ')'; if(DIFFER(ss_leaf)){return;}else{freturn;} }
+    else if (IDENT(t,':<>'))  { ss_leaf='<'    ss(c[1],len - 2)   '>'; if(DIFFER(ss_leaf)){return;}else{freturn;} }
+    else if (IDENT(t,':S()')) { ss_leaf='S('   ss(c[1],len - 3)   ')'; if(DIFFER(ss_leaf)){return;}else{freturn;} }
+    else if (IDENT(t,':S<>')) { ss_leaf='S<'   ss(c[1],len - 3)   '>'; if(DIFFER(ss_leaf)){return;}else{freturn;} }
+    else if (IDENT(t,':F()')) { ss_leaf='F('   ss(c[1],len - 3)   ')'; if(DIFFER(ss_leaf)){return;}else{freturn;} }
+    else if (IDENT(t,':F<>')) { ss_leaf='F<'   ss(c[1],len - 3)   '>'; if(DIFFER(ss_leaf)){return;}else{freturn;} }
     else { freturn; }   // not a leaf — caller handles compound
     if (LE(SIZE(ss_leaf), len)) { return; } else { freturn; }
 }

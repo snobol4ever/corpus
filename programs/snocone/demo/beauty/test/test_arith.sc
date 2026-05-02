@@ -1,7 +1,7 @@
 // driver.sc — test driver for arith.sc
 
 function ISqrt(n, i) {
-    i = 0; while (LE((i+1)*(i+1), n)) { i = i + 1; } ISqrt = i; return;
+    i = 0; while (LE((i + 1) * (i + 1), n)) { i = i + 1; } ISqrt = i; return;
 }
 function Fibonacci(n, a, b, t, i) {
     if (LE(n, 0)) { Fibonacci = 0; return; }
