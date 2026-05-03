@@ -28,6 +28,8 @@
 // "E_QLIT \"hi\"") so a tree-on-stack PARSER produces dump output that
 // matches scrip's canonical --dump-parse line-form byte-for-byte.
 function TValue(x, i) {
+    // PARSER-RB-2: E_NUL before the empty-value "." check.
+    if (TValue = IDENT(t(x), 'E_NUL') '(E_NUL)')                           { return; }
     if (TValue = IDENT(v(x)) ".") { return; }
     if (TValue = IDENT(t(x), 'Name')       v(x))                   { return; }
     if (TValue = IDENT(t(x), 'float')      v(x))                   { return; }

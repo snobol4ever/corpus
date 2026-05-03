@@ -8,7 +8,8 @@
 // This file follows the shape of parser_snobol4.sc / parser_icon.sc.
 //
 // Rung PARSER-RB-0 (DONE): atom body only.
-// Rung PARSER-RB-1 (CURRENT): assignment (lhs := rhs, atom rhs).
+// Rung PARSER-RB-1 (DONE): assignment (lhs := rhs, atom rhs).
+// Rung PARSER-RB-2 (CURRENT): control flow (if cond then stmt, while cond do stmt).
 
 // Tree shape per function (N body stmts):
 //   (STMT :subj (E_FNC DEFINE (E_QLIT "FNAME()")))
@@ -103,6 +104,15 @@ function emit_func_call(fname) {
     return;
 }
 
+function emit_dispatch(goS, goF) {
+    // (STMT :subj (E_NUL) :goS goS :goF goF)
+    TDump(Tree('STMT', '', 3,
+               Tree(':subj', '', 1, tree('E_NUL', '')),
+               Tree(':goS', '', 1, tree('Name', goS)),
+               Tree(':goF', '', 1, tree('Name', goF))));
+    return;
+}
+
 function emit_assign(lhs, rhs_kind, rhs_txt) {
     // (STMT :eq :subj (E_VAR LHS) :repl (rhs_kind rhs_txt))
     TDump(Tree('STMT', '', 3,
@@ -153,6 +163,63 @@ BodyAtomLine = ( POS(0) ws_opt
                  ws_opt RPOS(0)
                );
 
+// IfLine: `if cond then body_stmt` (single-line form, RB-2 scope).
+// Captures cond (kind/txt) and body (lhs/rhs_kind/rhs_txt or atom_kind/atom_txt).
+// Body slot uses _rb_body_* prefix to avoid collision with cond slots.
+// Oracle: body IS emitted in the goF branch.
+// CondAtom — shared sub-pattern for id/int/str condition atoms.
+CondAtom = ( str_pat
+               . *assign('_rb_cond_kind', 'E_QLIT')
+               . *assign('_rb_cond_txt',  _rb_strbody)
+           | int_pat . _rb_cond_txt
+               . *assign('_rb_cond_kind', 'E_ILIT')
+           | id_pat  . _rb_cond_txt
+               . *assign('_rb_cond_kind', 'E_VAR')
+               . *assign('_rb_cond_txt',  uc(_rb_cond_txt))
+           );
+
+// BodyAssign — assign rhs for then/do body on same line.
+BodyAssign = ( id_pat . _rb_body_lhs ws_opt ':=' ws_opt
+               ( str_pat
+                   . *assign('_rb_body_rhs_kind', 'E_QLIT')
+                   . *assign('_rb_body_rhs_txt',  _rb_strbody)
+               | int_pat . _rb_body_rhs_txt
+                   . *assign('_rb_body_rhs_kind', 'E_ILIT')
+               | id_pat  . _rb_body_rhs_txt
+                   . *assign('_rb_body_rhs_kind', 'E_VAR')
+                   . *assign('_rb_body_rhs_txt',  uc(_rb_body_rhs_txt))
+               )
+               ws_opt RPOS(0)
+               epsilon . *assign('_rb_body_lhs', uc(_rb_body_lhs))
+               epsilon . *assign('_rb_body_is_assign', '1')
+             );
+
+// BodyAtom2 — bare atom body for then/do clause.
+BodyAtom2 = ( ( str_pat
+                  . *assign('_rb_body_atom_kind', 'E_QLIT')
+                  . *assign('_rb_body_atom_txt',  _rb_strbody)
+              | int_pat . _rb_body_atom_txt
+                  . *assign('_rb_body_atom_kind', 'E_ILIT')
+              | id_pat  . _rb_body_atom_txt
+                  . *assign('_rb_body_atom_kind', 'E_VAR')
+                  . *assign('_rb_body_atom_txt',  uc(_rb_body_atom_txt))
+              )
+              ws_opt RPOS(0)
+              epsilon . *assign('_rb_body_is_assign', '')
+            );
+
+IfLine = ( POS(0) ws_opt 'if' ws_run
+           CondAtom ws_run 'then' ws_run
+           (BodyAssign | BodyAtom2)
+         );
+
+// WhileLine: `while cond do body_stmt` (single-line form, RB-2 scope).
+// Oracle: while body NOT emitted (existing frontend omits it).
+WhileLine = ( POS(0) ws_opt 'while' ws_run
+              CondAtom ws_run 'do' ws_run
+              ARB RPOS(0)
+            );
+
 //-----------------------------------------------------------------------
 // Driver — line-at-a-time state machine.
 //   _rb_state 0: between functions
@@ -183,6 +250,36 @@ goto rb_loop;
 
 rb_state1:
 if (RbLine ? FuncEnd) { goto rb_end; }
+if (~(RbLine ? IfLine)) { goto rb_try_while; }
+_rb_goS = next_rb_label();
+_rb_goF = next_rb_label();
+_rb_merge = next_rb_label();
+emit_dispatch(_rb_goS, _rb_goF);
+emit_lbl(_rb_goS);
+emit_body_atom(_rb_cond_kind, _rb_cond_txt);
+emit_go(_rb_merge);
+emit_lbl(_rb_goF);
+if (IDENT(_rb_body_is_assign, '1')) {
+    emit_assign(_rb_body_lhs, _rb_body_rhs_kind, _rb_body_rhs_txt);
+    goto rb_if_done;
+}
+emit_body_atom(_rb_body_atom_kind, _rb_body_atom_txt);
+rb_if_done:
+emit_lbl(_rb_merge);
+goto rb_loop;
+rb_try_while:
+if (~(RbLine ? WhileLine)) { goto rb_try_assign; }
+_rb_loop_lbl = next_rb_label();
+_rb_goS = next_rb_label();
+_rb_goF = next_rb_label();
+emit_lbl(_rb_loop_lbl);
+emit_dispatch(_rb_goS, _rb_goF);
+emit_lbl(_rb_goS);
+emit_body_atom(_rb_cond_kind, _rb_cond_txt);
+emit_go(_rb_loop_lbl);
+emit_lbl(_rb_goF);
+goto rb_loop;
+rb_try_assign:
 if (~(RbLine ? AssignLine)) { goto rb_try_atom; }
 emit_assign(uc(_rb_lhs), _rb_atom_kind, _rb_atom_txt);
 goto rb_loop;
