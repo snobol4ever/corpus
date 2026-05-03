@@ -6,6 +6,7 @@
 // Expected output:
 //     bar
 //     global-OK
+//     tdump-OK
 //
 // PARSER-SN-INFRA-5a — fixed.  The synthetic-label collision across .sc
 // files (label_seq used to reset to 0 in each snocone_parse_program call)
@@ -14,9 +15,17 @@
 //
 // PARSER-SN-INFRA-2 — global.sc loaded.  digits, TRUE, FALSE, the named
 // character constants, and the X*xxxxxxx bit-prefix slices are bound.
+//
+// PARSER-SN-INFRA-3 — tdump.sc loaded.  TLump and TValue ported; TDump
+// is a thin TLump wrapper.  Verified by building (A b) and round-tripping
+// through TLump with an 80-char budget.
 
 Shift('foo', 'bar');
 sno = Pop();
 OUTPUT = v(sno);
 
 OUTPUT = (IDENT(digits, '0123456789') 'global-OK', 'global-FAIL');
+
+_smoke_node = tree('A', '');
+Append(_smoke_node, tree('Name', 'b'));
+OUTPUT = (IDENT(TLump(_smoke_node, 80), '(A b)') 'tdump-OK', 'tdump-FAIL');

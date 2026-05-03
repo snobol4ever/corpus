@@ -40,6 +40,7 @@ scrip --ir-run \
   corpus/programs/scrip/counter.sc \
   corpus/programs/scrip/ShiftReduce.sc \
   corpus/programs/scrip/semantic.sc \
+  corpus/programs/scrip/tdump.sc \
   corpus/programs/scrip/parser_<lang>.sc \
   input_file
 ```
@@ -54,6 +55,7 @@ scrip --ir-run \
 | `counter.sc` | Stack of integer counters (`struct link_counter`). Provides `InitCounter`, `PushCounter`, `IncCounter`, `DecCounter`, `PopCounter`, `TopCounter`. |
 | `ShiftReduce.sc` | Core shift-reduce operations. `Shift(t,v)` pushes a leaf tree; `Reduce(t,n)` pops `n` trees and pushes a parent. Requires `tree.sc` and `stack.sc`. |
 | `semantic.sc` | Pattern-building helpers called at pattern-construction time (not match time). Provides `nPush`, `nInc`, `nDec`, `nTop`, `nPop`, `shift`, `reduce`, `pop`, plus `OPSYN` declarations of `~` and `&` infix operators. |
+| `tdump.sc` | Tree-printing only — slim port of beauty's `TDump.inc` covering `TLump`/`TValue` plus a thin `TDump` wrapper that just emits `TLump(x, 1024)`. The recursive `Gen()`-wrapping pretty-printer in beauty is **not** in scope; one-line bracketed output is sufficient for crosscheck PASS/FAIL. |
 
 ### Per-language frontend drivers (Snocone-hosted)
 
@@ -104,7 +106,7 @@ host implementation produced it.
 
 ## Invariants
 
-- All Snocone-hosted frontend drivers MUST share these six `.sc`
+- All Snocone-hosted frontend drivers MUST share these seven `.sc`
   runtime files byte-for-byte. A driver that needs new shared
   infrastructure adds it to the appropriate runtime file, never to
   the driver itself.
