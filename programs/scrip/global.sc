@@ -49,3 +49,11 @@ t8Max     = 0;
 t8MaxLast = 0;
 t8Map     = TABLE();
 strOfs    = 0;
+
+// PARSER-SN-INFRA-9 — omega.sc globals.  doParseTree selects between the
+// bare pattern and the (pat ~ 'identifier') wrap form in TV/TW/TX (the
+// case-folding identifier-checkers).  txOfs is written by the @txOfs
+// cursor capture inside TY/TZ at match time; initialising it makes the
+// first GT(txOfs, t8Max) probe well-defined before any match has run.
+doParseTree = 0;
+txOfs       = 0;

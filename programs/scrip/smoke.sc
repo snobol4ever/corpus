@@ -100,3 +100,20 @@ T8Trace(0, 'unused', 0);
 T8Trace(99, '? prefix', 42);
 T8Trace(1, 'plain', 0);
 OUTPUT = 'trace-silent-OK';
+
+// PARSER-SN-INFRA-9 — omega.sc loaded.  TZ wraps a pattern in a max-
+// position recorder when xTrace = 0 (default); the trace-hook layer is
+// suppressed because LE(xTrace, 0) succeeds and the early-return arm
+// takes effect.  The returned pattern must (a) match correctly,
+// (b) update t8Max via the inline *assign max-position recorder
+// (which exercises the INFRA-7a fix), and (c) not emit anything.
+//
+// Snocone's `subj ? pat` returns NULSTR on success, so we can't use
+// DIFFER on the scan value.  Instead, we wrap the TZ result with a
+// trailing cursor capture: a successful match against 'hi' must leave
+// the cursor at offset 2.  We also reset t8Max to 0 first so we can
+// verify the inline *assign in TZ updated it.
+t8Max = 0;
+_smoke_omega_p = TZ(0, 'probe', 'hi') @smoke_omega_cur;
+_smoke_omega_dummy = ('hi' ? _smoke_omega_p);
+OUTPUT = (EQ(smoke_omega_cur, 2) GT(t8Max, 0) 'omega-silent-OK', 'omega-silent-FAIL');
