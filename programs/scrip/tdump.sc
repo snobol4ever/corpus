@@ -85,9 +85,16 @@ function TLump(x, len, i, t, sub) {
     if (TLump = IDENT(x) '()') { return; }
     // Role-slot / flag wrapper: type tag starts with ':'.
     if (~(t(x) ? (POS(0) ':'))) { goto TLump_normal; }
-    // 0 children → bare flag, e.g. ":eq".
+    // 0 children → bare flag (e.g. ":eq", ":end") or label-valued flag
+    // (e.g. ":goS LOOP", ":goF DONE", ":go NEXT").
+    // When v(x) is non-empty the flag carries a target label; render as
+    // ":tag label".  This is needed for PARSER-SN-4 goto slots.
     if (~DIFFER(n(x))) {
-        TLump = t(x);
+        if (DIFFER(v(x))) {
+            TLump = t(x) ' ' v(x);
+        } else {
+            TLump = t(x);
+        }
         if (LE(SIZE(TLump), len)) { return; }
         freturn;
     }

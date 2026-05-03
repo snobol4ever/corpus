@@ -279,28 +279,75 @@ function Expr(dummy, result) {
 
 //-----------------------------------------------------------------------
 // Statement-level tree builders.
+//
+// PARSER-SN-4: statements now have optional label prefix and optional
+// goto suffix.  We build STMT children into a growable child list
+// stored in global array _stmt_kids / _stmt_nkids, then commit with
+// build_stmt_commit().
+//
+// Child ordering matches --dump-parse:
+//   :lbl  (if labeled)
+//   :eq   (if assignment)
+//   :subj (subject expression, always present except bare goto)
+//   :repl (replacement expression, if assignment)
+//   :go / :goS / :goF  (goto slots, if present)
+//   :end  (for END statement)
 //-----------------------------------------------------------------------
 
+// _stmt_kids — no ARRAY needed — Snocone doesn't support ARRAY().
+// Use flat globals _c1.._c6 and count _nc.
+// Reset at the start of each command parse.
+function _stmt_reset(dummy) {
+    _nc = 0; _c1 = ''; _c2 = ''; _c3 = ''; _c4 = ''; _c5 = ''; _c6 = '';
+    _stmt_reset = .dummy;
+    nreturn;
+}
+
+function _stmt_add(child, dummy) {
+    _nc = _nc + 1;
+    if (IDENT(_nc, 1)) { _c1 = child; _stmt_add = .dummy; nreturn; }
+    if (IDENT(_nc, 2)) { _c2 = child; _stmt_add = .dummy; nreturn; }
+    if (IDENT(_nc, 3)) { _c3 = child; _stmt_add = .dummy; nreturn; }
+    if (IDENT(_nc, 4)) { _c4 = child; _stmt_add = .dummy; nreturn; }
+    if (IDENT(_nc, 5)) { _c5 = child; _stmt_add = .dummy; nreturn; }
+    _c6 = child;
+    _stmt_add = .dummy;
+    nreturn;
+}
+
+// build_stmt_commit() — push a STMT tree with exactly _nc children.
+function build_stmt_commit(dummy, t) {
+    if (IDENT(_nc, 0)) { Push(tree('STMT', '')); build_stmt_commit = .dummy; nreturn; }
+    if (IDENT(_nc, 1)) { t = Tree('STMT', '', 1, _c1); goto cp; }
+    if (IDENT(_nc, 2)) { t = Tree('STMT', '', 2, _c1, _c2); goto cp; }
+    if (IDENT(_nc, 3)) { t = Tree('STMT', '', 3, _c1, _c2, _c3); goto cp; }
+    if (IDENT(_nc, 4)) { t = Tree('STMT', '', 4, _c1, _c2, _c3, _c4); goto cp; }
+    if (IDENT(_nc, 5)) { t = Tree('STMT', '', 5, _c1, _c2, _c3, _c4, _c5); goto cp; }
+    t = Tree('STMT', '', 6, _c1, _c2, _c3, _c4, _c5, _c6);
+cp: Push(t);
+    build_stmt_commit = .dummy;
+    nreturn;
+}
+
 function build_stmt_atom(kind, txt) {
-    Push(Tree('STMT', '', 1, Tree(':subj', '', 1, tree(kind, txt))));
+    _stmt_add(Tree(':subj', '', 1, tree(kind, txt)));
+    build_stmt_commit();
     build_stmt_atom = .dummy;
     nreturn;
 }
 
 function build_stmt_assign_expr(lhs, rhs_tree) {
-    Push(Tree('STMT', '', 3,
-              tree(':eq', ''),
-              Tree(':subj', '', 1, tree('E_VAR', lhs)),
-              Tree(':repl', '', 1, rhs_tree)));
+    _stmt_add(tree(':eq', ''));
+    _stmt_add(Tree(':subj', '', 1, tree('E_VAR', lhs)));
+    _stmt_add(Tree(':repl', '', 1, rhs_tree));
     build_stmt_assign_expr = .dummy;
     nreturn;
 }
 
 function build_stmt_assign(lhs, rhs_kind, rhs_txt) {
-    Push(Tree('STMT', '', 3,
-              tree(':eq', ''),
-              Tree(':subj', '', 1, tree('E_VAR', lhs)),
-              Tree(':repl', '', 1, tree(rhs_kind, rhs_txt))));
+    _stmt_add(tree(':eq', ''));
+    _stmt_add(Tree(':subj', '', 1, tree('E_VAR', lhs)));
+    _stmt_add(Tree(':repl', '', 1, tree(rhs_kind, rhs_txt)));
     build_stmt_assign = .dummy;
     nreturn;
 }
@@ -314,26 +361,93 @@ function build_end() {
 }
 
 //-----------------------------------------------------------------------
-// _parse_rhs(lhs) — parse the RHS expression of an assignment.
-// Called from the Assign command after consuming "lhs ws_opt = ws_opt".
-// _rhs_line holds the portion of the current source line starting at
-// the RHS (set in Assign command before calling this helper).
-// Calls build_stmt_assign_expr to push the completed STMT tree.
+// Goto suffix parser — _parse_goto(rest)
+//
+// `rest` is the portion of the line after the RHS expression (or after
+// the label/body for bare-goto lines).  Parses zero or more of:
+//   :S(TARGET)    :goS TARGET
+//   :F(TARGET)    :goF TARGET
+//   :(TARGET)     :go  TARGET
+// and adds the appropriate child nodes to _stmt_kids via _stmt_add().
+//
+// TARGET is an identifier or $VAR (computed goto).
+// Multiple goto slots (:S/:F) can appear on one line.
 //-----------------------------------------------------------------------
 
-function _parse_rhs(lhs, rhs) {
+function _parse_goto(rest, ep, target) {
+    ep = 0;
+    // Skip leading whitespace.
+    rest ? (POS(ep) (SPAN(' ' tab) | epsilon) @ep);
+goto_loop:
+    if (~(rest ? (POS(ep) ':' @ep))) { goto goto_done; }
+    // :S( — success goto.
+    if (rest ? (POS(ep) 'S(' @ep)) {
+        rest ? (POS(ep) (SPAN(' ' tab) | epsilon) @ep);
+        if (~(rest ? (POS(ep) _goto_target_pat . target @ep))) { goto goto_done; }
+        rest ? (POS(ep) (SPAN(' ' tab) | epsilon) ')' @ep | POS(ep));
+        _stmt_add(tree(':goS', target));
+        rest ? (POS(ep) (SPAN(' ' tab) | epsilon) @ep);
+        goto goto_loop;
+    }
+    // :F( — failure goto.
+    if (rest ? (POS(ep) 'F(' @ep)) {
+        rest ? (POS(ep) (SPAN(' ' tab) | epsilon) @ep);
+        if (~(rest ? (POS(ep) _goto_target_pat . target @ep))) { goto goto_done; }
+        rest ? (POS(ep) (SPAN(' ' tab) | epsilon) ')' @ep | POS(ep));
+        _stmt_add(tree(':goF', target));
+        rest ? (POS(ep) (SPAN(' ' tab) | epsilon) @ep);
+        goto goto_loop;
+    }
+    // :( — unconditional goto.
+    if (rest ? (POS(ep) '(' @ep)) {
+        rest ? (POS(ep) (SPAN(' ' tab) | epsilon) @ep);
+        if (~(rest ? (POS(ep) _goto_target_pat . target @ep))) { goto goto_done; }
+        rest ? (POS(ep) (SPAN(' ' tab) | epsilon) ')' @ep | POS(ep));
+        _stmt_add(tree(':go', target));
+        rest ? (POS(ep) (SPAN(' ' tab) | epsilon) @ep);
+        goto goto_loop;
+    }
+    // Unknown ':' prefix — stop.
+goto_done:
+    _parse_goto = .dummy;
+    nreturn;
+}
+
+// _goto_target_pat — matches a goto target: $id (computed) or plain id.
+// The caller uses `. target` to capture the matched text.
+_goto_target_pat = ('$' Id | Id);
+
+//-----------------------------------------------------------------------
+// _parse_rhs_goto(lhs) — parse RHS expression then goto suffix.
+//
+// _rhs_line = everything after "lhs = " up to newline.
+// Strategy: find the last ':' that starts a goto suffix (preceded by
+// whitespace or at start) and split there.  Everything before is the
+// RHS expression; everything from ':' onward is the goto suffix.
+//
+// Simpler heuristic: run Expr() against _rhs_line; after Expr()
+// returns, _ep points past the expression.  The rest of _rhs_line
+// from _ep is the goto suffix.  This works because Expr() stops at
+// ':' (not a valid expression operator at this rung).
+//-----------------------------------------------------------------------
+
+function _parse_rhs_goto(lhs, rhs, rest) {
     _src = _rhs_line;
     _ep = 0;
     rhs = Expr(_src);
     if (DIFFER(rhs)) {
         build_stmt_assign_expr(lhs, rhs);
     }
-    _parse_rhs = .dummy;
+    // Parse goto suffix from whatever remains in _rhs_line after _ep.
+    _rhs_line ? (POS(_ep) REM . rest);
+    _parse_goto(rest);
+    build_stmt_commit();
+    _parse_rhs_goto = .dummy;
     nreturn;
 }
 
 //-----------------------------------------------------------------------
-// Atom captures for simple bare-atom statements and atom-only assigns.
+// Atom captures.
 //-----------------------------------------------------------------------
 
 LhsAtom = (ws_opt Id . _lhs_id ws_opt);
@@ -345,32 +459,160 @@ BareAtom = ( ws_opt Id      . _atom_text ws_opt . *assign('_atom_kind', 'E_VAR')
            );
 
 //-----------------------------------------------------------------------
-// Command patterns.  Inlined into Compiland (not *Command) — see FW-3.
+// Command patterns.
 //
-// Assign now routes through _parse_rhs() for full expression support.
-// The trick: after matching "lhs = ", capture the rest of the line
-// (up to the trailing newline) into _rhs_line, then call _parse_rhs.
-// This avoids threading a multi-argument RHS parse through the ARBNO
-// iteration state.
+// PARSER-SN-4: each command starts with an optional label prefix
+// (identifier at column 0, i.e. NOT preceded by whitespace), and each
+// non-End, non-BareGoto statement may end with goto suffixes.
+//
+// Statement forms:
+//   LabeledEnd:  LABEL + END keyword → (STMT :lbl LABEL :end)
+//   End:         bare END (no label) → (STMT :lbl END :end)
+//   LabeledLine: LABEL + body        → label added to _stmt_kids, body parsed
+//   Assign:      [LABEL] lhs = rhs [goto*]
+//   AtomStmt:    [LABEL] atom [goto*]
+//   BareGoto:    ws_opt :(TARGET)    → (STMT :go TARGET)
+//
+// Label detection: an identifier at position 0 of the line (no leading
+// whitespace) that is followed by whitespace is a label.  We use
+// TAB or spaces after the id as the signal.  The label is NOT consumed
+// as part of the expression grammar.
+//
+// Implementation: parse the whole line into _cur_line before invoking
+// Command alternatives.  Use BREAK(nl) to grab the line, then process
+// label + body + goto in _parse_line_cmd().
 //-----------------------------------------------------------------------
 
-End      = (ws_opt 'END' ws_opt epsilon . *build_end());
+// _try_label() — if the current line starts with an identifier at col 0
+// followed by whitespace, capture it into _cur_label and add a :lbl child.
+// Returns TRUE (non-empty) if a label was found, NULSTR otherwise.
+function _try_label(dummy, lbl) {
+    _cur_label = '';
+    if (~(_cur_line ? (POS(0) Id . lbl (SPAN(' ' tab) | ANY(nl))))) { _try_label = ''; return; }
+    // Verify the label id is not the sole content followed by nothing
+    // (that would be an atom statement, not a label).
+    // A label is followed by whitespace then more content OR by EOL (labeled-only line).
+    _cur_label = lbl;
+    _stmt_add(Tree(':lbl', '', 1, tree('Name', lbl)));
+    _try_label = lbl;
+    return;
+}
 
-// Assign: capture lhs and RHS line, call full expression parser.
-// BREAK(nl) captures everything after '=' up to the newline.
-Assign   = ( ws_opt Id . _lhs_id ws_opt '=' ws_opt
-             BREAK(nl) . _rhs_line
-             epsilon . *_parse_rhs(_lhs_id)
-           );
+// _parse_body_goto() — called after optional label is consumed.
+// _cur_body is the portion of the line after the label (if any).
+// Handles: End, Assign, AtomStmt, BareGoto.
+function _parse_body_goto(dummy, ep, lhs, rhs, rest, tgt) {
+    ep = 0;
+    _cur_body ? (POS(0) (SPAN(' ' tab) | epsilon) @ep);
+    // End keyword — special: if there's a label, END is treated as atom.
+    if (IDENT(_cur_label)) {
+        // No label — bare END is the program terminator.
+        if (_cur_body ? (POS(ep) 'END' (RPOS(0) | SPAN(' ' tab) RPOS(0)))) {
+            // Bare End: push the canonical END STMT directly.
+            _stmt_reset();
+            Push(Tree('STMT', '', 2,
+                      Tree(':lbl', '', 1, tree('Name', 'END')),
+                      tree(':end', '')));
+            _parse_body_goto = .dummy;
+            nreturn;
+        }
+    }
+    // BareGoto: :(target) with nothing else.
+    if (_cur_body ? (POS(ep) ':(' @ep)) {
+        _cur_body ? (POS(ep) (SPAN(' ' tab) | epsilon) @ep);
+        if (_cur_body ? (POS(ep) _goto_target_pat . tgt @ep)) {
+            _cur_body ? (POS(ep) (SPAN(' ' tab) | epsilon) ')' @ep | POS(ep));
+            _stmt_add(tree(':go', tgt));
+            build_stmt_commit();
+            _parse_body_goto = .dummy;
+            nreturn;
+        }
+    }
+    // Assign: Id ws_opt = ws_opt <expr> [goto*]
+    if (_cur_body ? (POS(ep) Id . lhs (SPAN(' ' tab) | epsilon) '=' @ep)) {
+        _cur_body ? (POS(ep) (SPAN(' ' tab) | epsilon) @ep);
+        // Capture RHS portion from ep to end.
+        _cur_body ? (POS(ep) REM . _rhs_line);
+        _src = _rhs_line;
+        _ep = 0;
+        rhs = Expr(_src);
+        if (DIFFER(rhs)) {
+            build_stmt_assign_expr(lhs, rhs);
+        }
+        _rhs_line ? (POS(_ep) REM . rest);
+        _parse_goto(rest);
+        build_stmt_commit();
+        _parse_body_goto = .dummy;
+        nreturn;
+    }
+    // AtomStmt: Id/Int/Str [goto*].
+    if (_cur_body ? (POS(ep) Id . _atom_text @ep)) {
+        _stmt_add(Tree(':subj', '', 1, tree('E_VAR', _atom_text)));
+        _cur_body ? (POS(ep) REM . rest);
+        _parse_goto(rest);
+        build_stmt_commit();
+        _parse_body_goto = .dummy;
+        nreturn;
+    }
+    if (_cur_body ? (POS(ep) Integer . _atom_text @ep)) {
+        _stmt_add(Tree(':subj', '', 1, tree('E_ILIT', _atom_text)));
+        _cur_body ? (POS(ep) REM . rest);
+        _parse_goto(rest);
+        build_stmt_commit();
+        _parse_body_goto = .dummy;
+        nreturn;
+    }
+    if (_cur_body ? (POS(ep) String @ep)) {
+        _stmt_add(Tree(':subj', '', 1, tree('E_QLIT', _strbody)));
+        _cur_body ? (POS(ep) REM . rest);
+        _parse_goto(rest);
+        build_stmt_commit();
+        _parse_body_goto = .dummy;
+        nreturn;
+    }
+    // Nothing matched — if we have only a label, it's a label-only line
+    // (rare — usually means LABEL followed by blank body, which the oracle
+    // treats as a bare atom of the next token; skip for now and nreturn).
+    build_stmt_commit();
+    _parse_body_goto = .dummy;
+    nreturn;
+}
 
-AtomStmt = ( BareAtom epsilon . *build_stmt_atom(_atom_kind, _atom_text) );
+// _parse_line_cmd() — top-level per-line command dispatcher.
+// _cur_line = full source line (without trailing newline).
+function _parse_line_cmd(dummy, after_lbl) {
+    _stmt_reset();
+    _try_label();
+    // After label (if any), _cur_label holds the label text ('' if none).
+    // Body is the remainder after the label + its whitespace.
+    if (DIFFER(_cur_label)) {
+        // Strip label + following whitespace from _cur_line to get body.
+        _cur_line ? (POS(SIZE(_cur_label)) (SPAN(' ' tab) | epsilon) @after_lbl);
+        _cur_line ? (POS(after_lbl) REM . _cur_body);
+    } else {
+        _cur_body = _cur_line;
+    }
+    _parse_body_goto();
+    _parse_line_cmd = .dummy;
+    nreturn;
+}
 
 //-----------------------------------------------------------------------
-// Compiland — canonical spine (Command body inlined in ARBNO).
+// Compiland — rebuilt for PARSER-SN-4.
+//
+// Each ARBNO iteration: capture the full line into _cur_line (via
+// BREAK(nl)), call _parse_line_cmd(), consume the newline.
+// The deferred *_parse_line_cmd() fires the whole per-line parser.
 //-----------------------------------------------------------------------
+
+// LineCmd — inline pattern that captures the line and fires _parse_line_cmd.
+// Must be inlined (not *LineCmd) in ARBNO to avoid the FW-3 deferred-call bug.
+// The deferred call fires correctly when the pattern is referenced by name
+// without '*' indirection inside ARBNO.
+LineCmd = (BREAK(nl) . _cur_line epsilon . *_parse_line_cmd());
 
 Compiland = nPush()
-            ARBNO( nInc() ws_opt (End | Assign | AtomStmt) ws_opt nl_one )
+            ARBNO( nInc() LineCmd nl_one )
             reduce("'Parse'", 'nTop()')
             nPop();
 
