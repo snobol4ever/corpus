@@ -24,30 +24,51 @@
 // goto-shape in parser_snobol4.sc / parser_snocone.sc / parser_icon.sc is
 // grandfathered; new parsers do not copy it.
 //
-// Rung PARSER-PR-1 (CURRENT): bare-atom AND compound facts.
-//   Bare:        foo.            → (STMT :subj (E_CHOICE foo/0 (E_CLAUSE foo/0)))
-//   Compound:    foo(a, b).      → (STMT :subj (E_CHOICE foo/2
+// Rung PARSER-PR-2 (CURRENT): facts (PR-0/PR-1) AND rules with a
+// single goal in the body.
+//   Bare fact:    foo.            → (STMT :subj (E_CHOICE foo/0 (E_CLAUSE foo/0)))
+//   Compound fact: foo(a, b).     → (STMT :subj (E_CHOICE foo/2
 //                                     (E_CLAUSE foo/2 (E_FNC a) (E_FNC b))))
-//   Args supported: lowercase atoms (TK_ATOM), single-quoted atoms
-//                   (TK_QATOM, lowered same as TK_ATOM), integers
+//   Rule, atomic body:  foo :- bar.
+//                       → (STMT :subj (E_CHOICE foo/0
+//                            (E_CLAUSE foo/0 (E_FNC bar))))
+//   Rule, compound body: foo(X) :- bar(X).
+//                       → (STMT :subj (E_CHOICE foo/1
+//                            (E_CLAUSE foo/1 (E_VAR _V0)
+//                                            (E_FNC bar (E_VAR _V0)))))
+//
+//   The E_CHOICE/E_CLAUSE key uses HEAD ARITY ONLY (`foo/0` for
+//   `foo :- bar.`, NOT the total clause-child count).  This matches
+//   prolog_lower.c which keys on (functor, head-arity) and lowers the
+//   body as additional E_CLAUSE children.
+//
+//   Args/goal-args supported: lowercase atoms (TK_ATOM), single-quoted
+//                   atoms (TK_QATOM, lowered same as TK_ATOM), integers
 //                   (TK_INT), double-quoted strings (TK_STRING — interned
 //                   as atom, matching prolog_lower.c), variables (TK_VAR
-//                   — slot-numbered _V0, _V1, ... per-clause).
+//                   — slot-numbered _V0, _V1, ... per-clause; head and
+//                   body share the same scope).
 //
-// Out-of-scope at PR-1 (deferred to later rungs):
-//   - Nested compound args:  foo(bar(a)).  → PR-1.5 / PR-2.
-//   - Same-functor multi-clause E_CHOICE merging:
+// Out-of-scope at PR-2 (deferred to later rungs):
+//   - Conjunction / disjunction in body (`a, b` / `a ; b`):  PR-3.
+//   - Nested compound args (`foo(bar(a)).` / `foo :- bar(baz(a)).`):
+//     PR-1.5 / PR-3+.  At PR-2 the body GOAL can be compound with flat
+//     args (`bar(X)`) — that is one level deep, the args are flat —
+//     but compound-as-arg is still disallowed.
+//   - Same-functor multi-clause E_CHOICE merging
 //       foo(a). foo(b). → ONE E_CHOICE with TWO E_CLAUSE children.
 //     prolog_lower.c does this in a post-pass keyed on (functor,arity).
-//     PARSER-PR-1 fixtures avoid same-functor cases (each fact uses a
+//     PARSER-PR-N fixtures avoid same-functor cases (each clause uses a
 //     distinct functor) so per-clause STMT trees are byte-equivalent.
 //     The merging pass becomes its own rung when it surfaces as a real
 //     gate failure on a corpus program.
 //   - Anonymous variables `_`: prolog_lower.c assigns anon slots in a
-//     reverse-walk pass (foo(_, _) yields _V1, _V0).  PARSER-PR-1
-//     fixtures avoid pure-anon cases until that pass is implemented.
+//     reverse-walk pass (foo(_, _) yields _V1, _V0).  Fixtures avoid
+//     pure-anon cases until that pass is implemented.
+//   - Directives (`:- goal.`): PR-6.
+//   - Operators (`is`, arithmetic): PR-5.
 //
-// Sibling LANG rungs: PR-4..PR-6.  The existing src/frontend/prolog/
+// Sibling LANG rungs: PR-7..PR-9.  The existing src/frontend/prolog/
 // remains the read-only oracle.
 
 //-----------------------------------------------------------------------
@@ -87,6 +108,11 @@ tk_dot    = '.';
 tk_lparen = '(';
 tk_rparen = ')';
 tk_comma  = ',';
+
+// Clause neck — TK_NECK (`:-`).  Per prolog_lex.h, this is the rule
+// separator; same token also fronts directives at top of program but
+// PR-2 only handles the rule form.
+tk_neck   = ':-';
 
 //-----------------------------------------------------------------------
 // Per-clause variable scope.
@@ -162,52 +188,75 @@ function push_arg_var(name) {
 }
 
 //-----------------------------------------------------------------------
-// Tree-building helpers — final clause assembly.
+// Tree-building helpers — clause assembly.
 //
-// build_fact_atom(name) — bare 0-arity fact.  PR-0 shape preserved.
-// build_fact_compound(name) — N-ary fact, N = arg_count, with the N
-//     arg-trees currently sitting on top of the stack (push_arg_*
-//     having Pushed them in left-to-right order).
+// Two-phase build:
+//   Phase 1 (head parsing): push N head-arg trees; capture head_name
+//                           and head_arity (= arg_count snapshot).
+//   Phase 2 (optional body): if `:-` is seen, parse one goal which
+//                            pushes one tree; record body_present = 1.
+//   Finalize: pop (head_arity + body_present) trees, build E_CLAUSE
+//             with key "head_name/head_arity", wrap in :subj / E_CHOICE
+//             / STMT.
+//
+// At PR-0/PR-1 (fact only) the body_present flag stays 0 and the
+// behavior is identical to the previous build_fact_atom /
+// build_fact_compound.  PR-2 adds the rule path.
 //-----------------------------------------------------------------------
 
-function build_fact_atom(name, key) {
-    key = name '/0';
-    Push(Tree('STMT', '', 1,
-              Tree(':subj', '', 1,
-                   Tree('E_CHOICE', key, 1,
-                        tree('E_CLAUSE', key)))));
-    build_fact_atom = .dummy;
+head_name    = '';
+head_arity   = 0;
+body_present = 0;
+
+function snapshot_head(name) {
+    head_name    = name;
+    head_arity   = arg_count;
+    body_present = 0;
+    snapshot_head = .dummy;
     nreturn;
 }
 
-// Build an E_CLAUSE node holding the N args currently on top of stack
-// (in the order they were Pushed).  Then wrap in E_CHOICE / :subj / STMT.
-function build_fact_compound(name, key, clause_node, args, i) {
-    key = name '/' arg_count;
-    // Pop the N args back; top of stack is the last-pushed (last) arg.
-    args = ARRAY(arg_count);
-    i = arg_count;
+function mark_body() {
+    body_present = 1;
+    mark_body = .dummy;
+    nreturn;
+}
+
+// build_clause — final clause assembly.  Pops head_arity head-arg trees
+// and (if body_present) one body-goal tree, in reverse Push order.
+// Constructs E_CLAUSE with head args first, body goal last; wraps in
+// the :subj / E_CHOICE / STMT envelope.
+//
+// The E_CHOICE/E_CLAUSE key uses head_arity ONLY (e.g. "foo/0" for
+// `foo :- bar.`), NOT the total clause-child count.  This matches
+// prolog_lower.c which keys on (functor, head-arity) and lowers the
+// body as additional E_CLAUSE children.
+function build_clause(key, total, parts, i, body_goal, clause_node) {
+    key = head_name '/' head_arity;
+    total = head_arity + body_present;
+    parts = ARRAY(total + 1);
+    i = total;
     while (i > 0) {
-        args[i] = Pop();
+        parts[i] = Pop();
         i = i - 1;
     }
-    // Construct E_CLAUSE with the args as children, in original order.
     clause_node = Tree('E_CLAUSE', key, 0);
     i = 1;
-    while (LE(i, arg_count)) {
-        Append(clause_node, args[i]);
+    while (LE(i, total)) {
+        Append(clause_node, parts[i]);
         i = i + 1;
     }
     Push(Tree('STMT', '', 1,
               Tree(':subj', '', 1,
                    Tree('E_CHOICE', key, 1, clause_node))));
-    build_fact_compound = .dummy;
+    build_clause = .dummy;
     nreturn;
 }
 
 //-----------------------------------------------------------------------
 // `arg` / `args` — argument grammar.  Mirrors prolog_parse.c parse_args
-// at PR-1 scope (flat args only — no nested compounds, no operators).
+// at PR-2 scope (flat args only — no nested compound args yet, no
+// operators).
 //
 //   arg  :=  TK_ATOM | TK_QATOM | TK_INT | TK_STRING | TK_VAR
 //   args :=  arg (',' ws_opt arg)*
@@ -229,43 +278,105 @@ arg = ( tk_atom    . _arg_text   . *push_arg_atom(_arg_text)
 args = ( arg ARBNO( ws_opt tk_comma ws_opt arg ) );
 
 //-----------------------------------------------------------------------
-// `primary` — one head term in clause-head position.  Mirrors
-// prolog_parse.c::parse_primary at PR-1 scope.
+// `goal` — one body goal, used in rule body position.
+//
+// At PR-2 scope, a goal is exactly the shape that `arg` would produce
+// when given a compound or atom — except a goal may NOT be a bare
+// integer or bare variable (those aren't callable).  The goal pushes
+// exactly one IR tree onto the stack.
+//
+// Forms (tried in order — longer prefix first):
+//   1. functor(args)  — compound goal with N flat args.
+//   2. functor        — bare-atom goal (no args).
+//
+// The compound goal pushes a (E_FNC functor <arg-trees>) tree.  This
+// is built via push_compound_goal() which pops the arg trees off the
+// stack and assembles them into an E_FNC node.
+//-----------------------------------------------------------------------
+
+function push_compound_goal(name, n, fnc_node, args_arr, i) {
+    n = arg_count;
+    args_arr = ARRAY(n + 1);
+    i = n;
+    while (i > 0) {
+        args_arr[i] = Pop();
+        i = i - 1;
+    }
+    fnc_node = Tree('E_FNC', name, 0);
+    i = 1;
+    while (LE(i, n)) {
+        Append(fnc_node, args_arr[i]);
+        i = i + 1;
+    }
+    Push(fnc_node);
+    push_compound_goal = .dummy;
+    nreturn;
+}
+
+function push_atom_goal(name) {
+    Push(tree('E_FNC', name));
+    push_atom_goal = .dummy;
+    nreturn;
+}
+
+// `goal` parses one body goal.  arg_count is reset before any args
+// are pushed for the compound form, so the post-args push_compound_goal
+// pops exactly the right number.  reset_arg_count fires after the
+// functor-name capture to keep a single source of truth.
+goal = ( tk_atom . _goal_name ws_opt tk_lparen
+           epsilon . *reset_arg_count()
+           ws_opt args ws_opt tk_rparen
+           . *push_compound_goal(_goal_name)
+       | tk_atom . _goal_name
+           . *push_atom_goal(_goal_name)
+       );
+
+//-----------------------------------------------------------------------
+// `head` — one head term in clause-head position.  Mirrors
+// prolog_parse.c::parse_primary restricted to the head grammar.
 //
 // Three forms (tried in order — longer prefix first):
-//   1. functor(args)  — N-ary compound fact (N >= 1)
-//   2. functor()      — explicit-empty-parens 0-arity (lenient — matches
-//                       oracle, same shape as bare)
-//   3. functor        — bare 0-arity fact
+//   1. functor(args)  — N-ary compound head (N >= 1)
+//   2. functor()      — explicit-empty-parens 0-arity head (lenient)
+//   3. functor        — bare 0-arity head
 //   4. "string"       — quoted-string head, interned as atom
 //
-// Variables and integers cannot be clause heads (prolog_parse.c rejects
-// them silently); they fall through and the whole clause fails to match,
-// producing empty output that agrees with the oracle.
-//
 // `epsilon . *reset_var_scope() . *reset_arg_count()` resets the
-// per-clause state before any args are pushed.
+// per-clause state before any args are pushed.  `*snapshot_head(name)`
+// captures the head functor name + arity (= arg_count at that moment)
+// for build_clause to consume later.
 //-----------------------------------------------------------------------
 
-primary = ( epsilon . *reset_var_scope() . *reset_arg_count()
-            ( tk_atom . _head_name ws_opt tk_lparen ws_opt args ws_opt tk_rparen
-                . *build_fact_compound(_head_name)
-            | tk_atom . _head_name ws_opt tk_lparen ws_opt tk_rparen
-                . *build_fact_atom(_head_name)
-            | tk_atom . _head_name
-                . *build_fact_atom(_head_name)
-            | tk_string
-                . *build_fact_atom(_str_body)
-            )
-          );
+head = ( epsilon . *reset_var_scope() . *reset_arg_count()
+         ( tk_atom . _head_text ws_opt tk_lparen ws_opt args ws_opt tk_rparen
+             . *snapshot_head(_head_text)
+         | tk_atom . _head_text ws_opt tk_lparen ws_opt tk_rparen
+             . *snapshot_head(_head_text)
+         | tk_atom . _head_text
+             . *snapshot_head(_head_text)
+         | tk_string
+             . *snapshot_head(_str_body)
+         )
+       );
 
 //-----------------------------------------------------------------------
-// `clause` — one Prolog clause.  At PR-1: a primary followed by `.`.
+// `clause` — one Prolog clause.  Two forms:
+//   1. head '.'              — fact (PR-0/PR-1).
+//   2. head ':-' goal '.'    — rule with single-goal body (PR-2).
+//
+// In both cases `*build_clause()` runs at the end to assemble the
+// STMT envelope from the snapshotted head + (optional) body goal.
 // Comments (`%` to end of line) and blank lines are skipped at the
 // driver level, not here.
 //-----------------------------------------------------------------------
 
-clause = ( primary ws_opt tk_dot );
+clause = ( head ws_opt
+           ( tk_neck ws_opt goal ws_opt . *mark_body()
+           | epsilon
+           )
+           ws_opt tk_dot
+           . *build_clause()
+         );
 
 //-----------------------------------------------------------------------
 // Compiland — the canonical cross-PARSER spine.  See parser_snobol4.sc
