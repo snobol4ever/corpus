@@ -1,102 +1,113 @@
 // parser_icon.sc — PARSER-IC: Icon frontend in Snocone.
 //
-// Reads an Icon source program from stdin via INPUT, runs the
-// `Compiland` PATTERN to build an Icon IR tree on the shared stack via
-// Shift/Reduce, then dumps each tree via TDump.  After whitespace
-// normalization the dumped form is byte-identical to scrip's existing
-// Icon-frontend `--dump-ir` output — that's the PARSER-IC gate.
+// Reads whole Icon source from stdin into Src, then runs the canonical
+// `Compiland` PATTERN once over Src to build the IR tree on the shared
+// stack via Shift/Reduce/helpers, then dumps each tree via TDump.
+// After whitespace normalization the dumped form is byte-identical to
+// scrip's existing Icon-frontend `--dump-ir` output — that's the
+// PARSER-IC gate.
 //
-// This file follows the shape of parser_snobol4.sc / parser_snocone.sc
-// (the template for all six PARSER-* frontends).
+// Naming convention (PARSER-IC-INFRA-1, INFRA-2):
+//   Pattern names are the CamelCase form of the canonical Icon yacc
+//   nonterminals from `corpus/programs/ebnf/icon-sp.ebnf` (verbatim
+//   translation of upstream gtownsend/icon src/h/grammar.h, public
+//   domain — see `corpus/programs/ebnf/README.md`).
 //
-// Rung PARSER-IC-2 (CURRENT): write(expr) calls and + - * / operators.
-// Rung PARSER-IC-1: `:=` assignment.
-// Rung PARSER-IC-0: atom body only.
+//   Program / Decls / Decl / Proc / Prochead / Procbody / Nexpr /
+//   Expr / Expr1a / Expr1 / Expr2 / Expr3 / ... / Expr11 / Literal /
+//   Exprlist / Compound / ...
 //
-// Tree shape (matches scrip's Icon `--dump-ir` after whitespace normalization):
-//   atom body:    (STMT :subj (E_FNC main (E_VAR main) (<kind> <text>)))
-//   assign body:  (STMT :subj (E_FNC main (E_VAR main)
-//                                (E_ASSIGN (E_VAR <lhs>) (<rhs-kind> <rhs-text>))
-//                                ...))
-//   The E_FNC accumulates any number of body-statement children.
+// Snocone patterns can't left-recurse, so left-recursive productions
+// in the BNF become `Exprn = Expr_higher ARBNO(op Expr_higher)` per
+// JCON's parse_exprN / parse_expr11suffix — see
+// `corpus/programs/ebnf/icon-references/NOTES.md`.
 //
-// Sibling LANG rungs: IC-1..IC-4 (lexer, atom, assign).
-// The existing src/frontend/icon/ remains the read-only oracle.
+// IC-2 surface (atom, `:=` assign, `write(expr)`, `+ - * /`):
+//   Compiland = nPush() ARBNO( Proc ) reduce('Parse', 'nTop()') nPop();
+//   Proc      = Prochead Procbody 'end';
+//   Prochead  = 'procedure' main_name '(' ')';     // IC-2: only main()
+//   Procbody  = ARBNO(Stmt);                       // each Stmt → emit
+//   Stmt      = Expr ws_opt semi_opt nl_one        // line-at-a-time
+//             | Comment | Blank;
+//   Expr      = Expr1;
+//   Expr1     = Expr2 ASSIGN Expr1                 // right-assoc
+//             | Expr2;
+//   Expr2     = Expr6;                             // IC-2 skips 3/4/5
+//   Expr6     = Expr7 ARBNO((PLUS|MINUS) Expr7);
+//   Expr7     = Expr11 ARBNO((STAR|SLASH) Expr11); // IC-2 skips 8/9/10
+//   Expr11    = IDENT '(' Exprlist ')'             // function invoke
+//             | Literal
+//             | IDENT;                             // bare var
+//   Literal   = INTLIT | STRINGLIT;
+//   Exprlist  = Expr (',' Expr)*;                  // IC-2: 1 arg only
 
 //-----------------------------------------------------------------------
-// Atom recognizers — Icon surface syntax.
+// Token-class atom recognizers — Icon surface syntax.
 //-----------------------------------------------------------------------
 
-ws_one = ANY(' ' tab);
-ws_run = SPAN(' ' tab);
 ws_opt = (SPAN(' ' tab) | epsilon);
+ws_run = SPAN(' ' tab);
+nl_one = ANY(nl);
 
-// Identifier — letter or underscore then letters/digits/underscore.
 id_first = ANY(&UCASE &LCASE '_');
 id_rest  = SPAN(digits &UCASE &LCASE '_');
 id_pat   = (id_first (id_rest | epsilon));
 
-// Integer.
 int_pat  = SPAN(digits);
 
-// Double-quoted string.  Capture body in _atom_strbody.
 dstr_pat = ('"' BREAK('"') . _atom_strbody '"');
 str_pat  = dstr_pat;
 
-// Optional trailing semicolon (Icon body statements may end with ';').
 semi_opt = (';' | epsilon);
 
 //-----------------------------------------------------------------------
-// Tree-building helpers — build per-statement subtrees and append them
-// to the current procedure's accumulating E_FNC node held in _proc_node.
+// Tree-building helpers.  These encode the existing-frontend tree
+// shape; they are correct domain logic and survive INFRA-2 unchanged.
 //-----------------------------------------------------------------------
 
-// Append a bare-atom body statement to the current procedure.
-function emit_body_atom(kind, txt) {
-    _proc_node = Append(_proc_node, tree(kind, txt));
-    emit_body_atom = .dummy;
+// Build an atom expression node from kind+text.  Used as the base of
+// the expression tower — Expr11 sets _expr_node to this.
+function expr_from_atom(kind, txt) {
+    _expr_node = tree(kind, txt);
+    expr_from_atom = .dummy;
     nreturn;
 }
 
-// Append a write(expr) body statement to the current procedure.
-function emit_body_write(expr_node) {
-    _proc_node = Append(_proc_node,
-                        Tree('E_FNC', '', 2,
-                             tree('E_VAR', 'write'),
-                             expr_node));
-    emit_body_write = .dummy;
+// Build a binary-op tree node combining two expression nodes.  Used
+// by Expr1 (ASSIGN), Expr6 (PLUS/MINUS), Expr7 (STAR/SLASH).
+function expr_binop(lop, op_tag, rop) {
+    _expr_node = Tree(op_tag, '', 2, lop, rop);
+    expr_binop = .dummy;
     nreturn;
 }
 
-// Append an Icon assignment body statement using an expr node on rhs.
-function emit_body_assign_expr(lhs, expr_node) {
-    _proc_node = Append(_proc_node,
-                        Tree('E_ASSIGN', '', 2,
-                             tree('E_VAR', lhs),
-                             expr_node));
-    emit_body_assign_expr = .dummy;
-    nreturn;
-}
-
-
-// Append an Icon assignment body statement (atom rhs, legacy).
-function emit_body_assign(lhs, rhs_kind, rhs_txt) {
-    _proc_node = Append(_proc_node,
-                        Tree('E_ASSIGN', '', 2,
-                             tree('E_VAR', lhs),
-                             tree(rhs_kind, rhs_txt)));
-    emit_body_assign = .dummy;
+// Build a function-invocation tree node — Expr11 's IDENT '(' arg ')'
+// branch.  scrip's existing frontend wraps invocation as
+// (E_FNC (E_VAR fname) arg) — same E_FNC tag the procedure uses.
+function expr_invoke(fname, arg) {
+    _expr_node = Tree('E_FNC', '', 2, tree('E_VAR', fname), arg);
+    expr_invoke = .dummy;
     nreturn;
 }
 
 // Reset the per-procedure accumulator to (E_FNC main (E_VAR main)).
+// Called from Prochead.
 function start_proc_main() {
     _proc_node = Tree('E_FNC', 'main', 1, tree('E_VAR', 'main'));
     start_proc_main = .dummy;
     nreturn;
 }
 
+// Append the just-built _expr_node as a body statement under the
+// current procedure.  Called from Stmt after Expr matches.
+function append_body_stmt() {
+    _proc_node = Append(_proc_node, _expr_node);
+    append_body_stmt = .dummy;
+    nreturn;
+}
+
 // Push the assembled (STMT :subj <_proc_node>) onto the shared stack.
+// Called from Proc after the matching 'end'.
 function finish_proc_main() {
     Push(Tree('STMT', '', 1, Tree(':subj', '', 1, _proc_node)));
     finish_proc_main = .dummy;
@@ -104,162 +115,179 @@ function finish_proc_main() {
 }
 
 //-----------------------------------------------------------------------
-// Expression recognizers — sets _expr_node to a tree node.
-// IC-2 scope: atom OR (atom op atom) where op = + - * /
+// Expression tower — canonical names from icon-sp.ebnf.
+//
+// Each Exprn pattern leaves the result tree node in _expr_node.  The
+// LL(1) `Expr_higher ARBNO(op Expr_higher)` shape uses the helper
+// _expr_lhs to remember the running left operand across iterations.
 //-----------------------------------------------------------------------
 
-// Build a leaf tree node from _atom_kind/_atom_text.
-function expr_from_atom(kind, txt) {
-    _expr_node = tree(kind, txt);
-    expr_from_atom = .dummy;
-    nreturn;
-}
+// Expr11 — primary.  IC-2 subset: function-invocation, bare
+// identifier, integer literal, string literal.
+//
+// Function-invocation `IDENT '(' Expr ')'` is tried first so a bare
+// identifier that happens to be followed by '(' isn't greedily
+// captured as an Expr11 → IDENT atom.  Recursive into Expr via *Expr.
+Expr11 = ( id_pat . _ic_fname ws_opt '(' ws_opt *Expr ws_opt ')'
+              epsilon . *expr_invoke(_ic_fname, _expr_node)
+         | str_pat
+              epsilon . *expr_from_atom('E_QLIT', _atom_strbody)
+         | int_pat . _atom_text
+              epsilon . *expr_from_atom('E_ILIT', _atom_text)
+         | id_pat  . _atom_text
+              epsilon . *expr_from_atom('E_VAR', _atom_text)
+         );
 
-// Build a binary-op tree node from _lop_node, _binop, _rop_node.
-function expr_binop(lop, op, rop) {
-    _expr_node = Tree(op, '', 2, lop, rop);
-    expr_binop = .dummy;
-    nreturn;
-}
+// Expr7 — multiplicative.  IC-2 ops: STAR (*), SLASH (/).
+// LL(1) decomposition: Expr11 (op Expr11)*
+//
+// The (op Expr11) iteration body is a separate named pattern Expr7tail
+// because deferred actions inline inside ARBNO(...) aren't reliable
+// in this runtime — but ARBNO(NamedPattern) IS reliable, as long as
+// NamedPattern is referenced bare (no `*` indirection).  Same pattern
+// as parser_snobol4.sc's `ARBNO( ... (End | Assign | AtomStmt) ... )`.
+//
+// Expr7-specific saved-LHS uses _e7lhs (not a generic name) because
+// SCRIP/Snocone variables are global and Expr1's recursive call must
+// not have its own _expr_lhs clobbered by Expr6/Expr7 helpers.
 
-// Atom pattern — captures kind+text then builds _atom_node.
-AtomPat = ( str_pat
-              . *assign('_atom_kind', 'E_QLIT')
-              . *assign('_atom_text', _atom_strbody)
-          | int_pat . _atom_text
-              . *assign('_atom_kind', 'E_ILIT')
-          | id_pat  . _atom_text
-              . *assign('_atom_kind', 'E_VAR')
-          )
-          epsilon . *expr_from_atom(_atom_kind, _atom_text);
-
-// Binary operator keyword — sets _binop_tag.
-BinOpPat = ( '+' . *assign('_binop_tag', 'E_ADD')
-           | '-' . *assign('_binop_tag', 'E_SUB')
-           | '*' . *assign('_binop_tag', 'E_MUL')
-           | '/' . *assign('_binop_tag', 'E_DIV')
-           );
-
-// ExprPat — tries BinOp(atom op atom) first, falls back to atom.
-// Sets _expr_node.
-ExprPat = ( AtomPat
-            epsilon . *assign('_lop_save', _expr_node)
-            ws_opt BinOpPat ws_opt
-            AtomPat
-            epsilon . *expr_binop(_lop_save, _binop_tag, _expr_node)
-          | AtomPat
-          );
-
-//-----------------------------------------------------------------------
-// Atom in expression context (legacy name used by AssignLine/AtomLine).
-// Sets _atom_kind / _atom_text.
-//-----------------------------------------------------------------------
-
-BodyAtom = ( str_pat
-               . *assign('_atom_kind', 'E_QLIT')
-               . *assign('_atom_text', _atom_strbody)
-           | int_pat . _atom_text
-               . *assign('_atom_kind', 'E_ILIT')
-           | id_pat  . _atom_text
-               . *assign('_atom_kind', 'E_VAR')
-           );
-
-// LhsAtom — identifier used as assignment target (captures _lhs_id).
-LhsAtom = ( id_pat . _lhs_id );
-
-// RhsAtom — id / int / str on the right side of `:=`.
-RhsAtom = ( str_pat
-              . *assign('_rhs_kind', 'E_QLIT')
-              . *assign('_rhs_text', _atom_strbody)
-          | int_pat . _rhs_text
-              . *assign('_rhs_kind', 'E_ILIT')
-          | id_pat  . _rhs_text
-              . *assign('_rhs_kind', 'E_VAR')
-          );
-
-//-----------------------------------------------------------------------
-// Per-line patterns.  Each anchors POS(0)..RPOS(0) so a body line
-// matches exactly one statement form.  Assign tried before Atom so
-// the lhs id isn't greedily consumed as a bare atom.
-//-----------------------------------------------------------------------
-
-AssignLine = ( POS(0) ws_opt LhsAtom ws_opt ':=' ws_opt RhsAtom
-               ws_opt semi_opt ws_opt RPOS(0)
-               epsilon . *emit_body_assign(_lhs_id, _rhs_kind, _rhs_text)
-             );
-
-// AssignExprLine — lhs := ExprPat (covers atom and BinOp rhs).
-AssignExprLine = ( POS(0) ws_opt LhsAtom ws_opt ':=' ws_opt ExprPat
-                   ws_opt semi_opt ws_opt RPOS(0)
-                   epsilon . *emit_body_assign_expr(_lhs_id, _expr_node)
-                 );
-
-// WriteLine — write(ExprPat).
-WriteLine = ( POS(0) ws_opt 'write' ws_opt '(' ws_opt ExprPat ws_opt ')'
-              ws_opt semi_opt ws_opt RPOS(0)
-              epsilon . *emit_body_write(_expr_node)
+Expr7tail = ( epsilon . *assign('_e7lhs', _expr_node)
+              ws_opt
+              ( '*' epsilon . *assign('_e7op', 'E_MUL')
+              | '/' epsilon . *assign('_e7op', 'E_DIV')
+              )
+              ws_opt
+              Expr11
+              epsilon . *expr_binop(_e7lhs, _e7op, _expr_node)
             );
 
-AtomLine = ( POS(0) ws_opt BodyAtom ws_opt semi_opt ws_opt RPOS(0)
-             epsilon . *emit_body_atom(_atom_kind, _atom_text)
+Expr7 = ( Expr11 ARBNO(Expr7tail) );
+
+// Expr6 — additive.  IC-2 ops: PLUS (+), MINUS (-).
+// LL(1) decomposition: Expr7 (op Expr7)*
+
+Expr6tail = ( epsilon . *assign('_e6lhs', _expr_node)
+              ws_opt
+              ( '+' epsilon . *assign('_e6op', 'E_ADD')
+              | '-' epsilon . *assign('_e6op', 'E_SUB')
+              )
+              ws_opt
+              Expr7
+              epsilon . *expr_binop(_e6lhs, _e6op, _expr_node)
+            );
+
+Expr6 = ( Expr7 ARBNO(Expr6tail) );
+
+// Expr2 — generation (`to`/`by`).  IC-2 has no `to`/`by` yet, so
+// Expr2 collapses to Expr6.
+Expr2 = Expr6;
+
+// Expr1 — assignment.  Right-associative per the canonical grammar.
+// IC-2 only handles `:=` (ASSIGN), not the augmented forms.  Uses
+// _e1lhs (not a generic name) for the same reason as Expr6/7.
+
+Expr1 = ( Expr2
+          ws_opt ':=' ws_opt
+          epsilon . *assign('_e1lhs', _expr_node)
+          *Expr1
+          epsilon . *expr_binop(_e1lhs, 'E_ASSIGN', _expr_node)
+        | Expr2
+        );
+
+// Expr — top of expression tower.  IC-2 has no AND, so Expr → Expr1a → Expr1.
+Expr = Expr1;
+
+//-----------------------------------------------------------------------
+// Statement / procedure / program structure.
+//-----------------------------------------------------------------------
+
+Comment = ( ws_opt '#' BREAK(nl) nl_one );
+Blank   = ( ws_opt nl_one );
+
+// Stmt — one body statement followed by ; and/or newline.  Procbody
+// dispatches `end` separately, so Stmt can safely match a bare
+// identifier expression even when that identifier is `end`-like.
+
+Stmt = ( ws_opt Expr ws_opt semi_opt ws_opt nl_one
+         epsilon . *append_body_stmt()
+       | Comment
+       | Blank
+       );
+
+// Prochead — `procedure main()` (IC-2 only handles main).  Side-effect:
+// reset the body accumulator via *start_proc_main().
+Prochead = ( ws_opt 'procedure' ws_run 'main' ws_opt
+             '(' ws_opt ')' ws_opt nl_one
+             epsilon . *start_proc_main()
            );
 
-// Header: `procedure main()` with optional surrounding whitespace.
-// Side-effect: reset accumulator via *start_proc_main().
-ProcHeader = ( POS(0) ws_opt 'procedure' ws_run 'main' ws_opt
-               '(' ws_opt ')' ws_opt RPOS(0)
-               epsilon . *start_proc_main()
-             );
+// Procbody — one or more Stmt's followed by `end`.  The shape uses
+// explicit tail-recursion rather than ARBNO(Stmt) because we need to
+// preempt-match `end` before letting Stmt potentially consume `end` as
+// a bare identifier expression.  Snocone-Snocone supports `*body`
+// recursion with deferred actions firing reliably (verified by probe).
 
-// End: literal `end' with optional surrounding whitespace.
-// Side-effect: push assembled tree via *finish_proc_main().
-ProcEnd    = ( POS(0) ws_opt 'end' ws_opt RPOS(0)
-               epsilon . *finish_proc_main()
-             );
+ProcbodyEnd = ( ws_opt 'end' ws_opt (nl_one | RPOS(0)) );
+
+Procbody = ( ProcbodyEnd | Stmt *Procbody );
+
+// Proc — `procedure main() <body> end`.  Procbody eats up to and
+// including the closing `end` keyword (see Procbody above).  The
+// finishing side-effect *finish_proc_main() pushes the assembled
+// (STMT :subj ...) tree.
+
+Proc = ( Prochead
+         Procbody
+         epsilon . *finish_proc_main()
+       );
 
 //-----------------------------------------------------------------------
-// Driver loop — line-at-a-time:
-//   state 0: expect ProcHeader  (→ state 1)
-//   state 1: expect ProcEnd OR a body line; body lines stay in state 1.
-// Blank lines and `# ...` comments are skipped silently in any state.
+// Compiland — the canonical spine.  Single PATTERN match consumes the
+// entire source string.  No state machine, no goto-driven dispatch.
+//
+// Architecture note (carried from parser_snobol4.sc): `*Q` indirection
+// inside ARBNO is broken in this runtime — deferred calls inside a
+// referenced pattern never fire.  We inline Proc rather than `*Proc`.
 //-----------------------------------------------------------------------
 
-_proc_state = 0;
+Compiland = nPush()
+            ARBNO( nInc() ws_opt Proc ws_opt )
+            reduce("'Parse'", 'nTop()')
+            nPop();
 
-main00:
-if (~(Line = INPUT)) { goto mainEnd; }
+//-----------------------------------------------------------------------
+// Driver — read whole stdin into Src, run Src ? Compiland once, then
+// emit each STMT child via TDump.  Two short counted loops use goto
+// (read accumulator + emit walker); these are loops over data, not
+// state-machine dispatch.  Same shape as parser_snobol4.sc.
+//-----------------------------------------------------------------------
 
-if (Line ? (POS(0) ws_opt RPOS(0))) { goto main00; }
-if (Line ? (POS(0) ws_opt '#'))     { goto main00; }
+InitCounter();
+InitStack();
 
-if (IDENT(_proc_state, 0)) { goto stateHeader; }
-if (IDENT(_proc_state, 1)) { goto stateBody; }
-goto mainErr;
+Src = '';
+read_loop:
+if (~(Line = INPUT)) { goto read_done; }
+Src = Src Line nl;
+goto read_loop;
+read_done:
 
-stateHeader:
-if (~(Line ? ProcHeader)) { goto mainErr; }
-_proc_state = 1;
-goto main00;
+if (~(Src ? Compiland)) { goto mainErr; }
 
-stateBody:
-if (Line ? ProcEnd)        { goto stmtEnd; }
-if (Line ? WriteLine)      { goto main00; }
-if (Line ? AssignExprLine) { goto main00; }
-if (Line ? AssignLine)     { goto main00; }
-if (Line ? AtomLine)       { goto main00; }
-goto mainErr;
+ptree = Pop();
+if (~DIFFER(ptree)) { goto mainErr; }
 
-stmtEnd:
-icn = Pop();
-if (~DIFFER(icn)) { goto mainErr; }
-TDump(icn);
-_proc_state = 0;
-goto main00;
+i = 1;
+n_kids = n(ptree);
+emit_loop:
+if (~(LE(i, n_kids))) { goto mainEnd; }
+TDump(c(ptree)[i]);
+i = i + 1;
+goto emit_loop;
 
 mainErr:
-OUTPUT = 'Parse Error: ' Line;
-_proc_state = 0;
-goto main00;
+OUTPUT = 'Parse Error';
+goto mainEnd;
 
 mainEnd:
 _parser_ic_done = '';
