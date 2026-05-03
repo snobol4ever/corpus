@@ -11,16 +11,10 @@
 // SqlSQize(v(x)) once Qize.sc lands.  Until then, strings/characters/
 // datetimes are not quote-escaped.
 //
-// WORKAROUND(INFRA-5c): scrip's Snocone runtime drops the &UCASE keyword
-// from a function-arg E_SEQ that mixes E_KEYWORD and E_QLIT children
-// (e.g. ANY(&UCASE &LCASE) silently becomes ANY('') in arg position even
-// though the same expression in RHS-of-assignment yields the correct
-// 52-char concatenation).  See GOAL-PARSER-SNOBOL4.md INFRA-5c.  Until
-// fixed, we precompute identifier character classes into local strings
-// at module scope and reference them by name inside the pattern.
-
-_Tdump_id_first = &UCASE &LCASE;
-_Tdump_id_rest  = digits &UCASE '_' &LCASE;
+// PARSER-SN-INFRA-5c — fixed.  eval_code.c::E_KEYWORD now uppercases the
+// keyword name and looks it up directly in NV (no spurious '&' prefix),
+// so &UCASE / &LCASE inside a function-arg E_SEQ no longer evaluate as
+// empty.  Identifier character classes are inlined per beauty source style.
 
 // TValue(x) — leaf-formatter for non-bracketed leaf types.  Returns the
 // printable representation of x's value when t(x) is a recognized leaf
@@ -57,7 +51,7 @@ function TLump(x, len, i, t) {
     freturn;
 TLump0:
     TLump = '(';
-    if (t(x) ? (POS(0) ANY(_Tdump_id_first) (SPAN(_Tdump_id_rest) | '') RPOS(0))) {
+    if (t(x) ? (POS(0) ANY(&UCASE &LCASE) (SPAN(digits &UCASE '_' &LCASE) | '') RPOS(0))) {
         t = t(x);
     } else {
         t = '"' t(x) '"';
