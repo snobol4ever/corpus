@@ -1,0 +1,170 @@
+// icon-sp.ebnf — Icon grammar in the corpus EBNF dialect (pipe alternation).
+// 1-to-1 translation of upstream gtownsend/icon src/h/grammar.h (verbatim
+// canonical Icon yacc grammar, public domain).  Yacc semantic-action calls
+// (Progend, Recdcl, Bplus, Apply, ...) are dropped; only the productions
+// remain.  Nonterminal names match grammar.h verbatim — `expr1` through
+// `expr11` numbered by precedence, lowercase lexically.  This file is the
+// PARSER-IC source of truth (PARSER-IC-INFRA-1).
+
+program ← decls EOFX;
+
+decls   ← epsilon | decls decl;
+
+decl    ← record | proc | global | link | invocable;
+
+invocable ← INVOCABLE invoclist;
+
+invoclist ← invocop | invoclist COMMA invocop;
+
+invocop ← IDENT | STRINGLIT | STRINGLIT COLON INTLIT;
+
+link    ← LINK lnklist;
+
+lnklist ← lnkfile | lnklist COMMA lnkfile;
+
+lnkfile ← IDENT | STRINGLIT;
+
+global  ← GLOBAL idlist;
+
+record  ← RECORD IDENT LPAREN fldlist RPAREN;
+
+fldlist ← epsilon | idlist;
+
+proc    ← prochead SEMICOL locals initial procbody END;
+
+prochead ← PROCEDURE IDENT LPAREN arglist RPAREN;
+
+arglist ← epsilon | idlist | idlist LBRACK RBRACK;
+
+idlist  ← IDENT | idlist COMMA IDENT;
+
+locals  ← epsilon | locals retention idlist SEMICOL;
+
+retention ← LOCAL | STATIC;
+
+initial ← epsilon | INITIAL expr SEMICOL;
+
+procbody ← epsilon | nexpr SEMICOL procbody;
+
+nexpr   ← epsilon | expr;
+
+// Conjunction: lowest precedence.
+expr    ← expr1a | expr expr1a AND;
+
+// Scan: ?
+expr1a  ← expr1 | expr1a QMARK expr1;
+
+// Assignment + augmented assignments.  All right-associative.
+expr1   ← expr2
+        | expr2 SWAP       expr1 | expr2 ASSIGN     expr1
+        | expr2 REVSWAP    expr1 | expr2 REVASSIGN  expr1
+        | expr2 AUGCONCAT  expr1 | expr2 AUGLCONCAT expr1
+        | expr2 AUGDIFF    expr1 | expr2 AUGUNION   expr1
+        | expr2 AUGPLUS    expr1 | expr2 AUGMINUS   expr1
+        | expr2 AUGSTAR    expr1 | expr2 AUGINTER   expr1
+        | expr2 AUGSLASH   expr1 | expr2 AUGMOD     expr1
+        | expr2 AUGCARET   expr1 | expr2 AUGNMEQ    expr1
+        | expr2 AUGEQUIV   expr1 | expr2 AUGNMGE    expr1
+        | expr2 AUGNMGT    expr1 | expr2 AUGNMLE    expr1
+        | expr2 AUGNMLT    expr1 | expr2 AUGNMNE    expr1
+        | expr2 AUGNEQUIV  expr1 | expr2 AUGSEQ     expr1
+        | expr2 AUGSGE     expr1 | expr2 AUGSGT     expr1
+        | expr2 AUGSLE     expr1 | expr2 AUGSLT     expr1
+        | expr2 AUGSNE     expr1 | expr2 AUGQMARK   expr1
+        | expr2 AUGAND     expr1 | expr2 AUGAT      expr1;
+
+// Generation: i to j, i to j by k
+expr2   ← expr3 | expr2 TO expr3 | expr2 TO expr3 BY expr3;
+
+// Alternation: |
+expr3   ← expr4 | expr4 BAR expr3;
+
+// Comparison: numeric, string, equiv.
+expr4   ← expr5
+        | expr4 SEQ    expr5 | expr4 SGE    expr5 | expr4 SGT  expr5
+        | expr4 SLE    expr5 | expr4 SLT    expr5 | expr4 SNE  expr5
+        | expr4 NMEQ   expr5 | expr4 NMGE   expr5 | expr4 NMGT expr5
+        | expr4 NMLE   expr5 | expr4 NMLT   expr5 | expr4 NMNE expr5
+        | expr4 EQUIV  expr5 | expr4 NEQUIV expr5;
+
+// Concat: string, list.
+expr5   ← expr6 | expr5 CONCAT expr6 | expr5 LCONCAT expr6;
+
+// Additive: + - ++ (union) -- (diff).
+expr6   ← expr7
+        | expr6 PLUS expr7 | expr6 DIFF  expr7
+        | expr6 UNION expr7 | expr6 MINUS expr7;
+
+// Multiplicative: * / % ** (intersection).
+expr7   ← expr8
+        | expr7 STAR  expr8 | expr7 INTER expr8
+        | expr7 SLASH expr8 | expr7 MOD   expr8;
+
+// Power: ^ (right-associative).
+expr8   ← expr9 | expr9 CARET expr8;
+
+// Limit / activation / apply.
+expr9   ← expr10
+        | expr9 BACKSLASH expr10
+        | expr9 AT        expr10
+        | expr9 BANG      expr10;
+
+// Unary prefix operators.
+expr10  ← expr11
+        | AT        expr10 | NOT       expr10 | BAR       expr10
+        | CONCAT    expr10 | LCONCAT   expr10 | DOT       expr10
+        | BANG      expr10 | DIFF      expr10 | PLUS      expr10
+        | STAR      expr10 | SLASH     expr10 | CARET     expr10
+        | INTER     expr10 | TILDE     expr10 | MINUS     expr10
+        | NMEQ      expr10 | NMNE      expr10 | SEQ       expr10
+        | SNE       expr10 | EQUIV     expr10 | UNION     expr10
+        | QMARK     expr10 | NEQUIV    expr10 | BACKSLASH expr10;
+
+// Primary: literals, control structures, var, postfix, keyword.
+expr11  ← literal | section | return
+        | if | case | while | until | every | repeat
+        | CREATE expr | IDENT | NEXT | BREAK nexpr
+        | LPAREN exprlist RPAREN
+        | LBRACE compound  RBRACE
+        | LBRACK exprlist  RBRACK
+        | expr11 LBRACK exprlist RBRACK
+        | expr11 LBRACE  RBRACE
+        | expr11 LBRACE pdcolist RBRACE
+        | expr11 LPAREN exprlist RPAREN
+        | expr11 DOT IDENT
+        | AND FAIL
+        | AND IDENT;
+
+// Loops.
+while   ← WHILE expr | WHILE expr DO expr;
+until   ← UNTIL expr | UNTIL expr DO expr;
+every   ← EVERY expr | EVERY expr DO expr;
+repeat  ← REPEAT expr;
+
+// Procedure return / suspend.
+return  ← FAIL
+        | RETURN  nexpr
+        | SUSPEND nexpr
+        | SUSPEND expr DO expr;
+
+// Conditional.
+if      ← IF expr THEN expr | IF expr THEN expr ELSE expr;
+
+// Case.
+case    ← CASE expr OF LBRACE caselist RBRACE;
+caselist ← cclause | caselist SEMICOL cclause;
+cclause ← DEFAULT COLON expr | expr COLON expr;
+
+// Argument lists.
+exprlist ← nexpr | exprlist COMMA nexpr;
+pdcolist ← nexpr | pdcolist COMMA nexpr;
+
+// Literals.
+literal ← INTLIT | REALLIT | STRINGLIT | CSETLIT;
+
+// String section.
+section ← expr11 LBRACK expr sectop expr RBRACK;
+sectop  ← COLON | PCOLON | MCOLON;
+
+// Compound expression body inside { ... }.
+compound ← nexpr | nexpr SEMICOL compound;
