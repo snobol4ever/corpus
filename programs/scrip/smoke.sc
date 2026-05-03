@@ -41,3 +41,12 @@ OUTPUT = (IDENT(_smoke_cap, 'hel') 'assign-OK', 'assign-FAIL');
 OUTPUT = (match('foo bar baz', 'bar') 'match-OK', 'match-FAIL');
 // notmatch succeeds when 'qux' is NOT in 'foo bar baz'.
 OUTPUT = (notmatch('foo bar baz', 'qux') 'notmatch-OK', 'notmatch-FAIL');
+
+// PARSER-SN-INFRA-6 — case.sc: lwr/upr/cap round-trips + icase membership.
+// lwr('AbC') = 'abc'; upr('AbC') = 'ABC'; cap('aBc') = 'Abc'.
+OUTPUT = (IDENT(lwr('AbC'), 'abc') 'lwr-OK', 'lwr-FAIL');
+OUTPUT = (IDENT(upr('AbC'), 'ABC') 'upr-OK', 'upr-FAIL');
+OUTPUT = (IDENT(cap('aBc'), 'Abc') 'cap-OK', 'cap-FAIL');
+// icase('End') yields a pattern that matches 'eNd' case-insensitively.
+_smoke_icp = icase('End');
+OUTPUT = (('eNd' ? _smoke_icp) 'icase-OK', 'icase-FAIL');
