@@ -117,3 +117,37 @@ t8Max = 0;
 _smoke_omega_p = TZ(0, 'probe', 'hi') @smoke_omega_cur;
 _smoke_omega_dummy = ('hi' ? _smoke_omega_p);
 OUTPUT = (EQ(smoke_omega_cur, 2) GT(t8Max, 0) 'omega-silent-OK', 'omega-silent-FAIL');
+
+// PARSER-SN-INFRA-10 — verify OPSYN '~' (alias for shift) and OPSYN '&'
+// (alias for reduce) work at runtime.  The OPSYN declarations are at
+// the top of semantic.sc and execute when the module loads.
+//
+// scrip's Snocone parser does NOT honour OPSYN in static infix position
+// (the grammar binds '~' as the unary 'not' operator at parse time), so
+// `pat ~ 'Tag'` written in a .sc file will not work.  What scrip DOES
+// support is name-based dispatch of the OPSYN'd alias: APPLY('~', ...)
+// reaches the alias table and dispatches to shift().  This is the test:
+// the function-call form shift(p, t) and the OPSYN-via-APPLY form must
+// produce equal trees.
+//
+// '~' alias for shift: build pattern, match, pop, compare trees.
+_smoke_o10_a = shift('foo', 'Word');
+('foo' ? _smoke_o10_a);
+_smoke_o10_t1 = Pop();
+_smoke_o10_b = APPLY('~', 'foo', 'Word');
+('foo' ? _smoke_o10_b);
+_smoke_o10_t2 = Pop();
+// '&' alias for reduce: shift first to seed the stack, then reduce(1).
+Shift('Leaf', 'a');
+_smoke_o10_c = reduce("'P'", 1);
+('' ? _smoke_o10_c);
+_smoke_o10_t3 = Pop();
+Shift('Leaf', 'b');
+_smoke_o10_d = APPLY('&', "'P'", 1);
+('' ? _smoke_o10_d);
+_smoke_o10_t4 = Pop();
+OUTPUT = (IDENT(t(_smoke_o10_t1), 'Word') IDENT(v(_smoke_o10_t1), 'foo')
+          IDENT(t(_smoke_o10_t2), 'Word') IDENT(v(_smoke_o10_t2), 'foo')
+          IDENT(t(_smoke_o10_t3), 'P') EQ(n(_smoke_o10_t3), 1)
+          IDENT(t(_smoke_o10_t4), 'P') EQ(n(_smoke_o10_t4), 1)
+          'opsyn-OK', 'opsyn-FAIL');
