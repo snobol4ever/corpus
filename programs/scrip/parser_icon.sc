@@ -1,4 +1,4 @@
-// parser_icon.sc — PARSER-IC: Icon frontend in Snocone (PARSER-IC-0).
+// parser_icon.sc — PARSER-IC: Icon frontend in Snocone.
 //
 // Reads an Icon source program from stdin via INPUT, runs the
 // `Compiland` PATTERN to build an Icon IR tree on the shared stack via
@@ -7,28 +7,27 @@
 // Icon-frontend `--dump-ir` output — that's the PARSER-IC gate.
 //
 // This file follows the shape of parser_snobol4.sc / parser_snocone.sc
-// (the template for all six PARSER-* frontends).  The driver loop and
-// Compiland spine are identical; only the per-language atom recognizers
-// and Command body differ.
+// (the template for all six PARSER-* frontends).
 //
-// Rung PARSER-IC-0: atom-as-body inside `procedure main() ... end`.
-// The minimal Icon program at this rung is:
-//   procedure main()
-//     <atom>
-//   end
-// where <atom> is one identifier, one integer, or one quoted string.
-// Tree shape (canonical, matches scrip's Icon `--dump-ir` after
-// whitespace normalization):
-//   (STMT :subj (E_FNC main (E_VAR main) (<atom-kind> <text>)))
+// Rung PARSER-IC-1 (CURRENT): atom-as-body OR `:=` assignment, one or
+// more body statements per procedure.  Trailing `;` permitted.
+// Rung PARSER-IC-0 covered by the same code: a single atom body with
+// no semicolon falls through Assign and matches BodyAtom.
 //
-// Sibling LANG rungs: IC-1..IC-3 (lexer, atom).
+// Tree shape (matches scrip's Icon `--dump-ir` after whitespace normalization):
+//   atom body:    (STMT :subj (E_FNC main (E_VAR main) (<kind> <text>)))
+//   assign body:  (STMT :subj (E_FNC main (E_VAR main)
+//                                (E_ASSIGN (E_VAR <lhs>) (<rhs-kind> <rhs-text>))
+//                                ...))
+//   The E_FNC accumulates any number of body-statement children.
+//
+// Sibling LANG rungs: IC-1..IC-4 (lexer, atom, assign).
 // The existing src/frontend/icon/ remains the read-only oracle.
 
 //-----------------------------------------------------------------------
 // Atom recognizers — Icon surface syntax.
 //-----------------------------------------------------------------------
 
-// Whitespace.
 ws_one = ANY(' ' tab);
 ws_run = SPAN(' ' tab);
 ws_opt = (SPAN(' ' tab) | epsilon);
@@ -38,40 +37,54 @@ id_first = ANY(&UCASE &LCASE '_');
 id_rest  = SPAN(digits &UCASE &LCASE '_');
 id_pat   = (id_first (id_rest | epsilon));
 
-// Integer — one-or-more decimal digits.  Signed forms reserved for IC-2.
+// Integer.
 int_pat  = SPAN(digits);
 
-// String — double-quoted only (Icon's primary string syntax).
-// Capture of the body (between delimiters) goes into _atom_strbody.
-// No embedded escape handling at this rung.
-dstr_pat = ('"'  BREAK('"')  . _atom_strbody '"');
+// Double-quoted string.  Capture body in _atom_strbody.
+dstr_pat = ('"' BREAK('"') . _atom_strbody '"');
 str_pat  = dstr_pat;
 
+// Optional trailing semicolon (Icon body statements may end with ';').
+semi_opt = (';' | epsilon);
+
 //-----------------------------------------------------------------------
-// Tree-building helper — push one full procedure-wrapped atom tree.
-//
-// build_proc_main_atom(kind, txt):
-//   push (STMT :subj (E_FNC main (E_VAR main) (kind txt)))
-// Returns .dummy per RULES.md NRETURN convention.
+// Tree-building helpers — build per-statement subtrees and append them
+// to the current procedure's accumulating E_FNC node held in _proc_node.
 //-----------------------------------------------------------------------
 
-function build_proc_main_atom(kind, txt) {
-    Push(Tree('STMT', '', 1,
-              Tree(':subj', '', 1,
-                   Tree('E_FNC', 'main', 2,
-                        tree('E_VAR', 'main'),
-                        tree(kind, txt)))));
-    build_proc_main_atom = .dummy;
+// Append a bare-atom body statement to the current procedure.
+function emit_body_atom(kind, txt) {
+    _proc_node = Append(_proc_node, tree(kind, txt));
+    emit_body_atom = .dummy;
+    nreturn;
+}
+
+// Append an Icon assignment body statement to the current procedure.
+function emit_body_assign(lhs, rhs_kind, rhs_txt) {
+    _proc_node = Append(_proc_node,
+                        Tree('E_ASSIGN', '', 2,
+                             tree('E_VAR', lhs),
+                             tree(rhs_kind, rhs_txt)));
+    emit_body_assign = .dummy;
+    nreturn;
+}
+
+// Reset the per-procedure accumulator to (E_FNC main (E_VAR main)).
+function start_proc_main() {
+    _proc_node = Tree('E_FNC', 'main', 1, tree('E_VAR', 'main'));
+    start_proc_main = .dummy;
+    nreturn;
+}
+
+// Push the assembled (STMT :subj <_proc_node>) onto the shared stack.
+function finish_proc_main() {
+    Push(Tree('STMT', '', 1, Tree(':subj', '', 1, _proc_node)));
+    finish_proc_main = .dummy;
     nreturn;
 }
 
 //-----------------------------------------------------------------------
-// BodyAtom — matches one atom in expression context and captures
-// kind + text into the globals _atom_kind / _atom_text.
-//   id   → _atom_kind='E_VAR',  _atom_text=<identifier>
-//   int  → _atom_kind='E_ILIT', _atom_text=<digits>
-//   str  → _atom_kind='E_QLIT', _atom_text=<body without delimiters>
-// (str must come BEFORE id/int so the leading `"` isn't consumed by id_pat.)
+// Atom in expression context.  Sets _atom_kind / _atom_text.
 //-----------------------------------------------------------------------
 
 BodyAtom = ( str_pat
@@ -83,32 +96,52 @@ BodyAtom = ( str_pat
                . *assign('_atom_kind', 'E_VAR')
            );
 
+// LhsAtom — identifier used as assignment target (captures _lhs_id).
+LhsAtom = ( id_pat . _lhs_id );
+
+// RhsAtom — id / int / str on the right side of `:=`.
+RhsAtom = ( str_pat
+              . *assign('_rhs_kind', 'E_QLIT')
+              . *assign('_rhs_text', _atom_strbody)
+          | int_pat . _rhs_text
+              . *assign('_rhs_kind', 'E_ILIT')
+          | id_pat  . _rhs_text
+              . *assign('_rhs_kind', 'E_VAR')
+          );
+
 //-----------------------------------------------------------------------
-// ProcMainAtom — matches the full minimal Icon program shape:
-//   procedure main()
-//     <atom>
-//   end
-// across three lines.  Driven by the line-at-a-time main loop below;
-// state machine flag _proc_state tracks header/body/end.
+// Per-line patterns.  Each anchors POS(0)..RPOS(0) so a body line
+// matches exactly one statement form.  Assign tried before Atom so
+// the lhs id isn't greedily consumed as a bare atom.
 //-----------------------------------------------------------------------
+
+AssignLine = ( POS(0) ws_opt LhsAtom ws_opt ':=' ws_opt RhsAtom
+               ws_opt semi_opt ws_opt RPOS(0)
+               epsilon . *emit_body_assign(_lhs_id, _rhs_kind, _rhs_text)
+             );
+
+AtomLine = ( POS(0) ws_opt BodyAtom ws_opt semi_opt ws_opt RPOS(0)
+             epsilon . *emit_body_atom(_atom_kind, _atom_text)
+           );
 
 // Header: `procedure main()` with optional surrounding whitespace.
+// Side-effect: reset accumulator via *start_proc_main().
 ProcHeader = ( POS(0) ws_opt 'procedure' ws_run 'main' ws_opt
-               '(' ws_opt ')' ws_opt RPOS(0) );
+               '(' ws_opt ')' ws_opt RPOS(0)
+               epsilon . *start_proc_main()
+             );
 
-// Body: optional leading whitespace, one atom, optional trailing whitespace.
-ProcBody   = ( POS(0) ws_opt BodyAtom ws_opt RPOS(0) );
-
-// End: literal `end` with optional surrounding whitespace.
-ProcEnd    = ( POS(0) ws_opt 'end' ws_opt RPOS(0) );
+// End: literal `end' with optional surrounding whitespace.
+// Side-effect: push assembled tree via *finish_proc_main().
+ProcEnd    = ( POS(0) ws_opt 'end' ws_opt RPOS(0)
+               epsilon . *finish_proc_main()
+             );
 
 //-----------------------------------------------------------------------
-// Driver loop — three-line state machine:
-//   state 0: expect ProcHeader  (set state=1)
-//   state 1: expect ProcBody    (capture atom; set state=2)
-//   state 2: expect ProcEnd     (push tree via build_proc_main_atom; reset)
-// Blank / comment lines (Icon `#` comments) are skipped silently in any state.
-// At state 2 completion the assembled tree is popped and dumped via TDump.
+// Driver loop — line-at-a-time:
+//   state 0: expect ProcHeader  (→ state 1)
+//   state 1: expect ProcEnd OR a body line; body lines stay in state 1.
+// Blank lines and `# ...` comments are skipped silently in any state.
 //-----------------------------------------------------------------------
 
 _proc_state = 0;
@@ -116,15 +149,11 @@ _proc_state = 0;
 main00:
 if (~(Line = INPUT)) { goto mainEnd; }
 
-// Skip blank / whitespace-only lines.
 if (Line ? (POS(0) ws_opt RPOS(0))) { goto main00; }
-// Skip Icon comments (`# ...` to end of line).
-if (Line ? (POS(0) ws_opt '#')) { goto main00; }
+if (Line ? (POS(0) ws_opt '#'))     { goto main00; }
 
-// Dispatch on state.
 if (IDENT(_proc_state, 0)) { goto stateHeader; }
 if (IDENT(_proc_state, 1)) { goto stateBody; }
-if (IDENT(_proc_state, 2)) { goto stateEnd; }
 goto mainErr;
 
 stateHeader:
@@ -133,14 +162,12 @@ _proc_state = 1;
 goto main00;
 
 stateBody:
-if (~(Line ? ProcBody)) { goto mainErr; }
-_proc_state = 2;
-goto main00;
+if (Line ? ProcEnd)    { goto stmtEnd; }
+if (Line ? AssignLine) { goto main00; }
+if (Line ? AtomLine)   { goto main00; }
+goto mainErr;
 
-stateEnd:
-if (~(Line ? ProcEnd)) { goto mainErr; }
-// Build and dump the tree now that all three pieces have been seen.
-dummy = build_proc_main_atom(_atom_kind, _atom_text);
+stmtEnd:
 icn = Pop();
 if (~DIFFER(icn)) { goto mainErr; }
 TDump(icn);
@@ -149,6 +176,7 @@ goto main00;
 
 mainErr:
 OUTPUT = 'Parse Error: ' Line;
+_proc_state = 0;
 goto main00;
 
 mainEnd:
