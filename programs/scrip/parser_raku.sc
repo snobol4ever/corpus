@@ -22,22 +22,23 @@
 // Style invariant (per RULES.md): no goto/labels in driver loops.
 // Use Snocone structured flow.
 //
-// Rung PARSER-RK-0 (CURRENT): atom — one sigiled variable or one integer
-// or one quoted string, as a bare expression statement.
+// Rung PARSER-RK-1 (CURRENT): atom + declaration/assignment.
 //
-//   $x;   → (STMT :subj (E_FNC main (E_VAR main) (E_VAR x)))
-//   @a;   → (STMT :subj (E_FNC main (E_VAR main) (E_VAR a)))
-//   %h;   → (STMT :subj (E_FNC main (E_VAR main) (E_VAR h)))
-//   42;   → (STMT :subj (E_FNC main (E_VAR main) (E_ILIT 42)))
-//   "hi"; → (STMT :subj (E_FNC main (E_VAR main) (E_QLIT "hi")))
+//   $x;             → (STMT :subj (E_FNC main (E_VAR main) (E_VAR x)))
+//   42;             → (STMT :subj (E_FNC main (E_VAR main) (E_ILIT 42)))
+//   "hi";           → (STMT :subj (E_FNC main (E_VAR main) (E_QLIT "hi")))
+//   my $x = 5;      → (STMT :subj (E_FNC main (E_VAR main)
+//                       (E_ASSIGN (E_VAR x) (E_ILIT 5))))
+//   $x = 5;         → same — the `my` keyword is consumed but does
+//                     not affect the IR (raku.y discards the my-tag).
+//   my @a = $x;     → ...(E_ASSIGN (E_VAR a) (E_VAR x))...
 //
 // The existing raku.y program rule wraps all body stmts in a synthetic
 // "main" E_FNC node: E_FNC(main, [E_VAR(main), stmt1, stmt2, ...]).
-// PARSER-RK-0 replicates this wrapper for single-atom programs.
+// PARSER-RK-1 still produces exactly one body stmt per program — the
+// declaration/assignment counts as ONE atom on the body stack.
 //
-// Out-of-scope at RK-0 (deferred to later rungs):
-//   - &f CodeVar sigil — not in raku.l as a standalone VAR token at RK-0
-//   - my $x = expr;  declarations — RK-1
+// Out-of-scope at RK-1 (deferred to later rungs):
 //   - say expr;      call stmts   — RK-2
 //   - arithmetic operators        — RK-2
 //   - control flow (if/while/for) — RK-3
@@ -95,6 +96,15 @@ lit_str_sq = ("'" BREAK("'") . _str_body "'");
 // Semicolon terminator — mirrors raku.l ';' → ';'.
 raku_semi = ';';
 
+// Equals sign for assignment — mirrors raku.l '=' → '='.
+raku_eq = '=';
+
+// Keyword `my` — mirrors raku.l "my" → KW_MY.  Must be followed by a
+// non-alnum character (whitespace or sigil); avoids matching `myfoo`.
+// raku.l's flex maximal-munch handles this naturally; in Snocone we
+// require ws_one (whitespace) to follow before the sigil.
+kw_my = ('my' ws_one);
+
 //-----------------------------------------------------------------------
 // Atom-level tree builders.
 //
@@ -147,6 +157,40 @@ function push_atom_str(text) {
     nreturn;
 }
 
+//-----------------------------------------------------------------------
+// Assignment-target name register.
+//
+// Rather than push the target as an E_VAR onto the body stack and then
+// pop it back out (which would also need body_count bookkeeping reversed),
+// we stash the target's bare name in `assign_target_name` and let
+// build_assign() consult it when constructing the E_ASSIGN node.  The
+// RHS atom is pushed normally by primary's actions; build_assign() pops
+// just the RHS and builds (E_ASSIGN (E_VAR <name>) <rhs>).
+//-----------------------------------------------------------------------
+
+assign_target_name = '';
+
+function set_assign_target(name) {
+    assign_target_name = name;
+    set_assign_target = .dummy;
+    nreturn;
+}
+
+// build_assign() — pop one RHS atom from stack, build E_ASSIGN with
+// E_VAR(assign_target_name) as LHS, push the assign back as the body
+// atom.  The RHS push already incremented body_count — the assign
+// replaces it on the stack and keeps the count balanced (1 in, 1 out).
+function build_assign(rhs, lhs, asgn) {
+    rhs = Pop();
+    body_count = body_count - 1;
+    lhs = tree('E_VAR', assign_target_name);
+    asgn = Tree('E_ASSIGN', '', 2, lhs, rhs);
+    Push(asgn);
+    body_count = body_count + 1;
+    build_assign = .dummy;
+    nreturn;
+}
+
 // build_main_wrapper() — pop body_count atoms, wrap in E_FNC main,
 // then wrap the whole thing in (STMT :subj ...).
 // Mirrors raku.y program rule Pass 2 exactly.
@@ -192,11 +236,51 @@ primary = ( var_scalar . *push_atom_var(_var_first _var_rest)
           );
 
 //-----------------------------------------------------------------------
-// `stmt` — one statement at RK-0: a primary followed by ';'.
-// Mirrors raku.y stmt rule (expr ';' form).
+// `assign_target` — left-hand side of an assignment.  Any sigiled
+// variable.  Captures the bare name (post-strip-sigil) into
+// _tgt_first + _tgt_rest, which is then stashed via set_assign_target.
+//
+// Distinct sub-capture names from `var_scalar`/`var_array`/`var_hash`
+// (which capture into _var_first/_var_rest) — Snocone uses one set of
+// pattern globals across the whole `?` match, so reusing _var_first
+// here would clobber the RHS atom's name capture.
 //-----------------------------------------------------------------------
 
-stmt = ( ws_opt primary ws_opt raku_semi );
+asgn_alpha     = ANY(&UCASE &LCASE '_');
+asgn_alnum     = SPAN(&UCASE &LCASE digits '_');
+asgn_alnum_opt = (asgn_alnum | epsilon);
+
+assign_target = ( ('$' asgn_alpha . _tgt_first asgn_alnum_opt . _tgt_rest)
+                | ('@' asgn_alpha . _tgt_first asgn_alnum_opt . _tgt_rest)
+                | ('%' asgn_alpha . _tgt_first asgn_alnum_opt . _tgt_rest)
+                );
+
+//-----------------------------------------------------------------------
+// `assign_stmt` — `my $tgt = primary ;` or bare `$tgt = primary ;`.
+// Mirrors raku.y stmt rule's two assign forms (KW_MY-prefixed and bare).
+// raku.y discards the my-tag (no IR difference), so both forms produce
+// identical (E_ASSIGN (E_VAR tgt) <primary>) output.
+//
+// Sequencing: capture target name → set_assign_target → recognize '='
+// → primary pushes the RHS atom → build_assign pops RHS, builds
+// E_ASSIGN, pushes E_ASSIGN.
+//-----------------------------------------------------------------------
+
+assign_stmt = ( ws_opt (kw_my | epsilon)
+                assign_target . *set_assign_target(_tgt_first _tgt_rest)
+                ws_opt raku_eq ws_opt
+                primary
+                ws_opt raku_semi
+                . *build_assign() );
+
+//-----------------------------------------------------------------------
+// `stmt` — one statement.  Try assign_stmt first (it has the longer
+// prefix and would shadow primary on `$x = ...` programs); fall through
+// to bare-primary stmt for atom programs (`$x;` `42;` `"hi";`).
+// Mirrors raku.y stmt rule alternatives at RK-1 scope.
+//-----------------------------------------------------------------------
+
+stmt = ( assign_stmt | (ws_opt primary ws_opt raku_semi) );
 
 //-----------------------------------------------------------------------
 // Compiland — canonical cross-PARSER spine.
