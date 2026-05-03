@@ -1,210 +1,163 @@
-// parser_snobol4.sc — PARSER-SN-0 atom-level SNOBOL4 frontend in Snocone.
+// parser_snobol4.sc — PARSER-SN: SNOBOL4 frontend in Snocone.
 //
-// Reads a SNOBOL4 source program from INPUT, recognizes the smallest
-// atom slice (one identifier OR one integer OR one string per non-END
-// line), and prints the canonical IR-tree-line for each statement in
-// the same form the existing scrip SNOBOL4 frontend's `--dump-parse`
-// emits — the in-process oracle for PARSER-SN.
+// Reads a SNOBOL4 source program from stdin via INPUT, runs the
+// `Compiland` PATTERN to build a Snocone tree on the shared stack via
+// Shift/Reduce, then dumps the tree via TDump.  The dumped form is
+// byte-identical to scrip's existing-frontend `--dump-parse` output —
+// that's how the PARSER-SN gate verifies agreement.
 //
-// Canonical lines (from `scrip --dump-parse` on the rung corpus):
-//     (STMT :subj (E_VAR x))               — atom_id.sno
-//     (STMT :subj (E_ILIT 42))             — atom_int.sno
-//     (STMT :subj (E_QLIT "hi"))           — atom_str.sno
-//     (STMT :lbl END :end)                 — END terminator (every program)
+// This file is the **template** for all six PARSER-* frontends.
+// The driver loop and Compiland spine are identical across all six;
+// only the per-language atom recognizers and Command body differ.
+// PARSER-SC, PARSER-RB, PARSER-RK, PARSER-IC, PARSER-PR can copy this
+// shape and replace the language-specific rules.
 //
-// The crosscheck is wired in two stages:
-//   1. THIS file produces those canonical lines on stdout from the
-//      pattern-driven walk of the source.
-//   2. test_parser_snobol4.sh diffs that stdout against the bytes
-//      `scrip --dump-parse` emits for the same .sno file.
+// Tree-on-stack vs print-direct: this driver builds genuine Snocone
+// trees via Shift/Reduce/Push/Pop; the role-slot/flag wrapper convention
+// (type tags starting with ':') is handled by the shared tdump.sc
+// extension landed in PARSER-SN-2.  No language-specific dumper.
 //
 // Sibling LANG rungs: SN-1 (basic lexer), SN-2 (atom recognition).
 // The existing src/frontend/snobol4/ remains the read-only oracle.
-//
-// Rung ladder context: this is PARSER-SN-0, the first rung after the
-// PARSER-SN-INFRA ladder closed.  Atoms are syntactically the smallest
-// programs SNOBOL4 admits (a bare identifier IS a legal statement —
-// the `:subj` slot of a STMT with no other clauses).  Once this rung
-// is green we have a fully-wired pipeline (driver + crosscheck + corpus
-// + gate); subsequent rungs (PARSER-SN-1 assignment, PARSER-SN-2
-// concat/arith, ...) extend `Command` without changing the wiring.
-//
-// Invariant for this file: NEVER edit the existing scrip frontend to
-// make outputs match.  If a canonical line we emit diverges from
-// `--dump-parse`, the divergence is reported by the gate; only after
-// Lon decides which side is correct does anyone touch either side.
 
 //-----------------------------------------------------------------------
-// Atom recognizers — single-character and multi-character primitives
+// Atom recognizers — single-character and multi-character primitives.
 //-----------------------------------------------------------------------
 
-// Whitespace: blank or tab; SNOBOL4 source is tab-indented in the canonical
-// form (one leading tab before each statement) but we accept either.
+// Whitespace.
 ws_one = ANY(' ' tab);
 ws_run = SPAN(' ' tab);
 ws_opt = (SPAN(' ' tab) | epsilon);
 
-// Identifier: SNOBOL4 identifiers start with a letter, continue with
-// letters / digits / dot / underscore.  The existing frontend's E_VAR
-// kind is what we mirror.  Beauty.sc canonical idiom for the alphabets
-// is `&UCASE` and `&LCASE` (now safe to use inline since INFRA-5c).
+// Identifier — letter then letters/digits/dot/underscore.
 id_first = ANY(&UCASE &LCASE);
 id_rest  = SPAN(digits &UCASE &LCASE '_.');
 id_pat   = (id_first (id_rest | epsilon));
 
-// Integer: one-or-more digits.  We do not handle signed literals at
-// this rung (PARSER-SN-2 extends to + / - operators and signed forms).
+// Integer — one-or-more digits.  Signed forms reserved for PARSER-SN-2.
 int_pat  = SPAN(digits);
 
-// String: single-quoted or double-quoted; no embedded escape handling
-// at this rung — an atom-level fixture has no need for escapes.  The
-// existing frontend reports the contents wrapped in double quotes
-// regardless of source quote style, so we match the body and re-wrap.
+// String — single or double quoted; no embedded escape handling at
+// this rung (atom-level fixtures don't need them).  The body capture
+// `_atom_strbody` is consumed by the *Shift_qlit deferred call below.
 sstr_pat = ("'" BREAK("'") . _atom_strbody "'");
 dstr_pat = ('"' BREAK('"') . _atom_strbody '"');
 str_pat  = (sstr_pat | dstr_pat);
 
 //-----------------------------------------------------------------------
-// Per-atom canonical-line emitters.  Each is called via a deferred
-// action `*emit_<kind>(captured_text)` so it fires at match-time on
-// commit, after the capture is in scope.  The emitters return .dummy
-// (per RULES.md NRETURN-functions guidance) so they can be invoked
-// either bare in a deferred call or in lvalue position.
-//-----------------------------------------------------------------------
-
-function emit_id(name) {
-    OUTPUT = '(STMT :subj (E_VAR ' name '))';
-    emit_id = .dummy;
-    nreturn;
-}
-
-function emit_int(digits_text) {
-    OUTPUT = '(STMT :subj (E_ILIT ' digits_text '))';
-    emit_int = .dummy;
-    nreturn;
-}
-
-function emit_str(body) {
-    // Existing frontend wraps string literals in double quotes regardless
-    // of source quoting.  We replicate that exactly.
-    OUTPUT = '(STMT :subj (E_QLIT "' body '"))';
-    emit_str = .dummy;
-    nreturn;
-}
-
-function emit_end() {
-    OUTPUT = '(STMT :lbl END :end)';
-    emit_end = .dummy;
-    nreturn;
-}
-
-//-----------------------------------------------------------------------
-// Composite emitters — for statements that combine multiple captures.
-// Assignment is the first such statement: it composes a subject atom
-// and a replacement atom into one canonical line.
+// Tree-building helpers.
 //
-// The expression-fragment helper `expr_text(kind, text)` returns the
-// `(E_VAR x)` / `(E_ILIT 42)` / `(E_QLIT "hi")` form for an atom whose
-// kind ('id' / 'int' / 'str') and surface text were captured by the
-// pattern.  It exists so emit_assign can compose its line in one go
-// without per-atom OUTPUT side effects.
+// build_stmt_atom(kind_var, txt_var) — pop nothing, push:
+//   tree('STMT', '', 1, tree(':subj', '', 1, tree(<kind>, <txt>)))
+// where <kind> is read from the named var (E_VAR / E_ILIT / E_QLIT).
+//
+// These helpers are called from match-time deferred actions in the
+// Compiland Command body.  They return .dummy per RULES.md NRETURN.
 //-----------------------------------------------------------------------
 
-function expr_text(kind, text) {
-    if (IDENT(kind, 'id'))  { expr_text = '(E_VAR '  text ')';     return; }
-    if (IDENT(kind, 'int')) { expr_text = '(E_ILIT ' text ')';     return; }
-    if (IDENT(kind, 'str')) { expr_text = '(E_QLIT "' text '")';   return; }
-    expr_text = '(E_??? ' text ')';
-    return;
+function build_stmt_atom(kind, txt) {
+    // (STMT :subj (kind txt)) — atom statement.
+    Push(Tree('STMT', '', 1, Tree(':subj', '', 1, tree(kind, txt))));
+    build_stmt_atom = .dummy;
+    nreturn;
 }
 
-function emit_assign(lhs, rhs_kind, rhs_text) {
-    OUTPUT = '(STMT :eq :subj (E_VAR ' lhs ') :repl ' expr_text(rhs_kind, rhs_text) ')';
-    emit_assign = .dummy;
+function build_stmt_assign(lhs, rhs_kind, rhs_txt) {
+    // (STMT :eq :subj (E_VAR lhs) :repl (rhs_kind rhs_txt))
+    Push(Tree('STMT', '', 3,
+              tree(':eq', ''),
+              Tree(':subj', '', 1, tree('E_VAR', lhs)),
+              Tree(':repl', '', 1, tree(rhs_kind, rhs_txt))));
+    build_stmt_assign = .dummy;
+    nreturn;
+}
+
+function build_end() {
+    // (STMT :lbl END :end) — end-of-program marker.
+    // :lbl wraps a Name leaf with v='END'.  :end is a 0-child flag.
+    Push(Tree('STMT', '', 2,
+              Tree(':lbl', '', 1, tree('Name', 'END')),
+              tree(':end', '')));
+    build_end = .dummy;
     nreturn;
 }
 
 //-----------------------------------------------------------------------
-// Atom-fragment patterns — like Atom but capture into named slots
-// without emitting.  Used as building blocks for composite rules
-// (assignment) where the per-atom OUTPUT would split a logical
-// statement across multiple lines.
-//
-// Each branch captures BOTH the kind (a literal tag) and the surface
-// text into `<role>_kind` and `<role>_text` slots, where `role` is the
-// caller-chosen prefix (`rhs_` for assignment RHS, etc.).  This is the
-// PARSER-SN idiom that lets one Stmt rule build one OUTPUT line.
+// Atom-fragment captures.  RhsAtom matches one atom and stores both
+// the atom's IR-kind tag (E_VAR / E_ILIT / E_QLIT) and surface text
+// into named slots, using the INFRA-4 `assign()` helper.  This is the
+// PARSER-SN idiom for capturing a polymorphic sub-expression for
+// composite-statement construction.
 //-----------------------------------------------------------------------
 
-// RHS atom — captures into rhs_kind / rhs_text via the assign() helper.
-// We use assign() (the PARSER-SN-INFRA-4 deferred-assign function) so the
-// kind tag literal is bound at match-commit, alongside the text capture.
-RhsAtom = ( id_pat  . rhs_text . *assign('rhs_kind', 'id')
-          | int_pat . rhs_text . *assign('rhs_kind', 'int')
-          | str_pat             . *assign('rhs_kind', 'str') . *assign('rhs_text', _atom_strbody)
+// Lhs atom — always an identifier at this rung.
+LhsAtom = ( id_pat . _lhs_id );
+
+// Rhs atom — id / int / str.  Captures kind + text into rhs_kind/rhs_text.
+RhsAtom = ( id_pat  . rhs_text . *assign('rhs_kind', 'E_VAR')
+          | int_pat . rhs_text . *assign('rhs_kind', 'E_ILIT')
+          | str_pat             . *assign('rhs_kind', 'E_QLIT')
+                                . *assign('rhs_text', _atom_strbody)
           );
 
+// Bare atom — for atom-as-statement.  Captures into a single slot pair.
+BareAtom = ( id_pat  . _atom_text
+             . *assign('_atom_kind', 'E_VAR')
+           | int_pat . _atom_text
+             . *assign('_atom_kind', 'E_ILIT')
+           | str_pat
+             . *assign('_atom_kind', 'E_QLIT')
+             . *assign('_atom_text', _atom_strbody)
+           );
+
 //-----------------------------------------------------------------------
-// Statement / Compiland — the rung-specific grammar.
+// Command bodies — one per statement form.  Each is a pattern with a
+// trailing deferred call that pushes the constructed STMT tree.
 //
-// At PARSER-SN-1 the grammar handles:
-//   line ::= ws_opt assign  ws_opt           -- one assignment statement
-//   line ::= ws_opt atom    ws_opt           -- one bare-atom statement (rung-0)
-//   end  ::= ws_opt 'END'   ws_opt           -- end-of-program marker
+// At PARSER-SN-1 the Command alternatives are:
+//   - Assign  : `lhs = rhs`
+//   - AtomStmt: bare atom
+//   - End     : the literal END keyword
 //
-// `Stmt` is the per-line pattern — anchored at POS(0), consuming the
-// whole line via RPOS(0).  Assignment is tried before bare-atom because
-// the bare-atom branch would otherwise greedily match the LHS of an
-// assignment and fail on the trailing `= expr`.  Later rungs build
-// trees on the stack; PARSER-SN-1 keeps the print-canonical-lines
-// discipline established by PARSER-SN-0.
+// Order matters in Stmt: End first (literal match), Assign next (would
+// otherwise conflict with AtomStmt's LHS-id eating the LHS), AtomStmt
+// last.
 //-----------------------------------------------------------------------
 
-// Atom rule — one identifier, integer, or string per line, bare (no
-// assignment).  Each branch captures the surface text with `. var` and
-// fires its emitter via the canonical `pattern . var . *fn(var)`
-// deferred-call idiom (post-INFRA-7a).  This is the same shape
-// beauty.sc:24 uses for Function/BuiltinVar/SpecialNm recognizers.
-Atom = ( id_pat  . _atom_id  . *emit_id(_atom_id)
-       | int_pat . _atom_int . *emit_int(_atom_int)
-       | str_pat             . *emit_str(_atom_strbody)
-       );
+End = ('END' epsilon . *build_end());
 
-// Assign rule — `lhs = rhs` where lhs is always an identifier (E_VAR)
-// and rhs is any atom.  Captures the LHS text into `_assign_lhs`, then
-// matches `=` with optional whitespace, then captures the RHS via
-// `RhsAtom` (which sets `rhs_kind` and `rhs_text`).  The single
-// `emit_assign` call composes the canonical `(STMT :eq :subj :repl)`
-// line at commit time.
-Assign = ( id_pat . _assign_lhs ws_opt '=' ws_opt RhsAtom
-           epsilon . *emit_assign(_assign_lhs, rhs_kind, rhs_text)
+AtomStmt = ( BareAtom epsilon . *build_stmt_atom(_atom_kind, _atom_text) );
+
+Assign = ( LhsAtom ws_opt '=' ws_opt RhsAtom
+           epsilon . *build_stmt_assign(_lhs_id, rhs_kind, rhs_text)
          );
 
-// End rule — the literal END keyword as its own statement.  The
-// existing frontend emits a single `(STMT :lbl END :end)` line.  We
-// use `epsilon . *emit_end()` after matching 'END' so the deferred
-// callcap fires at commit (epsilon matches the empty position after).
-End = ('END' epsilon . *emit_end());
-
-// Stmt rule — one whole input line.  Order matters: End first (literal
-// match shortest), Assign second (consumes LHS + '=' + RHS), bare
-// Atom last (would otherwise match the LHS of an assignment alone).
-Stmt = (POS(0) ws_opt (End | Assign | Atom) ws_opt RPOS(0));
+// Stmt — one whole input line, anchored.
+Stmt = (POS(0) ws_opt (End | Assign | AtomStmt) ws_opt RPOS(0));
 
 //-----------------------------------------------------------------------
-// Driver loop — read lines from stdin, match Stmt against each.  A
-// failed match prints a Parse Error line; this lets the gate observe
-// non-grammar input rather than silently drop it.  Empty lines are
-// skipped (consistent with the existing frontend's behaviour on
-// blank lines in source).
+// Driver loop — read lines from stdin, match Stmt against each, then
+// pop and dump the resulting tree.  Each successful Stmt match pushes
+// exactly one tree onto the stack; the driver pops it and TDumps it.
+//
+// This is the per-line-driver pattern.  A future rung may switch to
+// the canonical `Compiland = nPush() ARBNO(*Command) reduce('Parse',
+// 'nTop()') nPop()` whole-program form (matching beauty.sc:133), at
+// which point all programs would read into one buffer and parse as a
+// single match.  For now, line-by-line keeps the gate's per-line
+// output structure, matching --dump-parse's per-statement output.
 //-----------------------------------------------------------------------
 
 main00:
 if (~(Line = INPUT)) { goto mainEnd; }
 // Skip blank/whitespace-only lines.
 if (Line ? (POS(0) ws_opt RPOS(0))) { goto main00; }
-// Match against the rung-0 grammar.
+// Match against the rung grammar.
 if (~(Line ? Stmt)) { goto mainErr; }
+// One STMT tree on the stack per successful match — pop and dump.
+sno = Pop();
+if (~DIFFER(sno)) { goto mainErr; }
+TDump(sno);
 goto main00;
 
 mainErr:

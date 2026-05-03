@@ -21,6 +21,12 @@
 // printable representation of x's value when t(x) is a recognized leaf
 // type.  Falls through to t(x) (the type name itself) when the leaf has
 // children — that case is then expanded by TLump's bracketed branch.
+//
+// PARSER-SN-2 extension (cross-pollinates to all six PARSER-* sessions):
+// added leaf forms for the scrip IR kinds — E_VAR / E_ILIT / E_QLIT —
+// rendered with both type tag and value (e.g. "E_VAR x", "E_ILIT 5",
+// "E_QLIT \"hi\"") so a tree-on-stack PARSER produces dump output that
+// matches scrip's canonical --dump-parse line-form byte-for-byte.
 function TValue(x, i) {
     if (TValue = IDENT(v(x)) ".") { return; }
     if (TValue = IDENT(t(x), 'Name')       v(x))                   { return; }
@@ -31,6 +37,16 @@ function TValue(x, i) {
     if (TValue = IDENT(t(x), 'character')  "'" SqlSQize(v(x)) "'") { return; }
     if (TValue = IDENT(t(x), 'string')     "'" SqlSQize(v(x)) "'") { return; }
     if (TValue = IDENT(t(x), 'identifier') v(x))                   { return; }
+    // PARSER-SN: scrip IR leaves — render as "(Tag value)" verbatim.
+    // The parens are part of the leaf's canonical printed form (matching
+    // scrip --dump-parse output like `(E_VAR x)`); slot-wrappers do
+    // NOT add their own parens around child renders, so this self-paren
+    // is what makes `:subj (E_VAR x)` come out right.  E_QLIT uses
+    // double-quotes (not SqlSQize'd single-quotes) because scrip's
+    // --dump-parse uses double-quoted form for string literals.
+    if (TValue = IDENT(t(x), 'E_VAR')      '(' t(x) ' ' v(x) ')')        { return; }
+    if (TValue = IDENT(t(x), 'E_ILIT')     '(' t(x) ' ' v(x) ')')        { return; }
+    if (TValue = IDENT(t(x), 'E_QLIT')     '(' t(x) ' "' v(x) '")')      { return; }
     TValue = t(x);
     i = 0;
     while (i = LT(i, n(x)) i + 1) {
@@ -43,9 +59,42 @@ function TValue(x, i) {
 // leaf → TValue, internal node → "(t child1 child2 ...)".  Fails when
 // the cumulative size exceeds len; callers that need always-success
 // invoke with a generous budget (TDump uses 1024).
-function TLump(x, len, i, t) {
+//
+// PARSER-SN-2 extension: special handling for role-slot wrapper nodes
+// (type tag starts with ':').  A 0-child wrapper with type ':foo'
+// renders as the bare flag ":foo" (e.g. ":eq").  A 1-child wrapper
+// with type ':foo' renders as ":foo " followed by the child's TLump
+// (e.g. ":subj (E_VAR x)").  This is how the shared tree machinery
+// encodes scrip's --dump-parse role keywords without extending the
+// tree(t,v,n,c) shape itself.  All six PARSER-* sessions can share
+// this convention.
+function TLump(x, len, i, t, sub) {
     if (~GT(len, 0)) { freturn; }
     if (TLump = IDENT(x) '()') { return; }
+    // Role-slot / flag wrapper: type tag starts with ':'.
+    if (~(t(x) ? (POS(0) ':'))) { goto TLump_normal; }
+    // 0 children → bare flag, e.g. ":eq".
+    if (~DIFFER(n(x))) {
+        TLump = t(x);
+        if (LE(SIZE(TLump), len)) { return; }
+        freturn;
+    }
+    // 1 child → ":role child" — the child's own TLump/TValue is
+    // responsible for any parens it needs (IR-leaf kinds like E_VAR
+    // self-paren; bare-Name leaves like END render without parens).
+    // Stage the recursive call's result in `sub` first; assigning
+    // `TLump = TLump TLump(...)` on one line confuses Snocone's
+    // function-result variable across the recursive frame boundary.
+    if (IDENT(n(x), 1)) {
+        TLump = t(x) ' ';
+        sub = TLump(c(x)[1], len - SIZE(TLump));
+        if (~DIFFER(sub)) { freturn; }
+        TLump = TLump sub;
+        if (LE(SIZE(TLump), len)) { return; }
+        freturn;
+    }
+    // Multiple children — fall through to normal bracketed render.
+TLump_normal:
     if (DIFFER(n(x))) { goto TLump0; }
     TLump = TValue(x);
     if (LE(SIZE(TLump), len)) { return; }
