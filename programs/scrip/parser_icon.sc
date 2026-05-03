@@ -9,10 +9,9 @@
 // This file follows the shape of parser_snobol4.sc / parser_snocone.sc
 // (the template for all six PARSER-* frontends).
 //
-// Rung PARSER-IC-1 (CURRENT): atom-as-body OR `:=` assignment, one or
-// more body statements per procedure.  Trailing `;` permitted.
-// Rung PARSER-IC-0 covered by the same code: a single atom body with
-// no semicolon falls through Assign and matches BodyAtom.
+// Rung PARSER-IC-2 (CURRENT): write(expr) calls and + - * / operators.
+// Rung PARSER-IC-1: `:=` assignment.
+// Rung PARSER-IC-0: atom body only.
 //
 // Tree shape (matches scrip's Icon `--dump-ir` after whitespace normalization):
 //   atom body:    (STMT :subj (E_FNC main (E_VAR main) (<kind> <text>)))
@@ -59,7 +58,28 @@ function emit_body_atom(kind, txt) {
     nreturn;
 }
 
-// Append an Icon assignment body statement to the current procedure.
+// Append a write(expr) body statement to the current procedure.
+function emit_body_write(expr_node) {
+    _proc_node = Append(_proc_node,
+                        Tree('E_FNC', '', 2,
+                             tree('E_VAR', 'write'),
+                             expr_node));
+    emit_body_write = .dummy;
+    nreturn;
+}
+
+// Append an Icon assignment body statement using an expr node on rhs.
+function emit_body_assign_expr(lhs, expr_node) {
+    _proc_node = Append(_proc_node,
+                        Tree('E_ASSIGN', '', 2,
+                             tree('E_VAR', lhs),
+                             expr_node));
+    emit_body_assign_expr = .dummy;
+    nreturn;
+}
+
+
+// Append an Icon assignment body statement (atom rhs, legacy).
 function emit_body_assign(lhs, rhs_kind, rhs_txt) {
     _proc_node = Append(_proc_node,
                         Tree('E_ASSIGN', '', 2,
@@ -84,7 +104,55 @@ function finish_proc_main() {
 }
 
 //-----------------------------------------------------------------------
-// Atom in expression context.  Sets _atom_kind / _atom_text.
+// Expression recognizers — sets _expr_node to a tree node.
+// IC-2 scope: atom OR (atom op atom) where op = + - * /
+//-----------------------------------------------------------------------
+
+// Build a leaf tree node from _atom_kind/_atom_text.
+function expr_from_atom(kind, txt) {
+    _expr_node = tree(kind, txt);
+    expr_from_atom = .dummy;
+    nreturn;
+}
+
+// Build a binary-op tree node from _lop_node, _binop, _rop_node.
+function expr_binop(lop, op, rop) {
+    _expr_node = Tree(op, '', 2, lop, rop);
+    expr_binop = .dummy;
+    nreturn;
+}
+
+// Atom pattern — captures kind+text then builds _atom_node.
+AtomPat = ( str_pat
+              . *assign('_atom_kind', 'E_QLIT')
+              . *assign('_atom_text', _atom_strbody)
+          | int_pat . _atom_text
+              . *assign('_atom_kind', 'E_ILIT')
+          | id_pat  . _atom_text
+              . *assign('_atom_kind', 'E_VAR')
+          )
+          epsilon . *expr_from_atom(_atom_kind, _atom_text);
+
+// Binary operator keyword — sets _binop_tag.
+BinOpPat = ( '+' . *assign('_binop_tag', 'E_ADD')
+           | '-' . *assign('_binop_tag', 'E_SUB')
+           | '*' . *assign('_binop_tag', 'E_MUL')
+           | '/' . *assign('_binop_tag', 'E_DIV')
+           );
+
+// ExprPat — tries BinOp(atom op atom) first, falls back to atom.
+// Sets _expr_node.
+ExprPat = ( AtomPat
+            epsilon . *assign('_lop_save', _expr_node)
+            ws_opt BinOpPat ws_opt
+            AtomPat
+            epsilon . *expr_binop(_lop_save, _binop_tag, _expr_node)
+          | AtomPat
+          );
+
+//-----------------------------------------------------------------------
+// Atom in expression context (legacy name used by AssignLine/AtomLine).
+// Sets _atom_kind / _atom_text.
 //-----------------------------------------------------------------------
 
 BodyAtom = ( str_pat
@@ -119,6 +187,18 @@ AssignLine = ( POS(0) ws_opt LhsAtom ws_opt ':=' ws_opt RhsAtom
                ws_opt semi_opt ws_opt RPOS(0)
                epsilon . *emit_body_assign(_lhs_id, _rhs_kind, _rhs_text)
              );
+
+// AssignExprLine — lhs := ExprPat (covers atom and BinOp rhs).
+AssignExprLine = ( POS(0) ws_opt LhsAtom ws_opt ':=' ws_opt ExprPat
+                   ws_opt semi_opt ws_opt RPOS(0)
+                   epsilon . *emit_body_assign_expr(_lhs_id, _expr_node)
+                 );
+
+// WriteLine — write(ExprPat).
+WriteLine = ( POS(0) ws_opt 'write' ws_opt '(' ws_opt ExprPat ws_opt ')'
+              ws_opt semi_opt ws_opt RPOS(0)
+              epsilon . *emit_body_write(_expr_node)
+            );
 
 AtomLine = ( POS(0) ws_opt BodyAtom ws_opt semi_opt ws_opt RPOS(0)
              epsilon . *emit_body_atom(_atom_kind, _atom_text)
@@ -162,9 +242,11 @@ _proc_state = 1;
 goto main00;
 
 stateBody:
-if (Line ? ProcEnd)    { goto stmtEnd; }
-if (Line ? AssignLine) { goto main00; }
-if (Line ? AtomLine)   { goto main00; }
+if (Line ? ProcEnd)        { goto stmtEnd; }
+if (Line ? WriteLine)      { goto main00; }
+if (Line ? AssignExprLine) { goto main00; }
+if (Line ? AssignLine)     { goto main00; }
+if (Line ? AtomLine)       { goto main00; }
 goto mainErr;
 
 stmtEnd:
