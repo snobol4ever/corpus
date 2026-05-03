@@ -8,77 +8,295 @@
 //
 // (per beauty.sc:133) to build a single Parse tree wrapping one STMT
 // child per statement.  Each STMT child is then dumped via TDump,
-// producing one line per statement — byte-identical to scrip's
-// existing-frontend `--dump-parse` output.
+// producing output structurally identical to scrip's existing-frontend
+// --dump-parse (whitespace-normalized at gate comparison per FW-6 B).
 //
-// This file is the **template** for all six PARSER-* frontends.
-// The driver loop and Compiland spine are identical across all six;
-// only the per-language atom recognizers and Command body differ.
-// PARSER-SC, PARSER-RB, PARSER-RK, PARSER-IC, PARSER-PR can copy this
-// shape and replace the language-specific rules.
+// Naming policy (PARSER-SN-3+): rule names follow beauty.sno canonical
+// BNF.  Expr, Expr4, Expr6, Expr8, Expr9, Expr11, Expr14, Expr17 are
+// the reference names.  Op_* operator-strip patterns correspond to
+// beauty's $'+' / $'-' etc. (Gray opchar Gray atomic form).
 //
-// Sibling LANG rungs: SN-1 (basic lexer), SN-2 (atom recognition).
-// The existing src/frontend/snobol4/ remains the read-only oracle.
+// Associativity: beauty.sno Expr6 etc. are right-recursive; snobol4.y
+// and scrip --dump-parse are left-associative.  PARSER-SN follows the
+// oracle (left-assoc iterative loops for binary arith).  E_POW is
+// right-recursive per snobol4.y.  Concat (E_SEQ) uses iterative n-ary
+// accumulation per beauty.sno X4 shape.
 //
-// Architecture note — Command body inlined into Compiland.
-// beauty.sc:133 writes `ARBNO(*Command)` with `*Command` indirection;
-// we inline the Command body directly inside ARBNO instead.  This is
-// a dodge for a real scrip-Snocone runtime bug: when a pattern Q
-// contains a deferred call like `epsilon . *fn()` and is referenced
-// via `*Q` indirection inside `ARBNO(*Q)`, the deferred calls inside
-// Q never fire (probe in 2026-05-03 session: `ARBNO(Q)` fires `fn()`
-// twice on a 2-char input, `ARBNO(*Q)` fires `fn()` zero times).
-// Documented as the FW-3 underlying root cause — supersedes the
-// previous nInc-blame in earlier session notes.  The structural shape
-// of Compiland is preserved — only the lexical placement of the
-// Command alternatives changes.  All five sibling sessions inherit
-// the same workaround.
+// Architecture note — Command body inlined into Compiland (not *Command).
+// Dodges a scrip-Snocone runtime bug where *Q indirection inside ARBNO
+// suppresses deferred calls inside Q.  Tracked as FW-3.
 
 //-----------------------------------------------------------------------
-// Atom recognizers — single-character and multi-character primitives.
+// Atom recognizers — named per beauty.sno.
 //-----------------------------------------------------------------------
 
-// Whitespace + line break.
-ws_one = ANY(' ' tab);
-ws_run = SPAN(' ' tab);
-ws_opt = (SPAN(' ' tab) | epsilon);
-nl_one = ANY(nl);
+// Whitespace (beauty.sno Gray / White).
+Gray    = (SPAN(' ' tab) | epsilon);
+White   = SPAN(' ' tab);
 
-// Identifier — letter then letters/digits/dot/underscore.
-id_first = ANY(&UCASE &LCASE);
-id_rest  = SPAN(digits &UCASE &LCASE '_.');
-id_pat   = (id_first (id_rest | epsilon));
+// Identifier (beauty.sno Id).
+Id      = (ANY(&UCASE &LCASE) (SPAN(digits &UCASE &LCASE '_.') | epsilon));
 
-// Integer — one-or-more digits.  Signed forms reserved for PARSER-SN-3.
-int_pat  = SPAN(digits);
+// Integer (beauty.sno Integer).
+Integer = SPAN(digits);
 
-// String — single or double quoted; no embedded escape handling at
-// this rung (atom-level fixtures don't need them).  The body capture
-// `_atom_strbody` is consumed by the trailing *assign() deferred call.
-sstr_pat = ("'" BREAK("'") . _atom_strbody "'");
-dstr_pat = ('"' BREAK('"') . _atom_strbody '"');
-str_pat  = (sstr_pat | dstr_pat);
+// String (beauty.sno String).  _strbody receives the body text.
+String  = ("'" BREAK("'") . _strbody "'" | '"' BREAK('"') . _strbody '"');
+
+// Misc primitives.
+nl_one  = ANY(nl);
+ws_opt  = (SPAN(' ' tab) | epsilon);
 
 //-----------------------------------------------------------------------
-// Tree-building helpers.
+// Expression functions — Expr-N named per beauty.sno.
 //
-// Each helper pushes a fully-formed STMT tree onto the shared stack.
-// They're called from match-time deferred actions in the Compiland
-// Command alternatives.  Per RULES.md NRETURN convention, each helper
-// assigns its result to its own name and uses `nreturn` so that
-// `epsilon . *helper(...)` succeeds as a pattern element with the
-// name's value bound but the side effect (the Push) firing.
+// Global state:
+//   _src  — the source line / program currently being parsed.
+//   _ep   — integer cursor into _src (updated by each Expr-N call).
+//
+// Each function is called as Expr17(_src) etc.; the dummy arg is not
+// used but Snocone requires at least one argument for functions that
+// reference local variables.  Returns a Snocone tree node or FRETURNs.
+//-----------------------------------------------------------------------
+
+// Expr17 — atoms: parenthesized subexpr, integer literal, string, identifier.
+function Expr17(dummy, v, sub) {
+    // Parenthesized subexpr.
+    if (_src ? (POS(_ep) '(' @_ep)) {
+        _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
+        sub = Expr(_src);
+        if (~DIFFER(sub)) { freturn; }
+        if (~(_src ? (POS(_ep) (SPAN(' ' tab) | epsilon) ')' @_ep))) { freturn; }
+        Expr17 = sub;
+        return;
+    }
+    // Integer — must not be preceded by sign (unary handles that at Expr14).
+    if (_src ? (POS(_ep) Integer . v @_ep)) {
+        Expr17 = tree('E_ILIT', v);
+        return;
+    }
+    // String literal — _strbody filled by String pattern.
+    if (_src ? (POS(_ep) String @_ep)) {
+        Expr17 = tree('E_QLIT', _strbody);
+        return;
+    }
+    // Identifier.
+    if (_src ? (POS(_ep) Id . v @_ep)) {
+        Expr17 = tree('E_VAR', v);
+        return;
+    }
+    freturn;
+}
+
+// Expr14 — unary prefix operators: +, -.
+// beauty.sno Expr14: '+' *Expr14 ("'+'" & 1) | '-' *Expr14 ... | *Expr15
+//
+// Lookahead pattern: consume the operator char into @_ep first, THEN
+// check the following char via a separate NOTANY probe that does NOT
+// advance _ep further.  This avoids the NOTANY-consuming-the-next-char
+// bug where POS(_ep) '-' NOTANY('-') @_ep sets _ep past the char after '-'.
+function Expr14(dummy, sub) {
+    // Unary minus — consume '-' then verify next char is not '-'.
+    if (_src ? (POS(_ep) '-' @_ep)) {
+        if (~(_src ? (POS(_ep) (NOTANY('-') | RPOS(0))))) { freturn; }
+        _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
+        sub = Expr14(_src);
+        if (~DIFFER(sub)) { freturn; }
+        Expr14 = Tree('E_MNS', '', 1, sub);
+        return;
+    }
+    // Unary plus — consume '+' then verify next char is not '+'.
+    if (_src ? (POS(_ep) '+' @_ep)) {
+        if (~(_src ? (POS(_ep) (NOTANY('+') | RPOS(0))))) { freturn; }
+        _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
+        sub = Expr14(_src);
+        if (~DIFFER(sub)) { freturn; }
+        Expr14 = Tree('E_PLS', '', 1, sub);
+        return;
+    }
+    Expr14 = Expr17(_src);
+    return;
+}
+
+// Expr11 — exponentiation: **, ^, ! (right-associative per snobol4.y).
+// beauty.sno: *Expr12 FENCE(($'^' | $'!' | $'**') *Expr11 ("'^'" & 2) | epsilon)
+function Expr11(dummy, left, right, ep0) {
+    left = Expr14(_src);
+    if (~DIFFER(left)) { freturn; }
+    ep0 = _ep;
+    _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
+    // Try '**' before single '*' to avoid ambiguity.
+    if (_src ? (POS(_ep) '**' @_ep)) {
+        _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
+        right = Expr11(_src);
+        if (DIFFER(right)) {
+            Expr11 = Tree('E_POW', '', 2, left, right);
+            return;
+        }
+    }
+    if (_src ? (POS(_ep) ANY('^!') @_ep)) {
+        _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
+        right = Expr11(_src);
+        if (DIFFER(right)) {
+            Expr11 = Tree('E_POW', '', 2, left, right);
+            return;
+        }
+    }
+    _ep = ep0;
+    Expr11 = left;
+    return;
+}
+
+// Expr9 — multiplication (left-associative).
+// Skips '**' — must try Expr11 first so ** is handled at that level.
+function Expr9(dummy, acc, right, ep0) {
+    acc = Expr11(_src);
+    if (~DIFFER(acc)) { freturn; }
+mul_loop:
+    ep0 = _ep;
+    _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
+    // '*' not followed by '*' — capture after '*', then lookahead separately.
+    if (_src ? (POS(_ep) '*' @_ep)) {
+        if (~(_src ? (POS(_ep) (NOTANY('*') | RPOS(0))))) { _ep = ep0; goto mul_done; }
+        _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
+        right = Expr11(_src);
+        if (DIFFER(right)) {
+            acc = Tree('E_MUL', '', 2, acc, right);
+            goto mul_loop;
+        }
+    }
+    _ep = ep0;
+mul_done:
+    Expr9 = acc;
+    return;
+}
+
+// Expr8 — division (left-associative).
+function Expr8(dummy, acc, right, ep0) {
+    acc = Expr9(_src);
+    if (~DIFFER(acc)) { freturn; }
+div_loop:
+    ep0 = _ep;
+    _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
+    if (_src ? (POS(_ep) '/' @_ep)) {
+        _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
+        right = Expr9(_src);
+        if (DIFFER(right)) {
+            acc = Tree('E_DIV', '', 2, acc, right);
+            goto div_loop;
+        }
+    }
+    _ep = ep0;
+    Expr8 = acc;
+    return;
+}
+
+// Expr6 — addition and subtraction (left-associative).
+// beauty.sno: *Expr7 FENCE($'+' *Expr6 ("'+'" & 2) | $'-' *Expr6 ... | epsilon)
+// We pass through Expr7 (modulo/#) directly to Expr8 for this rung.
+function Expr6(dummy, acc, right, ep0) {
+    acc = Expr8(_src);
+    if (~DIFFER(acc)) { freturn; }
+add_loop:
+    ep0 = _ep;
+    _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
+    // '+' not followed by '+' — capture after '+', then lookahead.
+    if (_src ? (POS(_ep) '+' @_ep)) {
+        if (~(_src ? (POS(_ep) (NOTANY('+') | RPOS(0))))) { _ep = ep0; goto add_done; }
+        _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
+        right = Expr8(_src);
+        if (DIFFER(right)) { acc = Tree('E_ADD', '', 2, acc, right); goto add_loop; }
+        _ep = ep0; goto add_done;
+    }
+    // '-' not followed by '-'.
+    if (_src ? (POS(_ep) '-' @_ep)) {
+        if (~(_src ? (POS(_ep) (NOTANY('-') | RPOS(0))))) { _ep = ep0; goto add_done; }
+        _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
+        right = Expr8(_src);
+        if (DIFFER(right)) { acc = Tree('E_SUB', '', 2, acc, right); goto add_loop; }
+        _ep = ep0; goto add_done;
+    }
+    _ep = ep0;
+add_done:
+    Expr6 = acc;
+    return;
+}
+
+// Expr4 — concatenation (E_SEQ, n-ary, left-associative).
+// beauty.sno: Expr4 = nPush() *X4 ... nPop()
+//             X4 = nInc() *Expr5 FENCE(*White *X4 | epsilon)
+// Concat is juxtaposition: two exprs separated by whitespace with no
+// operator token between them.  Key correctness rule: probe for
+// whitespace first; if present AND not followed by an operator char or
+// end-of-content, parse another Expr6.
+function Expr4(dummy, first, next, ep1, count, arr, i) {
+    first = Expr6(_src);
+    if (~DIFFER(first)) { freturn; }
+    count = 1;
+    arr = ARRAY(16);
+    arr[1] = first;
+concat_loop:
+    ep1 = _ep;
+    // Must have whitespace between concat elements.
+    if (~(_src ? (POS(_ep) SPAN(' ' tab) @_ep))) { goto concat_done; }
+    // Reject if next char is an operator, close-paren, EOL, or NL.
+    if (_src ? (POS(_ep) (ANY('+-*/^!):=,|&@$.~?' nl) | RPOS(0)))) {
+        _ep = ep1;
+        goto concat_done;
+    }
+    next = Expr6(_src);
+    if (~DIFFER(next)) { _ep = ep1; goto concat_done; }
+    count = count + 1;
+    arr[count] = next;
+    goto concat_loop;
+concat_done:
+    if (IDENT(count, 1)) {
+        Expr4 = first;
+        return;
+    }
+    // Build E_SEQ with count children (up to 16; fold for more).
+    if (IDENT(count, 2)) { Expr4 = Tree('E_SEQ', '', 2, arr[1], arr[2]); return; }
+    if (IDENT(count, 3)) { Expr4 = Tree('E_SEQ', '', 3, arr[1], arr[2], arr[3]); return; }
+    if (IDENT(count, 4)) { Expr4 = Tree('E_SEQ', '', 4, arr[1], arr[2], arr[3], arr[4]); return; }
+    // Fold remaining into nested binary E_SEQ (left-assoc).
+    Expr4 = Tree('E_SEQ', '', 2, arr[1], arr[2]);
+    i = 3;
+seq_fold:
+    if (~(LE(i, count))) { return; }
+    Expr4 = Tree('E_SEQ', '', 2, Expr4, arr[i]);
+    i = i + 1;
+    goto seq_fold;
+}
+
+// Expr — top-level entry point.
+// Passes through to Expr4 for PARSER-SN-3; upper levels (scan, alternation,
+// cond-assign) added in later rungs.
+function Expr(dummy, result) {
+    result = Expr4(_src);
+    Expr = result;
+    return;
+}
+
+//-----------------------------------------------------------------------
+// Statement-level tree builders.
 //-----------------------------------------------------------------------
 
 function build_stmt_atom(kind, txt) {
-    // (STMT :subj (kind txt)) — atom statement.
     Push(Tree('STMT', '', 1, Tree(':subj', '', 1, tree(kind, txt))));
     build_stmt_atom = .dummy;
     nreturn;
 }
 
+function build_stmt_assign_expr(lhs, rhs_tree) {
+    Push(Tree('STMT', '', 3,
+              tree(':eq', ''),
+              Tree(':subj', '', 1, tree('E_VAR', lhs)),
+              Tree(':repl', '', 1, rhs_tree)));
+    build_stmt_assign_expr = .dummy;
+    nreturn;
+}
+
 function build_stmt_assign(lhs, rhs_kind, rhs_txt) {
-    // (STMT :eq :subj (E_VAR lhs) :repl (rhs_kind rhs_txt))
     Push(Tree('STMT', '', 3,
               tree(':eq', ''),
               Tree(':subj', '', 1, tree('E_VAR', lhs)),
@@ -88,8 +306,6 @@ function build_stmt_assign(lhs, rhs_kind, rhs_txt) {
 }
 
 function build_end() {
-    // (STMT :lbl END :end) — end-of-program marker.
-    // :lbl wraps a Name leaf with v='END'.  :end is a 0-child flag.
     Push(Tree('STMT', '', 2,
               Tree(':lbl', '', 1, tree('Name', 'END')),
               tree(':end', '')));
@@ -98,69 +314,59 @@ function build_end() {
 }
 
 //-----------------------------------------------------------------------
-// Atom-fragment captures.  RhsAtom matches one atom and stores both
-// the atom's IR-kind tag (E_VAR / E_ILIT / E_QLIT) and surface text
-// into named slots, using the INFRA-4 `assign()` helper.  This is the
-// PARSER-SN idiom for capturing a polymorphic sub-expression for
-// composite-statement construction.
+// _parse_rhs(lhs) — parse the RHS expression of an assignment.
+// Called from the Assign command after consuming "lhs ws_opt = ws_opt".
+// _rhs_line holds the portion of the current source line starting at
+// the RHS (set in Assign command before calling this helper).
+// Calls build_stmt_assign_expr to push the completed STMT tree.
 //-----------------------------------------------------------------------
 
-// Lhs atom — always an identifier at this rung.
-LhsAtom = ( id_pat . _lhs_id );
+function _parse_rhs(lhs, rhs) {
+    _src = _rhs_line;
+    _ep = 0;
+    rhs = Expr(_src);
+    if (DIFFER(rhs)) {
+        build_stmt_assign_expr(lhs, rhs);
+    }
+    _parse_rhs = .dummy;
+    nreturn;
+}
 
-// Rhs atom — id / int / str.  Captures kind + text into rhs_kind/rhs_text.
-RhsAtom = ( id_pat  . rhs_text . *assign('rhs_kind', 'E_VAR')
-          | int_pat . rhs_text . *assign('rhs_kind', 'E_ILIT')
-          | str_pat             . *assign('rhs_kind', 'E_QLIT')
-                                . *assign('rhs_text', _atom_strbody)
-          );
+//-----------------------------------------------------------------------
+// Atom captures for simple bare-atom statements and atom-only assigns.
+//-----------------------------------------------------------------------
 
-// Bare atom — for atom-as-statement.  Captures into a single slot pair.
-BareAtom = ( id_pat  . _atom_text
-             . *assign('_atom_kind', 'E_VAR')
-           | int_pat . _atom_text
-             . *assign('_atom_kind', 'E_ILIT')
-           | str_pat
-             . *assign('_atom_kind', 'E_QLIT')
-             . *assign('_atom_text', _atom_strbody)
+LhsAtom = (ws_opt Id . _lhs_id ws_opt);
+
+BareAtom = ( ws_opt Id      . _atom_text ws_opt . *assign('_atom_kind', 'E_VAR')
+           | ws_opt Integer  . _atom_text ws_opt . *assign('_atom_kind', 'E_ILIT')
+           | ws_opt String   ws_opt . *assign('_atom_kind', 'E_QLIT')
+                                    . *assign('_atom_text', _strbody)
            );
 
 //-----------------------------------------------------------------------
-// Command bodies — one per statement form.  Each is a pattern with a
-// trailing deferred call that pushes the constructed STMT tree.
+// Command patterns.  Inlined into Compiland (not *Command) — see FW-3.
 //
-// At PARSER-SN-FW-3 the Command alternatives are:
-//   - End     : the literal END keyword
-//   - Assign  : `lhs = rhs`
-//   - AtomStmt: bare atom
-//
-// Order matters: End first (literal match), Assign next (would
-// otherwise conflict with AtomStmt's LHS-id eating the LHS), AtomStmt
-// last.
+// Assign now routes through _parse_rhs() for full expression support.
+// The trick: after matching "lhs = ", capture the rest of the line
+// (up to the trailing newline) into _rhs_line, then call _parse_rhs.
+// This avoids threading a multi-argument RHS parse through the ARBNO
+// iteration state.
 //-----------------------------------------------------------------------
 
-End = ('END' epsilon . *build_end());
+End      = (ws_opt 'END' ws_opt epsilon . *build_end());
+
+// Assign: capture lhs and RHS line, call full expression parser.
+// BREAK(nl) captures everything after '=' up to the newline.
+Assign   = ( ws_opt Id . _lhs_id ws_opt '=' ws_opt
+             BREAK(nl) . _rhs_line
+             epsilon . *_parse_rhs(_lhs_id)
+           );
 
 AtomStmt = ( BareAtom epsilon . *build_stmt_atom(_atom_kind, _atom_text) );
 
-Assign = ( LhsAtom ws_opt '=' ws_opt RhsAtom
-           epsilon . *build_stmt_assign(_lhs_id, rhs_kind, rhs_text)
-         );
-
 //-----------------------------------------------------------------------
-// Compiland — the canonical spine.
-//
-// nPush() opens a fresh counter frame; ARBNO(...) consumes statements
-// one at a time, each iteration calling nInc() so the counter records
-// the child count; reduce("'Parse'", 'nTop()') pops nTop() trees off
-// the stack and pushes a Parse tree wrapping them; nPop() closes the
-// counter frame.  The single resulting Parse tree on the stack carries
-// every STMT as a child.
-//
-// The Command body (End | Assign | AtomStmt) is inlined directly into
-// ARBNO(...) rather than referenced as `*Command` — see top-of-file
-// architecture note for the runtime-bug rationale.  Structurally
-// equivalent; lexically distinct.
+// Compiland — canonical spine (Command body inlined in ARBNO).
 //-----------------------------------------------------------------------
 
 Compiland = nPush()
@@ -169,21 +375,13 @@ Compiland = nPush()
             nPop();
 
 //-----------------------------------------------------------------------
-// Driver loop — read whole stdin into Src, then run Src ? Compiland
-// once.  Pop the resulting Parse tree, render each STMT child via
-// TDump as one line.  This produces output byte-identical to
-// scrip's existing-frontend `--dump-parse` mode.
-//
-// The "read into buffer then single-match" idiom is the canonical
-// frontend-driver shape from beauty.sc main00/main02.  All six
-// PARSER-* sessions inherit it.
+// Driver — read whole stdin into Src, single Compiland match, emit
+// each STMT child via TDump (one OUTPUT line per statement).
 //-----------------------------------------------------------------------
 
-// Initialize the counter & stack subsystems (per beauty/main.sc startup).
 InitCounter();
 InitStack();
 
-// Accumulate full source into Src buffer.
 Src = '';
 read_loop:
 if (~(Line = INPUT)) { goto read_done; }
@@ -191,10 +389,8 @@ Src = Src Line nl;
 goto read_loop;
 read_done:
 
-// Single Compiland match against the full source.
 if (~(Src ? Compiland)) { goto mainErr; }
 
-// Pop the Parse tree and emit one line per STMT child.
 ptree = Pop();
 if (~DIFFER(ptree)) { goto mainErr; }
 
