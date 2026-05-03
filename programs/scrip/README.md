@@ -72,14 +72,17 @@ expects `bar` on stdout.
 
 ### Style — Snocone files
 
-Today's runtime files use the explicit two-arg `IDENT(x, '')` form for
-empty-comparison and the explicit `if/else { ... }` increment-before-use
-loop style from `corpus/programs/include-sc/`. This is a **temporary
-mitigation** for two scrip Snocone runtime issues uncovered during
-INFRA-1/INFRA-2 setup (tracked as PARSER-SN-INFRA-5a and
-PARSER-SN-INFRA-5b in `GOAL-PARSER-SNOBOL4.md`). Once those bugs are
-fixed in scrip's C runtime, this directory's files revert to beauty's
-canonical one-arg `IDENT(x)` style verbatim.
+Today's `.sc` files are **faithful mechanical Snocone ports** of their
+`.inc` source-of-truth counterparts in `corpus/programs/snobol4/demo/beauty/`.
+Same control flow, same variable names, same `Pop()` no-arg signature,
+same `xTrace`-gated `OUTPUT = GT(xTrace, N) ...` tracing, full BegTag/
+EndTag tag stacks in `counter.sc`, `OPSYN` active in `semantic.sc`.
+
+Faithfulness exposes a scrip Snocone runtime bug (one-arg `IDENT(var)`
+inside `Pop()` returns wrong branch when `tree.sc::Insert` is co-loaded);
+this is tracked as PARSER-SN-INFRA-5a in `GOAL-PARSER-SNOBOL4.md`. The
+`test_scrip.sh` gate currently reports **BLOCKED** with that pointer
+until the C-runtime fix lands.
 
 ## Future hosts
 

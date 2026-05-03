@@ -1,42 +1,42 @@
-// stack.sc — General-purpose value stack, Snocone port of stack.inc.
-// Global: $'@S' (link chain).
-// Pop(var): if var='' returns value as function result (return path);
-//           if var≠'' assigns to $var and nreturns .dummy.
+// stack.sc — faithful Snocone port of beauty/stack.inc.
+// A general purpose stack. To be used directly or with conditional assignment within pattern
+// matching. This stack holds the values from the pattern match which were produced as a
+// result of either a Shift() or a Reduce() operation.
+// Global: $'@S' -- link()
 
 struct link { next, value }
 
 function InitStack() {
-    $'@S' = '';
+    $'@S' = ;
     return;
 }
 
 function Push(x) {
+    OUTPUT = GT(xTrace, 4) 'Push(' t(x) ')';
     $'@S' = link($'@S', x);
-    if (IDENT(x, '')) {
-        Push = .value($'@S');
-        nreturn;
-    } else {
-        Push = .dummy;
-        nreturn;
-    }
+    if (Push = IDENT(x) .value($'@S')) { nreturn; }
+    Push = DIFFER(x) .dummy;
+    nreturn;
 }
 
 function Pop(var) {
     if (~DIFFER($'@S')) { freturn; }
-    if (IDENT(var, '')) {
-        Pop = value($'@S');
-        $'@S' = next($'@S');
-        return;
-    } else {
-        $var = value($'@S');
-        $'@S' = next($'@S');
-        Pop = .dummy;
-        nreturn;
-    }
+    if (~IDENT(var)) { goto Pop1; }
+    Pop = value($'@S');
+    OUTPUT = GT(xTrace, 4) 'Pop() = ' t(Pop);
+    $'@S' = next($'@S');
+    return;
+Pop1:
+    Pop = .dummy;
+    $var = value($'@S');
+    OUTPUT = GT(xTrace, 4) 'Pop() = ' t($var);
+    $'@S' = next($'@S');
+    nreturn;
 }
 
 function Top() {
     if (~DIFFER($'@S')) { freturn; }
     Top = .value($'@S');
+    OUTPUT = GT(xTrace, 4) 'Top() = ' t(Top);
     nreturn;
 }
