@@ -174,13 +174,56 @@ function TDump(x, outNm, i, t) {
     outNm = IDENT(outNm) .OUTPUT;
     x = IDENT(DATATYPE(x), 'NAME') $x;
     if (Gen(TLump(x, 140 - GetLevel()) nl, outNm)) return;
-    if (~(NULL *IDENT(n(x)))) {
+    // PARSER-IC-3 fix: original `~(NULL *IDENT(n(x)))` was a no-op.  A
+    // pattern-construction expression (NULL concatenated with a deferred
+    // call) cannot fail at construction time — `~(pattern_value)` is
+    // therefore always FAIL, the if-condition always succeeds, and we
+    // ALWAYS enter the multi-line branch.  But the intent (per the
+    // commented-out alternative `// | *IDENT(t(x), '.')`) is "internal
+    // node, not a leaf" — i.e. n(x) is non-null.  Use DIFFER directly.
+    // This bug never triggered before IC-3 because every prior PARSER-*
+    // tree fit inside the 140-char one-line TLump budget; IC-3's
+    // if/then/else trees are the first to exceed it and exercise the
+    // multi-line fallback.  Verified at session #62 — see GOAL-PARSER-ICON.md.
+    if (DIFFER(n(x))) {
+        // Role-slot wrapper (':'-prefix tag) — mirror TLump's special
+        // handling so the multi-line fallback renders identically to
+        // the inline form.  `:role (child1 child2 ...)` for n>=2,
+        // `:role child` for n=1 (no parens around the role).  Without
+        // this, a wide tree like `(STMT :subj (E_FNC main ...))` falls
+        // back to multi-line and the `:subj` slot gets quoted as
+        // `":subj"` because the bare-identifier regex below rejects ':'.
+        if (t(x) ? (POS(0) ':')) {
+            if (IDENT(n(x), 1)) {
+                Gen(t(x) nl, outNm);
+                IncLevel();
+                TDump(c(x)[1], outNm);
+                DecLevel();
+                return;
+            }
+            Gen(t(x) ' (' nl, outNm);
+            IncLevel();
+            i = 0;
+            while (i = LT(i, n(x)) i + 1)
+                TDump(c(x)[i], outNm);
+            DecLevel();
+            Gen(')' nl, outNm);
+            return;
+        }
         if (~(t(x) ? (POS(0) ANY(&UCASE &LCASE)
                      (SPAN(&UCASE &LCASE digits '_') | epsilon) RPOS(0))))
             t = '"' t(x) '"';
         else
             t = t(x);
-        Gen('(' t nl, outNm);
+        // PARSER-IC-3 fix: emit internal-node sval after the type tag
+        // (mirrors TLump's `if (DIFFER(v(x))) TLump = TLump ' ' v(x)`).
+        // Without this, `(E_FNC main ...)` came out as `(E_FNC ...)` —
+        // dropping the procedure-name label that scrip's --dump-ir emits.
+        if (DIFFER(v(x))) {
+            Gen('(' t ' ' v(x) nl, outNm);
+        } else {
+            Gen('(' t nl, outNm);
+        }
         IncLevel();
         i = 0;
         while (i = LT(i, n(x)) i + 1)

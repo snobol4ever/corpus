@@ -22,24 +22,27 @@
 // JCON's parse_exprN / parse_expr11suffix — see
 // `corpus/programs/ebnf/icon-references/NOTES.md`.
 //
-// IC-2 surface (atom, `:=` assign, `write(expr)`, `+ - * /`):
+// IC-3 surface (IC-2 + comparison ops + if/then/else + while/do):
 //   Compiland = nPush() ARBNO( Proc ) reduce('Parse', 'nTop()') nPop();
 //   Proc      = Prochead Procbody 'end';
-//   Prochead  = 'procedure' main_name '(' ')';     // IC-2: only main()
+//   Prochead  = 'procedure' main_name '(' ')';     // IC-3: only main()
 //   Procbody  = ARBNO(Stmt);                       // each Stmt → emit
-//   Stmt      = Expr ws_opt semi_opt nl_one        // line-at-a-time
+//   Stmt      = Expr ws_opt semi_opt (nl_one|RPOS(0))
 //             | Comment | Blank;
 //   Expr      = Expr1;
 //   Expr1     = Expr2 ASSIGN Expr1                 // right-assoc
 //             | Expr2;
-//   Expr2     = Expr6;                             // IC-2 skips 3/4/5
+//   Expr2     = Expr4;                             // IC-3 skips 3
+//   Expr4     = Expr6 ARBNO(cmp_op Expr6);         // IC-3: = ~= < <= > >=
 //   Expr6     = Expr7 ARBNO((PLUS|MINUS) Expr7);
-//   Expr7     = Expr11 ARBNO((STAR|SLASH) Expr11); // IC-2 skips 8/9/10
-//   Expr11    = IDENT '(' Exprlist ')'             // function invoke
+//   Expr7     = Expr11 ARBNO((STAR|SLASH) Expr11); // IC-3 skips 8/9/10
+//   Expr11    = if expr then expr [else expr]      // IC-3 NEW
+//             | while expr do expr                 // IC-3 NEW
+//             | IDENT '(' Exprlist ')'             // function invoke
 //             | Literal
 //             | IDENT;                             // bare var
 //   Literal   = INTLIT | STRINGLIT;
-//   Exprlist  = Expr (',' Expr)*;                  // IC-2: 1 arg only
+//   Exprlist  = Expr (',' Expr)*;                  // IC-3: 1 arg only
 
 //-----------------------------------------------------------------------
 // Token-class atom recognizers — Icon surface syntax.
@@ -114,6 +117,40 @@ function finish_proc_main() {
     nreturn;
 }
 
+// Build an E_ASSIGN tree node from a simple-identifier LHS and an
+// already-built RHS expression node.  Used by Expr1's lookahead-
+// committed assign branch — we have the LHS name as text (not yet
+// wrapped in an E_VAR node), so wrap it here.
+function expr_assign_id(lhs_name, rhs) {
+    _expr_node = Tree('E_ASSIGN', '', 2, tree('E_VAR', lhs_name), rhs);
+    expr_assign_id = .dummy;
+    nreturn;
+}
+
+// Build an E_IF node with 2 children (condition + then-branch).
+// Called from If after `if cond then texpr` when no else follows.
+function expr_if2(cond, then_e) {
+    _expr_node = Tree('E_IF', '', 2, cond, then_e);
+    expr_if2 = .dummy;
+    nreturn;
+}
+
+// Build an E_IF node with 3 children (condition + then + else).
+// Called from If when an else-branch is present.
+function expr_if3(cond, then_e, else_e) {
+    _expr_node = Tree('E_IF', '', 3, cond, then_e, else_e);
+    expr_if3 = .dummy;
+    nreturn;
+}
+
+// Build an E_WHILE node with 2 children (condition + body).
+// Called from While after `while cond do body`.
+function expr_while2(cond, body) {
+    _expr_node = Tree('E_WHILE', '', 2, cond, body);
+    expr_while2 = .dummy;
+    nreturn;
+}
+
 //-----------------------------------------------------------------------
 // Expression tower — canonical names from icon-sp.ebnf.
 //
@@ -122,13 +159,42 @@ function finish_proc_main() {
 // _expr_lhs to remember the running left operand across iterations.
 //-----------------------------------------------------------------------
 
-// Expr11 — primary.  IC-2 subset: function-invocation, bare
-// identifier, integer literal, string literal.
+// Expr11 — primary.  IC-3 adds control-flow primaries (if/while).
 //
-// Function-invocation `IDENT '(' Expr ')'` is tried first so a bare
-// identifier that happens to be followed by '(' isn't greedily
-// captured as an Expr11 → IDENT atom.  Recursive into Expr via *Expr.
-Expr11 = ( id_pat . _ic_fname ws_opt '(' ws_opt *Expr ws_opt ')'
+// Control-flow forms are tried first because they start with reserved
+// words (`if`, `while`) that id_pat would otherwise greedily accept as
+// a bare identifier.  The function-invocation alternative is tried next
+// for the same reason as before.
+//
+// `if cond then texpr [else fexpr]`:
+//   — Single pattern; `else` is optional via `(else_branch | epsilon)`.
+//     When else is present, the 3-child build helper fires; otherwise
+//     the 2-child build helper fires.  Saved into _ic_cond / _ic_then
+//     (and _ic_else when present) to avoid clobbering from recursive
+//     Expr calls within the branches.
+//   — Avoids the deeper-backtrack hazard of matching the entire
+//     if-expression twice (once with else, once without): backtracking
+//     across deferred actions in this runtime can leave _expr_node
+//     pointing at a stale subtree.
+//
+// `while cond do body`:
+//   — Saved into _ic_wcond / _ic_wbody.
+//
+// Function-invocation `IDENT '(' Expr ')'` is tried before bare IDENT
+// so a bare identifier followed by '(' isn't greedily captured.
+Expr11 = ( ws_opt 'if' ws_run *Expr
+              epsilon . *assign('_ic_cond', _expr_node)
+              ws_opt 'then' ws_run *Expr
+              epsilon . *assign('_ic_then', _expr_node)
+              ( ws_opt 'else' ws_run *Expr
+                epsilon . *expr_if3(_ic_cond, _ic_then, _expr_node)
+              | epsilon . *expr_if2(_ic_cond, _ic_then)
+              )
+         | ws_opt 'while' ws_run *Expr
+              epsilon . *assign('_ic_wcond', _expr_node)
+              ws_opt 'do' ws_run *Expr
+              epsilon . *expr_while2(_ic_wcond, _expr_node)
+         | id_pat . _ic_fname ws_opt '(' ws_opt *Expr ws_opt ')'
               epsilon . *expr_invoke(_ic_fname, _expr_node)
          | str_pat
               epsilon . *expr_from_atom('E_QLIT', _atom_strbody)
@@ -178,19 +244,65 @@ Expr6tail = ( epsilon . *assign('_e6lhs', _expr_node)
 
 Expr6 = ( Expr7 ARBNO(Expr6tail) );
 
-// Expr2 — generation (`to`/`by`).  IC-2 has no `to`/`by` yet, so
-// Expr2 collapses to Expr6.
-Expr2 = Expr6;
+// Expr4 — comparison operators.  IC-3 subset: NMEQ (=), NMNE (~=),
+// NMLT (<), NMLE (<=), NMGT (>), NMGE (>=).
+// LL(1) decomposition: Expr6 (op Expr6)*
+//
+// Note: `<=` and `>=` must be tried BEFORE `<` and `>` to avoid
+// greedily consuming just the first character when the two-char form
+// is present.  The alternation tries longest match first.
+//
+// Expr4-specific saved-LHS uses _e4lhs (distinct from _e1lhs/_e6lhs/_e7lhs).
+
+Expr4tail = ( epsilon . *assign('_e4lhs', _expr_node)
+              ws_opt
+              ( '<=' epsilon . *assign('_e4op', 'E_LE')
+              | '>=' epsilon . *assign('_e4op', 'E_GE')
+              | '~=' epsilon . *assign('_e4op', 'E_NE')
+              | '<'  epsilon . *assign('_e4op', 'E_LT')
+              | '>'  epsilon . *assign('_e4op', 'E_GT')
+              | '='  epsilon . *assign('_e4op', 'E_EQ')
+              )
+              ws_opt
+              Expr6
+              epsilon . *expr_binop(_e4lhs, _e4op, _expr_node)
+            );
+
+Expr4 = ( Expr6 ARBNO(Expr4tail) );
+
+// Expr2 — generation (`to`/`by`).  IC-3 has no `to`/`by` yet, so
+// Expr2 collapses to Expr4 (which in turn handles comparisons and
+// falls through to Expr6 → Expr7 → Expr11).
+Expr2 = Expr4;
 
 // Expr1 — assignment.  Right-associative per the canonical grammar.
-// IC-2 only handles `:=` (ASSIGN), not the augmented forms.  Uses
-// _e1lhs (not a generic name) for the same reason as Expr6/7.
+// IC-3 only handles `:=` (ASSIGN), not the augmented forms.
+//
+// CAUTION on backtracking: the original IC-2 shape was
+//
+//     Expr1 = ( Expr2 ws_opt ':=' ws_opt ... *Expr1 ... | Expr2 );
+//
+// which works fine when the only Expr2 forms are atoms / arith — they
+// either fit the assign LHS or fall straight through.  IC-3 added
+// control-flow primaries (`if`, `while`) at Expr11.  When the second
+// statement of a procedure begins with `if`, that shape goes:
+//   1. First alt parses the *entire* if-expression as Expr2 (deferred
+//      actions fire — _expr_node ends up holding the (E_IF ...) node).
+//   2. The `:=` lookahead fails — there's no `:=` after the if.
+//   3. First alt backtracks, but the deferred actions stay applied.
+//   4. Second alt re-parses Expr2 — but the rebuilt _expr_node ends
+//      up overwriting / fighting whatever was set on the first pass,
+//      and the outer Stmt's `*append_body_stmt()` sees a stale node.
+//
+// Same shape as parser_snobol4.sc's `Assign = Id ws_opt '=' ...`:
+// commit to the assign branch *only* when an identifier is immediately
+// followed by `:=`.  Otherwise fall through to plain Expr2.  This
+// matches IC-3's surface (only simple-identifier LHS) and avoids the
+// deferred-action pollution from a deep Expr2 backtrack.
 
-Expr1 = ( Expr2
-          ws_opt ':=' ws_opt
-          epsilon . *assign('_e1lhs', _expr_node)
+Expr1 = ( id_pat . _e1lhs_name ws_opt ':=' ws_opt
           *Expr1
-          epsilon . *expr_binop(_e1lhs, 'E_ASSIGN', _expr_node)
+          epsilon . *expr_assign_id(_e1lhs_name, _expr_node)
         | Expr2
         );
 
