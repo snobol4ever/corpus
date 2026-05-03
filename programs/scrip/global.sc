@@ -37,3 +37,15 @@
 TRUE   = 1;
 FALSE  = 0;
 digits = '0123456789';
+
+// PARSER-SN-INFRA-8 — trace-emitter globals.  All consumed by trace.sc
+// (T8Trace, T8Pos) and later by omega.sc (xTrace gates pattern-build
+// trace hooks).  doDebug = 0 makes T8Trace a no-op; xTrace = 0 makes
+// TZ/TY return the bare pattern without trace hooks.  Drivers that
+// want output override these before loading patterns.
+doDebug   = 0;
+xTrace    = 0;
+t8Max     = 0;
+t8MaxLast = 0;
+t8Map     = TABLE();
+strOfs    = 0;

@@ -88,3 +88,15 @@ OUTPUT = (IDENT(_smoke_infra7a_cap, 'fired') 'infra7a-inline-assign-OK', 'infra7
 // was never set by the alternation).  Now the control-char arm fires and
 // produces the canonical round-trip.
 OUTPUT = (IDENT(Qize('a' tab 'b'), "'a' tab 'b'") 'infra7a-qize-tab-OK', 'infra7a-qize-tab-FAIL');
+
+// PARSER-SN-INFRA-8 — trace.sc loaded.  T8Trace must be a no-op when
+// doDebug = 0 (the default in global.sc).  We call it with arbitrary args
+// and confirm the call completes without crashing or emitting output.
+// The check: T8Trace returns .dummy (a DT_N name), so DIFFER against
+// NULSTR succeeds only if our descriptor is non-null and non-NULSTR.
+// More importantly: this call must not print anything between the
+// preceding 'infra7a-qize-tab-OK' line and the 'trace-silent-OK' line.
+T8Trace(0, 'unused', 0);
+T8Trace(99, '? prefix', 42);
+T8Trace(1, 'plain', 0);
+OUTPUT = 'trace-silent-OK';
