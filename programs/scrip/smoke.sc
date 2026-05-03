@@ -68,3 +68,23 @@ OUTPUT = (IDENT(SqlSQize("o'clock"), "o''clock") 'sqlsqize-OK',   'sqlsqize-FAIL
 _smoke_qn = tree('R', '');
 Append(_smoke_qn, tree('string', "o'clock"));
 OUTPUT = (IDENT(TLump(_smoke_qn, 80), "(R 'o''clock')") 'tdump-quote-OK', 'tdump-quote-FAIL');
+
+// PARSER-SN-INFRA-7a — inline *assign(...) inside (subj ? PAT) now fires.
+// Prior bug: pattern built inline inside an E_SCAN argument fell through
+// interp_eval_pat's default case and reached eval_code.c's E_CAPT_COND_ASGN,
+// which has no E_DEFER(E_FNC) routing — pat_assign_cond (XNME) silently
+// replaced the intended pat_assign_callcap (XCALLCAP), so the deferred call
+// was never registered and the Phase-4 NAME_commit had nothing to fire.
+// Fix: added E_CAPT_COND_ASGN / E_CAPT_IMMED_ASGN cases to interp_eval_pat
+// in src/runtime/x86/eval_pat.c that mirror the driver-side routing.
+_smoke_infra7a_str = 'X';
+_smoke_infra7a_cap = 'unset';
+_smoke_infra7a_r = (_smoke_infra7a_str ? (POS(0) LEN(1) . *assign(._smoke_infra7a_cap, 'fired')));
+OUTPUT = (IDENT(_smoke_infra7a_cap, 'fired') 'infra7a-inline-assign-OK', 'infra7a-inline-assign-FAIL');
+
+// PARSER-SN-INFRA-7a — Qize on control-char input now exercises the deferred-
+// *assign control-char arm.  Pre-fix Qize('a' tab 'b') silently degraded
+// (the BREAK arm caught everything before the control-char arm because part
+// was never set by the alternation).  Now the control-char arm fires and
+// produces the canonical round-trip.
+OUTPUT = (IDENT(Qize('a' tab 'b'), "'a' tab 'b'") 'infra7a-qize-tab-OK', 'infra7a-qize-tab-FAIL');
