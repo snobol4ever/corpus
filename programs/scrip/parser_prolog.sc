@@ -9,10 +9,10 @@
 // Naming policy (per RULES.md "Snocone parser style — names track the
 // existing frontend"):
 //   token classifiers   — mirror src/frontend/prolog/prolog_lex.h TK_*
-//                         (lowercased: tk_atom, tk_var, tk_int, tk_string,
-//                         tk_dot)
+//                         (lowercased: tk_atom, tk_qatom, tk_var, tk_int,
+//                         tk_string, tk_dot, tk_lparen, tk_rparen, tk_comma)
 //   non-terminals       — mirror src/frontend/prolog/prolog_parse.c
-//                         (clause, term, primary)
+//                         (clause, primary, args, arg)
 //   IR node tags        — mirror src/frontend/prolog/prolog_lower.c::expr_dump
 //                         (E_CHOICE, E_CLAUSE, E_VAR, E_ILIT, E_QLIT, E_FNC)
 //   cross-PARSER spine  — Compiland, Push/Pop/Top, tree/Tree/TDump
@@ -24,25 +24,36 @@
 // goto-shape in parser_snobol4.sc / parser_snocone.sc / parser_icon.sc is
 // grandfathered; new parsers do not copy it.
 //
-// Rung PARSER-PR-0 (CURRENT): bare atom-as-fact only.
-//   atom_lower.pl  "foo."     → (STMT :subj (E_CHOICE foo/0 (E_CLAUSE foo/0)))
-//   atom_var.pl    "X."       → empty (oracle and parser both reject — X. is not
-//                                a valid clause head; lex token TK_VAR is recognized
-//                                but the clause is dropped)
-//   atom_int.pl    "42."      → empty (oracle and parser both reject — TK_INT
-//                                cannot be a clause head)
-//   atom_str.pl    '"hi".'    → (STMT :subj (E_CHOICE hi/0 (E_CLAUSE hi/0)))
-//                                (a Prolog double-quoted token at the head
-//                                position is interned as an atom)
+// Rung PARSER-PR-1 (CURRENT): bare-atom AND compound facts.
+//   Bare:        foo.            → (STMT :subj (E_CHOICE foo/0 (E_CLAUSE foo/0)))
+//   Compound:    foo(a, b).      → (STMT :subj (E_CHOICE foo/2
+//                                     (E_CLAUSE foo/2 (E_FNC a) (E_FNC b))))
+//   Args supported: lowercase atoms (TK_ATOM), single-quoted atoms
+//                   (TK_QATOM, lowered same as TK_ATOM), integers
+//                   (TK_INT), double-quoted strings (TK_STRING — interned
+//                   as atom, matching prolog_lower.c), variables (TK_VAR
+//                   — slot-numbered _V0, _V1, ... per-clause).
 //
-// Sibling LANG rungs: PR-1..PR-3 (lexer, atom/var distinction).
-// The existing src/frontend/prolog/ remains the read-only oracle.
+// Out-of-scope at PR-1 (deferred to later rungs):
+//   - Nested compound args:  foo(bar(a)).  → PR-1.5 / PR-2.
+//   - Same-functor multi-clause E_CHOICE merging:
+//       foo(a). foo(b). → ONE E_CHOICE with TWO E_CLAUSE children.
+//     prolog_lower.c does this in a post-pass keyed on (functor,arity).
+//     PARSER-PR-1 fixtures avoid same-functor cases (each fact uses a
+//     distinct functor) so per-clause STMT trees are byte-equivalent.
+//     The merging pass becomes its own rung when it surfaces as a real
+//     gate failure on a corpus program.
+//   - Anonymous variables `_`: prolog_lower.c assigns anon slots in a
+//     reverse-walk pass (foo(_, _) yields _V1, _V0).  PARSER-PR-1
+//     fixtures avoid pure-anon cases until that pass is implemented.
+//
+// Sibling LANG rungs: PR-4..PR-6.  The existing src/frontend/prolog/
+// remains the read-only oracle.
 
 //-----------------------------------------------------------------------
 // Token classifiers — Prolog surface syntax.
 //
-// Naming: tk_atom / tk_var / tk_int / tk_string / tk_dot mirror the
-// TK_ATOM / TK_VAR / TK_INT / TK_STRING / TK_DOT enums in
+// Naming: tk_* mirror the TK_* enum values in
 // src/frontend/prolog/prolog_lex.h.
 //-----------------------------------------------------------------------
 
@@ -55,9 +66,12 @@ tk_atom_first = ANY(&LCASE);
 tk_atom_rest  = SPAN(digits &UCASE &LCASE '_');
 tk_atom       = (tk_atom_first (tk_atom_rest | epsilon));
 
+// Single-quoted atom — TK_ATOM (quoted form).  prolog_lex.h treats
+// 'foo' identically to foo for atom-classification.  Body in _qatom_body.
+tk_qatom = ("'" BREAK("'") . _qatom_body "'");
+
 // Uppercase-start or '_'-prefixed identifier — TK_VAR / TK_ANON.
-// Per prolog_lex.h: TK_VAR is X / Foo / _Bar; TK_ANON is bare '_'.
-// At PARSER-PR-0 we collapse anon into var; PARSER-PR-1 splits them.
+// PR-1 collapses anon into var (no anon slot pass yet).
 tk_var_first = ANY(&UCASE '_');
 tk_var_rest  = SPAN(digits &UCASE &LCASE '_');
 tk_var       = (tk_var_first (tk_var_rest | epsilon));
@@ -65,31 +79,97 @@ tk_var       = (tk_var_first (tk_var_rest | epsilon));
 // Integer literal — TK_INT.
 tk_int = SPAN(digits);
 
-// Double-quoted string — TK_STRING.  Capture body in _str_body.
+// Double-quoted string — TK_STRING.  Body in _str_body.
 tk_string = ('"' BREAK('"') . _str_body '"');
 
-// Clause terminator — TK_DOT.  Per prolog_lex.h: '.' followed by
-// whitespace or EOF.  At PARSER-PR-0 we only ever see TK_DOT at end
-// of input or before a newline, so a literal '.' suffices.
-tk_dot = '.';
+// Punctuation — TK_DOT, TK_LPAREN, TK_RPAREN, TK_COMMA.
+tk_dot    = '.';
+tk_lparen = '(';
+tk_rparen = ')';
+tk_comma  = ',';
 
 //-----------------------------------------------------------------------
-// Tree-building helpers.
+// Per-clause variable scope.
 //
-// At PARSER-PR-0, a successful clause head produces the IR shape
-//
-//   (STMT :subj (E_CHOICE foo/0 (E_CLAUSE foo/0)))
-//
-// matching prolog_lower.c's expr_dump output for a single 0-arity fact.
-// Helpers push the assembled STMT tree onto the shared stack (per the
-// NRETURN convention — assign result to own name, use nreturn so
-// `epsilon . *helper(...)` succeeds with the side-effect firing).
+// var_table maps source variable-name → slot index ("_V0", "_V1", ...).
+// var_next is the next unassigned slot.  Both reset at clause start by
+// reset_var_scope().  Same name within one clause yields the same slot;
+// distinct names get fresh slots in first-occurrence order — matching
+// prolog_lower.c's VarScope behavior on named (non-anonymous) vars.
 //-----------------------------------------------------------------------
 
-// build_fact_atom — push a 0-arity-fact STMT for an atom-named clause.
-// `name` is the atom text (e.g. "foo", "hi").  The IR shape is the same
-// for both unquoted lowercase atoms and double-quoted strings; the
-// existing frontend interns the string contents as the predicate name.
+var_table = TABLE();
+var_next  = 0;
+
+function reset_var_scope() {
+    var_table = TABLE();
+    var_next  = 0;
+    reset_var_scope = .dummy;
+    nreturn;
+}
+
+// resolve_var(name) — return canonical "_V<slot>" for `name`, allocating
+// a fresh slot on first occurrence within the current clause.
+function resolve_var(name, slot) {
+    slot = var_table[name];
+    if (~DIFFER(slot)) {
+        slot = var_next;
+        var_table[name] = slot;
+        var_next = var_next + 1;
+    }
+    resolve_var = '_V' slot;
+    return;
+}
+
+//-----------------------------------------------------------------------
+// Argument-list construction.
+//
+// Each arg's IR-tree is pushed onto the shared stack as we recognize it.
+// At end of args, finish_compound(name) pops them back, builds the
+// E_CLAUSE / E_CHOICE envelope, and pushes one STMT.  arg_count tracks
+// the running count for the arity component of "name/N".
+//-----------------------------------------------------------------------
+
+arg_count = 0;
+
+function reset_arg_count() {
+    arg_count = 0;
+    reset_arg_count = .dummy;
+    nreturn;
+}
+
+// push_arg_atom(text) — args of form lowercase / "..." / '...' all lower
+// to (E_FNC <text>) — a 0-arg compound — per prolog_lower.c.
+function push_arg_atom(text) {
+    Push(tree('E_FNC', text));
+    arg_count = arg_count + 1;
+    push_arg_atom = .dummy;
+    nreturn;
+}
+
+function push_arg_int(text) {
+    Push(tree('E_ILIT', text));
+    arg_count = arg_count + 1;
+    push_arg_int = .dummy;
+    nreturn;
+}
+
+function push_arg_var(name) {
+    Push(tree('E_VAR', resolve_var(name)));
+    arg_count = arg_count + 1;
+    push_arg_var = .dummy;
+    nreturn;
+}
+
+//-----------------------------------------------------------------------
+// Tree-building helpers — final clause assembly.
+//
+// build_fact_atom(name) — bare 0-arity fact.  PR-0 shape preserved.
+// build_fact_compound(name) — N-ary fact, N = arg_count, with the N
+//     arg-trees currently sitting on top of the stack (push_arg_*
+//     having Pushed them in left-to-right order).
+//-----------------------------------------------------------------------
+
 function build_fact_atom(name, key) {
     key = name '/0';
     Push(Tree('STMT', '', 1,
@@ -100,25 +180,87 @@ function build_fact_atom(name, key) {
     nreturn;
 }
 
+// Build an E_CLAUSE node holding the N args currently on top of stack
+// (in the order they were Pushed).  Then wrap in E_CHOICE / :subj / STMT.
+function build_fact_compound(name, key, clause_node, args, i) {
+    key = name '/' arg_count;
+    // Pop the N args back; top of stack is the last-pushed (last) arg.
+    args = ARRAY(arg_count);
+    i = arg_count;
+    while (i > 0) {
+        args[i] = Pop();
+        i = i - 1;
+    }
+    // Construct E_CLAUSE with the args as children, in original order.
+    clause_node = Tree('E_CLAUSE', key, 0);
+    i = 1;
+    while (LE(i, arg_count)) {
+        Append(clause_node, args[i]);
+        i = i + 1;
+    }
+    Push(Tree('STMT', '', 1,
+              Tree(':subj', '', 1,
+                   Tree('E_CHOICE', key, 1, clause_node))));
+    build_fact_compound = .dummy;
+    nreturn;
+}
+
 //-----------------------------------------------------------------------
-// `primary` — one head term in clause-head position.  Mirrors
-// prolog_parse.c::parse_primary at PR-0 scope: only TK_ATOM and
-// TK_STRING are valid clause heads in standard Prolog.  TK_VAR and
-// TK_INT are recognized as tokens (their classifiers tk_var/tk_int are
-// declared above and exercised by PARSER-PR-1) but they cannot appear
-// as a clause head — `X.` and `42.` are syntax errors in the existing
-// frontend, which silently drops them.  At PR-0 we mirror that: if
-// `primary` doesn't match an atom-or-string head, the whole `clause`
-// fails, no nInc fires, no Parse child is created, output is empty —
-// byte-identical to the oracle.
+// `arg` / `args` — argument grammar.  Mirrors prolog_parse.c parse_args
+// at PR-1 scope (flat args only — no nested compounds, no operators).
+//
+//   arg  :=  TK_ATOM | TK_QATOM | TK_INT | TK_STRING | TK_VAR
+//   args :=  arg (',' ws_opt arg)*
+//
+// Order matters in `arg`: tk_atom must come before tk_var-class checks
+// because both can start at a letter; in this grammar tk_atom requires
+// lowercase-first and tk_var requires uppercase-or-underscore-first, so
+// the alternatives are disjoint at the first character — order is
+// presentation only.  tk_int is digit-only.
 //-----------------------------------------------------------------------
 
-primary = ( tk_atom   . _head_name . *build_fact_atom(_head_name)
-          | tk_string               . *build_fact_atom(_str_body)
+arg = ( tk_atom    . _arg_text   . *push_arg_atom(_arg_text)
+      | tk_qatom                 . *push_arg_atom(_qatom_body)
+      | tk_string                . *push_arg_atom(_str_body)
+      | tk_int     . _arg_text   . *push_arg_int(_arg_text)
+      | tk_var     . _arg_text   . *push_arg_var(_arg_text)
+      );
+
+args = ( arg ARBNO( ws_opt tk_comma ws_opt arg ) );
+
+//-----------------------------------------------------------------------
+// `primary` — one head term in clause-head position.  Mirrors
+// prolog_parse.c::parse_primary at PR-1 scope.
+//
+// Three forms (tried in order — longer prefix first):
+//   1. functor(args)  — N-ary compound fact (N >= 1)
+//   2. functor()      — explicit-empty-parens 0-arity (lenient — matches
+//                       oracle, same shape as bare)
+//   3. functor        — bare 0-arity fact
+//   4. "string"       — quoted-string head, interned as atom
+//
+// Variables and integers cannot be clause heads (prolog_parse.c rejects
+// them silently); they fall through and the whole clause fails to match,
+// producing empty output that agrees with the oracle.
+//
+// `epsilon . *reset_var_scope() . *reset_arg_count()` resets the
+// per-clause state before any args are pushed.
+//-----------------------------------------------------------------------
+
+primary = ( epsilon . *reset_var_scope() . *reset_arg_count()
+            ( tk_atom . _head_name ws_opt tk_lparen ws_opt args ws_opt tk_rparen
+                . *build_fact_compound(_head_name)
+            | tk_atom . _head_name ws_opt tk_lparen ws_opt tk_rparen
+                . *build_fact_atom(_head_name)
+            | tk_atom . _head_name
+                . *build_fact_atom(_head_name)
+            | tk_string
+                . *build_fact_atom(_str_body)
+            )
           );
 
 //-----------------------------------------------------------------------
-// `clause` — one Prolog clause.  At PR-0: a primary followed by `.`.
+// `clause` — one Prolog clause.  At PR-1: a primary followed by `.`.
 // Comments (`%` to end of line) and blank lines are skipped at the
 // driver level, not here.
 //-----------------------------------------------------------------------
@@ -126,10 +268,9 @@ primary = ( tk_atom   . _head_name . *build_fact_atom(_head_name)
 clause = ( primary ws_opt tk_dot );
 
 //-----------------------------------------------------------------------
-// Compiland — the canonical cross-PARSER spine.  See
-// parser_snobol4.sc / parser_icon.sc / parser_snocone.sc top-of-file
-// note about the `*Command` indirection bug; we inline `clause` here
-// for the same reason.
+// Compiland — the canonical cross-PARSER spine.  See parser_snobol4.sc
+// top-of-file note about the `*Command` indirection bug; we inline
+// `clause` here for the same reason.
 //-----------------------------------------------------------------------
 
 Compiland = nPush()
@@ -160,8 +301,8 @@ ok = (Src ? Compiland);
 
 // Pop the Parse tree and emit one line per STMT child.  Empty programs
 // (no clause heads ever pushed) are valid: TDump emits nothing, matching
-// the existing frontend's empty `--dump-ir` output for unparseable
-// inputs like "X." or "42.".
+// the existing frontend's empty `--dump-ir` output for inputs the oracle
+// rejects (`X.`, `42.`).
 if (ok) {
     ptree = Pop();
     if (DIFFER(ptree)) {
