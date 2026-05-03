@@ -34,6 +34,7 @@ Snocone has no `-include` directive; callers pass every file as a blob:
 
 ```
 scrip --ir-run \
+  corpus/programs/scrip/global.sc \
   corpus/programs/scrip/tree.sc \
   corpus/programs/scrip/stack.sc \
   corpus/programs/scrip/counter.sc \
@@ -47,6 +48,7 @@ scrip --ir-run \
 
 | File | Purpose |
 |------|---------|
+| `global.sc` | Prelude every PARSER-* driver assumes is in scope before any pattern compiles: `&FULLSCAN`, `&MAXLNGTH`, named character constants (`nul`, `bs`, `tab`, `nl`, `cr`, `ff`, `fSlash`, `semicolon`, `bSlash`, etc.), bit-prefix slices (`X0xxxxxxx` … `X11111xxx`), and the literals `TRUE`, `FALSE`, `digits`. UTF table from beauty is intentionally not imported. |
 | `tree.sc` | General-purpose tree datatype (`struct tree { t, v, n, c }`). Provides `MakeLeaf`, `MakeNode`, `Append`, `Prepend`, `Insert`, `Remove`, `Equal`, `Visit`. |
 | `stack.sc` | Linked-list value stack (`struct link`). Provides `InitStack`, `Push`, `Pop`, `Top`. Used by `ShiftReduce.sc`. |
 | `counter.sc` | Stack of integer counters (`struct link_counter`). Provides `InitCounter`, `PushCounter`, `IncCounter`, `DecCounter`, `PopCounter`, `TopCounter`. |
@@ -66,9 +68,14 @@ scrip --ir-run \
 
 ### Smoke test
 
-`smoke.sc` loads the runtime and verifies a Shift/Pop round-trip.
-`one4all/scripts/test_scrip.sh` runs it with the full blob and
-expects `bar` on stdout.
+`smoke.sc` loads the runtime and verifies a Shift/Pop round-trip plus
+the global-prelude binding. `one4all/scripts/test_scrip.sh` runs it
+with the full blob and expects two lines on stdout:
+
+```
+bar
+global-OK
+```
 
 ### Style — Snocone files
 
@@ -76,13 +83,16 @@ Today's `.sc` files are **faithful mechanical Snocone ports** of their
 `.inc` source-of-truth counterparts in `corpus/programs/snobol4/demo/beauty/`.
 Same control flow, same variable names, same `Pop()` no-arg signature,
 same `xTrace`-gated `OUTPUT = GT(xTrace, N) ...` tracing, full BegTag/
-EndTag tag stacks in `counter.sc`, `OPSYN` active in `semantic.sc`.
+EndTag tag stacks in `counter.sc`, `OPSYN` active in `semantic.sc`,
+`global.sc` faithful to `global.inc` minus the UTF lookup table.
 
-Faithfulness exposes a scrip Snocone runtime bug (one-arg `IDENT(var)`
-inside `Pop()` returns wrong branch when `tree.sc::Insert` is co-loaded);
-this is tracked as PARSER-SN-INFRA-5a in `GOAL-PARSER-SNOBOL4.md`. The
-`test_scrip.sh` gate currently reports **BLOCKED** with that pointer
-until the C-runtime fix lands.
+Faithfulness previously exposed a synthetic-label namespace collision
+in the Snocone frontend (PARSER-SN-INFRA-5a) — `label_seq` in
+`snocone_parse_program()` was reset to 0 per file, so co-loaded files
+generated colliding `_Lend_NNNN` names and `label_lookup` resolved
+gotos to the wrong target. That bug is **fixed** in `snocone_parse.y`
+via a static `g_sc_label_seq` keeping the counter monotonic across the
+whole scrip invocation.
 
 ## Future hosts
 
@@ -94,7 +104,7 @@ host implementation produced it.
 
 ## Invariants
 
-- All Snocone-hosted frontend drivers MUST share these five `.sc`
+- All Snocone-hosted frontend drivers MUST share these six `.sc`
   runtime files byte-for-byte. A driver that needs new shared
   infrastructure adds it to the appropriate runtime file, never to
   the driver itself.

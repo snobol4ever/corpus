@@ -3,13 +3,20 @@
 // faithful no-arg Pop() form beauty.sno uses at line 617:
 //     DIFFER(sno = Pop())
 // Shift('foo','bar') pushes a tree leaf; Pop() returns it.
-// Expected output: bar
+// Expected output:
+//     bar
+//     global-OK
 //
 // PARSER-SN-INFRA-5a — fixed.  The synthetic-label collision across .sc
 // files (label_seq used to reset to 0 in each snocone_parse_program call)
 // is now resolved with a monotonic counter in snocone_parse.y, so Pop's
 // :goF _Lend_NNNN no longer aliases into Insert's while-loop end.
+//
+// PARSER-SN-INFRA-2 — global.sc loaded.  digits, TRUE, FALSE, the named
+// character constants, and the X*xxxxxxx bit-prefix slices are bound.
 
 Shift('foo', 'bar');
 sno = Pop();
 OUTPUT = v(sno);
+
+OUTPUT = (IDENT(digits, '0123456789') 'global-OK', 'global-FAIL');
