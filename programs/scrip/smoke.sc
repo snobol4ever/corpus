@@ -163,3 +163,13 @@ OUTPUT = (IDENT(TLump(_fw1_foo, 256), '(FOO_KIND bar)')
           IDENT(TLump(_fw1_ic,  256), '(IC_VAR x)')
           IDENT(TLump(_fw1_eq,  256), '(E_QLIT "hi")')
           'fw1-generic-leaf-OK', 'fw1-generic-leaf-FAIL');
+
+// PARSER-SN-FW-2: multi-child role-slot wrapper in TLump.
+// Tree(':args','',3,c1,c2,c3) must render as ":args (c1 c2 c3)" — not
+// bracketed with double-quoted tag.  0 and 1-child cases unchanged.
+_fw2_c1 = Tree('E_VAR', 'a');
+_fw2_c2 = Tree('E_VAR', 'b');
+_fw2_c3 = Tree('E_VAR', 'c');
+_fw2_x3 = Tree(':args', '', 3, _fw2_c1, _fw2_c2, _fw2_c3);
+OUTPUT = (IDENT(TLump(_fw2_x3, 256), ':args ((E_VAR a) (E_VAR b) (E_VAR c))')
+          'fw2-multichild-role-OK', 'fw2-multichild-role-FAIL');

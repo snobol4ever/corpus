@@ -105,7 +105,20 @@ function TLump(x, len, i, t, sub) {
         if (LE(SIZE(TLump), len)) { return; }
         freturn;
     }
-    // Multiple children — fall through to normal bracketed render.
+    // n>=2 with ':' prefix → ":role (child1 child2 ...)" — parenthesized
+    // child list, convention picked from --dump-parse probe (PARSER-SN-FW-2).
+    // Stage each child in `sub` to avoid the function-name-slot wart (FW-5).
+    TLump = t(x) ' (';
+    i = 0;
+    while (i = LT(i, n(x)) i + 1) {
+        sub = TLump(c(x)[i], len - SIZE(TLump) - 2);
+        if (~DIFFER(sub)) { freturn; }
+        TLump = TLump (GT(i, 1) ' ', '') sub;
+    }
+    TLump = TLump ')';
+    if (LE(SIZE(TLump), len)) { return; }
+    freturn;
+    // Non-':' tags fall through to normal bracketed render.
 TLump_normal:
     if (DIFFER(n(x))) { goto TLump0; }
     TLump = TValue(x);
