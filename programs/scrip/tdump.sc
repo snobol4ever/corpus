@@ -150,11 +150,36 @@ TLump0:
     return;
 }
 
-// TDump(x) — INFRA-3 thin wrapper.  Beauty's TDump uses Gen() to wrap
-// long lines across multiple OUTPUT calls; here we just emit one long
-// line via TLump with a generous budget.  INFRA-3 deliverable stops at
-// printing the tree; line-wrap is not in scope for crosscheck output.
-function TDump(x) {
-    OUTPUT = TLump(x, 1024);
+// TDump(x, outNm) — Gen-based recursive tree dump.  Tries TLump(x, 140 -
+// GetLevel()) for an inline single-line form first (via Gen which flushes on
+// nl); if TLump fails (tree too wide), falls back to multi-line indented form
+// with IncLevel/DecLevel/recursive TDump — identical to beauty/TDump.sc.
+//
+// PARSER-SC-INFRA-1: upgraded from the INFRA-3 thin wrapper (TLump 1024) to
+// the full Gen-based version.  Requires gen.sc loaded before tdump.sc.
+// outNm defaults to .OUTPUT; callers may pass an alternate output variable.
+//
+// TValue and TLump carry all PARSER-* extensions unchanged (role-slot ':',
+// E_QLIT double-quote branch, generic IR-leaf, PARSER-IC-0 internal sval).
+function TDump(x, outNm, i, t) {
+    outNm = IDENT(outNm) .OUTPUT;
+    x = IDENT(DATATYPE(x), 'NAME') $x;
+    if (Gen(TLump(x, 140 - GetLevel()) nl, outNm)) return;
+    if (~(NULL *IDENT(n(x)))) {
+        if (~(t(x) ? (POS(0) ANY(&UCASE &LCASE)
+                     (SPAN(&UCASE &LCASE digits '_') | epsilon) RPOS(0))))
+            t = '"' t(x) '"';
+        else
+            t = t(x);
+        Gen('(' t nl, outNm);
+        IncLevel();
+        i = 0;
+        while (i = LT(i, n(x)) i + 1)
+            TDump(c(x)[i], outNm);
+        DecLevel();
+        Gen(')' nl, outNm);
+        return;
+    }
+    Gen(TValue(x) nl, outNm);
     return;
 }
