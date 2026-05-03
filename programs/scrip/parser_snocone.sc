@@ -60,6 +60,16 @@ function build_stmt_atom(kind, txt) {
     nreturn;
 }
 
+function build_stmt_assign(lhs, rhs_kind, rhs_txt) {
+    // (STMT :eq :subj (E_VAR lhs) :repl (rhs_kind rhs_txt))
+    Push(Tree('STMT', '', 3,
+              tree(':eq', ''),
+              Tree(':subj', '', 1, tree('E_VAR', lhs)),
+              Tree(':repl', '', 1, tree(rhs_kind, rhs_txt))));
+    build_stmt_assign = .dummy;
+    nreturn;
+}
+
 //-----------------------------------------------------------------------
 // BareAtom — matches one atom and captures kind + text.
 //   id   → _atom_kind='E_VAR',  _atom_text=<identifier>
@@ -81,15 +91,36 @@ BareAtom = ( str_pat
                . *assign('_atom_kind', 'E_VAR')
            );
 
+// LhsAtom — identifier used as assignment target.
+LhsAtom = ( id_pat . _lhs_id );
+
+// RhsAtom — id / int / str on the right side of `=`.
+// Captures kind tag into rhs_kind, surface text into rhs_text.
+RhsAtom = ( str_pat
+              . *assign('rhs_kind', 'E_QLIT')
+              . *assign('rhs_text', _atom_strbody)
+          | int_pat . rhs_text
+              . *assign('rhs_kind', 'E_ILIT')
+          | id_pat  . rhs_text
+              . *assign('rhs_kind', 'E_VAR')
+          );
+
 //-----------------------------------------------------------------------
-// AtomStmt — one atom-as-statement line.
-//   POS(0) ws_opt BareAtom ws_opt semi_opt ws_opt RPOS(0)
-// On success: push (STMT :subj (kind txt)).
+// Statement forms — PARSER-SC-1 adds Assign.
+// Order matters: Assign tried before AtomStmt so the LHS id is not
+// greedily consumed as a bare atom, leaving `= rhs` unmatched.
 //-----------------------------------------------------------------------
 
+// AtomStmt — bare atom as statement.
 AtomStmt = ( POS(0) ws_opt BareAtom ws_opt semi_opt ws_opt RPOS(0)
              epsilon . *build_stmt_atom(_atom_kind, _atom_text)
            );
+
+// Assign — `lhs = rhs` with optional trailing semicolon.
+Assign = ( POS(0) ws_opt LhsAtom ws_opt '=' ws_opt RhsAtom
+           ws_opt semi_opt ws_opt RPOS(0)
+           epsilon . *build_stmt_assign(_lhs_id, rhs_kind, rhs_text)
+         );
 
 //-----------------------------------------------------------------------
 // Driver loop — read lines from stdin, match AtomStmt against each,
@@ -106,8 +137,8 @@ main00:
 if (~(Line = INPUT)) { goto mainEnd; }
 // Skip blank / whitespace-only lines.
 if (Line ? (POS(0) ws_opt RPOS(0))) { goto main00; }
-// Match against the current rung grammar.
-if (~(Line ? AtomStmt)) { goto mainErr; }
+// Match against the current rung grammar (Assign tried first — see ordering note above).
+if (~(Line ? (Assign | AtomStmt))) { goto mainErr; }
 // One STMT tree on the stack per successful match — pop and dump.
 sno = Pop();
 if (~DIFFER(sno)) { goto mainErr; }
