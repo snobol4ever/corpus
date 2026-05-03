@@ -29,3 +29,15 @@ OUTPUT = (IDENT(digits, '0123456789') 'global-OK', 'global-FAIL');
 _smoke_node = tree('A', '');
 Append(_smoke_node, tree('Name', 'b'));
 OUTPUT = (IDENT(TLump(_smoke_node, 80), '(A b)') 'tdump-OK', 'tdump-FAIL');
+
+// PARSER-SN-INFRA-4 — assign.sc: deferred assign via direct call (value form).
+// assign('_smoke_cap', 'hel') stores 'hel' and returns .dummy.
+_smoke_cap = '';
+assign('_smoke_cap', 'hel');
+OUTPUT = (IDENT(_smoke_cap, 'hel') 'assign-OK', 'assign-FAIL');
+
+// PARSER-SN-INFRA-4 — match.sc: match/notmatch membership tests.
+// match succeeds when 'bar' is found in 'foo bar baz'.
+OUTPUT = (match('foo bar baz', 'bar') 'match-OK', 'match-FAIL');
+// notmatch succeeds when 'qux' is NOT in 'foo bar baz'.
+OUTPUT = (notmatch('foo bar baz', 'qux') 'notmatch-OK', 'notmatch-FAIL');
