@@ -5,10 +5,10 @@
 // Shift('foo','bar') pushes a tree leaf; Pop() returns it.
 // Expected output: bar
 //
-// NOTE: This smoke is RED until PARSER-SN-INFRA-5a lands in scrip's C
-// runtime — one-arg IDENT(var) inside Pop() returns wrong-branch when an
-// Insert-shaped function (tree.sc::Insert) is loaded in the same session.
-// See GOAL-PARSER-SNOBOL4.md INFRA-5a.
+// PARSER-SN-INFRA-5a — fixed.  The synthetic-label collision across .sc
+// files (label_seq used to reset to 0 in each snocone_parse_program call)
+// is now resolved with a monotonic counter in snocone_parse.y, so Pop's
+// :goF _Lend_NNNN no longer aliases into Insert's while-loop end.
 
 Shift('foo', 'bar');
 sno = Pop();
