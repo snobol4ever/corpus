@@ -1,10 +1,15 @@
 // parser_snobol4.sc — PARSER-SN: SNOBOL4 frontend in Snocone.
 //
-// Reads a SNOBOL4 source program from stdin via INPUT, runs the
-// `Compiland` PATTERN to build a Snocone tree on the shared stack via
-// Shift/Reduce, then dumps the tree via TDump.  The dumped form is
-// byte-identical to scrip's existing-frontend `--dump-parse` output —
-// that's how the PARSER-SN gate verifies agreement.
+// Reads a SNOBOL4 source program from stdin via INPUT, accumulates the
+// whole program into Src, then runs the canonical Compiland spine
+//
+//     Compiland = nPush() ARBNO( <Command body> )
+//                 reduce("'Parse'", 'nTop()') nPop()
+//
+// (per beauty.sc:133) to build a single Parse tree wrapping one STMT
+// child per statement.  Each STMT child is then dumped via TDump,
+// producing one line per statement — byte-identical to scrip's
+// existing-frontend `--dump-parse` output.
 //
 // This file is the **template** for all six PARSER-* frontends.
 // The driver loop and Compiland spine are identical across all six;
@@ -12,34 +17,44 @@
 // PARSER-SC, PARSER-RB, PARSER-RK, PARSER-IC, PARSER-PR can copy this
 // shape and replace the language-specific rules.
 //
-// Tree-on-stack vs print-direct: this driver builds genuine Snocone
-// trees via Shift/Reduce/Push/Pop; the role-slot/flag wrapper convention
-// (type tags starting with ':') is handled by the shared tdump.sc
-// extension landed in PARSER-SN-2.  No language-specific dumper.
-//
 // Sibling LANG rungs: SN-1 (basic lexer), SN-2 (atom recognition).
 // The existing src/frontend/snobol4/ remains the read-only oracle.
+//
+// Architecture note — Command body inlined into Compiland.
+// beauty.sc:133 writes `ARBNO(*Command)` with `*Command` indirection;
+// we inline the Command body directly inside ARBNO instead.  This is
+// a dodge for a real scrip-Snocone runtime bug: when a pattern Q
+// contains a deferred call like `epsilon . *fn()` and is referenced
+// via `*Q` indirection inside `ARBNO(*Q)`, the deferred calls inside
+// Q never fire (probe in 2026-05-03 session: `ARBNO(Q)` fires `fn()`
+// twice on a 2-char input, `ARBNO(*Q)` fires `fn()` zero times).
+// Documented as the FW-3 underlying root cause — supersedes the
+// previous nInc-blame in earlier session notes.  The structural shape
+// of Compiland is preserved — only the lexical placement of the
+// Command alternatives changes.  All five sibling sessions inherit
+// the same workaround.
 
 //-----------------------------------------------------------------------
 // Atom recognizers — single-character and multi-character primitives.
 //-----------------------------------------------------------------------
 
-// Whitespace.
+// Whitespace + line break.
 ws_one = ANY(' ' tab);
 ws_run = SPAN(' ' tab);
 ws_opt = (SPAN(' ' tab) | epsilon);
+nl_one = ANY(nl);
 
 // Identifier — letter then letters/digits/dot/underscore.
 id_first = ANY(&UCASE &LCASE);
 id_rest  = SPAN(digits &UCASE &LCASE '_.');
 id_pat   = (id_first (id_rest | epsilon));
 
-// Integer — one-or-more digits.  Signed forms reserved for PARSER-SN-2.
+// Integer — one-or-more digits.  Signed forms reserved for PARSER-SN-3.
 int_pat  = SPAN(digits);
 
 // String — single or double quoted; no embedded escape handling at
 // this rung (atom-level fixtures don't need them).  The body capture
-// `_atom_strbody` is consumed by the *Shift_qlit deferred call below.
+// `_atom_strbody` is consumed by the trailing *assign() deferred call.
 sstr_pat = ("'" BREAK("'") . _atom_strbody "'");
 dstr_pat = ('"' BREAK('"') . _atom_strbody '"');
 str_pat  = (sstr_pat | dstr_pat);
@@ -47,12 +62,12 @@ str_pat  = (sstr_pat | dstr_pat);
 //-----------------------------------------------------------------------
 // Tree-building helpers.
 //
-// build_stmt_atom(kind_var, txt_var) — pop nothing, push:
-//   tree('STMT', '', 1, tree(':subj', '', 1, tree(<kind>, <txt>)))
-// where <kind> is read from the named var (E_VAR / E_ILIT / E_QLIT).
-//
-// These helpers are called from match-time deferred actions in the
-// Compiland Command body.  They return .dummy per RULES.md NRETURN.
+// Each helper pushes a fully-formed STMT tree onto the shared stack.
+// They're called from match-time deferred actions in the Compiland
+// Command alternatives.  Per RULES.md NRETURN convention, each helper
+// assigns its result to its own name and uses `nreturn` so that
+// `epsilon . *helper(...)` succeeds as a pattern element with the
+// name's value bound but the side effect (the Push) firing.
 //-----------------------------------------------------------------------
 
 function build_stmt_atom(kind, txt) {
@@ -114,12 +129,12 @@ BareAtom = ( id_pat  . _atom_text
 // Command bodies — one per statement form.  Each is a pattern with a
 // trailing deferred call that pushes the constructed STMT tree.
 //
-// At PARSER-SN-1 the Command alternatives are:
+// At PARSER-SN-FW-3 the Command alternatives are:
+//   - End     : the literal END keyword
 //   - Assign  : `lhs = rhs`
 //   - AtomStmt: bare atom
-//   - End     : the literal END keyword
 //
-// Order matters in Stmt: End first (literal match), Assign next (would
+// Order matters: End first (literal match), Assign next (would
 // otherwise conflict with AtomStmt's LHS-id eating the LHS), AtomStmt
 // last.
 //-----------------------------------------------------------------------
@@ -132,37 +147,68 @@ Assign = ( LhsAtom ws_opt '=' ws_opt RhsAtom
            epsilon . *build_stmt_assign(_lhs_id, rhs_kind, rhs_text)
          );
 
-// Stmt — one whole input line, anchored.
-Stmt = (POS(0) ws_opt (End | Assign | AtomStmt) ws_opt RPOS(0));
-
 //-----------------------------------------------------------------------
-// Driver loop — read lines from stdin, match Stmt against each, then
-// pop and dump the resulting tree.  Each successful Stmt match pushes
-// exactly one tree onto the stack; the driver pops it and TDumps it.
+// Compiland — the canonical spine.
 //
-// This is the per-line-driver pattern.  A future rung may switch to
-// the canonical `Compiland = nPush() ARBNO(*Command) reduce('Parse',
-// 'nTop()') nPop()` whole-program form (matching beauty.sc:133), at
-// which point all programs would read into one buffer and parse as a
-// single match.  For now, line-by-line keeps the gate's per-line
-// output structure, matching --dump-parse's per-statement output.
+// nPush() opens a fresh counter frame; ARBNO(...) consumes statements
+// one at a time, each iteration calling nInc() so the counter records
+// the child count; reduce("'Parse'", 'nTop()') pops nTop() trees off
+// the stack and pushes a Parse tree wrapping them; nPop() closes the
+// counter frame.  The single resulting Parse tree on the stack carries
+// every STMT as a child.
+//
+// The Command body (End | Assign | AtomStmt) is inlined directly into
+// ARBNO(...) rather than referenced as `*Command` — see top-of-file
+// architecture note for the runtime-bug rationale.  Structurally
+// equivalent; lexically distinct.
 //-----------------------------------------------------------------------
 
-main00:
-if (~(Line = INPUT)) { goto mainEnd; }
-// Skip blank/whitespace-only lines.
-if (Line ? (POS(0) ws_opt RPOS(0))) { goto main00; }
-// Match against the rung grammar.
-if (~(Line ? Stmt)) { goto mainErr; }
-// One STMT tree on the stack per successful match — pop and dump.
-sno = Pop();
-if (~DIFFER(sno)) { goto mainErr; }
-TDump(sno);
-goto main00;
+Compiland = nPush()
+            ARBNO( nInc() ws_opt (End | Assign | AtomStmt) ws_opt nl_one )
+            reduce("'Parse'", 'nTop()')
+            nPop();
+
+//-----------------------------------------------------------------------
+// Driver loop — read whole stdin into Src, then run Src ? Compiland
+// once.  Pop the resulting Parse tree, render each STMT child via
+// TDump as one line.  This produces output byte-identical to
+// scrip's existing-frontend `--dump-parse` mode.
+//
+// The "read into buffer then single-match" idiom is the canonical
+// frontend-driver shape from beauty.sc main00/main02.  All six
+// PARSER-* sessions inherit it.
+//-----------------------------------------------------------------------
+
+// Initialize the counter & stack subsystems (per beauty/main.sc startup).
+InitCounter();
+InitStack();
+
+// Accumulate full source into Src buffer.
+Src = '';
+read_loop:
+if (~(Line = INPUT)) { goto read_done; }
+Src = Src Line nl;
+goto read_loop;
+read_done:
+
+// Single Compiland match against the full source.
+if (~(Src ? Compiland)) { goto mainErr; }
+
+// Pop the Parse tree and emit one line per STMT child.
+ptree = Pop();
+if (~DIFFER(ptree)) { goto mainErr; }
+
+i = 1;
+n_kids = n(ptree);
+emit_loop:
+if (~(LE(i, n_kids))) { goto mainEnd; }
+TDump(c(ptree)[i]);
+i = i + 1;
+goto emit_loop;
 
 mainErr:
-OUTPUT = 'Parse Error: ' Line;
-goto main00;
+OUTPUT = 'Parse Error';
+goto mainEnd;
 
 mainEnd:
 _parser_sn_done = '';
