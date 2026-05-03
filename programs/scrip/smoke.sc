@@ -50,3 +50,21 @@ OUTPUT = (IDENT(cap('aBc'), 'Abc') 'cap-OK', 'cap-FAIL');
 // icase('End') yields a pattern that matches 'eNd' case-insensitively.
 _smoke_icp = icase('End');
 OUTPUT = (('eNd' ? _smoke_icp) 'icase-OK', 'icase-FAIL');
+
+// PARSER-SN-INFRA-7 — qize.sc: Qize/SQize/DQize/SqlSQize round-trips on the
+// non-deferred-*assign surface.  The deferred-*assign branch in Qize (control
+// chars: bSlash/bs/ff/nl/cr/tab) is blocked by INFRA-7a (inline *assign in
+// pattern not firing when the pattern is built inline inside `(str ? PAT)`).
+// What we exercise here are the BREAK/REM branches — the ones that handle
+// printable ASCII and quote chars.
+OUTPUT = (IDENT(Qize(''),       "''")            'qize-empty-OK', 'qize-empty-FAIL');
+OUTPUT = (IDENT(Qize('hello'),  "'hello'")       'qize-plain-OK', 'qize-plain-FAIL');
+OUTPUT = (IDENT(SQize('hello'), "'hello'")       'sqize-OK',      'sqize-FAIL');
+OUTPUT = (IDENT(DQize('hello'), '"hello"')       'dqize-OK',      'dqize-FAIL');
+// SqlSQize doubles internal '
+OUTPUT = (IDENT(SqlSQize("o'clock"), "o''clock") 'sqlsqize-OK',   'sqlsqize-FAIL');
+// PARSER-SN-INFRA-7: tdump.sc::TValue now calls SqlSQize for string leaves,
+// so a string leaf with embedded ' renders SQL-escaped inside the tree dump.
+_smoke_qn = tree('R', '');
+Append(_smoke_qn, tree('string', "o'clock"));
+OUTPUT = (IDENT(TLump(_smoke_qn, 80), "(R 'o''clock')") 'tdump-quote-OK', 'tdump-quote-FAIL');

@@ -7,9 +7,10 @@
 // scope.  TLump returning a one-line string is sufficient for crosscheck
 // PASS/FAIL output.
 //
-// TODO(INFRA-7): swap the placeholder "'" v(x) "'" in TValue for proper
-// SqlSQize(v(x)) once Qize.sc lands.  Until then, strings/characters/
-// datetimes are not quote-escaped.
+// PARSER-SN-INFRA-7: swapped the placeholder "'" v(x) "'" in TValue for
+// SqlSQize(v(x)) — strings/characters/datetimes are now properly escaped
+// against embedded single quotes.  Requires qize.sc loaded earlier in the
+// blob; the dependency is enforced by test_scrip.sh's load order.
 //
 // PARSER-SN-INFRA-5c — fixed.  eval_code.c::E_KEYWORD now uppercases the
 // keyword name and looks it up directly in NV (no spurious '&' prefix),
@@ -22,14 +23,14 @@
 // children — that case is then expanded by TLump's bracketed branch.
 function TValue(x, i) {
     if (TValue = IDENT(v(x)) ".") { return; }
-    if (TValue = IDENT(t(x), 'Name')       v(x))           { return; }
-    if (TValue = IDENT(t(x), 'float')      v(x))           { return; }
-    if (TValue = IDENT(t(x), 'integer')    v(x))           { return; }
-    if (TValue = IDENT(t(x), 'bool')       v(x))           { return; }
-    if (TValue = IDENT(t(x), 'datetime')   "'" v(x) "'")   { return; }  // TODO INFRA-7: SqlSQize
-    if (TValue = IDENT(t(x), 'character')  "'" v(x) "'")   { return; }  // TODO INFRA-7: SqlSQize
-    if (TValue = IDENT(t(x), 'string')     "'" v(x) "'")   { return; }  // TODO INFRA-7: SqlSQize
-    if (TValue = IDENT(t(x), 'identifier') v(x))           { return; }
+    if (TValue = IDENT(t(x), 'Name')       v(x))                   { return; }
+    if (TValue = IDENT(t(x), 'float')      v(x))                   { return; }
+    if (TValue = IDENT(t(x), 'integer')    v(x))                   { return; }
+    if (TValue = IDENT(t(x), 'bool')       v(x))                   { return; }
+    if (TValue = IDENT(t(x), 'datetime')   "'" SqlSQize(v(x)) "'") { return; }
+    if (TValue = IDENT(t(x), 'character')  "'" SqlSQize(v(x)) "'") { return; }
+    if (TValue = IDENT(t(x), 'string')     "'" SqlSQize(v(x)) "'") { return; }
+    if (TValue = IDENT(t(x), 'identifier') v(x))                   { return; }
     TValue = t(x);
     i = 0;
     while (i = LT(i, n(x)) i + 1) {
