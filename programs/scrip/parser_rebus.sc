@@ -7,10 +7,9 @@
 //
 // This file follows the shape of parser_snobol4.sc / parser_icon.sc.
 //
-// Rung PARSER-RB-0 (CURRENT): atom body only.
-//   function NAME(arglist) <atom-body-stmts> end
-//   Atoms: identifier (E_VAR), integer (E_ILIT), string (E_QLIT).
-//
+// Rung PARSER-RB-0 (DONE): atom body only.
+// Rung PARSER-RB-1 (CURRENT): assignment (lhs := rhs, atom rhs).
+
 // Tree shape per function (N body stmts):
 //   (STMT :subj (E_FNC DEFINE (E_QLIT "FNAME()")))
 //   (STMT :go rb_K)
@@ -104,6 +103,15 @@ function emit_func_call(fname) {
     return;
 }
 
+function emit_assign(lhs, rhs_kind, rhs_txt) {
+    // (STMT :eq :subj (E_VAR LHS) :repl (rhs_kind rhs_txt))
+    TDump(Tree('STMT', '', 3,
+               tree(':eq', ''),
+               Tree(':subj', '', 1, tree('E_VAR', lhs)),
+               Tree(':repl', '', 1, tree(rhs_kind, rhs_txt))));
+    return;
+}
+
 //-----------------------------------------------------------------------
 // Per-line patterns.
 //-----------------------------------------------------------------------
@@ -114,6 +122,23 @@ FuncHeader = ( POS(0) ws_opt 'function' ws_run id_pat . _rb_raw_name
              );
 
 FuncEnd    = ( POS(0) ws_opt 'end' ws_opt RPOS(0) );
+
+// AssignLine: `lhs := rhs` where rhs is an atom.
+// Must be tried BEFORE BodyAtomLine so the lhs id isn't consumed as bare atom.
+// lhs is always an identifier (uppercased). rhs is id/int/str atom.
+AssignLine = ( POS(0) ws_opt id_pat . _rb_lhs ws_opt ':=' ws_opt
+               ( str_pat
+                   . *assign('_rb_atom_kind', 'E_QLIT')
+                   . *assign('_rb_atom_txt',  _rb_strbody)
+               | int_pat . _rb_atom_txt
+                   . *assign('_rb_atom_kind', 'E_ILIT')
+               | id_pat  . _rb_atom_txt
+                   . *assign('_rb_atom_kind', 'E_VAR')
+                   . *assign('_rb_atom_txt',  uc(_rb_atom_txt))
+               )
+               ws_opt RPOS(0)
+               epsilon . *assign('_rb_lhs', uc(_rb_lhs))
+             );
 
 BodyAtomLine = ( POS(0) ws_opt
                  ( str_pat
@@ -158,6 +183,10 @@ goto rb_loop;
 
 rb_state1:
 if (RbLine ? FuncEnd) { goto rb_end; }
+if (~(RbLine ? AssignLine)) { goto rb_try_atom; }
+emit_assign(uc(_rb_lhs), _rb_atom_kind, _rb_atom_txt);
+goto rb_loop;
+rb_try_atom:
 if (~(RbLine ? BodyAtomLine)) {
     OUTPUT = 'PARSER-RB: unrecognized body: ' RbLine;
     goto rb_loop;
