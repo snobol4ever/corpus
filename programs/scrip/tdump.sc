@@ -37,16 +37,28 @@ function TValue(x, i) {
     if (TValue = IDENT(t(x), 'character')  "'" SqlSQize(v(x)) "'") { return; }
     if (TValue = IDENT(t(x), 'string')     "'" SqlSQize(v(x)) "'") { return; }
     if (TValue = IDENT(t(x), 'identifier') v(x))                   { return; }
-    // PARSER-SN: scrip IR leaves — render as "(Tag value)" verbatim.
-    // The parens are part of the leaf's canonical printed form (matching
-    // scrip --dump-parse output like `(E_VAR x)`); slot-wrappers do
-    // NOT add their own parens around child renders, so this self-paren
-    // is what makes `:subj (E_VAR x)` come out right.  E_QLIT uses
-    // double-quotes (not SqlSQize'd single-quotes) because scrip's
-    // --dump-parse uses double-quoted form for string literals.
-    if (TValue = IDENT(t(x), 'E_VAR')      '(' t(x) ' ' v(x) ')')        { return; }
-    if (TValue = IDENT(t(x), 'E_ILIT')     '(' t(x) ' ' v(x) ')')        { return; }
+    // PARSER-SN-FW-1: E_QLIT special branch — double-quotes, not generic.
+    // Must come BEFORE the generic-leaf branch below, because E_QLIT also
+    // matches the generic pattern (non-empty v, letter-only tag) but needs
+    // double-quote wrapping, not the plain `(TAG val)` form.
     if (TValue = IDENT(t(x), 'E_QLIT')     '(' t(x) ' "' v(x) '")')      { return; }
+    // PARSER-SN-FW-1: generic IR-leaf branch — covers any kind whose type
+    // tag starts with a letter and contains only letters/digits/underscore,
+    // AND whose v(x) is non-empty.  Renders as "(TAG value)" — the canonical
+    // self-paren form matching scrip's --dump-parse output.  Examples:
+    //   E_VAR x     → (E_VAR x)
+    //   E_ILIT 5    → (E_ILIT 5)
+    //   IC_VAR foo  → (IC_VAR foo)
+    //   PL_TERM bar → (PL_TERM bar)
+    // Slot-wrappers do NOT add their own parens, so this self-paren is
+    // what makes `:subj (E_VAR x)` come out right.
+    // The per-kind E_VAR / E_ILIT branches are removed — generic catches them.
+    if (DIFFER(v(x))) {
+        if (t(x) ? (POS(0) ANY(&UCASE &LCASE) (SPAN(&UCASE &LCASE digits '_') | epsilon) RPOS(0))) {
+            TValue = '(' t(x) ' ' v(x) ')';
+            return;
+        }
+    }
     TValue = t(x);
     i = 0;
     while (i = LT(i, n(x)) i + 1) {

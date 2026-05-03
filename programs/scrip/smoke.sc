@@ -151,3 +151,15 @@ OUTPUT = (IDENT(t(_smoke_o10_t1), 'Word') IDENT(v(_smoke_o10_t1), 'foo')
           IDENT(t(_smoke_o10_t3), 'P') EQ(n(_smoke_o10_t3), 1)
           IDENT(t(_smoke_o10_t4), 'P') EQ(n(_smoke_o10_t4), 1)
           'opsyn-OK', 'opsyn-FAIL');
+
+// PARSER-SN-FW-1: generic IR-leaf branch in TValue.
+// tree('FOO_KIND', 'bar') must render as (FOO_KIND bar) — not bare FOO_KIND.
+// tree('IC_VAR', 'x') must render as (IC_VAR x) — sibling-session kind.
+// tree('E_QLIT', 'hi') must render as (E_QLIT "hi") — double-quote special branch.
+_fw1_foo = tree('FOO_KIND', 'bar');
+_fw1_ic  = tree('IC_VAR', 'x');
+_fw1_eq  = tree('E_QLIT', 'hi');
+OUTPUT = (IDENT(TLump(_fw1_foo, 256), '(FOO_KIND bar)')
+          IDENT(TLump(_fw1_ic,  256), '(IC_VAR x)')
+          IDENT(TLump(_fw1_eq,  256), '(E_QLIT "hi")')
+          'fw1-generic-leaf-OK', 'fw1-generic-leaf-FAIL');
