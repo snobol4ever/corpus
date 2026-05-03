@@ -1,153 +1,211 @@
-// parser_snocone.sc — PARSER-SC: Snocone frontend in Snocone (PARSER-SC-0).
+// parser_snocone.sc — PARSER-SC: Snocone frontend in Snocone.
 //
-// Reads a Snocone source program from stdin via INPUT, runs the
-// `Compiland` PATTERN to build a Snocone tree on the shared stack via
-// Shift/Reduce, then dumps each tree via TDump.  The dumped form must be
-// byte-identical to scrip's existing-frontend `--dump-ir` output —
-// that's the PARSER-SC gate verification.
+// Rung PARSER-SC-INFRA-2: canonical Compiland spine + tier ladder.
 //
-// This file follows the shape of parser_snobol4.sc (the template for all
-// six PARSER-* frontends).  The driver loop and build helpers are
-// identical; only the per-language atom recognizers differ (Snocone uses
-// C-style syntax: optional trailing `;`, double-quoted or single-quoted
-// strings, identifiers, integers).
+// shift(pat, t): semantic.sc builds EVAL("p . thx . *Shift('" t "', thx)")
+//   so t must be the BARE type name (no surrounding quotes) — semantic.sc
+//   adds them.  Pass e.g. 'E_VAR' (a 5-char string, not "'E_VAR'").
 //
-// Rung PARSER-SC-0: bare atom-as-statement only.
-//   atom_id.sc  → (STMT :subj (E_VAR x))
-//   atom_int.sc → (STMT :subj (E_ILIT 42))
-//   atom_str.sc → (STMT :subj (E_QLIT "hello"))
+// reduce(t, n): semantic.sc builds EVAL("epsilon . *Reduce(" t ", " n ")")
+//   ShiftReduce.sc's Reduce() then EVALs t if DATATYPE==EXPRESSION.
+//   t must carry its own surrounding quotes so the EVALed expr is a string
+//   literal: pass "'E_ASSIGN'" (9 chars including the quotes).
+//   Built via sq concat since Snocone can't write "'" in a double-quoted lit.
 //
-// Sibling LANG rungs: SC-0 (lexer), SC-1 (atom).
-// The existing src/frontend/snocone/ remains the read-only oracle.
+// Tier ladder (snocone_parse.y 798-811):
+//   Expr0  right-assoc `=` → E_ASSIGN
+//   Expr1  right-assoc `?` → E_SCAN
+//   Expr3  n-ary `|`       → E_ALT
+//   Expr4  n-ary space     → E_SEQ
+//   Expr6  left `+` `-`    → E_ADD E_SUB
+//   Expr9  left `*` `/`    → E_MUL E_DIV
+//   Expr17 atoms
+//
+// Gate (INFRA-2): PASS=13 FAIL=0.
+
+&FULLSCAN = 1;
 
 //-----------------------------------------------------------------------
-// Atom recognizers — Snocone surface syntax.
+// Type name strings.
+// s_* = bare name for shift() calls.
+// r_* = quoted name for reduce() calls (reduce needs "'E_X'" not "E_X").
 //-----------------------------------------------------------------------
 
-// Whitespace.
-ws_one = ANY(' ' tab);
-ws_run = SPAN(' ' tab);
-ws_opt = (SPAN(' ' tab) | epsilon);
+sq      = "'";
+s_QLIT  = 'E_QLIT';
+s_ILIT  = 'E_ILIT';
+s_VAR   = 'E_VAR';
+r_ASSIGN = sq 'E_ASSIGN' sq;
+r_SCAN   = sq 'E_SCAN'   sq;
+r_ALT    = sq 'E_ALT'    sq;
+r_SEQ    = sq 'E_SEQ'    sq;
+r_ADD    = sq 'E_ADD'    sq;
+r_SUB    = sq 'E_SUB'    sq;
+r_MUL    = sq 'E_MUL'    sq;
+r_DIV    = sq 'E_DIV'    sq;
+r_Parse  = sq 'Parse'    sq;
+r_nTop   = '*(GT(nTop(), 1) nTop())';
 
-// Identifier — letter or underscore then letters/digits/underscore/dot.
-id_first = ANY(&UCASE &LCASE '_');
-id_rest  = SPAN(digits &UCASE &LCASE '_.');
-id_pat   = (id_first (id_rest | epsilon));
+//-----------------------------------------------------------------------
+// Whitespace helpers.
+//-----------------------------------------------------------------------
 
-// Integer — one-or-more decimal digits.
-int_pat  = SPAN(digits);
+White    = SPAN(' ' tab);
+Gray     = (*White | epsilon);
+nl_opt   = (nl | epsilon);
 
-// String — double-quoted or single-quoted; no embedded escape at this rung.
-// Capture of the body (between delimiters) goes into _atom_strbody.
-dstr_pat = ('"'  BREAK('"')  . _atom_strbody '"');
-sstr_pat = ("'"  BREAK("'")  . _atom_strbody "'");
-str_pat  = (dstr_pat | sstr_pat);
+//-----------------------------------------------------------------------
+// Operator wrapper patterns.
+//-----------------------------------------------------------------------
 
-// Optional trailing semicolon (Snocone statements may end with ';').
+op_eq    = (*Gray '=' *Gray);
+op_q     = (*Gray '?' *Gray);
+op_or    = (*Gray '|' *Gray);
+op_pls   = (*Gray '+' *Gray);
+op_mns   = (*Gray '-' *Gray);
+op_mul   = (*Gray '*' *Gray);
+op_div   = (*Gray '/' *Gray);
+
+//-----------------------------------------------------------------------
+// Atom recognizers (beauty.sc names).
+//-----------------------------------------------------------------------
+
+Integer  = SPAN(digits);
+DQ       = ('"'  BREAK('"')  . _sc_strbody '"');
+SQ       = ("'"  BREAK("'")  . _sc_strbody "'");
+String   = (*SQ | *DQ);
+Id       = (ANY(&UCASE &LCASE '_')
+            FENCE(SPAN('.' digits &UCASE '_' &LCASE) | epsilon));
 semi_opt = (';' | epsilon);
 
 //-----------------------------------------------------------------------
-// Tree-building helpers — push one STMT tree onto the shared stack.
-//
-// build_stmt_atom(kind, txt):
-//   push tree('STMT', '', 1, tree(':subj', '', 1, tree(kind, txt)))
-// Returns .dummy per RULES.md NRETURN convention.
+// sc_decompose_stmt.
 //-----------------------------------------------------------------------
 
-function build_stmt_atom(kind, txt) {
-    Push(Tree('STMT', '', 1, Tree(':subj', '', 1, tree(kind, txt))));
-    build_stmt_atom = .dummy;
+function sc_decompose_stmt(top, lhs, rhs, s) {
+    top = Pop();
+    if (IDENT(type(top), 'E_ASSIGN')) {
+        lhs = c(top)[1];
+        rhs = c(top)[2];
+        s = tree('STMT', '', 3,
+                 tree(':eq',   ''),
+                 tree(':subj', '', 1, lhs),
+                 tree(':repl', '', 1, rhs));
+    } else {
+        s = tree('STMT', '', 1, tree(':subj', '', 1, top));
+    }
+    Push(s);
+    sc_decompose_stmt = .dummy;
     nreturn;
 }
 
-function build_stmt_assign(lhs, rhs_kind, rhs_txt) {
-    // (STMT :eq :subj (E_VAR lhs) :repl (rhs_kind rhs_txt))
-    Push(Tree('STMT', '', 3,
-              tree(':eq', ''),
-              Tree(':subj', '', 1, tree('E_VAR', lhs)),
-              Tree(':repl', '', 1, tree(rhs_kind, rhs_txt))));
-    build_stmt_assign = .dummy;
-    nreturn;
-}
-
 //-----------------------------------------------------------------------
-// BareAtom — matches one atom and captures kind + text.
-//   id   → _atom_kind='E_VAR',  _atom_text=<identifier>
-//   int  → _atom_kind='E_ILIT', _atom_text=<digits>
-//   str  → _atom_kind='E_QLIT', _atom_text=<body without delimiters>
-// (str must come BEFORE id/int in the alternation to avoid int_pat /
-//  id_pat consuming a leading digit of a numeric string in a hypothetical
-//  edge — at rung 0 str has explicit delimiters so order is safe either way,
-//  but explicit leading-delimiter matching means str must come before id to
-//  avoid id_pat consuming a bare `"` as the first char.)
+// Expr17 — atoms. shift() takes bare type name.
 //-----------------------------------------------------------------------
 
-BareAtom = ( str_pat
-               . *assign('_atom_kind', 'E_QLIT')
-               . *assign('_atom_text', _atom_strbody)
-           | int_pat . _atom_text
-               . *assign('_atom_kind', 'E_ILIT')
-           | id_pat  . _atom_text
-               . *assign('_atom_kind', 'E_VAR')
-           );
-
-// LhsAtom — identifier used as assignment target.
-LhsAtom = ( id_pat . _lhs_id );
-
-// RhsAtom — id / int / str on the right side of `=`.
-// Captures kind tag into rhs_kind, surface text into rhs_text.
-RhsAtom = ( str_pat
-              . *assign('rhs_kind', 'E_QLIT')
-              . *assign('rhs_text', _atom_strbody)
-          | int_pat . rhs_text
-              . *assign('rhs_kind', 'E_ILIT')
-          | id_pat  . rhs_text
-              . *assign('rhs_kind', 'E_VAR')
-          );
-
-//-----------------------------------------------------------------------
-// Statement forms — PARSER-SC-1 adds Assign.
-// Order matters: Assign tried before AtomStmt so the LHS id is not
-// greedily consumed as a bare atom, leaving `= rhs` unmatched.
-//-----------------------------------------------------------------------
-
-// AtomStmt — bare atom as statement.
-AtomStmt = ( POS(0) ws_opt BareAtom ws_opt semi_opt ws_opt RPOS(0)
-             epsilon . *build_stmt_atom(_atom_kind, _atom_text)
-           );
-
-// Assign — `lhs = rhs` with optional trailing semicolon.
-Assign = ( POS(0) ws_opt LhsAtom ws_opt '=' ws_opt RhsAtom
-           ws_opt semi_opt ws_opt RPOS(0)
-           epsilon . *build_stmt_assign(_lhs_id, rhs_kind, rhs_text)
+Expr17 = FENCE(
+             shift(*String,  s_QLIT)
+           | shift(*Integer, s_ILIT)
+           | shift(*Id,      s_VAR)
          );
 
 //-----------------------------------------------------------------------
-// Driver loop — read lines from stdin, match AtomStmt against each,
-// pop and TDump the resulting tree.  Blank lines are skipped silently.
-// Parse errors emit a diagnostic and continue (consistent with
-// parser_snobol4.sc's mainErr label behaviour).
-//
-// At PARSER-SC-0 the grammar covers atom-as-statement only.  Subsequent
-// rungs extend `Command` with Assign, control-flow, etc. following the
-// pattern in GOAL-PARSER-SNOCONE.md.
+// Expr9 — mul/div. reduce() takes quoted type name.
 //-----------------------------------------------------------------------
 
-main00:
-if (~(Line = INPUT)) { goto mainEnd; }
-// Skip blank / whitespace-only lines.
-if (Line ? (POS(0) ws_opt RPOS(0))) { goto main00; }
-// Match against the current rung grammar (Assign tried first — see ordering note above).
-if (~(Line ? (Assign | AtomStmt))) { goto mainErr; }
-// One STMT tree on the stack per successful match — pop and dump.
-sno = Pop();
-if (~DIFFER(sno)) { goto mainErr; }
-TDump(sno);
-goto main00;
+Expr9 = *Expr17
+        FENCE(
+            *op_mul *Expr17 reduce(r_MUL, 2)
+                FENCE(*op_mul *Expr17 reduce(r_MUL, 2) | epsilon)
+          | *op_div *Expr17 reduce(r_DIV, 2)
+                FENCE(*op_div *Expr17 reduce(r_DIV, 2) | epsilon)
+          | epsilon
+        );
+
+//-----------------------------------------------------------------------
+// Expr6 — add/sub.
+//-----------------------------------------------------------------------
+
+Expr6 = *Expr9
+        FENCE(
+            *op_pls *Expr9 reduce(r_ADD, 2)
+                FENCE(*op_pls *Expr9 reduce(r_ADD, 2) | epsilon)
+          | *op_mns *Expr9 reduce(r_SUB, 2)
+                FENCE(*op_mns *Expr9 reduce(r_SUB, 2) | epsilon)
+          | epsilon
+        );
+
+//-----------------------------------------------------------------------
+// Expr4 — n-ary concat E_SEQ.
+//-----------------------------------------------------------------------
+
+Expr4 = nPush() *X4 reduce(r_SEQ, r_nTop) nPop();
+X4    = nInc() *Expr6 FENCE(*White *X4 | epsilon);
+
+//-----------------------------------------------------------------------
+// Expr3 — n-ary alt E_ALT.
+//-----------------------------------------------------------------------
+
+Expr3 = nPush() *X3 reduce(r_ALT, r_nTop) nPop();
+X3    = nInc() *Expr4 FENCE(*op_or *X3 | epsilon);
+
+//-----------------------------------------------------------------------
+// Expr1 — pattern match.
+//-----------------------------------------------------------------------
+
+Expr1 = *Expr3 FENCE(*op_q *Expr1 reduce(r_SCAN, 2) | epsilon);
+
+//-----------------------------------------------------------------------
+// Expr0 — assignment.
+//-----------------------------------------------------------------------
+
+Expr0 = *Expr1 FENCE(*op_eq *Expr0 reduce(r_ASSIGN, 2) | epsilon);
+
+//-----------------------------------------------------------------------
+// stmt_body — inlined into ARBNO.
+//-----------------------------------------------------------------------
+
+stmt_body = (*Gray *Expr0 *Gray semi_opt *Gray nl_opt
+             epsilon . *sc_decompose_stmt());
+
+//-----------------------------------------------------------------------
+// Compiland.
+//-----------------------------------------------------------------------
+
+Compiland = nPush()
+            ARBNO(nInc() stmt_body)
+            reduce(r_Parse, 'nTop()')
+            nPop();
+
+//-----------------------------------------------------------------------
+// Driver. Uses if/else — ~ is OPSYN'd to shift after semantic.sc loads.
+//-----------------------------------------------------------------------
+
+InitCounter();
+InitStack();
+
+Src = '';
+read_loop:
+if (Line = INPUT) { Src = Src Line nl; goto read_loop; }
+read_done:
+
+if (Src ? Compiland) { goto got_tree; }
+goto mainErr;
+got_tree:
+
+ptree = Pop();
+if (DIFFER(ptree)) { goto emit_start; }
+goto mainErr;
+emit_start:
+
+i = 1;
+n_kids = n(ptree);
+emit_loop:
+if (LE(i, n_kids)) { TDump(c(ptree)[i]); i = i + 1; goto emit_loop; }
 
 mainErr:
-OUTPUT = 'Parse Error: ' Line;
-goto main00;
+OUTPUT = 'Parse Error';
+goto mainEnd;
 
 mainEnd:
 _parser_sc_done = '';
