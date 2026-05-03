@@ -132,6 +132,16 @@ TLump0:
         t = '"' t(x) '"';
     }
     TLump = TLump t;
+    // PARSER-IC-0 (cross-pollinates to all six PARSER-* sessions): when an
+    // internal node carries a non-empty sval (v(x)), emit it as a label
+    // immediately after the type tag — matches ir_print_node's generic-case
+    // behaviour ("(KIND sval child1 child2 ...)").  Used by Icon's E_FNC
+    // (function-name label), and reserved for future kinds with the same
+    // convention.  Existing PARSER-* fixtures all pass v='' on internal
+    // nodes, so this branch is a no-op for them.
+    if (DIFFER(v(x))) {
+        TLump = TLump ' ' v(x);
+    }
     i = 0;
     while (i = LT(i, n(x)) i + 1) {
         if (~(TLump = TLump ' ' TLump(c(x)[i], len - SIZE(TLump) - 2))) { freturn; }
