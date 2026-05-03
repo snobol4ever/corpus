@@ -32,6 +32,7 @@ Two file variants exist for each language:
 | `s4-sp.ebnf`, `s4-no.ebnf`     | SNOBOL4 grammar (project-internal). |
 | `icon-sp.ebnf`, `icon-no.ebnf` | Icon grammar — 1-to-1 translation of `icon-grammar.h`. |
 | `icon-grammar.h`               | Verbatim copy of upstream gtownsend/icon `src/h/grammar.h` (public domain — see README header in that file). |
+| `icon-references/`             | Supplementary cross-references — independent implementations of the same grammar that corroborate the canonical names. See `icon-references/NOTES.md`. |
 
 ## Adding a new language grammar
 
