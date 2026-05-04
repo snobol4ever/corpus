@@ -337,9 +337,9 @@ stmt_cmd  = (nInc() stmt_body);
 if_cmd =
     ( nInc()
       *Gray *kw_if   $'(' *Expr0 SC_save_cond() $')' *Gray nl_opt
-      $'{' nl_opt    SC_body('sc_if_nthen')    *Gray $'}' *Gray nl_opt
+      $'{' nl_opt    SC_body('sc_if_nthen')    $'}' *Gray nl_opt
       ( *kw_else *Gray nl_opt
-        $'{' nl_opt  SC_body('sc_if_nelse')    *Gray $'}' *Gray nl_opt
+        $'{' nl_opt  SC_body('sc_if_nelse')    $'}' *Gray nl_opt
         SC_finalize_if_else('sc_if_nthen', 'sc_if_nelse', 'sc_saved_cond')
       | SC_finalize_if('sc_if_nthen', 'sc_saved_cond')
       )
@@ -349,14 +349,14 @@ while_cmd =
     ( nInc()
       *Gray *kw_while $'(' *Expr0 SC_save_cond()
                           SC_while_head_alloc() $')' *Gray nl_opt
-      $'{' nl_opt SC_body('sc_wh_nbody') *Gray $'}' *Gray nl_opt
+      $'{' nl_opt SC_body('sc_wh_nbody') $'}' *Gray nl_opt
       SC_finalize_while('sc_wh_nbody', 'sc_saved_cond')
     );
 
 do_cmd =
     ( nInc()
       *Gray *kw_do *Gray nl_opt SC_do_head_alloc()
-      $'{' nl_opt SC_body('sc_do_nbody') *Gray $'}' *Gray nl_opt
+      $'{' nl_opt SC_body('sc_do_nbody') $'}' *Gray nl_opt
       *kw_while $'(' *Expr0 SC_save_cond() $')' ($';' | epsilon) *Gray nl_opt
       SC_finalize_do('sc_do_nbody', 'sc_saved_cond')
     );
