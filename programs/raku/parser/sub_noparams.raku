@@ -1,0 +1,3 @@
+sub greet() {
+    say("hello");
+}

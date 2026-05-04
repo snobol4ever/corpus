@@ -20,7 +20,7 @@
 //   - All IR trees are n-ary (Append-based, not binary Tree(tag,'',2,l,r)).
 //   - One Compiland pattern. One ? match against Src in the driver.
 //
-// Rung PARSER-RK-3: atoms + decl/assign + say + arith + if/while/for.
+// Rung PARSER-RK-4: atoms + decl/assign + say + arith + if/while/for + sub def + call.
 //
 // Expression result lives in _expr_node (parallel to parser_icon.sc's
 // _expr_node convention).  Statement-level actions append _expr_node
@@ -30,6 +30,10 @@
 // producing one E_SEQ_EXPR on the stack; saved into _rk_block by
 // save_block() for use by if/while/for builders.  Nesting is handled
 // by a cons-list save stack (_rk_block_stk).
+//
+// Sub decls: SubStmt builds an E_FNC node (_rk_sub_node) with name + params +
+// body stmts as direct children (no E_SEQ_EXPR).  Each sub is wrapped in a STMT
+// and cons'd onto _rk_sub_list.  The driver emits sub STMTs first, then main.
 
 //-----------------------------------------------------------------------
 // Whitespace / newline.
@@ -72,6 +76,7 @@ rk_rp     = ')';
 rk_lb     = '{';
 rk_rb     = '}';
 rk_arrow  = '->';
+rk_comma  = ',';
 
 // Arithmetic.
 rk_mul = '*';
@@ -88,12 +93,14 @@ rk_lt  = '<';
 rk_gt  = '>';
 
 // Keywords — require non-alnum follower to avoid prefix-matching.
-kw_my    = ('my'    (ws_run | rk_lp));
-kw_say   = ('say'   ws_opt);
-kw_if    = ('if'    ws_opt);
-kw_else  = ('else'  ws_opt);
-kw_while = ('while' ws_opt);
-kw_for   = ('for'   ws_run);
+kw_my     = ('my'     (ws_run | rk_lp));
+kw_say    = ('say'    ws_opt);
+kw_if     = ('if'     ws_opt);
+kw_else   = ('else'   ws_opt);
+kw_while  = ('while'  ws_opt);
+kw_for    = ('for'    ws_run);
+kw_sub    = ('sub'    ws_run);
+kw_return = ('return' (ws_run | rk_semi));
 
 //-----------------------------------------------------------------------
 // Assign-target capture — distinct names (_rk_atf/_rk_atr) so the
@@ -115,6 +122,23 @@ rk_fr  = SPAN(digits &UCASE &LCASE '_');
 rk_fro = (rk_fr | epsilon);
 ForLoopvar = ('$' rk_ff . _rk_ff rk_fro . _rk_fr);
 
+// Sub name capture — _rk_snf/_rk_snr.
+rk_snf = ANY(&UCASE &LCASE '_');
+rk_snr = SPAN(digits &UCASE &LCASE '_');
+rk_snro = (rk_snr | epsilon);
+SubName = (rk_snf . _rk_snf rk_snro . _rk_snr);
+
+// Sub param capture — scalar only ($name); bare name stored in _rk_pf/_rk_pr.
+rk_pf  = ANY(&UCASE &LCASE '_');
+rk_pr  = SPAN(digits &UCASE &LCASE '_');
+rk_pro = (rk_pr | epsilon);
+
+// Argument-name / function call name capture.
+rk_fnf = ANY(&UCASE &LCASE '_');
+rk_fnr = SPAN(digits &UCASE &LCASE '_');
+rk_fnro = (rk_fnr | epsilon);
+CallName = (rk_fnf . _rk_fnf rk_fnro . _rk_fnr);
+
 //-----------------------------------------------------------------------
 // Tree-building / semantic functions.
 // These are the ONLY functions in this file. No function is called from
@@ -134,8 +158,18 @@ _rk_cond  = '';
 _rk_then  = '';
 // _rk_block_stk: cons-list for block save/restore during nesting.
 _rk_block_stk = '';
+// _rk_sub_node: in-progress sub E_FNC node.
+_rk_sub_node = '';
+// _rk_sub_stk: cons-list for nested sub save/restore (sub defs inside blocks).
+_rk_sub_stk = '';
+// _rk_sub_list: cons-list of completed sub STMT nodes (emitted before main).
+_rk_sub_list = '';
+// _rk_arg_stk: cons-list of arg nodes for function call building.
+_rk_arg_stk = '';
 
 struct rk_blink { bnext, bval }
+struct rk_slink { snext, sval }
+struct rk_alink { anext, aval }
 
 // start_main() — initialize _main_node to (E_FNC main (E_VAR main)).
 
@@ -325,6 +359,97 @@ function build_for(body_seq, iter_arr, iter_node, node) {
 }
 
 //-----------------------------------------------------------------------
+// Sub definition builders.
+//-----------------------------------------------------------------------
+
+// start_sub(snf, snr) — initialize _rk_sub_node = E_FNC(name, E_VAR(name)).
+function start_sub(snf, snr, sname) {
+    sname = snf snr;
+    _rk_sub_node = tree('E_FNC', sname);
+    Append(_rk_sub_node, tree('E_VAR', sname));
+    start_sub = .dummy;
+    nreturn;
+}
+
+// add_param(pf, pr) — append E_VAR(param) to _rk_sub_node.
+function add_param(pf, pr) {
+    Append(_rk_sub_node, tree('E_VAR', pf pr));
+    add_param = .dummy;
+    nreturn;
+}
+
+// append_sub_stmt() — append _expr_node to _rk_sub_node as a body child.
+function append_sub_stmt() {
+    Append(_rk_sub_node, _expr_node);
+    append_sub_stmt = .dummy;
+    nreturn;
+}
+
+// finish_sub() — wrap _rk_sub_node in (STMT :subj ...) and cons onto _rk_sub_list.
+function finish_sub(subj, stmt) {
+    subj = tree(':subj', '');
+    Append(subj, _rk_sub_node);
+    stmt = tree('STMT', '');
+    Append(stmt, subj);
+    _rk_sub_list = rk_slink(_rk_sub_list, stmt);
+    finish_sub = .dummy;
+    nreturn;
+}
+
+// build_return() — _expr_node = E_RETURN(<arg>).
+// Called after Expr is matched; wraps _expr_node.
+function build_return(arg, node) {
+    arg  = _expr_node;
+    node = tree('E_RETURN', '');
+    Append(node, arg);
+    _expr_node = node;
+    build_return = .dummy;
+    nreturn;
+}
+
+// build_return_void() — _expr_node = E_RETURN (no children).
+function build_return_void(node) {
+    node = tree('E_RETURN', '');
+    _expr_node = node;
+    build_return_void = .dummy;
+    nreturn;
+}
+
+//-----------------------------------------------------------------------
+// Function call builders.
+//-----------------------------------------------------------------------
+
+// start_call(fnf, fnr) — initialize a call E_FNC node, push arg accumulator.
+// _rk_call_node holds the in-progress call tree.
+_rk_call_node = '';
+
+function start_call(fnf, fnr, fname) {
+    fname = fnf fnr;
+    _rk_call_node = tree('E_FNC', fname);
+    Append(_rk_call_node, tree('E_VAR', fname));
+    _rk_arg_stk = rk_alink(_rk_arg_stk, _rk_call_node);
+    start_call = .dummy;
+    nreturn;
+}
+
+// add_call_arg() — append _expr_node as next arg to top call node.
+function add_call_arg(top) {
+    top = aval(_rk_arg_stk);
+    Append(top, _expr_node);
+    add_call_arg = .dummy;
+    nreturn;
+}
+
+// finish_call() — pop call node from arg stack, set _expr_node.
+function finish_call(top) {
+    top = aval(_rk_arg_stk);
+    _rk_arg_stk = anext(_rk_arg_stk);
+    _expr_node = top;
+    finish_call = .dummy;
+    nreturn;
+}
+
+//-----------------------------------------------------------------------
 // Expression tower — result lives in _expr_node.
 //
 // Named tail patterns (Expr7tail etc.) wrap operator + rhs + action
@@ -333,11 +458,20 @@ function build_for(body_seq, iter_arr, iter_node, node) {
 // to avoid clobbering across nested expression calls.
 //-----------------------------------------------------------------------
 
+// CallArgTail — comma-separated subsequent args.
+// Defined BEFORE Expr11 so the ARBNO(*CallArgTail) reference in Expr11
+// captures the correct pattern. Uses *Expr deferred (Expr not yet defined
+// here, resolved at match time).
+CallArgTail = ( ws_opt rk_comma ws_opt *Expr epsilon . *add_call_arg() );
+
 // Expr11 — primary.
 // Paren grouping uses *Expr (deferred) to handle recursion.
 // var_array / var_hash / var_scalar all produce E_VAR (sigil stripped).
 // kw_say / kw_if / kw_while / kw_for tried before id_pat to avoid
 // treating keywords as bare identifiers.
+// Function call tried before bare id_pat (longest match wins).
+// ARBNO(*CallArgTail) uses a deferred reference so it re-reads the bound
+// CallArgTail value at match time (avoids stale epsilon capture).
 Expr11 = ( var_scalar epsilon . *expr_from_var(_rk_vf, _rk_vr)
          | var_array  epsilon . *expr_from_var(_rk_vf, _rk_vr)
          | var_hash   epsilon . *expr_from_var(_rk_vf, _rk_vr)
@@ -345,6 +479,15 @@ Expr11 = ( var_scalar epsilon . *expr_from_var(_rk_vf, _rk_vr)
          | dstr_pat epsilon . *expr_from_qlit(_rk_strbody)
          | sstr_pat epsilon . *expr_from_qlit(_rk_strbody)
          | (rk_lp ws_opt *Expr ws_opt rk_rp)
+         | ( CallName epsilon . *start_call(_rk_fnf, _rk_fnr)
+             rk_lp ws_opt
+             ( *Expr epsilon . *add_call_arg()
+               ARBNO( *CallArgTail )
+             | epsilon
+             )
+             ws_opt rk_rp
+             epsilon . *finish_call()
+           )
          );
 
 // Expr7 — multiplicative (* /).
@@ -442,6 +585,23 @@ Block = ( ws_opt rk_lb ws_opt (nl_one | epsilon) ws_opt
         );
 
 //-----------------------------------------------------------------------
+// SubBlock — `{ SubStmt* }` — appends body stmts directly onto _rk_sub_node.
+// No E_SEQ_EXPR wrapper — sub body stmts are inlined as direct children.
+//-----------------------------------------------------------------------
+
+SubBlockStmt = epsilon;
+
+SubBlock_body = ( ws_opt (nl_one | epsilon) ws_opt
+                  *SubBlockStmt
+                  ws_opt (nl_one | epsilon) ws_opt
+                );
+
+SubBlock = ( ws_opt rk_lb ws_opt (nl_one | epsilon) ws_opt
+             ARBNO( SubBlock_body )
+             ws_opt (nl_one | epsilon) ws_opt rk_rb
+           );
+
+//-----------------------------------------------------------------------
 // Control-flow stmt patterns.
 // Each saves intermediate trees into _rk_cond / _rk_then before the
 // optional else / body parse, avoiding _expr_node clobber on recursion.
@@ -483,6 +643,13 @@ ForStmt = ( ws_opt kw_for ws_opt
             epsilon . *build_for()
           );
 
+// ReturnStmt — `return Expr ;` or `return ;`
+ReturnStmt = ( ws_opt kw_return ws_opt
+               ( rk_semi epsilon . *build_return_void()
+               | Expr ws_opt rk_semi epsilon . *build_return()
+               )
+             );
+
 // AssignStmt — `[my] $tgt = Expr ;`
 // kw_my is optional and discarded (no IR difference per raku.y).
 AssignStmt = ( ws_opt (kw_my | epsilon)
@@ -510,6 +677,7 @@ BareStmt = ( ws_opt Expr ws_opt rk_semi );
 Stmt = ( IfStmt    epsilon . *append_body_stmt()
        | WhileStmt epsilon . *append_body_stmt()
        | ForStmt   epsilon . *append_body_stmt()
+       | ReturnStmt epsilon . *append_body_stmt()
        | AssignStmt epsilon . *append_body_stmt()
        | SayStmt   epsilon . *append_body_stmt()
        | BareStmt  epsilon . *append_body_stmt()
@@ -520,16 +688,54 @@ Stmt = ( IfStmt    epsilon . *append_body_stmt()
 // Control-flow stmts inside blocks: append onto _expr_node then push.
 // BlockStmt — no extra actions; Block_body handles nInc and push_expr_node
 // after the *BlockStmt match.  Each statement just sets _expr_node.
-BlockStmt = ( IfStmt | WhileStmt | ForStmt | AssignStmt | SayStmt | BareStmt );
+BlockStmt = ( IfStmt | WhileStmt | ForStmt | ReturnStmt | AssignStmt | SayStmt | BareStmt );
+
+// SubBodyStmt — stmt inside a sub body. Sets _expr_node then calls append_sub_stmt().
+// ReturnStmt before others to avoid prefix matching with bare expr.
+SubBlockStmt = ( IfStmt    epsilon . *append_sub_stmt()
+               | WhileStmt epsilon . *append_sub_stmt()
+               | ForStmt   epsilon . *append_sub_stmt()
+               | ReturnStmt epsilon . *append_sub_stmt()
+               | AssignStmt epsilon . *append_sub_stmt()
+               | SayStmt   epsilon . *append_sub_stmt()
+               | BareStmt  epsilon . *append_sub_stmt()
+               );
+
+//-----------------------------------------------------------------------
+// Sub parameter list — `$a, $b, ...` (zero or more).
+//-----------------------------------------------------------------------
+
+SubParamTail = ( ws_opt rk_comma ws_opt
+                 '$' rk_pf . _rk_pf rk_pro . _rk_pr
+                 epsilon . *add_param(_rk_pf, _rk_pr)
+               );
+
+SubParams = ( '$' rk_pf . _rk_pf rk_pro . _rk_pr
+              epsilon . *add_param(_rk_pf, _rk_pr)
+              ARBNO( SubParamTail )
+            | epsilon
+            );
+
+// SubStmt — `sub name(params) { body }` — top-level only.
+// Result is cons'd onto _rk_sub_list; does NOT touch _expr_node or _main_node.
+SubStmt = ( ws_opt kw_sub
+            SubName
+            epsilon . *start_sub(_rk_snf, _rk_snr)
+            rk_lp ws_opt SubParams ws_opt rk_rp
+            SubBlock
+            epsilon . *finish_sub()
+          );
 
 //-----------------------------------------------------------------------
 // Compiland — canonical cross-PARSER spine.
 // One pattern. One ? match against Src in the driver.
-// Produces one STMT (E_FNC main wrapper) for the whole program.
+// Produces one STMT (E_FNC main wrapper) for the whole program,
+// plus zero or more sub STMT nodes cons'd onto _rk_sub_list.
 //-----------------------------------------------------------------------
 
 Compiland = nPush()
-            epsilon . *start_main() ARBNO( ws_opt Stmt ws_opt (ANY(nl) | epsilon) )
+            epsilon . *start_main()
+            ARBNO( ws_opt (SubStmt | Stmt) ws_opt (ANY(nl) | epsilon) )
             epsilon . *finish_main()
             reduce("'Parse'", 1)
             nPop();
@@ -537,6 +743,7 @@ Compiland = nPush()
 //-----------------------------------------------------------------------
 // Driver — read stdin into Src, run one ? match, emit each Parse child.
 // No goto. Structured flow only.
+// Emit order: sub STMTs first (reversed from cons-list), then main STMT.
 //-----------------------------------------------------------------------
 
 InitCounter();
@@ -554,10 +761,35 @@ ok = (Src ? Compiland);
 if (ok) {
     ptree = Pop();
     if (DIFFER(ptree)) {
+        // Reverse the sub_list (cons'd in forward order, need reverse for emit).
+        _rk_sub_rev = '';
+        _rk_sl = _rk_sub_list;
+        while (DIFFER(_rk_sl)) {
+            _rk_sub_rev = rk_slink(_rk_sub_rev, sval(_rk_sl));
+            _rk_sl = snext(_rk_sl);
+        }
+        // Emit sub STMTs.
+        _rk_sl = _rk_sub_rev;
+        while (DIFFER(_rk_sl)) {
+            TDump(sval(_rk_sl));
+            _rk_sl = snext(_rk_sl);
+        }
+        // Emit main STMT only if it has body stmts beyond the initial E_VAR main child.
+        // Oracle does not emit a main wrapper for programs with only sub defs.
         i = 1;
         n_kids = n(ptree);
         while (LE(i, n_kids)) {
-            TDump(c(ptree)[i]);
+            main_stmt = c(ptree)[i];
+            // main_stmt is (STMT :subj (E_FNC main (E_VAR main) body...))
+            // Count children of the E_FNC main node: child 1 of :subj, children of E_FNC.
+            // n(main_stmt) = 1 (:subj), n(c(main_stmt)[1]) = 1 (E_FNC main).
+            // E_FNC main has children: [1]=E_VAR(main) + body stmts.
+            // Only emit if E_FNC has more than 1 child.
+            subj_node = c(main_stmt)[1];    // :subj
+            efnc_node = c(subj_node)[1];    // E_FNC main
+            if (GT(n(efnc_node), 1)) {
+                TDump(main_stmt);
+            }
             i = i + 1;
         }
     }
