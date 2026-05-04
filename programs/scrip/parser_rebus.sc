@@ -23,22 +23,17 @@
 // This keeps pattern definitions short and uniform.
 //-----------------------------------------------------------------------
 
-function RB_save(name_ref, val_expr) {
-    // RB_save(.foo, *expr) → returns: epsilon . *assign('foo', val_expr)
-    // The assign helper from assign.sc handles EXPRESSION DATATYPE.
-    RB_save = EVAL("epsilon . *assign('" name_ref "', val_expr)");
+function RB_push_qlit() {
+    // Build-time: returns `epsilon . *rb_push_qlit()` pattern fragment.
+    // Match-time: rb_push_qlit reads _rb_strbody global and pushes E_QLIT.
+    RB_push_qlit = epsilon . *rb_push_qlit();
     return;
 }
 
-function RB_qlit_emit(strbody_var) {
-    // RB_qlit_emit('_rb_strbody') → match-time push tree('E_QLIT', _rb_strbody)
-    RB_qlit_emit = EVAL("epsilon . *rb_push_qlit('" strbody_var "')");
-    return;
-}
-
-function RB_call_emit(name_var) {
-    // RB_call_emit('_rb_callname') → match-time push tree('RB_CALL', uppercased name)
-    RB_call_emit = EVAL("epsilon . *rb_push_call('" name_var "')");
+function RB_push_call() {
+    // Build-time: returns `epsilon . *rb_push_call()` pattern fragment.
+    // Match-time: rb_push_call reads _rb_callname global and pushes RB_CALL.
+    RB_push_call = epsilon . *rb_push_call();
     return;
 }
 
@@ -49,56 +44,42 @@ function RB_call_emit(name_var) {
 // in pattern definitions.
 //-----------------------------------------------------------------------
 
-function rb_push_qlit(name) {
-    // Read the body global by indirection ($name), push tree('E_QLIT', body).
+function rb_push_qlit() {
     rb_push_qlit = .dummy;
-    Push(tree('E_QLIT', $name));
+    Push(tree('E_QLIT', _rb_strbody));
     nreturn;
 }
 
-function rb_push_call(name) {
-    // Push tree('RB_CALL', upper(name-from-global)) — call-site marker
-    // with name as direct value (no child); lower_expr converts to E_FNC.
+function rb_push_call() {
     rb_push_call = .dummy;
-    Push(tree('RB_CALL', REPLACE($name, &LCASE, &UCASE)));
+    Push(tree('RB_CALL', REPLACE(_rb_callname, &LCASE, &UCASE)));
     nreturn;
 }
 
 //-----------------------------------------------------------------------
-// Tag string constants — direct quoted form, no sq indirection.
-//
-// shift(P, T) takes a bare type-name string T (no surrounding quotes) —
-//   semantic.sc adds the quotes when building the EVAL fragment.
-// reduce(T, N) takes a quoted-literal-form T (the string contains its
-//   own surrounding single quotes) because semantic.sc embeds T in a
-//   string that is later EVAL'd; the embedded quotes make T a literal.
-//
-// So tags used with shift() get bare-form names; tags used with reduce()
-// get quote-embedded names.  No suffix decoration — each name appears
-// in one context only.
+// Tag string constants — all bare form.  semantic.sc INFRA-11c auto-quotes
+// via _qtag() for both shift() and reduce(), so callers never need to
+// embed surrounding quotes.  Just write the tag name.
 //-----------------------------------------------------------------------
 
-// shift() tags (bare).
-E_VAR  = 'E_VAR';
-E_ILIT = 'E_ILIT';
-E_QLIT = 'E_QLIT';
-
-// reduce() tags (quote-embedded).
-Parse        = "'Parse'";
-RB_FUNC_DECL = "'RB_FUNC_DECL'";
-RB_REC_DECL  = "'RB_REC_DECL'";
-RB_PARAMS    = "'RB_PARAMS'";
-RB_BODY      = "'RB_BODY'";
-RB_FIELDS    = "'RB_FIELDS'";
-RB_ASSIGN    = "'RB_ASSIGN'";
-RB_MATCH     = "'RB_MATCH'";
-RB_IF        = "'RB_IF'";
-RB_WHILE     = "'RB_WHILE'";
-E_ALT        = "'E_ALT'";
-E_ADD        = "'E_ADD'";
-E_SUB        = "'E_SUB'";
-E_MUL        = "'E_MUL'";
-E_DIV        = "'E_DIV'";
+E_VAR        = 'E_VAR';
+E_ILIT       = 'E_ILIT';
+E_QLIT       = 'E_QLIT';
+E_ALT        = 'E_ALT';
+E_ADD        = 'E_ADD';
+E_SUB        = 'E_SUB';
+E_MUL        = 'E_MUL';
+E_DIV        = 'E_DIV';
+Parse        = 'Parse';
+RB_FUNC_DECL = 'RB_FUNC_DECL';
+RB_REC_DECL  = 'RB_REC_DECL';
+RB_PARAMS    = 'RB_PARAMS';
+RB_BODY      = 'RB_BODY';
+RB_FIELDS    = 'RB_FIELDS';
+RB_ASSIGN    = 'RB_ASSIGN';
+RB_MATCH     = 'RB_MATCH';
+RB_IF        = 'RB_IF';
+RB_WHILE     = 'RB_WHILE';
 
 // n-ary count expression — eval'd at match time inside reduce().
 nTop_gt1 = '*(GT(nTop(), 1) nTop())';
@@ -145,7 +126,7 @@ String  = (*DQ_str | *SQ_str);
 // which pushes (E_QLIT body) at match time. No literal *fn() in pattern.
 //-----------------------------------------------------------------------
 
-primary = FENCE(  *String  RB_qlit_emit('_rb_strbody')
+primary = FENCE(  *String  RB_push_qlit()
                 | shift(*Integer, E_ILIT)
                 | shift(*Id,      E_VAR)
                );
@@ -162,7 +143,7 @@ primary = FENCE(  *String  RB_qlit_emit('_rb_strbody')
 // alternative is mutually exclusive with bare-id primary at the prefix.
 id_call_pat = (Id . _rb_callname '(' *Gray ')');
 
-postfix_expr = (  id_call_pat RB_call_emit('_rb_callname')
+postfix_expr = (  id_call_pat RB_push_call()
                 | *primary
                );
 
