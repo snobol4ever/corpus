@@ -147,9 +147,43 @@ function Resolve_var(name, slot) {
 // cannot express the tree directly — variable slot resolution, string
 // bodies, named-value compound nodes, and the clause envelope.
 //=============================================================================
+// Push_var — push (E_VAR _Vk) for named variables.  Bare `_` is special:
+// each occurrence allocates its OWN fresh slot in a second pass that runs
+// after the clause is fully parsed (mirrors prolog_lower.c::assign_clause_
+// anon_slots).  At parse time we push the placeholder (E_VAR _ANON); the
+// real slot is assigned by Assign_anon_slots in Build_clause / Build_
+// directive once max named-var slot is known.
 function Push_var(name) {
+    if (IDENT(name, '_')) {
+        Push(tree('E_VAR', '_ANON'));
+        Push_var = .dummy;
+        nreturn;
+    }
     Push(tree('E_VAR', Resolve_var(name)));
     Push_var = .dummy;
+    nreturn;
+}
+
+// Assign_anon_slots — walk tree x; replace each (E_VAR _ANON) node's value
+// with a fresh _Vk slot starting at var_next.  Mirrors prolog_lower.c::
+// assign_clause_anon_slots Pass-2 logic: that C code uses an explicit
+// LIFO stack — push args[0..arity-1], pop from top — so children are
+// visited in REVERSE order.  We replicate that by recursing into c[n],
+// c[n-1], ..., c[1] (last-to-first) at every node.  Mutates v(x) in
+// place; recurses into children.
+function Assign_anon_slots(x, i, kid) {
+    if (~DIFFER(x)) { Assign_anon_slots = .dummy; nreturn; }
+    if (IDENT(t(x), 'E_VAR') IDENT(v(x), '_ANON')) {
+        v(x) = '_V' var_next;
+        var_next = var_next + 1;
+    }
+    i = n(x);
+    while (i > 0) {
+        kid = c(x)[i];
+        Assign_anon_slots(kid);
+        i = i - 1;
+    }
+    Assign_anon_slots = .dummy;
     nreturn;
 }
 
@@ -333,6 +367,26 @@ function Build_clause(key, parts, i, body_tree, clause_node, bk, bn) {
             Append(clause_node, body_tree);
         }
     }
+    // Pass 2: assign fresh _Vk slots to each (E_VAR _ANON) placeholder.
+    // Mirror prolog_lower.c::assign_clause_anon_slots which walks `head`
+    // first, then each body[i] separately.  Inside each walk, args are
+    // visited in reverse via stack pop — Assign_anon_slots handles that.
+    // In our flattened layout, c(clause_node)[1..head_arity] are head
+    // args; c(clause_node)[head_arity+1..n] are body elements.  Walking
+    // head args in REVERSE order (bk=head_arity downto 1) replicates the
+    // C macro PA_WALK_ASSIGN(cl->head) which would push then pop them
+    // in reverse, then visit each body[i] individually in source order.
+    bk = head_arity;
+    while (bk > 0) {
+        Assign_anon_slots(c(clause_node)[bk]);
+        bk = bk - 1;
+    }
+    bn = n(clause_node);
+    bk = head_arity + 1;
+    while (LE(bk, bn)) {
+        Assign_anon_slots(c(clause_node)[bk]);
+        bk = bk + 1;
+    }
     Push(Tree('STMT', '', 1,
               Tree(':subj', '', 1,
                    Tree('E_CHOICE', key, 1, clause_node))));
@@ -347,6 +401,9 @@ function Build_clause(key, parts, i, body_tree, clause_node, bk, bn) {
 // directive lowering exactly.
 function Build_directive(body_tree) {
     body_tree = Pop();
+    // Pass 2: assign fresh _Vk slots to each (E_VAR _ANON) placeholder in
+    // body, picking up after named vars (var_next) — same as Build_clause.
+    Assign_anon_slots(body_tree);
     Push(Tree('STMT', '', 1,
               Tree(':subj', '', 1, body_tree)));
     Build_directive = .dummy;
