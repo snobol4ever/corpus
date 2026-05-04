@@ -30,6 +30,11 @@
 function TValue(x, i) {
     // PARSER-RB-2: E_NUL before the empty-value "." check.
     if (TValue = IDENT(t(x), 'E_NUL') '(E_NUL)')                           { return; }
+    // PARSER-SN-5: E_QLIT with empty value must render as `(E_QLIT "")`,
+    // not the placeholder dot.  Oracle --dump-parse always emits the
+    // typed quoted form even for empty replacements (`S 'a' = ` →
+    // `:repl (E_QLIT "")`).  Must come BEFORE the empty-v(x) "." check.
+    if (TValue = IDENT(t(x), 'E_QLIT')     '(' t(x) ' "' v(x) '")')      { return; }
     if (TValue = IDENT(v(x)) ".") { return; }
     if (TValue = IDENT(t(x), 'Name')       v(x))                   { return; }
     if (TValue = IDENT(t(x), 'float')      v(x))                   { return; }
@@ -39,11 +44,6 @@ function TValue(x, i) {
     if (TValue = IDENT(t(x), 'character')  "'" SqlSQize(v(x)) "'") { return; }
     if (TValue = IDENT(t(x), 'string')     "'" SqlSQize(v(x)) "'") { return; }
     if (TValue = IDENT(t(x), 'identifier') v(x))                   { return; }
-    // PARSER-SN-FW-1: E_QLIT special branch — double-quotes, not generic.
-    // Must come BEFORE the generic-leaf branch below, because E_QLIT also
-    // matches the generic pattern (non-empty v, letter-only tag) but needs
-    // double-quote wrapping, not the plain `(TAG val)` form.
-    if (TValue = IDENT(t(x), 'E_QLIT')     '(' t(x) ' "' v(x) '")')      { return; }
     // PARSER-SN-FW-1: generic IR-leaf branch — covers any kind whose type
     // tag starts with a letter and contains only letters/digits/underscore,
     // AND whose v(x) is non-empty.  Renders as "(TAG value)" — the canonical

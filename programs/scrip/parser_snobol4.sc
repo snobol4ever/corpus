@@ -59,7 +59,27 @@ ws_opt  = (SPAN(' ' tab) | epsilon);
 // reference local variables.  Returns a Snocone tree node or FRETURNs.
 //-----------------------------------------------------------------------
 
-// Expr17 — atoms: parenthesized subexpr, integer literal, string, identifier.
+// _pat_prim_call(name, kind) — recognize a single pattern primitive call.
+// Tries to match: NAME '(' expr ')' at POS(_ep). On success returns a
+// 1-child tree of the given IR `kind` wrapping the parsed argument
+// expression and advances _ep past the close-paren. On failure FRETURNs
+// without disturbing _ep (caller's saved ep0 is the recovery point).
+//
+// Used by Expr17 to recognize the SNOBOL4 pattern primitives LEN, BREAK,
+// SPAN, ANY, NOTANY (PARSER-SN-5).
+function _pat_prim_call(name, kind, ep0, arg) {
+    ep0 = _ep;
+    if (~(_src ? (POS(_ep) name '(' @_ep))) { _ep = ep0; freturn; }
+    _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
+    arg = Expr(_src);
+    if (~DIFFER(arg)) { _ep = ep0; freturn; }
+    if (~(_src ? (POS(_ep) (SPAN(' ' tab) | epsilon) ')' @_ep))) { _ep = ep0; freturn; }
+    _pat_prim_call = Tree(kind, '', 1, arg);
+    return;
+}
+
+// Expr17 — atoms: parenthesized subexpr, pattern primitive call,
+// integer literal, string, identifier.
 function Expr17(dummy, v, sub) {
     // Parenthesized subexpr.
     if (_src ? (POS(_ep) '(' @_ep)) {
@@ -70,6 +90,22 @@ function Expr17(dummy, v, sub) {
         Expr17 = sub;
         return;
     }
+    // Pattern primitive calls (PARSER-SN-5). Try LEN / BREAK / SPAN /
+    // ANY / NOTANY before the bare identifier alternative — otherwise
+    // `LEN` would match as `E_VAR LEN` and the `(3)` would be left
+    // unconsumed. Each name must be followed immediately by `(`; if
+    // the lookahead fails, _pat_prim_call resets _ep and FRETURNs so
+    // we fall through cleanly. NOTANY before ANY (longer match wins).
+    sub = _pat_prim_call('LEN',    'E_LEN');
+    if (DIFFER(sub)) { Expr17 = sub; return; }
+    sub = _pat_prim_call('BREAK',  'E_BREAK');
+    if (DIFFER(sub)) { Expr17 = sub; return; }
+    sub = _pat_prim_call('SPAN',   'E_SPAN');
+    if (DIFFER(sub)) { Expr17 = sub; return; }
+    sub = _pat_prim_call('NOTANY', 'E_NOTANY');
+    if (DIFFER(sub)) { Expr17 = sub; return; }
+    sub = _pat_prim_call('ANY',    'E_ANY');
+    if (DIFFER(sub)) { Expr17 = sub; return; }
     // Integer — must not be preceded by sign (unary handles that at Expr14).
     if (_src ? (POS(_ep) Integer . v @_ep)) {
         Expr17 = tree('E_ILIT', v);
@@ -118,10 +154,51 @@ function Expr14(dummy, sub) {
     return;
 }
 
+// Expr12 — conditional / immediate capture-assignment: `expr . VAR` and
+// `expr $ VAR`. Left-associative per the existing scrip frontend (oracle
+// produces ((a . X) . Y) for `'a' . X . Y`). Operator binds tighter than
+// arith / pow but looser than unary / atom — between Expr11 (pow) and
+// Expr14 (unary) in the tier ladder. The RHS of `.` / `$` is restricted
+// to a name (E_VAR) per the canonical s4-no.ebnf `cap` rule and the
+// oracle's E_CAPT_*_ASGN second-child shape (PARSER-SN-5).
+function Expr12(dummy, acc, name_text, ep0) {
+    acc = Expr14(_src);
+    if (~DIFFER(acc)) { freturn; }
+cap_loop:
+    ep0 = _ep;
+    _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
+    // `. VAR` — conditional assignment. Lookahead: '.' must be followed
+    // by whitespace then an identifier (not a digit, otherwise this is
+    // a real-number literal — though Expr17 already handled the leading
+    // numeric atom, so a stray '.' here is the cap operator).
+    if (_src ? (POS(_ep) '.' @_ep)) {
+        _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
+        if (~(_src ? (POS(_ep) Id . name_text @_ep))) { _ep = ep0; goto cap_done; }
+        acc = Tree('E_CAPT_COND_ASGN', '', 2, acc, tree('E_VAR', name_text));
+        goto cap_loop;
+    }
+    // `$ VAR` — immediate assignment. Lookahead: '$' must NOT be followed
+    // immediately by another `$` (no such operator) and must be followed
+    // by whitespace then an identifier. Avoid eating `$X` indirect-ref
+    // form by requiring whitespace before the `$` here (concat boundary
+    // already enforces that anyway — `$` mid-expression is the immediate
+    // capture operator).
+    if (_src ? (POS(_ep) '$' @_ep)) {
+        _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
+        if (~(_src ? (POS(_ep) Id . name_text @_ep))) { _ep = ep0; goto cap_done; }
+        acc = Tree('E_CAPT_IMMED_ASGN', '', 2, acc, tree('E_VAR', name_text));
+        goto cap_loop;
+    }
+    _ep = ep0;
+cap_done:
+    Expr12 = acc;
+    return;
+}
+
 // Expr11 — exponentiation: **, ^, ! (right-associative per snobol4.y).
 // beauty.sno: *Expr12 FENCE(($'^' | $'!' | $'**') *Expr11 ("'^'" & 2) | epsilon)
 function Expr11(dummy, left, right, ep0) {
-    left = Expr14(_src);
+    left = Expr12(_src);
     if (~DIFFER(left)) { freturn; }
     ep0 = _ep;
     _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
@@ -268,11 +345,47 @@ seq_fold:
     goto seq_fold;
 }
 
+// Expr3 — alternation `|` (n-ary, flat per oracle: `'a' | 'b' | 'c'`
+// produces a single E_ALT with three children, not nested binary).
+// Per s4-no.ebnf: `or ← cat ⋮ cat '|' or` — operator is right-recursive
+// in BNF but the oracle flattens to n-ary. Operator is looser than
+// concat (Expr4) and tighter than `?` and `&` (which we don't yet
+// support). Whitespace around `|` is tolerated. (PARSER-SN-5)
+function Expr3(dummy, first, next, ep0, count, arr, i) {
+    first = Expr4(_src);
+    if (~DIFFER(first)) { freturn; }
+    count = 1;
+    arr = ARRAY(16);
+    arr[1] = first;
+alt_loop:
+    ep0 = _ep;
+    _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
+    if (~(_src ? (POS(_ep) '|' @_ep))) { _ep = ep0; goto alt_done; }
+    _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
+    next = Expr4(_src);
+    if (~DIFFER(next)) { _ep = ep0; goto alt_done; }
+    count = count + 1;
+    arr[count] = next;
+    goto alt_loop;
+alt_done:
+    if (IDENT(count, 1)) { Expr3 = first; return; }
+    if (IDENT(count, 2)) { Expr3 = Tree('E_ALT', '', 2, arr[1], arr[2]); return; }
+    if (IDENT(count, 3)) { Expr3 = Tree('E_ALT', '', 3, arr[1], arr[2], arr[3]); return; }
+    if (IDENT(count, 4)) { Expr3 = Tree('E_ALT', '', 4, arr[1], arr[2], arr[3], arr[4]); return; }
+    // Fold any remaining children into a left-leaning binary nest.
+    Expr3 = Tree('E_ALT', '', 2, arr[1], arr[2]);
+    i = 3;
+alt_fold:
+    if (~(LE(i, count))) { return; }
+    Expr3 = Tree('E_ALT', '', 2, Expr3, arr[i]);
+    i = i + 1;
+    goto alt_fold;
+}
+
 // Expr — top-level entry point.
-// Passes through to Expr4 for PARSER-SN-3; upper levels (scan, alternation,
-// cond-assign) added in later rungs.
+// PARSER-SN-5: route through Expr3 (alternation) — looser than concat.
 function Expr(dummy, result) {
-    result = Expr4(_src);
+    result = Expr3(_src);
     Expr = result;
     return;
 }
@@ -498,17 +611,79 @@ function _try_label(dummy, lbl) {
     return;
 }
 
+// _split_subj_pat(lhs) — given a parsed LHS expression, add the
+// canonical `:subj`/`:pat` children to the current STMT builder.
+//
+// PARSER-SN-5 split rule (matches scrip --dump-parse oracle):
+//
+//   - top-level E_SEQ with N>=2 children → :subj is child 1, :pat
+//     is child 2 (if N==2) or a fresh E_SEQ of children 2..N.
+//   - any other shape (E_ALT, single atom, capture, primitive, arith
+//     result, etc.) → :subj wraps the whole expression, no :pat.
+//
+// The wrapper convention follows tdump.sc: `:subj` and `:pat` are
+// 1-child trees (`Tree(':subj', '', 1, child)`); the child renders
+// inline if it's a small leaf, multiline otherwise.
+function _split_subj_pat(lhs, k, n_kids, pat_seq, i) {
+    n_kids = n(lhs);
+    // Only an E_SEQ with at least 2 children gets split into
+    // :subj + :pat. Everything else is :subj-only.
+    if (~(IDENT(t(lhs), 'E_SEQ'))) {
+        _stmt_add(Tree(':subj', '', 1, lhs));
+        _split_subj_pat = .dummy;
+        nreturn;
+    }
+    if (LT(n_kids, 2)) {
+        _stmt_add(Tree(':subj', '', 1, lhs));
+        _split_subj_pat = .dummy;
+        nreturn;
+    }
+    _stmt_add(Tree(':subj', '', 1, c(lhs)[1]));
+    if (IDENT(n_kids, 2)) {
+        _stmt_add(Tree(':pat', '', 1, c(lhs)[2]));
+        _split_subj_pat = .dummy;
+        nreturn;
+    }
+    // N >= 3: rebuild a smaller E_SEQ from children 2..N. Tree() is
+    // variadic up to 8 positional children — use Append for any extra.
+    if (IDENT(n_kids, 3)) { pat_seq = Tree('E_SEQ', '', 2, c(lhs)[2], c(lhs)[3]); goto wrap; }
+    if (IDENT(n_kids, 4)) { pat_seq = Tree('E_SEQ', '', 3, c(lhs)[2], c(lhs)[3], c(lhs)[4]); goto wrap; }
+    if (IDENT(n_kids, 5)) { pat_seq = Tree('E_SEQ', '', 4, c(lhs)[2], c(lhs)[3], c(lhs)[4], c(lhs)[5]); goto wrap; }
+    if (IDENT(n_kids, 6)) { pat_seq = Tree('E_SEQ', '', 5, c(lhs)[2], c(lhs)[3], c(lhs)[4], c(lhs)[5], c(lhs)[6]); goto wrap; }
+    // N >= 7: build the first 5 then append the rest.
+    pat_seq = Tree('E_SEQ', '', 5, c(lhs)[2], c(lhs)[3], c(lhs)[4], c(lhs)[5], c(lhs)[6]);
+    i = 7;
+seq_extend:
+    if (~(LE(i, n_kids))) { goto wrap; }
+    Append(pat_seq, c(lhs)[i]);
+    i = i + 1;
+    goto seq_extend;
+wrap:
+    _stmt_add(Tree(':pat', '', 1, pat_seq));
+    _split_subj_pat = .dummy;
+    nreturn;
+}
+
 // _parse_body_goto() — called after optional label is consumed.
 // _cur_body is the portion of the line after the label (if any).
-// Handles: End, Assign, AtomStmt, BareGoto.
+//
+// PARSER-SN-5 strategy: parse the body as one expression (LHS); if the
+// next non-whitespace char is `=`, parse the RHS as another expression;
+// then split LHS into `:subj`/`:pat`, emit `:eq`/`:repl` if assignment,
+// and run the goto-suffix parser on whatever remains.
+//
+// This unifies the AtomStmt / Assign / pattern-statement / pattern-
+// replacement statement forms behind one expression-driven path.
+//
+// Special-cases handled before the expression parse:
+//   - bare END (no label) → push canonical END STMT directly
+//   - bare :(target) BareGoto → emit (STMT :go target)
 function _parse_body_goto(dummy, ep, lhs, rhs, rest, tgt) {
     ep = 0;
     _cur_body ? (POS(0) (SPAN(' ' tab) | epsilon) @ep);
-    // End keyword — special: if there's a label, END is treated as atom.
+    // End keyword — special: if there's no label, bare END terminates the program.
     if (IDENT(_cur_label)) {
-        // No label — bare END is the program terminator.
         if (_cur_body ? (POS(ep) 'END' (RPOS(0) | SPAN(' ' tab) RPOS(0)))) {
-            // Bare End: push the canonical END STMT directly.
             _stmt_reset();
             Push(Tree('STMT', '', 2,
                       Tree(':lbl', '', 1, tree('Name', 'END')),
@@ -517,7 +692,7 @@ function _parse_body_goto(dummy, ep, lhs, rhs, rest, tgt) {
             nreturn;
         }
     }
-    // BareGoto: :(target) with nothing else.
+    // BareGoto: :(target) with nothing else on the line.
     if (_cur_body ? (POS(ep) ':(' @ep)) {
         _cur_body ? (POS(ep) (SPAN(' ' tab) | epsilon) @ep);
         if (_cur_body ? (POS(ep) _goto_target_pat . tgt @ep)) {
@@ -528,51 +703,43 @@ function _parse_body_goto(dummy, ep, lhs, rhs, rest, tgt) {
             nreturn;
         }
     }
-    // Assign: Id ws_opt = ws_opt <expr> [goto*]
-    if (_cur_body ? (POS(ep) Id . lhs (SPAN(' ' tab) | epsilon) '=' @ep)) {
-        _cur_body ? (POS(ep) (SPAN(' ' tab) | epsilon) @ep);
-        // Capture RHS portion from ep to end.
-        _cur_body ? (POS(ep) REM . _rhs_line);
-        _src = _rhs_line;
-        _ep = 0;
+    // Body-as-expression. Parse LHS via the full Expr ladder.
+    _src = _cur_body;
+    _ep = ep;
+    lhs = Expr(_src);
+    if (~DIFFER(lhs)) {
+        // Empty / unparseable body — commit whatever children (if any) we
+        // already added (e.g. just :lbl from a label-only line).
+        build_stmt_commit();
+        _parse_body_goto = .dummy;
+        nreturn;
+    }
+    // After Expr, _ep points just past the last expression char. Skip ws
+    // and check for `=` (statement-level assignment, not an Expr operator).
+    _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
+    if (_src ? (POS(_ep) '=' @_ep)) {
+        _stmt_add(tree(':eq', ''));
+        _split_subj_pat(lhs);
+        _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
+        // RHS may be empty (deletion form: `S 'a' = `). Oracle always
+        // emits `:repl (E_QLIT "")` in that case rather than omitting
+        // the slot — keep parity.
         rhs = Expr(_src);
         if (DIFFER(rhs)) {
-            build_stmt_assign_expr(lhs, rhs);
+            _stmt_add(Tree(':repl', '', 1, rhs));
+        } else {
+            _stmt_add(Tree(':repl', '', 1, tree('E_QLIT', '')));
         }
-        _rhs_line ? (POS(_ep) REM . rest);
+        _src ? (POS(_ep) REM . rest);
         _parse_goto(rest);
         build_stmt_commit();
         _parse_body_goto = .dummy;
         nreturn;
     }
-    // AtomStmt: Id/Int/Str [goto*].
-    if (_cur_body ? (POS(ep) Id . _atom_text @ep)) {
-        _stmt_add(Tree(':subj', '', 1, tree('E_VAR', _atom_text)));
-        _cur_body ? (POS(ep) REM . rest);
-        _parse_goto(rest);
-        build_stmt_commit();
-        _parse_body_goto = .dummy;
-        nreturn;
-    }
-    if (_cur_body ? (POS(ep) Integer . _atom_text @ep)) {
-        _stmt_add(Tree(':subj', '', 1, tree('E_ILIT', _atom_text)));
-        _cur_body ? (POS(ep) REM . rest);
-        _parse_goto(rest);
-        build_stmt_commit();
-        _parse_body_goto = .dummy;
-        nreturn;
-    }
-    if (_cur_body ? (POS(ep) String @ep)) {
-        _stmt_add(Tree(':subj', '', 1, tree('E_QLIT', _strbody)));
-        _cur_body ? (POS(ep) REM . rest);
-        _parse_goto(rest);
-        build_stmt_commit();
-        _parse_body_goto = .dummy;
-        nreturn;
-    }
-    // Nothing matched — if we have only a label, it's a label-only line
-    // (rare — usually means LABEL followed by blank body, which the oracle
-    // treats as a bare atom of the next token; skip for now and nreturn).
+    // No `=` — pattern statement, atom statement, or arith statement.
+    _split_subj_pat(lhs);
+    _src ? (POS(_ep) REM . rest);
+    _parse_goto(rest);
     build_stmt_commit();
     _parse_body_goto = .dummy;
     nreturn;
