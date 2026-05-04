@@ -9,7 +9,8 @@
 //
 // Rung PARSER-RB-0 (DONE): atom body only.
 // Rung PARSER-RB-1 (DONE): assignment (lhs := rhs, atom rhs).
-// Rung PARSER-RB-2 (CURRENT): control flow (if cond then stmt, while cond do stmt).
+// Rung PARSER-RB-2 (DONE): control flow (if cond then stmt, while cond do stmt).
+// Rung PARSER-RB-3 (CURRENT): function definitions with args + no-arg call sites.
 
 // Tree shape per function (N body stmts):
 //   (STMT :subj (E_FNC DEFINE (E_QLIT "FNAME()")))
@@ -68,15 +69,38 @@ function next_rb_label() {
     return;
 }
 
+// Strip whitespace (space + tab) from a string via cursor walk.
+// Snocone REPLACE doesn't delete chars when r is empty (it truncates), so
+// we walk the input with @ep and copy non-ws chars.
+function strip_ws(raw, out, ep, ch) {
+    out = '';
+    ep = 0;
+sw_loop:
+    if (raw ? (POS(ep) ANY(' ' tab) @ep)) { goto sw_loop; }
+    if (raw ? (POS(ep) LEN(1) . ch @ep)) { out = out ch; goto sw_loop; }
+    strip_ws = out;
+    return;
+}
+
+// Format raw arglist text into uppercase "(A,B)" form (no spaces).
+// Empty raw → "()". "a, b" → "(A,B)". " a , b " → "(A,B)".
+function format_arglist(raw, out) {
+    out = strip_ws(raw);
+    out = REPLACE(out, &LCASE, &UCASE);
+    format_arglist = '(' out ')';
+    return;
+}
+
 //-----------------------------------------------------------------------
 // Emit helpers — called as plain function calls from the driver.
 //-----------------------------------------------------------------------
 
-function emit_func_define(fname) {
+function emit_func_define(sig) {
+    // sig is the full "FNAME(A,B)" signature string (uppercased, no spaces).
     TDump(Tree('STMT', '', 1,
                Tree(':subj', '', 1,
                     Tree('E_FNC', 'DEFINE', 1,
-                         tree('E_QLIT', fname '()')))));
+                         tree('E_QLIT', sig)))));
     return;
 }
 
@@ -126,10 +150,21 @@ function emit_assign(lhs, rhs_kind, rhs_txt) {
 // Per-line patterns.
 //-----------------------------------------------------------------------
 
+// FuncHeader: `function NAME(arglist)` — captures _rb_fname (uppercase)
+// and _rb_arglist (raw text inside parens, possibly empty).
 FuncHeader = ( POS(0) ws_opt 'function' ws_run id_pat . _rb_raw_name
-               ws_opt arglist_pat ws_opt RPOS(0)
+               ws_opt '('
+               (BREAK(')') . _rb_arglist_raw | epsilon . *assign('_rb_arglist_raw', ''))
+               ')' ws_opt RPOS(0)
                epsilon . *assign('_rb_fname', uc(_rb_raw_name))
              );
+
+// CallLine: bare no-arg call as body stmt: `fname()`.
+// Captures _rb_call_name (uppercased).
+CallLine = ( POS(0) ws_opt id_pat . _rb_call_raw
+             ws_opt '(' ws_opt ')' ws_opt RPOS(0)
+             epsilon . *assign('_rb_call_name', uc(_rb_call_raw))
+           );
 
 FuncEnd    = ( POS(0) ws_opt 'end' ws_opt RPOS(0) );
 
@@ -242,7 +277,8 @@ goto rb_loop;
 rb_state0:
 if (~(RbLine ? FuncHeader)) { goto rb_loop; }
 _rb_rblbl = next_rb_label();
-emit_func_define(_rb_fname);
+_rb_sig = _rb_fname format_arglist(_rb_arglist_raw);
+emit_func_define(_rb_sig);
 emit_go(_rb_rblbl);
 emit_lbl(_rb_fname);
 _rb_state = 1;
@@ -280,8 +316,12 @@ emit_go(_rb_loop_lbl);
 emit_lbl(_rb_goF);
 goto rb_loop;
 rb_try_assign:
-if (~(RbLine ? AssignLine)) { goto rb_try_atom; }
+if (~(RbLine ? AssignLine)) { goto rb_try_call; }
 emit_assign(uc(_rb_lhs), _rb_atom_kind, _rb_atom_txt);
+goto rb_loop;
+rb_try_call:
+if (~(RbLine ? CallLine)) { goto rb_try_atom; }
+emit_func_call(_rb_call_name);
 goto rb_loop;
 rb_try_atom:
 if (~(RbLine ? BodyAtomLine)) {
