@@ -22,25 +22,27 @@
 // Style invariant (per RULES.md): no goto/labels in driver loops.
 // Use Snocone structured flow.
 //
-// Rung PARSER-RK-1 (CURRENT): atom + declaration/assignment.
+// Rung PARSER-RK-2 (CURRENT): atom + decl/assign + say + arith.
 //
 //   $x;             → (STMT :subj (E_FNC main (E_VAR main) (E_VAR x)))
 //   42;             → (STMT :subj (E_FNC main (E_VAR main) (E_ILIT 42)))
 //   "hi";           → (STMT :subj (E_FNC main (E_VAR main) (E_QLIT "hi")))
-//   my $x = 5;      → (STMT :subj (E_FNC main (E_VAR main)
-//                       (E_ASSIGN (E_VAR x) (E_ILIT 5))))
-//   $x = 5;         → same — the `my` keyword is consumed but does
-//                     not affect the IR (raku.y discards the my-tag).
-//   my @a = $x;     → ...(E_ASSIGN (E_VAR a) (E_VAR x))...
+//   my $x = 5;      → ...(E_ASSIGN (E_VAR x) (E_ILIT 5))...
+//   $x = 5;         → same — `my` keyword is no-op in IR
+//   say 5;          → ...(E_FNC write (E_VAR write) (E_ILIT 5))...
+//                     N.B. `say` lowers to `write` in the IR (raku.y).
+//   my $x = 1+2*3;  → ...(E_ASSIGN (E_VAR x) (E_ADD 1 (E_MUL 2 3)))
+//   my $x = 1+2+3;  → ...(E_ASSIGN ... (E_ADD (E_ADD 1 2) 3))   left-assoc
+//
+// Precedence (matches raku.y):
+//   factor := primary
+//   term   := factor ( ('*' | '/') factor )*       left-assoc
+//   expr   := term   ( ('+' | '-') term   )*       left-assoc
 //
 // The existing raku.y program rule wraps all body stmts in a synthetic
 // "main" E_FNC node: E_FNC(main, [E_VAR(main), stmt1, stmt2, ...]).
-// PARSER-RK-1 still produces exactly one body stmt per program — the
-// declaration/assignment counts as ONE atom on the body stack.
 //
-// Out-of-scope at RK-1 (deferred to later rungs):
-//   - say expr;      call stmts   — RK-2
-//   - arithmetic operators        — RK-2
+// Out-of-scope at RK-2 (deferred to later rungs):
 //   - control flow (if/while/for) — RK-3
 //   - sub definitions             — RK-4
 //   - regex / grammar primitives  — RK-5
@@ -104,6 +106,17 @@ raku_eq = '=';
 // raku.l's flex maximal-munch handles this naturally; in Snocone we
 // require ws_one (whitespace) to follow before the sigil.
 kw_my = ('my' ws_one);
+
+// Keyword `say` — mirrors raku.l "say" → KW_SAY.  Followed by ws_one
+// before the argument expression.  raku.y lowers `say expr` to
+// `(E_FNC write (E_VAR write) <arg>)` — the IR uses 'write' not 'say'.
+kw_say = ('say' ws_one);
+
+// Arith operators — mirrors raku.l '+', '-', '*', '/'.
+op_add = '+';
+op_sub = '-';
+op_mul = '*';
+op_div = '/';
 
 //-----------------------------------------------------------------------
 // Atom-level tree builders.
@@ -191,6 +204,47 @@ function build_assign(rhs, lhs, asgn) {
     nreturn;
 }
 
+//-----------------------------------------------------------------------
+// Binary-operator builder — left-associative arith chains.
+//
+// build_binop(kind) — pops the top two stack items (rhs then lhs in
+// reverse pop order) and pushes Tree(kind, '', 2, lhs, rhs).
+// Decrements body_count by 1: two operands collapse into one expr.
+// Used by term-loop (mul/div) and expr-loop (add/sub) actions.
+//-----------------------------------------------------------------------
+
+function build_binop(kind, rhs, lhs, node) {
+    rhs = Pop();
+    lhs = Pop();
+    body_count = body_count - 2;
+    node = Tree(kind, '', 2, lhs, rhs);
+    Push(node);
+    body_count = body_count + 1;
+    build_binop = .dummy;
+    nreturn;
+}
+
+//-----------------------------------------------------------------------
+// `say expr;` — call statement.  Mirrors raku.y stmt rule
+//    KW_SAY arg ';'  →  (E_FNC write (E_VAR write) <arg>)
+// 'say' is consumed but the IR carries the lowered name 'write'
+// (raku.y rewrites at lower-time).
+//
+// Sequencing: kw_say consumed → expr pushes the arg atom → build_say
+// pops the arg, wraps in E_FNC write, pushes the result.
+//-----------------------------------------------------------------------
+
+function build_say(arg, fn, node) {
+    arg = Pop();
+    body_count = body_count - 1;
+    fn = tree('E_VAR', 'write');
+    node = Tree('E_FNC', 'write', 2, fn, arg);
+    Push(node);
+    body_count = body_count + 1;
+    build_say = .dummy;
+    nreturn;
+}
+
 // build_main_wrapper() — pop body_count atoms, wrap in E_FNC main,
 // then wrap the whole thing in (STMT :subj ...).
 // Mirrors raku.y program rule Pass 2 exactly.
@@ -236,6 +290,57 @@ primary = ( var_scalar . *push_atom_var(_var_first _var_rest)
           );
 
 //-----------------------------------------------------------------------
+// Arith expression grammar — left-assoc with standard precedence.
+//
+//   factor := primary
+//   term   := factor ( ('*' | '/') factor . *build_binop('E_MUL'|'E_DIV') )*
+//   expr   := term   ( ('+' | '-') term   . *build_binop('E_ADD'|'E_SUB') )*
+//
+// Each binop action fires AFTER the rhs operand has been pushed by
+// the recursive factor/term call; build_binop pops both operands and
+// pushes the combined node.  Left-associativity falls out of the
+// linear scan: each iteration combines (top-1, top) → top.
+//
+// At assign / say-arg position, callers use `expr` (not `primary`).
+// When no operators are present, `expr` collapses to a single
+// `primary` push — atom-only programs still produce one atom on the
+// stack as before.
+//-----------------------------------------------------------------------
+
+factor = primary;
+
+//-----------------------------------------------------------------------
+// Named action-bearing tail patterns.
+//
+// In Snocone PATTERN, an action like `. *fn()` placed directly in an
+// ARBNO body does NOT fire on each iteration — the action is bound to
+// the alternative as a whole and only evaluates at construction time.
+// Wrapping the operator+operand+action triple in its own named pattern
+// (mul_tail/div_tail/add_tail/sub_tail) hides the action inside a
+// sub-pattern call, where it fires reliably on each repetition.
+// (This is the same idiom parser_prolog.sc uses for argument lists:
+// `args = arg ARBNO(... arg)` — the action lives inside `arg`.)
+//
+// The rhs of mul_tail/div_tail is `factor` (no recursive mul/div
+// nesting at this level — left-assoc means we re-enter the term
+// loop's ARBNO).  The rhs of add_tail/sub_tail is `term` (so that
+// `+` binds looser than `*`: `1 + 2 * 3` parses as `1 + (2*3)`).
+//
+// `epsilon . *fn()` form is required when the action takes no
+// captured argument — gives Snocone a pattern anchor at the call site.
+//-----------------------------------------------------------------------
+
+mul_tail = ( ws_opt op_mul ws_opt factor epsilon . *build_binop('E_MUL') );
+div_tail = ( ws_opt op_div ws_opt factor epsilon . *build_binop('E_DIV') );
+
+term = ( factor ARBNO( mul_tail | div_tail ) );
+
+add_tail = ( ws_opt op_add ws_opt term epsilon . *build_binop('E_ADD') );
+sub_tail = ( ws_opt op_sub ws_opt term epsilon . *build_binop('E_SUB') );
+
+expr = ( term ARBNO( add_tail | sub_tail ) );
+
+//-----------------------------------------------------------------------
 // `assign_target` — left-hand side of an assignment.  Any sigiled
 // variable.  Captures the bare name (post-strip-sigil) into
 // _tgt_first + _tgt_rest, which is then stashed via set_assign_target.
@@ -256,31 +361,43 @@ assign_target = ( ('$' asgn_alpha . _tgt_first asgn_alnum_opt . _tgt_rest)
                 );
 
 //-----------------------------------------------------------------------
-// `assign_stmt` — `my $tgt = primary ;` or bare `$tgt = primary ;`.
+// `assign_stmt` — `my $tgt = expr ;` or bare `$tgt = expr ;`.
 // Mirrors raku.y stmt rule's two assign forms (KW_MY-prefixed and bare).
 // raku.y discards the my-tag (no IR difference), so both forms produce
-// identical (E_ASSIGN (E_VAR tgt) <primary>) output.
+// identical (E_ASSIGN (E_VAR tgt) <expr>) output.
 //
-// Sequencing: capture target name → set_assign_target → recognize '='
-// → primary pushes the RHS atom → build_assign pops RHS, builds
-// E_ASSIGN, pushes E_ASSIGN.
+// At RK-2 the RHS is an `expr` (full arith), not just `primary` —
+// supports `my $x = 1 + 2 * 3;` etc.
 //-----------------------------------------------------------------------
 
 assign_stmt = ( ws_opt (kw_my | epsilon)
                 assign_target . *set_assign_target(_tgt_first _tgt_rest)
                 ws_opt raku_eq ws_opt
-                primary
+                expr
                 ws_opt raku_semi
                 . *build_assign() );
 
 //-----------------------------------------------------------------------
-// `stmt` — one statement.  Try assign_stmt first (it has the longer
-// prefix and would shadow primary on `$x = ...` programs); fall through
-// to bare-primary stmt for atom programs (`$x;` `42;` `"hi";`).
-// Mirrors raku.y stmt rule alternatives at RK-1 scope.
+// `say_stmt` — `say expr ;` call statement.  Mirrors raku.y stmt rule
+// `KW_SAY arg ';'`.  Wraps the expr atom in (E_FNC write (E_VAR write) <expr>).
 //-----------------------------------------------------------------------
 
-stmt = ( assign_stmt | (ws_opt primary ws_opt raku_semi) );
+say_stmt = ( ws_opt kw_say
+             expr
+             ws_opt raku_semi
+             . *build_say() );
+
+//-----------------------------------------------------------------------
+// `stmt` — one statement.  Try longer-prefix forms first:
+//   1. assign_stmt — has '=' after target
+//   2. say_stmt    — starts with `say` keyword
+//   3. bare expr;  — atom or arith expression as standalone stmt
+//-----------------------------------------------------------------------
+
+stmt = ( assign_stmt
+       | say_stmt
+       | (ws_opt expr ws_opt raku_semi)
+       );
 
 //-----------------------------------------------------------------------
 // Compiland — canonical cross-PARSER spine.
