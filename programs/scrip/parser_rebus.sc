@@ -62,6 +62,7 @@ RB_REC_DECL  = 'RB_REC_DECL';
 RB_PARAMS    = 'RB_PARAMS';
 RB_FIELDS    = 'RB_FIELDS';
 RB_BODY      = 'RB_BODY';
+RB_ASSIGN    = 'RB_ASSIGN';
 
 nTop_count   = 'nTop()';
 
@@ -87,19 +88,35 @@ function RB_push_qlit() {
 }
 
 //===================================================================================================================
-//  Grammar — atom level only (RB-0 scope).
+//  Grammar — RB-0 atom + RB-1 assignment.  expr is atom optionally followed
+//  by ':=' rhs (parser_snocone.sc Expr0 idiom — no backtrack ambiguity).
 //===================================================================================================================
 
 atom = *String RB_push_qlit() | shift(*Integer, E_ILIT) | shift(*Id, E_VAR);
 
-stmt = *Gray *atom *Gray nl;
+//  expr — atom, optionally followed by `:= atom` to form RB_ASSIGN(lhs, rhs).
+//  When `:=` is absent the bare atom stands; when present the reduce folds
+//  the two children (lhs already on stack from the leading `*atom`, rhs
+//  from the trailing `*atom`) into RB_ASSIGN.
 
-//  func_body — n-ary fold over body stmts.  ARBNO backtracks cleanly when
-//  the trailing 'end' nl in function_decl can't match — the last stmt that
-//  consumed 'end' as a bare Id is rolled back, the body count decrements,
-//  and the outer 'end' nl matches.  Verified 2026-05-04 via /tmp/test_basic.sc.
+expr = *atom ($':=' *atom reduce(RB_ASSIGN, 2) | epsilon);
 
-func_body = nPush() ARBNO(nInc() *stmt) reduce(RB_BODY, nTop_count) nPop();
+stmt = *Gray *expr *Gray nl;
+
+//  func_body — n-ary fold over body stmts.  Uses tail-recursive shape (per
+//  parser_icon.sc Procbody idiom) so that 'end' is preempt-matched BEFORE
+//  stmt can consume it as a bare identifier.  ARBNO was replaced because
+//  shift(*Id, E_VAR) is a side-effect that is not undone on pattern backtrack,
+//  causing a spurious (STMT :subj (E_VAR END)) node in the body tree.
+//
+//  func_end        — matches the closing 'end' + optional whitespace + newline.
+//  func_body_stmt  — one body stmt: try func_end first (terminates recursion);
+//                    if not end, match a stmt and recurse.
+//  func_body       — wraps the recursion in an n-ary counter scope.
+
+func_end      = $'end' *Gray nl;
+func_body_stmt = (*func_end | nInc() *stmt *func_body_stmt);
+func_body     = nPush() *func_body_stmt reduce(RB_BODY, nTop_count) nPop();
 
 //-------------------------------------------------------------------------------------------------------------------
 //  Parameter / field list — both fold into n-ary lists; empty list folds to (TAG) with nTop()=0.
@@ -118,7 +135,6 @@ opt_fields = nPush() (*X_fields | epsilon) reduce(RB_FIELDS, nTop_count) nPop();
 function_decl =
     $'function' shift(*Id, E_VAR) $'(' *opt_params $')' *Gray nl
     *func_body
-    $'end' nl
     reduce(RB_FUNC_DECL, 3);
 
 record_decl =
@@ -160,6 +176,17 @@ function emit_lbl(lbl) {
     return;
 }
 
+//  emit_assign — render (STMT :eq :subj <lhs> :repl <rhs>) per parser_snocone.sc
+//  sc_decompose_stmt's E_ASSIGN shape (lines 81-93).
+
+function emit_assign(lhs, rhs) {
+    TDump(Tree('STMT', '', 3,
+               Tree(':eq',   ''),
+               Tree(':subj', '', 1, lhs),
+               Tree(':repl', '', 1, rhs)));
+    return;
+}
+
 function lower_atom(x, k) {
     k = t(x);
     if (IDENT(k, 'E_VAR'))  lower_atom = tree(E_VAR, REPLACE(v(x), &LCASE, &UCASE));
@@ -169,8 +196,10 @@ function lower_atom(x, k) {
     return;
 }
 
-function lower_stmt(x) {
-    emit_subj(lower_atom(x));
+function lower_stmt(x, k) {
+    k = t(x);
+    if (IDENT(k, 'RB_ASSIGN')) emit_assign(lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else                       emit_subj(lower_atom(x));
     return;
 }
 
@@ -192,7 +221,7 @@ function lower_function_decl(x, nm, pm, bd, fname, pstr, i, lbl) {
         lower_stmt(c(bd)[i]);
     emit_go('RETURN');
     emit_lbl(lbl);
-    emit_subj(tree('E_FNC', fname));
+    if (IDENT(fname, 'MAIN')) emit_subj(tree('E_FNC', fname));
     return;
 }
 
