@@ -1,4 +1,4 @@
-// parser_prolog.sc — PARSER-PR: Prolog frontend in Snocone (rung PR-5).
+// parser_prolog.sc — PARSER-PR: Prolog frontend in Snocone (rung PR-6).
 //
 // Reads the entire Prolog source, runs ONE Compiland PATTERN against it,
 // and emits one IR tree per clause via TDump.  Output is byte-equal
@@ -34,6 +34,8 @@
 //                 Negative integer literals (-N folded into E_ILIT).
 //                 Nested compound args come along for free (primary
 //                 absorbs both arg and simple_goal).
+//   PR-6        — top-level directives `:- Goal.` (no head, no
+//                 E_CHOICE/E_CLAUSE wrap, body raw under :subj).
 
 //-----------------------------------------------------------------------
 // Type-name strings.  shift() takes BARE name; reduce() takes QUOTED
@@ -333,6 +335,19 @@ function build_clause(key, parts, i, body_tree, clause_node, bk, bn) {
     nreturn;
 }
 
+// build_directive — assemble a top-level `:- Goal.` form.  Pops one
+// body tree and pushes (STMT :subj <body>).  No E_CHOICE / E_CLAUSE
+// wrapper, no clause-key, no top-level `,` flattening — the body
+// expression is wrapped raw under :subj.  This matches prolog_lower.c
+// directive lowering exactly.
+function build_directive(body_tree) {
+    body_tree = Pop();
+    Push(Tree('STMT', '', 1,
+              Tree(':subj', '', 1, body_tree)));
+    build_directive = .dummy;
+    nreturn;
+}
+
 //-----------------------------------------------------------------------
 // Grammar — pure patterns.  No parsing functions.  Leaves use shift().
 // Kind-only n-ary parents use reduce() (OPSYN-bound `&`).  Named-value
@@ -527,9 +542,27 @@ clause = (
         . *build_clause()
       );
 
+// directive — top-level `:- Goal.` form.  Resets the per-clause var
+// scope before parsing the body (matching prolog_lower.c which scopes
+// vars per top-level form).  The body expression is wrapped raw under
+// (STMT :subj ...) — no E_CHOICE / E_CLAUSE / clause-key envelope, no
+// top-level `,` flattening.
+directive = (
+        tk_neck . *reset_var_scope()
+        ws_opt body ws_opt tk_dot
+        . *build_directive()
+      );
+
+// top_form — one top-level form: directive (`:- Goal.`) tried first
+// because it starts with `:-`, then clause (which starts with a head
+// token).  The first-token disjointness means order is presentation-
+// only, but try directive first because `:-` is the more specific
+// prefix.
+top_form = (directive | clause);
+
 // Compiland — the ONE PATTERN, matched ONCE against the entire source.
 Compiland = nPush()
-            ARBNO( trivia nInc() clause trivia )
+            ARBNO( trivia nInc() top_form trivia )
             reduce(r_Parse, r_nTop)
             nPop();
 
