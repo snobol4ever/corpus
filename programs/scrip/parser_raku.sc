@@ -7,10 +7,11 @@
 // whitespace normalization the dumped form is byte-identical to scrip's
 // existing Raku-frontend `--dump-ir` output — that is the PARSER-RK gate.
 //
-// Naming policy (per RULES.md "Snocone parser style"):
-//   token classifiers — mirror raku.l (lowercased: var_scalar, lit_int, ...)
-//   non-terminals     — mirror raku.y (Stmt, Expr, Block, IfStmt, ...)
-//   IR node tags      — mirror ir.h (E_VAR, E_ILIT, E_FNC, E_ASSIGN, ...)
+// Naming policy (per RULES.md "Snocone parser style", canonical at
+// GOAL-PARSER-SNOBOL4.md ## Style Guidelines for parser_*.sc §1):
+//   token classifiers — UpperCamel mirroring raku.l TK_* (VarScalar, LitInt, ...)
+//   non-terminals     — UpperCamel mirroring raku.y (Stmt, Expr, Block, IfStmt, ...)
+//   IR node tags      — mirror ir.h E_* (E_VAR, E_ILIT, E_FNC, E_ASSIGN, ...)
 //   cross-PARSER spine — Compiland / nPush / nInc / nTop / nPop / reduce
 //
 // Style — beauty.sno / parser_icon.sc:
@@ -97,23 +98,23 @@ $'}'     = ($' ' '}'  $' ');
 // definition so the grammar uses bare names — matches the literal Raku
 // source layout without scattering $' ' across every use site.
 //======================================================================================================================
-id_first = ANY(&UCASE &LCASE '_');
-id_rest  = SPAN(digits &UCASE &LCASE '_');
-id_pat   = ($' ' id_first (id_rest | epsilon));
+ident_first = ANY(&UCASE &LCASE '_');
+ident_rest  = SPAN(digits &UCASE &LCASE '_');
+Ident   = ($' ' ident_first (ident_rest | epsilon));
 
 // Sigiled variables: capture bare name (strip sigil) into _rk_vf/_rk_vr.
 rk_vf    = ANY(&UCASE &LCASE '_');
 rk_vr    = SPAN(digits &UCASE &LCASE '_');
 rk_vro   = (rk_vr | epsilon);
 
-var_scalar = ($' ' '$' rk_vf . _rk_vf rk_vro . _rk_vr);
-var_array  = ($' ' '@' rk_vf . _rk_vf rk_vro . _rk_vr);
-var_hash   = ($' ' '%' rk_vf . _rk_vf rk_vro . _rk_vr);
+VarScalar = ($' ' '$' rk_vf . _rk_vf rk_vro . _rk_vr);
+VarArray  = ($' ' '@' rk_vf . _rk_vf rk_vro . _rk_vr);
+VarHash   = ($' ' '%' rk_vf . _rk_vf rk_vro . _rk_vr);
 
 // Literals.
-int_pat    = ($' ' SPAN(digits));
-dstr_pat   = ($' ' '"' BREAK('"') . _rk_strbody '"');
-sstr_pat   = ($' ' "'" BREAK("'") . _rk_strbody "'");
+LitInt    = ($' ' SPAN(digits));
+LitStrDQ   = ($' ' '"' BREAK('"') . _rk_strbody '"');
+LitStrSQ   = ($' ' "'" BREAK("'") . _rk_strbody "'");
 //======================================================================================================================
 // Per-construct identifier captures.  Distinct globals keep recursive Expr
 // calls from clobbering an in-flight LHS / for-loopvar / sub-name / param /
@@ -508,16 +509,16 @@ $'finish_call'     = (epsilon . *finish_call());
 CallArgTail = ( $','  *Expr  $'add_call_arg' );
 
 // Expr11 — primary.
-// var_array / var_hash / var_scalar / int_pat / dstr_pat / sstr_pat /
+// VarArray / VarHash / VarScalar / LitInt / LitStrDQ / LitStrSQ /
 // CallName all bake $' ' into their definitions, so the grammar uses
 // bare names — reads as the literal Raku source.
 
-Expr11 = ( var_scalar              $'atom_VAR'
-         | var_array               $'atom_VAR'
-         | var_hash                $'atom_VAR'
-         | int_pat . _rk_itext     $'atom_ILIT'
-         | dstr_pat                $'atom_QLIT'
-         | sstr_pat                $'atom_QLIT'
+Expr11 = ( VarScalar              $'atom_VAR'
+         | VarArray               $'atom_VAR'
+         | VarHash                $'atom_VAR'
+         | LitInt . _rk_itext     $'atom_ILIT'
+         | LitStrDQ                $'atom_QLIT'
+         | LitStrSQ                $'atom_QLIT'
          | $'(' *Expr $')'
          | ( CallName              $'start_call'
              $'('
