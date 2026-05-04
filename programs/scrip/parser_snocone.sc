@@ -39,14 +39,14 @@ String   = (*SQ_lit | *DQ);
 Id       = (ANY(&UCASE &LCASE '_')
             FENCE(SPAN('.' digits &UCASE '_' &LCASE) | epsilon));
 /*--------------------------------------------------------------------------------------------------------------------*/
-// Operator tokens — beauty.sc $'x' style.
-$'('  = $' '  '(' $' ';  $')'  = $' '  ')';
-$'{'  = $' '  '{' $' ';  $'}'  = $' '  '}';
-$';'  = $' '  ';';
-$'='  = $' '  '=' $' ';  $'?'  = $' '  '?' $' ';
-$'|'  = $' '  '|' $' ';  $'+'  = $' '  '+' $' ';
-$'-'  = $' '  '-' $' ';  $'*'  = $' '  '*' $' ';
-$'/'  = $' '  '/' $' ';
+// Operator tokens — beauty.sc $'x' style.  Open brackets: ws both sides (Snocone is whitespace-sensitive like SNOBOL4).  Close: ws before only.
+$'('  = $' ' '(' $' ';  $')'  = $' ' ')';
+$'{'  = $' ' '{' $' ';  $'}'  = $' ' '}';
+$';'  = $' ' ';';
+$'='  = $' ' '=' $' ';  $'?'  = $' ' '?' $' ';
+$'|'  = $' ' '|' $' ';  $'+'  = $' ' '+' $' ';
+$'-'  = $' ' '-' $' ';  $'*'  = $' ' '*' $' ';
+$'/'  = $' ' '/' $' ';
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Keyword guards — keyword not a prefix of a longer identifier.
 kw_tail  = FENCE(SPAN(&UCASE &LCASE digits '_') | epsilon) . kw_rest IDENT(kw_rest);
