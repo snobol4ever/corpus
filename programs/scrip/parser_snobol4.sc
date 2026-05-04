@@ -73,7 +73,7 @@ Expr2       =   *Expr3 FENCE($'&' *Expr2 ("'&'" & 2) | epsilon);
 Expr3       =   nPush() *X3 ("'|'" & '*(GT(nTop(), 1) nTop())') nPop();
 X3          =   nInc() *Expr4 FENCE($'|' *X3 | epsilon);
 Expr4       =   nPush() *X4 ("'..'" & '*(GT(nTop(), 1) nTop())') nPop();
-X4          =   nInc() *Expr5 FENCE(*White *X4 | epsilon);
+X4          =   nInc() *Expr5 FENCE(*White *X4 | epsilon);      // ws-here-is-required: juxtaposition-concat (.. op)
 Expr5       =   *Expr6 FENCE($'@' *Expr5 ("'@'" & 2) | epsilon);
 Expr6       =   *Expr7
                 FENCE(
@@ -131,13 +131,14 @@ Expr17      =   FENCE(
                 |  *Integer ~ 'Integer'
                 );
 //======================================================================================================================
+// §3 decision — S/F tokens: keep inline 'S'|'s' / 'F'|'f' literals (status quo); conciseness over isomorphism.
 SGoto       =   ('S' | 's') . *assign(.sf, *'S');
 FGoto       =   ('F' | 'f') . *assign(.sf, *'F');
 SorF        =   *SGoto | *FGoto;
 Target      =   $'(' . *assign(.Brackets, *'()') *Expr $')'
             |   $'<' . *assign(.Brackets, *'<>') *Expr $'>';
-Goto        =   *Gray ':'
-                *Gray
+Goto        =   *Gray ':'  // ws-here-is-required: ':' not in $'...' bracket tokens
+                *Gray      // ws-here-is-required: optional space after ':' before target
                 FENCE(
                    *Target ("*(':' Brackets)" & 1) epsilon ~ ''
                 |  *SorF *Target ("*(':' sf Brackets)" & 1)
@@ -147,13 +148,13 @@ Control     =   '-' BREAK(nl ';');
 Comment     =   '*' BREAK(nl);
 Label       =   BREAK(' ' tab nl ';') ~ 'Label';
 Stmt        =   *Label
-                (  *White
+                (  *White  // ws-here-is-required: column-sensitive — body must start with whitespace after label
                    *Expr14
                    FENCE(
                       epsilon ~ ''
-                      *White
+                      *White  // ws-here-is-required: space before '=' replacement operator
                       ('=' ~ '=' *White *Expr | '=' ~ '=' epsilon ~ '')
-                   |  ($'?' | *White)
+                   |  ($'?' | *White)  // ws-here-is-required: SNOBOL4 allows space OR '?' as subject/pattern delimiter
                       *Expr1
                       FENCE(
                          *White
@@ -174,7 +175,7 @@ Command     =   nInc()
                 |  *Control ~ 'control' ("'Control'" & 1) (nl | ';')
                 |  *Stmt ("'Stmt'" & 7) (nl | ';')
                 );
-
+//----------------------------------------------------------------------------------------------------------------------
 Compiland   =   nPush()
                 ARBNO(*Command)
                 ("'Parse'" & 'nTop()')
@@ -184,9 +185,7 @@ Compiland   =   nPush()
 InitCounter();
 InitStack();
 Src = '';
-while ((Line = INPUT)) {
-    Src = Src Line nl;
-}
+while ((Line = INPUT)) Src = Src Line nl ;
 if (Src ? Compiland) {
     ptree = Pop();
     i = 1;
