@@ -25,13 +25,15 @@ E_SIZE      = "'E_SIZE'";     E_RANDOM    = "'E_RANDOM'";
 E_Parse     = "'Parse'";
 r_nTop      = '*(GT(nTop(), 1) nTop())';
 /*====================================================================================================================*/
-$'  '        = SPAN(' ' tab);
-$' '         = ($'  ' | epsilon);
+White        = (  SPAN(' ' tab) FENCE('#' BREAK(nl) | epsilon)
+               |  '#' BREAK(nl)
+               );
+Gray         = White | epsilon;
+$' '         = Gray;
+$'  '        = White;
 nl_one       = ANY(nl);
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Token classifiers — PATTERNS mirroring icon_lex.h TK_* names.
-White        = SPAN(' ' tab);
-Gray         = (*White | epsilon);
 id_first     = ANY(&UCASE &LCASE '_');
 id_rest      = SPAN(digits &UCASE &LCASE '_');
 id_pat       = (id_first (id_rest | epsilon));
@@ -41,25 +43,25 @@ str_pat      = ('"' BREAK('"') . ic_strbody '"');
 semi_opt     = (';' | epsilon);
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Keyword tokens — leading optional whitespace baked in.
-$'if'        = (*Gray 'if'       );  $'then'      = (*Gray 'then'     );
-$'else'      = (*Gray 'else'     );  $'while'     = (*Gray 'while'    );
-$'do'        = (*Gray 'do'       );  $'every'     = (*Gray 'every'    );
-$'return'    = (*Gray 'return'   );  $'end'       = (*Gray 'end'      );
-$'procedure' = (*Gray 'procedure');
+$'if'        = ($' ' 'if'       );  $'then'      = ($' ' 'then'     );
+$'else'      = ($' ' 'else'     );  $'while'     = ($' ' 'while'    );
+$'do'        = ($' ' 'do'       );  $'every'     = ($' ' 'every'    );
+$'return'    = ($' ' 'return'   );  $'end'       = ($' ' 'end'      );
+$'procedure' = ($' ' 'procedure');
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Operator tokens — optional whitespace each side.
-$'|'   = (*Gray '|'  *Gray);  $':='  = (*Gray ':='  *Gray);
-$'?'   = (*Gray '?'  *Gray);  $','   = (*Gray ','   *Gray);
-$'+'   = (*Gray '+'  *Gray);  $'-'   = (*Gray '-'   *Gray);
-$'*'   = (*Gray '*'  *Gray);  $'/'   = (*Gray '/'   *Gray);
-$'<='  = (*Gray '<=' *Gray);  $'>='  = (*Gray '>='  *Gray);
-$'~='  = (*Gray '~=' *Gray);  $'<'   = (*Gray '<'   *Gray);
-$'>'   = (*Gray '>'  *Gray);  $'='   = (*Gray '='   *Gray);
-$';'   = (*Gray ';'  *Gray);  $'^'   = (*Gray '^'   *Gray);
-$'('   = (*Gray '('  *Gray);  $')'   = (*Gray ')'   *Gray);
-$'{'   = (*Gray '{'  *Gray);  $'}'   = (*Gray '}'   *Gray);
-$'+:=' = (*Gray '+:=' *Gray);  $'-:=' = (*Gray '-:=' *Gray);
-$'*:=' = (*Gray '*:=' *Gray);  $'/:=' = (*Gray '/:=' *Gray);
+$'|'   = ($' ' '|'  $' ');  $':='  = ($' ' ':='  $' ');
+$'?'   = ($' ' '?'  $' ');  $','   = ($' ' ','   $' ');
+$'+'   = ($' ' '+'  $' ');  $'-'   = ($' ' '-'   $' ');
+$'*'   = ($' ' '*'  $' ');  $'/'   = ($' ' '/'   $' ');
+$'<='  = ($' ' '<=' $' ');  $'>='  = ($' ' '>='  $' ');
+$'~='  = ($' ' '~=' $' ');  $'<'   = ($' ' '<'   $' ');
+$'>'   = ($' ' '>'  $' ');  $'='   = ($' ' '='   $' ');
+$';'   = ($' ' ';'  $' ');  $'^'   = ($' ' '^'   $' ');
+$'('   = ($' ' '('  $' ');  $')'   = ($' ' ')'   $' ');
+$'{'   = ($' ' '{'  $' ');  $'}'   = ($' ' '}'   $' ');
+$'+:=' = ($' ' '+:=' $' ');  $'-:=' = ($' ' '-:=' $' ');
+$'*:=' = ($' ' '*:=' $' ');  $'/:=' = ($' ' '/:=' $' ');
 /*====================================================================================================================*/
 // ic_push_qlit — shift (E_QLIT body) using dot-captured ic_strbody.
 function ic_push_qlit() {
@@ -96,24 +98,24 @@ proc_done = (epsilon . *ic_decompose_proc());
 // Expr11 = primary; tighter -> looser: Expr10 (unary) -> Expr8 (pow) ->
 // Expr7 (mul) -> Expr6 (add) -> Expr4 (cmp) -> Expr3 (alt) -> Expr1 (assign).
 /*--------------------------------------------------------------------------------------------------------------------*/
-If    = ( $'if'    *White *Expr  $'then' *White *Expr
-          (  $'else' *White *Expr  (E_IF & 3)
+If    = ( $'if'    $'  ' *Expr  $'then' $'  ' *Expr
+          (  $'else' $'  ' *Expr  (E_IF & 3)
           |  (E_IF & 2)
           )
         );
-While = ( $'while' *White *Expr  $'do' *White *Expr  (E_WHILE & 2) );
-Every = ( $'every' *White *Expr
-          (  $'do' *White *Expr  (E_EVERY & 2)
+While = ( $'while' $'  ' *Expr  $'do' $'  ' *Expr  (E_WHILE & 2) );
+Every = ( $'every' $'  ' *Expr
+          (  $'do' $'  ' *Expr  (E_EVERY & 2)
           |  (E_EVERY & 1)
           )
         );
 /*--------------------------------------------------------------------------------------------------------------------*/
-ArgFirst  = ( *Gray *Expr  nInc() );
+ArgFirst  = ( $' ' *Expr  nInc() );
 ArgRest   = ( $','  *Expr  nInc() );
 CallArgs  = ( ArgFirst ARBNO(ArgRest) | epsilon );
 Call      = ( nPush()
-              *Gray id_pat ~ 'E_VAR'  nInc()
-              *Gray '(' CallArgs *Gray ')'
+              $' ' id_pat ~ 'E_VAR'  nInc()
+              $' ' '(' CallArgs $' ' ')'
               (E_FNC & 'nTop()')
               nPop()
             );
@@ -125,8 +127,8 @@ Paren     = ( nPush()
               nPop()
             );
 /*--------------------------------------------------------------------------------------------------------------------*/
-CompoundFirst = ( *Gray *Expr *Gray semi_opt *Gray nInc() );
-CompoundRest  = ( *Gray *Expr *Gray semi_opt *Gray nInc() );
+CompoundFirst = ( $' ' *Expr $' ' semi_opt $' ' nInc() );
+CompoundRest  = ( $' ' *Expr $' ' semi_opt $' ' nInc() );
 Compound      = ( nPush()
                   $'{'
                   ( CompoundFirst ARBNO(CompoundRest) | epsilon )
@@ -136,18 +138,18 @@ Compound      = ( nPush()
                 );
 /*--------------------------------------------------------------------------------------------------------------------*/
 Expr11 = (   If  |  While  |  Every  |  Call  |  Paren  |  Compound
-         |   *Gray str_pat qlit_done
-         |   *Gray int_pat ~ 'E_ILIT'
-         |   *Gray id_pat  ~ 'E_VAR'
+         |   $' ' str_pat qlit_done
+         |   $' ' int_pat ~ 'E_ILIT'
+         |   $' ' id_pat  ~ 'E_VAR'
          );
 /*--------------------------------------------------------------------------------------------------------------------*/
-Expr10 = (   *Gray '-'  *Expr10 (E_MNS         & 1)
-         |   *Gray '+'  *Expr10 (E_PLS         & 1)
-         |   *Gray '~'  *Expr10 (E_CSET_COMPL  & 1)
-         |   *Gray '\\' *Expr10 (E_NONNULL     & 1)
-         |   *Gray '!'  *Expr10 (E_ITERATE     & 1)
-         |   *Gray '*'  *Expr10 (E_SIZE        & 1)
-         |   *Gray '?'  *Expr10 (E_RANDOM      & 1)
+Expr10 = (   $' ' '-'  *Expr10 (E_MNS         & 1)
+         |   $' ' '+'  *Expr10 (E_PLS         & 1)
+         |   $' ' '~'  *Expr10 (E_CSET_COMPL  & 1)
+         |   $' ' '\\' *Expr10 (E_NONNULL     & 1)
+         |   $' ' '!'  *Expr10 (E_ITERATE     & 1)
+         |   $' ' '*'  *Expr10 (E_SIZE        & 1)
+         |   $' ' '?'  *Expr10 (E_RANDOM      & 1)
          |   *Expr11
          );
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -184,28 +186,26 @@ Expr1a    = ( *Expr1 ($'?' *Expr (E_SCAN & 2) | epsilon) );
 /*--------------------------------------------------------------------------------------------------------------------*/
 Expr      = ( *Expr1a );
 /*====================================================================================================================*/
-Comment   = ( *Gray '#' BREAK(nl) nl_one );
-Blank     = ( *Gray nl_one );
-ReturnStmt = ( $'return' *White *Expr *Gray semi_opt *Gray nl_one (E_RETURN & 1)
-             | $'return' *Gray  semi_opt *Gray nl_one             (E_RETURN & 0)
+Blank     = ( $' ' nl_one );
+ReturnStmt = ( $'return' $'  ' *Expr $' ' semi_opt $' ' nl_one (E_RETURN & 1)
+             | $'return' $' '  semi_opt $' ' nl_one             (E_RETURN & 0)
              );
 StmtBody  = ( ReturnStmt nInc()
-            | *Gray *Expr *Gray semi_opt *Gray nl_one nInc()
-            | Comment
+            | $' ' *Expr $' ' semi_opt $' ' nl_one nInc()
             | Blank
             );
-ParamFirst = ( *Gray id_pat ~ 'E_VAR'  nInc() );
+ParamFirst = ( $' ' id_pat ~ 'E_VAR'  nInc() );
 ParamRest  = ( $',' id_pat ~ 'E_VAR'  nInc() );
 Params     = ( ParamFirst ARBNO(ParamRest) | epsilon );
-Prochead   = ( $'procedure' *White id_pat ~ 'E_VAR'  nInc()
-               *Gray '(' Params *Gray ')' *Gray nl_one
+Prochead   = ( $'procedure' $'  ' id_pat ~ 'E_VAR'  nInc()
+               $' ' '(' Params $' ' ')' $' ' nl_one
              );
-ProcbodyEnd = ( $'end' *Gray (nl_one | RPOS(0)) );
+ProcbodyEnd = ( $'end' $' ' (nl_one | RPOS(0)) );
 Procbody    = ( ProcbodyEnd | StmtBody *Procbody );
 Proc        = ( nPush()  Prochead  Procbody  proc_done  nPop() );
 /*====================================================================================================================*/
 Compiland = ( nPush()
-              ARBNO( nInc() *Gray Proc *Gray )
+              ARBNO( nInc() $' ' Proc $' ' )
               (E_Parse & 'nTop()')
               nPop()
             );

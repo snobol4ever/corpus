@@ -13,12 +13,19 @@ E_ADD    = "'E_ADD'";   E_SUB    = "'E_SUB'";
 E_MUL    = "'E_MUL'";   E_DIV    = "'E_DIV'";
 E_Parse  = "'Parse'";
 /*====================================================================================================================*/
-$'  '    = SPAN(' ' tab);
-$' '     = ($'  ' | epsilon);
+Block      = '/*' ARBNO(BREAK('*') ANY('*')) '/';
+White      = (  SPAN(' ' tab) FENCE(  '%' BREAK(nl)
+                                   |  Block
+                                   |  epsilon
+                                   )
+             |  '%' BREAK(nl)
+             |  Block
+             );
+Gray       = White | epsilon;
+$' '       = Gray;
+$'  '      = White;
 /*====================================================================================================================*/
 // Token classifiers — PATTERNS mirroring prolog_lex.h TK_* names.
-White      = SPAN(' ' tab);
-Gray       = (*White | epsilon);
 Atom_first = ANY(&LCASE);
 Atom_rest  = SPAN(digits &UCASE &LCASE '_');
 Atom       = (Atom_first (Atom_rest | epsilon));
@@ -29,18 +36,17 @@ Var        = (Var_first (Var_rest | epsilon));
 Int        = SPAN(digits);
 Str        = ('"' BREAK('"') . s_body '"');
 /*--------------------------------------------------------------------------------------------------------------------*/
-$'('   = *Gray '(' *Gray;   $')'  = *Gray ')' *Gray;
-$'['   = *Gray '[' *Gray;   $']'  = *Gray ']' *Gray;
-$','   = *Gray ',' *Gray;   $';'  = *Gray ';' *Gray;
-$'|'   = *Gray '|' *Gray;
-$'.'   = *Gray '.';
-$':-'  = *Gray ':-' *Gray;  $'='  = *Gray '=' *Gray;
-$'+'   = *Gray '+' *Gray;   $'-'  = *Gray '-' *Gray;
-$'*'   = *Gray '*' *Gray;   $'/'  = *Gray '/' *Gray;
-$'is'  = *White 'is' *White;
+$'('   = $' ' '(' $' ';   $')'  = $' ' ')' $' ';
+$'['   = $' ' '[' $' ';   $']'  = $' ' ']' $' ';
+$','   = $' ' ',' $' ';   $';'  = $' ' ';' $' ';
+$'|'   = $' ' '|' $' ';
+$'.'   = $' ' '.';
+$':-'  = $' ' ':-' $' ';  $'='  = $' ' '=' $' ';
+$'+'   = $' ' '+' $' ';   $'-'  = $' ' '-' $' ';
+$'*'   = $' ' '*' $' ';   $'/'  = $' ' '/' $' ';
+$'is'  = $'  ' 'is' $'  ';
 /*====================================================================================================================*/
-comment  = ('%' BREAK(nl) (nl | RPOS(0)));
-trivia   = ((SPAN(' ' tab nl) | epsilon) ARBNO(comment (SPAN(' ' tab nl) | epsilon)));
+trivia   = ARBNO(White | nl);
 /*====================================================================================================================*/
 // Per-clause variable scope.
 var_table = TABLE();

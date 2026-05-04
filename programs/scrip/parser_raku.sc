@@ -15,8 +15,8 @@
 //   cross-PARSER spine — Compiland / nPush / nInc / nTop / nPop / reduce
 //
 // Style — beauty.sno / parser_icon.sc:
-//   $' '     = ws_opt        (invisible optional whitespace)
-//   $'  '    = ws_run        (required-single-space lexical separator)
+//   $' '     = Gray          (invisible optional whitespace)
+//   $'  '    = White         (required-single-space lexical separator)
 //   $'tok'   = punctuation pattern, $' '-padded both sides.
 //   $'kw'    = keyword pattern, $' '-padded leading; trailing $'  '
 //              required at call site where lexical separation matters.
@@ -70,21 +70,22 @@ E_IF        = "'E_IF'";       E_WHILE    = "'E_WHILE'";
 E_RETURN    = "'E_RETURN'";
 E_Parse     = "'Parse'";
 /*====================================================================================================================*/
-// Whitespace primitives.  ws_opt / ws_run are kept as named patterns for
-// internal use inside SPAN-like classifiers; the grammar refers to
-// $' ' / $'  ' instead — beauty.sno style taken further.
+// Whitespace primitives.  White / Gray are the cross-parser canonical names;
+// the grammar refers to $' ' / $'  ' invisible-whitespace tokens.
 // nl_one = ANY(nl) — the correct cross-PARSER idiom; SPAN(...nl) fails.
 /*====================================================================================================================*/
-ws_opt   = (SPAN(' ' tab) | epsilon);
-ws_run   = SPAN(' ' tab);
+White    = (  SPAN(' ' tab) FENCE('#' BREAK(nl) | epsilon)
+           |  '#' BREAK(nl)
+           );
+Gray     = White | epsilon;
 nl_one   = ANY(nl);
 /*====================================================================================================================*/
 // Invisible-whitespace tokens — beauty.sno style taken further.
 // $' ' (one space) names optional whitespace; $'  ' (two spaces) names
 // the required-single-space lexical separator.
 /*====================================================================================================================*/
-$' '     = ws_opt;
-$'  '    = ws_run;
+$' '     = Gray;
+$'  '    = White;
 /*====================================================================================================================*/
 // Keyword tokens — leading optional whitespace baked in.
 /*====================================================================================================================*/
@@ -514,9 +515,7 @@ InitCounter();
 InitStack();
 
 Src = '';
-while ((Line = INPUT)) {
-    if (~(Line ? (POS(0) ws_opt '#' REM))) Src = Src Line nl;
-}
+while ((Line = INPUT)) Src = Src Line nl;
 
 ok = (Src ? Compiland);
 

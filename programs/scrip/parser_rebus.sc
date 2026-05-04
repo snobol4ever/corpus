@@ -12,8 +12,12 @@
 //  Lex tokens — atomic-token classifiers with no whitespace policy of their own.
 /*====================================================================================================================*/
 
-White   = SPAN(' ' tab);
-Gray    = *White | epsilon;
+White   = (  SPAN(' ' tab) FENCE('#' BREAK(nl) | epsilon)
+          |  '#' BREAK(nl)
+          );
+Gray    = White | epsilon;
+$' '    = Gray;
+$'  '   = White;
 
 Id      = ANY(&UCASE &LCASE '_') (SPAN(&UCASE &LCASE digits '_') | epsilon);
 Integer = SPAN(digits);
@@ -27,23 +31,23 @@ String  = *DQ_str | *SQ_str;
 //  Whitespace policy lives here, never in grammar productions.
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-$'('  = '('  *Gray;     $')'  = *Gray ')';
-$','  = *Gray ',' *Gray;
-$':=' = *Gray ':=' *Gray;
-$'?'  = *Gray '?'  *Gray;
-$'|'  = *Gray '|'  *Gray;
-$'+'  = *Gray '+'  *Gray;
-$'-'  = *Gray '-'  *Gray;
-$'*'  = *Gray '*'  *Gray;
-$'/'  = *Gray '/'  *Gray;
+$'('  = '('  $' ';     $')'  = $' ' ')';
+$','  = $' ' ',' $' ';
+$':=' = $' ' ':=' $' ';
+$'?'  = $' ' '?'  $' ';
+$'|'  = $' ' '|'  $' ';
+$'+'  = $' ' '+'  $' ';
+$'-'  = $' ' '-'  $' ';
+$'*'  = $' ' '*'  $' ';
+$'/'  = $' ' '/'  $' ';
 
-$'function' = 'function' *White;
-$'end'      = *Gray 'end' *Gray;
-$'record'   = 'record' *White;
-$'if'       = 'if' *White;
-$'then'     = *White 'then' *White;
-$'while'    = 'while' *White;
-$'do'       = *White 'do' *White;
+$'function' = 'function' $'  ';
+$'end'      = $' ' 'end' $' ';
+$'record'   = 'record' $'  ';
+$'if'       = 'if' $'  ';
+$'then'     = $'  ' 'then' $'  ';
+$'while'    = 'while' $'  ';
+$'do'       = $'  ' 'do' $'  ';
 
 /*====================================================================================================================*/
 //  Tag string constants — bare form; semantic.sc _qtag auto-quotes.
@@ -117,7 +121,7 @@ match_or_expr = *expr ($'?' *alt_expr reduce(RB_MATCH, 2) | epsilon);
 if_stmt    = $'if'    *match_or_expr $'then' *match_or_expr reduce(RB_IF,    2);
 while_stmt = $'while' *match_or_expr $'do'   *match_or_expr reduce(RB_WHILE, 2);
 
-stmt = *Gray (*if_stmt | *while_stmt | *match_or_expr) *Gray nl;
+stmt = $' ' (*if_stmt | *while_stmt | *match_or_expr) $' ' nl;
 
 //  func_body — n-ary fold over body stmts.  Uses tail-recursive shape (per
 //  parser_icon.sc Procbody idiom) so that 'end' is preempt-matched BEFORE
@@ -130,7 +134,7 @@ stmt = *Gray (*if_stmt | *while_stmt | *match_or_expr) *Gray nl;
 //                    if not end, match a stmt and recurse.
 //  func_body       — wraps the recursion in an n-ary counter scope.
 
-func_end      = $'end' *Gray nl;
+func_end      = $'end' $' ' nl;
 func_body_stmt = (*func_end | nInc() *stmt *func_body_stmt);
 func_body     = nPush() *func_body_stmt reduce(RB_BODY, nTop_count) nPop();
 
@@ -149,12 +153,12 @@ opt_fields = nPush() (*X_fields | epsilon) reduce(RB_FIELDS, nTop_count) nPop();
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 function_decl =
-    $'function' shift(*Id, E_VAR) $'(' *opt_params $')' *Gray nl
+    $'function' shift(*Id, E_VAR) $'(' *opt_params $')' $' ' nl
     *func_body
     reduce(RB_FUNC_DECL, 3);
 
 record_decl =
-    $'record' shift(*Id, E_VAR) $'(' *opt_fields $')' *Gray nl
+    $'record' shift(*Id, E_VAR) $'(' *opt_fields $')' $' ' nl
     reduce(RB_REC_DECL, 2);
 
 func_cmd = nInc() *function_decl;

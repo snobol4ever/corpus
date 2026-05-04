@@ -18,13 +18,20 @@ E_QLIT   = "'E_QLIT'";    E_ILIT  = "'E_ILIT'";   E_VAR  = "'E_VAR'";
 E_Parse  = "'Parse'";
 r_nTop   = '*(GT(nTop(), 1) nTop())';
 /*====================================================================================================================*/
-$'  '   = SPAN(' ' tab);
-$' '    = ($'  ' | epsilon);
-nl_opt  = (nl | epsilon);
+Block    = '/*' ARBNO(BREAK('*') ANY('*')) '/';
+White    = (  SPAN(' ' tab) FENCE(  '//' BREAK(nl)
+                                 |  Block
+                                 |  epsilon
+                                 )
+           |  '//' BREAK(nl)
+           |  Block
+           );
+Gray     = White | epsilon;
+$' '     = Gray;
+$'  '    = White;
+nl_opt   = (nl | epsilon);
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Token classifiers — PATTERNS.
-White    = SPAN(' ' tab);
-Gray     = (*White | epsilon);
 Integer  = SPAN(digits);
 DQ       = ('"'  BREAK('"')  . sc_strbody '"');
 SQ_lit   = ("'"  BREAK("'")  . sc_strbody "'");
@@ -33,13 +40,13 @@ Id       = (ANY(&UCASE &LCASE '_')
             FENCE(SPAN('.' digits &UCASE '_' &LCASE) | epsilon));
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Operator tokens — beauty.sc $'x' style.
-$'('  = *Gray '(' *Gray;   $')'  = *Gray ')';
-$'{'  = *Gray '{' *Gray;   $'}'  = *Gray '}';
-$';'  = *Gray ';';
-$'='  = *Gray '=' *Gray;   $'?'  = *Gray '?' *Gray;
-$'|'  = *Gray '|' *Gray;   $'+'  = *Gray '+' *Gray;
-$'-'  = *Gray '-' *Gray;   $'*'  = *Gray '*' *Gray;
-$'/'  = *Gray '/' *Gray;
+$'('  = $' ' '(' $' ';   $')'  = $' ' ')';
+$'{'  = $' ' '{' $' ';   $'}'  = $' ' '}';
+$';'  = $' ' ';';
+$'='  = $' ' '=' $' ';   $'?'  = $' ' '?' $' ';
+$'|'  = $' ' '|' $' ';   $'+'  = $' ' '+' $' ';
+$'-'  = $' ' '-' $' ';   $'*'  = $' ' '*' $' ';
+$'/'  = $' ' '/' $' ';
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Keyword guards — keyword not a prefix of a longer identifier.
 kw_tail  = FENCE(SPAN(&UCASE &LCASE digits '_') | epsilon) . kw_rest IDENT(kw_rest);
@@ -222,41 +229,42 @@ Expr6  = *Expr9
          | $'-' *Expr9 (E_SUB & 2) ($'-' *Expr9 (E_SUB & 2) | epsilon)
          | epsilon );
 Expr4  = nPush() *X4 (E_SEQ & r_nTop) nPop();
-X4     = nInc() *Expr6 (*White *X4 | epsilon);
+X4     = nInc() *Expr6 ($'  ' *X4 | epsilon);
 Expr3  = nPush() *X3 (E_ALT & r_nTop) nPop();
 X3     = nInc() *Expr4 ($'|' *X3 | epsilon);
 Expr1  = *Expr3 ($'?' *Expr1 (E_SCAN   & 2) | epsilon);
 Expr0  = *Expr1 ($'=' *Expr0 (E_ASSIGN & 2) | epsilon);
 /*====================================================================================================================*/
-stmt_body = (*Gray *Expr0 *Gray ($';' | epsilon) *Gray nl_opt SC_decompose_stmt());
+stmt_body = ($' ' *Expr0 $' ' ($';' | epsilon) $' ' nl_opt SC_decompose_stmt());
 stmt_cmd  = (nInc() stmt_body);
 /*--------------------------------------------------------------------------------------------------------------------*/
 if_cmd =
     ( nInc()
-      *Gray *kw_if   $'(' *Expr0 SC_save_cond() $')' *Gray nl_opt
-      $'{' nl_opt    SC_body('sc_if_nthen')    $'}' *Gray nl_opt
-      ( *kw_else *Gray nl_opt
-        $'{' nl_opt  SC_body('sc_if_nelse')    $'}' *Gray nl_opt
+      $' ' *kw_if   $'(' *Expr0 SC_save_cond() $')' $' ' nl_opt
+      $'{' nl_opt    SC_body('sc_if_nthen')    $'}' $' ' nl_opt
+      ( *kw_else $' ' nl_opt
+        $'{' nl_opt  SC_body('sc_if_nelse')    $'}' $' ' nl_opt
         SC_finalize_if_else('sc_if_nthen', 'sc_if_nelse', 'sc_saved_cond')
       | SC_finalize_if('sc_if_nthen', 'sc_saved_cond')
       )
     );
 while_cmd =
     ( nInc()
-      *Gray *kw_while $'(' *Expr0 SC_save_cond()
-                          SC_while_head_alloc() $')' *Gray nl_opt
-      $'{' nl_opt SC_body('sc_wh_nbody') $'}' *Gray nl_opt
+      $' ' *kw_while $'(' *Expr0 SC_save_cond()
+                          SC_while_head_alloc() $')' $' ' nl_opt
+      $'{' nl_opt SC_body('sc_wh_nbody') $'}' $' ' nl_opt
       SC_finalize_while('sc_wh_nbody', 'sc_saved_cond')
     );
 do_cmd =
     ( nInc()
-      *Gray *kw_do *Gray nl_opt SC_do_head_alloc()
-      $'{' nl_opt SC_body('sc_do_nbody') $'}' *Gray nl_opt
-      *kw_while $'(' *Expr0 SC_save_cond() $')' ($';' | epsilon) *Gray nl_opt
+      $' ' *kw_do $' ' nl_opt SC_do_head_alloc()
+      $'{' nl_opt SC_body('sc_do_nbody') $'}' $' ' nl_opt
+      *kw_while $'(' *Expr0 SC_save_cond() $')' ($';' | epsilon) $' ' nl_opt
       SC_finalize_do('sc_do_nbody', 'sc_saved_cond')
     );
+empty_cmd = ($' ' $';' $' ' nl_opt);
 /*====================================================================================================================*/
-Command   = ( if_cmd | while_cmd | do_cmd | stmt_cmd );
+Command   = ( if_cmd | while_cmd | do_cmd | empty_cmd | stmt_cmd );
 Compiland = nPush()
             ARBNO(Command)
             (E_Parse & 'nTop()')
