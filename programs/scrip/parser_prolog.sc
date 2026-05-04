@@ -68,12 +68,15 @@ tk_int = SPAN(digits);
 tk_string = ('"' BREAK('"') . _str_body '"');
 
 // Punctuation tokens — surrounded by ws_opt at use sites.
-tk_dot    = '.';
-tk_lparen = '(';
-tk_rparen = ')';
-tk_comma  = ',';
-tk_semi   = ';';
-tk_neck   = ':-';
+tk_dot      = '.';
+tk_lparen   = '(';
+tk_rparen   = ')';
+tk_comma    = ',';
+tk_semi     = ';';
+tk_lbracket = '[';
+tk_rbracket = ']';
+tk_pipe     = '|';
+tk_neck     = ':-';
 
 //-----------------------------------------------------------------------
 // Comment skipper.  Prolog `%` to end-of-line.  Pattern, not function.
@@ -123,6 +126,43 @@ function push_var(name) {
 function push_atom_body(body) {
     Push(tree('E_FNC', body));
     push_atom_body = .dummy;
+    nreturn;
+}
+
+// push_nil — push the empty-list atom (E_FNC []) onto the stack.
+// Used both for `[]` literal and as the implicit tail when a list
+// has no `|` clause.
+function push_nil() {
+    Push(tree('E_FNC', '[]'));
+    push_nil = .dummy;
+    nreturn;
+}
+
+// reduce_list — top of stack is `tail`, then nTop() element trees
+// below it (deepest = first element).  Build right-spined cons cells
+// using functor `.` (the canonical Prolog list cell), each shape:
+//     (E_FNC . <elem> <rest>)
+// Walk elements from last-to-first, folding rest := (E_FNC . elem rest).
+// Final `rest` replaces all consumed trees on the stack.
+function reduce_list(n, kids, i, tail, cons_node) {
+    n    = nTop();
+    tail = Pop();
+    kids = ARRAY(n + 1);
+    i = n;
+    while (i > 0) {
+        kids[i] = Pop();
+        i = i - 1;
+    }
+    i = n;
+    while (i > 0) {
+        cons_node = Tree('E_FNC', '.', 0);
+        Append(cons_node, kids[i]);
+        Append(cons_node, tail);
+        tail = cons_node;
+        i = i - 1;
+    }
+    Push(tail);
+    reduce_list = .dummy;
     nreturn;
 }
 
@@ -254,13 +294,58 @@ function build_clause(key, parts, i, body_tree, clause_node, bk, bn) {
 // use *reduce_compound/conj/disj as the only non-shift semantic actions.
 //-----------------------------------------------------------------------
 
-// arg — one argument in a compound term.
+// arg — one argument in a compound term.  Includes lists via mutual
+// recursion (*list).  list itself uses *arg for its elements; the
+// recursion is bounded by the bracket structure.
 arg = (
         shift(tk_int, s_ILIT)
       | shift(tk_atom, s_FNC)
       | tk_qatom  . *push_atom_body(_qatom_body)
       | tk_string . *push_atom_body(_str_body)
       | tk_var . _arg_text . *push_var(_arg_text)
+      | *list
+      );
+
+// list — Prolog list syntax.
+//   []                       → (E_FNC [])
+//   [e1, e2, ..., eN]        → right-spined cons with `.` functor and
+//                              terminal (E_FNC []).
+//   [e1, ..., eN | tail]    → same right-spine, terminal replaced by `tail`.
+//
+// Element-counting via nPush/nInc/nTop/nPop.  Tail tree is always pushed
+// onto the stack (nil if no `|`), then reduce_list folds N elements
+// into the right-spine using the popped tail as the seed.
+//
+// FW-3 dodge: scrip-Snocone has a runtime bug where *Q indirection
+// inside ARBNO suppresses deferred calls inside Q.  arg has *list
+// (mutual recursion) and *push_* actions inside it; if we wrote
+// `ARBNO( ..., *arg )` directly, those would be suppressed.
+// Workaround: define list_elem as a literal alternation copy of arg's
+// body (substituted at pattern-build time, no `*Q` indirection).
+// list_elem references *list deferred, but list itself is a top-level
+// pattern (not invoked via *Q in ARBNO) so its deferreds fire.
+list_elem = (
+        shift(tk_int, s_ILIT)
+      | shift(tk_atom, s_FNC)
+      | tk_qatom  . *push_atom_body(_qatom_body)
+      | tk_string . *push_atom_body(_str_body)
+      | tk_var . _le_text . *push_var(_le_text)
+      | *list
+      );
+
+list = (
+        tk_lbracket ws_opt
+        ( tk_rbracket . *push_nil()
+        | nPush()
+              nInc() list_elem
+              ARBNO( ws_opt tk_comma ws_opt nInc() list_elem )
+              ( ws_opt tk_pipe ws_opt list_elem
+              | epsilon . *push_nil()
+              )
+              ws_opt tk_rbracket
+              . *reduce_list()
+          nPop()
+        )
       );
 
 // args — comma-separated arg list, n-ary counted.
