@@ -103,63 +103,67 @@ $'}'     = ($' ' '}'  $' ');
 
 //---------------------------------------------------------------------------------------------------
 // Token classifiers — mirror raku.l names (lowercased).
+// Each classifier bakes $' ' (optional leading whitespace) into its
+// definition so the grammar uses bare names — matches the literal Raku
+// source layout without scattering $' ' across every use site.
 //---------------------------------------------------------------------------------------------------
 
 id_first = ANY(&UCASE &LCASE '_');
 id_rest  = SPAN(digits &UCASE &LCASE '_');
-id_pat   = (id_first (id_rest | epsilon));
+id_pat   = ($' ' id_first (id_rest | epsilon));
 
 // Sigiled variables: capture bare name (strip sigil) into _rk_vf/_rk_vr.
 rk_vf    = ANY(&UCASE &LCASE '_');
 rk_vr    = SPAN(digits &UCASE &LCASE '_');
 rk_vro   = (rk_vr | epsilon);
 
-var_scalar = ('$' rk_vf . _rk_vf rk_vro . _rk_vr);
-var_array  = ('@' rk_vf . _rk_vf rk_vro . _rk_vr);
-var_hash   = ('%' rk_vf . _rk_vf rk_vro . _rk_vr);
+var_scalar = ($' ' '$' rk_vf . _rk_vf rk_vro . _rk_vr);
+var_array  = ($' ' '@' rk_vf . _rk_vf rk_vro . _rk_vr);
+var_hash   = ($' ' '%' rk_vf . _rk_vf rk_vro . _rk_vr);
 
 // Literals.
-int_pat    = SPAN(digits);
-dstr_pat   = ('"' BREAK('"') . _rk_strbody '"');
-sstr_pat   = ("'" BREAK("'") . _rk_strbody "'");
+int_pat    = ($' ' SPAN(digits));
+dstr_pat   = ($' ' '"' BREAK('"') . _rk_strbody '"');
+sstr_pat   = ($' ' "'" BREAK("'") . _rk_strbody "'");
 
 //---------------------------------------------------------------------------------------------------
 // Per-construct identifier captures.  Distinct globals keep recursive Expr
 // calls from clobbering an in-flight LHS / for-loopvar / sub-name / param /
-// call-name capture.
+// call-name capture.  $' ' baked in (same pattern as the atom classifiers).
 //---------------------------------------------------------------------------------------------------
 
 rk_atf  = ANY(&UCASE &LCASE '_');
 rk_atr  = SPAN(digits &UCASE &LCASE '_');
 rk_atro = (rk_atr | epsilon);
 
-AssignTarget = ( ('$' rk_atf . _rk_atf rk_atro . _rk_atr)
-               | ('@' rk_atf . _rk_atf rk_atro . _rk_atr)
-               | ('%' rk_atf . _rk_atf rk_atro . _rk_atr)
+AssignTarget = ( $' ' ('$' rk_atf . _rk_atf rk_atro . _rk_atr)
+               | $' ' ('@' rk_atf . _rk_atf rk_atro . _rk_atr)
+               | $' ' ('%' rk_atf . _rk_atf rk_atro . _rk_atr)
                );
 
 // For-loopvar.
 rk_ff   = ANY(&UCASE &LCASE '_');
 rk_fr   = SPAN(digits &UCASE &LCASE '_');
 rk_fro  = (rk_fr | epsilon);
-ForLoopvar = ('$' rk_ff . _rk_ff rk_fro . _rk_fr);
+ForLoopvar = ($' ' '$' rk_ff . _rk_ff rk_fro . _rk_fr);
 
 // Sub name.
 rk_snf  = ANY(&UCASE &LCASE '_');
 rk_snr  = SPAN(digits &UCASE &LCASE '_');
 rk_snro = (rk_snr | epsilon);
-SubName = (rk_snf . _rk_snf rk_snro . _rk_snr);
+SubName = ($' ' rk_snf . _rk_snf rk_snro . _rk_snr);
 
 // Sub param (scalar only at RK-4).
 rk_pf   = ANY(&UCASE &LCASE '_');
 rk_pr   = SPAN(digits &UCASE &LCASE '_');
 rk_pro  = (rk_pr | epsilon);
+SubParam = ($' ' '$' rk_pf . _rk_pf rk_pro . _rk_pr);
 
 // Function-call name.
 rk_fnf  = ANY(&UCASE &LCASE '_');
 rk_fnr  = SPAN(digits &UCASE &LCASE '_');
 rk_fnro = (rk_fnr | epsilon);
-CallName = (rk_fnf . _rk_fnf rk_fnro . _rk_fnr);
+CallName = ($' ' rk_fnf . _rk_fnf rk_fnro . _rk_fnr);
 
 //---------------------------------------------------------------------------------------------------
 // Tree-building / semantic functions.
@@ -543,26 +547,24 @@ $'finish_call'     = (epsilon . *finish_call());
 CallArgTail = ( $','  *Expr  $'add_call_arg' );
 
 // Expr11 — primary.
-// var_array / var_hash / var_scalar all produce E_VAR (sigil stripped).
-// Function call tried before bare id_pat (longest match wins).
-// ARBNO(*CallArgTail) uses a deferred reference.
-// $' ' leading on each atom consumes whitespace from a preceding keyword
-// (e.g. `say 5;` — $'say' eats `say`, then atom's leading $' ' eats ` `).
+// var_array / var_hash / var_scalar / int_pat / dstr_pat / sstr_pat /
+// CallName all bake $' ' into their definitions, so the grammar uses
+// bare names — reads as the literal Raku source.
 
-Expr11 = ( $' ' var_scalar              $'atom_VAR'
-         | $' ' var_array               $'atom_VAR'
-         | $' ' var_hash                $'atom_VAR'
-         | $' ' int_pat . _rk_itext     $'atom_ILIT'
-         | $' ' dstr_pat                $'atom_QLIT'
-         | $' ' sstr_pat                $'atom_QLIT'
+Expr11 = ( var_scalar              $'atom_VAR'
+         | var_array               $'atom_VAR'
+         | var_hash                $'atom_VAR'
+         | int_pat . _rk_itext     $'atom_ILIT'
+         | dstr_pat                $'atom_QLIT'
+         | sstr_pat                $'atom_QLIT'
          | $'(' *Expr $')'
-         | ( $' ' CallName              $'start_call'
+         | ( CallName              $'start_call'
              $'('
-             ( *Expr                    $'add_call_arg'
+             ( *Expr                $'add_call_arg'
                ARBNO( *CallArgTail )
              | epsilon
              )
-             $')'                       $'finish_call'
+             $')'                   $'finish_call'
            )
          );
 
@@ -610,21 +612,26 @@ Expr      = Expr4;
 // Block_body wraps the deferred *BlockStmt + counter increment + push action
 // in a NAMED sub-pattern so deferred actions inside fire reliably and the
 // trailing actions outside the ARBNO survive (Snocone runtime quirk).
+//
+// nl_opt absorbs zero or one newline between statements; $'{' / $'}' bake
+// $' ' on both sides so no extra ws_opt is needed around braces.
 //---------------------------------------------------------------------------------------------------
+
+nl_opt = (nl_one | epsilon);
 
 BlockStmt = epsilon;
 
-Block_body = ( (nl_one | epsilon) $' '
+Block_body = ( nl_opt
                *BlockStmt
-               (nl_one | epsilon) $' '
+               nl_opt
                nInc()
                $'push_expr'
              );
 
-Block = ( $'{' (nl_one | epsilon) $' '
+Block = ( $'{' nl_opt
           nPush()
           ARBNO( Block_body )
-          (nl_one | epsilon) $'}'
+          nl_opt $'}'
           reduce("'E_SEQ_EXPR'", 'nTop()')
           nPop()
           $'save_block'
@@ -637,14 +644,11 @@ Block = ( $'{' (nl_one | epsilon) $' '
 
 SubBlockStmt = epsilon;
 
-SubBlock_body = ( (nl_one | epsilon) $' '
-                  *SubBlockStmt
-                  (nl_one | epsilon) $' '
-                );
+SubBlock_body = ( nl_opt  *SubBlockStmt  nl_opt );
 
-SubBlock = ( $'{' (nl_one | epsilon) $' '
+SubBlock = ( $'{' nl_opt
              ARBNO( SubBlock_body )
-             (nl_one | epsilon) $'}'
+             nl_opt $'}'
            );
 
 //---------------------------------------------------------------------------------------------------
@@ -681,7 +685,7 @@ ReturnStmt = ( $'return'
                )
              );
 
-AssignStmt = ( ($'my' $'  ' | $' ')
+AssignStmt = ( ($'my' $'  ' | epsilon)
                AssignTarget  $'save_lhs'
                $'='  Expr  $';'  $'do_assign'
              );
@@ -690,7 +694,7 @@ SayStmt = ( $'say'
             Expr  $';'  $'do_say'
           );
 
-BareStmt = ( $' ' Expr $';' );
+BareStmt = ( Expr $';' );
 
 Stmt = ( IfStmt      $'append_stmt'
        | WhileStmt   $'append_stmt'
@@ -720,10 +724,10 @@ SubBlockStmt = ( IfStmt      $'append_sub_stmt'
 //---------------------------------------------------------------------------------------------------
 
 SubParamTail = ( $','
-                 '$' rk_pf . _rk_pf rk_pro . _rk_pr  $'add_param'
+                 SubParam  $'add_param'
                );
 
-SubParams = ( '$' rk_pf . _rk_pf rk_pro . _rk_pr  $'add_param'
+SubParams = ( SubParam  $'add_param'
               ARBNO( SubParamTail )
             | epsilon
             );
@@ -743,7 +747,7 @@ SubStmt = ( $'sub' $'  '
 
 Compiland = nPush()
             $'start_main'
-            ARBNO( $' ' (SubStmt | Stmt) $' ' (ANY(nl) | epsilon) )
+            ARBNO( (SubStmt | Stmt) nl_opt )
             $'finish_main'
             reduce("'Parse'", 1)
             nPop();
