@@ -14,12 +14,16 @@
 //   cross-PARSER spine — Compiland / nPush / nInc / nTop / nPop / reduce
 //
 // Style — beauty.sno / parser_icon.sc:
-//   $'tok'      = single-character punctuation pattern, ws_opt-padded.
-//   $'do_X'     = zero-arg side-effect.
-//   $'save_X'   = stash _expr_node into _X before recursive Expr clobber.
-//   $'atom_X'   = build a leaf node from the most-recent dot-capture.
-//   $'op_X'     = save operator-tag constant for the next binop fold.
-//   $'binop_X'  = fold running LHS/op/RHS triple into _expr_node.
+//   $' '     = ws_opt        (invisible optional whitespace)
+//   $'  '    = ws_run        (required-single-space lexical separator)
+//   $'tok'   = punctuation pattern, $' '-padded both sides.
+//   $'kw'    = keyword pattern, $' '-padded leading; trailing $'  '
+//              required at call site where lexical separation matters.
+//   $'do_X'  = zero-arg side-effect.
+//   $'save_X'= stash _expr_node into _X before recursive Expr clobber.
+//   $'atom_X'= build a leaf node from the most-recent dot-capture.
+//   $'op_X'  = save operator-tag constant for the next binop fold.
+//   $'binop_X'= fold running LHS/op/RHS triple into _expr_node.
 //
 // Style invariants (RULES.md + GOAL-PARSER-RAKU):
 //   - No goto.  Structured flow only.
@@ -32,7 +36,9 @@
 //---------------------------------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------------------------------
-// Whitespace / newline.
+// Whitespace primitives.  ws_opt / ws_run are kept as named patterns for
+// internal use inside SPAN-like classifiers; the grammar refers to
+// $' ' / $'  ' instead — beauty.sno style taken further.
 // nl_one = ANY(nl) — the correct cross-PARSER idiom; SPAN(...nl) fails.
 //---------------------------------------------------------------------------------------------------
 
@@ -41,32 +47,59 @@ ws_run   = SPAN(' ' tab);
 nl_one   = ANY(nl);
 
 //---------------------------------------------------------------------------------------------------
-// Punctuation tokens — $'tok' style.  Single-char terminals padded by ws_opt
-// on either side, mirroring beauty.sno's $'='/$','/$'+' convention.
+// Invisible-whitespace tokens — beauty.sno style taken further.
+// $' ' (one space) names optional whitespace; $'  ' (two spaces) names
+// the required-single-space lexical separator.  This lets keyword and
+// operator-token definitions read as the literal source they match.
 //---------------------------------------------------------------------------------------------------
 
-$';'     = (ws_opt ';'  ws_opt);
-$'='     = (ws_opt '='  ws_opt);
-$'('     = (ws_opt '('  ws_opt);
-$')'     = (ws_opt ')'  ws_opt);
-$'{'     = (ws_opt '{'  ws_opt);
-$'}'     = (ws_opt '}'  ws_opt);
-$','     = (ws_opt ','  ws_opt);
-$'->'    = (ws_opt '->' ws_opt);
+$' '     = ws_opt;
+$'  '    = ws_run;
 
-// Arithmetic.
-$'+'     = (ws_opt '+'  ws_opt);
-$'-'     = (ws_opt '-'  ws_opt);
-$'*'     = (ws_opt '*'  ws_opt);
-$'/'     = (ws_opt '/'  ws_opt);
+//---------------------------------------------------------------------------------------------------
+// Keyword tokens — leading optional whitespace baked in.  Trailing
+// required-whitespace stays explicit at each call site (varies by use:
+// `if cond` and `if(cond)` are both legal in Raku, so $'if' / $'while' /
+// $'say' have no trailing $'  ' — the next token's leading $' ' eats
+// the optional space.  $'sub' / $'for' need real lexical separation
+// from the following identifier, so callers attach $'  ' after them).
+// $'kw' form sidesteps Snocone's reserved-word list.
+//---------------------------------------------------------------------------------------------------
 
-// Comparison — two-char before single-char (longest match handled by alt order).
-$'=='    = (ws_opt '==' ws_opt);
-$'!='    = (ws_opt '!=' ws_opt);
-$'<='    = (ws_opt '<=' ws_opt);
-$'>='    = (ws_opt '>=' ws_opt);
-$'<'     = (ws_opt '<'  ws_opt);
-$'>'     = (ws_opt '>'  ws_opt);
+$'my'        = ($' ' 'my'        );
+$'say'       = ($' ' 'say'       );
+$'if'        = ($' ' 'if'        );
+$'else'      = ($' ' 'else'      );
+$'while'     = ($' ' 'while'     );
+$'for'       = ($' ' 'for'       );
+$'sub'       = ($' ' 'sub'       );
+$'return'    = ($' ' 'return'    );
+
+//---------------------------------------------------------------------------------------------------
+// Operator-token patterns — beauty.sno / parser_icon.sc style.
+// Each consumes optional whitespace on both sides and produces no shift.
+// Two-char ops listed before single-char ops; longest-match handled by
+// alternation order at use site.
+//---------------------------------------------------------------------------------------------------
+
+$'->'    = ($' ' '->' $' ');
+$'=='    = ($' ' '==' $' ');
+$'!='    = ($' ' '!=' $' ');
+$'<='    = ($' ' '<=' $' ');
+$'>='    = ($' ' '>=' $' ');
+$'<'     = ($' ' '<'  $' ');
+$'>'     = ($' ' '>'  $' ');
+$'='     = ($' ' '='  $' ');
+$'+'     = ($' ' '+'  $' ');
+$'-'     = ($' ' '-'  $' ');
+$'*'     = ($' ' '*'  $' ');
+$'/'     = ($' ' '/'  $' ');
+$';'     = ($' ' ';'  $' ');
+$','     = ($' ' ','  $' ');
+$'('     = ($' ' '('  $' ');
+$')'     = ($' ' ')'  $' ');
+$'{'     = ($' ' '{'  $' ');
+$'}'     = ($' ' '}'  $' ');
 
 //---------------------------------------------------------------------------------------------------
 // Token classifiers — mirror raku.l names (lowercased).
@@ -89,16 +122,6 @@ var_hash   = ('%' rk_vf . _rk_vf rk_vro . _rk_vr);
 int_pat    = SPAN(digits);
 dstr_pat   = ('"' BREAK('"') . _rk_strbody '"');
 sstr_pat   = ("'" BREAK("'") . _rk_strbody "'");
-
-// Keywords — require non-alnum follower to avoid prefix-matching.
-kw_my     = ('my'     (ws_run | '('));
-kw_say    = ('say'    ws_opt);
-kw_if     = ('if'     ws_opt);
-kw_else   = ('else'   ws_opt);
-kw_while  = ('while'  ws_opt);
-kw_for    = ('for'    ws_run);
-kw_sub    = ('sub'    ws_run);
-kw_return = ('return' (ws_run | ';'));
 
 //---------------------------------------------------------------------------------------------------
 // Per-construct identifier captures.  Distinct globals keep recursive Expr
@@ -436,13 +459,6 @@ function push_expr_node() {
 // Each $'name' is a side-effect-only pattern (epsilon . *fn(...))
 // referenced inline in the grammar.  Folds the pattern body verbatim
 // out of the parsing rules into named singletons that read like prose.
-//
-// Convention:
-//   $'do_X'    — zero-arg side-effect.
-//   $'save_X'  — stash _expr_node (or another global) into a slot.
-//   $'atom_X'  — build a leaf node from a fresh dot-capture.
-//   $'op_X'    — save operator-tag constant for the next binop fold.
-//   $'binop_X' — fold LHS/op/RHS into _expr_node.
 //---------------------------------------------------------------------------------------------------
 
 // --- Main wrapper ---
@@ -530,20 +546,23 @@ CallArgTail = ( $','  *Expr  $'add_call_arg' );
 // var_array / var_hash / var_scalar all produce E_VAR (sigil stripped).
 // Function call tried before bare id_pat (longest match wins).
 // ARBNO(*CallArgTail) uses a deferred reference.
+// $' ' leading on each atom consumes whitespace from a preceding keyword
+// (e.g. `say 5;` — $'say' eats `say`, then atom's leading $' ' eats ` `).
 
-Expr11 = ( var_scalar              $'atom_VAR'
-         | var_array               $'atom_VAR'
-         | var_hash                $'atom_VAR'
-         | int_pat . _rk_itext     $'atom_ILIT'
-         | dstr_pat                $'atom_QLIT'
-         | sstr_pat                $'atom_QLIT'
-         | ($'(' *Expr $')')
-         | ( CallName  $'start_call'
+Expr11 = ( $' ' var_scalar              $'atom_VAR'
+         | $' ' var_array               $'atom_VAR'
+         | $' ' var_hash                $'atom_VAR'
+         | $' ' int_pat . _rk_itext     $'atom_ILIT'
+         | $' ' dstr_pat                $'atom_QLIT'
+         | $' ' sstr_pat                $'atom_QLIT'
+         | $'(' *Expr $')'
+         | ( $' ' CallName              $'start_call'
              $'('
-             ( *Expr  $'add_call_arg'  ARBNO( *CallArgTail )
+             ( *Expr                    $'add_call_arg'
+               ARBNO( *CallArgTail )
              | epsilon
              )
-             $')'  $'finish_call'
+             $')'                       $'finish_call'
            )
          );
 
@@ -595,17 +614,17 @@ Expr      = Expr4;
 
 BlockStmt = epsilon;
 
-Block_body = ( ws_opt (nl_one | epsilon) ws_opt
+Block_body = ( (nl_one | epsilon) $' '
                *BlockStmt
-               ws_opt (nl_one | epsilon) ws_opt
+               (nl_one | epsilon) $' '
                nInc()
                $'push_expr'
              );
 
-Block = ( $'{' (nl_one | epsilon) ws_opt
+Block = ( $'{' (nl_one | epsilon) $' '
           nPush()
           ARBNO( Block_body )
-          ws_opt (nl_one | epsilon) ws_opt $'}'
+          (nl_one | epsilon) $'}'
           reduce("'E_SEQ_EXPR'", 'nTop()')
           nPop()
           $'save_block'
@@ -618,54 +637,60 @@ Block = ( $'{' (nl_one | epsilon) ws_opt
 
 SubBlockStmt = epsilon;
 
-SubBlock_body = ( ws_opt (nl_one | epsilon) ws_opt
+SubBlock_body = ( (nl_one | epsilon) $' '
                   *SubBlockStmt
-                  ws_opt (nl_one | epsilon) ws_opt
+                  (nl_one | epsilon) $' '
                 );
 
-SubBlock = ( $'{' (nl_one | epsilon) ws_opt
+SubBlock = ( $'{' (nl_one | epsilon) $' '
              ARBNO( SubBlock_body )
-             ws_opt (nl_one | epsilon) ws_opt $'}'
+             (nl_one | epsilon) $'}'
            );
 
 //---------------------------------------------------------------------------------------------------
 // Statements.
+//
+// Reads as the literal Raku source: $'if' $'(' Expr $')' Block $'else' Block.
+// Each $'kw' bakes leading optional whitespace; trailing required-space
+// stays explicit only when needed for lexical separation ($'sub'/$'for'
+// must reject `subbie` / `foreach` so $'  ' follows them; $'if' / $'while'
+// can be followed by `(` without a space, so they don't need $'  ').
 //---------------------------------------------------------------------------------------------------
 
-IfStmt = ( ws_opt kw_if  $'(' Expr $')'
+IfStmt = ( $'if'  $'(' Expr $')'
            $'push_expr'  Block  $'pop_block'
-           ( ws_opt kw_else  Block  $'pop_block'  $'do_if3'
+           ( $'else'  Block  $'pop_block'  $'do_if3'
            | $'do_if2'
            )
          );
 
-WhileStmt = ( ws_opt kw_while  $'(' Expr $')'
+WhileStmt = ( $'while'  $'(' Expr $')'
               $'push_expr'  Block  $'pop_block'
               $'do_while'
             );
 
-ForStmt = ( ws_opt kw_for  Expr  $'push_expr'
+ForStmt = ( $'for' $'  '  Expr  $'push_expr'
             $'->'
             ForLoopvar  $'save_for_iter'
             Block  $'pop_block'  $'do_for'
           );
 
-ReturnStmt = ( ws_opt kw_return ws_opt
+ReturnStmt = ( $'return'
                ( $';'  $'do_return_void'
-               | Expr  $';'  $'do_return'
+               | $'  ' Expr  $';'  $'do_return'
                )
              );
 
-AssignStmt = ( ws_opt (kw_my | epsilon)
+AssignStmt = ( ($'my' $'  ' | $' ')
                AssignTarget  $'save_lhs'
                $'='  Expr  $';'  $'do_assign'
              );
 
-SayStmt = ( ws_opt kw_say
+SayStmt = ( $'say'
             Expr  $';'  $'do_say'
           );
 
-BareStmt = ( ws_opt Expr  $';' );
+BareStmt = ( $' ' Expr $';' );
 
 Stmt = ( IfStmt      $'append_stmt'
        | WhileStmt   $'append_stmt'
@@ -703,7 +728,7 @@ SubParams = ( '$' rk_pf . _rk_pf rk_pro . _rk_pr  $'add_param'
             | epsilon
             );
 
-SubStmt = ( ws_opt kw_sub
+SubStmt = ( $'sub' $'  '
             SubName  $'start_sub'
             $'(' SubParams $')'
             SubBlock  $'finish_sub'
@@ -718,7 +743,7 @@ SubStmt = ( ws_opt kw_sub
 
 Compiland = nPush()
             $'start_main'
-            ARBNO( ws_opt (SubStmt | Stmt) ws_opt (ANY(nl) | epsilon) )
+            ARBNO( $' ' (SubStmt | Stmt) $' ' (ANY(nl) | epsilon) )
             $'finish_main'
             reduce("'Parse'", 1)
             nPop();
