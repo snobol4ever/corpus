@@ -84,29 +84,58 @@ str_pat     = ('"' BREAK('"') . _ic_strbody '"');
 semi_opt    = (';' | epsilon);
 
 //-----------------------------------------------------------------------
+// Invisible-whitespace tokens — beauty.sc style taken further.
+// $' '  (one space) names optional whitespace; $'  ' (two spaces) names
+// the required-single-space lexical separator.  This lets keyword and
+// operator-token definitions read as the literal source they match.
+//-----------------------------------------------------------------------
+
+$' '        = ws_opt;
+$'  '       = ws_run;
+
+//-----------------------------------------------------------------------
+// Keyword tokens — leading optional whitespace baked in.  Trailing
+// required-whitespace stays explicit at each call site (varies by use:
+// `if cond` needs $'  ' so `iffy` is rejected; `end` followed by nl
+// needs no required-space).  Each keyword consumes only what its
+// surface form matches and shifts nothing.  $'kw' form (parallel to
+// $'op' for operators) sidesteps Snocone's reserved-word list.
+//-----------------------------------------------------------------------
+
+$'if'        = ($' ' 'if'       );
+$'then'      = ($' ' 'then'     );
+$'else'      = ($' ' 'else'     );
+$'while'     = ($' ' 'while'    );
+$'do'        = ($' ' 'do'       );
+$'every'     = ($' ' 'every'    );
+$'return'    = ($' ' 'return'   );
+$'end'       = ($' ' 'end'      );
+$'procedure' = ($' ' 'procedure');
+
+//-----------------------------------------------------------------------
 // Operator-token patterns — beauty.sc / parser_snobol4.sc style.
 // Each consumes optional whitespace on both sides and produces no shift.
 //-----------------------------------------------------------------------
 
-$'|'        = (ws_opt '|'  ws_opt);
-$':='       = (ws_opt ':=' ws_opt);
-$'?'        = (ws_opt '?'  ws_opt);
-$','        = (ws_opt ','  ws_opt);
-$'+'        = (ws_opt '+'  ws_opt);
-$'-'        = (ws_opt '-'  ws_opt);
-$'*'        = (ws_opt '*'  ws_opt);
-$'/'        = (ws_opt '/'  ws_opt);
-$'<='       = (ws_opt '<=' ws_opt);
-$'>='       = (ws_opt '>=' ws_opt);
-$'~='       = (ws_opt '~=' ws_opt);
-$'<'        = (ws_opt '<'  ws_opt);
-$'>'        = (ws_opt '>'  ws_opt);
-$'='        = (ws_opt '='  ws_opt);
-$';'        = (ws_opt ';'  ws_opt);
-$'('        = (ws_opt '('  ws_opt);
-$')'        = (ws_opt ')'  ws_opt);
-$'{'        = (ws_opt '{'  ws_opt);
-$'}'        = (ws_opt '}'  ws_opt);
+$'|'        = ($' ' '|'  $' ');
+$':='       = ($' ' ':=' $' ');
+$'?'        = ($' ' '?'  $' ');
+$','        = ($' ' ','  $' ');
+$'+'        = ($' ' '+'  $' ');
+$'-'        = ($' ' '-'  $' ');
+$'*'        = ($' ' '*'  $' ');
+$'/'        = ($' ' '/'  $' ');
+$'<='       = ($' ' '<=' $' ');
+$'>='       = ($' ' '>=' $' ');
+$'~='       = ($' ' '~=' $' ');
+$'<'        = ($' ' '<'  $' ');
+$'>'        = ($' ' '>'  $' ');
+$'='        = ($' ' '='  $' ');
+$';'        = ($' ' ';'  $' ');
+$'('        = ($' ' '('  $' ');
+$')'        = ($' ' ')'  $' ');
+$'{'        = ($' ' '{'  $' ');
+$'}'        = ($' ' '}'  $' ');
 
 //-----------------------------------------------------------------------
 // Helpers — tree-building only.  Per IC-8b: ONE function for statement
@@ -167,16 +196,16 @@ $'proc_wrap' = (epsilon . *ic_decompose_proc());
 // (id_pat followed by `(`); then paren / compound primaries; then
 // literals; then bare id.  All tries shift exactly one tree.
 
-If    = ( ws_opt 'if'    ws_run *Expr  ws_opt 'then' ws_run *Expr
-          (  ws_opt 'else' ws_run *Expr  (r_IF & 3)
+If    = ( $'if'    $'  ' *Expr  $'then' $'  ' *Expr
+          (  $'else' $'  ' *Expr  (r_IF & 3)
           |  (r_IF & 2)
           )
         );
 
-While = ( ws_opt 'while' ws_run *Expr  ws_opt 'do' ws_run *Expr  (r_WHILE & 2) );
+While = ( $'while' $'  ' *Expr  $'do' $'  ' *Expr  (r_WHILE & 2) );
 
-Every = ( ws_opt 'every' ws_run *Expr
-          (  ws_opt 'do' ws_run *Expr  (r_EVERY & 2)
+Every = ( $'every' $'  ' *Expr
+          (  $'do' $'  ' *Expr  (r_EVERY & 2)
           |  (r_EVERY & 1)
           )
         );
@@ -187,12 +216,12 @@ Every = ( ws_opt 'every' ws_run *Expr
 // reduce fires; zero args (just callee): nTop=1, single-child unwrap
 // leaves bare (E_VAR fname) — but that's wrong for an invocation with
 // no args.  Use 'nTop()' (not r_nTop) so the reduce always fires.
-ArgFirst    = ( ws_opt *Expr  nInc() );
+ArgFirst    = ( $' ' *Expr  nInc() );
 ArgRest     = ( $','   *Expr  nInc() );
 CallArgs    = ( ArgFirst ARBNO(ArgRest) | epsilon );
 Call        = ( nPush()
-                ws_opt id_pat ~ s_VAR  nInc()
-                ws_opt '(' CallArgs ws_opt ')'
+                $' ' id_pat ~ s_VAR  nInc()
+                $' ' '(' CallArgs $' ' ')'
                 (r_FNC & 'nTop()')
                 nPop()
               );
@@ -211,8 +240,8 @@ Paren       = ( nPush()
 // Compound — `{ expr [; expr]* }` block.  Same shape as Paren but
 // brace-delimited and allows trailing whitespace / newlines between
 // items.  Single-child unwrap matches existing frontend behavior.
-CompoundFirst = ( ws_opt *Expr ws_opt semi_opt ws_opt nInc() );
-CompoundRest  = ( ws_opt *Expr ws_opt semi_opt ws_opt nInc() );
+CompoundFirst = ( $' ' *Expr $' ' semi_opt $' ' nInc() );
+CompoundRest  = ( $' ' *Expr $' ' semi_opt $' ' nInc() );
 Compound      = ( nPush()
                   $'{'
                   ( CompoundFirst ARBNO(CompoundRest) | epsilon )
@@ -227,9 +256,9 @@ Expr11 = (   If
          |   Call
          |   Paren
          |   Compound
-         |   ws_opt str_pat $'qlit'
-         |   ws_opt int_pat ~ s_ILIT
-         |   ws_opt id_pat  ~ s_VAR
+         |   $' ' str_pat $'qlit'
+         |   $' ' int_pat ~ s_ILIT
+         |   $' ' id_pat  ~ s_VAR
          );
 
 // Expr7 — multiplicative `* /` left-assoc.
@@ -282,26 +311,26 @@ Expr      = ( *Expr1a );
 // blank lines do not produce trees and do not increment the counter.
 //-----------------------------------------------------------------------
 
-Comment   = ( ws_opt '#' BREAK(nl) nl_one );
-Blank     = ( ws_opt nl_one );
+Comment   = ( $' ' '#' BREAK(nl) nl_one );
+Blank     = ( $' ' nl_one );
 
-ReturnStmt = ( ws_opt 'return' ws_run *Expr ws_opt semi_opt ws_opt nl_one
+ReturnStmt = ( $'return' $'  ' *Expr $' ' semi_opt $' ' nl_one
                   (r_RETURN & 1)
-             | ws_opt 'return' ws_opt semi_opt ws_opt nl_one
+             | $'return' $' ' semi_opt $' ' nl_one
                   (r_RETURN & 0)
              );
 
 // One body statement.  Increments the proc-frame counter for each
 // produced tree; comments/blanks pass through without counter change.
 StmtBody  = ( ReturnStmt nInc()
-            | ws_opt *Expr ws_opt semi_opt ws_opt nl_one nInc()
+            | $' ' *Expr $' ' semi_opt $' ' nl_one nInc()
             | Comment
             | Blank
             );
 
 // Param list — each parameter shifts as (E_VAR pname) and increments
 // the proc-frame counter.  Empty arglist: zero shifts, zero increments.
-ParamFirst = ( ws_opt id_pat ~ s_VAR  nInc() );
+ParamFirst = ( $' ' id_pat ~ s_VAR  nInc() );
 ParamRest  = ( $',' id_pat ~ s_VAR  nInc() );
 Params     = ( ParamFirst ARBNO(ParamRest) | epsilon );
 
@@ -309,14 +338,14 @@ Params     = ( ParamFirst ARBNO(ParamRest) | epsilon );
 // shifted as (E_VAR pname) — this becomes child[1] of the eventual
 // E_FNC, AND ic_decompose_proc reads pname from v(child[1]) to set
 // the E_FNC's value field.  No global parsing-state slot needed.
-Prochead = ( ws_opt 'procedure' ws_run id_pat ~ s_VAR  nInc()
-             ws_opt '(' Params ws_opt ')' ws_opt nl_one
+Prochead = ( $'procedure' $'  ' id_pat ~ s_VAR  nInc()
+             $' ' '(' Params $' ' ')' $' ' nl_one
            );
 
 // Procbody — repeat StmtBody until 'end'.  Tail-recursive shape (vs
 // ARBNO) so we preempt-match `end` before letting StmtBody potentially
 // consume `end` as a bare identifier expression.
-ProcbodyEnd = ( ws_opt 'end' ws_opt (nl_one | RPOS(0)) );
+ProcbodyEnd = ( $'end' $' ' (nl_one | RPOS(0)) );
 Procbody    = ( ProcbodyEnd | StmtBody *Procbody );
 
 // Proc — push frame, parse head + body (each piece shifts trees and
@@ -331,7 +360,7 @@ Proc = ( nPush()  Prochead  Procbody  $'proc_wrap'  nPop() );
 //-----------------------------------------------------------------------
 
 Compiland = ( nPush()
-              ARBNO( nInc() ws_opt Proc ws_opt )
+              ARBNO( nInc() $' ' Proc $' ' )
               (r_Parse & 'nTop()')
               nPop()
             );
