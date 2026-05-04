@@ -44,6 +44,8 @@
 //   Literal   = INTLIT | STRINGLIT;
 //   Exprlist  = Expr (',' Expr)*;                  // IC-3: 1 arg only
 
+&FULLSCAN = 1;
+
 //-----------------------------------------------------------------------
 // Token-class atom recognizers — Icon surface syntax.
 //-----------------------------------------------------------------------
@@ -62,6 +64,26 @@ dstr_pat = ('"' BREAK('"') . _atom_strbody '"');
 str_pat  = dstr_pat;
 
 semi_opt = (';' | epsilon);
+
+//-----------------------------------------------------------------------
+// Operator-token patterns — named like beauty.sc's $'op' variables.
+// Each carries optional whitespace on both sides per the Icon surface.
+//-----------------------------------------------------------------------
+
+$'|'  = (ws_opt '|'  ws_opt);
+$':=' = (ws_opt ':=' ws_opt);
+$'?'  = (ws_opt '?'  ws_opt);
+$','  = (ws_opt ','  ws_opt);
+$'+'  = (ws_opt '+'  ws_opt);
+$'-'  = (ws_opt '-'  ws_opt);
+$'*'  = (ws_opt '*'  ws_opt);
+$'/'  = (ws_opt '/'  ws_opt);
+$'<=' = (ws_opt '<=' ws_opt);
+$'>=' = (ws_opt '>=' ws_opt);
+$'~=' = (ws_opt '~=' ws_opt);
+$'<'  = (ws_opt '<'  ws_opt);
+$'>'  = (ws_opt '>'  ws_opt);
+$'='  = (ws_opt '='  ws_opt);
 
 //-----------------------------------------------------------------------
 // Tree-building helpers.  These encode the existing-frontend tree
@@ -357,6 +379,136 @@ function ic_scan_finish(body) {
     nreturn;
 }
 
+// IC-7: E_SEQ_EXPR construction for `(e1; e2; ...)` and `{ s1; s2 }`.
+// The existing frontend builds E_SEQ_EXPR and unwraps single-child seqs.
+// Nesting is possible (scan body can itself be a paren-seq), so we use a
+// dedicated link()-stack $'@SQ' (struct ic_sqlink) parallel to $'@II'/$'@AL'.
+// Each `(` or `{` pushes a fresh accumulator; each `;` or `}` appends or
+// finalizes.  On finalize: if exactly 1 child → unwrap (install child as
+// _expr_node directly); else → build E_SEQ_EXPR node.
+
+struct ic_sqlink { next, sqval, sqn }
+
+function ic_seq_push() {
+    $'@SQ' = ic_sqlink($'@SQ', ARRAY('1:32'), 0);
+    ic_seq_push = .dummy;
+    nreturn;
+}
+
+function ic_seq_append() {
+    sqn($'@SQ') = sqn($'@SQ') + 1;
+    sqval($'@SQ')[sqn($'@SQ')] = _expr_node;
+    ic_seq_append = .dummy;
+    nreturn;
+}
+
+function ic_seq_finish(arr, n, node, i) {
+    arr = sqval($'@SQ');
+    n   = sqn($'@SQ');
+    $'@SQ' = next($'@SQ');
+    if (EQ(n, 1)) {
+        _expr_node = arr[1];
+        ic_seq_finish = .dummy;
+        nreturn;
+    }
+    node = Tree('E_SEQ_EXPR', '', n);
+    i = 1;
+    while (LE(i, n)) {
+        node = Append(node, arr[i]);
+        i = i + 1;
+    }
+    _expr_node = node;
+    ic_seq_finish = .dummy;
+    nreturn;
+}
+
+//-----------------------------------------------------------------------
+// Pattern builders — $'name' variables hold deferred-action patterns.
+// Named like beauty.sc's $'op' tokens; used bare (no *) in patterns so
+// deferred calls fire reliably inside ARBNO(NamedPattern).
+//
+// Convention: $'save_X' saves _expr_node into _X before it is clobbered
+// by a recursive Expr call.  $'do_X' fires a zero-argument side-effect.
+// $'atom_X' builds a leaf node of kind X from the most-recent capture.
+// $'binop_X' folds the running LHS/op/RHS triple into _expr_node.
+// $'op_X' saves the operator tag constant for the next binop fold.
+//-----------------------------------------------------------------------
+
+// --- Invoke side-effects ---
+$'invoke_arg'   = (epsilon . *expr_invoke_arg());
+$'invoke_end'   = (epsilon . *expr_invoke_end());
+$'append_stmt'  = (epsilon . *append_body_stmt());
+$'alt_enter'    = (epsilon . *expr_alt_enter());
+$'alt_finish'   = (epsilon . *expr_alt_finish());
+$'finish_proc'  = (epsilon . *finish_proc());
+
+// --- Atom builders (use most-recent dot-capture variable) ---
+$'atom_QLIT'    = (epsilon . *expr_from_atom('E_QLIT', _atom_strbody));
+$'atom_ILIT'    = (epsilon . *expr_from_atom('E_ILIT', _atom_text));
+$'atom_VAR'     = (epsilon . *expr_from_atom('E_VAR',  _atom_text));
+
+// --- Return builders ---
+$'return0'      = (epsilon . *expr_return0());
+$'return1'      = (epsilon . *expr_return1(_expr_node));
+
+// --- Per-level LHS savers (each level has its own slot) ---
+$'save_e3lhs'   = (epsilon . *assign('_e3lhs_saved', _expr_node));
+$'save_e4lhs'   = (epsilon . *assign('_e4lhs',       _expr_node));
+$'save_e6lhs'   = (epsilon . *assign('_e6lhs',       _expr_node));
+$'save_e7lhs'   = (epsilon . *assign('_e7lhs',       _expr_node));
+
+// --- Operator tag savers for binary fold ---
+$'op_EQ'        = (epsilon . *assign('_e4op', 'E_EQ'));
+$'op_NE'        = (epsilon . *assign('_e4op', 'E_NE'));
+$'op_LT'        = (epsilon . *assign('_e4op', 'E_LT'));
+$'op_LE'        = (epsilon . *assign('_e4op', 'E_LE'));
+$'op_GT'        = (epsilon . *assign('_e4op', 'E_GT'));
+$'op_GE'        = (epsilon . *assign('_e4op', 'E_GE'));
+$'op_ADD'       = (epsilon . *assign('_e6op', 'E_ADD'));
+$'op_SUB'       = (epsilon . *assign('_e6op', 'E_SUB'));
+$'op_MUL'       = (epsilon . *assign('_e7op', 'E_MUL'));
+$'op_DIV'       = (epsilon . *assign('_e7op', 'E_DIV'));
+
+// --- Binary fold builders (consume LHS slot + op slot + current _expr_node) ---
+$'binop_cmp'    = (epsilon . *expr_binop(_e4lhs, _e4op, _expr_node));
+$'binop_add'    = (epsilon . *expr_binop(_e6lhs, _e6op, _expr_node));
+$'binop_mul'    = (epsilon . *expr_binop(_e7lhs, _e7op, _expr_node));
+
+// --- Alternation step (saves LHS before Expr4 fires, then folds) ---
+$'alt_step'     = (epsilon . *expr_alt_step(_e3lhs_saved));
+
+// --- Control-flow node savers ---
+$'save_ic_cond' = (epsilon . *assign('_ic_cond', _expr_node));
+$'save_ic_then' = (epsilon . *assign('_ic_then', _expr_node));
+$'save_ic_wcond'= (epsilon . *assign('_ic_wcond', _expr_node));
+$'save_ic_evgen'= (epsilon . *assign('_ic_evgen', _expr_node));
+
+// --- Control-flow node builders ---
+$'if2'          = (epsilon . *expr_if2(_ic_cond, _ic_then));
+$'if3'          = (epsilon . *expr_if3(_ic_cond, _ic_then, _expr_node));
+$'while2'       = (epsilon . *expr_while2(_ic_wcond, _expr_node));
+$'every1'       = (epsilon . *expr_every1(_ic_evgen));
+$'every2'       = (epsilon . *expr_every2(_ic_evgen, _expr_node));
+
+// --- Assign builder ---
+$'assign_id'    = (epsilon . *expr_assign_id(_e1lhs_name, _expr_node));
+
+// --- Scan builders ---
+$'scan_push'    = (epsilon . *ic_scan_push(_expr_node));
+$'scan_finish'  = (epsilon . *ic_scan_finish(_expr_node));
+
+// --- Sequence / compound builders (IC-7) ---
+$'seq_push'     = (epsilon . *ic_seq_push());
+$'seq_append'   = (epsilon . *ic_seq_append());
+$'seq_finish'   = (epsilon . *ic_seq_finish());
+
+// --- Invocation opener (uses _ic_fname captured just before '(') ---
+$'invoke_begin' = (epsilon . *expr_invoke_begin(_ic_fname));
+
+// --- Proc helpers ---
+$'start_proc'   = (epsilon . *start_proc(_ic_pname));
+$'append_param' = (epsilon . *append_proc_param(_ic_pname));
+
 //-----------------------------------------------------------------------
 // Expression tower — canonical names from icon-sp.ebnf.
 //
@@ -368,18 +520,13 @@ function ic_scan_finish(body) {
 // IC-4: Argument-list components for invocation.  Mirrors the
 // procedure-definition Arglist/ParamRest pair, but each piece parses
 // a full Expr (not just an identifier) and appends onto the
-// top-of-stack in-progress invocation via *expr_invoke_arg().
+// top-of-stack in-progress invocation via $'invoke_arg'.
 //
 // A separately-named ArgFirst / ArgRest pattern is used so deferred
 // actions inside ARBNO fire reliably (PARSER-IC-INFRA-2 lesson).
 
-ArgFirst = ( ws_opt *Expr
-             epsilon . *expr_invoke_arg()
-           );
-
-ArgRest = ( ws_opt ',' ws_opt *Expr
-            epsilon . *expr_invoke_arg()
-          );
+ArgFirst = ( ws_opt *Expr  $'invoke_arg' );
+ArgRest  = ( $','   *Expr  $'invoke_arg' );
 
 InvokeArgs = ( ArgFirst ARBNO(ArgRest) | epsilon );
 
@@ -408,36 +555,62 @@ InvokeArgs = ( ArgFirst ARBNO(ArgRest) | epsilon );
 // The in-progress invocation node lives on a dedicated invocation
 // stack ($'@II'), pushed at '(' and popped at ')'.  This supports
 // nested calls like `write(double(5))` without clobbering the outer
-// in-progress node when the inner call's expr_invoke_begin fires.
-Expr11 = ( ws_opt 'if' ws_run *Expr
-              epsilon . *assign('_ic_cond', _expr_node)
-              ws_opt 'then' ws_run *Expr
-              epsilon . *assign('_ic_then', _expr_node)
-              ( ws_opt 'else' ws_run *Expr
-                epsilon . *expr_if3(_ic_cond, _ic_then, _expr_node)
-              | epsilon . *expr_if2(_ic_cond, _ic_then)
-              )
-         | ws_opt 'while' ws_run *Expr
-              epsilon . *assign('_ic_wcond', _expr_node)
-              ws_opt 'do' ws_run *Expr
-              epsilon . *expr_while2(_ic_wcond, _expr_node)
-         | ws_opt 'every' ws_run *Expr
-              epsilon . *assign('_ic_evgen', _expr_node)
-              ( ws_opt 'do' ws_run *Expr
-                epsilon . *expr_every2(_ic_evgen, _expr_node)
-              | epsilon . *expr_every1(_ic_evgen)
-              )
-         | id_pat . _ic_fname ws_opt '('
-              epsilon . *expr_invoke_begin(_ic_fname)
-              InvokeArgs
-              ws_opt ')'
-              epsilon . *expr_invoke_end()
-         | str_pat
-              epsilon . *expr_from_atom('E_QLIT', _atom_strbody)
-         | int_pat . _atom_text
-              epsilon . *expr_from_atom('E_ILIT', _atom_text)
-         | id_pat  . _atom_text
-              epsilon . *expr_from_atom('E_VAR', _atom_text)
+// in-progress node when the inner call's $'invoke_begin' fires.
+//
+// IC-7 paren: `( expr )` — transparent grouping, no new tree node.
+//   `( e1 ; e2 ; ... )` — E_SEQ_EXPR, single-child unwraps.
+//   Committed on `(` so no backtrack hazard.  Uses $'@SQ' stack so
+//   nested parens (scan bodies, call args) don't clobber each other.
+//
+// IC-7 compound: `{ stmt; stmt; ... }` — same E_SEQ_EXPR shape as
+//   paren-seq but delimited by braces and using statement syntax (`;`
+//   may be implicit at newline).  Single-child unwraps per frontend.
+
+// SeqRest — `;` followed by another Expr in a paren-sequence.
+// Separately named so ARBNO fires deferred actions reliably.
+SeqRest = ( ws_opt ';' ws_opt  *Expr  $'seq_append' );
+
+// Paren — `( expr [; expr]* )` primary.
+// Push a fresh seq accumulator, parse first Expr and append it, then
+// loop on `;`-separated Exprs, then finalize (unwrap if 1 child).
+Paren = ( ws_opt '('  $'seq_push'
+          ws_opt *Expr  $'seq_append'
+          ARBNO(SeqRest)
+          ws_opt ')'  $'seq_finish'
+        );
+
+// CompoundItem — one semicolon-terminated expression inside `{ }`.
+// Uses Expr (full expression tower) then optional `;`.
+CompoundItem = ( ws_opt *Expr ws_opt semi_opt ws_opt  $'seq_append' );
+
+// Compound — `{ expr [; expr]* }` block.
+// Same push/append/finish as Paren but brace-delimited and allows
+// trailing whitespace / newlines between items.
+Compound = ( ws_opt '{'  $'seq_push'
+             ws_opt
+             ARBNO(CompoundItem)
+             ws_opt '}'  $'seq_finish'
+           );
+
+Expr11 = ( ws_opt 'if'    ws_run *Expr  $'save_ic_cond'
+                          ws_opt 'then' ws_run *Expr  $'save_ic_then'
+                          ( ws_opt 'else' ws_run *Expr  $'if3'
+                          | $'if2'
+                          )
+         | ws_opt 'while' ws_run *Expr  $'save_ic_wcond'
+                          ws_opt 'do'   ws_run *Expr  $'while2'
+         | ws_opt 'every' ws_run *Expr  $'save_ic_evgen'
+                          ( ws_opt 'do' ws_run *Expr  $'every2'
+                          | $'every1'
+                          )
+         | id_pat . _ic_fname  ws_opt '('  $'invoke_begin'
+                               InvokeArgs
+                               ws_opt ')'  $'invoke_end'
+         | Paren
+         | Compound
+         | str_pat              $'atom_QLIT'
+         | int_pat . _atom_text $'atom_ILIT'
+         | id_pat  . _atom_text $'atom_VAR'
          );
 
 // Expr7 — multiplicative.  IC-2 ops: STAR (*), SLASH (/).
@@ -453,14 +626,11 @@ Expr11 = ( ws_opt 'if' ws_run *Expr
 // SCRIP/Snocone variables are global and Expr1's recursive call must
 // not have its own _expr_lhs clobbered by Expr6/Expr7 helpers.
 
-Expr7tail = ( epsilon . *assign('_e7lhs', _expr_node)
-              ws_opt
-              ( '*' epsilon . *assign('_e7op', 'E_MUL')
-              | '/' epsilon . *assign('_e7op', 'E_DIV')
-              )
-              ws_opt
-              Expr11
-              epsilon . *expr_binop(_e7lhs, _e7op, _expr_node)
+Expr7tail = ( $'save_e7lhs'
+              ws_opt  ( $'*'  $'op_MUL'
+                      | $'/'  $'op_DIV'
+                      )  ws_opt
+              Expr11  $'binop_mul'
             );
 
 Expr7 = ( Expr11 ARBNO(Expr7tail) );
@@ -468,14 +638,11 @@ Expr7 = ( Expr11 ARBNO(Expr7tail) );
 // Expr6 — additive.  IC-2 ops: PLUS (+), MINUS (-).
 // LL(1) decomposition: Expr7 (op Expr7)*
 
-Expr6tail = ( epsilon . *assign('_e6lhs', _expr_node)
-              ws_opt
-              ( '+' epsilon . *assign('_e6op', 'E_ADD')
-              | '-' epsilon . *assign('_e6op', 'E_SUB')
-              )
-              ws_opt
-              Expr7
-              epsilon . *expr_binop(_e6lhs, _e6op, _expr_node)
+Expr6tail = ( $'save_e6lhs'
+              ws_opt  ( $'+'  $'op_ADD'
+                      | $'-'  $'op_SUB'
+                      )  ws_opt
+              Expr7   $'binop_add'
             );
 
 Expr6 = ( Expr7 ARBNO(Expr6tail) );
@@ -490,18 +657,15 @@ Expr6 = ( Expr7 ARBNO(Expr6tail) );
 //
 // Expr4-specific saved-LHS uses _e4lhs (distinct from _e1lhs/_e6lhs/_e7lhs).
 
-Expr4tail = ( epsilon . *assign('_e4lhs', _expr_node)
-              ws_opt
-              ( '<=' epsilon . *assign('_e4op', 'E_LE')
-              | '>=' epsilon . *assign('_e4op', 'E_GE')
-              | '~=' epsilon . *assign('_e4op', 'E_NE')
-              | '<'  epsilon . *assign('_e4op', 'E_LT')
-              | '>'  epsilon . *assign('_e4op', 'E_GT')
-              | '='  epsilon . *assign('_e4op', 'E_EQ')
-              )
-              ws_opt
-              Expr6
-              epsilon . *expr_binop(_e4lhs, _e4op, _expr_node)
+Expr4tail = ( $'save_e4lhs'
+              ws_opt  ( $'<='  $'op_LE'
+                      | $'>='  $'op_GE'
+                      | $'~='  $'op_NE'
+                      | $'<'   $'op_LT'
+                      | $'>'   $'op_GT'
+                      | $'='   $'op_EQ'
+                      )  ws_opt
+              Expr6   $'binop_cmp'
             );
 
 Expr4 = ( Expr6 ARBNO(Expr4tail) );
@@ -513,27 +677,19 @@ Expr4 = ( Expr6 ARBNO(Expr4tail) );
 // produce nested (E_ALTERNATE a (E_ALTERNATE b ...)) trees.
 //
 // LL(1) shape: parse one Expr4, then ARBNO('|' Expr4).  Each '|' iter
-// fires *expr_alt_step(savedLHS): on first '|' it pushes a fresh
+// fires $'alt_step': on first '|' it pushes a fresh
 // (E_ALTERNATE LHS RHS) onto the alt-stack and flips _e3built; on
 // subsequent '|'s it appends onto top-of-stack.
 //
-// `expr_alt_enter` runs once at Expr3 entry, saves the caller's
+// $'alt_enter' runs once at Expr3 entry, saves the caller's
 // _e3built (which may be '1' if an outer Expr3 is in progress) and
-// resets ours to ''.  `expr_alt_finish` runs once at Expr3 exit,
+// resets ours to ''.  $'alt_finish' runs once at Expr3 exit,
 // pops the alt-stack if we pushed (installing the E_ALTERNATE as
 // _expr_node), and restores caller's _e3built.
 
-Expr3tail = ( ws_opt '|' ws_opt
-              epsilon . *assign('_e3lhs_saved', _expr_node)
-              Expr4
-              epsilon . *expr_alt_step(_e3lhs_saved)
-            );
+Expr3tail = ( $'|'  $'save_e3lhs'  Expr4  $'alt_step' );
 
-Expr3 = ( epsilon . *expr_alt_enter()
-          Expr4
-          ARBNO(Expr3tail)
-          epsilon . *expr_alt_finish()
-        );
+Expr3 = ( $'alt_enter'  Expr4  ARBNO(Expr3tail)  $'alt_finish' );
 
 // Expr2 — generation (`to`/`by`).  IC-5: still no `to`/`by`, so
 // Expr2 collapses to Expr3 (which in turn handles alternation and
@@ -557,7 +713,7 @@ Expr2 = Expr3;
 //   3. First alt backtracks, but the deferred actions stay applied.
 //   4. Second alt re-parses Expr2 — but the rebuilt _expr_node ends
 //      up overwriting / fighting whatever was set on the first pass,
-//      and the outer Stmt's `*append_body_stmt()` sees a stale node.
+//      and the outer Stmt's $'append_stmt' sees a stale node.
 //
 // Same shape as parser_snobol4.sc's `Assign = Id ws_opt '=' ...`:
 // commit to the assign branch *only* when an identifier is immediately
@@ -565,9 +721,7 @@ Expr2 = Expr3;
 // matches IC-3's surface (only simple-identifier LHS) and avoids the
 // deferred-action pollution from a deep Expr2 backtrack.
 
-Expr1 = ( id_pat . _e1lhs_name ws_opt ':=' ws_opt
-          *Expr1
-          epsilon . *expr_assign_id(_e1lhs_name, _expr_node)
+Expr1 = ( id_pat . _e1lhs_name  $':='  *Expr1  $'assign_id'
         | Expr2
         );
 
@@ -581,10 +735,7 @@ Expr1 = ( id_pat . _e1lhs_name ws_opt ':=' ws_opt
 // onto a private link()-stack ($'@SC') because nested scans (`a ? b ? c`)
 // must not clobber outer subjects — each frame has its own.
 Expr1a = ( Expr1
-           ( ws_opt '?' ws_opt
-             epsilon . *ic_scan_push(_expr_node)
-             *Expr
-             epsilon . *ic_scan_finish(_expr_node)
+           ( $'?'  $'scan_push'  *Expr  $'scan_finish'
            | epsilon
            )
          );
@@ -614,16 +765,13 @@ Blank   = ( ws_opt nl_one );
 // the no-value form catches it.
 
 ReturnStmt = ( ws_opt 'return' ws_run *Expr ws_opt semi_opt ws_opt nl_one
-                  epsilon . *expr_return1(_expr_node)
-                  epsilon . *append_body_stmt()
+                  $'return1'  $'append_stmt'
              | ws_opt 'return' ws_opt semi_opt ws_opt nl_one
-                  epsilon . *expr_return0()
-                  epsilon . *append_body_stmt()
+                  $'return0'  $'append_stmt'
              );
 
 Stmt = ( ReturnStmt
-       | ws_opt Expr ws_opt semi_opt ws_opt nl_one
-            epsilon . *append_body_stmt()
+       | ws_opt Expr ws_opt semi_opt ws_opt nl_one  $'append_stmt'
        | Comment
        | Blank
        );
@@ -631,11 +779,9 @@ Stmt = ( ReturnStmt
 // IC-4: Parameter-list components.
 //
 // ProcParam — a single parameter identifier inside the arglist.  Each
-// match appends one E_VAR onto _proc_node via *append_proc_param().
+// match appends one E_VAR onto _proc_node via $'append_param'.
 // Used by the body of ParamRest's ARBNO loop and the head of Arglist.
-ProcParam = ( id_pat . _ic_pname
-              epsilon . *append_proc_param(_ic_pname)
-            );
+ProcParam = ( id_pat . _ic_pname  $'append_param' );
 
 // ParamRest — `, IDENT` repeated for arglist tail.  Same shift-named
 // tail decomposition as Expr6tail/Expr7tail; deferred actions inside
@@ -649,10 +795,10 @@ Arglist = ( ProcParam ARBNO(ParamRest) | epsilon );
 // Prochead — `procedure NAME(arglist)`.  IC-4 generalized: any
 // identifier as procedure name (was hardcoded 'main' under IC-2/IC-3),
 // any number of comma-separated parameters.  Side-effect:
-// *start_proc(name) seeds _proc_node, *append_proc_param() appends
+// $'start_proc' seeds _proc_node, $'append_param' appends
 // each arg's E_VAR child.
 Prochead = ( ws_opt 'procedure' ws_run id_pat . _ic_pname
-             epsilon . *start_proc(_ic_pname)
+             $'start_proc'
              ws_opt '(' ws_opt Arglist ws_opt ')' ws_opt nl_one
            );
 
@@ -668,15 +814,12 @@ Procbody = ( ProcbodyEnd | Stmt *Procbody );
 
 // Proc — `procedure NAME(arglist) <body> end`.  Procbody eats up to and
 // including the closing `end` keyword (see Procbody above).  The
-// finishing side-effect *finish_proc() pushes the assembled
+// finishing side-effect $'finish_proc' pushes the assembled
 // (STMT :subj ...) tree.
 //
 // IC-4: any procedure name, any arity (was hardcoded 'main()').
 
-Proc = ( Prochead
-         Procbody
-         epsilon . *finish_proc()
-       );
+Proc = ( Prochead  Procbody  $'finish_proc' );
 
 //-----------------------------------------------------------------------
 // Compiland — the canonical spine.  Single PATTERN match consumes the
@@ -704,6 +847,7 @@ InitStack();
 $'@II' = ;            // IC-4: invocation in-progress stack (Expr11 calls)
 $'@AL' = ;            // IC-5: alternation in-progress stack (Expr3 chains)
 $'@SC' = ;            // IC-6: scan-subject stack (Expr1a `?` nesting)
+$'@SQ' = ;            // IC-7: sequence accumulator stack (paren-seq / compound)
 
 Src = '';
 while (Line = INPUT) { Src = Src Line nl; }
