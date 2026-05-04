@@ -22,7 +22,7 @@
 // Style invariant (per RULES.md): no goto/labels in driver loops.
 // Use Snocone structured flow.
 //
-// Rung PARSER-RK-2 (CURRENT): atom + decl/assign + say + arith.
+// Rung PARSER-RK-3 (CURRENT): atom + decl/assign + say + arith + control flow.
 //
 //   $x;             → (STMT :subj (E_FNC main (E_VAR main) (E_VAR x)))
 //   42;             → (STMT :subj (E_FNC main (E_VAR main) (E_ILIT 42)))
@@ -34,16 +34,30 @@
 //   my $x = 1+2*3;  → ...(E_ASSIGN (E_VAR x) (E_ADD 1 (E_MUL 2 3)))
 //   my $x = 1+2+3;  → ...(E_ASSIGN ... (E_ADD (E_ADD 1 2) 3))   left-assoc
 //
+//   if ($c) { say($c); }
+//                   → (E_IF (E_VAR c) (E_SEQ_EXPR (E_FNC write ...)))
+//   if ($x<3) { ... } else { ... }
+//                   → (E_IF (E_LT $x 3) (E_SEQ_EXPR ...) (E_SEQ_EXPR ...))
+//   while ($i<3) { ... }
+//                   → (E_WHILE (E_LT $i 3) (E_SEQ_EXPR ...))
+//   for @a -> $x { ... }
+//                   → (E_EVERY (E_ITERATE x (E_VAR a)) (E_SEQ_EXPR ...))
+//
 // Precedence (matches raku.y):
-//   factor := primary
-//   term   := factor ( ('*' | '/') factor )*       left-assoc
-//   expr   := term   ( ('+' | '-') term   )*       left-assoc
+//   factor   := primary
+//   term     := factor ( ('*' | '/') factor )*     left-assoc
+//   add_expr := term   ( ('+' | '-') term   )*     left-assoc
+//   cmp_expr := add_expr ( cmp_op add_expr )*      left-assoc (looser than +/-)
+//                cmp_op : '<' | '>' | '<=' | '>=' | '==' | '!='
+//   expr     := cmp_expr     (top-level expression entry point)
 //
 // The existing raku.y program rule wraps all body stmts in a synthetic
 // "main" E_FNC node: E_FNC(main, [E_VAR(main), stmt1, stmt2, ...]).
+// Inside `{ ... }` blocks, raku.y wraps body stmts in E_SEQ_EXPR.
+// PAT-RK reproduces both wrappers using the same body_count counter
+// pushed/popped via PushCounter/PopCounter to handle nesting.
 //
-// Out-of-scope at RK-2 (deferred to later rungs):
-//   - control flow (if/while/for) — RK-3
+// Out-of-scope at RK-3 (deferred to later rungs):
 //   - sub definitions             — RK-4
 //   - regex / grammar primitives  — RK-5
 //
@@ -57,6 +71,12 @@
 ws_one = ANY(' ' tab);
 ws_run = SPAN(' ' tab);
 ws_opt = (SPAN(' ' tab) | epsilon);
+
+// Whitespace including newlines — used between top-level stmts and
+// between block-body stmts (multi-line programs at RK-3+).  The
+// existing ws_opt handles only intra-line whitespace; wsnl_opt also
+// consumes line breaks.  Used at the start of each stmt alternative.
+wsnl_opt = (SPAN(' ' tab nl) | epsilon);
 
 // Single-line comment: # to end of line.  Matches the flex rule in raku.l.
 raku_comment = ('#' REM);
@@ -117,6 +137,37 @@ op_add = '+';
 op_sub = '-';
 op_mul = '*';
 op_div = '/';
+
+// Comparison operators — mirrors raku.l "==", "!=", "<=", ">=", '<', '>'.
+// Two-char ops first (longest-match) — both alternatives below check
+// the two-char form before falling through to the single-char form.
+op_eq = '==';
+op_ne = '!=';
+op_le = '<=';
+op_ge = '>=';
+op_lt = '<';
+op_gt = '>';
+
+// Control-flow keywords — mirrors raku.l KW_IF/KW_ELSE/KW_WHILE/KW_FOR.
+// Each requires a non-alnum follower (whitespace or '(') to avoid
+// matching `iffy`, `whilething`, etc.  ws_one handles the common case;
+// for `if(`-style we accept ws_opt before the '(' but require the
+// keyword itself to be at a word boundary — Snocone PATTERN's BREAK
+// idiom isn't needed here because raku.y always has a delimiter
+// (whitespace or '(') after the keyword.
+kw_if    = ('if'    ws_one);
+kw_else  = ('else'  (ws_one | ws_opt));   // 'else {' tolerates optional ws
+kw_while = ('while' ws_one);
+kw_for   = ('for'   ws_one);
+
+// Arrow operator — mirrors raku.l "->" → OP_ARROW.  Used in `for @a -> $x { ... }`.
+op_arrow = '->';
+
+// Braces and parens — used by control-flow stmts and blocks.
+raku_lbrace = '{';
+raku_rbrace = '}';
+raku_lparen = '(';
+raku_rparen = ')';
 
 //-----------------------------------------------------------------------
 // Atom-level tree builders.
@@ -273,6 +324,135 @@ function build_main_wrapper(mf, mn, i, atoms) {
 }
 
 //-----------------------------------------------------------------------
+// RK-3 builders — control-flow & block / E_SEQ_EXPR wrapper.
+//
+// Block-counter management
+// ------------------------
+// raku.y wraps `{ stmt; stmt; ... }` block bodies in E_SEQ_EXPR.  Our
+// existing `body_count` counts top-level stmts to feed the main-wrapper.
+// To handle nested blocks, we save the outer `body_count` on the
+// counter-stack at block entry and reset it to 0; the nested stmts
+// then increment a fresh body_count, which on exit tells us exactly
+// how many block-body atoms to wrap in E_SEQ_EXPR.  After the wrap,
+// the seq node sits as a single push in the outer scope, so we
+// restore the saved outer count and increment it by 1.
+//
+// PushCounter / TopCounter / PopCounter come from counter.sc; we use
+// them as a simple stack of saved body_count snapshots.
+//
+// build_block_enter() — save outer body_count, reset for inner stmts.
+// build_block_exit()  — pop inner stmts, build E_SEQ_EXPR, restore.
+//-----------------------------------------------------------------------
+
+function build_block_enter() {
+    PushCounter();
+    // Stash outer body_count IncCounter-times, so TopCounter == outer count.
+    while (GT(body_count, 0)) {
+        IncCounter();
+        body_count = body_count - 1;
+    }
+    body_count = 0;
+    build_block_enter = .dummy;
+    nreturn;
+}
+
+// build_block_exit() — pop body_count atoms (block body), build
+// E_SEQ_EXPR, push it back, restore outer body_count + 1.
+function build_block_exit(seq, atoms, i, inner_n, outer_n) {
+    inner_n = body_count;
+    atoms = (GT(inner_n, 0) ARRAY(inner_n), NULL);
+    i = inner_n;
+    while (i > 0) {
+        atoms[i] = Pop();
+        i = i - 1;
+    }
+    seq = Tree('E_SEQ_EXPR', '', 0);
+    i = 1;
+    while (LE(i, inner_n)) {
+        Append(seq, atoms[i]);
+        i = i + 1;
+    }
+    Push(seq);
+    // Restore outer body_count from the counter-stack snapshot.
+    outer_n = TopCounter();
+    PopCounter();
+    body_count = outer_n + 1;
+    build_block_exit = .dummy;
+    nreturn;
+}
+
+// build_if(has_else) — pop block(s) and condition, build E_IF.
+// At call time the stack contains:
+//   bottom ... cond_expr then_seq [else_seq]   top
+// and body_count reflects the outer-scope count after both block_exits
+// already restored (each block_exit added +1).  Each E_SEQ_EXPR push
+// counted as one outer stmt, plus the cond push counted as one — so
+// before this builder fires, the if has consumed (1 cond) + (1 or 2
+// blocks) outer-count contributions.  build_if collapses them all
+// into a single E_IF node, leaving body_count at the outer scope's
+// stmt-count + 1 for the if itself.
+function build_if_else(cond, then_seq, else_seq, node) {
+    else_seq = Pop();
+    then_seq = Pop();
+    cond     = Pop();
+    body_count = body_count - 3;
+    node = Tree('E_IF', '', 3, cond, then_seq, else_seq);
+    Push(node);
+    body_count = body_count + 1;
+    build_if_else = .dummy;
+    nreturn;
+}
+
+function build_if_no_else(cond, then_seq, node) {
+    then_seq = Pop();
+    cond     = Pop();
+    body_count = body_count - 2;
+    node = Tree('E_IF', '', 2, cond, then_seq);
+    Push(node);
+    body_count = body_count + 1;
+    build_if_no_else = .dummy;
+    nreturn;
+}
+
+// build_while() — pop body_seq + cond, build E_WHILE.
+function build_while(cond, body_seq, node) {
+    body_seq = Pop();
+    cond     = Pop();
+    body_count = body_count - 2;
+    node = Tree('E_WHILE', '', 2, cond, body_seq);
+    Push(node);
+    body_count = body_count + 1;
+    build_while = .dummy;
+    nreturn;
+}
+
+// for_iter_target — captured loopvar-name for build_for.  Distinct
+// global from assign_target_name so a `for ... -> $x { $y = ... }`
+// nested assign won't clobber the loopvar.
+for_iter_name = '';
+
+function set_for_iter(name) {
+    for_iter_name = name;
+    set_for_iter = .dummy;
+    nreturn;
+}
+
+// build_for() — `for @arr -> $x { body }`
+//   stack: ... iter_arr_expr body_seq    top
+//   ir:    (E_EVERY (E_ITERATE <name> <iter_arr_expr>) <body_seq>)
+function build_for(iter_arr, body_seq, iter_node, node) {
+    body_seq = Pop();
+    iter_arr = Pop();
+    body_count = body_count - 2;
+    iter_node = Tree('E_ITERATE', for_iter_name, 1, iter_arr);
+    node = Tree('E_EVERY', '', 2, iter_node, body_seq);
+    Push(node);
+    body_count = body_count + 1;
+    build_for = .dummy;
+    nreturn;
+}
+
+//-----------------------------------------------------------------------
 // `primary` — one atom expression.  Mirrors raku.y primary/expr at
 // RK-0 scope.
 //
@@ -338,7 +518,28 @@ term = ( factor ARBNO( mul_tail | div_tail ) );
 add_tail = ( ws_opt op_add ws_opt term epsilon . *build_binop('E_ADD') );
 sub_tail = ( ws_opt op_sub ws_opt term epsilon . *build_binop('E_SUB') );
 
-expr = ( term ARBNO( add_tail | sub_tail ) );
+add_expr = ( term ARBNO( add_tail | sub_tail ) );
+
+//-----------------------------------------------------------------------
+// Comparison-level expression — looser than +/-, mirrors raku.y
+// cmp_expr rules (E_EQ/E_NE/E_LT/E_GT/E_LE/E_GE).  Two-char ops
+// (==, !=, <=, >=) listed before single-char (<, >) so longest-match
+// wins via Snocone alternation.  Currently raku.y is left-assoc on
+// these (declared `%left` in the prec table) — same idiom as add/mul.
+//-----------------------------------------------------------------------
+
+eq_tail = ( ws_opt op_eq ws_opt add_expr epsilon . *build_binop('E_EQ') );
+ne_tail = ( ws_opt op_ne ws_opt add_expr epsilon . *build_binop('E_NE') );
+le_tail = ( ws_opt op_le ws_opt add_expr epsilon . *build_binop('E_LE') );
+ge_tail = ( ws_opt op_ge ws_opt add_expr epsilon . *build_binop('E_GE') );
+lt_tail = ( ws_opt op_lt ws_opt add_expr epsilon . *build_binop('E_LT') );
+gt_tail = ( ws_opt op_gt ws_opt add_expr epsilon . *build_binop('E_GT') );
+
+cmp_expr = ( add_expr ARBNO( eq_tail | ne_tail | le_tail | ge_tail | lt_tail | gt_tail ) );
+
+// Top-level expression entry point — control-flow conds, assignments,
+// say-args all use `expr`.
+expr = cmp_expr;
 
 //-----------------------------------------------------------------------
 // `assign_target` — left-hand side of an assignment.  Any sigiled
@@ -370,7 +571,7 @@ assign_target = ( ('$' asgn_alpha . _tgt_first asgn_alnum_opt . _tgt_rest)
 // supports `my $x = 1 + 2 * 3;` etc.
 //-----------------------------------------------------------------------
 
-assign_stmt = ( ws_opt (kw_my | epsilon)
+assign_stmt = ( wsnl_opt (kw_my | epsilon)
                 assign_target . *set_assign_target(_tgt_first _tgt_rest)
                 ws_opt raku_eq ws_opt
                 expr
@@ -382,21 +583,119 @@ assign_stmt = ( ws_opt (kw_my | epsilon)
 // `KW_SAY arg ';'`.  Wraps the expr atom in (E_FNC write (E_VAR write) <expr>).
 //-----------------------------------------------------------------------
 
-say_stmt = ( ws_opt kw_say
+say_stmt = ( wsnl_opt kw_say
              expr
              ws_opt raku_semi
              . *build_say() );
 
 //-----------------------------------------------------------------------
-// `stmt` — one statement.  Try longer-prefix forms first:
-//   1. assign_stmt — has '=' after target
-//   2. say_stmt    — starts with `say` keyword
-//   3. bare expr;  — atom or arith expression as standalone stmt
+// `block` — `{ stmt* }` body wrapped in E_SEQ_EXPR.
+//
+// build_block_enter() saves the outer body_count and resets to 0 so the
+// inner ARBNO(stmt) sees only its own stmts.  build_block_exit() pops
+// those inner stmts, wraps in E_SEQ_EXPR, restores the outer count + 1.
+//
+// Forward-reference issue: stmt references block (via if/while/for)
+// and block references stmt — Snocone PATTERN supports forward refs
+// via DEFER-style late binding (assignment to pattern var).  Here we
+// declare placeholders for the control-flow stmts up front and bind
+// them after `stmt` is defined, then build `block` referencing `stmt`.
 //-----------------------------------------------------------------------
 
-stmt = ( assign_stmt
+//-----------------------------------------------------------------------
+// Forward declaration — break the stmt → block → stmt cycle.
+//
+// `stmt` is defined twice: once as `epsilon` (placeholder) so that
+// `block` and the control-flow stmts can reference it via `*stmt`
+// deferred-eval, and once for real at the bottom after all alternatives
+// are defined.  The deferred-eval `*stmt` ensures the match-time lookup
+// sees the final binding.  This single-forward-ref shape is cleaner
+// than declaring all three control-flow stmts forward — `block`'s
+// reference to `*stmt` is the only true cycle in the grammar.
+//-----------------------------------------------------------------------
+
+stmt = epsilon;   // forward declaration — final binding at bottom of file
+
+// `block` — wrapped statement sequence.  The action structure mirrors
+// raku.y's `block: '{' stmt_list '}'  → make_seq(stmts)`:
+//   * build_block_enter fires immediately after '{'
+//   * each stmt inside ARBNO(*stmt) increments body_count as usual
+//     (deferred *stmt lookup so `stmt` resolves to its full alternation
+//      at match time, including the as-yet-undefined if/while/for).
+//   * build_block_exit fires before '}'
+block = ( wsnl_opt raku_lbrace wsnl_opt
+          epsilon . *build_block_enter()
+          ARBNO( *stmt )
+          wsnl_opt raku_rbrace
+          epsilon . *build_block_exit() );
+
+//-----------------------------------------------------------------------
+// Control-flow stmt definitions — defined here (after block, before the
+// final stmt binding) so each control-flow stmt can reference `block`
+// directly (no forward-ref needed), and so the final `stmt` alternation
+// captures the real (non-epsilon) bodies.
+//
+// raku.y if_stmt rules:
+//   KW_IF '(' expr ')' block                      → E_IF(cond, then)
+//   KW_IF '(' expr ')' block KW_ELSE block        → E_IF(cond, then, else)
+//   KW_IF '(' expr ')' block KW_ELSE if_stmt      → chained elsif (RK-3+ defers)
+//
+// Order matters: the with-else alternative must come before the
+// without-else alternative so PATTERN tries the longer match first.
+//-----------------------------------------------------------------------
+
+if_stmt = ( wsnl_opt kw_if ws_opt raku_lparen ws_opt
+            expr
+            ws_opt raku_rparen
+            block
+            wsnl_opt kw_else block
+            . *build_if_else()
+          | wsnl_opt kw_if ws_opt raku_lparen ws_opt
+            expr
+            ws_opt raku_rparen
+            block
+            . *build_if_no_else()
+          );
+
+while_stmt = ( wsnl_opt kw_while ws_opt raku_lparen ws_opt
+               expr
+               ws_opt raku_rparen
+               block
+               . *build_while() );
+
+// `for_stmt` — `for <iter_expr> -> $loopvar { body }`
+//   iter_expr is an `expr` (typically `@arr` resolved as E_VAR(arr))
+//   $loopvar's bare name → for_iter_name (used by build_for's E_ITERATE)
+//
+// Captures into _for_first/_for_rest (distinct from _var_*/_tgt_*) so
+// the iter_expr's primary captures don't collide with the loopvar.
+for_alpha     = ANY(&UCASE &LCASE '_');
+for_alnum     = SPAN(&UCASE &LCASE digits '_');
+for_alnum_opt = (for_alnum | epsilon);
+
+for_loopvar = ( '$' for_alpha . _for_first for_alnum_opt . _for_rest );
+
+for_stmt = ( wsnl_opt kw_for ws_opt
+             expr
+             ws_opt op_arrow ws_opt
+             for_loopvar . *set_for_iter(_for_first _for_rest)
+             block
+             . *build_for() );
+
+//-----------------------------------------------------------------------
+// `stmt` — final binding.  Try longer-prefix forms first:
+//   1. control flow: if / while / for     — keyword-prefixed
+//   2. assign_stmt — has '=' after target
+//   3. say_stmt    — starts with `say` keyword
+//   4. bare expr;  — atom or arith expression as standalone stmt
+//-----------------------------------------------------------------------
+
+stmt = ( if_stmt
+       | while_stmt
+       | for_stmt
+       | assign_stmt
        | say_stmt
-       | (ws_opt expr ws_opt raku_semi)
+       | (wsnl_opt expr ws_opt raku_semi)
        );
 
 //-----------------------------------------------------------------------
@@ -415,6 +714,7 @@ stmt = ( assign_stmt
 Compiland = epsilon . *reset_body_count()
             nPush()
             ARBNO( stmt )
+            wsnl_opt
             (DIFFER(body_count) . *build_main_wrapper() | epsilon)
             reduce("'Parse'", 1)
             nPop();
