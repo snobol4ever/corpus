@@ -21,8 +21,8 @@
 //        - Capital `PR_xxx`  — the BUILDER (compile-time pattern producer).
 //        - Lowercase `xxx`   — the RUNTIME fn (called from the deferred
 //          `*xxx(...)` action at match time).
-//      Use sites in the grammar look like `PR_push_var('pText')` not
-//      `. *push_var(pText)`.  The PR_* block hides the `epsilon . *xxx`
+//      Use sites in the grammar look like `epsilon . *Push_var(p_text)` not
+//      `. *Push_var(p_text)`.  The PR_* block hides the `epsilon . *xxx`
 //      boilerplate and gives the grammar a Reduce()-like reading.
 //
 // Naming policy (per .github/RULES.md):
@@ -73,23 +73,23 @@ White = SPAN(' ' tab);
 Gray  = *White | epsilon;
 
 // Lowercase-start identifier — TK_ATOM (unquoted form).
-tk_atom_first = ANY(&LCASE);
-tk_atom_rest  = SPAN(digits &UCASE &LCASE '_');
-tk_atom       = (tk_atom_first (tk_atom_rest | epsilon));
+Atom_first = ANY(&LCASE);
+Atom_rest  = SPAN(digits &UCASE &LCASE '_');
+Atom       = (Atom_first (Atom_rest | epsilon));
 
 // Single-quoted atom — TK_ATOM (quoted form): same lowering as bare atom.
-tk_qatom = ("'" BREAK("'") . qBody "'");
+Qatom = ("'" BREAK("'") . q_body "'");
 
 // Uppercase-start or '_'-prefixed identifier — TK_VAR.
-tk_var_first = ANY(&UCASE '_');
-tk_var_rest  = SPAN(digits &UCASE &LCASE '_');
-tk_var       = (tk_var_first (tk_var_rest | epsilon));
+Var_first = ANY(&UCASE '_');
+Var_rest  = SPAN(digits &UCASE &LCASE '_');
+Var       = (Var_first (Var_rest | epsilon));
 
 // Integer literal — TK_INT.
-tk_int = SPAN(digits);
+Int = SPAN(digits);
 
 // Double-quoted string — TK_STRING (interned as atom: same lowering as TK_ATOM).
-tk_string = ('"' BREAK('"') . sBody '"');
+Str = ('"' BREAK('"') . s_body '"');
 
 // Punctuation and operator tokens — beauty.sc $'x' idiom.  Each token
 // knows its own surrounding-whitespace policy and the grammar body
@@ -123,21 +123,21 @@ trivia    = ((SPAN(' ' tab nl) | epsilon) ARBNO(comment (SPAN(' ' tab nl) | epsi
 var_table = TABLE();
 var_next  = 0;
 
-function reset_var_scope() {
+function Reset_var_scope() {
     var_table = TABLE();
     var_next  = 0;
-    reset_var_scope = .dummy;
+    Reset_var_scope = .dummy;
     nreturn;
 }
 
-function resolve_var(name, slot) {
+function Resolve_var(name, slot) {
     slot = var_table[name];
     if (~DIFFER(slot)) {
         slot = var_next;
         var_table[name] = slot;
         var_next = var_next + 1;
     }
-    resolve_var = '_V' slot;
+    Resolve_var = '_V' slot;
     return;
 }
 
@@ -147,47 +147,47 @@ function resolve_var(name, slot) {
 // cannot express the tree directly — variable slot resolution, string
 // bodies, named-value compound nodes, and the clause envelope.
 //=============================================================================
-function push_var(name) {
-    Push(tree('E_VAR', resolve_var(name)));
-    push_var = .dummy;
+function Push_var(name) {
+    Push(tree('E_VAR', Resolve_var(name)));
+    Push_var = .dummy;
     nreturn;
 }
 
-function push_atom_body(body) {
+function Push_atom_body(body) {
     Push(tree('E_FNC', body));
-    push_atom_body = .dummy;
+    Push_atom_body = .dummy;
     nreturn;
 }
 
 // push_nil — push the empty-list atom (E_FNC []) onto the stack.
 // Used both for `[]` literal and as the implicit tail when a list
 // has no `|` clause.
-function push_nil() {
+function Push_nil() {
     Push(tree('E_FNC', '[]'));
-    push_nil = .dummy;
+    Push_nil = .dummy;
     nreturn;
 }
 
 // push_neg_int — push (E_ILIT -<digits>) for unary-minus on an integer
 // literal.  Matches prolog_lower.c which folds a leading `-` directly
 // into the integer literal value rather than emitting a 1-arg E_FNC `-`.
-function push_neg_int(digits) {
+function Push_neg_int(digits) {
     Push(tree('E_ILIT', '-' digits));
-    push_neg_int = .dummy;
+    Push_neg_int = .dummy;
     nreturn;
 }
 
 // reduce_is — pop two trees and build (E_FNC is L R).  `is` lowers
 // to a named-functor compound (value = "is"), so Reduce() can't do it
 // directly (Reduce forces empty value).  Two children, fixed.
-function reduce_is(rhs, lhs, fnc_node) {
+function Reduce_is(rhs, lhs, fnc_node) {
     rhs = Pop();
     lhs = Pop();
     fnc_node = Tree('E_FNC', 'is', 0);
     Append(fnc_node, lhs);
     Append(fnc_node, rhs);
     Push(fnc_node);
-    reduce_is = .dummy;
+    Reduce_is = .dummy;
     nreturn;
 }
 
@@ -197,7 +197,7 @@ function reduce_is(rhs, lhs, fnc_node) {
 //     (E_FNC . <elem> <rest>)
 // Walk elements from last-to-first, folding rest := (E_FNC . elem rest).
 // Final `rest` replaces all consumed trees on the stack.
-function reduce_list(n, kids, i, tail, cons_node) {
+function Reduce_list(n, kids, i, tail, cons_node) {
     n    = nTop();
     tail = Pop();
     kids = ARRAY(n + 1);
@@ -215,11 +215,11 @@ function reduce_list(n, kids, i, tail, cons_node) {
         i = i - 1;
     }
     Push(tail);
-    reduce_list = .dummy;
+    Reduce_list = .dummy;
     nreturn;
 }
 
-function reduce_compound(name, n, fnc_node, kids, i) {
+function Reduce_compound(name, n, fnc_node, kids, i) {
     n = nTop();
     kids = ARRAY(n + 1);
     i = n;
@@ -234,13 +234,13 @@ function reduce_compound(name, n, fnc_node, kids, i) {
         i = i + 1;
     }
     Push(fnc_node);
-    reduce_compound = .dummy;
+    Reduce_compound = .dummy;
     nreturn;
 }
 
-function reduce_conj(n, fnc_node, kids, i) {
+function Reduce_conj(n, fnc_node, kids, i) {
     n = nTop();
-    if (LE(n, 1)) { reduce_conj = .dummy; nreturn; }
+    if (LE(n, 1)) { Reduce_conj = .dummy; nreturn; }
     kids = ARRAY(n + 1);
     i = n;
     while (i > 0) {
@@ -254,13 +254,13 @@ function reduce_conj(n, fnc_node, kids, i) {
         i = i + 1;
     }
     Push(fnc_node);
-    reduce_conj = .dummy;
+    Reduce_conj = .dummy;
     nreturn;
 }
 
-function reduce_disj(n, fnc_node, kids, i) {
+function Reduce_disj(n, fnc_node, kids, i) {
     n = nTop();
-    if (LE(n, 1)) { reduce_disj = .dummy; nreturn; }
+    if (LE(n, 1)) { Reduce_disj = .dummy; nreturn; }
     kids = ARRAY(n + 1);
     i = n;
     while (i > 0) {
@@ -274,7 +274,7 @@ function reduce_disj(n, fnc_node, kids, i) {
         i = i + 1;
     }
     Push(fnc_node);
-    reduce_disj = .dummy;
+    Reduce_disj = .dummy;
     nreturn;
 }
 
@@ -288,21 +288,21 @@ head_name    = '';
 head_arity   = 0;
 body_present = 0;
 
-function snapshot_head(name) {
+function Snapshot_head(name) {
     head_name    = name;
     head_arity   = nTop();
     body_present = 0;
-    snapshot_head = .dummy;
+    Snapshot_head = .dummy;
     nreturn;
 }
 
-function mark_body() {
+function Mark_body() {
     body_present = 1;
-    mark_body = .dummy;
+    Mark_body = .dummy;
     nreturn;
 }
 
-function build_clause(key, parts, i, body_tree, clause_node, bk, bn) {
+function Build_clause(key, parts, i, body_tree, clause_node, bk, bn) {
     key = head_name '/' head_arity;
     body_tree = ;
     if (GT(body_present, 0)) {
@@ -336,7 +336,7 @@ function build_clause(key, parts, i, body_tree, clause_node, bk, bn) {
     Push(Tree('STMT', '', 1,
               Tree(':subj', '', 1,
                    Tree('E_CHOICE', key, 1, clause_node))));
-    build_clause = .dummy;
+    Build_clause = .dummy;
     nreturn;
 }
 
@@ -345,130 +345,19 @@ function build_clause(key, parts, i, body_tree, clause_node, bk, bn) {
 // wrapper, no clause-key, no top-level `,` flattening — the body
 // expression is wrapped raw under :subj.  This matches prolog_lower.c
 // directive lowering exactly.
-function build_directive(body_tree) {
+function Build_directive(body_tree) {
     body_tree = Pop();
     Push(Tree('STMT', '', 1,
               Tree(':subj', '', 1, body_tree)));
-    build_directive = .dummy;
+    Build_directive = .dummy;
     nreturn;
-}
-
-//=============================================================================
-// Pattern builders (PR_* — beauty.sno style).
-//
-// Each builder is a pattern-build-time helper that returns a pattern
-// object encapsulating the canonical `epsilon . *runtime_fn(args)`
-// boilerplate.  Use sites in the grammar then look like
-// `PR_push_var('pText')` instead of `. *push_var(pText)` — the
-// tree-builder verb is in the call, the pattern-element noise is gone.
-//
-// Convention (mirrors semantic.sc::shift / semantic.sc::reduce):
-//   - Capital `PR_xxx`  — the BUILDER (compile-time pattern producer).
-//   - Lowercase `xxx`   — the RUNTIME fn (called from the deferred
-//     `*xxx(...)` action at match time, side-effect on stack/state).
-//
-// Argument-passing trick (per beauty.sno semantic.inc::shift / reduce):
-//   - 0-arg builders (e.g. PR_push_nil, PR_reduce_conj) just return
-//     `epsilon . *xxx()` directly — no EVAL needed.
-//   - 1-or-more-arg builders take the capture-variable's NAME as a
-//     string and EVAL-interpolate it as a bare identifier into the
-//     produced pattern.  At match time the deferred action picks up
-//     the variable's then-current (captured) value.
-//
-// Calling-convention trade-off: `PR_xxx(.name, 'string')` (Snocone
-// name-reference) is sometimes nicer than the string form when the
-// runtime fn legitimately wants a NAME (e.g. to assign-to it via $()).
-// For builders that go through fn-call indirection in scrip-Snocone,
-// however, the NAME identity is LOST through the builder's local
-// scope: a `PR_xxx(name_ref) { PR_xxx = epsilon . *fn(name_ref); }`
-// builder receives the NAME, but at match time `name_ref` resolves in
-// match-time global scope where it's undefined.  The string form
-// `PR_xxx('pText')` + EVAL-splice is the only route that survives the
-// builder-fn boundary in scrip's runtime, so we use that here.  All
-// our runtime fns consume captured VALUES anyway — none need a NAME
-// for assignment — so the string form is functionally equivalent.
-//
-// EVAL constraint (scrip-Snocone): the EVAL parser cannot lex
-// underscore-leading identifiers (`_pText` triggers "unexpected char
-// '_'" during EVAL).  Capture variables therefore use camelCase
-// (pText, qBody, leText, ...) without the conventional `_` prefix —
-// otherwise the EVAL'd pattern body fails to parse.
-//=============================================================================
-function PR_push_var(varname) {
-    PR_push_var = EVAL("epsilon . *push_var(" varname ")");
-    return;
-}
-
-function PR_push_atom_body(varname) {
-    PR_push_atom_body = EVAL("epsilon . *push_atom_body(" varname ")");
-    return;
-}
-
-function PR_push_nil() {
-    PR_push_nil = epsilon . *push_nil();
-    return;
-}
-
-function PR_push_neg_int(varname) {
-    PR_push_neg_int = EVAL("epsilon . *push_neg_int(" varname ")");
-    return;
-}
-
-function PR_reduce_list() {
-    PR_reduce_list = epsilon . *reduce_list();
-    return;
-}
-
-function PR_reduce_compound(varname) {
-    PR_reduce_compound = EVAL("epsilon . *reduce_compound(" varname ")");
-    return;
-}
-
-function PR_reduce_is() {
-    PR_reduce_is = epsilon . *reduce_is();
-    return;
-}
-
-function PR_reduce_conj() {
-    PR_reduce_conj = epsilon . *reduce_conj();
-    return;
-}
-
-function PR_reduce_disj() {
-    PR_reduce_disj = epsilon . *reduce_disj();
-    return;
-}
-
-function PR_reset_var_scope() {
-    PR_reset_var_scope = epsilon . *reset_var_scope();
-    return;
-}
-
-function PR_snapshot_head(varname) {
-    PR_snapshot_head = EVAL("epsilon . *snapshot_head(" varname ")");
-    return;
-}
-
-function PR_mark_body() {
-    PR_mark_body = epsilon . *mark_body();
-    return;
-}
-
-function PR_build_clause() {
-    PR_build_clause = epsilon . *build_clause();
-    return;
-}
-
-function PR_build_directive() {
-    PR_build_directive = epsilon . *build_directive();
-    return;
 }
 
 //=============================================================================
 // Grammar — pure patterns.  No parsing functions.  Leaves use shift().
 // Kind-only n-ary parents use reduce() (OPSYN-bound `&`).  Named-value
-// parents use *reduce_compound / *reduce_is / *reduce_conj / *reduce_disj
-// / *reduce_list — Reduce() forces empty value, so named functors need
+// parents use *Reduce_compound / *Reduce_is / *Reduce_conj / *Reduce_disj
+// / *Reduce_list — Reduce() forces empty value, so named functors need
 // a tree-builder helper.
 //
 // Expression ladder (tightest first):
@@ -510,11 +399,11 @@ args_tail = ( $',' nInc() *unify_expr (*args_tail | epsilon) );
 // to a thing that contains *list — works, but explicit copy keeps the
 // FW-3 picture simple).
 list_elem = (
-        shift(tk_int, s_ILIT)
-      | shift(tk_atom, s_FNC)
-      | tk_qatom  PR_push_atom_body('qBody')
-      | tk_string PR_push_atom_body('sBody')
-      | tk_var . leText PR_push_var('leText')
+        shift(Int, s_ILIT)
+      | shift(Atom, s_FNC)
+      | Qatom  epsilon . *Push_atom_body(q_body)
+      | Str epsilon . *Push_atom_body(s_body)
+      | Var . le_text epsilon . *Push_var(le_text)
       | *list
       );
 
@@ -525,15 +414,15 @@ list_elem = (
 //   [e1, ..., eN | tail]    → same right-spine, terminal replaced by `tail`.
 list = (
         $'['
-        ( $']' PR_push_nil()
+        ( $']' epsilon . *Push_nil()
         | nPush()
               nInc() list_elem
               ARBNO( $',' nInc() list_elem )
               ( $'|' list_elem
-              | epsilon PR_push_nil()
+              | epsilon epsilon . *Push_nil()
               )
               $']'
-              PR_reduce_list()
+              epsilon . *Reduce_list()
           nPop()
         )
       );
@@ -541,24 +430,24 @@ list = (
 // primary — bottom of the expression ladder.  Order of alternatives:
 //   1. Compound call `name(args)` — must precede bare-atom alt so the
 //      `(` is consumed as part of the compound.
-//   2. tk_int / tk_atom / tk_qatom / tk_string / tk_var leaves.
+//   2. Int / Atom / Qatom / Str / Var leaves.
 //   3. Parenthesized expression `( unify_expr )` — full ladder reset.
 //   4. List (mutual recursion via *list).
 //   5. Negative integer literal `-<digits>` — FALLBACK so binary `-`
 //      between two primaries is preferred over folding `-N` into RHS.
 primary = (
-        tk_atom . pName $'('
+        Atom . p_name $'('
             nPush() args $')'
-            PR_reduce_compound('pName')
+            epsilon . *Reduce_compound(p_name)
             nPop()
-      | shift(tk_int, s_ILIT)
-      | shift(tk_atom, s_FNC)
-      | tk_qatom  PR_push_atom_body('qBody')
-      | tk_string PR_push_atom_body('sBody')
-      | tk_var . pText PR_push_var('pText')
+      | shift(Int, s_ILIT)
+      | shift(Atom, s_FNC)
+      | Qatom  epsilon . *Push_atom_body(q_body)
+      | Str epsilon . *Push_atom_body(s_body)
+      | Var . p_text epsilon . *Push_var(p_text)
       | $'(' *unify_expr $')'
       | *list
-      | '-' tk_int . pNegi PR_push_neg_int('pNegi')
+      | '-' Int . p_negi epsilon . *Push_neg_int(p_negi)
       );
 
 // mul_expr — left-assoc */.  Each operator iteration reduces the top
@@ -586,10 +475,10 @@ add_expr = (
 
 // is_expr — `X is Expr` is non-associative; one optional `is` clause.
 // `is` lowers to a NAMED-FUNCTOR compound (E_FNC is L R), so we use
-// *reduce_is (Reduce() forces empty value).
+// *Reduce_is (Reduce() forces empty value).
 is_expr = (
         add_expr
-        ( $'is' add_expr PR_reduce_is()
+        ( $'is' add_expr epsilon . *Reduce_is()
         | epsilon
         )
       );
@@ -613,7 +502,7 @@ conj = (
         nPush()
             nInc() body_goal
             ARBNO( $',' nInc() body_goal )
-            PR_reduce_conj()
+            epsilon . *Reduce_conj()
         nPop()
       );
 
@@ -622,7 +511,7 @@ disj = (
         nPush()
             nInc() conj
             ARBNO( $';' nInc() conj )
-            PR_reduce_disj()
+            epsilon . *Reduce_disj()
         nPop()
       );
 
@@ -632,17 +521,17 @@ body = disj;
 // head — clause head term.  Head args counted via nPush/nInc/nTop/nPop;
 // snapshot_head reads nTop() as the head arity.
 head = (
-        PR_reset_var_scope()
+        epsilon . *Reset_var_scope()
         nPush()
         (
-            tk_atom . hText $'(' args $')'
-                PR_snapshot_head('hText')
-          | tk_atom . hText $'(' $')'
-                PR_snapshot_head('hText')
-          | tk_atom . hText
-                PR_snapshot_head('hText')
-          | tk_string
-                PR_snapshot_head('sBody')
+            Atom . h_text $'(' args $')'
+                epsilon . *Snapshot_head(h_text)
+          | Atom . h_text $'(' $')'
+                epsilon . *Snapshot_head(h_text)
+          | Atom . h_text
+                epsilon . *Snapshot_head(h_text)
+          | Str
+                epsilon . *Snapshot_head(s_body)
         )
         nPop()
       );
@@ -650,11 +539,11 @@ head = (
 // clause — fact or rule.
 clause = (
         head
-        ( $':-' body PR_mark_body()
+        ( $':-' body epsilon . *Mark_body()
         | epsilon
         )
         $'.'
-        PR_build_clause()
+        epsilon . *Build_clause()
       );
 
 // directive — top-level `:- Goal.` form.  Resets the per-clause var
@@ -663,9 +552,9 @@ clause = (
 // (STMT :subj ...) — no E_CHOICE / E_CLAUSE / clause-key envelope, no
 // top-level `,` flattening.
 directive = (
-        $':-' PR_reset_var_scope()
+        $':-' epsilon . *Reset_var_scope()
         body $'.'
-        PR_build_directive()
+        epsilon . *Build_directive()
       );
 
 // top_form — one top-level form: directive (`:- Goal.`) tried first
