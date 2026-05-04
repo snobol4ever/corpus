@@ -1,0 +1,582 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/syntax.html
+#
+# Snocone.sublime-syntax — companion to SNOBOL4.sublime-syntax
+#
+# Snocone is Andrew Koenig's block-structured dialect of SNOBOL4.
+# The lexer/grammar (src/frontend/snocone/snocone_lex.c +
+# snocone_parse.y) keeps SNOBOL4's space-as-concatenation and
+# unary/binary operator overloading via {W}OP{W} envelopes, but
+# drops the column-1 statement model in favour of free-form C-like
+# layout: braces, semicolons, // and /* */ comments, keywords
+# (if/else/while/do/for/switch/case/default/break/continue/goto/
+# function/return/freturn/nreturn/struct).
+#
+# Snocone still supports all SNOBOL4 functions and idioms: DEFINE()
+# with prototype strings, ARRAY(), DATA(), pattern primitives
+# (ARB/BAL/FAIL/FENCE/REM as variables; ANY/ARBNO/BREAK/BREAKX/
+# FENCE/LEN/NOTANY/POS/RPOS/RTAB/SPAN/TAB as functions), and the
+# &KEYWORD form (&UCASE/&LCASE/&ALPHABET/&ANCHOR/etc.).
+#
+# Note that FENCE is BOTH a primitive pattern (variable form, no
+# parens, equivalent to &FENCE) AND a function FENCE(pattern) per
+# SPITBOL manual Ch. 19 — kept in both pattern_function and
+# pattern_variable tables; the (-trailing match decides which fires.
+#
+# Identifier and number regexes mirror snocone_lex.c verbatim.
+# Snocone identifiers: [A-Za-z_][A-Za-z0-9_]*  (no `.`, allows
+# leading `_` — is_alpha includes `_`, line 63).  Snocone reals
+# accept both e/E and d/D for the exponent letter (S_INT/S_FRAC/
+# S_EXP_DIG, lines 328–329, 334–335).
+#
+# Scope vocabulary kept identical to SNOBOL4.sublime-syntax so the
+# user's existing color scheme renders both dialects consistently.
+
+name: Snocone
+file_extensions: [sc]
+scope: source.sc
+
+variables:
+  # Snocone identifiers: [A-Za-z_][A-Za-z0-9_]*  (no `.`, unlike
+  # SNOBOL4).  Mirrors snocone_lex.c is_alpha / is_digit / is_idcont:
+  #   is_alpha(c) := letter or `_`
+  #   is_idcont(c) := is_alpha(c) || is_digit(c)
+  variable: '[A-Za-z_][0-9A-Z_a-z]*'
+
+  # `$'name'` and `$"name"` — indirect variable reference.  Same idiom
+  # as SNOBOL4 (e.g. $'@S', $'$B', $'#L' in beauty.sc).
+  indirect_squote_variable: \$\'([^\']*)\'
+  indirect_dquote_variable: \$\"([^\"]*)\"
+
+  # Snocone-specific control-flow / storage keywords.  KW_TABLE in
+  # snocone_lex.c is the source of truth.
+  control_flow_kw: \b(if|else|while|do|for|switch|case|default|break|continue|goto|return|freturn|nreturn)\b
+  storage_kw:     \b(function|struct)\b
+
+  # SNOBOL4 keyword-variable names (`&NAME` form).  Same lists as
+  # SNOBOL4.sublime-syntax.
+  keyword_protected:   \b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\b
+  keyword_unprotected: \b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\b
+
+  io_variable:             \b(INPUT|OUTPUT|TERMINAL)\b
+  pattern_variable:        \b(ARB|BAL|FAIL|FENCE|REM|epsilon)\b
+  user_constant_general:   \b(NULL|TRUE|FALSE|digits)\b
+  user_constant_character: \b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\b
+
+  pattern_function:    \b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\b
+  compiler_function:   \b(CODE|EVAL)\b
+  datatype_function:   \b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\b
+  math_function:       \b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\b
+  primitive_function:  \b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\b
+  io_function:         \b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\b
+  memory_function:     \b(CLEAR|COLLECT|DUMP)\b
+  misc_function:       \b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\b
+  program_function:    \b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\b
+  string_function:     \b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\b
+  library_function:    \b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\b
+  user_function:       '{{variable}}'
+  builtin_function: |-
+    (?x:
+      {{compiler_function}}
+    | {{datatype_function}}
+    | {{math_function}}
+    | {{primitive_function}}
+    | {{io_function}}
+    | {{memory_function}}
+    | {{misc_function}}
+    | {{program_function}}
+    | {{string_function}}
+    )
+
+contexts:
+################################################################################
+# Comments — Snocone uses C-style // and /* */ (snocone_lex.c S_LCOMMENT
+# / S_BCOMMENT).  No column-1 `*` comments.  No `;`-then-`*` form.
+################################################################################
+  line_comment:
+    - match: //
+      scope: punctuation.definition.comment.sc
+      push:
+        - meta_scope: comment.line.double-slash.sc
+        - match: $
+          pop: true
+
+  block_comment:
+    - match: /\*
+      scope: punctuation.definition.comment.begin.sc
+      push:
+        - meta_scope: comment.block.sc
+        - match: \*/
+          scope: punctuation.definition.comment.end.sc
+          pop: true
+
+  comments:
+    - include: line_comment
+    - include: block_comment
+
+################################################################################
+# term — atom-level rules that appear inside expressions.  Mirrors
+# SNOBOL4.sublime-syntax `term` 1-for-1, with Snocone-flavored
+# identifier/number regexes.
+#
+# Real-number forms accepted by snocone_lex.c (S_INT/S_FRAC/S_EXP_DIG):
+#   1.5, 1.5e+3, 1.5e-3, 1.5d3, 1.5d-3, 1e3, 1d3, and trailing-dot 1.
+# (SPITBOL allows e/E only; Snocone additionally accepts d/D.)
+################################################################################
+  term:
+    - match: '(\&){{keyword_protected}}\b'
+      scope: constant.language.sc
+      captures:
+        1: punctuation.definition.keyword.begin.sc
+
+    - match: '(\&){{keyword_unprotected}}\b'
+      scope: constant.other.sc
+      captures:
+        1: punctuation.definition.variable.begin.sc
+
+    - match: \b({{pattern_function}})\(
+      captures:
+        1: variable.language.sc
+      push: brackets
+
+    - match: \b({{builtin_function}})\(
+      captures:
+        1: support.function.sc
+      push: brackets
+
+    - match: \b({{library_function}})\(
+      captures:
+        1: entity.name.class.forward-decl.sc
+      push: brackets
+
+    - match: \b({{user_function}})\(
+      captures:
+        1: entity.name.class.forward-decl.sc
+      push: brackets
+
+    - match: \b{{io_variable}}\b
+      scope: support.function.sc
+
+    - match: \b{{pattern_variable}}\b
+      scope: variable.language.sc
+
+    - match: \b{{user_constant_general}}\b
+      scope: constant.language.sc
+
+    - match: \b{{user_constant_character}}\b
+      scope: constant.character.sc
+
+    - match: \b{{variable}}\b
+      scope: variable.other.sc
+
+    # Real numbers: digits.digits with optional e/E/d/D exponent.
+    - match: \b[0-9]+\.[0-9]+([eEdD][-+]?[0-9]+)?\b
+      scope: constant.numeric.float.sc
+
+    # Real numbers: digits with mandatory exponent (no decimal point).
+    - match: \b[0-9]+[eEdD][-+]?[0-9]+\b
+      scope: constant.numeric.float.sc
+
+    # Trailing-dot form: `1.` lexes as REAL too (S_INT line 327).
+    - match: \b[0-9]+\.(?![0-9])
+      scope: constant.numeric.float.sc
+
+    - match: \b[0-9]+\b
+      scope: constant.numeric.integer.sc
+
+    - match: '(^|[ \t]+)([\=])([ \t]+|$)'
+      captures:
+        2: keyword.operator.assignment.sc
+
+    - match: '(^|[ \t]+)([\?])([ \t]+|$)'
+      captures:
+        2: keyword.operator.logical.sc
+
+################################################################################
+# Indirect-variable references: $'name' and $"name" — same as SNOBOL4.
+################################################################################
+  indirect_squote_variable:
+    - match: '{{indirect_squote_variable}}'
+      scope: string.quoted.single.sc
+
+  indirect_dquote_variable:
+    - match: '{{indirect_dquote_variable}}'
+      scope: string.quoted.double.sc
+
+################################################################################
+# Strings — Snocone supports both '...' and "...", both with the
+# doubled-quote escape ('' inside ', "" inside ").  Strings span
+# newlines (snocone_lex.c S_STR1/S_STR2 handle \n internally rather
+# than erroring out).
+################################################################################
+  string:
+    - match: \"
+      scope: punctuation.definition.string.begin.sc
+      push: double_quoted_string
+    - match: \'
+      scope: punctuation.definition.string.begin.sc
+      push: single_quoted_string
+
+  double_quoted_string:
+    - meta_scope: string.quoted.double.sc
+    - match: \"\"
+      scope: constant.character.escape.sc
+    - match: \"
+      scope: punctuation.definition.string.end.sc
+      pop: true
+
+  single_quoted_string:
+    - meta_scope: string.quoted.single.sc
+    - match: \'\'
+      scope: constant.character.escape.sc
+    - match: \'
+      scope: punctuation.definition.string.end.sc
+      pop: true
+
+################################################################################
+# Prototype strings — `DEFINE('NAME(arg1,arg2)label')`,
+# `DATA('NAME(field1,field2)')`, `ARRAY('5,5')` continue to work in
+# Snocone (program_function table includes DEFINE; datatype_function
+# table includes DATA, ARRAY).  Snocone code rarely uses these because
+# the `function name(args) { … }` form is preferred, but legacy SNOBOL4
+# code ported to Snocone (or .inc files included via `include`) still
+# uses them — keep the rich highlighting.
+#
+# Mirrors SNOBOL4.sublime-syntax exactly: proto_string handles the
+# stringly-typed argument lists, with embedded-quote dance for
+# expressions that cross a quote boundary inside the prototype.
+################################################################################
+  proto_string:
+    - match: \"
+      scope: punctuation.definition.annotation.begin.sc
+      push: proto_double_quoted_string
+    - match: \'
+      scope: punctuation.definition.annotation.begin.sc
+      push: proto_single_quoted_string
+
+  proto_single_quoted_string:
+    - meta_scope: string.interpolated.sc
+    - include: term
+    - include: indirect_dquote_variable
+    - match: \"
+      scope: string.other.double.sc
+      set: proto_embedded_double_quoted_string
+    - match: \'
+      scope: punctuation.definition.annotation.end.sc
+      pop: true
+
+  proto_embedded_double_quoted_string:
+    - meta_content_scope: string.interpolated.sc string.other.double.sc
+    - match: \"
+      set: proto_single_quoted_string
+    - match: \'
+      scope: string.interpolated.sc punctuation.definition.annotation.end.sc
+      pop: true
+    - match: $
+      set: proto_single_quoted_string
+
+  proto_double_quoted_string:
+    - meta_scope: string.interpolated.sc
+    - include: term
+    - include: indirect_squote_variable
+    - match: \'
+      scope: string.other.single.sc
+      set: proto_embedded_single_quoted_string
+    - match: \"
+      scope: punctuation.definition.annotation.end.sc
+      pop: true
+
+  proto_embedded_single_quoted_string:
+    - meta_content_scope: string.interpolated.sc string.other.single.sc
+    - match: \'
+      set: proto_double_quoted_string
+    - match: \"
+      scope: string.interpolated.sc punctuation.definition.annotation.end.sc
+      pop: true
+    - match: $
+      set: proto_double_quoted_string
+
+################################################################################
+# DATA prototype: 'NAME(field1,field2)' — fields highlighted as
+# function names (matches SNOBOL4 file convention).
+################################################################################
+  data_proto_string:
+    - match: \"
+      scope: punctuation.definition.annotation.begin.sc
+      push: data_proto_double_quoted_string
+    - match: \'
+      scope: punctuation.definition.annotation.begin.sc
+      push: data_proto_single_quoted_string
+
+  data_proto_double_quoted_string:
+    - match: ({{variable}})\(
+      captures:
+        1: entity.name.function.sc
+    - match: \b{{variable}}\b
+      scope: entity.name.function.sc
+    - include: term
+    - match: \"
+      scope: punctuation.definition.annotation.end.sc
+      pop: true
+
+  data_proto_single_quoted_string:
+    - match: ({{variable}})(\()
+      captures:
+        1: entity.name.function.sc
+    - match: \b{{variable}}\b
+      scope: entity.name.function.sc
+    - include: term
+    - match: \'
+      scope: punctuation.definition.annotation.end.sc
+      pop: true
+
+################################################################################
+# DEFINE prototype: 'NAME(arg1,arg2)label' — function name highlighted,
+# args as variables (matches SNOBOL4 file convention).
+################################################################################
+  function_proto_string:
+    - match: \"
+      scope: punctuation.definition.annotation.begin.sc
+      push: function_proto_double_quoted_string
+    - match: \'
+      scope: punctuation.definition.annotation.begin.sc
+      push: function_proto_single_quoted_string
+
+  function_proto_double_quoted_string:
+    - match: ({{variable}})\(
+      captures:
+        1: entity.name.function.sc
+    - match: \b{{variable}}\b
+      scope: variable.other.sc
+    - include: term
+    - match: \"
+      scope: punctuation.definition.annotation.end.sc
+      pop: true
+
+  function_proto_single_quoted_string:
+    - match: ({{variable}})(\()
+      captures:
+        1: entity.name.function.sc
+    - match: \b{{variable}}\b
+      scope: variable.other.sc
+    - include: term
+    - match: \'
+      scope: punctuation.definition.annotation.end.sc
+      pop: true
+
+################################################################################
+# Bracket contexts — track nesting inside `f(...)` so closing `)`
+# always pops back to the right place.  Each prototype kind has its
+# own bracket context so nested calls preserve the prototype context.
+################################################################################
+  brackets:
+    - match: \)
+      pop: true
+    - include: comments
+    - include: string
+    - include: term
+    - include: indirect_squote_variable
+    - include: indirect_dquote_variable
+    - match: \(
+      push: brackets
+
+  prototype_brackets:
+    - match: \)
+      pop: true
+    - include: comments
+    - include: proto_string
+    - include: term
+    - match: \(
+      push: prototype_brackets
+
+  data_prototype_brackets:
+    - match: \)
+      pop: true
+    - include: comments
+    - include: data_proto_string
+    - include: term
+    - match: \(
+      push: data_prototype_brackets
+
+  function_prototype_brackets:
+    - match: \)
+      pop: true
+    - include: comments
+    - include: function_proto_string
+    - include: term
+    - match: \(
+      push: function_prototype_brackets
+
+################################################################################
+# Snocone `function NAME(args) { body }` — the native form.
+# Highlight the `function` keyword as `storage.type`, the name as
+# `entity.name.function`, then enter parameter-list mode.
+################################################################################
+  snocone_function_definition:
+    - match: \bfunction\b
+      scope: storage.type.function.sc
+      push:
+        - match: \b({{variable}})\b
+          captures:
+            1: entity.name.function.sc
+          set: snocone_function_params_or_done
+        - include: comments
+        - match: (?=\S)
+          pop: true
+
+  snocone_function_params_or_done:
+    - match: \(
+      scope: punctuation.section.parameters.begin.sc
+      set: snocone_function_params
+    - include: comments
+    - match: (?=\S)
+      pop: true
+
+  snocone_function_params:
+    - match: \)
+      scope: punctuation.section.parameters.end.sc
+      pop: true
+    - match: \b{{variable}}\b
+      scope: variable.parameter.sc
+    - match: ','
+      scope: punctuation.separator.sc
+    - include: comments
+
+################################################################################
+# Snocone `struct NAME { field1, field2 }`
+################################################################################
+  snocone_struct_definition:
+    - match: \bstruct\b
+      scope: storage.type.struct.sc
+      push:
+        - match: \b({{variable}})\b
+          captures:
+            1: entity.name.struct.sc
+          set: snocone_struct_body_or_done
+        - include: comments
+        - match: (?=\S)
+          pop: true
+
+  snocone_struct_body_or_done:
+    - match: \{
+      scope: punctuation.section.block.begin.sc
+      set: snocone_struct_body
+    - include: comments
+    - match: (?=\S)
+      pop: true
+
+  snocone_struct_body:
+    - match: \}
+      scope: punctuation.section.block.end.sc
+      pop: true
+    - match: \b{{variable}}\b
+      scope: variable.other.member.sc
+    - match: ','
+      scope: punctuation.separator.sc
+    - include: comments
+
+################################################################################
+# main — top-level statement context.
+################################################################################
+  main:
+    - include: comments
+
+    # Snocone-native definition forms first.
+    - include: snocone_function_definition
+    - include: snocone_struct_definition
+
+    # Strings (same machinery as SNOBOL4).
+    - include: string
+
+    # Indirect variable references — must come BEFORE `term` so the
+    # `$'…'` form is recognised as a unit, not as `$` then `'…'`.
+    - include: indirect_squote_variable
+    - include: indirect_dquote_variable
+
+    # SNOBOL4 prototype-string entry points: ARRAY/CODE/EVAL with
+    # embedded prototype string, DATA with field names, DEFINE with
+    # function/arg names.  These continue to work in Snocone for
+    # legacy SNOBOL4 code paths.  Mirrors SNOBOL4.sublime-syntax.
+    - match: \b(ARRAY|CODE|EVAL)(\()
+      captures:
+        1: support.function.sc
+        2: punctuation.definition.generic.begin.sc
+      push:
+        - match: \)
+          scope: punctuation.definition.generic.end.sc
+          pop: true
+        - include: comments
+        - include: proto_string
+        - include: term
+        - include: indirect_squote_variable
+        - include: indirect_dquote_variable
+        - match: \(
+          push: prototype_brackets
+
+    - match: \b(DATA)(\()
+      captures:
+        1: support.function.sc
+        2: punctuation.definition.generic.begin.sc
+      push:
+        - match: \)
+          scope: punctuation.definition.generic.end.sc
+          pop: true
+        - include: comments
+        - include: data_proto_string
+        - include: term
+        - include: indirect_squote_variable
+        - include: indirect_dquote_variable
+        - match: \(
+          push: data_prototype_brackets
+
+    - match: \b(DEFINE)(\()
+      captures:
+        1: support.function.sc
+        2: punctuation.definition.generic.begin.sc
+      push:
+        - match: \)
+          scope: punctuation.definition.generic.end.sc
+          pop: true
+        - include: comments
+        - include: function_proto_string
+        - include: term
+        - include: indirect_squote_variable
+        - include: indirect_dquote_variable
+        - match: \(
+          push: function_prototype_brackets
+
+    # Block delimiters and statement separator.
+    - match: \{
+      scope: punctuation.section.block.begin.sc
+    - match: \}
+      scope: punctuation.section.block.end.sc
+    - match: ;
+      scope: punctuation.terminator.sc
+
+    # Snocone control-flow and storage keywords.
+    - match: '{{control_flow_kw}}'
+      scope: keyword.control.sc
+
+    # Compound-assignment operators (multi-char first, before single
+    # `=` falls through to `term`).  snocone_lex.c E_PLUS_ASSIGN,
+    # E_MINUS_ASSIGN, E_STAR_ASSIGN, E_SLASH_ASSIGN, E_CARET_ASSIGN.
+    - match: \+\=|\-\=|\*\=|\/\=|\^\=
+      scope: keyword.operator.assignment.augmented.sc
+
+    # Numeric comparison operators (snocone_lex.c E_EQ/E_NE/E_LE/E_GE).
+    - match: \=\=|\!\=|\<\=|\>\=
+      scope: keyword.operator.comparison.sc
+
+    # Lexical and identity operators in the colon-delimited form.
+    # snocone_lex.c S_OP_COLON disambiguates :==:, :!=:, :<=:, :>=:,
+    # :<:, :>:, ::, and :!: from a bare `:`.  Match longest first.
+    - match: '\:\=\=\:|\:\!\=\:|\:\<\=\:|\:\>\=\:|\:\<\:|\:\>\:|\:\:|\:\!\:'
+      scope: keyword.operator.comparison.lexical.sc
+
+    # Bare `:` — used in `case L:`, `default:`, etc.
+    - match: ':'
+      scope: punctuation.separator.sc
+
+    # Atoms (numbers, identifiers, &keywords, builtin calls).
+    - include: term

@@ -33,6 +33,9 @@ corpus/
 │
 ├── inc/                 ← shared .inc include files
 │
+├── editor/              ← editor support files (syntax highlighting, etc.)
+│   └── sublime/         ← Sublime Text .sublime-syntax for SNOBOL4 and Snocone
+│
 └── run/                 ← oracle runner scripts
     ├── run-csnobol4.sh
     ├── run-spitbol.sh
