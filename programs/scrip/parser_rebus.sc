@@ -12,7 +12,8 @@
 // Rung PARSER-RB-2 (DONE): control flow (if cond then stmt, while cond do stmt).
 // Rung PARSER-RB-3 (DONE): function definitions with args + no-arg call sites.
 // Rung PARSER-RB-4 (DONE): pattern match `subj ? pat` (atom subj, atom pat).
-// Rung PARSER-RB-5 (CURRENT): alternation generators `a | b | c`.
+// Rung PARSER-RB-5 (DONE): alternation generators `a | b | c`.
+// Rung PARSER-RB-6 (CURRENT): record decls `record NAME(f1, f2)`.
 
 // Tree shape per function (N body stmts):
 //   (STMT :subj (E_FNC DEFINE (E_QLIT "FNAME()")))
@@ -102,6 +103,17 @@ function emit_func_define(sig) {
     TDump(Tree('STMT', '', 1,
                Tree(':subj', '', 1,
                     Tree('E_FNC', 'DEFINE', 1,
+                         tree('E_QLIT', sig)))));
+    return;
+}
+
+// emit_record_data — RB-6: record decl lowering.  Same shape as
+// emit_func_define but with E_FNC sval 'DATA' instead of 'DEFINE'.
+function emit_record_data(sig) {
+    // sig is the full "RECNAME(F1,F2)" signature (uppercased, no spaces).
+    TDump(Tree('STMT', '', 1,
+               Tree(':subj', '', 1,
+                    Tree('E_FNC', 'DATA', 1,
                          tree('E_QLIT', sig)))));
     return;
 }
@@ -249,6 +261,16 @@ FuncHeader = ( POS(0) ws_opt 'function' ws_run id_pat . _rb_raw_name
                ')' ws_opt RPOS(0)
                epsilon . *assign('_rb_fname', uc(_rb_raw_name))
              );
+
+// RecordHeader: `record NAME(fieldlist)` — same shape as FuncHeader
+// but lowered to `(E_FNC DATA (E_QLIT "NAME(F1,F2)"))` rather than
+// the function-define form.  Top-level only (state 0), one line.
+RecordHeader = ( POS(0) ws_opt 'record' ws_run id_pat . _rb_raw_recname
+                 ws_opt '('
+                 (BREAK(')') . _rb_recfields_raw | epsilon . *assign('_rb_recfields_raw', ''))
+                 ')' ws_opt RPOS(0)
+                 epsilon . *assign('_rb_recname', uc(_rb_raw_recname))
+               );
 
 // CallLine: bare no-arg call as body stmt: `fname()`.
 // Captures _rb_call_name (uppercased).
@@ -429,6 +451,11 @@ if (IDENT(_rb_state, 1)) { goto rb_state1; }
 goto rb_loop;
 
 rb_state0:
+if (~(RbLine ? RecordHeader)) { goto rb_state0_try_func; }
+_rb_rec_sig = _rb_recname format_arglist(_rb_recfields_raw);
+emit_record_data(_rb_rec_sig);
+goto rb_loop;
+rb_state0_try_func:
 if (~(RbLine ? FuncHeader)) { goto rb_loop; }
 _rb_rblbl = next_rb_label();
 _rb_sig = _rb_fname format_arglist(_rb_arglist_raw);
