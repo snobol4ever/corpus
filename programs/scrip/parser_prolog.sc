@@ -17,6 +17,13 @@
 //   4. ONE Compiland pattern, matched ONCE against the entire source
 //      buffer.  No per-line driver loop.
 //   5. nPush/nInc/nTop/nPop count children for n-ary reductions.
+//   6. Pattern-builder convention (beauty.sno style):
+//        - Capital `PR_xxx`  — the BUILDER (compile-time pattern producer).
+//        - Lowercase `xxx`   — the RUNTIME fn (called from the deferred
+//          `*xxx(...)` action at match time).
+//      Use sites in the grammar look like `PR_push_var('pText')` not
+//      `. *push_var(pText)`.  The PR_* block hides the `epsilon . *xxx`
+//      boilerplate and gives the grammar a Reduce()-like reading.
 //
 // Naming policy (per .github/RULES.md):
 //   tk_*       — tokens, mirror src/frontend/prolog/prolog_lex.h TK_*
@@ -68,7 +75,7 @@ tk_atom_rest  = SPAN(digits &UCASE &LCASE '_');
 tk_atom       = (tk_atom_first (tk_atom_rest | epsilon));
 
 // Single-quoted atom — TK_ATOM (quoted form): same lowering as bare atom.
-tk_qatom = ("'" BREAK("'") . _qatom_body "'");
+tk_qatom = ("'" BREAK("'") . qBody "'");
 
 // Uppercase-start or '_'-prefixed identifier — TK_VAR.
 tk_var_first = ANY(&UCASE '_');
@@ -79,7 +86,7 @@ tk_var       = (tk_var_first (tk_var_rest | epsilon));
 tk_int = SPAN(digits);
 
 // Double-quoted string — TK_STRING (interned as atom: same lowering as TK_ATOM).
-tk_string = ('"' BREAK('"') . _str_body '"');
+tk_string = ('"' BREAK('"') . sBody '"');
 
 // Punctuation tokens — surrounded by ws_opt at use sites.
 tk_dot      = '.';
@@ -349,6 +356,118 @@ function build_directive(body_tree) {
 }
 
 //-----------------------------------------------------------------------
+// Pattern builders (PR_* — beauty.sno style).
+//
+// Each builder is a pattern-build-time helper that returns a pattern
+// object encapsulating the canonical `epsilon . *runtime_fn(args)`
+// boilerplate.  Use sites in the grammar then look like
+// `PR_push_var('pText')` instead of `. *push_var(pText)` — the
+// tree-builder verb is in the call, the pattern-element noise is gone.
+//
+// Convention (mirrors semantic.sc::shift / semantic.sc::reduce):
+//   - Capital `PR_xxx`  — the BUILDER (compile-time pattern producer).
+//   - Lowercase `xxx`   — the RUNTIME fn (called from the deferred
+//     `*xxx(...)` action at match time, side-effect on stack/state).
+//
+// Argument-passing trick (per beauty.sno semantic.inc::shift / reduce):
+//   - 0-arg builders (e.g. PR_push_nil, PR_reduce_conj) just return
+//     `epsilon . *xxx()` directly — no EVAL needed.
+//   - 1-or-more-arg builders take the capture-variable's NAME as a
+//     string and EVAL-interpolate it as a bare identifier into the
+//     produced pattern.  At match time the deferred action picks up
+//     the variable's then-current (captured) value.
+//
+// Calling-convention trade-off: `PR_xxx(.name, 'string')` (Snocone
+// name-reference) is sometimes nicer than the string form when the
+// runtime fn legitimately wants a NAME (e.g. to assign-to it via $()).
+// For builders that go through fn-call indirection in scrip-Snocone,
+// however, the NAME identity is LOST through the builder's local
+// scope: a `PR_xxx(name_ref) { PR_xxx = epsilon . *fn(name_ref); }`
+// builder receives the NAME, but at match time `name_ref` resolves in
+// match-time global scope where it's undefined.  The string form
+// `PR_xxx('pText')` + EVAL-splice is the only route that survives the
+// builder-fn boundary in scrip's runtime, so we use that here.  All
+// our runtime fns consume captured VALUES anyway — none need a NAME
+// for assignment — so the string form is functionally equivalent.
+//
+// EVAL constraint (scrip-Snocone): the EVAL parser cannot lex
+// underscore-leading identifiers (`_pText` triggers "unexpected char
+// '_'" during EVAL).  Capture variables therefore use camelCase
+// (pText, qBody, leText, ...) without the conventional `_` prefix —
+// otherwise the EVAL'd pattern body fails to parse.
+//-----------------------------------------------------------------------
+
+function PR_push_var(varname) {
+    PR_push_var = EVAL("epsilon . *push_var(" varname ")");
+    return;
+}
+
+function PR_push_atom_body(varname) {
+    PR_push_atom_body = EVAL("epsilon . *push_atom_body(" varname ")");
+    return;
+}
+
+function PR_push_nil() {
+    PR_push_nil = epsilon . *push_nil();
+    return;
+}
+
+function PR_push_neg_int(varname) {
+    PR_push_neg_int = EVAL("epsilon . *push_neg_int(" varname ")");
+    return;
+}
+
+function PR_reduce_list() {
+    PR_reduce_list = epsilon . *reduce_list();
+    return;
+}
+
+function PR_reduce_compound(varname) {
+    PR_reduce_compound = EVAL("epsilon . *reduce_compound(" varname ")");
+    return;
+}
+
+function PR_reduce_is() {
+    PR_reduce_is = epsilon . *reduce_is();
+    return;
+}
+
+function PR_reduce_conj() {
+    PR_reduce_conj = epsilon . *reduce_conj();
+    return;
+}
+
+function PR_reduce_disj() {
+    PR_reduce_disj = epsilon . *reduce_disj();
+    return;
+}
+
+function PR_reset_var_scope() {
+    PR_reset_var_scope = epsilon . *reset_var_scope();
+    return;
+}
+
+function PR_snapshot_head(varname) {
+    PR_snapshot_head = EVAL("epsilon . *snapshot_head(" varname ")");
+    return;
+}
+
+function PR_mark_body() {
+    PR_mark_body = epsilon . *mark_body();
+    return;
+}
+
+function PR_build_clause() {
+    PR_build_clause = epsilon . *build_clause();
+    return;
+}
+
+function PR_build_directive() {
+    PR_build_directive = epsilon . *build_directive();
+    return;
+}
+
+//-----------------------------------------------------------------------
 // Grammar — pure patterns.  No parsing functions.  Leaves use shift().
 // Kind-only n-ary parents use reduce() (OPSYN-bound `&`).  Named-value
 // parents use *reduce_compound / *reduce_is / *reduce_conj / *reduce_disj
@@ -397,9 +516,9 @@ args_tail = ( ws_opt tk_comma ws_opt nInc() *unify_expr (*args_tail | epsilon) )
 list_elem = (
         shift(tk_int, s_ILIT)
       | shift(tk_atom, s_FNC)
-      | tk_qatom  . *push_atom_body(_qatom_body)
-      | tk_string . *push_atom_body(_str_body)
-      | tk_var . _le_text . *push_var(_le_text)
+      | tk_qatom  PR_push_atom_body('qBody')
+      | tk_string PR_push_atom_body('sBody')
+      | tk_var . leText PR_push_var('leText')
       | *list
       );
 
@@ -410,15 +529,15 @@ list_elem = (
 //   [e1, ..., eN | tail]    → same right-spine, terminal replaced by `tail`.
 list = (
         tk_lbracket ws_opt
-        ( tk_rbracket . *push_nil()
+        ( tk_rbracket PR_push_nil()
         | nPush()
               nInc() list_elem
               ARBNO( ws_opt tk_comma ws_opt nInc() list_elem )
               ( ws_opt tk_pipe ws_opt list_elem
-              | epsilon . *push_nil()
+              | epsilon PR_push_nil()
               )
               ws_opt tk_rbracket
-              . *reduce_list()
+              PR_reduce_list()
           nPop()
         )
       );
@@ -432,18 +551,18 @@ list = (
 //   5. Negative integer literal `-<digits>` — FALLBACK so binary `-`
 //      between two primaries is preferred over folding `-N` into RHS.
 primary = (
-        tk_atom . _p_name ws_opt tk_lparen
+        tk_atom . pName ws_opt tk_lparen
             nPush() ws_opt args ws_opt tk_rparen
-            . *reduce_compound(_p_name)
+            PR_reduce_compound('pName')
             nPop()
       | shift(tk_int, s_ILIT)
       | shift(tk_atom, s_FNC)
-      | tk_qatom  . *push_atom_body(_qatom_body)
-      | tk_string . *push_atom_body(_str_body)
-      | tk_var . _p_text . *push_var(_p_text)
+      | tk_qatom  PR_push_atom_body('qBody')
+      | tk_string PR_push_atom_body('sBody')
+      | tk_var . pText PR_push_var('pText')
       | tk_lparen ws_opt *unify_expr ws_opt tk_rparen
       | *list
-      | '-' tk_int . _p_negi . *push_neg_int(_p_negi)
+      | '-' tk_int . pNegi PR_push_neg_int('pNegi')
       );
 
 // mul_expr — left-assoc */.  Each operator iteration reduces the top
@@ -474,7 +593,7 @@ add_expr = (
 // *reduce_is (Reduce() forces empty value).
 is_expr = (
         add_expr
-        ( op_is add_expr . *reduce_is()
+        ( op_is add_expr PR_reduce_is()
         | epsilon
         )
       );
@@ -498,7 +617,7 @@ conj = (
         nPush()
             nInc() body_goal
             ARBNO( ws_opt tk_comma ws_opt nInc() body_goal )
-            . *reduce_conj()
+            PR_reduce_conj()
         nPop()
       );
 
@@ -507,7 +626,7 @@ disj = (
         nPush()
             nInc() conj
             ARBNO( ws_opt tk_semi ws_opt nInc() conj )
-            . *reduce_disj()
+            PR_reduce_disj()
         nPop()
       );
 
@@ -517,17 +636,17 @@ body = disj;
 // head — clause head term.  Head args counted via nPush/nInc/nTop/nPop;
 // snapshot_head reads nTop() as the head arity.
 head = (
-        epsilon . *reset_var_scope()
+        PR_reset_var_scope()
         nPush()
         (
-            tk_atom . _head_text ws_opt tk_lparen ws_opt args ws_opt tk_rparen
-                . *snapshot_head(_head_text)
-          | tk_atom . _head_text ws_opt tk_lparen ws_opt tk_rparen
-                . *snapshot_head(_head_text)
-          | tk_atom . _head_text
-                . *snapshot_head(_head_text)
+            tk_atom . hText ws_opt tk_lparen ws_opt args ws_opt tk_rparen
+                PR_snapshot_head('hText')
+          | tk_atom . hText ws_opt tk_lparen ws_opt tk_rparen
+                PR_snapshot_head('hText')
+          | tk_atom . hText
+                PR_snapshot_head('hText')
           | tk_string
-                . *snapshot_head(_str_body)
+                PR_snapshot_head('sBody')
         )
         nPop()
       );
@@ -535,11 +654,11 @@ head = (
 // clause — fact or rule.
 clause = (
         head ws_opt
-        ( tk_neck ws_opt body ws_opt . *mark_body()
+        ( tk_neck ws_opt body ws_opt PR_mark_body()
         | epsilon
         )
         ws_opt tk_dot
-        . *build_clause()
+        PR_build_clause()
       );
 
 // directive — top-level `:- Goal.` form.  Resets the per-clause var
@@ -548,9 +667,9 @@ clause = (
 // (STMT :subj ...) — no E_CHOICE / E_CLAUSE / clause-key envelope, no
 // top-level `,` flattening.
 directive = (
-        tk_neck . *reset_var_scope()
+        tk_neck PR_reset_var_scope()
         ws_opt body ws_opt tk_dot
-        . *build_directive()
+        PR_build_directive()
       );
 
 // top_form — one top-level form: directive (`:- Goal.`) tried first
