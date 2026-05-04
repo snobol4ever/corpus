@@ -224,27 +224,49 @@ function mark_body() {
 
 // build_clause — final clause assembly.  Pops head_arity head-arg trees
 // and (if body_present) one body-goal tree, in reverse Push order.
-// Constructs E_CLAUSE with head args first, body goal last; wraps in
-// the :subj / E_CHOICE / STMT envelope.
+// Constructs E_CLAUSE with head args first, body goal(s) after; wraps
+// in the :subj / E_CHOICE / STMT envelope.
+//
+// Top-level `,` flattening rule (per oracle / prolog_lower.c):
+//   If body_present and the body tree is (E_FNC ,), splice its children
+//   directly into E_CLAUSE (flatten).  `;` and single goals are kept
+//   as one E_CLAUSE child.
 //
 // The E_CHOICE/E_CLAUSE key uses head_arity ONLY (e.g. "foo/0" for
-// `foo :- bar.`), NOT the total clause-child count.  This matches
-// prolog_lower.c which keys on (functor, head-arity) and lowers the
-// body as additional E_CLAUSE children.
-function build_clause(key, total, parts, i, body_goal, clause_node) {
+// `foo :- bar.`), NOT the total clause-child count.
+function build_clause(key, total, parts, i, body_tree, clause_node, bk, bn) {
     key = head_name '/' head_arity;
-    total = head_arity + body_present;
-    parts = ARRAY(total + 1);
-    i = total;
+    // Pop head args (they are under the body tree on the stack).
+    // body tree (if present) is on top; head args are below.
+    body_tree = ;
+    if (GT(body_present, 0)) {
+        body_tree = Pop();
+    }
+    parts = ARRAY(head_arity + 1);
+    i = head_arity;
     while (i > 0) {
         parts[i] = Pop();
         i = i - 1;
     }
     clause_node = Tree('E_CLAUSE', key, 0);
     i = 1;
-    while (LE(i, total)) {
+    while (LE(i, head_arity)) {
         Append(clause_node, parts[i]);
         i = i + 1;
+    }
+    if (GT(body_present, 0)) {
+        // Flatten top-level (E_FNC ,) into E_CLAUSE children.
+        if (IDENT(t(body_tree), 'E_FNC') IDENT(v(body_tree), ',')) {
+            bn = n(body_tree);
+            bk = 1;
+            while (LE(bk, bn)) {
+                Append(clause_node, c(body_tree)[bk]);
+                bk = bk + 1;
+            }
+        }
+        else {
+            Append(clause_node, body_tree);
+        }
     }
     Push(Tree('STMT', '', 1,
               Tree(':subj', '', 1,
@@ -278,20 +300,13 @@ arg = ( tk_atom    . _arg_text   . *push_arg_atom(_arg_text)
 args = ( arg ARBNO( ws_opt tk_comma ws_opt arg ) );
 
 //-----------------------------------------------------------------------
-// `goal` — one body goal, used in rule body position.
-//
-// At PR-2 scope, a goal is exactly the shape that `arg` would produce
-// when given a compound or atom — except a goal may NOT be a bare
-// integer or bare variable (those aren't callable).  The goal pushes
-// exactly one IR tree onto the stack.
+// `simple_goal` — one atomic body goal (no conjunction/disjunction).
 //
 // Forms (tried in order — longer prefix first):
 //   1. functor(args)  — compound goal with N flat args.
 //   2. functor        — bare-atom goal (no args).
 //
-// The compound goal pushes a (E_FNC functor <arg-trees>) tree.  This
-// is built via push_compound_goal() which pops the arg trees off the
-// stack and assembles them into an E_FNC node.
+// Pushes exactly one IR tree onto the stack.
 //-----------------------------------------------------------------------
 
 function push_compound_goal(name, n, fnc_node, args_arr, i) {
@@ -319,17 +334,102 @@ function push_atom_goal(name) {
     nreturn;
 }
 
-// `goal` parses one body goal.  arg_count is reset before any args
-// are pushed for the compound form, so the post-args push_compound_goal
-// pops exactly the right number.  reset_arg_count fires after the
-// functor-name capture to keep a single source of truth.
-goal = ( tk_atom . _goal_name ws_opt tk_lparen
-           epsilon . *reset_arg_count()
-           ws_opt args ws_opt tk_rparen
-           . *push_compound_goal(_goal_name)
-       | tk_atom . _goal_name
-           . *push_atom_goal(_goal_name)
+simple_goal = ( tk_atom . _goal_name ws_opt tk_lparen
+                  epsilon . *reset_arg_count()
+                  ws_opt args ws_opt tk_rparen
+                  . *push_compound_goal(_goal_name)
+              | tk_atom . _goal_name
+                  . *push_atom_goal(_goal_name)
+              );
+
+//-----------------------------------------------------------------------
+// `conj` — conjunction of simple_goals joined by `,`.
+//
+// Grammar: simple_goal (',' ws_opt simple_goal)*
+//
+// Uses nPush/nInc/nTop/nPop to count goals pushed.  After matching,
+// calls reduce_conj() which reads the count and decides:
+//   - 1 goal: leave it on stack as-is (no E_FNC node wrapping).
+//   - N>1 goals: pop N goals, build flat (E_FNC , g1 g2 ... gN), push.
+//
+// This produces the "inner conj" form used inside disjunction branches.
+// Top-level body conjunctions are flattened by build_clause (not here).
+//-----------------------------------------------------------------------
+
+function reduce_conj(cnt, fnc_node, goals_arr, i) {
+    cnt = nTop();
+    if (LE(cnt, 1)) {
+        reduce_conj = .dummy;
+        nreturn;
+    }
+    goals_arr = ARRAY(cnt + 1);
+    i = cnt;
+    while (i > 0) {
+        goals_arr[i] = Pop();
+        i = i - 1;
+    }
+    fnc_node = Tree('E_FNC', ',', 0);
+    i = 1;
+    while (LE(i, cnt)) {
+        Append(fnc_node, goals_arr[i]);
+        i = i + 1;
+    }
+    Push(fnc_node);
+    reduce_conj = .dummy;
+    nreturn;
+}
+
+conj = ( nPush()
+         nInc() simple_goal
+         ARBNO( ws_opt tk_comma ws_opt nInc() simple_goal )
+         . *reduce_conj()
+         nPop()
        );
+
+//-----------------------------------------------------------------------
+// `disj` — disjunction of conj branches joined by `;`.
+//
+// Grammar: conj (';' ws_opt conj)*
+//
+// Uses nPush/nInc/nTop/nPop to count branches pushed.  After matching,
+// calls reduce_disj():
+//   - 1 branch: leave on stack as-is.
+//   - N>1 branches: pop N, build flat (E_FNC ; b1 b2 ... bN), push.
+//-----------------------------------------------------------------------
+
+function reduce_disj(cnt, fnc_node, branches_arr, i) {
+    cnt = nTop();
+    if (LE(cnt, 1)) {
+        reduce_disj = .dummy;
+        nreturn;
+    }
+    branches_arr = ARRAY(cnt + 1);
+    i = cnt;
+    while (i > 0) {
+        branches_arr[i] = Pop();
+        i = i - 1;
+    }
+    fnc_node = Tree('E_FNC', ';', 0);
+    i = 1;
+    while (LE(i, cnt)) {
+        Append(fnc_node, branches_arr[i]);
+        i = i + 1;
+    }
+    Push(fnc_node);
+    reduce_disj = .dummy;
+    nreturn;
+}
+
+disj = ( nPush()
+         nInc() conj
+         ARBNO( ws_opt ';' ws_opt nInc() conj )
+         . *reduce_disj()
+         nPop()
+       );
+
+// body — top-level body entry point.  Pushes exactly one tree:
+// a single goal, an (E_FNC ,), or an (E_FNC ;).
+body = disj;
 
 //-----------------------------------------------------------------------
 // `head` — one head term in clause-head position.  Mirrors
@@ -362,16 +462,16 @@ head = ( epsilon . *reset_var_scope() . *reset_arg_count()
 //-----------------------------------------------------------------------
 // `clause` — one Prolog clause.  Two forms:
 //   1. head '.'              — fact (PR-0/PR-1).
-//   2. head ':-' goal '.'    — rule with single-goal body (PR-2).
+//   2. head ':-' body '.'   — rule with body (PR-3: conj/disj).
 //
 // In both cases `*build_clause()` runs at the end to assemble the
-// STMT envelope from the snapshotted head + (optional) body goal.
+// STMT envelope from the snapshotted head + (optional) body tree.
 // Comments (`%` to end of line) and blank lines are skipped at the
 // driver level, not here.
 //-----------------------------------------------------------------------
 
 clause = ( head ws_opt
-           ( tk_neck ws_opt goal ws_opt . *mark_body()
+           ( tk_neck ws_opt body ws_opt . *mark_body()
            | epsilon
            )
            ws_opt tk_dot
