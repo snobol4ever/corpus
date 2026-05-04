@@ -20,20 +20,58 @@
 //   $'tok'   = punctuation pattern, $' '-padded both sides.
 //   $'kw'    = keyword pattern, $' '-padded leading; trailing $'  '
 //              required at call site where lexical separation matters.
-//   $'do_X'  = zero-arg side-effect.
-//   $'save_X'= stash _expr_node into _X before recursive Expr clobber.
-//   $'atom_X'= build a leaf node from the most-recent dot-capture.
-//   $'op_X'  = save operator-tag constant for the next binop fold.
-//   $'binop_X'= fold running LHS/op/RHS triple into _expr_node.
 //
-// Style invariants (RULES.md + GOAL-PARSER-RAKU):
-//   - No goto.  Structured flow only.
-//   - No functions used for parsing — only for tree building / semantics.
-//   - nPush/nInc/nTop/nPop for all n-ary child counting (Compiland + Block).
-//   - All IR trees are n-ary (Append-based, not binary Tree(tag,'',2,l,r)).
-//   - One Compiland pattern.  One ? match against Src in the driver.
+// Reduce-tag constants follow parser_icon.sc convention: sq-quoted form
+// so they are EVAL-able strings inside reduce().
 //
-// Rung PARSER-RK-4: atoms + decl/assign + say + arith + if/while/for + sub def + call.
+// PARSER-RK-4.5-e: function-plumbing scaffold removed.  shift()/reduce()
+// operate directly inside the grammar patterns.  Minimal helpers retained
+// for tree-building operations not expressible via shift/reduce alone
+// (guideline §4a retained-for-<reason>):
+//
+//   rk_push_var()    — sigil-stripped variable push (uses _rk_vf/_rk_vr).
+//                      Retained: shift() captures full matched text (sigil
+//                      included); oracle requires bare name in E_VAR value.
+//   rk_push_param()  — sigil-stripped param push (uses _rk_pf/_rk_pr).
+//                      Retained: same reason as rk_push_var.
+//   rk_push_qlit()   — string-body push (uses _rk_strbody).
+//                      Retained: same reason as ic_push_qlit in parser_icon.sc
+//                      (shift() would include the surrounding quotes).
+//   rk_say_done()    — say → write name remap.
+//                      Retained: reduce() sets value=''; E_FNC write requires
+//                      value='write' to match oracle.
+//   rk_stash_for()   — stash for-loopvar name from _rk_ff/_rk_fr captures.
+//                      Retained: _rk_for_iter must be set before Block is
+//                      parsed; no other mechanism to carry a name across.
+//   rk_finish_for()  — for-loop tree build (pops block+array, builds
+//                      E_ITERATE+E_EVERY from _rk_for_iter stash).
+//                      Retained: E_ITERATE carries loopvar name as value;
+//                      reduce() cannot supply a non-empty value field.
+//   rk_finish_sub()  — sub decomposition (pops counter frame, builds STMT).
+//                      Retained: sub name in E_FNC value from _rk_snf/_rk_snr;
+//                      same structural role as ic_decompose_proc in parser_icon.sc.
+//   rk_finish_main() — main wrapper (same role as rk_finish_sub for top-level).
+//                      Retained: same structural reason.
+//
+// Rung PARSER-RK-4.5-e.
+//======================================================================================================================
+// Reduce-tag constants (parser_icon.sc convention).
+// sq-quoted so they are EVAL-able strings inside reduce().
+//======================================================================================================================
+sq          = "'";
+r_ASSIGN    = sq 'E_ASSIGN'    sq;
+r_ADD       = sq 'E_ADD'       sq;   r_SUB    = sq 'E_SUB'     sq;
+r_MUL       = sq 'E_MUL'       sq;   r_DIV    = sq 'E_DIV'     sq;
+r_EQ        = sq 'E_EQ'        sq;   r_NE     = sq 'E_NE'      sq;
+r_LT        = sq 'E_LT'        sq;   r_LE     = sq 'E_LE'      sq;
+r_GT        = sq 'E_GT'        sq;   r_GE     = sq 'E_GE'      sq;
+r_IF        = sq 'E_IF'        sq;
+r_WHILE     = sq 'E_WHILE'     sq;
+r_RETURN    = sq 'E_RETURN'    sq;
+r_SEQ_EXPR  = sq 'E_SEQ_EXPR'  sq;
+r_Parse     = sq 'Parse'       sq;
+s_ILIT      = 'E_ILIT';
+s_VAR       = 'E_VAR';
 //======================================================================================================================
 // Whitespace primitives.  ws_opt / ws_run are kept as named patterns for
 // internal use inside SPAN-like classifiers; the grammar refers to
@@ -46,19 +84,12 @@ nl_one   = ANY(nl);
 //======================================================================================================================
 // Invisible-whitespace tokens — beauty.sno style taken further.
 // $' ' (one space) names optional whitespace; $'  ' (two spaces) names
-// the required-single-space lexical separator.  This lets keyword and
-// operator-token definitions read as the literal source they match.
+// the required-single-space lexical separator.
 //======================================================================================================================
 $' '     = ws_opt;
 $'  '    = ws_run;
 //======================================================================================================================
-// Keyword tokens — leading optional whitespace baked in.  Trailing
-// required-whitespace stays explicit at each call site (varies by use:
-// `if cond` and `if(cond)` are both legal in Raku, so $'if' / $'while' /
-// $'say' have no trailing $'  ' — the next token's leading $' ' eats
-// the optional space.  $'sub' / $'for' need real lexical separation
-// from the following identifier, so callers attach $'  ' after them).
-// $'kw' form sidesteps Snocone's reserved-word list.
+// Keyword tokens — leading optional whitespace baked in.
 //======================================================================================================================
 $'my'        = ($' ' 'my'        );
 $'say'       = ($' ' 'say'       );
@@ -70,9 +101,6 @@ $'sub'       = ($' ' 'sub'       );
 $'return'    = ($' ' 'return'    );
 //======================================================================================================================
 // Operator-token patterns — beauty.sno / parser_icon.sc style.
-// Each consumes optional whitespace on both sides and produces no shift.
-// Two-char ops listed before single-char ops; longest-match handled by
-// alternation order at use site.
 //======================================================================================================================
 $'->'    = ($' ' '->' $' ');
 $'=='    = ($' ' '==' $' ');
@@ -93,16 +121,16 @@ $')'     = ($' ' ')'  $' ');
 $'{'     = ($' ' '{'  $' ');
 $'}'     = ($' ' '}'  $' ');
 //======================================================================================================================
-// Token classifiers — mirror raku.l names (lowercased).
+// Token classifiers — mirror raku.l names.
 // Each classifier bakes $' ' (optional leading whitespace) into its
-// definition so the grammar uses bare names — matches the literal Raku
-// source layout without scattering $' ' across every use site.
+// definition so the grammar uses bare names.
 //======================================================================================================================
 ident_first = ANY(&UCASE &LCASE '_');
 ident_rest  = SPAN(digits &UCASE &LCASE '_');
 Ident   = ($' ' ident_first (ident_rest | epsilon));
 
 // Sigiled variables: capture bare name (strip sigil) into _rk_vf/_rk_vr.
+// rk_push_var() uses the captures — see retained-for-<reason> note above.
 rk_vf    = ANY(&UCASE &LCASE '_');
 rk_vr    = SPAN(digits &UCASE &LCASE '_');
 rk_vro   = (rk_vr | epsilon);
@@ -113,22 +141,12 @@ VarHash   = ($' ' '%' rk_vf . _rk_vf rk_vro . _rk_vr);
 
 // Literals.
 LitInt    = ($' ' SPAN(digits));
-LitStrDQ   = ($' ' '"' BREAK('"') . _rk_strbody '"');
-LitStrSQ   = ($' ' "'" BREAK("'") . _rk_strbody "'");
+LitStrDQ  = ($' ' '"' BREAK('"') . _rk_strbody '"');
+LitStrSQ  = ($' ' "'" BREAK("'") . _rk_strbody "'");
 //======================================================================================================================
 // Per-construct identifier captures.  Distinct globals keep recursive Expr
-// calls from clobbering an in-flight LHS / for-loopvar / sub-name / param /
-// call-name capture.  $' ' baked in (same pattern as the atom classifiers).
+// calls from clobbering an in-flight for-loopvar / sub-name capture.
 //======================================================================================================================
-rk_atf  = ANY(&UCASE &LCASE '_');
-rk_atr  = SPAN(digits &UCASE &LCASE '_');
-rk_atro = (rk_atr | epsilon);
-
-AssignTarget = ( $' ' ('$' rk_atf . _rk_atf rk_atro . _rk_atr)
-               | $' ' ('@' rk_atf . _rk_atf rk_atro . _rk_atr)
-               | $' ' ('%' rk_atf . _rk_atf rk_atro . _rk_atr)
-               );
-
 // For-loopvar.
 rk_ff   = ANY(&UCASE &LCASE '_');
 rk_fr   = SPAN(digits &UCASE &LCASE '_');
@@ -153,411 +171,222 @@ rk_fnr  = SPAN(digits &UCASE &LCASE '_');
 rk_fnro = (rk_fnr | epsilon);
 CallName = ($' ' rk_fnf . _rk_fnf rk_fnro . _rk_fnr);
 //======================================================================================================================
-// Tree-building / semantic functions.
-// These are the ONLY functions in this file.  No function is called from
-// inside a parsing pattern except via `epsilon . *fn()` action hooks,
-// which are themselves wrapped into named $'name' patterns below.
+// Retained globals — minimal set after 4.5-e.
 //======================================================================================================================
-// _expr_node: current expression result (parallel to parser_icon.sc).
-_expr_node     = '';
-// _main_node: in-progress E_FNC main accumulator.
-_main_node     = '';
-// _rk_asgn_target: stashed LHS name for build_assign.
-_rk_asgn_target = '';
-// _rk_for_iter: stashed loopvar name for build_for.
+_rk_vf         = '';
+_rk_vr         = '';
+_rk_strbody    = '';
+_rk_ff         = '';
+_rk_fr         = '';
 _rk_for_iter   = '';
-// _rk_block_stk: cons-list for block save/restore during nesting.
-_rk_block_stk  = '';
-// _rk_sub_node: in-progress sub E_FNC node.
-_rk_sub_node   = '';
-// _rk_sub_list: cons-list of completed sub STMT nodes (emitted before main).
+_rk_snf        = '';
+_rk_snr        = '';
+_rk_pf         = '';
+_rk_pr         = '';
 _rk_sub_list   = '';
-// _rk_call_node: in-progress call E_FNC node (top of arg-stack).
-_rk_call_node  = '';
-// _rk_arg_stk: cons-list of in-progress call nodes (nested calls).
-_rk_arg_stk    = '';
 
-struct rk_blink { bnext, bval }
 struct rk_slink { snext, sval }
-struct rk_alink { anext, aval }
 //======================================================================================================================
-// Main wrapper.
+// Minimal helper functions — tree-building / semantic only.
+// None is called from inside a parsing pattern except via named action
+// patterns below.  Retained-for-<reason> notes in file header.
 //======================================================================================================================
-function start_main() {
-    _main_node = tree('E_FNC', 'main');
-    Append(_main_node, tree('E_VAR', 'main'));
-    start_main = .dummy;
+//----------------------------------------------------------------------------------------------------------------------
+// rk_push_var — push tree('E_VAR', bare_name) using _rk_vf/_rk_vr.
+//----------------------------------------------------------------------------------------------------------------------
+function rk_push_var() {
+    Push(tree('E_VAR', _rk_vf _rk_vr));
+    rk_push_var = .dummy;
     nreturn;
 }
-
-function finish_main(subj, stmt) {
-    subj = tree(':subj', '');
-    Append(subj, _main_node);
-    stmt = tree('STMT', '');
-    Append(stmt, subj);
-    Push(stmt);
-    finish_main = .dummy;
+var_done   = (epsilon . *rk_push_var());
+//----------------------------------------------------------------------------------------------------------------------
+// rk_push_param — push tree('E_VAR', bare_name) using _rk_pf/_rk_pr.
+//----------------------------------------------------------------------------------------------------------------------
+function rk_push_param() {
+    Push(tree('E_VAR', _rk_pf _rk_pr));
+    rk_push_param = .dummy;
     nreturn;
 }
-
-function append_body_stmt() {
-    Append(_main_node, _expr_node);
-    append_body_stmt = .dummy;
+param_done = (epsilon . *rk_push_param());
+//----------------------------------------------------------------------------------------------------------------------
+// rk_push_qlit — push tree('E_QLIT', body) using _rk_strbody.
+//----------------------------------------------------------------------------------------------------------------------
+function rk_push_qlit() {
+    Push(tree('E_QLIT', _rk_strbody));
+    rk_push_qlit = .dummy;
     nreturn;
 }
-//======================================================================================================================
-// Atom / leaf builders.
-//======================================================================================================================
-function expr_from_var(vf, vr) {
-    _expr_node = tree('E_VAR', vf vr);
-    expr_from_var = .dummy;
-    nreturn;
-}
-
-function expr_from_ilit(text) {
-    _expr_node = tree('E_ILIT', text);
-    expr_from_ilit = .dummy;
-    nreturn;
-}
-
-function expr_from_qlit(text) {
-    _expr_node = tree('E_QLIT', text);
-    expr_from_qlit = .dummy;
-    nreturn;
-}
-//======================================================================================================================
-// Assignment.
-//======================================================================================================================
-function stash_assign_target(vf, vr) {
-    _rk_asgn_target = vf vr;
-    stash_assign_target = .dummy;
-    nreturn;
-}
-
-function build_assign(rhs, lhs, node) {
-    rhs  = _expr_node;
-    lhs  = tree('E_VAR', _rk_asgn_target);
-    node = tree('E_ASSIGN', '');
-    Append(node, lhs);
-    Append(node, rhs);
-    _expr_node = node;
-    build_assign = .dummy;
-    nreturn;
-}
-//======================================================================================================================
-// say  →  E_FNC(write, E_VAR(write), <arg>) — surface→IR remap per raku.y.
-//======================================================================================================================
-function build_say(arg, fn, node) {
-    arg  = _expr_node;
+qlit_done  = (epsilon . *rk_push_qlit());
+//----------------------------------------------------------------------------------------------------------------------
+// rk_say_done — say → write name remap.  Pops arg, builds E_FNC write.
+//----------------------------------------------------------------------------------------------------------------------
+function rk_say_done(arg, fn, node) {
+    arg  = Pop();
     fn   = tree('E_VAR', 'write');
     node = tree('E_FNC', 'write');
     Append(node, fn);
     Append(node, arg);
-    _expr_node = node;
-    build_say = .dummy;
+    Push(node);
+    rk_say_done = .dummy;
     nreturn;
 }
-//======================================================================================================================
-// Binary operator fold.
-//======================================================================================================================
-function expr_binop(lhs, op_tag, node) {
-    node = tree(op_tag, '');
-    Append(node, lhs);
-    Append(node, _expr_node);
-    _expr_node = node;
-    expr_binop = .dummy;
-    nreturn;
-}
-//======================================================================================================================
-// Block save/restore + control-flow builders (stack-based for nesting).
-//======================================================================================================================
-function save_block() {
-    _rk_block_stk = rk_blink(_rk_block_stk, Pop());
-    save_block = .dummy;
-    nreturn;
-}
-
-function pop_block_to_stack(top) {
-    top = bval(_rk_block_stk);
-    _rk_block_stk = bnext(_rk_block_stk);
-    Push(top);
-    pop_block_to_stack = .dummy;
-    nreturn;
-}
-
-function stash_for_iter(vf, vr) {
+say_done   = (epsilon . *rk_say_done());
+//----------------------------------------------------------------------------------------------------------------------
+// rk_stash_for — stash for-loopvar name from _rk_ff/_rk_fr.
+//----------------------------------------------------------------------------------------------------------------------
+function rk_stash_for(vf, vr) {
     _rk_for_iter = vf vr;
-    stash_for_iter = .dummy;
+    rk_stash_for = .dummy;
     nreturn;
 }
-
-function build_if2(then_seq, cond, node) {
-    then_seq = Pop();
-    cond     = Pop();
-    node = tree('E_IF', '');
-    Append(node, cond);
-    Append(node, then_seq);
-    _expr_node = node;
-    build_if2 = .dummy;
-    nreturn;
-}
-
-function build_if3(else_seq, then_seq, cond, node) {
-    else_seq = Pop();
-    then_seq = Pop();
-    cond     = Pop();
-    node = tree('E_IF', '');
-    Append(node, cond);
-    Append(node, then_seq);
-    Append(node, else_seq);
-    _expr_node = node;
-    build_if3 = .dummy;
-    nreturn;
-}
-
-function build_while(body_seq, cond, node) {
-    body_seq = Pop();
-    cond     = Pop();
-    node = tree('E_WHILE', '');
-    Append(node, cond);
-    Append(node, body_seq);
-    _expr_node = node;
-    build_while = .dummy;
-    nreturn;
-}
-
-function build_for(body_seq, iter_arr, iter_node, node) {
-    body_seq  = Pop();
+stash_for  = (epsilon . *rk_stash_for(_rk_ff, _rk_fr));
+//----------------------------------------------------------------------------------------------------------------------
+// rk_finish_for — pops block+array from stack, builds E_EVERY.
+//----------------------------------------------------------------------------------------------------------------------
+function rk_finish_for(block, iter_arr, iter_node, node) {
+    block     = Pop();
     iter_arr  = Pop();
     iter_node = tree('E_ITERATE', _rk_for_iter);
     Append(iter_node, iter_arr);
     node = tree('E_EVERY', '');
     Append(node, iter_node);
-    Append(node, body_seq);
-    _expr_node = node;
-    build_for = .dummy;
+    Append(node, block);
+    Push(node);
+    rk_finish_for = .dummy;
     nreturn;
 }
-//======================================================================================================================
-// Sub definition builders.
-//======================================================================================================================
-function start_sub(snf, snr, sname) {
-    sname = snf snr;
-    _rk_sub_node = tree('E_FNC', sname);
-    Append(_rk_sub_node, tree('E_VAR', sname));
-    start_sub = .dummy;
-    nreturn;
-}
-
-function add_param(pf, pr) {
-    Append(_rk_sub_node, tree('E_VAR', pf pr));
-    add_param = .dummy;
-    nreturn;
-}
-
-function append_sub_stmt() {
-    Append(_rk_sub_node, _expr_node);
-    append_sub_stmt = .dummy;
-    nreturn;
-}
-
-function finish_sub(subj, stmt) {
+for_done   = (epsilon . *rk_finish_for());
+//----------------------------------------------------------------------------------------------------------------------
+// rk_finish_sub — pops counter frame, builds (STMT :subj (E_FNC sname ...)).
+//----------------------------------------------------------------------------------------------------------------------
+function rk_finish_sub(n_kids, kids, sname, efnc, subj, stmt, i) {
+    n_kids = TopCounter();
+    kids   = GT(n_kids, 0) ARRAY('1:' n_kids);
+    i = n_kids;
+    while (GT(i, 0)) {
+        kids[i] = Pop();
+        i = i - 1;
+    }
+    sname = _rk_snf _rk_snr;
+    efnc  = tree('E_FNC', sname);
+    Append(efnc, tree('E_VAR', sname));
+    i = 1;
+    while (LE(i, n_kids)) {
+        Append(efnc, kids[i]);
+        i = i + 1;
+    }
     subj = tree(':subj', '');
-    Append(subj, _rk_sub_node);
+    Append(subj, efnc);
     stmt = tree('STMT', '');
     Append(stmt, subj);
     _rk_sub_list = rk_slink(_rk_sub_list, stmt);
-    finish_sub = .dummy;
+    rk_finish_sub = .dummy;
     nreturn;
 }
-//======================================================================================================================
-// return.
-//======================================================================================================================
-function build_return(arg, node) {
-    arg  = _expr_node;
-    node = tree('E_RETURN', '');
-    Append(node, arg);
-    _expr_node = node;
-    build_return = .dummy;
+sub_done   = (epsilon . *rk_finish_sub());
+//----------------------------------------------------------------------------------------------------------------------
+// rk_finish_call — function call decomposition.  Reads TopCounter() for
+// nTop() children (callee E_VAR + args).  Builds (E_FNC fname (E_VAR fname)
+// arg1...argN) with fname from _rk_fnf/_rk_fnr captures.
+// Retained: reduce() sets value=''; E_FNC requires value=fname to match oracle.
+//----------------------------------------------------------------------------------------------------------------------
+function rk_finish_call(n_kids, kids, fname, efnc, i) {
+    n_kids = TopCounter();
+    kids   = GT(n_kids, 0) ARRAY('1:' n_kids);
+    i = n_kids;
+    while (GT(i, 0)) {
+        kids[i] = Pop();
+        i = i - 1;
+    }
+    fname = _rk_fnf _rk_fnr;
+    efnc  = tree('E_FNC', fname);
+    i = 1;
+    while (LE(i, n_kids)) {
+        Append(efnc, kids[i]);
+        i = i + 1;
+    }
+    Push(efnc);
+    rk_finish_call = .dummy;
     nreturn;
 }
-
-function build_return_void(node) {
-    node = tree('E_RETURN', '');
-    _expr_node = node;
-    build_return_void = .dummy;
+call_done  = (epsilon . *rk_finish_call());
+//----------------------------------------------------------------------------------------------------------------------
+function rk_finish_main(n_kids, kids, efnc, subj, stmt, i) {
+    n_kids = TopCounter();
+    kids   = GT(n_kids, 0) ARRAY('1:' n_kids);
+    i = n_kids;
+    while (GT(i, 0)) {
+        kids[i] = Pop();
+        i = i - 1;
+    }
+    efnc = tree('E_FNC', 'main');
+    Append(efnc, tree('E_VAR', 'main'));
+    i = 1;
+    while (LE(i, n_kids)) {
+        Append(efnc, kids[i]);
+        i = i + 1;
+    }
+    subj = tree(':subj', '');
+    Append(subj, efnc);
+    stmt = tree('STMT', '');
+    Append(stmt, subj);
+    Push(stmt);
+    rk_finish_main = .dummy;
     nreturn;
 }
+main_done  = (epsilon . *rk_finish_main());
 //======================================================================================================================
-// Function call.
-//======================================================================================================================
-function start_call(fnf, fnr, fname) {
-    fname = fnf fnr;
-    _rk_call_node = tree('E_FNC', fname);
-    Append(_rk_call_node, tree('E_VAR', fname));
-    _rk_arg_stk = rk_alink(_rk_arg_stk, _rk_call_node);
-    start_call = .dummy;
-    nreturn;
-}
-
-function add_call_arg(top) {
-    top = aval(_rk_arg_stk);
-    Append(top, _expr_node);
-    add_call_arg = .dummy;
-    nreturn;
-}
-
-function finish_call(top) {
-    top = aval(_rk_arg_stk);
-    _rk_arg_stk = anext(_rk_arg_stk);
-    _expr_node = top;
-    finish_call = .dummy;
-    nreturn;
-}
-//======================================================================================================================
-// Block-stmt push (for E_SEQ_EXPR reduce).
-//======================================================================================================================
-function push_expr_node() {
-    Push(_expr_node);
-    push_expr_node = .dummy;
-    nreturn;
-}
-//======================================================================================================================
-// Pattern-builder helpers — beauty.sno / parser_icon.sc style.
+// Expression tower — result lives on the shared stack.
 //
-// Each $'name' is a side-effect-only pattern (epsilon . *fn(...))
-// referenced inline in the grammar.  Folds the pattern body verbatim
-// out of the parsing rules into named singletons that read like prose.
-//======================================================================================================================
-// --- Main wrapper ---
-$'start_main'      = (epsilon . *start_main());
-$'finish_main'     = (epsilon . *finish_main());
-$'append_stmt'     = (epsilon . *append_body_stmt());
-
-// --- Atom builders (use most-recent dot-capture variable) ---
-$'atom_VAR'        = (epsilon . *expr_from_var(_rk_vf, _rk_vr));
-$'atom_ILIT'       = (epsilon . *expr_from_ilit(_rk_itext));
-$'atom_QLIT'       = (epsilon . *expr_from_qlit(_rk_strbody));
-
-// --- Assignment ---
-$'save_lhs'        = (epsilon . *stash_assign_target(_rk_atf, _rk_atr));
-$'do_assign'       = (epsilon . *build_assign());
-
-// --- say ---
-$'do_say'          = (epsilon . *build_say());
-
-// --- Per-level LHS savers (each level has its own slot) ---
-$'save_e7lhs'      = (epsilon . *assign('_e7lhs', _expr_node));
-$'save_e6lhs'      = (epsilon . *assign('_e6lhs', _expr_node));
-$'save_e4lhs'      = (epsilon . *assign('_e4lhs', _expr_node));
-
-// --- Operator tag savers for binary fold ---
-$'op_MUL'          = (epsilon . *assign('_e7op', 'E_MUL'));
-$'op_DIV'          = (epsilon . *assign('_e7op', 'E_DIV'));
-$'op_ADD'          = (epsilon . *assign('_e6op', 'E_ADD'));
-$'op_SUB'          = (epsilon . *assign('_e6op', 'E_SUB'));
-$'op_EQ'           = (epsilon . *assign('_e4op', 'E_EQ'));
-$'op_NE'           = (epsilon . *assign('_e4op', 'E_NE'));
-$'op_LE'           = (epsilon . *assign('_e4op', 'E_LE'));
-$'op_GE'           = (epsilon . *assign('_e4op', 'E_GE'));
-$'op_LT'           = (epsilon . *assign('_e4op', 'E_LT'));
-$'op_GT'           = (epsilon . *assign('_e4op', 'E_GT'));
-
-// --- Binary fold builders (consume LHS slot + op slot + current _expr_node) ---
-$'binop_mul'       = (epsilon . *expr_binop(_e7lhs, _e7op));
-$'binop_add'       = (epsilon . *expr_binop(_e6lhs, _e6op));
-$'binop_cmp'       = (epsilon . *expr_binop(_e4lhs, _e4op));
-
-// --- Block save/restore ---
-$'push_expr'       = (epsilon . *push_expr_node());
-$'save_block'      = (epsilon . *save_block());
-$'pop_block'       = (epsilon . *pop_block_to_stack());
-
-// --- Control-flow builders ---
-$'do_if2'          = (epsilon . *build_if2());
-$'do_if3'          = (epsilon . *build_if3());
-$'do_while'        = (epsilon . *build_while());
-$'save_for_iter'   = (epsilon . *stash_for_iter(_rk_ff, _rk_fr));
-$'do_for'          = (epsilon . *build_for());
-
-// --- Sub definition ---
-$'start_sub'       = (epsilon . *start_sub(_rk_snf, _rk_snr));
-$'add_param'       = (epsilon . *add_param(_rk_pf, _rk_pr));
-$'append_sub_stmt' = (epsilon . *append_sub_stmt());
-$'finish_sub'      = (epsilon . *finish_sub());
-
-// --- return ---
-$'do_return'       = (epsilon . *build_return());
-$'do_return_void'  = (epsilon . *build_return_void());
-
-// --- Function call ---
-$'start_call'      = (epsilon . *start_call(_rk_fnf, _rk_fnr));
-$'add_call_arg'    = (epsilon . *add_call_arg());
-$'finish_call'     = (epsilon . *finish_call());
-//======================================================================================================================
-// Expression tower — result lives in _expr_node.
-//
-// Named tail patterns (Expr7tail etc.) wrap operator + rhs + action so that
-// ARBNO fires the action reliably on each repetition.  Saved LHS uses
-// per-level globals (_e4lhs, _e6lhs, _e7lhs) to avoid clobbering across
-// nested expression calls.
+// Named tail patterns (Expr7tail etc.) wrap operator + rhs + action so
+// ARBNO fires the action reliably on each repetition.
 //======================================================================================================================
 // CallArgTail — defined BEFORE Expr11 so the ARBNO(*CallArgTail) reference
 // in Expr11 resolves at match time (deferred), not capture-time epsilon.
-// Uses *Expr deferred (Expr not yet defined here, resolved at match time).
 
-CallArgTail = ( $','  *Expr  $'add_call_arg' );
+CallArgTail = ( $','  *Expr  nInc() );
 
 // Expr11 — primary.
-// VarArray / VarHash / VarScalar / LitInt / LitStrDQ / LitStrSQ /
-// CallName all bake $' ' into their definitions, so the grammar uses
-// bare names — reads as the literal Raku source.
 
-Expr11 = ( VarScalar              $'atom_VAR'
-         | VarArray               $'atom_VAR'
-         | VarHash                $'atom_VAR'
-         | LitInt . _rk_itext     $'atom_ILIT'
-         | LitStrDQ                $'atom_QLIT'
-         | LitStrSQ                $'atom_QLIT'
+Expr11 = ( VarScalar              var_done
+         | VarArray               var_done
+         | VarHash                var_done
+         | shift(LitInt, s_ILIT)
+         | LitStrDQ               qlit_done
+         | LitStrSQ               qlit_done
          | $'(' *Expr $')'
-         | ( CallName              $'start_call'
+         | ( nPush()
+             shift(CallName, s_VAR)  nInc()
              $'('
-             ( *Expr                $'add_call_arg'
+             ( *Expr              nInc()
                ARBNO( *CallArgTail )
              | epsilon
              )
-             $')'                   $'finish_call'
+             $')'                 call_done
+             nPop()
            )
          );
 
 // Expr7 — multiplicative (* /).
-Expr7tail = ( $'save_e7lhs'
-              ( $'*'  $'op_MUL'
-              | $'/'  $'op_DIV'
-              )
-              Expr11   $'binop_mul'
+Expr7tail = ( $'*'  *Expr11  (r_MUL & 2)
+            | $'/'  *Expr11  (r_DIV & 2)
             );
 Expr7     = ( Expr11 ARBNO(Expr7tail) );
 
 // Expr6 — additive (+ -).
-Expr6tail = ( $'save_e6lhs'
-              ( $'+'  $'op_ADD'
-              | $'-'  $'op_SUB'
-              )
-              Expr7    $'binop_add'
+Expr6tail = ( $'+'  *Expr7  (r_ADD & 2)
+            | $'-'  *Expr7  (r_SUB & 2)
             );
 Expr6     = ( Expr7  ARBNO(Expr6tail) );
 
 // Expr4 — comparison ops.  Two-char ops tried first (longest match).
-Expr4tail = ( $'save_e4lhs'
-              ( $'=='  $'op_EQ'
-              | $'!='  $'op_NE'
-              | $'<='  $'op_LE'
-              | $'>='  $'op_GE'
-              | $'<'   $'op_LT'
-              | $'>'   $'op_GT'
-              )
-              Expr6    $'binop_cmp'
+Expr4tail = ( $'=='  *Expr6  (r_EQ & 2)
+            | $'!='  *Expr6  (r_NE & 2)
+            | $'<='  *Expr6  (r_LE & 2)
+            | $'>='  *Expr6  (r_GE & 2)
+            | $'<'   *Expr6  (r_LT & 2)
+            | $'>'   *Expr6  (r_GT & 2)
             );
 Expr4     = ( Expr6  ARBNO(Expr4tail) );
 
@@ -565,17 +394,6 @@ Expr4     = ( Expr6  ARBNO(Expr4tail) );
 Expr      = Expr4;
 //======================================================================================================================
 // Block — `{ BlockStmt* }` — produces E_SEQ_EXPR pushed on stack.
-//
-// Uses nPush/ARBNO(nInc() BlockStmt)/reduce/nPop so nesting is automatic.
-// $'save_block' pops the E_SEQ_EXPR off the stack into _rk_block_stk for
-// use by if/while/for builders.
-//
-// Block_body wraps the deferred *BlockStmt + counter increment + push action
-// in a NAMED sub-pattern so deferred actions inside fire reliably and the
-// trailing actions outside the ARBNO survive (Snocone runtime quirk).
-//
-// nl_opt absorbs zero or one newline between statements; $'{' / $'}' bake
-// $' ' on both sides so no extra ws_opt is needed around braces.
 //======================================================================================================================
 nl_opt = (nl_one | epsilon);
 
@@ -585,24 +403,21 @@ Block_body = ( nl_opt
                *BlockStmt
                nl_opt
                nInc()
-               $'push_expr'
              );
 
 Block = ( $'{' nl_opt
           nPush()
           ARBNO( Block_body )
           nl_opt $'}'
-          reduce("'E_SEQ_EXPR'", 'nTop()')
+          (r_SEQ_EXPR & 'nTop()')
           nPop()
-          $'save_block'
         );
 //======================================================================================================================
-// SubBlock — `{ SubBlockStmt* }` — appends body stmts directly onto _rk_sub_node.
-// No E_SEQ_EXPR wrapper — sub body stmts are inlined as direct children of E_FNC.
+// SubBlock — `{ SubBlockStmt* }` — each stmt increments sub counter frame.
 //======================================================================================================================
 SubBlockStmt = epsilon;
 
-SubBlock_body = ( nl_opt  *SubBlockStmt  nl_opt );
+SubBlock_body = ( nl_opt  *SubBlockStmt  nl_opt  nInc() );
 
 SubBlock = ( $'{' nl_opt
              ARBNO( SubBlock_body )
@@ -610,104 +425,93 @@ SubBlock = ( $'{' nl_opt
            );
 //======================================================================================================================
 // Statements.
-//
-// Reads as the literal Raku source: $'if' $'(' Expr $')' Block $'else' Block.
-// Each $'kw' bakes leading optional whitespace; trailing required-space
-// stays explicit only when needed for lexical separation ($'sub'/$'for'
-// must reject `subbie` / `foreach` so $'  ' follows them; $'if' / $'while'
-// can be followed by `(` without a space, so they don't need $'  ').
 //======================================================================================================================
 IfStmt = ( $'if'  $'(' Expr $')'
-           $'push_expr'  Block  $'pop_block'
-           ( $'else'  Block  $'pop_block'  $'do_if3'
-           | $'do_if2'
+           Block
+           ( $'else'  Block  (r_IF & 3)
+           | (r_IF & 2)
            )
          );
 
 WhileStmt = ( $'while'  $'(' Expr $')'
-              $'push_expr'  Block  $'pop_block'
-              $'do_while'
+              Block
+              (r_WHILE & 2)
             );
 
-ForStmt = ( $'for' $'  '  Expr  $'push_expr'
+ForStmt = ( $'for' $'  '  Expr
             $'->'
-            ForLoopvar  $'save_for_iter'
-            Block  $'pop_block'  $'do_for'
+            ForLoopvar  stash_for
+            Block  for_done
           );
 
 ReturnStmt = ( $'return'
-               ( $';'  $'do_return_void'
-               | $'  ' Expr  $';'  $'do_return'
+               ( $';'         (r_RETURN & 0)
+               | $'  ' Expr   $';'  (r_RETURN & 1)
                )
              );
 
 AssignStmt = ( ($'my' $'  ' | epsilon)
-               AssignTarget  $'save_lhs'
-               $'='  Expr  $';'  $'do_assign'
+               ( VarScalar  var_done
+               | VarArray   var_done
+               | VarHash    var_done
+               )
+               $'='  Expr  $';'  (r_ASSIGN & 2)
              );
 
 SayStmt = ( $'say'
-            Expr  $';'  $'do_say'
+            Expr  $';'  say_done
           );
 
 BareStmt = ( Expr $';' );
 
-Stmt = ( IfStmt      $'append_stmt'
-       | WhileStmt   $'append_stmt'
-       | ForStmt     $'append_stmt'
-       | ReturnStmt  $'append_stmt'
-       | AssignStmt  $'append_stmt'
-       | SayStmt     $'append_stmt'
-       | BareStmt    $'append_stmt'
+Stmt = ( IfStmt
+       | WhileStmt
+       | ForStmt
+       | ReturnStmt
+       | AssignStmt
+       | SayStmt
+       | BareStmt
        );
 
-// BlockStmt — final binding.  Same alternatives but no trailing
-// $'append_stmt' — Block_body's $'push_expr' feeds the reduce.
+// BlockStmt — final binding.
 BlockStmt = ( IfStmt | WhileStmt | ForStmt | ReturnStmt | AssignStmt | SayStmt | BareStmt );
 
-// SubBlockStmt — same alts, but each appends onto _rk_sub_node directly.
-SubBlockStmt = ( IfStmt      $'append_sub_stmt'
-               | WhileStmt   $'append_sub_stmt'
-               | ForStmt     $'append_sub_stmt'
-               | ReturnStmt  $'append_sub_stmt'
-               | AssignStmt  $'append_sub_stmt'
-               | SayStmt     $'append_sub_stmt'
-               | BareStmt    $'append_sub_stmt'
-               );
+// SubBlockStmt — SubBlock_body handles nInc per stmt.
+SubBlockStmt = ( IfStmt | WhileStmt | ForStmt | ReturnStmt | AssignStmt | SayStmt | BareStmt );
 //======================================================================================================================
-// Sub parameter list — `$a, $b, ...` (zero or more).
+// Sub parameter list — each param shifts (E_VAR name) onto sub counter frame.
 //======================================================================================================================
 SubParamTail = ( $','
-                 SubParam  $'add_param'
+                 SubParam  param_done  nInc()
                );
 
-SubParams = ( SubParam  $'add_param'
+SubParams = ( SubParam  param_done  nInc()
               ARBNO( SubParamTail )
             | epsilon
             );
 
 SubStmt = ( $'sub' $'  '
-            SubName  $'start_sub'
+            SubName
+            nPush()
             $'(' SubParams $')'
-            SubBlock  $'finish_sub'
+            SubBlock  sub_done
+            nPop()
           );
 //======================================================================================================================
 // Compiland — canonical cross-PARSER spine.
-// One pattern.  One ? match against Src in the driver.
-// Produces one STMT (E_FNC main wrapper) for the whole program, plus zero
-// or more sub STMT nodes cons'd onto _rk_sub_list.
+// Outer frame: holds exactly 1 item (the main STMT) for reduce('Parse',1).
+// Inner frame: counts main body stmts for rk_finish_main().
 //======================================================================================================================
 Compiland = nPush()
-            $'start_main'
-            ARBNO( (SubStmt | Stmt) nl_opt )
-            $'finish_main'
-            reduce("'Parse'", 1)
+            nPush()
+            ARBNO( (SubStmt | (Stmt nInc())) nl_opt )
+            main_done
+            nPop()
+            nInc()
+            (r_Parse & 1)
             nPop();
 //======================================================================================================================
-// Driver — read stdin into Src, run one ? match, emit each Parse child.
-// No goto.  Structured flow only.
-// Emit order: sub STMTs first (reversed from cons-list), then main STMT
-// (only if main has body stmts beyond the initial E_VAR main child).
+// Driver — read stdin into Src, run one ? match, emit sub STMTs then main.
 //======================================================================================================================
 InitCounter();
 InitStack();
@@ -736,7 +540,6 @@ if (ok) {
             _rk_sl = snext(_rk_sl);
         }
         // Emit main STMT only if it has body stmts beyond the initial E_VAR main child.
-        // Oracle does not emit a main wrapper for programs with only sub defs.
         i = 1;
         n_kids = n(ptree);
         while (LE(i, n_kids)) {
