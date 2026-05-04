@@ -5,10 +5,10 @@
 //   ONE Compiland PATTERN. ONE Src ? Compiland call.
 //   ~ (OPSYN shift) and & (OPSYN reduce) for tree construction.
 //   nPush/nInc/nPop embedded as patterns in grammar rules.
-//   Pattern-returning functions (return not nreturn) compose at build time.
+//   Naming convention (mirrors shift/nInc):
+//     Uppercase = build-time, returns a pattern (like shift, nInc, nPush)
+//     lowercase = match-time, called inside pattern (like Shift, IncCounter)
 //   No goto. No parse-dispatch functions. tab/nl/digits from global.sc.
-//
-// Naming (RULES.md): beauty.sno token names; snobol4.y rule names; snobol4.h IR tags.
 
 White   = SPAN(' ' tab);
 Gray    = (White | epsilon);
@@ -19,17 +19,17 @@ Id      = (ANY(&UCASE &LCASE) FENCE(SPAN(digits &UCASE &LCASE '_.') | epsilon));
 SQ      = ("'" BREAK("'" nl) . _sb "'");
 DQ      = ('"' BREAK('"' nl) . _sb '"');
 
-//--- Runtime push functions (nreturn — called at match time) ---
+//--- Match-time functions (lowercase, nreturn — called inside patterns) ---
 
-function PushQLit(body) { Push(tree('E_QLIT', body)); PushQLit = .dummy; nreturn; }
-function PushNameEnd()  { Push(tree('Name', 'END'));  PushNameEnd = .dummy; nreturn; }
-function PushEndNode()  { Push(tree(':end', ''));     PushEndNode = .dummy; nreturn; }
+function pushQLit(body) { Push(tree('E_QLIT', body)); pushQLit   = .dummy; nreturn; }
+function pushNameEnd()  { Push(tree('Name', 'END'));  pushNameEnd = .dummy; nreturn; }
+function pushEndNode()  { Push(tree(':end', ''));     pushEndNode = .dummy; nreturn; }
 
-//--- Pattern-returning functions (return — called at build time, like nInc/shift) ---
+//--- Build-time functions (Uppercase, return — return patterns, like shift/nInc) ---
 
-function push_qlit()    { push_qlit    = epsilon . *PushQLit(_sb);  return; }
-function push_name_end(){ push_name_end = epsilon . *PushNameEnd(); return; }
-function push_end_node(){ push_end_node = epsilon . *PushEndNode(); return; }
+function PushQLit()    { PushQLit    = epsilon . *pushQLit(_sb);  return; }
+function PushNameEnd() { PushNameEnd = epsilon . *pushNameEnd();  return; }
+function PushEndNode() { PushEndNode = epsilon . *pushEndNode();  return; }
 
 //--- Quoted reduce() args ---
 
@@ -42,7 +42,7 @@ r_STMT  = sq 'STMT'  sq;
 
 //--- Atom ---
 
-qlit_pat = ((SQ | DQ) push_qlit());
+qlit_pat = ((SQ | DQ) PushQLit());
 
 Atom = ( (Integer ~ 'E_ILIT')
        | qlit_pat
@@ -55,9 +55,9 @@ stmt_body = ( White Atom Gray (nl_one | RPOS(0))
               (r_subj & 1) (r_STMT & 1) nInc() );
 
 end_body  = ( 'END' Gray (nl_one | RPOS(0))
-              push_name_end()
+              PushNameEnd()
               (r_lbl & 1)
-              push_end_node()
+              PushEndNode()
               (r_STMT & 2) nInc() );
 
 //--- Compiland ---
