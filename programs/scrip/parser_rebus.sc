@@ -11,7 +11,8 @@
 // Rung PARSER-RB-1 (DONE): assignment (lhs := rhs, atom rhs).
 // Rung PARSER-RB-2 (DONE): control flow (if cond then stmt, while cond do stmt).
 // Rung PARSER-RB-3 (DONE): function definitions with args + no-arg call sites.
-// Rung PARSER-RB-4 (CURRENT): pattern match `subj ? pat` (atom subj, atom pat).
+// Rung PARSER-RB-4 (DONE): pattern match `subj ? pat` (atom subj, atom pat).
+// Rung PARSER-RB-5 (CURRENT): alternation generators `a | b | c`.
 
 // Tree shape per function (N body stmts):
 //   (STMT :subj (E_FNC DEFINE (E_QLIT "FNAME()")))
@@ -147,11 +148,92 @@ function emit_assign(lhs, rhs_kind, rhs_txt) {
     return;
 }
 
+// emit_assign_tree — RB-5: rhs is a pre-built tree (atom or E_ALT).
+// (STMT :eq :subj (E_VAR LHS) :repl <rhs_tree>)
+function emit_assign_tree(lhs, rhs_tree) {
+    TDump(Tree('STMT', '', 3,
+               tree(':eq', ''),
+               Tree(':subj', '', 1, tree('E_VAR', lhs)),
+               Tree(':repl', '', 1, rhs_tree)));
+    return;
+}
+
 function emit_match(subj_kind, subj_txt, pat_kind, pat_txt) {
     // (STMT :subj (subj_kind subj_txt) :pat (pat_kind pat_txt))
     TDump(Tree('STMT', '', 2,
                Tree(':subj', '', 1, tree(subj_kind, subj_txt)),
                Tree(':pat',  '', 1, tree(pat_kind,  pat_txt))));
+    return;
+}
+
+// emit_match_tree — RB-5: pattern side is a pre-built tree (atom or E_ALT).
+// (STMT :subj (subj_kind subj_txt) :pat <pat_tree>)
+function emit_match_tree(subj_kind, subj_txt, pat_tree) {
+    TDump(Tree('STMT', '', 2,
+               Tree(':subj', '', 1, tree(subj_kind, subj_txt)),
+               Tree(':pat',  '', 1, pat_tree)));
+    return;
+}
+
+// emit_body_tree — RB-5: bare body expression as a pre-built tree.
+// (STMT :subj <expr_tree>)
+function emit_body_tree(expr_tree) {
+    TDump(Tree('STMT', '', 1,
+               Tree(':subj', '', 1, expr_tree)));
+    return;
+}
+
+//-----------------------------------------------------------------------
+// RB-5: alternation parser — parse_alt_expr(text) -> tree.
+//
+// Recognizes  atom ( ws? '|' ws? atom )*  in `text` and returns a tree
+// node.  One atom -> bare atom tree.  Two or more atoms ->
+// left-associative E_ALT chain matching the existing frontend's
+// RE_ALT lowering: `a | b | c` produces
+//   Tree(E_ALT, '', 2, Tree(E_ALT, '', 2, a, b), c)
+//
+// Atom slice is the same id/int/str triple used elsewhere in this file.
+// Returns NULL if the head atom doesn't parse (caller falls back).
+//-----------------------------------------------------------------------
+function parse_alt_expr(text, head, more_kind, more_txt, more_strbody) {
+    // Match the head atom and consume it.
+    if (~(text ? ( POS(0)
+                   ( str_pat
+                       . *assign('more_kind', 'E_QLIT')
+                       . *assign('more_txt',  _rb_strbody)
+                   | int_pat . more_txt
+                       . *assign('more_kind', 'E_ILIT')
+                   | id_pat  . more_txt
+                       . *assign('more_kind', 'E_VAR')
+                       . *assign('more_txt',  uc(more_txt))
+                   )
+                   @_rb_alt_cur ))) {
+        parse_alt_expr = NULL;
+        freturn;
+    }
+    head = tree(more_kind, more_txt);
+    parse_alt_expr = head;
+    // Loop: while a `' | atom '` follows, fold it onto head.
+pae_loop:
+    if (~(text ? ( POS(_rb_alt_cur) ws_opt '|' ws_opt
+                   ( str_pat
+                       . *assign('more_kind', 'E_QLIT')
+                       . *assign('more_txt',  _rb_strbody)
+                   | int_pat . more_txt
+                       . *assign('more_kind', 'E_ILIT')
+                   | id_pat  . more_txt
+                       . *assign('more_kind', 'E_VAR')
+                       . *assign('more_txt',  uc(more_txt))
+                   )
+                   @_rb_alt_cur ))) { goto pae_done; }
+    parse_alt_expr = Tree('E_ALT', '', 2, parse_alt_expr, tree(more_kind, more_txt));
+    goto pae_loop;
+pae_done:
+    // Require we consumed all non-whitespace input.
+    if (~(text ? (POS(_rb_alt_cur) ws_opt RPOS(0)))) {
+        parse_alt_expr = NULL;
+        freturn;
+    }
     return;
 }
 
@@ -291,6 +373,43 @@ MatchPat = ( str_pat
 MatchLine = ( POS(0) ws_opt MatchSubj ws_opt '?' ws_opt MatchPat ws_opt RPOS(0) );
 
 //-----------------------------------------------------------------------
+// RB-5 — alternation (`a | b | c`).  Three new line patterns capture the
+// rhs as raw text; the dispatch handler hands that text to
+// parse_alt_expr() to build the actual tree.
+//
+// MatchAltLine:    `subj ? rhs_text` — captures _rb_msubj_*, _rb_alt_text.
+// AssignAltLine:   `lhs := rhs_text` — captures _rb_lhs, _rb_alt_text.
+// BodyAltLine:     `rhs_text`        — captures _rb_alt_text.
+//
+// rhs_text must contain at least one '|' for these patterns to commit;
+// otherwise the older MatchLine / AssignLine / BodyAtomLine paths handle
+// it (and produce identical trees because parse_alt_expr returns a bare
+// atom tree for single-atom input — the alt path is just for `|` cases).
+//-----------------------------------------------------------------------
+
+// MatchAltLine:  `subj ? rhs_text` where rhs_text contains at least one `|`.
+// Capture rhs_text via TAB anchoring: from current position to RPOS(0).
+// Use `(BREAK | epsilon)` trick? No — simpler: capture-then-validate.
+MatchAltLine = ( POS(0) ws_opt MatchSubj ws_opt '?' ws_opt
+                 (BREAK('|') . _rb_alt_pre)
+                 (REM         . _rb_alt_post)
+                 epsilon . *assign('_rb_alt_text', _rb_alt_pre _rb_alt_post)
+               );
+
+AssignAltLine = ( POS(0) ws_opt id_pat . _rb_lhs ws_opt ':=' ws_opt
+                  (BREAK('|') . _rb_alt_pre)
+                  (REM         . _rb_alt_post)
+                  epsilon . *assign('_rb_lhs',      uc(_rb_lhs))
+                  epsilon . *assign('_rb_alt_text', _rb_alt_pre _rb_alt_post)
+                );
+
+BodyAltLine = ( POS(0) ws_opt
+                (BREAK('|') . _rb_alt_pre)
+                (REM         . _rb_alt_post)
+                epsilon . *assign('_rb_alt_text', _rb_alt_pre _rb_alt_post)
+              );
+
+//-----------------------------------------------------------------------
 // Driver — line-at-a-time state machine.
 //   _rb_state 0: between functions
 //   _rb_state 1: inside function body
@@ -351,16 +470,34 @@ emit_go(_rb_loop_lbl);
 emit_lbl(_rb_goF);
 goto rb_loop;
 rb_try_assign:
+if (~(RbLine ? AssignAltLine)) { goto rb_try_assign_plain; }
+_rb_alt_tree = parse_alt_expr(_rb_alt_text);
+if (IDENT(_rb_alt_tree, NULL)) { goto rb_try_assign_plain; }
+emit_assign_tree(_rb_lhs, _rb_alt_tree);
+goto rb_loop;
+rb_try_assign_plain:
 if (~(RbLine ? AssignLine)) { goto rb_try_match; }
 emit_assign(uc(_rb_lhs), _rb_atom_kind, _rb_atom_txt);
 goto rb_loop;
 rb_try_match:
+if (~(RbLine ? MatchAltLine)) { goto rb_try_match_plain; }
+_rb_alt_tree = parse_alt_expr(_rb_alt_text);
+if (IDENT(_rb_alt_tree, NULL)) { goto rb_try_match_plain; }
+emit_match_tree(_rb_msubj_kind, _rb_msubj_txt, _rb_alt_tree);
+goto rb_loop;
+rb_try_match_plain:
 if (~(RbLine ? MatchLine)) { goto rb_try_call; }
 emit_match(_rb_msubj_kind, _rb_msubj_txt, _rb_mpat_kind, _rb_mpat_txt);
 goto rb_loop;
 rb_try_call:
-if (~(RbLine ? CallLine)) { goto rb_try_atom; }
+if (~(RbLine ? CallLine)) { goto rb_try_body_alt; }
 emit_func_call(_rb_call_name);
+goto rb_loop;
+rb_try_body_alt:
+if (~(RbLine ? BodyAltLine)) { goto rb_try_atom; }
+_rb_alt_tree = parse_alt_expr(_rb_alt_text);
+if (IDENT(_rb_alt_tree, NULL)) { goto rb_try_atom; }
+emit_body_tree(_rb_alt_tree);
 goto rb_loop;
 rb_try_atom:
 if (~(RbLine ? BodyAtomLine)) {
