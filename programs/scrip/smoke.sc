@@ -48,8 +48,11 @@ OUTPUT = (IDENT(lwr('AbC'), 'abc') 'lwr-OK', 'lwr-FAIL');
 OUTPUT = (IDENT(upr('AbC'), 'ABC') 'upr-OK', 'upr-FAIL');
 OUTPUT = (IDENT(cap('aBc'), 'Abc') 'cap-OK', 'cap-FAIL');
 // icase('End') yields a pattern that matches 'eNd' case-insensitively.
+// PARSER-SN-INFRA-11a (FIXED 2026-05-03): `subj ? pat` in value context now
+// returns the matched substring per SNOBOL4 spec, not NULSTR.  Test by
+// checking that the returned span equals the input subject (full match).
 _smoke_icp = icase('End');
-OUTPUT = (('eNd' ? _smoke_icp) 'icase-OK', 'icase-FAIL');
+OUTPUT = (IDENT('eNd' ? _smoke_icp, 'eNd') 'icase-OK', 'icase-FAIL');
 
 // PARSER-SN-INFRA-7 — qize.sc: Qize/SQize/DQize/SqlSQize round-trips on the
 // non-deferred-*assign surface.  The deferred-*assign branch in Qize (control
