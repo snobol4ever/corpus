@@ -86,18 +86,108 @@ function expr_binop(lop, op_tag, rop) {
 
 // Build a function-invocation tree node — Expr11 's IDENT '(' arg ')'
 // branch.  scrip's existing frontend wraps invocation as
-// (E_FNC (E_VAR fname) arg) — same E_FNC tag the procedure uses.
-function expr_invoke(fname, arg) {
-    _expr_node = Tree('E_FNC', '', 2, tree('E_VAR', fname), arg);
-    expr_invoke = .dummy;
+// (E_FNC (E_VAR fname) arg1 arg2 ...) — same E_FNC tag the procedure
+// uses.  Kept as the legacy single-arg path is removed in IC-4 in
+// favor of the start/append/finish trio below; this name is reserved
+// for cross-pollination with parser_snobol4.sc 's `expr_invoke` wart.
+
+// IC-4: Variadic invocation construction.  The arg-build sequence
+// inside Expr11 needs to nest (think `write(double(5))`), so the
+// in-progress invocation node CANNOT live in a global slot — a nested
+// `double(5)` would overwrite the outer `write(...)`'s slot.  Use a
+// dedicated stack `_ic_inv_stack` (a Snocone link()-style cons list
+// keyed off the global $'@II'), parallel to the shared $'@S' Push/Pop
+// stack used by Compiland for STMT shifts.  Pushing on entry to '(',
+// popping on exit at ')'.
+
+struct ic_ilink { next, ival }
+
+function ic_inv_push(node) {
+    $'@II' = ic_ilink($'@II', node);
+    ic_inv_push = .dummy;
     nreturn;
 }
 
-// Reset the per-procedure accumulator to (E_FNC main (E_VAR main)).
-// Called from Prochead.
-function start_proc_main() {
-    _proc_node = Tree('E_FNC', 'main', 1, tree('E_VAR', 'main'));
-    start_proc_main = .dummy;
+function ic_inv_top() {
+    if (~DIFFER($'@II')) { freturn; }
+    ic_inv_top = ival($'@II');
+    return;
+}
+
+function ic_inv_replace_top(node) {
+    if (~DIFFER($'@II')) { freturn; }
+    ival($'@II') = node;
+    ic_inv_replace_top = .dummy;
+    nreturn;
+}
+
+function ic_inv_pop() {
+    if (~DIFFER($'@II')) { freturn; }
+    ic_inv_pop = ival($'@II');
+    $'@II' = next($'@II');
+    return;
+}
+
+// Seed a new in-progress invocation onto the inv-stack — `(E_FNC
+// (E_VAR fname))`.  Subsequent *append calls will Append arg children
+// onto the top-of-stack node.
+function expr_invoke_begin(fname) {
+    ic_inv_push(Tree('E_FNC', '', 1, tree('E_VAR', fname)));
+    expr_invoke_begin = .dummy;
+    nreturn;
+}
+
+// Append _expr_node (the just-parsed arg) onto the top-of-stack
+// invocation node.  Called after each comma-separated Expr.
+function expr_invoke_arg() {
+    ic_inv_replace_top(Append(ic_inv_top(), _expr_node));
+    expr_invoke_arg = .dummy;
+    nreturn;
+}
+
+// Pop the in-progress invocation off the stack and install it as the
+// current _expr_node.  Called after the closing ')'.
+function expr_invoke_end() {
+    _expr_node = ic_inv_pop();
+    expr_invoke_end = .dummy;
+    nreturn;
+}
+
+// IC-4: Build an E_RETURN node.  `return;` produces (E_RETURN) — 0
+// children; `return expr;` produces (E_RETURN expr) — 1 child carrying
+// the value expression.  Two helpers to keep the deferred-action call
+// sites simple.
+function expr_return0() {
+    _expr_node = Tree('E_RETURN', '', 0);
+    expr_return0 = .dummy;
+    nreturn;
+}
+
+function expr_return1(val) {
+    _expr_node = Tree('E_RETURN', '', 1, val);
+    expr_return1 = .dummy;
+    nreturn;
+}
+
+// Reset the per-procedure accumulator to (E_FNC <name> (E_VAR <name>)).
+// Called from Prochead.  IC-4 generalized: arbitrary procedure name
+// (was hardcoded to 'main' in IC-2/IC-3).  Parameters are appended
+// onto _proc_node by *append_proc_param() during arglist parsing.
+function start_proc(pname) {
+    _proc_node = Tree('E_FNC', pname, 1, tree('E_VAR', pname));
+    start_proc = .dummy;
+    nreturn;
+}
+
+// Append a parameter E_VAR node to the current procedure's _proc_node.
+// Called from Prochead during arglist parsing — each comma-separated
+// IDENT in `procedure f(a, b, c)` produces one append.  Body statements
+// (which call *append_body_stmt) come after the params, matching the
+// existing frontend's tree shape: (E_FNC f (E_VAR f) (E_VAR a) (E_VAR b)
+// <body...>).
+function append_proc_param(pname) {
+    _proc_node = Append(_proc_node, tree('E_VAR', pname));
+    append_proc_param = .dummy;
     nreturn;
 }
 
@@ -110,10 +200,11 @@ function append_body_stmt() {
 }
 
 // Push the assembled (STMT :subj <_proc_node>) onto the shared stack.
-// Called from Proc after the matching 'end'.
-function finish_proc_main() {
+// Called from Proc after the matching 'end'.  IC-4: renamed from
+// finish_proc_main since procedures can have arbitrary names now.
+function finish_proc() {
     Push(Tree('STMT', '', 1, Tree(':subj', '', 1, _proc_node)));
-    finish_proc_main = .dummy;
+    finish_proc = .dummy;
     nreturn;
 }
 
@@ -159,6 +250,24 @@ function expr_while2(cond, body) {
 // _expr_lhs to remember the running left operand across iterations.
 //-----------------------------------------------------------------------
 
+// IC-4: Argument-list components for invocation.  Mirrors the
+// procedure-definition Arglist/ParamRest pair, but each piece parses
+// a full Expr (not just an identifier) and appends onto the
+// top-of-stack in-progress invocation via *expr_invoke_arg().
+//
+// A separately-named ArgFirst / ArgRest pattern is used so deferred
+// actions inside ARBNO fire reliably (PARSER-IC-INFRA-2 lesson).
+
+ArgFirst = ( ws_opt *Expr
+             epsilon . *expr_invoke_arg()
+           );
+
+ArgRest = ( ws_opt ',' ws_opt *Expr
+            epsilon . *expr_invoke_arg()
+          );
+
+InvokeArgs = ( ArgFirst ARBNO(ArgRest) | epsilon );
+
 // Expr11 — primary.  IC-3 adds control-flow primaries (if/while).
 //
 // Control-flow forms are tried first because they start with reserved
@@ -180,8 +289,11 @@ function expr_while2(cond, body) {
 // `while cond do body`:
 //   — Saved into _ic_wcond / _ic_wbody.
 //
-// Function-invocation `IDENT '(' Expr ')'` is tried before bare IDENT
-// so a bare identifier followed by '(' isn't greedily captured.
+// IC-4 invocation: `IDENT '(' (Expr (',' Expr)*)? ')'` — variadic.
+// The in-progress invocation node lives on a dedicated invocation
+// stack ($'@II'), pushed at '(' and popped at ')'.  This supports
+// nested calls like `write(double(5))` without clobbering the outer
+// in-progress node when the inner call's expr_invoke_begin fires.
 Expr11 = ( ws_opt 'if' ws_run *Expr
               epsilon . *assign('_ic_cond', _expr_node)
               ws_opt 'then' ws_run *Expr
@@ -194,8 +306,11 @@ Expr11 = ( ws_opt 'if' ws_run *Expr
               epsilon . *assign('_ic_wcond', _expr_node)
               ws_opt 'do' ws_run *Expr
               epsilon . *expr_while2(_ic_wcond, _expr_node)
-         | id_pat . _ic_fname ws_opt '(' ws_opt *Expr ws_opt ')'
-              epsilon . *expr_invoke(_ic_fname, _expr_node)
+         | id_pat . _ic_fname ws_opt '('
+              epsilon . *expr_invoke_begin(_ic_fname)
+              InvokeArgs
+              ws_opt ')'
+              epsilon . *expr_invoke_end()
          | str_pat
               epsilon . *expr_from_atom('E_QLIT', _atom_strbody)
          | int_pat . _atom_text
@@ -319,18 +434,58 @@ Blank   = ( ws_opt nl_one );
 // Stmt — one body statement followed by ; and/or newline.  Procbody
 // dispatches `end` separately, so Stmt can safely match a bare
 // identifier expression even when that identifier is `end`-like.
+//
+// IC-4: `return` and `return expr` recognized at the Stmt level (not
+// Expr) — the existing frontend treats Icon's `return` as a statement
+// form that builds (E_RETURN) or (E_RETURN expr) and adds it directly
+// to the procedure body.  Tried before the generic Expr-as-stmt branch
+// so `return` is not mistaken for a bare identifier.  ws_run after
+// 'return' enforces a separator so `returnish` (a hypothetical
+// identifier) wouldn't match — but bare `return;` (no expression) must
+// also be allowed, so the value-form is tried first; if Expr fails,
+// the no-value form catches it.
 
-Stmt = ( ws_opt Expr ws_opt semi_opt ws_opt nl_one
-         epsilon . *append_body_stmt()
+ReturnStmt = ( ws_opt 'return' ws_run *Expr ws_opt semi_opt ws_opt nl_one
+                  epsilon . *expr_return1(_expr_node)
+                  epsilon . *append_body_stmt()
+             | ws_opt 'return' ws_opt semi_opt ws_opt nl_one
+                  epsilon . *expr_return0()
+                  epsilon . *append_body_stmt()
+             );
+
+Stmt = ( ReturnStmt
+       | ws_opt Expr ws_opt semi_opt ws_opt nl_one
+            epsilon . *append_body_stmt()
        | Comment
        | Blank
        );
 
-// Prochead — `procedure main()` (IC-2 only handles main).  Side-effect:
-// reset the body accumulator via *start_proc_main().
-Prochead = ( ws_opt 'procedure' ws_run 'main' ws_opt
-             '(' ws_opt ')' ws_opt nl_one
-             epsilon . *start_proc_main()
+// IC-4: Parameter-list components.
+//
+// ProcParam — a single parameter identifier inside the arglist.  Each
+// match appends one E_VAR onto _proc_node via *append_proc_param().
+// Used by the body of ParamRest's ARBNO loop and the head of Arglist.
+ProcParam = ( id_pat . _ic_pname
+              epsilon . *append_proc_param(_ic_pname)
+            );
+
+// ParamRest — `, IDENT` repeated for arglist tail.  Same shift-named
+// tail decomposition as Expr6tail/Expr7tail; deferred actions inside
+// ARBNO(NamedPattern) fire reliably (see PARSER-IC-INFRA-2 notes).
+ParamRest = ( ws_opt ',' ws_opt ProcParam );
+
+// Arglist — empty | IDENT (',' IDENT)*.
+// Empty case is the bare `()` form; head + tail handles 1+ params.
+Arglist = ( ProcParam ARBNO(ParamRest) | epsilon );
+
+// Prochead — `procedure NAME(arglist)`.  IC-4 generalized: any
+// identifier as procedure name (was hardcoded 'main' under IC-2/IC-3),
+// any number of comma-separated parameters.  Side-effect:
+// *start_proc(name) seeds _proc_node, *append_proc_param() appends
+// each arg's E_VAR child.
+Prochead = ( ws_opt 'procedure' ws_run id_pat . _ic_pname
+             epsilon . *start_proc(_ic_pname)
+             ws_opt '(' ws_opt Arglist ws_opt ')' ws_opt nl_one
            );
 
 // Procbody — one or more Stmt's followed by `end`.  The shape uses
@@ -343,14 +498,16 @@ ProcbodyEnd = ( ws_opt 'end' ws_opt (nl_one | RPOS(0)) );
 
 Procbody = ( ProcbodyEnd | Stmt *Procbody );
 
-// Proc — `procedure main() <body> end`.  Procbody eats up to and
+// Proc — `procedure NAME(arglist) <body> end`.  Procbody eats up to and
 // including the closing `end` keyword (see Procbody above).  The
-// finishing side-effect *finish_proc_main() pushes the assembled
+// finishing side-effect *finish_proc() pushes the assembled
 // (STMT :subj ...) tree.
+//
+// IC-4: any procedure name, any arity (was hardcoded 'main()').
 
 Proc = ( Prochead
          Procbody
-         epsilon . *finish_proc_main()
+         epsilon . *finish_proc()
        );
 
 //-----------------------------------------------------------------------
@@ -376,6 +533,7 @@ Compiland = nPush()
 
 InitCounter();
 InitStack();
+$'@II' = ;            // IC-4: invocation in-progress stack (Expr11 calls)
 
 Src = '';
 read_loop:
