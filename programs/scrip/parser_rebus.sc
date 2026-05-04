@@ -10,7 +10,8 @@
 // Rung PARSER-RB-0 (DONE): atom body only.
 // Rung PARSER-RB-1 (DONE): assignment (lhs := rhs, atom rhs).
 // Rung PARSER-RB-2 (DONE): control flow (if cond then stmt, while cond do stmt).
-// Rung PARSER-RB-3 (CURRENT): function definitions with args + no-arg call sites.
+// Rung PARSER-RB-3 (DONE): function definitions with args + no-arg call sites.
+// Rung PARSER-RB-4 (CURRENT): pattern match `subj ? pat` (atom subj, atom pat).
 
 // Tree shape per function (N body stmts):
 //   (STMT :subj (E_FNC DEFINE (E_QLIT "FNAME()")))
@@ -146,6 +147,14 @@ function emit_assign(lhs, rhs_kind, rhs_txt) {
     return;
 }
 
+function emit_match(subj_kind, subj_txt, pat_kind, pat_txt) {
+    // (STMT :subj (subj_kind subj_txt) :pat (pat_kind pat_txt))
+    TDump(Tree('STMT', '', 2,
+               Tree(':subj', '', 1, tree(subj_kind, subj_txt)),
+               Tree(':pat',  '', 1, tree(pat_kind,  pat_txt))));
+    return;
+}
+
 //-----------------------------------------------------------------------
 // Per-line patterns.
 //-----------------------------------------------------------------------
@@ -255,6 +264,32 @@ WhileLine = ( POS(0) ws_opt 'while' ws_run
               ARB RPOS(0)
             );
 
+// MatchSubj — atom on the left of `?`.  Fills _rb_msubj_{kind,txt}.
+MatchSubj = ( str_pat
+                . *assign('_rb_msubj_kind', 'E_QLIT')
+                . *assign('_rb_msubj_txt',  _rb_strbody)
+            | int_pat . _rb_msubj_txt
+                . *assign('_rb_msubj_kind', 'E_ILIT')
+            | id_pat  . _rb_msubj_txt
+                . *assign('_rb_msubj_kind', 'E_VAR')
+                . *assign('_rb_msubj_txt',  uc(_rb_msubj_txt))
+            );
+
+// MatchPat — atom on the right of `?`.  Fills _rb_mpat_{kind,txt}.
+MatchPat = ( str_pat
+               . *assign('_rb_mpat_kind', 'E_QLIT')
+               . *assign('_rb_mpat_txt',  _rb_strbody)
+           | int_pat . _rb_mpat_txt
+               . *assign('_rb_mpat_kind', 'E_ILIT')
+           | id_pat  . _rb_mpat_txt
+               . *assign('_rb_mpat_kind', 'E_VAR')
+               . *assign('_rb_mpat_txt',  uc(_rb_mpat_txt))
+           );
+
+// MatchLine: `subj ? pat` where subj and pat are atoms (RB-4 scope).
+// Oracle tree shape: (STMT :subj (kind txt) :pat (pkind ptxt))
+MatchLine = ( POS(0) ws_opt MatchSubj ws_opt '?' ws_opt MatchPat ws_opt RPOS(0) );
+
 //-----------------------------------------------------------------------
 // Driver — line-at-a-time state machine.
 //   _rb_state 0: between functions
@@ -316,8 +351,12 @@ emit_go(_rb_loop_lbl);
 emit_lbl(_rb_goF);
 goto rb_loop;
 rb_try_assign:
-if (~(RbLine ? AssignLine)) { goto rb_try_call; }
+if (~(RbLine ? AssignLine)) { goto rb_try_match; }
 emit_assign(uc(_rb_lhs), _rb_atom_kind, _rb_atom_txt);
+goto rb_loop;
+rb_try_match:
+if (~(RbLine ? MatchLine)) { goto rb_try_call; }
+emit_match(_rb_msubj_kind, _rb_msubj_txt, _rb_mpat_kind, _rb_mpat_txt);
 goto rb_loop;
 rb_try_call:
 if (~(RbLine ? CallLine)) { goto rb_try_atom; }
