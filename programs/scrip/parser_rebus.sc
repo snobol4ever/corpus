@@ -1,51 +1,132 @@
 // parser_rebus.sc — PARSER-RB rewrite: Rebus frontend in Snocone.
-// Rung PARSER-RB-0..RB-6 rewrite. Session 2026-05-03.
-// Rubric: one Compiland, beauty.sc spine, shift()/reduce() calls
-// (~ and & OPSYN binary operators not yet supported by Snocone runtime;
-// function-call forms used per parser_snocone.sc precedent),
-// nPush/nInc/nTop/nPop n-ary folds, no goto, no labels in driver,
-// no user functions called from inside patterns.
-// Post-parse lower_* functions walk surface tree, emit STMT TDump lines.
+// Beauty.sc-style builders ($'op' wrappers + RB_*() pattern-builder helpers).
+//
+// Architecture per GOAL-PARSER-REBUS.md Rubric:
+//   - One root Compiland pattern, beauty.sc spine, matched ONCE via Src ? Compiland.
+//   - nPush/nInc/nTop/nPop n-ary folds throughout.
+//   - shift()/reduce() function-call forms (binary ~/& OPSYN ops not yet
+//     supported by Snocone runtime — T_2TILDE/T_2AMP tokens declared but
+//     have zero grammar productions; tracked as a separate runtime gap).
+//   - No goto, no labels in driver (structured while/if only).
+//   - Build-time helpers (RB_*) wrap match-time function calls so pattern
+//     definitions read like beauty.sc, e.g. RB_save(.var, expr) returns
+//     `epsilon . *assign('var', expr)` at parse-build time.
+//   - Operator wrappers $'op' = ws_opt 'op' ws_opt (beauty.sc lines 50-58).
+//   - Post-parse lower_* functions walk surface tree → STMT TDump lines.
 
 &FULLSCAN = 1;
 
 //-----------------------------------------------------------------------
-// String constants for shift/reduce tags.
+// Pattern-builder helpers (beauty.sc / semantic.sc idiom).
+// Each function returns a pattern fragment at parser-build time;
+// calling the wrapped helper at match-time happens via the returned `*fn(...)`.
+// This keeps pattern definitions short and uniform.
 //-----------------------------------------------------------------------
 
-sq       = "'";
-s_VAR    = 'E_VAR';
-s_ILIT   = 'E_ILIT';
-s_QLIT   = 'E_QLIT';
-r_Parse  = sq 'Parse'        sq;
-r_FD     = sq 'RB_FUNC_DECL' sq;
-r_RD     = sq 'RB_REC_DECL'  sq;
-r_params = sq 'RB_PARAMS'    sq;
-r_body   = sq 'RB_BODY'      sq;
-r_fields = sq 'RB_FIELDS'    sq;
-r_ASSIGN = sq 'RB_ASSIGN'    sq;
-r_MATCH  = sq 'RB_MATCH'     sq;
-r_IF     = sq 'RB_IF'        sq;
-r_WHILE  = sq 'RB_WHILE'     sq;
-r_CALL   = sq 'RB_CALL'      sq;
-r_ALT    = sq 'E_ALT'        sq;
-r_ADD    = sq 'E_ADD'        sq;
-r_SUB    = sq 'E_SUB'        sq;
-r_MUL    = sq 'E_MUL'        sq;
-r_DIV    = sq 'E_DIV'        sq;
-r_nTop   = '*(GT(nTop(), 1) nTop())';
+function RB_save(name_ref, val_expr) {
+    // RB_save(.foo, *expr) → returns: epsilon . *assign('foo', val_expr)
+    // The assign helper from assign.sc handles EXPRESSION DATATYPE.
+    RB_save = EVAL("epsilon . *assign('" name_ref "', val_expr)");
+    return;
+}
+
+function RB_qlit_emit(strbody_var) {
+    // RB_qlit_emit('_rb_strbody') → match-time push tree('E_QLIT', _rb_strbody)
+    RB_qlit_emit = EVAL("epsilon . *rb_push_qlit('" strbody_var "')");
+    return;
+}
+
+function RB_call_emit(name_var) {
+    // RB_call_emit('_rb_callname') → match-time push tree('RB_CALL', uppercased name)
+    RB_call_emit = EVAL("epsilon . *rb_push_call('" name_var "')");
+    return;
+}
 
 //-----------------------------------------------------------------------
-// Whitespace helpers.
+// Match-time helpers (called via the build-time wrappers above).
+// These are invoked from inside patterns ONLY through pattern-builder
+// fragments returned by RB_*() — never written literally `epsilon . *fn(...)`
+// in pattern definitions.
 //-----------------------------------------------------------------------
 
-ws_run   = SPAN(' ' tab);
-ws_opt   = (ws_run | epsilon);
+function rb_push_qlit(name) {
+    // Read the body global by indirection ($name), push tree('E_QLIT', body).
+    rb_push_qlit = .dummy;
+    Push(tree('E_QLIT', $name));
+    nreturn;
+}
+
+function rb_push_call(name) {
+    // Push tree('RB_CALL', upper(name-from-global)) — call-site marker
+    // with name as direct value (no child); lower_expr converts to E_FNC.
+    rb_push_call = .dummy;
+    Push(tree('RB_CALL', REPLACE($name, &LCASE, &UCASE)));
+    nreturn;
+}
+
+//-----------------------------------------------------------------------
+// Tag string constants — direct quoted form, no sq indirection.
+//
+// shift(P, T) takes a bare type-name string T (no surrounding quotes) —
+//   semantic.sc adds the quotes when building the EVAL fragment.
+// reduce(T, N) takes a quoted-literal-form T (the string contains its
+//   own surrounding single quotes) because semantic.sc embeds T in a
+//   string that is later EVAL'd; the embedded quotes make T a literal.
+//
+// So tags used with shift() get bare-form names; tags used with reduce()
+// get quote-embedded names.  No suffix decoration — each name appears
+// in one context only.
+//-----------------------------------------------------------------------
+
+// shift() tags (bare).
+E_VAR  = 'E_VAR';
+E_ILIT = 'E_ILIT';
+E_QLIT = 'E_QLIT';
+
+// reduce() tags (quote-embedded).
+Parse        = "'Parse'";
+RB_FUNC_DECL = "'RB_FUNC_DECL'";
+RB_REC_DECL  = "'RB_REC_DECL'";
+RB_PARAMS    = "'RB_PARAMS'";
+RB_BODY      = "'RB_BODY'";
+RB_FIELDS    = "'RB_FIELDS'";
+RB_ASSIGN    = "'RB_ASSIGN'";
+RB_MATCH     = "'RB_MATCH'";
+RB_IF        = "'RB_IF'";
+RB_WHILE     = "'RB_WHILE'";
+E_ALT        = "'E_ALT'";
+E_ADD        = "'E_ADD'";
+E_SUB        = "'E_SUB'";
+E_MUL        = "'E_MUL'";
+E_DIV        = "'E_DIV'";
+
+// n-ary count expression — eval'd at match time inside reduce().
+nTop_gt1 = '*(GT(nTop(), 1) nTop())';
+
+//-----------------------------------------------------------------------
+// Whitespace, gray-space, and operator wrappers (beauty.sc style).
+//-----------------------------------------------------------------------
+
+White    = SPAN(' ' tab);
+Gray     = (*White | epsilon);
 nl_one   = ANY(nl);
-line_end = ws_opt nl_one;
+nl_run   = SPAN(nl);
+WS       = (SPAN(' ' tab nl) | epsilon);
+
+$'(' = '(' *Gray;       $')' = *Gray ')';
+$',' = *Gray ',' *Gray;
+$':=' = *Gray ':=' *Gray;
+$'?'  = *Gray '?'  *Gray;
+$'|'  = *Gray '|'  *Gray;
+$'+'  = *Gray '+'  *Gray;
+$'-'  = *Gray '-'  *Gray;
+$'*'  = *Gray '*'  *Gray;
+$'/'  = *Gray '/'  *Gray;
 
 //-----------------------------------------------------------------------
-// Lex tokens — pure BREAK/SPAN/ANY primitives; no user functions inside.
+// Lex tokens — pure built-in primitives only (SPAN/BREAK/ANY).
+// String body captured via the dot-conditional `. _rb_strbody` —
+// that is a built-in pattern primitive, not a function call.
 //-----------------------------------------------------------------------
 
 Id      = (ANY(&UCASE &LCASE '_')
@@ -53,139 +134,146 @@ Id      = (ANY(&UCASE &LCASE '_')
 
 Integer = SPAN(digits);
 
-// String body capture idiom: only the body text shifted as E_QLIT.
-// _strbody global captures the BREAK match; shift() uses that value.
-DQ_body = BREAK('"');
-SQ_body = BREAK("'");
-qlit_dq = ('"' DQ_body . _rb_strbody '"' epsilon . *Shift(s_QLIT, _rb_strbody));
-qlit_sq = ("'" SQ_body . _rb_strbody "'" epsilon . *Shift(s_QLIT, _rb_strbody));
-String  = (*qlit_dq | *qlit_sq);
+DQ_str  = '"' BREAK('"') . _rb_strbody '"';
+SQ_str  = "'" BREAK("'") . _rb_strbody "'";
+String  = (*DQ_str | *SQ_str);
 
 //-----------------------------------------------------------------------
-// primary — Id | Integer | String   (rebus.y: primary)
+// primary — atom: String | Integer | Id   (rebus.y: primary)
+// String matches the body via dot-conditional, then the build-time
+// RB_qlit_emit() helper produces `epsilon . *rb_push_qlit('_rb_strbody')`
+// which pushes (E_QLIT body) at match time. No literal *fn() in pattern.
 //-----------------------------------------------------------------------
 
-primary = FENCE(  *String
-                | shift(*Integer, s_ILIT)
-                | shift(*Id,      s_VAR)
+primary = FENCE(  *String  RB_qlit_emit('_rb_strbody')
+                | shift(*Integer, E_ILIT)
+                | shift(*Id,      E_VAR)
                );
 
 //-----------------------------------------------------------------------
-// postfix_expr — id() is RB_CALL(1 child: name E_VAR); bare primary stays.
+// postfix_expr — id followed by '()' is a call site (RB_CALL with name
+// as value); otherwise primary.  Uses no-arg-call lookahead: if Id is
+// immediately followed by '()' the call branch matches; otherwise the
+// primary branch handles the bare id (and string/integer).
+// The two branches do NOT share a common prefix that could trap FENCE.
 //-----------------------------------------------------------------------
 
-postfix_expr = FENCE(
-    shift(*Id, s_VAR) ws_opt '(' ws_opt ')' reduce(r_CALL, 1)
-  | *primary
-);
+// id_call_pat: Id followed by literal '()' — captured as one unit so the
+// alternative is mutually exclusive with bare-id primary at the prefix.
+id_call_pat = (Id . _rb_callname '(' *Gray ')');
+
+postfix_expr = (  id_call_pat RB_call_emit('_rb_callname')
+                | *primary
+               );
 
 //-----------------------------------------------------------------------
-// Expression tier ladder (rebus.y precedence order).
+// Expression tier ladder (rebus.y precedence).  Beauty.sc-style:
+// every binary tier uses the FENCE(... | epsilon) idiom and $'op' wrappers.
 //-----------------------------------------------------------------------
 
 mul_expr = *postfix_expr
-           ( ws_opt '*' ws_opt *postfix_expr reduce(r_MUL, 2)
-               (ws_opt '*' ws_opt *postfix_expr reduce(r_MUL, 2) | epsilon)
-           | ws_opt '/' ws_opt *postfix_expr reduce(r_DIV, 2)
-               (ws_opt '/' ws_opt *postfix_expr reduce(r_DIV, 2) | epsilon)
-           | epsilon
-           );
+           FENCE(  $'*' *postfix_expr reduce(E_MUL, 2) FENCE($'*' *postfix_expr reduce(E_MUL, 2) | epsilon)
+                 | $'/' *postfix_expr reduce(E_DIV, 2) FENCE($'/' *postfix_expr reduce(E_DIV, 2) | epsilon)
+                 | epsilon
+                );
 
 add_expr = *mul_expr
-           ( ws_opt '+' ws_opt *mul_expr reduce(r_ADD, 2)
-               (ws_opt '+' ws_opt *mul_expr reduce(r_ADD, 2) | epsilon)
-           | ws_opt '-' ws_opt *mul_expr reduce(r_SUB, 2)
-               (ws_opt '-' ws_opt *mul_expr reduce(r_SUB, 2) | epsilon)
-           | epsilon
-           );
+           FENCE(  $'+' *mul_expr reduce(E_ADD, 2) FENCE($'+' *mul_expr reduce(E_ADD, 2) | epsilon)
+                 | $'-' *mul_expr reduce(E_SUB, 2) FENCE($'-' *mul_expr reduce(E_SUB, 2) | epsilon)
+                 | epsilon
+                );
 
 cat_expr = *add_expr;
 
-// alt_expr: n-ary | folded into E_ALT via nPush/nInc/nTop/nPop.
-alt_list = nInc() *cat_expr (ws_opt '|' ws_opt *alt_list | epsilon);
-alt_expr = nPush() *alt_list reduce(r_ALT, r_nTop) nPop();
+// alt_expr — n-ary | folded into E_ALT (beauty.sc Expr3 idiom).
+alt_expr = nPush() *X_alt reduce(E_ALT, nTop_gt1) nPop();
+X_alt    = nInc() *cat_expr FENCE($'|' *X_alt | epsilon);
 
-// assign_expr: right-assoc :=
-assign_expr = *alt_expr (ws_opt ':=' ws_opt *alt_expr reduce(r_ASSIGN, 2) | epsilon);
+// assign_expr — right-assoc :=
+assign_expr = *alt_expr FENCE($':=' *alt_expr reduce(RB_ASSIGN, 2) | epsilon);
 
-// pat_expr and expr (no syntactic distinction at this level per rebus.y)
+// pat_expr (no syntactic distinction at this level per rebus.y line 678)
 pat_expr = *assign_expr;
-expr     = *assign_expr (ws_opt '?' ws_opt *pat_expr reduce(r_MATCH, 2) | epsilon);
+
+// expr — top-level, with optional ? pat_expr (match)
+expr = *assign_expr FENCE($'?' *pat_expr reduce(RB_MATCH, 2) | epsilon);
 
 //-----------------------------------------------------------------------
 // stmt — one statement, one surface tree node.
 //-----------------------------------------------------------------------
 
-if_stmt    = 'if'    ws_run *expr ws_opt 'then' ws_opt *stmt reduce(r_IF,    2);
-while_stmt = 'while' ws_run *expr ws_opt 'do'   ws_opt *stmt reduce(r_WHILE, 2);
+if_stmt    = 'if'    *White *expr *White 'then' *White *stmt reduce(RB_IF,    2);
+while_stmt = 'while' *White *expr *White 'do'   *White *stmt reduce(RB_WHILE, 2);
 expr_stmt  = *expr;
 
-stmt = ws_opt FENCE(
-    *if_stmt
-  | *while_stmt
-  | *expr_stmt
-) line_end;
+stmt_line  = *Gray FENCE(*if_stmt | *while_stmt | *expr_stmt) *Gray nl_one;
 
 //-----------------------------------------------------------------------
-// stmt_list — n-ary body: RB_BODY(stmt...).
+// stmt_list — n-ary body: RB_BODY(stmt...).  Inner nInc() inside the
+// stmt_item alternative; blank-line alternative just advances cursor.
 //-----------------------------------------------------------------------
 
-stmt_item = nInc() *stmt;
-stmt_list = nPush() ARBNO(*stmt_item) reduce(r_body, 'nTop()') nPop();
+stmt_item  = nInc() *stmt_line;
+blank_body = nl_one;
+body_one   = ( *stmt_item | *blank_body );
+stmt_list  = nPush() ARBNO(body_one) reduce(RB_BODY, 'nTop()') nPop();
 
 //-----------------------------------------------------------------------
-// opt_params — RB_PARAMS(E_VAR...)
+// opt_params — RB_PARAMS(E_VAR...).  Beauty.sc XList-style.
 //-----------------------------------------------------------------------
 
-params_item = nInc() ws_opt shift(*Id, s_VAR) ws_opt (',' | epsilon);
-opt_params  = nPush() ARBNO(*params_item) reduce(r_params, 'nTop()') nPop();
+X_params = nInc() shift(*Id, E_VAR) FENCE($',' *X_params | epsilon);
+opt_params = nPush() FENCE(*X_params | epsilon) reduce(RB_PARAMS, 'nTop()') nPop();
 
 //-----------------------------------------------------------------------
-// opt_fields — RB_FIELDS(E_VAR...)
+// opt_fields — RB_FIELDS(E_VAR...).  Same shape as opt_params.
 //-----------------------------------------------------------------------
 
-fields_item = nInc() ws_opt shift(*Id, s_VAR) ws_opt (',' | epsilon);
-opt_fields  = nPush() ARBNO(*fields_item) reduce(r_fields, 'nTop()') nPop();
+X_fields = nInc() shift(*Id, E_VAR) FENCE($',' *X_fields | epsilon);
+opt_fields = nPush() FENCE(*X_fields | epsilon) reduce(RB_FIELDS, 'nTop()') nPop();
 
 //-----------------------------------------------------------------------
-// function_decl: RB_FUNC_DECL(name, params, body) — fixed arity 3.
+// function_decl — RB_FUNC_DECL(name, params, body), arity 3.
+// 'function' Id '(' opt_params ')' nl stmt_list 'end' nl
 //-----------------------------------------------------------------------
 
-function_decl = 'function' ws_run shift(*Id, s_VAR) ws_opt
-                '(' *opt_params ')' line_end
+function_decl = 'function' *White shift(*Id, E_VAR)
+                $'(' *opt_params $')' *Gray nl_one
                 *stmt_list
-                ws_opt 'end' line_end
-                reduce(r_FD, 3);
+                *Gray 'end' *Gray nl_one
+                reduce(RB_FUNC_DECL, 3);
 
 //-----------------------------------------------------------------------
-// record_decl: RB_REC_DECL(name, fields) — fixed arity 2.
+// record_decl — RB_REC_DECL(name, fields), arity 2.
+// 'record' Id '(' opt_fields ')' nl
 //-----------------------------------------------------------------------
 
-record_decl = 'record' ws_run shift(*Id, s_VAR) ws_opt
-              '(' *opt_fields ')' line_end
-              reduce(r_RD, 2);
+record_decl = 'record' *White shift(*Id, E_VAR)
+              $'(' *opt_fields $')' *Gray nl_one
+              reduce(RB_REC_DECL, 2);
 
 //-----------------------------------------------------------------------
-// Command — top-level alternation. blank lines consumed without counting.
+// Command — top-level alternation (parser_snocone.sc idiom).
+// nInc() is inside each decl, not at the alternation top.
+// blank_line advances the cursor without nInc, so ARBNO never spins.
 //-----------------------------------------------------------------------
 
-blank_line = ws_opt nl_one;
+func_cmd = nInc() *function_decl;
+rec_cmd  = nInc() *record_decl;
+blank    = nl_one;
 
-Command = FENCE(
-    nInc() *function_decl
-  | nInc() *record_decl
-  | *blank_line
-);
+Command = ( *func_cmd | *rec_cmd | *blank );
 
 //-----------------------------------------------------------------------
-// Compiland — one root pattern, beauty.sc spine.
+// Compiland — one root pattern, beauty.sc spine.  Matched ONCE in driver.
 //-----------------------------------------------------------------------
 
-Compiland = nPush() ARBNO(*Command) reduce(r_Parse, 'nTop()') nPop();
+Compiland = nPush() ARBNO(Command) reduce(Parse, 'nTop()') nPop();
 
 //-----------------------------------------------------------------------
-// Post-parse lowering — called AFTER the single Src ? Compiland match.
-// These functions are NOT called from inside any pattern.
+// Post-parse lowering — called AFTER Src ? Compiland.  Walks the surface
+// tree and emits STMT TDump lines matching scrip's --dump-ir output.
+// These are NOT called from inside any pattern.
 //-----------------------------------------------------------------------
 
 _rb_n = 0;
@@ -236,7 +324,8 @@ function lower_expr(x, k, i, acc) {
     if (IDENT(k, 'E_MUL'))  { lower_expr = Tree('E_MUL', '', 2, lower_expr(c(x)[1]), lower_expr(c(x)[2])); return; }
     if (IDENT(k, 'E_DIV'))  { lower_expr = Tree('E_DIV', '', 2, lower_expr(c(x)[1]), lower_expr(c(x)[2])); return; }
     if (IDENT(k, 'RB_CALL')) {
-        lower_expr = tree('E_FNC', REPLACE(v(c(x)[1]), &LCASE, &UCASE));
+        // Value-bearing leaf: v(x) is the uppercased name.
+        lower_expr = tree('E_FNC', v(x));
         return;
     }
     if (IDENT(k, 'E_ALT')) {
@@ -351,8 +440,7 @@ function lower_decl(x, k) {
 }
 
 //-----------------------------------------------------------------------
-// Driver — structured flow only: while/if. No goto. No labels.
-// Exactly ONE pattern match: Src ? Compiland.
+// Driver — structured flow only (while/if).  Exactly ONE pattern match.
 //-----------------------------------------------------------------------
 
 InitCounter();
