@@ -34,7 +34,7 @@ $'|'  = *Gray '|' *Gray;   $'+'  = *Gray '+' *Gray;
 $'-'  = *Gray '-' *Gray;   $'*'  = *Gray '*' *Gray;
 $'/'  = *Gray '/' *Gray;
 //======================================================================================================================
-// Constants for reduce() / shift() — the semantic.sc OPSYN ~ / & ops.
+// Constants for ~ / & OPSYN tags — pre-quoted r_* and bare s_* tags consumed by semantic.sc.
 //======================================================================================================================
 sq       = "'";
 r_ASSIGN = sq 'E_ASSIGN' sq;   r_SCAN  = sq 'E_SCAN'  sq;
@@ -248,23 +248,23 @@ kw_else  = ('else'  kw_tail);
 //======================================================================================================================
 Expr17 = FENCE(
              *String SC_push_qlit()
-           | shift(*Integer, s_ILIT)
-           | shift(*Id,      s_VAR)
+           | *Integer ~ s_ILIT
+           | *Id      ~ s_VAR
          );
 Expr9 = *Expr17
-        ( $'*' *Expr17 reduce(r_MUL, 2) ($'*' *Expr17 reduce(r_MUL, 2) | epsilon)
-        | $'/' *Expr17 reduce(r_DIV, 2) FENCE($'/' *Expr17 reduce(r_DIV, 2) | epsilon)
+        ( $'*' *Expr17 (r_MUL & 2) ($'*' *Expr17 (r_MUL & 2) | epsilon)
+        | $'/' *Expr17 (r_DIV & 2) FENCE($'/' *Expr17 (r_DIV & 2) | epsilon)
         | epsilon );
 Expr6 = *Expr9
-        ( $'+' *Expr9 reduce(r_ADD, 2) ($'+' *Expr9 reduce(r_ADD, 2) | epsilon)
-        | $'-' *Expr9 reduce(r_SUB, 2) ($'-' *Expr9 reduce(r_SUB, 2) | epsilon)
+        ( $'+' *Expr9 (r_ADD & 2) ($'+' *Expr9 (r_ADD & 2) | epsilon)
+        | $'-' *Expr9 (r_SUB & 2) ($'-' *Expr9 (r_SUB & 2) | epsilon)
         | epsilon );
-Expr4 = nPush() *X4 reduce(r_SEQ, r_nTop) nPop();
+Expr4 = nPush() *X4 (r_SEQ & r_nTop) nPop();
 X4    = nInc() *Expr6 (*White *X4 | epsilon);
-Expr3 = nPush() *X3 reduce(r_ALT, r_nTop) nPop();
+Expr3 = nPush() *X3 (r_ALT & r_nTop) nPop();
 X3    = nInc() *Expr4 ($'|' *X3 | epsilon);
-Expr1 = *Expr3 ($'?' *Expr1 reduce(r_SCAN,   2) | epsilon);
-Expr0 = *Expr1 ($'=' *Expr0 reduce(r_ASSIGN, 2) | epsilon);
+Expr1 = *Expr3 ($'?' *Expr1 (r_SCAN   & 2) | epsilon);
+Expr0 = *Expr1 ($'=' *Expr0 (r_ASSIGN & 2) | epsilon);
 //======================================================================================================================
 // stmt_body / stmt_cmd.
 //======================================================================================================================
@@ -307,7 +307,7 @@ do_cmd =
 Command   = ( if_cmd | while_cmd | do_cmd | stmt_cmd );
 Compiland = nPush()
             ARBNO(Command)
-            reduce(r_Parse, 'nTop()')
+            (r_Parse & 'nTop()')
             nPop();
 //======================================================================================================================
 // Driver — D1: structured control only; no goto.
