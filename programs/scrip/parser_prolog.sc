@@ -44,11 +44,10 @@
 //   PR-6        — top-level directives `:- Goal.` (no head, no
 //                 E_CHOICE/E_CLAUSE wrap, body raw under :subj).
 
-//-----------------------------------------------------------------------
+//=============================================================================
 // Type-name strings.  shift() takes BARE name; reduce() takes QUOTED
 // name (semantic.sc EVALs it, so it must already carry its own quotes).
-//-----------------------------------------------------------------------
-
+//=============================================================================
 sq       = "'";
 s_FNC    = 'E_FNC';
 s_ILIT   = 'E_ILIT';
@@ -60,14 +59,18 @@ r_MUL    = sq 'E_MUL'   sq;
 r_DIV    = sq 'E_DIV'   sq;
 r_nTop   = 'nTop()';
 
-//-----------------------------------------------------------------------
+//=============================================================================
 // Token classifiers.  These are PATTERNS, not parsing functions.
 // Names mirror src/frontend/prolog/prolog_lex.h TK_* (lowercased).
-//-----------------------------------------------------------------------
-
-ws_one    = ANY(' ' tab);
-ws_run    = SPAN(' ' tab);
-ws_opt    = (SPAN(' ' tab) | epsilon);
+// Whitespace tokens follow beauty.sc convention:
+//   White — required inter-token whitespace (SPAN(' ' tab))
+//   Gray  — optional inter-token whitespace (*White | epsilon)
+// Prolog has no continuation-line glue (unlike SNOBOL4), so White is
+// simpler than beauty.sc's nl-`+`/-`.` form: just ' ' and tab.  Newlines
+// and `%` comments are absorbed at the Compiland top level via `trivia`.
+//=============================================================================
+White = SPAN(' ' tab);
+Gray  = *White | epsilon;
 
 // Lowercase-start identifier — TK_ATOM (unquoted form).
 tk_atom_first = ANY(&LCASE);
@@ -88,38 +91,35 @@ tk_int = SPAN(digits);
 // Double-quoted string — TK_STRING (interned as atom: same lowering as TK_ATOM).
 tk_string = ('"' BREAK('"') . sBody '"');
 
-// Punctuation tokens — surrounded by ws_opt at use sites.
-tk_dot      = '.';
-tk_lparen   = '(';
-tk_rparen   = ')';
-tk_comma    = ',';
-tk_semi     = ';';
-tk_lbracket = '[';
-tk_rbracket = ']';
-tk_pipe     = '|';
-tk_neck     = ':-';
-
-// Arithmetic / unify operator tokens.  Surrounding whitespace is optional
-// for symbolic ops; required around the alphabetic `is` so it's a word
-// boundary (not a prefix of `isnumber`/`isfoo`).
-op_eq     = (ws_opt '=' ws_opt);
-op_pls    = (ws_opt '+' ws_opt);
-op_mns    = (ws_opt '-' ws_opt);
-op_mul    = (ws_opt '*' ws_opt);
-op_div    = (ws_opt '/' ws_opt);
-op_is     = (ws_run 'is' ws_run);
-
-//-----------------------------------------------------------------------
+// Punctuation and operator tokens — beauty.sc $'x' idiom.  Each token
+// knows its own surrounding-whitespace policy and the grammar body
+// references them directly with no inline ws.
+$'('  = *Gray '('  *Gray;            // open paren: optional ws both sides
+$')'  = *Gray ')'  *Gray;            // close paren: optional ws both sides
+$'['  = *Gray '['  *Gray;            // open bracket: optional ws both sides
+$']'  = *Gray ']'  *Gray;            // close bracket: optional ws both sides
+$','  = *Gray ','  *Gray;            // separator: optional ws both sides
+$';'  = *Gray ';'  *Gray;            // disj: optional ws both sides
+$'|'  = *Gray '|'  *Gray;            // list-tail bar: optional ws both sides
+$'.'  = *Gray '.';                   // clause terminator: ws before only
+                                     //   (trivia handles inter-clause ws)
+$':-' = *Gray ':-' *Gray;            // neck: optional ws both sides
+$'='  = *Gray '='  *Gray;            // unify: optional ws both sides
+$'+'  = *Gray '+'  *Gray;            // arith: optional ws both sides
+$'-'  = *Gray '-'  *Gray;            // arith: optional ws both sides
+$'*'  = *Gray '*'  *Gray;            // arith: optional ws both sides
+$'/'  = *Gray '/'  *Gray;            // arith: optional ws both sides
+$'is' = *White 'is' *White;          // alphabetic op: required ws both sides
+                                     //   (word boundary vs `isfoo`)
+//=============================================================================
 // Comment skipper.  Prolog `%` to end-of-line.  Pattern, not function.
-//-----------------------------------------------------------------------
-
+//=============================================================================
 comment   = ('%' BREAK(nl) (nl | RPOS(0)));
 trivia    = ((SPAN(' ' tab nl) | epsilon) ARBNO(comment (SPAN(' ' tab nl) | epsilon)));
 
-//-----------------------------------------------------------------------
+//=============================================================================
 // Per-clause variable scope.  Tree-building semantic — pure state.
-//-----------------------------------------------------------------------
-
+//=============================================================================
 var_table = TABLE();
 var_next  = 0;
 
@@ -141,13 +141,12 @@ function resolve_var(name, slot) {
     return;
 }
 
-//-----------------------------------------------------------------------
+//=============================================================================
 // Tree-building semantics.  Pure tree-builders, called from inline
 // `*func()` actions inside patterns.  Used only when shift/reduce
 // cannot express the tree directly — variable slot resolution, string
 // bodies, named-value compound nodes, and the clause envelope.
-//-----------------------------------------------------------------------
-
+//=============================================================================
 function push_var(name) {
     Push(tree('E_VAR', resolve_var(name)));
     push_var = .dummy;
@@ -279,13 +278,12 @@ function reduce_disj(n, fnc_node, kids, i) {
     nreturn;
 }
 
-//-----------------------------------------------------------------------
+//=============================================================================
 // Clause envelope semantics.  build_clause runs once per clause and
 // pops (head_args + body?) trees into the (STMT :subj (E_CHOICE k
 // (E_CLAUSE k ...))) outer wrap.  The clause key uses head_arity only.
 // Top-level (E_FNC ,) is flattened into separate E_CLAUSE children.
-//-----------------------------------------------------------------------
-
+//=============================================================================
 head_name    = '';
 head_arity   = 0;
 body_present = 0;
@@ -355,7 +353,7 @@ function build_directive(body_tree) {
     nreturn;
 }
 
-//-----------------------------------------------------------------------
+//=============================================================================
 // Pattern builders (PR_* — beauty.sno style).
 //
 // Each builder is a pattern-build-time helper that returns a pattern
@@ -395,8 +393,7 @@ function build_directive(body_tree) {
 // '_'" during EVAL).  Capture variables therefore use camelCase
 // (pText, qBody, leText, ...) without the conventional `_` prefix —
 // otherwise the EVAL'd pattern body fails to parse.
-//-----------------------------------------------------------------------
-
+//=============================================================================
 function PR_push_var(varname) {
     PR_push_var = EVAL("epsilon . *push_var(" varname ")");
     return;
@@ -467,7 +464,7 @@ function PR_build_directive() {
     return;
 }
 
-//-----------------------------------------------------------------------
+//=============================================================================
 // Grammar — pure patterns.  No parsing functions.  Leaves use shift().
 // Kind-only n-ary parents use reduce() (OPSYN-bound `&`).  Named-value
 // parents use *reduce_compound / *reduce_is / *reduce_conj / *reduce_disj
@@ -492,8 +489,7 @@ function PR_build_directive() {
 // normally.  list_elem stays as a literal alternation copy of primary's
 // non-recursive forms because `list` is forward-referenced from primary
 // via *list (mutual recursion).
-//-----------------------------------------------------------------------
-
+//=============================================================================
 // args — comma-separated arg list at the call/list-element level.
 // Each arg is a full expression (unify_expr — top of ladder).
 // Forward reference via *unify_expr — definition is below.
@@ -505,7 +501,7 @@ function PR_build_directive() {
 // output).  Tail-recursion via *args_tail is the parser_snocone-style
 // pattern that the FW-3 doc shows works correctly (see Expr1 / Expr0).
 args      = ( nInc() *unify_expr (*args_tail | epsilon) );
-args_tail = ( ws_opt tk_comma ws_opt nInc() *unify_expr (*args_tail | epsilon) );
+args_tail = ( $',' nInc() *unify_expr (*args_tail | epsilon) );
 
 // list_elem — non-recursive primary alternatives + *list.  Used as the
 // element pattern inside list brackets.  Mirrors the same atomic forms
@@ -528,15 +524,15 @@ list_elem = (
 //                              terminal (E_FNC []).
 //   [e1, ..., eN | tail]    → same right-spine, terminal replaced by `tail`.
 list = (
-        tk_lbracket ws_opt
-        ( tk_rbracket PR_push_nil()
+        $'['
+        ( $']' PR_push_nil()
         | nPush()
               nInc() list_elem
-              ARBNO( ws_opt tk_comma ws_opt nInc() list_elem )
-              ( ws_opt tk_pipe ws_opt list_elem
+              ARBNO( $',' nInc() list_elem )
+              ( $'|' list_elem
               | epsilon PR_push_nil()
               )
-              ws_opt tk_rbracket
+              $']'
               PR_reduce_list()
           nPop()
         )
@@ -551,8 +547,8 @@ list = (
 //   5. Negative integer literal `-<digits>` — FALLBACK so binary `-`
 //      between two primaries is preferred over folding `-N` into RHS.
 primary = (
-        tk_atom . pName ws_opt tk_lparen
-            nPush() ws_opt args ws_opt tk_rparen
+        tk_atom . pName $'('
+            nPush() args $')'
             PR_reduce_compound('pName')
             nPop()
       | shift(tk_int, s_ILIT)
@@ -560,7 +556,7 @@ primary = (
       | tk_qatom  PR_push_atom_body('qBody')
       | tk_string PR_push_atom_body('sBody')
       | tk_var . pText PR_push_var('pText')
-      | tk_lparen ws_opt *unify_expr ws_opt tk_rparen
+      | $'(' *unify_expr $')'
       | *list
       | '-' tk_int . pNegi PR_push_neg_int('pNegi')
       );
@@ -572,8 +568,8 @@ primary = (
 mul_expr = (
         primary
         ARBNO(
-            ( op_mul primary reduce(r_MUL, 2)
-            | op_div primary reduce(r_DIV, 2)
+            ( $'*' primary reduce(r_MUL, 2)
+            | $'/' primary reduce(r_DIV, 2)
             )
         )
       );
@@ -582,8 +578,8 @@ mul_expr = (
 add_expr = (
         mul_expr
         ARBNO(
-            ( op_pls mul_expr reduce(r_ADD, 2)
-            | op_mns mul_expr reduce(r_SUB, 2)
+            ( $'+' mul_expr reduce(r_ADD, 2)
+            | $'-' mul_expr reduce(r_SUB, 2)
             )
         )
       );
@@ -593,7 +589,7 @@ add_expr = (
 // *reduce_is (Reduce() forces empty value).
 is_expr = (
         add_expr
-        ( op_is add_expr PR_reduce_is()
+        ( $'is' add_expr PR_reduce_is()
         | epsilon
         )
       );
@@ -602,7 +598,7 @@ is_expr = (
 // Builds kind-only (E_UNIFY L R) via the canonical reduce(r_UNIFY, 2).
 unify_expr = (
         is_expr
-        ( op_eq is_expr reduce(r_UNIFY, 2)
+        ( $'=' is_expr reduce(r_UNIFY, 2)
         | epsilon
         )
       );
@@ -616,7 +612,7 @@ body_goal = unify_expr;
 conj = (
         nPush()
             nInc() body_goal
-            ARBNO( ws_opt tk_comma ws_opt nInc() body_goal )
+            ARBNO( $',' nInc() body_goal )
             PR_reduce_conj()
         nPop()
       );
@@ -625,7 +621,7 @@ conj = (
 disj = (
         nPush()
             nInc() conj
-            ARBNO( ws_opt tk_semi ws_opt nInc() conj )
+            ARBNO( $';' nInc() conj )
             PR_reduce_disj()
         nPop()
       );
@@ -639,9 +635,9 @@ head = (
         PR_reset_var_scope()
         nPush()
         (
-            tk_atom . hText ws_opt tk_lparen ws_opt args ws_opt tk_rparen
+            tk_atom . hText $'(' args $')'
                 PR_snapshot_head('hText')
-          | tk_atom . hText ws_opt tk_lparen ws_opt tk_rparen
+          | tk_atom . hText $'(' $')'
                 PR_snapshot_head('hText')
           | tk_atom . hText
                 PR_snapshot_head('hText')
@@ -653,11 +649,11 @@ head = (
 
 // clause — fact or rule.
 clause = (
-        head ws_opt
-        ( tk_neck ws_opt body ws_opt PR_mark_body()
+        head
+        ( $':-' body PR_mark_body()
         | epsilon
         )
-        ws_opt tk_dot
+        $'.'
         PR_build_clause()
       );
 
@@ -667,8 +663,8 @@ clause = (
 // (STMT :subj ...) — no E_CHOICE / E_CLAUSE / clause-key envelope, no
 // top-level `,` flattening.
 directive = (
-        tk_neck PR_reset_var_scope()
-        ws_opt body ws_opt tk_dot
+        $':-' PR_reset_var_scope()
+        body $'.'
         PR_build_directive()
       );
 
@@ -685,11 +681,10 @@ Compiland = nPush()
             reduce(r_Parse, r_nTop)
             nPop();
 
-//-----------------------------------------------------------------------
+//=============================================================================
 // Driver.  Read entire stdin into Src, run Compiland ONCE, dump each
 // STMT child.  No goto.  No per-line parsing loop.
-//-----------------------------------------------------------------------
-
+//=============================================================================
 InitCounter();
 InitStack();
 
