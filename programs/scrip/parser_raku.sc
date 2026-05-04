@@ -713,9 +713,7 @@ InitStack();
 
 Src = '';
 while ((Line = INPUT)) {
-    if (~(Line ? (POS(0) ws_opt '#' REM))) {
-        Src = Src Line nl;
-    }
+    if (~(Line ? (POS(0) ws_opt '#' REM))) Src = Src Line nl;
 }
 
 ok = (Src ? Compiland);
@@ -744,9 +742,7 @@ if (ok) {
             main_stmt = c(ptree)[i];
             subj_node = c(main_stmt)[1];
             efnc_node = c(subj_node)[1];
-            if (GT(n(efnc_node), 1)) {
-                TDump(main_stmt);
-            }
+            if (GT(n(efnc_node), 1)) TDump(main_stmt);
             i = i + 1;
         }
     }
