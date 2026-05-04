@@ -52,6 +52,8 @@ $'do'       = *White 'do' *White;
 E_VAR        = 'E_VAR';
 E_ILIT       = 'E_ILIT';
 E_QLIT       = 'E_QLIT';
+E_ALT        = 'E_ALT';
+E_FNC        = 'E_FNC';
 Parse        = 'Parse';
 RB_FUNC_DECL = 'RB_FUNC_DECL';
 RB_REC_DECL  = 'RB_REC_DECL';
@@ -59,6 +61,11 @@ RB_PARAMS    = 'RB_PARAMS';
 RB_FIELDS    = 'RB_FIELDS';
 RB_BODY      = 'RB_BODY';
 RB_ASSIGN    = 'RB_ASSIGN';
+RB_ALT       = 'RB_ALT';
+RB_MATCH     = 'RB_MATCH';
+RB_IF        = 'RB_IF';
+RB_WHILE     = 'RB_WHILE';
+RB_CALL      = 'RB_CALL';
 
 nTop_count   = 'nTop()';
 
@@ -84,20 +91,33 @@ function RB_push_qlit() {
 }
 
 /*====================================================================================================================*/
-//  Grammar — RB-0 atom + RB-1 assignment.  expr is atom optionally followed
-//  by ':=' rhs (parser_snocone.sc Expr0 idiom — no backtrack ambiguity).
+//  Grammar — RB-0 atom + RB-1 assignment + RB-2/3/4/5 (if/while/call/match/alt).
+//  Precedence (loose→tight): if/while > match (?) > assign (:=) > alt (|) > atom.
+//  alt is left-associative binary per oracle; match and assign each take a
+//  single alt_expr on either side.
 /*====================================================================================================================*/
 
-atom = *String RB_push_qlit() | shift(*Integer, E_ILIT) | shift(*Id, E_VAR);
+//  bare_call — Id() with no args; matches BEFORE plain Id so the latter falls back.
+bare_call = shift(*Id, E_VAR) $'(' $')' reduce(RB_CALL, 1);
 
-//  expr — atom, optionally followed by `:= atom` to form RB_ASSIGN(lhs, rhs).
-//  When `:=` is absent the bare atom stands; when present the reduce folds
-//  the two children (lhs already on stack from the leading `*atom`, rhs
-//  from the trailing `*atom`) into RB_ASSIGN.
+atom = *String RB_push_qlit() | shift(*Integer, E_ILIT) | *bare_call | shift(*Id, E_VAR);
 
-expr = *atom ($':=' *atom reduce(RB_ASSIGN, 2) | epsilon);
+//  alt_expr — left-associative `|` chain.  beauty.sno-style left-recursion via
+//  iterative FENCE'd accumulator: start with one atom, then ARBNO of `|` atom`
+//  with a reduce after each — yielding ((a|b)|c) shape per oracle.
+alt_expr = *atom ARBNO($'|' *atom reduce(RB_ALT, 2));
 
-stmt = *Gray *expr *Gray nl;
+//  expr — alt_expr optionally followed by `:= alt_expr` (assign).
+expr = *alt_expr ($':=' *alt_expr reduce(RB_ASSIGN, 2) | epsilon);
+
+//  match_or_expr — expr optionally followed by `? alt_expr` (match).
+match_or_expr = *expr ($'?' *alt_expr reduce(RB_MATCH, 2) | epsilon);
+
+//  if_stmt / while_stmt — surface shapes; lowering generates synthetic labels.
+if_stmt    = $'if'    *match_or_expr $'then' *match_or_expr reduce(RB_IF,    2);
+while_stmt = $'while' *match_or_expr $'do'   *match_or_expr reduce(RB_WHILE, 2);
+
+stmt = *Gray (*if_stmt | *while_stmt | *match_or_expr) *Gray nl;
 
 //  func_body — n-ary fold over body stmts.  Uses tail-recursive shape (per
 //  parser_icon.sc Procbody idiom) so that 'end' is preempt-matched BEFORE
@@ -183,19 +203,71 @@ function emit_assign(lhs, rhs) {
     return;
 }
 
-function lower_atom(x, k) {
+//  emit_match — render (STMT :subj <lhs> :pat <rhs>) per oracle.
+function emit_match(lhs, rhs) {
+    TDump(Tree('STMT', '', 2,
+               Tree(':subj', '', 1, lhs),
+               Tree(':pat',  '', 1, rhs)));
+    return;
+}
+
+//  emit_subj_goSF — (STMT :subj (E_NUL) :goS sLbl :goF fLbl) — if/while test stmt.
+function emit_subj_goSF(s, sLbl, fLbl) {
+    TDump(Tree('STMT', '', 3,
+               Tree(':subj', '', 1, s),
+               Tree(':goS', sLbl),
+               Tree(':goF', fLbl)));
+    return;
+}
+
+//  lower_atom — recursively lower an expression tree.  Handles RB_ALT (build
+//  E_ALT recursively) and RB_CALL (emit (E_FNC name) — bare call no args).
+function lower_atom(x, k, lhs, rhs) {
     k = t(x);
-    if (IDENT(k, 'E_VAR'))  lower_atom = tree(E_VAR, REPLACE(v(x), &LCASE, &UCASE));
+    if (IDENT(k, 'E_VAR'))       lower_atom = tree(E_VAR, REPLACE(v(x), &LCASE, &UCASE));
     else if (IDENT(k, 'E_ILIT')) lower_atom = x;
     else if (IDENT(k, 'E_QLIT')) lower_atom = x;
+    else if (IDENT(k, 'RB_ALT')) {
+        lhs = lower_atom(c(x)[1]);
+        rhs = lower_atom(c(x)[2]);
+        lower_atom = Tree(E_ALT, '', 2, lhs, rhs);
+    }
+    else if (IDENT(k, 'RB_CALL')) {
+        lower_atom = tree(E_FNC, REPLACE(v(c(x)[1]), &LCASE, &UCASE));
+    }
     else lower_atom = x;
     return;
 }
 
-function lower_stmt(x, k) {
+function lower_stmt(x, k, lblS, lblF, lblM) {
     k = t(x);
-    if (IDENT(k, 'RB_ASSIGN')) emit_assign(lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else                       emit_subj(lower_atom(x));
+    if (IDENT(k, 'RB_ASSIGN'))      emit_assign(lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'RB_MATCH'))  { emit_match(lower_atom(c(x)[1]), lower_atom(c(x)[2])); }
+    else if (IDENT(k, 'RB_IF')) {
+        lblS = rb_new_label();
+        lblF = rb_new_label();
+        lblM = rb_new_label();
+        emit_subj_goSF(tree('E_NUL', ''), lblS, lblF);
+        emit_lbl(lblS);
+        lower_stmt(c(x)[1]);
+        emit_go(lblM);
+        emit_lbl(lblF);
+        lower_stmt(c(x)[2]);
+        emit_lbl(lblM);
+    }
+    else if (IDENT(k, 'RB_WHILE')) {
+        lblS = rb_new_label();   // top-of-loop label
+        lblM = rb_new_label();   // success branch label
+        lblF = rb_new_label();   // exit label
+        emit_lbl(lblS);
+        emit_subj_goSF(tree('E_NUL', ''), lblM, lblF);
+        emit_lbl(lblM);
+        lower_stmt(c(x)[1]);
+        emit_go(lblS);
+        emit_lbl(lblF);
+        // body (c[2]) intentionally NOT emitted — match oracle bug-for-bug
+    }
+    else                            emit_subj(lower_atom(x));
     return;
 }
 
