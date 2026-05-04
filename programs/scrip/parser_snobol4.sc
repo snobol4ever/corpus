@@ -13,6 +13,9 @@
 // Rungs: SN-0..SN-6 PASS=58; SN-7-1 IR-tag + role-slot rewrite.
 /*====================================================================================================================*/
 E_Parse = "'Parse'";
+E_goU   = "':go'";
+E_goS   = "':goS'";
+E_goF   = "':goF'";
 /*====================================================================================================================*/
 // PATTERN block — verbatim from beauty.sno.  NOT ONE CHARACTER CHANGED.
 /*====================================================================================================================*/
@@ -129,17 +132,23 @@ Expr17      =  FENCE(
                |  *Real ~ 'Real'
                |  *Integer ~ 'Integer'
                );
-SGoto       =  ('S' | 's') . *assign(.sf, *'S');
-FGoto       =  ('F' | 'f') . *assign(.sf, *'F');
-SorF        =  *SGoto | *FGoto;
+// Goto: direction baked into reduce tag via named SGoto/FGoto patterns.
+// SGoto/FGoto match the letter and reduce 0; we use them as markers via
+// ARBNO-of-1 placement.  Actually simpler: name the success and failure
+// alternatives separately with their own reduce tags.
+SGoto       =  ('S' | 's');
+FGoto       =  ('F' | 'f');
 Target      =  $'(' . *assign(.Brackets, *'()') *Expr $')'
             |  $'<' . *assign(.Brackets, *'<>') *Expr $'>';
+Sgo         =  *SGoto *Gray *Target reduce(E_goS, 1);
+Fgo         =  *FGoto *Gray *Target reduce(E_goF, 1);
+Ugo         =  *Target reduce(E_goU, 1);
 Goto        =  *Gray ':'
                *Gray
                FENCE(
-                  *Target ("*(':' Brackets)" & 1) epsilon ~ ''
-               |  *SorF *Target ("*(':' sf Brackets)" & 1)
-                  FENCE(*Gray *SorF *Target ("*(':' sf Brackets)" & 1) | epsilon ~ '')
+                  *Ugo epsilon ~ ''
+               |  *Sgo FENCE(*Gray (':' *Gray | epsilon) *Fgo | epsilon ~ '')
+               |  *Fgo FENCE(*Gray (':' *Gray | epsilon) *Sgo | epsilon ~ '')
                );
 Control     =  '-' BREAK(nl ';');
 Comment     =  '*' BREAK(nl);
@@ -188,7 +197,8 @@ Compiland   =  nPush()
 //   '.' (bin)  → 'E_CAPT_COND_ASGN'    'ProtKwd'/'UnprotKwd' → 'E_KEYWORD'
 // Arithmetic: '+'/'-'/'*'/'/' binary → E_ADD/E_SUB/E_MUL/E_DIV
 // Pattern primitives: LEN/BREAK/SPAN/ANY/NOTANY calls → E_LEN/E_BREAK etc.
-// Goto tag: "*(':' Brackets)" → ':goU',  "*(':' S/F Brackets)" → ':goS'/':goF'
+// Goto tag: ':go' → unconditional,  ':goS' → success,  ':goF' → failure
+//   (baked into node tag by Goto pattern; rw_goto_slot just passes t(g) through)
 /*====================================================================================================================*/
 // rw_tag — rename a beauty.sno expression tag to its IR E_* equivalent.
 // Called by rw_expr on every node.  n is the node's child count.
@@ -213,39 +223,52 @@ function rw_tag(t, n) {
     if (IDENT(t, '*') EQ(n, 2)) { rw_tag = 'E_MUL'; return; }
     if (IDENT(t, '/') EQ(n, 2)) { rw_tag = 'E_DIV'; return; }
     if (IDENT(t, '^') EQ(n, 2)) { rw_tag = 'E_POW'; return; }
-    // unary operators keep their own tag (E_MNS etc not used in --dump-parse for snobol4)
+    // arithmetic (unary)
+    if (IDENT(t, '-') EQ(n, 1)) { rw_tag = 'E_MNS'; return; }
+    if (IDENT(t, '+') EQ(n, 1)) { rw_tag = 'E_PLS'; return; }
     rw_tag = t;
     return;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-// rw_call — rewrite a Call node: if callee is a pattern primitive emit E_LEN etc,
-// otherwise emit E_FNC with callee name as value.
-// beauty.sno Call shape: c[1] = callee (Id/Function node), c[2] = ExprList of args.
+// rw_call — rewrite a Call node.  beauty.sno Call shape: ("'Call'" & 2) always
+// gives 2 children: c[1]=callee, c[2]=args.  ExprList only wraps when nTop()>1
+// (>=2 args); with 1 arg c[2] is the bare arg node; with 0 args the ExprList
+// reduce fires with nTop()=0 producing an ExprList with n=0.
 function rw_call(x, fname, args, na, result, i) {
     fname = v(c(x)[1]);
     args  = c(x)[2];
-    na    = n(args);
+    // Determine arg count: if args is ExprList, na=n(args); else na=1 (bare single arg).
+    if (IDENT(t(args), 'ExprList')) { na = n(args); }
+    else if (DIFFER(t(args)))        { na = 1; }
+    else                             { na = 0; }
     if (IDENT(fname, 'LEN'))     { result = Tree('E_LEN',    '', na); }
     else if (IDENT(fname, 'BREAK'))   { result = Tree('E_BREAK',  '', na); }
     else if (IDENT(fname, 'SPAN'))    { result = Tree('E_SPAN',   '', na); }
     else if (IDENT(fname, 'ANY'))     { result = Tree('E_ANY',    '', na); }
     else if (IDENT(fname, 'NOTANY'))  { result = Tree('E_NOTANY', '', na); }
     else                              { result = Tree('E_FNC', fname, 0); }
-    i = 1;
-    while (LE(i, na)) {
-        Append(result, rw_expr(c(args)[i]));
-        i = i + 1;
+    if (EQ(na, 0)) { rw_call = result; return; }
+    if (IDENT(t(args), 'ExprList')) {
+        i = 1;
+        while (LE(i, na)) { Append(result, rw_expr(c(args)[i])); i = i + 1; }
+    } else {
+        Append(result, rw_expr(args));
     }
     rw_call = result;
     return;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-// rw_expr — recursive tag-rename walk.  Does NOT restructure; only renames tags
-// and recurses into children.  ExprList is a transparent wrapper (from XList).
-function rw_expr(x, t, result, new_t, i) {
+// rw_expr — recursive tag-rename walk.  Renames tags, recurses into children.
+// Also: strips beauty.sno '()' paren wrapper nodes (transparent grouping).
+// Left-rotates right-recursive binary arithmetic trees to left-associative form
+// per the oracle (beauty.sno builds right-recursive; --dump-parse is left-assoc).
+// ExprList is a transparent wrapper (from XList).
+function rw_expr(x, t, result, new_t, i, right, rr, rl) {
     if (IDENT(x)) { rw_expr = x; return; }
     t = t(x);
     if (IDENT(t))          { rw_expr = x; return; }   // empty-slot node
+    // '()' paren node: transparent wrapper — unwrap the single child
+    if (IDENT(t, '()'))    { rw_expr = rw_expr(c(x)[1]); return; }
     if (IDENT(t, 'String')) {
         // beauty.sno captures String WITH surrounding quotes; oracle wants bare inner text
         rw_expr = tree('E_QLIT', SUBSTR(v(x), 2, SIZE(v(x)) - 2));
@@ -262,6 +285,25 @@ function rw_expr(x, t, result, new_t, i) {
         return;
     }
     new_t  = rw_tag(t, n(x));
+    // Left-rotation: beauty.sno builds a + b + c as (a + (b + c)); oracle wants ((a+b)+c).
+    // A right-recursive node is one where n=2 and c[2] has the same IR tag.
+    // Rotate: result = (rw(c[1]) op rw(c[2].c[1])); then iteratively fold in c[2].c[2] etc.
+    if (EQ(n(x), 2) DIFFER(new_t, t)) {
+        right = c(x)[2];
+        if (EQ(n(right), 2) IDENT(rw_tag(t(right), 2), new_t)) {
+            // right child is same op: flatten to left-associative chain
+            result = Tree(new_t, '', 2, rw_expr(c(x)[1]), rw_expr(c(right)[1]));
+            rr = c(right)[2];
+            while (EQ(n(rr), 2) IDENT(rw_tag(t(rr), 2), new_t)) {
+                rl = c(rr)[1];
+                result = Tree(new_t, '', 2, result, rw_expr(rl));
+                rr = c(rr)[2];
+            }
+            result = Tree(new_t, '', 2, result, rw_expr(rr));
+            rw_expr = result;
+            return;
+        }
+    }
     result = Tree(new_t, v(x), 0);
     i = 1;
     while (LE(i, n(x))) { Append(result, rw_expr(c(x)[i])); i = i + 1; }
@@ -269,20 +311,11 @@ function rw_expr(x, t, result, new_t, i) {
     return;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-// rw_goto_slot — the goto node's type is the computed string from beauty.sno,
-// e.g. "*(':' ())" (unconditional) or "*(':' S ())" (success) or "*(':' F ())".
-// child[1] is the target expression.  We decode slot and return a role-slot wrapper.
-function rw_goto_slot(g, gt, tgt_v) {
-    gt    = t(g);
-    tgt_v = v(c(g)[1]);        // target is always an Id — v() is the label name
-    // Tag is "*(':' sf Brackets)" (directional) or "*(':' Brackets)" (unconditional).
-    // Direction is in global `sf` set by SGoto/FGoto during pattern match.
-    // Unconditional: tag contains no 'sf ' substring.
-    if (gt ? 'sf ') {
-        if (IDENT(sf, 'S')) { rw_goto_slot = tree(':goS', tgt_v); return; }
-        if (IDENT(sf, 'F')) { rw_goto_slot = tree(':goF', tgt_v); return; }
-    }
-    rw_goto_slot = tree(':goU', tgt_v);
+// rw_goto_slot — goto node tag is ':go'/':goS'/':goF' (baked by Goto pattern).
+// child[1] is the target Id node; v() gives the label name.
+function rw_goto_slot(g, tgt_v) {
+    tgt_v = v(c(g)[1]);
+    rw_goto_slot = tree(t(g), tgt_v);
     return;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -324,11 +357,29 @@ function pp_stmt(x, ppLbl, ppSubj, ppPatrn, ppAsgn, ppRepl, ppGo1, ppGo2,
         if (DIFFER(ppAsgn))   { Append(result, tree(':eq', '')); }
         subj_ir = rw_expr(ppSubj);
         if (DIFFER(t(ppPatrn))) {
-            // ppPatrn non-empty: ppSubj is subject, ppPatrn is pattern
-            Append(result, Tree(':subj', '', 1, subj_ir));
-            Append(result, Tree(':pat',  '', 1, rw_expr(ppPatrn)));
+            // ppPatrn non-empty: ppSubj is subject, ppPatrn is pattern.
+            // SPECIAL: if pat top is E_ALT *and pat was NOT paren-wrapped*, fold subj_ir
+            // into first arm of ALT and emit only :subj — the oracle's "alt eats LHS" rule.
+            // Paren-wrap defeats the fold per oracle (S ('a' | 'b') keeps the split).
+            pat_ir = rw_expr(ppPatrn);
+            if (IDENT(t(pat_ir), 'E_ALT') GT(n(pat_ir), 0) DIFFER(t(ppPatrn), '()')) {
+                // build (E_ALT (E_SEQ subj_ir arm[1]) arm[2] ... arm[n])
+                seq_n = Tree('E_SEQ', '', 2, subj_ir, c(pat_ir)[1]);
+                pat_seq = Tree('E_ALT', '', 1, seq_n);
+                i = 2;
+                while (LE(i, n(pat_ir))) {
+                    Append(pat_seq, c(pat_ir)[i]);
+                    i = i + 1;
+                }
+                Append(result, Tree(':subj', '', 1, pat_seq));
+            } else {
+                Append(result, Tree(':subj', '', 1, subj_ir));
+                Append(result, Tree(':pat',  '', 1, pat_ir));
+            }
         } else {
             // ppPatrn empty: apply E_SEQ split on subj_ir
+            // E_ALT at top: whole thing is :subj (alt already absorbs LHS per oracle)
+            // E_SEQ with n>=2: child[1] is :subj, rest is :pat
             if (IDENT(t(subj_ir), 'E_SEQ') GT(n(subj_ir), 1)) {
                 seq_n = n(subj_ir);
                 Append(result, Tree(':subj', '', 1, c(subj_ir)[1]));
@@ -347,8 +398,12 @@ function pp_stmt(x, ppLbl, ppSubj, ppPatrn, ppAsgn, ppRepl, ppGo1, ppGo2,
                 Append(result, Tree(':subj', '', 1, subj_ir));
             }
         }
-        // :repl
-        if (DIFFER(t(ppRepl))) { Append(result, Tree(':repl', '', 1, rw_expr(ppRepl))); }
+        // :repl — present if ppRepl has content OR ppAsgn is '=' (empty repl).
+        if (DIFFER(t(ppRepl))) {
+            Append(result, Tree(':repl', '', 1, rw_expr(ppRepl)));
+        } else if (DIFFER(ppAsgn)) {
+            Append(result, Tree(':repl', '', 1, tree('E_QLIT', '')));
+        }
     }
     // gotos
     if (DIFFER(t(ppGo1))) { Append(result, rw_goto_slot(ppGo1)); }
