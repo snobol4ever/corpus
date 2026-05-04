@@ -53,10 +53,19 @@ r_IF        = sq 'E_IF'        sq;
 r_WHILE     = sq 'E_WHILE'     sq;
 r_EVERY     = sq 'E_EVERY'     sq;
 r_RETURN    = sq 'E_RETURN'    sq;
-r_FNC       = sq 'E_FNC'       sq;
-r_SEQ_EXPR  = sq 'E_SEQ_EXPR'  sq;
-r_Parse     = sq 'Parse'       sq;
+r_FNC       = sq 'E_FNC'        sq;
+r_SEQ_EXPR  = sq 'E_SEQ_EXPR'   sq;
+r_Parse     = sq 'Parse'        sq;
 r_nTop      = '*(GT(nTop(), 1) nTop())';
+r_AUGOP     = sq 'E_AUGOP'      sq;
+r_POW       = sq 'E_POW'        sq;
+r_MNS       = sq 'E_MNS'        sq;
+r_PLS       = sq 'E_PLS'        sq;
+r_CSET_COMPL= sq 'E_CSET_COMPL' sq;
+r_NONNULL   = sq 'E_NONNULL'    sq;
+r_ITERATE   = sq 'E_ITERATE'    sq;
+r_SIZE      = sq 'E_SIZE'       sq;
+r_RANDOM    = sq 'E_RANDOM'     sq;
 s_QLIT      = 'E_QLIT';
 s_ILIT      = 'E_ILIT';
 s_VAR       = 'E_VAR';
@@ -136,6 +145,24 @@ $'('        = ($' ' '('  $' ');
 $')'        = ($' ' ')'  $' ');
 $'{'        = ($' ' '{'  $' ');
 $'}'        = ($' ' '}'  $' ');
+$'^'        = ($' ' '^'  $' ');
+//  Augmented-assign tokens — literal source `op:=` with whitespace each side.
+//  Each lowers to E_AUGOP (operator discarded by --dump-ir; only arity 2 matters).
+$'+:='      = ($' ' '+:=' $' ');
+$'-:='      = ($' ' '-:=' $' ');
+$'*:='      = ($' ' '*:=' $' ');
+$'/:='      = ($' ' '/:=' $' ');
+//  Aug-op alternation token — any of the above; reduces to E_AUGOP regardless.
+$'augop'    = ($'+:=' | $'-:=' | $'*:=' | $'/:=');
+//  Unary-prefix operator tokens — leading optional whitespace only;
+//  the operand follows immediately (no enforced whitespace before operand).
+$'unary-'   = ($' ' '-' );
+$'unary+'   = ($' ' '+' );
+$'unary~'   = ($' ' '~' );
+$'unary\\'  = ($' ' '\\');
+$'unary!'   = ($' ' '!' );
+$'unary*'   = ($' ' '*' );
+$'unary?'   = ($' ' '?' );
 
 //-----------------------------------------------------------------------
 // Helpers — tree-building only.  Per IC-8b: ONE function for statement
@@ -261,11 +288,27 @@ Expr11 = (   If
          |   $' ' id_pat  ~ s_VAR
          );
 
-// Expr7 — multiplicative `* /` left-assoc.
-Expr7tail = ( $'*' *Expr11 (r_MUL & 2)
-            | $'/' *Expr11 (r_DIV & 2)
+// Expr10 — unary prefix operators.  Each reduces (r_TAG & 1).
+//   `-` `+` `~` `\` `!` `*` `?`
+// `*` unary (size) is unambiguous in prefix position; Expr7 `*` is infix.
+Expr10    = (   $'unary-'  *Expr10 (r_MNS         & 1)
+            |   $'unary+'  *Expr10 (r_PLS         & 1)
+            |   $'unary~'  *Expr10 (r_CSET_COMPL  & 1)
+            |   $'unary\\' *Expr10 (r_NONNULL     & 1)
+            |   $'unary!'  *Expr10 (r_ITERATE     & 1)
+            |   $'unary*'  *Expr10 (r_SIZE        & 1)
+            |   $'unary?'  *Expr10 (r_RANDOM      & 1)
+            |   *Expr11
             );
-Expr7     = ( *Expr11 ARBNO(Expr7tail) );
+
+// Expr8 — power `^` right-associative.
+Expr8     = ( *Expr10 ($'^' *Expr8 (r_POW & 2) | epsilon) );
+
+// Expr7 — multiplicative `* /` left-assoc.
+Expr7tail = ( $'*' *Expr8 (r_MUL & 2)
+            | $'/' *Expr8 (r_DIV & 2)
+            );
+Expr7     = ( *Expr8 ARBNO(Expr7tail) );
 
 // Expr6 — additive `+ -` left-assoc.
 Expr6tail = ( $'+' *Expr7 (r_ADD & 2)
@@ -292,10 +335,16 @@ Expr3     = ( nPush() X3 (r_ALT & r_nTop) nPop() );
 // Expr2 — generation (to/by). Not yet implemented; collapses to Expr3.
 Expr2     = ( *Expr3 );
 
-// Expr1 — assignment `:=` right-associative.  No commit hazard under
-// the canonical spine: *Expr2 always succeeds and shifts; if `:=` does
-// not follow, we fall through to the lone shifted LHS.
-Expr1     = ( *Expr2 ($':=' *Expr1 (r_ASSIGN & 2) | epsilon) );
+// Expr1 — assignment + augmented assigns (right-associative).  Each
+// alternative shifts a fresh RHS via *Expr1 and reduces with arity 2;
+// the augop branch reduces to E_AUGOP (operator itself discarded —
+// matches existing-frontend --dump-ir output).
+Expr1     = ( *Expr2
+              (   $':='   *Expr1 (r_ASSIGN & 2)
+              |   $'augop' *Expr1 (r_AUGOP  & 2)
+              |   epsilon
+              )
+            );
 
 // Expr1a — scan `?`. Same shape as Expr1.
 Expr1a    = ( *Expr1 ($'?' *Expr (r_SCAN & 2) | epsilon) );
