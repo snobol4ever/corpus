@@ -1,68 +1,70 @@
 // parser_snobol4.sc — PARSER-SN: SNOBOL4 pattern-based frontend in Snocone.
-// ONE Compiland pattern, ONE Src ? Compiland. No goto. No parse functions.
-// shift/reduce via function calls (INFRA-11b). nPush/nInc/nTop/nPop as patterns.
+// Rung 0: atoms + END. PASS=3 scaffold.
+//
+// Shape (beauty.sno model):
+//   ONE Compiland PATTERN. ONE Src ? Compiland call.
+//   ~ (OPSYN shift) and & (OPSYN reduce) for tree construction.
+//   nPush/nInc/nPop embedded as patterns in grammar rules.
+//   ARBNO body inlined (FW-3 workaround: no ARBNO(*Q) deferred refs).
+//   No goto. No parse-dispatch functions. tab/nl/digits from global.sc.
+//
+// Naming (RULES.md): beauty.sno token names; snobol4.y rule names; snobol4.h IR tags.
 
-tab   = '	';
-nl    = '
-';
-Gray  = (SPAN(' ' tab) | epsilon);
-White = SPAN(' ' tab);
-nl_one = ANY(nl);
+White   = SPAN(' ' tab);
+Gray    = (White | epsilon);
+nl_one  = ANY(nl);
 
 Integer = SPAN(digits);
-Id      = (ANY(&UCASE &LCASE) (SPAN(digits &UCASE &LCASE '_.') | epsilon));
+Id      = (ANY(&UCASE &LCASE) FENCE(SPAN(digits &UCASE &LCASE '_.') | epsilon));
 SQ      = ("'" BREAK("'" nl) . _sb "'");
 DQ      = ('"' BREAK('"' nl) . _sb '"');
-String  = (SQ | DQ);
 
-//--- tree-building helpers ---
+//--- Tree-building helpers (not parse dispatch) ---
 
-function push_qlit(body) {
-    Push(tree('E_QLIT', body)); push_qlit = .dummy; nreturn;
-}
-function push_subj_stmt() {
-    Push(Tree('STMT', '', 1, Tree(':subj', '', 1, Pop())));
-    IncCounter();
-    push_subj_stmt = .dummy; nreturn;
-}
-function push_end_stmt() {
-    Push(Tree('STMT', '', 2,
-              Tree(':lbl', '', 1, tree('Name', 'END')),
-              tree(':end', '')));
-    IncCounter();
-    push_end_stmt = .dummy; nreturn;
-}
+function push_qlit(body) { Push(tree('E_QLIT', body)); push_qlit = .dummy; nreturn; }
+function push_name_end() { Push(tree('Name', 'END'));  push_name_end = .dummy; nreturn; }
+function push_end_node() { Push(tree(':end', ''));     push_end_node = .dummy; nreturn; }
 
-//--- grammar patterns ---
+//--- Quoted reduce() args: t must be "'TAG'" so EVAL sees 'TAG' ---
 
 sq      = "'";
 r_Parse = sq 'Parse' sq;
 r_nTop  = 'nTop()';
+r_subj  = sq ':subj' sq;
+r_lbl   = sq ':lbl'  sq;
+r_STMT  = sq 'STMT'  sq;
 
-// Atom: Integer and Id shift matched text directly.
-// String: capture body into _sb then push via helper (quotes excluded).
-Atom = ( shift(Integer, 'E_ILIT')
-       | String epsilon . *push_qlit(_sb)
-       | shift(Id, 'E_VAR')
+//--- Atom: ~ is OPSYN shift ---
+
+Atom = ( (Integer ~ 'E_ILIT')
+       | ((SQ | DQ) epsilon . *push_qlit(_sb))
+       | (Id ~ 'E_VAR')
        );
 
-EndMarker = ( 'END' Gray (nl_one | RPOS(0))
-              epsilon . *push_end_stmt() );
+//--- stmt/end patterns: & is OPSYN reduce, nInc() from semantic.sc ---
 
-stmt = ( White Atom Gray (nl_one | RPOS(0))
-         epsilon . *push_subj_stmt() );
+stmt_body = ( White Atom Gray (nl_one | RPOS(0))
+              (r_subj & 1) (r_STMT & 1) nInc() );
 
-Command = ( EndMarker
-          | stmt
-          | Gray (nl_one | RPOS(0))
-          );
+end_body  = ( 'END' Gray (nl_one | RPOS(0))
+              epsilon . *push_name_end()
+              (r_lbl & 1)
+              epsilon . *push_end_node()
+              (r_STMT & 2) nInc() );
+
+//--- Compiland: ONE pattern, ONE match ---
 
 Compiland = nPush()
-            ARBNO( Command )
-            reduce(r_Parse, r_nTop)
+            ARBNO( FENCE(
+                end_body
+              | stmt_body
+              | Gray (nl_one | RPOS(0))
+            ))
+            (r_Parse & r_nTop)
             nPop();
 
-//--- driver ---
+//--- Driver: no goto, while loops only ---
+
 InitCounter();
 InitStack();
 Src = '';
