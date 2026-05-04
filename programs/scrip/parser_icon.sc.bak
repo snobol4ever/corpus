@@ -69,8 +69,8 @@ s_VAR       = 'E_VAR';
 /*====================================================================================================================*/
 //  Whitespace, atom recognizers, operator-token patterns.
 /*====================================================================================================================*/
-White       = SPAN(' ' tab);
-Gray        = (*White | epsilon);
+ws_opt      = (SPAN(' ' tab) | epsilon);
+ws_run      = SPAN(' ' tab);
 nl_one      = ANY(nl);
 id_first    = ANY(&UCASE &LCASE '_');
 id_rest     = SPAN(digits &UCASE &LCASE '_');
@@ -83,63 +83,71 @@ int_pat     = SPAN(digits);
 str_pat     = ('"' BREAK('"') . ic_strbody '"');
 semi_opt    = (';' | epsilon);
 /*--------------------------------------------------------------------------------------------------------------------*/
+//  Invisible-whitespace tokens — beauty.sc style taken further.
+//  $' '  (one space) names optional whitespace; $'  ' (two spaces) names
+//  the required-single-space lexical separator.  This lets keyword and
+//  operator-token definitions read as the literal source they match.
+/*--------------------------------------------------------------------------------------------------------------------*/
+$' '        = ws_opt;
+$'  '       = ws_run;
+/*--------------------------------------------------------------------------------------------------------------------*/
 //  Keyword tokens — leading optional whitespace baked in.  Trailing
 //  required-whitespace stays explicit at each call site (varies by use:
-//  `if cond` needs *White so `iffy` is rejected; `end` followed by nl
+//  `if cond` needs $'  ' so `iffy` is rejected; `end` followed by nl
 //  needs no required-space).  Each keyword consumes only what its
 //  surface form matches and shifts nothing.  $'kw' form (parallel to
 //  $'op' for operators) sidesteps Snocone's reserved-word list.
 /*--------------------------------------------------------------------------------------------------------------------*/
-$'if'        = (*Gray 'if'       );
-$'then'      = (*Gray 'then'     );
-$'else'      = (*Gray 'else'     );
-$'while'     = (*Gray 'while'    );
-$'do'        = (*Gray 'do'       );
-$'every'     = (*Gray 'every'    );
-$'return'    = (*Gray 'return'   );
-$'end'       = (*Gray 'end'      );
-$'procedure' = (*Gray 'procedure');
+$'if'        = ($' ' 'if'       );
+$'then'      = ($' ' 'then'     );
+$'else'      = ($' ' 'else'     );
+$'while'     = ($' ' 'while'    );
+$'do'        = ($' ' 'do'       );
+$'every'     = ($' ' 'every'    );
+$'return'    = ($' ' 'return'   );
+$'end'       = ($' ' 'end'      );
+$'procedure' = ($' ' 'procedure');
 /*--------------------------------------------------------------------------------------------------------------------*/
 //  Operator-token patterns — beauty.sc / parser_snobol4.sc style.
 //  Each consumes optional whitespace on both sides and produces no shift.
 /*--------------------------------------------------------------------------------------------------------------------*/
-$'|'        = (*Gray '|'  *Gray);
-$':='       = (*Gray ':=' *Gray);
-$'?'        = (*Gray '?'  *Gray);
-$','        = (*Gray ','  *Gray);
-$'+'        = (*Gray '+'  *Gray);
-$'-'        = (*Gray '-'  *Gray);
-$'*'        = (*Gray '*'  *Gray);
-$'/'        = (*Gray '/'  *Gray);
-$'<='       = (*Gray '<=' *Gray);
-$'>='       = (*Gray '>=' *Gray);
-$'~='       = (*Gray '~=' *Gray);
-$'<'        = (*Gray '<'  *Gray);
-$'>'        = (*Gray '>'  *Gray);
-$'='        = (*Gray '='  *Gray);
-$';'        = (*Gray ';'  *Gray);
-$'('        = (*Gray '('  *Gray);
-$')'        = (*Gray ')'  *Gray);
-$'{'        = (*Gray '{'  *Gray);
-$'}'        = (*Gray '}'  *Gray);
-$'^'        = (*Gray '^'  *Gray);
+$'|'        = ($' ' '|'  $' ');
+$':='       = ($' ' ':=' $' ');
+$'?'        = ($' ' '?'  $' ');
+$','        = ($' ' ','  $' ');
+$'+'        = ($' ' '+'  $' ');
+$'-'        = ($' ' '-'  $' ');
+$'*'        = ($' ' '*'  $' ');
+$'/'        = ($' ' '/'  $' ');
+$'<='       = ($' ' '<=' $' ');
+$'>='       = ($' ' '>=' $' ');
+$'~='       = ($' ' '~=' $' ');
+$'<'        = ($' ' '<'  $' ');
+$'>'        = ($' ' '>'  $' ');
+$'='        = ($' ' '='  $' ');
+$';'        = ($' ' ';'  $' ');
+$'('        = ($' ' '('  $' ');
+$')'        = ($' ' ')'  $' ');
+$'{'        = ($' ' '{'  $' ');
+$'}'        = ($' ' '}'  $' ');
+$'^'        = ($' ' '^'  $' ');
 //  Augmented-assign tokens — literal source `op:=` with whitespace each side.
 //  Each lowers to E_AUGOP (operator discarded by --dump-ir; only arity 2 matters).
-$'+:='      = (*Gray '+:=' *Gray);
-$'-:='      = (*Gray '-:=' *Gray);
-$'*:='      = (*Gray '*:=' *Gray);
-$'/:='      = (*Gray '/:=' *Gray);
+$'+:='      = ($' ' '+:=' $' ');
+$'-:='      = ($' ' '-:=' $' ');
+$'*:='      = ($' ' '*:=' $' ');
+$'/:='      = ($' ' '/:=' $' ');
 //  Aug-op alternation token — any of the above; reduces to E_AUGOP regardless.
 $'augop'    = ($'+:=' | $'-:=' | $'*:=' | $'/:=');
 //  Unary-prefix operator tokens — leading optional whitespace only;
 //  the operand follows immediately (no enforced whitespace before operand).
-$'unary-'   = (*Gray '-' );
-$'unary+'   = (*Gray '+' );
-$'unary~'   = (*Gray '~' );
-$'unary\\'  = (*Gray '\\');
-$'unary!'   = (*Gray '!' );
-$'unary*'   = (*Gray '*' );
-$'unary?'   = (*Gray '?' );
+$'unary-'   = ($' ' '-' );
+$'unary+'   = ($' ' '+' );
+$'unary~'   = ($' ' '~' );
+$'unary\\'  = ($' ' '\\');
+$'unary!'   = ($' ' '!' );
+$'unary*'   = ($' ' '*' );
+$'unary?'   = ($' ' '?' );
 /*====================================================================================================================*/
 //  Helpers — tree-building only.  Per IC-8b: ONE function for statement
 //  decomposition (proc-frame collapse + STMT-wrap), plus the one shared
@@ -194,14 +202,14 @@ $'proc_wrap' = (epsilon . *ic_decompose_proc());
 //  greedily consuming `if`/`while`/`every`); then function-call form
 //  (id_pat followed by `(`); then paren / compound primaries; then
 //  literals; then bare id.  All tries shift exactly one tree.
-If    = ( $'if'    *White *Expr  $'then' *White *Expr
-          (  $'else' *White *Expr  (r_IF & 3)
+If    = ( $'if'    $'  ' *Expr  $'then' $'  ' *Expr
+          (  $'else' $'  ' *Expr  (r_IF & 3)
           |  (r_IF & 2)
           )
         );
-While = ( $'while' *White *Expr  $'do' *White *Expr  (r_WHILE & 2) );
-Every = ( $'every' *White *Expr
-          (  $'do' *White *Expr  (r_EVERY & 2)
+While = ( $'while' $'  ' *Expr  $'do' $'  ' *Expr  (r_WHILE & 2) );
+Every = ( $'every' $'  ' *Expr
+          (  $'do' $'  ' *Expr  (r_EVERY & 2)
           |  (r_EVERY & 1)
           )
         );
@@ -213,12 +221,12 @@ Every = ( $'every' *White *Expr
 //  leaves bare (E_VAR fname) — but that's wrong for an invocation with
 //  no args.  Use 'nTop()' (not r_nTop) so the reduce always fires.
 /*--------------------------------------------------------------------------------------------------------------------*/
-ArgFirst    = ( *Gray *Expr  nInc() );
+ArgFirst    = ( $' ' *Expr  nInc() );
 ArgRest     = ( $','   *Expr  nInc() );
 CallArgs    = ( ArgFirst ARBNO(ArgRest) | epsilon );
 Call        = ( nPush()
-                *Gray id_pat ~ s_VAR  nInc()
-                *Gray '(' CallArgs *Gray ')'
+                $' ' id_pat ~ s_VAR  nInc()
+                $' ' '(' CallArgs $' ' ')'
                 (r_FNC & 'nTop()')
                 nPop()
               );
@@ -239,8 +247,8 @@ Paren       = ( nPush()
 //  brace-delimited and allows trailing whitespace / newlines between
 //  items.  Single-child unwrap matches existing frontend behavior.
 /*--------------------------------------------------------------------------------------------------------------------*/
-CompoundFirst = ( *Gray *Expr *Gray semi_opt *Gray nInc() );
-CompoundRest  = ( *Gray *Expr *Gray semi_opt *Gray nInc() );
+CompoundFirst = ( $' ' *Expr $' ' semi_opt $' ' nInc() );
+CompoundRest  = ( $' ' *Expr $' ' semi_opt $' ' nInc() );
 Compound      = ( nPush()
                   $'{'
                   ( CompoundFirst ARBNO(CompoundRest) | epsilon )
@@ -257,9 +265,9 @@ Expr11 = (   If
          |   Call
          |   Paren
          |   Compound
-         |   *Gray str_pat $'qlit'
-         |   *Gray int_pat ~ s_ILIT
-         |   *Gray id_pat  ~ s_VAR
+         |   $' ' str_pat $'qlit'
+         |   $' ' int_pat ~ s_ILIT
+         |   $' ' id_pat  ~ s_VAR
          );
 /*--------------------------------------------------------------------------------------------------------------------*/
 //  Expr10 — unary prefix operators.  Each reduces (r_TAG & 1).
@@ -341,36 +349,36 @@ Expr      = ( *Expr1a );
 //  counter frame (the procedure frame, pushed by Proc).  Comments and
 //  blank lines do not produce trees and do not increment the counter.
 /*====================================================================================================================*/
-Comment   = ( *Gray '#' BREAK(nl) nl_one );
-Blank     = ( *Gray nl_one );
-ReturnStmt = ( $'return' *White *Expr *Gray semi_opt *Gray nl_one
+Comment   = ( $' ' '#' BREAK(nl) nl_one );
+Blank     = ( $' ' nl_one );
+ReturnStmt = ( $'return' $'  ' *Expr $' ' semi_opt $' ' nl_one
                   (r_RETURN & 1)
-             | $'return' *Gray semi_opt *Gray nl_one
+             | $'return' $' ' semi_opt $' ' nl_one
                   (r_RETURN & 0)
              );
 //  One body statement.  Increments the proc-frame counter for each
 //  produced tree; comments/blanks pass through without counter change.
 StmtBody  = ( ReturnStmt nInc()
-            | *Gray *Expr *Gray semi_opt *Gray nl_one nInc()
+            | $' ' *Expr $' ' semi_opt $' ' nl_one nInc()
             | Comment
             | Blank
             );
 //  Param list — each parameter shifts as (E_VAR pname) and increments
 //  the proc-frame counter.  Empty arglist: zero shifts, zero increments.
-ParamFirst = ( *Gray id_pat ~ s_VAR  nInc() );
+ParamFirst = ( $' ' id_pat ~ s_VAR  nInc() );
 ParamRest  = ( $',' id_pat ~ s_VAR  nInc() );
 Params     = ( ParamFirst ARBNO(ParamRest) | epsilon );
 //  Prochead — `procedure NAME ( params )`.  The procedure name is
 //  shifted as (E_VAR pname) — this becomes child[1] of the eventual
 //  E_FNC, AND ic_decompose_proc reads pname from v(child[1]) to set
 //  the E_FNC's value field.  No global parsing-state slot needed.
-Prochead = ( $'procedure' *White id_pat ~ s_VAR  nInc()
-             *Gray '(' Params *Gray ')' *Gray nl_one
+Prochead = ( $'procedure' $'  ' id_pat ~ s_VAR  nInc()
+             $' ' '(' Params $' ' ')' $' ' nl_one
            );
 //  Procbody — repeat StmtBody until 'end'.  Tail-recursive shape (vs
 //  ARBNO) so we preempt-match `end` before letting StmtBody potentially
 //  consume `end` as a bare identifier expression.
-ProcbodyEnd = ( $'end' *Gray (nl_one | RPOS(0)) );
+ProcbodyEnd = ( $'end' $' ' (nl_one | RPOS(0)) );
 Procbody    = ( ProcbodyEnd | StmtBody *Procbody );
 //  Proc — push frame, parse head + body (each piece shifts trees and
 //  increments the frame counter), then call ic_decompose_proc to
@@ -382,7 +390,7 @@ Proc = ( nPush()  Prochead  Procbody  $'proc_wrap'  nPop() );
 //  stack; the outer reduce builds a Parse node with all the procs.
 /*====================================================================================================================*/
 Compiland = ( nPush()
-              ARBNO( nInc() *Gray Proc *Gray )
+              ARBNO( nInc() $' ' Proc $' ' )
               (r_Parse & 'nTop()')
               nPop()
             );
