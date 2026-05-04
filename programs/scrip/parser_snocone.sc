@@ -54,21 +54,19 @@ s_QLIT   = 'E_QLIT';   s_ILIT = 'E_ILIT';   s_VAR = 'E_VAR';
 // Global label counter.
 //-----------------------------------------------------------------------
 
-_sc_lbl_n = 0;
+sc_lbl_n = 0;
 
 //-----------------------------------------------------------------------
 // Semantic / tree-building / counter helpers (not parsing functions).
 //
 // Finalize functions accept variable-name STRINGS for their counter/cond
 // arguments and dereference via $varname at match time — this lets the
-// SC_finalize_xxx builders pass plain string literals through EVAL without
-// ever placing a leading-underscore identifier in the EVAL string (which
-// the SNOBOL4 lex layer inside EVAL would reject).
+// SC_finalize_xxx builders pass plain string literals through EVAL.
 //-----------------------------------------------------------------------
 
 function sc_new_label(prefix) {
-    _sc_lbl_n = _sc_lbl_n + 1;
-    sc_new_label = '_' prefix '_' LPAD(_sc_lbl_n, 4, '0');
+    sc_lbl_n = sc_lbl_n + 1;
+    sc_new_label = '_' prefix '_' LPAD(sc_lbl_n, 4, '0');
     return;
 }
 
@@ -83,14 +81,14 @@ function sc_save_nbody(varname) {
 }
 
 function sc_while_head_alloc() {
-    _sc_while_ltop = sc_new_label('Ltop');
-    _sc_while_lend = sc_new_label('Lend');
+    sc_while_ltop = sc_new_label('Ltop');
+    sc_while_lend = sc_new_label('Lend');
     sc_while_head_alloc = .dummy;  nreturn;
 }
 
 function sc_do_head_alloc() {
-    _sc_do_lcont = sc_new_label('Lcont');
-    _sc_do_lend  = sc_new_label('Lend');
+    sc_do_lcont = sc_new_label('Lcont');
+    sc_do_lend  = sc_new_label('Lend');
     sc_do_head_alloc = .dummy;  nreturn;
 }
 
@@ -110,7 +108,7 @@ function sc_decompose_stmt(top, lhs, rhs, s) {
 }
 
 function sc_push_qlit(s) {
-    s = tree('E_QLIT', _sc_strbody);
+    s = tree('E_QLIT', sc_strbody);
     Push(s);
     sc_push_qlit = .dummy;  nreturn;
 }
@@ -171,7 +169,7 @@ function sc_finalize_if_else(nthen_v, nelse_v, cond_v,
 function sc_finalize_while(nbody_v, cond_v, body, Ltop, Lend, n, ce, i) {
     n = $nbody_v;  ce = $cond_v;
     body = sc_pop_body(n);
-    Ltop = _sc_while_ltop;  Lend = _sc_while_lend;
+    Ltop = sc_while_ltop;  Lend = sc_while_lend;
     Push(sc_make_label_stmt(Ltop));
     Push(sc_make_cond_stmt(ce, ':goF', Lend));
     i = 1;  while (LE(i, n))       { Push(body[i]);   i = i + 1; }
@@ -184,7 +182,7 @@ function sc_finalize_while(nbody_v, cond_v, body, Ltop, Lend, n, ce, i) {
 function sc_finalize_do(nbody_v, cond_v, body, Ltop, Lend, n, ce, i) {
     n = $nbody_v;  ce = $cond_v;
     body = sc_pop_body(n);
-    Ltop = sc_new_label('Ltop');  Lend = _sc_do_lend;
+    Ltop = sc_new_label('Ltop');  Lend = sc_do_lend;
     Push(sc_make_label_stmt(Ltop));
     i = 1;  while (LE(i, n))       { Push(body[i]);   i = i + 1; }
             Push(sc_make_cond_stmt(ce, ':goS', Ltop));
@@ -196,11 +194,9 @@ function sc_finalize_do(nbody_v, cond_v, body, Ltop, Lend, n, ce, i) {
 //-----------------------------------------------------------------------
 // SC_xxx pattern builders.
 // Each is called at BUILD TIME and returns a deferred-action pattern
-// (epsilon . thx . *sc_xxx('literal_arg')) via EVAL.
-// EVAL string contains only plain identifiers and string literals —
-// never a leading-underscore name — so the SNOBOL4 lex layer inside
-// EVAL accepts it cleanly.  The actual underscore globals (_sc_*) are
-// referenced only inside the sc_xxx functions at MATCH time.
+// (epsilon . thx . *sc_xxx('literal_arg')) via EVAL.  The lower-case
+// sc_xxx match-time helpers (above) are referenced only by the EVAL
+// strings here.
 //-----------------------------------------------------------------------
 
 function SC_save_cond() {
@@ -273,8 +269,8 @@ White    = SPAN(' ' tab);
 Gray     = (*White | epsilon);
 nl_opt   = (nl | epsilon);
 Integer  = SPAN(digits);
-DQ       = ('"'  BREAK('"')  . _sc_strbody '"');
-SQ_lit   = ("'"  BREAK("'")  . _sc_strbody "'");
+DQ       = ('"'  BREAK('"')  . sc_strbody '"');
+SQ_lit   = ("'"  BREAK("'")  . sc_strbody "'");
 String   = (*SQ_lit | *DQ);
 Id       = (ANY(&UCASE &LCASE '_')
             FENCE(SPAN('.' digits &UCASE '_' &LCASE) | epsilon));
@@ -283,7 +279,7 @@ Id       = (ANY(&UCASE &LCASE '_')
 // Keyword guards — keyword not a prefix of a longer identifier.
 //-----------------------------------------------------------------------
 
-kw_tail  = FENCE(SPAN(&UCASE &LCASE digits '_') | epsilon) . _kw_rest IDENT(_kw_rest);
+kw_tail  = FENCE(SPAN(&UCASE &LCASE digits '_') | epsilon) . kw_rest IDENT(kw_rest);
 kw_if    = ('if'    kw_tail);
 kw_while = ('while' kw_tail);
 kw_do    = ('do'    kw_tail);
@@ -380,7 +376,7 @@ InitCounter();
 InitStack();
 
 Src = '';
-while (Line = INPUT) { Src = Src Line nl; }
+while (Line = INPUT)   Src = Src Line nl;
 
 if (Src ? Compiland) {
     ptree = Pop();
@@ -392,4 +388,4 @@ if (Src ? Compiland) {
     OUTPUT = 'Parse Error';
 }
 
-_parser_sc_done = '';
+parser_sc_done = '';
