@@ -33,39 +33,23 @@
 //  Using sq-quoted form so they're EVAL-able strings inside reduce().
 /*====================================================================================================================*/
 sq          = "'";
-r_ASSIGN    = sq 'E_ASSIGN'     sq;
-r_SCAN      = sq 'E_SCAN'       sq;
-r_ALT       = sq 'E_ALTERNATE'  sq;
-r_ADD       = sq 'E_ADD'        sq;
-r_SUB       = sq 'E_SUB'        sq;
-r_MUL       = sq 'E_MUL'        sq;
-r_DIV       = sq 'E_DIV'        sq;
-r_EQ        = sq 'E_EQ'         sq;
-r_NE        = sq 'E_NE'         sq;
-r_LT        = sq 'E_LT'         sq;
-r_LE        = sq 'E_LE'         sq;
-r_GT        = sq 'E_GT'         sq;
-r_GE        = sq 'E_GE'         sq;
-r_IF        = sq 'E_IF'         sq;
-r_WHILE     = sq 'E_WHILE'      sq;
-r_EVERY     = sq 'E_EVERY'      sq;
-r_RETURN    = sq 'E_RETURN'     sq;
-r_FNC       = sq 'E_FNC'        sq;
-r_SEQ_EXPR  = sq 'E_SEQ_EXPR'   sq;
+r_ASSIGN    = sq 'E_ASSIGN'     sq;   r_SCAN      = sq 'E_SCAN'       sq;
+r_ALT       = sq 'E_ALTERNATE'  sq;   r_AUGOP     = sq 'E_AUGOP'      sq;
+r_ADD       = sq 'E_ADD'        sq;   r_SUB       = sq 'E_SUB'        sq;
+r_MUL       = sq 'E_MUL'        sq;   r_DIV       = sq 'E_DIV'        sq;
+r_EQ        = sq 'E_EQ'         sq;   r_NE        = sq 'E_NE'         sq;
+r_LT        = sq 'E_LT'         sq;   r_LE        = sq 'E_LE'         sq;
+r_GT        = sq 'E_GT'         sq;   r_GE        = sq 'E_GE'         sq;
+r_IF        = sq 'E_IF'         sq;   r_WHILE     = sq 'E_WHILE'      sq;
+r_EVERY     = sq 'E_EVERY'      sq;   r_RETURN    = sq 'E_RETURN'     sq;
+r_FNC       = sq 'E_FNC'        sq;   r_SEQ_EXPR  = sq 'E_SEQ_EXPR'   sq;
+r_POW       = sq 'E_POW'        sq;   r_MNS       = sq 'E_MNS'        sq;
+r_PLS       = sq 'E_PLS'        sq;   r_CSET_COMPL= sq 'E_CSET_COMPL' sq;
+r_NONNULL   = sq 'E_NONNULL'    sq;   r_ITERATE   = sq 'E_ITERATE'    sq;
+r_SIZE      = sq 'E_SIZE'       sq;   r_RANDOM    = sq 'E_RANDOM'     sq;
 r_Parse     = sq 'Parse'        sq;
 r_nTop      = '*(GT(nTop(), 1) nTop())';
-r_AUGOP     = sq 'E_AUGOP'      sq;
-r_POW       = sq 'E_POW'        sq;
-r_MNS       = sq 'E_MNS'        sq;
-r_PLS       = sq 'E_PLS'        sq;
-r_CSET_COMPL= sq 'E_CSET_COMPL' sq;
-r_NONNULL   = sq 'E_NONNULL'    sq;
-r_ITERATE   = sq 'E_ITERATE'    sq;
-r_SIZE      = sq 'E_SIZE'       sq;
-r_RANDOM    = sq 'E_RANDOM'     sq;
-s_QLIT      = 'E_QLIT';
-s_ILIT      = 'E_ILIT';
-s_VAR       = 'E_VAR';
+s_QLIT      = 'E_QLIT';   s_ILIT      = 'E_ILIT';   s_VAR       = 'E_VAR';
 /*====================================================================================================================*/
 //  Whitespace, atom recognizers, operator-token patterns.
 /*====================================================================================================================*/
@@ -90,56 +74,29 @@ semi_opt    = (';' | epsilon);
 //  surface form matches and shifts nothing.  $'kw' form (parallel to
 //  $'op' for operators) sidesteps Snocone's reserved-word list.
 /*--------------------------------------------------------------------------------------------------------------------*/
-$'if'        = (*Gray 'if'       );
-$'then'      = (*Gray 'then'     );
-$'else'      = (*Gray 'else'     );
-$'while'     = (*Gray 'while'    );
-$'do'        = (*Gray 'do'       );
-$'every'     = (*Gray 'every'    );
-$'return'    = (*Gray 'return'   );
-$'end'       = (*Gray 'end'      );
+$'if'        = (*Gray 'if'       );  $'then'      = (*Gray 'then'     );
+$'else'      = (*Gray 'else'     );  $'while'     = (*Gray 'while'    );
+$'do'        = (*Gray 'do'       );  $'every'     = (*Gray 'every'    );
+$'return'    = (*Gray 'return'   );  $'end'       = (*Gray 'end'      );
 $'procedure' = (*Gray 'procedure');
 /*--------------------------------------------------------------------------------------------------------------------*/
 //  Operator-token patterns — beauty.sc / parser_snobol4.sc style.
 //  Each consumes optional whitespace on both sides and produces no shift.
 /*--------------------------------------------------------------------------------------------------------------------*/
-$'|'        = (*Gray '|'  *Gray);
-$':='       = (*Gray ':=' *Gray);
-$'?'        = (*Gray '?'  *Gray);
-$','        = (*Gray ','  *Gray);
-$'+'        = (*Gray '+'  *Gray);
-$'-'        = (*Gray '-'  *Gray);
-$'*'        = (*Gray '*'  *Gray);
-$'/'        = (*Gray '/'  *Gray);
-$'<='       = (*Gray '<=' *Gray);
-$'>='       = (*Gray '>=' *Gray);
-$'~='       = (*Gray '~=' *Gray);
-$'<'        = (*Gray '<'  *Gray);
-$'>'        = (*Gray '>'  *Gray);
-$'='        = (*Gray '='  *Gray);
-$';'        = (*Gray ';'  *Gray);
-$'('        = (*Gray '('  *Gray);
-$')'        = (*Gray ')'  *Gray);
-$'{'        = (*Gray '{'  *Gray);
-$'}'        = (*Gray '}'  *Gray);
-$'^'        = (*Gray '^'  *Gray);
+$'|'        = (*Gray '|'  *Gray);   $':='       = (*Gray ':=' *Gray);
+$'?'        = (*Gray '?'  *Gray);   $','        = (*Gray ','  *Gray);
+$'+'        = (*Gray '+'  *Gray);   $'-'        = (*Gray '-'  *Gray);
+$'*'        = (*Gray '*'  *Gray);   $'/'        = (*Gray '/'  *Gray);
+$'<='       = (*Gray '<=' *Gray);   $'>='       = (*Gray '>=' *Gray);
+$'~='       = (*Gray '~=' *Gray);   $'<'        = (*Gray '<'  *Gray);
+$'>'        = (*Gray '>'  *Gray);   $'='        = (*Gray '='  *Gray);
+$';'        = (*Gray ';'  *Gray);   $'^'        = (*Gray '^'  *Gray);
+$'('        = (*Gray '('  *Gray);   $')'        = (*Gray ')'  *Gray);
+$'{'        = (*Gray '{'  *Gray);   $'}'        = (*Gray '}'  *Gray);
 //  Augmented-assign tokens — literal source `op:=` with whitespace each side.
 //  Each lowers to E_AUGOP (operator discarded by --dump-ir; only arity 2 matters).
-$'+:='      = (*Gray '+:=' *Gray);
-$'-:='      = (*Gray '-:=' *Gray);
-$'*:='      = (*Gray '*:=' *Gray);
-$'/:='      = (*Gray '/:=' *Gray);
-//  Aug-op alternation token — any of the above; reduces to E_AUGOP regardless.
-$'augop'    = ($'+:=' | $'-:=' | $'*:=' | $'/:=');
-//  Unary-prefix operator tokens — leading optional whitespace only;
-//  the operand follows immediately (no enforced whitespace before operand).
-$'unary-'   = (*Gray '-' );
-$'unary+'   = (*Gray '+' );
-$'unary~'   = (*Gray '~' );
-$'unary\\'  = (*Gray '\\');
-$'unary!'   = (*Gray '!' );
-$'unary*'   = (*Gray '*' );
-$'unary?'   = (*Gray '?' );
+$'+:='      = (*Gray '+:=' *Gray);  $'-:='      = (*Gray '-:=' *Gray);
+$'*:='      = (*Gray '*:=' *Gray);  $'/:='      = (*Gray '/:=' *Gray);
 /*====================================================================================================================*/
 //  Helpers — tree-building only.  Per IC-8b: ONE function for statement
 //  decomposition (proc-frame collapse + STMT-wrap), plus the one shared
@@ -153,7 +110,7 @@ function ic_push_qlit() {
     ic_push_qlit = .dummy;
     nreturn;
 }
-$'qlit'     = (epsilon . *ic_push_qlit());
+qlit_done   = (epsilon . *ic_push_qlit());
 /*--------------------------------------------------------------------------------------------------------------------*/
 //  ic_decompose_proc — pop the procedure-frame's nTop() children from
 //  the stack, infer pname from the first child's value (the callee
@@ -181,7 +138,7 @@ function ic_decompose_proc(n_kids, kids, pname, proc, i) {
     ic_decompose_proc = .dummy;
     nreturn;
 }
-$'proc_wrap' = (epsilon . *ic_decompose_proc());
+proc_done   = (epsilon . *ic_decompose_proc());
 /*====================================================================================================================*/
 //  Expression tower — canonical names from icon-sp.ebnf.
 //
@@ -257,7 +214,7 @@ Expr11 = (   If
          |   Call
          |   Paren
          |   Compound
-         |   *Gray str_pat $'qlit'
+         |   *Gray str_pat qlit_done
          |   *Gray int_pat ~ s_ILIT
          |   *Gray id_pat  ~ s_VAR
          );
@@ -266,13 +223,13 @@ Expr11 = (   If
 //    `-` `+` `~` `\` `!` `*` `?`
 //  `*` unary (size) is unambiguous in prefix position; Expr7 `*` is infix.
 /*--------------------------------------------------------------------------------------------------------------------*/
-Expr10    = (   $'unary-'  *Expr10 (r_MNS         & 1)
-            |   $'unary+'  *Expr10 (r_PLS         & 1)
-            |   $'unary~'  *Expr10 (r_CSET_COMPL  & 1)
-            |   $'unary\\' *Expr10 (r_NONNULL     & 1)
-            |   $'unary!'  *Expr10 (r_ITERATE     & 1)
-            |   $'unary*'  *Expr10 (r_SIZE        & 1)
-            |   $'unary?'  *Expr10 (r_RANDOM      & 1)
+Expr10    = (   *Gray '-'  *Expr10 (r_MNS         & 1)
+            |   *Gray '+'  *Expr10 (r_PLS         & 1)
+            |   *Gray '~'  *Expr10 (r_CSET_COMPL  & 1)
+            |   *Gray '\\' *Expr10 (r_NONNULL     & 1)
+            |   *Gray '!'  *Expr10 (r_ITERATE     & 1)
+            |   *Gray '*'  *Expr10 (r_SIZE        & 1)
+            |   *Gray '?'  *Expr10 (r_RANDOM      & 1)
             |   *Expr11
             );
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -322,7 +279,10 @@ Expr2     = ( *Expr3 );
 /*--------------------------------------------------------------------------------------------------------------------*/
 Expr1     = ( *Expr2
               (   $':='   *Expr1 (r_ASSIGN & 2)
-              |   $'augop' *Expr1 (r_AUGOP  & 2)
+              |   $'+:='  *Expr1 (r_AUGOP  & 2)
+              |   $'-:='  *Expr1 (r_AUGOP  & 2)
+              |   $'*:='  *Expr1 (r_AUGOP  & 2)
+              |   $'/:='  *Expr1 (r_AUGOP  & 2)
               |   epsilon
               )
             );
@@ -375,7 +335,7 @@ Procbody    = ( ProcbodyEnd | StmtBody *Procbody );
 //  Proc — push frame, parse head + body (each piece shifts trees and
 //  increments the frame counter), then call ic_decompose_proc to
 //  re-wrap into (STMT :subj (E_FNC pname (E_VAR pname) <kids>)).
-Proc = ( nPush()  Prochead  Procbody  $'proc_wrap'  nPop() );
+Proc = ( nPush()  Prochead  Procbody  proc_done  nPop() );
 /*====================================================================================================================*/
 //  Compiland — single PATTERN match consumes the entire source string.
 //  Each Proc shifts ONE (STMT :subj ...) tree onto the outer frame's
