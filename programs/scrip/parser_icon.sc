@@ -321,6 +321,42 @@ function expr_while2(cond, body) {
     nreturn;
 }
 
+// IC-6: Build an E_EVERY node with 1 child (no do-clause).
+// Called from Expr11's every branch when no `do` follows.
+function expr_every1(gen) {
+    _expr_node = Tree('E_EVERY', '', 1, gen);
+    expr_every1 = .dummy;
+    nreturn;
+}
+
+// IC-6: Build an E_EVERY node with 2 children (generator + body).
+// Called from Expr11's every branch when `do body` follows.
+function expr_every2(gen, body) {
+    _expr_node = Tree('E_EVERY', '', 2, gen, body);
+    expr_every2 = .dummy;
+    nreturn;
+}
+
+// IC-6: Build an E_SCAN node — uses a private link()-stack ($'@SC') to
+// hold subject expressions across the body parse, since the body parse
+// recursively re-enters Expr1a and would clobber a single global slot
+// when the source has nested scans (`a ? b ? c`).  Same shape as the
+// invocation stack ($'@II') and alternation stack ($'@AL').
+struct ic_sclink { next, sval }
+
+function ic_scan_push(subj) {
+    $'@SC' = ic_sclink($'@SC', subj);
+    ic_scan_push = .dummy;
+    nreturn;
+}
+
+function ic_scan_finish(body) {
+    _expr_node = Tree('E_SCAN', '', 2, sval($'@SC'), body);
+    $'@SC' = next($'@SC');
+    ic_scan_finish = .dummy;
+    nreturn;
+}
+
 //-----------------------------------------------------------------------
 // Expression tower — canonical names from icon-sp.ebnf.
 //
@@ -385,6 +421,12 @@ Expr11 = ( ws_opt 'if' ws_run *Expr
               epsilon . *assign('_ic_wcond', _expr_node)
               ws_opt 'do' ws_run *Expr
               epsilon . *expr_while2(_ic_wcond, _expr_node)
+         | ws_opt 'every' ws_run *Expr
+              epsilon . *assign('_ic_evgen', _expr_node)
+              ( ws_opt 'do' ws_run *Expr
+                epsilon . *expr_every2(_ic_evgen, _expr_node)
+              | epsilon . *expr_every1(_ic_evgen)
+              )
          | id_pat . _ic_fname ws_opt '('
               epsilon . *expr_invoke_begin(_ic_fname)
               InvokeArgs
@@ -529,8 +571,26 @@ Expr1 = ( id_pat . _e1lhs_name ws_opt ':=' ws_opt
         | Expr2
         );
 
-// Expr — top of expression tower.  IC-2 has no AND, so Expr → Expr1a → Expr1.
-Expr = Expr1;
+// IC-6: Expr1a — scan (`?`).  Per icon-sp.ebnf `expr1a ← expr1 | expr1 ? expr`.
+// Sits between Expr and Expr1.  The `?` check is committed (no backtrack hazard)
+// because we parse Expr1 first (sets _expr_node), then peek for `?` — if we see
+// it we consume it and parse the body expression, then build (E_SCAN subj body).
+// Saved subject in _ic_scan_subj_top to avoid _expr_node clobbering from body parse.
+// Uses *Expr (deferred reference) since Expr is defined below this point and
+// scan bodies recurse all the way back up the tower.  _ic_scan_subj is saved
+// onto a private link()-stack ($'@SC') because nested scans (`a ? b ? c`)
+// must not clobber outer subjects — each frame has its own.
+Expr1a = ( Expr1
+           ( ws_opt '?' ws_opt
+             epsilon . *ic_scan_push(_expr_node)
+             *Expr
+             epsilon . *ic_scan_finish(_expr_node)
+           | epsilon
+           )
+         );
+
+// Expr — top of expression tower.  IC-6: Expr → Expr1a → Expr1.
+Expr = Expr1a;
 
 //-----------------------------------------------------------------------
 // Statement / procedure / program structure.
@@ -629,7 +689,7 @@ Proc = ( Prochead
 
 Compiland = nPush()
             ARBNO( nInc() ws_opt Proc ws_opt )
-            reduce("'Parse'", 'nTop()')
+            ("'Parse'" & 'nTop()')
             nPop();
 
 //-----------------------------------------------------------------------
@@ -643,30 +703,25 @@ InitCounter();
 InitStack();
 $'@II' = ;            // IC-4: invocation in-progress stack (Expr11 calls)
 $'@AL' = ;            // IC-5: alternation in-progress stack (Expr3 chains)
+$'@SC' = ;            // IC-6: scan-subject stack (Expr1a `?` nesting)
 
 Src = '';
-read_loop:
-if (~(Line = INPUT)) { goto read_done; }
-Src = Src Line nl;
-goto read_loop;
-read_done:
+while (Line = INPUT) { Src = Src Line nl; }
 
-if (~(Src ? Compiland)) { goto mainErr; }
+if (Src ? Compiland) {
+    ptree = Pop();
+    if (DIFFER(ptree)) {
+        i = 1;
+        n_kids = n(ptree);
+        while (LE(i, n_kids)) {
+            TDump(c(ptree)[i]);
+            i = i + 1;
+        }
+    } else {
+        OUTPUT = 'Parse Error';
+    }
+} else {
+    OUTPUT = 'Parse Error';
+}
 
-ptree = Pop();
-if (~DIFFER(ptree)) { goto mainErr; }
-
-i = 1;
-n_kids = n(ptree);
-emit_loop:
-if (~(LE(i, n_kids))) { goto mainEnd; }
-TDump(c(ptree)[i]);
-i = i + 1;
-goto emit_loop;
-
-mainErr:
-OUTPUT = 'Parse Error';
-goto mainEnd;
-
-mainEnd:
 _parser_ic_done = '';
