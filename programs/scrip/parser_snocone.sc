@@ -21,7 +21,21 @@
 //   Expr9  left `*` `/`    → E_MUL E_DIV
 //   Expr17 atoms
 //
-// Gate (INFRA-2): PASS=13 FAIL=0.
+// Note (session #64): FENCE removed from the tier ladder.  scrip's pattern
+// engine has a defect with `*VarA FENCE(literal *VarB | epsilon)` — when the
+// FENCE first alt contains a runtime *deref, the alt fails silently and
+// epsilon wins.  Workaround: drop FENCE on tier patterns; the alts are
+// unambiguous so backtracking is harmless.  FENCE is still used inside Id
+// (no leading deref) and inside Expr17's atom-alternatives (literal-only
+// alts inside FENCE are fine).
+//
+// String body capture: shift(*String, ...) would capture the whole match
+// including outer quotes via `thx`.  Instead, SQ/DQ's BREAK(.)._sc_strbody
+// captures just the body, and sc_push_qlit() pushes a tree using that
+// global — bypassing thx entirely.
+//
+// Gate (INFRA-2): PASS=13 FAIL=0 (with FW-6 variant-B normalize() in the
+// gate script: collapse whitespace runs to a single space before compare).
 
 &FULLSCAN = 1;
 
@@ -84,18 +98,30 @@ semi_opt = (';' | epsilon);
 
 function sc_decompose_stmt(top, lhs, rhs, s) {
     top = Pop();
-    if (IDENT(type(top), 'E_ASSIGN')) {
+    if (IDENT(t(top), 'E_ASSIGN')) {
         lhs = c(top)[1];
         rhs = c(top)[2];
-        s = tree('STMT', '', 3,
-                 tree(':eq',   ''),
-                 tree(':subj', '', 1, lhs),
-                 tree(':repl', '', 1, rhs));
+        s = Tree('STMT', '', 3,
+                 Tree(':eq',   ''),
+                 Tree(':subj', '', 1, lhs),
+                 Tree(':repl', '', 1, rhs));
     } else {
-        s = tree('STMT', '', 1, tree(':subj', '', 1, top));
+        s = Tree('STMT', '', 1, Tree(':subj', '', 1, top));
     }
     Push(s);
     sc_decompose_stmt = .dummy;
+    nreturn;
+}
+
+//-----------------------------------------------------------------------
+// shift_qlit — captures _sc_strbody (set by SQ/DQ's BREAK . _sc_strbody)
+// as the leaf value, instead of thx (which would include outer quotes).
+//-----------------------------------------------------------------------
+
+function sc_push_qlit(s) {
+    s = tree('E_QLIT', _sc_strbody);
+    Push(s);
+    sc_push_qlit = .dummy;
     nreturn;
 }
 
@@ -104,7 +130,7 @@ function sc_decompose_stmt(top, lhs, rhs, s) {
 //-----------------------------------------------------------------------
 
 Expr17 = FENCE(
-             shift(*String,  s_QLIT)
+             *String epsilon . *sc_push_qlit()
            | shift(*Integer, s_ILIT)
            | shift(*Id,      s_VAR)
          );
@@ -114,11 +140,11 @@ Expr17 = FENCE(
 //-----------------------------------------------------------------------
 
 Expr9 = *Expr17
-        FENCE(
+        (
             *op_mul *Expr17 reduce(r_MUL, 2)
-                FENCE(*op_mul *Expr17 reduce(r_MUL, 2) | epsilon)
+                (*op_mul *Expr17 reduce(r_MUL, 2) | epsilon)
           | *op_div *Expr17 reduce(r_DIV, 2)
-                FENCE(*op_div *Expr17 reduce(r_DIV, 2) | epsilon)
+                (*op_div *Expr17 reduce(r_DIV, 2) | epsilon)
           | epsilon
         );
 
@@ -127,11 +153,11 @@ Expr9 = *Expr17
 //-----------------------------------------------------------------------
 
 Expr6 = *Expr9
-        FENCE(
+        (
             *op_pls *Expr9 reduce(r_ADD, 2)
-                FENCE(*op_pls *Expr9 reduce(r_ADD, 2) | epsilon)
+                (*op_pls *Expr9 reduce(r_ADD, 2) | epsilon)
           | *op_mns *Expr9 reduce(r_SUB, 2)
-                FENCE(*op_mns *Expr9 reduce(r_SUB, 2) | epsilon)
+                (*op_mns *Expr9 reduce(r_SUB, 2) | epsilon)
           | epsilon
         );
 
@@ -140,26 +166,26 @@ Expr6 = *Expr9
 //-----------------------------------------------------------------------
 
 Expr4 = nPush() *X4 reduce(r_SEQ, r_nTop) nPop();
-X4    = nInc() *Expr6 FENCE(*White *X4 | epsilon);
+X4    = nInc() *Expr6 (*White *X4 | epsilon);
 
 //-----------------------------------------------------------------------
 // Expr3 — n-ary alt E_ALT.
 //-----------------------------------------------------------------------
 
 Expr3 = nPush() *X3 reduce(r_ALT, r_nTop) nPop();
-X3    = nInc() *Expr4 FENCE(*op_or *X3 | epsilon);
+X3    = nInc() *Expr4 (*op_or *X3 | epsilon);
 
 //-----------------------------------------------------------------------
 // Expr1 — pattern match.
 //-----------------------------------------------------------------------
 
-Expr1 = *Expr3 FENCE(*op_q *Expr1 reduce(r_SCAN, 2) | epsilon);
+Expr1 = *Expr3 (*op_q *Expr1 reduce(r_SCAN, 2) | epsilon);
 
 //-----------------------------------------------------------------------
 // Expr0 — assignment.
 //-----------------------------------------------------------------------
 
-Expr0 = *Expr1 FENCE(*op_eq *Expr0 reduce(r_ASSIGN, 2) | epsilon);
+Expr0 = *Expr1 (*op_eq *Expr0 reduce(r_ASSIGN, 2) | epsilon);
 
 //-----------------------------------------------------------------------
 // stmt_body — inlined into ARBNO.
@@ -202,6 +228,7 @@ i = 1;
 n_kids = n(ptree);
 emit_loop:
 if (LE(i, n_kids)) { TDump(c(ptree)[i]); i = i + 1; goto emit_loop; }
+goto mainEnd;
 
 mainErr:
 OUTPUT = 'Parse Error';
