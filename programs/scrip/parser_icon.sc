@@ -169,6 +169,85 @@ function expr_return1(val) {
     nreturn;
 }
 
+// IC-5: Alternation construction.  Like invocation, alternation can
+// nest — e.g. `(1|2) + (3|4)` enters two separate E_ALTERNATE builds —
+// so we use a dedicated stack `$'@AL'` (struct ic_alink), parallel to
+// the invocation stack `$'@II'`.  Each Expr3 occurrence pushes a
+// "build context" onto this stack at first '|' encounter; subsequent
+// '|'s within the same Expr3 append to the top-of-stack node; the
+// closing of the Expr3 pops the stack and installs as _expr_node.
+
+struct ic_alink { next, aval }
+
+function ic_alt_push(node) {
+    $'@AL' = ic_alink($'@AL', node);
+    ic_alt_push = .dummy;
+    nreturn;
+}
+
+function ic_alt_top() {
+    if (~DIFFER($'@AL')) { freturn; }
+    ic_alt_top = aval($'@AL');
+    return;
+}
+
+function ic_alt_replace_top(node) {
+    if (~DIFFER($'@AL')) { freturn; }
+    aval($'@AL') = node;
+    ic_alt_replace_top = .dummy;
+    nreturn;
+}
+
+function ic_alt_pop() {
+    if (~DIFFER($'@AL')) { freturn; }
+    ic_alt_pop = aval($'@AL');
+    $'@AL' = next($'@AL');
+    return;
+}
+
+// IC-5: Combined begin-or-append helper.  At the FIRST '|' in an
+// Expr3 chain, _e3built is empty → begin (push fresh E_ALTERNATE).
+// At later '|'s in the same chain, _e3built is '1' → append onto
+// top-of-stack.  Caller passes the saved LHS (relevant only on first
+// call) and the just-parsed RHS in _expr_node.
+function expr_alt_step(lhs) {
+    expr_alt_step = .dummy;
+    if (DIFFER(_e3built)) {
+        // Already building — append RHS (current _expr_node).
+        ic_alt_replace_top(Append(ic_alt_top(), _expr_node));
+        nreturn;
+    }
+    // First '|' — push (E_ALTERNATE lhs rhs) onto alt-stack.
+    ic_alt_push(Tree('E_ALTERNATE', '', 2, lhs, _expr_node));
+    _e3built = '1';
+    nreturn;
+}
+
+// IC-5: At end of Expr3, if anything was pushed, pop and install as
+// _expr_node; otherwise leave _expr_node alone (no alternation).
+// Always restores _e3built to its caller's value via the saved
+// _e3built_saved variable — see Expr3's enter/leave bookkeeping.
+function expr_alt_finish() {
+    expr_alt_finish = .dummy;
+    if (DIFFER(_e3built)) {
+        _expr_node = ic_alt_pop();
+    }
+    _e3built = _e3built_saved;
+    nreturn;
+}
+
+// IC-5: Save caller's _e3built (alt-build flag) to _e3built_saved
+// before entering a new Expr3 frame — restored by expr_alt_finish().
+// The save/restore lets nested Expr3 calls (inside *Expr inside
+// Expr11 control-flow forms) coexist with an outer alternation
+// without confusing each other's "did I see a |?" flags.
+function expr_alt_enter() {
+    _e3built_saved = _e3built;
+    _e3built = '';
+    expr_alt_enter = .dummy;
+    nreturn;
+}
+
 // Reset the per-procedure accumulator to (E_FNC <name> (E_VAR <name>)).
 // Called from Prochead.  IC-4 generalized: arbitrary procedure name
 // (was hardcoded to 'main' in IC-2/IC-3).  Parameters are appended
@@ -385,10 +464,39 @@ Expr4tail = ( epsilon . *assign('_e4lhs', _expr_node)
 
 Expr4 = ( Expr6 ARBNO(Expr4tail) );
 
-// Expr2 — generation (`to`/`by`).  IC-3 has no `to`/`by` yet, so
-// Expr2 collapses to Expr4 (which in turn handles comparisons and
-// falls through to Expr6 → Expr7 → Expr11).
-Expr2 = Expr4;
+// IC-5: Expr3 — alternation `e1 | e2 | e3 | ...`.  Per the canonical
+// grammar `expr3 ← expr4 | expr4 BAR expr3` (right-recursive).  The
+// existing frontend flattens nested alternations into a single
+// (E_ALTERNATE a b c d) node — so PAT-IC must do the same, not
+// produce nested (E_ALTERNATE a (E_ALTERNATE b ...)) trees.
+//
+// LL(1) shape: parse one Expr4, then ARBNO('|' Expr4).  Each '|' iter
+// fires *expr_alt_step(savedLHS): on first '|' it pushes a fresh
+// (E_ALTERNATE LHS RHS) onto the alt-stack and flips _e3built; on
+// subsequent '|'s it appends onto top-of-stack.
+//
+// `expr_alt_enter` runs once at Expr3 entry, saves the caller's
+// _e3built (which may be '1' if an outer Expr3 is in progress) and
+// resets ours to ''.  `expr_alt_finish` runs once at Expr3 exit,
+// pops the alt-stack if we pushed (installing the E_ALTERNATE as
+// _expr_node), and restores caller's _e3built.
+
+Expr3tail = ( ws_opt '|' ws_opt
+              epsilon . *assign('_e3lhs_saved', _expr_node)
+              Expr4
+              epsilon . *expr_alt_step(_e3lhs_saved)
+            );
+
+Expr3 = ( epsilon . *expr_alt_enter()
+          Expr4
+          ARBNO(Expr3tail)
+          epsilon . *expr_alt_finish()
+        );
+
+// Expr2 — generation (`to`/`by`).  IC-5: still no `to`/`by`, so
+// Expr2 collapses to Expr3 (which in turn handles alternation and
+// falls through to Expr4 → Expr6 → Expr7 → Expr11).
+Expr2 = Expr3;
 
 // Expr1 — assignment.  Right-associative per the canonical grammar.
 // IC-3 only handles `:=` (ASSIGN), not the augmented forms.
@@ -534,6 +642,7 @@ Compiland = nPush()
 InitCounter();
 InitStack();
 $'@II' = ;            // IC-4: invocation in-progress stack (Expr11 calls)
+$'@AL' = ;            // IC-5: alternation in-progress stack (Expr3 chains)
 
 Src = '';
 read_loop:
