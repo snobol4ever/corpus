@@ -1,4 +1,4 @@
-// parser_prolog.sc — PARSER-PR: Prolog frontend in Snocone (rung PR-3).
+// parser_prolog.sc — PARSER-PR: Prolog frontend in Snocone (rung PR-5).
 //
 // Reads the entire Prolog source, runs ONE Compiland PATTERN against it,
 // and emits one IR tree per clause via TDump.  Output is byte-equal
@@ -21,12 +21,19 @@
 // Naming policy (per .github/RULES.md):
 //   tk_*       — tokens, mirror src/frontend/prolog/prolog_lex.h TK_*
 //   ir tags    — mirror src/frontend/prolog/prolog_lower.c::expr_dump
-//                  E_CHOICE, E_CLAUSE, E_VAR, E_ILIT, E_FNC, ...
+//                  E_CHOICE, E_CLAUSE, E_VAR, E_ILIT, E_FNC, E_UNIFY,
+//                  E_ADD, E_SUB, E_MUL, E_DIV.
 //   spine      — Compiland, shift, reduce, nPush/nInc/nTop/nPop are the
 //                only invented (cross-PARSER) names.
 //
-// Rung PR-3: facts AND rules with conjunction (`,`) / disjunction (`;`)
-// in the body.  See GOAL-PARSER-PROLOG.md for the IR shape table.
+// Rungs landed:
+//   PR-0..PR-2  — atoms, facts, rules with single-goal body.
+//   PR-3        — body conjunction (`,`) / disjunction (`;`).
+//   PR-4        — Prolog lists (`[H|T]`, `[a,b,c]`, nested).
+//   PR-5        — arithmetic (+ - * /), `is`, unification (`=`), parens.
+//                 Negative integer literals (-N folded into E_ILIT).
+//                 Nested compound args come along for free (primary
+//                 absorbs both arg and simple_goal).
 
 //-----------------------------------------------------------------------
 // Type-name strings.  shift() takes BARE name; reduce() takes QUOTED
@@ -37,6 +44,11 @@ sq       = "'";
 s_FNC    = 'E_FNC';
 s_ILIT   = 'E_ILIT';
 r_Parse  = sq 'Parse'   sq;
+r_UNIFY  = sq 'E_UNIFY' sq;
+r_ADD    = sq 'E_ADD'   sq;
+r_SUB    = sq 'E_SUB'   sq;
+r_MUL    = sq 'E_MUL'   sq;
+r_DIV    = sq 'E_DIV'   sq;
 r_nTop   = 'nTop()';
 
 //-----------------------------------------------------------------------
@@ -77,6 +89,16 @@ tk_lbracket = '[';
 tk_rbracket = ']';
 tk_pipe     = '|';
 tk_neck     = ':-';
+
+// Arithmetic / unify operator tokens.  Surrounding whitespace is optional
+// for symbolic ops; required around the alphabetic `is` so it's a word
+// boundary (not a prefix of `isnumber`/`isfoo`).
+op_eq     = (ws_opt '=' ws_opt);
+op_pls    = (ws_opt '+' ws_opt);
+op_mns    = (ws_opt '-' ws_opt);
+op_mul    = (ws_opt '*' ws_opt);
+op_div    = (ws_opt '/' ws_opt);
+op_is     = (ws_run 'is' ws_run);
 
 //-----------------------------------------------------------------------
 // Comment skipper.  Prolog `%` to end-of-line.  Pattern, not function.
@@ -135,6 +157,29 @@ function push_atom_body(body) {
 function push_nil() {
     Push(tree('E_FNC', '[]'));
     push_nil = .dummy;
+    nreturn;
+}
+
+// push_neg_int — push (E_ILIT -<digits>) for unary-minus on an integer
+// literal.  Matches prolog_lower.c which folds a leading `-` directly
+// into the integer literal value rather than emitting a 1-arg E_FNC `-`.
+function push_neg_int(digits) {
+    Push(tree('E_ILIT', '-' digits));
+    push_neg_int = .dummy;
+    nreturn;
+}
+
+// reduce_is — pop two trees and build (E_FNC is L R).  `is` lowers
+// to a named-functor compound (value = "is"), so Reduce() can't do it
+// directly (Reduce forces empty value).  Two children, fixed.
+function reduce_is(rhs, lhs, fnc_node) {
+    rhs = Pop();
+    lhs = Pop();
+    fnc_node = Tree('E_FNC', 'is', 0);
+    Append(fnc_node, lhs);
+    Append(fnc_node, rhs);
+    Push(fnc_node);
+    reduce_is = .dummy;
     nreturn;
 }
 
@@ -290,40 +335,50 @@ function build_clause(key, parts, i, body_tree, clause_node, bk, bn) {
 
 //-----------------------------------------------------------------------
 // Grammar — pure patterns.  No parsing functions.  Leaves use shift().
-// N-ary reductions count via nPush/nInc/nTop/nPop.  Named-value parents
-// use *reduce_compound/conj/disj as the only non-shift semantic actions.
+// Kind-only n-ary parents use reduce() (OPSYN-bound `&`).  Named-value
+// parents use *reduce_compound / *reduce_is / *reduce_conj / *reduce_disj
+// / *reduce_list — Reduce() forces empty value, so named functors need
+// a tree-builder helper.
+//
+// Expression ladder (tightest first):
+//   primary      atoms, vars, ints, parens, lists, compound calls
+//   mul_expr     left-assoc * /
+//   add_expr     left-assoc + -
+//   is_expr      X is Expr  → (E_FNC is L R)        [single optional]
+//   unify_expr   X = Expr   → (E_UNIFY L R)         [single optional]
+//
+// arg = unify_expr (top of expression ladder; same expr is used in
+// compound args, list elements, and body-goal positions).  Body-level
+// conj `,` and disj `;` are looser than the entire expression ladder
+// and are matched at the body / conj / disj layers above.
+//
+// FW-3 trigger is `ARBNO(*Q)` — deferred reference as immediate ARBNO
+// body.  Every Q used inside ARBNO below is a literal name reference
+// (substituted at pattern-build time), so deferred calls inside Q fire
+// normally.  list_elem stays as a literal alternation copy of primary's
+// non-recursive forms because `list` is forward-referenced from primary
+// via *list (mutual recursion).
 //-----------------------------------------------------------------------
 
-// arg — one argument in a compound term.  Includes lists via mutual
-// recursion (*list).  list itself uses *arg for its elements; the
-// recursion is bounded by the bracket structure.
-arg = (
-        shift(tk_int, s_ILIT)
-      | shift(tk_atom, s_FNC)
-      | tk_qatom  . *push_atom_body(_qatom_body)
-      | tk_string . *push_atom_body(_str_body)
-      | tk_var . _arg_text . *push_var(_arg_text)
-      | *list
-      );
+// args — comma-separated arg list at the call/list-element level.
+// Each arg is a full expression (unify_expr — top of ladder).
+// Forward reference via *unify_expr — definition is below.
+//
+// Uses TAIL-RECURSION (args_tail) instead of ARBNO because the ARBNO
+// body would need to contain *unify_expr (a deferred forward reference);
+// `*Q` deferred refs inside ARBNO trigger FW-3 (deferred actions inside
+// Q get suppressed, so multi-arg compounds silently produce empty
+// output).  Tail-recursion via *args_tail is the parser_snocone-style
+// pattern that the FW-3 doc shows works correctly (see Expr1 / Expr0).
+args      = ( nInc() *unify_expr (*args_tail | epsilon) );
+args_tail = ( ws_opt tk_comma ws_opt nInc() *unify_expr (*args_tail | epsilon) );
 
-// list — Prolog list syntax.
-//   []                       → (E_FNC [])
-//   [e1, e2, ..., eN]        → right-spined cons with `.` functor and
-//                              terminal (E_FNC []).
-//   [e1, ..., eN | tail]    → same right-spine, terminal replaced by `tail`.
-//
-// Element-counting via nPush/nInc/nTop/nPop.  Tail tree is always pushed
-// onto the stack (nil if no `|`), then reduce_list folds N elements
-// into the right-spine using the popped tail as the seed.
-//
-// FW-3 dodge: scrip-Snocone has a runtime bug where *Q indirection
-// inside ARBNO suppresses deferred calls inside Q.  arg has *list
-// (mutual recursion) and *push_* actions inside it; if we wrote
-// `ARBNO( ..., *arg )` directly, those would be suppressed.
-// Workaround: define list_elem as a literal alternation copy of arg's
-// body (substituted at pattern-build time, no `*Q` indirection).
-// list_elem references *list deferred, but list itself is a top-level
-// pattern (not invoked via *Q in ARBNO) so its deferreds fire.
+// list_elem — non-recursive primary alternatives + *list.  Used as the
+// element pattern inside list brackets.  Mirrors the same atomic forms
+// available in primary, expanded literally so that `list` doesn't have
+// to reference primary by name (which would be a forward reference back
+// to a thing that contains *list — works, but explicit copy keeps the
+// FW-3 picture simple).
 list_elem = (
         shift(tk_int, s_ILIT)
       | shift(tk_atom, s_FNC)
@@ -333,6 +388,11 @@ list_elem = (
       | *list
       );
 
+// list — Prolog list syntax.
+//   []                       → (E_FNC [])
+//   [e1, e2, ..., eN]        → right-spined cons with `.` functor and
+//                              terminal (E_FNC []).
+//   [e1, ..., eN | tail]    → same right-spine, terminal replaced by `tail`.
 list = (
         tk_lbracket ws_opt
         ( tk_rbracket . *push_nil()
@@ -348,23 +408,81 @@ list = (
         )
       );
 
-// args — comma-separated arg list, n-ary counted.
-args = ( nInc() arg ARBNO( ws_opt tk_comma ws_opt nInc() arg ) );
-
-// simple_goal — bare atom (E_FNC name) leaf, OR compound (E_FNC name a1..aN).
-simple_goal = (
-        tk_atom . _goal_name ws_opt tk_lparen
+// primary — bottom of the expression ladder.  Order of alternatives:
+//   1. Compound call `name(args)` — must precede bare-atom alt so the
+//      `(` is consumed as part of the compound.
+//   2. tk_int / tk_atom / tk_qatom / tk_string / tk_var leaves.
+//   3. Parenthesized expression `( unify_expr )` — full ladder reset.
+//   4. List (mutual recursion via *list).
+//   5. Negative integer literal `-<digits>` — FALLBACK so binary `-`
+//      between two primaries is preferred over folding `-N` into RHS.
+primary = (
+        tk_atom . _p_name ws_opt tk_lparen
             nPush() ws_opt args ws_opt tk_rparen
-            . *reduce_compound(_goal_name)
+            . *reduce_compound(_p_name)
             nPop()
+      | shift(tk_int, s_ILIT)
       | shift(tk_atom, s_FNC)
+      | tk_qatom  . *push_atom_body(_qatom_body)
+      | tk_string . *push_atom_body(_str_body)
+      | tk_var . _p_text . *push_var(_p_text)
+      | tk_lparen ws_opt *unify_expr ws_opt tk_rparen
+      | *list
+      | '-' tk_int . _p_negi . *push_neg_int(_p_negi)
       );
 
-// conj — N>=1 simple_goals joined by `,`.
+// mul_expr — left-assoc */.  Each operator iteration reduces the top
+// two stack trees into (E_MUL ...) or (E_DIV ...) immediately, so the
+// stack ends with the final left-associative result.  Uses the OPSYN-
+// bound reduce() for kind-only 2-ary nodes.
+mul_expr = (
+        primary
+        ARBNO(
+            ( op_mul primary reduce(r_MUL, 2)
+            | op_div primary reduce(r_DIV, 2)
+            )
+        )
+      );
+
+// add_expr — left-assoc +-.  Same shape as mul_expr.
+add_expr = (
+        mul_expr
+        ARBNO(
+            ( op_pls mul_expr reduce(r_ADD, 2)
+            | op_mns mul_expr reduce(r_SUB, 2)
+            )
+        )
+      );
+
+// is_expr — `X is Expr` is non-associative; one optional `is` clause.
+// `is` lowers to a NAMED-FUNCTOR compound (E_FNC is L R), so we use
+// *reduce_is (Reduce() forces empty value).
+is_expr = (
+        add_expr
+        ( op_is add_expr . *reduce_is()
+        | epsilon
+        )
+      );
+
+// unify_expr — `X = Expr` is non-associative; one optional `=` clause.
+// Builds kind-only (E_UNIFY L R) via the canonical reduce(r_UNIFY, 2).
+unify_expr = (
+        is_expr
+        ( op_eq is_expr reduce(r_UNIFY, 2)
+        | epsilon
+        )
+      );
+
+// body_goal — one element of a body conjunction.  Body goals are
+// expressions at unify precedence (= is body-level), so body_goal
+// IS unify_expr.
+body_goal = unify_expr;
+
+// conj — N>=1 body_goals joined by `,`.
 conj = (
         nPush()
-            nInc() simple_goal
-            ARBNO( ws_opt tk_comma ws_opt nInc() simple_goal )
+            nInc() body_goal
+            ARBNO( ws_opt tk_comma ws_opt nInc() body_goal )
             . *reduce_conj()
         nPop()
       );
