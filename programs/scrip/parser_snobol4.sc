@@ -59,6 +59,52 @@ ws_opt  = (SPAN(' ' tab) | epsilon);
 // reference local variables.  Returns a Snocone tree node or FRETURNs.
 //-----------------------------------------------------------------------
 
+// _call_args(fname) — parse the args of a function call.  Caller has
+// already matched `Id '('` at POS(_ep).  We parse a comma-separated
+// list of Expr arguments (zero or more), consume the closing `)`, and
+// return an E_FNC tree with v=fname and one child per arg.  On failure
+// (unbalanced parens, malformed arg) FRETURNs and leaves _ep unspecified
+// — caller's saved ep0 is the only safe recovery point.
+//
+// Empty arg list (`F()`) → 0-child tree.  Arg trees are accumulated in
+// arr[1..count] and folded with Tree(...) (positional, up to 8) plus
+// Append for the overflow tail.  (PARSER-SN-6)
+function _call_args(fname, count, arr, arg, i, t) {
+    count = 0;
+    arr = ARRAY(16);
+    _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
+    // Empty arg list — close immediately.
+    if (_src ? (POS(_ep) ')' @_ep)) { goto build; }
+arg_loop:
+    arg = Expr(_src);
+    if (~DIFFER(arg)) { freturn; }
+    count = count + 1;
+    arr[count] = arg;
+    _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
+    if (_src ? (POS(_ep) ',' @_ep)) {
+        _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
+        goto arg_loop;
+    }
+    if (~(_src ? (POS(_ep) ')' @_ep))) { freturn; }
+build:
+    if (IDENT(count, 0)) { _call_args = tree('E_FNC', fname); return; }
+    if (IDENT(count, 1)) { _call_args = Tree('E_FNC', fname, 1, arr[1]); return; }
+    if (IDENT(count, 2)) { _call_args = Tree('E_FNC', fname, 2, arr[1], arr[2]); return; }
+    if (IDENT(count, 3)) { _call_args = Tree('E_FNC', fname, 3, arr[1], arr[2], arr[3]); return; }
+    if (IDENT(count, 4)) { _call_args = Tree('E_FNC', fname, 4, arr[1], arr[2], arr[3], arr[4]); return; }
+    if (IDENT(count, 5)) { _call_args = Tree('E_FNC', fname, 5, arr[1], arr[2], arr[3], arr[4], arr[5]); return; }
+    if (IDENT(count, 6)) { _call_args = Tree('E_FNC', fname, 6, arr[1], arr[2], arr[3], arr[4], arr[5], arr[6]); return; }
+    if (IDENT(count, 7)) { _call_args = Tree('E_FNC', fname, 7, arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7]); return; }
+    // 8 or more — fold the first 7 into a Tree, Append the rest.
+    t = Tree('E_FNC', fname, 7, arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7]);
+    i = 8;
+extend:
+    if (~(LE(i, count))) { _call_args = t; return; }
+    Append(t, arr[i]);
+    i = i + 1;
+    goto extend;
+}
+
 // _pat_prim_call(name, kind) — recognize a single pattern primitive call.
 // Tries to match: NAME '(' expr ')' at POS(_ep). On success returns a
 // 1-child tree of the given IR `kind` wrapping the parsed argument
@@ -66,7 +112,9 @@ ws_opt  = (SPAN(' ' tab) | epsilon);
 // without disturbing _ep (caller's saved ep0 is the recovery point).
 //
 // Used by Expr17 to recognize the SNOBOL4 pattern primitives LEN, BREAK,
-// SPAN, ANY, NOTANY (PARSER-SN-5).
+// SPAN, ANY, NOTANY (PARSER-SN-5).  These get distinct E_LEN / E_BREAK /
+// E_SPAN / E_ANY / E_NOTANY type tags rather than the generic E_FNC,
+// matching the oracle's --dump-parse output exactly.
 function _pat_prim_call(name, kind, ep0, arg) {
     ep0 = _ep;
     if (~(_src ? (POS(_ep) name '(' @_ep))) { _ep = ep0; freturn; }
@@ -79,8 +127,8 @@ function _pat_prim_call(name, kind, ep0, arg) {
 }
 
 // Expr17 — atoms: parenthesized subexpr, pattern primitive call,
-// integer literal, string, identifier.
-function Expr17(dummy, v, sub) {
+// generic function call, integer literal, string, identifier.
+function Expr17(dummy, v, sub, ep0) {
     // Parenthesized subexpr.
     if (_src ? (POS(_ep) '(' @_ep)) {
         _src ? (POS(_ep) (SPAN(' ' tab) | epsilon) @_ep);
@@ -91,11 +139,9 @@ function Expr17(dummy, v, sub) {
         return;
     }
     // Pattern primitive calls (PARSER-SN-5). Try LEN / BREAK / SPAN /
-    // ANY / NOTANY before the bare identifier alternative — otherwise
-    // `LEN` would match as `E_VAR LEN` and the `(3)` would be left
-    // unconsumed. Each name must be followed immediately by `(`; if
-    // the lookahead fails, _pat_prim_call resets _ep and FRETURNs so
-    // we fall through cleanly. NOTANY before ANY (longer match wins).
+    // ANY / NOTANY before the generic-call alternative — these get
+    // distinct E_LEN / E_BREAK / etc. type tags rather than generic
+    // E_FNC.  NOTANY before ANY (longer match wins).
     sub = _pat_prim_call('LEN',    'E_LEN');
     if (DIFFER(sub)) { Expr17 = sub; return; }
     sub = _pat_prim_call('BREAK',  'E_BREAK');
@@ -116,8 +162,19 @@ function Expr17(dummy, v, sub) {
         Expr17 = tree('E_QLIT', _strbody);
         return;
     }
-    // Identifier.
+    // Identifier — may be followed by `(args)` to form a generic
+    // function call.  The `(` MUST be immediately adjacent (no
+    // whitespace) — `F (X)` parses as concat `F` then `(X)`, not as
+    // a call.  This matches CSNOBOL4 / SPITBOL convention and the
+    // oracle's --dump-parse behaviour.  (PARSER-SN-6)
+    ep0 = _ep;
     if (_src ? (POS(_ep) Id . v @_ep)) {
+        if (_src ? (POS(_ep) '(' @_ep)) {
+            sub = _call_args(v);
+            if (~DIFFER(sub)) { _ep = ep0; freturn; }
+            Expr17 = sub;
+            return;
+        }
         Expr17 = tree('E_VAR', v);
         return;
     }
