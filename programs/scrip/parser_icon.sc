@@ -32,7 +32,8 @@ E_LIMIT     = "'E_LIMIT'";    E_LCONCAT   = "'E_LCONCAT'";
 E_CAT       = "'E_CAT'";      E_MAKELIST  = "'E_MAKELIST'";
 E_IDX       = "'E_IDX'";      E_SECTION   = "'E_SECTION'";
 E_FIELD     = "'E_FIELD'";    E_LOOP_BREAK= "'E_LOOP_BREAK'";
-E_LOOP_NEXT = "'E_LOOP_NEXT'";
+E_LOOP_NEXT = "'E_LOOP_NEXT'"; E_CSET      = "'E_CSET'";
+E_CASE      = "'E_CASE'";
 E_REVASSIGN = "'E_REVASSIGN'"; E_SWAP      = "'E_SWAP'";
 E_REVSWAP   = "'E_REVSWAP'";   E_IDENTICAL = "'E_IDENTICAL'";
 E_NOT       = "'E_NOT'";
@@ -44,6 +45,7 @@ White        = (  SPAN(' ' tab) FENCE('#' BREAK(nl) | epsilon)
                |  '#' BREAK(nl)
                );
 Gray         = White | epsilon;
+DGray        = (SPAN(' ' tab nl) FENCE('#' BREAK(nl) | epsilon) | '#' BREAK(nl) | epsilon);
 $' '         = Gray;
 $'  '        = White;
 nl_one       = ANY(nl);
@@ -55,6 +57,8 @@ id_pat       = (id_first (id_rest | epsilon));
 int_pat      = SPAN(digits);
 // String: capture inner body (without quotes) via dot-capture + push_qlit.
 str_pat      = ('"' BREAK('"') . strbody '"');
+// Cset: single-quoted, capture inner body via dot-capture + push_cset.
+cset_pat     = ("'" BREAK("'") . csetbody "'");
 semi_opt     = (';' | epsilon);
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Keyword tokens — leading optional whitespace only.
@@ -64,9 +68,9 @@ $'do'        = $' ' 'do'       ;  $'every'     = $' ' 'every'    ;
 $'return'    = $' ' 'return'   ;  $'end'       = $' ' 'end'      ;
 $'procedure' = $' ' 'procedure';  $'until'     = $' ' 'until'    ;
 $'repeat'    = $' ' 'repeat'   ;  $'break'     = $' ' 'break'    ;
-$'next'      = $' ' 'next'     ;
+$'next'      = $' ' 'next'     ;  $'case'      = $' ' 'case'     ;
+$'of'        = $' ' 'of'       ;  $'default'   = $' ' 'default'  ;
 $'to'        = $' ' 'to'       ;  $'by'        = $' ' 'by'       ;
-$'default'   = $' ' 'default'  ;
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Operator tokens — optional whitespace both sides.  Open brackets: ws after only.  Close: ws before only.
 // Operator tokens — optional whitespace both sides.  Open brackets: ws after only.  Close: ws before only.
@@ -112,6 +116,14 @@ function push_qlit() {
     nreturn;
 }
 Push_qlit = (epsilon . *push_qlit());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// push_cset — shift (E_CSET body) using dot-captured csetbody.
+function push_cset() {
+    Push(tree('E_CSET', csetbody));
+    push_cset = .dummy;
+    nreturn;
+}
+Push_cset = (epsilon . *push_cset());
 /*--------------------------------------------------------------------------------------------------------------------*/
 // push_field — shift (E_FIELD fieldname lhs) consuming lhs from stack.
 function push_field(fname, lhs) {
@@ -244,12 +256,28 @@ Expr11tail  = ( $'[' $' ' *Expr $' '
               | FieldTail
               );
 /*--------------------------------------------------------------------------------------------------------------------*/
-Expr11 = (   If  |  Until  |  While  |  Every  |  Repeat
+/*--------------------------------------------------------------------------------------------------------------------*/
+// Case expression: case E of { [val : result ;]* [default : result ;]? }
+// Tree: (E_CASE dispatch v1 r1 v2 r2 ... [default_result])
+// Pairs are flat children; default result appended last without a value label.
+CaseClause   = ( *DGray *Expr *DGray $':' *Expr *DGray semi_opt nInc() nInc() );
+CaseDefault  = ( *DGray $'default' *DGray $':' *Expr *DGray semi_opt nInc() );
+Case         = ( nPush()
+                 $'case' $'  ' *Expr  nInc()
+                 $'of' *DGray '{' *DGray
+                 ARBNO( FENCE(CaseDefault | CaseClause) )
+                 *DGray '}'
+                 (E_CASE & 'nTop()')
+                 nPop()
+               );
+/*--------------------------------------------------------------------------------------------------------------------*/
+Expr11 = (   If  |  Until  |  While  |  Every  |  Repeat  |  Case
          |   $'break' $' '  (E_LOOP_BREAK & 0)
          |   $'next'  $' '  (E_LOOP_NEXT  & 0)
          |   ListCtor
          |   Call  |  Paren  |  Compound
-         |   $' ' str_pat Push_qlit
+         |   $' ' cset_pat Push_cset
+         |   $' ' str_pat  Push_qlit
          |   $' ' int_pat ~ 'E_ILIT'
          |   $' ' id_pat  ~ 'E_VAR'
          );

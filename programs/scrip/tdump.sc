@@ -38,7 +38,7 @@ function TValue(x, i) {
     // embedded quotes, and \n/\r/\t are escaped to match the oracle's
     // src/ir/ir_print.c::print_escaped output byte-for-byte.
     if (TValue = IDENT(t(x), 'E_QLIT')     '(' t(x) ' "' CQize(v(x)) '")')      { return; }
-    if (TValue = IDENT(v(x)) ".") { return; }
+    if (TValue = IDENT(t(x), 'E_CSET')     '(' t(x) ' "' CQize(v(x)) '")')      { return; }
     if (TValue = IDENT(t(x), 'Name')       v(x))                   { return; }
     if (TValue = IDENT(t(x), 'float')      v(x))                   { return; }
     if (TValue = IDENT(t(x), 'integer')    v(x))                   { return; }
