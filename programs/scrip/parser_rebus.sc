@@ -5,7 +5,18 @@
 //
 // Naming: non-terminals from Rebus grammar; IR tags from ir.h E_*;
 // whitespace: $'  ' = required, $' ' = optional (beauty.sno convention).
-// Rung RB-1: atoms, assignment, functions, records.  Gate: PASS=18 FAIL=20.
+// Rungs RB-0..RB-5 LANDED.  Gate: PASS=38 FAIL=0.
+//
+// Documented deviations from Style Guidelines (## Style Guidelines for
+// parser_*.sc, GOAL-PARSER-REBUS.md):
+//
+//   G3 — Snocone runtime does not yet parse infix ~/& binary operators
+//        (T_2TILDE/T_2AMP declared but no grammar productions); using
+//        function-call forms shift()/reduce() instead.  See
+//        GOAL-PARSER-REBUS.md session #3 watermark Issue 3.
+//   G10 — Driver locals use UpperCamel `Src`/`Line` per beauty.sc
+//        convention (lines 547-557) rather than lowerCamel.  Held
+//        pending cross-PARSER convention decision.
 &FULLSCAN = 1;
 
 /*====================================================================================================================*/
