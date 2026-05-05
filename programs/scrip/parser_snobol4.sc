@@ -1,50 +1,27 @@
 // parser_snobol4.sc — PARSER-SN: SNOBOL4 pattern-based frontend in Snocone.
 //
-// PATTERN block: structure verbatim from beauty.sno EXCEPT for the four
-// arith/exp Expr-tier rules (Expr6, Expr8, Expr9, Expr11) which are rewritten
-// from beauty.sno's right-recursive form to iterative left-recursive form
-// (Expr_n = *Expr_n+1 ARBNO(Expr_n_tail)) using foldop() — a flatten-or-binary
-// reducer that mirrors the C frontend's expr_binary_flatten() semantics.
-// Same-tag chains produce flat n-ary at parse time (E_ADD a b c d); mixed-op
-// chains produce left-binary (E_SUB (E_ADD a b) c).  reduce/shift tags emit
-// canonical IR (E_*) directly — no rewrite layer.  String leaves use
-// a Push_qlit worker to push (E_QLIT body) with bare inner text (quotes
-// stripped at match time).
-//
-// Helper functions: pp_stmt (role-slot assembly for the 7-slot Stmt) +
-// rw_expr (paren-strip, ExprList unwrap, Call lookup-and-rebuild, left-
-// rotate right-recursive CAPT binary chains).  No tag renaming, no flatten —
-// both done at parse time.
+// PATTERN block: verbatim from beauty.sno (zero characters changed).
+// Helper functions: Rewrite_expr (tag rename) + Rewrite_stmt (role-slot
+// assembly) convert beauty.sno's native 7-slot Stmt tree to --dump-parse
+// IR shape.  No changes to any PATTERN line.
 //
 // Tree shape produced per --dump-parse oracle:
 //   (STMT [:lbl L] [:eq] [:subj E] [:pat P] [:repl R] [:goS/:goF/:goU G])
 // beauty.sno's 7-slot (Stmt label subj pat asgn repl go1 go2) is the
-// parse tree; pp_stmt maps it to the role-slot form.
+// parse tree; Rewrite_stmt maps it to the role-slot form.
 //
 // Rungs: SN-0..SN-6 PASS=58; SN-7-1 IR-tag + role-slot rewrite.
-// Iter#7: rw_tag layer removed — grammar emits E_* tags directly.
-// Iter#10: arith Expr-tier grammar made iterative left-recursive; rw_expr
-// flatten branch + is_flatten_op removed (grammar produces flat n-ary).
 /*====================================================================================================================*/
 E_Parse = "'Parse'";
 E_goU   = "':go'";
 E_goS   = "':goS'";
 E_goF   = "':goF'";
-// IR-tag constants — emitted directly by the grammar (no rewrite layer).
-E_VAR   = "'E_VAR'";    E_ILIT  = "'E_ILIT'";   E_QLIT  = "'E_QLIT'";   E_RLIT     = "'E_RLIT'";
-E_KEYWORD = "'E_KEYWORD'";
-E_SEQ   = "'E_SEQ'";    E_ALT   = "'E_ALT'";
-E_ADD   = "'E_ADD'";    E_SUB   = "'E_SUB'";    E_MUL   = "'E_MUL'";    E_DIV      = "'E_DIV'";
-E_POW   = "'E_POW'";    E_PLS   = "'E_PLS'";    E_MNS   = "'E_MNS'";
-E_IDX   = "'E_IDX'";    E_DEFER = "'E_DEFER'";
-E_CAPT_IMMED_ASGN = "'E_CAPT_IMMED_ASGN'";
-E_CAPT_COND_ASGN  = "'E_CAPT_COND_ASGN'";
 /*====================================================================================================================*/
 // PATTERN block — verbatim from beauty.sno.  NOT ONE CHARACTER CHANGED.
 /*====================================================================================================================*/
 Integer     =  SPAN(digits);
-DQ          =  '"' BREAK('"' nl) . str_body '"';
-SQ          =  "'" BREAK("'" nl) . str_body "'";
+DQ          =  '"' BREAK('"' nl) '"';
+SQ          =  "'" BREAK("'" nl) "'";
 String      =  *SQ | *DQ;
 Real        =  (  SPAN(digits)
                   ('.' FENCE(SPAN(digits) | epsilon) | epsilon)
@@ -57,47 +34,35 @@ Id          =  ANY(&UCASE &LCASE)
                FENCE(SPAN('.' digits &UCASE '_' &LCASE) | epsilon);
 ProtKwd     =  '&' SPAN(&UCASE &LCASE);
 UnprotKwd   =  '&' SPAN(&UCASE &LCASE);
+Gray        =  *White | epsilon;
 White       =  (  SPAN(' ' tab)
-                  FENCE(  ';*' BREAK(nl)
-                       |  nl ('+' | '.') FENCE(SPAN(' ' tab) | epsilon)
-                       |  epsilon
-                       )
-               |  ';*' BREAK(nl)
+                  FENCE(nl ('+' | '.') FENCE(SPAN(' ' tab) | epsilon) | epsilon)
                |  nl ('+' | '.') FENCE(SPAN(' ' tab) | epsilon)
                );
-Gray        =  White | epsilon;
-$' '        =  Gray;
-$'  '       =  White;
-$'='        =  $'  ' '='  $'  ';
-$'?'        =  $'  ' '?'  $'  ';
-$'|'        =  $'  ' '|'  $'  ';
-$'+'        =  $'  ' '+'  $'  ';
-$'-'        =  $'  ' '-'  $'  ';
-$'/'        =  $'  ' '/'  $'  ';
-$'*'        =  $'  ' '*'  $'  ';
-$'^'        =  $'  ' '^'  $'  ';
-$'!'        =  $'  ' '!'  $'  ';
-$'**'       =  $'  ' '**' $'  ';
-$'$'        =  $'  ' '$'  $'  ';
-$'.'        =  $'  ' '.'  $'  ';
-$'&'        =  $'  ' '&'  $'  ';
-$'@'        =  $'  ' '@'  $'  ';
-$'#'        =  $'  ' '#'  $'  ';
-$'%'        =  $'  ' '%'  $'  ';
-$'~'        =  $'  ' '~'  $'  ';
-$','        =  $' '  ','  $' ';
-$':'        =  $' '  ':'  $' ';
-$'('        =        '('  $' ';
-$'['        =        '['  $' ';
-$'<'        =        '<'  $' ';
-$')'        =  $' '  ')';
-$']'        =  $' '  ']';
-$'>'        =  $' '  '>';
-/*--------------------------------------------------------------------------------------------------------------------*/
-// String-body push: workers fire push_qlit at match time using captured str_body.
-function push_qlit() { Push(tree('E_QLIT', str_body)); push_qlit = .dummy; nreturn; }
-Push_qlit   = epsilon . *push_qlit();
-/*--------------------------------------------------------------------------------------------------------------------*/
+$'='        =  *White '=' *White;
+$'?'        =  *White '?' *White;
+$'|'        =  *White '|' *White;
+$'+'        =  *White '+' *White;
+$'-'        =  *White '-' *White;
+$'/'        =  *White '/' *White;
+$'*'        =  *White '*' *White;
+$'^'        =  *White '^' *White;
+$'!'        =  *White '!' *White;
+$'**'       =  *White '**' *White;
+$'$'        =  *White '$' *White;
+$'.'        =  *White '.' *White;
+$'&'        =  *White '&' *White;
+$'@'        =  *White '@' *White;
+$'#'        =  *White '#' *White;
+$'%'        =  *White '%' *White;
+$'~'        =  *White '~' *White;
+$','        =  *Gray ',' *Gray;
+$'('        =  '(' *Gray;
+$'['        =  '[' *Gray;
+$'<'        =  '<' *Gray;
+$')'        =  *Gray ')';
+$']'        =  *Gray ']';
+$'>'        =  *Gray '>';
 ExprList    =  nPush()
                *XList
                ("'ExprList'" & '*(GT(nTop(), 1) nTop())')
@@ -107,36 +72,37 @@ Expr        =  *Expr0;
 Expr0       =  *Expr1 FENCE($'=' *Expr0 ("'='" & 2) | epsilon);
 Expr1       =  *Expr2 FENCE($'?' *Expr1 ("'?'" & 2) | epsilon);
 Expr2       =  *Expr3 FENCE($'&' *Expr2 ("'&'" & 2) | epsilon);
-Expr3       =  nPush() *X3 (E_ALT & '*(GT(nTop(), 1) nTop())') nPop();
+Expr3       =  nPush() *X3 ("'|'" & '*(GT(nTop(), 1) nTop())') nPop();
 X3          =  nInc() *Expr4 FENCE($'|' *X3 | epsilon);
-Expr4       =  nPush() *X4 (E_SEQ & '*(GT(nTop(), 1) nTop())') nPop();
-X4          =  nInc() *Expr5 FENCE($'  ' *X4 | epsilon);
+Expr4       =  nPush() *X4 ("'..'" & '*(GT(nTop(), 1) nTop())') nPop();
+X4          =  nInc() *Expr5 FENCE(*White *X4 | epsilon);
 Expr5       =  *Expr6 FENCE($'@' *Expr5 ("'@'" & 2) | epsilon);
-Expr6tail   =  FENCE($'+' *Expr7 foldop(E_ADD) | $'-' *Expr7 foldop(E_SUB));
-Expr6       =  *Expr7 ARBNO(Expr6tail);
+Expr6       =  *Expr7
+               FENCE(
+                  $'+' *Expr6 ("'+'" & 2) | $'-' *Expr6 ("'-'" & 2) | epsilon
+               );
 Expr7       =  *Expr8 FENCE($'#' *Expr7 ("'#'" & 2) | epsilon);
-Expr8tail   =  FENCE($'/' *Expr9 foldop(E_DIV));
-Expr8       =  *Expr9 ARBNO(Expr8tail);
-Expr9tail   =  FENCE($'*' *Expr10 foldop(E_MUL));
-Expr9       =  *Expr10 ARBNO(Expr9tail);
+Expr8       =  *Expr9 FENCE($'/' *Expr8 ("'/'" & 2) | epsilon);
+Expr9       =  *Expr10 FENCE($'*' *Expr9 ("'*'" & 2) | epsilon);
 Expr10      =  *Expr11 FENCE($'%' *Expr10 ("'%'" & 2) | epsilon);
-Expr11tail  =  FENCE(($'^' | $'!' | $'**') *Expr12 foldop(E_POW));
-Expr11      =  *Expr12 ARBNO(Expr11tail);
+Expr11      =  *Expr12
+               FENCE(($'^' | $'!' | $'**') *Expr11 ("'^'" & 2) | epsilon);
 Expr12      =  *Expr13
                FENCE(
-                  $'$' *Expr12 (E_CAPT_IMMED_ASGN & 2)
-               |  $'.' *Expr12 (E_CAPT_COND_ASGN  & 2)
+                  $'$' *Expr12 ("'$'" & 2)
+               |  $'.' *Expr12 ("'.'" & 2)
                |  epsilon
                );
 Expr13      =  *Expr14 FENCE($'~' *Expr13 ("'~'" & 2) | epsilon);
 Expr14      =  '@' *Expr14 ("'@'" & 1)
             |  '~' *Expr14 ("'~'" & 1)
             |  '?' *Expr14 ("'?'" & 1)
-            |  '&' shift(SPAN(&UCASE &LCASE), E_KEYWORD)  // ProtKwd or UnprotKwd — both → E_KEYWORD name-only
+            |  *ProtKwd ~ 'ProtKwd'
+            |  *UnprotKwd ~ 'UnprotKwd'
             |  '&' *Expr14 ("'&'" & 1)
-            |  '+' *Expr14 (E_PLS & 1)
-            |  '-' *Expr14 (E_MNS & 1)
-            |  '*' *Expr14 (E_DEFER & 1)
+            |  '+' *Expr14 ("'+'" & 1)
+            |  '-' *Expr14 ("'-'" & 1)
+            |  '*' *Expr14 ("'*'" & 1)
             |  '$' *Expr14 ("'$'" & 1)
             |  '.' *Expr14 ("'.'" & 1)
             |  '!' *Expr14 ("'!'" & 1)
@@ -147,7 +113,7 @@ Expr14      =  '@' *Expr14 ("'@'" & 1)
             |  '|' *Expr14 ("'|'" & 1)
             |  *Expr15;
 Expr15      =  *Expr17
-               FENCE(nPush() *Expr16 (E_IDX & 'nTop() + 1') nPop() | epsilon);
+               FENCE(nPush() *Expr16 ("'[]'" & 'nTop() + 1') nPop() | epsilon);
 Expr16      =  nInc()
                ($'[' *ExprList $']' | $'<' *ExprList $'>')
                FENCE(*Expr16 | epsilon);
@@ -160,11 +126,11 @@ Expr17      =  FENCE(
                   )
                   $')'
                   nPop()
-               |  *Id ~ E_VAR $'(' *ExprList $')' ("'Call'" & 2)
-               |  *Id      ~ E_VAR
-               |  *String    Push_qlit
-               |  *Real    ~ E_RLIT
-               |  *Integer ~ E_ILIT
+               |  *Id ~ 'Id' $'(' *ExprList $')' ("'Call'" & 2)
+               |  *Id ~ 'Id'
+               |  *String ~ 'String'
+               |  *Real ~ 'Real'
+               |  *Integer ~ 'Integer'
                );
 // Goto: direction baked into reduce tag via named SGoto/FGoto patterns.
 // SGoto/FGoto match the letter and reduce 0; we use them as markers via
@@ -174,30 +140,31 @@ SGoto       =  ('S' | 's');
 FGoto       =  ('F' | 'f');
 Target      =  $'(' . *assign(.Brackets, *'()') *Expr $')'
             |  $'<' . *assign(.Brackets, *'<>') *Expr $'>';
-Sgo         =  *SGoto $' ' *Target reduce(E_goS, 1);
-Fgo         =  *FGoto $' ' *Target reduce(E_goF, 1);
+Sgo         =  *SGoto *Gray *Target reduce(E_goS, 1);
+Fgo         =  *FGoto *Gray *Target reduce(E_goF, 1);
 Ugo         =  *Target reduce(E_goU, 1);
-Goto        =  $':'
+Goto        =  *Gray ':'
+               *Gray
                FENCE(
                   *Ugo epsilon ~ ''
-               |  *Sgo FENCE($':' *Fgo | epsilon ~ '')
-               |  *Fgo FENCE($':' *Sgo | epsilon ~ '')
+               |  *Sgo FENCE(*Gray (':' *Gray | epsilon) *Fgo | epsilon ~ '')
+               |  *Fgo FENCE(*Gray (':' *Gray | epsilon) *Sgo | epsilon ~ '')
                );
 Control     =  '-' BREAK(nl ';');
 Comment     =  '*' BREAK(nl);
 Label       =  BREAK(' ' tab nl ';') ~ 'Label';
 Stmt        =  *Label
-               (  $'  '
+               (  *White
                   *Expr14
                   FENCE(
                      epsilon ~ ''
-                     $'  '
-                     ('=' ~ '=' $'  ' *Expr | '=' ~ '=' epsilon ~ '')
-                  |  ($'?' | $'  ')
+                     *White
+                     ('=' ~ '=' *White *Expr | '=' ~ '=' epsilon ~ '')
+                  |  ($'?' | *White)
                      *Expr1
                      FENCE(
-                        $'  '
-                        ('=' ~ '=' $'  ' *Expr | '=' ~ '=' epsilon ~ '')
+                        *White
+                        ('=' ~ '=' *White *Expr | '=' ~ '=' epsilon ~ '')
                      |  epsilon ~ '' epsilon ~ ''
                      )
                   |  epsilon ~ '' epsilon ~ '' epsilon ~ ''
@@ -205,7 +172,7 @@ Stmt        =  *Label
                |  epsilon ~ '' epsilon ~ '' epsilon ~ '' epsilon ~ ''
                )
                FENCE(*Goto | epsilon ~ '' epsilon ~ '')
-               $' ';
+               *Gray;
 Commands    =  *Command FENCE(*Commands | epsilon);
 Command     =  nInc()
                FENCE(
@@ -223,19 +190,49 @@ Compiland   =  nPush()
 // Mirror beauty.sno's pp_Stmt exactly: read c[1]..c[7] by fixed index.
 // DIFFER(t(x)) is the beauty.sno idiom to check if a slot has content.
 //
-// Iter#7: rw_tag layer removed — grammar emits canonical IR (E_*) tags
-// directly via the IR-tag string constants at the top of the file.
-// String leaves use Push_qlit (worker pair) to push (E_QLIT body) with
-// quotes already stripped at match time via the str_body capture slot.
-// rw_expr therefore handles only structural rewriting: paren-strip,
-// ExprList unwrap, Call-builtin lookup, and left-rotation of the
-// right-recursive arith chains beauty.sno builds.
+// Tag rename table (beauty.sno native → --dump-parse IR):
+//   'Id'       → 'E_VAR'     'Integer'  → 'E_ILIT'    'String' → 'E_QLIT'
+//   'Real'     → 'E_RLIT'    'Call'     → 'E_FNC'     '..'     → 'E_SEQ'
+//   '|'        → 'E_ALT'     '$' (bin)  → 'E_CAPT_IMMED_ASGN'
+//   '.' (bin)  → 'E_CAPT_COND_ASGN'    'ProtKwd'/'UnprotKwd' → 'E_KEYWORD'
+// Arithmetic: '+'/'-'/'*'/'/' binary → E_ADD/E_SUB/E_MUL/E_DIV
+// Pattern primitives: LEN/BREAK/SPAN/ANY/NOTANY calls → E_LEN/E_BREAK etc.
+// Goto tag: ':go' → unconditional,  ':goS' → success,  ':goF' → failure
+//   (baked into node tag by Goto pattern; rw_goto_slot just passes t(g) through)
 /*====================================================================================================================*/
-// rw_call — rewrite a Call node into either E_FNC (generic) or E_LEN /
-// E_BREAK / E_SPAN / E_ANY / E_NOTANY (pattern-primitive specialization).
-// beauty.sno Call shape: ("'Call'" & 2) always gives 2 children:
-// c[1]=callee, c[2]=args.  ExprList only wraps when nTop()>1 (>=2 args);
-// with 1 arg c[2] is the bare arg node; with 0 args the ExprList
+// rw_tag — rename a beauty.sno expression tag to its IR E_* equivalent.
+// Called by rw_expr on every node.  n is the node's child count.
+function rw_tag(t, n) {
+    if (IDENT(t, 'Id'))        { rw_tag = 'E_VAR';     return; }
+    if (IDENT(t, 'Integer'))   { rw_tag = 'E_ILIT';    return; }
+    if (IDENT(t, 'String'))    { rw_tag = 'E_QLIT';    return; }
+    if (IDENT(t, 'Real'))      { rw_tag = 'E_RLIT';    return; }
+    if (IDENT(t, 'ProtKwd'))   { rw_tag = 'E_KEYWORD'; return; }
+    if (IDENT(t, 'UnprotKwd')) { rw_tag = 'E_KEYWORD'; return; }
+    if (IDENT(t, 'BuiltinVar')){ rw_tag = 'E_VAR';     return; }
+    if (IDENT(t, 'SpecialNm')) { rw_tag = 'E_VAR';     return; }
+    if (IDENT(t, 'Function'))  { rw_tag = 'E_VAR';     return; }
+    if (IDENT(t, '..'))        { rw_tag = 'E_SEQ';     return; }
+    if (IDENT(t, '|'))         { rw_tag = 'E_ALT';     return; }
+    // capture operators (always binary in Expr12)
+    if (IDENT(t, '$')) { rw_tag = 'E_CAPT_IMMED_ASGN'; return; }
+    if (IDENT(t, '.')) { rw_tag = 'E_CAPT_COND_ASGN';  return; }
+    // arithmetic (binary)
+    if (IDENT(t, '+') EQ(n, 2)) { rw_tag = 'E_ADD'; return; }
+    if (IDENT(t, '-') EQ(n, 2)) { rw_tag = 'E_SUB'; return; }
+    if (IDENT(t, '*') EQ(n, 2)) { rw_tag = 'E_MUL'; return; }
+    if (IDENT(t, '/') EQ(n, 2)) { rw_tag = 'E_DIV'; return; }
+    if (IDENT(t, '^') EQ(n, 2)) { rw_tag = 'E_POW'; return; }
+    // arithmetic (unary)
+    if (IDENT(t, '-') EQ(n, 1)) { rw_tag = 'E_MNS'; return; }
+    if (IDENT(t, '+') EQ(n, 1)) { rw_tag = 'E_PLS'; return; }
+    rw_tag = t;
+    return;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+// rw_call — rewrite a Call node.  beauty.sno Call shape: ("'Call'" & 2) always
+// gives 2 children: c[1]=callee, c[2]=args.  ExprList only wraps when nTop()>1
+// (>=2 args); with 1 arg c[2] is the bare arg node; with 0 args the ExprList
 // reduce fires with nTop()=0 producing an ExprList with n=0.
 function rw_call(x, fname, args, na, result, i) {
     fname = v(c(x)[1]);
@@ -261,49 +258,23 @@ function rw_call(x, fname, args, na, result, i) {
     return;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-// is_rotate_op — true iff a binary-op IR tag is one the C frontend keeps
-// as left-recursive binary (oracle is `((a . X) . Y)` not flat n-ary).
-// Capture-assign operators are deeper than parser flattening: the runtime
-// E_CAPT_*_ASGN handlers are strictly binary.  Until those go n-ary,
-// rotate right-recursive parser output to left-recursive binary.
-function is_rotate_op(t) {
-    if (IDENT(t, 'E_CAPT_IMMED_ASGN'))   { is_rotate_op = 1; return; }
-    if (IDENT(t, 'E_CAPT_COND_ASGN'))    { is_rotate_op = 1; return; }
-    is_rotate_op = .dummy;
-    freturn;
-}
-/*--------------------------------------------------------------------------------------------------------------------*/
-// rw_expr — structural rewrite walk: paren-strip, ExprList unwrap, Call
-// dispatch (generic E_FNC vs pattern-primitive E_LEN/E_BREAK/...),
-// rotate right-recursive CAPT binary chains to left-recursive.  No tag
-// renaming — the grammar emits E_* tags directly.  No flatten — the
-// arith Expr-tier grammar is iterative left-recursive (Expr_n ARBNO(Expr_n_tail)
-// with foldop) so same-tag chains are already flat n-ary at parse time.
-function rw_expr(x, t, result, i, j, ch, right, rr, rl) {
+// rw_expr — recursive tag-rename walk.  Renames tags, recurses into children.
+// Also: strips beauty.sno '()' paren wrapper nodes (transparent grouping).
+// Left-rotates right-recursive binary arithmetic trees to left-associative form
+// per the oracle (beauty.sno builds right-recursive; --dump-parse is left-assoc).
+// ExprList is a transparent wrapper (from XList).
+function rw_expr(x, t, result, new_t, i, right, rr, rl) {
     if (IDENT(x)) { rw_expr = x; return; }
     t = t(x);
     if (IDENT(t))          { rw_expr = x; return; }   // empty-slot node
     // '()' paren node: transparent wrapper — unwrap the single child
     if (IDENT(t, '()'))    { rw_expr = rw_expr(c(x)[1]); return; }
-    if (IDENT(t, 'Call'))  { rw_expr = rw_call(x); return; }
-    // E_IDX: object is child[1]; bracket groups are child[2..n], each an ExprList.
-    // Flatten ExprList children directly into E_IDX (oracle emits flat children, not E_SEQ).
-    if (IDENT(t, 'E_IDX')) {
-        result = Tree('E_IDX', '', 0);
-        Append(result, rw_expr(c(x)[1]));           // object
-        i = 2;
-        while (LE(i, n(x))) {
-            ch = c(x)[i];
-            if (IDENT(t(ch), 'ExprList')) {
-                j = 1;
-                while (LE(j, n(ch))) { Append(result, rw_expr(c(ch)[j])); j = j + 1; }
-            }
-            if (DIFFER(t(ch), 'ExprList')) { Append(result, rw_expr(ch)); }
-            i = i + 1;
-        }
-        rw_expr = result;
+    if (IDENT(t, 'String')) {
+        // beauty.sno captures String WITH surrounding quotes; oracle wants bare inner text
+        rw_expr = tree('E_QLIT', SUBSTR(v(x), 2, SIZE(v(x)) - 2));
         return;
     }
+    if (IDENT(t, 'Call'))  { rw_expr = rw_call(x); return; }
     // ExprList: transparent — inline its children into a fresh E_SEQ if n>1, else unwrap
     if (IDENT(t, 'ExprList')) {
         if (EQ(n(x), 1))   { rw_expr = rw_expr(c(x)[1]); return; }
@@ -313,24 +284,27 @@ function rw_expr(x, t, result, i, j, ch, right, rr, rl) {
         rw_expr = result;
         return;
     }
-    // Left-rotation for CAPT: parser builds (E_CAPT_COND_ASGN a (E_CAPT_COND_ASGN X Y));
-    // oracle emits ((E_CAPT_COND_ASGN a X) Y).  The runtime requires binary nodes here.
-    if (EQ(n(x), 2) is_rotate_op(t)) {
+    new_t  = rw_tag(t, n(x));
+    // Left-rotation: beauty.sno builds a + b + c as (a + (b + c)); oracle wants ((a+b)+c).
+    // A right-recursive node is one where n=2 and c[2] has the same IR tag.
+    // Rotate: result = (rw(c[1]) op rw(c[2].c[1])); then iteratively fold in c[2].c[2] etc.
+    if (EQ(n(x), 2) DIFFER(new_t, t)) {
         right = c(x)[2];
-        if (EQ(n(right), 2) IDENT(t(right), t)) {
-            result = Tree(t, '', 2, rw_expr(c(x)[1]), rw_expr(c(right)[1]));
+        if (EQ(n(right), 2) IDENT(rw_tag(t(right), 2), new_t)) {
+            // right child is same op: flatten to left-associative chain
+            result = Tree(new_t, '', 2, rw_expr(c(x)[1]), rw_expr(c(right)[1]));
             rr = c(right)[2];
-            while (EQ(n(rr), 2) IDENT(t(rr), t)) {
+            while (EQ(n(rr), 2) IDENT(rw_tag(t(rr), 2), new_t)) {
                 rl = c(rr)[1];
-                result = Tree(t, '', 2, result, rw_expr(rl));
+                result = Tree(new_t, '', 2, result, rw_expr(rl));
                 rr = c(rr)[2];
             }
-            result = Tree(t, '', 2, result, rw_expr(rr));
+            result = Tree(new_t, '', 2, result, rw_expr(rr));
             rw_expr = result;
             return;
         }
     }
-    result = Tree(t, v(x), 0);
+    result = Tree(new_t, v(x), 0);
     i = 1;
     while (LE(i, n(x))) { Append(result, rw_expr(c(x)[i])); i = i + 1; }
     rw_expr = result;

@@ -134,6 +134,9 @@ function TLump(x, len, i, t, sub) {
 TLump_normal:
     if (DIFFER(n(x))) { goto TLump0; }
     TLump = TValue(x);
+    // typed 0-child node with empty v renders as '.' via TValue, but oracle
+    // emits '(TYPE)' e.g. '(STMT)'.  Detect and re-route through TLump0.
+    if (IDENT(TLump, '.') DIFFER(t(x))) { goto TLump0; }
     if (LE(SIZE(TLump), len)) { return; }
     freturn;
 TLump0:
