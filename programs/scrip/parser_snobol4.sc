@@ -12,10 +12,13 @@
 //
 // Rungs: SN-0..SN-6 PASS=58; SN-7-1 IR-tag + role-slot rewrite.
 /*====================================================================================================================*/
-E_Parse = "'Parse'";
-E_goU   = "':go'";
-E_goS   = "':goS'";
-E_goF   = "':goF'";
+E_Parse   = "'Parse'";
+E_goU     = "':go'";
+E_goS     = "':goS'";
+E_goF     = "':goF'";
+E_KEYWORD = "'E_KEYWORD'";
+E_DEFER   = "'E_DEFER'";
+E_IDX     = "'E_IDX'";
 /*====================================================================================================================*/
 // PATTERN block — verbatim from beauty.sno.  NOT ONE CHARACTER CHANGED.
 /*====================================================================================================================*/
@@ -78,15 +81,16 @@ Expr4       =  nPush() *X4 ("'..'" & '*(GT(nTop(), 1) nTop())') nPop();
 X4          =  nInc() *Expr5 FENCE(*White *X4 | epsilon);
 Expr5       =  *Expr6 FENCE($'@' *Expr5 ("'@'" & 2) | epsilon);
 Expr6       =  *Expr7
-               FENCE(
-                  $'+' *Expr6 ("'+'" & 2) | $'-' *Expr6 ("'-'" & 2) | epsilon
-               );
+               FENCE($'+' *Expr7 foldop("'E_ADD'") *Expr6cont | $'-' *Expr7 foldop("'E_SUB'") *Expr6cont | epsilon);
+Expr6cont   =  FENCE($'+' *Expr7 foldop("'E_ADD'") *Expr6cont | $'-' *Expr7 foldop("'E_SUB'") *Expr6cont | epsilon);
 Expr7       =  *Expr8 FENCE($'#' *Expr7 ("'#'" & 2) | epsilon);
-Expr8       =  *Expr9 FENCE($'/' *Expr8 ("'/'" & 2) | epsilon);
-Expr9       =  *Expr10 FENCE($'*' *Expr9 ("'*'" & 2) | epsilon);
+Expr8       =  *Expr9 FENCE($'/' *Expr9 foldop("'E_DIV'") *Expr8cont | epsilon);
+Expr8cont   =  FENCE($'/' *Expr9 foldop("'E_DIV'") *Expr8cont | epsilon);
+Expr9       =  *Expr10 FENCE($'*' *Expr10 foldop("'E_MUL'") *Expr9cont | epsilon);
+Expr9cont   =  FENCE($'*' *Expr10 foldop("'E_MUL'") *Expr9cont | epsilon);
 Expr10      =  *Expr11 FENCE($'%' *Expr10 ("'%'" & 2) | epsilon);
-Expr11      =  *Expr12
-               FENCE(($'^' | $'!' | $'**') *Expr11 ("'^'" & 2) | epsilon);
+Expr11      =  *Expr12 FENCE(($'^' | $'!' | $'**') *Expr12 foldop("'E_POW'") *Expr11cont | epsilon);
+Expr11cont  =  FENCE(($'^' | $'!' | $'**') *Expr12 foldop("'E_POW'") *Expr11cont | epsilon);
 Expr12      =  *Expr13
                FENCE(
                   $'$' *Expr12 ("'$'" & 2)
@@ -97,12 +101,10 @@ Expr13      =  *Expr14 FENCE($'~' *Expr13 ("'~'" & 2) | epsilon);
 Expr14      =  '@' *Expr14 ("'@'" & 1)
             |  '~' *Expr14 ("'~'" & 1)
             |  '?' *Expr14 ("'?'" & 1)
-            |  *ProtKwd ~ 'ProtKwd'
-            |  *UnprotKwd ~ 'UnprotKwd'
-            |  '&' *Expr14 ("'&'" & 1)
+            |  '&' shift(SPAN(&UCASE &LCASE), E_KEYWORD)
             |  '+' *Expr14 ("'+'" & 1)
             |  '-' *Expr14 ("'-'" & 1)
-            |  '*' *Expr14 ("'*'" & 1)
+            |  '*' *Expr14 reduce(E_DEFER, 1)
             |  '$' *Expr14 ("'$'" & 1)
             |  '.' *Expr14 ("'.'" & 1)
             |  '!' *Expr14 ("'!'" & 1)
@@ -113,7 +115,7 @@ Expr14      =  '@' *Expr14 ("'@'" & 1)
             |  '|' *Expr14 ("'|'" & 1)
             |  *Expr15;
 Expr15      =  *Expr17
-               FENCE(nPush() *Expr16 ("'[]'" & 'nTop() + 1') nPop() | epsilon);
+               FENCE(nPush() *Expr16 (E_IDX & 'nTop() + 1') nPop() | epsilon);
 Expr16      =  nInc()
                ($'[' *ExprList $']' | $'<' *ExprList $'>')
                FENCE(*Expr16 | epsilon);
@@ -260,10 +262,12 @@ function rw_call(x, fname, args, na, result, i) {
 /*--------------------------------------------------------------------------------------------------------------------*/
 // rw_expr — recursive tag-rename walk.  Renames tags, recurses into children.
 // Also: strips beauty.sno '()' paren wrapper nodes (transparent grouping).
-// Left-rotates right-recursive binary arithmetic trees to left-associative form
-// per the oracle (beauty.sno builds right-recursive; --dump-parse is left-assoc).
+// Arith left-assoc is now handled at parse time via foldop()/FoldOp() in the
+// iterative Expr6/Expr8/Expr9/Expr11 ARBNO tiers; no post-parse rotation needed
+// for those.  E_CAPT_*_ASGN remain strictly binary (runtime constraint) and
+// still need rotation here when beauty.sno builds them right-recursively.
 // ExprList is a transparent wrapper (from XList).
-function rw_expr(x, t, result, new_t, i, right, rr, rl) {
+function rw_expr(x, t, result, new_t, i, right, rr, rl, xlist, j) {
     if (IDENT(x)) { rw_expr = x; return; }
     t = t(x);
     if (IDENT(t))          { rw_expr = x; return; }   // empty-slot node
@@ -284,24 +288,40 @@ function rw_expr(x, t, result, new_t, i, right, rr, rl) {
         rw_expr = result;
         return;
     }
-    new_t  = rw_tag(t, n(x));
-    // Left-rotation: beauty.sno builds a + b + c as (a + (b + c)); oracle wants ((a+b)+c).
-    // A right-recursive node is one where n=2 and c[2] has the same IR tag.
-    // Rotate: result = (rw(c[1]) op rw(c[2].c[1])); then iteratively fold in c[2].c[2] etc.
-    if (EQ(n(x), 2) DIFFER(new_t, t)) {
-        right = c(x)[2];
-        if (EQ(n(right), 2) IDENT(rw_tag(t(right), 2), new_t)) {
-            // right child is same op: flatten to left-associative chain
-            result = Tree(new_t, '', 2, rw_expr(c(x)[1]), rw_expr(c(right)[1]));
-            rr = c(right)[2];
-            while (EQ(n(rr), 2) IDENT(rw_tag(t(rr), 2), new_t)) {
-                rl = c(rr)[1];
-                result = Tree(new_t, '', 2, result, rw_expr(rl));
-                rr = c(rr)[2];
+    // E_IDX: flatten ExprList bracket-group children directly — oracle emits flat children.
+    if (IDENT(t, 'E_IDX')) {
+        result = Tree('E_IDX', '', 0);
+        i = 1;
+        while (LE(i, n(x))) {
+            if (IDENT(t(c(x)[i]), 'ExprList')) {
+                // flatten ExprList children into E_IDX
+                xlist = c(x)[i];
+                j = 1;
+                while (LE(j, n(xlist))) { Append(result, rw_expr(c(xlist)[j])); j = j + 1; }
+            } else {
+                Append(result, rw_expr(c(x)[i]));
             }
-            result = Tree(new_t, '', 2, result, rw_expr(rr));
-            rw_expr = result;
-            return;
+        i = i + 1; }
+        rw_expr = result;
+        return;
+    }
+    new_t  = rw_tag(t, n(x));
+    // Left-rotation for E_CAPT_*_ASGN: runtime still strictly binary; oracle is left-assoc.
+    if (EQ(n(x), 2) DIFFER(new_t, t)) {
+        if (IDENT(new_t, 'E_CAPT_IMMED_ASGN') | IDENT(new_t, 'E_CAPT_COND_ASGN')) {
+            right = c(x)[2];
+            if (EQ(n(right), 2) IDENT(rw_tag(t(right), 2), new_t)) {
+                result = Tree(new_t, '', 2, rw_expr(c(x)[1]), rw_expr(c(right)[1]));
+                rr = c(right)[2];
+                while (EQ(n(rr), 2) IDENT(rw_tag(t(rr), 2), new_t)) {
+                    rl = c(rr)[1];
+                    result = Tree(new_t, '', 2, result, rw_expr(rl));
+                    rr = c(rr)[2];
+                }
+                result = Tree(new_t, '', 2, result, rw_expr(rr));
+                rw_expr = result;
+                return;
+            }
         }
     }
     result = Tree(new_t, v(x), 0);
