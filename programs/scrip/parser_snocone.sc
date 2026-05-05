@@ -40,8 +40,10 @@ Integer  = SPAN(digits);
 DQ_lit   = ('"' BREAK('"') . strbody '"');
 SQ_lit   = ("'" BREAK("'") . strbody "'");
 String   = (*SQ_lit | *DQ_lit);
+sc_reserved = ('if' | 'else' | 'while' | 'do' | 'for');
 Id       = (ANY(&UCASE &LCASE '_')
-            FENCE(SPAN('.' digits &UCASE '_' &LCASE) | epsilon));
+            FENCE(SPAN('.' digits &UCASE '_' &LCASE) | epsilon)) $ tx
+           ~IDENT(tx, sc_reserved);
 Real     = (  SPAN(digits)
               FENCE(  '.' SPAN(digits)
                           FENCE(  ANY('eEdD') FENCE(ANY('+-') | epsilon) SPAN(digits)
@@ -51,18 +53,16 @@ Real     = (  SPAN(digits)
            );
 Keyword  = ('&' SPAN(&UCASE &LCASE '_') . kw_name);
 /*--------------------------------------------------------------------------------------------------------------------*/
-kw_rest     = '';
-kw_tail     = FENCE(SPAN(&UCASE &LCASE digits '_') | epsilon) $ kw_rest *IDENT(kw_rest);
-kw_do       = ('do'       kw_tail);
-kw_else     = ('else'     kw_tail);
-kw_for      = ('for'      kw_tail);
-kw_freturn  = ('freturn'  kw_tail);
-kw_function = ('function' kw_tail);
-kw_goto     = ('goto'     kw_tail);
-kw_if       = ('if'       kw_tail);
-kw_nreturn  = ('nreturn'  kw_tail);
-kw_return   = ('return'   kw_tail);
-kw_while    = ('while'    kw_tail);
+kw_do       = (Id $ tx *IDENT(tx, 'do'));
+kw_else     = (Id $ tx *IDENT(tx, 'else'));
+kw_for      = (Id $ tx *IDENT(tx, 'for'));
+kw_freturn  = (Id $ tx *IDENT(tx, 'freturn'));
+kw_function = (Id $ tx *IDENT(tx, 'function'));
+kw_goto     = (Id $ tx *IDENT(tx, 'goto'));
+kw_if       = (Id $ tx *IDENT(tx, 'if'));
+kw_nreturn  = (Id $ tx *IDENT(tx, 'nreturn'));
+kw_return   = (Id $ tx *IDENT(tx, 'return'));
+kw_while    = (Id $ tx *IDENT(tx, 'while'));
 /*--------------------------------------------------------------------------------------------------------------------*/
 $'('   = $' ' '(' $' ';
 $')'   = $' ' ')' $' ';
