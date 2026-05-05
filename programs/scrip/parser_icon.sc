@@ -12,21 +12,31 @@ E_ASSIGN    = "'E_ASSIGN'";   E_SCAN      = "'E_SCAN'";
 E_ALTERNATE = "'E_ALTERNATE'";E_AUGOP     = "'E_AUGOP'";
 E_ADD       = "'E_ADD'";      E_SUB       = "'E_SUB'";
 E_MUL       = "'E_MUL'";      E_DIV       = "'E_DIV'";
+E_MOD       = "'E_MOD'";      E_POW       = "'E_POW'";
 E_EQ        = "'E_EQ'";       E_NE        = "'E_NE'";
 E_LT        = "'E_LT'";       E_LE        = "'E_LE'";
 E_GT        = "'E_GT'";       E_GE        = "'E_GE'";
+E_LEQ       = "'E_LEQ'";      E_LNE       = "'E_LNE'";
+E_LLT       = "'E_LLT'";      E_LLE       = "'E_LLE'";
+E_LGT       = "'E_LGT'";      E_LGE       = "'E_LGE'";
 E_IF        = "'E_IF'";       E_WHILE     = "'E_WHILE'";
+E_UNTIL     = "'E_UNTIL'";    E_REPEAT    = "'E_REPEAT'";
 E_EVERY     = "'E_EVERY'";    E_RETURN    = "'E_RETURN'";
 E_FNC       = "'E_FNC'";      E_SEQ_EXPR  = "'E_SEQ_EXPR'";
-E_POW       = "'E_POW'";      E_MNS       = "'E_MNS'";
-E_PLS       = "'E_PLS'";      E_CSET_COMPL= "'E_CSET_COMPL'";
+E_MNS       = "'E_MNS'";      E_PLS       = "'E_PLS'";
+E_CSET_COMPL= "'E_CSET_COMPL'";E_CSET_UNION= "'E_CSET_UNION'";
+E_CSET_DIFF = "'E_CSET_DIFF'"; E_CSET_INTER= "'E_CSET_INTER'";
 E_NONNULL   = "'E_NONNULL'";  E_ITERATE   = "'E_ITERATE'";
 E_SIZE      = "'E_SIZE'";     E_RANDOM    = "'E_RANDOM'";
+E_LIMIT     = "'E_LIMIT'";    E_LCONCAT   = "'E_LCONCAT'";
+E_CAT       = "'E_CAT'";      E_MAKELIST  = "'E_MAKELIST'";
+E_IDX       = "'E_IDX'";      E_SECTION   = "'E_SECTION'";
+E_FIELD     = "'E_FIELD'";    E_LOOP_BREAK= "'E_LOOP_BREAK'";
+E_LOOP_NEXT = "'E_LOOP_NEXT'";
 E_REVASSIGN = "'E_REVASSIGN'"; E_SWAP      = "'E_SWAP'";
 E_REVSWAP   = "'E_REVSWAP'";   E_IDENTICAL = "'E_IDENTICAL'";
 E_NOT       = "'E_NOT'";
 E_TO        = "'E_TO'";        E_TO_BY     = "'E_TO_BY'";
-E_CAT       = "'E_CAT'";       E_LCONCAT   = "'E_LCONCAT'";
 E_Parse     = "'Parse'";
 r_nTop      = '*(GT(nTop(), 1) nTop())';
 /*====================================================================================================================*/
@@ -47,46 +57,53 @@ int_pat      = SPAN(digits);
 str_pat      = ('"' BREAK('"') . strbody '"');
 semi_opt     = (';' | epsilon);
 /*--------------------------------------------------------------------------------------------------------------------*/
-// Keyword tokens — leading optional whitespace only (next token supplies its own left-ws as effective suffix).
+// Keyword tokens — leading optional whitespace only.
 $'if'        = $' ' 'if'       ;  $'then'      = $' ' 'then'     ;
 $'else'      = $' ' 'else'     ;  $'while'     = $' ' 'while'    ;
 $'do'        = $' ' 'do'       ;  $'every'     = $' ' 'every'    ;
 $'return'    = $' ' 'return'   ;  $'end'       = $' ' 'end'      ;
-$'procedure' = $' ' 'procedure';
+$'procedure' = $' ' 'procedure';  $'until'     = $' ' 'until'    ;
+$'repeat'    = $' ' 'repeat'   ;  $'break'     = $' ' 'break'    ;
+$'next'      = $' ' 'next'     ;
 $'to'        = $' ' 'to'       ;  $'by'        = $' ' 'by'       ;
+$'default'   = $' ' 'default'  ;
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Operator tokens — optional whitespace both sides.  Open brackets: ws after only.  Close: ws before only.
-$'|'   = $' ' '|' @or_a (ANY('|') | epsilon) @or_b *EQ(or_a, or_b) $' ';
-$'||'  = $' ' '||' @cat_a (ANY('|:') | epsilon) @cat_b *EQ(cat_a, cat_b) $' ';
-$'|||' = $' ' '|||' @lc_a (ANY(':')  | epsilon) @lc_b *EQ(lc_a, lc_b) $' ';
-$':='  = $' ' ':='  $' ';
-$'?'   = $' ' '?'  $' ';  $','   = $' ' ','   $' ';
-$'+'   = $' ' '+'  $' ';  $'-'   = $' ' '-'   $' ';
-$'*'   = $' ' '*'  $' ';  $'/'   = $' ' '/'   $' ';
-$'<='  = $' ' '<=' $' ';  $'>='  = $' ' '>='  $' ';
-$'~='  = $' ' '~=' $' ';  $'='   = $' ' '='   $' ';
-$';'   = $' ' ';'  $' ';  $'^'   = $' ' '^'   $' ';
-$'+:='   = $' ' '+:='   $' ';  $'-:='   = $' ' '-:='   $' ';
-$'*:='   = $' ' '*:='   $' ';  $'/:='   = $' ' '/:='   $' ';
-$'%:='   = $' ' '%:='   $' ';  $'^:='   = $' ' '^:='   $' ';
-$'||:='  = $' ' '||:='  $' ';  $'++:='  = $' ' '++:='  $' ';
-$'--:='  = $' ' '--:='  $' ';  $'**:='  = $' ' '**:='  $' ';
-$'?:='   = $' ' '?:='   $' ';  $'=:='   = $' ' '=:='   $' ';
-$'==:='  = $' ' '==:='  $' ';  $'~=:='  = $' ' '~=:='  $' ';
-$'<:='   = $' ' '<:='   $' ';  $'<=:='  = $' ' '<=:='  $' ';
-$'>:='   = $' ' '>:='   $' ';  $'>=:='  = $' ' '>=:='  $' ';
-$'<<:='  = $' ' '<<:='  $' ';  $'<<=:=' = $' ' '<<=:=' $' ';
-$'>>:='  = $' ' '>>:='  $' ';  $'>>=:=' = $' ' '>>=:=' $' ';
-$'~==:=' = $' ' '~==:=' $' ';
-$'<-'    = $' ' '<-'    $' ';  $'<->'   = $' ' '<->'   $' ';
-$':=:'   = $' ' ':=:'   $' ';  $'==='   = $' ' '==='   $' ';
-$'~===' = $' ' '~==='  $' ';
-$'~'   = $' ' '~'  $' ';  $'!'   = $' ' '!'   $' ';
-$'\\'  = $' ' '\' $' ';
+// Operator tokens — optional whitespace both sides.  Open brackets: ws after only.  Close: ws before only.
+// Grammar alternation (longer-prefix first in each tail) handles disambiguation; no token-level lookahead needed.
+$'|||' = $' ' '|||' $' ';  $'||'  = $' ' '||'  $' ';  $'|'   = $' ' '|'   $' ';
+$'++'  = $' ' '++'  $' ';  $'--'  = $' ' '--'  $' ';  $'**'  = $' ' '**'  $' ';
+$'+'   = $' ' '+'   $' ';  $'-'   = $' ' '-'   $' ';
+$'*'   = $' ' '*'   $' ';  $'/'   = $' ' '/'   $' ';  $'%'   = $' ' '%'   $' ';
+$'^'   = $' ' '^'   $' ';  $'?'   = $' ' '?'   $' ';
+$','   = $' ' ','   $' ';  $';'   = $' ' ';'   $' ';  $':='  = $' ' ':='  $' ';
+// String comparison and augop tokens — augops defined with explicit literal strings to avoid ambiguity.
+$'~==:='= $' ' '~==:=' $' ';  $'~=='  = $' ' '~=='  $' ';
+$'~=:=' = $' ' '~=:='  $' ';  $'~='   = $' ' '~='   $' ';  $'~'  = $' ' '~' $' ';
+$'<<=:='= $' ' '<<=:=' $' ';  $'<<:=' = $' ' '<<:='  $' ';
+$'<<='  = $' ' '<<='  $' ';  $'<<'   = $' ' '<<'   $' ';
+$'>>=:='= $' ' '>>=:=' $' ';  $'>>:=' = $' ' '>>:='  $' ';
+$'>>='  = $' ' '>>='  $' ';  $'>>'   = $' ' '>>'   $' ';
+$'==:=' = $' ' '==:='  $' ';  $'==='  = $' ' '==='  $' ';  $'=='  = $' ' '==' $' ';
+$'<=:=' = $' ' '<=:='  $' ';  $'<='   = $' ' '<='   $' ';
+$'>=:=' = $' ' '>=:='  $' ';  $'>='   = $' ' '>='   $' ';
+$'='    = $' ' '='    $' ';
+$'<:='  = $' ' '<:='  $' ';  $'>:='  = $' ' '>:='   $' ';
+$'<->'  = $' ' '<->'  $' ';  $'<-'   = $' ' '<-'    $' ';
+$'<'    = $' ' '<'    @lt_a (ANY('-=<') | epsilon) @lt_b *EQ(lt_a, lt_b) $' ';
+$'>'    = $' ' '>'    @gt_a (ANY('=>')  | epsilon) @gt_b *EQ(gt_a, gt_b);
+$':=:'  = $' ' ':=:'  $' ';  $'~===' = $' ' '~==='  $' ';
+$'+:='  = $' ' '+:='  $' ';  $'-:='  = $' ' '-:='   $' ';
+$'*:='  = $' ' '*:='  $' ';  $'/:='  = $' ' '/:='   $' ';
+$'%:='  = $' ' '%:='  $' ';  $'^:='  = $' ' '^:='   $' ';
+$'||:=' = $' ' '||:=' $' ';  $'++:=' = $' ' '++:='  $' ';
+$'--:=' = $' ' '--:=' $' ';  $'**:=' = $' ' '**:='  $' ';
+$'?:='  = $' ' '?:='  $' ';  $'=:='  = $' ' '=:='   $' ';
+$'\\'  = $' ' '\'   $' ';   $'!'   = $' ' '!'    $' ';
 $'('   = $' ' '(' $' ';  $')'   = $' ' ')';
 $'{'   = $' ' '{' $' ';  $'}'   = $' ' '}';
-$'<'   = $' ' '<' @lt_a (ANY('-=<') | epsilon) @lt_b *EQ(lt_a, lt_b) $' ';
-$'>'   = $' ' '>' @gt_a (ANY('=>')  | epsilon) @gt_b *EQ(gt_a, gt_b);
+$'['   = $' ' '[' $' ';  $']'   = $' ' ']';
+$'.'   = $' ' '.' $' ';   $':'   = $' ' ':'    $' ';
 /*====================================================================================================================*/
 // push_qlit — shift (E_QLIT body) using dot-captured strbody.
 function push_qlit() {
@@ -95,6 +112,37 @@ function push_qlit() {
     nreturn;
 }
 Push_qlit = (epsilon . *push_qlit());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// push_field — shift (E_FIELD fieldname lhs) consuming lhs from stack.
+function push_field(fname, lhs) {
+    fname = v(Pop());
+    lhs = Pop();
+    Push(Tree('E_FIELD', fname, 1, lhs));
+    push_field = .dummy;
+    nreturn;
+}
+Push_field = (epsilon . *push_field());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// push_subscript — build (E_IDX lhs idx) consuming top 2 from stack.
+function push_subscript(idx, lhs) {
+    idx = Pop();
+    lhs = Pop();
+    Push(Tree('E_IDX', '', 2, lhs, idx));
+    push_subscript = .dummy;
+    nreturn;
+}
+Push_subscript = (epsilon . *push_subscript());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// push_section — build (E_SECTION lhs lo hi) consuming top 3 from stack.
+function push_section(hi, lo, lhs) {
+    hi = Pop();
+    lo = Pop();
+    lhs = Pop();
+    Push(Tree('E_SECTION', '', 3, lhs, lo, hi));
+    push_section = .dummy;
+    nreturn;
+}
+Push_section = (epsilon . *push_section());
 /*--------------------------------------------------------------------------------------------------------------------*/
 // decompose_proc — pop proc-frame children; build (STMT :subj (E_FNC pname ...)).
 // pname is read from v(child[1]) — the (E_VAR pname) shifted by Prochead.
@@ -121,19 +169,24 @@ Decompose_proc = (epsilon . *decompose_proc());
 /*====================================================================================================================*/
 // Expression tower — canonical names from icon-sp.ebnf.
 // Expr11 = primary; tighter -> looser: Expr10 (unary) -> Expr8 (pow) ->
-// Expr7 (mul) -> Expr6 (add) -> Expr4 (cmp) -> Expr3 (alt) -> Expr1 (assign).
+// Expr7 (mul/mod/inter) -> Expr6 (add/union/diff) -> Expr5 (concat) ->
+// Expr4 (cmp) -> Expr3 (alt) -> Expr2 (to..by) -> Expr1 (assign) ->
+// Expr1a (scan) -> Expr (top).
+// Postfix chains (subscript/field/call/section) are handled in Expr11tail.
 /*--------------------------------------------------------------------------------------------------------------------*/
-If    = ( $'if'    $'  ' *Expr  $'then' $'  ' *Expr
-          (  $'else' $'  ' *Expr  (E_IF & 3)
-          |  (E_IF & 2)
-          )
-        );
-While = ( $'while' $'  ' *Expr  $'do' $'  ' *Expr  (E_WHILE & 2) );
-Every = ( $'every' $'  ' *Expr
-          (  $'do' $'  ' *Expr  (E_EVERY & 2)
-          |  (E_EVERY & 1)
-          )
-        );
+If     = ( $'if'     $'  ' *Expr  $'then' $'  ' *Expr
+           (  $'else' $'  ' *Expr  (E_IF & 3)
+           |  (E_IF & 2)
+           )
+         );
+While  = ( $'while'  $'  ' *Expr  $'do' $'  ' *Expr  (E_WHILE  & 2) );
+Until  = ( $'until'  $'  ' *Expr  $'do' $'  ' *Expr  (E_UNTIL  & 2) );
+Every  = ( $'every'  $'  ' *Expr
+           (  $'do' $'  ' *Expr  (E_EVERY & 2)
+           |  (E_EVERY & 1)
+           )
+         );
+Repeat = ( $'repeat' $'  ' *Expr  (E_REPEAT & 1) );
 /*--------------------------------------------------------------------------------------------------------------------*/
 ArgFirst  = ( $' ' *Expr  nInc() );
 ArgRest   = ( $','  *Expr  nInc() );
@@ -162,7 +215,40 @@ Compound      = ( nPush()
                   nPop()
                 );
 /*--------------------------------------------------------------------------------------------------------------------*/
-Expr11 = (   If  |  While  |  Every  |  Call  |  Paren  |  Compound
+// List constructor [e1, e2, ...] — E_MAKELIST.
+ListFirst = ( $' ' *Expr  nInc() );
+ListRest  = ( $','  *Expr  nInc() );
+ListCtor  = ( nPush()
+              $'['
+              ( ListFirst ARBNO(ListRest) | epsilon )
+              $']'
+              (E_MAKELIST & 'nTop()')
+              nPop()
+            );
+/*--------------------------------------------------------------------------------------------------------------------*/
+// Postfix chains on a primary — subscript, section, field.
+// lhs is already on the shift/reduce stack.  Each tail pops lhs (and args),
+// builds the result node, pushes it back.  ARBNO in Expr10 drives repetition.
+// Section: lhs[lo:hi] → (E_SECTION lhs lo hi) via Push_section (pops 3).
+// Subscript: lhs[i]   → (E_IDX lhs i)         via (E_IDX & 2)  (pops 2).
+// Field:     lhs.id   → (E_FIELD id lhs)       via Push_field   (pops 2).
+/*--------------------------------------------------------------------------------------------------------------------*/
+// FieldTail: lhs.ident → (E_FIELD ident lhs).  ident shifted as (E_VAR id).
+FieldTail   = ( $'.' id_pat ~ 'E_VAR' Push_field );
+/*--------------------------------------------------------------------------------------------------------------------*/
+// Expr11tail: one postfix step on the lhs already on the stack.
+Expr11tail  = ( $'[' $' ' *Expr $' '
+                FENCE( $':' $' ' *Expr $' ' $']' Push_section
+                     | $']'                      (E_IDX & 2)
+                     )
+              | FieldTail
+              );
+/*--------------------------------------------------------------------------------------------------------------------*/
+Expr11 = (   If  |  Until  |  While  |  Every  |  Repeat
+         |   $'break' $' '  (E_LOOP_BREAK & 0)
+         |   $'next'  $' '  (E_LOOP_NEXT  & 0)
+         |   ListCtor
+         |   Call  |  Paren  |  Compound
          |   $' ' str_pat Push_qlit
          |   $' ' int_pat ~ 'E_ILIT'
          |   $' ' id_pat  ~ 'E_VAR'
@@ -175,23 +261,41 @@ Expr10 = (   $' ' '-'  *Expr10 (E_MNS         & 1)
          |   $'!'      *Expr10 (E_ITERATE     & 1)
          |   $' ' '*'  *Expr10 (E_SIZE        & 1)
          |   $' ' '?'  *Expr10 (E_RANDOM      & 1)
-         |   *Expr11
+         |   *Expr11  ARBNO(Expr11tail)
          );
 /*--------------------------------------------------------------------------------------------------------------------*/
-Expr8     = ( *Expr10 FENCE($'^' *Expr8 (E_POW & 2) | epsilon) );
+// Expr9: postfix limit E \ N (left-associative, ARBNO).
+Expr9tail = FENCE( $'\\' *Expr10 (E_LIMIT & 2) );
+Expr9     = ( *Expr10 ARBNO(Expr9tail) );
 /*--------------------------------------------------------------------------------------------------------------------*/
-Expr7tail = FENCE( $'*' *Expr8 (E_MUL & 2) | $'/' *Expr8 (E_DIV & 2) );
+Expr8     = ( *Expr9 FENCE($'^' *Expr8 (E_POW & 2) | epsilon) );
+/*--------------------------------------------------------------------------------------------------------------------*/
+// Expr7: multiplicative + cset-intersection.  Longer prefix first: ** before *.
+Expr7tail = FENCE( $'**' *Expr8 (E_CSET_INTER & 2)
+                 | $'*'  *Expr8 (E_MUL        & 2)
+                 | $'/'  *Expr8 (E_DIV        & 2)
+                 | $'%'  *Expr8 (E_MOD        & 2)
+                 );
 Expr7     = ( *Expr8 ARBNO(Expr7tail) );
 /*--------------------------------------------------------------------------------------------------------------------*/
-Expr6tail = FENCE( $'+' *Expr7 (E_ADD & 2) | $'-' *Expr7 (E_SUB & 2) );
+// Expr6: additive + cset-union/diff.  Longer prefix first: ++ before +, -- before -.
+Expr6tail = FENCE( $'++' *Expr7 (E_CSET_UNION & 2)
+                 | $'--' *Expr7 (E_CSET_DIFF  & 2)
+                 | $'+'  *Expr7 (E_ADD        & 2)
+                 | $'-'  *Expr7 (E_SUB        & 2)
+                 );
 Expr6     = ( *Expr7 ARBNO(Expr6tail) );
 /*--------------------------------------------------------------------------------------------------------------------*/
 Expr5tail = FENCE( $'|||' *Expr6 (E_LCONCAT & 2) | $'||' *Expr6 (E_CAT & 2) );
 Expr5     = ( *Expr6 ARBNO(Expr5tail) );
 /*--------------------------------------------------------------------------------------------------------------------*/
-Expr4tail = FENCE( $'<=' *Expr5 (E_LE & 2) | $'>=' *Expr5 (E_GE & 2)
-                 | $'~=' *Expr5 (E_NE & 2) | $'<'  *Expr5 (E_LT & 2)
-                 | $'>'  *Expr5 (E_GT & 2) | $'='  *Expr5 (E_EQ & 2)
+// Expr4: comparison.  String ops longer-prefix first within each family.
+Expr4tail = FENCE( $'<<='  *Expr5 (E_LLE & 2) | $'<<'   *Expr5 (E_LLT & 2)
+                 | $'>>='  *Expr5 (E_LGE & 2) | $'>>'   *Expr5 (E_LGT & 2)
+                 | $'~=='  *Expr5 (E_LNE & 2) | $'=='   *Expr5 (E_LEQ & 2)
+                 | $'<='   *Expr5 (E_LE  & 2) | $'>='   *Expr5 (E_GE  & 2)
+                 | $'~='   *Expr5 (E_NE  & 2) | $'<'    *Expr5 (E_LT  & 2)
+                 | $'>'    *Expr5 (E_GT  & 2) | $'='    *Expr5 (E_EQ  & 2)
                  );
 Expr4     = ( *Expr5 ARBNO(Expr4tail) );
 /*--------------------------------------------------------------------------------------------------------------------*/
