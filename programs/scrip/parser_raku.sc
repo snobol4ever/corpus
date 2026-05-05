@@ -146,6 +146,15 @@ VarStdErr       = ($' ' '$*STDERR');
 // Mirror of raku.l: "$<"[a-zA-Z][a-zA-Z0-9_]*">"  → VAR_NAMED_CAPTURE / sval.
 // BREAK('>') .capncname — captures everything between < and > as a block.
 VarNamedCapture = ($' ' '$<' BREAK('>') . capncname '>');
+// Global match — m:g/body/  → LIT_MATCH_GLOBAL (raku.l RK-37).
+// Body captured into caprx; finish_match_global() builds raku_match_global node.
+LitMatchGlobal  = ($' ' 'm:g/' BREAK('/') . caprx '/');
+// Substitution — s/pat/repl/[g]  → LIT_SUBST (raku.l RK-37).
+// Pack into capsub = pat SOH repl SOH flag (mirror of C lexer token format).
+// flag '-' = single replace, 'g' = global replace.
+LitSubst        = ($' ' 's/' BREAK('/') . cappat '/'
+                             BREAK('/') . caprepl '/'
+                             ('g' . capflag | epsilon));
 /*====================================================================================================================*/
 // Per-construct identifier captures.  Distinct globals keep recursive Expr
 // calls from clobbering an in-flight for-loopvar / sub-name capture.
@@ -182,6 +191,9 @@ capstr    = '';
 caprx     = '';
 capidx    = '';
 capncname = '';
+cappat    = '';
+caprepl   = '';
+capflag   = '';
 capff         = '';
 capfr         = '';
 for_iter   = '';
@@ -277,6 +289,45 @@ function finish_named_capture(fn, node) {
 }
 Finish_named_capture = (epsilon . *finish_named_capture());
 /*--------------------------------------------------------------------------------------------------------------------*/
+// finish_match_global — $s ~~ m:g/pat/ → (E_FNC raku_match_global (E_VAR raku_match_global) subj pat).
+// caprx holds the regex body captured by LitMatchGlobal.
+// Retained: same reason as finish_smartmatch — value field requires explicit name.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_match_global(pat, subj, fn, node) {
+    pat  = Pop();
+    subj = Pop();
+    fn   = tree('E_VAR', 'raku_match_global');
+    node = tree('E_FNC', 'raku_match_global');
+    Append(node, fn);
+    Append(node, subj);
+    Append(node, pat);
+    Push(node);
+    finish_match_global = .dummy;
+    nreturn;
+}
+Finish_match_global = (epsilon . *finish_match_global());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_subst — $s ~~ s/pat/repl/[g] → (E_FNC raku_subst (E_VAR raku_subst) subj (E_QLIT "pat\x01repl\x01flag")).
+// cappat/caprepl/capflag captured by LitSubst.  flag = 'g' or '' (→ '-').
+// Packed sval mirrors the C lexer's LIT_SUBST token format.
+// Retained: needs to build the packed E_QLIT from three captures; reduce() cannot.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_subst(subj, fn, node, flag, packed) {
+    subj   = Pop();
+    flag   = IDENT(capflag, 'g') 'g';
+    flag   = IDENT(flag) '-';
+    packed = cappat CHAR(1) caprepl CHAR(1) flag;
+    fn     = tree('E_VAR', 'raku_subst');
+    node   = tree('E_FNC', 'raku_subst');
+    Append(node, fn);
+    Append(node, subj);
+    Append(node, tree('E_QLIT', packed));
+    Push(node);
+    capflag = '';
+    finish_subst = .dummy;
+    nreturn;
+}
+Finish_subst = (epsilon . *finish_subst());
 // finish_smartmatch — pops pattern + subject from stack, builds
 // (E_FNC raku_match (E_VAR raku_match) subj pat) — same shape as the C
 // frontend's surface→IR rewrite for `$s ~~ /pat/`.
@@ -547,6 +598,8 @@ Expr4tail = FENCE( $'=='  *Expr6      (E_EQ & 2)
                  | $'<'   *Expr6      (E_LT & 2)
                  | $'>'   *Expr6      (E_GT & 2)
                  | $'~~'  LitRegex Push_rxlit  Finish_smartmatch
+                 | $'~~'  LitMatchGlobal Push_rxlit  Finish_match_global
+                 | $'~~'  LitSubst       Finish_subst
                  );
 Expr4     = ( Expr6  ARBNO(Expr4tail) );
 

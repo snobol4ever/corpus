@@ -110,27 +110,60 @@ function SqlSQize(str, part) {
 //   "  -> \"
 //   \  -> \\
 //   nl -> \n      cr -> \r      tab -> \t
+//   other bytes < 0x20 -> \xNN  (e.g. SOH \x01 from LIT_SUBST RK-37)
 // Used by tdump.sc for E_QLIT / E_CSET rendering so PARSER-* output matches
 // scrip's `--dump-ir` byte-for-byte when the value contains backslashes,
-// quotes, or whitespace control bytes.  Other bytes < 0x20 not currently
-// exercised by any PARSER-* corpus; if needed, add \xNN logic alongside.
+// quotes, whitespace control bytes, or other control bytes.
+//
+// CQize_ctrl32: CHAR(1)..CHAR(31) — 31 bytes.  CHAR(0) cannot be stored in
+// Snocone strings (C null-terminator limitation); NUL never appears in IR values.
+// CQize_xNN uses SIZE(CQize_ctrl32) - SIZE(after_strip) to find ordinal of ch;
+// since the table starts at CHAR(1), ordinal of CHAR(n) is position n (1-indexed).
+CQize_ctrl32 = '';
+CQize_ci     = 1;
+while (LT(CQize_ci, 32)) {
+    CQize_ctrl32 = CQize_ctrl32 CHAR(CQize_ci);
+    CQize_ci = CQize_ci + 1;
+}
+//---------------------------------------------------------------------------------------------------
+function CQize_nibble(n, hdig, hx) {
+    hdig = '0123456789abcdef';
+    hdig ? (TAB(n) LEN(1) . hx);
+    CQize_nibble = hx;
+    return;
+}
+//---------------------------------------------------------------------------------------------------
+function CQize_xNN(ch, junk, pos, hi, lo) {
+    // Strip ch from a copy of ctrl32 to find its 1-based position.
+    // Since ctrl32 starts at CHAR(1), position p means the byte value is p.
+    junk = CQize_ctrl32;
+    junk ch = ;
+    pos = SIZE(CQize_ctrl32) - SIZE(junk);
+    hi  = pos / 16;
+    lo  = pos - (hi * 16);
+    CQize_xNN = '\x' CQize_nibble(hi) CQize_nibble(lo);
+    return;
+}
 //---------------------------------------------------------------------------------------------------
 function CQize(str, part, ch) {
     while (1) {
         if (IDENT(str)) return;
-        // Append any run of "safe" bytes verbatim.
-        if (str ? (POS(0) BREAK(bSlash '"' nl cr tab) . part) = ) {
+        // Consume a run of safe bytes (none of the escapable chars and no control bytes).
+        // BREAK stops at the first escapable or control byte; if none exist, BREAK fails
+        // and the if-body is skipped (part stays empty, nothing appended).
+        if (str ? (POS(0) BREAK(bSlash '"' nl cr tab CQize_ctrl32) . part) = ) {
             CQize = CQize part;
         }
         if (IDENT(str)) return;
-        // The next byte is one we must escape.
+        // The next byte must be escaped or appended verbatim.
         if (str ? (POS(0) LEN(1) . ch) = ) {
-            if (IDENT(ch, bSlash)) { CQize = CQize bSlash bSlash; }
-            else if (IDENT(ch, '"'))  { CQize = CQize bSlash '"'; }
-            else if (IDENT(ch, nl))   { CQize = CQize bSlash 'n'; }
-            else if (IDENT(ch, cr))   { CQize = CQize bSlash 'r'; }
-            else if (IDENT(ch, tab))  { CQize = CQize bSlash 't'; }
-            else                      { CQize = CQize ch; }
+            if (IDENT(ch, bSlash))                           { CQize = CQize bSlash bSlash; }
+            else if (IDENT(ch, '"'))                         { CQize = CQize bSlash '"'; }
+            else if (IDENT(ch, nl))                          { CQize = CQize bSlash 'n'; }
+            else if (IDENT(ch, cr))                          { CQize = CQize bSlash 'r'; }
+            else if (IDENT(ch, tab))                         { CQize = CQize bSlash 't'; }
+            else if (ch ? (POS(0) ANY(CQize_ctrl32) RPOS(0))) { CQize = CQize CQize_xNN(ch); }
+            else                                             { CQize = CQize ch; }
         } else {
             error();
         }
