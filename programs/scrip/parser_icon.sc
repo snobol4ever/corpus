@@ -35,6 +35,7 @@ E_FIELD     = "'E_FIELD'";    E_LOOP_BREAK= "'E_LOOP_BREAK'";
 E_LOOP_NEXT = "'E_LOOP_NEXT'"; E_CSET      = "'E_CSET'";
 E_CASE      = "'E_CASE'";      E_GLOBAL    = "'E_GLOBAL'";
 E_INITIAL   = "'E_INITIAL'";   E_RECORD    = "'E_RECORD'";
+E_SUSPEND   = "'E_SUSPEND'";   E_PROC_FAIL = "'E_PROC_FAIL'";
 E_REVASSIGN = "'E_REVASSIGN'"; E_SWAP      = "'E_SWAP'";
 E_REVSWAP   = "'E_REVSWAP'";   E_IDENTICAL = "'E_IDENTICAL'";
 E_NOT       = "'E_NOT'";
@@ -74,7 +75,8 @@ $'of'        = $' ' 'of'       ;  $'default'   = $' ' 'default'  ;
 $'to'        = $' ' 'to'       ;  $'by'        = $' ' 'by'       ;
 $'global'    = $' ' 'global'   ;  $'local'     = $' ' 'local'    ;
 $'static'    = $' ' 'static'   ;  $'record'    = $' ' 'record'   ;
-$'initial'   = $' ' 'initial'  ;
+$'initial'   = $' ' 'initial'  ;  $'suspend'   = $' ' 'suspend'  ;
+$'fail'      = $' ' 'fail'     ;
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Operator tokens — optional whitespace both sides.  Open brackets: ws after only.  Close: ws before only.
 // Operator tokens — optional whitespace both sides.  Open brackets: ws after only.  Close: ws before only.
@@ -469,10 +471,20 @@ InitialStmt = ( nPush() $'initial' *DGray
                 nPop()
               );
 /*--------------------------------------------------------------------------------------------------------------------*/
+// suspend expr [do body]; → (E_SUSPEND expr [body])   fail; → (E_PROC_FAIL)
+SuspendStmt = ( nPush() $'suspend' $'  ' *Expr nInc()
+                FENCE( $'do' $'  ' *Expr nInc() | epsilon )
+                $' ' semi_opt $' ' nl_one
+                (E_SUSPEND & 'nTop()') nPop()
+              );
+FailStmt    = ( $'fail'    $' '         semi_opt $' ' nl_one      (E_PROC_FAIL & 0) );
+/*--------------------------------------------------------------------------------------------------------------------*/
 StmtBody  = ( LocalDecl nInc()
             | StaticDecl nInc()
             | InitialStmt nInc()
             | ReturnStmt nInc()
+            | SuspendStmt nInc()
+            | FailStmt nInc()
             | $' ' *Expr $' ' semi_opt $' ' nl_one nInc()
             | Blank
             );
