@@ -266,8 +266,8 @@ function is_flatten_op(t) {
     if (IDENT(t, 'E_MUL'))               { is_flatten_op = 1; return; }
     if (IDENT(t, 'E_DIV'))               { is_flatten_op = 1; return; }
     if (IDENT(t, 'E_POW'))               { is_flatten_op = 1; return; }
-    is_flatten_op = 0;
-    return;
+    is_flatten_op = .dummy;
+    freturn;
 }
 // is_rotate_op — true iff a binary-op IR tag is one the C frontend keeps
 // as left-recursive binary (oracle is `((a . X) . Y)` not flat n-ary).
@@ -277,8 +277,8 @@ function is_flatten_op(t) {
 function is_rotate_op(t) {
     if (IDENT(t, 'E_CAPT_IMMED_ASGN'))   { is_rotate_op = 1; return; }
     if (IDENT(t, 'E_CAPT_COND_ASGN'))    { is_rotate_op = 1; return; }
-    is_rotate_op = 0;
-    return;
+    is_rotate_op = .dummy;
+    freturn;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 // rw_expr — structural rewrite walk: paren-strip, ExprList unwrap, Call
