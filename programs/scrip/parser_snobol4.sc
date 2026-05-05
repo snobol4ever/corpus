@@ -37,35 +37,39 @@ Id          =  ANY(&UCASE &LCASE)
                FENCE(SPAN('.' digits &UCASE '_' &LCASE) | epsilon);
 ProtKwd     =  '&' SPAN(&UCASE &LCASE);
 UnprotKwd   =  '&' SPAN(&UCASE &LCASE);
-Gray        =  *White | epsilon;
 White       =  (  SPAN(' ' tab)
                   FENCE(nl ('+' | '.') FENCE(SPAN(' ' tab) | epsilon) | epsilon)
                |  nl ('+' | '.') FENCE(SPAN(' ' tab) | epsilon)
                );
-$'='        =  *White '=' *White;
-$'?'        =  *White '?' *White;
-$'|'        =  *White '|' *White;
-$'+'        =  *White '+' *White;
-$'-'        =  *White '-' *White;
-$'/'        =  *White '/' *White;
-$'*'        =  *White '*' *White;
-$'^'        =  *White '^' *White;
-$'!'        =  *White '!' *White;
-$'**'       =  *White '**' *White;
-$'$'        =  *White '$' *White;
-$'.'        =  *White '.' *White;
-$'&'        =  *White '&' *White;
-$'@'        =  *White '@' *White;
-$'#'        =  *White '#' *White;
-$'%'        =  *White '%' *White;
-$'~'        =  *White '~' *White;
-$','        =  *Gray ',' *Gray;
-$'('        =  '(' *Gray;
-$'['        =  '[' *Gray;
-$'<'        =  '<' *Gray;
-$')'        =  *Gray ')';
-$']'        =  *Gray ']';
-$'>'        =  *Gray '>';
+Gray        =  White | epsilon;
+$'  '       =  White;
+$' '        =  Gray;
+$'='        =  $'  ' '='  $'  ';
+$'?'        =  $'  ' '?'  $'  ';
+$'|'        =  $'  ' '|'  $'  ';
+$'+'        =  $'  ' '+'  $'  ';
+$'-'        =  $'  ' '-'  $'  ';
+$'/'        =  $'  ' '/'  $'  ';
+$'*'        =  $'  ' '*'  $'  ';
+$'^'        =  $'  ' '^'  $'  ';
+$'!'        =  $'  ' '!'  $'  ';
+$'**'       =  $'  ' '**' $'  ';
+$'$'        =  $'  ' '$'  $'  ';
+$'.'        =  $'  ' '.'  $'  ';
+$'&'        =  $'  ' '&'  $'  ';
+$'@'        =  $'  ' '@'  $'  ';
+$'#'        =  $'  ' '#'  $'  ';
+$'%'        =  $'  ' '%'  $'  ';
+$'~'        =  $'  ' '~'  $'  ';
+/*--------------------------------------------------------------------------------------------------------------------*/
+$','        =  $' ' ',' $' ';
+$'('        =  '(' $' ';
+$'['        =  '[' $' ';
+$'<'        =  '<' $' ';
+$')'        =  $' ' ')';
+$']'        =  $' ' ']';
+$'>'        =  $' ' '>';
+/*--------------------------------------------------------------------------------------------------------------------*/
 ExprList    =  nPush()
                *XList
                ("'ExprList'" & '*(GT(nTop(), 1) nTop())')
@@ -78,7 +82,7 @@ Expr2       =  *Expr3 FENCE($'&' *Expr2 ("'&'" & 2) | epsilon);
 Expr3       =  nPush() *X3 ("'|'" & '*(GT(nTop(), 1) nTop())') nPop();
 X3          =  nInc() *Expr4 FENCE($'|' *X3 | epsilon);
 Expr4       =  nPush() *X4 ("'..'" & '*(GT(nTop(), 1) nTop())') nPop();
-X4          =  nInc() *Expr5 FENCE(*White *X4 | epsilon);
+X4          =  nInc() *Expr5 FENCE($'  ' *X4 | epsilon);
 Expr5       =  *Expr6 FENCE($'@' *Expr5 ("'@'" & 2) | epsilon);
 Expr6       =  *Expr7
                FENCE($'+' *Expr7 foldop("'E_ADD'") *Expr6cont | $'-' *Expr7 foldop("'E_SUB'") *Expr6cont | epsilon);
@@ -142,31 +146,31 @@ SGoto       =  ('S' | 's');
 FGoto       =  ('F' | 'f');
 Target      =  $'(' . *assign(.Brackets, *'()') *Expr $')'
             |  $'<' . *assign(.Brackets, *'<>') *Expr $'>';
-Sgo         =  *SGoto *Gray *Target reduce(E_goS, 1);
-Fgo         =  *FGoto *Gray *Target reduce(E_goF, 1);
+Sgo         =  *SGoto $' ' *Target reduce(E_goS, 1);
+Fgo         =  *FGoto $' ' *Target reduce(E_goF, 1);
 Ugo         =  *Target reduce(E_goU, 1);
-Goto        =  *Gray ':'
-               *Gray
+Goto        =  $' ' ':'
+               $' '
                FENCE(
                   *Ugo epsilon ~ ''
-               |  *Sgo FENCE(*Gray (':' *Gray | epsilon) *Fgo | epsilon ~ '')
-               |  *Fgo FENCE(*Gray (':' *Gray | epsilon) *Sgo | epsilon ~ '')
+               |  *Sgo FENCE($' ' (':' $' ' | epsilon) *Fgo | epsilon ~ '')
+               |  *Fgo FENCE($' ' (':' $' ' | epsilon) *Sgo | epsilon ~ '')
                );
 Control     =  '-' BREAK(nl ';');
 Comment     =  '*' BREAK(nl);
 Label       =  BREAK(' ' tab nl ';') ~ 'Label';
 Stmt        =  *Label
-               (  *White
+               (  $'  '
                   *Expr14
                   FENCE(
                      epsilon ~ ''
-                     *White
-                     ('=' ~ '=' *White *Expr | '=' ~ '=' epsilon ~ '')
-                  |  ($'?' | *White)
+                     $'  '
+                     ('=' ~ '=' $'  ' *Expr | '=' ~ '=' epsilon ~ '')
+                  |  ($'?' | $'  ')
                      *Expr1
                      FENCE(
-                        *White
-                        ('=' ~ '=' *White *Expr | '=' ~ '=' epsilon ~ '')
+                        $'  '
+                        ('=' ~ '=' $'  ' *Expr | '=' ~ '=' epsilon ~ '')
                      |  epsilon ~ '' epsilon ~ ''
                      )
                   |  epsilon ~ '' epsilon ~ '' epsilon ~ ''
@@ -174,7 +178,7 @@ Stmt        =  *Label
                |  epsilon ~ '' epsilon ~ '' epsilon ~ '' epsilon ~ ''
                )
                FENCE(*Goto | epsilon ~ '' epsilon ~ '')
-               *Gray;
+               $' ';
 Commands    =  *Command FENCE(*Commands | epsilon);
 Command     =  nInc()
                FENCE(
