@@ -98,10 +98,11 @@ bare_call = shift(*Id, E_VAR) $'(' $')' reduce(CALL, 1);
 
 atom = *String Push_qlit() | shift(*Integer, E_ILIT) | *bare_call | shift(*Id, E_VAR);
 
-//  alt_expr — left-associative `|` chain.  beauty.sno-style left-recursion via
-//  iterative FENCE'd accumulator: start with one atom, then ARBNO of `|` atom`
-//  with a reduce after each — yielding ((a|b)|c) shape per oracle.
-alt_expr = *atom ARBNO(FENCE($'|' *atom reduce(ALT, 2)));
+//  alt_expr — n-ary `|` chain per beauty.sc idiom; yields flat (E_ALT a b c).
+//  nInc() counts each atom; reduce with nTop() folds to flat n-ary tree.
+//  Single-atom case: nTop()=1, reduce to (ALT a) which lower_atom unwraps.
+X_alt = nInc() *atom FENCE($'|' *X_alt | epsilon);
+alt_expr = nPush() *X_alt reduce(ALT, nTop_count) nPop();
 
 //  expr — alt_expr optionally followed by `:= alt_expr` (assign).
 expr = *alt_expr FENCE($':=' *alt_expr reduce(ASSIGN, 2) | epsilon);
@@ -224,9 +225,13 @@ function lower_atom(x, k, lhs, rhs) {
     else if (IDENT(k, 'E_ILIT')) lower_atom = x;
     else if (IDENT(k, 'E_QLIT')) lower_atom = x;
     else if (IDENT(k, 'ALT')) {
-        lhs = lower_atom(c(x)[1]);
-        rhs = lower_atom(c(x)[2]);
-        lower_atom = Tree(E_ALT, '', 2, lhs, rhs);
+        if (EQ(n(x), 1)) lower_atom = lower_atom(c(x)[1]);
+        else {
+            lower_atom = tree(E_ALT, '', 0, NULL);
+            i = 0;
+            while (i = LT(i, n(x)) i + 1)
+                lower_atom = Append(lower_atom, lower_atom(c(x)[i]));
+        }
     }
     else if (IDENT(k, 'CALL')) {
         lower_atom = tree(E_FNC, REPLACE(v(c(x)[1]), &LCASE, &UCASE));
