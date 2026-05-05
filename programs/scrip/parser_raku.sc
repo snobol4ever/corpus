@@ -105,6 +105,7 @@ $';'   = $' ' ';'  $' ';  $','   = $' ' ','  $' ';
 $'('   = $' ' '(' $' ';  $')'   = $' ' ')';
 $'{'   = $' ' '{' $' ';  $'}'   = $' ' '}';
 $'<'   = $' ' '<' $' ';  $'>'   = $' ' '>';
+$'~~'  = $' ' '~~' $' ';
 /*====================================================================================================================*/
 // Token classifiers — mirror raku.l names.
 // Each classifier bakes $' ' (optional leading whitespace) into its
@@ -128,6 +129,10 @@ VarHash   = ($' ' '%' vf . capvf vro . capvr);
 LitInt    = ($' ' SPAN(digits));
 LitStrDQ  = ($' ' '"' BREAK('"') . capstr '"');
 LitStrSQ  = ($' ' "'" BREAK("'") . capstr "'");
+// Regex literal — /body/: capture everything between the slashes as raw bytes.
+// Starter slice (RK-5): BREAK('/') — does not handle / inside [...] or after \.
+// Body stored in caprx for push_rxlit().
+LitRegex  = ($' ' '/' BREAK('/') . caprx '/');
 /*====================================================================================================================*/
 // Per-construct identifier captures.  Distinct globals keep recursive Expr
 // calls from clobbering an in-flight for-loopvar / sub-name capture.
@@ -161,6 +166,7 @@ CallName = ($' ' fnf . capfnf fnro . capfnr);
 capvf         = '';
 capvr         = '';
 capstr    = '';
+caprx     = '';
 capff         = '';
 capfr         = '';
 for_iter   = '';
@@ -203,6 +209,36 @@ function push_qlit() {
     nreturn;
 }
 Push_qlit  = (epsilon . *push_qlit());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// push_rxlit — push tree('E_QLIT', body) using caprx.  Regex literal /body/.
+// Oracle emits regex bodies as plain E_QLIT — the runtime distinguishes regex
+// from string by call context (raku_match's second arg).
+/*--------------------------------------------------------------------------------------------------------------------*/
+function push_rxlit() {
+    Push(tree('E_QLIT', caprx));
+    push_rxlit = .dummy;
+    nreturn;
+}
+Push_rxlit = (epsilon . *push_rxlit());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_smartmatch — pops pattern + subject from stack, builds
+// (E_FNC raku_match (E_VAR raku_match) subj pat) — same shape as the C
+// frontend's surface→IR rewrite for `$s ~~ /pat/`.
+// Retained: reduce() builds value=''; E_FNC requires value='raku_match'.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_smartmatch(pat, subj, fn, node) {
+    pat  = Pop();
+    subj = Pop();
+    fn   = tree('E_VAR', 'raku_match');
+    node = tree('E_FNC', 'raku_match');
+    Append(node, fn);
+    Append(node, subj);
+    Append(node, pat);
+    Push(node);
+    finish_smartmatch = .dummy;
+    nreturn;
+}
+Finish_smartmatch = (epsilon . *finish_smartmatch());
 /*--------------------------------------------------------------------------------------------------------------------*/
 // finish_say — say → write name remap.  Pops arg, builds E_FNC write.
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -322,6 +358,79 @@ function finish_main(n_kids, kids, efnc, subj, stmt, i) {
 }
 Finish_main  = (epsilon . *finish_main());
 /*====================================================================================================================*/
+// Flatten helpers — n-ary arith chains.
+//
+// The Raku C frontend (raku.y) uses expr_binary_flatten() which produces n-ary
+// (E_ADD a b c) instead of nested binary (E_ADD (E_ADD a b) c).  Each helper
+// pops rhs, inspects top-of-stack lhs: if lhs has the same tag, appends rhs to
+// lhs in-place (leaving lhs on stack); otherwise builds a fresh 2-child node.
+// Called from ExprNtail ARBNO bodies — one helper per operator tag.
+//
+// Retained: reduce() always builds a new node with fixed arity; it cannot
+// splice into an existing same-tag node.  These are the minimal helpers
+// required for n-ary correctness (§4a retained-for-<reason>).
+/*====================================================================================================================*/
+function flatten_add(rhs, lhs, node) {
+    rhs = Pop();
+    lhs = Pop();
+    node = DIFFER(t(lhs)) IDENT(t(lhs), 'E_ADD') lhs;
+    if (DIFFER(node)) { Append(node, rhs); Push(node); } else {
+        node = tree('E_ADD', '');
+        Append(node, lhs);
+        Append(node, rhs);
+        Push(node);
+    }
+    flatten_add = .dummy;
+    nreturn;
+}
+Flatten_add = (epsilon . *flatten_add());
+
+function flatten_sub(rhs, lhs, node) {
+    rhs = Pop();
+    lhs = Pop();
+    node = DIFFER(t(lhs)) IDENT(t(lhs), 'E_SUB') lhs;
+    if (DIFFER(node)) { Append(node, rhs); Push(node); } else {
+        node = tree('E_SUB', '');
+        Append(node, lhs);
+        Append(node, rhs);
+        Push(node);
+    }
+    flatten_sub = .dummy;
+    nreturn;
+}
+Flatten_sub = (epsilon . *flatten_sub());
+
+function flatten_mul(rhs, lhs, node) {
+    rhs = Pop();
+    lhs = Pop();
+    node = DIFFER(t(lhs)) IDENT(t(lhs), 'E_MUL') lhs;
+    if (DIFFER(node)) { Append(node, rhs); Push(node); } else {
+        node = tree('E_MUL', '');
+        Append(node, lhs);
+        Append(node, rhs);
+        Push(node);
+    }
+    flatten_mul = .dummy;
+    nreturn;
+}
+Flatten_mul = (epsilon . *flatten_mul());
+
+function flatten_div(rhs, lhs, node) {
+    rhs = Pop();
+    lhs = Pop();
+    node = DIFFER(t(lhs)) IDENT(t(lhs), 'E_DIV') lhs;
+    if (DIFFER(node)) { Append(node, rhs); Push(node); } else {
+        node = tree('E_DIV', '');
+        Append(node, lhs);
+        Append(node, rhs);
+        Push(node);
+    }
+    flatten_div = .dummy;
+    nreturn;
+}
+Flatten_div = (epsilon . *flatten_div());
+
+/*====================================================================================================================*/
 // Expression tower — result lives on the shared stack.
 //
 // Named tail patterns (Expr7tail etc.) wrap operator + rhs + action so
@@ -354,24 +463,29 @@ Expr11 = ( VarScalar              Push_var
          );
 
 // Expr7 — multiplicative (* /).
-Expr7tail = FENCE( $'*'  *Expr11  (E_MUL & 2)
-                 | $'/'  *Expr11  (E_DIV & 2)
+// Flatten_mul / Flatten_div produce n-ary (E_MUL a b c) matching the C oracle.
+Expr7tail = FENCE( $'*'  *Expr11  Flatten_mul
+                 | $'/'  *Expr11  Flatten_div
                  );
 Expr7     = ( Expr11 ARBNO(Expr7tail) );
 
 // Expr6 — additive (+ -).
-Expr6tail = FENCE( $'+'  *Expr7  (E_ADD & 2)
-                 | $'-'  *Expr7  (E_SUB & 2)
+// Flatten_add / Flatten_sub produce n-ary (E_ADD a b c) matching the C oracle.
+Expr6tail = FENCE( $'+'  *Expr7  Flatten_add
+                 | $'-'  *Expr7  Flatten_sub
                  );
 Expr6     = ( Expr7  ARBNO(Expr6tail) );
 
 // Expr4 — comparison ops.  Two-char ops tried first (longest match).
-Expr4tail = FENCE( $'=='  *Expr6  (E_EQ & 2)
-                 | $'!='  *Expr6  (E_NE & 2)
-                 | $'<='  *Expr6  (E_LE & 2)
-                 | $'>='  *Expr6  (E_GE & 2)
-                 | $'<'   *Expr6  (E_LT & 2)
-                 | $'>'   *Expr6  (E_GT & 2)
+// ~~ smartmatch: subject ~~ /pattern/ — produces raku_match(subj, pat).
+// Smartmatch's RHS is a LitRegex (not arbitrary Expr) at the RK-5 starter slice.
+Expr4tail = FENCE( $'=='  *Expr6      (E_EQ & 2)
+                 | $'!='  *Expr6      (E_NE & 2)
+                 | $'<='  *Expr6      (E_LE & 2)
+                 | $'>='  *Expr6      (E_GE & 2)
+                 | $'<'   *Expr6      (E_LT & 2)
+                 | $'>'   *Expr6      (E_GT & 2)
+                 | $'~~'  LitRegex Push_rxlit  Finish_smartmatch
                  );
 Expr4     = ( Expr6  ARBNO(Expr4tail) );
 

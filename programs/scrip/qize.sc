@@ -106,6 +106,37 @@ function SqlSQize(str, part) {
     }
 }
 //---------------------------------------------------------------------------------------------------
+// CQize(str) — C-string escape, mirroring src/ir/ir_print.c::print_escaped:
+//   "  -> \"
+//   \  -> \\
+//   nl -> \n      cr -> \r      tab -> \t
+// Used by tdump.sc for E_QLIT / E_CSET rendering so PARSER-* output matches
+// scrip's `--dump-ir` byte-for-byte when the value contains backslashes,
+// quotes, or whitespace control bytes.  Other bytes < 0x20 not currently
+// exercised by any PARSER-* corpus; if needed, add \xNN logic alongside.
+//---------------------------------------------------------------------------------------------------
+function CQize(str, part, ch) {
+    while (1) {
+        if (IDENT(str)) return;
+        // Append any run of "safe" bytes verbatim.
+        if (str ? (POS(0) BREAK(bSlash '"' nl cr tab) . part) = ) {
+            CQize = CQize part;
+        }
+        if (IDENT(str)) return;
+        // The next byte is one we must escape.
+        if (str ? (POS(0) LEN(1) . ch) = ) {
+            if (IDENT(ch, bSlash)) { CQize = CQize bSlash bSlash; }
+            else if (IDENT(ch, '"'))  { CQize = CQize bSlash '"'; }
+            else if (IDENT(ch, nl))   { CQize = CQize bSlash 'n'; }
+            else if (IDENT(ch, cr))   { CQize = CQize bSlash 'r'; }
+            else if (IDENT(ch, tab))  { CQize = CQize bSlash 't'; }
+            else                      { CQize = CQize ch; }
+        } else {
+            error();
+        }
+    }
+}
+//---------------------------------------------------------------------------------------------------
 function Intize(qqstr, iq, qqdlm) {
     if (~(qqstr ? (POS(0) ("'" | '"') $ qqdlm
                    ARBNO(

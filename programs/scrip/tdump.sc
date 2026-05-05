@@ -34,7 +34,10 @@ function TValue(x, i) {
     // not the placeholder dot.  Oracle --dump-parse always emits the
     // typed quoted form even for empty replacements (`S 'a' = ` →
     // `:repl (E_QLIT "")`).  Must come BEFORE the empty-v(x) "." check.
-    if (TValue = IDENT(t(x), 'E_QLIT')     '(' t(x) ' "' v(x) '")')      { return; }
+    // PARSER-RK-5: value rendered through CQize (qize.sc) so backslashes,
+    // embedded quotes, and \n/\r/\t are escaped to match the oracle's
+    // src/ir/ir_print.c::print_escaped output byte-for-byte.
+    if (TValue = IDENT(t(x), 'E_QLIT')     '(' t(x) ' "' CQize(v(x)) '")')      { return; }
     if (TValue = IDENT(v(x)) ".") { return; }
     if (TValue = IDENT(t(x), 'Name')       v(x))                   { return; }
     if (TValue = IDENT(t(x), 'float')      v(x))                   { return; }
