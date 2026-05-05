@@ -113,15 +113,79 @@ function do_head_alloc() {
     do_lend  = new_label('Lend');
     do_head_alloc = .dummy; nreturn;
 }
+// is_name_like — returns success/fail-style: succeeds if e is a name-like
+// atom (E_VAR / E_QLIT — E_KEYWORD / E_INDIRECT will be added when parser
+// produces them).
+function is_name_like(e) {
+    if (IDENT(t(e), 'E_VAR'))   { return; }
+    if (IDENT(t(e), 'E_QLIT'))  { return; }
+    freturn;
+}
+// build_seq_or_single — collapse an array of >=1 trees into a single tree:
+// 1 element returns it directly; >1 elements wraps in E_SEQ.
+function build_seq_or_single(arr, lo, hi, n, r, i) {
+    n = hi - lo + 1;
+    if (IDENT(n, 1)) { build_seq_or_single = arr[lo]; return; }
+    r = Tree('E_SEQ', '', 0);
+    i = lo;
+    while (LE(i, hi)) { r = Append(r, arr[i]); i = i + 1; }
+    build_seq_or_single = r;
+    return;
+}
+// split_subj_pat — returns success after setting globals split_subj / split_pat.
+// Handles:
+//   E_SCAN(s, p)                                 -> subj=s, pat=p
+//   E_SEQ(name-like, rest...)                    -> subj=first, pat=collapse(rest...)
+// Anything else: freturn (no split).
+function split_subj_pat(top, n, kids, i) {
+    if (IDENT(t(top), 'E_SCAN')) {
+        if (~IDENT(n(top), 2)) { freturn; }
+        split_subj = c(top)[1];
+        split_pat  = c(top)[2];
+        return;
+    }
+    if (IDENT(t(top), 'E_SEQ')) {
+        n = n(top);
+        if (~GE(n, 2)) { freturn; }
+        if (~is_name_like(c(top)[1])) { freturn; }
+        kids = ARRAY('1:' n);
+        i = 1;
+        while (LE(i, n)) { kids[i] = c(top)[i]; i = i + 1; }
+        split_subj = kids[1];
+        split_pat  = build_seq_or_single(kids, 2, n);
+        return;
+    }
+    freturn;
+}
 function decompose_stmt(top, lhs, rhs, s) {
     top = Pop();
+    // Form A: E_ASSIGN(lhs, rhs) at top -- check whether lhs is itself an
+    // E_SCAN or name-like-headed E_SEQ; if so, lift subj+pat out.
     if (IDENT(t(top), 'E_ASSIGN')) {
         lhs = c(top)[1]; rhs = c(top)[2];
-        s = Tree('STMT', '', 3,
-                 Tree(':eq',   ''),
-                 Tree(':subj', '', 1, lhs),
-                 Tree(':repl', '', 1, rhs));
-    } else s = Tree('STMT', '', 1, Tree(':subj', '', 1, top));
+        if (split_subj_pat(lhs)) {
+            s = Tree('STMT', '', 4,
+                     Tree(':eq',   ''),
+                     Tree(':subj', '', 1, split_subj),
+                     Tree(':pat',  '', 1, split_pat),
+                     Tree(':repl', '', 1, rhs));
+        } else {
+            s = Tree('STMT', '', 3,
+                     Tree(':eq',   ''),
+                     Tree(':subj', '', 1, lhs),
+                     Tree(':repl', '', 1, rhs));
+        }
+        Push(s); decompose_stmt = .dummy; nreturn;
+    }
+    // Form B: bare E_SCAN or E_SEQ with name-like head -- split subj+pat.
+    if (split_subj_pat(top)) {
+        s = Tree('STMT', '', 2,
+                 Tree(':subj', '', 1, split_subj),
+                 Tree(':pat',  '', 1, split_pat));
+        Push(s); decompose_stmt = .dummy; nreturn;
+    }
+    // Form C: bare expression
+    s = Tree('STMT', '', 1, Tree(':subj', '', 1, top));
     Push(s);
     decompose_stmt = .dummy; nreturn;
 }
