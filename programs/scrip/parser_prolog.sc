@@ -17,6 +17,7 @@
 E_FNC    = "'E_FNC'";   E_ILIT   = "'E_ILIT'";   E_UNIFY  = "'E_UNIFY'";
 E_ADD    = "'E_ADD'";   E_SUB    = "'E_SUB'";
 E_MUL    = "'E_MUL'";   E_DIV    = "'E_DIV'";
+E_CUT    = "'E_CUT'";   E_DCG_IL = "'E_DCG_IL'";
 E_Parse  = "'Parse'";
 /*====================================================================================================================*/
 Block      = '/*' ARBNO(BREAK('*') ANY('*')) '/';
@@ -324,6 +325,244 @@ function build_directive(body_tree) {
 }
 Build_directive = epsilon . *build_directive();
 /*--------------------------------------------------------------------------------------------------------------------*/
+// DCG expansion — mirrors prolog_parse.c::dcg_expand_body + dcg_expand_clause.
+// dcg_svar_count: counter for generating unique hidden _Sk vars within a DCG rule.
+// dcg_fresh_var(): allocates next _Sk through the clause var scope (var_next).
+dcg_svar_count = 0;
+function dcg_fresh_var(slot) {
+    slot = '_S' dcg_svar_count;
+    dcg_svar_count = dcg_svar_count + 1;
+    var_table[slot] = var_next;
+    var_next = var_next + 1;
+    dcg_fresh_var = '_V' var_table[slot];
+    return;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+// expand_dcg_body(body, s_in, s_out, result, n) — walks body IR tree and appends
+// threaded goal nodes into result[] starting at n; returns updated n.
+// body forms recognised:
+//   (E_FNC [])          — empty terminal: unify(s_in, s_out)
+//   (E_FNC . ...)       — terminal list:  unify(s_in, list_with_tail(body, s_out))
+//   (E_DCG_IL ...)      — inline goals {}: append goals + unify(s_in, s_out)
+//   (E_CUT)             — cut: append E_CUT + unify(s_in, s_out)
+//   (E_FNC , A B)       — conjunction: thread s_in -> s_mid -> s_out
+//   (E_FNC ; A B...)    — disjunction: expand each branch, wrap in E_FNC ;
+//   (E_FNC name args..) — non-terminal: name(args..., s_in, s_out)
+//   (E_FNC name)        — atom non-terminal: name(s_in, s_out)
+//   (E_UNIFY A B)       — pass-through (is_expr / arith result)
+//   (E_ILIT n)          — integer literal (non-terminal by default)
+function dcg_append_tail(list, tail, new_tail) {
+    if (IDENT(v(list), '[]')) return tail;
+    new_tail = Tree('E_FNC', '.', 2, c(list)[1], dcg_append_tail(c(list)[2], tail));
+    dcg_append_tail = new_tail;
+    return;
+}
+function dcg_make_unify(a, b) {
+    dcg_make_unify = Tree(E_UNIFY, '', 2, a, b);
+    return;
+}
+function dcg_var_tree(slot_name) {
+    dcg_var_tree = tree('E_VAR', slot_name);
+    return;
+}
+function dcg_call_nt(body, s_in, s_out, new_node, k, nk) {
+    new_node = Tree(E_FNC, v(body), 0);
+    nk = n(body);
+    k = 1;
+    while (LE(k, nk)) {
+        Append(new_node, c(body)[k]);
+        k = k + 1;
+    }
+    Append(new_node, dcg_var_tree(s_in));
+    Append(new_node, dcg_var_tree(s_out));
+    dcg_call_nt = new_node;
+    return;
+}
+function dcg_build_conj(goals, ng, i, result) {
+    if (LE(ng, 0)) { dcg_build_conj = ; return; }
+    result = goals[1];
+    i = 2;
+    while (LE(i, ng)) {
+        result = Tree(E_FNC, ',', 2, result, goals[i]);
+        i = i + 1;
+    }
+    dcg_build_conj = result;
+    return;
+}
+function expand_dcg_body(body, s_in, s_out, result, n,
+                         s_mid, s_a, s_b, i, nk,
+                         buf_a, na, buf_b, nb, branches, nb2,
+                         conj_a, conj_b) {
+    // (E_FNC []) — empty list terminal: s_in = s_out
+    if (IDENT(t(body), E_FNC) IDENT(v(body), '[]')) {
+        result[n] = dcg_make_unify(dcg_var_tree(s_in), dcg_var_tree(s_out));
+        n = n + 1;
+        expand_dcg_body = n;
+        return;
+    }
+    // (E_FNC . ...) — list terminal: s_in = [elems|s_out]
+    if (IDENT(t(body), E_FNC) IDENT(v(body), '.')) {
+        result[n] = dcg_make_unify(dcg_var_tree(s_in),
+                                   dcg_append_tail(body, dcg_var_tree(s_out)));
+        n = n + 1;
+        expand_dcg_body = n;
+        return;
+    }
+    // (E_DCG_IL ...) — inline Prolog goals {A, B, ...}: emit children + s_in = s_out
+    if (IDENT(t(body), E_DCG_IL)) {
+        nk = n(body);
+        i = 1;
+        while (LE(i, nk)) {
+            result[n] = c(body)[i];
+            n = n + 1;
+            i = i + 1;
+        }
+        result[n] = dcg_make_unify(dcg_var_tree(s_in), dcg_var_tree(s_out));
+        n = n + 1;
+        expand_dcg_body = n;
+        return;
+    }
+    // (E_CUT) — cut: emit E_CUT then s_in = s_out
+    if (IDENT(t(body), 'E_CUT')) {
+        result[n] = Tree('E_CUT', '', 0);
+        n = n + 1;
+        result[n] = dcg_make_unify(dcg_var_tree(s_in), dcg_var_tree(s_out));
+        n = n + 1;
+        expand_dcg_body = n;
+        return;
+    }
+    // (E_FNC , A B) — conjunction: thread s_in -> s_mid -> s_out
+    if (IDENT(t(body), E_FNC) IDENT(v(body), ',')) {
+        s_mid = dcg_fresh_var();
+        n = expand_dcg_body(c(body)[1], s_in,  s_mid, result, n);
+        n = expand_dcg_body(c(body)[2], s_mid, s_out, result, n);
+        expand_dcg_body = n;
+        return;
+    }
+    // (E_FNC ; A B ...) — disjunction: expand each branch, wrap in E_FNC ;
+    if (IDENT(t(body), E_FNC) IDENT(v(body), ';')) {
+        nk = n(body);
+        branches = ARRAY(nk + 1);
+        i = 1;
+        while (LE(i, nk)) {
+            buf_a = ARRAY(128);
+            na = expand_dcg_body(c(body)[i], s_in, s_out, buf_a, 1);
+            branches[i] = dcg_build_conj(buf_a, na - 1);
+            i = i + 1;
+        }
+        // Build flat n-ary (E_FNC ;) from branches
+        conj_a = Tree(E_FNC, ';', 0);
+        i = 1;
+        while (LE(i, nk)) {
+            Append(conj_a, branches[i]);
+            i = i + 1;
+        }
+        result[n] = conj_a;
+        n = n + 1;
+        expand_dcg_body = n;
+        return;
+    }
+    // (E_UNIFY A B) / (E_ADD...) / (E_ILIT) — pass through as-is (arith/unify in body)
+    if (~DIFFER(t(body), E_FNC)) {
+        result[n] = body;
+        n = n + 1;
+        expand_dcg_body = n;
+        return;
+    }
+    // Default: (E_FNC name ...) — non-terminal: name(args..., s_in, s_out)
+    result[n] = dcg_call_nt(body, s_in, s_out);
+    n = n + 1;
+    expand_dcg_body = n;
+    return;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+// build_dcg — pops dcg_body tree + uses head_name/head_arity to build
+// the expanded clause.  Mirrors dcg_expand_clause() in prolog_parse.c.
+function build_dcg(s0, s1, key, goals, ng, body_tree, clause_node,
+                   parts, i, bk, bn) {
+    // Pop body (disj/conj result or nil for body-less)
+    body_tree = Pop();
+    // Pop head args
+    parts = ARRAY(head_arity + 1);
+    i = head_arity;
+    while (i > 0) {
+        parts[i] = Pop();
+        i = i - 1;
+    }
+    // Allocate s0, s1 hidden vars (appended after head args)
+    dcg_svar_count = 0;
+    s0 = dcg_fresh_var();
+    s1 = dcg_fresh_var();
+    // key uses arity + 2
+    key = head_name '/' (head_arity + 2);
+    clause_node = Tree('E_CLAUSE', key, 0);
+    i = 1;
+    while (LE(i, head_arity)) {
+        Append(clause_node, parts[i]);
+        i = i + 1;
+    }
+    Append(clause_node, dcg_var_tree(s0));
+    Append(clause_node, dcg_var_tree(s1));
+    // Expand body
+    goals = ARRAY(256);
+    ng = expand_dcg_body(body_tree, s0, s1, goals, 1);
+    bk = 1;
+    while (LE(bk, ng - 1)) {
+        Append(clause_node, goals[bk]);
+        bk = bk + 1;
+    }
+    // Anon slot assignment: head args (reverse), then body goals
+    bn = head_arity + 2;
+    bk = 1;
+    while (LE(bk, bn)) {
+        assign_anon_slots(c(clause_node)[bk]);
+        bk = bk + 1;
+    }
+    bn = n(clause_node);
+    bk = head_arity + 3;
+    while (LE(bk, bn)) {
+        assign_anon_slots(c(clause_node)[bk]);
+        bk = bk + 1;
+    }
+    Push(Tree('STMT', '', 1,
+              Tree(':subj', '', 1,
+                   Tree('E_CHOICE', key, 1, clause_node))));
+    build_dcg = .dummy;
+    nreturn;
+}
+Build_dcg = epsilon . *build_dcg();
+/*--------------------------------------------------------------------------------------------------------------------*/
+// push_dcg_inline — wraps body goals (already on stack as one tree from body)
+// in an E_DCG_IL marker so expand_dcg_body can identify them.
+function push_dcg_inline(body_tree, node, k, nk) {
+    body_tree = Pop();
+    node = Tree(E_DCG_IL, '', 0);
+    // Flatten top-level , into direct children of E_DCG_IL
+    if (IDENT(t(body_tree), E_FNC) IDENT(v(body_tree), ',')) {
+        nk = n(body_tree);
+        k = 1;
+        while (LE(k, nk)) {
+            Append(node, c(body_tree)[k]);
+            k = k + 1;
+        }
+    } else Append(node, body_tree);
+    Push(node);
+    push_dcg_inline = .dummy;
+    nreturn;
+}
+Push_dcg_inline = epsilon . *push_dcg_inline();
+/*--------------------------------------------------------------------------------------------------------------------*/
+// push_cut — pushes an E_CUT tree (for ! in DCG body).
+function push_cut() {
+    Push(Tree('E_CUT', '', 0));
+    push_cut = .dummy;
+    nreturn;
+}
+Push_cut = epsilon . *push_cut();
+/*--------------------------------------------------------------------------------------------------------------------*/
+// mark_dcg_body — analogous to mark_body; signals body is present.
+Mark_dcg_body = epsilon . *mark_body();
+/*====================================================================================================================*/
 // merge_choices(parse_root) — post-Compiland pass.  Walks parse_root's STMT
 // children once and rebuilds them as: directives (in source order) followed
 // by clause-groups (in first-encounter order).  Same-functor/arity clause
@@ -471,6 +710,40 @@ unify_expr = (  is_expr
                      )
              );
 /*--------------------------------------------------------------------------------------------------------------------*/
+$'-->' = $' ' '-->' $' ';
+$'{'   = $' '  '{'  $' ';  $'}'   = $' ' '}'  $' ';
+Tk_cut = $' ' '!' $' ';
+/*--------------------------------------------------------------------------------------------------------------------*/
+// DCG goal — extends body_goal with terminal lists, {Goals}, cut, and paren-body.
+// Used in dcg_conj / dcg_disj / dcg_body to parse DCG rule bodies.
+dcg_goal = (   *list
+           |   $'{' body $'}'       Push_dcg_inline
+           |   Tk_cut               Push_cut
+           |   $'(' *dcg_body $')'
+           |   unify_expr
+           );
+/*--------------------------------------------------------------------------------------------------------------------*/
+dcg_conj = (   nPush()
+                   nInc() dcg_goal
+                   ARBNO( $',' nInc() dcg_goal )
+                                      Reduce_conj
+               nPop()
+           );
+/*--------------------------------------------------------------------------------------------------------------------*/
+dcg_disj = (   nPush()
+                   nInc() dcg_conj
+                   ARBNO( $';' nInc() dcg_conj )
+                                      Reduce_disj
+               nPop()
+           );
+/*--------------------------------------------------------------------------------------------------------------------*/
+dcg_body = dcg_disj;
+/*--------------------------------------------------------------------------------------------------------------------*/
+dcg_rule  = (   head $'-->'           Mark_body
+                dcg_body $'.'
+                                      Build_dcg
+            );
+/*--------------------------------------------------------------------------------------------------------------------*/
 body_goal = ( $'(' *body $')' | unify_expr );
 /*--------------------------------------------------------------------------------------------------------------------*/
 conj = (    nPush()
@@ -512,7 +785,7 @@ directive = (   $':-'                          Reset_var_scope
                                                Build_directive
             );
 /*--------------------------------------------------------------------------------------------------------------------*/
-top_form  = (directive | clause);
+top_form  = (directive | dcg_rule | clause);
 /*====================================================================================================================*/
 Compiland = nPush()
             ARBNO( trivia nInc() top_form trivia )
