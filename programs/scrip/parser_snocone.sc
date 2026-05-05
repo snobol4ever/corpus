@@ -25,6 +25,7 @@ E_CAPT_IMMED_ASGN = "'E_CAPT_IMMED_ASGN'";
 E_CAPT_CURSOR     = "'E_CAPT_CURSOR'";
 E_VLIST           = "'E_VLIST'";
 E_NUL             = "'E_NUL'";
+E_FNC             = "'E_FNC'";
 E_Parse           = "'Parse'";
 r_nTop            = '*(GT(nTop(), 1) nTop())';
 /*====================================================================================================================*/
@@ -40,10 +41,14 @@ Integer  = SPAN(digits);
 DQ_lit   = ('"' BREAK('"') . strbody '"');
 SQ_lit   = ("'" BREAK("'") . strbody "'");
 String   = (*SQ_lit | *DQ_lit);
-sc_reserved = ('if' | 'else' | 'while' | 'do' | 'for');
-Id       = (ANY(&UCASE &LCASE '_')
-            FENCE(SPAN('.' digits &UCASE '_' &LCASE) | epsilon)) $ tx
-           ~IDENT(tx, sc_reserved);
+sc_reserved = POS(0) ('if' | 'else' | 'while' | 'do' | 'for') RPOS(0);
+function notmatch(s, pat, r) {
+    if (s ? *pat)   { notmatch = .dummy; freturn; }
+    notmatch = .dummy; nreturn;
+}
+Id    = (ANY(&UCASE &LCASE '_')
+         FENCE(SPAN('.' digits &UCASE '_' &LCASE) | epsilon));
+Ident = Id $ tx *notmatch(tx, sc_reserved);
 Real     = (  SPAN(digits)
               FENCE(  '.' SPAN(digits)
                           FENCE(  ANY('eEdD') FENCE(ANY('+-') | epsilon) SPAN(digits)
@@ -550,7 +555,7 @@ Expr17 = FENCE(
            | '~' *Expr17  (E_NOT      & 1)
            | '.' *Expr17  (E_NAME     & 1)
            | '$' *Expr17  (E_INDIRECT & 1)
-           | *Id          ~ 'E_VAR'
+           | *Ident       ~ 'E_VAR'
          );
 // Expr15 — subscript chains: a[i], a[i][j].
 Expr15 = *Expr17
@@ -577,9 +582,40 @@ Expr9  = FENCE(
            '-' *Expr11 Push_mns()
          | *Expr11 ARBNO($'*' *Expr11 (E_MUL & 2) | $'/' *Expr11 (E_DIV & 2))
          );
+// Expr5 — comparison + identity (left-assoc) -> E_FNC with fname.
+// Mirrors snocone_parse.y expr5: EQ NE LT GT LE GE + lexical variants + IDENT DIFFER.
+function push_cmp(fname, a, b) {
+    b = Pop(); a = Pop();
+    Push(Tree('E_FNC', fname, 2, a, b));
+    push_cmp = .dummy; nreturn;
+}
+function Push_cmp(fname) {
+    Push_cmp = EVAL("epsilon . thx . *push_cmp('" fname "')");
+    return;
+}
+Expr5  = *Expr5a
+         FENCE(
+           $'==' *Expr5a Push_cmp('EQ')
+         | $'!=' *Expr5a Push_cmp('NE')
+         | $'<=' *Expr5a Push_cmp('LE')
+         | $'>=' *Expr5a Push_cmp('GE')
+         | $'<'  *Expr5a Push_cmp('LT')
+         | $'>'  *Expr5a Push_cmp('GT')
+         | epsilon
+         );
+// Expr5a — OPSYN binary operators ~ & # % (left-assoc) -> E_FNC with op as fname.
+// Mirrors snocone_parse.y expr5a: T_2TILDE T_2AMP T_2POUND T_2PERCENT.
+Expr5a = *Expr6
+         FENCE(
+           $'~' *Expr6 Push_cmp('~')
+         | $'&' *Expr6 Push_cmp('&')
+         | $'#' *Expr6 Push_cmp('#')
+         | $'%' *Expr6 Push_cmp('%')
+         | epsilon
+         );
 Expr6  = *Expr9 ARBNO($'+' *Expr9 (E_ADD & 2) | $'-' *Expr9 (E_SUB & 2));
 Expr4  = nPush() *X4 (E_SEQ & r_nTop) nPop();
-X4     = nInc() *Expr6 FENCE($'  ' *X4 | epsilon);
+X4     = nInc() *Expr5 FENCE($'  ' *X4 | epsilon);
 Expr3  = nPush() *X3 (E_ALT & r_nTop) nPop();
 X3     = nInc() *Expr4 FENCE($'|' *X3 | epsilon);
 Expr1  = *Expr3 FENCE($'?' *Expr1 (E_SCAN   & 2) | epsilon);
