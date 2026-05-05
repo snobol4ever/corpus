@@ -42,6 +42,13 @@ E_BREAK            = "'E_BREAK'";
 E_SPAN             = "'E_SPAN'";
 E_ANY              = "'E_ANY'";
 E_NOTANY           = "'E_NOTANY'";
+E_FENCE            = "'E_FENCE'";
+E_ARBNO            = "'E_ARBNO'";
+E_POS              = "'E_POS'";
+E_RPOS             = "'E_RPOS'";
+E_TAB              = "'E_TAB'";
+E_RTAB             = "'E_RTAB'";
+E_BREAKX           = "'E_BREAKX'";
 /*====================================================================================================================*/
 // SN-7-7c — classifier infrastructure (beauty.sno-faithful, cross-runtime union).
 //
@@ -301,6 +308,13 @@ function rw_call(x, fname, args, na, result, i) {
     else if (IDENT(fname, 'SPAN'))    { result = Tree('E_SPAN',   '', na); }
     else if (IDENT(fname, 'ANY'))     { result = Tree('E_ANY',    '', na); }
     else if (IDENT(fname, 'NOTANY'))  { result = Tree('E_NOTANY', '', na); }
+    else if (IDENT(fname, 'FENCE'))   { result = Tree('E_FENCE',  '', na); }
+    else if (IDENT(fname, 'ARBNO'))   { result = Tree('E_ARBNO',  '', na); }
+    else if (IDENT(fname, 'POS'))     { result = Tree('E_POS',    '', na); }
+    else if (IDENT(fname, 'RPOS'))    { result = Tree('E_RPOS',   '', na); }
+    else if (IDENT(fname, 'TAB'))     { result = Tree('E_TAB',    '', na); }
+    else if (IDENT(fname, 'RTAB'))    { result = Tree('E_RTAB',   '', na); }
+    else if (IDENT(fname, 'BREAKX'))  { result = Tree('E_BREAKX', '', na); }
     else                              { result = Tree('E_FNC', fname, 0); }
     if (EQ(na, 0)) { rw_call = result; return; }
     if (IDENT(t(args), 'ExprList')) {
@@ -452,7 +466,7 @@ if (Src ? Compiland) {
     nk = n(ptree);
     while (LE(i, nk)) {
         cmd = c(ptree)[i];
-        if (IDENT(t(cmd), 'Stmt')) { TDump(pp_stmt(cmd)); }
+        if (IDENT(t(cmd), 'Stmt')) { result = pp_stmt(cmd); TDump(result); }
         i = i + 1;
     }
 } else OUTPUT = 'Parse Error.';
