@@ -320,8 +320,8 @@ Build_directive = epsilon . *build_directive();
 // Grammar — pure patterns.  Expression ladder (tightest -> loosest):
 //   primary -> mul_expr -> add_expr -> is_expr -> unify_expr -> conj -> disj
 // Tail-recursion (args/args_tail) avoids ARBNO around forward refs (FW-3).
-args      = ( nInc() *unify_expr (*args_tail | epsilon) );
-args_tail = ( $',' nInc() *unify_expr (*args_tail | epsilon) );
+args      = ( nInc() *unify_expr FENCE(*args_tail | epsilon) );
+args_tail = ( $',' nInc() *unify_expr FENCE(*args_tail | epsilon) );
 /*--------------------------------------------------------------------------------------------------------------------*/
 list_elem = (   shift(Int,  'E_ILIT')
             |   shift(Atom, 'E_FNC')
@@ -332,13 +332,14 @@ list_elem = (   shift(Int,  'E_ILIT')
             );
 /*--------------------------------------------------------------------------------------------------------------------*/
 list = (    $'['
-            ( $']'                    Push_nil
+            FENCE(
+              $']'                    Push_nil
             | nPush()
                   nInc() list_elem
                   ARBNO( $',' nInc() list_elem )
-                  ( $'|' list_elem
-                  | epsilon           Push_nil
-                  )
+                  FENCE( $'|' list_elem
+                       | epsilon           Push_nil
+                       )
                   $']'
                                        Reduce_list
               nPop()
@@ -361,30 +362,30 @@ primary = (   Atom . p_name $'('
 /*--------------------------------------------------------------------------------------------------------------------*/
 mul_expr  = (   primary
                 ARBNO(
-                    ( $'*' primary reduce(E_MUL, 2)
-                    | $'/' primary reduce(E_DIV, 2)
-                    )
+                    FENCE( $'*' primary reduce(E_MUL, 2)
+                         | $'/' primary reduce(E_DIV, 2)
+                         )
                 )
             );
 /*--------------------------------------------------------------------------------------------------------------------*/
 add_expr  = (   mul_expr
                 ARBNO(
-                    ( $'+' mul_expr reduce(E_ADD, 2)
-                    | $'-' mul_expr reduce(E_SUB, 2)
-                    )
+                    FENCE( $'+' mul_expr reduce(E_ADD, 2)
+                         | $'-' mul_expr reduce(E_SUB, 2)
+                         )
                 )
             );
 /*--------------------------------------------------------------------------------------------------------------------*/
 is_expr   = (   add_expr
-                ( $'is' add_expr    Reduce_is
-                | epsilon
-                )
+                FENCE( $'is' add_expr    Reduce_is
+                     | epsilon
+                     )
             );
 /*--------------------------------------------------------------------------------------------------------------------*/
 unify_expr = (  is_expr
-                ( $'=' is_expr reduce(E_UNIFY, 2)
-                | epsilon
-                )
+                FENCE( $'=' is_expr reduce(E_UNIFY, 2)
+                     | epsilon
+                     )
              );
 /*--------------------------------------------------------------------------------------------------------------------*/
 body_goal = unify_expr;

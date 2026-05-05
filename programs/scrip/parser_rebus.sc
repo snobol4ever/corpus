@@ -101,19 +101,19 @@ atom = *String Push_qlit() | shift(*Integer, E_ILIT) | *bare_call | shift(*Id, E
 //  alt_expr — left-associative `|` chain.  beauty.sno-style left-recursion via
 //  iterative FENCE'd accumulator: start with one atom, then ARBNO of `|` atom`
 //  with a reduce after each — yielding ((a|b)|c) shape per oracle.
-alt_expr = *atom ARBNO($'|' *atom reduce(ALT, 2));
+alt_expr = *atom ARBNO(FENCE($'|' *atom reduce(ALT, 2)));
 
 //  expr — alt_expr optionally followed by `:= alt_expr` (assign).
-expr = *alt_expr ($':=' *alt_expr reduce(ASSIGN, 2) | epsilon);
+expr = *alt_expr FENCE($':=' *alt_expr reduce(ASSIGN, 2) | epsilon);
 
 //  match_or_expr — expr optionally followed by `? alt_expr` (match).
-match_or_expr = *expr ($'?' *alt_expr reduce(MATCH, 2) | epsilon);
+match_or_expr = *expr FENCE($'?' *alt_expr reduce(MATCH, 2) | epsilon);
 
 //  if_stmt / while_stmt — surface shapes; lowering generates synthetic labels.
 if_stmt    = $'if'    *match_or_expr $'then' *match_or_expr reduce(IF,    2);
 while_stmt = $'while' *match_or_expr $'do'   *match_or_expr reduce(WHILE, 2);
 
-stmt = $' ' (*if_stmt | *while_stmt | *match_or_expr) $' ' nl;
+stmt = $' ' FENCE(*if_stmt | *while_stmt | *match_or_expr) $' ' nl;
 
 //  func_body — n-ary fold over body stmts.  Uses tail-recursive shape (per
 //  parser_icon.sc Procbody idiom) so that 'end' is preempt-matched BEFORE
@@ -127,18 +127,18 @@ stmt = $' ' (*if_stmt | *while_stmt | *match_or_expr) $' ' nl;
 //  func_body       — wraps the recursion in an n-ary counter scope.
 
 func_end      = $'end' $' ' nl;
-func_body_stmt = (*func_end | nInc() *stmt *func_body_stmt);
+func_body_stmt = FENCE(*func_end | nInc() *stmt *func_body_stmt);
 func_body     = nPush() *func_body_stmt reduce(BODY, nTop_count) nPop();
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 //  Parameter / field list — both fold into n-ary lists; empty list folds to (TAG) with nTop()=0.
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-X_params  = nInc() shift(*Id, E_VAR) ($',' *X_params | epsilon);
-opt_params = nPush() (*X_params | epsilon) reduce(PARAMS, nTop_count) nPop();
+X_params  = nInc() shift(*Id, E_VAR) FENCE($',' *X_params | epsilon);
+opt_params = nPush() FENCE(*X_params | epsilon) reduce(PARAMS, nTop_count) nPop();
 
-X_fields  = nInc() shift(*Id, E_VAR) ($',' *X_fields | epsilon);
-opt_fields = nPush() (*X_fields | epsilon) reduce(FIELDS, nTop_count) nPop();
+X_fields  = nInc() shift(*Id, E_VAR) FENCE($',' *X_fields | epsilon);
+opt_fields = nPush() FENCE(*X_fields | epsilon) reduce(FIELDS, nTop_count) nPop();
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 //  Top-level decls.

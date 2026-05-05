@@ -354,25 +354,25 @@ Expr11 = ( VarScalar              Push_var
          );
 
 // Expr7 — multiplicative (* /).
-Expr7tail = ( $'*'  *Expr11  (E_MUL & 2)
-            | $'/'  *Expr11  (E_DIV & 2)
-            );
+Expr7tail = FENCE( $'*'  *Expr11  (E_MUL & 2)
+                 | $'/'  *Expr11  (E_DIV & 2)
+                 );
 Expr7     = ( Expr11 ARBNO(Expr7tail) );
 
 // Expr6 — additive (+ -).
-Expr6tail = ( $'+'  *Expr7  (E_ADD & 2)
-            | $'-'  *Expr7  (E_SUB & 2)
-            );
+Expr6tail = FENCE( $'+'  *Expr7  (E_ADD & 2)
+                 | $'-'  *Expr7  (E_SUB & 2)
+                 );
 Expr6     = ( Expr7  ARBNO(Expr6tail) );
 
 // Expr4 — comparison ops.  Two-char ops tried first (longest match).
-Expr4tail = ( $'=='  *Expr6  (E_EQ & 2)
-            | $'!='  *Expr6  (E_NE & 2)
-            | $'<='  *Expr6  (E_LE & 2)
-            | $'>='  *Expr6  (E_GE & 2)
-            | $'<'   *Expr6  (E_LT & 2)
-            | $'>'   *Expr6  (E_GT & 2)
-            );
+Expr4tail = FENCE( $'=='  *Expr6  (E_EQ & 2)
+                 | $'!='  *Expr6  (E_NE & 2)
+                 | $'<='  *Expr6  (E_LE & 2)
+                 | $'>='  *Expr6  (E_GE & 2)
+                 | $'<'   *Expr6  (E_LT & 2)
+                 | $'>'   *Expr6  (E_GT & 2)
+                 );
 Expr4     = ( Expr6  ARBNO(Expr4tail) );
 
 // Expr — top of expression tower.

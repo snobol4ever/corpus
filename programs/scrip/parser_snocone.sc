@@ -248,19 +248,23 @@ Expr17 = FENCE(
            | *Id      ~ 'E_VAR'
          );
 Expr9  = *Expr17
-         ( $'*' *Expr17 (E_MUL & 2) ($'*' *Expr17 (E_MUL & 2) | epsilon)
+         FENCE(
+           $'*' *Expr17 (E_MUL & 2) FENCE($'*' *Expr17 (E_MUL & 2) | epsilon)
          | $'/' *Expr17 (E_DIV & 2) FENCE($'/' *Expr17 (E_DIV & 2) | epsilon)
-         | epsilon );
+         | epsilon
+         );
 Expr6  = *Expr9
-         ( $'+' *Expr9 (E_ADD & 2) ($'+' *Expr9 (E_ADD & 2) | epsilon)
-         | $'-' *Expr9 (E_SUB & 2) ($'-' *Expr9 (E_SUB & 2) | epsilon)
-         | epsilon );
+         FENCE(
+           $'+' *Expr9 (E_ADD & 2) FENCE($'+' *Expr9 (E_ADD & 2) | epsilon)
+         | $'-' *Expr9 (E_SUB & 2) FENCE($'-' *Expr9 (E_SUB & 2) | epsilon)
+         | epsilon
+         );
 Expr4  = nPush() *X4 (E_SEQ & r_nTop) nPop();
-X4     = nInc() *Expr6 ($'  ' *X4 | epsilon);
+X4     = nInc() *Expr6 FENCE($'  ' *X4 | epsilon);
 Expr3  = nPush() *X3 (E_ALT & r_nTop) nPop();
-X3     = nInc() *Expr4 ($'|' *X3 | epsilon);
-Expr1  = *Expr3 ($'?' *Expr1 (E_SCAN   & 2) | epsilon);
-Expr0  = *Expr1 ($'=' *Expr0 (E_ASSIGN & 2) | epsilon);
+X3     = nInc() *Expr4 FENCE($'|' *X3 | epsilon);
+Expr1  = *Expr3 FENCE($'?' *Expr1 (E_SCAN   & 2) | epsilon);
+Expr0  = *Expr1 FENCE($'=' *Expr0 (E_ASSIGN & 2) | epsilon);
 /*====================================================================================================================*/
 stmt_body = ($' ' *Expr0 $' ' ($';' | epsilon) $' ' nl_opt Decompose_stmt());
 stmt_cmd  = (nInc() stmt_body);
