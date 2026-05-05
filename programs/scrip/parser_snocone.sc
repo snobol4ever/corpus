@@ -52,7 +52,7 @@ Real     = (  SPAN(digits)
 Keyword  = ('&' SPAN(&UCASE &LCASE '_') . kw_name);
 /*--------------------------------------------------------------------------------------------------------------------*/
 kw_rest     = '';
-kw_tail     = FENCE(SPAN(&UCASE &LCASE digits '_') | epsilon) . kw_rest IDENT(kw_rest);
+kw_tail     = FENCE(SPAN(&UCASE &LCASE digits '_') | epsilon) $ kw_rest *IDENT(kw_rest);
 kw_do       = ('do'       kw_tail);
 kw_else     = ('else'     kw_tail);
 kw_for      = ('for'      kw_tail);
