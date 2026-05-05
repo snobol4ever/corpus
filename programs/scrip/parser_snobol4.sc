@@ -114,12 +114,12 @@ Expr5       =  *Expr6 FENCE($'@' *Expr5 ("'@'" & 2) | epsilon);
 Expr6tail   =  FENCE($'+' *Expr7 foldop(E_ADD) | $'-' *Expr7 foldop(E_SUB));
 Expr6       =  *Expr7 ARBNO(Expr6tail);
 Expr7       =  *Expr8 FENCE($'#' *Expr7 ("'#'" & 2) | epsilon);
-Expr8tail   =  $'/' *Expr9 foldop(E_DIV);
+Expr8tail   =  FENCE($'/' *Expr9 foldop(E_DIV));
 Expr8       =  *Expr9 ARBNO(Expr8tail);
-Expr9tail   =  $'*' *Expr10 foldop(E_MUL);
+Expr9tail   =  FENCE($'*' *Expr10 foldop(E_MUL));
 Expr9       =  *Expr10 ARBNO(Expr9tail);
 Expr10      =  *Expr11 FENCE($'%' *Expr10 ("'%'" & 2) | epsilon);
-Expr11tail  =  ($'^' | $'!' | $'**') *Expr12 foldop(E_POW);
+Expr11tail  =  FENCE(($'^' | $'!' | $'**') *Expr12 foldop(E_POW));
 Expr11      =  *Expr12 ARBNO(Expr11tail);
 Expr12      =  *Expr13
                FENCE(
