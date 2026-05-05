@@ -47,7 +47,7 @@ White        = (  SPAN(' ' tab) FENCE('#' BREAK(nl) | epsilon)
                |  '#' BREAK(nl)
                );
 Gray         = White | epsilon;
-DGray        = (SPAN(' ' tab nl) FENCE('#' BREAK(nl) | epsilon) | '#' BREAK(nl) | epsilon);
+DGray        = ARBNO(SPAN(' ' tab nl) | '#' BREAK(nl) nl_one);
 $' '         = Gray;
 $'  '        = White;
 nl_one       = ANY(nl);
