@@ -14,25 +14,65 @@ E_ASSIGN  = "'E_ASSIGN'";  E_SCAN    = "'E_SCAN'";
 E_ALT     = "'E_ALT'";     E_SEQ     = "'E_SEQ'";
 E_ADD     = "'E_ADD'";     E_SUB     = "'E_SUB'";
 E_MUL     = "'E_MUL'";     E_DIV     = "'E_DIV'";
+E_POW     = "'E_POW'";
 E_QLIT    = "'E_QLIT'";    E_ILIT    = "'E_ILIT'";   E_VAR     = "'E_VAR'";
 E_KEYWORD = "'E_KEYWORD'"; E_IDX     = "'E_IDX'";
 E_FLIT    = "'E_FLIT'";    E_MNS     = "'E_MNS'";
 E_DEFER   = "'E_DEFER'";   E_NOT     = "'E_NOT'";
 E_NAME    = "'E_NAME'";    E_INDIRECT= "'E_INDIRECT'";
+E_CAPT_COND_ASGN  = "'E_CAPT_COND_ASGN'";
+E_CAPT_IMMED_ASGN = "'E_CAPT_IMMED_ASGN'";
+E_CAPT_CURSOR     = "'E_CAPT_CURSOR'";
 E_Parse   = "'Parse'";
 r_nTop    = '*(GT(nTop(), 1) nTop())';
 /*====================================================================================================================*/
 Block    = '/*' ARBNO(BREAK('*') ANY('*')) '/';
-White    = (  SPAN(' ' tab) FENCE(  '//' BREAK(nl)
-                                 |  Block
-                                 |  epsilon
-                                 )
+// White_h — horizontal whitespace only (space/tab/cr/ff + line comments + block
+// comments); does NOT consume nl.  Used for grouping-paren and call-open so that
+// `$'(g'` never eats a newline and triggers deep recursion through Expr0 → Expr17.
+White_h  = (  SPAN(' ' tab '\r\f') FENCE(  '//' BREAK(nl)
+                                          |  Block
+                                          |  epsilon
+                                          )
            |  '//' BREAK(nl)
            |  Block
            );
-Gray     = White | epsilon;
+// White_expr — expression-level whitespace: horizontal space + continuation lines
+// (nl followed by '+' or '.' at column-1 per S_CONT) + comments.  Does NOT eat
+// bare newlines — those end statements.  Used by $'  ' (required whitespace between
+// tokens in the expression tier) and by $' ' inside operator tokens.
+White_expr = (  SPAN(' ' tab) FENCE(  nl ANY('+.') FENCE(SPAN(' ' tab) | epsilon)
+                                    |  '//' BREAK(nl) nl
+                                    |  '//' BREAK(nl)
+                                    |  Block
+                                    |  epsilon
+                                    )
+             |  nl ANY('+.') FENCE(SPAN(' ' tab) | epsilon)
+             |  '//' BREAK(nl) nl
+             |  '//' BREAK(nl)
+             |  Block
+             );
+// White — same as White_expr but also eats bare newlines (+ following indent).
+// A bare nl matches the newline AND any horizontal whitespace that follows it
+// (indentation of the next line), so that after $'  ' eats a continuation
+// newline the cursor lands directly at the next token, not at the indent spaces.
+White    = (  *White_expr
+           |  nl FENCE(SPAN(' ' tab) | epsilon)
+           );
+Gray     = ARBNO(*White);
+Gray_h   = ARBNO(*White_h);
+// $' ' — optional whitespace: eats bare newlines, comment lines, continuation
+//         lines (Gray = ARBNO(*White)).  Used at statement boundaries and inside
+//         operator tokens where newlines are legal separators.
+// $'  ' — required whitespace: same as $' ' but requires at least one segment.
+//         Used by X4 concat separator (matching lexer's T_CONCAT synthesis across
+//         any whitespace including bare newlines inside balanced parens).
 $' '     = Gray;
 $'  '    = White;
+// $'(g' — grouping-open paren: horizontal-only Gray before '(', then full Gray
+// after.  Prevents Expr17's grouping-paren from eating a newline on the left and
+// recursing into the full Expr tower (which causes C-stack overflow on long inputs).
+$'(g'    = Gray_h '(' $' ';
 nl_opt   = (nl | epsilon);
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Token classifiers — PATTERNS.
@@ -354,6 +394,15 @@ function label_emit() { Push(make_label_stmt(captured_label)); label_emit = .dum
 function push_keyword() { Push(tree('E_KEYWORD', kw_name)); push_keyword = .dummy; nreturn; }
 function push_flit() { Push(tree('E_FLIT', strbody)); push_flit = .dummy; nreturn; }
 function push_mns(e) { e = Pop(); Push(Tree('E_MNS', '', 1, e)); push_mns = .dummy; nreturn; }
+// push_call_name_var — fires match-time after '(' is confirmed; pushes the
+// captured function name as an E_VAR node and increments the n-ary counter
+// (the equivalent of `*Id ~ 'E_VAR' nInc()` in the old Call pattern, but
+// deferred until after '(' so nPush / nInc side-effects don't fire on a bare Id).
+function push_call_name_var() {
+    Push(tree('E_VAR', captured_call_name));
+    IncCounter();
+    push_call_name_var = .dummy; nreturn;
+}
 function push_idx(base, idx) {
     idx  = Pop(); base = Pop();
     Push(Tree('E_IDX', '', 2, base, idx));
@@ -480,6 +529,7 @@ function Push_keyword() { Push_keyword = EVAL("epsilon . thx . *push_keyword()")
 function Push_flit() { Push_flit = EVAL("epsilon . thx . *push_flit()"); return; }
 function Push_mns() { Push_mns = EVAL("epsilon . thx . *push_mns()"); return; }
 function Push_idx() { Push_idx = EVAL("epsilon . thx . *push_idx()"); return; }
+function Push_call_name_var() { Push_call_name_var = EVAL("epsilon . thx . *push_call_name_var()"); return; }
 function For_head_alloc() { For_head_alloc = EVAL("epsilon . thx . *for_head_alloc()"); return; }
 function Finalize_for(nbody_v) {
     Finalize_for = EVAL("epsilon . thx . *finalize_for('" nbody_v "')");
@@ -487,15 +537,26 @@ function Finalize_for(nbody_v) {
 }
 /*====================================================================================================================*/
 // Function call atom — id_pat followed by `(` arglist `)` reduces to (E_FNC name arg1 ... argN).
+// IMPORTANT: nPush / nInc fire AFTER '(' is confirmed so that when Call fails
+// (Id present but no '(' follows) the n-ary stack is left untouched and FENCE
+// in Expr17 falls through cleanly to the bare *Id ~ 'E_VAR' alternative.
+// Gray_h (horizontal-only) for '(' so a newline between id and '(' is NOT a call.
 ArgFirst = ( *Expr0 nInc() );
 ArgRest  = ( $','   *Expr0 nInc() );
 CallArgs = ( ArgFirst ARBNO(ArgRest) | epsilon );
-Call     = ( nPush() *Id ~ 'E_VAR' nInc() $'(' CallArgs $')' Decompose_call() nPop() );
+Call     = ( (*Id . captured_call_name)
+             FENCE( Gray_h '(' $' ' nPush() Push_call_name_var()
+                    CallArgs $')' Decompose_call() nPop()
+                  )
+           );
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Expression tower — Snocone operator precedence.
+// Grouping paren uses $'(g' (horizontal-only open) to prevent NL-inclusive Gray
+// from eating a newline before '(' and then recursing into the full expression
+// tower — which would overflow the C stack on multi-line inputs like beauty.sc.
 Expr17 = FENCE(
              *Call
-           | $'(' *Expr0 $')'
+           | $'(g' *Expr0 $')'
            | *String      Push_qlit()
            | (*Real . strbody) Push_flit()
            | *Integer    ~ 'E_ILIT'
@@ -512,13 +573,27 @@ Expr15 = *Expr17
            $'[' *Expr0 $']' Push_idx() FENCE($'[' *Expr0 $']' Push_idx() | epsilon)
          | epsilon
          );
+// Expr12 — binary pattern-capture: pat . var (E_CAPT_COND_ASGN, left-assoc)
+//                                  pat $ var (E_CAPT_IMMED_ASGN, left-assoc).
+// Binary forms use $'.' / $'$' (whitespace-enveloped, T_2DOT / T_2DOLLAR).
+// Unary '.' / '$' / '@' at Expr17 level are T_1DOT / T_1DOLLAR / T_1AT (no
+// leading whitespace) — the lexer-level disambiguation is preserved here via the
+// binary form requiring $' ' on both sides while unary uses the raw literal.
+Expr12 = *Expr15
+         FENCE(
+           $'.' *Expr15 (E_CAPT_COND_ASGN  & 2) FENCE($'.' *Expr15 (E_CAPT_COND_ASGN  & 2) | epsilon)
+         | $'$' *Expr15 (E_CAPT_IMMED_ASGN & 2) FENCE($'$' *Expr15 (E_CAPT_IMMED_ASGN & 2) | epsilon)
+         | epsilon
+         );
+// Expr11 — exponentiation: right-associative, binds tighter than capture.
+Expr11 = *Expr12 FENCE($'^' *Expr11 (E_POW & 2) | epsilon);
 // Expr9 — mul/div; unary minus prefix handled here.
 Expr9  = FENCE(
-           '-' *Expr15 Push_mns()
-         | *Expr15
+           '-' *Expr11 Push_mns()
+         | *Expr11
            FENCE(
-             $'*' *Expr15 (E_MUL & 2) FENCE($'*' *Expr15 (E_MUL & 2) | epsilon)
-           | $'/' *Expr15 (E_DIV & 2) FENCE($'/' *Expr15 (E_DIV & 2) | epsilon)
+             $'*' *Expr11 (E_MUL & 2) FENCE($'*' *Expr11 (E_MUL & 2) | epsilon)
+           | $'/' *Expr11 (E_DIV & 2) FENCE($'/' *Expr11 (E_DIV & 2) | epsilon)
            | epsilon
            )
          );
