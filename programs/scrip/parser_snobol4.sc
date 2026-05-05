@@ -253,26 +253,40 @@ function rw_call(x, fname, args, na, result, i) {
     return;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-// is_rotatable — true iff a binary-op IR tag is in the set that beauty.sno
-// builds right-recursively but the oracle wants left-associative.  These
-// are the seven ops that the grammar emits as E_* directly via shift/reduce.
-function is_rotatable(t) {
-    if (IDENT(t, 'E_ADD'))               { is_rotatable = 1; return; }
-    if (IDENT(t, 'E_SUB'))               { is_rotatable = 1; return; }
-    if (IDENT(t, 'E_MUL'))               { is_rotatable = 1; return; }
-    if (IDENT(t, 'E_DIV'))               { is_rotatable = 1; return; }
-    if (IDENT(t, 'E_POW'))               { is_rotatable = 1; return; }
-    if (IDENT(t, 'E_CAPT_IMMED_ASGN'))   { is_rotatable = 1; return; }
-    if (IDENT(t, 'E_CAPT_COND_ASGN'))    { is_rotatable = 1; return; }
-    is_rotatable = 0;
+// is_flatten_op — true iff a binary-op IR tag is in the set that beauty.sno
+// builds right-recursively but the oracle now emits as flat n-ary (with
+// children in source order).  Same-tag chains: rewrite walk splices any
+// rewritten child whose tag matches into the parent's child list, producing
+// (E_ADD a b c d) instead of nested binary trees.  E_POW is included even
+// though it is right-fold semantically — the runtime sm_lower / interp_eval
+// handles right-fold via LOWER_NARY_RFOLD.
+function is_flatten_op(t) {
+    if (IDENT(t, 'E_ADD'))               { is_flatten_op = 1; return; }
+    if (IDENT(t, 'E_SUB'))               { is_flatten_op = 1; return; }
+    if (IDENT(t, 'E_MUL'))               { is_flatten_op = 1; return; }
+    if (IDENT(t, 'E_DIV'))               { is_flatten_op = 1; return; }
+    if (IDENT(t, 'E_POW'))               { is_flatten_op = 1; return; }
+    is_flatten_op = 0;
+    return;
+}
+// is_rotate_op — true iff a binary-op IR tag is one the C frontend keeps
+// as left-recursive binary (oracle is `((a . X) . Y)` not flat n-ary).
+// Capture-assign operators are deeper than parser flattening: the runtime
+// E_CAPT_*_ASGN handlers are strictly binary.  Until those go n-ary,
+// rotate right-recursive parser output to left-recursive binary.
+function is_rotate_op(t) {
+    if (IDENT(t, 'E_CAPT_IMMED_ASGN'))   { is_rotate_op = 1; return; }
+    if (IDENT(t, 'E_CAPT_COND_ASGN'))    { is_rotate_op = 1; return; }
+    is_rotate_op = 0;
     return;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 // rw_expr — structural rewrite walk: paren-strip, ExprList unwrap, Call
 // dispatch (generic E_FNC vs pattern-primitive E_LEN/E_BREAK/...),
-// left-rotate right-recursive binary arith chains.  No tag renaming —
-// the grammar emits E_* tags directly.
-function rw_expr(x, t, result, i, right, rr, rl) {
+// flatten same-tag arith chains to n-ary, rotate right-recursive CAPT
+// binary chains to left-recursive.  No tag renaming — the grammar emits
+// E_* tags directly.
+function rw_expr(x, t, result, i, j, ch, right, rr, rl) {
     if (IDENT(x)) { rw_expr = x; return; }
     t = t(x);
     if (IDENT(t))          { rw_expr = x; return; }   // empty-slot node
@@ -288,13 +302,31 @@ function rw_expr(x, t, result, i, right, rr, rl) {
         rw_expr = result;
         return;
     }
-    // Left-rotation: beauty.sno builds a + b + c as (a + (b + c)); oracle wants ((a+b)+c).
-    // A right-recursive node is one where n=2 and c[2] has the same IR tag.
-    // Rotate: result = (rw(c[1]) op rw(c[2].c[1])); then iteratively fold in c[2].c[2] etc.
-    if (EQ(n(x), 2) is_rotatable(t)) {
+    // Flatten same-tag arith chains — beauty.sno builds (E_ADD a (E_ADD b (E_ADD c d)));
+    // oracle now emits flat (E_ADD a b c d).  Recurse on each child, and if a rewritten
+    // child has the same tag, splice its children into the parent in source order.
+    if (is_flatten_op(t)) {
+        result = Tree(t, '', 0);
+        i = 1;
+        while (LE(i, n(x))) {
+            ch = rw_expr(c(x)[i]);
+            if (DIFFER(t(ch)) IDENT(t(ch), t)) {
+                j = 1;
+                while (LE(j, n(ch))) { Append(result, c(ch)[j]); j = j + 1; }
+            } else {
+                Append(result, ch);
+            }
+            i = i + 1;
+        }
+        rw_expr = result;
+        return;
+    }
+    // Left-rotation for CAPT: parser builds (E_CAPT_COND_ASGN a (E_CAPT_COND_ASGN X Y));
+    // oracle emits ((E_CAPT_COND_ASGN a X) Y).  Same family of fix as flatten but the
+    // runtime requires binary nodes here.
+    if (EQ(n(x), 2) is_rotate_op(t)) {
         right = c(x)[2];
         if (EQ(n(right), 2) IDENT(t(right), t)) {
-            // right child is same op: flatten to left-associative chain
             result = Tree(t, '', 2, rw_expr(c(x)[1]), rw_expr(c(right)[1]));
             rr = c(right)[2];
             while (EQ(n(rr), 2) IDENT(t(rr), t)) {
