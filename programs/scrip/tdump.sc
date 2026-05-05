@@ -46,11 +46,17 @@ function TValue(x, i) {
     // uses C printf %g which omits the trailing dot.  Strip only when the value
     // is all-digits followed by a lone trailing dot; RPOS(0) works here (top level).
     if (IDENT(t(x), 'E_FLIT')) {
-        fval = '' v(x);
-        // Strip trailing '.' (e.g. '100.' -> '100'): capture digit prefix into pre,
-        // then check if prefix is one char shorter than fval (meaning only '.' remains).
-        // Avoids RPOS/LEN (RS-27 bug) and IDENT type mismatch (real vs string).
-        fval SPAN(digits) . pre;
+        fval = '' REAL(v(x));
+        // Strip trailing zeros after decimal (e.g. '1.500' -> '1.5', '1.50' -> '1.5').
+        // SPAN loop: while fval ends in '0' and has a '.', drop the trailing '0'.
+        fval ('.' BREAK('0') | '.') SPAN('0') . zeros;
+        while (DIFFER(zeros)) {
+            fval = REPLACE(fval, zeros, '');
+            zeros = '';
+            fval ('.' BREAK('0') | '.') SPAN('0') . zeros;
+        }
+        // Strip trailing '.' (e.g. '100.' -> '100', '1.' -> '1').
+        fval SPAN(digits &UCASE &LCASE '+' '-') . pre;
         if (DIFFER(pre) IDENT(SIZE(pre) + 1, SIZE(fval))) fval = pre;
         TValue = '(' t(x) ' ' fval ')';
         return;

@@ -14,7 +14,7 @@
 //     the worker at match time (`epsilon . *worker()` or EVAL form for args).
 //   - Grammar references the Capitalized companion only.
 /*====================================================================================================================*/
-E_FNC    = "'E_FNC'";   E_ILIT   = "'E_ILIT'";   E_UNIFY  = "'E_UNIFY'";
+E_FNC    = "'E_FNC'";   E_ILIT   = "'E_ILIT'";   E_FLIT   = "'E_FLIT'";   E_UNIFY  = "'E_UNIFY'";
 E_ADD    = "'E_ADD'";   E_SUB    = "'E_SUB'";
 E_MUL    = "'E_MUL'";   E_DIV    = "'E_DIV'";
 E_CUT    = "'E_CUT'";   E_DCG_IL = "'E_DCG_IL'";
@@ -40,6 +40,7 @@ Qatom      = ("'" BREAK("'") . q_body "'");
 Var_first  = ANY(&UCASE '_');
 Var_rest   = SPAN(digits &UCASE &LCASE '_');
 Var        = (Var_first (Var_rest | epsilon));
+Float      = (SPAN(digits) '.' SPAN(digits) FENCE('e' FENCE(ANY('+-') | epsilon) SPAN(digits) | 'E' FENCE(ANY('+-') | epsilon) SPAN(digits) | epsilon));
 Int        = SPAN(digits);
 Str        = ('"' BREAK('"') . s_body '"');
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -61,6 +62,10 @@ $'=='  = $' ' '=='  $' ';  $'\==' = $' ' '\==' $' ';
 $'>='  = $' ' '>='  $' ';  $'=<'  = $' ' '=<'  $' ';
 $'>'   = $' ' '>'   $' ';  $'<'   = $' ' '<'   $' ';
 $'\='  = $' ' '\='  $' ';
+// Graphic_atom: graphic-char sequence usable as a functor (e.g. \\+, @>, ##).
+Graphic_first = ANY('\\@#^~?');
+Graphic_rest  = SPAN('\\+\-*/^<>=~?@#&:.');
+Graphic_atom  = (Graphic_first (Graphic_rest | epsilon));
 /*====================================================================================================================*/
 trivia   = ARBNO(White | nl);
 /*====================================================================================================================*/
@@ -146,6 +151,15 @@ function push_neg_int(varname) {
 }
 function Push_neg_int(varname) {
     Push_neg_int = EVAL("epsilon . thx . *push_neg_int('" varname "')");
+    return;
+}
+function push_neg_float(varname) {
+    Push(tree('E_FLIT', '-' $varname));
+    push_neg_float = .dummy;
+    nreturn;
+}
+function Push_neg_float(varname) {
+    Push_neg_float = EVAL("epsilon . thx . *push_neg_float('" varname "')");
     return;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -688,7 +702,8 @@ function merge_choices(parse_root, n_in, i, stmt, inner, key,
 args      = ( nInc() *unify_expr FENCE(*args_tail | epsilon) );
 args_tail = ( $',' nInc() *unify_expr FENCE(*args_tail | epsilon) );
 /*--------------------------------------------------------------------------------------------------------------------*/
-list_elem = (   shift(Int,  'E_ILIT')
+list_elem = (   shift(Float,'E_FLIT')
+            |   shift(Int,  'E_ILIT')
             |   shift(Atom, 'E_FNC')
             |   Qatom            Push_atom_body('q_body')
             |   Str              Push_atom_body('s_body')
@@ -715,7 +730,12 @@ primary = (   Atom . p_name $'('
                   nPush() args $')'
                                       Reduce_compound('p_name')
               nPop()
+          |   $' ' Graphic_atom . g_name $'('
+                  nPush() args $')'
+                                      Reduce_compound('g_name')
+              nPop()
           |   Tk_cut                  Push_cut
+          |   shift(Float,'E_FLIT')
           |   shift(Int,  'E_ILIT')
           |   shift(Atom, 'E_FNC')
           |   Qatom                   Push_atom_body('q_body')
@@ -723,6 +743,7 @@ primary = (   Atom . p_name $'('
           |   Var . p_text            Push_var('p_text')
           |   $'(' *unify_expr $')'
           |   *list
+          |   $' ' '-' Float . p_negf   Push_neg_float('p_negf')
           |   $' ' '-' Int . p_negi    Push_neg_int('p_negi')
           );
 /*--------------------------------------------------------------------------------------------------------------------*/
