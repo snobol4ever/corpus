@@ -41,7 +41,20 @@ function TValue(x, i) {
     // src/ir/ir_print.c::print_escaped output byte-for-byte.
     if (TValue = IDENT(t(x), 'E_QLIT')     '(' t(x) ' "' CQize(v(x)) '")')      { return; }
     if (TValue = IDENT(t(x), 'E_CSET')     '(' t(x) ' "' CQize(v(x)) '")')      { return; }
-    if (TValue = IDENT(t(x), 'Name')       v(x))                   { return; }
+    // E_FLIT: normalize trailing '.' from REAL() formatting (e.g. '100.' -> '100').
+    // REAL() in Snocone produces '100.' for integral values like 1.0e2; oracle
+    // uses C printf %g which omits the trailing dot.  Strip only when the value
+    // is all-digits followed by a lone trailing dot; RPOS(0) works here (top level).
+    if (IDENT(t(x), 'E_FLIT')) {
+        fval = '' v(x);
+        // Strip trailing '.' (e.g. '100.' -> '100'): capture digit prefix into pre,
+        // then check if prefix is one char shorter than fval (meaning only '.' remains).
+        // Avoids RPOS/LEN (RS-27 bug) and IDENT type mismatch (real vs string).
+        fval SPAN(digits) . pre;
+        if (DIFFER(pre) IDENT(SIZE(pre) + 1, SIZE(fval))) fval = pre;
+        TValue = '(' t(x) ' ' fval ')';
+        return;
+    }
     if (TValue = IDENT(t(x), 'float')      v(x))                   { return; }
     if (TValue = IDENT(t(x), 'integer')    v(x))                   { return; }
     if (TValue = IDENT(t(x), 'bool')       v(x))                   { return; }
@@ -157,7 +170,17 @@ TLump0:
     // convention.  Existing PARSER-* fixtures all pass v='' on internal
     // nodes, so this branch is a no-op for them.
     if (DIFFER(v(x))) {
-        TLump = TLump ' ' v(x);
+        // E_FLIT: strip trailing '.' from REAL() output so oracle %g format matches.
+        // e.g. '100.' -> '100'; '3.14' and '0.2' are unchanged (no trailing dot).
+        // RPOS(0) works correctly here (regular return function, not nreturn).
+        if (IDENT(t(x), 'E_FLIT')) {
+            fval = '' v(x);
+            fval SPAN(digits) . pre;
+            if (DIFFER(pre) IDENT(SIZE(pre) + 1, SIZE(fval))) fval = pre;
+            TLump = TLump ' ' fval;
+        } else {
+            TLump = TLump ' ' v(x);
+        }
     }
     i = 0;
     while (i = LT(i, n(x)) i + 1) {

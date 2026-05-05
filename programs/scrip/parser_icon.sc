@@ -84,7 +84,7 @@ $'to'        = $' ' 'to'       ;  $'by'        = $' ' 'by'       ;
 $'global'    = $' ' 'global'   ;  $'local'     = $' ' 'local'    ;
 $'static'    = $' ' 'static'   ;  $'record'    = $' ' 'record'   ;
 $'initial'   = $' ' 'initial'  ;  $'suspend'   = $' ' 'suspend'  ;
-$'fail'      = $' ' 'fail'     ;
+$'fail'      = $' ' 'fail'     ;  $'not'       = $' ' 'not'      ;
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Operator tokens — optional whitespace both sides.  Open brackets: ws after only.  Close: ws before only.
 // Operator tokens — optional whitespace both sides.  Open brackets: ws after only.  Close: ws before only.
@@ -140,8 +140,12 @@ function push_cset() {
 Push_cset = (epsilon . *push_cset());
 /*--------------------------------------------------------------------------------------------------------------------*/
 // push_flit — shift (E_FLIT val) using dot-captured rval (source text of real literal).
-function push_flit() {
-    Push(tree('E_FLIT', rval));
+// Store REAL(rval) so exponent forms normalise numerically (1.0e2 → 100.).
+// The trailing '.' is stripped by TValue's E_FLIT branch in tdump.sc at render time
+// (positional patterns like RPOS(0) fail inside nreturn functions — see RS-27).
+function push_flit(nval) {
+    nval = REAL(rval);
+    Push(tree('E_FLIT', nval));
     push_flit = .dummy;
     nreturn;
 }
@@ -370,6 +374,7 @@ Case         = ( nPush()
 Expr11 = (   If  |  Until  |  While  |  Every  |  Repeat  |  Case
          |   $'break' $' '  (E_LOOP_BREAK & 0)
          |   $'next'  $' '  (E_LOOP_NEXT  & 0)
+         |   $'fail'  $' '  (E_PROC_FAIL  & 0)
          |   ListCtor
          |   Call  |  Paren  |  Compound
          |   $' ' cset_pat Push_cset
@@ -387,6 +392,7 @@ Expr10 = (   $' ' '-'  *Expr10 (E_MNS         & 1)
          |   $'!'      *Expr10 (E_ITERATE     & 1)
          |   $' ' '*'  *Expr10 (E_SIZE        & 1)
          |   $' ' '?'  *Expr10 (E_RANDOM      & 1)
+         |   $'not' $'  ' *Expr10 (E_NOT      & 1)
          |   *Expr11  ARBNO(Expr11tail)
          );
 /*--------------------------------------------------------------------------------------------------------------------*/
