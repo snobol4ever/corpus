@@ -356,7 +356,7 @@ primary = (   Atom . p_name $'('
           |   Var . p_text            Push_var('p_text')
           |   $'(' *unify_expr $')'
           |   *list
-          |   '-' Int . p_negi        Push_neg_int('p_negi')
+          |   $' ' '-' Int . p_negi    Push_neg_int('p_negi')
           );
 /*--------------------------------------------------------------------------------------------------------------------*/
 mul_expr  = (   primary

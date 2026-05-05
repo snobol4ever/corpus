@@ -63,6 +63,7 @@ $'#'        =  $'  ' '#'  $'  ';
 $'%'        =  $'  ' '%'  $'  ';
 $'~'        =  $'  ' '~'  $'  ';
 $','        =  $' '  ','  $' ';
+$':'        =  $' '  ':'  $' ';
 $'('        =        '('  $' ';
 $'['        =        '['  $' ';
 $'<'        =        '<'  $' ';
@@ -149,12 +150,11 @@ Target      =  $'(' . *assign(.Brackets, *'()') *Expr $')'
 Sgo         =  *SGoto $' ' *Target reduce(E_goS, 1);
 Fgo         =  *FGoto $' ' *Target reduce(E_goF, 1);
 Ugo         =  *Target reduce(E_goU, 1);
-Goto        =  $' ' ':'
-               $' '
+Goto        =  $':'
                FENCE(
                   *Ugo epsilon ~ ''
-               |  *Sgo FENCE($' ' (':' $' ' | epsilon) *Fgo | epsilon ~ '')
-               |  *Fgo FENCE($' ' (':' $' ' | epsilon) *Sgo | epsilon ~ '')
+               |  *Sgo FENCE($':' *Fgo | epsilon ~ '')
+               |  *Fgo FENCE($':' *Sgo | epsilon ~ '')
                );
 Control     =  '-' BREAK(nl ';');
 Comment     =  '*' BREAK(nl);

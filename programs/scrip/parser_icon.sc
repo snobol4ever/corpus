@@ -59,6 +59,8 @@ $'~='  = $' ' '~=' $' ';  $'='   = $' ' '='   $' ';
 $';'   = $' ' ';'  $' ';  $'^'   = $' ' '^'   $' ';
 $'+:=' = $' ' '+:=' $' ';  $'-:=' = $' ' '-:=' $' ';
 $'*:=' = $' ' '*:=' $' ';  $'/:=' = $' ' '/:=' $' ';
+$'~'   = $' ' '~'  $' ';  $'!'   = $' ' '!'   $' ';
+$'\\'  = $' ' '\\' $' ';
 $'('   = $' ' '(' $' ';  $')'   = $' ' ')';
 $'{'   = $' ' '{' $' ';  $'}'   = $' ' '}';
 $'<'   = $' ' '<' $' ';  $'>'   = $' ' '>';
@@ -115,7 +117,7 @@ ArgRest   = ( $','  *Expr  nInc() );
 CallArgs  = ( ArgFirst ARBNO(ArgRest) | epsilon );
 Call      = ( nPush()
               $' ' id_pat ~ 'E_VAR'  nInc()
-              $' ' '(' CallArgs $' ' ')'
+              $'(' CallArgs $')'
               (E_FNC & 'nTop()')
               nPop()
             );
@@ -145,9 +147,9 @@ Expr11 = (   If  |  While  |  Every  |  Call  |  Paren  |  Compound
 /*--------------------------------------------------------------------------------------------------------------------*/
 Expr10 = (   $' ' '-'  *Expr10 (E_MNS         & 1)
          |   $' ' '+'  *Expr10 (E_PLS         & 1)
-         |   $' ' '~'  *Expr10 (E_CSET_COMPL  & 1)
-         |   $' ' '\\' *Expr10 (E_NONNULL     & 1)
-         |   $' ' '!'  *Expr10 (E_ITERATE     & 1)
+         |   $'~'      *Expr10 (E_CSET_COMPL  & 1)
+         |   $'\\'     *Expr10 (E_NONNULL     & 1)
+         |   $'!'      *Expr10 (E_ITERATE     & 1)
          |   $' ' '*'  *Expr10 (E_SIZE        & 1)
          |   $' ' '?'  *Expr10 (E_RANDOM      & 1)
          |   *Expr11
@@ -198,7 +200,7 @@ ParamFirst = ( $' ' id_pat ~ 'E_VAR'  nInc() );
 ParamRest  = ( $',' id_pat ~ 'E_VAR'  nInc() );
 Params     = ( ParamFirst ARBNO(ParamRest) | epsilon );
 Prochead   = ( $'procedure' $'  ' id_pat ~ 'E_VAR'  nInc()
-               $' ' '(' Params $' ' ')' $' ' nl_one
+               $'(' Params $')' $' ' nl_one
              );
 ProcbodyEnd = ( $'end' $' ' (nl_one | RPOS(0)) );
 Procbody    = ( ProcbodyEnd | StmtBody *Procbody );
