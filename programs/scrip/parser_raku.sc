@@ -37,6 +37,9 @@
 //   push_qlit()   — string-body push (uses capstr).
 //                      Retained: same reason as ic_push_qlit in parser_icon.sc
 //                      (shift() would include the surrounding quotes).
+//   finish_interp_str() — DQ string interpolation "hello $var" → E_CAT chain.
+//                      Retained: must walk sub-string content to split on $ident;
+//                      shift/reduce cannot iterate over string bytes.
 //   finish_say()    — say → write name remap.
 //                      Retained: reduce() sets value=''; E_FNC write requires
 //                      value='write' to match oracle.
@@ -264,6 +267,51 @@ function push_qlit() {
     nreturn;
 }
 Push_qlit  = (epsilon . *push_qlit());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_interp_str — DQ string interpolation: "hello $var" → left-assoc E_CAT chain.
+// Mirrors raku.y lower_interp_str(): walks capstr, splits on $ident sequences,
+// builds (E_CAT lhs rhs) binary nodes left-to-right.  If no $ident found → plain
+// (E_QLIT body).  Only $scalar-name interpolation supported (matches the C oracle).
+// Retained: must build a left-assoc binary chain from a string walk; shift/reduce
+// cannot iterate over sub-string content.
+/*--------------------------------------------------------------------------------------------------------------------*/
+is_chars = &UCASE &LCASE '_';
+ir_chars = digits &UCASE &LCASE '_';
+function finish_interp_str(raw, lit, isvf, isvr, result, newnode, i) {
+    raw    = capstr;
+    result = '';
+    while (1) {
+        if (IDENT(raw)) break;
+        lit = ''; isvf = ''; isvr = '';
+        if (raw ? (POS(0) BREAK('$') . lit '$' ANY(is_chars) . isvf (SPAN(ir_chars) | epsilon) . isvr) = ) {
+            if (DIFFER(lit)) {
+                newnode = tree('E_QLIT', lit);
+                if (DIFFER(result)) {
+                    i = tree('E_CAT', ''); Append(i, result); Append(i, newnode); result = i;
+                } else { result = newnode; }
+            }
+            newnode = tree('E_VAR', isvf isvr);
+            if (DIFFER(result)) {
+                i = tree('E_CAT', ''); Append(i, result); Append(i, newnode); result = i;
+            } else { result = newnode; }
+        } else {
+            if (raw ? (POS(0) REM . lit) = ) {
+                if (DIFFER(lit)) {
+                    newnode = tree('E_QLIT', lit);
+                    if (DIFFER(result)) {
+                        i = tree('E_CAT', ''); Append(i, result); Append(i, newnode); result = i;
+                    } else { result = newnode; }
+                }
+            }
+            break;
+        }
+    }
+    if (~DIFFER(result)) result = tree('E_QLIT', '');
+    Push(result);
+    finish_interp_str = .dummy;
+    nreturn;
+}
+Push_interp_str = (epsilon . *finish_interp_str());
 /*--------------------------------------------------------------------------------------------------------------------*/
 // push_rxlit — push tree('E_QLIT', body) using caprx.  Regex literal /body/.
 // Oracle emits regex bodies as plain E_QLIT — the runtime distinguishes regex
@@ -809,7 +857,7 @@ Expr11 = ( $'!'  *Expr11  Finish_not
          | VarCapture             Finish_capture
          | VarNamedCapture        Finish_named_capture
          | shift(LitInt, 'E_ILIT')
-         | LitStrDQ               Push_qlit
+         | LitStrDQ               Push_interp_str
          | LitStrSQ               Push_qlit
          | $'(' *Expr $')'
          | ( nPush()
