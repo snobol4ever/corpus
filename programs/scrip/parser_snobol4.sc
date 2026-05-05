@@ -131,8 +131,7 @@ Expr13      =  *Expr14 FENCE($'~' *Expr13 ("'~'" & 2) | epsilon);
 Expr14      =  '@' *Expr14 ("'@'" & 1)
             |  '~' *Expr14 ("'~'" & 1)
             |  '?' *Expr14 ("'?'" & 1)
-            |  *ProtKwd   ~ E_KEYWORD
-            |  *UnprotKwd ~ E_KEYWORD
+            |  '&' shift(SPAN(&UCASE &LCASE), E_KEYWORD)  // ProtKwd or UnprotKwd — both → E_KEYWORD name-only
             |  '&' *Expr14 ("'&'" & 1)
             |  '+' *Expr14 (E_PLS & 1)
             |  '-' *Expr14 (E_MNS & 1)

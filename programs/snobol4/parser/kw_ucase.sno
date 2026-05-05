@@ -1,0 +1,4 @@
+        X = &UCASE
+        Y = &LCASE
+        Z = SIZE(&UCASE)
+END
