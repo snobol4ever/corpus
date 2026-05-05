@@ -36,6 +36,7 @@ E_LOOP_NEXT = "'E_LOOP_NEXT'"; E_CSET      = "'E_CSET'";
 E_CASE      = "'E_CASE'";      E_GLOBAL    = "'E_GLOBAL'";
 E_INITIAL   = "'E_INITIAL'";   E_RECORD    = "'E_RECORD'";
 E_SUSPEND   = "'E_SUSPEND'";   E_PROC_FAIL = "'E_PROC_FAIL'";
+E_FLIT      = "'E_FLIT'";
 E_REVASSIGN = "'E_REVASSIGN'"; E_SWAP      = "'E_SWAP'";
 E_REVSWAP   = "'E_REVSWAP'";   E_IDENTICAL = "'E_IDENTICAL'";
 E_NOT       = "'E_NOT'";
@@ -57,6 +58,13 @@ id_first     = ANY(&UCASE &LCASE '_');
 id_rest      = SPAN(digits &UCASE &LCASE '_');
 id_pat       = (id_first (id_rest | epsilon));
 int_pat      = SPAN(digits);
+// Real literal: digits.digits, .digits, or integer with exponent. Dot-capture into rval.
+exp_part     = (('e' | 'E') ('+' | '-' | '') SPAN(digits));
+real_pat     = (( SPAN(digits) '.' (SPAN(digits) | '') | '.' SPAN(digits) ) (exp_part | '')
+               | SPAN(digits) exp_part
+               );
+// Keyword: & followed by identifier — captured as '&name' for (E_VAR &name) leaf.
+kw_prefix    = '&';
 // String: capture inner body (without quotes) via dot-capture + push_qlit.
 str_pat      = ('"' BREAK('"') . strbody '"');
 // Cset: single-quoted, capture inner body via dot-capture + push_cset.
@@ -131,6 +139,22 @@ function push_cset() {
 }
 Push_cset = (epsilon . *push_cset());
 /*--------------------------------------------------------------------------------------------------------------------*/
+// push_flit — shift (E_FLIT val) using dot-captured rval (source text of real literal).
+function push_flit() {
+    Push(tree('E_FLIT', rval));
+    push_flit = .dummy;
+    nreturn;
+}
+Push_flit = (epsilon . *push_flit());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// push_kw — shift (E_VAR &name) for Icon keyword expressions: &pos, &subject, etc.
+// The kwname variable holds the identifier part captured by kw_pat.
+function push_kw() {
+    Push(tree('E_VAR', '&' kwname));
+    push_kw = .dummy;
+    nreturn;
+}
+Push_kw = (epsilon . *push_kw());
 // push_field — shift (E_FIELD fieldname lhs) consuming lhs from stack.
 function push_field(fname, lhs) {
     fname = v(Pop());
@@ -350,7 +374,9 @@ Expr11 = (   If  |  Until  |  While  |  Every  |  Repeat  |  Case
          |   Call  |  Paren  |  Compound
          |   $' ' cset_pat Push_cset
          |   $' ' str_pat  Push_qlit
+         |   $' ' real_pat . rval Push_flit
          |   $' ' int_pat ~ 'E_ILIT'
+         |   $' ' kw_prefix id_pat . kwname Push_kw
          |   $' ' id_pat  ~ 'E_VAR'
          );
 /*--------------------------------------------------------------------------------------------------------------------*/
