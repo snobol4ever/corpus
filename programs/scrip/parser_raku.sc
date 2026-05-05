@@ -72,7 +72,7 @@ E_NOT       = "'E_NOT'";      E_UNTIL    = "'E_UNTIL'";
 E_SEQ       = "'E_SEQ'";      E_ALT      = "'E_ALT'";
 E_CAT       = "'E_CAT'";
 E_LEQ       = "'E_LEQ'";      E_LNE      = "'E_LNE'";
-E_MNS       = "'E_MNS'";
+E_MNS       = "'E_MNS'";      E_MOD      = "'E_MOD'";
 E_Parse     = "'Parse'";
 /*====================================================================================================================*/
 // Whitespace primitives.  White / Gray are the cross-parser canonical names;
@@ -101,6 +101,7 @@ $'sub'    = $' ' 'sub'   ;  $'return' = $' ' 'return';
 $'exists' = $' ' 'exists';  $'delete' = $' ' 'delete';
 $'unless' = $' ' 'unless';  $'until'  = $' ' 'until';
 $'eq'     = $' ' 'eq' $' ';  $'ne'   = $' ' 'ne' $' ';
+$'div'    = $' ' 'div' $' ';  $'%'   = $' ' '%'  $' ';
 /*====================================================================================================================*/
 // Operator tokens — optional whitespace both sides.  Open brackets: ws after only.  Close: ws before only.
 /*====================================================================================================================*/
@@ -827,6 +828,8 @@ Expr11 = ( $'!'  *Expr11  Finish_not
 // Flatten_mul / Flatten_div produce n-ary (E_MUL a b c) matching the C oracle.
 Expr7tail = FENCE( $'*'  *Expr11  Flatten_mul
                  | $'/'  *Expr11  Flatten_div
+                 | $'div' *Expr11  Flatten_div
+                 | $'%'  *Expr11  (E_MOD & 2)
                  );
 Expr7     = ( Expr11 ARBNO(Expr7tail) );
 
