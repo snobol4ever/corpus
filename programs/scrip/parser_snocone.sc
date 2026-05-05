@@ -30,87 +30,87 @@ E_FNC             = "'E_FNC'";
 E_Parse           = "'Parse'";
 r_nTop            = '*(GT(nTop(), 1) nTop())';
 r_nTopP1          = '*(nTop() + 1)';
+/*--------------------------------------------------------------------------------------------------------------------*/
+reserved          = POS(0) ('if' | 'else' | 'while' | 'do' | 'for') RPOS(0);
+function notmatch(s, pat) { notmatch = .dummy; if (s ? pat) freturn; else nreturn; }
 /*====================================================================================================================*/
-White    = (  SPAN(' ' tab nl)
-           |  '//' BREAK(nl) nl
-           |  '/*' BREAKX('*') '*/'
-           );
-Gray     = White | epsilon;
-$'  '    = White;
-$' '     = Gray;
+white       =   (  SPAN(' ' tab nl)
+                |  '//' BREAK(nl) nl
+                |  '/*' BREAKX('*') '*/'
+                );
+White       =   white ARBNO(white);
+Gray        =   ARBNO(white);
+$'  '       =   White;
+$' '        =   Gray;
 /*--------------------------------------------------------------------------------------------------------------------*/
-Integer  = SPAN(digits);
-DQ_lit   = ('"' BREAK('"') . strbody '"');
-SQ_lit   = ("'" BREAK("'") . strbody "'");
-String   = (*SQ_lit | *DQ_lit);
-sc_reserved = POS(0) ('if' | 'else' | 'while' | 'do' | 'for') RPOS(0);
-function notmatch(s, pat, r) {
-    if (s ? *pat)   { notmatch = .dummy; freturn; }
-    notmatch = .dummy; nreturn;
-}
-Id    = (ANY(&UCASE &LCASE '_')
-         FENCE(SPAN('.' digits &UCASE '_' &LCASE) | epsilon));
-Ident = Id $ tx *notmatch(tx, sc_reserved);
-Real     = (  SPAN(digits)
-              FENCE(  '.' SPAN(digits)
-                          FENCE(  ANY('eEdD') FENCE(ANY('+-') | epsilon) SPAN(digits)
-                               |  epsilon)
-                   |  ANY('eEdD') FENCE(ANY('+-') | epsilon) SPAN(digits)
-                   )
-           );
-Keyword  = ('&' SPAN(&UCASE &LCASE '_') . kw_name);
+Id          =   ANY(&UCASE &LCASE '_') FENCE(SPAN('.' digits &UCASE '_' &LCASE) | epsilon);
+$'do'       =   $' ' Id $ tx *IDENT(tx, 'do');
+$'else'     =   $' ' Id $ tx *IDENT(tx, 'else');
+$'for'      =   $' ' Id $ tx *IDENT(tx, 'for');
+$'freturn'  =   $' ' Id $ tx *IDENT(tx, 'freturn');
+$'function' =   $' ' Id $ tx *IDENT(tx, 'function');
+$'goto'     =   $' ' Id $ tx *IDENT(tx, 'goto');
+$'if'       =   $' ' Id $ tx *IDENT(tx, 'if');
+$'nreturn'  =   $' ' Id $ tx *IDENT(tx, 'nreturn');
+$'return'   =   $' ' Id $ tx *IDENT(tx, 'return');
+$'while'    =   $' ' Id $ tx *IDENT(tx, 'while');
+Keyword     =   $' ' '&' SPAN(&UCASE '_' &LCASE) . name;
+Integer     =   $' ' SPAN(digits);
+DQ_lit      =   $' ' '"' BREAK('"') . strbody '"';
+SQ_lit      =   $' ' "'" BREAK("'") . strbody "'";
+String      =   $' ' (*SQ_lit | *DQ_lit);
+Ident       =   $' ' Id $ tx $ *notmatch(tx, reserved);
+Real        =   $' '
+                SPAN(digits)
+                FENCE(
+                  '.'
+                  SPAN(digits)
+                  FENCE(ANY('eEdD') FENCE(ANY('+-') | epsilon) SPAN(digits) | epsilon)
+                | ANY('eEdD')
+                  FENCE(ANY('+-') | epsilon)
+                  SPAN(digits)
+                );
 /*--------------------------------------------------------------------------------------------------------------------*/
-kw_do       = (Id $ tx *IDENT(tx, 'do'));
-kw_else     = (Id $ tx *IDENT(tx, 'else'));
-kw_for      = (Id $ tx *IDENT(tx, 'for'));
-kw_freturn  = (Id $ tx *IDENT(tx, 'freturn'));
-kw_function = (Id $ tx *IDENT(tx, 'function'));
-kw_goto     = (Id $ tx *IDENT(tx, 'goto'));
-kw_if       = (Id $ tx *IDENT(tx, 'if'));
-kw_nreturn  = (Id $ tx *IDENT(tx, 'nreturn'));
-kw_return   = (Id $ tx *IDENT(tx, 'return'));
-kw_while    = (Id $ tx *IDENT(tx, 'while'));
+$'('        =   $' ' '(' $' ';
+$')'        =   $' ' ')' $' ';
+$'{'        =   $' ' '{' $' ';
+$'}'        =   $' ' '}' $' ';
+$'['        =   $' ' '[' $' ';
+$']'        =   $' ' ']' $' ';
+$';'        =   $' ' ';' $' ';
+$','        =   $' ' ',' $' ';
+$':'        =   $' ' ':' $' ';
 /*--------------------------------------------------------------------------------------------------------------------*/
-$'('   = $' ' '(' $' ';
-$')'   = $' ' ')' $' ';
-$'{'   = $' ' '{' $' ';
-$'}'   = $' ' '}' $' ';
-$'['   = '[' $' ';
-$']'   = $' ' ']';
-$';'   = $' ' ';' $' ';
-$','   = $' ' ',' $' ';
-$':'   = $' ' ':' $' ';
-/*--------------------------------------------------------------------------------------------------------------------*/
-$'='   = $'  ' '='   $'  ';
-$'?'   = $'  ' '?'   $'  ';
-$'|'   = $'  ' '|'   $'  ';
-$'+'   = $'  ' '+'   $'  ';
-$'-'   = $'  ' '-'   $'  ';
-$'*'   = $'  ' '*'   $'  ';
-$'/'   = $'  ' '/'   $'  ';
-$'^'   = $'  ' '^'   $'  ';
-$'**'  = $'  ' '**'  $'  ';
-$'!'   = $'  ' '!'   $'  ';
-$'$'   = $'  ' '$'   $'  ';
-$'.'   = $'  ' '.'   $'  ';
-$'&'   = $'  ' '&'   $'  ';
-$'@'   = $'  ' '@'   $'  ';
-$'#'   = $'  ' '#'   $'  ';
-$'%'   = $'  ' '%'   $'  ';
-$'~'   = $'  ' '~'   $'  ';
-$'=='  = $'  ' '=='  $'  ';
-$'!='  = $'  ' '!='  $'  ';
-$'<'   = $'  ' '<'   $'  ';
-$'>'   = $'  ' '>'   $'  ';
-$'<='  = $'  ' '<='  $'  ';
-$'>='  = $'  ' '>='  $'  ';
-$'::'  = $'  ' '::'  $'  ';
-$':!:' = $' '  ':!:' $' ';
-$'+='  = $'  ' '+='  $'  ';
-$'-='  = $'  ' '-='  $'  ';
-$'*='  = $'  ' '*='  $'  ';
-$'/='  = $'  ' '/='  $'  ';
-$'^='  = $'  ' '^='  $'  ';
+$'='        =   $'  ' '='   $'  ';
+$'?'        =   $'  ' '?'   $'  ';
+$'|'        =   $'  ' '|'   $'  ';
+$'+'        =   $'  ' '+'   $'  ';
+$'-'        =   $'  ' '-'   $'  ';
+$'*'        =   $'  ' '*'   $'  ';
+$'/'        =   $'  ' '/'   $'  ';
+$'^'        =   $'  ' '^'   $'  ';
+$'**'       =   $'  ' '**'  $'  ';
+$'!'        =   $'  ' '!'   $'  ';
+$'$'        =   $'  ' '$'   $'  ';
+$'.'        =   $'  ' '.'   $'  ';
+$'&'        =   $'  ' '&'   $'  ';
+$'@'        =   $'  ' '@'   $'  ';
+$'#'        =   $'  ' '#'   $'  ';
+$'%'        =   $'  ' '%'   $'  ';
+$'~'        =   $'  ' '~'   $'  ';
+$'=='       =   $'  ' '=='  $'  ';
+$'!='       =   $'  ' '!='  $'  ';
+$'<'        =   $'  ' '<'   $'  ';
+$'>'        =   $'  ' '>'   $'  ';
+$'<='       =   $'  ' '<='  $'  ';
+$'>='       =   $'  ' '>='  $'  ';
+$'::'       =   $'  ' '::'  $'  ';
+$':!:'      =   $'  ' ':!:' $'  ';
+$'+='       =   $'  ' '+='  $'  ';
+$'-='       =   $'  ' '-='  $'  ';
+$'*='       =   $'  ' '*='  $'  ';
+$'/='       =   $'  ' '/='  $'  ';
+$'^='       =   $'  ' '^='  $'  ';
 /*====================================================================================================================*/
 ExprList = nPush() *XList (E_VLIST & r_nTop) nPop();
 XList    = nInc() (*Expr0 | epsilon ~ '') FENCE($',' *XList | epsilon);
@@ -364,7 +364,7 @@ function emit_nreturn()      { Push(make_goto_stmt('NRETURN')); emit_nreturn    
 /*--------------------------------------------------------------------------------------------------------------------*/
 function goto_emit() { Push(make_goto_stmt(captured_goto)); goto_emit = .dummy; nreturn; }
 function label_emit() { Push(make_label_stmt(captured_label)); label_emit = .dummy; nreturn; }
-function push_keyword() { Push(tree('E_KEYWORD', kw_name)); push_keyword = .dummy; nreturn; }
+function push_keyword() { Push(tree('E_KEYWORD', name)); push_keyword = .dummy; nreturn; }
 function push_flit() { Push(tree('E_FLIT', strbody)); push_flit = .dummy; nreturn; }
 function push_empty_str() { Push(tree('E_QLIT', '')); push_empty_str = .dummy; nreturn; }
 function push_mns(e) { e = Pop(); Push(Tree('E_MNS', '', 1, e)); push_mns = .dummy; nreturn; }
@@ -467,11 +467,11 @@ function Finalize_do(nbody_v, cond_v) {
     return;
 }
 function Body(var) {
-    Body = nPush() ARBNO(*body_fn_cmd) Save_nbody(var) nPop();
+    Body = nPush() ARBNO(*Command) Save_nbody(var) nPop();
     return;
 }
 function BodyFn(var) {
-    BodyFn = nPush() ARBNO(*body_fn_cmd) Save_nbody(var) nPop();
+    BodyFn = nPush() ARBNO(*Command) Save_nbody(var) nPop();
     return;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -526,80 +526,7 @@ function Finalize_for(nbody_v) {
     Finalize_for = EVAL("epsilon . thx . *finalize_for('" nbody_v "')");
     return;
 }
-/*====================================================================================================================*/
-// Function call atom — id_pat followed by `(` arglist `)` reduces to (E_FNC name arg1 ... argN).
-// IMPORTANT: nPush / nInc fire AFTER '(' is confirmed so that when Call fails
-// (Id present but no '(' follows) the n-ary stack is left untouched and FENCE
-// in Expr17 falls through cleanly to the bare *Id ~ 'E_VAR' alternative.
-// $' ' (horizontal-only) for '(' so a newline between id and '(' is NOT a call.
-ArgFirst = ( *Expr0 nInc() );
-ArgRest  = ( $','   *Expr0 nInc() );
-CallArgs = ( ArgFirst ARBNO(ArgRest) | epsilon );
-Call     = ( (*Id . captured_call_name)
-             FENCE( $' ' '(' $' ' nPush() Push_call_name_var()
-                    CallArgs $')' Decompose_call() nPop()
-                  )
-           );
 /*--------------------------------------------------------------------------------------------------------------------*/
-// Expression tower — Snocone operator precedence.
-// Grouping paren uses $'(' (horizontal-only open) to prevent NL-inclusive Gray
-// from eating a newline before '(' and then recursing into the full expression
-// tower — which would overflow the C stack on multi-line inputs like beauty.sc.
-Expr17 = FENCE(
-             *Call
-           | $'(' nPush()
-             FENCE(
-               nInc() *Expr0 ARBNO($',' nInc() *Expr0) $')' Paren_reduce() nPop()
-             | $')' (E_NUL & 0) nPop()
-             )
-           | *String      Push_qlit()
-           | (*Real . strbody) Push_flit()
-           | *Integer    ~ 'E_ILIT'
-           | *Keyword     Push_keyword()
-           | *Ident       ~ 'E_VAR'
-         );
-// Expr15/Expr16 — subscript chains: a[i][j]… (from beauty.sno).
-Expr15 = *Expr17
-         FENCE(nPush() *Expr16 (E_INDEX & r_nTopP1) nPop() | epsilon);
-Expr16 = nInc() $'[' *ExprList $']'
-         FENCE(*Expr16 | epsilon);
-// Expr14 — unary prefix operators (beauty.sno Expr14, minus =|&? which are binary-only in Snocone).
-Expr14 = '@' *Expr14 (E_CAPT_CURSOR  & 1)
-         | '~' *Expr14 (E_NOT          & 1)
-         | '+' *Expr14 (E_ADD          & 1)
-         | '-' *Expr14 Push_mns()
-         | '*' *Expr14 (E_DEFER        & 1)
-         | '$' *Expr14 (E_INDIRECT     & 1)
-         | '.' *Expr14 (E_NAME         & 1)
-         | '!' *Expr14 (E_POW          & 1)
-         | '%' *Expr14 (E_MUL          & 1)
-         | '/' *Expr14 (E_DIV          & 1)
-         | '#' *Expr14 (E_SUB          & 1)
-         | *Expr15;
-// Expr13 — binary ~ (OPSYN, right-assoc per beauty.sc).
-Expr13 = *Expr14 FENCE($'~' *Expr13 (E_NOT & 2) | epsilon);
-// Expr12 — binary pattern-capture: pat . var (E_CAPT_COND_ASGN, left-assoc)
-//                                  pat $ var (E_CAPT_IMMED_ASGN, left-assoc).
-// Binary forms use $'.' / $'$' (whitespace-enveloped, T_2DOT / T_2DOLLAR).
-Expr12 = *Expr13
-         FENCE(
-           $'$' *Expr13 (E_CAPT_IMMED_ASGN & 2) FENCE($'$' *Expr13 (E_CAPT_IMMED_ASGN & 2) | epsilon)
-         | $'.' *Expr13 (E_CAPT_COND_ASGN  & 2) FENCE($'.' *Expr13 (E_CAPT_COND_ASGN  & 2) | epsilon)
-         | epsilon
-         );
-// Expr11 — exponentiation: right-associative (^ ! ** all map to E_POW per beauty.sc).
-Expr11 = *Expr12 FENCE(($'^' | $'!' | $'**') *Expr11 (E_POW & 2) | epsilon);
-// Expr10 — binary % (modulo/OPSYN).
-Expr10 = *Expr11 FENCE($'%' *Expr10 (E_MUL & 2) | epsilon);
-// Expr9 — binary * (multiplication).
-Expr9  = *Expr10 FENCE($'*' *Expr9  (E_MUL & 2) | epsilon);
-// Expr8 — binary / (division).
-Expr8  = *Expr9  FENCE($'/' *Expr8  (E_DIV & 2) | epsilon);
-// Expr7 — binary # (OPSYN).
-Expr7  = *Expr8  FENCE($'#' *Expr7  (E_SUB & 2) | epsilon);
-// Expr6 — additive + - (from beauty.sno).
-Expr6  = *Expr7  FENCE($'+' *Expr6 (E_ADD & 2) | $'-' *Expr6 (E_SUB & 2) | epsilon);
-// Expr5 — cursor @ + Snocone comparison operators (beauty.sno: *Expr6 FENCE($'@'…)).
 function push_cmp(fname, a, b) {
     b = Pop(); a = Pop();
     Push(Tree('E_FNC', fname, 2, a, b));
@@ -609,105 +536,153 @@ function Push_cmp(fname) {
     Push_cmp = EVAL("epsilon . thx . *push_cmp('" fname "')");
     return;
 }
-Expr5  = *Expr6
-         FENCE(
-           $'@'  *Expr5 (E_CAPT_CURSOR & 2)
-         | $'==' *Expr6 Push_cmp('EQ')
-         | $'!=' *Expr6 Push_cmp('NE')
-         | $'<=' *Expr6 Push_cmp('LE')
-         | $'>=' *Expr6 Push_cmp('GE')
-         | $'<'  *Expr6 Push_cmp('LT')
-         | $'>'  *Expr6 Push_cmp('GT')
-         | epsilon
-         );
-// Expr4 — n-ary concatenation (juxtaposition).
-Expr4  = nPush() *X4 (E_SEQ & r_nTop) nPop();
-X4     = nInc() *Expr5 FENCE($'  ' *X4 | epsilon);
-// Expr3 — n-ary alternation |.
-Expr3  = nPush() *X3 (E_ALT & r_nTop) nPop();
-X3     = nInc() *Expr4 FENCE($'|' *X3 | epsilon);
-// Expr2 — binary & (from beauty.sno; right-assoc).
-Expr2  = *Expr3 FENCE($'&' *Expr2 (E_SEQ & 2) | epsilon);
-// Expr1 — pattern match ?.
-Expr1  = *Expr2 FENCE($'?' *Expr1 (E_SCAN & 2) | epsilon);
-// Expr0 — assignment =.
-Expr0  = *Expr1 FENCE($'=' FENCE(*Expr0 | Push_empty_str()) (E_ASSIGN & 2) | epsilon);
 /*====================================================================================================================*/
-stmt_body = ($' ' *Expr0 $' ' ($';' | epsilon) $' ' $' ' Decompose_stmt());
-stmt_cmd  = (nInc() stmt_body);
+ArgFirst        =   *Expr0 nInc();
+ArgRest         =   $',' *Expr0 nInc();
+CallArgs        =   ArgFirst ARBNO(ArgRest) | epsilon;
+Call            =   $' ' (*Id . captured_call_name)
+                    FENCE(
+                      $'('
+                      nPush()
+                      Push_call_name_var()
+                      CallArgs
+                      Decompose_call()
+                      nPop()
+                      $')'
+                    );
 /*--------------------------------------------------------------------------------------------------------------------*/
-if_cmd =
-    ( nInc()
-      $' ' *kw_if   $'(' *Expr0 Save_cond() $')' $' ' $' '
-      $'{' $' '    Body('if_nthen')    $'}' $' ' $' '
-      ( *kw_else $' ' $' '
-        ( $'{' $' '  Body('if_nelse')    $'}' $' ' $' '
-        | nPush() if_cmd Save_nbody('if_nelse') nPop()
-        )
-        Finalize_if_else('if_nthen', 'if_nelse', 'saved_cond')
-      | Finalize_if('if_nthen', 'saved_cond')
-      )
-    );
-while_cmd =
-    ( nInc()
-      $' ' *kw_while $'(' *Expr0 Save_cond()
-                          While_head_alloc() $')' $' ' $' '
-      $'{' $' ' Body('wh_nbody') $'}' $' ' $' '
-      Finalize_while('wh_nbody', 'saved_cond')
-    );
-do_cmd =
-    ( nInc()
-      $' ' *kw_do $' ' $' ' Do_head_alloc()
-      $'{' $' ' Body('do_nbody') $'}' $' ' $' '
-      *kw_while $'(' *Expr0 Save_cond() $')' ($';' | epsilon) $' ' $' '
-      Finalize_do('do_nbody', 'saved_cond')
-    );
-empty_cmd    = ($' ' $';' $' ' $' ');
-goto_cmd     = ( nInc() $' ' *kw_goto $'  ' (*Id . captured_goto) $' ' $';' $' ' $' ' Goto_emit() );
-label_prefix = ( $' ' (*Id . captured_label) $' ' ':' $' ' $' ' Label_emit() nInc() );
-for_cmd =
-    ( nInc()
-      $' ' *kw_for $'(' $' ' *Expr0 $' '
-      $';' $' ' *Expr0 $' ' $';' $' ' *Expr0 $' ' $')'
-      For_head_alloc()
-      $' ' $' '
-      ( $'{' $' ' Body('for_nbody') $'}' $' ' $' '
-      | Body('for_nbody')
-      )
-      Finalize_for('for_nbody')
-    );
-/*--------------------------------------------------------------------------------------------------------------------*/
-// Function definition: `function name(p1, p2) { body }` lowers to 4 + N stmts:
-// DEFINE call, skip-goto, entry-label, body, end-label.
-ParamFirst = ( (*Id . captured_param) Save_param_first() );
-ParamRest  = ( $','  (*Id . captured_param) Save_param_rest()  );
-ParamList  = ( ParamFirst ARBNO(ParamRest) | epsilon );
-func_cmd =
-    ( nInc()
-      $' ' *kw_function $'  ' (*Id . captured_name) Func_head_save_name()
-      $'(' ParamList $')' $' ' $' '
-      $'{' $' ' BodyFn('fn_nbody') $'}' $' ' $' '
-      Finalize_function('fn_nbody')
-    );
-return_cmd =
-    ( nInc() $' ' *kw_return
-      ( $'  ' *Expr0 $' ' $';' $' ' $' ' Emit_return_value()
-      | $' '         $';' $' ' $' ' Emit_return_void()
-      )
-    );
-freturn_cmd = ( nInc() $' ' *kw_freturn $' ' $';' $' ' $' ' Emit_freturn() );
-nreturn_cmd = ( nInc() $' ' *kw_nreturn $' ' $';' $' ' $' ' Emit_nreturn() );
-body_fn_cmd = ( if_cmd | while_cmd | do_cmd | for_cmd | func_cmd
-              | return_cmd | freturn_cmd | nreturn_cmd
-              | goto_cmd | label_prefix | empty_cmd | stmt_cmd );
+Expr17          =   FENCE(
+                      *Call
+                    | $'('
+                      nPush()
+                      FENCE(
+                        nInc() *Expr0 ARBNO($',' nInc() *Expr0) Paren_reduce()
+                      | (E_NUL & 0)
+                      )
+                      nPop()
+                      $')'
+                    | *String Push_qlit()
+                    | *Real . strbody Push_flit()
+                    | *Integer ~ 'E_ILIT'
+                    | *Keyword Push_keyword()
+                    | *Ident ~ 'E_VAR'
+                    );
+Expr15          =   *Expr17 FENCE(nPush() *Expr16 (E_INDEX & r_nTopP1) nPop() | epsilon);
+Expr16          =   nInc() $'[' *ExprList $']' FENCE(*Expr16 | epsilon);
+Expr14          =   $' ' '@' *Expr14 (E_CAPT_CURSOR  & 1)
+                |   $' ' '~' *Expr14 (E_NOT          & 1)
+                |   $' ' '+' *Expr14 (E_ADD          & 1)
+                |   $' ' '-' *Expr14 Push_mns()
+                |   $' ' '*' *Expr14 (E_DEFER        & 1)
+                |   $' ' '$' *Expr14 (E_INDIRECT     & 1)
+                |   $' ' '.' *Expr14 (E_NAME         & 1)
+                |   $' ' '!' *Expr14 (E_POW          & 1)
+                |   $' ' '%' *Expr14 (E_MUL          & 1)
+                |   $' ' '/' *Expr14 (E_DIV          & 1)
+                |   $' ' '#' *Expr14 (E_SUB          & 1)
+                |   *Expr15;
+Expr13          =   *Expr14 FENCE($'~' *Expr13 (E_NOT & 2) | epsilon);
+Expr12          =   *Expr13
+                    FENCE(
+                      $'$' *Expr13 (E_CAPT_IMMED_ASGN & 2) FENCE($'$' *Expr13 (E_CAPT_IMMED_ASGN & 2) | epsilon)
+                    | $'.' *Expr13 (E_CAPT_COND_ASGN  & 2) FENCE($'.' *Expr13 (E_CAPT_COND_ASGN  & 2) | epsilon)
+                    | epsilon
+                    );
+Expr11          =   *Expr12 FENCE(($'^' | $'!' | $'**') *Expr11 (E_POW & 2) | epsilon);
+Expr10          =   *Expr11 FENCE($'%' *Expr10 (E_MUL & 2) | epsilon);
+Expr9           =   *Expr10 FENCE($'*' *Expr9  (E_MUL & 2) | epsilon);
+Expr8           =   *Expr9  FENCE($'/' *Expr8  (E_DIV & 2) | epsilon);
+Expr7           =   *Expr8  FENCE($'#' *Expr7  (E_SUB & 2) | epsilon);
+Expr6           =   *Expr7  FENCE($'+' *Expr6 (E_ADD & 2) | $'-' *Expr6 (E_SUB & 2) | epsilon);
+Expr5           =   *Expr6
+                     FENCE(
+                       $'@'  *Expr5 (E_CAPT_CURSOR & 2)
+                     | $'==' *Expr6 Push_cmp('EQ')
+                     | $'!=' *Expr6 Push_cmp('NE')
+                     | $'<=' *Expr6 Push_cmp('LE')
+                     | $'>=' *Expr6 Push_cmp('GE')
+                     | $'<'  *Expr6 Push_cmp('LT')
+                     | $'>'  *Expr6 Push_cmp('GT')
+                     | epsilon
+                     );
+Expr4           =   nPush() *X4 (E_SEQ & r_nTop) nPop();
+X4              =   nInc() *Expr5 FENCE($'  ' *X4 | epsilon);
+Expr3           =   nPush() *X3 (E_ALT & r_nTop) nPop();
+X3              =   nInc() *Expr4 FENCE($'|' *X3 | epsilon);
+Expr2           =   *Expr3 FENCE($'&' *Expr2 (E_SEQ & 2) | epsilon);
+Expr1           =   *Expr2 FENCE($'?' *Expr1 (E_SCAN & 2) | epsilon);
+Expr0           =   *Expr1 FENCE($'=' FENCE(*Expr0 | Push_empty_str()) (E_ASSIGN & 2) | epsilon);
 /*====================================================================================================================*/
-Command   = ( if_cmd | while_cmd | do_cmd | for_cmd | func_cmd
-            | return_cmd | freturn_cmd | nreturn_cmd
-            | goto_cmd | label_prefix | empty_cmd | stmt_cmd );
-Compiland = nPush()
-            ARBNO(Command)
-            (E_Parse & 'nTop()')
-            nPop();
+stmt_body       =   *Expr0 ($';' | epsilon) Decompose_stmt();
+stmt_cmd        =   nInc() stmt_body;
+/*--------------------------------------------------------------------------------------------------------------------*/
+if_cmd          =   nInc()
+                    $'if' $'(' *Expr0 Save_cond() $')'
+                    $'{' Body('if_nthen') $'}'
+                    ( $'else'
+                      ( $'{'  Body('if_nelse') $'}'
+                      | nPush() if_cmd Save_nbody('if_nelse') nPop()
+                      )
+                      Finalize_if_else('if_nthen', 'if_nelse', 'saved_cond')
+                    | Finalize_if('if_nthen', 'saved_cond')
+                    );
+/*--------------------------------------------------------------------------------------------------------------------*/
+while_cmd       =   nInc()
+                    $'while' $'(' *Expr0 Save_cond() While_head_alloc() $')'
+                    $'{' Body('wh_nbody') $'}'
+                    Finalize_while('wh_nbody', 'saved_cond');
+/*--------------------------------------------------------------------------------------------------------------------*/
+do_cmd          =   nInc()
+                    $'do' Do_head_alloc()
+                    $'{' Body('do_nbody') $'}'
+                    $'while' $'(' *Expr0 Save_cond() $')' ($';' | epsilon)
+                    Finalize_do('do_nbody', 'saved_cond');
+/*--------------------------------------------------------------------------------------------------------------------*/
+empty_cmd       =   $';';
+goto_cmd        =   nInc() $'goto' $'  ' (*Id . captured_goto) $';' Goto_emit();
+label_prefix    =   $' ' (*Id . captured_label) $':' Label_emit() nInc();
+/*--------------------------------------------------------------------------------------------------------------------*/
+for_cmd         =   nInc()
+                    $'for' $'(' *Expr0
+                    $';' *Expr0 $';' *Expr0 $')'
+                    For_head_alloc()
+                    ( $'{' Body('for_nbody') $'}'
+                    | Body('for_nbody')
+                    )
+                    Finalize_for('for_nbody');
+/*--------------------------------------------------------------------------------------------------------------------*/
+param_first     =   $' ' (*Id . captured_param) $ *notmatch(captured_param, reserved) Save_param_first();
+param_rest      =   $',' $' ' (*Id . captured_param) $ *notmatch(captured_param, reserved) Save_param_rest();
+param_list      =   param_first ARBNO(param_rest) | epsilon;
+func_cmd        =   nInc()
+                    $'function' $'  ' (*Id . captured_name) $ *notmatch(captured_name, reserved) Func_head_save_name()
+                    $'(' param_list $')'
+                    $'{' BodyFn('fn_nbody') $'}'
+                    Finalize_function('fn_nbody');
+return_cmd      =   nInc() $'return'
+                    ( *Expr0 $';' Emit_return_value()
+                    |        $';' Emit_return_void()
+                    );
+freturn_cmd     =   nInc() $'freturn' $';' Emit_freturn();
+nreturn_cmd     =   nInc() $'nreturn' $';' Emit_nreturn();
+/*====================================================================================================================*/
+Command         =   ( if_cmd
+                    | while_cmd
+                    | do_cmd
+                    | for_cmd
+                    | func_cmd
+                    | return_cmd
+                    | freturn_cmd
+                    | nreturn_cmd
+                    | goto_cmd
+                    | label_prefix
+                    | empty_cmd
+                    | stmt_cmd
+                    );
+Compiland       =   nPush()
+                    ARBNO(Command)
+                    (E_Parse & 'nTop()')
+                    nPop();
 /*====================================================================================================================*/
 InitCounter();
 InitStack();
