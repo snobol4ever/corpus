@@ -316,6 +316,82 @@ function build_directive(body_tree) {
     nreturn;
 }
 Build_directive = epsilon . *build_directive();
+/*--------------------------------------------------------------------------------------------------------------------*/
+// merge_choices(parse_root) — post-Compiland pass.  Walks parse_root's STMT
+// children once and rebuilds them as: directives (in source order) followed
+// by clause-groups (in first-encounter order).  Same-functor/arity clause
+// STMTs are merged: the donor's E_CLAUSE child is appended into the kept
+// STMT's E_CHOICE.  Mirrors prolog_lower.c::lower_program three-pass logic.
+//
+// Clause STMT shape: (STMT (:subj (E_CHOICE key (E_CLAUSE ...) ...)))
+// Directive STMT:    (STMT (:subj <body_tree>))
+// The discriminator is t(c(c(stmt)[1])[1]) — 'E_CHOICE' for clause STMT.
+function merge_choices(parse_root, n_in, i, stmt, inner, key,
+                       directives, n_dir,
+                       choice_keys, choice_stmts, n_choice, found,
+                       j, donor_choice, kept_choice, dk, dn,
+                       new_kids, idx) {
+    n_in = n(parse_root);
+    if (LE(n_in, 1)) { merge_choices = .dummy; nreturn; }
+    directives   = ARRAY('1:' n_in);
+    choice_keys  = ARRAY('1:' n_in);
+    choice_stmts = ARRAY('1:' n_in);
+    n_dir = 0;
+    n_choice = 0;
+    i = 1;
+    while (LE(i, n_in)) {
+        stmt = c(parse_root)[i];
+        inner = c(c(stmt)[1])[1];
+        if (IDENT(t(inner), 'E_CHOICE')) {
+            key = v(inner);
+            found = 0;
+            j = 1;
+            while (LE(j, n_choice)) {
+                if (IDENT(choice_keys[j], key)) {
+                    found = j;
+                    j = n_choice;
+                }
+                j = j + 1;
+            }
+            if (GT(found, 0)) {
+                kept_choice = c(c(choice_stmts[found])[1])[1];
+                donor_choice = inner;
+                dn = n(donor_choice);
+                dk = 1;
+                while (LE(dk, dn)) {
+                    Append(kept_choice, c(donor_choice)[dk]);
+                    dk = dk + 1;
+                }
+            } else {
+                n_choice = n_choice + 1;
+                choice_keys[n_choice] = key;
+                choice_stmts[n_choice] = stmt;
+            }
+        } else {
+            n_dir = n_dir + 1;
+            directives[n_dir] = stmt;
+        }
+        i = i + 1;
+    }
+    new_kids = ARRAY('1:' n_dir + n_choice);
+    idx = 1;
+    i = 1;
+    while (LE(i, n_dir)) {
+        new_kids[idx] = directives[i];
+        idx = idx + 1;
+        i = i + 1;
+    }
+    i = 1;
+    while (LE(i, n_choice)) {
+        new_kids[idx] = choice_stmts[i];
+        idx = idx + 1;
+        i = i + 1;
+    }
+    n(parse_root) = n_dir + n_choice;
+    c(parse_root) = new_kids;
+    merge_choices = .dummy;
+    nreturn;
+}
 /*====================================================================================================================*/
 // Grammar — pure patterns.  Expression ladder (tightest -> loosest):
 //   primary -> mul_expr -> add_expr -> is_expr -> unify_expr -> conj -> disj
@@ -443,6 +519,7 @@ while ((Line = INPUT)) Src = Src Line nl ;
 if (Src ? Compiland) {
     ptree = Pop();
     if (DIFFER(ptree)) {
+        merge_choices(ptree);
         i = 1;
         n_kids = n(ptree);
         while (LE(i, n_kids)) {
