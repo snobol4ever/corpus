@@ -1,0 +1,10 @@
+(STMT :subj (E_FNC main
+  (E_VAR main)
+  (E_FNC write
+    (E_VAR write)
+    (E_CAT
+      (E_VAR a)
+      (E_VAR b)
+    )
+  )
+))

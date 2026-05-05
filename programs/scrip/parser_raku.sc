@@ -70,6 +70,7 @@ E_IF        = "'E_IF'";       E_WHILE    = "'E_WHILE'";
 E_RETURN    = "'E_RETURN'";   E_TO       = "'E_TO'";
 E_NOT       = "'E_NOT'";      E_UNTIL    = "'E_UNTIL'";
 E_SEQ       = "'E_SEQ'";      E_ALT      = "'E_ALT'";
+E_CAT       = "'E_CAT'";
 E_Parse     = "'Parse'";
 /*====================================================================================================================*/
 // Whitespace primitives.  White / Gray are the cross-parser canonical names;
@@ -113,7 +114,7 @@ $'['   = $' ' '[' $' ';  $']'   = $' ' ']';
 $'~~'  = $' ' '~~' $' ';
 $'..'  = $' ' '..' $' ';  $'..^' = $' ' '..^' $' ';
 $'&&'  = $' ' '&&' $' ';  $'||'  = $' ' '||'  $' ';
-$'!'   = $' ' '!';
+$'!'   = $' ' '!';        $'~'   = $' ' '~'   $' ';
 /*====================================================================================================================*/
 // Token classifiers — mirror raku.l names.
 // Each classifier bakes $' ' (optional leading whitespace) into its
@@ -747,6 +748,21 @@ function flatten_div(rhs, lhs, node) {
 }
 Flatten_div = (epsilon . *flatten_div());
 
+function flatten_cat(rhs, lhs, node) {
+    rhs = Pop();
+    lhs = Pop();
+    node = DIFFER(t(lhs)) IDENT(t(lhs), 'E_CAT') lhs;
+    if (DIFFER(node)) { Append(node, rhs); Push(node); } else {
+        node = tree('E_CAT', '');
+        Append(node, lhs);
+        Append(node, rhs);
+        Push(node);
+    }
+    flatten_cat = .dummy;
+    nreturn;
+}
+Flatten_cat = (epsilon . *flatten_cat());
+
 /*====================================================================================================================*/
 // Expression tower — result lives on the shared stack.
 //
@@ -801,6 +817,7 @@ Expr7     = ( Expr11 ARBNO(Expr7tail) );
 // Flatten_add / Flatten_sub produce n-ary (E_ADD a b c) matching the C oracle.
 Expr6tail = FENCE( $'+'  *Expr7  Flatten_add
                  | $'-'  *Expr7  Flatten_sub
+                 | $'~'  *Expr7  Flatten_cat
                  );
 Expr6     = ( Expr7  ARBNO(Expr6tail) );
 
