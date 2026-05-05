@@ -177,6 +177,12 @@ $'>'        =  $' ' '>';
 function push_qlit() { Push(tree('E_QLIT', str_body)); push_qlit = .dummy; nreturn; }
 Push_qlit = (epsilon . *push_qlit());
 /*--------------------------------------------------------------------------------------------------------------------*/
+// FnArgList / FnArgTail — global pattern variables with deferred mutual references.
+// Avoids mutual-recursion hang at definition time (both contain only deferred *refs).
+// Each arg calls *Expr (global pattern variable, deferred) and does nInc() for the counter.
+FnArgList   =  nInc() *Expr FENCE(*FnArgTail | epsilon);
+FnArgTail   =  $',' nInc() *Expr FENCE(*FnArgTail | epsilon);
+/*--------------------------------------------------------------------------------------------------------------------*/
 ExprList    =  nPush()
                *XList
                ("'ExprList'" & '*(GT(nTop(), 1) nTop())')
@@ -204,10 +210,12 @@ Expr11      =  *Expr12 FENCE(($'^' | $'!' | $'**') *Expr12 foldop(E_POW) *Expr11
 Expr11cont  =  FENCE(($'^' | $'!' | $'**') *Expr12 foldop(E_POW) *Expr11cont | epsilon);
 Expr12      =  *Expr13
                FENCE(
-                  $'$' *Expr12 (E_CAPT_IMMED_ASGN & 2)
-               |  $'.' *Expr12 (E_CAPT_COND_ASGN  & 2)
+                  $'$' *Expr13 (E_CAPT_IMMED_ASGN & 2) *Expr12tail_immed
+               |  $'.' *Expr13 (E_CAPT_COND_ASGN  & 2) *Expr12tail_cond
                |  epsilon
                );
+Expr12tail_immed =  FENCE($'$' *Expr13 (E_CAPT_IMMED_ASGN & 2) *Expr12tail_immed | epsilon);
+Expr12tail_cond  =  FENCE($'.' *Expr13 (E_CAPT_COND_ASGN  & 2) *Expr12tail_cond  | epsilon);
 Expr13      =  *Expr14 FENCE($'~' *Expr13 reduce_opsyn('~', 2) | epsilon);
 Expr14      =  '@' *Expr14 (E_CAPT_CURSOR & 1)
             |  '~' *Expr14 (E_NOT & 1)
@@ -232,25 +240,42 @@ Expr16      =  nInc()
                ($'[' *ExprList $']' | $'<' *ExprList $'>')
                FENCE(*Expr16 | epsilon);
 Expr17      =  FENCE(
-                  nPush()
-                  $'('
-                  *Expr
-                  (  $',' *XList ("','" & 'nTop() + 1')
-                  |  epsilon ("'()'" & 1)
-                  )
-                  $')'
-                  nPop()
-               |  *Function   ~ E_VAR $'(' *ExprList $')' (E_FNC & 2)
-               |  *Function   ~ E_VAR
+                  nPush() $'(' *Expr $')' ("'()'" & 1) nPop()
+               |  *PrimLEN    $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(E_LEN)    nPop() $')'
+               |  *PrimBREAK  $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(E_BREAK)  nPop() $')'
+               |  *PrimSPAN   $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(E_SPAN)   nPop() $')'
+               |  *PrimANY    $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(E_ANY)    nPop() $')'
+               |  *PrimNOTANY $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(E_NOTANY) nPop() $')'
+               |  *PrimFENCE  $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(E_FENCE)  nPop() $')'
+               |  *PrimARBNO  $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(E_ARBNO)  nPop() $')'
+               |  *PrimPOS    $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(E_POS)    nPop() $')'
+               |  *PrimRPOS   $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(E_RPOS)   nPop() $')'
+               |  *PrimTAB    $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(E_TAB)    nPop() $')'
+               |  *PrimRTAB   $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(E_RTAB)   nPop() $')'
+               |  *PrimBREAKX $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(E_BREAKX) nPop() $')'
+               |  *Function   ~ E_VAR FENCE(nPush() $'(' FENCE(*FnArgList | epsilon) reduce_call() nPop() $')' | epsilon)
                |  *BuiltinVar ~ E_VAR
                |  *SpecialNm  ~ E_VAR
-               |  *Id ~ E_VAR $'(' *ExprList $')' (E_FNC & 2)
-               |  *Id ~ E_VAR
+               |  *Id         ~ E_VAR FENCE(nPush() $'(' FENCE(*FnArgList | epsilon) reduce_call() nPop() $')' | epsilon)
                |  *String Push_qlit
                |  *Real ~ E_RLIT
                |  *Integer ~ E_ILIT
                );
-// Goto: direction baked into reduce tag via named Sgo/Fgo/Ugo patterns.
+// Per-primitive classifier patterns — match full identifier word, succeed only for exact name.
+// Form: SPAN(...) $ tx $ *sn_match(NameList, TxInList) where NameList has only one entry.
+// Guarantees word-boundary (SPAN consumes full identifier) and exact-name check.
+PrimLEN     =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *sn_match('LEN ',    TxInList);
+PrimBREAK   =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *sn_match('BREAK ',  TxInList);
+PrimSPAN    =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *sn_match('SPAN ',   TxInList);
+PrimANY     =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *sn_match('ANY ',    TxInList);
+PrimNOTANY  =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *sn_match('NOTANY ', TxInList);
+PrimFENCE   =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *sn_match('FENCE ',  TxInList);
+PrimARBNO   =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *sn_match('ARBNO ',  TxInList);
+PrimPOS     =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *sn_match('POS ',    TxInList);
+PrimRPOS    =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *sn_match('RPOS ',   TxInList);
+PrimTAB     =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *sn_match('TAB ',    TxInList);
+PrimRTAB    =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *sn_match('RTAB ',   TxInList);
+PrimBREAKX  =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *sn_match('BREAKX ', TxInList);
 SGoto       =  ('S' | 's');
 FGoto       =  ('F' | 'f');
 Target      =  $'(' . *assign(.Brackets, *'()') *Expr $')'
@@ -301,62 +326,16 @@ Compiland   =  nPush()
                ('END' (' ' BREAK(nl) nl | nl) ARBNO(BREAK(nl) nl) | epsilon)
                nPop();
 /*====================================================================================================================*/
-// Helper functions — pure structural rewrite; grammar emits E_* directly.
+// pp_stmt and make_goto_slot — grammar emits E_* directly; no post-parse rewrite needed.
 /*====================================================================================================================*/
-// rw_call: E_FNC node — c[1]=callee E_VAR (v=fname), c[2]=args ('ExprList' or bare).
-function rw_call(x, fname, args, na, result, i) {
-    fname = v(c(x)[1]);
-    args  = c(x)[2];
-    if (IDENT(t(args), 'ExprList')) { na = n(args); }
-    else if (DIFFER(t(args)))        { na = 1; }
-    else                             { na = 0; }
-    if (IDENT(fname, 'LEN'))          { result = Tree('E_LEN',    '', na); }
-    else if (IDENT(fname, 'BREAK'))   { result = Tree('E_BREAK',  '', na); }
-    else if (IDENT(fname, 'SPAN'))    { result = Tree('E_SPAN',   '', na); }
-    else if (IDENT(fname, 'ANY'))     { result = Tree('E_ANY',    '', na); }
-    else if (IDENT(fname, 'NOTANY'))  { result = Tree('E_NOTANY', '', na); }
-    else if (IDENT(fname, 'FENCE'))   { result = Tree('E_FENCE',  '', na); }
-    else if (IDENT(fname, 'ARBNO'))   { result = Tree('E_ARBNO',  '', na); }
-    else if (IDENT(fname, 'POS'))     { result = Tree('E_POS',    '', na); }
-    else if (IDENT(fname, 'RPOS'))    { result = Tree('E_RPOS',   '', na); }
-    else if (IDENT(fname, 'TAB'))     { result = Tree('E_TAB',    '', na); }
-    else if (IDENT(fname, 'RTAB'))    { result = Tree('E_RTAB',   '', na); }
-    else if (IDENT(fname, 'BREAKX'))  { result = Tree('E_BREAKX', '', na); }
-    else                              { result = Tree('E_FNC', fname, 0); }
-    if (EQ(na, 0)) { rw_call = result; return; }
-    if (IDENT(t(args), 'ExprList')) {
-        i = 1;
-        while (LE(i, na)) { Append(result, rw_expr(c(args)[i])); i = i + 1; }
-    } else {
-        Append(result, rw_expr(args));
-    }
-    rw_call = result;
-    return;
-}
-/*--------------------------------------------------------------------------------------------------------------------*/
-// rw_expr — pure structural rewrite (no tag rename; grammar emits E_* directly).
-//   '()'           — paren wrapper: unwrap single child
-//   E_FNC          — function call: dispatch to rw_call
-//   E_SEQ (n>=1, v='') — ExprList wrapper from XList: transparent (inline or unwrap)
-//   E_IDX          — flatten E_SEQ bracket-group children
-//   E_CAPT_*_ASGN  — left-rotation (runtime strictly binary; right-recursive in grammar)
-//   all other E_*  — recurse into children, preserve tag and value
-function rw_expr(x, t, result, i, right, rr, rl, xlist, j) {
-    if (IDENT(x))                  { rw_expr = x; return; }
+// strip_parens — recursively strip all '()' wrapper nodes and flatten ExprList
+// nodes inside E_IDX (which arise from the ExprList subscript grammar).
+function strip_parens(x, t, result, i, xlist, j) {
+    if (IDENT(x))              { strip_parens = x; return; }
     t = t(x);
-    if (IDENT(t))                  { rw_expr = x; return; }
-    if (IDENT(t, '()'))            { rw_expr = rw_expr(c(x)[1]); return; }
-    if (IDENT(t, 'E_FNC'))         { rw_expr = rw_call(x); return; }
-    // 'ExprList' from XList: transparent wrapper — inline children into E_SEQ or unwrap
-    if (IDENT(t, 'ExprList')) {
-        if (EQ(n(x), 1))           { rw_expr = rw_expr(c(x)[1]); return; }
-        result = Tree('E_SEQ', '', 0);
-        i = 1;
-        while (LE(i, n(x))) { Append(result, rw_expr(c(x)[i])); i = i + 1; }
-        rw_expr = result;
-        return;
-    }
-    // E_IDX: flatten ExprList bracket-group children directly
+    if (IDENT(t))              { strip_parens = x; return; }
+    if (IDENT(t, '()') EQ(n(x), 1)) { strip_parens = strip_parens(c(x)[1]); return; }
+    // E_IDX: flatten ExprList children inline
     if (IDENT(t, 'E_IDX')) {
         result = Tree('E_IDX', '', 0);
         i = 1;
@@ -364,67 +343,43 @@ function rw_expr(x, t, result, i, right, rr, rl, xlist, j) {
             if (IDENT(t(c(x)[i]), 'ExprList')) {
                 xlist = c(x)[i];
                 j = 1;
-                while (LE(j, n(xlist))) { Append(result, rw_expr(c(xlist)[j])); j = j + 1; }
+                while (LE(j, n(xlist))) { Append(result, strip_parens(c(xlist)[j])); j = j + 1; }
             } else {
-                Append(result, rw_expr(c(x)[i]));
+                Append(result, strip_parens(c(x)[i]));
             }
-        i = i + 1; }
-        rw_expr = result;
-        return;
-    }
-    // Left-rotation for E_CAPT_*_ASGN: runtime strictly binary; oracle is left-assoc.
-    if (EQ(n(x), 2)) {
-        if (IDENT(t, 'E_CAPT_IMMED_ASGN') | IDENT(t, 'E_CAPT_COND_ASGN')) {
-            right = c(x)[2];
-            if (EQ(n(right), 2) IDENT(t(right), t)) {
-                result = Tree(t, '', 2, rw_expr(c(x)[1]), rw_expr(c(right)[1]));
-                rr = c(right)[2];
-                while (EQ(n(rr), 2) IDENT(t(rr), t)) {
-                    rl = c(rr)[1];
-                    result = Tree(t, '', 2, result, rw_expr(rl));
-                    rr = c(rr)[2];
-                }
-                result = Tree(t, '', 2, result, rw_expr(rr));
-                rw_expr = result;
-                return;
-            }
+            i = i + 1;
         }
+        strip_parens = result;
+        return;
     }
     result = Tree(t, v(x), 0);
     i = 1;
-    while (LE(i, n(x))) { Append(result, rw_expr(c(x)[i])); i = i + 1; }
-    rw_expr = result;
+    while (LE(i, n(x))) { Append(result, strip_parens(c(x)[i])); i = i + 1; }
+    strip_parens = result;
     return;
 }
-/*--------------------------------------------------------------------------------------------------------------------*/
-// rw_goto_slot — goto tag ':go'/':goS'/':goF' baked by Sgo/Fgo/Ugo patterns.
 // Target child forms:
 //   E_VAR x / E_QLIT x  — simple label: use v() directly
 //   E_INDIRECT(E_QLIT x) — $'x' literal indirect: unwrap to x
 //   other computed expr  — format as $((TDump(expr)))
-function rw_goto_slot(g, tgt, tgt_v) {
+function make_goto_slot(g, tgt, tgt_v) {
     tgt   = c(g)[1];
     if (IDENT(t(tgt), 'E_INDIRECT') EQ(n(tgt), 1) IDENT(t(c(tgt)[1]), 'E_QLIT')) {
-        // $'literal' computed goto -> unwrap to bare string value
         tgt_v = v(c(tgt)[1]);
     } else if (IDENT(t(tgt), 'E_INDIRECT') EQ(n(tgt), 1)) {
-        // $(expr) computed goto -> strip E_INDIRECT and paren wrapper, render inner expr
-        inner = c(tgt)[1];
-        if (IDENT(t(inner), '()')) {
-            // paren-wrapped: render its child directly
-            if (EQ(n(inner), 1)) { inner = c(inner)[1]; }
-        }
+        inner = strip_parens(c(tgt)[1]);
         tgt_v = '$(' TLump(inner, 99999) ')';
     } else if (DIFFER(v(tgt))) {
         tgt_v = v(tgt);
     } else {
         tgt_v = '$(' TLump(tgt, 99999) ')';
     }
-    rw_goto_slot = tree(t(g), tgt_v);
+    make_goto_slot = tree(t(g), tgt_v);
     return;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 // pp_stmt — read beauty.sno's 7-slot Stmt; build IR STMT with role-slot wrappers.
+// Grammar emits correct E_* trees directly; no rw_expr rewrite needed.
 function pp_stmt(x, ppLbl, ppSubj, ppPatrn, ppAsgn, ppRepl, ppGo1, ppGo2,
                  result, subj_ir, pat_ir, seq_n, pat_seq, i) {
     ppLbl   = v(c(x)[1]);
@@ -442,16 +397,18 @@ function pp_stmt(x, ppLbl, ppSubj, ppPatrn, ppAsgn, ppRepl, ppGo1, ppGo2,
     if (DIFFER(ppLbl))        { Append(result, tree(':lbl', ppLbl)); }
     if (DIFFER(t(ppSubj))) {
         if (DIFFER(ppAsgn))   { Append(result, tree(':eq', '')); }
-        subj_ir = rw_expr(ppSubj);
+        subj_ir = strip_parens(ppSubj);
         if (DIFFER(t(ppPatrn))) {
-            pat_ir = rw_expr(ppPatrn);
+            // preserve '()' tag check before stripping (used for E_ALT merge guard)
+            pat_ir = ppPatrn;
             if (IDENT(t(pat_ir), 'E_ALT') GT(n(pat_ir), 0) DIFFER(t(ppPatrn), '()')) {
-                seq_n = Tree('E_SEQ', '', 2, subj_ir, c(pat_ir)[1]);
+                seq_n = Tree('E_SEQ', '', 2, subj_ir, strip_parens(c(pat_ir)[1]));
                 pat_seq = Tree('E_ALT', '', 1, seq_n);
                 i = 2;
-                while (LE(i, n(pat_ir))) { Append(pat_seq, c(pat_ir)[i]); i = i + 1; }
+                while (LE(i, n(pat_ir))) { Append(pat_seq, strip_parens(c(pat_ir)[i])); i = i + 1; }
                 Append(result, Tree(':subj', '', 1, pat_seq));
             } else {
+                pat_ir = strip_parens(pat_ir);
                 Append(result, Tree(':subj', '', 1, subj_ir));
                 Append(result, Tree(':pat',  '', 1, pat_ir));
             }
@@ -473,27 +430,23 @@ function pp_stmt(x, ppLbl, ppSubj, ppPatrn, ppAsgn, ppRepl, ppGo1, ppGo2,
             }
         }
         if (DIFFER(t(ppRepl))) {
-            Append(result, Tree(':repl', '', 1, rw_expr(ppRepl)));
+            Append(result, Tree(':repl', '', 1, strip_parens(ppRepl)));
         } else if (DIFFER(ppAsgn)) {
             Append(result, Tree(':repl', '', 1, tree('E_QLIT', '')));
         }
     }
     // oracle ordering: :goS before :goF for simple targets; :goF before :goS when goS is computed.
-    // Computed goS = its child is E_INDIRECT with non-QLIT arg, or non-VAR/QLIT child.
-    // Detect: goS slot present, child is E_INDIRECT wrapping a non-QLIT (i.e. a real expr).
     if (DIFFER(t(ppGo1)) DIFFER(t(ppGo2))) {
-        // find which is goS and which is goF
         if (IDENT(t(ppGo1), ':goS')) { goS_slot = ppGo1; goF_slot = ppGo2; }
         else                          { goS_slot = ppGo2; goF_slot = ppGo1; }
         goS_child = c(goS_slot)[1];
-        // computed goS: E_INDIRECT wrapping non-QLIT expr -> emit goF first
         if (IDENT(t(goS_child), 'E_INDIRECT') DIFFER(t(c(goS_child)[1]), 'E_QLIT')) {
-            Append(result, rw_goto_slot(goF_slot)); Append(result, rw_goto_slot(goS_slot));
+            Append(result, make_goto_slot(goF_slot)); Append(result, make_goto_slot(goS_slot));
         } else {
-            Append(result, rw_goto_slot(goS_slot)); Append(result, rw_goto_slot(goF_slot));
+            Append(result, make_goto_slot(goS_slot)); Append(result, make_goto_slot(goF_slot));
         }
-    } else if (DIFFER(t(ppGo1))) { Append(result, rw_goto_slot(ppGo1)); }
-    else if (DIFFER(t(ppGo2))) { Append(result, rw_goto_slot(ppGo2)); }
+    } else if (DIFFER(t(ppGo1))) { Append(result, make_goto_slot(ppGo1)); }
+    else if (DIFFER(t(ppGo2))) { Append(result, make_goto_slot(ppGo2)); }
     pp_stmt = result;
     return;
 }

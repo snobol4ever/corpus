@@ -54,3 +54,19 @@ function reduce_opsyn(op, n) {
     reduce_opsyn = EVAL("epsilon . *ReduceOpsyn('" op "', " n ")");
     return;
 }
+
+// reduce_prim(tag) -- pattern-builder that fires ReducePrim(tag) at match time.
+// tag is a pre-quoted string constant (e.g. E_LEN = "'E_LEN'").
+
+function reduce_prim(tag) {
+    reduce_prim = EVAL("epsilon . *ReducePrim(" tag ")");
+    return;
+}
+
+// reduce_call() -- pattern-builder that fires ReduceCall() at match time.
+// ReduceCall reads TopCounter() internally — no arg needed.
+
+function reduce_call() {
+    reduce_call = epsilon . *ReduceCall();
+    return;
+}

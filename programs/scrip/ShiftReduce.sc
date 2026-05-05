@@ -66,6 +66,40 @@ function FoldOp(t, rhs, lhs) {
     nreturn;
 }
 
+// ReduceCall() -- reads TopCounter() internally at match time (not definition time).
+// Pops n args from stack in order, pops fname E_VAR node, pushes E_FNC tree.
+// Called via *ReduceCall (no parens) inside a pattern — fires at match time.
+
+function ReduceCall(n, args, i, fname, r) {
+    ReduceCall = .dummy;
+    n = TopCounter();
+    args = GE(n, 1) ARRAY('1:' n);
+    i = n + 1;
+    while (i = GT(i, 1) i - 1) { args[i] = Pop(); }
+    fname = v(Pop());
+    r = tree('E_FNC', fname, n, args);
+    Push(r);
+    nreturn;
+}
+
+// ReducePrim(tag) -- reads TopCounter() internally at match time.
+// Pops n args from stack, pushes tree(tag, '', n, args).
+// tag is a pre-quoted string e.g. 'E_LEN'; evaluated via EVAL if EXPRESSION.
+
+function ReducePrim(tag, n, args, i, r) {
+    ReducePrim = .dummy;
+    if (IDENT(DATATYPE(tag), 'EXPRESSION')) {
+        if (~(tag = EVAL(tag))) { nreturn; }
+    }
+    n = TopCounter();
+    args = GE(n, 1) ARRAY('1:' n);
+    i = n + 1;
+    while (i = GT(i, 1) i - 1) { args[i] = Pop(); }
+    r = tree(tag, '', n, args);
+    Push(r);
+    nreturn;
+}
+
 // ReduceOpsyn(op, n) -- like Reduce but stores op as the value of the E_OPSYN node.
 // Used for & ~ @ opsyn binary operators where oracle emits (E_OPSYN op arg1 arg2).
 
