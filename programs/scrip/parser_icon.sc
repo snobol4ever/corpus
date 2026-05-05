@@ -39,7 +39,8 @@ E_SUSPEND   = "'E_SUSPEND'";   E_PROC_FAIL = "'E_PROC_FAIL'";
 E_FLIT      = "'E_FLIT'";
 E_REVASSIGN = "'E_REVASSIGN'"; E_SWAP      = "'E_SWAP'";
 E_REVSWAP   = "'E_REVSWAP'";   E_IDENTICAL = "'E_IDENTICAL'";
-E_NOT       = "'E_NOT'";
+E_NOT       = "'E_NOT'";        E_NULL      = "'E_NULL'";
+E_BANG_BINARY = "'E_BANG_BINARY'";
 E_TO        = "'E_TO'";        E_TO_BY     = "'E_TO_BY'";
 E_Parse     = "'Parse'";
 r_nTop      = '*(GT(nTop(), 1) nTop())';
@@ -159,6 +160,16 @@ function push_kw() {
     nreturn;
 }
 Push_kw = (epsilon . *push_kw());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// push_match — =E rewrite: pop inner E from stack, build (E_FNC (E_VAR match) E).
+// Mirrors C frontend parse_unary TK_EQ branch: expr_new(E_FNC) + push_child x2.
+function push_match(inner) {
+    inner = Pop();
+    Push(Tree('E_FNC', '', 2, tree('E_VAR', 'match'), inner));
+    push_match = .dummy;
+    nreturn;
+}
+Push_match = (epsilon . *push_match());
 // push_field — shift (E_FIELD fieldname lhs) consuming lhs from stack.
 function push_field(fname, lhs) {
     fname = v(Pop());
@@ -392,12 +403,16 @@ Expr10 = (   $' ' '-'  *Expr10 (E_MNS         & 1)
          |   $'!'      *Expr10 (E_ITERATE     & 1)
          |   $' ' '*'  *Expr10 (E_SIZE        & 1)
          |   $' ' '?'  *Expr10 (E_RANDOM      & 1)
+         |   $' ' '/'  *Expr10 (E_NULL        & 1)
+         |   $' ' '='  *Expr10 Push_match
          |   $'not' $'  ' *Expr10 (E_NOT      & 1)
          |   *Expr11  ARBNO(Expr11tail)
          );
 /*--------------------------------------------------------------------------------------------------------------------*/
-// Expr9: postfix limit E \ N (left-associative, ARBNO).
-Expr9tail = FENCE( $'\\' *Expr10 (E_LIMIT & 2) );
+// Expr9: postfix limit E \ N and binary ! E1 ! E2 (left-associative, ARBNO).
+Expr9tail = FENCE( $'\\' *Expr10 (E_LIMIT       & 2)
+                 | $'!'  *Expr10 (E_BANG_BINARY  & 2)
+                 );
 Expr9     = ( *Expr10 ARBNO(Expr9tail) );
 /*--------------------------------------------------------------------------------------------------------------------*/
 Expr8     = ( *Expr9 FENCE($'^' *Expr8 (E_POW & 2) | epsilon) );
@@ -421,13 +436,16 @@ Expr6     = ( *Expr7 ARBNO(Expr6tail) );
 Expr5tail = FENCE( $'|||' *Expr6 (E_LCONCAT & 2) | $'||' *Expr6 (E_CAT & 2) );
 Expr5     = ( *Expr6 ARBNO(Expr5tail) );
 /*--------------------------------------------------------------------------------------------------------------------*/
-// Expr4: comparison.  String ops longer-prefix first within each family.
-Expr4tail = FENCE( $'<<='  *Expr5 (E_LLE & 2) | $'<<'   *Expr5 (E_LLT & 2)
-                 | $'>>='  *Expr5 (E_LGE & 2) | $'>>'   *Expr5 (E_LGT & 2)
-                 | $'~=='  *Expr5 (E_LNE & 2) | $'=='   *Expr5 (E_LEQ & 2)
-                 | $'<='   *Expr5 (E_LE  & 2) | $'>='   *Expr5 (E_GE  & 2)
-                 | $'~='   *Expr5 (E_NE  & 2) | $'<'    *Expr5 (E_LT  & 2)
-                 | $'>'    *Expr5 (E_GT  & 2) | $'='    *Expr5 (E_EQ  & 2)
+// Expr4: comparison.  Longer-prefix first within each family: === before ==, ~=== before ~==.
+Expr4tail = FENCE( $'<<='  *Expr5 (E_LLE      & 2) | $'<<'   *Expr5 (E_LLT & 2)
+                 | $'>>='  *Expr5 (E_LGE      & 2) | $'>>'   *Expr5 (E_LGT & 2)
+                 | $'~===' *Expr5 (E_IDENTICAL & 2) (E_NOT & 1)
+                 | $'~=='  *Expr5 (E_LNE      & 2)
+                 | $'==='  *Expr5 (E_IDENTICAL & 2)
+                 | $'=='   *Expr5 (E_LEQ      & 2)
+                 | $'<='   *Expr5 (E_LE       & 2) | $'>='   *Expr5 (E_GE  & 2)
+                 | $'~='   *Expr5 (E_NE       & 2) | $'<'    *Expr5 (E_LT  & 2)
+                 | $'>'    *Expr5 (E_GT       & 2) | $'='    *Expr5 (E_EQ  & 2)
                  );
 Expr4     = ( *Expr5 ARBNO(Expr4tail) );
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -469,8 +487,6 @@ Expr1     = ( *Expr2
               |   $'<:='   *Expr1 (E_AUGOP  & 2)
               |   $'>:='   *Expr1 (E_AUGOP  & 2)
               |   $':=:'   *Expr1 (E_SWAP      & 2)
-              |   $'~==='  *Expr1 (E_IDENTICAL & 2) (E_NOT & 1)
-              |   $'==='   *Expr1 (E_IDENTICAL & 2)
               |   $'<->'   *Expr1 (E_REVSWAP   & 2)
               |   $'<-'    *Expr1 (E_REVASSIGN & 2)
               |   $':='    *Expr1 (E_ASSIGN    & 2)
