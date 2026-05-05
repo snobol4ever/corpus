@@ -262,6 +262,22 @@ function mark_body() {
 }
 Mark_body = epsilon . *mark_body();
 /*--------------------------------------------------------------------------------------------------------------------*/
+// flatten_conj_into — recursively appends leaves of a top-level (E_FNC ,)
+// tree into clause_node, mirroring prolog_parse.c::flatten_conj.  Each
+// child that is itself an (E_FNC ,) is recursed; non-comma children are
+// appended directly.  Called only from build_clause.
+function flatten_conj_into(clause_node, x, ck, cn) {
+    if (IDENT(t(x), 'E_FNC') IDENT(v(x), ',')) {
+        cn = n(x);
+        ck = 1;
+        while (LE(ck, cn)) {
+            flatten_conj_into(clause_node, c(x)[ck]);
+            ck = ck + 1;
+        }
+    } else Append(clause_node, x);
+    flatten_conj_into = .dummy;
+    nreturn;
+}
 function build_clause(key, parts, i, body_tree, clause_node, bk, bn) {
     key = head_name '/' head_arity;
     body_tree = ;
@@ -278,16 +294,7 @@ function build_clause(key, parts, i, body_tree, clause_node, bk, bn) {
         Append(clause_node, parts[i]);
         i = i + 1;
     }
-    if (GT(body_present, 0)) {
-        if (IDENT(t(body_tree), 'E_FNC') IDENT(v(body_tree), ',')) {
-            bn = n(body_tree);
-            bk = 1;
-            while (LE(bk, bn)) {
-                Append(clause_node, c(body_tree)[bk]);
-                bk = bk + 1;
-            }
-        } else Append(clause_node, body_tree);
-    }
+    if (GT(body_present, 0)) flatten_conj_into(clause_node, body_tree);
     bk = head_arity;
     while (bk > 0) {
         assign_anon_slots(c(clause_node)[bk]);
@@ -464,7 +471,7 @@ unify_expr = (  is_expr
                      )
              );
 /*--------------------------------------------------------------------------------------------------------------------*/
-body_goal = unify_expr;
+body_goal = ( $'(' *body $')' | unify_expr );
 /*--------------------------------------------------------------------------------------------------------------------*/
 conj = (    nPush()
                 nInc() body_goal
