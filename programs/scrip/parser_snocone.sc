@@ -23,6 +23,8 @@ E_NAME    = "'E_NAME'";    E_INDIRECT= "'E_INDIRECT'";
 E_CAPT_COND_ASGN  = "'E_CAPT_COND_ASGN'";
 E_CAPT_IMMED_ASGN = "'E_CAPT_IMMED_ASGN'";
 E_CAPT_CURSOR     = "'E_CAPT_CURSOR'";
+E_VLIST           = "'E_VLIST'";
+E_NUL             = "'E_NUL'";
 E_Parse   = "'Parse'";
 r_nTop    = '*(GT(nTop(), 1) nTop())';
 /*====================================================================================================================*/
@@ -393,6 +395,7 @@ function goto_emit() { Push(make_goto_stmt(captured_goto)); goto_emit = .dummy; 
 function label_emit() { Push(make_label_stmt(captured_label)); label_emit = .dummy; nreturn; }
 function push_keyword() { Push(tree('E_KEYWORD', kw_name)); push_keyword = .dummy; nreturn; }
 function push_flit() { Push(tree('E_FLIT', strbody)); push_flit = .dummy; nreturn; }
+function push_empty_str() { Push(tree('E_QLIT', '')); push_empty_str = .dummy; nreturn; }
 function push_mns(e) { e = Pop(); Push(Tree('E_MNS', '', 1, e)); push_mns = .dummy; nreturn; }
 // push_call_name_var — fires match-time after '(' is confirmed; pushes the
 // captured function name as an E_VAR node and increments the n-ary counter
@@ -407,6 +410,21 @@ function push_idx(base, idx) {
     idx  = Pop(); base = Pop();
     Push(Tree('E_IDX', '', 2, base, idx));
     push_idx = .dummy; nreturn;
+}
+// paren_reduce — fires after $'(g' nPush() ... Paren_reduce() nPop().
+// n=0: push E_NUL (empty parens).
+// n=1: pop single child, push it directly (plain grouping paren).
+// n>1: pop n children, build E_VLIST(c1..cN).
+function paren_reduce(n, kids, vl, i) {
+    n = TopCounter();
+    if (IDENT(n, 0)) { Push(Tree('E_NUL', '')); paren_reduce = .dummy; nreturn; }
+    if (IDENT(n, 1)) { paren_reduce = .dummy; nreturn; }
+    kids = ARRAY('1:' n);
+    i = n; while (GT(i, 0)) { kids[i] = Pop(); i = i - 1; }
+    vl = Tree('E_VLIST', '');
+    i = 1; while (LE(i, n)) { vl = Append(vl, kids[i]); i = i + 1; }
+    Push(vl);
+    paren_reduce = .dummy; nreturn;
 }
 function for_head_alloc(init_e, cond_e, step_e, init_s) {
     step_e = Pop(); cond_e = Pop(); init_e = Pop();
@@ -478,7 +496,7 @@ function Finalize_do(nbody_v, cond_v) {
     return;
 }
 function Body(var) {
-    Body = nPush() ARBNO(stmt_cmd) Save_nbody(var) nPop();
+    Body = nPush() ARBNO(*body_fn_cmd) Save_nbody(var) nPop();
     return;
 }
 function BodyFn(var) {
@@ -527,8 +545,10 @@ function Goto_emit() { Goto_emit = EVAL("epsilon . thx . *goto_emit()"); return;
 function Label_emit() { Label_emit = EVAL("epsilon . thx . *label_emit()"); return; }
 function Push_keyword() { Push_keyword = EVAL("epsilon . thx . *push_keyword()"); return; }
 function Push_flit() { Push_flit = EVAL("epsilon . thx . *push_flit()"); return; }
+function Push_empty_str() { Push_empty_str = EVAL("epsilon . thx . *push_empty_str()"); return; }
 function Push_mns() { Push_mns = EVAL("epsilon . thx . *push_mns()"); return; }
 function Push_idx() { Push_idx = EVAL("epsilon . thx . *push_idx()"); return; }
+function Paren_reduce() { Paren_reduce = EVAL("epsilon . thx . *paren_reduce()"); return; }
 function Push_call_name_var() { Push_call_name_var = EVAL("epsilon . thx . *push_call_name_var()"); return; }
 function For_head_alloc() { For_head_alloc = EVAL("epsilon . thx . *for_head_alloc()"); return; }
 function Finalize_for(nbody_v) {
@@ -556,7 +576,11 @@ Call     = ( (*Id . captured_call_name)
 // tower — which would overflow the C stack on multi-line inputs like beauty.sc.
 Expr17 = FENCE(
              *Call
-           | $'(g' *Expr0 $')'
+           | $'(g' nPush()
+             FENCE(
+               nInc() *Expr0 ARBNO($',' nInc() *Expr0) $')' Paren_reduce() nPop()
+             | $')' (E_NUL & 0) nPop()
+             )
            | *String      Push_qlit()
            | (*Real . strbody) Push_flit()
            | *Integer    ~ 'E_ILIT'
@@ -590,25 +614,15 @@ Expr11 = *Expr12 FENCE($'^' *Expr11 (E_POW & 2) | epsilon);
 // Expr9 — mul/div; unary minus prefix handled here.
 Expr9  = FENCE(
            '-' *Expr11 Push_mns()
-         | *Expr11
-           FENCE(
-             $'*' *Expr11 (E_MUL & 2) FENCE($'*' *Expr11 (E_MUL & 2) | epsilon)
-           | $'/' *Expr11 (E_DIV & 2) FENCE($'/' *Expr11 (E_DIV & 2) | epsilon)
-           | epsilon
-           )
+         | *Expr11 ARBNO($'*' *Expr11 (E_MUL & 2) | $'/' *Expr11 (E_DIV & 2))
          );
-Expr6  = *Expr9
-         FENCE(
-           $'+' *Expr9 (E_ADD & 2) FENCE($'+' *Expr9 (E_ADD & 2) | epsilon)
-         | $'-' *Expr9 (E_SUB & 2) FENCE($'-' *Expr9 (E_SUB & 2) | epsilon)
-         | epsilon
-         );
+Expr6  = *Expr9 ARBNO($'+' *Expr9 (E_ADD & 2) | $'-' *Expr9 (E_SUB & 2));
 Expr4  = nPush() *X4 (E_SEQ & r_nTop) nPop();
 X4     = nInc() *Expr6 FENCE($'  ' *X4 | epsilon);
 Expr3  = nPush() *X3 (E_ALT & r_nTop) nPop();
 X3     = nInc() *Expr4 FENCE($'|' *X3 | epsilon);
 Expr1  = *Expr3 FENCE($'?' *Expr1 (E_SCAN   & 2) | epsilon);
-Expr0  = *Expr1 FENCE($'=' *Expr0 (E_ASSIGN & 2) | epsilon);
+Expr0  = *Expr1 FENCE($'=' FENCE(*Expr0 | Push_empty_str()) (E_ASSIGN & 2) | epsilon);
 /*====================================================================================================================*/
 stmt_body = ($' ' *Expr0 $' ' ($';' | epsilon) $' ' nl_opt Decompose_stmt());
 stmt_cmd  = (nInc() stmt_body);
@@ -618,7 +632,9 @@ if_cmd =
       $' ' *kw_if   $'(' *Expr0 Save_cond() $')' $' ' nl_opt
       $'{' nl_opt    Body('if_nthen')    $'}' $' ' nl_opt
       ( *kw_else $' ' nl_opt
-        $'{' nl_opt  Body('if_nelse')    $'}' $' ' nl_opt
+        ( $'{' nl_opt  Body('if_nelse')    $'}' $' ' nl_opt
+        | nPush() if_cmd Save_nbody('if_nelse') nPop()
+        )
         Finalize_if_else('if_nthen', 'if_nelse', 'saved_cond')
       | Finalize_if('if_nthen', 'saved_cond')
       )
@@ -672,7 +688,9 @@ return_cmd =
     );
 freturn_cmd = ( nInc() $' ' *kw_freturn $' ' $';' $' ' nl_opt Emit_freturn() );
 nreturn_cmd = ( nInc() $' ' *kw_nreturn $' ' $';' $' ' nl_opt Emit_nreturn() );
-body_fn_cmd = ( return_cmd | freturn_cmd | nreturn_cmd | stmt_cmd );
+body_fn_cmd = ( if_cmd | while_cmd | do_cmd | for_cmd | func_cmd
+              | return_cmd | freturn_cmd | nreturn_cmd
+              | goto_cmd | label_prefix | empty_cmd | stmt_cmd );
 /*====================================================================================================================*/
 Command   = ( if_cmd | while_cmd | do_cmd | for_cmd | func_cmd
             | return_cmd | freturn_cmd | nreturn_cmd
