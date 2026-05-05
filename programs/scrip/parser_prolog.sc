@@ -52,6 +52,15 @@ $':-'  = $' '  ':-' $' ';  $'='  = $' ' '='  $' ';
 $'+'   = $' '  '+'  $' ';  $'-'  = $' ' '-'  $' ';
 $'*'   = $' '  '*'  $' ';  $'/'  = $' ' '/'  $' ';
 $'is'  = $'  ' 'is' $'  ';
+$'-->' = $' ' '-->' $' ';
+$'{'   = $' '  '{'  $' ';  $'}'  = $' ' '}'  $' ';
+Tk_cut = $' ' '!' $' ';
+// Comparison operator tokens — longer prefixes first to avoid greedy prefix match.
+$'=:=' = $' ' '=:=' $' ';  $'=\=' = $' ' '=\=' $' ';
+$'=='  = $' ' '=='  $' ';  $'\==' = $' ' '\==' $' ';
+$'>='  = $' ' '>='  $' ';  $'=<'  = $' ' '=<'  $' ';
+$'>'   = $' ' '>'   $' ';  $'<'   = $' ' '<'   $' ';
+$'\='  = $' ' '\='  $' ';
 /*====================================================================================================================*/
 trivia   = ARBNO(White | nl);
 /*====================================================================================================================*/
@@ -151,6 +160,33 @@ function reduce_is(rhs, lhs, fnc_node) {
     nreturn;
 }
 Reduce_is = epsilon . *reduce_is();
+/*--------------------------------------------------------------------------------------------------------------------*/
+// reduce_cmp_op(op) — pops rhs, lhs from stack, pushes (E_FNC op lhs rhs).
+// Pre-built action patterns for each comparison operator (avoid EVAL for
+// operators whose symbols cause Snocone parse errors inside EVAL strings).
+function reduce_cmp_op(op, rhs, lhs, fnc_node) {
+    rhs = Pop();
+    lhs = Pop();
+    fnc_node = Tree('E_FNC', op, 0);
+    Append(fnc_node, lhs);
+    Append(fnc_node, rhs);
+    Push(fnc_node);
+    reduce_cmp_op = .dummy;
+    nreturn;
+}
+// Named globals hold operator strings for the pre-built reducers.
+cmp_op_ge  = '>=';  cmp_op_le  = '=<';  cmp_op_gt  = '>';   cmp_op_lt  = '<';
+cmp_op_eqq = '=:='; cmp_op_id  = '==';
+cmp_op_ne1 = '\=';  cmp_op_ne2 = '=\='; cmp_op_ne3 = '\==';
+function do_cmp_ge()  { rhs=Pop();lhs=Pop();f=Tree('E_FNC',cmp_op_ge,0); Append(f,lhs);Append(f,rhs);Push(f); do_cmp_ge=.dummy;  nreturn; }
+function do_cmp_le()  { rhs=Pop();lhs=Pop();f=Tree('E_FNC',cmp_op_le,0); Append(f,lhs);Append(f,rhs);Push(f); do_cmp_le=.dummy;  nreturn; }
+function do_cmp_gt()  { rhs=Pop();lhs=Pop();f=Tree('E_FNC',cmp_op_gt,0); Append(f,lhs);Append(f,rhs);Push(f); do_cmp_gt=.dummy;  nreturn; }
+function do_cmp_lt()  { rhs=Pop();lhs=Pop();f=Tree('E_FNC',cmp_op_lt,0); Append(f,lhs);Append(f,rhs);Push(f); do_cmp_lt=.dummy;  nreturn; }
+function do_cmp_eqq() { rhs=Pop();lhs=Pop();f=Tree('E_FNC',cmp_op_eqq,0);Append(f,lhs);Append(f,rhs);Push(f); do_cmp_eqq=.dummy; nreturn; }
+function do_cmp_id()  { rhs=Pop();lhs=Pop();f=Tree('E_FNC',cmp_op_id,0); Append(f,lhs);Append(f,rhs);Push(f); do_cmp_id=.dummy;  nreturn; }
+function do_cmp_ne1() { rhs=Pop();lhs=Pop();f=Tree('E_FNC',cmp_op_ne1,0);Append(f,lhs);Append(f,rhs);Push(f); do_cmp_ne1=.dummy; nreturn; }
+function do_cmp_ne2() { rhs=Pop();lhs=Pop();f=Tree('E_FNC',cmp_op_ne2,0);Append(f,lhs);Append(f,rhs);Push(f); do_cmp_ne2=.dummy; nreturn; }
+function do_cmp_ne3() { rhs=Pop();lhs=Pop();f=Tree('E_FNC',cmp_op_ne3,0);Append(f,lhs);Append(f,rhs);Push(f); do_cmp_ne3=.dummy; nreturn; }
 /*--------------------------------------------------------------------------------------------------------------------*/
 function reduce_list(n, kids, i, tail, cons_node) {
     n    = nTop();
@@ -679,6 +715,7 @@ primary = (   Atom . p_name $'('
                   nPush() args $')'
                                       Reduce_compound('p_name')
               nPop()
+          |   Tk_cut                  Push_cut
           |   shift(Int,  'E_ILIT')
           |   shift(Atom, 'E_FNC')
           |   Qatom                   Push_atom_body('q_body')
@@ -711,8 +748,32 @@ is_expr   = (   add_expr
                      )
             );
 /*--------------------------------------------------------------------------------------------------------------------*/
-unify_expr = (  is_expr
-                FENCE( $'=' is_expr reduce(E_UNIFY, 2)
+// cmp_expr — Prolog comparison/equality operators (Prolog precedence 700).
+// Longer-prefix tokens first to avoid greedy prefix mismatch.
+// Uses plain | alternation (not FENCE) to allow backtrack if a token doesn't fully match.
+Reduce_ge  = epsilon . *do_cmp_ge();   Reduce_le  = epsilon . *do_cmp_le();
+Reduce_gt  = epsilon . *do_cmp_gt();   Reduce_lt  = epsilon . *do_cmp_lt();
+Reduce_eqq = epsilon . *do_cmp_eqq(); Reduce_id  = epsilon . *do_cmp_id();
+// Backslash operators use the same pre-built pattern approach.
+Reduce_ne1 = epsilon . *do_cmp_ne1(); // \=
+Reduce_ne2 = epsilon . *do_cmp_ne2(); // =\=
+Reduce_ne3 = epsilon . *do_cmp_ne3(); // \==
+cmp_expr  = (   is_expr
+                FENCE( $'=:=' is_expr Reduce_eqq
+                     | $'=\=' is_expr Reduce_ne2
+                     | $'\==' is_expr Reduce_ne3
+                     | $'>='  is_expr Reduce_ge
+                     | $'=<'  is_expr Reduce_le
+                     | $'>'   is_expr Reduce_gt
+                     | $'<'   is_expr Reduce_lt
+                     | $'\='  is_expr Reduce_ne1
+                     | $'=='  is_expr Reduce_id
+                     | epsilon
+                     )
+            );
+/*--------------------------------------------------------------------------------------------------------------------*/
+unify_expr = (  cmp_expr
+                FENCE( $'=' cmp_expr reduce(E_UNIFY, 2)
                      | epsilon
                      )
              );
@@ -743,10 +804,6 @@ head = (    Reset_var_scope
             )
             nPop()
         );
-/*--------------------------------------------------------------------------------------------------------------------*/
-$'-->' = $' ' '-->' $' ';
-$'{'   = $' '  '{'  $' ';  $'}'   = $' ' '}'  $' ';
-Tk_cut = $' ' '!' $' ';
 /*--------------------------------------------------------------------------------------------------------------------*/
 // DCG goal — extends body_goal with terminal lists, {Goals}, cut, and paren-body.
 // Used in dcg_conj / dcg_disj / dcg_body to parse DCG rule bodies.
