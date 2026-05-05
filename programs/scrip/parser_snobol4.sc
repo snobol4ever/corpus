@@ -49,6 +49,13 @@ E_RPOS             = "'E_RPOS'";
 E_TAB              = "'E_TAB'";
 E_RTAB             = "'E_RTAB'";
 E_BREAKX           = "'E_BREAKX'";
+E_INDIRECT         = "'E_INDIRECT'";
+E_NAME             = "'E_NAME'";
+E_ASSIGN           = "'E_ASSIGN'";
+E_NOT              = "'E_NOT'";
+E_CAPT_CURSOR      = "'E_CAPT_CURSOR'";
+E_INTERROGATE      = "'E_INTERROGATE'";
+E_OPSYN            = "'E_OPSYN'";
 /*====================================================================================================================*/
 // SN-7-7c — classifier infrastructure (beauty.sno-faithful, cross-runtime union).
 //
@@ -176,23 +183,23 @@ ExprList    =  nPush()
                nPop();
 XList       =  nInc() (*Expr | epsilon ~ '') FENCE($',' *XList | epsilon);
 Expr        =  *Expr0;
-Expr0       =  *Expr1 FENCE($'=' *Expr0 ("'='" & 2) | epsilon);
-Expr1       =  *Expr2 FENCE($'?' *Expr1 ("'?'" & 2) | epsilon);
-Expr2       =  *Expr3 FENCE($'&' *Expr2 ("'&'" & 2) | epsilon);
+Expr0       =  *Expr1 FENCE($'=' *Expr0 (E_ASSIGN & 2) | epsilon);
+Expr1       =  *Expr2 FENCE($'?' *Expr1 reduce_opsyn('?', 2) | epsilon);
+Expr2       =  *Expr3 FENCE($'&' *Expr2 reduce_opsyn('&', 2) | epsilon);
 Expr3       =  nPush() *X3 (E_ALT & '*(GT(nTop(), 1) nTop())') nPop();
 X3          =  nInc() *Expr4 FENCE($'|' *X3 | epsilon);
 Expr4       =  nPush() *X4 (E_SEQ & '*(GT(nTop(), 1) nTop())') nPop();
 X4          =  nInc() *Expr5 FENCE($'  ' *X4 | epsilon);
-Expr5       =  *Expr6 FENCE($'@' *Expr5 ("'@'" & 2) | epsilon);
+Expr5       =  *Expr6 FENCE($'@' *Expr5 reduce_opsyn('@', 2) | epsilon);
 Expr6       =  *Expr7
                FENCE($'+' *Expr7 foldop(E_ADD) *Expr6cont | $'-' *Expr7 foldop(E_SUB) *Expr6cont | epsilon);
 Expr6cont   =  FENCE($'+' *Expr7 foldop(E_ADD) *Expr6cont | $'-' *Expr7 foldop(E_SUB) *Expr6cont | epsilon);
-Expr7       =  *Expr8 FENCE($'#' *Expr7 ("'#'" & 2) | epsilon);
+Expr7       =  *Expr8 FENCE($'#' *Expr7 foldop(E_MUL) | epsilon);
 Expr8       =  *Expr9 FENCE($'/' *Expr9 foldop(E_DIV) *Expr8cont | epsilon);
 Expr8cont   =  FENCE($'/' *Expr9 foldop(E_DIV) *Expr8cont | epsilon);
 Expr9       =  *Expr10 FENCE($'*' *Expr10 foldop(E_MUL) *Expr9cont | epsilon);
 Expr9cont   =  FENCE($'*' *Expr10 foldop(E_MUL) *Expr9cont | epsilon);
-Expr10      =  *Expr11 FENCE($'%' *Expr10 ("'%'" & 2) | epsilon);
+Expr10      =  *Expr11 FENCE($'%' *Expr10 foldop(E_DIV) | epsilon);
 Expr11      =  *Expr12 FENCE(($'^' | $'!' | $'**') *Expr12 foldop(E_POW) *Expr11cont | epsilon);
 Expr11cont  =  FENCE(($'^' | $'!' | $'**') *Expr12 foldop(E_POW) *Expr11cont | epsilon);
 Expr12      =  *Expr13
@@ -201,23 +208,23 @@ Expr12      =  *Expr13
                |  $'.' *Expr12 (E_CAPT_COND_ASGN  & 2)
                |  epsilon
                );
-Expr13      =  *Expr14 FENCE($'~' *Expr13 ("'~'" & 2) | epsilon);
-Expr14      =  '@' *Expr14 ("'@'" & 1)
-            |  '~' *Expr14 ("'~'" & 1)
-            |  '?' *Expr14 ("'?'" & 1)
+Expr13      =  *Expr14 FENCE($'~' *Expr13 reduce_opsyn('~', 2) | epsilon);
+Expr14      =  '@' *Expr14 (E_CAPT_CURSOR & 1)
+            |  '~' *Expr14 (E_NOT & 1)
+            |  '?' *Expr14 (E_INTERROGATE & 1)
             |  '&' shift(*ProtKwd,   E_KEYWORD)
             |  '&' shift(*UnprotKwd, E_KEYWORD)
             |  '+' *Expr14 (E_PLS & 1)
             |  '-' *Expr14 (E_MNS & 1)
             |  '*' *Expr14 reduce(E_DEFER, 1)
-            |  '$' *Expr14 ("'$'" & 1)
-            |  '.' *Expr14 ("'.'" & 1)
-            |  '!' *Expr14 ("'!'" & 1)
-            |  '%' *Expr14 ("'%'" & 1)
-            |  '/' *Expr14 ("'/'" & 1)
-            |  '#' *Expr14 ("'#'" & 1)
-            |  '=' *Expr14 ("'='" & 1)
-            |  '|' *Expr14 ("'|'" & 1)
+            |  '$' *Expr14 (E_INDIRECT & 1)
+            |  '.' *Expr14 (E_NAME & 1)
+            |  '!' *Expr14 (E_POW & 1)
+            |  '%' *Expr14 (E_DIV & 1)
+            |  '/' *Expr14 (E_DIV & 1)
+            |  '#' *Expr14 (E_MUL & 1)
+            |  '=' *Expr14 (E_ASSIGN & 1)
+            |  '|' *Expr14 (E_OPSYN & 1)
             |  *Expr15;
 Expr15      =  *Expr17
                FENCE(nPush() *Expr16 (E_IDX & 'nTop() + 1') nPop() | epsilon);
@@ -391,8 +398,28 @@ function rw_expr(x, t, result, i, right, rr, rl, xlist, j) {
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 // rw_goto_slot — goto tag ':go'/':goS'/':goF' baked by Sgo/Fgo/Ugo patterns.
-function rw_goto_slot(g, tgt_v) {
-    tgt_v = v(c(g)[1]);
+// Target child forms:
+//   E_VAR x / E_QLIT x  — simple label: use v() directly
+//   E_INDIRECT(E_QLIT x) — $'x' literal indirect: unwrap to x
+//   other computed expr  — format as $((TDump(expr)))
+function rw_goto_slot(g, tgt, tgt_v) {
+    tgt   = c(g)[1];
+    if (IDENT(t(tgt), 'E_INDIRECT') EQ(n(tgt), 1) IDENT(t(c(tgt)[1]), 'E_QLIT')) {
+        // $'literal' computed goto -> unwrap to bare string value
+        tgt_v = v(c(tgt)[1]);
+    } else if (IDENT(t(tgt), 'E_INDIRECT') EQ(n(tgt), 1)) {
+        // $(expr) computed goto -> strip E_INDIRECT and paren wrapper, render inner expr
+        inner = c(tgt)[1];
+        if (IDENT(t(inner), '()')) {
+            // paren-wrapped: render its child directly
+            if (EQ(n(inner), 1)) { inner = c(inner)[1]; }
+        }
+        tgt_v = '$(' TLump(inner, 99999) ')';
+    } else if (DIFFER(v(tgt))) {
+        tgt_v = v(tgt);
+    } else {
+        tgt_v = '$(' TLump(tgt, 99999) ')';
+    }
     rw_goto_slot = tree(t(g), tgt_v);
     return;
 }
@@ -429,7 +456,8 @@ function pp_stmt(x, ppLbl, ppSubj, ppPatrn, ppAsgn, ppRepl, ppGo1, ppGo2,
                 Append(result, Tree(':pat',  '', 1, pat_ir));
             }
         } else {
-            if (IDENT(t(subj_ir), 'E_SEQ') GT(n(subj_ir), 1)) {
+            // split only when first child is E_VAR (oracle rule: fn-call concat stays in :subj)
+            if (IDENT(t(subj_ir), 'E_SEQ') GT(n(subj_ir), 1) IDENT(t(c(subj_ir)[1]), 'E_VAR')) {
                 seq_n = n(subj_ir);
                 Append(result, Tree(':subj', '', 1, c(subj_ir)[1]));
                 if (LE(seq_n, 2)) {
@@ -450,8 +478,22 @@ function pp_stmt(x, ppLbl, ppSubj, ppPatrn, ppAsgn, ppRepl, ppGo1, ppGo2,
             Append(result, Tree(':repl', '', 1, tree('E_QLIT', '')));
         }
     }
-    if (DIFFER(t(ppGo1))) { Append(result, rw_goto_slot(ppGo1)); }
-    if (DIFFER(t(ppGo2))) { Append(result, rw_goto_slot(ppGo2)); }
+    // oracle ordering: :goS before :goF for simple targets; :goF before :goS when goS is computed.
+    // Computed goS = its child is E_INDIRECT with non-QLIT arg, or non-VAR/QLIT child.
+    // Detect: goS slot present, child is E_INDIRECT wrapping a non-QLIT (i.e. a real expr).
+    if (DIFFER(t(ppGo1)) DIFFER(t(ppGo2))) {
+        // find which is goS and which is goF
+        if (IDENT(t(ppGo1), ':goS')) { goS_slot = ppGo1; goF_slot = ppGo2; }
+        else                          { goS_slot = ppGo2; goF_slot = ppGo1; }
+        goS_child = c(goS_slot)[1];
+        // computed goS: E_INDIRECT wrapping non-QLIT expr -> emit goF first
+        if (IDENT(t(goS_child), 'E_INDIRECT') DIFFER(t(c(goS_child)[1]), 'E_QLIT')) {
+            Append(result, rw_goto_slot(goF_slot)); Append(result, rw_goto_slot(goS_slot));
+        } else {
+            Append(result, rw_goto_slot(goS_slot)); Append(result, rw_goto_slot(goF_slot));
+        }
+    } else if (DIFFER(t(ppGo1))) { Append(result, rw_goto_slot(ppGo1)); }
+    else if (DIFFER(t(ppGo2))) { Append(result, rw_goto_slot(ppGo2)); }
     pp_stmt = result;
     return;
 }
@@ -464,10 +506,15 @@ if (Src ? Compiland) {
     ptree = Pop();
     i = 1;
     nk = n(ptree);
+    prev_label_only = '';
     while (LE(i, nk)) {
         cmd = c(ptree)[i];
-        if (IDENT(t(cmd), 'Stmt')) { result = pp_stmt(cmd); TDump(result); }
-        i = i + 1;
+        if (IDENT(t(cmd), 'Stmt')) {
+            result = pp_stmt(cmd);
+            // oracle suppresses blank (STMT) immediately after a label-only stmt
+            if (IDENT(n(result), '') IDENT(prev_label_only, 'yes')) { i = i + 1; }
+            else { TDump(result); prev_label_only = (IDENT(n(result), 1) IDENT(t(c(result)[1]), ':lbl') 'yes', ''); i = i + 1; }
+        } else { i = i + 1; }
     }
 } else OUTPUT = 'Parse Error.';
 /*====================================================================================================================*/

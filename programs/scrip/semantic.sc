@@ -49,3 +49,8 @@ function nInc()  { nInc  = epsilon . *IncCounter();  return; }
 function nDec()  { nDec  = epsilon . *DecCounter();  return; }
 function nTop()  { nTop  = TopCounter();             return; }
 function nPop()  { nPop  = epsilon . *PopCounter();  return; }
+
+function reduce_opsyn(op, n) {
+    reduce_opsyn = EVAL("epsilon . *ReduceOpsyn('" op "', " n ")");
+    return;
+}

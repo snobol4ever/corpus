@@ -65,3 +65,19 @@ function FoldOp(t, rhs, lhs) {
     Push(Tree(t, '', 2, lhs, rhs));
     nreturn;
 }
+
+// ReduceOpsyn(op, n) -- like Reduce but stores op as the value of the E_OPSYN node.
+// Used for & ~ @ opsyn binary operators where oracle emits (E_OPSYN op arg1 arg2).
+
+function ReduceOpsyn(op, n, c, i, r) {
+    ReduceOpsyn = .dummy;
+    if (IDENT(DATATYPE(n), 'EXPRESSION')) {
+        if (~(n = EVAL(n))) { nreturn; }
+    }
+    c = GE(n, 1) ARRAY('1:' n);
+    i = n + 1;
+    while (i = GT(i, 1) i - 1) { c[i] = Pop(); }
+    r = tree('E_OPSYN', op, n, c);
+    Push(r);
+    nreturn;
+}
