@@ -29,6 +29,16 @@ function reduce(t, n) {
     return;
 }
 
+// foldop(t) -- pattern-builder for iterative left-fold flatten-or-binary.
+// Pairs with FoldOp(t) in ShiftReduce.sc.  Used inside Expr_n ARBNO(Expr_n_tail)
+// grammar shapes to produce flat n-ary same-tag chains and binary mixed-op
+// chains, mirroring the C frontend's expr_binary_flatten() shape.
+
+function foldop(t) {
+    foldop = EVAL("epsilon . *FoldOp(" _qtag(t) ")");
+    return;
+}
+
 function pop() {
     pop = epsilon . *Pop(.dummy);
     return;

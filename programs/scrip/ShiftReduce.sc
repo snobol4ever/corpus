@@ -37,3 +37,31 @@ function Reduce(t, n, c, i, r, empty) {
     Push(r);
     nreturn;
 }
+
+// FoldOp(t) -- iterative left-fold for binary operators that produce flat n-ary
+// trees on same-tag chains.  Pop rhs, pop lhs.  If t(lhs) == t, append rhs as
+// another child of lhs (flatten same-tag chain into n-ary).  Otherwise build
+// fresh binary tree(t, '', 2, lhs, rhs) (mixed-op or first chain element).
+// Push the result.  Mirrors C-frontend expr_binary_flatten() shape exactly.
+//
+// Used by `Expr6 = *Expr7 ARBNO(Expr6tail)` style left-recursive iterative
+// grammar tiers where the parser tier produces flat n-ary at parse time
+// instead of right-recursive nested binary that needs a post-parse rewrite
+// pass to flatten.
+
+function FoldOp(t, rhs, lhs) {
+    FoldOp = .dummy;
+    if (IDENT(DATATYPE(t), 'EXPRESSION')) {
+        if (~(t = EVAL(t))) { nreturn; }
+    }
+    rhs = Pop();
+    lhs = Pop();
+    OUTPUT = GT(xTrace, 3) 'FoldOp(' t ') lhs.t=' t(lhs) ' rhs.t=' t(rhs);
+    if (IDENT(t(lhs), t)) {
+        Append(lhs, rhs);
+        Push(lhs);
+        nreturn;
+    }
+    Push(Tree(t, '', 2, lhs, rhs));
+    nreturn;
+}
