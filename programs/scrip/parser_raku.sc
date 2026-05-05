@@ -93,6 +93,7 @@ $'my'     = $' ' 'my'    ;  $'say'    = $' ' 'say'   ;
 $'if'     = $' ' 'if'    ;  $'else'   = $' ' 'else'  ;
 $'while'  = $' ' 'while' ;  $'for'    = $' ' 'for'   ;
 $'sub'    = $' ' 'sub'   ;  $'return' = $' ' 'return';
+$'exists' = $' ' 'exists';
 /*====================================================================================================================*/
 // Operator tokens — optional whitespace both sides.  Open brackets: ws after only.  Close: ws before only.
 /*====================================================================================================================*/
@@ -105,6 +106,7 @@ $';'   = $' ' ';'  $' ';  $','   = $' ' ','  $' ';
 $'('   = $' ' '(' $' ';  $')'   = $' ' ')';
 $'{'   = $' ' '{' $' ';  $'}'   = $' ' '}';
 $'<'   = $' ' '<' $' ';  $'>'   = $' ' '>';
+$'['   = $' ' '[' $' ';  $']'   = $' ' ']';
 $'~~'  = $' ' '~~' $' ';
 /*====================================================================================================================*/
 // Token classifiers — mirror raku.l names.
@@ -155,6 +157,18 @@ LitMatchGlobal  = ($' ' 'm:g/' BREAK('/') . caprx '/');
 LitSubst        = ($' ' 's/' BREAK('/') . cappat '/'
                              BREAK('/') . caprepl '/'
                              ('g' . capflag | epsilon));
+// HashAngleKey — the bare identifier between < and > in %hash<ident> / exists %hash<ident>.
+// Captures the full key into capkey via BREAK('>').
+// No leading $' ' — the '<' token is supplied by the calling pattern.
+HashAngleKey = (BREAK('>') . capkey);
+// Indexed access classifiers — use colnmf/colnmr (separate from capvf/capvr) so
+// the index Expr cannot clobber the collection variable name.
+// Mirror of raku.l VAR_ARRAY '@'{ALPHA}{ALNUM}* / VAR_HASH '%'{ALPHA}{ALNUM}*.
+cnf  = ANY(&UCASE &LCASE '_');
+cnr  = SPAN(digits &UCASE &LCASE '_');
+cnro = (cnr | epsilon);
+ArrIdxVar  = ($' ' '@' cnf . colnmf cnro . colnmr);
+HashIdxVar = ($' ' '%' cnf . colnmf cnro . colnmr);
 /*====================================================================================================================*/
 // Per-construct identifier captures.  Distinct globals keep recursive Expr
 // calls from clobbering an in-flight for-loopvar / sub-name capture.
@@ -187,6 +201,8 @@ CallName = ($' ' fnf . capfnf fnro . capfnr);
 /*====================================================================================================================*/
 capvf         = '';
 capvr         = '';
+colnmf    = '';
+colnmr    = '';
 capstr    = '';
 caprx     = '';
 capidx    = '';
@@ -194,6 +210,7 @@ capncname = '';
 cappat    = '';
 caprepl   = '';
 capflag   = '';
+capkey    = '';
 capff         = '';
 capfr         = '';
 for_iter   = '';
@@ -328,9 +345,97 @@ function finish_subst(subj, fn, node, flag, packed) {
     nreturn;
 }
 Finish_subst = (epsilon . *finish_subst());
-// finish_smartmatch — pops pattern + subject from stack, builds
-// (E_FNC raku_match (E_VAR raku_match) subj pat) — same shape as the C
-// frontend's surface→IR rewrite for `$s ~~ /pat/`.
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_arr_get — @arr[$expr] → (E_FNC arr_get (E_VAR arr_get) (E_VAR arr) index).
+// capvf/capvr hold the array name (set by VarArray classifier).
+// index is on top of stack (pushed by Expr inside the brackets).
+// Retained: value='arr_get' in E_FNC requires explicit build; reduce() sets value=''.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_arr_get(idx, arr, fn, node) {
+    idx  = Pop();
+    arr  = tree('E_VAR', colnmf colnmr);
+    fn   = tree('E_VAR', 'arr_get');
+    node = tree('E_FNC', 'arr_get');
+    Append(node, fn);
+    Append(node, arr);
+    Append(node, idx);
+    Push(node);
+    finish_arr_get = .dummy;
+    nreturn;
+}
+Finish_arr_get = (epsilon . *finish_arr_get());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_hash_get_angle — %hash<ident> → (E_FNC hash_get (E_VAR hash_get) (E_VAR h) (E_QLIT key)).
+// capvf/capvr = hash name; capkey = the angle-bracket identifier key.
+// Retained: same reason as finish_arr_get.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_hash_get_angle(arr, fn, node) {
+    arr  = tree('E_VAR', colnmf colnmr);
+    fn   = tree('E_VAR', 'hash_get');
+    node = tree('E_FNC', 'hash_get');
+    Append(node, fn);
+    Append(node, arr);
+    Append(node, tree('E_QLIT', capkey));
+    Push(node);
+    finish_hash_get_angle = .dummy;
+    nreturn;
+}
+Finish_hash_get_angle = (epsilon . *finish_hash_get_angle());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_hash_get_brace — %hash{$expr} → (E_FNC hash_get ... (E_VAR h) key_expr).
+// capvf/capvr = hash name; key_expr on top of stack.
+// Retained: same reason.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_hash_get_brace(key, arr, fn, node) {
+    key  = Pop();
+    arr  = tree('E_VAR', colnmf colnmr);
+    fn   = tree('E_VAR', 'hash_get');
+    node = tree('E_FNC', 'hash_get');
+    Append(node, fn);
+    Append(node, arr);
+    Append(node, key);
+    Push(node);
+    finish_hash_get_brace = .dummy;
+    nreturn;
+}
+Finish_hash_get_brace = (epsilon . *finish_hash_get_brace());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_hash_exists_angle — exists %hash<ident> → (E_FNC hash_exists ... (E_VAR h) (E_QLIT key)).
+// capvf/capvr = hash name; capkey = key.
+// Retained: same reason.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_hash_exists_angle(arr, fn, node) {
+    arr  = tree('E_VAR', colnmf colnmr);
+    fn   = tree('E_VAR', 'hash_exists');
+    node = tree('E_FNC', 'hash_exists');
+    Append(node, fn);
+    Append(node, arr);
+    Append(node, tree('E_QLIT', capkey));
+    Push(node);
+    finish_hash_exists_angle = .dummy;
+    nreturn;
+}
+Finish_hash_exists_angle = (epsilon . *finish_hash_exists_angle());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_hash_exists_brace — exists %hash{$expr} → (E_FNC hash_exists ... (E_VAR h) key_expr).
+// capvf/capvr = hash name; key_expr on top of stack.
+// Retained: same reason.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_hash_exists_brace(key, arr, fn, node) {
+    key  = Pop();
+    arr  = tree('E_VAR', colnmf colnmr);
+    fn   = tree('E_VAR', 'hash_exists');
+    node = tree('E_FNC', 'hash_exists');
+    Append(node, fn);
+    Append(node, arr);
+    Append(node, key);
+    Push(node);
+    finish_hash_exists_brace = .dummy;
+    nreturn;
+}
+Finish_hash_exists_brace = (epsilon . *finish_hash_exists_brace());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_smartmatch
 // Retained: reduce() builds value=''; E_FNC requires value='raku_match'.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_smartmatch(pat, subj, fn, node) {
@@ -551,8 +656,13 @@ CallArgTail = ( $','  *Expr  nInc() );
 // Expr11 — primary.
 
 Expr11 = ( VarScalar              Push_var
-         | VarArray               Push_var
-         | VarHash                Push_var
+         | ArrIdxVar  $'['  *Expr  $']'              Finish_arr_get
+         | VarArray                                   Push_var
+         | HashIdxVar $'<'  HashAngleKey  $'>'        Finish_hash_get_angle
+         | HashIdxVar $'{'  *Expr  $'}'               Finish_hash_get_brace
+         | VarHash                                    Push_var
+         | $'exists' HashIdxVar $'<' HashAngleKey $'>'  Finish_hash_exists_angle
+         | $'exists' HashIdxVar $'{' *Expr $'}'         Finish_hash_exists_brace
          | VarStdIn               Finish_stdin
          | VarStdOut              Finish_stdout
          | VarStdErr              Finish_stderr
