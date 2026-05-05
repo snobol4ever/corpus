@@ -137,6 +137,11 @@ LitRegex  = ($' ' '/' BREAK('/') . caprx '/');
 // Mirror of raku.l: "$"[0-9]+  → VAR_CAPTURE / ival = atoi(yytext+1).
 // SPAN(digits) .capidx — dot captures the matched span into capidx.
 VarCapture      = ($' ' '$' SPAN(digits) . capidx);
+// Standard handles — $*STDIN/$*STDOUT/$*STDERR → VAR_CAPTURE ival 0/1/2 (raku.l RK-39).
+// Hardcode the ival string into capidx so finish_capture() works unchanged.
+VarStdIn        = ($' ' '$*STDIN');
+VarStdOut       = ($' ' '$*STDOUT');
+VarStdErr       = ($' ' '$*STDERR');
 // Named capture variable — $<name>.  Captures bare name (strip $< and >) into capncname.
 // Mirror of raku.l: "$<"[a-zA-Z][a-zA-Z0-9_]*">"  → VAR_NAMED_CAPTURE / sval.
 // BREAK('>') .capncname — captures everything between < and > as a block.
@@ -245,6 +250,16 @@ function finish_capture(fn, node) {
     nreturn;
 }
 Finish_capture = (epsilon . *finish_capture());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// Standard handle action patterns — set capidx then delegate to finish_capture.
+// $*STDIN→ival=0, $*STDOUT→ival=1, $*STDERR→ival=2 (mirrors raku.l RK-39).
+/*--------------------------------------------------------------------------------------------------------------------*/
+function set_stdin()  { capidx = '0'; set_stdin  = .dummy; nreturn; }
+function set_stdout() { capidx = '1'; set_stdout = .dummy; nreturn; }
+function set_stderr() { capidx = '2'; set_stderr = .dummy; nreturn; }
+Finish_stdin  = (epsilon . *set_stdin()  Finish_capture);
+Finish_stdout = (epsilon . *set_stdout() Finish_capture);
+Finish_stderr = (epsilon . *set_stderr() Finish_capture);
 /*--------------------------------------------------------------------------------------------------------------------*/
 // finish_named_capture — named capture $<name> →
 //   (E_FNC raku_named_capture (E_VAR raku_named_capture) (E_QLIT "name")).
@@ -487,6 +502,9 @@ CallArgTail = ( $','  *Expr  nInc() );
 Expr11 = ( VarScalar              Push_var
          | VarArray               Push_var
          | VarHash                Push_var
+         | VarStdIn               Finish_stdin
+         | VarStdOut              Finish_stdout
+         | VarStdErr              Finish_stderr
          | VarCapture             Finish_capture
          | VarNamedCapture        Finish_named_capture
          | shift(LitInt, 'E_ILIT')
