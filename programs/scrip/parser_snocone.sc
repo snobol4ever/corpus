@@ -10,13 +10,17 @@
 // Rung SC-3: if / if-else / while / do-while.  Gate: PASS=21 FAIL=0.
 &FULLSCAN = 1;
 /*====================================================================================================================*/
-E_ASSIGN = "'E_ASSIGN'";  E_SCAN  = "'E_SCAN'";
-E_ALT    = "'E_ALT'";     E_SEQ   = "'E_SEQ'";
-E_ADD    = "'E_ADD'";     E_SUB   = "'E_SUB'";
-E_MUL    = "'E_MUL'";     E_DIV   = "'E_DIV'";
-E_QLIT   = "'E_QLIT'";    E_ILIT  = "'E_ILIT'";   E_VAR  = "'E_VAR'";
-E_Parse  = "'Parse'";
-r_nTop   = '*(GT(nTop(), 1) nTop())';
+E_ASSIGN  = "'E_ASSIGN'";  E_SCAN    = "'E_SCAN'";
+E_ALT     = "'E_ALT'";     E_SEQ     = "'E_SEQ'";
+E_ADD     = "'E_ADD'";     E_SUB     = "'E_SUB'";
+E_MUL     = "'E_MUL'";     E_DIV     = "'E_DIV'";
+E_QLIT    = "'E_QLIT'";    E_ILIT    = "'E_ILIT'";   E_VAR     = "'E_VAR'";
+E_KEYWORD = "'E_KEYWORD'"; E_IDX     = "'E_IDX'";
+E_FLIT    = "'E_FLIT'";    E_MNS     = "'E_MNS'";
+E_DEFER   = "'E_DEFER'";   E_NOT     = "'E_NOT'";
+E_NAME    = "'E_NAME'";    E_INDIRECT= "'E_INDIRECT'";
+E_Parse   = "'Parse'";
+r_nTop    = '*(GT(nTop(), 1) nTop())';
 /*====================================================================================================================*/
 Block    = '/*' ARBNO(BREAK('*') ANY('*')) '/';
 White    = (  SPAN(' ' tab) FENCE(  '//' BREAK(nl)
@@ -38,6 +42,14 @@ SQ_lit   = ("'"  BREAK("'")  . strbody "'");
 String   = (*SQ_lit | *DQ);
 Id       = (ANY(&UCASE &LCASE '_')
             FENCE(SPAN('.' digits &UCASE '_' &LCASE) | epsilon));
+Real     = (  SPAN(digits)
+              FENCE(  '.' SPAN(digits)
+                          FENCE(  ANY('eEdD') FENCE(ANY('+-') | epsilon) SPAN(digits)
+                               |  epsilon)
+                   |  ANY('eEdD') FENCE(ANY('+-') | epsilon) SPAN(digits)
+                   )
+           );
+Keyword  = ('&' SPAN(&UCASE &LCASE '_') . kw_name);
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Operator tokens — beauty.sc $'x' style.  Open brackets: ws both sides (Snocone is whitespace-sensitive like SNOBOL4).  Close: ws before only.
 // Bracketing / punctuation
@@ -85,6 +97,8 @@ kw_function = ('function' kw_tail);
 kw_return   = ('return'   kw_tail);
 kw_freturn  = ('freturn'  kw_tail);
 kw_nreturn  = ('nreturn'  kw_tail);
+kw_goto     = ('goto'     kw_tail);
+kw_for      = ('for'      kw_tail);
 /*====================================================================================================================*/
 // Global label counter.
 lbl_n = 0;
@@ -334,6 +348,43 @@ function emit_return_value(rhs, lhs, s) {
 function emit_return_void()  { Push(make_goto_stmt('RETURN'));  emit_return_void  = .dummy; nreturn; }
 function emit_freturn()      { Push(make_goto_stmt('FRETURN')); emit_freturn      = .dummy; nreturn; }
 function emit_nreturn()      { Push(make_goto_stmt('NRETURN')); emit_nreturn      = .dummy; nreturn; }
+/*--------------------------------------------------------------------------------------------------------------------*/
+function goto_emit() { Push(make_goto_stmt(captured_goto)); goto_emit = .dummy; nreturn; }
+function label_emit() { Push(make_label_stmt(captured_label)); label_emit = .dummy; nreturn; }
+function push_keyword() { Push(tree('E_KEYWORD', kw_name)); push_keyword = .dummy; nreturn; }
+function push_flit() { Push(tree('E_FLIT', strbody)); push_flit = .dummy; nreturn; }
+function push_mns(e) { e = Pop(); Push(Tree('E_MNS', '', 1, e)); push_mns = .dummy; nreturn; }
+function push_idx(base, idx) {
+    idx  = Pop(); base = Pop();
+    Push(Tree('E_IDX', '', 2, base, idx));
+    push_idx = .dummy; nreturn;
+}
+function for_head_alloc(init_e, cond_e, step_e, init_s) {
+    step_e = Pop(); cond_e = Pop(); init_e = Pop();
+    for_step_expr = step_e; for_cond_expr = cond_e;
+    if (IDENT(t(init_e), 'E_ASSIGN')) {
+        init_s = Tree('STMT', '', 3,
+                      Tree(':eq', ''), Tree(':subj', '', 1, c(init_e)[1]), Tree(':repl', '', 1, c(init_e)[2]));
+    } else { init_s = Tree('STMT', '', 1, Tree(':subj', '', 1, init_e)); }
+    Push(init_s); IncCounter();
+    lbl_n = lbl_n + 1;
+    lbl_n = lbl_n + 1;
+    for_lend = '_Lend_' LPAD(lbl_n, 4, '0');
+    for_head_alloc = .dummy; nreturn;
+}
+function finalize_for(nbody_v, body, n, Ltop, Lend, ce, se, step_s, i) {
+    n = $nbody_v; ce = for_cond_expr; se = for_step_expr; Lend = for_lend;
+    body = pop_body(n);
+    lbl_n = lbl_n + 1;
+    Ltop = '_Ltop_' LPAD(lbl_n, 4, '0');
+    step_s = Tree('STMT', '', 1, Tree(':subj', '', 1, se));
+    Push(make_label_stmt(Ltop));
+    Push(make_cond_stmt(ce, ':goF', Lend));
+    i = 1; while (LE(i, n)) { Push(body[i]); i = i + 1; }
+    Push(step_s); Push(make_goto_stmt(Ltop)); Push(make_label_stmt(Lend));
+    i = 0; while (LT(i, n + 4)) { IncCounter(); i = i + 1; }
+    finalize_for = .dummy; nreturn;
+}
 /*====================================================================================================================*/
 // Pattern-builder companions — called at BUILD TIME, return deferred-action patterns.
 function Save_cond() {
@@ -423,6 +474,17 @@ function Emit_nreturn() {
     Emit_nreturn = EVAL("epsilon . thx . *emit_nreturn()");
     return;
 }
+function Goto_emit() { Goto_emit = EVAL("epsilon . thx . *goto_emit()"); return; }
+function Label_emit() { Label_emit = EVAL("epsilon . thx . *label_emit()"); return; }
+function Push_keyword() { Push_keyword = EVAL("epsilon . thx . *push_keyword()"); return; }
+function Push_flit() { Push_flit = EVAL("epsilon . thx . *push_flit()"); return; }
+function Push_mns() { Push_mns = EVAL("epsilon . thx . *push_mns()"); return; }
+function Push_idx() { Push_idx = EVAL("epsilon . thx . *push_idx()"); return; }
+function For_head_alloc() { For_head_alloc = EVAL("epsilon . thx . *for_head_alloc()"); return; }
+function Finalize_for(nbody_v) {
+    Finalize_for = EVAL("epsilon . thx . *finalize_for('" nbody_v "')");
+    return;
+}
 /*====================================================================================================================*/
 // Function call atom — id_pat followed by `(` arglist `)` reduces to (E_FNC name arg1 ... argN).
 ArgFirst = ( *Expr0 nInc() );
@@ -432,16 +494,33 @@ Call     = ( nPush() *Id ~ 'E_VAR' nInc() $'(' CallArgs $')' Decompose_call() nP
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Expression tower — Snocone operator precedence.
 Expr17 = FENCE(
-             *String Push_qlit()
-           | *Integer ~ 'E_ILIT'
-           | *Call
-           | *Id      ~ 'E_VAR'
+             *Call
+           | $'(' *Expr0 $')'
+           | *String      Push_qlit()
+           | (*Real . strbody) Push_flit()
+           | *Integer    ~ 'E_ILIT'
+           | *Keyword     Push_keyword()
+           | '*' *Expr17  (E_DEFER    & 1)
+           | '~' *Expr17  (E_NOT      & 1)
+           | '.' *Expr17  (E_NAME     & 1)
+           | '$' *Expr17  (E_INDIRECT & 1)
+           | *Id          ~ 'E_VAR'
          );
-Expr9  = *Expr17
+// Expr15 — subscript chains: a[i], a[i][j].
+Expr15 = *Expr17
          FENCE(
-           $'*' *Expr17 (E_MUL & 2) FENCE($'*' *Expr17 (E_MUL & 2) | epsilon)
-         | $'/' *Expr17 (E_DIV & 2) FENCE($'/' *Expr17 (E_DIV & 2) | epsilon)
+           $'[' *Expr0 $']' Push_idx() FENCE($'[' *Expr0 $']' Push_idx() | epsilon)
          | epsilon
+         );
+// Expr9 — mul/div; unary minus prefix handled here.
+Expr9  = FENCE(
+           '-' *Expr15 Push_mns()
+         | *Expr15
+           FENCE(
+             $'*' *Expr15 (E_MUL & 2) FENCE($'*' *Expr15 (E_MUL & 2) | epsilon)
+           | $'/' *Expr15 (E_DIV & 2) FENCE($'/' *Expr15 (E_DIV & 2) | epsilon)
+           | epsilon
+           )
          );
 Expr6  = *Expr9
          FENCE(
@@ -483,7 +562,20 @@ do_cmd =
       *kw_while $'(' *Expr0 Save_cond() $')' ($';' | epsilon) $' ' nl_opt
       Finalize_do('do_nbody', 'saved_cond')
     );
-empty_cmd = ($' ' $';' $' ' nl_opt);
+empty_cmd    = ($' ' $';' $' ' nl_opt);
+goto_cmd     = ( nInc() $' ' *kw_goto $'  ' (*Id . captured_goto) $' ' $';' $' ' nl_opt Goto_emit() );
+label_prefix = ( $' ' (*Id . captured_label) $' ' ':' $' ' nl_opt Label_emit() nInc() );
+for_cmd =
+    ( nInc()
+      $' ' *kw_for $'(' $' ' *Expr0 $' '
+      $';' $' ' *Expr0 $' ' $';' $' ' *Expr0 $' ' $')'
+      For_head_alloc()
+      $' ' nl_opt
+      ( $'{' nl_opt Body('for_nbody') $'}' $' ' nl_opt
+      | Body('for_nbody')
+      )
+      Finalize_for('for_nbody')
+    );
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Function definition: `function name(p1, p2) { body }` lowers to 4 + N stmts:
 // DEFINE call, skip-goto, entry-label, body, end-label.
@@ -507,9 +599,9 @@ freturn_cmd = ( nInc() $' ' *kw_freturn $' ' $';' $' ' nl_opt Emit_freturn() );
 nreturn_cmd = ( nInc() $' ' *kw_nreturn $' ' $';' $' ' nl_opt Emit_nreturn() );
 body_fn_cmd = ( return_cmd | freturn_cmd | nreturn_cmd | stmt_cmd );
 /*====================================================================================================================*/
-Command   = ( if_cmd | while_cmd | do_cmd | func_cmd
+Command   = ( if_cmd | while_cmd | do_cmd | for_cmd | func_cmd
             | return_cmd | freturn_cmd | nreturn_cmd
-            | empty_cmd | stmt_cmd );
+            | goto_cmd | label_prefix | empty_cmd | stmt_cmd );
 Compiland = nPush()
             ARBNO(Command)
             (E_Parse & 'nTop()')
