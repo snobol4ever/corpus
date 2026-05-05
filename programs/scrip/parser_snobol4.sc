@@ -36,7 +36,7 @@ E_KEYWORD = "'E_KEYWORD'";
 E_SEQ   = "'E_SEQ'";    E_ALT   = "'E_ALT'";
 E_ADD   = "'E_ADD'";    E_SUB   = "'E_SUB'";    E_MUL   = "'E_MUL'";    E_DIV      = "'E_DIV'";
 E_POW   = "'E_POW'";    E_PLS   = "'E_PLS'";    E_MNS   = "'E_MNS'";
-E_IDX   = "'E_IDX'";
+E_IDX   = "'E_IDX'";    E_DEFER = "'E_DEFER'";
 E_CAPT_IMMED_ASGN = "'E_CAPT_IMMED_ASGN'";
 E_CAPT_COND_ASGN  = "'E_CAPT_COND_ASGN'";
 /*====================================================================================================================*/
@@ -136,7 +136,7 @@ Expr14      =  '@' *Expr14 ("'@'" & 1)
             |  '&' *Expr14 ("'&'" & 1)
             |  '+' *Expr14 (E_PLS & 1)
             |  '-' *Expr14 (E_MNS & 1)
-            |  '*' *Expr14 ("'*'" & 1)
+            |  '*' *Expr14 (E_DEFER & 1)
             |  '$' *Expr14 ("'$'" & 1)
             |  '.' *Expr14 ("'.'" & 1)
             |  '!' *Expr14 ("'!'" & 1)

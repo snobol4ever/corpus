@@ -1,0 +1,7 @@
+* This is a comment
+        X = 1
+* Another comment
+        Y = X
+        Z = 'hello' 'world'
+* trailing comment
+END
