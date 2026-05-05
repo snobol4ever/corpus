@@ -76,11 +76,15 @@ $'*='  = $' ' '*=' $' ';  $'/='  = $' ' '/=' $' ';
 $'^='  = $' ' '^=' $' ';
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Keyword guards — keyword not a prefix of a longer identifier.
-kw_tail  = FENCE(SPAN(&UCASE &LCASE digits '_') | epsilon) . kw_rest IDENT(kw_rest);
-kw_if    = ('if'    kw_tail);
-kw_while = ('while' kw_tail);
-kw_do    = ('do'    kw_tail);
-kw_else  = ('else'  kw_tail);
+kw_tail   = FENCE(SPAN(&UCASE &LCASE digits '_') | epsilon) . kw_rest IDENT(kw_rest);
+kw_if       = ('if'       kw_tail);
+kw_while    = ('while'    kw_tail);
+kw_do       = ('do'       kw_tail);
+kw_else     = ('else'     kw_tail);
+kw_function = ('function' kw_tail);
+kw_return   = ('return'   kw_tail);
+kw_freturn  = ('freturn'  kw_tail);
+kw_nreturn  = ('nreturn'  kw_tail);
 /*====================================================================================================================*/
 // Global label counter.
 lbl_n = 0;
@@ -193,6 +197,79 @@ function finalize_do(nbody_v, cond_v, body, Ltop, Lend, n, ce, i) {
     i = 0; while (LT(i, n + 2)) { IncCounter(); i = i + 1; }
     finalize_do = .dummy; nreturn;
 }
+/*--------------------------------------------------------------------------------------------------------------------*/
+// Function call: pop n_kids children, first child is (E_VAR fname); rebuild
+// (E_FNC fname arg1 ... arg_{n-1}) — name lifted from var into E_FNC value slot.
+function decompose_call(n_kids, kids, fname, call, i) {
+    n_kids = TopCounter();
+    kids = ARRAY('1:' n_kids);
+    i = n_kids;
+    while (GT(i, 0)) { kids[i] = Pop(); i = i - 1; }
+    fname = v(kids[1]);
+    call  = Tree('E_FNC', fname);
+    i = 2;
+    while (LE(i, n_kids)) { call = Append(call, kids[i]); i = i + 1; }
+    Push(call);
+    decompose_call = .dummy; nreturn;
+}
+// Function head: capture function name and parameter list into globals;
+// allocate end_label; remember enclosing func name.  Param accumulator
+// `func_arglist` is built incrementally by save_param_first/save_param_rest.
+function func_head_save_name(name) {
+    cur_func_prev = cur_func_name;
+    cur_func_name = name;
+    cur_func_args = '';
+    func_end_label = name '_end';
+    func_head_save_name = .dummy; nreturn;
+}
+function save_param_first(p) {
+    cur_func_args = p;
+    save_param_first = .dummy; nreturn;
+}
+function save_param_rest(p) {
+    cur_func_args = cur_func_args ',' p;
+    save_param_rest = .dummy; nreturn;
+}
+// Build (STMT :subj (E_FNC DEFINE (E_QLIT "name(args)"))).
+function make_define_stmt(name, args, qlit, fnc) {
+    qlit = tree('E_QLIT', name '(' args ')');
+    fnc  = Tree('E_FNC', 'DEFINE', 1, qlit);
+    make_define_stmt = Tree('STMT', '', 1, Tree(':subj', '', 1, fnc));
+    return;
+}
+// finalize_function — pop body of N stmts, emit DEFINE + skip-goto + entry-label,
+// re-push body, append end-label.  Mirrors snocone_parse.y sc_func_head_new +
+// sc_finalize_function.  Restores cur_func_name to enclosing.
+function finalize_function(nbody_v, body, n, name, args, Lend, i) {
+    n     = $nbody_v;
+    name  = cur_func_name;
+    args  = cur_func_args;
+    Lend  = func_end_label;
+    body  = pop_body(n);
+    Push(make_define_stmt(name, args));
+    Push(make_goto_stmt(Lend));
+    Push(make_label_stmt(name));
+    i = 1; while (LE(i, n)) { Push(body[i]); i = i + 1; }
+    Push(make_label_stmt(Lend));
+    i = 0; while (LT(i, n + 3)) { IncCounter(); i = i + 1; }
+    cur_func_name = cur_func_prev;
+    finalize_function = .dummy; nreturn;
+}
+// return E; — pop value expression, build (STMT :eq :subj (E_VAR fname) :repl E :go RETURN).
+function emit_return_value(rhs, lhs, s) {
+    rhs = Pop();
+    lhs = tree('E_VAR', cur_func_name);
+    s   = Tree('STMT', '', 4,
+                  Tree(':eq', ''),
+                  Tree(':subj', '', 1, lhs),
+                  Tree(':repl', '', 1, rhs),
+                  tree(':go', 'RETURN'));
+    Push(s);
+    emit_return_value = .dummy; nreturn;
+}
+function emit_return_void()  { Push(make_goto_stmt('RETURN'));  emit_return_void  = .dummy; nreturn; }
+function emit_freturn()      { Push(make_goto_stmt('FRETURN')); emit_freturn      = .dummy; nreturn; }
+function emit_nreturn()      { Push(make_goto_stmt('NRETURN')); emit_nreturn      = .dummy; nreturn; }
 /*====================================================================================================================*/
 // Pattern-builder companions — called at BUILD TIME, return deferred-action patterns.
 function Save_cond() {
@@ -240,11 +317,60 @@ function Body(var) {
     Body = nPush() ARBNO(stmt_cmd) Save_nbody(var) nPop();
     return;
 }
+function BodyFn(var) {
+    BodyFn = nPush() ARBNO(*body_fn_cmd) Save_nbody(var) nPop();
+    return;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+// Build-time companions for function-handling helpers.
+function Decompose_call() {
+    Decompose_call = EVAL("epsilon . thx . *decompose_call()");
+    return;
+}
+function Func_head_save_name() {
+    Func_head_save_name = EVAL("epsilon . thx . *func_head_save_name(captured_name)");
+    return;
+}
+function Save_param_first() {
+    Save_param_first = EVAL("epsilon . thx . *save_param_first(captured_param)");
+    return;
+}
+function Save_param_rest() {
+    Save_param_rest = EVAL("epsilon . thx . *save_param_rest(captured_param)");
+    return;
+}
+function Finalize_function(nbody_v) {
+    Finalize_function = EVAL("epsilon . thx . *finalize_function('" nbody_v "')");
+    return;
+}
+function Emit_return_value() {
+    Emit_return_value = EVAL("epsilon . thx . *emit_return_value()");
+    return;
+}
+function Emit_return_void() {
+    Emit_return_void = EVAL("epsilon . thx . *emit_return_void()");
+    return;
+}
+function Emit_freturn() {
+    Emit_freturn = EVAL("epsilon . thx . *emit_freturn()");
+    return;
+}
+function Emit_nreturn() {
+    Emit_nreturn = EVAL("epsilon . thx . *emit_nreturn()");
+    return;
+}
 /*====================================================================================================================*/
+// Function call atom — id_pat followed by `(` arglist `)` reduces to (E_FNC name arg1 ... argN).
+ArgFirst = ( *Expr0 nInc() );
+ArgRest  = ( $','   *Expr0 nInc() );
+CallArgs = ( ArgFirst ARBNO(ArgRest) | epsilon );
+Call     = ( nPush() *Id ~ 'E_VAR' nInc() $'(' CallArgs $')' Decompose_call() nPop() );
+/*--------------------------------------------------------------------------------------------------------------------*/
 // Expression tower — Snocone operator precedence.
 Expr17 = FENCE(
              *String Push_qlit()
            | *Integer ~ 'E_ILIT'
+           | *Call
            | *Id      ~ 'E_VAR'
          );
 Expr9  = *Expr17
@@ -294,8 +420,32 @@ do_cmd =
       Finalize_do('do_nbody', 'saved_cond')
     );
 empty_cmd = ($' ' $';' $' ' nl_opt);
+/*--------------------------------------------------------------------------------------------------------------------*/
+// Function definition: `function name(p1, p2) { body }` lowers to 4 + N stmts:
+// DEFINE call, skip-goto, entry-label, body, end-label.
+ParamFirst = ( (*Id . captured_param) Save_param_first() );
+ParamRest  = ( $','  (*Id . captured_param) Save_param_rest()  );
+ParamList  = ( ParamFirst ARBNO(ParamRest) | epsilon );
+func_cmd =
+    ( nInc()
+      $' ' *kw_function $'  ' (*Id . captured_name) Func_head_save_name()
+      $'(' ParamList $')' $' ' nl_opt
+      $'{' nl_opt BodyFn('fn_nbody') $'}' $' ' nl_opt
+      Finalize_function('fn_nbody')
+    );
+return_cmd =
+    ( nInc() $' ' *kw_return
+      ( $'  ' *Expr0 $' ' $';' $' ' nl_opt Emit_return_value()
+      | $' '         $';' $' ' nl_opt Emit_return_void()
+      )
+    );
+freturn_cmd = ( nInc() $' ' *kw_freturn $' ' $';' $' ' nl_opt Emit_freturn() );
+nreturn_cmd = ( nInc() $' ' *kw_nreturn $' ' $';' $' ' nl_opt Emit_nreturn() );
+body_fn_cmd = ( return_cmd | freturn_cmd | nreturn_cmd | stmt_cmd );
 /*====================================================================================================================*/
-Command   = ( if_cmd | while_cmd | do_cmd | empty_cmd | stmt_cmd );
+Command   = ( if_cmd | while_cmd | do_cmd | func_cmd
+            | return_cmd | freturn_cmd | nreturn_cmd
+            | empty_cmd | stmt_cmd );
 Compiland = nPush()
             ARBNO(Command)
             (E_Parse & 'nTop()')
