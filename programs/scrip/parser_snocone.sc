@@ -14,6 +14,7 @@ E_ILIT            = "'E_ILIT'";
 E_VAR             = "'E_VAR'";
 E_KEYWORD         = "'E_KEYWORD'";
 E_IDX             = "'E_IDX'";
+E_INDEX           = "'E_IDX'";
 E_FLIT            = "'E_FLIT'";
 E_MNS             = "'E_MNS'";
 E_DEFER           = "'E_DEFER'";
@@ -28,6 +29,7 @@ E_NUL             = "'E_NUL'";
 E_FNC             = "'E_FNC'";
 E_Parse           = "'Parse'";
 r_nTop            = '*(GT(nTop(), 1) nTop())';
+r_nTopP1          = '*(nTop() + 1)';
 /*====================================================================================================================*/
 White    = (  SPAN(' ' tab nl)
            |  '//' BREAK(nl) nl
@@ -73,8 +75,8 @@ $'('   = $' ' '(' $' ';
 $')'   = $' ' ')' $' ';
 $'{'   = $' ' '{' $' ';
 $'}'   = $' ' '}' $' ';
-$'['   = $' ' '[' $' ';
-$']'   = $' ' ']' $' ';
+$'['   = '[' $' ';
+$']'   = $' ' ']';
 $';'   = $' ' ';' $' ';
 $','   = $' ' ',' $' ';
 $':'   = $' ' ':' $' ';
@@ -109,6 +111,9 @@ $'-='  = $'  ' '-='  $'  ';
 $'*='  = $'  ' '*='  $'  ';
 $'/='  = $'  ' '/='  $'  ';
 $'^='  = $'  ' '^='  $'  ';
+/*====================================================================================================================*/
+ExprList = nPush() *XList (E_VLIST & r_nTop) nPop();
+XList    = nInc() (*Expr0 | epsilon ~ '') FENCE($',' *XList | epsilon);
 /*====================================================================================================================*/
 lbl_n = 0;
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -551,39 +556,50 @@ Expr17 = FENCE(
            | (*Real . strbody) Push_flit()
            | *Integer    ~ 'E_ILIT'
            | *Keyword     Push_keyword()
-           | '*' *Expr17  (E_DEFER    & 1)
-           | '~' *Expr17  (E_NOT      & 1)
-           | '.' *Expr17  (E_NAME     & 1)
-           | '$' *Expr17  (E_INDIRECT & 1)
            | *Ident       ~ 'E_VAR'
          );
-// Expr15 — subscript chains: a[i], a[i][j].
+// Expr15/Expr16 — subscript chains: a[i][j]… (from beauty.sno).
 Expr15 = *Expr17
-         FENCE(
-           $'[' *Expr0 $']' Push_idx() FENCE($'[' *Expr0 $']' Push_idx() | epsilon)
-         | epsilon
-         );
+         FENCE(nPush() *Expr16 (E_INDEX & r_nTopP1) nPop() | epsilon);
+Expr16 = nInc() $'[' *ExprList $']'
+         FENCE(*Expr16 | epsilon);
+// Expr14 — unary prefix operators (beauty.sno Expr14, minus =|&? which are binary-only in Snocone).
+Expr14 = '@' *Expr14 (E_CAPT_CURSOR  & 1)
+         | '~' *Expr14 (E_NOT          & 1)
+         | '+' *Expr14 (E_ADD          & 1)
+         | '-' *Expr14 Push_mns()
+         | '*' *Expr14 (E_DEFER        & 1)
+         | '$' *Expr14 (E_INDIRECT     & 1)
+         | '.' *Expr14 (E_NAME         & 1)
+         | '!' *Expr14 (E_POW          & 1)
+         | '%' *Expr14 (E_MUL          & 1)
+         | '/' *Expr14 (E_DIV          & 1)
+         | '#' *Expr14 (E_SUB          & 1)
+         | *Expr15;
+// Expr13 — binary ~ (OPSYN, right-assoc per beauty.sc).
+Expr13 = *Expr14 FENCE($'~' *Expr13 (E_NOT & 2) | epsilon);
 // Expr12 — binary pattern-capture: pat . var (E_CAPT_COND_ASGN, left-assoc)
 //                                  pat $ var (E_CAPT_IMMED_ASGN, left-assoc).
 // Binary forms use $'.' / $'$' (whitespace-enveloped, T_2DOT / T_2DOLLAR).
-// Unary '.' / '$' / '@' at Expr17 level are T_1DOT / T_1DOLLAR / T_1AT (no
-// leading whitespace) — the lexer-level disambiguation is preserved here via the
-// binary form requiring $' ' on both sides while unary uses the raw literal.
-Expr12 = *Expr15
+Expr12 = *Expr13
          FENCE(
-           $'.' *Expr15 (E_CAPT_COND_ASGN  & 2) FENCE($'.' *Expr15 (E_CAPT_COND_ASGN  & 2) | epsilon)
-         | $'$' *Expr15 (E_CAPT_IMMED_ASGN & 2) FENCE($'$' *Expr15 (E_CAPT_IMMED_ASGN & 2) | epsilon)
+           $'$' *Expr13 (E_CAPT_IMMED_ASGN & 2) FENCE($'$' *Expr13 (E_CAPT_IMMED_ASGN & 2) | epsilon)
+         | $'.' *Expr13 (E_CAPT_COND_ASGN  & 2) FENCE($'.' *Expr13 (E_CAPT_COND_ASGN  & 2) | epsilon)
          | epsilon
          );
-// Expr11 — exponentiation: right-associative, binds tighter than capture.
-Expr11 = *Expr12 FENCE($'^' *Expr11 (E_POW & 2) | epsilon);
-// Expr9 — mul/div; unary minus prefix handled here.
-Expr9  = FENCE(
-           '-' *Expr11 Push_mns()
-         | *Expr11 ARBNO($'*' *Expr11 (E_MUL & 2) | $'/' *Expr11 (E_DIV & 2))
-         );
-// Expr5 — comparison + identity (left-assoc) -> E_FNC with fname.
-// Mirrors snocone_parse.y expr5: EQ NE LT GT LE GE + lexical variants + IDENT DIFFER.
+// Expr11 — exponentiation: right-associative (^ ! ** all map to E_POW per beauty.sc).
+Expr11 = *Expr12 FENCE(($'^' | $'!' | $'**') *Expr11 (E_POW & 2) | epsilon);
+// Expr10 — binary % (modulo/OPSYN).
+Expr10 = *Expr11 FENCE($'%' *Expr10 (E_MUL & 2) | epsilon);
+// Expr9 — binary * (multiplication).
+Expr9  = *Expr10 FENCE($'*' *Expr9  (E_MUL & 2) | epsilon);
+// Expr8 — binary / (division).
+Expr8  = *Expr9  FENCE($'/' *Expr8  (E_DIV & 2) | epsilon);
+// Expr7 — binary # (OPSYN).
+Expr7  = *Expr8  FENCE($'#' *Expr7  (E_SUB & 2) | epsilon);
+// Expr6 — additive + - (from beauty.sno).
+Expr6  = *Expr7  FENCE($'+' *Expr6 (E_ADD & 2) | $'-' *Expr6 (E_SUB & 2) | epsilon);
+// Expr5 — cursor @ + Snocone comparison operators (beauty.sno: *Expr6 FENCE($'@'…)).
 function push_cmp(fname, a, b) {
     b = Pop(); a = Pop();
     Push(Tree('E_FNC', fname, 2, a, b));
@@ -593,32 +609,28 @@ function Push_cmp(fname) {
     Push_cmp = EVAL("epsilon . thx . *push_cmp('" fname "')");
     return;
 }
-Expr5  = *Expr5a
+Expr5  = *Expr6
          FENCE(
-           $'==' *Expr5a Push_cmp('EQ')
-         | $'!=' *Expr5a Push_cmp('NE')
-         | $'<=' *Expr5a Push_cmp('LE')
-         | $'>=' *Expr5a Push_cmp('GE')
-         | $'<'  *Expr5a Push_cmp('LT')
-         | $'>'  *Expr5a Push_cmp('GT')
+           $'@'  *Expr5 (E_CAPT_CURSOR & 2)
+         | $'==' *Expr6 Push_cmp('EQ')
+         | $'!=' *Expr6 Push_cmp('NE')
+         | $'<=' *Expr6 Push_cmp('LE')
+         | $'>=' *Expr6 Push_cmp('GE')
+         | $'<'  *Expr6 Push_cmp('LT')
+         | $'>'  *Expr6 Push_cmp('GT')
          | epsilon
          );
-// Expr5a — OPSYN binary operators ~ & # % (left-assoc) -> E_FNC with op as fname.
-// Mirrors snocone_parse.y expr5a: T_2TILDE T_2AMP T_2POUND T_2PERCENT.
-Expr5a = *Expr6
-         FENCE(
-           $'~' *Expr6 Push_cmp('~')
-         | $'&' *Expr6 Push_cmp('&')
-         | $'#' *Expr6 Push_cmp('#')
-         | $'%' *Expr6 Push_cmp('%')
-         | epsilon
-         );
-Expr6  = *Expr9 ARBNO($'+' *Expr9 (E_ADD & 2) | $'-' *Expr9 (E_SUB & 2));
+// Expr4 — n-ary concatenation (juxtaposition).
 Expr4  = nPush() *X4 (E_SEQ & r_nTop) nPop();
 X4     = nInc() *Expr5 FENCE($'  ' *X4 | epsilon);
+// Expr3 — n-ary alternation |.
 Expr3  = nPush() *X3 (E_ALT & r_nTop) nPop();
 X3     = nInc() *Expr4 FENCE($'|' *X3 | epsilon);
-Expr1  = *Expr3 FENCE($'?' *Expr1 (E_SCAN   & 2) | epsilon);
+// Expr2 — binary & (from beauty.sno; right-assoc).
+Expr2  = *Expr3 FENCE($'&' *Expr2 (E_SEQ & 2) | epsilon);
+// Expr1 — pattern match ?.
+Expr1  = *Expr2 FENCE($'?' *Expr1 (E_SCAN & 2) | epsilon);
+// Expr0 — assignment =.
 Expr0  = *Expr1 FENCE($'=' FENCE(*Expr0 | Push_empty_str()) (E_ASSIGN & 2) | epsilon);
 /*====================================================================================================================*/
 stmt_body = ($' ' *Expr0 $' ' ($';' | epsilon) $' ' $' ' Decompose_stmt());
