@@ -133,6 +133,14 @@ LitStrSQ  = ($' ' "'" BREAK("'") . capstr "'");
 // Starter slice (RK-5): BREAK('/') — does not handle / inside [...] or after \.
 // Body stored in caprx for push_rxlit().
 LitRegex  = ($' ' '/' BREAK('/') . caprx '/');
+// Positional capture variable — $0, $1, …  Captures digit string into capidx.
+// Mirror of raku.l: "$"[0-9]+  → VAR_CAPTURE / ival = atoi(yytext+1).
+// SPAN(digits) .capidx — dot captures the matched span into capidx.
+VarCapture      = ($' ' '$' SPAN(digits) . capidx);
+// Named capture variable — $<name>.  Captures bare name (strip $< and >) into capncname.
+// Mirror of raku.l: "$<"[a-zA-Z][a-zA-Z0-9_]*">"  → VAR_NAMED_CAPTURE / sval.
+// BREAK('>') .capncname — captures everything between < and > as a block.
+VarNamedCapture = ($' ' '$<' BREAK('>') . capncname '>');
 /*====================================================================================================================*/
 // Per-construct identifier captures.  Distinct globals keep recursive Expr
 // calls from clobbering an in-flight for-loopvar / sub-name capture.
@@ -167,6 +175,8 @@ capvf         = '';
 capvr         = '';
 capstr    = '';
 caprx     = '';
+capidx    = '';
+capncname = '';
 capff         = '';
 capfr         = '';
 for_iter   = '';
@@ -220,6 +230,37 @@ function push_rxlit() {
     nreturn;
 }
 Push_rxlit = (epsilon . *push_rxlit());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_capture — positional capture $N → (E_FNC raku_capture (E_VAR raku_capture) (E_ILIT N)).
+// capidx holds the digit string captured by VarCapture.
+// Retained: reduce() sets value=''; E_FNC requires value='raku_capture'.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_capture(fn, node) {
+    fn   = tree('E_VAR', 'raku_capture');
+    node = tree('E_FNC', 'raku_capture');
+    Append(node, fn);
+    Append(node, tree('E_ILIT', capidx));
+    Push(node);
+    finish_capture = .dummy;
+    nreturn;
+}
+Finish_capture = (epsilon . *finish_capture());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_named_capture — named capture $<name> →
+//   (E_FNC raku_named_capture (E_VAR raku_named_capture) (E_QLIT "name")).
+// capncname holds the bare name (without $< and >) captured by VarNamedCapture.
+// Retained: same reason as finish_capture — value field requires explicit name.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_named_capture(fn, node) {
+    fn   = tree('E_VAR', 'raku_named_capture');
+    node = tree('E_FNC', 'raku_named_capture');
+    Append(node, fn);
+    Append(node, tree('E_QLIT', capncname));
+    Push(node);
+    finish_named_capture = .dummy;
+    nreturn;
+}
+Finish_named_capture = (epsilon . *finish_named_capture());
 /*--------------------------------------------------------------------------------------------------------------------*/
 // finish_smartmatch — pops pattern + subject from stack, builds
 // (E_FNC raku_match (E_VAR raku_match) subj pat) — same shape as the C
@@ -446,6 +487,8 @@ CallArgTail = ( $','  *Expr  nInc() );
 Expr11 = ( VarScalar              Push_var
          | VarArray               Push_var
          | VarHash                Push_var
+         | VarCapture             Finish_capture
+         | VarNamedCapture        Finish_named_capture
          | shift(LitInt, 'E_ILIT')
          | LitStrDQ               Push_qlit
          | LitStrSQ               Push_qlit
