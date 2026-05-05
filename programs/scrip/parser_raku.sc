@@ -71,6 +71,8 @@ E_RETURN    = "'E_RETURN'";   E_TO       = "'E_TO'";
 E_NOT       = "'E_NOT'";      E_UNTIL    = "'E_UNTIL'";
 E_SEQ       = "'E_SEQ'";      E_ALT      = "'E_ALT'";
 E_CAT       = "'E_CAT'";
+E_LEQ       = "'E_LEQ'";      E_LNE      = "'E_LNE'";
+E_MNS       = "'E_MNS'";
 E_Parse     = "'Parse'";
 /*====================================================================================================================*/
 // Whitespace primitives.  White / Gray are the cross-parser canonical names;
@@ -98,6 +100,7 @@ $'while'  = $' ' 'while' ;  $'for'    = $' ' 'for'   ;
 $'sub'    = $' ' 'sub'   ;  $'return' = $' ' 'return';
 $'exists' = $' ' 'exists';  $'delete' = $' ' 'delete';
 $'unless' = $' ' 'unless';  $'until'  = $' ' 'until';
+$'eq'     = $' ' 'eq' $' ';  $'ne'   = $' ' 'ne' $' ';
 /*====================================================================================================================*/
 // Operator tokens — optional whitespace both sides.  Open brackets: ws after only.  Close: ws before only.
 /*====================================================================================================================*/
@@ -558,6 +561,19 @@ function finish_not(inner, node) {
 }
 Finish_not = (epsilon . *finish_not());
 /*--------------------------------------------------------------------------------------------------------------------*/
+// finish_mns — unary minus: -(expr) → (E_MNS expr).
+// Retained: same reason as finish_not — pop, wrap, push.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_mns(inner, node) {
+    inner = Pop();
+    node  = tree('E_MNS', '');
+    Append(node, inner);
+    Push(node);
+    finish_mns = .dummy;
+    nreturn;
+}
+Finish_mns = (epsilon . *finish_mns());
+/*--------------------------------------------------------------------------------------------------------------------*/
 // finish_say — say → write name remap.  Pops arg, builds E_FNC write.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_say(arg, fn, node) {
@@ -777,6 +793,7 @@ CallArgTail = ( $','  *Expr  nInc() );
 // Expr11 — primary.
 
 Expr11 = ( $'!'  *Expr11  Finish_not
+         | ($' ' '-')  *Expr11  Finish_mns
          | VarScalar              Push_var
          | ArrIdxVar  $'['  *Expr  $']'              Finish_arr_get
          | VarArray                                   Push_var
@@ -840,6 +857,8 @@ Expr4tail = FENCE( $'=='  *Expr5      (E_EQ & 2)
                  | $'>='  *Expr5      (E_GE & 2)
                  | $'<'   *Expr5      (E_LT & 2)
                  | $'>'   *Expr5      (E_GT & 2)
+                 | $'eq'  *Expr5      (E_LEQ & 2)
+                 | $'ne'  *Expr5      (E_LNE & 2)
                  | $'~~'  LitRegex Push_rxlit  Finish_smartmatch
                  | $'~~'  LitMatchGlobal Push_rxlit  Finish_match_global
                  | $'~~'  LitSubst       Finish_subst
