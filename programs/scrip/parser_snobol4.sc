@@ -36,6 +36,7 @@ E_KEYWORD = "'E_KEYWORD'";
 E_SEQ   = "'E_SEQ'";    E_ALT   = "'E_ALT'";
 E_ADD   = "'E_ADD'";    E_SUB   = "'E_SUB'";    E_MUL   = "'E_MUL'";    E_DIV      = "'E_DIV'";
 E_POW   = "'E_POW'";    E_PLS   = "'E_PLS'";    E_MNS   = "'E_MNS'";
+E_IDX   = "'E_IDX'";
 E_CAPT_IMMED_ASGN = "'E_CAPT_IMMED_ASGN'";
 E_CAPT_COND_ASGN  = "'E_CAPT_COND_ASGN'";
 /*====================================================================================================================*/
@@ -146,7 +147,7 @@ Expr14      =  '@' *Expr14 ("'@'" & 1)
             |  '|' *Expr14 ("'|'" & 1)
             |  *Expr15;
 Expr15      =  *Expr17
-               FENCE(nPush() *Expr16 ("'[]'" & 'nTop() + 1') nPop() | epsilon);
+               FENCE(nPush() *Expr16 (E_IDX & 'nTop() + 1') nPop() | epsilon);
 Expr16      =  nInc()
                ($'[' *ExprList $']' | $'<' *ExprList $'>')
                FENCE(*Expr16 | epsilon);
@@ -285,6 +286,24 @@ function rw_expr(x, t, result, i, j, ch, right, rr, rl) {
     // '()' paren node: transparent wrapper — unwrap the single child
     if (IDENT(t, '()'))    { rw_expr = rw_expr(c(x)[1]); return; }
     if (IDENT(t, 'Call'))  { rw_expr = rw_call(x); return; }
+    // E_IDX: object is child[1]; bracket groups are child[2..n], each an ExprList.
+    // Flatten ExprList children directly into E_IDX (oracle emits flat children, not E_SEQ).
+    if (IDENT(t, 'E_IDX')) {
+        result = Tree('E_IDX', '', 0);
+        Append(result, rw_expr(c(x)[1]));           // object
+        i = 2;
+        while (LE(i, n(x))) {
+            ch = c(x)[i];
+            if (IDENT(t(ch), 'ExprList')) {
+                j = 1;
+                while (LE(j, n(ch))) { Append(result, rw_expr(c(ch)[j])); j = j + 1; }
+            }
+            if (DIFFER(t(ch), 'ExprList')) { Append(result, rw_expr(ch)); }
+            i = i + 1;
+        }
+        rw_expr = result;
+        return;
+    }
     // ExprList: transparent — inline its children into a fresh E_SEQ if n>1, else unwrap
     if (IDENT(t, 'ExprList')) {
         if (EQ(n(x), 1))   { rw_expr = rw_expr(c(x)[1]); return; }
