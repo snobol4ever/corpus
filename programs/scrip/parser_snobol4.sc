@@ -1,27 +1,41 @@
 // parser_snobol4.sc — PARSER-SN: SNOBOL4 pattern-based frontend in Snocone.
 //
-// PATTERN block: verbatim from beauty.sno (zero characters changed).
-// Helper functions: Rewrite_expr (tag rename) + Rewrite_stmt (role-slot
-// assembly) convert beauty.sno's native 7-slot Stmt tree to --dump-parse
-// IR shape.  No changes to any PATTERN line.
+// PATTERN block: structure verbatim from beauty.sno; reduce/shift tags
+// emit canonical IR (E_*) directly — no rewrite layer.  String leaves use
+// a Push_qlit worker to push (E_QLIT body) with bare inner text (quotes
+// stripped at match time).
+//
+// Helper functions: pp_stmt (role-slot assembly for the 7-slot Stmt) +
+// rw_expr (paren-strip, ExprList unwrap, Call lookup-and-rebuild, left-
+// rotate right-recursive arith chains).  No tag renaming — that's done
+// in the grammar.
 //
 // Tree shape produced per --dump-parse oracle:
 //   (STMT [:lbl L] [:eq] [:subj E] [:pat P] [:repl R] [:goS/:goF/:goU G])
 // beauty.sno's 7-slot (Stmt label subj pat asgn repl go1 go2) is the
-// parse tree; Rewrite_stmt maps it to the role-slot form.
+// parse tree; pp_stmt maps it to the role-slot form.
 //
 // Rungs: SN-0..SN-6 PASS=58; SN-7-1 IR-tag + role-slot rewrite.
+// Iter#7: rw_tag layer removed — grammar emits E_* tags directly.
 /*====================================================================================================================*/
 E_Parse = "'Parse'";
 E_goU   = "':go'";
 E_goS   = "':goS'";
 E_goF   = "':goF'";
+// IR-tag constants — emitted directly by the grammar (no rewrite layer).
+E_VAR   = "'E_VAR'";    E_ILIT  = "'E_ILIT'";   E_QLIT  = "'E_QLIT'";   E_RLIT     = "'E_RLIT'";
+E_KEYWORD = "'E_KEYWORD'";
+E_SEQ   = "'E_SEQ'";    E_ALT   = "'E_ALT'";
+E_ADD   = "'E_ADD'";    E_SUB   = "'E_SUB'";    E_MUL   = "'E_MUL'";    E_DIV      = "'E_DIV'";
+E_POW   = "'E_POW'";    E_PLS   = "'E_PLS'";    E_MNS   = "'E_MNS'";
+E_CAPT_IMMED_ASGN = "'E_CAPT_IMMED_ASGN'";
+E_CAPT_COND_ASGN  = "'E_CAPT_COND_ASGN'";
 /*====================================================================================================================*/
 // PATTERN block — verbatim from beauty.sno.  NOT ONE CHARACTER CHANGED.
 /*====================================================================================================================*/
 Integer     =  SPAN(digits);
-DQ          =  '"' BREAK('"' nl) '"';
-SQ          =  "'" BREAK("'" nl) "'";
+DQ          =  '"' BREAK('"' nl) . str_body '"';
+SQ          =  "'" BREAK("'" nl) . str_body "'";
 String      =  *SQ | *DQ;
 Real        =  (  SPAN(digits)
                   ('.' FENCE(SPAN(digits) | epsilon) | epsilon)
@@ -70,6 +84,11 @@ $'<'        =        '<'  $' ';
 $')'        =  $' '  ')';
 $']'        =  $' '  ']';
 $'>'        =  $' '  '>';
+/*--------------------------------------------------------------------------------------------------------------------*/
+// String-body push: workers fire push_qlit at match time using captured str_body.
+function push_qlit() { Push(tree('E_QLIT', str_body)); push_qlit = .dummy; nreturn; }
+Push_qlit   = epsilon . *push_qlit();
+/*--------------------------------------------------------------------------------------------------------------------*/
 ExprList    =  nPush()
                *XList
                ("'ExprList'" & '*(GT(nTop(), 1) nTop())')
@@ -79,36 +98,36 @@ Expr        =  *Expr0;
 Expr0       =  *Expr1 FENCE($'=' *Expr0 ("'='" & 2) | epsilon);
 Expr1       =  *Expr2 FENCE($'?' *Expr1 ("'?'" & 2) | epsilon);
 Expr2       =  *Expr3 FENCE($'&' *Expr2 ("'&'" & 2) | epsilon);
-Expr3       =  nPush() *X3 ("'|'" & '*(GT(nTop(), 1) nTop())') nPop();
+Expr3       =  nPush() *X3 (E_ALT & '*(GT(nTop(), 1) nTop())') nPop();
 X3          =  nInc() *Expr4 FENCE($'|' *X3 | epsilon);
-Expr4       =  nPush() *X4 ("'..'" & '*(GT(nTop(), 1) nTop())') nPop();
+Expr4       =  nPush() *X4 (E_SEQ & '*(GT(nTop(), 1) nTop())') nPop();
 X4          =  nInc() *Expr5 FENCE($'  ' *X4 | epsilon);
 Expr5       =  *Expr6 FENCE($'@' *Expr5 ("'@'" & 2) | epsilon);
 Expr6       =  *Expr7
                FENCE(
-                  $'+' *Expr6 ("'+'" & 2) | $'-' *Expr6 ("'-'" & 2) | epsilon
+                  $'+' *Expr6 (E_ADD & 2) | $'-' *Expr6 (E_SUB & 2) | epsilon
                );
 Expr7       =  *Expr8 FENCE($'#' *Expr7 ("'#'" & 2) | epsilon);
-Expr8       =  *Expr9 FENCE($'/' *Expr8 ("'/'" & 2) | epsilon);
-Expr9       =  *Expr10 FENCE($'*' *Expr9 ("'*'" & 2) | epsilon);
+Expr8       =  *Expr9 FENCE($'/' *Expr8 (E_DIV & 2) | epsilon);
+Expr9       =  *Expr10 FENCE($'*' *Expr9 (E_MUL & 2) | epsilon);
 Expr10      =  *Expr11 FENCE($'%' *Expr10 ("'%'" & 2) | epsilon);
 Expr11      =  *Expr12
-               FENCE(($'^' | $'!' | $'**') *Expr11 ("'^'" & 2) | epsilon);
+               FENCE(($'^' | $'!' | $'**') *Expr11 (E_POW & 2) | epsilon);
 Expr12      =  *Expr13
                FENCE(
-                  $'$' *Expr12 ("'$'" & 2)
-               |  $'.' *Expr12 ("'.'" & 2)
+                  $'$' *Expr12 (E_CAPT_IMMED_ASGN & 2)
+               |  $'.' *Expr12 (E_CAPT_COND_ASGN  & 2)
                |  epsilon
                );
 Expr13      =  *Expr14 FENCE($'~' *Expr13 ("'~'" & 2) | epsilon);
 Expr14      =  '@' *Expr14 ("'@'" & 1)
             |  '~' *Expr14 ("'~'" & 1)
             |  '?' *Expr14 ("'?'" & 1)
-            |  *ProtKwd ~ 'ProtKwd'
-            |  *UnprotKwd ~ 'UnprotKwd'
+            |  *ProtKwd   ~ E_KEYWORD
+            |  *UnprotKwd ~ E_KEYWORD
             |  '&' *Expr14 ("'&'" & 1)
-            |  '+' *Expr14 ("'+'" & 1)
-            |  '-' *Expr14 ("'-'" & 1)
+            |  '+' *Expr14 (E_PLS & 1)
+            |  '-' *Expr14 (E_MNS & 1)
             |  '*' *Expr14 ("'*'" & 1)
             |  '$' *Expr14 ("'$'" & 1)
             |  '.' *Expr14 ("'.'" & 1)
@@ -133,11 +152,11 @@ Expr17      =  FENCE(
                   )
                   $')'
                   nPop()
-               |  *Id ~ 'Id' $'(' *ExprList $')' ("'Call'" & 2)
-               |  *Id ~ 'Id'
-               |  *String ~ 'String'
-               |  *Real ~ 'Real'
-               |  *Integer ~ 'Integer'
+               |  *Id ~ E_VAR $'(' *ExprList $')' ("'Call'" & 2)
+               |  *Id      ~ E_VAR
+               |  *String    Push_qlit
+               |  *Real    ~ E_RLIT
+               |  *Integer ~ E_ILIT
                );
 // Goto: direction baked into reduce tag via named SGoto/FGoto patterns.
 // SGoto/FGoto match the letter and reduce 0; we use them as markers via
@@ -196,49 +215,19 @@ Compiland   =  nPush()
 // Mirror beauty.sno's pp_Stmt exactly: read c[1]..c[7] by fixed index.
 // DIFFER(t(x)) is the beauty.sno idiom to check if a slot has content.
 //
-// Tag rename table (beauty.sno native → --dump-parse IR):
-//   'Id'       → 'E_VAR'     'Integer'  → 'E_ILIT'    'String' → 'E_QLIT'
-//   'Real'     → 'E_RLIT'    'Call'     → 'E_FNC'     '..'     → 'E_SEQ'
-//   '|'        → 'E_ALT'     '$' (bin)  → 'E_CAPT_IMMED_ASGN'
-//   '.' (bin)  → 'E_CAPT_COND_ASGN'    'ProtKwd'/'UnprotKwd' → 'E_KEYWORD'
-// Arithmetic: '+'/'-'/'*'/'/' binary → E_ADD/E_SUB/E_MUL/E_DIV
-// Pattern primitives: LEN/BREAK/SPAN/ANY/NOTANY calls → E_LEN/E_BREAK etc.
-// Goto tag: ':go' → unconditional,  ':goS' → success,  ':goF' → failure
-//   (baked into node tag by Goto pattern; rw_goto_slot just passes t(g) through)
+// Iter#7: rw_tag layer removed — grammar emits canonical IR (E_*) tags
+// directly via the IR-tag string constants at the top of the file.
+// String leaves use Push_qlit (worker pair) to push (E_QLIT body) with
+// quotes already stripped at match time via the str_body capture slot.
+// rw_expr therefore handles only structural rewriting: paren-strip,
+// ExprList unwrap, Call-builtin lookup, and left-rotation of the
+// right-recursive arith chains beauty.sno builds.
 /*====================================================================================================================*/
-// rw_tag — rename a beauty.sno expression tag to its IR E_* equivalent.
-// Called by rw_expr on every node.  n is the node's child count.
-function rw_tag(t, n) {
-    if (IDENT(t, 'Id'))        { rw_tag = 'E_VAR';     return; }
-    if (IDENT(t, 'Integer'))   { rw_tag = 'E_ILIT';    return; }
-    if (IDENT(t, 'String'))    { rw_tag = 'E_QLIT';    return; }
-    if (IDENT(t, 'Real'))      { rw_tag = 'E_RLIT';    return; }
-    if (IDENT(t, 'ProtKwd'))   { rw_tag = 'E_KEYWORD'; return; }
-    if (IDENT(t, 'UnprotKwd')) { rw_tag = 'E_KEYWORD'; return; }
-    if (IDENT(t, 'BuiltinVar')){ rw_tag = 'E_VAR';     return; }
-    if (IDENT(t, 'SpecialNm')) { rw_tag = 'E_VAR';     return; }
-    if (IDENT(t, 'Function'))  { rw_tag = 'E_VAR';     return; }
-    if (IDENT(t, '..'))        { rw_tag = 'E_SEQ';     return; }
-    if (IDENT(t, '|'))         { rw_tag = 'E_ALT';     return; }
-    // capture operators (always binary in Expr12)
-    if (IDENT(t, '$')) { rw_tag = 'E_CAPT_IMMED_ASGN'; return; }
-    if (IDENT(t, '.')) { rw_tag = 'E_CAPT_COND_ASGN';  return; }
-    // arithmetic (binary)
-    if (IDENT(t, '+') EQ(n, 2)) { rw_tag = 'E_ADD'; return; }
-    if (IDENT(t, '-') EQ(n, 2)) { rw_tag = 'E_SUB'; return; }
-    if (IDENT(t, '*') EQ(n, 2)) { rw_tag = 'E_MUL'; return; }
-    if (IDENT(t, '/') EQ(n, 2)) { rw_tag = 'E_DIV'; return; }
-    if (IDENT(t, '^') EQ(n, 2)) { rw_tag = 'E_POW'; return; }
-    // arithmetic (unary)
-    if (IDENT(t, '-') EQ(n, 1)) { rw_tag = 'E_MNS'; return; }
-    if (IDENT(t, '+') EQ(n, 1)) { rw_tag = 'E_PLS'; return; }
-    rw_tag = t;
-    return;
-}
-/*--------------------------------------------------------------------------------------------------------------------*/
-// rw_call — rewrite a Call node.  beauty.sno Call shape: ("'Call'" & 2) always
-// gives 2 children: c[1]=callee, c[2]=args.  ExprList only wraps when nTop()>1
-// (>=2 args); with 1 arg c[2] is the bare arg node; with 0 args the ExprList
+// rw_call — rewrite a Call node into either E_FNC (generic) or E_LEN /
+// E_BREAK / E_SPAN / E_ANY / E_NOTANY (pattern-primitive specialization).
+// beauty.sno Call shape: ("'Call'" & 2) always gives 2 children:
+// c[1]=callee, c[2]=args.  ExprList only wraps when nTop()>1 (>=2 args);
+// with 1 arg c[2] is the bare arg node; with 0 args the ExprList
 // reduce fires with nTop()=0 producing an ExprList with n=0.
 function rw_call(x, fname, args, na, result, i) {
     fname = v(c(x)[1]);
@@ -264,22 +253,31 @@ function rw_call(x, fname, args, na, result, i) {
     return;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-// rw_expr — recursive tag-rename walk.  Renames tags, recurses into children.
-// Also: strips beauty.sno '()' paren wrapper nodes (transparent grouping).
-// Left-rotates right-recursive binary arithmetic trees to left-associative form
-// per the oracle (beauty.sno builds right-recursive; --dump-parse is left-assoc).
-// ExprList is a transparent wrapper (from XList).
-function rw_expr(x, t, result, new_t, i, right, rr, rl) {
+// is_rotatable — true iff a binary-op IR tag is in the set that beauty.sno
+// builds right-recursively but the oracle wants left-associative.  These
+// are the seven ops that the grammar emits as E_* directly via shift/reduce.
+function is_rotatable(t) {
+    if (IDENT(t, 'E_ADD'))               { is_rotatable = 1; return; }
+    if (IDENT(t, 'E_SUB'))               { is_rotatable = 1; return; }
+    if (IDENT(t, 'E_MUL'))               { is_rotatable = 1; return; }
+    if (IDENT(t, 'E_DIV'))               { is_rotatable = 1; return; }
+    if (IDENT(t, 'E_POW'))               { is_rotatable = 1; return; }
+    if (IDENT(t, 'E_CAPT_IMMED_ASGN'))   { is_rotatable = 1; return; }
+    if (IDENT(t, 'E_CAPT_COND_ASGN'))    { is_rotatable = 1; return; }
+    is_rotatable = 0;
+    return;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+// rw_expr — structural rewrite walk: paren-strip, ExprList unwrap, Call
+// dispatch (generic E_FNC vs pattern-primitive E_LEN/E_BREAK/...),
+// left-rotate right-recursive binary arith chains.  No tag renaming —
+// the grammar emits E_* tags directly.
+function rw_expr(x, t, result, i, right, rr, rl) {
     if (IDENT(x)) { rw_expr = x; return; }
     t = t(x);
     if (IDENT(t))          { rw_expr = x; return; }   // empty-slot node
     // '()' paren node: transparent wrapper — unwrap the single child
     if (IDENT(t, '()'))    { rw_expr = rw_expr(c(x)[1]); return; }
-    if (IDENT(t, 'String')) {
-        // beauty.sno captures String WITH surrounding quotes; oracle wants bare inner text
-        rw_expr = tree('E_QLIT', SUBSTR(v(x), 2, SIZE(v(x)) - 2));
-        return;
-    }
     if (IDENT(t, 'Call'))  { rw_expr = rw_call(x); return; }
     // ExprList: transparent — inline its children into a fresh E_SEQ if n>1, else unwrap
     if (IDENT(t, 'ExprList')) {
@@ -290,27 +288,26 @@ function rw_expr(x, t, result, new_t, i, right, rr, rl) {
         rw_expr = result;
         return;
     }
-    new_t  = rw_tag(t, n(x));
     // Left-rotation: beauty.sno builds a + b + c as (a + (b + c)); oracle wants ((a+b)+c).
     // A right-recursive node is one where n=2 and c[2] has the same IR tag.
     // Rotate: result = (rw(c[1]) op rw(c[2].c[1])); then iteratively fold in c[2].c[2] etc.
-    if (EQ(n(x), 2) DIFFER(new_t, t)) {
+    if (EQ(n(x), 2) is_rotatable(t)) {
         right = c(x)[2];
-        if (EQ(n(right), 2) IDENT(rw_tag(t(right), 2), new_t)) {
+        if (EQ(n(right), 2) IDENT(t(right), t)) {
             // right child is same op: flatten to left-associative chain
-            result = Tree(new_t, '', 2, rw_expr(c(x)[1]), rw_expr(c(right)[1]));
+            result = Tree(t, '', 2, rw_expr(c(x)[1]), rw_expr(c(right)[1]));
             rr = c(right)[2];
-            while (EQ(n(rr), 2) IDENT(rw_tag(t(rr), 2), new_t)) {
+            while (EQ(n(rr), 2) IDENT(t(rr), t)) {
                 rl = c(rr)[1];
-                result = Tree(new_t, '', 2, result, rw_expr(rl));
+                result = Tree(t, '', 2, result, rw_expr(rl));
                 rr = c(rr)[2];
             }
-            result = Tree(new_t, '', 2, result, rw_expr(rr));
+            result = Tree(t, '', 2, result, rw_expr(rr));
             rw_expr = result;
             return;
         }
     }
-    result = Tree(new_t, v(x), 0);
+    result = Tree(t, v(x), 0);
     i = 1;
     while (LE(i, n(x))) { Append(result, rw_expr(c(x)[i])); i = i + 1; }
     rw_expr = result;
