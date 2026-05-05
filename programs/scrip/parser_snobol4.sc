@@ -8,7 +8,11 @@
 // Tree shape produced per --dump-parse oracle:
 //   (STMT [:lbl L] [:eq] [:subj E] [:pat P] [:repl R] [:goS/:goF/:goU G])
 //
-// Rungs: SN-0..SN-7-7 PASS=78; SN-7-7b: direct E_* + delete rw_tag.
+// Rungs: SN-0..SN-7-7 PASS=78; SN-7-7b: direct E_* + delete rw_tag;
+//        SN-7-7c: full keyword/function/builtin inventory + classifier patterns
+//                 (cross-runtime union: SPITBOL x64/x32 sv-classes + csnobol4
+//                 KNLIST/KVLIST/FNLIST). beauty.sno-faithful classifier patterns
+//                 Function/BuiltinVar/SpecialNm/ProtKwd/UnprotKwd via *match.
 /*====================================================================================================================*/
 E_Parse            = "'Parse'";
 E_goU              = "':go'";
@@ -38,6 +42,74 @@ E_BREAK            = "'E_BREAK'";
 E_SPAN             = "'E_SPAN'";
 E_ANY              = "'E_ANY'";
 E_NOTANY           = "'E_NOTANY'";
+/*====================================================================================================================*/
+// SN-7-7c — classifier infrastructure (beauty.sno-faithful, cross-runtime union).
+//
+// Sources scanned: SPITBOL x64 sbl.min sv-classes, SPITBOL x32 s.min sv-classes,
+// csnobol4 v311.sil KNLIST/KVLIST/FNLIST.  x32 ≡ x64 (verified). Conflicts
+// resolved per beauty.sno (the canonical model file): ERRTEXT/ERRTYPE are
+// UnprotKwds (settable in SPITBOL) not ProtKwds (csnobol4 quirk).
+//
+// Functions (123)  : SPITBOL svfnf+svfnn+svfnp+svfpr+svfnk+svfpk ∪ csnobol4 FNLIST
+// UnprotKwds (21)  : SPITBOL svknm-settable + svfnk ∪ csnobol4 KNLIST
+// ProtKwds (28)    : SPITBOL svknm-r/o + svkvc + svkvl + svkwc + svfpk ∪ csnobol4 KVLIST
+//                    (− ERRTEXT/ERRTYPE per SPITBOL+beauty.sno)
+// BuiltinVars (7)  : SPITBOL svkvc + svkvl + class-0 (predefined patterns + TERMINAL)
+// SpecialNms (8)   : SPITBOL svlbl + ABORT (svkvl) + START (legacy MS4 entry label)
+//
+// Names with multi-role membership (e.g. INPUT, OUTPUT, TRACE, TRIM, CODE, DUMP,
+// FENCE, ABORT, ARB, BAL, FAIL, REM, SUCCEED) appear in multiple lists by design.
+// Parser order in Expr17 matters: classified Function tried first, plain *Id last.
+/*--------------------------------------------------------------------------------------------------------------------*/
+Functions   = 'ABS AND ANY APPEND APPLY ARBNO ARG ARRAY ATAN BACKSPACE '
+              'BCHAR BREAK BREAKX BSIZE BUFFER CC CHAR CHOP CLEAR CODE '
+              'COLLECT COMPL CONVERT COPY COS DATA DATATYPE DATE DEF DEFINE '
+              'DEPTH DETACH DIFFER DUMP DUP DUPL EJECT ENDFILE EQ EVAL EXIT '
+              'EXP FENCE FIELD FIX FREEZE FRONT FUNCTION GE GT HEIGHT HOR '
+              'HOR_REG HOST IDENT INPUT INSERT INTEGER IT ITEM LABEL LE LEN '
+              'LEQ LGE LGT LLE LLT LN LNE LOAD LOC LOCAL LPAD LRECL LT '
+              'MERGE NE NODE NORM_REG NOTANY OPSYN OR OUTPUT OVY PAR POS '
+              'PRINT PROTOTYPE REMDR REP REPLACE REVERSE REWIND RPAD RPOS '
+              'RSORT RTAB SER SET SETEXIT SIN SIZE SLAB SORT SPAN SQRT '
+              'STOPTR SUBSTR TAB TABLE TAN THAW TIME TRACE TRIM UNLOAD '
+              'VALUE VDIFFER VER VER_REG WIDTH XOR ';
+UnprotKwds  = 'ABEND ANCHOR CASE CODE COMPARE DUMP ERRLIMIT ERRTEXT ERRTYPE '
+              'FATALLIMIT FILL FTRACE FULLSCAN GTRACE INPUT MAXLNGTH OUTPUT '
+              'PROFILE STLIMIT TRACE TRIM ';
+ProtKwds    = 'ABORT ALPHABET ARB BAL COMPNO DIGITS FAIL FATAL FENCE FILE '
+              'FNCLEVEL GCTIME LASTFILE LASTLINE LASTNO LCASE LINE MAXINT '
+              'PARM PI REM RTNTYPE STCOUNT STEXEC STFCOUNT STNO SUCCEED '
+              'UCASE ';
+BuiltinVars = 'ABORT ARB BAL FAIL REM SUCCEED TERMINAL ';
+SpecialNms  = 'ABORT CONTINUE END FRETURN NRETURN RETURN SCONTINUE START ';
+/*--------------------------------------------------------------------------------------------------------------------*/
+// Inline helpers (sn_match, sn_upr) — kept local to parser_snobol4.sc to avoid
+// expanding the shared parser test blob.  No other PARSER-* parser uses these.
+function sn_match(subject, pattern) { sn_match = .dummy; if (subject ? pattern) nreturn; else freturn; }
+function sn_upr(s)                  { sn_upr   = REPLACE(s, &LCASE, &UCASE); return; }
+//
+// TxInList — succeeds iff *upr(tx) appears as a whole space-separated word in
+// the subject list.  Each list above ends with a trailing space so the last
+// word matches via the leading-space disjunct (no special end-of-string case).
+TxInList    =  (POS(0) | ' ') *sn_upr(tx) (' ' | RPOS(0));
+//
+// Classifier patterns — capture identifier into tx via immediate-bind, then
+// succeed iff tx ∈ list (else propagate failure to the enclosing alternative).
+// Form: `pat $ tx $ *sn_match(List, TxInList)` — left-associative `$` chain.
+//   First $:  binary E_CAPT_IMMED_ASGN — bind tx to matched portion of pat.
+//   Second $: same operator with a deferred call as the variable-name
+//             expression; sn_match returns .dummy on success (assignment to
+//             dummy is a no-op side effect) or freturns to fail the match.
+// These are BARE — no leading `&` in ProtKwd/UnprotKwd. Callers in Expr14
+// consume `&` themselves and compose via `shift(*ProtKwd, E_KEYWORD)`, which
+// expands (per semantic.sc) to `*ProtKwd . thx . *Shift(E_KEYWORD, thx)` —
+// the thx-relay idiom that reads thx immediately after the sub-match completes.
+// Same composition in Expr17 for *Function/*BuiltinVar/*SpecialNm via `~`.
+Function    =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *sn_match(Functions,   TxInList);
+BuiltinVar  =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *sn_match(BuiltinVars, TxInList);
+SpecialNm   =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *sn_match(SpecialNms,  TxInList);
+ProtKwd     =  SPAN(&UCASE &LCASE)                $ tx $ *sn_match(ProtKwds,    TxInList);
+UnprotKwd   =  SPAN(&UCASE &LCASE)                $ tx $ *sn_match(UnprotKwds,  TxInList);
 /*====================================================================================================================*/
 // PATTERN block — beauty.sno grammar; shift/reduce tags are canonical E_*.
 /*====================================================================================================================*/
@@ -126,7 +198,8 @@ Expr13      =  *Expr14 FENCE($'~' *Expr13 ("'~'" & 2) | epsilon);
 Expr14      =  '@' *Expr14 ("'@'" & 1)
             |  '~' *Expr14 ("'~'" & 1)
             |  '?' *Expr14 ("'?'" & 1)
-            |  '&' shift(SPAN(&UCASE &LCASE), E_KEYWORD)
+            |  '&' shift(*ProtKwd,   E_KEYWORD)
+            |  '&' shift(*UnprotKwd, E_KEYWORD)
             |  '+' *Expr14 (E_PLS & 1)
             |  '-' *Expr14 (E_MNS & 1)
             |  '*' *Expr14 reduce(E_DEFER, 1)
@@ -153,6 +226,10 @@ Expr17      =  FENCE(
                   )
                   $')'
                   nPop()
+               |  *Function   ~ E_VAR $'(' *ExprList $')' (E_FNC & 2)
+               |  *Function   ~ E_VAR
+               |  *BuiltinVar ~ E_VAR
+               |  *SpecialNm  ~ E_VAR
                |  *Id ~ E_VAR $'(' *ExprList $')' (E_FNC & 2)
                |  *Id ~ E_VAR
                |  *String Push_qlit
