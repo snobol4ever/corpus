@@ -68,6 +68,7 @@ E_LT        = "'E_LT'";       E_LE       = "'E_LE'";
 E_GT        = "'E_GT'";       E_GE       = "'E_GE'";
 E_IF        = "'E_IF'";       E_WHILE    = "'E_WHILE'";
 E_RETURN    = "'E_RETURN'";   E_TO       = "'E_TO'";
+E_NOT       = "'E_NOT'";      E_UNTIL    = "'E_UNTIL'";
 E_Parse     = "'Parse'";
 /*====================================================================================================================*/
 // Whitespace primitives.  White / Gray are the cross-parser canonical names;
@@ -94,6 +95,7 @@ $'if'     = $' ' 'if'    ;  $'else'   = $' ' 'else'  ;
 $'while'  = $' ' 'while' ;  $'for'    = $' ' 'for'   ;
 $'sub'    = $' ' 'sub'   ;  $'return' = $' ' 'return';
 $'exists' = $' ' 'exists';  $'delete' = $' ' 'delete';
+$'unless' = $' ' 'unless';  $'until'  = $' ' 'until';
 /*====================================================================================================================*/
 // Operator tokens — optional whitespace both sides.  Open brackets: ws after only.  Close: ws before only.
 /*====================================================================================================================*/
@@ -537,6 +539,21 @@ function finish_smartmatch(pat, subj, fn, node) {
 }
 Finish_smartmatch = (epsilon . *finish_smartmatch());
 /*--------------------------------------------------------------------------------------------------------------------*/
+// finish_not — wrap top-of-stack expr in (E_NOT expr).
+// Used by UnlessStmt: unless (cond) → (E_IF (E_NOT cond) then [else]).
+// Retained: reduce() with arity 1 builds a new node but cannot wrap an existing
+// node; we need to pop, wrap, and push.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_not(inner, node) {
+    inner = Pop();
+    node  = tree('E_NOT', '');
+    Append(node, inner);
+    Push(node);
+    finish_not = .dummy;
+    nreturn;
+}
+Finish_not = (epsilon . *finish_not());
+/*--------------------------------------------------------------------------------------------------------------------*/
 // finish_say — say → write name remap.  Pops arg, builds E_FNC write.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_say(arg, fn, node) {
@@ -856,6 +873,23 @@ WhileStmt = ( $'while'  $'(' Expr $')'
               (E_WHILE & 2)
             );
 
+// UnlessStmt — unless (cond) block [else block].
+// Mirrors raku.y: (E_IF (E_NOT cond) then [else]).
+UnlessStmt = ( $'unless'  $'(' Expr $')'
+               Finish_not
+               Block
+               ( $'else'  Block  (E_IF & 3)
+               | (E_IF & 2)
+               )
+             );
+
+// UntilStmt — until (cond) block.
+// Mirrors raku.y: (E_UNTIL cond body).
+UntilStmt = ( $'until'  $'(' Expr $')'
+              Block
+              (E_UNTIL & 2)
+            );
+
 ForStmt = ( $'for' $'  '  Expr
             $'->'
             ForLoopvar  Store_for_iter
@@ -907,6 +941,8 @@ BareStmt = ( Expr $';' );
 
 Stmt = ( IfStmt
        | WhileStmt
+       | UnlessStmt
+       | UntilStmt
        | ForRangeStmt
        | ForStmt
        | DeleteHashAngle
@@ -918,10 +954,10 @@ Stmt = ( IfStmt
        );
 
 // BlockStmt — final binding.
-BlockStmt = ( IfStmt | WhileStmt | ForRangeStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ReturnStmt | AssignStmt | SayStmt | BareStmt );
+BlockStmt = ( IfStmt | WhileStmt | UnlessStmt | UntilStmt | ForRangeStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ReturnStmt | AssignStmt | SayStmt | BareStmt );
 
 // SubBlockStmt — SubBlock_body handles nInc per stmt.
-SubBlockStmt = ( IfStmt | WhileStmt | ForRangeStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ReturnStmt | AssignStmt | SayStmt | BareStmt );
+SubBlockStmt = ( IfStmt | WhileStmt | UnlessStmt | UntilStmt | ForRangeStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ReturnStmt | AssignStmt | SayStmt | BareStmt );
 /*====================================================================================================================*/
 // Sub parameter list — each param shifts (E_VAR name) onto sub counter frame.
 /*====================================================================================================================*/

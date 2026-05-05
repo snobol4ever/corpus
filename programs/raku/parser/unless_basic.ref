@@ -1,0 +1,13 @@
+(STMT :subj (E_FNC main
+  (E_VAR main)
+  (E_IF
+    (E_NOT (E_EQ
+        (E_VAR x)
+        (E_ILIT 0)
+      ))
+    (E_SEQ_EXPR (E_FNC write
+        (E_VAR write)
+        (E_VAR x)
+      ))
+  )
+))
