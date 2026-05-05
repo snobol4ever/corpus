@@ -1,45 +1,52 @@
+// parser_snocone.sc — PARSER-SC: Snocone pattern-based frontend in Snocone.
+//
+// ONE Compiland PATTERN matched once against the entire source; emits one
+// IR tree per statement via TDump.  Byte-identical (whitespace-normalized)
+// to scrip's existing Snocone frontend --dump-ir output.
+//
+// Naming: non-terminals from Snocone grammar; IR tags from ir.h E_*;
+// whitespace: $'  ' = required, $' ' = optional (beauty.sno convention).
+// Pattern-builder companions (Capitalized) return deferred-action patterns at build time.
+// Rung SC-3: if / if-else / while / do-while.  Gate: PASS=21 FAIL=0.
 &FULLSCAN = 1;
 /*====================================================================================================================*/
-E_ASSIGN          = "'E_ASSIGN'";
-E_SCAN            = "'E_SCAN'";
-E_ALT             = "'E_ALT'";
-E_SEQ             = "'E_SEQ'";
-E_ADD             = "'E_ADD'";
-E_SUB             = "'E_SUB'";
-E_MUL             = "'E_MUL'";
-E_DIV             = "'E_DIV'";
-E_POW             = "'E_POW'";
-E_QLIT            = "'E_QLIT'";
-E_ILIT            = "'E_ILIT'";
-E_VAR             = "'E_VAR'";
-E_KEYWORD         = "'E_KEYWORD'";
-E_IDX             = "'E_IDX'";
-E_FLIT            = "'E_FLIT'";
-E_MNS             = "'E_MNS'";
-E_DEFER           = "'E_DEFER'";
-E_NOT             = "'E_NOT'";
-E_NAME            = "'E_NAME'";
-E_INDIRECT        = "'E_INDIRECT'";
+E_ASSIGN  = "'E_ASSIGN'";  E_SCAN    = "'E_SCAN'";
+E_ALT     = "'E_ALT'";     E_SEQ     = "'E_SEQ'";
+E_ADD     = "'E_ADD'";     E_SUB     = "'E_SUB'";
+E_MUL     = "'E_MUL'";     E_DIV     = "'E_DIV'";
+E_POW     = "'E_POW'";
+E_QLIT    = "'E_QLIT'";    E_ILIT    = "'E_ILIT'";   E_VAR     = "'E_VAR'";
+E_KEYWORD = "'E_KEYWORD'"; E_IDX     = "'E_IDX'";
+E_FLIT    = "'E_FLIT'";    E_MNS     = "'E_MNS'";
+E_DEFER   = "'E_DEFER'";   E_NOT     = "'E_NOT'";
+E_NAME    = "'E_NAME'";    E_INDIRECT= "'E_INDIRECT'";
 E_CAPT_COND_ASGN  = "'E_CAPT_COND_ASGN'";
 E_CAPT_IMMED_ASGN = "'E_CAPT_IMMED_ASGN'";
 E_CAPT_CURSOR     = "'E_CAPT_CURSOR'";
 E_VLIST           = "'E_VLIST'";
 E_NUL             = "'E_NUL'";
-E_Parse           = "'Parse'";
-r_nTop            = '*(GT(nTop(), 1) nTop())';
+E_Parse   = "'Parse'";
+r_nTop    = '*(GT(nTop(), 1) nTop())';
 /*====================================================================================================================*/
-White    = (  SPAN(' ' tab nl)
-           |  '//' BREAK(nl) nl
-           |  '/*' BREAKX('*') '*/'
+Block    = '/*' ARBNO(BREAK('*') ANY('*')) '/';
+// Snocone whitespace: blanks, tabs, newlines, // line comments, /* block comments */
+// — all equivalent (ARCH-SNOCONE.md).  No continuation lines.
+White    = (  SPAN(' ' tab nl)  FENCE(  '//' BREAK(nl)
+                                     |  Block
+                                     |  epsilon
+                                     )
+           |  '//' BREAK(nl)
+           |  Block
            );
-Gray     = White | epsilon;
-$'  '    = White;
+Gray     = ARBNO(*White);
 $' '     = Gray;
+$'  '    = White;
 /*--------------------------------------------------------------------------------------------------------------------*/
+// Token classifiers — PATTERNS.
 Integer  = SPAN(digits);
-DQ_lit   = ('"' BREAK('"') . strbody '"');
-SQ_lit   = ("'" BREAK("'") . strbody "'");
-String   = (*SQ_lit | *DQ_lit);
+DQ       = ('"'  BREAK('"')  . strbody '"');
+SQ_lit   = ("'"  BREAK("'")  . strbody "'");
+String   = (*SQ_lit | *DQ);
 Id       = (ANY(&UCASE &LCASE '_')
             FENCE(SPAN('.' digits &UCASE '_' &LCASE) | epsilon));
 Real     = (  SPAN(digits)
@@ -51,62 +58,59 @@ Real     = (  SPAN(digits)
            );
 Keyword  = ('&' SPAN(&UCASE &LCASE '_') . kw_name);
 /*--------------------------------------------------------------------------------------------------------------------*/
-kw_rest     = '';
-kw_tail     = FENCE(SPAN(&UCASE &LCASE digits '_') | epsilon) . kw_rest IDENT(kw_rest);
+// Operator tokens — beauty.sc $'x' style.  Open brackets: ws both sides (Snocone is whitespace-sensitive like SNOBOL4).  Close: ws before only.
+// Bracketing / punctuation
+$'('   = $' ' '('  $' ';  $')'   = $' ' ')';
+$'{'   = $' ' '{'  $' ';  $'}'   = $' ' '}';
+$'['   = $' ' '['  $' ';  $']'   = $' ' ']';
+$';'   = $' ' ';';        $','   = $' ' ','  $' ';
+$':'   = $' ' ':'  $' ';
+// Pri-0 / pri-1 / pri-3 operators (beauty.sno tier names)
+$'='   = $' ' '='  $' ';  $'?'   = $' ' '?'  $' ';
+$'|'   = $' ' '|'  $' ';
+// Arith binary
+$'+'   = $' ' '+'  $' ';  $'-'   = $' ' '-'  $' ';
+$'*'   = $' ' '*'  $' ';  $'/'   = $' ' '/'  $' ';
+$'^'   = $' ' '^'  $' ';  $'**'  = $' ' '**' $' ';
+$'!'   = $' ' '!'  $' ';
+// Pattern-build operators (SNOBOL4 inheritance)
+$'$'   = $' ' '$'  $' ';  $'.'   = $' ' '.'  $' ';
+$'&'   = $' ' '&'  $' ';
+// Cursor / position operators (SNOBOL4 inheritance)
+$'@'   = $' ' '@'  $' ';  $'#'   = $' ' '#'  $' ';
+$'%'   = $' ' '%'  $' ';  $'~'   = $' ' '~'  $' ';
+// Numeric comparison
+$'=='  = $' ' '==' $' ';  $'!='  = $' ' '!=' $' ';
+$'<'   = $' ' '<'  $' ';  $'>'   = $' ' '>'  $' ';
+$'<='  = $' ' '<=' $' ';  $'>='  = $' ' '>=' $' ';
+// Lexical comparison (suffix `:`)
+$'==:' = $' ' '==:' $' '; $'!=:' = $' ' '!=:' $' ';
+$'<:'  = $' ' '<:'  $' '; $'>:'  = $' ' '>:'  $' ';
+$'<=:' = $' ' '<=:' $' '; $'>=:' = $' ' '>=:' $' ';
+// Identity
+$'::'  = $' ' '::' $' ';  $':!:' = $' ' ':!:' $' ';
+// Augmented assign
+$'+='  = $' ' '+=' $' ';  $'-='  = $' ' '-=' $' ';
+$'*='  = $' ' '*=' $' ';  $'/='  = $' ' '/=' $' ';
+$'^='  = $' ' '^=' $' ';
+/*--------------------------------------------------------------------------------------------------------------------*/
+// Keyword guards — keyword not a prefix of a longer identifier.
+kw_tail   = FENCE(SPAN(&UCASE &LCASE digits '_') | epsilon) . kw_rest IDENT(kw_rest);
+kw_if       = ('if'       kw_tail);
+kw_while    = ('while'    kw_tail);
 kw_do       = ('do'       kw_tail);
 kw_else     = ('else'     kw_tail);
-kw_for      = ('for'      kw_tail);
-kw_freturn  = ('freturn'  kw_tail);
 kw_function = ('function' kw_tail);
-kw_goto     = ('goto'     kw_tail);
-kw_if       = ('if'       kw_tail);
-kw_nreturn  = ('nreturn'  kw_tail);
 kw_return   = ('return'   kw_tail);
-kw_while    = ('while'    kw_tail);
-/*--------------------------------------------------------------------------------------------------------------------*/
-$'('   = $' ' '(' $' ';
-$')'   = $' ' ')' $' ';
-$'{'   = $' ' '{' $' ';
-$'}'   = $' ' '}' $' ';
-$'['   = $' ' '[' $' ';
-$']'   = $' ' ']' $' ';
-$';'   = $' ' ';' $' ';
-$','   = $' ' ',' $' ';
-$':'   = $' ' ':' $' ';
-/*--------------------------------------------------------------------------------------------------------------------*/
-$'='   = $'  ' '='   $'  ';
-$'?'   = $'  ' '?'   $'  ';
-$'|'   = $'  ' '|'   $'  ';
-$'+'   = $'  ' '+'   $'  ';
-$'-'   = $'  ' '-'   $'  ';
-$'*'   = $'  ' '*'   $'  ';
-$'/'   = $'  ' '/'   $'  ';
-$'^'   = $'  ' '^'   $'  ';
-$'**'  = $'  ' '**'  $'  ';
-$'!'   = $'  ' '!'   $'  ';
-$'$'   = $'  ' '$'   $'  ';
-$'.'   = $'  ' '.'   $'  ';
-$'&'   = $'  ' '&'   $'  ';
-$'@'   = $'  ' '@'   $'  ';
-$'#'   = $'  ' '#'   $'  ';
-$'%'   = $'  ' '%'   $'  ';
-$'~'   = $'  ' '~'   $'  ';
-$'=='  = $'  ' '=='  $'  ';
-$'!='  = $'  ' '!='  $'  ';
-$'<'   = $'  ' '<'   $'  ';
-$'>'   = $'  ' '>'   $'  ';
-$'<='  = $'  ' '<='  $'  ';
-$'>='  = $'  ' '>='  $'  ';
-$'::'  = $'  ' '::'  $'  ';
-$':!:' = $' '  ':!:' $' ';
-$'+='  = $'  ' '+='  $'  ';
-$'-='  = $'  ' '-='  $'  ';
-$'*='  = $'  ' '*='  $'  ';
-$'/='  = $'  ' '/='  $'  ';
-$'^='  = $'  ' '^='  $'  ';
+kw_freturn  = ('freturn'  kw_tail);
+kw_nreturn  = ('nreturn'  kw_tail);
+kw_goto     = ('goto'     kw_tail);
+kw_for      = ('for'      kw_tail);
 /*====================================================================================================================*/
+// Global label counter.
 lbl_n = 0;
 /*--------------------------------------------------------------------------------------------------------------------*/
+// Semantic / tree-building helpers.
 function new_label(prefix) {
     lbl_n = lbl_n + 1;
     new_label = '_' prefix '_' LPAD(lbl_n, 4, '0');
