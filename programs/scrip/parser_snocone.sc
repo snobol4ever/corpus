@@ -29,53 +29,18 @@ E_Parse   = "'Parse'";
 r_nTop    = '*(GT(nTop(), 1) nTop())';
 /*====================================================================================================================*/
 Block    = '/*' ARBNO(BREAK('*') ANY('*')) '/';
-// White_h — horizontal whitespace only (space/tab/cr/ff + line comments + block
-// comments); does NOT consume nl.  Used for grouping-paren and call-open so that
-// `$'(g'` never eats a newline and triggers deep recursion through Expr0 → Expr17.
-White_h  = (  SPAN(' ' tab '\r\f') FENCE(  '//' BREAK(nl)
-                                          |  Block
-                                          |  epsilon
-                                          )
+// Snocone whitespace: blanks, tabs, newlines, // line comments, /* block comments */
+// — all equivalent (ARCH-SNOCONE.md).  No continuation lines.
+White    = (  SPAN(' ' tab nl)  FENCE(  '//' BREAK(nl)
+                                     |  Block
+                                     |  epsilon
+                                     )
            |  '//' BREAK(nl)
            |  Block
            );
-// White_expr — expression-level whitespace: horizontal space + continuation lines
-// (nl followed by '+' or '.' at column-1 per S_CONT) + comments.  Does NOT eat
-// bare newlines — those end statements.  Used by $'  ' (required whitespace between
-// tokens in the expression tier) and by $' ' inside operator tokens.
-White_expr = (  SPAN(' ' tab) FENCE(  nl ANY('+.') FENCE(SPAN(' ' tab) | epsilon)
-                                    |  '//' BREAK(nl) nl
-                                    |  '//' BREAK(nl)
-                                    |  Block
-                                    |  epsilon
-                                    )
-             |  nl ANY('+.') FENCE(SPAN(' ' tab) | epsilon)
-             |  '//' BREAK(nl) nl
-             |  '//' BREAK(nl)
-             |  Block
-             );
-// White — same as White_expr but also eats bare newlines (+ following indent).
-// A bare nl matches the newline AND any horizontal whitespace that follows it
-// (indentation of the next line), so that after $'  ' eats a continuation
-// newline the cursor lands directly at the next token, not at the indent spaces.
-White    = (  *White_expr
-           |  nl FENCE(SPAN(' ' tab) | epsilon)
-           );
 Gray     = ARBNO(*White);
-Gray_h   = ARBNO(*White_h);
-// $' ' — optional whitespace: eats bare newlines, comment lines, continuation
-//         lines (Gray = ARBNO(*White)).  Used at statement boundaries and inside
-//         operator tokens where newlines are legal separators.
-// $'  ' — required whitespace: same as $' ' but requires at least one segment.
-//         Used by X4 concat separator (matching lexer's T_CONCAT synthesis across
-//         any whitespace including bare newlines inside balanced parens).
 $' '     = Gray;
 $'  '    = White;
-// $'(g' — grouping-open paren: horizontal-only Gray before '(', then full Gray
-// after.  Prevents Expr17's grouping-paren from eating a newline on the left and
-// recursing into the full Expr tower (which causes C-stack overflow on long inputs).
-$'(g'    = Gray_h '(' $' ';
-nl_opt   = (nl | epsilon);
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Token classifiers — PATTERNS.
 Integer  = SPAN(digits);
@@ -411,7 +376,7 @@ function push_idx(base, idx) {
     Push(Tree('E_IDX', '', 2, base, idx));
     push_idx = .dummy; nreturn;
 }
-// paren_reduce — fires after $'(g' nPush() ... Paren_reduce() nPop().
+// paren_reduce — fires after $'(' nPush() ... Paren_reduce() nPop().
 // n=0: push E_NUL (empty parens).
 // n=1: pop single child, push it directly (plain grouping paren).
 // n>1: pop n children, build E_VLIST(c1..cN).
@@ -560,23 +525,23 @@ function Finalize_for(nbody_v) {
 // IMPORTANT: nPush / nInc fire AFTER '(' is confirmed so that when Call fails
 // (Id present but no '(' follows) the n-ary stack is left untouched and FENCE
 // in Expr17 falls through cleanly to the bare *Id ~ 'E_VAR' alternative.
-// Gray_h (horizontal-only) for '(' so a newline between id and '(' is NOT a call.
+// $' ' (horizontal-only) for '(' so a newline between id and '(' is NOT a call.
 ArgFirst = ( *Expr0 nInc() );
 ArgRest  = ( $','   *Expr0 nInc() );
 CallArgs = ( ArgFirst ARBNO(ArgRest) | epsilon );
 Call     = ( (*Id . captured_call_name)
-             FENCE( Gray_h '(' $' ' nPush() Push_call_name_var()
+             FENCE( $' ' '(' $' ' nPush() Push_call_name_var()
                     CallArgs $')' Decompose_call() nPop()
                   )
            );
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Expression tower — Snocone operator precedence.
-// Grouping paren uses $'(g' (horizontal-only open) to prevent NL-inclusive Gray
+// Grouping paren uses $'(' (horizontal-only open) to prevent NL-inclusive Gray
 // from eating a newline before '(' and then recursing into the full expression
 // tower — which would overflow the C stack on multi-line inputs like beauty.sc.
 Expr17 = FENCE(
              *Call
-           | $'(g' nPush()
+           | $'(' nPush()
              FENCE(
                nInc() *Expr0 ARBNO($',' nInc() *Expr0) $')' Paren_reduce() nPop()
              | $')' (E_NUL & 0) nPop()
@@ -624,15 +589,15 @@ X3     = nInc() *Expr4 FENCE($'|' *X3 | epsilon);
 Expr1  = *Expr3 FENCE($'?' *Expr1 (E_SCAN   & 2) | epsilon);
 Expr0  = *Expr1 FENCE($'=' FENCE(*Expr0 | Push_empty_str()) (E_ASSIGN & 2) | epsilon);
 /*====================================================================================================================*/
-stmt_body = ($' ' *Expr0 $' ' ($';' | epsilon) $' ' nl_opt Decompose_stmt());
+stmt_body = ($' ' *Expr0 $' ' ($';' | epsilon) $' ' $' ' Decompose_stmt());
 stmt_cmd  = (nInc() stmt_body);
 /*--------------------------------------------------------------------------------------------------------------------*/
 if_cmd =
     ( nInc()
-      $' ' *kw_if   $'(' *Expr0 Save_cond() $')' $' ' nl_opt
-      $'{' nl_opt    Body('if_nthen')    $'}' $' ' nl_opt
-      ( *kw_else $' ' nl_opt
-        ( $'{' nl_opt  Body('if_nelse')    $'}' $' ' nl_opt
+      $' ' *kw_if   $'(' *Expr0 Save_cond() $')' $' ' $' '
+      $'{' $' '    Body('if_nthen')    $'}' $' ' $' '
+      ( *kw_else $' ' $' '
+        ( $'{' $' '  Body('if_nelse')    $'}' $' ' $' '
         | nPush() if_cmd Save_nbody('if_nelse') nPop()
         )
         Finalize_if_else('if_nthen', 'if_nelse', 'saved_cond')
@@ -642,27 +607,27 @@ if_cmd =
 while_cmd =
     ( nInc()
       $' ' *kw_while $'(' *Expr0 Save_cond()
-                          While_head_alloc() $')' $' ' nl_opt
-      $'{' nl_opt Body('wh_nbody') $'}' $' ' nl_opt
+                          While_head_alloc() $')' $' ' $' '
+      $'{' $' ' Body('wh_nbody') $'}' $' ' $' '
       Finalize_while('wh_nbody', 'saved_cond')
     );
 do_cmd =
     ( nInc()
-      $' ' *kw_do $' ' nl_opt Do_head_alloc()
-      $'{' nl_opt Body('do_nbody') $'}' $' ' nl_opt
-      *kw_while $'(' *Expr0 Save_cond() $')' ($';' | epsilon) $' ' nl_opt
+      $' ' *kw_do $' ' $' ' Do_head_alloc()
+      $'{' $' ' Body('do_nbody') $'}' $' ' $' '
+      *kw_while $'(' *Expr0 Save_cond() $')' ($';' | epsilon) $' ' $' '
       Finalize_do('do_nbody', 'saved_cond')
     );
-empty_cmd    = ($' ' $';' $' ' nl_opt);
-goto_cmd     = ( nInc() $' ' *kw_goto $'  ' (*Id . captured_goto) $' ' $';' $' ' nl_opt Goto_emit() );
-label_prefix = ( $' ' (*Id . captured_label) $' ' ':' $' ' nl_opt Label_emit() nInc() );
+empty_cmd    = ($' ' $';' $' ' $' ');
+goto_cmd     = ( nInc() $' ' *kw_goto $'  ' (*Id . captured_goto) $' ' $';' $' ' $' ' Goto_emit() );
+label_prefix = ( $' ' (*Id . captured_label) $' ' ':' $' ' $' ' Label_emit() nInc() );
 for_cmd =
     ( nInc()
       $' ' *kw_for $'(' $' ' *Expr0 $' '
       $';' $' ' *Expr0 $' ' $';' $' ' *Expr0 $' ' $')'
       For_head_alloc()
-      $' ' nl_opt
-      ( $'{' nl_opt Body('for_nbody') $'}' $' ' nl_opt
+      $' ' $' '
+      ( $'{' $' ' Body('for_nbody') $'}' $' ' $' '
       | Body('for_nbody')
       )
       Finalize_for('for_nbody')
@@ -676,18 +641,18 @@ ParamList  = ( ParamFirst ARBNO(ParamRest) | epsilon );
 func_cmd =
     ( nInc()
       $' ' *kw_function $'  ' (*Id . captured_name) Func_head_save_name()
-      $'(' ParamList $')' $' ' nl_opt
-      $'{' nl_opt BodyFn('fn_nbody') $'}' $' ' nl_opt
+      $'(' ParamList $')' $' ' $' '
+      $'{' $' ' BodyFn('fn_nbody') $'}' $' ' $' '
       Finalize_function('fn_nbody')
     );
 return_cmd =
     ( nInc() $' ' *kw_return
-      ( $'  ' *Expr0 $' ' $';' $' ' nl_opt Emit_return_value()
-      | $' '         $';' $' ' nl_opt Emit_return_void()
+      ( $'  ' *Expr0 $' ' $';' $' ' $' ' Emit_return_value()
+      | $' '         $';' $' ' $' ' Emit_return_void()
       )
     );
-freturn_cmd = ( nInc() $' ' *kw_freturn $' ' $';' $' ' nl_opt Emit_freturn() );
-nreturn_cmd = ( nInc() $' ' *kw_nreturn $' ' $';' $' ' nl_opt Emit_nreturn() );
+freturn_cmd = ( nInc() $' ' *kw_freturn $' ' $';' $' ' $' ' Emit_freturn() );
+nreturn_cmd = ( nInc() $' ' *kw_nreturn $' ' $';' $' ' $' ' Emit_nreturn() );
 body_fn_cmd = ( if_cmd | while_cmd | do_cmd | for_cmd | func_cmd
               | return_cmd | freturn_cmd | nreturn_cmd
               | goto_cmd | label_prefix | empty_cmd | stmt_cmd );
