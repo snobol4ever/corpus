@@ -6,7 +6,7 @@
 //
 // Naming: non-terminals from icon-sp.ebnf; IR tags from ir.h E_*;
 // whitespace: $'  ' = required, $' ' = optional (beauty.sno convention).
-// ic_decompose_proc is the ONE tree-building helper (proc-frame collapse).
+// decompose_proc is the ONE tree-building helper (proc-frame collapse).
 /*====================================================================================================================*/
 E_ASSIGN    = "'E_ASSIGN'";   E_SCAN      = "'E_SCAN'";
 E_ALTERNATE = "'E_ALTERNATE'";E_AUGOP     = "'E_AUGOP'";
@@ -38,8 +38,8 @@ id_first     = ANY(&UCASE &LCASE '_');
 id_rest      = SPAN(digits &UCASE &LCASE '_');
 id_pat       = (id_first (id_rest | epsilon));
 int_pat      = SPAN(digits);
-// String: capture inner body (without quotes) via dot-capture + ic_push_qlit.
-str_pat      = ('"' BREAK('"') . ic_strbody '"');
+// String: capture inner body (without quotes) via dot-capture + push_qlit.
+str_pat      = ('"' BREAK('"') . strbody '"');
 semi_opt     = (';' | epsilon);
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Keyword tokens — leading optional whitespace only (next token supplies its own left-ws as effective suffix).
@@ -63,17 +63,17 @@ $'('   = $' ' '(' $' ';  $')'   = $' ' ')';
 $'{'   = $' ' '{' $' ';  $'}'   = $' ' '}';
 $'<'   = $' ' '<' $' ';  $'>'   = $' ' '>';
 /*====================================================================================================================*/
-// ic_push_qlit — shift (E_QLIT body) using dot-captured ic_strbody.
-function ic_push_qlit() {
-    Push(tree('E_QLIT', ic_strbody));
-    ic_push_qlit = .dummy;
+// push_qlit — shift (E_QLIT body) using dot-captured strbody.
+function push_qlit() {
+    Push(tree('E_QLIT', strbody));
+    push_qlit = .dummy;
     nreturn;
 }
-qlit_done = (epsilon . *ic_push_qlit());
+Push_qlit = (epsilon . *push_qlit());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// ic_decompose_proc — pop proc-frame children; build (STMT :subj (E_FNC pname ...)).
+// decompose_proc — pop proc-frame children; build (STMT :subj (E_FNC pname ...)).
 // pname is read from v(child[1]) — the (E_VAR pname) shifted by Prochead.
-function ic_decompose_proc(n_kids, kids, pname, proc, i) {
+function decompose_proc(n_kids, kids, pname, proc, i) {
     n_kids = TopCounter();
     kids = GT(n_kids, 0) ARRAY('1:' n_kids);
     i = n_kids;
@@ -89,10 +89,10 @@ function ic_decompose_proc(n_kids, kids, pname, proc, i) {
         i = i + 1;
     }
     Push(Tree('STMT', '', 1, Tree(':subj', '', 1, proc)));
-    ic_decompose_proc = .dummy;
+    decompose_proc = .dummy;
     nreturn;
 }
-proc_done = (epsilon . *ic_decompose_proc());
+Decompose_proc = (epsilon . *decompose_proc());
 /*====================================================================================================================*/
 // Expression tower — canonical names from icon-sp.ebnf.
 // Expr11 = primary; tighter -> looser: Expr10 (unary) -> Expr8 (pow) ->
@@ -138,7 +138,7 @@ Compound      = ( nPush()
                 );
 /*--------------------------------------------------------------------------------------------------------------------*/
 Expr11 = (   If  |  While  |  Every  |  Call  |  Paren  |  Compound
-         |   $' ' str_pat qlit_done
+         |   $' ' str_pat Push_qlit
          |   $' ' int_pat ~ 'E_ILIT'
          |   $' ' id_pat  ~ 'E_VAR'
          );
@@ -202,7 +202,7 @@ Prochead   = ( $'procedure' $'  ' id_pat ~ 'E_VAR'  nInc()
              );
 ProcbodyEnd = ( $'end' $' ' (nl_one | RPOS(0)) );
 Procbody    = ( ProcbodyEnd | StmtBody *Procbody );
-Proc        = ( nPush()  Prochead  Procbody  proc_done  nPop() );
+Proc        = ( nPush()  Prochead  Procbody  Decompose_proc  nPop() );
 /*====================================================================================================================*/
 Compiland = ( nPush()
               ARBNO( nInc() $' ' Proc $' ' )

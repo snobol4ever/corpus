@@ -7,6 +7,12 @@
 // Naming: non-terminals from ISO/IEC 13211-1 BNF; IR tags from ir.h E_*;
 // whitespace: $'  ' = required, $' ' = optional (beauty.sno convention).
 // Rungs: PR-0..PR-6 (atoms, facts, rules, conj, disj, lists, arith, directives).
+//
+// Pair-shape convention (canonical across all PARSER-* parsers):
+//   - lowercase worker function: side-effect, sets self to .dummy, nreturns.
+//   - Capitalized companion function: returns the pattern fragment that fires
+//     the worker at match time (`epsilon . *worker()` or EVAL form for args).
+//   - Grammar references the Capitalized companion only.
 /*====================================================================================================================*/
 E_FNC    = "'E_FNC'";   E_ILIT   = "'E_ILIT'";   E_UNIFY  = "'E_UNIFY'";
 E_ADD    = "'E_ADD'";   E_SUB    = "'E_SUB'";
@@ -51,36 +57,47 @@ trivia   = ARBNO(White | nl);
 // Per-clause variable scope.
 var_table = TABLE();
 var_next  = 0;
-function Reset_var_scope() {
+function reset_var_scope() {
     var_table = TABLE();
     var_next  = 0;
-    Reset_var_scope = .dummy;
+    reset_var_scope = .dummy;
     nreturn;
 }
-function Resolve_var(name, slot) {
+Reset_var_scope = epsilon . *reset_var_scope();
+/*--------------------------------------------------------------------------------------------------------------------*/
+// resolve_var — plain helper, called from push_var; never embedded in patterns.
+function resolve_var(name, slot) {
     slot = var_table[name];
     if (~DIFFER(slot)) {
         slot = var_next;
         var_table[name] = slot;
         var_next = var_next + 1;
     }
-    Resolve_var = '_V' slot;
+    resolve_var = '_V' slot;
     return;
 }
-function Push_var(name) {
+/*--------------------------------------------------------------------------------------------------------------------*/
+function push_var(varname, name) {
+    name = $varname;
     if (IDENT(name, '_')) {
         Push(tree('E_VAR', '_ANON'));
-        Push_var = .dummy;
+        push_var = .dummy;
         nreturn;
     }
-    Push(tree('E_VAR', Resolve_var(name)));
-    Push_var = .dummy;
+    Push(tree('E_VAR', resolve_var(name)));
+    push_var = .dummy;
     nreturn;
 }
-// Assign_anon_slots — walk tree x replacing each (E_VAR _ANON) with fresh _Vk.
+function Push_var(varname) {
+    Push_var = EVAL("epsilon . thx . *push_var('" varname "')");
+    return;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+// assign_anon_slots — walk tree x replacing each (E_VAR _ANON) with fresh _Vk.
 // Children visited in reverse order to mirror prolog_lower.c::assign_clause_anon_slots.
-function Assign_anon_slots(x, i, kid) {
-    if (~DIFFER(x)) { Assign_anon_slots = .dummy; nreturn; }
+// Plain helper — never embedded in patterns; no companion needed.
+function assign_anon_slots(x, i, kid) {
+    if (~DIFFER(x)) { assign_anon_slots = .dummy; nreturn; }
     if (IDENT(t(x), 'E_VAR') IDENT(v(x), '_ANON')) {
         v(x) = '_V' var_next;
         var_next = var_next + 1;
@@ -88,38 +105,53 @@ function Assign_anon_slots(x, i, kid) {
     i = n(x);
     while (i > 0) {
         kid = c(x)[i];
-        Assign_anon_slots(kid);
+        assign_anon_slots(kid);
         i = i - 1;
     }
-    Assign_anon_slots = .dummy;
+    assign_anon_slots = .dummy;
     nreturn;
 }
-function Push_atom_body(body) {
-    Push(tree('E_FNC', body));
-    Push_atom_body = .dummy;
+/*--------------------------------------------------------------------------------------------------------------------*/
+function push_atom_body(varname) {
+    Push(tree('E_FNC', $varname));
+    push_atom_body = .dummy;
     nreturn;
 }
-function Push_nil() {
+function Push_atom_body(varname) {
+    Push_atom_body = EVAL("epsilon . thx . *push_atom_body('" varname "')");
+    return;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+function push_nil() {
     Push(tree('E_FNC', '[]'));
-    Push_nil = .dummy;
+    push_nil = .dummy;
     nreturn;
 }
-function Push_neg_int(digits) {
-    Push(tree('E_ILIT', '-' digits));
-    Push_neg_int = .dummy;
+Push_nil = epsilon . *push_nil();
+/*--------------------------------------------------------------------------------------------------------------------*/
+function push_neg_int(varname) {
+    Push(tree('E_ILIT', '-' $varname));
+    push_neg_int = .dummy;
     nreturn;
 }
-function Reduce_is(rhs, lhs, fnc_node) {
+function Push_neg_int(varname) {
+    Push_neg_int = EVAL("epsilon . thx . *push_neg_int('" varname "')");
+    return;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+function reduce_is(rhs, lhs, fnc_node) {
     rhs = Pop();
     lhs = Pop();
     fnc_node = Tree('E_FNC', 'is', 0);
     Append(fnc_node, lhs);
     Append(fnc_node, rhs);
     Push(fnc_node);
-    Reduce_is = .dummy;
+    reduce_is = .dummy;
     nreturn;
 }
-function Reduce_list(n, kids, i, tail, cons_node) {
+Reduce_is = epsilon . *reduce_is();
+/*--------------------------------------------------------------------------------------------------------------------*/
+function reduce_list(n, kids, i, tail, cons_node) {
     n    = nTop();
     tail = Pop();
     kids = ARRAY(n + 1);
@@ -137,10 +169,13 @@ function Reduce_list(n, kids, i, tail, cons_node) {
         i = i - 1;
     }
     Push(tail);
-    Reduce_list = .dummy;
+    reduce_list = .dummy;
     nreturn;
 }
-function Reduce_compound(name, n, fnc_node, kids, i) {
+Reduce_list = epsilon . *reduce_list();
+/*--------------------------------------------------------------------------------------------------------------------*/
+function reduce_compound(varname, name, n, fnc_node, kids, i) {
+    name = $varname;
     n = nTop();
     kids = ARRAY(n + 1);
     i = n;
@@ -155,12 +190,17 @@ function Reduce_compound(name, n, fnc_node, kids, i) {
         i = i + 1;
     }
     Push(fnc_node);
-    Reduce_compound = .dummy;
+    reduce_compound = .dummy;
     nreturn;
 }
-function Reduce_conj(n, fnc_node, kids, i) {
+function Reduce_compound(varname) {
+    Reduce_compound = EVAL("epsilon . thx . *reduce_compound('" varname "')");
+    return;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+function reduce_conj(n, fnc_node, kids, i) {
     n = nTop();
-    if (LE(n, 1)) { Reduce_conj = .dummy; nreturn; }
+    if (LE(n, 1)) { reduce_conj = .dummy; nreturn; }
     kids = ARRAY(n + 1);
     i = n;
     while (i > 0) {
@@ -174,12 +214,14 @@ function Reduce_conj(n, fnc_node, kids, i) {
         i = i + 1;
     }
     Push(fnc_node);
-    Reduce_conj = .dummy;
+    reduce_conj = .dummy;
     nreturn;
 }
-function Reduce_disj(n, fnc_node, kids, i) {
+Reduce_conj = epsilon . *reduce_conj();
+/*--------------------------------------------------------------------------------------------------------------------*/
+function reduce_disj(n, fnc_node, kids, i) {
     n = nTop();
-    if (LE(n, 1)) { Reduce_disj = .dummy; nreturn; }
+    if (LE(n, 1)) { reduce_disj = .dummy; nreturn; }
     kids = ARRAY(n + 1);
     i = n;
     while (i > 0) {
@@ -193,26 +235,34 @@ function Reduce_disj(n, fnc_node, kids, i) {
         i = i + 1;
     }
     Push(fnc_node);
-    Reduce_disj = .dummy;
+    reduce_disj = .dummy;
     nreturn;
 }
+Reduce_disj = epsilon . *reduce_disj();
 /*====================================================================================================================*/
 head_name    = '';
 head_arity   = 0;
 body_present = 0;
-function Snapshot_head(name) {
-    head_name    = name;
+function snapshot_head(varname) {
+    head_name    = $varname;
     head_arity   = nTop();
     body_present = 0;
-    Snapshot_head = .dummy;
+    snapshot_head = .dummy;
     nreturn;
 }
-function Mark_body() {
+function Snapshot_head(varname) {
+    Snapshot_head = EVAL("epsilon . thx . *snapshot_head('" varname "')");
+    return;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+function mark_body() {
     body_present = 1;
-    Mark_body = .dummy;
+    mark_body = .dummy;
     nreturn;
 }
-function Build_clause(key, parts, i, body_tree, clause_node, bk, bn) {
+Mark_body = epsilon . *mark_body();
+/*--------------------------------------------------------------------------------------------------------------------*/
+function build_clause(key, parts, i, body_tree, clause_node, bk, bn) {
     key = head_name '/' head_arity;
     body_tree = ;
     if (GT(body_present, 0)) body_tree = Pop();
@@ -240,29 +290,32 @@ function Build_clause(key, parts, i, body_tree, clause_node, bk, bn) {
     }
     bk = head_arity;
     while (bk > 0) {
-        Assign_anon_slots(c(clause_node)[bk]);
+        assign_anon_slots(c(clause_node)[bk]);
         bk = bk - 1;
     }
     bn = n(clause_node);
     bk = head_arity + 1;
     while (LE(bk, bn)) {
-        Assign_anon_slots(c(clause_node)[bk]);
+        assign_anon_slots(c(clause_node)[bk]);
         bk = bk + 1;
     }
     Push(Tree('STMT', '', 1,
               Tree(':subj', '', 1,
                    Tree('E_CHOICE', key, 1, clause_node))));
-    Build_clause = .dummy;
+    build_clause = .dummy;
     nreturn;
 }
-function Build_directive(body_tree) {
+Build_clause = epsilon . *build_clause();
+/*--------------------------------------------------------------------------------------------------------------------*/
+function build_directive(body_tree) {
     body_tree = Pop();
-    Assign_anon_slots(body_tree);
+    assign_anon_slots(body_tree);
     Push(Tree('STMT', '', 1,
               Tree(':subj', '', 1, body_tree)));
-    Build_directive = .dummy;
+    build_directive = .dummy;
     nreturn;
 }
+Build_directive = epsilon . *build_directive();
 /*====================================================================================================================*/
 // Grammar — pure patterns.  Expression ladder (tightest -> loosest):
 //   primary -> mul_expr -> add_expr -> is_expr -> unify_expr -> conj -> disj
@@ -272,38 +325,38 @@ args_tail = ( $',' nInc() *unify_expr (*args_tail | epsilon) );
 /*--------------------------------------------------------------------------------------------------------------------*/
 list_elem = (   shift(Int,  'E_ILIT')
             |   shift(Atom, 'E_FNC')
-            |   Qatom  epsilon . *Push_atom_body(q_body)
-            |   Str    epsilon . *Push_atom_body(s_body)
-            |   Var . le_text  epsilon . *Push_var(le_text)
+            |   Qatom            Push_atom_body('q_body')
+            |   Str              Push_atom_body('s_body')
+            |   Var . le_text    Push_var('le_text')
             |   *list
             );
 /*--------------------------------------------------------------------------------------------------------------------*/
 list = (    $'['
-            ( $']' epsilon . *Push_nil()
+            ( $']'                    Push_nil
             | nPush()
                   nInc() list_elem
                   ARBNO( $',' nInc() list_elem )
                   ( $'|' list_elem
-                  | epsilon epsilon . *Push_nil()
+                  | epsilon           Push_nil
                   )
                   $']'
-                  epsilon . *Reduce_list()
+                                       Reduce_list
               nPop()
             )
        );
 /*--------------------------------------------------------------------------------------------------------------------*/
 primary = (   Atom . p_name $'('
                   nPush() args $')'
-                  epsilon . *Reduce_compound(p_name)
+                                      Reduce_compound('p_name')
               nPop()
           |   shift(Int,  'E_ILIT')
           |   shift(Atom, 'E_FNC')
-          |   Qatom  epsilon . *Push_atom_body(q_body)
-          |   Str    epsilon . *Push_atom_body(s_body)
-          |   Var . p_text   epsilon . *Push_var(p_text)
+          |   Qatom                   Push_atom_body('q_body')
+          |   Str                     Push_atom_body('s_body')
+          |   Var . p_text            Push_var('p_text')
           |   $'(' *unify_expr $')'
           |   *list
-          |   '-' Int . p_negi epsilon . *Push_neg_int(p_negi)
+          |   '-' Int . p_negi        Push_neg_int('p_negi')
           );
 /*--------------------------------------------------------------------------------------------------------------------*/
 mul_expr  = (   primary
@@ -323,7 +376,7 @@ add_expr  = (   mul_expr
             );
 /*--------------------------------------------------------------------------------------------------------------------*/
 is_expr   = (   add_expr
-                ( $'is' add_expr epsilon . *Reduce_is()
+                ( $'is' add_expr    Reduce_is
                 | epsilon
                 )
             );
@@ -339,40 +392,40 @@ body_goal = unify_expr;
 conj = (    nPush()
                 nInc() body_goal
                 ARBNO( $',' nInc() body_goal )
-                epsilon . *Reduce_conj()
+                                   Reduce_conj
             nPop()
         );
 /*--------------------------------------------------------------------------------------------------------------------*/
 disj = (    nPush()
                 nInc() conj
                 ARBNO( $';' nInc() conj )
-                epsilon . *Reduce_disj()
+                                   Reduce_disj
             nPop()
         );
 /*--------------------------------------------------------------------------------------------------------------------*/
 body = disj;
 /*--------------------------------------------------------------------------------------------------------------------*/
-head = (    epsilon . *Reset_var_scope()
+head = (    Reset_var_scope
             nPush()
-            (   Atom . h_text $'(' args $')' epsilon . *Snapshot_head(h_text)
-            |   Atom . h_text $'(' $')'      epsilon . *Snapshot_head(h_text)
-            |   Atom . h_text                epsilon . *Snapshot_head(h_text)
-            |   Str                          epsilon . *Snapshot_head(s_body)
+            (   Atom . h_text $'(' args $')'    Snapshot_head('h_text')
+            |   Atom . h_text $'(' $')'         Snapshot_head('h_text')
+            |   Atom . h_text                   Snapshot_head('h_text')
+            |   Str                             Snapshot_head('s_body')
             )
             nPop()
         );
 /*--------------------------------------------------------------------------------------------------------------------*/
 clause    = (   head
-                ( $':-' body epsilon . *Mark_body()
+                ( $':-' body                   Mark_body
                 | epsilon
                 )
                 $'.'
-                epsilon . *Build_clause()
+                                               Build_clause
             );
 /*--------------------------------------------------------------------------------------------------------------------*/
-directive = (   $':-' epsilon . *Reset_var_scope()
+directive = (   $':-'                          Reset_var_scope
                 body $'.'
-                epsilon . *Build_directive()
+                                               Build_directive
             );
 /*--------------------------------------------------------------------------------------------------------------------*/
 top_form  = (directive | clause);

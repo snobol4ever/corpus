@@ -22,8 +22,8 @@ $'  '   = White;
 Id      = ANY(&UCASE &LCASE '_') (SPAN(&UCASE &LCASE digits '_') | epsilon);
 Integer = SPAN(digits);
 
-DQ_str  = '"' BREAK('"') . rbStrBody '"';
-SQ_str  = "'" BREAK("'") . rbStrBody "'";
+DQ_str  = '"' BREAK('"') . strbody '"';
+SQ_str  = "'" BREAK("'") . strbody "'";
 String  = *DQ_str | *SQ_str;
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -51,17 +51,17 @@ E_QLIT       = 'E_QLIT';
 E_ALT        = 'E_ALT';
 E_FNC        = 'E_FNC';
 Parse        = 'Parse';
-RB_FUNC_DECL = 'RB_FUNC_DECL';
-RB_REC_DECL  = 'RB_REC_DECL';
-RB_PARAMS    = 'RB_PARAMS';
-RB_FIELDS    = 'RB_FIELDS';
-RB_BODY      = 'RB_BODY';
-RB_ASSIGN    = 'RB_ASSIGN';
-RB_ALT       = 'RB_ALT';
-RB_MATCH     = 'RB_MATCH';
-RB_IF        = 'RB_IF';
-RB_WHILE     = 'RB_WHILE';
-RB_CALL      = 'RB_CALL';
+FUNC_DECL = 'FUNC_DECL';
+REC_DECL  = 'REC_DECL';
+PARAMS    = 'PARAMS';
+FIELDS    = 'FIELDS';
+BODY      = 'BODY';
+ASSIGN    = 'ASSIGN';
+ALT       = 'ALT';
+MATCH     = 'MATCH';
+IF        = 'IF';
+WHILE     = 'WHILE';
+CALL      = 'CALL';
 
 nTop_count   = 'nTop()';
 
@@ -71,9 +71,9 @@ nTop_count   = 'nTop()';
 //  grammar production.
 /*====================================================================================================================*/
 
-function rb_push_qlit() {
-    rb_push_qlit = .dummy;
-    Push(tree(E_QLIT, rbStrBody));
+function push_qlit() {
+    push_qlit = .dummy;
+    Push(tree(E_QLIT, strbody));
     nreturn;
 }
 
@@ -81,8 +81,8 @@ function rb_push_qlit() {
 //  Build-time wrappers — return pattern fragments.
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-function RB_push_qlit() {
-    RB_push_qlit = epsilon . *rb_push_qlit();
+function Push_qlit() {
+    Push_qlit = epsilon . *push_qlit();
     return;
 }
 
@@ -94,24 +94,24 @@ function RB_push_qlit() {
 /*====================================================================================================================*/
 
 //  bare_call — Id() with no args; matches BEFORE plain Id so the latter falls back.
-bare_call = shift(*Id, E_VAR) $'(' $')' reduce(RB_CALL, 1);
+bare_call = shift(*Id, E_VAR) $'(' $')' reduce(CALL, 1);
 
-atom = *String RB_push_qlit() | shift(*Integer, E_ILIT) | *bare_call | shift(*Id, E_VAR);
+atom = *String Push_qlit() | shift(*Integer, E_ILIT) | *bare_call | shift(*Id, E_VAR);
 
 //  alt_expr — left-associative `|` chain.  beauty.sno-style left-recursion via
 //  iterative FENCE'd accumulator: start with one atom, then ARBNO of `|` atom`
 //  with a reduce after each — yielding ((a|b)|c) shape per oracle.
-alt_expr = *atom ARBNO($'|' *atom reduce(RB_ALT, 2));
+alt_expr = *atom ARBNO($'|' *atom reduce(ALT, 2));
 
 //  expr — alt_expr optionally followed by `:= alt_expr` (assign).
-expr = *alt_expr ($':=' *alt_expr reduce(RB_ASSIGN, 2) | epsilon);
+expr = *alt_expr ($':=' *alt_expr reduce(ASSIGN, 2) | epsilon);
 
 //  match_or_expr — expr optionally followed by `? alt_expr` (match).
-match_or_expr = *expr ($'?' *alt_expr reduce(RB_MATCH, 2) | epsilon);
+match_or_expr = *expr ($'?' *alt_expr reduce(MATCH, 2) | epsilon);
 
 //  if_stmt / while_stmt — surface shapes; lowering generates synthetic labels.
-if_stmt    = $'if'    *match_or_expr $'then' *match_or_expr reduce(RB_IF,    2);
-while_stmt = $'while' *match_or_expr $'do'   *match_or_expr reduce(RB_WHILE, 2);
+if_stmt    = $'if'    *match_or_expr $'then' *match_or_expr reduce(IF,    2);
+while_stmt = $'while' *match_or_expr $'do'   *match_or_expr reduce(WHILE, 2);
 
 stmt = $' ' (*if_stmt | *while_stmt | *match_or_expr) $' ' nl;
 
@@ -128,17 +128,17 @@ stmt = $' ' (*if_stmt | *while_stmt | *match_or_expr) $' ' nl;
 
 func_end      = $'end' $' ' nl;
 func_body_stmt = (*func_end | nInc() *stmt *func_body_stmt);
-func_body     = nPush() *func_body_stmt reduce(RB_BODY, nTop_count) nPop();
+func_body     = nPush() *func_body_stmt reduce(BODY, nTop_count) nPop();
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 //  Parameter / field list — both fold into n-ary lists; empty list folds to (TAG) with nTop()=0.
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 X_params  = nInc() shift(*Id, E_VAR) ($',' *X_params | epsilon);
-opt_params = nPush() (*X_params | epsilon) reduce(RB_PARAMS, nTop_count) nPop();
+opt_params = nPush() (*X_params | epsilon) reduce(PARAMS, nTop_count) nPop();
 
 X_fields  = nInc() shift(*Id, E_VAR) ($',' *X_fields | epsilon);
-opt_fields = nPush() (*X_fields | epsilon) reduce(RB_FIELDS, nTop_count) nPop();
+opt_fields = nPush() (*X_fields | epsilon) reduce(FIELDS, nTop_count) nPop();
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 //  Top-level decls.
@@ -147,11 +147,11 @@ opt_fields = nPush() (*X_fields | epsilon) reduce(RB_FIELDS, nTop_count) nPop();
 function_decl =
     $'function' shift(*Id, E_VAR) $'(' *opt_params $')' $' ' nl
     *func_body
-    reduce(RB_FUNC_DECL, 3);
+    reduce(FUNC_DECL, 3);
 
 record_decl =
     $'record' shift(*Id, E_VAR) $'(' *opt_fields $')' $' ' nl
-    reduce(RB_REC_DECL, 2);
+    reduce(REC_DECL, 2);
 
 func_cmd = nInc() *function_decl;
 rec_cmd  = nInc() *record_decl;
@@ -165,11 +165,11 @@ Compiland = nPush() ARBNO(Command) reduce(Parse, nTop_count) nPop();
 //  Post-parse lowering — walks surface tree and emits canonical STMT TDump lines.
 /*====================================================================================================================*/
 
-rbLabelN = 0;
+label_n = 0;
 
-function rb_new_label() {
-    rbLabelN = rbLabelN + 1;
-    rb_new_label = 'rb_' rbLabelN;
+function new_label() {
+    label_n = label_n + 1;
+    new_label = 'rb_' label_n;
     return;
 }
 
@@ -216,19 +216,19 @@ function emit_subj_goSF(s, sLbl, fLbl) {
     return;
 }
 
-//  lower_atom — recursively lower an expression tree.  Handles RB_ALT (build
-//  E_ALT recursively) and RB_CALL (emit (E_FNC name) — bare call no args).
+//  lower_atom — recursively lower an expression tree.  Handles ALT (build
+//  E_ALT recursively) and CALL (emit (E_FNC name) — bare call no args).
 function lower_atom(x, k, lhs, rhs) {
     k = t(x);
     if (IDENT(k, 'E_VAR'))       lower_atom = tree(E_VAR, REPLACE(v(x), &LCASE, &UCASE));
     else if (IDENT(k, 'E_ILIT')) lower_atom = x;
     else if (IDENT(k, 'E_QLIT')) lower_atom = x;
-    else if (IDENT(k, 'RB_ALT')) {
+    else if (IDENT(k, 'ALT')) {
         lhs = lower_atom(c(x)[1]);
         rhs = lower_atom(c(x)[2]);
         lower_atom = Tree(E_ALT, '', 2, lhs, rhs);
     }
-    else if (IDENT(k, 'RB_CALL')) {
+    else if (IDENT(k, 'CALL')) {
         lower_atom = tree(E_FNC, REPLACE(v(c(x)[1]), &LCASE, &UCASE));
     }
     else lower_atom = x;
@@ -237,12 +237,12 @@ function lower_atom(x, k, lhs, rhs) {
 
 function lower_stmt(x, k, lblS, lblF, lblM) {
     k = t(x);
-    if (IDENT(k, 'RB_ASSIGN'))      emit_assign(lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'RB_MATCH'))  { emit_match(lower_atom(c(x)[1]), lower_atom(c(x)[2])); }
-    else if (IDENT(k, 'RB_IF')) {
-        lblS = rb_new_label();
-        lblF = rb_new_label();
-        lblM = rb_new_label();
+    if (IDENT(k, 'ASSIGN'))      emit_assign(lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'MATCH'))  { emit_match(lower_atom(c(x)[1]), lower_atom(c(x)[2])); }
+    else if (IDENT(k, 'IF')) {
+        lblS = new_label();
+        lblF = new_label();
+        lblM = new_label();
         emit_subj_goSF(tree('E_NUL', ''), lblS, lblF);
         emit_lbl(lblS);
         lower_stmt(c(x)[1]);
@@ -251,10 +251,10 @@ function lower_stmt(x, k, lblS, lblF, lblM) {
         lower_stmt(c(x)[2]);
         emit_lbl(lblM);
     }
-    else if (IDENT(k, 'RB_WHILE')) {
-        lblS = rb_new_label();   // top-of-loop label
-        lblM = rb_new_label();   // success branch label
-        lblF = rb_new_label();   // exit label
+    else if (IDENT(k, 'WHILE')) {
+        lblS = new_label();   // top-of-loop label
+        lblM = new_label();   // success branch label
+        lblF = new_label();   // exit label
         emit_lbl(lblS);
         emit_subj_goSF(tree('E_NUL', ''), lblM, lblF);
         emit_lbl(lblM);
@@ -277,7 +277,7 @@ function lower_function_decl(x, nm, pm, bd, fname, pstr, i, lbl) {
     while (i = LT(i, n(pm)) i + 1)
         pstr = pstr (GT(i, 1) ',', '') REPLACE(v(c(pm)[i]), &LCASE, &UCASE);
     emit_subj(Tree('E_FNC', 'DEFINE', 1, tree(E_QLIT, fname '(' pstr ')')));
-    lbl = rb_new_label();
+    lbl = new_label();
     emit_go(lbl);
     emit_lbl(fname);
     i = 0;
@@ -303,8 +303,8 @@ function lower_record_decl(x, nm, fd, fname, fstr, i) {
 
 function lower_decl(x, k) {
     k = t(x);
-    if (IDENT(k, 'RB_FUNC_DECL')) lower_function_decl(x);
-    else if (IDENT(k, 'RB_REC_DECL'))  lower_record_decl(x);
+    if (IDENT(k, 'FUNC_DECL')) lower_function_decl(x);
+    else if (IDENT(k, 'REC_DECL'))  lower_record_decl(x);
     return;
 }
 

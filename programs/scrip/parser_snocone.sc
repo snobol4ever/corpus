@@ -6,7 +6,7 @@
 //
 // Naming: non-terminals from Snocone grammar; IR tags from ir.h E_*;
 // whitespace: $'  ' = required, $' ' = optional (beauty.sno convention).
-// SC_xxx pattern-builders return deferred-action patterns at build time.
+// Pattern-builder companions (Capitalized) return deferred-action patterns at build time.
 // Rung SC-3: if / if-else / while / do-while.  Gate: PASS=21 FAIL=0.
 &FULLSCAN = 1;
 /*====================================================================================================================*/
@@ -33,8 +33,8 @@ nl_opt   = (nl | epsilon);
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Token classifiers — PATTERNS.
 Integer  = SPAN(digits);
-DQ       = ('"'  BREAK('"')  . sc_strbody '"');
-SQ_lit   = ("'"  BREAK("'")  . sc_strbody "'");
+DQ       = ('"'  BREAK('"')  . strbody '"');
+SQ_lit   = ("'"  BREAK("'")  . strbody "'");
 String   = (*SQ_lit | *DQ);
 Id       = (ANY(&UCASE &LCASE '_')
             FENCE(SPAN('.' digits &UCASE '_' &LCASE) | epsilon));
@@ -56,33 +56,33 @@ kw_do    = ('do'    kw_tail);
 kw_else  = ('else'  kw_tail);
 /*====================================================================================================================*/
 // Global label counter.
-sc_lbl_n = 0;
+lbl_n = 0;
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Semantic / tree-building helpers.
-function sc_new_label(prefix) {
-    sc_lbl_n = sc_lbl_n + 1;
-    sc_new_label = '_' prefix '_' LPAD(sc_lbl_n, 4, '0');
+function new_label(prefix) {
+    lbl_n = lbl_n + 1;
+    new_label = '_' prefix '_' LPAD(lbl_n, 4, '0');
     return;
 }
-function sc_save_cond() {
-    sc_saved_cond = Pop();
-    sc_save_cond = .dummy; nreturn;
+function save_cond() {
+    saved_cond = Pop();
+    save_cond = .dummy; nreturn;
 }
-function sc_save_nbody(varname) {
+function save_nbody(varname) {
     $varname = TopCounter();
-    sc_save_nbody = .dummy; nreturn;
+    save_nbody = .dummy; nreturn;
 }
-function sc_while_head_alloc() {
-    sc_while_ltop = sc_new_label('Ltop');
-    sc_while_lend = sc_new_label('Lend');
-    sc_while_head_alloc = .dummy; nreturn;
+function while_head_alloc() {
+    while_ltop = new_label('Ltop');
+    while_lend = new_label('Lend');
+    while_head_alloc = .dummy; nreturn;
 }
-function sc_do_head_alloc() {
-    sc_do_lcont = sc_new_label('Lcont');
-    sc_do_lend  = sc_new_label('Lend');
-    sc_do_head_alloc = .dummy; nreturn;
+function do_head_alloc() {
+    do_lcont = new_label('Lcont');
+    do_lend  = new_label('Lend');
+    do_head_alloc = .dummy; nreturn;
 }
-function sc_decompose_stmt(top, lhs, rhs, s) {
+function decompose_stmt(top, lhs, rhs, s) {
     top = Pop();
     if (IDENT(t(top), 'E_ASSIGN')) {
         lhs = c(top)[1]; rhs = c(top)[2];
@@ -92,131 +92,131 @@ function sc_decompose_stmt(top, lhs, rhs, s) {
                  Tree(':repl', '', 1, rhs));
     } else s = Tree('STMT', '', 1, Tree(':subj', '', 1, top));
     Push(s);
-    sc_decompose_stmt = .dummy; nreturn;
+    decompose_stmt = .dummy; nreturn;
 }
-function sc_push_qlit(s) {
-    s = tree('E_QLIT', sc_strbody);
+function push_qlit(s) {
+    s = tree('E_QLIT', strbody);
     Push(s);
-    sc_push_qlit = .dummy; nreturn;
+    push_qlit = .dummy; nreturn;
 }
-function sc_make_cond_stmt(cond_expr, goto_slot, label) {
-    sc_make_cond_stmt = Tree('STMT', '', 2,
+function make_cond_stmt(cond_expr, goto_slot, label) {
+    make_cond_stmt = Tree('STMT', '', 2,
                              Tree(':subj', '', 1, cond_expr),
                              tree(goto_slot, label));
     return;
 }
-function sc_make_goto_stmt(label) {
-    sc_make_goto_stmt = Tree('STMT', '', 1, tree(':go', label));
+function make_goto_stmt(label) {
+    make_goto_stmt = Tree('STMT', '', 1, tree(':go', label));
     return;
 }
-function sc_make_label_stmt(label) {
-    sc_make_label_stmt = Tree('STMT', '', 1, tree(':lbl', label));
+function make_label_stmt(label) {
+    make_label_stmt = Tree('STMT', '', 1, tree(':lbl', label));
     return;
 }
-function sc_pop_body(n, arr, i) {
+function pop_body(n, arr, i) {
     arr = GT(n, 0) ARRAY('1:' n);
     i = n;
     while (GT(i, 0)) { arr[i] = Pop(); i = i - 1; }
-    sc_pop_body = arr; return;
+    pop_body = arr; return;
 }
-function sc_finalize_if(nthen_v, cond_v, body, Lend, n, ce, i) {
+function finalize_if(nthen_v, cond_v, body, Lend, n, ce, i) {
     n = $nthen_v; ce = $cond_v;
-    body = sc_pop_body(n);
-    Lend = sc_new_label('Lend');
-    Push(sc_make_cond_stmt(ce, ':goF', Lend));
+    body = pop_body(n);
+    Lend = new_label('Lend');
+    Push(make_cond_stmt(ce, ':goF', Lend));
     i = 1; while (LE(i, n)) { Push(body[i]); i = i + 1; }
-    Push(sc_make_label_stmt(Lend));
+    Push(make_label_stmt(Lend));
     i = 0; while (LT(i, n + 1)) { IncCounter(); i = i + 1; }
-    sc_finalize_if = .dummy; nreturn;
+    finalize_if = .dummy; nreturn;
 }
-function sc_finalize_if_else(nthen_v, nelse_v, cond_v,
+function finalize_if_else(nthen_v, nelse_v, cond_v,
                               tb, eb, Lelse, Lend, nt, ne, ce, i) {
     nt = $nthen_v; ne = $nelse_v; ce = $cond_v;
-    eb = sc_pop_body(ne); tb = sc_pop_body(nt);
-    Lelse = sc_new_label('Lelse'); Lend = sc_new_label('Lend');
-    Push(sc_make_cond_stmt(ce, ':goF', Lelse));
+    eb = pop_body(ne); tb = pop_body(nt);
+    Lelse = new_label('Lelse'); Lend = new_label('Lend');
+    Push(make_cond_stmt(ce, ':goF', Lelse));
     i = 1; while (LE(i, nt)) { Push(tb[i]); i = i + 1; }
-    Push(sc_make_goto_stmt(Lend));
-    Push(sc_make_label_stmt(Lelse));
+    Push(make_goto_stmt(Lend));
+    Push(make_label_stmt(Lelse));
     i = 1; while (LE(i, ne)) { Push(eb[i]); i = i + 1; }
-    Push(sc_make_label_stmt(Lend));
+    Push(make_label_stmt(Lend));
     i = 0; while (LT(i, nt + ne + 3)) { IncCounter(); i = i + 1; }
-    sc_finalize_if_else = .dummy; nreturn;
+    finalize_if_else = .dummy; nreturn;
 }
-function sc_finalize_while(nbody_v, cond_v, body, Ltop, Lend, n, ce, i) {
+function finalize_while(nbody_v, cond_v, body, Ltop, Lend, n, ce, i) {
     n = $nbody_v; ce = $cond_v;
-    body = sc_pop_body(n);
-    Ltop = sc_while_ltop; Lend = sc_while_lend;
-    Push(sc_make_label_stmt(Ltop));
-    Push(sc_make_cond_stmt(ce, ':goF', Lend));
+    body = pop_body(n);
+    Ltop = while_ltop; Lend = while_lend;
+    Push(make_label_stmt(Ltop));
+    Push(make_cond_stmt(ce, ':goF', Lend));
     i = 1; while (LE(i, n)) { Push(body[i]); i = i + 1; }
-    Push(sc_make_goto_stmt(Ltop));
-    Push(sc_make_label_stmt(Lend));
+    Push(make_goto_stmt(Ltop));
+    Push(make_label_stmt(Lend));
     i = 0; while (LT(i, n + 3)) { IncCounter(); i = i + 1; }
-    sc_finalize_while = .dummy; nreturn;
+    finalize_while = .dummy; nreturn;
 }
-function sc_finalize_do(nbody_v, cond_v, body, Ltop, Lend, n, ce, i) {
+function finalize_do(nbody_v, cond_v, body, Ltop, Lend, n, ce, i) {
     n = $nbody_v; ce = $cond_v;
-    body = sc_pop_body(n);
-    Ltop = sc_new_label('Ltop'); Lend = sc_do_lend;
-    Push(sc_make_label_stmt(Ltop));
+    body = pop_body(n);
+    Ltop = new_label('Ltop'); Lend = do_lend;
+    Push(make_label_stmt(Ltop));
     i = 1; while (LE(i, n)) { Push(body[i]); i = i + 1; }
-    Push(sc_make_cond_stmt(ce, ':goS', Ltop));
-    Push(sc_make_label_stmt(Lend));
+    Push(make_cond_stmt(ce, ':goS', Ltop));
+    Push(make_label_stmt(Lend));
     i = 0; while (LT(i, n + 2)) { IncCounter(); i = i + 1; }
-    sc_finalize_do = .dummy; nreturn;
+    finalize_do = .dummy; nreturn;
 }
 /*====================================================================================================================*/
-// SC_xxx pattern builders — called at BUILD TIME, return deferred-action patterns.
-function SC_save_cond() {
-    SC_save_cond = EVAL("epsilon . thx . *sc_save_cond()");
+// Pattern-builder companions — called at BUILD TIME, return deferred-action patterns.
+function Save_cond() {
+    Save_cond = EVAL("epsilon . thx . *save_cond()");
     return;
 }
-function SC_save_nbody(var) {
-    SC_save_nbody = EVAL("epsilon . thx . *sc_save_nbody('" var "')");
+function Save_nbody(var) {
+    Save_nbody = EVAL("epsilon . thx . *save_nbody('" var "')");
     return;
 }
-function SC_decompose_stmt() {
-    SC_decompose_stmt = EVAL("epsilon . thx . *sc_decompose_stmt()");
+function Decompose_stmt() {
+    Decompose_stmt = EVAL("epsilon . thx . *decompose_stmt()");
     return;
 }
-function SC_push_qlit() {
-    SC_push_qlit = EVAL("epsilon . thx . *sc_push_qlit()");
+function Push_qlit() {
+    Push_qlit = EVAL("epsilon . thx . *push_qlit()");
     return;
 }
-function SC_while_head_alloc() {
-    SC_while_head_alloc = EVAL("epsilon . thx . *sc_while_head_alloc()");
+function While_head_alloc() {
+    While_head_alloc = EVAL("epsilon . thx . *while_head_alloc()");
     return;
 }
-function SC_do_head_alloc() {
-    SC_do_head_alloc = EVAL("epsilon . thx . *sc_do_head_alloc()");
+function Do_head_alloc() {
+    Do_head_alloc = EVAL("epsilon . thx . *do_head_alloc()");
     return;
 }
-function SC_finalize_if(nthen_v, cond_v) {
-    SC_finalize_if = EVAL("epsilon . thx . *sc_finalize_if('" nthen_v "', '" cond_v "')");
+function Finalize_if(nthen_v, cond_v) {
+    Finalize_if = EVAL("epsilon . thx . *finalize_if('" nthen_v "', '" cond_v "')");
     return;
 }
-function SC_finalize_if_else(nthen_v, nelse_v, cond_v) {
-    SC_finalize_if_else = EVAL("epsilon . thx . *sc_finalize_if_else('"
+function Finalize_if_else(nthen_v, nelse_v, cond_v) {
+    Finalize_if_else = EVAL("epsilon . thx . *finalize_if_else('"
                                nthen_v "', '" nelse_v "', '" cond_v "')");
     return;
 }
-function SC_finalize_while(nbody_v, cond_v) {
-    SC_finalize_while = EVAL("epsilon . thx . *sc_finalize_while('" nbody_v "', '" cond_v "')");
+function Finalize_while(nbody_v, cond_v) {
+    Finalize_while = EVAL("epsilon . thx . *finalize_while('" nbody_v "', '" cond_v "')");
     return;
 }
-function SC_finalize_do(nbody_v, cond_v) {
-    SC_finalize_do = EVAL("epsilon . thx . *sc_finalize_do('" nbody_v "', '" cond_v "')");
+function Finalize_do(nbody_v, cond_v) {
+    Finalize_do = EVAL("epsilon . thx . *finalize_do('" nbody_v "', '" cond_v "')");
     return;
 }
-function SC_body(var) {
-    SC_body = nPush() ARBNO(stmt_cmd) SC_save_nbody(var) nPop();
+function Body(var) {
+    Body = nPush() ARBNO(stmt_cmd) Save_nbody(var) nPop();
     return;
 }
 /*====================================================================================================================*/
 // Expression tower — Snocone operator precedence.
 Expr17 = FENCE(
-             *String SC_push_qlit()
+             *String Push_qlit()
            | *Integer ~ 'E_ILIT'
            | *Id      ~ 'E_VAR'
          );
@@ -235,32 +235,32 @@ X3     = nInc() *Expr4 ($'|' *X3 | epsilon);
 Expr1  = *Expr3 ($'?' *Expr1 (E_SCAN   & 2) | epsilon);
 Expr0  = *Expr1 ($'=' *Expr0 (E_ASSIGN & 2) | epsilon);
 /*====================================================================================================================*/
-stmt_body = ($' ' *Expr0 $' ' ($';' | epsilon) $' ' nl_opt SC_decompose_stmt());
+stmt_body = ($' ' *Expr0 $' ' ($';' | epsilon) $' ' nl_opt Decompose_stmt());
 stmt_cmd  = (nInc() stmt_body);
 /*--------------------------------------------------------------------------------------------------------------------*/
 if_cmd =
     ( nInc()
-      $' ' *kw_if   $'(' *Expr0 SC_save_cond() $')' $' ' nl_opt
-      $'{' nl_opt    SC_body('sc_if_nthen')    $'}' $' ' nl_opt
+      $' ' *kw_if   $'(' *Expr0 Save_cond() $')' $' ' nl_opt
+      $'{' nl_opt    Body('if_nthen')    $'}' $' ' nl_opt
       ( *kw_else $' ' nl_opt
-        $'{' nl_opt  SC_body('sc_if_nelse')    $'}' $' ' nl_opt
-        SC_finalize_if_else('sc_if_nthen', 'sc_if_nelse', 'sc_saved_cond')
-      | SC_finalize_if('sc_if_nthen', 'sc_saved_cond')
+        $'{' nl_opt  Body('if_nelse')    $'}' $' ' nl_opt
+        Finalize_if_else('if_nthen', 'if_nelse', 'saved_cond')
+      | Finalize_if('if_nthen', 'saved_cond')
       )
     );
 while_cmd =
     ( nInc()
-      $' ' *kw_while $'(' *Expr0 SC_save_cond()
-                          SC_while_head_alloc() $')' $' ' nl_opt
-      $'{' nl_opt SC_body('sc_wh_nbody') $'}' $' ' nl_opt
-      SC_finalize_while('sc_wh_nbody', 'sc_saved_cond')
+      $' ' *kw_while $'(' *Expr0 Save_cond()
+                          While_head_alloc() $')' $' ' nl_opt
+      $'{' nl_opt Body('wh_nbody') $'}' $' ' nl_opt
+      Finalize_while('wh_nbody', 'saved_cond')
     );
 do_cmd =
     ( nInc()
-      $' ' *kw_do $' ' nl_opt SC_do_head_alloc()
-      $'{' nl_opt SC_body('sc_do_nbody') $'}' $' ' nl_opt
-      *kw_while $'(' *Expr0 SC_save_cond() $')' ($';' | epsilon) $' ' nl_opt
-      SC_finalize_do('sc_do_nbody', 'sc_saved_cond')
+      $' ' *kw_do $' ' nl_opt Do_head_alloc()
+      $'{' nl_opt Body('do_nbody') $'}' $' ' nl_opt
+      *kw_while $'(' *Expr0 Save_cond() $')' ($';' | epsilon) $' ' nl_opt
+      Finalize_do('do_nbody', 'saved_cond')
     );
 empty_cmd = ($' ' $';' $' ' nl_opt);
 /*====================================================================================================================*/

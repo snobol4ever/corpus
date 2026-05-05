@@ -29,31 +29,31 @@
 // for tree-building operations not expressible via shift/reduce alone
 // (guideline §4a retained-for-<reason>):
 //
-//   Rk_Push_Var()    — sigil-stripped variable push (uses rk_capvf/rk_capvr).
+//   push_var()    — sigil-stripped variable push (uses capvf/capvr).
 //                      Retained: shift() captures full matched text (sigil
 //                      included); oracle requires bare name in E_VAR value.
-//   Rk_Push_Param()  — sigil-stripped param push (uses rk_cappf/rk_cappr).
-//                      Retained: same reason as Rk_Push_Var.
-//   Rk_Push_Qlit()   — string-body push (uses rk_capstr).
+//   push_param()  — sigil-stripped param push (uses cappf/cappr).
+//                      Retained: same reason as push_var.
+//   push_qlit()   — string-body push (uses capstr).
 //                      Retained: same reason as ic_push_qlit in parser_icon.sc
 //                      (shift() would include the surrounding quotes).
-//   Rk_Say_Done()    — say → write name remap.
+//   finish_say()    — say → write name remap.
 //                      Retained: reduce() sets value=''; E_FNC write requires
 //                      value='write' to match oracle.
-//   Rk_Stash_For()   — stash for-loopvar name from rk_capff/rk_capfr captures.
-//                      Retained: rk_for_iter must be set before Block is
+//   store_for_iter()   — stash for-loopvar name from capff/capfr captures.
+//                      Retained: for_iter must be set before Block is
 //                      parsed; no other mechanism to carry a name across.
-//   Rk_Finish_For()  — for-loop tree build (pops block+array, builds
-//                      E_ITERATE+E_EVERY from rk_for_iter stash).
+//   finish_for()  — for-loop tree build (pops block+array, builds
+//                      E_ITERATE+E_EVERY from for_iter stash).
 //                      Retained: E_ITERATE carries loopvar name as value;
 //                      reduce() cannot supply a non-empty value field.
-//   Rk_Finish_Sub()  — sub decomposition (pops counter frame, builds STMT).
-//                      Retained: sub name in E_FNC value from rk_capsnf/rk_capsnr;
+//   finish_sub()  — sub decomposition (pops counter frame, builds STMT).
+//                      Retained: sub name in E_FNC value from capsnf/capsnr;
 //                      same structural role as ic_decompose_proc in parser_icon.sc.
-//   Rk_Finish_Call() — function call decomposition (pops counter frame,
-//                      builds E_FNC with fname from rk_capfnf/rk_capfnr).
-//                      Retained: same reason as Rk_Finish_Sub.
-//   Rk_Finish_Main() — main wrapper (same role as Rk_Finish_Sub for top-level).
+//   finish_call() — function call decomposition (pops counter frame,
+//                      builds E_FNC with fname from capfnf/capfnr).
+//                      Retained: same reason as finish_sub.
+//   finish_main() — main wrapper (same role as finish_sub for top-level).
 //                      Retained: same structural reason.
 //
 // Rung PARSER-RK-4.5-e.
@@ -114,138 +114,138 @@ ident_first = ANY(&UCASE &LCASE '_');
 ident_rest  = SPAN(digits &UCASE &LCASE '_');
 Ident   = ($' ' ident_first (ident_rest | epsilon));
 
-// Sigiled variables: capture bare name (strip sigil) into rk_capvf/rk_capvr.
-// Rk_Push_Var() uses the captures — see retained-for-<reason> note above.
-rk_vf    = ANY(&UCASE &LCASE '_');
-rk_vr    = SPAN(digits &UCASE &LCASE '_');
-rk_vro   = (rk_vr | epsilon);
+// Sigiled variables: capture bare name (strip sigil) into capvf/capvr.
+// push_var() uses the captures — see retained-for-<reason> note above.
+vf    = ANY(&UCASE &LCASE '_');
+vr    = SPAN(digits &UCASE &LCASE '_');
+vro   = (vr | epsilon);
 
-VarScalar = ($' ' '$' rk_vf . rk_capvf rk_vro . rk_capvr);
-VarArray  = ($' ' '@' rk_vf . rk_capvf rk_vro . rk_capvr);
-VarHash   = ($' ' '%' rk_vf . rk_capvf rk_vro . rk_capvr);
+VarScalar = ($' ' '$' vf . capvf vro . capvr);
+VarArray  = ($' ' '@' vf . capvf vro . capvr);
+VarHash   = ($' ' '%' vf . capvf vro . capvr);
 
 // Literals.
 LitInt    = ($' ' SPAN(digits));
-LitStrDQ  = ($' ' '"' BREAK('"') . rk_capstr '"');
-LitStrSQ  = ($' ' "'" BREAK("'") . rk_capstr "'");
+LitStrDQ  = ($' ' '"' BREAK('"') . capstr '"');
+LitStrSQ  = ($' ' "'" BREAK("'") . capstr "'");
 /*====================================================================================================================*/
 // Per-construct identifier captures.  Distinct globals keep recursive Expr
 // calls from clobbering an in-flight for-loopvar / sub-name capture.
 /*====================================================================================================================*/
 // For-loopvar.
-rk_ff   = ANY(&UCASE &LCASE '_');
-rk_fr   = SPAN(digits &UCASE &LCASE '_');
-rk_fro  = (rk_fr | epsilon);
-ForLoopvar = ($' ' '$' rk_ff . rk_capff rk_fro . rk_capfr);
+ff   = ANY(&UCASE &LCASE '_');
+fr   = SPAN(digits &UCASE &LCASE '_');
+fro  = (fr | epsilon);
+ForLoopvar = ($' ' '$' ff . capff fro . capfr);
 
 // Sub name.
-rk_snf  = ANY(&UCASE &LCASE '_');
-rk_snr  = SPAN(digits &UCASE &LCASE '_');
-rk_snro = (rk_snr | epsilon);
-SubName = ($' ' rk_snf . rk_capsnf rk_snro . rk_capsnr);
+snf  = ANY(&UCASE &LCASE '_');
+snr  = SPAN(digits &UCASE &LCASE '_');
+snro = (snr | epsilon);
+SubName = ($' ' snf . capsnf snro . capsnr);
 
 // Sub param (scalar only at RK-4).
-rk_pf   = ANY(&UCASE &LCASE '_');
-rk_pr   = SPAN(digits &UCASE &LCASE '_');
-rk_pro  = (rk_pr | epsilon);
-SubParam = ($' ' '$' rk_pf . rk_cappf rk_pro . rk_cappr);
+pf   = ANY(&UCASE &LCASE '_');
+pr   = SPAN(digits &UCASE &LCASE '_');
+pro  = (pr | epsilon);
+SubParam = ($' ' '$' pf . cappf pro . cappr);
 
 // Function-call name.
-rk_fnf  = ANY(&UCASE &LCASE '_');
-rk_fnr  = SPAN(digits &UCASE &LCASE '_');
-rk_fnro = (rk_fnr | epsilon);
-CallName = ($' ' rk_fnf . rk_capfnf rk_fnro . rk_capfnr);
+fnf  = ANY(&UCASE &LCASE '_');
+fnr  = SPAN(digits &UCASE &LCASE '_');
+fnro = (fnr | epsilon);
+CallName = ($' ' fnf . capfnf fnro . capfnr);
 /*====================================================================================================================*/
 // Retained globals — minimal set after 4.5-e.
 /*====================================================================================================================*/
-rk_capvf         = '';
-rk_capvr         = '';
-rk_capstr    = '';
-rk_capff         = '';
-rk_capfr         = '';
-rk_for_iter   = '';
-rk_capsnf        = '';
-rk_capsnr        = '';
-rk_cappf         = '';
-rk_cappr         = '';
-rk_sub_list   = '';
+capvf         = '';
+capvr         = '';
+capstr    = '';
+capff         = '';
+capfr         = '';
+for_iter   = '';
+capsnf        = '';
+capsnr        = '';
+cappf         = '';
+cappr         = '';
+sub_list   = '';
 
-struct rk_slink { snext, sval }
+struct slink { snext, sval }
 /*====================================================================================================================*/
 // Minimal helper functions — tree-building / semantic only.
 // None is called from inside a parsing pattern except via named action
 // patterns below.  Retained-for-<reason> notes in file header.
 /*====================================================================================================================*/
 /*--------------------------------------------------------------------------------------------------------------------*/
-// Rk_Push_Var — push tree('E_VAR', bare_name) using rk_capvf/rk_capvr.
+// push_var — push tree('E_VAR', bare_name) using capvf/capvr.
 /*--------------------------------------------------------------------------------------------------------------------*/
-function Rk_Push_Var() {
-    Push(tree('E_VAR', rk_capvf rk_capvr));
-    Rk_Push_Var = .dummy;
+function push_var() {
+    Push(tree('E_VAR', capvf capvr));
+    push_var = .dummy;
     nreturn;
 }
-var_done   = (epsilon . *Rk_Push_Var());
+Push_var   = (epsilon . *push_var());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// Rk_Push_Param — push tree('E_VAR', bare_name) using rk_cappf/rk_cappr.
+// push_param — push tree('E_VAR', bare_name) using cappf/cappr.
 /*--------------------------------------------------------------------------------------------------------------------*/
-function Rk_Push_Param() {
-    Push(tree('E_VAR', rk_cappf rk_cappr));
-    Rk_Push_Param = .dummy;
+function push_param() {
+    Push(tree('E_VAR', cappf cappr));
+    push_param = .dummy;
     nreturn;
 }
-param_done = (epsilon . *Rk_Push_Param());
+Push_param = (epsilon . *push_param());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// Rk_Push_Qlit — push tree('E_QLIT', body) using rk_capstr.
+// push_qlit — push tree('E_QLIT', body) using capstr.
 /*--------------------------------------------------------------------------------------------------------------------*/
-function Rk_Push_Qlit() {
-    Push(tree('E_QLIT', rk_capstr));
-    Rk_Push_Qlit = .dummy;
+function push_qlit() {
+    Push(tree('E_QLIT', capstr));
+    push_qlit = .dummy;
     nreturn;
 }
-qlit_done  = (epsilon . *Rk_Push_Qlit());
+Push_qlit  = (epsilon . *push_qlit());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// Rk_Say_Done — say → write name remap.  Pops arg, builds E_FNC write.
+// finish_say — say → write name remap.  Pops arg, builds E_FNC write.
 /*--------------------------------------------------------------------------------------------------------------------*/
-function Rk_Say_Done(arg, fn, node) {
+function finish_say(arg, fn, node) {
     arg  = Pop();
     fn   = tree('E_VAR', 'write');
     node = tree('E_FNC', 'write');
     Append(node, fn);
     Append(node, arg);
     Push(node);
-    Rk_Say_Done = .dummy;
+    finish_say = .dummy;
     nreturn;
 }
-say_done   = (epsilon . *Rk_Say_Done());
+Finish_say   = (epsilon . *finish_say());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// Rk_Stash_For — stash for-loopvar name from rk_capff/rk_capfr.
+// store_for_iter — stash for-loopvar name from capff/capfr.
 /*--------------------------------------------------------------------------------------------------------------------*/
-function Rk_Stash_For(vf, vr) {
-    rk_for_iter = vf vr;
-    Rk_Stash_For = .dummy;
+function store_for_iter(vf, vr) {
+    for_iter = vf vr;
+    store_for_iter = .dummy;
     nreturn;
 }
-stash_for  = (epsilon . *Rk_Stash_For(rk_capff, rk_capfr));
+Store_for_iter  = (epsilon . *store_for_iter(capff, capfr));
 /*--------------------------------------------------------------------------------------------------------------------*/
-// Rk_Finish_For — pops block+array from stack, builds E_EVERY.
+// finish_for — pops block+array from stack, builds E_EVERY.
 /*--------------------------------------------------------------------------------------------------------------------*/
-function Rk_Finish_For(block, iter_arr, iter_node, node) {
+function finish_for(block, iter_arr, iter_node, node) {
     block     = Pop();
     iter_arr  = Pop();
-    iter_node = tree('E_ITERATE', rk_for_iter);
+    iter_node = tree('E_ITERATE', for_iter);
     Append(iter_node, iter_arr);
     node = tree('E_EVERY', '');
     Append(node, iter_node);
     Append(node, block);
     Push(node);
-    Rk_Finish_For = .dummy;
+    finish_for = .dummy;
     nreturn;
 }
-for_done   = (epsilon . *Rk_Finish_For());
+Finish_for   = (epsilon . *finish_for());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// Rk_Finish_Sub — pops counter frame, builds (STMT :subj (E_FNC sname ...)).
+// finish_sub — pops counter frame, builds (STMT :subj (E_FNC sname ...)).
 /*--------------------------------------------------------------------------------------------------------------------*/
-function Rk_Finish_Sub(n_kids, kids, sname, efnc, subj, stmt, i) {
+function finish_sub(n_kids, kids, sname, efnc, subj, stmt, i) {
     n_kids = TopCounter();
     kids   = GT(n_kids, 0) ARRAY('1:' n_kids);
     i = n_kids;
@@ -253,7 +253,7 @@ function Rk_Finish_Sub(n_kids, kids, sname, efnc, subj, stmt, i) {
         kids[i] = Pop();
         i = i - 1;
     }
-    sname = rk_capsnf rk_capsnr;
+    sname = capsnf capsnr;
     efnc  = tree('E_FNC', sname);
     Append(efnc, tree('E_VAR', sname));
     i = 1;
@@ -265,18 +265,18 @@ function Rk_Finish_Sub(n_kids, kids, sname, efnc, subj, stmt, i) {
     Append(subj, efnc);
     stmt = tree('STMT', '');
     Append(stmt, subj);
-    rk_sub_list = rk_slink(rk_sub_list, stmt);
-    Rk_Finish_Sub = .dummy;
+    sub_list = slink(sub_list, stmt);
+    finish_sub = .dummy;
     nreturn;
 }
-sub_done   = (epsilon . *Rk_Finish_Sub());
+Finish_sub   = (epsilon . *finish_sub());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// Rk_Finish_Call — function call decomposition.  Reads TopCounter() for
+// finish_call — function call decomposition.  Reads TopCounter() for
 // nTop() children (callee E_VAR + args).  Builds (E_FNC fname (E_VAR fname)
-// arg1...argN) with fname from rk_capfnf/rk_capfnr captures.
+// arg1...argN) with fname from capfnf/capfnr captures.
 // Retained: reduce() sets value=''; E_FNC requires value=fname to match oracle.
 /*--------------------------------------------------------------------------------------------------------------------*/
-function Rk_Finish_Call(n_kids, kids, fname, efnc, i) {
+function finish_call(n_kids, kids, fname, efnc, i) {
     n_kids = TopCounter();
     kids   = GT(n_kids, 0) ARRAY('1:' n_kids);
     i = n_kids;
@@ -284,7 +284,7 @@ function Rk_Finish_Call(n_kids, kids, fname, efnc, i) {
         kids[i] = Pop();
         i = i - 1;
     }
-    fname = rk_capfnf rk_capfnr;
+    fname = capfnf capfnr;
     efnc  = tree('E_FNC', fname);
     i = 1;
     while (LE(i, n_kids)) {
@@ -292,12 +292,12 @@ function Rk_Finish_Call(n_kids, kids, fname, efnc, i) {
         i = i + 1;
     }
     Push(efnc);
-    Rk_Finish_Call = .dummy;
+    finish_call = .dummy;
     nreturn;
 }
-call_done  = (epsilon . *Rk_Finish_Call());
+Finish_call  = (epsilon . *finish_call());
 /*--------------------------------------------------------------------------------------------------------------------*/
-function Rk_Finish_Main(n_kids, kids, efnc, subj, stmt, i) {
+function finish_main(n_kids, kids, efnc, subj, stmt, i) {
     n_kids = TopCounter();
     kids   = GT(n_kids, 0) ARRAY('1:' n_kids);
     i = n_kids;
@@ -317,10 +317,10 @@ function Rk_Finish_Main(n_kids, kids, efnc, subj, stmt, i) {
     stmt = tree('STMT', '');
     Append(stmt, subj);
     Push(stmt);
-    Rk_Finish_Main = .dummy;
+    finish_main = .dummy;
     nreturn;
 }
-main_done  = (epsilon . *Rk_Finish_Main());
+Finish_main  = (epsilon . *finish_main());
 /*====================================================================================================================*/
 // Expression tower — result lives on the shared stack.
 //
@@ -334,12 +334,12 @@ CallArgTail = ( $','  *Expr  nInc() );
 
 // Expr11 — primary.
 
-Expr11 = ( VarScalar              var_done
-         | VarArray               var_done
-         | VarHash                var_done
+Expr11 = ( VarScalar              Push_var
+         | VarArray               Push_var
+         | VarHash                Push_var
          | shift(LitInt, 'E_ILIT')
-         | LitStrDQ               qlit_done
-         | LitStrSQ               qlit_done
+         | LitStrDQ               Push_qlit
+         | LitStrSQ               Push_qlit
          | $'(' *Expr $')'
          | ( nPush()
              shift(CallName, 'E_VAR')  nInc()
@@ -348,7 +348,7 @@ Expr11 = ( VarScalar              var_done
                ARBNO( *CallArgTail )
              | epsilon
              )
-             $')'                 call_done
+             $')'                 Finish_call
              nPop()
            )
          );
@@ -425,8 +425,8 @@ WhileStmt = ( $'while'  $'(' Expr $')'
 
 ForStmt = ( $'for' $'  '  Expr
             $'->'
-            ForLoopvar  stash_for
-            Block  for_done
+            ForLoopvar  Store_for_iter
+            Block  Finish_for
           );
 
 ReturnStmt = ( $'return'
@@ -436,15 +436,15 @@ ReturnStmt = ( $'return'
              );
 
 AssignStmt = ( ($'my' $'  ' | epsilon)
-               ( VarScalar  var_done
-               | VarArray   var_done
-               | VarHash    var_done
+               ( VarScalar  Push_var
+               | VarArray   Push_var
+               | VarHash    Push_var
                )
                $'='  Expr  $';'  (E_ASSIGN & 2)
              );
 
 SayStmt = ( $'say'
-            Expr  $';'  say_done
+            Expr  $';'  Finish_say
           );
 
 BareStmt = ( Expr $';' );
@@ -467,10 +467,10 @@ SubBlockStmt = ( IfStmt | WhileStmt | ForStmt | ReturnStmt | AssignStmt | SayStm
 // Sub parameter list — each param shifts (E_VAR name) onto sub counter frame.
 /*====================================================================================================================*/
 SubParamTail = ( $','
-                 SubParam  param_done  nInc()
+                 SubParam  Push_param  nInc()
                );
 
-SubParams = ( SubParam  param_done  nInc()
+SubParams = ( SubParam  Push_param  nInc()
               ARBNO( SubParamTail )
             | epsilon
             );
@@ -479,18 +479,18 @@ SubStmt = ( $'sub' $'  '
             SubName
             nPush()
             $'(' SubParams $')'
-            SubBlock  sub_done
+            SubBlock  Finish_sub
             nPop()
           );
 /*====================================================================================================================*/
 // Compiland — canonical cross-PARSER spine.
 // Outer frame: holds exactly 1 item (the main STMT) for reduce('Parse',1).
-// Inner frame: counts main body stmts for Rk_Finish_Main().
+// Inner frame: counts main body stmts for finish_main().
 /*====================================================================================================================*/
 Compiland = nPush()
             nPush()
             ARBNO( (SubStmt | (Stmt nInc())) nl_opt )
-            main_done
+            Finish_main
             nPop()
             nInc()
             (E_Parse & 1)
@@ -510,17 +510,17 @@ if (ok) {
     ptree = Pop();
     if (DIFFER(ptree)) {
         // Reverse the sub_list (cons'd in forward order, need reverse for emit).
-        rk_sub_rev = '';
-        rk_sl = rk_sub_list;
-        while (DIFFER(rk_sl)) {
-            rk_sub_rev = rk_slink(rk_sub_rev, sval(rk_sl));
-            rk_sl = snext(rk_sl);
+        sub_rev = '';
+        sl = sub_list;
+        while (DIFFER(sl)) {
+            sub_rev = slink(sub_rev, sval(sl));
+            sl = snext(sl);
         }
         // Emit sub STMTs.
-        rk_sl = rk_sub_rev;
-        while (DIFFER(rk_sl)) {
-            TDump(sval(rk_sl));
-            rk_sl = snext(rk_sl);
+        sl = sub_rev;
+        while (DIFFER(sl)) {
+            TDump(sval(sl));
+            sl = snext(sl);
         }
         // Emit main STMT only if it has body stmts beyond the initial E_VAR main child.
         i = 1;
@@ -535,4 +535,4 @@ if (ok) {
     }
 }
 
-parser_rk_done = '';
+parser_done = '';
