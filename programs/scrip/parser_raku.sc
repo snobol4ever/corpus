@@ -67,7 +67,7 @@ E_EQ        = "'E_EQ'";       E_NE       = "'E_NE'";
 E_LT        = "'E_LT'";       E_LE       = "'E_LE'";
 E_GT        = "'E_GT'";       E_GE       = "'E_GE'";
 E_IF        = "'E_IF'";       E_WHILE    = "'E_WHILE'";
-E_RETURN    = "'E_RETURN'";
+E_RETURN    = "'E_RETURN'";   E_TO       = "'E_TO'";
 E_Parse     = "'Parse'";
 /*====================================================================================================================*/
 // Whitespace primitives.  White / Gray are the cross-parser canonical names;
@@ -93,7 +93,7 @@ $'my'     = $' ' 'my'    ;  $'say'    = $' ' 'say'   ;
 $'if'     = $' ' 'if'    ;  $'else'   = $' ' 'else'  ;
 $'while'  = $' ' 'while' ;  $'for'    = $' ' 'for'   ;
 $'sub'    = $' ' 'sub'   ;  $'return' = $' ' 'return';
-$'exists' = $' ' 'exists';
+$'exists' = $' ' 'exists';  $'delete' = $' ' 'delete';
 /*====================================================================================================================*/
 // Operator tokens — optional whitespace both sides.  Open brackets: ws after only.  Close: ws before only.
 /*====================================================================================================================*/
@@ -108,6 +108,7 @@ $'{'   = $' ' '{' $' ';  $'}'   = $' ' '}';
 $'<'   = $' ' '<' $' ';  $'>'   = $' ' '>';
 $'['   = $' ' '[' $' ';  $']'   = $' ' ']';
 $'~~'  = $' ' '~~' $' ';
+$'..'  = $' ' '..' $' ';  $'..^' = $' ' '..^' $' ';
 /*====================================================================================================================*/
 // Token classifiers — mirror raku.l names.
 // Each classifier bakes $' ' (optional leading whitespace) into its
@@ -435,6 +436,90 @@ function finish_hash_exists_brace(key, arr, fn, node) {
 }
 Finish_hash_exists_brace = (epsilon . *finish_hash_exists_brace());
 /*--------------------------------------------------------------------------------------------------------------------*/
+// finish_hash_delete_angle — delete %hash<ident> →
+//   (E_FNC hash_delete (E_VAR hash_delete) (E_VAR h) (E_QLIT key)).
+// capkey holds the angle-bracket key; colnmf/colnmr hold hash name (set by HashIdxVar).
+// Retained: value='hash_delete' in E_FNC requires explicit build; reduce() sets value=''.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_hash_delete_angle(arr, fn, node) {
+    arr  = tree('E_VAR', colnmf colnmr);
+    fn   = tree('E_VAR', 'hash_delete');
+    node = tree('E_FNC', 'hash_delete');
+    Append(node, fn);
+    Append(node, arr);
+    Append(node, tree('E_QLIT', capkey));
+    Push(node);
+    finish_hash_delete_angle = .dummy;
+    nreturn;
+}
+Finish_hash_delete_angle = (epsilon . *finish_hash_delete_angle());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_hash_delete_brace — delete %hash{$expr} →
+//   (E_FNC hash_delete (E_VAR hash_delete) (E_VAR h) key_expr).
+// key_expr on top of stack; colnmf/colnmr hold hash name (set by HashIdxVar).
+// Retained: same reason as finish_hash_delete_angle.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_hash_delete_brace(key, arr, fn, node) {
+    key  = Pop();
+    arr  = tree('E_VAR', colnmf colnmr);
+    fn   = tree('E_VAR', 'hash_delete');
+    node = tree('E_FNC', 'hash_delete');
+    Append(node, fn);
+    Append(node, arr);
+    Append(node, key);
+    Push(node);
+    finish_hash_delete_brace = .dummy;
+    nreturn;
+}
+Finish_hash_delete_brace = (epsilon . *finish_hash_delete_brace());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_for_range — for lo..hi -> $v { body } → while-loop lowering.
+// Mirrors raku.y make_for_range().  Stack on entry: body (E_SEQ_EXPR) on top,
+// hi below, lo below that.  for_iter holds the loopvar name (set by Store_for_iter).
+//
+// Expansion (matching oracle):
+//   (E_SEQ_EXPR
+//     (E_ASSIGN (E_VAR v) lo)
+//     (E_WHILE
+//       (E_LE (E_VAR v) hi)
+//       body_with_incr_appended))
+//
+// Retained: synthesizes multiple nodes from three stack values + for_iter stash;
+// reduce() cannot build multi-child sequences or append to an existing node.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_for_range(body, hi, lo, vvar, incr, cond, init, wloop, seq) {
+    body = Pop();
+    hi   = Pop();
+    lo   = Pop();
+    vvar = tree('E_VAR', for_iter);
+    // Append increment stmt to body: body += (E_ASSIGN v (E_ADD v 1))
+    incr = tree('E_ADD', '');
+    Append(incr, tree('E_VAR', for_iter));
+    Append(incr, tree('E_ILIT', '1'));
+    Append(body, tree('E_ASSIGN', ''));
+    Append(c(body)[n(body)], tree('E_VAR', for_iter));
+    Append(c(body)[n(body)], incr);
+    // Build (E_WHILE (E_LE v hi) body)
+    cond  = tree('E_LE', '');
+    Append(cond, tree('E_VAR', for_iter));
+    Append(cond, hi);
+    wloop = tree('E_WHILE', '');
+    Append(wloop, cond);
+    Append(wloop, body);
+    // Build (E_ASSIGN v lo)
+    init = tree('E_ASSIGN', '');
+    Append(init, tree('E_VAR', for_iter));
+    Append(init, lo);
+    // Wrap in E_SEQ_EXPR
+    seq = tree('E_SEQ_EXPR', '');
+    Append(seq, init);
+    Append(seq, wloop);
+    Push(seq);
+    finish_for_range = .dummy;
+    nreturn;
+}
+Finish_for_range = (epsilon . *finish_for_range());
+/*--------------------------------------------------------------------------------------------------------------------*/
 // finish_smartmatch
 // Retained: reduce() builds value=''; E_FNC requires value='raku_match'.
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -698,20 +783,30 @@ Expr6tail = FENCE( $'+'  *Expr7  Flatten_add
                  );
 Expr6     = ( Expr7  ARBNO(Expr6tail) );
 
+// Expr5 — range ops (.. and ..^).  Both map to E_TO (oracle: raku.y OP_RANGE_EX also → E_TO).
+// Range is non-chaining (not ARBNO) — just a single optional tail.
+// ..^ tried first (longer token) so FENCE picks it before ...
+Expr5     = ( Expr6
+              FENCE( $'..^'  *Expr6  (E_TO & 2)
+                   | $'..'   *Expr6  (E_TO & 2)
+                   | epsilon
+                   )
+            );
+
 // Expr4 — comparison ops.  Two-char ops tried first (longest match).
 // ~~ smartmatch: subject ~~ /pattern/ — produces raku_match(subj, pat).
 // Smartmatch's RHS is a LitRegex (not arbitrary Expr) at the RK-5 starter slice.
-Expr4tail = FENCE( $'=='  *Expr6      (E_EQ & 2)
-                 | $'!='  *Expr6      (E_NE & 2)
-                 | $'<='  *Expr6      (E_LE & 2)
-                 | $'>='  *Expr6      (E_GE & 2)
-                 | $'<'   *Expr6      (E_LT & 2)
-                 | $'>'   *Expr6      (E_GT & 2)
+Expr4tail = FENCE( $'=='  *Expr5      (E_EQ & 2)
+                 | $'!='  *Expr5      (E_NE & 2)
+                 | $'<='  *Expr5      (E_LE & 2)
+                 | $'>='  *Expr5      (E_GE & 2)
+                 | $'<'   *Expr5      (E_LT & 2)
+                 | $'>'   *Expr5      (E_GT & 2)
                  | $'~~'  LitRegex Push_rxlit  Finish_smartmatch
                  | $'~~'  LitMatchGlobal Push_rxlit  Finish_match_global
                  | $'~~'  LitSubst       Finish_subst
                  );
-Expr4     = ( Expr6  ARBNO(Expr4tail) );
+Expr4     = ( Expr5  ARBNO(Expr4tail) );
 
 // Expr — top of expression tower.
 Expr      = Expr4;
@@ -767,6 +862,29 @@ ForStmt = ( $'for' $'  '  Expr
             Block  Finish_for
           );
 
+// ForRangeStmt — for lo..hi -> $v { body } or for lo..^hi -> $v { body }.
+// Must appear before ForStmt in Stmt alternatives — both start with 'for'.
+// Mirrors raku.y make_for_range(): lo and hi are Expr6 (add-level) operands.
+// ..^ tried before .. (longer token match).
+ForRangeStmt = ( $'for' $'  '
+                 Expr6
+                 FENCE( $'..^' | $'..' )
+                 Expr6
+                 $'->'
+                 ForLoopvar  Store_for_iter
+                 Block  Finish_for_range
+               );
+
+// DeleteHashAngle — delete %hash<ident> ; → (E_FNC hash_delete ...)
+DeleteHashAngle = ( $'delete'  HashIdxVar  $'<'  HashAngleKey  $'>'  $';'
+                    Finish_hash_delete_angle
+                  );
+
+// DeleteHashBrace — delete %hash{$expr} ; → (E_FNC hash_delete ...)
+DeleteHashBrace = ( $'delete'  HashIdxVar  $'{'  Expr  $'}'  $';'
+                    Finish_hash_delete_brace
+                  );
+
 ReturnStmt = ( $'return'
                ( $';'         (E_RETURN & 0)
                | $'  ' Expr   $';'  (E_RETURN & 1)
@@ -789,7 +907,10 @@ BareStmt = ( Expr $';' );
 
 Stmt = ( IfStmt
        | WhileStmt
+       | ForRangeStmt
        | ForStmt
+       | DeleteHashAngle
+       | DeleteHashBrace
        | ReturnStmt
        | AssignStmt
        | SayStmt
@@ -797,10 +918,10 @@ Stmt = ( IfStmt
        );
 
 // BlockStmt — final binding.
-BlockStmt = ( IfStmt | WhileStmt | ForStmt | ReturnStmt | AssignStmt | SayStmt | BareStmt );
+BlockStmt = ( IfStmt | WhileStmt | ForRangeStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ReturnStmt | AssignStmt | SayStmt | BareStmt );
 
 // SubBlockStmt — SubBlock_body handles nInc per stmt.
-SubBlockStmt = ( IfStmt | WhileStmt | ForStmt | ReturnStmt | AssignStmt | SayStmt | BareStmt );
+SubBlockStmt = ( IfStmt | WhileStmt | ForRangeStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ReturnStmt | AssignStmt | SayStmt | BareStmt );
 /*====================================================================================================================*/
 // Sub parameter list — each param shifts (E_VAR name) onto sub counter frame.
 /*====================================================================================================================*/

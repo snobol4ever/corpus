@@ -1,0 +1,8 @@
+(STMT :subj (E_FNC main
+  (E_VAR main)
+  (E_FNC hash_delete
+    (E_VAR hash_delete)
+    (E_VAR h)
+    (E_QLIT "foo")
+  )
+))
