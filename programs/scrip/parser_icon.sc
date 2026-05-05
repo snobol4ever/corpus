@@ -33,7 +33,8 @@ E_CAT       = "'E_CAT'";      E_MAKELIST  = "'E_MAKELIST'";
 E_IDX       = "'E_IDX'";      E_SECTION   = "'E_SECTION'";
 E_FIELD     = "'E_FIELD'";    E_LOOP_BREAK= "'E_LOOP_BREAK'";
 E_LOOP_NEXT = "'E_LOOP_NEXT'"; E_CSET      = "'E_CSET'";
-E_CASE      = "'E_CASE'";
+E_CASE      = "'E_CASE'";      E_GLOBAL    = "'E_GLOBAL'";
+E_INITIAL   = "'E_INITIAL'";   E_RECORD    = "'E_RECORD'";
 E_REVASSIGN = "'E_REVASSIGN'"; E_SWAP      = "'E_SWAP'";
 E_REVSWAP   = "'E_REVSWAP'";   E_IDENTICAL = "'E_IDENTICAL'";
 E_NOT       = "'E_NOT'";
@@ -71,6 +72,9 @@ $'repeat'    = $' ' 'repeat'   ;  $'break'     = $' ' 'break'    ;
 $'next'      = $' ' 'next'     ;  $'case'      = $' ' 'case'     ;
 $'of'        = $' ' 'of'       ;  $'default'   = $' ' 'default'  ;
 $'to'        = $' ' 'to'       ;  $'by'        = $' ' 'by'       ;
+$'global'    = $' ' 'global'   ;  $'local'     = $' ' 'local'    ;
+$'static'    = $' ' 'static'   ;  $'record'    = $' ' 'record'   ;
+$'initial'   = $' ' 'initial'  ;
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Operator tokens — optional whitespace both sides.  Open brackets: ws after only.  Close: ws before only.
 // Operator tokens — optional whitespace both sides.  Open brackets: ws after only.  Close: ws before only.
@@ -178,7 +182,73 @@ function decompose_proc(n_kids, kids, pname, proc, i) {
     nreturn;
 }
 Decompose_proc = (epsilon . *decompose_proc());
-/*====================================================================================================================*/
+/*--------------------------------------------------------------------------------------------------------------------*/
+// push_record — pop nTop() children; first child is (E_VAR recname); build
+// (STMT :subj (E_RECORD recname field1 field2 ...)).
+function push_record(n_kids, kids, rname, rec, i) {
+    n_kids = TopCounter();
+    kids = GT(n_kids, 0) ARRAY('1:' n_kids);
+    i = n_kids;
+    while (GT(i, 0)) {
+        kids[i] = Pop();
+        i = i - 1;
+    }
+    rname = v(kids[1]);
+    rec = Tree('E_RECORD', rname, 0);
+    i = 2;
+    while (LE(i, n_kids)) {
+        rec = Append(rec, kids[i]);
+        i = i + 1;
+    }
+    Push(Tree('STMT', '', 1, Tree(':subj', '', 1, rec)));
+    push_record = .dummy;
+    nreturn;
+}
+Push_record = (epsilon . *push_record());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// push_global_top — pop nTop() (E_VAR ...) children; build (STMT :subj (E_GLOBAL v1 v2 ...)).
+function push_global_top(n_kids, kids, g, i) {
+    n_kids = TopCounter();
+    kids = GT(n_kids, 0) ARRAY('1:' n_kids);
+    i = n_kids;
+    while (GT(i, 0)) {
+        kids[i] = Pop();
+        i = i - 1;
+    }
+    g = Tree('E_GLOBAL', '', 0);
+    i = 1;
+    while (LE(i, n_kids)) {
+        g = Append(g, kids[i]);
+        i = i + 1;
+    }
+    Push(Tree('STMT', '', 1, Tree(':subj', '', 1, g)));
+    push_global_top = .dummy;
+    nreturn;
+}
+Push_global_top = (epsilon . *push_global_top());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// push_local_stmt — pop nTop() (E_VAR ...) children; build (E_GLOBAL v1 v2 ...) as a plain
+// stmt child (not wrapped in STMT — that wrapping is done by Compiland / proc builder).
+// Used for local/static decls inside a proc body (they become children of E_FNC via StmtBody).
+function push_local_stmt(n_kids, kids, g, i) {
+    n_kids = TopCounter();
+    kids = GT(n_kids, 0) ARRAY('1:' n_kids);
+    i = n_kids;
+    while (GT(i, 0)) {
+        kids[i] = Pop();
+        i = i - 1;
+    }
+    g = Tree('E_GLOBAL', '', 0);
+    i = 1;
+    while (LE(i, n_kids)) {
+        g = Append(g, kids[i]);
+        i = i + 1;
+    }
+    Push(g);
+    push_local_stmt = .dummy;
+    nreturn;
+}
+Push_local_stmt = (epsilon . *push_local_stmt());
 // Expression tower — canonical names from icon-sp.ebnf.
 // Expr11 = primary; tighter -> looser: Expr10 (unary) -> Expr8 (pow) ->
 // Expr7 (mul/mod/inter) -> Expr6 (add/union/diff) -> Expr5 (concat) ->
@@ -382,7 +452,27 @@ Blank     = ( $' ' nl_one );
 ReturnStmt = ( $'return' $'  ' *Expr $' ' semi_opt $' ' nl_one (E_RETURN & 1)
              | $'return' $' '  semi_opt $' ' nl_one             (E_RETURN & 0)
              );
-StmtBody  = ( ReturnStmt nInc()
+/*--------------------------------------------------------------------------------------------------------------------*/
+// Local/static declaration inside a proc body — both produce E_GLOBAL node.
+// id list: first id then comma-separated rest, then newline.
+DeclFirst  = ( $' ' id_pat ~ 'E_VAR' nInc() );
+DeclRest   = ( $','  id_pat ~ 'E_VAR' nInc() );
+DeclIds    = ( DeclFirst ARBNO(DeclRest) );
+LocalDecl  = ( nPush() $'local'  $'  ' DeclIds $' ' semi_opt $' ' nl_one Push_local_stmt nPop() );
+StaticDecl = ( nPush() $'static' $'  ' DeclIds $' ' semi_opt $' ' nl_one Push_local_stmt nPop() );
+/*--------------------------------------------------------------------------------------------------------------------*/
+// Initial block inside a proc body — initial { expr } or initial expr.
+// E_INITIAL always has exactly one child (the block/expr).
+InitialStmt = ( nPush() $'initial' *DGray
+                $'{' *DGray *Expr nInc() *DGray semi_opt *DGray '}'
+                (E_INITIAL & 'nTop()')
+                nPop()
+              );
+/*--------------------------------------------------------------------------------------------------------------------*/
+StmtBody  = ( LocalDecl nInc()
+            | StaticDecl nInc()
+            | InitialStmt nInc()
+            | ReturnStmt nInc()
             | $' ' *Expr $' ' semi_opt $' ' nl_one nInc()
             | Blank
             );
@@ -395,9 +485,22 @@ Prochead   = ( $'procedure' $'  ' id_pat ~ 'E_VAR'  nInc()
 ProcbodyEnd = ( $'end' $' ' (nl_one | RPOS(0)) );
 Procbody    = ( ProcbodyEnd | StmtBody *Procbody );
 Proc        = ( nPush()  Prochead  Procbody  Decompose_proc  nPop() );
+/*--------------------------------------------------------------------------------------------------------------------*/
+// Global declaration at top level: global id, id, ... → (STMT :subj (E_GLOBAL v1 v2 ...))
+GlobalDecl = ( nPush() $'global' $'  ' DeclIds $' ' semi_opt $' ' nl_one Push_global_top nPop() );
+/*--------------------------------------------------------------------------------------------------------------------*/
+// Record declaration at top level: record Name(f1, f2, ...) → (STMT :subj (E_RECORD Name f1 f2 ...))
+// Shift name as (E_VAR Name) first; remaining fields are also (E_VAR ...).
+RecordField = ( $',' id_pat ~ 'E_VAR' nInc() );
+Record      = ( nPush()
+                $'record' $'  ' id_pat ~ 'E_VAR' nInc()
+                $'(' ( $' ' id_pat ~ 'E_VAR' nInc() ARBNO(RecordField) | epsilon ) $')'
+                $' ' nl_one
+                Push_record nPop()
+              );
 /*====================================================================================================================*/
 Compiland = ( nPush()
-              ARBNO( nInc() $' ' Proc $' ' )
+              ARBNO( nInc() *DGray (GlobalDecl | Record | Proc) *DGray )
               (E_Parse & 'nTop()')
               nPop()
             );
