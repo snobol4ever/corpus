@@ -61,6 +61,16 @@ E_ILIT       = 'E_ILIT';
 E_QLIT       = 'E_QLIT';
 E_ALT        = 'E_ALT';
 E_FNC        = 'E_FNC';
+E_ADD        = 'E_ADD';
+E_SUB        = 'E_SUB';
+E_MUL        = 'E_MUL';
+E_DIV        = 'E_DIV';
+E_MNS        = 'E_MNS';
+E_CAT        = 'E_CAT';
+E_NUL        = 'E_NUL';
+CMP_EQ       = 'CMP_EQ'; CMP_NE = 'CMP_NE';
+CMP_LT       = 'CMP_LT'; CMP_LE = 'CMP_LE';
+CMP_GT       = 'CMP_GT'; CMP_GE = 'CMP_GE';
 Parse        = 'Parse';
 FUNC_DECL = 'FUNC_DECL';
 REC_DECL  = 'REC_DECL';
@@ -97,6 +107,40 @@ function Push_qlit() {
     return;
 }
 
+function decompose_call(nargs, kids, fname, call, i) {
+    //  Stack (top first): arg_N, ..., arg_1, E_VAR_fname
+    //  nTop() = N (args only; fname not counted by nInc).
+    nargs = nTop();
+    kids  = ARRAY('1:' nargs + 1);
+    i = 0;
+    while (i = LT(i, nargs + 1) i + 1) kids[i] = Pop();
+    //  kids[1]=arg_N (first popped=top), ..., kids[nargs]=arg_1, kids[nargs+1]=E_VAR_fname
+    fname = REPLACE(v(kids[nargs + 1]), &LCASE, &UCASE);
+    call  = tree(E_FNC, fname);
+    //  Append args in order: arg_1 first → arg_N last (kids[nargs] down to kids[1])
+    i = nargs;
+    while (GE(i, 1)) { call = Append(call, kids[i]); i = i - 1; }
+    Push(call);
+    decompose_call = .dummy;
+    nreturn;
+}
+
+function push_call_id() {
+    push_call_id = .dummy;
+    Push(tree(E_VAR, REPLACE(rbCallName, &LCASE, &UCASE)));
+    nreturn;
+}
+
+function Decompose_call() {
+    Decompose_call = epsilon . *decompose_call();
+    return;
+}
+
+function Push_call_id() {
+    Push_call_id = epsilon . *push_call_id();
+    return;
+}
+
 /*====================================================================================================================*/
 //  Grammar — RB-0 atom + RB-1 assignment + RB-2/3/4/5 (if/while/call/match/alt).
 //  Precedence (loose→tight): if/while > match (?) > assign (:=) > alt (|) > atom.
@@ -104,15 +148,67 @@ function Push_qlit() {
 //  on either side.
 /*====================================================================================================================*/
 
-//  bare_call — Id() with no args; matches BEFORE plain Id so the latter falls back.
-bare_call = shift(*Id, E_VAR) $'(' $')' reduce(CALL, 1);
+//  primary — id, call, int, string, paren.
+rbCallName = '';
 
-atom = *String Push_qlit() | shift(*Integer, E_ILIT) | *bare_call | shift(*Id, E_VAR);
+X_args   = nInc() *alt_expr FENCE($',' *X_args | epsilon);
+
+call_or_id = FENCE(  (*Id . rbCallName) $'(' nPush() Push_call_id()
+                     FENCE(*X_args | epsilon) $')' Decompose_call() nPop()
+                   | shift(*Id, E_VAR)
+                  );
+
+primary = FENCE(  *String  Push_qlit()
+                | shift(*Integer, E_ILIT)
+                | *call_or_id
+                | '(' *expr ')'
+               );
+
+//  unary_expr — unary minus; right-associative.
+unary_expr = FENCE(  $'-' *unary_expr reduce(E_MNS, 1)
+                   | *primary
+                  );
+
+//  mul_expr — * / % (left-associative chain).
+mul_expr = *unary_expr
+           ( $'*' *unary_expr reduce(E_MUL, 2) ($'*' *unary_expr reduce(E_MUL, 2) | epsilon)
+           | $'/' *unary_expr reduce(E_DIV, 2) ($'/' *unary_expr reduce(E_DIV, 2) | epsilon)
+           | epsilon
+           );
+
+//  add_expr — + - (left-associative chain).
+add_expr = *mul_expr
+           ( $'+' *mul_expr reduce(E_ADD, 2) ($'+' *mul_expr reduce(E_ADD, 2) | epsilon)
+           | $'-' *mul_expr reduce(E_SUB, 2) ($'-' *mul_expr reduce(E_SUB, 2) | epsilon)
+           | epsilon
+           );
+
+//  cmp_expr — comparisons; map to E_FNC(EQ/NE/LT/LE/GT/GE, lhs, rhs) in lowering.
+$'='  = $' ' '='  $' '; $'~=' = $' ' '~=' $' ';
+$'<'  = $' ' '<'  $' '; $'<=' = $' ' '<=' $' ';
+$'>'  = $' ' '>'  $' '; $'>=' = $' ' '>=' $' ';
+cmp_expr = *add_expr FENCE(  $'='  *add_expr reduce(CMP_EQ, 2)
+                             | $'~=' *add_expr reduce(CMP_NE, 2)
+                             | $'<'  *add_expr reduce(CMP_LT, 2)
+                             | $'<=' *add_expr reduce(CMP_LE, 2)
+                             | $'>'  *add_expr reduce(CMP_GT, 2)
+                             | $'>=' *add_expr reduce(CMP_GE, 2)
+                             | epsilon
+                            );
+
+//  cat_expr — || (string concat) and & (pattern concat); both lower to E_CAT.
+$'||' = $' ' '||' $' ';
+$'&'  = $' ' '&'  $' ';
+cat_expr = *cmp_expr
+           ( $'||' *cmp_expr reduce(E_CAT, 2) ($'||' *cmp_expr reduce(E_CAT, 2) | epsilon)
+           | $'&'  *cmp_expr reduce(E_CAT, 2) ($'&'  *cmp_expr reduce(E_CAT, 2) | epsilon)
+           | epsilon
+           );
 
 //  alt_expr — n-ary `|` chain per beauty.sc idiom; yields flat (E_ALT a b c).
-//  nInc() counts each atom; reduce with nTop() folds to flat n-ary tree.
-//  Single-atom case: nTop()=1, reduce to (ALT a) which lower_atom unwraps.
-X_alt = nInc() *atom FENCE($'|' *X_alt | epsilon);
+//  nInc() counts each operand; reduce with nTop() folds to flat n-ary tree.
+//  Single-operand case: nTop()=1, reduce to (ALT x) which lower_atom unwraps.
+X_alt = nInc() *cat_expr FENCE($'|' *X_alt | epsilon);
 alt_expr = nPush() *X_alt reduce(ALT, nTop_count) nPop();
 
 //  expr — alt_expr optionally followed by `:= alt_expr` (assign).
@@ -236,6 +332,28 @@ function lower_atom(x, k, acc, i) {
     if (IDENT(k, 'E_VAR'))       lower_atom = tree(E_VAR, REPLACE(v(x), &LCASE, &UCASE));
     else if (IDENT(k, 'E_ILIT')) lower_atom = x;
     else if (IDENT(k, 'E_QLIT')) lower_atom = x;
+    else if (IDENT(k, 'E_FNC')) {
+        //  decompose_call produces E_FNC(fname, arg1, ...) with raw ALT-wrapped children.
+        //  Lower each child through lower_atom to strip ALT wrappers.
+        acc = tree(E_FNC, v(x));
+        i = 0;
+        while (i = LT(i, n(x)) i + 1) acc = Append(acc, lower_atom(c(x)[i]));
+        lower_atom = acc;
+    }
+    else if (IDENT(k, 'E_MNS')) {
+        lower_atom = Tree(E_MNS, '', 1, lower_atom(c(x)[1]));
+    }
+    else if (IDENT(k, 'E_ADD')) lower_atom = Tree(E_ADD, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'E_SUB')) lower_atom = Tree(E_SUB, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'E_MUL')) lower_atom = Tree(E_MUL, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'E_DIV')) lower_atom = Tree(E_DIV, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'E_CAT')) lower_atom = Tree(E_CAT, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_EQ')) lower_atom = Tree(E_FNC, 'EQ', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_NE')) lower_atom = Tree(E_FNC, 'NE', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_LT')) lower_atom = Tree(E_FNC, 'LT', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_LE')) lower_atom = Tree(E_FNC, 'LE', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_GT')) lower_atom = Tree(E_FNC, 'GT', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_GE')) lower_atom = Tree(E_FNC, 'GE', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
     else if (IDENT(k, 'ALT')) {
         if (EQ(n(x), 1)) lower_atom = lower_atom(c(x)[1]);
         else {
@@ -244,9 +362,6 @@ function lower_atom(x, k, acc, i) {
             while (i = LT(i, n(x)) i + 1) acc = Append(acc, lower_atom(c(x)[i]));
             lower_atom = acc;
         }
-    }
-    else if (IDENT(k, 'CALL')) {
-        lower_atom = tree(E_FNC, REPLACE(v(c(x)[1]), &LCASE, &UCASE));
     }
     else lower_atom = x;
     return;
