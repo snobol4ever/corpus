@@ -100,8 +100,8 @@ function Push_qlit() {
 /*====================================================================================================================*/
 //  Grammar — RB-0 atom + RB-1 assignment + RB-2/3/4/5 (if/while/call/match/alt).
 //  Precedence (loose→tight): if/while > match (?) > assign (:=) > alt (|) > atom.
-//  alt is left-associative binary per oracle; match and assign each take a
-//  single alt_expr on either side.
+//  alt is n-ary flat per oracle; match and assign each take a single alt_expr
+//  on either side.
 /*====================================================================================================================*/
 
 //  bare_call — Id() with no args; matches BEFORE plain Id so the latter falls back.
@@ -229,8 +229,9 @@ function emit_subj_goSF(s, sLbl, fLbl) {
 }
 
 //  lower_atom — recursively lower an expression tree.  Handles ALT (build
-//  E_ALT recursively) and CALL (emit (E_FNC name) — bare call no args).
-function lower_atom(x, k, lhs, rhs) {
+//  flat n-ary E_ALT via Append loop) and CALL (emit (E_FNC name) — bare
+//  call no args).
+function lower_atom(x, k, acc, i) {
     k = t(x);
     if (IDENT(k, 'E_VAR'))       lower_atom = tree(E_VAR, REPLACE(v(x), &LCASE, &UCASE));
     else if (IDENT(k, 'E_ILIT')) lower_atom = x;
@@ -238,10 +239,10 @@ function lower_atom(x, k, lhs, rhs) {
     else if (IDENT(k, 'ALT')) {
         if (EQ(n(x), 1)) lower_atom = lower_atom(c(x)[1]);
         else {
-            lower_atom = tree(E_ALT, '', 0, NULL);
+            acc = tree(E_ALT, '', 0, NULL);
             i = 0;
-            while (i = LT(i, n(x)) i + 1)
-                lower_atom = Append(lower_atom, lower_atom(c(x)[i]));
+            while (i = LT(i, n(x)) i + 1) acc = Append(acc, lower_atom(c(x)[i]));
+            lower_atom = acc;
         }
     }
     else if (IDENT(k, 'CALL')) {
