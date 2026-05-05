@@ -1,0 +1,10 @@
+(STMT :subj (E_FNC main
+  (E_VAR main)
+  (E_IF
+    (E_NOT (E_VAR done))
+    (E_SEQ_EXPR (E_FNC write
+        (E_VAR write)
+        (E_VAR x)
+      ))
+  )
+))

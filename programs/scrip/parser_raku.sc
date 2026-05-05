@@ -69,6 +69,7 @@ E_GT        = "'E_GT'";       E_GE       = "'E_GE'";
 E_IF        = "'E_IF'";       E_WHILE    = "'E_WHILE'";
 E_RETURN    = "'E_RETURN'";   E_TO       = "'E_TO'";
 E_NOT       = "'E_NOT'";      E_UNTIL    = "'E_UNTIL'";
+E_SEQ       = "'E_SEQ'";      E_ALT      = "'E_ALT'";
 E_Parse     = "'Parse'";
 /*====================================================================================================================*/
 // Whitespace primitives.  White / Gray are the cross-parser canonical names;
@@ -111,6 +112,8 @@ $'<'   = $' ' '<' $' ';  $'>'   = $' ' '>';
 $'['   = $' ' '[' $' ';  $']'   = $' ' ']';
 $'~~'  = $' ' '~~' $' ';
 $'..'  = $' ' '..' $' ';  $'..^' = $' ' '..^' $' ';
+$'&&'  = $' ' '&&' $' ';  $'||'  = $' ' '||'  $' ';
+$'!'   = $' ' '!';
 /*====================================================================================================================*/
 // Token classifiers — mirror raku.l names.
 // Each classifier bakes $' ' (optional leading whitespace) into its
@@ -757,7 +760,8 @@ CallArgTail = ( $','  *Expr  nInc() );
 
 // Expr11 — primary.
 
-Expr11 = ( VarScalar              Push_var
+Expr11 = ( $'!'  *Expr11  Finish_not
+         | VarScalar              Push_var
          | ArrIdxVar  $'['  *Expr  $']'              Finish_arr_get
          | VarArray                                   Push_var
          | HashIdxVar $'<'  HashAngleKey  $'>'        Finish_hash_get_angle
@@ -825,8 +829,17 @@ Expr4tail = FENCE( $'=='  *Expr5      (E_EQ & 2)
                  );
 Expr4     = ( Expr5  ARBNO(Expr4tail) );
 
+// Expr3 — logical ops (&& ||).
+// Mirrors raku.y cmp_expr: cmp_expr OP_AND add_expr / cmp_expr OP_OR add_expr.
+// && → E_SEQ (goal-directed and), || → E_ALT (goal-directed or).
+// && tried before || (no ambiguity but mirrors longest-match convention).
+Expr3tail = FENCE( $'&&'  *Expr4  (E_SEQ & 2)
+                 | $'||'  *Expr4  (E_ALT & 2)
+                 );
+Expr3     = ( Expr4  ARBNO(Expr3tail) );
+
 // Expr — top of expression tower.
-Expr      = Expr4;
+Expr      = Expr3;
 /*====================================================================================================================*/
 // Block — `{ BlockStmt* }` — produces E_SEQ_EXPR pushed on stack.
 /*====================================================================================================================*/
