@@ -30,6 +30,8 @@
 function TValue(x, i) {
     // PARSER-RB-2: E_NUL before the empty-value "." check.
     if (TValue = IDENT(t(x), 'E_NUL') '(E_NUL)')                           { return; }
+    // PARSER-PR-8d: E_CUT has empty value but must render as (E_CUT), not ".".
+    if (TValue = IDENT(t(x), 'E_CUT') '(E_CUT)')                           { return; }
     // PARSER-SN-5: E_QLIT with empty value must render as `(E_QLIT "")`,
     // not the placeholder dot.  Oracle --dump-parse always emits the
     // typed quoted form even for empty replacements (`S 'a' = ` →

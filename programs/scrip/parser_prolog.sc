@@ -358,7 +358,7 @@ function dcg_append_tail(list, tail, new_tail) {
     return;
 }
 function dcg_make_unify(a, b) {
-    dcg_make_unify = Tree(E_UNIFY, '', 2, a, b);
+    dcg_make_unify = Tree('E_UNIFY', '', 2, a, b);
     return;
 }
 function dcg_var_tree(slot_name) {
@@ -366,7 +366,7 @@ function dcg_var_tree(slot_name) {
     return;
 }
 function dcg_call_nt(body, s_in, s_out, new_node, k, nk) {
-    new_node = Tree(E_FNC, v(body), 0);
+    new_node = Tree('E_FNC', v(body), 0);
     nk = n(body);
     k = 1;
     while (LE(k, nk)) {
@@ -383,7 +383,7 @@ function dcg_build_conj(goals, ng, i, result) {
     result = goals[1];
     i = 2;
     while (LE(i, ng)) {
-        result = Tree(E_FNC, ',', 2, result, goals[i]);
+        result = Tree('E_FNC', ',', 2, result, goals[i]);
         i = i + 1;
     }
     dcg_build_conj = result;
@@ -394,14 +394,14 @@ function expand_dcg_body(body, s_in, s_out, result, n,
                          buf_a, na, buf_b, nb, branches, nb2,
                          conj_a, conj_b) {
     // (E_FNC []) — empty list terminal: s_in = s_out
-    if (IDENT(t(body), E_FNC) IDENT(v(body), '[]')) {
+    if (IDENT(t(body), 'E_FNC') IDENT(v(body), '[]')) {
         result[n] = dcg_make_unify(dcg_var_tree(s_in), dcg_var_tree(s_out));
         n = n + 1;
         expand_dcg_body = n;
         return;
     }
     // (E_FNC . ...) — list terminal: s_in = [elems|s_out]
-    if (IDENT(t(body), E_FNC) IDENT(v(body), '.')) {
+    if (IDENT(t(body), 'E_FNC') IDENT(v(body), '.')) {
         result[n] = dcg_make_unify(dcg_var_tree(s_in),
                                    dcg_append_tail(body, dcg_var_tree(s_out)));
         n = n + 1;
@@ -409,7 +409,7 @@ function expand_dcg_body(body, s_in, s_out, result, n,
         return;
     }
     // (E_DCG_IL ...) — inline Prolog goals {A, B, ...}: emit children + s_in = s_out
-    if (IDENT(t(body), E_DCG_IL)) {
+    if (IDENT(t(body), 'E_DCG_IL')) {
         nk = n(body);
         i = 1;
         while (LE(i, nk)) {
@@ -431,16 +431,23 @@ function expand_dcg_body(body, s_in, s_out, result, n,
         expand_dcg_body = n;
         return;
     }
-    // (E_FNC , A B) — conjunction: thread s_in -> s_mid -> s_out
-    if (IDENT(t(body), E_FNC) IDENT(v(body), ',')) {
-        s_mid = dcg_fresh_var();
-        n = expand_dcg_body(c(body)[1], s_in,  s_mid, result, n);
-        n = expand_dcg_body(c(body)[2], s_mid, s_out, result, n);
+    // (E_FNC , ...) — n-ary conjunction: thread s_in -> s_mid1 -> ... -> s_out
+    if (IDENT(t(body), 'E_FNC') IDENT(v(body), ',')) {
+        nk = n(body);
+        i = 1;
+        s_mid = s_in;
+        while (LT(i, nk)) {
+            s_a = dcg_fresh_var();
+            n = expand_dcg_body(c(body)[i], s_mid, s_a, result, n);
+            s_mid = s_a;
+            i = i + 1;
+        }
+        n = expand_dcg_body(c(body)[nk], s_mid, s_out, result, n);
         expand_dcg_body = n;
         return;
     }
     // (E_FNC ; A B ...) — disjunction: expand each branch, wrap in E_FNC ;
-    if (IDENT(t(body), E_FNC) IDENT(v(body), ';')) {
+    if (IDENT(t(body), 'E_FNC') IDENT(v(body), ';')) {
         nk = n(body);
         branches = ARRAY(nk + 1);
         i = 1;
@@ -451,7 +458,7 @@ function expand_dcg_body(body, s_in, s_out, result, n,
             i = i + 1;
         }
         // Build flat n-ary (E_FNC ;) from branches
-        conj_a = Tree(E_FNC, ';', 0);
+        conj_a = Tree('E_FNC', ';', 0);
         i = 1;
         while (LE(i, nk)) {
             Append(conj_a, branches[i]);
@@ -463,7 +470,7 @@ function expand_dcg_body(body, s_in, s_out, result, n,
         return;
     }
     // (E_UNIFY A B) / (E_ADD...) / (E_ILIT) — pass through as-is (arith/unify in body)
-    if (~DIFFER(t(body), E_FNC)) {
+    if (DIFFER(t(body), 'E_FNC')) {
         result[n] = body;
         n = n + 1;
         expand_dcg_body = n;
@@ -536,9 +543,9 @@ Build_dcg = epsilon . *build_dcg();
 // in an E_DCG_IL marker so expand_dcg_body can identify them.
 function push_dcg_inline(body_tree, node, k, nk) {
     body_tree = Pop();
-    node = Tree(E_DCG_IL, '', 0);
+    node = Tree('E_DCG_IL', '', 0);
     // Flatten top-level , into direct children of E_DCG_IL
-    if (IDENT(t(body_tree), E_FNC) IDENT(v(body_tree), ',')) {
+    if (IDENT(t(body_tree), 'E_FNC') IDENT(v(body_tree), ',')) {
         nk = n(body_tree);
         k = 1;
         while (LE(k, nk)) {
@@ -709,6 +716,33 @@ unify_expr = (  is_expr
                      | epsilon
                      )
              );
+body_goal = ( $'(' *body $')' | unify_expr );
+/*--------------------------------------------------------------------------------------------------------------------*/
+conj = (    nPush()
+                nInc() body_goal
+                ARBNO( $',' nInc() body_goal )
+                                   Reduce_conj
+            nPop()
+        );
+/*--------------------------------------------------------------------------------------------------------------------*/
+disj = (    nPush()
+                nInc() conj
+                ARBNO( $';' nInc() conj )
+                                   Reduce_disj
+            nPop()
+        );
+/*--------------------------------------------------------------------------------------------------------------------*/
+body = disj;
+/*--------------------------------------------------------------------------------------------------------------------*/
+head = (    Reset_var_scope
+            nPush()
+            (   Atom . h_text $'(' args $')'    Snapshot_head('h_text')
+            |   Atom . h_text $'(' $')'         Snapshot_head('h_text')
+            |   Atom . h_text                   Snapshot_head('h_text')
+            |   Str                             Snapshot_head('s_body')
+            )
+            nPop()
+        );
 /*--------------------------------------------------------------------------------------------------------------------*/
 $'-->' = $' ' '-->' $' ';
 $'{'   = $' '  '{'  $' ';  $'}'   = $' ' '}'  $' ';
@@ -739,38 +773,13 @@ dcg_disj = (   nPush()
 /*--------------------------------------------------------------------------------------------------------------------*/
 dcg_body = dcg_disj;
 /*--------------------------------------------------------------------------------------------------------------------*/
+// clause is tried before dcg_rule in top_form so non-DCG inputs succeed via clause
+// without polluting the stack in dcg_rule's head attempt.
 dcg_rule  = (   head $'-->'           Mark_body
                 dcg_body $'.'
                                       Build_dcg
             );
 /*--------------------------------------------------------------------------------------------------------------------*/
-body_goal = ( $'(' *body $')' | unify_expr );
-/*--------------------------------------------------------------------------------------------------------------------*/
-conj = (    nPush()
-                nInc() body_goal
-                ARBNO( $',' nInc() body_goal )
-                                   Reduce_conj
-            nPop()
-        );
-/*--------------------------------------------------------------------------------------------------------------------*/
-disj = (    nPush()
-                nInc() conj
-                ARBNO( $';' nInc() conj )
-                                   Reduce_disj
-            nPop()
-        );
-/*--------------------------------------------------------------------------------------------------------------------*/
-body = disj;
-/*--------------------------------------------------------------------------------------------------------------------*/
-head = (    Reset_var_scope
-            nPush()
-            (   Atom . h_text $'(' args $')'    Snapshot_head('h_text')
-            |   Atom . h_text $'(' $')'         Snapshot_head('h_text')
-            |   Atom . h_text                   Snapshot_head('h_text')
-            |   Str                             Snapshot_head('s_body')
-            )
-            nPop()
-        );
 /*--------------------------------------------------------------------------------------------------------------------*/
 clause    = (   head
                 ( $':-' body                   Mark_body
@@ -785,7 +794,7 @@ directive = (   $':-'                          Reset_var_scope
                                                Build_directive
             );
 /*--------------------------------------------------------------------------------------------------------------------*/
-top_form  = (directive | dcg_rule | clause);
+top_form  = (directive | clause | dcg_rule);
 /*====================================================================================================================*/
 Compiland = nPush()
             ARBNO( trivia nInc() top_form trivia )
