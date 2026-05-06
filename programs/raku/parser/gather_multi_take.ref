@@ -1,0 +1,13 @@
+(STMT :subj (E_FNC __gather_0
+  (E_VAR __gather_0)
+  (E_SUSPEND (E_ILIT 1))
+  (E_SUSPEND (E_ILIT 2))
+  (E_SUSPEND (E_ILIT 3))
+))
+(STMT :subj (E_FNC main
+  (E_VAR main)
+  (E_ASSIGN
+    (E_VAR r)
+    (E_FNC __gather_0 (E_VAR __gather_0))
+  )
+))
