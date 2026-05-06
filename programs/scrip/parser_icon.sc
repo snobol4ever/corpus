@@ -298,19 +298,19 @@ Push_local_stmt = (epsilon . *push_local_stmt());
 // Expr1a (scan) -> Expr (top).
 // Postfix chains (subscript/field/call/section) are handled in Expr11tail.
 /*--------------------------------------------------------------------------------------------------------------------*/
-If     = ( $'if'     $'  ' *Expr  $'then' $'  ' *Expr
-           (  $'else' $'  ' *Expr  (E_IF & 3)
+If     = ( $'if'     $'  ' *Expr  $'then' *DGray *Expr
+           (  $'else' *DGray *Expr  (E_IF & 3)
            |  (E_IF & 2)
            )
          );
-While  = ( $'while'  $'  ' *Expr  $'do' $'  ' *Expr  (E_WHILE  & 2) );
-Until  = ( $'until'  $'  ' *Expr  $'do' $'  ' *Expr  (E_UNTIL  & 2) );
+While  = ( $'while'  $'  ' *Expr  $'do' *DGray *Expr  (E_WHILE  & 2) );
+Until  = ( $'until'  $'  ' *Expr  $'do' *DGray *Expr  (E_UNTIL  & 2) );
 Every  = ( $'every'  $'  ' *Expr
-           (  $'do' $'  ' *Expr  (E_EVERY & 2)
+           (  $'do' *DGray *Expr  (E_EVERY & 2)
            |  (E_EVERY & 1)
            )
          );
-Repeat = ( $'repeat' $'  ' *Expr  (E_REPEAT & 1) );
+Repeat = ( $'repeat' *DGray *Expr  (E_REPEAT & 1) );
 /*--------------------------------------------------------------------------------------------------------------------*/
 ArgFirst  = ( $' ' *Expr  nInc() );
 ArgRest   = ( $','  *Expr  nInc() );
@@ -329,12 +329,12 @@ Paren     = ( nPush()
               nPop()
             );
 /*--------------------------------------------------------------------------------------------------------------------*/
-CompoundFirst = ( $' ' *Expr $' ' semi_opt $' ' nInc() );
-CompoundRest  = ( $' ' *Expr $' ' semi_opt $' ' nInc() );
+CompoundFirst = ( *DGray *Expr $' ' semi_opt *DGray nInc() );
+CompoundRest  = ( *DGray *Expr $' ' semi_opt *DGray nInc() );
 Compound      = ( nPush()
-                  $'{'
+                  $' ' '{' *DGray
                   ( CompoundFirst ARBNO(CompoundRest) | epsilon )
-                  $'}'
+                  *DGray $' ' '}'
                   (E_SEQ_EXPR & r_nTop)
                   nPop()
                 );
@@ -495,12 +495,31 @@ Expr1     = ( *Expr2
               )
             );
 /*--------------------------------------------------------------------------------------------------------------------*/
+// ReturnExpr: return [expr] — valid anywhere an expr is valid (e.g. inside { }).
+// Mirrors C frontend parse_expr TK_RETURN branch: 0 children if ; ) EOF then else do follow.
+ReturnExpr  = ( nPush()
+                $'return' $'  ' *Expr1a nInc()  (E_RETURN & 1) nPop()
+              | $'return' $' '                   (E_RETURN & 0)
+              );
+/*--------------------------------------------------------------------------------------------------------------------*/
+// SuspendExpr: suspend expr [do expr] — mirrors C frontend parse_expr TK_SUSPEND branch.
+SuspendExpr = ( nPush()
+                $'suspend' $'  ' *Expr1a nInc()
+                FENCE( $'do' $'  ' *Expr1a nInc() | epsilon )
+                (E_SUSPEND & 'nTop()') nPop()
+              );
+/*--------------------------------------------------------------------------------------------------------------------*/
 Expr1a    = ( *Expr1 FENCE($'?' *Expr (E_SCAN & 2) | epsilon) );
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Expr (top): n-ary conjunction via &.  Single Expr1a -> r_nTop unwraps (no E_SEQ wrapper).
-// Mirrors C frontend parse_and: n-ary E_SEQ with single-child unwrap.
+// Mirrors C frontend parse_and / parse_expr: return/suspend/fail/break/next checked first.
 ExprSeqRest = ( $'&' *Expr1a nInc() );
-Expr        = ( nPush() *Expr1a nInc() ARBNO(ExprSeqRest) (E_SEQ & r_nTop) nPop() );
+Expr        = ( nPush()
+                ( ReturnExpr | SuspendExpr
+                | *Expr1a
+                )
+                nInc() ARBNO(ExprSeqRest) (E_SEQ & r_nTop) nPop()
+              );
 /*====================================================================================================================*/
 Blank     = ( $' ' nl_one );
 ReturnStmt = ( $'return' $'  ' *Expr $' ' semi_opt $' ' nl_one (E_RETURN & 1)
