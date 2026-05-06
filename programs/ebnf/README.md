@@ -32,6 +32,7 @@ Two file variants exist for each language:
 | `s4-sp.ebnf`, `s4-no.ebnf`     | SNOBOL4 grammar (project-internal). |
 | `icon-sp.ebnf`, `icon-no.ebnf` | Icon grammar — 1-to-1 translation of `icon-grammar.h`. |
 | `icon-grammar.h`               | Verbatim copy of upstream gtownsend/icon `src/h/grammar.h` (public domain — see README header in that file). |
+| `pl-sp.ebnf`, `pl-no.ebnf`     | SWI-Prolog syntax (Edinburgh/ISO core + SWI extensions). Derived from `swipl-devel` master (2025): tokeniser in `src/pl-read.c` (`get_token`), operator-precedence parser (`complex_term`), built-in operator table in `src/pl-op.c` (`operators[]`), character classification in `src/os/pl-ctype.h`, and syntax documentation in `man/overview.doc` §sec:syntax. Covers all operators, number literal forms (0b/0x/0o/radix/char-code), quoted atoms, strings, lists, DCG, dicts (SWI extension), and escape sequences. |
 | `icon-references/`             | Supplementary cross-references — independent implementations of the same grammar that corroborate the canonical names. See `icon-references/NOTES.md`. |
 
 ## Adding a new language grammar

@@ -1,0 +1,270 @@
+/* pl-no.ebnf — SWI-Prolog syntax (Edinburgh/ISO core + SWI extensions)
+ *
+ * Provenance: derived from SWI-Prolog source (swipl-devel master, 2025):
+ *   src/pl-read.c   — tokeniser (get_token) and operator-precedence parser (complex_term)
+ *   src/pl-op.c     — built-in operator table (operators[])
+ *   src/os/pl-ctype.h / pl-ctype.c — character classification (_PL_char_types[])
+ *   man/overview.doc sec:syntax — ISO deviations and extensions documented by Jan Wielemaker
+ *
+ * Dialect: same as pl-sp.ebnf but uses ⋮ (U+22EE) instead of | for alternatives,
+ * because | is a language terminal in Prolog.
+ *   ←  separates nonterminal from its productions
+ *   ;   terminates a production list
+ *   '…' is a literal terminal
+ *   ALLCAPS bare identifiers are token classes
+ *   lowercase identifiers are nonterminals
+ *   epsilon is the empty alternative
+ * Pipe form (-sp): alternatives separated by |
+ *
+ * Character classes (from _PL_char_types[], pl-ctype.h):
+ *   SP  — layout:   space tab \n \r \f \v  (and U+00A0 nbsp)
+ *   SO  — solo:     ! ; % ⋮ (each is a complete single-char atom token)
+ *   SY  — symbol:   # $ & * + - . / : < = > ? @ \ ^ ~ `  (and many Unicode)
+ *   PU  — punct:    ( ) [ ] { } , (structural punctuation, NOT atom-forming)
+ *   UC  — uppercase: A-Z _ (and Unicode uppercase + _)
+ *   LC  — lowercase: a-z (and Unicode lowercase / titlecase)
+ *   DI  — digit:    0-9
+ *   SQ  — single-quote: '
+ *   DQ  — double-quote: "
+ *   BQ  — back-quote:  `
+ *
+ * Operator table (from pl-op.c operators[], precedence descending):
+ *   1200 xfx  :-  -->  =>  ==>
+ *   1200 fx   :-  ?-
+ *   1150 fx   dynamic  discontiguous  module_transparent  meta_predicate
+ *             multifile  thread_local  volatile  initialization
+ *             thread_initialization  public  table
+ *   1105 xfy  |
+ *   1100 xfy  ;
+ *   1050 xfy  ->  *->
+ *   1000 xfy  ,
+ *    990 xfy  :=   (traditional mode only; optional)
+ *    900 fy   \+  not
+ *    800 xfx  :=   (non-traditional mode)
+ *    700 xfx  =  \=  ==  \==  is  <  >  =<  >=  =:=  =\=  =..
+ *              @<  @>  @=<  @>=  =@=  \=@=  :<  >:<  as
+ *    600 xfy  :
+ *    500 yfx  +  -  /\  \/  xor
+ *    500 fx   +  -
+ *    400 yfx  *  /  //  div  rdiv  rem  mod  <<  >>
+ *    200 xfy  ^
+ *    200 xfx  **
+ *    200 fy   \
+ *    100 yfx  .   (non-traditional: dict-field access)
+ */
+
+/* =========================================================================
+ * Top level
+ * ========================================================================= */
+
+program         ← clause* ;
+
+clause          ← directive ⋮ term '.' ;
+
+directive       ← ':-' term '.' ⋮ '?-' term '.' ;
+
+/* =========================================================================
+ * Terms (operator-precedence parser; Pratt / shunting-yard in complex_term)
+ * ========================================================================= */
+
+term            ← term1200 ;
+
+term1200        ← prefix1200 term1199
+                ⋮ term1199 infix1200 term1199
+                ⋮ term1199 ;
+
+term1199        ← term1105 ;
+
+term1105        ← term1100 ('|' term1105)?    /* xfy 1105 */
+                ⋮ term1100 ;
+
+term1100        ← term1050 (';' term1100)?    /* xfy 1100 */
+                ⋮ term1050 ;
+
+term1050        ← term1000 ('->' term1050)?   /* xfy 1050 — if-then */
+                ⋮ term1000 ('*->' term1050)?  /* xfy 1050 — soft cut */
+                ⋮ term1000 ;
+
+term1000        ← term999 (',' term1000)?     /* xfy 1000 */
+                ⋮ term999 ;
+
+term999         ← term900 ;
+
+term900         ← '\+' term900               /* fy 900 — neg-as-failure */
+                ⋮ 'not' '(' term ')' '(' term900 ')'
+                ⋮ term700 ;
+
+term700         ← term600 (op700 term600)?    /* xfx 700 — all non-assoc */
+                ⋮ term600 ;
+
+op700           ← '=' ⋮ '\=' ⋮ '==' ⋮ '\==' ⋮ 'is' ⋮ '<' ⋮ '>'
+                ⋮ '=<' ⋮ '>=' ⋮ '=:=' ⋮ '=\=' ⋮ '=..'
+                ⋮ '@<' ⋮ '@>' ⋮ '@=<' ⋮ '@>='
+                ⋮ '=@=' ⋮ '\=@=' ⋮ ':<' ⋮ '>:<' ⋮ 'as' ;
+
+term600         ← term500 (':' term600)?      /* xfy 600 — module qualifier */
+                ⋮ term500 ;
+
+term500         ← ('+' ⋮ '-') term500         /* fy 500 — unary +/- at 200 actually; see below */
+                ⋮ term400 (('+' ⋮ '-' ⋮ '/\\' ⋮ '\\/' ⋮ 'xor') term500)*  /* yfx 500 */
+                ⋮ term400 ;
+
+term400         ← term200 (('*' ⋮ '/' ⋮ '//' ⋮ 'div' ⋮ 'rdiv' ⋮ 'rem' ⋮ 'mod'
+                            ⋮ '<<' ⋮ '>>') term400)*    /* yfx 400 */
+                ⋮ term200 ;
+
+term200         ← term100 ('^' term200)?     /* xfy 200 — hat */
+                ⋮ term100 ('**' term100)?    /* xfx 200 — power (non-assoc) */
+                ⋮ ('\\' ⋮ '+' ⋮ '-') term200 /* fy 200 — bitwise-not, unary sign */
+                ⋮ term100 ;
+
+term100         ← primary ('.' ATOM term100)?  /* yfx 100: dict field — non-traditional */
+                ⋮ primary ;
+
+/* =========================================================================
+ * Primary (atoms, vars, numbers, compounds, lists, parens, strings)
+ * ========================================================================= */
+
+primary         ← atom_or_number
+                ⋮ VAR
+                ⋮ compound
+                ⋮ list
+                ⋮ curly
+                ⋮ paren_term
+                ⋮ dict              /* SWI extension */
+                ⋮ quasi_quotation   /* SWI extension */ ;
+
+paren_term      ← '(' term ')' ;
+
+compound        ← ATOM '(' arglist ')'
+                ⋮ SQ_ATOM '(' arglist ')' ;
+
+arglist         ← term (',' term)* ;
+
+list            ← '[' ']'
+                ⋮ '[' listbody ']' ;
+
+listbody        ← term (',' term)* ('|' term)?  ;
+
+curly           ← '{' '}'
+                ⋮ '{' term '}' ;
+
+dict            ← (ATOM ⋮ VAR ⋮ '{}') '{' (dictpair (',' dictpair)*)? '}' ;
+
+dictpair        ← ATOM ':' term ;
+
+quasi_quotation ← '{|' ATOM '||' QQ_CONTENT '|}' ;
+
+atom_or_number  ← ATOM ⋮ SQ_ATOM ⋮ NUMBER ⋮ CHARCODE ⋮ STRING ;
+
+/* =========================================================================
+ * Tokens
+ * ========================================================================= */
+
+/* Variables: start with UC (uppercase or _), continue with UC ⋮ LC ⋮ DI */
+VAR             ← (UC ⋮ '_') (UC ⋮ LC ⋮ DI ⋮ '_')* ;
+
+/* Anonymous variable: bare underscore (T_VOID) */
+ANON            ← '_' ;
+
+/* Atoms:
+ *   - identifier atoms: LC (LC ⋮ UC ⋮ DI ⋮ '_')*
+ *   - symbol atoms:     SY+ (any run of symbol chars)
+ *   - solo atoms:       single SO char (! ; % |)
+ *   - quoted atoms:     '...' with escape sequences (T_QNAME / T_FUNCTOR)
+ *   - [] and {} (recognised as special two-char atoms by lexer)
+ */
+ATOM            ← LC (LC ⋮ UC ⋮ DI ⋮ '_')*
+                ⋮ SY+
+                ⋮ SO
+                ⋮ '[]'
+                ⋮ '{}' ;
+
+SQ_ATOM         ← '\'' sq_char* '\'' ;
+
+sq_char         ← any_char_except_backslash_and_squote
+                ⋮ '\'' '\''       /* doubled quote */
+                ⋮ '\\' escape_seq ;
+
+/* Numbers */
+NUMBER          ← integer ⋮ float_num ;
+
+integer         ← DI+
+                ⋮ '0' 'b' bin_digit+              /* 0b binary */
+                ⋮ '0' 'x' hex_digit+              /* 0x hexadecimal */
+                ⋮ '0' 'o' oct_digit+              /* 0o octal */
+                ⋮ DI+ '\'' DI+                    /* radix: 2-36 */
+                ⋮ '-' DI+ ;
+
+/* 0'<char>: character code literal */
+CHARCODE        ← '0' '\'' (escape_char ⋮ any_char_except_newline) ;
+
+float_num       ← DI+ '.' DI+ (('e' ⋮ 'E') ('+' ⋮ '-')? DI+)?
+                ⋮ DI+ '.' DI+ 'Inf'
+                ⋮ DI+ '.' DI+ 'NaN' ;
+
+/* Strings (mode-dependent: double_quotes flag controls interpretation) */
+STRING          ← '"' dq_char* '"'
+                ⋮ '`' bq_char* '`' ;
+
+dq_char         ← any_char_except_backslash_and_dquote
+                ⋮ '"' '"'
+                ⋮ '\\' escape_seq ;
+
+bq_char         ← any_char_except_backslash_and_bquote
+                ⋮ '`' '`'
+                ⋮ '\\' escape_seq ;
+
+/* Escape sequences (inside quoted atoms/strings and 0'\x) */
+escape_seq      ← 'a' ⋮ 'b' ⋮ 'e' ⋮ 'f' ⋮ 'n' ⋮ 'r' ⋮ 's' ⋮ 't' ⋮ 'v'
+                ⋮ '\\' ⋮ '\'' ⋮ '"' ⋮ '`'
+                ⋮ 'x' hex_digit+ '\\'              /* \xNN\ */
+                ⋮ 'u' hex_digit hex_digit hex_digit hex_digit         /* \uXXXX */
+                ⋮ 'U' hex_digit hex_digit hex_digit hex_digit
+                      hex_digit hex_digit hex_digit hex_digit         /* \UXXXXXXXX */
+                ⋮ oct_digit+ '\\'                  /* \NNN\ octal */
+                ⋮ 'c' SP*                          /* skip whitespace */
+                ⋮ NL SP* ;                         /* continuation */
+
+bin_digit       ← '0' ⋮ '1' ;
+oct_digit       ← '0' ⋮ '1' ⋮ '2' ⋮ '3' ⋮ '4' ⋮ '5' ⋮ '6' ⋮ '7' ;
+hex_digit       ← DI ⋮ 'a' ⋮ 'b' ⋮ 'c' ⋮ 'd' ⋮ 'e' ⋮ 'f'
+                      ⋮ 'A' ⋮ 'B' ⋮ 'C' ⋮ 'D' ⋮ 'E' ⋮ 'F' ;
+
+/* =========================================================================
+ * Whitespace and comments (skipped between tokens)
+ * ========================================================================= */
+
+white           ← SP+
+                ⋮ '%' non_newline* NL             /* line comment */
+                ⋮ '/*' (any_char* - (any_char* '*/' any_char*)) '*/'  /* block — nested in SWI */
+                ;
+
+/* =========================================================================
+ * Prefix / infix operator token shorthand used in term rules above
+ * (not separate nonterminals — listed for reference only)
+ * ========================================================================= */
+
+prefix1200      ← ':-' ⋮ '?-' ;
+
+infix1200       ← ':-' ⋮ '-->' ⋮ '=>' ⋮ '==>' ;
+
+/* =========================================================================
+ * DCG (Definite Clause Grammars) — boot/dcg.pl macro expansion
+ * Parsed as normal --> clause at the term level; DCG is a source transform.
+ * ========================================================================= */
+
+dcg_rule        ← term '-->' dcg_body '.' ;
+
+dcg_body        ← dcg_seq (';' dcg_seq)*
+                ⋮ '!' ;
+
+dcg_seq         ← dcg_item (',' dcg_seq)* ;
+
+dcg_item        ← list                     /* terminal list */
+                ⋮ '{' term '}'             /* inline Prolog goal */
+                ⋮ '!'                      /* cut */
+                ⋮ term                     /* non-terminal call */
+                ⋮ '(' dcg_body ')'         /* grouped */
+                ;
+
