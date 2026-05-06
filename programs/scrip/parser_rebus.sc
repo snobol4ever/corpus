@@ -85,6 +85,10 @@ $'record'   = $' '  'record'   $'  ';
 $'if'       = $' '  'if'       $'  '; $'then'     = $' ' 'then' $'  ';
 $'else'     = $' '  'else'     $'  ';
 $'unless'   = $' '  'unless'   $'  ';
+$'for'      = $' '  'for'      $'  ';
+$'from'     = $' '  'from'     $'  ';
+$'to'       = $' '  'to'       $'  ';
+$'by'       = $' '  'by'       $'  ';
 $'while'    = $' '  'while'    $'  '; $'do'       = $' ' 'do'   $'  ';
 $'until'    = $' '  'until'    $'  ';
 $'repeat'   = $' '  'repeat'   $'  ';
@@ -115,6 +119,7 @@ E_CAT        = 'E_CAT';
 E_POW        = 'E_POW';
 E_NUL        = 'E_NUL';
 E_IDX        = 'E_IDX';
+E_ASSIGN     = 'E_ASSIGN';
 CMP_EQ       = 'CMP_EQ'; CMP_NE = 'CMP_NE';
 CMP_LT       = 'CMP_LT'; CMP_LE = 'CMP_LE';
 CMP_GT       = 'CMP_GT'; CMP_GE = 'CMP_GE';
@@ -138,6 +143,7 @@ WHILE     = 'WHILE';
 UNLESS    = 'UNLESS';
 UNTIL     = 'UNTIL';
 REPEAT    = 'REPEAT';
+RB_FOR    = 'RB_FOR';
 CALL      = 'CALL';
 RB_RETURN = 'RB_RETURN';
 RB_RETURN_VAL = 'RB_RETURN_VAL';
@@ -322,6 +328,13 @@ while_stmt = $'while'  *match_or_expr $'do'   *match_or_expr reduce(WHILE,  2);
 unless_stmt = $'unless' *match_or_expr $'then' *match_or_expr reduce(UNLESS, 2);
 until_stmt  = $'until'  *match_or_expr $'do'   *match_or_expr reduce(UNTIL,  2);
 repeat_stmt = $'repeat' *match_or_expr reduce(REPEAT, 1);
+//  for_stmt — RB_FOR children: (var, from, to) for basic; (var, from, to, step) with 'by'.
+//  Body after 'do' is consumed as raw text (no shift/reduce) since oracle drops it.
+//  BREAK(nl) consumes everything to the newline without any stack effects.
+for_body = $'do' BREAK(nl);
+for_stmt = $'for' shift(*Id, E_VAR) $'from' *match_or_expr $'to' *match_or_expr
+           FENCE($'by' *match_or_expr reduce(RB_FOR, 4) | reduce(RB_FOR, 3))
+           *for_body;
 
 //  flow_stmt — return/exit/fail/stop/next keyword statements.
 return_stmt = $'return' FENCE(*match_or_expr reduce(RB_RETURN_VAL, 1) | reduce(RB_RETURN, 0));
@@ -330,7 +343,7 @@ fail_stmt   = $'fail'   reduce(RB_FAIL, 0);
 stop_stmt   = $'stop'   reduce(RB_STOP, 0);
 next_stmt   = $'next'   reduce(RB_NEXT, 0);
 
-stmt = $' ' FENCE(*if_stmt | *while_stmt | *unless_stmt | *until_stmt | *repeat_stmt | *return_stmt | *stop_stmt | *fail_stmt | *exit_stmt | *next_stmt | *match_or_expr) $' ' nl;
+stmt = $' ' FENCE(*if_stmt | *while_stmt | *unless_stmt | *until_stmt | *repeat_stmt | *for_stmt | *return_stmt | *stop_stmt | *fail_stmt | *exit_stmt | *next_stmt | *match_or_expr) $' ' nl;
 
 //  func_body — n-ary fold over body stmts.  Uses tail-recursive shape (per
 //  parser_icon.sc Procbody idiom) so that 'end' is preempt-matched BEFORE
@@ -442,6 +455,14 @@ function emit_subj_goSF(s, sLbl, fLbl) {
     return;
 }
 
+//  emit_subj_goS — (STMT :subj <s> :goS lbl) — for-loop exit test.
+function emit_subj_goS(s, lbl) {
+    TDump(Tree('STMT', '', 2,
+               Tree(':subj', '', 1, s),
+               Tree(':goS', lbl)));
+    return;
+}
+
 //  lower_atom — recursively lower an expression tree.  Handles ALT (build
 //  flat n-ary E_ALT via Append loop) and CALL (emit (E_FNC name) — bare
 //  call no args).
@@ -494,7 +515,7 @@ function lower_atom(x, k, acc, i) {
     return;
 }
 
-function lower_stmt(x, k, lblS, lblF, lblM) {
+function lower_stmt(x, k, lblS, lblF, lblM, forVar, forStep) {
     k = t(x);
     if (IDENT(k, 'ASSIGN'))          emit_assign(lower_atom(c(x)[1]), lower_atom(c(x)[2]));
     else if (IDENT(k, 'MATCH'))      { emit_match(lower_atom(c(x)[1]), lower_atom(c(x)[2])); }
@@ -575,6 +596,24 @@ function lower_stmt(x, k, lblS, lblF, lblM) {
         emit_go(lblM);
         emit_lbl(lblF);
         lower_stmt(c(x)[2]);
+        emit_lbl(lblM);
+    }
+    //  for var from f to t [by s] do body — n(x)=3 (no by) or 4 (with by).
+    //  Lowered to: init; lbl top; GT(var,to) :goS exit; var:=var+step; go top; lbl exit.
+    //  Body is dropped (oracle bug-for-bug).
+    else if (IDENT(k, 'RB_FOR')) {
+        forVar  = lower_atom(c(x)[1]);
+        forStep = (EQ(n(x), 4) lower_atom(c(x)[4]), Tree(E_ILIT, '1'));
+        lblS = new_label();   // top label
+        lblM = new_label();   // exit label
+        //  i := from
+        TDump(Tree('STMT', '', 1, Tree(':subj', '', 1, Tree(E_ASSIGN, '', 2, forVar, lower_atom(c(x)[2])))));
+        emit_lbl(lblS);
+        //  GT(i, to) :goS exit
+        emit_subj_goS(Tree(E_FNC, 'GT', 2, forVar, lower_atom(c(x)[3])), lblM);
+        //  i := i + step
+        TDump(Tree('STMT', '', 1, Tree(':subj', '', 1, Tree(E_ASSIGN, '', 2, forVar, Tree(E_ADD, '', 2, forVar, forStep)))));
+        emit_go(lblS);
         emit_lbl(lblM);
     }
     else                            emit_subj(lower_atom(x));
