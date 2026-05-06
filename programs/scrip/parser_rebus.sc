@@ -60,6 +60,8 @@ String  = *DQ_str | *SQ_str;
 //  Whitespace policy lives here, never in grammar productions.
 /*--------------------------------------------------------------------------------------------------------------------*/
 $'('        =       '('        $' ';  $')'        = $' ' ')';
+$'['        =       '['        $' ';  $']'        = $' ' ']';
+$'.'        = $' '  '.'        $' ';
 $','        = $' '  ','        $' ';
 $':='       = $' '  ':='       $' ';
 $'?'        = $' '  '?'        $' ';
@@ -112,6 +114,7 @@ E_MNS        = 'E_MNS';
 E_CAT        = 'E_CAT';
 E_POW        = 'E_POW';
 E_NUL        = 'E_NUL';
+E_IDX        = 'E_IDX';
 CMP_EQ       = 'CMP_EQ'; CMP_NE = 'CMP_NE';
 CMP_LT       = 'CMP_LT'; CMP_LE = 'CMP_LE';
 CMP_GT       = 'CMP_GT'; CMP_GE = 'CMP_GE';
@@ -201,7 +204,23 @@ function Push_call_id() {
     return;
 }
 
-/*====================================================================================================================*/
+//  Field-access helper: pops the base E_VAR node, combines with rbFieldName
+//  to produce E_VAR BASE.FIELD (uppercase dot-joined, per oracle).
+rbFieldName = '';
+function push_field_access(base, baseName, combined) {
+    push_field_access = .dummy;
+    base     = Pop();
+    baseName = REPLACE(v(base), &LCASE, &UCASE);
+    combined = baseName '.' REPLACE(rbFieldName, &LCASE, &UCASE);
+    Push(tree(E_VAR, combined));
+    nreturn;
+}
+function Push_field_access() {
+    Push_field_access = epsilon . *push_field_access();
+    return;
+}
+
+
 //  Grammar — RB-0 atom + RB-1 assignment + RB-2/3/4/5 (if/while/call/match/alt).
 //  Precedence (loose→tight): if/while > match (?) > assign (:=) > alt (|) > atom.
 //  alt is n-ary flat per oracle; match and assign each take a single alt_expr
@@ -224,9 +243,19 @@ primary = FENCE(  *String  Push_qlit()
                 | '(' *expr ')'
                );
 
+//  postfix_expr — subscript a[i] and field r.field; left-associative chain.
+//  a[i] → E_IDX(a, i).  r.field → E_VAR R.FIELD (uppercase dot-join).
+postfix_expr = *primary
+               FENCE(  $'[' *alt_expr $']' reduce(E_IDX, 2)
+                         FENCE($'[' *alt_expr $']' reduce(E_IDX, 2) | epsilon)
+                      | $'.' (*Id . rbFieldName) Push_field_access()
+                         FENCE($'.' (*Id . rbFieldName) Push_field_access() | epsilon)
+                      | epsilon
+                     );
+
 //  unary_expr — unary minus; right-associative.
 unary_expr = FENCE(  $'-' *unary_expr reduce(E_MNS, 1)
-                   | *primary
+                   | *postfix_expr
                   );
 
 //  pow_expr — exponentiation; right-associative.  Match lhs once, then
@@ -451,6 +480,7 @@ function lower_atom(x, k, acc, i) {
     else if (IDENT(k, 'CMP_SGE')) lower_atom = Tree(E_FNC, 'LGE',   2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
     else if (IDENT(k, 'E_POW'))   lower_atom = Tree(E_POW, '',      2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
     else if (IDENT(k, 'REMDR'))   lower_atom = Tree(E_FNC, 'REMDR', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'E_IDX'))   lower_atom = Tree(E_IDX, '',      2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
     else if (IDENT(k, 'ALT')) {
         if (EQ(n(x), 1)) lower_atom = lower_atom(c(x)[1]);
         else {
