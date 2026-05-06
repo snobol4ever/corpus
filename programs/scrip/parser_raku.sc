@@ -1133,7 +1133,7 @@ Expr11 = ( $'!'  *Expr11  Finish_not
          | $'grep' $'  '  ClosureExpr  $'  '  *Expr  Finish_grep
          | $'sort' $'  '  ClosureExpr  $'  '  *Expr  Finish_sort_cl
          | $'sort' $'  '  *Expr                       Finish_sort_nc
-         | $'gather' nPush() SubBlock Finish_gather nPop()
+         | $'gather' *GatherBlock
          | VarScalar              Push_var
          | ArrIdxVar  $'['  *Expr  $']'              Finish_arr_get
          | VarArray                                   Push_var
@@ -1243,6 +1243,31 @@ SubBlock = ( $'{'
              ARBNO( SubBlock_body )
              $'}'
            );
+/*====================================================================================================================*/
+// GatherBlock — `{ SubBlockStmt* }` for gather { ... } expression.  Owns its
+// own nPush/nPop bracketing and Finish_gather call so the counter-frame
+// machinery is fully contained — independent of the outer Expr11 / Compiland
+// counter context.  Mirrors Block's self-contained counter shape (Block has
+// nPush after `{` and nPop after `}`); SubBlock_body's nInc() then increments
+// the inner gather frame, and Finish_gather reads TopCounter to assemble the
+// def STMT before nPop discards the frame.
+//
+// Important: `*SubBlock_body` (deferred lookup) is required because GatherBlock
+// is referenced from Expr11 (defined before SubBlock_body).  Bare ARBNO(X)
+// captures X's value at the *enclosing pattern's* definition time — same
+// quirk documented in the RK-4 cross-PARSER note about ARBNO(*CallArgTail).
+//
+// Retained: Finish_gather pair-shape needed because reduce() can't read
+// gather_seq, build the auto-generated `__gather_N` name, and split into
+// def-list + call-on-stack in one pass (see finish_gather above).
+/*====================================================================================================================*/
+GatherBlock = ( $'{'
+                nPush()
+                ARBNO( *SubBlock_body )
+                $'}'
+                Finish_gather
+                nPop()
+              );
 /*====================================================================================================================*/
 // Statements.
 /*====================================================================================================================*/
