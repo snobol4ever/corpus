@@ -77,6 +77,7 @@ E_CAT       = "'E_CAT'";
 E_LEQ       = "'E_LEQ'";      E_LNE      = "'E_LNE'";
 E_MNS       = "'E_MNS'";      E_MOD      = "'E_MOD'";
 E_CASE      = "'E_CASE'";     E_NUL      = "'E_NUL'";
+E_SUSPEND   = "'E_SUSPEND'";
 E_Parse     = "'Parse'";
 /*====================================================================================================================*/
 // Whitespace primitives — canonical cross-PARSER model (mirrors parser_snocone.sc).
@@ -117,6 +118,7 @@ $'default' = $' ' 'default';
 $'print'  = $' ' 'print'  ;  $'die'    = $' ' 'die'    ;
 $'try'    = $' ' 'try'    ;  $'CATCH'  = $' ' ('CATCH' | 'catch');
 $'map'    = $' ' 'map'    ;  $'grep'   = $' ' 'grep'   ;  $'sort'   = $' ' 'sort'   ;
+$'gather' = $' ' 'gather' ;  $'take'   = $' ' 'take'   ;
 $'eq'     = $' ' 'eq' $' ';  $'ne'   = $' ' 'ne' $' ';
 $'div'    = $' ' 'div' $' ';  $'%'   = $' ' '%'  $' ';
 /*====================================================================================================================*/
@@ -247,6 +249,7 @@ capsnr        = '';
 cappf         = '';
 cappr         = '';
 sub_list   = '';
+gather_seq = 0;
 
 struct slink { snext, sval }
 /*====================================================================================================================*/
@@ -931,6 +934,47 @@ function finish_sub(n_kids, kids, sname, efnc, subj, stmt, i) {
 }
 Finish_sub   = (epsilon . *finish_sub());
 /*--------------------------------------------------------------------------------------------------------------------*/
+// finish_gather — gather { block } expr.  Mirrors raku.y KW_GATHER block:
+// emits a def STMT (E_FNC __gather_N (E_VAR __gather_N) ...body...) into
+// sub_list, then pushes the call (E_FNC __gather_N (E_VAR __gather_N))
+// onto the stack as the expression value.  Counter frame holds the body
+// stmts (same shape as finish_sub); gather_seq is the global counter
+// (starts at 0, increments per gather site).
+// Retained: reduce() can't read gather_seq, build the auto-generated
+// name, and split into def-list + call-on-stack in one pass.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_gather(n_kids, kids, gname, def_efnc, def_subj, def_stmt, call_efnc, i) {
+    n_kids = TopCounter();
+    kids   = GT(n_kids, 0) ARRAY('1:' n_kids);
+    i = n_kids;
+    while (GT(i, 0)) {
+        kids[i] = Pop();
+        i = i - 1;
+    }
+    gname = '__gather_' gather_seq;
+    gather_seq = gather_seq + 1;
+    // Def STMT: (STMT :subj (E_FNC gname (E_VAR gname) body...))
+    def_efnc = tree('E_FNC', gname);
+    Append(def_efnc, tree('E_VAR', gname));
+    i = 1;
+    while (LE(i, n_kids)) {
+        Append(def_efnc, kids[i]);
+        i = i + 1;
+    }
+    def_subj = tree(':subj', '');
+    Append(def_subj, def_efnc);
+    def_stmt = tree('STMT', '');
+    Append(def_stmt, def_subj);
+    sub_list = slink(sub_list, def_stmt);
+    // Call expression: (E_FNC gname (E_VAR gname)) — pushed for the caller.
+    call_efnc = tree('E_FNC', gname);
+    Append(call_efnc, tree('E_VAR', gname));
+    Push(call_efnc);
+    finish_gather = .dummy;
+    nreturn;
+}
+Finish_gather = (epsilon . *finish_gather());
+/*--------------------------------------------------------------------------------------------------------------------*/
 // finish_call — function call decomposition.  Reads TopCounter() for
 // nTop() children (callee E_VAR + args).  Builds (E_FNC fname (E_VAR fname)
 // arg1...argN) with fname from capfnf/capfnr captures.
@@ -1089,6 +1133,7 @@ Expr11 = ( $'!'  *Expr11  Finish_not
          | $'grep' $'  '  ClosureExpr  $'  '  *Expr  Finish_grep
          | $'sort' $'  '  ClosureExpr  $'  '  *Expr  Finish_sort_cl
          | $'sort' $'  '  *Expr                       Finish_sort_nc
+         | $'gather' nPush() SubBlock Finish_gather nPop()
          | VarScalar              Push_var
          | ArrIdxVar  $'['  *Expr  $']'              Finish_arr_get
          | VarArray                                   Push_var
@@ -1265,6 +1310,12 @@ ReturnStmt = ( $'return'
                )
              );
 
+// TakeStmt — `take expr ;` → (E_SUSPEND expr).  Body of gather { ... }
+// uses E_SUSPEND like a SNOBOL4-style coroutine yield; raku.y maps to
+// expr_unary(E_SUSPEND, expr).  Note: only meaningful inside a gather
+// block — the C frontend doesn't enforce that, neither do we.
+TakeStmt = ( $'take' $'  ' Expr $';' (E_SUSPEND & 1) );
+
 AssignStmt = ( ($'my' $'  ' | epsilon)
                ( VarScalar  Push_var
                | VarArray   Push_var
@@ -1333,6 +1384,7 @@ Stmt = ( GivenStmt
        | DeleteHashAngle
        | DeleteHashBrace
        | ReturnStmt
+       | TakeStmt
        | AssignStmt
        | SayStmt
        | PrintStmt
@@ -1340,10 +1392,10 @@ Stmt = ( GivenStmt
        );
 
 // BlockStmt — final binding.
-BlockStmt = ( GivenStmt | TryStmt | IfStmt | WhileStmt | UnlessStmt | UntilStmt | ForRangeStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ReturnStmt | AssignStmt | SayStmt | PrintStmt | BareStmt );
+BlockStmt = ( GivenStmt | TryStmt | IfStmt | WhileStmt | UnlessStmt | UntilStmt | ForRangeStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ReturnStmt | TakeStmt | AssignStmt | SayStmt | PrintStmt | BareStmt );
 
 // SubBlockStmt — SubBlock_body handles nInc per stmt.
-SubBlockStmt = ( GivenStmt | TryStmt | IfStmt | WhileStmt | UnlessStmt | UntilStmt | ForRangeStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ReturnStmt | AssignStmt | SayStmt | PrintStmt | BareStmt );
+SubBlockStmt = ( GivenStmt | TryStmt | IfStmt | WhileStmt | UnlessStmt | UntilStmt | ForRangeStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ReturnStmt | TakeStmt | AssignStmt | SayStmt | PrintStmt | BareStmt );
 /*====================================================================================================================*/
 // Sub parameter list — each param shifts (E_VAR name) onto sub counter frame.
 /*====================================================================================================================*/
