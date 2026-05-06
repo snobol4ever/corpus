@@ -5,7 +5,7 @@
 //
 // Naming: non-terminals from Rebus grammar; IR tags from ir.h E_*;
 // whitespace: $'  ' = required, $' ' = optional (beauty.sno convention).
-// Rungs RB-0..RB-5 + RB-FW-1..RB-FW-6 + RB-FW-7 LANDED.  Gate: PASS=82 FAIL=0.
+// Rungs RB-0..RB-5 + RB-FW-1..RB-FW-7 + RB-FW-8 LANDED.  Gate: PASS=83 FAIL=0.
 //
 // Documented deviations from Style Guidelines (## Style Guidelines for
 // parser_*.sc, GOAL-PARSER-REBUS.md):
@@ -228,6 +228,7 @@ E_NOTPAT    = 'E_NOTPAT';
 E_BANGPAT   = 'E_BANGPAT';
 E_VALUEPAT  = 'E_VALUEPAT';
 COMPOUND    = 'COMPOUND';
+E_POS       = 'E_POS';
 
 nTop_count   = 'nTop()';
 
@@ -367,6 +368,7 @@ postfix_expr = *primary
 //  They are distinct from the spaced operator wrappers because FENCE tries longest-first
 //  alternatives so $'-' (spaced) still binds unary minus before '\\' tries backslash.
 unary_expr = FENCE(  $'-'  *unary_expr reduce(E_MNS, 1)
+                   | '+'   *unary_expr reduce(E_POS, 1)
                    | '~'   *unary_expr reduce(E_NOTPAT, 1)
                    | '!'   *unary_expr reduce(E_BANGPAT, 1)
                    | '/'   *unary_expr reduce(E_VALUEPAT, 1)
@@ -708,6 +710,7 @@ function lower_atom(x, k, acc, i) {
     else if (IDENT(k, 'E_MNS')) {
         lower_atom = Tree(E_MNS, '', 1, lower_atom(c(x)[1]));
     }
+    else if (IDENT(k, 'E_POS')) lower_atom = lower_atom(c(x)[1]);  // unary + is identity
     else if (IDENT(k, 'E_ADD')) lower_atom = Tree(E_ADD, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
     else if (IDENT(k, 'E_SUB')) lower_atom = Tree(E_SUB, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
     else if (IDENT(k, 'E_MUL')) lower_atom = Tree(E_MUL, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
