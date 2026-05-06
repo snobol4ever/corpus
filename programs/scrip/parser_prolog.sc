@@ -72,7 +72,7 @@ $'mod' = $'  ' 'mod' . _op_name $'  ';
 $'rem' = $'  ' 'rem' . _op_name $'  ';
 $'xor' = $'  ' 'xor' . _op_name $'  ';
 // Unary bitwise-not and if-then.
-$'\'   = $' ' '\';
+$'\'   = $' ' '\' . _op_name;
 $'->'  = $' ' '->' $' ';
 // Graphic_atom: graphic-char sequence usable as a functor (e.g. \\+, @>, ##).
 Graphic_first = ANY('\\@#^~?');
@@ -903,6 +903,10 @@ cmp_expr  = (   is_expr
                 FENCE( $'=:=' is_expr Reduce_eqq
                      | $'=\=' is_expr Reduce_ne2
                      | $'\==' is_expr Reduce_ne3
+                     | $'@>=' is_expr Reduce_binop
+                     | $'@=<' is_expr Reduce_binop
+                     | $'@>'  is_expr Reduce_binop
+                     | $'@<'  is_expr Reduce_binop
                      | $'>='  is_expr Reduce_ge
                      | $'=<'  is_expr Reduce_le
                      | $'>'   is_expr Reduce_gt
@@ -928,9 +932,15 @@ conj = (    nPush()
             nPop()
         );
 /*--------------------------------------------------------------------------------------------------------------------*/
+// disj uses tail recursion (mirrors args/args_tail) to avoid ARBNO+FENCE bug.
+// disj_tail CANNOT use FENCE($'->'...|epsilon) -- causes SCRIP hang.
+// -> handling: fold into conj level via separate conj_arrow non-terminal.
+// conj_arrow = conj already-parsed then optionally -> conj (no FENCE, no epsilon).
+// NOTE: -> deferred to PR-13 addendum; disj_tail handles ; only for now.
+disj_tail = ( $';' nInc() conj FENCE( *disj_tail | epsilon ) );
 disj = (    nPush()
                 nInc() conj
-                ARBNO( $';' nInc() conj )
+                FENCE( *disj_tail | epsilon )
                                    Reduce_disj
             nPop()
         );
