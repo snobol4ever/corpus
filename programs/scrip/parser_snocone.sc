@@ -651,7 +651,7 @@ Command         =   $' ' ( if_cmd
                     );
 Compiland       =   nPush()
                     ARBNO(Command)
-                    (E_Parse & 'nTop()')
+                    reduce_prim(E_Parse)
                     nPop();
 /*====================================================================================================================*/
 InitCounter();
