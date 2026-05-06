@@ -1,0 +1,21 @@
+(STMT :subj (E_FNC main
+  (E_VAR main)
+  (E_ASSIGN
+    (E_VAR h)
+    (E_QLIT "")
+  )
+  (E_FNC hash_set
+    (E_VAR hash_set)
+    (E_VAR h)
+    (E_QLIT "foo")
+    (E_QLIT "bar")
+  )
+  (E_FNC write
+    (E_VAR write)
+    (E_FNC hash_get
+      (E_VAR hash_get)
+      (E_VAR h)
+      (E_QLIT "foo")
+    )
+  )
+))

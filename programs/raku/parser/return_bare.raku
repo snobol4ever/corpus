@@ -1,0 +1,2 @@
+sub f() { return; }
+f();

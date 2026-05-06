@@ -1,0 +1,16 @@
+(STMT :subj (E_FNC main
+  (E_VAR main)
+  (E_ASSIGN
+    (E_VAR d)
+    (E_FNC raku_new
+      (E_VAR raku_new)
+      (E_QLIT "Dog")
+      (E_QLIT "name")
+      (E_QLIT "Rex")
+    )
+  )
+  (E_FNC write
+    (E_VAR write)
+    (E_FIELD name (E_VAR d))
+  )
+))

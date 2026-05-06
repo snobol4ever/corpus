@@ -1,0 +1,16 @@
+(STMT :subj (E_FNC main
+  (E_VAR main)
+  (E_ASSIGN
+    (E_VAR obj)
+    (E_FNC raku_new
+      (E_VAR raku_new)
+      (E_QLIT "Foo")
+      (E_QLIT "x")
+      (E_ILIT 1)
+    )
+  )
+  (E_ASSIGN
+    (E_FIELD x (E_VAR obj))
+    (E_ILIT 42)
+  )
+))

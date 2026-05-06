@@ -1,0 +1,31 @@
+(STMT :subj (E_FNC main
+  (E_VAR main)
+  (E_ASSIGN
+    (E_VAR x)
+    (E_ILIT 2)
+  )
+  (E_IF
+    (E_EQ
+      (E_VAR x)
+      (E_ILIT 1)
+    )
+    (E_SEQ_EXPR (E_FNC write
+        (E_VAR write)
+        (E_QLIT "one")
+      ))
+    (E_IF
+      (E_EQ
+        (E_VAR x)
+        (E_ILIT 2)
+      )
+      (E_SEQ_EXPR (E_FNC write
+          (E_VAR write)
+          (E_QLIT "two")
+        ))
+      (E_SEQ_EXPR (E_FNC write
+          (E_VAR write)
+          (E_QLIT "other")
+        ))
+    )
+  )
+))

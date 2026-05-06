@@ -77,6 +77,7 @@ E_CAT       = "'E_CAT'";
 E_LEQ       = "'E_LEQ'";      E_LNE      = "'E_LNE'";
 E_MNS       = "'E_MNS'";      E_MOD      = "'E_MOD'";
 E_CASE      = "'E_CASE'";     E_NUL      = "'E_NUL'";
+E_REPEAT    = "'E_REPEAT'";
 E_SUSPEND   = "'E_SUSPEND'";
 E_Parse     = "'Parse'";
 /*====================================================================================================================*/
@@ -119,6 +120,9 @@ $'print'  = $' ' 'print'  ;  $'die'    = $' ' 'die'    ;
 $'try'    = $' ' 'try'    ;  $'CATCH'  = $' ' ('CATCH' | 'catch');
 $'map'    = $' ' 'map'    ;  $'grep'   = $' ' 'grep'   ;  $'sort'   = $' ' 'sort'   ;
 $'gather' = $' ' 'gather' ;  $'take'   = $' ' 'take'   ;
+$'elsif'  = $' ' 'elsif'  ;  $'repeat' = $' ' 'repeat' ;
+$'class'  = $' ' 'class'  ;  $'method' = $' ' 'method' ;
+$'has'    = $' ' 'has'    ;  $'new'    = $' ' 'new'    ;
 $'eq'     = $' ' 'eq' $' ';  $'ne'   = $' ' 'ne' $' ';
 $'div'    = $' ' 'div' $' ';  $'%'   = $' ' '%'  $' ';
 /*====================================================================================================================*/
@@ -135,6 +139,7 @@ $'{'   = $' ' '{' $' ';  $'}'   = $' ' '}';
 $'<'   = $' ' '<' $' ';  $'>'   = $' ' '>';
 $'['   = $' ' '[' $' ';  $']'   = $' ' ']';
 $'~~'  = $' ' '~~' $' ';
+$'=>'  = $' ' '=>' $' ';
 $'..'  = $' ' '..' $' ';  $'..^' = $' ' '..^' $' ';
 $'&&'  = $' ' '&&' $' ';  $'||'  = $' ' '||'  $' ';
 $'!'   = $' ' '!';        $'~'   = $' ' '~'   $' ';
@@ -161,6 +166,8 @@ VarHash   = ($' ' '%' vf . capvf vro . capvr);
 LitInt    = ($' ' SPAN(digits));
 LitStrDQ  = ($' ' '"' BREAK('"') . capstr '"');
 LitStrSQ  = ($' ' "'" BREAK("'") . capstr "'");
+// Float literal — digits '.' digits
+LitFloat  = ($' ' SPAN(digits) '.' SPAN(digits));
 // Regex literal — /body/: capture everything between the slashes as raw bytes.
 // Starter slice (RK-5): BREAK('/') — does not handle / inside [...] or after \.
 // Body stored in caprx for push_rxlit().
@@ -250,6 +257,9 @@ cappf         = '';
 cappr         = '';
 capmf         = '';
 capmr         = '';
+captype       = '';
+capnamedkey   = '';
+capnamedval   = '';
 sub_list   = '';
 gather_seq = 0;
 
@@ -268,6 +278,24 @@ function push_var() {
     nreturn;
 }
 Push_var   = (epsilon . *push_var());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// push_empty — push (E_QLIT "") for uninitialized typed declarations.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function push_empty() {
+    Push(tree('E_QLIT', ''));
+    push_empty = .dummy;
+    nreturn;
+}
+Push_empty = (epsilon . *push_empty());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// push_named_key — push (E_QLIT capnamedkey) for named args in ClassName.new(k=>v).
+/*--------------------------------------------------------------------------------------------------------------------*/
+function push_named_key() {
+    Push(tree('E_QLIT', capnamedkey));
+    push_named_key = .dummy;
+    nreturn;
+}
+Push_named_key = (epsilon . *push_named_key());
 /*--------------------------------------------------------------------------------------------------------------------*/
 // push_param — push tree('E_VAR', bare_name) using cappf/cappr.
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -1048,6 +1076,159 @@ function finish_field(obj, mname, ef) {
 }
 Finish_field = (epsilon . *finish_field());
 /*--------------------------------------------------------------------------------------------------------------------*/
+// finish_float — push (E_FLIT n) using capstr (the matched digit string).
+// Retained: E_FLIT requires a float value; shift() only handles E_ILIT.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_float(ef) {
+    ef = tree('E_FLIT', capstr);
+    Push(ef);
+    finish_float = .dummy;
+    nreturn;
+}
+Finish_float = (epsilon . *finish_float());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_arr_set — @a[i] = expr → (E_FNC arr_set (E_VAR arr_set) arr idx val).
+// Stack (top→bottom): val, idx, arr_var.  Counter not used — exactly 3 items.
+// Retained: reduce() can't set the E_FNC value field.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_arr_set(val, idx, arr, efnc) {
+    val  = Pop();
+    idx  = Pop();
+    arr  = Pop();
+    efnc = tree('E_FNC', 'arr_set');
+    Append(efnc, tree('E_VAR', 'arr_set'));
+    Append(efnc, arr);
+    Append(efnc, idx);
+    Append(efnc, val);
+    Push(efnc);
+    finish_arr_set = .dummy;
+    nreturn;
+}
+Finish_arr_set = (epsilon . *finish_arr_set());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_hash_set_angle — %h<key> = val → (E_FNC hash_set ... %h (E_QLIT key) val).
+// Uses capkey for the angle-bracket key, pops val then hash from stack.
+// Retained: same reason as finish_mcall.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_hash_set_angle(val, hsh, efnc) {
+    val  = Pop();
+    hsh  = Pop();
+    efnc = tree('E_FNC', 'hash_set');
+    Append(efnc, tree('E_VAR', 'hash_set'));
+    Append(efnc, hsh);
+    Append(efnc, tree('E_QLIT', capkey));
+    Append(efnc, val);
+    Push(efnc);
+    finish_hash_set_angle = .dummy;
+    nreturn;
+}
+Finish_hash_set_angle = (epsilon . *finish_hash_set_angle());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_hash_set_brace — %h{expr} = val → (E_FNC hash_set ... %h key_expr val).
+// Stack (top→bottom): val, key_expr, hash_var.
+// Retained: same reason as finish_mcall.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_hash_set_brace(val, key, hsh, efnc) {
+    val  = Pop();
+    key  = Pop();
+    hsh  = Pop();
+    efnc = tree('E_FNC', 'hash_set');
+    Append(efnc, tree('E_VAR', 'hash_set'));
+    Append(efnc, hsh);
+    Append(efnc, key);
+    Append(efnc, val);
+    Push(efnc);
+    finish_hash_set_brace = .dummy;
+    nreturn;
+}
+Finish_hash_set_brace = (epsilon . *finish_hash_set_brace());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_field_write — $obj.field = expr → (E_ASSIGN (E_FIELD fname obj) rhs).
+// Stack (top→bottom): rhs, obj.  capmf/capmr hold the field name.
+// Retained: same reason as finish_field.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_field_write(rhs, obj, ef, asgn) {
+    rhs  = Pop();
+    obj  = Pop();
+    ef   = tree('E_FIELD', capmf capmr);
+    Append(ef, obj);
+    asgn = tree('E_ASSIGN', '');
+    Append(asgn, ef);
+    Append(asgn, rhs);
+    Push(asgn);
+    finish_field_write = .dummy;
+    nreturn;
+}
+Finish_field_write = (epsilon . *finish_field_write());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_for_noarrow — for expr { body } → (E_EVERY (E_ITERATE expr) body).
+// Stack (top→bottom): body (E_SEQ_EXPR), iterable.
+// Retained: E_ITERATE wrapping not expressible via reduce().
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_for_noarrow(body, iter, ev, it) {
+    body = Pop();
+    iter = Pop();
+    it   = tree('E_ITERATE', '');
+    Append(it, iter);
+    ev   = tree('E_EVERY', '');
+    Append(ev, it);
+    Append(ev, body);
+    Push(ev);
+    finish_for_noarrow = .dummy;
+    nreturn;
+}
+Finish_for_noarrow = (epsilon . *finish_for_noarrow());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_raku_new — ClassName.new(named_args) → (E_FNC raku_new (E_VAR raku_new)
+//   (E_QLIT ClassName) (E_QLIT k1) v1 (E_QLIT k2) v2 ...).
+// Counter frame holds 2*N items (key+val pairs); ClassName in capfnf/capfnr.
+// Retained: E_FNC value field required.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_raku_new(n, items, cname, efnc, i) {
+    n     = TopCounter();
+    items = GT(n, 0) ARRAY('1:' n);
+    i = n;
+    while (GT(i, 0)) { items[i] = Pop(); i = i - 1; }
+    cname = capfnf capfnr;
+    efnc  = tree('E_FNC', 'raku_new');
+    Append(efnc, tree('E_VAR', 'raku_new'));
+    Append(efnc, tree('E_QLIT', cname));
+    i = 1;
+    while (LE(i, n)) { Append(efnc, items[i]); i = i + 1; }
+    Push(efnc);
+    finish_raku_new = .dummy;
+    nreturn;
+}
+Finish_raku_new = (epsilon . *finish_raku_new());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_say_fh / finish_print_fh — say($fh, str) / print($fh, str).
+// Stack (top→bottom): str, fh.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_say_fh(str, fh, efnc) {
+    str  = Pop();
+    fh   = Pop();
+    efnc = tree('E_FNC', 'raku_say_fh');
+    Append(efnc, tree('E_VAR', 'raku_say_fh'));
+    Append(efnc, fh);
+    Append(efnc, str);
+    Push(efnc);
+    finish_say_fh = .dummy;
+    nreturn;
+}
+Finish_say_fh = (epsilon . *finish_say_fh());
+function finish_print_fh(str, fh, efnc) {
+    str  = Pop();
+    fh   = Pop();
+    efnc = tree('E_FNC', 'raku_print_fh');
+    Append(efnc, tree('E_VAR', 'raku_print_fh'));
+    Append(efnc, fh);
+    Append(efnc, str);
+    Push(efnc);
+    finish_print_fh = .dummy;
+    nreturn;
+}
+Finish_print_fh = (epsilon . *finish_print_fh());
+/*--------------------------------------------------------------------------------------------------------------------*/
 function finish_main(n_kids, kids, efnc, subj, stmt, i) {
     n_kids = TopCounter();
     kids   = GT(n_kids, 0) ARRAY('1:' n_kids);
@@ -1166,6 +1347,17 @@ Flatten_cat = (epsilon . *flatten_cat());
 // Named tail patterns (Expr7tail etc.) wrap operator + rhs + action so
 // ARBNO fires the action reliably on each repetition.
 /*====================================================================================================================*/
+// NamedArgTail — key => val pairs for ClassName.new(k => v, ...).
+// Each pair pushes (E_QLIT key) then val onto the counter frame.
+// Defined before Expr11 (forward-ref rule).
+
+NamedArgTail = ( $','  $' ' ((ident_first (ident_rest | epsilon)) . capnamedkey) $'=>'  Push_named_key  *Expr  nInc() nInc() );
+
+// NewCallName — ClassName before '.new(': UpperCamel ident, captures into capfnf/capfnr.
+// No leading ws strip needed — whitespace already eaten by $' ' in surrounding pattern.
+
+NewCallName = ($' ' fnf . capfnf fnro . capfnr);
+
 // CallArgTail — defined BEFORE Expr11 so the ARBNO(*CallArgTail) reference
 // in Expr11 resolves at match time (deferred), not capture-time epsilon.
 
@@ -1229,9 +1421,21 @@ Expr11 = ( $'!'  *Expr11  Finish_not
          | VarStdErr              Finish_stderr
          | VarCapture             Finish_capture
          | VarNamedCapture        Finish_named_capture
+         | ( LitFloat . capstr     Finish_float )
          | shift(LitInt, 'E_ILIT')
          | LitStrDQ               Dq_unescape  Push_interp_str
          | LitStrSQ               Push_qlit
+         | ( nPush()
+             NewCallName
+             '.' 'new'
+             $'('
+             ( $' ' ((ident_first (ident_rest | epsilon)) . capnamedkey) $'=>'  Push_named_key  *Expr  nInc() nInc()
+               ARBNO( *NamedArgTail )
+             | epsilon
+             )
+             $')'                 Finish_raku_new
+             nPop()
+           )
          | $'(' *Expr $')'
          | ( nPush()
              shift(CallName, 'E_VAR')  nInc()
@@ -1356,7 +1560,11 @@ GatherBlock = ( $'{'
 /*====================================================================================================================*/
 IfStmt = ( $'if'  $'(' Expr $')'
            Block
-           ( $'else'  Block  (E_IF & 3)
+           ( $'elsif'  $'(' Expr $')'  Block
+             ( $'else'  Block  (E_IF & 3) (E_IF & 3)
+             | (E_IF & 2) (E_IF & 3)
+             )
+           | $'else'  Block  (E_IF & 3)
            | (E_IF & 2)
            )
          );
@@ -1424,6 +1632,20 @@ ReturnStmt = ( $'return'
 // block — the C frontend doesn't enforce that, neither do we.
 TakeStmt = ( $'take' $'  ' Expr $';' (E_SUSPEND & 1) );
 
+// TypedDeclStmt — my Type $var = expr; / my Type $var;  (type annotation discarded)
+TypedDeclStmt = ( $'my' $'  '
+                  $' ' ident_first (ident_rest | epsilon)
+                  $'  '
+                  ( ( VarScalar Push_var | VarArray Push_var | VarHash Push_var )
+                    $'=' *Expr $';'  (E_ASSIGN & 2)
+                  | ( VarScalar Push_var | VarArray Push_var | VarHash Push_var )
+                    $';'             Push_empty  (E_ASSIGN & 2)
+                  )
+                );
+
+// ReturnBareStmt — return ; → (E_RETURN) with no children.
+ReturnBareStmt = ( $'return' $';' (E_RETURN & 0) );
+
 AssignStmt = ( ($'my' $'  ' | epsilon)
                ( VarScalar  Push_var
                | VarArray   Push_var
@@ -1463,6 +1685,25 @@ GivenStmt = ( $'given' $'  '
               nPop()
             );
 
+// ArrSetStmt — @a[idx] = expr → arr_set.
+ArrSetStmt = ( VarArray Push_var $'[' *Expr $']' $'=' *Expr $';'  Finish_arr_set );
+
+// HashSetAngleStmt — %h<key> = expr → hash_set with literal key.
+HashAngleSetKey = ($' ' BREAK('>') . capkey);
+HashSetAngleStmt = ( VarHash Push_var $'<' HashAngleSetKey $'>' $'=' *Expr $';'  Finish_hash_set_angle );
+
+// HashSetBraceStmt — %h{expr} = expr → hash_set with expr key.
+HashSetBraceStmt = ( VarHash Push_var $'{' *Expr $'}' $'=' *Expr $';'  Finish_hash_set_brace );
+
+// FieldWriteStmt — $obj.field = expr → (E_ASSIGN (E_FIELD name obj) rhs).
+FieldWriteStmt = ( VarScalar Push_var '.' MethodName $'=' *Expr $';'  Finish_field_write );
+
+// SayFhStmt — say($fh, str) → raku_say_fh.
+SayFhStmt = ( $'say' $'(' *Expr $',' *Expr $')'  $';'  Finish_say_fh );
+
+// PrintFhStmt — print($fh, str) → raku_print_fh.
+PrintFhStmt = ( $'print' $'(' *Expr $',' *Expr $')'  $';'  Finish_print_fh );
+
 BareStmt = ( Expr $';' );
 
 // PrintStmt — print expr ; → (E_FNC writes (E_VAR writes) arg).
@@ -1481,16 +1722,33 @@ TryStmt = ( $'try'
             Finish_try
           );
 
+// RepeatStmt — repeat { body } → (E_REPEAT body).
+RepeatStmt = ( $'repeat' Block (E_REPEAT & 1) );
+
+// ForNoArrowStmt — for expr { body } (no -> $var) → (E_EVERY (E_ITERATE expr) body).
+// Mirrors raku.y: KW_FOR expr block → expr_binary(E_EVERY, E_ITERATE(expr), block).
+ForNoArrowStmt = ( $'for' $'  ' *Expr Block Finish_for_noarrow );
+
 Stmt = ( GivenStmt
        | TryStmt
        | IfStmt
        | WhileStmt
        | UnlessStmt
        | UntilStmt
+       | RepeatStmt
        | ForRangeStmt
+       | ForNoArrowStmt
        | ForStmt
        | DeleteHashAngle
        | DeleteHashBrace
+       | ArrSetStmt
+       | HashSetAngleStmt
+       | HashSetBraceStmt
+       | FieldWriteStmt
+       | SayFhStmt
+       | PrintFhStmt
+       | TypedDeclStmt
+       | ReturnBareStmt
        | ReturnStmt
        | TakeStmt
        | AssignStmt
@@ -1500,10 +1758,10 @@ Stmt = ( GivenStmt
        );
 
 // BlockStmt — final binding.
-BlockStmt = ( GivenStmt | TryStmt | IfStmt | WhileStmt | UnlessStmt | UntilStmt | ForRangeStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ReturnStmt | TakeStmt | AssignStmt | SayStmt | PrintStmt | BareStmt );
+BlockStmt = ( GivenStmt | TryStmt | IfStmt | WhileStmt | UnlessStmt | UntilStmt | RepeatStmt | ForRangeStmt | ForNoArrowStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ArrSetStmt | HashSetAngleStmt | HashSetBraceStmt | FieldWriteStmt | SayFhStmt | PrintFhStmt | TypedDeclStmt | ReturnBareStmt | ReturnStmt | TakeStmt | AssignStmt | SayStmt | PrintStmt | BareStmt );
 
 // SubBlockStmt — SubBlock_body handles nInc per stmt.
-SubBlockStmt = ( GivenStmt | TryStmt | IfStmt | WhileStmt | UnlessStmt | UntilStmt | ForRangeStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ReturnStmt | TakeStmt | AssignStmt | SayStmt | PrintStmt | BareStmt );
+SubBlockStmt = ( GivenStmt | TryStmt | IfStmt | WhileStmt | UnlessStmt | UntilStmt | RepeatStmt | ForRangeStmt | ForNoArrowStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ArrSetStmt | HashSetAngleStmt | HashSetBraceStmt | FieldWriteStmt | SayFhStmt | PrintFhStmt | TypedDeclStmt | ReturnBareStmt | ReturnStmt | TakeStmt | AssignStmt | SayStmt | PrintStmt | BareStmt );
 /*====================================================================================================================*/
 // Sub parameter list — each param shifts (E_VAR name) onto sub counter frame.
 /*====================================================================================================================*/

@@ -1,0 +1,8 @@
+(STMT :subj (E_FNC f
+  (E_VAR f)
+  (E_RETURN)
+))
+(STMT :subj (E_FNC main
+  (E_VAR main)
+  (E_FNC f (E_VAR f))
+))
