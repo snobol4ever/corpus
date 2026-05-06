@@ -5,7 +5,7 @@
 //
 // Naming: non-terminals from Rebus grammar; IR tags from ir.h E_*;
 // whitespace: $'  ' = required, $' ' = optional (beauty.sno convention).
-// Rungs RB-0..RB-5 + RB-FW-1 + RB-FW-2 LANDED.  Gate: PASS=57 FAIL=0.
+// Rungs RB-0..RB-5 + RB-FW-1..RB-FW-4 LANDED.  Gate: PASS=71 FAIL=0.
 //
 // Documented deviations from Style Guidelines (## Style Guidelines for
 // parser_*.sc, GOAL-PARSER-REBUS.md):
@@ -97,7 +97,10 @@ $'~=='      = $' '  '~=='      $' ';  $'=='       = $' ' '=='  $' ';
 $'<<='      = $' '  '<<='      $' ';  $'>>='      = $' ' '>>=' $' ';
 $'<<'       = $' '  '<<'       $' ';  $'>>'       = $' ' '>>'  $' ';
 $'<='       = $' '  '<='       $' ';  $'>='       = $' ' '>='  $' ';
-$'<'        = $' '  '<'        $' ';  $'>'        = $' ' '>'   $' ';
+// note: $'<' uses trailing $'  ' (White = required whitespace) so '<-' (no space
+// between < and -) cannot match this wrapper.  '<=' already matches before '<'.
+$'<'        = $' '  '<'        $'  ';  $'>'       = $' ' '>'   $'  ';
+$'<-arrow'  = $' '  '<-'       $' ';
 $'~='       = $' '  '~='       $' ';  $'='        = $' ' '='   $' ';
 // String / pattern concat.
 $'||'       = $' '  '||'       $' ';  $'&'        = $' ' '&'   $' ';
@@ -121,7 +124,14 @@ $'stop'     = $' '  'stop'     $' ';
 $'next'     = $' '  'next'     $' ';
 $'local'    = $' '  'local'    $'  ';
 $'initial'  = $' '  'initial'  $'  ';
+rb_case_kw  = $' '  'case'     $'  ';   // note: $'case' not used — 'case' is a Snocone keyword
+$'of'       = $' '  'of'       $' ';
+$'<-'       = $' '  '<-'       $' ';
+$'?-'       = $' '  '?-'       $' ';
 $';'        = $' '  ';'        $' ';
+$'{'        = $' '  '{'        $' ';
+$'}'        = $' '  '}'        $' ';
+$':'        = $' '  ':'        $' ';
 /*====================================================================================================================*/
 //  Tag string constants — bare form; semantic.sc _qtag auto-quotes.
 /*====================================================================================================================*/
@@ -173,6 +183,9 @@ RB_STOP   = 'RB_STOP';
 RB_EXIT   = 'RB_EXIT';
 RB_NEXT   = 'RB_NEXT';
 RB_INITIAL = 'RB_INITIAL';
+REPLACE   = 'REPLACE';
+REPLN     = 'REPLN';
+RB_CASE   = 'RB_CASE';
 
 nTop_count   = 'nTop()';
 
@@ -343,8 +356,18 @@ alt_expr = nPush() *X_alt reduce(ALT, nTop_count) nPop();
 //  expr — alt_expr optionally followed by `:= alt_expr` (assign).
 expr = *alt_expr FENCE($':=' *alt_expr reduce(ASSIGN, 2) | epsilon);
 
-//  match_or_expr — expr optionally followed by `? alt_expr` (match).
-match_or_expr = *expr FENCE($'?' *alt_expr reduce(MATCH, 2) | epsilon);
+//  match_or_expr — expr optionally followed by match/replace/repln operator.
+//    expr ? pat        → MATCH(expr, pat)
+//    expr ? pat <- rpl → REPLACE(expr, pat, rpl)
+//    expr ?- pat       → REPLN(expr, pat)
+//  Note: '?-' must be tried BEFORE '?' to avoid '?' consuming the '?' in '?-'.
+//  Note: $'<' requires trailing White (not Gray) so '<-' cannot be consumed
+//  as less-than. Both replace and match branches now use *alt_expr safely.
+$'?-match'  = $' '  '?-'  $' ';
+match_or_expr = *expr FENCE($'?-match' *alt_expr reduce(REPLN, 2)
+                           | $'?' *alt_expr $'<-arrow' *alt_expr reduce(REPLACE, 3)
+                           | $'?' *alt_expr reduce(MATCH, 2)
+                           | epsilon);
 
 //  if_stmt / while_stmt / unless_stmt / until_stmt / repeat_stmt — surface shapes.
 //  if with else is 3-child IFELSE (cond, then, else); without else is 2-child IF.
@@ -368,7 +391,36 @@ fail_stmt   = $'fail'   reduce(RB_FAIL, 0);
 stop_stmt   = $'stop'   reduce(RB_STOP, 0);
 next_stmt   = $'next'   reduce(RB_NEXT, 0);
 
-stmt = $' ' FENCE(*if_stmt | *while_stmt | *unless_stmt | *until_stmt | *repeat_stmt | *for_stmt | *return_stmt | *stop_stmt | *fail_stmt | *exit_stmt | *next_stmt | *match_or_expr) $' ' nl;
+//  case_stmt — case expr of { guard: body; ... ; default: body }
+//  Each caseclause is a 2-child CASE_CLAUSE(guard, body) node or
+//  a 1-child CASE_DEFAULT(body) node.  case_stmt reduces to
+//  RB_CASE(expr, clause, ...) with n children = 1 + nClauses.
+//
+//  Grammar mirrors rebus.y: caselist = caseclause (; caseclause)* ;?
+//  A clause guard is an expression; "default" is the literal keyword.
+//  The body is a single stmt consumed inline (without its trailing nl
+//  since the clause ends with ';' or '}').
+//
+//  stmt_inline — a stmt body without the trailing nl (used inside { }).
+//  The nl is consumed by $';' / $'}' wrappers after the body.
+CASE_CLAUSE   = 'CASE_CLAUSE';
+CASE_DEFAULT  = 'CASE_DEFAULT';
+
+stmt_inline = $' ' FENCE(*if_stmt | *while_stmt | *unless_stmt | *until_stmt | *repeat_stmt | *for_stmt | *return_stmt | *stop_stmt | *fail_stmt | *exit_stmt | *next_stmt | *match_or_expr) $' ';
+
+//  caseclause — guard: body  or  default: body.
+caseclause_guard   = nInc() *match_or_expr $':' *stmt_inline reduce(CASE_CLAUSE, 2);
+rb_default_kw  = $' '  'default'   $' ';
+caseclause_default = nInc() *rb_default_kw $':' *stmt_inline reduce(CASE_DEFAULT, 1);
+caseclause         = FENCE(*caseclause_default | *caseclause_guard);
+
+//  caselist — one or more clauses separated by ';'.  Tail-recursive.
+caselist_tail = FENCE($';' FENCE(*caseclause *caselist_tail | epsilon) | epsilon);
+caselist      = *caseclause *caselist_tail;
+
+case_stmt = *rb_case_kw nPush() nInc() *match_or_expr $'of' $'{' *caselist $'}' reduce(RB_CASE, nTop_count) nPop();
+
+stmt = $' ' FENCE(*case_stmt | *if_stmt | *while_stmt | *unless_stmt | *until_stmt | *repeat_stmt | *for_stmt | *return_stmt | *stop_stmt | *fail_stmt | *exit_stmt | *next_stmt | *match_or_expr) $' ' nl;
 
 //  func_body — n-ary fold over body stmts.  Uses tail-recursive shape (per
 //  parser_icon.sc Procbody idiom) so that 'end' is preempt-matched BEFORE
@@ -493,6 +545,51 @@ function emit_subj_goS(s, lbl) {
     return;
 }
 
+//  emit_replace — (STMT :subj <s> :pat <p> :repl <r>) for replace/repln.
+function emit_replace(s, p, r) {
+    TDump(Tree('STMT', '', 3,
+               Tree(':subj', '', 1, s),
+               Tree(':pat',  '', 1, p),
+               Tree(':repl', '', 1, r)));
+    return;
+}
+
+//  lower_case — lower a RB_CASE(expr, clause, ...) tree.
+//  Oracle shape: allocate l_end first (number N), then temp var = 'rb_case_N',
+//  assign expr to temp, then chain IDENT comparisons for each clause.
+//  Clause kinds: CASE_CLAUSE(guard, body) or CASE_DEFAULT(body).
+function lower_case(x, lEnd, lNext, lMatch, tempVar, tempExpr, tmpN, i, cl, ck) {
+    lEnd    = new_label();
+    tmpN    = label_n;
+    tempVar = 'rb_case_' tmpN;
+    tempExpr = tree(E_VAR, tempVar);
+    //  Assign case expr (c(x)[1]) to temp var.
+    TDump(Tree('STMT', '', 1,
+               Tree(':subj', '', 1,
+                    Tree(E_ASSIGN, '', 2, tempExpr, lower_atom(c(x)[1])))));
+    i = 1;
+    lNext = '';
+    while (i = LT(i, n(x)) i + 1) {
+        cl = c(x)[i];
+        ck = t(cl);
+        if (DIFFER(lNext)) { emit_lbl(lNext); lNext = ''; }
+        if (IDENT(ck, 'CASE_DEFAULT')) {
+            lower_stmt(c(cl)[1]);
+            emit_go(lEnd);
+        } else {
+            lMatch = new_label();
+            lNext  = new_label();
+            emit_subj_goSF(Tree(E_FNC, 'IDENT', 2, tempExpr, lower_atom(c(cl)[1])), lMatch, lNext);
+            emit_lbl(lMatch);
+            lower_stmt(c(cl)[2]);
+            emit_go(lEnd);
+        }
+    }
+    if (DIFFER(lNext)) emit_lbl(lNext);
+    emit_lbl(lEnd);
+    return;
+}
+
 //  lower_atom — recursively lower an expression tree.  Handles ALT (build
 //  flat n-ary E_ALT via Append loop) and CALL (emit (E_FNC name) — bare
 //  call no args).
@@ -549,6 +646,8 @@ function lower_stmt(x, k, lblS, lblF, lblM, forVar, forStep) {
     k = t(x);
     if (IDENT(k, 'ASSIGN'))          emit_assign(lower_atom(c(x)[1]), lower_atom(c(x)[2]));
     else if (IDENT(k, 'MATCH'))      { emit_match(lower_atom(c(x)[1]), lower_atom(c(x)[2])); }
+    else if (IDENT(k, 'REPLACE'))    emit_replace(lower_atom(c(x)[1]), lower_atom(c(x)[2]), lower_atom(c(x)[3]));
+    else if (IDENT(k, 'REPLN'))      emit_replace(lower_atom(c(x)[1]), lower_atom(c(x)[2]), tree(E_NUL, ''));
     else if (IDENT(k, 'RB_RETURN'))  emit_go('RETURN');
     else if (IDENT(k, 'RB_RETURN_VAL')) {
         emit_assign(tree(E_VAR, curFname), lower_atom(c(x)[1]));
@@ -646,6 +745,7 @@ function lower_stmt(x, k, lblS, lblF, lblM, forVar, forStep) {
         emit_go(lblS);
         emit_lbl(lblM);
     }
+    else if (IDENT(k, 'RB_CASE'))       lower_case(x);
     else                            emit_subj(lower_atom(x));
     return;
 }
