@@ -26,7 +26,14 @@ function Reduce(t, n, c, i, r, empty) {
         if (~(n = EVAL(n))) { nreturn; }
     }
     OUTPUT = GT(xTrace, 3) 'Reduce(' t ', ' n ')';
-    c = GE(n, 1) ARRAY('1:' n);
+    // BUG-SR-1 fix: when n=0, skip array alloc and pop loop entirely.
+    if (IDENT(n, 0)) {
+        empty = ;
+        r = tree(t, empty, 0);
+        Push(r);
+        nreturn;
+    }
+    c = ARRAY('1:' n);
     i = n + 1;
     while (i = GT(i, 1) i - 1) {
         c[i] = Pop();

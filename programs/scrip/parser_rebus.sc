@@ -5,7 +5,8 @@
 //
 // Naming: non-terminals from Rebus grammar; IR tags from ir.h E_*;
 // whitespace: $'  ' = required, $' ' = optional (beauty.sno convention).
-// Rungs RB-0..RB-5 LANDED.  Gate: PASS=38 FAIL=0.
+// Rungs RB-0..RB-5 + RB-FW-1 LANDED.  Gate: PASS=48 FAIL=0.
+// RB-FW-2: return/exit/fail/stop/next; exponent; modulo; string-cmp; local/initial.
 //
 // Documented deviations from Style Guidelines (## Style Guidelines for
 // parser_*.sc, GOAL-PARSER-REBUS.md):
@@ -52,6 +53,14 @@ $'function' = $' '  'function' $'  '; $'end'      = $' ' 'end';
 $'record'   = $' '  'record'   $'  ';
 $'if'       = $' '  'if'       $'  '; $'then'     = $' ' 'then' $'  ';
 $'while'    = $' '  'while'    $'  '; $'do'       = $' ' 'do'   $'  ';
+$'return'   = $' '  'return';
+$'exit'     = $' '  'exit';
+$'fail'     = $' '  'fail';
+$'stop'     = $' '  'stop';
+$'next'     = $' '  'next';
+$'local'    = $' '  'local'    $'  ';
+$'initial'  = $' '  'initial'  $'  ';
+$';'        = $' '  ';'        $' ';
 /*====================================================================================================================*/
 //  Tag string constants — bare form; semantic.sc _qtag auto-quotes.
 /*====================================================================================================================*/
@@ -67,15 +76,21 @@ E_MUL        = 'E_MUL';
 E_DIV        = 'E_DIV';
 E_MNS        = 'E_MNS';
 E_CAT        = 'E_CAT';
+E_POW        = 'E_POW';
 E_NUL        = 'E_NUL';
 CMP_EQ       = 'CMP_EQ'; CMP_NE = 'CMP_NE';
 CMP_LT       = 'CMP_LT'; CMP_LE = 'CMP_LE';
 CMP_GT       = 'CMP_GT'; CMP_GE = 'CMP_GE';
+CMP_SEQ      = 'CMP_SEQ'; CMP_SNE = 'CMP_SNE';
+CMP_SLT      = 'CMP_SLT'; CMP_SLE = 'CMP_SLE';
+CMP_SGT      = 'CMP_SGT'; CMP_SGE = 'CMP_SGE';
+REMDR        = 'REMDR';
 Parse        = 'Parse';
 FUNC_DECL = 'FUNC_DECL';
 REC_DECL  = 'REC_DECL';
 PARAMS    = 'PARAMS';
 FIELDS    = 'FIELDS';
+LOCALS    = 'LOCALS';
 BODY      = 'BODY';
 ASSIGN    = 'ASSIGN';
 ALT       = 'ALT';
@@ -83,6 +98,13 @@ MATCH     = 'MATCH';
 IF        = 'IF';
 WHILE     = 'WHILE';
 CALL      = 'CALL';
+RB_RETURN = 'RB_RETURN';
+RB_RETURN_VAL = 'RB_RETURN_VAL';
+RB_FAIL   = 'RB_FAIL';
+RB_STOP   = 'RB_STOP';
+RB_EXIT   = 'RB_EXIT';
+RB_NEXT   = 'RB_NEXT';
+RB_INITIAL = 'RB_INITIAL';
 
 nTop_count   = 'nTop()';
 
@@ -169,10 +191,18 @@ unary_expr = FENCE(  $'-' *unary_expr reduce(E_MNS, 1)
                    | *primary
                   );
 
+//  pow_expr — exponentiation; right-associative.  Match lhs once, then
+//  optionally match operator + rhs.  Avoids duplicate stack pushes in FENCE.
+pow_expr = *unary_expr FENCE(  $'**' *pow_expr reduce(E_POW, 2)
+                              | $'^'  *pow_expr reduce(E_POW, 2)
+                              | epsilon
+                             );
+
 //  mul_expr — * / % (left-associative chain).
-mul_expr = *unary_expr
-           ( $'*' *unary_expr reduce(E_MUL, 2) ($'*' *unary_expr reduce(E_MUL, 2) | epsilon)
-           | $'/' *unary_expr reduce(E_DIV, 2) ($'/' *unary_expr reduce(E_DIV, 2) | epsilon)
+mul_expr = *pow_expr
+           ( $'*' *pow_expr reduce(E_MUL, 2) ($'*' *pow_expr reduce(E_MUL, 2) | epsilon)
+           | $'/' *pow_expr reduce(E_DIV, 2) ($'/' *pow_expr reduce(E_DIV, 2) | epsilon)
+           | $'%' *pow_expr reduce(REMDR,  2) ($'%' *pow_expr reduce(REMDR,  2) | epsilon)
            | epsilon
            );
 
@@ -187,12 +217,26 @@ add_expr = *mul_expr
 $'='  = $' ' '='  $' '; $'~=' = $' ' '~=' $' ';
 $'<'  = $' ' '<'  $' '; $'<=' = $' ' '<=' $' ';
 $'>'  = $' ' '>'  $' '; $'>=' = $' ' '>=' $' ';
-cmp_expr = *add_expr FENCE(  $'='  *add_expr reduce(CMP_EQ, 2)
-                             | $'~=' *add_expr reduce(CMP_NE, 2)
-                             | $'<'  *add_expr reduce(CMP_LT, 2)
-                             | $'<=' *add_expr reduce(CMP_LE, 2)
-                             | $'>'  *add_expr reduce(CMP_GT, 2)
-                             | $'>=' *add_expr reduce(CMP_GE, 2)
+//  String comparisons — must be ordered longest-first to avoid prefix match.
+$'~==' = $' ' '~==' $' '; $'==' = $' ' '==' $' ';
+$'<<=' = $' ' '<<=' $' '; $'>>=' = $' ' '>>=' $' ';
+$'<<'  = $' ' '<<'  $' '; $'>>'  = $' ' '>>'  $' ';
+//  Exponent / modulo.
+$'^'   = $' ' ANY('^') $' ';
+$'**'  = $' ' '**'     $' ';
+$'%'   = $' ' '%'      $' ';
+cmp_expr = *add_expr FENCE(  $'='   *add_expr reduce(CMP_EQ,  2)
+                             | $'~='  *add_expr reduce(CMP_NE,  2)
+                             | $'<='  *add_expr reduce(CMP_LE,  2)
+                             | $'<'   *add_expr reduce(CMP_LT,  2)
+                             | $'>='  *add_expr reduce(CMP_GE,  2)
+                             | $'>'   *add_expr reduce(CMP_GT,  2)
+                             | $'=='  *add_expr reduce(CMP_SEQ, 2)
+                             | $'~==' *add_expr reduce(CMP_SNE, 2)
+                             | $'<<=' *add_expr reduce(CMP_SLE, 2)
+                             | $'>>=' *add_expr reduce(CMP_SGE, 2)
+                             | $'<<'  *add_expr reduce(CMP_SLT, 2)
+                             | $'>>'  *add_expr reduce(CMP_SGT, 2)
                              | epsilon
                             );
 
@@ -221,7 +265,14 @@ match_or_expr = *expr FENCE($'?' *alt_expr reduce(MATCH, 2) | epsilon);
 if_stmt    = $'if'    *match_or_expr $'then' *match_or_expr reduce(IF,    2);
 while_stmt = $'while' *match_or_expr $'do'   *match_or_expr reduce(WHILE, 2);
 
-stmt = $' ' FENCE(*if_stmt | *while_stmt | *match_or_expr) $' ' nl;
+//  flow_stmt — return/exit/fail/stop/next keyword statements.
+return_stmt = $'return' FENCE(*match_or_expr reduce(RB_RETURN_VAL, 1) | reduce(RB_RETURN, 0));
+exit_stmt   = $'exit'   reduce(RB_EXIT, 0);
+fail_stmt   = $'fail'   reduce(RB_FAIL, 0);
+stop_stmt   = $'stop'   reduce(RB_STOP, 0);
+next_stmt   = $'next'   reduce(RB_NEXT, 0);
+
+stmt = $' ' FENCE(*if_stmt | *while_stmt | *return_stmt | *stop_stmt | *fail_stmt | *exit_stmt | *next_stmt | *match_or_expr) $' ' nl;
 
 //  func_body — n-ary fold over body stmts.  Uses tail-recursive shape (per
 //  parser_icon.sc Procbody idiom) so that 'end' is preempt-matched BEFORE
@@ -252,10 +303,19 @@ opt_fields = nPush() FENCE(*X_fields | epsilon) reduce(FIELDS, nTop_count) nPop(
 //  Top-level decls.
 /*--------------------------------------------------------------------------------------------------------------------*/
 
+X_locals   = nInc() shift(*Id, E_VAR) FENCE($',' *X_locals | epsilon);
+opt_locals = nPush() FENCE($'local' *X_locals $';' | epsilon) reduce(LOCALS, nTop_count) nPop();
+
+//  opt_initial — `initial stmt ;` — optional; the initial expression ends at `;`.
+init_expr   = $' ' *match_or_expr $' ';
+opt_initial = FENCE(nPush() $'initial' *init_expr $';' $' ' nl reduce(RB_INITIAL, 1) nPop() | reduce(RB_INITIAL, 0));
+
 function_decl =
     $'function' shift(*Id, E_VAR) $'(' *opt_params $')' $' ' nl
+    *opt_locals
+    *opt_initial
     *func_body
-    reduce(FUNC_DECL, 3);
+    reduce(FUNC_DECL, 5);
 
 record_decl =
     $'record' shift(*Id, E_VAR) $'(' *opt_fields $')' $' ' nl
@@ -348,12 +408,20 @@ function lower_atom(x, k, acc, i) {
     else if (IDENT(k, 'E_MUL')) lower_atom = Tree(E_MUL, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
     else if (IDENT(k, 'E_DIV')) lower_atom = Tree(E_DIV, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
     else if (IDENT(k, 'E_CAT')) lower_atom = Tree(E_CAT, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_EQ')) lower_atom = Tree(E_FNC, 'EQ', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_NE')) lower_atom = Tree(E_FNC, 'NE', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_LT')) lower_atom = Tree(E_FNC, 'LT', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_LE')) lower_atom = Tree(E_FNC, 'LE', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_GT')) lower_atom = Tree(E_FNC, 'GT', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_GE')) lower_atom = Tree(E_FNC, 'GE', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_EQ')) lower_atom = Tree(E_FNC, 'EQ',     2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_NE')) lower_atom = Tree(E_FNC, 'NE',     2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_LT')) lower_atom = Tree(E_FNC, 'LT',     2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_LE')) lower_atom = Tree(E_FNC, 'LE',     2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_GT')) lower_atom = Tree(E_FNC, 'GT',     2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_GE')) lower_atom = Tree(E_FNC, 'GE',     2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_SEQ')) lower_atom = Tree(E_FNC, 'IDENT',  2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_SNE')) lower_atom = Tree(E_FNC, 'DIFFER', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_SLT')) lower_atom = Tree(E_FNC, 'LLT',   2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_SLE')) lower_atom = Tree(E_FNC, 'LLE',   2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_SGT')) lower_atom = Tree(E_FNC, 'LGT',   2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_SGE')) lower_atom = Tree(E_FNC, 'LGE',   2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'E_POW'))   lower_atom = Tree(E_POW, '',      2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'REMDR'))   lower_atom = Tree(E_FNC, 'REMDR', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
     else if (IDENT(k, 'ALT')) {
         if (EQ(n(x), 1)) lower_atom = lower_atom(c(x)[1]);
         else {
@@ -369,8 +437,17 @@ function lower_atom(x, k, acc, i) {
 
 function lower_stmt(x, k, lblS, lblF, lblM) {
     k = t(x);
-    if (IDENT(k, 'ASSIGN'))      emit_assign(lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'MATCH'))  { emit_match(lower_atom(c(x)[1]), lower_atom(c(x)[2])); }
+    if (IDENT(k, 'ASSIGN'))          emit_assign(lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'MATCH'))      { emit_match(lower_atom(c(x)[1]), lower_atom(c(x)[2])); }
+    else if (IDENT(k, 'RB_RETURN'))  emit_go('RETURN');
+    else if (IDENT(k, 'RB_RETURN_VAL')) {
+        emit_assign(tree(E_VAR, curFname), lower_atom(c(x)[1]));
+        emit_go('RETURN');
+    }
+    else if (IDENT(k, 'RB_FAIL'))    emit_go('FRETURN');
+    else if (IDENT(k, 'RB_STOP'))    TDump(Tree('STMT', '', 1, Tree(':end', '')));
+    else if (IDENT(k, 'RB_EXIT'))    TDump(Tree('STMT', '', 1, Tree(':end', '')));
+    else if (IDENT(k, 'RB_NEXT'))    { }
     else if (IDENT(k, 'IF')) {
         lblS = new_label();
         lblF = new_label();
@@ -399,19 +476,39 @@ function lower_stmt(x, k, lblS, lblF, lblM) {
     return;
 }
 
-function lower_function_decl(x, nm, pm, bd, fname, pstr, i, lbl) {
+curFname = '';
+
+function lower_function_decl(x, nm, pm, lc, init, bd, fname, pstr, lstr, i, lbl) {
     nm    = c(x)[1];
     pm    = c(x)[2];
-    bd    = c(x)[3];
+    lc    = c(x)[3];
+    init  = c(x)[4];
+    bd    = c(x)[5];
     fname = REPLACE(v(nm), &LCASE, &UCASE);
+    curFname = fname;
     pstr  = '';
     i = 0;
     while (i = LT(i, n(pm)) i + 1)
         pstr = pstr (GT(i, 1) ',', '') REPLACE(v(c(pm)[i]), &LCASE, &UCASE);
-    emit_subj(Tree('E_FNC', 'DEFINE', 1, tree(E_QLIT, fname '(' pstr ')')));
+    lstr  = '';
+    i = 0;
+    while (i = LT(i, n(lc)) i + 1)
+        lstr = lstr (GT(i, 1) ',', '') REPLACE(v(c(lc)[i]), &LCASE, &UCASE);
+    emit_subj(Tree('E_FNC', 'DEFINE', 1, tree(E_QLIT, fname '(' pstr ')' (DIFFER(lstr) '/' lstr, ''))));
     lbl = new_label();
     emit_go(lbl);
     emit_lbl(fname);
+    //  Initial clause — if present (n(init)=1), emit as conditional guard.
+    if (DIFFER(n(init), 0)) {
+        lblS = new_label();
+        initVar = 'rb_init_' fname;
+        TDump(Tree('STMT', '', 2,
+                   Tree(':subj', '', 1, tree(E_VAR, initVar)),
+                   Tree(':goS', lblS)));
+        lower_stmt(c(init)[1]);
+        emit_subj(Tree('E_ASSIGN', '', 2, tree(E_VAR, initVar), tree(E_ILIT, '1')));
+        emit_lbl(lblS);
+    }
     i = 0;
     while (i = LT(i, n(bd)) i + 1)
         lower_stmt(c(bd)[i]);
