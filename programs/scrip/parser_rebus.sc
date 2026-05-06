@@ -5,7 +5,7 @@
 //
 // Naming: non-terminals from Rebus grammar; IR tags from ir.h E_*;
 // whitespace: $'  ' = required, $' ' = optional (beauty.sno convention).
-// Rungs RB-0..RB-5 + RB-FW-1..RB-FW-4 LANDED.  Gate: PASS=71 FAIL=0.
+// Rungs RB-0..RB-5 + RB-FW-1..RB-FW-5 LANDED.  Gate: PASS=75 FAIL=0.
 //
 // Documented deviations from Style Guidelines (## Style Guidelines for
 // parser_*.sc, GOAL-PARSER-REBUS.md):
@@ -69,8 +69,23 @@ Gray        =   ARBNO(white);
 $'  '       =   White;
 $' '        =   Gray;
 
-Id      = ANY(&UCASE &LCASE '_') (SPAN(&UCASE &LCASE digits '_') | epsilon);
+//  Id — matches the rebus.l IDENT regex: ALPHA followed by any of
+//  [letters digits _ .].  Embedded '.' is part of the ident (e.g. R.FIELD
+//  is one ident, not field-access).  Whitespace before '.' breaks the ident
+//  and exposes '.' as the postfix capture operator.
+Id      = ANY(&UCASE &LCASE '_') (SPAN(&UCASE &LCASE digits '_' '.') | epsilon);
 Integer = SPAN(digits);
+//  Real — digits '.' digits; must not consume dot that belongs to field-access
+//  or pattern-capture.  Matched only when digits appear on BOTH sides of '.'.
+Real    = SPAN(digits) '.' SPAN(digits);
+//  Keyword body-capture — `&IDENT` (e.g. &FULLSCAN, &ANCHOR).  The opening
+//  '&' is matched by a sibling; only the Id body goes through the capture so
+//  the shifted E_KEYWORD node holds 'FULLSCAN', not '&FULLSCAN'.  This
+//  mirrors the DQ_str / SQ_str idiom and the rubric's body-capture pattern.
+//  The pattern-concat $'&' operator wrapper has surrounding Gray, so it
+//  cannot match a bare '&' immediately followed by an Id letter.
+KW_open = '&';
+KW_body = ANY(&UCASE &LCASE '_') (SPAN(&UCASE &LCASE digits '_') | epsilon);
 
 DQ_str  = '"' BREAK('"') . strbody '"';
 SQ_str  = "'" BREAK("'") . strbody "'";
@@ -132,6 +147,11 @@ $';'        = $' '  ';'        $' ';
 $'{'        = $' '  '{'        $' ';
 $'}'        = $' '  '}'        $' ';
 $':'        = $' '  ':'        $' ';
+//  Pattern capture operator wrappers — REQUIRED whitespace before '.' / '$' so
+//  that tight forms (handled by Id absorbing embedded '.') do not match.
+//  Trailing whitespace is optional (mirrors oracle's tolerance for `x .y`).
+dot_capt    = $'  '  '.'        $' ';
+dollar_capt = $'  '  '$'        $' ';
 /*====================================================================================================================*/
 //  Tag string constants — bare form; semantic.sc _qtag auto-quotes.
 /*====================================================================================================================*/
@@ -139,6 +159,8 @@ $':'        = $' '  ':'        $' ';
 E_VAR        = 'E_VAR';
 E_ILIT       = 'E_ILIT';
 E_QLIT       = 'E_QLIT';
+E_FLIT       = 'E_FLIT';
+E_KEYWORD    = 'E_KEYWORD';
 E_ALT        = 'E_ALT';
 E_FNC        = 'E_FNC';
 E_ADD        = 'E_ADD';
@@ -186,6 +208,8 @@ RB_INITIAL = 'RB_INITIAL';
 REPLACE   = 'REPLACE';
 REPLN     = 'REPLN';
 RB_CASE   = 'RB_CASE';
+E_CAPT_COND = 'E_CAPT_COND_ASGN';
+E_CAPT_IMM  = 'E_CAPT_IMMED_ASGN';
 
 nTop_count   = 'nTop()';
 
@@ -234,6 +258,14 @@ function push_call_id() {
     nreturn;
 }
 
+//  Keyword body push — uppercases the captured Id and pushes E_KEYWORD.
+rbKwName = '';
+function push_keyword() {
+    push_keyword = .dummy;
+    Push(tree(E_KEYWORD, REPLACE(rbKwName, &LCASE, &UCASE)));
+    nreturn;
+}
+
 function Decompose_call() {
     Decompose_call = epsilon . *decompose_call();
     return;
@@ -244,21 +276,14 @@ function Push_call_id() {
     return;
 }
 
-//  Field-access helper: pops the base E_VAR node, combines with rbFieldName
-//  to produce E_VAR BASE.FIELD (uppercase dot-joined, per oracle).
-rbFieldName = '';
-function push_field_access(base, baseName, combined) {
-    push_field_access = .dummy;
-    base     = Pop();
-    baseName = REPLACE(v(base), &LCASE, &UCASE);
-    combined = baseName '.' REPLACE(rbFieldName, &LCASE, &UCASE);
-    Push(tree(E_VAR, combined));
-    nreturn;
-}
-function Push_field_access() {
-    Push_field_access = epsilon . *push_field_access();
+function Push_keyword() {
+    Push_keyword = epsilon . *push_keyword();
     return;
 }
+
+//  (Field-access helpers removed in RB-FW-5 — extended Id now absorbs
+//  embedded '.' so r.field is one Id, matching rebus.l IDENT regex.
+//  Spaced '.' is now the postfix capture operator dot_capt.)
 
 
 //  Grammar — RB-0 atom + RB-1 assignment + RB-2/3/4/5 (if/while/call/match/alt).
@@ -278,18 +303,24 @@ call_or_id = FENCE(  (*Id . rbCallName) $'(' nPush() Push_call_id()
                   );
 
 primary = FENCE(  *String  Push_qlit()
+                | KW_open (*KW_body . rbKwName) Push_keyword()
+                | shift(*Real, E_FLIT)
                 | shift(*Integer, E_ILIT)
                 | *call_or_id
                 | '(' *expr ')'
                );
 
-//  postfix_expr — subscript a[i] and field r.field; left-associative chain.
-//  a[i] → E_IDX(a, i).  r.field → E_VAR R.FIELD (uppercase dot-join).
+//  postfix_expr — subscript a[i], pattern capture pat . var and pat $ var.
+//  Field-access r.field is now folded into Id (which permits embedded '.'),
+//  matching the rebus.l IDENT regex.  Spaced '.' / '$' between expressions
+//  reach this rule and produce capture trees.
 postfix_expr = *primary
                FENCE(  $'[' *alt_expr $']' reduce(E_IDX, 2)
                          FENCE($'[' *alt_expr $']' reduce(E_IDX, 2) | epsilon)
-                      | $'.' (*Id . rbFieldName) Push_field_access()
-                         FENCE($'.' (*Id . rbFieldName) Push_field_access() | epsilon)
+                      | *dot_capt    *primary reduce(E_CAPT_COND, 2)
+                         FENCE(*dot_capt    *primary reduce(E_CAPT_COND, 2) | epsilon)
+                      | *dollar_capt *primary reduce(E_CAPT_IMM,  2)
+                         FENCE(*dollar_capt *primary reduce(E_CAPT_IMM,  2) | epsilon)
                       | epsilon
                      );
 
@@ -598,6 +629,8 @@ function lower_atom(x, k, acc, i) {
     if (IDENT(k, 'E_VAR'))       lower_atom = tree(E_VAR, REPLACE(v(x), &LCASE, &UCASE));
     else if (IDENT(k, 'E_ILIT')) lower_atom = x;
     else if (IDENT(k, 'E_QLIT')) lower_atom = x;
+    else if (IDENT(k, 'E_FLIT')) lower_atom = x;
+    else if (IDENT(k, 'E_KEYWORD')) lower_atom = tree(E_KEYWORD, REPLACE(v(x), &LCASE, &UCASE));
     else if (IDENT(k, 'E_FNC')) {
         //  decompose_call produces E_FNC(fname, arg1, ...) with raw ALT-wrapped children.
         //  Lower each child through lower_atom to strip ALT wrappers.
@@ -629,6 +662,10 @@ function lower_atom(x, k, acc, i) {
     else if (IDENT(k, 'E_POW'))   lower_atom = Tree(E_POW, '',      2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
     else if (IDENT(k, 'REMDR'))   lower_atom = Tree(E_FNC, 'REMDR', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
     else if (IDENT(k, 'E_IDX'))   lower_atom = Tree(E_IDX, '',      2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'E_CAPT_COND_ASGN'))
+        lower_atom = Tree(E_CAPT_COND, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'E_CAPT_IMMED_ASGN'))
+        lower_atom = Tree(E_CAPT_IMM,  '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
     else if (IDENT(k, 'ALT')) {
         if (EQ(n(x), 1)) lower_atom = lower_atom(c(x)[1]);
         else {

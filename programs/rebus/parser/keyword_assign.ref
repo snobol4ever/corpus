@@ -1,0 +1,8 @@
+(STMT :subj (E_FNC DEFINE (E_QLIT "MAIN()")))
+(STMT :go rb_1)
+(STMT :lbl MAIN)
+(STMT :eq :subj (E_KEYWORD FULLSCAN) :repl (E_ILIT 1))
+(STMT :eq :subj (E_KEYWORD ANCHOR) :repl (E_ILIT 0))
+(STMT :go RETURN)
+(STMT :lbl rb_1)
+(STMT :subj (E_FNC MAIN))
