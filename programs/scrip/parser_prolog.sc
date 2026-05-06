@@ -75,9 +75,10 @@ $'xor' = $'  ' 'xor' . _op_name $'  ';
 $'\'   = $' ' '\' . _op_name;
 $'->'  = $' ' '->' $' ';
 // Graphic_atom: graphic-char sequence usable as a functor (e.g. \\+, @>, ##).
-Graphic_first = ANY('\\@#^~?');
-Graphic_rest  = SPAN('\\+\-*/^<>=~?@#&:.');
+Graphic_first = ANY('\\@#^~?=<>+\-*/:.$&`');
+Graphic_rest  = SPAN('\\+\-*/^<>=~?@#&:.$`');
 Graphic_atom  = (Graphic_first (Graphic_rest | epsilon));
+Graphic_atom2 = (Graphic_first Graphic_first (Graphic_rest | epsilon));
 /*====================================================================================================================*/
 // Per-clause variable scope.
 var_table = TABLE();
@@ -153,6 +154,13 @@ function Push_atom_body(varname) {
     Push_atom_body = EVAL("epsilon . thx . *push_atom_body('" varname "')");
     return;
 }
+/*--------------------------------------------------------------------------------------------------------------------*/
+function push_graphic_sym_val() {
+    Push(tree('E_FNC', g_sym));
+    push_graphic_sym_val = .dummy;
+    nreturn;
+}
+Push_graphic_sym = epsilon . *push_graphic_sym_val();
 /*--------------------------------------------------------------------------------------------------------------------*/
 function push_nil() {
     Push(tree('E_FNC', '[]'));
@@ -805,23 +813,17 @@ function merge_choices(parse_root, n_in, i, stmt, inner, key,
 args      = ( nInc() *unify_expr FENCE(*args_tail | epsilon) );
 args_tail = ( $',' nInc() *unify_expr FENCE(*args_tail | epsilon) );
 /*--------------------------------------------------------------------------------------------------------------------*/
-list_elem = (   "0'" NOTANY(nl) . le_cc    Push_char_code('le_cc')
-            |   shift(Float,'E_FLIT')
-            |   shift(Int,  'E_ILIT')
-            |   shift(Atom, 'E_FNC')
-            |   Qatom            Push_atom_body('q_body')
-            |   Str              Push_atom_body('s_body')
-            |   Var . le_text    Push_var('le_text')
-            |   *list
-            );
+// list_body / list_body_tail: tail-recursive list element sequence (mirrors args/args_tail).
+// Avoids ARBNO(*unify_expr) which triggers FW-3 (deferred fn calls only fire once in ARBNO).
+list_body_tail = ( $',' nInc() *unify_expr FENCE( *list_body_tail | epsilon ) );
+list_body      = ( nInc() *unify_expr FENCE( *list_body_tail | epsilon ) );
 /*--------------------------------------------------------------------------------------------------------------------*/
 list = (    $'['
             FENCE(
               $']'                    Push_nil
             | nPush()
-                  nInc() list_elem
-                  ARBNO( $',' nInc() list_elem )
-                  FENCE( $'|' list_elem
+                  list_body
+                  FENCE( $'|' *unify_expr
                        | epsilon           Push_nil
                        )
                   $']'
@@ -838,6 +840,7 @@ primary = (   Atom . p_name nPushName('p_name') $'('
                   nPush() args $')'
                                       Reduce_compound_ns
               nPop()
+          |   shift(Graphic_atom2, 'E_FNC')
           |   Tk_cut                  Push_cut
           |   "0'" NOTANY(nl) . p_cc    Push_char_code('p_cc')
           |   shift(Float,'E_FLIT')
@@ -850,7 +853,7 @@ primary = (   Atom . p_name nPushName('p_name') $'('
           |   *list
           |   $' ' '-' Float . p_negf   Push_neg_float('p_negf')
           |   $' ' '-' Int . p_negi    Push_neg_int('p_negi')
-          |   $'\' *primary            Reduce_unop
+          |   $'\' $' ' *primary            Reduce_unop
           |   $' ' '-' *primary        epsilon . *do_uminus()
           );
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -878,6 +881,7 @@ mul_expr  = (   pow_expr
                          | $'<<' pow_expr  Reduce_binop
                          | $'*'  pow_expr  reduce(E_MUL, 2)
                          | $'//' pow_expr  reduce(E_DIV, 2)
+                         | $'/\' pow_expr Reduce_binop
                          | $'/'  pow_expr  reduce(E_DIV, 2)
                          )
                 )
@@ -887,7 +891,6 @@ add_expr  = (   mul_expr
                 ARBNO(
                     FENCE( $'+' mul_expr  reduce(E_ADD, 2)
                          | $'-' mul_expr  reduce(E_SUB, 2)
-                         | $'/\' mul_expr Reduce_binop
                          | $'\/' mul_expr Reduce_binop
                          | $'xor' mul_expr Reduce_binop
                          )

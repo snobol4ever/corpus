@@ -1,0 +1,5 @@
+(STMT :subj (E_FNC op
+  (E_ILIT 700)
+  (E_FNC xfx)
+  (E_FNC ===)
+))
