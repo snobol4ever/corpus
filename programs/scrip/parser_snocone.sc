@@ -144,6 +144,18 @@ function save_nbody(varname) {
     save_nbody = .dummy;
     nreturn;
 }
+function save_if_nthen() {
+    sc_if_nthen_stk = (DIFFER(sc_if_nthen_stk) if_nthen ':' sc_if_nthen_stk, if_nthen);
+    save_if_nthen = .dummy;
+    nreturn;
+}
+function restore_if_nthen(top, rest) {
+    sc_if_nthen_stk ? SPAN('0123456789') . top (':' REM . rest | '');
+    if_nthen = top;
+    sc_if_nthen_stk = rest;
+    restore_if_nthen = .dummy;
+    nreturn;
+}
 function while_head_alloc() {
     while_ltop = new_label('Ltop');
     while_lend = new_label('Lend');
@@ -484,6 +496,8 @@ function Push_call_name_var()   { Push_call_name_var  = epsilon . thx . *push_ca
 function For_head_alloc()       { For_head_alloc      = epsilon . thx . *for_head_alloc();                   return; }
 /*--------------------------------------------------------------------------------------------------------------------*/
 function Save_nbody(var)                            { Save_nbody        = EVAL("epsilon . thx . *save_nbody('"          var     "')"); return; }
+function Save_if_nthen()                            { Save_if_nthen     = epsilon . thx . *save_if_nthen();                              return; }
+function Restore_if_nthen()                         { Restore_if_nthen  = epsilon . thx . *restore_if_nthen();                          return; }
 function Finalize_if(nthen_v)               { Finalize_if       = EVAL("epsilon . thx . *finalize_if('" nthen_v "')"); return; }
 function Finalize_if_else(nthen_v, nelse_v) { Finalize_if_else  = EVAL("epsilon . thx . *finalize_if_else('" nthen_v "', '" nelse_v "')"); return; }
 function Finalize_while(nbody_v)            { Finalize_while    = EVAL("epsilon . thx . *finalize_while('"      nbody_v "')"); return; }
@@ -591,7 +605,7 @@ if_cmd          =   nInc()
                     $'{' Body('if_nthen') $'}'
                     ( $'else'
                       ( $'{'  Body('if_nelse') $'}'
-                      | nPush() *if_cmd Save_nbody('if_nelse') nPop()
+                      | Save_if_nthen() nPush() *if_cmd Save_nbody('if_nelse') nPop() Restore_if_nthen()
                       )
                       Finalize_if_else('if_nthen', 'if_nelse')
                     | Finalize_if('if_nthen')
