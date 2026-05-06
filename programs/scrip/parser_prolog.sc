@@ -41,6 +41,7 @@ Var_first  = ANY(&UCASE '_');
 Var_rest   = SPAN(digits &UCASE &LCASE '_');
 Var        = (Var_first (Var_rest | epsilon));
 Float      = (SPAN(digits) '.' SPAN(digits) FENCE('e' FENCE(ANY('+-') | epsilon) SPAN(digits) | 'E' FENCE(ANY('+-') | epsilon) SPAN(digits) | epsilon));
+Char_code  = ("0'" NOTANY(nl));
 Int        = SPAN(digits);
 Str        = ('"' BREAK('"') . s_body '"');
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -72,6 +73,13 @@ trivia   = ARBNO(White | nl);
 // Per-clause variable scope.
 var_table = TABLE();
 var_next  = 0;
+// ascii_table — char-to-integer ASCII lookup; built once at module load.
+ascii_table = TABLE();
+ascii_i = 0;
+while (LE(ascii_i, 127)) {
+    ascii_table[CHAR(ascii_i)] = ascii_i;
+    ascii_i = ascii_i + 1;
+}
 function reset_var_scope() {
     var_table = TABLE();
     var_next  = 0;
@@ -163,6 +171,18 @@ function Push_neg_float(varname) {
     return;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
+function push_char_code(varname, ch, val) {
+    ch = $varname;
+    // ch is just the character (captured after the 0' prefix)
+    val = ascii_table[ch];
+    Push(tree('E_ILIT', val));
+    push_char_code = .dummy;
+    nreturn;
+}
+function Push_char_code(varname) {
+    Push_char_code = EVAL("epsilon . thx . *push_char_code('" varname "')");
+    return;
+}
 function reduce_is(rhs, lhs, fnc_node) {
     rhs = Pop();
     lhs = Pop();
@@ -702,7 +722,8 @@ function merge_choices(parse_root, n_in, i, stmt, inner, key,
 args      = ( nInc() *unify_expr FENCE(*args_tail | epsilon) );
 args_tail = ( $',' nInc() *unify_expr FENCE(*args_tail | epsilon) );
 /*--------------------------------------------------------------------------------------------------------------------*/
-list_elem = (   shift(Float,'E_FLIT')
+list_elem = (   "0'" NOTANY(nl) . le_cc    Push_char_code('le_cc')
+            |   shift(Float,'E_FLIT')
             |   shift(Int,  'E_ILIT')
             |   shift(Atom, 'E_FNC')
             |   Qatom            Push_atom_body('q_body')
@@ -735,6 +756,7 @@ primary = (   Atom . p_name $'('
                                       Reduce_compound('g_name')
               nPop()
           |   Tk_cut                  Push_cut
+          |   "0'" NOTANY(nl) . p_cc    Push_char_code('p_cc')
           |   shift(Float,'E_FLIT')
           |   shift(Int,  'E_ILIT')
           |   shift(Atom, 'E_FNC')
