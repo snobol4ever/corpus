@@ -1,0 +1,22 @@
+(STMT :subj (E_FNC DEFINE (E_QLIT "MAIN()")))
+(STMT :go rb_1)
+(STMT :lbl MAIN)
+(STMT :eq :subj (E_VAR X) :repl (E_ADD
+  (E_VAR X)
+  (E_ILIT 1)
+))
+(STMT :eq :subj (E_VAR Y) :repl (E_SUB
+  (E_VAR Y)
+  (E_ILIT 2)
+))
+(STMT :eq :subj (E_VAR Z) :repl (E_CAT
+  (E_VAR Z)
+  (E_QLIT "hi")
+))
+(STMT :subj (E_FNC EXCHG
+  (E_VAR A)
+  (E_VAR B)
+))
+(STMT :go RETURN)
+(STMT :lbl rb_1)
+(STMT :subj (E_FNC MAIN))

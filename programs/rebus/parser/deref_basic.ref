@@ -1,0 +1,8 @@
+(STMT :subj (E_FNC DEFINE (E_QLIT "MAIN()")))
+(STMT :go rb_1)
+(STMT :lbl MAIN)
+(STMT :eq :subj (E_VAR X) :repl (E_INDIRECT (E_VAR Y)))
+(STMT :eq :subj (E_VAR Z) :repl (E_INDIRECT (E_QLIT "name")))
+(STMT :go RETURN)
+(STMT :lbl rb_1)
+(STMT :subj (E_FNC MAIN))
