@@ -79,22 +79,32 @@ E_MNS       = "'E_MNS'";      E_MOD      = "'E_MOD'";
 E_CASE      = "'E_CASE'";     E_NUL      = "'E_NUL'";
 E_Parse     = "'Parse'";
 /*====================================================================================================================*/
-// Whitespace primitives.  White / Gray are the cross-parser canonical names;
-// the grammar refers to $' ' / $'  ' invisible-whitespace tokens.
-// nl_one = ANY(nl) — the correct cross-PARSER idiom; SPAN(...nl) fails.
+// Whitespace primitives — canonical cross-PARSER model (mirrors parser_snocone.sc).
+//
+// white (conceptual) = SPAN(' ' tab) FENCE('#' BREAK(nl)|epsilon) | '#' BREAK(nl)
+// White = one-or-more white runs (required); kept as FENCE form, NOT white ARBNO(white)
+//         because White = white ARBNO(white) crashes the SCRIP engine on some inputs
+//         when nested inside expression-level ARBNO loops under &FULLSCAN=1.
+//         (BUG-SCRIP-WS-1: filed in GOAL-PARSER-RAKU.md step before this commit.)
+// Gray  = White | epsilon (optional whitespace, NO newlines).
+//         Must be alternation form, NOT ARBNO(white): under &FULLSCAN=1 an
+//         ARBNO(white) inside expression ARBNO loops slides forward past
+//         operator chars (e.g. first '~' of '~~'), breaking Expr6tail.
+// DGray = absorbs any whitespace INCLUDING newlines; used ONLY at block
+//         boundaries / stmt separators (fixed sites, not in expr ARBNO loops).
+// nl_one = ANY(nl) for explicit single-newline consumption.
+// $'  ' / $' ' are the invisible-whitespace tokens used in all grammar patterns.
 /*====================================================================================================================*/
-White    = (  SPAN(' ' tab) FENCE('#' BREAK(nl) | epsilon)
-           |  '#' BREAK(nl)
-           );
-Gray     = White | epsilon;
-nl_one   = ANY(nl);
-/*====================================================================================================================*/
-// Invisible-whitespace tokens — beauty.sno style taken further.
-// $' ' (one space) names optional whitespace; $'  ' (two spaces) names
-// the required-single-space lexical separator.
-/*====================================================================================================================*/
-$' '     = Gray;
-$'  '    = White;
+White       =   (  SPAN(' ' tab) FENCE('#' BREAK(nl) | epsilon)
+                |  '#' BREAK(nl)
+                );
+Gray        =   White | epsilon;
+DGray       =   White ARBNO(SPAN(' ' tab nl) | '#' BREAK(nl) nl)
+            |   (SPAN(' ' tab nl) | '#' BREAK(nl) nl) ARBNO(SPAN(' ' tab nl) | '#' BREAK(nl) nl)
+            |   epsilon;
+nl_one      =   ANY(nl);
+$'  '       =   White;
+$' '        =   Gray;
 /*====================================================================================================================*/
 // Keyword tokens — leading optional whitespace only (next token supplies its own left-ws as effective suffix).
 /*====================================================================================================================*/
@@ -1168,20 +1178,18 @@ Expr      = Expr3;
 /*====================================================================================================================*/
 // Block — `{ BlockStmt* }` — produces E_SEQ_EXPR pushed on stack.
 /*====================================================================================================================*/
-nl_opt = (nl_one | epsilon);
-
 BlockStmt = epsilon;
 
-Block_body = ( nl_opt
+Block_body = ( DGray
                *BlockStmt
-               nl_opt
+               DGray
                nInc()
              );
 
-Block = ( $'{' nl_opt
+Block = ( $'{' DGray
           nPush()
           ARBNO( Block_body )
-          nl_opt $'}'
+          DGray $'}'
           (E_SEQ_EXPR & 'nTop()')
           nPop()
         );
@@ -1190,11 +1198,11 @@ Block = ( $'{' nl_opt
 /*====================================================================================================================*/
 SubBlockStmt = epsilon;
 
-SubBlock_body = ( nl_opt  *SubBlockStmt  nl_opt  nInc() );
+SubBlock_body = ( DGray  *SubBlockStmt  DGray  nInc() );
 
-SubBlock = ( $'{' nl_opt
+SubBlock = ( $'{' DGray
              ARBNO( SubBlock_body )
-             nl_opt $'}'
+             DGray $'}'
            );
 /*====================================================================================================================*/
 // Statements.
@@ -1277,16 +1285,16 @@ SayStmt = ( $'say'
 
 // WhenClause — when Expr Block → push val + body, count.
 // Mirrors raku.y when_list item: expr block pair.
-// Leading nl_opt handles newlines between when-clauses inside the { }.
-WhenClause = ( nl_opt $'when' $'  '
+// Leading DGray absorbs newlines between when-clauses inside the { }.
+WhenClause = ( DGray $'when' $'  '
                Expr          // val pushed on stack by Expr
                Block         // body (E_SEQ_EXPR) pushed by Block
                nInc()
              );
 
 // DefaultClause — default Block → push body, set given_has_def flag.
-// Leading nl_opt handles newline before 'default' inside the { }.
-DefaultClause = ( nl_opt $'default'
+// Leading DGray absorbs newline before 'default' inside the { }.
+DefaultClause = ( DGray $'default'
                   Block
                   Set_has_def
                 );
@@ -1296,10 +1304,10 @@ DefaultClause = ( nl_opt $'default'
 GivenStmt = ( $'given' $'  '
               Expr
               nPush()
-              nl_opt $'{'
+              DGray $'{'
               ARBNO( *WhenClause )
               (DefaultClause | epsilon)
-              nl_opt $'}'
+              DGray $'}'
               Finish_given
               nPop()
             );
@@ -1370,7 +1378,7 @@ SubStmt = ( $'sub' $'  '
 /*====================================================================================================================*/
 Compiland = nPush()
             nPush()
-            ARBNO( (SubStmt | (Stmt nInc())) nl_opt )
+            ARBNO( (SubStmt | (Stmt nInc())) DGray )
             Finish_main
             nPop()
             nInc()
