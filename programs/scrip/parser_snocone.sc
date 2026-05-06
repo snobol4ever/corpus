@@ -80,9 +80,9 @@ $'('        =   '(' $' ';
 $'['        =   '[' $' ';
 $'{'        =   $' ' '{' $' ';
 /*--------------------------------------------------------------------------------------------------------------------*/
-$')'        =   $' ' ')' $' ';
-$'}'        =   $' ' '}' $' ';
-$']'        =   $' ' ']' $' ';
+$')'        =   $' ' ')';
+$'}'        =   $' ' '}';
+$']'        =   $' ' ']';
 /*--------------------------------------------------------------------------------------------------------------------*/
 $','        =   $' ' ',' $' ';
 $':'        =   $' ' ':' $' ';
@@ -120,6 +120,8 @@ $'/='       =   $'  ' '/='  $'  ';
 $'^='       =   $'  ' '^='  $'  ';
 /*====================================================================================================================*/
 lbl_n = 0;
+sc_cond = ARRAY('1:64');
+sc_cond_top = 0;
 /*--------------------------------------------------------------------------------------------------------------------*/
 function new_label(prefix) {
     lbl_n = lbl_n + 1;
@@ -127,9 +129,15 @@ function new_label(prefix) {
     return;
 }
 function save_cond() {
-    saved_cond = Pop();
+    sc_cond_top = sc_cond_top + 1;
+    sc_cond[sc_cond_top] = Pop();
     save_cond = .dummy;
     nreturn;
+}
+function pop_cond() {
+    pop_cond = sc_cond[sc_cond_top];
+    sc_cond_top = sc_cond_top - 1;
+    return;
 }
 function save_nbody(varname) {
     $varname = TopCounter();
@@ -220,6 +228,13 @@ function push_qlit(s) {
     push_qlit = .dummy; nreturn;
 }
 function make_cond_stmt(cond_expr, goto_slot, label) {
+    if (IDENT(t(cond_expr), 'E_SCAN')) {
+        make_cond_stmt = Tree('STMT', '', 3,
+                                 Tree(':subj', '', 1, c(cond_expr)[1]),
+                                 Tree(':pat',  '', 1, c(cond_expr)[2]),
+                                 tree(goto_slot, label));
+        return;
+    }
     make_cond_stmt = Tree('STMT', '', 2,
                              Tree(':subj', '', 1, cond_expr),
                              tree(goto_slot, label));
@@ -240,8 +255,8 @@ function pop_body(n, arr, i) {
     pop_body = arr; return;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-function finalize_if(nthen_v, cond_v, body, Lend, n, ce, i) {
-    n = $nthen_v; ce = $cond_v;
+function finalize_if(nthen_v, body, Lend, n, ce, i) {
+    n = $nthen_v; ce = pop_cond();
     body = pop_body(n);
     Lend = new_label('Lend');
     Push(make_cond_stmt(ce, ':goF', Lend));
@@ -253,7 +268,7 @@ function finalize_if(nthen_v, cond_v, body, Lend, n, ce, i) {
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finalize_if_else(nthen_v, nelse_v, cond_v,
                               tb, eb, Lelse, Lend, nt, ne, ce, i) {
-    nt = $nthen_v; ne = $nelse_v; ce = $cond_v;
+    nt = $nthen_v; ne = $nelse_v; ce = pop_cond();
     eb = pop_body(ne); tb = pop_body(nt);
     Lelse = new_label('Lelse'); Lend = new_label('Lend');
     Push(make_cond_stmt(ce, ':goF', Lelse));
@@ -266,8 +281,8 @@ function finalize_if_else(nthen_v, nelse_v, cond_v,
     finalize_if_else = .dummy; nreturn;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-function finalize_while(nbody_v, cond_v, body, Ltop, Lend, n, ce, i) {
-    n = $nbody_v; ce = $cond_v;
+function finalize_while(nbody_v, body, Ltop, Lend, n, ce, i) {
+    n = $nbody_v; ce = pop_cond();
     body = pop_body(n);
     Ltop = while_ltop; Lend = while_lend;
     Push(make_label_stmt(Ltop));
@@ -279,8 +294,8 @@ function finalize_while(nbody_v, cond_v, body, Ltop, Lend, n, ce, i) {
     finalize_while = .dummy; nreturn;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-function finalize_do(nbody_v, cond_v, body, Ltop, Lend, n, ce, i) {
-    n = $nbody_v; ce = $cond_v;
+function finalize_do(nbody_v, body, Ltop, Lend, n, ce, i) {
+    n = $nbody_v; ce = pop_cond();
     body = pop_body(n);
     Ltop = new_label('Ltop'); Lend = do_lend;
     Push(make_label_stmt(Ltop));
@@ -444,10 +459,10 @@ function Push_call_name_var()   { Push_call_name_var  = epsilon . thx . *push_ca
 function For_head_alloc()       { For_head_alloc      = epsilon . thx . *for_head_alloc();                   return; }
 /*--------------------------------------------------------------------------------------------------------------------*/
 function Save_nbody(var)                            { Save_nbody        = EVAL("epsilon . thx . *save_nbody('"          var     "')"); return; }
-function Finalize_if(nthen_v, cond_v)               { Finalize_if       = EVAL("epsilon . thx . *finalize_if('"         nthen_v "', '" cond_v "')"); return; }
-function Finalize_if_else(nthen_v, nelse_v, cond_v) { Finalize_if_else  = EVAL("epsilon . thx . *finalize_if_else('"    nthen_v "', '" nelse_v "', '" cond_v "')"); return; }
-function Finalize_while(nbody_v, cond_v)            { Finalize_while    = EVAL("epsilon . thx . *finalize_while('"      nbody_v "', '" cond_v "')"); return; }
-function Finalize_do(nbody_v, cond_v)               { Finalize_do       = EVAL("epsilon . thx . *finalize_do('"         nbody_v "', '" cond_v "')"); return; }
+function Finalize_if(nthen_v)               { Finalize_if       = EVAL("epsilon . thx . *finalize_if('" nthen_v "')"); return; }
+function Finalize_if_else(nthen_v, nelse_v) { Finalize_if_else  = EVAL("epsilon . thx . *finalize_if_else('" nthen_v "', '" nelse_v "')"); return; }
+function Finalize_while(nbody_v)            { Finalize_while    = EVAL("epsilon . thx . *finalize_while('"      nbody_v "')"); return; }
+function Finalize_do(nbody_v)               { Finalize_do       = EVAL("epsilon . thx . *finalize_do('"         nbody_v "')"); return; }
 function Finalize_function(nbody_v)                 { Finalize_function = EVAL("epsilon . thx . *finalize_function('"   nbody_v "')"); return; }
 function Finalize_for(nbody_v)                      { Finalize_for      = EVAL("epsilon . thx . *finalize_for('"        nbody_v "')"); return; }
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -553,20 +568,20 @@ if_cmd          =   nInc()
                       ( $'{'  Body('if_nelse') $'}'
                       | nPush() if_cmd Save_nbody('if_nelse') nPop()
                       )
-                      Finalize_if_else('if_nthen', 'if_nelse', 'saved_cond')
-                    | Finalize_if('if_nthen', 'saved_cond')
+                      Finalize_if_else('if_nthen', 'if_nelse')
+                    | Finalize_if('if_nthen')
                     );
 /*--------------------------------------------------------------------------------------------------------------------*/
 while_cmd       =   nInc()
                     $'while' $'(' *Expr0 Save_cond() While_head_alloc() $')'
                     $'{' Body('wh_nbody') $'}'
-                    Finalize_while('wh_nbody', 'saved_cond');
+                    Finalize_while('wh_nbody');
 /*--------------------------------------------------------------------------------------------------------------------*/
 do_cmd          =   nInc()
                     $'do' Do_head_alloc()
                     $'{' Body('do_nbody') $'}'
                     $'while' $'(' *Expr0 Save_cond() $')' ($';' | epsilon)
-                    Finalize_do('do_nbody', 'saved_cond');
+                    Finalize_do('do_nbody');
 /*--------------------------------------------------------------------------------------------------------------------*/
 empty_cmd       =   $';';
 goto_cmd        =   nInc() $'goto' *Ident . *assign(.captured_goto, token) $';' Goto_emit();
@@ -596,7 +611,7 @@ return_cmd      =   nInc() $'return'
 freturn_cmd     =   nInc() $'freturn' $';' Emit_freturn();
 nreturn_cmd     =   nInc() $'nreturn' $';' Emit_nreturn();
 /*====================================================================================================================*/
-Command         =   ( if_cmd
+Command         =   $' ' ( if_cmd
                     | while_cmd
                     | do_cmd
                     | for_cmd
