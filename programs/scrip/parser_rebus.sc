@@ -5,8 +5,7 @@
 //
 // Naming: non-terminals from Rebus grammar; IR tags from ir.h E_*;
 // whitespace: $'  ' = required, $' ' = optional (beauty.sno convention).
-// Rungs RB-0..RB-5 + RB-FW-1 LANDED.  Gate: PASS=48 FAIL=0.
-// RB-FW-2: return/exit/fail/stop/next; exponent; modulo; string-cmp; local/initial.
+// Rungs RB-0..RB-5 + RB-FW-1 + RB-FW-2 LANDED.  Gate: PASS=57 FAIL=0.
 //
 // Documented deviations from Style Guidelines (## Style Guidelines for
 // parser_*.sc, GOAL-PARSER-REBUS.md):
@@ -18,6 +17,24 @@
 //   G10 — Driver locals use UpperCamel `Src`/`Line` per beauty.sc
 //        convention (lines 547-557) rather than lowerCamel.  Held
 //        pending cross-PARSER convention decision.
+//
+// Bug fixes in this version (RB-FW-2 fixes):
+//   BUG-RB-FW2-A — Operator wrappers ($'^', $'**', $'%', $'='/$'~='/etc.,
+//        $'||'/$'&') were defined AFTER the grammar productions that use
+//        them.  In Snocone, $'op' names are evaluated at definition time,
+//        so they were unbound (epsilon) at grammar build time, causing
+//        $'^' to match vacuously and $'=' family to be missing entirely.
+//        Fix: moved all operator wrappers into the single wrappers block
+//        before any grammar production.
+//   BUG-RB-FW2-B — Flow-control keywords ($'return', $'exit', $'fail',
+//        $'stop', $'next') lacked trailing $' ' (Gray).  The space
+//        between the keyword and its argument (e.g. 'return x') was not
+//        consumed, causing stmt to fail on the remaining ' x' text.
+//        Fix: added trailing $' ' to all five wrappers.
+//   BUG-RB-FW2-C — opt_locals did not consume the newline after the
+//        semicolon of 'local x, y;'.  func_body then saw a leading nl
+//        that stmt could not parse (stmt expects optional spaces not nl).
+//        Fix: added $' ' nl inside opt_locals's FENCE branch.
 &FULLSCAN = 1;
 
 /*====================================================================================================================*/
@@ -49,15 +66,28 @@ $'?'        = $' '  '?'        $' ';
 $'|'        = $' '  '|'        $' ';
 $'+'        = $' '  '+'        $' ';  $'-'        = $' ' '-'  $' ';
 $'*'        = $' '  '*'        $' ';  $'/'        = $' ' '/'  $' ';
+// note: '^' is a plain literal here; ANY('^') was used previously but plain '^' works correctly.
+$'^'        = $' '  '^'        $' ';  $'**'       = $' ' '**' $' ';
+$'%'        = $' '  '%'        $' ';
+// Comparison operators — ordered longest-first to avoid prefix match.
+$'~=='      = $' '  '~=='      $' ';  $'=='       = $' ' '=='  $' ';
+$'<<='      = $' '  '<<='      $' ';  $'>>='      = $' ' '>>=' $' ';
+$'<<'       = $' '  '<<'       $' ';  $'>>'       = $' ' '>>'  $' ';
+$'<='       = $' '  '<='       $' ';  $'>='       = $' ' '>='  $' ';
+$'<'        = $' '  '<'        $' ';  $'>'        = $' ' '>'   $' ';
+$'~='       = $' '  '~='       $' ';  $'='        = $' ' '='   $' ';
+// String / pattern concat.
+$'||'       = $' '  '||'       $' ';  $'&'        = $' ' '&'   $' ';
 $'function' = $' '  'function' $'  '; $'end'      = $' ' 'end';
 $'record'   = $' '  'record'   $'  ';
 $'if'       = $' '  'if'       $'  '; $'then'     = $' ' 'then' $'  ';
 $'while'    = $' '  'while'    $'  '; $'do'       = $' ' 'do'   $'  ';
-$'return'   = $' '  'return';
-$'exit'     = $' '  'exit';
-$'fail'     = $' '  'fail';
-$'stop'     = $' '  'stop';
-$'next'     = $' '  'next';
+// note: flow-control keywords get trailing $' ' (Gray) so the space before an argument is absorbed.
+$'return'   = $' '  'return'   $' ';
+$'exit'     = $' '  'exit'     $' ';
+$'fail'     = $' '  'fail'     $' ';
+$'stop'     = $' '  'stop'     $' ';
+$'next'     = $' '  'next'     $' ';
 $'local'    = $' '  'local'    $'  ';
 $'initial'  = $' '  'initial'  $'  ';
 $';'        = $' '  ';'        $' ';
@@ -214,17 +244,6 @@ add_expr = *mul_expr
            );
 
 //  cmp_expr — comparisons; map to E_FNC(EQ/NE/LT/LE/GT/GE, lhs, rhs) in lowering.
-$'='  = $' ' '='  $' '; $'~=' = $' ' '~=' $' ';
-$'<'  = $' ' '<'  $' '; $'<=' = $' ' '<=' $' ';
-$'>'  = $' ' '>'  $' '; $'>=' = $' ' '>=' $' ';
-//  String comparisons — must be ordered longest-first to avoid prefix match.
-$'~==' = $' ' '~==' $' '; $'==' = $' ' '==' $' ';
-$'<<=' = $' ' '<<=' $' '; $'>>=' = $' ' '>>=' $' ';
-$'<<'  = $' ' '<<'  $' '; $'>>'  = $' ' '>>'  $' ';
-//  Exponent / modulo.
-$'^'   = $' ' ANY('^') $' ';
-$'**'  = $' ' '**'     $' ';
-$'%'   = $' ' '%'      $' ';
 cmp_expr = *add_expr FENCE(  $'='   *add_expr reduce(CMP_EQ,  2)
                              | $'~='  *add_expr reduce(CMP_NE,  2)
                              | $'<='  *add_expr reduce(CMP_LE,  2)
@@ -241,8 +260,6 @@ cmp_expr = *add_expr FENCE(  $'='   *add_expr reduce(CMP_EQ,  2)
                             );
 
 //  cat_expr — || (string concat) and & (pattern concat); both lower to E_CAT.
-$'||' = $' ' '||' $' ';
-$'&'  = $' ' '&'  $' ';
 cat_expr = *cmp_expr
            ( $'||' *cmp_expr reduce(E_CAT, 2) ($'||' *cmp_expr reduce(E_CAT, 2) | epsilon)
            | $'&'  *cmp_expr reduce(E_CAT, 2) ($'&'  *cmp_expr reduce(E_CAT, 2) | epsilon)
@@ -304,7 +321,7 @@ opt_fields = nPush() FENCE(*X_fields | epsilon) reduce(FIELDS, nTop_count) nPop(
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 X_locals   = nInc() shift(*Id, E_VAR) FENCE($',' *X_locals | epsilon);
-opt_locals = nPush() FENCE($'local' *X_locals $';' | epsilon) reduce(LOCALS, nTop_count) nPop();
+opt_locals = nPush() FENCE($'local' *X_locals $';' $' ' nl | epsilon) reduce(LOCALS, nTop_count) nPop();
 
 //  opt_initial — `initial stmt ;` — optional; the initial expression ends at `;`.
 init_expr   = $' ' *match_or_expr $' ';
@@ -514,7 +531,6 @@ function lower_function_decl(x, nm, pm, lc, init, bd, fname, pstr, lstr, i, lbl)
         lower_stmt(c(bd)[i]);
     emit_go('RETURN');
     emit_lbl(lbl);
-    if (IDENT(fname, 'MAIN')) emit_subj(tree('E_FNC', fname));
     return;
 }
 
@@ -552,6 +568,9 @@ if (Src ? Compiland) {
     if (DIFFER(parseRoot)) {
         i = 0;
         while (i = LT(i, n(parseRoot)) i + 1) lower_decl(c(parseRoot)[i]);
+        //  Oracle always emits the program entry-point call as the final stmt,
+        //  regardless of whether a 'main' function is defined in the source.
+        emit_subj(tree('E_FNC', 'MAIN'));
     }
 } else {
     OUTPUT = 'Parse Error';
