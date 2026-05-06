@@ -127,3 +127,29 @@ function DumpEndTag(e, list, v) {
     OUTPUT = '@E = (' list ')';
     nreturn;
 }
+
+// Name-stack — companion to the counter stack for compound-functor names.
+// Solves the p_name clobbering bug: when parsing nested compounds like
+// arg(1, foo(a,b), X), the inner foo(a,b) sets p_name='foo', clobbering
+// the outer 'arg'. Solution: push the functor name before entering args,
+// read it from the name-stack in reduce_compound.
+// Global: $'#PN' -- link_name()
+
+struct link_name { next, value }
+
+function PushName(n) {
+    $'#PN' = link_name($'#PN', n);
+    PushName = .dummy;
+    nreturn;
+}
+
+function TopName() {
+    if (~(TopName = DIFFER($'#PN') value($'#PN'))) { freturn; }
+    return;
+}
+
+function PopName() {
+    if (~($'#PN' = DIFFER($'#PN') next($'#PN'))) { freturn; }
+    PopName = .dummy;
+    nreturn;
+}

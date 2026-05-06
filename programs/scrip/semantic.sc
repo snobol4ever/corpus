@@ -45,6 +45,14 @@ function pop() {
 }
 
 function nPush() { nPush = epsilon . *PushCounter(); return; }
+// nPushName: push the functor name onto the name-stack at the same time as nPush.
+// Use: Atom . p_name nPushN('p_name') args ... nPop() Reduce_compound_ns
+function PushNameFrom(varname) {
+    PushName($varname);
+    PushNameFrom = .dummy;
+    nreturn;
+}
+function nPushName(varname) { nPushName = EVAL("epsilon . thx . *PushNameFrom('" varname "')"); return; }
 function nInc()  { nInc  = epsilon . *IncCounter();  return; }
 function nDec()  { nDec  = epsilon . *DecCounter();  return; }
 function nTop()  { nTop  = TopCounter();             return; }

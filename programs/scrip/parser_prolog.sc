@@ -63,6 +63,7 @@ $'=='  = $' ' '=='  $' ';  $'\==' = $' ' '\==' $' ';
 $'>='  = $' ' '>='  $' ';  $'=<'  = $' ' '=<'  $' ';
 $'>'   = $' ' '>'   $' ';  $'<'   = $' ' '<'   $' ';
 $'\='  = $' ' '\='  $' ';
+$'=..' = $' ' '=..' $' ';
 // Graphic_atom: graphic-char sequence usable as a functor (e.g. \\+, @>, ##).
 Graphic_first = ANY('\\@#^~?');
 Graphic_rest  = SPAN('\\+\-*/^<>=~?@#&:.');
@@ -183,6 +184,17 @@ function Push_char_code(varname) {
     Push_char_code = EVAL("epsilon . thx . *push_char_code('" varname "')");
     return;
 }
+function reduce_univ(rhs, lhs, fnc_node) {
+    rhs = Pop();
+    lhs = Pop();
+    fnc_node = Tree('E_FNC', '=..', 0);
+    Append(fnc_node, lhs);
+    Append(fnc_node, rhs);
+    Push(fnc_node);
+    reduce_univ = .dummy;
+    nreturn;
+}
+Reduce_univ = epsilon . *reduce_univ();
 function reduce_is(rhs, lhs, fnc_node) {
     rhs = Pop();
     lhs = Pop();
@@ -268,6 +280,30 @@ function Reduce_compound(varname) {
     Reduce_compound = EVAL("epsilon . thx . *reduce_compound('" varname "')");
     return;
 }
+// reduce_compound_ns — name-stack variant: reads functor name from TopName()
+// instead of a capture variable, avoiding the p_name clobbering bug when
+// nested compounds appear in args (e.g. arg(1, foo(a,b), X)).
+function reduce_compound_ns(name, n, fnc_node, kids, i) {
+    name = TopName();
+    PopName();
+    n = nTop();
+    kids = ARRAY(n + 1);
+    i = n;
+    while (i > 0) {
+        kids[i] = Pop();
+        i = i - 1;
+    }
+    fnc_node = Tree('E_FNC', name, 0);
+    i = 1;
+    while (LE(i, n)) {
+        Append(fnc_node, kids[i]);
+        i = i + 1;
+    }
+    Push(fnc_node);
+    reduce_compound_ns = .dummy;
+    nreturn;
+}
+Reduce_compound_ns = epsilon . *reduce_compound_ns();
 /*--------------------------------------------------------------------------------------------------------------------*/
 function reduce_conj(n, fnc_node, kids, i) {
     n = nTop();
@@ -747,13 +783,13 @@ list = (    $'['
             )
        );
 /*--------------------------------------------------------------------------------------------------------------------*/
-primary = (   Atom . p_name $'('
+primary = (   Atom . p_name nPushName('p_name') $'('
                   nPush() args $')'
-                                      Reduce_compound('p_name')
+                                      Reduce_compound_ns
               nPop()
-          |   $' ' Graphic_atom . g_name $'('
+          |   $' ' Graphic_atom . g_name nPushName('g_name') $'('
                   nPush() args $')'
-                                      Reduce_compound('g_name')
+                                      Reduce_compound_ns
               nPop()
           |   Tk_cut                  Push_cut
           |   "0'" NOTANY(nl) . p_cc    Push_char_code('p_cc')
@@ -816,7 +852,8 @@ cmp_expr  = (   is_expr
             );
 /*--------------------------------------------------------------------------------------------------------------------*/
 unify_expr = (  cmp_expr
-                FENCE( $'=' cmp_expr reduce(E_UNIFY, 2)
+                FENCE( $'=..' cmp_expr Reduce_univ
+                     | $'='   cmp_expr reduce(E_UNIFY, 2)
                      | epsilon
                      )
              );
