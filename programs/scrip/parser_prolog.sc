@@ -237,11 +237,22 @@ function reduce_unop(operand, f) {
     reduce_unop = .dummy;  nreturn;
 }
 Reduce_unop = epsilon . *reduce_unop();
-// reduce_ifthen -- pops then+cond, pushes (E_FNC -> cond then); used in disj.
-function reduce_ifthen(then_tree, cond_tree, f) {
+// reduce_ifthen -- pops then+cond, pushes (E_FNC -> cond then_children...).
+// Flattens then_tree when it is (E_FNC ,): children spread directly into -> node.
+// Mirrors prolog_parse.c handling of -> then-part conjunctions.
+function reduce_ifthen(then_tree, cond_tree, f, n, i) {
     then_tree = Pop();  cond_tree = Pop();
     f = Tree('E_FNC', '->', 0);
-    Append(f, cond_tree);  Append(f, then_tree);
+    Append(f, cond_tree);
+    if (IDENT(t(then_tree), 'E_FNC') IDENT(v(then_tree), ',')) {
+        n = n(then_tree);
+        i = 1;
+        while (LE(i, n)) {
+            Append(f, c(then_tree)[i]);
+            i = i + 1;
+        }
+    } else
+        Append(f, then_tree);
     Push(f);
     reduce_ifthen = .dummy;  nreturn;
 }
@@ -932,14 +943,16 @@ conj = (    nPush()
             nPop()
         );
 /*--------------------------------------------------------------------------------------------------------------------*/
-// disj uses tail recursion (mirrors args/args_tail) to avoid ARBNO+FENCE bug.
-// disj_tail CANNOT use FENCE($'->'...|epsilon) -- causes SCRIP hang.
-// -> handling: fold into conj level via separate conj_arrow non-terminal.
-// conj_arrow = conj already-parsed then optionally -> conj (no FENCE, no epsilon).
-// NOTE: -> deferred to PR-13 addendum; disj_tail handles ; only for now.
-disj_tail = ( $';' nInc() conj FENCE( *disj_tail | epsilon ) );
+// conj_arrow: conj optionally followed by -> conj (if-then).
+// Occupies ONE disj slot; Reduce_ifthen collapses cond+then into (E_FNC -> cond then).
+// *conj_arrow in then-branch: deferred right-recursion gives xfy right-assoc for ->.
+// Avoids circular pattern object (same technique as body_goal -> *body -> disj).
+conj_arrow = ( conj FENCE( $'->' *conj_arrow Reduce_ifthen | epsilon ) );
+/*--------------------------------------------------------------------------------------------------------------------*/
+// disj uses tail recursion (mirrors args/args_tail) to avoid ARBNO+FENCE nesting depth.
+disj_tail = ( $';' nInc() conj_arrow FENCE( *disj_tail | epsilon ) );
 disj = (    nPush()
-                nInc() conj
+                nInc() conj_arrow
                 FENCE( *disj_tail | epsilon )
                                    Reduce_disj
             nPop()
