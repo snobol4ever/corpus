@@ -5,7 +5,7 @@
 //
 // Naming: non-terminals from Rebus grammar; IR tags from ir.h E_*;
 // whitespace: $'  ' = required, $' ' = optional (beauty.sno convention).
-// Rungs RB-0..RB-5 + RB-FW-1..RB-FW-5 LANDED.  Gate: PASS=75 FAIL=0.
+// Rungs RB-0..RB-5 + RB-FW-1..RB-FW-6 + RB-FW-7 LANDED.  Gate: PASS=82 FAIL=0.
 //
 // Documented deviations from Style Guidelines (## Style Guidelines for
 // parser_*.sc, GOAL-PARSER-REBUS.md):
@@ -227,6 +227,7 @@ CATASSIGN   = 'CATASSIGN';
 E_NOTPAT    = 'E_NOTPAT';
 E_BANGPAT   = 'E_BANGPAT';
 E_VALUEPAT  = 'E_VALUEPAT';
+COMPOUND    = 'COMPOUND';
 
 nTop_count   = 'nTop()';
 
@@ -453,13 +454,17 @@ match_or_expr = *expr FENCE($'?-match' *alt_expr reduce(REPLN, 2)
                            | $'?' *alt_expr reduce(MATCH, 2)
                            | epsilon);
 
+//  stmt_body — compound_stmt OR a single match_or_expr.  Used as the body
+//  of if/while/unless/until so that `if x then { ... }` is valid.
+//  compound_stmt must be tried first (its leading '{' distinguishes it).
+stmt_body = FENCE(*compound_stmt | *match_or_expr);
 //  if_stmt / while_stmt / unless_stmt / until_stmt / repeat_stmt — surface shapes.
 //  if with else is 3-child IFELSE (cond, then, else); without else is 2-child IF.
-if_stmt    = $'if'     *match_or_expr $'then' FENCE(*match_or_expr $'else' *match_or_expr reduce(IFELSE, 3) | *match_or_expr reduce(IF, 2));
-while_stmt = $'while'  *match_or_expr $'do'   *match_or_expr reduce(WHILE,  2);
-unless_stmt = $'unless' *match_or_expr $'then' *match_or_expr reduce(UNLESS, 2);
-until_stmt  = $'until'  *match_or_expr $'do'   *match_or_expr reduce(UNTIL,  2);
-repeat_stmt = $'repeat' *match_or_expr reduce(REPEAT, 1);
+if_stmt    = $'if'     *match_or_expr $'then' FENCE(*stmt_body $'else' *stmt_body reduce(IFELSE, 3) | *stmt_body reduce(IF, 2));
+while_stmt = $'while'  *match_or_expr $'do'   *stmt_body reduce(WHILE,  2);
+unless_stmt = $'unless' *match_or_expr $'then' *stmt_body reduce(UNLESS, 2);
+until_stmt  = $'until'  *match_or_expr $'do'   *stmt_body reduce(UNTIL,  2);
+repeat_stmt = $'repeat' *stmt_body reduce(REPEAT, 1);
 //  for_stmt — RB_FOR children: (var, from, to) for basic; (var, from, to, step) with 'by'.
 //  Body after 'do' is consumed as raw text (no shift/reduce) since oracle drops it.
 //  BREAK(nl) consumes everything to the newline without any stack effects.
@@ -485,12 +490,20 @@ next_stmt   = $'next'   reduce(RB_NEXT, 0);
 //  The body is a single stmt consumed inline (without its trailing nl
 //  since the clause ends with ';' or '}').
 //
+//  compound_stmt — { stmt_inline ; stmt_inline ; ... }  (zero or more items).
+//  compound_end checks for '}' (possibly with leading whitespace) so the
+//  tail-recursive body terminates cleanly without BREAK eating the whole source.
+compound_end       = $' ' '}';
+compound_item      = nInc() *stmt_inline $';' $' ' nl;
+compound_body_tail = FENCE(*compound_end | *compound_item *compound_body_tail);
+compound_stmt = $' ' '{' $' ' nl nPush() *compound_body_tail reduce(COMPOUND, nTop_count) nPop();
+
 //  stmt_inline — a stmt body without the trailing nl (used inside { }).
 //  The nl is consumed by $';' / $'}' wrappers after the body.
 CASE_CLAUSE   = 'CASE_CLAUSE';
 CASE_DEFAULT  = 'CASE_DEFAULT';
 
-stmt_inline = $' ' FENCE(*if_stmt | *while_stmt | *unless_stmt | *until_stmt | *repeat_stmt | *for_stmt | *return_stmt | *stop_stmt | *fail_stmt | *exit_stmt | *next_stmt | *match_or_expr) $' ';
+stmt_inline = $' ' FENCE(*compound_stmt | *if_stmt | *while_stmt | *unless_stmt | *until_stmt | *repeat_stmt | *for_stmt | *return_stmt | *stop_stmt | *fail_stmt | *exit_stmt | *next_stmt | *match_or_expr) $' ';
 
 //  caseclause — guard: body  or  default: body.
 caseclause_guard   = nInc() *match_or_expr $':' *stmt_inline reduce(CASE_CLAUSE, 2);
@@ -504,7 +517,7 @@ caselist      = *caseclause *caselist_tail;
 
 case_stmt = *rb_case_kw nPush() nInc() *match_or_expr $'of' $'{' *caselist $'}' reduce(RB_CASE, nTop_count) nPop();
 
-stmt = $' ' FENCE(*case_stmt | *if_stmt | *while_stmt | *unless_stmt | *until_stmt | *repeat_stmt | *for_stmt | *return_stmt | *stop_stmt | *fail_stmt | *exit_stmt | *next_stmt | *match_or_expr) $' ' nl;
+stmt = $' ' FENCE(*compound_stmt | *case_stmt | *if_stmt | *while_stmt | *unless_stmt | *until_stmt | *repeat_stmt | *for_stmt | *return_stmt | *stop_stmt | *fail_stmt | *exit_stmt | *next_stmt | *match_or_expr) $' ' nl;
 
 //  func_body — n-ary fold over body stmts.  Uses tail-recursive shape (per
 //  parser_icon.sc Procbody idiom) so that 'end' is preempt-matched BEFORE
@@ -845,6 +858,11 @@ function lower_stmt(x, k, lblS, lblF, lblM, forVar, forStep) {
         emit_lbl(lblM);
     }
     else if (IDENT(k, 'RB_CASE'))       lower_case(x);
+    //  compound_stmt — transparent sequence: lower each child in order.
+    else if (IDENT(k, 'COMPOUND')) {
+        i = 0;
+        while (i = LT(i, n(x)) i + 1) lower_stmt(c(x)[i]);
+    }
     else                            emit_subj(lower_atom(x));
     return;
 }
