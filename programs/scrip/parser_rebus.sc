@@ -38,15 +38,36 @@
 &FULLSCAN = 1;
 
 /*====================================================================================================================*/
-//  Lex tokens — atomic-token classifiers with no whitespace policy of their own.
+//  Whitespace primitives — `white` is the atomic class (one space, tab,
+//  line comment, or block comment).  `White` (one or more) and `Gray` (zero or
+//  more) are accessed exclusively through the aliases `$'  '` and `$' '`.
+//  This is the parser_snocone.sc style: whitespace policy lives at the token
+//  level via $'  ' / $' ' and is never strewn through grammar productions.
+//
+//  Notable difference from parser_snocone.sc: `nl` is NOT included in `white`,
+//  because Rebus uses the newline as an implicit statement terminator
+//  (Griswold TR 84-9).  Statement-level patterns explicitly match `nl` to
+//  end a stmt; the grammar must keep newlines visible to those rules.
+//
+//  Comment forms supported:
+//    `# ... nl`    — Griswold-canonical Rebus line comment
+//    `// ... nl`   — family-wide line comment (matches parser_snocone style)
+//    `/* ... */`   — family-wide block comment
+//
+//  A line comment ends at `nl` but does NOT consume that `nl` (so the
+//  statement terminator survives).  A block comment may span newlines
+//  internally but is treated as one whitespace token at the surface.
 /*====================================================================================================================*/
 
-White   = (  SPAN(' ' tab) FENCE('#' BREAK(nl) | epsilon)
-          |  '#' BREAK(nl)
-          );
-Gray    = White | epsilon;
-$' '    = Gray;
-$'  '   = White;
+white       =   (  SPAN(' ' tab)
+                |  '#'  BREAK(nl)
+                |  '//' BREAK(nl)
+                |  '/*' BREAKX('*') '*/'
+                );
+White       =   white ARBNO(white);
+Gray        =   ARBNO(white);
+$'  '       =   White;
+$' '        =   Gray;
 
 Id      = ANY(&UCASE &LCASE '_') (SPAN(&UCASE &LCASE digits '_') | epsilon);
 Integer = SPAN(digits);
@@ -287,18 +308,22 @@ add_expr = *mul_expr
            );
 
 //  cmp_expr — comparisons; map to E_FNC(EQ/NE/LT/LE/GT/GE, lhs, rhs) in lowering.
-cmp_expr = *add_expr FENCE(  $'='   *add_expr reduce(CMP_EQ,  2)
-                             | $'~='  *add_expr reduce(CMP_NE,  2)
-                             | $'<='  *add_expr reduce(CMP_LE,  2)
-                             | $'<'   *add_expr reduce(CMP_LT,  2)
-                             | $'>='  *add_expr reduce(CMP_GE,  2)
-                             | $'>'   *add_expr reduce(CMP_GT,  2)
-                             | $'=='  *add_expr reduce(CMP_SEQ, 2)
-                             | $'~==' *add_expr reduce(CMP_SNE, 2)
+//  cmp_expr — comparisons; map to E_FNC(EQ/NE/LT/LE/GT/GE, lhs, rhs) in lowering.
+//  Longer operators must precede their prefixes: ==, ~==, <<=, >>=, <<, >>
+//  before =, ~=, <=, >=, <, >.  Otherwise $'=' would consume the first `=` of
+//  `==` and leave `= b` unparseable.
+cmp_expr = *add_expr FENCE(  $'~==' *add_expr reduce(CMP_SNE, 2)
+                             | $'==' *add_expr reduce(CMP_SEQ, 2)
                              | $'<<=' *add_expr reduce(CMP_SLE, 2)
                              | $'>>=' *add_expr reduce(CMP_SGE, 2)
                              | $'<<'  *add_expr reduce(CMP_SLT, 2)
                              | $'>>'  *add_expr reduce(CMP_SGT, 2)
+                             | $'<='  *add_expr reduce(CMP_LE,  2)
+                             | $'>='  *add_expr reduce(CMP_GE,  2)
+                             | $'~='  *add_expr reduce(CMP_NE,  2)
+                             | $'='   *add_expr reduce(CMP_EQ,  2)
+                             | $'<'   *add_expr reduce(CMP_LT,  2)
+                             | $'>'   *add_expr reduce(CMP_GT,  2)
                              | epsilon
                             );
 
@@ -356,8 +381,13 @@ stmt = $' ' FENCE(*if_stmt | *while_stmt | *unless_stmt | *until_stmt | *repeat_
 //                    if not end, match a stmt and recurse.
 //  func_body       — wraps the recursion in an n-ary counter scope.
 
+//  func_body_stmt  — one body stmt: skip any leading blank lines, then try
+//                    func_end (terminates recursion); else match a stmt and
+//                    recurse.  blank_line = $' ' nl absorbs purely-whitespace
+//                    or comment-only lines.
 func_end      = $'end' $' ' nl;
-func_body_stmt = FENCE(*func_end | nInc() *stmt *func_body_stmt);
+blank_line    = $' ' nl;
+func_body_stmt = FENCE(*blank_line *func_body_stmt | *func_end | nInc() *stmt *func_body_stmt);
 func_body     = nPush() *func_body_stmt reduce(BODY, nTop_count) nPop();
 
 /*--------------------------------------------------------------------------------------------------------------------*/
