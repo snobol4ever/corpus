@@ -1,0 +1,14 @@
+(STMT :subj (E_FNC main
+  (E_VAR main)
+  (E_ASSIGN
+    (E_VAR r)
+    (E_FNC raku_grep
+      (E_VAR raku_grep)
+      (E_LEQ
+        (E_VAR _)
+        (E_QLIT "x")
+      )
+      (E_VAR words)
+    )
+  )
+))

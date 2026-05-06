@@ -1,0 +1,10 @@
+(STMT :subj (E_FNC main
+  (E_VAR main)
+  (E_ASSIGN
+    (E_VAR b)
+    (E_FNC raku_sort
+      (E_VAR raku_sort)
+      (E_VAR a)
+    )
+  )
+))

@@ -108,6 +108,7 @@ $'given'  = $' ' 'given' ;  $'when'   = $' ' 'when'  ;
 $'default' = $' ' 'default';
 $'print'  = $' ' 'print'  ;  $'die'    = $' ' 'die'    ;
 $'try'    = $' ' 'try'    ;  $'CATCH'  = $' ' ('CATCH' | 'catch');
+$'map'    = $' ' 'map'    ;  $'grep'   = $' ' 'grep'   ;  $'sort'   = $' ' 'sort'   ;
 $'eq'     = $' ' 'eq' $' ';  $'ne'   = $' ' 'ne' $' ';
 $'div'    = $' ' 'div' $' ';  $'%'   = $' ' '%'  $' ';
 /*====================================================================================================================*/
@@ -766,6 +767,85 @@ function finish_die(arg, fn, node) {
 }
 Finish_die = (epsilon . *finish_die());
 /*--------------------------------------------------------------------------------------------------------------------*/
+// ClosureExpr — `{ Expr }` — body expression for map/grep/sort.
+// Matches `{', parses Expr, pops it, `}'. Leaves the expr on the stack.
+// Retained: closure is syntactically `{ expr }` which differs from Block `{ stmt_list }`;
+// needs to parse just one Expr rather than a statement list.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function parse_closure_expr(body) {
+    body = Pop();
+    Push(body);
+    parse_closure_expr = .dummy;
+    nreturn;
+}
+ClosureExpr = ( $'{' *Expr $'}' );
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_map — map { closure_expr } list → (E_FNC raku_map (E_VAR raku_map) closure list).
+// Mirrors raku.y KW_MAP closure expr: make_call("raku_map") + 2 children.
+// Retained: E_FNC value='raku_map' requires explicit build (reduce() leaves value='').
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_map(lst, clos, fn, node) {
+    lst  = Pop();
+    clos = Pop();
+    fn   = tree('E_VAR', 'raku_map');
+    node = tree('E_FNC', 'raku_map');
+    Append(node, fn);
+    Append(node, clos);
+    Append(node, lst);
+    Push(node);
+    finish_map = .dummy;
+    nreturn;
+}
+Finish_map = (epsilon . *finish_map());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_grep — grep { closure_expr } list → (E_FNC raku_grep (E_VAR raku_grep) closure list).
+// Mirrors raku.y KW_GREP closure expr: make_call("raku_grep") + 2 children.
+// Retained: same reason as finish_map.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_grep(lst, clos, fn, node) {
+    lst  = Pop();
+    clos = Pop();
+    fn   = tree('E_VAR', 'raku_grep');
+    node = tree('E_FNC', 'raku_grep');
+    Append(node, fn);
+    Append(node, clos);
+    Append(node, lst);
+    Push(node);
+    finish_grep = .dummy;
+    nreturn;
+}
+Finish_grep = (epsilon . *finish_grep());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_sort_cl — sort { closure_expr } list → (E_FNC raku_sort (E_VAR raku_sort) closure list).
+// finish_sort_nc — sort list → (E_FNC raku_sort (E_VAR raku_sort) list).
+// Mirrors raku.y: with-closure form pops 2 children; no-closure form pops 1.
+// Retained: same reason as finish_map.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_sort_cl(lst, clos, fn, node) {
+    lst  = Pop();
+    clos = Pop();
+    fn   = tree('E_VAR', 'raku_sort');
+    node = tree('E_FNC', 'raku_sort');
+    Append(node, fn);
+    Append(node, clos);
+    Append(node, lst);
+    Push(node);
+    finish_sort_cl = .dummy;
+    nreturn;
+}
+Finish_sort_cl = (epsilon . *finish_sort_cl());
+function finish_sort_nc(lst, fn, node) {
+    lst  = Pop();
+    fn   = tree('E_VAR', 'raku_sort');
+    node = tree('E_FNC', 'raku_sort');
+    Append(node, fn);
+    Append(node, lst);
+    Push(node);
+    finish_sort_nc = .dummy;
+    nreturn;
+}
+Finish_sort_nc = (epsilon . *finish_sort_nc());
+/*--------------------------------------------------------------------------------------------------------------------*/
 // finish_try — try block [CATCH block] → (E_FNC raku_try (E_VAR raku_try) try_blk [catch_blk]).
 // Mirrors raku.y KW_TRY block [KW_CATCH block].
 // try_has_catch global: 1 if CATCH block present, 0 otherwise.
@@ -997,6 +1077,10 @@ CallArgTail = ( $','  *Expr  nInc() );
 Expr11 = ( $'!'  *Expr11  Finish_not
          | ($' ' '-')  *Expr11  Finish_mns
          | $'die' $'  '  *Expr11  Finish_die
+         | $'map'  $'  '  ClosureExpr  $'  '  *Expr  Finish_map
+         | $'grep' $'  '  ClosureExpr  $'  '  *Expr  Finish_grep
+         | $'sort' $'  '  ClosureExpr  $'  '  *Expr  Finish_sort_cl
+         | $'sort' $'  '  *Expr                       Finish_sort_nc
          | VarScalar              Push_var
          | ArrIdxVar  $'['  *Expr  $']'              Finish_arr_get
          | VarArray                                   Push_var
