@@ -40,7 +40,7 @@ E_FLIT      = "'E_FLIT'";
 E_REVASSIGN = "'E_REVASSIGN'"; E_SWAP      = "'E_SWAP'";
 E_REVSWAP   = "'E_REVSWAP'";   E_IDENTICAL = "'E_IDENTICAL'";
 E_NOT       = "'E_NOT'";        E_NULL      = "'E_NULL'";
-E_BANG_BINARY = "'E_BANG_BINARY'";
+E_BANG_BINARY = "'E_BANG_BINARY'"; E_SEQ     = "'E_SEQ'";
 E_TO        = "'E_TO'";        E_TO_BY     = "'E_TO_BY'";
 E_Parse     = "'Parse'";
 r_nTop      = '*(GT(nTop(), 1) nTop())';
@@ -123,6 +123,7 @@ $'('   = $' ' '(' $' ';  $')'   = $' ' ')';
 $'{'   = $' ' '{' $' ';  $'}'   = $' ' '}';
 $'['   = $' ' '[' $' ';  $']'   = $' ' ']';
 $'.'   = $' ' '.' $' ';   $':'   = $' ' ':'    $' ';
+$'&'   = $' ' '&' $' ';
 /*====================================================================================================================*/
 // push_qlit — shift (E_QLIT body) using dot-captured strbody.
 function push_qlit() {
@@ -496,7 +497,10 @@ Expr1     = ( *Expr2
 /*--------------------------------------------------------------------------------------------------------------------*/
 Expr1a    = ( *Expr1 FENCE($'?' *Expr (E_SCAN & 2) | epsilon) );
 /*--------------------------------------------------------------------------------------------------------------------*/
-Expr      = ( *Expr1a );
+// Expr (top): n-ary conjunction via &.  Single Expr1a -> r_nTop unwraps (no E_SEQ wrapper).
+// Mirrors C frontend parse_and: n-ary E_SEQ with single-child unwrap.
+ExprSeqRest = ( $'&' *Expr1a nInc() );
+Expr        = ( nPush() *Expr1a nInc() ARBNO(ExprSeqRest) (E_SEQ & r_nTop) nPop() );
 /*====================================================================================================================*/
 Blank     = ( $' ' nl_one );
 ReturnStmt = ( $'return' $'  ' *Expr $' ' semi_opt $' ' nl_one (E_RETURN & 1)
@@ -538,7 +542,7 @@ StmtBody  = ( LocalDecl nInc()
             );
 ParamFirst = ( $' ' id_pat ~ 'E_VAR'  nInc() );
 ParamRest  = ( $',' id_pat ~ 'E_VAR'  nInc() );
-Params     = ( ParamFirst ARBNO(ParamRest) | epsilon );
+Params     = ( ParamFirst ARBNO(ParamRest) ($' ' '[' $' ' ']' | epsilon) | epsilon );
 Prochead   = ( $'procedure' $'  ' id_pat ~ 'E_VAR'  nInc()
                $'(' Params $')' $' ' nl_one
              );
