@@ -1,4 +1,4 @@
-// parser_prolog.sc — PARSER-PR: Prolog pattern-based frontend in Snocone.
+// parser_prolog.sc -- PARSER-PR: Prolog pattern-based frontend in Snocone.
 //
 // ONE Compiland PATTERN matched once against the entire source; emits one
 // IR tree per clause/directive via TDump.  Byte-identical (whitespace-
@@ -20,19 +20,16 @@ E_MUL    = "'E_MUL'";   E_DIV    = "'E_DIV'";
 E_CUT    = "'E_CUT'";   E_DCG_IL = "'E_DCG_IL'";
 E_Parse  = "'Parse'";
 /*====================================================================================================================*/
-Block      = '/*' ARBNO(BREAK('*') ANY('*')) '/';
-White      = (  SPAN(' ' tab) FENCE(  '%' BREAK(nl)
-                                   |  Block
-                                   |  epsilon
-                                   )
-             |  '%' BREAK(nl)
-             |  Block
-             );
-Gray       = White | epsilon;
-$' '       = Gray;
-$'  '      = White;
+white   =   (  SPAN(' ' tab nl)
+            |  '%'  BREAK(nl) nl
+            |  '/*' BREAKX('*') '*/'
+            );
+White   =   white;
+Gray    =   white | epsilon;
+$' '    =   Gray;
+$'  '   =   White;
 /*====================================================================================================================*/
-// Token classifiers — PATTERNS mirroring prolog_lex.h TK_* names.
+// Token classifiers -- PATTERNS mirroring prolog_lex.h TK_* names.
 Atom_first = ANY(&LCASE);
 Atom_rest  = SPAN(digits &UCASE &LCASE '_');
 Atom       = (Atom_first (Atom_rest | epsilon));
@@ -57,24 +54,35 @@ $'is'  = $'  ' 'is' $'  ';
 $'-->' = $' ' '-->' $' ';
 $'{'   = $' '  '{'  $' ';  $'}'  = $' ' '}'  $' ';
 Tk_cut = $' ' '!' $' ';
-// Comparison operator tokens — longer prefixes first to avoid greedy prefix match.
 $'=:=' = $' ' '=:=' $' ';  $'=\=' = $' ' '=\=' $' ';
 $'=='  = $' ' '=='  $' ';  $'\==' = $' ' '\==' $' ';
 $'>='  = $' ' '>='  $' ';  $'=<'  = $' ' '=<'  $' ';
 $'>'   = $' ' '>'   $' ';  $'<'   = $' ' '<'   $' ';
 $'\='  = $' ' '\='  $' ';
 $'=..' = $' ' '=..' $' ';
+// Term-order comparison tokens -- longer prefixes first.
+$'@>=' = $' ' '@>=' . _op_name $' ';  $'@=<' = $' ' '@=<' . _op_name $' ';
+$'@>'  = $' ' '@>'  . _op_name $' ';  $'@<'  = $' ' '@<'  . _op_name $' ';
+// Arithmetic/bitwise tokens -- longer prefixes before shorter.
+$'**'  = $' ' '**'  . _op_name $' ';
+$'//'  = $' ' '//'  $' ';
+$'/\' = $' ' '/\' . _op_name $' ';  $'\/' = $' ' '\/' . _op_name $' ';
+$'>>'  = $' ' '>>'  . _op_name $' ';  $'<<'  = $' ' '<<'  . _op_name $' ';
+$'mod' = $'  ' 'mod' . _op_name $'  ';
+$'rem' = $'  ' 'rem' . _op_name $'  ';
+$'xor' = $'  ' 'xor' . _op_name $'  ';
+// Unary bitwise-not and if-then.
+$'\'   = $' ' '\';
+$'->'  = $' ' '->' $' ';
 // Graphic_atom: graphic-char sequence usable as a functor (e.g. \\+, @>, ##).
 Graphic_first = ANY('\\@#^~?');
 Graphic_rest  = SPAN('\\+\-*/^<>=~?@#&:.');
 Graphic_atom  = (Graphic_first (Graphic_rest | epsilon));
 /*====================================================================================================================*/
-trivia   = ARBNO(White | nl);
-/*====================================================================================================================*/
 // Per-clause variable scope.
 var_table = TABLE();
 var_next  = 0;
-// ascii_table — char-to-integer ASCII lookup; built once at module load.
+// ascii_table -- char-to-integer ASCII lookup; built once at module load.
 ascii_table = TABLE();
 ascii_i = 0;
 while (LE(ascii_i, 127)) {
@@ -89,7 +97,7 @@ function reset_var_scope() {
 }
 Reset_var_scope = epsilon . *reset_var_scope();
 /*--------------------------------------------------------------------------------------------------------------------*/
-// resolve_var — plain helper, called from push_var; never embedded in patterns.
+// resolve_var -- plain helper, called from push_var; never embedded in patterns.
 function resolve_var(name, slot) {
     slot = var_table[name];
     if (~DIFFER(slot)) {
@@ -117,9 +125,9 @@ function Push_var(varname) {
     return;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-// assign_anon_slots — walk tree x replacing each (E_VAR _ANON) with fresh _Vk.
+// assign_anon_slots -- walk tree x replacing each (E_VAR _ANON) with fresh _Vk.
 // Children visited in reverse order to mirror prolog_lower.c::assign_clause_anon_slots.
-// Plain helper — never embedded in patterns; no companion needed.
+// Plain helper -- never embedded in patterns; no companion needed.
 function assign_anon_slots(x, i, kid) {
     if (~DIFFER(x)) { assign_anon_slots = .dummy; nreturn; }
     if (IDENT(t(x), 'E_VAR') IDENT(v(x), '_ANON')) {
@@ -207,9 +215,37 @@ function reduce_is(rhs, lhs, fnc_node) {
 }
 Reduce_is = epsilon . *reduce_is();
 /*--------------------------------------------------------------------------------------------------------------------*/
-// reduce_cmp_op(op) — pops rhs, lhs from stack, pushes (E_FNC op lhs rhs).
+// reduce_cmp_op(op) -- pops rhs, lhs from stack, pushes (E_FNC op lhs rhs).
 // Pre-built action patterns for each comparison operator (avoid EVAL for
 // operators whose symbols cause Snocone parse errors inside EVAL strings).
+// _op_name -- shared global: token definitions write the operator string here
+// before firing Reduce_binop or Reduce_unop.
+_op_name = '';
+function reduce_binop(rhs, lhs, f) {
+    rhs = Pop();  lhs = Pop();
+    f = Tree('E_FNC', _op_name, 0);
+    Append(f, lhs);  Append(f, rhs);
+    Push(f);
+    reduce_binop = .dummy;  nreturn;
+}
+Reduce_binop = epsilon . *reduce_binop();
+function reduce_unop(operand, f) {
+    operand = Pop();
+    f = Tree('E_FNC', _op_name, 0);
+    Append(f, operand);
+    Push(f);
+    reduce_unop = .dummy;  nreturn;
+}
+Reduce_unop = epsilon . *reduce_unop();
+// reduce_ifthen -- pops then+cond, pushes (E_FNC -> cond then); used in disj.
+function reduce_ifthen(then_tree, cond_tree, f) {
+    then_tree = Pop();  cond_tree = Pop();
+    f = Tree('E_FNC', '->', 0);
+    Append(f, cond_tree);  Append(f, then_tree);
+    Push(f);
+    reduce_ifthen = .dummy;  nreturn;
+}
+Reduce_ifthen = epsilon . *reduce_ifthen();
 function reduce_cmp_op(op, rhs, lhs, fnc_node) {
     rhs = Pop();
     lhs = Pop();
@@ -280,7 +316,7 @@ function Reduce_compound(varname) {
     Reduce_compound = EVAL("epsilon . thx . *reduce_compound('" varname "')");
     return;
 }
-// reduce_compound_ns — name-stack variant: reads functor name from TopName()
+// reduce_compound_ns -- name-stack variant: reads functor name from TopName()
 // instead of a capture variable, avoiding the p_name clobbering bug when
 // nested compounds appear in args (e.g. arg(1, foo(a,b), X)).
 function reduce_compound_ns(name, n, fnc_node, kids, i) {
@@ -369,7 +405,7 @@ function mark_body() {
 }
 Mark_body = epsilon . *mark_body();
 /*--------------------------------------------------------------------------------------------------------------------*/
-// flatten_conj_into — recursively appends leaves of a top-level (E_FNC ,)
+// flatten_conj_into -- recursively appends leaves of a top-level (E_FNC ,)
 // tree into clause_node, mirroring prolog_parse.c::flatten_conj.  Each
 // child that is itself an (E_FNC ,) is recursed; non-comma children are
 // appended directly.  Called only from build_clause.
@@ -431,7 +467,7 @@ function build_directive(body_tree) {
 }
 Build_directive = epsilon . *build_directive();
 /*--------------------------------------------------------------------------------------------------------------------*/
-// DCG expansion — mirrors prolog_parse.c::dcg_expand_body + dcg_expand_clause.
+// DCG expansion -- mirrors prolog_parse.c::dcg_expand_body + dcg_expand_clause.
 // dcg_svar_count: counter for generating unique hidden _Sk vars within a DCG rule.
 // dcg_fresh_var(): allocates next _Sk through the clause var scope (var_next).
 dcg_svar_count = 0;
@@ -444,19 +480,19 @@ function dcg_fresh_var(slot) {
     return;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-// expand_dcg_body(body, s_in, s_out, result, n) — walks body IR tree and appends
+// expand_dcg_body(body, s_in, s_out, result, n) -- walks body IR tree and appends
 // threaded goal nodes into result[] starting at n; returns updated n.
 // body forms recognised:
-//   (E_FNC [])          — empty terminal: unify(s_in, s_out)
-//   (E_FNC . ...)       — terminal list:  unify(s_in, list_with_tail(body, s_out))
-//   (E_DCG_IL ...)      — inline goals {}: append goals + unify(s_in, s_out)
-//   (E_CUT)             — cut: append E_CUT + unify(s_in, s_out)
-//   (E_FNC , A B)       — conjunction: thread s_in -> s_mid -> s_out
-//   (E_FNC ; A B...)    — disjunction: expand each branch, wrap in E_FNC ;
-//   (E_FNC name args..) — non-terminal: name(args..., s_in, s_out)
-//   (E_FNC name)        — atom non-terminal: name(s_in, s_out)
-//   (E_UNIFY A B)       — pass-through (is_expr / arith result)
-//   (E_ILIT n)          — integer literal (non-terminal by default)
+//   (E_FNC [])          -- empty terminal: unify(s_in, s_out)
+//   (E_FNC . ...)       -- terminal list:  unify(s_in, list_with_tail(body, s_out))
+//   (E_DCG_IL ...)      -- inline goals {}: append goals + unify(s_in, s_out)
+//   (E_CUT)             -- cut: append E_CUT + unify(s_in, s_out)
+//   (E_FNC , A B)       -- conjunction: thread s_in -> s_mid -> s_out
+//   (E_FNC ; A B...)    -- disjunction: expand each branch, wrap in E_FNC ;
+//   (E_FNC name args..) -- non-terminal: name(args..., s_in, s_out)
+//   (E_FNC name)        -- atom non-terminal: name(s_in, s_out)
+//   (E_UNIFY A B)       -- pass-through (is_expr / arith result)
+//   (E_ILIT n)          -- integer literal (non-terminal by default)
 function dcg_append_tail(list, tail, new_tail) {
     if (IDENT(v(list), '[]')) return tail;
     new_tail = Tree('E_FNC', '.', 2, c(list)[1], dcg_append_tail(c(list)[2], tail));
@@ -499,14 +535,14 @@ function expand_dcg_body(body, s_in, s_out, result, n,
                          s_mid, s_a, s_b, i, nk,
                          buf_a, na, buf_b, nb, branches, nb2,
                          conj_a, conj_b) {
-    // (E_FNC []) — empty list terminal: s_in = s_out
+    // (E_FNC []) -- empty list terminal: s_in = s_out
     if (IDENT(t(body), 'E_FNC') IDENT(v(body), '[]')) {
         result[n] = dcg_make_unify(dcg_var_tree(s_in), dcg_var_tree(s_out));
         n = n + 1;
         expand_dcg_body = n;
         return;
     }
-    // (E_FNC . ...) — list terminal: s_in = [elems|s_out]
+    // (E_FNC . ...) -- list terminal: s_in = [elems|s_out]
     if (IDENT(t(body), 'E_FNC') IDENT(v(body), '.')) {
         result[n] = dcg_make_unify(dcg_var_tree(s_in),
                                    dcg_append_tail(body, dcg_var_tree(s_out)));
@@ -514,7 +550,7 @@ function expand_dcg_body(body, s_in, s_out, result, n,
         expand_dcg_body = n;
         return;
     }
-    // (E_DCG_IL ...) — inline Prolog goals {A, B, ...}: emit children + s_in = s_out
+    // (E_DCG_IL ...) -- inline Prolog goals {A, B, ...}: emit children + s_in = s_out
     if (IDENT(t(body), 'E_DCG_IL')) {
         nk = n(body);
         i = 1;
@@ -528,7 +564,7 @@ function expand_dcg_body(body, s_in, s_out, result, n,
         expand_dcg_body = n;
         return;
     }
-    // (E_CUT) — cut: emit E_CUT then s_in = s_out
+    // (E_CUT) -- cut: emit E_CUT then s_in = s_out
     if (IDENT(t(body), 'E_CUT')) {
         result[n] = Tree('E_CUT', '', 0);
         n = n + 1;
@@ -537,7 +573,7 @@ function expand_dcg_body(body, s_in, s_out, result, n,
         expand_dcg_body = n;
         return;
     }
-    // (E_FNC , ...) — n-ary conjunction: thread s_in -> s_mid1 -> ... -> s_out
+    // (E_FNC , ...) -- n-ary conjunction: thread s_in -> s_mid1 -> ... -> s_out
     if (IDENT(t(body), 'E_FNC') IDENT(v(body), ',')) {
         nk = n(body);
         i = 1;
@@ -552,7 +588,7 @@ function expand_dcg_body(body, s_in, s_out, result, n,
         expand_dcg_body = n;
         return;
     }
-    // (E_FNC ; A B ...) — disjunction: expand each branch, wrap in E_FNC ;
+    // (E_FNC ; A B ...) -- disjunction: expand each branch, wrap in E_FNC ;
     if (IDENT(t(body), 'E_FNC') IDENT(v(body), ';')) {
         nk = n(body);
         branches = ARRAY(nk + 1);
@@ -575,21 +611,21 @@ function expand_dcg_body(body, s_in, s_out, result, n,
         expand_dcg_body = n;
         return;
     }
-    // (E_UNIFY A B) / (E_ADD...) / (E_ILIT) — pass through as-is (arith/unify in body)
+    // (E_UNIFY A B) / (E_ADD...) / (E_ILIT) -- pass through as-is (arith/unify in body)
     if (DIFFER(t(body), 'E_FNC')) {
         result[n] = body;
         n = n + 1;
         expand_dcg_body = n;
         return;
     }
-    // Default: (E_FNC name ...) — non-terminal: name(args..., s_in, s_out)
+    // Default: (E_FNC name ...) -- non-terminal: name(args..., s_in, s_out)
     result[n] = dcg_call_nt(body, s_in, s_out);
     n = n + 1;
     expand_dcg_body = n;
     return;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-// build_dcg — pops dcg_body tree + uses head_name/head_arity to build
+// build_dcg -- pops dcg_body tree + uses head_name/head_arity to build
 // the expanded clause.  Mirrors dcg_expand_clause() in prolog_parse.c.
 function build_dcg(s0, s1, key, goals, ng, body_tree, clause_node,
                    parts, i, bk, bn) {
@@ -645,7 +681,7 @@ function build_dcg(s0, s1, key, goals, ng, body_tree, clause_node,
 }
 Build_dcg = epsilon . *build_dcg();
 /*--------------------------------------------------------------------------------------------------------------------*/
-// push_dcg_inline — wraps body goals (already on stack as one tree from body)
+// push_dcg_inline -- wraps body goals (already on stack as one tree from body)
 // in an E_DCG_IL marker so expand_dcg_body can identify them.
 function push_dcg_inline(body_tree, node, k, nk) {
     body_tree = Pop();
@@ -665,7 +701,7 @@ function push_dcg_inline(body_tree, node, k, nk) {
 }
 Push_dcg_inline = epsilon . *push_dcg_inline();
 /*--------------------------------------------------------------------------------------------------------------------*/
-// push_cut — pushes an E_CUT tree (for ! in DCG body).
+// push_cut -- pushes an E_CUT tree (for ! in DCG body).
 function push_cut() {
     Push(Tree('E_CUT', '', 0));
     push_cut = .dummy;
@@ -673,10 +709,10 @@ function push_cut() {
 }
 Push_cut = epsilon . *push_cut();
 /*--------------------------------------------------------------------------------------------------------------------*/
-// mark_dcg_body — analogous to mark_body; signals body is present.
+// mark_dcg_body -- analogous to mark_body; signals body is present.
 Mark_dcg_body = epsilon . *mark_body();
 /*====================================================================================================================*/
-// merge_choices(parse_root) — post-Compiland pass.  Walks parse_root's STMT
+// merge_choices(parse_root) -- post-Compiland pass.  Walks parse_root's STMT
 // children once and rebuilds them as: directives (in source order) followed
 // by clause-groups (in first-encounter order).  Same-functor/arity clause
 // STMTs are merged: the donor's E_CLAUSE child is appended into the kept
@@ -684,7 +720,7 @@ Mark_dcg_body = epsilon . *mark_body();
 //
 // Clause STMT shape: (STMT (:subj (E_CHOICE key (E_CLAUSE ...) ...)))
 // Directive STMT:    (STMT (:subj <body_tree>))
-// The discriminator is t(c(c(stmt)[1])[1]) — 'E_CHOICE' for clause STMT.
+// The discriminator is t(c(c(stmt)[1])[1]) -- 'E_CHOICE' for clause STMT.
 function merge_choices(parse_root, n_in, i, stmt, inner, key,
                        directives, n_dir,
                        choice_keys, choice_stmts, n_choice, found,
@@ -752,7 +788,7 @@ function merge_choices(parse_root, n_in, i, stmt, inner, key,
     nreturn;
 }
 /*====================================================================================================================*/
-// Grammar — pure patterns.  Expression ladder (tightest -> loosest):
+// Grammar -- pure patterns.  Expression ladder (tightest -> loosest):
 //   primary -> mul_expr -> add_expr -> is_expr -> unify_expr -> conj -> disj
 // Tail-recursion (args/args_tail) avoids ARBNO around forward refs (FW-3).
 args      = ( nInc() *unify_expr FENCE(*args_tail | epsilon) );
@@ -803,20 +839,46 @@ primary = (   Atom . p_name nPushName('p_name') $'('
           |   *list
           |   $' ' '-' Float . p_negf   Push_neg_float('p_negf')
           |   $' ' '-' Int . p_negi    Push_neg_int('p_negi')
+          |   $'\' *primary            Reduce_unop
+          |   $' ' '-' *primary        epsilon . *do_uminus()
           );
 /*--------------------------------------------------------------------------------------------------------------------*/
-mul_expr  = (   primary
+// do_uminus -- unary minus on a non-literal primary: pops operand, pushes (E_FNC - operand).
+function do_uminus(operand, f) {
+    operand = Pop();
+    f = Tree('E_FNC', '-', 0);
+    Append(f, operand);
+    Push(f);
+    do_uminus = .dummy;  nreturn;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+// pow_expr -- ** (200 xfx, right-assoc: x ** y ** z = x ** (y ** z)).
+pow_expr  = (   primary
+                FENCE( $'**' primary Reduce_binop
+                     | epsilon
+                     )
+            );
+/*--------------------------------------------------------------------------------------------------------------------*/
+mul_expr  = (   pow_expr
                 ARBNO(
-                    FENCE( $'*' primary reduce(E_MUL, 2)
-                         | $'/' primary reduce(E_DIV, 2)
+                    FENCE( $'mod' pow_expr Reduce_binop
+                         | $'rem' pow_expr Reduce_binop
+                         | $'>>' pow_expr  Reduce_binop
+                         | $'<<' pow_expr  Reduce_binop
+                         | $'*'  pow_expr  reduce(E_MUL, 2)
+                         | $'//' pow_expr  reduce(E_DIV, 2)
+                         | $'/'  pow_expr  reduce(E_DIV, 2)
                          )
                 )
             );
 /*--------------------------------------------------------------------------------------------------------------------*/
 add_expr  = (   mul_expr
                 ARBNO(
-                    FENCE( $'+' mul_expr reduce(E_ADD, 2)
-                         | $'-' mul_expr reduce(E_SUB, 2)
+                    FENCE( $'+' mul_expr  reduce(E_ADD, 2)
+                         | $'-' mul_expr  reduce(E_SUB, 2)
+                         | $'/\' mul_expr Reduce_binop
+                         | $'\/' mul_expr Reduce_binop
+                         | $'xor' mul_expr Reduce_binop
                          )
                 )
             );
@@ -827,7 +889,7 @@ is_expr   = (   add_expr
                      )
             );
 /*--------------------------------------------------------------------------------------------------------------------*/
-// cmp_expr — Prolog comparison/equality operators (Prolog precedence 700).
+// cmp_expr -- Prolog comparison/equality operators (Prolog precedence 700).
 // Longer-prefix tokens first to avoid greedy prefix mismatch.
 // Uses plain | alternation (not FENCE) to allow backtrack if a token doesn't fully match.
 Reduce_ge  = epsilon . *do_cmp_ge();   Reduce_le  = epsilon . *do_cmp_le();
@@ -885,7 +947,7 @@ head = (    Reset_var_scope
             nPop()
         );
 /*--------------------------------------------------------------------------------------------------------------------*/
-// DCG goal — extends body_goal with terminal lists, {Goals}, cut, and paren-body.
+// DCG goal -- extends body_goal with terminal lists, {Goals}, cut, and paren-body.
 // Used in dcg_conj / dcg_disj / dcg_body to parse DCG rule bodies.
 dcg_goal = (   *list
            |   $'{' body $'}'       Push_dcg_inline
@@ -934,7 +996,7 @@ directive = (   $':-'                          Reset_var_scope
 top_form  = (directive | clause | dcg_rule);
 /*====================================================================================================================*/
 Compiland = nPush()
-            ARBNO( trivia nInc() top_form trivia )
+            ARBNO( $' ' nInc() top_form $' ' )
             reduce(E_Parse, 'nTop()')
             nPop();
 /*====================================================================================================================*/
