@@ -189,8 +189,33 @@ function split_subj_pat(top, n, kids, i) {
     }
     freturn;
 }
+/*--------------------------------------------------------------------------------------------------------------------*/
+// flatten_arith(x) — bottom-up left-fold flatten for same-tag arithmetic chains.
+// Mirrors C-frontend expr_binary_flatten: E_SUB(a, E_SUB(b,c)) -> E_SUB(a,b,c).
+// Only flattens left-associative ops: E_ADD E_SUB E_MUL E_DIV. E_POW is right-
+// associative and is NOT flattened. Called from decompose_stmt on the full expr.
+sc_flatten_ops = ' E_ADD  E_SUB  E_MUL  E_DIV ';
+function flatten_arith(x, i, nc, tag, right, new_c, rn, j) {
+    nc = n(x);
+    i = 1;
+    while (LE(i, nc)) { c(x)[i] = flatten_arith(c(x)[i]); i = i + 1; }
+    tag = t(x);
+    if (~(sc_flatten_ops ? (' ' tag ' '))) { flatten_arith = x; return; }
+    if (~IDENT(nc, 2)) { flatten_arith = x; return; }
+    right = c(x)[2];
+    if (~IDENT(t(right), tag)) { flatten_arith = x; return; }
+    rn = n(right);
+    new_c = ARRAY('1:' (1 + rn));
+    new_c[1] = c(x)[1];
+    j = 1;
+    while (LE(j, rn)) { new_c[j + 1] = c(right)[j]; j = j + 1; }
+    flatten_arith = tree(tag, v(x), 1 + rn, new_c);
+    return;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
 function decompose_stmt(top, lhs, rhs, s) {
     top = Pop();
+    top = flatten_arith(top);
     // Form A: E_ASSIGN(lhs, rhs) at top -- check whether lhs is itself an
     // E_SCAN or name-like-headed E_SEQ; if so, lift subj+pat out.
     if (IDENT(t(top), 'E_ASSIGN')) {
