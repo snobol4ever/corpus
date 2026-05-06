@@ -79,7 +79,7 @@ cset_pat     = ("'" BREAK("'") . csetbody "'");
 semi_opt     = (';' | epsilon);
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Keyword tokens — Gray before only; identifier boundary via Id $ tx *IDENT(tx, 'kw').
-// Trailing whitespace is NOT consumed here — grammar callers provide it explicitly.
+// Trailing whitespace is supplied by the grammar via $' ' or $'  ' (required for kw-then-expr).
 $'if'        =  $' ' Id $ tx *IDENT(tx, 'if')       ;
 $'then'      =  $' ' Id $ tx *IDENT(tx, 'then')     ;
 $'else'      =  $' ' Id $ tx *IDENT(tx, 'else')     ;
@@ -107,43 +107,87 @@ $'suspend'   =  $' ' Id $ tx *IDENT(tx, 'suspend')  ;
 $'fail'      =  $' ' Id $ tx *IDENT(tx, 'fail')     ;
 $'not'       =  $' ' Id $ tx *IDENT(tx, 'not')      ;
 /*--------------------------------------------------------------------------------------------------------------------*/
-// Operator tokens — optional whitespace both sides.  Open brackets: ws after only.  Close: ws before only.
-// Operator tokens — optional whitespace both sides.  Open brackets: ws after only.  Close: ws before only.
-// Grammar alternation (longer-prefix first in each tail) handles disambiguation; no token-level lookahead needed.
-$'|||' = $' ' '|||' $' ';  $'||'  = $' ' '||'  $' ';  $'|'   = $' ' '|'   $' ';
-$'++'  = $' ' '++'  $' ';  $'--'  = $' ' '--'  $' ';  $'**'  = $' ' '**'  $' ';
-$'+'   = $' ' '+'   $' ';  $'-'   = $' ' '-'   $' ';
-$'*'   = $' ' '*'   $' ';  $'/'   = $' ' '/'   $' ';  $'%'   = $' ' '%'   $' ';
-$'^'   = $' ' '^'   $' ';  $'?'   = $' ' '?'   $' ';
-$','   = $' ' ','   $' ';  $';'   = $' ' ';'   $' ';  $':='  = $' ' ':='  $' ';
-// String comparison and augop tokens — augops defined with explicit literal strings to avoid ambiguity.
-$'~==:='= $' ' '~==:=' $' ';  $'~=='  = $' ' '~=='  $' ';
-$'~=:=' = $' ' '~=:='  $' ';  $'~='   = $' ' '~='   $' ';  $'~'  = $' ' '~' $' ';
-$'<<=:='= $' ' '<<=:=' $' ';  $'<<:=' = $' ' '<<:='  $' ';
-$'<<='  = $' ' '<<='  $' ';  $'<<'   = $' ' '<<'   $' ';
-$'>>=:='= $' ' '>>=:=' $' ';  $'>>:=' = $' ' '>>:='  $' ';
-$'>>='  = $' ' '>>='  $' ';  $'>>'   = $' ' '>>'   $' ';
-$'==:=' = $' ' '==:='  $' ';  $'==='  = $' ' '==='  $' ';  $'=='  = $' ' '==' $' ';
-$'<=:=' = $' ' '<=:='  $' ';  $'<='   = $' ' '<='   $' ';
-$'>=:=' = $' ' '>=:='  $' ';  $'>='   = $' ' '>='   $' ';
-$'='    = $' ' '='    $' ';
-$'<:='  = $' ' '<:='  $' ';  $'>:='  = $' ' '>:='   $' ';
-$'<->'  = $' ' '<->'  $' ';  $'<-'   = $' ' '<-'    $' ';
-$'<'    = $' ' '<'    @lt_a (ANY('-=<') | epsilon) @lt_b *EQ(lt_a, lt_b) $' ';
-$'>'    = $' ' '>'    @gt_a (ANY('=>')  | epsilon) @gt_b *EQ(gt_a, gt_b);
-$':=:'  = $' ' ':=:'  $' ';  $'~===' = $' ' '~==='  $' ';
-$'+:='  = $' ' '+:='  $' ';  $'-:='  = $' ' '-:='   $' ';
-$'*:='  = $' ' '*:='  $' ';  $'/:='  = $' ' '/:='   $' ';
-$'%:='  = $' ' '%:='  $' ';  $'^:='  = $' ' '^:='   $' ';
-$'||:=' = $' ' '||:=' $' ';  $'++:=' = $' ' '++:='  $' ';
-$'--:=' = $' ' '--:=' $' ';  $'**:=' = $' ' '**:='  $' ';
-$'?:='  = $' ' '?:='  $' ';  $'=:='  = $' ' '=:='   $' ';
-$'\\'  = $' ' '\'   $' ';   $'!'   = $' ' '!'    $' ';
-$'('   = $' ' '(' $' ';  $')'   = $' ' ')';
-$'{'   = $' ' '{' $' ';  $'}'   = $' ' '}';
-$'['   = $' ' '[' $' ';  $']'   = $' ' ']';
-$'.'   = $' ' '.' $' ';   $':'   = $' ' ':'    $' ';
-$'&'   = $' ' '&' $' ';
+// Bracket tokens — snocone style: open has Gray after only; close has Gray before only.
+// Caller provides leading Gray for open via $' ' or by being adjacent to a token that supplies it.
+$'('        =   '(' $' ';
+$'['        =   '[' $' ';
+$'{'        =   $' ' '{' $' ';
+$')'        =   $' ' ')';
+$']'        =   $' ' ']';
+$'}'        =   $' ' '}';
+/*--------------------------------------------------------------------------------------------------------------------*/
+// Punctuation — Gray both sides.
+$','        =   $' ' ','   $' ';
+$';'        =   $' ' ';'   $' ';
+$':'        =   $' ' ':'   $' ';
+$'.'        =   $' ' '.'   $' ';
+/*--------------------------------------------------------------------------------------------------------------------*/
+// Operators — Gray both sides.  Unary/binary dual-use means Gray (not White).
+// Longer-prefix first within each family for grammar alternation correctness.
+$'|||'      =   $' ' '|||'   $' ';
+$'||'       =   $' ' '||'    $' ';
+$'|'        =   $' ' '|'     $' ';
+$'++'       =   $' ' '++'    $' ';
+$'--'       =   $' ' '--'    $' ';
+$'**'       =   $' ' '**'    $' ';
+$'+'        =   $' ' '+'     $' ';
+$'-'        =   $' ' '-'     $' ';
+$'*'        =   $' ' '*'     $' ';
+$'/'        =   $' ' '/'     $' ';
+$'%'        =   $' ' '%'     $' ';
+$'^'        =   $' ' '^'     $' ';
+$'?'        =   $' ' '?'     $' ';
+$'~'        =   $' ' '~'     $' ';
+$'!'        =   $' ' '!'     $' ';
+$'&'        =   $' ' '&'     $' ';
+$'\\'      =   $' ' '\'     $' ';
+/*--------------------------------------------------------------------------------------------------------------------*/
+// Comparison/equality — longer prefix first.
+$'~==='     =   $' ' '~==='  $' ';
+$'~=='      =   $' ' '~=='   $' ';
+$'~='       =   $' ' '~='    $' ';
+$'==='      =   $' ' '==='   $' ';
+$'=='       =   $' ' '=='    $' ';
+$'='        =   $' ' '='     $' ';
+$'<='       =   $' ' '<='    $' ';
+$'>='       =   $' ' '>='    $' ';
+$'<<='      =   $' ' '<<='   $' ';
+$'<<'       =   $' ' '<<'    $' ';
+$'>>='      =   $' ' '>>='   $' ';
+$'>>'       =   $' ' '>>'    $' ';
+$'<'        =   $' ' '<' @lt_a (ANY('-=<') | epsilon) @lt_b *EQ(lt_a, lt_b) $' ';
+$'>'        =   $' ' '>' @gt_a (ANY('=>')  | epsilon) @gt_b *EQ(gt_a, gt_b)  $' ';
+/*--------------------------------------------------------------------------------------------------------------------*/
+// Assignment, swap, reverse-scan operators.
+$':=:'      =   $' ' ':=:'   $' ';
+$':='       =   $' ' ':='    $' ';
+$'<->'      =   $' ' '<->'   $' ';
+$'<-'       =   $' ' '<-'    $' ';
+/*--------------------------------------------------------------------------------------------------------------------*/
+// Augmented assignment — longer-prefix first.
+$'~==:='    =   $' ' '~==:=' $' ';
+$'~=:='     =   $' ' '~=:='  $' ';
+$'<<=:='    =   $' ' '<<=:=' $' ';
+$'<<:='     =   $' ' '<<:='  $' ';
+$'>>=:='    =   $' ' '>>=:=' $' ';
+$'>>:='     =   $' ' '>>:='  $' ';
+$'==:='     =   $' ' '==:='  $' ';
+$'<=:='     =   $' ' '<=:='  $' ';
+$'>=:='     =   $' ' '>=:='  $' ';
+$'<:='      =   $' ' '<:='   $' ';
+$'>:='      =   $' ' '>:='   $' ';
+$'+:='      =   $' ' '+:='   $' ';
+$'-:='      =   $' ' '-:='   $' ';
+$'*:='      =   $' ' '*:='   $' ';
+$'/:='      =   $' ' '/:='   $' ';
+$'%:='      =   $' ' '%:='   $' ';
+$'^:='      =   $' ' '^:='   $' ';
+$'||:='     =   $' ' '||:='  $' ';
+$'++:='     =   $' ' '++:='  $' ';
+$'--:='     =   $' ' '--:='  $' ';
+$'**:='     =   $' ' '**:='  $' ';
+$'?:='      =   $' ' '?:='   $' ';
+$'=:='      =   $' ' '=:='   $' ';
 /*====================================================================================================================*/
 // push_qlit — shift (E_QLIT body) using dot-captured strbody.
 function push_qlit() {
@@ -344,7 +388,7 @@ Call      = ( nPush()
 /*--------------------------------------------------------------------------------------------------------------------*/
 SeqRest   = ( $';' *Expr  nInc() );
 Paren     = ( nPush()
-              $'(' *Expr  nInc()  ARBNO(SeqRest)  $')'
+              $' ' $'(' *Expr  nInc()  ARBNO(SeqRest)  $')'
               (E_SEQ_EXPR & r_nTop)
               nPop()
             );
@@ -352,9 +396,9 @@ Paren     = ( nPush()
 CompoundFirst = ( $' ' *Expr $' ' semi_opt $' ' nInc() );
 CompoundRest  = ( $' ' *Expr $' ' semi_opt $' ' nInc() );
 Compound      = ( nPush()
-                  $' ' '{' $' '
+                  $'{'
                   ( CompoundFirst ARBNO(CompoundRest) | epsilon )
-                  $' ' $' ' '}'
+                  $'}'
                   (E_SEQ_EXPR & r_nTop)
                   nPop()
                 );
@@ -363,7 +407,7 @@ Compound      = ( nPush()
 ListFirst = ( $' ' *Expr  nInc() );
 ListRest  = ( $','  *Expr  nInc() );
 ListCtor  = ( nPush()
-              $'['
+              $' ' $'['
               ( ListFirst ARBNO(ListRest) | epsilon )
               $']'
               (E_MAKELIST & 'nTop()')
@@ -381,9 +425,9 @@ ListCtor  = ( nPush()
 FieldTail   = ( $'.' id_pat ~ 'E_VAR' Push_field );
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Expr11tail: one postfix step on the lhs already on the stack.
-Expr11tail  = ( $'[' $' ' *Expr $' '
-                FENCE( $':' $' ' *Expr $' ' $']' Push_section
-                     | $']'                      (E_IDX & 2)
+Expr11tail  = ( $'[' *Expr
+                FENCE( $':' *Expr $']' Push_section
+                     | $']'           (E_IDX & 2)
                      )
               | FieldTail
               );
@@ -398,9 +442,9 @@ CaseClause   = ( *CaseGray *Expr *CaseGray $':' *Expr *CaseGray semi_opt nInc() 
 CaseDefault  = ( *CaseGray $'default' *CaseGray $':' *Expr *CaseGray semi_opt nInc() );
 Case         = ( nPush()
                  $'case' $'  ' *Expr  nInc()
-                 $'of' *CaseGray '{' *CaseGray
+                 $'of' *CaseGray $'{' *CaseGray
                  ARBNO( FENCE(CaseDefault | CaseClause) )
-                 *CaseGray '}'
+                 *CaseGray $'}'
                  (E_CASE & 'nTop()')
                  nPop()
                );
@@ -419,16 +463,16 @@ Expr11 = (   If  |  Until  |  While  |  Every  |  Repeat  |  Case
          |   $' ' id_pat  ~ 'E_VAR'
          );
 /*--------------------------------------------------------------------------------------------------------------------*/
-Expr10 = (   $' ' '-'  *Expr10 (E_MNS         & 1)
-         |   $' ' '+'  *Expr10 (E_PLS         & 1)
-         |   $'~'      *Expr10 (E_CSET_COMPL  & 1)
-         |   $'\\'     *Expr10 (E_NONNULL     & 1)
-         |   $'!'      *Expr10 (E_ITERATE     & 1)
-         |   $' ' '*'  *Expr10 (E_SIZE        & 1)
-         |   $' ' '?'  *Expr10 (E_RANDOM      & 1)
-         |   $' ' '/'  *Expr10 (E_NULL        & 1)
-         |   $' ' '='  *Expr10 Push_match
-         |   $'not' $'  ' *Expr10 (E_NOT      & 1)
+Expr10 = (   $'-'        *Expr10 (E_MNS         & 1)
+         |   $'+'        *Expr10 (E_PLS         & 1)
+         |   $'~'        *Expr10 (E_CSET_COMPL  & 1)
+         |   $'\\'       *Expr10 (E_NONNULL     & 1)
+         |   $'!'        *Expr10 (E_ITERATE     & 1)
+         |   $'*'        *Expr10 (E_SIZE        & 1)
+         |   $'?'        *Expr10 (E_RANDOM      & 1)
+         |   $'/'        *Expr10 (E_NULL        & 1)
+         |   $'='        *Expr10 Push_match
+         |   $'not' $'  ' *Expr10 (E_NOT       & 1)
          |   *Expr11  ARBNO(Expr11tail)
          );
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -559,7 +603,7 @@ StaticDecl = ( nPush() $'static' $'  ' DeclIds $' ' semi_opt $' ' Push_local_stm
 // Initial block inside a proc body — initial { expr } or initial expr.
 // E_INITIAL always has exactly one child (the block/expr).
 InitialStmt = ( nPush() $'initial' $' '
-                $'{' $' ' *Expr nInc() $' ' semi_opt $' ' '}'
+                $'{' *Expr nInc() $' ' semi_opt $'}'
                 (E_INITIAL & 'nTop()')
                 nPop()
               );
@@ -582,7 +626,7 @@ StmtBody  = ( LocalDecl nInc()
             );
 ParamFirst = ( $' ' id_pat ~ 'E_VAR'  nInc() );
 ParamRest  = ( $',' id_pat ~ 'E_VAR'  nInc() );
-Params     = ( ParamFirst ARBNO(ParamRest) ($' ' '[' $' ' ']' | epsilon) | epsilon );
+Params     = ( ParamFirst ARBNO(ParamRest) ($'[' $']' | epsilon) | epsilon );
 Prochead   = ( $'procedure' $'  ' id_pat ~ 'E_VAR'  nInc()
                $'(' Params $')' $' '
              );
