@@ -81,28 +81,26 @@ E_Parse     = "'Parse'";
 /*====================================================================================================================*/
 // Whitespace primitives — canonical cross-PARSER model (mirrors parser_snocone.sc).
 //
-// white (conceptual) = SPAN(' ' tab) FENCE('#' BREAK(nl)|epsilon) | '#' BREAK(nl)
-// White = one-or-more white runs (required); kept as FENCE form, NOT white ARBNO(white)
-//         because White = white ARBNO(white) crashes the SCRIP engine on some inputs
-//         when nested inside expression-level ARBNO loops under &FULLSCAN=1.
-//         (BUG-SCRIP-WS-1: filed in GOAL-PARSER-RAKU.md step before this commit.)
-// Gray  = White | epsilon (optional whitespace, NO newlines).
-//         Must be alternation form, NOT ARBNO(white): under &FULLSCAN=1 an
-//         ARBNO(white) inside expression ARBNO loops slides forward past
-//         operator chars (e.g. first '~' of '~~'), breaking Expr6tail.
-// DGray = absorbs any whitespace INCLUDING newlines; used ONLY at block
-//         boundaries / stmt separators (fixed sites, not in expr ARBNO loops).
-// nl_one = ANY(nl) for explicit single-newline consumption.
-// $'  ' / $' ' are the invisible-whitespace tokens used in all grammar patterns.
+// White / Gray — whitespace primitives.  Aliased as $'  ' / $' ' and
+// attached to tokens; the grammar body uses only the aliases so
+// whitespace evaporates from productions.
+//
+// White (= $'  ', required separator): one run of spaces/tabs/newlines,
+// optionally followed by a single '#'-line-comment that ends at nl —
+// OR a standalone '#'-line-comment.  FENCE-based, NOT `white ARBNO(white)`
+// — the canonical-Snocone shape interacts badly with this grammar's
+// expression-tier ARBNOs under &FULLSCAN=1: operator chars like '~~' get
+// re-segmented as '~ ~', and the matched-substring extraction in
+// interp_eval.c / sm_interp.c reads stale globals.  See PARSER-RK-WS2 in
+// GOAL-PARSER-RAKU.md.
+//
+// Gray (= $' ', optional whitespace): White | epsilon — must be the
+// alternation form, NOT ARBNO(white), for the same reason.
 /*====================================================================================================================*/
-White       =   (  SPAN(' ' tab) FENCE('#' BREAK(nl) | epsilon)
-                |  '#' BREAK(nl)
+White       =   (  SPAN(' ' tab nl)  FENCE('#' BREAK(nl) nl | epsilon)
+                |  '#' BREAK(nl) nl
                 );
 Gray        =   White | epsilon;
-DGray       =   White ARBNO(SPAN(' ' tab nl) | '#' BREAK(nl) nl)
-            |   (SPAN(' ' tab nl) | '#' BREAK(nl) nl) ARBNO(SPAN(' ' tab nl) | '#' BREAK(nl) nl)
-            |   epsilon;
-nl_one      =   ANY(nl);
 $'  '       =   White;
 $' '        =   Gray;
 /*====================================================================================================================*/
@@ -1180,16 +1178,12 @@ Expr      = Expr3;
 /*====================================================================================================================*/
 BlockStmt = epsilon;
 
-Block_body = ( DGray
-               *BlockStmt
-               DGray
-               nInc()
-             );
+Block_body = ( *BlockStmt nInc() );
 
-Block = ( $'{' DGray
+Block = ( $'{'
           nPush()
           ARBNO( Block_body )
-          DGray $'}'
+          $'}'
           (E_SEQ_EXPR & 'nTop()')
           nPop()
         );
@@ -1198,11 +1192,11 @@ Block = ( $'{' DGray
 /*====================================================================================================================*/
 SubBlockStmt = epsilon;
 
-SubBlock_body = ( DGray  *SubBlockStmt  DGray  nInc() );
+SubBlock_body = ( *SubBlockStmt nInc() );
 
-SubBlock = ( $'{' DGray
+SubBlock = ( $'{'
              ARBNO( SubBlock_body )
-             DGray $'}'
+             $'}'
            );
 /*====================================================================================================================*/
 // Statements.
@@ -1285,16 +1279,14 @@ SayStmt = ( $'say'
 
 // WhenClause — when Expr Block → push val + body, count.
 // Mirrors raku.y when_list item: expr block pair.
-// Leading DGray absorbs newlines between when-clauses inside the { }.
-WhenClause = ( DGray $'when' $'  '
+WhenClause = ( $'when' $'  '
                Expr          // val pushed on stack by Expr
                Block         // body (E_SEQ_EXPR) pushed by Block
                nInc()
              );
 
 // DefaultClause — default Block → push body, set given_has_def flag.
-// Leading DGray absorbs newline before 'default' inside the { }.
-DefaultClause = ( DGray $'default'
+DefaultClause = ( $'default'
                   Block
                   Set_has_def
                 );
@@ -1304,10 +1296,10 @@ DefaultClause = ( DGray $'default'
 GivenStmt = ( $'given' $'  '
               Expr
               nPush()
-              DGray $'{'
+              $'{'
               ARBNO( *WhenClause )
               (DefaultClause | epsilon)
-              DGray $'}'
+              $'}'
               Finish_given
               nPop()
             );
@@ -1378,7 +1370,8 @@ SubStmt = ( $'sub' $'  '
 /*====================================================================================================================*/
 Compiland = nPush()
             nPush()
-            ARBNO( (SubStmt | (Stmt nInc())) DGray )
+            ARBNO( SubStmt | (Stmt nInc()) )
+            $' '
             Finish_main
             nPop()
             nInc()
@@ -1393,9 +1386,11 @@ InitStack();
 Src = '';
 while ((Line = INPUT)) Src = Src Line nl;
 
-ok = (Src ? Compiland);
-
-if (ok) {
+// Predicate-context match: `if (Src ? Compiland)` instead of value-context
+// `ok = (Src ? Compiland)`.  The latter routes through E_SCAN's matched-
+// substring extraction (interp_eval.c:3938) which reads g_last_match_subj
+// — under nested ARBNO + &FULLSCAN=1 those globals are unreliable.
+if (Src ? Compiland) {
     ptree = Pop();
     if (DIFFER(ptree)) {
         // Reverse the sub_list (cons'd in forward order, need reverse for emit).
