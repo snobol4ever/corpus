@@ -81,7 +81,11 @@ $'||'       = $' '  '||'       $' ';  $'&'        = $' ' '&'   $' ';
 $'function' = $' '  'function' $'  '; $'end'      = $' ' 'end';
 $'record'   = $' '  'record'   $'  ';
 $'if'       = $' '  'if'       $'  '; $'then'     = $' ' 'then' $'  ';
+$'else'     = $' '  'else'     $'  ';
+$'unless'   = $' '  'unless'   $'  ';
 $'while'    = $' '  'while'    $'  '; $'do'       = $' ' 'do'   $'  ';
+$'until'    = $' '  'until'    $'  ';
+$'repeat'   = $' '  'repeat'   $'  ';
 // note: flow-control keywords get trailing $' ' (Gray) so the space before an argument is absorbed.
 $'return'   = $' '  'return'   $' ';
 $'exit'     = $' '  'exit'     $' ';
@@ -126,7 +130,11 @@ ASSIGN    = 'ASSIGN';
 ALT       = 'ALT';
 MATCH     = 'MATCH';
 IF        = 'IF';
+IFELSE    = 'IFELSE';
 WHILE     = 'WHILE';
+UNLESS    = 'UNLESS';
+UNTIL     = 'UNTIL';
+REPEAT    = 'REPEAT';
 CALL      = 'CALL';
 RB_RETURN = 'RB_RETURN';
 RB_RETURN_VAL = 'RB_RETURN_VAL';
@@ -278,9 +286,13 @@ expr = *alt_expr FENCE($':=' *alt_expr reduce(ASSIGN, 2) | epsilon);
 //  match_or_expr — expr optionally followed by `? alt_expr` (match).
 match_or_expr = *expr FENCE($'?' *alt_expr reduce(MATCH, 2) | epsilon);
 
-//  if_stmt / while_stmt — surface shapes; lowering generates synthetic labels.
-if_stmt    = $'if'    *match_or_expr $'then' *match_or_expr reduce(IF,    2);
-while_stmt = $'while' *match_or_expr $'do'   *match_or_expr reduce(WHILE, 2);
+//  if_stmt / while_stmt / unless_stmt / until_stmt / repeat_stmt — surface shapes.
+//  if with else is 3-child IFELSE (cond, then, else); without else is 2-child IF.
+if_stmt    = $'if'     *match_or_expr $'then' FENCE(*match_or_expr $'else' *match_or_expr reduce(IFELSE, 3) | *match_or_expr reduce(IF, 2));
+while_stmt = $'while'  *match_or_expr $'do'   *match_or_expr reduce(WHILE,  2);
+unless_stmt = $'unless' *match_or_expr $'then' *match_or_expr reduce(UNLESS, 2);
+until_stmt  = $'until'  *match_or_expr $'do'   *match_or_expr reduce(UNTIL,  2);
+repeat_stmt = $'repeat' *match_or_expr reduce(REPEAT, 1);
 
 //  flow_stmt — return/exit/fail/stop/next keyword statements.
 return_stmt = $'return' FENCE(*match_or_expr reduce(RB_RETURN_VAL, 1) | reduce(RB_RETURN, 0));
@@ -289,7 +301,7 @@ fail_stmt   = $'fail'   reduce(RB_FAIL, 0);
 stop_stmt   = $'stop'   reduce(RB_STOP, 0);
 next_stmt   = $'next'   reduce(RB_NEXT, 0);
 
-stmt = $' ' FENCE(*if_stmt | *while_stmt | *return_stmt | *stop_stmt | *fail_stmt | *exit_stmt | *next_stmt | *match_or_expr) $' ' nl;
+stmt = $' ' FENCE(*if_stmt | *while_stmt | *unless_stmt | *until_stmt | *repeat_stmt | *return_stmt | *stop_stmt | *fail_stmt | *exit_stmt | *next_stmt | *match_or_expr) $' ' nl;
 
 //  func_body — n-ary fold over body stmts.  Uses tail-recursive shape (per
 //  parser_icon.sc Procbody idiom) so that 'end' is preempt-matched BEFORE
@@ -488,6 +500,52 @@ function lower_stmt(x, k, lblS, lblF, lblM) {
         emit_go(lblS);
         emit_lbl(lblF);
         // body (c[2]) intentionally NOT emitted — match oracle bug-for-bug
+    }
+    //  unless cond then body — goS/goF swapped vs if; body not emitted (oracle bug-for-bug).
+    //  Label order: cond (goF) before success (goS) — matches oracle numbering.
+    else if (IDENT(k, 'UNLESS')) {
+        lblF = new_label();   // cond branch (goF = fail = body-side in unless)
+        lblS = new_label();   // success/skip label (goS = cond succeeded = skip body)
+        emit_subj_goSF(tree('E_NUL', ''), lblS, lblF);
+        emit_lbl(lblF);
+        lower_stmt(c(x)[1]);
+        emit_lbl(lblS);
+    }
+    //  until cond do body — complement of while; exits when cond succeeds.
+    //  goF branch has cond; body not emitted (oracle bug-for-bug).
+    //  Label order: top, cond (goF), exit (goS) — matches oracle sequence.
+    else if (IDENT(k, 'UNTIL')) {
+        lblS = new_label();   // top-of-loop label
+        lblF = new_label();   // cond branch label (goF = fail stays in loop)
+        lblM = new_label();   // exit label (goS = success exits loop)
+        emit_lbl(lblS);
+        emit_subj_goSF(tree('E_NUL', ''), lblM, lblF);
+        emit_lbl(lblF);
+        lower_stmt(c(x)[1]);
+        emit_go(lblS);
+        emit_lbl(lblM);
+    }
+    //  repeat body — infinite loop; body not emitted (oracle bug-for-bug).
+    else if (IDENT(k, 'REPEAT')) {
+        lblS = new_label();   // top-of-loop label
+        lblM = new_label();   // unreachable exit label
+        emit_lbl(lblS);
+        emit_go(lblS);
+        emit_lbl(lblM);
+    }
+    //  if cond then t else e — 3-child; oracle emits cond in goS branch,
+    //  then-body in goF branch, and drops else body (existing frontend bug).
+    else if (IDENT(k, 'IFELSE')) {
+        lblS = new_label();
+        lblF = new_label();
+        lblM = new_label();
+        emit_subj_goSF(tree('E_NUL', ''), lblS, lblF);
+        emit_lbl(lblS);
+        lower_stmt(c(x)[1]);
+        emit_go(lblM);
+        emit_lbl(lblF);
+        lower_stmt(c(x)[2]);
+        emit_lbl(lblM);
     }
     else                            emit_subj(lower_atom(x));
     return;
