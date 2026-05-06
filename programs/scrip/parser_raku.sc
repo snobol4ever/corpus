@@ -106,6 +106,7 @@ $'exists' = $' ' 'exists';  $'delete' = $' ' 'delete';
 $'unless' = $' ' 'unless';  $'until'  = $' ' 'until';
 $'given'  = $' ' 'given' ;  $'when'   = $' ' 'when'  ;
 $'default' = $' ' 'default';
+$'print'  = $' ' 'print'  ;  $'die'    = $' ' 'die'    ;
 $'eq'     = $' ' 'eq' $' ';  $'ne'   = $' ' 'ne' $' ';
 $'div'    = $' ' 'div' $' ';  $'%'   = $' ' '%'  $' ';
 /*====================================================================================================================*/
@@ -315,6 +316,42 @@ function finish_interp_str(raw, lit, isvf, isvr, result, newnode, i) {
     nreturn;
 }
 Push_interp_str = (epsilon . *finish_interp_str());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// dq_unescape — process DQ string escape sequences mirroring the C lexer (raku.l STR_DQ rules):
+//   \n → newline   \t → tab   \\ → backslash   \" → double-quote
+// Called before push_qlit/Push_interp_str for LitStrDQ to match oracle lexer behaviour.
+// Uses BREAK(bSlash) to collect literal runs; BREAK fails if no \ present so REM handles tail.
+// Retained: BREAK cannot expand escapes in-place; must walk and rebuild.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function dq_unescape(raw, result, lit, ch) {
+    raw = capstr;
+    result = '';
+    while (1) {
+        if (IDENT(raw)) break;
+        // Collect literal run up to the next backslash.
+        if (raw ? (POS(0) BREAK(bSlash) . lit) = ) { result = result lit; }
+        if (IDENT(raw)) break;
+        // raw starts with \; is that a backslash or end?
+        if (raw ? (POS(0) bSlash) = ) {
+            // Consume the next char after the backslash.
+            if (raw ? (POS(0) LEN(1) . ch) = ) {
+                if      (IDENT(ch, 'n'))      { result = result nl;     }
+                else if (IDENT(ch, 't'))      { result = result tab;    }
+                else if (IDENT(ch, bSlash))   { result = result bSlash; }
+                else if (IDENT(ch, '"'))      { result = result '"';    }
+                else                          { result = result bSlash ch; }
+            }
+        } else {
+            // No backslash left — scoop the remainder.
+            if (raw ? (POS(0) REM . lit) = ) { result = result lit; }
+            break;
+        }
+    }
+    capstr = result;
+    dq_unescape = .dummy;
+    nreturn;
+}
+Dq_unescape = (epsilon . *dq_unescape());
 /*--------------------------------------------------------------------------------------------------------------------*/
 // push_rxlit — push tree('E_QLIT', body) using caprx.  Regex literal /body/.
 // Oracle emits regex bodies as plain E_QLIT — the runtime distinguishes regex
@@ -695,6 +732,39 @@ function finish_say(arg, fn, node) {
 }
 Finish_say   = (epsilon . *finish_say());
 /*--------------------------------------------------------------------------------------------------------------------*/
+// finish_print — print expr ; → (E_FNC writes (E_VAR writes) arg).
+// Mirrors raku.y KW_PRINT expr ';': make_call("writes") + child.
+// Retained: same reason as finish_say — E_FNC value='writes' requires explicit build.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_print(arg, fn, node) {
+    arg  = Pop();
+    fn   = tree('E_VAR', 'writes');
+    node = tree('E_FNC', 'writes');
+    Append(node, fn);
+    Append(node, arg);
+    Push(node);
+    finish_print = .dummy;
+    nreturn;
+}
+Finish_print = (epsilon . *finish_print());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_die — die expr → (E_FNC raku_die (E_VAR raku_die) arg).
+// Mirrors raku.y KW_DIE expr: make_call("raku_die") + child.
+// die is an expression (Expr11 prefix), not a statement — BareStmt supplies ';'.
+// Retained: same reason as finish_say — E_FNC value='raku_die' requires explicit build.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_die(arg, fn, node) {
+    arg  = Pop();
+    fn   = tree('E_VAR', 'raku_die');
+    node = tree('E_FNC', 'raku_die');
+    Append(node, fn);
+    Append(node, arg);
+    Push(node);
+    finish_die = .dummy;
+    nreturn;
+}
+Finish_die = (epsilon . *finish_die());
+/*--------------------------------------------------------------------------------------------------------------------*/
 // store_for_iter — stash for-loopvar name from capff/capfr.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function store_for_iter(vf, vr) {
@@ -901,6 +971,7 @@ CallArgTail = ( $','  *Expr  nInc() );
 
 Expr11 = ( $'!'  *Expr11  Finish_not
          | ($' ' '-')  *Expr11  Finish_mns
+         | $'die' $'  '  *Expr11  Finish_die
          | VarScalar              Push_var
          | ArrIdxVar  $'['  *Expr  $']'              Finish_arr_get
          | VarArray                                   Push_var
@@ -915,7 +986,7 @@ Expr11 = ( $'!'  *Expr11  Finish_not
          | VarCapture             Finish_capture
          | VarNamedCapture        Finish_named_capture
          | shift(LitInt, 'E_ILIT')
-         | LitStrDQ               Push_interp_str
+         | LitStrDQ               Dq_unescape  Push_interp_str
          | LitStrSQ               Push_qlit
          | $'(' *Expr $')'
          | ( nPush()
@@ -1126,6 +1197,12 @@ GivenStmt = ( $'given' $'  '
 
 BareStmt = ( Expr $';' );
 
+// PrintStmt — print expr ; → (E_FNC writes (E_VAR writes) arg).
+// Mirrors raku.y KW_PRINT expr ';'.
+PrintStmt = ( $'print'
+              Expr  $';'  Finish_print
+            );
+
 Stmt = ( GivenStmt
        | IfStmt
        | WhileStmt
@@ -1138,14 +1215,15 @@ Stmt = ( GivenStmt
        | ReturnStmt
        | AssignStmt
        | SayStmt
+       | PrintStmt
        | BareStmt
        );
 
 // BlockStmt — final binding.
-BlockStmt = ( GivenStmt | IfStmt | WhileStmt | UnlessStmt | UntilStmt | ForRangeStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ReturnStmt | AssignStmt | SayStmt | BareStmt );
+BlockStmt = ( GivenStmt | IfStmt | WhileStmt | UnlessStmt | UntilStmt | ForRangeStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ReturnStmt | AssignStmt | SayStmt | PrintStmt | BareStmt );
 
 // SubBlockStmt — SubBlock_body handles nInc per stmt.
-SubBlockStmt = ( GivenStmt | IfStmt | WhileStmt | UnlessStmt | UntilStmt | ForRangeStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ReturnStmt | AssignStmt | SayStmt | BareStmt );
+SubBlockStmt = ( GivenStmt | IfStmt | WhileStmt | UnlessStmt | UntilStmt | ForRangeStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ReturnStmt | AssignStmt | SayStmt | PrintStmt | BareStmt );
 /*====================================================================================================================*/
 // Sub parameter list — each param shifts (E_VAR name) onto sub counter frame.
 /*====================================================================================================================*/
