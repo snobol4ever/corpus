@@ -67,7 +67,7 @@ main:
                         mov     edi, 47                     #  UNHANDLED BB box
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc7:                  
-                        movabs  rdi, 405502368              #  var=ALPHABET
+                        movabs  rdi, 233605536              #  var=ALPHABET
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc8:                  
                         movabs  rdi, 0                      
@@ -83,7 +83,7 @@ main:
                         mov     edi, 2                      #  SM_STNO stno=2 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc11:                 
-                        movabs  rdi, 405502400              #  str="list(head,tail)"
+                        movabs  rdi, 233605568              #  str="list(head,tail)"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc12:                 
@@ -99,7 +99,7 @@ main:
                         mov     edi, 3                      #  SM_STNO stno=3 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc15:                 
-                        movabs  rdi, 405502464              #  str="list_reverse(lst)acc,cur"
+                        movabs  rdi, 233605632              #  str="list_reverse(lst)acc,cur"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc16:                 
@@ -118,11 +118,11 @@ main:
                         mov     edi, 4                      #  SM_STNO stno=4 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc21:                 
-                        movabs  rdi, 405502640              #  str=""
+                        movabs  rdi, 233605808              #  str=""
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc22:                 
-                        movabs  rdi, 405502672              #  store -> acc
+                        movabs  rdi, 233605840              #  store -> acc
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc23:                 
 
@@ -132,10 +132,10 @@ main:
                         mov     edi, 5                      #  SM_STNO stno=5 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc24:                 
-                        movabs  rdi, 405502704              #  var=lst
+                        movabs  rdi, 233605872              #  var=lst
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc25:                 
-                        movabs  rdi, 405502736              #  store -> cur
+                        movabs  rdi, 233605904              #  store -> cur
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc26:                 
 .Lpc27:                 
@@ -146,7 +146,7 @@ main:
                         mov     edi, 6                      #  SM_STNO stno=6 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc28:                 
-                        movabs  rdi, 405502832              #  var=cur
+                        movabs  rdi, 233606000              #  var=cur
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc29:                 
                         mov     edi, 59                     # SM_CALL
@@ -165,19 +165,19 @@ main:
                         mov     edi, 7                      #  SM_STNO stno=7 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc33:                 
-                        movabs  rdi, 405502928              #  var=cur
+                        movabs  rdi, 233606096              #  var=cur
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc34:                 
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc35:                 
-                        movabs  rdi, 405502992              #  var=acc
+                        movabs  rdi, 233606160              #  var=acc
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc36:                 
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc37:                 
-                        movabs  rdi, 405503056              #  store -> acc
+                        movabs  rdi, 233606224              #  store -> acc
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc38:                 
 
@@ -187,13 +187,13 @@ main:
                         mov     edi, 8                      #  SM_STNO stno=8 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc39:                 
-                        movabs  rdi, 405503088              #  var=cur
+                        movabs  rdi, 233606256              #  var=cur
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc40:                 
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc41:                 
-                        movabs  rdi, 405503152              #  store -> cur
+                        movabs  rdi, 233606320              #  store -> cur
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc42:                 
                         jmp     .Lpc26                      #  SM_JUMP -> pc=26
@@ -206,14 +206,13 @@ main:
                         mov     edi, 9                      #  SM_STNO stno=9 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc45:                 
-                        movabs  rdi, 405503248              #  var=acc
+                        movabs  rdi, 233606416              #  var=acc
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc46:                 
-                        movabs  rdi, 405503280              #  store -> list_reverse
+                        movabs  rdi, 233606448              #  store -> list_reverse
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc47:                 
-                        mov     edi, 60                     # SM_RETURN
-                        call    scrip_rt_unhandled_op@PLT   
+                        ret                                 #  SM_RETURN
 .Lpc48:                 
 .Lpc49:                 
 
@@ -230,7 +229,7 @@ main:
                         mov     edi, 11                     #  SM_STNO stno=11 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc51:                 
-                        movabs  rdi, 405503376              #  str="stk_push_frame(v)"
+                        movabs  rdi, 233606544              #  str="stk_push_frame(v)"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc52:                 
@@ -249,7 +248,7 @@ main:
                         mov     edi, 12                     #  SM_STNO stno=12 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc57:                 
-                        movabs  rdi, 405503536              #  var=v
+                        movabs  rdi, 233606704              #  var=v
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc58:                 
                         mov     edi, 9                      # SM_PUSH_NULL
@@ -258,13 +257,13 @@ main:
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc60:                 
-                        movabs  rdi, 405503600              #  var=stk
+                        movabs  rdi, 233606768              #  var=stk
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc61:                 
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc62:                 
-                        movabs  rdi, 405503664              #  store -> stk
+                        movabs  rdi, 233606832              #  store -> stk
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc63:                 
 
@@ -274,18 +273,17 @@ main:
                         mov     edi, 13                     #  SM_STNO stno=13 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc64:                 
-                        movabs  rdi, 405498704              #  str="dummy"
+                        movabs  rdi, 233601872              #  str="dummy"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc65:                 
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc66:                 
-                        movabs  rdi, 405498768              #  store -> stk_push_frame
+                        movabs  rdi, 233601936              #  store -> stk_push_frame
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc67:                 
-                        mov     edi, 60                     # SM_RETURN
-                        call    scrip_rt_unhandled_op@PLT   
+                        ret                                 #  SM_RETURN
 .Lpc68:                 
 .Lpc69:                 
 
@@ -302,7 +300,7 @@ main:
                         mov     edi, 15                     #  SM_STNO stno=15 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc71:                 
-                        movabs  rdi, 405498864              #  str="stk_push_item(v)"
+                        movabs  rdi, 233602032              #  str="stk_push_item(v)"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc72:                 
@@ -321,10 +319,10 @@ main:
                         mov     edi, 16                     #  SM_STNO stno=16 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc77:                 
-                        movabs  rdi, 405499024              #  var=v
+                        movabs  rdi, 233602192              #  var=v
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc78:                 
-                        movabs  rdi, 405499056              #  var=stk
+                        movabs  rdi, 233602224              #  var=stk
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc79:                 
                         mov     edi, 59                     # SM_CALL
@@ -333,7 +331,7 @@ main:
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc81:                 
-                        movabs  rdi, 405499152              #  var=stk
+                        movabs  rdi, 233602320              #  var=stk
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc82:                 
                         mov     edi, 59                     # SM_CALL
@@ -346,18 +344,17 @@ main:
                         mov     edi, 17                     #  SM_STNO stno=17 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc84:                 
-                        movabs  rdi, 405499216              #  str="dummy"
+                        movabs  rdi, 233602384              #  str="dummy"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc85:                 
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc86:                 
-                        movabs  rdi, 405499280              #  store -> stk_push_item
+                        movabs  rdi, 233602448              #  store -> stk_push_item
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc87:                 
-                        mov     edi, 60                     # SM_RETURN
-                        call    scrip_rt_unhandled_op@PLT   
+                        ret                                 #  SM_RETURN
 .Lpc88:                 
 .Lpc89:                 
 
@@ -374,7 +371,7 @@ main:
                         mov     edi, 19                     #  SM_STNO stno=19 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc91:                 
-                        movabs  rdi, 405499376              #  str="stk_pop_into_parent()child"
+                        movabs  rdi, 233602544              #  str="stk_pop_into_parent()child"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc92:                 
@@ -400,7 +397,7 @@ main:
                         mov     edi, 21                     #  SM_STNO stno=21 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc98:                 
-                        movabs  rdi, 405499552              #  var=stk
+                        movabs  rdi, 233602720              #  var=stk
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc99:                 
                         mov     edi, 59                     # SM_CALL
@@ -409,7 +406,7 @@ main:
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc101:                
-                        movabs  rdi, 405499648              #  store -> child
+                        movabs  rdi, 233602816              #  store -> child
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc102:                
 
@@ -419,13 +416,13 @@ main:
                         mov     edi, 22                     #  SM_STNO stno=22 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc103:                
-                        movabs  rdi, 405499680              #  var=stk
+                        movabs  rdi, 233602848              #  var=stk
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc104:                
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc105:                
-                        movabs  rdi, 405499744              #  store -> stk
+                        movabs  rdi, 233602912              #  store -> stk
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc106:                
 
@@ -435,10 +432,10 @@ main:
                         mov     edi, 23                     #  SM_STNO stno=23 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc107:                
-                        movabs  rdi, 405499776              #  var=child
+                        movabs  rdi, 233602944              #  var=child
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc108:                
-                        movabs  rdi, 405499808              #  var=stk
+                        movabs  rdi, 233602976              #  var=stk
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc109:                
                         mov     edi, 59                     # SM_CALL
@@ -447,7 +444,7 @@ main:
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc111:                
-                        movabs  rdi, 405499904              #  var=stk
+                        movabs  rdi, 233603072              #  var=stk
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc112:                
                         mov     edi, 59                     # SM_CALL
@@ -460,18 +457,17 @@ main:
                         mov     edi, 24                     #  SM_STNO stno=24 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc114:                
-                        movabs  rdi, 405499968              #  str="dummy"
+                        movabs  rdi, 233603136              #  str="dummy"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc115:                
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc116:                
-                        movabs  rdi, 405500032              #  store -> stk_pop_into_parent
+                        movabs  rdi, 233603200              #  store -> stk_pop_into_parent
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc117:                
-                        mov     edi, 60                     # SM_RETURN
-                        call    scrip_rt_unhandled_op@PLT   
+                        ret                                 #  SM_RETURN
 .Lpc118:                
 .Lpc119:                
 
@@ -488,7 +484,7 @@ main:
                         mov     edi, 26                     #  SM_STNO stno=26 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc121:                
-                        movabs  rdi, 405500128              #  str="stk_pop_final(var)"
+                        movabs  rdi, 233603296              #  str="stk_pop_final(var)"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc122:                
@@ -507,7 +503,7 @@ main:
                         mov     edi, 27                     #  SM_STNO stno=27 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc127:                
-                        movabs  rdi, 405500288              #  var=stk
+                        movabs  rdi, 233603456              #  var=stk
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc128:                
                         mov     edi, 59                     # SM_CALL
@@ -516,7 +512,7 @@ main:
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc130:                
-                        movabs  rdi, 405500384              #  var=var
+                        movabs  rdi, 233603552              #  var=var
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc131:                
                         mov     edi, 59                     # SM_CALL
@@ -529,13 +525,13 @@ main:
                         mov     edi, 28                     #  SM_STNO stno=28 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc133:                
-                        movabs  rdi, 405500448              #  var=stk
+                        movabs  rdi, 233603616              #  var=stk
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc134:                
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc135:                
-                        movabs  rdi, 405500512              #  store -> stk
+                        movabs  rdi, 233603680              #  store -> stk
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc136:                
 
@@ -545,18 +541,17 @@ main:
                         mov     edi, 29                     #  SM_STNO stno=29 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc137:                
-                        movabs  rdi, 405500544              #  str="dummy"
+                        movabs  rdi, 233603712              #  str="dummy"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc138:                
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc139:                
-                        movabs  rdi, 405500608              #  store -> stk_pop_final
+                        movabs  rdi, 233603776              #  store -> stk_pop_final
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc140:                
-                        mov     edi, 60                     # SM_RETURN
-                        call    scrip_rt_unhandled_op@PLT   
+                        ret                                 #  SM_RETURN
 .Lpc141:                
 .Lpc142:                
 
@@ -573,7 +568,7 @@ main:
                         mov     edi, 31                     #  SM_STNO stno=31 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc144:                
-                        movabs  rdi, 405500704              #  str="init_list(v)"
+                        movabs  rdi, 233603872              #  str="init_list(v)"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc145:                
@@ -589,7 +584,7 @@ main:
                         mov     edi, 32                     #  SM_STNO stno=32 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc148:                
-                        movabs  rdi, 405511904              #  str="Init_list(vs)"
+                        movabs  rdi, 233615072              #  str="Init_list(vs)"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc149:                
@@ -608,11 +603,11 @@ main:
                         mov     edi, 33                     #  SM_STNO stno=33 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc154:                
-                        movabs  rdi, 405512064              #  str=""
+                        movabs  rdi, 233615232              #  str=""
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc155:                
-                        movabs  rdi, 405512096              #  var=v
+                        movabs  rdi, 233615264              #  var=v
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc156:                
                         mov     edi, 59                     # SM_CALL
@@ -625,11 +620,11 @@ main:
                         mov     edi, 34                     #  SM_STNO stno=34 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc158:                
-                        movabs  rdi, 405512160              #  str=""
+                        movabs  rdi, 233615328              #  str=""
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc159:                
-                        movabs  rdi, 405512192              #  store -> stk
+                        movabs  rdi, 233615360              #  store -> stk
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc160:                
 
@@ -639,14 +634,14 @@ main:
                         mov     edi, 35                     #  SM_STNO stno=35 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc161:                
-                        movabs  rdi, 405512224              #  str="dummy"
+                        movabs  rdi, 233615392              #  str="dummy"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc162:                
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc163:                
-                        movabs  rdi, 405512288              #  store -> init_list
+                        movabs  rdi, 233615456              #  store -> init_list
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc164:                
                         mov     edi, 62                     # SM_NRETURN
@@ -660,14 +655,14 @@ main:
                         mov     edi, 36                     #  SM_STNO stno=36 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc167:                
-                        movabs  rdi, 405512384              #  str="epsilon . *init_list("
+                        movabs  rdi, 233615552              #  str="epsilon . *init_list("
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc168:                
-                        movabs  rdi, 405512416              #  var=vs
+                        movabs  rdi, 233615584              #  var=vs
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc169:                
-                        movabs  rdi, 405512448              #  str=")"
+                        movabs  rdi, 233615616              #  str=")"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc170:                
@@ -680,11 +675,10 @@ main:
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc173:                
-                        movabs  rdi, 405512512              #  store -> Init_list
+                        movabs  rdi, 233615680              #  store -> Init_list
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc174:                
-                        mov     edi, 60                     # SM_RETURN
-                        call    scrip_rt_unhandled_op@PLT   
+                        ret                                 #  SM_RETURN
 .Lpc175:                
 .Lpc176:                
 
@@ -701,7 +695,7 @@ main:
                         mov     edi, 38                     #  SM_STNO stno=38 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc178:                
-                        movabs  rdi, 405512608              #  str="push_list(v)"
+                        movabs  rdi, 233615776              #  str="push_list(v)"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc179:                
@@ -717,7 +711,7 @@ main:
                         mov     edi, 39                     #  SM_STNO stno=39 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc182:                
-                        movabs  rdi, 405512672              #  str="Push_list(vs)"
+                        movabs  rdi, 233615840              #  str="Push_list(vs)"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc183:                
@@ -736,13 +730,13 @@ main:
                         mov     edi, 40                     #  SM_STNO stno=40 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc188:                
-                        movabs  rdi, 405512832              #  var=v
+                        movabs  rdi, 233616000              #  var=v
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc189:                
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc190:                
-                        movabs  rdi, 405512896              #  store -> dummy
+                        movabs  rdi, 233616064              #  store -> dummy
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc191:                
 
@@ -752,14 +746,14 @@ main:
                         mov     edi, 41                     #  SM_STNO stno=41 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc192:                
-                        movabs  rdi, 405512928              #  str="dummy"
+                        movabs  rdi, 233616096              #  str="dummy"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc193:                
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc194:                
-                        movabs  rdi, 405512992              #  store -> push_list
+                        movabs  rdi, 233616160              #  store -> push_list
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc195:                
                         mov     edi, 62                     # SM_NRETURN
@@ -773,14 +767,14 @@ main:
                         mov     edi, 42                     #  SM_STNO stno=42 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc198:                
-                        movabs  rdi, 405513088              #  str="epsilon . *push_list("
+                        movabs  rdi, 233616256              #  str="epsilon . *push_list("
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc199:                
-                        movabs  rdi, 405513120              #  var=vs
+                        movabs  rdi, 233616288              #  var=vs
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc200:                
-                        movabs  rdi, 405513152              #  str=")"
+                        movabs  rdi, 233616320              #  str=")"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc201:                
@@ -793,11 +787,10 @@ main:
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc204:                
-                        movabs  rdi, 405513216              #  store -> Push_list
+                        movabs  rdi, 233616384              #  store -> Push_list
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc205:                
-                        mov     edi, 60                     # SM_RETURN
-                        call    scrip_rt_unhandled_op@PLT   
+                        ret                                 #  SM_RETURN
 .Lpc206:                
 .Lpc207:                
 
@@ -814,7 +807,7 @@ main:
                         mov     edi, 44                     #  SM_STNO stno=44 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc209:                
-                        movabs  rdi, 405513312              #  str="push_item(v)"
+                        movabs  rdi, 233616480              #  str="push_item(v)"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc210:                
@@ -830,7 +823,7 @@ main:
                         mov     edi, 45                     #  SM_STNO stno=45 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc213:                
-                        movabs  rdi, 405513376              #  str="Push_item(vs)"
+                        movabs  rdi, 233616544              #  str="Push_item(vs)"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc214:                
@@ -849,13 +842,13 @@ main:
                         mov     edi, 46                     #  SM_STNO stno=46 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc219:                
-                        movabs  rdi, 405513536              #  var=v
+                        movabs  rdi, 233616704              #  var=v
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc220:                
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc221:                
-                        movabs  rdi, 405575424              #  store -> dummy
+                        movabs  rdi, 233678592              #  store -> dummy
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc222:                
 
@@ -865,14 +858,14 @@ main:
                         mov     edi, 47                     #  SM_STNO stno=47 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc223:                
-                        movabs  rdi, 405575456              #  str="dummy"
+                        movabs  rdi, 233678624              #  str="dummy"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc224:                
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc225:                
-                        movabs  rdi, 405575520              #  store -> push_item
+                        movabs  rdi, 233678688              #  store -> push_item
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc226:                
                         mov     edi, 62                     # SM_NRETURN
@@ -886,14 +879,14 @@ main:
                         mov     edi, 48                     #  SM_STNO stno=48 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc229:                
-                        movabs  rdi, 405575616              #  str="epsilon . *push_item("
+                        movabs  rdi, 233678784              #  str="epsilon . *push_item("
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc230:                
-                        movabs  rdi, 405575648              #  var=vs
+                        movabs  rdi, 233678816              #  var=vs
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc231:                
-                        movabs  rdi, 405575680              #  str=")"
+                        movabs  rdi, 233678848              #  str=")"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc232:                
@@ -906,11 +899,10 @@ main:
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc235:                
-                        movabs  rdi, 405575744              #  store -> Push_item
+                        movabs  rdi, 233678912              #  store -> Push_item
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc236:                
-                        mov     edi, 60                     # SM_RETURN
-                        call    scrip_rt_unhandled_op@PLT   
+                        ret                                 #  SM_RETURN
 .Lpc237:                
 .Lpc238:                
 
@@ -927,7 +919,7 @@ main:
                         mov     edi, 50                     #  SM_STNO stno=50 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc240:                
-                        movabs  rdi, 405575840              #  str="pop_list()"
+                        movabs  rdi, 233679008              #  str="pop_list()"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc241:                
@@ -943,7 +935,7 @@ main:
                         mov     edi, 51                     #  SM_STNO stno=51 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc244:                
-                        movabs  rdi, 405575904              #  str="Pop_list()"
+                        movabs  rdi, 233679072              #  str="Pop_list()"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc245:                
@@ -965,7 +957,7 @@ main:
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc251:                
-                        movabs  rdi, 405576096              #  store -> dummy
+                        movabs  rdi, 233679264              #  store -> dummy
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc252:                
 
@@ -975,14 +967,14 @@ main:
                         mov     edi, 53                     #  SM_STNO stno=53 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc253:                
-                        movabs  rdi, 405576128              #  str="dummy"
+                        movabs  rdi, 233679296              #  str="dummy"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc254:                
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc255:                
-                        movabs  rdi, 405576192              #  store -> pop_list
+                        movabs  rdi, 233679360              #  store -> pop_list
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc256:                
                         mov     edi, 62                     # SM_NRETURN
@@ -996,7 +988,7 @@ main:
                         mov     edi, 54                     #  SM_STNO stno=54 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc259:                
-                        movabs  rdi, 405503760              #  var=epsilon
+                        movabs  rdi, 233606928              #  var=epsilon
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc260:                
 # -- BB box scaffold pc=260 op=SM_PAT_DEREF --
@@ -1015,11 +1007,10 @@ main:
                         mov     edi, 82                     # SM_PAT_BOXVAL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc263:                
-                        movabs  rdi, 405503824              #  store -> Pop_list
+                        movabs  rdi, 233606992              #  store -> Pop_list
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc264:                
-                        mov     edi, 60                     # SM_RETURN
-                        call    scrip_rt_unhandled_op@PLT   
+                        ret                                 #  SM_RETURN
 .Lpc265:                
 .Lpc266:                
 
@@ -1036,7 +1027,7 @@ main:
                         mov     edi, 56                     #  SM_STNO stno=56 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc268:                
-                        movabs  rdi, 405503920              #  str="pop_final(v)"
+                        movabs  rdi, 233607088              #  str="pop_final(v)"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc269:                
@@ -1052,7 +1043,7 @@ main:
                         mov     edi, 57                     #  SM_STNO stno=57 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc272:                
-                        movabs  rdi, 405503984              #  str="Pop_final(vs)"
+                        movabs  rdi, 233607152              #  str="Pop_final(vs)"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc273:                
@@ -1071,13 +1062,13 @@ main:
                         mov     edi, 58                     #  SM_STNO stno=58 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc278:                
-                        movabs  rdi, 405504144              #  var=v
+                        movabs  rdi, 233607312              #  var=v
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc279:                
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc280:                
-                        movabs  rdi, 405504208              #  store -> dummy
+                        movabs  rdi, 233607376              #  store -> dummy
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc281:                
 
@@ -1087,14 +1078,14 @@ main:
                         mov     edi, 59                     #  SM_STNO stno=59 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc282:                
-                        movabs  rdi, 405504240              #  str="dummy"
+                        movabs  rdi, 233607408              #  str="dummy"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc283:                
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc284:                
-                        movabs  rdi, 405504304              #  store -> pop_final
+                        movabs  rdi, 233607472              #  store -> pop_final
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc285:                
                         mov     edi, 62                     # SM_NRETURN
@@ -1108,14 +1099,14 @@ main:
                         mov     edi, 60                     #  SM_STNO stno=60 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc288:                
-                        movabs  rdi, 405504400              #  str="epsilon . *pop_final("
+                        movabs  rdi, 233607568              #  str="epsilon . *pop_final("
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc289:                
-                        movabs  rdi, 405504432              #  var=vs
+                        movabs  rdi, 233607600              #  var=vs
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc290:                
-                        movabs  rdi, 405504464              #  str=")"
+                        movabs  rdi, 233607632              #  str=")"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc291:                
@@ -1128,11 +1119,10 @@ main:
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc294:                
-                        movabs  rdi, 405504528              #  store -> Pop_final
+                        movabs  rdi, 233607696              #  store -> Pop_final
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc295:                
-                        mov     edi, 60                     # SM_RETURN
-                        call    scrip_rt_unhandled_op@PLT   
+                        ret                                 #  SM_RETURN
 .Lpc296:                
 .Lpc297:                
 
@@ -1149,11 +1139,11 @@ main:
                         mov     edi, 62                     #  SM_STNO stno=62 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc299:                
-                        movabs  rdi, 405504624              #  str=" "
+                        movabs  rdi, 233607792              #  str=" "
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc300:                
-                        movabs  rdi, 405504656              #  var=nl
+                        movabs  rdi, 233607824              #  var=nl
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc301:                
                         mov     edi, 23                     # SM_CONCAT
@@ -1172,7 +1162,7 @@ main:
                         mov     edi, 82                     # SM_PAT_BOXVAL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc304:                
-                        movabs  rdi, 405504688              #  store -> delim
+                        movabs  rdi, 233607856              #  store -> delim
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc305:                
 
@@ -1182,11 +1172,11 @@ main:
                         mov     edi, 63                     #  SM_STNO stno=63 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc306:                
-                        movabs  rdi, 405504720              #  str="( )"
+                        movabs  rdi, 233607888              #  str="( )"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc307:                
-                        movabs  rdi, 405504752              #  var=nl
+                        movabs  rdi, 233607920              #  var=nl
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc308:                
                         mov     edi, 23                     # SM_CONCAT
@@ -1205,11 +1195,11 @@ main:
                         mov     edi, 82                     # SM_PAT_BOXVAL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc311:                
-                        movabs  rdi, 405504784              #  str="( )"
+                        movabs  rdi, 233607952              #  str="( )"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc312:                
-                        movabs  rdi, 405504816              #  var=nl
+                        movabs  rdi, 233607984              #  var=nl
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc313:                
                         mov     edi, 23                     # SM_CONCAT
@@ -1231,7 +1221,7 @@ main:
                         mov     edi, 23                     # SM_CONCAT
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc317:                
-                        movabs  rdi, 405504848              #  store -> word
+                        movabs  rdi, 233608016              #  store -> word
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc318:                
 
@@ -1241,11 +1231,11 @@ main:
                         mov     edi, 64                     #  SM_STNO stno=64 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc319:                
-                        movabs  rdi, 405504880              #  str="("
+                        movabs  rdi, 233608048              #  str="("
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc320:                
-                        movabs  rdi, 405504912              #  var=word
+                        movabs  rdi, 233608080              #  var=word
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc321:                
 # -- BB box scaffold pc=321 op=SM_PAT_DEREF --
@@ -1271,7 +1261,7 @@ main:
                         mov     edi, 82                     # SM_PAT_BOXVAL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc324:                
-                        movabs  rdi, 405504976              #  str="tag"
+                        movabs  rdi, 233608144              #  str="tag"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc325:                
@@ -1284,7 +1274,7 @@ main:
                         mov     edi, 49                     # SM_PAT_REFNAME
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc328:                
-                        movabs  rdi, 405505104              #  var=word
+                        movabs  rdi, 233608272              #  var=word
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc329:                
 # -- BB box scaffold pc=329 op=SM_PAT_DEREF --
@@ -1307,7 +1297,7 @@ main:
                         mov     edi, 50                     #  UNHANDLED BB box
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc331:                
-                        movabs  rdi, 405505168              #  str="wrd"
+                        movabs  rdi, 233608336              #  str="wrd"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc332:                
@@ -1370,7 +1360,7 @@ main:
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc340:                
-                        movabs  rdi, 405505264              #  str=")"
+                        movabs  rdi, 233608432              #  str=")"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc341:                
@@ -1389,7 +1379,7 @@ main:
                         mov     edi, 23                     # SM_CONCAT
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc346:                
-                        movabs  rdi, 405505296              #  store -> group
+                        movabs  rdi, 233608464              #  store -> group
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc347:                
 
@@ -1408,21 +1398,21 @@ main:
                         mov     edi, 82                     # SM_PAT_BOXVAL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc351:                
-                        movabs  rdi, 405506368              #  str="'bank'"
+                        movabs  rdi, 233609536              #  str="'bank'"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc352:                
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc353:                
-                        movabs  rdi, 405506432              #  str="'BANK'"
+                        movabs  rdi, 233609600              #  str="'BANK'"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc354:                
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc355:                
-                        movabs  rdi, 405506496              #  str="'ROOT'"
+                        movabs  rdi, 233609664              #  str="'ROOT'"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc356:                
@@ -1511,7 +1501,7 @@ main:
                         mov     edi, 82                     # SM_PAT_BOXVAL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc368:                
-                        movabs  rdi, 405506656              #  str="'bank'"
+                        movabs  rdi, 233609824              #  str="'bank'"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc369:                
@@ -1542,7 +1532,7 @@ main:
                         mov     edi, 23                     # SM_CONCAT
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc378:                
-                        movabs  rdi, 405506720              #  store -> treebank
+                        movabs  rdi, 233609888              #  store -> treebank
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc379:                
 
@@ -1552,7 +1542,7 @@ main:
                         mov     edi, 66                     #  SM_STNO stno=66 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc380:                
-                        movabs  rdi, 405506752              #  str="node_repr(node)r,c,sep"
+                        movabs  rdi, 233609920              #  str="node_repr(node)r,c,sep"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc381:                
@@ -1571,22 +1561,22 @@ main:
                         mov     edi, 67                     #  SM_STNO stno=67 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc386:                
-                        movabs  rdi, 405506912              #  var=node
+                        movabs  rdi, 233610080              #  var=node
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc387:                
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc388:                
-                        movabs  rdi, 405506976              #  var=LCASE
+                        movabs  rdi, 233610144              #  var=LCASE
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc389:                
-                        movabs  rdi, 405507008              #  var=UCASE
+                        movabs  rdi, 233610176              #  var=UCASE
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc390:                
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc391:                
-                        movabs  rdi, 405507072              #  str="STRING"
+                        movabs  rdi, 233610240              #  str="STRING"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc392:                
@@ -1606,14 +1596,14 @@ main:
                         mov     edi, 68                     #  SM_STNO stno=68 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc396:                
-                        movabs  rdi, 405507168              #  str="'"
+                        movabs  rdi, 233610336              #  str="'"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc397:                
-                        movabs  rdi, 405507200              #  var=node
+                        movabs  rdi, 233610368              #  var=node
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc398:                
-                        movabs  rdi, 405507232              #  str="'"
+                        movabs  rdi, 233610400              #  str="'"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc399:                
@@ -1623,11 +1613,10 @@ main:
                         mov     edi, 23                     # SM_CONCAT
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc401:                
-                        movabs  rdi, 405507264              #  store -> node_repr
+                        movabs  rdi, 233610432              #  store -> node_repr
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc402:                
-                        mov     edi, 60                     # SM_RETURN
-                        call    scrip_rt_unhandled_op@PLT   
+                        ret                                 #  SM_RETURN
 .Lpc403:                
 .Lpc404:                
 
@@ -1637,11 +1626,11 @@ main:
                         mov     edi, 69                     #  SM_STNO stno=69 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc405:                
-                        movabs  rdi, 405507360              #  str="("
+                        movabs  rdi, 233610528              #  str="("
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc406:                
-                        movabs  rdi, 405507392              #  store -> r
+                        movabs  rdi, 233610560              #  store -> r
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc407:                
 
@@ -1651,11 +1640,11 @@ main:
                         mov     edi, 70                     #  SM_STNO stno=70 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc408:                
-                        movabs  rdi, 405507424              #  str=""
+                        movabs  rdi, 233610592              #  str=""
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc409:                
-                        movabs  rdi, 405507456              #  store -> sep
+                        movabs  rdi, 233610624              #  store -> sep
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc410:                
 
@@ -1665,10 +1654,10 @@ main:
                         mov     edi, 71                     #  SM_STNO stno=71 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc411:                
-                        movabs  rdi, 405507488              #  var=node
+                        movabs  rdi, 233610656              #  var=node
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc412:                
-                        movabs  rdi, 405507520              #  store -> c
+                        movabs  rdi, 233610688              #  store -> c
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc413:                
 .Lpc414:                
@@ -1679,7 +1668,7 @@ main:
                         mov     edi, 72                     #  SM_STNO stno=72 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc415:                
-                        movabs  rdi, 405507616              #  var=c
+                        movabs  rdi, 233610784              #  var=c
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc416:                
                         mov     edi, 59                     # SM_CALL
@@ -1698,13 +1687,13 @@ main:
                         mov     edi, 73                     #  SM_STNO stno=73 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc420:                
-                        movabs  rdi, 405507712              #  var=r
+                        movabs  rdi, 233610880              #  var=r
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc421:                
-                        movabs  rdi, 405507744              #  var=sep
+                        movabs  rdi, 233610912              #  var=sep
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc422:                
-                        movabs  rdi, 405507776              #  var=c
+                        movabs  rdi, 233610944              #  var=c
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc423:                
                         mov     edi, 59                     # SM_CALL
@@ -1719,7 +1708,7 @@ main:
                         mov     edi, 23                     # SM_CONCAT
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc427:                
-                        movabs  rdi, 405507872              #  store -> r
+                        movabs  rdi, 233611040              #  store -> r
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc428:                
 
@@ -1729,11 +1718,11 @@ main:
                         mov     edi, 74                     #  SM_STNO stno=74 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc429:                
-                        movabs  rdi, 405507904              #  str=", "
+                        movabs  rdi, 233611072              #  str=", "
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc430:                
-                        movabs  rdi, 405507936              #  store -> sep
+                        movabs  rdi, 233611104              #  store -> sep
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc431:                
 
@@ -1743,13 +1732,13 @@ main:
                         mov     edi, 75                     #  SM_STNO stno=75 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc432:                
-                        movabs  rdi, 405507968              #  var=c
+                        movabs  rdi, 233611136              #  var=c
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc433:                
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc434:                
-                        movabs  rdi, 405508032              #  store -> c
+                        movabs  rdi, 233611200              #  store -> c
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc435:                
                         jmp     .Lpc413                     #  SM_JUMP -> pc=413
@@ -1762,21 +1751,20 @@ main:
                         mov     edi, 76                     #  SM_STNO stno=76 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc438:                
-                        movabs  rdi, 405508128              #  var=r
+                        movabs  rdi, 233611296              #  var=r
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc439:                
-                        movabs  rdi, 405508160              #  str=")"
+                        movabs  rdi, 233611328              #  str=")"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc440:                
                         mov     edi, 23                     # SM_CONCAT
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc441:                
-                        movabs  rdi, 405508192              #  store -> node_repr
+                        movabs  rdi, 233611360              #  store -> node_repr
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc442:                
-                        mov     edi, 60                     # SM_RETURN
-                        call    scrip_rt_unhandled_op@PLT   
+                        ret                                 #  SM_RETURN
 .Lpc443:                
 .Lpc444:                
 
@@ -1793,7 +1781,7 @@ main:
                         mov     edi, 78                     #  SM_STNO stno=78 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc446:                
-                        movabs  rdi, 405508288              #  str="pp_node(node,indent,suffix)r,pad,c,nxt"
+                        movabs  rdi, 233611456              #  str="pp_node(node,indent,suffix)r,pad,c,nxt"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc447:                
@@ -1812,13 +1800,13 @@ main:
                         mov     edi, 79                     #  SM_STNO stno=79 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc452:                
-                        movabs  rdi, 405508464              #  var=node
+                        movabs  rdi, 233611632              #  var=node
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc453:                
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc454:                
-                        movabs  rdi, 405508528              #  store -> r
+                        movabs  rdi, 233611696              #  store -> r
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc455:                
 
@@ -1828,17 +1816,17 @@ main:
                         mov     edi, 80                     #  SM_STNO stno=80 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc456:                
-                        movabs  rdi, 405508560              #  str=" "
+                        movabs  rdi, 233611728              #  str=" "
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc457:                
-                        movabs  rdi, 405508592              #  var=indent
+                        movabs  rdi, 233611760              #  var=indent
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc458:                
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc459:                
-                        movabs  rdi, 405508656              #  store -> pad
+                        movabs  rdi, 233611824              #  store -> pad
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc460:                
 
@@ -1851,10 +1839,10 @@ main:
                         movabs  rdi, 80                     
                         call    scrip_rt_push_int@PLT       
 .Lpc462:                
-                        movabs  rdi, 405508688              #  var=indent
+                        movabs  rdi, 233611856              #  var=indent
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc463:                
-                        movabs  rdi, 405508720              #  var=r
+                        movabs  rdi, 233611888              #  var=r
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc464:                
                         mov     edi, 59                     # SM_CALL
@@ -1879,13 +1867,13 @@ main:
                         mov     edi, 82                     #  SM_STNO stno=82 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc470:                
-                        movabs  rdi, 405508848              #  var=pad
+                        movabs  rdi, 233612016              #  var=pad
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc471:                
-                        movabs  rdi, 405508880              #  var=r
+                        movabs  rdi, 233612048              #  var=r
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc472:                
-                        movabs  rdi, 405508912              #  var=suffix
+                        movabs  rdi, 233612080              #  var=suffix
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc473:                
                         mov     edi, 23                     # SM_CONCAT
@@ -1894,11 +1882,10 @@ main:
                         mov     edi, 23                     # SM_CONCAT
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc475:                
-                        movabs  rdi, 405508944              #  store -> OUTPUT
+                        movabs  rdi, 233612112              #  store -> OUTPUT
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc476:                
-                        mov     edi, 60                     # SM_RETURN
-                        call    scrip_rt_unhandled_op@PLT   
+                        ret                                 #  SM_RETURN
 .Lpc477:                
 .Lpc478:                
 
@@ -1908,24 +1895,24 @@ main:
                         mov     edi, 83                     #  SM_STNO stno=83 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc479:                
-                        movabs  rdi, 405509040              #  var=pad
+                        movabs  rdi, 233612208              #  var=pad
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc480:                
-                        movabs  rdi, 405509072              #  str="( "
+                        movabs  rdi, 233612240              #  str="( "
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc481:                
-                        movabs  rdi, 405509104              #  str="'"
+                        movabs  rdi, 233612272              #  str="'"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc482:                
-                        movabs  rdi, 405509136              #  var=node
+                        movabs  rdi, 233612304              #  var=node
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc483:                
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc484:                
-                        movabs  rdi, 405509200              #  str="',"
+                        movabs  rdi, 233612368              #  str="',"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc485:                
@@ -1941,7 +1928,7 @@ main:
                         mov     edi, 23                     # SM_CONCAT
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc489:                
-                        movabs  rdi, 405509232              #  store -> OUTPUT
+                        movabs  rdi, 233612400              #  store -> OUTPUT
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc490:                
 
@@ -1951,13 +1938,13 @@ main:
                         mov     edi, 84                     #  SM_STNO stno=84 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc491:                
-                        movabs  rdi, 405509264              #  var=node
+                        movabs  rdi, 233612432              #  var=node
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc492:                
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc493:                
-                        movabs  rdi, 405509328              #  store -> c
+                        movabs  rdi, 233612496              #  store -> c
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc494:                
 .Lpc495:                
@@ -1968,7 +1955,7 @@ main:
                         mov     edi, 85                     #  SM_STNO stno=85 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc496:                
-                        movabs  rdi, 405509424              #  var=c
+                        movabs  rdi, 233612592              #  var=c
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc497:                
                         mov     edi, 59                     # SM_CALL
@@ -1987,13 +1974,13 @@ main:
                         mov     edi, 86                     #  SM_STNO stno=86 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc501:                
-                        movabs  rdi, 405509520              #  var=c
+                        movabs  rdi, 233612688              #  var=c
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc502:                
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc503:                
-                        movabs  rdi, 405509584              #  store -> nxt
+                        movabs  rdi, 233612752              #  store -> nxt
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc504:                
 
@@ -2003,7 +1990,7 @@ main:
                         mov     edi, 87                     #  SM_STNO stno=87 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc505:                
-                        movabs  rdi, 405509616              #  var=nxt
+                        movabs  rdi, 233612784              #  var=nxt
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc506:                
                         mov     edi, 59                     # SM_CALL
@@ -2022,13 +2009,13 @@ main:
                         mov     edi, 88                     #  SM_STNO stno=88 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc510:                
-                        movabs  rdi, 405509712              #  var=c
+                        movabs  rdi, 233612880              #  var=c
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc511:                
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc512:                
-                        movabs  rdi, 405509776              #  var=indent
+                        movabs  rdi, 233612944              #  var=indent
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc513:                
                         movabs  rdi, 2                      
@@ -2037,7 +2024,7 @@ main:
                         mov     edi, 17                     # SM_ADD
                         call    scrip_rt_arith@PLT          
 .Lpc515:                
-                        movabs  rdi, 405509808              #  str=","
+                        movabs  rdi, 233612976              #  str=","
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc516:                
@@ -2053,10 +2040,10 @@ main:
                         mov     edi, 89                     #  SM_STNO stno=89 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc519:                
-                        movabs  rdi, 405509872              #  var=nxt
+                        movabs  rdi, 233613040              #  var=nxt
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc520:                
-                        movabs  rdi, 405509904              #  store -> c
+                        movabs  rdi, 233613072              #  store -> c
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc521:                
                         jmp     .Lpc494                     #  SM_JUMP -> pc=494
@@ -2069,13 +2056,13 @@ main:
                         mov     edi, 90                     #  SM_STNO stno=90 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc524:                
-                        movabs  rdi, 405510000              #  var=c
+                        movabs  rdi, 233613168              #  var=c
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc525:                
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc526:                
-                        movabs  rdi, 405510064              #  var=indent
+                        movabs  rdi, 233613232              #  var=indent
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc527:                
                         movabs  rdi, 2                      
@@ -2084,11 +2071,11 @@ main:
                         mov     edi, 17                     # SM_ADD
                         call    scrip_rt_arith@PLT          
 .Lpc529:                
-                        movabs  rdi, 405510096              #  str=")"
+                        movabs  rdi, 233613264              #  str=")"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc530:                
-                        movabs  rdi, 405510128              #  var=suffix
+                        movabs  rdi, 233613296              #  var=suffix
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc531:                
                         mov     edi, 23                     # SM_CONCAT
@@ -2099,8 +2086,7 @@ main:
 .Lpc533:                
                         call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
 .Lpc534:                
-                        mov     edi, 60                     # SM_RETURN
-                        call    scrip_rt_unhandled_op@PLT   
+                        ret                                 #  SM_RETURN
 .Lpc535:                
 .Lpc536:                
 
@@ -2110,8 +2096,7 @@ main:
                         mov     edi, 91                     #  SM_STNO stno=91 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc537:                
-                        mov     edi, 60                     # SM_RETURN
-                        call    scrip_rt_unhandled_op@PLT   
+                        ret                                 #  SM_RETURN
 .Lpc538:                
 .Lpc539:                
 
@@ -2128,7 +2113,7 @@ main:
                         mov     edi, 93                     #  SM_STNO stno=93 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc541:                
-                        movabs  rdi, 405510320              #  str="pp_bank()cur"
+                        movabs  rdi, 233613488              #  str="pp_bank()cur"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc542:                
@@ -2147,13 +2132,13 @@ main:
                         mov     edi, 94                     #  SM_STNO stno=94 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc547:                
-                        movabs  rdi, 405510480              #  var=bank
+                        movabs  rdi, 233613648              #  var=bank
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc548:                
                         movabs  rdi, 0                      
                         call    scrip_rt_push_int@PLT       
 .Lpc549:                
-                        movabs  rdi, 405510512              #  str=""
+                        movabs  rdi, 233613680              #  str=""
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc550:                
@@ -2169,18 +2154,17 @@ main:
                         mov     edi, 95                     #  SM_STNO stno=95 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc553:                
-                        movabs  rdi, 405510576              #  str="dummy"
+                        movabs  rdi, 233613744              #  str="dummy"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc554:                
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc555:                
-                        movabs  rdi, 405510640              #  store -> pp_bank
+                        movabs  rdi, 233613808              #  store -> pp_bank
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc556:                
-                        mov     edi, 60                     # SM_RETURN
-                        call    scrip_rt_unhandled_op@PLT   
+                        ret                                 #  SM_RETURN
 .Lpc557:                
 .Lpc558:                
 
@@ -2198,10 +2182,10 @@ main:
                         mov     edi, 97                     #  SM_STNO stno=97 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc561:                
-                        movabs  rdi, 405510800              #  var=INPUT
+                        movabs  rdi, 233613968              #  var=INPUT
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc562:                
-                        movabs  rdi, 405510832              #  store -> line
+                        movabs  rdi, 233614000              #  store -> line
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc563:                
                         call    scrip_rt_last_ok@PLT        #  EM-4 conditional jump
@@ -2215,13 +2199,13 @@ main:
                         mov     edi, 98                     #  SM_STNO stno=98 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc565:                
-                        movabs  rdi, 405510896              #  var=src
+                        movabs  rdi, 233614064              #  var=src
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc566:                
-                        movabs  rdi, 405510928              #  var=line
+                        movabs  rdi, 233614096              #  var=line
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc567:                
-                        movabs  rdi, 405510960              #  var=nl
+                        movabs  rdi, 233614128              #  var=nl
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc568:                
                         mov     edi, 23                     # SM_CONCAT
@@ -2230,7 +2214,7 @@ main:
                         mov     edi, 23                     # SM_CONCAT
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc570:                
-                        movabs  rdi, 405510992              #  store -> src
+                        movabs  rdi, 233614160              #  store -> src
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc571:                
                         jmp     .Lpc559                     #  SM_JUMP -> pc=559
@@ -2243,7 +2227,7 @@ main:
                         mov     edi, 99                     #  SM_STNO stno=99 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc574:                
-                        movabs  rdi, 405511088              #  var=treebank
+                        movabs  rdi, 233614256              #  var=treebank
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc575:                
 # -- BB box scaffold pc=575 op=SM_PAT_DEREF --
@@ -2256,7 +2240,7 @@ main:
                         mov     edi, 48                     #  UNHANDLED BB box
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc576:                
-                        movabs  rdi, 405511120              #  var=src
+                        movabs  rdi, 233614288              #  var=src
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc577:                
                         movabs  rdi, 0                      
@@ -2279,7 +2263,7 @@ main:
                         mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc582:                
-                        movabs  rdi, 405511216              #  store -> dummy
+                        movabs  rdi, 233614384              #  store -> dummy
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc583:                
                         jmp     .Lpc588                     #  SM_JUMP -> pc=588
@@ -2292,11 +2276,11 @@ main:
                         mov     edi, 101                    #  SM_STNO stno=101 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc586:                
-                        movabs  rdi, 405511344              #  str="Pattern match failed"
+                        movabs  rdi, 233614512              #  str="Pattern match failed"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc587:                
-                        movabs  rdi, 405511376              #  store -> OUTPUT
+                        movabs  rdi, 233614544              #  store -> OUTPUT
                         call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
 .Lpc588:                
 .Lpc589:                

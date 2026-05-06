@@ -28,7 +28,7 @@ main:
                         mov     edi, 2                      #  SM_STNO stno=2 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc1:                  
-                        movabs  rdi, 675779840              #  str="ROMAN(N)UNITS"
+                        movabs  rdi, 17515776               #  str="ROMAN(N)UNITS"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc2:                  
@@ -86,10 +86,10 @@ main:
                         mov     edi, 47                     #  UNHANDLED BB box
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc13:                 
-                        movabs  rdi, 675780032              #  var=N
+                        movabs  rdi, 17515968               #  var=N
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc14:                 
-                        movabs  rdi, 675761040              #  str=""
+                        movabs  rdi, 17496976               #  str=""
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc15:                 
@@ -106,7 +106,7 @@ main:
                         mov     edi, 6                      #  SM_STNO stno=6 (no-op stub)
                         call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc18:                 
-                        movabs  rdi, 675761072              #  var=UNITS
+                        movabs  rdi, 17497008               #  var=UNITS
                         call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc19:                 
 # -- BB box scaffold pc=19 op=SM_PAT_DEREF --
@@ -119,7 +119,7 @@ main:
                         mov     edi, 48                     #  UNHANDLED BB box
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc20:                 
-                        movabs  rdi, 675761104              #  str=","
+                        movabs  rdi, 17497040               #  str=","
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc21:                 
@@ -153,7 +153,7 @@ main:
                         mov     edi, 47                     #  UNHANDLED BB box
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc24:                 
-                        movabs  rdi, 675784128              #  str="0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
+                        movabs  rdi, 17520064               #  str="0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
                         mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc25:                 
