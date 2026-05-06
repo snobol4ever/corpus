@@ -1,5 +1,37 @@
+	.section .rodata
+.Lstr_0:
+	.string "TRIM"
+.Lstr_1:
+	.string "0123456789"
+.Lstr_2:
+	.string "NUMERALS"
+.Lstr_3:
+	.string "'-"
+.Lstr_4:
+	.string "UCASE"
+.Lstr_5:
+	.string "LCASE"
+.Lstr_6:
+	.string "WORD"
+.Lstr_7:
+	.string "WPAT"
+.Lstr_8:
+	.string "INPUT"
+.Lstr_9:
+	.string "LINE"
+.Lstr_10:
+	.string ""
+.Lstr_11:
+	.string "Ð;`ðU\177"
+.Lstr_12:
+	.string "N"
+.Lstr_13:
+	.string " words"
+.Lstr_14:
+	.string "OUTPUT"
+	.text
 # -----------------------------------------------------------------------
-# scrip --jit-emit --x64  (M-JITEM-X64 / EM-1..EM-4)
+# scrip --jit-emit --x64  (M-JITEM-X64 / EM-1..EM-6)
 # 53 SM instructions. Links against libscrip_rt.so.
 # Architecture: two emitters -- SM straight-line via sm_macros.s
 #   macros (inline x86); BB boxes via emit_bb_box() one-proc-per-box.
@@ -8,7 +40,6 @@
 	.intel_syntax noprefix
 # Include SM opcode macro library (one macro per opcode group)
 # .include "sm_macros.s"  # assembled separately; macros used by name below
-	.text
 	.globl  main
 	.type   main, @function
 main:
@@ -25,48 +56,42 @@ main:
 # ============================================================================
 # stmt 2  (line 2):  *     Tests: BREAK/SPAN word boundary detection, hyphenated and
 # ============================================================================
-                        mov     edi, 2                      #  SM_STNO stno=2 (no-op stub)
-                        call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc1:                  
                         movabs  rdi, 1                      
                         call    scrip_rt_push_int@PLT       
 .Lpc2:                  
-                        movabs  rdi, 916374912              #  store -> TRIM
-                        call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
+                        lea     rdi, [rip + .Lstr_0]        # store -> TRIM
+                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
 .Lpc3:                  
 
 # ============================================================================
 # stmt 3  (line 3):  *            apostrophe-joined words (it's, well-known count as one word each).
 # ============================================================================
-                        mov     edi, 3                      #  SM_STNO stno=3 (no-op stub)
-                        call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc4:                  
-                        movabs  rdi, 916374944              #  str="0123456789"
-                        mov     esi, 0                      #  slen
+                        lea     rdi, [rip + .Lstr_1]        # str="0123456789"
+                        mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc5:                  
-                        movabs  rdi, 916374976              #  store -> NUMERALS
-                        call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
+                        lea     rdi, [rip + .Lstr_2]        # store -> NUMERALS
+                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
 .Lpc6:                  
 
 # ============================================================================
 # stmt 4
 # ============================================================================
-                        mov     edi, 4                      #  SM_STNO stno=4 (no-op stub)
-                        call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc7:                  
-                        movabs  rdi, 916355984              #  str="'-"
-                        mov     esi, 0                      #  slen
+                        lea     rdi, [rip + .Lstr_3]        # str="'-"
+                        mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc8:                  
-                        movabs  rdi, 916356016              #  var=NUMERALS
-                        call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
+                        lea     rdi, [rip + .Lstr_2]        # var=NUMERALS
+                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc9:                  
-                        movabs  rdi, 916356048              #  var=UCASE
-                        call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
+                        lea     rdi, [rip + .Lstr_4]        # var=UCASE
+                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc10:                 
-                        movabs  rdi, 916356080              #  var=LCASE
-                        call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
+                        lea     rdi, [rip + .Lstr_5]        # var=LCASE
+                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc11:                 
                         mov     edi, 23                     # SM_CONCAT
                         call    scrip_rt_unhandled_op@PLT   
@@ -77,67 +102,45 @@ main:
                         mov     edi, 23                     # SM_CONCAT
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc14:                 
-                        movabs  rdi, 916356112              #  store -> WORD
-                        call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
+                        lea     rdi, [rip + .Lstr_6]        # store -> WORD
+                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
 .Lpc15:                 
 
 # ============================================================================
 # stmt 5  (line 5):        &TRIM    =  1
 # ============================================================================
-                        mov     edi, 5                      #  SM_STNO stno=5 (no-op stub)
-                        call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc16:                 
-                        movabs  rdi, 916356144              #  var=WORD
-                        call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
+                        lea     rdi, [rip + .Lstr_6]        # var=WORD
+                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc17:                 
-# -- BB box scaffold pc=17 op=SM_PAT_BREAK --
-# proc .bb_box_17
-#   .alpha:   (not yet baked)
-#   .beta:    (not yet baked)
-#   .gamma:   (connected to next box alpha)
-#   .omega:   (connected to enclosing beta)
-# endp
-                        mov     edi, 30                     #  UNHANDLED BB box
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_break@PLT      # PAT_BREAK
 .Lpc18:                 
-                        mov     edi, 82                     # SM_PAT_BOXVAL
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_boxval@PLT     # PAT_BOXVAL
 .Lpc19:                 
-                        movabs  rdi, 916356176              #  var=WORD
-                        call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
+                        lea     rdi, [rip + .Lstr_6]        # var=WORD
+                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc20:                 
-# -- BB box scaffold pc=20 op=SM_PAT_SPAN --
-# proc .bb_box_20
-#   .alpha:   (not yet baked)
-#   .beta:    (not yet baked)
-#   .gamma:   (connected to next box alpha)
-#   .omega:   (connected to enclosing beta)
-# endp
-                        mov     edi, 29                     #  UNHANDLED BB box
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_span@PLT       # PAT_SPAN
 .Lpc21:                 
-                        mov     edi, 82                     # SM_PAT_BOXVAL
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_boxval@PLT     # PAT_BOXVAL
 .Lpc22:                 
                         mov     edi, 23                     # SM_CONCAT
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc23:                 
-                        movabs  rdi, 916356208              #  store -> WPAT
-                        call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
+                        lea     rdi, [rip + .Lstr_7]        # store -> WPAT
+                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
 .Lpc24:                 
 .Lpc25:                 
 
 # ============================================================================
 # stmt 6  (line 9):  NEXTL LINE     =  INPUT                            :F(DONE)
 # ============================================================================
-                        mov     edi, 6                      #  SM_STNO stno=6 (no-op stub)
-                        call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc26:                 
-                        movabs  rdi, 916356304              #  var=INPUT
-                        call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
+                        lea     rdi, [rip + .Lstr_8]        # var=INPUT
+                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc27:                 
-                        movabs  rdi, 916356336              #  store -> LINE
-                        call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
+                        lea     rdi, [rip + .Lstr_9]        # store -> LINE
+                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
 .Lpc28:                 
                         call    scrip_rt_last_ok@PLT        #  EM-4 conditional jump
                         test    eax, eax                    
@@ -148,31 +151,22 @@ main:
 # ============================================================================
 # stmt 7  (line 10):  NEXTW LINE     ?  WPAT =                           :F(NEXTL)
 # ============================================================================
-                        mov     edi, 7                      #  SM_STNO stno=7 (no-op stub)
-                        call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc31:                 
-                        movabs  rdi, 916356464              #  var=WPAT
-                        call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
+                        lea     rdi, [rip + .Lstr_7]        # var=WPAT
+                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc32:                 
-# -- BB box scaffold pc=32 op=SM_PAT_DEREF --
-# proc .bb_box_32
-#   .alpha:   (not yet baked)
-#   .beta:    (not yet baked)
-#   .gamma:   (connected to next box alpha)
-#   .omega:   (connected to enclosing beta)
-# endp
-                        mov     edi, 48                     #  UNHANDLED BB box
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_deref@PLT      # PAT_DEREF
 .Lpc33:                 
-                        movabs  rdi, 916356496              #  var=LINE
-                        call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
+                        lea     rdi, [rip + .Lstr_9]        # var=LINE
+                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc34:                 
-                        movabs  rdi, 916356528              #  str=""
-                        mov     esi, 0                      #  slen
+                        lea     rdi, [rip + .Lstr_10]       # str=""
+                        mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc35:                 
-                        mov     edi, 55                     # SM_EXEC_STMT
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_11]       # subj=Ð;`ðU
+                        mov     esi, 1                      # has_repl=1
+                        call    scrip_rt_exec_stmt@PLT      # SM_EXEC_STMT
 .Lpc36:                 
                         call    scrip_rt_last_ok@PLT        #  EM-4 conditional jump
                         test    eax, eax                    
@@ -182,11 +176,9 @@ main:
 # ============================================================================
 # stmt 8  (line 8):        WPAT     =  BREAK(WORD) SPAN(WORD)
 # ============================================================================
-                        mov     edi, 8                      #  SM_STNO stno=8 (no-op stub)
-                        call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc38:                 
-                        movabs  rdi, 916356560              #  var=N
-                        call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
+                        lea     rdi, [rip + .Lstr_12]       # var=N
+                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc39:                 
                         movabs  rdi, 1                      
                         call    scrip_rt_push_int@PLT       
@@ -194,8 +186,8 @@ main:
                         mov     edi, 17                     # SM_ADD
                         call    scrip_rt_arith@PLT          
 .Lpc41:                 
-                        movabs  rdi, 916356592              #  store -> N
-                        call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
+                        lea     rdi, [rip + .Lstr_12]       # store -> N
+                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
 .Lpc42:                 
                         jmp     .Lpc29                      #  SM_JUMP -> pc=29
 .Lpc43:                 
@@ -204,36 +196,30 @@ main:
 # ============================================================================
 # stmt 9  (line 12):  DONE  OUTPUT   =  +N ' words'
 # ============================================================================
-                        mov     edi, 9                      #  SM_STNO stno=9 (no-op stub)
-                        call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc45:                 
-                        movabs  rdi, 916356688              #  var=N
-                        call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
+                        lea     rdi, [rip + .Lstr_12]       # var=N
+                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc46:                 
                         mov     edi, 24                     # SM_COERCE_NUM
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc47:                 
-                        movabs  rdi, 916356720              #  str=" words"
-                        mov     esi, 0                      #  slen
+                        lea     rdi, [rip + .Lstr_13]       # str=" words"
+                        mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc48:                 
                         mov     edi, 23                     # SM_CONCAT
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc49:                 
-                        movabs  rdi, 916356752              #  store -> OUTPUT
-                        call    scrip_rt_nv_set@PLT         #  SM_STORE_VAR pop TOS
+                        lea     rdi, [rip + .Lstr_14]       # store -> OUTPUT
+                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
 .Lpc50:                 
 .Lpc51:                 
 
 # ============================================================================
 # stmt 10  (line 10):  NEXTW LINE     ?  WPAT =                           :F(NEXTL)
 # ============================================================================
-                        mov     edi, 10                     #  SM_STNO stno=10 (no-op stub)
-                        call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc52:                 
-                        call    scrip_rt_pop_int@PLT        #  rc <- TOS
-                        mov     edi, eax                    
-                        call    scrip_rt_halt@PLT           
+                        call    scrip_rt_halt_tos@PLT       # SM_HALT
 	# -- epilogue -------------------------------------------
 	call    scrip_rt_finalize@PLT
 	pop     rbp

@@ -1,5 +1,23 @@
+	.section .rodata
+.Lstr_0:
+	.string "ROMAN(N)UNITS"
+.Lstr_1:
+	.string "DEFINE"
+.Lstr_2:
+	.string "UNITS"
+.Lstr_3:
+	.string "N"
+.Lstr_4:
+	.string ""
+.Lstr_5:
+	.string "pI*"
+.Lstr_6:
+	.string ","
+.Lstr_7:
+	.string "0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
+	.text
 # -----------------------------------------------------------------------
-# scrip --jit-emit --x64  (M-JITEM-X64 / EM-1..EM-4)
+# scrip --jit-emit --x64  (M-JITEM-X64 / EM-1..EM-6)
 # 29 SM instructions. Links against libscrip_rt.so.
 # Architecture: two emitters -- SM straight-line via sm_macros.s
 #   macros (inline x86); BB boxes via emit_bb_box() one-proc-per-box.
@@ -8,7 +26,6 @@
 	.intel_syntax noprefix
 # Include SM opcode macro library (one macro per opcode group)
 # .include "sm_macros.s"  # assembled separately; macros used by name below
-	.text
 	.globl  main
 	.type   main, @function
 main:
@@ -25,11 +42,9 @@ main:
 # ============================================================================
 # stmt 2  (line 2):  *	N must be positive and less than 4000
 # ============================================================================
-                        mov     edi, 2                      #  SM_STNO stno=2 (no-op stub)
-                        call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc1:                  
-                        movabs  rdi, 17515776               #  str="ROMAN(N)UNITS"
-                        mov     esi, 0                      #  slen
+                        lea     rdi, [rip + .Lstr_0]        # str="ROMAN(N)UNITS"
+                        mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc2:                  
                         mov     edi, 59                     # SM_CALL
@@ -44,57 +59,33 @@ main:
 # ============================================================================
 # stmt 4  (line 10):  ROMAN	N RPOS(1) LEN(1) . UNITS =	:F(RETURN)
 # ============================================================================
-                        mov     edi, 4                      #  SM_STNO stno=4 (no-op stub)
-                        call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc7:                  
                         movabs  rdi, 1                      
                         call    scrip_rt_push_int@PLT       
 .Lpc8:                  
-                        mov     edi, 33                     # SM_PAT_RPOS
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_rpos@PLT       # PAT_RPOS
 .Lpc9:                  
                         movabs  rdi, 1                      
                         call    scrip_rt_push_int@PLT       
 .Lpc10:                 
-# -- BB box scaffold pc=10 op=SM_PAT_LEN --
-# proc .bb_box_10
-#   .alpha:   (not yet baked)
-#   .beta:    (not yet baked)
-#   .gamma:   (connected to next box alpha)
-#   .omega:   (connected to enclosing beta)
-# endp
-                        mov     edi, 31                     #  UNHANDLED BB box
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_len@PLT        # PAT_LEN
 .Lpc11:                 
-# -- BB box scaffold pc=11 op=SM_PAT_CAPTURE --
-# proc .bb_box_11
-#   .alpha:   (not yet baked)
-#   .beta:    (not yet baked)
-#   .gamma:   (connected to next box alpha)
-#   .omega:   (connected to enclosing beta)
-# endp
-                        mov     edi, 50                     #  UNHANDLED BB box
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_2]        # PAT_CAPTURE UNITS kind=0
+                        mov     esi, 0                      
+                        call    scrip_rt_pat_capture@PLT    
 .Lpc12:                 
-# -- BB box scaffold pc=12 op=SM_PAT_CAT --
-# proc .bb_box_12
-#   .alpha:   (not yet baked)
-#   .beta:    (not yet baked)
-#   .gamma:   (connected to next box alpha)
-#   .omega:   (connected to enclosing beta)
-# endp
-                        mov     edi, 47                     #  UNHANDLED BB box
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_cat@PLT        # PAT_CAT
 .Lpc13:                 
-                        movabs  rdi, 17515968               #  var=N
-                        call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
+                        lea     rdi, [rip + .Lstr_3]        # var=N
+                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc14:                 
-                        movabs  rdi, 17496976               #  str=""
-                        mov     esi, 0                      #  slen
+                        lea     rdi, [rip + .Lstr_4]        # str=""
+                        mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc15:                 
-                        mov     edi, 55                     # SM_EXEC_STMT
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_5]        # subj=pI*
+                        mov     esi, 1                      # has_repl=1
+                        call    scrip_rt_exec_stmt@PLT      # SM_EXEC_STMT
 .Lpc16:                 
                         mov     edi, 64                     # SM_RETURN_F
                         call    scrip_rt_unhandled_op@PLT   
@@ -103,72 +94,39 @@ main:
 # ============================================================================
 # stmt 6  (line 6):  	DEFINE('ROMAN(N)UNITS')		:(ROMAN_END)
 # ============================================================================
-                        mov     edi, 6                      #  SM_STNO stno=6 (no-op stub)
-                        call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc18:                 
-                        movabs  rdi, 17497008               #  var=UNITS
-                        call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
+                        lea     rdi, [rip + .Lstr_2]        # var=UNITS
+                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc19:                 
-# -- BB box scaffold pc=19 op=SM_PAT_DEREF --
-# proc .bb_box_19
-#   .alpha:   (not yet baked)
-#   .beta:    (not yet baked)
-#   .gamma:   (connected to next box alpha)
-#   .omega:   (connected to enclosing beta)
-# endp
-                        mov     edi, 48                     #  UNHANDLED BB box
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_deref@PLT      # PAT_DEREF
 .Lpc20:                 
-                        movabs  rdi, 17497040               #  str=","
-                        mov     esi, 0                      #  slen
+                        lea     rdi, [rip + .Lstr_6]        # str=","
+                        mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc21:                 
-# -- BB box scaffold pc=21 op=SM_PAT_BREAK --
-# proc .bb_box_21
-#   .alpha:   (not yet baked)
-#   .beta:    (not yet baked)
-#   .gamma:   (connected to next box alpha)
-#   .omega:   (connected to enclosing beta)
-# endp
-                        mov     edi, 30                     #  UNHANDLED BB box
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_break@PLT      # PAT_BREAK
 .Lpc22:                 
-# -- BB box scaffold pc=22 op=SM_PAT_CAPTURE --
-# proc .bb_box_22
-#   .alpha:   (not yet baked)
-#   .beta:    (not yet baked)
-#   .gamma:   (connected to next box alpha)
-#   .omega:   (connected to enclosing beta)
-# endp
-                        mov     edi, 50                     #  UNHANDLED BB box
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_2]        # PAT_CAPTURE UNITS kind=0
+                        mov     esi, 0                      
+                        call    scrip_rt_pat_capture@PLT    
 .Lpc23:                 
-# -- BB box scaffold pc=23 op=SM_PAT_CAT --
-# proc .bb_box_23
-#   .alpha:   (not yet baked)
-#   .beta:    (not yet baked)
-#   .gamma:   (connected to next box alpha)
-#   .omega:   (connected to enclosing beta)
-# endp
-                        mov     edi, 47                     #  UNHANDLED BB box
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_cat@PLT        # PAT_CAT
 .Lpc24:                 
-                        movabs  rdi, 17520064               #  str="0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
-                        mov     esi, 0                      #  slen
+                        lea     rdi, [rip + .Lstr_7]        # str="0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
+                        mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc25:                 
                         movabs  rdi, 0                      
                         call    scrip_rt_push_int@PLT       
 .Lpc26:                 
-                        mov     edi, 55                     # SM_EXEC_STMT
-                        call    scrip_rt_unhandled_op@PLT   
+                        xor     edi, edi                    # subj=NULL (anonymous)
+                        mov     esi, 0                      # has_repl=0
+                        call    scrip_rt_exec_stmt@PLT      # SM_EXEC_STMT
 .Lpc27:                 
                         mov     edi, 66                     # SM_FRETURN_F
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc28:                 
-                        call    scrip_rt_pop_int@PLT        #  rc <- TOS
-                        mov     edi, eax                    
-                        call    scrip_rt_halt@PLT           
+                        call    scrip_rt_halt_tos@PLT       # SM_HALT
 	# -- epilogue -------------------------------------------
 	call    scrip_rt_finalize@PLT
 	pop     rbp
