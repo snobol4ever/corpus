@@ -107,6 +107,7 @@ $'unless' = $' ' 'unless';  $'until'  = $' ' 'until';
 $'given'  = $' ' 'given' ;  $'when'   = $' ' 'when'  ;
 $'default' = $' ' 'default';
 $'print'  = $' ' 'print'  ;  $'die'    = $' ' 'die'    ;
+$'try'    = $' ' 'try'    ;  $'CATCH'  = $' ' ('CATCH' | 'catch');
 $'eq'     = $' ' 'eq' $' ';  $'ne'   = $' ' 'ne' $' ';
 $'div'    = $' ' 'div' $' ';  $'%'   = $' ' '%'  $' ';
 /*====================================================================================================================*/
@@ -765,6 +766,30 @@ function finish_die(arg, fn, node) {
 }
 Finish_die = (epsilon . *finish_die());
 /*--------------------------------------------------------------------------------------------------------------------*/
+// finish_try — try block [CATCH block] → (E_FNC raku_try (E_VAR raku_try) try_blk [catch_blk]).
+// Mirrors raku.y KW_TRY block [KW_CATCH block].
+// try_has_catch global: 1 if CATCH block present, 0 otherwise.
+// Uses EQ predicate (not bare if) per cross-PARSER style note from RK-17.
+// Retained: conditional 2-arg vs 1-arg E_FNC build cannot be expressed in reduce().
+/*--------------------------------------------------------------------------------------------------------------------*/
+try_has_catch = 0;
+function finish_try(catch_blk, try_blk, fn, node) {
+    if (EQ(try_has_catch, 1)) catch_blk = Pop();
+    try_blk = Pop();
+    fn   = tree('E_VAR', 'raku_try');
+    node = tree('E_FNC', 'raku_try');
+    Append(node, fn);
+    Append(node, try_blk);
+    if (EQ(try_has_catch, 1)) Append(node, catch_blk);
+    try_has_catch = 0;
+    Push(node);
+    finish_try = .dummy;
+    nreturn;
+}
+function set_has_catch() { try_has_catch = 1; set_has_catch = .dummy; nreturn; }
+Finish_try   = (epsilon . *finish_try());
+Set_has_catch = (epsilon . *set_has_catch());
+/*--------------------------------------------------------------------------------------------------------------------*/
 // store_for_iter — stash for-loopvar name from capff/capfr.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function store_for_iter(vf, vr) {
@@ -1203,7 +1228,18 @@ PrintStmt = ( $'print'
               Expr  $';'  Finish_print
             );
 
+// TryStmt — try block [CATCH block] → (E_FNC raku_try ...).
+// Mirrors raku.y KW_TRY block [KW_CATCH block].
+TryStmt = ( $'try'
+            Block
+            ( $'CATCH'  Block  Set_has_catch
+            | epsilon
+            )
+            Finish_try
+          );
+
 Stmt = ( GivenStmt
+       | TryStmt
        | IfStmt
        | WhileStmt
        | UnlessStmt
@@ -1220,10 +1256,10 @@ Stmt = ( GivenStmt
        );
 
 // BlockStmt — final binding.
-BlockStmt = ( GivenStmt | IfStmt | WhileStmt | UnlessStmt | UntilStmt | ForRangeStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ReturnStmt | AssignStmt | SayStmt | PrintStmt | BareStmt );
+BlockStmt = ( GivenStmt | TryStmt | IfStmt | WhileStmt | UnlessStmt | UntilStmt | ForRangeStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ReturnStmt | AssignStmt | SayStmt | PrintStmt | BareStmt );
 
 // SubBlockStmt — SubBlock_body handles nInc per stmt.
-SubBlockStmt = ( GivenStmt | IfStmt | WhileStmt | UnlessStmt | UntilStmt | ForRangeStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ReturnStmt | AssignStmt | SayStmt | PrintStmt | BareStmt );
+SubBlockStmt = ( GivenStmt | TryStmt | IfStmt | WhileStmt | UnlessStmt | UntilStmt | ForRangeStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ReturnStmt | AssignStmt | SayStmt | PrintStmt | BareStmt );
 /*====================================================================================================================*/
 // Sub parameter list — each param shifts (E_VAR name) onto sub counter frame.
 /*====================================================================================================================*/
