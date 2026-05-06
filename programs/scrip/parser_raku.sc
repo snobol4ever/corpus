@@ -76,6 +76,7 @@ E_SEQ       = "'E_SEQ'";      E_ALT      = "'E_ALT'";
 E_CAT       = "'E_CAT'";
 E_LEQ       = "'E_LEQ'";      E_LNE      = "'E_LNE'";
 E_MNS       = "'E_MNS'";      E_MOD      = "'E_MOD'";
+E_CASE      = "'E_CASE'";     E_NUL      = "'E_NUL'";
 E_Parse     = "'Parse'";
 /*====================================================================================================================*/
 // Whitespace primitives.  White / Gray are the cross-parser canonical names;
@@ -103,6 +104,8 @@ $'while'  = $' ' 'while' ;  $'for'    = $' ' 'for'   ;
 $'sub'    = $' ' 'sub'   ;  $'return' = $' ' 'return';
 $'exists' = $' ' 'exists';  $'delete' = $' ' 'delete';
 $'unless' = $' ' 'unless';  $'until'  = $' ' 'until';
+$'given'  = $' ' 'given' ;  $'when'   = $' ' 'when'  ;
+$'default' = $' ' 'default';
 $'eq'     = $' ' 'eq' $' ';  $'ne'   = $' ' 'ne' $' ';
 $'div'    = $' ' 'div' $' ';  $'%'   = $' ' '%'  $' ';
 /*====================================================================================================================*/
@@ -623,6 +626,61 @@ function finish_mns(inner, node) {
 }
 Finish_mns = (epsilon . *finish_mns());
 /*--------------------------------------------------------------------------------------------------------------------*/
+// finish_given — given/when/default → E_CASE node.
+//
+// Stack on entry (bottom to top):
+//   topic
+//   [cmpnode val body] × n_whens    (each WhenClause pushed these 3 in order)
+//   [default_body]                   (if given_has_def == 1; pushed by DefaultClause)
+//
+// E_CASE structure mirrors raku.y given_stmt:
+//   (E_CASE topic [E_ILIT(cmp) val body]* [(E_NUL)(E_NUL) default]?)
+//
+// cmp kind: E_QLIT val → 73 (E_LEQ); other → 67 (E_EQ).  Mirrors raku.y
+//   when_list: cmp=($3->kind==E_QLIT)?E_LEQ:E_EQ.
+//
+// Retained: must build E_CASE with variable arity from n counter + flag; reduce()
+// cannot conditionally append E_NUL sentinels or inspect child tags.
+/*--------------------------------------------------------------------------------------------------------------------*/
+given_has_def = 0;
+function finish_given(n_whens, def_body, kids, ec, i, cmpkind, cmpnode, val, body) {
+    n_whens = TopCounter();
+    if (EQ(given_has_def, 1)) def_body = Pop();
+    // Pop when-pairs in reverse — each WhenClause pushed (val, body) then called nInc().
+    kids = GT(n_whens, 0) ARRAY('1:' (n_whens * 2));
+    i = n_whens * 2;
+    while (GT(i, 0)) { kids[i] = Pop(); i = i - 1; }
+    // topic is now on top
+    ec = tree('E_CASE', '');
+    Append(ec, Pop());
+    // Append each when-triple (cmpnode, val, body) in order.
+    // cmp kind: E_QLIT val → 73 (E_LEQ), else → 67 (E_EQ).  Mirrors raku.y.
+    i = 1;
+    while (LE(i, n_whens)) {
+        val  = kids[(i - 1) * 2 + 1];
+        body = kids[(i - 1) * 2 + 2];
+        if (IDENT(t(val), 'E_QLIT')) { cmpkind = '73'; } else { cmpkind = '67'; }
+        cmpnode = tree('E_ILIT', cmpkind);
+        Append(ec, cmpnode);
+        Append(ec, val);
+        Append(ec, body);
+        i = i + 1;
+    }
+    // default arm: sentinel (E_NUL)(E_NUL) then body
+    if (EQ(given_has_def, 1)) {
+        Append(ec, tree('E_NUL', ''));
+        Append(ec, tree('E_NUL', ''));
+        Append(ec, def_body);
+    }
+    given_has_def = 0;
+    Push(ec);
+    finish_given = .dummy;
+    nreturn;
+}
+function set_has_def() { given_has_def = 1; set_has_def = .dummy; nreturn; }
+Finish_given = (epsilon . *finish_given());
+Set_has_def  = (epsilon . *set_has_def());
+/*--------------------------------------------------------------------------------------------------------------------*/
 // finish_say — say → write name remap.  Pops arg, builds E_FNC write.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_say(arg, fn, node) {
@@ -1037,9 +1095,39 @@ SayStmt = ( $'say'
             Expr  $';'  Finish_say
           );
 
+// WhenClause — when Expr Block → push val + body, count.
+// Mirrors raku.y when_list item: expr block pair.
+// Leading nl_opt handles newlines between when-clauses inside the { }.
+WhenClause = ( nl_opt $'when' $'  '
+               Expr          // val pushed on stack by Expr
+               Block         // body (E_SEQ_EXPR) pushed by Block
+               nInc()
+             );
+
+// DefaultClause — default Block → push body, set given_has_def flag.
+// Leading nl_opt handles newline before 'default' inside the { }.
+DefaultClause = ( nl_opt $'default'
+                  Block
+                  Set_has_def
+                );
+
+// GivenStmt — given Expr { WhenClause* [default Block] }
+// Mirrors raku.y given_stmt.  nPush()/nPop() count when-clauses.
+GivenStmt = ( $'given' $'  '
+              Expr
+              nPush()
+              nl_opt $'{'
+              ARBNO( *WhenClause )
+              (DefaultClause | epsilon)
+              nl_opt $'}'
+              Finish_given
+              nPop()
+            );
+
 BareStmt = ( Expr $';' );
 
-Stmt = ( IfStmt
+Stmt = ( GivenStmt
+       | IfStmt
        | WhileStmt
        | UnlessStmt
        | UntilStmt
@@ -1054,10 +1142,10 @@ Stmt = ( IfStmt
        );
 
 // BlockStmt — final binding.
-BlockStmt = ( IfStmt | WhileStmt | UnlessStmt | UntilStmt | ForRangeStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ReturnStmt | AssignStmt | SayStmt | BareStmt );
+BlockStmt = ( GivenStmt | IfStmt | WhileStmt | UnlessStmt | UntilStmt | ForRangeStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ReturnStmt | AssignStmt | SayStmt | BareStmt );
 
 // SubBlockStmt — SubBlock_body handles nInc per stmt.
-SubBlockStmt = ( IfStmt | WhileStmt | UnlessStmt | UntilStmt | ForRangeStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ReturnStmt | AssignStmt | SayStmt | BareStmt );
+SubBlockStmt = ( GivenStmt | IfStmt | WhileStmt | UnlessStmt | UntilStmt | ForRangeStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ReturnStmt | AssignStmt | SayStmt | BareStmt );
 /*====================================================================================================================*/
 // Sub parameter list — each param shifts (E_VAR name) onto sub counter frame.
 /*====================================================================================================================*/
