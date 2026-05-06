@@ -591,7 +591,7 @@ if_cmd          =   nInc()
                     $'{' Body('if_nthen') $'}'
                     ( $'else'
                       ( $'{'  Body('if_nelse') $'}'
-                      | nPush() if_cmd Save_nbody('if_nelse') nPop()
+                      | nPush() *if_cmd Save_nbody('if_nelse') nPop()
                       )
                       Finalize_if_else('if_nthen', 'if_nelse')
                     | Finalize_if('if_nthen')
