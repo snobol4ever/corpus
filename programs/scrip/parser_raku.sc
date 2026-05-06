@@ -248,6 +248,8 @@ capsnf        = '';
 capsnr        = '';
 cappf         = '';
 cappr         = '';
+capmf         = '';
+capmr         = '';
 sub_list   = '';
 gather_seq = 0;
 
@@ -1001,6 +1003,51 @@ function finish_call(n_kids, kids, fname, efnc, i) {
 }
 Finish_call  = (epsilon . *finish_call());
 /*--------------------------------------------------------------------------------------------------------------------*/
+// finish_mcall — method call: $obj.meth(args).
+// Counter frame holds N args (already on stack above obj).
+// Builds (E_FNC raku_mcall (E_VAR raku_mcall) obj (E_QLIT mname) arg1..argN).
+// Retained: reduce() sets value=''; raku_mcall name required in E_FNC.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_mcall(n_args, args, obj, mname, efnc, i) {
+    n_args = TopCounter();
+    args   = GT(n_args, 0) ARRAY('1:' n_args);
+    i = n_args;
+    while (GT(i, 0)) {
+        args[i] = Pop();
+        i = i - 1;
+    }
+    obj   = Pop();
+    mname = capmf capmr;
+    efnc  = tree('E_FNC', 'raku_mcall');
+    Append(efnc, tree('E_VAR', 'raku_mcall'));
+    Append(efnc, obj);
+    Append(efnc, tree('E_QLIT', mname));
+    i = 1;
+    while (LE(i, n_args)) {
+        Append(efnc, args[i]);
+        i = i + 1;
+    }
+    Push(efnc);
+    finish_mcall = .dummy;
+    nreturn;
+}
+Finish_mcall = (epsilon . *finish_mcall());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_field — field access: $obj.field (no parens).
+// Pops obj, builds (E_FIELD mname obj) using capmf/capmr.
+// Retained: reduce() can't set the sval field of E_FIELD; helper required.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_field(obj, mname, ef) {
+    obj   = Pop();
+    mname = capmf capmr;
+    ef    = tree('E_FIELD', mname);
+    Append(ef, obj);
+    Push(ef);
+    finish_field = .dummy;
+    nreturn;
+}
+Finish_field = (epsilon . *finish_field());
+/*--------------------------------------------------------------------------------------------------------------------*/
 function finish_main(n_kids, kids, efnc, subj, stmt, i) {
     n_kids = TopCounter();
     kids   = GT(n_kids, 0) ARRAY('1:' n_kids);
@@ -1124,7 +1171,42 @@ Flatten_cat = (epsilon . *flatten_cat());
 
 CallArgTail = ( $','  *Expr  nInc() );
 
-// Expr11 — primary.
+// McallArgTail — comma-separated method args inside .meth(arg, ...).
+// Defined before Expr11 (same forward-ref rule as CallArgTail).
+
+McallArgTail = ( $','  *Expr  nInc() );
+
+// MethodName — bare identifier for method/field name (no leading whitespace;
+// '.' immediately precedes it in the subject).
+// Uses same char class as CallName (fnf/fnro) but captures into capmf/capmr.
+
+MethodName = ( fnf . capmf fnro . capmr );
+
+// MethodTail — postfix .method(args) or .field on any primary expression.
+// Fires against the primary already on the stack.  Two arms:
+//   with parens:  '.' MethodName '(' [args] ')' → raku_mcall node
+//   without parens: '.' MethodName               → E_FIELD node
+// Defined before Expr11 (deferred *MethodTail reference).
+// No whitespace around '.' — Raku method-call syntax requires contiguous dot.
+
+MethodTail = FENCE(
+    '.' MethodName
+    FENCE(
+        '('
+        nPush()
+        ( *Expr              nInc()
+          ARBNO( *McallArgTail )
+        | epsilon
+        )
+        $')'                 Finish_mcall
+        nPop()
+      | epsilon              Finish_field
+    )
+);
+
+// Expr11 — primary, optionally followed by method-call/field postfixes.
+// ARBNO(*MethodTail) uses deferred lookup because MethodTail is defined
+// after Expr11 would otherwise capture it as epsilon.
 
 Expr11 = ( $'!'  *Expr11  Finish_not
          | ($' ' '-')  *Expr11  Finish_mns
@@ -1161,7 +1243,8 @@ Expr11 = ( $'!'  *Expr11  Finish_not
              $')'                 Finish_call
              nPop()
            )
-         );
+         )
+         ARBNO(*MethodTail);
 
 // Expr7 — multiplicative (* /).
 // Flatten_mul / Flatten_div produce n-ary (E_MUL a b c) matching the C oracle.

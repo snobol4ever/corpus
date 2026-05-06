@@ -1,0 +1,15 @@
+(STMT :subj (E_FNC main
+  (E_VAR main)
+  (E_ASSIGN
+    (E_VAR s)
+    (E_QLIT "hello")
+  )
+  (E_FNC write
+    (E_VAR write)
+    (E_FNC raku_mcall
+      (E_VAR raku_mcall)
+      (E_VAR s)
+      (E_QLIT "chars")
+    )
+  )
+))
