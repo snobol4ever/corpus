@@ -147,6 +147,13 @@ $';'        = $' '  ';'        $' ';
 $'{'        = $' '  '{'        $' ';
 $'}'        = $' '  '}'        $' ';
 $':'        = $' '  ':'        $' ';
+//  Augmented assignment operators — ordered longest-first to avoid prefix match.
+$'||:='     = $' '  '||:='     $' ';
+$'+:='      = $' '  '+:='      $' ';
+$'-:='      = $' '  '-:='      $' ';
+$':=:'      = $' '  ':=:'      $' ';
+//  Range subscript operator  a[i +: n]
+$'+:'       = $' '  '+:'       $' ';
 //  Pattern capture operator wrappers — REQUIRED whitespace before '.' / '$' so
 //  that tight forms (handled by Id absorbing embedded '.') do not match.
 //  Trailing whitespace is optional (mirrors oracle's tolerance for `x .y`).
@@ -210,6 +217,16 @@ REPLN     = 'REPLN';
 RB_CASE   = 'RB_CASE';
 E_CAPT_COND = 'E_CAPT_COND_ASGN';
 E_CAPT_IMM  = 'E_CAPT_IMMED_ASGN';
+E_INDIRECT  = 'E_INDIRECT';
+E_ITERATE   = 'E_ITERATE';
+E_CAPT_CURSOR = 'E_CAPT_CURSOR';
+EXCHG       = 'EXCHG';
+ADDASSIGN   = 'ADDASSIGN';
+SUBASSIGN   = 'SUBASSIGN';
+CATASSIGN   = 'CATASSIGN';
+E_NOTPAT    = 'E_NOTPAT';
+E_BANGPAT   = 'E_BANGPAT';
+E_VALUEPAT  = 'E_VALUEPAT';
 
 nTop_count   = 'nTop()';
 
@@ -281,6 +298,17 @@ function Push_keyword() {
     return;
 }
 
+rbCursorName = '';
+function push_cursor() {
+    push_cursor = .dummy;
+    Push(tree(E_CAPT_CURSOR, REPLACE(rbCursorName, &LCASE, &UCASE)));
+    nreturn;
+}
+function Push_cursor() {
+    Push_cursor = epsilon . *push_cursor();
+    return;
+}
+
 //  (Field-access helpers removed in RB-FW-5 — extended Id now absorbs
 //  embedded '.' so r.field is one Id, matching rebus.l IDENT regex.
 //  Spaced '.' is now the postfix capture operator dot_capt.)
@@ -304,18 +332,21 @@ call_or_id = FENCE(  (*Id . rbCallName) $'(' nPush() Push_call_id()
 
 primary = FENCE(  *String  Push_qlit()
                 | KW_open (*KW_body . rbKwName) Push_keyword()
+                | '@' (*Id . rbCursorName) Push_cursor()
                 | shift(*Real, E_FLIT)
                 | shift(*Integer, E_ILIT)
                 | *call_or_id
                 | '(' *expr ')'
                );
 
-//  postfix_expr — subscript a[i], pattern capture pat . var and pat $ var.
-//  Field-access r.field is now folded into Id (which permits embedded '.'),
-//  matching the rebus.l IDENT regex.  Spaced '.' / '$' between expressions
-//  reach this rule and produce capture trees.
+//  postfix_expr — subscript a[i], range a[i +: n], pattern capture pat . var / pat $ var.
+//  Range [i +: n] must precede plain [i] in the alternation — both start with $'['.
+//  Oracle emits a[i +: n] as E_IDX(a, E_IDX(i, n)) — two nested reduces of 2.
+//  Field-access r.field is folded into Id (rebus.l IDENT regex allows embedded '.').
 postfix_expr = *primary
-               FENCE(  $'[' *alt_expr $']' reduce(E_IDX, 2)
+               FENCE(  $'[' *alt_expr $'+:' *alt_expr $']' reduce(E_IDX, 2) reduce(E_IDX, 2)
+                         FENCE($'[' *alt_expr $'+:' *alt_expr $']' reduce(E_IDX, 2) reduce(E_IDX, 2) | epsilon)
+                      | $'[' *alt_expr $']' reduce(E_IDX, 2)
                          FENCE($'[' *alt_expr $']' reduce(E_IDX, 2) | epsilon)
                       | *dot_capt    *primary reduce(E_CAPT_COND, 2)
                          FENCE(*dot_capt    *primary reduce(E_CAPT_COND, 2) | epsilon)
@@ -324,8 +355,22 @@ postfix_expr = *primary
                       | epsilon
                      );
 
-//  unary_expr — unary minus; right-associative.
-unary_expr = FENCE(  $'-' *unary_expr reduce(E_MNS, 1)
+//  unary_expr — right-associative unary operators.
+//  Rebus unary pattern operators (per rebus.y lines 599-607):
+//    ~x  (RE_NOT)   → E_FNC DIFFER   $'~' conflicts with $'~=' etc — use bare '~' (no wrapper needed)
+//    \x  (RE_NOT)   → E_FNC DIFFER   same lowering as ~
+//    !x  (RE_BANG)  → E_ITERATE
+//    /x  (RE_VALUE) → E_FNC IDENT    bare '/'; $'/' is the division wrapper (spaced)
+//    $x  (RE_DEREF) → E_INDIRECT     tight prefix; spaced $ is already pat-capture
+//  The bare-literal forms ('~', '!', '/', '\\', '$') require no space before the operand.
+//  They are distinct from the spaced operator wrappers because FENCE tries longest-first
+//  alternatives so $'-' (spaced) still binds unary minus before '\\' tries backslash.
+unary_expr = FENCE(  $'-'  *unary_expr reduce(E_MNS, 1)
+                   | '~'   *unary_expr reduce(E_NOTPAT, 1)
+                   | '!'   *unary_expr reduce(E_BANGPAT, 1)
+                   | '/'   *unary_expr reduce(E_VALUEPAT, 1)
+                   | '\'   *unary_expr reduce(E_NOTPAT, 1)
+                   | '$'   *unary_expr reduce(E_INDIRECT, 1)
                    | *postfix_expr
                   );
 
@@ -385,7 +430,15 @@ X_alt = nInc() *cat_expr FENCE($'|' *X_alt | epsilon);
 alt_expr = nPush() *X_alt reduce(ALT, nTop_count) nPop();
 
 //  expr — alt_expr optionally followed by `:= alt_expr` (assign).
-expr = *alt_expr FENCE($':=' *alt_expr reduce(ASSIGN, 2) | epsilon);
+//  expr — assign_expr per rebus.y: alt_expr optionally followed by assignment op.
+//  Ordered longest-first: ||:= before `:=:` before `:=`; +: = before +:
+expr = *alt_expr FENCE(  $'||:=' *alt_expr reduce(CATASSIGN, 2)
+                       | $'+:='  *alt_expr reduce(ADDASSIGN, 2)
+                       | $'-:='  *alt_expr reduce(SUBASSIGN, 2)
+                       | $':=:'  *alt_expr reduce(EXCHG, 2)
+                       | $':='   *alt_expr reduce(ASSIGN, 2)
+                       | epsilon
+                      );
 
 //  match_or_expr — expr optionally followed by match/replace/repln operator.
 //    expr ? pat        → MATCH(expr, pat)
@@ -666,6 +719,11 @@ function lower_atom(x, k, acc, i) {
         lower_atom = Tree(E_CAPT_COND, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
     else if (IDENT(k, 'E_CAPT_IMMED_ASGN'))
         lower_atom = Tree(E_CAPT_IMM,  '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'E_NOTPAT'))  lower_atom = Tree(E_FNC, 'DIFFER',  1, lower_atom(c(x)[1]));
+    else if (IDENT(k, 'E_BANGPAT')) lower_atom = Tree(E_ITERATE, '',     1, lower_atom(c(x)[1]));
+    else if (IDENT(k, 'E_VALUEPAT')) lower_atom = Tree(E_FNC, 'IDENT',  1, lower_atom(c(x)[1]));
+    else if (IDENT(k, 'E_INDIRECT')) lower_atom = Tree(E_INDIRECT, '',   1, lower_atom(c(x)[1]));
+    else if (IDENT(k, 'E_CAPT_CURSOR')) lower_atom = x;
     else if (IDENT(k, 'ALT')) {
         if (EQ(n(x), 1)) lower_atom = lower_atom(c(x)[1]);
         else {
@@ -682,6 +740,10 @@ function lower_atom(x, k, acc, i) {
 function lower_stmt(x, k, lblS, lblF, lblM, forVar, forStep) {
     k = t(x);
     if (IDENT(k, 'ASSIGN'))          emit_assign(lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'ADDASSIGN'))  emit_assign(lower_atom(c(x)[1]), Tree(E_ADD, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])));
+    else if (IDENT(k, 'SUBASSIGN'))  emit_assign(lower_atom(c(x)[1]), Tree(E_SUB, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])));
+    else if (IDENT(k, 'CATASSIGN'))  emit_assign(lower_atom(c(x)[1]), Tree(E_CAT, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])));
+    else if (IDENT(k, 'EXCHG'))      TDump(Tree('STMT', '', 1, Tree(':subj', '', 1, Tree(E_FNC, 'EXCHG', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])))));
     else if (IDENT(k, 'MATCH'))      { emit_match(lower_atom(c(x)[1]), lower_atom(c(x)[2])); }
     else if (IDENT(k, 'REPLACE'))    emit_replace(lower_atom(c(x)[1]), lower_atom(c(x)[2]), lower_atom(c(x)[3]));
     else if (IDENT(k, 'REPLN'))      emit_replace(lower_atom(c(x)[1]), lower_atom(c(x)[2]), tree(E_NUL, ''));
