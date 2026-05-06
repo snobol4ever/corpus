@@ -17,6 +17,11 @@ E_IDX             = "'E_IDX'";
 E_INDEX           = "'E_IDX'";
 E_FLIT            = "'E_FLIT'";
 E_MNS             = "'E_MNS'";
+E_PLS             = "'E_PLS'";
+E_BANG            = "'E_BANG'";
+E_PCT             = "'E_PCT'";
+E_SLASH           = "'E_SLASH'";
+E_POUND           = "'E_POUND'";
 E_DEFER           = "'E_DEFER'";
 E_NOT             = "'E_NOT'";
 E_NAME            = "'E_NAME'";
@@ -44,42 +49,44 @@ $'  '       =   White;
 $' '        =   Gray;
 /*--------------------------------------------------------------------------------------------------------------------*/
 Id          =   ANY(&UCASE &LCASE '_') FENCE(SPAN('.' digits &UCASE '_' &LCASE) | epsilon);
-$'do'       =   $' ' Id $ tx *IDENT(tx, 'do');
-$'else'     =   $' ' Id $ tx *IDENT(tx, 'else');
-$'for'      =   $' ' Id $ tx *IDENT(tx, 'for');
-$'freturn'  =   $' ' Id $ tx *IDENT(tx, 'freturn');
-$'function' =   $' ' Id $ tx *IDENT(tx, 'function');
-$'goto'     =   $' ' Id $ tx *IDENT(tx, 'goto');
-$'if'       =   $' ' Id $ tx *IDENT(tx, 'if');
-$'nreturn'  =   $' ' Id $ tx *IDENT(tx, 'nreturn');
-$'return'   =   $' ' Id $ tx *IDENT(tx, 'return');
-$'while'    =   $' ' Id $ tx *IDENT(tx, 'while');
-Keyword     =   $' ' '&' SPAN(&UCASE '_' &LCASE) . name;
-Integer     =   $' ' SPAN(digits);
-DQ_lit      =   $' ' '"' BREAK('"') . strbody '"';
-SQ_lit      =   $' ' "'" BREAK("'") . strbody "'";
-String      =   $' ' (*SQ_lit | *DQ_lit);
-Ident       =   $' ' Id $ tx $ *notmatch(tx, reserved);
-Real        =   $' '
-                SPAN(digits)
-                FENCE(
-                  '.'
-                  SPAN(digits)
-                  FENCE(ANY('eEdD') FENCE(ANY('+-') | epsilon) SPAN(digits) | epsilon)
-                | ANY('eEdD')
-                  FENCE(ANY('+-') | epsilon)
-                  SPAN(digits)
-                );
+$'do'       =   $' ' Id $ tx *IDENT(tx, 'do')       $' ';
+$'else'     =   $' ' Id $ tx *IDENT(tx, 'else')     $' ';
+$'for'      =   $' ' Id $ tx *IDENT(tx, 'for')      $' ';
+$'freturn'  =   $' ' Id $ tx *IDENT(tx, 'freturn')  $' ';
+$'function' =   $' ' Id $ tx *IDENT(tx, 'function') $' ';
+$'goto'     =   $' ' Id $ tx *IDENT(tx, 'goto')     $' ';
+$'if'       =   $' ' Id $ tx *IDENT(tx, 'if')       $' ';
+$'nreturn'  =   $' ' Id $ tx *IDENT(tx, 'nreturn')  $' ';
+$'return'   =   $' ' Id $ tx *IDENT(tx, 'return')   $' ';
+$'while'    =   $' ' Id $ tx *IDENT(tx, 'while')    $' ';
+Keyword     =   '&' SPAN(&UCASE '_' &LCASE) . token;
+Integer     =   SPAN(digits) . token;
+DQ_lit      =   '"' BREAK('"') . token '"';
+SQ_lit      =   "'" BREAK("'") . token "'";
+String      =   (*SQ_lit | *DQ_lit);
+Ident       =   Id $ tx $ *notmatch(tx, reserved) . token;
+Real        =   ( SPAN(digits)
+                  FENCE(
+                    '.'
+                    SPAN(digits)
+                    FENCE(ANY('eEdD') FENCE(ANY('+-') | epsilon) SPAN(digits) | epsilon)
+                  | ANY('eEdD')
+                    FENCE(ANY('+-') | epsilon)
+                    SPAN(digits)
+                  )
+                ) . token;
 /*--------------------------------------------------------------------------------------------------------------------*/
-$'('        =   $' ' '(' $' ';
-$')'        =   $' ' ')' $' ';
+$'('        =   '(' $' ';
+$'['        =   '[' $' ';
 $'{'        =   $' ' '{' $' ';
+/*--------------------------------------------------------------------------------------------------------------------*/
+$')'        =   $' ' ')' $' ';
 $'}'        =   $' ' '}' $' ';
-$'['        =   $' ' '[' $' ';
 $']'        =   $' ' ']' $' ';
-$';'        =   $' ' ';' $' ';
+/*--------------------------------------------------------------------------------------------------------------------*/
 $','        =   $' ' ',' $' ';
 $':'        =   $' ' ':' $' ';
+$';'        =   $' ' ';' $' ';
 /*--------------------------------------------------------------------------------------------------------------------*/
 $'='        =   $'  ' '='   $'  ';
 $'?'        =   $'  ' '?'   $'  ';
@@ -112,9 +119,6 @@ $'*='       =   $'  ' '*='  $'  ';
 $'/='       =   $'  ' '/='  $'  ';
 $'^='       =   $'  ' '^='  $'  ';
 /*====================================================================================================================*/
-ExprList = nPush() *XList (E_VLIST & r_nTop) nPop();
-XList    = nInc() (*Expr0 | epsilon ~ '') FENCE($',' *XList | epsilon);
-/*====================================================================================================================*/
 lbl_n = 0;
 /*--------------------------------------------------------------------------------------------------------------------*/
 function new_label(prefix) {
@@ -124,11 +128,13 @@ function new_label(prefix) {
 }
 function save_cond() {
     saved_cond = Pop();
-    save_cond = .dummy; nreturn;
+    save_cond = .dummy;
+    nreturn;
 }
 function save_nbody(varname) {
     $varname = TopCounter();
-    save_nbody = .dummy; nreturn;
+    save_nbody = .dummy;
+    nreturn;
 }
 function while_head_alloc() {
     while_ltop = new_label('Ltop');
@@ -140,16 +146,12 @@ function do_head_alloc() {
     do_lend  = new_label('Lend');
     do_head_alloc = .dummy; nreturn;
 }
-// is_name_like — returns success/fail-style: succeeds if e is a name-like
-// atom (E_VAR / E_QLIT — E_KEYWORD / E_INDIRECT will be added when parser
-// produces them).
+/*--------------------------------------------------------------------------------------------------------------------*/
 function is_name_like(e) {
     if (IDENT(t(e), 'E_VAR'))   { return; }
     if (IDENT(t(e), 'E_QLIT'))  { return; }
     freturn;
 }
-// build_seq_or_single — collapse an array of >=1 trees into a single tree:
-// 1 element returns it directly; >1 elements wraps in E_SEQ.
 function build_seq_or_single(arr, lo, hi, n, r, i) {
     n = hi - lo + 1;
     if (IDENT(n, 1)) { build_seq_or_single = arr[lo]; return; }
@@ -159,11 +161,6 @@ function build_seq_or_single(arr, lo, hi, n, r, i) {
     build_seq_or_single = r;
     return;
 }
-// split_subj_pat — returns success after setting globals split_subj / split_pat.
-// Handles:
-//   E_SCAN(s, p)                                 -> subj=s, pat=p
-//   E_SEQ(name-like, rest...)                    -> subj=first, pat=collapse(rest...)
-// Anything else: freturn (no split).
 function split_subj_pat(top, n, kids, i) {
     if (IDENT(t(top), 'E_SCAN')) {
         if (~IDENT(n(top), 2)) { freturn; }
@@ -216,8 +213,9 @@ function decompose_stmt(top, lhs, rhs, s) {
     Push(s);
     decompose_stmt = .dummy; nreturn;
 }
+/*--------------------------------------------------------------------------------------------------------------------*/
 function push_qlit(s) {
-    s = tree('E_QLIT', strbody);
+    s = tree('E_QLIT', token);
     Push(s);
     push_qlit = .dummy; nreturn;
 }
@@ -241,6 +239,7 @@ function pop_body(n, arr, i) {
     while (GT(i, 0)) { arr[i] = Pop(); i = i - 1; }
     pop_body = arr; return;
 }
+/*--------------------------------------------------------------------------------------------------------------------*/
 function finalize_if(nthen_v, cond_v, body, Lend, n, ce, i) {
     n = $nthen_v; ce = $cond_v;
     body = pop_body(n);
@@ -251,6 +250,7 @@ function finalize_if(nthen_v, cond_v, body, Lend, n, ce, i) {
     i = 0; while (LT(i, n + 1)) { IncCounter(); i = i + 1; }
     finalize_if = .dummy; nreturn;
 }
+/*--------------------------------------------------------------------------------------------------------------------*/
 function finalize_if_else(nthen_v, nelse_v, cond_v,
                               tb, eb, Lelse, Lend, nt, ne, ce, i) {
     nt = $nthen_v; ne = $nelse_v; ce = $cond_v;
@@ -265,6 +265,7 @@ function finalize_if_else(nthen_v, nelse_v, cond_v,
     i = 0; while (LT(i, nt + ne + 3)) { IncCounter(); i = i + 1; }
     finalize_if_else = .dummy; nreturn;
 }
+/*--------------------------------------------------------------------------------------------------------------------*/
 function finalize_while(nbody_v, cond_v, body, Ltop, Lend, n, ce, i) {
     n = $nbody_v; ce = $cond_v;
     body = pop_body(n);
@@ -277,6 +278,7 @@ function finalize_while(nbody_v, cond_v, body, Ltop, Lend, n, ce, i) {
     i = 0; while (LT(i, n + 3)) { IncCounter(); i = i + 1; }
     finalize_while = .dummy; nreturn;
 }
+/*--------------------------------------------------------------------------------------------------------------------*/
 function finalize_do(nbody_v, cond_v, body, Ltop, Lend, n, ce, i) {
     n = $nbody_v; ce = $cond_v;
     body = pop_body(n);
@@ -289,8 +291,6 @@ function finalize_do(nbody_v, cond_v, body, Ltop, Lend, n, ce, i) {
     finalize_do = .dummy; nreturn;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-// Function call: pop n_kids children, first child is (E_VAR fname); rebuild
-// (E_FNC fname arg1 ... arg_{n-1}) — name lifted from var into E_FNC value slot.
 function decompose_call(n_kids, kids, fname, call, i) {
     n_kids = TopCounter();
     kids = ARRAY('1:' n_kids);
@@ -303,9 +303,7 @@ function decompose_call(n_kids, kids, fname, call, i) {
     Push(call);
     decompose_call = .dummy; nreturn;
 }
-// Function head: capture function name and parameter list into globals;
-// allocate end_label; remember enclosing func name.  Param accumulator
-// `func_arglist` is built incrementally by save_param_first/save_param_rest.
+/*--------------------------------------------------------------------------------------------------------------------*/
 function func_head_save_name(name) {
     cur_func_prev = cur_func_name;
     cur_func_name = name;
@@ -321,16 +319,13 @@ function save_param_rest(p) {
     cur_func_args = cur_func_args ',' p;
     save_param_rest = .dummy; nreturn;
 }
-// Build (STMT :subj (E_FNC DEFINE (E_QLIT "name(args)"))).
 function make_define_stmt(name, args, qlit, fnc) {
     qlit = tree('E_QLIT', name '(' args ')');
     fnc  = Tree('E_FNC', 'DEFINE', 1, qlit);
     make_define_stmt = Tree('STMT', '', 1, Tree(':subj', '', 1, fnc));
     return;
 }
-// finalize_function — pop body of N stmts, emit DEFINE + skip-goto + entry-label,
-// re-push body, append end-label.  Mirrors snocone_parse.y sc_func_head_new +
-// sc_finalize_function.  Restores cur_func_name to enclosing.
+/*--------------------------------------------------------------------------------------------------------------------*/
 function finalize_function(nbody_v, body, n, name, args, Lend, i) {
     n     = $nbody_v;
     name  = cur_func_name;
@@ -346,7 +341,7 @@ function finalize_function(nbody_v, body, n, name, args, Lend, i) {
     cur_func_name = cur_func_prev;
     finalize_function = .dummy; nreturn;
 }
-// return E; — pop value expression, build (STMT :eq :subj (E_VAR fname) :repl E :go RETURN).
+/*--------------------------------------------------------------------------------------------------------------------*/
 function emit_return_value(rhs, lhs, s) {
     rhs = Pop();
     lhs = tree('E_VAR', cur_func_name);
@@ -358,20 +353,19 @@ function emit_return_value(rhs, lhs, s) {
     Push(s);
     emit_return_value = .dummy; nreturn;
 }
-function emit_return_void()  { Push(make_goto_stmt('RETURN'));  emit_return_void  = .dummy; nreturn; }
-function emit_freturn()      { Push(make_goto_stmt('FRETURN')); emit_freturn      = .dummy; nreturn; }
-function emit_nreturn()      { Push(make_goto_stmt('NRETURN')); emit_nreturn      = .dummy; nreturn; }
 /*--------------------------------------------------------------------------------------------------------------------*/
-function goto_emit() { Push(make_goto_stmt(captured_goto)); goto_emit = .dummy; nreturn; }
-function label_emit() { Push(make_label_stmt(captured_label)); label_emit = .dummy; nreturn; }
-function push_keyword() { Push(tree('E_KEYWORD', name)); push_keyword = .dummy; nreturn; }
-function push_flit() { Push(tree('E_FLIT', strbody)); push_flit = .dummy; nreturn; }
-function push_empty_str() { Push(tree('E_QLIT', '')); push_empty_str = .dummy; nreturn; }
-function push_mns(e) { e = Pop(); Push(Tree('E_MNS', '', 1, e)); push_mns = .dummy; nreturn; }
-// push_call_name_var — fires match-time after '(' is confirmed; pushes the
-// captured function name as an E_VAR node and increments the n-ary counter
-// (the equivalent of `*Id ~ 'E_VAR' nInc()` in the old Call pattern, but
-// deferred until after '(' so nPush / nInc side-effects don't fire on a bare Id).
+function emit_return_void() { emit_return_void  = .dummy; Push(make_goto_stmt('RETURN'));  nreturn; }
+function emit_freturn()     { emit_freturn      = .dummy; Push(make_goto_stmt('FRETURN')); nreturn; }
+function emit_nreturn()     { emit_nreturn      = .dummy; Push(make_goto_stmt('NRETURN')); nreturn; }
+function goto_emit()        { goto_emit         = .dummy; Push(make_goto_stmt(captured_goto)); nreturn; }
+function label_emit()       { label_emit        = .dummy; Push(make_label_stmt(captured_label)); nreturn;  }
+function push_keyword()     { push_keyword      = .dummy; Push(tree('E_KEYWORD', token)); nreturn; }
+function push_ident()       { push_ident        = .dummy; Push(tree('E_VAR', token)); nreturn; }
+function push_flit()        { push_flit         = .dummy; Push(tree('E_FLIT', token)); nreturn; }
+function push_ilit()        { push_ilit         = .dummy; Push(tree('E_ILIT', token)); nreturn; }
+function push_empty_str()   { push_empty_str    = .dummy; Push(tree('E_QLIT', '')); nreturn; }
+function push_mns(e)        { e = Pop(); Push(Tree('E_MNS', '', 1, e)); push_mns = .dummy; nreturn; }
+/*--------------------------------------------------------------------------------------------------------------------*/
 function push_call_name_var() {
     Push(tree('E_VAR', captured_call_name));
     IncCounter();
@@ -382,10 +376,7 @@ function push_idx(base, idx) {
     Push(Tree('E_IDX', '', 2, base, idx));
     push_idx = .dummy; nreturn;
 }
-// paren_reduce — fires after $'(' nPush() ... Paren_reduce() nPop().
-// n=0: push E_NUL (empty parens).
-// n=1: pop single child, push it directly (plain grouping paren).
-// n>1: pop n children, build E_VLIST(c1..cN).
+/*--------------------------------------------------------------------------------------------------------------------*/
 function paren_reduce(n, kids, vl, i) {
     n = TopCounter();
     if (IDENT(n, 0)) { Push(Tree('E_NUL', '')); paren_reduce = .dummy; nreturn; }
@@ -397,6 +388,7 @@ function paren_reduce(n, kids, vl, i) {
     Push(vl);
     paren_reduce = .dummy; nreturn;
 }
+/*--------------------------------------------------------------------------------------------------------------------*/
 function for_head_alloc(init_e, cond_e, step_e, init_s) {
     step_e = Pop(); cond_e = Pop(); init_e = Pop();
     for_step_expr = step_e; for_cond_expr = cond_e;
@@ -410,6 +402,7 @@ function for_head_alloc(init_e, cond_e, step_e, init_s) {
     for_lend = '_Lend_' LPAD(lbl_n, 4, '0');
     for_head_alloc = .dummy; nreturn;
 }
+/*--------------------------------------------------------------------------------------------------------------------*/
 function finalize_for(nbody_v, body, n, Ltop, Lend, ce, se, step_s, i) {
     n = $nbody_v; ce = for_cond_expr; se = for_step_expr; Lend = for_lend;
     body = pop_body(n);
@@ -424,108 +417,42 @@ function finalize_for(nbody_v, body, n, Ltop, Lend, ce, se, step_s, i) {
     finalize_for = .dummy; nreturn;
 }
 /*====================================================================================================================*/
-// Pattern-builder companions — called at BUILD TIME, return deferred-action patterns.
-function Save_cond() {
-    Save_cond = EVAL("epsilon . thx . *save_cond()");
-    return;
-}
-function Save_nbody(var) {
-    Save_nbody = EVAL("epsilon . thx . *save_nbody('" var "')");
-    return;
-}
-function Decompose_stmt() {
-    Decompose_stmt = EVAL("epsilon . thx . *decompose_stmt()");
-    return;
-}
-function Push_qlit() {
-    Push_qlit = EVAL("epsilon . thx . *push_qlit()");
-    return;
-}
-function While_head_alloc() {
-    While_head_alloc = EVAL("epsilon . thx . *while_head_alloc()");
-    return;
-}
-function Do_head_alloc() {
-    Do_head_alloc = EVAL("epsilon . thx . *do_head_alloc()");
-    return;
-}
-function Finalize_if(nthen_v, cond_v) {
-    Finalize_if = EVAL("epsilon . thx . *finalize_if('" nthen_v "', '" cond_v "')");
-    return;
-}
-function Finalize_if_else(nthen_v, nelse_v, cond_v) {
-    Finalize_if_else = EVAL("epsilon . thx . *finalize_if_else('"
-                               nthen_v "', '" nelse_v "', '" cond_v "')");
-    return;
-}
-function Finalize_while(nbody_v, cond_v) {
-    Finalize_while = EVAL("epsilon . thx . *finalize_while('" nbody_v "', '" cond_v "')");
-    return;
-}
-function Finalize_do(nbody_v, cond_v) {
-    Finalize_do = EVAL("epsilon . thx . *finalize_do('" nbody_v "', '" cond_v "')");
-    return;
-}
-function Body(var) {
-    Body = nPush() ARBNO(*Command) Save_nbody(var) nPop();
-    return;
-}
-function BodyFn(var) {
-    BodyFn = nPush() ARBNO(*Command) Save_nbody(var) nPop();
-    return;
-}
+function Save_cond()            { Save_cond           = epsilon . thx . *save_cond();                        return; }
+function Decompose_stmt()       { Decompose_stmt      = epsilon . thx . *decompose_stmt();                   return; }
+function Push_qlit()            { Push_qlit           = epsilon . thx . *push_qlit();                        return; }
+function While_head_alloc()     { While_head_alloc    = epsilon . thx . *while_head_alloc();                 return; }
+function Do_head_alloc()        { Do_head_alloc       = epsilon . thx . *do_head_alloc();                    return; }
+function Decompose_call()       { Decompose_call      = epsilon . thx . *decompose_call();                   return; }
+function Func_head_save_name()  { Func_head_save_name = epsilon . thx . *func_head_save_name(captured_name); return; }
+function Save_param_first()     { Save_param_first    = epsilon . thx . *save_param_first(captured_param);   return; }
+function Save_param_rest()      { Save_param_rest     = epsilon . thx . *save_param_rest(captured_param);    return; }
+function Emit_return_value()    { Emit_return_value   = epsilon . thx . *emit_return_value();                return; }
+function Emit_return_void()     { Emit_return_void    = epsilon . thx . *emit_return_void();                 return; }
+function Emit_freturn()         { Emit_freturn        = epsilon . thx . *emit_freturn();                     return; }
+function Emit_nreturn()         { Emit_nreturn        = epsilon . thx . *emit_nreturn();                     return; }
+function Goto_emit()            { Goto_emit           = epsilon . thx . *goto_emit();                        return; }
+function Label_emit()           { Label_emit          = epsilon . thx . *label_emit();                       return; }
+function Push_keyword()         { Push_keyword        = epsilon . thx . *push_keyword();                     return; }
+function Push_ident()           { Push_ident          = epsilon . thx . *push_ident();                       return; }
+function Push_flit()            { Push_flit           = epsilon . thx . *push_flit();                        return; }
+function Push_ilit()            { Push_ilit           = epsilon . thx . *push_ilit();                        return; }
+function Push_empty_str()       { Push_empty_str      = epsilon . thx . *push_empty_str();                   return; }
+function Push_mns()             { Push_mns            = epsilon . thx . *push_mns();                         return; }
+function Push_idx()             { Push_idx            = epsilon . thx . *push_idx();                         return; }
+function Paren_reduce()         { Paren_reduce        = epsilon . thx . *paren_reduce();                     return; }
+function Push_call_name_var()   { Push_call_name_var  = epsilon . thx . *push_call_name_var();               return; }
+function For_head_alloc()       { For_head_alloc      = epsilon . thx . *for_head_alloc();                   return; }
 /*--------------------------------------------------------------------------------------------------------------------*/
-// Build-time companions for function-handling helpers.
-function Decompose_call() {
-    Decompose_call = EVAL("epsilon . thx . *decompose_call()");
-    return;
-}
-function Func_head_save_name() {
-    Func_head_save_name = EVAL("epsilon . thx . *func_head_save_name(captured_name)");
-    return;
-}
-function Save_param_first() {
-    Save_param_first = EVAL("epsilon . thx . *save_param_first(captured_param)");
-    return;
-}
-function Save_param_rest() {
-    Save_param_rest = EVAL("epsilon . thx . *save_param_rest(captured_param)");
-    return;
-}
-function Finalize_function(nbody_v) {
-    Finalize_function = EVAL("epsilon . thx . *finalize_function('" nbody_v "')");
-    return;
-}
-function Emit_return_value() {
-    Emit_return_value = EVAL("epsilon . thx . *emit_return_value()");
-    return;
-}
-function Emit_return_void() {
-    Emit_return_void = EVAL("epsilon . thx . *emit_return_void()");
-    return;
-}
-function Emit_freturn() {
-    Emit_freturn = EVAL("epsilon . thx . *emit_freturn()");
-    return;
-}
-function Emit_nreturn() {
-    Emit_nreturn = EVAL("epsilon . thx . *emit_nreturn()");
-    return;
-}
-function Goto_emit() { Goto_emit = EVAL("epsilon . thx . *goto_emit()"); return; }
-function Label_emit() { Label_emit = EVAL("epsilon . thx . *label_emit()"); return; }
-function Push_keyword() { Push_keyword = EVAL("epsilon . thx . *push_keyword()"); return; }
-function Push_flit() { Push_flit = EVAL("epsilon . thx . *push_flit()"); return; }
-function Push_empty_str() { Push_empty_str = EVAL("epsilon . thx . *push_empty_str()"); return; }
-function Push_mns() { Push_mns = EVAL("epsilon . thx . *push_mns()"); return; }
-function Push_idx() { Push_idx = EVAL("epsilon . thx . *push_idx()"); return; }
-function Paren_reduce() { Paren_reduce = EVAL("epsilon . thx . *paren_reduce()"); return; }
-function Push_call_name_var() { Push_call_name_var = EVAL("epsilon . thx . *push_call_name_var()"); return; }
-function For_head_alloc() { For_head_alloc = EVAL("epsilon . thx . *for_head_alloc()"); return; }
-function Finalize_for(nbody_v) {
-    Finalize_for = EVAL("epsilon . thx . *finalize_for('" nbody_v "')");
-    return;
-}
+function Save_nbody(var)                            { Save_nbody        = EVAL("epsilon . thx . *save_nbody('"          var     "')"); return; }
+function Finalize_if(nthen_v, cond_v)               { Finalize_if       = EVAL("epsilon . thx . *finalize_if('"         nthen_v "', '" cond_v "')"); return; }
+function Finalize_if_else(nthen_v, nelse_v, cond_v) { Finalize_if_else  = EVAL("epsilon . thx . *finalize_if_else('"    nthen_v "', '" nelse_v "', '" cond_v "')"); return; }
+function Finalize_while(nbody_v, cond_v)            { Finalize_while    = EVAL("epsilon . thx . *finalize_while('"      nbody_v "', '" cond_v "')"); return; }
+function Finalize_do(nbody_v, cond_v)               { Finalize_do       = EVAL("epsilon . thx . *finalize_do('"         nbody_v "', '" cond_v "')"); return; }
+function Finalize_function(nbody_v)                 { Finalize_function = EVAL("epsilon . thx . *finalize_function('"   nbody_v "')"); return; }
+function Finalize_for(nbody_v)                      { Finalize_for      = EVAL("epsilon . thx . *finalize_for('"        nbody_v "')"); return; }
+/*--------------------------------------------------------------------------------------------------------------------*/
+function Body(var)                                  { Body              = nPush() ARBNO(*Command) Save_nbody(var) nPop();     return; }
+function BodyFn(var)                                { BodyFn            = nPush() ARBNO(*Command) Save_nbody(var) nPop();     return; }
 /*--------------------------------------------------------------------------------------------------------------------*/
 function push_cmp(fname, a, b) {
     b = Pop(); a = Pop();
@@ -540,7 +467,7 @@ function Push_cmp(fname) {
 ArgFirst        =   *Expr0 nInc();
 ArgRest         =   $',' *Expr0 nInc();
 CallArgs        =   ArgFirst ARBNO(ArgRest) | epsilon;
-Call            =   $' ' (*Id . captured_call_name)
+Call            =   *Ident . *assign(.captured_call_name, token)
                     FENCE(
                       $'('
                       nPush()
@@ -550,6 +477,9 @@ Call            =   $' ' (*Id . captured_call_name)
                       nPop()
                       $')'
                     );
+/*--------------------------------------------------------------------------------------------------------------------*/
+ExprList        =   nPush() *XList (E_VLIST & r_nTop) nPop();
+XList           =   nInc() (*Expr0 | epsilon ~ '') FENCE($',' *XList | epsilon);
 /*--------------------------------------------------------------------------------------------------------------------*/
 Expr17          =   FENCE(
                       *Call
@@ -561,25 +491,25 @@ Expr17          =   FENCE(
                       )
                       nPop()
                       $')'
-                    | *String Push_qlit()
-                    | *Real . strbody Push_flit()
-                    | *Integer ~ 'E_ILIT'
-                    | *Keyword Push_keyword()
-                    | *Ident ~ 'E_VAR'
+                    | *String   Push_qlit()
+                    | *Real     Push_flit()
+                    | *Integer  Push_ilit()
+                    | *Keyword  Push_keyword()
+                    | *Ident    Push_ident()
                     );
-Expr15          =   *Expr17 FENCE(nPush() *Expr16 (E_INDEX & r_nTopP1) nPop() | epsilon);
 Expr16          =   nInc() $'[' *ExprList $']' FENCE(*Expr16 | epsilon);
-Expr14          =   $' ' '@' *Expr14 (E_CAPT_CURSOR  & 1)
-                |   $' ' '~' *Expr14 (E_NOT          & 1)
-                |   $' ' '+' *Expr14 (E_ADD          & 1)
-                |   $' ' '-' *Expr14 Push_mns()
-                |   $' ' '*' *Expr14 (E_DEFER        & 1)
-                |   $' ' '$' *Expr14 (E_INDIRECT     & 1)
-                |   $' ' '.' *Expr14 (E_NAME         & 1)
-                |   $' ' '!' *Expr14 (E_POW          & 1)
-                |   $' ' '%' *Expr14 (E_MUL          & 1)
-                |   $' ' '/' *Expr14 (E_DIV          & 1)
-                |   $' ' '#' *Expr14 (E_SUB          & 1)
+Expr15          =   *Expr17 FENCE(nPush() *Expr16 (E_INDEX & r_nTopP1) nPop() | epsilon);
+Expr14          =   '@' *Expr14 (E_CAPT_CURSOR  & 1)
+                |   '~' *Expr14 (E_NOT          & 1)
+                |   '+' *Expr14 (E_PLS          & 1)
+                |   '-' *Expr14 (E_MNS          & 1)
+                |   '*' *Expr14 (E_DEFER        & 1)
+                |   '$' *Expr14 (E_INDIRECT     & 1)
+                |   '.' *Expr14 (E_NAME         & 1)
+                |   '!' *Expr14 (E_BANG         & 1)
+                |   '%' *Expr14 (E_PCT          & 1)
+                |   '/' *Expr14 (E_SLASH        & 1)
+                |   '#' *Expr14 (E_POUND        & 1)
                 |   *Expr15;
 Expr13          =   *Expr14 FENCE($'~' *Expr13 (E_NOT & 2) | epsilon);
 Expr12          =   *Expr13
@@ -639,8 +569,8 @@ do_cmd          =   nInc()
                     Finalize_do('do_nbody', 'saved_cond');
 /*--------------------------------------------------------------------------------------------------------------------*/
 empty_cmd       =   $';';
-goto_cmd        =   nInc() $'goto' $'  ' (*Id . captured_goto) $';' Goto_emit();
-label_prefix    =   $' ' (*Id . captured_label) $':' Label_emit() nInc();
+goto_cmd        =   nInc() $'goto' *Ident . *assign(.captured_goto, token) $';' Goto_emit();
+label_prefix    =   nInc() *Ident . *assign(.captured_label, token) $':' Label_emit();
 /*--------------------------------------------------------------------------------------------------------------------*/
 for_cmd         =   nInc()
                     $'for' $'(' *Expr0
@@ -651,11 +581,11 @@ for_cmd         =   nInc()
                     )
                     Finalize_for('for_nbody');
 /*--------------------------------------------------------------------------------------------------------------------*/
-param_first     =   $' ' (*Id . captured_param) $ *notmatch(captured_param, reserved) Save_param_first();
-param_rest      =   $',' $' ' (*Id . captured_param) $ *notmatch(captured_param, reserved) Save_param_rest();
+param_first     =   *Ident . *assign(.captured_param, token) Save_param_first();
+param_rest      =   $',' *Ident . *assign(.captured_param, token) Save_param_rest();
 param_list      =   param_first ARBNO(param_rest) | epsilon;
 func_cmd        =   nInc()
-                    $'function' $'  ' (*Id . captured_name) $ *notmatch(captured_name, reserved) Func_head_save_name()
+                    $'function' *Ident . *assign(.captured_name, token) Func_head_save_name()
                     $'(' param_list $')'
                     $'{' BodyFn('fn_nbody') $'}'
                     Finalize_function('fn_nbody');
