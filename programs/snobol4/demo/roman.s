@@ -1,5 +1,5 @@
 # -----------------------------------------------------------------------
-# scrip --jit-emit --x64  (M-JITEM-X64 / EM-1..EM-3)
+# scrip --jit-emit --x64  (M-JITEM-X64 / EM-1..EM-4)
 # 29 SM instructions. Links against libscrip_rt.so.
 # Architecture: two emitters -- SM straight-line via sm_macros.s
 #   macros (inline x86); BB boxes via emit_bb_box() one-proc-per-box.
@@ -16,27 +16,36 @@ main:
 	mov     rbp, rsp
 	# scrip_rt_init(argc, argv) -- argc in edi, argv in rsi
 	call    scrip_rt_init@PLT
+# source-file: /home/claude/corpus/programs/snobol4/demo/roman.sno  (36 lines)
+# Each statement appears below as a major banner ('====') above
+# the asm it produced.  Inline annotations on the right column
+# show the source-level object referenced by each macro call.
 .Lpc0:                  
-                        mov     edi, 5                      # SM_STNO
-                        call    scrip_rt_unhandled_op@PLT   
+
+# ============================================================================
+# stmt 2  (line 2):  *	N must be positive and less than 4000
+# ============================================================================
+                        mov     edi, 2                      #  SM_STNO stno=2 (no-op stub)
+                        call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc1:                  
-                        movabs  rdi, 454063360              
-                        mov     esi, 0                      
+                        movabs  rdi, 675779840              #  str="ROMAN(N)UNITS"
+                        mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc2:                  
-                        mov     edi, 58                     # SM_CALL
+                        mov     edi, 59                     # SM_CALL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc3:                  
                         call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
 .Lpc4:                  
-                        mov     edi, 1                      # SM_JUMP
-                        call    scrip_rt_unhandled_op@PLT   
+                        jmp     .Lpc28                      #  SM_JUMP -> pc=28
 .Lpc5:                  
-                        mov     edi, 0                      # SM_LABEL
-                        call    scrip_rt_unhandled_op@PLT   
 .Lpc6:                  
-                        mov     edi, 5                      # SM_STNO
-                        call    scrip_rt_unhandled_op@PLT   
+
+# ============================================================================
+# stmt 4  (line 10):  ROMAN	N RPOS(1) LEN(1) . UNITS =	:F(RETURN)
+# ============================================================================
+                        mov     edi, 4                      #  SM_STNO stno=4 (no-op stub)
+                        call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc7:                  
                         movabs  rdi, 1                      
                         call    scrip_rt_push_int@PLT       
@@ -77,24 +86,28 @@ main:
                         mov     edi, 47                     #  UNHANDLED BB box
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc13:                 
-                        movabs  rdi, 454063552              #  SM_PUSH_VAR: nv_get stub EM-3
-                        call    scrip_rt_nv_get@PLT         
+                        movabs  rdi, 675780032              #  var=N
+                        call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc14:                 
-                        movabs  rdi, 454044560              
-                        mov     esi, 0                      
+                        movabs  rdi, 675761040              #  str=""
+                        mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc15:                 
                         mov     edi, 55                     # SM_EXEC_STMT
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc16:                 
-                        mov     edi, 63                     # SM_RETURN_F
+                        mov     edi, 64                     # SM_RETURN_F
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc17:                 
-                        mov     edi, 5                      # SM_STNO
-                        call    scrip_rt_unhandled_op@PLT   
+
+# ============================================================================
+# stmt 6  (line 6):  	DEFINE('ROMAN(N)UNITS')		:(ROMAN_END)
+# ============================================================================
+                        mov     edi, 6                      #  SM_STNO stno=6 (no-op stub)
+                        call    scrip_rt_unhandled_op@PLT   #  runtime &STNO support: future rung
 .Lpc18:                 
-                        movabs  rdi, 454044592              #  SM_PUSH_VAR: nv_get stub EM-3
-                        call    scrip_rt_nv_get@PLT         
+                        movabs  rdi, 675761072              #  var=UNITS
+                        call    scrip_rt_nv_get@PLT         #  SM_PUSH_VAR -> TOS
 .Lpc19:                 
 # -- BB box scaffold pc=19 op=SM_PAT_DEREF --
 # proc .bb_box_19
@@ -106,8 +119,8 @@ main:
                         mov     edi, 48                     #  UNHANDLED BB box
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc20:                 
-                        movabs  rdi, 454044624              
-                        mov     esi, 0                      
+                        movabs  rdi, 675761104              #  str=","
+                        mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc21:                 
 # -- BB box scaffold pc=21 op=SM_PAT_BREAK --
@@ -140,8 +153,8 @@ main:
                         mov     edi, 47                     #  UNHANDLED BB box
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc24:                 
-                        movabs  rdi, 454067648              
-                        mov     esi, 0                      
+                        movabs  rdi, 675784128              #  str="0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
+                        mov     esi, 0                      #  slen
                         call    scrip_rt_push_str@PLT       
 .Lpc25:                 
                         movabs  rdi, 0                      
@@ -150,7 +163,7 @@ main:
                         mov     edi, 55                     # SM_EXEC_STMT
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc27:                 
-                        mov     edi, 65                     # SM_FRETURN_F
+                        mov     edi, 66                     # SM_FRETURN_F
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc28:                 
                         call    scrip_rt_pop_int@PLT        #  rc <- TOS
