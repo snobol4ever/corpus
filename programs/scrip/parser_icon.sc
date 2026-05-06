@@ -44,20 +44,26 @@ E_BANG_BINARY = "'E_BANG_BINARY'"; E_SEQ     = "'E_SEQ'";
 E_TO        = "'E_TO'";        E_TO_BY     = "'E_TO_BY'";
 E_Parse     = "'Parse'";
 r_nTop      = '*(GT(nTop(), 1) nTop())';
+// notmatch(s, pat): succeeds iff s does NOT match pat entirely
+function notmatch(s, pat) { notmatch = .dummy; if (s ? pat) freturn; else nreturn; }
+// stmt_kw: set of keywords that terminate/open structural blocks — excluded from E_VAR id_pat.
+stmt_kw     = POS(0) ('end' | 'procedure' | 'record' | 'global') RPOS(0);
 /*====================================================================================================================*/
-White        = (  SPAN(' ' tab) FENCE('#' BREAK(nl) | epsilon)
-               |  '#' BREAK(nl)
-               );
-Gray         = White | epsilon;
-DGray        = ARBNO(SPAN(' ' tab nl) | '#' BREAK(nl) nl_one);
-$' '         = Gray;
-$'  '        = White;
-nl_one       = ANY(nl);
+// Whitespace — newlines treated as normal whitespace; semicolons terminate statements.
+// white = one whitespace unit: spaces, tabs, newlines, or # line-comments.
+// White = one-or-more; Gray = zero-or-more.  No $' ' needed — $' ' handles everywhere.
+white        =   (  SPAN(' ' tab nl)
+                 |  '#' BREAK(nl) nl
+                 );
+White        =   white ARBNO(white);
+Gray         =   White | epsilon;
+$' '         =   Gray;
+$'  '        =   White;
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Token classifiers — PATTERNS mirroring icon_lex.h TK_* names.
-id_first     = ANY(&UCASE &LCASE '_');
-id_rest      = SPAN(digits &UCASE &LCASE '_');
-id_pat       = (id_first (id_rest | epsilon));
+// Id: identifier body (used for keyword boundary checking, per parser_snocone.sc style).
+Id           = ANY(&UCASE &LCASE '_') FENCE(SPAN(digits &UCASE &LCASE '_') | epsilon);
+id_pat       = Id $ tx $ *notmatch(tx, stmt_kw);
 int_pat      = SPAN(digits);
 // Real literal: digits.digits, .digits, or integer with exponent. Dot-capture into rval.
 exp_part     = (('e' | 'E') ('+' | '-' | '') SPAN(digits));
@@ -72,20 +78,34 @@ str_pat      = ('"' BREAK('"') . strbody '"');
 cset_pat     = ("'" BREAK("'") . csetbody "'");
 semi_opt     = (';' | epsilon);
 /*--------------------------------------------------------------------------------------------------------------------*/
-// Keyword tokens — leading optional whitespace only.
-$'if'        = $' ' 'if'       ;  $'then'      = $' ' 'then'     ;
-$'else'      = $' ' 'else'     ;  $'while'     = $' ' 'while'    ;
-$'do'        = $' ' 'do'       ;  $'every'     = $' ' 'every'    ;
-$'return'    = $' ' 'return'   ;  $'end'       = $' ' 'end'      ;
-$'procedure' = $' ' 'procedure';  $'until'     = $' ' 'until'    ;
-$'repeat'    = $' ' 'repeat'   ;  $'break'     = $' ' 'break'    ;
-$'next'      = $' ' 'next'     ;  $'case'      = $' ' 'case'     ;
-$'of'        = $' ' 'of'       ;  $'default'   = $' ' 'default'  ;
-$'to'        = $' ' 'to'       ;  $'by'        = $' ' 'by'       ;
-$'global'    = $' ' 'global'   ;  $'local'     = $' ' 'local'    ;
-$'static'    = $' ' 'static'   ;  $'record'    = $' ' 'record'   ;
-$'initial'   = $' ' 'initial'  ;  $'suspend'   = $' ' 'suspend'  ;
-$'fail'      = $' ' 'fail'     ;  $'not'       = $' ' 'not'      ;
+// Keyword tokens — Gray before only; identifier boundary via Id $ tx *IDENT(tx, 'kw').
+// Trailing whitespace is NOT consumed here — grammar callers provide it explicitly.
+$'if'        =  $' ' Id $ tx *IDENT(tx, 'if')       ;
+$'then'      =  $' ' Id $ tx *IDENT(tx, 'then')     ;
+$'else'      =  $' ' Id $ tx *IDENT(tx, 'else')     ;
+$'while'     =  $' ' Id $ tx *IDENT(tx, 'while')    ;
+$'do'        =  $' ' Id $ tx *IDENT(tx, 'do')       ;
+$'every'     =  $' ' Id $ tx *IDENT(tx, 'every')    ;
+$'return'    =  $' ' Id $ tx *IDENT(tx, 'return')   ;
+$'end'       =  $' ' Id $ tx *IDENT(tx, 'end')      ;
+$'procedure' =  $' ' Id $ tx *IDENT(tx, 'procedure');
+$'until'     =  $' ' Id $ tx *IDENT(tx, 'until')    ;
+$'repeat'    =  $' ' Id $ tx *IDENT(tx, 'repeat')   ;
+$'break'     =  $' ' Id $ tx *IDENT(tx, 'break')    ;
+$'next'      =  $' ' Id $ tx *IDENT(tx, 'next')     ;
+$'case'      =  $' ' Id $ tx *IDENT(tx, 'case')     ;
+$'of'        =  $' ' Id $ tx *IDENT(tx, 'of')       ;
+$'default'   =  $' ' Id $ tx *IDENT(tx, 'default')  ;
+$'to'        =  $' ' Id $ tx *IDENT(tx, 'to')       ;
+$'by'        =  $' ' Id $ tx *IDENT(tx, 'by')       ;
+$'global'    =  $' ' Id $ tx *IDENT(tx, 'global')   ;
+$'local'     =  $' ' Id $ tx *IDENT(tx, 'local')    ;
+$'static'    =  $' ' Id $ tx *IDENT(tx, 'static')   ;
+$'record'    =  $' ' Id $ tx *IDENT(tx, 'record')   ;
+$'initial'   =  $' ' Id $ tx *IDENT(tx, 'initial')  ;
+$'suspend'   =  $' ' Id $ tx *IDENT(tx, 'suspend')  ;
+$'fail'      =  $' ' Id $ tx *IDENT(tx, 'fail')     ;
+$'not'       =  $' ' Id $ tx *IDENT(tx, 'not')      ;
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Operator tokens — optional whitespace both sides.  Open brackets: ws after only.  Close: ws before only.
 // Operator tokens — optional whitespace both sides.  Open brackets: ws after only.  Close: ws before only.
@@ -298,19 +318,19 @@ Push_local_stmt = (epsilon . *push_local_stmt());
 // Expr1a (scan) -> Expr (top).
 // Postfix chains (subscript/field/call/section) are handled in Expr11tail.
 /*--------------------------------------------------------------------------------------------------------------------*/
-If     = ( $'if'     $'  ' *Expr  $'then' *DGray *Expr
-           (  $'else' *DGray *Expr  (E_IF & 3)
+If     = ( $'if'     $'  ' *Expr  $'then' $' ' *Expr
+           (  $'else' $' ' *Expr  (E_IF & 3)
            |  (E_IF & 2)
            )
          );
-While  = ( $'while'  $'  ' *Expr  $'do' *DGray *Expr  (E_WHILE  & 2) );
-Until  = ( $'until'  $'  ' *Expr  $'do' *DGray *Expr  (E_UNTIL  & 2) );
+While  = ( $'while'  $'  ' *Expr  $'do' $' ' *Expr  (E_WHILE  & 2) );
+Until  = ( $'until'  $'  ' *Expr  $'do' $' ' *Expr  (E_UNTIL  & 2) );
 Every  = ( $'every'  $'  ' *Expr
-           (  $'do' *DGray *Expr  (E_EVERY & 2)
+           (  $'do' $' ' *Expr  (E_EVERY & 2)
            |  (E_EVERY & 1)
            )
          );
-Repeat = ( $'repeat' *DGray *Expr  (E_REPEAT & 1) );
+Repeat = ( $'repeat' $' ' *Expr  (E_REPEAT & 1) );
 /*--------------------------------------------------------------------------------------------------------------------*/
 ArgFirst  = ( $' ' *Expr  nInc() );
 ArgRest   = ( $','  *Expr  nInc() );
@@ -329,12 +349,12 @@ Paren     = ( nPush()
               nPop()
             );
 /*--------------------------------------------------------------------------------------------------------------------*/
-CompoundFirst = ( *DGray *Expr $' ' semi_opt *DGray nInc() );
-CompoundRest  = ( *DGray *Expr $' ' semi_opt *DGray nInc() );
+CompoundFirst = ( $' ' *Expr $' ' semi_opt $' ' nInc() );
+CompoundRest  = ( $' ' *Expr $' ' semi_opt $' ' nInc() );
 Compound      = ( nPush()
-                  $' ' '{' *DGray
+                  $' ' '{' $' '
                   ( CompoundFirst ARBNO(CompoundRest) | epsilon )
-                  *DGray $' ' '}'
+                  $' ' $' ' '}'
                   (E_SEQ_EXPR & r_nTop)
                   nPop()
                 );
@@ -372,13 +392,15 @@ Expr11tail  = ( $'[' $' ' *Expr $' '
 // Case expression: case E of { [val : result ;]* [default : result ;]? }
 // Tree: (E_CASE dispatch v1 r1 v2 r2 ... [default_result])
 // Pairs are flat children; default result appended last without a value label.
-CaseClause   = ( *DGray *Expr *DGray $':' *Expr *DGray semi_opt nInc() nInc() );
-CaseDefault  = ( *DGray $'default' *DGray $':' *Expr *DGray semi_opt nInc() );
+// CaseGray: use ARBNO(white) directly to avoid ALT-in-FENCE bb_alt bug in SCRIP.
+CaseGray     = ARBNO(white);
+CaseClause   = ( *CaseGray *Expr *CaseGray $':' *Expr *CaseGray semi_opt nInc() nInc() );
+CaseDefault  = ( *CaseGray $'default' *CaseGray $':' *Expr *CaseGray semi_opt nInc() );
 Case         = ( nPush()
                  $'case' $'  ' *Expr  nInc()
-                 $'of' *DGray '{' *DGray
+                 $'of' *CaseGray '{' *CaseGray
                  ARBNO( FENCE(CaseDefault | CaseClause) )
-                 *DGray '}'
+                 *CaseGray '}'
                  (E_CASE & 'nTop()')
                  nPop()
                );
@@ -521,9 +543,9 @@ Expr        = ( nPush()
                 nInc() ARBNO(ExprSeqRest) (E_SEQ & r_nTop) nPop()
               );
 /*====================================================================================================================*/
-Blank     = ( $' ' nl_one );
-ReturnStmt = ( $'return' $'  ' *Expr $' ' semi_opt $' ' nl_one (E_RETURN & 1)
-             | $'return' $' '  semi_opt $' ' nl_one             (E_RETURN & 0)
+Blank     = ( $' ' );
+ReturnStmt = ( $'return' $'  ' *Expr $' ' semi_opt $' ' (E_RETURN & 1)
+             | $'return' $' '  semi_opt $' '             (E_RETURN & 0)
              );
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Local/static declaration inside a proc body — both produce E_GLOBAL node.
@@ -531,13 +553,13 @@ ReturnStmt = ( $'return' $'  ' *Expr $' ' semi_opt $' ' nl_one (E_RETURN & 1)
 DeclFirst  = ( $' ' id_pat ~ 'E_VAR' nInc() );
 DeclRest   = ( $','  id_pat ~ 'E_VAR' nInc() );
 DeclIds    = ( DeclFirst ARBNO(DeclRest) );
-LocalDecl  = ( nPush() $'local'  $'  ' DeclIds $' ' semi_opt $' ' nl_one Push_local_stmt nPop() );
-StaticDecl = ( nPush() $'static' $'  ' DeclIds $' ' semi_opt $' ' nl_one Push_local_stmt nPop() );
+LocalDecl  = ( nPush() $'local'  $'  ' DeclIds $' ' semi_opt $' ' Push_local_stmt nPop() );
+StaticDecl = ( nPush() $'static' $'  ' DeclIds $' ' semi_opt $' ' Push_local_stmt nPop() );
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Initial block inside a proc body — initial { expr } or initial expr.
 // E_INITIAL always has exactly one child (the block/expr).
-InitialStmt = ( nPush() $'initial' *DGray
-                $'{' *DGray *Expr nInc() *DGray semi_opt *DGray '}'
+InitialStmt = ( nPush() $'initial' $' '
+                $'{' $' ' *Expr nInc() $' ' semi_opt $' ' '}'
                 (E_INITIAL & 'nTop()')
                 nPop()
               );
@@ -545,10 +567,10 @@ InitialStmt = ( nPush() $'initial' *DGray
 // suspend expr [do body]; → (E_SUSPEND expr [body])   fail; → (E_PROC_FAIL)
 SuspendStmt = ( nPush() $'suspend' $'  ' *Expr nInc()
                 FENCE( $'do' $'  ' *Expr nInc() | epsilon )
-                $' ' semi_opt $' ' nl_one
+                $' ' semi_opt $' '
                 (E_SUSPEND & 'nTop()') nPop()
               );
-FailStmt    = ( $'fail'    $' '         semi_opt $' ' nl_one      (E_PROC_FAIL & 0) );
+FailStmt    = ( $'fail'    $' '         semi_opt $' '      (E_PROC_FAIL & 0) );
 /*--------------------------------------------------------------------------------------------------------------------*/
 StmtBody  = ( LocalDecl nInc()
             | StaticDecl nInc()
@@ -556,21 +578,20 @@ StmtBody  = ( LocalDecl nInc()
             | ReturnStmt nInc()
             | SuspendStmt nInc()
             | FailStmt nInc()
-            | $' ' *Expr $' ' semi_opt $' ' nl_one nInc()
-            | Blank
+            | $' ' *Expr $' ' semi_opt $' ' nInc()
             );
 ParamFirst = ( $' ' id_pat ~ 'E_VAR'  nInc() );
 ParamRest  = ( $',' id_pat ~ 'E_VAR'  nInc() );
 Params     = ( ParamFirst ARBNO(ParamRest) ($' ' '[' $' ' ']' | epsilon) | epsilon );
 Prochead   = ( $'procedure' $'  ' id_pat ~ 'E_VAR'  nInc()
-               $'(' Params $')' $' ' nl_one
+               $'(' Params $')' $' '
              );
-ProcbodyEnd = ( $'end' $' ' (nl_one | RPOS(0)) );
+ProcbodyEnd = ( $'end' $' ' ($' ' | RPOS(0)) );
 Procbody    = ( ProcbodyEnd | StmtBody *Procbody );
 Proc        = ( nPush()  Prochead  Procbody  Decompose_proc  nPop() );
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Global declaration at top level: global id, id, ... → (STMT :subj (E_GLOBAL v1 v2 ...))
-GlobalDecl = ( nPush() $'global' $'  ' DeclIds $' ' semi_opt $' ' nl_one Push_global_top nPop() );
+GlobalDecl = ( nPush() $'global' $'  ' DeclIds $' ' semi_opt $' ' Push_global_top nPop() );
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Record declaration at top level: record Name(f1, f2, ...) → (STMT :subj (E_RECORD Name f1 f2 ...))
 // Shift name as (E_VAR Name) first; remaining fields are also (E_VAR ...).
@@ -578,12 +599,12 @@ RecordField = ( $',' id_pat ~ 'E_VAR' nInc() );
 Record      = ( nPush()
                 $'record' $'  ' id_pat ~ 'E_VAR' nInc()
                 $'(' ( $' ' id_pat ~ 'E_VAR' nInc() ARBNO(RecordField) | epsilon ) $')'
-                $' ' nl_one
+                $' '
                 Push_record nPop()
               );
 /*====================================================================================================================*/
 Compiland = ( nPush()
-              ARBNO( nInc() *DGray (GlobalDecl | Record | Proc) *DGray )
+              ARBNO( nInc() $' ' (GlobalDecl | Record | Proc) $' ' )
               (E_Parse & 'nTop()')
               nPop()
             );
