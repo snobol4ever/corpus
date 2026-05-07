@@ -5,7 +5,7 @@
 //
 // Naming: non-terminals from Rebus grammar; IR tags from ir.h E_*;
 // whitespace: $'  ' = required, $' ' = optional (beauty.sno convention).
-// Rungs RB-0..RB-5 + RB-FW-1..RB-FW-7 + RB-FW-8 LANDED.  Gate: PASS=83 FAIL=0.
+// Rungs RB-0..RB-5 + RB-FW-1..RB-FW-9 LANDED.  Gate: PASS=87 FAIL=0.
 //
 // Documented deviations from Style Guidelines (## Style Guidelines for
 // parser_*.sc, GOAL-PARSER-REBUS.md):
@@ -459,7 +459,7 @@ match_or_expr = *expr FENCE($'?-match' *alt_expr reduce(REPLN, 2)
 //  stmt_body — compound_stmt OR a single match_or_expr.  Used as the body
 //  of if/while/unless/until so that `if x then { ... }` is valid.
 //  compound_stmt must be tried first (its leading '{' distinguishes it).
-stmt_body = FENCE(*compound_stmt | *case_stmt | *match_or_expr);
+stmt_body = FENCE(*compound_stmt | *case_stmt | *if_stmt | *while_stmt | *unless_stmt | *until_stmt | *repeat_stmt | *for_stmt | *return_stmt | *stop_stmt | *fail_stmt | *exit_stmt | *next_stmt | *match_or_expr);
 //  if_stmt / while_stmt / unless_stmt / until_stmt / repeat_stmt — surface shapes.
 //  if with else is 3-child IFELSE (cond, then, else); without else is 2-child IF.
 if_stmt    = $'if'     *match_or_expr $'then' FENCE(*stmt_body $'else' *stmt_body reduce(IFELSE, 3) | *stmt_body reduce(IF, 2));
