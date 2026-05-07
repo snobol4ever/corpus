@@ -71,6 +71,8 @@ $'>>'  = $' ' '>>'  . _op_name $' ';  $'<<'  = $' ' '<<'  . _op_name $' ';
 $'mod' = $'  ' 'mod' . _op_name $'  ';
 $'rem' = $'  ' 'rem' . _op_name $'  ';
 $'xor' = $'  ' 'xor' . _op_name $'  ';
+$'div' = $'  ' 'div' . _op_name $'  ';
+$'rdiv' = $'  ' 'rdiv' . _op_name $'  ';
 // Unary bitwise-not and if-then.
 $'\'   = $' ' '\' . _op_name;
 $'->'  = $' ' '->' $' ';
@@ -944,6 +946,8 @@ mul_expr  = (   pow_expr
                 ARBNO(
                     FENCE( $'mod' pow_expr Reduce_binop
                          | $'rem' pow_expr Reduce_binop
+                         | $'div' pow_expr Reduce_binop
+                         | $'rdiv' pow_expr Reduce_binop
                          | $'>>' pow_expr  Reduce_binop
                          | $'<<' pow_expr  Reduce_binop
                          | $'*'  pow_expr  reduce(E_MUL, 2)
@@ -1019,6 +1023,15 @@ function reduce_pfx(kw, arg, fnc_node) {
 }
 Reduce_pfx = EVAL("epsilon . thx . *reduce_pfx()");
 /*--------------------------------------------------------------------------------------------------------------------*/
+// reduce_naf -- \+ Goal (FY 900, negation-as-failure prefix without parens).
+function reduce_naf(goal, fnc_node) {
+    goal = Pop();
+    fnc_node = Tree('E_FNC', '\\+', 0);
+    Append(fnc_node, goal);
+    Push(fnc_node);
+    reduce_naf = .dummy;  nreturn;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
 // pfx_kw_name: SWI-Prolog fx 1150 prefix operators (used without parentheses).
 // Must be followed by mandatory whitespace ($'  ') to distinguish from compound calls.
 pfx_kw_name = (   "dynamic" | "discontiguous" | "meta_predicate" | "multifile"
@@ -1026,8 +1039,13 @@ pfx_kw_name = (   "dynamic" | "discontiguous" | "meta_predicate" | "multifile"
               |   "initialization" | "thread_initialization" | "public" | "table"
               );
 /*--------------------------------------------------------------------------------------------------------------------*/
-// body_goal: parenthesised body, prefix-keyword operator, or expression.
-body_goal = ( $'(' *body $')' | $' ' pfx_kw_name . pfx_kw $'  ' *unify_expr Reduce_pfx | unify_expr );
+// body_goal: parenthesised body, prefix-keyword operator, \+ negation, or expression.
+// \+ (FY 900) handled here rather than in primary so it applies at goal level.
+body_goal = (   $'(' *body $')'
+            |   $' ' pfx_kw_name . pfx_kw $'  ' *unify_expr Reduce_pfx
+            |   $' ' '\\+' $' ' *body_goal epsilon . *reduce_naf()
+            |   unify_expr
+            );
 /*--------------------------------------------------------------------------------------------------------------------*/
 conj = (    nPush()
                 nInc() body_goal
@@ -1110,9 +1128,20 @@ directive = (   $':-'                          Reset_var_scope
             );
 /*--------------------------------------------------------------------------------------------------------------------*/
 top_form  = (directive | clause | dcg_rule);
+/*--------------------------------------------------------------------------------------------------------------------*/
+// skip_to_dot: parse recovery -- skip unrecognized input up to and including next '.'.
+// Ensures one bad clause never aborts the entire file parse.
+// Pushes a sentinel (E_FNC skip) so Compiland count stays consistent; merge_choices drops it.
+function push_skip() {
+    Push(Tree('E_FNC', 'skip', 0));
+    push_skip = .dummy;  nreturn;
+}
+Push_skip = epsilon . *push_skip();
+skip_to_dot = ( BREAKX('.') $'.' Push_skip );
+top_form_safe = ( top_form | skip_to_dot );
 /*====================================================================================================================*/
 Compiland = nPush()
-            ARBNO( $' ' nInc() top_form $' ' )
+            ARBNO( $' ' nInc() top_form_safe $' ' )
             reduce(E_Parse, 'nTop()')
             nPop();
 /*====================================================================================================================*/
