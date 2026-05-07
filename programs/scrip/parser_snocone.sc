@@ -49,6 +49,8 @@ $'  '       =   White;
 $' '        =   Gray;
 /*--------------------------------------------------------------------------------------------------------------------*/
 Id          =   ANY(&UCASE &LCASE '_') FENCE(SPAN('.' digits &UCASE '_' &LCASE) | epsilon);
+$'break'    =   $' ' Id $ tx *IDENT(tx, 'break')    $' ';
+$'continue' =   $' ' Id $ tx *IDENT(tx, 'continue') $' ';
 $'do'       =   $' ' Id $ tx *IDENT(tx, 'do')       $' ';
 $'else'     =   $' ' Id $ tx *IDENT(tx, 'else')     $' ';
 $'for'      =   $' ' Id $ tx *IDENT(tx, 'for')      $' ';
@@ -156,14 +158,64 @@ function restore_if_nthen(top, rest) {
     restore_if_nthen = .dummy;
     nreturn;
 }
+/*--------------------------------------------------------------------------------------------------------------------*/
+function push_break(lbl) {
+    sc_break_stk = (DIFFER(sc_break_stk) lbl ':' sc_break_stk, lbl);
+    push_break = .dummy; nreturn;
+}
+function pop_break(top, rest) {
+    sc_break_stk ? SPAN('_' digits &LCASE &UCASE) . top (':' REM . rest | '');
+    sc_break_stk = rest;
+    pop_break = .dummy; nreturn;
+}
+function top_break_label(top, rest) {
+    sc_break_stk ? SPAN('_' digits &LCASE &UCASE) . top (':' REM . rest | '');
+    top_break_label = top;
+    nreturn;
+}
+function push_continue(lbl) {
+    sc_continue_stk = (DIFFER(sc_continue_stk) lbl ':' sc_continue_stk, lbl);
+    push_continue = .dummy; nreturn;
+}
+function pop_continue(top, rest) {
+    sc_continue_stk ? SPAN('_' digits &LCASE &UCASE) . top (':' REM . rest | '');
+    sc_continue_stk = rest;
+    pop_continue = .dummy; nreturn;
+}
+function top_continue_label(top, rest) {
+    sc_continue_stk ? SPAN('_' digits &LCASE &UCASE) . top (':' REM . rest | '');
+    top_continue_label = top;
+    nreturn;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+function emit_break() {
+    Push(make_goto_stmt(top_break_label()));
+    emit_break = .dummy; nreturn;
+}
+function emit_break_label() {
+    Push(make_goto_stmt(captured_bk));
+    emit_break_label = .dummy; nreturn;
+}
+function emit_continue() {
+    sc_for_cont_used = 1;
+    Push(make_goto_stmt(top_continue_label()));
+    emit_continue = .dummy; nreturn;
+}
+function emit_continue_label() {
+    Push(make_goto_stmt(captured_ck));
+    emit_continue_label = .dummy; nreturn;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
 function while_head_alloc() {
     while_ltop = new_label('Ltop');
     while_lend = new_label('Lend');
+    push_break(while_lend); push_continue(while_ltop);
     while_head_alloc = .dummy; nreturn;
 }
 function do_head_alloc() {
     do_lcont = new_label('Lcont');
     do_lend  = new_label('Lend');
+    push_break(do_lend); push_continue(do_lcont);
     do_head_alloc = .dummy; nreturn;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -321,13 +373,14 @@ function finalize_if_else(nthen_v, nelse_v, cond_v,
 function finalize_while(nbody_v, body, Ltop, Lend, n, ce, i) {
     n = $nbody_v; ce = pop_cond();
     body = pop_body(n);
-    Ltop = while_ltop; Lend = while_lend;
+    Lend = top_break_label(); Ltop = top_continue_label();
     Push(make_label_stmt(Ltop));
     Push(make_cond_stmt(ce, ':goF', Lend));
     i = 1; while (LE(i, n)) { Push(body[i]); i = i + 1; }
     Push(make_goto_stmt(Ltop));
     Push(make_label_stmt(Lend));
     i = 0; while (LT(i, n + 3)) { IncCounter(); i = i + 1; }
+    pop_break(); pop_continue();
     finalize_while = .dummy; nreturn;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -340,6 +393,7 @@ function finalize_do(nbody_v, body, Ltop, Lend, n, ce, i) {
     Push(make_cond_stmt(ce, ':goS', Ltop));
     Push(make_label_stmt(Lend));
     i = 0; while (LT(i, n + 2)) { IncCounter(); i = i + 1; }
+    pop_break(); pop_continue();
     finalize_do = .dummy; nreturn;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -455,13 +509,16 @@ function for_head_alloc(init_e, cond_e, step_e, init_s) {
     } else { init_s = Tree('STMT', '', 1, Tree(':subj', '', 1, init_e)); }
     Push(init_s); IncCounter();
     lbl_n = lbl_n + 1;
+    for_lcont = '_Lcont_' LPAD(lbl_n, 4, '0');
     lbl_n = lbl_n + 1;
-    for_lend = '_Lend_' LPAD(lbl_n, 4, '0');
+    for_lend  = '_Lend_' LPAD(lbl_n, 4, '0');
+    sc_for_cont_used = 0;
+    push_break(for_lend); push_continue(for_lcont);
     for_head_alloc = .dummy; nreturn;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-function finalize_for(nbody_v, body, n, Ltop, Lend, ce, se, step_s, i) {
-    n = $nbody_v; ce = for_cond_expr; se = for_step_expr; Lend = for_lend;
+function finalize_for(nbody_v, body, n, Ltop, Lend, Lcont, ce, se, step_s, i, extra) {
+    n = $nbody_v; ce = for_cond_expr; se = for_step_expr; Lend = for_lend; Lcont = for_lcont;
     body = pop_body(n);
     lbl_n = lbl_n + 1;
     Ltop = '_Ltop_' LPAD(lbl_n, 4, '0');
@@ -469,8 +526,12 @@ function finalize_for(nbody_v, body, n, Ltop, Lend, ce, se, step_s, i) {
     Push(make_label_stmt(Ltop));
     Push(make_cond_stmt(ce, ':goF', Lend));
     i = 1; while (LE(i, n)) { Push(body[i]); i = i + 1; }
+    if (DIFFER(sc_for_cont_used, 0)) {
+        Push(make_label_stmt(Lcont)); extra = 1;
+    } else { extra = 0; }
     Push(step_s); Push(make_goto_stmt(Ltop)); Push(make_label_stmt(Lend));
-    i = 0; while (LT(i, n + 4)) { IncCounter(); i = i + 1; }
+    i = 0; while (LT(i, n + 4 + extra)) { IncCounter(); i = i + 1; }
+    pop_break(); pop_continue();
     finalize_for = .dummy; nreturn;
 }
 /*====================================================================================================================*/
@@ -500,6 +561,10 @@ function Push_idx()             { Push_idx            = epsilon . thx . *push_id
 function Paren_reduce()         { Paren_reduce        = epsilon . thx . *paren_reduce();                     return; }
 function Push_call_name_var()   { Push_call_name_var  = epsilon . thx . *push_call_name_var();               return; }
 function For_head_alloc()       { For_head_alloc      = epsilon . thx . *for_head_alloc();                   return; }
+function Emit_break()           { Emit_break          = epsilon . thx . *emit_break();                       return; }
+function Emit_break_label()     { Emit_break_label    = epsilon . thx . *emit_break_label();                 return; }
+function Emit_continue()        { Emit_continue       = epsilon . thx . *emit_continue();                    return; }
+function Emit_continue_label()  { Emit_continue_label = epsilon . thx . *emit_continue_label();              return; }
 /*--------------------------------------------------------------------------------------------------------------------*/
 function Save_nbody(var)                            { Save_nbody        = EVAL("epsilon . thx . *save_nbody('"          var     "')"); return; }
 function Save_if_nthen()                            { Save_if_nthen     = epsilon . thx . *save_if_nthen();                              return; }
@@ -638,6 +703,14 @@ do_cmd          =   nInc()
 empty_cmd       =   $';';
 goto_cmd        =   nInc() $'goto' *Ident . *assign(.captured_goto, token) $';' Goto_emit();
 label_prefix    =   nInc() *Ident . *assign(.captured_label, token) $':' Label_emit();
+break_cmd       =   nInc() $'break'
+                    FENCE( (*Ident . *assign(.captured_bk, token)) $';' Emit_break_label()
+                         | $';' Emit_break()
+                         );
+continue_cmd    =   nInc() $'continue'
+                    FENCE( (*Ident . *assign(.captured_ck, token)) $';' Emit_continue_label()
+                         | $';' Emit_continue()
+                         );
 /*--------------------------------------------------------------------------------------------------------------------*/
 for_cmd         =   nInc()
                     $'for' $'(' *Expr0
@@ -672,6 +745,8 @@ Command         =   $' ' ( if_cmd
                     | freturn_cmd
                     | nreturn_cmd
                     | goto_cmd
+                    | break_cmd
+                    | continue_cmd
                     | label_prefix
                     | empty_cmd
                     | stmt_cmd
