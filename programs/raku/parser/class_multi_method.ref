@@ -1,0 +1,22 @@
+(STMT :subj (E_FNC Counter__get
+  (E_VAR Counter__get)
+  (E_VAR self)
+  (E_FNC write
+    (E_VAR write)
+    (E_FIELD count (E_VAR self))
+  )
+))
+(STMT :subj (E_FNC Counter__show
+  (E_VAR Counter__show)
+  (E_VAR self)
+  (E_VAR x)
+  (E_FNC write
+    (E_VAR write)
+    (E_VAR x)
+  )
+))
+(STMT :subj (E_RECORD Counter (E_VAR count)))
+(STMT :subj (E_FNC main
+  (E_VAR main)
+  (E_NUL)
+))

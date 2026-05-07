@@ -1,0 +1,26 @@
+(STMT :subj (E_FNC Dog__speak
+  (E_VAR Dog__speak)
+  (E_VAR self)
+  (E_FNC write
+    (E_VAR write)
+    (E_QLIT "woof")
+  )
+))
+(STMT :subj (E_RECORD Dog (E_VAR name)))
+(STMT :subj (E_FNC main
+  (E_VAR main)
+  (E_NUL)
+  (E_ASSIGN
+    (E_VAR d)
+    (E_FNC raku_new
+      (E_VAR raku_new)
+      (E_QLIT "Dog")
+      (E_QLIT "name")
+      (E_QLIT "Rex")
+    )
+  )
+  (E_FNC write
+    (E_VAR write)
+    (E_FIELD name (E_VAR d))
+  )
+))

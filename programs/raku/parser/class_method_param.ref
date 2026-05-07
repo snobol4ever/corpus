@@ -1,0 +1,14 @@
+(STMT :subj (E_FNC Greeter__greet
+  (E_VAR Greeter__greet)
+  (E_VAR self)
+  (E_VAR msg)
+  (E_FNC write
+    (E_VAR write)
+    (E_VAR msg)
+  )
+))
+(STMT :subj (E_RECORD Greeter (E_VAR name)))
+(STMT :subj (E_FNC main
+  (E_VAR main)
+  (E_NUL)
+))

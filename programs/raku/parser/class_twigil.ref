@@ -1,0 +1,16 @@
+(STMT :subj (E_FNC Point__sum
+  (E_VAR Point__sum)
+  (E_VAR self)
+  (E_FNC write
+    (E_VAR write)
+    (E_FIELD x (E_VAR self))
+  )
+))
+(STMT :subj (E_RECORD Point
+  (E_VAR x)
+  (E_VAR y)
+))
+(STMT :subj (E_FNC main
+  (E_VAR main)
+  (E_NUL)
+))

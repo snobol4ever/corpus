@@ -161,6 +161,24 @@ vro   = (vr | epsilon);
 VarScalar = ($' ' '$' vf . capvf vro . capvr);
 VarArray  = ($' ' '@' vf . capvf vro . capvr);
 VarHash   = ($' ' '%' vf . capvf vro . capvr);
+// Twigil — $.field / $!field inside method body → E_FIELD(fieldname, self).
+// Captures just the bare field name (after sigil+twigil) into captwf/captwr.
+// Must be tried BEFORE VarScalar in Expr11 (twigil is more specific).
+twf  = ANY(&UCASE &LCASE '_');
+twr  = SPAN(digits &UCASE &LCASE '_');
+twro = (twr | epsilon);
+VarTwigil = ($' ' ('$.' | '$!') twf . captwf twro . captwr);
+// ClassName — bare UpperCamel identifier for class declarations.
+// Uses capclsf/capclsr (distinct from VarScalar's capvf/capvr).
+clf  = ANY(&UCASE &LCASE '_');
+clr  = SPAN(digits &UCASE &LCASE '_');
+clro = (clr | epsilon);
+ClassName = ($' ' clf . capclsf clro . capclsr);
+// MethodIdent — method name in class body (distinct capture from SubName).
+mtf  = ANY(&UCASE &LCASE '_');
+mtr  = SPAN(digits &UCASE &LCASE '_');
+mtro = (mtr | epsilon);
+MethodIdent = ($' ' mtf . capmtf mtro . capmtr);
 
 // Literals.
 LitInt    = ($' ' SPAN(digits));
@@ -260,6 +278,12 @@ capmr         = '';
 captype       = '';
 capnamedkey   = '';
 capnamedval   = '';
+capclsf       = '';
+capclsr       = '';
+capmtf        = '';
+capmtr        = '';
+captwf        = '';
+captwr        = '';
 sub_list   = '';
 gather_seq = 0;
 
@@ -305,6 +329,44 @@ function push_param() {
     nreturn;
 }
 Push_param = (epsilon . *push_param());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// push_twigil — push (E_FIELD fieldname (E_VAR self)) for $.field / $!field.
+// Uses captwf/captwr for bare field name.
+// Retained: reduce() cannot set E_FIELD's sval and add E_VAR self child.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function push_twigil(fname, fe) {
+    fname = captwf captwr;
+    fe = tree('E_FIELD', fname);
+    Append(fe, tree('E_VAR', 'self'));
+    Push(fe);
+    push_twigil = .dummy;
+    nreturn;
+}
+Push_twigil = (epsilon . *push_twigil());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// push_has_field — push (E_VAR fieldname) for has $.field declaration.
+// Uses captwf/captwr (VarTwigil captures into them).
+// Retained: strip twigil sigil; shift() would include '$.' prefix.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function push_has_field(fname) {
+    fname = captwf captwr;
+    Push(tree('E_VAR', fname));
+    push_has_field = .dummy;
+    nreturn;
+}
+Push_has_field = (epsilon . *push_has_field());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// push_nul — push (E_NUL) sentinel.
+// Used by ClassDecl to inject a child into the main counter frame so
+// finish_main builds (E_FNC main (E_VAR main) (E_NUL)) — mirrors C oracle
+// class_decl action which returns expr_new(E_NUL) to the stmt list.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function push_nul() {
+    Push(tree('E_NUL', ''));
+    push_nul = .dummy;
+    nreturn;
+}
+Push_nul = (epsilon . *push_nul());
 /*--------------------------------------------------------------------------------------------------------------------*/
 // push_qlit — push tree('E_QLIT', body) using capstr.
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -936,7 +998,84 @@ function finish_for(block, iter_arr, iter_node, node) {
 }
 Finish_for   = (epsilon . *finish_for());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_sub — pops counter frame, builds (STMT :subj (E_FNC sname ...)).
+// finish_method — close inner body frame, build raw E_FNC (method name only,
+// no rename yet), push onto outer class counter frame.
+// Called by MethodDef; outer ClassDecl nInc() increments the class frame.
+// Retained: reduce() sets value=''; E_FNC requires value=methodname;
+//           building the temporary raw node needed for finish_class rename pass.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_method(n_kids, kids, mname, efnc, i) {
+    n_kids = TopCounter();
+    kids   = GT(n_kids, 0) ARRAY('1:' n_kids);
+    i = n_kids;
+    while (GT(i, 0)) {
+        kids[i] = Pop();
+        i = i - 1;
+    }
+    mname = capmtf capmtr;
+    efnc  = tree('E_FNC', mname);
+    Append(efnc, tree('E_VAR', mname));
+    Append(efnc, tree('E_VAR', 'self'));
+    i = 1;
+    while (LE(i, n_kids)) {
+        Append(efnc, kids[i]);
+        i = i + 1;
+    }
+    Push(efnc);
+    finish_method = .dummy;
+    nreturn;
+}
+Finish_method = (epsilon . *finish_method());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_class — close class body counter frame:
+//   - for each E_FNC item: rename to ClassName__method, emit STMT into sub_list.
+//   - for each E_VAR item: append as field child to E_RECORD node.
+//   - emit E_RECORD STMT into sub_list (after all methods, so it appears after
+//     them when sub_list is reversed for emission).
+// Retained: reduce() cannot rename E_FNC values or build E_RECORD with dynamic
+//           class name from capclsf/capclsr.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_class(n_items, items, cname, rec, item, fname, fullname, efnc, subj, stmt, i) {
+    n_items = TopCounter();
+    items   = GT(n_items, 0) ARRAY('1:' n_items);
+    i = n_items;
+    while (GT(i, 0)) {
+        items[i] = Pop();
+        i = i - 1;
+    }
+    cname = capclsf capclsr;
+    // Build E_RECORD node (fields will be appended in order).
+    rec = tree('E_RECORD', cname);
+    // Walk items: E_FNC → method STMT; E_VAR → field child.
+    i = 1;
+    while (LE(i, n_items)) {
+        item = items[i];
+        if (IDENT(t(item), 'E_FNC')) {
+            // Rename: ClassName__methodname
+            fullname = cname '__' v(item);
+            v(item) = fullname;
+            v(c(item)[1]) = fullname;
+            // Emit as STMT into sub_list
+            subj = tree(':subj', '');
+            Append(subj, item);
+            stmt = tree('STMT', '');
+            Append(stmt, subj);
+            sub_list = slink(sub_list, stmt);
+        } else {
+            Append(rec, item);
+        }
+        i = i + 1;
+    }
+    // E_RECORD STMT into sub_list (will appear after methods on emit).
+    subj = tree(':subj', '');
+    Append(subj, rec);
+    stmt = tree('STMT', '');
+    Append(stmt, subj);
+    sub_list = slink(sub_list, stmt);
+    finish_class = .dummy;
+    nreturn;
+}
+Finish_class = (epsilon . *finish_class());
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_sub(n_kids, kids, sname, efnc, subj, stmt, i) {
     n_kids = TopCounter();
@@ -1408,6 +1547,7 @@ Expr11 = ( $'!'  *Expr11  Finish_not
          | $'sort' $'  '  ClosureExpr  $'  '  *Expr  Finish_sort_cl
          | $'sort' $'  '  *Expr                       Finish_sort_nc
          | $'gather' *GatherBlock
+         | VarTwigil              Push_twigil
          | VarScalar              Push_var
          | ArrIdxVar  $'['  *Expr  $']'              Finish_arr_get
          | VarArray                                   Push_var
@@ -1782,13 +1922,76 @@ SubStmt = ( $'sub' $'  '
             nPop()
           );
 /*====================================================================================================================*/
+// Class declarations — class Name { has $.f; method m(...) { body } }
+//
+// Counter frame layout (class body level):
+//   - each `has $.field;` → Push(E_VAR fieldname) + nInc()
+//   - each `method name(...) { body }` → Push(raw E_FNC) + nInc()
+// finish_class() processes all items: renames E_FNC to ClassName__method and
+// emits STMT into sub_list; appends E_VAR into E_RECORD; emits E_RECORD STMT.
+//
+// Method param list: reuses SubParamTail/SubParams (same $param syntax).
+// Method body: reuses SubBlock (SubBlockStmt, no extra nPush/nPop needed here
+// because MethodDef wraps nPush/nPop around the whole sub-frame for body stmts).
+//
+// Forward-ref note: MethodDef references SubBlock and SubParams which are both
+// defined AFTER ClassDecl in source order. Use *SubBlock and *SubParams.
+// ClassDecl is added to Compiland's ARBNO as *ClassDecl (deferred lookup).
+/*====================================================================================================================*/
+// HasDecl — has $.field ; or has $field ;
+// VarTwigil captures bare name into captwf/captwr.
+// Also accept plain VarScalar (has $field;) — strip sigil via capvf/capvr.
+HasDeclTwigil  = ( VarTwigil  Push_has_field );
+HasDeclScalar  = ( VarScalar  Push_var       );
+HasDecl = ( $'has' $'  '
+            ( HasDeclTwigil | HasDeclScalar )
+            $';'
+            nInc()
+          );
+
+// MethodDef — method name(params) { body }
+// Inner nPush/nPop brackets body stmts; Finish_method pops them.
+// capmtf/capmtr hold the method name from MethodIdent.
+// nInc() (outer) done by caller (ClassBodyItem).
+MethodParamTail = ( $','
+                    SubParam  Push_param  nInc()
+                  );
+MethodParams = ( SubParam  Push_param  nInc()
+                 ARBNO( MethodParamTail )
+               | epsilon
+               );
+MethodDef = ( $'method' $'  '
+              MethodIdent
+              nPush()
+              $'(' *MethodParams $')'
+              *SubBlock  Finish_method
+              nPop()
+              nInc()
+            );
+
+// ClassBodyItem — either a has-decl or a method-def.
+ClassBodyItem = ( HasDecl | MethodDef );
+
+// ClassDecl — class Name { body }.
+// Outer nPush/nPop brackets the class body counter frame.
+// capclsf/capclsr hold class name from ClassName.
+ClassDecl = ( $'class' $'  '
+              ClassName
+              $'{'
+              nPush()
+              ARBNO( *ClassBodyItem )
+              $'}'
+              Finish_class
+              nPop()
+            );
+/*====================================================================================================================*/
 // Compiland — canonical cross-PARSER spine.
 // Outer frame: holds exactly 1 item (the main STMT) for reduce('Parse',1).
 // Inner frame: counts main body stmts for finish_main().
 /*====================================================================================================================*/
 Compiland = nPush()
             nPush()
-            ARBNO( SubStmt | (Stmt nInc()) )
+            ARBNO( SubStmt | (*ClassDecl Push_nul nInc()) | (Stmt nInc()) )
             $' '
             Finish_main
             nPop()
