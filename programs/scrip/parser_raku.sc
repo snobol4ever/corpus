@@ -1839,14 +1839,26 @@ HashSetBraceStmt = ( VarHash Push_var $'{' *Expr $'}' $'=' *Expr $';'  Finish_ha
 FieldWriteStmt = ( VarScalar Push_var '.' MethodName $'=' *Expr $';'  Finish_field_write );
 
 // SayFhStmt — say($fh, str) → raku_say_fh.
-// VarScalar sets capvf/capvr; FENCE commits only after comma is confirmed;
-// Push_var fires after FENCE so the fh push cannot escape a failed match.
-// Without FENCE, *Expr fired push_var before the comma check, leaving a stray
-// (E_VAR fh) on the stack when say($expr) has no comma (e.g. say($d.name)).
-SayFhStmt = ( $'say' $'(' VarScalar FENCE $',' Push_var *Expr $')' $';' Finish_say_fh );
+// Accepts VarScalar ($fh) or standard handles ($*STDIN/$*STDOUT/$*STDERR).
+// FENCE commits only after comma is confirmed; fh push fires after FENCE.
+// VarStdIn/Out/Err are pure string matches (no side effects) so they are
+// safe before FENCE; Finish_stdin/stdout/stderr push after FENCE+comma.
+SayFhStmt = ( $'say' $'('
+              ( VarScalar FENCE $','  Push_var
+              | VarStdIn  FENCE $','  Finish_stdin
+              | VarStdOut FENCE $','  Finish_stdout
+              | VarStdErr FENCE $','  Finish_stderr
+              )
+              *Expr $')' $';' Finish_say_fh );
 
-// PrintFhStmt — print($fh, str) → raku_print_fh.  Same FENCE guard.
-PrintFhStmt = ( $'print' $'(' VarScalar FENCE $',' Push_var *Expr $')' $';' Finish_print_fh );
+// PrintFhStmt — print($fh, str) → raku_print_fh.  Same shape as SayFhStmt.
+PrintFhStmt = ( $'print' $'('
+                ( VarScalar FENCE $','  Push_var
+                | VarStdIn  FENCE $','  Finish_stdin
+                | VarStdOut FENCE $','  Finish_stdout
+                | VarStdErr FENCE $','  Finish_stderr
+                )
+                *Expr $')' $';' Finish_print_fh );
 
 BareStmt = ( Expr $';' );
 
