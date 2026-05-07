@@ -1839,10 +1839,14 @@ HashSetBraceStmt = ( VarHash Push_var $'{' *Expr $'}' $'=' *Expr $';'  Finish_ha
 FieldWriteStmt = ( VarScalar Push_var '.' MethodName $'=' *Expr $';'  Finish_field_write );
 
 // SayFhStmt — say($fh, str) → raku_say_fh.
-SayFhStmt = ( $'say' $'(' *Expr $',' *Expr $')'  $';'  Finish_say_fh );
+// VarScalar sets capvf/capvr; FENCE commits only after comma is confirmed;
+// Push_var fires after FENCE so the fh push cannot escape a failed match.
+// Without FENCE, *Expr fired push_var before the comma check, leaving a stray
+// (E_VAR fh) on the stack when say($expr) has no comma (e.g. say($d.name)).
+SayFhStmt = ( $'say' $'(' VarScalar FENCE $',' Push_var *Expr $')' $';' Finish_say_fh );
 
-// PrintFhStmt — print($fh, str) → raku_print_fh.
-PrintFhStmt = ( $'print' $'(' *Expr $',' *Expr $')'  $';'  Finish_print_fh );
+// PrintFhStmt — print($fh, str) → raku_print_fh.  Same FENCE guard.
+PrintFhStmt = ( $'print' $'(' VarScalar FENCE $',' Push_var *Expr $')' $';' Finish_print_fh );
 
 BareStmt = ( Expr $';' );
 
