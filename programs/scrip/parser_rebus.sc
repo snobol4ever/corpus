@@ -5,7 +5,7 @@
 //
 // Naming: non-terminals from Rebus grammar; IR tags from ir.h E_*;
 // whitespace: $'  ' = required, $' ' = optional (beauty.sno convention).
-// Rungs RB-0..RB-5 + RB-FW-1..RB-FW-9 LANDED.  Gate: PASS=92 FAIL=0.
+// Rungs RB-0..RB-5 + RB-FW-1..RB-FW-9 LANDED.  Gate: PASS=94 FAIL=0.
 //
 // Documented deviations from Style Guidelines (## Style Guidelines for
 // parser_*.sc, GOAL-PARSER-REBUS.md):
@@ -235,7 +235,7 @@ nTop_plus1   = 'nTop() + 1';   // for subscript: base (1) + nTop() args
 
 //  X_sub — like X_args but for subscript bracket context.
 //  Needs its own definition to avoid scope confusion; same logic as X_args.
-X_sub = nInc() *alt_expr FENCE($',' *X_sub | epsilon);
+X_sub = nInc() *expr FENCE($',' *X_sub | epsilon);
 
 /*====================================================================================================================*/
 //  Match-time helpers.  Called only via build-time wrappers that return
@@ -791,6 +791,16 @@ function lower_atom(x, k, acc, i, idxN, idxBase, idxI) {
             lower_atom = acc;
         }
     }
+    //  Augmented assigns in expr position (e.g. inside subscript index):
+    //  a +:= b → E_ASSIGN(a, E_ADD(a, b)); similarly for -:= / ||:= / :=:
+    else if (IDENT(k, 'ADDASSIGN'))
+        lower_atom = Tree(E_ASSIGN, '', 2, lower_atom(c(x)[1]), Tree(E_ADD, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])));
+    else if (IDENT(k, 'SUBASSIGN'))
+        lower_atom = Tree(E_ASSIGN, '', 2, lower_atom(c(x)[1]), Tree(E_SUB, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])));
+    else if (IDENT(k, 'CATASSIGN'))
+        lower_atom = Tree(E_ASSIGN, '', 2, lower_atom(c(x)[1]), Tree(E_CAT, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])));
+    else if (IDENT(k, 'EXCHG'))
+        lower_atom = Tree(E_FNC, 'EXCHG', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
     else lower_atom = x;
     return;
 }
