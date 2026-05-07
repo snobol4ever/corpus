@@ -47,7 +47,7 @@ $'['   =       '['  $' ';  $']'  = $' ' ']';
 $','   = $' '  ','  $' ';  $';'  = $' ' ';' $' ';
 $'|'   = $' '  '|'  $' ';
 $'.'   = $' '  '.';
-$':-'  = $' '  ':-' $' ';  $'='  = $' ' '='  $' ';
+$':-'  = $' '  ':-' $' ';  $':'  = $' '  ':'  . _op_name $' ';  $'='  = $' ' '='  $' ';
 $'+'   = $' '  '+'  $' ';  $'-'  = $' ' '-'  $' ';
 $'*'   = $' '  '*'  $' ';  $'/'  = $' ' '/'  $' ';
 $'is'  = $'  ' 'is' $'  ';
@@ -64,7 +64,7 @@ $'=..' = $' ' '=..' $' ';
 $'@>=' = $' ' '@>=' . _op_name $' ';  $'@=<' = $' ' '@=<' . _op_name $' ';
 $'@>'  = $' ' '@>'  . _op_name $' ';  $'@<'  = $' ' '@<'  . _op_name $' ';
 // Arithmetic/bitwise tokens -- longer prefixes before shorter.
-$'**'  = $' ' '**'  . _op_name $' ';
+$'**'  = $' ' '**'  . _op_name $' ';  $'^'   = $' '  '^'  . _op_name $' ';
 $'//'  = $' ' '//'  $' ';
 $'/\' = $' ' '/\' . _op_name $' ';  $'\/' = $' ' '\/' . _op_name $' ';
 $'>>'  = $' ' '>>'  . _op_name $' ';  $'<<'  = $' ' '<<'  . _op_name $' ';
@@ -844,6 +844,9 @@ primary = (   Atom . p_name nPushName('p_name') $'('
           |   Tk_cut                  Push_cut
           |   "0'" NOTANY(nl) . p_cc    Push_char_code('p_cc')
           |   shift(Float,'E_FLIT')
+          |   '0x' SPAN(hex_digits) . p_radix   Push_hex_int('p_radix')
+          |   '0b' SPAN(bin_digits) . p_radix   Push_bin_int('p_radix')
+          |   '0o' SPAN(oct_digits) . p_radix   Push_oct_int('p_radix')
           |   shift(Int,  'E_ILIT')
           |   shift(Atom, 'E_FNC')
           |   Qatom                   Push_atom_body('q_body')
@@ -857,6 +860,51 @@ primary = (   Atom . p_name nPushName('p_name') $'('
           |   $' ' '-' *primary        epsilon . *do_uminus()
           );
 /*--------------------------------------------------------------------------------------------------------------------*/
+// push_radix_int: convert radix literal (in named global var) to decimal E_ILIT.
+// Pattern-builder mirrors Push_char_code: EVAL wraps the function call so it fires
+// correctly via the deferred *unify_expr chain (same mechanism as push_char_code).
+function push_radix_hex(varname, raw, val, s) {
+    raw = $varname;
+    val = EVAL('0x' raw) '';
+    val SPAN('0123456789') . s;       // strip trailing '.' from real-number result
+    Push(tree('E_ILIT', s));
+    push_radix_hex = .dummy;  nreturn;
+}
+function push_radix_bin(varname, raw, n, i, len, s) {
+    raw = $varname;
+    n = 0;  i = 1;  len = SIZE(raw);
+    while (LE(i, len)) {
+        n = n * 2 + SUBSTR(raw, i, 1) + 0;   // SUBSTR(s,start,length): length=1
+        i = i + 1;
+    }
+    n '' SPAN('0123456789') . s;      // convert to clean integer string
+    Push(tree('E_ILIT', s));
+    push_radix_bin = .dummy;  nreturn;
+}
+function push_radix_oct(varname, raw, n, i, len, s) {
+    raw = $varname;
+    n = 0;  i = 1;  len = SIZE(raw);
+    while (LE(i, len)) {
+        n = n * 8 + SUBSTR(raw, i, 1) + 0;   // SUBSTR(s,start,length): length=1
+        i = i + 1;
+    }
+    n '' SPAN('0123456789') . s;
+    Push(tree('E_ILIT', s));
+    push_radix_oct = .dummy;  nreturn;
+}
+function Push_hex_int(varname) {
+    Push_hex_int = EVAL("epsilon . thx . *push_radix_hex('" varname "')");
+    return;
+}
+function Push_bin_int(varname) {
+    Push_bin_int = EVAL("epsilon . thx . *push_radix_bin('" varname "')");
+    return;
+}
+function Push_oct_int(varname) {
+    Push_oct_int = EVAL("epsilon . thx . *push_radix_oct('" varname "')");
+    return;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
 // do_uminus -- unary minus on a non-literal primary: pops operand, pushes (E_FNC - operand).
 function do_uminus(operand, f) {
     operand = Pop();
@@ -866,9 +914,10 @@ function do_uminus(operand, f) {
     do_uminus = .dummy;  nreturn;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-// pow_expr -- ** (200 xfx, right-assoc: x ** y ** z = x ** (y ** z)).
+// pow_expr -- ^ (200 xfy, right-assoc) and ** (200 xfx, non-assoc).
 pow_expr  = (   primary
-                FENCE( $'**' primary Reduce_binop
+                FENCE( $'^'  *pow_expr Reduce_binop
+                     | $'**' primary  Reduce_binop
                      | epsilon
                      )
             );
@@ -897,8 +946,14 @@ add_expr  = (   mul_expr
                 )
             );
 /*--------------------------------------------------------------------------------------------------------------------*/
-is_expr   = (   add_expr
-                FENCE( $'is' add_expr    Reduce_is
+colon_expr = (  add_expr
+                FENCE( $':' *colon_expr  Reduce_binop
+                     | epsilon
+                     )
+             );
+/*--------------------------------------------------------------------------------------------------------------------*/
+is_expr   = (   colon_expr
+                FENCE( $'is' colon_expr  Reduce_is
                      | epsilon
                      )
             );

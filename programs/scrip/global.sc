@@ -37,6 +37,9 @@
 TRUE   = 1;
 FALSE  = 0;
 digits = '0123456789';
+hex_digits = '0123456789abcdefABCDEF';
+bin_digits = '01';
+oct_digits = '01234567';
 
 // PARSER-SN-INFRA-8 — trace-emitter globals.  All consumed by trace.sc
 // (T8Trace, T8Pos) and later by omega.sc (xTrace gates pattern-build

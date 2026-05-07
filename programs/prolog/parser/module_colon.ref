@@ -1,0 +1,16 @@
+(STMT :subj (E_CHOICE foo/0 (E_CLAUSE foo/0 (E_FNC :
+      (E_FNC lists)
+      (E_FNC member
+        (E_VAR _V0)
+        (E_FNC .
+          (E_ILIT 1)
+          (E_FNC .
+            (E_ILIT 2)
+            (E_FNC .
+              (E_ILIT 3)
+              (E_FNC [])
+            )
+          )
+        )
+      )
+    ))))
