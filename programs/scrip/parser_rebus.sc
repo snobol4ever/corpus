@@ -258,6 +258,18 @@ function Push_qlit() {
     return;
 }
 
+//  push_nul / Push_nul — push a bare E_NUL tree node onto the parse stack.
+//  Used for empty arglist slots: foo(1,,3) or foo(1,2,) per rebus.y arglist_ne.
+function push_nul() {
+    push_nul = .dummy;
+    Push(tree(E_NUL, ''));
+    nreturn;
+}
+function Push_nul() {
+    Push_nul = epsilon . *push_nul();
+    return;
+}
+
 function decompose_call(nargs, kids, fname, call, i) {
     //  Stack (top first): arg_N, ..., arg_1, E_VAR_fname
     //  nTop() = N (args only; fname not counted by nInc).
@@ -352,7 +364,13 @@ function Push_cursor() {
 //  primary — id, call, int, string, paren.
 rbCallName = '';
 
-X_args   = nInc() *alt_expr FENCE($',' *X_args | epsilon);
+//  X_args — one arg in a call arglist; recurses for subsequent args.
+//  First arg is always a real expr.  After a comma, the next arg may be:
+//    (a) a real expr (*X_args again), or
+//    (b) an empty slot (trailing comma or `,,`): push E_NUL, then continue.
+//  nInc() for the empty slot fires in (b) via nInc_then_nul.
+nInc_then_nul = nInc() Push_nul();
+X_args   = nInc() *alt_expr FENCE($',' FENCE(*X_args | *nInc_then_nul FENCE($',' *X_args | epsilon)) | epsilon);
 
 call_or_id = FENCE(  (*Id . rbCallName) $'(' nPush() Push_call_id()
                      FENCE(*X_args | epsilon) $')' Decompose_call() nPop()
@@ -401,6 +419,7 @@ unary_expr = FENCE(  $'-'  *unary_expr reduce(E_MNS, 1)
                    | '/'   *unary_expr reduce(E_VALUEPAT, 1)
                    | '\'   *unary_expr reduce(E_NOTPAT, 1)
                    | '$'   *unary_expr reduce(E_INDIRECT, 1)
+                   | '.'   *unary_expr reduce(E_CAPT_COND, 1)
                    | *postfix_expr
                   );
 
@@ -773,8 +792,12 @@ function lower_atom(x, k, acc, i, idxN, idxBase, idxI) {
             }
         }
     }
-    else if (IDENT(k, 'E_CAPT_COND_ASGN'))
-        lower_atom = Tree(E_CAPT_COND, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'E_CAPT_COND_ASGN')) {
+        //  1-child: unary dot (.y) → E_CAPT_COND_ASGN(E_NUL, child) per oracle.
+        //  2-child: binary dot (a . b) → E_CAPT_COND_ASGN(a, b).
+        if (EQ(n(x), 1)) lower_atom = Tree(E_CAPT_COND, '', 2, tree(E_NUL, ''), lower_atom(c(x)[1]));
+        else lower_atom = Tree(E_CAPT_COND, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    }
     else if (IDENT(k, 'E_CAPT_IMMED_ASGN'))
         lower_atom = Tree(E_CAPT_IMM,  '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
     else if (IDENT(k, 'E_NOTPAT'))  lower_atom = Tree(E_FNC, 'DIFFER',  1, lower_atom(c(x)[1]));
