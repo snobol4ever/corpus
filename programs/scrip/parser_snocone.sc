@@ -60,6 +60,7 @@ $'goto'     =   $' ' Id $ tx *IDENT(tx, 'goto')     $' ';
 $'if'       =   $' ' Id $ tx *IDENT(tx, 'if')       $' ';
 $'nreturn'  =   $' ' Id $ tx *IDENT(tx, 'nreturn')  $' ';
 $'return'   =   $' ' Id $ tx *IDENT(tx, 'return')   $' ';
+$'struct'   =   $' ' Id $ tx *IDENT(tx, 'struct')   $' ';
 $'while'    =   $' ' Id $ tx *IDENT(tx, 'while')    $' ';
 Keyword     =   '&' SPAN(&UCASE '_' &LCASE) . token;
 Integer     =   SPAN(digits) . token;
@@ -425,6 +426,20 @@ function save_param_rest(p) {
     cur_func_args = cur_func_args ',' p;
     save_param_rest = .dummy; nreturn;
 }
+function save_struct_field_first(f) {
+    sc_struct_fields = f;
+    save_struct_field_first = .dummy; nreturn;
+}
+function save_struct_field_rest(f) {
+    sc_struct_fields = sc_struct_fields ',' f;
+    save_struct_field_rest = .dummy; nreturn;
+}
+function emit_struct(qlit, fnc) {
+    qlit = tree('E_QLIT', cur_struct_name '(' sc_struct_fields ')');
+    fnc  = Tree('E_FNC', 'DATA', 1, qlit);
+    Push(Tree('STMT', '', 1, Tree(':subj', '', 1, fnc)));
+    emit_struct = .dummy; nreturn;
+}
 function make_define_stmt(name, args, qlit, fnc) {
     qlit = tree('E_QLIT', name '(' args ')');
     fnc  = Tree('E_FNC', 'DEFINE', 1, qlit);
@@ -544,6 +559,9 @@ function Decompose_call()       { Decompose_call      = epsilon . thx . *decompo
 function Func_head_save_name()  { Func_head_save_name = epsilon . thx . *func_head_save_name(captured_name); return; }
 function Save_param_first()     { Save_param_first    = epsilon . thx . *save_param_first(captured_param);   return; }
 function Save_param_rest()      { Save_param_rest     = epsilon . thx . *save_param_rest(captured_param);    return; }
+function Save_struct_field_first() { Save_struct_field_first = epsilon . thx . *save_struct_field_first(captured_sf); return; }
+function Save_struct_field_rest()  { Save_struct_field_rest  = epsilon . thx . *save_struct_field_rest(captured_sf);  return; }
+function Emit_struct()          { Emit_struct         = epsilon . thx . *emit_struct();                        return; }
 function Emit_return_value()    { Emit_return_value   = epsilon . thx . *emit_return_value();                return; }
 function Emit_return_void()     { Emit_return_void    = epsilon . thx . *emit_return_void();                 return; }
 function Emit_freturn()         { Emit_freturn        = epsilon . thx . *emit_freturn();                     return; }
@@ -735,6 +753,14 @@ return_cmd      =   nInc() $'return'
                     );
 freturn_cmd     =   nInc() $'freturn' $';' Emit_freturn();
 nreturn_cmd     =   nInc() $'nreturn' $';' Emit_nreturn();
+/*--------------------------------------------------------------------------------------------------------------------*/
+struct_field_first  =   *Ident . *assign(.captured_sf, token) Save_struct_field_first();
+struct_field_rest   =   $',' *Ident . *assign(.captured_sf, token) Save_struct_field_rest();
+struct_field_list   =   struct_field_first ARBNO(struct_field_rest) | epsilon;
+struct_cmd          =   nInc()
+                        $'struct' *Ident . *assign(.cur_struct_name, token)
+                        $'{' struct_field_list $'}'
+                        Emit_struct();
 /*====================================================================================================================*/
 Command         =   $' ' ( if_cmd
                     | while_cmd
@@ -747,6 +773,7 @@ Command         =   $' ' ( if_cmd
                     | goto_cmd
                     | break_cmd
                     | continue_cmd
+                    | struct_cmd
                     | label_prefix
                     | empty_cmd
                     | stmt_cmd
