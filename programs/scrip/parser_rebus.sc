@@ -5,7 +5,7 @@
 //
 // Naming: non-terminals from Rebus grammar; IR tags from ir.h E_*;
 // whitespace: $'  ' = required, $' ' = optional (beauty.sno convention).
-// Rungs RB-0..RB-5 + RB-FW-1..RB-FW-9 LANDED.  Gate: PASS=87 FAIL=0.
+// Rungs RB-0..RB-5 + RB-FW-1..RB-FW-9 LANDED.  Gate: PASS=90 FAIL=0.
 //
 // Documented deviations from Style Guidelines (## Style Guidelines for
 // parser_*.sc, GOAL-PARSER-REBUS.md):
