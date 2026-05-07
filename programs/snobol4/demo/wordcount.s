@@ -22,7 +22,7 @@
 .Lstr_10:
 	.string ""
 .Lstr_11:
-	.string "Ð;@Ã¼\177"
+	.string "Ð;€ñ"
 .Lstr_12:
 	.string "N"
 .Lstr_13:
@@ -110,16 +110,20 @@ main:
                         lea     rdi, [rip + .Lstr_6]        # var=WORD
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc17:                 
-                        call    scrip_rt_pat_break@PLT      # PAT_BREAK
+                        mov     edi, 30                     # SM_PAT_BREAK
+                        call    scrip_rt_unhandled_op@PLT   
 .Lpc18:                 
-                        call    scrip_rt_pat_boxval@PLT     # PAT_BOXVAL
+                        mov     edi, 83                     # SM_PAT_BOXVAL
+                        call    scrip_rt_unhandled_op@PLT   
 .Lpc19:                 
                         lea     rdi, [rip + .Lstr_6]        # var=WORD
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc20:                 
-                        call    scrip_rt_pat_span@PLT       # PAT_SPAN
+                        mov     edi, 29                     # SM_PAT_SPAN
+                        call    scrip_rt_unhandled_op@PLT   
 .Lpc21:                 
-                        call    scrip_rt_pat_boxval@PLT     # PAT_BOXVAL
+                        mov     edi, 83                     # SM_PAT_BOXVAL
+                        call    scrip_rt_unhandled_op@PLT   
 .Lpc22:                 
                         call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc23:                 
@@ -151,7 +155,8 @@ main:
                         lea     rdi, [rip + .Lstr_7]        # var=WPAT
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc32:                 
-                        call    scrip_rt_pat_deref@PLT      # PAT_DEREF
+                        mov     edi, 48                     # SM_PAT_DEREF
+                        call    scrip_rt_unhandled_op@PLT   
 .Lpc33:                 
                         lea     rdi, [rip + .Lstr_9]        # var=LINE
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
@@ -160,9 +165,8 @@ main:
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc35:                 
-                        lea     rdi, [rip + .Lstr_11]       # subj=Ð;@Ã¼
-                        mov     esi, 1                      # has_repl=1
-                        call    scrip_rt_exec_stmt@PLT      # SM_EXEC_STMT
+                        mov     edi, 55                     # SM_EXEC_STMT
+                        call    scrip_rt_unhandled_op@PLT   
 .Lpc36:                 
                         call    scrip_rt_last_ok@PLT        #  EM-4 conditional jump
                         test    eax, eax                    
