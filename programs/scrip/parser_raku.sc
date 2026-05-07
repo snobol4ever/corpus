@@ -114,10 +114,21 @@ $'while'  = $' ' 'while' ;  $'for'    = $' ' 'for'   ;
 $'sub'    = $' ' 'sub'   ;  $'return' = $' ' 'return';
 $'exists' = $' ' 'exists';  $'delete' = $' ' 'delete';
 $'unless' = $' ' 'unless';  $'until'  = $' ' 'until';
+$'without' = $' ' 'without';
+$'whenever' = $' ' 'whenever';
+$'foreach' = $' ' 'foreach';
+$'loop' = $' ' 'loop';
+$'use' = $' ' 'use';
+$'no' = $' ' 'no';
+$'need' = $' ' 'need';
+$'import' = $' ' 'import';
+$'require' = $' ' 'require';
 $'given'  = $' ' 'given' ;  $'when'   = $' ' 'when'  ;
 $'default' = $' ' 'default';
 $'print'  = $' ' 'print'  ;  $'die'    = $' ' 'die'    ;
 $'try'    = $' ' 'try'    ;  $'CATCH'  = $' ' ('CATCH' | 'catch');
+$'CONTROL' = $' ' 'CONTROL';
+$'QUIT'    = $' ' 'QUIT';
 $'map'    = $' ' 'map'    ;  $'grep'   = $' ' 'grep'   ;  $'sort'   = $' ' 'sort'   ;
 $'gather' = $' ' 'gather' ;  $'take'   = $' ' 'take'   ;
 $'elsif'  = $' ' 'elsif'  ;  $'repeat' = $' ' 'repeat' ;
@@ -151,6 +162,14 @@ $'!'   = $' ' '!';        $'~'   = $' ' '~'   $' ';
 ident_first = ANY(&UCASE &LCASE '_');
 ident_rest  = SPAN(digits &UCASE &LCASE '_');
 Ident   = ($' ' ident_first (ident_rest | epsilon));
+
+// Module name — Foo or Foo::Bar::Baz or v6 or v6.c — captured as a single
+// string into `capmodname`.  Used by RK-28 module-load stmts (use/no/need/
+// import/require).  Greedy: captures up to the next non-name char.
+modname_part  = (ident_first (ident_rest | epsilon));
+modname_chain = (modname_part ARBNO('::' modname_part));
+modname_ver   = ('v' SPAN(digits) ('.' SPAN(digits &UCASE &LCASE '_') | epsilon));
+ModuleName    = ($' ' (modname_chain | modname_ver) . capmodname);
 
 // Sigiled variables: capture bare name (strip sigil) into capvf/capvr.
 // push_var() uses the captures — see retained-for-<reason> note above.
@@ -874,6 +893,200 @@ function finish_die(arg, fn, node) {
     nreturn;
 }
 Finish_die = (epsilon . *finish_die());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_without — without (cond) block → (E_FNC raku_without (E_VAR raku_without) cond block).
+// Stack at entry (top→bottom): block, cond.
+// Mirrors RK-28 placeholder convention: Grammar.nqp `statement_control:sym<without>` has
+// no clean E_* kind in ir.h, so we lower to a generic raku_<name> call node.
+// Retained: E_FNC value='raku_without' must be set explicitly (reduce() leaves value='').
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_without(blk, cond, fn, node) {
+    blk  = Pop();
+    cond = Pop();
+    fn   = tree('E_VAR', 'raku_without');
+    node = tree('E_FNC', 'raku_without');
+    Append(node, fn);
+    Append(node, cond);
+    Append(node, blk);
+    Push(node);
+    finish_without = .dummy;
+    nreturn;
+}
+Finish_without = (epsilon . *finish_without());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_whenever — whenever expr block → (E_FNC raku_whenever (E_VAR raku_whenever) expr block).
+// Stack at entry (top→bottom): block, expr.
+// RK-28 arm 2: Grammar.nqp `statement_control:sym<whenever>`.  Spec form is
+// `whenever EXPR { block }` (no parens around expr — Raku's xblock syntax).
+// Retained: E_FNC value='raku_whenever' must be set explicitly.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_whenever(blk, ex, fn, node) {
+    blk  = Pop();
+    ex   = Pop();
+    fn   = tree('E_VAR', 'raku_whenever');
+    node = tree('E_FNC', 'raku_whenever');
+    Append(node, fn);
+    Append(node, ex);
+    Append(node, blk);
+    Push(node);
+    finish_whenever = .dummy;
+    nreturn;
+}
+Finish_whenever = (epsilon . *finish_whenever());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_loop_inf — `loop { block }` (no parens) → (E_WHILE (E_ILIT 1) block).
+// Stack at entry (top→bottom): block.
+// RK-28 arm 4a: Grammar.nqp `statement_control:sym<loop>` (no `(...)` arm).
+// Lowers to existing E_WHILE with constant true — clean reuse, no placeholder.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_loop_inf(blk, one, node) {
+    blk  = Pop();
+    one  = tree('E_ILIT', '1');
+    node = tree('E_WHILE');
+    Append(node, one);
+    Append(node, blk);
+    Push(node);
+    finish_loop_inf = .dummy;
+    nreturn;
+}
+Finish_loop_inf = (epsilon . *finish_loop_inf());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_loop_three — `loop (init; cond; step) { block }` C-style three-part.
+// Stack at entry (top→bottom): block, step, cond, init.
+// RK-28 arm 4b: Grammar.nqp `statement_control:sym<loop>` with `(e1; e2; e3)` arm.
+// Lowers to (E_FNC raku_loop init cond step block) placeholder — no clean
+// E_* kind for this construct.  Note: spec requires all three exprs (compile
+// error otherwise); for parse-coverage we require all three too.
+// Note 2: `init` is parsed as Expr only (not stmt), so `my $i = 0` won't work
+// here — use `$i = 0` with $i pre-declared.  Documented limitation.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_loop_three(blk, step, cond, init, fn, node) {
+    blk  = Pop();
+    step = Pop();
+    cond = Pop();
+    init = Pop();
+    fn   = tree('E_VAR', 'raku_loop');
+    node = tree('E_FNC', 'raku_loop');
+    Append(node, fn);
+    Append(node, init);
+    Append(node, cond);
+    Append(node, step);
+    Append(node, blk);
+    Push(node);
+    finish_loop_three = .dummy;
+    nreturn;
+}
+Finish_loop_three = (epsilon . *finish_loop_three());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_module_load — used by use/no/need/import/require for a captured
+// module name (capmodname) → (E_FNC raku_<kind> (E_VAR raku_<kind>) (E_QLIT modname)).
+// RK-28 arms 5–9: Grammar.nqp `statement_control:sym<{use,no,need,import,require}>`.
+// Each stmt has its own Finish_* wrapper that calls finish_module_load_x with
+// the right kind name.  Retained: shift cannot read a global capture; reduce
+// cannot set the E_FNC value field.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_use(fn, q, node) {
+    fn   = tree('E_VAR', 'raku_use');
+    q    = tree('E_QLIT', capmodname);
+    node = tree('E_FNC', 'raku_use');
+    Append(node, fn);
+    Append(node, q);
+    Push(node);
+    finish_use = .dummy;
+    nreturn;
+}
+Finish_use = (epsilon . *finish_use());
+
+function finish_no(fn, q, node) {
+    fn   = tree('E_VAR', 'raku_no');
+    q    = tree('E_QLIT', capmodname);
+    node = tree('E_FNC', 'raku_no');
+    Append(node, fn);
+    Append(node, q);
+    Push(node);
+    finish_no = .dummy;
+    nreturn;
+}
+Finish_no = (epsilon . *finish_no());
+
+function finish_need(fn, q, node) {
+    fn   = tree('E_VAR', 'raku_need');
+    q    = tree('E_QLIT', capmodname);
+    node = tree('E_FNC', 'raku_need');
+    Append(node, fn);
+    Append(node, q);
+    Push(node);
+    finish_need = .dummy;
+    nreturn;
+}
+Finish_need = (epsilon . *finish_need());
+
+function finish_import(fn, q, node) {
+    fn   = tree('E_VAR', 'raku_import');
+    q    = tree('E_QLIT', capmodname);
+    node = tree('E_FNC', 'raku_import');
+    Append(node, fn);
+    Append(node, q);
+    Push(node);
+    finish_import = .dummy;
+    nreturn;
+}
+Finish_import = (epsilon . *finish_import());
+
+function finish_require(fn, q, node) {
+    fn   = tree('E_VAR', 'raku_require');
+    q    = tree('E_QLIT', capmodname);
+    node = tree('E_FNC', 'raku_require');
+    Append(node, fn);
+    Append(node, q);
+    Push(node);
+    finish_require = .dummy;
+    nreturn;
+}
+Finish_require = (epsilon . *finish_require());
+/*--------------------------------------------------------------------------------------------------------------------*/
+// finish_catch_free / finish_control / finish_quit — free phaser blocks.
+// RK-28 arms 11–13: Grammar.nqp `statement_control:sym<{CATCH,CONTROL,QUIT}>`.
+// All three are `<sym> <block(1)>` with topic.  Lower to placeholder
+// (E_FNC raku_<kind>_block (E_VAR raku_<kind>_block) block).
+// Note: CATCH already exists inside try; this covers the *free* form
+// (top-level CATCH not inside try).
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_catch_free(blk, fn, node) {
+    blk  = Pop();
+    fn   = tree('E_VAR', 'raku_catch_block');
+    node = tree('E_FNC', 'raku_catch_block');
+    Append(node, fn);
+    Append(node, blk);
+    Push(node);
+    finish_catch_free = .dummy;
+    nreturn;
+}
+Finish_catch_free = (epsilon . *finish_catch_free());
+
+function finish_control(blk, fn, node) {
+    blk  = Pop();
+    fn   = tree('E_VAR', 'raku_control_block');
+    node = tree('E_FNC', 'raku_control_block');
+    Append(node, fn);
+    Append(node, blk);
+    Push(node);
+    finish_control = .dummy;
+    nreturn;
+}
+Finish_control = (epsilon . *finish_control());
+
+function finish_quit(blk, fn, node) {
+    blk  = Pop();
+    fn   = tree('E_VAR', 'raku_quit_block');
+    node = tree('E_FNC', 'raku_quit_block');
+    Append(node, fn);
+    Append(node, blk);
+    Push(node);
+    finish_quit = .dummy;
+    nreturn;
+}
+Finish_quit = (epsilon . *finish_quit());
 /*--------------------------------------------------------------------------------------------------------------------*/
 // ClosureExpr — `{ Expr }` — body expression for map/grep/sort.
 // Matches `{', parses Expr, pops it, `}'. Leaves the expr on the stack.
@@ -1739,6 +1952,76 @@ UntilStmt = ( $'until'  $'(' Expr $')'
               (E_UNTIL & 2)
             );
 
+// WithoutStmt — without (cond) block.
+// Mirrors Grammar.nqp `statement_control:sym<without>`.  No clean E_* kind;
+// placeholder lowering to (E_FNC raku_without (E_VAR raku_without) cond block).
+// Spec disallows trailing else/elsif/orwith — we accept the bare form only.
+WithoutStmt = ( $'without'  $'(' Expr $')'
+                Block
+                Finish_without
+              );
+
+// WheneverStmt — whenever EXPR { block }.
+// RK-28 arm 2: Grammar.nqp `statement_control:sym<whenever>` uses xblock
+// (no parens around expr).  Lower to (E_FNC raku_whenever expr block).
+WheneverStmt = ( $'whenever' $'  ' *Expr Block Finish_whenever );
+
+// LoopThreeStmt — `loop (init; cond; step) { block }` C-style.
+// RK-28 arm 4b: Grammar.nqp `statement_control:sym<loop>` three-expr arm.
+// Must come BEFORE LoopInfStmt in alternations — both start with `loop`,
+// the three-part form is longer (has `(`) so try it first to avoid the
+// infinite form mis-matching `loop ` and leaving `(...)` unparsed.
+//
+// LoopSubExpr — accepts either `lhs = rhs` (assignment-as-expression) or
+// a plain Expr.  Raku's three-part loop allows assignments in init/step
+// positions; our top-level `Expr` does not include `=` (assignment is a
+// statement, not an expression).  The leading VarScalar/`=` arm folds to
+// (E_ASSIGN lhs rhs) on the stack — same shape as AssignStmt without the `;`.
+// FENCE before Push_var to prevent match-time side-effect leak (RK-24 rule).
+LoopSubExpr = ( ( VarScalar FENCE $'=' Push_var Expr (E_ASSIGN & 2) )
+              | Expr
+              );
+
+LoopThreeStmt = ( $'loop' $'(' LoopSubExpr $';' LoopSubExpr $';' LoopSubExpr $')'
+                  Block
+                  Finish_loop_three
+                );
+
+// LoopInfStmt — `loop { block }` infinite (no parens).
+// RK-28 arm 4a: Grammar.nqp `statement_control:sym<loop>` zero-expr arm.
+LoopInfStmt = ( $'loop' Block Finish_loop_inf );
+
+// UseStmt / NoStmt / NeedStmt / ImportStmt / RequireStmt — module-load stmts.
+// RK-28 arms 5–9: Grammar.nqp `statement_control:sym<{use,no,need,import,require}>`.
+// Minimal parse-coverage form: keyword + module-name + `;`.  Args/versions
+// (e.g. `use v6;`, `use Foo :tag;`, `import Mod :sym<foo>`) parse but ignore
+// any trailing args: see `BREAK(';') $';'` consume-to-semi pattern.
+// Each lowers to (E_FNC raku_<kw> (E_VAR raku_<kw>) (E_QLIT modname)).
+UseStmt     = ( $'use'     $'  ' ModuleName BREAK(';') $';' Finish_use     );
+NoStmt      = ( $'no'      $'  ' ModuleName BREAK(';') $';' Finish_no      );
+NeedStmt    = ( $'need'    $'  ' ModuleName BREAK(';') $';' Finish_need    );
+ImportStmt  = ( $'import'  $'  ' ModuleName BREAK(';') $';' Finish_import  );
+RequireStmt = ( $'require' $'  ' ModuleName BREAK(';') $';' Finish_require );
+
+// CatchFreeStmt / ControlStmt / QuitStmt — free phaser blocks.
+// RK-28 arms 11–13: Grammar.nqp `statement_control:sym<{CATCH,CONTROL,QUIT}>`.
+// Plain `<keyword> { block }` — no parens, no expr.  CATCH inside `try` is
+// already handled by TryStmt; this matches CATCH outside try (and CONTROL,
+// QUIT) at stmt position.
+CatchFreeStmt = ( $'CATCH'   Block Finish_catch_free );
+ControlStmt   = ( $'CONTROL' Block Finish_control    );
+QuitStmt      = ( $'QUIT'    Block Finish_quit       );
+
+// ForeachStmt — Perl-5 alias for `for`.  Spec (Grammar.nqp `statement_control:sym<foreach>`)
+// actually emits an `obs` panic, but for parse-coverage we accept and lower
+// identically to the Raku `for EXPR -> $v { body }` form via Finish_for.
+// Reuses the existing for-stmt machinery (Store_for_iter + Finish_for).
+ForeachStmt = ( $'foreach' $'  '  Expr
+                $'->'
+                ForLoopvar  Store_for_iter
+                Block  Finish_for
+              );
+
 ForStmt = ( $'for' $'  '  Expr
             $'->'
             ForLoopvar  Store_for_iter
@@ -1895,11 +2178,24 @@ ForNoArrowStmt = ( $'for' $'  ' *Expr Block Finish_for_noarrow );
 
 Stmt = ( GivenStmt
        | TryStmt
+       | CatchFreeStmt
+       | ControlStmt
+       | QuitStmt
        | IfStmt
        | WhileStmt
        | UnlessStmt
+       | WithoutStmt
+       | WheneverStmt
        | UntilStmt
        | RepeatStmt
+       | LoopThreeStmt
+       | LoopInfStmt
+       | UseStmt
+       | NoStmt
+       | NeedStmt
+       | ImportStmt
+       | RequireStmt
+       | ForeachStmt
        | ForRangeStmt
        | ForNoArrowStmt
        | ForStmt
@@ -1922,10 +2218,10 @@ Stmt = ( GivenStmt
        );
 
 // BlockStmt — final binding.
-BlockStmt = ( GivenStmt | TryStmt | IfStmt | WhileStmt | UnlessStmt | UntilStmt | RepeatStmt | ForRangeStmt | ForNoArrowStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ArrSetStmt | HashSetAngleStmt | HashSetBraceStmt | FieldWriteStmt | SayFhStmt | PrintFhStmt | TypedDeclStmt | ReturnBareStmt | ReturnStmt | TakeStmt | AssignStmt | SayStmt | PrintStmt | BareStmt );
+BlockStmt = ( GivenStmt | TryStmt | CatchFreeStmt | ControlStmt | QuitStmt | IfStmt | WhileStmt | UnlessStmt | WithoutStmt | WheneverStmt | UntilStmt | RepeatStmt | LoopThreeStmt | LoopInfStmt | UseStmt | NoStmt | NeedStmt | ImportStmt | RequireStmt | ForeachStmt | ForRangeStmt | ForNoArrowStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ArrSetStmt | HashSetAngleStmt | HashSetBraceStmt | FieldWriteStmt | SayFhStmt | PrintFhStmt | TypedDeclStmt | ReturnBareStmt | ReturnStmt | TakeStmt | AssignStmt | SayStmt | PrintStmt | BareStmt );
 
 // SubBlockStmt — SubBlock_body handles nInc per stmt.
-SubBlockStmt = ( GivenStmt | TryStmt | IfStmt | WhileStmt | UnlessStmt | UntilStmt | RepeatStmt | ForRangeStmt | ForNoArrowStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ArrSetStmt | HashSetAngleStmt | HashSetBraceStmt | FieldWriteStmt | SayFhStmt | PrintFhStmt | TypedDeclStmt | ReturnBareStmt | ReturnStmt | TakeStmt | AssignStmt | SayStmt | PrintStmt | BareStmt );
+SubBlockStmt = ( GivenStmt | TryStmt | CatchFreeStmt | ControlStmt | QuitStmt | IfStmt | WhileStmt | UnlessStmt | WithoutStmt | WheneverStmt | UntilStmt | RepeatStmt | LoopThreeStmt | LoopInfStmt | UseStmt | NoStmt | NeedStmt | ImportStmt | RequireStmt | ForeachStmt | ForRangeStmt | ForNoArrowStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ArrSetStmt | HashSetAngleStmt | HashSetBraceStmt | FieldWriteStmt | SayFhStmt | PrintFhStmt | TypedDeclStmt | ReturnBareStmt | ReturnStmt | TakeStmt | AssignStmt | SayStmt | PrintStmt | BareStmt );
 /*====================================================================================================================*/
 // Sub parameter list — each param shifts (E_VAR name) onto sub counter frame.
 /*====================================================================================================================*/
