@@ -459,7 +459,7 @@ match_or_expr = *expr FENCE($'?-match' *alt_expr reduce(REPLN, 2)
 //  stmt_body — compound_stmt OR a single match_or_expr.  Used as the body
 //  of if/while/unless/until so that `if x then { ... }` is valid.
 //  compound_stmt must be tried first (its leading '{' distinguishes it).
-stmt_body = FENCE(*compound_stmt | *match_or_expr);
+stmt_body = FENCE(*compound_stmt | *case_stmt | *match_or_expr);
 //  if_stmt / while_stmt / unless_stmt / until_stmt / repeat_stmt — surface shapes.
 //  if with else is 3-child IFELSE (cond, then, else); without else is 2-child IF.
 if_stmt    = $'if'     *match_or_expr $'then' FENCE(*stmt_body $'else' *stmt_body reduce(IFELSE, 3) | *stmt_body reduce(IF, 2));
@@ -505,7 +505,7 @@ compound_stmt = $' ' '{' $' ' nl nPush() *compound_body_tail reduce(COMPOUND, nT
 CASE_CLAUSE   = 'CASE_CLAUSE';
 CASE_DEFAULT  = 'CASE_DEFAULT';
 
-stmt_inline = $' ' FENCE(*compound_stmt | *if_stmt | *while_stmt | *unless_stmt | *until_stmt | *repeat_stmt | *for_stmt | *return_stmt | *stop_stmt | *fail_stmt | *exit_stmt | *next_stmt | *match_or_expr) $' ';
+stmt_inline = $' ' FENCE(*compound_stmt | *case_stmt | *if_stmt | *while_stmt | *unless_stmt | *until_stmt | *repeat_stmt | *for_stmt | *return_stmt | *stop_stmt | *fail_stmt | *exit_stmt | *next_stmt | *match_or_expr) $' ';
 
 //  caseclause — guard: body  or  default: body.
 caseclause_guard   = nInc() *match_or_expr $':' *stmt_inline reduce(CASE_CLAUSE, 2);
