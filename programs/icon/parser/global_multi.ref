@@ -1,0 +1,23 @@
+(STMT :subj (E_GLOBAL
+  (E_VAR x)
+  (E_VAR y)
+  (E_VAR z)
+))
+(STMT :subj (E_FNC main
+  (E_VAR main)
+  (E_ASSIGN
+    (E_VAR x)
+    (E_ILIT 1)
+  )
+  (E_ASSIGN
+    (E_VAR y)
+    (E_ILIT 2)
+  )
+  (E_ASSIGN
+    (E_VAR z)
+    (E_ADD
+      (E_VAR x)
+      (E_VAR y)
+    )
+  )
+))

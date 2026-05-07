@@ -1,0 +1,7 @@
+(STMT :subj (E_FNC main
+  (E_VAR main)
+  (E_AUGOP
+    (E_VAR x)
+    (E_QLIT "y")
+  )
+))

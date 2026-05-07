@@ -1,0 +1,20 @@
+(STMT :subj (E_RECORD Point
+  (E_VAR x)
+  (E_VAR y)
+))
+(STMT :subj (E_RECORD Color
+  (E_VAR r)
+  (E_VAR g)
+  (E_VAR b)
+))
+(STMT :subj (E_FNC main
+  (E_VAR main)
+  (E_ASSIGN
+    (E_VAR p)
+    (E_FNC
+      (E_VAR Point)
+      (E_ILIT 1)
+      (E_ILIT 2)
+    )
+  )
+))
