@@ -417,6 +417,11 @@ function push_flit()        { push_flit         = .dummy; Push(tree('E_FLIT', to
 function push_ilit()        { push_ilit         = .dummy; Push(tree('E_ILIT', token)); nreturn; }
 function push_empty_str()   { push_empty_str    = .dummy; Push(tree('E_QLIT', '')); nreturn; }
 function push_mns(e)        { e = Pop(); Push(Tree('E_MNS', '', 1, e)); push_mns = .dummy; nreturn; }
+function reduce_augmented(op, rhs, lhs) {
+    rhs = Pop(); lhs = Pop();
+    Push(Tree('E_ASSIGN', '', 2, lhs, Tree(op, '', 2, lhs, rhs)));
+    reduce_augmented = .dummy; nreturn;
+}
 /*--------------------------------------------------------------------------------------------------------------------*/
 function push_call_name_var() {
     Push(tree('E_VAR', captured_call_name));
@@ -490,6 +495,7 @@ function Push_flit()            { Push_flit           = epsilon . thx . *push_fl
 function Push_ilit()            { Push_ilit           = epsilon . thx . *push_ilit();                        return; }
 function Push_empty_str()       { Push_empty_str      = epsilon . thx . *push_empty_str();                   return; }
 function Push_mns()             { Push_mns            = epsilon . thx . *push_mns();                         return; }
+function Reduce_augmented(op)   { Reduce_augmented    = EVAL("epsilon . thx . *reduce_augmented(" op ")"); return; }
 function Push_idx()             { Push_idx            = epsilon . thx . *push_idx();                         return; }
 function Paren_reduce()         { Paren_reduce        = epsilon . thx . *paren_reduce();                     return; }
 function Push_call_name_var()   { Push_call_name_var  = epsilon . thx . *push_call_name_var();               return; }
@@ -595,7 +601,14 @@ Expr3           =   nPush() *X3 (E_ALT & r_nTop) nPop();
 X3              =   nInc() *Expr4 FENCE($'|' *X3 | epsilon);
 Expr2           =   *Expr3 FENCE($'&' *Expr2 (E_SEQ & 2) | epsilon);
 Expr1           =   *Expr2 FENCE($'?' *Expr1 (E_SCAN & 2) | epsilon);
-Expr0           =   *Expr1 FENCE($'=' FENCE(*Expr0 | Push_empty_str()) (E_ASSIGN & 2) | epsilon);
+Expr0           =   *Expr1 FENCE(
+                      $'='  FENCE(*Expr0 | Push_empty_str())  (E_ASSIGN & 2)
+                    | $'+=' *Expr0  Reduce_augmented(E_ADD)
+                    | $'-=' *Expr0  Reduce_augmented(E_SUB)
+                    | $'*=' *Expr0  Reduce_augmented(E_MUL)
+                    | $'/=' *Expr0  Reduce_augmented(E_DIV)
+                    | $'^=' *Expr0  Reduce_augmented(E_POW)
+                    | epsilon);
 /*====================================================================================================================*/
 stmt_body       =   *Expr0 ($';' | epsilon) Decompose_stmt();
 stmt_cmd        =   nInc() stmt_body;
