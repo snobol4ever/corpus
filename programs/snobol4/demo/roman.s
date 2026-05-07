@@ -10,10 +10,8 @@
 .Lstr_4:
 	.string ""
 .Lstr_5:
-	.string "pù◊("
-.Lstr_6:
 	.string ","
-.Lstr_7:
+.Lstr_6:
 	.string "0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
 	.text
 # -----------------------------------------------------------------------
@@ -108,7 +106,7 @@ main:
                         mov     edi, 48                     # SM_PAT_DEREF
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc20:                 
-                        lea     rdi, [rip + .Lstr_6]        # str=","
+                        lea     rdi, [rip + .Lstr_5]        # str=","
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc21:                 
@@ -121,7 +119,7 @@ main:
                         mov     edi, 47                     # SM_PAT_CAT
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc24:                 
-                        lea     rdi, [rip + .Lstr_7]        # str="0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
+                        lea     rdi, [rip + .Lstr_6]        # str="0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc25:                 

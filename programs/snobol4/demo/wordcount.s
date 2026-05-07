@@ -22,12 +22,10 @@
 .Lstr_10:
 	.string ""
 .Lstr_11:
-	.string "Ð;€ñ"
-.Lstr_12:
 	.string "N"
-.Lstr_13:
+.Lstr_12:
 	.string " words"
-.Lstr_14:
+.Lstr_13:
 	.string "OUTPUT"
 	.text
 # -----------------------------------------------------------------------
@@ -113,7 +111,7 @@ main:
                         mov     edi, 30                     # SM_PAT_BREAK
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc18:                 
-                        mov     edi, 83                     # SM_PAT_BOXVAL
+                        mov     edi, 84                     # SM_PAT_BOXVAL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc19:                 
                         lea     rdi, [rip + .Lstr_6]        # var=WORD
@@ -122,7 +120,7 @@ main:
                         mov     edi, 29                     # SM_PAT_SPAN
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc21:                 
-                        mov     edi, 83                     # SM_PAT_BOXVAL
+                        mov     edi, 84                     # SM_PAT_BOXVAL
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc22:                 
                         call    scrip_rt_concat@PLT         # SM_CONCAT
@@ -177,7 +175,7 @@ main:
 # stmt 8  (line 8):        WPAT     =  BREAK(WORD) SPAN(WORD)
 # ============================================================================
 .Lpc38:                 
-                        lea     rdi, [rip + .Lstr_12]       # var=N
+                        lea     rdi, [rip + .Lstr_11]       # var=N
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc39:                 
                         movabs  rdi, 1                      
@@ -186,7 +184,7 @@ main:
                         mov     edi, 17                     # SM_ADD
                         call    scrip_rt_arith@PLT          
 .Lpc41:                 
-                        lea     rdi, [rip + .Lstr_12]       # store -> N
+                        lea     rdi, [rip + .Lstr_11]       # store -> N
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
 .Lpc42:                 
                         jmp     .Lpc29                      #  SM_JUMP -> pc=29
@@ -197,18 +195,18 @@ main:
 # stmt 9  (line 12):  DONE  OUTPUT   =  +N ' words'
 # ============================================================================
 .Lpc45:                 
-                        lea     rdi, [rip + .Lstr_12]       # var=N
+                        lea     rdi, [rip + .Lstr_11]       # var=N
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc46:                 
                         call    scrip_rt_coerce_num@PLT     # SM_COERCE_NUM
 .Lpc47:                 
-                        lea     rdi, [rip + .Lstr_13]       # str=" words"
+                        lea     rdi, [rip + .Lstr_12]       # str=" words"
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc48:                 
                         call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc49:                 
-                        lea     rdi, [rip + .Lstr_14]       # store -> OUTPUT
+                        lea     rdi, [rip + .Lstr_13]       # store -> OUTPUT
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
 .Lpc50:                 
 .Lpc51:                 
