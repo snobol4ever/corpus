@@ -121,14 +121,14 @@ $'~='       = $' '  '~='       $' ';  $'='        = $' ' '='   $' ';
 $'||'       = $' '  '||'       $' ';  $'&'        = $' ' '&'   $' ';
 $'function' = $' '  'function' $'  '; $'end'      = $' ' 'end';
 $'record'   = $' '  'record'   $'  ';
-$'if'       = $' '  'if'       $'  '; $'then'     = $' ' 'then' $'  ';
-$'else'     = $' '  'else'     $'  ';
+$'if'       = $' '  'if'       $'  '; $'then'     = $' ' 'then' $' ';
+$'else'     = $' '  'else'     $' ';
 $'unless'   = $' '  'unless'   $'  ';
 $'for'      = $' '  'for'      $'  ';
 $'from'     = $' '  'from'     $'  ';
 $'to'       = $' '  'to'       $'  ';
 $'by'       = $' '  'by'       $'  ';
-$'while'    = $' '  'while'    $'  '; $'do'       = $' ' 'do'   $'  ';
+$'while'    = $' '  'while'    $'  '; $'do'       = $' ' 'do'   $' ';
 $'until'    = $' '  'until'    $'  ';
 $'repeat'   = $' '  'repeat'   $'  ';
 // note: flow-control keywords get trailing $' ' (Gray) so the space before an argument is absorbed.
@@ -505,14 +505,18 @@ match_or_expr = *expr FENCE($'?-match' *alt_expr reduce(REPLN, 2)
 //  stmt_body — compound_stmt OR a single match_or_expr.  Used as the body
 //  of if/while/unless/until so that `if x then { ... }` is valid.
 //  compound_stmt must be tried first (its leading '{' distinguishes it).
-stmt_body = FENCE(*compound_stmt | *case_stmt | *if_stmt | *while_stmt | *unless_stmt | *until_stmt | *repeat_stmt | *for_stmt | *return_stmt | *stop_stmt | *fail_stmt | *exit_stmt | *next_stmt | *match_or_expr);
+//  opt_nl — mirrors rebus.y opt_semi: lexer auto-inserts ';' on newline, so
+//  `while x do\n  body` has an implicit line-break before the body.  Consume
+//  the optional nl so both inline and next-line bodies are accepted.
+opt_nl = (nl | epsilon);
+stmt_body = *opt_nl FENCE(*compound_stmt | *case_stmt | *if_stmt | *while_stmt | *unless_stmt | *until_stmt | *repeat_stmt | *for_stmt | *return_stmt | *stop_stmt | *fail_stmt | *exit_stmt | *next_stmt | *match_or_expr);
 //  if_stmt / while_stmt / unless_stmt / until_stmt / repeat_stmt — surface shapes.
 //  if with else is 3-child IFELSE (cond, then, else); without else is 2-child IF.
-if_stmt    = $'if'     *match_or_expr $'then' FENCE(*stmt_body $'else' *stmt_body reduce(IFELSE, 3) | *stmt_body reduce(IF, 2));
-while_stmt = $'while'  *match_or_expr $'do'   *stmt_body reduce(WHILE,  2);
-unless_stmt = $'unless' *match_or_expr $'then' *stmt_body reduce(UNLESS, 2);
-until_stmt  = $'until'  *match_or_expr $'do'   *stmt_body reduce(UNTIL,  2);
-repeat_stmt = $'repeat' *stmt_body reduce(REPEAT, 1);
+if_stmt    = $'if'     *match_or_expr $'then' FENCE(*opt_nl *stmt_body $'else' *opt_nl *stmt_body reduce(IFELSE, 3) | *opt_nl *stmt_body reduce(IF, 2));
+while_stmt = $'while'  *match_or_expr $'do'   *opt_nl *stmt_body reduce(WHILE,  2);
+unless_stmt = $'unless' *match_or_expr $'then' *opt_nl *stmt_body reduce(UNLESS, 2);
+until_stmt  = $'until'  *match_or_expr $'do'   *opt_nl *stmt_body reduce(UNTIL,  2);
+repeat_stmt = $'repeat' *opt_nl *stmt_body reduce(REPEAT, 1);
 //  for_stmt — RB_FOR children: (var, from, to) for basic; (var, from, to, step) with 'by'.
 //  Body after 'do' is consumed as raw text (no shift/reduce) since oracle drops it.
 //  BREAK(nl) consumes everything to the newline without any stack effects.
@@ -565,7 +569,7 @@ caselist      = *caseclause *caselist_tail;
 
 case_stmt = *rb_case_kw nPush() nInc() *match_or_expr $'of' $'{' *caselist $'}' reduce(RB_CASE, nTop_count) nPop();
 
-stmt = $' ' FENCE(*compound_stmt | *case_stmt | *if_stmt | *while_stmt | *unless_stmt | *until_stmt | *repeat_stmt | *for_stmt | *return_stmt | *stop_stmt | *fail_stmt | *exit_stmt | *next_stmt | *match_or_expr) $' ' nl;
+stmt = $' ' FENCE(*compound_stmt | *case_stmt | *if_stmt | *while_stmt | *unless_stmt | *until_stmt | *repeat_stmt | *for_stmt | *return_stmt | *stop_stmt | *fail_stmt | *exit_stmt | *next_stmt | *match_or_expr) $' ' FENCE(nl | epsilon);
 
 //  func_body — n-ary fold over body stmts.  Uses tail-recursive shape (per
 //  parser_icon.sc Procbody idiom) so that 'end' is preempt-matched BEFORE
@@ -602,7 +606,7 @@ opt_fields = nPush() FENCE(*X_fields | epsilon) reduce(FIELDS, nTop_count) nPop(
 /*--------------------------------------------------------------------------------------------------------------------*/
 
 X_locals   = nInc() shift(*Id, E_VAR) FENCE($',' *X_locals | epsilon);
-opt_locals = nPush() FENCE($'local' *X_locals $';' $' ' nl | epsilon) reduce(LOCALS, nTop_count) nPop();
+opt_locals = nPush() FENCE($'local' *X_locals FENCE($';' | epsilon) $' ' nl | epsilon) reduce(LOCALS, nTop_count) nPop();
 
 //  opt_initial — `initial stmt ;` — optional; the initial expression ends at `;`.
 init_expr   = $' ' *match_or_expr $' ';
@@ -621,7 +625,7 @@ record_decl =
 
 func_cmd = nInc() *function_decl;
 rec_cmd  = nInc() *record_decl;
-blank    = nl;
+blank    = $' ' nl;
 
 Command  = *func_cmd | *rec_cmd | *blank;
 
