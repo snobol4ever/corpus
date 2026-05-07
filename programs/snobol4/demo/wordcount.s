@@ -16,20 +16,46 @@
 .Lstr_7:
 	.string "WPAT"
 .Lstr_8:
-	.string "INPUT"
+	.string "NEXTL"
 .Lstr_9:
-	.string "LINE"
+	.string "INPUT"
 .Lstr_10:
-	.string ""
+	.string "LINE"
 .Lstr_11:
-	.string "N"
+	.string "NEXTW"
 .Lstr_12:
-	.string " words"
+	.string ""
 .Lstr_13:
+	.string "N"
+.Lstr_14:
+	.string "DONE"
+.Lstr_15:
+	.string " words"
+.Lstr_16:
 	.string "OUTPUT"
+.Lstr_17:
+	.string "END"
+	.text
+	.section .data
+	.align  8
+.Lchunk_registry:
+	# chunk: NEXTL -> .Lpc25
+	.quad   .Lstr_8
+	.quad   .Lpc25
+	# chunk: NEXTW -> .Lpc30
+	.quad   .Lstr_11
+	.quad   .Lpc30
+	# chunk: DONE -> .Lpc44
+	.quad   .Lstr_14
+	.quad   .Lpc44
+	# chunk: END -> .Lpc51
+	.quad   .Lstr_17
+	.quad   .Lpc51
+	.quad   0
+	.quad   0
 	.text
 # -----------------------------------------------------------------------
-# scrip --jit-emit --x64  (M-JITEM-X64 / EM-1..EM-6)
+# scrip --jit-emit --x64  (M-JITEM-X64 / EM-1..EM-7d)
 # 53 SM instructions. Links against libscrip_rt.so.
 # Architecture: two emitters -- SM straight-line via sm_macros.s
 #   macros (inline x86); BB boxes via emit_bb_box() one-proc-per-box.
@@ -43,6 +69,9 @@
 main:
 	push    rbp
 	mov     rbp, rsp
+	# EM-7d: register user-defined function chunks
+	lea     rdi, [rip + .Lchunk_registry]
+	call    scrip_rt_register_chunks@PLT
 	# scrip_rt_init(argc, argv) -- argc in edi, argv in rsi
 	call    scrip_rt_init@PLT
 # source-file: /home/claude/corpus/programs/snobol4/demo/wordcount.sno  (13 lines)
@@ -130,10 +159,10 @@ main:
 # stmt 6  (line 9):  NEXTL LINE     =  INPUT                            :F(DONE)
 # ============================================================================
 .Lpc26:                 
-                        lea     rdi, [rip + .Lstr_8]        # var=INPUT
+                        lea     rdi, [rip + .Lstr_9]        # var=INPUT
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc27:                 
-                        lea     rdi, [rip + .Lstr_9]        # store -> LINE
+                        lea     rdi, [rip + .Lstr_10]       # store -> LINE
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
 .Lpc28:                 
                         call    scrip_rt_last_ok@PLT        #  EM-4 conditional jump
@@ -151,14 +180,14 @@ main:
 .Lpc32:                 
                         call    scrip_rt_pat_deref@PLT      # SM_PAT_DEREF
 .Lpc33:                 
-                        lea     rdi, [rip + .Lstr_9]        # var=LINE
+                        lea     rdi, [rip + .Lstr_10]       # var=LINE
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc34:                 
-                        lea     rdi, [rip + .Lstr_10]       # str=""
+                        lea     rdi, [rip + .Lstr_12]       # str=""
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc35:                 
-                        lea     rdi, [rip + .Lstr_9]        # subj_name=LINE
+                        lea     rdi, [rip + .Lstr_10]       # subj_name=LINE
                         mov     esi, 1                      # has_repl=1
                         call    scrip_rt_match_variant@PLT  # EM-7c-variant: build-then-exec_stmt
 .Lpc36:                 
@@ -171,7 +200,7 @@ main:
 # stmt 8  (line 8):        WPAT     =  BREAK(WORD) SPAN(WORD)
 # ============================================================================
 .Lpc38:                 
-                        lea     rdi, [rip + .Lstr_11]       # var=N
+                        lea     rdi, [rip + .Lstr_13]       # var=N
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc39:                 
                         movabs  rdi, 1                      
@@ -180,7 +209,7 @@ main:
                         mov     edi, 17                     # SM_ADD
                         call    scrip_rt_arith@PLT          
 .Lpc41:                 
-                        lea     rdi, [rip + .Lstr_11]       # store -> N
+                        lea     rdi, [rip + .Lstr_13]       # store -> N
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
 .Lpc42:                 
                         jmp     .Lpc29                      #  SM_JUMP -> pc=29
@@ -191,18 +220,18 @@ main:
 # stmt 9  (line 12):  DONE  OUTPUT   =  +N ' words'
 # ============================================================================
 .Lpc45:                 
-                        lea     rdi, [rip + .Lstr_11]       # var=N
+                        lea     rdi, [rip + .Lstr_13]       # var=N
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc46:                 
                         call    scrip_rt_coerce_num@PLT     # SM_COERCE_NUM
 .Lpc47:                 
-                        lea     rdi, [rip + .Lstr_12]       # str=" words"
+                        lea     rdi, [rip + .Lstr_15]       # str=" words"
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc48:                 
                         call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc49:                 
-                        lea     rdi, [rip + .Lstr_13]       # store -> OUTPUT
+                        lea     rdi, [rip + .Lstr_16]       # store -> OUTPUT
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
 .Lpc50:                 
 .Lpc51:                 

@@ -4,18 +4,29 @@
 .Lstr_1:
 	.string "DEFINE"
 .Lstr_2:
-	.string "UNITS"
+	.string "ROMAN"
 .Lstr_3:
-	.string "N"
+	.string "UNITS"
 .Lstr_4:
-	.string ""
+	.string "N"
 .Lstr_5:
-	.string ","
+	.string ""
 .Lstr_6:
+	.string ","
+.Lstr_7:
 	.string "0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
 	.text
+	.section .data
+	.align  8
+.Lchunk_registry:
+	# chunk: ROMAN -> .Lpc6
+	.quad   .Lstr_2
+	.quad   .Lpc6
+	.quad   0
+	.quad   0
+	.text
 # -----------------------------------------------------------------------
-# scrip --jit-emit --x64  (M-JITEM-X64 / EM-1..EM-6)
+# scrip --jit-emit --x64  (M-JITEM-X64 / EM-1..EM-7d)
 # 29 SM instructions. Links against libscrip_rt.so.
 # Architecture: two emitters -- SM straight-line via sm_macros.s
 #   macros (inline x86); BB boxes via emit_bb_box() one-proc-per-box.
@@ -29,6 +40,9 @@
 main:
 	push    rbp
 	mov     rbp, rsp
+	# EM-7d: register user-defined function chunks
+	lea     rdi, [rip + .Lchunk_registry]
+	call    scrip_rt_register_chunks@PLT
 	# scrip_rt_init(argc, argv) -- argc in edi, argv in rsi
 	call    scrip_rt_init@PLT
 # source-file: /home/claude/corpus/programs/snobol4/demo/roman.sno  (36 lines)
@@ -69,20 +83,20 @@ main:
 .Lpc10:                 
                         call    scrip_rt_pat_len@PLT        # SM_PAT_LEN
 .Lpc11:                 
-                        lea     rdi, [rip + .Lstr_2]        # var=UNITS
+                        lea     rdi, [rip + .Lstr_3]        # var=UNITS
                         mov     esi, 0                      # kind=0
                         call    scrip_rt_pat_capture@PLT    # SM_PAT_CAPTURE
 .Lpc12:                 
                         call    scrip_rt_pat_cat@PLT        # SM_PAT_CAT
 .Lpc13:                 
-                        lea     rdi, [rip + .Lstr_3]        # var=N
+                        lea     rdi, [rip + .Lstr_4]        # var=N
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc14:                 
-                        lea     rdi, [rip + .Lstr_4]        # str=""
+                        lea     rdi, [rip + .Lstr_5]        # str=""
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc15:                 
-                        lea     rdi, [rip + .Lstr_3]        # subj_name=N
+                        lea     rdi, [rip + .Lstr_4]        # subj_name=N
                         mov     esi, 1                      # has_repl=1
                         call    scrip_rt_match_variant@PLT  # EM-7c-variant: build-then-exec_stmt
 .Lpc16:                 
@@ -99,24 +113,24 @@ main:
 # stmt 6  (line 6):  	DEFINE('ROMAN(N)UNITS')		:(ROMAN_END)
 # ============================================================================
 .Lpc18:                 
-                        lea     rdi, [rip + .Lstr_2]        # var=UNITS
+                        lea     rdi, [rip + .Lstr_3]        # var=UNITS
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc19:                 
                         call    scrip_rt_pat_deref@PLT      # SM_PAT_DEREF
 .Lpc20:                 
-                        lea     rdi, [rip + .Lstr_5]        # str=","
+                        lea     rdi, [rip + .Lstr_6]        # str=","
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc21:                 
                         call    scrip_rt_pat_break@PLT      # SM_PAT_BREAK
 .Lpc22:                 
-                        lea     rdi, [rip + .Lstr_2]        # var=UNITS
+                        lea     rdi, [rip + .Lstr_3]        # var=UNITS
                         mov     esi, 0                      # kind=0
                         call    scrip_rt_pat_capture@PLT    # SM_PAT_CAPTURE
 .Lpc23:                 
                         call    scrip_rt_pat_cat@PLT        # SM_PAT_CAT
 .Lpc24:                 
-                        lea     rdi, [rip + .Lstr_6]        # str="0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
+                        lea     rdi, [rip + .Lstr_7]        # str="0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc25:                 
