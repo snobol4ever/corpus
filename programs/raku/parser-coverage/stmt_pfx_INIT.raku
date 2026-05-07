@@ -1,0 +1,1 @@
+INIT { say("init"); }

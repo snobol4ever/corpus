@@ -1,0 +1,1 @@
+supply { say("emit"); }

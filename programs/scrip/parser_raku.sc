@@ -129,6 +129,22 @@ $'print'  = $' ' 'print'  ;  $'die'    = $' ' 'die'    ;
 $'try'    = $' ' 'try'    ;  $'CATCH'  = $' ' ('CATCH' | 'catch');
 $'CONTROL' = $' ' 'CONTROL';
 $'QUIT'    = $' ' 'QUIT';
+// RK-29: statement_prefix phasers (block form, no expr).
+$'BEGIN'   = $' ' 'BEGIN';   $'END'     = $' ' 'END';
+$'INIT'    = $' ' 'INIT';    $'CHECK'   = $' ' 'CHECK';
+$'ENTER'   = $' ' 'ENTER';   $'LEAVE'   = $' ' 'LEAVE';
+$'KEEP'    = $' ' 'KEEP';    $'UNDO'    = $' ' 'UNDO';
+$'FIRST'   = $' ' 'FIRST';   $'NEXT'    = $' ' 'NEXT';
+$'LAST'    = $' ' 'LAST';    $'PRE'     = $' ' 'PRE';
+$'POST'    = $' ' 'POST';    $'CLOSE'   = $' ' 'CLOSE';
+$'TEMP'    = $' ' 'TEMP';
+// RK-29: lowercase statement_prefix (block-as-value + list adverbs).
+$'do'      = $' ' 'do';      $'once'    = $' ' 'once';
+$'start'   = $' ' 'start';   $'supply'  = $' ' 'supply';
+$'react'   = $' ' 'react';   $'quietly' = $' ' 'quietly';
+$'race'    = $' ' 'race';    $'hyper'   = $' ' 'hyper';
+$'lazy'    = $' ' 'lazy';    $'eager'   = $' ' 'eager';
+$'sink'    = $' ' 'sink';
 $'map'    = $' ' 'map'    ;  $'grep'   = $' ' 'grep'   ;  $'sort'   = $' ' 'sort'   ;
 $'gather' = $' ' 'gather' ;  $'take'   = $' ' 'take'   ;
 $'elsif'  = $' ' 'elsif'  ;  $'repeat' = $' ' 'repeat' ;
@@ -1088,6 +1104,248 @@ function finish_quit(blk, fn, node) {
 }
 Finish_quit = (epsilon . *finish_quit());
 /*--------------------------------------------------------------------------------------------------------------------*/
+// RK-29 — statement_prefix:sym<...> finishers.
+// Block-only phasers: PHASER { block } → (E_FNC raku_phaser_<name> (E_VAR raku_phaser_<name>) block).
+// All follow the same shape as finish_catch_free / finish_control / finish_quit.
+/*--------------------------------------------------------------------------------------------------------------------*/
+function finish_phaser_begin(blk, fn, node) {
+    blk  = Pop();
+    fn   = tree('E_VAR', 'raku_phaser_BEGIN');
+    node = tree('E_FNC', 'raku_phaser_BEGIN');
+    Append(node, fn); Append(node, blk); Push(node);
+    finish_phaser_begin = .dummy; nreturn;
+}
+Finish_phaser_begin = (epsilon . *finish_phaser_begin());
+
+function finish_phaser_end(blk, fn, node) {
+    blk  = Pop();
+    fn   = tree('E_VAR', 'raku_phaser_END');
+    node = tree('E_FNC', 'raku_phaser_END');
+    Append(node, fn); Append(node, blk); Push(node);
+    finish_phaser_end = .dummy; nreturn;
+}
+Finish_phaser_end = (epsilon . *finish_phaser_end());
+
+function finish_phaser_init(blk, fn, node) {
+    blk  = Pop();
+    fn   = tree('E_VAR', 'raku_phaser_INIT');
+    node = tree('E_FNC', 'raku_phaser_INIT');
+    Append(node, fn); Append(node, blk); Push(node);
+    finish_phaser_init = .dummy; nreturn;
+}
+Finish_phaser_init = (epsilon . *finish_phaser_init());
+
+function finish_phaser_check(blk, fn, node) {
+    blk  = Pop();
+    fn   = tree('E_VAR', 'raku_phaser_CHECK');
+    node = tree('E_FNC', 'raku_phaser_CHECK');
+    Append(node, fn); Append(node, blk); Push(node);
+    finish_phaser_check = .dummy; nreturn;
+}
+Finish_phaser_check = (epsilon . *finish_phaser_check());
+
+function finish_phaser_enter(blk, fn, node) {
+    blk  = Pop();
+    fn   = tree('E_VAR', 'raku_phaser_ENTER');
+    node = tree('E_FNC', 'raku_phaser_ENTER');
+    Append(node, fn); Append(node, blk); Push(node);
+    finish_phaser_enter = .dummy; nreturn;
+}
+Finish_phaser_enter = (epsilon . *finish_phaser_enter());
+
+function finish_phaser_leave(blk, fn, node) {
+    blk  = Pop();
+    fn   = tree('E_VAR', 'raku_phaser_LEAVE');
+    node = tree('E_FNC', 'raku_phaser_LEAVE');
+    Append(node, fn); Append(node, blk); Push(node);
+    finish_phaser_leave = .dummy; nreturn;
+}
+Finish_phaser_leave = (epsilon . *finish_phaser_leave());
+
+function finish_phaser_keep(blk, fn, node) {
+    blk  = Pop();
+    fn   = tree('E_VAR', 'raku_phaser_KEEP');
+    node = tree('E_FNC', 'raku_phaser_KEEP');
+    Append(node, fn); Append(node, blk); Push(node);
+    finish_phaser_keep = .dummy; nreturn;
+}
+Finish_phaser_keep = (epsilon . *finish_phaser_keep());
+
+function finish_phaser_undo(blk, fn, node) {
+    blk  = Pop();
+    fn   = tree('E_VAR', 'raku_phaser_UNDO');
+    node = tree('E_FNC', 'raku_phaser_UNDO');
+    Append(node, fn); Append(node, blk); Push(node);
+    finish_phaser_undo = .dummy; nreturn;
+}
+Finish_phaser_undo = (epsilon . *finish_phaser_undo());
+
+function finish_phaser_first(blk, fn, node) {
+    blk  = Pop();
+    fn   = tree('E_VAR', 'raku_phaser_FIRST');
+    node = tree('E_FNC', 'raku_phaser_FIRST');
+    Append(node, fn); Append(node, blk); Push(node);
+    finish_phaser_first = .dummy; nreturn;
+}
+Finish_phaser_first = (epsilon . *finish_phaser_first());
+
+function finish_phaser_next(blk, fn, node) {
+    blk  = Pop();
+    fn   = tree('E_VAR', 'raku_phaser_NEXT');
+    node = tree('E_FNC', 'raku_phaser_NEXT');
+    Append(node, fn); Append(node, blk); Push(node);
+    finish_phaser_next = .dummy; nreturn;
+}
+Finish_phaser_next = (epsilon . *finish_phaser_next());
+
+function finish_phaser_last(blk, fn, node) {
+    blk  = Pop();
+    fn   = tree('E_VAR', 'raku_phaser_LAST');
+    node = tree('E_FNC', 'raku_phaser_LAST');
+    Append(node, fn); Append(node, blk); Push(node);
+    finish_phaser_last = .dummy; nreturn;
+}
+Finish_phaser_last = (epsilon . *finish_phaser_last());
+
+function finish_phaser_pre(blk, fn, node) {
+    blk  = Pop();
+    fn   = tree('E_VAR', 'raku_phaser_PRE');
+    node = tree('E_FNC', 'raku_phaser_PRE');
+    Append(node, fn); Append(node, blk); Push(node);
+    finish_phaser_pre = .dummy; nreturn;
+}
+Finish_phaser_pre = (epsilon . *finish_phaser_pre());
+
+function finish_phaser_post(blk, fn, node) {
+    blk  = Pop();
+    fn   = tree('E_VAR', 'raku_phaser_POST');
+    node = tree('E_FNC', 'raku_phaser_POST');
+    Append(node, fn); Append(node, blk); Push(node);
+    finish_phaser_post = .dummy; nreturn;
+}
+Finish_phaser_post = (epsilon . *finish_phaser_post());
+
+function finish_phaser_close(blk, fn, node) {
+    blk  = Pop();
+    fn   = tree('E_VAR', 'raku_phaser_CLOSE');
+    node = tree('E_FNC', 'raku_phaser_CLOSE');
+    Append(node, fn); Append(node, blk); Push(node);
+    finish_phaser_close = .dummy; nreturn;
+}
+Finish_phaser_close = (epsilon . *finish_phaser_close());
+
+function finish_phaser_temp(blk, fn, node) {
+    blk  = Pop();
+    fn   = tree('E_VAR', 'raku_phaser_TEMP');
+    node = tree('E_FNC', 'raku_phaser_TEMP');
+    Append(node, fn); Append(node, blk); Push(node);
+    finish_phaser_temp = .dummy; nreturn;
+}
+Finish_phaser_temp = (epsilon . *finish_phaser_temp());
+
+// Lowercase block-value phasers: do/once/start/supply/react/quietly
+// `do { block }` — evaluates block as expression → (E_FNC raku_do (E_VAR raku_do) block).
+function finish_do_block(blk, fn, node) {
+    blk  = Pop();
+    fn   = tree('E_VAR', 'raku_do');
+    node = tree('E_FNC', 'raku_do');
+    Append(node, fn); Append(node, blk); Push(node);
+    finish_do_block = .dummy; nreturn;
+}
+Finish_do_block = (epsilon . *finish_do_block());
+
+function finish_once(blk, fn, node) {
+    blk  = Pop();
+    fn   = tree('E_VAR', 'raku_once');
+    node = tree('E_FNC', 'raku_once');
+    Append(node, fn); Append(node, blk); Push(node);
+    finish_once = .dummy; nreturn;
+}
+Finish_once = (epsilon . *finish_once());
+
+function finish_start(blk, fn, node) {
+    blk  = Pop();
+    fn   = tree('E_VAR', 'raku_start');
+    node = tree('E_FNC', 'raku_start');
+    Append(node, fn); Append(node, blk); Push(node);
+    finish_start = .dummy; nreturn;
+}
+Finish_start = (epsilon . *finish_start());
+
+function finish_supply(blk, fn, node) {
+    blk  = Pop();
+    fn   = tree('E_VAR', 'raku_supply');
+    node = tree('E_FNC', 'raku_supply');
+    Append(node, fn); Append(node, blk); Push(node);
+    finish_supply = .dummy; nreturn;
+}
+Finish_supply = (epsilon . *finish_supply());
+
+function finish_react(blk, fn, node) {
+    blk  = Pop();
+    fn   = tree('E_VAR', 'raku_react');
+    node = tree('E_FNC', 'raku_react');
+    Append(node, fn); Append(node, blk); Push(node);
+    finish_react = .dummy; nreturn;
+}
+Finish_react = (epsilon . *finish_react());
+
+function finish_quietly(blk, fn, node) {
+    blk  = Pop();
+    fn   = tree('E_VAR', 'raku_quietly');
+    node = tree('E_FNC', 'raku_quietly');
+    Append(node, fn); Append(node, blk); Push(node);
+    finish_quietly = .dummy; nreturn;
+}
+Finish_quietly = (epsilon . *finish_quietly());
+
+// List adverbs: race/hyper/lazy/eager/sink — apply to an expression (not a block).
+// `race @list` → (E_FNC raku_race (E_VAR raku_race) expr).
+function finish_race(ex, fn, node) {
+    ex   = Pop();
+    fn   = tree('E_VAR', 'raku_race');
+    node = tree('E_FNC', 'raku_race');
+    Append(node, fn); Append(node, ex); Push(node);
+    finish_race = .dummy; nreturn;
+}
+Finish_race = (epsilon . *finish_race());
+
+function finish_hyper(ex, fn, node) {
+    ex   = Pop();
+    fn   = tree('E_VAR', 'raku_hyper');
+    node = tree('E_FNC', 'raku_hyper');
+    Append(node, fn); Append(node, ex); Push(node);
+    finish_hyper = .dummy; nreturn;
+}
+Finish_hyper = (epsilon . *finish_hyper());
+
+function finish_lazy(ex, fn, node) {
+    ex   = Pop();
+    fn   = tree('E_VAR', 'raku_lazy');
+    node = tree('E_FNC', 'raku_lazy');
+    Append(node, fn); Append(node, ex); Push(node);
+    finish_lazy = .dummy; nreturn;
+}
+Finish_lazy = (epsilon . *finish_lazy());
+
+function finish_eager(ex, fn, node) {
+    ex   = Pop();
+    fn   = tree('E_VAR', 'raku_eager');
+    node = tree('E_FNC', 'raku_eager');
+    Append(node, fn); Append(node, ex); Push(node);
+    finish_eager = .dummy; nreturn;
+}
+Finish_eager = (epsilon . *finish_eager());
+
+function finish_sink(ex, fn, node) {
+    ex   = Pop();
+    fn   = tree('E_VAR', 'raku_sink');
+    node = tree('E_FNC', 'raku_sink');
+    Append(node, fn); Append(node, ex); Push(node);
+    finish_sink = .dummy; nreturn;
+}
+Finish_sink = (epsilon . *finish_sink());
+/*--------------------------------------------------------------------------------------------------------------------*/
 // ClosureExpr — `{ Expr }` — body expression for map/grep/sort.
 // Matches `{', parses Expr, pops it, `}'. Leaves the expr on the stack.
 // Retained: closure is syntactically `{ expr }` which differs from Block `{ stmt_list }`;
@@ -2012,6 +2270,43 @@ CatchFreeStmt = ( $'CATCH'   Block Finish_catch_free );
 ControlStmt   = ( $'CONTROL' Block Finish_control    );
 QuitStmt      = ( $'QUIT'    Block Finish_quit       );
 
+// RK-29 — statement_prefix:sym<...> grammar productions.
+// ─────────────────────────────────────────────────────────────────────────────
+// Block-only phasers (all-caps): PHASER { block } → placeholder E_FNC.
+// All have the same shape: keyword Block Finish_phaser_<name>.
+// Spec source: Grammar.nqp lines 1394–1432.
+// ─────────────────────────────────────────────────────────────────────────────
+BeginStmt   = ( $'BEGIN'   Block Finish_phaser_begin  );
+EndStmt     = ( $'END'     Block Finish_phaser_end    );
+InitStmt    = ( $'INIT'    Block Finish_phaser_init   );
+CheckStmt   = ( $'CHECK'   Block Finish_phaser_check  );
+EnterStmt   = ( $'ENTER'   Block Finish_phaser_enter  );
+LeaveStmt   = ( $'LEAVE'   Block Finish_phaser_leave  );
+KeepStmt    = ( $'KEEP'    Block Finish_phaser_keep   );
+UndoStmt    = ( $'UNDO'    Block Finish_phaser_undo   );
+FirstStmt   = ( $'FIRST'   Block Finish_phaser_first  );
+NextPhStmt  = ( $'NEXT'    Block Finish_phaser_next   );
+LastPhStmt  = ( $'LAST'    Block Finish_phaser_last   );
+PreStmt     = ( $'PRE'     Block Finish_phaser_pre    );
+PostStmt    = ( $'POST'    Block Finish_phaser_post   );
+CloseStmt   = ( $'CLOSE'   Block Finish_phaser_close  );
+TempStmt    = ( $'TEMP'    Block Finish_phaser_temp   );
+
+// Lowercase block-value phasers: keyword { block } → placeholder E_FNC.
+DoBlockStmt  = ( $'do'      Block Finish_do_block );
+OnceStmt     = ( $'once'    Block Finish_once     );
+StartStmt    = ( $'start'   Block Finish_start    );
+SupplyStmt   = ( $'supply'  Block Finish_supply   );
+ReactStmt    = ( $'react'   Block Finish_react    );
+QuietlyStmt  = ( $'quietly' Block Finish_quietly  );
+
+// List adverbs: keyword EXPR ; → placeholder E_FNC wrapping expression.
+RaceStmt    = ( $'race'  $'  ' *Expr $';' Finish_race  );
+HyperStmt   = ( $'hyper' $'  ' *Expr $';' Finish_hyper );
+LazyStmt    = ( $'lazy'  $'  ' *Expr $';' Finish_lazy  );
+EagerStmt   = ( $'eager' $'  ' *Expr $';' Finish_eager );
+SinkStmt    = ( $'sink'  $'  ' *Expr $';' Finish_sink  );
+
 // ForeachStmt — Perl-5 alias for `for`.  Spec (Grammar.nqp `statement_control:sym<foreach>`)
 // actually emits an `obs` panic, but for parse-coverage we accept and lower
 // identically to the Raku `for EXPR -> $v { body }` form via Finish_for.
@@ -2215,13 +2510,39 @@ Stmt = ( GivenStmt
        | SayStmt
        | PrintStmt
        | BareStmt
+       | BeginStmt
+       | EndStmt
+       | InitStmt
+       | CheckStmt
+       | EnterStmt
+       | LeaveStmt
+       | KeepStmt
+       | UndoStmt
+       | FirstStmt
+       | NextPhStmt
+       | LastPhStmt
+       | PreStmt
+       | PostStmt
+       | CloseStmt
+       | TempStmt
+       | DoBlockStmt
+       | OnceStmt
+       | StartStmt
+       | SupplyStmt
+       | ReactStmt
+       | QuietlyStmt
+       | RaceStmt
+       | HyperStmt
+       | LazyStmt
+       | EagerStmt
+       | SinkStmt
        );
 
 // BlockStmt — final binding.
-BlockStmt = ( GivenStmt | TryStmt | CatchFreeStmt | ControlStmt | QuitStmt | IfStmt | WhileStmt | UnlessStmt | WithoutStmt | WheneverStmt | UntilStmt | RepeatStmt | LoopThreeStmt | LoopInfStmt | UseStmt | NoStmt | NeedStmt | ImportStmt | RequireStmt | ForeachStmt | ForRangeStmt | ForNoArrowStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ArrSetStmt | HashSetAngleStmt | HashSetBraceStmt | FieldWriteStmt | SayFhStmt | PrintFhStmt | TypedDeclStmt | ReturnBareStmt | ReturnStmt | TakeStmt | AssignStmt | SayStmt | PrintStmt | BareStmt );
+BlockStmt = ( GivenStmt | TryStmt | CatchFreeStmt | ControlStmt | QuitStmt | IfStmt | WhileStmt | UnlessStmt | WithoutStmt | WheneverStmt | UntilStmt | RepeatStmt | LoopThreeStmt | LoopInfStmt | UseStmt | NoStmt | NeedStmt | ImportStmt | RequireStmt | ForeachStmt | ForRangeStmt | ForNoArrowStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ArrSetStmt | HashSetAngleStmt | HashSetBraceStmt | FieldWriteStmt | SayFhStmt | PrintFhStmt | TypedDeclStmt | ReturnBareStmt | ReturnStmt | TakeStmt | AssignStmt | SayStmt | PrintStmt | BareStmt | BeginStmt | EndStmt | InitStmt | CheckStmt | EnterStmt | LeaveStmt | KeepStmt | UndoStmt | FirstStmt | NextPhStmt | LastPhStmt | PreStmt | PostStmt | CloseStmt | TempStmt | DoBlockStmt | OnceStmt | StartStmt | SupplyStmt | ReactStmt | QuietlyStmt | RaceStmt | HyperStmt | LazyStmt | EagerStmt | SinkStmt );
 
 // SubBlockStmt — SubBlock_body handles nInc per stmt.
-SubBlockStmt = ( GivenStmt | TryStmt | CatchFreeStmt | ControlStmt | QuitStmt | IfStmt | WhileStmt | UnlessStmt | WithoutStmt | WheneverStmt | UntilStmt | RepeatStmt | LoopThreeStmt | LoopInfStmt | UseStmt | NoStmt | NeedStmt | ImportStmt | RequireStmt | ForeachStmt | ForRangeStmt | ForNoArrowStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ArrSetStmt | HashSetAngleStmt | HashSetBraceStmt | FieldWriteStmt | SayFhStmt | PrintFhStmt | TypedDeclStmt | ReturnBareStmt | ReturnStmt | TakeStmt | AssignStmt | SayStmt | PrintStmt | BareStmt );
+SubBlockStmt = ( GivenStmt | TryStmt | CatchFreeStmt | ControlStmt | QuitStmt | IfStmt | WhileStmt | UnlessStmt | WithoutStmt | WheneverStmt | UntilStmt | RepeatStmt | LoopThreeStmt | LoopInfStmt | UseStmt | NoStmt | NeedStmt | ImportStmt | RequireStmt | ForeachStmt | ForRangeStmt | ForNoArrowStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ArrSetStmt | HashSetAngleStmt | HashSetBraceStmt | FieldWriteStmt | SayFhStmt | PrintFhStmt | TypedDeclStmt | ReturnBareStmt | ReturnStmt | TakeStmt | AssignStmt | SayStmt | PrintStmt | BareStmt | BeginStmt | EndStmt | InitStmt | CheckStmt | EnterStmt | LeaveStmt | KeepStmt | UndoStmt | FirstStmt | NextPhStmt | LastPhStmt | PreStmt | PostStmt | CloseStmt | TempStmt | DoBlockStmt | OnceStmt | StartStmt | SupplyStmt | ReactStmt | QuietlyStmt | RaceStmt | HyperStmt | LazyStmt | EagerStmt | SinkStmt );
 /*====================================================================================================================*/
 // Sub parameter list — each param shifts (E_VAR name) onto sub counter frame.
 /*====================================================================================================================*/
