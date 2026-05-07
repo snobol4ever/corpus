@@ -161,6 +161,11 @@ vro   = (vr | epsilon);
 VarScalar = ($' ' '$' vf . capvf vro . capvr);
 VarArray  = ($' ' '@' vf . capvf vro . capvr);
 VarHash   = ($' ' '%' vf . capvf vro . capvr);
+// BareIdent — unsigiled identifier used as atom expression (e.g. say(x) where x has no $).
+// Mirrors raku.y atom: IDENT → var_node($1).  Must be tried LAST in Expr11 (after
+// CallName(...) and all sigiled forms) so function calls and sigiled vars are caught first.
+// Captures into capvf/capvr so Push_var builds (E_VAR name) correctly.
+BareIdent = ($' ' vf . capvf vro . capvr);
 // Twigil — $.field / $!field inside method body → E_FIELD(fieldname, self).
 // Captures just the bare field name (after sigil+twigil) into captwf/captwr.
 // Must be tried BEFORE VarScalar in Expr11 (twigil is more specific).
@@ -1587,6 +1592,7 @@ Expr11 = ( $'!'  *Expr11  Finish_not
              $')'                 Finish_call
              nPop()
            )
+         | BareIdent              Push_var
          )
          ARBNO(*MethodTail);
 
