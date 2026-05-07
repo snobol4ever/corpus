@@ -1,0 +1,80 @@
+% compiler: GNU Prolog 1.6.0
+% file    : print.pl
+
+
+file_name('/home/diaz/GP/src/BipsPl/print.pl').
+
+
+predicate('$use_print'/0,41,static,private,monofile,built_in,[
+    proceed]).
+
+
+predicate(print/1,44,static,private,monofile,built_in,[
+    call_c('Pl_Set_Bip_Name_Untagged_2',[by_value],[print,1]),
+    call_c('Pl_Print_1',[],[x(0)]),
+    proceed]).
+
+
+predicate(print/2,48,static,private,monofile,built_in,[
+    call_c('Pl_Set_Bip_Name_Untagged_2',[by_value],[print,2]),
+    call_c('Pl_Print_2',[],[x(0),x(1)]),
+    proceed]).
+
+
+predicate('$try_portray'/2,55,static,private,monofile,built_in,[
+    pragma_arity(3),
+    get_current_choice(x(2)),
+    try_me_else(1),
+    allocate(3),
+    get_variable(y(0),1),
+    get_variable(x(1),0),
+    get_variable(y(1),2),
+    put_structure(portray/1,0),
+    unify_local_value(x(1)),
+    put_variable(y(2),1),
+    put_atom(true,2),
+    put_atom(portray,3),
+    put_integer(1,4),
+    put_atom(false,5),
+    call('$catch'/6),
+    cut(y(1)),
+    put_unsafe_value(y(2),0),
+    put_value(y(0),1),
+    put_unsafe_value(y(1),2),
+    deallocate,
+    execute('$$try_portray/2_$aux1'/3),
+
+label(1),
+    trust_me_else_fail,
+    put_atom('$portray_result',0),
+    call_c('Pl_Blt_G_Read',[fast_call,boolean],[x(0),x(1)]),
+    proceed]).
+
+
+predicate('$$try_portray/2_$aux1'/3,55,static,private,monofile,local,[
+    pragma_arity(4),
+    get_current_choice(x(3)),
+    try_me_else(1),
+    call_c('Pl_Blt_Var',[fast_call,boolean],[x(0)]),
+    cut(x(3)),
+    put_atom('$portray_result',0),
+    put_integer(1,1),
+    call_c('Pl_Blt_G_Assign',[fast_call],[x(0),x(1)]),
+    fail,
+
+label(1),
+    trust_me_else_fail,
+    get_value(x(0),1),
+    cut(x(2)),
+    proceed]).
+
+
+predicate(get_print_stream/1,70,static,private,monofile,built_in,[
+    allocate(1),
+    call_c('Pl_Set_Bip_Name_Untagged_2',[by_value],[get_print_stream,1]),
+    put_variable(y(0),1),
+    call('$check_stream_or_var'/2),
+    put_unsafe_value(y(0),0),
+    deallocate,
+    call_c('Pl_Get_Print_Stm_1',[],[x(0)]),
+    proceed]).

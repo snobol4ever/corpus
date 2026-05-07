@@ -1,0 +1,12 @@
+Makefile
+*.wam1
+*.po *.itf
+?.pl
+TO_DO
+pl2wam
+pl2wam[0-9]
+pl2wamOK
+pl2wamOK[0-9]
+pl2wamSOS
+pl2wamSOS[0-9]
+all.wam

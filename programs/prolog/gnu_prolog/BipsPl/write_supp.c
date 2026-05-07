@@ -1,0 +1,1458 @@
+/*-------------------------------------------------------------------------*
+ * GNU Prolog                                                              *
+ *                                                                         *
+ * Part  : Prolog buit-in predicates                                       *
+ * File  : write_supp.c                                                    *
+ * Descr.: write term support                                              *
+ * Author: Daniel Diaz                                                     *
+ *                                                                         *
+ * Copyright (C) 1999-2025 Daniel Diaz                                     *
+ *                                                                         *
+ * This file is part of GNU Prolog                                         *
+ *                                                                         *
+ * GNU Prolog is free software: you can redistribute it and/or             *
+ * modify it under the terms of either:                                    *
+ *                                                                         *
+ *   - the GNU Lesser General Public License as published by the Free      *
+ *     Software Foundation; either version 3 of the License, or (at your   *
+ *     option) any later version.                                          *
+ *                                                                         *
+ * or                                                                      *
+ *                                                                         *
+ *   - the GNU General Public License as published by the Free             *
+ *     Software Foundation; either version 2 of the License, or (at your   *
+ *     option) any later version.                                          *
+ *                                                                         *
+ * or both in parallel, as here.                                           *
+ *                                                                         *
+ * GNU Prolog is distributed in the hope that it will be useful,           *
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU       *
+ * General Public License for more details.                                *
+ *                                                                         *
+ * You should have received copies of the GNU General Public License and   *
+ * the GNU Lesser General Public License along with this program.  If      *
+ * not, see http://www.gnu.org/licenses/.                                  *
+ *-------------------------------------------------------------------------*/
+
+
+#include <string.h>
+#include <ctype.h>
+
+#define OBJ_INIT Write_Supp_Initializer
+
+#define WRITE_SUPP_FILE
+
+#include "engine_pl.h"
+#include "bips_pl.h"
+
+
+		/* spaces for non-assoc op (fx, xfx, xf) */
+#if 0
+#define SPACE_ARGS_RESTRICTED
+#endif
+		/* spaces around the | inside lists */
+#if 0
+#define SPACE_ARGS_FOR_LIST_PIPE
+#endif
+
+
+
+
+ /* The output of the term -(T) using operator notation requires some attention if the
+  * notation representation of T starts with a number. Brackets are needed to disinguish
+  * between the compound term -(1) and the integer -1. 
+  * -(1) can be output as - (1) NB: -(1) is also OK but does not show the op notation.
+  * 
+  * The following macros control how brackets are handled around T (or part of T). 
+  * For this we consider 2 cases (pointed out by Ulrich Neumerkel).
+  *
+  *    - (1^2) which is -(^(1,2)) and can produce - (1^2) or - (1)^2
+  *    - (a^2) which is -(^(a,2)) and can produce - (a^2) or -a^2 
+  *
+  * OP_MINUS_BRACKETS_SIMPLE: to homegenize the output and to simplify the implementation,
+  * brackets are used around T if T is a positive number or an {infix,postifx} op term.
+  *
+  *    writeq(- (1^2)) produces - (1^2)
+  *    writeq(- (a^2)) produces - (a^2)
+  *
+  * OP_MINUS_BRACKETS_SHORTEST: avoid useless brackets else the bracketed is as short as
+  * possible. opening ( is before T, and closing ) can be inside T.
+  *
+  *    writeq(- (1^2)) produces - (1)^2
+  *    writeq(- (a^2)) produces -a^2
+  *
+  * OP_MINUS_BRACKETS_MIXED: avoid useless brackets else the whole T is bracketed.
+  *
+  *    writeq(- (1^2)) produces - (1^2)   as in OP_MINUS_BRACKETS_SIMPLE
+  *    writeq(- (a^2)) produces -a^2      as in OP_MINUS_BRACKETS_SHORTEST
+  */
+
+#if 0
+#define OP_MINUS_BRACKETS_SIMPLE
+#elif 0
+#define OP_MINUS_BRACKETS_SHORTEST
+#else
+#define OP_MINUS_BRACKETS_MIXED
+#endif
+
+
+/* max_depth discussion: https://github.com/didoudiaz/gprolog/issues/56 */
+
+		/* ... (ellipsis) stands for a non-variable term */
+#if 1
+#define NO_ELLIPSIS_FOR_VAR
+#endif
+
+		/* first element of list with same depth as the list */
+#if 1
+#define FIRST_ELEM_OF_LIST_WITH_SAME_DEPTH
+#endif
+
+		/* allow f(...) for f(a,b,c) almost all systems do that (except SWI) */
+#if 1
+#define ELLIPSIS_MORE_THAN_ONE_TERM_IN_STC
+#endif
+
+
+
+
+/*---------------------------------*
+ * Constants                       *
+ *---------------------------------*/
+
+#define W_NOTHING                  0	/* for pl_last_writing */
+#define W_NUMBER                   1
+#define W_NUMBER_0                 2    /* to avoid 0'f ' if 'f ' is an op (avoid 0'char) */
+#define W_IDENTIFIER               3
+#define W_QUOTED                   4
+#define W_GRAPHIC                  5
+
+
+
+
+#define W_NO_PREFIX_OP             0	/* for last_prefix_op */
+#define W_PREFIX_OP_ANY            1
+#define W_PREFIX_OP_MINUS          2
+
+
+
+
+#define GENERAL_TERM               0
+#define INSIDE_ANY_OP              1
+#define INSIDE_LEFT_ASSOC_OP       2
+
+
+
+
+/*---------------------------------*
+ * Type Definitions                *
+ *---------------------------------*/
+
+/*---------------------------------*
+ * Global Variables                *
+ *---------------------------------*/
+
+static WamWord curly_brackets_1;
+static WamWord dollar_var_1;
+static WamWord dollar_varname_1;
+
+static int atom_dots;
+static int atom_portray;
+
+static StmInf *pstm_o = NULL;
+static Bool quoted;
+static Bool ignore_op;
+static Bool number_vars;
+static Bool name_vars;
+static Bool space_args;
+static Bool portrayed;
+
+static WamWord *name_number_above_H;
+
+static Bool last_is_space;	/* to avoid duplicate spaces (e.g. with space_args) */
+static int last_prefix_op = W_NO_PREFIX_OP;
+static Bool *p_bracket_op_minus;
+
+
+
+
+/*---------------------------------*
+ * Function Prototypes             *
+ *---------------------------------*/
+
+static void Emit_Space_If_Needed(int c);
+
+static void Out_Space(void);
+
+static void Out_Char(int c);
+
+static void Out_String(char *str);
+
+static void Show_Term(int depth, int prec, int context, WamWord term_word);
+
+static int Get_Var_Name_From_Stc(WamWord f_n, WamWord *stc_adr);
+
+static int Get_Var_Number_From_Stc(WamWord f_n, WamWord *stc_adr);
+
+static Bool Is_Rendered_As_Var(WamWord word);
+
+static void Show_Global_Var(WamWord *adr);
+
+#ifndef NO_USE_FD_SOLVER
+static void Show_Fd_Variable(WamWord *fdv_adr);
+#endif
+
+static void Show_Atom(int context, int atom);
+
+static void Show_Integer(PlLong x);
+
+static void Show_Float(double x);
+
+static void Show_Number_Str(char *str);
+
+static void Show_List_Elements(int depth, WamWord *lst_adr);
+
+static void Show_Structure(int depth, int prec, int context, WamWord *stc_adr);
+
+static Bool Try_Portray(WamWord word);
+
+
+
+#ifdef SPACE_ARGS_FOR_LIST_PIPE
+#define SHOW_LIST_PIPE do { if (space_args) Out_String(" | "); else Out_Char('|'); } while (0)
+#else
+#define SHOW_LIST_PIPE Out_Char('|')
+#endif
+
+
+#define SHOW_COMMA   do { Out_Char(','); if (space_args) Out_Space(); } while (0)
+
+
+/*-------------------------------------------------------------------------*
+ * WRITE_SUPP_INITIALIZER                                                  *
+ *                                                                         *
+ *-------------------------------------------------------------------------*/
+static void
+Write_Supp_Initializer(void)
+{
+  atom_dots = Pl_Create_Atom("...");
+  atom_portray = Pl_Create_Atom("portray");
+
+  curly_brackets_1 = Functor_Arity(pl_atom_curly_brackets, 1);
+  dollar_var_1 = Functor_Arity(Pl_Create_Atom("$VAR"), 1);
+  dollar_varname_1 = Functor_Arity(Pl_Create_Atom("$VARNAME"), 1);
+}
+
+
+
+
+/*-------------------------------------------------------------------------*
+ * PL_WRITE_TERM_OPTIONS_IN_SYS_VAR                                        *
+ *                                                                         *
+ *-------------------------------------------------------------------------*/
+void
+Pl_Write_Term_Options_In_Sys_Var(StmInf *pstm, WamWord term_word)
+{
+  WamWord *above_H = NULL;
+
+  if (SYS_VAR_WRITE_ABOVE > 0)
+    {
+      WamWord *b = LSSA + SYS_VAR_WRITE_ABOVE; /* see Pl_Get_Current_Choice / Pl_Cut */
+      above_H = HB(b);
+    }
+
+  Pl_Write_Term(pstm, (int) SYS_VAR_WRITE_DEPTH, (int) SYS_VAR_WRITE_PREC,
+		(int) SYS_VAR_OPTION_MASK, above_H, term_word);
+}
+
+
+
+
+/*-------------------------------------------------------------------------*
+ * PL_WRITE_TERM                                                           *
+ *                                                                         *
+ *-------------------------------------------------------------------------*/
+void
+Pl_Write_Term(StmInf *pstm, int depth, int prec, int mask, WamWord *above_H, 
+	      WamWord term_word)
+{
+  pstm_o = pstm;
+
+  quoted = mask & WRITE_QUOTED;
+  ignore_op = mask & WRITE_IGNORE_OP;
+  number_vars = mask & WRITE_NUMBER_VARS;
+  name_vars = mask & WRITE_NAME_VARS;
+  space_args = mask & WRITE_SPACE_ARGS;
+  portrayed = mask & WRITE_PORTRAYED;
+
+  name_number_above_H = above_H;
+
+  last_is_space = FALSE;
+  last_prefix_op = W_NO_PREFIX_OP;
+  pl_last_writing = W_NOTHING;
+  
+  if (depth == 0)		/* no limit */
+    depth = -1;
+
+  Show_Term(depth, prec, (prec >= 1200) ? GENERAL_TERM : INSIDE_ANY_OP, term_word);
+}
+
+
+
+
+/*-------------------------------------------------------------------------*
+ * PL_WRITE                                                                *
+ * useful for debugging                                                    *
+ *-------------------------------------------------------------------------*/
+void
+Pl_Write(WamWord term_word)
+{
+  StmInf *pstm = pl_stm_tbl[pl_stm_current_output];
+
+  Pl_Write_Term(pstm, 0, MAX_PREC, WRITE_NUMBER_VARS | WRITE_NAME_VARS,
+		NULL, term_word);
+  /* like write/1 */
+}
+
+
+
+
+/*-------------------------------------------------------------------------*
+ * PL_WRITELN                                                              *
+ * useful for debugging                                                    *
+ *-------------------------------------------------------------------------*/
+void
+Pl_Writeln(WamWord term_word)
+{
+  StmInf *pstm = pl_stm_tbl[pl_stm_current_output];
+
+  Pl_Write_Term(pstm, 0, MAX_PREC, WRITE_NUMBER_VARS | WRITE_NAME_VARS,
+		NULL, term_word);
+  Pl_Nl_0();
+  /* like write/1+nl/0 */
+}
+
+
+
+
+/*-------------------------------------------------------------------------*
+ * OUT_SPACE                                                               *
+ *                                                                         *
+ *-------------------------------------------------------------------------*/
+static void
+Out_Space(void)
+{
+  if (!last_is_space)		/* avoid 2 consecutive space separators */
+    {
+      Pl_Stream_Putc(' ', pstm_o);
+      last_is_space = TRUE;
+    }
+  pl_last_writing = W_NOTHING;
+}
+
+
+
+
+/*-------------------------------------------------------------------------*
+ * OUT_CHAR                                                                *
+ *                                                                         *
+ *-------------------------------------------------------------------------*/
+static void
+Out_Char(int c)
+{
+  Emit_Space_If_Needed(c);
+  Pl_Stream_Putc(c, pstm_o);
+#if 0		     /* currently, we do not use Out_Char to display spaces */
+  last_is_space = (c == ' ');  /* use isspace ? */
+#else
+  last_is_space = FALSE;
+#endif
+}
+
+
+
+
+/*-------------------------------------------------------------------------*
+ * OUT_STRING                                                              *
+ *                                                                         *
+ *-------------------------------------------------------------------------*/
+static void
+Out_String(char *str)
+{
+  Emit_Space_If_Needed(*str);
+  Pl_Stream_Puts(str, pstm_o);
+
+ /* Do not take into account space in strings , e.g.
+  * write_term('ab ' + c,[space_args(true)]).
+  * will output ab  + c
+  * to only have one space, simply activate the macro
+  */
+#if 0
+  last_is_space = (str[strlen(str) - 1] == ' '); /* use isspace ? */
+#else 
+  last_is_space = FALSE;
+#endif
+}
+
+
+
+
+/*-------------------------------------------------------------------------*
+ * EMIT_SPACE_IF_NEEDED                                                    *
+ *                                                                         *
+ *-------------------------------------------------------------------------*/
+static void
+Emit_Space_If_Needed(int c)
+{
+  int c_type = pl_char_type[c];
+  Bool space;
+
+  // Keep fall through comments to avoid GCC warning with -Wextra (-Wimplicit-fallthrough)
+  switch (pl_last_writing)
+    {
+    case W_NUMBER_0:
+      if (c_type == QT)
+	{
+	  space = TRUE;
+	  break;
+	} /* then in W_NUMBER */
+      // fall through
+    case W_NUMBER:
+      space = (c_type & (UL | CL | SL | DI)) || c == '.';
+      break;
+
+    case W_IDENTIFIER:
+      space = (c_type & (UL | CL | SL | DI)) || c == '[' || c == '{';
+      break;
+
+    case W_QUOTED:
+      space = (c_type == QT);
+      break;
+
+    case W_GRAPHIC:
+      space = (c_type == GR);
+      break;
+
+    default:
+      space = FALSE;
+    }
+
+  if (space || (c == '(' && last_prefix_op != W_NO_PREFIX_OP))
+    Out_Space();
+  else if (c_type == DI && last_prefix_op == W_PREFIX_OP_MINUS)
+    {
+      (*p_bracket_op_minus)++;	/* we need brackets  to show - is an operator */
+#if 1	/* to show it is an op notation display a space (not strictly necessary) */
+      Out_Space();
+#endif
+
+      Out_Char('(');
+    }
+
+  last_prefix_op = W_NO_PREFIX_OP;
+  pl_last_writing = W_NOTHING;
+}
+
+
+
+
+/*-------------------------------------------------------------------------*
+ * PL_WRITE_A_FULL_STOP                                                    *
+ *                                                                         *
+ *-------------------------------------------------------------------------*/
+void
+Pl_Write_A_Full_Stop(StmInf *pstm)
+{
+  pstm_o = pstm;
+  if (pl_last_writing == W_NUMBER_0 || pl_last_writing == W_NUMBER)
+    pl_last_writing = W_NOTHING;
+
+  Out_Char('.');
+  Out_Char('\n');
+}
+
+
+
+
+/*-------------------------------------------------------------------------*
+ * PL_WRITE_A_CHAR                                                         *
+ *                                                                         *
+ *-------------------------------------------------------------------------*/
+void
+Pl_Write_A_Char(StmInf *pstm, int c)
+{
+  pstm_o = pstm;
+  Out_Char(c);
+}
+
+
+
+
+/*-------------------------------------------------------------------------*
+ * PL_FLOAT_TO_STRING                                                      *
+ *                                                                         *
+ *-------------------------------------------------------------------------*/
+char *
+Pl_Float_To_String(double d)
+{
+  char *p, *q, *e;
+  static char buff[32];
+
+  sprintf(buff, "%#.17g", d);	/* a . with 16 significant digits */
+
+  p = buff;			/* skip leading blanks */
+  while (*p == ' ')
+    p++;
+
+  if (p != buff)		/* remove leading blanks */
+    {
+      q = buff;
+      while ((*q++ = *p++))
+	;
+    }
+
+  p = strchr(buff, '.');
+  if (p == NULL)		/* if p==NULL then NaN or +/-inf (ignore) */
+    return buff;
+
+  if (p[1] == '\0')		/* a dot but no decimal numbers */
+    {
+      strcat(buff, "0");
+      return buff;
+    }
+
+  e = strchr(buff, 'e');	/* search exposant part */
+  if (e == NULL)
+    e = buff + strlen(buff);
+  p = e - 1;
+  while (*p == '0')
+    p--;
+
+  q = (*p == '.') ? p + 2 : p + 1;	/* but keep at least one 0 */
+
+  if (q != e)
+    while ((*q++ = *e++))	/* move exposant part */
+      ;
+
+  return buff;
+}
+
+
+
+
+/*-------------------------------------------------------------------------*
+ * SHOW_TERM                                                               *
+ *                                                                         *
+ *-------------------------------------------------------------------------*/
+static void
+Show_Term(int depth, int prec, int context, WamWord term_word)
+{
+  WamWord word, tag_mask;
+  WamWord *adr;
+
+  if (depth == 0
+#ifdef NO_ELLIPSIS_FOR_VAR
+      && !Is_Rendered_As_Var(term_word)
+#endif
+      )
+    {
+      Show_Atom(GENERAL_TERM, atom_dots);
+      return;
+    }
+
+  DEREF(term_word, word, tag_mask);
+  if (tag_mask != TAG_REF_MASK && Try_Portray(word))
+    return;
+
+  switch (Tag_From_Tag_Mask(tag_mask))
+    {
+    case REF:
+      adr = UnTag_REF(word);
+      if (Is_A_Local_Adr(adr))
+	{
+	  Globalize_Local_Unbound_Var(adr, word);
+	  adr = UnTag_REF(word);
+	}
+      Show_Global_Var(adr);
+      break;
+
+    case ATM:
+      Show_Atom(context, UnTag_ATM(word));
+      break;
+
+#ifndef NO_USE_FD_SOLVER
+    case FDV:
+      Show_Fd_Variable(UnTag_FDV(word));
+      break;
+#endif
+
+    case INT:
+      Show_Integer(UnTag_INT(word));
+      break;
+
+    case FLT:
+      Show_Float(Pl_Obtain_Float(UnTag_FLT(word)));
+      break;
+
+    case LST:
+      adr = UnTag_LST(word);
+      if (ignore_op)
+	{
+	  Out_String("'.'(");
+	  Show_Term(depth - 1, MAX_ARG_OF_FUNCTOR_PREC, GENERAL_TERM, Car(adr));
+	  SHOW_COMMA;
+	  Show_Term(depth - 1, MAX_ARG_OF_FUNCTOR_PREC, GENERAL_TERM, Cdr(adr));
+	  Out_Char(')');
+	}
+      else
+	{
+	  Out_Char('[');
+	  Show_List_Elements(depth, adr);
+	  Out_Char(']');
+	}
+      break;
+
+    case STC:
+      adr = UnTag_STC(word);
+      Show_Structure(depth, prec, context, adr);
+      break;
+    }
+}
+
+
+
+
+/*-------------------------------------------------------------------------*
+ * GET_VAR_NAME_FROM_STC                                                   *
+ *                                                                         *
+ * return the atom of '$VARNAME'(ATOM) (or -1 if none)                     *
+ *-------------------------------------------------------------------------*/
+static int
+Get_Var_Name_From_Stc(WamWord f_n, WamWord *stc_adr)
+{
+  WamWord word, tag_mask;
+
+  if (name_vars && f_n == dollar_varname_1 && stc_adr >= name_number_above_H)
+    {
+      DEREF(Arg(stc_adr, 0), word, tag_mask);
+      if (tag_mask == TAG_ATM_MASK)
+	{
+	  int atom = UnTag_ATM(word);
+#if 0				/* check the validity of the atom */
+	  if (Is_Valid_Var_Name(pl_atom_tbl[atom].name))
+	    return atom;
+#else  				/* accept any atom - call Show_Atom to set pl_last_writing */
+	  return atom;
+#endif
+	}
+    }
+  return -1;			/* not an atom */
+}
+
+
+
+
+/*-------------------------------------------------------------------------*
+ * GET_VAR_NUMBER_FROM_STC                                                 *
+ *                                                                         *
+ * return the number N from '$VAR'(N) (or -1 if none)                      *
+ *-------------------------------------------------------------------------*/
+static int
+Get_Var_Number_From_Stc(WamWord f_n, WamWord *stc_adr)
+{
+  WamWord word, tag_mask;
+  int n;
+
+  if (number_vars && f_n == dollar_var_1 && stc_adr >= name_number_above_H)
+    {
+      DEREF(Arg(stc_adr, 0), word, tag_mask);
+      if (tag_mask == TAG_INT_MASK && (n = (int) UnTag_INT(word)) >= 0)
+	return n;
+    }
+  return -1;
+}
+
+
+
+
+#ifdef FIRST_ELEM_OF_LIST_WITH_SAME_DEPTH
+
+/*-------------------------------------------------------------------------*
+ * IS_RENDERED_AS_COMPOUND                                                 *
+ *                                                                         *
+ *-------------------------------------------------------------------------*/
+static Bool
+Is_Rendered_As_Compound(WamWord term_word)
+{
+  WamWord word, tag_mask;
+  
+  DEREF(term_word, word, tag_mask);
+
+  if (tag_mask == TAG_LST_MASK)
+    return TRUE;
+
+  if (tag_mask != TAG_STC_MASK)
+    return FALSE;
+ 
+  WamWord *stc_adr = UnTag_STC(word);
+  WamWord f_n = Functor_And_Arity(stc_adr);
+
+  if (Get_Var_Name_From_Stc(f_n, stc_adr) >= 0)
+    return FALSE;
+
+  if (Get_Var_Number_From_Stc(f_n, stc_adr) >= 0)
+    return FALSE;
+  
+  return TRUE;
+}
+
+#endif
+
+
+
+
+/*-------------------------------------------------------------------------*
+ * IS_RENDERED_AS_VAR                                                      *
+ *                                                                         *
+ *-------------------------------------------------------------------------*/
+static Bool
+Is_Rendered_As_Var(WamWord term_word)
+{
+  WamWord word, tag_mask;
+  
+  DEREF(term_word, word, tag_mask);
+  if (tag_mask == TAG_REF_MASK)
+    return TRUE;
+
+  if (tag_mask != TAG_STC_MASK)
+    return FALSE;
+  
+  WamWord *stc_adr = UnTag_STC(word);
+  WamWord f_n = Functor_And_Arity(stc_adr);
+
+  if (Get_Var_Name_From_Stc(f_n, stc_adr) >= 0)
+    return TRUE;
+
+  if (Get_Var_Number_From_Stc(f_n, stc_adr) >= 0)
+    return TRUE;
+  
+  return FALSE;
+}
+
+
+
+
+/*-------------------------------------------------------------------------*
+ * SHOW_GLOBAL_VAR                                                         *
+ *                                                                         *
+ *-------------------------------------------------------------------------*/
+static void
+Show_Global_Var(WamWord *adr)
+{
+  char str[32];
+
+  sprintf(str, "_%d", (int) Global_Offset(adr));
+  Out_String(str);
+
+  pl_last_writing = W_IDENTIFIER;
+}
+
+
+
+
+
+
+#ifndef NO_USE_FD_SOLVER
+/*-------------------------------------------------------------------------*
+ * SHOW_FD_VARIABLE                                                        *
+ *                                                                         *
+ *-------------------------------------------------------------------------*/
+static void
+Show_Fd_Variable(WamWord *fdv_adr)
+{
+  char str[32];
+
+  sprintf(str, "_#%d(", (int) Cstr_Offset(fdv_adr));
+  Out_String(str);
+
+  Out_String(Fd_Variable_To_String(fdv_adr));
+  Out_Char(')');
+
+  pl_last_writing = W_IDENTIFIER;
+}
+#endif
+
+
+
+
+/*-------------------------------------------------------------------------*
+ * SHOW_ATOM                                                               *
+ *                                                                         *
+ *-------------------------------------------------------------------------*/
+static void
+Show_Atom(int context, int atom)
+{
+  char *p, *q;
+  char str[32];
+  Bool bracket = FALSE;
+  int c, c_type;
+  AtomProp prop;
+
+
+  prop = pl_atom_tbl[atom].prop;
+
+  if (context != GENERAL_TERM && Check_Oper_Any_Type(atom))
+    {
+      Out_Char('(');
+      bracket = TRUE;
+    }
+
+
+  if (!quoted || !prop.needs_quote)
+    {
+      Out_String(pl_atom_tbl[atom].name);
+
+      switch (prop.type)
+	{
+	case IDENTIFIER_ATOM:
+	  pl_last_writing = W_IDENTIFIER;
+	  break;
+
+	case GRAPHIC_ATOM:
+	  pl_last_writing = W_GRAPHIC;
+	  break;
+
+	case SOLO_ATOM:
+	  pl_last_writing = W_NOTHING;
+	  break;
+
+	case OTHER_ATOM:
+	  if (prop.length == 0)
+            {
+              pl_last_writing = W_NOTHING;
+              break;
+            }
+	  c = pl_atom_tbl[atom].name[prop.length - 1];
+	  c_type = pl_char_type[c];
+	  if (c_type & (UL | CL | SL | DI))
+	    pl_last_writing = W_IDENTIFIER;
+	  else if (c == '\'')
+	    pl_last_writing = W_QUOTED;
+	  else if (c_type == GR)
+	    pl_last_writing = W_GRAPHIC;
+	  else
+	    pl_last_writing = W_NOTHING;
+	}
+    }
+  else
+    {
+      Out_Char('\'');
+
+      if (prop.needs_scan)
+	{
+	  for (p = pl_atom_tbl[atom].name; *p; p++)
+	    if ((q = (char *) strchr(pl_escape_char, *p)))
+	      {
+		Out_Char('\\');
+		Out_Char(pl_escape_symbol[q - pl_escape_char]);
+	      }
+	    else if (*p == '\'' || *p == '\\')	/* display twice */
+	      {
+		Out_Char(*p);
+		Out_Char(*p);
+	      }
+	    else if (!isprint(*p))
+	      {
+		sprintf(str, "\\x%x\\", (unsigned) (unsigned char) *p);
+		Out_String(str);
+	      }
+	    else
+	      Out_Char(*p);
+	}
+      else
+	Out_String(pl_atom_tbl[atom].name);
+
+      Out_Char('\'');
+
+      pl_last_writing = W_QUOTED;
+    }
+
+  if (bracket)
+    Out_Char(')');
+}
+
+
+
+
+/*-------------------------------------------------------------------------*
+ * SHOW_INTEGER                                                            *
+ *                                                                         *
+ *-------------------------------------------------------------------------*/
+static void
+Show_Integer(PlLong x)
+{
+  char str[32];
+  sprintf(str, "%" PL_FMT_d, x);
+  Show_Number_Str(str);
+}
+
+
+
+
+/*-------------------------------------------------------------------------*
+ * SHOW_FLOAT                                                              *
+ *                                                                         *
+ *-------------------------------------------------------------------------*/
+static void
+Show_Float(double x)
+{
+  Show_Number_Str(Pl_Float_To_String(x));
+}
+
+
+
+/*-------------------------------------------------------------------------*
+ * SHOW_NUMBER_STR                                                         *
+ *                                                                         *
+ *-------------------------------------------------------------------------*/
+static void
+Show_Number_Str(char *str)
+{
+#ifdef OP_MINUS_BRACKETS_SHORTEST
+  int cur_bracket_op_minus = (last_prefix_op == W_PREFIX_OP_MINUS) ? *p_bracket_op_minus : -1;
+#endif
+
+  Out_String(str);
+
+  /* Suppose a term -(15)^8   which is -(^(15,8))
+   * we are here on the number 15, ie. the "-" has been displayed
+   * The Out_String(str) displayed " (15" and *p_bracket_op_minus has been incremented
+   * If nothing is done, the closing ) will be displayed after ^8 resulting in - (15^8)
+   * With the next test we detect it and close the ) after the 15 resulting in - (15)^8
+   * Both are OK (the first on corresponds to OP_MINUS_BRACKETS_SIMPLE/MIXED) 
+   */
+
+#ifdef OP_MINUS_BRACKETS_SHORTEST
+  if (cur_bracket_op_minus >= 0 && cur_bracket_op_minus != *p_bracket_op_minus) 
+    {
+      Out_Char(')');
+      (*p_bracket_op_minus)--;
+      pl_last_writing = W_NOTHING;
+    }
+  else
+#endif
+    pl_last_writing = (*str == '0' && str[1] == '\0') ? W_NUMBER_0 : W_NUMBER;
+}
+
+
+
+
+/*-------------------------------------------------------------------------*
+ * SHOW_LIST_ELEMENTS                                                      *
+ *                                                                         *
+ *-------------------------------------------------------------------------*/
+static void
+Show_List_Elements(int depth, WamWord *lst_adr)
+{
+  Bool first_elem = TRUE;
+  WamWord word, tag_mask;
+  WamWord car_word;
+  Bool emit_car;
+
+  /* at function entry depth > 0 */
+ terminal_rec:
+  car_word = Car(lst_adr);
+
+#ifdef FIRST_ELEM_OF_LIST_WITH_SAME_DEPTH
+  if (depth > 0 && (!first_elem || Is_Rendered_As_Compound(car_word)
+#ifdef NO_ELLIPSIS_FOR_VAR
+		    || Is_Rendered_As_Var(car_word)
+#endif
+		    ))
+#endif
+    depth--;
+  
+  emit_car = (depth != 0 || first_elem || Is_Rendered_As_Var(car_word));
+  if (emit_car)
+    {
+      if (!first_elem)
+	SHOW_COMMA;
+
+      Show_Term(depth, MAX_ARG_OF_FUNCTOR_PREC, GENERAL_TERM, car_word);
+    }
+
+  DEREF(Cdr(lst_adr), word, tag_mask);
+  if (depth == 0)
+    {
+      if (!emit_car || word != NIL_WORD)
+	{
+	  SHOW_LIST_PIPE;
+	  Show_Atom(GENERAL_TERM, atom_dots);
+	}
+      return;
+    }
+
+  first_elem = FALSE;
+  
+  switch (Tag_From_Tag_Mask(tag_mask))
+    {
+    case REF:
+      SHOW_LIST_PIPE;
+      Show_Global_Var(UnTag_REF(word));
+      break;
+
+    case ATM:
+      if (word != NIL_WORD)
+	{
+	  SHOW_LIST_PIPE;
+	  if (Try_Portray(word))
+	    return;
+
+	  Show_Atom(GENERAL_TERM, UnTag_ATM(word));
+	}
+      break;
+
+#ifndef NO_USE_FD_SOLVER
+    case FDV:
+      SHOW_LIST_PIPE;
+      if (Try_Portray(word))
+	return;
+
+      Show_Fd_Variable(UnTag_FDV(word));
+      break;
+#endif
+
+    case INT:
+      SHOW_LIST_PIPE;
+      if (Try_Portray(word))
+	return;
+
+      Show_Integer(UnTag_INT(word));
+      break;
+
+    case FLT:
+      SHOW_LIST_PIPE;
+      if (Try_Portray(word))
+	return;
+
+      Show_Float(Pl_Obtain_Float(UnTag_FLT(word)));
+      break;
+
+    case LST:
+      lst_adr = UnTag_LST(word);
+      goto terminal_rec;
+      break;
+
+    case STC:
+      SHOW_LIST_PIPE;
+      if (Try_Portray(word))
+	return;
+      Show_Structure(depth, MAX_ARG_OF_FUNCTOR_PREC, GENERAL_TERM, UnTag_STC(word));
+      break;
+    }
+}
+
+
+
+/*-------------------------------------------------------------------------*
+ * IS_VALID_VAR_NAME                                                       *
+ *                                                                         *
+ *-------------------------------------------------------------------------*/
+static Bool
+Is_Valid_Var_Name(char *str)
+
+{
+  int c_type;
+
+  c_type = pl_char_type[(unsigned) *str];
+  if ((c_type & (UL | CL)) == 0) /* neither underline nor capital letter */
+    return FALSE;
+
+  while(*++str != '\0')
+    {
+      c_type = pl_char_type[(unsigned) *str];
+      if ((c_type & (UL | CL | SL | DI)) == 0)
+	return FALSE;
+    }
+
+  return TRUE;
+}
+
+
+
+
+/*-------------------------------------------------------------------------*
+ * PL_IS_VALID_VAR_NAME_1                                                  *
+ *                                                                         *
+ *-------------------------------------------------------------------------*/
+Bool
+Pl_Is_Valid_Var_Name_1(WamWord name_word)
+{
+  WamWord word, tag_mask;
+
+  DEREF(name_word, word, tag_mask);
+  return (tag_mask == TAG_ATM_MASK) && Is_Valid_Var_Name(pl_atom_tbl[UnTag_ATM(word)].name);
+}
+
+
+
+
+/*-------------------------------------------------------------------------*
+ * SHOW_STRUCTURE                                                          *
+ *                                                                         *
+ *-------------------------------------------------------------------------*/
+static void
+Show_Structure(int depth, int prec, int context, WamWord *stc_adr)
+{
+  WamWord *adr;
+  WamWord f_n = Functor_And_Arity(stc_adr);
+  int functor = Functor(stc_adr);
+  int arity = Arity(stc_adr);
+  int atom_of_varname;
+  int n, i, j;
+  OperInf *oper;
+  int nb_args_to_disp;
+  char str[32];
+  Bool bracket;
+  Bool surround_space;
+
+			/* at function entry depth > 0 */
+  depth--;
+
+  atom_of_varname = Get_Var_Name_From_Stc(f_n, stc_adr);
+  if (atom_of_varname >= 0)	/* '$VARNAME'(ATOM) */
+    {				/* could be simplified with Out_String() if we know ATOM is a valid var name */
+      int save_quoted = quoted;
+      quoted = FALSE;
+      Show_Atom(GENERAL_TERM, atom_of_varname); /* could pass context instead of GENERAL_TERM */
+      quoted = save_quoted;	      
+      return;
+    }
+
+  n = Get_Var_Number_From_Stc(f_n, stc_adr);
+  if (n >= 0)			/* '$VAR'(N) */
+    {
+      i = n % 26;
+      j = n / 26;
+
+      Out_Char('A' + i);
+
+      if (j)
+	{
+	  sprintf(str, "%d", j);
+	  Out_String(str);
+	}
+
+      pl_last_writing = W_IDENTIFIER;
+      return;
+    }
+
+  if (ignore_op || arity > 2)
+    goto functional;
+
+  if (f_n == curly_brackets_1)
+    {
+      Out_Char('{');
+      if (space_args)
+	Out_Space();
+      Show_Term(depth, MAX_PREC, GENERAL_TERM, Arg(stc_adr, 0));
+      if (space_args)
+	Out_Space();
+      Out_Char('}');
+      return;
+    }
+
+  bracket = FALSE;
+
+  if (arity == 1 && (oper = Pl_Lookup_Oper(functor, PREFIX)))
+    {
+#if 1
+      /* Koen de Bosschere: "in case of ambiguity :
+       * select the associative operator over the nonassociative,
+       * select prefix over postfix".                            
+       */
+
+      OperInf *oper1;
+
+      if (oper->prec > oper->right
+	  && (oper1 = Pl_Lookup_Oper(functor, POSTFIX))
+	  && oper1->left == oper1->prec)
+	{
+	  oper = oper1;
+	  goto postfix;
+	}
+#endif
+      if (oper->prec > prec || (context == INSIDE_LEFT_ASSOC_OP &&
+				(oper->prec == oper->right
+				 && oper->prec == prec)))
+	{			/* prevent also the case: fy T yf(x) */
+	  Out_Char('(');
+	  bracket = TRUE;
+	}
+
+
+      Show_Atom(GENERAL_TERM, functor);
+
+      last_prefix_op = W_PREFIX_OP_ANY;
+
+      if (space_args
+#if SPACE_ARGS_RESTRICTED	/* space_args -> space after fx operator */
+	  && oper->prec > oper->right
+#endif
+	  )
+	Out_Space();
+
+      if (strcmp(pl_atom_tbl[functor].name, "-") == 0)
+	{
+	  last_prefix_op = W_PREFIX_OP_MINUS;
+	  p_bracket_op_minus = &bracket;
+	}
+
+      Show_Term(depth, oper->right, INSIDE_ANY_OP, Arg(stc_adr, 0));
+      last_prefix_op = W_NO_PREFIX_OP;
+
+      /* Here we need a while(bracket--) instead of if(bracket) because
+       * in some cases with the minus op an additional bracket is needed.
+       * Example: with op(100, xfx, &) (recall the prec of - is 200). 
+       * The term ((-(1)) & b must be displayed as: (- (1)) & b
+       * Concerning the sub-term - (1), the first ( is emitted  10 lines above
+       * because the precedence of - (200) is > precedence of & (100).
+       * The second ( is emitted by Emit_Space_If_Needed() because the 
+       * argument of - begins by a digit. At the return we have to close 2 ).
+       */
+
+      while (bracket--)	
+	Out_Char(')');
+
+      return;
+    }
+
+
+  if (arity == 1 && (oper = Pl_Lookup_Oper(functor, POSTFIX)))
+    {
+    postfix:
+      if (oper->prec > prec 
+#ifdef OP_MINUS_BRACKETS_SIMPLE
+	  ||  last_prefix_op == W_PREFIX_OP_MINUS
+#endif
+	  )
+	{
+	  Out_Char('(');
+	  bracket = TRUE;
+	}
+
+      context = (oper->left == oper->prec) ? INSIDE_LEFT_ASSOC_OP : INSIDE_ANY_OP;
+
+      Show_Term(depth, oper->left, context, Arg(stc_adr, 0));
+
+      if (space_args
+#if SPACE_ARGS_RESTRICTED	/* space_args -> space before xf operator */
+	  && oper->prec > oper->left
+#endif
+	  )
+	Out_Space();
+
+      Show_Atom(GENERAL_TERM, functor);
+
+      if (bracket)
+	Out_Char(')');
+
+      return;
+    }
+
+
+  if (arity == 2 && (oper = Pl_Lookup_Oper(functor, INFIX)))
+    {
+      if (oper->prec > prec || (context == INSIDE_LEFT_ASSOC_OP &&
+				(oper->prec == oper->right
+				 && oper->prec == prec))
+#ifdef OP_MINUS_BRACKETS_SIMPLE
+	  ||  last_prefix_op == W_PREFIX_OP_MINUS
+#endif
+	  )
+	{			/* prevent also the case: T xfy U yf(x) */
+	  Out_Char('(');
+	  bracket = TRUE;
+	}
+
+      context =	(oper->left == oper->prec) ? INSIDE_LEFT_ASSOC_OP : INSIDE_ANY_OP;
+
+      Show_Term(depth, oper->left, context, Arg(stc_adr, 0));
+
+#if 1 /* to show | unquoted if it is an infix operator (thus prec > 1000) */
+      if (functor == ATOM_CHAR('|'))
+	{
+	  if (space_args)
+	    Out_Space();
+	  Out_Char('|');
+	  if (space_args)
+	    Out_Space();
+	}
+      else
+#endif
+	if (functor == ATOM_CHAR(','))
+	  {
+	    SHOW_COMMA;
+	  }
+	else
+	  {
+	    surround_space = FALSE;
+
+	    if (pl_atom_tbl[functor].prop.type == IDENTIFIER_ATOM ||
+		pl_atom_tbl[functor].prop.type == OTHER_ATOM ||
+		(space_args
+#ifdef SPACE_ARGS_RESTRICTED	/* space_args -> space around xfx operators */
+		 && oper->left != oper->prec && oper->right != oper->prec
+#endif
+		 ))
+	      {
+		surround_space = TRUE;
+		Out_Space();
+	      }
+
+	    Show_Atom(GENERAL_TERM, functor);
+
+	    if (surround_space)
+	      Out_Space();
+	  }
+
+      Show_Term(depth, oper->right, INSIDE_ANY_OP, Arg(stc_adr, 1));
+
+      if (bracket)
+	Out_Char(')');
+
+      return;
+    }
+
+
+
+ functional:			/* functional notation */
+
+  Show_Atom(GENERAL_TERM, functor);
+  Out_Char('(');
+
+#ifdef ELLIPSIS_MORE_THAN_ONE_TERM_IN_STC /* limit #ags f(1, 2, 3) can be displayed f(...) or f(1, ...)  */
+  nb_args_to_disp = (depth < 0 || arity < depth + 1) ? arity : depth + 1;
+#else
+  nb_args_to_disp = arity;	/* do no limit #args f(1, 2, 3) can be f(..., ..., ...) */
+#endif
+  i = nb_args_to_disp;
+  adr = &Arg(stc_adr, 0);
+
+  goto start_display;
+
+  do
+    {
+      SHOW_COMMA;
+    start_display:
+      Show_Term(depth, MAX_ARG_OF_FUNCTOR_PREC, GENERAL_TERM, *adr++);
+    }
+  while (--i);
+
+  if (arity != nb_args_to_disp)
+    {
+      SHOW_COMMA;
+      Show_Atom(GENERAL_TERM, atom_dots);
+    }
+
+  Out_Char(')');
+}
+
+
+
+
+/*-------------------------------------------------------------------------*
+ * TRY_PORTRAY                                                             *
+ *                                                                         *
+ *-------------------------------------------------------------------------*/
+static Bool
+Try_Portray(WamWord word)
+{
+#ifdef FOR_EXTERNAL_USE
+  return FALSE;
+#else
+  PredInf *pred;
+  int stm_o;
+  StmInf *save_pstm_o;
+  Bool save_quoted;
+  Bool save_ignore_op;
+  Bool save_number_vars;
+  Bool save_name_vars;
+  Bool save_space_args;
+  Bool save_portrayed;
+  int save_stm_current_output;
+  int res;
+/* fix_bug is because when gcc sees &xxx where xxx is a fct argument variable
+ * it allocates a frame even with -fomit-frame-pointer.
+ * This corrupts ebp on ix86 */
+  static WamWord fix_bug;
+
+  if (!portrayed)
+    return FALSE;
+
+  pred = Pl_Lookup_Pred(atom_portray, 1);
+  if (pred == NULL)
+    return FALSE;
+
+  stm_o = pstm_o->stm; /* associated smt, to check if stm is still alive after call to portray/1 */
+  
+  save_pstm_o = pstm_o;
+  save_quoted = quoted;
+  save_ignore_op = ignore_op;
+  save_number_vars = number_vars;
+  save_name_vars = name_vars;
+  save_space_args = space_args;
+  save_portrayed = portrayed;
+
+  /* save current output stream, ie. current_output(SaveOut) (see Pl_Current_Output_1) */
+  save_stm_current_output = pl_stm_current_output;
+  /* change output stream with pstm_o, ie. set_output(Stm_o) (see Pl_Set_Output_1) */
+  pl_stm_current_output = stm_o; 
+  Pl_Set_Alias_To_Stream(pl_atom_current_output, pl_stm_current_output, TRUE);
+
+  fix_bug = word;
+  Pl_Query_Begin(TRUE);
+  res = Pl_Query_Call(atom_portray, 1, &fix_bug);
+  Pl_Query_End(PL_RECOVER);
+  
+  /* restore output stream, ie. set_output(SaveOut) (see Pl_Set_Output_1) */
+  pl_stm_current_output = save_stm_current_output; 
+  Pl_Set_Alias_To_Stream(pl_atom_current_output, pl_stm_current_output, TRUE);
+
+  if (pl_stm_tbl[stm_o] != pstm_o)
+    Pl_Err_Resource(Pl_Create_Atom("no longer available stream after portray/1"));
+
+  pstm_o = save_pstm_o;
+  quoted = save_quoted;
+  ignore_op = save_ignore_op;
+  number_vars = save_number_vars;
+  name_vars = save_name_vars;
+  space_args = save_space_args;
+  portrayed = save_portrayed;
+
+  if (res == PL_EXCEPTION)
+    Pl_Throw(Pl_Get_Exception());
+
+  return (res == PL_SUCCESS);
+#endif
+}
+
+
+
+
+/*-------------------------------------------------------------------------*
+ * PL_GET_PRINT_STM_1                                                      *
+ *                                                                         *
+ *-------------------------------------------------------------------------*/
+Bool
+Pl_Get_Print_Stm_1(WamWord stm_word)
+{
+  int stm;
+
+  if (pstm_o == NULL || (stm = Pl_Find_Stream_From_PStm(pstm_o)) < 0)
+    stm = pl_stm_current_output;
+
+  return Pl_Get_Integer(stm, stm_word);
+}
+

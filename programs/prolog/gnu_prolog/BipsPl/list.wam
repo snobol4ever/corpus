@@ -1,0 +1,1271 @@
+% compiler: GNU Prolog 1.6.0
+% file    : list.pl
+
+
+file_name('/home/diaz/GP/src/BipsPl/list.pl').
+
+
+predicate('$use_list'/0,41,static,private,monofile,built_in,[
+    proceed]).
+
+
+predicate(append/3,50,static,private,monofile,built_in,[
+    call_c('Pl_Append_3',[boolean],[x(0),x(1),x(2)]),
+    proceed]).
+
+
+predicate('$append_alt'/0,54,static,private,monofile,built_in,[
+    call_c('Pl_Append_Alt_0',[boolean],[]),
+    proceed]).
+
+
+predicate(member/2,67,static,private,monofile,built_in,[
+    call_c('Pl_Member_2',[boolean],[]),
+    proceed]).
+
+
+predicate('$member_alt'/0,70,static,private,monofile,built_in,[
+    call_c('Pl_Member_Alt_0',[boolean],[]),
+    proceed]).
+
+
+predicate(memberchk/2,84,static,private,monofile,built_in,[
+    call_c('Pl_Memberchk_2',[boolean],[x(0),x(1)]),
+    proceed]).
+
+
+predicate(reverse/2,103,static,private,monofile,built_in,[
+    call_c('Pl_Reverse_2',[boolean],[x(0),x(1)]),
+    proceed]).
+
+
+predicate('$reverse_alt'/0,106,static,private,monofile,built_in,[
+    call_c('Pl_Reverse_Alt_0',[boolean],[]),
+    proceed]).
+
+
+predicate(delete/3,112,static,private,monofile,built_in,[
+    pragma_arity(4),
+    get_current_choice(x(3)),
+    switch_on_term(2,3,fail,1,fail),
+
+label(1),
+    try(5),
+    trust(7),
+
+label(2),
+    try_me_else(4),
+
+label(3),
+    get_nil(0),
+    get_nil(2),
+    proceed,
+
+label(4),
+    retry_me_else(6),
+
+label(5),
+    get_list(0),
+    unify_variable(x(4)),
+    unify_variable(x(0)),
+    call_c('Pl_Blt_Term_Eq',[fast_call,boolean],[x(4),x(1)]),
+    cut(x(3)),
+    execute(delete/3),
+
+label(6),
+    trust_me_else_fail,
+
+label(7),
+    get_list(0),
+    unify_variable(x(3)),
+    unify_variable(x(0)),
+    get_list(2),
+    unify_value(x(3)),
+    unify_variable(x(2)),
+    execute(delete/3)]).
+
+
+predicate(select/3,125,static,private,monofile,built_in,[
+    try_me_else(1),
+    get_list(1),
+    unify_local_value(x(0)),
+    unify_local_value(x(2)),
+    proceed,
+
+label(1),
+    trust_me_else_fail,
+    get_list(1),
+    unify_variable(x(3)),
+    unify_variable(x(1)),
+    get_list(2),
+    unify_value(x(3)),
+    unify_variable(x(2)),
+    execute(select/3)]).
+
+
+predicate(subtract/3,134,static,private,monofile,built_in,[
+    pragma_arity(4),
+    get_current_choice(x(3)),
+    switch_on_term(2,3,fail,1,fail),
+
+label(1),
+    try(5),
+    trust(7),
+
+label(2),
+    try_me_else(4),
+
+label(3),
+    get_nil(0),
+    get_nil(2),
+    proceed,
+
+label(4),
+    retry_me_else(6),
+
+label(5),
+    allocate(4),
+    get_variable(y(1),1),
+    get_variable(y(2),2),
+    get_list(0),
+    unify_variable(x(0)),
+    unify_variable(y(0)),
+    get_variable(y(3),3),
+    put_value(y(1),1),
+    call(memberchk/2),
+    cut(y(3)),
+    put_value(y(0),0),
+    put_value(y(1),1),
+    put_value(y(2),2),
+    deallocate,
+    execute(subtract/3),
+
+label(6),
+    trust_me_else_fail,
+
+label(7),
+    get_list(0),
+    unify_variable(x(3)),
+    unify_variable(x(0)),
+    get_list(2),
+    unify_value(x(3)),
+    unify_variable(x(2)),
+    execute(subtract/3)]).
+
+
+predicate(permutation/2,142,static,private,monofile,built_in,[
+    try_me_else(1),
+    get_nil(0),
+    get_nil(1),
+    proceed,
+
+label(1),
+    trust_me_else_fail,
+    allocate(2),
+    get_variable(x(2),0),
+    get_list(1),
+    unify_variable(x(0)),
+    unify_variable(y(0)),
+    put_value(x(2),1),
+    put_variable(y(1),2),
+    call(select/3),
+    put_unsafe_value(y(1),0),
+    put_value(y(0),1),
+    deallocate,
+    execute(permutation/2)]).
+
+
+predicate(prefix/2,152,static,private,monofile,built_in,[
+    switch_on_term(1,2,fail,4,fail),
+
+label(1),
+    try_me_else(3),
+
+label(2),
+    get_nil(0),
+    proceed,
+
+label(3),
+    trust_me_else_fail,
+
+label(4),
+    get_list(0),
+    unify_variable(x(2)),
+    unify_variable(x(0)),
+    get_list(1),
+    unify_value(x(2)),
+    unify_variable(x(1)),
+    execute(prefix/2)]).
+
+
+predicate(suffix/2,160,static,private,monofile,built_in,[
+    try_me_else(1),
+    get_value(x(1),0),
+    proceed,
+
+label(1),
+    trust_me_else_fail,
+    get_list(1),
+    unify_void(1),
+    unify_variable(x(1)),
+    execute(suffix/2)]).
+
+
+predicate(sublist/2,168,static,private,monofile,built_in,[
+    try_me_else(1),
+    get_value(x(1),0),
+    proceed,
+
+label(1),
+    trust_me_else_fail,
+    get_variable(x(2),0),
+    get_list(1),
+    unify_variable(x(1)),
+    unify_variable(x(0)),
+    execute('$sublist1'/3)]).
+
+
+predicate('$sublist1'/3,174,static,private,monofile,built_in,[
+    try_me_else(1),
+    get_value(x(2),0),
+    proceed,
+
+label(1),
+    trust_me_else_fail,
+    switch_on_term(3,fail,fail,2,fail),
+
+label(2),
+    try(4),
+    trust(6),
+
+label(3),
+    try_me_else(5),
+
+label(4),
+    get_list(0),
+    unify_variable(x(1)),
+    unify_variable(x(0)),
+    execute('$sublist1'/3),
+
+label(5),
+    trust_me_else_fail,
+
+label(6),
+    get_variable(x(3),1),
+    get_list(0),
+    unify_variable(x(1)),
+    unify_variable(x(0)),
+    get_list(2),
+    unify_local_value(x(3)),
+    unify_variable(x(2)),
+    execute('$sublist1'/3)]).
+
+
+predicate(last/2,185,static,private,monofile,built_in,[
+    get_variable(x(2),1),
+    get_list(0),
+    unify_variable(x(1)),
+    unify_variable(x(0)),
+    execute('$last1'/3)]).
+
+
+predicate('$last1'/3,188,static,private,monofile,built_in,[
+    switch_on_term(1,2,fail,4,fail),
+
+label(1),
+    try_me_else(3),
+
+label(2),
+    get_nil(0),
+    get_value(x(2),1),
+    proceed,
+
+label(3),
+    trust_me_else_fail,
+
+label(4),
+    get_list(0),
+    unify_variable(x(1)),
+    unify_variable(x(0)),
+    execute('$last1'/3)]).
+
+
+predicate(length/2,223,static,private,monofile,built_in,[
+    call_c('Pl_Length_2',[boolean],[x(0),x(1)]),
+    proceed]).
+
+
+predicate('$length_alt'/0,227,static,private,monofile,built_in,[
+    call_c('Pl_Length_Alt_0',[boolean],[]),
+    proceed]).
+
+
+predicate(nth/3,261,static,private,monofile,built_in,[
+    execute(nth1/3)]).
+
+
+predicate(nth1/3,264,static,private,monofile,built_in,[
+    pragma_arity(4),
+    get_current_choice(x(3)),
+    try_me_else(1),
+    call_c('Pl_Blt_Integer',[fast_call,boolean],[x(0)]),
+    cut(x(3)),
+    call_c('Pl_Nth0_3',[boolean,by_value],[x(0),x(1),x(2),1]),
+    proceed,
+
+label(1),
+    trust_me_else_fail,
+    get_variable(x(3),0),
+    call_c('Pl_Blt_Var',[fast_call,boolean],[x(3)]),
+    put_value(x(1),0),
+    put_value(x(2),1),
+    put_integer(1,2),
+    execute('$nth_gener'/4)]).
+
+
+predicate(nth0/3,273,static,private,monofile,built_in,[
+    pragma_arity(4),
+    get_current_choice(x(3)),
+    try_me_else(1),
+    call_c('Pl_Blt_Integer',[fast_call,boolean],[x(0)]),
+    cut(x(3)),
+    call_c('Pl_Nth0_3',[boolean,by_value],[x(0),x(1),x(2),0]),
+    proceed,
+
+label(1),
+    trust_me_else_fail,
+    get_variable(x(3),0),
+    call_c('Pl_Blt_Var',[fast_call,boolean],[x(3)]),
+    put_value(x(1),0),
+    put_value(x(2),1),
+    put_integer(0,2),
+    execute('$nth_gener'/4)]).
+
+
+predicate('$nth_gener'/4,283,static,private,monofile,built_in,[
+    switch_on_term(2,fail,fail,1,fail),
+
+label(1),
+    try(3),
+    trust(5),
+
+label(2),
+    try_me_else(4),
+
+label(3),
+    get_value(x(3),2),
+    get_list(0),
+    unify_local_value(x(1)),
+    unify_void(1),
+    proceed,
+
+label(4),
+    trust_me_else_fail,
+
+label(5),
+    get_list(0),
+    unify_void(1),
+    unify_variable(x(0)),
+    call_c('Pl_Set_Bip_Name_Untagged_2',[by_value],[is,2]),
+    math_load_value(x(2),2),
+    call_c('Pl_Fct_Inc',[fast_call,x(2)],[x(2)]),
+    execute('$nth_gener'/4)]).
+
+
+predicate(max_list/2,293,static,private,monofile,built_in,[
+    get_variable(x(2),1),
+    get_list(0),
+    unify_variable(x(1)),
+    unify_variable(x(0)),
+    execute('$max_list1'/3)]).
+
+
+predicate('$max_list1'/3,296,static,private,monofile,built_in,[
+    pragma_arity(4),
+    get_current_choice(x(3)),
+    switch_on_term(2,3,fail,1,fail),
+
+label(1),
+    try(5),
+    trust(7),
+
+label(2),
+    try_me_else(4),
+
+label(3),
+    get_nil(0),
+    get_value(x(2),1),
+    proceed,
+
+label(4),
+    retry_me_else(6),
+
+label(5),
+    get_list(0),
+    unify_variable(x(4)),
+    unify_variable(x(0)),
+    call_c('Pl_Set_Bip_Name_Untagged_2',[by_value],[=<,2]),
+    math_load_value(x(4),4),
+    math_load_value(x(1),5),
+    call_c('Pl_Blt_Lte',[fast_call,boolean],[x(4),x(5)]),
+    cut(x(3)),
+    execute('$max_list1'/3),
+
+label(6),
+    trust_me_else_fail,
+
+label(7),
+    get_list(0),
+    unify_variable(x(1)),
+    unify_variable(x(0)),
+    execute('$max_list1'/3)]).
+
+
+predicate(min_list/2,308,static,private,monofile,built_in,[
+    get_variable(x(2),1),
+    get_list(0),
+    unify_variable(x(1)),
+    unify_variable(x(0)),
+    execute('$min_list1'/3)]).
+
+
+predicate('$min_list1'/3,311,static,private,monofile,built_in,[
+    pragma_arity(4),
+    get_current_choice(x(3)),
+    switch_on_term(2,3,fail,1,fail),
+
+label(1),
+    try(5),
+    trust(7),
+
+label(2),
+    try_me_else(4),
+
+label(3),
+    get_nil(0),
+    get_value(x(2),1),
+    proceed,
+
+label(4),
+    retry_me_else(6),
+
+label(5),
+    get_list(0),
+    unify_variable(x(4)),
+    unify_variable(x(0)),
+    call_c('Pl_Set_Bip_Name_Untagged_2',[by_value],[>=,2]),
+    math_load_value(x(4),4),
+    math_load_value(x(1),5),
+    call_c('Pl_Blt_Gte',[fast_call,boolean],[x(4),x(5)]),
+    cut(x(3)),
+    execute('$min_list1'/3),
+
+label(6),
+    trust_me_else_fail,
+
+label(7),
+    get_list(0),
+    unify_variable(x(1)),
+    unify_variable(x(0)),
+    execute('$min_list1'/3)]).
+
+
+predicate(sum_list/2,324,static,private,monofile,built_in,[
+    put_value(x(1),2),
+    put_integer(0,1),
+    execute('$sum_list1'/3)]).
+
+
+predicate('$sum_list1'/3,327,static,private,monofile,built_in,[
+    switch_on_term(1,2,fail,4,fail),
+
+label(1),
+    try_me_else(3),
+
+label(2),
+    get_nil(0),
+    get_value(x(2),1),
+    proceed,
+
+label(3),
+    trust_me_else_fail,
+
+label(4),
+    get_list(0),
+    unify_variable(x(3)),
+    unify_variable(x(0)),
+    call_c('Pl_Set_Bip_Name_Untagged_2',[by_value],[is,2]),
+    math_load_value(x(3),3),
+    math_load_value(x(1),1),
+    call_c('Pl_Fct_Add',[fast_call,x(1)],[x(3),x(1)]),
+    execute('$sum_list1'/3)]).
+
+
+predicate(flatten/2,335,static,private,monofile,built_in,[
+    pragma_arity(3),
+    get_current_choice(x(2)),
+    allocate(3),
+    get_variable(y(0),1),
+    get_variable(y(1),2),
+    put_nil(1),
+    put_variable(y(2),2),
+    call('$flatten'/3),
+    cut(y(1)),
+    put_value(y(0),0),
+    get_value(y(2),0),
+    deallocate,
+    proceed]).
+
+
+predicate('$flatten'/3,339,static,private,monofile,built_in,[
+    pragma_arity(4),
+    get_current_choice(x(3)),
+    try_me_else(1),
+    get_list(2),
+    unify_local_value(x(0)),
+    unify_local_value(x(1)),
+    call_c('Pl_Blt_Var',[fast_call,boolean],[x(0)]),
+    cut(x(3)),
+    proceed,
+
+label(1),
+    retry_me_else(6),
+    switch_on_term(2,3,fail,5,fail),
+
+label(2),
+    try_me_else(4),
+
+label(3),
+    get_nil(0),
+    get_value(x(2),1),
+    cut(x(3)),
+    proceed,
+
+label(4),
+    trust_me_else_fail,
+
+label(5),
+    allocate(3),
+    get_variable(y(1),1),
+    get_list(0),
+    unify_variable(x(0)),
+    unify_variable(y(0)),
+    cut(x(3)),
+    put_variable(y(2),1),
+    call('$flatten'/3),
+    put_value(y(0),0),
+    put_value(y(1),1),
+    put_unsafe_value(y(2),2),
+    deallocate,
+    execute('$flatten'/3),
+
+label(6),
+    trust_me_else_fail,
+    get_list(2),
+    unify_local_value(x(0)),
+    unify_local_value(x(1)),
+    proceed]).
+
+
+predicate(maplist/2,356,static,private,monofile,built_in,[
+    get_variable(x(2),1),
+    get_variable(x(1),0),
+    put_value(x(2),0),
+    execute('$maplist'/2)]).
+
+
+predicate('$maplist'/2,359,static,private,monofile,built_in,[
+    switch_on_term(1,2,fail,4,fail),
+
+label(1),
+    try_me_else(3),
+
+label(2),
+    get_nil(0),
+    proceed,
+
+label(3),
+    trust_me_else_fail,
+
+label(4),
+    allocate(2),
+    get_variable(y(1),1),
+    get_list(0),
+    unify_variable(x(1)),
+    unify_variable(y(0)),
+    put_value(y(1),0),
+    call(call/2),
+    put_value(y(0),0),
+    put_value(y(1),1),
+    deallocate,
+    execute('$maplist'/2)]).
+
+
+predicate(maplist/3,370,static,private,monofile,built_in,[
+    get_variable(x(3),2),
+    get_variable(x(2),0),
+    put_value(x(1),0),
+    put_value(x(3),1),
+    execute('$maplist'/3)]).
+
+
+predicate('$maplist'/3,373,static,private,monofile,built_in,[
+    switch_on_term(1,2,fail,4,fail),
+
+label(1),
+    try_me_else(3),
+
+label(2),
+    get_nil(0),
+    get_nil(1),
+    proceed,
+
+label(3),
+    trust_me_else_fail,
+
+label(4),
+    allocate(3),
+    get_variable(y(2),2),
+    get_list(0),
+    unify_variable(x(0)),
+    unify_variable(y(0)),
+    get_list(1),
+    unify_variable(x(2)),
+    unify_variable(y(1)),
+    put_value(x(0),1),
+    put_value(y(2),0),
+    call(call/3),
+    put_value(y(0),0),
+    put_value(y(1),1),
+    put_value(y(2),2),
+    deallocate,
+    execute('$maplist'/3)]).
+
+
+predicate(maplist/4,384,static,private,monofile,built_in,[
+    get_variable(x(4),3),
+    get_variable(x(3),0),
+    put_value(x(1),0),
+    put_value(x(2),1),
+    put_value(x(4),2),
+    execute('$maplist'/4)]).
+
+
+predicate('$maplist'/4,387,static,private,monofile,built_in,[
+    switch_on_term(1,2,fail,4,fail),
+
+label(1),
+    try_me_else(3),
+
+label(2),
+    get_nil(0),
+    get_nil(1),
+    get_nil(2),
+    proceed,
+
+label(3),
+    trust_me_else_fail,
+
+label(4),
+    allocate(4),
+    get_variable(y(3),3),
+    get_list(0),
+    unify_variable(x(4)),
+    unify_variable(y(0)),
+    get_list(1),
+    unify_variable(x(0)),
+    unify_variable(y(1)),
+    get_list(2),
+    unify_variable(x(3)),
+    unify_variable(y(2)),
+    put_value(x(4),1),
+    put_value(x(0),2),
+    put_value(y(3),0),
+    call(call/4),
+    put_value(y(0),0),
+    put_value(y(1),1),
+    put_value(y(2),2),
+    put_value(y(3),3),
+    deallocate,
+    execute('$maplist'/4)]).
+
+
+predicate(maplist/5,398,static,private,monofile,built_in,[
+    get_variable(x(5),4),
+    get_variable(x(4),0),
+    put_value(x(1),0),
+    put_value(x(2),1),
+    put_value(x(3),2),
+    put_value(x(5),3),
+    execute('$maplist'/5)]).
+
+
+predicate('$maplist'/5,401,static,private,monofile,built_in,[
+    switch_on_term(1,2,fail,4,fail),
+
+label(1),
+    try_me_else(3),
+
+label(2),
+    get_nil(0),
+    get_nil(1),
+    get_nil(2),
+    get_nil(3),
+    proceed,
+
+label(3),
+    trust_me_else_fail,
+
+label(4),
+    allocate(5),
+    get_variable(y(4),4),
+    get_list(0),
+    unify_variable(x(6)),
+    unify_variable(y(0)),
+    get_list(1),
+    unify_variable(x(5)),
+    unify_variable(y(1)),
+    get_list(2),
+    unify_variable(x(0)),
+    unify_variable(y(2)),
+    get_list(3),
+    unify_variable(x(4)),
+    unify_variable(y(3)),
+    put_value(x(6),1),
+    put_value(x(5),2),
+    put_value(x(0),3),
+    put_value(y(4),0),
+    call(call/5),
+    put_value(y(0),0),
+    put_value(y(1),1),
+    put_value(y(2),2),
+    put_value(y(3),3),
+    put_value(y(4),4),
+    deallocate,
+    execute('$maplist'/5)]).
+
+
+predicate(maplist/6,412,static,private,monofile,built_in,[
+    get_variable(x(6),5),
+    get_variable(x(5),0),
+    put_value(x(1),0),
+    put_value(x(2),1),
+    put_value(x(3),2),
+    put_value(x(4),3),
+    put_value(x(6),4),
+    execute('$maplist'/6)]).
+
+
+predicate('$maplist'/6,415,static,private,monofile,built_in,[
+    switch_on_term(1,2,fail,4,fail),
+
+label(1),
+    try_me_else(3),
+
+label(2),
+    get_nil(0),
+    get_nil(1),
+    get_nil(2),
+    get_nil(3),
+    get_nil(4),
+    proceed,
+
+label(3),
+    trust_me_else_fail,
+
+label(4),
+    allocate(6),
+    get_variable(y(5),5),
+    get_list(0),
+    unify_variable(x(8)),
+    unify_variable(y(0)),
+    get_list(1),
+    unify_variable(x(7)),
+    unify_variable(y(1)),
+    get_list(2),
+    unify_variable(x(6)),
+    unify_variable(y(2)),
+    get_list(3),
+    unify_variable(x(0)),
+    unify_variable(y(3)),
+    get_list(4),
+    unify_variable(x(5)),
+    unify_variable(y(4)),
+    put_value(x(8),1),
+    put_value(x(7),2),
+    put_value(x(6),3),
+    put_value(x(0),4),
+    put_value(y(5),0),
+    call(call/6),
+    put_value(y(0),0),
+    put_value(y(1),1),
+    put_value(y(2),2),
+    put_value(y(3),3),
+    put_value(y(4),4),
+    put_value(y(5),5),
+    deallocate,
+    execute('$maplist'/6)]).
+
+
+predicate(maplist/7,426,static,private,monofile,built_in,[
+    get_variable(x(7),6),
+    get_variable(x(6),0),
+    put_value(x(1),0),
+    put_value(x(2),1),
+    put_value(x(3),2),
+    put_value(x(4),3),
+    put_value(x(5),4),
+    put_value(x(7),5),
+    execute('$maplist'/7)]).
+
+
+predicate('$maplist'/7,429,static,private,monofile,built_in,[
+    switch_on_term(1,2,fail,4,fail),
+
+label(1),
+    try_me_else(3),
+
+label(2),
+    get_nil(0),
+    get_nil(1),
+    get_nil(2),
+    get_nil(3),
+    get_nil(4),
+    get_nil(5),
+    proceed,
+
+label(3),
+    trust_me_else_fail,
+
+label(4),
+    allocate(7),
+    get_variable(y(6),6),
+    get_list(0),
+    unify_variable(x(10)),
+    unify_variable(y(0)),
+    get_list(1),
+    unify_variable(x(9)),
+    unify_variable(y(1)),
+    get_list(2),
+    unify_variable(x(8)),
+    unify_variable(y(2)),
+    get_list(3),
+    unify_variable(x(7)),
+    unify_variable(y(3)),
+    get_list(4),
+    unify_variable(x(0)),
+    unify_variable(y(4)),
+    get_list(5),
+    unify_variable(x(6)),
+    unify_variable(y(5)),
+    put_value(x(10),1),
+    put_value(x(9),2),
+    put_value(x(8),3),
+    put_value(x(7),4),
+    put_value(x(0),5),
+    put_value(y(6),0),
+    call(call/7),
+    put_value(y(0),0),
+    put_value(y(1),1),
+    put_value(y(2),2),
+    put_value(y(3),3),
+    put_value(y(4),4),
+    put_value(y(5),5),
+    put_value(y(6),6),
+    deallocate,
+    execute('$maplist'/7)]).
+
+
+predicate(maplist/8,440,static,private,monofile,built_in,[
+    get_variable(x(8),7),
+    get_variable(x(7),0),
+    put_value(x(1),0),
+    put_value(x(2),1),
+    put_value(x(3),2),
+    put_value(x(4),3),
+    put_value(x(5),4),
+    put_value(x(6),5),
+    put_value(x(8),6),
+    execute('$maplist'/8)]).
+
+
+predicate('$maplist'/8,443,static,private,monofile,built_in,[
+    switch_on_term(1,2,fail,4,fail),
+
+label(1),
+    try_me_else(3),
+
+label(2),
+    get_nil(0),
+    get_nil(1),
+    get_nil(2),
+    get_nil(3),
+    get_nil(4),
+    get_nil(5),
+    get_nil(6),
+    proceed,
+
+label(3),
+    trust_me_else_fail,
+
+label(4),
+    allocate(8),
+    get_variable(y(7),7),
+    get_list(0),
+    unify_variable(x(12)),
+    unify_variable(y(0)),
+    get_list(1),
+    unify_variable(x(11)),
+    unify_variable(y(1)),
+    get_list(2),
+    unify_variable(x(10)),
+    unify_variable(y(2)),
+    get_list(3),
+    unify_variable(x(9)),
+    unify_variable(y(3)),
+    get_list(4),
+    unify_variable(x(8)),
+    unify_variable(y(4)),
+    get_list(5),
+    unify_variable(x(0)),
+    unify_variable(y(5)),
+    get_list(6),
+    unify_variable(x(7)),
+    unify_variable(y(6)),
+    put_value(x(12),1),
+    put_value(x(11),2),
+    put_value(x(10),3),
+    put_value(x(9),4),
+    put_value(x(8),5),
+    put_value(x(0),6),
+    put_value(y(7),0),
+    call(call/8),
+    put_value(y(0),0),
+    put_value(y(1),1),
+    put_value(y(2),2),
+    put_value(y(3),3),
+    put_value(y(4),4),
+    put_value(y(5),5),
+    put_value(y(6),6),
+    put_value(y(7),7),
+    deallocate,
+    execute('$maplist'/8)]).
+
+
+predicate(maplist/9,454,static,private,monofile,built_in,[
+    get_variable(x(9),8),
+    get_variable(x(8),0),
+    put_value(x(1),0),
+    put_value(x(2),1),
+    put_value(x(3),2),
+    put_value(x(4),3),
+    put_value(x(5),4),
+    put_value(x(6),5),
+    put_value(x(7),6),
+    put_value(x(9),7),
+    execute('$maplist'/9)]).
+
+
+predicate('$maplist'/9,457,static,private,monofile,built_in,[
+    switch_on_term(1,2,fail,4,fail),
+
+label(1),
+    try_me_else(3),
+
+label(2),
+    get_nil(0),
+    get_nil(1),
+    get_nil(2),
+    get_nil(3),
+    get_nil(4),
+    get_nil(5),
+    get_nil(6),
+    get_nil(7),
+    proceed,
+
+label(3),
+    trust_me_else_fail,
+
+label(4),
+    allocate(9),
+    get_variable(y(8),8),
+    get_list(0),
+    unify_variable(x(14)),
+    unify_variable(y(0)),
+    get_list(1),
+    unify_variable(x(13)),
+    unify_variable(y(1)),
+    get_list(2),
+    unify_variable(x(12)),
+    unify_variable(y(2)),
+    get_list(3),
+    unify_variable(x(11)),
+    unify_variable(y(3)),
+    get_list(4),
+    unify_variable(x(10)),
+    unify_variable(y(4)),
+    get_list(5),
+    unify_variable(x(9)),
+    unify_variable(y(5)),
+    get_list(6),
+    unify_variable(x(0)),
+    unify_variable(y(6)),
+    get_list(7),
+    unify_variable(x(8)),
+    unify_variable(y(7)),
+    put_value(x(14),1),
+    put_value(x(13),2),
+    put_value(x(12),3),
+    put_value(x(11),4),
+    put_value(x(10),5),
+    put_value(x(9),6),
+    put_value(x(0),7),
+    put_value(y(8),0),
+    call(call/9),
+    put_value(y(0),0),
+    put_value(y(1),1),
+    put_value(y(2),2),
+    put_value(y(3),3),
+    put_value(y(4),4),
+    put_value(y(5),5),
+    put_value(y(6),6),
+    put_value(y(7),7),
+    put_value(y(8),8),
+    deallocate,
+    execute('$maplist'/9)]).
+
+
+predicate('$$prop_meta_pred/3_$aux1'/3,354,static,private,monofile,local,[
+    get_atom(maplist,0),
+    get_integer(2,1),
+    get_structure(maplist/2,2),
+    unify_integer(1),
+    unify_atom(?),
+    proceed]).
+
+
+predicate('$$prop_meta_pred/3_$aux2'/3,368,static,private,monofile,local,[
+    get_atom(maplist,0),
+    get_integer(3,1),
+    get_structure(maplist/3,2),
+    unify_integer(2),
+    unify_atom(?),
+    unify_atom(?),
+    proceed]).
+
+
+predicate('$$prop_meta_pred/3_$aux3'/3,382,static,private,monofile,local,[
+    get_atom(maplist,0),
+    get_integer(4,1),
+    get_structure(maplist/4,2),
+    unify_integer(3),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    proceed]).
+
+
+predicate('$$prop_meta_pred/3_$aux4'/3,396,static,private,monofile,local,[
+    get_atom(maplist,0),
+    get_integer(5,1),
+    get_structure(maplist/5,2),
+    unify_integer(4),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    proceed]).
+
+
+predicate('$$prop_meta_pred/3_$aux5'/3,410,static,private,monofile,local,[
+    get_atom(maplist,0),
+    get_integer(6,1),
+    get_structure(maplist/6,2),
+    unify_integer(5),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    proceed]).
+
+
+predicate('$$prop_meta_pred/3_$aux6'/3,424,static,private,monofile,local,[
+    get_atom(maplist,0),
+    get_integer(7,1),
+    get_structure(maplist/7,2),
+    unify_integer(6),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    proceed]).
+
+
+predicate('$$prop_meta_pred/3_$aux7'/3,438,static,private,monofile,local,[
+    get_atom(maplist,0),
+    get_integer(8,1),
+    get_structure(maplist/8,2),
+    unify_integer(7),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    proceed]).
+
+
+predicate('$$prop_meta_pred/3_$aux8'/3,452,static,private,monofile,local,[
+    get_atom(maplist,0),
+    get_integer(9,1),
+    get_structure(maplist/9,2),
+    unify_integer(8),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    proceed]).
+
+
+predicate('$prop_meta_pred'/3,354,static,private,multifile,local,[
+    get_variable(x(3),0),
+    put_structure('$prop_meta_pred'/3,0),
+    unify_local_value(x(3)),
+    unify_local_value(x(1)),
+    unify_local_value(x(2)),
+    put_atom('$prop_meta_pred',1),
+    put_integer(3,2),
+    put_atom(true,3),
+    execute('$call'/4)]).
+
+
+directive(354,system,[
+    call_c('Pl_Emit_BC_Execute_Wrapper',[by_value],['$prop_meta_pred',3,&,'$$prop_meta_pred/3_$aux1',3]),
+    put_structure('$prop_meta_pred'/3,0),
+    unify_atom(maplist),
+    unify_integer(2),
+    unify_structure(maplist/2),
+    unify_integer(1),
+    unify_atom(?),
+    put_atom('list.pl',1),
+    execute('$add_clause_term'/2)]).
+
+
+directive(368,system,[
+    call_c('Pl_Emit_BC_Execute_Wrapper',[by_value],['$prop_meta_pred',3,&,'$$prop_meta_pred/3_$aux2',3]),
+    put_structure('$prop_meta_pred'/3,0),
+    unify_atom(maplist),
+    unify_integer(3),
+    unify_structure(maplist/3),
+    unify_integer(2),
+    unify_atom(?),
+    unify_atom(?),
+    put_atom('list.pl',1),
+    execute('$add_clause_term'/2)]).
+
+
+directive(382,system,[
+    call_c('Pl_Emit_BC_Execute_Wrapper',[by_value],['$prop_meta_pred',3,&,'$$prop_meta_pred/3_$aux3',3]),
+    put_structure('$prop_meta_pred'/3,0),
+    unify_atom(maplist),
+    unify_integer(4),
+    unify_structure(maplist/4),
+    unify_integer(3),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    put_atom('list.pl',1),
+    execute('$add_clause_term'/2)]).
+
+
+directive(396,system,[
+    call_c('Pl_Emit_BC_Execute_Wrapper',[by_value],['$prop_meta_pred',3,&,'$$prop_meta_pred/3_$aux4',3]),
+    put_structure('$prop_meta_pred'/3,0),
+    unify_atom(maplist),
+    unify_integer(5),
+    unify_structure(maplist/5),
+    unify_integer(4),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    put_atom('list.pl',1),
+    execute('$add_clause_term'/2)]).
+
+
+directive(410,system,[
+    call_c('Pl_Emit_BC_Execute_Wrapper',[by_value],['$prop_meta_pred',3,&,'$$prop_meta_pred/3_$aux5',3]),
+    put_structure('$prop_meta_pred'/3,0),
+    unify_atom(maplist),
+    unify_integer(6),
+    unify_structure(maplist/6),
+    unify_integer(5),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    put_atom('list.pl',1),
+    execute('$add_clause_term'/2)]).
+
+
+directive(424,system,[
+    call_c('Pl_Emit_BC_Execute_Wrapper',[by_value],['$prop_meta_pred',3,&,'$$prop_meta_pred/3_$aux6',3]),
+    put_structure('$prop_meta_pred'/3,0),
+    unify_atom(maplist),
+    unify_integer(7),
+    unify_structure(maplist/7),
+    unify_integer(6),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    put_atom('list.pl',1),
+    execute('$add_clause_term'/2)]).
+
+
+directive(438,system,[
+    call_c('Pl_Emit_BC_Execute_Wrapper',[by_value],['$prop_meta_pred',3,&,'$$prop_meta_pred/3_$aux7',3]),
+    put_structure('$prop_meta_pred'/3,0),
+    unify_atom(maplist),
+    unify_integer(8),
+    unify_structure(maplist/8),
+    unify_integer(7),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    put_atom('list.pl',1),
+    execute('$add_clause_term'/2)]).
+
+
+directive(452,system,[
+    call_c('Pl_Emit_BC_Execute_Wrapper',[by_value],['$prop_meta_pred',3,&,'$$prop_meta_pred/3_$aux8',3]),
+    put_structure('$prop_meta_pred'/3,0),
+    unify_atom(maplist),
+    unify_integer(9),
+    unify_structure(maplist/9),
+    unify_integer(8),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    unify_atom(?),
+    put_atom('list.pl',1),
+    execute('$add_clause_term'/2)]).
