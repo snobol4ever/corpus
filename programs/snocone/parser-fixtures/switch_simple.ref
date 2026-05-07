@@ -1,0 +1,16 @@
+(STMT :eq :subj (E_VAR _Lswitch_t_0001) :repl (E_VAR x))
+(STMT :subj (E_FNC IDENT
+  (E_VAR _Lswitch_t_0001)
+  (E_ILIT 1)
+) :goS _Lcase_0004)
+(STMT :subj (E_FNC IDENT
+  (E_VAR _Lswitch_t_0001)
+  (E_ILIT 2)
+) :goS _Lcase_0005)
+(STMT :go _Lend_0002)
+(STMT :lbl _Lcase_0004)
+(STMT :eq :subj (E_VAR y) :repl (E_ILIT 10))
+(STMT :go _Lend_0002)
+(STMT :lbl _Lcase_0005)
+(STMT :eq :subj (E_VAR y) :repl (E_ILIT 20))
+(STMT :lbl _Lend_0002)

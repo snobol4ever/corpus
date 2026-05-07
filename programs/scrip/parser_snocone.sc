@@ -50,7 +50,9 @@ $' '        =   Gray;
 /*--------------------------------------------------------------------------------------------------------------------*/
 Id          =   ANY(&UCASE &LCASE '_') FENCE(SPAN('.' digits &UCASE '_' &LCASE) | epsilon);
 $'break'    =   $' ' Id $ tx *IDENT(tx, 'break')    $' ';
+$'case'     =   $' ' Id $ tx *IDENT(tx, 'case')     $' ';
 $'continue' =   $' ' Id $ tx *IDENT(tx, 'continue') $' ';
+$'default'  =   $' ' Id $ tx *IDENT(tx, 'default')  $' ';
 $'do'       =   $' ' Id $ tx *IDENT(tx, 'do')       $' ';
 $'else'     =   $' ' Id $ tx *IDENT(tx, 'else')     $' ';
 $'for'      =   $' ' Id $ tx *IDENT(tx, 'for')      $' ';
@@ -61,6 +63,7 @@ $'if'       =   $' ' Id $ tx *IDENT(tx, 'if')       $' ';
 $'nreturn'  =   $' ' Id $ tx *IDENT(tx, 'nreturn')  $' ';
 $'return'   =   $' ' Id $ tx *IDENT(tx, 'return')   $' ';
 $'struct'   =   $' ' Id $ tx *IDENT(tx, 'struct')   $' ';
+$'switch'   =   $' ' Id $ tx *IDENT(tx, 'switch')   $' ';
 $'while'    =   $' ' Id $ tx *IDENT(tx, 'while')    $' ';
 Keyword     =   '&' SPAN(&UCASE '_' &LCASE) . token;
 Integer     =   SPAN(digits) . token;
@@ -440,6 +443,94 @@ function emit_struct(qlit, fnc) {
     Push(Tree('STMT', '', 1, Tree(':subj', '', 1, fnc)));
     emit_struct = .dummy; nreturn;
 }
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* SC-10 switch helpers */
+function switch_head_alloc(disc_e, lhs) {
+    /* label order: _Lswitch_t, _Lend, _Ldefault  (matches C frontend) */
+    sc_sw_tmp    = '_Lswitch_t_' LPAD(lbl_n + 1, 4, '0'); lbl_n = lbl_n + 1;
+    sc_sw_lend   = '_Lend_'      LPAD(lbl_n + 1, 4, '0'); lbl_n = lbl_n + 1;
+    sc_sw_ldefault = '_Ldefault_' LPAD(lbl_n + 1, 4, '0'); lbl_n = lbl_n + 1;
+    sc_sw_has_default = 0;
+    sc_sw_cases_n = 0;
+    sc_sw_cases   = ARRAY('1:64,1:2');   /* [n, 1]=label, [n, 2]=value_tree */
+    /* emit tmp = disc */
+    disc_e = Pop();
+    lhs    = tree('E_VAR', sc_sw_tmp);
+    Push(Tree('STMT', '', 3, Tree(':eq', '', 0), Tree(':subj', '', 1, lhs), Tree(':repl', '', 1, disc_e)));
+    sc_sw_last_body_n = '';   /* null = no previous case yet */
+    push_break(sc_sw_lend);
+    switch_head_alloc = .dummy; nreturn;
+}
+function Switch_head_alloc() { Switch_head_alloc = epsilon . thx . *switch_head_alloc(); return; }
+function switch_case_label(val_e, case_lbl, n) {
+    /* pop case value FIRST (it's on top from *Expr0), then do implicit break */
+    val_e = Pop();
+    /* implicit break before this case if previous case had body */
+    n = nTop();
+    if (DIFFER(sc_sw_last_body_n)) {
+        if (DIFFER(n, sc_sw_last_body_n)) {
+            Push(make_goto_stmt(sc_sw_lend)); IncCounter();
+        }
+    }
+    case_lbl = '_Lcase_' LPAD(lbl_n + 1, 4, '0'); lbl_n = lbl_n + 1;
+    sc_sw_cases_n = sc_sw_cases_n + 1;
+    sc_sw_cases[sc_sw_cases_n, 1] = case_lbl;
+    sc_sw_cases[sc_sw_cases_n, 2] = val_e;
+    Push(make_label_stmt(case_lbl));
+    IncCounter();
+    sc_sw_last_body_n = nTop();
+    switch_case_label = .dummy; nreturn;
+}
+function Switch_case_label() { Switch_case_label = epsilon . thx . *switch_case_label(); return; }
+function switch_default_label(n) {
+    n = nTop();
+    if (DIFFER(sc_sw_last_body_n)) {
+        if (DIFFER(n, sc_sw_last_body_n)) {
+            Push(make_goto_stmt(sc_sw_lend)); IncCounter();
+        }
+    }
+    sc_sw_has_default = 1;
+    sc_sw_cases_n = sc_sw_cases_n + 1;
+    sc_sw_cases[sc_sw_cases_n, 1] = sc_sw_ldefault;
+    sc_sw_cases[sc_sw_cases_n, 2] = '';   /* NULL sentinel */
+    Push(make_label_stmt(sc_sw_ldefault));
+    IncCounter();
+    sc_sw_last_body_n = nTop();
+    switch_default_label = .dummy; nreturn;
+}
+function Switch_default_label() { Switch_default_label = epsilon . thx . *switch_default_label(); return; }
+function finalize_switch(nbody_v, n, body, i, fnc, tmp_ref, val_e, lbl, dispatch, di) {
+    n = $nbody_v;
+    body = pop_body(n);
+    /* build dispatch stmts */
+    di = 0;
+    dispatch = ARRAY('1:' (sc_sw_cases_n + 1));
+    i = 1;
+    while (LE(i, sc_sw_cases_n)) {
+        lbl   = sc_sw_cases[i, 1];
+        val_e = sc_sw_cases[i, 2];
+        if (DIFFER(val_e)) {
+            tmp_ref = tree('E_VAR', sc_sw_tmp);
+            fnc = Tree('E_FNC', 'IDENT', 2, tmp_ref, val_e);
+            di = di + 1;
+            dispatch[di] = Tree('STMT', '', 2, Tree(':subj', '', 1, fnc), tree(':goS', lbl));
+        }
+        i = i + 1;
+    }
+    di = di + 1;
+    if (DIFFER(sc_sw_has_default, 0)) {
+        dispatch[di] = make_goto_stmt(sc_sw_ldefault);
+    } else {
+        dispatch[di] = make_goto_stmt(sc_sw_lend);
+    }
+    /* tmp=disc already on outer frame. push: dispatch, body, _Lend. */
+    i = 1; while (LE(i, di)) { Push(dispatch[i]); IncCounter(); i = i + 1; }
+    i = 1; while (LE(i, n))  { Push(body[i]);     IncCounter(); i = i + 1; }
+    Push(make_label_stmt(sc_sw_lend)); IncCounter();
+    pop_break();
+    finalize_switch = .dummy; nreturn;
+}
+function Finalize_switch(nbody_v) { Finalize_switch = EVAL("epsilon . thx . *finalize_switch('" nbody_v "')"); return; }
 function make_define_stmt(name, args, qlit, fnc) {
     qlit = tree('E_QLIT', name '(' args ')');
     fnc  = Tree('E_FNC', 'DEFINE', 1, qlit);
@@ -761,6 +852,14 @@ struct_cmd          =   nInc()
                         $'struct' *Ident . *assign(.cur_struct_name, token)
                         $'{' struct_field_list $'}'
                         Emit_struct();
+/*--------------------------------------------------------------------------------------------------------------------*/
+case_cmd    =   *Expr0 Switch_case_label() $':';
+default_cmd =   $'default' $':' Switch_default_label();
+switch_cmd  =   nInc()
+                $'switch' $'(' *Expr0 $')'
+                Switch_head_alloc()
+                $'{' Body('sw_nbody') $'}'
+                Finalize_switch('sw_nbody');
 /*====================================================================================================================*/
 Command         =   $' ' ( if_cmd
                     | while_cmd
@@ -774,6 +873,9 @@ Command         =   $' ' ( if_cmd
                     | break_cmd
                     | continue_cmd
                     | struct_cmd
+                    | switch_cmd
+                    | $'case' case_cmd
+                    | default_cmd
                     | label_prefix
                     | empty_cmd
                     | stmt_cmd
