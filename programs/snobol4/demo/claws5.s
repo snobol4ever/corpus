@@ -170,20 +170,18 @@ main:
                         movabs  rdi, 10                     
                         call    scrip_rt_push_int@PLT       
 .Lpc2:                  
-                        mov     edi, 32                     # SM_PAT_POS
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_pos@PLT        # SM_PAT_POS
 .Lpc3:                  
                         movabs  rdi, 1                      
                         call    scrip_rt_push_int@PLT       
 .Lpc4:                  
-                        mov     edi, 31                     # SM_PAT_LEN
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_len@PLT        # SM_PAT_LEN
 .Lpc5:                  
-                        mov     edi, 50                     # SM_PAT_CAPTURE
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_0]        # var=nl
+                        mov     esi, 0                      # kind=0
+                        call    scrip_rt_pat_capture@PLT    # SM_PAT_CAPTURE
 .Lpc6:                  
-                        mov     edi, 47                     # SM_PAT_CAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_cat@PLT        # SM_PAT_CAT
 .Lpc7:                  
                         lea     rdi, [rip + .Lstr_1]        # var=ALPHABET
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
@@ -191,8 +189,9 @@ main:
                         movabs  rdi, 0                      
                         call    scrip_rt_push_int@PLT       
 .Lpc9:                  
-                        mov     edi, 55                     # SM_EXEC_STMT
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_1]        # subj_name=ALPHABET
+                        mov     esi, 0                      # has_repl=0
+                        call    scrip_rt_match_variant@PLT  # EM-7c-variant: build-then-exec_stmt
 .Lpc10:                 
 
 # ============================================================================
@@ -975,14 +974,12 @@ main:
                         lea     rdi, [rip + .Lstr_43]       # var=ARB
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc236:                
-                        mov     edi, 48                     # SM_PAT_DEREF
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_deref@PLT      # SM_PAT_DEREF
 .Lpc237:                
-                        mov     edi, 26                     # SM_PAT_LIT
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_44]       # arg="'"
+                        call    scrip_rt_pat_lit@PLT        # SM_PAT_LIT
 .Lpc238:                
-                        mov     edi, 47                     # SM_PAT_CAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_cat@PLT        # SM_PAT_CAT
 .Lpc239:                
                         lea     rdi, [rip + .Lstr_18]       # var=wrd
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
@@ -991,8 +988,9 @@ main:
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc241:                
-                        mov     edi, 55                     # SM_EXEC_STMT
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # subj_name=wrd
+                        mov     esi, 1                      # has_repl=1
+                        call    scrip_rt_match_variant@PLT  # EM-7c-variant: build-then-exec_stmt
 .Lpc242:                
                         call    scrip_rt_last_ok@PLT        #  EM-4 conditional jump
                         test    eax, eax                    
@@ -1634,67 +1632,59 @@ main:
                         movabs  rdi, 0                      
                         call    scrip_rt_push_int@PLT       
 .Lpc446:                
-                        mov     edi, 32                     # SM_PAT_POS
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_pos@PLT        # SM_PAT_POS
 .Lpc447:                
-                        mov     edi, 84                     # SM_PAT_BOXVAL
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_boxval@PLT     # SM_PAT_BOXVAL
 .Lpc448:                
                         lea     rdi, [rip + .Lstr_3]        # var=DIGITS
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc449:                
-                        mov     edi, 29                     # SM_PAT_SPAN
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_span@PLT       # SM_PAT_SPAN
 .Lpc450:                
-                        mov     edi, 50                     # SM_PAT_CAPTURE
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_8]        # var=num
+                        mov     esi, 0                      # kind=0
+                        call    scrip_rt_pat_capture@PLT    # SM_PAT_CAPTURE
 .Lpc451:                
-                        mov     edi, 26                     # SM_PAT_LIT
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_65]       # arg="_CRD :_PUN"
+                        call    scrip_rt_pat_lit@PLT        # SM_PAT_LIT
 .Lpc452:                
                         lea     rdi, [rip + .Lstr_66]       # var=epsilon
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc453:                
-                        mov     edi, 48                     # SM_PAT_DEREF
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_deref@PLT      # SM_PAT_DEREF
 .Lpc454:                
                         mov     edi, 51                     # SM_PAT_CAPTURE_FN
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc455:                
-                        mov     edi, 47                     # SM_PAT_CAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_cat@PLT        # SM_PAT_CAT
 .Lpc456:                
-                        mov     edi, 47                     # SM_PAT_CAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_cat@PLT        # SM_PAT_CAT
 .Lpc457:                
                         lea     rdi, [rip + .Lstr_67]       # str="_"
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc458:                
-                        mov     edi, 28                     # SM_PAT_NOTANY
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_notany@PLT     # SM_PAT_NOTANY
 .Lpc459:                
                         lea     rdi, [rip + .Lstr_67]       # str="_"
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc460:                
-                        mov     edi, 30                     # SM_PAT_BREAK
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_break@PLT      # SM_PAT_BREAK
 .Lpc461:                
-                        mov     edi, 47                     # SM_PAT_CAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_cat@PLT        # SM_PAT_CAT
 .Lpc462:                
-                        mov     edi, 50                     # SM_PAT_CAPTURE
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # var=wrd
+                        mov     esi, 0                      # kind=0
+                        call    scrip_rt_pat_capture@PLT    # SM_PAT_CAPTURE
 .Lpc463:                
-                        mov     edi, 26                     # SM_PAT_LIT
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_67]       # arg="_"
+                        call    scrip_rt_pat_lit@PLT        # SM_PAT_LIT
 .Lpc464:                
                         lea     rdi, [rip + .Lstr_5]        # var=UCASE
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc465:                
-                        mov     edi, 27                     # SM_PAT_ANY
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_any@PLT        # SM_PAT_ANY
 .Lpc466:                
                         lea     rdi, [rip + .Lstr_3]        # var=DIGITS
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
@@ -1704,56 +1694,45 @@ main:
 .Lpc468:                
                         call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc469:                
-                        mov     edi, 29                     # SM_PAT_SPAN
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_span@PLT       # SM_PAT_SPAN
 .Lpc470:                
-                        mov     edi, 47                     # SM_PAT_CAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_cat@PLT        # SM_PAT_CAT
 .Lpc471:                
-                        mov     edi, 50                     # SM_PAT_CAPTURE
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_20]       # var=tag
+                        mov     esi, 0                      # kind=0
+                        call    scrip_rt_pat_capture@PLT    # SM_PAT_CAPTURE
 .Lpc472:                
                         lea     rdi, [rip + .Lstr_66]       # var=epsilon
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc473:                
-                        mov     edi, 48                     # SM_PAT_DEREF
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_deref@PLT      # SM_PAT_DEREF
 .Lpc474:                
                         mov     edi, 51                     # SM_PAT_CAPTURE_FN
                         call    scrip_rt_unhandled_op@PLT   
 .Lpc475:                
-                        mov     edi, 47                     # SM_PAT_CAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_cat@PLT        # SM_PAT_CAT
 .Lpc476:                
-                        mov     edi, 47                     # SM_PAT_CAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_cat@PLT        # SM_PAT_CAT
 .Lpc477:                
-                        mov     edi, 47                     # SM_PAT_CAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_cat@PLT        # SM_PAT_CAT
 .Lpc478:                
-                        mov     edi, 46                     # SM_PAT_ALT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_alt@PLT        # SM_PAT_ALT
 .Lpc479:                
-                        mov     edi, 26                     # SM_PAT_LIT
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_30]       # arg=" "
+                        call    scrip_rt_pat_lit@PLT        # SM_PAT_LIT
 .Lpc480:                
-                        mov     edi, 47                     # SM_PAT_CAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_cat@PLT        # SM_PAT_CAT
 .Lpc481:                
-                        mov     edi, 37                     # SM_PAT_ARBNO
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_arbno@PLT      # SM_PAT_ARBNO
 .Lpc482:                
-                        mov     edi, 84                     # SM_PAT_BOXVAL
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_boxval@PLT     # SM_PAT_BOXVAL
 .Lpc483:                
                         movabs  rdi, 0                      
                         call    scrip_rt_push_int@PLT       
 .Lpc484:                
-                        mov     edi, 33                     # SM_PAT_RPOS
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_rpos@PLT       # SM_PAT_RPOS
 .Lpc485:                
-                        mov     edi, 84                     # SM_PAT_BOXVAL
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_boxval@PLT     # SM_PAT_BOXVAL
 .Lpc486:                
                         call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc487:                
@@ -1770,8 +1749,7 @@ main:
                         lea     rdi, [rip + .Lstr_68]       # var=claws
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc491:                
-                        mov     edi, 48                     # SM_PAT_DEREF
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_deref@PLT      # SM_PAT_DEREF
 .Lpc492:                
                         lea     rdi, [rip + .Lstr_64]       # var=src
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
@@ -1779,8 +1757,9 @@ main:
                         movabs  rdi, 0                      
                         call    scrip_rt_push_int@PLT       
 .Lpc494:                
-                        mov     edi, 55                     # SM_EXEC_STMT
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_64]       # subj_name=src
+                        mov     esi, 0                      # has_repl=0
+                        call    scrip_rt_match_variant@PLT  # EM-7c-variant: build-then-exec_stmt
 .Lpc495:                
                         call    scrip_rt_last_ok@PLT        #  EM-4 conditional jump
                         test    eax, eax                    

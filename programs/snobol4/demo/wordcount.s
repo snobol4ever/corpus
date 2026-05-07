@@ -108,20 +108,16 @@ main:
                         lea     rdi, [rip + .Lstr_6]        # var=WORD
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc17:                 
-                        mov     edi, 30                     # SM_PAT_BREAK
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_break@PLT      # SM_PAT_BREAK
 .Lpc18:                 
-                        mov     edi, 84                     # SM_PAT_BOXVAL
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_boxval@PLT     # SM_PAT_BOXVAL
 .Lpc19:                 
                         lea     rdi, [rip + .Lstr_6]        # var=WORD
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc20:                 
-                        mov     edi, 29                     # SM_PAT_SPAN
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_span@PLT       # SM_PAT_SPAN
 .Lpc21:                 
-                        mov     edi, 84                     # SM_PAT_BOXVAL
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_boxval@PLT     # SM_PAT_BOXVAL
 .Lpc22:                 
                         call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc23:                 
@@ -153,8 +149,7 @@ main:
                         lea     rdi, [rip + .Lstr_7]        # var=WPAT
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc32:                 
-                        mov     edi, 48                     # SM_PAT_DEREF
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_pat_deref@PLT      # SM_PAT_DEREF
 .Lpc33:                 
                         lea     rdi, [rip + .Lstr_9]        # var=LINE
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
@@ -163,8 +158,9 @@ main:
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc35:                 
-                        mov     edi, 55                     # SM_EXEC_STMT
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_9]        # subj_name=LINE
+                        mov     esi, 1                      # has_repl=1
+                        call    scrip_rt_match_variant@PLT  # EM-7c-variant: build-then-exec_stmt
 .Lpc36:                 
                         call    scrip_rt_last_ok@PLT        #  EM-4 conditional jump
                         test    eax, eax                    
