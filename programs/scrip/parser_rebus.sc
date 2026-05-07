@@ -5,7 +5,7 @@
 //
 // Naming: non-terminals from Rebus grammar; IR tags from ir.h E_*;
 // whitespace: $'  ' = required, $' ' = optional (beauty.sno convention).
-// Rungs RB-0..RB-5 + RB-FW-1..RB-FW-9 LANDED.  Gate: PASS=90 FAIL=0.
+// Rungs RB-0..RB-5 + RB-FW-1..RB-FW-9 LANDED.  Gate: PASS=91 FAIL=0.
 //
 // Documented deviations from Style Guidelines (## Style Guidelines for
 // parser_*.sc, GOAL-PARSER-REBUS.md):
@@ -231,6 +231,11 @@ COMPOUND    = 'COMPOUND';
 E_POS       = 'E_POS';
 
 nTop_count   = 'nTop()';
+nTop_plus1   = 'nTop() + 1';   // for subscript: base (1) + nTop() args
+
+//  X_sub — like X_args but for subscript bracket context.
+//  Needs its own definition to avoid scope confusion; same logic as X_args.
+X_sub = nInc() *alt_expr FENCE($',' *X_sub | epsilon);
 
 /*====================================================================================================================*/
 //  Match-time helpers.  Called only via build-time wrappers that return
@@ -271,6 +276,28 @@ function decompose_call(nargs, kids, fname, call, i) {
     nreturn;
 }
 
+function decompose_sub(nargs, base, kids, sub, i) {
+    //  Stack (top first): arg_N, ..., arg_1, E_VAR_base
+    //  nTop() = N (arg count; base not counted by nInc).
+    nargs = nTop();
+    kids  = ARRAY('1:' nargs + 1);
+    i = 0;
+    while (i = LT(i, nargs + 1) i + 1) kids[i] = Pop();
+    //  kids[1]=arg_N (first popped=top), ..., kids[nargs]=arg_1, kids[nargs+1]=base
+    base = kids[nargs + 1];
+    sub  = tree(E_IDX, '');
+    sub  = Append(sub, base);
+    i = nargs;
+    while (GE(i, 1)) { sub = Append(sub, kids[i]); i = i - 1; }
+    Push(sub);
+    decompose_sub = .dummy;
+    nreturn;
+}
+
+function Decompose_sub() {
+    Decompose_sub = epsilon . *decompose_sub();
+    return;
+}
 function push_call_id() {
     push_call_id = .dummy;
     Push(tree(E_VAR, REPLACE(rbCallName, &LCASE, &UCASE)));
@@ -348,8 +375,8 @@ primary = FENCE(  *String  Push_qlit()
 postfix_expr = *primary
                FENCE(  $'[' *alt_expr $'+:' *alt_expr $']' reduce(E_IDX, 2) reduce(E_IDX, 2)
                          FENCE($'[' *alt_expr $'+:' *alt_expr $']' reduce(E_IDX, 2) reduce(E_IDX, 2) | epsilon)
-                      | $'[' *alt_expr $']' reduce(E_IDX, 2)
-                         FENCE($'[' *alt_expr $']' reduce(E_IDX, 2) | epsilon)
+                      | $'[' nPush() *X_sub $']' Decompose_sub() nPop()
+                         FENCE($'[' nPush() *X_sub $']' Decompose_sub() nPop() | epsilon)
                       | *dot_capt    *primary reduce(E_CAPT_COND, 2)
                          FENCE(*dot_capt    *primary reduce(E_CAPT_COND, 2) | epsilon)
                       | *dollar_capt *primary reduce(E_CAPT_IMM,  2)
@@ -692,7 +719,7 @@ function lower_case(x, lEnd, lNext, lMatch, tempVar, tempExpr, tmpN, i, cl, ck) 
 //  lower_atom — recursively lower an expression tree.  Handles ALT (build
 //  flat n-ary E_ALT via Append loop) and CALL (emit (E_FNC name) — bare
 //  call no args).
-function lower_atom(x, k, acc, i) {
+function lower_atom(x, k, acc, i, idxN, idxBase, idxI) {
     k = t(x);
     if (IDENT(k, 'E_VAR'))       lower_atom = tree(E_VAR, REPLACE(v(x), &LCASE, &UCASE));
     else if (IDENT(k, 'E_ILIT')) lower_atom = x;
@@ -730,7 +757,22 @@ function lower_atom(x, k, acc, i) {
     else if (IDENT(k, 'CMP_SGE')) lower_atom = Tree(E_FNC, 'LGE',   2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
     else if (IDENT(k, 'E_POW'))   lower_atom = Tree(E_POW, '',      2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
     else if (IDENT(k, 'REMDR'))   lower_atom = Tree(E_FNC, 'REMDR', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'E_IDX'))   lower_atom = Tree(E_IDX, '',      2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'E_IDX')) {
+        //  n-ary subscript: base + 1..n-1 args.  Build all children lowered.
+        idxN = n(x);
+        idxBase = lower_atom(c(x)[1]);
+        if (EQ(idxN, 2)) lower_atom = Tree(E_IDX, '', 2, idxBase, lower_atom(c(x)[2]));
+        else {
+            //  3+ children: build Tree using descending loop (avoids LT/LE pre-increment).
+            //  Children in c(x): [1]=base, [2..idxN]=args.  Append args in order 2..idxN.
+            lower_atom = Tree(E_IDX, '', 1, idxBase);
+            idxI = 2;
+            while (GE(idxI, 0) LT(idxI, idxN + 1)) {
+                lower_atom = Append(lower_atom, lower_atom(c(x)[idxI]));
+                idxI = idxI + 1;
+            }
+        }
+    }
     else if (IDENT(k, 'E_CAPT_COND_ASGN'))
         lower_atom = Tree(E_CAPT_COND, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
     else if (IDENT(k, 'E_CAPT_IMMED_ASGN'))
