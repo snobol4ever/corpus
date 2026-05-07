@@ -145,8 +145,26 @@ function assign_anon_slots(x, i, kid) {
     nreturn;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-function push_atom_body(varname) {
-    Push(tree('E_FNC', $varname));
+function unescape_q(raw, out, i, n, c, prev_was_quote) {
+    // Replace doubled single-quotes ('') with single quotes in a quoted atom body.
+    out = '';  n = SIZE(raw);  i = 1;  prev_was_quote = 0;
+    while (LE(i, n)) {
+        c = SUBSTR(raw, i, 1);
+        if (IDENT(c, "'")) {
+            if (EQ(prev_was_quote, 1)) { out = out "'";  prev_was_quote = 0; }
+            else                       { prev_was_quote = 1; }
+        } else {
+            if (EQ(prev_was_quote, 1)) { out = out "'";  prev_was_quote = 0; }
+            out = out c;
+        }
+        i = i + 1;
+    }
+    unescape_q = out;
+    return;
+}
+function push_atom_body(varname, raw) {
+    raw = $varname;
+    Push(tree('E_FNC', unescape_q(raw)));
     push_atom_body = .dummy;
     nreturn;
 }

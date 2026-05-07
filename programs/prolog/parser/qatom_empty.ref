@@ -1,0 +1,1 @@
+(STMT :subj (E_CHOICE foo/1 (E_CLAUSE foo/1 (E_FNC ))))
