@@ -1151,7 +1151,9 @@ Finish_gather = (epsilon . *finish_gather());
 /*--------------------------------------------------------------------------------------------------------------------*/
 // finish_call — function call decomposition.  Reads TopCounter() for
 // nTop() children (callee E_VAR + args).  Builds (E_FNC fname (E_VAR fname)
-// arg1...argN) with fname from capfnf/capfnr captures.
+// arg1...argN) with fname read from kids[1] sval (the E_VAR node pushed by
+// shift(CallName,'E_VAR')).  NOT from capfnf/capfnr — those are overwritten
+// by any nested call in an argument (e.g. f(g(x)) clobbers capfnf with 'g').
 // Retained: reduce() sets value=''; E_FNC requires value=fname to match oracle.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_call(n_kids, kids, fname, efnc, i) {
@@ -1162,7 +1164,7 @@ function finish_call(n_kids, kids, fname, efnc, i) {
         kids[i] = Pop();
         i = i - 1;
     }
-    fname = capfnf capfnr;
+    fname = v(kids[1]);
     efnc  = tree('E_FNC', fname);
     i = 1;
     while (LE(i, n_kids)) {
@@ -1333,7 +1335,7 @@ function finish_raku_new(n, items, cname, efnc, i) {
     items = GT(n, 0) ARRAY('1:' n);
     i = n;
     while (GT(i, 0)) { items[i] = Pop(); i = i - 1; }
-    cname = capfnf capfnr;
+    cname = capclsf capclsr;
     efnc  = tree('E_FNC', 'raku_new');
     Append(efnc, tree('E_VAR', 'raku_new'));
     Append(efnc, tree('E_QLIT', cname));
@@ -1500,7 +1502,7 @@ NamedArgTail = ( $','  $' ' ((ident_first (ident_rest | epsilon)) . capnamedkey)
 // NewCallName — ClassName before '.new(': UpperCamel ident, captures into capfnf/capfnr.
 // No leading ws strip needed — whitespace already eaten by $' ' in surrounding pattern.
 
-NewCallName = ($' ' fnf . capfnf fnro . capfnr);
+NewCallName = ($' ' fnf . capclsf fnro . capclsr);
 
 // CallArgTail — defined BEFORE Expr11 so the ARBNO(*CallArgTail) reference
 // in Expr11 resolves at match time (deferred), not capture-time epsilon.
