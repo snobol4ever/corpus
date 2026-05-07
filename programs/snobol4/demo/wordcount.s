@@ -22,7 +22,7 @@
 .Lstr_10:
 	.string ""
 .Lstr_11:
-	.string "Ð;`ðU\177"
+	.string "Ð;@Ã¼\177"
 .Lstr_12:
 	.string "N"
 .Lstr_13:
@@ -93,14 +93,11 @@ main:
                         lea     rdi, [rip + .Lstr_5]        # var=LCASE
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc11:                 
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc12:                 
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc13:                 
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc14:                 
                         lea     rdi, [rip + .Lstr_6]        # store -> WORD
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -124,8 +121,7 @@ main:
 .Lpc21:                 
                         call    scrip_rt_pat_boxval@PLT     # PAT_BOXVAL
 .Lpc22:                 
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc23:                 
                         lea     rdi, [rip + .Lstr_7]        # store -> WPAT
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -164,7 +160,7 @@ main:
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc35:                 
-                        lea     rdi, [rip + .Lstr_11]       # subj=Ð;`ðU
+                        lea     rdi, [rip + .Lstr_11]       # subj=Ð;@Ã¼
                         mov     esi, 1                      # has_repl=1
                         call    scrip_rt_exec_stmt@PLT      # SM_EXEC_STMT
 .Lpc36:                 
@@ -200,15 +196,13 @@ main:
                         lea     rdi, [rip + .Lstr_12]       # var=N
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc46:                 
-                        mov     edi, 24                     # SM_COERCE_NUM
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_coerce_num@PLT     # SM_COERCE_NUM
 .Lpc47:                 
                         lea     rdi, [rip + .Lstr_13]       # str=" words"
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc48:                 
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc49:                 
                         lea     rdi, [rip + .Lstr_14]       # store -> OUTPUT
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS

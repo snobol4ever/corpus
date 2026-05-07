@@ -4,7 +4,7 @@
 .Lstr_1:
 	.string "ALPHABET"
 .Lstr_2:
-	.string "ðö³\t"
+	.string "ðf3\037"
 .Lstr_3:
 	.string "0123456789"
 .Lstr_4:
@@ -92,7 +92,7 @@
 .Lstr_45:
 	.string "'"
 .Lstr_46:
-	.string "ðb´\t"
+	.string "ðÒ3\037"
 .Lstr_47:
 	.string "\""
 .Lstr_48:
@@ -142,7 +142,7 @@
 .Lstr_70:
 	.string "claws"
 .Lstr_71:
-	.string "`®´\t"
+	.string "`\0364\037"
 .Lstr_72:
 	.string "Pattern match failed"
 	.text
@@ -195,7 +195,7 @@ main:
                         movabs  rdi, 0                      
                         call    scrip_rt_push_int@PLT       
 .Lpc9:                  
-                        lea     rdi, [rip + .Lstr_2]        # subj=ðö³	
+                        lea     rdi, [rip + .Lstr_2]        # subj=ðf3
                         mov     esi, 0                      # has_repl=0
                         call    scrip_rt_exec_stmt@PLT      # SM_EXEC_STMT
 .Lpc10:                 
@@ -232,8 +232,9 @@ main:
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc18:                 
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_8]        # fname="DEFINE"
+                        mov     esi, 1                      # nargs=1
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc19:                 
                         call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
 .Lpc20:                 
@@ -248,8 +249,7 @@ main:
                         lea     rdi, [rip + .Lstr_9]        # var=num
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc24:                 
-                        mov     edi, 24                     # SM_COERCE_NUM
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_coerce_num@PLT     # SM_COERCE_NUM
 .Lpc25:                 
                         lea     rdi, [rip + .Lstr_10]       # store -> sentno
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -259,8 +259,9 @@ main:
 # stmt 6  (line 6):  * Memory: -P 34000 required only for full corpus (CLAWS5inTASA.dat, 989 lines).
 # ============================================================================
 .Lpc27:                 
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_11]       # fname="TABLE"
+                        mov     esi, 0                      # nargs=0
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc28:                 
                         lea     rdi, [rip + .Lstr_12]       # var=mem
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
@@ -268,8 +269,9 @@ main:
                         lea     rdi, [rip + .Lstr_10]       # var=sentno
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc30:                 
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_13]       # fname="IDX_SET"
+                        mov     esi, 3                      # nargs=3
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc31:                 
 
 # ============================================================================
@@ -280,14 +282,20 @@ main:
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc33:                 
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_15]       # fname="NAME_PUSH"
+                        mov     esi, 1                      # nargs=1
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc34:                 
                         lea     rdi, [rip + .Lstr_16]       # store -> new_sent
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
 .Lpc35:                 
-                        mov     edi, 62                     # SM_NRETURN
-                        call    scrip_rt_unhandled_op@PLT   
+                        mov     edi, 2                      # kind=2 (0=RET 1=FRET 2=NRET)
+                        mov     esi, 0                      # cond=0 (0=uncon 1=:S 2=:F)
+                        call    scrip_rt_do_return@PLT      # SM_NRETURN
+                        test    eax, eax                    # fire?
+                        jz      .Lretskip_35                # no-fire: fall through
+                        ret                                 # fire: native return
+.Lretskip_35:
 .Lpc36:                 
 .Lpc37:                 
 
@@ -304,8 +312,9 @@ main:
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc40:                 
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_8]        # fname="DEFINE"
+                        mov     esi, 1                      # nargs=1
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc41:                 
                         call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
 .Lpc42:                 
@@ -323,17 +332,20 @@ main:
                         lea     rdi, [rip + .Lstr_10]       # var=sentno
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc47:                 
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # fname="IDX"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc48:                 
                         lea     rdi, [rip + .Lstr_19]       # var=wrd
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc49:                 
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # fname="IDX"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc50:                 
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_20]       # fname="DIFFER"
+                        mov     esi, 1                      # nargs=1
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc51:                 
                         call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
 .Lpc52:                 
@@ -352,23 +364,27 @@ main:
                         lea     rdi, [rip + .Lstr_10]       # var=sentno
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc56:                 
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # fname="IDX"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc57:                 
                         lea     rdi, [rip + .Lstr_19]       # var=wrd
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc58:                 
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # fname="IDX"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc59:                 
                         lea     rdi, [rip + .Lstr_21]       # var=tag
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc60:                 
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # fname="IDX"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc61:                 
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_20]       # fname="DIFFER"
+                        mov     esi, 1                      # nargs=1
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc62:                 
                         call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
 .Lpc63:                 
@@ -387,20 +403,23 @@ main:
                         lea     rdi, [rip + .Lstr_10]       # var=sentno
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc67:                 
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # fname="IDX"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc68:                 
                         lea     rdi, [rip + .Lstr_19]       # var=wrd
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc69:                 
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # fname="IDX"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc70:                 
                         lea     rdi, [rip + .Lstr_21]       # var=tag
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc71:                 
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # fname="IDX"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc72:                 
                         movabs  rdi, 1                      
                         call    scrip_rt_push_int@PLT       
@@ -414,20 +433,23 @@ main:
                         lea     rdi, [rip + .Lstr_10]       # var=sentno
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc76:                 
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # fname="IDX"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc77:                 
                         lea     rdi, [rip + .Lstr_19]       # var=wrd
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc78:                 
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # fname="IDX"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc79:                 
                         lea     rdi, [rip + .Lstr_21]       # var=tag
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc80:                 
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_13]       # fname="IDX_SET"
+                        mov     esi, 3                      # nargs=3
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc81:                 
                         jmp     .Lpc100                     #  SM_JUMP -> pc=100
 .Lpc82:                 
@@ -437,8 +459,9 @@ main:
 # stmt 13  (line 22):  new_wrd         mem[sentno][wrd]       =  TABLE()
 # ============================================================================
 .Lpc84:                 
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_11]       # fname="TABLE"
+                        mov     esi, 0                      # nargs=0
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc85:                 
                         lea     rdi, [rip + .Lstr_12]       # var=mem
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
@@ -446,14 +469,16 @@ main:
                         lea     rdi, [rip + .Lstr_10]       # var=sentno
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc87:                 
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # fname="IDX"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc88:                 
                         lea     rdi, [rip + .Lstr_19]       # var=wrd
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc89:                 
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_13]       # fname="IDX_SET"
+                        mov     esi, 3                      # nargs=3
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc90:                 
 .Lpc91:                 
 
@@ -470,20 +495,23 @@ main:
                         lea     rdi, [rip + .Lstr_10]       # var=sentno
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc95:                 
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # fname="IDX"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc96:                 
                         lea     rdi, [rip + .Lstr_19]       # var=wrd
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc97:                 
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # fname="IDX"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc98:                 
                         lea     rdi, [rip + .Lstr_21]       # var=tag
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc99:                 
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_13]       # fname="IDX_SET"
+                        mov     esi, 3                      # nargs=3
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc100:                
 .Lpc101:                
 
@@ -495,14 +523,20 @@ main:
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc103:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_15]       # fname="NAME_PUSH"
+                        mov     esi, 1                      # nargs=1
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc104:                
                         lea     rdi, [rip + .Lstr_22]       # store -> add_tok
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
 .Lpc105:                
-                        mov     edi, 62                     # SM_NRETURN
-                        call    scrip_rt_unhandled_op@PLT   
+                        mov     edi, 2                      # kind=2 (0=RET 1=FRET 2=NRET)
+                        mov     esi, 0                      # cond=0 (0=uncon 1=:S 2=:F)
+                        call    scrip_rt_do_return@PLT      # SM_NRETURN
+                        test    eax, eax                    # fire?
+                        jz      .Lretskip_105               # no-fire: fall through
+                        ret                                 # fire: native return
+.Lretskip_105:
 .Lpc106:                
 .Lpc107:                
 
@@ -519,8 +553,9 @@ main:
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc110:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_8]        # fname="DEFINE"
+                        mov     esi, 1                      # nargs=1
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc111:                
                         call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
 .Lpc112:                
@@ -535,8 +570,9 @@ main:
                         lea     rdi, [rip + .Lstr_12]       # var=mem
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc116:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_24]       # fname="SORT"
+                        mov     esi, 1                      # nargs=1
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc117:                
                         lea     rdi, [rip + .Lstr_25]       # store -> ssk
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -595,8 +631,9 @@ main:
                         movabs  rdi, 1                      
                         call    scrip_rt_push_int@PLT       
 .Lpc134:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # fname="IDX"
+                        mov     esi, 3                      # nargs=3
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc135:                
                         call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
 .Lpc136:                
@@ -664,8 +701,9 @@ main:
                         movabs  rdi, 1                      
                         call    scrip_rt_push_int@PLT       
 .Lpc155:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # fname="IDX"
+                        mov     esi, 3                      # nargs=3
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc156:                
                         lea     rdi, [rip + .Lstr_10]       # store -> sentno
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -697,14 +735,14 @@ main:
                         lea     rdi, [rip + .Lstr_27]       # var=ns
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc164:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_30]       # fname="IDENT"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc165:                
                         movabs  rdi, 1                      
                         call    scrip_rt_push_int@PLT       
 .Lpc166:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc167:                
                         lea     rdi, [rip + .Lstr_29]       # store -> last_sent
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -721,8 +759,9 @@ main:
                         lea     rdi, [rip + .Lstr_10]       # var=sentno
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc171:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_32]       # fname="SIZE"
+                        mov     esi, 1                      # nargs=1
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc172:                
                         movabs  rdi, 4                      
                         call    scrip_rt_push_int@PLT       
@@ -730,8 +769,9 @@ main:
                         mov     edi, 17                     # SM_ADD
                         call    scrip_rt_arith@PLT          
 .Lpc174:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_33]       # fname="DUPL"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc175:                
                         lea     rdi, [rip + .Lstr_34]       # store -> pad
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -747,8 +787,9 @@ main:
                         movabs  rdi, 1                      
                         call    scrip_rt_push_int@PLT       
 .Lpc179:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_35]       # fname="EQ"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc180:                
                         lea     rdi, [rip + .Lstr_36]       # str="{"
                         mov     esi, 0                      # slen
@@ -761,14 +802,11 @@ main:
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc183:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc184:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc185:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc186:                
                         lea     rdi, [rip + .Lstr_38]       # store -> pfx
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -784,8 +822,9 @@ main:
                         movabs  rdi, 1                      
                         call    scrip_rt_push_int@PLT       
 .Lpc190:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_39]       # fname="NE"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc191:                
                         lea     rdi, [rip + .Lstr_31]       # str=" "
                         mov     esi, 0                      # slen
@@ -798,14 +837,11 @@ main:
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc194:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc195:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc196:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc197:                
                         lea     rdi, [rip + .Lstr_38]       # store -> pfx
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -821,11 +857,13 @@ main:
                         lea     rdi, [rip + .Lstr_10]       # var=sentno
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc201:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # fname="IDX"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc202:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_24]       # fname="SORT"
+                        mov     esi, 1                      # nargs=1
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc203:                
                         lea     rdi, [rip + .Lstr_40]       # store -> wsk
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -873,8 +911,9 @@ main:
                         movabs  rdi, 1                      
                         call    scrip_rt_push_int@PLT       
 .Lpc217:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # fname="IDX"
+                        mov     esi, 3                      # nargs=3
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc218:                
                         lea     rdi, [rip + .Lstr_42]       # store -> wkey
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -915,8 +954,9 @@ main:
                         movabs  rdi, 1                      
                         call    scrip_rt_push_int@PLT       
 .Lpc229:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # fname="IDX"
+                        mov     esi, 3                      # nargs=3
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc230:                
                         lea     rdi, [rip + .Lstr_43]       # store -> next_wkey
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -954,7 +994,7 @@ main:
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc241:                
-                        lea     rdi, [rip + .Lstr_46]       # subj=ðb´	
+                        lea     rdi, [rip + .Lstr_46]       # subj=ðÒ3
                         mov     esi, 1                      # has_repl=1
                         call    scrip_rt_exec_stmt@PLT      # SM_EXEC_STMT
 .Lpc242:                
@@ -978,11 +1018,9 @@ main:
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc247:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc248:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc249:                
                         lea     rdi, [rip + .Lstr_48]       # store -> wq
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -1006,11 +1044,9 @@ main:
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc256:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc257:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc258:                
                         lea     rdi, [rip + .Lstr_48]       # store -> wq
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -1027,17 +1063,20 @@ main:
                         lea     rdi, [rip + .Lstr_10]       # var=sentno
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc263:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # fname="IDX"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc264:                
                         lea     rdi, [rip + .Lstr_42]       # var=wkey
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc265:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # fname="IDX"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc266:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_24]       # fname="SORT"
+                        mov     esi, 1                      # nargs=1
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc267:                
                         lea     rdi, [rip + .Lstr_49]       # store -> tsk
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -1097,8 +1136,9 @@ main:
                         movabs  rdi, 1                      
                         call    scrip_rt_push_int@PLT       
 .Lpc284:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # fname="IDX"
+                        mov     esi, 3                      # nargs=3
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc285:                
                         lea     rdi, [rip + .Lstr_21]       # store -> tag
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -1118,20 +1158,23 @@ main:
                         lea     rdi, [rip + .Lstr_10]       # var=sentno
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc290:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # fname="IDX"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc291:                
                         lea     rdi, [rip + .Lstr_42]       # var=wkey
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc292:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # fname="IDX"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc293:                
                         lea     rdi, [rip + .Lstr_21]       # var=tag
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc294:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_18]       # fname="IDX"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc295:                
                         lea     rdi, [rip + .Lstr_52]       # store -> tv
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -1148,8 +1191,9 @@ main:
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc299:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_30]       # fname="IDENT"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc300:                
                         call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
 .Lpc301:                
@@ -1179,17 +1223,13 @@ main:
                         lea     rdi, [rip + .Lstr_52]       # var=tv
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc308:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc309:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc310:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc311:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc312:                
                         lea     rdi, [rip + .Lstr_51]       # store -> tline
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -1223,20 +1263,15 @@ main:
                         lea     rdi, [rip + .Lstr_52]       # var=tv
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc322:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc323:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc324:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc325:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc326:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc327:                
                         lea     rdi, [rip + .Lstr_51]       # store -> tline
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -1256,8 +1291,7 @@ main:
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc333:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc334:                
                         lea     rdi, [rip + .Lstr_51]       # store -> tline
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -1270,14 +1304,16 @@ main:
                         lea     rdi, [rip + .Lstr_43]       # var=next_wkey
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc337:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_32]       # fname="SIZE"
+                        mov     esi, 1                      # nargs=1
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc338:                
                         movabs  rdi, 0                      
                         call    scrip_rt_push_int@PLT       
 .Lpc339:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_56]       # fname="GT"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc340:                
                         call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
 .Lpc341:                
@@ -1296,8 +1332,9 @@ main:
                         movabs  rdi, 1                      
                         call    scrip_rt_push_int@PLT       
 .Lpc345:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_30]       # fname="IDENT"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc346:                
                         call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
 .Lpc347:                
@@ -1327,17 +1364,13 @@ main:
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc354:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc355:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc356:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc357:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc358:                
                         lea     rdi, [rip + .Lstr_59]       # store -> OUTPUT
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -1367,17 +1400,13 @@ main:
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc367:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc368:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc369:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc370:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc371:                
                         lea     rdi, [rip + .Lstr_59]       # store -> OUTPUT
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -1396,8 +1425,9 @@ main:
                         movabs  rdi, 1                      
                         call    scrip_rt_push_int@PLT       
 .Lpc377:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_30]       # fname="IDENT"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc378:                
                         call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
 .Lpc379:                
@@ -1423,14 +1453,11 @@ main:
                         lea     rdi, [rip + .Lstr_51]       # var=tline
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc385:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc386:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc387:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc388:                
                         lea     rdi, [rip + .Lstr_60]       # store -> lline
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -1456,14 +1483,11 @@ main:
                         lea     rdi, [rip + .Lstr_51]       # var=tline
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc396:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc397:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc398:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc399:                
                         lea     rdi, [rip + .Lstr_60]       # store -> lline
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -1480,8 +1504,9 @@ main:
                         movabs  rdi, 1                      
                         call    scrip_rt_push_int@PLT       
 .Lpc404:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_30]       # fname="IDENT"
+                        mov     esi, 2                      # nargs=2
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc405:                
                         call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
 .Lpc406:                
@@ -1501,8 +1526,7 @@ main:
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc410:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc411:                
                         lea     rdi, [rip + .Lstr_59]       # store -> OUTPUT
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -1522,8 +1546,7 @@ main:
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc417:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc418:                
                         lea     rdi, [rip + .Lstr_59]       # store -> OUTPUT
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -1540,8 +1563,9 @@ main:
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc423:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_15]       # fname="NAME_PUSH"
+                        mov     esi, 1                      # nargs=1
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc424:                
                         lea     rdi, [rip + .Lstr_63]       # store -> pp_mem
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -1581,8 +1605,7 @@ main:
                         lea     rdi, [rip + .Lstr_65]       # var=line
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc436:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc437:                
                         lea     rdi, [rip + .Lstr_66]       # store -> src
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -1600,8 +1623,9 @@ main:
 # stmt 67  (line 67):                  lline           =   pfx wq ': ' tline           :(pm_last_emit)
 # ============================================================================
 .Lpc442:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_11]       # fname="TABLE"
+                        mov     esi, 0                      # nargs=0
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc443:                
                         lea     rdi, [rip + .Lstr_12]       # store -> mem
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -1674,8 +1698,7 @@ main:
                         lea     rdi, [rip + .Lstr_6]        # var=UCASE
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc468:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc469:                
                         call    scrip_rt_pat_span@PLT       # PAT_SPAN
 .Lpc470:                
@@ -1717,11 +1740,9 @@ main:
 .Lpc485:                
                         call    scrip_rt_pat_boxval@PLT     # PAT_BOXVAL
 .Lpc486:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc487:                
-                        mov     edi, 23                     # SM_CONCAT
-                        call    scrip_rt_unhandled_op@PLT   
+                        call    scrip_rt_concat@PLT         # SM_CONCAT
 .Lpc488:                
                         lea     rdi, [rip + .Lstr_70]       # store -> claws
                         call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
@@ -1742,7 +1763,7 @@ main:
                         movabs  rdi, 0                      
                         call    scrip_rt_push_int@PLT       
 .Lpc494:                
-                        lea     rdi, [rip + .Lstr_71]       # subj=`®´	
+                        lea     rdi, [rip + .Lstr_71]       # subj=`4
                         mov     esi, 0                      # has_repl=0
                         call    scrip_rt_exec_stmt@PLT      # SM_EXEC_STMT
 .Lpc495:                
@@ -1758,8 +1779,9 @@ main:
                         lea     rdi, [rip + .Lstr_12]       # var=mem
                         call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
 .Lpc498:                
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_63]       # fname="pp_mem"
+                        mov     esi, 1                      # nargs=1
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc499:                
                         call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
 .Lpc500:                

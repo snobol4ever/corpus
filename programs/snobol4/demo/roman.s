@@ -10,7 +10,7 @@
 .Lstr_4:
 	.string ""
 .Lstr_5:
-	.string "pùI*"
+	.string "pm~,"
 .Lstr_6:
 	.string ","
 .Lstr_7:
@@ -47,8 +47,9 @@ main:
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc2:                  
-                        mov     edi, 59                     # SM_CALL
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_1]        # fname="DEFINE"
+                        mov     esi, 1                      # nargs=1
+                        call    scrip_rt_call@PLT           # SM_CALL
 .Lpc3:                  
                         call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
 .Lpc4:                  
@@ -83,12 +84,17 @@ main:
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc15:                 
-                        lea     rdi, [rip + .Lstr_5]        # subj=pùI*
+                        lea     rdi, [rip + .Lstr_5]        # subj=pm~,
                         mov     esi, 1                      # has_repl=1
                         call    scrip_rt_exec_stmt@PLT      # SM_EXEC_STMT
 .Lpc16:                 
-                        mov     edi, 64                     # SM_RETURN_F
-                        call    scrip_rt_unhandled_op@PLT   
+                        mov     edi, 0                      # kind=0 (0=RET 1=FRET 2=NRET)
+                        mov     esi, 2                      # cond=2 (0=uncon 1=:S 2=:F)
+                        call    scrip_rt_do_return@PLT      # SM_RETURN_F
+                        test    eax, eax                    # fire?
+                        jz      .Lretskip_16                # no-fire: fall through
+                        ret                                 # fire: native return
+.Lretskip_16:
 .Lpc17:                 
 
 # ============================================================================
@@ -123,8 +129,13 @@ main:
                         mov     esi, 0                      # has_repl=0
                         call    scrip_rt_exec_stmt@PLT      # SM_EXEC_STMT
 .Lpc27:                 
-                        mov     edi, 66                     # SM_FRETURN_F
-                        call    scrip_rt_unhandled_op@PLT   
+                        mov     edi, 1                      # kind=1 (0=RET 1=FRET 2=NRET)
+                        mov     esi, 2                      # cond=2 (0=uncon 1=:S 2=:F)
+                        call    scrip_rt_do_return@PLT      # SM_FRETURN_F
+                        test    eax, eax                    # fire?
+                        jz      .Lretskip_27                # no-fire: fall through
+                        ret                                 # fire: native return
+.Lretskip_27:
 .Lpc28:                 
                         call    scrip_rt_halt_tos@PLT       # SM_HALT
 	# -- epilogue -------------------------------------------
