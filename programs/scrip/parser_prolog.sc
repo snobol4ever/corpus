@@ -1010,7 +1010,24 @@ unify_expr = (  cmp_expr
                      | epsilon
                      )
              );
-body_goal = ( $'(' *body $')' | unify_expr );
+function reduce_pfx(kw, arg, fnc_node) {
+    arg = Pop();
+    fnc_node = Tree('E_FNC', pfx_kw, 0);
+    Append(fnc_node, arg);
+    Push(fnc_node);
+    reduce_pfx = .dummy;  nreturn;
+}
+Reduce_pfx = EVAL("epsilon . thx . *reduce_pfx()");
+/*--------------------------------------------------------------------------------------------------------------------*/
+// pfx_kw_name: SWI-Prolog fx 1150 prefix operators (used without parentheses).
+// Must be followed by mandatory whitespace ($'  ') to distinguish from compound calls.
+pfx_kw_name = (   "dynamic" | "discontiguous" | "meta_predicate" | "multifile"
+              |   "module_transparent" | "thread_local" | "volatile"
+              |   "initialization" | "thread_initialization" | "public" | "table"
+              );
+/*--------------------------------------------------------------------------------------------------------------------*/
+// body_goal: parenthesised body, prefix-keyword operator, or expression.
+body_goal = ( $'(' *body $')' | $' ' pfx_kw_name . pfx_kw $'  ' *unify_expr Reduce_pfx | unify_expr );
 /*--------------------------------------------------------------------------------------------------------------------*/
 conj = (    nPush()
                 nInc() body_goal

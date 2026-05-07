@@ -1,0 +1,1 @@
+:- dynamic foo/1.

@@ -1,0 +1,4 @@
+(STMT :subj (E_FNC discontiguous (E_DIV
+    (E_FNC bar)
+    (E_ILIT 2)
+  )))

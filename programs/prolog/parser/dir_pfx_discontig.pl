@@ -1,0 +1,1 @@
+:- discontiguous bar/2.

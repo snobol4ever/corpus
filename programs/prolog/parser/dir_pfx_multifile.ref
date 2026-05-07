@@ -1,0 +1,4 @@
+(STMT :subj (E_FNC multifile (E_DIV
+    (E_FNC foo)
+    (E_ILIT 1)
+  )))
