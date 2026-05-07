@@ -1653,8 +1653,10 @@ main:
 .Lpc453:                
                         call    scrip_rt_pat_deref@PLT      # SM_PAT_DEREF
 .Lpc454:                
-                        mov     edi, 51                     # SM_PAT_CAPTURE_FN
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_15]       # fname=new_sent
+                        mov     esi, 0                      # is_imm
+                        xor     edx, edx                    # namelist=NULL
+                        call    scrip_rt_pat_capture_fn@PLT # SM_PAT_CAPTURE_FN
 .Lpc455:                
                         call    scrip_rt_pat_cat@PLT        # SM_PAT_CAT
 .Lpc456:                
@@ -1707,8 +1709,10 @@ main:
 .Lpc473:                
                         call    scrip_rt_pat_deref@PLT      # SM_PAT_DEREF
 .Lpc474:                
-                        mov     edi, 51                     # SM_PAT_CAPTURE_FN
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_21]       # fname=add_tok
+                        mov     esi, 0                      # is_imm
+                        xor     edx, edx                    # namelist=NULL
+                        call    scrip_rt_pat_capture_fn@PLT # SM_PAT_CAPTURE_FN
 .Lpc475:                
                         call    scrip_rt_pat_cat@PLT        # SM_PAT_CAT
 .Lpc476:                

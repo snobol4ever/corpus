@@ -1135,8 +1135,10 @@ main:
 .Lpc260:                
                         call    scrip_rt_pat_deref@PLT      # SM_PAT_DEREF
 .Lpc261:                
-                        mov     edi, 51                     # SM_PAT_CAPTURE_FN
-                        call    scrip_rt_unhandled_op@PLT   
+                        lea     rdi, [rip + .Lstr_51]       # fname=pop_list
+                        mov     esi, 0                      # is_imm
+                        xor     edx, edx                    # namelist=NULL
+                        call    scrip_rt_pat_capture_fn@PLT # SM_PAT_CAPTURE_FN
 .Lpc262:                
                         call    scrip_rt_pat_boxval@PLT     # SM_PAT_BOXVAL
 .Lpc263:                
