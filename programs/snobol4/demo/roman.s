@@ -28,23 +28,23 @@
 
 # ============================================================================
 # EM-7c: invariant pattern blobs (baked from sm_phase2_to_patnd → bb_build_flat_text)
-# Each block exposes _pat_inv_<id>_alpha / _beta / _gamma / _omega.
-# scrip_rt_match_blob(blob_alpha, ...) drives Phase-3 against these blobs.
+# Each block exposes _pat_inv_<id>_α / _β / _γ / _ω.
+# scrip_rt_match_blob(blob_α, ...) drives Phase-3 against these blobs.
 # ============================================================================
 	.intel_syntax noprefix
 	.text
 
 # ---- pattern blob 0 (Phase-2 window pc=7..12, SM_EXEC_STMT pc=15) ----
-.global _pat_inv_0_alpha
-.global _pat_inv_0_beta
-.global _pat_inv_0_gamma
-.global _pat_inv_0_omega
-_pat_inv_0_alpha:
+.global _pat_inv_0_α
+.global _pat_inv_0_β
+.global _pat_inv_0_γ
+.global _pat_inv_0_ω
+_pat_inv_0_α:
     lea     r10, [rip + Δ]
     cmp     esi, 0
-    je      _pat_inv_0_alpha_body
-    jmp     _pat_inv_0_beta
-_pat_inv_0_alpha_body:
+    je      _pat_inv_0_α_body
+    jmp     _pat_inv_0_β
+_pat_inv_0_α_body:
     lea     rcx, [rip + Σlen]
     mov     eax, [rcx]
     sub     eax, 0
@@ -71,8 +71,8 @@ xcat0_mid_g:
 	.zero 24
 	.section .text
 	.intel_syntax noprefix
-	.globl  _cap1_child_alpha
-_cap1_child_alpha:
+	.globl  _cap1_child_α
+_cap1_child_α:
     lea     r10, [rip + Δ]
     cmp     esi, 0
     je      _cap1_ab
@@ -113,22 +113,22 @@ _cap1_cf:
 	mov     esi, 0
 	call    bb_cap@PLT
 	test    rax, rax
-    jne     _pat_inv_0_gamma
+    jne     _pat_inv_0_γ
     jmp     xcat0_right_o
 xcat0_right_b:
 	lea     rdi, [rip + .Lcap1_data]
 	mov     esi, 1
 	call    bb_cap@PLT
 	test    rax, rax
-    jne     _pat_inv_0_gamma
+    jne     _pat_inv_0_γ
     jmp     xcat0_right_o
 xcat0_right_o:
     jmp     xcat0_left_b
-_pat_inv_0_beta:
+_pat_inv_0_β:
     jmp     xcat0_right_b
 xcat0_o:
-    jmp     _pat_inv_0_omega
-_pat_inv_0_gamma:
+    jmp     _pat_inv_0_ω
+_pat_inv_0_γ:
     lea     rcx, [rip + Σ]
     mov     rax, [rcx]
     movsxd  rcx, dword ptr [r10]
@@ -136,7 +136,7 @@ _pat_inv_0_gamma:
     mov     rdx, rax
     mov     eax, 1
     ret
-_pat_inv_0_omega:
+_pat_inv_0_ω:
     mov     eax, 99
     xor     edx, edx
     ret
@@ -158,9 +158,9 @@ main:
 	# EM-7d: register user-defined function chunks
 	lea     rdi, [rip + .Lchunk_registry]
 	call    scrip_rt_register_chunks@PLT
-	# cap fixup 0 (cap static): .Lcap1_data -> _cap1_child_alpha
+	# cap fixup 0 (cap static): .Lcap1_data -> _cap1_child_α
 	lea     rdi, [rip + .Lcap1_data]
-	lea     rsi, [rip + _cap1_child_alpha]
+	lea     rsi, [rip + _cap1_child_α]
 	call    scrip_rt_patch_cap_fn@PLT
 	# scrip_rt_init(argc, argv) -- argc in edi, argv in rsi
 	call    scrip_rt_init@PLT
@@ -211,7 +211,7 @@ main:
                         mov     esi, 0                      # slen
                         call    scrip_rt_push_str@PLT       
 .Lpc15:                 
-                        lea     rdi, [rip + _pat_inv_0_alpha]# blob entry α  (Phase-2 pc=7..12)
+                        lea     rdi, [rip + _pat_inv_0_α]  # blob entry α  (Phase-2 pc=7..12)
                         lea     rsi, [rip + .Lstr_4]        # subj_name=N
                         mov     edx, 1                      # has_repl=1
                         call    scrip_rt_match_blob@PLT     # EM-7c: Phase-3+5 against baked invariant blob
