@@ -368,7 +368,7 @@
 # ============================================================================
 # EM-7c: invariant pattern blobs (baked from sm_phase2_to_patnd → bb_build_flat_text)
 # Each block exposes _pat_inv_<id>_α / _β / _γ / _ω.
-# scrip_rt_match_blob(blob_α, ...) drives Phase-3 against these blobs.
+# rt_match_blob(blob_α, ...) drives Phase-3 against these blobs.
 # ============================================================================
                         .intel_syntax    noprefix
                         .text
@@ -486,11 +486,11 @@ _pat_inv_0_ω:
 main:                   push             rbp
                         mov              rbp, rsp
                         lea              rdi, [rip + .Lchunk_registry] # EM-7d: register user-defined function chunks
-                        call             scrip_rt_register_chunks@PLT
+                        call             rt_register_chunks@PLT
                         lea              rdi, [rip + .Lcap1_data] # cap fixup 0 (static): .Lcap1_data -> _cap1_child_α
                         lea              rsi, [rip + _cap1_child_α]
-                        call             scrip_rt_patch_cap_fn@PLT
-                        call             scrip_rt_init@PLT # scrip_rt_init(argc, argv)
+                        call             rt_patch_cap_fn@PLT
+                        call             rt_init@PLT # rt_init(argc, argv)
 # source-file: treebank-array.sno  (156 lines)
 # Each statement appears below as a major banner ('====') above
 # the asm it produced.  Inline annotations on the right column
@@ -510,7 +510,7 @@ main:                   push             rbp
 .Lpc9:                  lea              rdi, [rip + _pat_inv_0_α] # blob entry α  (Phase-2 pc=1..6)
                         lea              rsi, [rip + .Lstr_1] # subj_name=ALPHABET
                         mov              edx, 0 # has_repl=0
-                        call             scrip_rt_match_blob@PLT # EM-7c: Phase-3+5 against baked invariant blob
+                        call             rt_match_blob@PLT # EM-7c: Phase-3+5 against baked invariant blob
 # ============================================================================
 # stmt 2  (line 2):  * treebank-array.sno — Penn Treebank s-expression parser (array/append style)
 # ============================================================================
@@ -1571,7 +1571,7 @@ main:                   push             rbp
 .Lpc701:                STNO
 .Lpc702:                HALT
 # -- epilogue -------------------------------------------
-                        call             scrip_rt_finalize@PLT
+                        call             rt_finalize@PLT
                         pop              rbp
                         ret
                         .size            main, .-main

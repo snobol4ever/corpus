@@ -28,7 +28,7 @@
 # ============================================================================
 # EM-7c: invariant pattern blobs (baked from sm_phase2_to_patnd → bb_build_flat_text)
 # Each block exposes _pat_inv_<id>_α / _β / _γ / _ω.
-# scrip_rt_match_blob(blob_α, ...) drives Phase-3 against these blobs.
+# rt_match_blob(blob_α, ...) drives Phase-3 against these blobs.
 # ============================================================================
                         .intel_syntax    noprefix
                         .text
@@ -150,11 +150,11 @@ _pat_inv_0_ω:
 main:                   push             rbp
                         mov              rbp, rsp
                         lea              rdi, [rip + .Lchunk_registry] # EM-7d: register user-defined function chunks
-                        call             scrip_rt_register_chunks@PLT
+                        call             rt_register_chunks@PLT
                         lea              rdi, [rip + .Lcap1_data] # cap fixup 0 (static): .Lcap1_data -> _cap1_child_α
                         lea              rsi, [rip + _cap1_child_α]
-                        call             scrip_rt_patch_cap_fn@PLT
-                        call             scrip_rt_init@PLT # scrip_rt_init(argc, argv)
+                        call             rt_patch_cap_fn@PLT
+                        call             rt_init@PLT # rt_init(argc, argv)
 # source-file: roman.sno  (36 lines)
 # Each statement appears below as a major banner ('====') above
 # the asm it produced.  Inline annotations on the right column
@@ -183,7 +183,7 @@ main:                   push             rbp
 .Lpc15:                 lea              rdi, [rip + _pat_inv_0_α] # blob entry α  (Phase-2 pc=7..12)
                         lea              rsi, [rip + .Lstr_4] # subj_name=N
                         mov              edx, 1 # has_repl=1
-                        call             scrip_rt_match_blob@PLT # EM-7c: Phase-3+5 against baked invariant blob
+                        call             rt_match_blob@PLT # EM-7c: Phase-3+5 against baked invariant blob
 .Lpc16:                 RETURN_VARIANT   0, 2, 16 # SM_RETURN_F
 # ============================================================================
 # stmt 6  (line 6):  	DEFINE('ROMAN(N)UNITS')		:(ROMAN_END)
@@ -201,7 +201,7 @@ main:                   push             rbp
 .Lpc27:                 RETURN_VARIANT   1, 2, 27 # SM_FRETURN_F
 .Lpc28:                 HALT
 # -- epilogue -------------------------------------------
-                        call             scrip_rt_finalize@PLT
+                        call             rt_finalize@PLT
                         pop              rbp
                         ret
                         .size            main, .-main

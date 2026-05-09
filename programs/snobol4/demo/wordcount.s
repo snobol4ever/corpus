@@ -64,8 +64,8 @@
 main:                   push             rbp
                         mov              rbp, rsp
                         lea              rdi, [rip + .Lchunk_registry] # EM-7d: register user-defined function chunks
-                        call             scrip_rt_register_chunks@PLT
-                        call             scrip_rt_init@PLT # scrip_rt_init(argc, argv)
+                        call             rt_register_chunks@PLT
+                        call             rt_init@PLT # rt_init(argc, argv)
 # source-file: wordcount.sno  (13 lines)
 # Each statement appears below as a major banner ('====') above
 # the asm it produced.  Inline annotations on the right column
@@ -151,7 +151,7 @@ main:                   push             rbp
 .Lpc51:                 STNO
 .Lpc52:                 HALT
 # -- epilogue -------------------------------------------
-                        call             scrip_rt_finalize@PLT
+                        call             rt_finalize@PLT
                         pop              rbp
                         ret
                         .size            main, .-main
