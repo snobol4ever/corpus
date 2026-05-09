@@ -1,3 +1,232 @@
+# === BEGIN sm macro library (generated from g_sm_templates[]) ===
+# EM-7c-sm-macros: one macro per opcode group; bodies and per-call
+#   emissions share one renderer in sm_emit_template.c, so the
+#   .s and the C dispatcher cannot drift -- they are paired by
+#   shape kind in render_macro_body() / render_call_line().
+.macro SM_HALT
+    call    scrip_rt_halt_tos@PLT
+.endm
+.macro SM_PUSH_INT val
+    movabs  rdi, \val
+    call    scrip_rt_push_int@PLT
+.endm
+.macro SM_PUSH_STR lbl, n
+    lea     rdi, [rip + \lbl]
+    mov     esi, \n
+    call    scrip_rt_push_str@PLT
+.endm
+.macro SM_PUSH_VAR lbl
+    lea     rdi, [rip + \lbl]
+    call    scrip_rt_nv_get@PLT
+.endm
+.macro SM_STORE_VAR lbl
+    lea     rdi, [rip + \lbl]
+    call    scrip_rt_nv_set@PLT
+.endm
+.macro SM_POP
+    call    scrip_rt_pop_void@PLT
+.endm
+.macro SM_PUSH_NULL
+    call    scrip_rt_push_null@PLT
+.endm
+.macro SM_CONCAT
+    call    scrip_rt_concat@PLT
+.endm
+.macro SM_COERCE_NUM
+    call    scrip_rt_coerce_num@PLT
+.endm
+.macro SM_ARITH op
+    mov     edi, \op
+    call    scrip_rt_arith@PLT
+.endm
+.macro SM_JUMP tgt
+    jmp     \tgt
+.endm
+.macro SM_JUMP_S tgt
+    call    scrip_rt_last_ok@PLT
+    test    eax, eax
+    jnz     \tgt
+.endm
+.macro SM_JUMP_F tgt
+    call    scrip_rt_last_ok@PLT
+    test    eax, eax
+    jz     \tgt
+.endm
+.macro SM_PUSH_CHUNK entry, arity
+    movabs  rdi, \entry
+    mov     esi, \arity
+    call    scrip_rt_push_chunk_descr@PLT
+.endm
+.macro SM_CALL_CHUNK tgt
+    call    \tgt
+.endm
+.macro SM_RETURN
+    ret
+.endm
+.macro SM_CALL lbl, n
+    lea     rdi, [rip + \lbl]
+    mov     esi, \n
+    call    scrip_rt_call@PLT
+.endm
+.macro SM_PAT_SPAN
+    call    scrip_rt_pat_span@PLT
+.endm
+.macro SM_PAT_BREAK
+    call    scrip_rt_pat_break@PLT
+.endm
+.macro SM_PAT_ANY
+    call    scrip_rt_pat_any@PLT
+.endm
+.macro SM_PAT_NOTANY
+    call    scrip_rt_pat_notany@PLT
+.endm
+.macro SM_PAT_LEN
+    call    scrip_rt_pat_len@PLT
+.endm
+.macro SM_PAT_POS
+    call    scrip_rt_pat_pos@PLT
+.endm
+.macro SM_PAT_RPOS
+    call    scrip_rt_pat_rpos@PLT
+.endm
+.macro SM_PAT_TAB
+    call    scrip_rt_pat_tab@PLT
+.endm
+.macro SM_PAT_RTAB
+    call    scrip_rt_pat_rtab@PLT
+.endm
+.macro SM_PAT_ARB
+    call    scrip_rt_pat_arb@PLT
+.endm
+.macro SM_PAT_ARBNO
+    call    scrip_rt_pat_arbno@PLT
+.endm
+.macro SM_PAT_REM
+    call    scrip_rt_pat_rem@PLT
+.endm
+.macro SM_PAT_FENCE
+    call    scrip_rt_pat_fence@PLT
+.endm
+.macro SM_PAT_FENCE1
+    call    scrip_rt_pat_fence1@PLT
+.endm
+.macro SM_PAT_FAIL
+    call    scrip_rt_pat_fail@PLT
+.endm
+.macro SM_PAT_ABORT
+    call    scrip_rt_pat_abort@PLT
+.endm
+.macro SM_PAT_SUCCEED
+    call    scrip_rt_pat_succeed@PLT
+.endm
+.macro SM_PAT_BAL
+    call    scrip_rt_pat_bal@PLT
+.endm
+.macro SM_PAT_EPS
+    call    scrip_rt_pat_eps@PLT
+.endm
+.macro SM_PAT_CAT
+    call    scrip_rt_pat_cat@PLT
+.endm
+.macro SM_PAT_ALT
+    call    scrip_rt_pat_alt@PLT
+.endm
+.macro SM_PAT_DEREF
+    call    scrip_rt_pat_deref@PLT
+.endm
+.macro SM_PAT_BOXVAL
+    call    scrip_rt_pat_boxval@PLT
+.endm
+.macro SM_PAT_LIT lbl
+    .ifnb \lbl
+        lea     rdi, [rip + \lbl]
+    .else
+        xor     edi, edi
+    .endif
+    call    scrip_rt_pat_lit@PLT
+.endm
+.macro SM_PAT_REFNAME lbl
+    .ifnb \lbl
+        lea     rdi, [rip + \lbl]
+    .else
+        xor     edi, edi
+    .endif
+    call    scrip_rt_pat_refname@PLT
+.endm
+.macro SM_PAT_USERCALL lbl
+    .ifnb \lbl
+        lea     rdi, [rip + \lbl]
+    .else
+        xor     edi, edi
+    .endif
+    call    scrip_rt_pat_usercall@PLT
+.endm
+.macro SM_PAT_CAPTURE n, lbl
+    .ifnb \lbl
+        lea     rdi, [rip + \lbl]
+    .else
+        xor     edi, edi
+    .endif
+    mov     esi, \n
+    call    scrip_rt_pat_capture@PLT
+.endm
+.macro SM_PAT_USERCALL_ARGS n, lbl
+    .ifnb \lbl
+        lea     rdi, [rip + \lbl]
+    .else
+        xor     edi, edi
+    .endif
+    mov     esi, \n
+    call    scrip_rt_pat_usercall_args@PLT
+.endm
+.macro SM_PAT_CAPTURE_FN is_imm, fname_lbl, namelist_lbl
+    .ifnb \fname_lbl
+        lea     rdi, [rip + \fname_lbl]
+    .else
+        xor     edi, edi
+    .endif
+    mov     esi, \is_imm
+    .ifnb \namelist_lbl
+        lea     rdx, [rip + \namelist_lbl]
+    .else
+        xor     edx, edx
+    .endif
+    call    scrip_rt_pat_capture_fn@PLT
+.endm
+.macro SM_PAT_CAPTURE_FN_ARGS is_imm, nargs, fname_lbl
+    .ifnb \fname_lbl
+        lea     rdi, [rip + \fname_lbl]
+    .else
+        xor     edi, edi
+    .endif
+    mov     esi, \is_imm
+    mov     edx, \nargs
+    call    scrip_rt_pat_capture_fn_args@PLT
+.endm
+.macro SM_EXEC_STMT_VARIANT has_repl, subj_lbl
+    .ifnb \subj_lbl
+        lea     rdi, [rip + \subj_lbl]
+    .else
+        xor     edi, edi
+    .endif
+    mov     esi, \has_repl
+    call    scrip_rt_match_variant@PLT
+.endm
+.macro SM_UNHANDLED op
+    mov     edi, \op
+    call    scrip_rt_unhandled_op@PLT
+.endm
+.macro SM_RETURN_VARIANT kind, cond, pc
+    mov     edi, \kind
+    mov     esi, \cond
+    call    scrip_rt_do_return@PLT
+    test    eax, eax
+    jz      .Lretskip_\pc
+    ret
+.Lretskip_\pc\():
+.endm
+# === END sm macro library ===
+
 	.section .rodata
 .Lstr_0:
 	.string "nl"
@@ -564,11 +793,9 @@ main:
 .Lpc6:                  
                                                             # (baked into _pat_inv_0 at .text — SM_PAT_CAT)
 .Lpc7:                  
-                        lea     rdi, [rip + .Lstr_1]        # var=ALPHABET
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_1  # var=ALPHABET
 .Lpc8:                  
-                        movabs  rdi, 0                      
-                        call    scrip_rt_push_int@PLT       
+	SM_PUSH_INT 0
 .Lpc9:                  
                         lea     rdi, [rip + _pat_inv_0_α]  # blob entry α  (Phase-2 pc=1..6)
                         lea     rsi, [rip + .Lstr_1]        # subj_name=ALPHABET
@@ -580,79 +807,60 @@ main:
 # stmt 2  (line 2):  * treebank-array.sno — Penn Treebank s-expression parser (array/append style)
 # ============================================================================
 .Lpc11:                 
-                        lea     rdi, [rip + .Lstr_2]        # str="list(head,tail)"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_2, 0  # str="list(head,tail)"
 .Lpc12:                 
-                        lea     rdi, [rip + .Lstr_3]        # fname="DATA"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_3, 1  # SM_CALL fname="DATA" nargs=1
 .Lpc13:                 
-                        call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
+	SM_POP  # SM_POP: discard TOS
 .Lpc14:                 
 
 # ============================================================================
 # stmt 3  (line 3):  * ENG 685, Lon Cherryholmes Sr.
 # ============================================================================
 .Lpc15:                 
-                        movabs  rdi, 0                      
-                        call    scrip_rt_push_int@PLT       
+	SM_PUSH_INT 0
 .Lpc16:                 
-                        lea     rdi, [rip + .Lstr_4]        # store -> frame_id
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_4  # store -> frame_id
 .Lpc17:                 
 
 # ============================================================================
 # stmt 4  (line 4):  * Run: csnobol4 -bf -P 200k treebank-array.sno < VBGinTASA.dat
 # ============================================================================
 .Lpc18:                 
-                        lea     rdi, [rip + .Lstr_5]        # fname="TABLE"
-                        mov     esi, 0                      # nargs=0
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_5, 0  # SM_CALL fname="TABLE" nargs=0
 .Lpc19:                 
-                        lea     rdi, [rip + .Lstr_6]        # store -> stk_tag
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_6  # store -> stk_tag
 .Lpc20:                 
 
 # ============================================================================
 # stmt 5  (line 5):  *------------------------------------------------------------------------------
 # ============================================================================
 .Lpc21:                 
-                        lea     rdi, [rip + .Lstr_5]        # fname="TABLE"
-                        mov     esi, 0                      # nargs=0
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_5, 0  # SM_CALL fname="TABLE" nargs=0
 .Lpc22:                 
-                        lea     rdi, [rip + .Lstr_7]        # store -> stk_n
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_7  # store -> stk_n
 .Lpc23:                 
 
 # ============================================================================
 # stmt 6  (line 6):                 &ALPHABET      POS(10) LEN(1) . nl
 # ============================================================================
 .Lpc24:                 
-                        lea     rdi, [rip + .Lstr_5]        # fname="TABLE"
-                        mov     esi, 0                      # nargs=0
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_5, 0  # SM_CALL fname="TABLE" nargs=0
 .Lpc25:                 
-                        lea     rdi, [rip + .Lstr_8]        # store -> stk_c
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_8  # store -> stk_c
 .Lpc26:                 
 
 # ============================================================================
 # stmt 7  (line 7):  *------------------------------------------------------------------------------
 # ============================================================================
 .Lpc27:                 
-                        lea     rdi, [rip + .Lstr_9]        # str="stk_push_frame(v)"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_9, 0  # str="stk_push_frame(v)"
 .Lpc28:                 
-                        lea     rdi, [rip + .Lstr_10]       # fname="DEFINE"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_10, 1  # SM_CALL fname="DEFINE" nargs=1
 .Lpc29:                 
-                        call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
+	SM_POP  # SM_POP: discard TOS
 .Lpc30:                 
-                        jmp     .Lpc62                      #  SM_JUMP -> pc=62
+	SM_JUMP .Lpc62  # SM_JUMP -> pc=62
 .Lpc31:                 
 .Lpc32:                 
 
@@ -660,108 +868,78 @@ main:
 # stmt 8  (line 15):  stk_push_frame frame_id              =  frame_id + 1
 # ============================================================================
 .Lpc33:                 
-                        lea     rdi, [rip + .Lstr_4]        # var=frame_id
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_4  # var=frame_id
 .Lpc34:                 
-                        movabs  rdi, 1                      
-                        call    scrip_rt_push_int@PLT       
+	SM_PUSH_INT 1
 .Lpc35:                 
-                        mov     edi, 17                     # SM_ADD
-                        call    scrip_rt_arith@PLT          
+	SM_ARITH 17  # SM_ADD
 .Lpc36:                 
-                        lea     rdi, [rip + .Lstr_4]        # store -> frame_id
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_4  # store -> frame_id
 .Lpc37:                 
 
 # ============================================================================
 # stmt 9  (line 9):                 frame_id       =  0
 # ============================================================================
 .Lpc38:                 
-                        lea     rdi, [rip + .Lstr_12]       # var=v
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_12  # var=v
 .Lpc39:                 
-                        lea     rdi, [rip + .Lstr_6]        # var=stk_tag
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_6  # var=stk_tag
 .Lpc40:                 
-                        lea     rdi, [rip + .Lstr_4]        # var=frame_id
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_4  # var=frame_id
 .Lpc41:                 
-                        lea     rdi, [rip + .Lstr_13]       # fname="IDX_SET"
-                        mov     esi, 3                      # nargs=3
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_13, 3  # SM_CALL fname="IDX_SET" nargs=3
 .Lpc42:                 
 
 # ============================================================================
 # stmt 10  (line 10):                 stk_tag        =  TABLE()
 # ============================================================================
 .Lpc43:                 
-                        movabs  rdi, 0                      
-                        call    scrip_rt_push_int@PLT       
+	SM_PUSH_INT 0
 .Lpc44:                 
-                        lea     rdi, [rip + .Lstr_7]        # var=stk_n
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_7  # var=stk_n
 .Lpc45:                 
-                        lea     rdi, [rip + .Lstr_4]        # var=frame_id
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_4  # var=frame_id
 .Lpc46:                 
-                        lea     rdi, [rip + .Lstr_13]       # fname="IDX_SET"
-                        mov     esi, 3                      # nargs=3
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_13, 3  # SM_CALL fname="IDX_SET" nargs=3
 .Lpc47:                 
 
 # ============================================================================
 # stmt 11  (line 11):                 stk_n          =  TABLE()
 # ============================================================================
 .Lpc48:                 
-                        lea     rdi, [rip + .Lstr_5]        # fname="TABLE"
-                        mov     esi, 0                      # nargs=0
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_5, 0  # SM_CALL fname="TABLE" nargs=0
 .Lpc49:                 
-                        lea     rdi, [rip + .Lstr_8]        # var=stk_c
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_8  # var=stk_c
 .Lpc50:                 
-                        lea     rdi, [rip + .Lstr_4]        # var=frame_id
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_4  # var=frame_id
 .Lpc51:                 
-                        lea     rdi, [rip + .Lstr_13]       # fname="IDX_SET"
-                        mov     esi, 3                      # nargs=3
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_13, 3  # SM_CALL fname="IDX_SET" nargs=3
 .Lpc52:                 
 
 # ============================================================================
 # stmt 12  (line 12):                 stk_c          =  TABLE()
 # ============================================================================
 .Lpc53:                 
-                        lea     rdi, [rip + .Lstr_4]        # var=frame_id
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_4  # var=frame_id
 .Lpc54:                 
-                        lea     rdi, [rip + .Lstr_14]       # var=stk
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_14  # var=stk
 .Lpc55:                 
-                        lea     rdi, [rip + .Lstr_15]       # fname="list"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_15, 2  # SM_CALL fname="list" nargs=2
 .Lpc56:                 
-                        lea     rdi, [rip + .Lstr_14]       # store -> stk
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_14  # store -> stk
 .Lpc57:                 
 
 # ============================================================================
 # stmt 13  (line 13):  *------------------------------------------------------------------------------
 # ============================================================================
 .Lpc58:                 
-                        lea     rdi, [rip + .Lstr_16]       # str="dummy"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_16, 0  # str="dummy"
 .Lpc59:                 
-                        lea     rdi, [rip + .Lstr_17]       # fname="NAME_PUSH"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_17, 1  # SM_CALL fname="NAME_PUSH" nargs=1
 .Lpc60:                 
-                        lea     rdi, [rip + .Lstr_11]       # store -> stk_push_frame
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_11  # store -> stk_push_frame
 .Lpc61:                 
-                        ret                                 #  SM_RETURN
+	SM_RETURN  # SM_RETURN
 .Lpc62:                 
 .Lpc63:                 
 
@@ -774,17 +952,13 @@ main:
 # stmt 15  (line 15):  stk_push_frame frame_id              =  frame_id + 1
 # ============================================================================
 .Lpc65:                 
-                        lea     rdi, [rip + .Lstr_19]       # str="stk_push_item(v,cur)"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_19, 0  # str="stk_push_item(v,cur)"
 .Lpc66:                 
-                        lea     rdi, [rip + .Lstr_10]       # fname="DEFINE"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_10, 1  # SM_CALL fname="DEFINE" nargs=1
 .Lpc67:                 
-                        call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
+	SM_POP  # SM_POP: discard TOS
 .Lpc68:                 
-                        jmp     .Lpc97                      #  SM_JUMP -> pc=97
+	SM_JUMP .Lpc97  # SM_JUMP -> pc=97
 .Lpc69:                 
 .Lpc70:                 
 
@@ -792,96 +966,66 @@ main:
 # stmt 16  (line 24):  stk_push_item  cur                  =  head(stk)
 # ============================================================================
 .Lpc71:                 
-                        lea     rdi, [rip + .Lstr_14]       # var=stk
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_14  # var=stk
 .Lpc72:                 
-                        lea     rdi, [rip + .Lstr_21]       # fname="head"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_21, 1  # SM_CALL fname="head" nargs=1
 .Lpc73:                 
-                        lea     rdi, [rip + .Lstr_22]       # store -> cur
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_22  # store -> cur
 .Lpc74:                 
 
 # ============================================================================
 # stmt 17  (line 17):                 stk_n[frame_id]      =  0
 # ============================================================================
 .Lpc75:                 
-                        lea     rdi, [rip + .Lstr_7]        # var=stk_n
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_7  # var=stk_n
 .Lpc76:                 
-                        lea     rdi, [rip + .Lstr_22]       # var=cur
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_22  # var=cur
 .Lpc77:                 
-                        lea     rdi, [rip + .Lstr_23]       # fname="IDX"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_23, 2  # SM_CALL fname="IDX" nargs=2
 .Lpc78:                 
-                        movabs  rdi, 1                      
-                        call    scrip_rt_push_int@PLT       
+	SM_PUSH_INT 1
 .Lpc79:                 
-                        mov     edi, 17                     # SM_ADD
-                        call    scrip_rt_arith@PLT          
+	SM_ARITH 17  # SM_ADD
 .Lpc80:                 
-                        lea     rdi, [rip + .Lstr_7]        # var=stk_n
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_7  # var=stk_n
 .Lpc81:                 
-                        lea     rdi, [rip + .Lstr_22]       # var=cur
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_22  # var=cur
 .Lpc82:                 
-                        lea     rdi, [rip + .Lstr_13]       # fname="IDX_SET"
-                        mov     esi, 3                      # nargs=3
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_13, 3  # SM_CALL fname="IDX_SET" nargs=3
 .Lpc83:                 
 
 # ============================================================================
 # stmt 18  (line 18):                 stk_c[frame_id]      =  TABLE()
 # ============================================================================
 .Lpc84:                 
-                        lea     rdi, [rip + .Lstr_12]       # var=v
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_12  # var=v
 .Lpc85:                 
-                        lea     rdi, [rip + .Lstr_8]        # var=stk_c
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_8  # var=stk_c
 .Lpc86:                 
-                        lea     rdi, [rip + .Lstr_22]       # var=cur
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_22  # var=cur
 .Lpc87:                 
-                        lea     rdi, [rip + .Lstr_23]       # fname="IDX"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_23, 2  # SM_CALL fname="IDX" nargs=2
 .Lpc88:                 
-                        lea     rdi, [rip + .Lstr_7]        # var=stk_n
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_7  # var=stk_n
 .Lpc89:                 
-                        lea     rdi, [rip + .Lstr_22]       # var=cur
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_22  # var=cur
 .Lpc90:                 
-                        lea     rdi, [rip + .Lstr_23]       # fname="IDX"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_23, 2  # SM_CALL fname="IDX" nargs=2
 .Lpc91:                 
-                        lea     rdi, [rip + .Lstr_13]       # fname="IDX_SET"
-                        mov     esi, 3                      # nargs=3
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_13, 3  # SM_CALL fname="IDX_SET" nargs=3
 .Lpc92:                 
 
 # ============================================================================
 # stmt 19  (line 19):                 stk                  =  list(frame_id, stk)
 # ============================================================================
 .Lpc93:                 
-                        lea     rdi, [rip + .Lstr_16]       # str="dummy"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_16, 0  # str="dummy"
 .Lpc94:                 
-                        lea     rdi, [rip + .Lstr_17]       # fname="NAME_PUSH"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_17, 1  # SM_CALL fname="NAME_PUSH" nargs=1
 .Lpc95:                 
-                        lea     rdi, [rip + .Lstr_20]       # store -> stk_push_item
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_20  # store -> stk_push_item
 .Lpc96:                 
-                        ret                                 #  SM_RETURN
+	SM_RETURN  # SM_RETURN
 .Lpc97:                 
 .Lpc98:                 
 
@@ -894,17 +1038,13 @@ main:
 # stmt 21  (line 21):  stk_push_frame_end
 # ============================================================================
 .Lpc100:                
-                        lea     rdi, [rip + .Lstr_25]       # str="stk_pop_into_parent(child,par,n)"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_25, 0  # str="stk_pop_into_parent(child,par,n)"
 .Lpc101:                
-                        lea     rdi, [rip + .Lstr_10]       # fname="DEFINE"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_10, 1  # SM_CALL fname="DEFINE" nargs=1
 .Lpc102:                
-                        call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
+	SM_POP  # SM_POP: discard TOS
 .Lpc103:                
-                        jmp     .Lpc144                     #  SM_JUMP -> pc=144
+	SM_JUMP .Lpc144  # SM_JUMP -> pc=144
 .Lpc104:                
 .Lpc105:                
 
@@ -917,136 +1057,97 @@ main:
 # stmt 23  (line 23):                 DEFINE('stk_push_item(v,cur)')               :(stk_push_item_end)
 # ============================================================================
 .Lpc107:                
-                        lea     rdi, [rip + .Lstr_14]       # var=stk
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_14  # var=stk
 .Lpc108:                
-                        lea     rdi, [rip + .Lstr_21]       # fname="head"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_21, 1  # SM_CALL fname="head" nargs=1
 .Lpc109:                
-                        lea     rdi, [rip + .Lstr_27]       # store -> child
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_27  # store -> child
 .Lpc110:                
 
 # ============================================================================
 # stmt 24  (line 24):  stk_push_item  cur                  =  head(stk)
 # ============================================================================
 .Lpc111:                
-                        lea     rdi, [rip + .Lstr_14]       # var=stk
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_14  # var=stk
 .Lpc112:                
-                        lea     rdi, [rip + .Lstr_28]       # fname="tail"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_28, 1  # SM_CALL fname="tail" nargs=1
 .Lpc113:                
-                        lea     rdi, [rip + .Lstr_14]       # store -> stk
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_14  # store -> stk
 .Lpc114:                
 
 # ============================================================================
 # stmt 25  (line 25):                 stk_n[cur]           =  stk_n[cur] + 1
 # ============================================================================
 .Lpc115:                
-                        lea     rdi, [rip + .Lstr_14]       # var=stk
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_14  # var=stk
 .Lpc116:                
-                        lea     rdi, [rip + .Lstr_21]       # fname="head"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_21, 1  # SM_CALL fname="head" nargs=1
 .Lpc117:                
-                        lea     rdi, [rip + .Lstr_29]       # store -> par
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_29  # store -> par
 .Lpc118:                
 
 # ============================================================================
 # stmt 26  (line 26):                 stk_c[cur][stk_n[cur]] =  v
 # ============================================================================
 .Lpc119:                
-                        lea     rdi, [rip + .Lstr_7]        # var=stk_n
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_7  # var=stk_n
 .Lpc120:                
-                        lea     rdi, [rip + .Lstr_29]       # var=par
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_29  # var=par
 .Lpc121:                
-                        lea     rdi, [rip + .Lstr_23]       # fname="IDX"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_23, 2  # SM_CALL fname="IDX" nargs=2
 .Lpc122:                
-                        lea     rdi, [rip + .Lstr_30]       # store -> n
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_30  # store -> n
 .Lpc123:                
 
 # ============================================================================
 # stmt 27  (line 27):                 stk_push_item        =  .dummy               :(RETURN)
 # ============================================================================
 .Lpc124:                
-                        lea     rdi, [rip + .Lstr_30]       # var=n
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_30  # var=n
 .Lpc125:                
-                        movabs  rdi, 1                      
-                        call    scrip_rt_push_int@PLT       
+	SM_PUSH_INT 1
 .Lpc126:                
-                        mov     edi, 17                     # SM_ADD
-                        call    scrip_rt_arith@PLT          
+	SM_ARITH 17  # SM_ADD
 .Lpc127:                
-                        lea     rdi, [rip + .Lstr_7]        # var=stk_n
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_7  # var=stk_n
 .Lpc128:                
-                        lea     rdi, [rip + .Lstr_29]       # var=par
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_29  # var=par
 .Lpc129:                
-                        lea     rdi, [rip + .Lstr_13]       # fname="IDX_SET"
-                        mov     esi, 3                      # nargs=3
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_13, 3  # SM_CALL fname="IDX_SET" nargs=3
 .Lpc130:                
 
 # ============================================================================
 # stmt 28  (line 28):  stk_push_item_end
 # ============================================================================
 .Lpc131:                
-                        lea     rdi, [rip + .Lstr_27]       # var=child
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_27  # var=child
 .Lpc132:                
-                        lea     rdi, [rip + .Lstr_8]        # var=stk_c
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_8  # var=stk_c
 .Lpc133:                
-                        lea     rdi, [rip + .Lstr_29]       # var=par
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_29  # var=par
 .Lpc134:                
-                        lea     rdi, [rip + .Lstr_23]       # fname="IDX"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_23, 2  # SM_CALL fname="IDX" nargs=2
 .Lpc135:                
-                        lea     rdi, [rip + .Lstr_30]       # var=n
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_30  # var=n
 .Lpc136:                
-                        movabs  rdi, 1                      
-                        call    scrip_rt_push_int@PLT       
+	SM_PUSH_INT 1
 .Lpc137:                
-                        mov     edi, 17                     # SM_ADD
-                        call    scrip_rt_arith@PLT          
+	SM_ARITH 17  # SM_ADD
 .Lpc138:                
-                        lea     rdi, [rip + .Lstr_13]       # fname="IDX_SET"
-                        mov     esi, 3                      # nargs=3
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_13, 3  # SM_CALL fname="IDX_SET" nargs=3
 .Lpc139:                
 
 # ============================================================================
 # stmt 29  (line 29):  *------------------------------------------------------------------------------
 # ============================================================================
 .Lpc140:                
-                        lea     rdi, [rip + .Lstr_16]       # str="dummy"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_16, 0  # str="dummy"
 .Lpc141:                
-                        lea     rdi, [rip + .Lstr_17]       # fname="NAME_PUSH"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_17, 1  # SM_CALL fname="NAME_PUSH" nargs=1
 .Lpc142:                
-                        lea     rdi, [rip + .Lstr_26]       # store -> stk_pop_into_parent
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_26  # store -> stk_pop_into_parent
 .Lpc143:                
-                        ret                                 #  SM_RETURN
+	SM_RETURN  # SM_RETURN
 .Lpc144:                
 .Lpc145:                
 
@@ -1059,17 +1160,13 @@ main:
 # stmt 31  (line 31):  stk_pop_into_parent
 # ============================================================================
 .Lpc147:                
-                        lea     rdi, [rip + .Lstr_32]       # str="stk_pop_final(var,child)"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_32, 0  # str="stk_pop_final(var,child)"
 .Lpc148:                
-                        lea     rdi, [rip + .Lstr_10]       # fname="DEFINE"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_10, 1  # SM_CALL fname="DEFINE" nargs=1
 .Lpc149:                
-                        call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
+	SM_POP  # SM_POP: discard TOS
 .Lpc150:                
-                        jmp     .Lpc169                     #  SM_JUMP -> pc=169
+	SM_JUMP .Lpc169  # SM_JUMP -> pc=169
 .Lpc151:                
 .Lpc152:                
 
@@ -1077,63 +1174,46 @@ main:
 # stmt 32  (line 42):  stk_pop_final  child                =  head(stk)
 # ============================================================================
 .Lpc153:                
-                        lea     rdi, [rip + .Lstr_14]       # var=stk
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_14  # var=stk
 .Lpc154:                
-                        lea     rdi, [rip + .Lstr_21]       # fname="head"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_21, 1  # SM_CALL fname="head" nargs=1
 .Lpc155:                
-                        lea     rdi, [rip + .Lstr_27]       # store -> child
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_27  # store -> child
 .Lpc156:                
 
 # ============================================================================
 # stmt 33  (line 33):                 stk                  =  tail(stk)
 # ============================================================================
 .Lpc157:                
-                        lea     rdi, [rip + .Lstr_14]       # var=stk
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_14  # var=stk
 .Lpc158:                
-                        lea     rdi, [rip + .Lstr_28]       # fname="tail"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_28, 1  # SM_CALL fname="tail" nargs=1
 .Lpc159:                
-                        lea     rdi, [rip + .Lstr_14]       # store -> stk
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_14  # store -> stk
 .Lpc160:                
 
 # ============================================================================
 # stmt 34  (line 34):                 par                  =  head(stk)
 # ============================================================================
 .Lpc161:                
-                        lea     rdi, [rip + .Lstr_27]       # var=child
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_27  # var=child
 .Lpc162:                
-                        lea     rdi, [rip + .Lstr_34]       # var=var
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_34  # var=var
 .Lpc163:                
-                        lea     rdi, [rip + .Lstr_35]       # fname="ASGN_INDIR"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_35, 2  # SM_CALL fname="ASGN_INDIR" nargs=2
 .Lpc164:                
 
 # ============================================================================
 # stmt 35  (line 35):                 n                    =  stk_n[par]
 # ============================================================================
 .Lpc165:                
-                        lea     rdi, [rip + .Lstr_16]       # str="dummy"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_16, 0  # str="dummy"
 .Lpc166:                
-                        lea     rdi, [rip + .Lstr_17]       # fname="NAME_PUSH"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_17, 1  # SM_CALL fname="NAME_PUSH" nargs=1
 .Lpc167:                
-                        lea     rdi, [rip + .Lstr_33]       # store -> stk_pop_final
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_33  # store -> stk_pop_final
 .Lpc168:                
-                        ret                                 #  SM_RETURN
+	SM_RETURN  # SM_RETURN
 .Lpc169:                
 .Lpc170:                
 
@@ -1146,32 +1226,24 @@ main:
 # stmt 37  (line 37):                 stk_c[par][n + 1]    =  child
 # ============================================================================
 .Lpc172:                
-                        lea     rdi, [rip + .Lstr_37]       # str="init_list(v)"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_37, 0  # str="init_list(v)"
 .Lpc173:                
-                        lea     rdi, [rip + .Lstr_10]       # fname="DEFINE"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_10, 1  # SM_CALL fname="DEFINE" nargs=1
 .Lpc174:                
-                        call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
+	SM_POP  # SM_POP: discard TOS
 .Lpc175:                
 
 # ============================================================================
 # stmt 38  (line 38):                 stk_pop_into_parent  =  .dummy               :(RETURN)
 # ============================================================================
 .Lpc176:                
-                        lea     rdi, [rip + .Lstr_38]       # str="Init_list(vs)"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_38, 0  # str="Init_list(vs)"
 .Lpc177:                
-                        lea     rdi, [rip + .Lstr_10]       # fname="DEFINE"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_10, 1  # SM_CALL fname="DEFINE" nargs=1
 .Lpc178:                
-                        call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
+	SM_POP  # SM_POP: discard TOS
 .Lpc179:                
-                        jmp     .Lpc215                     #  SM_JUMP -> pc=215
+	SM_JUMP .Lpc215  # SM_JUMP -> pc=215
 .Lpc180:                
 .Lpc181:                
 
@@ -1179,99 +1251,69 @@ main:
 # stmt 39  (line 50):  init_list      $v             =
 # ============================================================================
 .Lpc182:                
-                        lea     rdi, [rip + .Lstr_40]       # str=""
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_40, 0  # str=""
 .Lpc183:                
-                        lea     rdi, [rip + .Lstr_12]       # var=v
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_12  # var=v
 .Lpc184:                
-                        lea     rdi, [rip + .Lstr_35]       # fname="ASGN_INDIR"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_35, 2  # SM_CALL fname="ASGN_INDIR" nargs=2
 .Lpc185:                
 
 # ============================================================================
 # stmt 40  (line 40):  *------------------------------------------------------------------------------
 # ============================================================================
 .Lpc186:                
-                        lea     rdi, [rip + .Lstr_40]       # str=""
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_40, 0  # str=""
 .Lpc187:                
-                        lea     rdi, [rip + .Lstr_14]       # store -> stk
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_14  # store -> stk
 .Lpc188:                
 
 # ============================================================================
 # stmt 41  (line 41):                 DEFINE('stk_pop_final(var,child)')           :(stk_pop_final_end)
 # ============================================================================
 .Lpc189:                
-                        movabs  rdi, 0                      
-                        call    scrip_rt_push_int@PLT       
+	SM_PUSH_INT 0
 .Lpc190:                
-                        lea     rdi, [rip + .Lstr_4]        # store -> frame_id
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_4  # store -> frame_id
 .Lpc191:                
 
 # ============================================================================
 # stmt 42  (line 42):  stk_pop_final  child                =  head(stk)
 # ============================================================================
 .Lpc192:                
-                        lea     rdi, [rip + .Lstr_5]        # fname="TABLE"
-                        mov     esi, 0                      # nargs=0
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_5, 0  # SM_CALL fname="TABLE" nargs=0
 .Lpc193:                
-                        lea     rdi, [rip + .Lstr_6]        # store -> stk_tag
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_6  # store -> stk_tag
 .Lpc194:                
 
 # ============================================================================
 # stmt 43  (line 43):                 stk                  =  tail(stk)
 # ============================================================================
 .Lpc195:                
-                        lea     rdi, [rip + .Lstr_5]        # fname="TABLE"
-                        mov     esi, 0                      # nargs=0
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_5, 0  # SM_CALL fname="TABLE" nargs=0
 .Lpc196:                
-                        lea     rdi, [rip + .Lstr_7]        # store -> stk_n
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_7  # store -> stk_n
 .Lpc197:                
 
 # ============================================================================
 # stmt 44  (line 44):                 $var                 =  child
 # ============================================================================
 .Lpc198:                
-                        lea     rdi, [rip + .Lstr_5]        # fname="TABLE"
-                        mov     esi, 0                      # nargs=0
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_5, 0  # SM_CALL fname="TABLE" nargs=0
 .Lpc199:                
-                        lea     rdi, [rip + .Lstr_8]        # store -> stk_c
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_8  # store -> stk_c
 .Lpc200:                
 
 # ============================================================================
 # stmt 45  (line 45):                 stk_pop_final        =  .dummy               :(RETURN)
 # ============================================================================
 .Lpc201:                
-                        lea     rdi, [rip + .Lstr_16]       # str="dummy"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_16, 0  # str="dummy"
 .Lpc202:                
-                        lea     rdi, [rip + .Lstr_17]       # fname="NAME_PUSH"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_17, 1  # SM_CALL fname="NAME_PUSH" nargs=1
 .Lpc203:                
-                        lea     rdi, [rip + .Lstr_39]       # store -> init_list
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_39  # store -> init_list
 .Lpc204:                
-                        mov     edi, 2                      # kind=2 (0=RET 1=FRET 2=NRET)
-                        mov     esi, 0                      # cond=0 (0=uncon 1=:S 2=:F)
-                        call    scrip_rt_do_return@PLT      # SM_NRETURN
-                        test    eax, eax                    # fire?
-                        jz      .Lretskip_204               # no-fire: fall through
-                        ret                                 # fire: native return
-.Lretskip_204:
+	SM_RETURN_VARIANT 2, 0, 204  # SM_NRETURN
 .Lpc205:                
 .Lpc206:                
 
@@ -1279,29 +1321,21 @@ main:
 # stmt 46  (line 57):  Init_list      Init_list      =  EVAL('epsilon . *init_list(' vs ')')  :(RETURN)
 # ============================================================================
 .Lpc207:                
-                        lea     rdi, [rip + .Lstr_42]       # str="epsilon . *init_list("
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_42, 0  # str="epsilon . *init_list("
 .Lpc208:                
-                        lea     rdi, [rip + .Lstr_43]       # var=vs
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_43  # var=vs
 .Lpc209:                
-                        lea     rdi, [rip + .Lstr_44]       # str=")"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_44, 0  # str=")"
 .Lpc210:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc211:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc212:                
-                        lea     rdi, [rip + .Lstr_45]       # fname="EVAL"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_45, 1  # SM_CALL fname="EVAL" nargs=1
 .Lpc213:                
-                        lea     rdi, [rip + .Lstr_41]       # store -> Init_list
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_41  # store -> Init_list
 .Lpc214:                
-                        ret                                 #  SM_RETURN
+	SM_RETURN  # SM_RETURN
 .Lpc215:                
 .Lpc216:                
 
@@ -1314,32 +1348,24 @@ main:
 # stmt 48  (line 48):                 DEFINE('init_list(v)')
 # ============================================================================
 .Lpc218:                
-                        lea     rdi, [rip + .Lstr_47]       # str="push_list(v)"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_47, 0  # str="push_list(v)"
 .Lpc219:                
-                        lea     rdi, [rip + .Lstr_10]       # fname="DEFINE"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_10, 1  # SM_CALL fname="DEFINE" nargs=1
 .Lpc220:                
-                        call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
+	SM_POP  # SM_POP: discard TOS
 .Lpc221:                
 
 # ============================================================================
 # stmt 49  (line 49):                 DEFINE('Init_list(vs)')                      :(init_list_end)
 # ============================================================================
 .Lpc222:                
-                        lea     rdi, [rip + .Lstr_48]       # str="Push_list(vs)"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_48, 0  # str="Push_list(vs)"
 .Lpc223:                
-                        lea     rdi, [rip + .Lstr_10]       # fname="DEFINE"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_10, 1  # SM_CALL fname="DEFINE" nargs=1
 .Lpc224:                
-                        call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
+	SM_POP  # SM_POP: discard TOS
 .Lpc225:                
-                        jmp     .Lpc246                     #  SM_JUMP -> pc=246
+	SM_JUMP .Lpc246  # SM_JUMP -> pc=246
 .Lpc226:                
 .Lpc227:                
 
@@ -1347,39 +1373,24 @@ main:
 # stmt 50  (line 62):  push_list      dummy          =  stk_push_frame(v)
 # ============================================================================
 .Lpc228:                
-                        lea     rdi, [rip + .Lstr_12]       # var=v
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_12  # var=v
 .Lpc229:                
-                        lea     rdi, [rip + .Lstr_11]       # fname="stk_push_frame"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_11, 1  # SM_CALL fname="stk_push_frame" nargs=1
 .Lpc230:                
-                        lea     rdi, [rip + .Lstr_16]       # store -> dummy
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_16  # store -> dummy
 .Lpc231:                
 
 # ============================================================================
 # stmt 51  (line 51):                 stk            =
 # ============================================================================
 .Lpc232:                
-                        lea     rdi, [rip + .Lstr_16]       # str="dummy"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_16, 0  # str="dummy"
 .Lpc233:                
-                        lea     rdi, [rip + .Lstr_17]       # fname="NAME_PUSH"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_17, 1  # SM_CALL fname="NAME_PUSH" nargs=1
 .Lpc234:                
-                        lea     rdi, [rip + .Lstr_49]       # store -> push_list
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_49  # store -> push_list
 .Lpc235:                
-                        mov     edi, 2                      # kind=2 (0=RET 1=FRET 2=NRET)
-                        mov     esi, 0                      # cond=0 (0=uncon 1=:S 2=:F)
-                        call    scrip_rt_do_return@PLT      # SM_NRETURN
-                        test    eax, eax                    # fire?
-                        jz      .Lretskip_235               # no-fire: fall through
-                        ret                                 # fire: native return
-.Lretskip_235:
+	SM_RETURN_VARIANT 2, 0, 235  # SM_NRETURN
 .Lpc236:                
 .Lpc237:                
 
@@ -1387,29 +1398,21 @@ main:
 # stmt 52  (line 64):  Push_list      Push_list      =  EVAL('epsilon . *push_list(' vs ')')  :(RETURN)
 # ============================================================================
 .Lpc238:                
-                        lea     rdi, [rip + .Lstr_51]       # str="epsilon . *push_list("
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_51, 0  # str="epsilon . *push_list("
 .Lpc239:                
-                        lea     rdi, [rip + .Lstr_43]       # var=vs
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_43  # var=vs
 .Lpc240:                
-                        lea     rdi, [rip + .Lstr_44]       # str=")"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_44, 0  # str=")"
 .Lpc241:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc242:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc243:                
-                        lea     rdi, [rip + .Lstr_45]       # fname="EVAL"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_45, 1  # SM_CALL fname="EVAL" nargs=1
 .Lpc244:                
-                        lea     rdi, [rip + .Lstr_50]       # store -> Push_list
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_50  # store -> Push_list
 .Lpc245:                
-                        ret                                 #  SM_RETURN
+	SM_RETURN  # SM_RETURN
 .Lpc246:                
 .Lpc247:                
 
@@ -1422,32 +1425,24 @@ main:
 # stmt 54  (line 54):                 stk_n          =  TABLE()
 # ============================================================================
 .Lpc249:                
-                        lea     rdi, [rip + .Lstr_53]       # str="push_item(v)"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_53, 0  # str="push_item(v)"
 .Lpc250:                
-                        lea     rdi, [rip + .Lstr_10]       # fname="DEFINE"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_10, 1  # SM_CALL fname="DEFINE" nargs=1
 .Lpc251:                
-                        call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
+	SM_POP  # SM_POP: discard TOS
 .Lpc252:                
 
 # ============================================================================
 # stmt 55  (line 55):                 stk_c          =  TABLE()
 # ============================================================================
 .Lpc253:                
-                        lea     rdi, [rip + .Lstr_54]       # str="Push_item(vs)"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_54, 0  # str="Push_item(vs)"
 .Lpc254:                
-                        lea     rdi, [rip + .Lstr_10]       # fname="DEFINE"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_10, 1  # SM_CALL fname="DEFINE" nargs=1
 .Lpc255:                
-                        call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
+	SM_POP  # SM_POP: discard TOS
 .Lpc256:                
-                        jmp     .Lpc277                     #  SM_JUMP -> pc=277
+	SM_JUMP .Lpc277  # SM_JUMP -> pc=277
 .Lpc257:                
 .Lpc258:                
 
@@ -1455,39 +1450,24 @@ main:
 # stmt 56  (line 69):  push_item      dummy          =  stk_push_item(v)
 # ============================================================================
 .Lpc259:                
-                        lea     rdi, [rip + .Lstr_12]       # var=v
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_12  # var=v
 .Lpc260:                
-                        lea     rdi, [rip + .Lstr_20]       # fname="stk_push_item"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_20, 1  # SM_CALL fname="stk_push_item" nargs=1
 .Lpc261:                
-                        lea     rdi, [rip + .Lstr_16]       # store -> dummy
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_16  # store -> dummy
 .Lpc262:                
 
 # ============================================================================
 # stmt 57  (line 57):  Init_list      Init_list      =  EVAL('epsilon . *init_list(' vs ')')  :(RETURN)
 # ============================================================================
 .Lpc263:                
-                        lea     rdi, [rip + .Lstr_16]       # str="dummy"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_16, 0  # str="dummy"
 .Lpc264:                
-                        lea     rdi, [rip + .Lstr_17]       # fname="NAME_PUSH"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_17, 1  # SM_CALL fname="NAME_PUSH" nargs=1
 .Lpc265:                
-                        lea     rdi, [rip + .Lstr_55]       # store -> push_item
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_55  # store -> push_item
 .Lpc266:                
-                        mov     edi, 2                      # kind=2 (0=RET 1=FRET 2=NRET)
-                        mov     esi, 0                      # cond=0 (0=uncon 1=:S 2=:F)
-                        call    scrip_rt_do_return@PLT      # SM_NRETURN
-                        test    eax, eax                    # fire?
-                        jz      .Lretskip_266               # no-fire: fall through
-                        ret                                 # fire: native return
-.Lretskip_266:
+	SM_RETURN_VARIANT 2, 0, 266  # SM_NRETURN
 .Lpc267:                
 .Lpc268:                
 
@@ -1495,29 +1475,21 @@ main:
 # stmt 58  (line 71):  Push_item      Push_item      =  EVAL('epsilon . *push_item(' vs ')')  :(RETURN)
 # ============================================================================
 .Lpc269:                
-                        lea     rdi, [rip + .Lstr_57]       # str="epsilon . *push_item("
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_57, 0  # str="epsilon . *push_item("
 .Lpc270:                
-                        lea     rdi, [rip + .Lstr_43]       # var=vs
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_43  # var=vs
 .Lpc271:                
-                        lea     rdi, [rip + .Lstr_44]       # str=")"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_44, 0  # str=")"
 .Lpc272:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc273:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc274:                
-                        lea     rdi, [rip + .Lstr_45]       # fname="EVAL"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_45, 1  # SM_CALL fname="EVAL" nargs=1
 .Lpc275:                
-                        lea     rdi, [rip + .Lstr_56]       # store -> Push_item
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_56  # store -> Push_item
 .Lpc276:                
-                        ret                                 #  SM_RETURN
+	SM_RETURN  # SM_RETURN
 .Lpc277:                
 .Lpc278:                
 
@@ -1530,32 +1502,24 @@ main:
 # stmt 60  (line 60):                 DEFINE('push_list(v)')
 # ============================================================================
 .Lpc280:                
-                        lea     rdi, [rip + .Lstr_59]       # str="pop_list()"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_59, 0  # str="pop_list()"
 .Lpc281:                
-                        lea     rdi, [rip + .Lstr_10]       # fname="DEFINE"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_10, 1  # SM_CALL fname="DEFINE" nargs=1
 .Lpc282:                
-                        call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
+	SM_POP  # SM_POP: discard TOS
 .Lpc283:                
 
 # ============================================================================
 # stmt 61  (line 61):                 DEFINE('Push_list(vs)')                      :(push_list_end)
 # ============================================================================
 .Lpc284:                
-                        lea     rdi, [rip + .Lstr_60]       # str="Pop_list()"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_60, 0  # str="Pop_list()"
 .Lpc285:                
-                        lea     rdi, [rip + .Lstr_10]       # fname="DEFINE"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_10, 1  # SM_CALL fname="DEFINE" nargs=1
 .Lpc286:                
-                        call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
+	SM_POP  # SM_POP: discard TOS
 .Lpc287:                
-                        jmp     .Lpc305                     #  SM_JUMP -> pc=305
+	SM_JUMP .Lpc305  # SM_JUMP -> pc=305
 .Lpc288:                
 .Lpc289:                
 
@@ -1563,36 +1527,22 @@ main:
 # stmt 62  (line 76):  pop_list       dummy          =  stk_pop_into_parent()
 # ============================================================================
 .Lpc290:                
-                        lea     rdi, [rip + .Lstr_26]       # fname="stk_pop_into_parent"
-                        mov     esi, 0                      # nargs=0
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_26, 0  # SM_CALL fname="stk_pop_into_parent" nargs=0
 .Lpc291:                
-                        lea     rdi, [rip + .Lstr_16]       # store -> dummy
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_16  # store -> dummy
 .Lpc292:                
 
 # ============================================================================
 # stmt 63  (line 63):                 push_list      =  .dummy                     :(NRETURN)
 # ============================================================================
 .Lpc293:                
-                        lea     rdi, [rip + .Lstr_16]       # str="dummy"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_16, 0  # str="dummy"
 .Lpc294:                
-                        lea     rdi, [rip + .Lstr_17]       # fname="NAME_PUSH"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_17, 1  # SM_CALL fname="NAME_PUSH" nargs=1
 .Lpc295:                
-                        lea     rdi, [rip + .Lstr_61]       # store -> pop_list
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_61  # store -> pop_list
 .Lpc296:                
-                        mov     edi, 2                      # kind=2 (0=RET 1=FRET 2=NRET)
-                        mov     esi, 0                      # cond=0 (0=uncon 1=:S 2=:F)
-                        call    scrip_rt_do_return@PLT      # SM_NRETURN
-                        test    eax, eax                    # fire?
-                        jz      .Lretskip_296               # no-fire: fall through
-                        ret                                 # fire: native return
-.Lretskip_296:
+	SM_RETURN_VARIANT 2, 0, 296  # SM_NRETURN
 .Lpc297:                
 .Lpc298:                
 
@@ -1600,22 +1550,17 @@ main:
 # stmt 64  (line 78):  Pop_list       Pop_list       =  epsilon . *pop_list()      :(RETURN)
 # ============================================================================
 .Lpc299:                
-                        lea     rdi, [rip + .Lstr_63]       # var=epsilon
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_63  # var=epsilon
 .Lpc300:                
-                        call    scrip_rt_pat_deref@PLT      # SM_PAT_DEREF
+	SM_PAT_DEREF  # SM_PAT_DEREF
 .Lpc301:                
-                        lea     rdi, [rip + .Lstr_61]       # fname=pop_list
-                        mov     esi, 0                      # is_imm
-                        xor     edx, edx                    # namelist=NULL
-                        call    scrip_rt_pat_capture_fn@PLT # SM_PAT_CAPTURE_FN
+	SM_PAT_CAPTURE_FN 0, .Lstr_61  # SM_PAT_CAPTURE_FN fname=pop_list is_imm=0 namelist=(NULL)
 .Lpc302:                
-                        call    scrip_rt_pat_boxval@PLT     # SM_PAT_BOXVAL
+	SM_PAT_BOXVAL  # SM_PAT_BOXVAL
 .Lpc303:                
-                        lea     rdi, [rip + .Lstr_62]       # store -> Pop_list
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_62  # store -> Pop_list
 .Lpc304:                
-                        ret                                 #  SM_RETURN
+	SM_RETURN  # SM_RETURN
 .Lpc305:                
 .Lpc306:                
 
@@ -1628,32 +1573,24 @@ main:
 # stmt 66  (line 66):  *------------------------------------------------------------------------------
 # ============================================================================
 .Lpc308:                
-                        lea     rdi, [rip + .Lstr_65]       # str="pop_final(v)"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_65, 0  # str="pop_final(v)"
 .Lpc309:                
-                        lea     rdi, [rip + .Lstr_10]       # fname="DEFINE"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_10, 1  # SM_CALL fname="DEFINE" nargs=1
 .Lpc310:                
-                        call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
+	SM_POP  # SM_POP: discard TOS
 .Lpc311:                
 
 # ============================================================================
 # stmt 67  (line 67):                 DEFINE('push_item(v)')
 # ============================================================================
 .Lpc312:                
-                        lea     rdi, [rip + .Lstr_66]       # str="Pop_final(vs)"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_66, 0  # str="Pop_final(vs)"
 .Lpc313:                
-                        lea     rdi, [rip + .Lstr_10]       # fname="DEFINE"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_10, 1  # SM_CALL fname="DEFINE" nargs=1
 .Lpc314:                
-                        call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
+	SM_POP  # SM_POP: discard TOS
 .Lpc315:                
-                        jmp     .Lpc336                     #  SM_JUMP -> pc=336
+	SM_JUMP .Lpc336  # SM_JUMP -> pc=336
 .Lpc316:                
 .Lpc317:                
 
@@ -1661,39 +1598,24 @@ main:
 # stmt 68  (line 83):  pop_final      dummy          =  stk_pop_final(v)
 # ============================================================================
 .Lpc318:                
-                        lea     rdi, [rip + .Lstr_12]       # var=v
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_12  # var=v
 .Lpc319:                
-                        lea     rdi, [rip + .Lstr_33]       # fname="stk_pop_final"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_33, 1  # SM_CALL fname="stk_pop_final" nargs=1
 .Lpc320:                
-                        lea     rdi, [rip + .Lstr_16]       # store -> dummy
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_16  # store -> dummy
 .Lpc321:                
 
 # ============================================================================
 # stmt 69  (line 69):  push_item      dummy          =  stk_push_item(v)
 # ============================================================================
 .Lpc322:                
-                        lea     rdi, [rip + .Lstr_16]       # str="dummy"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_16, 0  # str="dummy"
 .Lpc323:                
-                        lea     rdi, [rip + .Lstr_17]       # fname="NAME_PUSH"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_17, 1  # SM_CALL fname="NAME_PUSH" nargs=1
 .Lpc324:                
-                        lea     rdi, [rip + .Lstr_67]       # store -> pop_final
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_67  # store -> pop_final
 .Lpc325:                
-                        mov     edi, 2                      # kind=2 (0=RET 1=FRET 2=NRET)
-                        mov     esi, 0                      # cond=0 (0=uncon 1=:S 2=:F)
-                        call    scrip_rt_do_return@PLT      # SM_NRETURN
-                        test    eax, eax                    # fire?
-                        jz      .Lretskip_325               # no-fire: fall through
-                        ret                                 # fire: native return
-.Lretskip_325:
+	SM_RETURN_VARIANT 2, 0, 325  # SM_NRETURN
 .Lpc326:                
 .Lpc327:                
 
@@ -1701,29 +1623,21 @@ main:
 # stmt 70  (line 85):  Pop_final      Pop_final      =  EVAL('epsilon . *pop_final(' vs ')')  :(RETURN)
 # ============================================================================
 .Lpc328:                
-                        lea     rdi, [rip + .Lstr_69]       # str="epsilon . *pop_final("
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_69, 0  # str="epsilon . *pop_final("
 .Lpc329:                
-                        lea     rdi, [rip + .Lstr_43]       # var=vs
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_43  # var=vs
 .Lpc330:                
-                        lea     rdi, [rip + .Lstr_44]       # str=")"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_44, 0  # str=")"
 .Lpc331:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc332:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc333:                
-                        lea     rdi, [rip + .Lstr_45]       # fname="EVAL"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_45, 1  # SM_CALL fname="EVAL" nargs=1
 .Lpc334:                
-                        lea     rdi, [rip + .Lstr_68]       # store -> Pop_final
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_68  # store -> Pop_final
 .Lpc335:                
-                        ret                                 #  SM_RETURN
+	SM_RETURN  # SM_RETURN
 .Lpc336:                
 .Lpc337:                
 
@@ -1736,17 +1650,13 @@ main:
 # stmt 72  (line 72):  push_item_end
 # ============================================================================
 .Lpc339:                
-                        lea     rdi, [rip + .Lstr_71]       # str="node_repr(f)r,sep,i,n,tag"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_71, 0  # str="node_repr(f)r,sep,i,n,tag"
 .Lpc340:                
-                        lea     rdi, [rip + .Lstr_10]       # fname="DEFINE"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_10, 1  # SM_CALL fname="DEFINE" nargs=1
 .Lpc341:                
-                        call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
+	SM_POP  # SM_POP: discard TOS
 .Lpc342:                
-                        jmp     .Lpc417                     #  SM_JUMP -> pc=417
+	SM_JUMP .Lpc417  # SM_JUMP -> pc=417
 .Lpc343:                
 .Lpc344:                
 
@@ -1754,61 +1664,42 @@ main:
 # stmt 73  (line 89):  node_repr      IDENT(REPLACE(DATATYPE(f), &LCASE, &UCASE), 'STRING')  :F(nr_frame)
 # ============================================================================
 .Lpc345:                
-                        lea     rdi, [rip + .Lstr_73]       # var=f
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_73  # var=f
 .Lpc346:                
-                        lea     rdi, [rip + .Lstr_74]       # fname="DATATYPE"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_74, 1  # SM_CALL fname="DATATYPE" nargs=1
 .Lpc347:                
-                        lea     rdi, [rip + .Lstr_75]       # var=LCASE
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_75  # var=LCASE
 .Lpc348:                
-                        lea     rdi, [rip + .Lstr_76]       # var=UCASE
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_76  # var=UCASE
 .Lpc349:                
-                        lea     rdi, [rip + .Lstr_77]       # fname="REPLACE"
-                        mov     esi, 3                      # nargs=3
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_77, 3  # SM_CALL fname="REPLACE" nargs=3
 .Lpc350:                
-                        lea     rdi, [rip + .Lstr_78]       # str="STRING"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_78, 0  # str="STRING"
 .Lpc351:                
-                        lea     rdi, [rip + .Lstr_79]       # fname="IDENT"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_79, 2  # SM_CALL fname="IDENT" nargs=2
 .Lpc352:                
-                        call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
+	SM_POP  # SM_POP: discard TOS
 .Lpc353:                
-                        call    scrip_rt_last_ok@PLT        #  EM-4 conditional jump
-                        test    eax, eax                    
-                        jz     .Lpc362                      #  SM_JUMP_F -> pc=362
+	SM_JUMP_F .Lpc362  # SM_JUMP_F -> pc=362
 .Lpc354:                
 
 # ============================================================================
 # stmt 74  (line 74):                 DEFINE('pop_list()')
 # ============================================================================
 .Lpc355:                
-                        lea     rdi, [rip + .Lstr_80]       # str="'"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_80, 0  # str="'"
 .Lpc356:                
-                        lea     rdi, [rip + .Lstr_73]       # var=f
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_73  # var=f
 .Lpc357:                
-                        lea     rdi, [rip + .Lstr_80]       # str="'"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_80, 0  # str="'"
 .Lpc358:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc359:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc360:                
-                        lea     rdi, [rip + .Lstr_72]       # store -> node_repr
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_72  # store -> node_repr
 .Lpc361:                
-                        ret                                 #  SM_RETURN
+	SM_RETURN  # SM_RETURN
 .Lpc362:                
 .Lpc363:                
 
@@ -1816,70 +1707,52 @@ main:
 # stmt 75  (line 91):  nr_frame       tag            =  stk_tag[f]
 # ============================================================================
 .Lpc364:                
-                        lea     rdi, [rip + .Lstr_6]        # var=stk_tag
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_6  # var=stk_tag
 .Lpc365:                
-                        lea     rdi, [rip + .Lstr_73]       # var=f
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_73  # var=f
 .Lpc366:                
-                        lea     rdi, [rip + .Lstr_23]       # fname="IDX"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_23, 2  # SM_CALL fname="IDX" nargs=2
 .Lpc367:                
-                        lea     rdi, [rip + .Lstr_82]       # store -> tag
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_82  # store -> tag
 .Lpc368:                
 
 # ============================================================================
 # stmt 76  (line 76):  pop_list       dummy          =  stk_pop_into_parent()
 # ============================================================================
 .Lpc369:                
-                        lea     rdi, [rip + .Lstr_7]        # var=stk_n
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_7  # var=stk_n
 .Lpc370:                
-                        lea     rdi, [rip + .Lstr_73]       # var=f
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_73  # var=f
 .Lpc371:                
-                        lea     rdi, [rip + .Lstr_23]       # fname="IDX"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_23, 2  # SM_CALL fname="IDX" nargs=2
 .Lpc372:                
-                        lea     rdi, [rip + .Lstr_30]       # store -> n
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_30  # store -> n
 .Lpc373:                
 
 # ============================================================================
 # stmt 77  (line 77):                 pop_list       =  .dummy                     :(NRETURN)
 # ============================================================================
 .Lpc374:                
-                        lea     rdi, [rip + .Lstr_83]       # str="('"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_83, 0  # str="('"
 .Lpc375:                
-                        lea     rdi, [rip + .Lstr_82]       # var=tag
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_82  # var=tag
 .Lpc376:                
-                        lea     rdi, [rip + .Lstr_80]       # str="'"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_80, 0  # str="'"
 .Lpc377:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc378:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc379:                
-                        lea     rdi, [rip + .Lstr_84]       # store -> r
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_84  # store -> r
 .Lpc380:                
 
 # ============================================================================
 # stmt 78  (line 78):  Pop_list       Pop_list       =  epsilon . *pop_list()      :(RETURN)
 # ============================================================================
 .Lpc381:                
-                        movabs  rdi, 0                      
-                        call    scrip_rt_push_int@PLT       
+	SM_PUSH_INT 0
 .Lpc382:                
-                        lea     rdi, [rip + .Lstr_85]       # store -> i
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_85  # store -> i
 .Lpc383:                
 .Lpc384:                
 
@@ -1887,86 +1760,61 @@ main:
 # stmt 79  (line 95):  nr_lp          i              =  LT(i, n) i + 1             :F(nr_done)
 # ============================================================================
 .Lpc385:                
-                        lea     rdi, [rip + .Lstr_85]       # var=i
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_85  # var=i
 .Lpc386:                
-                        lea     rdi, [rip + .Lstr_30]       # var=n
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_30  # var=n
 .Lpc387:                
-                        lea     rdi, [rip + .Lstr_87]       # fname="LT"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_87, 2  # SM_CALL fname="LT" nargs=2
 .Lpc388:                
-                        lea     rdi, [rip + .Lstr_85]       # var=i
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_85  # var=i
 .Lpc389:                
-                        movabs  rdi, 1                      
-                        call    scrip_rt_push_int@PLT       
+	SM_PUSH_INT 1
 .Lpc390:                
-                        mov     edi, 17                     # SM_ADD
-                        call    scrip_rt_arith@PLT          
+	SM_ARITH 17  # SM_ADD
 .Lpc391:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc392:                
-                        lea     rdi, [rip + .Lstr_85]       # store -> i
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_85  # store -> i
 .Lpc393:                
-                        call    scrip_rt_last_ok@PLT        #  EM-4 conditional jump
-                        test    eax, eax                    
-                        jz     .Lpc410                      #  SM_JUMP_F -> pc=410
+	SM_JUMP_F .Lpc410  # SM_JUMP_F -> pc=410
 .Lpc394:                
 
 # ============================================================================
 # stmt 80  (line 80):  *------------------------------------------------------------------------------
 # ============================================================================
 .Lpc395:                
-                        lea     rdi, [rip + .Lstr_84]       # var=r
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_84  # var=r
 .Lpc396:                
-                        lea     rdi, [rip + .Lstr_88]       # str=", "
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_88, 0  # str=", "
 .Lpc397:                
-                        lea     rdi, [rip + .Lstr_8]        # var=stk_c
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_8  # var=stk_c
 .Lpc398:                
-                        lea     rdi, [rip + .Lstr_73]       # var=f
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_73  # var=f
 .Lpc399:                
-                        lea     rdi, [rip + .Lstr_23]       # fname="IDX"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_23, 2  # SM_CALL fname="IDX" nargs=2
 .Lpc400:                
-                        lea     rdi, [rip + .Lstr_85]       # var=i
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_85  # var=i
 .Lpc401:                
-                        lea     rdi, [rip + .Lstr_23]       # fname="IDX"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_23, 2  # SM_CALL fname="IDX" nargs=2
 .Lpc402:                
-                        lea     rdi, [rip + .Lstr_72]       # fname="node_repr"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_72, 1  # SM_CALL fname="node_repr" nargs=1
 .Lpc403:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc404:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc405:                
-                        lea     rdi, [rip + .Lstr_84]       # store -> r
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_84  # store -> r
 .Lpc406:                
 
 # ============================================================================
 # stmt 81  (line 81):                 DEFINE('pop_final(v)')
 # ============================================================================
 .Lpc407:                
-                        lea     rdi, [rip + .Lstr_85]       # var=i
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_85  # var=i
 .Lpc408:                
-                        lea     rdi, [rip + .Lstr_85]       # store -> i
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_85  # store -> i
 .Lpc409:                
-                        jmp     .Lpc383                     #  SM_JUMP -> pc=383
+	SM_JUMP .Lpc383  # SM_JUMP -> pc=383
 .Lpc410:                
 .Lpc411:                
 
@@ -1974,19 +1822,15 @@ main:
 # stmt 82  (line 98):  nr_done        node_repr      =  r ')'                      :(RETURN)
 # ============================================================================
 .Lpc412:                
-                        lea     rdi, [rip + .Lstr_84]       # var=r
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_84  # var=r
 .Lpc413:                
-                        lea     rdi, [rip + .Lstr_44]       # str=")"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_44, 0  # str=")"
 .Lpc414:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc415:                
-                        lea     rdi, [rip + .Lstr_72]       # store -> node_repr
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_72  # store -> node_repr
 .Lpc416:                
-                        ret                                 #  SM_RETURN
+	SM_RETURN  # SM_RETURN
 .Lpc417:                
 .Lpc418:                
 
@@ -1999,17 +1843,13 @@ main:
 # stmt 84  (line 84):                 pop_final      =  .dummy                     :(NRETURN)
 # ============================================================================
 .Lpc420:                
-                        lea     rdi, [rip + .Lstr_91]       # str="pp_node(f,indent,suffix)r,pad,tag,n,i,nx..."
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_91, 0  # str="pp_node(f,indent,suffix)r,pad,tag,n,i,nx..."
 .Lpc421:                
-                        lea     rdi, [rip + .Lstr_10]       # fname="DEFINE"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_10, 1  # SM_CALL fname="DEFINE" nargs=1
 .Lpc422:                
-                        call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
+	SM_POP  # SM_POP: discard TOS
 .Lpc423:                
-                        jmp     .Lpc555                     #  SM_JUMP -> pc=555
+	SM_JUMP .Lpc555  # SM_JUMP -> pc=555
 .Lpc424:                
 .Lpc425:                
 
@@ -2017,79 +1857,54 @@ main:
 # stmt 85  (line 102):  pp_node        IDENT(REPLACE(DATATYPE(f), &LCASE, &UCASE), 'STRING')  :F(pp_frame)
 # ============================================================================
 .Lpc426:                
-                        lea     rdi, [rip + .Lstr_73]       # var=f
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_73  # var=f
 .Lpc427:                
-                        lea     rdi, [rip + .Lstr_74]       # fname="DATATYPE"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_74, 1  # SM_CALL fname="DATATYPE" nargs=1
 .Lpc428:                
-                        lea     rdi, [rip + .Lstr_75]       # var=LCASE
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_75  # var=LCASE
 .Lpc429:                
-                        lea     rdi, [rip + .Lstr_76]       # var=UCASE
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_76  # var=UCASE
 .Lpc430:                
-                        lea     rdi, [rip + .Lstr_77]       # fname="REPLACE"
-                        mov     esi, 3                      # nargs=3
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_77, 3  # SM_CALL fname="REPLACE" nargs=3
 .Lpc431:                
-                        lea     rdi, [rip + .Lstr_78]       # str="STRING"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_78, 0  # str="STRING"
 .Lpc432:                
-                        lea     rdi, [rip + .Lstr_79]       # fname="IDENT"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_79, 2  # SM_CALL fname="IDENT" nargs=2
 .Lpc433:                
-                        call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
+	SM_POP  # SM_POP: discard TOS
 .Lpc434:                
-                        call    scrip_rt_last_ok@PLT        #  EM-4 conditional jump
-                        test    eax, eax                    
-                        jz     .Lpc449                      #  SM_JUMP_F -> pc=449
+	SM_JUMP_F .Lpc449  # SM_JUMP_F -> pc=449
 .Lpc435:                
 
 # ============================================================================
 # stmt 86  (line 86):  pop_final_end
 # ============================================================================
 .Lpc436:                
-                        lea     rdi, [rip + .Lstr_93]       # str=" "
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_93, 0  # str=" "
 .Lpc437:                
-                        lea     rdi, [rip + .Lstr_94]       # var=indent
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_94  # var=indent
 .Lpc438:                
-                        lea     rdi, [rip + .Lstr_95]       # fname="DUPL"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_95, 2  # SM_CALL fname="DUPL" nargs=2
 .Lpc439:                
-                        lea     rdi, [rip + .Lstr_80]       # str="'"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_80, 0  # str="'"
 .Lpc440:                
-                        lea     rdi, [rip + .Lstr_73]       # var=f
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_73  # var=f
 .Lpc441:                
-                        lea     rdi, [rip + .Lstr_80]       # str="'"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_80, 0  # str="'"
 .Lpc442:                
-                        lea     rdi, [rip + .Lstr_96]       # var=suffix
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_96  # var=suffix
 .Lpc443:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc444:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc445:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc446:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc447:                
-                        lea     rdi, [rip + .Lstr_97]       # store -> OUTPUT
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_97  # store -> OUTPUT
 .Lpc448:                
-                        ret                                 #  SM_RETURN
+	SM_RETURN  # SM_RETURN
 .Lpc449:                
 .Lpc450:                
 
@@ -2097,88 +1912,64 @@ main:
 # stmt 87  (line 104):  pp_frame       r              =  node_repr(f)
 # ============================================================================
 .Lpc451:                
-                        lea     rdi, [rip + .Lstr_73]       # var=f
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_73  # var=f
 .Lpc452:                
-                        lea     rdi, [rip + .Lstr_72]       # fname="node_repr"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_72, 1  # SM_CALL fname="node_repr" nargs=1
 .Lpc453:                
-                        lea     rdi, [rip + .Lstr_84]       # store -> r
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_84  # store -> r
 .Lpc454:                
 
 # ============================================================================
 # stmt 88  (line 88):                 DEFINE('node_repr(f)r,sep,i,n,tag')          :(node_repr_end)
 # ============================================================================
 .Lpc455:                
-                        lea     rdi, [rip + .Lstr_93]       # str=" "
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_93, 0  # str=" "
 .Lpc456:                
-                        lea     rdi, [rip + .Lstr_94]       # var=indent
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_94  # var=indent
 .Lpc457:                
-                        lea     rdi, [rip + .Lstr_95]       # fname="DUPL"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_95, 2  # SM_CALL fname="DUPL" nargs=2
 .Lpc458:                
-                        lea     rdi, [rip + .Lstr_99]       # store -> pad
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_99  # store -> pad
 .Lpc459:                
 
 # ============================================================================
 # stmt 89  (line 89):  node_repr      IDENT(REPLACE(DATATYPE(f), &LCASE, &UCASE), 'STRING')  :F(nr_frame)
 # ============================================================================
 .Lpc460:                
-                        movabs  rdi, 80                     
-                        call    scrip_rt_push_int@PLT       
+	SM_PUSH_INT 80
 .Lpc461:                
-                        lea     rdi, [rip + .Lstr_94]       # var=indent
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_94  # var=indent
 .Lpc462:                
-                        lea     rdi, [rip + .Lstr_84]       # var=r
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_84  # var=r
 .Lpc463:                
-                        lea     rdi, [rip + .Lstr_100]      # fname="SIZE"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_100, 1  # SM_CALL fname="SIZE" nargs=1
 .Lpc464:                
-                        mov     edi, 17                     # SM_ADD
-                        call    scrip_rt_arith@PLT          
+	SM_ARITH 17  # SM_ADD
 .Lpc465:                
-                        lea     rdi, [rip + .Lstr_101]      # fname="GT"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_101, 2  # SM_CALL fname="GT" nargs=2
 .Lpc466:                
-                        call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
+	SM_POP  # SM_POP: discard TOS
 .Lpc467:                
-                        call    scrip_rt_last_ok@PLT        #  EM-4 conditional jump
-                        test    eax, eax                    
-                        jz     .Lpc476                      #  SM_JUMP_F -> pc=476
+	SM_JUMP_F .Lpc476  # SM_JUMP_F -> pc=476
 .Lpc468:                
 
 # ============================================================================
 # stmt 90  (line 90):                 node_repr      =  "'" f "'"                  :(RETURN)
 # ============================================================================
 .Lpc469:                
-                        lea     rdi, [rip + .Lstr_99]       # var=pad
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_99  # var=pad
 .Lpc470:                
-                        lea     rdi, [rip + .Lstr_84]       # var=r
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_84  # var=r
 .Lpc471:                
-                        lea     rdi, [rip + .Lstr_96]       # var=suffix
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_96  # var=suffix
 .Lpc472:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc473:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc474:                
-                        lea     rdi, [rip + .Lstr_97]       # store -> OUTPUT
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_97  # store -> OUTPUT
 .Lpc475:                
-                        ret                                 #  SM_RETURN
+	SM_RETURN  # SM_RETURN
 .Lpc476:                
 .Lpc477:                
 
@@ -2186,81 +1977,60 @@ main:
 # stmt 91  (line 108):  pp_wrap        tag            =  stk_tag[f]
 # ============================================================================
 .Lpc478:                
-                        lea     rdi, [rip + .Lstr_6]        # var=stk_tag
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_6  # var=stk_tag
 .Lpc479:                
-                        lea     rdi, [rip + .Lstr_73]       # var=f
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_73  # var=f
 .Lpc480:                
-                        lea     rdi, [rip + .Lstr_23]       # fname="IDX"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_23, 2  # SM_CALL fname="IDX" nargs=2
 .Lpc481:                
-                        lea     rdi, [rip + .Lstr_82]       # store -> tag
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_82  # store -> tag
 .Lpc482:                
 
 # ============================================================================
 # stmt 92  (line 92):                 n              =  stk_n[f]
 # ============================================================================
 .Lpc483:                
-                        lea     rdi, [rip + .Lstr_7]        # var=stk_n
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_7  # var=stk_n
 .Lpc484:                
-                        lea     rdi, [rip + .Lstr_73]       # var=f
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_73  # var=f
 .Lpc485:                
-                        lea     rdi, [rip + .Lstr_23]       # fname="IDX"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_23, 2  # SM_CALL fname="IDX" nargs=2
 .Lpc486:                
-                        lea     rdi, [rip + .Lstr_30]       # store -> n
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_30  # store -> n
 .Lpc487:                
 
 # ============================================================================
 # stmt 93  (line 93):                 r              =  "('" tag "'"
 # ============================================================================
 .Lpc488:                
-                        lea     rdi, [rip + .Lstr_99]       # var=pad
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_99  # var=pad
 .Lpc489:                
-                        lea     rdi, [rip + .Lstr_103]      # str="( "
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_103, 0  # str="( "
 .Lpc490:                
-                        lea     rdi, [rip + .Lstr_80]       # str="'"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_80, 0  # str="'"
 .Lpc491:                
-                        lea     rdi, [rip + .Lstr_82]       # var=tag
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_82  # var=tag
 .Lpc492:                
-                        lea     rdi, [rip + .Lstr_104]      # str="',"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_104, 0  # str="',"
 .Lpc493:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc494:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc495:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc496:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc497:                
-                        lea     rdi, [rip + .Lstr_97]       # store -> OUTPUT
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_97  # store -> OUTPUT
 .Lpc498:                
 
 # ============================================================================
 # stmt 94  (line 94):                 i              =  0
 # ============================================================================
 .Lpc499:                
-                        movabs  rdi, 0                      
-                        call    scrip_rt_push_int@PLT       
+	SM_PUSH_INT 0
 .Lpc500:                
-                        lea     rdi, [rip + .Lstr_85]       # store -> i
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_85  # store -> i
 .Lpc501:                
 .Lpc502:                
 
@@ -2268,114 +2038,80 @@ main:
 # stmt 95  (line 112):  pp_wch         i              =  LT(i, n) i + 1             :F(pp_wdone)
 # ============================================================================
 .Lpc503:                
-                        lea     rdi, [rip + .Lstr_85]       # var=i
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_85  # var=i
 .Lpc504:                
-                        lea     rdi, [rip + .Lstr_30]       # var=n
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_30  # var=n
 .Lpc505:                
-                        lea     rdi, [rip + .Lstr_87]       # fname="LT"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_87, 2  # SM_CALL fname="LT" nargs=2
 .Lpc506:                
-                        lea     rdi, [rip + .Lstr_85]       # var=i
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_85  # var=i
 .Lpc507:                
-                        movabs  rdi, 1                      
-                        call    scrip_rt_push_int@PLT       
+	SM_PUSH_INT 1
 .Lpc508:                
-                        mov     edi, 17                     # SM_ADD
-                        call    scrip_rt_arith@PLT          
+	SM_ARITH 17  # SM_ADD
 .Lpc509:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc510:                
-                        lea     rdi, [rip + .Lstr_85]       # store -> i
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_85  # store -> i
 .Lpc511:                
-                        call    scrip_rt_last_ok@PLT        #  EM-4 conditional jump
-                        test    eax, eax                    
-                        jz     .Lpc552                      #  SM_JUMP_F -> pc=552
+	SM_JUMP_F .Lpc552  # SM_JUMP_F -> pc=552
 .Lpc512:                
 
 # ============================================================================
 # stmt 96  (line 96):                 r              =  r ', ' node_repr(stk_c[f][i])
 # ============================================================================
 .Lpc513:                
-                        lea     rdi, [rip + .Lstr_85]       # var=i
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_85  # var=i
 .Lpc514:                
-                        lea     rdi, [rip + .Lstr_30]       # var=n
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_30  # var=n
 .Lpc515:                
-                        lea     rdi, [rip + .Lstr_87]       # fname="LT"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_87, 2  # SM_CALL fname="LT" nargs=2
 .Lpc516:                
-                        lea     rdi, [rip + .Lstr_85]       # var=i
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_85  # var=i
 .Lpc517:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc518:                
-                        lea     rdi, [rip + .Lstr_106]      # store -> nxt
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_106  # store -> nxt
 .Lpc519:                
-                        call    scrip_rt_last_ok@PLT        #  EM-4 conditional jump
-                        test    eax, eax                    
-                        jz     .Lpc536                      #  SM_JUMP_F -> pc=536
+	SM_JUMP_F .Lpc536  # SM_JUMP_F -> pc=536
 .Lpc520:                
 
 # ============================================================================
 # stmt 97  (line 97):                 i              =  i                          :(nr_lp)
 # ============================================================================
 .Lpc521:                
-                        lea     rdi, [rip + .Lstr_8]        # var=stk_c
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_8  # var=stk_c
 .Lpc522:                
-                        lea     rdi, [rip + .Lstr_73]       # var=f
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_73  # var=f
 .Lpc523:                
-                        lea     rdi, [rip + .Lstr_23]       # fname="IDX"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_23, 2  # SM_CALL fname="IDX" nargs=2
 .Lpc524:                
-                        lea     rdi, [rip + .Lstr_85]       # var=i
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_85  # var=i
 .Lpc525:                
-                        lea     rdi, [rip + .Lstr_23]       # fname="IDX"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_23, 2  # SM_CALL fname="IDX" nargs=2
 .Lpc526:                
-                        lea     rdi, [rip + .Lstr_94]       # var=indent
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_94  # var=indent
 .Lpc527:                
-                        movabs  rdi, 2                      
-                        call    scrip_rt_push_int@PLT       
+	SM_PUSH_INT 2
 .Lpc528:                
-                        mov     edi, 17                     # SM_ADD
-                        call    scrip_rt_arith@PLT          
+	SM_ARITH 17  # SM_ADD
 .Lpc529:                
-                        lea     rdi, [rip + .Lstr_107]      # str=","
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_107, 0  # str=","
 .Lpc530:                
-                        lea     rdi, [rip + .Lstr_92]       # fname="pp_node"
-                        mov     esi, 3                      # nargs=3
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_92, 3  # SM_CALL fname="pp_node" nargs=3
 .Lpc531:                
-                        call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
+	SM_POP  # SM_POP: discard TOS
 .Lpc532:                
 
 # ============================================================================
 # stmt 98  (line 98):  nr_done        node_repr      =  r ')'                      :(RETURN)
 # ============================================================================
 .Lpc533:                
-                        lea     rdi, [rip + .Lstr_85]       # var=i
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_85  # var=i
 .Lpc534:                
-                        lea     rdi, [rip + .Lstr_85]       # store -> i
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_85  # store -> i
 .Lpc535:                
-                        jmp     .Lpc501                     #  SM_JUMP -> pc=501
+	SM_JUMP .Lpc501  # SM_JUMP -> pc=501
 .Lpc536:                
 .Lpc537:                
 
@@ -2383,48 +2119,33 @@ main:
 # stmt 99  (line 116):  pp_wlast       pp_node(stk_c[f][i], indent + 2, ')' suffix) :(RETURN)
 # ============================================================================
 .Lpc538:                
-                        lea     rdi, [rip + .Lstr_8]        # var=stk_c
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_8  # var=stk_c
 .Lpc539:                
-                        lea     rdi, [rip + .Lstr_73]       # var=f
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_73  # var=f
 .Lpc540:                
-                        lea     rdi, [rip + .Lstr_23]       # fname="IDX"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_23, 2  # SM_CALL fname="IDX" nargs=2
 .Lpc541:                
-                        lea     rdi, [rip + .Lstr_85]       # var=i
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_85  # var=i
 .Lpc542:                
-                        lea     rdi, [rip + .Lstr_23]       # fname="IDX"
-                        mov     esi, 2                      # nargs=2
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_23, 2  # SM_CALL fname="IDX" nargs=2
 .Lpc543:                
-                        lea     rdi, [rip + .Lstr_94]       # var=indent
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_94  # var=indent
 .Lpc544:                
-                        movabs  rdi, 2                      
-                        call    scrip_rt_push_int@PLT       
+	SM_PUSH_INT 2
 .Lpc545:                
-                        mov     edi, 17                     # SM_ADD
-                        call    scrip_rt_arith@PLT          
+	SM_ARITH 17  # SM_ADD
 .Lpc546:                
-                        lea     rdi, [rip + .Lstr_44]       # str=")"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_44, 0  # str=")"
 .Lpc547:                
-                        lea     rdi, [rip + .Lstr_96]       # var=suffix
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_96  # var=suffix
 .Lpc548:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc549:                
-                        lea     rdi, [rip + .Lstr_92]       # fname="pp_node"
-                        mov     esi, 3                      # nargs=3
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_92, 3  # SM_CALL fname="pp_node" nargs=3
 .Lpc550:                
-                        call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
+	SM_POP  # SM_POP: discard TOS
 .Lpc551:                
-                        ret                                 #  SM_RETURN
+	SM_RETURN  # SM_RETURN
 .Lpc552:                
 .Lpc553:                
 
@@ -2432,7 +2153,7 @@ main:
 # stmt 100  (line 117):  pp_wdone                                                    :(RETURN)
 # ============================================================================
 .Lpc554:                
-                        ret                                 #  SM_RETURN
+	SM_RETURN  # SM_RETURN
 .Lpc555:                
 .Lpc556:                
 
@@ -2445,17 +2166,13 @@ main:
 # stmt 102  (line 102):  pp_node        IDENT(REPLACE(DATATYPE(f), &LCASE, &UCASE), 'STRING')  :F(pp_frame)
 # ============================================================================
 .Lpc558:                
-                        lea     rdi, [rip + .Lstr_111]      # str="pp_bank()"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_111, 0  # str="pp_bank()"
 .Lpc559:                
-                        lea     rdi, [rip + .Lstr_10]       # fname="DEFINE"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_10, 1  # SM_CALL fname="DEFINE" nargs=1
 .Lpc560:                
-                        call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
+	SM_POP  # SM_POP: discard TOS
 .Lpc561:                
-                        jmp     .Lpc574                     #  SM_JUMP -> pc=574
+	SM_JUMP .Lpc574  # SM_JUMP -> pc=574
 .Lpc562:                
 .Lpc563:                
 
@@ -2463,39 +2180,28 @@ main:
 # stmt 103  (line 121):  pp_bank        pp_node(bank, 0, '')
 # ============================================================================
 .Lpc564:                
-                        lea     rdi, [rip + .Lstr_113]      # var=bank
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_113  # var=bank
 .Lpc565:                
-                        movabs  rdi, 0                      
-                        call    scrip_rt_push_int@PLT       
+	SM_PUSH_INT 0
 .Lpc566:                
-                        lea     rdi, [rip + .Lstr_40]       # str=""
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_40, 0  # str=""
 .Lpc567:                
-                        lea     rdi, [rip + .Lstr_92]       # fname="pp_node"
-                        mov     esi, 3                      # nargs=3
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_92, 3  # SM_CALL fname="pp_node" nargs=3
 .Lpc568:                
-                        call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
+	SM_POP  # SM_POP: discard TOS
 .Lpc569:                
 
 # ============================================================================
 # stmt 104  (line 104):  pp_frame       r              =  node_repr(f)
 # ============================================================================
 .Lpc570:                
-                        lea     rdi, [rip + .Lstr_16]       # str="dummy"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_16, 0  # str="dummy"
 .Lpc571:                
-                        lea     rdi, [rip + .Lstr_17]       # fname="NAME_PUSH"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_17, 1  # SM_CALL fname="NAME_PUSH" nargs=1
 .Lpc572:                
-                        lea     rdi, [rip + .Lstr_112]      # store -> pp_bank
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_112  # store -> pp_bank
 .Lpc573:                
-                        ret                                 #  SM_RETURN
+	SM_RETURN  # SM_RETURN
 .Lpc574:                
 .Lpc575:                
 
@@ -2508,170 +2214,130 @@ main:
 # stmt 106  (line 106):                 GT(80, indent + SIZE(r))                     :F(pp_wrap)
 # ============================================================================
 .Lpc577:                
-                        lea     rdi, [rip + .Lstr_93]       # str=" "
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_93, 0  # str=" "
 .Lpc578:                
-                        lea     rdi, [rip + .Lstr_0]        # var=nl
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_0  # var=nl
 .Lpc579:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc580:                
-                        call    scrip_rt_pat_span@PLT       # SM_PAT_SPAN
+	SM_PAT_SPAN  # SM_PAT_SPAN
 .Lpc581:                
-                        call    scrip_rt_pat_boxval@PLT     # SM_PAT_BOXVAL
+	SM_PAT_BOXVAL  # SM_PAT_BOXVAL
 .Lpc582:                
-                        lea     rdi, [rip + .Lstr_115]      # store -> delim
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_115  # store -> delim
 .Lpc583:                
 
 # ============================================================================
 # stmt 107  (line 107):                 OUTPUT         =  pad r suffix               :(RETURN)
 # ============================================================================
 .Lpc584:                
-                        lea     rdi, [rip + .Lstr_116]      # str="( )"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_116, 0  # str="( )"
 .Lpc585:                
-                        lea     rdi, [rip + .Lstr_0]        # var=nl
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_0  # var=nl
 .Lpc586:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc587:                
-                        call    scrip_rt_pat_notany@PLT     # SM_PAT_NOTANY
+	SM_PAT_NOTANY  # SM_PAT_NOTANY
 .Lpc588:                
-                        call    scrip_rt_pat_boxval@PLT     # SM_PAT_BOXVAL
+	SM_PAT_BOXVAL  # SM_PAT_BOXVAL
 .Lpc589:                
-                        lea     rdi, [rip + .Lstr_116]      # str="( )"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_116, 0  # str="( )"
 .Lpc590:                
-                        lea     rdi, [rip + .Lstr_0]        # var=nl
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_0  # var=nl
 .Lpc591:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc592:                
-                        call    scrip_rt_pat_break@PLT      # SM_PAT_BREAK
+	SM_PAT_BREAK  # SM_PAT_BREAK
 .Lpc593:                
-                        call    scrip_rt_pat_boxval@PLT     # SM_PAT_BOXVAL
+	SM_PAT_BOXVAL  # SM_PAT_BOXVAL
 .Lpc594:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc595:                
-                        lea     rdi, [rip + .Lstr_117]      # store -> word
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_117  # store -> word
 .Lpc596:                
 
 # ============================================================================
 # stmt 108  (line 108):  pp_wrap        tag            =  stk_tag[f]
 # ============================================================================
 .Lpc597:                
-                        lea     rdi, [rip + .Lstr_118]      # str="("
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_118, 0  # str="("
 .Lpc598:                
-                        lea     rdi, [rip + .Lstr_117]      # var=word
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_117  # var=word
 .Lpc599:                
-                        call    scrip_rt_pat_deref@PLT      # SM_PAT_DEREF
+	SM_PAT_DEREF  # SM_PAT_DEREF
 .Lpc600:                
-                        lea     rdi, [rip + .Lstr_82]       # var=tag
-                        mov     esi, 0                      # kind=0
-                        call    scrip_rt_pat_capture@PLT    # SM_PAT_CAPTURE
+	SM_PAT_CAPTURE 0, .Lstr_82  # SM_PAT_CAPTURE var=tag kind=0
 .Lpc601:                
-                        call    scrip_rt_pat_boxval@PLT     # SM_PAT_BOXVAL
+	SM_PAT_BOXVAL  # SM_PAT_BOXVAL
 .Lpc602:                
-                        lea     rdi, [rip + .Lstr_82]       # str="tag"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_82, 0  # str="tag"
 .Lpc603:                
-                        lea     rdi, [rip + .Lstr_50]       # fname="Push_list"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_50, 1  # SM_CALL fname="Push_list" nargs=1
 .Lpc604:                
-                        lea     rdi, [rip + .Lstr_115]      # arg="delim"
-                        call    scrip_rt_pat_refname@PLT    # SM_PAT_REFNAME
+	SM_PAT_REFNAME .Lstr_115  # SM_PAT_REFNAME arg="delim"
 .Lpc605:                
-                        lea     rdi, [rip + .Lstr_119]      # arg="group"
-                        call    scrip_rt_pat_refname@PLT    # SM_PAT_REFNAME
+	SM_PAT_REFNAME .Lstr_119  # SM_PAT_REFNAME arg="group"
 .Lpc606:                
-                        lea     rdi, [rip + .Lstr_117]      # var=word
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_117  # var=word
 .Lpc607:                
-                        call    scrip_rt_pat_deref@PLT      # SM_PAT_DEREF
+	SM_PAT_DEREF  # SM_PAT_DEREF
 .Lpc608:                
-                        lea     rdi, [rip + .Lstr_120]      # var=wrd
-                        mov     esi, 0                      # kind=0
-                        call    scrip_rt_pat_capture@PLT    # SM_PAT_CAPTURE
+	SM_PAT_CAPTURE 0, .Lstr_120  # SM_PAT_CAPTURE var=wrd kind=0
 .Lpc609:                
-                        lea     rdi, [rip + .Lstr_120]      # str="wrd"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_120, 0  # str="wrd"
 .Lpc610:                
-                        lea     rdi, [rip + .Lstr_56]       # fname="Push_item"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_56, 1  # SM_CALL fname="Push_item" nargs=1
 .Lpc611:                
-                        call    scrip_rt_pat_deref@PLT      # SM_PAT_DEREF
+	SM_PAT_DEREF  # SM_PAT_DEREF
 .Lpc612:                
-                        call    scrip_rt_pat_cat@PLT        # SM_PAT_CAT
+	SM_PAT_CAT  # SM_PAT_CAT
 .Lpc613:                
-                        call    scrip_rt_pat_alt@PLT        # SM_PAT_ALT
+	SM_PAT_ALT  # SM_PAT_ALT
 .Lpc614:                
-                        call    scrip_rt_pat_cat@PLT        # SM_PAT_CAT
+	SM_PAT_CAT  # SM_PAT_CAT
 .Lpc615:                
-                        call    scrip_rt_pat_arbno@PLT      # SM_PAT_ARBNO
+	SM_PAT_ARBNO  # SM_PAT_ARBNO
 .Lpc616:                
-                        call    scrip_rt_pat_boxval@PLT     # SM_PAT_BOXVAL
+	SM_PAT_BOXVAL  # SM_PAT_BOXVAL
 .Lpc617:                
-                        lea     rdi, [rip + .Lstr_62]       # fname="Pop_list"
-                        mov     esi, 0                      # nargs=0
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_62, 0  # SM_CALL fname="Pop_list" nargs=0
 .Lpc618:                
-                        lea     rdi, [rip + .Lstr_44]       # str=")"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_44, 0  # str=")"
 .Lpc619:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc620:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc621:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc622:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc623:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc624:                
-                        lea     rdi, [rip + .Lstr_119]      # store -> group
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_119  # store -> group
 .Lpc625:                
 
 # ============================================================================
 # stmt 109  (line 109):                 n              =  stk_n[f]
 # ============================================================================
 .Lpc626:                
-                        lea     rdi, [rip + .Lstr_118]      # arg="("
-                        call    scrip_rt_pat_lit@PLT        # SM_PAT_LIT
+	SM_PAT_LIT .Lstr_118  # SM_PAT_LIT arg="("
 .Lpc627:                
-                        lea     rdi, [rip + .Lstr_121]      # var=BAL
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_121  # var=BAL
 .Lpc628:                
-                        call    scrip_rt_pat_deref@PLT      # SM_PAT_DEREF
+	SM_PAT_DEREF  # SM_PAT_DEREF
 .Lpc629:                
-                        lea     rdi, [rip + .Lstr_44]       # arg=")"
-                        call    scrip_rt_pat_lit@PLT        # SM_PAT_LIT
+	SM_PAT_LIT .Lstr_44  # SM_PAT_LIT arg=")"
 .Lpc630:                
-                        call    scrip_rt_pat_cat@PLT        # SM_PAT_CAT
+	SM_PAT_CAT  # SM_PAT_CAT
 .Lpc631:                
-                        call    scrip_rt_pat_cat@PLT        # SM_PAT_CAT
+	SM_PAT_CAT  # SM_PAT_CAT
 .Lpc632:                
-                        lea     rdi, [rip + .Lstr_122]      # var=item
-                        mov     esi, 0                      # kind=0
-                        call    scrip_rt_pat_capture@PLT    # SM_PAT_CAPTURE
+	SM_PAT_CAPTURE 0, .Lstr_122  # SM_PAT_CAPTURE var=item kind=0
 .Lpc633:                
-                        call    scrip_rt_pat_boxval@PLT     # SM_PAT_BOXVAL
+	SM_PAT_BOXVAL  # SM_PAT_BOXVAL
 .Lpc634:                
-                        lea     rdi, [rip + .Lstr_123]      # store -> spat
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_123  # store -> spat
 .Lpc635:                
 .Lpc636:                
 
@@ -2679,38 +2345,30 @@ main:
 # stmt 110  (line 142):  slurp          line           =  INPUT                      :F(slurp_done)
 # ============================================================================
 .Lpc637:                
-                        lea     rdi, [rip + .Lstr_125]      # var=INPUT
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_125  # var=INPUT
 .Lpc638:                
-                        lea     rdi, [rip + .Lstr_126]      # store -> line
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_126  # store -> line
 .Lpc639:                
-                        call    scrip_rt_last_ok@PLT        #  EM-4 conditional jump
-                        test    eax, eax                    
-                        jz     .Lpc648                      #  SM_JUMP_F -> pc=648
+	SM_JUMP_F .Lpc648  # SM_JUMP_F -> pc=648
 .Lpc640:                
 
 # ============================================================================
 # stmt 111  (line 111):                 i              =  0
 # ============================================================================
 .Lpc641:                
-                        lea     rdi, [rip + .Lstr_127]      # var=src
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_127  # var=src
 .Lpc642:                
-                        lea     rdi, [rip + .Lstr_126]      # var=line
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_126  # var=line
 .Lpc643:                
-                        lea     rdi, [rip + .Lstr_0]        # var=nl
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_0  # var=nl
 .Lpc644:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc645:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc646:                
-                        lea     rdi, [rip + .Lstr_127]      # store -> src
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_127  # store -> src
 .Lpc647:                
-                        jmp     .Lpc635                     #  SM_JUMP -> pc=635
+	SM_JUMP .Lpc635  # SM_JUMP -> pc=635
 .Lpc648:                
 .Lpc649:                
 
@@ -2723,32 +2381,22 @@ main:
 # stmt 113  (line 113):                 nxt            =  LT(i, n) i                 :F(pp_wlast)
 # ============================================================================
 .Lpc651:                
-                        lea     rdi, [rip + .Lstr_113]      # str="bank"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_113, 0  # str="bank"
 .Lpc652:                
-                        lea     rdi, [rip + .Lstr_39]       # fname="init_list"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_39, 1  # SM_CALL fname="init_list" nargs=1
 .Lpc653:                
-                        lea     rdi, [rip + .Lstr_16]       # store -> dummy
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_16  # store -> dummy
 .Lpc654:                
 
 # ============================================================================
 # stmt 114  (line 114):                 pp_node(stk_c[f][i], indent + 2, ',')
 # ============================================================================
 .Lpc655:                
-                        lea     rdi, [rip + .Lstr_129]      # str="BANK"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_129, 0  # str="BANK"
 .Lpc656:                
-                        lea     rdi, [rip + .Lstr_11]       # fname="stk_push_frame"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_11, 1  # SM_CALL fname="stk_push_frame" nargs=1
 .Lpc657:                
-                        lea     rdi, [rip + .Lstr_16]       # store -> dummy
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_16  # store -> dummy
 .Lpc658:                
 .Lpc659:                
 
@@ -2756,79 +2404,56 @@ main:
 # stmt 115  (line 147):  loop           src            spat =  ''                    :F(all_done)
 # ============================================================================
 .Lpc660:                
-                        lea     rdi, [rip + .Lstr_123]      # var=spat
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_123  # var=spat
 .Lpc661:                
-                        call    scrip_rt_pat_deref@PLT      # SM_PAT_DEREF
+	SM_PAT_DEREF  # SM_PAT_DEREF
 .Lpc662:                
-                        lea     rdi, [rip + .Lstr_127]      # var=src
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_127  # var=src
 .Lpc663:                
-                        lea     rdi, [rip + .Lstr_40]       # str=""
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_40, 0  # str=""
 .Lpc664:                
-                        lea     rdi, [rip + .Lstr_127]      # subj_name=src
-                        mov     esi, 1                      # has_repl=1
-                        call    scrip_rt_match_variant@PLT  # EM-7c-variant: build-then-exec_stmt
+	SM_EXEC_STMT_VARIANT 1, .Lstr_127  # SM_EXEC_STMT_VARIANT subj=src has_repl=1
 .Lpc665:                
-                        call    scrip_rt_last_ok@PLT        #  EM-4 conditional jump
-                        test    eax, eax                    
-                        jz     .Lpc691                      #  SM_JUMP_F -> pc=691
+	SM_JUMP_F .Lpc691  # SM_JUMP_F -> pc=691
 .Lpc666:                
 
 # ============================================================================
 # stmt 116  (line 116):  pp_wlast       pp_node(stk_c[f][i], indent + 2, ')' suffix) :(RETURN)
 # ============================================================================
 .Lpc667:                
-                        lea     rdi, [rip + .Lstr_131]      # str="ROOT"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_131, 0  # str="ROOT"
 .Lpc668:                
-                        lea     rdi, [rip + .Lstr_11]       # fname="stk_push_frame"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_11, 1  # SM_CALL fname="stk_push_frame" nargs=1
 .Lpc669:                
-                        lea     rdi, [rip + .Lstr_16]       # store -> dummy
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_16  # store -> dummy
 .Lpc670:                
 
 # ============================================================================
 # stmt 117  (line 117):  pp_wdone                                                    :(RETURN)
 # ============================================================================
 .Lpc671:                
-                        lea     rdi, [rip + .Lstr_119]      # var=group
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_119  # var=group
 .Lpc672:                
-                        call    scrip_rt_pat_deref@PLT      # SM_PAT_DEREF
+	SM_PAT_DEREF  # SM_PAT_DEREF
 .Lpc673:                
-                        lea     rdi, [rip + .Lstr_122]      # var=item
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_122  # var=item
 .Lpc674:                
-                        movabs  rdi, 0                      
-                        call    scrip_rt_push_int@PLT       
+	SM_PUSH_INT 0
 .Lpc675:                
-                        lea     rdi, [rip + .Lstr_122]      # subj_name=item
-                        mov     esi, 0                      # has_repl=0
-                        call    scrip_rt_match_variant@PLT  # EM-7c-variant: build-then-exec_stmt
+	SM_EXEC_STMT_VARIANT 0, .Lstr_122  # SM_EXEC_STMT_VARIANT subj=item has_repl=0
 .Lpc676:                
-                        call    scrip_rt_last_ok@PLT        #  EM-4 conditional jump
-                        test    eax, eax                    
-                        jz     .Lpc681                      #  SM_JUMP_F -> pc=681
+	SM_JUMP_F .Lpc681  # SM_JUMP_F -> pc=681
 .Lpc677:                
 
 # ============================================================================
 # stmt 118  (line 118):  pp_node_end
 # ============================================================================
 .Lpc678:                
-                        lea     rdi, [rip + .Lstr_26]       # fname="stk_pop_into_parent"
-                        mov     esi, 0                      # nargs=0
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_26, 0  # SM_CALL fname="stk_pop_into_parent" nargs=0
 .Lpc679:                
-                        lea     rdi, [rip + .Lstr_16]       # store -> dummy
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_16  # store -> dummy
 .Lpc680:                
-                        jmp     .Lpc658                     #  SM_JUMP -> pc=658
+	SM_JUMP .Lpc658  # SM_JUMP -> pc=658
 .Lpc681:                
 .Lpc682:                
 
@@ -2836,31 +2461,24 @@ main:
 # stmt 119  (line 151):  parse_fail     OUTPUT         =  'Parse failed on: ' item
 # ============================================================================
 .Lpc683:                
-                        lea     rdi, [rip + .Lstr_133]      # str="Parse failed on: "
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_133, 0  # str="Parse failed on: "
 .Lpc684:                
-                        lea     rdi, [rip + .Lstr_122]      # var=item
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_122  # var=item
 .Lpc685:                
-                        call    scrip_rt_concat@PLT         # SM_CONCAT
+	SM_CONCAT  # SM_CONCAT
 .Lpc686:                
-                        lea     rdi, [rip + .Lstr_97]       # store -> OUTPUT
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_97  # store -> OUTPUT
 .Lpc687:                
 
 # ============================================================================
 # stmt 120  (line 120):                 DEFINE('pp_bank()')                          :(pp_bank_end)
 # ============================================================================
 .Lpc688:                
-                        lea     rdi, [rip + .Lstr_26]       # fname="stk_pop_into_parent"
-                        mov     esi, 0                      # nargs=0
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_26, 0  # SM_CALL fname="stk_pop_into_parent" nargs=0
 .Lpc689:                
-                        lea     rdi, [rip + .Lstr_16]       # store -> dummy
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_16  # store -> dummy
 .Lpc690:                
-                        jmp     .Lpc658                     #  SM_JUMP -> pc=658
+	SM_JUMP .Lpc658  # SM_JUMP -> pc=658
 .Lpc691:                
 .Lpc692:                
 
@@ -2868,30 +2486,22 @@ main:
 # stmt 121  (line 153):  all_done       dummy          =  stk_pop_final('bank')
 # ============================================================================
 .Lpc693:                
-                        lea     rdi, [rip + .Lstr_113]      # str="bank"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_113, 0  # str="bank"
 .Lpc694:                
-                        lea     rdi, [rip + .Lstr_33]       # fname="stk_pop_final"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_33, 1  # SM_CALL fname="stk_pop_final" nargs=1
 .Lpc695:                
-                        lea     rdi, [rip + .Lstr_16]       # store -> dummy
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_16  # store -> dummy
 .Lpc696:                
 
 # ============================================================================
 # stmt 122  (line 122):                 pp_bank        =  .dummy                     :(RETURN)
 # ============================================================================
 .Lpc697:                
-                        lea     rdi, [rip + .Lstr_112]      # fname="pp_bank"
-                        mov     esi, 0                      # nargs=0
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_112, 0  # SM_CALL fname="pp_bank" nargs=0
 .Lpc698:                
-                        lea     rdi, [rip + .Lstr_16]       # store -> dummy
-                        call    scrip_rt_nv_set@PLT         # SM_STORE_VAR pop TOS
+	SM_STORE_VAR .Lstr_16  # store -> dummy
 .Lpc699:                
-                        jmp     .Lpc700                     #  SM_JUMP -> pc=700
+	SM_JUMP .Lpc700  # SM_JUMP -> pc=700
 .Lpc700:                
 .Lpc701:                
 
@@ -2899,7 +2509,7 @@ main:
 # stmt 123  (line 123):  pp_bank_end
 # ============================================================================
 .Lpc702:                
-                        call    scrip_rt_halt_tos@PLT       # SM_HALT
+	SM_HALT  # SM_HALT
 	# -- epilogue -------------------------------------------
 	call    scrip_rt_finalize@PLT
 	pop     rbp

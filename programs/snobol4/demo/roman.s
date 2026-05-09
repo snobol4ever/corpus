@@ -1,3 +1,232 @@
+# === BEGIN sm macro library (generated from g_sm_templates[]) ===
+# EM-7c-sm-macros: one macro per opcode group; bodies and per-call
+#   emissions share one renderer in sm_emit_template.c, so the
+#   .s and the C dispatcher cannot drift -- they are paired by
+#   shape kind in render_macro_body() / render_call_line().
+.macro SM_HALT
+    call    scrip_rt_halt_tos@PLT
+.endm
+.macro SM_PUSH_INT val
+    movabs  rdi, \val
+    call    scrip_rt_push_int@PLT
+.endm
+.macro SM_PUSH_STR lbl, n
+    lea     rdi, [rip + \lbl]
+    mov     esi, \n
+    call    scrip_rt_push_str@PLT
+.endm
+.macro SM_PUSH_VAR lbl
+    lea     rdi, [rip + \lbl]
+    call    scrip_rt_nv_get@PLT
+.endm
+.macro SM_STORE_VAR lbl
+    lea     rdi, [rip + \lbl]
+    call    scrip_rt_nv_set@PLT
+.endm
+.macro SM_POP
+    call    scrip_rt_pop_void@PLT
+.endm
+.macro SM_PUSH_NULL
+    call    scrip_rt_push_null@PLT
+.endm
+.macro SM_CONCAT
+    call    scrip_rt_concat@PLT
+.endm
+.macro SM_COERCE_NUM
+    call    scrip_rt_coerce_num@PLT
+.endm
+.macro SM_ARITH op
+    mov     edi, \op
+    call    scrip_rt_arith@PLT
+.endm
+.macro SM_JUMP tgt
+    jmp     \tgt
+.endm
+.macro SM_JUMP_S tgt
+    call    scrip_rt_last_ok@PLT
+    test    eax, eax
+    jnz     \tgt
+.endm
+.macro SM_JUMP_F tgt
+    call    scrip_rt_last_ok@PLT
+    test    eax, eax
+    jz     \tgt
+.endm
+.macro SM_PUSH_CHUNK entry, arity
+    movabs  rdi, \entry
+    mov     esi, \arity
+    call    scrip_rt_push_chunk_descr@PLT
+.endm
+.macro SM_CALL_CHUNK tgt
+    call    \tgt
+.endm
+.macro SM_RETURN
+    ret
+.endm
+.macro SM_CALL lbl, n
+    lea     rdi, [rip + \lbl]
+    mov     esi, \n
+    call    scrip_rt_call@PLT
+.endm
+.macro SM_PAT_SPAN
+    call    scrip_rt_pat_span@PLT
+.endm
+.macro SM_PAT_BREAK
+    call    scrip_rt_pat_break@PLT
+.endm
+.macro SM_PAT_ANY
+    call    scrip_rt_pat_any@PLT
+.endm
+.macro SM_PAT_NOTANY
+    call    scrip_rt_pat_notany@PLT
+.endm
+.macro SM_PAT_LEN
+    call    scrip_rt_pat_len@PLT
+.endm
+.macro SM_PAT_POS
+    call    scrip_rt_pat_pos@PLT
+.endm
+.macro SM_PAT_RPOS
+    call    scrip_rt_pat_rpos@PLT
+.endm
+.macro SM_PAT_TAB
+    call    scrip_rt_pat_tab@PLT
+.endm
+.macro SM_PAT_RTAB
+    call    scrip_rt_pat_rtab@PLT
+.endm
+.macro SM_PAT_ARB
+    call    scrip_rt_pat_arb@PLT
+.endm
+.macro SM_PAT_ARBNO
+    call    scrip_rt_pat_arbno@PLT
+.endm
+.macro SM_PAT_REM
+    call    scrip_rt_pat_rem@PLT
+.endm
+.macro SM_PAT_FENCE
+    call    scrip_rt_pat_fence@PLT
+.endm
+.macro SM_PAT_FENCE1
+    call    scrip_rt_pat_fence1@PLT
+.endm
+.macro SM_PAT_FAIL
+    call    scrip_rt_pat_fail@PLT
+.endm
+.macro SM_PAT_ABORT
+    call    scrip_rt_pat_abort@PLT
+.endm
+.macro SM_PAT_SUCCEED
+    call    scrip_rt_pat_succeed@PLT
+.endm
+.macro SM_PAT_BAL
+    call    scrip_rt_pat_bal@PLT
+.endm
+.macro SM_PAT_EPS
+    call    scrip_rt_pat_eps@PLT
+.endm
+.macro SM_PAT_CAT
+    call    scrip_rt_pat_cat@PLT
+.endm
+.macro SM_PAT_ALT
+    call    scrip_rt_pat_alt@PLT
+.endm
+.macro SM_PAT_DEREF
+    call    scrip_rt_pat_deref@PLT
+.endm
+.macro SM_PAT_BOXVAL
+    call    scrip_rt_pat_boxval@PLT
+.endm
+.macro SM_PAT_LIT lbl
+    .ifnb \lbl
+        lea     rdi, [rip + \lbl]
+    .else
+        xor     edi, edi
+    .endif
+    call    scrip_rt_pat_lit@PLT
+.endm
+.macro SM_PAT_REFNAME lbl
+    .ifnb \lbl
+        lea     rdi, [rip + \lbl]
+    .else
+        xor     edi, edi
+    .endif
+    call    scrip_rt_pat_refname@PLT
+.endm
+.macro SM_PAT_USERCALL lbl
+    .ifnb \lbl
+        lea     rdi, [rip + \lbl]
+    .else
+        xor     edi, edi
+    .endif
+    call    scrip_rt_pat_usercall@PLT
+.endm
+.macro SM_PAT_CAPTURE n, lbl
+    .ifnb \lbl
+        lea     rdi, [rip + \lbl]
+    .else
+        xor     edi, edi
+    .endif
+    mov     esi, \n
+    call    scrip_rt_pat_capture@PLT
+.endm
+.macro SM_PAT_USERCALL_ARGS n, lbl
+    .ifnb \lbl
+        lea     rdi, [rip + \lbl]
+    .else
+        xor     edi, edi
+    .endif
+    mov     esi, \n
+    call    scrip_rt_pat_usercall_args@PLT
+.endm
+.macro SM_PAT_CAPTURE_FN is_imm, fname_lbl, namelist_lbl
+    .ifnb \fname_lbl
+        lea     rdi, [rip + \fname_lbl]
+    .else
+        xor     edi, edi
+    .endif
+    mov     esi, \is_imm
+    .ifnb \namelist_lbl
+        lea     rdx, [rip + \namelist_lbl]
+    .else
+        xor     edx, edx
+    .endif
+    call    scrip_rt_pat_capture_fn@PLT
+.endm
+.macro SM_PAT_CAPTURE_FN_ARGS is_imm, nargs, fname_lbl
+    .ifnb \fname_lbl
+        lea     rdi, [rip + \fname_lbl]
+    .else
+        xor     edi, edi
+    .endif
+    mov     esi, \is_imm
+    mov     edx, \nargs
+    call    scrip_rt_pat_capture_fn_args@PLT
+.endm
+.macro SM_EXEC_STMT_VARIANT has_repl, subj_lbl
+    .ifnb \subj_lbl
+        lea     rdi, [rip + \subj_lbl]
+    .else
+        xor     edi, edi
+    .endif
+    mov     esi, \has_repl
+    call    scrip_rt_match_variant@PLT
+.endm
+.macro SM_UNHANDLED op
+    mov     edi, \op
+    call    scrip_rt_unhandled_op@PLT
+.endm
+.macro SM_RETURN_VARIANT kind, cond, pc
+    mov     edi, \kind
+    mov     esi, \cond
+    call    scrip_rt_do_return@PLT
+    test    eax, eax
+    jz      .Lretskip_\pc
+    ret
+.Lretskip_\pc\():
+.endm
+# === END sm macro library ===
+
 	.section .rodata
 .Lstr_0:
 	.string "ROMAN(N)UNITS"
@@ -174,17 +403,13 @@ main:
 # stmt 2  (line 2):  *	N must be positive and less than 4000
 # ============================================================================
 .Lpc1:                  
-                        lea     rdi, [rip + .Lstr_0]        # str="ROMAN(N)UNITS"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_0, 0  # str="ROMAN(N)UNITS"
 .Lpc2:                  
-                        lea     rdi, [rip + .Lstr_1]        # fname="DEFINE"
-                        mov     esi, 1                      # nargs=1
-                        call    scrip_rt_call@PLT           # SM_CALL
+	SM_CALL .Lstr_1, 1  # SM_CALL fname="DEFINE" nargs=1
 .Lpc3:                  
-                        call    scrip_rt_pop_void@PLT       #  SM_POP: discard TOS
+	SM_POP  # SM_POP: discard TOS
 .Lpc4:                  
-                        jmp     .Lpc28                      #  SM_JUMP -> pc=28
+	SM_JUMP .Lpc28  # SM_JUMP -> pc=28
 .Lpc5:                  
 .Lpc6:                  
 
@@ -204,68 +429,43 @@ main:
 .Lpc12:                 
                                                             # (baked into _pat_inv_0 at .text — SM_PAT_CAT)
 .Lpc13:                 
-                        lea     rdi, [rip + .Lstr_4]        # var=N
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_4  # var=N
 .Lpc14:                 
-                        lea     rdi, [rip + .Lstr_5]        # str=""
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_5, 0  # str=""
 .Lpc15:                 
                         lea     rdi, [rip + _pat_inv_0_α]  # blob entry α  (Phase-2 pc=7..12)
                         lea     rsi, [rip + .Lstr_4]        # subj_name=N
                         mov     edx, 1                      # has_repl=1
                         call    scrip_rt_match_blob@PLT     # EM-7c: Phase-3+5 against baked invariant blob
 .Lpc16:                 
-                        mov     edi, 0                      # kind=0 (0=RET 1=FRET 2=NRET)
-                        mov     esi, 2                      # cond=2 (0=uncon 1=:S 2=:F)
-                        call    scrip_rt_do_return@PLT      # SM_RETURN_F
-                        test    eax, eax                    # fire?
-                        jz      .Lretskip_16                # no-fire: fall through
-                        ret                                 # fire: native return
-.Lretskip_16:
+	SM_RETURN_VARIANT 0, 2, 16  # SM_RETURN_F
 .Lpc17:                 
 
 # ============================================================================
 # stmt 6  (line 6):  	DEFINE('ROMAN(N)UNITS')		:(ROMAN_END)
 # ============================================================================
 .Lpc18:                 
-                        lea     rdi, [rip + .Lstr_3]        # var=UNITS
-                        call    scrip_rt_nv_get@PLT         # SM_PUSH_VAR -> TOS
+	SM_PUSH_VAR .Lstr_3  # var=UNITS
 .Lpc19:                 
-                        call    scrip_rt_pat_deref@PLT      # SM_PAT_DEREF
+	SM_PAT_DEREF  # SM_PAT_DEREF
 .Lpc20:                 
-                        lea     rdi, [rip + .Lstr_6]        # str=","
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_6, 0  # str=","
 .Lpc21:                 
-                        call    scrip_rt_pat_break@PLT      # SM_PAT_BREAK
+	SM_PAT_BREAK  # SM_PAT_BREAK
 .Lpc22:                 
-                        lea     rdi, [rip + .Lstr_3]        # var=UNITS
-                        mov     esi, 0                      # kind=0
-                        call    scrip_rt_pat_capture@PLT    # SM_PAT_CAPTURE
+	SM_PAT_CAPTURE 0, .Lstr_3  # SM_PAT_CAPTURE var=UNITS kind=0
 .Lpc23:                 
-                        call    scrip_rt_pat_cat@PLT        # SM_PAT_CAT
+	SM_PAT_CAT  # SM_PAT_CAT
 .Lpc24:                 
-                        lea     rdi, [rip + .Lstr_7]        # str="0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
-                        mov     esi, 0                      # slen
-                        call    scrip_rt_push_str@PLT       
+	SM_PUSH_STR .Lstr_7, 0  # str="0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
 .Lpc25:                 
-                        movabs  rdi, 0                      
-                        call    scrip_rt_push_int@PLT       
+	SM_PUSH_INT 0
 .Lpc26:                 
-                        xor     edi, edi                    # subj_name=NULL
-                        mov     esi, 0                      # has_repl=0
-                        call    scrip_rt_match_variant@PLT  # EM-7c-variant: build-then-exec_stmt
+	SM_EXEC_STMT_VARIANT 0  # SM_EXEC_STMT_VARIANT subj=NULL has_repl=0
 .Lpc27:                 
-                        mov     edi, 1                      # kind=1 (0=RET 1=FRET 2=NRET)
-                        mov     esi, 2                      # cond=2 (0=uncon 1=:S 2=:F)
-                        call    scrip_rt_do_return@PLT      # SM_FRETURN_F
-                        test    eax, eax                    # fire?
-                        jz      .Lretskip_27                # no-fire: fall through
-                        ret                                 # fire: native return
-.Lretskip_27:
+	SM_RETURN_VARIANT 1, 2, 27  # SM_FRETURN_F
 .Lpc28:                 
-                        call    scrip_rt_halt_tos@PLT       # SM_HALT
+	SM_HALT  # SM_HALT
 	# -- epilogue -------------------------------------------
 	call    scrip_rt_finalize@PLT
 	pop     rbp
