@@ -1,39 +1,38 @@
-	.include "sm_macros.s"
-	.section .rodata
-.Lstr_0:
-	.string "ROMAN(N)UNITS"
-.Lstr_1:
-	.string "DEFINE"
-.Lstr_2:
-	.string "ROMAN"
-.Lstr_3:
-	.string "UNITS"
-.Lstr_4:
-	.string "N"
-.Lstr_5:
-	.string ""
-.Lstr_6:
-	.string ","
-.Lstr_7:
-	.string "0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
-	.text
-	.section .data
-	.align  8
-.Lchunk_registry:
-	# chunk: ROMAN -> .Lpc6
-	.quad   .Lstr_2
-	.quad   .Lpc6
-	.quad   0
-	.quad   0
-	.text
+                        .include         "sm_macros.s"
+                        .section         .rodata
+.Lstr_0:                                 
+                        .string          "ROMAN(N)UNITS"
+.Lstr_1:                                 
+                        .string          "DEFINE"
+.Lstr_2:                                 
+                        .string          "ROMAN"
+.Lstr_3:                                 
+                        .string          "UNITS"
+.Lstr_4:                                 
+                        .string          "N"
+.Lstr_5:                                 
+                        .string          ""
+.Lstr_6:                                 
+                        .string          ","
+.Lstr_7:                                 
+                        .string          "0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
+                        .text            
+                        .section         .data
+                        .align           8
+.Lchunk_registry:                        
+                        .quad            .Lstr_2 # chunk: ROMAN -> .Lpc6
+                        .quad            .Lpc6
+                        .quad            0 # sentinel
+                        .quad            0
+                        .text            
 
 # ============================================================================
 # EM-7c: invariant pattern blobs (baked from sm_phase2_to_patnd → bb_build_flat_text)
 # Each block exposes _pat_inv_<id>_α / _β / _γ / _ω.
 # scrip_rt_match_blob(blob_α, ...) drives Phase-3 against these blobs.
 # ============================================================================
-	.intel_syntax noprefix
-	.text
+                        .intel_syntax    noprefix
+                        .text            
 
 # ---- pattern blob 0 (Phase-2 window pc=7..12, SM_EXEC_STMT pc=15) ----
 .global _pat_inv_0_α
@@ -148,21 +147,17 @@ _pat_inv_0_ω:
 #   macros (inline x86); BB boxes via emit_bb_box() one-proc-per-box.
 # See archive/EMITTER-MODE4-ARCH.md for the full design.
 # -----------------------------------------------------------------------
-	.intel_syntax noprefix
-	.globl  main
-	.type   main, @function
-main:
-	push    rbp
-	mov     rbp, rsp
-	# EM-7d: register user-defined function chunks
-	lea     rdi, [rip + .Lchunk_registry]
-	call    scrip_rt_register_chunks@PLT
-	# cap fixup 0 (cap static): .Lcap1_data -> _cap1_child_α
-	lea     rdi, [rip + .Lcap1_data]
-	lea     rsi, [rip + _cap1_child_α]
-	call    scrip_rt_patch_cap_fn@PLT
-	# scrip_rt_init(argc, argv) -- argc in edi, argv in rsi
-	call    scrip_rt_init@PLT
+                        .intel_syntax    noprefix
+                        .globl           main
+                        .type            main, @function
+main:                   push             rbp
+                        mov              rbp, rsp
+                        lea              rdi, [rip + .Lchunk_registry] # EM-7d: register user-defined function chunks
+                        call             scrip_rt_register_chunks@PLT
+                        lea              rdi, [rip + .Lcap1_data] # cap fixup 0 (static): .Lcap1_data -> _cap1_child_α
+                        lea              rsi, [rip + _cap1_child_α]
+                        call             scrip_rt_patch_cap_fn@PLT
+                        call             scrip_rt_init@PLT # scrip_rt_init(argc, argv)
 # source-file: roman.sno  (36 lines)
 # Each statement appears below as a major banner ('====') above
 # the asm it produced.  Inline annotations on the right column
@@ -172,48 +167,48 @@ main:
 # stmt 2  (line 2):  *	N must be positive and less than 4000
 # ============================================================================
 .Lpc0:
-.Lpc1:                  PUSH_STR .Lstr_0, 0                   # str="ROMAN(N)UNITS"
-.Lpc2:                  CALL_FN .Lstr_1, 1                    # SM_CALL fname="DEFINE" nargs=1
-.Lpc3:                  VOID_POP                              # SM_POP: discard TOS
-.Lpc4:                  JUMP .Lpc28                           # SM_JUMP -> pc=28
+.Lpc1:                  PUSH_STR         .Lstr_0, 0 # str="ROMAN(N)UNITS"
+.Lpc2:                  CALL_FN          .Lstr_1, 1 # fname="DEFINE"
+.Lpc3:                  VOID_POP         
+.Lpc4:                  JUMP             .Lpc28
 .Lpc5:
 
 # ============================================================================
 # stmt 4  (line 10):  ROMAN	N RPOS(1) LEN(1) . UNITS =	:F(RETURN)
 # ============================================================================
 .Lpc6:
-.Lpc7:                                                      # (baked into _pat_inv_0 at .text — SM_PUSH_LIT_I)
-.Lpc8:                                                      # (baked into _pat_inv_0 at .text — SM_PAT_RPOS)
-.Lpc9:                                                      # (baked into _pat_inv_0 at .text — SM_PUSH_LIT_I)
-.Lpc10:                                                     # (baked into _pat_inv_0 at .text — SM_PAT_LEN)
-.Lpc11:                                                     # (baked into _pat_inv_0 at .text — SM_PAT_CAPTURE)
-.Lpc12:                                                     # (baked into _pat_inv_0 at .text — SM_PAT_CAT)
-.Lpc13:                 PUSH_VAR .Lstr_4                      # var=N
-.Lpc14:                 PUSH_STR .Lstr_5, 0                   # str=""
-.Lpc15:                 lea     rdi, [rip + _pat_inv_0_α]  # blob entry α  (Phase-2 pc=7..12)
-	lea     rsi, [rip + .Lstr_4]       # subj_name=N
-	mov     edx, 1                     # has_repl=1
-	call    scrip_rt_match_blob@PLT    # EM-7c: Phase-3+5 against baked invariant blob
-.Lpc16:                 RETURN_VARIANT 0, 2, 16               # SM_RETURN_F
+.Lpc7:                                   # (baked into _pat_inv_0 at .text — SM_PUSH_LIT_I)
+.Lpc8:                                   # (baked into _pat_inv_0 at .text — SM_PAT_RPOS)
+.Lpc9:                                   # (baked into _pat_inv_0 at .text — SM_PUSH_LIT_I)
+.Lpc10:                                  # (baked into _pat_inv_0 at .text — SM_PAT_LEN)
+.Lpc11:                                  # (baked into _pat_inv_0 at .text — SM_PAT_CAPTURE)
+.Lpc12:                                  # (baked into _pat_inv_0 at .text — SM_PAT_CAT)
+.Lpc13:                 PUSH_VAR         .Lstr_4 # var=N
+.Lpc14:                 PUSH_STR         .Lstr_5, 0 # str=""
+.Lpc15:                 lea     rdi, [rip + _pat_inv_0_α] # blob entry α  (Phase-2 pc=7..12)
+	lea     rsi, [rip + .Lstr_4] # subj_name=N
+	mov     edx, 1  # has_repl=1
+	call    scrip_rt_match_blob@PLT # EM-7c: Phase-3+5 against baked invariant blob
+.Lpc16:                 RETURN_VARIANT   0, 2, 16 # SM_RETURN_F
 
 # ============================================================================
 # stmt 6  (line 6):  	DEFINE('ROMAN(N)UNITS')		:(ROMAN_END)
 # ============================================================================
 .Lpc17:
-.Lpc18:                 PUSH_VAR .Lstr_3                      # var=UNITS
-.Lpc19:                 PAT_DEREF                             # SM_PAT_DEREF
-.Lpc20:                 PUSH_STR .Lstr_6, 0                   # str=","
-.Lpc21:                 PAT_BREAK                             # SM_PAT_BREAK
-.Lpc22:                 PAT_CAPTURE 0, .Lstr_3                # SM_PAT_CAPTURE var=UNITS kind=0
-.Lpc23:                 PAT_CAT                               # SM_PAT_CAT
-.Lpc24:                 PUSH_STR .Lstr_7, 0                   # str="0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
-.Lpc25:                 PUSH_INT 0                          
-.Lpc26:                 EXEC_STMT_VARIANT 0                   # SM_EXEC_STMT_VARIANT subj=NULL has_repl=0
-.Lpc27:                 RETURN_VARIANT 1, 2, 27               # SM_FRETURN_F
-.Lpc28:                 HALT                                  # SM_HALT
-	# -- epilogue -------------------------------------------
-	call    scrip_rt_finalize@PLT
-	pop     rbp
-	ret
-	.size   main, .-main
-	.section .note.GNU-stack,"",@progbits
+.Lpc18:                 PUSH_VAR         .Lstr_3 # var=UNITS
+.Lpc19:                 PAT_DEREF        
+.Lpc20:                 PUSH_STR         .Lstr_6, 0 # str=","
+.Lpc21:                 PAT_BREAK        
+.Lpc22:                 PAT_CAPTURE      0, .Lstr_3 # var=UNITS kind=0
+.Lpc23:                 PAT_CAT          
+.Lpc24:                 PUSH_STR         .Lstr_7, 0 # str="0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
+.Lpc25:                 PUSH_INT         0
+.Lpc26:                 EXEC_STMT_VARIANT 0
+.Lpc27:                 RETURN_VARIANT   1, 2, 27 # SM_FRETURN_F
+.Lpc28:                 HALT             
+# -- epilogue -------------------------------------------
+                        call             scrip_rt_finalize@PLT
+                        pop              rbp
+                        ret              
+                        .size            main, .-main
+                        .section         .note.GNU-stack,"",@progbits
