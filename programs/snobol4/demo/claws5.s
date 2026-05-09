@@ -1,232 +1,4 @@
-# === BEGIN sm macro library (generated from g_sm_templates[]) ===
-# EM-7c-sm-macros: one macro per opcode group; bodies and per-call
-#   emissions share one renderer in sm_emit_template.c, so the
-#   .s and the C dispatcher cannot drift -- they are paired by
-#   shape kind in render_macro_body() / render_call_line().
-.macro SM_HALT
-    call    scrip_rt_halt_tos@PLT
-.endm
-.macro SM_PUSH_INT val
-    movabs  rdi, \val
-    call    scrip_rt_push_int@PLT
-.endm
-.macro SM_PUSH_STR lbl, n
-    lea     rdi, [rip + \lbl]
-    mov     esi, \n
-    call    scrip_rt_push_str@PLT
-.endm
-.macro SM_PUSH_VAR lbl
-    lea     rdi, [rip + \lbl]
-    call    scrip_rt_nv_get@PLT
-.endm
-.macro SM_STORE_VAR lbl
-    lea     rdi, [rip + \lbl]
-    call    scrip_rt_nv_set@PLT
-.endm
-.macro SM_POP
-    call    scrip_rt_pop_void@PLT
-.endm
-.macro SM_PUSH_NULL
-    call    scrip_rt_push_null@PLT
-.endm
-.macro SM_CONCAT
-    call    scrip_rt_concat@PLT
-.endm
-.macro SM_COERCE_NUM
-    call    scrip_rt_coerce_num@PLT
-.endm
-.macro SM_ARITH op
-    mov     edi, \op
-    call    scrip_rt_arith@PLT
-.endm
-.macro SM_JUMP tgt
-    jmp     \tgt
-.endm
-.macro SM_JUMP_S tgt
-    call    scrip_rt_last_ok@PLT
-    test    eax, eax
-    jnz     \tgt
-.endm
-.macro SM_JUMP_F tgt
-    call    scrip_rt_last_ok@PLT
-    test    eax, eax
-    jz     \tgt
-.endm
-.macro SM_PUSH_CHUNK entry, arity
-    movabs  rdi, \entry
-    mov     esi, \arity
-    call    scrip_rt_push_chunk_descr@PLT
-.endm
-.macro SM_CALL_CHUNK tgt
-    call    \tgt
-.endm
-.macro SM_RETURN
-    ret
-.endm
-.macro SM_CALL lbl, n
-    lea     rdi, [rip + \lbl]
-    mov     esi, \n
-    call    scrip_rt_call@PLT
-.endm
-.macro SM_PAT_SPAN
-    call    scrip_rt_pat_span@PLT
-.endm
-.macro SM_PAT_BREAK
-    call    scrip_rt_pat_break@PLT
-.endm
-.macro SM_PAT_ANY
-    call    scrip_rt_pat_any@PLT
-.endm
-.macro SM_PAT_NOTANY
-    call    scrip_rt_pat_notany@PLT
-.endm
-.macro SM_PAT_LEN
-    call    scrip_rt_pat_len@PLT
-.endm
-.macro SM_PAT_POS
-    call    scrip_rt_pat_pos@PLT
-.endm
-.macro SM_PAT_RPOS
-    call    scrip_rt_pat_rpos@PLT
-.endm
-.macro SM_PAT_TAB
-    call    scrip_rt_pat_tab@PLT
-.endm
-.macro SM_PAT_RTAB
-    call    scrip_rt_pat_rtab@PLT
-.endm
-.macro SM_PAT_ARB
-    call    scrip_rt_pat_arb@PLT
-.endm
-.macro SM_PAT_ARBNO
-    call    scrip_rt_pat_arbno@PLT
-.endm
-.macro SM_PAT_REM
-    call    scrip_rt_pat_rem@PLT
-.endm
-.macro SM_PAT_FENCE
-    call    scrip_rt_pat_fence@PLT
-.endm
-.macro SM_PAT_FENCE1
-    call    scrip_rt_pat_fence1@PLT
-.endm
-.macro SM_PAT_FAIL
-    call    scrip_rt_pat_fail@PLT
-.endm
-.macro SM_PAT_ABORT
-    call    scrip_rt_pat_abort@PLT
-.endm
-.macro SM_PAT_SUCCEED
-    call    scrip_rt_pat_succeed@PLT
-.endm
-.macro SM_PAT_BAL
-    call    scrip_rt_pat_bal@PLT
-.endm
-.macro SM_PAT_EPS
-    call    scrip_rt_pat_eps@PLT
-.endm
-.macro SM_PAT_CAT
-    call    scrip_rt_pat_cat@PLT
-.endm
-.macro SM_PAT_ALT
-    call    scrip_rt_pat_alt@PLT
-.endm
-.macro SM_PAT_DEREF
-    call    scrip_rt_pat_deref@PLT
-.endm
-.macro SM_PAT_BOXVAL
-    call    scrip_rt_pat_boxval@PLT
-.endm
-.macro SM_PAT_LIT lbl
-    .ifnb \lbl
-        lea     rdi, [rip + \lbl]
-    .else
-        xor     edi, edi
-    .endif
-    call    scrip_rt_pat_lit@PLT
-.endm
-.macro SM_PAT_REFNAME lbl
-    .ifnb \lbl
-        lea     rdi, [rip + \lbl]
-    .else
-        xor     edi, edi
-    .endif
-    call    scrip_rt_pat_refname@PLT
-.endm
-.macro SM_PAT_USERCALL lbl
-    .ifnb \lbl
-        lea     rdi, [rip + \lbl]
-    .else
-        xor     edi, edi
-    .endif
-    call    scrip_rt_pat_usercall@PLT
-.endm
-.macro SM_PAT_CAPTURE n, lbl
-    .ifnb \lbl
-        lea     rdi, [rip + \lbl]
-    .else
-        xor     edi, edi
-    .endif
-    mov     esi, \n
-    call    scrip_rt_pat_capture@PLT
-.endm
-.macro SM_PAT_USERCALL_ARGS n, lbl
-    .ifnb \lbl
-        lea     rdi, [rip + \lbl]
-    .else
-        xor     edi, edi
-    .endif
-    mov     esi, \n
-    call    scrip_rt_pat_usercall_args@PLT
-.endm
-.macro SM_PAT_CAPTURE_FN is_imm, fname_lbl, namelist_lbl
-    .ifnb \fname_lbl
-        lea     rdi, [rip + \fname_lbl]
-    .else
-        xor     edi, edi
-    .endif
-    mov     esi, \is_imm
-    .ifnb \namelist_lbl
-        lea     rdx, [rip + \namelist_lbl]
-    .else
-        xor     edx, edx
-    .endif
-    call    scrip_rt_pat_capture_fn@PLT
-.endm
-.macro SM_PAT_CAPTURE_FN_ARGS is_imm, nargs, fname_lbl
-    .ifnb \fname_lbl
-        lea     rdi, [rip + \fname_lbl]
-    .else
-        xor     edi, edi
-    .endif
-    mov     esi, \is_imm
-    mov     edx, \nargs
-    call    scrip_rt_pat_capture_fn_args@PLT
-.endm
-.macro SM_EXEC_STMT_VARIANT has_repl, subj_lbl
-    .ifnb \subj_lbl
-        lea     rdi, [rip + \subj_lbl]
-    .else
-        xor     edi, edi
-    .endif
-    mov     esi, \has_repl
-    call    scrip_rt_match_variant@PLT
-.endm
-.macro SM_UNHANDLED op
-    mov     edi, \op
-    call    scrip_rt_unhandled_op@PLT
-.endm
-.macro SM_RETURN_VARIANT kind, cond, pc
-    mov     edi, \kind
-    mov     esi, \cond
-    call    scrip_rt_do_return@PLT
-    test    eax, eax
-    jz      .Lretskip_\pc
-    ret
-.Lretskip_\pc\():
-.endm
-# === END sm macro library ===
-
+	.include "sm_macros.s"
 	.section .rodata
 .Lstr_0:
 	.string "nl"
@@ -623,8 +395,6 @@ _pat_inv_0_ω:
 # See archive/EMITTER-MODE4-ARCH.md for the full design.
 # -----------------------------------------------------------------------
 	.intel_syntax noprefix
-# Include SM opcode macro library (one macro per opcode group)
-# .include "sm_macros.s"  # assembled separately; macros used by name below
 	.globl  main
 	.type   main, @function
 main:
@@ -639,1218 +409,809 @@ main:
 	call    scrip_rt_patch_cap_fn@PLT
 	# scrip_rt_init(argc, argv) -- argc in edi, argv in rsi
 	call    scrip_rt_init@PLT
-# source-file: /home/claude/corpus/programs/snobol4/demo/claws5.sno  (98 lines)
+# source-file: claws5.sno  (98 lines)
 # Each statement appears below as a major banner ('====') above
 # the asm it produced.  Inline annotations on the right column
 # show the source-level object referenced by each macro call.
-.Lpc0:                  
 
 # ============================================================================
 # stmt 1  (line 1):  *------------------------------------------------------------------------------
 # ============================================================================
-.Lpc1:                  
-                                                            # (baked into _pat_inv_0 at .text — SM_PUSH_LIT_I)
-.Lpc2:                  
-                                                            # (baked into _pat_inv_0 at .text — SM_PAT_POS)
-.Lpc3:                  
-                                                            # (baked into _pat_inv_0 at .text — SM_PUSH_LIT_I)
-.Lpc4:                  
-                                                            # (baked into _pat_inv_0 at .text — SM_PAT_LEN)
-.Lpc5:                  
-                                                            # (baked into _pat_inv_0 at .text — SM_PAT_CAPTURE)
-.Lpc6:                  
-                                                            # (baked into _pat_inv_0 at .text — SM_PAT_CAT)
-.Lpc7:                  
-	SM_PUSH_VAR .Lstr_1  # var=ALPHABET
-.Lpc8:                  
-	SM_PUSH_INT 0
-.Lpc9:                  
-                        lea     rdi, [rip + _pat_inv_0_α]  # blob entry α  (Phase-2 pc=1..6)
-                        lea     rsi, [rip + .Lstr_1]        # subj_name=ALPHABET
-                        mov     edx, 0                      # has_repl=0
-                        call    scrip_rt_match_blob@PLT     # EM-7c: Phase-3+5 against baked invariant blob
-.Lpc10:                 
+.Lpc0:
+.Lpc1:                                                      # (baked into _pat_inv_0 at .text — SM_PUSH_LIT_I)
+.Lpc2:                                                      # (baked into _pat_inv_0 at .text — SM_PAT_POS)
+.Lpc3:                                                      # (baked into _pat_inv_0 at .text — SM_PUSH_LIT_I)
+.Lpc4:                                                      # (baked into _pat_inv_0 at .text — SM_PAT_LEN)
+.Lpc5:                                                      # (baked into _pat_inv_0 at .text — SM_PAT_CAPTURE)
+.Lpc6:                                                      # (baked into _pat_inv_0 at .text — SM_PAT_CAT)
+.Lpc7:                  PUSH_VAR .Lstr_1                      # var=ALPHABET
+.Lpc8:                  PUSH_INT 0                          
+.Lpc9:                  lea     rdi, [rip + _pat_inv_0_α]  # blob entry α  (Phase-2 pc=1..6)
+	lea     rsi, [rip + .Lstr_1]       # subj_name=ALPHABET
+	mov     edx, 0                     # has_repl=0
+	call    scrip_rt_match_blob@PLT    # EM-7c: Phase-3+5 against baked invariant blob
 
 # ============================================================================
 # stmt 2  (line 2):  * claws5.sno — CLAWS5 POS-tagged corpus tokenizer (one-phase)
 # ============================================================================
-.Lpc11:                 
-	SM_PUSH_STR .Lstr_2, 0  # str="0123456789"
-.Lpc12:                 
-	SM_STORE_VAR .Lstr_3  # store -> DIGITS
-.Lpc13:                 
+.Lpc10:
+.Lpc11:                 PUSH_STR .Lstr_2, 0                   # str="0123456789"
+.Lpc12:                 STORE_VAR .Lstr_3                     # store -> DIGITS
 
 # ============================================================================
 # stmt 3  (line 3):  * ENG 685, Lon Cherryholmes Sr.
 # ============================================================================
-.Lpc14:                 
-	SM_PUSH_STR .Lstr_4, 0  # str="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-.Lpc15:                 
-	SM_STORE_VAR .Lstr_5  # store -> UCASE
-.Lpc16:                 
+.Lpc13:
+.Lpc14:                 PUSH_STR .Lstr_4, 0                   # str="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+.Lpc15:                 STORE_VAR .Lstr_5                     # store -> UCASE
 
 # ============================================================================
 # stmt 4  (line 4):  * Run: csnobol4 -bf -P 34000 claws5.sno < claws5.input
 # ============================================================================
-.Lpc17:                 
-	SM_PUSH_STR .Lstr_6, 0  # str="new_sent()"
-.Lpc18:                 
-	SM_CALL .Lstr_7, 1  # SM_CALL fname="DEFINE" nargs=1
-.Lpc19:                 
-	SM_POP  # SM_POP: discard TOS
-.Lpc20:                 
-	SM_JUMP .Lpc36  # SM_JUMP -> pc=36
-.Lpc21:                 
-.Lpc22:                 
+.Lpc16:
+.Lpc17:                 PUSH_STR .Lstr_6, 0                   # str="new_sent()"
+.Lpc18:                 CALL_FN .Lstr_7, 1                    # SM_CALL fname="DEFINE" nargs=1
+.Lpc19:                 VOID_POP                              # SM_POP: discard TOS
+.Lpc20:                 JUMP .Lpc36                           # SM_JUMP -> pc=36
+.Lpc21:
 
 # ============================================================================
 # stmt 5  (line 13):  new_sent        sentno          =  +num
 # ============================================================================
-.Lpc23:                 
-	SM_PUSH_VAR .Lstr_9  # var=num
-.Lpc24:                 
-	SM_COERCE_NUM  # SM_COERCE_NUM
-.Lpc25:                 
-	SM_STORE_VAR .Lstr_10  # store -> sentno
-.Lpc26:                 
+.Lpc22:
+.Lpc23:                 PUSH_VAR .Lstr_9                      # var=num
+.Lpc24:                 COERCE_NUM                            # SM_COERCE_NUM
+.Lpc25:                 STORE_VAR .Lstr_10                    # store -> sentno
 
 # ============================================================================
 # stmt 6  (line 6):  * Memory: -P 34000 required only for full corpus (CLAWS5inTASA.dat, 989 lines).
 # ============================================================================
-.Lpc27:                 
-	SM_CALL .Lstr_11, 0  # SM_CALL fname="TABLE" nargs=0
-.Lpc28:                 
-	SM_PUSH_VAR .Lstr_12  # var=mem
-.Lpc29:                 
-	SM_PUSH_VAR .Lstr_10  # var=sentno
-.Lpc30:                 
-	SM_CALL .Lstr_13, 3  # SM_CALL fname="IDX_SET" nargs=3
-.Lpc31:                 
+.Lpc26:
+.Lpc27:                 CALL_FN .Lstr_11, 0                   # SM_CALL fname="TABLE" nargs=0
+.Lpc28:                 PUSH_VAR .Lstr_12                     # var=mem
+.Lpc29:                 PUSH_VAR .Lstr_10                     # var=sentno
+.Lpc30:                 CALL_FN .Lstr_13, 3                   # SM_CALL fname="IDX_SET" nargs=3
 
 # ============================================================================
 # stmt 7  (line 7):  *------------------------------------------------------------------------------
 # ============================================================================
-.Lpc32:                 
-	SM_PUSH_STR .Lstr_14, 0  # str="dummy"
-.Lpc33:                 
-	SM_CALL .Lstr_15, 1  # SM_CALL fname="NAME_PUSH" nargs=1
-.Lpc34:                 
-	SM_STORE_VAR .Lstr_8  # store -> new_sent
-.Lpc35:                 
-	SM_RETURN_VARIANT 2, 0, 35  # SM_NRETURN
-.Lpc36:                 
-.Lpc37:                 
+.Lpc31:
+.Lpc32:                 PUSH_STR .Lstr_14, 0                  # str="dummy"
+.Lpc33:                 CALL_FN .Lstr_15, 1                   # SM_CALL fname="NAME_PUSH" nargs=1
+.Lpc34:                 STORE_VAR .Lstr_8                     # store -> new_sent
+.Lpc35:                 RETURN_VARIANT 2, 0, 35               # SM_NRETURN
+.Lpc36:
 
 # ============================================================================
 # stmt 8  (line 17):  *------------------------------------------------------------------------------
 # ============================================================================
-.Lpc38:                 
+.Lpc37:
 
 # ============================================================================
 # stmt 9  (line 9):                  DIGITS          =  '0123456789'
 # ============================================================================
-.Lpc39:                 
-	SM_PUSH_STR .Lstr_17, 0  # str="add_tok()"
-.Lpc40:                 
-	SM_CALL .Lstr_7, 1  # SM_CALL fname="DEFINE" nargs=1
-.Lpc41:                 
-	SM_POP  # SM_POP: discard TOS
-.Lpc42:                 
-	SM_JUMP .Lpc106  # SM_JUMP -> pc=106
-.Lpc43:                 
-.Lpc44:                 
+.Lpc38:
+.Lpc39:                 PUSH_STR .Lstr_17, 0                  # str="add_tok()"
+.Lpc40:                 CALL_FN .Lstr_7, 1                    # SM_CALL fname="DEFINE" nargs=1
+.Lpc41:                 VOID_POP                              # SM_POP: discard TOS
+.Lpc42:                 JUMP .Lpc106                          # SM_JUMP -> pc=106
+.Lpc43:
 
 # ============================================================================
 # stmt 10  (line 19):  add_tok         DIFFER(mem[sentno][wrd])                        :F(new_wrd)
 # ============================================================================
-.Lpc45:                 
-	SM_PUSH_VAR .Lstr_12  # var=mem
-.Lpc46:                 
-	SM_PUSH_VAR .Lstr_10  # var=sentno
-.Lpc47:                 
-	SM_CALL .Lstr_19, 2  # SM_CALL fname="IDX" nargs=2
-.Lpc48:                 
-	SM_PUSH_VAR .Lstr_20  # var=wrd
-.Lpc49:                 
-	SM_CALL .Lstr_19, 2  # SM_CALL fname="IDX" nargs=2
-.Lpc50:                 
-	SM_CALL .Lstr_21, 1  # SM_CALL fname="DIFFER" nargs=1
-.Lpc51:                 
-	SM_POP  # SM_POP: discard TOS
-.Lpc52:                 
-	SM_JUMP_F .Lpc82  # SM_JUMP_F -> pc=82
-.Lpc53:                 
+.Lpc44:
+.Lpc45:                 PUSH_VAR .Lstr_12                     # var=mem
+.Lpc46:                 PUSH_VAR .Lstr_10                     # var=sentno
+.Lpc47:                 CALL_FN .Lstr_19, 2                   # SM_CALL fname="IDX" nargs=2
+.Lpc48:                 PUSH_VAR .Lstr_20                     # var=wrd
+.Lpc49:                 CALL_FN .Lstr_19, 2                   # SM_CALL fname="IDX" nargs=2
+.Lpc50:                 CALL_FN .Lstr_21, 1                   # SM_CALL fname="DIFFER" nargs=1
+.Lpc51:                 VOID_POP                              # SM_POP: discard TOS
+.Lpc52:                 JUMP_F .Lpc82                         # SM_JUMP_F -> pc=82
 
 # ============================================================================
 # stmt 11  (line 11):  *------------------------------------------------------------------------------
 # ============================================================================
-.Lpc54:                 
-	SM_PUSH_VAR .Lstr_12  # var=mem
-.Lpc55:                 
-	SM_PUSH_VAR .Lstr_10  # var=sentno
-.Lpc56:                 
-	SM_CALL .Lstr_19, 2  # SM_CALL fname="IDX" nargs=2
-.Lpc57:                 
-	SM_PUSH_VAR .Lstr_20  # var=wrd
-.Lpc58:                 
-	SM_CALL .Lstr_19, 2  # SM_CALL fname="IDX" nargs=2
-.Lpc59:                 
-	SM_PUSH_VAR .Lstr_22  # var=tag
-.Lpc60:                 
-	SM_CALL .Lstr_19, 2  # SM_CALL fname="IDX" nargs=2
-.Lpc61:                 
-	SM_CALL .Lstr_21, 1  # SM_CALL fname="DIFFER" nargs=1
-.Lpc62:                 
-	SM_POP  # SM_POP: discard TOS
-.Lpc63:                 
-	SM_JUMP_F .Lpc90  # SM_JUMP_F -> pc=90
-.Lpc64:                 
+.Lpc53:
+.Lpc54:                 PUSH_VAR .Lstr_12                     # var=mem
+.Lpc55:                 PUSH_VAR .Lstr_10                     # var=sentno
+.Lpc56:                 CALL_FN .Lstr_19, 2                   # SM_CALL fname="IDX" nargs=2
+.Lpc57:                 PUSH_VAR .Lstr_20                     # var=wrd
+.Lpc58:                 CALL_FN .Lstr_19, 2                   # SM_CALL fname="IDX" nargs=2
+.Lpc59:                 PUSH_VAR .Lstr_22                     # var=tag
+.Lpc60:                 CALL_FN .Lstr_19, 2                   # SM_CALL fname="IDX" nargs=2
+.Lpc61:                 CALL_FN .Lstr_21, 1                   # SM_CALL fname="DIFFER" nargs=1
+.Lpc62:                 VOID_POP                              # SM_POP: discard TOS
+.Lpc63:                 JUMP_F .Lpc90                         # SM_JUMP_F -> pc=90
 
 # ============================================================================
 # stmt 12  (line 12):                  DEFINE('new_sent()')                            :(new_sent_end)
 # ============================================================================
-.Lpc65:                 
-	SM_PUSH_VAR .Lstr_12  # var=mem
-.Lpc66:                 
-	SM_PUSH_VAR .Lstr_10  # var=sentno
-.Lpc67:                 
-	SM_CALL .Lstr_19, 2  # SM_CALL fname="IDX" nargs=2
-.Lpc68:                 
-	SM_PUSH_VAR .Lstr_20  # var=wrd
-.Lpc69:                 
-	SM_CALL .Lstr_19, 2  # SM_CALL fname="IDX" nargs=2
-.Lpc70:                 
-	SM_PUSH_VAR .Lstr_22  # var=tag
-.Lpc71:                 
-	SM_CALL .Lstr_19, 2  # SM_CALL fname="IDX" nargs=2
-.Lpc72:                 
-	SM_PUSH_INT 1
-.Lpc73:                 
-	SM_ARITH 17  # SM_ADD
-.Lpc74:                 
-	SM_PUSH_VAR .Lstr_12  # var=mem
-.Lpc75:                 
-	SM_PUSH_VAR .Lstr_10  # var=sentno
-.Lpc76:                 
-	SM_CALL .Lstr_19, 2  # SM_CALL fname="IDX" nargs=2
-.Lpc77:                 
-	SM_PUSH_VAR .Lstr_20  # var=wrd
-.Lpc78:                 
-	SM_CALL .Lstr_19, 2  # SM_CALL fname="IDX" nargs=2
-.Lpc79:                 
-	SM_PUSH_VAR .Lstr_22  # var=tag
-.Lpc80:                 
-	SM_CALL .Lstr_13, 3  # SM_CALL fname="IDX_SET" nargs=3
-.Lpc81:                 
-	SM_JUMP .Lpc100  # SM_JUMP -> pc=100
-.Lpc82:                 
-.Lpc83:                 
+.Lpc64:
+.Lpc65:                 PUSH_VAR .Lstr_12                     # var=mem
+.Lpc66:                 PUSH_VAR .Lstr_10                     # var=sentno
+.Lpc67:                 CALL_FN .Lstr_19, 2                   # SM_CALL fname="IDX" nargs=2
+.Lpc68:                 PUSH_VAR .Lstr_20                     # var=wrd
+.Lpc69:                 CALL_FN .Lstr_19, 2                   # SM_CALL fname="IDX" nargs=2
+.Lpc70:                 PUSH_VAR .Lstr_22                     # var=tag
+.Lpc71:                 CALL_FN .Lstr_19, 2                   # SM_CALL fname="IDX" nargs=2
+.Lpc72:                 PUSH_INT 1                          
+.Lpc73:                 ARITH 17                              # SM_ADD
+.Lpc74:                 PUSH_VAR .Lstr_12                     # var=mem
+.Lpc75:                 PUSH_VAR .Lstr_10                     # var=sentno
+.Lpc76:                 CALL_FN .Lstr_19, 2                   # SM_CALL fname="IDX" nargs=2
+.Lpc77:                 PUSH_VAR .Lstr_20                     # var=wrd
+.Lpc78:                 CALL_FN .Lstr_19, 2                   # SM_CALL fname="IDX" nargs=2
+.Lpc79:                 PUSH_VAR .Lstr_22                     # var=tag
+.Lpc80:                 CALL_FN .Lstr_13, 3                   # SM_CALL fname="IDX_SET" nargs=3
+.Lpc81:                 JUMP .Lpc100                          # SM_JUMP -> pc=100
+.Lpc82:
 
 # ============================================================================
 # stmt 13  (line 22):  new_wrd         mem[sentno][wrd]       =  TABLE()
 # ============================================================================
-.Lpc84:                 
-	SM_CALL .Lstr_11, 0  # SM_CALL fname="TABLE" nargs=0
-.Lpc85:                 
-	SM_PUSH_VAR .Lstr_12  # var=mem
-.Lpc86:                 
-	SM_PUSH_VAR .Lstr_10  # var=sentno
-.Lpc87:                 
-	SM_CALL .Lstr_19, 2  # SM_CALL fname="IDX" nargs=2
-.Lpc88:                 
-	SM_PUSH_VAR .Lstr_20  # var=wrd
-.Lpc89:                 
-	SM_CALL .Lstr_13, 3  # SM_CALL fname="IDX_SET" nargs=3
-.Lpc90:                 
-.Lpc91:                 
+.Lpc83:
+.Lpc84:                 CALL_FN .Lstr_11, 0                   # SM_CALL fname="TABLE" nargs=0
+.Lpc85:                 PUSH_VAR .Lstr_12                     # var=mem
+.Lpc86:                 PUSH_VAR .Lstr_10                     # var=sentno
+.Lpc87:                 CALL_FN .Lstr_19, 2                   # SM_CALL fname="IDX" nargs=2
+.Lpc88:                 PUSH_VAR .Lstr_20                     # var=wrd
+.Lpc89:                 CALL_FN .Lstr_13, 3                   # SM_CALL fname="IDX_SET" nargs=3
+.Lpc90:
 
 # ============================================================================
 # stmt 14  (line 23):  new_tag         mem[sentno][wrd][tag]  =  1
 # ============================================================================
-.Lpc92:                 
-	SM_PUSH_INT 1
-.Lpc93:                 
-	SM_PUSH_VAR .Lstr_12  # var=mem
-.Lpc94:                 
-	SM_PUSH_VAR .Lstr_10  # var=sentno
-.Lpc95:                 
-	SM_CALL .Lstr_19, 2  # SM_CALL fname="IDX" nargs=2
-.Lpc96:                 
-	SM_PUSH_VAR .Lstr_20  # var=wrd
-.Lpc97:                 
-	SM_CALL .Lstr_19, 2  # SM_CALL fname="IDX" nargs=2
-.Lpc98:                 
-	SM_PUSH_VAR .Lstr_22  # var=tag
-.Lpc99:                 
-	SM_CALL .Lstr_13, 3  # SM_CALL fname="IDX_SET" nargs=3
-.Lpc100:                
-.Lpc101:                
+.Lpc91:
+.Lpc92:                 PUSH_INT 1                          
+.Lpc93:                 PUSH_VAR .Lstr_12                     # var=mem
+.Lpc94:                 PUSH_VAR .Lstr_10                     # var=sentno
+.Lpc95:                 CALL_FN .Lstr_19, 2                   # SM_CALL fname="IDX" nargs=2
+.Lpc96:                 PUSH_VAR .Lstr_20                     # var=wrd
+.Lpc97:                 CALL_FN .Lstr_19, 2                   # SM_CALL fname="IDX" nargs=2
+.Lpc98:                 PUSH_VAR .Lstr_22                     # var=tag
+.Lpc99:                 CALL_FN .Lstr_13, 3                   # SM_CALL fname="IDX_SET" nargs=3
+.Lpc100:
 
 # ============================================================================
 # stmt 15  (line 24):  done            add_tok         =  .dummy                       :(NRETURN)
 # ============================================================================
-.Lpc102:                
-	SM_PUSH_STR .Lstr_14, 0  # str="dummy"
-.Lpc103:                
-	SM_CALL .Lstr_15, 1  # SM_CALL fname="NAME_PUSH" nargs=1
-.Lpc104:                
-	SM_STORE_VAR .Lstr_18  # store -> add_tok
-.Lpc105:                
-	SM_RETURN_VARIANT 2, 0, 105  # SM_NRETURN
-.Lpc106:                
-.Lpc107:                
+.Lpc101:
+.Lpc102:                PUSH_STR .Lstr_14, 0                  # str="dummy"
+.Lpc103:                CALL_FN .Lstr_15, 1                   # SM_CALL fname="NAME_PUSH" nargs=1
+.Lpc104:                STORE_VAR .Lstr_18                    # store -> add_tok
+.Lpc105:                RETURN_VARIANT 2, 0, 105              # SM_NRETURN
+.Lpc106:
 
 # ============================================================================
 # stmt 16  (line 26):  *------------------------------------------------------------------------------
 # ============================================================================
-.Lpc108:                
+.Lpc107:
 
 # ============================================================================
 # stmt 17  (line 17):  *------------------------------------------------------------------------------
 # ============================================================================
-.Lpc109:                
-	SM_PUSH_STR .Lstr_27, 0  # str="pp_mem(mem)ssk,si,sentno,wsk,wi,wkey,wq,..."
-.Lpc110:                
-	SM_CALL .Lstr_7, 1  # SM_CALL fname="DEFINE" nargs=1
-.Lpc111:                
-	SM_POP  # SM_POP: discard TOS
-.Lpc112:                
-	SM_JUMP .Lpc426  # SM_JUMP -> pc=426
-.Lpc113:                
-.Lpc114:                
+.Lpc108:
+.Lpc109:                PUSH_STR .Lstr_27, 0                  # str="pp_mem(mem)ssk,si,sentno,wsk,wi,wkey,wq,..."
+.Lpc110:                CALL_FN .Lstr_7, 1                    # SM_CALL fname="DEFINE" nargs=1
+.Lpc111:                VOID_POP                              # SM_POP: discard TOS
+.Lpc112:                JUMP .Lpc426                          # SM_JUMP -> pc=426
+.Lpc113:
 
 # ============================================================================
 # stmt 18  (line 28):  pp_mem          ssk             =   SORT(mem)
 # ============================================================================
-.Lpc115:                
-	SM_PUSH_VAR .Lstr_12  # var=mem
-.Lpc116:                
-	SM_CALL .Lstr_29, 1  # SM_CALL fname="SORT" nargs=1
-.Lpc117:                
-	SM_STORE_VAR .Lstr_30  # store -> ssk
-.Lpc118:                
+.Lpc114:
+.Lpc115:                PUSH_VAR .Lstr_12                     # var=mem
+.Lpc116:                CALL_FN .Lstr_29, 1                   # SM_CALL fname="SORT" nargs=1
+.Lpc117:                STORE_VAR .Lstr_30                    # store -> ssk
 
 # ============================================================================
 # stmt 19  (line 19):  add_tok         DIFFER(mem[sentno][wrd])                        :F(new_wrd)
 # ============================================================================
-.Lpc119:                
-	SM_PUSH_INT 0
-.Lpc120:                
-	SM_STORE_VAR .Lstr_31  # store -> si
-.Lpc121:                
+.Lpc118:
+.Lpc119:                PUSH_INT 0                          
+.Lpc120:                STORE_VAR .Lstr_31                    # store -> si
 
 # ============================================================================
 # stmt 20  (line 20):                  DIFFER(mem[sentno][wrd][tag])                   :F(new_tag)
 # ============================================================================
-.Lpc122:                
-	SM_PUSH_INT 0
-.Lpc123:                
-	SM_STORE_VAR .Lstr_32  # store -> ns
-.Lpc124:                
-.Lpc125:                
+.Lpc121:
+.Lpc122:                PUSH_INT 0                          
+.Lpc123:                STORE_VAR .Lstr_32                    # store -> ns
+.Lpc124:
 
 # ============================================================================
 # stmt 21  (line 31):  pm_cnt_loop     ns              =   ns + 1
 # ============================================================================
-.Lpc126:                
-	SM_PUSH_VAR .Lstr_32  # var=ns
-.Lpc127:                
-	SM_PUSH_INT 1
-.Lpc128:                
-	SM_ARITH 17  # SM_ADD
-.Lpc129:                
-	SM_STORE_VAR .Lstr_32  # store -> ns
-.Lpc130:                
+.Lpc125:
+.Lpc126:                PUSH_VAR .Lstr_32                     # var=ns
+.Lpc127:                PUSH_INT 1                          
+.Lpc128:                ARITH 17                              # SM_ADD
+.Lpc129:                STORE_VAR .Lstr_32                    # store -> ns
 
 # ============================================================================
 # stmt 22  (line 22):  new_wrd         mem[sentno][wrd]       =  TABLE()
 # ============================================================================
-.Lpc131:                
-	SM_PUSH_VAR .Lstr_30  # var=ssk
-.Lpc132:                
-	SM_PUSH_VAR .Lstr_32  # var=ns
-.Lpc133:                
-	SM_PUSH_INT 1
-.Lpc134:                
-	SM_CALL .Lstr_19, 3  # SM_CALL fname="IDX" nargs=3
-.Lpc135:                
-	SM_POP  # SM_POP: discard TOS
-.Lpc136:                
-	SM_JUMP_S .Lpc124  # SM_JUMP_S -> pc=124
-.Lpc137:                
+.Lpc130:
+.Lpc131:                PUSH_VAR .Lstr_30                     # var=ssk
+.Lpc132:                PUSH_VAR .Lstr_32                     # var=ns
+.Lpc133:                PUSH_INT 1                          
+.Lpc134:                CALL_FN .Lstr_19, 3                   # SM_CALL fname="IDX" nargs=3
+.Lpc135:                VOID_POP                              # SM_POP: discard TOS
+.Lpc136:                JUMP_S .Lpc124                        # SM_JUMP_S -> pc=124
 
 # ============================================================================
 # stmt 23  (line 23):  new_tag         mem[sentno][wrd][tag]  =  1
 # ============================================================================
-.Lpc138:                
-	SM_PUSH_VAR .Lstr_32  # var=ns
-.Lpc139:                
-	SM_PUSH_INT 1
-.Lpc140:                
-	SM_ARITH 18  # SM_SUB
-.Lpc141:                
-	SM_STORE_VAR .Lstr_32  # store -> ns
-.Lpc142:                
+.Lpc137:
+.Lpc138:                PUSH_VAR .Lstr_32                     # var=ns
+.Lpc139:                PUSH_INT 1                          
+.Lpc140:                ARITH 18                              # SM_SUB
+.Lpc141:                STORE_VAR .Lstr_32                    # store -> ns
 
 # ============================================================================
 # stmt 24  (line 24):  done            add_tok         =  .dummy                       :(NRETURN)
 # ============================================================================
-.Lpc143:                
-	SM_PUSH_INT 0
-.Lpc144:                
-	SM_STORE_VAR .Lstr_31  # store -> si
-.Lpc145:                
-.Lpc146:                
+.Lpc142:
+.Lpc143:                PUSH_INT 0                          
+.Lpc144:                STORE_VAR .Lstr_31                    # store -> si
+.Lpc145:
 
 # ============================================================================
 # stmt 25  (line 35):  pm_sent_loop    si              =   si + 1
 # ============================================================================
-.Lpc147:                
-	SM_PUSH_VAR .Lstr_31  # var=si
-.Lpc148:                
-	SM_PUSH_INT 1
-.Lpc149:                
-	SM_ARITH 17  # SM_ADD
-.Lpc150:                
-	SM_STORE_VAR .Lstr_31  # store -> si
-.Lpc151:                
+.Lpc146:
+.Lpc147:                PUSH_VAR .Lstr_31                     # var=si
+.Lpc148:                PUSH_INT 1                          
+.Lpc149:                ARITH 17                              # SM_ADD
+.Lpc150:                STORE_VAR .Lstr_31                    # store -> si
 
 # ============================================================================
 # stmt 26  (line 26):  *------------------------------------------------------------------------------
 # ============================================================================
-.Lpc152:                
-	SM_PUSH_VAR .Lstr_30  # var=ssk
-.Lpc153:                
-	SM_PUSH_VAR .Lstr_31  # var=si
-.Lpc154:                
-	SM_PUSH_INT 1
-.Lpc155:                
-	SM_CALL .Lstr_19, 3  # SM_CALL fname="IDX" nargs=3
-.Lpc156:                
-	SM_STORE_VAR .Lstr_10  # store -> sentno
-.Lpc157:                
-	SM_JUMP_F .Lpc420  # SM_JUMP_F -> pc=420
-.Lpc158:                
+.Lpc151:
+.Lpc152:                PUSH_VAR .Lstr_30                     # var=ssk
+.Lpc153:                PUSH_VAR .Lstr_31                     # var=si
+.Lpc154:                PUSH_INT 1                          
+.Lpc155:                CALL_FN .Lstr_19, 3                   # SM_CALL fname="IDX" nargs=3
+.Lpc156:                STORE_VAR .Lstr_10                    # store -> sentno
+.Lpc157:                JUMP_F .Lpc420                        # SM_JUMP_F -> pc=420
 
 # ============================================================================
 # stmt 27  (line 27):                  DEFINE('pp_mem(mem)ssk,si,sentno,wsk,wi,wkey,wq,wrd,tsk,ti,tag,tv,tline,pfx,pad,next_wkey,last_sent,lline,ns') :(pp_mem_end)
 # ============================================================================
-.Lpc159:                
-	SM_PUSH_STR .Lstr_35, 0  # str=""
-.Lpc160:                
-	SM_STORE_VAR .Lstr_36  # store -> last_sent
-.Lpc161:                
+.Lpc158:
+.Lpc159:                PUSH_STR .Lstr_35, 0                  # str=""
+.Lpc160:                STORE_VAR .Lstr_36                    # store -> last_sent
 
 # ============================================================================
 # stmt 28  (line 28):  pp_mem          ssk             =   SORT(mem)
 # ============================================================================
-.Lpc162:                
-	SM_PUSH_VAR .Lstr_31  # var=si
-.Lpc163:                
-	SM_PUSH_VAR .Lstr_32  # var=ns
-.Lpc164:                
-	SM_CALL .Lstr_37, 2  # SM_CALL fname="IDENT" nargs=2
-.Lpc165:                
-	SM_PUSH_INT 1
-.Lpc166:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc167:                
-	SM_STORE_VAR .Lstr_36  # store -> last_sent
-.Lpc168:                
+.Lpc161:
+.Lpc162:                PUSH_VAR .Lstr_31                     # var=si
+.Lpc163:                PUSH_VAR .Lstr_32                     # var=ns
+.Lpc164:                CALL_FN .Lstr_37, 2                   # SM_CALL fname="IDENT" nargs=2
+.Lpc165:                PUSH_INT 1                          
+.Lpc166:                CONCAT                                # SM_CONCAT
+.Lpc167:                STORE_VAR .Lstr_36                    # store -> last_sent
 
 # ============================================================================
 # stmt 29  (line 29):                  si              =   0
 # ============================================================================
-.Lpc169:                
-	SM_PUSH_STR .Lstr_38, 0  # str=" "
-.Lpc170:                
-	SM_PUSH_VAR .Lstr_10  # var=sentno
-.Lpc171:                
-	SM_CALL .Lstr_39, 1  # SM_CALL fname="SIZE" nargs=1
-.Lpc172:                
-	SM_PUSH_INT 4
-.Lpc173:                
-	SM_ARITH 17  # SM_ADD
-.Lpc174:                
-	SM_CALL .Lstr_40, 2  # SM_CALL fname="DUPL" nargs=2
-.Lpc175:                
-	SM_STORE_VAR .Lstr_41  # store -> pad
-.Lpc176:                
+.Lpc168:
+.Lpc169:                PUSH_STR .Lstr_38, 0                  # str=" "
+.Lpc170:                PUSH_VAR .Lstr_10                     # var=sentno
+.Lpc171:                CALL_FN .Lstr_39, 1                   # SM_CALL fname="SIZE" nargs=1
+.Lpc172:                PUSH_INT 4                          
+.Lpc173:                ARITH 17                              # SM_ADD
+.Lpc174:                CALL_FN .Lstr_40, 2                   # SM_CALL fname="DUPL" nargs=2
+.Lpc175:                STORE_VAR .Lstr_41                    # store -> pad
 
 # ============================================================================
 # stmt 30  (line 30):                  ns              =   0
 # ============================================================================
-.Lpc177:                
-	SM_PUSH_VAR .Lstr_31  # var=si
-.Lpc178:                
-	SM_PUSH_INT 1
-.Lpc179:                
-	SM_CALL .Lstr_42, 2  # SM_CALL fname="EQ" nargs=2
-.Lpc180:                
-	SM_PUSH_STR .Lstr_43, 0  # str="{"
-.Lpc181:                
-	SM_PUSH_VAR .Lstr_10  # var=sentno
-.Lpc182:                
-	SM_PUSH_STR .Lstr_44, 0  # str=": {"
-.Lpc183:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc184:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc185:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc186:                
-	SM_STORE_VAR .Lstr_45  # store -> pfx
-.Lpc187:                
+.Lpc176:
+.Lpc177:                PUSH_VAR .Lstr_31                     # var=si
+.Lpc178:                PUSH_INT 1                          
+.Lpc179:                CALL_FN .Lstr_42, 2                   # SM_CALL fname="EQ" nargs=2
+.Lpc180:                PUSH_STR .Lstr_43, 0                  # str="{"
+.Lpc181:                PUSH_VAR .Lstr_10                     # var=sentno
+.Lpc182:                PUSH_STR .Lstr_44, 0                  # str=": {"
+.Lpc183:                CONCAT                                # SM_CONCAT
+.Lpc184:                CONCAT                                # SM_CONCAT
+.Lpc185:                CONCAT                                # SM_CONCAT
+.Lpc186:                STORE_VAR .Lstr_45                    # store -> pfx
 
 # ============================================================================
 # stmt 31  (line 31):  pm_cnt_loop     ns              =   ns + 1
 # ============================================================================
-.Lpc188:                
-	SM_PUSH_VAR .Lstr_31  # var=si
-.Lpc189:                
-	SM_PUSH_INT 1
-.Lpc190:                
-	SM_CALL .Lstr_46, 2  # SM_CALL fname="NE" nargs=2
-.Lpc191:                
-	SM_PUSH_STR .Lstr_38, 0  # str=" "
-.Lpc192:                
-	SM_PUSH_VAR .Lstr_10  # var=sentno
-.Lpc193:                
-	SM_PUSH_STR .Lstr_44, 0  # str=": {"
-.Lpc194:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc195:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc196:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc197:                
-	SM_STORE_VAR .Lstr_45  # store -> pfx
-.Lpc198:                
+.Lpc187:
+.Lpc188:                PUSH_VAR .Lstr_31                     # var=si
+.Lpc189:                PUSH_INT 1                          
+.Lpc190:                CALL_FN .Lstr_46, 2                   # SM_CALL fname="NE" nargs=2
+.Lpc191:                PUSH_STR .Lstr_38, 0                  # str=" "
+.Lpc192:                PUSH_VAR .Lstr_10                     # var=sentno
+.Lpc193:                PUSH_STR .Lstr_44, 0                  # str=": {"
+.Lpc194:                CONCAT                                # SM_CONCAT
+.Lpc195:                CONCAT                                # SM_CONCAT
+.Lpc196:                CONCAT                                # SM_CONCAT
+.Lpc197:                STORE_VAR .Lstr_45                    # store -> pfx
 
 # ============================================================================
 # stmt 32  (line 32):                  ssk[ns,1]                                       :S(pm_cnt_loop)
 # ============================================================================
-.Lpc199:                
-	SM_PUSH_VAR .Lstr_12  # var=mem
-.Lpc200:                
-	SM_PUSH_VAR .Lstr_10  # var=sentno
-.Lpc201:                
-	SM_CALL .Lstr_19, 2  # SM_CALL fname="IDX" nargs=2
-.Lpc202:                
-	SM_CALL .Lstr_29, 1  # SM_CALL fname="SORT" nargs=1
-.Lpc203:                
-	SM_STORE_VAR .Lstr_47  # store -> wsk
-.Lpc204:                
+.Lpc198:
+.Lpc199:                PUSH_VAR .Lstr_12                     # var=mem
+.Lpc200:                PUSH_VAR .Lstr_10                     # var=sentno
+.Lpc201:                CALL_FN .Lstr_19, 2                   # SM_CALL fname="IDX" nargs=2
+.Lpc202:                CALL_FN .Lstr_29, 1                   # SM_CALL fname="SORT" nargs=1
+.Lpc203:                STORE_VAR .Lstr_47                    # store -> wsk
 
 # ============================================================================
 # stmt 33  (line 33):                  ns              =   ns - 1
 # ============================================================================
-.Lpc205:                
-	SM_PUSH_INT 0
-.Lpc206:                
-	SM_STORE_VAR .Lstr_48  # store -> wi
-.Lpc207:                
-.Lpc208:                
+.Lpc204:
+.Lpc205:                PUSH_INT 0                          
+.Lpc206:                STORE_VAR .Lstr_48                    # store -> wi
+.Lpc207:
 
 # ============================================================================
 # stmt 34  (line 44):  pm_wrd_loop     wi              =   wi + 1
 # ============================================================================
-.Lpc209:                
-	SM_PUSH_VAR .Lstr_48  # var=wi
-.Lpc210:                
-	SM_PUSH_INT 1
-.Lpc211:                
-	SM_ARITH 17  # SM_ADD
-.Lpc212:                
-	SM_STORE_VAR .Lstr_48  # store -> wi
-.Lpc213:                
+.Lpc208:
+.Lpc209:                PUSH_VAR .Lstr_48                     # var=wi
+.Lpc210:                PUSH_INT 1                          
+.Lpc211:                ARITH 17                              # SM_ADD
+.Lpc212:                STORE_VAR .Lstr_48                    # store -> wi
 
 # ============================================================================
 # stmt 35  (line 35):  pm_sent_loop    si              =   si + 1
 # ============================================================================
-.Lpc214:                
-	SM_PUSH_VAR .Lstr_47  # var=wsk
-.Lpc215:                
-	SM_PUSH_VAR .Lstr_48  # var=wi
-.Lpc216:                
-	SM_PUSH_INT 1
-.Lpc217:                
-	SM_CALL .Lstr_19, 3  # SM_CALL fname="IDX" nargs=3
-.Lpc218:                
-	SM_STORE_VAR .Lstr_50  # store -> wkey
-.Lpc219:                
-	SM_JUMP_F .Lpc145  # SM_JUMP_F -> pc=145
-.Lpc220:                
+.Lpc213:
+.Lpc214:                PUSH_VAR .Lstr_47                     # var=wsk
+.Lpc215:                PUSH_VAR .Lstr_48                     # var=wi
+.Lpc216:                PUSH_INT 1                          
+.Lpc217:                CALL_FN .Lstr_19, 3                   # SM_CALL fname="IDX" nargs=3
+.Lpc218:                STORE_VAR .Lstr_50                    # store -> wkey
+.Lpc219:                JUMP_F .Lpc145                        # SM_JUMP_F -> pc=145
 
 # ============================================================================
 # stmt 36  (line 36):                  sentno          =   ssk[si,1]                   :F(pm_done)
 # ============================================================================
-.Lpc221:                
-	SM_PUSH_STR .Lstr_35, 0  # str=""
-.Lpc222:                
-	SM_STORE_VAR .Lstr_51  # store -> next_wkey
-.Lpc223:                
+.Lpc220:
+.Lpc221:                PUSH_STR .Lstr_35, 0                  # str=""
+.Lpc222:                STORE_VAR .Lstr_51                    # store -> next_wkey
 
 # ============================================================================
 # stmt 37  (line 37):                  last_sent       =   ''
 # ============================================================================
-.Lpc224:                
-	SM_PUSH_VAR .Lstr_47  # var=wsk
-.Lpc225:                
-	SM_PUSH_VAR .Lstr_48  # var=wi
-.Lpc226:                
-	SM_PUSH_INT 1
-.Lpc227:                
-	SM_ARITH 17  # SM_ADD
-.Lpc228:                
-	SM_PUSH_INT 1
-.Lpc229:                
-	SM_CALL .Lstr_19, 3  # SM_CALL fname="IDX" nargs=3
-.Lpc230:                
-	SM_STORE_VAR .Lstr_51  # store -> next_wkey
-.Lpc231:                
+.Lpc223:
+.Lpc224:                PUSH_VAR .Lstr_47                     # var=wsk
+.Lpc225:                PUSH_VAR .Lstr_48                     # var=wi
+.Lpc226:                PUSH_INT 1                          
+.Lpc227:                ARITH 17                              # SM_ADD
+.Lpc228:                PUSH_INT 1                          
+.Lpc229:                CALL_FN .Lstr_19, 3                   # SM_CALL fname="IDX" nargs=3
+.Lpc230:                STORE_VAR .Lstr_51                    # store -> next_wkey
 
 # ============================================================================
 # stmt 38  (line 38):                  last_sent       =   IDENT(si, ns) 1
 # ============================================================================
-.Lpc232:                
-	SM_PUSH_VAR .Lstr_50  # var=wkey
-.Lpc233:                
-	SM_STORE_VAR .Lstr_20  # store -> wrd
-.Lpc234:                
+.Lpc231:
+.Lpc232:                PUSH_VAR .Lstr_50                     # var=wkey
+.Lpc233:                STORE_VAR .Lstr_20                    # store -> wrd
 
 # ============================================================================
 # stmt 39  (line 39):                  pad             =   DUPL(' ', SIZE(sentno) + 4)
 # ============================================================================
-.Lpc235:                
-	SM_PUSH_VAR .Lstr_52  # var=ARB
-.Lpc236:                
-	SM_PAT_DEREF  # SM_PAT_DEREF
-.Lpc237:                
-	SM_PAT_LIT .Lstr_53  # SM_PAT_LIT arg="'"
-.Lpc238:                
-	SM_PAT_CAT  # SM_PAT_CAT
-.Lpc239:                
-	SM_PUSH_VAR .Lstr_20  # var=wrd
-.Lpc240:                
-	SM_PUSH_STR .Lstr_35, 0  # str=""
-.Lpc241:                
-	SM_EXEC_STMT_VARIANT 1, .Lstr_20  # SM_EXEC_STMT_VARIANT subj=wrd has_repl=1
-.Lpc242:                
-	SM_JUMP_F .Lpc251  # SM_JUMP_F -> pc=251
-.Lpc243:                
+.Lpc234:
+.Lpc235:                PUSH_VAR .Lstr_52                     # var=ARB
+.Lpc236:                PAT_DEREF                             # SM_PAT_DEREF
+.Lpc237:                PAT_LIT .Lstr_53                      # SM_PAT_LIT arg="'"
+.Lpc238:                PAT_CAT                               # SM_PAT_CAT
+.Lpc239:                PUSH_VAR .Lstr_20                     # var=wrd
+.Lpc240:                PUSH_STR .Lstr_35, 0                  # str=""
+.Lpc241:                EXEC_STMT_VARIANT 1, .Lstr_20         # SM_EXEC_STMT_VARIANT subj=wrd has_repl=1
+.Lpc242:                JUMP_F .Lpc251                        # SM_JUMP_F -> pc=251
 
 # ============================================================================
 # stmt 40  (line 40):                  pfx             =   EQ(si, 1) '{' sentno ': {'
 # ============================================================================
-.Lpc244:                
-	SM_PUSH_STR .Lstr_54, 0  # str="\""
-.Lpc245:                
-	SM_PUSH_VAR .Lstr_50  # var=wkey
-.Lpc246:                
-	SM_PUSH_STR .Lstr_54, 0  # str="\""
-.Lpc247:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc248:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc249:                
-	SM_STORE_VAR .Lstr_55  # store -> wq
-.Lpc250:                
-	SM_JUMP .Lpc259  # SM_JUMP -> pc=259
-.Lpc251:                
-.Lpc252:                
+.Lpc243:
+.Lpc244:                PUSH_STR .Lstr_54, 0                  # str="\""
+.Lpc245:                PUSH_VAR .Lstr_50                     # var=wkey
+.Lpc246:                PUSH_STR .Lstr_54, 0                  # str="\""
+.Lpc247:                CONCAT                                # SM_CONCAT
+.Lpc248:                CONCAT                                # SM_CONCAT
+.Lpc249:                STORE_VAR .Lstr_55                    # store -> wq
+.Lpc250:                JUMP .Lpc259                          # SM_JUMP -> pc=259
+.Lpc251:
 
 # ============================================================================
 # stmt 41  (line 51):  pm_sq           wq              =   "'" wkey "'"
 # ============================================================================
-.Lpc253:                
-	SM_PUSH_STR .Lstr_53, 0  # str="'"
-.Lpc254:                
-	SM_PUSH_VAR .Lstr_50  # var=wkey
-.Lpc255:                
-	SM_PUSH_STR .Lstr_53, 0  # str="'"
-.Lpc256:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc257:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc258:                
-	SM_STORE_VAR .Lstr_55  # store -> wq
-.Lpc259:                
-.Lpc260:                
+.Lpc252:
+.Lpc253:                PUSH_STR .Lstr_53, 0                  # str="'"
+.Lpc254:                PUSH_VAR .Lstr_50                     # var=wkey
+.Lpc255:                PUSH_STR .Lstr_53, 0                  # str="'"
+.Lpc256:                CONCAT                                # SM_CONCAT
+.Lpc257:                CONCAT                                # SM_CONCAT
+.Lpc258:                STORE_VAR .Lstr_55                    # store -> wq
+.Lpc259:
 
 # ============================================================================
 # stmt 42  (line 52):  pm_tdict        tsk             =   SORT(mem[sentno][wkey])
 # ============================================================================
-.Lpc261:                
-	SM_PUSH_VAR .Lstr_12  # var=mem
-.Lpc262:                
-	SM_PUSH_VAR .Lstr_10  # var=sentno
-.Lpc263:                
-	SM_CALL .Lstr_19, 2  # SM_CALL fname="IDX" nargs=2
-.Lpc264:                
-	SM_PUSH_VAR .Lstr_50  # var=wkey
-.Lpc265:                
-	SM_CALL .Lstr_19, 2  # SM_CALL fname="IDX" nargs=2
-.Lpc266:                
-	SM_CALL .Lstr_29, 1  # SM_CALL fname="SORT" nargs=1
-.Lpc267:                
-	SM_STORE_VAR .Lstr_58  # store -> tsk
-.Lpc268:                
+.Lpc260:
+.Lpc261:                PUSH_VAR .Lstr_12                     # var=mem
+.Lpc262:                PUSH_VAR .Lstr_10                     # var=sentno
+.Lpc263:                CALL_FN .Lstr_19, 2                   # SM_CALL fname="IDX" nargs=2
+.Lpc264:                PUSH_VAR .Lstr_50                     # var=wkey
+.Lpc265:                CALL_FN .Lstr_19, 2                   # SM_CALL fname="IDX" nargs=2
+.Lpc266:                CALL_FN .Lstr_29, 1                   # SM_CALL fname="SORT" nargs=1
+.Lpc267:                STORE_VAR .Lstr_58                    # store -> tsk
 
 # ============================================================================
 # stmt 43  (line 43):                  wi              =   0
 # ============================================================================
-.Lpc269:                
-	SM_PUSH_INT 0
-.Lpc270:                
-	SM_STORE_VAR .Lstr_59  # store -> ti
-.Lpc271:                
+.Lpc268:
+.Lpc269:                PUSH_INT 0                          
+.Lpc270:                STORE_VAR .Lstr_59                    # store -> ti
 
 # ============================================================================
 # stmt 44  (line 44):  pm_wrd_loop     wi              =   wi + 1
 # ============================================================================
-.Lpc272:                
-	SM_PUSH_STR .Lstr_43, 0  # str="{"
-.Lpc273:                
-	SM_STORE_VAR .Lstr_60  # store -> tline
-.Lpc274:                
-.Lpc275:                
+.Lpc271:
+.Lpc272:                PUSH_STR .Lstr_43, 0                  # str="{"
+.Lpc273:                STORE_VAR .Lstr_60                    # store -> tline
+.Lpc274:
 
 # ============================================================================
 # stmt 45  (line 55):  pm_tag_loop     ti              =   ti + 1
 # ============================================================================
-.Lpc276:                
-	SM_PUSH_VAR .Lstr_59  # var=ti
-.Lpc277:                
-	SM_PUSH_INT 1
-.Lpc278:                
-	SM_ARITH 17  # SM_ADD
-.Lpc279:                
-	SM_STORE_VAR .Lstr_59  # store -> ti
-.Lpc280:                
+.Lpc275:
+.Lpc276:                PUSH_VAR .Lstr_59                     # var=ti
+.Lpc277:                PUSH_INT 1                          
+.Lpc278:                ARITH 17                              # SM_ADD
+.Lpc279:                STORE_VAR .Lstr_59                    # store -> ti
 
 # ============================================================================
 # stmt 46  (line 46):                  next_wkey       =   ''
 # ============================================================================
-.Lpc281:                
-	SM_PUSH_VAR .Lstr_58  # var=tsk
-.Lpc282:                
-	SM_PUSH_VAR .Lstr_59  # var=ti
-.Lpc283:                
-	SM_PUSH_INT 1
-.Lpc284:                
-	SM_CALL .Lstr_19, 3  # SM_CALL fname="IDX" nargs=3
-.Lpc285:                
-	SM_STORE_VAR .Lstr_22  # store -> tag
-.Lpc286:                
-	SM_JUMP_F .Lpc329  # SM_JUMP_F -> pc=329
-.Lpc287:                
+.Lpc280:
+.Lpc281:                PUSH_VAR .Lstr_58                     # var=tsk
+.Lpc282:                PUSH_VAR .Lstr_59                     # var=ti
+.Lpc283:                PUSH_INT 1                          
+.Lpc284:                CALL_FN .Lstr_19, 3                   # SM_CALL fname="IDX" nargs=3
+.Lpc285:                STORE_VAR .Lstr_22                    # store -> tag
+.Lpc286:                JUMP_F .Lpc329                        # SM_JUMP_F -> pc=329
 
 # ============================================================================
 # stmt 47  (line 47):                  next_wkey       =   wsk[wi + 1,1]
 # ============================================================================
-.Lpc288:                
-	SM_PUSH_VAR .Lstr_12  # var=mem
-.Lpc289:                
-	SM_PUSH_VAR .Lstr_10  # var=sentno
-.Lpc290:                
-	SM_CALL .Lstr_19, 2  # SM_CALL fname="IDX" nargs=2
-.Lpc291:                
-	SM_PUSH_VAR .Lstr_50  # var=wkey
-.Lpc292:                
-	SM_CALL .Lstr_19, 2  # SM_CALL fname="IDX" nargs=2
-.Lpc293:                
-	SM_PUSH_VAR .Lstr_22  # var=tag
-.Lpc294:                
-	SM_CALL .Lstr_19, 2  # SM_CALL fname="IDX" nargs=2
-.Lpc295:                
-	SM_STORE_VAR .Lstr_62  # store -> tv
-.Lpc296:                
+.Lpc287:
+.Lpc288:                PUSH_VAR .Lstr_12                     # var=mem
+.Lpc289:                PUSH_VAR .Lstr_10                     # var=sentno
+.Lpc290:                CALL_FN .Lstr_19, 2                   # SM_CALL fname="IDX" nargs=2
+.Lpc291:                PUSH_VAR .Lstr_50                     # var=wkey
+.Lpc292:                CALL_FN .Lstr_19, 2                   # SM_CALL fname="IDX" nargs=2
+.Lpc293:                PUSH_VAR .Lstr_22                     # var=tag
+.Lpc294:                CALL_FN .Lstr_19, 2                   # SM_CALL fname="IDX" nargs=2
+.Lpc295:                STORE_VAR .Lstr_62                    # store -> tv
 
 # ============================================================================
 # stmt 48  (line 48):                  wrd             =   wkey
 # ============================================================================
-.Lpc297:                
-	SM_PUSH_VAR .Lstr_60  # var=tline
-.Lpc298:                
-	SM_PUSH_STR .Lstr_43, 0  # str="{"
-.Lpc299:                
-	SM_CALL .Lstr_37, 2  # SM_CALL fname="IDENT" nargs=2
-.Lpc300:                
-	SM_POP  # SM_POP: discard TOS
-.Lpc301:                
-	SM_JUMP_F .Lpc314  # SM_JUMP_F -> pc=314
-.Lpc302:                
+.Lpc296:
+.Lpc297:                PUSH_VAR .Lstr_60                     # var=tline
+.Lpc298:                PUSH_STR .Lstr_43, 0                  # str="{"
+.Lpc299:                CALL_FN .Lstr_37, 2                   # SM_CALL fname="IDENT" nargs=2
+.Lpc300:                VOID_POP                              # SM_POP: discard TOS
+.Lpc301:                JUMP_F .Lpc314                        # SM_JUMP_F -> pc=314
 
 # ============================================================================
 # stmt 49  (line 49):                  wrd             ?   ARB "'"  =  ''              :F(pm_sq)
 # ============================================================================
-.Lpc303:                
-	SM_PUSH_VAR .Lstr_60  # var=tline
-.Lpc304:                
-	SM_PUSH_STR .Lstr_53, 0  # str="'"
-.Lpc305:                
-	SM_PUSH_VAR .Lstr_22  # var=tag
-.Lpc306:                
-	SM_PUSH_STR .Lstr_63, 0  # str="': "
-.Lpc307:                
-	SM_PUSH_VAR .Lstr_62  # var=tv
-.Lpc308:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc309:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc310:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc311:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc312:                
-	SM_STORE_VAR .Lstr_60  # store -> tline
-.Lpc313:                
-	SM_JUMP .Lpc274  # SM_JUMP -> pc=274
-.Lpc314:                
-.Lpc315:                
+.Lpc302:
+.Lpc303:                PUSH_VAR .Lstr_60                     # var=tline
+.Lpc304:                PUSH_STR .Lstr_53, 0                  # str="'"
+.Lpc305:                PUSH_VAR .Lstr_22                     # var=tag
+.Lpc306:                PUSH_STR .Lstr_63, 0                  # str="': "
+.Lpc307:                PUSH_VAR .Lstr_62                     # var=tv
+.Lpc308:                CONCAT                                # SM_CONCAT
+.Lpc309:                CONCAT                                # SM_CONCAT
+.Lpc310:                CONCAT                                # SM_CONCAT
+.Lpc311:                CONCAT                                # SM_CONCAT
+.Lpc312:                STORE_VAR .Lstr_60                    # store -> tline
+.Lpc313:                JUMP .Lpc274                          # SM_JUMP -> pc=274
+.Lpc314:
 
 # ============================================================================
 # stmt 50  (line 60):  pm_tag_sep      tline           =   tline ', ' "'" tag "': " tv :(pm_tag_loop)
 # ============================================================================
-.Lpc316:                
-	SM_PUSH_VAR .Lstr_60  # var=tline
-.Lpc317:                
-	SM_PUSH_STR .Lstr_65, 0  # str=", "
-.Lpc318:                
-	SM_PUSH_STR .Lstr_53, 0  # str="'"
-.Lpc319:                
-	SM_PUSH_VAR .Lstr_22  # var=tag
-.Lpc320:                
-	SM_PUSH_STR .Lstr_63, 0  # str="': "
-.Lpc321:                
-	SM_PUSH_VAR .Lstr_62  # var=tv
-.Lpc322:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc323:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc324:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc325:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc326:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc327:                
-	SM_STORE_VAR .Lstr_60  # store -> tline
-.Lpc328:                
-	SM_JUMP .Lpc274  # SM_JUMP -> pc=274
-.Lpc329:                
-.Lpc330:                
+.Lpc315:
+.Lpc316:                PUSH_VAR .Lstr_60                     # var=tline
+.Lpc317:                PUSH_STR .Lstr_65, 0                  # str=", "
+.Lpc318:                PUSH_STR .Lstr_53, 0                  # str="'"
+.Lpc319:                PUSH_VAR .Lstr_22                     # var=tag
+.Lpc320:                PUSH_STR .Lstr_63, 0                  # str="': "
+.Lpc321:                PUSH_VAR .Lstr_62                     # var=tv
+.Lpc322:                CONCAT                                # SM_CONCAT
+.Lpc323:                CONCAT                                # SM_CONCAT
+.Lpc324:                CONCAT                                # SM_CONCAT
+.Lpc325:                CONCAT                                # SM_CONCAT
+.Lpc326:                CONCAT                                # SM_CONCAT
+.Lpc327:                STORE_VAR .Lstr_60                    # store -> tline
+.Lpc328:                JUMP .Lpc274                          # SM_JUMP -> pc=274
+.Lpc329:
 
 # ============================================================================
 # stmt 51  (line 61):  pm_tag_close    tline           =   tline '}'
 # ============================================================================
-.Lpc331:                
-	SM_PUSH_VAR .Lstr_60  # var=tline
-.Lpc332:                
-	SM_PUSH_STR .Lstr_67, 0  # str="}"
-.Lpc333:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc334:                
-	SM_STORE_VAR .Lstr_60  # store -> tline
-.Lpc335:                
+.Lpc330:
+.Lpc331:                PUSH_VAR .Lstr_60                     # var=tline
+.Lpc332:                PUSH_STR .Lstr_67, 0                  # str="}"
+.Lpc333:                CONCAT                                # SM_CONCAT
+.Lpc334:                STORE_VAR .Lstr_60                    # store -> tline
 
 # ============================================================================
 # stmt 52  (line 52):  pm_tdict        tsk             =   SORT(mem[sentno][wkey])
 # ============================================================================
-.Lpc336:                
-	SM_PUSH_VAR .Lstr_51  # var=next_wkey
-.Lpc337:                
-	SM_CALL .Lstr_39, 1  # SM_CALL fname="SIZE" nargs=1
-.Lpc338:                
-	SM_PUSH_INT 0
-.Lpc339:                
-	SM_CALL .Lstr_68, 2  # SM_CALL fname="GT" nargs=2
-.Lpc340:                
-	SM_POP  # SM_POP: discard TOS
-.Lpc341:                
-	SM_JUMP_F .Lpc373  # SM_JUMP_F -> pc=373
-.Lpc342:                
+.Lpc335:
+.Lpc336:                PUSH_VAR .Lstr_51                     # var=next_wkey
+.Lpc337:                CALL_FN .Lstr_39, 1                   # SM_CALL fname="SIZE" nargs=1
+.Lpc338:                PUSH_INT 0                          
+.Lpc339:                CALL_FN .Lstr_68, 2                   # SM_CALL fname="GT" nargs=2
+.Lpc340:                VOID_POP                              # SM_POP: discard TOS
+.Lpc341:                JUMP_F .Lpc373                        # SM_JUMP_F -> pc=373
 
 # ============================================================================
 # stmt 53  (line 53):                  ti              =   0
 # ============================================================================
-.Lpc343:                
-	SM_PUSH_VAR .Lstr_48  # var=wi
-.Lpc344:                
-	SM_PUSH_INT 1
-.Lpc345:                
-	SM_CALL .Lstr_37, 2  # SM_CALL fname="IDENT" nargs=2
-.Lpc346:                
-	SM_POP  # SM_POP: discard TOS
-.Lpc347:                
-	SM_JUMP_F .Lpc360  # SM_JUMP_F -> pc=360
-.Lpc348:                
+.Lpc342:
+.Lpc343:                PUSH_VAR .Lstr_48                     # var=wi
+.Lpc344:                PUSH_INT 1                          
+.Lpc345:                CALL_FN .Lstr_37, 2                   # SM_CALL fname="IDENT" nargs=2
+.Lpc346:                VOID_POP                              # SM_POP: discard TOS
+.Lpc347:                JUMP_F .Lpc360                        # SM_JUMP_F -> pc=360
 
 # ============================================================================
 # stmt 54  (line 54):                  tline           =   '{'
 # ============================================================================
-.Lpc349:                
-	SM_PUSH_VAR .Lstr_45  # var=pfx
-.Lpc350:                
-	SM_PUSH_VAR .Lstr_55  # var=wq
-.Lpc351:                
-	SM_PUSH_STR .Lstr_69, 0  # str=": "
-.Lpc352:                
-	SM_PUSH_VAR .Lstr_60  # var=tline
-.Lpc353:                
-	SM_PUSH_STR .Lstr_70, 0  # str=","
-.Lpc354:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc355:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc356:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc357:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc358:                
-	SM_STORE_VAR .Lstr_71  # store -> OUTPUT
-.Lpc359:                
-	SM_JUMP .Lpc207  # SM_JUMP -> pc=207
-.Lpc360:                
-.Lpc361:                
+.Lpc348:
+.Lpc349:                PUSH_VAR .Lstr_45                     # var=pfx
+.Lpc350:                PUSH_VAR .Lstr_55                     # var=wq
+.Lpc351:                PUSH_STR .Lstr_69, 0                  # str=": "
+.Lpc352:                PUSH_VAR .Lstr_60                     # var=tline
+.Lpc353:                PUSH_STR .Lstr_70, 0                  # str=","
+.Lpc354:                CONCAT                                # SM_CONCAT
+.Lpc355:                CONCAT                                # SM_CONCAT
+.Lpc356:                CONCAT                                # SM_CONCAT
+.Lpc357:                CONCAT                                # SM_CONCAT
+.Lpc358:                STORE_VAR .Lstr_71                    # store -> OUTPUT
+.Lpc359:                JUMP .Lpc207                          # SM_JUMP -> pc=207
+.Lpc360:
 
 # ============================================================================
 # stmt 55  (line 65):  pm_mid_wrd      OUTPUT          =   pad wq ': ' tline ','       :(pm_wrd_loop)
 # ============================================================================
-.Lpc362:                
-	SM_PUSH_VAR .Lstr_41  # var=pad
-.Lpc363:                
-	SM_PUSH_VAR .Lstr_55  # var=wq
-.Lpc364:                
-	SM_PUSH_STR .Lstr_69, 0  # str=": "
-.Lpc365:                
-	SM_PUSH_VAR .Lstr_60  # var=tline
-.Lpc366:                
-	SM_PUSH_STR .Lstr_70, 0  # str=","
-.Lpc367:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc368:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc369:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc370:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc371:                
-	SM_STORE_VAR .Lstr_71  # store -> OUTPUT
-.Lpc372:                
-	SM_JUMP .Lpc207  # SM_JUMP -> pc=207
-.Lpc373:                
-.Lpc374:                
+.Lpc361:
+.Lpc362:                PUSH_VAR .Lstr_41                     # var=pad
+.Lpc363:                PUSH_VAR .Lstr_55                     # var=wq
+.Lpc364:                PUSH_STR .Lstr_69, 0                  # str=": "
+.Lpc365:                PUSH_VAR .Lstr_60                     # var=tline
+.Lpc366:                PUSH_STR .Lstr_70, 0                  # str=","
+.Lpc367:                CONCAT                                # SM_CONCAT
+.Lpc368:                CONCAT                                # SM_CONCAT
+.Lpc369:                CONCAT                                # SM_CONCAT
+.Lpc370:                CONCAT                                # SM_CONCAT
+.Lpc371:                STORE_VAR .Lstr_71                    # store -> OUTPUT
+.Lpc372:                JUMP .Lpc207                          # SM_JUMP -> pc=207
+.Lpc373:
 
 # ============================================================================
 # stmt 56  (line 66):  pm_last_wrd     IDENT(wi, 1)                                    :F(pm_last_mid)
 # ============================================================================
-.Lpc375:                
-	SM_PUSH_VAR .Lstr_48  # var=wi
-.Lpc376:                
-	SM_PUSH_INT 1
-.Lpc377:                
-	SM_CALL .Lstr_37, 2  # SM_CALL fname="IDENT" nargs=2
-.Lpc378:                
-	SM_POP  # SM_POP: discard TOS
-.Lpc379:                
-	SM_JUMP_F .Lpc390  # SM_JUMP_F -> pc=390
-.Lpc380:                
+.Lpc374:
+.Lpc375:                PUSH_VAR .Lstr_48                     # var=wi
+.Lpc376:                PUSH_INT 1                          
+.Lpc377:                CALL_FN .Lstr_37, 2                   # SM_CALL fname="IDENT" nargs=2
+.Lpc378:                VOID_POP                              # SM_POP: discard TOS
+.Lpc379:                JUMP_F .Lpc390                        # SM_JUMP_F -> pc=390
 
 # ============================================================================
 # stmt 57  (line 57):                  tv              =   mem[sentno][wkey][tag]
 # ============================================================================
-.Lpc381:                
-	SM_PUSH_VAR .Lstr_45  # var=pfx
-.Lpc382:                
-	SM_PUSH_VAR .Lstr_55  # var=wq
-.Lpc383:                
-	SM_PUSH_STR .Lstr_69, 0  # str=": "
-.Lpc384:                
-	SM_PUSH_VAR .Lstr_60  # var=tline
-.Lpc385:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc386:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc387:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc388:                
-	SM_STORE_VAR .Lstr_74  # store -> lline
-.Lpc389:                
-	SM_JUMP .Lpc400  # SM_JUMP -> pc=400
-.Lpc390:                
-.Lpc391:                
+.Lpc380:
+.Lpc381:                PUSH_VAR .Lstr_45                     # var=pfx
+.Lpc382:                PUSH_VAR .Lstr_55                     # var=wq
+.Lpc383:                PUSH_STR .Lstr_69, 0                  # str=": "
+.Lpc384:                PUSH_VAR .Lstr_60                     # var=tline
+.Lpc385:                CONCAT                                # SM_CONCAT
+.Lpc386:                CONCAT                                # SM_CONCAT
+.Lpc387:                CONCAT                                # SM_CONCAT
+.Lpc388:                STORE_VAR .Lstr_74                    # store -> lline
+.Lpc389:                JUMP .Lpc400                          # SM_JUMP -> pc=400
+.Lpc390:
 
 # ============================================================================
 # stmt 58  (line 68):  pm_last_mid     lline           =   pad wq ': ' tline
 # ============================================================================
-.Lpc392:                
-	SM_PUSH_VAR .Lstr_41  # var=pad
-.Lpc393:                
-	SM_PUSH_VAR .Lstr_55  # var=wq
-.Lpc394:                
-	SM_PUSH_STR .Lstr_69, 0  # str=": "
-.Lpc395:                
-	SM_PUSH_VAR .Lstr_60  # var=tline
-.Lpc396:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc397:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc398:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc399:                
-	SM_STORE_VAR .Lstr_74  # store -> lline
-.Lpc400:                
-.Lpc401:                
+.Lpc391:
+.Lpc392:                PUSH_VAR .Lstr_41                     # var=pad
+.Lpc393:                PUSH_VAR .Lstr_55                     # var=wq
+.Lpc394:                PUSH_STR .Lstr_69, 0                  # str=": "
+.Lpc395:                PUSH_VAR .Lstr_60                     # var=tline
+.Lpc396:                CONCAT                                # SM_CONCAT
+.Lpc397:                CONCAT                                # SM_CONCAT
+.Lpc398:                CONCAT                                # SM_CONCAT
+.Lpc399:                STORE_VAR .Lstr_74                    # store -> lline
+.Lpc400:
 
 # ============================================================================
 # stmt 59  (line 69):  pm_last_emit    IDENT(last_sent, 1)                             :F(pm_last_mid2)
 # ============================================================================
-.Lpc402:                
-	SM_PUSH_VAR .Lstr_36  # var=last_sent
-.Lpc403:                
-	SM_PUSH_INT 1
-.Lpc404:                
-	SM_CALL .Lstr_37, 2  # SM_CALL fname="IDENT" nargs=2
-.Lpc405:                
-	SM_POP  # SM_POP: discard TOS
-.Lpc406:                
-	SM_JUMP_F .Lpc413  # SM_JUMP_F -> pc=413
-.Lpc407:                
+.Lpc401:
+.Lpc402:                PUSH_VAR .Lstr_36                     # var=last_sent
+.Lpc403:                PUSH_INT 1                          
+.Lpc404:                CALL_FN .Lstr_37, 2                   # SM_CALL fname="IDENT" nargs=2
+.Lpc405:                VOID_POP                              # SM_POP: discard TOS
+.Lpc406:                JUMP_F .Lpc413                        # SM_JUMP_F -> pc=413
 
 # ============================================================================
 # stmt 60  (line 60):  pm_tag_sep      tline           =   tline ', ' "'" tag "': " tv :(pm_tag_loop)
 # ============================================================================
-.Lpc408:                
-	SM_PUSH_VAR .Lstr_74  # var=lline
-.Lpc409:                
-	SM_PUSH_STR .Lstr_77, 0  # str="}}"
-.Lpc410:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc411:                
-	SM_STORE_VAR .Lstr_71  # store -> OUTPUT
-.Lpc412:                
-	SM_JUMP .Lpc145  # SM_JUMP -> pc=145
-.Lpc413:                
-.Lpc414:                
+.Lpc407:
+.Lpc408:                PUSH_VAR .Lstr_74                     # var=lline
+.Lpc409:                PUSH_STR .Lstr_77, 0                  # str="}}"
+.Lpc410:                CONCAT                                # SM_CONCAT
+.Lpc411:                STORE_VAR .Lstr_71                    # store -> OUTPUT
+.Lpc412:                JUMP .Lpc145                          # SM_JUMP -> pc=145
+.Lpc413:
 
 # ============================================================================
 # stmt 61  (line 71):  pm_last_mid2    OUTPUT          =   lline '},'                  :(pm_sent_loop)
 # ============================================================================
-.Lpc415:                
-	SM_PUSH_VAR .Lstr_74  # var=lline
-.Lpc416:                
-	SM_PUSH_STR .Lstr_79, 0  # str="},"
-.Lpc417:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc418:                
-	SM_STORE_VAR .Lstr_71  # store -> OUTPUT
-.Lpc419:                
-	SM_JUMP .Lpc145  # SM_JUMP -> pc=145
-.Lpc420:                
-.Lpc421:                
+.Lpc414:
+.Lpc415:                PUSH_VAR .Lstr_74                     # var=lline
+.Lpc416:                PUSH_STR .Lstr_79, 0                  # str="},"
+.Lpc417:                CONCAT                                # SM_CONCAT
+.Lpc418:                STORE_VAR .Lstr_71                    # store -> OUTPUT
+.Lpc419:                JUMP .Lpc145                          # SM_JUMP -> pc=145
+.Lpc420:
 
 # ============================================================================
 # stmt 62  (line 72):  pm_done         pp_mem          =   .dummy                      :(RETURN)
 # ============================================================================
-.Lpc422:                
-	SM_PUSH_STR .Lstr_14, 0  # str="dummy"
-.Lpc423:                
-	SM_CALL .Lstr_15, 1  # SM_CALL fname="NAME_PUSH" nargs=1
-.Lpc424:                
-	SM_STORE_VAR .Lstr_28  # store -> pp_mem
-.Lpc425:                
-	SM_RETURN  # SM_RETURN
-.Lpc426:                
-.Lpc427:                
+.Lpc421:
+.Lpc422:                PUSH_STR .Lstr_14, 0                  # str="dummy"
+.Lpc423:                CALL_FN .Lstr_15, 1                   # SM_CALL fname="NAME_PUSH" nargs=1
+.Lpc424:                STORE_VAR .Lstr_28                    # store -> pp_mem
+.Lpc425:                RETURN                                # SM_RETURN
+.Lpc426:
 
 # ============================================================================
 # stmt 63  (line 74):  *------------------------------------------------------------------------------
 # ============================================================================
-.Lpc428:                
-.Lpc429:                
+.Lpc427:
+.Lpc428:
 
 # ============================================================================
 # stmt 64  (line 75):  slurp           line            =   INPUT                       :F(slurp_done)
 # ============================================================================
-.Lpc430:                
-	SM_PUSH_VAR .Lstr_83  # var=INPUT
-.Lpc431:                
-	SM_STORE_VAR .Lstr_84  # store -> line
-.Lpc432:                
-	SM_JUMP_F .Lpc439  # SM_JUMP_F -> pc=439
-.Lpc433:                
+.Lpc429:
+.Lpc430:                PUSH_VAR .Lstr_83                     # var=INPUT
+.Lpc431:                STORE_VAR .Lstr_84                    # store -> line
+.Lpc432:                JUMP_F .Lpc439                        # SM_JUMP_F -> pc=439
 
 # ============================================================================
 # stmt 65  (line 65):  pm_mid_wrd      OUTPUT          =   pad wq ': ' tline ','       :(pm_wrd_loop)
 # ============================================================================
-.Lpc434:                
-	SM_PUSH_VAR .Lstr_85  # var=src
-.Lpc435:                
-	SM_PUSH_VAR .Lstr_84  # var=line
-.Lpc436:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc437:                
-	SM_STORE_VAR .Lstr_85  # store -> src
-.Lpc438:                
-	SM_JUMP .Lpc428  # SM_JUMP -> pc=428
-.Lpc439:                
-.Lpc440:                
+.Lpc433:
+.Lpc434:                PUSH_VAR .Lstr_85                     # var=src
+.Lpc435:                PUSH_VAR .Lstr_84                     # var=line
+.Lpc436:                CONCAT                                # SM_CONCAT
+.Lpc437:                STORE_VAR .Lstr_85                    # store -> src
+.Lpc438:                JUMP .Lpc428                          # SM_JUMP -> pc=428
+.Lpc439:
 
 # ============================================================================
 # stmt 66  (line 78):                  mem             =   TABLE()
 # ============================================================================
-.Lpc441:                
+.Lpc440:
 
 # ============================================================================
 # stmt 67  (line 67):                  lline           =   pfx wq ': ' tline           :(pm_last_emit)
 # ============================================================================
-.Lpc442:                
-	SM_CALL .Lstr_11, 0  # SM_CALL fname="TABLE" nargs=0
-.Lpc443:                
-	SM_STORE_VAR .Lstr_12  # store -> mem
-.Lpc444:                
+.Lpc441:
+.Lpc442:                CALL_FN .Lstr_11, 0                   # SM_CALL fname="TABLE" nargs=0
+.Lpc443:                STORE_VAR .Lstr_12                    # store -> mem
 
 # ============================================================================
 # stmt 68  (line 68):  pm_last_mid     lline           =   pad wq ': ' tline
 # ============================================================================
-.Lpc445:                
-	SM_PUSH_INT 0
-.Lpc446:                
-	SM_PAT_POS  # SM_PAT_POS
-.Lpc447:                
-	SM_PAT_BOXVAL  # SM_PAT_BOXVAL
-.Lpc448:                
-	SM_PUSH_VAR .Lstr_3  # var=DIGITS
-.Lpc449:                
-	SM_PAT_SPAN  # SM_PAT_SPAN
-.Lpc450:                
-	SM_PAT_CAPTURE 0, .Lstr_9  # SM_PAT_CAPTURE var=num kind=0
-.Lpc451:                
-	SM_PAT_LIT .Lstr_87  # SM_PAT_LIT arg="_CRD :_PUN"
-.Lpc452:                
-	SM_PUSH_VAR .Lstr_88  # var=epsilon
-.Lpc453:                
-	SM_PAT_DEREF  # SM_PAT_DEREF
-.Lpc454:                
-	SM_PAT_CAPTURE_FN 0, .Lstr_8  # SM_PAT_CAPTURE_FN fname=new_sent is_imm=0 namelist=(NULL)
-.Lpc455:                
-	SM_PAT_CAT  # SM_PAT_CAT
-.Lpc456:                
-	SM_PAT_CAT  # SM_PAT_CAT
-.Lpc457:                
-	SM_PUSH_STR .Lstr_89, 0  # str="_"
-.Lpc458:                
-	SM_PAT_NOTANY  # SM_PAT_NOTANY
-.Lpc459:                
-	SM_PUSH_STR .Lstr_89, 0  # str="_"
-.Lpc460:                
-	SM_PAT_BREAK  # SM_PAT_BREAK
-.Lpc461:                
-	SM_PAT_CAT  # SM_PAT_CAT
-.Lpc462:                
-	SM_PAT_CAPTURE 0, .Lstr_20  # SM_PAT_CAPTURE var=wrd kind=0
-.Lpc463:                
-	SM_PAT_LIT .Lstr_89  # SM_PAT_LIT arg="_"
-.Lpc464:                
-	SM_PUSH_VAR .Lstr_5  # var=UCASE
-.Lpc465:                
-	SM_PAT_ANY  # SM_PAT_ANY
-.Lpc466:                
-	SM_PUSH_VAR .Lstr_3  # var=DIGITS
-.Lpc467:                
-	SM_PUSH_VAR .Lstr_5  # var=UCASE
-.Lpc468:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc469:                
-	SM_PAT_SPAN  # SM_PAT_SPAN
-.Lpc470:                
-	SM_PAT_CAT  # SM_PAT_CAT
-.Lpc471:                
-	SM_PAT_CAPTURE 0, .Lstr_22  # SM_PAT_CAPTURE var=tag kind=0
-.Lpc472:                
-	SM_PUSH_VAR .Lstr_88  # var=epsilon
-.Lpc473:                
-	SM_PAT_DEREF  # SM_PAT_DEREF
-.Lpc474:                
-	SM_PAT_CAPTURE_FN 0, .Lstr_18  # SM_PAT_CAPTURE_FN fname=add_tok is_imm=0 namelist=(NULL)
-.Lpc475:                
-	SM_PAT_CAT  # SM_PAT_CAT
-.Lpc476:                
-	SM_PAT_CAT  # SM_PAT_CAT
-.Lpc477:                
-	SM_PAT_CAT  # SM_PAT_CAT
-.Lpc478:                
-	SM_PAT_ALT  # SM_PAT_ALT
-.Lpc479:                
-	SM_PAT_LIT .Lstr_38  # SM_PAT_LIT arg=" "
-.Lpc480:                
-	SM_PAT_CAT  # SM_PAT_CAT
-.Lpc481:                
-	SM_PAT_ARBNO  # SM_PAT_ARBNO
-.Lpc482:                
-	SM_PAT_BOXVAL  # SM_PAT_BOXVAL
-.Lpc483:                
-	SM_PUSH_INT 0
-.Lpc484:                
-	SM_PAT_RPOS  # SM_PAT_RPOS
-.Lpc485:                
-	SM_PAT_BOXVAL  # SM_PAT_BOXVAL
-.Lpc486:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc487:                
-	SM_CONCAT  # SM_CONCAT
-.Lpc488:                
-	SM_STORE_VAR .Lstr_90  # store -> claws
-.Lpc489:                
+.Lpc444:
+.Lpc445:                PUSH_INT 0                          
+.Lpc446:                PAT_POS                               # SM_PAT_POS
+.Lpc447:                PAT_BOXVAL                            # SM_PAT_BOXVAL
+.Lpc448:                PUSH_VAR .Lstr_3                      # var=DIGITS
+.Lpc449:                PAT_SPAN                              # SM_PAT_SPAN
+.Lpc450:                PAT_CAPTURE 0, .Lstr_9                # SM_PAT_CAPTURE var=num kind=0
+.Lpc451:                PAT_LIT .Lstr_87                      # SM_PAT_LIT arg="_CRD :_PUN"
+.Lpc452:                PUSH_VAR .Lstr_88                     # var=epsilon
+.Lpc453:                PAT_DEREF                             # SM_PAT_DEREF
+.Lpc454:                PAT_CAPTURE_FN 0, .Lstr_8             # SM_PAT_CAPTURE_FN fname=new_sent is_imm=0 namelist=(NULL)
+.Lpc455:                PAT_CAT                               # SM_PAT_CAT
+.Lpc456:                PAT_CAT                               # SM_PAT_CAT
+.Lpc457:                PUSH_STR .Lstr_89, 0                  # str="_"
+.Lpc458:                PAT_NOTANY                            # SM_PAT_NOTANY
+.Lpc459:                PUSH_STR .Lstr_89, 0                  # str="_"
+.Lpc460:                PAT_BREAK                             # SM_PAT_BREAK
+.Lpc461:                PAT_CAT                               # SM_PAT_CAT
+.Lpc462:                PAT_CAPTURE 0, .Lstr_20               # SM_PAT_CAPTURE var=wrd kind=0
+.Lpc463:                PAT_LIT .Lstr_89                      # SM_PAT_LIT arg="_"
+.Lpc464:                PUSH_VAR .Lstr_5                      # var=UCASE
+.Lpc465:                PAT_ANY                               # SM_PAT_ANY
+.Lpc466:                PUSH_VAR .Lstr_3                      # var=DIGITS
+.Lpc467:                PUSH_VAR .Lstr_5                      # var=UCASE
+.Lpc468:                CONCAT                                # SM_CONCAT
+.Lpc469:                PAT_SPAN                              # SM_PAT_SPAN
+.Lpc470:                PAT_CAT                               # SM_PAT_CAT
+.Lpc471:                PAT_CAPTURE 0, .Lstr_22               # SM_PAT_CAPTURE var=tag kind=0
+.Lpc472:                PUSH_VAR .Lstr_88                     # var=epsilon
+.Lpc473:                PAT_DEREF                             # SM_PAT_DEREF
+.Lpc474:                PAT_CAPTURE_FN 0, .Lstr_18            # SM_PAT_CAPTURE_FN fname=add_tok is_imm=0 namelist=(NULL)
+.Lpc475:                PAT_CAT                               # SM_PAT_CAT
+.Lpc476:                PAT_CAT                               # SM_PAT_CAT
+.Lpc477:                PAT_CAT                               # SM_PAT_CAT
+.Lpc478:                PAT_ALT                               # SM_PAT_ALT
+.Lpc479:                PAT_LIT .Lstr_38                      # SM_PAT_LIT arg=" "
+.Lpc480:                PAT_CAT                               # SM_PAT_CAT
+.Lpc481:                PAT_ARBNO                             # SM_PAT_ARBNO
+.Lpc482:                PAT_BOXVAL                            # SM_PAT_BOXVAL
+.Lpc483:                PUSH_INT 0                          
+.Lpc484:                PAT_RPOS                              # SM_PAT_RPOS
+.Lpc485:                PAT_BOXVAL                            # SM_PAT_BOXVAL
+.Lpc486:                CONCAT                                # SM_CONCAT
+.Lpc487:                CONCAT                                # SM_CONCAT
+.Lpc488:                STORE_VAR .Lstr_90                    # store -> claws
 
 # ============================================================================
 # stmt 69  (line 69):  pm_last_emit    IDENT(last_sent, 1)                             :F(pm_last_mid2)
 # ============================================================================
-.Lpc490:                
-	SM_PUSH_VAR .Lstr_90  # var=claws
-.Lpc491:                
-	SM_PAT_DEREF  # SM_PAT_DEREF
-.Lpc492:                
-	SM_PUSH_VAR .Lstr_85  # var=src
-.Lpc493:                
-	SM_PUSH_INT 0
-.Lpc494:                
-	SM_EXEC_STMT_VARIANT 0, .Lstr_85  # SM_EXEC_STMT_VARIANT subj=src has_repl=0
-.Lpc495:                
-	SM_JUMP_F .Lpc501  # SM_JUMP_F -> pc=501
-.Lpc496:                
+.Lpc489:
+.Lpc490:                PUSH_VAR .Lstr_90                     # var=claws
+.Lpc491:                PAT_DEREF                             # SM_PAT_DEREF
+.Lpc492:                PUSH_VAR .Lstr_85                     # var=src
+.Lpc493:                PUSH_INT 0                          
+.Lpc494:                EXEC_STMT_VARIANT 0, .Lstr_85         # SM_EXEC_STMT_VARIANT subj=src has_repl=0
+.Lpc495:                JUMP_F .Lpc501                        # SM_JUMP_F -> pc=501
 
 # ============================================================================
 # stmt 70  (line 70):                  OUTPUT          =   lline '}}'                  :(pm_sent_loop)
 # ============================================================================
-.Lpc497:                
-	SM_PUSH_VAR .Lstr_12  # var=mem
-.Lpc498:                
-	SM_CALL .Lstr_28, 1  # SM_CALL fname="pp_mem" nargs=1
-.Lpc499:                
-	SM_POP  # SM_POP: discard TOS
-.Lpc500:                
-	SM_JUMP .Lpc505  # SM_JUMP -> pc=505
-.Lpc501:                
-.Lpc502:                
+.Lpc496:
+.Lpc497:                PUSH_VAR .Lstr_12                     # var=mem
+.Lpc498:                CALL_FN .Lstr_28, 1                   # SM_CALL fname="pp_mem" nargs=1
+.Lpc499:                VOID_POP                              # SM_POP: discard TOS
+.Lpc500:                JUMP .Lpc505                          # SM_JUMP -> pc=505
+.Lpc501:
 
 # ============================================================================
 # stmt 71  (line 96):  fail            OUTPUT          =  'Pattern match failed'
 # ============================================================================
-.Lpc503:                
-	SM_PUSH_STR .Lstr_92, 0  # str="Pattern match failed"
-.Lpc504:                
-	SM_STORE_VAR .Lstr_71  # store -> OUTPUT
-.Lpc505:                
-.Lpc506:                
+.Lpc502:
+.Lpc503:                PUSH_STR .Lstr_92, 0                  # str="Pattern match failed"
+.Lpc504:                STORE_VAR .Lstr_71                    # store -> OUTPUT
+.Lpc505:
 
 # ============================================================================
 # stmt 72  (line 72):  pm_done         pp_mem          =   .dummy                      :(RETURN)
 # ============================================================================
-.Lpc507:                
-	SM_HALT  # SM_HALT
+.Lpc506:
+.Lpc507:                HALT                                  # SM_HALT
 	# -- epilogue -------------------------------------------
 	call    scrip_rt_finalize@PLT
 	pop     rbp
