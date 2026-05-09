@@ -154,77 +154,77 @@
                         call             scrip_rt_pat_boxval@PLT
                         .endm
                         .macro           PAT_LIT lbl
-    .ifnb \lbl
-        lea     rdi, [rip + \lbl]
-    .else
-        xor     edi, edi
-    .endif
+                        .ifnb            \lbl
+                        lea              rdi, [rip + \lbl]
+                        .else
+                        xor              edi, edi
+                        .endif
                         call             scrip_rt_pat_lit@PLT
                         .endm
                         .macro           PAT_REFNAME lbl
-    .ifnb \lbl
-        lea     rdi, [rip + \lbl]
-    .else
-        xor     edi, edi
-    .endif
+                        .ifnb            \lbl
+                        lea              rdi, [rip + \lbl]
+                        .else
+                        xor              edi, edi
+                        .endif
                         call             scrip_rt_pat_refname@PLT
                         .endm
                         .macro           PAT_USERCALL lbl
-    .ifnb \lbl
-        lea     rdi, [rip + \lbl]
-    .else
-        xor     edi, edi
-    .endif
+                        .ifnb            \lbl
+                        lea              rdi, [rip + \lbl]
+                        .else
+                        xor              edi, edi
+                        .endif
                         call             scrip_rt_pat_usercall@PLT
                         .endm
                         .macro           PAT_CAPTURE n, lbl
-    .ifnb \lbl
-        lea     rdi, [rip + \lbl]
-    .else
-        xor     edi, edi
-    .endif
+                        .ifnb            \lbl
+                        lea              rdi, [rip + \lbl]
+                        .else
+                        xor              edi, edi
+                        .endif
                         mov              esi, \n
                         call             scrip_rt_pat_capture@PLT
                         .endm
                         .macro           PAT_USERCALL_ARGS n, lbl
-    .ifnb \lbl
-        lea     rdi, [rip + \lbl]
-    .else
-        xor     edi, edi
-    .endif
+                        .ifnb            \lbl
+                        lea              rdi, [rip + \lbl]
+                        .else
+                        xor              edi, edi
+                        .endif
                         mov              esi, \n
                         call             scrip_rt_pat_usercall_args@PLT
                         .endm
                         .macro           PAT_CAPTURE_FN is_imm, fname_lbl, namelist_lbl
-    .ifnb \fname_lbl
-        lea     rdi, [rip + \fname_lbl]
-    .else
-        xor     edi, edi
-    .endif
+                        .ifnb            \fname_lbl
+                        lea              rdi, [rip + \fname_lbl]
+                        .else
+                        xor              edi, edi
+                        .endif
                         mov              esi, \is_imm
-    .ifnb \namelist_lbl
-        lea     rdx, [rip + \namelist_lbl]
-    .else
-        xor     edx, edx
-    .endif
+                        .ifnb            \namelist_lbl
+                        lea              rdx, [rip + \namelist_lbl]
+                        .else
+                        xor              edx, edx
+                        .endif
                         call             scrip_rt_pat_capture_fn@PLT
                         .endm
                         .macro           PAT_CAPTURE_FN_ARGS is_imm, nargs, fname_lbl
-    .ifnb \fname_lbl
-        lea     rdi, [rip + \fname_lbl]
-    .else
-        xor     edi, edi
-    .endif
+                        .ifnb            \fname_lbl
+                        lea              rdi, [rip + \fname_lbl]
+                        .else
+                        xor              edi, edi
+                        .endif
                         mov              esi, \is_imm
                         mov              edx, \nargs
                         call             scrip_rt_pat_capture_fn_args@PLT
                         .endm
                         .macro           EXEC_STMT_VARIANT has_repl, subj_lbl
-    .ifnb \subj_lbl
-        lea     rdi, [rip + \subj_lbl]
-    .else
-        xor     edi, edi
-    .endif
+                        .ifnb            \subj_lbl
+                        lea              rdi, [rip + \subj_lbl]
+                        .else
+                        xor              edi, edi
+                        .endif
                         mov              esi, \has_repl
                         call             scrip_rt_match_variant@PLT
                         .endm
@@ -246,4 +246,3 @@
 .Lretskip_\pc\():
                         .endm
 # === END sm macro library ===
-
