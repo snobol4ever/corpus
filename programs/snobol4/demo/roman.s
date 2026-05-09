@@ -33,111 +33,110 @@
                         .intel_syntax    noprefix
                         .text            
 # ---- pattern blob 0 (Phase-2 window pc=7..12, SM_EXEC_STMT pc=15) ----
-                         ; .global _pat_inv_0_α ; 
-                         ; .global _pat_inv_0_β ; 
-                         ; .global _pat_inv_0_γ ; 
-                         ; .global _pat_inv_0_ω ; 
-_pat_inv_0_α:           ;                  ; 
-                         ; lea     r10, [rip + Δ] ; 
-                         ; cmp     esi, 0   ; 
-                         ;                  ; je      _pat_inv_0_α_body
-                         ;                  ; jmp     _pat_inv_0_β
-_pat_inv_0_α_body:      ;                  ; 
-                         ; lea     rcx, [rip + Σlen] ; 
-                         ; mov     eax, [rcx] ; 
-                         ; sub     eax, 0   ; 
-                         ; mov     ecx, eax ; 
-                         ; mov     eax, [r10] ; 
-                         ; cmp     eax, ecx ; 
-                         ;                  ; jne     xcat0_o
-                         ;                  ; jmp     xcat0_mid_g
-xcat0_left_b:            ;                  ; 
-                         ;                  ; jmp     xcat0_o
-xcat0_mid_g:             ;                  ; 
-	.section .data
-.Lcap1_vname:
-	.string ""
-.Lcap1_data:
-	.quad 0
-	.quad 0
-	.long 0
-	.long 0
-	.long 0
-	.long 0
-	.quad .Lcap1_vname
-	.zero 56
-	.zero 24
-	.section .text
-	.intel_syntax noprefix
-	.globl  _cap1_child_α
-_cap1_child_α:
-                         ; lea     r10, [rip + Δ] ; 
-                         ; cmp     esi, 0   ; 
-                         ;                  ; je      _cap1_ab
-                         ;                  ; jmp     _cap1_cb
-_cap1_ab:                ;                  ; 
-	.section .data
-.Llen2_z:
-	.long 0
-	.section .text
-	.intel_syntax noprefix
-	lea     rdi, [rip + .Llen2_z]
-	mov     esi, 0
-	call    bb_len@PLT
-	test    rax, rax
-                         ;                  ; jne     _cap1_cs
-                         ;                  ; jmp     _cap1_cf
-_cap1_cb:                ;                  ; 
-	lea     rdi, [rip + .Llen2_z]
-	mov     esi, 1
-	call    bb_len@PLT
-	test    rax, rax
-                         ;                  ; jne     _cap1_cs
-                         ;                  ; jmp     _cap1_cf
-_cap1_cs:                ;                  ; 
-                         ; lea     rcx, [rip + Σ] ; 
-                         ; mov     rax, [rcx] ; 
-                         ; movsxd  rcx, dword ptr [r10] ; 
-                         ; lea     rax, [rax+rcx] ; 
-                         ; mov     rdx, rax ; 
-                         ; mov     eax, 1   ; 
-                         ; ret              ; 
-_cap1_cf:                ;                  ; 
-                         ; mov     eax, 99  ; 
-                         ; xor     edx, edx ; 
-                         ; ret              ; 
-	# XNME/XFNME cap box (static cap_t at .Lcap1_data)
-	lea     rdi, [rip + .Lcap1_data]
-	mov     esi, 0
-	call    bb_cap@PLT
-	test    rax, rax
-                         ;                  ; jne     _pat_inv_0_γ
-                         ;                  ; jmp     xcat0_right_o
-xcat0_right_b:           ;                  ; 
-	lea     rdi, [rip + .Lcap1_data]
-	mov     esi, 1
-	call    bb_cap@PLT
-	test    rax, rax
-                         ;                  ; jne     _pat_inv_0_γ
-                         ;                  ; jmp     xcat0_right_o
-xcat0_right_o:           ;                  ; 
-                         ;                  ; jmp     xcat0_left_b
-_pat_inv_0_β:           ;                  ; 
-                         ;                  ; jmp     xcat0_right_b
-xcat0_o:                 ;                  ; 
-                         ;                  ; jmp     _pat_inv_0_ω
-_pat_inv_0_γ:           ;                  ; 
-                         ; lea     rcx, [rip + Σ] ; 
-                         ; mov     rax, [rcx] ; 
-                         ; movsxd  rcx, dword ptr [r10] ; 
-                         ; lea     rax, [rax+rcx] ; 
-                         ; mov     rdx, rax ; 
-                         ; mov     eax, 1   ; 
-                         ; ret              ; 
-_pat_inv_0_ω:           ;                  ; 
-                         ; mov     eax, 99  ; 
-                         ; xor     edx, edx ; 
-                         ; ret              ; 
+                        .global _pat_inv_0_α 
+                        .global _pat_inv_0_β 
+                        .global _pat_inv_0_γ 
+                        .global _pat_inv_0_ω 
+_pat_inv_0_α:                           
+                        lea     r10, [rip + Δ] 
+                        cmp     esi, 0   
+                                         je      _pat_inv_0_α_body
+                                         jmp     _pat_inv_0_β
+_pat_inv_0_α_body:                      
+                        lea     rcx, [rip + Σlen] 
+                        mov     eax, [rcx] 
+                        sub     eax, 0   
+                        mov     ecx, eax 
+                        mov     eax, [r10] 
+                        cmp     eax, ecx 
+                                         jne     xcat0_o
+                                         jmp     xcat0_mid_g
+xcat0_left_b:                            
+                                         jmp     xcat0_o
+xcat0_mid_g:                             
+                        .section         .data
+.Lcap1_vname:                            
+                        .string          ""
+.Lcap1_data:                             
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .quad            .Lcap1_vname
+                        .zero            56
+                        .zero            24
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .globl           _cap1_child_α
+_cap1_child_α:                          
+                        lea     r10, [rip + Δ] 
+                        cmp     esi, 0   
+                                         je      _cap1_ab
+                                         jmp     _cap1_cb
+_cap1_ab:                                
+                        .section         .data
+.Llen2_z:                                
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Llen2_z]
+                        mov              esi, 0
+                        call             bb_len@PLT
+                        test             rax, rax
+                                         jne     _cap1_cs
+                                         jmp     _cap1_cf
+_cap1_cb:                                
+                        lea              rdi, [rip + .Llen2_z]
+                        mov              esi, 1
+                        call             bb_len@PLT
+                        test             rax, rax
+                                         jne     _cap1_cs
+                                         jmp     _cap1_cf
+_cap1_cs:                                
+                        lea     rcx, [rip + Σ] 
+                        mov     rax, [rcx] 
+                        movsxd  rcx, dword ptr [r10] 
+                        lea     rax, [rax+rcx] 
+                        mov     rdx, rax 
+                        mov     eax, 1   
+                        ret              
+_cap1_cf:                                
+                        mov     eax, 99  
+                        xor     edx, edx 
+                        ret              
+                        lea              rdi, [rip + .Lcap1_data]
+                        mov              esi, 0
+                        call             bb_cap@PLT
+                        test             rax, rax
+                                         jne     _pat_inv_0_γ
+                                         jmp     xcat0_right_o
+xcat0_right_b:                           
+                        lea              rdi, [rip + .Lcap1_data]
+                        mov              esi, 1
+                        call             bb_cap@PLT
+                        test             rax, rax
+                                         jne     _pat_inv_0_γ
+                                         jmp     xcat0_right_o
+xcat0_right_o:                           
+                                         jmp     xcat0_left_b
+_pat_inv_0_β:                           
+                                         jmp     xcat0_right_b
+xcat0_o:                                 
+                                         jmp     _pat_inv_0_ω
+_pat_inv_0_γ:                           
+                        lea     rcx, [rip + Σ] 
+                        mov     rax, [rcx] 
+                        movsxd  rcx, dword ptr [r10] 
+                        lea     rax, [rax+rcx] 
+                        mov     rdx, rax 
+                        mov     eax, 1   
+                        ret              
+_pat_inv_0_ω:                           
+                        mov     eax, 99  
+                        xor     edx, edx 
+                        ret              
 # -----------------------------------------------------------------------
 # scrip --jit-emit --x64  (M-JITEM-X64 / EM-1..EM-7d)
 # 29 SM instructions. Links against libscrip_rt.so.
@@ -181,10 +180,10 @@ main:                   push             rbp
 .Lpc12:                 # PAT_CAT        baked  _pat_inv_0 pc=7..12
 .Lpc13:                 PUSH_VAR         .Lstr_4 # var=N
 .Lpc14:                 PUSH_STR         .Lstr_5, 0 # str=""
-.Lpc15:                 lea     rdi, [rip + _pat_inv_0_α] # blob entry α  (Phase-2 pc=7..12)
-	lea     rsi, [rip + .Lstr_4] # subj_name=N
-	mov     edx, 1  # has_repl=1
-	call    scrip_rt_match_blob@PLT # EM-7c: Phase-3+5 against baked invariant blob
+.Lpc15:                 lea              rdi, [rip + _pat_inv_0_α] # blob entry α  (Phase-2 pc=7..12)
+                        lea              rsi, [rip + .Lstr_4] # subj_name=N
+                        mov              edx, 1 # has_repl=1
+                        call             scrip_rt_match_blob@PLT # EM-7c: Phase-3+5 against baked invariant blob
 .Lpc16:                 RETURN_VARIANT   0, 2, 16 # SM_RETURN_F
 # ============================================================================
 # stmt 6  (line 6):  	DEFINE('ROMAN(N)UNITS')		:(ROMAN_END)
