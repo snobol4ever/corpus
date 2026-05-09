@@ -26,11 +26,11 @@
                         .quad            0 # sentinel
                         .quad            0
                         .text
-# ============================================================================
+# ======================================================================================================================
 # EM-7c: invariant pattern blobs (baked from sm_phase2_to_patnd → bb_build_flat_text)
 # Each block exposes _pat_inv_<id>_α / _β / _γ / _ω.
 # rt_match_blob(blob_α, ...) drives Phase-3 against these blobs.
-# ============================================================================
+# ======================================================================================================================
                         .intel_syntax    noprefix
                         .text
 # ---- pattern blob 0 (Phase-2 window pc=7..12, SM_EXEC_STMT pc=15) ----
@@ -153,18 +153,18 @@ main:                   push             rbp
 # Each statement appears below as a major banner ('====') above
 # the asm it produced.  Inline annotations on the right column
 # show the source-level object referenced by each macro call.
-# ============================================================================
+# ======================================================================================================================
 # stmt 2  (line 2):  *	N must be positive and less than 4000
-# ============================================================================
+# ======================================================================================================================
 .Lpc0:                  STNO
-.Lpc1:                  PUSH_STR         .Lstr_0, 0 # str="ROMAN(N)UNITS"
-.Lpc2:                  CALL_FN          .Lstr_1, 1 # fname="DEFINE"
+.Lpc1:                  PUSH_STR         .Lstr_0, 0 # "ROMAN(N)UNITS"
+.Lpc2:                  CALL_FN          .Lstr_1, 1 # DEFINE
 .Lpc3:                  VOID_POP
 .Lpc4:                  JUMP             .Lpc28
 .Lpc5:                  LABEL
-# ============================================================================
+# ======================================================================================================================
 # stmt 4  (line 10):  ROMAN	N RPOS(1) LEN(1) . UNITS =	:F(RETURN)
-# ============================================================================
+# ======================================================================================================================
 .Lpc6:                  STNO
 .Lpc7:                  # PUSH_INT       baked  _pat_inv_0 pc=7..12
 .Lpc8:                  # PAT_RPOS       baked  _pat_inv_0 pc=7..12
@@ -172,24 +172,24 @@ main:                   push             rbp
 .Lpc10:                 # PAT_LEN        baked  _pat_inv_0 pc=7..12
 .Lpc11:                 # PAT_CAPTURE    baked  _pat_inv_0 pc=7..12
 .Lpc12:                 # PAT_CAT        baked  _pat_inv_0 pc=7..12
-.Lpc13:                 PUSH_VAR         .Lstr_4 # var=N
-.Lpc14:                 PUSH_STR         .Lstr_5, 0 # str=""
+.Lpc13:                 PUSH_VAR         .Lstr_4 # N
+.Lpc14:                 PUSH_STR         .Lstr_5, 0 # ""
 .Lpc15:                 lea              rdi, [rip + _pat_inv_0_α] # blob entry α  (Phase-2 pc=7..12)
                         lea              rsi, [rip + .Lstr_4] # subj_name=N
                         mov              edx, 1 # has_repl=1
                         call             rt_match_blob@PLT # EM-7c: Phase-3+5 against baked invariant blob
 .Lpc16:                 RETURN_VARIANT   0, 2, 16 # SM_RETURN_F
-# ============================================================================
+# ======================================================================================================================
 # stmt 6  (line 6):  	DEFINE('ROMAN(N)UNITS')		:(ROMAN_END)
-# ============================================================================
+# ======================================================================================================================
 .Lpc17:                 STNO
-.Lpc18:                 PUSH_VAR         .Lstr_3 # var=UNITS
+.Lpc18:                 PUSH_VAR         .Lstr_3 # UNITS
 .Lpc19:                 PAT_DEREF
-.Lpc20:                 PUSH_STR         .Lstr_6, 0 # str=","
+.Lpc20:                 PUSH_STR         .Lstr_6, 0 # ","
 .Lpc21:                 PAT_BREAK
-.Lpc22:                 PAT_CAPTURE      0, .Lstr_3 # var=UNITS kind=0
+.Lpc22:                 PAT_CAPTURE      0, .Lstr_3 # UNITS kind=0
 .Lpc23:                 PAT_CAT
-.Lpc24:                 PUSH_STR         .Lstr_7, 0 # str="0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
+.Lpc24:                 PUSH_STR         .Lstr_7, 0 # "0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
 .Lpc25:                 PUSH_INT         0
 .Lpc26:                 EXEC_STMT_VARIANT 0
 .Lpc27:                 RETURN_VARIANT   1, 2, 27 # SM_FRETURN_F
