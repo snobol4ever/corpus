@@ -1,45 +1,45 @@
                         .include         "sm_macros.s"
                         .section         .rodata
-.Lstr_0:                                 
+.Lstr_0:
                         .string          "TRIM"
-.Lstr_1:                                 
+.Lstr_1:
                         .string          "0123456789"
-.Lstr_2:                                 
+.Lstr_2:
                         .string          "NUMERALS"
-.Lstr_3:                                 
+.Lstr_3:
                         .string          "'-"
-.Lstr_4:                                 
+.Lstr_4:
                         .string          "UCASE"
-.Lstr_5:                                 
+.Lstr_5:
                         .string          "LCASE"
-.Lstr_6:                                 
+.Lstr_6:
                         .string          "WORD"
-.Lstr_7:                                 
+.Lstr_7:
                         .string          "WPAT"
-.Lstr_8:                                 
+.Lstr_8:
                         .string          "NEXTL"
-.Lstr_9:                                 
+.Lstr_9:
                         .string          "INPUT"
-.Lstr_10:                                
+.Lstr_10:
                         .string          "LINE"
-.Lstr_11:                                
+.Lstr_11:
                         .string          "NEXTW"
-.Lstr_12:                                
+.Lstr_12:
                         .string          ""
-.Lstr_13:                                
+.Lstr_13:
                         .string          "N"
-.Lstr_14:                                
+.Lstr_14:
                         .string          "DONE"
-.Lstr_15:                                
+.Lstr_15:
                         .string          " words"
-.Lstr_16:                                
+.Lstr_16:
                         .string          "OUTPUT"
-.Lstr_17:                                
+.Lstr_17:
                         .string          "END"
-                        .text            
+                        .text
                         .section         .data
                         .align           8
-.Lchunk_registry:                        
+.Lchunk_registry:
                         .quad            .Lstr_8 # chunk: NEXTL -> .Lpc25
                         .quad            .Lpc25
                         .quad            .Lstr_11 # chunk: NEXTW -> .Lpc30
@@ -50,7 +50,7 @@
                         .quad            .Lpc51
                         .quad            0 # sentinel
                         .quad            0
-                        .text            
+                        .text
 # -----------------------------------------------------------------------
 # scrip --jit-emit --x64  (M-JITEM-X64 / EM-1..EM-7d)
 # 53 SM instructions. Links against libscrip_rt.so.
@@ -73,54 +73,54 @@ main:                   push             rbp
 # ============================================================================
 # stmt 2  (line 2):  *     Tests: BREAK/SPAN word boundary detection, hyphenated and
 # ============================================================================
-.Lpc0:                  STNO             
+.Lpc0:                  STNO
 .Lpc1:                  PUSH_INT         1
 .Lpc2:                  STORE_VAR        .Lstr_0 # store -> TRIM
 # ============================================================================
 # stmt 3  (line 3):  *            apostrophe-joined words (it's, well-known count as one word each).
 # ============================================================================
-.Lpc3:                  STNO             
+.Lpc3:                  STNO
 .Lpc4:                  PUSH_STR         .Lstr_1, 0 # str="0123456789"
 .Lpc5:                  STORE_VAR        .Lstr_2 # store -> NUMERALS
 # ============================================================================
 # stmt 4
 # ============================================================================
-.Lpc6:                  STNO             
+.Lpc6:                  STNO
 .Lpc7:                  PUSH_STR         .Lstr_3, 0 # str="'-"
 .Lpc8:                  PUSH_VAR         .Lstr_2 # var=NUMERALS
 .Lpc9:                  PUSH_VAR         .Lstr_4 # var=UCASE
 .Lpc10:                 PUSH_VAR         .Lstr_5 # var=LCASE
-.Lpc11:                 CONCAT           
-.Lpc12:                 CONCAT           
-.Lpc13:                 CONCAT           
+.Lpc11:                 CONCAT
+.Lpc12:                 CONCAT
+.Lpc13:                 CONCAT
 .Lpc14:                 STORE_VAR        .Lstr_6 # store -> WORD
 # ============================================================================
 # stmt 5  (line 5):        &TRIM    =  1
 # ============================================================================
-.Lpc15:                 STNO             
+.Lpc15:                 STNO
 .Lpc16:                 PUSH_VAR         .Lstr_6 # var=WORD
-.Lpc17:                 PAT_BREAK        
-.Lpc18:                 PAT_BOXVAL       
+.Lpc17:                 PAT_BREAK
+.Lpc18:                 PAT_BOXVAL
 .Lpc19:                 PUSH_VAR         .Lstr_6 # var=WORD
-.Lpc20:                 PAT_SPAN         
-.Lpc21:                 PAT_BOXVAL       
-.Lpc22:                 CONCAT           
+.Lpc20:                 PAT_SPAN
+.Lpc21:                 PAT_BOXVAL
+.Lpc22:                 CONCAT
 .Lpc23:                 STORE_VAR        .Lstr_7 # store -> WPAT
-.Lpc24:                 LABEL            
+.Lpc24:                 LABEL
 # ============================================================================
 # stmt 6  (line 9):  NEXTL LINE     =  INPUT                            :F(DONE)
 # ============================================================================
-.Lpc25:                 STNO             
+.Lpc25:                 STNO
 .Lpc26:                 PUSH_VAR         .Lstr_9 # var=INPUT
 .Lpc27:                 STORE_VAR        .Lstr_10 # store -> LINE
 .Lpc28:                 JUMP_F           .Lpc43
-.Lpc29:                 LABEL            
+.Lpc29:                 LABEL
 # ============================================================================
 # stmt 7  (line 10):  NEXTW LINE     ?  WPAT =                           :F(NEXTL)
 # ============================================================================
-.Lpc30:                 STNO             
+.Lpc30:                 STNO
 .Lpc31:                 PUSH_VAR         .Lstr_7 # var=WPAT
-.Lpc32:                 PAT_DEREF        
+.Lpc32:                 PAT_DEREF
 .Lpc33:                 PUSH_VAR         .Lstr_10 # var=LINE
 .Lpc34:                 PUSH_STR         .Lstr_12, 0 # str=""
 .Lpc35:                 EXEC_STMT_VARIANT 1, .Lstr_10 # subj=LINE
@@ -128,31 +128,31 @@ main:                   push             rbp
 # ============================================================================
 # stmt 8  (line 8):        WPAT     =  BREAK(WORD) SPAN(WORD)
 # ============================================================================
-.Lpc37:                 STNO             
+.Lpc37:                 STNO
 .Lpc38:                 PUSH_VAR         .Lstr_13 # var=N
 .Lpc39:                 PUSH_INT         1
-.Lpc40:                 ADD_NUM          
+.Lpc40:                 ADD_NUM
 .Lpc41:                 STORE_VAR        .Lstr_13 # store -> N
 .Lpc42:                 JUMP             .Lpc29
-.Lpc43:                 LABEL            
+.Lpc43:                 LABEL
 # ============================================================================
 # stmt 9  (line 12):  DONE  OUTPUT   =  +N ' words'
 # ============================================================================
-.Lpc44:                 STNO             
+.Lpc44:                 STNO
 .Lpc45:                 PUSH_VAR         .Lstr_13 # var=N
-.Lpc46:                 COERCE_NUM       
+.Lpc46:                 COERCE_NUM
 .Lpc47:                 PUSH_STR         .Lstr_15, 0 # str=" words"
-.Lpc48:                 CONCAT           
+.Lpc48:                 CONCAT
 .Lpc49:                 STORE_VAR        .Lstr_16 # store -> OUTPUT
-.Lpc50:                 LABEL            
+.Lpc50:                 LABEL
 # ============================================================================
 # stmt 10  (line 10):  NEXTW LINE     ?  WPAT =                           :F(NEXTL)
 # ============================================================================
-.Lpc51:                 STNO             
-.Lpc52:                 HALT             
+.Lpc51:                 STNO
+.Lpc52:                 HALT
 # -- epilogue -------------------------------------------
                         call             scrip_rt_finalize@PLT
                         pop              rbp
-                        ret              
+                        ret
                         .size            main, .-main
                         .section         .note.GNU-stack,"",@progbits
