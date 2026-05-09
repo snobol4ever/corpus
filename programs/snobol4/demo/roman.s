@@ -163,22 +163,22 @@ main:                   push             rbp
 # ============================================================================
 # stmt 2  (line 2):  *	N must be positive and less than 4000
 # ============================================================================
-.Lpc0:
+.Lpc0:                  STNO             
 .Lpc1:                  PUSH_STR         .Lstr_0, 0 # str="ROMAN(N)UNITS"
 .Lpc2:                  CALL_FN          .Lstr_1, 1 # fname="DEFINE"
 .Lpc3:                  VOID_POP         
 .Lpc4:                  JUMP             .Lpc28
-.Lpc5:
+.Lpc5:                  LABEL            
 # ============================================================================
 # stmt 4  (line 10):  ROMAN	N RPOS(1) LEN(1) . UNITS =	:F(RETURN)
 # ============================================================================
-.Lpc6:
-.Lpc7:                                   # (baked into _pat_inv_0 at .text — SM_PUSH_LIT_I)
-.Lpc8:                                   # (baked into _pat_inv_0 at .text — SM_PAT_RPOS)
-.Lpc9:                                   # (baked into _pat_inv_0 at .text — SM_PUSH_LIT_I)
-.Lpc10:                                  # (baked into _pat_inv_0 at .text — SM_PAT_LEN)
-.Lpc11:                                  # (baked into _pat_inv_0 at .text — SM_PAT_CAPTURE)
-.Lpc12:                                  # (baked into _pat_inv_0 at .text — SM_PAT_CAT)
+.Lpc6:                  STNO             
+.Lpc7:                  # PUSH_INT       baked  _pat_inv_0 pc=7..12
+.Lpc8:                  # PAT_RPOS       baked  _pat_inv_0 pc=7..12
+.Lpc9:                  # PUSH_INT       baked  _pat_inv_0 pc=7..12
+.Lpc10:                 # PAT_LEN        baked  _pat_inv_0 pc=7..12
+.Lpc11:                 # PAT_CAPTURE    baked  _pat_inv_0 pc=7..12
+.Lpc12:                 # PAT_CAT        baked  _pat_inv_0 pc=7..12
 .Lpc13:                 PUSH_VAR         .Lstr_4 # var=N
 .Lpc14:                 PUSH_STR         .Lstr_5, 0 # str=""
 .Lpc15:                 lea     rdi, [rip + _pat_inv_0_α] # blob entry α  (Phase-2 pc=7..12)
@@ -189,7 +189,7 @@ main:                   push             rbp
 # ============================================================================
 # stmt 6  (line 6):  	DEFINE('ROMAN(N)UNITS')		:(ROMAN_END)
 # ============================================================================
-.Lpc17:
+.Lpc17:                 STNO             
 .Lpc18:                 PUSH_VAR         .Lstr_3 # var=UNITS
 .Lpc19:                 PAT_DEREF        
 .Lpc20:                 PUSH_STR         .Lstr_6, 0 # str=","

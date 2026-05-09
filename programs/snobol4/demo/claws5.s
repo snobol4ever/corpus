@@ -383,13 +383,13 @@ main:                   push             rbp
 # ============================================================================
 # stmt 1  (line 1):  *------------------------------------------------------------------------------
 # ============================================================================
-.Lpc0:
-.Lpc1:                                   # (baked into _pat_inv_0 at .text — SM_PUSH_LIT_I)
-.Lpc2:                                   # (baked into _pat_inv_0 at .text — SM_PAT_POS)
-.Lpc3:                                   # (baked into _pat_inv_0 at .text — SM_PUSH_LIT_I)
-.Lpc4:                                   # (baked into _pat_inv_0 at .text — SM_PAT_LEN)
-.Lpc5:                                   # (baked into _pat_inv_0 at .text — SM_PAT_CAPTURE)
-.Lpc6:                                   # (baked into _pat_inv_0 at .text — SM_PAT_CAT)
+.Lpc0:                  STNO             
+.Lpc1:                  # PUSH_INT       baked  _pat_inv_0 pc=1..6
+.Lpc2:                  # PAT_POS        baked  _pat_inv_0 pc=1..6
+.Lpc3:                  # PUSH_INT       baked  _pat_inv_0 pc=1..6
+.Lpc4:                  # PAT_LEN        baked  _pat_inv_0 pc=1..6
+.Lpc5:                  # PAT_CAPTURE    baked  _pat_inv_0 pc=1..6
+.Lpc6:                  # PAT_CAT        baked  _pat_inv_0 pc=1..6
 .Lpc7:                  PUSH_VAR         .Lstr_1 # var=ALPHABET
 .Lpc8:                  PUSH_INT         0
 .Lpc9:                  lea     rdi, [rip + _pat_inv_0_α] # blob entry α  (Phase-2 pc=1..6)
@@ -399,35 +399,35 @@ main:                   push             rbp
 # ============================================================================
 # stmt 2  (line 2):  * claws5.sno — CLAWS5 POS-tagged corpus tokenizer (one-phase)
 # ============================================================================
-.Lpc10:
+.Lpc10:                 STNO             
 .Lpc11:                 PUSH_STR         .Lstr_2, 0 # str="0123456789"
 .Lpc12:                 STORE_VAR        .Lstr_3 # store -> DIGITS
 # ============================================================================
 # stmt 3  (line 3):  * ENG 685, Lon Cherryholmes Sr.
 # ============================================================================
-.Lpc13:
+.Lpc13:                 STNO             
 .Lpc14:                 PUSH_STR         .Lstr_4, 0 # str="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 .Lpc15:                 STORE_VAR        .Lstr_5 # store -> UCASE
 # ============================================================================
 # stmt 4  (line 4):  * Run: csnobol4 -bf -P 34000 claws5.sno < claws5.input
 # ============================================================================
-.Lpc16:
+.Lpc16:                 STNO             
 .Lpc17:                 PUSH_STR         .Lstr_6, 0 # str="new_sent()"
 .Lpc18:                 CALL_FN          .Lstr_7, 1 # fname="DEFINE"
 .Lpc19:                 VOID_POP         
 .Lpc20:                 JUMP             .Lpc36
-.Lpc21:
+.Lpc21:                 LABEL            
 # ============================================================================
 # stmt 5  (line 13):  new_sent        sentno          =  +num
 # ============================================================================
-.Lpc22:
+.Lpc22:                 STNO             
 .Lpc23:                 PUSH_VAR         .Lstr_9 # var=num
 .Lpc24:                 COERCE_NUM       
 .Lpc25:                 STORE_VAR        .Lstr_10 # store -> sentno
 # ============================================================================
 # stmt 6  (line 6):  * Memory: -P 34000 required only for full corpus (CLAWS5inTASA.dat, 989 lines).
 # ============================================================================
-.Lpc26:
+.Lpc26:                 STNO             
 .Lpc27:                 CALL_FN          .Lstr_11, 0 # fname="TABLE"
 .Lpc28:                 PUSH_VAR         .Lstr_12 # var=mem
 .Lpc29:                 PUSH_VAR         .Lstr_10 # var=sentno
@@ -435,29 +435,29 @@ main:                   push             rbp
 # ============================================================================
 # stmt 7  (line 7):  *------------------------------------------------------------------------------
 # ============================================================================
-.Lpc31:
+.Lpc31:                 STNO             
 .Lpc32:                 PUSH_STR         .Lstr_14, 0 # str="dummy"
 .Lpc33:                 CALL_FN          .Lstr_15, 1 # fname="NAME_PUSH"
 .Lpc34:                 STORE_VAR        .Lstr_8 # store -> new_sent
 .Lpc35:                 RETURN_VARIANT   2, 0, 35 # SM_NRETURN
-.Lpc36:
+.Lpc36:                 LABEL            
 # ============================================================================
 # stmt 8  (line 17):  *------------------------------------------------------------------------------
 # ============================================================================
-.Lpc37:
+.Lpc37:                 STNO             
 # ============================================================================
 # stmt 9  (line 9):                  DIGITS          =  '0123456789'
 # ============================================================================
-.Lpc38:
+.Lpc38:                 STNO             
 .Lpc39:                 PUSH_STR         .Lstr_17, 0 # str="add_tok()"
 .Lpc40:                 CALL_FN          .Lstr_7, 1 # fname="DEFINE"
 .Lpc41:                 VOID_POP         
 .Lpc42:                 JUMP             .Lpc106
-.Lpc43:
+.Lpc43:                 LABEL            
 # ============================================================================
 # stmt 10  (line 19):  add_tok         DIFFER(mem[sentno][wrd])                        :F(new_wrd)
 # ============================================================================
-.Lpc44:
+.Lpc44:                 STNO             
 .Lpc45:                 PUSH_VAR         .Lstr_12 # var=mem
 .Lpc46:                 PUSH_VAR         .Lstr_10 # var=sentno
 .Lpc47:                 CALL_FN          .Lstr_19, 2 # fname="IDX"
@@ -469,7 +469,7 @@ main:                   push             rbp
 # ============================================================================
 # stmt 11  (line 11):  *------------------------------------------------------------------------------
 # ============================================================================
-.Lpc53:
+.Lpc53:                 STNO             
 .Lpc54:                 PUSH_VAR         .Lstr_12 # var=mem
 .Lpc55:                 PUSH_VAR         .Lstr_10 # var=sentno
 .Lpc56:                 CALL_FN          .Lstr_19, 2 # fname="IDX"
@@ -483,7 +483,7 @@ main:                   push             rbp
 # ============================================================================
 # stmt 12  (line 12):                  DEFINE('new_sent()')                            :(new_sent_end)
 # ============================================================================
-.Lpc64:
+.Lpc64:                 STNO             
 .Lpc65:                 PUSH_VAR         .Lstr_12 # var=mem
 .Lpc66:                 PUSH_VAR         .Lstr_10 # var=sentno
 .Lpc67:                 CALL_FN          .Lstr_19, 2 # fname="IDX"
@@ -501,22 +501,22 @@ main:                   push             rbp
 .Lpc79:                 PUSH_VAR         .Lstr_22 # var=tag
 .Lpc80:                 CALL_FN          .Lstr_13, 3 # fname="IDX_SET"
 .Lpc81:                 JUMP             .Lpc100
-.Lpc82:
+.Lpc82:                 LABEL            
 # ============================================================================
 # stmt 13  (line 22):  new_wrd         mem[sentno][wrd]       =  TABLE()
 # ============================================================================
-.Lpc83:
+.Lpc83:                 STNO             
 .Lpc84:                 CALL_FN          .Lstr_11, 0 # fname="TABLE"
 .Lpc85:                 PUSH_VAR         .Lstr_12 # var=mem
 .Lpc86:                 PUSH_VAR         .Lstr_10 # var=sentno
 .Lpc87:                 CALL_FN          .Lstr_19, 2 # fname="IDX"
 .Lpc88:                 PUSH_VAR         .Lstr_20 # var=wrd
 .Lpc89:                 CALL_FN          .Lstr_13, 3 # fname="IDX_SET"
-.Lpc90:
+.Lpc90:                 LABEL            
 # ============================================================================
 # stmt 14  (line 23):  new_tag         mem[sentno][wrd][tag]  =  1
 # ============================================================================
-.Lpc91:
+.Lpc91:                 STNO             
 .Lpc92:                 PUSH_INT         1
 .Lpc93:                 PUSH_VAR         .Lstr_12 # var=mem
 .Lpc94:                 PUSH_VAR         .Lstr_10 # var=sentno
@@ -525,53 +525,53 @@ main:                   push             rbp
 .Lpc97:                 CALL_FN          .Lstr_19, 2 # fname="IDX"
 .Lpc98:                 PUSH_VAR         .Lstr_22 # var=tag
 .Lpc99:                 CALL_FN          .Lstr_13, 3 # fname="IDX_SET"
-.Lpc100:
+.Lpc100:                LABEL            
 # ============================================================================
 # stmt 15  (line 24):  done            add_tok         =  .dummy                       :(NRETURN)
 # ============================================================================
-.Lpc101:
+.Lpc101:                STNO             
 .Lpc102:                PUSH_STR         .Lstr_14, 0 # str="dummy"
 .Lpc103:                CALL_FN          .Lstr_15, 1 # fname="NAME_PUSH"
 .Lpc104:                STORE_VAR        .Lstr_18 # store -> add_tok
 .Lpc105:                RETURN_VARIANT   2, 0, 105 # SM_NRETURN
-.Lpc106:
+.Lpc106:                LABEL            
 # ============================================================================
 # stmt 16  (line 26):  *------------------------------------------------------------------------------
 # ============================================================================
-.Lpc107:
+.Lpc107:                STNO             
 # ============================================================================
 # stmt 17  (line 17):  *------------------------------------------------------------------------------
 # ============================================================================
-.Lpc108:
+.Lpc108:                STNO             
 .Lpc109:                PUSH_STR         .Lstr_27, 0 # str="pp_mem(mem)ssk,si,sentno,wsk,wi,wkey,wq,..."
 .Lpc110:                CALL_FN          .Lstr_7, 1 # fname="DEFINE"
 .Lpc111:                VOID_POP         
 .Lpc112:                JUMP             .Lpc426
-.Lpc113:
+.Lpc113:                LABEL            
 # ============================================================================
 # stmt 18  (line 28):  pp_mem          ssk             =   SORT(mem)
 # ============================================================================
-.Lpc114:
+.Lpc114:                STNO             
 .Lpc115:                PUSH_VAR         .Lstr_12 # var=mem
 .Lpc116:                CALL_FN          .Lstr_29, 1 # fname="SORT"
 .Lpc117:                STORE_VAR        .Lstr_30 # store -> ssk
 # ============================================================================
 # stmt 19  (line 19):  add_tok         DIFFER(mem[sentno][wrd])                        :F(new_wrd)
 # ============================================================================
-.Lpc118:
+.Lpc118:                STNO             
 .Lpc119:                PUSH_INT         0
 .Lpc120:                STORE_VAR        .Lstr_31 # store -> si
 # ============================================================================
 # stmt 20  (line 20):                  DIFFER(mem[sentno][wrd][tag])                   :F(new_tag)
 # ============================================================================
-.Lpc121:
+.Lpc121:                STNO             
 .Lpc122:                PUSH_INT         0
 .Lpc123:                STORE_VAR        .Lstr_32 # store -> ns
-.Lpc124:
+.Lpc124:                LABEL            
 # ============================================================================
 # stmt 21  (line 31):  pm_cnt_loop     ns              =   ns + 1
 # ============================================================================
-.Lpc125:
+.Lpc125:                STNO             
 .Lpc126:                PUSH_VAR         .Lstr_32 # var=ns
 .Lpc127:                PUSH_INT         1
 .Lpc128:                ADD_NUM          
@@ -579,7 +579,7 @@ main:                   push             rbp
 # ============================================================================
 # stmt 22  (line 22):  new_wrd         mem[sentno][wrd]       =  TABLE()
 # ============================================================================
-.Lpc130:
+.Lpc130:                STNO             
 .Lpc131:                PUSH_VAR         .Lstr_30 # var=ssk
 .Lpc132:                PUSH_VAR         .Lstr_32 # var=ns
 .Lpc133:                PUSH_INT         1
@@ -589,7 +589,7 @@ main:                   push             rbp
 # ============================================================================
 # stmt 23  (line 23):  new_tag         mem[sentno][wrd][tag]  =  1
 # ============================================================================
-.Lpc137:
+.Lpc137:                STNO             
 .Lpc138:                PUSH_VAR         .Lstr_32 # var=ns
 .Lpc139:                PUSH_INT         1
 .Lpc140:                SUB_NUM          
@@ -597,14 +597,14 @@ main:                   push             rbp
 # ============================================================================
 # stmt 24  (line 24):  done            add_tok         =  .dummy                       :(NRETURN)
 # ============================================================================
-.Lpc142:
+.Lpc142:                STNO             
 .Lpc143:                PUSH_INT         0
 .Lpc144:                STORE_VAR        .Lstr_31 # store -> si
-.Lpc145:
+.Lpc145:                LABEL            
 # ============================================================================
 # stmt 25  (line 35):  pm_sent_loop    si              =   si + 1
 # ============================================================================
-.Lpc146:
+.Lpc146:                STNO             
 .Lpc147:                PUSH_VAR         .Lstr_31 # var=si
 .Lpc148:                PUSH_INT         1
 .Lpc149:                ADD_NUM          
@@ -612,7 +612,7 @@ main:                   push             rbp
 # ============================================================================
 # stmt 26  (line 26):  *------------------------------------------------------------------------------
 # ============================================================================
-.Lpc151:
+.Lpc151:                STNO             
 .Lpc152:                PUSH_VAR         .Lstr_30 # var=ssk
 .Lpc153:                PUSH_VAR         .Lstr_31 # var=si
 .Lpc154:                PUSH_INT         1
@@ -622,13 +622,13 @@ main:                   push             rbp
 # ============================================================================
 # stmt 27  (line 27):                  DEFINE('pp_mem(mem)ssk,si,sentno,wsk,wi,wkey,wq,wrd,tsk,ti,tag,tv,tline,pfx,pad,next_wkey,last_sent,lline,ns') :(pp_mem_end)
 # ============================================================================
-.Lpc158:
+.Lpc158:                STNO             
 .Lpc159:                PUSH_STR         .Lstr_35, 0 # str=""
 .Lpc160:                STORE_VAR        .Lstr_36 # store -> last_sent
 # ============================================================================
 # stmt 28  (line 28):  pp_mem          ssk             =   SORT(mem)
 # ============================================================================
-.Lpc161:
+.Lpc161:                STNO             
 .Lpc162:                PUSH_VAR         .Lstr_31 # var=si
 .Lpc163:                PUSH_VAR         .Lstr_32 # var=ns
 .Lpc164:                CALL_FN          .Lstr_37, 2 # fname="IDENT"
@@ -638,7 +638,7 @@ main:                   push             rbp
 # ============================================================================
 # stmt 29  (line 29):                  si              =   0
 # ============================================================================
-.Lpc168:
+.Lpc168:                STNO             
 .Lpc169:                PUSH_STR         .Lstr_38, 0 # str=" "
 .Lpc170:                PUSH_VAR         .Lstr_10 # var=sentno
 .Lpc171:                CALL_FN          .Lstr_39, 1 # fname="SIZE"
@@ -649,7 +649,7 @@ main:                   push             rbp
 # ============================================================================
 # stmt 30  (line 30):                  ns              =   0
 # ============================================================================
-.Lpc176:
+.Lpc176:                STNO             
 .Lpc177:                PUSH_VAR         .Lstr_31 # var=si
 .Lpc178:                PUSH_INT         1
 .Lpc179:                CALL_FN          .Lstr_42, 2 # fname="EQ"
@@ -663,7 +663,7 @@ main:                   push             rbp
 # ============================================================================
 # stmt 31  (line 31):  pm_cnt_loop     ns              =   ns + 1
 # ============================================================================
-.Lpc187:
+.Lpc187:                STNO             
 .Lpc188:                PUSH_VAR         .Lstr_31 # var=si
 .Lpc189:                PUSH_INT         1
 .Lpc190:                CALL_FN          .Lstr_46, 2 # fname="NE"
@@ -677,7 +677,7 @@ main:                   push             rbp
 # ============================================================================
 # stmt 32  (line 32):                  ssk[ns,1]                                       :S(pm_cnt_loop)
 # ============================================================================
-.Lpc198:
+.Lpc198:                STNO             
 .Lpc199:                PUSH_VAR         .Lstr_12 # var=mem
 .Lpc200:                PUSH_VAR         .Lstr_10 # var=sentno
 .Lpc201:                CALL_FN          .Lstr_19, 2 # fname="IDX"
@@ -686,14 +686,14 @@ main:                   push             rbp
 # ============================================================================
 # stmt 33  (line 33):                  ns              =   ns - 1
 # ============================================================================
-.Lpc204:
+.Lpc204:                STNO             
 .Lpc205:                PUSH_INT         0
 .Lpc206:                STORE_VAR        .Lstr_48 # store -> wi
-.Lpc207:
+.Lpc207:                LABEL            
 # ============================================================================
 # stmt 34  (line 44):  pm_wrd_loop     wi              =   wi + 1
 # ============================================================================
-.Lpc208:
+.Lpc208:                STNO             
 .Lpc209:                PUSH_VAR         .Lstr_48 # var=wi
 .Lpc210:                PUSH_INT         1
 .Lpc211:                ADD_NUM          
@@ -701,7 +701,7 @@ main:                   push             rbp
 # ============================================================================
 # stmt 35  (line 35):  pm_sent_loop    si              =   si + 1
 # ============================================================================
-.Lpc213:
+.Lpc213:                STNO             
 .Lpc214:                PUSH_VAR         .Lstr_47 # var=wsk
 .Lpc215:                PUSH_VAR         .Lstr_48 # var=wi
 .Lpc216:                PUSH_INT         1
@@ -711,13 +711,13 @@ main:                   push             rbp
 # ============================================================================
 # stmt 36  (line 36):                  sentno          =   ssk[si,1]                   :F(pm_done)
 # ============================================================================
-.Lpc220:
+.Lpc220:                STNO             
 .Lpc221:                PUSH_STR         .Lstr_35, 0 # str=""
 .Lpc222:                STORE_VAR        .Lstr_51 # store -> next_wkey
 # ============================================================================
 # stmt 37  (line 37):                  last_sent       =   ''
 # ============================================================================
-.Lpc223:
+.Lpc223:                STNO             
 .Lpc224:                PUSH_VAR         .Lstr_47 # var=wsk
 .Lpc225:                PUSH_VAR         .Lstr_48 # var=wi
 .Lpc226:                PUSH_INT         1
@@ -728,13 +728,13 @@ main:                   push             rbp
 # ============================================================================
 # stmt 38  (line 38):                  last_sent       =   IDENT(si, ns) 1
 # ============================================================================
-.Lpc231:
+.Lpc231:                STNO             
 .Lpc232:                PUSH_VAR         .Lstr_50 # var=wkey
 .Lpc233:                STORE_VAR        .Lstr_20 # store -> wrd
 # ============================================================================
 # stmt 39  (line 39):                  pad             =   DUPL(' ', SIZE(sentno) + 4)
 # ============================================================================
-.Lpc234:
+.Lpc234:                STNO             
 .Lpc235:                PUSH_VAR         .Lstr_52 # var=ARB
 .Lpc236:                PAT_DEREF        
 .Lpc237:                PAT_LIT          .Lstr_53 # arg="'"
@@ -746,7 +746,7 @@ main:                   push             rbp
 # ============================================================================
 # stmt 40  (line 40):                  pfx             =   EQ(si, 1) '{' sentno ': {'
 # ============================================================================
-.Lpc243:
+.Lpc243:                STNO             
 .Lpc244:                PUSH_STR         .Lstr_54, 0 # str="\""
 .Lpc245:                PUSH_VAR         .Lstr_50 # var=wkey
 .Lpc246:                PUSH_STR         .Lstr_54, 0 # str="\""
@@ -754,22 +754,22 @@ main:                   push             rbp
 .Lpc248:                CONCAT           
 .Lpc249:                STORE_VAR        .Lstr_55 # store -> wq
 .Lpc250:                JUMP             .Lpc259
-.Lpc251:
+.Lpc251:                LABEL            
 # ============================================================================
 # stmt 41  (line 51):  pm_sq           wq              =   "'" wkey "'"
 # ============================================================================
-.Lpc252:
+.Lpc252:                STNO             
 .Lpc253:                PUSH_STR         .Lstr_53, 0 # str="'"
 .Lpc254:                PUSH_VAR         .Lstr_50 # var=wkey
 .Lpc255:                PUSH_STR         .Lstr_53, 0 # str="'"
 .Lpc256:                CONCAT           
 .Lpc257:                CONCAT           
 .Lpc258:                STORE_VAR        .Lstr_55 # store -> wq
-.Lpc259:
+.Lpc259:                LABEL            
 # ============================================================================
 # stmt 42  (line 52):  pm_tdict        tsk             =   SORT(mem[sentno][wkey])
 # ============================================================================
-.Lpc260:
+.Lpc260:                STNO             
 .Lpc261:                PUSH_VAR         .Lstr_12 # var=mem
 .Lpc262:                PUSH_VAR         .Lstr_10 # var=sentno
 .Lpc263:                CALL_FN          .Lstr_19, 2 # fname="IDX"
@@ -780,20 +780,20 @@ main:                   push             rbp
 # ============================================================================
 # stmt 43  (line 43):                  wi              =   0
 # ============================================================================
-.Lpc268:
+.Lpc268:                STNO             
 .Lpc269:                PUSH_INT         0
 .Lpc270:                STORE_VAR        .Lstr_59 # store -> ti
 # ============================================================================
 # stmt 44  (line 44):  pm_wrd_loop     wi              =   wi + 1
 # ============================================================================
-.Lpc271:
+.Lpc271:                STNO             
 .Lpc272:                PUSH_STR         .Lstr_43, 0 # str="{"
 .Lpc273:                STORE_VAR        .Lstr_60 # store -> tline
-.Lpc274:
+.Lpc274:                LABEL            
 # ============================================================================
 # stmt 45  (line 55):  pm_tag_loop     ti              =   ti + 1
 # ============================================================================
-.Lpc275:
+.Lpc275:                STNO             
 .Lpc276:                PUSH_VAR         .Lstr_59 # var=ti
 .Lpc277:                PUSH_INT         1
 .Lpc278:                ADD_NUM          
@@ -801,7 +801,7 @@ main:                   push             rbp
 # ============================================================================
 # stmt 46  (line 46):                  next_wkey       =   ''
 # ============================================================================
-.Lpc280:
+.Lpc280:                STNO             
 .Lpc281:                PUSH_VAR         .Lstr_58 # var=tsk
 .Lpc282:                PUSH_VAR         .Lstr_59 # var=ti
 .Lpc283:                PUSH_INT         1
@@ -811,7 +811,7 @@ main:                   push             rbp
 # ============================================================================
 # stmt 47  (line 47):                  next_wkey       =   wsk[wi + 1,1]
 # ============================================================================
-.Lpc287:
+.Lpc287:                STNO             
 .Lpc288:                PUSH_VAR         .Lstr_12 # var=mem
 .Lpc289:                PUSH_VAR         .Lstr_10 # var=sentno
 .Lpc290:                CALL_FN          .Lstr_19, 2 # fname="IDX"
@@ -823,7 +823,7 @@ main:                   push             rbp
 # ============================================================================
 # stmt 48  (line 48):                  wrd             =   wkey
 # ============================================================================
-.Lpc296:
+.Lpc296:                STNO             
 .Lpc297:                PUSH_VAR         .Lstr_60 # var=tline
 .Lpc298:                PUSH_STR         .Lstr_43, 0 # str="{"
 .Lpc299:                CALL_FN          .Lstr_37, 2 # fname="IDENT"
@@ -832,7 +832,7 @@ main:                   push             rbp
 # ============================================================================
 # stmt 49  (line 49):                  wrd             ?   ARB "'"  =  ''              :F(pm_sq)
 # ============================================================================
-.Lpc302:
+.Lpc302:                STNO             
 .Lpc303:                PUSH_VAR         .Lstr_60 # var=tline
 .Lpc304:                PUSH_STR         .Lstr_53, 0 # str="'"
 .Lpc305:                PUSH_VAR         .Lstr_22 # var=tag
@@ -844,11 +844,11 @@ main:                   push             rbp
 .Lpc311:                CONCAT           
 .Lpc312:                STORE_VAR        .Lstr_60 # store -> tline
 .Lpc313:                JUMP             .Lpc274
-.Lpc314:
+.Lpc314:                LABEL            
 # ============================================================================
 # stmt 50  (line 60):  pm_tag_sep      tline           =   tline ', ' "'" tag "': " tv :(pm_tag_loop)
 # ============================================================================
-.Lpc315:
+.Lpc315:                STNO             
 .Lpc316:                PUSH_VAR         .Lstr_60 # var=tline
 .Lpc317:                PUSH_STR         .Lstr_65, 0 # str=", "
 .Lpc318:                PUSH_STR         .Lstr_53, 0 # str="'"
@@ -862,11 +862,11 @@ main:                   push             rbp
 .Lpc326:                CONCAT           
 .Lpc327:                STORE_VAR        .Lstr_60 # store -> tline
 .Lpc328:                JUMP             .Lpc274
-.Lpc329:
+.Lpc329:                LABEL            
 # ============================================================================
 # stmt 51  (line 61):  pm_tag_close    tline           =   tline '}'
 # ============================================================================
-.Lpc330:
+.Lpc330:                STNO             
 .Lpc331:                PUSH_VAR         .Lstr_60 # var=tline
 .Lpc332:                PUSH_STR         .Lstr_67, 0 # str="}"
 .Lpc333:                CONCAT           
@@ -874,7 +874,7 @@ main:                   push             rbp
 # ============================================================================
 # stmt 52  (line 52):  pm_tdict        tsk             =   SORT(mem[sentno][wkey])
 # ============================================================================
-.Lpc335:
+.Lpc335:                STNO             
 .Lpc336:                PUSH_VAR         .Lstr_51 # var=next_wkey
 .Lpc337:                CALL_FN          .Lstr_39, 1 # fname="SIZE"
 .Lpc338:                PUSH_INT         0
@@ -884,7 +884,7 @@ main:                   push             rbp
 # ============================================================================
 # stmt 53  (line 53):                  ti              =   0
 # ============================================================================
-.Lpc342:
+.Lpc342:                STNO             
 .Lpc343:                PUSH_VAR         .Lstr_48 # var=wi
 .Lpc344:                PUSH_INT         1
 .Lpc345:                CALL_FN          .Lstr_37, 2 # fname="IDENT"
@@ -893,7 +893,7 @@ main:                   push             rbp
 # ============================================================================
 # stmt 54  (line 54):                  tline           =   '{'
 # ============================================================================
-.Lpc348:
+.Lpc348:                STNO             
 .Lpc349:                PUSH_VAR         .Lstr_45 # var=pfx
 .Lpc350:                PUSH_VAR         .Lstr_55 # var=wq
 .Lpc351:                PUSH_STR         .Lstr_69, 0 # str=": "
@@ -905,11 +905,11 @@ main:                   push             rbp
 .Lpc357:                CONCAT           
 .Lpc358:                STORE_VAR        .Lstr_71 # store -> OUTPUT
 .Lpc359:                JUMP             .Lpc207
-.Lpc360:
+.Lpc360:                LABEL            
 # ============================================================================
 # stmt 55  (line 65):  pm_mid_wrd      OUTPUT          =   pad wq ': ' tline ','       :(pm_wrd_loop)
 # ============================================================================
-.Lpc361:
+.Lpc361:                STNO             
 .Lpc362:                PUSH_VAR         .Lstr_41 # var=pad
 .Lpc363:                PUSH_VAR         .Lstr_55 # var=wq
 .Lpc364:                PUSH_STR         .Lstr_69, 0 # str=": "
@@ -921,11 +921,11 @@ main:                   push             rbp
 .Lpc370:                CONCAT           
 .Lpc371:                STORE_VAR        .Lstr_71 # store -> OUTPUT
 .Lpc372:                JUMP             .Lpc207
-.Lpc373:
+.Lpc373:                LABEL            
 # ============================================================================
 # stmt 56  (line 66):  pm_last_wrd     IDENT(wi, 1)                                    :F(pm_last_mid)
 # ============================================================================
-.Lpc374:
+.Lpc374:                STNO             
 .Lpc375:                PUSH_VAR         .Lstr_48 # var=wi
 .Lpc376:                PUSH_INT         1
 .Lpc377:                CALL_FN          .Lstr_37, 2 # fname="IDENT"
@@ -934,7 +934,7 @@ main:                   push             rbp
 # ============================================================================
 # stmt 57  (line 57):                  tv              =   mem[sentno][wkey][tag]
 # ============================================================================
-.Lpc380:
+.Lpc380:                STNO             
 .Lpc381:                PUSH_VAR         .Lstr_45 # var=pfx
 .Lpc382:                PUSH_VAR         .Lstr_55 # var=wq
 .Lpc383:                PUSH_STR         .Lstr_69, 0 # str=": "
@@ -944,11 +944,11 @@ main:                   push             rbp
 .Lpc387:                CONCAT           
 .Lpc388:                STORE_VAR        .Lstr_74 # store -> lline
 .Lpc389:                JUMP             .Lpc400
-.Lpc390:
+.Lpc390:                LABEL            
 # ============================================================================
 # stmt 58  (line 68):  pm_last_mid     lline           =   pad wq ': ' tline
 # ============================================================================
-.Lpc391:
+.Lpc391:                STNO             
 .Lpc392:                PUSH_VAR         .Lstr_41 # var=pad
 .Lpc393:                PUSH_VAR         .Lstr_55 # var=wq
 .Lpc394:                PUSH_STR         .Lstr_69, 0 # str=": "
@@ -957,11 +957,11 @@ main:                   push             rbp
 .Lpc397:                CONCAT           
 .Lpc398:                CONCAT           
 .Lpc399:                STORE_VAR        .Lstr_74 # store -> lline
-.Lpc400:
+.Lpc400:                LABEL            
 # ============================================================================
 # stmt 59  (line 69):  pm_last_emit    IDENT(last_sent, 1)                             :F(pm_last_mid2)
 # ============================================================================
-.Lpc401:
+.Lpc401:                STNO             
 .Lpc402:                PUSH_VAR         .Lstr_36 # var=last_sent
 .Lpc403:                PUSH_INT         1
 .Lpc404:                CALL_FN          .Lstr_37, 2 # fname="IDENT"
@@ -970,68 +970,68 @@ main:                   push             rbp
 # ============================================================================
 # stmt 60  (line 60):  pm_tag_sep      tline           =   tline ', ' "'" tag "': " tv :(pm_tag_loop)
 # ============================================================================
-.Lpc407:
+.Lpc407:                STNO             
 .Lpc408:                PUSH_VAR         .Lstr_74 # var=lline
 .Lpc409:                PUSH_STR         .Lstr_77, 0 # str="}}"
 .Lpc410:                CONCAT           
 .Lpc411:                STORE_VAR        .Lstr_71 # store -> OUTPUT
 .Lpc412:                JUMP             .Lpc145
-.Lpc413:
+.Lpc413:                LABEL            
 # ============================================================================
 # stmt 61  (line 71):  pm_last_mid2    OUTPUT          =   lline '},'                  :(pm_sent_loop)
 # ============================================================================
-.Lpc414:
+.Lpc414:                STNO             
 .Lpc415:                PUSH_VAR         .Lstr_74 # var=lline
 .Lpc416:                PUSH_STR         .Lstr_79, 0 # str="},"
 .Lpc417:                CONCAT           
 .Lpc418:                STORE_VAR        .Lstr_71 # store -> OUTPUT
 .Lpc419:                JUMP             .Lpc145
-.Lpc420:
+.Lpc420:                LABEL            
 # ============================================================================
 # stmt 62  (line 72):  pm_done         pp_mem          =   .dummy                      :(RETURN)
 # ============================================================================
-.Lpc421:
+.Lpc421:                STNO             
 .Lpc422:                PUSH_STR         .Lstr_14, 0 # str="dummy"
 .Lpc423:                CALL_FN          .Lstr_15, 1 # fname="NAME_PUSH"
 .Lpc424:                STORE_VAR        .Lstr_28 # store -> pp_mem
 .Lpc425:                RETURN           
-.Lpc426:
+.Lpc426:                LABEL            
 # ============================================================================
 # stmt 63  (line 74):  *------------------------------------------------------------------------------
 # ============================================================================
-.Lpc427:
-.Lpc428:
+.Lpc427:                STNO             
+.Lpc428:                LABEL            
 # ============================================================================
 # stmt 64  (line 75):  slurp           line            =   INPUT                       :F(slurp_done)
 # ============================================================================
-.Lpc429:
+.Lpc429:                STNO             
 .Lpc430:                PUSH_VAR         .Lstr_83 # var=INPUT
 .Lpc431:                STORE_VAR        .Lstr_84 # store -> line
 .Lpc432:                JUMP_F           .Lpc439
 # ============================================================================
 # stmt 65  (line 65):  pm_mid_wrd      OUTPUT          =   pad wq ': ' tline ','       :(pm_wrd_loop)
 # ============================================================================
-.Lpc433:
+.Lpc433:                STNO             
 .Lpc434:                PUSH_VAR         .Lstr_85 # var=src
 .Lpc435:                PUSH_VAR         .Lstr_84 # var=line
 .Lpc436:                CONCAT           
 .Lpc437:                STORE_VAR        .Lstr_85 # store -> src
 .Lpc438:                JUMP             .Lpc428
-.Lpc439:
+.Lpc439:                LABEL            
 # ============================================================================
 # stmt 66  (line 78):                  mem             =   TABLE()
 # ============================================================================
-.Lpc440:
+.Lpc440:                STNO             
 # ============================================================================
 # stmt 67  (line 67):                  lline           =   pfx wq ': ' tline           :(pm_last_emit)
 # ============================================================================
-.Lpc441:
+.Lpc441:                STNO             
 .Lpc442:                CALL_FN          .Lstr_11, 0 # fname="TABLE"
 .Lpc443:                STORE_VAR        .Lstr_12 # store -> mem
 # ============================================================================
 # stmt 68  (line 68):  pm_last_mid     lline           =   pad wq ': ' tline
 # ============================================================================
-.Lpc444:
+.Lpc444:                STNO             
 .Lpc445:                PUSH_INT         0
 .Lpc446:                PAT_POS          
 .Lpc447:                PAT_BOXVAL       
@@ -1079,7 +1079,7 @@ main:                   push             rbp
 # ============================================================================
 # stmt 69  (line 69):  pm_last_emit    IDENT(last_sent, 1)                             :F(pm_last_mid2)
 # ============================================================================
-.Lpc489:
+.Lpc489:                STNO             
 .Lpc490:                PUSH_VAR         .Lstr_90 # var=claws
 .Lpc491:                PAT_DEREF        
 .Lpc492:                PUSH_VAR         .Lstr_85 # var=src
@@ -1089,23 +1089,23 @@ main:                   push             rbp
 # ============================================================================
 # stmt 70  (line 70):                  OUTPUT          =   lline '}}'                  :(pm_sent_loop)
 # ============================================================================
-.Lpc496:
+.Lpc496:                STNO             
 .Lpc497:                PUSH_VAR         .Lstr_12 # var=mem
 .Lpc498:                CALL_FN          .Lstr_28, 1 # fname="pp_mem"
 .Lpc499:                VOID_POP         
 .Lpc500:                JUMP             .Lpc505
-.Lpc501:
+.Lpc501:                LABEL            
 # ============================================================================
 # stmt 71  (line 96):  fail            OUTPUT          =  'Pattern match failed'
 # ============================================================================
-.Lpc502:
+.Lpc502:                STNO             
 .Lpc503:                PUSH_STR         .Lstr_92, 0 # str="Pattern match failed"
 .Lpc504:                STORE_VAR        .Lstr_71 # store -> OUTPUT
-.Lpc505:
+.Lpc505:                LABEL            
 # ============================================================================
 # stmt 72  (line 72):  pm_done         pp_mem          =   .dummy                      :(RETURN)
 # ============================================================================
-.Lpc506:
+.Lpc506:                STNO             
 .Lpc507:                HALT             
 # -- epilogue -------------------------------------------
                         call             scrip_rt_finalize@PLT

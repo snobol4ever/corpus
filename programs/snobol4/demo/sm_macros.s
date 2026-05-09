@@ -228,6 +228,10 @@
                         mov              esi, \has_repl
                         call             scrip_rt_match_variant@PLT
                         .endm            
+                        .macro           LABEL
+                        .endm            
+                        .macro           STNO
+                        .endm            
                         .macro           UNHANDLED op
                         mov              edi, \op
                         call             scrip_rt_unhandled_op@PLT
