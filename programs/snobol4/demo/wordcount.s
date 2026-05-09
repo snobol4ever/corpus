@@ -1,4 +1,5 @@
                         .include         "sm_macros.s"
+                        .include         "bb_macros.s"
                         .section         .rodata
 .Lstr_0:
                         .string          "TRIM"
@@ -40,13 +41,13 @@
                         .section         .data
                         .align           8
 .Lchunk_registry:
-                        .quad            .Lstr_8 # chunk: NEXTL -> .Lpc25
+                        .quad            .Lstr_8 # expression: NEXTL -> .Lpc25
                         .quad            .Lpc25
-                        .quad            .Lstr_11 # chunk: NEXTW -> .Lpc30
+                        .quad            .Lstr_11 # expression: NEXTW -> .Lpc30
                         .quad            .Lpc30
-                        .quad            .Lstr_14 # chunk: DONE -> .Lpc44
+                        .quad            .Lstr_14 # expression: DONE -> .Lpc44
                         .quad            .Lpc44
-                        .quad            .Lstr_17 # chunk: END -> .Lpc51
+                        .quad            .Lstr_17 # expression: END -> .Lpc51
                         .quad            .Lpc51
                         .quad            0 # sentinel
                         .quad            0
@@ -63,8 +64,8 @@
                         .type            main, @function
 main:                   push             rbp
                         mov              rbp, rsp
-                        lea              rdi, [rip + .Lchunk_registry] # EM-7d: register user-defined function chunks
-                        call             rt_register_chunks@PLT
+                        lea              rdi, [rip + .Lchunk_registry] # EM-7d: register user-defined function expressions
+                        call             rt_register_expressions@PLT
                         call             rt_init@PLT # rt_init(argc, argv)
 # source-file: wordcount.sno  (13 lines)
 # Each statement appears below as a major banner ('====') above

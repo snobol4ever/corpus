@@ -1,4 +1,5 @@
                         .include         "sm_macros.s"
+                        .include         "bb_macros.s"
                         .section         .rodata
 .Lstr_0:
                         .string          "ROMAN(N)UNITS"
@@ -20,7 +21,7 @@
                         .section         .data
                         .align           8
 .Lchunk_registry:
-                        .quad            .Lstr_2 # chunk: ROMAN -> .Lpc6
+                        .quad            .Lstr_2 # expression: ROMAN -> .Lpc6
                         .quad            .Lpc6
                         .quad            0 # sentinel
                         .quad            0
@@ -43,17 +44,10 @@ _pat_inv_0_α:
                         je               _pat_inv_0_α_body
                         jmp              _pat_inv_0_β
 _pat_inv_0_α_body:
-                        lea              rcx, [rip + Σlen]
-                        mov              eax, [rcx]
-                        sub              eax, 0
-                        mov              ecx, eax
-                        mov              eax, [r10]
-                        cmp              eax, ecx
-                        jne              xcat0_o
-                        jmp              xcat0_mid_g
-xcat0_left_b:
-                        jmp              xcat0_o
-xcat0_mid_g:
+                        RPOS_α          0, xcat0_γ, xcat0_ω
+xcat0_left_β:
+                        RPOS_β          xcat0_ω
+xcat0_γ:
                         .section         .data
 .Lcap1_vname:
                         .string          ""
@@ -73,9 +67,9 @@ xcat0_mid_g:
 _cap1_child_α:
                         lea              r10, [rip + Δ]
                         cmp              esi, 0
-                        je               _cap1_ab
-                        jmp              _cap1_cb
-_cap1_ab:
+                        je               _cap1_α_body
+                        jmp              _cap1_β
+_cap1_α_body:
                         .section         .data
 .Llen2_z:
                         .long            0
@@ -85,16 +79,16 @@ _cap1_ab:
                         mov              esi, 0
                         call             bb_len@PLT
                         test             rax, rax
-                        jne              _cap1_cs
-                        jmp              _cap1_cf
-_cap1_cb:
+                        jne              _cap1_γ
+                        jmp              _cap1_ω
+_cap1_β:
                         lea              rdi, [rip + .Llen2_z]
                         mov              esi, 1
                         call             bb_len@PLT
                         test             rax, rax
-                        jne              _cap1_cs
-                        jmp              _cap1_cf
-_cap1_cs:
+                        jne              _cap1_γ
+                        jmp              _cap1_ω
+_cap1_γ:
                         lea              rcx, [rip + Σ]
                         mov              rax, [rcx]
                         movsxd           rcx, dword ptr [r10]
@@ -102,7 +96,7 @@ _cap1_cs:
                         mov              rdx, rax
                         mov              eax, 1
                         ret
-_cap1_cf:
+_cap1_ω:
                         mov              eax, 99
                         xor              edx, edx
                         ret
@@ -111,19 +105,19 @@ _cap1_cf:
                         call             bb_cap@PLT
                         test             rax, rax
                         jne              _pat_inv_0_γ
-                        jmp              xcat0_right_o
-xcat0_right_b:
+                        jmp              xcat0_right_ω
+xcat0_right_β:
                         lea              rdi, [rip + .Lcap1_data]
                         mov              esi, 1
                         call             bb_cap@PLT
                         test             rax, rax
                         jne              _pat_inv_0_γ
-                        jmp              xcat0_right_o
-xcat0_right_o:
-                        jmp              xcat0_left_b
+                        jmp              xcat0_right_ω
+xcat0_right_ω:
+                        jmp              xcat0_left_β
 _pat_inv_0_β:
-                        jmp              xcat0_right_b
-xcat0_o:
+                        jmp              xcat0_right_β
+xcat0_ω:
                         jmp              _pat_inv_0_ω
 _pat_inv_0_γ:
                         lea              rcx, [rip + Σ]
@@ -149,8 +143,8 @@ _pat_inv_0_ω:
                         .type            main, @function
 main:                   push             rbp
                         mov              rbp, rsp
-                        lea              rdi, [rip + .Lchunk_registry] # EM-7d: register user-defined function chunks
-                        call             rt_register_chunks@PLT
+                        lea              rdi, [rip + .Lchunk_registry] # EM-7d: register user-defined function expressions
+                        call             rt_register_expressions@PLT
                         lea              rdi, [rip + .Lcap1_data] # cap fixup 0 (static): .Lcap1_data -> _cap1_child_α
                         lea              rsi, [rip + _cap1_child_α]
                         call             rt_patch_cap_fn@PLT

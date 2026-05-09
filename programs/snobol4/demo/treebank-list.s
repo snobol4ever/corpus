@@ -1,4 +1,5 @@
                         .include         "sm_macros.s"
+                        .include         "bb_macros.s"
                         .section         .rodata
 .Lstr_0:
                         .string          "nl"
@@ -266,93 +267,93 @@
                         .section         .data
                         .align           8
 .Lchunk_registry:
-                        .quad            .Lstr_6 # chunk: list_reverse -> .Lpc20
+                        .quad            .Lstr_6 # expression: list_reverse -> .Lpc20
                         .quad            .Lpc20
-                        .quad            .Lstr_11 # chunk: lr1 -> .Lpc27
+                        .quad            .Lstr_11 # expression: lr1 -> .Lpc27
                         .quad            .Lpc27
-                        .quad            .Lstr_16 # chunk: lr_done -> .Lpc44
+                        .quad            .Lstr_16 # expression: lr_done -> .Lpc44
                         .quad            .Lpc44
-                        .quad            .Lstr_17 # chunk: list_reverse_end -> .Lpc49
+                        .quad            .Lstr_17 # expression: list_reverse_end -> .Lpc49
                         .quad            .Lpc49
-                        .quad            .Lstr_19 # chunk: stk_push_frame -> .Lpc56
+                        .quad            .Lstr_19 # expression: stk_push_frame -> .Lpc56
                         .quad            .Lpc56
-                        .quad            .Lstr_24 # chunk: stk_push_frame_end -> .Lpc69
+                        .quad            .Lstr_24 # expression: stk_push_frame_end -> .Lpc69
                         .quad            .Lpc69
-                        .quad            .Lstr_26 # chunk: stk_push_item -> .Lpc76
+                        .quad            .Lstr_26 # expression: stk_push_item -> .Lpc76
                         .quad            .Lpc76
-                        .quad            .Lstr_28 # chunk: stk_push_item_end -> .Lpc89
+                        .quad            .Lstr_28 # expression: stk_push_item_end -> .Lpc89
                         .quad            .Lpc89
-                        .quad            .Lstr_30 # chunk: stk_pop_into_parent -> .Lpc96
+                        .quad            .Lstr_30 # expression: stk_pop_into_parent -> .Lpc96
                         .quad            .Lpc96
-                        .quad            .Lstr_32 # chunk: stk_pop_into_parent_end -> .Lpc119
+                        .quad            .Lstr_32 # expression: stk_pop_into_parent_end -> .Lpc119
                         .quad            .Lpc119
-                        .quad            .Lstr_34 # chunk: stk_pop_final -> .Lpc126
+                        .quad            .Lstr_34 # expression: stk_pop_final -> .Lpc126
                         .quad            .Lpc126
-                        .quad            .Lstr_37 # chunk: stk_pop_final_end -> .Lpc142
+                        .quad            .Lstr_37 # expression: stk_pop_final_end -> .Lpc142
                         .quad            .Lpc142
-                        .quad            .Lstr_40 # chunk: init_list -> .Lpc153
+                        .quad            .Lstr_40 # expression: init_list -> .Lpc153
                         .quad            .Lpc153
-                        .quad            .Lstr_41 # chunk: Init_list -> .Lpc166
+                        .quad            .Lstr_41 # expression: Init_list -> .Lpc166
                         .quad            .Lpc166
-                        .quad            .Lstr_46 # chunk: init_list_end -> .Lpc176
+                        .quad            .Lstr_46 # expression: init_list_end -> .Lpc176
                         .quad            .Lpc176
-                        .quad            .Lstr_49 # chunk: push_list -> .Lpc187
+                        .quad            .Lstr_49 # expression: push_list -> .Lpc187
                         .quad            .Lpc187
-                        .quad            .Lstr_50 # chunk: Push_list -> .Lpc197
+                        .quad            .Lstr_50 # expression: Push_list -> .Lpc197
                         .quad            .Lpc197
-                        .quad            .Lstr_52 # chunk: push_list_end -> .Lpc207
+                        .quad            .Lstr_52 # expression: push_list_end -> .Lpc207
                         .quad            .Lpc207
-                        .quad            .Lstr_55 # chunk: push_item -> .Lpc218
+                        .quad            .Lstr_55 # expression: push_item -> .Lpc218
                         .quad            .Lpc218
-                        .quad            .Lstr_56 # chunk: Push_item -> .Lpc228
+                        .quad            .Lstr_56 # expression: Push_item -> .Lpc228
                         .quad            .Lpc228
-                        .quad            .Lstr_58 # chunk: push_item_end -> .Lpc238
+                        .quad            .Lstr_58 # expression: push_item_end -> .Lpc238
                         .quad            .Lpc238
-                        .quad            .Lstr_61 # chunk: pop_list -> .Lpc249
+                        .quad            .Lstr_61 # expression: pop_list -> .Lpc249
                         .quad            .Lpc249
-                        .quad            .Lstr_62 # chunk: Pop_list -> .Lpc258
+                        .quad            .Lstr_62 # expression: Pop_list -> .Lpc258
                         .quad            .Lpc258
-                        .quad            .Lstr_64 # chunk: pop_list_end -> .Lpc266
+                        .quad            .Lstr_64 # expression: pop_list_end -> .Lpc266
                         .quad            .Lpc266
-                        .quad            .Lstr_67 # chunk: pop_final -> .Lpc277
+                        .quad            .Lstr_67 # expression: pop_final -> .Lpc277
                         .quad            .Lpc277
-                        .quad            .Lstr_68 # chunk: Pop_final -> .Lpc287
+                        .quad            .Lstr_68 # expression: Pop_final -> .Lpc287
                         .quad            .Lpc287
-                        .quad            .Lstr_70 # chunk: pop_final_end -> .Lpc297
+                        .quad            .Lstr_70 # expression: pop_final_end -> .Lpc297
                         .quad            .Lpc297
-                        .quad            .Lstr_84 # chunk: node_repr -> .Lpc385
+                        .quad            .Lstr_84 # expression: node_repr -> .Lpc385
                         .quad            .Lpc385
-                        .quad            .Lstr_93 # chunk: nr_list -> .Lpc404
+                        .quad            .Lstr_93 # expression: nr_list -> .Lpc404
                         .quad            .Lpc404
-                        .quad            .Lstr_97 # chunk: nr_lp -> .Lpc414
+                        .quad            .Lstr_97 # expression: nr_lp -> .Lpc414
                         .quad            .Lpc414
-                        .quad            .Lstr_99 # chunk: nr_done -> .Lpc437
+                        .quad            .Lstr_99 # expression: nr_done -> .Lpc437
                         .quad            .Lpc437
-                        .quad            .Lstr_100 # chunk: node_repr_end -> .Lpc444
+                        .quad            .Lstr_100 # expression: node_repr_end -> .Lpc444
                         .quad            .Lpc444
-                        .quad            .Lstr_102 # chunk: pp_node -> .Lpc451
+                        .quad            .Lstr_102 # expression: pp_node -> .Lpc451
                         .quad            .Lpc451
-                        .quad            .Lstr_110 # chunk: pp_wrap -> .Lpc478
+                        .quad            .Lstr_110 # expression: pp_wrap -> .Lpc478
                         .quad            .Lpc478
-                        .quad            .Lstr_113 # chunk: pp_wch -> .Lpc495
+                        .quad            .Lstr_113 # expression: pp_wch -> .Lpc495
                         .quad            .Lpc495
-                        .quad            .Lstr_116 # chunk: pp_wlast -> .Lpc523
+                        .quad            .Lstr_116 # expression: pp_wlast -> .Lpc523
                         .quad            .Lpc523
-                        .quad            .Lstr_117 # chunk: pp_wdone -> .Lpc536
+                        .quad            .Lstr_117 # expression: pp_wdone -> .Lpc536
                         .quad            .Lpc536
-                        .quad            .Lstr_118 # chunk: pp_node_end -> .Lpc539
+                        .quad            .Lstr_118 # expression: pp_node_end -> .Lpc539
                         .quad            .Lpc539
-                        .quad            .Lstr_120 # chunk: pp_bank -> .Lpc546
+                        .quad            .Lstr_120 # expression: pp_bank -> .Lpc546
                         .quad            .Lpc546
-                        .quad            .Lstr_122 # chunk: pp_bank_end -> .Lpc558
+                        .quad            .Lstr_122 # expression: pp_bank_end -> .Lpc558
                         .quad            .Lpc558
-                        .quad            .Lstr_123 # chunk: slurp -> .Lpc560
+                        .quad            .Lstr_123 # expression: slurp -> .Lpc560
                         .quad            .Lpc560
-                        .quad            .Lstr_127 # chunk: slurp_done -> .Lpc573
+                        .quad            .Lstr_127 # expression: slurp_done -> .Lpc573
                         .quad            .Lpc573
-                        .quad            .Lstr_128 # chunk: main_fail -> .Lpc585
+                        .quad            .Lstr_128 # expression: main_fail -> .Lpc585
                         .quad            .Lpc585
-                        .quad            .Lstr_130 # chunk: END -> .Lpc589
+                        .quad            .Lstr_130 # expression: END -> .Lpc589
                         .quad            .Lpc589
                         .quad            0 # sentinel
                         .quad            0
@@ -375,13 +376,10 @@ _pat_inv_0_α:
                         je               _pat_inv_0_α_body
                         jmp              _pat_inv_0_β
 _pat_inv_0_α_body:
-                        mov              eax, [r10]
-                        cmp              eax, 0
-                        jne              xcat0_o
-                        jmp              xcat0_mid_g
-xcat0_left_b:
-                        jmp              xcat0_o
-xcat0_mid_g:
+                        POS_α           0, xcat0_γ, xcat0_ω
+xcat0_left_β:
+                        POS_β           xcat0_ω
+xcat0_γ:
                         .section         .data
 .Lcap1_vname:
                         .string          ""
@@ -401,9 +399,9 @@ xcat0_mid_g:
 _cap1_child_α:
                         lea              r10, [rip + Δ]
                         cmp              esi, 0
-                        je               _cap1_ab
-                        jmp              _cap1_cb
-_cap1_ab:
+                        je               _cap1_α_body
+                        jmp              _cap1_β
+_cap1_α_body:
                         .section         .data
 .Llen2_z:
                         .long            0
@@ -413,16 +411,16 @@ _cap1_ab:
                         mov              esi, 0
                         call             bb_len@PLT
                         test             rax, rax
-                        jne              _cap1_cs
-                        jmp              _cap1_cf
-_cap1_cb:
+                        jne              _cap1_γ
+                        jmp              _cap1_ω
+_cap1_β:
                         lea              rdi, [rip + .Llen2_z]
                         mov              esi, 1
                         call             bb_len@PLT
                         test             rax, rax
-                        jne              _cap1_cs
-                        jmp              _cap1_cf
-_cap1_cs:
+                        jne              _cap1_γ
+                        jmp              _cap1_ω
+_cap1_γ:
                         lea              rcx, [rip + Σ]
                         mov              rax, [rcx]
                         movsxd           rcx, dword ptr [r10]
@@ -430,7 +428,7 @@ _cap1_cs:
                         mov              rdx, rax
                         mov              eax, 1
                         ret
-_cap1_cf:
+_cap1_ω:
                         mov              eax, 99
                         xor              edx, edx
                         ret
@@ -439,19 +437,19 @@ _cap1_cf:
                         call             bb_cap@PLT
                         test             rax, rax
                         jne              _pat_inv_0_γ
-                        jmp              xcat0_right_o
-xcat0_right_b:
+                        jmp              xcat0_right_ω
+xcat0_right_β:
                         lea              rdi, [rip + .Lcap1_data]
                         mov              esi, 1
                         call             bb_cap@PLT
                         test             rax, rax
                         jne              _pat_inv_0_γ
-                        jmp              xcat0_right_o
-xcat0_right_o:
-                        jmp              xcat0_left_b
+                        jmp              xcat0_right_ω
+xcat0_right_ω:
+                        jmp              xcat0_left_β
 _pat_inv_0_β:
-                        jmp              xcat0_right_b
-xcat0_o:
+                        jmp              xcat0_right_β
+xcat0_ω:
                         jmp              _pat_inv_0_ω
 _pat_inv_0_γ:
                         lea              rcx, [rip + Σ]
@@ -477,8 +475,8 @@ _pat_inv_0_ω:
                         .type            main, @function
 main:                   push             rbp
                         mov              rbp, rsp
-                        lea              rdi, [rip + .Lchunk_registry] # EM-7d: register user-defined function chunks
-                        call             rt_register_chunks@PLT
+                        lea              rdi, [rip + .Lchunk_registry] # EM-7d: register user-defined function expressions
+                        call             rt_register_expressions@PLT
                         lea              rdi, [rip + .Lcap1_data] # cap fixup 0 (static): .Lcap1_data -> _cap1_child_α
                         lea              rsi, [rip + _cap1_child_α]
                         call             rt_patch_cap_fn@PLT
