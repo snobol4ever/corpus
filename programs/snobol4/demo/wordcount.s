@@ -70,21 +70,18 @@ main:                   push             rbp
 # Each statement appears below as a major banner ('====') above
 # the asm it produced.  Inline annotations on the right column
 # show the source-level object referenced by each macro call.
-
 # ============================================================================
 # stmt 2  (line 2):  *     Tests: BREAK/SPAN word boundary detection, hyphenated and
 # ============================================================================
 .Lpc0:
 .Lpc1:                  PUSH_INT         1
 .Lpc2:                  STORE_VAR        .Lstr_0 # store -> TRIM
-
 # ============================================================================
 # stmt 3  (line 3):  *            apostrophe-joined words (it's, well-known count as one word each).
 # ============================================================================
 .Lpc3:
 .Lpc4:                  PUSH_STR         .Lstr_1, 0 # str="0123456789"
 .Lpc5:                  STORE_VAR        .Lstr_2 # store -> NUMERALS
-
 # ============================================================================
 # stmt 4
 # ============================================================================
@@ -97,7 +94,6 @@ main:                   push             rbp
 .Lpc12:                 CONCAT           
 .Lpc13:                 CONCAT           
 .Lpc14:                 STORE_VAR        .Lstr_6 # store -> WORD
-
 # ============================================================================
 # stmt 5  (line 5):        &TRIM    =  1
 # ============================================================================
@@ -111,7 +107,6 @@ main:                   push             rbp
 .Lpc22:                 CONCAT           
 .Lpc23:                 STORE_VAR        .Lstr_7 # store -> WPAT
 .Lpc24:
-
 # ============================================================================
 # stmt 6  (line 9):  NEXTL LINE     =  INPUT                            :F(DONE)
 # ============================================================================
@@ -120,7 +115,6 @@ main:                   push             rbp
 .Lpc27:                 STORE_VAR        .Lstr_10 # store -> LINE
 .Lpc28:                 JUMP_F           .Lpc43
 .Lpc29:
-
 # ============================================================================
 # stmt 7  (line 10):  NEXTW LINE     ?  WPAT =                           :F(NEXTL)
 # ============================================================================
@@ -131,18 +125,16 @@ main:                   push             rbp
 .Lpc34:                 PUSH_STR         .Lstr_12, 0 # str=""
 .Lpc35:                 EXEC_STMT_VARIANT 1, .Lstr_10 # subj=LINE
 .Lpc36:                 JUMP_F           .Lpc24
-
 # ============================================================================
 # stmt 8  (line 8):        WPAT     =  BREAK(WORD) SPAN(WORD)
 # ============================================================================
 .Lpc37:
 .Lpc38:                 PUSH_VAR         .Lstr_13 # var=N
 .Lpc39:                 PUSH_INT         1
-.Lpc40:                 ARITH            17 # SM_ADD
+.Lpc40:                 ADD_NUM          
 .Lpc41:                 STORE_VAR        .Lstr_13 # store -> N
 .Lpc42:                 JUMP             .Lpc29
 .Lpc43:
-
 # ============================================================================
 # stmt 9  (line 12):  DONE  OUTPUT   =  +N ' words'
 # ============================================================================
@@ -153,7 +145,6 @@ main:                   push             rbp
 .Lpc48:                 CONCAT           
 .Lpc49:                 STORE_VAR        .Lstr_16 # store -> OUTPUT
 .Lpc50:
-
 # ============================================================================
 # stmt 10  (line 10):  NEXTW LINE     ?  WPAT =                           :F(NEXTL)
 # ============================================================================

@@ -35,8 +35,24 @@
                         .macro           COERCE_NUM
                         call             scrip_rt_coerce_num@PLT
                         .endm            
-                        .macro           ARITH op
-                        mov              edi, \op
+                        .macro           ADD_NUM
+                        mov              edi, 17
+                        call             scrip_rt_arith@PLT
+                        .endm            
+                        .macro           SUB_NUM
+                        mov              edi, 18
+                        call             scrip_rt_arith@PLT
+                        .endm            
+                        .macro           MUL_NUM
+                        mov              edi, 19
+                        call             scrip_rt_arith@PLT
+                        .endm            
+                        .macro           DIV_NUM
+                        mov              edi, 20
+                        call             scrip_rt_arith@PLT
+                        .endm            
+                        .macro           MOD_NUM
+                        mov              edi, 22
                         call             scrip_rt_arith@PLT
                         .endm            
                         .macro           JUMP tgt
