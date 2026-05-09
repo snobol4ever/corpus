@@ -73,12 +73,12 @@ Append(_smoke_qn, tree('string', "o'clock"));
 OUTPUT = (IDENT(TLump(_smoke_qn, 80), "(R 'o''clock')") 'tdump-quote-OK', 'tdump-quote-FAIL');
 
 // PARSER-SN-INFRA-7a — inline *assign(...) inside (subj ? PAT) now fires.
-// Prior bug: pattern built inline inside an E_SCAN argument fell through
-// interp_eval_pat's default case and reached eval_code.c's E_CAPT_COND_ASGN,
-// which has no E_DEFER(E_FNC) routing — pat_assign_cond (XNME) silently
+// Prior bug: pattern built inline inside an AST_SCAN argument fell through
+// interp_eval_pat's default case and reached eval_code.c's AST_CAPT_COND_ASGN,
+// which has no AST_DEFER(AST_FNC) routing — pat_assign_cond (XNME) silently
 // replaced the intended pat_assign_callcap (XCALLCAP), so the deferred call
 // was never registered and the Phase-4 NAME_commit had nothing to fire.
-// Fix: added E_CAPT_COND_ASGN / E_CAPT_IMMED_ASGN cases to interp_eval_pat
+// Fix: added AST_CAPT_COND_ASGN / AST_CAPT_IMMED_ASGN cases to interp_eval_pat
 // in src/runtime/x86/eval_pat.c that mirror the driver-side routing.
 _smoke_infra7a_str = 'X';
 _smoke_infra7a_cap = 'unset';
@@ -158,21 +158,21 @@ OUTPUT = (IDENT(t(_smoke_o10_t1), 'Word') IDENT(v(_smoke_o10_t1), 'foo')
 // PARSER-SN-FW-1: generic IR-leaf branch in TValue.
 // tree('FOO_KIND', 'bar') must render as (FOO_KIND bar) — not bare FOO_KIND.
 // tree('IC_VAR', 'x') must render as (IC_VAR x) — sibling-session kind.
-// tree('E_QLIT', 'hi') must render as (E_QLIT "hi") — double-quote special branch.
+// tree('AST_QLIT', 'hi') must render as (AST_QLIT "hi") — double-quote special branch.
 _fw1_foo = tree('FOO_KIND', 'bar');
 _fw1_ic  = tree('IC_VAR', 'x');
-_fw1_eq  = tree('E_QLIT', 'hi');
+_fw1_eq  = tree('AST_QLIT', 'hi');
 OUTPUT = (IDENT(TLump(_fw1_foo, 256), '(FOO_KIND bar)')
           IDENT(TLump(_fw1_ic,  256), '(IC_VAR x)')
-          IDENT(TLump(_fw1_eq,  256), '(E_QLIT "hi")')
+          IDENT(TLump(_fw1_eq,  256), '(AST_QLIT "hi")')
           'fw1-generic-leaf-OK', 'fw1-generic-leaf-FAIL');
 
 // PARSER-SN-FW-2: multi-child role-slot wrapper in TLump.
 // Tree(':args','',3,c1,c2,c3) must render as ":args (c1 c2 c3)" — not
 // bracketed with double-quoted tag.  0 and 1-child cases unchanged.
-_fw2_c1 = Tree('E_VAR', 'a');
-_fw2_c2 = Tree('E_VAR', 'b');
-_fw2_c3 = Tree('E_VAR', 'c');
+_fw2_c1 = Tree('AST_VAR', 'a');
+_fw2_c2 = Tree('AST_VAR', 'b');
+_fw2_c3 = Tree('AST_VAR', 'c');
 _fw2_x3 = Tree(':args', '', 3, _fw2_c1, _fw2_c2, _fw2_c3);
-OUTPUT = (IDENT(TLump(_fw2_x3, 256), ':args ((E_VAR a) (E_VAR b) (E_VAR c))')
+OUTPUT = (IDENT(TLump(_fw2_x3, 256), ':args ((AST_VAR a) (AST_VAR b) (AST_VAR c))')
           'fw2-multichild-role-OK', 'fw2-multichild-role-FAIL');

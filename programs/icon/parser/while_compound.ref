@@ -1,21 +1,21 @@
-(STMT :subj (E_FNC main
-  (E_VAR main)
-  (E_WHILE
-    (E_GT
-      (E_VAR x)
-      (E_ILIT 0)
+(STMT :subj (AST_FNC main
+  (AST_VAR main)
+  (AST_WHILE
+    (AST_GT
+      (AST_VAR x)
+      (AST_ILIT 0)
     )
-    (E_SEQ_EXPR
-      (E_ASSIGN
-        (E_VAR x)
-        (E_SUB
-          (E_VAR x)
-          (E_ILIT 1)
+    (AST_SEQ_EXPR
+      (AST_ASSIGN
+        (AST_VAR x)
+        (AST_SUB
+          (AST_VAR x)
+          (AST_ILIT 1)
         )
       )
-      (E_FNC
-        (E_VAR write)
-        (E_VAR x)
+      (AST_FNC
+        (AST_VAR write)
+        (AST_VAR x)
       )
     )
   )

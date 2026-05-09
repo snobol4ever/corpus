@@ -1,19 +1,19 @@
-(STMT :subj (E_FNC swap
-  (E_VAR swap)
-  (E_VAR a)
-  (E_VAR b)
-  (E_GLOBAL (E_VAR tmp))
-  (E_ASSIGN
-    (E_VAR tmp)
-    (E_VAR a)
+(STMT :subj (AST_FNC swap
+  (AST_VAR swap)
+  (AST_VAR a)
+  (AST_VAR b)
+  (AST_GLOBAL (AST_VAR tmp))
+  (AST_ASSIGN
+    (AST_VAR tmp)
+    (AST_VAR a)
   )
-  (E_ASSIGN
-    (E_VAR a)
-    (E_VAR b)
+  (AST_ASSIGN
+    (AST_VAR a)
+    (AST_VAR b)
   )
-  (E_ASSIGN
-    (E_VAR b)
-    (E_VAR tmp)
+  (AST_ASSIGN
+    (AST_VAR b)
+    (AST_VAR tmp)
   )
-  (E_RETURN (E_VAR tmp))
+  (AST_RETURN (AST_VAR tmp))
 ))

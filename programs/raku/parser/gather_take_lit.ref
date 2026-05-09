@@ -1,11 +1,11 @@
-(STMT :subj (E_FNC __gather_0
-  (E_VAR __gather_0)
-  (E_SUSPEND (E_ILIT 1))
+(STMT :subj (AST_FNC __gather_0
+  (AST_VAR __gather_0)
+  (AST_SUSPEND (AST_ILIT 1))
 ))
-(STMT :subj (E_FNC main
-  (E_VAR main)
-  (E_ASSIGN
-    (E_VAR r)
-    (E_FNC __gather_0 (E_VAR __gather_0))
+(STMT :subj (AST_FNC main
+  (AST_VAR main)
+  (AST_ASSIGN
+    (AST_VAR r)
+    (AST_FNC __gather_0 (AST_VAR __gather_0))
   )
 ))

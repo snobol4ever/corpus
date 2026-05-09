@@ -74,7 +74,7 @@ function FoldOp(t, rhs, lhs) {
 }
 
 // ReduceCall() -- reads TopCounter() internally at match time (not definition time).
-// Pops n args from stack in order, pops fname E_VAR node, pushes E_FNC tree.
+// Pops n args from stack in order, pops fname AST_VAR node, pushes AST_FNC tree.
 // Called via *ReduceCall (no parens) inside a pattern — fires at match time.
 
 function ReduceCall(n, args, i, fname, r) {
@@ -84,14 +84,14 @@ function ReduceCall(n, args, i, fname, r) {
     i = n + 1;
     while (i = GT(i, 1) i - 1) { args[i] = Pop(); }
     fname = v(Pop());
-    r = tree('E_FNC', fname, n, args);
+    r = tree('AST_FNC', fname, n, args);
     Push(r);
     nreturn;
 }
 
 // ReducePrim(tag) -- reads TopCounter() internally at match time.
 // Pops n args from stack, pushes tree(tag, '', n, args).
-// tag is a pre-quoted string e.g. 'E_LEN'; evaluated via EVAL if EXPRESSION.
+// tag is a pre-quoted string e.g. 'AST_LEN'; evaluated via EVAL if EXPRESSION.
 
 function ReducePrim(tag, n, args, i, r) {
     ReducePrim = .dummy;
@@ -107,8 +107,8 @@ function ReducePrim(tag, n, args, i, r) {
     nreturn;
 }
 
-// ReduceOpsyn(op, n) -- like Reduce but stores op as the value of the E_OPSYN node.
-// Used for & ~ @ opsyn binary operators where oracle emits (E_OPSYN op arg1 arg2).
+// ReduceOpsyn(op, n) -- like Reduce but stores op as the value of the AST_OPSYN node.
+// Used for & ~ @ opsyn binary operators where oracle emits (AST_OPSYN op arg1 arg2).
 
 function ReduceOpsyn(op, n, c, i, r) {
     ReduceOpsyn = .dummy;
@@ -118,7 +118,7 @@ function ReduceOpsyn(op, n, c, i, r) {
     c = GE(n, 1) ARRAY('1:' n);
     i = n + 1;
     while (i = GT(i, 1) i - 1) { c[i] = Pop(); }
-    r = tree('E_OPSYN', op, n, c);
+    r = tree('AST_OPSYN', op, n, c);
     Push(r);
     nreturn;
 }

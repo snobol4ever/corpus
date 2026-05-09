@@ -1,8 +1,8 @@
-(STMT :subj (E_FNC main
-  (E_VAR main)
-  (E_FNC push
-    (E_VAR push)
-    (E_VAR a)
-    (E_ILIT 1)
+(STMT :subj (AST_FNC main
+  (AST_VAR main)
+  (AST_FNC push
+    (AST_VAR push)
+    (AST_VAR a)
+    (AST_ILIT 1)
   )
 ))

@@ -1,14 +1,14 @@
-(STMT :subj (E_FNC main
-  (E_VAR main)
-  (E_ASSIGN
-    (E_VAR a)
-    (E_QLIT "")
+(STMT :subj (AST_FNC main
+  (AST_VAR main)
+  (AST_ASSIGN
+    (AST_VAR a)
+    (AST_QLIT "")
   )
-  (E_EVERY
-    (E_ITERATE (E_VAR a))
-    (E_SEQ_EXPR (E_FNC write
-        (E_VAR write)
-        (E_QLIT "x")
+  (AST_EVERY
+    (AST_ITERATE (AST_VAR a))
+    (AST_SEQ_EXPR (AST_FNC write
+        (AST_VAR write)
+        (AST_QLIT "x")
       ))
   )
 ))

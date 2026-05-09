@@ -1,12 +1,12 @@
-(STMT :subj (E_FNC main
-  (E_VAR main)
-  (E_ASSIGN
-    (E_VAR k)
-    (E_QLIT "bar")
+(STMT :subj (AST_FNC main
+  (AST_VAR main)
+  (AST_ASSIGN
+    (AST_VAR k)
+    (AST_QLIT "bar")
   )
-  (E_FNC hash_delete
-    (E_VAR hash_delete)
-    (E_VAR h)
-    (E_VAR k)
+  (AST_FNC hash_delete
+    (AST_VAR hash_delete)
+    (AST_VAR h)
+    (AST_VAR k)
   )
 ))

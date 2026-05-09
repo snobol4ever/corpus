@@ -80,7 +80,7 @@ Integer = SPAN(digits);
 Real    = SPAN(digits) '.' SPAN(digits);
 //  Keyword body-capture — `&IDENT` (e.g. &FULLSCAN, &ANCHOR).  The opening
 //  '&' is matched by a sibling; only the Id body goes through the capture so
-//  the shifted E_KEYWORD node holds 'FULLSCAN', not '&FULLSCAN'.  This
+//  the shifted AST_KEYWORD node holds 'FULLSCAN', not '&FULLSCAN'.  This
 //  mirrors the DQ_str / SQ_str idiom and the rubric's body-capture pattern.
 //  The pattern-concat $'&' operator wrapper has surrounding Gray, so it
 //  cannot match a bare '&' immediately followed by an Id letter.
@@ -163,23 +163,23 @@ dollar_capt = $'  '  '$'        $' ';
 //  Tag string constants — bare form; semantic.sc _qtag auto-quotes.
 /*====================================================================================================================*/
 
-E_VAR        = 'E_VAR';
-E_ILIT       = 'E_ILIT';
-E_QLIT       = 'E_QLIT';
-E_FLIT       = 'E_FLIT';
-E_KEYWORD    = 'E_KEYWORD';
-E_ALT        = 'E_ALT';
-E_FNC        = 'E_FNC';
-E_ADD        = 'E_ADD';
-E_SUB        = 'E_SUB';
-E_MUL        = 'E_MUL';
-E_DIV        = 'E_DIV';
-E_MNS        = 'E_MNS';
-E_CAT        = 'E_CAT';
-E_POW        = 'E_POW';
-E_NUL        = 'E_NUL';
-E_IDX        = 'E_IDX';
-E_ASSIGN     = 'E_ASSIGN';
+AST_VAR        = 'AST_VAR';
+AST_ILIT       = 'AST_ILIT';
+AST_QLIT       = 'AST_QLIT';
+AST_FLIT       = 'AST_FLIT';
+AST_KEYWORD    = 'AST_KEYWORD';
+AST_ALT        = 'AST_ALT';
+AST_FNC        = 'AST_FNC';
+AST_ADD        = 'AST_ADD';
+AST_SUB        = 'AST_SUB';
+AST_MUL        = 'AST_MUL';
+AST_DIV        = 'AST_DIV';
+AST_MNS        = 'AST_MNS';
+AST_CAT        = 'AST_CAT';
+AST_POW        = 'AST_POW';
+AST_NUL        = 'AST_NUL';
+AST_IDX        = 'AST_IDX';
+AST_ASSIGN     = 'AST_ASSIGN';
 CMP_EQ       = 'CMP_EQ'; CMP_NE = 'CMP_NE';
 CMP_LT       = 'CMP_LT'; CMP_LE = 'CMP_LE';
 CMP_GT       = 'CMP_GT'; CMP_GE = 'CMP_GE';
@@ -215,20 +215,20 @@ RB_INITIAL = 'RB_INITIAL';
 REPLACE   = 'REPLACE';
 REPLN     = 'REPLN';
 RB_CASE   = 'RB_CASE';
-E_CAPT_COND = 'E_CAPT_COND_ASGN';
-E_CAPT_IMM  = 'E_CAPT_IMMED_ASGN';
-E_INDIRECT  = 'E_INDIRECT';
-E_ITERATE   = 'E_ITERATE';
-E_CAPT_CURSOR = 'E_CAPT_CURSOR';
+AST_CAPT_COND = 'AST_CAPT_COND_ASGN';
+AST_CAPT_IMM  = 'AST_CAPT_IMMED_ASGN';
+AST_INDIRECT  = 'AST_INDIRECT';
+AST_ITERATE   = 'AST_ITERATE';
+AST_CAPT_CURSOR = 'AST_CAPT_CURSOR';
 EXCHG       = 'EXCHG';
 ADDASSIGN   = 'ADDASSIGN';
 SUBASSIGN   = 'SUBASSIGN';
 CATASSIGN   = 'CATASSIGN';
-E_NOTPAT    = 'E_NOTPAT';
-E_BANGPAT   = 'E_BANGPAT';
-E_VALUEPAT  = 'E_VALUEPAT';
+AST_NOTPAT    = 'AST_NOTPAT';
+AST_BANGPAT   = 'AST_BANGPAT';
+AST_VALUEPAT  = 'AST_VALUEPAT';
 COMPOUND    = 'COMPOUND';
-E_POS       = 'E_POS';
+AST_POS       = 'AST_POS';
 
 nTop_count   = 'nTop()';
 nTop_plus1   = 'nTop() + 1';   // for subscript: base (1) + nTop() args
@@ -245,7 +245,7 @@ X_sub = nInc() *expr FENCE($',' *X_sub | epsilon);
 
 function push_qlit() {
     push_qlit = .dummy;
-    Push(tree(E_QLIT, strbody));
+    Push(tree(AST_QLIT, strbody));
     nreturn;
 }
 
@@ -258,11 +258,11 @@ function Push_qlit() {
     return;
 }
 
-//  push_nul / Push_nul — push a bare E_NUL tree node onto the parse stack.
+//  push_nul / Push_nul — push a bare AST_NUL tree node onto the parse stack.
 //  Used for empty arglist slots: foo(1,,3) or foo(1,2,) per rebus.y arglist_ne.
 function push_nul() {
     push_nul = .dummy;
-    Push(tree(E_NUL, ''));
+    Push(tree(AST_NUL, ''));
     nreturn;
 }
 function Push_nul() {
@@ -279,7 +279,7 @@ function decompose_call(nargs, kids, fname, call, i) {
     while (i = LT(i, nargs + 1) i + 1) kids[i] = Pop();
     //  kids[1]=arg_N (first popped=top), ..., kids[nargs]=arg_1, kids[nargs+1]=E_VAR_fname
     fname = REPLACE(v(kids[nargs + 1]), &LCASE, &UCASE);
-    call  = tree(E_FNC, fname);
+    call  = tree(AST_FNC, fname);
     //  Append args in order: arg_1 first → arg_N last (kids[nargs] down to kids[1])
     i = nargs;
     while (GE(i, 1)) { call = Append(call, kids[i]); i = i - 1; }
@@ -297,7 +297,7 @@ function decompose_sub(nargs, base, kids, sub, i) {
     while (i = LT(i, nargs + 1) i + 1) kids[i] = Pop();
     //  kids[1]=arg_N (first popped=top), ..., kids[nargs]=arg_1, kids[nargs+1]=base
     base = kids[nargs + 1];
-    sub  = tree(E_IDX, '');
+    sub  = tree(AST_IDX, '');
     sub  = Append(sub, base);
     i = nargs;
     while (GE(i, 1)) { sub = Append(sub, kids[i]); i = i - 1; }
@@ -312,15 +312,15 @@ function Decompose_sub() {
 }
 function push_call_id() {
     push_call_id = .dummy;
-    Push(tree(E_VAR, REPLACE(rbCallName, &LCASE, &UCASE)));
+    Push(tree(AST_VAR, REPLACE(rbCallName, &LCASE, &UCASE)));
     nreturn;
 }
 
-//  Keyword body push — uppercases the captured Id and pushes E_KEYWORD.
+//  Keyword body push — uppercases the captured Id and pushes AST_KEYWORD.
 rbKwName = '';
 function push_keyword() {
     push_keyword = .dummy;
-    Push(tree(E_KEYWORD, REPLACE(rbKwName, &LCASE, &UCASE)));
+    Push(tree(AST_KEYWORD, REPLACE(rbKwName, &LCASE, &UCASE)));
     nreturn;
 }
 
@@ -342,7 +342,7 @@ function Push_keyword() {
 rbCursorName = '';
 function push_cursor() {
     push_cursor = .dummy;
-    Push(tree(E_CAPT_CURSOR, REPLACE(rbCursorName, &LCASE, &UCASE)));
+    Push(tree(AST_CAPT_CURSOR, REPLACE(rbCursorName, &LCASE, &UCASE)));
     nreturn;
 }
 function Push_cursor() {
@@ -367,86 +367,86 @@ rbCallName = '';
 //  X_args — one arg in a call arglist; recurses for subsequent args.
 //  First arg is always a real expr.  After a comma, the next arg may be:
 //    (a) a real expr (*X_args again), or
-//    (b) an empty slot (trailing comma or `,,`): push E_NUL, then continue.
+//    (b) an empty slot (trailing comma or `,,`): push AST_NUL, then continue.
 //  nInc() for the empty slot fires in (b) via nInc_then_nul.
 nInc_then_nul = nInc() Push_nul();
 X_args   = nInc() *alt_expr FENCE($',' FENCE(*X_args | *nInc_then_nul FENCE($',' *X_args | epsilon)) | epsilon);
 
 call_or_id = FENCE(  (*Id . rbCallName) $'(' nPush() Push_call_id()
                      FENCE(*X_args | epsilon) $')' Decompose_call() nPop()
-                   | shift(*Id, E_VAR)
+                   | shift(*Id, AST_VAR)
                   );
 
 primary = FENCE(  *String  Push_qlit()
                 | KW_open (*KW_body . rbKwName) Push_keyword()
                 | '@' (*Id . rbCursorName) Push_cursor()
-                | shift(*Real, E_FLIT)
-                | shift(*Integer, E_ILIT)
+                | shift(*Real, AST_FLIT)
+                | shift(*Integer, AST_ILIT)
                 | *call_or_id
                 | '(' *expr ')'
                );
 
 //  postfix_expr — subscript a[i], range a[i +: n], pattern capture pat . var / pat $ var.
 //  Range [i +: n] must precede plain [i] in the alternation — both start with $'['.
-//  Oracle emits a[i +: n] as E_IDX(a, E_IDX(i, n)) — two nested reduces of 2.
+//  Oracle emits a[i +: n] as AST_IDX(a, AST_IDX(i, n)) — two nested reduces of 2.
 //  Field-access r.field is folded into Id (rebus.l IDENT regex allows embedded '.').
 postfix_expr = *primary
-               FENCE(  $'[' *alt_expr $'+:' *alt_expr $']' reduce(E_IDX, 2) reduce(E_IDX, 2)
-                         FENCE($'[' *alt_expr $'+:' *alt_expr $']' reduce(E_IDX, 2) reduce(E_IDX, 2) | epsilon)
+               FENCE(  $'[' *alt_expr $'+:' *alt_expr $']' reduce(AST_IDX, 2) reduce(AST_IDX, 2)
+                         FENCE($'[' *alt_expr $'+:' *alt_expr $']' reduce(AST_IDX, 2) reduce(AST_IDX, 2) | epsilon)
                       | $'[' nPush() *X_sub $']' Decompose_sub() nPop()
                          FENCE($'[' nPush() *X_sub $']' Decompose_sub() nPop() | epsilon)
-                      | *dot_capt    *primary reduce(E_CAPT_COND, 2)
-                         FENCE(*dot_capt    *primary reduce(E_CAPT_COND, 2) | epsilon)
-                      | *dollar_capt *primary reduce(E_CAPT_IMM,  2)
-                         FENCE(*dollar_capt *primary reduce(E_CAPT_IMM,  2) | epsilon)
+                      | *dot_capt    *primary reduce(AST_CAPT_COND, 2)
+                         FENCE(*dot_capt    *primary reduce(AST_CAPT_COND, 2) | epsilon)
+                      | *dollar_capt *primary reduce(AST_CAPT_IMM,  2)
+                         FENCE(*dollar_capt *primary reduce(AST_CAPT_IMM,  2) | epsilon)
                       | epsilon
                      );
 
 //  unary_expr — right-associative unary operators.
 //  Rebus unary pattern operators (per rebus.y lines 599-607):
-//    ~x  (RE_NOT)   → E_FNC DIFFER   $'~' conflicts with $'~=' etc — use bare '~' (no wrapper needed)
-//    \x  (RE_NOT)   → E_FNC DIFFER   same lowering as ~
-//    !x  (RE_BANG)  → E_ITERATE
-//    /x  (RE_VALUE) → E_FNC IDENT    bare '/'; $'/' is the division wrapper (spaced)
-//    $x  (RE_DEREF) → E_INDIRECT     tight prefix; spaced $ is already pat-capture
+//    ~x  (RE_NOT)   → AST_FNC DIFFER   $'~' conflicts with $'~=' etc — use bare '~' (no wrapper needed)
+//    \x  (RE_NOT)   → AST_FNC DIFFER   same lowering as ~
+//    !x  (RE_BANG)  → AST_ITERATE
+//    /x  (RE_VALUE) → AST_FNC IDENT    bare '/'; $'/' is the division wrapper (spaced)
+//    $x  (RE_DEREF) → AST_INDIRECT     tight prefix; spaced $ is already pat-capture
 //  The bare-literal forms ('~', '!', '/', '\\', '$') require no space before the operand.
 //  They are distinct from the spaced operator wrappers because FENCE tries longest-first
 //  alternatives so $'-' (spaced) still binds unary minus before '\\' tries backslash.
-unary_expr = FENCE(  $'-'  *unary_expr reduce(E_MNS, 1)
-                   | '+'   *unary_expr reduce(E_POS, 1)
-                   | '~'   *unary_expr reduce(E_NOTPAT, 1)
-                   | '!'   *unary_expr reduce(E_BANGPAT, 1)
-                   | '/'   *unary_expr reduce(E_VALUEPAT, 1)
-                   | '\'   *unary_expr reduce(E_NOTPAT, 1)
-                   | '$'   *unary_expr reduce(E_INDIRECT, 1)
-                   | '.'   *unary_expr reduce(E_CAPT_COND, 1)
+unary_expr = FENCE(  $'-'  *unary_expr reduce(AST_MNS, 1)
+                   | '+'   *unary_expr reduce(AST_POS, 1)
+                   | '~'   *unary_expr reduce(AST_NOTPAT, 1)
+                   | '!'   *unary_expr reduce(AST_BANGPAT, 1)
+                   | '/'   *unary_expr reduce(AST_VALUEPAT, 1)
+                   | '\'   *unary_expr reduce(AST_NOTPAT, 1)
+                   | '$'   *unary_expr reduce(AST_INDIRECT, 1)
+                   | '.'   *unary_expr reduce(AST_CAPT_COND, 1)
                    | *postfix_expr
                   );
 
 //  pow_expr — exponentiation; right-associative.  Match lhs once, then
 //  optionally match operator + rhs.  Avoids duplicate stack pushes in FENCE.
-pow_expr = *unary_expr FENCE(  $'**' *pow_expr reduce(E_POW, 2)
-                              | $'^'  *pow_expr reduce(E_POW, 2)
+pow_expr = *unary_expr FENCE(  $'**' *pow_expr reduce(AST_POW, 2)
+                              | $'^'  *pow_expr reduce(AST_POW, 2)
                               | epsilon
                              );
 
 //  mul_expr — * / % (left-associative chain).
 mul_expr = *pow_expr
-           ( $'*' *pow_expr reduce(E_MUL, 2) ($'*' *pow_expr reduce(E_MUL, 2) | epsilon)
-           | $'/' *pow_expr reduce(E_DIV, 2) ($'/' *pow_expr reduce(E_DIV, 2) | epsilon)
+           ( $'*' *pow_expr reduce(AST_MUL, 2) ($'*' *pow_expr reduce(AST_MUL, 2) | epsilon)
+           | $'/' *pow_expr reduce(AST_DIV, 2) ($'/' *pow_expr reduce(AST_DIV, 2) | epsilon)
            | $'%' *pow_expr reduce(REMDR,  2) ($'%' *pow_expr reduce(REMDR,  2) | epsilon)
            | epsilon
            );
 
 //  add_expr — + - (left-associative chain).
 add_expr = *mul_expr
-           ( $'+' *mul_expr reduce(E_ADD, 2) ($'+' *mul_expr reduce(E_ADD, 2) | epsilon)
-           | $'-' *mul_expr reduce(E_SUB, 2) ($'-' *mul_expr reduce(E_SUB, 2) | epsilon)
+           ( $'+' *mul_expr reduce(AST_ADD, 2) ($'+' *mul_expr reduce(AST_ADD, 2) | epsilon)
+           | $'-' *mul_expr reduce(AST_SUB, 2) ($'-' *mul_expr reduce(AST_SUB, 2) | epsilon)
            | epsilon
            );
 
-//  cmp_expr — comparisons; map to E_FNC(EQ/NE/LT/LE/GT/GE, lhs, rhs) in lowering.
-//  cmp_expr — comparisons; map to E_FNC(EQ/NE/LT/LE/GT/GE, lhs, rhs) in lowering.
+//  cmp_expr — comparisons; map to AST_FNC(EQ/NE/LT/LE/GT/GE, lhs, rhs) in lowering.
+//  cmp_expr — comparisons; map to AST_FNC(EQ/NE/LT/LE/GT/GE, lhs, rhs) in lowering.
 //  Longer operators must precede their prefixes: ==, ~==, <<=, >>=, <<, >>
 //  before =, ~=, <=, >=, <, >.  Otherwise $'=' would consume the first `=` of
 //  `==` and leave `= b` unparseable.
@@ -465,14 +465,14 @@ cmp_expr = *add_expr FENCE(  $'~==' *add_expr reduce(CMP_SNE, 2)
                              | epsilon
                             );
 
-//  cat_expr — || (string concat) and & (pattern concat); both lower to E_CAT.
+//  cat_expr — || (string concat) and & (pattern concat); both lower to AST_CAT.
 cat_expr = *cmp_expr
-           ( $'||' *cmp_expr reduce(E_CAT, 2) ($'||' *cmp_expr reduce(E_CAT, 2) | epsilon)
-           | $'&'  *cmp_expr reduce(E_CAT, 2) ($'&'  *cmp_expr reduce(E_CAT, 2) | epsilon)
+           ( $'||' *cmp_expr reduce(AST_CAT, 2) ($'||' *cmp_expr reduce(AST_CAT, 2) | epsilon)
+           | $'&'  *cmp_expr reduce(AST_CAT, 2) ($'&'  *cmp_expr reduce(AST_CAT, 2) | epsilon)
            | epsilon
            );
 
-//  alt_expr — n-ary `|` chain per beauty.sc idiom; yields flat (E_ALT a b c).
+//  alt_expr — n-ary `|` chain per beauty.sc idiom; yields flat (AST_ALT a b c).
 //  nInc() counts each operand; reduce with nTop() folds to flat n-ary tree.
 //  Single-operand case: nTop()=1, reduce to (ALT x) which lower_atom unwraps.
 X_alt = nInc() *cat_expr FENCE($'|' *X_alt | epsilon);
@@ -521,7 +521,7 @@ repeat_stmt = $'repeat' *opt_nl *stmt_body reduce(REPEAT, 1);
 //  Body after 'do' is consumed as raw text (no shift/reduce) since oracle drops it.
 //  BREAK(nl) consumes everything to the newline without any stack effects.
 for_body = $'do' BREAK(nl);
-for_stmt = $'for' shift(*Id, E_VAR) $'from' *match_or_expr $'to' *match_or_expr
+for_stmt = $'for' shift(*Id, AST_VAR) $'from' *match_or_expr $'to' *match_or_expr
            FENCE($'by' *match_or_expr reduce(RB_FOR, 4) | reduce(RB_FOR, 3))
            *for_body;
 
@@ -574,8 +574,8 @@ stmt = $' ' FENCE(*compound_stmt | *case_stmt | *if_stmt | *while_stmt | *unless
 //  func_body — n-ary fold over body stmts.  Uses tail-recursive shape (per
 //  parser_icon.sc Procbody idiom) so that 'end' is preempt-matched BEFORE
 //  stmt can consume it as a bare identifier.  ARBNO was replaced because
-//  shift(*Id, E_VAR) is a side-effect that is not undone on pattern backtrack,
-//  causing a spurious (STMT :subj (E_VAR END)) node in the body tree.
+//  shift(*Id, AST_VAR) is a side-effect that is not undone on pattern backtrack,
+//  causing a spurious (STMT :subj (AST_VAR END)) node in the body tree.
 //
 //  func_end        — matches the closing 'end' + optional whitespace + newline.
 //  func_body_stmt  — one body stmt: try func_end first (terminates recursion);
@@ -595,17 +595,17 @@ func_body     = nPush() *func_body_stmt reduce(BODY, nTop_count) nPop();
 //  Parameter / field list — both fold into n-ary lists; empty list folds to (TAG) with nTop()=0.
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-X_params  = nInc() shift(*Id, E_VAR) FENCE($',' *X_params | epsilon);
+X_params  = nInc() shift(*Id, AST_VAR) FENCE($',' *X_params | epsilon);
 opt_params = nPush() FENCE(*X_params | epsilon) reduce(PARAMS, nTop_count) nPop();
 
-X_fields  = nInc() shift(*Id, E_VAR) FENCE($',' *X_fields | epsilon);
+X_fields  = nInc() shift(*Id, AST_VAR) FENCE($',' *X_fields | epsilon);
 opt_fields = nPush() FENCE(*X_fields | epsilon) reduce(FIELDS, nTop_count) nPop();
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 //  Top-level decls.
 /*--------------------------------------------------------------------------------------------------------------------*/
 
-X_locals   = nInc() shift(*Id, E_VAR) FENCE($',' *X_locals | epsilon);
+X_locals   = nInc() shift(*Id, AST_VAR) FENCE($',' *X_locals | epsilon);
 opt_locals = nPush() FENCE($'local' *X_locals FENCE($';' | epsilon) $' ' nl | epsilon) reduce(LOCALS, nTop_count) nPop();
 
 //  opt_initial — `initial stmt ;` — optional; the initial expression ends at `;`.
@@ -613,14 +613,14 @@ init_expr   = $' ' *match_or_expr $' ';
 opt_initial = FENCE(nPush() $'initial' *init_expr $';' $' ' nl reduce(RB_INITIAL, 1) nPop() | reduce(RB_INITIAL, 0));
 
 function_decl =
-    $'function' shift(*Id, E_VAR) $'(' *opt_params $')' $' ' nl
+    $'function' shift(*Id, AST_VAR) $'(' *opt_params $')' $' ' nl
     *opt_locals
     *opt_initial
     *func_body
     reduce(FUNC_DECL, 5);
 
 record_decl =
-    $'record' shift(*Id, E_VAR) $'(' *opt_fields $')' $' ' nl
+    $'record' shift(*Id, AST_VAR) $'(' *opt_fields $')' $' ' nl
     reduce(REC_DECL, 2);
 
 func_cmd = nInc() *function_decl;
@@ -659,7 +659,7 @@ function emit_lbl(lbl) {
 }
 
 //  emit_assign — render (STMT :eq :subj <lhs> :repl <rhs>) per parser_snocone.sc
-//  sc_decompose_stmt's E_ASSIGN shape (lines 81-93).
+//  sc_decompose_stmt's AST_ASSIGN shape (lines 81-93).
 
 function emit_assign(lhs, rhs) {
     TDump(Tree('STMT', '', 3,
@@ -677,7 +677,7 @@ function emit_match(lhs, rhs) {
     return;
 }
 
-//  emit_subj_goSF — (STMT :subj (E_NUL) :goS sLbl :goF fLbl) — if/while test stmt.
+//  emit_subj_goSF — (STMT :subj (AST_NUL) :goS sLbl :goF fLbl) — if/while test stmt.
 function emit_subj_goSF(s, sLbl, fLbl) {
     TDump(Tree('STMT', '', 3,
                Tree(':subj', '', 1, s),
@@ -711,11 +711,11 @@ function lower_case(x, lEnd, lNext, lMatch, tempVar, tempExpr, tmpN, i, cl, ck) 
     lEnd    = new_label();
     tmpN    = label_n;
     tempVar = 'rb_case_' tmpN;
-    tempExpr = tree(E_VAR, tempVar);
+    tempExpr = tree(AST_VAR, tempVar);
     //  Assign case expr (c(x)[1]) to temp var.
     TDump(Tree('STMT', '', 1,
                Tree(':subj', '', 1,
-                    Tree(E_ASSIGN, '', 2, tempExpr, lower_atom(c(x)[1])))));
+                    Tree(AST_ASSIGN, '', 2, tempExpr, lower_atom(c(x)[1])))));
     i = 1;
     lNext = '';
     while (i = LT(i, n(x)) i + 1) {
@@ -728,7 +728,7 @@ function lower_case(x, lEnd, lNext, lMatch, tempVar, tempExpr, tmpN, i, cl, ck) 
         } else {
             lMatch = new_label();
             lNext  = new_label();
-            emit_subj_goSF(Tree(E_FNC, 'IDENT', 2, tempExpr, lower_atom(c(cl)[1])), lMatch, lNext);
+            emit_subj_goSF(Tree(AST_FNC, 'IDENT', 2, tempExpr, lower_atom(c(cl)[1])), lMatch, lNext);
             emit_lbl(lMatch);
             lower_stmt(c(cl)[2]);
             emit_go(lEnd);
@@ -740,55 +740,55 @@ function lower_case(x, lEnd, lNext, lMatch, tempVar, tempExpr, tmpN, i, cl, ck) 
 }
 
 //  lower_atom — recursively lower an expression tree.  Handles ALT (build
-//  flat n-ary E_ALT via Append loop) and CALL (emit (E_FNC name) — bare
+//  flat n-ary AST_ALT via Append loop) and CALL (emit (AST_FNC name) — bare
 //  call no args).
 function lower_atom(x, k, acc, i, idxN, idxBase, idxI) {
     k = t(x);
-    if (IDENT(k, 'E_VAR'))       lower_atom = tree(E_VAR, REPLACE(v(x), &LCASE, &UCASE));
-    else if (IDENT(k, 'E_ILIT')) lower_atom = x;
-    else if (IDENT(k, 'E_QLIT')) lower_atom = x;
-    else if (IDENT(k, 'E_FLIT')) lower_atom = x;
-    else if (IDENT(k, 'E_KEYWORD')) lower_atom = tree(E_KEYWORD, REPLACE(v(x), &LCASE, &UCASE));
-    else if (IDENT(k, 'E_FNC')) {
-        //  decompose_call produces E_FNC(fname, arg1, ...) with raw ALT-wrapped children.
+    if (IDENT(k, 'AST_VAR'))       lower_atom = tree(AST_VAR, REPLACE(v(x), &LCASE, &UCASE));
+    else if (IDENT(k, 'AST_ILIT')) lower_atom = x;
+    else if (IDENT(k, 'AST_QLIT')) lower_atom = x;
+    else if (IDENT(k, 'AST_FLIT')) lower_atom = x;
+    else if (IDENT(k, 'AST_KEYWORD')) lower_atom = tree(AST_KEYWORD, REPLACE(v(x), &LCASE, &UCASE));
+    else if (IDENT(k, 'AST_FNC')) {
+        //  decompose_call produces AST_FNC(fname, arg1, ...) with raw ALT-wrapped children.
         //  Lower each child through lower_atom to strip ALT wrappers.
-        acc = tree(E_FNC, v(x));
+        acc = tree(AST_FNC, v(x));
         i = 0;
         while (i = LT(i, n(x)) i + 1) acc = Append(acc, lower_atom(c(x)[i]));
         lower_atom = acc;
     }
-    else if (IDENT(k, 'E_MNS')) {
-        lower_atom = Tree(E_MNS, '', 1, lower_atom(c(x)[1]));
+    else if (IDENT(k, 'AST_MNS')) {
+        lower_atom = Tree(AST_MNS, '', 1, lower_atom(c(x)[1]));
     }
-    else if (IDENT(k, 'E_POS')) lower_atom = lower_atom(c(x)[1]);  // unary + is identity
-    else if (IDENT(k, 'E_ADD')) lower_atom = Tree(E_ADD, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'E_SUB')) lower_atom = Tree(E_SUB, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'E_MUL')) lower_atom = Tree(E_MUL, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'E_DIV')) lower_atom = Tree(E_DIV, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'E_CAT')) lower_atom = Tree(E_CAT, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_EQ')) lower_atom = Tree(E_FNC, 'EQ',     2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_NE')) lower_atom = Tree(E_FNC, 'NE',     2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_LT')) lower_atom = Tree(E_FNC, 'LT',     2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_LE')) lower_atom = Tree(E_FNC, 'LE',     2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_GT')) lower_atom = Tree(E_FNC, 'GT',     2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_GE')) lower_atom = Tree(E_FNC, 'GE',     2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_SEQ')) lower_atom = Tree(E_FNC, 'IDENT',  2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_SNE')) lower_atom = Tree(E_FNC, 'DIFFER', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_SLT')) lower_atom = Tree(E_FNC, 'LLT',   2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_SLE')) lower_atom = Tree(E_FNC, 'LLE',   2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_SGT')) lower_atom = Tree(E_FNC, 'LGT',   2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_SGE')) lower_atom = Tree(E_FNC, 'LGE',   2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'E_POW'))   lower_atom = Tree(E_POW, '',      2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'REMDR'))   lower_atom = Tree(E_FNC, 'REMDR', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'E_IDX')) {
+    else if (IDENT(k, 'AST_POS')) lower_atom = lower_atom(c(x)[1]);  // unary + is identity
+    else if (IDENT(k, 'AST_ADD')) lower_atom = Tree(AST_ADD, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'AST_SUB')) lower_atom = Tree(AST_SUB, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'AST_MUL')) lower_atom = Tree(AST_MUL, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'AST_DIV')) lower_atom = Tree(AST_DIV, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'AST_CAT')) lower_atom = Tree(AST_CAT, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_EQ')) lower_atom = Tree(AST_FNC, 'EQ',     2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_NE')) lower_atom = Tree(AST_FNC, 'NE',     2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_LT')) lower_atom = Tree(AST_FNC, 'LT',     2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_LE')) lower_atom = Tree(AST_FNC, 'LE',     2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_GT')) lower_atom = Tree(AST_FNC, 'GT',     2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_GE')) lower_atom = Tree(AST_FNC, 'GE',     2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_SEQ')) lower_atom = Tree(AST_FNC, 'IDENT',  2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_SNE')) lower_atom = Tree(AST_FNC, 'DIFFER', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_SLT')) lower_atom = Tree(AST_FNC, 'LLT',   2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_SLE')) lower_atom = Tree(AST_FNC, 'LLE',   2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_SGT')) lower_atom = Tree(AST_FNC, 'LGT',   2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'CMP_SGE')) lower_atom = Tree(AST_FNC, 'LGE',   2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'AST_POW'))   lower_atom = Tree(AST_POW, '',      2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'REMDR'))   lower_atom = Tree(AST_FNC, 'REMDR', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'AST_IDX')) {
         //  n-ary subscript: base + 1..n-1 args.  Build all children lowered.
         idxN = n(x);
         idxBase = lower_atom(c(x)[1]);
-        if (EQ(idxN, 2)) lower_atom = Tree(E_IDX, '', 2, idxBase, lower_atom(c(x)[2]));
+        if (EQ(idxN, 2)) lower_atom = Tree(AST_IDX, '', 2, idxBase, lower_atom(c(x)[2]));
         else {
             //  3+ children: build Tree using descending loop (avoids LT/LE pre-increment).
             //  Children in c(x): [1]=base, [2..idxN]=args.  Append args in order 2..idxN.
-            lower_atom = Tree(E_IDX, '', 1, idxBase);
+            lower_atom = Tree(AST_IDX, '', 1, idxBase);
             idxI = 2;
             while (GE(idxI, 0) LT(idxI, idxN + 1)) {
                 lower_atom = Append(lower_atom, lower_atom(c(x)[idxI]));
@@ -796,38 +796,38 @@ function lower_atom(x, k, acc, i, idxN, idxBase, idxI) {
             }
         }
     }
-    else if (IDENT(k, 'E_CAPT_COND_ASGN')) {
-        //  1-child: unary dot (.y) → E_CAPT_COND_ASGN(E_NUL, child) per oracle.
-        //  2-child: binary dot (a . b) → E_CAPT_COND_ASGN(a, b).
-        if (EQ(n(x), 1)) lower_atom = Tree(E_CAPT_COND, '', 2, tree(E_NUL, ''), lower_atom(c(x)[1]));
-        else lower_atom = Tree(E_CAPT_COND, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'AST_CAPT_COND_ASGN')) {
+        //  1-child: unary dot (.y) → AST_CAPT_COND_ASGN(AST_NUL, child) per oracle.
+        //  2-child: binary dot (a . b) → AST_CAPT_COND_ASGN(a, b).
+        if (EQ(n(x), 1)) lower_atom = Tree(AST_CAPT_COND, '', 2, tree(AST_NUL, ''), lower_atom(c(x)[1]));
+        else lower_atom = Tree(AST_CAPT_COND, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
     }
-    else if (IDENT(k, 'E_CAPT_IMMED_ASGN'))
-        lower_atom = Tree(E_CAPT_IMM,  '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'E_NOTPAT'))  lower_atom = Tree(E_FNC, 'DIFFER',  1, lower_atom(c(x)[1]));
-    else if (IDENT(k, 'E_BANGPAT')) lower_atom = Tree(E_ITERATE, '',     1, lower_atom(c(x)[1]));
-    else if (IDENT(k, 'E_VALUEPAT')) lower_atom = Tree(E_FNC, 'IDENT',  1, lower_atom(c(x)[1]));
-    else if (IDENT(k, 'E_INDIRECT')) lower_atom = Tree(E_INDIRECT, '',   1, lower_atom(c(x)[1]));
-    else if (IDENT(k, 'E_CAPT_CURSOR')) lower_atom = x;
+    else if (IDENT(k, 'AST_CAPT_IMMED_ASGN'))
+        lower_atom = Tree(AST_CAPT_IMM,  '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+    else if (IDENT(k, 'AST_NOTPAT'))  lower_atom = Tree(AST_FNC, 'DIFFER',  1, lower_atom(c(x)[1]));
+    else if (IDENT(k, 'AST_BANGPAT')) lower_atom = Tree(AST_ITERATE, '',     1, lower_atom(c(x)[1]));
+    else if (IDENT(k, 'AST_VALUEPAT')) lower_atom = Tree(AST_FNC, 'IDENT',  1, lower_atom(c(x)[1]));
+    else if (IDENT(k, 'AST_INDIRECT')) lower_atom = Tree(AST_INDIRECT, '',   1, lower_atom(c(x)[1]));
+    else if (IDENT(k, 'AST_CAPT_CURSOR')) lower_atom = x;
     else if (IDENT(k, 'ALT')) {
         if (EQ(n(x), 1)) lower_atom = lower_atom(c(x)[1]);
         else {
-            acc = tree(E_ALT, '', 0, NULL);
+            acc = tree(AST_ALT, '', 0, NULL);
             i = 0;
             while (i = LT(i, n(x)) i + 1) acc = Append(acc, lower_atom(c(x)[i]));
             lower_atom = acc;
         }
     }
     //  Augmented assigns in expr position (e.g. inside subscript index):
-    //  a +:= b → E_ASSIGN(a, E_ADD(a, b)); similarly for -:= / ||:= / :=:
+    //  a +:= b → AST_ASSIGN(a, AST_ADD(a, b)); similarly for -:= / ||:= / :=:
     else if (IDENT(k, 'ADDASSIGN'))
-        lower_atom = Tree(E_ASSIGN, '', 2, lower_atom(c(x)[1]), Tree(E_ADD, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])));
+        lower_atom = Tree(AST_ASSIGN, '', 2, lower_atom(c(x)[1]), Tree(AST_ADD, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])));
     else if (IDENT(k, 'SUBASSIGN'))
-        lower_atom = Tree(E_ASSIGN, '', 2, lower_atom(c(x)[1]), Tree(E_SUB, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])));
+        lower_atom = Tree(AST_ASSIGN, '', 2, lower_atom(c(x)[1]), Tree(AST_SUB, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])));
     else if (IDENT(k, 'CATASSIGN'))
-        lower_atom = Tree(E_ASSIGN, '', 2, lower_atom(c(x)[1]), Tree(E_CAT, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])));
+        lower_atom = Tree(AST_ASSIGN, '', 2, lower_atom(c(x)[1]), Tree(AST_CAT, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])));
     else if (IDENT(k, 'EXCHG'))
-        lower_atom = Tree(E_FNC, 'EXCHG', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
+        lower_atom = Tree(AST_FNC, 'EXCHG', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
     else lower_atom = x;
     return;
 }
@@ -835,16 +835,16 @@ function lower_atom(x, k, acc, i, idxN, idxBase, idxI) {
 function lower_stmt(x, k, lblS, lblF, lblM, forVar, forStep) {
     k = t(x);
     if (IDENT(k, 'ASSIGN'))          emit_assign(lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'ADDASSIGN'))  emit_assign(lower_atom(c(x)[1]), Tree(E_ADD, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])));
-    else if (IDENT(k, 'SUBASSIGN'))  emit_assign(lower_atom(c(x)[1]), Tree(E_SUB, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])));
-    else if (IDENT(k, 'CATASSIGN'))  emit_assign(lower_atom(c(x)[1]), Tree(E_CAT, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])));
-    else if (IDENT(k, 'EXCHG'))      TDump(Tree('STMT', '', 1, Tree(':subj', '', 1, Tree(E_FNC, 'EXCHG', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])))));
+    else if (IDENT(k, 'ADDASSIGN'))  emit_assign(lower_atom(c(x)[1]), Tree(AST_ADD, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])));
+    else if (IDENT(k, 'SUBASSIGN'))  emit_assign(lower_atom(c(x)[1]), Tree(AST_SUB, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])));
+    else if (IDENT(k, 'CATASSIGN'))  emit_assign(lower_atom(c(x)[1]), Tree(AST_CAT, '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])));
+    else if (IDENT(k, 'EXCHG'))      TDump(Tree('STMT', '', 1, Tree(':subj', '', 1, Tree(AST_FNC, 'EXCHG', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])))));
     else if (IDENT(k, 'MATCH'))      { emit_match(lower_atom(c(x)[1]), lower_atom(c(x)[2])); }
     else if (IDENT(k, 'REPLACE'))    emit_replace(lower_atom(c(x)[1]), lower_atom(c(x)[2]), lower_atom(c(x)[3]));
-    else if (IDENT(k, 'REPLN'))      emit_replace(lower_atom(c(x)[1]), lower_atom(c(x)[2]), tree(E_NUL, ''));
+    else if (IDENT(k, 'REPLN'))      emit_replace(lower_atom(c(x)[1]), lower_atom(c(x)[2]), tree(AST_NUL, ''));
     else if (IDENT(k, 'RB_RETURN'))  emit_go('RETURN');
     else if (IDENT(k, 'RB_RETURN_VAL')) {
-        emit_assign(tree(E_VAR, curFname), lower_atom(c(x)[1]));
+        emit_assign(tree(AST_VAR, curFname), lower_atom(c(x)[1]));
         emit_go('RETURN');
     }
     else if (IDENT(k, 'RB_FAIL'))    emit_go('FRETURN');
@@ -855,7 +855,7 @@ function lower_stmt(x, k, lblS, lblF, lblM, forVar, forStep) {
         lblS = new_label();
         lblF = new_label();
         lblM = new_label();
-        emit_subj_goSF(tree('E_NUL', ''), lblS, lblF);
+        emit_subj_goSF(tree('AST_NUL', ''), lblS, lblF);
         emit_lbl(lblS);
         lower_stmt(c(x)[1]);
         emit_go(lblM);
@@ -868,7 +868,7 @@ function lower_stmt(x, k, lblS, lblF, lblM, forVar, forStep) {
         lblM = new_label();   // success branch label
         lblF = new_label();   // exit label
         emit_lbl(lblS);
-        emit_subj_goSF(tree('E_NUL', ''), lblM, lblF);
+        emit_subj_goSF(tree('AST_NUL', ''), lblM, lblF);
         emit_lbl(lblM);
         lower_stmt(c(x)[1]);
         emit_go(lblS);
@@ -880,7 +880,7 @@ function lower_stmt(x, k, lblS, lblF, lblM, forVar, forStep) {
     else if (IDENT(k, 'UNLESS')) {
         lblF = new_label();   // cond branch (goF = fail = body-side in unless)
         lblS = new_label();   // success/skip label (goS = cond succeeded = skip body)
-        emit_subj_goSF(tree('E_NUL', ''), lblS, lblF);
+        emit_subj_goSF(tree('AST_NUL', ''), lblS, lblF);
         emit_lbl(lblF);
         lower_stmt(c(x)[1]);
         emit_lbl(lblS);
@@ -893,7 +893,7 @@ function lower_stmt(x, k, lblS, lblF, lblM, forVar, forStep) {
         lblF = new_label();   // cond branch label (goF = fail stays in loop)
         lblM = new_label();   // exit label (goS = success exits loop)
         emit_lbl(lblS);
-        emit_subj_goSF(tree('E_NUL', ''), lblM, lblF);
+        emit_subj_goSF(tree('AST_NUL', ''), lblM, lblF);
         emit_lbl(lblF);
         lower_stmt(c(x)[1]);
         emit_go(lblS);
@@ -913,7 +913,7 @@ function lower_stmt(x, k, lblS, lblF, lblM, forVar, forStep) {
         lblS = new_label();
         lblF = new_label();
         lblM = new_label();
-        emit_subj_goSF(tree('E_NUL', ''), lblS, lblF);
+        emit_subj_goSF(tree('AST_NUL', ''), lblS, lblF);
         emit_lbl(lblS);
         lower_stmt(c(x)[1]);
         emit_go(lblM);
@@ -926,16 +926,16 @@ function lower_stmt(x, k, lblS, lblF, lblM, forVar, forStep) {
     //  Body is dropped (oracle bug-for-bug).
     else if (IDENT(k, 'RB_FOR')) {
         forVar  = lower_atom(c(x)[1]);
-        forStep = (EQ(n(x), 4) lower_atom(c(x)[4]), Tree(E_ILIT, '1'));
+        forStep = (EQ(n(x), 4) lower_atom(c(x)[4]), Tree(AST_ILIT, '1'));
         lblS = new_label();   // top label
         lblM = new_label();   // exit label
         //  i := from
-        TDump(Tree('STMT', '', 1, Tree(':subj', '', 1, Tree(E_ASSIGN, '', 2, forVar, lower_atom(c(x)[2])))));
+        TDump(Tree('STMT', '', 1, Tree(':subj', '', 1, Tree(AST_ASSIGN, '', 2, forVar, lower_atom(c(x)[2])))));
         emit_lbl(lblS);
         //  GT(i, to) :goS exit
-        emit_subj_goS(Tree(E_FNC, 'GT', 2, forVar, lower_atom(c(x)[3])), lblM);
+        emit_subj_goS(Tree(AST_FNC, 'GT', 2, forVar, lower_atom(c(x)[3])), lblM);
         //  i := i + step
-        TDump(Tree('STMT', '', 1, Tree(':subj', '', 1, Tree(E_ASSIGN, '', 2, forVar, Tree(E_ADD, '', 2, forVar, forStep)))));
+        TDump(Tree('STMT', '', 1, Tree(':subj', '', 1, Tree(AST_ASSIGN, '', 2, forVar, Tree(AST_ADD, '', 2, forVar, forStep)))));
         emit_go(lblS);
         emit_lbl(lblM);
     }
@@ -967,7 +967,7 @@ function lower_function_decl(x, nm, pm, lc, init, bd, fname, pstr, lstr, i, lbl)
     i = 0;
     while (i = LT(i, n(lc)) i + 1)
         lstr = lstr (GT(i, 1) ',', '') REPLACE(v(c(lc)[i]), &LCASE, &UCASE);
-    emit_subj(Tree('E_FNC', 'DEFINE', 1, tree(E_QLIT, fname '(' pstr ')' (DIFFER(lstr) '/' lstr, ''))));
+    emit_subj(Tree('AST_FNC', 'DEFINE', 1, tree(AST_QLIT, fname '(' pstr ')' (DIFFER(lstr) '/' lstr, ''))));
     lbl = new_label();
     emit_go(lbl);
     emit_lbl(fname);
@@ -976,10 +976,10 @@ function lower_function_decl(x, nm, pm, lc, init, bd, fname, pstr, lstr, i, lbl)
         lblS = new_label();
         initVar = 'rb_init_' fname;
         TDump(Tree('STMT', '', 2,
-                   Tree(':subj', '', 1, tree(E_VAR, initVar)),
+                   Tree(':subj', '', 1, tree(AST_VAR, initVar)),
                    Tree(':goS', lblS)));
         lower_stmt(c(init)[1]);
-        emit_subj(Tree('E_ASSIGN', '', 2, tree(E_VAR, initVar), tree(E_ILIT, '1')));
+        emit_subj(Tree('AST_ASSIGN', '', 2, tree(AST_VAR, initVar), tree(AST_ILIT, '1')));
         emit_lbl(lblS);
     }
     i = 0;
@@ -998,7 +998,7 @@ function lower_record_decl(x, nm, fd, fname, fstr, i) {
     i = 0;
     while (i = LT(i, n(fd)) i + 1)
         fstr = fstr (GT(i, 1) ',', '') REPLACE(v(c(fd)[i]), &LCASE, &UCASE);
-    emit_subj(Tree('E_FNC', 'DATA', 1, tree(E_QLIT, fname '(' fstr ')')));
+    emit_subj(Tree('AST_FNC', 'DATA', 1, tree(AST_QLIT, fname '(' fstr ')')));
     return;
 }
 
@@ -1026,7 +1026,7 @@ if (Src ? Compiland) {
         while (i = LT(i, n(parseRoot)) i + 1) lower_decl(c(parseRoot)[i]);
         //  Oracle always emits the program entry-point call as the final stmt,
         //  regardless of whether a 'main' function is defined in the source.
-        emit_subj(tree('E_FNC', 'MAIN'));
+        emit_subj(tree('AST_FNC', 'MAIN'));
     }
 } else {
     OUTPUT = 'Parse Error';

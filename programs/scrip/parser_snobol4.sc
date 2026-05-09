@@ -2,7 +2,7 @@
 //
 // Grammar emits canonical E_* IR tags directly — no post-parse tag rename.
 // rw_expr is a pure structural rewrite: paren-strip, ExprList-unwrap,
-// E_IDX-flatten, E_CAPT_*_ASGN left-rotation.  String quotes stripped at
+// AST_IDX-flatten, AST_CAPT_*_ASGN left-rotation.  String quotes stripped at
 // parse time via dot-capture + Push_qlit (canonical iter#5 pair shape).
 //
 // Tree shape produced per --dump-parse oracle:
@@ -18,44 +18,44 @@ E_Parse            = "'Parse'";
 E_goU              = "':go'";
 E_goS              = "':goS'";
 E_goF              = "':goF'";
-E_VAR              = "'E_VAR'";
-E_ILIT             = "'E_ILIT'";
-E_QLIT             = "'E_QLIT'";
-E_RLIT             = "'E_RLIT'";
-E_KEYWORD          = "'E_KEYWORD'";
-E_DEFER            = "'E_DEFER'";
-E_IDX              = "'E_IDX'";
-E_FNC              = "'E_FNC'";
-E_SEQ              = "'E_SEQ'";
-E_ALT              = "'E_ALT'";
-E_ADD              = "'E_ADD'";
-E_SUB              = "'E_SUB'";
-E_MUL              = "'E_MUL'";
-E_DIV              = "'E_DIV'";
-E_POW              = "'E_POW'";
-E_PLS              = "'E_PLS'";
-E_MNS              = "'E_MNS'";
-E_CAPT_IMMED_ASGN  = "'E_CAPT_IMMED_ASGN'";
-E_CAPT_COND_ASGN   = "'E_CAPT_COND_ASGN'";
-E_LEN              = "'E_LEN'";
-E_BREAK            = "'E_BREAK'";
-E_SPAN             = "'E_SPAN'";
-E_ANY              = "'E_ANY'";
-E_NOTANY           = "'E_NOTANY'";
-E_FENCE            = "'E_FENCE'";
-E_ARBNO            = "'E_ARBNO'";
-E_POS              = "'E_POS'";
-E_RPOS             = "'E_RPOS'";
-E_TAB              = "'E_TAB'";
-E_RTAB             = "'E_RTAB'";
-E_BREAKX           = "'E_BREAKX'";
-E_INDIRECT         = "'E_INDIRECT'";
-E_NAME             = "'E_NAME'";
-E_ASSIGN           = "'E_ASSIGN'";
-E_NOT              = "'E_NOT'";
-E_CAPT_CURSOR      = "'E_CAPT_CURSOR'";
-E_INTERROGATE      = "'E_INTERROGATE'";
-E_OPSYN            = "'E_OPSYN'";
+AST_VAR              = "'AST_VAR'";
+AST_ILIT             = "'AST_ILIT'";
+AST_QLIT             = "'AST_QLIT'";
+AST_RLIT             = "'AST_RLIT'";
+AST_KEYWORD          = "'AST_KEYWORD'";
+AST_DEFER            = "'AST_DEFER'";
+AST_IDX              = "'AST_IDX'";
+AST_FNC              = "'AST_FNC'";
+AST_SEQ              = "'AST_SEQ'";
+AST_ALT              = "'AST_ALT'";
+AST_ADD              = "'AST_ADD'";
+AST_SUB              = "'AST_SUB'";
+AST_MUL              = "'AST_MUL'";
+AST_DIV              = "'AST_DIV'";
+AST_POW              = "'AST_POW'";
+AST_PLS              = "'AST_PLS'";
+AST_MNS              = "'AST_MNS'";
+AST_CAPT_IMMED_ASGN  = "'AST_CAPT_IMMED_ASGN'";
+AST_CAPT_COND_ASGN   = "'AST_CAPT_COND_ASGN'";
+AST_LEN              = "'AST_LEN'";
+AST_BREAK            = "'AST_BREAK'";
+AST_SPAN             = "'AST_SPAN'";
+AST_ANY              = "'AST_ANY'";
+AST_NOTANY           = "'AST_NOTANY'";
+AST_FENCE            = "'AST_FENCE'";
+AST_ARBNO            = "'AST_ARBNO'";
+AST_POS              = "'AST_POS'";
+AST_RPOS             = "'AST_RPOS'";
+AST_TAB              = "'AST_TAB'";
+AST_RTAB             = "'AST_RTAB'";
+AST_BREAKX           = "'AST_BREAKX'";
+AST_INDIRECT         = "'AST_INDIRECT'";
+AST_NAME             = "'AST_NAME'";
+AST_ASSIGN           = "'AST_ASSIGN'";
+AST_NOT              = "'AST_NOT'";
+AST_CAPT_CURSOR      = "'AST_CAPT_CURSOR'";
+AST_INTERROGATE      = "'AST_INTERROGATE'";
+AST_OPSYN            = "'AST_OPSYN'";
 /*====================================================================================================================*/
 // SN-7-7c — classifier infrastructure (beauty.sno-faithful, cross-runtime union).
 //
@@ -110,13 +110,13 @@ TxInList    =  (POS(0) | ' ') *sn_upr(tx) (' ' | RPOS(0));
 // Classifier patterns — capture identifier into tx via immediate-bind, then
 // succeed iff tx ∈ list (else propagate failure to the enclosing alternative).
 // Form: `pat $ tx $ *sn_match(List, TxInList)` — left-associative `$` chain.
-//   First $:  binary E_CAPT_IMMED_ASGN — bind tx to matched portion of pat.
+//   First $:  binary AST_CAPT_IMMED_ASGN — bind tx to matched portion of pat.
 //   Second $: same operator with a deferred call as the variable-name
 //             expression; sn_match returns .dummy on success (assignment to
 //             dummy is a no-op side effect) or freturns to fail the match.
 // These are BARE — no leading `&` in ProtKwd/UnprotKwd. Callers in Expr14
-// consume `&` themselves and compose via `shift(*ProtKwd, E_KEYWORD)`, which
-// expands (per semantic.sc) to `*ProtKwd . thx . *Shift(E_KEYWORD, thx)` —
+// consume `&` themselves and compose via `shift(*ProtKwd, AST_KEYWORD)`, which
+// expands (per semantic.sc) to `*ProtKwd . thx . *Shift(AST_KEYWORD, thx)` —
 // the thx-relay idiom that reads thx immediately after the sub-match completes.
 // Same composition in Expr17 for *Function/*BuiltinVar/*SpecialNm via `~`.
 Function    =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *sn_match(Functions,   TxInList);
@@ -173,8 +173,8 @@ $')'        =  $' ' ')';
 $']'        =  $' ' ']';
 $'>'        =  $' ' '>';
 /*--------------------------------------------------------------------------------------------------------------------*/
-// push_qlit — pair-shape worker: push E_QLIT leaf using dot-captured str_body.
-function push_qlit() { Push(tree('E_QLIT', str_body)); push_qlit = .dummy; nreturn; }
+// push_qlit — pair-shape worker: push AST_QLIT leaf using dot-captured str_body.
+function push_qlit() { Push(tree('AST_QLIT', str_body)); push_qlit = .dummy; nreturn; }
 Push_qlit = (epsilon . *push_qlit());
 /*--------------------------------------------------------------------------------------------------------------------*/
 // FnArgList / FnArgTail — global pattern variables with deferred mutual references.
@@ -189,77 +189,77 @@ ExprList    =  nPush()
                nPop();
 XList       =  nInc() (*Expr | epsilon ~ '') FENCE($',' *XList | epsilon);
 Expr        =  *Expr0;
-Expr0       =  *Expr1 FENCE($'=' *Expr0 (E_ASSIGN & 2) | epsilon);
+Expr0       =  *Expr1 FENCE($'=' *Expr0 (AST_ASSIGN & 2) | epsilon);
 Expr1       =  *Expr2 FENCE($'?' *Expr1 reduce_opsyn('?', 2) | epsilon);
 Expr2       =  *Expr3 FENCE($'&' *Expr2 reduce_opsyn('&', 2) | epsilon);
-Expr3       =  nPush() *X3 (E_ALT & '*(GT(nTop(), 1) nTop())') nPop();
+Expr3       =  nPush() *X3 (AST_ALT & '*(GT(nTop(), 1) nTop())') nPop();
 X3          =  nInc() *Expr4 FENCE($'|' *X3 | epsilon);
-Expr4       =  nPush() *X4 (E_SEQ & '*(GT(nTop(), 1) nTop())') nPop();
+Expr4       =  nPush() *X4 (AST_SEQ & '*(GT(nTop(), 1) nTop())') nPop();
 X4          =  nInc() *Expr5 FENCE($'  ' *X4 | epsilon);
 Expr5       =  *Expr6 FENCE($'@' *Expr5 reduce_opsyn('@', 2) | epsilon);
 Expr6       =  *Expr7
-               FENCE($'+' *Expr7 foldop(E_ADD) *Expr6cont | $'-' *Expr7 foldop(E_SUB) *Expr6cont | epsilon);
-Expr6cont   =  FENCE($'+' *Expr7 foldop(E_ADD) *Expr6cont | $'-' *Expr7 foldop(E_SUB) *Expr6cont | epsilon);
-Expr7       =  *Expr8 FENCE($'#' *Expr7 foldop(E_MUL) | epsilon);
-Expr8       =  *Expr9 FENCE($'/' *Expr9 foldop(E_DIV) *Expr8cont | epsilon);
-Expr8cont   =  FENCE($'/' *Expr9 foldop(E_DIV) *Expr8cont | epsilon);
-Expr9       =  *Expr10 FENCE($'*' *Expr10 foldop(E_MUL) *Expr9cont | epsilon);
-Expr9cont   =  FENCE($'*' *Expr10 foldop(E_MUL) *Expr9cont | epsilon);
-Expr10      =  *Expr11 FENCE($'%' *Expr10 foldop(E_DIV) | epsilon);
-Expr11      =  *Expr12 FENCE(($'^' | $'!' | $'**') *Expr12 foldop(E_POW) *Expr11cont | epsilon);
-Expr11cont  =  FENCE(($'^' | $'!' | $'**') *Expr12 foldop(E_POW) *Expr11cont | epsilon);
+               FENCE($'+' *Expr7 foldop(AST_ADD) *Expr6cont | $'-' *Expr7 foldop(AST_SUB) *Expr6cont | epsilon);
+Expr6cont   =  FENCE($'+' *Expr7 foldop(AST_ADD) *Expr6cont | $'-' *Expr7 foldop(AST_SUB) *Expr6cont | epsilon);
+Expr7       =  *Expr8 FENCE($'#' *Expr7 foldop(AST_MUL) | epsilon);
+Expr8       =  *Expr9 FENCE($'/' *Expr9 foldop(AST_DIV) *Expr8cont | epsilon);
+Expr8cont   =  FENCE($'/' *Expr9 foldop(AST_DIV) *Expr8cont | epsilon);
+Expr9       =  *Expr10 FENCE($'*' *Expr10 foldop(AST_MUL) *Expr9cont | epsilon);
+Expr9cont   =  FENCE($'*' *Expr10 foldop(AST_MUL) *Expr9cont | epsilon);
+Expr10      =  *Expr11 FENCE($'%' *Expr10 foldop(AST_DIV) | epsilon);
+Expr11      =  *Expr12 FENCE(($'^' | $'!' | $'**') *Expr12 foldop(AST_POW) *Expr11cont | epsilon);
+Expr11cont  =  FENCE(($'^' | $'!' | $'**') *Expr12 foldop(AST_POW) *Expr11cont | epsilon);
 Expr12      =  *Expr13
                FENCE(
-                  $'$' *Expr13 (E_CAPT_IMMED_ASGN & 2) *Expr12tail_immed
-               |  $'.' *Expr13 (E_CAPT_COND_ASGN  & 2) *Expr12tail_cond
+                  $'$' *Expr13 (AST_CAPT_IMMED_ASGN & 2) *Expr12tail_immed
+               |  $'.' *Expr13 (AST_CAPT_COND_ASGN  & 2) *Expr12tail_cond
                |  epsilon
                );
-Expr12tail_immed =  FENCE($'$' *Expr13 (E_CAPT_IMMED_ASGN & 2) *Expr12tail_immed | epsilon);
-Expr12tail_cond  =  FENCE($'.' *Expr13 (E_CAPT_COND_ASGN  & 2) *Expr12tail_cond  | epsilon);
+Expr12tail_immed =  FENCE($'$' *Expr13 (AST_CAPT_IMMED_ASGN & 2) *Expr12tail_immed | epsilon);
+Expr12tail_cond  =  FENCE($'.' *Expr13 (AST_CAPT_COND_ASGN  & 2) *Expr12tail_cond  | epsilon);
 Expr13      =  *Expr14 FENCE($'~' *Expr13 reduce_opsyn('~', 2) | epsilon);
-Expr14      =  '@' *Expr14 (E_CAPT_CURSOR & 1)
-            |  '~' *Expr14 (E_NOT & 1)
-            |  '?' *Expr14 (E_INTERROGATE & 1)
-            |  '&' shift(*ProtKwd,   E_KEYWORD)
-            |  '&' shift(*UnprotKwd, E_KEYWORD)
-            |  '+' *Expr14 (E_PLS & 1)
-            |  '-' *Expr14 (E_MNS & 1)
-            |  '*' *Expr14 reduce(E_DEFER, 1)
-            |  '$' *Expr14 (E_INDIRECT & 1)
-            |  '.' *Expr14 (E_NAME & 1)
-            |  '!' *Expr14 (E_POW & 1)
-            |  '%' *Expr14 (E_DIV & 1)
-            |  '/' *Expr14 (E_DIV & 1)
-            |  '#' *Expr14 (E_MUL & 1)
-            |  '=' *Expr14 (E_ASSIGN & 1)
-            |  '|' *Expr14 (E_OPSYN & 1)
+Expr14      =  '@' *Expr14 (AST_CAPT_CURSOR & 1)
+            |  '~' *Expr14 (AST_NOT & 1)
+            |  '?' *Expr14 (AST_INTERROGATE & 1)
+            |  '&' shift(*ProtKwd,   AST_KEYWORD)
+            |  '&' shift(*UnprotKwd, AST_KEYWORD)
+            |  '+' *Expr14 (AST_PLS & 1)
+            |  '-' *Expr14 (AST_MNS & 1)
+            |  '*' *Expr14 reduce(AST_DEFER, 1)
+            |  '$' *Expr14 (AST_INDIRECT & 1)
+            |  '.' *Expr14 (AST_NAME & 1)
+            |  '!' *Expr14 (AST_POW & 1)
+            |  '%' *Expr14 (AST_DIV & 1)
+            |  '/' *Expr14 (AST_DIV & 1)
+            |  '#' *Expr14 (AST_MUL & 1)
+            |  '=' *Expr14 (AST_ASSIGN & 1)
+            |  '|' *Expr14 (AST_OPSYN & 1)
             |  *Expr15;
 Expr15      =  *Expr17
-               FENCE(nPush() *Expr16 (E_IDX & 'nTop() + 1') nPop() | epsilon);
+               FENCE(nPush() *Expr16 (AST_IDX & 'nTop() + 1') nPop() | epsilon);
 Expr16      =  nInc()
                ($'[' *ExprList $']' | $'<' *ExprList $'>')
                FENCE(*Expr16 | epsilon);
 Expr17      =  FENCE(
                   nPush() $'(' *Expr $')' ("'()'" & 1) nPop()
-               |  *PrimLEN    $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(E_LEN)    nPop() $')'
-               |  *PrimBREAK  $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(E_BREAK)  nPop() $')'
-               |  *PrimSPAN   $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(E_SPAN)   nPop() $')'
-               |  *PrimANY    $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(E_ANY)    nPop() $')'
-               |  *PrimNOTANY $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(E_NOTANY) nPop() $')'
-               |  *PrimFENCE  $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(E_FENCE)  nPop() $')'
-               |  *PrimARBNO  $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(E_ARBNO)  nPop() $')'
-               |  *PrimPOS    $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(E_POS)    nPop() $')'
-               |  *PrimRPOS   $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(E_RPOS)   nPop() $')'
-               |  *PrimTAB    $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(E_TAB)    nPop() $')'
-               |  *PrimRTAB   $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(E_RTAB)   nPop() $')'
-               |  *PrimBREAKX $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(E_BREAKX) nPop() $')'
-               |  *Function   ~ E_VAR FENCE(nPush() $'(' FENCE(*FnArgList | epsilon) reduce_call() nPop() $')' | epsilon)
-               |  *BuiltinVar ~ E_VAR
-               |  *SpecialNm  ~ E_VAR
-               |  *Id         ~ E_VAR FENCE(nPush() $'(' FENCE(*FnArgList | epsilon) reduce_call() nPop() $')' | epsilon)
+               |  *PrimLEN    $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(AST_LEN)    nPop() $')'
+               |  *PrimBREAK  $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(AST_BREAK)  nPop() $')'
+               |  *PrimSPAN   $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(AST_SPAN)   nPop() $')'
+               |  *PrimANY    $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(AST_ANY)    nPop() $')'
+               |  *PrimNOTANY $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(AST_NOTANY) nPop() $')'
+               |  *PrimFENCE  $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(AST_FENCE)  nPop() $')'
+               |  *PrimARBNO  $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(AST_ARBNO)  nPop() $')'
+               |  *PrimPOS    $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(AST_POS)    nPop() $')'
+               |  *PrimRPOS   $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(AST_RPOS)   nPop() $')'
+               |  *PrimTAB    $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(AST_TAB)    nPop() $')'
+               |  *PrimRTAB   $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(AST_RTAB)   nPop() $')'
+               |  *PrimBREAKX $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim(AST_BREAKX) nPop() $')'
+               |  *Function   ~ AST_VAR FENCE(nPush() $'(' FENCE(*FnArgList | epsilon) reduce_call() nPop() $')' | epsilon)
+               |  *BuiltinVar ~ AST_VAR
+               |  *SpecialNm  ~ AST_VAR
+               |  *Id         ~ AST_VAR FENCE(nPush() $'(' FENCE(*FnArgList | epsilon) reduce_call() nPop() $')' | epsilon)
                |  *String Push_qlit
-               |  *Real ~ E_RLIT
-               |  *Integer ~ E_ILIT
+               |  *Real ~ AST_RLIT
+               |  *Integer ~ AST_ILIT
                );
 // Per-primitive classifier patterns — match full identifier word, succeed only for exact name.
 // Form: SPAN(...) $ tx $ *sn_match(NameList, TxInList) where NameList has only one entry.
@@ -329,15 +329,15 @@ Compiland   =  nPush()
 // pp_stmt and make_goto_slot — grammar emits E_* directly; no post-parse rewrite needed.
 /*====================================================================================================================*/
 // strip_parens — recursively strip all '()' wrapper nodes and flatten ExprList
-// nodes inside E_IDX (which arise from the ExprList subscript grammar).
+// nodes inside AST_IDX (which arise from the ExprList subscript grammar).
 function strip_parens(x, t, result, i, xlist, j) {
     if (IDENT(x))              { strip_parens = x; return; }
     t = t(x);
     if (IDENT(t))              { strip_parens = x; return; }
     if (IDENT(t, '()') EQ(n(x), 1)) { strip_parens = strip_parens(c(x)[1]); return; }
-    // E_IDX: flatten ExprList children inline
-    if (IDENT(t, 'E_IDX')) {
-        result = Tree('E_IDX', '', 0);
+    // AST_IDX: flatten ExprList children inline
+    if (IDENT(t, 'AST_IDX')) {
+        result = Tree('AST_IDX', '', 0);
         i = 1;
         while (LE(i, n(x))) {
             if (IDENT(t(c(x)[i]), 'ExprList')) {
@@ -359,14 +359,14 @@ function strip_parens(x, t, result, i, xlist, j) {
     return;
 }
 // Target child forms:
-//   E_VAR x / E_QLIT x  — simple label: use v() directly
-//   E_INDIRECT(E_QLIT x) — $'x' literal indirect: unwrap to x
+//   AST_VAR x / AST_QLIT x  — simple label: use v() directly
+//   AST_INDIRECT(AST_QLIT x) — $'x' literal indirect: unwrap to x
 //   other computed expr  — format as $((TDump(expr)))
 function make_goto_slot(g, tgt, tgt_v) {
     tgt   = c(g)[1];
-    if (IDENT(t(tgt), 'E_INDIRECT') EQ(n(tgt), 1) IDENT(t(c(tgt)[1]), 'E_QLIT')) {
+    if (IDENT(t(tgt), 'AST_INDIRECT') EQ(n(tgt), 1) IDENT(t(c(tgt)[1]), 'AST_QLIT')) {
         tgt_v = v(c(tgt)[1]);
-    } else if (IDENT(t(tgt), 'E_INDIRECT') EQ(n(tgt), 1)) {
+    } else if (IDENT(t(tgt), 'AST_INDIRECT') EQ(n(tgt), 1)) {
         inner = strip_parens(c(tgt)[1]);
         tgt_v = '$(' TLump(inner, 99999) ')';
     } else if (DIFFER(v(tgt))) {
@@ -399,11 +399,11 @@ function pp_stmt(x, ppLbl, ppSubj, ppPatrn, ppAsgn, ppRepl, ppGo1, ppGo2,
         if (DIFFER(ppAsgn))   { Append(result, tree(':eq', '')); }
         subj_ir = strip_parens(ppSubj);
         if (DIFFER(t(ppPatrn))) {
-            // preserve '()' tag check before stripping (used for E_ALT merge guard)
+            // preserve '()' tag check before stripping (used for AST_ALT merge guard)
             pat_ir = ppPatrn;
-            if (IDENT(t(pat_ir), 'E_ALT') GT(n(pat_ir), 0) DIFFER(t(ppPatrn), '()')) {
-                seq_n = Tree('E_SEQ', '', 2, subj_ir, strip_parens(c(pat_ir)[1]));
-                pat_seq = Tree('E_ALT', '', 1, seq_n);
+            if (IDENT(t(pat_ir), 'AST_ALT') GT(n(pat_ir), 0) DIFFER(t(ppPatrn), '()')) {
+                seq_n = Tree('AST_SEQ', '', 2, subj_ir, strip_parens(c(pat_ir)[1]));
+                pat_seq = Tree('AST_ALT', '', 1, seq_n);
                 i = 2;
                 while (LE(i, n(pat_ir))) { Append(pat_seq, strip_parens(c(pat_ir)[i])); i = i + 1; }
                 Append(result, Tree(':subj', '', 1, pat_seq));
@@ -413,14 +413,14 @@ function pp_stmt(x, ppLbl, ppSubj, ppPatrn, ppAsgn, ppRepl, ppGo1, ppGo2,
                 Append(result, Tree(':pat',  '', 1, pat_ir));
             }
         } else {
-            // split only when first child is E_VAR (oracle rule: fn-call concat stays in :subj)
-            if (IDENT(t(subj_ir), 'E_SEQ') GT(n(subj_ir), 1) IDENT(t(c(subj_ir)[1]), 'E_VAR')) {
+            // split only when first child is AST_VAR (oracle rule: fn-call concat stays in :subj)
+            if (IDENT(t(subj_ir), 'AST_SEQ') GT(n(subj_ir), 1) IDENT(t(c(subj_ir)[1]), 'AST_VAR')) {
                 seq_n = n(subj_ir);
                 Append(result, Tree(':subj', '', 1, c(subj_ir)[1]));
                 if (LE(seq_n, 2)) {
                     Append(result, Tree(':pat', '', 1, c(subj_ir)[2]));
                 } else {
-                    pat_seq = Tree('E_SEQ', '', 0);
+                    pat_seq = Tree('AST_SEQ', '', 0);
                     i = 2;
                     while (LE(i, seq_n)) { Append(pat_seq, c(subj_ir)[i]); i = i + 1; }
                     Append(result, Tree(':pat', '', 1, pat_seq));
@@ -432,7 +432,7 @@ function pp_stmt(x, ppLbl, ppSubj, ppPatrn, ppAsgn, ppRepl, ppGo1, ppGo2,
         if (DIFFER(t(ppRepl))) {
             Append(result, Tree(':repl', '', 1, strip_parens(ppRepl)));
         } else if (DIFFER(ppAsgn)) {
-            Append(result, Tree(':repl', '', 1, tree('E_QLIT', '')));
+            Append(result, Tree(':repl', '', 1, tree('AST_QLIT', '')));
         }
     }
     // oracle ordering: :goS before :goF for simple targets; :goF before :goS when goS is computed.
@@ -440,7 +440,7 @@ function pp_stmt(x, ppLbl, ppSubj, ppPatrn, ppAsgn, ppRepl, ppGo1, ppGo2,
         if (IDENT(t(ppGo1), ':goS')) { goS_slot = ppGo1; goF_slot = ppGo2; }
         else                          { goS_slot = ppGo2; goF_slot = ppGo1; }
         goS_child = c(goS_slot)[1];
-        if (IDENT(t(goS_child), 'E_INDIRECT') DIFFER(t(c(goS_child)[1]), 'E_QLIT')) {
+        if (IDENT(t(goS_child), 'AST_INDIRECT') DIFFER(t(c(goS_child)[1]), 'AST_QLIT')) {
             Append(result, make_goto_slot(goF_slot)); Append(result, make_goto_slot(goS_slot));
         } else {
             Append(result, make_goto_slot(goS_slot)); Append(result, make_goto_slot(goF_slot));

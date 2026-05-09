@@ -1,1 +1,1 @@
-(STMT :subj (E_FNC DATA (E_QLIT "Empty()")))
+(STMT :subj (AST_FNC DATA (AST_QLIT "Empty()")))

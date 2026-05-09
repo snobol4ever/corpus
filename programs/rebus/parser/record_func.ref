@@ -1,27 +1,27 @@
-(STMT :subj (E_FNC DATA (E_QLIT "POINT(X,Y)")))
-(STMT :subj (E_FNC DEFINE (E_QLIT "DIST(P)")))
+(STMT :subj (AST_FNC DATA (AST_QLIT "POINT(X,Y)")))
+(STMT :subj (AST_FNC DEFINE (AST_QLIT "DIST(P)")))
 (STMT :go rb_1)
 (STMT :lbl DIST)
-(STMT :subj (E_ADD
-  (E_MUL
-    (E_VAR P.X)
-    (E_VAR P.X)
+(STMT :subj (AST_ADD
+  (AST_MUL
+    (AST_VAR P.X)
+    (AST_VAR P.X)
   )
-  (E_MUL
-    (E_VAR P.Y)
-    (E_VAR P.Y)
+  (AST_MUL
+    (AST_VAR P.Y)
+    (AST_VAR P.Y)
   )
 ))
 (STMT :go RETURN)
 (STMT :lbl rb_1)
-(STMT :subj (E_FNC DEFINE (E_QLIT "MAIN()")))
+(STMT :subj (AST_FNC DEFINE (AST_QLIT "MAIN()")))
 (STMT :go rb_2)
 (STMT :lbl MAIN)
-(STMT :eq :subj (E_VAR Q) :repl (E_FNC POINT
-  (E_ILIT 3)
-  (E_ILIT 4)
+(STMT :eq :subj (AST_VAR Q) :repl (AST_FNC POINT
+  (AST_ILIT 3)
+  (AST_ILIT 4)
 ))
-(STMT :eq :subj (E_VAR OUTPUT) :repl (E_FNC DIST (E_VAR Q)))
+(STMT :eq :subj (AST_VAR OUTPUT) :repl (AST_FNC DIST (AST_VAR Q)))
 (STMT :go RETURN)
 (STMT :lbl rb_2)
-(STMT :subj (E_FNC MAIN))
+(STMT :subj (AST_FNC MAIN))

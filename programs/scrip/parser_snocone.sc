@@ -1,37 +1,37 @@
 &FULLSCAN = 1;
 /*====================================================================================================================*/
-E_ASSIGN          = "'E_ASSIGN'";
-E_SCAN            = "'E_SCAN'";
-E_ALT             = "'E_ALT'";
-E_SEQ             = "'E_SEQ'";
-E_ADD             = "'E_ADD'";
-E_SUB             = "'E_SUB'";
-E_MUL             = "'E_MUL'";
-E_DIV             = "'E_DIV'";
-E_POW             = "'E_POW'";
-E_QLIT            = "'E_QLIT'";
-E_ILIT            = "'E_ILIT'";
-E_VAR             = "'E_VAR'";
-E_KEYWORD         = "'E_KEYWORD'";
-E_IDX             = "'E_IDX'";
-E_INDEX           = "'E_IDX'";
-E_FLIT            = "'E_FLIT'";
-E_MNS             = "'E_MNS'";
-E_PLS             = "'E_PLS'";
-E_BANG            = "'E_BANG'";
-E_PCT             = "'E_PCT'";
-E_SLASH           = "'E_SLASH'";
-E_POUND           = "'E_POUND'";
-E_DEFER           = "'E_DEFER'";
-E_NOT             = "'E_NOT'";
-E_NAME            = "'E_NAME'";
-E_INDIRECT        = "'E_INDIRECT'";
-E_CAPT_COND_ASGN  = "'E_CAPT_COND_ASGN'";
-E_CAPT_IMMED_ASGN = "'E_CAPT_IMMED_ASGN'";
-E_CAPT_CURSOR     = "'E_CAPT_CURSOR'";
-E_VLIST           = "'E_VLIST'";
-E_NUL             = "'E_NUL'";
-E_FNC             = "'E_FNC'";
+AST_ASSIGN          = "'AST_ASSIGN'";
+AST_SCAN            = "'AST_SCAN'";
+AST_ALT             = "'AST_ALT'";
+AST_SEQ             = "'AST_SEQ'";
+AST_ADD             = "'AST_ADD'";
+AST_SUB             = "'AST_SUB'";
+AST_MUL             = "'AST_MUL'";
+AST_DIV             = "'AST_DIV'";
+AST_POW             = "'AST_POW'";
+AST_QLIT            = "'AST_QLIT'";
+AST_ILIT            = "'AST_ILIT'";
+AST_VAR             = "'AST_VAR'";
+AST_KEYWORD         = "'AST_KEYWORD'";
+AST_IDX             = "'AST_IDX'";
+AST_INDEX           = "'AST_IDX'";
+AST_FLIT            = "'AST_FLIT'";
+AST_MNS             = "'AST_MNS'";
+AST_PLS             = "'AST_PLS'";
+AST_BANG            = "'AST_BANG'";
+AST_PCT             = "'AST_PCT'";
+AST_SLASH           = "'AST_SLASH'";
+AST_POUND           = "'AST_POUND'";
+AST_DEFER           = "'AST_DEFER'";
+AST_NOT             = "'AST_NOT'";
+AST_NAME            = "'AST_NAME'";
+AST_INDIRECT        = "'AST_INDIRECT'";
+AST_CAPT_COND_ASGN  = "'AST_CAPT_COND_ASGN'";
+AST_CAPT_IMMED_ASGN = "'AST_CAPT_IMMED_ASGN'";
+AST_CAPT_CURSOR     = "'AST_CAPT_CURSOR'";
+AST_VLIST           = "'AST_VLIST'";
+AST_NUL             = "'AST_NUL'";
+AST_FNC             = "'AST_FNC'";
 E_Parse           = "'Parse'";
 r_nTop            = '*(GT(nTop(), 1) nTop())';
 r_nTopP1          = '*(nTop() + 1)';
@@ -224,27 +224,27 @@ function do_head_alloc() {
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 function is_name_like(e) {
-    if (IDENT(t(e), 'E_VAR'))   { return; }
-    if (IDENT(t(e), 'E_QLIT'))  { return; }
+    if (IDENT(t(e), 'AST_VAR'))   { return; }
+    if (IDENT(t(e), 'AST_QLIT'))  { return; }
     freturn;
 }
 function build_seq_or_single(arr, lo, hi, n, r, i) {
     n = hi - lo + 1;
     if (IDENT(n, 1)) { build_seq_or_single = arr[lo]; return; }
-    r = Tree('E_SEQ', '', 0);
+    r = Tree('AST_SEQ', '', 0);
     i = lo;
     while (LE(i, hi)) { r = Append(r, arr[i]); i = i + 1; }
     build_seq_or_single = r;
     return;
 }
 function split_subj_pat(top, n, kids, i) {
-    if (IDENT(t(top), 'E_SCAN')) {
+    if (IDENT(t(top), 'AST_SCAN')) {
         if (~IDENT(n(top), 2)) { freturn; }
         split_subj = c(top)[1];
         split_pat  = c(top)[2];
         return;
     }
-    if (IDENT(t(top), 'E_SEQ')) {
+    if (IDENT(t(top), 'AST_SEQ')) {
         n = n(top);
         if (~GE(n, 2)) { freturn; }
         if (~is_name_like(c(top)[1])) { freturn; }
@@ -259,10 +259,10 @@ function split_subj_pat(top, n, kids, i) {
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 // flatten_arith(x) — bottom-up left-fold flatten for same-tag arithmetic chains.
-// Mirrors C-frontend expr_binary_flatten: E_SUB(a, E_SUB(b,c)) -> E_SUB(a,b,c).
-// Only flattens left-associative ops: E_ADD E_SUB E_MUL E_DIV. E_POW is right-
+// Mirrors C-frontend expr_binary_flatten: AST_SUB(a, AST_SUB(b,c)) -> AST_SUB(a,b,c).
+// Only flattens left-associative ops: AST_ADD AST_SUB AST_MUL AST_DIV. AST_POW is right-
 // associative and is NOT flattened. Called from decompose_stmt on the full expr.
-sc_flatten_ops = ' E_ADD  E_SUB  E_MUL  E_DIV ';
+sc_flatten_ops = ' AST_ADD  AST_SUB  AST_MUL  AST_DIV ';
 function flatten_arith(x, i, nc, tag, right, new_c, rn, j) {
     nc = n(x);
     i = 1;
@@ -284,9 +284,9 @@ function flatten_arith(x, i, nc, tag, right, new_c, rn, j) {
 function decompose_stmt(top, lhs, rhs, s) {
     top = Pop();
     top = flatten_arith(top);
-    // Form A: E_ASSIGN(lhs, rhs) at top -- check whether lhs is itself an
-    // E_SCAN or name-like-headed E_SEQ; if so, lift subj+pat out.
-    if (IDENT(t(top), 'E_ASSIGN')) {
+    // Form A: AST_ASSIGN(lhs, rhs) at top -- check whether lhs is itself an
+    // AST_SCAN or name-like-headed AST_SEQ; if so, lift subj+pat out.
+    if (IDENT(t(top), 'AST_ASSIGN')) {
         lhs = c(top)[1]; rhs = c(top)[2];
         if (split_subj_pat(lhs)) {
             s = Tree('STMT', '', 4,
@@ -302,7 +302,7 @@ function decompose_stmt(top, lhs, rhs, s) {
         }
         Push(s); decompose_stmt = .dummy; nreturn;
     }
-    // Form B: bare E_SCAN or E_SEQ with name-like head -- split subj+pat.
+    // Form B: bare AST_SCAN or AST_SEQ with name-like head -- split subj+pat.
     if (split_subj_pat(top)) {
         s = Tree('STMT', '', 2,
                  Tree(':subj', '', 1, split_subj),
@@ -316,12 +316,12 @@ function decompose_stmt(top, lhs, rhs, s) {
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 function push_qlit(s) {
-    s = tree('E_QLIT', token);
+    s = tree('AST_QLIT', token);
     Push(s);
     push_qlit = .dummy; nreturn;
 }
 function make_cond_stmt(cond_expr, goto_slot, label) {
-    if (IDENT(t(cond_expr), 'E_SCAN')) {
+    if (IDENT(t(cond_expr), 'AST_SCAN')) {
         make_cond_stmt = Tree('STMT', '', 3,
                                  Tree(':subj', '', 1, c(cond_expr)[1]),
                                  Tree(':pat',  '', 1, c(cond_expr)[2]),
@@ -407,7 +407,7 @@ function decompose_call(n_kids, kids, fname, call, i) {
     i = n_kids;
     while (GT(i, 0)) { kids[i] = Pop(); i = i - 1; }
     fname = v(kids[1]);
-    call  = Tree('E_FNC', fname);
+    call  = Tree('AST_FNC', fname);
     i = 2;
     while (LE(i, n_kids)) { call = Append(call, kids[i]); i = i + 1; }
     Push(call);
@@ -438,8 +438,8 @@ function save_struct_field_rest(f) {
     save_struct_field_rest = .dummy; nreturn;
 }
 function emit_struct(qlit, fnc) {
-    qlit = tree('E_QLIT', cur_struct_name '(' sc_struct_fields ')');
-    fnc  = Tree('E_FNC', 'DATA', 1, qlit);
+    qlit = tree('AST_QLIT', cur_struct_name '(' sc_struct_fields ')');
+    fnc  = Tree('AST_FNC', 'DATA', 1, qlit);
     Push(Tree('STMT', '', 1, Tree(':subj', '', 1, fnc)));
     emit_struct = .dummy; nreturn;
 }
@@ -455,7 +455,7 @@ function switch_head_alloc(disc_e, lhs) {
     sc_sw_cases   = ARRAY('1:64,1:2');   /* [n, 1]=label, [n, 2]=value_tree */
     /* emit tmp = disc */
     disc_e = Pop();
-    lhs    = tree('E_VAR', sc_sw_tmp);
+    lhs    = tree('AST_VAR', sc_sw_tmp);
     Push(Tree('STMT', '', 3, Tree(':eq', '', 0), Tree(':subj', '', 1, lhs), Tree(':repl', '', 1, disc_e)));
     sc_sw_last_body_n = '';   /* null = no previous case yet */
     push_break(sc_sw_lend);
@@ -510,8 +510,8 @@ function finalize_switch(nbody_v, n, body, i, fnc, tmp_ref, val_e, lbl, dispatch
         lbl   = sc_sw_cases[i, 1];
         val_e = sc_sw_cases[i, 2];
         if (DIFFER(val_e)) {
-            tmp_ref = tree('E_VAR', sc_sw_tmp);
-            fnc = Tree('E_FNC', 'IDENT', 2, tmp_ref, val_e);
+            tmp_ref = tree('AST_VAR', sc_sw_tmp);
+            fnc = Tree('AST_FNC', 'IDENT', 2, tmp_ref, val_e);
             di = di + 1;
             dispatch[di] = Tree('STMT', '', 2, Tree(':subj', '', 1, fnc), tree(':goS', lbl));
         }
@@ -532,8 +532,8 @@ function finalize_switch(nbody_v, n, body, i, fnc, tmp_ref, val_e, lbl, dispatch
 }
 function Finalize_switch(nbody_v) { Finalize_switch = EVAL("epsilon . thx . *finalize_switch('" nbody_v "')"); return; }
 function make_define_stmt(name, args, qlit, fnc) {
-    qlit = tree('E_QLIT', name '(' args ')');
-    fnc  = Tree('E_FNC', 'DEFINE', 1, qlit);
+    qlit = tree('AST_QLIT', name '(' args ')');
+    fnc  = Tree('AST_FNC', 'DEFINE', 1, qlit);
     make_define_stmt = Tree('STMT', '', 1, Tree(':subj', '', 1, fnc));
     return;
 }
@@ -556,7 +556,7 @@ function finalize_function(nbody_v, body, n, name, args, Lend, i) {
 /*--------------------------------------------------------------------------------------------------------------------*/
 function emit_return_value(rhs, lhs, s) {
     rhs = Pop();
-    lhs = tree('E_VAR', cur_func_name);
+    lhs = tree('AST_VAR', cur_func_name);
     s   = Tree('STMT', '', 4,
                   Tree(':eq', ''),
                   Tree(':subj', '', 1, lhs),
@@ -571,36 +571,36 @@ function emit_freturn()     { emit_freturn      = .dummy; Push(make_goto_stmt('F
 function emit_nreturn()     { emit_nreturn      = .dummy; Push(make_goto_stmt('NRETURN')); nreturn; }
 function goto_emit()        { goto_emit         = .dummy; Push(make_goto_stmt(captured_goto)); nreturn; }
 function label_emit()       { label_emit        = .dummy; Push(make_label_stmt(captured_label)); nreturn;  }
-function push_keyword()     { push_keyword      = .dummy; Push(tree('E_KEYWORD', token)); nreturn; }
-function push_ident()       { push_ident        = .dummy; Push(tree('E_VAR', token)); nreturn; }
-function push_flit()        { push_flit         = .dummy; Push(tree('E_FLIT', token)); nreturn; }
-function push_ilit()        { push_ilit         = .dummy; Push(tree('E_ILIT', token)); nreturn; }
-function push_empty_str()   { push_empty_str    = .dummy; Push(tree('E_QLIT', '')); nreturn; }
-function push_mns(e)        { e = Pop(); Push(Tree('E_MNS', '', 1, e)); push_mns = .dummy; nreturn; }
+function push_keyword()     { push_keyword      = .dummy; Push(tree('AST_KEYWORD', token)); nreturn; }
+function push_ident()       { push_ident        = .dummy; Push(tree('AST_VAR', token)); nreturn; }
+function push_flit()        { push_flit         = .dummy; Push(tree('AST_FLIT', token)); nreturn; }
+function push_ilit()        { push_ilit         = .dummy; Push(tree('AST_ILIT', token)); nreturn; }
+function push_empty_str()   { push_empty_str    = .dummy; Push(tree('AST_QLIT', '')); nreturn; }
+function push_mns(e)        { e = Pop(); Push(Tree('AST_MNS', '', 1, e)); push_mns = .dummy; nreturn; }
 function reduce_augmented(op, rhs, lhs) {
     rhs = Pop(); lhs = Pop();
-    Push(Tree('E_ASSIGN', '', 2, lhs, Tree(op, '', 2, lhs, rhs)));
+    Push(Tree('AST_ASSIGN', '', 2, lhs, Tree(op, '', 2, lhs, rhs)));
     reduce_augmented = .dummy; nreturn;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 function push_call_name_var() {
-    Push(tree('E_VAR', captured_call_name));
+    Push(tree('AST_VAR', captured_call_name));
     IncCounter();
     push_call_name_var = .dummy; nreturn;
 }
 function push_idx(base, idx) {
     idx  = Pop(); base = Pop();
-    Push(Tree('E_IDX', '', 2, base, idx));
+    Push(Tree('AST_IDX', '', 2, base, idx));
     push_idx = .dummy; nreturn;
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 function paren_reduce(n, kids, vl, i) {
     n = TopCounter();
-    if (IDENT(n, 0)) { Push(Tree('E_NUL', '')); paren_reduce = .dummy; nreturn; }
+    if (IDENT(n, 0)) { Push(Tree('AST_NUL', '')); paren_reduce = .dummy; nreturn; }
     if (IDENT(n, 1)) { paren_reduce = .dummy; nreturn; }
     kids = ARRAY('1:' n);
     i = n; while (GT(i, 0)) { kids[i] = Pop(); i = i - 1; }
-    vl = Tree('E_VLIST', '');
+    vl = Tree('AST_VLIST', '');
     i = 1; while (LE(i, n)) { vl = Append(vl, kids[i]); i = i + 1; }
     Push(vl);
     paren_reduce = .dummy; nreturn;
@@ -609,7 +609,7 @@ function paren_reduce(n, kids, vl, i) {
 function for_head_alloc(init_e, cond_e, step_e, init_s) {
     step_e = Pop(); cond_e = Pop(); init_e = Pop();
     for_step_expr = step_e; for_cond_expr = cond_e;
-    if (IDENT(t(init_e), 'E_ASSIGN')) {
+    if (IDENT(t(init_e), 'AST_ASSIGN')) {
         init_s = Tree('STMT', '', 3,
                       Tree(':eq', ''), Tree(':subj', '', 1, c(init_e)[1]), Tree(':repl', '', 1, c(init_e)[2]));
     } else { init_s = Tree('STMT', '', 1, Tree(':subj', '', 1, init_e)); }
@@ -690,7 +690,7 @@ function BodyFn(var)                                { BodyFn            = nPush(
 /*--------------------------------------------------------------------------------------------------------------------*/
 function push_cmp(fname, a, b) {
     b = Pop(); a = Pop();
-    Push(Tree('E_FNC', fname, 2, a, b));
+    Push(Tree('AST_FNC', fname, 2, a, b));
     push_cmp = .dummy; nreturn;
 }
 function Push_cmp(fname) {
@@ -712,7 +712,7 @@ Call            =   *Ident . *assign(.captured_call_name, token)
                       $')'
                     );
 /*--------------------------------------------------------------------------------------------------------------------*/
-ExprList        =   nPush() *XList (E_VLIST & r_nTop) nPop();
+ExprList        =   nPush() *XList (AST_VLIST & r_nTop) nPop();
 XList           =   nInc() (*Expr0 | epsilon ~ '') FENCE($',' *XList | epsilon);
 /*--------------------------------------------------------------------------------------------------------------------*/
 Expr17          =   FENCE(
@@ -721,7 +721,7 @@ Expr17          =   FENCE(
                       nPush()
                       FENCE(
                         nInc() *Expr0 ARBNO($',' nInc() *Expr0) Paren_reduce()
-                      | (E_NUL & 0)
+                      | (AST_NUL & 0)
                       )
                       nPop()
                       $')'
@@ -732,35 +732,35 @@ Expr17          =   FENCE(
                     | *Ident    Push_ident()
                     );
 Expr16          =   nInc() $'[' *ExprList $']' FENCE(*Expr16 | epsilon);
-Expr15          =   *Expr17 FENCE(nPush() *Expr16 (E_INDEX & r_nTopP1) nPop() | epsilon);
-Expr14          =   '@' *Expr14 (E_CAPT_CURSOR  & 1)
-                |   '~' *Expr14 (E_NOT          & 1)
-                |   '+' *Expr14 (E_PLS          & 1)
-                |   '-' *Expr14 (E_MNS          & 1)
-                |   '*' *Expr14 (E_DEFER        & 1)
-                |   '$' *Expr14 (E_INDIRECT     & 1)
-                |   '.' *Expr14 (E_NAME         & 1)
-                |   '!' *Expr14 (E_BANG         & 1)
-                |   '%' *Expr14 (E_PCT          & 1)
-                |   '/' *Expr14 (E_SLASH        & 1)
-                |   '#' *Expr14 (E_POUND        & 1)
+Expr15          =   *Expr17 FENCE(nPush() *Expr16 (AST_INDEX & r_nTopP1) nPop() | epsilon);
+Expr14          =   '@' *Expr14 (AST_CAPT_CURSOR  & 1)
+                |   '~' *Expr14 (AST_NOT          & 1)
+                |   '+' *Expr14 (AST_PLS          & 1)
+                |   '-' *Expr14 (AST_MNS          & 1)
+                |   '*' *Expr14 (AST_DEFER        & 1)
+                |   '$' *Expr14 (AST_INDIRECT     & 1)
+                |   '.' *Expr14 (AST_NAME         & 1)
+                |   '!' *Expr14 (AST_BANG         & 1)
+                |   '%' *Expr14 (AST_PCT          & 1)
+                |   '/' *Expr14 (AST_SLASH        & 1)
+                |   '#' *Expr14 (AST_POUND        & 1)
                 |   *Expr15;
-Expr13          =   *Expr14 FENCE($'~' *Expr13 (E_NOT & 2) | epsilon);
+Expr13          =   *Expr14 FENCE($'~' *Expr13 (AST_NOT & 2) | epsilon);
 Expr12          =   *Expr13
                     FENCE(
-                      $'$' *Expr13 (E_CAPT_IMMED_ASGN & 2) FENCE($'$' *Expr13 (E_CAPT_IMMED_ASGN & 2) | epsilon)
-                    | $'.' *Expr13 (E_CAPT_COND_ASGN  & 2) FENCE($'.' *Expr13 (E_CAPT_COND_ASGN  & 2) | epsilon)
+                      $'$' *Expr13 (AST_CAPT_IMMED_ASGN & 2) FENCE($'$' *Expr13 (AST_CAPT_IMMED_ASGN & 2) | epsilon)
+                    | $'.' *Expr13 (AST_CAPT_COND_ASGN  & 2) FENCE($'.' *Expr13 (AST_CAPT_COND_ASGN  & 2) | epsilon)
                     | epsilon
                     );
-Expr11          =   *Expr12 FENCE(($'^' | $'!' | $'**') *Expr11 (E_POW & 2) | epsilon);
-Expr10          =   *Expr11 FENCE($'%' *Expr10 (E_MUL & 2) | epsilon);
-Expr9           =   *Expr10 FENCE($'*' *Expr9  (E_MUL & 2) | epsilon);
-Expr8           =   *Expr9  FENCE($'/' *Expr8  (E_DIV & 2) | epsilon);
-Expr7           =   *Expr8  FENCE($'#' *Expr7  (E_SUB & 2) | epsilon);
-Expr6           =   *Expr7  FENCE($'+' *Expr6 (E_ADD & 2) | $'-' *Expr6 (E_SUB & 2) | epsilon);
+Expr11          =   *Expr12 FENCE(($'^' | $'!' | $'**') *Expr11 (AST_POW & 2) | epsilon);
+Expr10          =   *Expr11 FENCE($'%' *Expr10 (AST_MUL & 2) | epsilon);
+Expr9           =   *Expr10 FENCE($'*' *Expr9  (AST_MUL & 2) | epsilon);
+Expr8           =   *Expr9  FENCE($'/' *Expr8  (AST_DIV & 2) | epsilon);
+Expr7           =   *Expr8  FENCE($'#' *Expr7  (AST_SUB & 2) | epsilon);
+Expr6           =   *Expr7  FENCE($'+' *Expr6 (AST_ADD & 2) | $'-' *Expr6 (AST_SUB & 2) | epsilon);
 Expr5           =   *Expr6
                      FENCE(
-                       $'@'  *Expr5 (E_CAPT_CURSOR & 2)
+                       $'@'  *Expr5 (AST_CAPT_CURSOR & 2)
                      | $'==' *Expr6 Push_cmp('EQ')
                      | $'!=' *Expr6 Push_cmp('NE')
                      | $'<=' *Expr6 Push_cmp('LE')
@@ -769,19 +769,19 @@ Expr5           =   *Expr6
                      | $'>'  *Expr6 Push_cmp('GT')
                      | epsilon
                      );
-Expr4           =   nPush() *X4 (E_SEQ & r_nTop) nPop();
+Expr4           =   nPush() *X4 (AST_SEQ & r_nTop) nPop();
 X4              =   nInc() *Expr5 FENCE($'  ' *X4 | epsilon);
-Expr3           =   nPush() *X3 (E_ALT & r_nTop) nPop();
+Expr3           =   nPush() *X3 (AST_ALT & r_nTop) nPop();
 X3              =   nInc() *Expr4 FENCE($'|' *X3 | epsilon);
-Expr2           =   *Expr3 FENCE($'&' *Expr2 (E_SEQ & 2) | epsilon);
-Expr1           =   *Expr2 FENCE($'?' *Expr1 (E_SCAN & 2) | epsilon);
+Expr2           =   *Expr3 FENCE($'&' *Expr2 (AST_SEQ & 2) | epsilon);
+Expr1           =   *Expr2 FENCE($'?' *Expr1 (AST_SCAN & 2) | epsilon);
 Expr0           =   *Expr1 FENCE(
-                      $'='  FENCE(*Expr0 | Push_empty_str())  (E_ASSIGN & 2)
-                    | $'+=' *Expr0  Reduce_augmented(E_ADD)
-                    | $'-=' *Expr0  Reduce_augmented(E_SUB)
-                    | $'*=' *Expr0  Reduce_augmented(E_MUL)
-                    | $'/=' *Expr0  Reduce_augmented(E_DIV)
-                    | $'^=' *Expr0  Reduce_augmented(E_POW)
+                      $'='  FENCE(*Expr0 | Push_empty_str())  (AST_ASSIGN & 2)
+                    | $'+=' *Expr0  Reduce_augmented(AST_ADD)
+                    | $'-=' *Expr0  Reduce_augmented(AST_SUB)
+                    | $'*=' *Expr0  Reduce_augmented(AST_MUL)
+                    | $'/=' *Expr0  Reduce_augmented(AST_DIV)
+                    | $'^=' *Expr0  Reduce_augmented(AST_POW)
                     | epsilon);
 /*====================================================================================================================*/
 stmt_body       =   *Expr0 ($';' | epsilon) Decompose_stmt();

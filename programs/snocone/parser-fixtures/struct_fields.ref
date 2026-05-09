@@ -1,1 +1,1 @@
-(STMT :subj (E_FNC DATA (E_QLIT "Person(name,age,email)")))
+(STMT :subj (AST_FNC DATA (AST_QLIT "Person(name,age,email)")))

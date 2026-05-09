@@ -1,30 +1,30 @@
-(STMT :subj (E_FNC main
-  (E_VAR main)
-  (E_ASSIGN
-    (E_VAR x)
-    (E_ILIT 2)
+(STMT :subj (AST_FNC main
+  (AST_VAR main)
+  (AST_ASSIGN
+    (AST_VAR x)
+    (AST_ILIT 2)
   )
-  (E_IF
-    (E_EQ
-      (E_VAR x)
-      (E_ILIT 1)
+  (AST_IF
+    (AST_EQ
+      (AST_VAR x)
+      (AST_ILIT 1)
     )
-    (E_SEQ_EXPR (E_FNC write
-        (E_VAR write)
-        (E_QLIT "one")
+    (AST_SEQ_EXPR (AST_FNC write
+        (AST_VAR write)
+        (AST_QLIT "one")
       ))
-    (E_IF
-      (E_EQ
-        (E_VAR x)
-        (E_ILIT 2)
+    (AST_IF
+      (AST_EQ
+        (AST_VAR x)
+        (AST_ILIT 2)
       )
-      (E_SEQ_EXPR (E_FNC write
-          (E_VAR write)
-          (E_QLIT "two")
+      (AST_SEQ_EXPR (AST_FNC write
+          (AST_VAR write)
+          (AST_QLIT "two")
         ))
-      (E_SEQ_EXPR (E_FNC write
-          (E_VAR write)
-          (E_QLIT "other")
+      (AST_SEQ_EXPR (AST_FNC write
+          (AST_VAR write)
+          (AST_QLIT "other")
         ))
     )
   )

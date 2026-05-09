@@ -1,13 +1,13 @@
-(STMT :subj (E_FNC main
-  (E_VAR main)
-  (E_IF
-    (E_LEQ
-      (E_QLIT "a")
-      (E_QLIT "a")
+(STMT :subj (AST_FNC main
+  (AST_VAR main)
+  (AST_IF
+    (AST_LEQ
+      (AST_QLIT "a")
+      (AST_QLIT "a")
     )
-    (E_FNC
-      (E_VAR write)
-      (E_QLIT "yes")
+    (AST_FNC
+      (AST_VAR write)
+      (AST_QLIT "yes")
     )
   )
 ))

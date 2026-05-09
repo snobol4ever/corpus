@@ -1,10 +1,10 @@
-(STMT :subj (E_FNC main
-  (E_VAR main)
-  (E_IF
-    (E_NOT (E_VAR done))
-    (E_SEQ_EXPR (E_FNC write
-        (E_VAR write)
-        (E_VAR x)
+(STMT :subj (AST_FNC main
+  (AST_VAR main)
+  (AST_IF
+    (AST_NOT (AST_VAR done))
+    (AST_SEQ_EXPR (AST_FNC write
+        (AST_VAR write)
+        (AST_VAR x)
       ))
   )
 ))

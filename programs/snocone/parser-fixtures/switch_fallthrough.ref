@@ -1,5 +1,5 @@
-(STMT :eq :subj (E_VAR _Lswitch_t_0001) :repl (E_VAR x))
+(STMT :eq :subj (AST_VAR _Lswitch_t_0001) :repl (AST_VAR x))
 (STMT :go _Ldefault_0003)
 (STMT :lbl _Ldefault_0003)
-(STMT :eq :subj (E_VAR y) :repl (E_ILIT 0))
+(STMT :eq :subj (AST_VAR y) :repl (AST_ILIT 0))
 (STMT :lbl _Lend_0002)

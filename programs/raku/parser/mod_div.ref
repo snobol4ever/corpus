@@ -1,17 +1,17 @@
-(STMT :subj (E_FNC main
-  (E_VAR main)
-  (E_ASSIGN
-    (E_VAR q)
-    (E_DIV
-      (E_VAR x)
-      (E_VAR y)
+(STMT :subj (AST_FNC main
+  (AST_VAR main)
+  (AST_ASSIGN
+    (AST_VAR q)
+    (AST_DIV
+      (AST_VAR x)
+      (AST_VAR y)
     )
   )
-  (E_ASSIGN
-    (E_VAR r)
-    (E_MOD
-      (E_VAR x)
-      (E_VAR y)
+  (AST_ASSIGN
+    (AST_VAR r)
+    (AST_MOD
+      (AST_VAR x)
+      (AST_VAR y)
     )
   )
 ))

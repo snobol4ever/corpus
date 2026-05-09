@@ -1,13 +1,13 @@
-(STMT :subj (E_CHOICE foo/1 (E_CLAUSE foo/1 (E_FNC .
-      (E_DIV
-        (E_FNC member)
-        (E_ILIT 2)
+(STMT :subj (AST_CHOICE foo/1 (AST_CLAUSE foo/1 (AST_FNC .
+      (AST_DIV
+        (AST_FNC member)
+        (AST_ILIT 2)
       )
-      (E_FNC .
-        (E_DIV
-          (E_FNC append)
-          (E_ILIT 3)
+      (AST_FNC .
+        (AST_DIV
+          (AST_FNC append)
+          (AST_ILIT 3)
         )
-        (E_FNC [])
+        (AST_FNC [])
       )
     ))))

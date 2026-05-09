@@ -111,7 +111,7 @@ function SqlSQize(str, part) {
 //   \  -> \\
 //   nl -> \n      cr -> \r      tab -> \t
 //   other bytes < 0x20 -> \xNN  (e.g. SOH \x01 from LIT_SUBST RK-37)
-// Used by tdump.sc for E_QLIT / E_CSET rendering so PARSER-* output matches
+// Used by tdump.sc for AST_QLIT / AST_CSET rendering so PARSER-* output matches
 // scrip's `--dump-ir` byte-for-byte when the value contains backslashes,
 // quotes, whitespace control bytes, or other control bytes.
 //

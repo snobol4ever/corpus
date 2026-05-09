@@ -12,9 +12,9 @@
 // against embedded single quotes.  Requires qize.sc loaded earlier in the
 // blob; the dependency is enforced by test_scrip.sh's load order.
 //
-// PARSER-SN-INFRA-5c — fixed.  eval_code.c::E_KEYWORD now uppercases the
+// PARSER-SN-INFRA-5c — fixed.  eval_code.c::AST_KEYWORD now uppercases the
 // keyword name and looks it up directly in NV (no spurious '&' prefix),
-// so &UCASE / &LCASE inside a function-arg E_SEQ no longer evaluate as
+// so &UCASE / &LCASE inside a function-arg AST_SEQ no longer evaluate as
 // empty.  Identifier character classes are inlined per beauty source style.
 
 // TValue(x) — leaf-formatter for non-bracketed leaf types.  Returns the
@@ -23,29 +23,29 @@
 // children — that case is then expanded by TLump's bracketed branch.
 //
 // PARSER-SN-2 extension (cross-pollinates to all six PARSER-* sessions):
-// added leaf forms for the scrip IR kinds — E_VAR / E_ILIT / E_QLIT —
-// rendered with both type tag and value (e.g. "E_VAR x", "E_ILIT 5",
-// "E_QLIT \"hi\"") so a tree-on-stack PARSER produces dump output that
+// added leaf forms for the scrip IR kinds — AST_VAR / AST_ILIT / AST_QLIT —
+// rendered with both type tag and value (e.g. "AST_VAR x", "AST_ILIT 5",
+// "AST_QLIT \"hi\"") so a tree-on-stack PARSER produces dump output that
 // matches scrip's canonical --dump-parse line-form byte-for-byte.
 function TValue(x, i) {
-    // PARSER-RB-2: E_NUL before the empty-value "." check.
-    if (TValue = IDENT(t(x), 'E_NUL') '(E_NUL)')                           { return; }
-    // PARSER-PR-8d: E_CUT has empty value but must render as (E_CUT), not ".".
-    if (TValue = IDENT(t(x), 'E_CUT') '(E_CUT)')                           { return; }
-    // PARSER-SN-5: E_QLIT with empty value must render as `(E_QLIT "")`,
+    // PARSER-RB-2: AST_NUL before the empty-value "." check.
+    if (TValue = IDENT(t(x), 'AST_NUL') '(AST_NUL)')                           { return; }
+    // PARSER-PR-8d: AST_CUT has empty value but must render as (AST_CUT), not ".".
+    if (TValue = IDENT(t(x), 'AST_CUT') '(AST_CUT)')                           { return; }
+    // PARSER-SN-5: AST_QLIT with empty value must render as `(AST_QLIT "")`,
     // not the placeholder dot.  Oracle --dump-parse always emits the
     // typed quoted form even for empty replacements (`S 'a' = ` →
-    // `:repl (E_QLIT "")`).  Must come BEFORE the empty-v(x) "." check.
+    // `:repl (AST_QLIT "")`).  Must come BEFORE the empty-v(x) "." check.
     // PARSER-RK-5: value rendered through CQize (qize.sc) so backslashes,
     // embedded quotes, and \n/\r/\t are escaped to match the oracle's
     // src/ir/ir_print.c::print_escaped output byte-for-byte.
-    if (TValue = IDENT(t(x), 'E_QLIT')     '(' t(x) ' "' CQize(v(x)) '")')      { return; }
-    if (TValue = IDENT(t(x), 'E_CSET')     '(' t(x) ' "' CQize(v(x)) '")')      { return; }
-    // E_FLIT: normalize trailing '.' from REAL() formatting (e.g. '100.' -> '100').
+    if (TValue = IDENT(t(x), 'AST_QLIT')     '(' t(x) ' "' CQize(v(x)) '")')      { return; }
+    if (TValue = IDENT(t(x), 'AST_CSET')     '(' t(x) ' "' CQize(v(x)) '")')      { return; }
+    // AST_FLIT: normalize trailing '.' from REAL() formatting (e.g. '100.' -> '100').
     // REAL() in Snocone produces '100.' for integral values like 1.0e2; oracle
     // uses C printf %g which omits the trailing dot.  Strip only when the value
     // is all-digits followed by a lone trailing dot; RPOS(0) works here (top level).
-    if (IDENT(t(x), 'E_FLIT')) {
+    if (IDENT(t(x), 'AST_FLIT')) {
         fval = '' REAL(v(x));
         // Strip trailing zeros after decimal (e.g. '1.500' -> '1.5', '1.50' -> '1.5').
         // SPAN loop: while fval ends in '0' and has a '.', drop the trailing '0'.
@@ -72,13 +72,13 @@ function TValue(x, i) {
     // tag starts with a letter and contains only letters/digits/underscore,
     // AND whose v(x) is non-empty.  Renders as "(TAG value)" — the canonical
     // self-paren form matching scrip's --dump-parse output.  Examples:
-    //   E_VAR x     → (E_VAR x)
-    //   E_ILIT 5    → (E_ILIT 5)
+    //   AST_VAR x     → (AST_VAR x)
+    //   AST_ILIT 5    → (AST_ILIT 5)
     //   IC_VAR foo  → (IC_VAR foo)
     //   PL_TERM bar → (PL_TERM bar)
     // Slot-wrappers do NOT add their own parens, so this self-paren is
-    // what makes `:subj (E_VAR x)` come out right.
-    // The per-kind E_VAR / E_ILIT branches are removed — generic catches them.
+    // what makes `:subj (AST_VAR x)` come out right.
+    // The per-kind AST_VAR / AST_ILIT branches are removed — generic catches them.
     if (DIFFER(v(x))) {
         if (t(x) ? (POS(0) ANY(&UCASE &LCASE) (SPAN(&UCASE &LCASE digits '_') | epsilon) RPOS(0))) {
             TValue = '(' t(x) ' ' v(x) ')';
@@ -102,7 +102,7 @@ function TValue(x, i) {
 // (type tag starts with ':').  A 0-child wrapper with type ':foo'
 // renders as the bare flag ":foo" (e.g. ":eq").  A 1-child wrapper
 // with type ':foo' renders as ":foo " followed by the child's TLump
-// (e.g. ":subj (E_VAR x)").  This is how the shared tree machinery
+// (e.g. ":subj (AST_VAR x)").  This is how the shared tree machinery
 // encodes scrip's --dump-parse role keywords without extending the
 // tree(t,v,n,c) shape itself.  All six PARSER-* sessions can share
 // this convention.
@@ -125,7 +125,7 @@ function TLump(x, len, i, t, sub) {
         freturn;
     }
     // 1 child → ":role child" — the child's own TLump/TValue is
-    // responsible for any parens it needs (IR-leaf kinds like E_VAR
+    // responsible for any parens it needs (IR-leaf kinds like AST_VAR
     // self-paren; bare-Name leaves like END render without parens).
     // Stage the recursive call's result in `sub` first; assigning
     // `TLump = TLump TLump(...)` on one line confuses Snocone's
@@ -172,15 +172,15 @@ TLump0:
     // PARSER-IC-0 (cross-pollinates to all six PARSER-* sessions): when an
     // internal node carries a non-empty sval (v(x)), emit it as a label
     // immediately after the type tag — matches ir_print_node's generic-case
-    // behaviour ("(KIND sval child1 child2 ...)").  Used by Icon's E_FNC
+    // behaviour ("(KIND sval child1 child2 ...)").  Used by Icon's AST_FNC
     // (function-name label), and reserved for future kinds with the same
     // convention.  Existing PARSER-* fixtures all pass v='' on internal
     // nodes, so this branch is a no-op for them.
     if (DIFFER(v(x))) {
-        // E_FLIT: strip trailing '.' from REAL() output so oracle %g format matches.
+        // AST_FLIT: strip trailing '.' from REAL() output so oracle %g format matches.
         // e.g. '100.' -> '100'; '3.14' and '0.2' are unchanged (no trailing dot).
         // RPOS(0) works correctly here (regular return function, not nreturn).
-        if (IDENT(t(x), 'E_FLIT')) {
+        if (IDENT(t(x), 'AST_FLIT')) {
             fval = '' v(x);
             fval SPAN(digits) . pre;
             if (DIFFER(pre) IDENT(SIZE(pre) + 1, SIZE(fval))) fval = pre;
@@ -207,7 +207,7 @@ TLump0:
 // outNm defaults to .OUTPUT; callers may pass an alternate output variable.
 //
 // TValue and TLump carry all PARSER-* extensions unchanged (role-slot ':',
-// E_QLIT double-quote branch, generic IR-leaf, PARSER-IC-0 internal sval).
+// AST_QLIT double-quote branch, generic IR-leaf, PARSER-IC-0 internal sval).
 function TDump(x, outNm, i, t) {
     outNm = IDENT(outNm) .OUTPUT;
     x = IDENT(DATATYPE(x), 'NAME') $x;
@@ -228,7 +228,7 @@ function TDump(x, outNm, i, t) {
         // handling so the multi-line fallback renders identically to
         // the inline form.  `:role (child1 child2 ...)` for n>=2,
         // `:role child` for n=1 (no parens around the role).  Without
-        // this, a wide tree like `(STMT :subj (E_FNC main ...))` falls
+        // this, a wide tree like `(STMT :subj (AST_FNC main ...))` falls
         // back to multi-line and the `:subj` slot gets quoted as
         // `":subj"` because the bare-identifier regex below rejects ':'.
         if (t(x) ? (POS(0) ':')) {
@@ -255,7 +255,7 @@ function TDump(x, outNm, i, t) {
             t = t(x);
         // PARSER-IC-3 fix: emit internal-node sval after the type tag
         // (mirrors TLump's `if (DIFFER(v(x))) TLump = TLump ' ' v(x)`).
-        // Without this, `(E_FNC main ...)` came out as `(E_FNC ...)` —
+        // Without this, `(AST_FNC main ...)` came out as `(AST_FNC ...)` —
         // dropping the procedure-name label that scrip's --dump-ir emits.
         if (DIFFER(v(x))) {
             Gen('(' t ' ' v(x) nl, outNm);

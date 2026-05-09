@@ -1,10 +1,10 @@
-(STMT :subj (E_FNC main
-  (E_VAR main)
-  (E_ASSIGN
-    (E_VAR v)
-    (E_FNC pop
-      (E_VAR pop)
-      (E_VAR a)
+(STMT :subj (AST_FNC main
+  (AST_VAR main)
+  (AST_ASSIGN
+    (AST_VAR v)
+    (AST_FNC pop
+      (AST_VAR pop)
+      (AST_VAR a)
     )
   )
 ))

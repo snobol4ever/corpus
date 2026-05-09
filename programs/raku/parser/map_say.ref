@@ -1,14 +1,14 @@
-(STMT :subj (E_FNC main
-  (E_VAR main)
-  (E_FNC write
-    (E_VAR write)
-    (E_FNC raku_map
-      (E_VAR raku_map)
-      (E_ADD
-        (E_VAR _)
-        (E_ILIT 1)
+(STMT :subj (AST_FNC main
+  (AST_VAR main)
+  (AST_FNC write
+    (AST_VAR write)
+    (AST_FNC raku_map
+      (AST_VAR raku_map)
+      (AST_ADD
+        (AST_VAR _)
+        (AST_ILIT 1)
       )
-      (E_VAR arr)
+      (AST_VAR arr)
     )
   )
 ))

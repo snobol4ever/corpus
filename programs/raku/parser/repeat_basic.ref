@@ -1,18 +1,18 @@
-(STMT :subj (E_FNC main
-  (E_VAR main)
-  (E_ASSIGN
-    (E_VAR x)
-    (E_ILIT 0)
+(STMT :subj (AST_FNC main
+  (AST_VAR main)
+  (AST_ASSIGN
+    (AST_VAR x)
+    (AST_ILIT 0)
   )
-  (E_REPEAT (E_SEQ_EXPR (E_ASSIGN
-        (E_VAR x)
-        (E_ADD
-          (E_VAR x)
-          (E_ILIT 1)
+  (AST_REPEAT (AST_SEQ_EXPR (AST_ASSIGN
+        (AST_VAR x)
+        (AST_ADD
+          (AST_VAR x)
+          (AST_ILIT 1)
         )
       )))
-  (E_FNC write
-    (E_VAR write)
-    (E_VAR x)
+  (AST_FNC write
+    (AST_VAR write)
+    (AST_VAR x)
   )
 ))

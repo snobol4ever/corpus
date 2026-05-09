@@ -64,7 +64,7 @@ function reduce_opsyn(op, n) {
 }
 
 // reduce_prim(tag) -- pattern-builder that fires ReducePrim(tag) at match time.
-// tag is a pre-quoted string constant (e.g. E_LEN = "'E_LEN'").
+// tag is a pre-quoted string constant (e.g. AST_LEN = "'AST_LEN'").
 
 function reduce_prim(tag) {
     reduce_prim = EVAL("epsilon . *ReducePrim(" tag ")");

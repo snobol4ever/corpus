@@ -1,13 +1,13 @@
-(STMT :subj (E_FNC main
-  (E_VAR main)
-  (E_UNTIL
-    (E_GT
-      (E_VAR x)
-      (E_ILIT 5)
+(STMT :subj (AST_FNC main
+  (AST_VAR main)
+  (AST_UNTIL
+    (AST_GT
+      (AST_VAR x)
+      (AST_ILIT 5)
     )
-    (E_FNC
-      (E_VAR write)
-      (E_VAR x)
+    (AST_FNC
+      (AST_VAR write)
+      (AST_VAR x)
     )
   )
 ))

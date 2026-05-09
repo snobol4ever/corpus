@@ -1,20 +1,20 @@
-(STMT :subj (E_RECORD Point
-  (E_VAR x)
-  (E_VAR y)
+(STMT :subj (AST_RECORD Point
+  (AST_VAR x)
+  (AST_VAR y)
 ))
-(STMT :subj (E_RECORD Color
-  (E_VAR r)
-  (E_VAR g)
-  (E_VAR b)
+(STMT :subj (AST_RECORD Color
+  (AST_VAR r)
+  (AST_VAR g)
+  (AST_VAR b)
 ))
-(STMT :subj (E_FNC main
-  (E_VAR main)
-  (E_ASSIGN
-    (E_VAR p)
-    (E_FNC
-      (E_VAR Point)
-      (E_ILIT 1)
-      (E_ILIT 2)
+(STMT :subj (AST_FNC main
+  (AST_VAR main)
+  (AST_ASSIGN
+    (AST_VAR p)
+    (AST_FNC
+      (AST_VAR Point)
+      (AST_ILIT 1)
+      (AST_ILIT 2)
     )
   )
 ))

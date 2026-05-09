@@ -11,7 +11,7 @@
 // GOAL-PARSER-SNOBOL4.md ## Style Guidelines for parser_*.sc §1):
 //   token classifiers — UpperCamel mirroring raku.l TK_* (VarScalar, LitInt, ...)
 //   non-terminals     — UpperCamel mirroring raku.y (Stmt, Expr, Block, IfStmt, ...)
-//   IR node tags      — mirror ir.h E_* (E_VAR, E_ILIT, E_FNC, E_ASSIGN, ...)
+//   IR node tags      — mirror ir.h E_* (AST_VAR, AST_ILIT, AST_FNC, AST_ASSIGN, ...)
 //   cross-PARSER spine — Compiland / nPush / nInc / nTop / nPop / reduce
 //
 // Style — beauty.sno / parser_icon.sc:
@@ -31,30 +31,30 @@
 //
 //   push_var()    — sigil-stripped variable push (uses capvf/capvr).
 //                      Retained: shift() captures full matched text (sigil
-//                      included); oracle requires bare name in E_VAR value.
+//                      included); oracle requires bare name in AST_VAR value.
 //   push_param()  — sigil-stripped param push (uses cappf/cappr).
 //                      Retained: same reason as push_var.
 //   push_qlit()   — string-body push (uses capstr).
 //                      Retained: same reason as ic_push_qlit in parser_icon.sc
 //                      (shift() would include the surrounding quotes).
-//   finish_interp_str() — DQ string interpolation "hello $var" → E_CAT chain.
+//   finish_interp_str() — DQ string interpolation "hello $var" → AST_CAT chain.
 //                      Retained: must walk sub-string content to split on $ident;
 //                      shift/reduce cannot iterate over string bytes.
 //   finish_say()    — say → write name remap.
-//                      Retained: reduce() sets value=''; E_FNC write requires
+//                      Retained: reduce() sets value=''; AST_FNC write requires
 //                      value='write' to match oracle.
 //   store_for_iter()   — stash for-loopvar name from capff/capfr captures.
 //                      Retained: for_iter must be set before Block is
 //                      parsed; no other mechanism to carry a name across.
 //   finish_for()  — for-loop tree build (pops block+array, builds
-//                      E_ITERATE+E_EVERY from for_iter stash).
-//                      Retained: E_ITERATE carries loopvar name as value;
+//                      AST_ITERATE+AST_EVERY from for_iter stash).
+//                      Retained: AST_ITERATE carries loopvar name as value;
 //                      reduce() cannot supply a non-empty value field.
 //   finish_sub()  — sub decomposition (pops counter frame, builds STMT).
-//                      Retained: sub name in E_FNC value from capsnf/capsnr;
+//                      Retained: sub name in AST_FNC value from capsnf/capsnr;
 //                      same structural role as ic_decompose_proc in parser_icon.sc.
 //   finish_call() — function call decomposition (pops counter frame,
-//                      builds E_FNC with fname from capfnf/capfnr).
+//                      builds AST_FNC with fname from capfnf/capfnr).
 //                      Retained: same reason as finish_sub.
 //   finish_main() — main wrapper (same role as finish_sub for top-level).
 //                      Retained: same structural reason.
@@ -63,22 +63,22 @@
 /*====================================================================================================================*/
 // IR tag constants — name IS the tag; self-quoted for reduce(), bare for shift().
 /*====================================================================================================================*/
-E_ASSIGN    = "'E_ASSIGN'";  E_SEQ_EXPR = "'E_SEQ_EXPR'";
-E_ADD       = "'E_ADD'";      E_SUB      = "'E_SUB'";
-E_MUL       = "'E_MUL'";      E_DIV      = "'E_DIV'";
-E_EQ        = "'E_EQ'";       E_NE       = "'E_NE'";
-E_LT        = "'E_LT'";       E_LE       = "'E_LE'";
-E_GT        = "'E_GT'";       E_GE       = "'E_GE'";
-E_IF        = "'E_IF'";       E_WHILE    = "'E_WHILE'";
-E_RETURN    = "'E_RETURN'";   E_TO       = "'E_TO'";
-E_NOT       = "'E_NOT'";      E_UNTIL    = "'E_UNTIL'";
-E_SEQ       = "'E_SEQ'";      E_ALT      = "'E_ALT'";
-E_CAT       = "'E_CAT'";
-E_LEQ       = "'E_LEQ'";      E_LNE      = "'E_LNE'";
-E_MNS       = "'E_MNS'";      E_MOD      = "'E_MOD'";
-E_CASE      = "'E_CASE'";     E_NUL      = "'E_NUL'";
-E_REPEAT    = "'E_REPEAT'";
-E_SUSPEND   = "'E_SUSPEND'";
+AST_ASSIGN    = "'AST_ASSIGN'";  AST_SEQ_EXPR = "'AST_SEQ_EXPR'";
+AST_ADD       = "'AST_ADD'";      AST_SUB      = "'AST_SUB'";
+AST_MUL       = "'AST_MUL'";      AST_DIV      = "'AST_DIV'";
+AST_EQ        = "'AST_EQ'";       AST_NE       = "'AST_NE'";
+AST_LT        = "'AST_LT'";       AST_LE       = "'AST_LE'";
+AST_GT        = "'AST_GT'";       AST_GE       = "'AST_GE'";
+AST_IF        = "'AST_IF'";       AST_WHILE    = "'AST_WHILE'";
+AST_RETURN    = "'AST_RETURN'";   AST_TO       = "'AST_TO'";
+AST_NOT       = "'AST_NOT'";      AST_UNTIL    = "'AST_UNTIL'";
+AST_SEQ       = "'AST_SEQ'";      AST_ALT      = "'AST_ALT'";
+AST_CAT       = "'AST_CAT'";
+AST_LEQ       = "'AST_LEQ'";      AST_LNE      = "'AST_LNE'";
+AST_MNS       = "'AST_MNS'";      AST_MOD      = "'AST_MOD'";
+AST_CASE      = "'AST_CASE'";     AST_NUL      = "'AST_NUL'";
+AST_REPEAT    = "'AST_REPEAT'";
+AST_SUSPEND   = "'AST_SUSPEND'";
 E_Parse     = "'Parse'";
 /*====================================================================================================================*/
 // Whitespace primitives — canonical cross-PARSER model (mirrors parser_snocone.sc).
@@ -199,9 +199,9 @@ VarHash   = ($' ' '%' vf . capvf vro . capvr);
 // BareIdent — unsigiled identifier used as atom expression (e.g. say(x) where x has no $).
 // Mirrors raku.y atom: IDENT → var_node($1).  Must be tried LAST in Expr11 (after
 // CallName(...) and all sigiled forms) so function calls and sigiled vars are caught first.
-// Captures into capvf/capvr so Push_var builds (E_VAR name) correctly.
+// Captures into capvf/capvr so Push_var builds (AST_VAR name) correctly.
 BareIdent = ($' ' vf . capvf vro . capvr);
-// Twigil — $.field / $!field inside method body → E_FIELD(fieldname, self).
+// Twigil — $.field / $!field inside method body → AST_FIELD(fieldname, self).
 // Captures just the bare field name (after sigil+twigil) into captwf/captwr.
 // Must be tried BEFORE VarScalar in Expr11 (twigil is more specific).
 twf  = ANY(&UCASE &LCASE '_');
@@ -334,93 +334,93 @@ struct slink { snext, sval }
 // patterns below.  Retained-for-<reason> notes in file header.
 /*====================================================================================================================*/
 /*--------------------------------------------------------------------------------------------------------------------*/
-// push_var — push tree('E_VAR', bare_name) using capvf/capvr.
+// push_var — push tree('AST_VAR', bare_name) using capvf/capvr.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function push_var() {
-    Push(tree('E_VAR', capvf capvr));
+    Push(tree('AST_VAR', capvf capvr));
     push_var = .dummy;
     nreturn;
 }
 Push_var   = (epsilon . *push_var());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// push_empty — push (E_QLIT "") for uninitialized typed declarations.
+// push_empty — push (AST_QLIT "") for uninitialized typed declarations.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function push_empty() {
-    Push(tree('E_QLIT', ''));
+    Push(tree('AST_QLIT', ''));
     push_empty = .dummy;
     nreturn;
 }
 Push_empty = (epsilon . *push_empty());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// push_named_key — push (E_QLIT capnamedkey) for named args in ClassName.new(k=>v).
+// push_named_key — push (AST_QLIT capnamedkey) for named args in ClassName.new(k=>v).
 /*--------------------------------------------------------------------------------------------------------------------*/
 function push_named_key() {
-    Push(tree('E_QLIT', capnamedkey));
+    Push(tree('AST_QLIT', capnamedkey));
     push_named_key = .dummy;
     nreturn;
 }
 Push_named_key = (epsilon . *push_named_key());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// push_param — push tree('E_VAR', bare_name) using cappf/cappr.
+// push_param — push tree('AST_VAR', bare_name) using cappf/cappr.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function push_param() {
-    Push(tree('E_VAR', cappf cappr));
+    Push(tree('AST_VAR', cappf cappr));
     push_param = .dummy;
     nreturn;
 }
 Push_param = (epsilon . *push_param());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// push_twigil — push (E_FIELD fieldname (E_VAR self)) for $.field / $!field.
+// push_twigil — push (AST_FIELD fieldname (AST_VAR self)) for $.field / $!field.
 // Uses captwf/captwr for bare field name.
-// Retained: reduce() cannot set E_FIELD's sval and add E_VAR self child.
+// Retained: reduce() cannot set AST_FIELD's sval and add AST_VAR self child.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function push_twigil(fname, fe) {
     fname = captwf captwr;
-    fe = tree('E_FIELD', fname);
-    Append(fe, tree('E_VAR', 'self'));
+    fe = tree('AST_FIELD', fname);
+    Append(fe, tree('AST_VAR', 'self'));
     Push(fe);
     push_twigil = .dummy;
     nreturn;
 }
 Push_twigil = (epsilon . *push_twigil());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// push_has_field — push (E_VAR fieldname) for has $.field declaration.
+// push_has_field — push (AST_VAR fieldname) for has $.field declaration.
 // Uses captwf/captwr (VarTwigil captures into them).
 // Retained: strip twigil sigil; shift() would include '$.' prefix.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function push_has_field(fname) {
     fname = captwf captwr;
-    Push(tree('E_VAR', fname));
+    Push(tree('AST_VAR', fname));
     push_has_field = .dummy;
     nreturn;
 }
 Push_has_field = (epsilon . *push_has_field());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// push_nul — push (E_NUL) sentinel.
+// push_nul — push (AST_NUL) sentinel.
 // Used by ClassDecl to inject a child into the main counter frame so
-// finish_main builds (E_FNC main (E_VAR main) (E_NUL)) — mirrors C oracle
-// class_decl action which returns expr_new(E_NUL) to the stmt list.
+// finish_main builds (AST_FNC main (AST_VAR main) (AST_NUL)) — mirrors C oracle
+// class_decl action which returns expr_new(AST_NUL) to the stmt list.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function push_nul() {
-    Push(tree('E_NUL', ''));
+    Push(tree('AST_NUL', ''));
     push_nul = .dummy;
     nreturn;
 }
 Push_nul = (epsilon . *push_nul());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// push_qlit — push tree('E_QLIT', body) using capstr.
+// push_qlit — push tree('AST_QLIT', body) using capstr.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function push_qlit() {
-    Push(tree('E_QLIT', capstr));
+    Push(tree('AST_QLIT', capstr));
     push_qlit = .dummy;
     nreturn;
 }
 Push_qlit  = (epsilon . *push_qlit());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_interp_str — DQ string interpolation: "hello $var" → left-assoc E_CAT chain.
+// finish_interp_str — DQ string interpolation: "hello $var" → left-assoc AST_CAT chain.
 // Mirrors raku.y lower_interp_str(): walks capstr, splits on $ident sequences,
-// builds (E_CAT lhs rhs) binary nodes left-to-right.  If no $ident found → plain
-// (E_QLIT body).  Only $scalar-name interpolation supported (matches the C oracle).
+// builds (AST_CAT lhs rhs) binary nodes left-to-right.  If no $ident found → plain
+// (AST_QLIT body).  Only $scalar-name interpolation supported (matches the C oracle).
 // Retained: must build a left-assoc binary chain from a string walk; shift/reduce
 // cannot iterate over sub-string content.
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -434,28 +434,28 @@ function finish_interp_str(raw, lit, isvf, isvr, result, newnode, i) {
         lit = ''; isvf = ''; isvr = '';
         if (raw ? (POS(0) BREAK('$') . lit '$' ANY(is_chars) . isvf (SPAN(ir_chars) | epsilon) . isvr) = ) {
             if (DIFFER(lit)) {
-                newnode = tree('E_QLIT', lit);
+                newnode = tree('AST_QLIT', lit);
                 if (DIFFER(result)) {
-                    i = tree('E_CAT', ''); Append(i, result); Append(i, newnode); result = i;
+                    i = tree('AST_CAT', ''); Append(i, result); Append(i, newnode); result = i;
                 } else { result = newnode; }
             }
-            newnode = tree('E_VAR', isvf isvr);
+            newnode = tree('AST_VAR', isvf isvr);
             if (DIFFER(result)) {
-                i = tree('E_CAT', ''); Append(i, result); Append(i, newnode); result = i;
+                i = tree('AST_CAT', ''); Append(i, result); Append(i, newnode); result = i;
             } else { result = newnode; }
         } else {
             if (raw ? (POS(0) REM . lit) = ) {
                 if (DIFFER(lit)) {
-                    newnode = tree('E_QLIT', lit);
+                    newnode = tree('AST_QLIT', lit);
                     if (DIFFER(result)) {
-                        i = tree('E_CAT', ''); Append(i, result); Append(i, newnode); result = i;
+                        i = tree('AST_CAT', ''); Append(i, result); Append(i, newnode); result = i;
                     } else { result = newnode; }
                 }
             }
             break;
         }
     }
-    if (~DIFFER(result)) result = tree('E_QLIT', '');
+    if (~DIFFER(result)) result = tree('AST_QLIT', '');
     Push(result);
     finish_interp_str = .dummy;
     nreturn;
@@ -498,26 +498,26 @@ function dq_unescape(raw, result, lit, ch) {
 }
 Dq_unescape = (epsilon . *dq_unescape());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// push_rxlit — push tree('E_QLIT', body) using caprx.  Regex literal /body/.
-// Oracle emits regex bodies as plain E_QLIT — the runtime distinguishes regex
+// push_rxlit — push tree('AST_QLIT', body) using caprx.  Regex literal /body/.
+// Oracle emits regex bodies as plain AST_QLIT — the runtime distinguishes regex
 // from string by call context (raku_match's second arg).
 /*--------------------------------------------------------------------------------------------------------------------*/
 function push_rxlit() {
-    Push(tree('E_QLIT', caprx));
+    Push(tree('AST_QLIT', caprx));
     push_rxlit = .dummy;
     nreturn;
 }
 Push_rxlit = (epsilon . *push_rxlit());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_capture — positional capture $N → (E_FNC raku_capture (E_VAR raku_capture) (E_ILIT N)).
+// finish_capture — positional capture $N → (AST_FNC raku_capture (AST_VAR raku_capture) (AST_ILIT N)).
 // capidx holds the digit string captured by VarCapture.
-// Retained: reduce() sets value=''; E_FNC requires value='raku_capture'.
+// Retained: reduce() sets value=''; AST_FNC requires value='raku_capture'.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_capture(fn, node) {
-    fn   = tree('E_VAR', 'raku_capture');
-    node = tree('E_FNC', 'raku_capture');
+    fn   = tree('AST_VAR', 'raku_capture');
+    node = tree('AST_FNC', 'raku_capture');
     Append(node, fn);
-    Append(node, tree('E_ILIT', capidx));
+    Append(node, tree('AST_ILIT', capidx));
     Push(node);
     finish_capture = .dummy;
     nreturn;
@@ -535,30 +535,30 @@ Finish_stdout = (epsilon . *set_stdout() Finish_capture);
 Finish_stderr = (epsilon . *set_stderr() Finish_capture);
 /*--------------------------------------------------------------------------------------------------------------------*/
 // finish_named_capture — named capture $<name> →
-//   (E_FNC raku_named_capture (E_VAR raku_named_capture) (E_QLIT "name")).
+//   (AST_FNC raku_named_capture (AST_VAR raku_named_capture) (AST_QLIT "name")).
 // capncname holds the bare name (without $< and >) captured by VarNamedCapture.
 // Retained: same reason as finish_capture — value field requires explicit name.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_named_capture(fn, node) {
-    fn   = tree('E_VAR', 'raku_named_capture');
-    node = tree('E_FNC', 'raku_named_capture');
+    fn   = tree('AST_VAR', 'raku_named_capture');
+    node = tree('AST_FNC', 'raku_named_capture');
     Append(node, fn);
-    Append(node, tree('E_QLIT', capncname));
+    Append(node, tree('AST_QLIT', capncname));
     Push(node);
     finish_named_capture = .dummy;
     nreturn;
 }
 Finish_named_capture = (epsilon . *finish_named_capture());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_match_global — $s ~~ m:g/pat/ → (E_FNC raku_match_global (E_VAR raku_match_global) subj pat).
+// finish_match_global — $s ~~ m:g/pat/ → (AST_FNC raku_match_global (AST_VAR raku_match_global) subj pat).
 // caprx holds the regex body captured by LitMatchGlobal.
 // Retained: same reason as finish_smartmatch — value field requires explicit name.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_match_global(pat, subj, fn, node) {
     pat  = Pop();
     subj = Pop();
-    fn   = tree('E_VAR', 'raku_match_global');
-    node = tree('E_FNC', 'raku_match_global');
+    fn   = tree('AST_VAR', 'raku_match_global');
+    node = tree('AST_FNC', 'raku_match_global');
     Append(node, fn);
     Append(node, subj);
     Append(node, pat);
@@ -568,21 +568,21 @@ function finish_match_global(pat, subj, fn, node) {
 }
 Finish_match_global = (epsilon . *finish_match_global());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_subst — $s ~~ s/pat/repl/[g] → (E_FNC raku_subst (E_VAR raku_subst) subj (E_QLIT "pat\x01repl\x01flag")).
+// finish_subst — $s ~~ s/pat/repl/[g] → (AST_FNC raku_subst (AST_VAR raku_subst) subj (AST_QLIT "pat\x01repl\x01flag")).
 // cappat/caprepl/capflag captured by LitSubst.  flag = 'g' or '' (→ '-').
 // Packed sval mirrors the C lexer's LIT_SUBST token format.
-// Retained: needs to build the packed E_QLIT from three captures; reduce() cannot.
+// Retained: needs to build the packed AST_QLIT from three captures; reduce() cannot.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_subst(subj, fn, node, flag, packed) {
     subj   = Pop();
     flag   = IDENT(capflag, 'g') 'g';
     flag   = IDENT(flag) '-';
     packed = cappat CHAR(1) caprepl CHAR(1) flag;
-    fn     = tree('E_VAR', 'raku_subst');
-    node   = tree('E_FNC', 'raku_subst');
+    fn     = tree('AST_VAR', 'raku_subst');
+    node   = tree('AST_FNC', 'raku_subst');
     Append(node, fn);
     Append(node, subj);
-    Append(node, tree('E_QLIT', packed));
+    Append(node, tree('AST_QLIT', packed));
     Push(node);
     capflag = '';
     finish_subst = .dummy;
@@ -590,16 +590,16 @@ function finish_subst(subj, fn, node, flag, packed) {
 }
 Finish_subst = (epsilon . *finish_subst());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_arr_get — @arr[$expr] → (E_FNC arr_get (E_VAR arr_get) (E_VAR arr) index).
+// finish_arr_get — @arr[$expr] → (AST_FNC arr_get (AST_VAR arr_get) (AST_VAR arr) index).
 // capvf/capvr hold the array name (set by VarArray classifier).
 // index is on top of stack (pushed by Expr inside the brackets).
-// Retained: value='arr_get' in E_FNC requires explicit build; reduce() sets value=''.
+// Retained: value='arr_get' in AST_FNC requires explicit build; reduce() sets value=''.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_arr_get(idx, arr, fn, node) {
     idx  = Pop();
-    arr  = tree('E_VAR', colnmf colnmr);
-    fn   = tree('E_VAR', 'arr_get');
-    node = tree('E_FNC', 'arr_get');
+    arr  = tree('AST_VAR', colnmf colnmr);
+    fn   = tree('AST_VAR', 'arr_get');
+    node = tree('AST_FNC', 'arr_get');
     Append(node, fn);
     Append(node, arr);
     Append(node, idx);
@@ -609,32 +609,32 @@ function finish_arr_get(idx, arr, fn, node) {
 }
 Finish_arr_get = (epsilon . *finish_arr_get());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_hash_get_angle — %hash<ident> → (E_FNC hash_get (E_VAR hash_get) (E_VAR h) (E_QLIT key)).
+// finish_hash_get_angle — %hash<ident> → (AST_FNC hash_get (AST_VAR hash_get) (AST_VAR h) (AST_QLIT key)).
 // capvf/capvr = hash name; capkey = the angle-bracket identifier key.
 // Retained: same reason as finish_arr_get.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_hash_get_angle(arr, fn, node) {
-    arr  = tree('E_VAR', colnmf colnmr);
-    fn   = tree('E_VAR', 'hash_get');
-    node = tree('E_FNC', 'hash_get');
+    arr  = tree('AST_VAR', colnmf colnmr);
+    fn   = tree('AST_VAR', 'hash_get');
+    node = tree('AST_FNC', 'hash_get');
     Append(node, fn);
     Append(node, arr);
-    Append(node, tree('E_QLIT', capkey));
+    Append(node, tree('AST_QLIT', capkey));
     Push(node);
     finish_hash_get_angle = .dummy;
     nreturn;
 }
 Finish_hash_get_angle = (epsilon . *finish_hash_get_angle());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_hash_get_brace — %hash{$expr} → (E_FNC hash_get ... (E_VAR h) key_expr).
+// finish_hash_get_brace — %hash{$expr} → (AST_FNC hash_get ... (AST_VAR h) key_expr).
 // capvf/capvr = hash name; key_expr on top of stack.
 // Retained: same reason.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_hash_get_brace(key, arr, fn, node) {
     key  = Pop();
-    arr  = tree('E_VAR', colnmf colnmr);
-    fn   = tree('E_VAR', 'hash_get');
-    node = tree('E_FNC', 'hash_get');
+    arr  = tree('AST_VAR', colnmf colnmr);
+    fn   = tree('AST_VAR', 'hash_get');
+    node = tree('AST_FNC', 'hash_get');
     Append(node, fn);
     Append(node, arr);
     Append(node, key);
@@ -644,32 +644,32 @@ function finish_hash_get_brace(key, arr, fn, node) {
 }
 Finish_hash_get_brace = (epsilon . *finish_hash_get_brace());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_hash_exists_angle — exists %hash<ident> → (E_FNC hash_exists ... (E_VAR h) (E_QLIT key)).
+// finish_hash_exists_angle — exists %hash<ident> → (AST_FNC hash_exists ... (AST_VAR h) (AST_QLIT key)).
 // capvf/capvr = hash name; capkey = key.
 // Retained: same reason.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_hash_exists_angle(arr, fn, node) {
-    arr  = tree('E_VAR', colnmf colnmr);
-    fn   = tree('E_VAR', 'hash_exists');
-    node = tree('E_FNC', 'hash_exists');
+    arr  = tree('AST_VAR', colnmf colnmr);
+    fn   = tree('AST_VAR', 'hash_exists');
+    node = tree('AST_FNC', 'hash_exists');
     Append(node, fn);
     Append(node, arr);
-    Append(node, tree('E_QLIT', capkey));
+    Append(node, tree('AST_QLIT', capkey));
     Push(node);
     finish_hash_exists_angle = .dummy;
     nreturn;
 }
 Finish_hash_exists_angle = (epsilon . *finish_hash_exists_angle());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_hash_exists_brace — exists %hash{$expr} → (E_FNC hash_exists ... (E_VAR h) key_expr).
+// finish_hash_exists_brace — exists %hash{$expr} → (AST_FNC hash_exists ... (AST_VAR h) key_expr).
 // capvf/capvr = hash name; key_expr on top of stack.
 // Retained: same reason.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_hash_exists_brace(key, arr, fn, node) {
     key  = Pop();
-    arr  = tree('E_VAR', colnmf colnmr);
-    fn   = tree('E_VAR', 'hash_exists');
-    node = tree('E_FNC', 'hash_exists');
+    arr  = tree('AST_VAR', colnmf colnmr);
+    fn   = tree('AST_VAR', 'hash_exists');
+    node = tree('AST_FNC', 'hash_exists');
     Append(node, fn);
     Append(node, arr);
     Append(node, key);
@@ -680,17 +680,17 @@ function finish_hash_exists_brace(key, arr, fn, node) {
 Finish_hash_exists_brace = (epsilon . *finish_hash_exists_brace());
 /*--------------------------------------------------------------------------------------------------------------------*/
 // finish_hash_delete_angle — delete %hash<ident> →
-//   (E_FNC hash_delete (E_VAR hash_delete) (E_VAR h) (E_QLIT key)).
+//   (AST_FNC hash_delete (AST_VAR hash_delete) (AST_VAR h) (AST_QLIT key)).
 // capkey holds the angle-bracket key; colnmf/colnmr hold hash name (set by HashIdxVar).
-// Retained: value='hash_delete' in E_FNC requires explicit build; reduce() sets value=''.
+// Retained: value='hash_delete' in AST_FNC requires explicit build; reduce() sets value=''.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_hash_delete_angle(arr, fn, node) {
-    arr  = tree('E_VAR', colnmf colnmr);
-    fn   = tree('E_VAR', 'hash_delete');
-    node = tree('E_FNC', 'hash_delete');
+    arr  = tree('AST_VAR', colnmf colnmr);
+    fn   = tree('AST_VAR', 'hash_delete');
+    node = tree('AST_FNC', 'hash_delete');
     Append(node, fn);
     Append(node, arr);
-    Append(node, tree('E_QLIT', capkey));
+    Append(node, tree('AST_QLIT', capkey));
     Push(node);
     finish_hash_delete_angle = .dummy;
     nreturn;
@@ -698,15 +698,15 @@ function finish_hash_delete_angle(arr, fn, node) {
 Finish_hash_delete_angle = (epsilon . *finish_hash_delete_angle());
 /*--------------------------------------------------------------------------------------------------------------------*/
 // finish_hash_delete_brace — delete %hash{$expr} →
-//   (E_FNC hash_delete (E_VAR hash_delete) (E_VAR h) key_expr).
+//   (AST_FNC hash_delete (AST_VAR hash_delete) (AST_VAR h) key_expr).
 // key_expr on top of stack; colnmf/colnmr hold hash name (set by HashIdxVar).
 // Retained: same reason as finish_hash_delete_angle.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_hash_delete_brace(key, arr, fn, node) {
     key  = Pop();
-    arr  = tree('E_VAR', colnmf colnmr);
-    fn   = tree('E_VAR', 'hash_delete');
-    node = tree('E_FNC', 'hash_delete');
+    arr  = tree('AST_VAR', colnmf colnmr);
+    fn   = tree('AST_VAR', 'hash_delete');
+    node = tree('AST_FNC', 'hash_delete');
     Append(node, fn);
     Append(node, arr);
     Append(node, key);
@@ -717,14 +717,14 @@ function finish_hash_delete_brace(key, arr, fn, node) {
 Finish_hash_delete_brace = (epsilon . *finish_hash_delete_brace());
 /*--------------------------------------------------------------------------------------------------------------------*/
 // finish_for_range — for lo..hi -> $v { body } → while-loop lowering.
-// Mirrors raku.y make_for_range().  Stack on entry: body (E_SEQ_EXPR) on top,
+// Mirrors raku.y make_for_range().  Stack on entry: body (AST_SEQ_EXPR) on top,
 // hi below, lo below that.  for_iter holds the loopvar name (set by Store_for_iter).
 //
 // Expansion (matching oracle):
-//   (E_SEQ_EXPR
-//     (E_ASSIGN (E_VAR v) lo)
-//     (E_WHILE
-//       (E_LE (E_VAR v) hi)
+//   (AST_SEQ_EXPR
+//     (AST_ASSIGN (AST_VAR v) lo)
+//     (AST_WHILE
+//       (AST_LE (AST_VAR v) hi)
 //       body_with_incr_appended))
 //
 // Retained: synthesizes multiple nodes from three stack values + for_iter stash;
@@ -734,27 +734,27 @@ function finish_for_range(body, hi, lo, vvar, incr, cond, init, wloop, seq) {
     body = Pop();
     hi   = Pop();
     lo   = Pop();
-    vvar = tree('E_VAR', for_iter);
-    // Append increment stmt to body: body += (E_ASSIGN v (E_ADD v 1))
-    incr = tree('E_ADD', '');
-    Append(incr, tree('E_VAR', for_iter));
-    Append(incr, tree('E_ILIT', '1'));
-    Append(body, tree('E_ASSIGN', ''));
-    Append(c(body)[n(body)], tree('E_VAR', for_iter));
+    vvar = tree('AST_VAR', for_iter);
+    // Append increment stmt to body: body += (AST_ASSIGN v (AST_ADD v 1))
+    incr = tree('AST_ADD', '');
+    Append(incr, tree('AST_VAR', for_iter));
+    Append(incr, tree('AST_ILIT', '1'));
+    Append(body, tree('AST_ASSIGN', ''));
+    Append(c(body)[n(body)], tree('AST_VAR', for_iter));
     Append(c(body)[n(body)], incr);
-    // Build (E_WHILE (E_LE v hi) body)
-    cond  = tree('E_LE', '');
-    Append(cond, tree('E_VAR', for_iter));
+    // Build (AST_WHILE (AST_LE v hi) body)
+    cond  = tree('AST_LE', '');
+    Append(cond, tree('AST_VAR', for_iter));
     Append(cond, hi);
-    wloop = tree('E_WHILE', '');
+    wloop = tree('AST_WHILE', '');
     Append(wloop, cond);
     Append(wloop, body);
-    // Build (E_ASSIGN v lo)
-    init = tree('E_ASSIGN', '');
-    Append(init, tree('E_VAR', for_iter));
+    // Build (AST_ASSIGN v lo)
+    init = tree('AST_ASSIGN', '');
+    Append(init, tree('AST_VAR', for_iter));
     Append(init, lo);
-    // Wrap in E_SEQ_EXPR
-    seq = tree('E_SEQ_EXPR', '');
+    // Wrap in AST_SEQ_EXPR
+    seq = tree('AST_SEQ_EXPR', '');
     Append(seq, init);
     Append(seq, wloop);
     Push(seq);
@@ -764,13 +764,13 @@ function finish_for_range(body, hi, lo, vvar, incr, cond, init, wloop, seq) {
 Finish_for_range = (epsilon . *finish_for_range());
 /*--------------------------------------------------------------------------------------------------------------------*/
 // finish_smartmatch
-// Retained: reduce() builds value=''; E_FNC requires value='raku_match'.
+// Retained: reduce() builds value=''; AST_FNC requires value='raku_match'.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_smartmatch(pat, subj, fn, node) {
     pat  = Pop();
     subj = Pop();
-    fn   = tree('E_VAR', 'raku_match');
-    node = tree('E_FNC', 'raku_match');
+    fn   = tree('AST_VAR', 'raku_match');
+    node = tree('AST_FNC', 'raku_match');
     Append(node, fn);
     Append(node, subj);
     Append(node, pat);
@@ -780,14 +780,14 @@ function finish_smartmatch(pat, subj, fn, node) {
 }
 Finish_smartmatch = (epsilon . *finish_smartmatch());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_not — wrap top-of-stack expr in (E_NOT expr).
-// Used by UnlessStmt: unless (cond) → (E_IF (E_NOT cond) then [else]).
+// finish_not — wrap top-of-stack expr in (AST_NOT expr).
+// Used by UnlessStmt: unless (cond) → (AST_IF (AST_NOT cond) then [else]).
 // Retained: reduce() with arity 1 builds a new node but cannot wrap an existing
 // node; we need to pop, wrap, and push.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_not(inner, node) {
     inner = Pop();
-    node  = tree('E_NOT', '');
+    node  = tree('AST_NOT', '');
     Append(node, inner);
     Push(node);
     finish_not = .dummy;
@@ -795,12 +795,12 @@ function finish_not(inner, node) {
 }
 Finish_not = (epsilon . *finish_not());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_mns — unary minus: -(expr) → (E_MNS expr).
+// finish_mns — unary minus: -(expr) → (AST_MNS expr).
 // Retained: same reason as finish_not — pop, wrap, push.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_mns(inner, node) {
     inner = Pop();
-    node  = tree('E_MNS', '');
+    node  = tree('AST_MNS', '');
     Append(node, inner);
     Push(node);
     finish_mns = .dummy;
@@ -808,21 +808,21 @@ function finish_mns(inner, node) {
 }
 Finish_mns = (epsilon . *finish_mns());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_given — given/when/default → E_CASE node.
+// finish_given — given/when/default → AST_CASE node.
 //
 // Stack on entry (bottom to top):
 //   topic
 //   [cmpnode val body] × n_whens    (each WhenClause pushed these 3 in order)
 //   [default_body]                   (if given_has_def == 1; pushed by DefaultClause)
 //
-// E_CASE structure mirrors raku.y given_stmt:
-//   (E_CASE topic [E_ILIT(cmp) val body]* [(E_NUL)(E_NUL) default]?)
+// AST_CASE structure mirrors raku.y given_stmt:
+//   (AST_CASE topic [AST_ILIT(cmp) val body]* [(AST_NUL)(AST_NUL) default]?)
 //
-// cmp kind: E_QLIT val → 73 (E_LEQ); other → 67 (E_EQ).  Mirrors raku.y
-//   when_list: cmp=($3->kind==E_QLIT)?E_LEQ:E_EQ.
+// cmp kind: AST_QLIT val → 73 (AST_LEQ); other → 67 (AST_EQ).  Mirrors raku.y
+//   when_list: cmp=($3->kind==AST_QLIT)?AST_LEQ:AST_EQ.
 //
-// Retained: must build E_CASE with variable arity from n counter + flag; reduce()
-// cannot conditionally append E_NUL sentinels or inspect child tags.
+// Retained: must build AST_CASE with variable arity from n counter + flag; reduce()
+// cannot conditionally append AST_NUL sentinels or inspect child tags.
 /*--------------------------------------------------------------------------------------------------------------------*/
 given_has_def = 0;
 function finish_given(n_whens, def_body, kids, ec, i, cmpkind, cmpnode, val, body) {
@@ -833,25 +833,25 @@ function finish_given(n_whens, def_body, kids, ec, i, cmpkind, cmpnode, val, bod
     i = n_whens * 2;
     while (GT(i, 0)) { kids[i] = Pop(); i = i - 1; }
     // topic is now on top
-    ec = tree('E_CASE', '');
+    ec = tree('AST_CASE', '');
     Append(ec, Pop());
     // Append each when-triple (cmpnode, val, body) in order.
-    // cmp kind: E_QLIT val → 73 (E_LEQ), else → 67 (E_EQ).  Mirrors raku.y.
+    // cmp kind: AST_QLIT val → 73 (AST_LEQ), else → 67 (AST_EQ).  Mirrors raku.y.
     i = 1;
     while (LE(i, n_whens)) {
         val  = kids[(i - 1) * 2 + 1];
         body = kids[(i - 1) * 2 + 2];
-        if (IDENT(t(val), 'E_QLIT')) { cmpkind = '73'; } else { cmpkind = '67'; }
-        cmpnode = tree('E_ILIT', cmpkind);
+        if (IDENT(t(val), 'AST_QLIT')) { cmpkind = '73'; } else { cmpkind = '67'; }
+        cmpnode = tree('AST_ILIT', cmpkind);
         Append(ec, cmpnode);
         Append(ec, val);
         Append(ec, body);
         i = i + 1;
     }
-    // default arm: sentinel (E_NUL)(E_NUL) then body
+    // default arm: sentinel (AST_NUL)(AST_NUL) then body
     if (EQ(given_has_def, 1)) {
-        Append(ec, tree('E_NUL', ''));
-        Append(ec, tree('E_NUL', ''));
+        Append(ec, tree('AST_NUL', ''));
+        Append(ec, tree('AST_NUL', ''));
         Append(ec, def_body);
     }
     given_has_def = 0;
@@ -863,12 +863,12 @@ function set_has_def() { given_has_def = 1; set_has_def = .dummy; nreturn; }
 Finish_given = (epsilon . *finish_given());
 Set_has_def  = (epsilon . *set_has_def());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_say — say → write name remap.  Pops arg, builds E_FNC write.
+// finish_say — say → write name remap.  Pops arg, builds AST_FNC write.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_say(arg, fn, node) {
     arg  = Pop();
-    fn   = tree('E_VAR', 'write');
-    node = tree('E_FNC', 'write');
+    fn   = tree('AST_VAR', 'write');
+    node = tree('AST_FNC', 'write');
     Append(node, fn);
     Append(node, arg);
     Push(node);
@@ -877,14 +877,14 @@ function finish_say(arg, fn, node) {
 }
 Finish_say   = (epsilon . *finish_say());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_print — print expr ; → (E_FNC writes (E_VAR writes) arg).
+// finish_print — print expr ; → (AST_FNC writes (AST_VAR writes) arg).
 // Mirrors raku.y KW_PRINT expr ';': make_call("writes") + child.
-// Retained: same reason as finish_say — E_FNC value='writes' requires explicit build.
+// Retained: same reason as finish_say — AST_FNC value='writes' requires explicit build.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_print(arg, fn, node) {
     arg  = Pop();
-    fn   = tree('E_VAR', 'writes');
-    node = tree('E_FNC', 'writes');
+    fn   = tree('AST_VAR', 'writes');
+    node = tree('AST_FNC', 'writes');
     Append(node, fn);
     Append(node, arg);
     Push(node);
@@ -893,15 +893,15 @@ function finish_print(arg, fn, node) {
 }
 Finish_print = (epsilon . *finish_print());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_die — die expr → (E_FNC raku_die (E_VAR raku_die) arg).
+// finish_die — die expr → (AST_FNC raku_die (AST_VAR raku_die) arg).
 // Mirrors raku.y KW_DIE expr: make_call("raku_die") + child.
 // die is an expression (Expr11 prefix), not a statement — BareStmt supplies ';'.
-// Retained: same reason as finish_say — E_FNC value='raku_die' requires explicit build.
+// Retained: same reason as finish_say — AST_FNC value='raku_die' requires explicit build.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_die(arg, fn, node) {
     arg  = Pop();
-    fn   = tree('E_VAR', 'raku_die');
-    node = tree('E_FNC', 'raku_die');
+    fn   = tree('AST_VAR', 'raku_die');
+    node = tree('AST_FNC', 'raku_die');
     Append(node, fn);
     Append(node, arg);
     Push(node);
@@ -910,17 +910,17 @@ function finish_die(arg, fn, node) {
 }
 Finish_die = (epsilon . *finish_die());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_without — without (cond) block → (E_FNC raku_without (E_VAR raku_without) cond block).
+// finish_without — without (cond) block → (AST_FNC raku_without (AST_VAR raku_without) cond block).
 // Stack at entry (top→bottom): block, cond.
 // Mirrors RK-28 placeholder convention: Grammar.nqp `statement_control:sym<without>` has
 // no clean E_* kind in ir.h, so we lower to a generic raku_<name> call node.
-// Retained: E_FNC value='raku_without' must be set explicitly (reduce() leaves value='').
+// Retained: AST_FNC value='raku_without' must be set explicitly (reduce() leaves value='').
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_without(blk, cond, fn, node) {
     blk  = Pop();
     cond = Pop();
-    fn   = tree('E_VAR', 'raku_without');
-    node = tree('E_FNC', 'raku_without');
+    fn   = tree('AST_VAR', 'raku_without');
+    node = tree('AST_FNC', 'raku_without');
     Append(node, fn);
     Append(node, cond);
     Append(node, blk);
@@ -930,17 +930,17 @@ function finish_without(blk, cond, fn, node) {
 }
 Finish_without = (epsilon . *finish_without());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_whenever — whenever expr block → (E_FNC raku_whenever (E_VAR raku_whenever) expr block).
+// finish_whenever — whenever expr block → (AST_FNC raku_whenever (AST_VAR raku_whenever) expr block).
 // Stack at entry (top→bottom): block, expr.
 // RK-28 arm 2: Grammar.nqp `statement_control:sym<whenever>`.  Spec form is
 // `whenever EXPR { block }` (no parens around expr — Raku's xblock syntax).
-// Retained: E_FNC value='raku_whenever' must be set explicitly.
+// Retained: AST_FNC value='raku_whenever' must be set explicitly.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_whenever(blk, ex, fn, node) {
     blk  = Pop();
     ex   = Pop();
-    fn   = tree('E_VAR', 'raku_whenever');
-    node = tree('E_FNC', 'raku_whenever');
+    fn   = tree('AST_VAR', 'raku_whenever');
+    node = tree('AST_FNC', 'raku_whenever');
     Append(node, fn);
     Append(node, ex);
     Append(node, blk);
@@ -950,15 +950,15 @@ function finish_whenever(blk, ex, fn, node) {
 }
 Finish_whenever = (epsilon . *finish_whenever());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_loop_inf — `loop { block }` (no parens) → (E_WHILE (E_ILIT 1) block).
+// finish_loop_inf — `loop { block }` (no parens) → (AST_WHILE (AST_ILIT 1) block).
 // Stack at entry (top→bottom): block.
 // RK-28 arm 4a: Grammar.nqp `statement_control:sym<loop>` (no `(...)` arm).
-// Lowers to existing E_WHILE with constant true — clean reuse, no placeholder.
+// Lowers to existing AST_WHILE with constant true — clean reuse, no placeholder.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_loop_inf(blk, one, node) {
     blk  = Pop();
-    one  = tree('E_ILIT', '1');
-    node = tree('E_WHILE');
+    one  = tree('AST_ILIT', '1');
+    node = tree('AST_WHILE');
     Append(node, one);
     Append(node, blk);
     Push(node);
@@ -970,7 +970,7 @@ Finish_loop_inf = (epsilon . *finish_loop_inf());
 // finish_loop_three — `loop (init; cond; step) { block }` C-style three-part.
 // Stack at entry (top→bottom): block, step, cond, init.
 // RK-28 arm 4b: Grammar.nqp `statement_control:sym<loop>` with `(e1; e2; e3)` arm.
-// Lowers to (E_FNC raku_loop init cond step block) placeholder — no clean
+// Lowers to (AST_FNC raku_loop init cond step block) placeholder — no clean
 // E_* kind for this construct.  Note: spec requires all three exprs (compile
 // error otherwise); for parse-coverage we require all three too.
 // Note 2: `init` is parsed as Expr only (not stmt), so `my $i = 0` won't work
@@ -981,8 +981,8 @@ function finish_loop_three(blk, step, cond, init, fn, node) {
     step = Pop();
     cond = Pop();
     init = Pop();
-    fn   = tree('E_VAR', 'raku_loop');
-    node = tree('E_FNC', 'raku_loop');
+    fn   = tree('AST_VAR', 'raku_loop');
+    node = tree('AST_FNC', 'raku_loop');
     Append(node, fn);
     Append(node, init);
     Append(node, cond);
@@ -995,16 +995,16 @@ function finish_loop_three(blk, step, cond, init, fn, node) {
 Finish_loop_three = (epsilon . *finish_loop_three());
 /*--------------------------------------------------------------------------------------------------------------------*/
 // finish_module_load — used by use/no/need/import/require for a captured
-// module name (capmodname) → (E_FNC raku_<kind> (E_VAR raku_<kind>) (E_QLIT modname)).
+// module name (capmodname) → (AST_FNC raku_<kind> (AST_VAR raku_<kind>) (AST_QLIT modname)).
 // RK-28 arms 5–9: Grammar.nqp `statement_control:sym<{use,no,need,import,require}>`.
 // Each stmt has its own Finish_* wrapper that calls finish_module_load_x with
 // the right kind name.  Retained: shift cannot read a global capture; reduce
-// cannot set the E_FNC value field.
+// cannot set the AST_FNC value field.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_use(fn, q, node) {
-    fn   = tree('E_VAR', 'raku_use');
-    q    = tree('E_QLIT', capmodname);
-    node = tree('E_FNC', 'raku_use');
+    fn   = tree('AST_VAR', 'raku_use');
+    q    = tree('AST_QLIT', capmodname);
+    node = tree('AST_FNC', 'raku_use');
     Append(node, fn);
     Append(node, q);
     Push(node);
@@ -1014,9 +1014,9 @@ function finish_use(fn, q, node) {
 Finish_use = (epsilon . *finish_use());
 
 function finish_no(fn, q, node) {
-    fn   = tree('E_VAR', 'raku_no');
-    q    = tree('E_QLIT', capmodname);
-    node = tree('E_FNC', 'raku_no');
+    fn   = tree('AST_VAR', 'raku_no');
+    q    = tree('AST_QLIT', capmodname);
+    node = tree('AST_FNC', 'raku_no');
     Append(node, fn);
     Append(node, q);
     Push(node);
@@ -1026,9 +1026,9 @@ function finish_no(fn, q, node) {
 Finish_no = (epsilon . *finish_no());
 
 function finish_need(fn, q, node) {
-    fn   = tree('E_VAR', 'raku_need');
-    q    = tree('E_QLIT', capmodname);
-    node = tree('E_FNC', 'raku_need');
+    fn   = tree('AST_VAR', 'raku_need');
+    q    = tree('AST_QLIT', capmodname);
+    node = tree('AST_FNC', 'raku_need');
     Append(node, fn);
     Append(node, q);
     Push(node);
@@ -1038,9 +1038,9 @@ function finish_need(fn, q, node) {
 Finish_need = (epsilon . *finish_need());
 
 function finish_import(fn, q, node) {
-    fn   = tree('E_VAR', 'raku_import');
-    q    = tree('E_QLIT', capmodname);
-    node = tree('E_FNC', 'raku_import');
+    fn   = tree('AST_VAR', 'raku_import');
+    q    = tree('AST_QLIT', capmodname);
+    node = tree('AST_FNC', 'raku_import');
     Append(node, fn);
     Append(node, q);
     Push(node);
@@ -1050,9 +1050,9 @@ function finish_import(fn, q, node) {
 Finish_import = (epsilon . *finish_import());
 
 function finish_require(fn, q, node) {
-    fn   = tree('E_VAR', 'raku_require');
-    q    = tree('E_QLIT', capmodname);
-    node = tree('E_FNC', 'raku_require');
+    fn   = tree('AST_VAR', 'raku_require');
+    q    = tree('AST_QLIT', capmodname);
+    node = tree('AST_FNC', 'raku_require');
     Append(node, fn);
     Append(node, q);
     Push(node);
@@ -1064,14 +1064,14 @@ Finish_require = (epsilon . *finish_require());
 // finish_catch_free / finish_control / finish_quit — free phaser blocks.
 // RK-28 arms 11–13: Grammar.nqp `statement_control:sym<{CATCH,CONTROL,QUIT}>`.
 // All three are `<sym> <block(1)>` with topic.  Lower to placeholder
-// (E_FNC raku_<kind>_block (E_VAR raku_<kind>_block) block).
+// (AST_FNC raku_<kind>_block (AST_VAR raku_<kind>_block) block).
 // Note: CATCH already exists inside try; this covers the *free* form
 // (top-level CATCH not inside try).
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_catch_free(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('E_VAR', 'raku_catch_block');
-    node = tree('E_FNC', 'raku_catch_block');
+    fn   = tree('AST_VAR', 'raku_catch_block');
+    node = tree('AST_FNC', 'raku_catch_block');
     Append(node, fn);
     Append(node, blk);
     Push(node);
@@ -1082,8 +1082,8 @@ Finish_catch_free = (epsilon . *finish_catch_free());
 
 function finish_control(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('E_VAR', 'raku_control_block');
-    node = tree('E_FNC', 'raku_control_block');
+    fn   = tree('AST_VAR', 'raku_control_block');
+    node = tree('AST_FNC', 'raku_control_block');
     Append(node, fn);
     Append(node, blk);
     Push(node);
@@ -1094,8 +1094,8 @@ Finish_control = (epsilon . *finish_control());
 
 function finish_quit(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('E_VAR', 'raku_quit_block');
-    node = tree('E_FNC', 'raku_quit_block');
+    fn   = tree('AST_VAR', 'raku_quit_block');
+    node = tree('AST_FNC', 'raku_quit_block');
     Append(node, fn);
     Append(node, blk);
     Push(node);
@@ -1105,13 +1105,13 @@ function finish_quit(blk, fn, node) {
 Finish_quit = (epsilon . *finish_quit());
 /*--------------------------------------------------------------------------------------------------------------------*/
 // RK-29 — statement_prefix:sym<...> finishers.
-// Block-only phasers: PHASER { block } → (E_FNC raku_phaser_<name> (E_VAR raku_phaser_<name>) block).
+// Block-only phasers: PHASER { block } → (AST_FNC raku_phaser_<name> (AST_VAR raku_phaser_<name>) block).
 // All follow the same shape as finish_catch_free / finish_control / finish_quit.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_phaser_begin(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('E_VAR', 'raku_phaser_BEGIN');
-    node = tree('E_FNC', 'raku_phaser_BEGIN');
+    fn   = tree('AST_VAR', 'raku_phaser_BEGIN');
+    node = tree('AST_FNC', 'raku_phaser_BEGIN');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_begin = .dummy; nreturn;
 }
@@ -1119,8 +1119,8 @@ Finish_phaser_begin = (epsilon . *finish_phaser_begin());
 
 function finish_phaser_end(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('E_VAR', 'raku_phaser_END');
-    node = tree('E_FNC', 'raku_phaser_END');
+    fn   = tree('AST_VAR', 'raku_phaser_END');
+    node = tree('AST_FNC', 'raku_phaser_END');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_end = .dummy; nreturn;
 }
@@ -1128,8 +1128,8 @@ Finish_phaser_end = (epsilon . *finish_phaser_end());
 
 function finish_phaser_init(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('E_VAR', 'raku_phaser_INIT');
-    node = tree('E_FNC', 'raku_phaser_INIT');
+    fn   = tree('AST_VAR', 'raku_phaser_INIT');
+    node = tree('AST_FNC', 'raku_phaser_INIT');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_init = .dummy; nreturn;
 }
@@ -1137,8 +1137,8 @@ Finish_phaser_init = (epsilon . *finish_phaser_init());
 
 function finish_phaser_check(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('E_VAR', 'raku_phaser_CHECK');
-    node = tree('E_FNC', 'raku_phaser_CHECK');
+    fn   = tree('AST_VAR', 'raku_phaser_CHECK');
+    node = tree('AST_FNC', 'raku_phaser_CHECK');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_check = .dummy; nreturn;
 }
@@ -1146,8 +1146,8 @@ Finish_phaser_check = (epsilon . *finish_phaser_check());
 
 function finish_phaser_enter(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('E_VAR', 'raku_phaser_ENTER');
-    node = tree('E_FNC', 'raku_phaser_ENTER');
+    fn   = tree('AST_VAR', 'raku_phaser_ENTER');
+    node = tree('AST_FNC', 'raku_phaser_ENTER');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_enter = .dummy; nreturn;
 }
@@ -1155,8 +1155,8 @@ Finish_phaser_enter = (epsilon . *finish_phaser_enter());
 
 function finish_phaser_leave(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('E_VAR', 'raku_phaser_LEAVE');
-    node = tree('E_FNC', 'raku_phaser_LEAVE');
+    fn   = tree('AST_VAR', 'raku_phaser_LEAVE');
+    node = tree('AST_FNC', 'raku_phaser_LEAVE');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_leave = .dummy; nreturn;
 }
@@ -1164,8 +1164,8 @@ Finish_phaser_leave = (epsilon . *finish_phaser_leave());
 
 function finish_phaser_keep(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('E_VAR', 'raku_phaser_KEEP');
-    node = tree('E_FNC', 'raku_phaser_KEEP');
+    fn   = tree('AST_VAR', 'raku_phaser_KEEP');
+    node = tree('AST_FNC', 'raku_phaser_KEEP');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_keep = .dummy; nreturn;
 }
@@ -1173,8 +1173,8 @@ Finish_phaser_keep = (epsilon . *finish_phaser_keep());
 
 function finish_phaser_undo(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('E_VAR', 'raku_phaser_UNDO');
-    node = tree('E_FNC', 'raku_phaser_UNDO');
+    fn   = tree('AST_VAR', 'raku_phaser_UNDO');
+    node = tree('AST_FNC', 'raku_phaser_UNDO');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_undo = .dummy; nreturn;
 }
@@ -1182,8 +1182,8 @@ Finish_phaser_undo = (epsilon . *finish_phaser_undo());
 
 function finish_phaser_first(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('E_VAR', 'raku_phaser_FIRST');
-    node = tree('E_FNC', 'raku_phaser_FIRST');
+    fn   = tree('AST_VAR', 'raku_phaser_FIRST');
+    node = tree('AST_FNC', 'raku_phaser_FIRST');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_first = .dummy; nreturn;
 }
@@ -1191,8 +1191,8 @@ Finish_phaser_first = (epsilon . *finish_phaser_first());
 
 function finish_phaser_next(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('E_VAR', 'raku_phaser_NEXT');
-    node = tree('E_FNC', 'raku_phaser_NEXT');
+    fn   = tree('AST_VAR', 'raku_phaser_NEXT');
+    node = tree('AST_FNC', 'raku_phaser_NEXT');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_next = .dummy; nreturn;
 }
@@ -1200,8 +1200,8 @@ Finish_phaser_next = (epsilon . *finish_phaser_next());
 
 function finish_phaser_last(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('E_VAR', 'raku_phaser_LAST');
-    node = tree('E_FNC', 'raku_phaser_LAST');
+    fn   = tree('AST_VAR', 'raku_phaser_LAST');
+    node = tree('AST_FNC', 'raku_phaser_LAST');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_last = .dummy; nreturn;
 }
@@ -1209,8 +1209,8 @@ Finish_phaser_last = (epsilon . *finish_phaser_last());
 
 function finish_phaser_pre(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('E_VAR', 'raku_phaser_PRE');
-    node = tree('E_FNC', 'raku_phaser_PRE');
+    fn   = tree('AST_VAR', 'raku_phaser_PRE');
+    node = tree('AST_FNC', 'raku_phaser_PRE');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_pre = .dummy; nreturn;
 }
@@ -1218,8 +1218,8 @@ Finish_phaser_pre = (epsilon . *finish_phaser_pre());
 
 function finish_phaser_post(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('E_VAR', 'raku_phaser_POST');
-    node = tree('E_FNC', 'raku_phaser_POST');
+    fn   = tree('AST_VAR', 'raku_phaser_POST');
+    node = tree('AST_FNC', 'raku_phaser_POST');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_post = .dummy; nreturn;
 }
@@ -1227,8 +1227,8 @@ Finish_phaser_post = (epsilon . *finish_phaser_post());
 
 function finish_phaser_close(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('E_VAR', 'raku_phaser_CLOSE');
-    node = tree('E_FNC', 'raku_phaser_CLOSE');
+    fn   = tree('AST_VAR', 'raku_phaser_CLOSE');
+    node = tree('AST_FNC', 'raku_phaser_CLOSE');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_close = .dummy; nreturn;
 }
@@ -1236,19 +1236,19 @@ Finish_phaser_close = (epsilon . *finish_phaser_close());
 
 function finish_phaser_temp(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('E_VAR', 'raku_phaser_TEMP');
-    node = tree('E_FNC', 'raku_phaser_TEMP');
+    fn   = tree('AST_VAR', 'raku_phaser_TEMP');
+    node = tree('AST_FNC', 'raku_phaser_TEMP');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_temp = .dummy; nreturn;
 }
 Finish_phaser_temp = (epsilon . *finish_phaser_temp());
 
 // Lowercase block-value phasers: do/once/start/supply/react/quietly
-// `do { block }` — evaluates block as expression → (E_FNC raku_do (E_VAR raku_do) block).
+// `do { block }` — evaluates block as expression → (AST_FNC raku_do (AST_VAR raku_do) block).
 function finish_do_block(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('E_VAR', 'raku_do');
-    node = tree('E_FNC', 'raku_do');
+    fn   = tree('AST_VAR', 'raku_do');
+    node = tree('AST_FNC', 'raku_do');
     Append(node, fn); Append(node, blk); Push(node);
     finish_do_block = .dummy; nreturn;
 }
@@ -1256,8 +1256,8 @@ Finish_do_block = (epsilon . *finish_do_block());
 
 function finish_once(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('E_VAR', 'raku_once');
-    node = tree('E_FNC', 'raku_once');
+    fn   = tree('AST_VAR', 'raku_once');
+    node = tree('AST_FNC', 'raku_once');
     Append(node, fn); Append(node, blk); Push(node);
     finish_once = .dummy; nreturn;
 }
@@ -1265,8 +1265,8 @@ Finish_once = (epsilon . *finish_once());
 
 function finish_start(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('E_VAR', 'raku_start');
-    node = tree('E_FNC', 'raku_start');
+    fn   = tree('AST_VAR', 'raku_start');
+    node = tree('AST_FNC', 'raku_start');
     Append(node, fn); Append(node, blk); Push(node);
     finish_start = .dummy; nreturn;
 }
@@ -1274,8 +1274,8 @@ Finish_start = (epsilon . *finish_start());
 
 function finish_supply(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('E_VAR', 'raku_supply');
-    node = tree('E_FNC', 'raku_supply');
+    fn   = tree('AST_VAR', 'raku_supply');
+    node = tree('AST_FNC', 'raku_supply');
     Append(node, fn); Append(node, blk); Push(node);
     finish_supply = .dummy; nreturn;
 }
@@ -1283,8 +1283,8 @@ Finish_supply = (epsilon . *finish_supply());
 
 function finish_react(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('E_VAR', 'raku_react');
-    node = tree('E_FNC', 'raku_react');
+    fn   = tree('AST_VAR', 'raku_react');
+    node = tree('AST_FNC', 'raku_react');
     Append(node, fn); Append(node, blk); Push(node);
     finish_react = .dummy; nreturn;
 }
@@ -1292,19 +1292,19 @@ Finish_react = (epsilon . *finish_react());
 
 function finish_quietly(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('E_VAR', 'raku_quietly');
-    node = tree('E_FNC', 'raku_quietly');
+    fn   = tree('AST_VAR', 'raku_quietly');
+    node = tree('AST_FNC', 'raku_quietly');
     Append(node, fn); Append(node, blk); Push(node);
     finish_quietly = .dummy; nreturn;
 }
 Finish_quietly = (epsilon . *finish_quietly());
 
 // List adverbs: race/hyper/lazy/eager/sink — apply to an expression (not a block).
-// `race @list` → (E_FNC raku_race (E_VAR raku_race) expr).
+// `race @list` → (AST_FNC raku_race (AST_VAR raku_race) expr).
 function finish_race(ex, fn, node) {
     ex   = Pop();
-    fn   = tree('E_VAR', 'raku_race');
-    node = tree('E_FNC', 'raku_race');
+    fn   = tree('AST_VAR', 'raku_race');
+    node = tree('AST_FNC', 'raku_race');
     Append(node, fn); Append(node, ex); Push(node);
     finish_race = .dummy; nreturn;
 }
@@ -1312,8 +1312,8 @@ Finish_race = (epsilon . *finish_race());
 
 function finish_hyper(ex, fn, node) {
     ex   = Pop();
-    fn   = tree('E_VAR', 'raku_hyper');
-    node = tree('E_FNC', 'raku_hyper');
+    fn   = tree('AST_VAR', 'raku_hyper');
+    node = tree('AST_FNC', 'raku_hyper');
     Append(node, fn); Append(node, ex); Push(node);
     finish_hyper = .dummy; nreturn;
 }
@@ -1321,8 +1321,8 @@ Finish_hyper = (epsilon . *finish_hyper());
 
 function finish_lazy(ex, fn, node) {
     ex   = Pop();
-    fn   = tree('E_VAR', 'raku_lazy');
-    node = tree('E_FNC', 'raku_lazy');
+    fn   = tree('AST_VAR', 'raku_lazy');
+    node = tree('AST_FNC', 'raku_lazy');
     Append(node, fn); Append(node, ex); Push(node);
     finish_lazy = .dummy; nreturn;
 }
@@ -1330,8 +1330,8 @@ Finish_lazy = (epsilon . *finish_lazy());
 
 function finish_eager(ex, fn, node) {
     ex   = Pop();
-    fn   = tree('E_VAR', 'raku_eager');
-    node = tree('E_FNC', 'raku_eager');
+    fn   = tree('AST_VAR', 'raku_eager');
+    node = tree('AST_FNC', 'raku_eager');
     Append(node, fn); Append(node, ex); Push(node);
     finish_eager = .dummy; nreturn;
 }
@@ -1339,8 +1339,8 @@ Finish_eager = (epsilon . *finish_eager());
 
 function finish_sink(ex, fn, node) {
     ex   = Pop();
-    fn   = tree('E_VAR', 'raku_sink');
-    node = tree('E_FNC', 'raku_sink');
+    fn   = tree('AST_VAR', 'raku_sink');
+    node = tree('AST_FNC', 'raku_sink');
     Append(node, fn); Append(node, ex); Push(node);
     finish_sink = .dummy; nreturn;
 }
@@ -1359,15 +1359,15 @@ function parse_closure_expr(body) {
 }
 ClosureExpr = ( $'{' *Expr $'}' );
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_map — map { closure_expr } list → (E_FNC raku_map (E_VAR raku_map) closure list).
+// finish_map — map { closure_expr } list → (AST_FNC raku_map (AST_VAR raku_map) closure list).
 // Mirrors raku.y KW_MAP closure expr: make_call("raku_map") + 2 children.
-// Retained: E_FNC value='raku_map' requires explicit build (reduce() leaves value='').
+// Retained: AST_FNC value='raku_map' requires explicit build (reduce() leaves value='').
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_map(lst, clos, fn, node) {
     lst  = Pop();
     clos = Pop();
-    fn   = tree('E_VAR', 'raku_map');
-    node = tree('E_FNC', 'raku_map');
+    fn   = tree('AST_VAR', 'raku_map');
+    node = tree('AST_FNC', 'raku_map');
     Append(node, fn);
     Append(node, clos);
     Append(node, lst);
@@ -1377,15 +1377,15 @@ function finish_map(lst, clos, fn, node) {
 }
 Finish_map = (epsilon . *finish_map());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_grep — grep { closure_expr } list → (E_FNC raku_grep (E_VAR raku_grep) closure list).
+// finish_grep — grep { closure_expr } list → (AST_FNC raku_grep (AST_VAR raku_grep) closure list).
 // Mirrors raku.y KW_GREP closure expr: make_call("raku_grep") + 2 children.
 // Retained: same reason as finish_map.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_grep(lst, clos, fn, node) {
     lst  = Pop();
     clos = Pop();
-    fn   = tree('E_VAR', 'raku_grep');
-    node = tree('E_FNC', 'raku_grep');
+    fn   = tree('AST_VAR', 'raku_grep');
+    node = tree('AST_FNC', 'raku_grep');
     Append(node, fn);
     Append(node, clos);
     Append(node, lst);
@@ -1395,16 +1395,16 @@ function finish_grep(lst, clos, fn, node) {
 }
 Finish_grep = (epsilon . *finish_grep());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_sort_cl — sort { closure_expr } list → (E_FNC raku_sort (E_VAR raku_sort) closure list).
-// finish_sort_nc — sort list → (E_FNC raku_sort (E_VAR raku_sort) list).
+// finish_sort_cl — sort { closure_expr } list → (AST_FNC raku_sort (AST_VAR raku_sort) closure list).
+// finish_sort_nc — sort list → (AST_FNC raku_sort (AST_VAR raku_sort) list).
 // Mirrors raku.y: with-closure form pops 2 children; no-closure form pops 1.
 // Retained: same reason as finish_map.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_sort_cl(lst, clos, fn, node) {
     lst  = Pop();
     clos = Pop();
-    fn   = tree('E_VAR', 'raku_sort');
-    node = tree('E_FNC', 'raku_sort');
+    fn   = tree('AST_VAR', 'raku_sort');
+    node = tree('AST_FNC', 'raku_sort');
     Append(node, fn);
     Append(node, clos);
     Append(node, lst);
@@ -1415,8 +1415,8 @@ function finish_sort_cl(lst, clos, fn, node) {
 Finish_sort_cl = (epsilon . *finish_sort_cl());
 function finish_sort_nc(lst, fn, node) {
     lst  = Pop();
-    fn   = tree('E_VAR', 'raku_sort');
-    node = tree('E_FNC', 'raku_sort');
+    fn   = tree('AST_VAR', 'raku_sort');
+    node = tree('AST_FNC', 'raku_sort');
     Append(node, fn);
     Append(node, lst);
     Push(node);
@@ -1425,18 +1425,18 @@ function finish_sort_nc(lst, fn, node) {
 }
 Finish_sort_nc = (epsilon . *finish_sort_nc());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_try — try block [CATCH block] → (E_FNC raku_try (E_VAR raku_try) try_blk [catch_blk]).
+// finish_try — try block [CATCH block] → (AST_FNC raku_try (AST_VAR raku_try) try_blk [catch_blk]).
 // Mirrors raku.y KW_TRY block [KW_CATCH block].
 // try_has_catch global: 1 if CATCH block present, 0 otherwise.
 // Uses EQ predicate (not bare if) per cross-PARSER style note from RK-17.
-// Retained: conditional 2-arg vs 1-arg E_FNC build cannot be expressed in reduce().
+// Retained: conditional 2-arg vs 1-arg AST_FNC build cannot be expressed in reduce().
 /*--------------------------------------------------------------------------------------------------------------------*/
 try_has_catch = 0;
 function finish_try(catch_blk, try_blk, fn, node) {
     if (EQ(try_has_catch, 1)) catch_blk = Pop();
     try_blk = Pop();
-    fn   = tree('E_VAR', 'raku_try');
-    node = tree('E_FNC', 'raku_try');
+    fn   = tree('AST_VAR', 'raku_try');
+    node = tree('AST_FNC', 'raku_try');
     Append(node, fn);
     Append(node, try_blk);
     if (EQ(try_has_catch, 1)) Append(node, catch_blk);
@@ -1458,14 +1458,14 @@ function store_for_iter(vf, vr) {
 }
 Store_for_iter  = (epsilon . *store_for_iter(capff, capfr));
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_for — pops block+array from stack, builds E_EVERY.
+// finish_for — pops block+array from stack, builds AST_EVERY.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_for(block, iter_arr, iter_node, node) {
     block     = Pop();
     iter_arr  = Pop();
-    iter_node = tree('E_ITERATE', for_iter);
+    iter_node = tree('AST_ITERATE', for_iter);
     Append(iter_node, iter_arr);
-    node = tree('E_EVERY', '');
+    node = tree('AST_EVERY', '');
     Append(node, iter_node);
     Append(node, block);
     Push(node);
@@ -1474,10 +1474,10 @@ function finish_for(block, iter_arr, iter_node, node) {
 }
 Finish_for   = (epsilon . *finish_for());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_method — close inner body frame, build raw E_FNC (method name only,
+// finish_method — close inner body frame, build raw AST_FNC (method name only,
 // no rename yet), push onto outer class counter frame.
 // Called by MethodDef; outer ClassDecl nInc() increments the class frame.
-// Retained: reduce() sets value=''; E_FNC requires value=methodname;
+// Retained: reduce() sets value=''; AST_FNC requires value=methodname;
 //           building the temporary raw node needed for finish_class rename pass.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_method(n_kids, kids, mname, efnc, i) {
@@ -1489,9 +1489,9 @@ function finish_method(n_kids, kids, mname, efnc, i) {
         i = i - 1;
     }
     mname = capmtf capmtr;
-    efnc  = tree('E_FNC', mname);
-    Append(efnc, tree('E_VAR', mname));
-    Append(efnc, tree('E_VAR', 'self'));
+    efnc  = tree('AST_FNC', mname);
+    Append(efnc, tree('AST_VAR', mname));
+    Append(efnc, tree('AST_VAR', 'self'));
     i = 1;
     while (LE(i, n_kids)) {
         Append(efnc, kids[i]);
@@ -1504,11 +1504,11 @@ function finish_method(n_kids, kids, mname, efnc, i) {
 Finish_method = (epsilon . *finish_method());
 /*--------------------------------------------------------------------------------------------------------------------*/
 // finish_class — close class body counter frame:
-//   - for each E_FNC item: rename to ClassName__method, emit STMT into sub_list.
-//   - for each E_VAR item: append as field child to E_RECORD node.
-//   - emit E_RECORD STMT into sub_list (after all methods, so it appears after
+//   - for each AST_FNC item: rename to ClassName__method, emit STMT into sub_list.
+//   - for each AST_VAR item: append as field child to AST_RECORD node.
+//   - emit AST_RECORD STMT into sub_list (after all methods, so it appears after
 //     them when sub_list is reversed for emission).
-// Retained: reduce() cannot rename E_FNC values or build E_RECORD with dynamic
+// Retained: reduce() cannot rename AST_FNC values or build AST_RECORD with dynamic
 //           class name from capclsf/capclsr.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_class(n_items, items, cname, rec, item, fname, fullname, efnc, subj, stmt, i) {
@@ -1520,13 +1520,13 @@ function finish_class(n_items, items, cname, rec, item, fname, fullname, efnc, s
         i = i - 1;
     }
     cname = capclsf capclsr;
-    // Build E_RECORD node (fields will be appended in order).
-    rec = tree('E_RECORD', cname);
-    // Walk items: E_FNC → method STMT; E_VAR → field child.
+    // Build AST_RECORD node (fields will be appended in order).
+    rec = tree('AST_RECORD', cname);
+    // Walk items: AST_FNC → method STMT; AST_VAR → field child.
     i = 1;
     while (LE(i, n_items)) {
         item = items[i];
-        if (IDENT(t(item), 'E_FNC')) {
+        if (IDENT(t(item), 'AST_FNC')) {
             // Rename: ClassName__methodname
             fullname = cname '__' v(item);
             v(item) = fullname;
@@ -1542,7 +1542,7 @@ function finish_class(n_items, items, cname, rec, item, fname, fullname, efnc, s
         }
         i = i + 1;
     }
-    // E_RECORD STMT into sub_list (will appear after methods on emit).
+    // AST_RECORD STMT into sub_list (will appear after methods on emit).
     subj = tree(':subj', '');
     Append(subj, rec);
     stmt = tree('STMT', '');
@@ -1562,8 +1562,8 @@ function finish_sub(n_kids, kids, sname, efnc, subj, stmt, i) {
         i = i - 1;
     }
     sname = capsnf capsnr;
-    efnc  = tree('E_FNC', sname);
-    Append(efnc, tree('E_VAR', sname));
+    efnc  = tree('AST_FNC', sname);
+    Append(efnc, tree('AST_VAR', sname));
     i = 1;
     while (LE(i, n_kids)) {
         Append(efnc, kids[i]);
@@ -1580,8 +1580,8 @@ function finish_sub(n_kids, kids, sname, efnc, subj, stmt, i) {
 Finish_sub   = (epsilon . *finish_sub());
 /*--------------------------------------------------------------------------------------------------------------------*/
 // finish_gather — gather { block } expr.  Mirrors raku.y KW_GATHER block:
-// emits a def STMT (E_FNC __gather_N (E_VAR __gather_N) ...body...) into
-// sub_list, then pushes the call (E_FNC __gather_N (E_VAR __gather_N))
+// emits a def STMT (AST_FNC __gather_N (AST_VAR __gather_N) ...body...) into
+// sub_list, then pushes the call (AST_FNC __gather_N (AST_VAR __gather_N))
 // onto the stack as the expression value.  Counter frame holds the body
 // stmts (same shape as finish_sub); gather_seq is the global counter
 // (starts at 0, increments per gather site).
@@ -1598,9 +1598,9 @@ function finish_gather(n_kids, kids, gname, def_efnc, def_subj, def_stmt, call_e
     }
     gname = '__gather_' gather_seq;
     gather_seq = gather_seq + 1;
-    // Def STMT: (STMT :subj (E_FNC gname (E_VAR gname) body...))
-    def_efnc = tree('E_FNC', gname);
-    Append(def_efnc, tree('E_VAR', gname));
+    // Def STMT: (STMT :subj (AST_FNC gname (AST_VAR gname) body...))
+    def_efnc = tree('AST_FNC', gname);
+    Append(def_efnc, tree('AST_VAR', gname));
     i = 1;
     while (LE(i, n_kids)) {
         Append(def_efnc, kids[i]);
@@ -1611,9 +1611,9 @@ function finish_gather(n_kids, kids, gname, def_efnc, def_subj, def_stmt, call_e
     def_stmt = tree('STMT', '');
     Append(def_stmt, def_subj);
     sub_list = slink(sub_list, def_stmt);
-    // Call expression: (E_FNC gname (E_VAR gname)) — pushed for the caller.
-    call_efnc = tree('E_FNC', gname);
-    Append(call_efnc, tree('E_VAR', gname));
+    // Call expression: (AST_FNC gname (AST_VAR gname)) — pushed for the caller.
+    call_efnc = tree('AST_FNC', gname);
+    Append(call_efnc, tree('AST_VAR', gname));
     Push(call_efnc);
     finish_gather = .dummy;
     nreturn;
@@ -1621,11 +1621,11 @@ function finish_gather(n_kids, kids, gname, def_efnc, def_subj, def_stmt, call_e
 Finish_gather = (epsilon . *finish_gather());
 /*--------------------------------------------------------------------------------------------------------------------*/
 // finish_call — function call decomposition.  Reads TopCounter() for
-// nTop() children (callee E_VAR + args).  Builds (E_FNC fname (E_VAR fname)
-// arg1...argN) with fname read from kids[1] sval (the E_VAR node pushed by
-// shift(CallName,'E_VAR')).  NOT from capfnf/capfnr — those are overwritten
+// nTop() children (callee AST_VAR + args).  Builds (AST_FNC fname (AST_VAR fname)
+// arg1...argN) with fname read from kids[1] sval (the AST_VAR node pushed by
+// shift(CallName,'AST_VAR')).  NOT from capfnf/capfnr — those are overwritten
 // by any nested call in an argument (e.g. f(g(x)) clobbers capfnf with 'g').
-// Retained: reduce() sets value=''; E_FNC requires value=fname to match oracle.
+// Retained: reduce() sets value=''; AST_FNC requires value=fname to match oracle.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_call(n_kids, kids, fname, efnc, i) {
     n_kids = TopCounter();
@@ -1636,7 +1636,7 @@ function finish_call(n_kids, kids, fname, efnc, i) {
         i = i - 1;
     }
     fname = v(kids[1]);
-    efnc  = tree('E_FNC', fname);
+    efnc  = tree('AST_FNC', fname);
     i = 1;
     while (LE(i, n_kids)) {
         Append(efnc, kids[i]);
@@ -1650,8 +1650,8 @@ Finish_call  = (epsilon . *finish_call());
 /*--------------------------------------------------------------------------------------------------------------------*/
 // finish_mcall — method call: $obj.meth(args).
 // Counter frame holds N args (already on stack above obj).
-// Builds (E_FNC raku_mcall (E_VAR raku_mcall) obj (E_QLIT mname) arg1..argN).
-// Retained: reduce() sets value=''; raku_mcall name required in E_FNC.
+// Builds (AST_FNC raku_mcall (AST_VAR raku_mcall) obj (AST_QLIT mname) arg1..argN).
+// Retained: reduce() sets value=''; raku_mcall name required in AST_FNC.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_mcall(n_args, args, obj, mname, efnc, i) {
     n_args = TopCounter();
@@ -1663,10 +1663,10 @@ function finish_mcall(n_args, args, obj, mname, efnc, i) {
     }
     obj   = Pop();
     mname = capmf capmr;
-    efnc  = tree('E_FNC', 'raku_mcall');
-    Append(efnc, tree('E_VAR', 'raku_mcall'));
+    efnc  = tree('AST_FNC', 'raku_mcall');
+    Append(efnc, tree('AST_VAR', 'raku_mcall'));
     Append(efnc, obj);
-    Append(efnc, tree('E_QLIT', mname));
+    Append(efnc, tree('AST_QLIT', mname));
     i = 1;
     while (LE(i, n_args)) {
         Append(efnc, args[i]);
@@ -1679,13 +1679,13 @@ function finish_mcall(n_args, args, obj, mname, efnc, i) {
 Finish_mcall = (epsilon . *finish_mcall());
 /*--------------------------------------------------------------------------------------------------------------------*/
 // finish_field — field access: $obj.field (no parens).
-// Pops obj, builds (E_FIELD mname obj) using capmf/capmr.
-// Retained: reduce() can't set the sval field of E_FIELD; helper required.
+// Pops obj, builds (AST_FIELD mname obj) using capmf/capmr.
+// Retained: reduce() can't set the sval field of AST_FIELD; helper required.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_field(obj, mname, ef) {
     obj   = Pop();
     mname = capmf capmr;
-    ef    = tree('E_FIELD', mname);
+    ef    = tree('AST_FIELD', mname);
     Append(ef, obj);
     Push(ef);
     finish_field = .dummy;
@@ -1693,27 +1693,27 @@ function finish_field(obj, mname, ef) {
 }
 Finish_field = (epsilon . *finish_field());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_float — push (E_FLIT n) using capstr (the matched digit string).
-// Retained: E_FLIT requires a float value; shift() only handles E_ILIT.
+// finish_float — push (AST_FLIT n) using capstr (the matched digit string).
+// Retained: AST_FLIT requires a float value; shift() only handles AST_ILIT.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_float(ef) {
-    ef = tree('E_FLIT', capstr);
+    ef = tree('AST_FLIT', capstr);
     Push(ef);
     finish_float = .dummy;
     nreturn;
 }
 Finish_float = (epsilon . *finish_float());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_arr_set — @a[i] = expr → (E_FNC arr_set (E_VAR arr_set) arr idx val).
+// finish_arr_set — @a[i] = expr → (AST_FNC arr_set (AST_VAR arr_set) arr idx val).
 // Stack (top→bottom): val, idx, arr_var.  Counter not used — exactly 3 items.
-// Retained: reduce() can't set the E_FNC value field.
+// Retained: reduce() can't set the AST_FNC value field.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_arr_set(val, idx, arr, efnc) {
     val  = Pop();
     idx  = Pop();
     arr  = Pop();
-    efnc = tree('E_FNC', 'arr_set');
-    Append(efnc, tree('E_VAR', 'arr_set'));
+    efnc = tree('AST_FNC', 'arr_set');
+    Append(efnc, tree('AST_VAR', 'arr_set'));
     Append(efnc, arr);
     Append(efnc, idx);
     Append(efnc, val);
@@ -1723,17 +1723,17 @@ function finish_arr_set(val, idx, arr, efnc) {
 }
 Finish_arr_set = (epsilon . *finish_arr_set());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_hash_set_angle — %h<key> = val → (E_FNC hash_set ... %h (E_QLIT key) val).
+// finish_hash_set_angle — %h<key> = val → (AST_FNC hash_set ... %h (AST_QLIT key) val).
 // Uses capkey for the angle-bracket key, pops val then hash from stack.
 // Retained: same reason as finish_mcall.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_hash_set_angle(val, hsh, efnc) {
     val  = Pop();
     hsh  = Pop();
-    efnc = tree('E_FNC', 'hash_set');
-    Append(efnc, tree('E_VAR', 'hash_set'));
+    efnc = tree('AST_FNC', 'hash_set');
+    Append(efnc, tree('AST_VAR', 'hash_set'));
     Append(efnc, hsh);
-    Append(efnc, tree('E_QLIT', capkey));
+    Append(efnc, tree('AST_QLIT', capkey));
     Append(efnc, val);
     Push(efnc);
     finish_hash_set_angle = .dummy;
@@ -1741,7 +1741,7 @@ function finish_hash_set_angle(val, hsh, efnc) {
 }
 Finish_hash_set_angle = (epsilon . *finish_hash_set_angle());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_hash_set_brace — %h{expr} = val → (E_FNC hash_set ... %h key_expr val).
+// finish_hash_set_brace — %h{expr} = val → (AST_FNC hash_set ... %h key_expr val).
 // Stack (top→bottom): val, key_expr, hash_var.
 // Retained: same reason as finish_mcall.
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -1749,8 +1749,8 @@ function finish_hash_set_brace(val, key, hsh, efnc) {
     val  = Pop();
     key  = Pop();
     hsh  = Pop();
-    efnc = tree('E_FNC', 'hash_set');
-    Append(efnc, tree('E_VAR', 'hash_set'));
+    efnc = tree('AST_FNC', 'hash_set');
+    Append(efnc, tree('AST_VAR', 'hash_set'));
     Append(efnc, hsh);
     Append(efnc, key);
     Append(efnc, val);
@@ -1760,16 +1760,16 @@ function finish_hash_set_brace(val, key, hsh, efnc) {
 }
 Finish_hash_set_brace = (epsilon . *finish_hash_set_brace());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_field_write — $obj.field = expr → (E_ASSIGN (E_FIELD fname obj) rhs).
+// finish_field_write — $obj.field = expr → (AST_ASSIGN (AST_FIELD fname obj) rhs).
 // Stack (top→bottom): rhs, obj.  capmf/capmr hold the field name.
 // Retained: same reason as finish_field.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_field_write(rhs, obj, ef, asgn) {
     rhs  = Pop();
     obj  = Pop();
-    ef   = tree('E_FIELD', capmf capmr);
+    ef   = tree('AST_FIELD', capmf capmr);
     Append(ef, obj);
-    asgn = tree('E_ASSIGN', '');
+    asgn = tree('AST_ASSIGN', '');
     Append(asgn, ef);
     Append(asgn, rhs);
     Push(asgn);
@@ -1778,16 +1778,16 @@ function finish_field_write(rhs, obj, ef, asgn) {
 }
 Finish_field_write = (epsilon . *finish_field_write());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_for_noarrow — for expr { body } → (E_EVERY (E_ITERATE expr) body).
-// Stack (top→bottom): body (E_SEQ_EXPR), iterable.
-// Retained: E_ITERATE wrapping not expressible via reduce().
+// finish_for_noarrow — for expr { body } → (AST_EVERY (AST_ITERATE expr) body).
+// Stack (top→bottom): body (AST_SEQ_EXPR), iterable.
+// Retained: AST_ITERATE wrapping not expressible via reduce().
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_for_noarrow(body, iter, ev, it) {
     body = Pop();
     iter = Pop();
-    it   = tree('E_ITERATE', '');
+    it   = tree('AST_ITERATE', '');
     Append(it, iter);
-    ev   = tree('E_EVERY', '');
+    ev   = tree('AST_EVERY', '');
     Append(ev, it);
     Append(ev, body);
     Push(ev);
@@ -1796,10 +1796,10 @@ function finish_for_noarrow(body, iter, ev, it) {
 }
 Finish_for_noarrow = (epsilon . *finish_for_noarrow());
 /*--------------------------------------------------------------------------------------------------------------------*/
-// finish_raku_new — ClassName.new(named_args) → (E_FNC raku_new (E_VAR raku_new)
-//   (E_QLIT ClassName) (E_QLIT k1) v1 (E_QLIT k2) v2 ...).
+// finish_raku_new — ClassName.new(named_args) → (AST_FNC raku_new (AST_VAR raku_new)
+//   (AST_QLIT ClassName) (AST_QLIT k1) v1 (AST_QLIT k2) v2 ...).
 // Counter frame holds 2*N items (key+val pairs); ClassName in capfnf/capfnr.
-// Retained: E_FNC value field required.
+// Retained: AST_FNC value field required.
 /*--------------------------------------------------------------------------------------------------------------------*/
 function finish_raku_new(n, items, cname, efnc, i) {
     n     = TopCounter();
@@ -1807,9 +1807,9 @@ function finish_raku_new(n, items, cname, efnc, i) {
     i = n;
     while (GT(i, 0)) { items[i] = Pop(); i = i - 1; }
     cname = capclsf capclsr;
-    efnc  = tree('E_FNC', 'raku_new');
-    Append(efnc, tree('E_VAR', 'raku_new'));
-    Append(efnc, tree('E_QLIT', cname));
+    efnc  = tree('AST_FNC', 'raku_new');
+    Append(efnc, tree('AST_VAR', 'raku_new'));
+    Append(efnc, tree('AST_QLIT', cname));
     i = 1;
     while (LE(i, n)) { Append(efnc, items[i]); i = i + 1; }
     Push(efnc);
@@ -1824,8 +1824,8 @@ Finish_raku_new = (epsilon . *finish_raku_new());
 function finish_say_fh(str, fh, efnc) {
     str  = Pop();
     fh   = Pop();
-    efnc = tree('E_FNC', 'raku_say_fh');
-    Append(efnc, tree('E_VAR', 'raku_say_fh'));
+    efnc = tree('AST_FNC', 'raku_say_fh');
+    Append(efnc, tree('AST_VAR', 'raku_say_fh'));
     Append(efnc, fh);
     Append(efnc, str);
     Push(efnc);
@@ -1836,8 +1836,8 @@ Finish_say_fh = (epsilon . *finish_say_fh());
 function finish_print_fh(str, fh, efnc) {
     str  = Pop();
     fh   = Pop();
-    efnc = tree('E_FNC', 'raku_print_fh');
-    Append(efnc, tree('E_VAR', 'raku_print_fh'));
+    efnc = tree('AST_FNC', 'raku_print_fh');
+    Append(efnc, tree('AST_VAR', 'raku_print_fh'));
     Append(efnc, fh);
     Append(efnc, str);
     Push(efnc);
@@ -1854,8 +1854,8 @@ function finish_main(n_kids, kids, efnc, subj, stmt, i) {
         kids[i] = Pop();
         i = i - 1;
     }
-    efnc = tree('E_FNC', 'main');
-    Append(efnc, tree('E_VAR', 'main'));
+    efnc = tree('AST_FNC', 'main');
+    Append(efnc, tree('AST_VAR', 'main'));
     i = 1;
     while (LE(i, n_kids)) {
         Append(efnc, kids[i]);
@@ -1874,7 +1874,7 @@ Finish_main  = (epsilon . *finish_main());
 // Flatten helpers — n-ary arith chains.
 //
 // The Raku C frontend (raku.y) uses expr_binary_flatten() which produces n-ary
-// (E_ADD a b c) instead of nested binary (E_ADD (E_ADD a b) c).  Each helper
+// (AST_ADD a b c) instead of nested binary (AST_ADD (AST_ADD a b) c).  Each helper
 // pops rhs, inspects top-of-stack lhs: if lhs has the same tag, appends rhs to
 // lhs in-place (leaving lhs on stack); otherwise builds a fresh 2-child node.
 // Called from ExprNtail ARBNO bodies — one helper per operator tag.
@@ -1886,9 +1886,9 @@ Finish_main  = (epsilon . *finish_main());
 function flatten_add(rhs, lhs, node) {
     rhs = Pop();
     lhs = Pop();
-    node = DIFFER(t(lhs)) IDENT(t(lhs), 'E_ADD') lhs;
+    node = DIFFER(t(lhs)) IDENT(t(lhs), 'AST_ADD') lhs;
     if (DIFFER(node)) { Append(node, rhs); Push(node); } else {
-        node = tree('E_ADD', '');
+        node = tree('AST_ADD', '');
         Append(node, lhs);
         Append(node, rhs);
         Push(node);
@@ -1901,9 +1901,9 @@ Flatten_add = (epsilon . *flatten_add());
 function flatten_sub(rhs, lhs, node) {
     rhs = Pop();
     lhs = Pop();
-    node = DIFFER(t(lhs)) IDENT(t(lhs), 'E_SUB') lhs;
+    node = DIFFER(t(lhs)) IDENT(t(lhs), 'AST_SUB') lhs;
     if (DIFFER(node)) { Append(node, rhs); Push(node); } else {
-        node = tree('E_SUB', '');
+        node = tree('AST_SUB', '');
         Append(node, lhs);
         Append(node, rhs);
         Push(node);
@@ -1916,9 +1916,9 @@ Flatten_sub = (epsilon . *flatten_sub());
 function flatten_mul(rhs, lhs, node) {
     rhs = Pop();
     lhs = Pop();
-    node = DIFFER(t(lhs)) IDENT(t(lhs), 'E_MUL') lhs;
+    node = DIFFER(t(lhs)) IDENT(t(lhs), 'AST_MUL') lhs;
     if (DIFFER(node)) { Append(node, rhs); Push(node); } else {
-        node = tree('E_MUL', '');
+        node = tree('AST_MUL', '');
         Append(node, lhs);
         Append(node, rhs);
         Push(node);
@@ -1931,9 +1931,9 @@ Flatten_mul = (epsilon . *flatten_mul());
 function flatten_div(rhs, lhs, node) {
     rhs = Pop();
     lhs = Pop();
-    node = DIFFER(t(lhs)) IDENT(t(lhs), 'E_DIV') lhs;
+    node = DIFFER(t(lhs)) IDENT(t(lhs), 'AST_DIV') lhs;
     if (DIFFER(node)) { Append(node, rhs); Push(node); } else {
-        node = tree('E_DIV', '');
+        node = tree('AST_DIV', '');
         Append(node, lhs);
         Append(node, rhs);
         Push(node);
@@ -1946,9 +1946,9 @@ Flatten_div = (epsilon . *flatten_div());
 function flatten_cat(rhs, lhs, node) {
     rhs = Pop();
     lhs = Pop();
-    node = DIFFER(t(lhs)) IDENT(t(lhs), 'E_CAT') lhs;
+    node = DIFFER(t(lhs)) IDENT(t(lhs), 'AST_CAT') lhs;
     if (DIFFER(node)) { Append(node, rhs); Push(node); } else {
-        node = tree('E_CAT', '');
+        node = tree('AST_CAT', '');
         Append(node, lhs);
         Append(node, rhs);
         Push(node);
@@ -1965,7 +1965,7 @@ Flatten_cat = (epsilon . *flatten_cat());
 // ARBNO fires the action reliably on each repetition.
 /*====================================================================================================================*/
 // NamedArgTail — key => val pairs for ClassName.new(k => v, ...).
-// Each pair pushes (E_QLIT key) then val onto the counter frame.
+// Each pair pushes (AST_QLIT key) then val onto the counter frame.
 // Defined before Expr11 (forward-ref rule).
 
 NamedArgTail = ( $','  $' ' ((ident_first (ident_rest | epsilon)) . capnamedkey) $'=>'  Push_named_key  *Expr  nInc() nInc() );
@@ -1994,7 +1994,7 @@ MethodName = ( fnf . capmf fnro . capmr );
 // MethodTail — postfix .method(args) or .field on any primary expression.
 // Fires against the primary already on the stack.  Two arms:
 //   with parens:  '.' MethodName '(' [args] ')' → raku_mcall node
-//   without parens: '.' MethodName               → E_FIELD node
+//   without parens: '.' MethodName               → AST_FIELD node
 // Defined before Expr11 (deferred *MethodTail reference).
 // No whitespace around '.' — Raku method-call syntax requires contiguous dot.
 
@@ -2040,7 +2040,7 @@ Expr11 = ( $'!'  *Expr11  Finish_not
          | VarCapture             Finish_capture
          | VarNamedCapture        Finish_named_capture
          | ( LitFloat . capstr     Finish_float )
-         | shift(LitInt, 'E_ILIT')
+         | shift(LitInt, 'AST_ILIT')
          | LitStrDQ               Dq_unescape  Push_interp_str
          | LitStrSQ               Push_qlit
          | ( nPush()
@@ -2056,7 +2056,7 @@ Expr11 = ( $'!'  *Expr11  Finish_not
            )
          | $'(' *Expr $')'
          | ( nPush()
-             shift(CallName, 'E_VAR')  nInc()
+             shift(CallName, 'AST_VAR')  nInc()
              $'('
              ( *Expr              nInc()
                ARBNO( *CallArgTail )
@@ -2070,28 +2070,28 @@ Expr11 = ( $'!'  *Expr11  Finish_not
          ARBNO(*MethodTail);
 
 // Expr7 — multiplicative (* /).
-// Flatten_mul / Flatten_div produce n-ary (E_MUL a b c) matching the C oracle.
+// Flatten_mul / Flatten_div produce n-ary (AST_MUL a b c) matching the C oracle.
 Expr7tail = FENCE( $'*'  *Expr11  Flatten_mul
                  | $'/'  *Expr11  Flatten_div
                  | $'div' *Expr11  Flatten_div
-                 | $'%'  *Expr11  (E_MOD & 2)
+                 | $'%'  *Expr11  (AST_MOD & 2)
                  );
 Expr7     = ( Expr11 ARBNO(Expr7tail) );
 
 // Expr6 — additive (+ -).
-// Flatten_add / Flatten_sub produce n-ary (E_ADD a b c) matching the C oracle.
+// Flatten_add / Flatten_sub produce n-ary (AST_ADD a b c) matching the C oracle.
 Expr6tail = FENCE( $'+'  *Expr7  Flatten_add
                  | $'-'  *Expr7  Flatten_sub
                  | $'~'  *Expr7  Flatten_cat
                  );
 Expr6     = ( Expr7  ARBNO(Expr6tail) );
 
-// Expr5 — range ops (.. and ..^).  Both map to E_TO (oracle: raku.y OP_RANGE_EX also → E_TO).
+// Expr5 — range ops (.. and ..^).  Both map to AST_TO (oracle: raku.y OP_RANGE_EX also → AST_TO).
 // Range is non-chaining (not ARBNO) — just a single optional tail.
 // ..^ tried first (longer token) so FENCE picks it before ...
 Expr5     = ( Expr6
-              FENCE( $'..^'  *Expr6  (E_TO & 2)
-                   | $'..'   *Expr6  (E_TO & 2)
+              FENCE( $'..^'  *Expr6  (AST_TO & 2)
+                   | $'..'   *Expr6  (AST_TO & 2)
                    | epsilon
                    )
             );
@@ -2099,14 +2099,14 @@ Expr5     = ( Expr6
 // Expr4 — comparison ops.  Two-char ops tried first (longest match).
 // ~~ smartmatch: subject ~~ /pattern/ — produces raku_match(subj, pat).
 // Smartmatch's RHS is a LitRegex (not arbitrary Expr) at the RK-5 starter slice.
-Expr4tail = FENCE( $'=='  *Expr5      (E_EQ & 2)
-                 | $'!='  *Expr5      (E_NE & 2)
-                 | $'<='  *Expr5      (E_LE & 2)
-                 | $'>='  *Expr5      (E_GE & 2)
-                 | $'<'   *Expr5      (E_LT & 2)
-                 | $'>'   *Expr5      (E_GT & 2)
-                 | $'eq'  *Expr5      (E_LEQ & 2)
-                 | $'ne'  *Expr5      (E_LNE & 2)
+Expr4tail = FENCE( $'=='  *Expr5      (AST_EQ & 2)
+                 | $'!='  *Expr5      (AST_NE & 2)
+                 | $'<='  *Expr5      (AST_LE & 2)
+                 | $'>='  *Expr5      (AST_GE & 2)
+                 | $'<'   *Expr5      (AST_LT & 2)
+                 | $'>'   *Expr5      (AST_GT & 2)
+                 | $'eq'  *Expr5      (AST_LEQ & 2)
+                 | $'ne'  *Expr5      (AST_LNE & 2)
                  | $'~~'  LitRegex Push_rxlit  Finish_smartmatch
                  | $'~~'  LitMatchGlobal Push_rxlit  Finish_match_global
                  | $'~~'  LitSubst       Finish_subst
@@ -2115,17 +2115,17 @@ Expr4     = ( Expr5  ARBNO(Expr4tail) );
 
 // Expr3 — logical ops (&& ||).
 // Mirrors raku.y cmp_expr: cmp_expr OP_AND add_expr / cmp_expr OP_OR add_expr.
-// && → E_SEQ (goal-directed and), || → E_ALT (goal-directed or).
+// && → AST_SEQ (goal-directed and), || → AST_ALT (goal-directed or).
 // && tried before || (no ambiguity but mirrors longest-match convention).
-Expr3tail = FENCE( $'&&'  *Expr4  (E_SEQ & 2)
-                 | $'||'  *Expr4  (E_ALT & 2)
+Expr3tail = FENCE( $'&&'  *Expr4  (AST_SEQ & 2)
+                 | $'||'  *Expr4  (AST_ALT & 2)
                  );
 Expr3     = ( Expr4  ARBNO(Expr3tail) );
 
 // Expr — top of expression tower.
 Expr      = Expr3;
 /*====================================================================================================================*/
-// Block — `{ BlockStmt* }` — produces E_SEQ_EXPR pushed on stack.
+// Block — `{ BlockStmt* }` — produces AST_SEQ_EXPR pushed on stack.
 /*====================================================================================================================*/
 BlockStmt = epsilon;
 
@@ -2135,7 +2135,7 @@ Block = ( $'{'
           nPush()
           ARBNO( Block_body )
           $'}'
-          (E_SEQ_EXPR & 'nTop()')
+          (AST_SEQ_EXPR & 'nTop()')
           nPop()
         );
 /*====================================================================================================================*/
@@ -2180,39 +2180,39 @@ GatherBlock = ( $'{'
 IfStmt = ( $'if'  $'(' Expr $')'
            Block
            ( $'elsif'  $'(' Expr $')'  Block
-             ( $'else'  Block  (E_IF & 3) (E_IF & 3)
-             | (E_IF & 2) (E_IF & 3)
+             ( $'else'  Block  (AST_IF & 3) (AST_IF & 3)
+             | (AST_IF & 2) (AST_IF & 3)
              )
-           | $'else'  Block  (E_IF & 3)
-           | (E_IF & 2)
+           | $'else'  Block  (AST_IF & 3)
+           | (AST_IF & 2)
            )
          );
 
 WhileStmt = ( $'while'  $'(' Expr $')'
               Block
-              (E_WHILE & 2)
+              (AST_WHILE & 2)
             );
 
 // UnlessStmt — unless (cond) block [else block].
-// Mirrors raku.y: (E_IF (E_NOT cond) then [else]).
+// Mirrors raku.y: (AST_IF (AST_NOT cond) then [else]).
 UnlessStmt = ( $'unless'  $'(' Expr $')'
                Finish_not
                Block
-               ( $'else'  Block  (E_IF & 3)
-               | (E_IF & 2)
+               ( $'else'  Block  (AST_IF & 3)
+               | (AST_IF & 2)
                )
              );
 
 // UntilStmt — until (cond) block.
-// Mirrors raku.y: (E_UNTIL cond body).
+// Mirrors raku.y: (AST_UNTIL cond body).
 UntilStmt = ( $'until'  $'(' Expr $')'
               Block
-              (E_UNTIL & 2)
+              (AST_UNTIL & 2)
             );
 
 // WithoutStmt — without (cond) block.
 // Mirrors Grammar.nqp `statement_control:sym<without>`.  No clean E_* kind;
-// placeholder lowering to (E_FNC raku_without (E_VAR raku_without) cond block).
+// placeholder lowering to (AST_FNC raku_without (AST_VAR raku_without) cond block).
 // Spec disallows trailing else/elsif/orwith — we accept the bare form only.
 WithoutStmt = ( $'without'  $'(' Expr $')'
                 Block
@@ -2221,7 +2221,7 @@ WithoutStmt = ( $'without'  $'(' Expr $')'
 
 // WheneverStmt — whenever EXPR { block }.
 // RK-28 arm 2: Grammar.nqp `statement_control:sym<whenever>` uses xblock
-// (no parens around expr).  Lower to (E_FNC raku_whenever expr block).
+// (no parens around expr).  Lower to (AST_FNC raku_whenever expr block).
 WheneverStmt = ( $'whenever' $'  ' *Expr Block Finish_whenever );
 
 // LoopThreeStmt — `loop (init; cond; step) { block }` C-style.
@@ -2234,9 +2234,9 @@ WheneverStmt = ( $'whenever' $'  ' *Expr Block Finish_whenever );
 // a plain Expr.  Raku's three-part loop allows assignments in init/step
 // positions; our top-level `Expr` does not include `=` (assignment is a
 // statement, not an expression).  The leading VarScalar/`=` arm folds to
-// (E_ASSIGN lhs rhs) on the stack — same shape as AssignStmt without the `;`.
+// (AST_ASSIGN lhs rhs) on the stack — same shape as AssignStmt without the `;`.
 // FENCE before Push_var to prevent match-time side-effect leak (RK-24 rule).
-LoopSubExpr = ( ( VarScalar FENCE $'=' Push_var Expr (E_ASSIGN & 2) )
+LoopSubExpr = ( ( VarScalar FENCE $'=' Push_var Expr (AST_ASSIGN & 2) )
               | Expr
               );
 
@@ -2254,7 +2254,7 @@ LoopInfStmt = ( $'loop' Block Finish_loop_inf );
 // Minimal parse-coverage form: keyword + module-name + `;`.  Args/versions
 // (e.g. `use v6;`, `use Foo :tag;`, `import Mod :sym<foo>`) parse but ignore
 // any trailing args: see `BREAK(';') $';'` consume-to-semi pattern.
-// Each lowers to (E_FNC raku_<kw> (E_VAR raku_<kw>) (E_QLIT modname)).
+// Each lowers to (AST_FNC raku_<kw> (AST_VAR raku_<kw>) (AST_QLIT modname)).
 UseStmt     = ( $'use'     $'  ' ModuleName BREAK(';') $';' Finish_use     );
 NoStmt      = ( $'no'      $'  ' ModuleName BREAK(';') $';' Finish_no      );
 NeedStmt    = ( $'need'    $'  ' ModuleName BREAK(';') $';' Finish_need    );
@@ -2272,7 +2272,7 @@ QuitStmt      = ( $'QUIT'    Block Finish_quit       );
 
 // RK-29 — statement_prefix:sym<...> grammar productions.
 // ─────────────────────────────────────────────────────────────────────────────
-// Block-only phasers (all-caps): PHASER { block } → placeholder E_FNC.
+// Block-only phasers (all-caps): PHASER { block } → placeholder AST_FNC.
 // All have the same shape: keyword Block Finish_phaser_<name>.
 // Spec source: Grammar.nqp lines 1394–1432.
 // ─────────────────────────────────────────────────────────────────────────────
@@ -2292,7 +2292,7 @@ PostStmt    = ( $'POST'    Block Finish_phaser_post   );
 CloseStmt   = ( $'CLOSE'   Block Finish_phaser_close  );
 TempStmt    = ( $'TEMP'    Block Finish_phaser_temp   );
 
-// Lowercase block-value phasers: keyword { block } → placeholder E_FNC.
+// Lowercase block-value phasers: keyword { block } → placeholder AST_FNC.
 DoBlockStmt  = ( $'do'      Block Finish_do_block );
 OnceStmt     = ( $'once'    Block Finish_once     );
 StartStmt    = ( $'start'   Block Finish_start    );
@@ -2300,7 +2300,7 @@ SupplyStmt   = ( $'supply'  Block Finish_supply   );
 ReactStmt    = ( $'react'   Block Finish_react    );
 QuietlyStmt  = ( $'quietly' Block Finish_quietly  );
 
-// List adverbs: keyword EXPR ; → placeholder E_FNC wrapping expression.
+// List adverbs: keyword EXPR ; → placeholder AST_FNC wrapping expression.
 RaceStmt    = ( $'race'  $'  ' *Expr $';' Finish_race  );
 HyperStmt   = ( $'hyper' $'  ' *Expr $';' Finish_hyper );
 LazyStmt    = ( $'lazy'  $'  ' *Expr $';' Finish_lazy  );
@@ -2336,48 +2336,48 @@ ForRangeStmt = ( $'for' $'  '
                  Block  Finish_for_range
                );
 
-// DeleteHashAngle — delete %hash<ident> ; → (E_FNC hash_delete ...)
+// DeleteHashAngle — delete %hash<ident> ; → (AST_FNC hash_delete ...)
 DeleteHashAngle = ( $'delete'  HashIdxVar  $'<'  HashAngleKey  $'>'  $';'
                     Finish_hash_delete_angle
                   );
 
-// DeleteHashBrace — delete %hash{$expr} ; → (E_FNC hash_delete ...)
+// DeleteHashBrace — delete %hash{$expr} ; → (AST_FNC hash_delete ...)
 DeleteHashBrace = ( $'delete'  HashIdxVar  $'{'  Expr  $'}'  $';'
                     Finish_hash_delete_brace
                   );
 
 ReturnStmt = ( $'return'
-               ( $';'         (E_RETURN & 0)
-               | $'  ' Expr   $';'  (E_RETURN & 1)
+               ( $';'         (AST_RETURN & 0)
+               | $'  ' Expr   $';'  (AST_RETURN & 1)
                )
              );
 
-// TakeStmt — `take expr ;` → (E_SUSPEND expr).  Body of gather { ... }
-// uses E_SUSPEND like a SNOBOL4-style coroutine yield; raku.y maps to
-// expr_unary(E_SUSPEND, expr).  Note: only meaningful inside a gather
+// TakeStmt — `take expr ;` → (AST_SUSPEND expr).  Body of gather { ... }
+// uses AST_SUSPEND like a SNOBOL4-style coroutine yield; raku.y maps to
+// expr_unary(AST_SUSPEND, expr).  Note: only meaningful inside a gather
 // block — the C frontend doesn't enforce that, neither do we.
-TakeStmt = ( $'take' $'  ' Expr $';' (E_SUSPEND & 1) );
+TakeStmt = ( $'take' $'  ' Expr $';' (AST_SUSPEND & 1) );
 
 // TypedDeclStmt — my Type $var = expr; / my Type $var;  (type annotation discarded)
 TypedDeclStmt = ( $'my' $'  '
                   $' ' ident_first (ident_rest | epsilon)
                   $'  '
                   ( ( VarScalar Push_var | VarArray Push_var | VarHash Push_var )
-                    $'=' *Expr $';'  (E_ASSIGN & 2)
+                    $'=' *Expr $';'  (AST_ASSIGN & 2)
                   | ( VarScalar Push_var | VarArray Push_var | VarHash Push_var )
-                    $';'             Push_empty  (E_ASSIGN & 2)
+                    $';'             Push_empty  (AST_ASSIGN & 2)
                   )
                 );
 
-// ReturnBareStmt — return ; → (E_RETURN) with no children.
-ReturnBareStmt = ( $'return' $';' (E_RETURN & 0) );
+// ReturnBareStmt — return ; → (AST_RETURN) with no children.
+ReturnBareStmt = ( $'return' $';' (AST_RETURN & 0) );
 
 AssignStmt = ( ($'my' $'  ' | epsilon)
                ( VarScalar  Push_var
                | VarArray   Push_var
                | VarHash    Push_var
                )
-               $'='  Expr  $';'  (E_ASSIGN & 2)
+               $'='  Expr  $';'  (AST_ASSIGN & 2)
              );
 
 SayStmt = ( $'say'
@@ -2388,7 +2388,7 @@ SayStmt = ( $'say'
 // Mirrors raku.y when_list item: expr block pair.
 WhenClause = ( $'when' $'  '
                Expr          // val pushed on stack by Expr
-               Block         // body (E_SEQ_EXPR) pushed by Block
+               Block         // body (AST_SEQ_EXPR) pushed by Block
                nInc()
              );
 
@@ -2421,7 +2421,7 @@ HashSetAngleStmt = ( VarHash Push_var $'<' HashAngleSetKey $'>' $'=' *Expr $';' 
 // HashSetBraceStmt — %h{expr} = expr → hash_set with expr key.
 HashSetBraceStmt = ( VarHash Push_var $'{' *Expr $'}' $'=' *Expr $';'  Finish_hash_set_brace );
 
-// FieldWriteStmt — $obj.field = expr → (E_ASSIGN (E_FIELD name obj) rhs).
+// FieldWriteStmt — $obj.field = expr → (AST_ASSIGN (AST_FIELD name obj) rhs).
 FieldWriteStmt = ( VarScalar Push_var '.' MethodName $'=' *Expr $';'  Finish_field_write );
 
 // SayFhStmt — say($fh, str) → raku_say_fh.
@@ -2448,13 +2448,13 @@ PrintFhStmt = ( $'print' $'('
 
 BareStmt = ( Expr $';' );
 
-// PrintStmt — print expr ; → (E_FNC writes (E_VAR writes) arg).
+// PrintStmt — print expr ; → (AST_FNC writes (AST_VAR writes) arg).
 // Mirrors raku.y KW_PRINT expr ';'.
 PrintStmt = ( $'print'
               Expr  $';'  Finish_print
             );
 
-// TryStmt — try block [CATCH block] → (E_FNC raku_try ...).
+// TryStmt — try block [CATCH block] → (AST_FNC raku_try ...).
 // Mirrors raku.y KW_TRY block [KW_CATCH block].
 TryStmt = ( $'try'
             Block
@@ -2464,11 +2464,11 @@ TryStmt = ( $'try'
             Finish_try
           );
 
-// RepeatStmt — repeat { body } → (E_REPEAT body).
-RepeatStmt = ( $'repeat' Block (E_REPEAT & 1) );
+// RepeatStmt — repeat { body } → (AST_REPEAT body).
+RepeatStmt = ( $'repeat' Block (AST_REPEAT & 1) );
 
-// ForNoArrowStmt — for expr { body } (no -> $var) → (E_EVERY (E_ITERATE expr) body).
-// Mirrors raku.y: KW_FOR expr block → expr_binary(E_EVERY, E_ITERATE(expr), block).
+// ForNoArrowStmt — for expr { body } (no -> $var) → (AST_EVERY (AST_ITERATE expr) body).
+// Mirrors raku.y: KW_FOR expr block → expr_binary(AST_EVERY, AST_ITERATE(expr), block).
 ForNoArrowStmt = ( $'for' $'  ' *Expr Block Finish_for_noarrow );
 
 Stmt = ( GivenStmt
@@ -2544,7 +2544,7 @@ BlockStmt = ( GivenStmt | TryStmt | CatchFreeStmt | ControlStmt | QuitStmt | IfS
 // SubBlockStmt — SubBlock_body handles nInc per stmt.
 SubBlockStmt = ( GivenStmt | TryStmt | CatchFreeStmt | ControlStmt | QuitStmt | IfStmt | WhileStmt | UnlessStmt | WithoutStmt | WheneverStmt | UntilStmt | RepeatStmt | LoopThreeStmt | LoopInfStmt | UseStmt | NoStmt | NeedStmt | ImportStmt | RequireStmt | ForeachStmt | ForRangeStmt | ForNoArrowStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ArrSetStmt | HashSetAngleStmt | HashSetBraceStmt | FieldWriteStmt | SayFhStmt | PrintFhStmt | TypedDeclStmt | ReturnBareStmt | ReturnStmt | TakeStmt | AssignStmt | SayStmt | PrintStmt | BareStmt | BeginStmt | EndStmt | InitStmt | CheckStmt | EnterStmt | LeaveStmt | KeepStmt | UndoStmt | FirstStmt | NextPhStmt | LastPhStmt | PreStmt | PostStmt | CloseStmt | TempStmt | DoBlockStmt | OnceStmt | StartStmt | SupplyStmt | ReactStmt | QuietlyStmt | RaceStmt | HyperStmt | LazyStmt | EagerStmt | SinkStmt );
 /*====================================================================================================================*/
-// Sub parameter list — each param shifts (E_VAR name) onto sub counter frame.
+// Sub parameter list — each param shifts (AST_VAR name) onto sub counter frame.
 /*====================================================================================================================*/
 SubParamTail = ( $','
                  SubParam  Push_param  nInc()
@@ -2566,10 +2566,10 @@ SubStmt = ( $'sub' $'  '
 // Class declarations — class Name { has $.f; method m(...) { body } }
 //
 // Counter frame layout (class body level):
-//   - each `has $.field;` → Push(E_VAR fieldname) + nInc()
-//   - each `method name(...) { body }` → Push(raw E_FNC) + nInc()
-// finish_class() processes all items: renames E_FNC to ClassName__method and
-// emits STMT into sub_list; appends E_VAR into E_RECORD; emits E_RECORD STMT.
+//   - each `has $.field;` → Push(AST_VAR fieldname) + nInc()
+//   - each `method name(...) { body }` → Push(raw AST_FNC) + nInc()
+// finish_class() processes all items: renames AST_FNC to ClassName__method and
+// emits STMT into sub_list; appends AST_VAR into AST_RECORD; emits AST_RECORD STMT.
 //
 // Method param list: reuses SubParamTail/SubParams (same $param syntax).
 // Method body: reuses SubBlock (SubBlockStmt, no extra nPush/nPop needed here
@@ -2649,7 +2649,7 @@ Src = '';
 while ((Line = INPUT)) Src = Src Line nl;
 
 // Predicate-context match: `if (Src ? Compiland)` instead of value-context
-// `ok = (Src ? Compiland)`.  The latter routes through E_SCAN's matched-
+// `ok = (Src ? Compiland)`.  The latter routes through AST_SCAN's matched-
 // substring extraction (interp_eval.c:3938) which reads g_last_match_subj
 // — under nested ARBNO + &FULLSCAN=1 those globals are unreliable.
 if (Src ? Compiland) {
@@ -2668,7 +2668,7 @@ if (Src ? Compiland) {
             TDump(sval(sl));
             sl = snext(sl);
         }
-        // Emit main STMT only if it has body stmts beyond the initial E_VAR main child.
+        // Emit main STMT only if it has body stmts beyond the initial AST_VAR main child.
         i = 1;
         n_kids = n(ptree);
         while (LE(i, n_kids)) {

@@ -1,17 +1,17 @@
-(STMT :subj (E_FNC main
-  (E_VAR main)
-  (E_ASSIGN
-    (E_VAR s)
-    (E_QLIT "hello world")
+(STMT :subj (AST_FNC main
+  (AST_VAR main)
+  (AST_ASSIGN
+    (AST_VAR s)
+    (AST_QLIT "hello world")
   )
-  (E_FNC write
-    (E_VAR write)
-    (E_FNC raku_mcall
-      (E_VAR raku_mcall)
-      (E_VAR s)
-      (E_QLIT "substr")
-      (E_ILIT 6)
-      (E_ILIT 5)
+  (AST_FNC write
+    (AST_VAR write)
+    (AST_FNC raku_mcall
+      (AST_VAR raku_mcall)
+      (AST_VAR s)
+      (AST_QLIT "substr")
+      (AST_ILIT 6)
+      (AST_ILIT 5)
     )
   )
 ))

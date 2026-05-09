@@ -1,20 +1,20 @@
-(STMT :subj (E_FNC main
-  (E_VAR main)
-  (E_CASE
-    (E_VAR x)
-    (E_ILIT 1)
-    (E_FNC
-      (E_VAR write)
-      (E_QLIT "one")
+(STMT :subj (AST_FNC main
+  (AST_VAR main)
+  (AST_CASE
+    (AST_VAR x)
+    (AST_ILIT 1)
+    (AST_FNC
+      (AST_VAR write)
+      (AST_QLIT "one")
     )
-    (E_ILIT 2)
-    (E_FNC
-      (E_VAR write)
-      (E_QLIT "two")
+    (AST_ILIT 2)
+    (AST_FNC
+      (AST_VAR write)
+      (AST_QLIT "two")
     )
-    (E_FNC
-      (E_VAR write)
-      (E_QLIT "other")
+    (AST_FNC
+      (AST_VAR write)
+      (AST_QLIT "other")
     )
   )
 ))

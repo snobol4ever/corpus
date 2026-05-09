@@ -1,4 +1,4 @@
-(STMT :subj (E_FNC dynamic (E_DIV
-    (E_FNC foo)
-    (E_ILIT 1)
+(STMT :subj (AST_FNC dynamic (AST_DIV
+    (AST_FNC foo)
+    (AST_ILIT 1)
   )))

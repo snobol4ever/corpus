@@ -1,7 +1,7 @@
-(STMT :subj (E_FNC main
-  (E_VAR main)
-  (E_AUGOP
-    (E_VAR x)
-    (E_QLIT "y")
+(STMT :subj (AST_FNC main
+  (AST_VAR main)
+  (AST_AUGOP
+    (AST_VAR x)
+    (AST_QLIT "y")
   )
 ))
