@@ -23,23 +23,18 @@
                         .section         .data
                         .align           8
 .Lchunk_registry:
-                        .quad            .Lstr_8
-                        .quad            .Lpc25
-                        .quad            .Lstr_11
-                        .quad            .Lpc30
-                        .quad            .Lstr_14
-                        .quad            .Lpc44
-                        .quad            .Lstr_17
-                        .quad            .Lpc51
-                        .quad            0 # sentinel
-                        .quad            0
+                        .quad            .Lstr_8          ; .quad            .Lpc25
+                        .quad            .Lstr_11         ; .quad            .Lpc30
+                        .quad            .Lstr_14         ; .quad            .Lpc44
+                        .quad            .Lstr_17         ; .quad            .Lpc51
+                        .quad            0                ; .quad            0
                         .text
                         .intel_syntax    noprefix
                         .globl           main
                         .type            main, @function
 main:                   push             rbp
                         mov              rbp, rsp
-                        lea              rdi, [rip + .Lchunk_registry] # EM-7d: register user-defined function expressions
+                        lea              rdi, [rip + .Lchunk_registry]
                         call             rt_register_expressions@PLT
                         call             rt_init@PLT # rt_init(argc, argv)
 # source-file: wordcount.sno  (13 lines)

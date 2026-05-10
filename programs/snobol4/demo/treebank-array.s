@@ -141,94 +141,50 @@
                         .section         .data
                         .align           8
 .Lchunk_registry:
-                        .quad            .Lstr_11
-                        .quad            .Lpc32
-                        .quad            .Lstr_18
-                        .quad            .Lpc63
-                        .quad            .Lstr_20
-                        .quad            .Lpc70
-                        .quad            .Lstr_24
-                        .quad            .Lpc98
-                        .quad            .Lstr_26
-                        .quad            .Lpc105
-                        .quad            .Lstr_31
-                        .quad            .Lpc145
-                        .quad            .Lstr_33
-                        .quad            .Lpc152
-                        .quad            .Lstr_36
-                        .quad            .Lpc170
-                        .quad            .Lstr_39
-                        .quad            .Lpc181
-                        .quad            .Lstr_41
-                        .quad            .Lpc206
-                        .quad            .Lstr_46
-                        .quad            .Lpc216
-                        .quad            .Lstr_49
-                        .quad            .Lpc227
-                        .quad            .Lstr_50
-                        .quad            .Lpc237
-                        .quad            .Lstr_52
-                        .quad            .Lpc247
-                        .quad            .Lstr_55
-                        .quad            .Lpc258
-                        .quad            .Lstr_56
-                        .quad            .Lpc268
-                        .quad            .Lstr_58
-                        .quad            .Lpc278
-                        .quad            .Lstr_61
-                        .quad            .Lpc289
-                        .quad            .Lstr_62
-                        .quad            .Lpc298
-                        .quad            .Lstr_64
-                        .quad            .Lpc306
-                        .quad            .Lstr_67
-                        .quad            .Lpc317
-                        .quad            .Lstr_68
-                        .quad            .Lpc327
-                        .quad            .Lstr_70
-                        .quad            .Lpc337
-                        .quad            .Lstr_72
-                        .quad            .Lpc344
-                        .quad            .Lstr_81
-                        .quad            .Lpc363
-                        .quad            .Lstr_86
-                        .quad            .Lpc384
-                        .quad            .Lstr_89
-                        .quad            .Lpc411
-                        .quad            .Lstr_90
-                        .quad            .Lpc418
-                        .quad            .Lstr_92
-                        .quad            .Lpc425
-                        .quad            .Lstr_98
-                        .quad            .Lpc450
-                        .quad            .Lstr_102
-                        .quad            .Lpc477
-                        .quad            .Lstr_105
-                        .quad            .Lpc502
-                        .quad            .Lstr_108
-                        .quad            .Lpc537
-                        .quad            .Lstr_109
-                        .quad            .Lpc553
-                        .quad            .Lstr_110
-                        .quad            .Lpc556
-                        .quad            .Lstr_112
-                        .quad            .Lpc563
-                        .quad            .Lstr_114
-                        .quad            .Lpc575
-                        .quad            .Lstr_124
-                        .quad            .Lpc636
-                        .quad            .Lstr_128
-                        .quad            .Lpc649
-                        .quad            .Lstr_130
-                        .quad            .Lpc659
-                        .quad            .Lstr_132
-                        .quad            .Lpc682
-                        .quad            .Lstr_134
-                        .quad            .Lpc692
-                        .quad            .Lstr_135
-                        .quad            .Lpc701
-                        .quad            0 # sentinel
-                        .quad            0
+                        .quad            .Lstr_11         ; .quad            .Lpc32
+                        .quad            .Lstr_18         ; .quad            .Lpc63
+                        .quad            .Lstr_20         ; .quad            .Lpc70
+                        .quad            .Lstr_24         ; .quad            .Lpc98
+                        .quad            .Lstr_26         ; .quad            .Lpc105
+                        .quad            .Lstr_31         ; .quad            .Lpc145
+                        .quad            .Lstr_33         ; .quad            .Lpc152
+                        .quad            .Lstr_36         ; .quad            .Lpc170
+                        .quad            .Lstr_39         ; .quad            .Lpc181
+                        .quad            .Lstr_41         ; .quad            .Lpc206
+                        .quad            .Lstr_46         ; .quad            .Lpc216
+                        .quad            .Lstr_49         ; .quad            .Lpc227
+                        .quad            .Lstr_50         ; .quad            .Lpc237
+                        .quad            .Lstr_52         ; .quad            .Lpc247
+                        .quad            .Lstr_55         ; .quad            .Lpc258
+                        .quad            .Lstr_56         ; .quad            .Lpc268
+                        .quad            .Lstr_58         ; .quad            .Lpc278
+                        .quad            .Lstr_61         ; .quad            .Lpc289
+                        .quad            .Lstr_62         ; .quad            .Lpc298
+                        .quad            .Lstr_64         ; .quad            .Lpc306
+                        .quad            .Lstr_67         ; .quad            .Lpc317
+                        .quad            .Lstr_68         ; .quad            .Lpc327
+                        .quad            .Lstr_70         ; .quad            .Lpc337
+                        .quad            .Lstr_72         ; .quad            .Lpc344
+                        .quad            .Lstr_81         ; .quad            .Lpc363
+                        .quad            .Lstr_86         ; .quad            .Lpc384
+                        .quad            .Lstr_89         ; .quad            .Lpc411
+                        .quad            .Lstr_90         ; .quad            .Lpc418
+                        .quad            .Lstr_92         ; .quad            .Lpc425
+                        .quad            .Lstr_98         ; .quad            .Lpc450
+                        .quad            .Lstr_102        ; .quad            .Lpc477
+                        .quad            .Lstr_105        ; .quad            .Lpc502
+                        .quad            .Lstr_108        ; .quad            .Lpc537
+                        .quad            .Lstr_109        ; .quad            .Lpc553
+                        .quad            .Lstr_110        ; .quad            .Lpc556
+                        .quad            .Lstr_112        ; .quad            .Lpc563
+                        .quad            .Lstr_114        ; .quad            .Lpc575
+                        .quad            .Lstr_124        ; .quad            .Lpc636
+                        .quad            .Lstr_128        ; .quad            .Lpc649
+                        .quad            .Lstr_130        ; .quad            .Lpc659
+                        .quad            .Lstr_132        ; .quad            .Lpc682
+                        .quad            .Lstr_134        ; .quad            .Lpc692
+                        .quad            .Lstr_135        ; .quad            .Lpc701
+                        .quad            0                ; .quad            0
                         .text
                         .intel_syntax    noprefix
                         .text
@@ -334,9 +290,9 @@ pat_inv_0_ω:
                         .type            main, @function
 main:                   push             rbp
                         mov              rbp, rsp
-                        lea              rdi, [rip + .Lchunk_registry] # EM-7d: register user-defined function expressions
+                        lea              rdi, [rip + .Lchunk_registry]
                         call             rt_register_expressions@PLT
-                        lea              rdi, [rip + .Lcap1_data] # cap fixup 0 (static): .Lcap1_data -> cap1_child_α
+                        lea              rdi, [rip + .Lcap1_data]
                         lea              rsi, [rip + cap1_child_α]
                         call             rt_patch_cap_fn@PLT
                         call             rt_init@PLT # rt_init(argc, argv)

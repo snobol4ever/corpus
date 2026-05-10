@@ -13,10 +13,8 @@
                         .section         .data
                         .align           8
 .Lchunk_registry:
-                        .quad            .Lstr_2
-                        .quad            .Lpc6
-                        .quad            0 # sentinel
-                        .quad            0
+                        .quad            .Lstr_2          ; .quad            .Lpc6
+                        .quad            0                ; .quad            0
                         .text
                         .intel_syntax    noprefix
                         .text
@@ -122,9 +120,9 @@ pat_inv_0_ω:
                         .type            main, @function
 main:                   push             rbp
                         mov              rbp, rsp
-                        lea              rdi, [rip + .Lchunk_registry] # EM-7d: register user-defined function expressions
+                        lea              rdi, [rip + .Lchunk_registry]
                         call             rt_register_expressions@PLT
-                        lea              rdi, [rip + .Lcap1_data] # cap fixup 0 (static): .Lcap1_data -> cap1_child_α
+                        lea              rdi, [rip + .Lcap1_data]
                         lea              rsi, [rip + cap1_child_α]
                         call             rt_patch_cap_fn@PLT
                         call             rt_init@PLT # rt_init(argc, argv)

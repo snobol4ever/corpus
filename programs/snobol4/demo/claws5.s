@@ -99,62 +99,34 @@
                         .section         .data
                         .align           8
 .Lchunk_registry:
-                        .quad            .Lstr_8
-                        .quad            .Lpc22
-                        .quad            .Lstr_16
-                        .quad            .Lpc37
-                        .quad            .Lstr_18
-                        .quad            .Lpc44
-                        .quad            .Lstr_23
-                        .quad            .Lpc83
-                        .quad            .Lstr_24
-                        .quad            .Lpc91
-                        .quad            .Lstr_25
-                        .quad            .Lpc101
-                        .quad            .Lstr_26
-                        .quad            .Lpc107
-                        .quad            .Lstr_28
-                        .quad            .Lpc114
-                        .quad            .Lstr_33
-                        .quad            .Lpc125
-                        .quad            .Lstr_34
-                        .quad            .Lpc146
-                        .quad            .Lstr_49
-                        .quad            .Lpc208
-                        .quad            .Lstr_56
-                        .quad            .Lpc252
-                        .quad            .Lstr_57
-                        .quad            .Lpc260
-                        .quad            .Lstr_61
-                        .quad            .Lpc275
-                        .quad            .Lstr_64
-                        .quad            .Lpc315
-                        .quad            .Lstr_66
-                        .quad            .Lpc330
-                        .quad            .Lstr_72
-                        .quad            .Lpc361
-                        .quad            .Lstr_73
-                        .quad            .Lpc374
-                        .quad            .Lstr_75
-                        .quad            .Lpc391
-                        .quad            .Lstr_76
-                        .quad            .Lpc401
-                        .quad            .Lstr_78
-                        .quad            .Lpc414
-                        .quad            .Lstr_80
-                        .quad            .Lpc421
-                        .quad            .Lstr_81
-                        .quad            .Lpc427
-                        .quad            .Lstr_82
-                        .quad            .Lpc429
-                        .quad            .Lstr_86
-                        .quad            .Lpc440
-                        .quad            .Lstr_91
-                        .quad            .Lpc502
-                        .quad            .Lstr_93
-                        .quad            .Lpc506
-                        .quad            0 # sentinel
-                        .quad            0
+                        .quad            .Lstr_8          ; .quad            .Lpc22
+                        .quad            .Lstr_16         ; .quad            .Lpc37
+                        .quad            .Lstr_18         ; .quad            .Lpc44
+                        .quad            .Lstr_23         ; .quad            .Lpc83
+                        .quad            .Lstr_24         ; .quad            .Lpc91
+                        .quad            .Lstr_25         ; .quad            .Lpc101
+                        .quad            .Lstr_26         ; .quad            .Lpc107
+                        .quad            .Lstr_28         ; .quad            .Lpc114
+                        .quad            .Lstr_33         ; .quad            .Lpc125
+                        .quad            .Lstr_34         ; .quad            .Lpc146
+                        .quad            .Lstr_49         ; .quad            .Lpc208
+                        .quad            .Lstr_56         ; .quad            .Lpc252
+                        .quad            .Lstr_57         ; .quad            .Lpc260
+                        .quad            .Lstr_61         ; .quad            .Lpc275
+                        .quad            .Lstr_64         ; .quad            .Lpc315
+                        .quad            .Lstr_66         ; .quad            .Lpc330
+                        .quad            .Lstr_72         ; .quad            .Lpc361
+                        .quad            .Lstr_73         ; .quad            .Lpc374
+                        .quad            .Lstr_75         ; .quad            .Lpc391
+                        .quad            .Lstr_76         ; .quad            .Lpc401
+                        .quad            .Lstr_78         ; .quad            .Lpc414
+                        .quad            .Lstr_80         ; .quad            .Lpc421
+                        .quad            .Lstr_81         ; .quad            .Lpc427
+                        .quad            .Lstr_82         ; .quad            .Lpc429
+                        .quad            .Lstr_86         ; .quad            .Lpc440
+                        .quad            .Lstr_91         ; .quad            .Lpc502
+                        .quad            .Lstr_93         ; .quad            .Lpc506
+                        .quad            0                ; .quad            0
                         .text
                         .intel_syntax    noprefix
                         .text
@@ -260,9 +232,9 @@ pat_inv_0_ω:
                         .type            main, @function
 main:                   push             rbp
                         mov              rbp, rsp
-                        lea              rdi, [rip + .Lchunk_registry] # EM-7d: register user-defined function expressions
+                        lea              rdi, [rip + .Lchunk_registry]
                         call             rt_register_expressions@PLT
-                        lea              rdi, [rip + .Lcap1_data] # cap fixup 0 (static): .Lcap1_data -> cap1_child_α
+                        lea              rdi, [rip + .Lcap1_data]
                         lea              rsi, [rip + cap1_child_α]
                         call             rt_patch_cap_fn@PLT
                         call             rt_init@PLT # rt_init(argc, argv)
