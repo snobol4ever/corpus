@@ -25,16 +25,16 @@
 pat_inv_0_α:            lea              r10, [rip + Δ]
                         cmp              esi, 0;                    je pat_inv_0_α_body; jmp pat_inv_0_β
 #-----------------------------------------------------------------------------------------------------------------------
-# BOX RPOS(0)  [xcat0_γ]
+#                       BOX RPOS(0)  [xcat0_γ]
 pat_inv_0_α_body:       RPOS_α           0, xcat0_γ, xcat0_ω # RPOS(0)
 xcat0_left_β:           RPOS_β           xcat0_ω
 #-----------------------------------------------------------------------------------------------------------------------
-# BOX CAP_COND  [pat_inv_0_γ]
+#                       BOX CAP_COND  [pat_inv_0_γ]
 xcat0_γ:                .globl           cap1_child_α
 cap1_child_α:           lea              r10, [rip + Δ]
                         cmp              esi, 0;                    je cap1_α_body; jmp cap1_β
 #-----------------------------------------------------------------------------------------------------------------------
-# BOX LEN(0)  [cap1_γ]
+#                       BOX LEN(0)  [cap1_γ]
 cap1_α_body:            lea              rdi, [rip + .Llen2_z]
                         mov              esi, 0
                         call             bb_len@PLT
