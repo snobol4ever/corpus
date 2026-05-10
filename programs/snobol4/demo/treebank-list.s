@@ -198,29 +198,14 @@ pat_inv_0_α_body:       POS_α            0, xcat0_γ, xcat0_ω # POS(0)
 xcat0_left_β:           POS_β            xcat0_ω
 # ----------------------------------------------------------------------------------------------------------------------
 # BOX CAP_COND  [pat_inv_0_γ]
-xcat0_γ:                .section         .data
-.Lcap1_vname:           .string          ""
-.Lcap1_data:            .quad            0
-                        .quad            0
-                        .long            0
-                        .long            0
-                        .long            0
-                        .long            0
-                        .quad            .Lcap1_vname
-                        .zero            56
-                        .zero            24
-                        .section         .text
-                        .intel_syntax    noprefix
-                        .globl           cap1_child_α
+# data: .Lcap1_vname, .Lcap1_data
+xcat0_γ:                .globl           cap1_child_α
 cap1_child_α:           lea              r10, [rip + Δ]
                         cmp              esi, 0;                    je cap1_α_body; jmp cap1_β
 # ----------------------------------------------------------------------------------------------------------------------
 # BOX LEN(0)  [cap1_γ]
-cap1_α_body:            .section         .data
-.Llen2_z:               .long            0
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Llen2_z]
+# data: .Llen2_z
+cap1_α_body:            lea              rdi, [rip + .Llen2_z]
                         mov              esi, 0
                         call             bb_len@PLT
                         test             rax, rax;                  jne cap1_γ; jmp cap1_ω
@@ -259,6 +244,19 @@ pat_inv_0_γ:            lea              rcx, [rip + Σ]
 pat_inv_0_ω:            mov              eax, 99
                         xor              edx, edx
                         ret
+                        .section         .data
+.Lcap1_vname:           .string          ""
+.Lcap1_data:            .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .long            0
+                        .quad            .Lcap1_vname
+                        .zero            56
+                        .zero            24
+.Llen2_z:               .long            0
+                        .section         .text
                         .intel_syntax    noprefix
                         .globl           main
                         .type            main, @function
