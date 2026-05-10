@@ -22,8 +22,7 @@
                         .text
                         .section         .data
                         .align           8
-.Lchunk_registry:
-                        .quad            .Lstr_8          ; .quad            .Lpc25
+.Lchunk_registry:       .quad            .Lstr_8          ; .quad            .Lpc25
                         .quad            .Lstr_11         ; .quad            .Lpc30
                         .quad            .Lstr_14         ; .quad            .Lpc44
                         .quad            .Lstr_17         ; .quad            .Lpc51
@@ -37,10 +36,6 @@ main:                   push             rbp
                         lea              rdi, [rip + .Lchunk_registry]
                         call             rt_register_expressions@PLT
                         call             rt_init@PLT # rt_init(argc, argv)
-# source-file: wordcount.sno  (13 lines)
-# Each statement appears below as a major banner ('====') above
-# the asm it produced.  Inline annotations on the right column
-# show the source-level object referenced by each macro call.
 # ======================================================================================================================
 # stmt 2  (line 5):        &TRIM    =  1
 # ======================================================================================================================

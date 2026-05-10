@@ -98,8 +98,7 @@
                         .text
                         .section         .data
                         .align           8
-.Lchunk_registry:
-                        .quad            .Lstr_8          ; .quad            .Lpc22
+.Lchunk_registry:       .quad            .Lstr_8          ; .quad            .Lpc22
                         .quad            .Lstr_16         ; .quad            .Lpc37
                         .quad            .Lstr_18         ; .quad            .Lpc44
                         .quad            .Lstr_23         ; .quad            .Lpc83
@@ -134,21 +133,15 @@
                         .global          pat_inv_0_β
                         .global          pat_inv_0_γ
                         .global          pat_inv_0_ω
-pat_inv_0_α:
-                        lea              r10, [rip + Δ]
+pat_inv_0_α:            lea              r10, [rip + Δ]
                         cmp              esi, 0
                         je               pat_inv_0_α_body
                         jmp              pat_inv_0_β
-pat_inv_0_α_body:
-                        POS_α           0, xcat0_γ, xcat0_ω
-xcat0_left_β:
-                        POS_β           xcat0_ω
-xcat0_γ:
-                        .section         .data
-.Lcap1_vname:
-                        .string          ""
-.Lcap1_data:
-                        .quad            0
+pat_inv_0_α_body:       POS_α            0, xcat0_γ, xcat0_ω
+xcat0_left_β:           POS_β            xcat0_ω
+xcat0_γ:                .section         .data
+.Lcap1_vname:           .string          ""
+.Lcap1_data:            .quad            0
                         .quad            0
                         .long            0
                         .long            0
@@ -160,15 +153,12 @@ xcat0_γ:
                         .section         .text
                         .intel_syntax    noprefix
                         .globl           cap1_child_α
-cap1_child_α:
-                        lea              r10, [rip + Δ]
+cap1_child_α:           lea              r10, [rip + Δ]
                         cmp              esi, 0
                         je               cap1_α_body
                         jmp              cap1_β
-cap1_α_body:
-                        .section         .data
-.Llen2_z:
-                        .long            0
+cap1_α_body:            .section         .data
+.Llen2_z:               .long            0
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Llen2_z]
@@ -177,23 +167,20 @@ cap1_α_body:
                         test             rax, rax
                         jne              cap1_γ
                         jmp              cap1_ω
-cap1_β:
-                        lea              rdi, [rip + .Llen2_z]
+cap1_β:                 lea              rdi, [rip + .Llen2_z]
                         mov              esi, 1
                         call             bb_len@PLT
                         test             rax, rax
                         jne              cap1_γ
                         jmp              cap1_ω
-cap1_γ:
-                        lea              rcx, [rip + Σ]
+cap1_γ:                 lea              rcx, [rip + Σ]
                         mov              rax, [rcx]
                         movsxd           rcx, dword ptr [r10]
                         lea              rax, [rax+rcx]
                         mov              rdx, rax
                         mov              eax, 1
                         ret
-cap1_ω:
-                        mov              eax, 99
+cap1_ω:                 mov              eax, 99
                         xor              edx, edx
                         ret
                         lea              rdi, [rip + .Lcap1_data]
@@ -202,29 +189,23 @@ cap1_ω:
                         test             rax, rax
                         jne              pat_inv_0_γ
                         jmp              xcat0_right_ω
-xcat0_right_β:
-                        lea              rdi, [rip + .Lcap1_data]
+xcat0_right_β:          lea              rdi, [rip + .Lcap1_data]
                         mov              esi, 1
                         call             bb_cap@PLT
                         test             rax, rax
                         jne              pat_inv_0_γ
                         jmp              xcat0_right_ω
-xcat0_right_ω:
-                        jmp              xcat0_left_β
-pat_inv_0_β:
-                        jmp              xcat0_right_β
-xcat0_ω:
-                        jmp              pat_inv_0_ω
-pat_inv_0_γ:
-                        lea              rcx, [rip + Σ]
+xcat0_right_ω:          jmp              xcat0_left_β
+pat_inv_0_β:            jmp              xcat0_right_β
+xcat0_ω:                jmp              pat_inv_0_ω
+pat_inv_0_γ:            lea              rcx, [rip + Σ]
                         mov              rax, [rcx]
                         movsxd           rcx, dword ptr [r10]
                         lea              rax, [rax+rcx]
                         mov              rdx, rax
                         mov              eax, 1
                         ret
-pat_inv_0_ω:
-                        mov              eax, 99
+pat_inv_0_ω:            mov              eax, 99
                         xor              edx, edx
                         ret
                         .intel_syntax    noprefix
@@ -238,10 +219,6 @@ main:                   push             rbp
                         lea              rsi, [rip + cap1_child_α]
                         call             rt_patch_cap_fn@PLT
                         call             rt_init@PLT # rt_init(argc, argv)
-# source-file: claws5.sno  (98 lines)
-# Each statement appears below as a major banner ('====') above
-# the asm it produced.  Inline annotations on the right column
-# show the source-level object referenced by each macro call.
 # ======================================================================================================================
 # stmt 1  (line 8):                  &ALPHABET       POS(10) LEN(1) . nl
 # ======================================================================================================================
