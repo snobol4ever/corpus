@@ -192,7 +192,7 @@
                         .global          pat_inv_0_ω
 pat_inv_0_α:            lea              r10, [rip + Δ]
                         cmp              esi, 0
-                                         je pat_inv_0_α_body; jmp pat_inv_0_β
+                        je               pat_inv_0_α_body;          jmp pat_inv_0_β
 # ----------------------------------------------------------------------------------------------------------------------
 # BOX POS(0)  [xcat0_γ]
 pat_inv_0_α_body:       POS_α            0, xcat0_γ, xcat0_ω # POS(0)
@@ -215,7 +215,7 @@ xcat0_γ:                .section         .data
                         .globl           cap1_child_α
 cap1_child_α:           lea              r10, [rip + Δ]
                         cmp              esi, 0
-                                         je cap1_α_body; jmp cap1_β
+                        je               cap1_α_body;               jmp cap1_β
 # ----------------------------------------------------------------------------------------------------------------------
 # BOX LEN(0)  [cap1_γ]
 cap1_α_body:            .section         .data
@@ -226,12 +226,12 @@ cap1_α_body:            .section         .data
                         mov              esi, 0
                         call             bb_len@PLT
                         test             rax, rax
-                                         jne cap1_γ; jmp cap1_ω
+                        jne              cap1_γ;                    jmp cap1_ω
 cap1_β:                 lea              rdi, [rip + .Llen2_z]
                         mov              esi, 1
                         call             bb_len@PLT
                         test             rax, rax
-                                         jne cap1_γ; jmp cap1_ω
+                        jne              cap1_γ;                    jmp cap1_ω
 cap1_γ:                 lea              rcx, [rip + Σ]
                         mov              rax, [rcx]
                         movsxd           rcx, dword ptr [r10]
@@ -246,15 +246,15 @@ cap1_ω:                 mov              eax, 99
                         mov              esi, 0
                         call             bb_cap@PLT
                         test             rax, rax
-                                         jne pat_inv_0_γ; jmp xcat0_right_ω
+                        jne              pat_inv_0_γ;               jmp xcat0_right_ω
 xcat0_right_β:          lea              rdi, [rip + .Lcap1_data]
                         mov              esi, 1
                         call             bb_cap@PLT
                         test             rax, rax
-                                         jne pat_inv_0_γ; jmp xcat0_right_ω
-xcat0_right_ω:                           jmp xcat0_left_β
-pat_inv_0_β:                             jmp xcat0_right_β
-xcat0_ω:                                 jmp pat_inv_0_ω
+                        jne              pat_inv_0_γ;               jmp xcat0_right_ω
+xcat0_right_ω:                                                      jmp xcat0_left_β
+pat_inv_0_β:                                                        jmp xcat0_right_β
+xcat0_ω:                                                            jmp pat_inv_0_ω
 pat_inv_0_γ:            lea              rcx, [rip + Σ]
                         mov              rax, [rcx]
                         movsxd           rcx, dword ptr [r10]
