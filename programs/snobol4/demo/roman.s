@@ -25,7 +25,7 @@ pat_inv_0_α:            lea              r10, [rip + Δ]
                         cmp              esi, 0
                         je               pat_inv_0_α_body
                         jmp              pat_inv_0_β
-pat_inv_0_α_body:       RPOS_α           0, xcat0_γ, xcat0_ω
+pat_inv_0_α_body:       RPOS_α           0, xcat0_γ, xcat0_ω # RPOS(0)
 xcat0_left_β:           RPOS_β           xcat0_ω
 xcat0_γ:                .section         .data
 .Lcap1_vname:           .string          ""
