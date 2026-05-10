@@ -214,7 +214,7 @@ with Intel label rules.
 | BB box helper | `bb_cap`, `bb_broker` | `support.function.broker.scrip` |
 | Pattern-blob root | `pat_inv_0:` | `entity.name.section.pattern.scrip` |
 | Greek box label | `cap1_α:`, `xcat0_left_β:` | `entity.name.label.box.scrip` |
-| ELF/PLT decoration | `@PLT`, `@function` | `invalid.illegal.{plt,elf-type}-decoration.scrip` *(ugly-red on purpose; visually noisy decorations should jump off the page)* |
+| ELF/PLT decoration | `@PLT`, `@function`, `@progbits`, `@object` | `support.other.elf-decoration.scrip` *(muted/grey on most themes — visible but not distracting)* |
 
 The `scrip-*` contexts are included at the **top** of `main:` so
 SCRIP-specific tokens win when they overlap with the Nasm base

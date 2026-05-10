@@ -169,14 +169,14 @@ contexts:
 
   scrip-mnemonics:
     # ELF/PLT decorations: `@PLT`, `@function`, `@progbits`, `@object`,
-    # `@notype`, etc.  Visually noisy but essential for understanding
-    # what's a libscrip_rt.so call vs an in-process branch, and what
-    # kind of section a given `.section` line is creating.  Painted
-    # `invalid.illegal` so any standard color scheme renders them on
-    # an ugly-red background — they JUMP off the page so the eye
-    # lands on the actual call target / section name instead.
+    # `@notype`, etc.  Visually noisy but informative — they tell the
+    # reader what's a libscrip_rt.so call (`@PLT`) vs an in-process
+    # branch, and what kind of ELF entity each `.section` / `.type`
+    # directive is creating.  Scoped `support.other` so themes paint
+    # them in the muted/grey palette typically used for support
+    # identifiers — visible but not distracting.
     - match: '@[A-Za-z_][A-Za-z0-9_]*\b'
-      scope: invalid.illegal.elf-decoration.scrip
+      scope: support.other.elf-decoration.scrip
 
     # SM virtual-machine opcodes (sm_macros.s).  These are the SNOBOL4
     # operational vocabulary at the SM level — they map roughly to
