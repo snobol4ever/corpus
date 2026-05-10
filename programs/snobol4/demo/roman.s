@@ -1,20 +1,26 @@
                         .include         "sm_macros.s"
                         .include         "bb_macros.s"
+#=======================================================================================================================
+# strings
                         .section         .rodata
-.Lstr_0:                .string          "ROMAN(N)UNITS"
-.Lstr_1:                .string          "DEFINE"
-.Lstr_2:                .string          "ROMAN"
-.Lstr_3:                .string          "UNITS"
-.Lstr_4:                .string          "N"
-.Lstr_5:                .string          ""
-.Lstr_6:                .string          ","
-.Lstr_7:                .string          "0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
+.S0:                    .string          "ROMAN(N)UNITS"
+.S1:                    .string          "DEFINE"
+.S2:                    .string          "ROMAN"
+.S3:                    .string          "UNITS"
+.S4:                    .string          "N"
+.S5:                    .string          ""
+.S6:                    .string          ","
+.S7:                    .string          "0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
                         .text
+#=======================================================================================================================
+# expression registry
                         .section         .data
                         .align           8
-.Lchunk_registry:       .quad            .Lstr_2          ; .quad            .Lpc6
+.Lchunk_registry:       .quad            .S2              ; .quad            .L6
                         .quad            0                ; .quad            0
                         .text
+#=======================================================================================================================
+# BB code
                         .intel_syntax    noprefix
                         .text
 #=======================================================================================================================
@@ -91,6 +97,8 @@ pat_inv_0_ω:            mov              eax, 99
                         .zero            24
 .Llen2_z:               .long            0
                         .section         .text
+#=======================================================================================================================
+# SM code
                         .intel_syntax    noprefix
                         .globl           main
                         .type            main, @function
@@ -105,26 +113,26 @@ main:                   push             rbp
 #=======================================================================================================================
 # stmt 2  (line 6):  	DEFINE('ROMAN(N)UNITS')		:(ROMAN_END)
 #=======================================================================================================================
-.Lpc0:                  STNO
-                        PUSH_STR         .Lstr_0, 0 # "ROMAN(N)UNITS"
-                        CALL_FN          .Lstr_1, 1 # DEFINE
+.L0:                    STNO
+                        PUSH_STR         .S0, 0 # "ROMAN(N)UNITS"
+                        CALL_FN          .S1, 1 # DEFINE
                         VOID_POP
-                        JUMP             .Lpc28
+                        JUMP             .L28
                         LABEL
 #=======================================================================================================================
 # stmt 4  (line 10):  ROMAN	N RPOS(1) LEN(1) . UNITS =	:F(RETURN)
 #=======================================================================================================================
-.Lpc6:                  STNO
+.L6:                    STNO
                         # PUSH_INT       baked  pat_inv_0 pc=7..12
                         # PAT_RPOS       baked  pat_inv_0 pc=7..12
                         # PUSH_INT       baked  pat_inv_0 pc=7..12
                         # PAT_LEN        baked  pat_inv_0 pc=7..12
                         # PAT_CAPTURE    baked  pat_inv_0 pc=7..12
                         # PAT_CAT        baked  pat_inv_0 pc=7..12
-                        PUSH_VAR         .Lstr_4 # N
-                        PUSH_STR         .Lstr_5, 0 # ""
+                        PUSH_VAR         .S4 # N
+                        PUSH_STR         .S5, 0 # ""
                         lea              rdi, [rip + pat_inv_0_α]
-                        lea              rsi, [rip + .Lstr_4]
+                        lea              rsi, [rip + .S4]
                         mov              edx, 1
                         call             rt_match_blob@PLT
                         RETURN_VARIANT   0, 2, 16 # SM_RETURN_F
@@ -132,17 +140,17 @@ main:                   push             rbp
 # stmt 6  (line 14):  	'0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,' UNITS
 #=======================================================================================================================
                         STNO
-                        PUSH_VAR         .Lstr_3 # UNITS
+                        PUSH_VAR         .S3 # UNITS
                         PAT_DEREF
-                        PUSH_STR         .Lstr_6, 0 # ","
+                        PUSH_STR         .S6, 0 # ","
                         PAT_BREAK
-                        PAT_CAPTURE      0, .Lstr_3 # UNITS kind=0
+                        PAT_CAPTURE      0, .S3 # UNITS kind=0
                         PAT_CAT
-                        PUSH_STR         .Lstr_7, 0 # "0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
+                        PUSH_STR         .S7, 0 # "0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
                         PUSH_INT         0
                         EXEC_STMT_VARIANT 0
                         RETURN_VARIANT   1, 2, 27 # SM_FRETURN_F
-.Lpc28:                 HALT
+.L28:                   HALT
 #-- epilogue -------------------------------------------
                         call             rt_finalize@PLT
                         pop              rbp
