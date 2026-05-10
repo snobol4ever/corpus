@@ -140,15 +140,13 @@ pat_inv_0_α:            lea              r10, [rip + Δ]
                         cmp              esi, 0
                         je               pat_inv_0_α_body
                         jmp              pat_inv_0_β
-pat_inv_0_α_body:
 # ----------------------------------------------------------------------------------------------------------------------
 # BOX POS(0)  [xcat0_γ]
-                        POS_α            0, xcat0_γ, xcat0_ω # POS(0)
+pat_inv_0_α_body:       POS_α            0, xcat0_γ, xcat0_ω # POS(0)
 xcat0_left_β:           POS_β            xcat0_ω
-xcat0_γ:
 # ----------------------------------------------------------------------------------------------------------------------
 # BOX CAP_COND  [pat_inv_0_γ]
-                        .section         .data
+xcat0_γ:                .section         .data
 .Lcap1_vname:           .string          ""
 .Lcap1_data:            .quad            0
                         .quad            0
@@ -166,10 +164,9 @@ cap1_child_α:           lea              r10, [rip + Δ]
                         cmp              esi, 0
                         je               cap1_α_body
                         jmp              cap1_β
-cap1_α_body:
 # ----------------------------------------------------------------------------------------------------------------------
 # BOX LEN(0)  [cap1_γ]
-                        .section         .data
+cap1_α_body:            .section         .data
 .Llen2_z:               .long            0
                         .section         .text
                         .intel_syntax    noprefix
