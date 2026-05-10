@@ -1,7 +1,6 @@
                         .include         "sm_macros.s"
                         .include         "bb_macros.s"
 #=======================================================================================================================
-# strings
                         .section         .rodata
 .S0:                    .string          "ROMAN(N)UNITS"
 .S1:                    .string          "DEFINE"
@@ -13,18 +12,14 @@
 .S7:                    .string          "0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
                         .text
 #=======================================================================================================================
-# expression registry
                         .section         .data
                         .align           8
 .Lexpression_registry:  .quad            .S2              ; .quad            .L6
                         .quad            0                ; .quad            0
                         .text
 #=======================================================================================================================
-# BB code
                         .intel_syntax    noprefix
                         .text
-#=======================================================================================================================
-# pattern pat_inv_0: RPOS(0) LEN(0) . <var>
 #=======================================================================================================================
                         .global          pat_inv_0_α
                         .global          pat_inv_0_β
@@ -38,13 +33,11 @@ pat_inv_0_α_body:       RPOS_α           0, xcat0_γ, xcat0_ω # RPOS(0)
 xcat0_left_β:           RPOS_β           xcat0_ω
 #-----------------------------------------------------------------------------------------------------------------------
 # BOX CAP_COND  [pat_inv_0_γ]
-# data: .Lcap1_vname, .Lcap1_data
 xcat0_γ:                .globl           cap1_child_α
 cap1_child_α:           lea              r10, [rip + Δ]
                         cmp              esi, 0;                    je cap1_α_body; jmp cap1_β
 #-----------------------------------------------------------------------------------------------------------------------
 # BOX LEN(0)  [cap1_γ]
-# data: .Llen2_z
 cap1_α_body:            lea              rdi, [rip + .Llen2_z]
                         mov              esi, 0
                         call             bb_len@PLT
@@ -98,7 +91,6 @@ pat_inv_0_ω:            mov              eax, 99
 .Llen2_z:               .long            0
                         .section         .text
 #=======================================================================================================================
-# SM code
                         .intel_syntax    noprefix
                         .globl           main
                         .type            main, @function
@@ -151,7 +143,6 @@ main:                   push             rbp
                         EXEC_STMT_VARIANT 0
                         RETURN_VARIANT   1, 2, 27 # SM_FRETURN_F
 .L28:                   HALT
-#-- epilogue -------------------------------------------
                         call             rt_finalize@PLT
                         pop              rbp
                         ret
