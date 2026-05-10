@@ -9,7 +9,7 @@
 # concepts on top — pattern boxes, SM virtual-machine opcodes,
 # runtime calls, statement banners.  Scope-name conventions follow
 # corpus/editor/sublime/SNOBOL4.sublime-syntax.
-name: SCRIP Assembly (SNOBOL4-flavored)
+name: SCRIP-x86 (SNOBOL4-flavored)
 file_extensions: [s, S]
 scope: source.asm.scrip
 
@@ -156,6 +156,16 @@ contexts:
         3: entity.name.label.target.uncond.scrip
 
   scrip-mnemonics:
+    # `@PLT` and `@function` ELF/PLT decoration — visually noisy but
+    # essential for understanding what's a libscrip_rt.so call vs an
+    # in-process branch.  Painted with `invalid.illegal` scope so any
+    # standard color scheme renders them on an ugly-red background,
+    # which is what we want — they should JUMP off the page.
+    - match: '@PLT\b'
+      scope: invalid.illegal.plt-decoration.scrip
+    - match: '@function\b'
+      scope: invalid.illegal.elf-type-decoration.scrip
+
     # SM virtual-machine opcodes (sm_macros.s).  These are the SNOBOL4
     # operational vocabulary at the SM level — they map roughly to
     # SNOBOL4 statement components.

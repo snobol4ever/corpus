@@ -11,8 +11,8 @@ vocabulary so a single color scheme renders them consistently.
 |-----------------------------------|----------------------------------------------------------|
 | `SNOBOL4.sublime-syntax`          | Syntax highlighting for SNOBOL4 (`source.sno`)           |
 | `Snocone.sublime-syntax`          | Syntax highlighting for Snocone  (`source.sc`)           |
-| `SCRIP-Assembly.sublime-syntax`   | Syntax highlighting for SCRIP-emitted `.s` (`source.asm.scrip`) |
-| `SCRIP-Assembly.LICENSE`          | MIT license for the upstream Nasm base layer             |
+| `SCRIP-x86.sublime-syntax`   | Syntax highlighting for SCRIP-emitted `.s` (`source.asm.scrip`) |
+| `SCRIP-x86.LICENSE`          | MIT license for the upstream Nasm base layer             |
 | `SNOBOL4.sublime-settings`        | Editor settings applied when SNOBOL4 syntax is active    |
 | `Snocone.sublime-settings`        | Editor settings applied when Snocone  syntax is active   |
 | `SNOBOL4.sublime-build`           | Build / run command for SNOBOL4 (Lon's local SPITBOL)    |
@@ -180,12 +180,12 @@ Any color scheme that targets the standard scope names (`keyword.*`,
 will style both dialects.  Built-in Sublime themes work; custom
 themes work; the choice is yours.
 
-## SCRIP-Assembly — emitted-asm overlay
+## SCRIP-x86 — emitted-asm overlay
 
-`SCRIP-Assembly.sublime-syntax` highlights the `.s` artifacts emitted
+`SCRIP-x86.sublime-syntax` highlights the `.s` artifacts emitted
 by `scrip --jit-emit --x64`.  The base layer is the upstream
 `13xforever/x86-assembly-textmate-bundle` Nasm/Intel-syntax x86_64
-highlighter (MIT-licensed; see `SCRIP-Assembly.LICENSE`); SCRIP-specific
+highlighter (MIT-licensed; see `SCRIP-x86.LICENSE`); SCRIP-specific
 contexts overlay SNOBOL4 concepts on top so reviewers can read pattern
 boxes, statement boundaries, runtime calls etc. as SNOBOL4 ideas
 rather than raw assembler.
@@ -214,6 +214,7 @@ with Intel label rules.
 | BB box helper | `bb_cap`, `bb_broker` | `support.function.broker.scrip` |
 | Pattern-blob root | `pat_inv_0:` | `entity.name.section.pattern.scrip` |
 | Greek box label | `cap1_α:`, `xcat0_left_β:` | `entity.name.label.box.scrip` |
+| ELF/PLT decoration | `@PLT`, `@function` | `invalid.illegal.{plt,elf-type}-decoration.scrip` *(ugly-red on purpose; visually noisy decorations should jump off the page)* |
 
 The `scrip-*` contexts are included at the **top** of `main:` so
 SCRIP-specific tokens win when they overlap with the Nasm base
@@ -239,7 +240,7 @@ Lon Cherryholmes (LCherryholmes / lcherryh@yahoo.com) wrote the
 SNOBOL4 syntax originally, refined over time as the engine matured.
 The Snocone syntax was derived from it during session 2026-05-04
 with Claude (Opus 4.7) as a side-project off the GOAL-REWRITE-SCRIP
-track.  The `SCRIP-Assembly.sublime-syntax` overlay was built session
+track.  The `SCRIP-x86.sublime-syntax` overlay was built session
 2026-05-10 with Claude (Opus 4.7) on top of the upstream
 `13xforever/x86-assembly-textmate-bundle` Nasm Intel-syntax highlighter
-(MIT-licensed; see `SCRIP-Assembly.LICENSE`).
+(MIT-licensed; see `SCRIP-x86.LICENSE`).
