@@ -154,7 +154,7 @@ main:                   push             rbp
 # the asm it produced.  Inline annotations on the right column
 # show the source-level object referenced by each macro call.
 # ======================================================================================================================
-# stmt 2  (line 2):  *	N must be positive and less than 4000
+# stmt 2  (line 6):  	DEFINE('ROMAN(N)UNITS')		:(ROMAN_END)
 # ======================================================================================================================
 .Lpc0:                  STNO
                         PUSH_STR         .Lstr_0, 0 # "ROMAN(N)UNITS"
@@ -180,7 +180,7 @@ main:                   push             rbp
                         call             rt_match_blob@PLT # EM-7c: Phase-3+5 against baked invariant blob
                         RETURN_VARIANT   0, 2, 16 # SM_RETURN_F
 # ======================================================================================================================
-# stmt 6  (line 6):  	DEFINE('ROMAN(N)UNITS')		:(ROMAN_END)
+# stmt 6  (line 14):  	'0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,' UNITS
 # ======================================================================================================================
                         STNO
                         PUSH_VAR         .Lstr_3 # UNITS
