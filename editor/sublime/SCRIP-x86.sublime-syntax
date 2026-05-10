@@ -129,42 +129,54 @@ contexts:
     # Triple-fusion shape from EM-FORMAT-BB-LAW-TRIPLE-FUSION:
     #   <cmp/test args>;  <cond_jmp tgt>; <uncond_jmp tgt>
     # The pair `<cond_jmp>; <uncond_jmp>` at column 3 is the
-    # branch/fallthrough decision point of every BB pattern-box
-    # arm — the most semantically loaded line in the artifact.
-    # Match the pair as a single unit so themes can paint it
-    # distinctively (e.g. yellow/orange) and the eye locks onto
-    # control-flow points fast.
+    # branch/fallthrough decision point of every BB pattern-box arm.
+    #
+    # Design choice:  do NOT give the goto-targets (column 4) a special
+    # scope.  Targets share `entity.name.label.box.scrip` with the
+    # labels being jumped to, so the eye can match `jmp cap1_ω` to the
+    # `cap1_ω:` label by color alone.  The semicolons that fuse the
+    # cmp/cond/uncond triple are scoped as fusion separators (NOT
+    # comments — which is the upstream Nasm default for `;`).
     #
     # Both forms covered:
     #   1) `; jne LBL1; jmp LBL2`  (after a cmp/test on the same line)
-    #   2) `        jne LBL1; jmp LBL2`  (rare standalone)
+    #   2) `        jmp LBL2`      (rare standalone after a `;`)
     - match: '(;)\s*(j(?:n?e|n?z|[lg]e?|n?[lg]e?|[a-z]+))\s+([\w$.αβγωΔΣ]+)\s*(;)\s*(jmp)\s+([\w$.αβγωΔΣ]+)'
       captures:
         1: punctuation.separator.fusion.scrip
         2: keyword.control.flow.cond-jmp.scrip
-        3: entity.name.label.target.cond.scrip
+        3: entity.name.label.box.scrip
         4: punctuation.separator.fusion.scrip
         5: keyword.control.flow.uncond-jmp.scrip
-        6: entity.name.label.target.uncond.scrip
+        6: entity.name.label.box.scrip
 
-    # Standalone uncond `jmp LBL` after a `;` (no preceding cond) —
-    # rarer but appears in some box exits.
+    # Standalone `; jmp LBL` (no preceding cond).
     - match: '(;)\s*(jmp)\s+([\w$.αβγωΔΣ]+)'
       captures:
         1: punctuation.separator.fusion.scrip
         2: keyword.control.flow.uncond-jmp.scrip
-        3: entity.name.label.target.uncond.scrip
+        3: entity.name.label.box.scrip
+
+    # NEUTRALIZE upstream Nasm `;`-as-comment.  Nasm uses `;` for
+    # comments-to-end-of-line, but in SCRIP-emitted asm `;` is a
+    # GAS *statement separator* — fusing instruction triples on a
+    # line.  Without this rule, every `;` would turn the rest of the
+    # line into a comment in Sublime, which is wildly wrong.
+    # Treat any orphan `;` (one not absorbed by the triple/uncond
+    # rules above) as a plain separator.
+    - match: ';'
+      scope: punctuation.separator.statement.scrip
 
   scrip-mnemonics:
-    # `@PLT` and `@function` ELF/PLT decoration — visually noisy but
-    # essential for understanding what's a libscrip_rt.so call vs an
-    # in-process branch.  Painted with `invalid.illegal` scope so any
-    # standard color scheme renders them on an ugly-red background,
-    # which is what we want — they should JUMP off the page.
-    - match: '@PLT\b'
-      scope: invalid.illegal.plt-decoration.scrip
-    - match: '@function\b'
-      scope: invalid.illegal.elf-type-decoration.scrip
+    # ELF/PLT decorations: `@PLT`, `@function`, `@progbits`, `@object`,
+    # `@notype`, etc.  Visually noisy but essential for understanding
+    # what's a libscrip_rt.so call vs an in-process branch, and what
+    # kind of section a given `.section` line is creating.  Painted
+    # `invalid.illegal` so any standard color scheme renders them on
+    # an ugly-red background — they JUMP off the page so the eye
+    # lands on the actual call target / section name instead.
+    - match: '@[A-Za-z_][A-Za-z0-9_]*\b'
+      scope: invalid.illegal.elf-decoration.scrip
 
     # SM virtual-machine opcodes (sm_macros.s).  These are the SNOBOL4
     # operational vocabulary at the SM level — they map roughly to
@@ -704,16 +716,23 @@ contexts:
       scope: variable.language.asm.x86_64
 
   comments:
-    # Patched for SCRIP/GAS .s files: original Nasm regex required `#` to be
-    # followed by whitespace. GAS treats `#` at column 0 as a comment regardless
-    # of what follows, and our emitter writes banners like `#====...` and
-    # `#----...` with no leading space. Accept either form.
-    - match: (?:(;)|(?:^)(#)|(?:\s)(#)\s).*$
+    # Patched for SCRIP/GAS .s files. Two changes from upstream Nasm:
+    #   1. Original regex required `#` to be followed by whitespace.
+    #      GAS treats `#` at column 0 as a comment regardless of what
+    #      follows; our emitter writes `#====...` and `#----...` with
+    #      no leading space.  Accept either form.
+    #   2. Removed the `;` alternative from the upstream rule.  Nasm
+    #      uses `;` as a comment-to-end-of-line, but in SCRIP-emitted
+    #      asm `;` is a GAS *statement separator* used for
+    #      EM-FORMAT-BB-LAW-TRIPLE-FUSION (cmp/test + cond_jmp +
+    #      uncond_jmp on one line).  scrip-jumpfuse handles the
+    #      semantic cases above; an orphan `;` falls through and
+    #      remains a plain separator.
+    - match: (?:(?:^)(#)|(?:\s)(#)\s).*$
       scope: comment.line.asm.x86_64
       captures:
         1: punctuation.definition.comment.asm.x86_64
         2: punctuation.definition.comment.asm.x86_64
-        3: punctuation.definition.comment.asm.x86_64
     - match: /\*
       scope: punctuation.definition.comment.asm.x86_64
       push:
