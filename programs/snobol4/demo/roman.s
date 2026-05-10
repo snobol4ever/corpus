@@ -28,22 +28,22 @@
                         .text
 # ======================================================================================================================
 # EM-7c: invariant pattern blobs (baked from sm_phase2_to_patnd → bb_build_flat_text)
-# Each block exposes _pat_inv_<id>_α / _β / _γ / _ω.
+# Each block exposes pat_inv_<id>_α / _β / _γ / _ω.
 # rt_match_blob(blob_α, ...) drives Phase-3 against these blobs.
 # ======================================================================================================================
                         .intel_syntax    noprefix
                         .text
 # ---- pattern blob 0 (Phase-2 window pc=7..12, SM_EXEC_STMT pc=15) ----
-                        .global          _pat_inv_0_α
-                        .global          _pat_inv_0_β
-                        .global          _pat_inv_0_γ
-                        .global          _pat_inv_0_ω
-_pat_inv_0_α:
+                        .global          pat_inv_0_α
+                        .global          pat_inv_0_β
+                        .global          pat_inv_0_γ
+                        .global          pat_inv_0_ω
+pat_inv_0_α:
                         lea              r10, [rip + Δ]
                         cmp              esi, 0
-                        je               _pat_inv_0_α_body
-                        jmp              _pat_inv_0_β
-_pat_inv_0_α_body:
+                        je               pat_inv_0_α_body
+                        jmp              pat_inv_0_β
+pat_inv_0_α_body:
                         RPOS_α          0, xcat0_γ, xcat0_ω
 xcat0_left_β:
                         RPOS_β          xcat0_ω
@@ -63,13 +63,13 @@ xcat0_γ:
                         .zero            24
                         .section         .text
                         .intel_syntax    noprefix
-                        .globl           _cap1_child_α
-_cap1_child_α:
+                        .globl           cap1_child_α
+cap1_child_α:
                         lea              r10, [rip + Δ]
                         cmp              esi, 0
-                        je               _cap1_α_body
-                        jmp              _cap1_β
-_cap1_α_body:
+                        je               cap1_α_body
+                        jmp              cap1_β
+cap1_α_body:
                         .section         .data
 .Llen2_z:
                         .long            0
@@ -79,16 +79,16 @@ _cap1_α_body:
                         mov              esi, 0
                         call             bb_len@PLT
                         test             rax, rax
-                        jne              _cap1_γ
-                        jmp              _cap1_ω
-_cap1_β:
+                        jne              cap1_γ
+                        jmp              cap1_ω
+cap1_β:
                         lea              rdi, [rip + .Llen2_z]
                         mov              esi, 1
                         call             bb_len@PLT
                         test             rax, rax
-                        jne              _cap1_γ
-                        jmp              _cap1_ω
-_cap1_γ:
+                        jne              cap1_γ
+                        jmp              cap1_ω
+cap1_γ:
                         lea              rcx, [rip + Σ]
                         mov              rax, [rcx]
                         movsxd           rcx, dword ptr [r10]
@@ -96,7 +96,7 @@ _cap1_γ:
                         mov              rdx, rax
                         mov              eax, 1
                         ret
-_cap1_ω:
+cap1_ω:
                         mov              eax, 99
                         xor              edx, edx
                         ret
@@ -104,22 +104,22 @@ _cap1_ω:
                         mov              esi, 0
                         call             bb_cap@PLT
                         test             rax, rax
-                        jne              _pat_inv_0_γ
+                        jne              pat_inv_0_γ
                         jmp              xcat0_right_ω
 xcat0_right_β:
                         lea              rdi, [rip + .Lcap1_data]
                         mov              esi, 1
                         call             bb_cap@PLT
                         test             rax, rax
-                        jne              _pat_inv_0_γ
+                        jne              pat_inv_0_γ
                         jmp              xcat0_right_ω
 xcat0_right_ω:
                         jmp              xcat0_left_β
-_pat_inv_0_β:
+pat_inv_0_β:
                         jmp              xcat0_right_β
 xcat0_ω:
-                        jmp              _pat_inv_0_ω
-_pat_inv_0_γ:
+                        jmp              pat_inv_0_ω
+pat_inv_0_γ:
                         lea              rcx, [rip + Σ]
                         mov              rax, [rcx]
                         movsxd           rcx, dword ptr [r10]
@@ -127,7 +127,7 @@ _pat_inv_0_γ:
                         mov              rdx, rax
                         mov              eax, 1
                         ret
-_pat_inv_0_ω:
+pat_inv_0_ω:
                         mov              eax, 99
                         xor              edx, edx
                         ret
@@ -145,8 +145,8 @@ main:                   push             rbp
                         mov              rbp, rsp
                         lea              rdi, [rip + .Lchunk_registry] # EM-7d: register user-defined function expressions
                         call             rt_register_expressions@PLT
-                        lea              rdi, [rip + .Lcap1_data] # cap fixup 0 (static): .Lcap1_data -> _cap1_child_α
-                        lea              rsi, [rip + _cap1_child_α]
+                        lea              rdi, [rip + .Lcap1_data] # cap fixup 0 (static): .Lcap1_data -> cap1_child_α
+                        lea              rsi, [rip + cap1_child_α]
                         call             rt_patch_cap_fn@PLT
                         call             rt_init@PLT # rt_init(argc, argv)
 # source-file: roman.sno  (36 lines)
@@ -157,42 +157,42 @@ main:                   push             rbp
 # stmt 2  (line 2):  *	N must be positive and less than 4000
 # ======================================================================================================================
 .Lpc0:                  STNO
-.Lpc1:                  PUSH_STR         .Lstr_0, 0 # "ROMAN(N)UNITS"
-.Lpc2:                  CALL_FN          .Lstr_1, 1 # DEFINE
-.Lpc3:                  VOID_POP
-.Lpc4:                  JUMP             .Lpc28
-.Lpc5:                  LABEL
+                        PUSH_STR         .Lstr_0, 0 # "ROMAN(N)UNITS"
+                        CALL_FN          .Lstr_1, 1 # DEFINE
+                        VOID_POP
+                        JUMP             .Lpc28
+                        LABEL
 # ======================================================================================================================
 # stmt 4  (line 10):  ROMAN	N RPOS(1) LEN(1) . UNITS =	:F(RETURN)
 # ======================================================================================================================
 .Lpc6:                  STNO
-.Lpc7:                  # PUSH_INT       baked  _pat_inv_0 pc=7..12
-.Lpc8:                  # PAT_RPOS       baked  _pat_inv_0 pc=7..12
-.Lpc9:                  # PUSH_INT       baked  _pat_inv_0 pc=7..12
-.Lpc10:                 # PAT_LEN        baked  _pat_inv_0 pc=7..12
-.Lpc11:                 # PAT_CAPTURE    baked  _pat_inv_0 pc=7..12
-.Lpc12:                 # PAT_CAT        baked  _pat_inv_0 pc=7..12
-.Lpc13:                 PUSH_VAR         .Lstr_4 # N
-.Lpc14:                 PUSH_STR         .Lstr_5, 0 # ""
-.Lpc15:                 lea              rdi, [rip + _pat_inv_0_α] # blob entry α  (Phase-2 pc=7..12)
+                        # PUSH_INT       baked  pat_inv_0 pc=7..12
+                        # PAT_RPOS       baked  pat_inv_0 pc=7..12
+                        # PUSH_INT       baked  pat_inv_0 pc=7..12
+                        # PAT_LEN        baked  pat_inv_0 pc=7..12
+                        # PAT_CAPTURE    baked  pat_inv_0 pc=7..12
+                        # PAT_CAT        baked  pat_inv_0 pc=7..12
+                        PUSH_VAR         .Lstr_4 # N
+                        PUSH_STR         .Lstr_5, 0 # ""
+                        lea              rdi, [rip + pat_inv_0_α] # blob entry α  (Phase-2 pc=7..12)
                         lea              rsi, [rip + .Lstr_4] # subj_name=N
                         mov              edx, 1 # has_repl=1
                         call             rt_match_blob@PLT # EM-7c: Phase-3+5 against baked invariant blob
-.Lpc16:                 RETURN_VARIANT   0, 2, 16 # SM_RETURN_F
+                        RETURN_VARIANT   0, 2, 16 # SM_RETURN_F
 # ======================================================================================================================
 # stmt 6  (line 6):  	DEFINE('ROMAN(N)UNITS')		:(ROMAN_END)
 # ======================================================================================================================
-.Lpc17:                 STNO
-.Lpc18:                 PUSH_VAR         .Lstr_3 # UNITS
-.Lpc19:                 PAT_DEREF
-.Lpc20:                 PUSH_STR         .Lstr_6, 0 # ","
-.Lpc21:                 PAT_BREAK
-.Lpc22:                 PAT_CAPTURE      0, .Lstr_3 # UNITS kind=0
-.Lpc23:                 PAT_CAT
-.Lpc24:                 PUSH_STR         .Lstr_7, 0 # "0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
-.Lpc25:                 PUSH_INT         0
-.Lpc26:                 EXEC_STMT_VARIANT 0
-.Lpc27:                 RETURN_VARIANT   1, 2, 27 # SM_FRETURN_F
+                        STNO
+                        PUSH_VAR         .Lstr_3 # UNITS
+                        PAT_DEREF
+                        PUSH_STR         .Lstr_6, 0 # ","
+                        PAT_BREAK
+                        PAT_CAPTURE      0, .Lstr_3 # UNITS kind=0
+                        PAT_CAT
+                        PUSH_STR         .Lstr_7, 0 # "0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
+                        PUSH_INT         0
+                        EXEC_STMT_VARIANT 0
+                        RETURN_VARIANT   1, 2, 27 # SM_FRETURN_F
 .Lpc28:                 HALT
 # -- epilogue -------------------------------------------
                         call             rt_finalize@PLT

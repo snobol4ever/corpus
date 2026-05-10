@@ -68,12 +68,12 @@
                         test             eax, eax
                         jz               \tgt
                         .endm
-                        .macro           PUSH_CHUNK entry, arity
+                        .macro           PUSH_EXPRESSION entry, arity
                         movabs           rdi, \entry
                         mov              esi, \arity
                         call             rt_push_expression_descr@PLT
                         .endm
-                        .macro           CALL_CHUNK tgt
+                        .macro           CALL_EXPRESSION tgt
                         call             \tgt
                         .endm
                         .macro           RETURN
