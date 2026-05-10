@@ -1,9 +1,9 @@
-# Sublime Text syntax files for SNOBOL4 and Snocone
+# Sublime Text syntax files for SNOBOL4, Snocone, and SCRIP
 
 This directory contains a complete Sublime Text editing setup for
-SNOBOL4 (`.sno`, `.spt`, `.inc`) and Snocone (`.sc`).  Both dialects
-share the same scope vocabulary so a single color scheme renders them
-consistently.
+SNOBOL4 (`.sno`, `.spt`, `.inc`), Snocone (`.sc`), and SCRIP-emitted
+x86_64 assembly (`.s`, `.S`).  All three share the same scope
+vocabulary so a single color scheme renders them consistently.
 
 ## Files
 
@@ -11,6 +11,8 @@ consistently.
 |-----------------------------------|----------------------------------------------------------|
 | `SNOBOL4.sublime-syntax`          | Syntax highlighting for SNOBOL4 (`source.sno`)           |
 | `Snocone.sublime-syntax`          | Syntax highlighting for Snocone  (`source.sc`)           |
+| `SCRIP-Assembly.sublime-syntax`   | Syntax highlighting for SCRIP-emitted `.s` (`source.asm.scrip`) |
+| `SCRIP-Assembly.LICENSE`          | MIT license for the upstream Nasm base layer             |
 | `SNOBOL4.sublime-settings`        | Editor settings applied when SNOBOL4 syntax is active    |
 | `Snocone.sublime-settings`        | Editor settings applied when Snocone  syntax is active   |
 | `SNOBOL4.sublime-build`           | Build / run command for SNOBOL4 (Lon's local SPITBOL)    |
@@ -178,10 +180,66 @@ Any color scheme that targets the standard scope names (`keyword.*`,
 will style both dialects.  Built-in Sublime themes work; custom
 themes work; the choice is yours.
 
+## SCRIP-Assembly — emitted-asm overlay
+
+`SCRIP-Assembly.sublime-syntax` highlights the `.s` artifacts emitted
+by `scrip --jit-emit --x64`.  The base layer is the upstream
+`13xforever/x86-assembly-textmate-bundle` Nasm/Intel-syntax x86_64
+highlighter (MIT-licensed; see `SCRIP-Assembly.LICENSE`); SCRIP-specific
+contexts overlay SNOBOL4 concepts on top so reviewers can read pattern
+boxes, statement boundaries, runtime calls etc. as SNOBOL4 ideas
+rather than raw assembler.
+
+**Why Intel, not AT&T:** the emitter writes Intel via
+`.intel_syntax noprefix` (`mov rax, [rcx]`, no `%`/`$` sigils,
+dest-then-source).  Intel's dest-then-source matches SNOBOL4's `X = Y`
+direction; Greek-suffix labels (`α β γ ω Δ Σ`) interact more cleanly
+with Intel label rules.
+
+**SCRIP-specific scopes** (overlay contexts `scrip-banners`,
+`scrip-jumpfuse`, `scrip-mnemonics`, `scrip-labels`):
+
+| Category | Examples in `.s` | Scope |
+|---|---|---|
+| Statement banner | `# stmt 2 (line 6): DEFINE(...)` | `comment.line.banner.stmt.scrip` |
+| Pattern banner | `# pattern pat_inv_0: RPOS(0) LEN(0)` | `comment.line.banner.pattern.scrip` |
+| Per-box banner | `# BOX RPOS(0) [xcat0_γ]` | `comment.line.banner.box.scrip` |
+| Data annotation | `# data: .Lcap1_vname, ...` | `comment.line.banner.data-annotation.scrip` |
+| Rule banner | `#====...` `#----...` (120 cols) | `comment.line.banner.rule.scrip` |
+| Triple-fusion jump | `; jne LBL1; jmp LBL2` | `keyword.control.flow.cond-jmp.scrip` + `keyword.control.flow.uncond-jmp.scrip` (with target labels scoped `entity.name.label.target.{cond,uncond}.scrip` so themes can paint the branch/fallthrough decision distinctively) |
+| SM virtual-machine opcode | `PUSH_INT`, `CONCAT`, `RETURN` | `keyword.control.sm-opcode.scrip` |
+| Pattern opcode | `PAT_ANY`, `PAT_LEN`, `PAT_RPOS` | `support.function.pattern.scrip` *(mirrors `.sno` `pattern_function`)* |
+| BB broker primitive | `EPS_α`, `RPOS_β`, `FAIL_α` | `support.function.broker.scrip` |
+| Runtime call | `rt_init`, `rt_match_blob` | `support.function.runtime.scrip` |
+| BB box helper | `bb_cap`, `bb_broker` | `support.function.broker.scrip` |
+| Pattern-blob root | `pat_inv_0:` | `entity.name.section.pattern.scrip` |
+| Greek box label | `cap1_α:`, `xcat0_left_β:` | `entity.name.label.box.scrip` |
+
+The `scrip-*` contexts are included at the **top** of `main:` so
+SCRIP-specific tokens win when they overlap with the Nasm base
+(e.g. `RETURN` is the SM opcode macro, not a generic Nasm identifier).
+
+The scope-name conventions parallel SNOBOL4 / Snocone:
+`support.function.pattern.scrip` mirrors `support.function.sno` for
+pattern functions; `keyword.control.sm-opcode.scrip` is a sibling of
+`keyword.control.sno` / `keyword.control.sc`;
+`entity.name.section.pattern.scrip` and `entity.name.label.box.scrip`
+parallel `entity.name.function.sno`.  Generic identifiers (registers
+like `rax`, names like `Δ`) fall through to default text color.
+
+**Comment-rule patch:** the upstream Nasm regex required `#` to be
+followed by whitespace.  SCRIP's `EM-FORMAT-BANNER-COLLAPSE-SPACE`
+rung writes `#====...` and `#----...` with no leading space, so the
+patched rule treats any `#` at column 0 as a line comment, matching
+how GAS itself parses these files.
+
 ## Authors
 
 Lon Cherryholmes (LCherryholmes / lcherryh@yahoo.com) wrote the
 SNOBOL4 syntax originally, refined over time as the engine matured.
 The Snocone syntax was derived from it during session 2026-05-04
 with Claude (Opus 4.7) as a side-project off the GOAL-REWRITE-SCRIP
-track.
+track.  The `SCRIP-Assembly.sublime-syntax` overlay was built session
+2026-05-10 with Claude (Opus 4.7) on top of the upstream
+`13xforever/x86-assembly-textmate-bundle` Nasm Intel-syntax highlighter
+(MIT-licensed; see `SCRIP-Assembly.LICENSE`).
