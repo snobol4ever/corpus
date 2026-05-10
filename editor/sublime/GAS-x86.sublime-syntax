@@ -1,0 +1,467 @@
+%YAML 1.2
+---
+# GAS-x86.sublime-syntax — GNU `as` (GAS) Intel-syntax x86_64 assembly.
+#
+# Authored from scratch for the snobol4ever / SCRIP project per
+# .github/GOAL-MODE4-EMIT.md rung EM-FORMAT-SUBLIME-GAS-INTEL.  This is
+# a stand-alone GAS highlighter — NOT built on a Nasm base.  Owns scope
+# `source.asm.gas`.
+#
+# Key GAS-vs-Nasm differences this file gets right:
+#   - `;` is a STATEMENT SEPARATOR on x86 GAS, not a comment.  Multiple
+#     statements may share one source line.  Fundamental to SCRIP's
+#     triple-fusion shape `cmp ... ; jne label ; jmp label`.
+#   - `#` at column 0 is a line comment; `#` after whitespace is also
+#     a line comment (the GNU line-comment chr on x86); `/* ... */`
+#     blocks span lines.
+#   - Directives begin with `.` and form a fixed vocabulary.
+#   - `.macro NAME args ... .endm` is a structured block; `\arg` inside
+#     a macro body references the parameter.
+#   - Intel-syntax addressing: `[rip + label]`, `[rax + rbx*4 + 8]`,
+#     size hints `byte ptr` / `word ptr` / `dword ptr` / `qword ptr`.
+#   - ELF symbol decorations are a family: `@PLT`, `@GOT`, `@GOTPCREL`,
+#     `@function`, `@object`, `@progbits`, `@nobits`, `@notype`, etc.
+#
+# Scope-name conventions follow corpus/editor/sublime/SNOBOL4.sublime-syntax
+# and Snocone.sublime-syntax: lowercase, dotted, `.gas` suffix.
+name: GAS-x86 (GNU Assembler, Intel syntax)
+file_extensions: [s, S, asm]
+scope: source.asm.gas
+
+variables:
+  # Identifier rules per GAS: leading [A-Za-z_.$], body adds digits.
+  # We also include the Greek letters α β γ ω Δ Σ — these aren't
+  # standard GAS identifiers, but they're what SCRIP emits for BB
+  # pattern-box ports.  Including them in the base GAS file's ident
+  # regex makes the base a strict superset of the dialect actually
+  # being highlighted (no down-side for plain GAS, full coverage for
+  # SCRIP-emitted GAS).  The SCRIP overlay layer paints them with a
+  # more specific scope.
+  ident_head:  '[A-Za-z_.$αβγωΔΣ]'
+  ident_body:  '[A-Za-z_.$0-9αβγωΔΣ]'
+  ident:       '{{ident_head}}{{ident_body}}*'
+  # Numbers
+  num_dec:     '[0-9]+'
+  num_hex:     '0[xX][0-9A-Fa-f]+'
+  num_oct:     '0[0-7]*'
+  num_bin:     '0[bB][01]+'
+  # Intel-syntax size hints
+  size_hint:   '(?:byte|word|dword|qword|tbyte|oword|xmmword|ymmword|zmmword)\s+ptr'
+
+contexts:
+  prototype:
+    - include: comments
+
+  main:
+    - include: line-statement
+
+  # ---------------------------------------------------------------
+  # A line is a sequence of statements separated by `;`.  Each
+  # statement is one of: a label, a directive, an instruction.
+  # The LINE-LEVEL contexts below recognise label-prefix shapes
+  # (LABEL: at line start) before falling through to statement.
+  # ---------------------------------------------------------------
+  line-statement:
+    # Label at start of line, optionally followed by content on same line.
+    - match: '^(\s*)({{ident}})(:)'
+      captures:
+        1: punctuation.whitespace.leading.gas
+        2: entity.name.label.gas
+        3: punctuation.separator.label.gas
+      push: statement-tail
+
+    # No leading label — go straight to statement contents.
+    - match: '^'
+      push: statement-tail
+
+  # statement-tail: everything after an optional leading label.
+  # Multiple statements may follow, separated by `;`.
+  statement-tail:
+    - match: '$'
+      pop: true
+    - match: ';'
+      scope: punctuation.separator.statement.gas
+    - include: statement-content
+
+  statement-content:
+    # Order matters.
+    #
+    # 1. `macro-block` — opens `.macro/.endm` block scope before the
+    #    bare `.macro` directive could match standalone.
+    # 2. `local-labels` — claims `.L*`-prefix references BEFORE the
+    #    directive catch-all sees them as `.L<something>` directives.
+    # 3. `directives` — `.section`, `.string`, `.quad`, …
+    # 4. `size-hints` — `dword ptr` BEFORE `dword` could match as ident.
+    # 5. `instructions` — mnemonics.
+    # 6. `registers` — register names.
+    # 7. `elf-decorations` — `@PLT`, `@function`, …
+    # 8. `numbers` / `strings` / `operators`.
+    # 9. `plain-labels` — anything left that has identifier shape is
+    #    a symbol reference.  Painted with the same scope as the
+    #    label-at-line-start rule, so a `jmp foo` operand and the
+    #    `foo:` label it targets share their colour.
+    - include: macro-block
+    - include: local-labels
+    - include: directives
+    - include: size-hints
+    - include: instructions
+    - include: registers
+    - include: elf-decorations
+    - include: numbers
+    - include: strings
+    - include: operators
+    - include: plain-labels
+
+  # ---------------------------------------------------------------
+  # Comments: `#` line comment (any column), `/* ... */` block.
+  # Note that `;` is NOT a comment in GAS x86 — it's a statement
+  # separator, handled in statement-tail.
+  # ---------------------------------------------------------------
+  comments:
+    - match: '/\*'
+      scope: punctuation.definition.comment.gas
+      push:
+        - meta_scope: comment.block.gas
+        - match: '\*/'
+          scope: punctuation.definition.comment.gas
+          pop: true
+    - match: '#'
+      scope: punctuation.definition.comment.gas
+      push:
+        - meta_scope: comment.line.number-sign.gas
+        - match: '$'
+          pop: true
+
+  # ---------------------------------------------------------------
+  # Directives — full GAS pseudo-op vocabulary.  Grouped semantically
+  # so themes can target the families.  Reference: GNU Binutils `as`
+  # documentation.
+  # ---------------------------------------------------------------
+  # ---------------------------------------------------------------
+  # Tail context after `.section` keyword.  The first non-whitespace
+  # token is the section name — which may contain `.` and `-` and
+  # would otherwise be split by the directive catch-all and the
+  # `keyword.operator` rules.  After the name we revert to normal
+  # statement-content for flags / type arguments.
+  # ---------------------------------------------------------------
+  section-name-tail:
+    - match: '$'
+      pop: true
+    - match: ','
+      scope: punctuation.separator.gas
+      set: statement-tail
+    - match: '\.[A-Za-z_][A-Za-z_0-9.-]*'
+      scope: entity.name.section.gas
+    - match: '[A-Za-z_][A-Za-z_0-9.-]*'
+      scope: entity.name.section.gas
+    # whitespace doesn't need a rule — the no-match advance handles it
+
+  directives:
+    # `.section` is special: its first argument is a section NAME
+    # (which itself starts with `.`, e.g. `.text`, `.note.GNU-stack`,
+    # `.rodata.cst8`).  Without special handling, the catch-all rule
+    # below would split `.note.GNU-stack` at the hyphen.  So when we
+    # see `.section`, push a tail context that paints `.foo[.bar]*`
+    # as a section name and then falls back to normal statement-tail.
+    - match: '\.section\b'
+      scope: keyword.directive.section.gas
+      push: section-name-tail
+
+    # Section / segment directives that DON'T take a section-name arg.
+    - match: '\.(text|data|rodata|bss|previous|pushsection|popsection|subsection)\b'
+      scope: keyword.directive.section.gas
+
+    # --- Symbol attributes ---
+    - match: '\.(globl|global|local|weak|hidden|protected|internal|extern|comm|lcomm|weakref|symver|set|equ|equiv|eqv)\b'
+      scope: keyword.directive.symbol.gas
+
+    # --- Symbol type/size annotations ---
+    - match: '\.(type|size|ident|version)\b'
+      scope: keyword.directive.attribute.gas
+
+    # --- Data emission ---
+    - match: '\.(byte|hword|short|word|long|int|quad|octa|single|float|double|tfloat|ascii|asciz|string|string8|string16|string32|string64|sleb128|uleb128|zero|space|skip|fill|dc|dc\.[bwlsdxa]|ds|ds\.[bwlsdxa])\b'
+      scope: keyword.directive.data.gas
+
+    # --- Alignment ---
+    - match: '\.(align|balign|balignw|balignl|p2align|p2alignw|p2alignl|org)\b'
+      scope: keyword.directive.alignment.gas
+
+    # --- Macros and includes ---
+    - match: '\.(macro|endm|endmacro|exitm|purgem|altmacro|noaltmacro|include|incbin|irp|irpc|rept|endr)\b'
+      scope: keyword.directive.macro.gas
+
+    # --- Conditional assembly ---
+    - match: '\.(if|ifdef|ifndef|ifb|ifnb|ifc|ifnc|ifeq|ifne|ifge|ifgt|ifle|iflt|ifeqs|ifnes|elseif|else|endif)\b'
+      scope: keyword.directive.conditional.gas
+
+    # --- Listing / debugging / file info ---
+    - match: '\.(file|line|loc|loc_mark_blocks|stabs|stabd|stabn|psize|sbttl|title|list|nolist|eject|print|err|error|warning|abort|fail)\b'
+      scope: keyword.directive.debug.gas
+
+    # --- Mode / syntax switches ---
+    - match: '\.(intel_syntax|att_syntax|code16|code16gcc|code32|code64|arch|cpu|tune|insn|allow_index_reg|disallow_index_reg)\b'
+      scope: keyword.directive.mode.gas
+
+    # --- CFI (Call Frame Information) family ---
+    - match: '\.cfi_(startproc|endproc|sections|personality(_id)?|lsda|def_cfa(_register|_offset)?|adjust_cfa_offset|offset|val_offset|rel_offset|register|restore|undefined|same_value|remember_state|restore_state|return_column|signal_frame|window_save|escape|val_encoded_addr|inline_lsda|negate_ra_state|fde_data|label)\b'
+      scope: keyword.directive.cfi.gas
+
+    # --- Catch-all for any other dot-directive (so unknown ones
+    #     still paint as a directive rather than as identifier).
+    #     Negative lookahead `(?!L)` excludes `.L*` — that prefix is
+    #     reserved by GAS for local symbols (per `as` manual), so a
+    #     dot-token starting with `L` is a label reference, not a
+    #     directive.  `local-labels` runs first in `statement-content`
+    #     to claim those, but this guard makes the rule defensive.
+    - match: '\.(?!L){{ident_head}}{{ident_body}}*\b'
+      scope: keyword.directive.other.gas
+
+  # ---------------------------------------------------------------
+  # `.macro NAME [args] ... .endm` — structured block.
+  # The opening line gets a meta_scope spanning the body so themes
+  # may dim or accent macro bodies.  Nested directives, instructions,
+  # `\arg` references, and `.if/.endif` blocks all work inside.
+  # ---------------------------------------------------------------
+  macro-block:
+    - match: '(\.macro)\s+({{ident}})'
+      captures:
+        1: keyword.directive.macro.gas
+        2: entity.name.function.macro.gas
+      push: macro-body
+
+  macro-body:
+    - meta_scope: meta.macro.gas
+    - match: '\.(endm|endmacro)\b'
+      scope: keyword.directive.macro.gas
+      pop: true
+    # `\param` reference inside macro body
+    - match: '\\{{ident}}'
+      scope: variable.parameter.macro.gas
+    - match: '\\\(\)'
+      scope: variable.parameter.macro.gas
+    - include: line-statement
+
+  # ---------------------------------------------------------------
+  # x86_64 instructions.  Practical Intel-syntax mnemonic set —
+  # comprehensive enough to cover hand-written kernels and anything
+  # gcc -S emits.  Listed by family for readability.
+  # ---------------------------------------------------------------
+  instructions:
+    # Data movement
+    - match: '\b(?i:mov|movabs|movzx|movsx|movsxd|movbe|cmov(?:a|ae|b|be|c|e|g|ge|l|le|na|nae|nb|nbe|nc|ne|ng|nge|nl|nle|no|np|ns|nz|o|p|pe|po|s|z))\b'
+      scope: keyword.mnemonic.move.gas
+
+    # Stack
+    - match: '\b(?i:push|pop|pusha|popa|pushf|popf|pushfq|popfq|enter|leave)\b'
+      scope: keyword.mnemonic.stack.gas
+
+    # Address
+    - match: '\b(?i:lea)\b'
+      scope: keyword.mnemonic.address.gas
+
+    # Arithmetic / logic
+    - match: '\b(?i:add|adc|sub|sbb|imul|mul|idiv|div|inc|dec|neg|cmp|test|and|or|xor|not|sal|sar|shl|shr|rol|ror|rcl|rcr|shld|shrd|bt|btc|btr|bts|bsr|bsf|popcnt|lzcnt|tzcnt)\b'
+      scope: keyword.mnemonic.arith.gas
+
+    # Branching — conditional jumps as a family
+    - match: '\b(?i:jmp|j(?:a|ae|b|be|c|cxz|e|ecxz|g|ge|l|le|na|nae|nb|nbe|nc|ne|ng|nge|nl|nle|no|np|ns|nz|o|p|pe|po|rcxz|s|z))\b'
+      scope: keyword.mnemonic.branch.gas
+
+    # Calls / returns / system
+    - match: '\b(?i:call|ret|retn|retf|iret|iretq|syscall|sysret|sysenter|sysexit|int|int3|into|hlt)\b'
+      scope: keyword.mnemonic.call.gas
+
+    # SETcc family
+    - match: '\b(?i:set(?:a|ae|b|be|c|e|g|ge|l|le|na|nae|nb|nbe|nc|ne|ng|nge|nl|nle|no|np|ns|nz|o|p|pe|po|s|z))\b'
+      scope: keyword.mnemonic.set.gas
+
+    # Loop / repeat
+    - match: '\b(?i:loop|loope|loopne|loopnz|loopz|rep|repe|repne|repnz|repz|movsb|movsw|movsd|movsq|stosb|stosw|stosd|stosq|lodsb|lodsw|lodsd|lodsq|cmpsb|cmpsw|cmpsd|cmpsq|scasb|scasw|scasd|scasq|insb|insw|insd|outsb|outsw|outsd)\b'
+      scope: keyword.mnemonic.string.gas
+
+    # Bit / extension
+    - match: '\b(?i:cbw|cwd|cdq|cqo|cwde|cdqe|movbe|bswap|xchg|xadd|cmpxchg|cmpxchg8b|cmpxchg16b|lock)\b'
+      scope: keyword.mnemonic.bit.gas
+
+    # Floating-point (x87) — common entries
+    - match: '\b(?i:f(?:add|sub|mul|div|cmp|com|comi|ucom|ucomi|ld|st|stp|chs|abs|sqrt|sin|cos|tan|patan|sincos|2xm1|yl2x|yl2xp1|prem|prem1|rndint|wait|nop|init|finit|clex|fclex|stenv|fstenv|ldenv|fldenv|save|fsave|rstor|frstor|stsw|fstsw|stcw|fstcw|ldcw|fldcw|free|incstp|decstp))\b'
+      scope: keyword.mnemonic.fpu.gas
+
+    # SSE / AVX — partial; covers what shows up most.  Generous catch-all
+    # for any mnemonic starting with 'v' or 'p' that gcc commonly emits.
+    - match: '\b(?i:movaps|movups|movapd|movupd|movdqa|movdqu|movd|movq|movss|movsd|movhlps|movlhps|movhps|movlps|movhpd|movlpd|addps|addpd|addss|addsd|subps|subpd|subss|subsd|mulps|mulpd|mulss|mulsd|divps|divpd|divss|divsd|minps|minpd|maxps|maxpd|sqrtps|sqrtpd|sqrtss|sqrtsd|rsqrtps|rcpps|cmpps|cmppd|cmpss|cmpsd|comiss|comisd|ucomiss|ucomisd|cvtps2pd|cvtpd2ps|cvtss2sd|cvtsd2ss|cvtsi2ss|cvtsi2sd|cvtss2si|cvtsd2si|cvttss2si|cvttsd2si|cvtps2dq|cvtpd2dq|cvtdq2ps|cvtdq2pd|shufps|shufpd|unpcklps|unpcklpd|unpckhps|unpckhpd|andps|andpd|andnps|andnpd|orps|orpd|xorps|xorpd)\b'
+      scope: keyword.mnemonic.simd.gas
+
+    # MMX / packed integer
+    - match: '\b(?i:p(?:add|sub|mul|cmp|cmpe|cmpgt|and|andn|or|xor|sll|srl|sra|unpck|pack|extr|insr)[a-z]*)\b'
+      scope: keyword.mnemonic.simd.gas
+
+    # AVX / VEX-prefixed (vMOVAPS, vADDPS, etc.) catch-all.  Conservative —
+    # only mnemonics that begin with 'v' followed by another letter.
+    - match: '\b(?i:v[a-z][a-z0-9]+)\b'
+      scope: keyword.mnemonic.simd.gas
+
+    # NOP, padding
+    - match: '\b(?i:nop|ud2|pause|fwait|cpuid|rdtsc|rdtscp|rdpmc|rdrand|rdseed)\b'
+      scope: keyword.mnemonic.misc.gas
+
+    # Flag manipulation
+    - match: '\b(?i:clc|stc|cmc|cld|std|cli|sti|lahf|sahf)\b'
+      scope: keyword.mnemonic.flag.gas
+
+  # ---------------------------------------------------------------
+  # x86_64 registers (Intel syntax — no `%` prefix).
+  # ---------------------------------------------------------------
+  registers:
+    # 64-bit general purpose
+    - match: '\b(?i:r(?:[abcd]x|si|di|sp|bp|8|9|1[0-5]))\b'
+      scope: variable.language.register.qword.gas
+    # 32-bit
+    - match: '\b(?i:e(?:[abcd]x|si|di|sp|bp)|r(?:8|9|1[0-5])d)\b'
+      scope: variable.language.register.dword.gas
+    # 16-bit
+    - match: '\b(?i:[abcd]x|si|di|sp|bp|r(?:8|9|1[0-5])w)\b'
+      scope: variable.language.register.word.gas
+    # 8-bit
+    - match: '\b(?i:[abcd][lh]|sil|dil|spl|bpl|r(?:8|9|1[0-5])b)\b'
+      scope: variable.language.register.byte.gas
+    # Instruction pointer
+    - match: '\b(?i:rip|eip|ip)\b'
+      scope: variable.language.register.ip.gas
+    # Flags
+    - match: '\b(?i:rflags|eflags|flags)\b'
+      scope: variable.language.register.flags.gas
+    # Segment
+    - match: '\b(?i:cs|ds|es|fs|gs|ss)\b'
+      scope: variable.language.register.segment.gas
+    # SSE / AVX
+    - match: '\b(?i:xmm(?:[0-9]|1[0-5]|[12][0-9]|3[01]))\b'
+      scope: variable.language.register.xmm.gas
+    - match: '\b(?i:ymm(?:[0-9]|1[0-5]|[12][0-9]|3[01]))\b'
+      scope: variable.language.register.ymm.gas
+    - match: '\b(?i:zmm(?:[0-9]|1[0-5]|[12][0-9]|3[01]))\b'
+      scope: variable.language.register.zmm.gas
+    # MMX / FPU stack / control / debug
+    - match: '\b(?i:mm[0-7]|st\([0-7]\)|st[0-7]?|cr[0-8]|dr[0-7]|tr[3-7])\b'
+      scope: variable.language.register.special.gas
+    # AVX-512 mask
+    - match: '\b(?i:k[0-7])\b'
+      scope: variable.language.register.mask.gas
+
+  # ---------------------------------------------------------------
+  # Intel-syntax size hints: `byte ptr [rax]`.
+  # ---------------------------------------------------------------
+  size-hints:
+    - match: '\b(?i:(byte|word|dword|qword|tbyte|oword|xmmword|ymmword|zmmword))\s+(?i:(ptr))\b'
+      captures:
+        1: storage.type.size.gas
+        2: storage.type.ptr.gas
+    # `offset` and other Intel-syntax modifiers
+    - match: '\b(?i:offset|short|near|far)\b'
+      scope: storage.modifier.intel.gas
+
+  # ---------------------------------------------------------------
+  # ELF symbol decorations: `func@PLT`, `var@GOTPCREL`, `@function`,
+  # `@progbits`, etc.  One scope family for the entire suffix
+  # vocabulary so themes can colour decorations as a unit.
+  # ---------------------------------------------------------------
+  elf-decorations:
+    - match: '@(?:PLT|GOT|GOTOFF|GOTPCREL|GOTPCRELX|REX_GOTPCRELX|GOTTPOFF|TPOFF|DTPOFF|TLSGD|TLSLD|TLSDESC|TLSCALL|INDNTPOFF|NTPOFF|SIZE|GOTPLT|PLTOFF|function|object|progbits|nobits|notype|tls_object|tls_common|common|gnu_unique_object|gnu_indirect_function|note|init_array|fini_array|preinit_array|stack)\b'
+      scope: support.other.elf-decoration.gas
+
+    # Generic `@anything` fallthrough for ELF/relocation suffixes not in
+    # the above list — still paints as a decoration, not as a syntax error.
+    - match: '@[A-Za-z_][A-Za-z_0-9]*'
+      scope: support.other.elf-decoration.other.gas
+
+  # ---------------------------------------------------------------
+  # Labels referenced inline.
+  #
+  # The label-AT-LINE-START match lives in `line-statement` above
+  # and consumes the trailing `:`.  These contexts recognise label
+  # names appearing as operands.
+  #
+  # `.L`-prefix labels are GAS local labels (per the `as` manual:
+  # local symbols begin with `.L`).  Crucially, `.L*` references
+  # AND user-named labels share one scope family, `entity.name.label.gas`.
+  # That eliminates the historic white-vs-orange split in the older
+  # Nasm-base highlighter, where `.L*` labels painted as
+  # `entity.name.constant` (white in most themes) while user labels
+  # painted as `entity.name.label` (orange in most themes).
+  #
+  # `local-labels` runs early in `statement-content` so it claims
+  # `.L*` operands before the directive catch-all could.
+  # `plain-labels` runs LAST — after registers, mnemonics, sizes,
+  # directives, ELF decorations — claiming whatever identifier-
+  # shaped tokens are left.
+  # ---------------------------------------------------------------
+  local-labels:
+    - match: '\.L{{ident_body}}+'
+      scope: entity.name.label.gas
+
+  plain-labels:
+    # Identifier-shaped tokens.  Allow ASCII letters AND a small set of
+    # Greek letters used by SCRIP (α β γ ω Δ Σ).  Plain GAS files don't
+    # use Greek; SCRIP-emitted GAS does.  Including them in the base
+    # makes the base file a strict superset of the dialect actually
+    # being highlighted, with no down-side for plain GAS.
+    - match: '[A-Za-z_$αβγωΔΣ][A-Za-z_$0-9αβγωΔΣ]*'
+      scope: entity.name.label.gas
+
+  # ---------------------------------------------------------------
+  # Numbers: hex, binary, octal, decimal.  Character literals.
+  # ---------------------------------------------------------------
+  numbers:
+    - match: '\b{{num_hex}}\b'
+      scope: constant.numeric.hex.gas
+    - match: '\b{{num_bin}}\b'
+      scope: constant.numeric.binary.gas
+    - match: '\b0[0-7]+\b'
+      scope: constant.numeric.octal.gas
+    - match: '\b{{num_dec}}\b'
+      scope: constant.numeric.decimal.gas
+    # Char literal: `'A` (single-char, GAS shape).
+    - match: "'\\\\?."
+      scope: constant.character.gas
+
+  # ---------------------------------------------------------------
+  # Strings: `.string "..."`, `.ascii "..."` etc.  Standard C-style
+  # escapes recognised inside.
+  # ---------------------------------------------------------------
+  strings:
+    - match: '"'
+      scope: punctuation.definition.string.begin.gas
+      push:
+        - meta_scope: string.quoted.double.gas
+        - match: '\\(?:[\\nrtbfav0"''?]|x[0-9A-Fa-f]+|[0-7]+|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})'
+          scope: constant.character.escape.gas
+        - match: '\\.'
+          scope: invalid.illegal.escape.gas
+        - match: '"'
+          scope: punctuation.definition.string.end.gas
+          pop: true
+        - match: '$'
+          scope: invalid.illegal.unclosed-string.gas
+          pop: true
+
+  # ---------------------------------------------------------------
+  # Operators and punctuation appearing in operands and expressions.
+  # ---------------------------------------------------------------
+  operators:
+    # Memory-reference brackets: `[rip + label]` etc.
+    - match: '\['
+      scope: punctuation.section.brackets.begin.gas
+    - match: '\]'
+      scope: punctuation.section.brackets.end.gas
+    - match: '\('
+      scope: punctuation.section.parens.begin.gas
+    - match: '\)'
+      scope: punctuation.section.parens.end.gas
+    - match: ','
+      scope: punctuation.separator.gas
+    - match: ':'
+      scope: punctuation.separator.gas
+    # Arithmetic in expressions: `[rax + rbx*4 + 8]`, `1 << 3`, etc.
+    - match: '<<|>>|<=|>=|==|!=|&&|\|\||[+\-*/%&|^~!<>=]'
+      scope: keyword.operator.gas

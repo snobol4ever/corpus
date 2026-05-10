@@ -1,9 +1,10 @@
-# Sublime Text syntax files for SNOBOL4, Snocone, and SCRIP
+# Sublime Text syntax files for SNOBOL4, Snocone, GAS-x86, and SCRIP-x86
 
 This directory contains a complete Sublime Text editing setup for
-SNOBOL4 (`.sno`, `.spt`, `.inc`), Snocone (`.sc`), and SCRIP-emitted
-x86_64 assembly (`.s`, `.S`).  All three share the same scope
-vocabulary so a single color scheme renders them consistently.
+SNOBOL4 (`.sno`, `.spt`, `.inc`), Snocone (`.sc`), GNU `as` Intel-syntax
+x86_64 (`.s`, `.S`, `.asm`), and SCRIP-emitted `.s` files.  All four
+share the same scope vocabulary so a single color scheme renders
+them consistently.
 
 ## Files
 
@@ -11,8 +12,8 @@ vocabulary so a single color scheme renders them consistently.
 |-----------------------------------|----------------------------------------------------------|
 | `SNOBOL4.sublime-syntax`          | Syntax highlighting for SNOBOL4 (`source.sno`)           |
 | `Snocone.sublime-syntax`          | Syntax highlighting for Snocone  (`source.sc`)           |
-| `SCRIP-x86.sublime-syntax`   | Syntax highlighting for SCRIP-emitted `.s` (`source.asm.scrip`) |
-| `SCRIP-x86.LICENSE`          | MIT license for the upstream Nasm base layer             |
+| `GAS-x86.sublime-syntax`          | Base GAS / GNU-`as` Intel-syntax x86_64 (`source.asm.gas`) |
+| `SCRIP-x86.sublime-syntax`        | SCRIP-emitted-`.s` overlay extending GAS-x86 (`source.asm.scrip`) |
 | `SNOBOL4.sublime-settings`        | Editor settings applied when SNOBOL4 syntax is active    |
 | `Snocone.sublime-settings`        | Editor settings applied when Snocone  syntax is active   |
 | `SNOBOL4.sublime-build`           | Build / run command for SNOBOL4 (Lon's local SPITBOL)    |
@@ -180,24 +181,71 @@ Any color scheme that targets the standard scope names (`keyword.*`,
 will style both dialects.  Built-in Sublime themes work; custom
 themes work; the choice is yours.
 
-## SCRIP-x86 — emitted-asm overlay
+## GAS-x86 — base GAS Intel-syntax x86_64 highlighter
 
-`SCRIP-x86.sublime-syntax` highlights the `.s` artifacts emitted
-by `scrip --jit-emit --x64`.  The base layer is the upstream
-`13xforever/x86-assembly-textmate-bundle` Nasm/Intel-syntax x86_64
-highlighter (MIT-licensed; see `SCRIP-x86.LICENSE`); SCRIP-specific
-contexts overlay SNOBOL4 concepts on top so reviewers can read pattern
-boxes, statement boundaries, runtime calls etc. as SNOBOL4 ideas
-rather than raw assembler.
+`GAS-x86.sublime-syntax` is a stand-alone, from-scratch highlighter
+for GNU assembler (`gas` / `as`) source in Intel syntax.  It is NOT
+built on a Nasm base — Nasm and GAS share most mnemonic and register
+names but differ on critical points like comment characters, statement
+separators, directive vocabulary, and macro semantics.
 
-**Why Intel, not AT&T:** the emitter writes Intel via
-`.intel_syntax noprefix` (`mov rax, [rcx]`, no `%`/`$` sigils,
-dest-then-source).  Intel's dest-then-source matches SNOBOL4's `X = Y`
-direction; Greek-suffix labels (`α β γ ω Δ Σ`) interact more cleanly
-with Intel label rules.
+It owns scope `source.asm.gas` and activates on `[s, S, asm]` files.
 
-**SCRIP-specific scopes** (overlay contexts `scrip-banners`,
-`scrip-jumpfuse`, `scrip-mnemonics`, `scrip-labels`):
+**What this gets right that a Nasm-base layer cannot:**
+
+  * `;` is a STATEMENT SEPARATOR on x86 GAS — not a comment.  Multiple
+    statements can sit on one line: `cmp esi, 0; jne L1; jmp L2`.
+    Fundamental to SCRIP's triple-fusion shape.
+  * `#` is the GAS line-comment chr; `/* … */` is a block comment.
+  * Directives (`.section`, `.string`, `.quad`, `.macro`, `.endm`,
+    `.include`, `.intel_syntax`, `.cfi_*`, …) form a fixed GAS
+    vocabulary — recognised as first-class `keyword.directive.<family>`
+    rather than as identifiers.
+  * `.macro NAME args ... .endm` is a structured block.  Body content
+    is scoped `meta.macro.gas`; `\arg` references inside paint as
+    `variable.parameter.macro.gas`.
+  * Section names (`.note.GNU-stack`, `.rodata.cst8`, …) follow
+    `.section` and may contain `.` and `-` — handled by a dedicated
+    `section-name-tail` context so they paint as a single section
+    name, not as a directive split at the hyphen.
+  * Intel-syntax memory references (`[rip + label]`, `[rax + rbx*4 + 8]`)
+    and size hints (`byte ptr`, `dword ptr`, `qword ptr`).
+  * ELF symbol decorations (`@PLT`, `@GOT`, `@GOTPCREL`, `@function`,
+    `@object`, `@progbits`, `@nobits`, `@notype`, …) — one
+    `support.other.elf-decoration.gas` family.
+  * x86_64 register vocabulary by width (qword/dword/word/byte/ip/
+    flags/segment/xmm/ymm/zmm/mmx/cr/dr/mask).
+  * Comprehensive Intel-syntax mnemonic set (move/stack/address/arith/
+    branch/call/set/string/bit/fpu/simd/flag).
+
+**The label-color uniformity fix:** `.L`-prefix local labels (per the
+`as` manual: local symbols begin with `.L`) AND user-named labels share
+ONE scope, `entity.name.label.gas`.  This eliminates the historic
+white-vs-orange split in the Nasm-base highlighter, where `.L*` labels
+painted as `entity.name.constant` (white in most themes) while user
+labels painted as `entity.name.label` (orange in most themes).
+
+The directive catch-all uses negative lookahead `(?!L)` to refuse
+`.L*` tokens, deferring them to `local-labels`.  `local-labels` runs
+early in `statement-content` so it claims `.L*` operands before the
+catch-all could.  `plain-labels` runs LAST — claiming whatever
+identifier-shaped tokens are left.
+
+## SCRIP-x86 — SCRIP-emitted-`.s` overlay
+
+`SCRIP-x86.sublime-syntax` is a thin overlay on the GAS-x86 base.
+It uses Sublime Text 4's `extends:` mechanism (build 4080+) to inherit
+all directives, mnemonics, registers, ELF decorations, and label
+recognition from `Packages/User/GAS-x86.sublime-syntax`, then adds
+SCRIP-specific contexts on top via `meta_prepend`.
+
+It owns scope `source.asm.scrip`.  File extension `[s, S]` is shared
+with the base; Sublime resolves the conflict via `first_line_match`:
+an `.s` file whose first line matches `\.include\s+"(sm|bb)_macros\.s"`
+(every `scrip --jit-emit --x64`-emitted `.s` begins this way)
+activates this syntax; otherwise the file falls through to GAS-x86.
+
+**What the overlay adds:**
 
 | Category | Examples in `.s` | Scope |
 |---|---|---|
@@ -206,33 +254,38 @@ with Intel label rules.
 | Per-box banner | `# BOX RPOS(0) [xcat0_γ]` | `comment.line.banner.box.scrip` |
 | Data annotation | `# data: .Lcap1_vname, ...` | `comment.line.banner.data-annotation.scrip` |
 | Rule banner | `#====...` `#----...` (120 cols) | `comment.line.banner.rule.scrip` |
-| Triple-fusion jump | `; jne LBL1; jmp LBL2` | `keyword.control.flow.cond-jmp.scrip` + `keyword.control.flow.uncond-jmp.scrip` (with target labels scoped `entity.name.label.target.{cond,uncond}.scrip` so themes can paint the branch/fallthrough decision distinctively) |
-| SM virtual-machine opcode | `PUSH_INT`, `CONCAT`, `RETURN` | `keyword.control.sm-opcode.scrip` |
+| Triple-fusion separator | `;` between fused triples | `punctuation.separator.fusion.scrip` |
+| Cond-jmp in fusion | `je`, `jne`, `jl`, … in `; je LBL ; jmp LBL` | `keyword.control.flow.cond-jmp.scrip` |
+| Uncond-jmp in fusion | `jmp` in `; jmp LBL` | `keyword.control.flow.uncond-jmp.scrip` |
+| SM virtual-machine opcode | `PUSH_INT`, `CONCAT`, `RETURN`, `JUMP_F` | `keyword.control.sm-opcode.scrip` |
 | Pattern opcode | `PAT_ANY`, `PAT_LEN`, `PAT_RPOS` | `support.function.pattern.scrip` *(mirrors `.sno` `pattern_function`)* |
 | BB broker primitive | `EPS_α`, `RPOS_β`, `FAIL_α` | `support.function.broker.scrip` |
-| Runtime call | `rt_init`, `rt_match_blob` | `support.function.runtime.scrip` |
+| Runtime call | `rt_init`, `rt_match_blob`, `rt_push_int` | `support.function.runtime.scrip` |
 | BB box helper | `bb_cap`, `bb_broker` | `support.function.broker.scrip` |
 | Pattern-blob root | `pat_inv_0:` | `entity.name.section.pattern.scrip` |
 | Greek box label | `cap1_α:`, `xcat0_left_β:` | `entity.name.label.box.scrip` |
-| ELF/PLT decoration | `@PLT`, `@function`, `@progbits`, `@object` | `support.other.elf-decoration.scrip` *(muted/grey on most themes — visible but not distracting)* |
 
-The `scrip-*` contexts are included at the **top** of `main:` so
-SCRIP-specific tokens win when they overlap with the Nasm base
-(e.g. `RETURN` is the SM opcode macro, not a generic Nasm identifier).
+**Why Intel, not AT&T:** the emitter writes Intel via
+`.intel_syntax noprefix` (`mov rax, [rcx]`, no `%`/`$` sigils,
+dest-then-source).  Intel's dest-then-source matches SNOBOL4's `X = Y`
+direction; Greek-suffix labels (`α β γ ω Δ Σ`) interact more cleanly
+with Intel label rules.
 
 The scope-name conventions parallel SNOBOL4 / Snocone:
 `support.function.pattern.scrip` mirrors `support.function.sno` for
 pattern functions; `keyword.control.sm-opcode.scrip` is a sibling of
 `keyword.control.sno` / `keyword.control.sc`;
 `entity.name.section.pattern.scrip` and `entity.name.label.box.scrip`
-parallel `entity.name.function.sno`.  Generic identifiers (registers
-like `rax`, names like `Δ`) fall through to default text color.
+parallel `entity.name.function.sno`.
 
-**Comment-rule patch:** the upstream Nasm regex required `#` to be
-followed by whitespace.  SCRIP's `EM-FORMAT-BANNER-COLLAPSE-SPACE`
-rung writes `#====...` and `#----...` with no leading space, so the
-patched rule treats any `#` at column 0 as a line comment, matching
-how GAS itself parses these files.
+**Label color uniformity is preserved.** The overlay does NOT use a
+different scope family for `.L*` labels — those continue to paint as
+`entity.name.label.gas` from the base.  Greek-suffix port labels
+(`pat_inv_0_α:`, `cap1_β:`) get the more-specific overlay scope
+`entity.name.label.box.scrip` so themes that want a distinct accent
+for pattern-box arms can do so.  Themes without that override get
+both kinds painted at the same default colour, preserving the
+white/orange-fix uniformity from the GAS base.
 
 ## Authors
 
@@ -240,7 +293,15 @@ Lon Cherryholmes (LCherryholmes / lcherryh@yahoo.com) wrote the
 SNOBOL4 syntax originally, refined over time as the engine matured.
 The Snocone syntax was derived from it during session 2026-05-04
 with Claude (Opus 4.7) as a side-project off the GOAL-REWRITE-SCRIP
-track.  The `SCRIP-x86.sublime-syntax` overlay was built session
+track.
+
+The first `SCRIP-x86.sublime-syntax` overlay was built session
 2026-05-10 with Claude (Opus 4.7) on top of the upstream
-`13xforever/x86-assembly-textmate-bundle` Nasm Intel-syntax highlighter
-(MIT-licensed; see `SCRIP-x86.LICENSE`).
+`13xforever/x86-assembly-textmate-bundle` Nasm Intel-syntax
+highlighter — workable but a layer cake of patches over a Nasm base
+that gets several GAS semantics wrong.  The current arrangement —
+`GAS-x86.sublime-syntax` authored from scratch as a proper GAS
+Intel-syntax base, with `SCRIP-x86.sublime-syntax` as a thin overlay —
+landed session 2026-05-10 (later) under
+`.github/GOAL-MODE4-EMIT.md` rung `EM-FORMAT-SUBLIME-GAS-INTEL`,
+also with Claude (Opus 4.7).
