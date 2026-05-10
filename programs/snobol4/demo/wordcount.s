@@ -1,64 +1,39 @@
                         .include         "sm_macros.s"
                         .include         "bb_macros.s"
                         .section         .rodata
-.Lstr_0:
-                        .string          "TRIM"
-.Lstr_1:
-                        .string          "0123456789"
-.Lstr_2:
-                        .string          "NUMERALS"
-.Lstr_3:
-                        .string          "'-"
-.Lstr_4:
-                        .string          "UCASE"
-.Lstr_5:
-                        .string          "LCASE"
-.Lstr_6:
-                        .string          "WORD"
-.Lstr_7:
-                        .string          "WPAT"
-.Lstr_8:
-                        .string          "NEXTL"
-.Lstr_9:
-                        .string          "INPUT"
-.Lstr_10:
-                        .string          "LINE"
-.Lstr_11:
-                        .string          "NEXTW"
-.Lstr_12:
-                        .string          ""
-.Lstr_13:
-                        .string          "N"
-.Lstr_14:
-                        .string          "DONE"
-.Lstr_15:
-                        .string          " words"
-.Lstr_16:
-                        .string          "OUTPUT"
-.Lstr_17:
-                        .string          "END"
+.Lstr_0:                .string          "TRIM"
+.Lstr_1:                .string          "0123456789"
+.Lstr_2:                .string          "NUMERALS"
+.Lstr_3:                .string          "'-"
+.Lstr_4:                .string          "UCASE"
+.Lstr_5:                .string          "LCASE"
+.Lstr_6:                .string          "WORD"
+.Lstr_7:                .string          "WPAT"
+.Lstr_8:                .string          "NEXTL"
+.Lstr_9:                .string          "INPUT"
+.Lstr_10:               .string          "LINE"
+.Lstr_11:               .string          "NEXTW"
+.Lstr_12:               .string          ""
+.Lstr_13:               .string          "N"
+.Lstr_14:               .string          "DONE"
+.Lstr_15:               .string          " words"
+.Lstr_16:               .string          "OUTPUT"
+.Lstr_17:               .string          "END"
                         .text
                         .section         .data
                         .align           8
 .Lchunk_registry:
-                        .quad            .Lstr_8 # expression: NEXTL -> .Lpc25
+                        .quad            .Lstr_8
                         .quad            .Lpc25
-                        .quad            .Lstr_11 # expression: NEXTW -> .Lpc30
+                        .quad            .Lstr_11
                         .quad            .Lpc30
-                        .quad            .Lstr_14 # expression: DONE -> .Lpc44
+                        .quad            .Lstr_14
                         .quad            .Lpc44
-                        .quad            .Lstr_17 # expression: END -> .Lpc51
+                        .quad            .Lstr_17
                         .quad            .Lpc51
                         .quad            0 # sentinel
                         .quad            0
                         .text
-# -----------------------------------------------------------------------
-# scrip --jit-emit --x64  (M-JITEM-X64 / EM-1..EM-7d)
-# 53 SM instructions. Links against libscrip_rt.so.
-# Architecture: two emitters -- SM straight-line via sm_macros.s
-#   macros (inline x86); BB boxes via emit_bb_box() one-proc-per-box.
-# See archive/EMITTER-MODE4-ARCH.md for the full design.
-# -----------------------------------------------------------------------
                         .intel_syntax    noprefix
                         .globl           main
                         .type            main, @function

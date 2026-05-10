@@ -1,371 +1,234 @@
                         .include         "sm_macros.s"
                         .include         "bb_macros.s"
                         .section         .rodata
-.Lstr_0:
-                        .string          "nl"
-.Lstr_1:
-                        .string          "ALPHABET"
-.Lstr_2:
-                        .string          "list(head,tail)"
-.Lstr_3:
-                        .string          "DATA"
-.Lstr_4:
-                        .string          "list_reverse(lst)acc,cur"
-.Lstr_5:
-                        .string          "DEFINE"
-.Lstr_6:
-                        .string          "list_reverse"
-.Lstr_7:
-                        .string          ""
-.Lstr_8:
-                        .string          "acc"
-.Lstr_9:
-                        .string          "lst"
-.Lstr_10:
-                        .string          "cur"
-.Lstr_11:
-                        .string          "lr1"
-.Lstr_12:
-                        .string          "DIFFER"
-.Lstr_13:
-                        .string          "head"
-.Lstr_14:
-                        .string          "list"
-.Lstr_15:
-                        .string          "tail"
-.Lstr_16:
-                        .string          "lr_done"
-.Lstr_17:
-                        .string          "list_reverse_end"
-.Lstr_18:
-                        .string          "stk_push_frame(v)"
-.Lstr_19:
-                        .string          "stk_push_frame"
-.Lstr_20:
-                        .string          "v"
-.Lstr_21:
-                        .string          "stk"
-.Lstr_22:
-                        .string          "dummy"
-.Lstr_23:
-                        .string          "NAME_PUSH"
-.Lstr_24:
-                        .string          "stk_push_frame_end"
-.Lstr_25:
-                        .string          "stk_push_item(v)"
-.Lstr_26:
-                        .string          "stk_push_item"
-.Lstr_27:
-                        .string          "head_SET"
-.Lstr_28:
-                        .string          "stk_push_item_end"
-.Lstr_29:
-                        .string          "stk_pop_into_parent()child"
-.Lstr_30:
-                        .string          "stk_pop_into_parent"
-.Lstr_31:
-                        .string          "child"
-.Lstr_32:
-                        .string          "stk_pop_into_parent_end"
-.Lstr_33:
-                        .string          "stk_pop_final(var)"
-.Lstr_34:
-                        .string          "stk_pop_final"
-.Lstr_35:
-                        .string          "var"
-.Lstr_36:
-                        .string          "ASGN_INDIR"
-.Lstr_37:
-                        .string          "stk_pop_final_end"
-.Lstr_38:
-                        .string          "init_list(v)"
-.Lstr_39:
-                        .string          "Init_list(vs)"
-.Lstr_40:
-                        .string          "init_list"
-.Lstr_41:
-                        .string          "Init_list"
-.Lstr_42:
-                        .string          "epsilon . *init_list("
-.Lstr_43:
-                        .string          "vs"
-.Lstr_44:
-                        .string          ")"
-.Lstr_45:
-                        .string          "EVAL"
-.Lstr_46:
-                        .string          "init_list_end"
-.Lstr_47:
-                        .string          "push_list(v)"
-.Lstr_48:
-                        .string          "Push_list(vs)"
-.Lstr_49:
-                        .string          "push_list"
-.Lstr_50:
-                        .string          "Push_list"
-.Lstr_51:
-                        .string          "epsilon . *push_list("
-.Lstr_52:
-                        .string          "push_list_end"
-.Lstr_53:
-                        .string          "push_item(v)"
-.Lstr_54:
-                        .string          "Push_item(vs)"
-.Lstr_55:
-                        .string          "push_item"
-.Lstr_56:
-                        .string          "Push_item"
-.Lstr_57:
-                        .string          "epsilon . *push_item("
-.Lstr_58:
-                        .string          "push_item_end"
-.Lstr_59:
-                        .string          "pop_list()"
-.Lstr_60:
-                        .string          "Pop_list()"
-.Lstr_61:
-                        .string          "pop_list"
-.Lstr_62:
-                        .string          "Pop_list"
-.Lstr_63:
-                        .string          "epsilon"
-.Lstr_64:
-                        .string          "pop_list_end"
-.Lstr_65:
-                        .string          "pop_final(v)"
-.Lstr_66:
-                        .string          "Pop_final(vs)"
-.Lstr_67:
-                        .string          "pop_final"
-.Lstr_68:
-                        .string          "Pop_final"
-.Lstr_69:
-                        .string          "epsilon . *pop_final("
-.Lstr_70:
-                        .string          "pop_final_end"
-.Lstr_71:
-                        .string          " "
-.Lstr_72:
-                        .string          "delim"
-.Lstr_73:
-                        .string          "( )"
-.Lstr_74:
-                        .string          "word"
-.Lstr_75:
-                        .string          "("
-.Lstr_76:
-                        .string          "tag"
-.Lstr_77:
-                        .string          "group"
-.Lstr_78:
-                        .string          "wrd"
-.Lstr_79:
-                        .string          "'bank'"
-.Lstr_80:
-                        .string          "'BANK'"
-.Lstr_81:
-                        .string          "'ROOT'"
-.Lstr_82:
-                        .string          "treebank"
-.Lstr_83:
-                        .string          "node_repr(node)r,c,sep"
-.Lstr_84:
-                        .string          "node_repr"
-.Lstr_85:
-                        .string          "node"
-.Lstr_86:
-                        .string          "DATATYPE"
-.Lstr_87:
-                        .string          "LCASE"
-.Lstr_88:
-                        .string          "UCASE"
-.Lstr_89:
-                        .string          "REPLACE"
-.Lstr_90:
-                        .string          "STRING"
-.Lstr_91:
-                        .string          "IDENT"
-.Lstr_92:
-                        .string          "'"
-.Lstr_93:
-                        .string          "nr_list"
-.Lstr_94:
-                        .string          "r"
-.Lstr_95:
-                        .string          "sep"
-.Lstr_96:
-                        .string          "c"
-.Lstr_97:
-                        .string          "nr_lp"
-.Lstr_98:
-                        .string          ", "
-.Lstr_99:
-                        .string          "nr_done"
-.Lstr_100:
-                        .string          "node_repr_end"
-.Lstr_101:
-                        .string          "pp_node(node,indent,suffix)r,pad,c,nxt"
-.Lstr_102:
-                        .string          "pp_node"
-.Lstr_103:
-                        .string          "indent"
-.Lstr_104:
-                        .string          "DUPL"
-.Lstr_105:
-                        .string          "pad"
-.Lstr_106:
-                        .string          "SIZE"
-.Lstr_107:
-                        .string          "GT"
-.Lstr_108:
-                        .string          "suffix"
-.Lstr_109:
-                        .string          "OUTPUT"
-.Lstr_110:
-                        .string          "pp_wrap"
-.Lstr_111:
-                        .string          "( "
-.Lstr_112:
-                        .string          "',"
-.Lstr_113:
-                        .string          "pp_wch"
-.Lstr_114:
-                        .string          "nxt"
-.Lstr_115:
-                        .string          ","
-.Lstr_116:
-                        .string          "pp_wlast"
-.Lstr_117:
-                        .string          "pp_wdone"
-.Lstr_118:
-                        .string          "pp_node_end"
-.Lstr_119:
-                        .string          "pp_bank()cur"
-.Lstr_120:
-                        .string          "pp_bank"
-.Lstr_121:
-                        .string          "bank"
-.Lstr_122:
-                        .string          "pp_bank_end"
-.Lstr_123:
-                        .string          "slurp"
-.Lstr_124:
-                        .string          "INPUT"
-.Lstr_125:
-                        .string          "line"
-.Lstr_126:
-                        .string          "src"
-.Lstr_127:
-                        .string          "slurp_done"
-.Lstr_128:
-                        .string          "main_fail"
-.Lstr_129:
-                        .string          "Pattern match failed"
-.Lstr_130:
-                        .string          "END"
+.Lstr_0:                .string          "nl"
+.Lstr_1:                .string          "ALPHABET"
+.Lstr_2:                .string          "list(head,tail)"
+.Lstr_3:                .string          "DATA"
+.Lstr_4:                .string          "list_reverse(lst)acc,cur"
+.Lstr_5:                .string          "DEFINE"
+.Lstr_6:                .string          "list_reverse"
+.Lstr_7:                .string          ""
+.Lstr_8:                .string          "acc"
+.Lstr_9:                .string          "lst"
+.Lstr_10:               .string          "cur"
+.Lstr_11:               .string          "lr1"
+.Lstr_12:               .string          "DIFFER"
+.Lstr_13:               .string          "head"
+.Lstr_14:               .string          "list"
+.Lstr_15:               .string          "tail"
+.Lstr_16:               .string          "lr_done"
+.Lstr_17:               .string          "list_reverse_end"
+.Lstr_18:               .string          "stk_push_frame(v)"
+.Lstr_19:               .string          "stk_push_frame"
+.Lstr_20:               .string          "v"
+.Lstr_21:               .string          "stk"
+.Lstr_22:               .string          "dummy"
+.Lstr_23:               .string          "NAME_PUSH"
+.Lstr_24:               .string          "stk_push_frame_end"
+.Lstr_25:               .string          "stk_push_item(v)"
+.Lstr_26:               .string          "stk_push_item"
+.Lstr_27:               .string          "head_SET"
+.Lstr_28:               .string          "stk_push_item_end"
+.Lstr_29:               .string          "stk_pop_into_parent()child"
+.Lstr_30:               .string          "stk_pop_into_parent"
+.Lstr_31:               .string          "child"
+.Lstr_32:               .string          "stk_pop_into_parent_end"
+.Lstr_33:               .string          "stk_pop_final(var)"
+.Lstr_34:               .string          "stk_pop_final"
+.Lstr_35:               .string          "var"
+.Lstr_36:               .string          "ASGN_INDIR"
+.Lstr_37:               .string          "stk_pop_final_end"
+.Lstr_38:               .string          "init_list(v)"
+.Lstr_39:               .string          "Init_list(vs)"
+.Lstr_40:               .string          "init_list"
+.Lstr_41:               .string          "Init_list"
+.Lstr_42:               .string          "epsilon . *init_list("
+.Lstr_43:               .string          "vs"
+.Lstr_44:               .string          ")"
+.Lstr_45:               .string          "EVAL"
+.Lstr_46:               .string          "init_list_end"
+.Lstr_47:               .string          "push_list(v)"
+.Lstr_48:               .string          "Push_list(vs)"
+.Lstr_49:               .string          "push_list"
+.Lstr_50:               .string          "Push_list"
+.Lstr_51:               .string          "epsilon . *push_list("
+.Lstr_52:               .string          "push_list_end"
+.Lstr_53:               .string          "push_item(v)"
+.Lstr_54:               .string          "Push_item(vs)"
+.Lstr_55:               .string          "push_item"
+.Lstr_56:               .string          "Push_item"
+.Lstr_57:               .string          "epsilon . *push_item("
+.Lstr_58:               .string          "push_item_end"
+.Lstr_59:               .string          "pop_list()"
+.Lstr_60:               .string          "Pop_list()"
+.Lstr_61:               .string          "pop_list"
+.Lstr_62:               .string          "Pop_list"
+.Lstr_63:               .string          "epsilon"
+.Lstr_64:               .string          "pop_list_end"
+.Lstr_65:               .string          "pop_final(v)"
+.Lstr_66:               .string          "Pop_final(vs)"
+.Lstr_67:               .string          "pop_final"
+.Lstr_68:               .string          "Pop_final"
+.Lstr_69:               .string          "epsilon . *pop_final("
+.Lstr_70:               .string          "pop_final_end"
+.Lstr_71:               .string          " "
+.Lstr_72:               .string          "delim"
+.Lstr_73:               .string          "( )"
+.Lstr_74:               .string          "word"
+.Lstr_75:               .string          "("
+.Lstr_76:               .string          "tag"
+.Lstr_77:               .string          "group"
+.Lstr_78:               .string          "wrd"
+.Lstr_79:               .string          "'bank'"
+.Lstr_80:               .string          "'BANK'"
+.Lstr_81:               .string          "'ROOT'"
+.Lstr_82:               .string          "treebank"
+.Lstr_83:               .string          "node_repr(node)r,c,sep"
+.Lstr_84:               .string          "node_repr"
+.Lstr_85:               .string          "node"
+.Lstr_86:               .string          "DATATYPE"
+.Lstr_87:               .string          "LCASE"
+.Lstr_88:               .string          "UCASE"
+.Lstr_89:               .string          "REPLACE"
+.Lstr_90:               .string          "STRING"
+.Lstr_91:               .string          "IDENT"
+.Lstr_92:               .string          "'"
+.Lstr_93:               .string          "nr_list"
+.Lstr_94:               .string          "r"
+.Lstr_95:               .string          "sep"
+.Lstr_96:               .string          "c"
+.Lstr_97:               .string          "nr_lp"
+.Lstr_98:               .string          ", "
+.Lstr_99:               .string          "nr_done"
+.Lstr_100:              .string          "node_repr_end"
+.Lstr_101:              .string          "pp_node(node,indent,suffix)r,pad,c,nxt"
+.Lstr_102:              .string          "pp_node"
+.Lstr_103:              .string          "indent"
+.Lstr_104:              .string          "DUPL"
+.Lstr_105:              .string          "pad"
+.Lstr_106:              .string          "SIZE"
+.Lstr_107:              .string          "GT"
+.Lstr_108:              .string          "suffix"
+.Lstr_109:              .string          "OUTPUT"
+.Lstr_110:              .string          "pp_wrap"
+.Lstr_111:              .string          "( "
+.Lstr_112:              .string          "',"
+.Lstr_113:              .string          "pp_wch"
+.Lstr_114:              .string          "nxt"
+.Lstr_115:              .string          ","
+.Lstr_116:              .string          "pp_wlast"
+.Lstr_117:              .string          "pp_wdone"
+.Lstr_118:              .string          "pp_node_end"
+.Lstr_119:              .string          "pp_bank()cur"
+.Lstr_120:              .string          "pp_bank"
+.Lstr_121:              .string          "bank"
+.Lstr_122:              .string          "pp_bank_end"
+.Lstr_123:              .string          "slurp"
+.Lstr_124:              .string          "INPUT"
+.Lstr_125:              .string          "line"
+.Lstr_126:              .string          "src"
+.Lstr_127:              .string          "slurp_done"
+.Lstr_128:              .string          "main_fail"
+.Lstr_129:              .string          "Pattern match failed"
+.Lstr_130:              .string          "END"
                         .text
                         .section         .data
                         .align           8
 .Lchunk_registry:
-                        .quad            .Lstr_6 # expression: list_reverse -> .Lpc20
+                        .quad            .Lstr_6
                         .quad            .Lpc20
-                        .quad            .Lstr_11 # expression: lr1 -> .Lpc27
+                        .quad            .Lstr_11
                         .quad            .Lpc27
-                        .quad            .Lstr_16 # expression: lr_done -> .Lpc44
+                        .quad            .Lstr_16
                         .quad            .Lpc44
-                        .quad            .Lstr_17 # expression: list_reverse_end -> .Lpc49
+                        .quad            .Lstr_17
                         .quad            .Lpc49
-                        .quad            .Lstr_19 # expression: stk_push_frame -> .Lpc56
+                        .quad            .Lstr_19
                         .quad            .Lpc56
-                        .quad            .Lstr_24 # expression: stk_push_frame_end -> .Lpc69
+                        .quad            .Lstr_24
                         .quad            .Lpc69
-                        .quad            .Lstr_26 # expression: stk_push_item -> .Lpc76
+                        .quad            .Lstr_26
                         .quad            .Lpc76
-                        .quad            .Lstr_28 # expression: stk_push_item_end -> .Lpc89
+                        .quad            .Lstr_28
                         .quad            .Lpc89
-                        .quad            .Lstr_30 # expression: stk_pop_into_parent -> .Lpc96
+                        .quad            .Lstr_30
                         .quad            .Lpc96
-                        .quad            .Lstr_32 # expression: stk_pop_into_parent_end -> .Lpc119
+                        .quad            .Lstr_32
                         .quad            .Lpc119
-                        .quad            .Lstr_34 # expression: stk_pop_final -> .Lpc126
+                        .quad            .Lstr_34
                         .quad            .Lpc126
-                        .quad            .Lstr_37 # expression: stk_pop_final_end -> .Lpc142
+                        .quad            .Lstr_37
                         .quad            .Lpc142
-                        .quad            .Lstr_40 # expression: init_list -> .Lpc153
+                        .quad            .Lstr_40
                         .quad            .Lpc153
-                        .quad            .Lstr_41 # expression: Init_list -> .Lpc166
+                        .quad            .Lstr_41
                         .quad            .Lpc166
-                        .quad            .Lstr_46 # expression: init_list_end -> .Lpc176
+                        .quad            .Lstr_46
                         .quad            .Lpc176
-                        .quad            .Lstr_49 # expression: push_list -> .Lpc187
+                        .quad            .Lstr_49
                         .quad            .Lpc187
-                        .quad            .Lstr_50 # expression: Push_list -> .Lpc197
+                        .quad            .Lstr_50
                         .quad            .Lpc197
-                        .quad            .Lstr_52 # expression: push_list_end -> .Lpc207
+                        .quad            .Lstr_52
                         .quad            .Lpc207
-                        .quad            .Lstr_55 # expression: push_item -> .Lpc218
+                        .quad            .Lstr_55
                         .quad            .Lpc218
-                        .quad            .Lstr_56 # expression: Push_item -> .Lpc228
+                        .quad            .Lstr_56
                         .quad            .Lpc228
-                        .quad            .Lstr_58 # expression: push_item_end -> .Lpc238
+                        .quad            .Lstr_58
                         .quad            .Lpc238
-                        .quad            .Lstr_61 # expression: pop_list -> .Lpc249
+                        .quad            .Lstr_61
                         .quad            .Lpc249
-                        .quad            .Lstr_62 # expression: Pop_list -> .Lpc258
+                        .quad            .Lstr_62
                         .quad            .Lpc258
-                        .quad            .Lstr_64 # expression: pop_list_end -> .Lpc266
+                        .quad            .Lstr_64
                         .quad            .Lpc266
-                        .quad            .Lstr_67 # expression: pop_final -> .Lpc277
+                        .quad            .Lstr_67
                         .quad            .Lpc277
-                        .quad            .Lstr_68 # expression: Pop_final -> .Lpc287
+                        .quad            .Lstr_68
                         .quad            .Lpc287
-                        .quad            .Lstr_70 # expression: pop_final_end -> .Lpc297
+                        .quad            .Lstr_70
                         .quad            .Lpc297
-                        .quad            .Lstr_84 # expression: node_repr -> .Lpc385
+                        .quad            .Lstr_84
                         .quad            .Lpc385
-                        .quad            .Lstr_93 # expression: nr_list -> .Lpc404
+                        .quad            .Lstr_93
                         .quad            .Lpc404
-                        .quad            .Lstr_97 # expression: nr_lp -> .Lpc414
+                        .quad            .Lstr_97
                         .quad            .Lpc414
-                        .quad            .Lstr_99 # expression: nr_done -> .Lpc437
+                        .quad            .Lstr_99
                         .quad            .Lpc437
-                        .quad            .Lstr_100 # expression: node_repr_end -> .Lpc444
+                        .quad            .Lstr_100
                         .quad            .Lpc444
-                        .quad            .Lstr_102 # expression: pp_node -> .Lpc451
+                        .quad            .Lstr_102
                         .quad            .Lpc451
-                        .quad            .Lstr_110 # expression: pp_wrap -> .Lpc478
+                        .quad            .Lstr_110
                         .quad            .Lpc478
-                        .quad            .Lstr_113 # expression: pp_wch -> .Lpc495
+                        .quad            .Lstr_113
                         .quad            .Lpc495
-                        .quad            .Lstr_116 # expression: pp_wlast -> .Lpc523
+                        .quad            .Lstr_116
                         .quad            .Lpc523
-                        .quad            .Lstr_117 # expression: pp_wdone -> .Lpc536
+                        .quad            .Lstr_117
                         .quad            .Lpc536
-                        .quad            .Lstr_118 # expression: pp_node_end -> .Lpc539
+                        .quad            .Lstr_118
                         .quad            .Lpc539
-                        .quad            .Lstr_120 # expression: pp_bank -> .Lpc546
+                        .quad            .Lstr_120
                         .quad            .Lpc546
-                        .quad            .Lstr_122 # expression: pp_bank_end -> .Lpc558
+                        .quad            .Lstr_122
                         .quad            .Lpc558
-                        .quad            .Lstr_123 # expression: slurp -> .Lpc560
+                        .quad            .Lstr_123
                         .quad            .Lpc560
-                        .quad            .Lstr_127 # expression: slurp_done -> .Lpc573
+                        .quad            .Lstr_127
                         .quad            .Lpc573
-                        .quad            .Lstr_128 # expression: main_fail -> .Lpc585
+                        .quad            .Lstr_128
                         .quad            .Lpc585
-                        .quad            .Lstr_130 # expression: END -> .Lpc589
+                        .quad            .Lstr_130
                         .quad            .Lpc589
                         .quad            0 # sentinel
                         .quad            0
                         .text
-# ======================================================================================================================
-# EM-7c: invariant pattern blobs (baked from sm_phase2_to_patnd → bb_build_flat_text)
-# Each block exposes pat_inv_<id>_α / _β / _γ / _ω.
-# rt_match_blob(blob_α, ...) drives Phase-3 against these blobs.
-# ======================================================================================================================
                         .intel_syntax    noprefix
                         .text
-# ---- pattern blob 0 (Phase-2 window pc=1..6, SM_EXEC_STMT pc=9) ----
                         .global          pat_inv_0_α
                         .global          pat_inv_0_β
                         .global          pat_inv_0_γ
@@ -463,13 +326,6 @@ pat_inv_0_ω:
                         mov              eax, 99
                         xor              edx, edx
                         ret
-# -----------------------------------------------------------------------
-# scrip --jit-emit --x64  (M-JITEM-X64 / EM-1..EM-7d)
-# 591 SM instructions. Links against libscrip_rt.so.
-# Architecture: two emitters -- SM straight-line via sm_macros.s
-#   macros (inline x86); BB boxes via emit_bb_box() one-proc-per-box.
-# See archive/EMITTER-MODE4-ARCH.md for the full design.
-# -----------------------------------------------------------------------
                         .intel_syntax    noprefix
                         .globl           main
                         .type            main, @function
@@ -497,10 +353,10 @@ main:                   push             rbp
                         # PAT_CAT        baked  pat_inv_0 pc=1..6
                         PUSH_VAR         .Lstr_1 # ALPHABET
                         PUSH_INT         0
-                        lea              rdi, [rip + pat_inv_0_α] # blob entry α  (Phase-2 pc=1..6)
-                        lea              rsi, [rip + .Lstr_1] # subj_name=ALPHABET
-                        mov              edx, 0 # has_repl=0
-                        call             rt_match_blob@PLT # EM-7c: Phase-3+5 against baked invariant blob
+                        lea              rdi, [rip + pat_inv_0_α]
+                        lea              rsi, [rip + .Lstr_1]
+                        mov              edx, 0
+                        call             rt_match_blob@PLT
 # ======================================================================================================================
 # stmt 2  (line 8):                 DATA('list(head,tail)')
 # ======================================================================================================================

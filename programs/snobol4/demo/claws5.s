@@ -1,263 +1,163 @@
                         .include         "sm_macros.s"
                         .include         "bb_macros.s"
                         .section         .rodata
-.Lstr_0:
-                        .string          "nl"
-.Lstr_1:
-                        .string          "ALPHABET"
-.Lstr_2:
-                        .string          "0123456789"
-.Lstr_3:
-                        .string          "DIGITS"
-.Lstr_4:
-                        .string          "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-.Lstr_5:
-                        .string          "UCASE"
-.Lstr_6:
-                        .string          "new_sent()"
-.Lstr_7:
-                        .string          "DEFINE"
-.Lstr_8:
-                        .string          "new_sent"
-.Lstr_9:
-                        .string          "num"
-.Lstr_10:
-                        .string          "sentno"
-.Lstr_11:
-                        .string          "TABLE"
-.Lstr_12:
-                        .string          "mem"
-.Lstr_13:
-                        .string          "IDX_SET"
-.Lstr_14:
-                        .string          "dummy"
-.Lstr_15:
-                        .string          "NAME_PUSH"
-.Lstr_16:
-                        .string          "new_sent_end"
-.Lstr_17:
-                        .string          "add_tok()"
-.Lstr_18:
-                        .string          "add_tok"
-.Lstr_19:
-                        .string          "IDX"
-.Lstr_20:
-                        .string          "wrd"
-.Lstr_21:
-                        .string          "DIFFER"
-.Lstr_22:
-                        .string          "tag"
-.Lstr_23:
-                        .string          "new_wrd"
-.Lstr_24:
-                        .string          "new_tag"
-.Lstr_25:
-                        .string          "done"
-.Lstr_26:
-                        .string          "add_tok_end"
-.Lstr_27:
-                        .string          "pp_mem(mem)ssk,si,sentno,wsk,wi,wkey,wq,wrd,tsk,ti,tag,tv,tline,pfx,pad,next_wkey,last_sent,lline,ns"
-.Lstr_28:
-                        .string          "pp_mem"
-.Lstr_29:
-                        .string          "SORT"
-.Lstr_30:
-                        .string          "ssk"
-.Lstr_31:
-                        .string          "si"
-.Lstr_32:
-                        .string          "ns"
-.Lstr_33:
-                        .string          "pm_cnt_loop"
-.Lstr_34:
-                        .string          "pm_sent_loop"
-.Lstr_35:
-                        .string          ""
-.Lstr_36:
-                        .string          "last_sent"
-.Lstr_37:
-                        .string          "IDENT"
-.Lstr_38:
-                        .string          " "
-.Lstr_39:
-                        .string          "SIZE"
-.Lstr_40:
-                        .string          "DUPL"
-.Lstr_41:
-                        .string          "pad"
-.Lstr_42:
-                        .string          "EQ"
-.Lstr_43:
-                        .string          "{"
-.Lstr_44:
-                        .string          ": {"
-.Lstr_45:
-                        .string          "pfx"
-.Lstr_46:
-                        .string          "NE"
-.Lstr_47:
-                        .string          "wsk"
-.Lstr_48:
-                        .string          "wi"
-.Lstr_49:
-                        .string          "pm_wrd_loop"
-.Lstr_50:
-                        .string          "wkey"
-.Lstr_51:
-                        .string          "next_wkey"
-.Lstr_52:
-                        .string          "ARB"
-.Lstr_53:
-                        .string          "'"
-.Lstr_54:
-                        .string          "\""
-.Lstr_55:
-                        .string          "wq"
-.Lstr_56:
-                        .string          "pm_sq"
-.Lstr_57:
-                        .string          "pm_tdict"
-.Lstr_58:
-                        .string          "tsk"
-.Lstr_59:
-                        .string          "ti"
-.Lstr_60:
-                        .string          "tline"
-.Lstr_61:
-                        .string          "pm_tag_loop"
-.Lstr_62:
-                        .string          "tv"
-.Lstr_63:
-                        .string          "': "
-.Lstr_64:
-                        .string          "pm_tag_sep"
-.Lstr_65:
-                        .string          ", "
-.Lstr_66:
-                        .string          "pm_tag_close"
-.Lstr_67:
-                        .string          "}"
-.Lstr_68:
-                        .string          "GT"
-.Lstr_69:
-                        .string          ": "
-.Lstr_70:
-                        .string          ","
-.Lstr_71:
-                        .string          "OUTPUT"
-.Lstr_72:
-                        .string          "pm_mid_wrd"
-.Lstr_73:
-                        .string          "pm_last_wrd"
-.Lstr_74:
-                        .string          "lline"
-.Lstr_75:
-                        .string          "pm_last_mid"
-.Lstr_76:
-                        .string          "pm_last_emit"
-.Lstr_77:
-                        .string          "}}"
-.Lstr_78:
-                        .string          "pm_last_mid2"
-.Lstr_79:
-                        .string          "},"
-.Lstr_80:
-                        .string          "pm_done"
-.Lstr_81:
-                        .string          "pp_mem_end"
-.Lstr_82:
-                        .string          "slurp"
-.Lstr_83:
-                        .string          "INPUT"
-.Lstr_84:
-                        .string          "line"
-.Lstr_85:
-                        .string          "src"
-.Lstr_86:
-                        .string          "slurp_done"
-.Lstr_87:
-                        .string          "_CRD :_PUN"
-.Lstr_88:
-                        .string          "epsilon"
-.Lstr_89:
-                        .string          "_"
-.Lstr_90:
-                        .string          "claws"
-.Lstr_91:
-                        .string          "fail"
-.Lstr_92:
-                        .string          "Pattern match failed"
-.Lstr_93:
-                        .string          "END"
+.Lstr_0:                .string          "nl"
+.Lstr_1:                .string          "ALPHABET"
+.Lstr_2:                .string          "0123456789"
+.Lstr_3:                .string          "DIGITS"
+.Lstr_4:                .string          "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+.Lstr_5:                .string          "UCASE"
+.Lstr_6:                .string          "new_sent()"
+.Lstr_7:                .string          "DEFINE"
+.Lstr_8:                .string          "new_sent"
+.Lstr_9:                .string          "num"
+.Lstr_10:               .string          "sentno"
+.Lstr_11:               .string          "TABLE"
+.Lstr_12:               .string          "mem"
+.Lstr_13:               .string          "IDX_SET"
+.Lstr_14:               .string          "dummy"
+.Lstr_15:               .string          "NAME_PUSH"
+.Lstr_16:               .string          "new_sent_end"
+.Lstr_17:               .string          "add_tok()"
+.Lstr_18:               .string          "add_tok"
+.Lstr_19:               .string          "IDX"
+.Lstr_20:               .string          "wrd"
+.Lstr_21:               .string          "DIFFER"
+.Lstr_22:               .string          "tag"
+.Lstr_23:               .string          "new_wrd"
+.Lstr_24:               .string          "new_tag"
+.Lstr_25:               .string          "done"
+.Lstr_26:               .string          "add_tok_end"
+.Lstr_27:               .string          "pp_mem(mem)ssk,si,sentno,wsk,wi,wkey,wq,wrd,tsk,ti,tag,tv,tline,pfx,pad,next_wkey,last_sent,lline,ns"
+.Lstr_28:               .string          "pp_mem"
+.Lstr_29:               .string          "SORT"
+.Lstr_30:               .string          "ssk"
+.Lstr_31:               .string          "si"
+.Lstr_32:               .string          "ns"
+.Lstr_33:               .string          "pm_cnt_loop"
+.Lstr_34:               .string          "pm_sent_loop"
+.Lstr_35:               .string          ""
+.Lstr_36:               .string          "last_sent"
+.Lstr_37:               .string          "IDENT"
+.Lstr_38:               .string          " "
+.Lstr_39:               .string          "SIZE"
+.Lstr_40:               .string          "DUPL"
+.Lstr_41:               .string          "pad"
+.Lstr_42:               .string          "EQ"
+.Lstr_43:               .string          "{"
+.Lstr_44:               .string          ": {"
+.Lstr_45:               .string          "pfx"
+.Lstr_46:               .string          "NE"
+.Lstr_47:               .string          "wsk"
+.Lstr_48:               .string          "wi"
+.Lstr_49:               .string          "pm_wrd_loop"
+.Lstr_50:               .string          "wkey"
+.Lstr_51:               .string          "next_wkey"
+.Lstr_52:               .string          "ARB"
+.Lstr_53:               .string          "'"
+.Lstr_54:               .string          "\""
+.Lstr_55:               .string          "wq"
+.Lstr_56:               .string          "pm_sq"
+.Lstr_57:               .string          "pm_tdict"
+.Lstr_58:               .string          "tsk"
+.Lstr_59:               .string          "ti"
+.Lstr_60:               .string          "tline"
+.Lstr_61:               .string          "pm_tag_loop"
+.Lstr_62:               .string          "tv"
+.Lstr_63:               .string          "': "
+.Lstr_64:               .string          "pm_tag_sep"
+.Lstr_65:               .string          ", "
+.Lstr_66:               .string          "pm_tag_close"
+.Lstr_67:               .string          "}"
+.Lstr_68:               .string          "GT"
+.Lstr_69:               .string          ": "
+.Lstr_70:               .string          ","
+.Lstr_71:               .string          "OUTPUT"
+.Lstr_72:               .string          "pm_mid_wrd"
+.Lstr_73:               .string          "pm_last_wrd"
+.Lstr_74:               .string          "lline"
+.Lstr_75:               .string          "pm_last_mid"
+.Lstr_76:               .string          "pm_last_emit"
+.Lstr_77:               .string          "}}"
+.Lstr_78:               .string          "pm_last_mid2"
+.Lstr_79:               .string          "},"
+.Lstr_80:               .string          "pm_done"
+.Lstr_81:               .string          "pp_mem_end"
+.Lstr_82:               .string          "slurp"
+.Lstr_83:               .string          "INPUT"
+.Lstr_84:               .string          "line"
+.Lstr_85:               .string          "src"
+.Lstr_86:               .string          "slurp_done"
+.Lstr_87:               .string          "_CRD :_PUN"
+.Lstr_88:               .string          "epsilon"
+.Lstr_89:               .string          "_"
+.Lstr_90:               .string          "claws"
+.Lstr_91:               .string          "fail"
+.Lstr_92:               .string          "Pattern match failed"
+.Lstr_93:               .string          "END"
                         .text
                         .section         .data
                         .align           8
 .Lchunk_registry:
-                        .quad            .Lstr_8 # expression: new_sent -> .Lpc22
+                        .quad            .Lstr_8
                         .quad            .Lpc22
-                        .quad            .Lstr_16 # expression: new_sent_end -> .Lpc37
+                        .quad            .Lstr_16
                         .quad            .Lpc37
-                        .quad            .Lstr_18 # expression: add_tok -> .Lpc44
+                        .quad            .Lstr_18
                         .quad            .Lpc44
-                        .quad            .Lstr_23 # expression: new_wrd -> .Lpc83
+                        .quad            .Lstr_23
                         .quad            .Lpc83
-                        .quad            .Lstr_24 # expression: new_tag -> .Lpc91
+                        .quad            .Lstr_24
                         .quad            .Lpc91
-                        .quad            .Lstr_25 # expression: done -> .Lpc101
+                        .quad            .Lstr_25
                         .quad            .Lpc101
-                        .quad            .Lstr_26 # expression: add_tok_end -> .Lpc107
+                        .quad            .Lstr_26
                         .quad            .Lpc107
-                        .quad            .Lstr_28 # expression: pp_mem -> .Lpc114
+                        .quad            .Lstr_28
                         .quad            .Lpc114
-                        .quad            .Lstr_33 # expression: pm_cnt_loop -> .Lpc125
+                        .quad            .Lstr_33
                         .quad            .Lpc125
-                        .quad            .Lstr_34 # expression: pm_sent_loop -> .Lpc146
+                        .quad            .Lstr_34
                         .quad            .Lpc146
-                        .quad            .Lstr_49 # expression: pm_wrd_loop -> .Lpc208
+                        .quad            .Lstr_49
                         .quad            .Lpc208
-                        .quad            .Lstr_56 # expression: pm_sq -> .Lpc252
+                        .quad            .Lstr_56
                         .quad            .Lpc252
-                        .quad            .Lstr_57 # expression: pm_tdict -> .Lpc260
+                        .quad            .Lstr_57
                         .quad            .Lpc260
-                        .quad            .Lstr_61 # expression: pm_tag_loop -> .Lpc275
+                        .quad            .Lstr_61
                         .quad            .Lpc275
-                        .quad            .Lstr_64 # expression: pm_tag_sep -> .Lpc315
+                        .quad            .Lstr_64
                         .quad            .Lpc315
-                        .quad            .Lstr_66 # expression: pm_tag_close -> .Lpc330
+                        .quad            .Lstr_66
                         .quad            .Lpc330
-                        .quad            .Lstr_72 # expression: pm_mid_wrd -> .Lpc361
+                        .quad            .Lstr_72
                         .quad            .Lpc361
-                        .quad            .Lstr_73 # expression: pm_last_wrd -> .Lpc374
+                        .quad            .Lstr_73
                         .quad            .Lpc374
-                        .quad            .Lstr_75 # expression: pm_last_mid -> .Lpc391
+                        .quad            .Lstr_75
                         .quad            .Lpc391
-                        .quad            .Lstr_76 # expression: pm_last_emit -> .Lpc401
+                        .quad            .Lstr_76
                         .quad            .Lpc401
-                        .quad            .Lstr_78 # expression: pm_last_mid2 -> .Lpc414
+                        .quad            .Lstr_78
                         .quad            .Lpc414
-                        .quad            .Lstr_80 # expression: pm_done -> .Lpc421
+                        .quad            .Lstr_80
                         .quad            .Lpc421
-                        .quad            .Lstr_81 # expression: pp_mem_end -> .Lpc427
+                        .quad            .Lstr_81
                         .quad            .Lpc427
-                        .quad            .Lstr_82 # expression: slurp -> .Lpc429
+                        .quad            .Lstr_82
                         .quad            .Lpc429
-                        .quad            .Lstr_86 # expression: slurp_done -> .Lpc440
+                        .quad            .Lstr_86
                         .quad            .Lpc440
-                        .quad            .Lstr_91 # expression: fail -> .Lpc502
+                        .quad            .Lstr_91
                         .quad            .Lpc502
-                        .quad            .Lstr_93 # expression: END -> .Lpc506
+                        .quad            .Lstr_93
                         .quad            .Lpc506
                         .quad            0 # sentinel
                         .quad            0
                         .text
-# ======================================================================================================================
-# EM-7c: invariant pattern blobs (baked from sm_phase2_to_patnd → bb_build_flat_text)
-# Each block exposes pat_inv_<id>_α / _β / _γ / _ω.
-# rt_match_blob(blob_α, ...) drives Phase-3 against these blobs.
-# ======================================================================================================================
                         .intel_syntax    noprefix
                         .text
-# ---- pattern blob 0 (Phase-2 window pc=1..6, SM_EXEC_STMT pc=9) ----
                         .global          pat_inv_0_α
                         .global          pat_inv_0_β
                         .global          pat_inv_0_γ
@@ -355,13 +255,6 @@ pat_inv_0_ω:
                         mov              eax, 99
                         xor              edx, edx
                         ret
-# -----------------------------------------------------------------------
-# scrip --jit-emit --x64  (M-JITEM-X64 / EM-1..EM-7d)
-# 508 SM instructions. Links against libscrip_rt.so.
-# Architecture: two emitters -- SM straight-line via sm_macros.s
-#   macros (inline x86); BB boxes via emit_bb_box() one-proc-per-box.
-# See archive/EMITTER-MODE4-ARCH.md for the full design.
-# -----------------------------------------------------------------------
                         .intel_syntax    noprefix
                         .globl           main
                         .type            main, @function
@@ -389,10 +282,10 @@ main:                   push             rbp
                         # PAT_CAT        baked  pat_inv_0 pc=1..6
                         PUSH_VAR         .Lstr_1 # ALPHABET
                         PUSH_INT         0
-                        lea              rdi, [rip + pat_inv_0_α] # blob entry α  (Phase-2 pc=1..6)
-                        lea              rsi, [rip + .Lstr_1] # subj_name=ALPHABET
-                        mov              edx, 0 # has_repl=0
-                        call             rt_match_blob@PLT # EM-7c: Phase-3+5 against baked invariant blob
+                        lea              rdi, [rip + pat_inv_0_α]
+                        lea              rsi, [rip + .Lstr_1]
+                        mov              edx, 0
+                        call             rt_match_blob@PLT
 # ======================================================================================================================
 # stmt 2  (line 9):                  DIGITS          =  '0123456789'
 # ======================================================================================================================

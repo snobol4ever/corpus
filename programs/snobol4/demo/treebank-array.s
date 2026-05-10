@@ -1,379 +1,237 @@
                         .include         "sm_macros.s"
                         .include         "bb_macros.s"
                         .section         .rodata
-.Lstr_0:
-                        .string          "nl"
-.Lstr_1:
-                        .string          "ALPHABET"
-.Lstr_2:
-                        .string          "list(head,tail)"
-.Lstr_3:
-                        .string          "DATA"
-.Lstr_4:
-                        .string          "frame_id"
-.Lstr_5:
-                        .string          "TABLE"
-.Lstr_6:
-                        .string          "stk_tag"
-.Lstr_7:
-                        .string          "stk_n"
-.Lstr_8:
-                        .string          "stk_c"
-.Lstr_9:
-                        .string          "stk_push_frame(v)"
-.Lstr_10:
-                        .string          "DEFINE"
-.Lstr_11:
-                        .string          "stk_push_frame"
-.Lstr_12:
-                        .string          "v"
-.Lstr_13:
-                        .string          "IDX_SET"
-.Lstr_14:
-                        .string          "stk"
-.Lstr_15:
-                        .string          "list"
-.Lstr_16:
-                        .string          "dummy"
-.Lstr_17:
-                        .string          "NAME_PUSH"
-.Lstr_18:
-                        .string          "stk_push_frame_end"
-.Lstr_19:
-                        .string          "stk_push_item(v,cur)"
-.Lstr_20:
-                        .string          "stk_push_item"
-.Lstr_21:
-                        .string          "head"
-.Lstr_22:
-                        .string          "cur"
-.Lstr_23:
-                        .string          "IDX"
-.Lstr_24:
-                        .string          "stk_push_item_end"
-.Lstr_25:
-                        .string          "stk_pop_into_parent(child,par,n)"
-.Lstr_26:
-                        .string          "stk_pop_into_parent"
-.Lstr_27:
-                        .string          "child"
-.Lstr_28:
-                        .string          "tail"
-.Lstr_29:
-                        .string          "par"
-.Lstr_30:
-                        .string          "n"
-.Lstr_31:
-                        .string          "stk_pop_into_parent_end"
-.Lstr_32:
-                        .string          "stk_pop_final(var,child)"
-.Lstr_33:
-                        .string          "stk_pop_final"
-.Lstr_34:
-                        .string          "var"
-.Lstr_35:
-                        .string          "ASGN_INDIR"
-.Lstr_36:
-                        .string          "stk_pop_final_end"
-.Lstr_37:
-                        .string          "init_list(v)"
-.Lstr_38:
-                        .string          "Init_list(vs)"
-.Lstr_39:
-                        .string          "init_list"
-.Lstr_40:
-                        .string          ""
-.Lstr_41:
-                        .string          "Init_list"
-.Lstr_42:
-                        .string          "epsilon . *init_list("
-.Lstr_43:
-                        .string          "vs"
-.Lstr_44:
-                        .string          ")"
-.Lstr_45:
-                        .string          "EVAL"
-.Lstr_46:
-                        .string          "init_list_end"
-.Lstr_47:
-                        .string          "push_list(v)"
-.Lstr_48:
-                        .string          "Push_list(vs)"
-.Lstr_49:
-                        .string          "push_list"
-.Lstr_50:
-                        .string          "Push_list"
-.Lstr_51:
-                        .string          "epsilon . *push_list("
-.Lstr_52:
-                        .string          "push_list_end"
-.Lstr_53:
-                        .string          "push_item(v)"
-.Lstr_54:
-                        .string          "Push_item(vs)"
-.Lstr_55:
-                        .string          "push_item"
-.Lstr_56:
-                        .string          "Push_item"
-.Lstr_57:
-                        .string          "epsilon . *push_item("
-.Lstr_58:
-                        .string          "push_item_end"
-.Lstr_59:
-                        .string          "pop_list()"
-.Lstr_60:
-                        .string          "Pop_list()"
-.Lstr_61:
-                        .string          "pop_list"
-.Lstr_62:
-                        .string          "Pop_list"
-.Lstr_63:
-                        .string          "epsilon"
-.Lstr_64:
-                        .string          "pop_list_end"
-.Lstr_65:
-                        .string          "pop_final(v)"
-.Lstr_66:
-                        .string          "Pop_final(vs)"
-.Lstr_67:
-                        .string          "pop_final"
-.Lstr_68:
-                        .string          "Pop_final"
-.Lstr_69:
-                        .string          "epsilon . *pop_final("
-.Lstr_70:
-                        .string          "pop_final_end"
-.Lstr_71:
-                        .string          "node_repr(f)r,sep,i,n,tag"
-.Lstr_72:
-                        .string          "node_repr"
-.Lstr_73:
-                        .string          "f"
-.Lstr_74:
-                        .string          "DATATYPE"
-.Lstr_75:
-                        .string          "LCASE"
-.Lstr_76:
-                        .string          "UCASE"
-.Lstr_77:
-                        .string          "REPLACE"
-.Lstr_78:
-                        .string          "STRING"
-.Lstr_79:
-                        .string          "IDENT"
-.Lstr_80:
-                        .string          "'"
-.Lstr_81:
-                        .string          "nr_frame"
-.Lstr_82:
-                        .string          "tag"
-.Lstr_83:
-                        .string          "('"
-.Lstr_84:
-                        .string          "r"
-.Lstr_85:
-                        .string          "i"
-.Lstr_86:
-                        .string          "nr_lp"
-.Lstr_87:
-                        .string          "LT"
-.Lstr_88:
-                        .string          ", "
-.Lstr_89:
-                        .string          "nr_done"
-.Lstr_90:
-                        .string          "node_repr_end"
-.Lstr_91:
-                        .string          "pp_node(f,indent,suffix)r,pad,tag,n,i,nxt"
-.Lstr_92:
-                        .string          "pp_node"
-.Lstr_93:
-                        .string          " "
-.Lstr_94:
-                        .string          "indent"
-.Lstr_95:
-                        .string          "DUPL"
-.Lstr_96:
-                        .string          "suffix"
-.Lstr_97:
-                        .string          "OUTPUT"
-.Lstr_98:
-                        .string          "pp_frame"
-.Lstr_99:
-                        .string          "pad"
-.Lstr_100:
-                        .string          "SIZE"
-.Lstr_101:
-                        .string          "GT"
-.Lstr_102:
-                        .string          "pp_wrap"
-.Lstr_103:
-                        .string          "( "
-.Lstr_104:
-                        .string          "',"
-.Lstr_105:
-                        .string          "pp_wch"
-.Lstr_106:
-                        .string          "nxt"
-.Lstr_107:
-                        .string          ","
-.Lstr_108:
-                        .string          "pp_wlast"
-.Lstr_109:
-                        .string          "pp_wdone"
-.Lstr_110:
-                        .string          "pp_node_end"
-.Lstr_111:
-                        .string          "pp_bank()"
-.Lstr_112:
-                        .string          "pp_bank"
-.Lstr_113:
-                        .string          "bank"
-.Lstr_114:
-                        .string          "pp_bank_end"
-.Lstr_115:
-                        .string          "delim"
-.Lstr_116:
-                        .string          "( )"
-.Lstr_117:
-                        .string          "word"
-.Lstr_118:
-                        .string          "("
-.Lstr_119:
-                        .string          "group"
-.Lstr_120:
-                        .string          "wrd"
-.Lstr_121:
-                        .string          "BAL"
-.Lstr_122:
-                        .string          "item"
-.Lstr_123:
-                        .string          "spat"
-.Lstr_124:
-                        .string          "slurp"
-.Lstr_125:
-                        .string          "INPUT"
-.Lstr_126:
-                        .string          "line"
-.Lstr_127:
-                        .string          "src"
-.Lstr_128:
-                        .string          "slurp_done"
-.Lstr_129:
-                        .string          "BANK"
-.Lstr_130:
-                        .string          "loop"
-.Lstr_131:
-                        .string          "ROOT"
-.Lstr_132:
-                        .string          "parse_fail"
-.Lstr_133:
-                        .string          "Parse failed on: "
-.Lstr_134:
-                        .string          "all_done"
-.Lstr_135:
-                        .string          "END"
+.Lstr_0:                .string          "nl"
+.Lstr_1:                .string          "ALPHABET"
+.Lstr_2:                .string          "list(head,tail)"
+.Lstr_3:                .string          "DATA"
+.Lstr_4:                .string          "frame_id"
+.Lstr_5:                .string          "TABLE"
+.Lstr_6:                .string          "stk_tag"
+.Lstr_7:                .string          "stk_n"
+.Lstr_8:                .string          "stk_c"
+.Lstr_9:                .string          "stk_push_frame(v)"
+.Lstr_10:               .string          "DEFINE"
+.Lstr_11:               .string          "stk_push_frame"
+.Lstr_12:               .string          "v"
+.Lstr_13:               .string          "IDX_SET"
+.Lstr_14:               .string          "stk"
+.Lstr_15:               .string          "list"
+.Lstr_16:               .string          "dummy"
+.Lstr_17:               .string          "NAME_PUSH"
+.Lstr_18:               .string          "stk_push_frame_end"
+.Lstr_19:               .string          "stk_push_item(v,cur)"
+.Lstr_20:               .string          "stk_push_item"
+.Lstr_21:               .string          "head"
+.Lstr_22:               .string          "cur"
+.Lstr_23:               .string          "IDX"
+.Lstr_24:               .string          "stk_push_item_end"
+.Lstr_25:               .string          "stk_pop_into_parent(child,par,n)"
+.Lstr_26:               .string          "stk_pop_into_parent"
+.Lstr_27:               .string          "child"
+.Lstr_28:               .string          "tail"
+.Lstr_29:               .string          "par"
+.Lstr_30:               .string          "n"
+.Lstr_31:               .string          "stk_pop_into_parent_end"
+.Lstr_32:               .string          "stk_pop_final(var,child)"
+.Lstr_33:               .string          "stk_pop_final"
+.Lstr_34:               .string          "var"
+.Lstr_35:               .string          "ASGN_INDIR"
+.Lstr_36:               .string          "stk_pop_final_end"
+.Lstr_37:               .string          "init_list(v)"
+.Lstr_38:               .string          "Init_list(vs)"
+.Lstr_39:               .string          "init_list"
+.Lstr_40:               .string          ""
+.Lstr_41:               .string          "Init_list"
+.Lstr_42:               .string          "epsilon . *init_list("
+.Lstr_43:               .string          "vs"
+.Lstr_44:               .string          ")"
+.Lstr_45:               .string          "EVAL"
+.Lstr_46:               .string          "init_list_end"
+.Lstr_47:               .string          "push_list(v)"
+.Lstr_48:               .string          "Push_list(vs)"
+.Lstr_49:               .string          "push_list"
+.Lstr_50:               .string          "Push_list"
+.Lstr_51:               .string          "epsilon . *push_list("
+.Lstr_52:               .string          "push_list_end"
+.Lstr_53:               .string          "push_item(v)"
+.Lstr_54:               .string          "Push_item(vs)"
+.Lstr_55:               .string          "push_item"
+.Lstr_56:               .string          "Push_item"
+.Lstr_57:               .string          "epsilon . *push_item("
+.Lstr_58:               .string          "push_item_end"
+.Lstr_59:               .string          "pop_list()"
+.Lstr_60:               .string          "Pop_list()"
+.Lstr_61:               .string          "pop_list"
+.Lstr_62:               .string          "Pop_list"
+.Lstr_63:               .string          "epsilon"
+.Lstr_64:               .string          "pop_list_end"
+.Lstr_65:               .string          "pop_final(v)"
+.Lstr_66:               .string          "Pop_final(vs)"
+.Lstr_67:               .string          "pop_final"
+.Lstr_68:               .string          "Pop_final"
+.Lstr_69:               .string          "epsilon . *pop_final("
+.Lstr_70:               .string          "pop_final_end"
+.Lstr_71:               .string          "node_repr(f)r,sep,i,n,tag"
+.Lstr_72:               .string          "node_repr"
+.Lstr_73:               .string          "f"
+.Lstr_74:               .string          "DATATYPE"
+.Lstr_75:               .string          "LCASE"
+.Lstr_76:               .string          "UCASE"
+.Lstr_77:               .string          "REPLACE"
+.Lstr_78:               .string          "STRING"
+.Lstr_79:               .string          "IDENT"
+.Lstr_80:               .string          "'"
+.Lstr_81:               .string          "nr_frame"
+.Lstr_82:               .string          "tag"
+.Lstr_83:               .string          "('"
+.Lstr_84:               .string          "r"
+.Lstr_85:               .string          "i"
+.Lstr_86:               .string          "nr_lp"
+.Lstr_87:               .string          "LT"
+.Lstr_88:               .string          ", "
+.Lstr_89:               .string          "nr_done"
+.Lstr_90:               .string          "node_repr_end"
+.Lstr_91:               .string          "pp_node(f,indent,suffix)r,pad,tag,n,i,nxt"
+.Lstr_92:               .string          "pp_node"
+.Lstr_93:               .string          " "
+.Lstr_94:               .string          "indent"
+.Lstr_95:               .string          "DUPL"
+.Lstr_96:               .string          "suffix"
+.Lstr_97:               .string          "OUTPUT"
+.Lstr_98:               .string          "pp_frame"
+.Lstr_99:               .string          "pad"
+.Lstr_100:              .string          "SIZE"
+.Lstr_101:              .string          "GT"
+.Lstr_102:              .string          "pp_wrap"
+.Lstr_103:              .string          "( "
+.Lstr_104:              .string          "',"
+.Lstr_105:              .string          "pp_wch"
+.Lstr_106:              .string          "nxt"
+.Lstr_107:              .string          ","
+.Lstr_108:              .string          "pp_wlast"
+.Lstr_109:              .string          "pp_wdone"
+.Lstr_110:              .string          "pp_node_end"
+.Lstr_111:              .string          "pp_bank()"
+.Lstr_112:              .string          "pp_bank"
+.Lstr_113:              .string          "bank"
+.Lstr_114:              .string          "pp_bank_end"
+.Lstr_115:              .string          "delim"
+.Lstr_116:              .string          "( )"
+.Lstr_117:              .string          "word"
+.Lstr_118:              .string          "("
+.Lstr_119:              .string          "group"
+.Lstr_120:              .string          "wrd"
+.Lstr_121:              .string          "BAL"
+.Lstr_122:              .string          "item"
+.Lstr_123:              .string          "spat"
+.Lstr_124:              .string          "slurp"
+.Lstr_125:              .string          "INPUT"
+.Lstr_126:              .string          "line"
+.Lstr_127:              .string          "src"
+.Lstr_128:              .string          "slurp_done"
+.Lstr_129:              .string          "BANK"
+.Lstr_130:              .string          "loop"
+.Lstr_131:              .string          "ROOT"
+.Lstr_132:              .string          "parse_fail"
+.Lstr_133:              .string          "Parse failed on: "
+.Lstr_134:              .string          "all_done"
+.Lstr_135:              .string          "END"
                         .text
                         .section         .data
                         .align           8
 .Lchunk_registry:
-                        .quad            .Lstr_11 # expression: stk_push_frame -> .Lpc32
+                        .quad            .Lstr_11
                         .quad            .Lpc32
-                        .quad            .Lstr_18 # expression: stk_push_frame_end -> .Lpc63
+                        .quad            .Lstr_18
                         .quad            .Lpc63
-                        .quad            .Lstr_20 # expression: stk_push_item -> .Lpc70
+                        .quad            .Lstr_20
                         .quad            .Lpc70
-                        .quad            .Lstr_24 # expression: stk_push_item_end -> .Lpc98
+                        .quad            .Lstr_24
                         .quad            .Lpc98
-                        .quad            .Lstr_26 # expression: stk_pop_into_parent -> .Lpc105
+                        .quad            .Lstr_26
                         .quad            .Lpc105
-                        .quad            .Lstr_31 # expression: stk_pop_into_parent_end -> .Lpc145
+                        .quad            .Lstr_31
                         .quad            .Lpc145
-                        .quad            .Lstr_33 # expression: stk_pop_final -> .Lpc152
+                        .quad            .Lstr_33
                         .quad            .Lpc152
-                        .quad            .Lstr_36 # expression: stk_pop_final_end -> .Lpc170
+                        .quad            .Lstr_36
                         .quad            .Lpc170
-                        .quad            .Lstr_39 # expression: init_list -> .Lpc181
+                        .quad            .Lstr_39
                         .quad            .Lpc181
-                        .quad            .Lstr_41 # expression: Init_list -> .Lpc206
+                        .quad            .Lstr_41
                         .quad            .Lpc206
-                        .quad            .Lstr_46 # expression: init_list_end -> .Lpc216
+                        .quad            .Lstr_46
                         .quad            .Lpc216
-                        .quad            .Lstr_49 # expression: push_list -> .Lpc227
+                        .quad            .Lstr_49
                         .quad            .Lpc227
-                        .quad            .Lstr_50 # expression: Push_list -> .Lpc237
+                        .quad            .Lstr_50
                         .quad            .Lpc237
-                        .quad            .Lstr_52 # expression: push_list_end -> .Lpc247
+                        .quad            .Lstr_52
                         .quad            .Lpc247
-                        .quad            .Lstr_55 # expression: push_item -> .Lpc258
+                        .quad            .Lstr_55
                         .quad            .Lpc258
-                        .quad            .Lstr_56 # expression: Push_item -> .Lpc268
+                        .quad            .Lstr_56
                         .quad            .Lpc268
-                        .quad            .Lstr_58 # expression: push_item_end -> .Lpc278
+                        .quad            .Lstr_58
                         .quad            .Lpc278
-                        .quad            .Lstr_61 # expression: pop_list -> .Lpc289
+                        .quad            .Lstr_61
                         .quad            .Lpc289
-                        .quad            .Lstr_62 # expression: Pop_list -> .Lpc298
+                        .quad            .Lstr_62
                         .quad            .Lpc298
-                        .quad            .Lstr_64 # expression: pop_list_end -> .Lpc306
+                        .quad            .Lstr_64
                         .quad            .Lpc306
-                        .quad            .Lstr_67 # expression: pop_final -> .Lpc317
+                        .quad            .Lstr_67
                         .quad            .Lpc317
-                        .quad            .Lstr_68 # expression: Pop_final -> .Lpc327
+                        .quad            .Lstr_68
                         .quad            .Lpc327
-                        .quad            .Lstr_70 # expression: pop_final_end -> .Lpc337
+                        .quad            .Lstr_70
                         .quad            .Lpc337
-                        .quad            .Lstr_72 # expression: node_repr -> .Lpc344
+                        .quad            .Lstr_72
                         .quad            .Lpc344
-                        .quad            .Lstr_81 # expression: nr_frame -> .Lpc363
+                        .quad            .Lstr_81
                         .quad            .Lpc363
-                        .quad            .Lstr_86 # expression: nr_lp -> .Lpc384
+                        .quad            .Lstr_86
                         .quad            .Lpc384
-                        .quad            .Lstr_89 # expression: nr_done -> .Lpc411
+                        .quad            .Lstr_89
                         .quad            .Lpc411
-                        .quad            .Lstr_90 # expression: node_repr_end -> .Lpc418
+                        .quad            .Lstr_90
                         .quad            .Lpc418
-                        .quad            .Lstr_92 # expression: pp_node -> .Lpc425
+                        .quad            .Lstr_92
                         .quad            .Lpc425
-                        .quad            .Lstr_98 # expression: pp_frame -> .Lpc450
+                        .quad            .Lstr_98
                         .quad            .Lpc450
-                        .quad            .Lstr_102 # expression: pp_wrap -> .Lpc477
+                        .quad            .Lstr_102
                         .quad            .Lpc477
-                        .quad            .Lstr_105 # expression: pp_wch -> .Lpc502
+                        .quad            .Lstr_105
                         .quad            .Lpc502
-                        .quad            .Lstr_108 # expression: pp_wlast -> .Lpc537
+                        .quad            .Lstr_108
                         .quad            .Lpc537
-                        .quad            .Lstr_109 # expression: pp_wdone -> .Lpc553
+                        .quad            .Lstr_109
                         .quad            .Lpc553
-                        .quad            .Lstr_110 # expression: pp_node_end -> .Lpc556
+                        .quad            .Lstr_110
                         .quad            .Lpc556
-                        .quad            .Lstr_112 # expression: pp_bank -> .Lpc563
+                        .quad            .Lstr_112
                         .quad            .Lpc563
-                        .quad            .Lstr_114 # expression: pp_bank_end -> .Lpc575
+                        .quad            .Lstr_114
                         .quad            .Lpc575
-                        .quad            .Lstr_124 # expression: slurp -> .Lpc636
+                        .quad            .Lstr_124
                         .quad            .Lpc636
-                        .quad            .Lstr_128 # expression: slurp_done -> .Lpc649
+                        .quad            .Lstr_128
                         .quad            .Lpc649
-                        .quad            .Lstr_130 # expression: loop -> .Lpc659
+                        .quad            .Lstr_130
                         .quad            .Lpc659
-                        .quad            .Lstr_132 # expression: parse_fail -> .Lpc682
+                        .quad            .Lstr_132
                         .quad            .Lpc682
-                        .quad            .Lstr_134 # expression: all_done -> .Lpc692
+                        .quad            .Lstr_134
                         .quad            .Lpc692
-                        .quad            .Lstr_135 # expression: END -> .Lpc701
+                        .quad            .Lstr_135
                         .quad            .Lpc701
                         .quad            0 # sentinel
                         .quad            0
                         .text
-# ======================================================================================================================
-# EM-7c: invariant pattern blobs (baked from sm_phase2_to_patnd → bb_build_flat_text)
-# Each block exposes pat_inv_<id>_α / _β / _γ / _ω.
-# rt_match_blob(blob_α, ...) drives Phase-3 against these blobs.
-# ======================================================================================================================
                         .intel_syntax    noprefix
                         .text
-# ---- pattern blob 0 (Phase-2 window pc=1..6, SM_EXEC_STMT pc=9) ----
                         .global          pat_inv_0_α
                         .global          pat_inv_0_β
                         .global          pat_inv_0_γ
@@ -471,13 +329,6 @@ pat_inv_0_ω:
                         mov              eax, 99
                         xor              edx, edx
                         ret
-# -----------------------------------------------------------------------
-# scrip --jit-emit --x64  (M-JITEM-X64 / EM-1..EM-7d)
-# 703 SM instructions. Links against libscrip_rt.so.
-# Architecture: two emitters -- SM straight-line via sm_macros.s
-#   macros (inline x86); BB boxes via emit_bb_box() one-proc-per-box.
-# See archive/EMITTER-MODE4-ARCH.md for the full design.
-# -----------------------------------------------------------------------
                         .intel_syntax    noprefix
                         .globl           main
                         .type            main, @function
@@ -505,10 +356,10 @@ main:                   push             rbp
                         # PAT_CAT        baked  pat_inv_0 pc=1..6
                         PUSH_VAR         .Lstr_1 # ALPHABET
                         PUSH_INT         0
-                        lea              rdi, [rip + pat_inv_0_α] # blob entry α  (Phase-2 pc=1..6)
-                        lea              rsi, [rip + .Lstr_1] # subj_name=ALPHABET
-                        mov              edx, 0 # has_repl=0
-                        call             rt_match_blob@PLT # EM-7c: Phase-3+5 against baked invariant blob
+                        lea              rdi, [rip + pat_inv_0_α]
+                        lea              rsi, [rip + .Lstr_1]
+                        mov              edx, 0
+                        call             rt_match_blob@PLT
 # ======================================================================================================================
 # stmt 2  (line 8):                 DATA('list(head,tail)')
 # ======================================================================================================================

@@ -1,39 +1,25 @@
                         .include         "sm_macros.s"
                         .include         "bb_macros.s"
                         .section         .rodata
-.Lstr_0:
-                        .string          "ROMAN(N)UNITS"
-.Lstr_1:
-                        .string          "DEFINE"
-.Lstr_2:
-                        .string          "ROMAN"
-.Lstr_3:
-                        .string          "UNITS"
-.Lstr_4:
-                        .string          "N"
-.Lstr_5:
-                        .string          ""
-.Lstr_6:
-                        .string          ","
-.Lstr_7:
-                        .string          "0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
+.Lstr_0:                .string          "ROMAN(N)UNITS"
+.Lstr_1:                .string          "DEFINE"
+.Lstr_2:                .string          "ROMAN"
+.Lstr_3:                .string          "UNITS"
+.Lstr_4:                .string          "N"
+.Lstr_5:                .string          ""
+.Lstr_6:                .string          ","
+.Lstr_7:                .string          "0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
                         .text
                         .section         .data
                         .align           8
 .Lchunk_registry:
-                        .quad            .Lstr_2 # expression: ROMAN -> .Lpc6
+                        .quad            .Lstr_2
                         .quad            .Lpc6
                         .quad            0 # sentinel
                         .quad            0
                         .text
-# ======================================================================================================================
-# EM-7c: invariant pattern blobs (baked from sm_phase2_to_patnd → bb_build_flat_text)
-# Each block exposes pat_inv_<id>_α / _β / _γ / _ω.
-# rt_match_blob(blob_α, ...) drives Phase-3 against these blobs.
-# ======================================================================================================================
                         .intel_syntax    noprefix
                         .text
-# ---- pattern blob 0 (Phase-2 window pc=7..12, SM_EXEC_STMT pc=15) ----
                         .global          pat_inv_0_α
                         .global          pat_inv_0_β
                         .global          pat_inv_0_γ
@@ -131,13 +117,6 @@ pat_inv_0_ω:
                         mov              eax, 99
                         xor              edx, edx
                         ret
-# -----------------------------------------------------------------------
-# scrip --jit-emit --x64  (M-JITEM-X64 / EM-1..EM-7d)
-# 29 SM instructions. Links against libscrip_rt.so.
-# Architecture: two emitters -- SM straight-line via sm_macros.s
-#   macros (inline x86); BB boxes via emit_bb_box() one-proc-per-box.
-# See archive/EMITTER-MODE4-ARCH.md for the full design.
-# -----------------------------------------------------------------------
                         .intel_syntax    noprefix
                         .globl           main
                         .type            main, @function
@@ -174,10 +153,10 @@ main:                   push             rbp
                         # PAT_CAT        baked  pat_inv_0 pc=7..12
                         PUSH_VAR         .Lstr_4 # N
                         PUSH_STR         .Lstr_5, 0 # ""
-                        lea              rdi, [rip + pat_inv_0_α] # blob entry α  (Phase-2 pc=7..12)
-                        lea              rsi, [rip + .Lstr_4] # subj_name=N
-                        mov              edx, 1 # has_repl=1
-                        call             rt_match_blob@PLT # EM-7c: Phase-3+5 against baked invariant blob
+                        lea              rdi, [rip + pat_inv_0_α]
+                        lea              rsi, [rip + .Lstr_4]
+                        mov              edx, 1
+                        call             rt_match_blob@PLT
                         RETURN_VARIANT   0, 2, 16 # SM_RETURN_F
 # ======================================================================================================================
 # stmt 6  (line 14):  	'0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,' UNITS
