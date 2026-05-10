@@ -209,12 +209,12 @@ contexts:
 
     # --- Catch-all for any other dot-directive (so unknown ones
     #     still paint as a directive rather than as identifier).
-    #     Negative lookahead `(?!L)` excludes `.L*` — that prefix is
-    #     reserved by GAS for local symbols (per `as` manual), so a
-    #     dot-token starting with `L` is a label reference, not a
-    #     directive.  `local-labels` runs first in `statement-content`
-    #     to claim those, but this guard makes the rule defensive.
-    - match: '\.(?!L){{ident_head}}{{ident_body}}*\b'
+    #     Negative lookaheads exclude label-prefix families:
+    #       `(?!L)` — `.L*` GAS local symbols (per `as` manual).
+    #       `(?!S\d)` — `.S\d+` SCRIP string-table refs (.S0, .S8, …).
+    #     `local-labels` runs first in `statement-content` to claim
+    #     those, but these guards make the rule defensive.
+    - match: '\.(?!L)(?!S\d){{ident_head}}{{ident_body}}*\b'
       scope: keyword.directive.other.gas
 
   # ---------------------------------------------------------------
@@ -398,6 +398,9 @@ contexts:
   # ---------------------------------------------------------------
   local-labels:
     - match: '\.L{{ident_body}}+'
+      scope: entity.name.label.gas
+    # SCRIP string-table labels (.S0, .S1, …) — claim before directive catch-all.
+    - match: '\.S\d+'
       scope: entity.name.label.gas
 
   plain-labels:
