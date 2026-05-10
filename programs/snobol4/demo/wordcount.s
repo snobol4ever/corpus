@@ -26,7 +26,7 @@
 # expression registry
                         .section         .data
                         .align           8
-.Lchunk_registry:       .quad            .S8              ; .quad            .L25
+.Lexpression_registry:  .quad            .S8              ; .quad            .L25
                         .quad            .S11             ; .quad            .L30
                         .quad            .S14             ; .quad            .L44
                         .quad            .S17             ; .quad            .L51
@@ -41,7 +41,7 @@
                         .type            main, @function
 main:                   push             rbp
                         mov              rbp, rsp
-                        lea              rdi, [rip + .Lchunk_registry]
+                        lea              rdi, [rip + .Lexpression_registry]
                         call             rt_register_expressions@PLT
                         call             rt_init@PLT # rt_init(argc, argv)
 #=======================================================================================================================

@@ -139,7 +139,7 @@
 # expression registry
                         .section         .data
                         .align           8
-.Lchunk_registry:       .quad            .S6              ; .quad            .L20
+.Lexpression_registry:  .quad            .S6              ; .quad            .L20
                         .quad            .S11             ; .quad            .L27
                         .quad            .S16             ; .quad            .L44
                         .quad            .S17             ; .quad            .L49
@@ -270,7 +270,7 @@ pat_inv_0_ω:            mov              eax, 99
                         .type            main, @function
 main:                   push             rbp
                         mov              rbp, rsp
-                        lea              rdi, [rip + .Lchunk_registry]
+                        lea              rdi, [rip + .Lexpression_registry]
                         call             rt_register_expressions@PLT
                         lea              rdi, [rip + .Lcap1_data]
                         lea              rsi, [rip + cap1_child_α]
