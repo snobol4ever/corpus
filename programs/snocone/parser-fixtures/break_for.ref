@@ -1,0 +1,16 @@
+(STMT :eq :subj (AST_VAR i) :repl (AST_ILIT 0))
+(STMT :lbl _Ltop_0003)
+(STMT :subj (AST_FNC LT
+  (AST_VAR i)
+  (AST_ILIT 10)
+) :goF _Lend_0002)
+(STMT :go _Lend_0002)
+(STMT :subj (AST_ASSIGN
+  (AST_VAR i)
+  (AST_ADD
+    (AST_VAR i)
+    (AST_ILIT 1)
+  )
+))
+(STMT :go _Ltop_0003)
+(STMT :lbl _Lend_0002)

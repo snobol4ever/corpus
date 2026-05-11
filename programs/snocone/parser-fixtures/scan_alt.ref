@@ -1,0 +1,4 @@
+(STMT :subj (AST_VAR x) :pat (AST_ALT
+  (AST_QLIT "foo")
+  (AST_QLIT "bar")
+))

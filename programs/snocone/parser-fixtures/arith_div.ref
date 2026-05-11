@@ -1,0 +1,4 @@
+(STMT :eq :subj (AST_VAR x) :repl (AST_DIV
+  (AST_ILIT 10)
+  (AST_VAR b)
+))

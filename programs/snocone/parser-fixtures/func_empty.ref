@@ -1,0 +1,4 @@
+(STMT :subj (AST_FNC DEFINE (AST_QLIT "f()")))
+(STMT :go f_end)
+(STMT :lbl f)
+(STMT :lbl f_end)

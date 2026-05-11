@@ -1,0 +1,1 @@
+(STMT :subj (AST_FNC print (AST_VAR x)))

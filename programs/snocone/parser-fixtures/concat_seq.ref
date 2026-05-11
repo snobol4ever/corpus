@@ -1,0 +1,4 @@
+(STMT :eq :subj (AST_VAR x) :repl (AST_SEQ
+  (AST_QLIT "hello")
+  (AST_VAR name)
+))

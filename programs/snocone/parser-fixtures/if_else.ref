@@ -1,0 +1,6 @@
+(STMT :subj (AST_VAR a) :goF _Lelse_0001)
+(STMT :eq :subj (AST_VAR x) :repl (AST_ILIT 1))
+(STMT :go _Lend_0002)
+(STMT :lbl _Lelse_0001)
+(STMT :eq :subj (AST_VAR x) :repl (AST_ILIT 2))
+(STMT :lbl _Lend_0002)

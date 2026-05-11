@@ -1,0 +1,5 @@
+(STMT :subj (AST_FNC DEFINE (AST_QLIT "g(a,b,c)")))
+(STMT :go g_end)
+(STMT :lbl g)
+(STMT :eq :subj (AST_VAR g) :repl (AST_VAR c) :go RETURN)
+(STMT :lbl g_end)

@@ -1,0 +1,5 @@
+(STMT :subj (AST_FNC DEFINE (AST_QLIT "p()")))
+(STMT :go p_end)
+(STMT :lbl p)
+(STMT :go FRETURN)
+(STMT :lbl p_end)
