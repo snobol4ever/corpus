@@ -1,0 +1,10 @@
+smoke: define LOOP -> 10
+smoke: define DONE -> 20
+smoke: define END -> 99
+smoke: find LOOP -> 10
+smoke: find DONE -> 20
+smoke: find MISSING -> -1
+smoke: patch_later 5 -> DONE
+smoke: patch_later 7 -> LOOP
+smoke: resolve -> 0
+smoke: all ok
