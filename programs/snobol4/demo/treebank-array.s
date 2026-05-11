@@ -141,122 +141,52 @@
                         .section         .data
                         .align           8
 .Lexpression_registry:  .quad            .S11             ; .quad            .L32
-                        .quad            .S18             ; .quad            .L63
-                        .quad            .S20             ; .quad            .L70
-                        .quad            .S24             ; .quad            .L98
-                        .quad            .S26             ; .quad            .L105
-                        .quad            .S31             ; .quad            .L145
-                        .quad            .S33             ; .quad            .L152
-                        .quad            .S36             ; .quad            .L170
-                        .quad            .S39             ; .quad            .L181
-                        .quad            .S41             ; .quad            .L206
-                        .quad            .S46             ; .quad            .L216
-                        .quad            .S49             ; .quad            .L227
-                        .quad            .S50             ; .quad            .L237
-                        .quad            .S52             ; .quad            .L247
-                        .quad            .S55             ; .quad            .L258
-                        .quad            .S56             ; .quad            .L268
-                        .quad            .S58             ; .quad            .L278
-                        .quad            .S61             ; .quad            .L289
-                        .quad            .S62             ; .quad            .L298
-                        .quad            .S64             ; .quad            .L306
-                        .quad            .S67             ; .quad            .L317
-                        .quad            .S68             ; .quad            .L327
-                        .quad            .S70             ; .quad            .L337
-                        .quad            .S72             ; .quad            .L344
-                        .quad            .S81             ; .quad            .L363
-                        .quad            .S86             ; .quad            .L384
-                        .quad            .S89             ; .quad            .L411
-                        .quad            .S90             ; .quad            .L418
-                        .quad            .S92             ; .quad            .L425
-                        .quad            .S98             ; .quad            .L450
-                        .quad            .S102            ; .quad            .L477
-                        .quad            .S105            ; .quad            .L502
-                        .quad            .S108            ; .quad            .L537
-                        .quad            .S109            ; .quad            .L553
-                        .quad            .S110            ; .quad            .L556
-                        .quad            .S112            ; .quad            .L563
-                        .quad            .S114            ; .quad            .L575
-                        .quad            .S124            ; .quad            .L636
-                        .quad            .S128            ; .quad            .L649
-                        .quad            .S130            ; .quad            .L659
-                        .quad            .S132            ; .quad            .L682
-                        .quad            .S134            ; .quad            .L692
-                        .quad            .S135            ; .quad            .L701
+                        .quad            .S18             ; .quad            .L64
+                        .quad            .S20             ; .quad            .L71
+                        .quad            .S24             ; .quad            .L100
+                        .quad            .S26             ; .quad            .L107
+                        .quad            .S31             ; .quad            .L148
+                        .quad            .S33             ; .quad            .L155
+                        .quad            .S36             ; .quad            .L174
+                        .quad            .S39             ; .quad            .L185
+                        .quad            .S41             ; .quad            .L211
+                        .quad            .S46             ; .quad            .L222
+                        .quad            .S49             ; .quad            .L233
+                        .quad            .S50             ; .quad            .L244
+                        .quad            .S52             ; .quad            .L255
+                        .quad            .S55             ; .quad            .L266
+                        .quad            .S56             ; .quad            .L277
+                        .quad            .S58             ; .quad            .L288
+                        .quad            .S61             ; .quad            .L299
+                        .quad            .S62             ; .quad            .L309
+                        .quad            .S64             ; .quad            .L317
+                        .quad            .S67             ; .quad            .L328
+                        .quad            .S68             ; .quad            .L339
+                        .quad            .S70             ; .quad            .L350
+                        .quad            .S72             ; .quad            .L357
+                        .quad            .S81             ; .quad            .L377
+                        .quad            .S86             ; .quad            .L398
+                        .quad            .S89             ; .quad            .L425
+                        .quad            .S90             ; .quad            .L432
+                        .quad            .S92             ; .quad            .L439
+                        .quad            .S98             ; .quad            .L465
+                        .quad            .S102            ; .quad            .L492
+                        .quad            .S105            ; .quad            .L517
+                        .quad            .S108            ; .quad            .L552
+                        .quad            .S109            ; .quad            .L568
+                        .quad            .S110            ; .quad            .L571
+                        .quad            .S112            ; .quad            .L578
+                        .quad            .S114            ; .quad            .L591
+                        .quad            .S124            ; .quad            .L646
+                        .quad            .S128            ; .quad            .L659
+                        .quad            .S130            ; .quad            .L669
+                        .quad            .S132            ; .quad            .L692
+                        .quad            .S134            ; .quad            .L702
+                        .quad            .S135            ; .quad            .L711
                         .quad            0                ; .quad            0
                         .text
                         .intel_syntax    noprefix
                         .text
-#=======================================================================================================================
-                        .global          pat_inv_0_α
-                        .global          pat_inv_0_β
-                        .global          pat_inv_0_γ
-                        .global          pat_inv_0_ω
-pat_inv_0_α:            lea              r10, [rip + Δ]
-                        cmp              esi, 0;                    je pat_inv_0_α_body; jmp pat_inv_0_β
-#-----------------------------------------------------------------------------------------------------------------------
-#                       BOX POS(0)  [xcat0_γ]
-pat_inv_0_α_body:       POS_α            0, xcat0_γ, xcat0_ω # POS(0)
-xcat0_left_β:           POS_β            xcat0_ω
-#-----------------------------------------------------------------------------------------------------------------------
-#                       BOX CAP_COND  [pat_inv_0_γ]
-xcat0_γ:                .globl           cap1_child_α
-cap1_child_α:           lea              r10, [rip + Δ]
-                        cmp              esi, 0;                    je cap1_α_body; jmp cap1_β
-#-----------------------------------------------------------------------------------------------------------------------
-#                       BOX LEN(0)  [cap1_γ]
-cap1_α_body:            lea              rdi, [rip + .Llen2_z]
-                        mov              esi, 0
-                        call             bb_len@PLT
-                        test             rax, rax;                  jne cap1_γ; jmp cap1_ω
-cap1_β:                 lea              rdi, [rip + .Llen2_z]
-                        mov              esi, 1
-                        call             bb_len@PLT
-                        test             rax, rax;                  jne cap1_γ; jmp cap1_ω
-cap1_γ:                 lea              rcx, [rip + Σ]
-                        mov              rax, [rcx]
-                        movsxd           rcx, dword ptr [r10]
-                        lea              rax, [rax+rcx]
-                        mov              rdx, rax
-                        mov              eax, 1
-                        ret
-cap1_ω:                 mov              eax, 99
-                        xor              edx, edx
-                        ret
-                        lea              rdi, [rip + .Lcap1_data]
-                        mov              esi, 0
-                        call             bb_cap@PLT
-                        test             rax, rax;                  jne pat_inv_0_γ; jmp xcat0_right_ω
-xcat0_right_β:          lea              rdi, [rip + .Lcap1_data]
-                        mov              esi, 1
-                        call             bb_cap@PLT
-                        test             rax, rax;                  jne pat_inv_0_γ; jmp xcat0_right_ω
-xcat0_right_ω:                                                      jmp xcat0_left_β
-pat_inv_0_β:                                                        jmp xcat0_right_β
-xcat0_ω:                                                            jmp pat_inv_0_ω
-pat_inv_0_γ:            lea              rcx, [rip + Σ]
-                        mov              rax, [rcx]
-                        movsxd           rcx, dword ptr [r10]
-                        lea              rax, [rax+rcx]
-                        mov              rdx, rax
-                        mov              eax, 1
-                        ret
-pat_inv_0_ω:            mov              eax, 99
-                        xor              edx, edx
-                        ret
-                        .section         .data
-.Lcap1_vname:           .string          ""
-.Lcap1_data:            .quad            0
-                        .quad            0
-                        .long            0
-                        .long            0
-                        .long            0
-                        .long            0
-                        .quad            .Lcap1_vname
-                        .zero            56
-                        .zero            24
-.Llen2_z:               .long            0
-                        .section         .text
                         .intel_syntax    noprefix
                         .globl           main
                         .type            main, @function
@@ -264,26 +194,20 @@ main:                   push             rbp
                         mov              rbp, rsp
                         lea              rdi, [rip + .Lexpression_registry]
                         call             rt_register_expressions@PLT
-                        lea              rdi, [rip + .Lcap1_data]
-                        lea              rsi, [rip + cap1_child_α]
-                        call             rt_patch_cap_fn@PLT
                         call             rt_init@PLT # rt_init(argc, argv)
 #=======================================================================================================================
 # stmt 1  (line 6):                 &ALPHABET      POS(10) LEN(1) . nl
 #=======================================================================================================================
 .L0:                    STNO
-                        # PUSH_INT       baked  pat_inv_0 pc=1..6
-                        # PAT_POS        baked  pat_inv_0 pc=1..6
-                        # PUSH_INT       baked  pat_inv_0 pc=1..6
-                        # PAT_LEN        baked  pat_inv_0 pc=1..6
-                        # PAT_CAPTURE    baked  pat_inv_0 pc=1..6
-                        # PAT_CAT        baked  pat_inv_0 pc=1..6
+                        PUSH_INT         10
+                        EXEC_STMT_VARIANT 0
+                        PUSH_INT         1
+                        EXEC_STMT_VARIANT 0
+                        PAT_CAPTURE      0, .S0 # nl kind=0
+                        EXEC_STMT_VARIANT 0
                         PUSH_VAR         .S1 # ALPHABET
                         PUSH_INT         0
-                        lea              rdi, [rip + pat_inv_0_α]
-                        lea              rsi, [rip + .S1]
-                        mov              edx, 0
-                        call             rt_match_blob@PLT
+                        EXEC_STMT_VARIANT 0, .S1 # subj=ALPHABET
 #=======================================================================================================================
 # stmt 2  (line 8):                 DATA('list(head,tail)')
 #=======================================================================================================================
@@ -322,12 +246,13 @@ main:                   push             rbp
                         PUSH_STR         .S9, 0 # "stk_push_frame(v)"
                         CALL_FN          .S10, 1 # DEFINE
                         VOID_POP
-                        JUMP             .L62
+                        JUMP             .L63
                         LABEL
+.L32:                   UNHANDLED        75 # SM_DEFINE_ENTRY
 #=======================================================================================================================
 # stmt 8  (line 15):  stk_push_frame frame_id              =  frame_id + 1
 #=======================================================================================================================
-.L32:                   STNO
+                        STNO
                         PUSH_VAR         .S4 # frame_id
                         PUSH_INT         1
                         ADD_NUM
@@ -372,11 +297,11 @@ main:                   push             rbp
                         CALL_FN          .S17, 1 # NAME_PUSH
                         STORE_VAR        .S11 # stk_push_frame
                         RETURN
-.L62:                   LABEL
+.L63:                   LABEL
 #=======================================================================================================================
 # stmt 14  (line 22):  *------------------------------------------------------------------------------
 #=======================================================================================================================
-.L63:                   STNO
+.L64:                   STNO
 #=======================================================================================================================
 # stmt 15  (line 23):                 DEFINE('stk_push_item(v,cur)')               :(stk_push_item_end)
 #=======================================================================================================================
@@ -384,12 +309,13 @@ main:                   push             rbp
                         PUSH_STR         .S19, 0 # "stk_push_item(v,cur)"
                         CALL_FN          .S10, 1 # DEFINE
                         VOID_POP
-                        JUMP             .L97
+                        JUMP             .L99
                         LABEL
+.L71:                   UNHANDLED        75 # SM_DEFINE_ENTRY
 #=======================================================================================================================
 # stmt 16  (line 24):  stk_push_item  cur                  =  head(stk)
 #=======================================================================================================================
-.L70:                   STNO
+                        STNO
                         PUSH_VAR         .S14 # stk
                         CALL_FN          .S21, 1 # head
                         STORE_VAR        .S22 # cur
@@ -425,11 +351,11 @@ main:                   push             rbp
                         CALL_FN          .S17, 1 # NAME_PUSH
                         STORE_VAR        .S20 # stk_push_item
                         RETURN
-.L97:                   LABEL
+.L99:                   LABEL
 #=======================================================================================================================
 # stmt 20  (line 29):  *------------------------------------------------------------------------------
 #=======================================================================================================================
-.L98:                   STNO
+.L100:                  STNO
 #=======================================================================================================================
 # stmt 21  (line 30):                 DEFINE('stk_pop_into_parent(child,par,n)')   :(stk_pop_into_parent_end)
 #=======================================================================================================================
@@ -437,12 +363,13 @@ main:                   push             rbp
                         PUSH_STR         .S25, 0 # "stk_pop_into_parent(child,par,n)"
                         CALL_FN          .S10, 1 # DEFINE
                         VOID_POP
-                        JUMP             .L144
+                        JUMP             .L147
                         LABEL
+.L107:                  UNHANDLED        75 # SM_DEFINE_ENTRY
 #=======================================================================================================================
 # stmt 22  (line 32):                 child                =  head(stk)
 #=======================================================================================================================
-.L105:                  STNO
+                        STNO
 #=======================================================================================================================
 # stmt 23  (line 32):                 child                =  head(stk)
 #=======================================================================================================================
@@ -502,11 +429,11 @@ main:                   push             rbp
                         CALL_FN          .S17, 1 # NAME_PUSH
                         STORE_VAR        .S26 # stk_pop_into_parent
                         RETURN
-.L144:                  LABEL
+.L147:                  LABEL
 #=======================================================================================================================
 # stmt 30  (line 40):  *------------------------------------------------------------------------------
 #=======================================================================================================================
-.L145:                  STNO
+.L148:                  STNO
 #=======================================================================================================================
 # stmt 31  (line 41):                 DEFINE('stk_pop_final(var,child)')           :(stk_pop_final_end)
 #=======================================================================================================================
@@ -514,12 +441,13 @@ main:                   push             rbp
                         PUSH_STR         .S32, 0 # "stk_pop_final(var,child)"
                         CALL_FN          .S10, 1 # DEFINE
                         VOID_POP
-                        JUMP             .L169
+                        JUMP             .L173
                         LABEL
+.L155:                  UNHANDLED        75 # SM_DEFINE_ENTRY
 #=======================================================================================================================
 # stmt 32  (line 42):  stk_pop_final  child                =  head(stk)
 #=======================================================================================================================
-.L152:                  STNO
+                        STNO
                         PUSH_VAR         .S14 # stk
                         CALL_FN          .S21, 1 # head
                         STORE_VAR        .S27 # child
@@ -545,11 +473,11 @@ main:                   push             rbp
                         CALL_FN          .S17, 1 # NAME_PUSH
                         STORE_VAR        .S33 # stk_pop_final
                         RETURN
-.L169:                  LABEL
+.L173:                  LABEL
 #=======================================================================================================================
 # stmt 36  (line 47):  *------------------------------------------------------------------------------
 #=======================================================================================================================
-.L170:                  STNO
+.L174:                  STNO
 #=======================================================================================================================
 # stmt 37  (line 48):                 DEFINE('init_list(v)')
 #=======================================================================================================================
@@ -564,12 +492,13 @@ main:                   push             rbp
                         PUSH_STR         .S38, 0 # "Init_list(vs)"
                         CALL_FN          .S10, 1 # DEFINE
                         VOID_POP
-                        JUMP             .L215
+                        JUMP             .L221
                         LABEL
+.L185:                  UNHANDLED        75 # SM_DEFINE_ENTRY
 #=======================================================================================================================
 # stmt 39  (line 50):  init_list      $v             =
 #=======================================================================================================================
-.L181:                  STNO
+                        STNO
                         PUSH_STR         .S40, 0 # ""
                         PUSH_VAR         .S12 # v
                         CALL_FN          .S35, 2 # ASGN_INDIR
@@ -610,12 +539,13 @@ main:                   push             rbp
                         PUSH_STR         .S16, 0 # "dummy"
                         CALL_FN          .S17, 1 # NAME_PUSH
                         STORE_VAR        .S39 # init_list
-                        RETURN_VARIANT   2, 0, 204 # SM_NRETURN
+                        RETURN_VARIANT   2, 0, 209 # SM_NRETURN
                         LABEL
+.L211:                  UNHANDLED        75 # SM_DEFINE_ENTRY
 #=======================================================================================================================
 # stmt 46  (line 57):  Init_list      Init_list      =  EVAL('epsilon . *init_list(' vs ')')  :(RETURN)
 #=======================================================================================================================
-.L206:                  STNO
+                        STNO
                         PUSH_STR         .S42, 0 # "epsilon . *init_list("
                         PUSH_VAR         .S43 # vs
                         PUSH_STR         .S44, 0 # ")"
@@ -624,11 +554,11 @@ main:                   push             rbp
                         CALL_FN          .S45, 1 # EVAL
                         STORE_VAR        .S41 # Init_list
                         RETURN
-.L215:                  LABEL
+.L221:                  LABEL
 #=======================================================================================================================
 # stmt 47  (line 59):  *------------------------------------------------------------------------------
 #=======================================================================================================================
-.L216:                  STNO
+.L222:                  STNO
 #=======================================================================================================================
 # stmt 48  (line 60):                 DEFINE('push_list(v)')
 #=======================================================================================================================
@@ -643,12 +573,13 @@ main:                   push             rbp
                         PUSH_STR         .S48, 0 # "Push_list(vs)"
                         CALL_FN          .S10, 1 # DEFINE
                         VOID_POP
-                        JUMP             .L246
+                        JUMP             .L254
                         LABEL
+.L233:                  UNHANDLED        75 # SM_DEFINE_ENTRY
 #=======================================================================================================================
 # stmt 50  (line 62):  push_list      dummy          =  stk_push_frame(v)
 #=======================================================================================================================
-.L227:                  STNO
+                        STNO
                         PUSH_VAR         .S12 # v
                         CALL_FN          .S11, 1 # stk_push_frame
                         STORE_VAR        .S16 # dummy
@@ -659,12 +590,13 @@ main:                   push             rbp
                         PUSH_STR         .S16, 0 # "dummy"
                         CALL_FN          .S17, 1 # NAME_PUSH
                         STORE_VAR        .S49 # push_list
-                        RETURN_VARIANT   2, 0, 235 # SM_NRETURN
+                        RETURN_VARIANT   2, 0, 242 # SM_NRETURN
                         LABEL
+.L244:                  UNHANDLED        75 # SM_DEFINE_ENTRY
 #=======================================================================================================================
 # stmt 52  (line 64):  Push_list      Push_list      =  EVAL('epsilon . *push_list(' vs ')')  :(RETURN)
 #=======================================================================================================================
-.L237:                  STNO
+                        STNO
                         PUSH_STR         .S51, 0 # "epsilon . *push_list("
                         PUSH_VAR         .S43 # vs
                         PUSH_STR         .S44, 0 # ")"
@@ -673,11 +605,11 @@ main:                   push             rbp
                         CALL_FN          .S45, 1 # EVAL
                         STORE_VAR        .S50 # Push_list
                         RETURN
-.L246:                  LABEL
+.L254:                  LABEL
 #=======================================================================================================================
 # stmt 53  (line 66):  *------------------------------------------------------------------------------
 #=======================================================================================================================
-.L247:                  STNO
+.L255:                  STNO
 #=======================================================================================================================
 # stmt 54  (line 67):                 DEFINE('push_item(v)')
 #=======================================================================================================================
@@ -692,12 +624,13 @@ main:                   push             rbp
                         PUSH_STR         .S54, 0 # "Push_item(vs)"
                         CALL_FN          .S10, 1 # DEFINE
                         VOID_POP
-                        JUMP             .L277
+                        JUMP             .L287
                         LABEL
+.L266:                  UNHANDLED        75 # SM_DEFINE_ENTRY
 #=======================================================================================================================
 # stmt 56  (line 69):  push_item      dummy          =  stk_push_item(v)
 #=======================================================================================================================
-.L258:                  STNO
+                        STNO
                         PUSH_VAR         .S12 # v
                         CALL_FN          .S20, 1 # stk_push_item
                         STORE_VAR        .S16 # dummy
@@ -708,12 +641,13 @@ main:                   push             rbp
                         PUSH_STR         .S16, 0 # "dummy"
                         CALL_FN          .S17, 1 # NAME_PUSH
                         STORE_VAR        .S55 # push_item
-                        RETURN_VARIANT   2, 0, 266 # SM_NRETURN
+                        RETURN_VARIANT   2, 0, 275 # SM_NRETURN
                         LABEL
+.L277:                  UNHANDLED        75 # SM_DEFINE_ENTRY
 #=======================================================================================================================
 # stmt 58  (line 71):  Push_item      Push_item      =  EVAL('epsilon . *push_item(' vs ')')  :(RETURN)
 #=======================================================================================================================
-.L268:                  STNO
+                        STNO
                         PUSH_STR         .S57, 0 # "epsilon . *push_item("
                         PUSH_VAR         .S43 # vs
                         PUSH_STR         .S44, 0 # ")"
@@ -722,11 +656,11 @@ main:                   push             rbp
                         CALL_FN          .S45, 1 # EVAL
                         STORE_VAR        .S56 # Push_item
                         RETURN
-.L277:                  LABEL
+.L287:                  LABEL
 #=======================================================================================================================
 # stmt 59  (line 73):  *------------------------------------------------------------------------------
 #=======================================================================================================================
-.L278:                  STNO
+.L288:                  STNO
 #=======================================================================================================================
 # stmt 60  (line 74):                 DEFINE('pop_list()')
 #=======================================================================================================================
@@ -741,12 +675,13 @@ main:                   push             rbp
                         PUSH_STR         .S60, 0 # "Pop_list()"
                         CALL_FN          .S10, 1 # DEFINE
                         VOID_POP
-                        JUMP             .L305
+                        JUMP             .L316
                         LABEL
+.L299:                  UNHANDLED        75 # SM_DEFINE_ENTRY
 #=======================================================================================================================
 # stmt 62  (line 76):  pop_list       dummy          =  stk_pop_into_parent()
 #=======================================================================================================================
-.L289:                  STNO
+                        STNO
                         CALL_FN          .S26, 0 # stk_pop_into_parent
                         STORE_VAR        .S16 # dummy
 #=======================================================================================================================
@@ -756,23 +691,23 @@ main:                   push             rbp
                         PUSH_STR         .S16, 0 # "dummy"
                         CALL_FN          .S17, 1 # NAME_PUSH
                         STORE_VAR        .S61 # pop_list
-                        RETURN_VARIANT   2, 0, 296 # SM_NRETURN
+                        RETURN_VARIANT   2, 0, 307 # SM_NRETURN
                         LABEL
+.L309:                  UNHANDLED        75 # SM_DEFINE_ENTRY
 #=======================================================================================================================
 # stmt 64  (line 78):  Pop_list       Pop_list       =  epsilon . *pop_list()      :(RETURN)
 #=======================================================================================================================
-.L298:                  STNO
+                        STNO
                         PUSH_VAR         .S63 # epsilon
-                        PAT_DEREF
+                        EXEC_STMT_VARIANT 0
                         PAT_CAPTURE_FN   0, .S61 # pop_list, (NULL)
-                        PAT_BOXVAL
                         STORE_VAR        .S62 # Pop_list
                         RETURN
-.L305:                  LABEL
+.L316:                  LABEL
 #=======================================================================================================================
 # stmt 65  (line 80):  *------------------------------------------------------------------------------
 #=======================================================================================================================
-.L306:                  STNO
+.L317:                  STNO
 #=======================================================================================================================
 # stmt 66  (line 81):                 DEFINE('pop_final(v)')
 #=======================================================================================================================
@@ -787,12 +722,13 @@ main:                   push             rbp
                         PUSH_STR         .S66, 0 # "Pop_final(vs)"
                         CALL_FN          .S10, 1 # DEFINE
                         VOID_POP
-                        JUMP             .L336
+                        JUMP             .L349
                         LABEL
+.L328:                  UNHANDLED        75 # SM_DEFINE_ENTRY
 #=======================================================================================================================
 # stmt 68  (line 83):  pop_final      dummy          =  stk_pop_final(v)
 #=======================================================================================================================
-.L317:                  STNO
+                        STNO
                         PUSH_VAR         .S12 # v
                         CALL_FN          .S33, 1 # stk_pop_final
                         STORE_VAR        .S16 # dummy
@@ -803,12 +739,13 @@ main:                   push             rbp
                         PUSH_STR         .S16, 0 # "dummy"
                         CALL_FN          .S17, 1 # NAME_PUSH
                         STORE_VAR        .S67 # pop_final
-                        RETURN_VARIANT   2, 0, 325 # SM_NRETURN
+                        RETURN_VARIANT   2, 0, 337 # SM_NRETURN
                         LABEL
+.L339:                  UNHANDLED        75 # SM_DEFINE_ENTRY
 #=======================================================================================================================
 # stmt 70  (line 85):  Pop_final      Pop_final      =  EVAL('epsilon . *pop_final(' vs ')')  :(RETURN)
 #=======================================================================================================================
-.L327:                  STNO
+                        STNO
                         PUSH_STR         .S69, 0 # "epsilon . *pop_final("
                         PUSH_VAR         .S43 # vs
                         PUSH_STR         .S44, 0 # ")"
@@ -817,11 +754,11 @@ main:                   push             rbp
                         CALL_FN          .S45, 1 # EVAL
                         STORE_VAR        .S68 # Pop_final
                         RETURN
-.L336:                  LABEL
+.L349:                  LABEL
 #=======================================================================================================================
 # stmt 71  (line 87):  *------------------------------------------------------------------------------
 #=======================================================================================================================
-.L337:                  STNO
+.L350:                  STNO
 #=======================================================================================================================
 # stmt 72  (line 88):                 DEFINE('node_repr(f)r,sep,i,n,tag')          :(node_repr_end)
 #=======================================================================================================================
@@ -829,12 +766,13 @@ main:                   push             rbp
                         PUSH_STR         .S71, 0 # "node_repr(f)r,sep,i,n,tag"
                         CALL_FN          .S10, 1 # DEFINE
                         VOID_POP
-                        JUMP             .L417
+                        JUMP             .L431
                         LABEL
+.L357:                  UNHANDLED        75 # SM_DEFINE_ENTRY
 #=======================================================================================================================
 # stmt 73  (line 89):  node_repr      IDENT(REPLACE(DATATYPE(f), &LCASE, &UCASE), 'STRING')  :F(nr_frame)
 #=======================================================================================================================
-.L344:                  STNO
+                        STNO
                         PUSH_VAR         .S73 # f
                         CALL_FN          .S74, 1 # DATATYPE
                         PUSH_VAR         .S75 # LCASE
@@ -843,7 +781,7 @@ main:                   push             rbp
                         PUSH_STR         .S78, 0 # "STRING"
                         CALL_FN          .S79, 2 # IDENT
                         VOID_POP
-                        JUMP_F           .L362
+                        JUMP_F           .L376
 #=======================================================================================================================
 # stmt 74  (line 90):                 node_repr      =  "'" f "'"                  :(RETURN)
 #=======================================================================================================================
@@ -855,11 +793,11 @@ main:                   push             rbp
                         CONCAT
                         STORE_VAR        .S72 # node_repr
                         RETURN
-.L362:                  LABEL
+.L376:                  LABEL
 #=======================================================================================================================
 # stmt 75  (line 91):  nr_frame       tag            =  stk_tag[f]
 #=======================================================================================================================
-.L363:                  STNO
+.L377:                  STNO
                         PUSH_VAR         .S6 # stk_tag
                         PUSH_VAR         .S73 # f
                         CALL_FN          .S23, 2 # IDX
@@ -888,11 +826,11 @@ main:                   push             rbp
                         STNO
                         PUSH_INT         0
                         STORE_VAR        .S85 # i
-.L383:                  LABEL
+.L397:                  LABEL
 #=======================================================================================================================
 # stmt 79  (line 95):  nr_lp          i              =  LT(i, n) i + 1             :F(nr_done)
 #=======================================================================================================================
-.L384:                  STNO
+.L398:                  STNO
                         PUSH_VAR         .S85 # i
                         PUSH_VAR         .S30 # n
                         CALL_FN          .S87, 2 # LT
@@ -901,7 +839,7 @@ main:                   push             rbp
                         ADD_NUM
                         CONCAT
                         STORE_VAR        .S85 # i
-                        JUMP_F           .L410
+                        JUMP_F           .L424
 #=======================================================================================================================
 # stmt 80  (line 96):                 r              =  r ', ' node_repr(stk_c[f][i])
 #=======================================================================================================================
@@ -923,22 +861,22 @@ main:                   push             rbp
                         STNO
                         PUSH_VAR         .S85 # i
                         STORE_VAR        .S85 # i
-                        JUMP             .L383
-.L410:                  LABEL
+                        JUMP             .L397
+.L424:                  LABEL
 #=======================================================================================================================
 # stmt 82  (line 98):  nr_done        node_repr      =  r ')'                      :(RETURN)
 #=======================================================================================================================
-.L411:                  STNO
+.L425:                  STNO
                         PUSH_VAR         .S84 # r
                         PUSH_STR         .S44, 0 # ")"
                         CONCAT
                         STORE_VAR        .S72 # node_repr
                         RETURN
-.L417:                  LABEL
+.L431:                  LABEL
 #=======================================================================================================================
 # stmt 83  (line 100):  *------------------------------------------------------------------------------
 #=======================================================================================================================
-.L418:                  STNO
+.L432:                  STNO
 #=======================================================================================================================
 # stmt 84  (line 101):                 DEFINE('pp_node(f,indent,suffix)r,pad,tag,n,i,nxt') :(pp_node_end)
 #=======================================================================================================================
@@ -946,12 +884,13 @@ main:                   push             rbp
                         PUSH_STR         .S91, 0 # "pp_node(f,indent,suffix)r,pad,tag,n,i,nx..."
                         CALL_FN          .S10, 1 # DEFINE
                         VOID_POP
-                        JUMP             .L555
+                        JUMP             .L570
                         LABEL
+.L439:                  UNHANDLED        75 # SM_DEFINE_ENTRY
 #=======================================================================================================================
 # stmt 85  (line 102):  pp_node        IDENT(REPLACE(DATATYPE(f), &LCASE, &UCASE), 'STRING')  :F(pp_frame)
 #=======================================================================================================================
-.L425:                  STNO
+                        STNO
                         PUSH_VAR         .S73 # f
                         CALL_FN          .S74, 1 # DATATYPE
                         PUSH_VAR         .S75 # LCASE
@@ -960,7 +899,7 @@ main:                   push             rbp
                         PUSH_STR         .S78, 0 # "STRING"
                         CALL_FN          .S79, 2 # IDENT
                         VOID_POP
-                        JUMP_F           .L449
+                        JUMP_F           .L464
 #=======================================================================================================================
 # stmt 86  (line 103):                 OUTPUT         =  DUPL(' ', indent) "'" f "'" suffix  :(RETURN)
 #=======================================================================================================================
@@ -978,11 +917,11 @@ main:                   push             rbp
                         CONCAT
                         STORE_VAR        .S97 # OUTPUT
                         RETURN
-.L449:                  LABEL
+.L464:                  LABEL
 #=======================================================================================================================
 # stmt 87  (line 104):  pp_frame       r              =  node_repr(f)
 #=======================================================================================================================
-.L450:                  STNO
+.L465:                  STNO
                         PUSH_VAR         .S73 # f
                         CALL_FN          .S72, 1 # node_repr
                         STORE_VAR        .S84 # r
@@ -1005,7 +944,7 @@ main:                   push             rbp
                         ADD_NUM
                         CALL_FN          .S101, 2 # GT
                         VOID_POP
-                        JUMP_F           .L476
+                        JUMP_F           .L491
 #=======================================================================================================================
 # stmt 90  (line 107):                 OUTPUT         =  pad r suffix               :(RETURN)
 #=======================================================================================================================
@@ -1017,11 +956,11 @@ main:                   push             rbp
                         CONCAT
                         STORE_VAR        .S97 # OUTPUT
                         RETURN
-.L476:                  LABEL
+.L491:                  LABEL
 #=======================================================================================================================
 # stmt 91  (line 108):  pp_wrap        tag            =  stk_tag[f]
 #=======================================================================================================================
-.L477:                  STNO
+.L492:                  STNO
                         PUSH_VAR         .S6 # stk_tag
                         PUSH_VAR         .S73 # f
                         CALL_FN          .S23, 2 # IDX
@@ -1054,11 +993,11 @@ main:                   push             rbp
                         STNO
                         PUSH_INT         0
                         STORE_VAR        .S85 # i
-.L501:                  LABEL
+.L516:                  LABEL
 #=======================================================================================================================
 # stmt 95  (line 112):  pp_wch         i              =  LT(i, n) i + 1             :F(pp_wdone)
 #=======================================================================================================================
-.L502:                  STNO
+.L517:                  STNO
                         PUSH_VAR         .S85 # i
                         PUSH_VAR         .S30 # n
                         CALL_FN          .S87, 2 # LT
@@ -1067,7 +1006,7 @@ main:                   push             rbp
                         ADD_NUM
                         CONCAT
                         STORE_VAR        .S85 # i
-                        JUMP_F           .L552
+                        JUMP_F           .L567
 #=======================================================================================================================
 # stmt 96  (line 113):                 nxt            =  LT(i, n) i                 :F(pp_wlast)
 #=======================================================================================================================
@@ -1078,7 +1017,7 @@ main:                   push             rbp
                         PUSH_VAR         .S85 # i
                         CONCAT
                         STORE_VAR        .S106 # nxt
-                        JUMP_F           .L536
+                        JUMP_F           .L551
 #=======================================================================================================================
 # stmt 97  (line 114):                 pp_node(stk_c[f][i], indent + 2, ',')
 #=======================================================================================================================
@@ -1100,12 +1039,12 @@ main:                   push             rbp
                         STNO
                         PUSH_VAR         .S85 # i
                         STORE_VAR        .S85 # i
-                        JUMP             .L501
-.L536:                  LABEL
+                        JUMP             .L516
+.L551:                  LABEL
 #=======================================================================================================================
 # stmt 99  (line 116):  pp_wlast       pp_node(stk_c[f][i], indent + 2, ')' suffix) :(RETURN)
 #=======================================================================================================================
-.L537:                  STNO
+.L552:                  STNO
                         PUSH_VAR         .S8 # stk_c
                         PUSH_VAR         .S73 # f
                         CALL_FN          .S23, 2 # IDX
@@ -1120,17 +1059,17 @@ main:                   push             rbp
                         CALL_FN          .S92, 3 # pp_node
                         VOID_POP
                         RETURN
-.L552:                  LABEL
+.L567:                  LABEL
 #=======================================================================================================================
 # stmt 100  (line 117):  pp_wdone                                                    :(RETURN)
 #=======================================================================================================================
-.L553:                  STNO
+.L568:                  STNO
                         RETURN
-.L555:                  LABEL
+.L570:                  LABEL
 #=======================================================================================================================
 # stmt 101  (line 119):  *------------------------------------------------------------------------------
 #=======================================================================================================================
-.L556:                  STNO
+.L571:                  STNO
 #=======================================================================================================================
 # stmt 102  (line 120):                 DEFINE('pp_bank()')                          :(pp_bank_end)
 #=======================================================================================================================
@@ -1138,12 +1077,13 @@ main:                   push             rbp
                         PUSH_STR         .S111, 0 # "pp_bank()"
                         CALL_FN          .S10, 1 # DEFINE
                         VOID_POP
-                        JUMP             .L574
+                        JUMP             .L590
                         LABEL
+.L578:                  UNHANDLED        75 # SM_DEFINE_ENTRY
 #=======================================================================================================================
 # stmt 103  (line 121):  pp_bank        pp_node(bank, 0, '')
 #=======================================================================================================================
-.L563:                  STNO
+                        STNO
                         PUSH_VAR         .S113 # bank
                         PUSH_INT         0
                         PUSH_STR         .S40, 0 # ""
@@ -1157,11 +1097,11 @@ main:                   push             rbp
                         CALL_FN          .S17, 1 # NAME_PUSH
                         STORE_VAR        .S112 # pp_bank
                         RETURN
-.L574:                  LABEL
+.L590:                  LABEL
 #=======================================================================================================================
 # stmt 105  (line 124):  *------------------------------------------------------------------------------
 #=======================================================================================================================
-.L575:                  STNO
+.L591:                  STNO
 #=======================================================================================================================
 # stmt 106  (line 125):                 delim          =  SPAN(' ' nl)
 #=======================================================================================================================
@@ -1169,8 +1109,7 @@ main:                   push             rbp
                         PUSH_STR         .S93, 0 # " "
                         PUSH_VAR         .S0 # nl
                         CONCAT
-                        PAT_SPAN
-                        PAT_BOXVAL
+                        EXEC_STMT_VARIANT 0
                         STORE_VAR        .S115 # delim
 #=======================================================================================================================
 # stmt 107  (line 126):                 word           =  NOTANY('( )' nl) BREAK('( )' nl)
@@ -1179,13 +1118,11 @@ main:                   push             rbp
                         PUSH_STR         .S116, 0 # "( )"
                         PUSH_VAR         .S0 # nl
                         CONCAT
-                        PAT_NOTANY
-                        PAT_BOXVAL
+                        EXEC_STMT_VARIANT 0
                         PUSH_STR         .S116, 0 # "( )"
                         PUSH_VAR         .S0 # nl
                         CONCAT
-                        PAT_BREAK
-                        PAT_BOXVAL
+                        EXEC_STMT_VARIANT 0
                         CONCAT
                         STORE_VAR        .S117 # word
 #=======================================================================================================================
@@ -1194,24 +1131,22 @@ main:                   push             rbp
                         STNO
                         PUSH_STR         .S118, 0 # "("
                         PUSH_VAR         .S117 # word
-                        PAT_DEREF
+                        EXEC_STMT_VARIANT 0
                         PAT_CAPTURE      0, .S82 # tag kind=0
-                        PAT_BOXVAL
                         PUSH_STR         .S82, 0 # "tag"
                         CALL_FN          .S50, 1 # Push_list
                         PAT_REFNAME      .S115 # delim
                         PAT_REFNAME      .S119 # group
                         PUSH_VAR         .S117 # word
-                        PAT_DEREF
+                        EXEC_STMT_VARIANT 0
                         PAT_CAPTURE      0, .S120 # wrd kind=0
                         PUSH_STR         .S120, 0 # "wrd"
                         CALL_FN          .S56, 1 # Push_item
-                        PAT_DEREF
-                        PAT_CAT
-                        PAT_ALT
-                        PAT_CAT
-                        PAT_ARBNO
-                        PAT_BOXVAL
+                        EXEC_STMT_VARIANT 0
+                        EXEC_STMT_VARIANT 0
+                        EXEC_STMT_VARIANT 0
+                        EXEC_STMT_VARIANT 0
+                        EXEC_STMT_VARIANT 0
                         CALL_FN          .S62, 0 # Pop_list
                         PUSH_STR         .S44, 0 # ")"
                         CONCAT
@@ -1226,21 +1161,20 @@ main:                   push             rbp
                         STNO
                         PAT_LIT          .S118 # arg="("
                         PUSH_VAR         .S121 # BAL
-                        PAT_DEREF
+                        EXEC_STMT_VARIANT 0
                         PAT_LIT          .S44 # arg=")"
-                        PAT_CAT
-                        PAT_CAT
+                        EXEC_STMT_VARIANT 0
+                        EXEC_STMT_VARIANT 0
                         PAT_CAPTURE      0, .S122 # item kind=0
-                        PAT_BOXVAL
                         STORE_VAR        .S123 # spat
-.L635:                  LABEL
+.L645:                  LABEL
 #=======================================================================================================================
 # stmt 110  (line 142):  slurp          line           =  INPUT                      :F(slurp_done)
 #=======================================================================================================================
-.L636:                  STNO
+.L646:                  STNO
                         PUSH_VAR         .S125 # INPUT
                         STORE_VAR        .S126 # line
-                        JUMP_F           .L648
+                        JUMP_F           .L658
 #=======================================================================================================================
 # stmt 111  (line 143):                 src            =  src line nl                :(slurp)
 #=======================================================================================================================
@@ -1251,12 +1185,12 @@ main:                   push             rbp
                         CONCAT
                         CONCAT
                         STORE_VAR        .S127 # src
-                        JUMP             .L635
-.L648:                  LABEL
+                        JUMP             .L645
+.L658:                  LABEL
 #=======================================================================================================================
 # stmt 112  (line 145):                 dummy          =  init_list('bank')
 #=======================================================================================================================
-.L649:                  STNO
+.L659:                  STNO
 #=======================================================================================================================
 # stmt 113  (line 145):                 dummy          =  init_list('bank')
 #=======================================================================================================================
@@ -1271,17 +1205,17 @@ main:                   push             rbp
                         PUSH_STR         .S129, 0 # "BANK"
                         CALL_FN          .S11, 1 # stk_push_frame
                         STORE_VAR        .S16 # dummy
-.L658:                  LABEL
+.L668:                  LABEL
 #=======================================================================================================================
 # stmt 115  (line 147):  loop           src            spat =  ''                    :F(all_done)
 #=======================================================================================================================
-.L659:                  STNO
+.L669:                  STNO
                         PUSH_VAR         .S123 # spat
-                        PAT_DEREF
+                        EXEC_STMT_VARIANT 0
                         PUSH_VAR         .S127 # src
                         PUSH_STR         .S40, 0 # ""
                         EXEC_STMT_VARIANT 1, .S127 # subj=src
-                        JUMP_F           .L691
+                        JUMP_F           .L701
 #=======================================================================================================================
 # stmt 116  (line 148):                 dummy          =  stk_push_frame('ROOT')
 #=======================================================================================================================
@@ -1294,23 +1228,23 @@ main:                   push             rbp
 #=======================================================================================================================
                         STNO
                         PUSH_VAR         .S119 # group
-                        PAT_DEREF
+                        EXEC_STMT_VARIANT 0
                         PUSH_VAR         .S122 # item
                         PUSH_INT         0
                         EXEC_STMT_VARIANT 0, .S122 # subj=item
-                        JUMP_F           .L681
+                        JUMP_F           .L691
 #=======================================================================================================================
 # stmt 118  (line 150):                 dummy          =  stk_pop_into_parent()      :(loop)
 #=======================================================================================================================
                         STNO
                         CALL_FN          .S26, 0 # stk_pop_into_parent
                         STORE_VAR        .S16 # dummy
-                        JUMP             .L658
-.L681:                  LABEL
+                        JUMP             .L668
+.L691:                  LABEL
 #=======================================================================================================================
 # stmt 119  (line 151):  parse_fail     OUTPUT         =  'Parse failed on: ' item
 #=======================================================================================================================
-.L682:                  STNO
+.L692:                  STNO
                         PUSH_STR         .S133, 0 # "Parse failed on: "
                         PUSH_VAR         .S122 # item
                         CONCAT
@@ -1321,12 +1255,12 @@ main:                   push             rbp
                         STNO
                         CALL_FN          .S26, 0 # stk_pop_into_parent
                         STORE_VAR        .S16 # dummy
-                        JUMP             .L658
-.L691:                  LABEL
+                        JUMP             .L668
+.L701:                  LABEL
 #=======================================================================================================================
 # stmt 121  (line 153):  all_done       dummy          =  stk_pop_final('bank')
 #=======================================================================================================================
-.L692:                  STNO
+.L702:                  STNO
                         PUSH_STR         .S113, 0 # "bank"
                         CALL_FN          .S33, 1 # stk_pop_final
                         STORE_VAR        .S16 # dummy
@@ -1336,12 +1270,12 @@ main:                   push             rbp
                         STNO
                         CALL_FN          .S112, 0 # pp_bank
                         STORE_VAR        .S16 # dummy
-                        JUMP             .L700
-.L700:                  LABEL
+                        JUMP             .L710
+.L710:                  LABEL
 #=======================================================================================================================
 # stmt 123
 #=======================================================================================================================
-.L701:                  STNO
+.L711:                  STNO
                         HALT
                         call             rt_finalize@PLT
                         pop              rbp

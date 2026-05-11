@@ -150,9 +150,6 @@
                         .macro           PAT_DEREF
                         call             rt_pat_deref@PLT
                         .endm
-                        .macro           PAT_BOXVAL
-                        call             rt_pat_boxval@PLT
-                        .endm
                         .macro           PAT_LIT lbl
                         .ifnb            \lbl
                         lea              rdi, [rip + \lbl]

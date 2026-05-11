@@ -1,6 +1,6 @@
 # === BEGIN bb macro library (EM-7c-bb-macros) ===
 # One named .macro/.endm per leaf-box port.  Three-column shape.
-# GAS expands to byte-identical inline x86 (same as ev_* emissions).
+# GAS expands to byte-identical inline x86 (same as emit_* emissions).
                         .macro           DELTA_LOAD
                         mov              eax, [r10]
                         .endm
