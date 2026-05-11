@@ -1,4 +1,4 @@
-# corpus/programs/scrip — SCRIP source tree
+# corpus/SCRIP — SCRIP source tree
 
 This is the SCRIP compiler/interpreter/runtime, written in SCRIP. The
 host implementation languages are **Snocone, Icon, and Prolog** (with
@@ -34,14 +34,14 @@ Snocone has no `-include` directive; callers pass every file as a blob:
 
 ```
 scrip --ir-run \
-  corpus/programs/scrip/global.sc \
-  corpus/programs/scrip/tree.sc \
-  corpus/programs/scrip/stack.sc \
-  corpus/programs/scrip/counter.sc \
-  corpus/programs/scrip/ShiftReduce.sc \
-  corpus/programs/scrip/semantic.sc \
-  corpus/programs/scrip/tdump.sc \
-  corpus/programs/scrip/parser_<lang>.sc \
+  corpus/SCRIP/global.sc \
+  corpus/SCRIP/tree.sc \
+  corpus/SCRIP/stack.sc \
+  corpus/SCRIP/counter.sc \
+  corpus/SCRIP/ShiftReduce.sc \
+  corpus/SCRIP/semantic.sc \
+  corpus/SCRIP/tdump.sc \
+  corpus/SCRIP/parser_<lang>.sc \
   input_file
 ```
 

@@ -1,4 +1,4 @@
-// smoke.sc — smoke test for corpus/programs/scrip/ (Snocone-hosted runtime).
+// smoke.sc — smoke test for corpus/SCRIP/ (Snocone-hosted runtime).
 // Verifies the runtime loads and a Shift/Pop round-trip works using the
 // faithful no-arg Pop() form beauty.sno uses at line 617:
 //     DIFFER(sno = Pop())

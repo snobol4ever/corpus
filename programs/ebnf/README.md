@@ -2,7 +2,7 @@
 
 Canonical grammars for the languages the SCRIP frontends parse. These
 files are the **source of truth** for nonterminal names used by the
-PARSER-* pattern frontends (`corpus/programs/scrip/parser_*.sc`). Per
+PARSER-* pattern frontends (`corpus/SCRIP/parser_*.sc`). Per
 GOAL-PARSER-ICON.md ## Design issues D2/D3, every PARSER-* parser must
 use names that map 1-to-1 to productions in the corresponding `.ebnf`
 file in this directory.
