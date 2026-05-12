@@ -6,7 +6,7 @@ function Lower_collect(stmt) {
 }
 /* ==================================================================================================================== */
 function Lower_run() {
-    Lower(g_program);
+    lower(g_program);
     sm_dump();
     return;
 }

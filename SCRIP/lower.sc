@@ -235,7 +235,7 @@ function lower_assign(t) {
     return;
 }
 /* ==================================================================================================================== */
-function lower_pat_nary(t, op, i) {
+function emit_pat_nary(t, op, i) {
     i = 1;
     while (LE(i, n(t))) { lower_pat_expr(c(t)[i]); i = i + 1; }
     i = 2;
@@ -270,9 +270,9 @@ function lower_pat_expr(t, k) {
     if (IDENT(k, TT_TAB))    { lower_expr(T0(t)); emit('SM_PAT_TAB');    return; }
     if (IDENT(k, TT_RTAB))   { lower_expr(T0(t)); emit('SM_PAT_RTAB');   return; }
     if (IDENT(k, TT_ARBNO))  { lower_pat_expr(T0(t)); emit('SM_PAT_ARBNO'); return; }
-    if (IDENT(k, TT_SEQ))    { lower_pat_nary(t, 'SM_PAT_CAT'); return; }
-    if (IDENT(k, TT_CAT))    { lower_pat_nary(t, 'SM_PAT_CAT'); return; }
-    if (IDENT(k, TT_ALT))    { lower_pat_nary(t, 'SM_PAT_ALT'); return; }
+    if (IDENT(k, TT_SEQ))    { emit_pat_nary(t, 'SM_PAT_CAT'); return; }
+    if (IDENT(k, TT_CAT))    { emit_pat_nary(t, 'SM_PAT_CAT'); return; }
+    if (IDENT(k, TT_ALT))    { emit_pat_nary(t, 'SM_PAT_ALT'); return; }
     lower_expr(t);
     emit('SM_PAT_DEREF');
     return;
@@ -323,65 +323,65 @@ function lower_expr(t, k) {
     return;
 }
 /* ==================================================================================================================== */
-function attr_find(s, tag, i, ch) {
-    attr_find = NULL;
+function stmt_attr_find(s, tag, i, ch) {
+    stmt_attr_find = NULL;
     i = 1;
     while (LE(i, n(s))) {
         ch = c(s)[i];
-        if (IDENT(t(ch), tag)) { attr_find = ch; return; }
+        if (IDENT(t(ch), tag)) { stmt_attr_find = ch; return; }
         i = i + 1;
     }
     return;
 }
 /* ==================================================================================================================== */
-function attr_str(s, tag, a) {
-    a = attr_find(s, tag);
-    attr_str = (DIFFER(a) v(a), '');
+function stmt_attr_str(s, tag, a) {
+    a = stmt_attr_find(s, tag);
+    stmt_attr_str = (DIFFER(a) v(a), '');
     return;
 }
 /* ==================================================================================================================== */
-function attr_int(s, tag, sv) {
-    sv = attr_str(s, tag);
-    attr_int = (DIFFER(sv) sv, 0);
+function attr_int_of(s, tag, sv) {
+    sv = stmt_attr_str(s, tag);
+    attr_int_of = (DIFFER(sv) sv, 0);
     return;
 }
 /* ==================================================================================================================== */
-function attr_expr(s, tag, a) {
-    a = attr_find(s, tag);
-    if (IDENT(a)) { attr_expr = NULL; return; }
-    if (GT(n(a), 0)) { attr_expr = c(a)[1]; return; }
-    attr_expr = NULL;
+function attr_expr_of(s, tag, a) {
+    a = stmt_attr_find(s, tag);
+    if (IDENT(a)) { attr_expr_of = NULL; return; }
+    if (GT(n(a), 0)) { attr_expr_of = c(a)[1]; return; }
+    attr_expr_of = NULL;
     return;
 }
 /* ==================================================================================================================== */
 function lower_stmt(s, label, lang, stno, lineno, subject, pattern, has_eq,
                     replacement, goto_s, goto_f, goto_u,
                     is_end, sname) {
-    is_end = (DIFFER(attr_find(s, SL_END)) 1, 0);
+    is_end = (DIFFER(stmt_attr_find(s, SL_END)) 1, 0);
     if (IDENT(is_end, 1)) {
-        label = attr_str(s, SL_LBL);
+        label = stmt_attr_str(s, SL_LBL);
         if (DIFFER(label)) {
             emit_s('SM_LABEL', label);
             labtab_define(label, g_count - 1);
         }
-        stno   = attr_int(s, SL_STNO);
-        lineno = attr_int(s, SL_LINE);
+        stno   = attr_int_of(s, SL_STNO);
+        lineno = attr_int_of(s, SL_LINE);
         emit_ii('SM_STNO', stno, lineno);
         emit('SM_HALT');
         return;
     }
-    label   = attr_str(s, SL_LBL);
-    lang    = attr_int(s, SL_LANG);
+    label   = stmt_attr_str(s, SL_LBL);
+    lang    = attr_int_of(s, SL_LANG);
     g_lang  = lang;
-    stno    = attr_int(s, SL_STNO);
-    lineno  = attr_int(s, SL_LINE);
-    subject     = attr_expr(s, SL_SUBJ);
-    pattern     = attr_expr(s, SL_PAT);
-    has_eq      = (DIFFER(attr_find(s, SL_EQ)) 1, 0);
-    replacement = attr_expr(s, SL_REPL);
-    goto_s      = attr_str(s, SL_GOS);
-    goto_f      = attr_str(s, SL_GOF);
-    goto_u      = attr_str(s, SL_GOU);
+    stno    = attr_int_of(s, SL_STNO);
+    lineno  = attr_int_of(s, SL_LINE);
+    subject     = attr_expr_of(s, SL_SUBJ);
+    pattern     = attr_expr_of(s, SL_PAT);
+    has_eq      = (DIFFER(stmt_attr_find(s, SL_EQ)) 1, 0);
+    replacement = attr_expr_of(s, SL_REPL);
+    goto_s      = stmt_attr_str(s, SL_GOS);
+    goto_f      = stmt_attr_str(s, SL_GOF);
+    goto_u      = stmt_attr_str(s, SL_GOU);
     if (IDENT(label) IDENT(subject) IDENT(pattern) EQ(has_eq, 0)
         IDENT(goto_u) IDENT(goto_s) IDENT(goto_f)) return;
     if (DIFFER(label)) {
@@ -420,7 +420,7 @@ emit_gotos:
     return;
 }
 /* ==================================================================================================================== */
-function Lower(prog, i, s, last_op) {
+function lower(prog, i, s, last_op) {
     g_sm     = tree('SM_LIST', '');
     g_count  = 0;
     g_labtab = TABLE();
