@@ -742,15 +742,15 @@ Call            =   *Ident . *assign(.captured_call_name, token)
                       nPop()
                       $')'
                     );
-ExprList        =   nPush() *XList ("'TT_VLIST'" & r_nTop) nPop();
-XList           =   nInc() (*Expr0 | epsilon ~ '') FENCE($',' *XList | epsilon);
+ExprList        =   nPush() *XList reduce("'TT_VLIST'", r_nTop) nPop();
+XList           =   nInc() (*Expr0 | shift(epsilon, '')) FENCE($',' *XList | epsilon);
 Expr17          =   FENCE(
                       *Call
                     | $'('
                       nPush()
                       FENCE(
                         nInc() *Expr0 ARBNO($',' nInc() *Expr0) Paren_reduce()
-                      | ("'TT_NUL'" & 0)
+                      | reduce("'TT_NUL'", 0)
                       )
                       nPop()
                       $')'
@@ -761,35 +761,35 @@ Expr17          =   FENCE(
                     | *Ident    Push_ident()
                     );
 Expr16          =   nInc() $'[' *ExprList $']' FENCE(*Expr16 | epsilon);
-Expr15          =   *Expr17 FENCE(nPush() *Expr16 ("'TT_IDX'" & r_nTopP1) nPop() | epsilon);
-Expr14          =   '@' *Expr14 ("'TT_CAPT_CURSOR'"  & 1)
-                |   '~' *Expr14 ("'TT_NOT'"          & 1)
-                |   '+' *Expr14 ("'TT_PLS'"          & 1)
-                |   '-' *Expr14 ("'TT_MNS'"          & 1)
-                |   '*' *Expr14 ("'TT_DEFER'"        & 1)
-                |   '$' *Expr14 ("'TT_INDIRECT'"     & 1)
-                |   '.' *Expr14 ("'TT_NAME'"         & 1)
-                |   '!' *Expr14 ("'TT_BANG'"         & 1)
-                |   '%' *Expr14 ("'TT_PCT'"          & 1)
-                |   '/' *Expr14 ("'TT_SLASH'"        & 1)
-                |   '#' *Expr14 ("'TT_POUND'"        & 1)
+Expr15          =   *Expr17 FENCE(nPush() *Expr16 reduce("'TT_IDX'", r_nTopP1) nPop() | epsilon);
+Expr14          =   '@' *Expr14 reduce("'TT_CAPT_CURSOR'", 1)
+                |   '~' *Expr14 reduce("'TT_NOT'", 1)
+                |   '+' *Expr14 reduce("'TT_PLS'", 1)
+                |   '-' *Expr14 reduce("'TT_MNS'", 1)
+                |   '*' *Expr14 reduce("'TT_DEFER'", 1)
+                |   '$' *Expr14 reduce("'TT_INDIRECT'", 1)
+                |   '.' *Expr14 reduce("'TT_NAME'", 1)
+                |   '!' *Expr14 reduce("'TT_BANG'", 1)
+                |   '%' *Expr14 reduce("'TT_PCT'", 1)
+                |   '/' *Expr14 reduce("'TT_SLASH'", 1)
+                |   '#' *Expr14 reduce("'TT_POUND'", 1)
                 |   *Expr15;
-Expr13          =   *Expr14 FENCE($'~' *Expr13 ("'TT_NOT'" & 2) | epsilon);
+Expr13          =   *Expr14 FENCE($'~' *Expr13 reduce("'TT_NOT'", 2) | epsilon);
 Expr12          =   *Expr13
                     FENCE(
-                      $'$' *Expr13 ("'TT_CAPT_IMMED_ASGN'" & 2) FENCE($'$' *Expr13 ("'TT_CAPT_IMMED_ASGN'" & 2) | epsilon)
-                    | $'.' *Expr13 ("'TT_CAPT_COND_ASGN'"  & 2) FENCE($'.' *Expr13 ("'TT_CAPT_COND_ASGN'"  & 2) | epsilon)
+                      $'$' *Expr13 reduce("'TT_CAPT_IMMED_ASGN'", 2) FENCE($'$' *Expr13 reduce("'TT_CAPT_IMMED_ASGN'", 2) | epsilon)
+                    | $'.' *Expr13 reduce("'TT_CAPT_COND_ASGN'", 2) FENCE($'.' *Expr13 reduce("'TT_CAPT_COND_ASGN'", 2) | epsilon)
                     | epsilon
                     );
-Expr11          =   *Expr12 FENCE(($'^' | $'!' | $'**') *Expr11 ("'TT_POW'" & 2) | epsilon);
-Expr10          =   *Expr11 FENCE($'%' *Expr10 ("'TT_MUL'" & 2) | epsilon);
-Expr9           =   *Expr10 FENCE($'*' *Expr9  ("'TT_MUL'" & 2) | epsilon);
-Expr8           =   *Expr9  FENCE($'/' *Expr8  ("'TT_DIV'" & 2) | epsilon);
-Expr7           =   *Expr8  FENCE($'#' *Expr7  ("'TT_SUB'" & 2) | epsilon);
-Expr6           =   *Expr7  FENCE($'+' *Expr6 ("'TT_ADD'" & 2) | $'-' *Expr6 ("'TT_SUB'" & 2) | epsilon);
+Expr11          =   *Expr12 FENCE(($'^' | $'!' | $'**') *Expr11 reduce("'TT_POW'", 2) | epsilon);
+Expr10          =   *Expr11 FENCE($'%' *Expr10 reduce("'TT_MUL'", 2) | epsilon);
+Expr9           =   *Expr10 FENCE($'*' *Expr9  reduce("'TT_MUL'", 2) | epsilon);
+Expr8           =   *Expr9  FENCE($'/' *Expr8  reduce("'TT_DIV'", 2) | epsilon);
+Expr7           =   *Expr8  FENCE($'#' *Expr7  reduce("'TT_SUB'", 2) | epsilon);
+Expr6           =   *Expr7  FENCE($'+' *Expr6 reduce("'TT_ADD'", 2) | $'-' *Expr6 reduce("'TT_SUB'", 2) | epsilon);
 Expr5           =   *Expr6
                      FENCE(
-                       $'@'  *Expr5 ("'TT_CAPT_CURSOR'" & 2)
+                       $'@'  *Expr5 reduce("'TT_CAPT_CURSOR'", 2)
                      | $'==' *Expr6 Push_cmp('EQ')
                      | $'!=' *Expr6 Push_cmp('NE')
                      | $'<=' *Expr6 Push_cmp('LE')
@@ -798,14 +798,14 @@ Expr5           =   *Expr6
                      | $'>'  *Expr6 Push_cmp('GT')
                      | epsilon
                      );
-Expr4           =   nPush() *X4 ("'TT_SEQ'" & r_nTop) nPop();
+Expr4           =   nPush() *X4 reduce("'TT_SEQ'", r_nTop) nPop();
 X4              =   nInc() *Expr5 FENCE($'  ' *X4 | epsilon);
-Expr3           =   nPush() *X3 ("'TT_ALT'" & r_nTop) nPop();
+Expr3           =   nPush() *X3 reduce("'TT_ALT'", r_nTop) nPop();
 X3              =   nInc() *Expr4 FENCE($'|' *X3 | epsilon);
-Expr2           =   *Expr3 FENCE($'&' *Expr2 ("'TT_SEQ'" & 2) | epsilon);
-Expr1           =   *Expr2 FENCE($'?' *Expr1 ("'TT_SCAN'" & 2) | epsilon);
+Expr2           =   *Expr3 FENCE($'&' *Expr2 reduce("'TT_SEQ'", 2) | epsilon);
+Expr1           =   *Expr2 FENCE($'?' *Expr1 reduce("'TT_SCAN'", 2) | epsilon);
 Expr0           =   *Expr1 FENCE(
-                      $'='  FENCE(*Expr0 | Push_empty_str())  ("'TT_ASSIGN'" & 2)
+                      $'='  FENCE(*Expr0 | Push_empty_str())  reduce("'TT_ASSIGN'", 2)
                     | $'+=' *Expr0  Reduce_augmented("'TT_ADD'")
                     | $'-=' *Expr0  Reduce_augmented("'TT_SUB'")
                     | $'*=' *Expr0  Reduce_augmented("'TT_MUL'")

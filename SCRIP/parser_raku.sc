@@ -1539,7 +1539,7 @@ Expr11 = ( $'!'  *Expr11  Finish_not
 Expr7tail = FENCE( $'*'  *Expr11  Flatten_mul
                  | $'/'  *Expr11  Flatten_div
                  | $'div' *Expr11  Flatten_div
-                 | $'%'  *Expr11  ("'TT_MOD'" & 2)
+                 | $'%'  *Expr11  reduce("'TT_MOD'", 2)
                  );
 Expr7     = ( Expr11 ARBNO(Expr7tail) );
 Expr6tail = FENCE( $'+'  *Expr7  Flatten_add
@@ -1548,26 +1548,26 @@ Expr6tail = FENCE( $'+'  *Expr7  Flatten_add
                  );
 Expr6     = ( Expr7  ARBNO(Expr6tail) );
 Expr5     = ( Expr6
-              FENCE( $'..^'  *Expr6  ("'TT_TO'" & 2)
-                   | $'..'   *Expr6  ("'TT_TO'" & 2)
+              FENCE( $'..^'  *Expr6  reduce("'TT_TO'", 2)
+                   | $'..'   *Expr6  reduce("'TT_TO'", 2)
                    | epsilon
                    )
             );
-Expr4tail = FENCE( $'=='  *Expr5      ("'TT_EQ'" & 2)
-                 | $'!='  *Expr5      ("'TT_NE'" & 2)
-                 | $'<='  *Expr5      ("'TT_LE'" & 2)
-                 | $'>='  *Expr5      ("'TT_GE'" & 2)
-                 | $'<'   *Expr5      ("'TT_LT'" & 2)
-                 | $'>'   *Expr5      ("'TT_GT'" & 2)
-                 | $'eq'  *Expr5      ("'TT_LEQ'" & 2)
-                 | $'ne'  *Expr5      ("'TT_LNE'" & 2)
+Expr4tail = FENCE( $'=='  *Expr5      reduce("'TT_EQ'", 2)
+                 | $'!='  *Expr5      reduce("'TT_NE'", 2)
+                 | $'<='  *Expr5      reduce("'TT_LE'", 2)
+                 | $'>='  *Expr5      reduce("'TT_GE'", 2)
+                 | $'<'   *Expr5      reduce("'TT_LT'", 2)
+                 | $'>'   *Expr5      reduce("'TT_GT'", 2)
+                 | $'eq'  *Expr5      reduce("'TT_LEQ'", 2)
+                 | $'ne'  *Expr5      reduce("'TT_LNE'", 2)
                  | $'~~'  LitRegex Push_rxlit  Finish_smartmatch
                  | $'~~'  LitMatchGlobal Push_rxlit  Finish_match_global
                  | $'~~'  LitSubst       Finish_subst
                  );
 Expr4     = ( Expr5  ARBNO(Expr4tail) );
-Expr3tail = FENCE( $'&&'  *Expr4  ("'TT_SEQ'" & 2)
-                 | $'||'  *Expr4  ("'TT_ALT'" & 2)
+Expr3tail = FENCE( $'&&'  *Expr4  reduce("'TT_SEQ'", 2)
+                 | $'||'  *Expr4  reduce("'TT_ALT'", 2)
                  );
 Expr3     = ( Expr4  ARBNO(Expr3tail) );
 Expr      = Expr3;
@@ -1577,7 +1577,7 @@ Block = ( $'{'
           nPush()
           ARBNO( Block_body )
           $'}'
-          ("'TT_SEQ_EXPR'" & 'nTop()')
+          reduce("'TT_SEQ_EXPR'", 'nTop()')
           nPop()
         );
 SubBlockStmt = epsilon;
@@ -1596,34 +1596,34 @@ GatherBlock = ( $'{'
 IfStmt = ( $'if'  $'(' Expr $')'
            Block
            ( $'elsif'  $'(' Expr $')'  Block
-             ( $'else'  Block  ("'TT_IF'" & 3) ("'TT_IF'" & 3)
-             | ("'TT_IF'" & 2) ("'TT_IF'" & 3)
+             ( $'else'  Block  reduce("'TT_IF'", 3) reduce("'TT_IF'", 3)
+             | reduce("'TT_IF'", 2) reduce("'TT_IF'", 3)
              )
-           | $'else'  Block  ("'TT_IF'" & 3)
-           | ("'TT_IF'" & 2)
+           | $'else'  Block  reduce("'TT_IF'", 3)
+           | reduce("'TT_IF'", 2)
            )
          );
 WhileStmt = ( $'while'  $'(' Expr $')'
               Block
-              ("'TT_WHILE'" & 2)
+              reduce("'TT_WHILE'", 2)
             );
 UnlessStmt = ( $'unless'  $'(' Expr $')'
                Finish_not
                Block
-               ( $'else'  Block  ("'TT_IF'" & 3)
-               | ("'TT_IF'" & 2)
+               ( $'else'  Block  reduce("'TT_IF'", 3)
+               | reduce("'TT_IF'", 2)
                )
              );
 UntilStmt = ( $'until'  $'(' Expr $')'
               Block
-              ("'TT_UNTIL'" & 2)
+              reduce("'TT_UNTIL'", 2)
             );
 WithoutStmt = ( $'without'  $'(' Expr $')'
                 Block
                 Finish_without
               );
 WheneverStmt = ( $'whenever' $'  ' *Expr Block Finish_whenever );
-LoopSubExpr = ( ( VarScalar FENCE $'=' Push_var Expr ("'TT_ASSIGN'" & 2) )
+LoopSubExpr = ( ( VarScalar FENCE $'=' Push_var Expr reduce("'TT_ASSIGN'", 2) )
               | Expr
               );
 LoopThreeStmt = ( $'loop' $'(' LoopSubExpr $';' LoopSubExpr $';' LoopSubExpr $')'
@@ -1690,27 +1690,27 @@ DeleteHashBrace = ( $'delete'  HashIdxVar  $'{'  Expr  $'}'  $';'
                     Finish_hash_delete_brace
                   );
 ReturnStmt = ( $'return'
-               ( $';'         ("'TT_RETURN'" & 0)
-               | $'  ' Expr   $';'  ("'TT_RETURN'" & 1)
+               ( $';'         reduce("'TT_RETURN'", 0)
+               | $'  ' Expr   $';'  reduce("'TT_RETURN'", 1)
                )
              );
-TakeStmt = ( $'take' $'  ' Expr $';' ("'TT_SUSPEND'" & 1) );
+TakeStmt = ( $'take' $'  ' Expr $';' reduce("'TT_SUSPEND'", 1) );
 TypedDeclStmt = ( $'my' $'  '
                   $' ' ident_first (ident_rest | epsilon)
                   $'  '
                   ( ( VarScalar Push_var | VarArray Push_var | VarHash Push_var )
-                    $'=' *Expr $';'  ("'TT_ASSIGN'" & 2)
+                    $'=' *Expr $';'  reduce("'TT_ASSIGN'", 2)
                   | ( VarScalar Push_var | VarArray Push_var | VarHash Push_var )
-                    $';'             Push_empty  ("'TT_ASSIGN'" & 2)
+                    $';'             Push_empty  reduce("'TT_ASSIGN'", 2)
                   )
                 );
-ReturnBareStmt = ( $'return' $';' ("'TT_RETURN'" & 0) );
+ReturnBareStmt = ( $'return' $';' reduce("'TT_RETURN'", 0) );
 AssignStmt = ( ($'my' $'  ' | epsilon)
                ( VarScalar  Push_var
                | VarArray   Push_var
                | VarHash    Push_var
                )
-               $'='  Expr  $';'  ("'TT_ASSIGN'" & 2)
+               $'='  Expr  $';'  reduce("'TT_ASSIGN'", 2)
              );
 SayStmt = ( $'say'
             Expr  $';'  Finish_say
@@ -1764,7 +1764,7 @@ TryStmt = ( $'try'
             )
             Finish_try
           );
-RepeatStmt = ( $'repeat' Block ("'TT_REPEAT'" & 1) );
+RepeatStmt = ( $'repeat' Block reduce("'TT_REPEAT'", 1) );
 ForNoArrowStmt = ( $'for' $'  ' *Expr Block Finish_for_noarrow );
 Stmt = ( GivenStmt
        | TryStmt
@@ -1887,7 +1887,7 @@ Compiland = nPush()
             Finish_main
             nPop()
             nInc()
-            (E_Parse & 1)
+            (reduce(E_Parse, 1))
             nPop();
 InitCounter();
 InitStack();

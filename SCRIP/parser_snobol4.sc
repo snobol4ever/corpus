@@ -84,16 +84,16 @@ FnArgList   =  nInc() *Expr FENCE(*FnArgTail | epsilon);
 FnArgTail   =  $',' nInc() *Expr FENCE(*FnArgTail | epsilon);
 ExprList    =  nPush()
                *XList
-               ("'ExprList'" & '*(GT(nTop(), 1) nTop())')
+               reduce("'ExprList'", '*(GT(nTop(), 1) nTop())')
                nPop();
-XList       =  nInc() (*Expr | epsilon ~ '') FENCE($',' *XList | epsilon);
+XList       =  nInc() (*Expr | shift(epsilon, '')) FENCE($',' *XList | epsilon);
 Expr        =  *Expr0;
-Expr0       =  *Expr1 FENCE($'=' *Expr0 ("'TT_ASSIGN'" & 2) | epsilon);
+Expr0       =  *Expr1 FENCE($'=' *Expr0 reduce("'TT_ASSIGN'", 2) | epsilon);
 Expr1       =  *Expr2 FENCE($'?' *Expr1 reduce_opsyn('?', 2) | epsilon);
 Expr2       =  *Expr3 FENCE($'&' *Expr2 reduce_opsyn('&', 2) | epsilon);
-Expr3       =  nPush() *X3 ("'TT_ALT'" & '*(GT(nTop(), 1) nTop())') nPop();
+Expr3       =  nPush() *X3 reduce("'TT_ALT'", '*(GT(nTop(), 1) nTop())') nPop();
 X3          =  nInc() *Expr4 FENCE($'|' *X3 | epsilon);
-Expr4       =  nPush() *X4 ("'TT_SEQ'" & '*(GT(nTop(), 1) nTop())') nPop();
+Expr4       =  nPush() *X4 reduce("'TT_SEQ'", '*(GT(nTop(), 1) nTop())') nPop();
 X4          =  nInc() *Expr5 FENCE($'  ' *X4 | epsilon);
 Expr5       =  *Expr6 FENCE($'@' *Expr5 reduce_opsyn('@', 2) | epsilon);
 Expr6       =  *Expr7
@@ -109,37 +109,37 @@ Expr11      =  *Expr12 FENCE(($'^' | $'!' | $'**') *Expr12 foldop("'TT_POW'") *E
 Expr11cont  =  FENCE(($'^' | $'!' | $'**') *Expr12 foldop("'TT_POW'") *Expr11cont | epsilon);
 Expr12      =  *Expr13
                FENCE(
-                  $'$' *Expr13 ("'TT_CAPT_IMMED_ASGN'" & 2) *Expr12tail_immed
-               |  $'.' *Expr13 ("'TT_CAPT_COND_ASGN'"  & 2) *Expr12tail_cond
+                  $'$' *Expr13 reduce("'TT_CAPT_IMMED_ASGN'", 2) *Expr12tail_immed
+               |  $'.' *Expr13 reduce("'TT_CAPT_COND_ASGN'", 2) *Expr12tail_cond
                |  epsilon
                );
-Expr12tail_immed =  FENCE($'$' *Expr13 ("'TT_CAPT_IMMED_ASGN'" & 2) *Expr12tail_immed | epsilon);
-Expr12tail_cond  =  FENCE($'.' *Expr13 ("'TT_CAPT_COND_ASGN'"  & 2) *Expr12tail_cond  | epsilon);
+Expr12tail_immed =  FENCE($'$' *Expr13 reduce("'TT_CAPT_IMMED_ASGN'", 2) *Expr12tail_immed | epsilon);
+Expr12tail_cond  =  FENCE($'.' *Expr13 reduce("'TT_CAPT_COND_ASGN'", 2) *Expr12tail_cond  | epsilon);
 Expr13      =  *Expr14 FENCE($'~' *Expr13 reduce_opsyn('~', 2) | epsilon);
-Expr14      =  '@' *Expr14 ("'TT_CAPT_CURSOR'" & 1)
-            |  '~' *Expr14 ("'TT_NOT'" & 1)
-            |  '?' *Expr14 ("'TT_INTERROGATE'" & 1)
+Expr14      =  '@' *Expr14 reduce("'TT_CAPT_CURSOR'", 1)
+            |  '~' *Expr14 reduce("'TT_NOT'", 1)
+            |  '?' *Expr14 reduce("'TT_INTERROGATE'", 1)
             |  '&' shift(*ProtKwd,   "'TT_KEYWORD'")
             |  '&' shift(*UnprotKwd, "'TT_KEYWORD'")
-            |  '+' *Expr14 ("'TT_PLS'" & 1)
-            |  '-' *Expr14 ("'TT_MNS'" & 1)
+            |  '+' *Expr14 reduce("'TT_PLS'", 1)
+            |  '-' *Expr14 reduce("'TT_MNS'", 1)
             |  '*' *Expr14 reduce("'TT_DEFER'", 1)
-            |  '$' *Expr14 ("'TT_INDIRECT'" & 1)
-            |  '.' *Expr14 ("'TT_NAME'" & 1)
-            |  '!' *Expr14 ("'TT_POW'" & 1)
-            |  '%' *Expr14 ("'TT_DIV'" & 1)
-            |  '/' *Expr14 ("'TT_DIV'" & 1)
-            |  '#' *Expr14 ("'TT_MUL'" & 1)
-            |  '=' *Expr14 ("'TT_ASSIGN'" & 1)
-            |  '|' *Expr14 ("'TT_OPSYN'" & 1)
+            |  '$' *Expr14 reduce("'TT_INDIRECT'", 1)
+            |  '.' *Expr14 reduce("'TT_NAME'", 1)
+            |  '!' *Expr14 reduce("'TT_POW'", 1)
+            |  '%' *Expr14 reduce("'TT_DIV'", 1)
+            |  '/' *Expr14 reduce("'TT_DIV'", 1)
+            |  '#' *Expr14 reduce("'TT_MUL'", 1)
+            |  '=' *Expr14 reduce("'TT_ASSIGN'", 1)
+            |  '|' *Expr14 reduce("'TT_OPSYN'", 1)
             |  *Expr15;
 Expr15      =  *Expr17
-               FENCE(nPush() *Expr16 ("'TT_IDX'" & 'nTop() + 1') nPop() | epsilon);
+               FENCE(nPush() *Expr16 reduce("'TT_IDX'", 'nTop() + 1') nPop() | epsilon);
 Expr16      =  nInc()
                ($'[' *ExprList $']' | $'<' *ExprList $'>')
                FENCE(*Expr16 | epsilon);
 Expr17      =  FENCE(
-                  nPush() $'(' *Expr $')' ("'()'" & 1) nPop()
+                  nPush() $'(' *Expr $')' reduce("'()'", 1) nPop()
                |  *PrimLEN    $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim("'TT_LEN'")    nPop() $')'
                |  *PrimBREAK  $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim("'TT_BREAK'")  nPop() $')'
                |  *PrimSPAN   $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim("'TT_SPAN'")   nPop() $')'
@@ -152,13 +152,13 @@ Expr17      =  FENCE(
                |  *PrimTAB    $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim("'TT_TAB'")    nPop() $')'
                |  *PrimRTAB   $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim("'TT_RTAB'")   nPop() $')'
                |  *PrimBREAKX $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim("'TT_BREAKX'") nPop() $')'
-               |  *Function   ~ "'TT_VAR'" FENCE(nPush() $'(' FENCE(*FnArgList | epsilon) reduce_call() nPop() $')' | epsilon)
-               |  *BuiltinVar ~ "'TT_VAR'"
-               |  *SpecialNm  ~ "'TT_VAR'"
-               |  *Id         ~ "'TT_VAR'" FENCE(nPush() $'(' FENCE(*FnArgList | epsilon) reduce_call() nPop() $')' | epsilon)
+               |  shift(*Function, "'TT_VAR'") FENCE(nPush() $'(' FENCE(*FnArgList | epsilon) reduce_call() nPop() $')' | epsilon)
+               |  shift(*BuiltinVar, "'TT_VAR'")
+               |  shift(*SpecialNm, "'TT_VAR'")
+               |  shift(*Id, "'TT_VAR'") FENCE(nPush() $'(' FENCE(*FnArgList | epsilon) reduce_call() nPop() $')' | epsilon)
                |  *String Push_qlit
-               |  *Real ~ "'TT_RLIT'"
-               |  *Integer ~ "'TT_ILIT'"
+               |  shift(*Real, "'TT_RLIT'")
+               |  shift(*Integer, "'TT_ILIT'")
                );
 PrimLEN     =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *sn_match('LEN ',    TxInList);
 PrimBREAK   =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *sn_match('BREAK ',  TxInList);
@@ -182,43 +182,43 @@ Ugo         =  *Target reduce(E_goU, 1);
 Goto        =  $' ' ':'
                $' '
                FENCE(
-                  *Ugo epsilon ~ ''
-               |  *Sgo FENCE($' ' (':' $' ' | epsilon) *Fgo | epsilon ~ '')
-               |  *Fgo FENCE($' ' (':' $' ' | epsilon) *Sgo | epsilon ~ '')
+                  *Ugo shift(epsilon, '')
+               |  *Sgo FENCE($' ' (':' $' ' | epsilon) *Fgo | shift(epsilon, ''))
+               |  *Fgo FENCE($' ' (':' $' ' | epsilon) *Sgo | shift(epsilon, ''))
                );
 Control     =  '-' BREAK(nl ';');
 Comment     =  '*' BREAK(nl);
-Label       =  BREAK(' ' tab nl ';') ~ 'Label';
+Label       =  shift(BREAK(' ' tab nl ';'), 'Label');
 Stmt        =  *Label
                (  $'  '
                   *Expr14
                   FENCE(
-                     epsilon ~ ''
+                     shift(epsilon, '')
                      $'  '
-                     ('=' ~ '=' $'  ' *Expr | '=' ~ '=' epsilon ~ '')
+                     (shift('=', '=') $'  ' *Expr | shift('=', '=') shift(epsilon, ''))
                   |  ($'?' | $'  ')
                      *Expr1
                      FENCE(
                         $'  '
-                        ('=' ~ '=' $'  ' *Expr | '=' ~ '=' epsilon ~ '')
-                     |  epsilon ~ '' epsilon ~ ''
+                        (shift('=', '=') $'  ' *Expr | shift('=', '=') shift(epsilon, ''))
+                     |  shift(epsilon, '') shift(epsilon, '')
                      )
-                  |  epsilon ~ '' epsilon ~ '' epsilon ~ ''
+                  |  shift(epsilon, '') shift(epsilon, '') shift(epsilon, '')
                   )
-               |  epsilon ~ '' epsilon ~ '' epsilon ~ '' epsilon ~ ''
+               |  shift(epsilon, '') shift(epsilon, '') shift(epsilon, '') shift(epsilon, '')
                )
-               FENCE(*Goto | epsilon ~ '' epsilon ~ '')
+               FENCE(*Goto | shift(epsilon, '') shift(epsilon, ''))
                $' ';
 Commands    =  *Command FENCE(*Commands | epsilon);
 Command     =  nInc()
                FENCE(
-                  *Comment ~ 'comment' ("'Comment'" & 1) nl
-               |  *Control ~ 'control' ("'Control'" & 1) (nl | ';')
-               |  *Stmt ("'Stmt'" & 7) (nl | ';')
+                  shift(*Comment, 'comment') reduce("'Comment'", 1) nl
+               |  shift(*Control, 'control') reduce("'Control'", 1) (nl | ';')
+               |  *Stmt reduce("'Stmt'", 7) (nl | ';')
                );
 Compiland   =  nPush()
                ARBNO(*Command)
-               (E_Parse & 'nTop()')
+               reduce(E_Parse, 'nTop()')
                ('END' (' ' BREAK(nl) nl | nl) ARBNO(BREAK(nl) nl) | epsilon)
                nPop();
 /* ==================================================================================================================== */
@@ -347,7 +347,8 @@ if (Src ? Compiland) {
         if (IDENT(t(cmd), 'Stmt')) {
             result = pp_stmt(cmd);
             if (IDENT(n(result), '') IDENT(prev_label_only, 'yes')) { i = i + 1; }
-            else { TDump(result); prev_label_only = (IDENT(n(result), 1) IDENT(t(c(result)[1]), ':lbl') 'yes', ''); i = i + 1; }
+            else { Lower_collect(result); prev_label_only = (IDENT(n(result), 1) IDENT(t(c(result)[1]), ':lbl') 'yes', ''); i = i + 1; }
         } else { i = i + 1; }
     }
+    Lower_run();
 } else OUTPUT = 'Parse Error.';
