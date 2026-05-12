@@ -247,12 +247,12 @@ call_fn:
 call_fn_apply:
 
     switch (b) {
-        case 0: sm_push(APPLY(nm)); last_ok = 1; return;
-        case 1: sm_push(APPLY(nm, si_args[1])); last_ok = 1; return;
-        case 2: sm_push(APPLY(nm, si_args[1], si_args[2])); last_ok = 1; return;
-        case 3: sm_push(APPLY(nm, si_args[1], si_args[2], si_args[3])); last_ok = 1; return;
-        case 4: sm_push(APPLY(nm, si_args[1], si_args[2], si_args[3], si_args[4])); last_ok = 1; return;
-        case 5: sm_push(APPLY(nm, si_args[1], si_args[2], si_args[3], si_args[4], si_args[5])); last_ok = 1; return;
+        case 0: a = ''; last_ok = 0; if (a = APPLY(nm))                                                             last_ok = 1; sm_push(a); return;
+        case 1: a = ''; last_ok = 0; if (a = APPLY(nm, si_args[1]))                                                 last_ok = 1; sm_push(a); return;
+        case 2: a = ''; last_ok = 0; if (a = APPLY(nm, si_args[1], si_args[2]))                                     last_ok = 1; sm_push(a); return;
+        case 3: a = ''; last_ok = 0; if (a = APPLY(nm, si_args[1], si_args[2], si_args[3]))                         last_ok = 1; sm_push(a); return;
+        case 4: a = ''; last_ok = 0; if (a = APPLY(nm, si_args[1], si_args[2], si_args[3], si_args[4]))             last_ok = 1; sm_push(a); return;
+        case 5: a = ''; last_ok = 0; if (a = APPLY(nm, si_args[1], si_args[2], si_args[3], si_args[4], si_args[5])) last_ok = 1; sm_push(a); return;
         default:
             TERMINAL = 'sm_interp: SM_CALL_FN ' nm ' nargs=' b ' (>5 unsupported) at pc=' (pc - 1);
             sm_push('');   last_ok = 0;   return;
