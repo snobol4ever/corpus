@@ -28,11 +28,14 @@ main:                   push             rbp
 #=======================================================================================================================
 # stmt 2  (line 6):  	DEFINE('ROMAN(N)UNITS')		:(ROMAN_END)
 #=======================================================================================================================
-.L0:                    STNO
-                        PUSH_STR         .S0, 0 # "ROMAN(N)UNITS"
+                        STNO
+.L0:                    PUSH_STR         .S0, 0 # "ROMAN(N)UNITS"
                         CALL_FN          .S1, 1 # DEFINE
-                        VOID_POP
-                        JUMP             .L29
+    # SM_VOID_POP — pop and discard TOS
+    VOID_POP
+                        call             rt_pop_void@PLT
+    # SM_JUMP
+                                                                    jmp .L29
                         LABEL
 .L6:                    UNHANDLED        75 # SM_DEFINE_ENTRY
 #=======================================================================================================================

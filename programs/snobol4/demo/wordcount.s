@@ -39,8 +39,8 @@ main:                   push             rbp
 #=======================================================================================================================
 # stmt 2  (line 5):        &TRIM    =  1
 #=======================================================================================================================
-.L0:                    STNO
-                        PUSH_INT         1
+                        STNO
+.L0:                    PUSH_INT         1
                         STORE_VAR        .S0 # TRIM
 #=======================================================================================================================
 # stmt 3  (line 6):        NUMERALS =  '0123456789'
@@ -56,9 +56,15 @@ main:                   push             rbp
                         PUSH_VAR         .S2 # NUMERALS
                         PUSH_VAR         .S4 # UCASE
                         PUSH_VAR         .S5 # LCASE
-                        CONCAT
-                        CONCAT
-                        CONCAT
+    # SM_CONCAT — pop right+left, push concat result
+    CONCAT
+                        call             rt_concat@PLT
+    # SM_CONCAT — pop right+left, push concat result
+    CONCAT
+                        call             rt_concat@PLT
+    # SM_CONCAT — pop right+left, push concat result
+    CONCAT
+                        call             rt_concat@PLT
                         STORE_VAR        .S6 # WORD
 #=======================================================================================================================
 # stmt 5  (line 8):        WPAT     =  BREAK(WORD) SPAN(WORD)
@@ -68,52 +74,71 @@ main:                   push             rbp
                         EXEC_STMT_VARIANT 0
                         PUSH_VAR         .S6 # WORD
                         EXEC_STMT_VARIANT 0
-                        CONCAT
+    # SM_CONCAT — pop right+left, push concat result
+    CONCAT
+                        call             rt_concat@PLT
                         STORE_VAR        .S7 # WPAT
-.L22:                   LABEL
+                        LABEL
+.L22:
 #=======================================================================================================================
 # stmt 6  (line 9):  NEXTL LINE     =  INPUT                            :F(DONE)
 #=======================================================================================================================
-.L23:                   STNO
-                        PUSH_VAR         .S9 # INPUT
+                        STNO
+.L23:                   PUSH_VAR         .S9 # INPUT
                         STORE_VAR        .S10 # LINE
-                        JUMP_F           .L41
-.L27:                   LABEL
+    # SM_JUMP_F — jump if not last_ok
+                        call             rt_last_ok@PLT
+                        test             rax, rax
+                        je               .L41
+                        LABEL
+.L27:
 #=======================================================================================================================
 # stmt 7  (line 10):  NEXTW LINE     ?  WPAT =                           :F(NEXTL)
 #=======================================================================================================================
-.L28:                   STNO
-                        PUSH_VAR         .S7 # WPAT
+                        STNO
+.L28:                   PUSH_VAR         .S7 # WPAT
                         EXEC_STMT_VARIANT 0
                         PUSH_VAR         .S10 # LINE
                         PUSH_STR         .S12, 0 # ""
                         EXEC_STMT_VARIANT 1, .S10 # subj=LINE
-                        JUMP_F           .L22
+    # SM_JUMP_F — jump if not last_ok
+                        call             rt_last_ok@PLT
+                        test             rax, rax
+                        je               .L22
 #=======================================================================================================================
 # stmt 8  (line 11):        N        =  N + 1                            :(NEXTW)
 #=======================================================================================================================
                         STNO
                         PUSH_VAR         .S13 # N
                         PUSH_INT         1
-                        ADD_NUM
+    # ADD_NUM
+    ADD_NUM
+                        mov              rdi, 0x11
+                        call             rt_arith@PLT
                         STORE_VAR        .S13 # N
-                        JUMP             .L27
-.L41:                   LABEL
+    # SM_JUMP
+                                                                    jmp .L27
+                        LABEL
+.L41:
 #=======================================================================================================================
 # stmt 9  (line 12):  DONE  OUTPUT   =  +N ' words'
 #=======================================================================================================================
-.L42:                   STNO
-                        PUSH_VAR         .S13 # N
-                        COERCE_NUM
+                        STNO
+.L42:                   PUSH_VAR         .S13 # N
+    # SM_COERCE_NUM — coerce TOS string to number
+    COERCE_NUM
+                        call             rt_coerce_num@PLT
                         PUSH_STR         .S15, 0 # " words"
-                        CONCAT
+    # SM_CONCAT — pop right+left, push concat result
+    CONCAT
+                        call             rt_concat@PLT
                         STORE_VAR        .S16 # OUTPUT
                         LABEL
 #=======================================================================================================================
 # stmt 10
 #=======================================================================================================================
-.L49:                   STNO
-                        HALT
+                        STNO
+.L49:                   HALT
                         call             rt_finalize@PLT
                         pop              rbp
                         ret

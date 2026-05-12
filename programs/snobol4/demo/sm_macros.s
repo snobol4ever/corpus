@@ -3,6 +3,7 @@
 #   emissions share one renderer in sm_emit_template.c, so the
 #   .s and the C dispatcher cannot drift -- they are paired by
 #   shape kind in render_macro_body() / render_call_line().
+                        .intel_syntax    noprefix
                         .macro           HALT
                         call             rt_halt_tos@PLT
                         .endm

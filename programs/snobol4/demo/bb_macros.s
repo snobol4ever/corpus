@@ -1,4 +1,5 @@
 # === BEGIN bb macro library (EM-7c-bb-macros) ===
+                        .intel_syntax    noprefix
 # One named .macro/.endm per leaf-box port.  Three-column shape.
 # GAS expands to byte-identical inline x86 (same as emit_* emissions).
                         .macro           DELTA_LOAD
