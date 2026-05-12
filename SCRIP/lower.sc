@@ -82,7 +82,6 @@ LANG_ICN = 1;
 LANG_PL  = 2;
 
 
-// _emit
 function _emit(op, a0, a1, a2, idx, ins) {
     idx = g_count;
     ins = sm_instr(op, a0, a1, a2);
@@ -93,23 +92,15 @@ function _emit(op, a0, a1, a2, idx, ins) {
     return;
 }
 
-// emit
 function emit(op)            { emit    = _emit(op, '', '', ''); return; }
-// emit_i
 function emit_i(op, i)       { emit_i  = _emit(op, '' i,  '',  ''); return; }
-// emit_s
 function emit_s(op, s)       { emit_s  = _emit(op, s,    '',  ''); return; }
-// emit_f
 function emit_f(op, f)       { emit_f  = _emit(op, '' f, '',  ''); return; }
-// emit_ii
 function emit_ii(op, i1, i2) { emit_ii = _emit(op, '' i1,'' i2,''); return; }
-// emit_si
 function emit_si(op, s, i)   { emit_si = _emit(op, s,    '' i,''); return; }
 
-// sm_label
 function sm_label() { sm_label = g_count; return; }
 
-// sm_patch_jump
 function sm_patch_jump(jump_idx, target_idx, old, new) {
     old = g_instr_tbl[jump_idx];
     new = sm_instr(op(old), '' target_idx, a1(old), a2(old));
@@ -118,23 +109,19 @@ function sm_patch_jump(jump_idx, target_idx, old, new) {
 }
 
 
-// labtab_define
 function labtab_define(name, idx) { g_labtab[name] = idx; return; }
 
-// labtab_find
 function labtab_find(name, v) {
     v = g_labtab[name];
     labtab_find = (DIFFER(v) v, -1);
     return;
 }
 
-// labtab_patch_later
 function labtab_patch_later(jump_idx, name) {
     Append(g_patch, tree('P', '' jump_idx ' ' name));
     return;
 }
 
-// labtab_resolve
 function labtab_resolve(i, ent, val, jidx, nm, tgt) {
     i = 1;
     while (LE(i, n(g_patch))) {
@@ -153,7 +140,6 @@ ret_kind_tbl['RETURN']  = 'SM_RETURN SM_RETURN_S SM_RETURN_F';
 ret_kind_tbl['FRETURN'] = 'SM_FRETURN SM_FRETURN_S SM_FRETURN_F';
 ret_kind_tbl['NRETURN'] = 'SM_NRETURN SM_NRETURN_S SM_NRETURN_F';
 
-// emit_goto
 function emit_goto(op, target, upper, row, plain, succ, fail, pick, idx, res) {
     if (IDENT(target)) { emit_goto = -1; return; }
     upper = REPLACE(target, &LCASE, &UCASE);
@@ -174,54 +160,35 @@ function emit_goto(op, target, upper, row, plain, succ, fail, pick, idx, res) {
 }
 
 
-// T0
 function T0(t) { T0 = (GT(n(t), 0) c(t)[1], NULL); return; }
-// T1
 function T1(t) { T1 = (GT(n(t), 1) c(t)[2], NULL); return; }
-// T2
 function T2(t) { T2 = (GT(n(t), 2) c(t)[3], NULL); return; }
 
 
-// lower_strlit
 function lower_strlit(t) { emit_s('SM_PUSH_LIT_S', (DIFFER(v(t)) v(t), '')); return; }
-// lower_ilit
 function lower_ilit(t)   { emit_i('SM_PUSH_LIT_I', (DIFFER(v(t)) v(t), 0)); return; }
-// lower_flit
 function lower_flit(t)   { emit_f('SM_PUSH_LIT_F', (DIFFER(v(t)) v(t), 0)); return; }
-// lower_nul
 function lower_nul(t)    { emit('SM_PUSH_NULL'); return; }
-// lower_var
 function lower_var(t)    { emit_s('SM_PUSH_VAR',  (DIFFER(v(t)) v(t), '')); return; }
-// lower_keyword
 function lower_keyword(t){ emit_s('SM_PUSH_VAR',  (DIFFER(v(t)) v(t), '')); return; }
 
 
-// lower_bin
 function lower_bin(t, op) {
     lower_expr(T0(t));
     lower_expr(T1(t));
     emit(op);
     return;
 }
-// lower_add
 function lower_add(t) { lower_bin(t, 'SM_ADD'); return; }
-// lower_sub
 function lower_sub(t) { lower_bin(t, 'SM_SUB'); return; }
-// lower_mul
 function lower_mul(t) { lower_bin(t, 'SM_MUL'); return; }
-// lower_div
 function lower_div(t) { lower_bin(t, 'SM_DIV'); return; }
-// lower_mod
 function lower_mod(t) { lower_bin(t, 'SM_MOD'); return; }
-// lower_pow
 function lower_pow(t) { lower_bin(t, 'SM_EXP'); return; }
-// lower_mns
 function lower_mns(t) { lower_expr(T0(t)); emit('SM_NEG'); return; }
-// lower_pls
 function lower_pls(t) { lower_expr(T0(t)); emit('SM_COERCE_NUM'); return; }
 
 
-// lower_fnc
 function lower_fnc(t, i, name) {
     i = 1;
     while (LE(i, n(t))) { lower_expr(c(t)[i]); i = i + 1; }
@@ -230,7 +197,6 @@ function lower_fnc(t, i, name) {
     return;
 }
 
-// lower_cat_seq
 function lower_cat_seq(t, i) {
     if (IDENT(n(t), 0)) { emit('SM_PUSH_NULL'); return; }
     if (IDENT(n(t), 1)) { lower_expr(c(t)[1]); return; }
@@ -242,7 +208,6 @@ function lower_cat_seq(t, i) {
 }
 
 
-// emit_lhs_store
 function emit_lhs_store(lhs, i) {
     if (IDENT(lhs)) return;
     if (IDENT(t(lhs), TT_VAR))     { emit_s('SM_STORE_VAR', (DIFFER(v(lhs)) v(lhs), '')); return; }
@@ -258,7 +223,6 @@ function emit_lhs_store(lhs, i) {
     return;
 }
 
-// lower_assign
 function lower_assign(t) {
     lower_expr(T1(t));
     emit_lhs_store(T0(t));
@@ -266,7 +230,6 @@ function lower_assign(t) {
 }
 
 
-// lower_pat_nary
 function lower_pat_nary(t, op, i) {
     i = 1;
     while (LE(i, n(t))) { lower_pat_expr(c(t)[i]); i = i + 1; }
@@ -275,7 +238,6 @@ function lower_pat_nary(t, op, i) {
     return;
 }
 
-// lower_pat_expr
 function lower_pat_expr(t, k) {
     if (IDENT(t)) return;
     k = t(t);
@@ -311,7 +273,6 @@ function lower_pat_expr(t, k) {
     return;
 }
 
-// lower_expr
 function lower_expr(t, k) {
     if (IDENT(t)) { emit('SM_PUSH_NULL'); return; }
     k = t(t);
@@ -357,7 +318,6 @@ function lower_expr(t, k) {
     return;
 }
 
-// attr_find
 function attr_find(s, tag, i, ch) {
     attr_find = NULL;
     i = 1;
@@ -369,21 +329,18 @@ function attr_find(s, tag, i, ch) {
     return;
 }
 
-// attr_str
 function attr_str(s, tag, a) {
     a = attr_find(s, tag);
     attr_str = (DIFFER(a) v(a), '');
     return;
 }
 
-// attr_int
 function attr_int(s, tag, sv) {
     sv = attr_str(s, tag);
     attr_int = (DIFFER(sv) sv, 0);
     return;
 }
 
-// attr_expr
 function attr_expr(s, tag, a) {
     a = attr_find(s, tag);
     if (IDENT(a)) { attr_expr = NULL; return; }
@@ -393,7 +350,6 @@ function attr_expr(s, tag, a) {
 }
 
 
-// lower_stmt
 function lower_stmt(s, label, lang, stno, lineno, subject, pattern, has_eq,
                     replacement, goto_s, goto_f, goto_u,
                     is_end, sname) {
@@ -465,7 +421,6 @@ emit_gotos:
     return;
 }
 
-// Lower
 function Lower(prog, i, s, last_op) {
     g_sm     = tree('SM_LIST', '');
     g_count  = 0;
@@ -490,7 +445,6 @@ function Lower(prog, i, s, last_op) {
     return;
 }
 
-// pad_op
 function pad_op(op, padded, room) {
     padded = op;
     room = 21 - SIZE(op);
@@ -499,7 +453,6 @@ function pad_op(op, padded, room) {
     return;
 }
 
-// pad_idx
 function pad_idx(i, s, n) {
     s = '' i;
     n = 4 - SIZE(s);
@@ -521,7 +474,6 @@ STR_OPS['SM_LABEL']      = 1;
 STR_OPS['SM_PAT_LIT']    = 1;
 STR_OPS['SM_PAT_REFNAME']= 1;
 
-// fmt_instr
 function fmt_instr(idx, ins, op_str) {
     ins = g_instr_tbl[idx];
     op_str = op(ins);
@@ -557,7 +509,6 @@ function fmt_instr(idx, ins, op_str) {
     return;
 }
 
-// sm_dump
 function sm_dump(i) {
     OUTPUT = '; SM_Program  count=' g_count;
     i = 0;
@@ -568,7 +519,6 @@ function sm_dump(i) {
     return;
 }
 
-// ast_dump
 function ast_dump(prog, i, s) {
     i = 1;
     while (LE(i, n(prog))) {

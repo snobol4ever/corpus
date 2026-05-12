@@ -1,5 +1,4 @@
 
-// TV
 function TV(lvl, pat, name, omega) {
     omega = EQ(doParseTree, FALSE) "pat";
     omega = EQ(doParseTree, TRUE)  "(pat ~ 'identifier')";
@@ -7,7 +6,6 @@ function TV(lvl, pat, name, omega) {
     if (~(TV = TZ(lvl, name, EVAL(omega)))) error();
     return;
 }
-// TW
 function TW(lvl, pat, name, omega) {
     omega = EQ(doParseTree, FALSE) "pat";
     omega = EQ(doParseTree, TRUE)  "(pat ~ 'identifier')";
@@ -15,7 +13,6 @@ function TW(lvl, pat, name, omega) {
     if (~(TW = TZ(lvl, name, EVAL(omega)))) error();
     return;
 }
-// TX
 function TX(lvl, pat, name, omega) {
     omega = EQ(doParseTree, FALSE) "pat";
     omega = EQ(doParseTree, TRUE)  "(pat ~ 'identifier')";
@@ -23,7 +20,6 @@ function TX(lvl, pat, name, omega) {
     if (~(TX = TZ(lvl, name, EVAL(omega)))) error();
     return;
 }
-// TY
 function TY(lvl, name, pat, omega) {
     if (TY = LE(xTrace, 0) pat
                 @txOfs $ *assign(.t8Max, *(GT(txOfs, t8Max) txOfs)))
@@ -34,7 +30,6 @@ function TY(lvl, name, pat, omega) {
     if (~(TY = EVAL(omega))) error();
     return;
 }
-// TZ
 function TZ(lvl, name, pat, omega) {
     if (TZ = LE(xTrace, 0) pat
                 @txOfs $ *assign(.t8Max, *(GT(txOfs, t8Max) txOfs)))

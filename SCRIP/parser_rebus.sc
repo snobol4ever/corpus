@@ -148,7 +148,6 @@ nTop_plus1   = 'nTop() + 1';
 X_sub = nInc() *expr FENCE($',' *X_sub | epsilon);
 
 
-// push_qlit
 function push_qlit() {
     push_qlit = .dummy;
     Push(tree(AST_QLIT, strbody));
@@ -156,25 +155,21 @@ function push_qlit() {
 }
 
 
-// Push_qlit
 function Push_qlit() {
     Push_qlit = epsilon . *push_qlit();
     return;
 }
 
-// push_nul
 function push_nul() {
     push_nul = .dummy;
     Push(tree(AST_NUL, ''));
     nreturn;
 }
-// Push_nul
 function Push_nul() {
     Push_nul = epsilon . *push_nul();
     return;
 }
 
-// decompose_call
 function decompose_call(nargs, kids, fname, call, i) {
     nargs = nTop();
     kids  = ARRAY('1:' nargs + 1);
@@ -189,7 +184,6 @@ function decompose_call(nargs, kids, fname, call, i) {
     nreturn;
 }
 
-// decompose_sub
 function decompose_sub(nargs, base, kids, sub, i) {
     nargs = nTop();
     kids  = ARRAY('1:' nargs + 1);
@@ -205,12 +199,10 @@ function decompose_sub(nargs, base, kids, sub, i) {
     nreturn;
 }
 
-// Decompose_sub
 function Decompose_sub() {
     Decompose_sub = epsilon . *decompose_sub();
     return;
 }
-// push_call_id
 function push_call_id() {
     push_call_id = .dummy;
     Push(tree(AST_VAR, REPLACE(rbCallName, &LCASE, &UCASE)));
@@ -218,39 +210,33 @@ function push_call_id() {
 }
 
 rbKwName = '';
-// push_keyword
 function push_keyword() {
     push_keyword = .dummy;
     Push(tree(AST_KEYWORD, REPLACE(rbKwName, &LCASE, &UCASE)));
     nreturn;
 }
 
-// Decompose_call
 function Decompose_call() {
     Decompose_call = epsilon . *decompose_call();
     return;
 }
 
-// Push_call_id
 function Push_call_id() {
     Push_call_id = epsilon . *push_call_id();
     return;
 }
 
-// Push_keyword
 function Push_keyword() {
     Push_keyword = epsilon . *push_keyword();
     return;
 }
 
 rbCursorName = '';
-// push_cursor
 function push_cursor() {
     push_cursor = .dummy;
     Push(tree(AST_CAPT_CURSOR, REPLACE(rbCursorName, &LCASE, &UCASE)));
     nreturn;
 }
-// Push_cursor
 function Push_cursor() {
     Push_cursor = epsilon . *push_cursor();
     return;
@@ -439,33 +425,28 @@ Compiland = nPush() ARBNO(Command) reduce(Parse, nTop_count) nPop();
 
 label_n = 0;
 
-// new_label
 function new_label() {
     label_n = label_n + 1;
     new_label = 'rb_' label_n;
     return;
 }
 
-// emit_subj
 function emit_subj(s) {
     TDump(Tree('STMT', '', 1, Tree(':subj', '', 1, s)));
     return;
 }
 
-// emit_go
 function emit_go(tgt) {
     TDump(Tree('STMT', '', 1, Tree(':go', tgt)));
     return;
 }
 
-// emit_lbl
 function emit_lbl(lbl) {
     TDump(Tree('STMT', '', 1, Tree(':lbl', lbl)));
     return;
 }
 
 
-// emit_assign
 function emit_assign(lhs, rhs) {
     TDump(Tree('STMT', '', 3,
                Tree(':eq',   ''),
@@ -474,7 +455,6 @@ function emit_assign(lhs, rhs) {
     return;
 }
 
-// emit_match
 function emit_match(lhs, rhs) {
     TDump(Tree('STMT', '', 2,
                Tree(':subj', '', 1, lhs),
@@ -482,7 +462,6 @@ function emit_match(lhs, rhs) {
     return;
 }
 
-// emit_subj_goSF
 function emit_subj_goSF(s, sLbl, fLbl) {
     TDump(Tree('STMT', '', 3,
                Tree(':subj', '', 1, s),
@@ -491,7 +470,6 @@ function emit_subj_goSF(s, sLbl, fLbl) {
     return;
 }
 
-// emit_subj_goS
 function emit_subj_goS(s, lbl) {
     TDump(Tree('STMT', '', 2,
                Tree(':subj', '', 1, s),
@@ -499,7 +477,6 @@ function emit_subj_goS(s, lbl) {
     return;
 }
 
-// emit_replace
 function emit_replace(s, p, r) {
     TDump(Tree('STMT', '', 3,
                Tree(':subj', '', 1, s),
@@ -508,7 +485,6 @@ function emit_replace(s, p, r) {
     return;
 }
 
-// lower_case
 function lower_case(x, lEnd, lNext, lMatch, tempVar, tempExpr, tmpN, i, cl, ck) {
     lEnd    = new_label();
     tmpN    = label_n;
@@ -540,7 +516,6 @@ function lower_case(x, lEnd, lNext, lMatch, tempVar, tempExpr, tmpN, i, cl, ck) 
     return;
 }
 
-// lower_atom
 function lower_atom(x, k, acc, i, idxN, idxBase, idxI) {
     k = t(x);
     if (IDENT(k, 'AST_VAR'))       lower_atom = tree(AST_VAR, REPLACE(v(x), &LCASE, &UCASE));
@@ -622,7 +597,6 @@ function lower_atom(x, k, acc, i, idxN, idxBase, idxI) {
     return;
 }
 
-// lower_stmt
 function lower_stmt(x, k, lblS, lblF, lblM, forVar, forStep) {
     k = t(x);
     if (IDENT(k, 'ASSIGN'))          emit_assign(lower_atom(c(x)[1]), lower_atom(c(x)[2]));
@@ -726,7 +700,6 @@ function lower_stmt(x, k, lblS, lblF, lblM, forVar, forStep) {
 
 curFname = '';
 
-// lower_function_decl
 function lower_function_decl(x, nm, pm, lc, init, bd, fname, pstr, lstr, i, lbl) {
     nm    = c(x)[1];
     pm    = c(x)[2];
@@ -765,7 +738,6 @@ function lower_function_decl(x, nm, pm, lc, init, bd, fname, pstr, lstr, i, lbl)
     return;
 }
 
-// lower_record_decl
 function lower_record_decl(x, nm, fd, fname, fstr, i) {
     nm    = c(x)[1];
     fd    = c(x)[2];
@@ -778,7 +750,6 @@ function lower_record_decl(x, nm, fd, fname, fstr, i) {
     return;
 }
 
-// lower_decl
 function lower_decl(x, k) {
     k = t(x);
     if (IDENT(k, 'FUNC_DECL')) lower_function_decl(x);

@@ -1,13 +1,11 @@
 
 struct link { next, value }
 
-// InitStack
 function InitStack() {
     $'@S' = ;
     return;
 }
 
-// Push
 function Push(x) {
     OUTPUT = GT(xTrace, 4) 'Push(' t(x) ')';
     $'@S' = link($'@S', x);
@@ -16,7 +14,6 @@ function Push(x) {
     nreturn;
 }
 
-// Pop
 function Pop(var) {
     if (~DIFFER($'@S')) { freturn; }
     if (~IDENT(var)) { goto Pop1; }
@@ -32,7 +29,6 @@ Pop1:
     nreturn;
 }
 
-// Top
 function Top() {
     if (~DIFFER($'@S')) { freturn; }
     Top = .value($'@S');

@@ -61,9 +61,7 @@ ProtKwds    = 'ABORT ALPHABET ARB BAL COMPNO DIGITS FAIL FATAL FENCE FILE '
               'UCASE ';
 BuiltinVars = 'ABORT ARB BAL FAIL REM SUCCEED TERMINAL ';
 SpecialNms  = 'ABORT CONTINUE END FRETURN NRETURN RETURN SCONTINUE START ';
-// sn_match
 function sn_match(subject, pattern) { sn_match = .dummy; if (subject ? pattern) nreturn; else freturn; }
-// sn_upr
 function sn_upr(s)                  { sn_upr   = REPLACE(s, &LCASE, &UCASE); return; }
 TxInList    =  (POS(0) | ' ') *sn_upr(tx) (' ' | RPOS(0));
 Function    =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *sn_match(Functions,   TxInList);
@@ -115,7 +113,6 @@ $'<'        =  '<' $' ';
 $')'        =  $' ' ')';
 $']'        =  $' ' ']';
 $'>'        =  $' ' '>';
-// push_qlit
 function push_qlit() { Push(tree('AST_QLIT', str_body)); push_qlit = .dummy; nreturn; }
 Push_qlit = (epsilon . *push_qlit());
 FnArgList   =  nInc() *Expr FENCE(*FnArgTail | epsilon);
@@ -259,7 +256,6 @@ Compiland   =  nPush()
                (E_Parse & 'nTop()')
                ('END' (' ' BREAK(nl) nl | nl) ARBNO(BREAK(nl) nl) | epsilon)
                nPop();
-// strip_parens
 function strip_parens(x, t, result, i, xlist, j) {
     if (IDENT(x))              { strip_parens = x; return; }
     t = t(x);
@@ -287,7 +283,6 @@ function strip_parens(x, t, result, i, xlist, j) {
     strip_parens = result;
     return;
 }
-// make_goto_slot
 function make_goto_slot(g, tgt, tgt_v) {
     tgt   = c(g)[1];
     if (IDENT(t(tgt), 'AST_INDIRECT') EQ(n(tgt), 1) IDENT(t(c(tgt)[1]), 'AST_QLIT')) {
@@ -303,7 +298,6 @@ function make_goto_slot(g, tgt, tgt_v) {
     make_goto_slot = tree(t(g), tgt_v);
     return;
 }
-// pp_stmt
 function pp_stmt(x, ppLbl, ppSubj, ppPatrn, ppAsgn, ppRepl, ppGo1, ppGo2,
                  result, subj_ir, pat_ir, seq_n, pat_seq, i) {
     ppLbl   = v(c(x)[1]);

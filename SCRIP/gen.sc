@@ -1,5 +1,4 @@
 
-// IncLevel
 function IncLevel(delta) {
     IncLevel = .dummy;
     delta = IDENT(delta) 2;
@@ -7,7 +6,6 @@ function IncLevel(delta) {
     nreturn;
 }
 
-// DecLevel
 function DecLevel(delta) {
     DecLevel = .dummy;
     delta = IDENT(delta) 2;
@@ -15,14 +13,12 @@ function DecLevel(delta) {
     nreturn;
 }
 
-// SetLevel
 function SetLevel(level) {
     SetLevel = .dummy;
     $'#L' = level;
     nreturn;
 }
 
-// GetLevel
 function GetLevel() {
     GetLevel = $'#L';
     return;
@@ -30,7 +26,6 @@ function GetLevel() {
 
 indent = DUPL(' ', 120);
 
-// Gen
 function Gen(str, outNm, ind, outline) {
     Gen = .dummy;
     outNm = IDENT(outNm) .OUTPUT;
@@ -45,7 +40,6 @@ function Gen(str, outNm, ind, outline) {
     nreturn;
 }
 
-// GenTab
 function GenTab(pos) {
     GenTab = .dummy;
     pos = IDENT(pos) $'#L';
@@ -54,7 +48,6 @@ function GenTab(pos) {
     nreturn;
 }
 
-// GenSetCont
 function GenSetCont(cont) {
     GenSetCont = .dummy;
     $'$X' = ;

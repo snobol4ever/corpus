@@ -1,4 +1,3 @@
-// assign
 function assign(name, expression) {
     assign = .dummy;
     if (IDENT(DATATYPE(expression), 'EXPRESSION')) {

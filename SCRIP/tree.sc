@@ -1,19 +1,16 @@
 
 struct tree { t, v, n, c }
 
-// Append
 function Append(x, y) {
     Append = Insert(x, y, n(x) + 1);
     return;
 }
 
-// Prepend
 function Prepend(x, y) {
     Prepend = Insert(x, y, 1);
     return;
 }
 
-// Insert
 function Insert(x, y, place, c, i) {
     Insert = x;
     c = ARRAY('1:' n(x) + 1);
@@ -30,7 +27,6 @@ function Insert(x, y, place, c, i) {
     return;
 }
 
-// Remove
 function Remove(x, place, c, i) {
     Remove = x;
     c = GT(n(x) - 1, 0) ARRAY('1:' n(x) - 1);
@@ -47,7 +43,6 @@ function Remove(x, place, c, i) {
     return;
 }
 
-// Tree
 function Tree(t, v, n, c1, c2, c3, c4, c5, c6, c7, c8, i, nc) {
     nc = 8;
     while (nc = GT(nc, 0) IDENT($('c' nc)) nc - 1) {
@@ -63,7 +58,6 @@ function Tree(t, v, n, c1, c2, c3, c4, c5, c6, c7, c8, i, nc) {
     return;
 }
 
-// Equal
 function Equal(x, y, i) {
     if (epsilon *IDENT(x) *IDENT(y)) { return; }
     if (~(epsilon *IDENT(x) | *IDENT(y))) { freturn; }
@@ -77,7 +71,6 @@ function Equal(x, y, i) {
     return;
 }
 
-// Equiv
 function Equiv(x, y, i) {
     if (~(t(x) ? (POS(0) t(y) RPOS(0)))) { freturn; }
     if (~(v(x) ? (POS(0) v(y) RPOS(0)))) { freturn; }
@@ -90,7 +83,6 @@ function Equiv(x, y, i) {
     }
 }
 
-// Find
 function Find(xn, y, f, i) {
     if (~DIFFER($xn)) { return; }
     if (Equiv($xn, y) APPLY(f, xn)) { return; }
@@ -101,7 +93,6 @@ function Find(xn, y, f, i) {
     return;
 }
 
-// Visit
 function Visit(x, fnc, i) {
     if (~APPLY(fnc, x)) { return; }
     i = 0;

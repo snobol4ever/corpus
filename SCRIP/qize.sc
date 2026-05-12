@@ -1,17 +1,14 @@
 QizeWierd = bSlash bs ff nl cr tab;
 
-// LEQ
 function LEQ(a, b) {
     if (IDENT(a, b)) { LEQ = a; return; }
     if (LLT(a, b))   { LEQ = a; return; }
     freturn;
 }
-// Ucvt
 function Ucvt(hex2) {
     Ucvt = CHAR(INTEGER('0X' hex2));
     return;
 }
-// Qize
 function Qize(str, part) {
     if (Qize = IDENT(str) "''") return;
     while (1) {
@@ -43,7 +40,6 @@ function Qize(str, part) {
         }
     }
 }
-// SQize
 function SQize(str, part) {
     while (1) {
         if (IDENT(str)) return;
@@ -57,7 +53,6 @@ function SQize(str, part) {
         }
     }
 }
-// DQize
 function DQize(str, part) {
     while (1) {
         if (IDENT(str)) return;
@@ -71,7 +66,6 @@ function DQize(str, part) {
         }
     }
 }
-// SqlSQize
 function SqlSQize(str, part) {
     while (1) {
         if (IDENT(str)) return;
@@ -90,14 +84,12 @@ while (LT(CQize_ci, 32)) {
     CQize_ctrl32 = CQize_ctrl32 CHAR(CQize_ci);
     CQize_ci = CQize_ci + 1;
 }
-// CQize_nibble
 function CQize_nibble(n, hdig, hx) {
     hdig = '0123456789abcdef';
     hdig ? (TAB(n) LEN(1) . hx);
     CQize_nibble = hx;
     return;
 }
-// CQize_xNN
 function CQize_xNN(ch, junk, pos, hi, lo) {
     junk = CQize_ctrl32;
     junk ch = ;
@@ -107,7 +99,6 @@ function CQize_xNN(ch, junk, pos, hi, lo) {
     CQize_xNN = '\x' CQize_nibble(hi) CQize_nibble(lo);
     return;
 }
-// CQize
 function CQize(str, part, ch) {
     while (1) {
         if (IDENT(str)) return;
@@ -128,7 +119,6 @@ function CQize(str, part, ch) {
         }
     }
 }
-// Intize
 function Intize(qqstr, iq, qqdlm) {
     if (~(qqstr ? (POS(0) ("'" | '"') $ qqdlm
                    ARBNO(
@@ -152,7 +142,6 @@ function Intize(qqstr, iq, qqdlm) {
         freturn;
     return;
 }
-// Extize
 function Extize(str) {
     return;
 }

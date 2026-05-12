@@ -1,14 +1,12 @@
 
 
 
-// mk_slot
 function mk_slot(tag, val, slot) {
     slot = tree(tag, val);
     mk_slot = slot;
     return;
 }
 
-// mk_slot_expr
 function mk_slot_expr(tag, expr_tree, slot) {
     slot = tree(tag, '');
     Append(slot, expr_tree);
@@ -16,7 +14,6 @@ function mk_slot_expr(tag, expr_tree, slot) {
     return;
 }
 
-// mk_stmt
 function mk_stmt(stno, line, slots_seq, s, i) {
     s = tree(TT_STMT, '');
     Append(s, mk_slot(SL_STNO, '' stno));
