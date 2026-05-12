@@ -57,14 +57,14 @@ OUTPUT = (IDENT(t(_smoke_o10_t1), 'Word') IDENT(v(_smoke_o10_t1), 'foo')
           'opsyn-OK', 'opsyn-FAIL');
 _fw1_foo = tree('FOO_KIND', 'bar');
 _fw1_ic  = tree('IC_VAR', 'x');
-_fw1_eq  = tree('AST_QLIT', 'hi');
+_fw1_eq  = tree('TT_QLIT', 'hi');
 OUTPUT = (IDENT(TLump(_fw1_foo, 256), '(FOO_KIND bar)')
           IDENT(TLump(_fw1_ic,  256), '(IC_VAR x)')
-          IDENT(TLump(_fw1_eq,  256), '(AST_QLIT "hi")')
+          IDENT(TLump(_fw1_eq,  256), '(TT_QLIT "hi")')
           'fw1-generic-leaf-OK', 'fw1-generic-leaf-FAIL');
-_fw2_c1 = Tree('AST_VAR', 'a');
-_fw2_c2 = Tree('AST_VAR', 'b');
-_fw2_c3 = Tree('AST_VAR', 'c');
+_fw2_c1 = Tree('TT_VAR', 'a');
+_fw2_c2 = Tree('TT_VAR', 'b');
+_fw2_c3 = Tree('TT_VAR', 'c');
 _fw2_x3 = Tree(':args', '', 3, _fw2_c1, _fw2_c2, _fw2_c3);
-OUTPUT = (IDENT(TLump(_fw2_x3, 256), ':args ((AST_VAR a) (AST_VAR b) (AST_VAR c))')
+OUTPUT = (IDENT(TLump(_fw2_x3, 256), ':args ((TT_VAR a) (TT_VAR b) (TT_VAR c))')
           'fw2-multichild-role-OK', 'fw2-multichild-role-FAIL');

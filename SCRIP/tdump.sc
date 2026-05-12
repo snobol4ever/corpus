@@ -1,10 +1,10 @@
 /* ==================================================================================================================== */
 function TValue(x, i) {
-    if (TValue = IDENT(t(x), 'AST_NUL') '(AST_NUL)')                           { return; }
-    if (TValue = IDENT(t(x), 'AST_CUT') '(AST_CUT)')                           { return; }
-    if (TValue = IDENT(t(x), 'AST_QLIT')     '(' t(x) ' "' CQize(v(x)) '")')      { return; }
-    if (TValue = IDENT(t(x), 'AST_CSET')     '(' t(x) ' "' CQize(v(x)) '")')      { return; }
-    if (IDENT(t(x), 'AST_FLIT')) {
+    if (TValue = IDENT(t(x), 'TT_NUL') '(TT_NUL)')                           { return; }
+    if (TValue = IDENT(t(x), 'TT_CUT') '(TT_CUT)')                           { return; }
+    if (TValue = IDENT(t(x), 'TT_QLIT')     '(' t(x) ' "' CQize(v(x)) '")')      { return; }
+    if (TValue = IDENT(t(x), 'TT_CSET')     '(' t(x) ' "' CQize(v(x)) '")')      { return; }
+    if (IDENT(t(x), 'TT_FLIT')) {
         fval = '' REAL(v(x));
         fval ('.' BREAK('0') | '.') SPAN('0') . zeros;
         while (DIFFER(zeros)) {
@@ -84,7 +84,7 @@ TLump0:
     }
     TLump = TLump t;
     if (DIFFER(v(x))) {
-        if (IDENT(t(x), 'AST_FLIT')) {
+        if (IDENT(t(x), 'TT_FLIT')) {
             fval = '' v(x);
             fval SPAN(digits) . pre;
             if (DIFFER(pre) IDENT(SIZE(pre) + 1, SIZE(fval))) fval = pre;

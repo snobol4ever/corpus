@@ -1,19 +1,4 @@
-AST_ASSIGN    = "'AST_ASSIGN'";  AST_SEQ_EXPR = "'AST_SEQ_EXPR'";
-AST_ADD       = "'AST_ADD'";      AST_SUB      = "'AST_SUB'";
-AST_MUL       = "'AST_MUL'";      AST_DIV      = "'AST_DIV'";
-AST_EQ        = "'AST_EQ'";       AST_NE       = "'AST_NE'";
-AST_LT        = "'AST_LT'";       AST_LE       = "'AST_LE'";
-AST_GT        = "'AST_GT'";       AST_GE       = "'AST_GE'";
-AST_IF        = "'AST_IF'";       AST_WHILE    = "'AST_WHILE'";
-AST_RETURN    = "'AST_RETURN'";   AST_TO       = "'AST_TO'";
-AST_NOT       = "'AST_NOT'";      AST_UNTIL    = "'AST_UNTIL'";
-AST_SEQ       = "'AST_SEQ'";      AST_ALT      = "'AST_ALT'";
-AST_CAT       = "'AST_CAT'";
-AST_LEQ       = "'AST_LEQ'";      AST_LNE      = "'AST_LNE'";
-AST_MNS       = "'AST_MNS'";      AST_MOD      = "'AST_MOD'";
-AST_CASE      = "'AST_CASE'";     AST_NUL      = "'AST_NUL'";
-AST_REPEAT    = "'AST_REPEAT'";
-AST_SUSPEND   = "'AST_SUSPEND'";
+
 E_Parse     = "'Parse'";
 White       =   (  SPAN(' ' tab nl)  FENCE('#' BREAK(nl) nl | epsilon)
                 |  '#' BREAK(nl) nl
@@ -175,28 +160,28 @@ gather_seq = 0;
 struct slink { snext, sval }
 /* ==================================================================================================================== */
 function push_var() {
-    Push(tree('AST_VAR', capvf capvr));
+    Push(tree('TT_VAR', capvf capvr));
     push_var = .dummy;
     nreturn;
 }
 Push_var   = (epsilon . *push_var());
 /* ==================================================================================================================== */
 function push_empty() {
-    Push(tree('AST_QLIT', ''));
+    Push(tree('TT_QLIT', ''));
     push_empty = .dummy;
     nreturn;
 }
 Push_empty = (epsilon . *push_empty());
 /* ==================================================================================================================== */
 function push_named_key() {
-    Push(tree('AST_QLIT', capnamedkey));
+    Push(tree('TT_QLIT', capnamedkey));
     push_named_key = .dummy;
     nreturn;
 }
 Push_named_key = (epsilon . *push_named_key());
 /* ==================================================================================================================== */
 function push_param() {
-    Push(tree('AST_VAR', cappf cappr));
+    Push(tree('TT_VAR', cappf cappr));
     push_param = .dummy;
     nreturn;
 }
@@ -204,8 +189,8 @@ Push_param = (epsilon . *push_param());
 /* ==================================================================================================================== */
 function push_twigil(fname, fe) {
     fname = captwf captwr;
-    fe = tree('AST_FIELD', fname);
-    Append(fe, tree('AST_VAR', 'self'));
+    fe = tree('TT_FIELD', fname);
+    Append(fe, tree('TT_VAR', 'self'));
     Push(fe);
     push_twigil = .dummy;
     nreturn;
@@ -214,21 +199,21 @@ Push_twigil = (epsilon . *push_twigil());
 /* ==================================================================================================================== */
 function push_has_field(fname) {
     fname = captwf captwr;
-    Push(tree('AST_VAR', fname));
+    Push(tree('TT_VAR', fname));
     push_has_field = .dummy;
     nreturn;
 }
 Push_has_field = (epsilon . *push_has_field());
 /* ==================================================================================================================== */
 function push_nul() {
-    Push(tree('AST_NUL', ''));
+    Push(tree('TT_NUL', ''));
     push_nul = .dummy;
     nreturn;
 }
 Push_nul = (epsilon . *push_nul());
 /* ==================================================================================================================== */
 function push_qlit() {
-    Push(tree('AST_QLIT', capstr));
+    Push(tree('TT_QLIT', capstr));
     push_qlit = .dummy;
     nreturn;
 }
@@ -244,28 +229,28 @@ function finish_interp_str(raw, lit, isvf, isvr, result, newnode, i) {
         lit = ''; isvf = ''; isvr = '';
         if (raw ? (POS(0) BREAK('$') . lit '$' ANY(is_chars) . isvf (SPAN(ir_chars) | epsilon) . isvr) = ) {
             if (DIFFER(lit)) {
-                newnode = tree('AST_QLIT', lit);
+                newnode = tree('TT_QLIT', lit);
                 if (DIFFER(result)) {
-                    i = tree('AST_CAT', ''); Append(i, result); Append(i, newnode); result = i;
+                    i = tree('TT_CAT', ''); Append(i, result); Append(i, newnode); result = i;
                 } else { result = newnode; }
             }
-            newnode = tree('AST_VAR', isvf isvr);
+            newnode = tree('TT_VAR', isvf isvr);
             if (DIFFER(result)) {
-                i = tree('AST_CAT', ''); Append(i, result); Append(i, newnode); result = i;
+                i = tree('TT_CAT', ''); Append(i, result); Append(i, newnode); result = i;
             } else { result = newnode; }
         } else {
             if (raw ? (POS(0) REM . lit) = ) {
                 if (DIFFER(lit)) {
-                    newnode = tree('AST_QLIT', lit);
+                    newnode = tree('TT_QLIT', lit);
                     if (DIFFER(result)) {
-                        i = tree('AST_CAT', ''); Append(i, result); Append(i, newnode); result = i;
+                        i = tree('TT_CAT', ''); Append(i, result); Append(i, newnode); result = i;
                     } else { result = newnode; }
                 }
             }
             break;
         }
     }
-    if (~DIFFER(result)) result = tree('AST_QLIT', '');
+    if (~DIFFER(result)) result = tree('TT_QLIT', '');
     Push(result);
     finish_interp_str = .dummy;
     nreturn;
@@ -299,17 +284,17 @@ function dq_unescape(raw, result, lit, ch) {
 Dq_unescape = (epsilon . *dq_unescape());
 /* ==================================================================================================================== */
 function push_rxlit() {
-    Push(tree('AST_QLIT', caprx));
+    Push(tree('TT_QLIT', caprx));
     push_rxlit = .dummy;
     nreturn;
 }
 Push_rxlit = (epsilon . *push_rxlit());
 /* ==================================================================================================================== */
 function finish_capture(fn, node) {
-    fn   = tree('AST_VAR', 'raku_capture');
-    node = tree('AST_FNC', 'raku_capture');
+    fn   = tree('TT_VAR', 'raku_capture');
+    node = tree('TT_FNC', 'raku_capture');
     Append(node, fn);
-    Append(node, tree('AST_ILIT', capidx));
+    Append(node, tree('TT_ILIT', capidx));
     Push(node);
     finish_capture = .dummy;
     nreturn;
@@ -326,10 +311,10 @@ Finish_stdout = (epsilon . *set_stdout() Finish_capture);
 Finish_stderr = (epsilon . *set_stderr() Finish_capture);
 /* ==================================================================================================================== */
 function finish_named_capture(fn, node) {
-    fn   = tree('AST_VAR', 'raku_named_capture');
-    node = tree('AST_FNC', 'raku_named_capture');
+    fn   = tree('TT_VAR', 'raku_named_capture');
+    node = tree('TT_FNC', 'raku_named_capture');
     Append(node, fn);
-    Append(node, tree('AST_QLIT', capncname));
+    Append(node, tree('TT_QLIT', capncname));
     Push(node);
     finish_named_capture = .dummy;
     nreturn;
@@ -339,8 +324,8 @@ Finish_named_capture = (epsilon . *finish_named_capture());
 function finish_match_global(pat, subj, fn, node) {
     pat  = Pop();
     subj = Pop();
-    fn   = tree('AST_VAR', 'raku_match_global');
-    node = tree('AST_FNC', 'raku_match_global');
+    fn   = tree('TT_VAR', 'raku_match_global');
+    node = tree('TT_FNC', 'raku_match_global');
     Append(node, fn);
     Append(node, subj);
     Append(node, pat);
@@ -355,11 +340,11 @@ function finish_subst(subj, fn, node, flag, packed) {
     flag   = IDENT(capflag, 'g') 'g';
     flag   = IDENT(flag) '-';
     packed = cappat CHAR(1) caprepl CHAR(1) flag;
-    fn     = tree('AST_VAR', 'raku_subst');
-    node   = tree('AST_FNC', 'raku_subst');
+    fn     = tree('TT_VAR', 'raku_subst');
+    node   = tree('TT_FNC', 'raku_subst');
     Append(node, fn);
     Append(node, subj);
-    Append(node, tree('AST_QLIT', packed));
+    Append(node, tree('TT_QLIT', packed));
     Push(node);
     capflag = '';
     finish_subst = .dummy;
@@ -369,9 +354,9 @@ Finish_subst = (epsilon . *finish_subst());
 /* ==================================================================================================================== */
 function finish_arr_get(idx, arr, fn, node) {
     idx  = Pop();
-    arr  = tree('AST_VAR', colnmf colnmr);
-    fn   = tree('AST_VAR', 'arr_get');
-    node = tree('AST_FNC', 'arr_get');
+    arr  = tree('TT_VAR', colnmf colnmr);
+    fn   = tree('TT_VAR', 'arr_get');
+    node = tree('TT_FNC', 'arr_get');
     Append(node, fn);
     Append(node, arr);
     Append(node, idx);
@@ -382,12 +367,12 @@ function finish_arr_get(idx, arr, fn, node) {
 Finish_arr_get = (epsilon . *finish_arr_get());
 /* ==================================================================================================================== */
 function finish_hash_get_angle(arr, fn, node) {
-    arr  = tree('AST_VAR', colnmf colnmr);
-    fn   = tree('AST_VAR', 'hash_get');
-    node = tree('AST_FNC', 'hash_get');
+    arr  = tree('TT_VAR', colnmf colnmr);
+    fn   = tree('TT_VAR', 'hash_get');
+    node = tree('TT_FNC', 'hash_get');
     Append(node, fn);
     Append(node, arr);
-    Append(node, tree('AST_QLIT', capkey));
+    Append(node, tree('TT_QLIT', capkey));
     Push(node);
     finish_hash_get_angle = .dummy;
     nreturn;
@@ -396,9 +381,9 @@ Finish_hash_get_angle = (epsilon . *finish_hash_get_angle());
 /* ==================================================================================================================== */
 function finish_hash_get_brace(key, arr, fn, node) {
     key  = Pop();
-    arr  = tree('AST_VAR', colnmf colnmr);
-    fn   = tree('AST_VAR', 'hash_get');
-    node = tree('AST_FNC', 'hash_get');
+    arr  = tree('TT_VAR', colnmf colnmr);
+    fn   = tree('TT_VAR', 'hash_get');
+    node = tree('TT_FNC', 'hash_get');
     Append(node, fn);
     Append(node, arr);
     Append(node, key);
@@ -409,12 +394,12 @@ function finish_hash_get_brace(key, arr, fn, node) {
 Finish_hash_get_brace = (epsilon . *finish_hash_get_brace());
 /* ==================================================================================================================== */
 function finish_hash_exists_angle(arr, fn, node) {
-    arr  = tree('AST_VAR', colnmf colnmr);
-    fn   = tree('AST_VAR', 'hash_exists');
-    node = tree('AST_FNC', 'hash_exists');
+    arr  = tree('TT_VAR', colnmf colnmr);
+    fn   = tree('TT_VAR', 'hash_exists');
+    node = tree('TT_FNC', 'hash_exists');
     Append(node, fn);
     Append(node, arr);
-    Append(node, tree('AST_QLIT', capkey));
+    Append(node, tree('TT_QLIT', capkey));
     Push(node);
     finish_hash_exists_angle = .dummy;
     nreturn;
@@ -423,9 +408,9 @@ Finish_hash_exists_angle = (epsilon . *finish_hash_exists_angle());
 /* ==================================================================================================================== */
 function finish_hash_exists_brace(key, arr, fn, node) {
     key  = Pop();
-    arr  = tree('AST_VAR', colnmf colnmr);
-    fn   = tree('AST_VAR', 'hash_exists');
-    node = tree('AST_FNC', 'hash_exists');
+    arr  = tree('TT_VAR', colnmf colnmr);
+    fn   = tree('TT_VAR', 'hash_exists');
+    node = tree('TT_FNC', 'hash_exists');
     Append(node, fn);
     Append(node, arr);
     Append(node, key);
@@ -436,12 +421,12 @@ function finish_hash_exists_brace(key, arr, fn, node) {
 Finish_hash_exists_brace = (epsilon . *finish_hash_exists_brace());
 /* ==================================================================================================================== */
 function finish_hash_delete_angle(arr, fn, node) {
-    arr  = tree('AST_VAR', colnmf colnmr);
-    fn   = tree('AST_VAR', 'hash_delete');
-    node = tree('AST_FNC', 'hash_delete');
+    arr  = tree('TT_VAR', colnmf colnmr);
+    fn   = tree('TT_VAR', 'hash_delete');
+    node = tree('TT_FNC', 'hash_delete');
     Append(node, fn);
     Append(node, arr);
-    Append(node, tree('AST_QLIT', capkey));
+    Append(node, tree('TT_QLIT', capkey));
     Push(node);
     finish_hash_delete_angle = .dummy;
     nreturn;
@@ -450,9 +435,9 @@ Finish_hash_delete_angle = (epsilon . *finish_hash_delete_angle());
 /* ==================================================================================================================== */
 function finish_hash_delete_brace(key, arr, fn, node) {
     key  = Pop();
-    arr  = tree('AST_VAR', colnmf colnmr);
-    fn   = tree('AST_VAR', 'hash_delete');
-    node = tree('AST_FNC', 'hash_delete');
+    arr  = tree('TT_VAR', colnmf colnmr);
+    fn   = tree('TT_VAR', 'hash_delete');
+    node = tree('TT_FNC', 'hash_delete');
     Append(node, fn);
     Append(node, arr);
     Append(node, key);
@@ -466,23 +451,23 @@ function finish_for_range(body, hi, lo, vvar, incr, cond, init, wloop, seq) {
     body = Pop();
     hi   = Pop();
     lo   = Pop();
-    vvar = tree('AST_VAR', for_iter);
-    incr = tree('AST_ADD', '');
-    Append(incr, tree('AST_VAR', for_iter));
-    Append(incr, tree('AST_ILIT', '1'));
-    Append(body, tree('AST_ASSIGN', ''));
-    Append(c(body)[n(body)], tree('AST_VAR', for_iter));
+    vvar = tree('TT_VAR', for_iter);
+    incr = tree('TT_ADD', '');
+    Append(incr, tree('TT_VAR', for_iter));
+    Append(incr, tree('TT_ILIT', '1'));
+    Append(body, tree('TT_ASSIGN', ''));
+    Append(c(body)[n(body)], tree('TT_VAR', for_iter));
     Append(c(body)[n(body)], incr);
-    cond  = tree('AST_LE', '');
-    Append(cond, tree('AST_VAR', for_iter));
+    cond  = tree('TT_LE', '');
+    Append(cond, tree('TT_VAR', for_iter));
     Append(cond, hi);
-    wloop = tree('AST_WHILE', '');
+    wloop = tree('TT_WHILE', '');
     Append(wloop, cond);
     Append(wloop, body);
-    init = tree('AST_ASSIGN', '');
-    Append(init, tree('AST_VAR', for_iter));
+    init = tree('TT_ASSIGN', '');
+    Append(init, tree('TT_VAR', for_iter));
     Append(init, lo);
-    seq = tree('AST_SEQ_EXPR', '');
+    seq = tree('TT_SEQ_EXPR', '');
     Append(seq, init);
     Append(seq, wloop);
     Push(seq);
@@ -494,8 +479,8 @@ Finish_for_range = (epsilon . *finish_for_range());
 function finish_smartmatch(pat, subj, fn, node) {
     pat  = Pop();
     subj = Pop();
-    fn   = tree('AST_VAR', 'raku_match');
-    node = tree('AST_FNC', 'raku_match');
+    fn   = tree('TT_VAR', 'raku_match');
+    node = tree('TT_FNC', 'raku_match');
     Append(node, fn);
     Append(node, subj);
     Append(node, pat);
@@ -507,7 +492,7 @@ Finish_smartmatch = (epsilon . *finish_smartmatch());
 /* ==================================================================================================================== */
 function finish_not(inner, node) {
     inner = Pop();
-    node  = tree('AST_NOT', '');
+    node  = tree('TT_NOT', '');
     Append(node, inner);
     Push(node);
     finish_not = .dummy;
@@ -517,7 +502,7 @@ Finish_not = (epsilon . *finish_not());
 /* ==================================================================================================================== */
 function finish_mns(inner, node) {
     inner = Pop();
-    node  = tree('AST_MNS', '');
+    node  = tree('TT_MNS', '');
     Append(node, inner);
     Push(node);
     finish_mns = .dummy;
@@ -532,22 +517,22 @@ function finish_given(n_whens, def_body, kids, ec, i, cmpkind, cmpnode, val, bod
     kids = GT(n_whens, 0) ARRAY('1:' (n_whens * 2));
     i = n_whens * 2;
     while (GT(i, 0)) { kids[i] = Pop(); i = i - 1; }
-    ec = tree('AST_CASE', '');
+    ec = tree('TT_CASE', '');
     Append(ec, Pop());
     i = 1;
     while (LE(i, n_whens)) {
         val  = kids[(i - 1) * 2 + 1];
         body = kids[(i - 1) * 2 + 2];
-        if (IDENT(t(val), 'AST_QLIT')) { cmpkind = '73'; } else { cmpkind = '67'; }
-        cmpnode = tree('AST_ILIT', cmpkind);
+        if (IDENT(t(val), 'TT_QLIT')) { cmpkind = '73'; } else { cmpkind = '67'; }
+        cmpnode = tree('TT_ILIT', cmpkind);
         Append(ec, cmpnode);
         Append(ec, val);
         Append(ec, body);
         i = i + 1;
     }
     if (EQ(given_has_def, 1)) {
-        Append(ec, tree('AST_NUL', ''));
-        Append(ec, tree('AST_NUL', ''));
+        Append(ec, tree('TT_NUL', ''));
+        Append(ec, tree('TT_NUL', ''));
         Append(ec, def_body);
     }
     given_has_def = 0;
@@ -562,8 +547,8 @@ Set_has_def  = (epsilon . *set_has_def());
 /* ==================================================================================================================== */
 function finish_say(arg, fn, node) {
     arg  = Pop();
-    fn   = tree('AST_VAR', 'write');
-    node = tree('AST_FNC', 'write');
+    fn   = tree('TT_VAR', 'write');
+    node = tree('TT_FNC', 'write');
     Append(node, fn);
     Append(node, arg);
     Push(node);
@@ -574,8 +559,8 @@ Finish_say   = (epsilon . *finish_say());
 /* ==================================================================================================================== */
 function finish_print(arg, fn, node) {
     arg  = Pop();
-    fn   = tree('AST_VAR', 'writes');
-    node = tree('AST_FNC', 'writes');
+    fn   = tree('TT_VAR', 'writes');
+    node = tree('TT_FNC', 'writes');
     Append(node, fn);
     Append(node, arg);
     Push(node);
@@ -586,8 +571,8 @@ Finish_print = (epsilon . *finish_print());
 /* ==================================================================================================================== */
 function finish_die(arg, fn, node) {
     arg  = Pop();
-    fn   = tree('AST_VAR', 'raku_die');
-    node = tree('AST_FNC', 'raku_die');
+    fn   = tree('TT_VAR', 'raku_die');
+    node = tree('TT_FNC', 'raku_die');
     Append(node, fn);
     Append(node, arg);
     Push(node);
@@ -599,8 +584,8 @@ Finish_die = (epsilon . *finish_die());
 function finish_without(blk, cond, fn, node) {
     blk  = Pop();
     cond = Pop();
-    fn   = tree('AST_VAR', 'raku_without');
-    node = tree('AST_FNC', 'raku_without');
+    fn   = tree('TT_VAR', 'raku_without');
+    node = tree('TT_FNC', 'raku_without');
     Append(node, fn);
     Append(node, cond);
     Append(node, blk);
@@ -613,8 +598,8 @@ Finish_without = (epsilon . *finish_without());
 function finish_whenever(blk, ex, fn, node) {
     blk  = Pop();
     ex   = Pop();
-    fn   = tree('AST_VAR', 'raku_whenever');
-    node = tree('AST_FNC', 'raku_whenever');
+    fn   = tree('TT_VAR', 'raku_whenever');
+    node = tree('TT_FNC', 'raku_whenever');
     Append(node, fn);
     Append(node, ex);
     Append(node, blk);
@@ -626,8 +611,8 @@ Finish_whenever = (epsilon . *finish_whenever());
 /* ==================================================================================================================== */
 function finish_loop_inf(blk, one, node) {
     blk  = Pop();
-    one  = tree('AST_ILIT', '1');
-    node = tree('AST_WHILE');
+    one  = tree('TT_ILIT', '1');
+    node = tree('TT_WHILE');
     Append(node, one);
     Append(node, blk);
     Push(node);
@@ -641,8 +626,8 @@ function finish_loop_three(blk, step, cond, init, fn, node) {
     step = Pop();
     cond = Pop();
     init = Pop();
-    fn   = tree('AST_VAR', 'raku_loop');
-    node = tree('AST_FNC', 'raku_loop');
+    fn   = tree('TT_VAR', 'raku_loop');
+    node = tree('TT_FNC', 'raku_loop');
     Append(node, fn);
     Append(node, init);
     Append(node, cond);
@@ -655,9 +640,9 @@ function finish_loop_three(blk, step, cond, init, fn, node) {
 Finish_loop_three = (epsilon . *finish_loop_three());
 /* ==================================================================================================================== */
 function finish_use(fn, q, node) {
-    fn   = tree('AST_VAR', 'raku_use');
-    q    = tree('AST_QLIT', capmodname);
-    node = tree('AST_FNC', 'raku_use');
+    fn   = tree('TT_VAR', 'raku_use');
+    q    = tree('TT_QLIT', capmodname);
+    node = tree('TT_FNC', 'raku_use');
     Append(node, fn);
     Append(node, q);
     Push(node);
@@ -667,9 +652,9 @@ function finish_use(fn, q, node) {
 Finish_use = (epsilon . *finish_use());
 /* ==================================================================================================================== */
 function finish_no(fn, q, node) {
-    fn   = tree('AST_VAR', 'raku_no');
-    q    = tree('AST_QLIT', capmodname);
-    node = tree('AST_FNC', 'raku_no');
+    fn   = tree('TT_VAR', 'raku_no');
+    q    = tree('TT_QLIT', capmodname);
+    node = tree('TT_FNC', 'raku_no');
     Append(node, fn);
     Append(node, q);
     Push(node);
@@ -679,9 +664,9 @@ function finish_no(fn, q, node) {
 Finish_no = (epsilon . *finish_no());
 /* ==================================================================================================================== */
 function finish_need(fn, q, node) {
-    fn   = tree('AST_VAR', 'raku_need');
-    q    = tree('AST_QLIT', capmodname);
-    node = tree('AST_FNC', 'raku_need');
+    fn   = tree('TT_VAR', 'raku_need');
+    q    = tree('TT_QLIT', capmodname);
+    node = tree('TT_FNC', 'raku_need');
     Append(node, fn);
     Append(node, q);
     Push(node);
@@ -691,9 +676,9 @@ function finish_need(fn, q, node) {
 Finish_need = (epsilon . *finish_need());
 /* ==================================================================================================================== */
 function finish_import(fn, q, node) {
-    fn   = tree('AST_VAR', 'raku_import');
-    q    = tree('AST_QLIT', capmodname);
-    node = tree('AST_FNC', 'raku_import');
+    fn   = tree('TT_VAR', 'raku_import');
+    q    = tree('TT_QLIT', capmodname);
+    node = tree('TT_FNC', 'raku_import');
     Append(node, fn);
     Append(node, q);
     Push(node);
@@ -703,9 +688,9 @@ function finish_import(fn, q, node) {
 Finish_import = (epsilon . *finish_import());
 /* ==================================================================================================================== */
 function finish_require(fn, q, node) {
-    fn   = tree('AST_VAR', 'raku_require');
-    q    = tree('AST_QLIT', capmodname);
-    node = tree('AST_FNC', 'raku_require');
+    fn   = tree('TT_VAR', 'raku_require');
+    q    = tree('TT_QLIT', capmodname);
+    node = tree('TT_FNC', 'raku_require');
     Append(node, fn);
     Append(node, q);
     Push(node);
@@ -716,8 +701,8 @@ Finish_require = (epsilon . *finish_require());
 /* ==================================================================================================================== */
 function finish_catch_free(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('AST_VAR', 'raku_catch_block');
-    node = tree('AST_FNC', 'raku_catch_block');
+    fn   = tree('TT_VAR', 'raku_catch_block');
+    node = tree('TT_FNC', 'raku_catch_block');
     Append(node, fn);
     Append(node, blk);
     Push(node);
@@ -728,8 +713,8 @@ Finish_catch_free = (epsilon . *finish_catch_free());
 /* ==================================================================================================================== */
 function finish_control(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('AST_VAR', 'raku_control_block');
-    node = tree('AST_FNC', 'raku_control_block');
+    fn   = tree('TT_VAR', 'raku_control_block');
+    node = tree('TT_FNC', 'raku_control_block');
     Append(node, fn);
     Append(node, blk);
     Push(node);
@@ -740,8 +725,8 @@ Finish_control = (epsilon . *finish_control());
 /* ==================================================================================================================== */
 function finish_quit(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('AST_VAR', 'raku_quit_block');
-    node = tree('AST_FNC', 'raku_quit_block');
+    fn   = tree('TT_VAR', 'raku_quit_block');
+    node = tree('TT_FNC', 'raku_quit_block');
     Append(node, fn);
     Append(node, blk);
     Push(node);
@@ -752,8 +737,8 @@ Finish_quit = (epsilon . *finish_quit());
 /* ==================================================================================================================== */
 function finish_phaser_begin(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('AST_VAR', 'raku_phaser_BEGIN');
-    node = tree('AST_FNC', 'raku_phaser_BEGIN');
+    fn   = tree('TT_VAR', 'raku_phaser_BEGIN');
+    node = tree('TT_FNC', 'raku_phaser_BEGIN');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_begin = .dummy; nreturn;
 }
@@ -761,8 +746,8 @@ Finish_phaser_begin = (epsilon . *finish_phaser_begin());
 /* ==================================================================================================================== */
 function finish_phaser_end(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('AST_VAR', 'raku_phaser_END');
-    node = tree('AST_FNC', 'raku_phaser_END');
+    fn   = tree('TT_VAR', 'raku_phaser_END');
+    node = tree('TT_FNC', 'raku_phaser_END');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_end = .dummy; nreturn;
 }
@@ -770,8 +755,8 @@ Finish_phaser_end = (epsilon . *finish_phaser_end());
 /* ==================================================================================================================== */
 function finish_phaser_init(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('AST_VAR', 'raku_phaser_INIT');
-    node = tree('AST_FNC', 'raku_phaser_INIT');
+    fn   = tree('TT_VAR', 'raku_phaser_INIT');
+    node = tree('TT_FNC', 'raku_phaser_INIT');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_init = .dummy; nreturn;
 }
@@ -779,8 +764,8 @@ Finish_phaser_init = (epsilon . *finish_phaser_init());
 /* ==================================================================================================================== */
 function finish_phaser_check(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('AST_VAR', 'raku_phaser_CHECK');
-    node = tree('AST_FNC', 'raku_phaser_CHECK');
+    fn   = tree('TT_VAR', 'raku_phaser_CHECK');
+    node = tree('TT_FNC', 'raku_phaser_CHECK');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_check = .dummy; nreturn;
 }
@@ -788,8 +773,8 @@ Finish_phaser_check = (epsilon . *finish_phaser_check());
 /* ==================================================================================================================== */
 function finish_phaser_enter(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('AST_VAR', 'raku_phaser_ENTER');
-    node = tree('AST_FNC', 'raku_phaser_ENTER');
+    fn   = tree('TT_VAR', 'raku_phaser_ENTER');
+    node = tree('TT_FNC', 'raku_phaser_ENTER');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_enter = .dummy; nreturn;
 }
@@ -797,8 +782,8 @@ Finish_phaser_enter = (epsilon . *finish_phaser_enter());
 /* ==================================================================================================================== */
 function finish_phaser_leave(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('AST_VAR', 'raku_phaser_LEAVE');
-    node = tree('AST_FNC', 'raku_phaser_LEAVE');
+    fn   = tree('TT_VAR', 'raku_phaser_LEAVE');
+    node = tree('TT_FNC', 'raku_phaser_LEAVE');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_leave = .dummy; nreturn;
 }
@@ -806,8 +791,8 @@ Finish_phaser_leave = (epsilon . *finish_phaser_leave());
 /* ==================================================================================================================== */
 function finish_phaser_keep(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('AST_VAR', 'raku_phaser_KEEP');
-    node = tree('AST_FNC', 'raku_phaser_KEEP');
+    fn   = tree('TT_VAR', 'raku_phaser_KEEP');
+    node = tree('TT_FNC', 'raku_phaser_KEEP');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_keep = .dummy; nreturn;
 }
@@ -815,8 +800,8 @@ Finish_phaser_keep = (epsilon . *finish_phaser_keep());
 /* ==================================================================================================================== */
 function finish_phaser_undo(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('AST_VAR', 'raku_phaser_UNDO');
-    node = tree('AST_FNC', 'raku_phaser_UNDO');
+    fn   = tree('TT_VAR', 'raku_phaser_UNDO');
+    node = tree('TT_FNC', 'raku_phaser_UNDO');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_undo = .dummy; nreturn;
 }
@@ -824,8 +809,8 @@ Finish_phaser_undo = (epsilon . *finish_phaser_undo());
 /* ==================================================================================================================== */
 function finish_phaser_first(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('AST_VAR', 'raku_phaser_FIRST');
-    node = tree('AST_FNC', 'raku_phaser_FIRST');
+    fn   = tree('TT_VAR', 'raku_phaser_FIRST');
+    node = tree('TT_FNC', 'raku_phaser_FIRST');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_first = .dummy; nreturn;
 }
@@ -833,8 +818,8 @@ Finish_phaser_first = (epsilon . *finish_phaser_first());
 /* ==================================================================================================================== */
 function finish_phaser_next(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('AST_VAR', 'raku_phaser_NEXT');
-    node = tree('AST_FNC', 'raku_phaser_NEXT');
+    fn   = tree('TT_VAR', 'raku_phaser_NEXT');
+    node = tree('TT_FNC', 'raku_phaser_NEXT');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_next = .dummy; nreturn;
 }
@@ -842,8 +827,8 @@ Finish_phaser_next = (epsilon . *finish_phaser_next());
 /* ==================================================================================================================== */
 function finish_phaser_last(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('AST_VAR', 'raku_phaser_LAST');
-    node = tree('AST_FNC', 'raku_phaser_LAST');
+    fn   = tree('TT_VAR', 'raku_phaser_LAST');
+    node = tree('TT_FNC', 'raku_phaser_LAST');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_last = .dummy; nreturn;
 }
@@ -851,8 +836,8 @@ Finish_phaser_last = (epsilon . *finish_phaser_last());
 /* ==================================================================================================================== */
 function finish_phaser_pre(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('AST_VAR', 'raku_phaser_PRE');
-    node = tree('AST_FNC', 'raku_phaser_PRE');
+    fn   = tree('TT_VAR', 'raku_phaser_PRE');
+    node = tree('TT_FNC', 'raku_phaser_PRE');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_pre = .dummy; nreturn;
 }
@@ -860,8 +845,8 @@ Finish_phaser_pre = (epsilon . *finish_phaser_pre());
 /* ==================================================================================================================== */
 function finish_phaser_post(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('AST_VAR', 'raku_phaser_POST');
-    node = tree('AST_FNC', 'raku_phaser_POST');
+    fn   = tree('TT_VAR', 'raku_phaser_POST');
+    node = tree('TT_FNC', 'raku_phaser_POST');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_post = .dummy; nreturn;
 }
@@ -869,8 +854,8 @@ Finish_phaser_post = (epsilon . *finish_phaser_post());
 /* ==================================================================================================================== */
 function finish_phaser_close(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('AST_VAR', 'raku_phaser_CLOSE');
-    node = tree('AST_FNC', 'raku_phaser_CLOSE');
+    fn   = tree('TT_VAR', 'raku_phaser_CLOSE');
+    node = tree('TT_FNC', 'raku_phaser_CLOSE');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_close = .dummy; nreturn;
 }
@@ -878,8 +863,8 @@ Finish_phaser_close = (epsilon . *finish_phaser_close());
 /* ==================================================================================================================== */
 function finish_phaser_temp(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('AST_VAR', 'raku_phaser_TEMP');
-    node = tree('AST_FNC', 'raku_phaser_TEMP');
+    fn   = tree('TT_VAR', 'raku_phaser_TEMP');
+    node = tree('TT_FNC', 'raku_phaser_TEMP');
     Append(node, fn); Append(node, blk); Push(node);
     finish_phaser_temp = .dummy; nreturn;
 }
@@ -887,8 +872,8 @@ Finish_phaser_temp = (epsilon . *finish_phaser_temp());
 /* ==================================================================================================================== */
 function finish_do_block(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('AST_VAR', 'raku_do');
-    node = tree('AST_FNC', 'raku_do');
+    fn   = tree('TT_VAR', 'raku_do');
+    node = tree('TT_FNC', 'raku_do');
     Append(node, fn); Append(node, blk); Push(node);
     finish_do_block = .dummy; nreturn;
 }
@@ -896,8 +881,8 @@ Finish_do_block = (epsilon . *finish_do_block());
 /* ==================================================================================================================== */
 function finish_once(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('AST_VAR', 'raku_once');
-    node = tree('AST_FNC', 'raku_once');
+    fn   = tree('TT_VAR', 'raku_once');
+    node = tree('TT_FNC', 'raku_once');
     Append(node, fn); Append(node, blk); Push(node);
     finish_once = .dummy; nreturn;
 }
@@ -905,8 +890,8 @@ Finish_once = (epsilon . *finish_once());
 /* ==================================================================================================================== */
 function finish_start(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('AST_VAR', 'raku_start');
-    node = tree('AST_FNC', 'raku_start');
+    fn   = tree('TT_VAR', 'raku_start');
+    node = tree('TT_FNC', 'raku_start');
     Append(node, fn); Append(node, blk); Push(node);
     finish_start = .dummy; nreturn;
 }
@@ -914,8 +899,8 @@ Finish_start = (epsilon . *finish_start());
 /* ==================================================================================================================== */
 function finish_supply(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('AST_VAR', 'raku_supply');
-    node = tree('AST_FNC', 'raku_supply');
+    fn   = tree('TT_VAR', 'raku_supply');
+    node = tree('TT_FNC', 'raku_supply');
     Append(node, fn); Append(node, blk); Push(node);
     finish_supply = .dummy; nreturn;
 }
@@ -923,8 +908,8 @@ Finish_supply = (epsilon . *finish_supply());
 /* ==================================================================================================================== */
 function finish_react(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('AST_VAR', 'raku_react');
-    node = tree('AST_FNC', 'raku_react');
+    fn   = tree('TT_VAR', 'raku_react');
+    node = tree('TT_FNC', 'raku_react');
     Append(node, fn); Append(node, blk); Push(node);
     finish_react = .dummy; nreturn;
 }
@@ -932,8 +917,8 @@ Finish_react = (epsilon . *finish_react());
 /* ==================================================================================================================== */
 function finish_quietly(blk, fn, node) {
     blk  = Pop();
-    fn   = tree('AST_VAR', 'raku_quietly');
-    node = tree('AST_FNC', 'raku_quietly');
+    fn   = tree('TT_VAR', 'raku_quietly');
+    node = tree('TT_FNC', 'raku_quietly');
     Append(node, fn); Append(node, blk); Push(node);
     finish_quietly = .dummy; nreturn;
 }
@@ -941,8 +926,8 @@ Finish_quietly = (epsilon . *finish_quietly());
 /* ==================================================================================================================== */
 function finish_race(ex, fn, node) {
     ex   = Pop();
-    fn   = tree('AST_VAR', 'raku_race');
-    node = tree('AST_FNC', 'raku_race');
+    fn   = tree('TT_VAR', 'raku_race');
+    node = tree('TT_FNC', 'raku_race');
     Append(node, fn); Append(node, ex); Push(node);
     finish_race = .dummy; nreturn;
 }
@@ -950,8 +935,8 @@ Finish_race = (epsilon . *finish_race());
 /* ==================================================================================================================== */
 function finish_hyper(ex, fn, node) {
     ex   = Pop();
-    fn   = tree('AST_VAR', 'raku_hyper');
-    node = tree('AST_FNC', 'raku_hyper');
+    fn   = tree('TT_VAR', 'raku_hyper');
+    node = tree('TT_FNC', 'raku_hyper');
     Append(node, fn); Append(node, ex); Push(node);
     finish_hyper = .dummy; nreturn;
 }
@@ -959,8 +944,8 @@ Finish_hyper = (epsilon . *finish_hyper());
 /* ==================================================================================================================== */
 function finish_lazy(ex, fn, node) {
     ex   = Pop();
-    fn   = tree('AST_VAR', 'raku_lazy');
-    node = tree('AST_FNC', 'raku_lazy');
+    fn   = tree('TT_VAR', 'raku_lazy');
+    node = tree('TT_FNC', 'raku_lazy');
     Append(node, fn); Append(node, ex); Push(node);
     finish_lazy = .dummy; nreturn;
 }
@@ -968,8 +953,8 @@ Finish_lazy = (epsilon . *finish_lazy());
 /* ==================================================================================================================== */
 function finish_eager(ex, fn, node) {
     ex   = Pop();
-    fn   = tree('AST_VAR', 'raku_eager');
-    node = tree('AST_FNC', 'raku_eager');
+    fn   = tree('TT_VAR', 'raku_eager');
+    node = tree('TT_FNC', 'raku_eager');
     Append(node, fn); Append(node, ex); Push(node);
     finish_eager = .dummy; nreturn;
 }
@@ -977,8 +962,8 @@ Finish_eager = (epsilon . *finish_eager());
 /* ==================================================================================================================== */
 function finish_sink(ex, fn, node) {
     ex   = Pop();
-    fn   = tree('AST_VAR', 'raku_sink');
-    node = tree('AST_FNC', 'raku_sink');
+    fn   = tree('TT_VAR', 'raku_sink');
+    node = tree('TT_FNC', 'raku_sink');
     Append(node, fn); Append(node, ex); Push(node);
     finish_sink = .dummy; nreturn;
 }
@@ -995,8 +980,8 @@ ClosureExpr = ( $'{' *Expr $'}' );
 function finish_map(lst, clos, fn, node) {
     lst  = Pop();
     clos = Pop();
-    fn   = tree('AST_VAR', 'raku_map');
-    node = tree('AST_FNC', 'raku_map');
+    fn   = tree('TT_VAR', 'raku_map');
+    node = tree('TT_FNC', 'raku_map');
     Append(node, fn);
     Append(node, clos);
     Append(node, lst);
@@ -1009,8 +994,8 @@ Finish_map = (epsilon . *finish_map());
 function finish_grep(lst, clos, fn, node) {
     lst  = Pop();
     clos = Pop();
-    fn   = tree('AST_VAR', 'raku_grep');
-    node = tree('AST_FNC', 'raku_grep');
+    fn   = tree('TT_VAR', 'raku_grep');
+    node = tree('TT_FNC', 'raku_grep');
     Append(node, fn);
     Append(node, clos);
     Append(node, lst);
@@ -1023,8 +1008,8 @@ Finish_grep = (epsilon . *finish_grep());
 function finish_sort_cl(lst, clos, fn, node) {
     lst  = Pop();
     clos = Pop();
-    fn   = tree('AST_VAR', 'raku_sort');
-    node = tree('AST_FNC', 'raku_sort');
+    fn   = tree('TT_VAR', 'raku_sort');
+    node = tree('TT_FNC', 'raku_sort');
     Append(node, fn);
     Append(node, clos);
     Append(node, lst);
@@ -1036,8 +1021,8 @@ Finish_sort_cl = (epsilon . *finish_sort_cl());
 /* ==================================================================================================================== */
 function finish_sort_nc(lst, fn, node) {
     lst  = Pop();
-    fn   = tree('AST_VAR', 'raku_sort');
-    node = tree('AST_FNC', 'raku_sort');
+    fn   = tree('TT_VAR', 'raku_sort');
+    node = tree('TT_FNC', 'raku_sort');
     Append(node, fn);
     Append(node, lst);
     Push(node);
@@ -1050,8 +1035,8 @@ try_has_catch = 0;
 function finish_try(catch_blk, try_blk, fn, node) {
     if (EQ(try_has_catch, 1)) catch_blk = Pop();
     try_blk = Pop();
-    fn   = tree('AST_VAR', 'raku_try');
-    node = tree('AST_FNC', 'raku_try');
+    fn   = tree('TT_VAR', 'raku_try');
+    node = tree('TT_FNC', 'raku_try');
     Append(node, fn);
     Append(node, try_blk);
     if (EQ(try_has_catch, 1)) Append(node, catch_blk);
@@ -1075,9 +1060,9 @@ Store_for_iter  = (epsilon . *store_for_iter(capff, capfr));
 function finish_for(block, iter_arr, iter_node, node) {
     block     = Pop();
     iter_arr  = Pop();
-    iter_node = tree('AST_ITERATE', for_iter);
+    iter_node = tree('TT_ITERATE', for_iter);
     Append(iter_node, iter_arr);
-    node = tree('AST_EVERY', '');
+    node = tree('TT_EVERY', '');
     Append(node, iter_node);
     Append(node, block);
     Push(node);
@@ -1095,9 +1080,9 @@ function finish_method(n_kids, kids, mname, efnc, i) {
         i = i - 1;
     }
     mname = capmtf capmtr;
-    efnc  = tree('AST_FNC', mname);
-    Append(efnc, tree('AST_VAR', mname));
-    Append(efnc, tree('AST_VAR', 'self'));
+    efnc  = tree('TT_FNC', mname);
+    Append(efnc, tree('TT_VAR', mname));
+    Append(efnc, tree('TT_VAR', 'self'));
     i = 1;
     while (LE(i, n_kids)) {
         Append(efnc, kids[i]);
@@ -1118,11 +1103,11 @@ function finish_class(n_items, items, cname, rec, item, fname, fullname, efnc, s
         i = i - 1;
     }
     cname = capclsf capclsr;
-    rec = tree('AST_RECORD', cname);
+    rec = tree('TT_RECORD', cname);
     i = 1;
     while (LE(i, n_items)) {
         item = items[i];
-        if (IDENT(t(item), 'AST_FNC')) {
+        if (IDENT(t(item), 'TT_FNC')) {
             fullname = cname '__' v(item);
             v(item) = fullname;
             v(c(item)[1]) = fullname;
@@ -1155,8 +1140,8 @@ function finish_sub(n_kids, kids, sname, efnc, subj, stmt, i) {
         i = i - 1;
     }
     sname = capsnf capsnr;
-    efnc  = tree('AST_FNC', sname);
-    Append(efnc, tree('AST_VAR', sname));
+    efnc  = tree('TT_FNC', sname);
+    Append(efnc, tree('TT_VAR', sname));
     i = 1;
     while (LE(i, n_kids)) {
         Append(efnc, kids[i]);
@@ -1182,8 +1167,8 @@ function finish_gather(n_kids, kids, gname, def_efnc, def_subj, def_stmt, call_e
     }
     gname = '__gather_' gather_seq;
     gather_seq = gather_seq + 1;
-    def_efnc = tree('AST_FNC', gname);
-    Append(def_efnc, tree('AST_VAR', gname));
+    def_efnc = tree('TT_FNC', gname);
+    Append(def_efnc, tree('TT_VAR', gname));
     i = 1;
     while (LE(i, n_kids)) {
         Append(def_efnc, kids[i]);
@@ -1194,8 +1179,8 @@ function finish_gather(n_kids, kids, gname, def_efnc, def_subj, def_stmt, call_e
     def_stmt = tree('STMT', '');
     Append(def_stmt, def_subj);
     sub_list = slink(sub_list, def_stmt);
-    call_efnc = tree('AST_FNC', gname);
-    Append(call_efnc, tree('AST_VAR', gname));
+    call_efnc = tree('TT_FNC', gname);
+    Append(call_efnc, tree('TT_VAR', gname));
     Push(call_efnc);
     finish_gather = .dummy;
     nreturn;
@@ -1211,7 +1196,7 @@ function finish_call(n_kids, kids, fname, efnc, i) {
         i = i - 1;
     }
     fname = v(kids[1]);
-    efnc  = tree('AST_FNC', fname);
+    efnc  = tree('TT_FNC', fname);
     i = 1;
     while (LE(i, n_kids)) {
         Append(efnc, kids[i]);
@@ -1233,10 +1218,10 @@ function finish_mcall(n_args, args, obj, mname, efnc, i) {
     }
     obj   = Pop();
     mname = capmf capmr;
-    efnc  = tree('AST_FNC', 'raku_mcall');
-    Append(efnc, tree('AST_VAR', 'raku_mcall'));
+    efnc  = tree('TT_FNC', 'raku_mcall');
+    Append(efnc, tree('TT_VAR', 'raku_mcall'));
     Append(efnc, obj);
-    Append(efnc, tree('AST_QLIT', mname));
+    Append(efnc, tree('TT_QLIT', mname));
     i = 1;
     while (LE(i, n_args)) {
         Append(efnc, args[i]);
@@ -1251,7 +1236,7 @@ Finish_mcall = (epsilon . *finish_mcall());
 function finish_field(obj, mname, ef) {
     obj   = Pop();
     mname = capmf capmr;
-    ef    = tree('AST_FIELD', mname);
+    ef    = tree('TT_FIELD', mname);
     Append(ef, obj);
     Push(ef);
     finish_field = .dummy;
@@ -1260,7 +1245,7 @@ function finish_field(obj, mname, ef) {
 Finish_field = (epsilon . *finish_field());
 /* ==================================================================================================================== */
 function finish_float(ef) {
-    ef = tree('AST_FLIT', capstr);
+    ef = tree('TT_FLIT', capstr);
     Push(ef);
     finish_float = .dummy;
     nreturn;
@@ -1271,8 +1256,8 @@ function finish_arr_set(val, idx, arr, efnc) {
     val  = Pop();
     idx  = Pop();
     arr  = Pop();
-    efnc = tree('AST_FNC', 'arr_set');
-    Append(efnc, tree('AST_VAR', 'arr_set'));
+    efnc = tree('TT_FNC', 'arr_set');
+    Append(efnc, tree('TT_VAR', 'arr_set'));
     Append(efnc, arr);
     Append(efnc, idx);
     Append(efnc, val);
@@ -1285,10 +1270,10 @@ Finish_arr_set = (epsilon . *finish_arr_set());
 function finish_hash_set_angle(val, hsh, efnc) {
     val  = Pop();
     hsh  = Pop();
-    efnc = tree('AST_FNC', 'hash_set');
-    Append(efnc, tree('AST_VAR', 'hash_set'));
+    efnc = tree('TT_FNC', 'hash_set');
+    Append(efnc, tree('TT_VAR', 'hash_set'));
     Append(efnc, hsh);
-    Append(efnc, tree('AST_QLIT', capkey));
+    Append(efnc, tree('TT_QLIT', capkey));
     Append(efnc, val);
     Push(efnc);
     finish_hash_set_angle = .dummy;
@@ -1300,8 +1285,8 @@ function finish_hash_set_brace(val, key, hsh, efnc) {
     val  = Pop();
     key  = Pop();
     hsh  = Pop();
-    efnc = tree('AST_FNC', 'hash_set');
-    Append(efnc, tree('AST_VAR', 'hash_set'));
+    efnc = tree('TT_FNC', 'hash_set');
+    Append(efnc, tree('TT_VAR', 'hash_set'));
     Append(efnc, hsh);
     Append(efnc, key);
     Append(efnc, val);
@@ -1314,9 +1299,9 @@ Finish_hash_set_brace = (epsilon . *finish_hash_set_brace());
 function finish_field_write(rhs, obj, ef, asgn) {
     rhs  = Pop();
     obj  = Pop();
-    ef   = tree('AST_FIELD', capmf capmr);
+    ef   = tree('TT_FIELD', capmf capmr);
     Append(ef, obj);
-    asgn = tree('AST_ASSIGN', '');
+    asgn = tree('TT_ASSIGN', '');
     Append(asgn, ef);
     Append(asgn, rhs);
     Push(asgn);
@@ -1328,9 +1313,9 @@ Finish_field_write = (epsilon . *finish_field_write());
 function finish_for_noarrow(body, iter, ev, it) {
     body = Pop();
     iter = Pop();
-    it   = tree('AST_ITERATE', '');
+    it   = tree('TT_ITERATE', '');
     Append(it, iter);
-    ev   = tree('AST_EVERY', '');
+    ev   = tree('TT_EVERY', '');
     Append(ev, it);
     Append(ev, body);
     Push(ev);
@@ -1345,9 +1330,9 @@ function finish_raku_new(n, items, cname, efnc, i) {
     i = n;
     while (GT(i, 0)) { items[i] = Pop(); i = i - 1; }
     cname = capclsf capclsr;
-    efnc  = tree('AST_FNC', 'raku_new');
-    Append(efnc, tree('AST_VAR', 'raku_new'));
-    Append(efnc, tree('AST_QLIT', cname));
+    efnc  = tree('TT_FNC', 'raku_new');
+    Append(efnc, tree('TT_VAR', 'raku_new'));
+    Append(efnc, tree('TT_QLIT', cname));
     i = 1;
     while (LE(i, n)) { Append(efnc, items[i]); i = i + 1; }
     Push(efnc);
@@ -1359,8 +1344,8 @@ Finish_raku_new = (epsilon . *finish_raku_new());
 function finish_say_fh(str, fh, efnc) {
     str  = Pop();
     fh   = Pop();
-    efnc = tree('AST_FNC', 'raku_say_fh');
-    Append(efnc, tree('AST_VAR', 'raku_say_fh'));
+    efnc = tree('TT_FNC', 'raku_say_fh');
+    Append(efnc, tree('TT_VAR', 'raku_say_fh'));
     Append(efnc, fh);
     Append(efnc, str);
     Push(efnc);
@@ -1372,8 +1357,8 @@ Finish_say_fh = (epsilon . *finish_say_fh());
 function finish_print_fh(str, fh, efnc) {
     str  = Pop();
     fh   = Pop();
-    efnc = tree('AST_FNC', 'raku_print_fh');
-    Append(efnc, tree('AST_VAR', 'raku_print_fh'));
+    efnc = tree('TT_FNC', 'raku_print_fh');
+    Append(efnc, tree('TT_VAR', 'raku_print_fh'));
     Append(efnc, fh);
     Append(efnc, str);
     Push(efnc);
@@ -1390,8 +1375,8 @@ function finish_main(n_kids, kids, efnc, subj, stmt, i) {
         kids[i] = Pop();
         i = i - 1;
     }
-    efnc = tree('AST_FNC', 'main');
-    Append(efnc, tree('AST_VAR', 'main'));
+    efnc = tree('TT_FNC', 'main');
+    Append(efnc, tree('TT_VAR', 'main'));
     i = 1;
     while (LE(i, n_kids)) {
         Append(efnc, kids[i]);
@@ -1410,9 +1395,9 @@ Finish_main  = (epsilon . *finish_main());
 function flatten_add(rhs, lhs, node) {
     rhs = Pop();
     lhs = Pop();
-    node = DIFFER(t(lhs)) IDENT(t(lhs), 'AST_ADD') lhs;
+    node = DIFFER(t(lhs)) IDENT(t(lhs), 'TT_ADD') lhs;
     if (DIFFER(node)) { Append(node, rhs); Push(node); } else {
-        node = tree('AST_ADD', '');
+        node = tree('TT_ADD', '');
         Append(node, lhs);
         Append(node, rhs);
         Push(node);
@@ -1425,9 +1410,9 @@ Flatten_add = (epsilon . *flatten_add());
 function flatten_sub(rhs, lhs, node) {
     rhs = Pop();
     lhs = Pop();
-    node = DIFFER(t(lhs)) IDENT(t(lhs), 'AST_SUB') lhs;
+    node = DIFFER(t(lhs)) IDENT(t(lhs), 'TT_SUB') lhs;
     if (DIFFER(node)) { Append(node, rhs); Push(node); } else {
-        node = tree('AST_SUB', '');
+        node = tree('TT_SUB', '');
         Append(node, lhs);
         Append(node, rhs);
         Push(node);
@@ -1440,9 +1425,9 @@ Flatten_sub = (epsilon . *flatten_sub());
 function flatten_mul(rhs, lhs, node) {
     rhs = Pop();
     lhs = Pop();
-    node = DIFFER(t(lhs)) IDENT(t(lhs), 'AST_MUL') lhs;
+    node = DIFFER(t(lhs)) IDENT(t(lhs), 'TT_MUL') lhs;
     if (DIFFER(node)) { Append(node, rhs); Push(node); } else {
-        node = tree('AST_MUL', '');
+        node = tree('TT_MUL', '');
         Append(node, lhs);
         Append(node, rhs);
         Push(node);
@@ -1455,9 +1440,9 @@ Flatten_mul = (epsilon . *flatten_mul());
 function flatten_div(rhs, lhs, node) {
     rhs = Pop();
     lhs = Pop();
-    node = DIFFER(t(lhs)) IDENT(t(lhs), 'AST_DIV') lhs;
+    node = DIFFER(t(lhs)) IDENT(t(lhs), 'TT_DIV') lhs;
     if (DIFFER(node)) { Append(node, rhs); Push(node); } else {
-        node = tree('AST_DIV', '');
+        node = tree('TT_DIV', '');
         Append(node, lhs);
         Append(node, rhs);
         Push(node);
@@ -1470,9 +1455,9 @@ Flatten_div = (epsilon . *flatten_div());
 function flatten_cat(rhs, lhs, node) {
     rhs = Pop();
     lhs = Pop();
-    node = DIFFER(t(lhs)) IDENT(t(lhs), 'AST_CAT') lhs;
+    node = DIFFER(t(lhs)) IDENT(t(lhs), 'TT_CAT') lhs;
     if (DIFFER(node)) { Append(node, rhs); Push(node); } else {
-        node = tree('AST_CAT', '');
+        node = tree('TT_CAT', '');
         Append(node, lhs);
         Append(node, rhs);
         Push(node);
@@ -1523,7 +1508,7 @@ Expr11 = ( $'!'  *Expr11  Finish_not
          | VarCapture             Finish_capture
          | VarNamedCapture        Finish_named_capture
          | ( LitFloat . capstr     Finish_float )
-         | shift(LitInt, 'AST_ILIT')
+         | shift(LitInt, 'TT_ILIT')
          | LitStrDQ               Dq_unescape  Push_interp_str
          | LitStrSQ               Push_qlit
          | ( nPush()
@@ -1539,7 +1524,7 @@ Expr11 = ( $'!'  *Expr11  Finish_not
            )
          | $'(' *Expr $')'
          | ( nPush()
-             shift(CallName, 'AST_VAR')  nInc()
+             shift(CallName, 'TT_VAR')  nInc()
              $'('
              ( *Expr              nInc()
                ARBNO( *CallArgTail )
@@ -1554,7 +1539,7 @@ Expr11 = ( $'!'  *Expr11  Finish_not
 Expr7tail = FENCE( $'*'  *Expr11  Flatten_mul
                  | $'/'  *Expr11  Flatten_div
                  | $'div' *Expr11  Flatten_div
-                 | $'%'  *Expr11  (AST_MOD & 2)
+                 | $'%'  *Expr11  ("'TT_MOD'" & 2)
                  );
 Expr7     = ( Expr11 ARBNO(Expr7tail) );
 Expr6tail = FENCE( $'+'  *Expr7  Flatten_add
@@ -1563,26 +1548,26 @@ Expr6tail = FENCE( $'+'  *Expr7  Flatten_add
                  );
 Expr6     = ( Expr7  ARBNO(Expr6tail) );
 Expr5     = ( Expr6
-              FENCE( $'..^'  *Expr6  (AST_TO & 2)
-                   | $'..'   *Expr6  (AST_TO & 2)
+              FENCE( $'..^'  *Expr6  ("'TT_TO'" & 2)
+                   | $'..'   *Expr6  ("'TT_TO'" & 2)
                    | epsilon
                    )
             );
-Expr4tail = FENCE( $'=='  *Expr5      (AST_EQ & 2)
-                 | $'!='  *Expr5      (AST_NE & 2)
-                 | $'<='  *Expr5      (AST_LE & 2)
-                 | $'>='  *Expr5      (AST_GE & 2)
-                 | $'<'   *Expr5      (AST_LT & 2)
-                 | $'>'   *Expr5      (AST_GT & 2)
-                 | $'eq'  *Expr5      (AST_LEQ & 2)
-                 | $'ne'  *Expr5      (AST_LNE & 2)
+Expr4tail = FENCE( $'=='  *Expr5      ("'TT_EQ'" & 2)
+                 | $'!='  *Expr5      ("'TT_NE'" & 2)
+                 | $'<='  *Expr5      ("'TT_LE'" & 2)
+                 | $'>='  *Expr5      ("'TT_GE'" & 2)
+                 | $'<'   *Expr5      ("'TT_LT'" & 2)
+                 | $'>'   *Expr5      ("'TT_GT'" & 2)
+                 | $'eq'  *Expr5      ("'TT_LEQ'" & 2)
+                 | $'ne'  *Expr5      ("'TT_LNE'" & 2)
                  | $'~~'  LitRegex Push_rxlit  Finish_smartmatch
                  | $'~~'  LitMatchGlobal Push_rxlit  Finish_match_global
                  | $'~~'  LitSubst       Finish_subst
                  );
 Expr4     = ( Expr5  ARBNO(Expr4tail) );
-Expr3tail = FENCE( $'&&'  *Expr4  (AST_SEQ & 2)
-                 | $'||'  *Expr4  (AST_ALT & 2)
+Expr3tail = FENCE( $'&&'  *Expr4  ("'TT_SEQ'" & 2)
+                 | $'||'  *Expr4  ("'TT_ALT'" & 2)
                  );
 Expr3     = ( Expr4  ARBNO(Expr3tail) );
 Expr      = Expr3;
@@ -1592,7 +1577,7 @@ Block = ( $'{'
           nPush()
           ARBNO( Block_body )
           $'}'
-          (AST_SEQ_EXPR & 'nTop()')
+          ("'TT_SEQ_EXPR'" & 'nTop()')
           nPop()
         );
 SubBlockStmt = epsilon;
@@ -1611,34 +1596,34 @@ GatherBlock = ( $'{'
 IfStmt = ( $'if'  $'(' Expr $')'
            Block
            ( $'elsif'  $'(' Expr $')'  Block
-             ( $'else'  Block  (AST_IF & 3) (AST_IF & 3)
-             | (AST_IF & 2) (AST_IF & 3)
+             ( $'else'  Block  ("'TT_IF'" & 3) ("'TT_IF'" & 3)
+             | ("'TT_IF'" & 2) ("'TT_IF'" & 3)
              )
-           | $'else'  Block  (AST_IF & 3)
-           | (AST_IF & 2)
+           | $'else'  Block  ("'TT_IF'" & 3)
+           | ("'TT_IF'" & 2)
            )
          );
 WhileStmt = ( $'while'  $'(' Expr $')'
               Block
-              (AST_WHILE & 2)
+              ("'TT_WHILE'" & 2)
             );
 UnlessStmt = ( $'unless'  $'(' Expr $')'
                Finish_not
                Block
-               ( $'else'  Block  (AST_IF & 3)
-               | (AST_IF & 2)
+               ( $'else'  Block  ("'TT_IF'" & 3)
+               | ("'TT_IF'" & 2)
                )
              );
 UntilStmt = ( $'until'  $'(' Expr $')'
               Block
-              (AST_UNTIL & 2)
+              ("'TT_UNTIL'" & 2)
             );
 WithoutStmt = ( $'without'  $'(' Expr $')'
                 Block
                 Finish_without
               );
 WheneverStmt = ( $'whenever' $'  ' *Expr Block Finish_whenever );
-LoopSubExpr = ( ( VarScalar FENCE $'=' Push_var Expr (AST_ASSIGN & 2) )
+LoopSubExpr = ( ( VarScalar FENCE $'=' Push_var Expr ("'TT_ASSIGN'" & 2) )
               | Expr
               );
 LoopThreeStmt = ( $'loop' $'(' LoopSubExpr $';' LoopSubExpr $';' LoopSubExpr $')'
@@ -1705,27 +1690,27 @@ DeleteHashBrace = ( $'delete'  HashIdxVar  $'{'  Expr  $'}'  $';'
                     Finish_hash_delete_brace
                   );
 ReturnStmt = ( $'return'
-               ( $';'         (AST_RETURN & 0)
-               | $'  ' Expr   $';'  (AST_RETURN & 1)
+               ( $';'         ("'TT_RETURN'" & 0)
+               | $'  ' Expr   $';'  ("'TT_RETURN'" & 1)
                )
              );
-TakeStmt = ( $'take' $'  ' Expr $';' (AST_SUSPEND & 1) );
+TakeStmt = ( $'take' $'  ' Expr $';' ("'TT_SUSPEND'" & 1) );
 TypedDeclStmt = ( $'my' $'  '
                   $' ' ident_first (ident_rest | epsilon)
                   $'  '
                   ( ( VarScalar Push_var | VarArray Push_var | VarHash Push_var )
-                    $'=' *Expr $';'  (AST_ASSIGN & 2)
+                    $'=' *Expr $';'  ("'TT_ASSIGN'" & 2)
                   | ( VarScalar Push_var | VarArray Push_var | VarHash Push_var )
-                    $';'             Push_empty  (AST_ASSIGN & 2)
+                    $';'             Push_empty  ("'TT_ASSIGN'" & 2)
                   )
                 );
-ReturnBareStmt = ( $'return' $';' (AST_RETURN & 0) );
+ReturnBareStmt = ( $'return' $';' ("'TT_RETURN'" & 0) );
 AssignStmt = ( ($'my' $'  ' | epsilon)
                ( VarScalar  Push_var
                | VarArray   Push_var
                | VarHash    Push_var
                )
-               $'='  Expr  $';'  (AST_ASSIGN & 2)
+               $'='  Expr  $';'  ("'TT_ASSIGN'" & 2)
              );
 SayStmt = ( $'say'
             Expr  $';'  Finish_say
@@ -1779,7 +1764,7 @@ TryStmt = ( $'try'
             )
             Finish_try
           );
-RepeatStmt = ( $'repeat' Block (AST_REPEAT & 1) );
+RepeatStmt = ( $'repeat' Block ("'TT_REPEAT'" & 1) );
 ForNoArrowStmt = ( $'for' $'  ' *Expr Block Finish_for_noarrow );
 Stmt = ( GivenStmt
        | TryStmt

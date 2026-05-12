@@ -13,7 +13,7 @@ function mk_slot_expr(tag, expr_tree, slot) {
 }
 /* ==================================================================================================================== */
 function mk_stmt(stno, line, slots_seq, s, i) {
-    s = tree(TT_STMT, '');
+    s = tree('TT_STMT', '');
     Append(s, mk_slot(SL_STNO, '' stno));
     Append(s, mk_slot(SL_LINE, '' line));
     i = 1;
@@ -26,8 +26,8 @@ function mk_stmt(stno, line, slots_seq, s, i) {
 }
 slots1 = tree('SLOTS', '');
 Append(slots1, mk_slot(SL_EQ, ''));
-Append(slots1, mk_slot_expr(SL_SUBJ, tree(TT_VAR,  'OUTPUT')));
-Append(slots1, mk_slot_expr(SL_REPL, tree(TT_QLIT, 'hello')));
+Append(slots1, mk_slot_expr(SL_SUBJ, tree('TT_VAR',  'OUTPUT')));
+Append(slots1, mk_slot_expr(SL_REPL, tree('TT_QLIT', 'hello')));
 stmt1 = mk_stmt(1, 1, slots1);
 slots2 = tree('SLOTS', '');
 Append(slots2, mk_slot(SL_LBL, 'END'));

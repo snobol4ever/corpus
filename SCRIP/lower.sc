@@ -1,55 +1,11 @@
 &FULLSCAN  = 1;
 &MAXLNGTH  = 16384;
-TT_QLIT             = 'TT_QLIT';
-TT_ILIT             = 'TT_ILIT';
-TT_FLIT             = 'TT_FLIT';
-TT_NUL              = 'TT_NUL';
-TT_VAR              = 'TT_VAR';
-TT_KEYWORD          = 'TT_KEYWORD';
-TT_INDIRECT         = 'TT_INDIRECT';
-TT_DEFER            = 'TT_DEFER';
-TT_NAME             = 'TT_NAME';
-TT_FNC              = 'TT_FNC';
-TT_IDX              = 'TT_IDX';
-TT_ASSIGN           = 'TT_ASSIGN';
-TT_INTERROGATE      = 'TT_INTERROGATE';
-TT_MNS              = 'TT_MNS';
-TT_PLS              = 'TT_PLS';
-TT_ADD              = 'TT_ADD';
-TT_SUB              = 'TT_SUB';
-TT_MUL              = 'TT_MUL';
-TT_DIV              = 'TT_DIV';
-TT_MOD              = 'TT_MOD';
-TT_POW              = 'TT_POW';
-TT_VLIST            = 'TT_VLIST';
-TT_SEQ              = 'TT_SEQ';
-TT_CAT              = 'TT_CAT';
-TT_ALT              = 'TT_ALT';
-TT_OPSYN            = 'TT_OPSYN';
-TT_ARB              = 'TT_ARB';
-TT_ARBNO            = 'TT_ARBNO';
-TT_POS              = 'TT_POS';
-TT_RPOS             = 'TT_RPOS';
-TT_ANY              = 'TT_ANY';
-TT_NOTANY           = 'TT_NOTANY';
-TT_SPAN             = 'TT_SPAN';
-TT_BREAK            = 'TT_BREAK';
-TT_BREAKX           = 'TT_BREAKX';
-TT_LEN              = 'TT_LEN';
-TT_TAB              = 'TT_TAB';
-TT_RTAB             = 'TT_RTAB';
-TT_REM              = 'TT_REM';
-TT_FAIL             = 'TT_FAIL';
-TT_SUCCEED          = 'TT_SUCCEED';
-TT_FENCE            = 'TT_FENCE';
-TT_ABORT            = 'TT_ABORT';
-TT_BAL              = 'TT_BAL';
-TT_CAPT_COND_ASGN   = 'TT_CAPT_COND_ASGN';
-TT_CAPT_IMMED_ASGN  = 'TT_CAPT_IMMED_ASGN';
-TT_CAPT_CURSOR      = 'TT_CAPT_CURSOR';
-TT_STMT             = 'STMT';
-TT_END              = 'TT_END';
-TT_PROGRAM          = 'TT_PROGRAM';
+TK_AUGPLUS          = 1001;
+TK_AUGMINUS         = 1002;
+TK_AUGSTAR          = 1003;
+TK_AUGSLASH         = 1004;
+TK_AUGMOD           = 1005;
+TK_AUGCONCAT        = 1006;
 SL_LBL  = ':lbl';
 SL_LANG = ':lang';
 SL_LINE = ':line';
@@ -196,7 +152,17 @@ function lower_mns(t) { lower_expr(T0(t)); emit('SM_NEG'); return; }
 /* ==================================================================================================================== */
 function lower_pls(t) { lower_expr(T0(t)); emit('SM_COERCE_NUM'); return; }
 /* ==================================================================================================================== */
-function lower_fnc(t, i, name) {
+function lower_fnc(t, i, name, callee, fn) {
+    if (IDENT(v(t)) GE(n(t), 1) DIFFER(c(t)[1])) {
+        callee = c(t)[1];
+        if (DIFFER(v(callee))) {
+            fn = v(callee);
+            i = 2;
+            while (LE(i, n(t))) { lower_expr(c(t)[i]); i = i + 1; }
+            emit_si('SM_CALL_FN', fn, n(t) - 1);
+            return;
+        }
+    }
     i = 1;
     while (LE(i, n(t))) { lower_expr(c(t)[i]); i = i + 1; }
     name = (DIFFER(v(t)) v(t), '');
@@ -214,14 +180,42 @@ function lower_cat_seq(t, i) {
     return;
 }
 /* ==================================================================================================================== */
-function emit_lhs_store(lhs, i) {
+function emit_lhs_store(lhs, i, fn, set_name) {
     if (IDENT(lhs)) return;
-    if (IDENT(t(lhs), TT_VAR))     { emit_s('SM_STORE_VAR', (DIFFER(v(lhs)) v(lhs), '')); return; }
-    if (IDENT(t(lhs), TT_KEYWORD)) { emit_s('SM_STORE_VAR', v(lhs)); return; }
-    if (IDENT(t(lhs), TT_IDX)) {
+    if (IDENT(t(lhs), 'TT_VAR'))     { emit_s('SM_STORE_VAR', (DIFFER(v(lhs)) v(lhs), '')); return; }
+    if (IDENT(t(lhs), 'TT_KEYWORD')) { emit_s('SM_STORE_VAR', v(lhs)); return; }
+    if (IDENT(t(lhs), 'TT_INDIRECT')) {
+        lower_expr(T0(lhs));
+        emit_si('SM_CALL_FN', 'ASGN_INDIR', 2);
+        return;
+    }
+    if (IDENT(t(lhs), 'TT_IDX')) {
         i = 1;
         while (LE(i, n(lhs))) { lower_expr(c(lhs)[i]); i = i + 1; }
         emit_si('SM_CALL_FN', 'IDX_SET', n(lhs) + 1);
+        return;
+    }
+    if (IDENT(t(lhs), 'TT_FNC') DIFFER(v(lhs))) {
+        fn = v(lhs);
+        if (EQ(n(lhs), 0)) {
+            emit_si('SM_CALL_FN', 'NRETURN_ASGN', 1);
+            return;
+        }
+        if (IDENT(REPLACE(fn, &LCASE, &UCASE), 'ITEM')) {
+            i = 1;
+            while (LE(i, n(lhs))) { lower_expr(c(lhs)[i]); i = i + 1; }
+            emit_si('SM_CALL_FN', 'ITEM_SET', n(lhs) + 1);
+            return;
+        }
+        lower_expr(T0(lhs));
+        set_name = fn '_SET';
+        emit_si('SM_CALL_FN', set_name, 2);
+        return;
+    }
+    if (IDENT(t(lhs), 'TT_FIELD')) {
+        lower_expr(T0(lhs));
+        emit_s('SM_PUSH_LIT_S', (DIFFER(v(lhs)) v(lhs), ''));
+        emit_si('SM_CALL_FN', 'FIELD_SET', 3);
         return;
     }
     lower_expr(lhs);
@@ -235,6 +229,400 @@ function lower_assign(t) {
     return;
 }
 /* ==================================================================================================================== */
+function lower_indirect(t, ch, inner, idx_var, i) {
+    ch = T0(t);
+    if (DIFFER(ch) IDENT(t(ch), 'TT_NAME') IDENT(n(ch), 1)) {
+        inner = c(ch)[1];
+        if (DIFFER(inner) IDENT(t(inner), 'TT_IDX') GE(n(inner), 2)) {
+            idx_var = c(inner)[1];
+            if (DIFFER(idx_var) IDENT(t(idx_var), 'TT_VAR') DIFFER(v(idx_var))) {
+                emit_s('SM_PUSH_VAR', v(idx_var));
+                i = 2;
+                while (LE(i, n(inner))) { lower_expr(c(inner)[i]); i = i + 1; }
+                emit_si('SM_CALL_FN', 'IDX', n(inner));
+                return;
+            }
+        }
+    }
+    lower_expr(ch);
+    emit_si('SM_CALL_FN', 'INDIR_GET', 1);
+    return;
+}
+/* ==================================================================================================================== */
+function lower_defer(t) {
+    emit('SM_PUSH_EXPR');
+    return;
+}
+/* ==================================================================================================================== */
+function lower_interrogate(t) { lower_expr(T0(t)); return; }
+/* ==================================================================================================================== */
+function lower_name(t, vname) {
+    vname = (DIFFER(T0(t)) (DIFFER(v(T0(t))) v(T0(t)), ''), '');
+    emit_s('SM_PUSH_LIT_S', vname);
+    emit_si('SM_CALL_FN', 'NAME_PUSH', 1);
+    return;
+}
+/* ==================================================================================================================== */
+function lower_vlist(t, i, jumps, last, done) {
+    if (IDENT(n(t), 0)) { emit('SM_PUSH_NULL'); return; }
+    if (IDENT(n(t), 1)) { lower_expr(c(t)[1]); return; }
+    jumps = tree('JUMPS', '');
+    last = n(t);
+    i = 1;
+    while (LE(i, last)) {
+        lower_expr(c(t)[i]);
+        if (LT(i, last)) {
+            Append(jumps, tree('J', '' emit_i('SM_JUMP_S', 0)));
+            emit('SM_VOID_POP');
+        }
+        i = i + 1;
+    }
+    done = sm_label();
+    i = 1;
+    while (LE(i, n(jumps))) { sm_patch_jump(v(c(jumps)[i]), done); i = i + 1; }
+    return;
+}
+/* ==================================================================================================================== */
+function lower_opsyn(t, i, raw, op, sz, p) {
+    raw = (DIFFER(v(t)) v(t), '&');
+    op = raw;
+    sz = SIZE(raw);
+    /* "...(X)" form: extract the single char between '(' and ')' if matched at end */
+    if (GT(sz, 2)) {
+        p = SUBSTR(raw, sz - 2, 1);
+        if (IDENT(p, '(') IDENT(SUBSTR(raw, sz, 1), ')')) op = SUBSTR(raw, sz - 1, 1);
+    }
+    if (IDENT(op, raw)) {
+        if (IDENT(raw, 'BARFN'))       op = '|';
+        else if (IDENT(raw, 'AROWFN')) op = '^';
+    }
+    i = 1;
+    while (LE(i, n(t))) { lower_expr(c(t)[i]); i = i + 1; }
+    emit_si('SM_CALL_FN', op, n(t));
+    return;
+}
+/* ==================================================================================================================== */
+function lower_idx(t, i) {
+    i = 1;
+    while (LE(i, n(t))) { lower_expr(c(t)[i]); i = i + 1; }
+    emit_si('SM_CALL_FN', 'IDX', n(t));
+    return;
+}
+/* ==================================================================================================================== */
+function lower_scan(t) {
+    if (LT(n(t), 1)) { emit('SM_PUSH_NULL'); return; }
+    lower_expr(c(t)[1]);
+    emit_si('SM_CALL_FN', 'ICN_SCAN_PUSH', 1);
+    emit('SM_VOID_POP');
+    if (GT(n(t), 1)) lower_expr(c(t)[2]); else emit('SM_PUSH_NULL');
+    emit_si('SM_CALL_FN', 'ICN_SCAN_POP', 1);
+    return;
+}
+/* ==================================================================================================================== */
+function lower_swap(t, ln, rn) {
+    if (GE(n(t), 2) DIFFER(T0(t)) DIFFER(T1(t))
+            IDENT(t(T0(t)), 'TT_VAR') IDENT(t(T1(t)), 'TT_VAR')) {
+        ln = (DIFFER(v(T0(t))) v(T0(t)), '');
+        rn = (DIFFER(v(T1(t))) v(T1(t)), '');
+        emit_s('SM_PUSH_VAR', ln); emit_s('SM_STORE_VAR', '__icn_swap_tmp__'); emit('SM_VOID_POP');
+        emit_s('SM_PUSH_VAR', rn); emit_s('SM_STORE_VAR', ln);
+        emit_s('SM_PUSH_VAR', '__icn_swap_tmp__'); emit_s('SM_STORE_VAR', rn);
+        emit('SM_VOID_POP');
+        return;
+    }
+    lower_expr(T0(t)); lower_expr(T1(t));
+    emit_si('SM_CALL_FN', 'SWAP', 2);
+    return;
+}
+/* ==================================================================================================================== */
+/* Comparisons: C passes t->t (kind enum) as the int operand; in Snocone we
+ * pass the kind string verbatim — sm_interp / sm_codegen branch on
+ * the encoded value regardless of representation. */
+function lower_comp(t, op) {
+    lower_expr(T0(t)); lower_expr(T1(t));
+    emit_si(op, t(t), 0);
+    return;
+}
+/* ==================================================================================================================== */
+function lower_acomp(t) { lower_comp(t, 'SM_ACOMP'); return; }
+/* ==================================================================================================================== */
+function lower_lcomp(t) { lower_comp(t, 'SM_LCOMP'); return; }
+/* ==================================================================================================================== */
+/* Phase-1 stub: skip the is_suspendable scan; emit plain concat path.
+ * Generator-bearing lists fall back to SM_PUSH_EXPR via the dispatcher
+ * unhandled tail when Ph2 ports is_suspendable + ast_pump_table_register. */
+function lower_lconcat(t, i) {
+    if (LT(n(t), 1)) { emit('SM_PUSH_NULL'); return; }
+    i = 1;
+    while (LE(i, n(t))) { lower_expr(c(t)[i]); i = i + 1; }
+    i = 2;
+    while (LE(i, n(t))) { emit('SM_CONCAT'); i = i + 1; }
+    return;
+}
+/* ==================================================================================================================== */
+function lower_nonnull (t) { lower_expr(T0(t)); emit_si('SM_CALL_FN', 'NONNULL',   1); return; }
+/* ==================================================================================================================== */
+function lower_null    (t) { lower_expr(T0(t)); emit_si('SM_CALL_FN', 'ICN_NULL',  1); return; }
+/* ==================================================================================================================== */
+function lower_size    (t) { lower_expr(T0(t)); emit_si('SM_CALL_FN', 'SIZE',      1); return; }
+/* ==================================================================================================================== */
+function lower_identical(t){ lower_expr(T0(t)); lower_expr(T1(t)); emit_si('SM_CALL_FN', 'IDENTICAL', 2); return; }
+/* ==================================================================================================================== */
+function lower_random(t) {
+    if (GE(n(t), 1)) { lower_expr(T0(t)); emit_si('SM_CALL_FN', 'ICN_RANDOM', 1); }
+    else             { emit('SM_PUSH_NULL'); }
+    return;
+}
+/* ==================================================================================================================== */
+function lower_not(t, js, jend, flbl) {
+    lower_expr(T0(t));
+    js = emit_i('SM_JUMP_S', 0);
+    emit('SM_VOID_POP'); emit('SM_PUSH_NULL');
+    jend = emit_i('SM_JUMP', 0);
+    flbl = sm_label(); sm_patch_jump(js, flbl);
+    emit('SM_VOID_POP'); emit_si('SM_CALL_FN', 'FAIL', 0);
+    sm_patch_jump(jend, sm_label());
+    return;
+}
+/* ==================================================================================================================== */
+/* Augmented assignment fast-path: VAR or KEYWORD lhs only.
+ * Other lhs shapes fall through to the generic AUGOP call. */
+function lower_augop(t, lhs, rhs, opcode, lname, is_kw) {
+    lhs = T0(t); rhs = T1(t);
+    opcode = (DIFFER(v(t)) v(t), 0);
+    lname = ''; is_kw = 0;
+    if (DIFFER(lhs) IDENT(t(lhs), 'TT_VAR') DIFFER(v(lhs)))         lname = v(lhs);
+    if (DIFFER(lhs) IDENT(t(lhs), 'TT_KEYWORD') DIFFER(v(lhs))) { lname = v(lhs); is_kw = 1; }
+    if (DIFFER(lname)) {
+        emit_s('SM_PUSH_VAR', lname);
+        lower_expr(rhs);
+        if (IDENT('' opcode, '' TK_AUGPLUS))   { emit('SM_ADD');    emit_s('SM_STORE_VAR', lname); return; }
+        if (IDENT('' opcode, '' TK_AUGMINUS))  { emit('SM_SUB');    emit_s('SM_STORE_VAR', lname); return; }
+        if (IDENT('' opcode, '' TK_AUGSTAR))   { emit('SM_MUL');    emit_s('SM_STORE_VAR', lname); return; }
+        if (IDENT('' opcode, '' TK_AUGSLASH))  { emit('SM_DIV');    emit_s('SM_STORE_VAR', lname); return; }
+        if (IDENT('' opcode, '' TK_AUGMOD))    { emit('SM_MOD');    emit_s('SM_STORE_VAR', lname); return; }
+        if (IDENT('' opcode, '' TK_AUGCONCAT)) { emit('SM_CONCAT'); emit_s('SM_STORE_VAR', lname); return; }
+        emit_i('SM_PUSH_LIT_I', opcode);
+        emit_si('SM_CALL_FN', 'AUGOP', 3);
+        return;
+    }
+    lower_expr(lhs); lower_expr(rhs);
+    emit_i('SM_PUSH_LIT_I', opcode);
+    emit_si('SM_CALL_FN', 'AUGOP', 3);
+    return;
+}
+/* ==================================================================================================================== */
+function lower_seq_expr(t, i) {
+    if (IDENT(n(t), 0)) { emit('SM_PUSH_NULL'); return; }
+    i = 1;
+    while (LE(i, n(t))) {
+        lower_expr(c(t)[i]);
+        if (LT(i, n(t))) emit('SM_VOID_POP');
+        i = i + 1;
+    }
+    return;
+}
+/* ==================================================================================================================== */
+function lower_if(t, jf, jend) {
+    if (LT(n(t), 1)) { emit('SM_PUSH_NULL'); return; }
+    lower_expr(c(t)[1]);
+    jf = emit_i('SM_JUMP_F', 0);
+    emit('SM_VOID_POP');
+    if (GT(n(t), 1)) lower_expr(c(t)[2]); else emit('SM_PUSH_NULL');
+    jend = emit_i('SM_JUMP', 0);
+    sm_patch_jump(jf, sm_label());
+    emit('SM_VOID_POP');
+    if (GT(n(t), 2)) lower_expr(c(t)[3]); else emit('SM_PUSH_NULL');
+    sm_patch_jump(jend, sm_label());
+    return;
+}
+/* ==================================================================================================================== */
+function lower_while_until(t, exit_on_success, top, jx) {
+    top = sm_label();
+    if (LT(n(t), 1)) { emit('SM_PUSH_NULL'); return; }
+    lower_expr(c(t)[1]);
+    if (IDENT(exit_on_success, 1)) jx = emit_i('SM_JUMP_S', 0);
+    else                            jx = emit_i('SM_JUMP_F', 0);
+    emit('SM_VOID_POP');
+    if (GT(n(t), 1)) { lower_expr(c(t)[2]); emit('SM_VOID_POP'); }
+    emit_i('SM_JUMP', top);
+    sm_patch_jump(jx, sm_label());
+    emit('SM_VOID_POP'); emit('SM_PUSH_NULL');
+    return;
+}
+/* ==================================================================================================================== */
+function lower_while(t) { lower_while_until(t, 0); return; }
+/* ==================================================================================================================== */
+function lower_until(t) { lower_while_until(t, 1); return; }
+/* ==================================================================================================================== */
+function lower_repeat(t, top) {
+    top = sm_label();
+    if (GT(n(t), 0)) { lower_expr(c(t)[1]); emit('SM_VOID_POP'); }
+    emit_i('SM_JUMP', top);
+    emit('SM_PUSH_NULL');
+    return;
+}
+/* ==================================================================================================================== */
+function lower_loop_break(t) {
+    if (GT(n(t), 0)) lower_expr(c(t)[1]); else emit('SM_PUSH_NULL');
+    emit_i('SM_JUMP', g_count + 1);
+    return;
+}
+/* ==================================================================================================================== */
+function lower_loop_next(t) { emit('SM_PUSH_NULL'); return; }
+/* ==================================================================================================================== */
+function lower_return(t) {
+    if (GT(n(t), 0)) lower_expr(c(t)[1]); else emit('SM_PUSH_NULL');
+    emit('SM_RETURN');
+    return;
+}
+/* ==================================================================================================================== */
+function lower_proc_fail(t) { emit('SM_PUSH_NULL'); emit('SM_FRETURN'); return; }
+/* ==================================================================================================================== */
+/* Case: Icon pair layout — topic + (val,body)* + [default].
+ * Raku triple layout uses emit_thunk; Ph1 stubbed via SM_PUSH_EXPR fallback. */
+function lower_case(t, nc, has_def, npairs, jumps, jf, end_lbl, i, base, end) {
+    if (LT(n(t), 1)) { emit('SM_PUSH_NULL'); return; }
+    nc = n(t) - 1;
+    has_def = REMDR(nc, 2);
+    npairs  = (nc - has_def) / 2;
+    lower_expr(c(t)[1]);
+    emit_s('SM_STORE_VAR', '__case_topic__'); emit('SM_VOID_POP');
+    jumps = tree('JUMPS', '');
+    i = 0;
+    while (LT(i, npairs)) {
+        base = 2 + i * 2;
+        emit_s('SM_PUSH_VAR', '__case_topic__');
+        lower_expr(c(t)[base]);
+        emit_si('SM_CALL_FN', 'ICN_CASE_EQ', 2);
+        jf = emit_i('SM_JUMP_F', 0);
+        emit('SM_VOID_POP');
+        lower_expr(c(t)[base + 1]);
+        Append(jumps, tree('J', '' emit_i('SM_JUMP', 0)));
+        sm_patch_jump(jf, sm_label()); emit('SM_VOID_POP');
+        i = i + 1;
+    }
+    if (IDENT(has_def, 1)) lower_expr(c(t)[n(t)]); else emit('SM_PUSH_NULL');
+    end = sm_label();
+    i = 1;
+    while (LE(i, n(jumps))) { sm_patch_jump(v(c(jumps)[i]), end); i = i + 1; }
+    return;
+}
+/* ==================================================================================================================== */
+function lower_makelist(t, i) {
+    i = 1;
+    while (LE(i, n(t))) { lower_expr(c(t)[i]); i = i + 1; }
+    emit_si('SM_CALL_FN', 'MAKELIST', n(t));
+    return;
+}
+/* ==================================================================================================================== */
+function lower_record(t, i) {
+    emit_s('SM_PUSH_LIT_S', (DIFFER(v(t)) v(t), ''));
+    i = 1;
+    while (LE(i, n(t))) { lower_expr(c(t)[i]); i = i + 1; }
+    emit_si('SM_CALL_FN', 'RECORD_MAKE', n(t) + 1);
+    return;
+}
+/* ==================================================================================================================== */
+function lower_field(t) {
+    lower_expr(T0(t));
+    emit_s('SM_PUSH_LIT_S', (DIFFER(v(t)) v(t), ''));
+    emit_si('SM_CALL_FN', 'FIELD_GET', 2);
+    return;
+}
+/* ==================================================================================================================== */
+function lower_global(t) { emit('SM_PUSH_NULL'); return; }
+/* ==================================================================================================================== */
+function lower_initial(t, sentinel, skip, done, i) {
+    sentinel = '__initial_' g_count '__';
+    emit_s('SM_PUSH_VAR', sentinel);
+    emit_si('SM_CALL_FN', 'NONNULL', 1);
+    skip = emit_i('SM_JUMP_S', 0);
+    emit('SM_VOID_POP');
+    i = 1;
+    while (LE(i, n(t))) {
+        if (DIFFER(c(t)[i])) { lower_expr(c(t)[i]); emit('SM_VOID_POP'); }
+        i = i + 1;
+    }
+    emit_i('SM_PUSH_LIT_I', 1);
+    emit_s('SM_STORE_VAR', sentinel); emit('SM_VOID_POP');
+    done = emit_i('SM_JUMP', 0);
+    sm_patch_jump(skip, sm_label()); emit('SM_VOID_POP');
+    sm_patch_jump(done, sm_label()); emit('SM_PUSH_NULL');
+    return;
+}
+/* ==================================================================================================================== */
+function lower_section_3(t, fn) {
+    if (GE(n(t), 3)) {
+        lower_expr(c(t)[1]); lower_expr(c(t)[2]); lower_expr(c(t)[3]);
+        emit_si('SM_CALL_FN', fn, 3);
+    } else { emit('SM_PUSH_NULL'); }
+    return;
+}
+/* ==================================================================================================================== */
+function lower_section(t)       { lower_section_3(t, 'ICN_SECTION_RANGE'); return; }
+/* ==================================================================================================================== */
+function lower_section_plus(t)  { lower_section_3(t, 'ICN_SECTION_PLUS');  return; }
+/* ==================================================================================================================== */
+function lower_section_minus(t) { lower_section_3(t, 'ICN_SECTION_MINUS'); return; }
+/* ==================================================================================================================== */
+/* Generator coroutines: full range-coroutine emission requires SM_PUSH_EXPRESSION
+ * + GLOCAL slots + BB_PUMP_SM infrastructure not yet wired into the .sc port.
+ * Ph1 emits SM_PUSH_EXPR stub; Ph3 will translate emit_range_coroutine. */
+function lower_bang_binary(t) { emit('SM_PUSH_EXPR'); emit('SM_BB_PUMP'); return; }
+/* ==================================================================================================================== */
+function lower_to(t)         { emit('SM_PUSH_EXPR'); emit('SM_BB_PUMP_SM'); return; }
+/* ==================================================================================================================== */
+function lower_to_by(t)      { emit('SM_PUSH_EXPR'); emit('SM_BB_PUMP_SM'); return; }
+/* ==================================================================================================================== */
+function lower_every(t)      { emit('SM_PUSH_EXPR'); emit('SM_BB_PUMP_EVERY'); return; }
+/* ==================================================================================================================== */
+function lower_limit(t)      { emit('SM_PUSH_EXPR'); emit('SM_BB_PUMP'); return; }
+/* ==================================================================================================================== */
+function lower_bb_pump_ast(t){ emit('SM_PUSH_EXPR'); emit('SM_BB_PUMP_AST'); return; }
+/* ==================================================================================================================== */
+function lower_suspend(t, jf, jdone) {
+    if (GT(n(t), 0) DIFFER(c(t)[1])) lower_expr(c(t)[1]);
+    else                              emit('SM_PUSH_NULL');
+    jf = emit_i('SM_JUMP_F', 0);
+    emit('SM_SUSPEND_VALUE');
+    if (GT(n(t), 1) DIFFER(c(t)[2])) { lower_expr(c(t)[2]); emit('SM_VOID_POP'); }
+    emit('SM_PUSH_NULL');
+    jdone = emit_i('SM_JUMP', 0);
+    sm_patch_jump(jf, sm_label());
+    sm_patch_jump(jdone, sm_label());
+    return;
+}
+/* ==================================================================================================================== */
+/* Prolog: emit BB_ONCE_PROC for named predicate calls, BB_ONCE for inline goals.
+ * Mirrors C `strrchr(sval, '/')` — split on the RIGHTMOST '/'. */
+function emit_prolog_call(sval, name, arity, sz, i, ch, last_slash) {
+    name = sval;
+    arity = '0';
+    sz = SIZE(sval);
+    last_slash = 0;
+    i = 1;
+    while (LE(i, sz)) {
+        if (IDENT(SUBSTR(sval, i, 1), '/')) last_slash = i;
+        i = i + 1;
+    }
+    if (GT(last_slash, 0)) {
+        name  = SUBSTR(sval, 1, last_slash - 1);
+        arity = SUBSTR(sval, last_slash + 1, sz - last_slash);
+        if (IDENT(arity)) arity = '0';
+    }
+    emit_si('SM_BB_ONCE_PROC', name, arity);
+    return;
+}
+/* ==================================================================================================================== */
+function lower_choice(t) {
+    if (DIFFER(v(t))) emit_prolog_call(v(t));
+    else              { emit('SM_PUSH_EXPR'); emit('SM_BB_ONCE'); }
+    return;
+}
+/* ==================================================================================================================== */
+function lower_prolog_child(t) { emit('SM_PUSH_EXPR'); emit('SM_BB_ONCE'); return; }
+/* ==================================================================================================================== */
 function emit_pat_nary(t, op, i) {
     i = 1;
     while (LE(i, n(t))) { lower_pat_expr(c(t)[i]); i = i + 1; }
@@ -246,33 +634,33 @@ function emit_pat_nary(t, op, i) {
 function lower_pat_expr(t, k) {
     if (IDENT(t)) return;
     k = t(t);
-    if (IDENT(k, TT_QLIT))    { emit_s('SM_PAT_LIT', (DIFFER(v(t)) v(t), '')); return; }
-    if (IDENT(k, TT_VAR))     { emit_s('SM_PUSH_VAR', v(t)); emit('SM_PAT_DEREF'); return; }
-    if (IDENT(k, TT_ARB))     { emit('SM_PAT_ARB');     return; }
-    if (IDENT(k, TT_REM))     { emit('SM_PAT_REM');     return; }
-    if (IDENT(k, TT_FAIL))    { emit('SM_PAT_FAIL');    return; }
-    if (IDENT(k, TT_SUCCEED)) { emit('SM_PAT_SUCCEED'); return; }
-    if (IDENT(k, TT_ABORT))   { emit('SM_PAT_ABORT');   return; }
-    if (IDENT(k, TT_BAL))     { emit('SM_PAT_BAL');     return; }
-    if (IDENT(k, TT_FENCE)) {
+    if (IDENT(k, 'TT_QLIT'))    { emit_s('SM_PAT_LIT', (DIFFER(v(t)) v(t), '')); return; }
+    if (IDENT(k, 'TT_VAR'))     { emit_s('SM_PUSH_VAR', v(t)); emit('SM_PAT_DEREF'); return; }
+    if (IDENT(k, 'TT_ARB'))     { emit('SM_PAT_ARB');     return; }
+    if (IDENT(k, 'TT_REM'))     { emit('SM_PAT_REM');     return; }
+    if (IDENT(k, 'TT_FAIL'))    { emit('SM_PAT_FAIL');    return; }
+    if (IDENT(k, 'TT_SUCCEED')) { emit('SM_PAT_SUCCEED'); return; }
+    if (IDENT(k, 'TT_ABORT'))   { emit('SM_PAT_ABORT');   return; }
+    if (IDENT(k, 'TT_BAL'))     { emit('SM_PAT_BAL');     return; }
+    if (IDENT(k, 'TT_FENCE')) {
         if (GT(n(t), 0)) { lower_pat_expr(c(t)[1]); emit('SM_PAT_FENCE1'); }
         else             { emit('SM_PAT_FENCE'); }
         return;
     }
-    if (IDENT(k, TT_ANY))    { lower_expr(T0(t)); emit('SM_PAT_ANY');    return; }
-    if (IDENT(k, TT_NOTANY)) { lower_expr(T0(t)); emit('SM_PAT_NOTANY'); return; }
-    if (IDENT(k, TT_SPAN))   { lower_expr(T0(t)); emit('SM_PAT_SPAN');   return; }
-    if (IDENT(k, TT_BREAK))  { lower_expr(T0(t)); emit('SM_PAT_BREAK');  return; }
-    if (IDENT(k, TT_BREAKX)) { lower_expr(T0(t)); emit('SM_PAT_BREAK');  return; }
-    if (IDENT(k, TT_LEN))    { lower_expr(T0(t)); emit('SM_PAT_LEN');    return; }
-    if (IDENT(k, TT_POS))    { lower_expr(T0(t)); emit('SM_PAT_POS');    return; }
-    if (IDENT(k, TT_RPOS))   { lower_expr(T0(t)); emit('SM_PAT_RPOS');   return; }
-    if (IDENT(k, TT_TAB))    { lower_expr(T0(t)); emit('SM_PAT_TAB');    return; }
-    if (IDENT(k, TT_RTAB))   { lower_expr(T0(t)); emit('SM_PAT_RTAB');   return; }
-    if (IDENT(k, TT_ARBNO))  { lower_pat_expr(T0(t)); emit('SM_PAT_ARBNO'); return; }
-    if (IDENT(k, TT_SEQ))    { emit_pat_nary(t, 'SM_PAT_CAT'); return; }
-    if (IDENT(k, TT_CAT))    { emit_pat_nary(t, 'SM_PAT_CAT'); return; }
-    if (IDENT(k, TT_ALT))    { emit_pat_nary(t, 'SM_PAT_ALT'); return; }
+    if (IDENT(k, 'TT_ANY'))    { lower_expr(T0(t)); emit('SM_PAT_ANY');    return; }
+    if (IDENT(k, 'TT_NOTANY')) { lower_expr(T0(t)); emit('SM_PAT_NOTANY'); return; }
+    if (IDENT(k, 'TT_SPAN'))   { lower_expr(T0(t)); emit('SM_PAT_SPAN');   return; }
+    if (IDENT(k, 'TT_BREAK'))  { lower_expr(T0(t)); emit('SM_PAT_BREAK');  return; }
+    if (IDENT(k, 'TT_BREAKX')) { lower_expr(T0(t)); emit('SM_PAT_BREAK');  return; }
+    if (IDENT(k, 'TT_LEN'))    { lower_expr(T0(t)); emit('SM_PAT_LEN');    return; }
+    if (IDENT(k, 'TT_POS'))    { lower_expr(T0(t)); emit('SM_PAT_POS');    return; }
+    if (IDENT(k, 'TT_RPOS'))   { lower_expr(T0(t)); emit('SM_PAT_RPOS');   return; }
+    if (IDENT(k, 'TT_TAB'))    { lower_expr(T0(t)); emit('SM_PAT_TAB');    return; }
+    if (IDENT(k, 'TT_RTAB'))   { lower_expr(T0(t)); emit('SM_PAT_RTAB');   return; }
+    if (IDENT(k, 'TT_ARBNO'))  { lower_pat_expr(T0(t)); emit('SM_PAT_ARBNO'); return; }
+    if (IDENT(k, 'TT_SEQ'))    { emit_pat_nary(t, 'SM_PAT_CAT'); return; }
+    if (IDENT(k, 'TT_CAT'))    { emit_pat_nary(t, 'SM_PAT_CAT'); return; }
+    if (IDENT(k, 'TT_ALT'))    { emit_pat_nary(t, 'SM_PAT_ALT'); return; }
     lower_expr(t);
     emit('SM_PAT_DEREF');
     return;
@@ -281,43 +669,112 @@ function lower_pat_expr(t, k) {
 function lower_expr(t, k) {
     if (IDENT(t)) { emit('SM_PUSH_NULL'); return; }
     k = t(t);
-    if (IDENT(k, TT_QLIT)) { lower_strlit(t); return; }
-    if (IDENT(k, TT_ILIT)) { lower_ilit(t);   return; }
-    if (IDENT(k, TT_FLIT)) { lower_flit(t);   return; }
-    if (IDENT(k, TT_NUL))  { lower_nul(t);    return; }
-    if (IDENT(k, TT_VAR))     { lower_var(t);     return; }
-    if (IDENT(k, TT_KEYWORD)) { lower_keyword(t); return; }
-    if (IDENT(k, TT_ADD)) { lower_add(t); return; }
-    if (IDENT(k, TT_SUB)) { lower_sub(t); return; }
-    if (IDENT(k, TT_MUL)) { lower_mul(t); return; }
-    if (IDENT(k, TT_DIV)) { lower_div(t); return; }
-    if (IDENT(k, TT_MOD)) { lower_mod(t); return; }
-    if (IDENT(k, TT_POW)) { lower_pow(t); return; }
-    if (IDENT(k, TT_MNS)) { lower_mns(t); return; }
-    if (IDENT(k, TT_PLS)) { lower_pls(t); return; }
-    if (IDENT(k, TT_CAT)) { lower_cat_seq(t); return; }
-    if (IDENT(k, TT_SEQ)) { lower_cat_seq(t); return; }
-    if (IDENT(k, TT_ALT)) { lower_pat_expr(t); return; }
-    if (IDENT(k, TT_ARB))    { lower_pat_expr(t); return; }
-    if (IDENT(k, TT_ARBNO))  { lower_pat_expr(t); return; }
-    if (IDENT(k, TT_POS))    { lower_pat_expr(t); return; }
-    if (IDENT(k, TT_RPOS))   { lower_pat_expr(t); return; }
-    if (IDENT(k, TT_ANY))    { lower_pat_expr(t); return; }
-    if (IDENT(k, TT_NOTANY)) { lower_pat_expr(t); return; }
-    if (IDENT(k, TT_SPAN))   { lower_pat_expr(t); return; }
-    if (IDENT(k, TT_BREAK))  { lower_pat_expr(t); return; }
-    if (IDENT(k, TT_BREAKX)) { lower_pat_expr(t); return; }
-    if (IDENT(k, TT_LEN))    { lower_pat_expr(t); return; }
-    if (IDENT(k, TT_TAB))    { lower_pat_expr(t); return; }
-    if (IDENT(k, TT_RTAB))   { lower_pat_expr(t); return; }
-    if (IDENT(k, TT_REM))    { lower_pat_expr(t); return; }
-    if (IDENT(k, TT_FAIL))   { lower_pat_expr(t); return; }
-    if (IDENT(k, TT_SUCCEED)){ lower_pat_expr(t); return; }
-    if (IDENT(k, TT_FENCE))  { lower_pat_expr(t); return; }
-    if (IDENT(k, TT_ABORT))  { lower_pat_expr(t); return; }
-    if (IDENT(k, TT_BAL))    { lower_pat_expr(t); return; }
-    if (IDENT(k, TT_FNC))    { lower_fnc(t);    return; }
-    if (IDENT(k, TT_ASSIGN)) { lower_assign(t); return; }
+    if (IDENT(k, 'TT_QLIT')) { lower_strlit(t); return; }
+    if (IDENT(k, 'TT_ILIT')) { lower_ilit(t);   return; }
+    if (IDENT(k, 'TT_FLIT')) { lower_flit(t);   return; }
+    if (IDENT(k, 'TT_NUL'))  { lower_nul(t);    return; }
+    if (IDENT(k, 'TT_VAR'))     { lower_var(t);     return; }
+    if (IDENT(k, 'TT_KEYWORD')) { lower_keyword(t); return; }
+    if (IDENT(k, 'TT_ADD')) { lower_add(t); return; }
+    if (IDENT(k, 'TT_SUB')) { lower_sub(t); return; }
+    if (IDENT(k, 'TT_MUL')) { lower_mul(t); return; }
+    if (IDENT(k, 'TT_DIV')) { lower_div(t); return; }
+    if (IDENT(k, 'TT_MOD')) { lower_mod(t); return; }
+    if (IDENT(k, 'TT_POW')) { lower_pow(t); return; }
+    if (IDENT(k, 'TT_MNS')) { lower_mns(t); return; }
+    if (IDENT(k, 'TT_PLS')) { lower_pls(t); return; }
+    if (IDENT(k, 'TT_CAT')) { lower_cat_seq(t); return; }
+    if (IDENT(k, 'TT_SEQ')) { lower_cat_seq(t); return; }
+    if (IDENT(k, 'TT_ALT')) { lower_pat_expr(t); return; }
+    if (IDENT(k, 'TT_ARB'))    { lower_pat_expr(t); return; }
+    if (IDENT(k, 'TT_ARBNO'))  { lower_pat_expr(t); return; }
+    if (IDENT(k, 'TT_POS'))    { lower_pat_expr(t); return; }
+    if (IDENT(k, 'TT_RPOS'))   { lower_pat_expr(t); return; }
+    if (IDENT(k, 'TT_ANY'))    { lower_pat_expr(t); return; }
+    if (IDENT(k, 'TT_NOTANY')) { lower_pat_expr(t); return; }
+    if (IDENT(k, 'TT_SPAN'))   { lower_pat_expr(t); return; }
+    if (IDENT(k, 'TT_BREAK'))  { lower_pat_expr(t); return; }
+    if (IDENT(k, 'TT_BREAKX')) { lower_pat_expr(t); return; }
+    if (IDENT(k, 'TT_LEN'))    { lower_pat_expr(t); return; }
+    if (IDENT(k, 'TT_TAB'))    { lower_pat_expr(t); return; }
+    if (IDENT(k, 'TT_RTAB'))   { lower_pat_expr(t); return; }
+    if (IDENT(k, 'TT_REM'))    { lower_pat_expr(t); return; }
+    if (IDENT(k, 'TT_FAIL'))   { lower_pat_expr(t); return; }
+    if (IDENT(k, 'TT_SUCCEED')){ lower_pat_expr(t); return; }
+    if (IDENT(k, 'TT_FENCE'))  { lower_pat_expr(t); return; }
+    if (IDENT(k, 'TT_ABORT'))  { lower_pat_expr(t); return; }
+    if (IDENT(k, 'TT_BAL'))    { lower_pat_expr(t); return; }
+    if (IDENT(k, 'TT_FNC'))    { lower_fnc(t);    return; }
+    if (IDENT(k, 'TT_ASSIGN')) { lower_assign(t); return; }
+    if (IDENT(k, 'TT_CSET'))   { lower_strlit(t); return; }
+    if (IDENT(k, 'TT_INDIRECT'))    { lower_indirect(t);    return; }
+    if (IDENT(k, 'TT_DEFER'))       { lower_defer(t);       return; }
+    if (IDENT(k, 'TT_INTERROGATE')) { lower_interrogate(t); return; }
+    if (IDENT(k, 'TT_NAME'))        { lower_name(t);        return; }
+    if (IDENT(k, 'TT_VLIST'))       { lower_vlist(t);       return; }
+    if (IDENT(k, 'TT_OPSYN'))       { lower_opsyn(t);       return; }
+    if (IDENT(k, 'TT_IDX'))         { lower_idx(t);         return; }
+    if (IDENT(k, 'TT_SCAN'))        { lower_scan(t);        return; }
+    if (IDENT(k, 'TT_SWAP'))        { lower_swap(t);        return; }
+    if (IDENT(k, 'TT_LT')) { lower_acomp(t); return; }
+    if (IDENT(k, 'TT_LE')) { lower_acomp(t); return; }
+    if (IDENT(k, 'TT_GT')) { lower_acomp(t); return; }
+    if (IDENT(k, 'TT_GE')) { lower_acomp(t); return; }
+    if (IDENT(k, 'TT_EQ')) { lower_acomp(t); return; }
+    if (IDENT(k, 'TT_NE')) { lower_acomp(t); return; }
+    if (IDENT(k, 'TT_LLT')) { lower_lcomp(t); return; }
+    if (IDENT(k, 'TT_LLE')) { lower_lcomp(t); return; }
+    if (IDENT(k, 'TT_LGT')) { lower_lcomp(t); return; }
+    if (IDENT(k, 'TT_LGE')) { lower_lcomp(t); return; }
+    if (IDENT(k, 'TT_LEQ')) { lower_lcomp(t); return; }
+    if (IDENT(k, 'TT_LNE')) { lower_lcomp(t); return; }
+    if (IDENT(k, 'TT_CSET_COMPL')) { emit('SM_PUSH_EXPR'); return; }
+    if (IDENT(k, 'TT_CSET_UNION')) { emit('SM_PUSH_EXPR'); return; }
+    if (IDENT(k, 'TT_CSET_DIFF'))  { emit('SM_PUSH_EXPR'); return; }
+    if (IDENT(k, 'TT_CSET_INTER')) { emit('SM_PUSH_EXPR'); return; }
+    if (IDENT(k, 'TT_LCONCAT'))    { lower_lconcat(t);    return; }
+    if (IDENT(k, 'TT_NONNULL'))    { lower_nonnull(t);    return; }
+    if (IDENT(k, 'TT_NULL'))       { lower_null(t);       return; }
+    if (IDENT(k, 'TT_NOT'))        { lower_not(t);        return; }
+    if (IDENT(k, 'TT_SIZE'))       { lower_size(t);       return; }
+    if (IDENT(k, 'TT_RANDOM'))     { lower_random(t);     return; }
+    if (IDENT(k, 'TT_IDENTICAL'))  { lower_identical(t);  return; }
+    if (IDENT(k, 'TT_AUGOP'))      { lower_augop(t);      return; }
+    if (IDENT(k, 'TT_SEQ_EXPR'))   { lower_seq_expr(t);   return; }
+    if (IDENT(k, 'TT_IF'))         { lower_if(t);         return; }
+    if (IDENT(k, 'TT_WHILE'))      { lower_while(t);      return; }
+    if (IDENT(k, 'TT_UNTIL'))      { lower_until(t);      return; }
+    if (IDENT(k, 'TT_REPEAT'))     { lower_repeat(t);     return; }
+    if (IDENT(k, 'TT_LOOP_BREAK')) { lower_loop_break(t); return; }
+    if (IDENT(k, 'TT_LOOP_NEXT'))  { lower_loop_next(t);  return; }
+    if (IDENT(k, 'TT_RETURN'))     { lower_return(t);     return; }
+    if (IDENT(k, 'TT_PROC_FAIL'))  { lower_proc_fail(t);  return; }
+    if (IDENT(k, 'TT_CASE'))       { lower_case(t);       return; }
+    if (IDENT(k, 'TT_MAKELIST'))   { lower_makelist(t);   return; }
+    if (IDENT(k, 'TT_RECORD'))     { lower_record(t);     return; }
+    if (IDENT(k, 'TT_FIELD'))      { lower_field(t);      return; }
+    if (IDENT(k, 'TT_GLOBAL'))     { lower_global(t);     return; }
+    if (IDENT(k, 'TT_INITIAL'))    { lower_initial(t);    return; }
+    if (IDENT(k, 'TT_SECTION'))       { lower_section(t);       return; }
+    if (IDENT(k, 'TT_SECTION_PLUS'))  { lower_section_plus(t);  return; }
+    if (IDENT(k, 'TT_SECTION_MINUS')) { lower_section_minus(t); return; }
+    if (IDENT(k, 'TT_BANG_BINARY'))   { lower_bang_binary(t);   return; }
+    if (IDENT(k, 'TT_SUSPEND'))    { lower_suspend(t);    return; }
+    if (IDENT(k, 'TT_TO'))         { lower_to(t);         return; }
+    if (IDENT(k, 'TT_TO_BY'))      { lower_to_by(t);      return; }
+    if (IDENT(k, 'TT_LIMIT'))      { lower_limit(t);      return; }
+    if (IDENT(k, 'TT_ALTERNATE'))  { lower_bb_pump_ast(t); return; }
+    if (IDENT(k, 'TT_ITERATE'))    { lower_bb_pump_ast(t); return; }
+    if (IDENT(k, 'TT_EVERY'))      { lower_every(t);      return; }
+    if (IDENT(k, 'TT_CHOICE'))     { lower_choice(t);     return; }
+    if (IDENT(k, 'TT_CLAUSE'))       { lower_prolog_child(t); return; }
+    if (IDENT(k, 'TT_CUT'))          { lower_prolog_child(t); return; }
+    if (IDENT(k, 'TT_UNIFY'))        { lower_prolog_child(t); return; }
+    if (IDENT(k, 'TT_TRAIL_MARK'))   { lower_prolog_child(t); return; }
+    if (IDENT(k, 'TT_TRAIL_UNWIND')) { lower_prolog_child(t); return; }
+    if (IDENT(k, 'TT_CAPT_COND_ASGN'))  { lower_pat_expr(t); return; }
+    if (IDENT(k, 'TT_CAPT_IMMED_ASGN')) { lower_pat_expr(t); return; }
+    if (IDENT(k, 'TT_CAPT_CURSOR'))     { lower_pat_expr(t); return; }
     g_unhandled[k] = 1;
     emit('SM_PUSH_NULL');
     return;
@@ -356,7 +813,7 @@ function attr_expr_of(s, tag, a) {
 /* ==================================================================================================================== */
 function lower_stmt(s, label, lang, stno, lineno, subject, pattern, has_eq,
                     replacement, goto_s, goto_f, goto_u,
-                    is_end, sname) {
+                    is_end, sname, sv_name, ts) {
     is_end = (DIFFER(stmt_attr_find(s, SL_END)) 1, 0);
     if (IDENT(is_end, 1)) {
         label = stmt_attr_str(s, SL_LBL);
@@ -389,6 +846,16 @@ function lower_stmt(s, label, lang, stno, lineno, subject, pattern, has_eq,
         labtab_define(label, g_count - 1);
     }
     emit_ii('SM_STNO', stno, lineno);
+    if (IDENT(lang, LANG_ICN)) return;
+    if (IDENT(lang, LANG_PL)) {
+        if (DIFFER(subject) IDENT(t(subject), 'TT_CHOICE') DIFFER(v(subject))) {
+            emit_prolog_call(v(subject));
+        } else {
+            if (DIFFER(subject)) lower_expr(subject); else emit('SM_PUSH_NULL');
+            emit('SM_BB_ONCE');
+        }
+        goto emit_gotos;
+    }
     if (DIFFER(pattern)) {
         lower_pat_expr(pattern);
         if (DIFFER(subject)) lower_expr(subject); else emit('SM_PUSH_NULL');
@@ -398,7 +865,12 @@ function lower_stmt(s, label, lang, stno, lineno, subject, pattern, has_eq,
         } else {
             emit_i('SM_PUSH_LIT_I', 0);
         }
-        sname = (DIFFER(subject) (IDENT(t(subject), TT_VAR) v(subject), ''), '');
+        sname = '';
+        if (DIFFER(subject)) {
+            ts = t(subject);
+            if (IDENT(ts, 'TT_VAR')) sname = (DIFFER(v(subject)) v(subject), '');
+            if (IDENT(ts, 'TT_KEYWORD')) sname = (DIFFER(v(subject)) v(subject), '');
+        }
         emit_si('SM_EXEC_STMT', sname, has_eq);
         goto emit_gotos;
     }
@@ -408,6 +880,12 @@ function lower_stmt(s, label, lang, stno, lineno, subject, pattern, has_eq,
             else                     emit('SM_PUSH_NULL');
             emit_lhs_store(subject);
         } else {
+            if (IDENT(t(subject), 'TT_VAR') DIFFER(v(subject))) {
+                sv_name = REPLACE(v(subject), &LCASE, &UCASE);
+                if (IDENT(sv_name, 'RETURN'))  { emit('SM_RETURN');  goto emit_gotos; }
+                if (IDENT(sv_name, 'FRETURN')) { emit('SM_FRETURN'); goto emit_gotos; }
+                if (IDENT(sv_name, 'NRETURN')) { emit('SM_NRETURN'); goto emit_gotos; }
+            }
             lower_expr(subject);
             emit('SM_VOID_POP');
         }
@@ -420,19 +898,40 @@ emit_gotos:
     return;
 }
 /* ==================================================================================================================== */
-function lower(prog, i, s, last_op) {
+/* ==================================================================================================================== */
+/* Procedure skeleton emission.
+ * The C `lower_proc_skeletons()` walks `proc_table[]` (Icon procs) and
+ * `g_pl_pred_table` (Prolog predicates) to emit JUMP/label/body/RETURN/skip
+ * stubs so forward references resolve before bodies land.  The .sc port
+ * does not yet share those C-side global tables — Ph3 will introduce
+ * `g_proc_table` / `g_pl_pred_table` Snocone equivalents.  Stub keeps
+ * `lower()` structurally identical to C: empty pass, no instructions emitted. */
+function lower_proc_skeletons() { return; }
+/* ==================================================================================================================== */
+function lower(prog, i, s, last_op, s_lang, has_icn) {
     g_sm     = tree('SM_LIST', '');
     g_count  = 0;
     g_labtab = TABLE();
     g_patch  = tree('PATCH', '');
     g_instr_tbl = TABLE();
     g_unhandled = TABLE();
+    g_in_proc = 0;
+    lower_proc_skeletons();
+    has_icn = 0;
     i = 1;
     while (LE(i, n(prog))) {
         s = c(prog)[i];
-        if (DIFFER(s)) lower_stmt(s);
+        if (DIFFER(s)) {
+            s_lang = (IDENT(t(s), 'STMT') attr_int_of(s, SL_LANG), 0);
+            if (IDENT(t(s), 'STMT') IDENT(s_lang, LANG_ICN)) {
+                has_icn = 1;
+            } else {
+                lower_stmt(s);
+            }
+        }
         i = i + 1;
     }
+    if (IDENT(has_icn, 1)) emit_si('SM_BB_PUMP_PROC', 'main', 0);
     if (EQ(g_count, 0)) {
         emit('SM_HALT');
     } else {

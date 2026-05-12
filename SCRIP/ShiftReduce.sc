@@ -59,7 +59,7 @@ function ReduceCall(n, args, i, fname, r) {
     i = n + 1;
     while (i = GT(i, 1) i - 1) { args[i] = Pop(); }
     fname = v(Pop());
-    r = tree('AST_FNC', fname, n, args);
+    r = tree('TT_FNC', fname, n, args);
     Push(r);
     nreturn;
 }
@@ -86,7 +86,7 @@ function ReduceOpsyn(op, n, c, i, r) {
     c = GE(n, 1) ARRAY('1:' n);
     i = n + 1;
     while (i = GT(i, 1) i - 1) { c[i] = Pop(); }
-    r = tree('AST_OPSYN', op, n, c);
+    r = tree('TT_OPSYN', op, n, c);
     Push(r);
     nreturn;
 }
