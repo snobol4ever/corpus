@@ -1,3 +1,4 @@
+
 function TValue(x, i) {
     if (TValue = IDENT(t(x), 'AST_NUL') '(AST_NUL)')                           { return; }
     if (TValue = IDENT(t(x), 'AST_CUT') '(AST_CUT)')                           { return; }
@@ -36,7 +37,7 @@ function TValue(x, i) {
     }
     return;
 }
-/* ==================================================================================================================== */
+
 function TLump(x, len, i, t, sub) {
     if (~GT(len, 0)) { freturn; }
     if (TLump = IDENT(x) '()') { return; }
@@ -99,7 +100,7 @@ TLump0:
     TLump = TLump ')';
     return;
 }
-/* ==================================================================================================================== */
+
 function TDump(x, outNm, i, t) {
     outNm = IDENT(outNm) .OUTPUT;
     x = IDENT(DATATYPE(x), 'NAME') $x;

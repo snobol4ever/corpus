@@ -65,7 +65,6 @@ while (LE(ascii_i, 127)) {
     ascii_table[CHAR(ascii_i)] = ascii_i;
     ascii_i = ascii_i + 1;
 }
-/* ==================================================================================================================== */
 function reset_var_scope() {
     var_table = TABLE();
     var_next  = 0;
@@ -73,7 +72,6 @@ function reset_var_scope() {
     nreturn;
 }
 Reset_var_scope = epsilon . *reset_var_scope();
-/* ==================================================================================================================== */
 function resolve_var(name, slot) {
     slot = var_table[name];
     if (~DIFFER(slot)) {
@@ -84,7 +82,6 @@ function resolve_var(name, slot) {
     resolve_var = '_V' slot;
     return;
 }
-/* ==================================================================================================================== */
 function push_var(varname, name) {
     name = $varname;
     if (IDENT(name, '_')) {
@@ -96,12 +93,10 @@ function push_var(varname, name) {
     push_var = .dummy;
     nreturn;
 }
-/* ==================================================================================================================== */
 function Push_var(varname) {
     Push_var = EVAL("epsilon . thx . *push_var('" varname "')");
     return;
 }
-/* ==================================================================================================================== */
 function assign_anon_slots(x, i, kid) {
     if (~DIFFER(x)) { assign_anon_slots = .dummy; nreturn; }
     if (IDENT(t(x), 'AST_VAR') IDENT(v(x), '_ANON')) {
@@ -117,7 +112,6 @@ function assign_anon_slots(x, i, kid) {
     assign_anon_slots = .dummy;
     nreturn;
 }
-/* ==================================================================================================================== */
 function unescape_q(raw, out, i, n, c, prev_was_quote) {
     out = '';  n = SIZE(raw);  i = 1;  prev_was_quote = 0;
     while (LE(i, n)) {
@@ -134,55 +128,46 @@ function unescape_q(raw, out, i, n, c, prev_was_quote) {
     unescape_q = out;
     return;
 }
-/* ==================================================================================================================== */
 function push_atom_body(varname, raw) {
     raw = $varname;
     Push(tree('AST_FNC', unescape_q(raw)));
     push_atom_body = .dummy;
     nreturn;
 }
-/* ==================================================================================================================== */
 function Push_atom_body(varname) {
     Push_atom_body = EVAL("epsilon . thx . *push_atom_body('" varname "')");
     return;
 }
-/* ==================================================================================================================== */
 function push_graphic_sym_val() {
     Push(tree('AST_FNC', g_sym));
     push_graphic_sym_val = .dummy;
     nreturn;
 }
 Push_graphic_sym = epsilon . *push_graphic_sym_val();
-/* ==================================================================================================================== */
 function push_nil() {
     Push(tree('AST_FNC', '[]'));
     push_nil = .dummy;
     nreturn;
 }
 Push_nil = epsilon . *push_nil();
-/* ==================================================================================================================== */
 function push_neg_int(varname) {
     Push(tree('AST_ILIT', '-' $varname));
     push_neg_int = .dummy;
     nreturn;
 }
-/* ==================================================================================================================== */
 function Push_neg_int(varname) {
     Push_neg_int = EVAL("epsilon . thx . *push_neg_int('" varname "')");
     return;
 }
-/* ==================================================================================================================== */
 function push_neg_float(varname) {
     Push(tree('AST_FLIT', '-' $varname));
     push_neg_float = .dummy;
     nreturn;
 }
-/* ==================================================================================================================== */
 function Push_neg_float(varname) {
     Push_neg_float = EVAL("epsilon . thx . *push_neg_float('" varname "')");
     return;
 }
-/* ==================================================================================================================== */
 function push_char_code(varname, ch, val) {
     ch = $varname;
     val = ascii_table[ch];
@@ -190,12 +175,10 @@ function push_char_code(varname, ch, val) {
     push_char_code = .dummy;
     nreturn;
 }
-/* ==================================================================================================================== */
 function Push_char_code(varname) {
     Push_char_code = EVAL("epsilon . thx . *push_char_code('" varname "')");
     return;
 }
-/* ==================================================================================================================== */
 function reduce_univ(rhs, lhs, fnc_node) {
     rhs = Pop();
     lhs = Pop();
@@ -207,7 +190,6 @@ function reduce_univ(rhs, lhs, fnc_node) {
     nreturn;
 }
 Reduce_univ = epsilon . *reduce_univ();
-/* ==================================================================================================================== */
 function reduce_is(rhs, lhs, fnc_node) {
     rhs = Pop();
     lhs = Pop();
@@ -220,7 +202,6 @@ function reduce_is(rhs, lhs, fnc_node) {
 }
 Reduce_is = epsilon . *reduce_is();
 _op_name = '';
-/* ==================================================================================================================== */
 function reduce_binop(rhs, lhs, f) {
     rhs = Pop();  lhs = Pop();
     f = Tree('AST_FNC', _op_name, 0);
@@ -229,7 +210,6 @@ function reduce_binop(rhs, lhs, f) {
     reduce_binop = .dummy;  nreturn;
 }
 Reduce_binop = epsilon . *reduce_binop();
-/* ==================================================================================================================== */
 function reduce_unop(operand, f) {
     operand = Pop();
     f = Tree('AST_FNC', _op_name, 0);
@@ -238,7 +218,6 @@ function reduce_unop(operand, f) {
     reduce_unop = .dummy;  nreturn;
 }
 Reduce_unop = epsilon . *reduce_unop();
-/* ==================================================================================================================== */
 function reduce_ifthen(then_tree, cond_tree, f, n, i) {
     then_tree = Pop();  cond_tree = Pop();
     f = Tree('AST_FNC', '->', 0);
@@ -256,7 +235,6 @@ function reduce_ifthen(then_tree, cond_tree, f, n, i) {
     reduce_ifthen = .dummy;  nreturn;
 }
 Reduce_ifthen = epsilon . *reduce_ifthen();
-/* ==================================================================================================================== */
 function reduce_cmp_op(op, rhs, lhs, fnc_node) {
     rhs = Pop();
     lhs = Pop();
@@ -270,25 +248,15 @@ function reduce_cmp_op(op, rhs, lhs, fnc_node) {
 cmp_op_ge  = '>=';  cmp_op_le  = '=<';  cmp_op_gt  = '>';   cmp_op_lt  = '<';
 cmp_op_eqq = '=:='; cmp_op_id  = '==';
 cmp_op_ne1 = '\=';  cmp_op_ne2 = '=\='; cmp_op_ne3 = '\==';
-/* ==================================================================================================================== */
 function do_cmp_ge()  { rhs=Pop();lhs=Pop();f=Tree('AST_FNC',cmp_op_ge,0); Append(f,lhs);Append(f,rhs);Push(f); do_cmp_ge=.dummy;  nreturn; }
-/* ==================================================================================================================== */
 function do_cmp_le()  { rhs=Pop();lhs=Pop();f=Tree('AST_FNC',cmp_op_le,0); Append(f,lhs);Append(f,rhs);Push(f); do_cmp_le=.dummy;  nreturn; }
-/* ==================================================================================================================== */
 function do_cmp_gt()  { rhs=Pop();lhs=Pop();f=Tree('AST_FNC',cmp_op_gt,0); Append(f,lhs);Append(f,rhs);Push(f); do_cmp_gt=.dummy;  nreturn; }
-/* ==================================================================================================================== */
 function do_cmp_lt()  { rhs=Pop();lhs=Pop();f=Tree('AST_FNC',cmp_op_lt,0); Append(f,lhs);Append(f,rhs);Push(f); do_cmp_lt=.dummy;  nreturn; }
-/* ==================================================================================================================== */
 function do_cmp_eqq() { rhs=Pop();lhs=Pop();f=Tree('AST_FNC',cmp_op_eqq,0);Append(f,lhs);Append(f,rhs);Push(f); do_cmp_eqq=.dummy; nreturn; }
-/* ==================================================================================================================== */
 function do_cmp_id()  { rhs=Pop();lhs=Pop();f=Tree('AST_FNC',cmp_op_id,0); Append(f,lhs);Append(f,rhs);Push(f); do_cmp_id=.dummy;  nreturn; }
-/* ==================================================================================================================== */
 function do_cmp_ne1() { rhs=Pop();lhs=Pop();f=Tree('AST_FNC',cmp_op_ne1,0);Append(f,lhs);Append(f,rhs);Push(f); do_cmp_ne1=.dummy; nreturn; }
-/* ==================================================================================================================== */
 function do_cmp_ne2() { rhs=Pop();lhs=Pop();f=Tree('AST_FNC',cmp_op_ne2,0);Append(f,lhs);Append(f,rhs);Push(f); do_cmp_ne2=.dummy; nreturn; }
-/* ==================================================================================================================== */
 function do_cmp_ne3() { rhs=Pop();lhs=Pop();f=Tree('AST_FNC',cmp_op_ne3,0);Append(f,lhs);Append(f,rhs);Push(f); do_cmp_ne3=.dummy; nreturn; }
-/* ==================================================================================================================== */
 function reduce_list(n, kids, i, tail, cons_node) {
     n    = nTop();
     tail = Pop();
@@ -311,7 +279,6 @@ function reduce_list(n, kids, i, tail, cons_node) {
     nreturn;
 }
 Reduce_list = epsilon . *reduce_list();
-/* ==================================================================================================================== */
 function reduce_compound(varname, name, n, fnc_node, kids, i) {
     name = $varname;
     n = nTop();
@@ -331,12 +298,10 @@ function reduce_compound(varname, name, n, fnc_node, kids, i) {
     reduce_compound = .dummy;
     nreturn;
 }
-/* ==================================================================================================================== */
 function Reduce_compound(varname) {
     Reduce_compound = EVAL("epsilon . thx . *reduce_compound('" varname "')");
     return;
 }
-/* ==================================================================================================================== */
 function reduce_compound_ns(name, n, fnc_node, kids, i) {
     name = TopName();
     PopName();
@@ -358,7 +323,6 @@ function reduce_compound_ns(name, n, fnc_node, kids, i) {
     nreturn;
 }
 Reduce_compound_ns = epsilon . *reduce_compound_ns();
-/* ==================================================================================================================== */
 function reduce_conj(n, fnc_node, kids, i) {
     n = nTop();
     if (LE(n, 1)) { reduce_conj = .dummy; nreturn; }
@@ -379,7 +343,6 @@ function reduce_conj(n, fnc_node, kids, i) {
     nreturn;
 }
 Reduce_conj = epsilon . *reduce_conj();
-/* ==================================================================================================================== */
 function reduce_disj(n, fnc_node, kids, i) {
     n = nTop();
     if (LE(n, 1)) { reduce_disj = .dummy; nreturn; }
@@ -403,7 +366,6 @@ Reduce_disj = epsilon . *reduce_disj();
 head_name    = '';
 head_arity   = 0;
 body_present = 0;
-/* ==================================================================================================================== */
 function snapshot_head(varname) {
     head_name    = $varname;
     head_arity   = nTop();
@@ -411,19 +373,16 @@ function snapshot_head(varname) {
     snapshot_head = .dummy;
     nreturn;
 }
-/* ==================================================================================================================== */
 function Snapshot_head(varname) {
     Snapshot_head = EVAL("epsilon . thx . *snapshot_head('" varname "')");
     return;
 }
-/* ==================================================================================================================== */
 function mark_body() {
     body_present = 1;
     mark_body = .dummy;
     nreturn;
 }
 Mark_body = epsilon . *mark_body();
-/* ==================================================================================================================== */
 function flatten_conj_into(clause_node, x, ck, cn) {
     if (IDENT(t(x), 'AST_FNC') IDENT(v(x), ',')) {
         cn = n(x);
@@ -436,7 +395,6 @@ function flatten_conj_into(clause_node, x, ck, cn) {
     flatten_conj_into = .dummy;
     nreturn;
 }
-/* ==================================================================================================================== */
 function build_clause(key, parts, i, body_tree, clause_node, bk, bn) {
     key = head_name '/' head_arity;
     body_tree = ;
@@ -472,7 +430,6 @@ function build_clause(key, parts, i, body_tree, clause_node, bk, bn) {
     nreturn;
 }
 Build_clause = epsilon . *build_clause();
-/* ==================================================================================================================== */
 function build_directive(body_tree) {
     body_tree = Pop();
     assign_anon_slots(body_tree);
@@ -483,7 +440,6 @@ function build_directive(body_tree) {
 }
 Build_directive = epsilon . *build_directive();
 dcg_svar_count = 0;
-/* ==================================================================================================================== */
 function dcg_fresh_var(slot) {
     slot = '_S' dcg_svar_count;
     dcg_svar_count = dcg_svar_count + 1;
@@ -492,24 +448,20 @@ function dcg_fresh_var(slot) {
     dcg_fresh_var = '_V' var_table[slot];
     return;
 }
-/* ==================================================================================================================== */
 function dcg_append_tail(list, tail, new_tail) {
     if (IDENT(v(list), '[]')) return tail;
     new_tail = Tree('AST_FNC', '.', 2, c(list)[1], dcg_append_tail(c(list)[2], tail));
     dcg_append_tail = new_tail;
     return;
 }
-/* ==================================================================================================================== */
 function dcg_make_unify(a, b) {
     dcg_make_unify = Tree('AST_UNIFY', '', 2, a, b);
     return;
 }
-/* ==================================================================================================================== */
 function dcg_var_tree(slot_name) {
     dcg_var_tree = tree('AST_VAR', slot_name);
     return;
 }
-/* ==================================================================================================================== */
 function dcg_call_nt(body, s_in, s_out, new_node, k, nk) {
     new_node = Tree('AST_FNC', v(body), 0);
     nk = n(body);
@@ -523,7 +475,6 @@ function dcg_call_nt(body, s_in, s_out, new_node, k, nk) {
     dcg_call_nt = new_node;
     return;
 }
-/* ==================================================================================================================== */
 function dcg_build_conj(goals, ng, i, result) {
     if (LE(ng, 0)) { dcg_build_conj = ; return; }
     result = goals[1];
@@ -535,7 +486,6 @@ function dcg_build_conj(goals, ng, i, result) {
     dcg_build_conj = result;
     return;
 }
-/* ==================================================================================================================== */
 function expand_dcg_body(body, s_in, s_out, result, n,
                          s_mid, s_a, s_b, i, nk,
                          buf_a, na, buf_b, nb, branches, nb2,
@@ -620,7 +570,6 @@ function expand_dcg_body(body, s_in, s_out, result, n,
     expand_dcg_body = n;
     return;
 }
-/* ==================================================================================================================== */
 function build_dcg(s0, s1, key, goals, ng, body_tree, clause_node,
                    parts, i, bk, bn) {
     body_tree = Pop();
@@ -668,7 +617,6 @@ function build_dcg(s0, s1, key, goals, ng, body_tree, clause_node,
     nreturn;
 }
 Build_dcg = epsilon . *build_dcg();
-/* ==================================================================================================================== */
 function push_dcg_inline(body_tree, node, k, nk) {
     body_tree = Pop();
     node = Tree('AST_DCG_IL', '', 0);
@@ -685,7 +633,6 @@ function push_dcg_inline(body_tree, node, k, nk) {
     nreturn;
 }
 Push_dcg_inline = epsilon . *push_dcg_inline();
-/* ==================================================================================================================== */
 function push_cut() {
     Push(Tree('AST_CUT', '', 0));
     push_cut = .dummy;
@@ -693,7 +640,6 @@ function push_cut() {
 }
 Push_cut = epsilon . *push_cut();
 Mark_dcg_body = epsilon . *mark_body();
-/* ==================================================================================================================== */
 function merge_choices(parse_root, n_in, i, stmt, inner, key,
                        directives, n_dir,
                        choice_keys, choice_stmts, n_choice, found,
@@ -804,7 +750,6 @@ primary = (   Atom . p_name nPushName('p_name') $'('
           |   $'\' $' ' *primary            Reduce_unop
           |   $' ' '-' *primary        epsilon . *do_uminus()
           );
-/* ==================================================================================================================== */
 function push_radix_hex(varname, raw, val, s) {
     raw = $varname;
     val = EVAL('0x' raw) '';
@@ -812,7 +757,6 @@ function push_radix_hex(varname, raw, val, s) {
     Push(tree('AST_ILIT', s));
     push_radix_hex = .dummy;  nreturn;
 }
-/* ==================================================================================================================== */
 function push_radix_bin(varname, raw, n, i, len, s) {
     raw = $varname;
     n = 0;  i = 1;  len = SIZE(raw);
@@ -824,7 +768,6 @@ function push_radix_bin(varname, raw, n, i, len, s) {
     Push(tree('AST_ILIT', s));
     push_radix_bin = .dummy;  nreturn;
 }
-/* ==================================================================================================================== */
 function push_radix_oct(varname, raw, n, i, len, s) {
     raw = $varname;
     n = 0;  i = 1;  len = SIZE(raw);
@@ -836,22 +779,18 @@ function push_radix_oct(varname, raw, n, i, len, s) {
     Push(tree('AST_ILIT', s));
     push_radix_oct = .dummy;  nreturn;
 }
-/* ==================================================================================================================== */
 function Push_hex_int(varname) {
     Push_hex_int = EVAL("epsilon . thx . *push_radix_hex('" varname "')");
     return;
 }
-/* ==================================================================================================================== */
 function Push_bin_int(varname) {
     Push_bin_int = EVAL("epsilon . thx . *push_radix_bin('" varname "')");
     return;
 }
-/* ==================================================================================================================== */
 function Push_oct_int(varname) {
     Push_oct_int = EVAL("epsilon . thx . *push_radix_oct('" varname "')");
     return;
 }
-/* ==================================================================================================================== */
 function do_uminus(operand, f) {
     operand = Pop();
     f = Tree('AST_FNC', '-', 0);
@@ -928,7 +867,6 @@ unify_expr = (  cmp_expr
                      | epsilon
                      )
              );
-/* ==================================================================================================================== */
 function reduce_pfx(kw, arg, fnc_node) {
     arg = Pop();
     fnc_node = Tree('AST_FNC', pfx_kw, 0);
@@ -937,7 +875,6 @@ function reduce_pfx(kw, arg, fnc_node) {
     reduce_pfx = .dummy;  nreturn;
 }
 Reduce_pfx = EVAL("epsilon . thx . *reduce_pfx()");
-/* ==================================================================================================================== */
 function reduce_naf(goal, fnc_node) {
     goal = Pop();
     fnc_node = Tree('AST_FNC', '\\+', 0);
@@ -1013,7 +950,6 @@ directive = (   $':-'                          Reset_var_scope
                                                Build_directive
             );
 top_form  = (directive | clause | dcg_rule);
-/* ==================================================================================================================== */
 function push_skip() {
     Push(Tree('AST_FNC', 'skip', 0));
     push_skip = .dummy;  nreturn;

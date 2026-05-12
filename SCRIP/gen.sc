@@ -1,29 +1,31 @@
+
 function IncLevel(delta) {
     IncLevel = .dummy;
     delta = IDENT(delta) 2;
     $'#L' = $'#L' + delta;
     nreturn;
 }
-/* ==================================================================================================================== */
+
 function DecLevel(delta) {
     DecLevel = .dummy;
     delta = IDENT(delta) 2;
     $'#L' = $'#L' - delta;
     nreturn;
 }
-/* ==================================================================================================================== */
+
 function SetLevel(level) {
     SetLevel = .dummy;
     $'#L' = level;
     nreturn;
 }
-/* ==================================================================================================================== */
+
 function GetLevel() {
     GetLevel = $'#L';
     return;
 }
+
 indent = DUPL(' ', 120);
-/* ==================================================================================================================== */
+
 function Gen(str, outNm, ind, outline) {
     Gen = .dummy;
     outNm = IDENT(outNm) .OUTPUT;
@@ -37,7 +39,7 @@ function Gen(str, outNm, ind, outline) {
         $outNm = $'$C' ind outline;
     nreturn;
 }
-/* ==================================================================================================================== */
+
 function GenTab(pos) {
     GenTab = .dummy;
     pos = IDENT(pos) $'#L';
@@ -45,7 +47,7 @@ function GenTab(pos) {
         $'$B' = $'$B' ' ';
     nreturn;
 }
-/* ==================================================================================================================== */
+
 function GenSetCont(cont) {
     GenSetCont = .dummy;
     $'$X' = ;

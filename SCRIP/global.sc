@@ -1,5 +1,7 @@
+
 &FULLSCAN = 1;
 &MAXLNGTH = 1024;
+
 &ALPHABET ? (POS(0)  LEN(1) . nul);
 &ALPHABET ? (POS(8)  LEN(1) . bs);
 &ALPHABET ? (POS(9)  LEN(1) . ht);
@@ -12,6 +14,7 @@
 &ALPHABET ? (POS(47) LEN(1) . fSlash);
 &ALPHABET ? (POS(59) LEN(1) . semicolon);
 &ALPHABET ? (POS(92) LEN(1) . bSlash);
+
 &ALPHABET ? (POS(0)                      LEN(128) . X0xxxxxxx);
 &ALPHABET ? (POS(128)                    LEN(128) . X1xxxxxxx);
 &ALPHABET ? (POS(128)                    LEN(64)  . X10xxxxxx);
@@ -19,17 +22,20 @@
 &ALPHABET ? (POS(128 + 64 + 32)          LEN(16)  . X1110xxxx);
 &ALPHABET ? (POS(128 + 64 + 32 + 16)     LEN(8)   . X11110xxx);
 &ALPHABET ? (POS(128 + 64 + 32 + 16 + 8) LEN(8)   . X11111xxx);
+
 TRUE   = 1;
 FALSE  = 0;
 digits = '0123456789';
 hex_digits = '0123456789abcdefABCDEF';
 bin_digits = '01';
 oct_digits = '01234567';
+
 doDebug   = 0;
 xTrace    = 0;
 t8Max     = 0;
 t8MaxLast = 0;
 t8Map     = TABLE();
 strOfs    = 0;
+
 doParseTree = 0;
 txOfs       = 0;

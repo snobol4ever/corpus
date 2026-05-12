@@ -3,7 +3,6 @@ function match(subject, pattern) {
     if (subject ? pattern) nreturn;
     else freturn;
 }
-/* ==================================================================================================================== */
 function notmatch(subject, pattern) {
     notmatch = .dummy;
     if (subject ? pattern) freturn;

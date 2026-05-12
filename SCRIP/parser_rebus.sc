@@ -1,4 +1,6 @@
 &FULLSCAN = 1;
+
+
 white       =   (  SPAN(' ' tab)
                 |  '#'  BREAK(nl)
                 |  '//' BREAK(nl)
@@ -8,14 +10,17 @@ White       =   white ARBNO(white);
 Gray        =   ARBNO(white);
 $'  '       =   White;
 $' '        =   Gray;
+
 Id      = ANY(&UCASE &LCASE '_') (SPAN(&UCASE &LCASE digits '_' '.') | epsilon);
 Integer = SPAN(digits);
 Real    = SPAN(digits) '.' SPAN(digits);
 KW_open = '&';
 KW_body = ANY(&UCASE &LCASE '_') (SPAN(&UCASE &LCASE digits '_') | epsilon);
+
 DQ_str  = '"' BREAK('"') . strbody '"';
 SQ_str  = "'" BREAK("'") . strbody "'";
 String  = *DQ_str | *SQ_str;
+
 $'('        =       '('        $' ';  $')'        = $' ' ')';
 $'['        =       '['        $' ';  $']'        = $' ' ']';
 $'.'        = $' '  '.'        $' ';
@@ -69,6 +74,7 @@ $':=:'      = $' '  ':=:'      $' ';
 $'+:'       = $' '  '+:'       $' ';
 dot_capt    = $'  '  '.'        $' ';
 dollar_capt = $'  '  '$'        $' ';
+
 AST_VAR        = 'AST_VAR';
 AST_ILIT       = 'AST_ILIT';
 AST_QLIT       = 'AST_QLIT';
@@ -135,32 +141,35 @@ AST_BANGPAT   = 'AST_BANGPAT';
 AST_VALUEPAT  = 'AST_VALUEPAT';
 COMPOUND    = 'COMPOUND';
 AST_POS       = 'AST_POS';
+
 nTop_count   = 'nTop()';
 nTop_plus1   = 'nTop() + 1';
+
 X_sub = nInc() *expr FENCE($',' *X_sub | epsilon);
-/* ==================================================================================================================== */
+
+
 function push_qlit() {
     push_qlit = .dummy;
     Push(tree(AST_QLIT, strbody));
     nreturn;
 }
-/* ==================================================================================================================== */
+
+
 function Push_qlit() {
     Push_qlit = epsilon . *push_qlit();
     return;
 }
-/* ==================================================================================================================== */
+
 function push_nul() {
     push_nul = .dummy;
     Push(tree(AST_NUL, ''));
     nreturn;
 }
-/* ==================================================================================================================== */
 function Push_nul() {
     Push_nul = epsilon . *push_nul();
     return;
 }
-/* ==================================================================================================================== */
+
 function decompose_call(nargs, kids, fname, call, i) {
     nargs = nTop();
     kids  = ARRAY('1:' nargs + 1);
@@ -174,7 +183,7 @@ function decompose_call(nargs, kids, fname, call, i) {
     decompose_call = .dummy;
     nreturn;
 }
-/* ==================================================================================================================== */
+
 function decompose_sub(nargs, base, kids, sub, i) {
     nargs = nTop();
     kids  = ARRAY('1:' nargs + 1);
@@ -189,58 +198,63 @@ function decompose_sub(nargs, base, kids, sub, i) {
     decompose_sub = .dummy;
     nreturn;
 }
-/* ==================================================================================================================== */
+
 function Decompose_sub() {
     Decompose_sub = epsilon . *decompose_sub();
     return;
 }
-/* ==================================================================================================================== */
 function push_call_id() {
     push_call_id = .dummy;
     Push(tree(AST_VAR, REPLACE(rbCallName, &LCASE, &UCASE)));
     nreturn;
 }
+
 rbKwName = '';
-/* ==================================================================================================================== */
 function push_keyword() {
     push_keyword = .dummy;
     Push(tree(AST_KEYWORD, REPLACE(rbKwName, &LCASE, &UCASE)));
     nreturn;
 }
-/* ==================================================================================================================== */
+
 function Decompose_call() {
     Decompose_call = epsilon . *decompose_call();
     return;
 }
-/* ==================================================================================================================== */
+
 function Push_call_id() {
     Push_call_id = epsilon . *push_call_id();
     return;
 }
-/* ==================================================================================================================== */
+
 function Push_keyword() {
     Push_keyword = epsilon . *push_keyword();
     return;
 }
+
 rbCursorName = '';
-/* ==================================================================================================================== */
 function push_cursor() {
     push_cursor = .dummy;
     Push(tree(AST_CAPT_CURSOR, REPLACE(rbCursorName, &LCASE, &UCASE)));
     nreturn;
 }
-/* ==================================================================================================================== */
 function Push_cursor() {
     Push_cursor = epsilon . *push_cursor();
     return;
 }
+
+
+
+
 rbCallName = '';
+
 nInc_then_nul = nInc() Push_nul();
 X_args   = nInc() *alt_expr FENCE($',' FENCE(*X_args | *nInc_then_nul FENCE($',' *X_args | epsilon)) | epsilon);
+
 call_or_id = FENCE(  (*Id . rbCallName) $'(' nPush() Push_call_id()
                      FENCE(*X_args | epsilon) $')' Decompose_call() nPop()
                    | shift(*Id, AST_VAR)
                   );
+
 primary = FENCE(  *String  Push_qlit()
                 | KW_open (*KW_body . rbKwName) Push_keyword()
                 | '@' (*Id . rbCursorName) Push_cursor()
@@ -249,6 +263,7 @@ primary = FENCE(  *String  Push_qlit()
                 | *call_or_id
                 | '(' *expr ')'
                );
+
 postfix_expr = *primary
                FENCE(  $'[' *alt_expr $'+:' *alt_expr $']' reduce(AST_IDX, 2) reduce(AST_IDX, 2)
                          FENCE($'[' *alt_expr $'+:' *alt_expr $']' reduce(AST_IDX, 2) reduce(AST_IDX, 2) | epsilon)
@@ -260,6 +275,7 @@ postfix_expr = *primary
                          FENCE(*dollar_capt *primary reduce(AST_CAPT_IMM,  2) | epsilon)
                       | epsilon
                      );
+
 unary_expr = FENCE(  $'-'  *unary_expr reduce(AST_MNS, 1)
                    | '+'   *unary_expr reduce(AST_POS, 1)
                    | '~'   *unary_expr reduce(AST_NOTPAT, 1)
@@ -270,21 +286,25 @@ unary_expr = FENCE(  $'-'  *unary_expr reduce(AST_MNS, 1)
                    | '.'   *unary_expr reduce(AST_CAPT_COND, 1)
                    | *postfix_expr
                   );
+
 pow_expr = *unary_expr FENCE(  $'**' *pow_expr reduce(AST_POW, 2)
                               | $'^'  *pow_expr reduce(AST_POW, 2)
                               | epsilon
                              );
+
 mul_expr = *pow_expr
            ( $'*' *pow_expr reduce(AST_MUL, 2) ($'*' *pow_expr reduce(AST_MUL, 2) | epsilon)
            | $'/' *pow_expr reduce(AST_DIV, 2) ($'/' *pow_expr reduce(AST_DIV, 2) | epsilon)
            | $'%' *pow_expr reduce(REMDR,  2) ($'%' *pow_expr reduce(REMDR,  2) | epsilon)
            | epsilon
            );
+
 add_expr = *mul_expr
            ( $'+' *mul_expr reduce(AST_ADD, 2) ($'+' *mul_expr reduce(AST_ADD, 2) | epsilon)
            | $'-' *mul_expr reduce(AST_SUB, 2) ($'-' *mul_expr reduce(AST_SUB, 2) | epsilon)
            | epsilon
            );
+
 cmp_expr = *add_expr FENCE(  $'~==' *add_expr reduce(CMP_SNE, 2)
                              | $'==' *add_expr reduce(CMP_SEQ, 2)
                              | $'<<=' *add_expr reduce(CMP_SLE, 2)
@@ -299,13 +319,16 @@ cmp_expr = *add_expr FENCE(  $'~==' *add_expr reduce(CMP_SNE, 2)
                              | $'>'   *add_expr reduce(CMP_GT,  2)
                              | epsilon
                             );
+
 cat_expr = *cmp_expr
            ( $'||' *cmp_expr reduce(AST_CAT, 2) ($'||' *cmp_expr reduce(AST_CAT, 2) | epsilon)
            | $'&'  *cmp_expr reduce(AST_CAT, 2) ($'&'  *cmp_expr reduce(AST_CAT, 2) | epsilon)
            | epsilon
            );
+
 X_alt = nInc() *cat_expr FENCE($'|' *X_alt | epsilon);
 alt_expr = nPush() *X_alt reduce(ALT, nTop_count) nPop();
+
 expr = *alt_expr FENCE(  $'||:=' *alt_expr reduce(CATASSIGN, 2)
                        | $'+:='  *alt_expr reduce(ADDASSIGN, 2)
                        | $'-:='  *alt_expr reduce(SUBASSIGN, 2)
@@ -313,11 +336,13 @@ expr = *alt_expr FENCE(  $'||:=' *alt_expr reduce(CATASSIGN, 2)
                        | $':='   *alt_expr reduce(ASSIGN, 2)
                        | epsilon
                       );
+
 $'?-match'  = $' '  '?-'  $' ';
 match_or_expr = *expr FENCE($'?-match' *alt_expr reduce(REPLN, 2)
                            | $'?' *alt_expr $'<-arrow' *alt_expr reduce(REPLACE, 3)
                            | $'?' *alt_expr reduce(MATCH, 2)
                            | epsilon);
+
 opt_nl = (nl | epsilon);
 stmt_body = *opt_nl FENCE(*compound_stmt | *case_stmt | *if_stmt | *while_stmt | *unless_stmt | *until_stmt | *repeat_stmt | *for_stmt | *return_stmt | *stop_stmt | *fail_stmt | *exit_stmt | *next_stmt | *match_or_expr);
 if_stmt    = $'if'     *match_or_expr $'then' FENCE(*opt_nl *stmt_body $'else' *opt_nl *stmt_body reduce(IFELSE, 3) | *opt_nl *stmt_body reduce(IF, 2));
@@ -329,75 +354,99 @@ for_body = $'do' BREAK(nl);
 for_stmt = $'for' shift(*Id, AST_VAR) $'from' *match_or_expr $'to' *match_or_expr
            FENCE($'by' *match_or_expr reduce(RB_FOR, 4) | reduce(RB_FOR, 3))
            *for_body;
+
 return_stmt = $'return' FENCE(*match_or_expr reduce(RB_RETURN_VAL, 1) | reduce(RB_RETURN, 0));
 exit_stmt   = $'exit'   reduce(RB_EXIT, 0);
 fail_stmt   = $'fail'   reduce(RB_FAIL, 0);
 stop_stmt   = $'stop'   reduce(RB_STOP, 0);
 next_stmt   = $'next'   reduce(RB_NEXT, 0);
+
 compound_end       = $' ' '}';
 compound_item      = nInc() *stmt_inline $';' $' ' nl;
 compound_body_tail = FENCE(*compound_end | *compound_item *compound_body_tail);
 compound_stmt = $' ' '{' $' ' nl nPush() *compound_body_tail reduce(COMPOUND, nTop_count) nPop();
+
 CASE_CLAUSE   = 'CASE_CLAUSE';
 CASE_DEFAULT  = 'CASE_DEFAULT';
+
 stmt_inline = $' ' FENCE(*compound_stmt | *case_stmt | *if_stmt | *while_stmt | *unless_stmt | *until_stmt | *repeat_stmt | *for_stmt | *return_stmt | *stop_stmt | *fail_stmt | *exit_stmt | *next_stmt | *match_or_expr) $' ';
+
 caseclause_guard   = nInc() *match_or_expr $':' *stmt_inline reduce(CASE_CLAUSE, 2);
 rb_default_kw  = $' '  'default'   $' ';
 caseclause_default = nInc() *rb_default_kw $':' *stmt_inline reduce(CASE_DEFAULT, 1);
 caseclause         = FENCE(*caseclause_default | *caseclause_guard);
+
 caselist_tail = FENCE($';' FENCE(*caseclause *caselist_tail | epsilon) | epsilon);
 caselist      = *caseclause *caselist_tail;
+
 case_stmt = *rb_case_kw nPush() nInc() *match_or_expr $'of' $'{' *caselist $'}' reduce(RB_CASE, nTop_count) nPop();
+
 stmt = $' ' FENCE(*compound_stmt | *case_stmt | *if_stmt | *while_stmt | *unless_stmt | *until_stmt | *repeat_stmt | *for_stmt | *return_stmt | *stop_stmt | *fail_stmt | *exit_stmt | *next_stmt | *match_or_expr) $' ' FENCE(nl | epsilon);
+
+
 func_end      = $'end' $' ' nl;
 blank_line    = $' ' nl;
 func_body_stmt = FENCE(*blank_line *func_body_stmt | *func_end | nInc() *stmt *func_body_stmt);
 func_body     = nPush() *func_body_stmt reduce(BODY, nTop_count) nPop();
+
+
 X_params  = nInc() shift(*Id, AST_VAR) FENCE($',' *X_params | epsilon);
 opt_params = nPush() FENCE(*X_params | epsilon) reduce(PARAMS, nTop_count) nPop();
+
 X_fields  = nInc() shift(*Id, AST_VAR) FENCE($',' *X_fields | epsilon);
 opt_fields = nPush() FENCE(*X_fields | epsilon) reduce(FIELDS, nTop_count) nPop();
+
+
 X_locals   = nInc() shift(*Id, AST_VAR) FENCE($',' *X_locals | epsilon);
 opt_locals = nPush() FENCE($'local' *X_locals FENCE($';' | epsilon) $' ' nl | epsilon) reduce(LOCALS, nTop_count) nPop();
+
 init_expr   = $' ' *match_or_expr $' ';
 opt_initial = FENCE(nPush() $'initial' *init_expr $';' $' ' nl reduce(RB_INITIAL, 1) nPop() | reduce(RB_INITIAL, 0));
+
 function_decl =
     $'function' shift(*Id, AST_VAR) $'(' *opt_params $')' $' ' nl
     *opt_locals
     *opt_initial
     *func_body
     reduce(FUNC_DECL, 5);
+
 record_decl =
     $'record' shift(*Id, AST_VAR) $'(' *opt_fields $')' $' ' nl
     reduce(REC_DECL, 2);
+
 func_cmd = nInc() *function_decl;
 rec_cmd  = nInc() *record_decl;
 blank    = $' ' nl;
+
 Command  = *func_cmd | *rec_cmd | *blank;
+
 Compiland = nPush() ARBNO(Command) reduce(Parse, nTop_count) nPop();
+
+
 label_n = 0;
-/* ==================================================================================================================== */
+
 function new_label() {
     label_n = label_n + 1;
     new_label = 'rb_' label_n;
     return;
 }
-/* ==================================================================================================================== */
+
 function emit_subj(s) {
     TDump(Tree('STMT', '', 1, Tree(':subj', '', 1, s)));
     return;
 }
-/* ==================================================================================================================== */
+
 function emit_go(tgt) {
     TDump(Tree('STMT', '', 1, Tree(':go', tgt)));
     return;
 }
-/* ==================================================================================================================== */
+
 function emit_lbl(lbl) {
     TDump(Tree('STMT', '', 1, Tree(':lbl', lbl)));
     return;
 }
-/* ==================================================================================================================== */
+
+
 function emit_assign(lhs, rhs) {
     TDump(Tree('STMT', '', 3,
                Tree(':eq',   ''),
@@ -405,14 +454,14 @@ function emit_assign(lhs, rhs) {
                Tree(':repl', '', 1, rhs)));
     return;
 }
-/* ==================================================================================================================== */
+
 function emit_match(lhs, rhs) {
     TDump(Tree('STMT', '', 2,
                Tree(':subj', '', 1, lhs),
                Tree(':pat',  '', 1, rhs)));
     return;
 }
-/* ==================================================================================================================== */
+
 function emit_subj_goSF(s, sLbl, fLbl) {
     TDump(Tree('STMT', '', 3,
                Tree(':subj', '', 1, s),
@@ -420,14 +469,14 @@ function emit_subj_goSF(s, sLbl, fLbl) {
                Tree(':goF', fLbl)));
     return;
 }
-/* ==================================================================================================================== */
+
 function emit_subj_goS(s, lbl) {
     TDump(Tree('STMT', '', 2,
                Tree(':subj', '', 1, s),
                Tree(':goS', lbl)));
     return;
 }
-/* ==================================================================================================================== */
+
 function emit_replace(s, p, r) {
     TDump(Tree('STMT', '', 3,
                Tree(':subj', '', 1, s),
@@ -435,7 +484,7 @@ function emit_replace(s, p, r) {
                Tree(':repl', '', 1, r)));
     return;
 }
-/* ==================================================================================================================== */
+
 function lower_case(x, lEnd, lNext, lMatch, tempVar, tempExpr, tmpN, i, cl, ck) {
     lEnd    = new_label();
     tmpN    = label_n;
@@ -466,7 +515,7 @@ function lower_case(x, lEnd, lNext, lMatch, tempVar, tempExpr, tmpN, i, cl, ck) 
     emit_lbl(lEnd);
     return;
 }
-/* ==================================================================================================================== */
+
 function lower_atom(x, k, acc, i, idxN, idxBase, idxI) {
     k = t(x);
     if (IDENT(k, 'AST_VAR'))       lower_atom = tree(AST_VAR, REPLACE(v(x), &LCASE, &UCASE));
@@ -547,7 +596,7 @@ function lower_atom(x, k, acc, i, idxN, idxBase, idxI) {
     else lower_atom = x;
     return;
 }
-/* ==================================================================================================================== */
+
 function lower_stmt(x, k, lblS, lblF, lblM, forVar, forStep) {
     k = t(x);
     if (IDENT(k, 'ASSIGN'))          emit_assign(lower_atom(c(x)[1]), lower_atom(c(x)[2]));
@@ -648,8 +697,9 @@ function lower_stmt(x, k, lblS, lblF, lblM, forVar, forStep) {
     else                            emit_subj(lower_atom(x));
     return;
 }
+
 curFname = '';
-/* ==================================================================================================================== */
+
 function lower_function_decl(x, nm, pm, lc, init, bd, fname, pstr, lstr, i, lbl) {
     nm    = c(x)[1];
     pm    = c(x)[2];
@@ -687,7 +737,7 @@ function lower_function_decl(x, nm, pm, lc, init, bd, fname, pstr, lstr, i, lbl)
     emit_lbl(lbl);
     return;
 }
-/* ==================================================================================================================== */
+
 function lower_record_decl(x, nm, fd, fname, fstr, i) {
     nm    = c(x)[1];
     fd    = c(x)[2];
@@ -699,17 +749,21 @@ function lower_record_decl(x, nm, fd, fname, fstr, i) {
     emit_subj(Tree('AST_FNC', 'DATA', 1, tree(AST_QLIT, fname '(' fstr ')')));
     return;
 }
-/* ==================================================================================================================== */
+
 function lower_decl(x, k) {
     k = t(x);
     if (IDENT(k, 'FUNC_DECL')) lower_function_decl(x);
     else if (IDENT(k, 'REC_DECL'))  lower_record_decl(x);
     return;
 }
+
+
 InitCounter();
 InitStack();
+
 Src = '';
 while (Line = INPUT) Src = Src Line nl;
+
 if (Src ? Compiland) {
     parseRoot = Pop();
     if (DIFFER(parseRoot)) {
