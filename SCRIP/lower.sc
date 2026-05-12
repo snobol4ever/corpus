@@ -360,11 +360,11 @@ function lower_lconcat(t, i) {
     return;
 }
 /* ==================================================================================================================== */
-function lower_nonnull (t) { lower_expr(T0(t)); emit_si('SM_CALL_FN', 'NONNULL',   1); return; }
+function lower_nonnull(t) { lower_expr(T0(t)); emit_si('SM_CALL_FN', 'NONNULL',   1); return; }
 /* ==================================================================================================================== */
-function lower_null    (t) { lower_expr(T0(t)); emit_si('SM_CALL_FN', 'ICN_NULL',  1); return; }
+function lower_null(t) { lower_expr(T0(t)); emit_si('SM_CALL_FN', 'ICN_NULL',  1); return; }
 /* ==================================================================================================================== */
-function lower_size    (t) { lower_expr(T0(t)); emit_si('SM_CALL_FN', 'SIZE',      1); return; }
+function lower_size(t) { lower_expr(T0(t)); emit_si('SM_CALL_FN', 'SIZE',      1); return; }
 /* ==================================================================================================================== */
 function lower_identical(t){ lower_expr(T0(t)); lower_expr(T1(t)); emit_si('SM_CALL_FN', 'IDENTICAL', 2); return; }
 /* ==================================================================================================================== */
@@ -813,6 +813,7 @@ function attr_expr_of(s, tag, a) {
 /* ==================================================================================================================== */
 function lower_stmt(s, label, lang, stno, lineno, subject, pattern, has_eq,
                     replacement, goto_s, goto_f, goto_u,
+                    goto_u_expr,
                     is_end, sname, sv_name, ts) {
     is_end = (DIFFER(stmt_attr_find(s, SL_END)) 1, 0);
     if (IDENT(is_end, 1)) {
@@ -839,11 +840,14 @@ function lower_stmt(s, label, lang, stno, lineno, subject, pattern, has_eq,
     goto_s      = stmt_attr_str(s, SL_GOS);
     goto_f      = stmt_attr_str(s, SL_GOF);
     goto_u      = stmt_attr_str(s, SL_GOU);
+    goto_u_expr = attr_expr_of(s, SL_GOU);
     if (IDENT(label) IDENT(subject) IDENT(pattern) EQ(has_eq, 0)
-        IDENT(goto_u) IDENT(goto_s) IDENT(goto_f)) return;
+        IDENT(goto_u) IDENT(goto_s) IDENT(goto_f) IDENT(goto_u_expr)) return;
     if (DIFFER(label)) {
         emit_s('SM_LABEL', label);
         labtab_define(label, g_count - 1);
+        /* SM_DEFINE_ENTRY: Ph3 will check g_proc_table[label] here and emit
+         * SM_DEFINE_ENTRY when label is a procedure entry point. */
     }
     emit_ii('SM_STNO', stno, lineno);
     if (IDENT(lang, LANG_ICN)) return;
@@ -891,8 +895,13 @@ function lower_stmt(s, label, lang, stno, lineno, subject, pattern, has_eq,
         }
     }
 emit_gotos:
-    if (IDENT(goto_u) IDENT(goto_s) IDENT(goto_f)) return;
+    if (IDENT(goto_u) IDENT(goto_s) IDENT(goto_f) IDENT(goto_u_expr)) return;
     if (DIFFER(goto_u)) { emit_goto('SM_JUMP',   goto_u); return; }
+    if (DIFFER(goto_u_expr)) {
+        lower_expr(goto_u_expr);
+        emit('SM_JUMP_INDIR');
+        return;
+    }
     if (DIFFER(goto_s))   emit_goto('SM_JUMP_S', goto_s);
     if (DIFFER(goto_f))   emit_goto('SM_JUMP_F', goto_f);
     return;
