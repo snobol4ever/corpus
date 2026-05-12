@@ -73,6 +73,7 @@ function sm_interp_step(ins, opc, nm, a, b) {
     if (IDENT(opc, 'SM_DIV'))    { b = sm_pop(); a = sm_pop(); sm_push((a + 0) / (b + 0));   last_ok = 1; return; }
     if (IDENT(opc, 'SM_MOD'))    { b = sm_pop(); a = sm_pop(); sm_push(REMDR(a + 0, b + 0)); last_ok = 1; return; }
     if (IDENT(opc, 'SM_NEG'))    { a = sm_pop(); sm_push(0 - (a + 0));                       last_ok = 1; return; }
+    if (IDENT(opc, 'SM_EXP'))    { b = sm_pop(); a = sm_pop(); sm_push((a + 0) ^ (b + 0));   last_ok = 1; return; }
     if (IDENT(opc, 'SM_CONCAT')) { b = sm_pop(); a = sm_pop(); sm_push(a b);                 last_ok = 1; return; }
     if (IDENT(opc, 'SM_COERCE_NUM')) { a = sm_pop(); sm_push(a + 0);                         last_ok = 1; return; }
     /* Until later rungs an unknown opcode halts cleanly with a stderr note.                                              */
