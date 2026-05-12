@@ -160,11 +160,15 @@ exec_stmt:
     /* SM_EXEC_STMT — invoke host pattern matcher.                                                                                   */
     /* Lower pushes: pat, subject, repl_or_zero.  Pop in reverse: repl, subj, pat.                                                  */
     /* a0(ins) = subject-variable name ('' = anonymous); a1(ins) = has_repl flag.                                                   */
+    /* Named-subject case: copy $name into local subj_v, mutate via host '?', write $name back.                                     */
+    /* The naive form `$sname_v ? pat_v = repl_v` does NOT propagate the mutation through dollar-indirection.                       */
     repl_v = sm_pop();   subj_v = sm_pop();   pat_v = sm_pop();
     sname_v = a0(ins);   has_repl_v = +a1(ins);   last_ok = 0;
     if (DIFFER(sname_v, '')) {
-        if (EQ(has_repl_v, 1)) { if ($sname_v ? pat_v = repl_v) last_ok = 1; }
-        else                   { if ($sname_v ? pat_v)           last_ok = 1; }
+        subj_v = $sname_v;   /* fetch current value of named subject */
+        if (EQ(has_repl_v, 1)) { if (subj_v ? pat_v = repl_v) last_ok = 1; }
+        else                   { if (subj_v ? pat_v)           last_ok = 1; }
+        $sname_v = subj_v;   /* write back (possibly mutated) value */
     } else {
         if (EQ(has_repl_v, 1)) { if (subj_v ? pat_v = repl_v) last_ok = 1; }
         else                   { if (subj_v ? pat_v)           last_ok = 1; }
