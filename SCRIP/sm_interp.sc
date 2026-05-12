@@ -27,6 +27,7 @@ si_cap_tmp    = '';       /* SI-8:  SM_PAT_CAPTURE child holder; EVAL'd capture 
 si_args       = TABLE();  /* SI-12: arg scratch for SM_CALL_FN; si_args[1..nargs] left-to-right                  */
 si_call_stack = TABLE();  /* SI-13: call frame stack; si_call_stack[csp] = TABLE of frame fields                 */
 si_csp        = 0;        /* SI-13: call stack pointer (depth)                                                   */
+si_glocals    = TABLE();  /* SI-16: generator-local slot scratch for SM_LOAD/STORE_GLOCAL (Ph3 stub backing)     */
 /* ================================================================================================================================ */
 function sm_state_init() {
     stack = TABLE();   sp = 0;   stack_cap = 0;   last_ok = 1;   pc = 0;
@@ -151,6 +152,73 @@ function sm_interp_step(ins, opc, nm, a, b, repl_v, subj_v, pat_v, sname_v, has_
         case 'SM_RETURN':          goto si_return;
         case 'SM_FRETURN':         goto si_freturn;
         case 'SM_NRETURN':         goto si_nreturn;
+        /* SI-16 (one-shot Phase 3 lite): remaining SM opcodes — simple inline, complex via goto blocks below. */
+        /* Conditional returns: _S fires only if last_ok=1; _F fires only if last_ok=0. */
+        case 'SM_RETURN_S':        if (IDENT(last_ok, 1)) goto si_return;  return;
+        case 'SM_RETURN_F':        if (IDENT(last_ok, 0)) goto si_return;  return;
+        case 'SM_FRETURN_S':       if (IDENT(last_ok, 1)) goto si_freturn; return;
+        case 'SM_FRETURN_F':       if (IDENT(last_ok, 0)) goto si_freturn; return;
+        case 'SM_NRETURN_S':       if (IDENT(last_ok, 1)) goto si_nreturn; return;
+        case 'SM_NRETURN_F':       if (IDENT(last_ok, 0)) goto si_nreturn; return;
+        /* Push-null variants and define markers */
+        case 'SM_PUSH_NULL_NOFLIP': sm_push('');  return;   /* preserve last_ok */
+        case 'SM_DEFINE':           return;                  /* no-op (function def handled at lower-time) */
+        case 'SM_DEFINE_ENTRY':     return;                  /* no-op in mode-2 */
+        /* Integer compare opcodes — pop r, l; set last_ok = (l OP r); no push. */
+        case 'SM_ICMP_GT':          b = sm_pop(); a = sm_pop(); last_ok = (GT(+a, +b) 1, 0); return;
+        case 'SM_ICMP_LT':          b = sm_pop(); a = sm_pop(); last_ok = (LT(+a, +b) 1, 0); return;
+        /* Increment/decrement TOS by a0(ins) integer. */
+        case 'SM_INCR':             a = sm_pop(); sm_push((+a) + (+a0(ins))); return;
+        case 'SM_DECR':             a = sm_pop(); sm_push((+a) - (+a0(ins))); return;
+        /* Pattern callback opcodes — need host pattern-engine hooks not exposed in .sc.  Ph3 stubs. */
+        case 'SM_PAT_CAPTURE_FN':
+        case 'SM_PAT_CAPTURE_FN_ARGS':
+        case 'SM_PAT_USERCALL':
+        case 'SM_PAT_USERCALL_ARGS':
+            TERMINAL = 'sm_interp: ' opc ' (pat callback, Ph3 stub) at pc=' (pc - 1);
+            sm_push(''); last_ok = 0; return;
+        /* Frame-local slot opcodes (Icon param/local frame env).  In .sc the host runtime owns the frame env, */
+        /* and we don't have a way to peek into icn_frame_env_load/store from Snocone.  Stub to '' for now —    */
+        /* will be wired when Icon proc bodies appear in the SM stream (depends on SL-13d / SN-rung work).      */
+        case 'SM_LOAD_FRAME':       sm_push(''); last_ok = 0;
+            TERMINAL = 'sm_interp: SM_LOAD_FRAME (Icon frame env, Ph3 stub) at pc=' (pc - 1); return;
+        case 'SM_STORE_FRAME':      a = sm_pop(); sm_push(a); last_ok = 0;
+            TERMINAL = 'sm_interp: SM_STORE_FRAME (Icon frame env, Ph3 stub) at pc=' (pc - 1); return;
+        /* Generator-local slot opcodes (Icon generator state.locals).  Use si_glocals TABLE as a single        */
+        /* generator-context substitute — adequate for non-nested generator scenarios; Ph3 will wire to real    */
+        /* SmGenState instances when SM_SUSPEND/SM_RESUME land.                                                  */
+        case 'SM_LOAD_GLOCAL':      nm = a0(ins); sm_push(si_glocals[nm]); last_ok = 1; return;
+        case 'SM_STORE_GLOCAL':     nm = a0(ins); a = sm_pop(); si_glocals[nm] = a; sm_push(a); last_ok = 1; return;
+        /* Generator coroutine opcodes — require swapcontext-style yield/resume not available in Snocone.       */
+        /* Stub: SM_SUSPEND_VALUE pops value and treats it as a normal return (best-effort); SM_RESUME no-op;   */
+        /* SM_GEN_TICK pushes FAIL (no generator drives in Ph3).  Real impl deferred to Phase 4.                */
+        case 'SM_SUSPEND':
+            TERMINAL = 'sm_interp: SM_SUSPEND (coroutine, Ph3 stub) at pc=' (pc - 1);
+            sm_push(''); last_ok = 0; return;
+        case 'SM_SUSPEND_VALUE':
+            TERMINAL = 'sm_interp: SM_SUSPEND_VALUE (coroutine, Ph3 stub) at pc=' (pc - 1);
+            /* keep yield value on stack as a degraded fallback */
+            return;
+        case 'SM_RESUME':
+            TERMINAL = 'sm_interp: SM_RESUME (coroutine, Ph3 stub) at pc=' (pc - 1);
+            return;
+        case 'SM_GEN_TICK':
+            TERMINAL = 'sm_interp: SM_GEN_TICK (generator drive, Ph3 stub) at pc=' (pc - 1);
+            sm_push(''); last_ok = 0; return;
+        /* Byrd-box broker opcodes — Icon/Prolog scheduler.  Stub: pop expected args, push '' or 0.             */
+        /* These require a real coroutine scheduler; real impl deferred to Phase 4.                              */
+        case 'SM_BB_PUMP':          a = sm_pop(); sm_push(0); last_ok = 1;
+            TERMINAL = 'sm_interp: SM_BB_PUMP (broker, Ph3 stub) at pc=' (pc - 1); return;
+        case 'SM_BB_ONCE':          a = sm_pop(); last_ok = 0;
+            TERMINAL = 'sm_interp: SM_BB_ONCE (broker, Ph3 stub) at pc=' (pc - 1); return;
+        case 'SM_BB_ONCE_PROC':     last_ok = 0;
+            TERMINAL = 'sm_interp: SM_BB_ONCE_PROC (Prolog, Ph3 stub) at pc=' (pc - 1); return;
+        case 'SM_BB_PUMP_PROC':     goto bb_pump_proc;
+        case 'SM_BB_PUMP_CASE':     goto bb_pump_case;
+        case 'SM_BB_PUMP_SM':       a = sm_pop(); sm_push(0); last_ok = 1;
+            TERMINAL = 'sm_interp: SM_BB_PUMP_SM (broker, Ph3 stub) at pc=' (pc - 1); return;
+        case 'SM_BB_PUMP_EVERY':    sm_push('');  /* DT_NUL placeholder for trailing SM_VOID_POP */
+            TERMINAL = 'sm_interp: SM_BB_PUMP_EVERY (Icon every, Ph3 stub) at pc=' (pc - 1); return;
         /* Unknown opcode — report on TERMINAL and halt cleanly */
         default:
             TERMINAL = 'sm_interp: unimpl ' opc ' at pc=' (pc - 1);   pc = g_count;   return;
@@ -270,6 +338,26 @@ si_nreturn:
     /* SM_NRETURN — name return: Ph1 treated same as SM_RETURN (thunks always use TOS).                                              */
     if (EQ(si_csp, 0)) { pc = g_count; return; }
     si_pop_frame(0, 1);   return;
+
+bb_pump_proc:
+    /* SM_BB_PUMP_PROC a0=proc_name, a1=nargs — pop nargs args, drive proc as generator (Ph3 stub).                                  */
+    /* Real impl: bb_broker drives coroutine for the proc.  Stub: pop args, push '' as the "no values yielded" sentinel.            */
+    b = +a1(ins);   a = b;
+    while (GT(a, 0)) { si_args[a] = sm_pop();   a = a - 1; }
+    TERMINAL = 'sm_interp: SM_BB_PUMP_PROC ' a0(ins) ' nargs=' b ' (Ph3 stub) at pc=' (pc - 1);
+    sm_push(''); last_ok = 0; return;
+
+bb_pump_case:
+    /* SM_BB_PUMP_CASE a0=ncases, a1=has_default — Raku CASE dispatch (Ph3 stub).                                                    */
+    /* Real impl: pop topic + ncases triples + optional default, evaluate via DT_E descriptors.  Stub: pop expected count, push ''. */
+    /* Stack at entry (deepest first): topic, then ncases × {cmp_kind, val, body} triples, then optional default body.              */
+    a = +a0(ins);   b = +a1(ins);   /* a=ncases, b=has_default */
+    /* pop default if present + ncases*3 + topic */
+    nm = b;          /* count of items to pop */
+    nm = nm + a + a + a + 1;
+    while (GT(nm, 0)) { sm_pop(); nm = nm - 1; }
+    TERMINAL = 'sm_interp: SM_BB_PUMP_CASE ncases=' a ' has_default=' b ' (Ph3 stub) at pc=' (pc - 1);
+    sm_push(''); last_ok = 0; return;
 }
 /* ================================================================================================================================ */
 function sm_interp_run() {
