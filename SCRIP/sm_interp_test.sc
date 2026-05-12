@@ -4,7 +4,7 @@
 /*     X = 2 + 3                                                                                                         */
 /*     OUTPUT = X * 4                                                                                                    */
 /*     END                                                                                                               */
-/* Lowers it via lower(), executes via sm_interp_run_sc().  Expected stdout: '20'.                                        */
+/* Lowers it via lower(), executes via sm_interp_run().  Expected stdout: '20'.                                           */
 /* Exercises: SM_PUSH_LIT_I, SM_ADD, SM_STORE_VAR (no-print target), SM_PUSH_VAR, SM_MUL, SM_STORE_VAR (OUTPUT print).    */
 /* ==================================================================================================================== */
 function mk_slot(tag, val, slot) {
@@ -67,5 +67,5 @@ Lower_collect(stmt2);
 Lower_collect(stmt3);
 OUTPUT = '--- interp ---';
 lower(g_program);
-sm_interp_run_sc();
+sm_interp_run();
 OUTPUT = '--- done ---';

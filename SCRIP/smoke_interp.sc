@@ -3,7 +3,7 @@
 /* Hand-builds an AST equivalent to:                                                                                     */
 /*     OUTPUT = 'hi'                                                                                                     */
 /*     END                                                                                                               */
-/* Lowers it via lower(), then executes the SM via sm_interp_run_sc().                                                    */
+/* Lowers it via lower(), then executes the SM via sm_interp_run().                                                       */
 /* Expected stdout: '--- interp ---' / 'hi' / '--- done ---'.                                                              */
 /* The 'hi' line is produced by sm_interp.sc executing SM_STORE_VAR with target 'OUTPUT' —                                */
 /* the host's OUTPUT magic-prints the value.  Self-hosting is real.                                                       */
@@ -47,5 +47,5 @@ Lower_collect(stmt1);
 Lower_collect(stmt2);
 OUTPUT = '--- interp ---';
 lower(g_program);
-sm_interp_run_sc();
+sm_interp_run();
 OUTPUT = '--- done ---';
