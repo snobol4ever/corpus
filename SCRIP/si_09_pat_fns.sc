@@ -13,7 +13,7 @@ function mk_slot_expr(tag, et, s) { s = tree(tag, ''); Append(s, et); mk_slot_ex
 function mk_bin(tag, l, r, t) { t = tree(tag, ''); Append(t, l); Append(t, r); mk_bin = t; return; }
 function mk_unary(tag, v, t) { t = tree(tag, ''); Append(t, v); mk_unary = t; return; }
 function mk_stmt(stno, line, slots, s, i) {
-    s = tree('TT_STMT', '');
+    s = tree('STMT', '');
     Append(s, mk_slot(SL_STNO, '' stno));
     Append(s, mk_slot(SL_LINE, '' line));
     i = 1; while (LE(i, n(slots))) { Append(s, c(slots)[i]); i = i + 1; }

@@ -21,7 +21,7 @@ function mk_slot_expr(tag, expr_tree, slot) {
 }
 /* ==================================================================================================================== */
 function mk_stmt(stno, line, slots_seq, s, i) {
-    s = tree('TT_STMT', '');
+    s = tree('STMT', '');
     Append(s, mk_slot(SL_STNO, '' stno));
     Append(s, mk_slot(SL_LINE, '' line));
     i = 1;
