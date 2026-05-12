@@ -622,6 +622,51 @@ function lower_choice(t) {
 /* ==================================================================================================================== */
 function lower_prolog_child(t) { emit('SM_PUSH_EXPR'); emit('SM_BB_ONCE'); return; }
 /* ==================================================================================================================== */
+function emit_sii(op, s, i1, i2) { emit_sii = _emit(op, s, '' i1, '' i2); return; }
+/* ==================================================================================================================== */
+function emit_pat_fn_args(fnc, i, arg) {
+    i = 1;
+    while (LE(i, n(fnc))) {
+        arg = c(fnc)[i];
+        if (IDENT(t(arg), 'TT_QLIT')) { lower_expr(arg); }
+        else                          { lower_expr(arg); }
+        i = i + 1;
+    }
+    return;
+}
+/* ==================================================================================================================== */
+function emit_pat_capture(var_node, mode, fnc, names, all_plain, i, arg) {
+    if (DIFFER(var_node) IDENT(t(var_node), 'TT_DEFER') GT(n(var_node), 0)) {
+        fnc = c(var_node)[1];
+        if (DIFFER(fnc) IDENT(t(fnc), 'TT_FNC') DIFFER(v(fnc))) {
+            all_plain = 1;
+            names = '';
+            i = 1;
+            while (LE(i, n(fnc))) {
+                arg = c(fnc)[i];
+                if (DIFFER(arg) IDENT(t(arg), 'TT_VAR') DIFFER(v(arg))) {
+                    if (GT(SIZE(names), 0)) { names = names TAB v(arg); }
+                    else                    { names = v(arg); }
+                } else { all_plain = 0; }
+                i = i + 1;
+            }
+            if (IDENT(all_plain, 1)) {
+                emit_sii('SM_PAT_CAPTURE_FN', v(fnc), mode, 0);
+                return;
+            }
+            if (IDENT(n(fnc), 0)) {
+                emit_sii('SM_PAT_CAPTURE_FN', v(fnc), mode, 0);
+                return;
+            }
+            emit_pat_fn_args(fnc);
+            emit_sii('SM_PAT_CAPTURE_FN_ARGS', v(fnc), mode, n(fnc));
+            return;
+        }
+    }
+    emit_si('SM_PAT_CAPTURE', (DIFFER(var_node) v(var_node), ''), mode);
+    return;
+}
+/* ==================================================================================================================== */
 function emit_pat_nary(t, op, i) {
     i = 1;
     while (LE(i, n(t))) { lower_pat_expr(c(t)[i]); i = i + 1; }
@@ -630,7 +675,7 @@ function emit_pat_nary(t, op, i) {
     return;
 }
 /* ==================================================================================================================== */
-function lower_pat_expr(t, k) {
+function lower_pat_expr(t, k, ch) {
     if (IDENT(t)) return;
     k = t(t);
     if (IDENT(k, 'TT_QLIT'))    { emit_s('SM_PAT_LIT', (DIFFER(v(t)) v(t), '')); return; }
@@ -660,6 +705,45 @@ function lower_pat_expr(t, k) {
     if (IDENT(k, 'TT_SEQ'))    { emit_pat_nary(t, 'SM_PAT_CAT'); return; }
     if (IDENT(k, 'TT_CAT'))    { emit_pat_nary(t, 'SM_PAT_CAT'); return; }
     if (IDENT(k, 'TT_ALT'))    { emit_pat_nary(t, 'SM_PAT_ALT'); return; }
+    if (IDENT(k, 'TT_CAPT_COND_ASGN')) {
+        lower_pat_expr(T0(t));
+        if (GT(n(t), 1)) { emit_pat_capture(c(t)[2], 0); }
+        return;
+    }
+    if (IDENT(k, 'TT_CAPT_IMMED_ASGN')) {
+        lower_pat_expr(T0(t));
+        if (GT(n(t), 1)) { emit_pat_capture(c(t)[2], 1); }
+        return;
+    }
+    if (IDENT(k, 'TT_CAPT_CURSOR')) {
+        if (IDENT(n(t), 1)) {
+            emit('SM_PAT_EPS');
+            emit_pat_capture(c(t)[1], 2);
+        } else {
+            lower_pat_expr(T0(t));
+            if (GT(n(t), 1)) { emit_pat_capture(c(t)[2], 2); }
+        }
+        return;
+    }
+    if (IDENT(k, 'TT_DEFER')) {
+        ch = c(t)[1];
+        if (DIFFER(ch) IDENT(t(ch), 'TT_FNC') DIFFER(v(ch))) {
+            if (IDENT(n(ch), 0)) {
+                emit_s('SM_PAT_USERCALL', v(ch));
+            } else {
+                emit_pat_fn_args(ch);
+                emit_si('SM_PAT_USERCALL_ARGS', v(ch), n(ch));
+            }
+            return;
+        }
+        if (DIFFER(ch) IDENT(t(ch), 'TT_VAR') DIFFER(v(ch))) {
+            emit_s('SM_PAT_REFNAME', v(ch));
+            return;
+        }
+        lower_expr(ch);
+        emit('SM_PAT_DEREF');
+        return;
+    }
     lower_expr(t);
     emit('SM_PAT_DEREF');
     return;
