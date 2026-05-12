@@ -151,7 +151,17 @@ function lower_mns(t) { lower_expr(T0(t)); emit('SM_NEG'); return; }
 /* ==================================================================================================================== */
 function lower_pls(t) { lower_expr(T0(t)); emit('SM_COERCE_NUM'); return; }
 /* ==================================================================================================================== */
-function lower_fnc(t, i, name, callee, fn) {
+function lower_fnc(t, i, name, callee, fn, arg0, last) {
+    /* EVAL(*expr) — thunk the deferred child, call immediately via SM_CALL_EXPRESSION */
+    if (IDENT(v(t), 'EVAL') IDENT(n(t), 1) DIFFER(c(t)[1])) {
+        arg0 = c(t)[1];
+        if (IDENT(t(arg0), 'TT_DEFER')) {
+            emit_thunk(T0(arg0));
+            last = g_count - 1;
+            g_instr_tbl[last] = sm_instr('SM_CALL_EXPRESSION', a0(g_instr_tbl[last]), '', '');
+            return;
+        }
+    }
     if (IDENT(v(t)) GE(n(t), 1) DIFFER(c(t)[1])) {
         callee = c(t)[1];
         if (DIFFER(v(callee))) {
@@ -1106,6 +1116,10 @@ function fmt_instr(idx, ins, op_str) {
         return;
     }
     if (IDENT(op_str, 'SM_PUSH_EXPRESSION')) {
+        fmt_instr = pad_idx(idx) '  ' pad_op(op_str) ' entry=' a0(ins);
+        return;
+    }
+    if (IDENT(op_str, 'SM_CALL_EXPRESSION')) {
         fmt_instr = pad_idx(idx) '  ' pad_op(op_str) ' entry=' a0(ins);
         return;
     }
