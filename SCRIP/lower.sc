@@ -98,8 +98,7 @@ function emit_goto(op, target, upper, row, plain, succ, fail, pick, idx, res) {
     row = ret_kind_tbl[upper];
     if (DIFFER(row)) {
         row ? POS(0) BREAK(' ') . plain ' ' BREAK(' ') . succ ' ' REM . fail;
-        pick = (IDENT(op, 'SM_JUMP_S') succ,
-               (IDENT(op, 'SM_JUMP_F') fail, plain));
+        pick = (IDENT(op, 'SM_JUMP_S') succ, (IDENT(op, 'SM_JUMP_F') fail, plain));
         emit_goto = emit(pick);
         return;
     }
