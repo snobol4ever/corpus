@@ -248,8 +248,21 @@ function lower_indirect(t, ch, inner, idx_var, i) {
     return;
 }
 /* ==================================================================================================================== */
+/* emit_thunk: inline body as a callable sub-program, push a DT_E descriptor.
+ * SM_JUMP(skip) | entry: body | SM_RETURN | after: SM_PUSH_EXPRESSION(entry,0) */
+function emit_thunk(body, skip, entry) {
+    skip  = emit_i('SM_JUMP', 0);
+    entry = sm_label();
+    if (DIFFER(body)) { lower_expr(body); }
+    else              { emit('SM_PUSH_NULL'); }
+    emit('SM_RETURN');
+    sm_patch_jump(skip, sm_label());
+    emit_ii('SM_PUSH_EXPRESSION', entry, 0);
+    return;
+}
+/* ==================================================================================================================== */
 function lower_defer(t) {
-    emit('SM_PUSH_EXPR');
+    emit_thunk(T0(t));
     return;
 }
 /* ==================================================================================================================== */
@@ -629,7 +642,7 @@ function emit_pat_fn_args(fnc, i, arg) {
     while (LE(i, n(fnc))) {
         arg = c(fnc)[i];
         if (IDENT(t(arg), 'TT_QLIT')) { lower_expr(arg); }
-        else                          { lower_expr(arg); }
+        else                          { emit_thunk(arg); }
         i = i + 1;
     }
     return;
@@ -1090,6 +1103,10 @@ function fmt_instr(idx, ins, op_str) {
     }
     if (IDENT(op_str, 'SM_STNO')) {
         fmt_instr = pad_idx(idx) '  ' pad_op(op_str) ' stmt=' a0(ins) ' line=' a1(ins);
+        return;
+    }
+    if (IDENT(op_str, 'SM_PUSH_EXPRESSION')) {
+        fmt_instr = pad_idx(idx) '  ' pad_op(op_str) ' entry=' a0(ins);
         return;
     }
     fmt_instr = pad_idx(idx) '  ' pad_op(op_str);
