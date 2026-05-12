@@ -1,19 +1,3 @@
-// parser_snobol4.sc — PARSER-SN: SNOBOL4 pattern-based frontend in Snocone.
-//
-// Grammar emits canonical E_* IR tags directly — no post-parse tag rename.
-// rw_expr is a pure structural rewrite: paren-strip, ExprList-unwrap,
-// AST_IDX-flatten, AST_CAPT_*_ASGN left-rotation.  String quotes stripped at
-// parse time via dot-capture + Push_qlit (canonical iter#5 pair shape).
-//
-// Tree shape produced per --dump-parse oracle:
-//   (STMT [:lbl L] [:eq] [:subj E] [:pat P] [:repl R] [:goS/:goF/:goU G])
-//
-// Rungs: SN-0..SN-7-7 PASS=78; SN-7-7b: direct E_* + delete rw_tag;
-//        SN-7-7c: full keyword/function/builtin inventory + classifier patterns
-//                 (cross-runtime union: SPITBOL x64/x32 sv-classes + csnobol4
-//                 KNLIST/KVLIST/FNLIST). beauty.sno-faithful classifier patterns
-//                 Function/BuiltinVar/SpecialNm/ProtKwd/UnprotKwd via *match.
-/*====================================================================================================================*/
 E_Parse            = "'Parse'";
 E_goU              = "':go'";
 E_goS              = "':goS'";
@@ -56,25 +40,6 @@ AST_NOT              = "'AST_NOT'";
 AST_CAPT_CURSOR      = "'AST_CAPT_CURSOR'";
 AST_INTERROGATE      = "'AST_INTERROGATE'";
 AST_OPSYN            = "'AST_OPSYN'";
-/*====================================================================================================================*/
-// SN-7-7c — classifier infrastructure (beauty.sno-faithful, cross-runtime union).
-//
-// Sources scanned: SPITBOL x64 sbl.min sv-classes, SPITBOL x32 s.min sv-classes,
-// csnobol4 v311.sil KNLIST/KVLIST/FNLIST.  x32 ≡ x64 (verified). Conflicts
-// resolved per beauty.sno (the canonical model file): ERRTEXT/ERRTYPE are
-// UnprotKwds (settable in SPITBOL) not ProtKwds (csnobol4 quirk).
-//
-// Functions (123)  : SPITBOL svfnf+svfnn+svfnp+svfpr+svfnk+svfpk ∪ csnobol4 FNLIST
-// UnprotKwds (21)  : SPITBOL svknm-settable + svfnk ∪ csnobol4 KNLIST
-// ProtKwds (28)    : SPITBOL svknm-r/o + svkvc + svkvl + svkwc + svfpk ∪ csnobol4 KVLIST
-//                    (− ERRTEXT/ERRTYPE per SPITBOL+beauty.sno)
-// BuiltinVars (7)  : SPITBOL svkvc + svkvl + class-0 (predefined patterns + TERMINAL)
-// SpecialNms (8)   : SPITBOL svlbl + ABORT (svkvl) + START (legacy MS4 entry label)
-//
-// Names with multi-role membership (e.g. INPUT, OUTPUT, TRACE, TRIM, CODE, DUMP,
-// FENCE, ABORT, ARB, BAL, FAIL, REM, SUCCEED) appear in multiple lists by design.
-// Parser order in Expr17 matters: classified Function tried first, plain *Id last.
-/*--------------------------------------------------------------------------------------------------------------------*/
 Functions   = 'ABS AND ANY APPEND APPLY ARBNO ARG ARRAY ATAN BACKSPACE '
               'BCHAR BREAK BREAKX BSIZE BUFFER CC CHAR CHOP CLEAR CODE '
               'COLLECT COMPL CONVERT COPY COS DATA DATATYPE DATE DEF DEFINE '
@@ -96,37 +61,16 @@ ProtKwds    = 'ABORT ALPHABET ARB BAL COMPNO DIGITS FAIL FATAL FENCE FILE '
               'UCASE ';
 BuiltinVars = 'ABORT ARB BAL FAIL REM SUCCEED TERMINAL ';
 SpecialNms  = 'ABORT CONTINUE END FRETURN NRETURN RETURN SCONTINUE START ';
-/*--------------------------------------------------------------------------------------------------------------------*/
-// Inline helpers (sn_match, sn_upr) — kept local to parser_snobol4.sc to avoid
-// expanding the shared parser test blob.  No other PARSER-* parser uses these.
+// sn_match
 function sn_match(subject, pattern) { sn_match = .dummy; if (subject ? pattern) nreturn; else freturn; }
+// sn_upr
 function sn_upr(s)                  { sn_upr   = REPLACE(s, &LCASE, &UCASE); return; }
-//
-// TxInList — succeeds iff *upr(tx) appears as a whole space-separated word in
-// the subject list.  Each list above ends with a trailing space so the last
-// word matches via the leading-space disjunct (no special end-of-string case).
 TxInList    =  (POS(0) | ' ') *sn_upr(tx) (' ' | RPOS(0));
-//
-// Classifier patterns — capture identifier into tx via immediate-bind, then
-// succeed iff tx ∈ list (else propagate failure to the enclosing alternative).
-// Form: `pat $ tx $ *sn_match(List, TxInList)` — left-associative `$` chain.
-//   First $:  binary AST_CAPT_IMMED_ASGN — bind tx to matched portion of pat.
-//   Second $: same operator with a deferred call as the variable-name
-//             expression; sn_match returns .dummy on success (assignment to
-//             dummy is a no-op side effect) or freturns to fail the match.
-// These are BARE — no leading `&` in ProtKwd/UnprotKwd. Callers in Expr14
-// consume `&` themselves and compose via `shift(*ProtKwd, AST_KEYWORD)`, which
-// expands (per semantic.sc) to `*ProtKwd . thx . *Shift(AST_KEYWORD, thx)` —
-// the thx-relay idiom that reads thx immediately after the sub-match completes.
-// Same composition in Expr17 for *Function/*BuiltinVar/*SpecialNm via `~`.
 Function    =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *sn_match(Functions,   TxInList);
 BuiltinVar  =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *sn_match(BuiltinVars, TxInList);
 SpecialNm   =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *sn_match(SpecialNms,  TxInList);
 ProtKwd     =  SPAN(&UCASE &LCASE)                $ tx $ *sn_match(ProtKwds,    TxInList);
 UnprotKwd   =  SPAN(&UCASE &LCASE)                $ tx $ *sn_match(UnprotKwds,  TxInList);
-/*====================================================================================================================*/
-// PATTERN block — beauty.sno grammar; shift/reduce tags are canonical E_*.
-/*====================================================================================================================*/
 Integer     =  SPAN(digits);
 DQ          =  '"' BREAK('"' nl) . str_body '"';
 SQ          =  "'" BREAK("'" nl) . str_body "'";
@@ -164,7 +108,6 @@ $'@'        =  $'  ' '@'  $'  ';
 $'#'        =  $'  ' '#'  $'  ';
 $'%'        =  $'  ' '%'  $'  ';
 $'~'        =  $'  ' '~'  $'  ';
-/*--------------------------------------------------------------------------------------------------------------------*/
 $','        =  $' ' ',' $' ';
 $'('        =  '(' $' ';
 $'['        =  '[' $' ';
@@ -172,17 +115,11 @@ $'<'        =  '<' $' ';
 $')'        =  $' ' ')';
 $']'        =  $' ' ']';
 $'>'        =  $' ' '>';
-/*--------------------------------------------------------------------------------------------------------------------*/
-// push_qlit — pair-shape worker: push AST_QLIT leaf using dot-captured str_body.
+// push_qlit
 function push_qlit() { Push(tree('AST_QLIT', str_body)); push_qlit = .dummy; nreturn; }
 Push_qlit = (epsilon . *push_qlit());
-/*--------------------------------------------------------------------------------------------------------------------*/
-// FnArgList / FnArgTail — global pattern variables with deferred mutual references.
-// Avoids mutual-recursion hang at definition time (both contain only deferred *refs).
-// Each arg calls *Expr (global pattern variable, deferred) and does nInc() for the counter.
 FnArgList   =  nInc() *Expr FENCE(*FnArgTail | epsilon);
 FnArgTail   =  $',' nInc() *Expr FENCE(*FnArgTail | epsilon);
-/*--------------------------------------------------------------------------------------------------------------------*/
 ExprList    =  nPush()
                *XList
                ("'ExprList'" & '*(GT(nTop(), 1) nTop())')
@@ -261,9 +198,6 @@ Expr17      =  FENCE(
                |  *Real ~ AST_RLIT
                |  *Integer ~ AST_ILIT
                );
-// Per-primitive classifier patterns — match full identifier word, succeed only for exact name.
-// Form: SPAN(...) $ tx $ *sn_match(NameList, TxInList) where NameList has only one entry.
-// Guarantees word-boundary (SPAN consumes full identifier) and exact-name check.
 PrimLEN     =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *sn_match('LEN ',    TxInList);
 PrimBREAK   =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *sn_match('BREAK ',  TxInList);
 PrimSPAN    =  SPAN('.' digits &UCASE '_' &LCASE) $ tx $ *sn_match('SPAN ',   TxInList);
@@ -325,17 +259,12 @@ Compiland   =  nPush()
                (E_Parse & 'nTop()')
                ('END' (' ' BREAK(nl) nl | nl) ARBNO(BREAK(nl) nl) | epsilon)
                nPop();
-/*====================================================================================================================*/
-// pp_stmt and make_goto_slot — grammar emits E_* directly; no post-parse rewrite needed.
-/*====================================================================================================================*/
-// strip_parens — recursively strip all '()' wrapper nodes and flatten ExprList
-// nodes inside AST_IDX (which arise from the ExprList subscript grammar).
+// strip_parens
 function strip_parens(x, t, result, i, xlist, j) {
     if (IDENT(x))              { strip_parens = x; return; }
     t = t(x);
     if (IDENT(t))              { strip_parens = x; return; }
     if (IDENT(t, '()') EQ(n(x), 1)) { strip_parens = strip_parens(c(x)[1]); return; }
-    // AST_IDX: flatten ExprList children inline
     if (IDENT(t, 'AST_IDX')) {
         result = Tree('AST_IDX', '', 0);
         i = 1;
@@ -358,10 +287,7 @@ function strip_parens(x, t, result, i, xlist, j) {
     strip_parens = result;
     return;
 }
-// Target child forms:
-//   AST_VAR x / AST_QLIT x  — simple label: use v() directly
-//   AST_INDIRECT(AST_QLIT x) — $'x' literal indirect: unwrap to x
-//   other computed expr  — format as $((TDump(expr)))
+// make_goto_slot
 function make_goto_slot(g, tgt, tgt_v) {
     tgt   = c(g)[1];
     if (IDENT(t(tgt), 'AST_INDIRECT') EQ(n(tgt), 1) IDENT(t(c(tgt)[1]), 'AST_QLIT')) {
@@ -377,9 +303,7 @@ function make_goto_slot(g, tgt, tgt_v) {
     make_goto_slot = tree(t(g), tgt_v);
     return;
 }
-/*--------------------------------------------------------------------------------------------------------------------*/
-// pp_stmt — read beauty.sno's 7-slot Stmt; build IR STMT with role-slot wrappers.
-// Grammar emits correct E_* trees directly; no rw_expr rewrite needed.
+// pp_stmt
 function pp_stmt(x, ppLbl, ppSubj, ppPatrn, ppAsgn, ppRepl, ppGo1, ppGo2,
                  result, subj_ir, pat_ir, seq_n, pat_seq, i) {
     ppLbl   = v(c(x)[1]);
@@ -399,7 +323,6 @@ function pp_stmt(x, ppLbl, ppSubj, ppPatrn, ppAsgn, ppRepl, ppGo1, ppGo2,
         if (DIFFER(ppAsgn))   { Append(result, tree(':eq', '')); }
         subj_ir = strip_parens(ppSubj);
         if (DIFFER(t(ppPatrn))) {
-            // preserve '()' tag check before stripping (used for AST_ALT merge guard)
             pat_ir = ppPatrn;
             if (IDENT(t(pat_ir), 'AST_ALT') GT(n(pat_ir), 0) DIFFER(t(ppPatrn), '()')) {
                 seq_n = Tree('AST_SEQ', '', 2, subj_ir, strip_parens(c(pat_ir)[1]));
@@ -413,7 +336,6 @@ function pp_stmt(x, ppLbl, ppSubj, ppPatrn, ppAsgn, ppRepl, ppGo1, ppGo2,
                 Append(result, Tree(':pat',  '', 1, pat_ir));
             }
         } else {
-            // split only when first child is AST_VAR (oracle rule: fn-call concat stays in :subj)
             if (IDENT(t(subj_ir), 'AST_SEQ') GT(n(subj_ir), 1) IDENT(t(c(subj_ir)[1]), 'AST_VAR')) {
                 seq_n = n(subj_ir);
                 Append(result, Tree(':subj', '', 1, c(subj_ir)[1]));
@@ -435,7 +357,6 @@ function pp_stmt(x, ppLbl, ppSubj, ppPatrn, ppAsgn, ppRepl, ppGo1, ppGo2,
             Append(result, Tree(':repl', '', 1, tree('AST_QLIT', '')));
         }
     }
-    // oracle ordering: :goS before :goF for simple targets; :goF before :goS when goS is computed.
     if (DIFFER(t(ppGo1)) DIFFER(t(ppGo2))) {
         if (IDENT(t(ppGo1), ':goS')) { goS_slot = ppGo1; goF_slot = ppGo2; }
         else                          { goS_slot = ppGo2; goF_slot = ppGo1; }
@@ -450,7 +371,6 @@ function pp_stmt(x, ppLbl, ppSubj, ppPatrn, ppAsgn, ppRepl, ppGo1, ppGo2,
     pp_stmt = result;
     return;
 }
-/*====================================================================================================================*/
 InitCounter();
 InitStack();
 Src = '';
@@ -464,10 +384,8 @@ if (Src ? Compiland) {
         cmd = c(ptree)[i];
         if (IDENT(t(cmd), 'Stmt')) {
             result = pp_stmt(cmd);
-            // oracle suppresses blank (STMT) immediately after a label-only stmt
             if (IDENT(n(result), '') IDENT(prev_label_only, 'yes')) { i = i + 1; }
             else { TDump(result); prev_label_only = (IDENT(n(result), 1) IDENT(t(c(result)[1]), ':lbl') 'yes', ''); i = i + 1; }
         } else { i = i + 1; }
     }
 } else OUTPUT = 'Parse Error.';
-/*====================================================================================================================*/

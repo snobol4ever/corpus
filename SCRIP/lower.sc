@@ -1,32 +1,7 @@
-// lower.sc — Snocone port of one4all/src/runtime/x86/lower.c.
-// AST → SM_Program compiler pass, host-language Snocone.
-//
-// Drop-in companion to parser_<lang>.sc.  After the parser produces the
-// post-processed tree (one (STMT ...) per program statement, plus a final
-// (STMT :lbl END :end)), the driver calls Lower(stmts) which walks the
-// tree in memory and builds g_sm — a list of sm_instr records.  Then
-// sm_dump() emits text matching scrip's --dump-sm byte-for-byte, so
-// `diff` against the C oracle is the gate.
-//
-// No FFI, no serialization, no disk round-trip — pure Snocone over the
-// same tree(t,v,n,c) values the parser builds.
-//
-// Whitespace discipline is SNOBOL4-strict:
-//   binary operators -- spaces on both sides;
-//   unary operators  -- no space between operator and operand.
-//
-// Authors: Lon Jones Cherryholmes · Claude Sonnet 4.6 · Claude Opus 4.7
-// Refs:  GOAL-SNOCONE-SM-LOWER.md (SL-2 emit_goto, SL-3..N handlers)
-//        ../../one4all/src/runtime/x86/lower.c (oracle for byte-identity)
 
 &FULLSCAN  = 1;
 &MAXLNGTH  = 16384;
 
-/*── AST-kind constants — canonical TT_* per tree_t/tree_e ───────────
- * The rename to TT_* completed in GOAL-AST-RENAME AR-1/AR-2.  Any .sc
- * parser that still emits 'AST_*' is stale and needs fixing — lower.sc
- * compares against the canonical TT_* tags only.
- */
 TT_QLIT             = 'TT_QLIT';
 TT_ILIT             = 'TT_ILIT';
 TT_FLIT             = 'TT_FLIT';
@@ -77,7 +52,6 @@ TT_CAPT_CURSOR      = 'TT_CAPT_CURSOR';
 TT_STMT             = 'STMT';
 TT_END              = 'TT_END';
 TT_PROGRAM          = 'TT_PROGRAM';
-// Slot-wrapper tags (children of STMT — see parser_snobol4.sc pp_stmt).
 SL_LBL  = ':lbl';
 SL_LANG = ':lang';
 SL_LINE = ':line';
@@ -91,20 +65,6 @@ SL_GOF  = ':goF';
 SL_GOU  = ':go';
 SL_END  = ':end';
 
-/*── Globals — mirror lower.c's file-scope state ───────────────────────
- * g_sm        — container tree whose children are 'INSTR' leaves; each
- *               child's v field is the printable rendering of one sm_instr.
- *               Index in g_sm = SM_Program instruction index.
- *               Children-as-records would be cleaner if Snocone supported
- *               nested struct value identity through tree-c slots; for
- *               now we side-channel the record via g_instr_tbl[idx].
- * g_count     — n(g_sm), kept in sync for O(1) reads.
- * g_labtab    — TABLE() : name → instr idx for resolved labels.
- * g_patch     — tree whose children carry "jumpidx target" strings,
- *               consumed by labtab_resolve at end of lowering.
- * g_lang      — set per-statement from :lang slot (mirrors lower.c).
- * g_unhandled — TABLE() of kind-tags hit by lower_unhandled (diagnostic).
- */
 
 struct sm_instr { op, a0, a1, a2 }
 
@@ -121,8 +81,8 @@ LANG_SNO = 0;
 LANG_ICN = 1;
 LANG_PL  = 2;
 
-/*── Low-level emit — appends one sm_instr and returns its index ──────*/
 
+// _emit
 function _emit(op, a0, a1, a2, idx, ins) {
     idx = g_count;
     ins = sm_instr(op, a0, a1, a2);
@@ -133,17 +93,23 @@ function _emit(op, a0, a1, a2, idx, ins) {
     return;
 }
 
+// emit
 function emit(op)            { emit    = _emit(op, '', '', ''); return; }
+// emit_i
 function emit_i(op, i)       { emit_i  = _emit(op, '' i,  '',  ''); return; }
+// emit_s
 function emit_s(op, s)       { emit_s  = _emit(op, s,    '',  ''); return; }
+// emit_f
 function emit_f(op, f)       { emit_f  = _emit(op, '' f, '',  ''); return; }
+// emit_ii
 function emit_ii(op, i1, i2) { emit_ii = _emit(op, '' i1,'' i2,''); return; }
+// emit_si
 function emit_si(op, s, i)   { emit_si = _emit(op, s,    '' i,''); return; }
 
-/* sm_label — return the index of the next instruction to be emitted. */
+// sm_label
 function sm_label() { sm_label = g_count; return; }
 
-/* Replace the a0 of instruction at jump_idx with target_idx. */
+// sm_patch_jump
 function sm_patch_jump(jump_idx, target_idx, old, new) {
     old = g_instr_tbl[jump_idx];
     new = sm_instr(op(old), '' target_idx, a1(old), a2(old));
@@ -151,21 +117,24 @@ function sm_patch_jump(jump_idx, target_idx, old, new) {
     return;
 }
 
-/*── Label table & forward-patch queue ────────────────────────────────*/
 
+// labtab_define
 function labtab_define(name, idx) { g_labtab[name] = idx; return; }
 
+// labtab_find
 function labtab_find(name, v) {
     v = g_labtab[name];
     labtab_find = (DIFFER(v) v, -1);
     return;
 }
 
+// labtab_patch_later
 function labtab_patch_later(jump_idx, name) {
     Append(g_patch, tree('P', '' jump_idx ' ' name));
     return;
 }
 
+// labtab_resolve
 function labtab_resolve(i, ent, val, jidx, nm, tgt) {
     i = 1;
     while (LE(i, n(g_patch))) {
@@ -179,14 +148,12 @@ function labtab_resolve(i, ent, val, jidx, nm, tgt) {
     return;
 }
 
-/*── emit_goto — SL-2 deliverable.  Table-driven RETURN/FRETURN/NRETURN.
- *  Mirrors lower.c emit_goto exactly.  Returns instr-idx (or -1).
- */
 ret_kind_tbl = TABLE();
 ret_kind_tbl['RETURN']  = 'SM_RETURN SM_RETURN_S SM_RETURN_F';
 ret_kind_tbl['FRETURN'] = 'SM_FRETURN SM_FRETURN_S SM_FRETURN_F';
 ret_kind_tbl['NRETURN'] = 'SM_NRETURN SM_NRETURN_S SM_NRETURN_F';
 
+// emit_goto
 function emit_goto(op, target, upper, row, plain, succ, fail, pick, idx, res) {
     if (IDENT(target)) { emit_goto = -1; return; }
     upper = REPLACE(target, &LCASE, &UCASE);
@@ -206,40 +173,55 @@ function emit_goto(op, target, upper, row, plain, succ, fail, pick, idx, res) {
     return;
 }
 
-/*── Tree-shape helpers ───────────────────────────────────────────────*/
 
+// T0
 function T0(t) { T0 = (GT(n(t), 0) c(t)[1], NULL); return; }
+// T1
 function T1(t) { T1 = (GT(n(t), 1) c(t)[2], NULL); return; }
+// T2
 function T2(t) { T2 = (GT(n(t), 2) c(t)[3], NULL); return; }
 
-/*── Literal & variable handlers ──────────────────────────────────────*/
 
+// lower_strlit
 function lower_strlit(t) { emit_s('SM_PUSH_LIT_S', (DIFFER(v(t)) v(t), '')); return; }
+// lower_ilit
 function lower_ilit(t)   { emit_i('SM_PUSH_LIT_I', (DIFFER(v(t)) v(t), 0)); return; }
+// lower_flit
 function lower_flit(t)   { emit_f('SM_PUSH_LIT_F', (DIFFER(v(t)) v(t), 0)); return; }
+// lower_nul
 function lower_nul(t)    { emit('SM_PUSH_NULL'); return; }
+// lower_var
 function lower_var(t)    { emit_s('SM_PUSH_VAR',  (DIFFER(v(t)) v(t), '')); return; }
+// lower_keyword
 function lower_keyword(t){ emit_s('SM_PUSH_VAR',  (DIFFER(v(t)) v(t), '')); return; }
 
-/*── Binary arithmetic & unary ───────────────────────────────────────*/
 
+// lower_bin
 function lower_bin(t, op) {
     lower_expr(T0(t));
     lower_expr(T1(t));
     emit(op);
     return;
 }
+// lower_add
 function lower_add(t) { lower_bin(t, 'SM_ADD'); return; }
+// lower_sub
 function lower_sub(t) { lower_bin(t, 'SM_SUB'); return; }
+// lower_mul
 function lower_mul(t) { lower_bin(t, 'SM_MUL'); return; }
+// lower_div
 function lower_div(t) { lower_bin(t, 'SM_DIV'); return; }
+// lower_mod
 function lower_mod(t) { lower_bin(t, 'SM_MOD'); return; }
+// lower_pow
 function lower_pow(t) { lower_bin(t, 'SM_EXP'); return; }
+// lower_mns
 function lower_mns(t) { lower_expr(T0(t)); emit('SM_NEG'); return; }
+// lower_pls
 function lower_pls(t) { lower_expr(T0(t)); emit('SM_COERCE_NUM'); return; }
 
-/*── Function call ───────────────────────────────────────────────────*/
 
+// lower_fnc
 function lower_fnc(t, i, name) {
     i = 1;
     while (LE(i, n(t))) { lower_expr(c(t)[i]); i = i + 1; }
@@ -248,9 +230,7 @@ function lower_fnc(t, i, name) {
     return;
 }
 
-/*── TT_SEQ / TT_CAT — n-ary string concatenation ────────────────────
- * (Icon goal-directed conjunction over TT_SEQ is deferred to SL-N.)
- */
+// lower_cat_seq
 function lower_cat_seq(t, i) {
     if (IDENT(n(t), 0)) { emit('SM_PUSH_NULL'); return; }
     if (IDENT(n(t), 1)) { lower_expr(c(t)[1]); return; }
@@ -261,8 +241,8 @@ function lower_cat_seq(t, i) {
     return;
 }
 
-/*── LHS storage routing ─────────────────────────────────────────────*/
 
+// emit_lhs_store
 function emit_lhs_store(lhs, i) {
     if (IDENT(lhs)) return;
     if (IDENT(t(lhs), TT_VAR))     { emit_s('SM_STORE_VAR', (DIFFER(v(lhs)) v(lhs), '')); return; }
@@ -273,20 +253,20 @@ function emit_lhs_store(lhs, i) {
         emit_si('SM_CALL_FN', 'IDX_SET', n(lhs) + 1);
         return;
     }
-    // Catch-all
     lower_expr(lhs);
     emit_si('SM_CALL_FN', 'ASGN', 2);
     return;
 }
 
+// lower_assign
 function lower_assign(t) {
     lower_expr(T1(t));
     emit_lhs_store(T0(t));
     return;
 }
 
-/*── Pattern lowering ────────────────────────────────────────────────*/
 
+// lower_pat_nary
 function lower_pat_nary(t, op, i) {
     i = 1;
     while (LE(i, n(t))) { lower_pat_expr(c(t)[i]); i = i + 1; }
@@ -295,6 +275,7 @@ function lower_pat_nary(t, op, i) {
     return;
 }
 
+// lower_pat_expr
 function lower_pat_expr(t, k) {
     if (IDENT(t)) return;
     k = t(t);
@@ -325,30 +306,21 @@ function lower_pat_expr(t, k) {
     if (IDENT(k, TT_SEQ))    { lower_pat_nary(t, 'SM_PAT_CAT'); return; }
     if (IDENT(k, TT_CAT))    { lower_pat_nary(t, 'SM_PAT_CAT'); return; }
     if (IDENT(k, TT_ALT))    { lower_pat_nary(t, 'SM_PAT_ALT'); return; }
-    // Default: lower as expression, deref.
     lower_expr(t);
     emit('SM_PAT_DEREF');
     return;
 }
 
-/*── lower_expr dispatcher ───────────────────────────────────────────
- * Single switch — mirrors lower.c's switch.  Returns nothing; appends
- * to g_sm.  Order: literals → references → arithmetic → sequences →
- * pattern primitives → calls → assigns → relops → control → data →
- * sections → generators → Prolog → default.
- */
+// lower_expr
 function lower_expr(t, k) {
     if (IDENT(t)) { emit('SM_PUSH_NULL'); return; }
     k = t(t);
-    // literals
     if (IDENT(k, TT_QLIT)) { lower_strlit(t); return; }
     if (IDENT(k, TT_ILIT)) { lower_ilit(t);   return; }
     if (IDENT(k, TT_FLIT)) { lower_flit(t);   return; }
     if (IDENT(k, TT_NUL))  { lower_nul(t);    return; }
-    // references
     if (IDENT(k, TT_VAR))     { lower_var(t);     return; }
     if (IDENT(k, TT_KEYWORD)) { lower_keyword(t); return; }
-    // arithmetic
     if (IDENT(k, TT_ADD)) { lower_add(t); return; }
     if (IDENT(k, TT_SUB)) { lower_sub(t); return; }
     if (IDENT(k, TT_MUL)) { lower_mul(t); return; }
@@ -357,11 +329,9 @@ function lower_expr(t, k) {
     if (IDENT(k, TT_POW)) { lower_pow(t); return; }
     if (IDENT(k, TT_MNS)) { lower_mns(t); return; }
     if (IDENT(k, TT_PLS)) { lower_pls(t); return; }
-    // sequences
     if (IDENT(k, TT_CAT)) { lower_cat_seq(t); return; }
     if (IDENT(k, TT_SEQ)) { lower_cat_seq(t); return; }
     if (IDENT(k, TT_ALT)) { lower_pat_expr(t); return; }
-    // pattern primitives delegate
     if (IDENT(k, TT_ARB))    { lower_pat_expr(t); return; }
     if (IDENT(k, TT_ARBNO))  { lower_pat_expr(t); return; }
     if (IDENT(k, TT_POS))    { lower_pat_expr(t); return; }
@@ -380,21 +350,14 @@ function lower_expr(t, k) {
     if (IDENT(k, TT_FENCE))  { lower_pat_expr(t); return; }
     if (IDENT(k, TT_ABORT))  { lower_pat_expr(t); return; }
     if (IDENT(k, TT_BAL))    { lower_pat_expr(t); return; }
-    // calls
     if (IDENT(k, TT_FNC))    { lower_fnc(t);    return; }
     if (IDENT(k, TT_ASSIGN)) { lower_assign(t); return; }
-    // Unhandled — record diagnostic, push null so the stack stays balanced.
     g_unhandled[k] = 1;
     emit('SM_PUSH_NULL');
     return;
 }
 
-/*── Statement attribute helpers ─────────────────────────────────────
- * Slot-wrapper children of (STMT ...) carry their key in t() (e.g. ':lbl')
- * and either a scalar in v() (for :lbl, :lang, :line, :stno, :go*) or a
- * single child for expression slots (:subj, :pat, :repl).  Match
- * lower.c's stmt_attr_find/expr/str/int.
- */
+// attr_find
 function attr_find(s, tag, i, ch) {
     attr_find = NULL;
     i = 1;
@@ -406,18 +369,21 @@ function attr_find(s, tag, i, ch) {
     return;
 }
 
+// attr_str
 function attr_str(s, tag, a) {
     a = attr_find(s, tag);
     attr_str = (DIFFER(a) v(a), '');
     return;
 }
 
+// attr_int
 function attr_int(s, tag, sv) {
     sv = attr_str(s, tag);
     attr_int = (DIFFER(sv) sv, 0);
     return;
 }
 
+// attr_expr
 function attr_expr(s, tag, a) {
     a = attr_find(s, tag);
     if (IDENT(a)) { attr_expr = NULL; return; }
@@ -426,8 +392,8 @@ function attr_expr(s, tag, a) {
     return;
 }
 
-/*── lower_stmt — one (STMT ...) or (STMT :end) ──────────────────────*/
 
+// lower_stmt
 function lower_stmt(s, label, lang, stno, lineno, subject, pattern, has_eq,
                     replacement, goto_s, goto_f, goto_u,
                     is_end, sname) {
@@ -457,7 +423,6 @@ function lower_stmt(s, label, lang, stno, lineno, subject, pattern, has_eq,
     goto_f      = attr_str(s, SL_GOF);
     goto_u      = attr_str(s, SL_GOU);
 
-    // Skip blank lines
     if (IDENT(label) IDENT(subject) IDENT(pattern) EQ(has_eq, 0)
         IDENT(goto_u) IDENT(goto_s) IDENT(goto_f)) return;
 
@@ -500,11 +465,7 @@ emit_gotos:
     return;
 }
 
-/*── Lower — public entry point ──────────────────────────────────────
- * Takes a program tree whose children are (STMT ...) nodes (or a single
- * (STMT :end) terminator).  Builds g_sm, resolves forward jumps,
- * appends SM_HALT if missing.  Caller invokes sm_dump() to render.
- */
+// Lower
 function Lower(prog, i, s, last_op) {
     g_sm     = tree('SM_LIST', '');
     g_count  = 0;
@@ -519,7 +480,6 @@ function Lower(prog, i, s, last_op) {
         if (DIFFER(s)) lower_stmt(s);
         i = i + 1;
     }
-    // Trailing SM_HALT.  (Mirrors lower.c: emit unless last instr is HALT.)
     if (EQ(g_count, 0)) {
         emit('SM_HALT');
     } else {
@@ -530,18 +490,7 @@ function Lower(prog, i, s, last_op) {
     return;
 }
 
-/*── sm_dump — print g_sm in scrip --dump-sm byte-identical form ─────
- * Header:    "; SM_Program  count=N"
- * Each row:  "%4d  SM_OPCODE         <printable args>"
- * Where args formatting depends on opcode family (see oracle output):
- *   SM_PUSH_LIT_S/SM_PUSH_VAR/SM_STORE_VAR/SM_LABEL/SM_PAT_*  →  s="..."
- *   SM_PUSH_LIT_I/SM_PUSH_LIT_F                                →  i=N / f=N
- *   SM_CALL_FN                                                  →  s="..." nargs=N
- *   SM_JUMP/JUMP_S/JUMP_F                                       →  -> N
- *   SM_STNO                                                     →  stmt=N line=N
- *   SM_EXEC_STMT                                                →  s="..." nargs=N
- * Others render with no args.  Width of OPCODE column = 21 chars.
- */
+// pad_op
 function pad_op(op, padded, room) {
     padded = op;
     room = 21 - SIZE(op);
@@ -550,6 +499,7 @@ function pad_op(op, padded, room) {
     return;
 }
 
+// pad_idx
 function pad_idx(i, s, n) {
     s = '' i;
     n = 4 - SIZE(s);
@@ -571,10 +521,10 @@ STR_OPS['SM_LABEL']      = 1;
 STR_OPS['SM_PAT_LIT']    = 1;
 STR_OPS['SM_PAT_REFNAME']= 1;
 
+// fmt_instr
 function fmt_instr(idx, ins, op_str) {
     ins = g_instr_tbl[idx];
     op_str = op(ins);
-    // s=,nargs= forms
     if (IDENT(op_str, 'SM_CALL_FN')) {
         fmt_instr = pad_idx(idx) '  ' pad_op(op_str) ' s="' a0(ins) '" nargs=' a1(ins);
         return;
@@ -583,17 +533,14 @@ function fmt_instr(idx, ins, op_str) {
         fmt_instr = pad_idx(idx) '  ' pad_op(op_str) ' s="' a0(ins) '" nargs=' a1(ins);
         return;
     }
-    // jump-target form
     if (DIFFER(JUMP_OPS[op_str])) {
         fmt_instr = pad_idx(idx) '  ' pad_op(op_str) ' -> ' a0(ins);
         return;
     }
-    // string-only form
     if (DIFFER(STR_OPS[op_str])) {
         fmt_instr = pad_idx(idx) '  ' pad_op(op_str) ' s="' a0(ins) '"';
         return;
     }
-    // integer-only forms
     if (IDENT(op_str, 'SM_PUSH_LIT_I')) {
         fmt_instr = pad_idx(idx) '  ' pad_op(op_str) ' i=' a0(ins);
         return;
@@ -602,16 +549,15 @@ function fmt_instr(idx, ins, op_str) {
         fmt_instr = pad_idx(idx) '  ' pad_op(op_str) ' f=' a0(ins);
         return;
     }
-    // SM_STNO — stmt=,line=
     if (IDENT(op_str, 'SM_STNO')) {
         fmt_instr = pad_idx(idx) '  ' pad_op(op_str) ' stmt=' a0(ins) ' line=' a1(ins);
         return;
     }
-    // No-arg form
     fmt_instr = pad_idx(idx) '  ' pad_op(op_str);
     return;
 }
 
+// sm_dump
 function sm_dump(i) {
     OUTPUT = '; SM_Program  count=' g_count;
     i = 0;
@@ -622,9 +568,7 @@ function sm_dump(i) {
     return;
 }
 
-/*── ast_dump — debug helper, prints the input tree via TLump ────────
- * Requires tdump.sc loaded; one line per top-level (STMT ...).
- */
+// ast_dump
 function ast_dump(prog, i, s) {
     i = 1;
     while (LE(i, n(prog))) {

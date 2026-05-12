@@ -1,27 +1,5 @@
-// gen.sc — Snocone port of beauty/Gen.sc: buffered output with indentation.
-//
-// Manages generated output.  Since SNOBOL4 naturally writes one line at a time,
-// this buffers up the output until a newline character is reached, and handles
-// indentation of each line automatically.
-//
-// API:
-//   IncLevel(delta)    — Increment indentation level by delta (default 2)
-//   DecLevel(delta)    — Decrement indentation level by delta (default 2)
-//   SetLevel(level)    — Set indentation level
-//   GetLevel()         — Return current indentation level
-//   Gen(str, outNm)    — Generate string (flush on nl); outNm defaults to .OUTPUT
-//   GenTab(pos)        — Generate spaces to specified or current margin level
-//   GenSetCont(cont)   — Set continuation character and begin first line
-//
-// Globals:
-//   $'$B' — line buffer
-//   $'$C' — continuation character
-//   $'$X' — marks the spot for $'$C'
-//   $'#L' — indentation level
-//
-// Ported from corpus/programs/snocone/demo/beauty/Gen.sc by PARSER-SC-INFRA-1.
-// No behaviour change from the beauty original — compatible with TDump.sc upgrade.
 
+// IncLevel
 function IncLevel(delta) {
     IncLevel = .dummy;
     delta = IDENT(delta) 2;
@@ -29,6 +7,7 @@ function IncLevel(delta) {
     nreturn;
 }
 
+// DecLevel
 function DecLevel(delta) {
     DecLevel = .dummy;
     delta = IDENT(delta) 2;
@@ -36,12 +15,14 @@ function DecLevel(delta) {
     nreturn;
 }
 
+// SetLevel
 function SetLevel(level) {
     SetLevel = .dummy;
     $'#L' = level;
     nreturn;
 }
 
+// GetLevel
 function GetLevel() {
     GetLevel = $'#L';
     return;
@@ -49,6 +30,7 @@ function GetLevel() {
 
 indent = DUPL(' ', 120);
 
+// Gen
 function Gen(str, outNm, ind, outline) {
     Gen = .dummy;
     outNm = IDENT(outNm) .OUTPUT;
@@ -63,6 +45,7 @@ function Gen(str, outNm, ind, outline) {
     nreturn;
 }
 
+// GenTab
 function GenTab(pos) {
     GenTab = .dummy;
     pos = IDENT(pos) $'#L';
@@ -71,6 +54,7 @@ function GenTab(pos) {
     nreturn;
 }
 
+// GenSetCont
 function GenSetCont(cont) {
     GenSetCont = .dummy;
     $'$X' = ;

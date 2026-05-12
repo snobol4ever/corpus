@@ -1,14 +1,10 @@
-//---------------------------------------------------------------------------------------------------
-// Pattern matching during pattern matching:
-// pattern $ variable $ *match(variable, pattern)
-// pattern $ variable $ *notmatch(variable, pattern)
-//---------------------------------------------------------------------------------------------------
+// match
 function match(subject, pattern) {
     match = .dummy;
     if (subject ? pattern) nreturn;
     else freturn;
 }
-//---------------------------------------------------------------------------------------------------
+// notmatch
 function notmatch(subject, pattern) {
     notmatch = .dummy;
     if (subject ? pattern) freturn;

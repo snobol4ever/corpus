@@ -1,38 +1,17 @@
-// qize.sc — string Quote-ize / Sql-Quote / Intize / Extize, ported
-// verbatim from beauty/Qize.sc.
-//
-// PARSER-SN-INFRA-7 — beauty-source-style port. REM verified to terminate
-// correctly (matches empty on empty subject; the IDENT(str) guard at the
-// top of each while body short-circuits before REM can re-fire on empty
-// str). No RTAB(0) patch needed.
-//
-// Public API:
-//   Qize(s)     — quote-ize a string into a SNOBOL4 expression
-//   SQize(s)    — single-quote escape
-//   DQize(s)    — double-quote escape
-//   SqlSQize(s) — SQL single-quote escape (doubles internal ')
-//   Intize(...) — interpret SNOBOL4 quoted-string source back to bytes
-//   Extize(s)   — placeholder (beauty parity; body is empty per source)
-//   LEQ(a,b)    — SPITBOL builtin not in scrip Snocone
-//   Ucvt(hex2)  — SPITBOL CHAR/INTEGER helper not in scrip Snocone
-//
-//---------------------------------------------------------------------------------------------------
-// Qize(s) - Quote-ize a string. Make a SNOBOL4 expression from the string.
-//---------------------------------------------------------------------------------------------------
 QizeWierd = bSlash bs ff nl cr tab;
 
-// LEQ, Ucvt: SPITBOL builtin and canonical-Qize.inc helper not in scrip Snocone.
-// Provided here per pass #2 audit note (G-4, G-5).
+// LEQ
 function LEQ(a, b) {
     if (IDENT(a, b)) { LEQ = a; return; }
     if (LLT(a, b))   { LEQ = a; return; }
     freturn;
 }
+// Ucvt
 function Ucvt(hex2) {
     Ucvt = CHAR(INTEGER('0X' hex2));
     return;
 }
-//---------------------------------------------------------------------------------------------------
+// Qize
 function Qize(str, part) {
     if (Qize = IDENT(str) "''") return;
     while (1) {
@@ -64,7 +43,7 @@ function Qize(str, part) {
         }
     }
 }
-//---------------------------------------------------------------------------------------------------
+// SQize
 function SQize(str, part) {
     while (1) {
         if (IDENT(str)) return;
@@ -78,7 +57,7 @@ function SQize(str, part) {
         }
     }
 }
-//---------------------------------------------------------------------------------------------------
+// DQize
 function DQize(str, part) {
     while (1) {
         if (IDENT(str)) return;
@@ -92,7 +71,7 @@ function DQize(str, part) {
         }
     }
 }
-//---------------------------------------------------------------------------------------------------
+// SqlSQize
 function SqlSQize(str, part) {
     while (1) {
         if (IDENT(str)) return;
@@ -105,37 +84,21 @@ function SqlSQize(str, part) {
         }
     }
 }
-//---------------------------------------------------------------------------------------------------
-// CQize(str) — C-string escape, mirroring src/ir/ir_print.c::print_escaped:
-//   "  -> \"
-//   \  -> \\
-//   nl -> \n      cr -> \r      tab -> \t
-//   other bytes < 0x20 -> \xNN  (e.g. SOH \x01 from LIT_SUBST RK-37)
-// Used by tdump.sc for AST_QLIT / AST_CSET rendering so PARSER-* output matches
-// scrip's `--dump-ir` byte-for-byte when the value contains backslashes,
-// quotes, whitespace control bytes, or other control bytes.
-//
-// CQize_ctrl32: CHAR(1)..CHAR(31) — 31 bytes.  CHAR(0) cannot be stored in
-// Snocone strings (C null-terminator limitation); NUL never appears in IR values.
-// CQize_xNN uses SIZE(CQize_ctrl32) - SIZE(after_strip) to find ordinal of ch;
-// since the table starts at CHAR(1), ordinal of CHAR(n) is position n (1-indexed).
 CQize_ctrl32 = '';
 CQize_ci     = 1;
 while (LT(CQize_ci, 32)) {
     CQize_ctrl32 = CQize_ctrl32 CHAR(CQize_ci);
     CQize_ci = CQize_ci + 1;
 }
-//---------------------------------------------------------------------------------------------------
+// CQize_nibble
 function CQize_nibble(n, hdig, hx) {
     hdig = '0123456789abcdef';
     hdig ? (TAB(n) LEN(1) . hx);
     CQize_nibble = hx;
     return;
 }
-//---------------------------------------------------------------------------------------------------
+// CQize_xNN
 function CQize_xNN(ch, junk, pos, hi, lo) {
-    // Strip ch from a copy of ctrl32 to find its 1-based position.
-    // Since ctrl32 starts at CHAR(1), position p means the byte value is p.
     junk = CQize_ctrl32;
     junk ch = ;
     pos = SIZE(CQize_ctrl32) - SIZE(junk);
@@ -144,18 +107,14 @@ function CQize_xNN(ch, junk, pos, hi, lo) {
     CQize_xNN = '\x' CQize_nibble(hi) CQize_nibble(lo);
     return;
 }
-//---------------------------------------------------------------------------------------------------
+// CQize
 function CQize(str, part, ch) {
     while (1) {
         if (IDENT(str)) return;
-        // Consume a run of safe bytes (none of the escapable chars and no control bytes).
-        // BREAK stops at the first escapable or control byte; if none exist, BREAK fails
-        // and the if-body is skipped (part stays empty, nothing appended).
         if (str ? (POS(0) BREAK(bSlash '"' nl cr tab CQize_ctrl32) . part) = ) {
             CQize = CQize part;
         }
         if (IDENT(str)) return;
-        // The next byte must be escaped or appended verbatim.
         if (str ? (POS(0) LEN(1) . ch) = ) {
             if (IDENT(ch, bSlash))                           { CQize = CQize bSlash bSlash; }
             else if (IDENT(ch, '"'))                         { CQize = CQize bSlash '"'; }
@@ -169,7 +128,7 @@ function CQize(str, part, ch) {
         }
     }
 }
-//---------------------------------------------------------------------------------------------------
+// Intize
 function Intize(qqstr, iq, qqdlm) {
     if (~(qqstr ? (POS(0) ("'" | '"') $ qqdlm
                    ARBNO(
@@ -193,7 +152,7 @@ function Intize(qqstr, iq, qqdlm) {
         freturn;
     return;
 }
-//---------------------------------------------------------------------------------------------------
+// Extize
 function Extize(str) {
     return;
 }
