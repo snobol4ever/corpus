@@ -177,48 +177,32 @@ function sm_interp_step(ins, opc, nm, a, b, repl_v, subj_v, pat_v, sname_v, has_
         case 'SM_PAT_USERCALL_ARGS':
             TERMINAL = 'sm_interp: ' opc ' (pat callback, Ph3 stub) at pc=' (pc - 1);
             sm_push(''); last_ok = 0; return;
-        /* Frame-local slot opcodes (Icon param/local frame env).  In .sc the host runtime owns the frame env, */
-        /* and we don't have a way to peek into icn_frame_env_load/store from Snocone.  Stub to '' for now —    */
-        /* will be wired when Icon proc bodies appear in the SM stream (depends on SL-13d / SN-rung work).      */
-        case 'SM_LOAD_FRAME':       sm_push(''); last_ok = 0;
-            TERMINAL = 'sm_interp: SM_LOAD_FRAME (Icon frame env, Ph3 stub) at pc=' (pc - 1); return;
-        case 'SM_STORE_FRAME':      a = sm_pop(); sm_push(a); last_ok = 0;
-            TERMINAL = 'sm_interp: SM_STORE_FRAME (Icon frame env, Ph3 stub) at pc=' (pc - 1); return;
-        /* Generator-local slot opcodes (Icon generator state.locals).  Use si_glocals TABLE as a single        */
-        /* generator-context substitute — adequate for non-nested generator scenarios; Ph3 will wire to real    */
-        /* SmGenState instances when SM_SUSPEND/SM_RESUME land.                                                  */
+        /* Frame-local slot opcodes (Icon param/local frame env) — silent no-op.  Host frame_env isn't exposed   */
+        /* to Snocone, so Icon programs running through this interp won't behave correctly, but they don't       */
+        /* spam stderr either.  Real wiring requires either an icn_frame_env_load/store host helper or full      */
+        /* Icon frame infrastructure in .sc (Phase 4).                                                           */
+        case 'SM_LOAD_FRAME':       sm_push(''); last_ok = 0; return;
+        case 'SM_STORE_FRAME':      a = sm_pop(); sm_push(a); last_ok = 0; return;
+        /* Generator-local slot opcodes (Icon SmGenState.locals).  Use si_glocals TABLE as single-generator      */
+        /* substitute — works for non-nested gens; Phase 4 wires per-SmGenState locals.                          */
         case 'SM_LOAD_GLOCAL':      nm = a0(ins); sm_push(si_glocals[nm]); last_ok = 1; return;
         case 'SM_STORE_GLOCAL':     nm = a0(ins); a = sm_pop(); si_glocals[nm] = a; sm_push(a); last_ok = 1; return;
-        /* Generator coroutine opcodes — require swapcontext-style yield/resume not available in Snocone.       */
-        /* Stub: SM_SUSPEND_VALUE pops value and treats it as a normal return (best-effort); SM_RESUME no-op;   */
-        /* SM_GEN_TICK pushes FAIL (no generator drives in Ph3).  Real impl deferred to Phase 4.                */
-        case 'SM_SUSPEND':
-            TERMINAL = 'sm_interp: SM_SUSPEND (coroutine, Ph3 stub) at pc=' (pc - 1);
-            sm_push(''); last_ok = 0; return;
-        case 'SM_SUSPEND_VALUE':
-            TERMINAL = 'sm_interp: SM_SUSPEND_VALUE (coroutine, Ph3 stub) at pc=' (pc - 1);
-            /* keep yield value on stack as a degraded fallback */
-            return;
-        case 'SM_RESUME':
-            TERMINAL = 'sm_interp: SM_RESUME (coroutine, Ph3 stub) at pc=' (pc - 1);
-            return;
-        case 'SM_GEN_TICK':
-            TERMINAL = 'sm_interp: SM_GEN_TICK (generator drive, Ph3 stub) at pc=' (pc - 1);
-            sm_push(''); last_ok = 0; return;
-        /* Byrd-box broker opcodes — Icon/Prolog scheduler.  Stub: pop expected args, push '' or 0.             */
-        /* These require a real coroutine scheduler; real impl deferred to Phase 4.                              */
-        case 'SM_BB_PUMP':          a = sm_pop(); sm_push(0); last_ok = 1;
-            TERMINAL = 'sm_interp: SM_BB_PUMP (broker, Ph3 stub) at pc=' (pc - 1); return;
-        case 'SM_BB_ONCE':          a = sm_pop(); last_ok = 0;
-            TERMINAL = 'sm_interp: SM_BB_ONCE (broker, Ph3 stub) at pc=' (pc - 1); return;
-        case 'SM_BB_ONCE_PROC':     last_ok = 0;
-            TERMINAL = 'sm_interp: SM_BB_ONCE_PROC (Prolog, Ph3 stub) at pc=' (pc - 1); return;
+        /* Generator coroutine opcodes — need swapcontext-style yield/resume not available in Snocone.           */
+        /* Silent no-ops: SM_SUSPEND_VALUE leaves arg on stack (degraded yield = return); SM_RESUME no-op;       */
+        /* SM_GEN_TICK / SM_SUSPEND signal fail.  Icon programs needing real generators won't work but won't     */
+        /* crash either.                                                                                          */
+        case 'SM_SUSPEND':          sm_push(''); last_ok = 0; return;
+        case 'SM_SUSPEND_VALUE':    return;   /* leave value on stack as degraded yield-return */
+        case 'SM_RESUME':           return;   /* no-op */
+        case 'SM_GEN_TICK':         sm_push(''); last_ok = 0; return;
+        /* Byrd-box broker opcodes — Icon/Prolog scheduler.  Silent no-ops: pop expected args, push '' or 0.    */
+        case 'SM_BB_PUMP':          a = sm_pop(); sm_push(0); last_ok = 1; return;
+        case 'SM_BB_ONCE':          a = sm_pop(); last_ok = 0; return;
+        case 'SM_BB_ONCE_PROC':     last_ok = 0; return;
         case 'SM_BB_PUMP_PROC':     goto bb_pump_proc;
         case 'SM_BB_PUMP_CASE':     goto bb_pump_case;
-        case 'SM_BB_PUMP_SM':       a = sm_pop(); sm_push(0); last_ok = 1;
-            TERMINAL = 'sm_interp: SM_BB_PUMP_SM (broker, Ph3 stub) at pc=' (pc - 1); return;
-        case 'SM_BB_PUMP_EVERY':    sm_push('');  /* DT_NUL placeholder for trailing SM_VOID_POP */
-            TERMINAL = 'sm_interp: SM_BB_PUMP_EVERY (Icon every, Ph3 stub) at pc=' (pc - 1); return;
+        case 'SM_BB_PUMP_SM':       a = sm_pop(); sm_push(0); last_ok = 1; return;
+        case 'SM_BB_PUMP_EVERY':    sm_push(''); return;   /* DT_NUL placeholder for trailing SM_VOID_POP */
         /* Unknown opcode — report on TERMINAL and halt cleanly */
         default:
             TERMINAL = 'sm_interp: unimpl ' opc ' at pc=' (pc - 1);   pc = g_count;   return;
@@ -340,23 +324,19 @@ si_nreturn:
     si_pop_frame(0, 1);   return;
 
 bb_pump_proc:
-    /* SM_BB_PUMP_PROC a0=proc_name, a1=nargs — pop nargs args, drive proc as generator (Ph3 stub).                                  */
+    /* SM_BB_PUMP_PROC a0=proc_name, a1=nargs — pop nargs args, drive proc as generator (silent Ph3 stub).                            */
     /* Real impl: bb_broker drives coroutine for the proc.  Stub: pop args, push '' as the "no values yielded" sentinel.            */
     b = +a1(ins);   a = b;
     while (GT(a, 0)) { si_args[a] = sm_pop();   a = a - 1; }
-    TERMINAL = 'sm_interp: SM_BB_PUMP_PROC ' a0(ins) ' nargs=' b ' (Ph3 stub) at pc=' (pc - 1);
     sm_push(''); last_ok = 0; return;
 
 bb_pump_case:
-    /* SM_BB_PUMP_CASE a0=ncases, a1=has_default — Raku CASE dispatch (Ph3 stub).                                                    */
+    /* SM_BB_PUMP_CASE a0=ncases, a1=has_default — Raku CASE dispatch (silent Ph3 stub).                                              */
     /* Real impl: pop topic + ncases triples + optional default, evaluate via DT_E descriptors.  Stub: pop expected count, push ''. */
     /* Stack at entry (deepest first): topic, then ncases × {cmp_kind, val, body} triples, then optional default body.              */
     a = +a0(ins);   b = +a1(ins);   /* a=ncases, b=has_default */
-    /* pop default if present + ncases*3 + topic */
-    nm = b;          /* count of items to pop */
-    nm = nm + a + a + a + 1;
+    nm = b + a + a + a + 1;        /* total items to pop: default? + ncases*3 + topic */
     while (GT(nm, 0)) { sm_pop(); nm = nm - 1; }
-    TERMINAL = 'sm_interp: SM_BB_PUMP_CASE ncases=' a ' has_default=' b ' (Ph3 stub) at pc=' (pc - 1);
     sm_push(''); last_ok = 0; return;
 }
 /* ================================================================================================================================ */
