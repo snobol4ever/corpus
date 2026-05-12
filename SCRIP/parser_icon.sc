@@ -110,18 +110,21 @@ $'--:='     =   $' ' '--:='  $' ';
 $'**:='     =   $' ' '**:='  $' ';
 $'?:='      =   $' ' '?:='   $' ';
 $'=:='      =   $' ' '=:='   $' ';
+/* ==================================================================================================================== */
 function push_qlit() {
     Push(tree('AST_QLIT', strbody));
     push_qlit = .dummy;
     nreturn;
 }
 Push_qlit = (epsilon . *push_qlit());
+/* ==================================================================================================================== */
 function push_cset() {
     Push(tree('AST_CSET', csetbody));
     push_cset = .dummy;
     nreturn;
 }
 Push_cset = (epsilon . *push_cset());
+/* ==================================================================================================================== */
 function push_flit(nval) {
     nval = REAL(rval);
     Push(tree('AST_FLIT', nval));
@@ -129,12 +132,14 @@ function push_flit(nval) {
     nreturn;
 }
 Push_flit = (epsilon . *push_flit());
+/* ==================================================================================================================== */
 function push_kw() {
     Push(tree('AST_VAR', '&' kwname));
     push_kw = .dummy;
     nreturn;
 }
 Push_kw = (epsilon . *push_kw());
+/* ==================================================================================================================== */
 function push_match(inner) {
     inner = Pop();
     Push(Tree('AST_FNC', '', 2, tree('AST_VAR', 'match'), inner));
@@ -142,6 +147,7 @@ function push_match(inner) {
     nreturn;
 }
 Push_match = (epsilon . *push_match());
+/* ==================================================================================================================== */
 function push_field(fname, lhs) {
     fname = v(Pop());
     lhs = Pop();
@@ -150,6 +156,7 @@ function push_field(fname, lhs) {
     nreturn;
 }
 Push_field = (epsilon . *push_field());
+/* ==================================================================================================================== */
 function push_subscript(idx, lhs) {
     idx = Pop();
     lhs = Pop();
@@ -158,6 +165,7 @@ function push_subscript(idx, lhs) {
     nreturn;
 }
 Push_subscript = (epsilon . *push_subscript());
+/* ==================================================================================================================== */
 function push_section(hi, lo, lhs) {
     hi = Pop();
     lo = Pop();
@@ -167,6 +175,7 @@ function push_section(hi, lo, lhs) {
     nreturn;
 }
 Push_section = (epsilon . *push_section());
+/* ==================================================================================================================== */
 function decompose_proc(n_kids, kids, pname, proc, i) {
     n_kids = TopCounter();
     kids = GT(n_kids, 0) ARRAY('1:' n_kids);
@@ -187,6 +196,7 @@ function decompose_proc(n_kids, kids, pname, proc, i) {
     nreturn;
 }
 Decompose_proc = (epsilon . *decompose_proc());
+/* ==================================================================================================================== */
 function push_record(n_kids, kids, rname, rec, i) {
     n_kids = TopCounter();
     kids = GT(n_kids, 0) ARRAY('1:' n_kids);
@@ -207,6 +217,7 @@ function push_record(n_kids, kids, rname, rec, i) {
     nreturn;
 }
 Push_record = (epsilon . *push_record());
+/* ==================================================================================================================== */
 function push_global_top(n_kids, kids, g, i) {
     n_kids = TopCounter();
     kids = GT(n_kids, 0) ARRAY('1:' n_kids);
@@ -226,6 +237,7 @@ function push_global_top(n_kids, kids, g, i) {
     nreturn;
 }
 Push_global_top = (epsilon . *push_global_top());
+/* ==================================================================================================================== */
 function push_local_stmt(n_kids, kids, g, i) {
     n_kids = TopCounter();
     kids = GT(n_kids, 0) ARRAY('1:' n_kids);
