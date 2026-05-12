@@ -22,6 +22,7 @@ stack_cap = 0;
 last_ok   = 1;
 pc        = 0;
 si_cap_tmp = '';   /* SI-8: holder for SM_PAT_CAPTURE child pattern; EVAL'd capture expression refs this name */
+si_args    = TABLE();  /* SI-12: scratch TABLE for SM_CALL_FN arg collection; si_args[1..nargs] = args left-to-right */
 /* ==================================================================================================================== */
 function sm_state_init() {
     stack     = TABLE();
@@ -50,147 +51,202 @@ function sm_pop(d) {
 /* ==================================================================================================================== */
 function sm_interp_step(ins, opc, nm, a, b, repl_v, subj_v, pat_v, sname_v, has_repl_v) {
     ins = g_instr_tbl[pc];
-    pc = pc + 1;
+    pc  = pc + 1;
     opc = op(ins);
-    if (IDENT(opc, 'SM_LABEL'))   return;
-    if (IDENT(opc, 'SM_HALT'))    { pc = g_count; return; }
-    /* SI-2: STNO + literals + variables + VOID_POP                                                                       */
-    if (IDENT(opc, 'SM_STNO'))    { sp = 0; return; }
-    if (IDENT(opc, 'SM_PUSH_LIT_S')) { sm_push(a0(ins));           last_ok = 1; return; }
-    if (IDENT(opc, 'SM_PUSH_LIT_I')) { sm_push(a0(ins) + 0);       last_ok = 1; return; }
-    if (IDENT(opc, 'SM_PUSH_LIT_F')) { sm_push(a0(ins) + 0.0);     last_ok = 1; return; }
-    if (IDENT(opc, 'SM_PUSH_NULL'))  { sm_push('');                last_ok = 1; return; }
-    if (IDENT(opc, 'SM_PUSH_VAR'))   { nm = a0(ins); sm_push($nm); last_ok = 1; return; }
-    if (IDENT(opc, 'SM_STORE_VAR'))  { nm = a0(ins); $nm = sm_pop();            return; }
-    if (IDENT(opc, 'SM_VOID_POP'))   { sm_pop();                                return; }
-    /* SI-3: jumps                                                                                                        */
-    if (IDENT(opc, 'SM_JUMP'))   { pc = a0(ins) + 0;                                return; }
-    if (IDENT(opc, 'SM_JUMP_S')) { if (IDENT(last_ok, 1)) pc = a0(ins) + 0;         return; }
-    if (IDENT(opc, 'SM_JUMP_F')) { if (IDENT(last_ok, 0)) pc = a0(ins) + 0;         return; }
-    /* SI-4: arithmetic + COERCE + CONCAT                                                                                 */
-    if (IDENT(opc, 'SM_ADD'))    { b = sm_pop(); a = sm_pop(); sm_push((a + 0) + (b + 0));   last_ok = 1; return; }
-    if (IDENT(opc, 'SM_SUB'))    { b = sm_pop(); a = sm_pop(); sm_push((a + 0) - (b + 0));   last_ok = 1; return; }
-    if (IDENT(opc, 'SM_MUL'))    { b = sm_pop(); a = sm_pop(); sm_push((a + 0) * (b + 0));   last_ok = 1; return; }
-    if (IDENT(opc, 'SM_DIV'))    { b = sm_pop(); a = sm_pop(); sm_push((a + 0) / (b + 0));   last_ok = 1; return; }
-    if (IDENT(opc, 'SM_MOD'))    { b = sm_pop(); a = sm_pop(); sm_push(REMDR(a + 0, b + 0)); last_ok = 1; return; }
-    if (IDENT(opc, 'SM_NEG'))    { a = sm_pop(); sm_push(0 - (a + 0));                       last_ok = 1; return; }
-    if (IDENT(opc, 'SM_EXP'))    { b = sm_pop(); a = sm_pop(); sm_push((a + 0) ^ (b + 0));   last_ok = 1; return; }
-    if (IDENT(opc, 'SM_CONCAT')) { b = sm_pop(); a = sm_pop(); sm_push(a b);                 last_ok = 1; return; }
-    if (IDENT(opc, 'SM_COERCE_NUM')) { a = sm_pop(); sm_push(a + 0);                         last_ok = 1; return; }
-    /* SI-7: pattern matching statement                                                                                   */
-    /* SM_PAT_LIT — string literal used as pattern (string IS a pattern in SPITBOL).                                      */
-    if (IDENT(opc, 'SM_PAT_LIT'))    { sm_push(a0(ins));                                     last_ok = 1; return; }
-    /* SM_PAT_DEREF — TOS is string/pattern/var: if string or pattern, push as-is; else treat as name and look up.       */
-    if (IDENT(opc, 'SM_PAT_DEREF'))  { a = sm_pop(); sm_push(a);                             last_ok = 1; return; }
-    /* SM_PAT_REFNAME — a0 is a variable name; push a deferred-ref pattern via *name mechanism (host pat_ref).           */
-    /* In host Snocone, a bare variable name used as a pattern performs pattern-ref; we use $name to get its value.      */
-    if (IDENT(opc, 'SM_PAT_REFNAME')) { nm = a0(ins); sm_push($nm);                          last_ok = 1; return; }
-    /* SM_PUSH_EXPR — deferred-expression stub: deferred to Ph2.                                                          */
-    if (IDENT(opc, 'SM_PUSH_EXPR'))  { sm_push('');                                          last_ok = 1; return; }
+    /* O(1) dispatch via Snocone switch — compiled to indirect-goto table by the parser,                                  */
+    /* mirroring the beauty.sno label-dispatch pattern: $('prefix_' token) indirect goto.                                 */
+    /* Each case is a one-liner; multi-line cases (EXEC_STMT, ACOMP, LCOMP, CALL_FN) use goto to a block below.         */
+    switch (opc) {
+        /* SI-1 */
+        case 'SM_LABEL':        return;
+        case 'SM_HALT':         pc = g_count; return;
+        /* SI-2 */
+        case 'SM_STNO':         sp = 0; return;
+        case 'SM_PUSH_LIT_S':   sm_push(a0(ins));         last_ok = 1; return;
+        case 'SM_PUSH_LIT_I':   sm_push(+a0(ins));        last_ok = 1; return;
+        case 'SM_PUSH_LIT_F':   sm_push(a0(ins) + 0.0);   last_ok = 1; return;
+        case 'SM_PUSH_NULL':    sm_push('');               last_ok = 1; return;
+        case 'SM_PUSH_VAR':     nm = a0(ins); sm_push($nm); last_ok = 1; return;
+        case 'SM_STORE_VAR':    nm = a0(ins); $nm = sm_pop(); return;
+        case 'SM_VOID_POP':     sm_pop(); return;
+        /* SI-3 */
+        case 'SM_JUMP':         pc = +a0(ins); return;
+        case 'SM_JUMP_S':       if (IDENT(last_ok, 1)) pc = +a0(ins); return;
+        case 'SM_JUMP_F':       if (IDENT(last_ok, 0)) pc = +a0(ins); return;
+        /* SI-4 */
+        case 'SM_ADD':          b = sm_pop(); a = sm_pop(); sm_push((+a) + (+b));    last_ok = 1; return;
+        case 'SM_SUB':          b = sm_pop(); a = sm_pop(); sm_push((+a) - (+b));    last_ok = 1; return;
+        case 'SM_MUL':          b = sm_pop(); a = sm_pop(); sm_push((+a) * (+b));    last_ok = 1; return;
+        case 'SM_DIV':          b = sm_pop(); a = sm_pop(); sm_push((+a) / (+b));    last_ok = 1; return;
+        case 'SM_MOD':          b = sm_pop(); a = sm_pop(); sm_push(REMDR(+a, +b));  last_ok = 1; return;
+        case 'SM_NEG':          a = sm_pop(); sm_push(0 - (+a));                     last_ok = 1; return;
+        case 'SM_EXP':          b = sm_pop(); a = sm_pop(); sm_push((+a) ^ (+b));    last_ok = 1; return;
+        case 'SM_CONCAT':       b = sm_pop(); a = sm_pop(); sm_push(a b);            last_ok = 1; return;
+        case 'SM_COERCE_NUM':   a = sm_pop(); sm_push(+a);                           last_ok = 1; return;
+        /* SI-7 */
+        case 'SM_PAT_LIT':      sm_push(a0(ins));          last_ok = 1; return;
+        case 'SM_PAT_DEREF':    a = sm_pop(); sm_push(a);  last_ok = 1; return;
+        case 'SM_PAT_REFNAME':  nm = a0(ins); sm_push($nm); last_ok = 1; return;
+        case 'SM_PUSH_EXPR':    sm_push('');                last_ok = 1; return;
+        case 'SM_EXEC_STMT':    goto exec_stmt;
+        /* SI-8 */
+        case 'SM_PAT_ABORT':    sm_push(ABORT);            last_ok = 1; return;
+        case 'SM_PAT_ARB':      sm_push(ARB);              last_ok = 1; return;
+        case 'SM_PAT_BAL':      sm_push(BAL);              last_ok = 1; return;
+        case 'SM_PAT_FAIL':     sm_push(FAIL);             last_ok = 1; return;
+        case 'SM_PAT_REM':      sm_push(REM);              last_ok = 1; return;
+        case 'SM_PAT_SUCCEED':  sm_push(SUCCEED);          last_ok = 1; return;
+        case 'SM_PAT_FENCE0':   sm_push(FENCE);            last_ok = 1; return;
+        case 'SM_PAT_FENCE1':   a = sm_pop(); sm_push(FENCE(a)); last_ok = 1; return;
+        case 'SM_PAT_CAPTURE':  goto pat_capture;
+        /* SI-9 — pattern functions; integer-arg ops use +a for coercion */
+        case 'SM_PAT_LEN':      a = sm_pop(); sm_push(LEN(+a));    last_ok = 1; return;
+        case 'SM_PAT_POS':      a = sm_pop(); sm_push(POS(+a));    last_ok = 1; return;
+        case 'SM_PAT_RPOS':     a = sm_pop(); sm_push(RPOS(+a));   last_ok = 1; return;
+        case 'SM_PAT_TAB':      a = sm_pop(); sm_push(TAB(+a));    last_ok = 1; return;
+        case 'SM_PAT_RTAB':     a = sm_pop(); sm_push(RTAB(+a));   last_ok = 1; return;
+        case 'SM_PAT_ANY':      a = sm_pop(); sm_push(ANY(a));      last_ok = 1; return;
+        case 'SM_PAT_NOTANY':   a = sm_pop(); sm_push(NOTANY(a));   last_ok = 1; return;
+        case 'SM_PAT_SPAN':     a = sm_pop(); sm_push(SPAN(a));     last_ok = 1; return;
+        case 'SM_PAT_BREAK':    a = sm_pop(); sm_push(BREAK(a));    last_ok = 1; return;
+        case 'SM_PAT_ARBNO':    a = sm_pop(); sm_push(ARBNO(a));    last_ok = 1; return;
+        case 'SM_PAT_EPS':      sm_push('');                        last_ok = 1; return;
+        /* SI-10 — pattern combinators (binary; emit_pat_nary emits n-1 SM_PAT_CAT/ALT) */
+        case 'SM_PAT_CAT':      b = sm_pop(); a = sm_pop(); sm_push(a b);    last_ok = 1; return;
+        case 'SM_PAT_ALT':      b = sm_pop(); a = sm_pop(); sm_push(a | b);  last_ok = 1; return;
+        /* SI-11 — comparisons */
+        case 'SM_ACOMP':        goto acomp;
+        case 'SM_LCOMP':        goto lcomp;
+        /* SI-12 — indirect function call */
+        case 'SM_CALL_FN':      goto call_fn;
+        /* Unknown opcode — halt cleanly */
+        default:
+            TERMINAL = 'sm_interp: unimpl ' opc ' at pc=' (pc - 1);
+            pc = g_count;
+            return;
+    }
+
+exec_stmt:
     /* SM_EXEC_STMT — invoke host pattern matcher.                                                                        */
     /* Stack push order from lower: pat, subj, repl_or_zero.  Pop order: repl, subj, pat.                                */
     /* a0(ins)=subject-var-name (string), a1(ins)=has_repl (0 or 1).                                                     */
-    /* Strategy: use Snocone host '?' operator. $sname ? pat succeeds/fails natively.                                    */
-    if (IDENT(opc, 'SM_EXEC_STMT')) {
-        repl_v     = sm_pop();
-        subj_v     = sm_pop();
-        pat_v      = sm_pop();
-        sname_v    = a0(ins);
-        has_repl_v = a1(ins) + 0;
-        last_ok    = 0;
-        if (DIFFER(sname_v, '')) {
-            /* named subject — match $sname and write back mutated value */
-            if (EQ(has_repl_v, 1)) {
-                if ($sname_v ? pat_v = repl_v) last_ok = 1;
-            } else {
-                if ($sname_v ? pat_v) last_ok = 1;
-            }
-        } else {
-            /* anonymous subject — match against the value directly, no write-back */
-            if (EQ(has_repl_v, 1)) {
-                if (subj_v ? pat_v = repl_v) last_ok = 1;
-            } else {
-                if (subj_v ? pat_v) last_ok = 1;
-            }
-        }
-        return;
+    repl_v     = sm_pop();
+    subj_v     = sm_pop();
+    pat_v      = sm_pop();
+    sname_v    = a0(ins);
+    has_repl_v = +a1(ins);
+    last_ok    = 0;
+    if (DIFFER(sname_v, '')) {
+        /* named subject — match in-place via $sname indirection, write back mutated value */
+        if (EQ(has_repl_v, 1)) { if ($sname_v ? pat_v = repl_v) last_ok = 1; }
+        else                   { if ($sname_v ? pat_v)           last_ok = 1; }
+    } else {
+        /* anonymous subject — value-match only, no write-back */
+        if (EQ(has_repl_v, 1)) { if (subj_v ? pat_v = repl_v) last_ok = 1; }
+        else                   { if (subj_v ? pat_v)           last_ok = 1; }
     }
-    /* SI-8: primitive patterns — each pushes a host pattern primitive value.                                            */
-    /* These are bound as global pattern values by the host runtime (snobol4.c NV_SET_fn at init).                       */
-    if (IDENT(opc, 'SM_PAT_ABORT'))   { sm_push(ABORT);   last_ok = 1; return; }
-    if (IDENT(opc, 'SM_PAT_ARB'))     { sm_push(ARB);     last_ok = 1; return; }
-    if (IDENT(opc, 'SM_PAT_BAL'))     { sm_push(BAL);     last_ok = 1; return; }
-    if (IDENT(opc, 'SM_PAT_FAIL'))    { sm_push(FAIL);    last_ok = 1; return; }
-    if (IDENT(opc, 'SM_PAT_REM'))     { sm_push(REM);     last_ok = 1; return; }
-    if (IDENT(opc, 'SM_PAT_SUCCEED')) { sm_push(SUCCEED); last_ok = 1; return; }
-    /* SM_PAT_FENCE0 — nullary fence (FENCE as value).  SM_PAT_FENCE1 — unary FENCE(p), pops child.                      */
-    if (IDENT(opc, 'SM_PAT_FENCE0'))  { sm_push(FENCE);                 last_ok = 1; return; }
-    if (IDENT(opc, 'SM_PAT_FENCE1'))  { a = sm_pop(); sm_push(FENCE(a)); last_ok = 1; return; }
-    /* SI-8 also adds SM_PAT_CAPTURE — pattern capture via `.` (cond) or `$` (imm).                                       */
-    /* a0=variable name, a1=kind (0=cond '.', 1=imm '$', 2=cursor '@').                                                   */
-    /* Strategy: host Snocone's `.`/`$` capture operators need a literal name token at parse time.  At runtime we have    */
-    /* only a string for the name, so we stash the child pattern in a known global (si_cap_tmp) and use EVAL to build     */
-    /* `si_cap_tmp . X` at the call site, where X is the literal name from the operand.  This threads the runtime-       */
-    /* determined name through host syntax via dynamic compilation.                                                       */
-    if (IDENT(opc, 'SM_PAT_CAPTURE')) {
-        nm           = a0(ins);
-        si_cap_tmp   = sm_pop();      /* child pattern → known global slot */
-        b            = a1(ins) + 0;   /* kind */
-        if      (EQ(b, 1)) sm_push(EVAL('si_cap_tmp $ ' nm));   /* immediate */
-        else if (EQ(b, 2)) sm_push(EVAL('si_cap_tmp @ ' nm));   /* cursor */
-        else               sm_push(EVAL('si_cap_tmp . ' nm));   /* conditional (default) */
-        last_ok = 1;
-        return;
-    }
-    /* SI-9: pattern function calls — each pops one arg, applies host constructor, pushes result.                         */
-    if (IDENT(opc, 'SM_PAT_LEN'))    { a = sm_pop(); sm_push(LEN(a + 0));    last_ok = 1; return; }
-    if (IDENT(opc, 'SM_PAT_POS'))    { a = sm_pop(); sm_push(POS(a + 0));    last_ok = 1; return; }
-    if (IDENT(opc, 'SM_PAT_RPOS'))   { a = sm_pop(); sm_push(RPOS(a + 0));   last_ok = 1; return; }
-    if (IDENT(opc, 'SM_PAT_TAB'))    { a = sm_pop(); sm_push(TAB(a + 0));    last_ok = 1; return; }
-    if (IDENT(opc, 'SM_PAT_RTAB'))   { a = sm_pop(); sm_push(RTAB(a + 0));   last_ok = 1; return; }
-    if (IDENT(opc, 'SM_PAT_ANY'))    { a = sm_pop(); sm_push(ANY(a));        last_ok = 1; return; }
-    if (IDENT(opc, 'SM_PAT_NOTANY')) { a = sm_pop(); sm_push(NOTANY(a));     last_ok = 1; return; }
-    if (IDENT(opc, 'SM_PAT_SPAN'))   { a = sm_pop(); sm_push(SPAN(a));       last_ok = 1; return; }
-    if (IDENT(opc, 'SM_PAT_BREAK'))  { a = sm_pop(); sm_push(BREAK(a));      last_ok = 1; return; }
-    if (IDENT(opc, 'SM_PAT_ARBNO'))  { a = sm_pop(); sm_push(ARBNO(a));      last_ok = 1; return; }
-    if (IDENT(opc, 'SM_PAT_EPS'))    { sm_push('');                          last_ok = 1; return; }
-    /* SI-10 (pulled forward to SI-8 — needed for any useful primitive-pattern test): pattern combinators.                 */
-    /* SM_PAT_CAT and SM_PAT_ALT are BINARY in the actual codebase (sm_interp.c lines 648-660 + lower.sc emit_pat_nary).   */
-    /* The Goal file's SI-10 prose says "n-ary" but emit_pat_nary pushes all children, then emits SM_PAT_CAT (n-1) times.  */
-    if (IDENT(opc, 'SM_PAT_CAT')) { b = sm_pop(); a = sm_pop(); sm_push(a b);     last_ok = 1; return; }
-    if (IDENT(opc, 'SM_PAT_ALT')) { b = sm_pop(); a = sm_pop(); sm_push(a | b);   last_ok = 1; return; }
-    /* SI-11: comparisons.  Snocone lower emits the kind string in a0 (see lower.sc lower_comp).                          */
-    /* Icon-style relops: on success push RIGHT operand, last_ok=1; on failure last_ok=0 (no push needed by sm_lower).    */
-    if (IDENT(opc, 'SM_ACOMP')) {
-        b = sm_pop(); a = sm_pop(); nm = a0(ins);
-        last_ok = 0;
-        if      (IDENT(nm, 'TT_EQ')) { if (EQ(a + 0, b + 0)) last_ok = 1; }
-        else if (IDENT(nm, 'TT_NE')) { if (NE(a + 0, b + 0)) last_ok = 1; }
-        else if (IDENT(nm, 'TT_LT')) { if (LT(a + 0, b + 0)) last_ok = 1; }
-        else if (IDENT(nm, 'TT_LE')) { if (LE(a + 0, b + 0)) last_ok = 1; }
-        else if (IDENT(nm, 'TT_GT')) { if (GT(a + 0, b + 0)) last_ok = 1; }
-        else if (IDENT(nm, 'TT_GE')) { if (GE(a + 0, b + 0)) last_ok = 1; }
-        else                         { if (EQ(a + 0, b + 0)) last_ok = 1; }   /* legacy fallback */
-        if (IDENT(last_ok, 1)) sm_push(b); else sm_push('');
-        return;
-    }
-    if (IDENT(opc, 'SM_LCOMP')) {
-        b = sm_pop(); a = sm_pop(); nm = a0(ins);
-        last_ok = 0;
-        if      (IDENT(nm, 'TT_LEQ')) { if (LEQ(a, b)) last_ok = 1; }
-        else if (IDENT(nm, 'TT_LNE')) { if (LNE(a, b)) last_ok = 1; }
-        else if (IDENT(nm, 'TT_LLT')) { if (LLT(a, b)) last_ok = 1; }
-        else if (IDENT(nm, 'TT_LLE')) { if (LLE(a, b)) last_ok = 1; }
-        else if (IDENT(nm, 'TT_LGT')) { if (LGT(a, b)) last_ok = 1; }
-        else if (IDENT(nm, 'TT_LGE')) { if (LGE(a, b)) last_ok = 1; }
-        else                          { if (LEQ(a, b)) last_ok = 1; }
-        if (IDENT(last_ok, 1)) sm_push(b); else sm_push('');
-        return;
-    }
-    /* Until later rungs an unknown opcode halts cleanly with a stderr note.                                              */
-    TERMINAL = 'sm_interp: unimpl ' opc ' at pc=' (pc - 1);
-    pc = g_count;
     return;
+
+pat_capture:
+    /* SM_PAT_CAPTURE — pattern capture via `.` (cond) or `$` (imm) or `@` (cursor).                                     */
+    /* a0=variable name, a1=kind (0=cond '.', 1=imm '$', 2=cursor '@').                                                   */
+    /* EVAL trick: stash child in si_cap_tmp, build `si_cap_tmp OP name` via EVAL so the literal name appears at         */
+    /* parse time.  See SI-8 implementation note for full rationale.                                                      */
+    nm         = a0(ins);
+    si_cap_tmp = sm_pop();
+    b          = +a1(ins);
+    if      (EQ(b, 1)) sm_push(EVAL('si_cap_tmp $ ' nm));
+    else if (EQ(b, 2)) sm_push(EVAL('si_cap_tmp @ ' nm));
+    else               sm_push(EVAL('si_cap_tmp . ' nm));
+    last_ok = 1;
+    return;
+
+acomp:
+    /* SM_ACOMP — arithmetic comparison: LT/LE/GT/GE/EQ/NE.                                                              */
+    /* a0(ins) = kind string (e.g. 'TT_LT').  Icon-style: on success push right operand; on failure push ''.             */
+    b = sm_pop(); a = sm_pop(); nm = a0(ins);
+    last_ok = 0;
+    switch (nm) {
+        case 'TT_EQ': if (EQ(+a, +b)) last_ok = 1; goto acomp_done;
+        case 'TT_NE': if (NE(+a, +b)) last_ok = 1; goto acomp_done;
+        case 'TT_LT': if (LT(+a, +b)) last_ok = 1; goto acomp_done;
+        case 'TT_LE': if (LE(+a, +b)) last_ok = 1; goto acomp_done;
+        case 'TT_GT': if (GT(+a, +b)) last_ok = 1; goto acomp_done;
+        case 'TT_GE': if (GE(+a, +b)) last_ok = 1; goto acomp_done;
+        default:      if (EQ(+a, +b)) last_ok = 1; goto acomp_done;
+    }
+acomp_done:
+    if (IDENT(last_ok, 1)) sm_push(b); else sm_push('');
+    return;
+
+lcomp:
+    /* SM_LCOMP — lexical comparison: LLT/LLE/LGT/LGE/LEQ/LNE.                                                          */
+    /* a0(ins) = kind string (e.g. 'TT_LGT').  Same Icon-style push convention as ACOMP.                                 */
+    b = sm_pop(); a = sm_pop(); nm = a0(ins);
+    last_ok = 0;
+    switch (nm) {
+        case 'TT_LEQ': if (LEQ(a, b)) last_ok = 1; goto lcomp_done;
+        case 'TT_LNE': if (LNE(a, b)) last_ok = 1; goto lcomp_done;
+        case 'TT_LLT': if (LLT(a, b)) last_ok = 1; goto lcomp_done;
+        case 'TT_LLE': if (LLE(a, b)) last_ok = 1; goto lcomp_done;
+        case 'TT_LGT': if (LGT(a, b)) last_ok = 1; goto lcomp_done;
+        case 'TT_LGE': if (LGE(a, b)) last_ok = 1; goto lcomp_done;
+        default:       if (LEQ(a, b)) last_ok = 1; goto lcomp_done;
+    }
+lcomp_done:
+    if (IDENT(last_ok, 1)) sm_push(b); else sm_push('');
+    return;
+
+call_fn:
+    /* SM_CALL_FN — indirect function call via host APPLY().                                                              */
+    /* a0(ins) = function name string; a1(ins) = nargs integer.                                                           */
+    /* lower_fnc pushes args left-to-right so TOS = last arg.  Restore left-to-right in si_args[1..nargs].               */
+    /* Pseudo-calls (INDIR_GET, ASGN, etc.) require C name-pointer machinery — stub to '' for now (Ph3).                 */
+    nm = a0(ins);
+    b  = +a1(ins);
+    a  = b;
+    while (GT(a, 0)) { si_args[a] = sm_pop(); a = a - 1; }
+    switch (nm) {
+        case 'INDIR_GET':
+        case 'NAME_PUSH':
+        case 'ASGN_INDIR':
+        case 'NRETURN_ASGN':
+        case 'IDX_SET':
+        case 'IDX':
+        case 'ITEM_SET':
+        case 'FIELD_SET':
+        case 'FIELD_GET':
+        case 'ASGN':
+        case 'SWAP':
+        case 'AUGOP':
+        case 'MAKELIST':
+        case 'RECORD_MAKE':
+        case 'ICN_SCAN_PUSH':
+        case 'ICN_SCAN_POP':
+        case 'ICN_CASE_EQ':
+        case 'ICN_NULL':
+        case 'ICN_RANDOM':
+        case 'NONNULL':
+        case 'IDENTICAL':
+        case 'FAIL':
+            TERMINAL = 'sm_interp: SM_CALL_FN ' nm ' (pseudo/Ph3) at pc=' (pc - 1);
+            sm_push(''); last_ok = 0; return;
+        default:
+            goto call_fn_apply;
+    }
+call_fn_apply:
+    /* General builtin / user-defined function via host APPLY().  Arity 0..5 covers all standard cases. */
+    switch (b) {
+        case 0: sm_push(APPLY(nm));                                                                   last_ok = 1; return;
+        case 1: sm_push(APPLY(nm, si_args[1]));                                                       last_ok = 1; return;
+        case 2: sm_push(APPLY(nm, si_args[1], si_args[2]));                                           last_ok = 1; return;
+        case 3: sm_push(APPLY(nm, si_args[1], si_args[2], si_args[3]));                               last_ok = 1; return;
+        case 4: sm_push(APPLY(nm, si_args[1], si_args[2], si_args[3], si_args[4]));                   last_ok = 1; return;
+        case 5: sm_push(APPLY(nm, si_args[1], si_args[2], si_args[3], si_args[4], si_args[5]));       last_ok = 1; return;
+        default:
+            TERMINAL = 'sm_interp: SM_CALL_FN ' nm ' nargs=' b ' (>5 not supported) at pc=' (pc - 1);
+            sm_push(''); last_ok = 0; return;
+    }
 }
 /* ==================================================================================================================== */
 function sm_interp_run() {
