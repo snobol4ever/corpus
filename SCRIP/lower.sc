@@ -82,7 +82,7 @@ function labtab_resolve(i, ent, val, jidx, nm, tgt) {
         val = v(ent);
         val ? POS(0) BREAK(' ') . jidx ' ' REM . nm;
         tgt = labtab_find(nm);
-        if (~LT(tgt, 0)) sm_patch_jump(jidx, tgt);
+        if (GE(tgt, 0)) sm_patch_jump(jidx, tgt);
         i = i + 1;
     }
     return;
@@ -104,8 +104,8 @@ function emit_goto(op, target, upper, row, plain, succ, fail, pick, idx, res) {
     }
     idx = emit_i(op, 0);
     res = labtab_find(target);
-    if (~LT(res, 0)) sm_patch_jump(idx, res);
-    else             labtab_patch_later(idx, target);
+    if (GE(res, 0)) sm_patch_jump(idx, res);
+    else            labtab_patch_later(idx, target);
     emit_goto = idx;
     return;
 }
