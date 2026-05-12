@@ -1,7 +1,5 @@
-
 &FULLSCAN  = 1;
 &MAXLNGTH  = 16384;
-
 TT_QLIT             = 'TT_QLIT';
 TT_ILIT             = 'TT_ILIT';
 TT_FLIT             = 'TT_FLIT';
@@ -64,10 +62,7 @@ SL_GOS  = ':goS';
 SL_GOF  = ':goF';
 SL_GOU  = ':go';
 SL_END  = ':end';
-
-
 struct sm_instr { op, a0, a1, a2 }
-
 g_sm        = tree('SM_LIST', '');
 g_count     = 0;
 g_labtab    = TABLE();
@@ -76,12 +71,10 @@ g_instr_tbl = TABLE();
 g_lang      = 0;
 g_in_proc   = 0;
 g_unhandled = TABLE();
-
 LANG_SNO = 0;
 LANG_ICN = 1;
 LANG_PL  = 2;
-
-
+/* ==================================================================================================================== */
 function _emit(op, a0, a1, a2, idx, ins) {
     idx = g_count;
     ins = sm_instr(op, a0, a1, a2);
@@ -91,37 +84,41 @@ function _emit(op, a0, a1, a2, idx, ins) {
     _emit = idx;
     return;
 }
-
+/* ==================================================================================================================== */
 function emit(op)            { emit    = _emit(op, '', '', ''); return; }
+/* ==================================================================================================================== */
 function emit_i(op, i)       { emit_i  = _emit(op, '' i,  '',  ''); return; }
+/* ==================================================================================================================== */
 function emit_s(op, s)       { emit_s  = _emit(op, s,    '',  ''); return; }
+/* ==================================================================================================================== */
 function emit_f(op, f)       { emit_f  = _emit(op, '' f, '',  ''); return; }
+/* ==================================================================================================================== */
 function emit_ii(op, i1, i2) { emit_ii = _emit(op, '' i1,'' i2,''); return; }
+/* ==================================================================================================================== */
 function emit_si(op, s, i)   { emit_si = _emit(op, s,    '' i,''); return; }
-
+/* ==================================================================================================================== */
 function sm_label() { sm_label = g_count; return; }
-
+/* ==================================================================================================================== */
 function sm_patch_jump(jump_idx, target_idx, old, new) {
     old = g_instr_tbl[jump_idx];
     new = sm_instr(op(old), '' target_idx, a1(old), a2(old));
     g_instr_tbl[jump_idx] = new;
     return;
 }
-
-
+/* ==================================================================================================================== */
 function labtab_define(name, idx) { g_labtab[name] = idx; return; }
-
+/* ==================================================================================================================== */
 function labtab_find(name, v) {
     v = g_labtab[name];
     labtab_find = (DIFFER(v) v, -1);
     return;
 }
-
+/* ==================================================================================================================== */
 function labtab_patch_later(jump_idx, name) {
     Append(g_patch, tree('P', '' jump_idx ' ' name));
     return;
 }
-
+/* ==================================================================================================================== */
 function labtab_resolve(i, ent, val, jidx, nm, tgt) {
     i = 1;
     while (LE(i, n(g_patch))) {
@@ -134,12 +131,11 @@ function labtab_resolve(i, ent, val, jidx, nm, tgt) {
     }
     return;
 }
-
 ret_kind_tbl = TABLE();
 ret_kind_tbl['RETURN']  = 'SM_RETURN SM_RETURN_S SM_RETURN_F';
 ret_kind_tbl['FRETURN'] = 'SM_FRETURN SM_FRETURN_S SM_FRETURN_F';
 ret_kind_tbl['NRETURN'] = 'SM_NRETURN SM_NRETURN_S SM_NRETURN_F';
-
+/* ==================================================================================================================== */
 function emit_goto(op, target, upper, row, plain, succ, fail, pick, idx, res) {
     if (IDENT(target)) { emit_goto = -1; return; }
     upper = REPLACE(target, &LCASE, &UCASE);
@@ -158,37 +154,48 @@ function emit_goto(op, target, upper, row, plain, succ, fail, pick, idx, res) {
     emit_goto = idx;
     return;
 }
-
-
+/* ==================================================================================================================== */
 function T0(t) { T0 = (GT(n(t), 0) c(t)[1], NULL); return; }
+/* ==================================================================================================================== */
 function T1(t) { T1 = (GT(n(t), 1) c(t)[2], NULL); return; }
+/* ==================================================================================================================== */
 function T2(t) { T2 = (GT(n(t), 2) c(t)[3], NULL); return; }
-
-
+/* ==================================================================================================================== */
 function lower_strlit(t) { emit_s('SM_PUSH_LIT_S', (DIFFER(v(t)) v(t), '')); return; }
+/* ==================================================================================================================== */
 function lower_ilit(t)   { emit_i('SM_PUSH_LIT_I', (DIFFER(v(t)) v(t), 0)); return; }
+/* ==================================================================================================================== */
 function lower_flit(t)   { emit_f('SM_PUSH_LIT_F', (DIFFER(v(t)) v(t), 0)); return; }
+/* ==================================================================================================================== */
 function lower_nul(t)    { emit('SM_PUSH_NULL'); return; }
+/* ==================================================================================================================== */
 function lower_var(t)    { emit_s('SM_PUSH_VAR',  (DIFFER(v(t)) v(t), '')); return; }
+/* ==================================================================================================================== */
 function lower_keyword(t){ emit_s('SM_PUSH_VAR',  (DIFFER(v(t)) v(t), '')); return; }
-
-
+/* ==================================================================================================================== */
 function lower_bin(t, op) {
     lower_expr(T0(t));
     lower_expr(T1(t));
     emit(op);
     return;
 }
+/* ==================================================================================================================== */
 function lower_add(t) { lower_bin(t, 'SM_ADD'); return; }
+/* ==================================================================================================================== */
 function lower_sub(t) { lower_bin(t, 'SM_SUB'); return; }
+/* ==================================================================================================================== */
 function lower_mul(t) { lower_bin(t, 'SM_MUL'); return; }
+/* ==================================================================================================================== */
 function lower_div(t) { lower_bin(t, 'SM_DIV'); return; }
+/* ==================================================================================================================== */
 function lower_mod(t) { lower_bin(t, 'SM_MOD'); return; }
+/* ==================================================================================================================== */
 function lower_pow(t) { lower_bin(t, 'SM_EXP'); return; }
+/* ==================================================================================================================== */
 function lower_mns(t) { lower_expr(T0(t)); emit('SM_NEG'); return; }
+/* ==================================================================================================================== */
 function lower_pls(t) { lower_expr(T0(t)); emit('SM_COERCE_NUM'); return; }
-
-
+/* ==================================================================================================================== */
 function lower_fnc(t, i, name) {
     i = 1;
     while (LE(i, n(t))) { lower_expr(c(t)[i]); i = i + 1; }
@@ -196,7 +203,7 @@ function lower_fnc(t, i, name) {
     emit_si('SM_CALL_FN', name, n(t));
     return;
 }
-
+/* ==================================================================================================================== */
 function lower_cat_seq(t, i) {
     if (IDENT(n(t), 0)) { emit('SM_PUSH_NULL'); return; }
     if (IDENT(n(t), 1)) { lower_expr(c(t)[1]); return; }
@@ -206,8 +213,7 @@ function lower_cat_seq(t, i) {
     while (LE(i, n(t))) { emit('SM_CONCAT'); i = i + 1; }
     return;
 }
-
-
+/* ==================================================================================================================== */
 function emit_lhs_store(lhs, i) {
     if (IDENT(lhs)) return;
     if (IDENT(t(lhs), TT_VAR))     { emit_s('SM_STORE_VAR', (DIFFER(v(lhs)) v(lhs), '')); return; }
@@ -222,14 +228,13 @@ function emit_lhs_store(lhs, i) {
     emit_si('SM_CALL_FN', 'ASGN', 2);
     return;
 }
-
+/* ==================================================================================================================== */
 function lower_assign(t) {
     lower_expr(T1(t));
     emit_lhs_store(T0(t));
     return;
 }
-
-
+/* ==================================================================================================================== */
 function emit_pat_nary(t, op, i) {
     i = 1;
     while (LE(i, n(t))) { lower_pat_expr(c(t)[i]); i = i + 1; }
@@ -237,7 +242,7 @@ function emit_pat_nary(t, op, i) {
     while (LE(i, n(t))) { emit(op); i = i + 1; }
     return;
 }
-
+/* ==================================================================================================================== */
 function lower_pat_expr(t, k) {
     if (IDENT(t)) return;
     k = t(t);
@@ -272,7 +277,7 @@ function lower_pat_expr(t, k) {
     emit('SM_PAT_DEREF');
     return;
 }
-
+/* ==================================================================================================================== */
 function lower_expr(t, k) {
     if (IDENT(t)) { emit('SM_PUSH_NULL'); return; }
     k = t(t);
@@ -317,7 +322,7 @@ function lower_expr(t, k) {
     emit('SM_PUSH_NULL');
     return;
 }
-
+/* ==================================================================================================================== */
 function stmt_attr_find(s, tag, i, ch) {
     stmt_attr_find = NULL;
     i = 1;
@@ -328,19 +333,19 @@ function stmt_attr_find(s, tag, i, ch) {
     }
     return;
 }
-
+/* ==================================================================================================================== */
 function stmt_attr_str(s, tag, a) {
     a = stmt_attr_find(s, tag);
     stmt_attr_str = (DIFFER(a) v(a), '');
     return;
 }
-
+/* ==================================================================================================================== */
 function attr_int_of(s, tag, sv) {
     sv = stmt_attr_str(s, tag);
     attr_int_of = (DIFFER(sv) sv, 0);
     return;
 }
-
+/* ==================================================================================================================== */
 function attr_expr_of(s, tag, a) {
     a = stmt_attr_find(s, tag);
     if (IDENT(a)) { attr_expr_of = NULL; return; }
@@ -348,8 +353,7 @@ function attr_expr_of(s, tag, a) {
     attr_expr_of = NULL;
     return;
 }
-
-
+/* ==================================================================================================================== */
 function lower_stmt(s, label, lang, stno, lineno, subject, pattern, has_eq,
                     replacement, goto_s, goto_f, goto_u,
                     is_end, sname) {
@@ -378,16 +382,13 @@ function lower_stmt(s, label, lang, stno, lineno, subject, pattern, has_eq,
     goto_s      = stmt_attr_str(s, SL_GOS);
     goto_f      = stmt_attr_str(s, SL_GOF);
     goto_u      = stmt_attr_str(s, SL_GOU);
-
     if (IDENT(label) IDENT(subject) IDENT(pattern) EQ(has_eq, 0)
         IDENT(goto_u) IDENT(goto_s) IDENT(goto_f)) return;
-
     if (DIFFER(label)) {
         emit_s('SM_LABEL', label);
         labtab_define(label, g_count - 1);
     }
     emit_ii('SM_STNO', stno, lineno);
-
     if (DIFFER(pattern)) {
         lower_pat_expr(pattern);
         if (DIFFER(subject)) lower_expr(subject); else emit('SM_PUSH_NULL');
@@ -401,7 +402,6 @@ function lower_stmt(s, label, lang, stno, lineno, subject, pattern, has_eq,
         emit_si('SM_EXEC_STMT', sname, has_eq);
         goto emit_gotos;
     }
-
     if (DIFFER(subject)) {
         if (EQ(has_eq, 1)) {
             if (DIFFER(replacement)) lower_expr(replacement);
@@ -412,7 +412,6 @@ function lower_stmt(s, label, lang, stno, lineno, subject, pattern, has_eq,
             emit('SM_VOID_POP');
         }
     }
-
 emit_gotos:
     if (IDENT(goto_u) IDENT(goto_s) IDENT(goto_f)) return;
     if (DIFFER(goto_u)) { emit_goto('SM_JUMP',   goto_u); return; }
@@ -420,7 +419,7 @@ emit_gotos:
     if (DIFFER(goto_f))   emit_goto('SM_JUMP_F', goto_f);
     return;
 }
-
+/* ==================================================================================================================== */
 function lower(prog, i, s, last_op) {
     g_sm     = tree('SM_LIST', '');
     g_count  = 0;
@@ -428,7 +427,6 @@ function lower(prog, i, s, last_op) {
     g_patch  = tree('PATCH', '');
     g_instr_tbl = TABLE();
     g_unhandled = TABLE();
-
     i = 1;
     while (LE(i, n(prog))) {
         s = c(prog)[i];
@@ -444,7 +442,7 @@ function lower(prog, i, s, last_op) {
     labtab_resolve();
     return;
 }
-
+/* ==================================================================================================================== */
 function pad_op(op, padded, room) {
     padded = op;
     room = 21 - SIZE(op);
@@ -452,7 +450,7 @@ function pad_op(op, padded, room) {
     pad_op = padded;
     return;
 }
-
+/* ==================================================================================================================== */
 function pad_idx(i, s, n) {
     s = '' i;
     n = 4 - SIZE(s);
@@ -460,12 +458,10 @@ function pad_idx(i, s, n) {
     pad_idx = s;
     return;
 }
-
 JUMP_OPS = TABLE();
 JUMP_OPS['SM_JUMP']   = 1;
 JUMP_OPS['SM_JUMP_S'] = 1;
 JUMP_OPS['SM_JUMP_F'] = 1;
-
 STR_OPS = TABLE();
 STR_OPS['SM_PUSH_LIT_S'] = 1;
 STR_OPS['SM_PUSH_VAR']   = 1;
@@ -473,7 +469,7 @@ STR_OPS['SM_STORE_VAR']  = 1;
 STR_OPS['SM_LABEL']      = 1;
 STR_OPS['SM_PAT_LIT']    = 1;
 STR_OPS['SM_PAT_REFNAME']= 1;
-
+/* ==================================================================================================================== */
 function fmt_instr(idx, ins, op_str) {
     ins = g_instr_tbl[idx];
     op_str = op(ins);
@@ -508,7 +504,7 @@ function fmt_instr(idx, ins, op_str) {
     fmt_instr = pad_idx(idx) '  ' pad_op(op_str);
     return;
 }
-
+/* ==================================================================================================================== */
 function sm_dump(i) {
     OUTPUT = '; SM_Program  count=' g_count;
     i = 0;
@@ -518,7 +514,7 @@ function sm_dump(i) {
     }
     return;
 }
-
+/* ==================================================================================================================== */
 function ast_dump(prog, i, s) {
     i = 1;
     while (LE(i, n(prog))) {

@@ -1,5 +1,5 @@
-
 t8MaxLast = 0;
+/* ==================================================================================================================== */
 function T8Trace(lvl, str, ofs, t8p) {
     T8Trace = .dummy;
     if (~GT(doDebug, 0)) nreturn;
@@ -16,6 +16,7 @@ function T8Trace(lvl, str, ofs, t8p) {
     OUTPUT = t8p str;
     nreturn;
 }
+/* ==================================================================================================================== */
 function T8Pos(t8Ofs, t8Map, i) {
     if (T8Pos = IDENT(t8Map) LPAD(t8Ofs, 8)) return;
     i = +t8Ofs;

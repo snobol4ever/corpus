@@ -1,4 +1,4 @@
-
+/* ==================================================================================================================== */
 function Shift(t, v, s) {
     v ? (POS(0) whitespace) = ;
     s = tree(t, v);
@@ -8,7 +8,7 @@ function Shift(t, v, s) {
     Shift = DIFFER(v) .dummy;
     nreturn;
 }
-
+/* ==================================================================================================================== */
 function Reduce(t, n, c, i, r, empty) {
     Reduce = .dummy;
     if (IDENT(DATATYPE(t), 'EXPRESSION')) {
@@ -34,8 +34,7 @@ function Reduce(t, n, c, i, r, empty) {
     Push(r);
     nreturn;
 }
-
-
+/* ==================================================================================================================== */
 function FoldOp(t, rhs, lhs) {
     FoldOp = .dummy;
     if (IDENT(DATATYPE(t), 'EXPRESSION')) {
@@ -52,8 +51,7 @@ function FoldOp(t, rhs, lhs) {
     Push(Tree(t, '', 2, lhs, rhs));
     nreturn;
 }
-
-
+/* ==================================================================================================================== */
 function ReduceCall(n, args, i, fname, r) {
     ReduceCall = .dummy;
     n = TopCounter();
@@ -65,8 +63,7 @@ function ReduceCall(n, args, i, fname, r) {
     Push(r);
     nreturn;
 }
-
-
+/* ==================================================================================================================== */
 function ReducePrim(tag, n, args, i, r) {
     ReducePrim = .dummy;
     if (IDENT(DATATYPE(tag), 'EXPRESSION')) {
@@ -80,8 +77,7 @@ function ReducePrim(tag, n, args, i, r) {
     Push(r);
     nreturn;
 }
-
-
+/* ==================================================================================================================== */
 function ReduceOpsyn(op, n, c, i, r) {
     ReduceOpsyn = .dummy;
     if (IDENT(DATATYPE(n), 'EXPRESSION')) {
