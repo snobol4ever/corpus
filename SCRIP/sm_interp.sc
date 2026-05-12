@@ -97,6 +97,8 @@ function sm_interp_step(ins, opc, nm, a, b, repl_v, subj_v, pat_v, sname_v, has_
         case 'SM_JUMP':            pc = +a0(ins); return;
         case 'SM_JUMP_S':          if (IDENT(last_ok, 1)) pc = +a0(ins); return;
         case 'SM_JUMP_F':          if (IDENT(last_ok, 0)) pc = +a0(ins); return;
+        /* SI-14: SM_JUMP_INDIR — pop label name from stack, look up pc in g_labtab, jump. */
+        case 'SM_JUMP_INDIR':      nm = sm_pop(); pc = g_labtab[nm]; return;
         /* SI-4: arithmetic + coerce + concat.  +X = unary numeric coercion. */
         case 'SM_ADD':             b = sm_pop(); a = sm_pop(); sm_push((+a) + (+b));   last_ok = 1; return;
         case 'SM_SUB':             b = sm_pop(); a = sm_pop(); sm_push((+a) - (+b));   last_ok = 1; return;
