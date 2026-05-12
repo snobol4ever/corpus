@@ -1,7 +1,7 @@
 // smoke_lower.sc — SL-2 smoke for lower.sc.
 //
 // Loaded blob:
-//   global.sc tree.sc qize.sc tdump.sc lower.sc sm_lower_driver.sc smoke_lower.sc
+//   global.sc tree.sc qize.sc tdump.sc lower.sc lower_driver.sc smoke_lower.sc
 //
 // Builds a tiny program tree by hand — no parser involved — and lowers it
 // to SM via the in-memory pipeline.  The expected output corresponds to a

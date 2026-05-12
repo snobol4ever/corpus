@@ -1,4 +1,4 @@
-// sm_lower_driver.sc — drive the Snocone-hosted lowering pipeline.
+// lower_driver.sc — drive the Snocone-hosted lowering pipeline.
 //
 // Loaded after global.sc, tree.sc, tdump.sc, qize.sc, stack.sc, counter.sc,
 // ShiftReduce.sc, semantic.sc, parser_<lang>.sc, and lower.sc.  The parser
