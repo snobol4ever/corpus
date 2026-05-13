@@ -1,0 +1,10 @@
+# rung37: augop power hello — IJ-3b
+procedure main()
+   local i;
+   i := 2;
+   i ^:= 3;
+   write(i);
+   i := 10;
+   i ^:= 9;
+   write(i);
+end

@@ -1,0 +1,14 @@
+# rung37: math builtins hello — IJ-4
+# simplest possible check: each builtin produces correct output
+procedure main()
+   write(sqrt(4.0));
+   write(sin(0.0));
+   write(cos(0.0));
+   write(exp(0.0));
+   write(log(1.0));
+   write(iand(12, 10));
+   write(ior(12, 10));
+   write(ixor(12, 10));
+   write(ishift(1, 3));
+   write(icom(0));
+end
