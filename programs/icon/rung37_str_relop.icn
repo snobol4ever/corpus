@@ -1,0 +1,29 @@
+#SRC: IJ-8 string relop coercion tests
+# Verify bb_strrel coerces int/real to image string, cset to member string.
+# Uses semicolon separators (no auto-semicolon in this frontend).
+
+procedure main()
+   local s; local t;
+   # basic string ordering
+   s := "a"; t := "b";
+   if s << t then write("a<<b");
+   if t >> s then write("b>>a");
+   if s <<= s then write("a<<=a");
+   if t >>= t then write("b>>=b");
+   if s == s then write("a==a");
+   if s ~== t then write("a~==b");
+   # integer coercion: int compared as decimal image string
+   s := "2"; t := "3";
+   if s << t then write("2<<3");
+   if t >> s then write("3>>2");
+   if s == "2" then write("2==2");
+   # cset: 'ca' canonical = "ac"
+   s := "ac"; t := 'ca';
+   if s == t then write("ac=='ca'");
+   if s <<= t then write("ac<<='ca'");
+   # empty string edges
+   s := ""; t := "a";
+   if s <<= s then write("empty<<=empty");
+   if s << t then write("empty<<a");
+   if t >> s then write("a>>empty");
+end
