@@ -1,0 +1,33 @@
+# rung37_file_io.icn — DT_FH typed file handle tests (IJ-13c)
+# Tests write/writes/read/reads/open/close routing via DT_FH descriptors.
+# scrip Icon requires explicit semicolons after every statement.
+
+procedure main();
+  local f;
+  local outf;
+  local s;
+
+  # write(fh, s) routes to the FILE* for that handle
+  outf := &output;
+  write(outf, "fh-write-ok");
+
+  # writes(fh, s) — no newline, then flush with write(fh,"")
+  writes(outf, "fh-writes-");
+  write(outf, "ok");
+
+  # open/write/close round-trip via file
+  f := open("/tmp/rung37_fh_test.txt", "w");
+  write(f, "file-content");
+  close(f);
+
+  # open/read round-trip
+  f := open("/tmp/rung37_fh_test.txt");
+  s := read(f);
+  write(s);
+  close(f);
+
+  # write(fh, integer) — integer printed, not fh slot number
+  write(outf, 42);
+
+  write("done");
+end
