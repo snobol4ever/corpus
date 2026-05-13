@@ -1,0 +1,9 @@
+# rung37: string relop hello — IJ-8
+procedure main()
+   if ("a" << "b") then write("a<<b");
+   if ("b" >> "a") then write("b>>a");
+   if ("a" == "a") then write("a==a");
+   if ("a" ~== "b") then write("a~==b");
+   if ("a" <<= "a") then write("a<<=a");
+   if ("b" >>= "b") then write("b>>=b");
+end
