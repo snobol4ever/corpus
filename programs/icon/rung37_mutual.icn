@@ -1,0 +1,37 @@
+# rung37_mutual.icn — test TT_MUTUAL (every A & B) cross-product conjunction  IJ-12
+global n_test, qn, qsol
+
+procedure main(args)
+   test_simple_mutual(); test_static_mutual(); test_queens_pattern()
+end
+
+procedure test_simple_mutual()
+   local x, y
+   write("simple_mutual:"); every x := (1|2|3) & y := (4|5) do write(x, ",", y)
+end
+
+procedure test_static_mutual()
+   n_test := 4; write("static_mutual:"); sm_foo(1)
+end
+
+procedure sm_foo(c)
+   local r
+   static arr, visited
+   initial { arr := list(n_test, 0); visited := list(n_test, 0) }
+   every 0 = arr[r := 1 to n_test] & arr[r] <- 1 do { visited[c] := r; if c < 3 then sm_foo(c + 1); else write(visited[1], ",", visited[2], ",", r) }
+end
+
+procedure test_queens_pattern()
+   write("queens_4:"); qmain(4)
+end
+
+procedure qmain(size)
+   qn := size; qsol := list(qn); every q(1)
+end
+
+procedure q(c)
+   local r
+   static up, down, rows
+   initial { up := list(2*qn-1, 0); down := list(2*qn-1, 0); rows := list(qn, 0) }
+   every 0 = rows[r := 1 to qn] = up[qn+r-c] = down[r+c-1] & rows[r] <- up[qn+r-c] <- down[r+c-1] <- 1 do { qsol[c] := r; if c = qn then write("sol:", qsol[1], qsol[2], qsol[3], qsol[4]); else q(c + 1) }
+end
