@@ -352,4 +352,9 @@
                         ret
 .Lretskip_\pc\():
                         .endm
+# PUSH_REAL: hand-written (SM_PUSH_LIT_F special-case; param = 64-bit bits as hex)
+                        .macro           PUSH_REAL val
+                        movabs           rdi, \val
+                        call             rt_push_real_bits@PLT
+                        .endm
 # === END sm macro library ===
