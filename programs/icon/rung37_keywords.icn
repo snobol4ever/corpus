@@ -1,0 +1,52 @@
+#SRC: IJ-11
+# rung37_keywords.icn -- verify icn_kw_read: type/image/size for cset keywords,
+# math constants, &error r/w, &fail, &null.
+procedure main()
+   # type() detects cset keywords
+   write(type(&lcase));
+   write(type(&ucase));
+   write(type(&digits));
+   write(type(&letters));
+   write(type(&ascii));
+   write(type(&cset));
+   # image() returns "&name" form for built-in cset keywords
+   write(image(&lcase));
+   write(image(&ucase));
+   write(image(&digits));
+   write(image(&letters));
+   write(image(&ascii));
+   write(image(&cset));
+   # * size correct
+   write(*&lcase);
+   write(*&ucase);
+   write(*&digits);
+   write(*&letters);
+   write(*&ascii);
+   write(*&cset);
+   # math constants in correct range
+   write(if_ok(&e > 2.7 & &e < 2.8));
+   write(if_ok(&pi > 3.14 & &pi < 3.15));
+   write(if_ok(&phi > 1.61 & &phi < 1.62));
+   # &null and &fail
+   write(type(&null));
+   write(\&null | "null-is-null");
+   write(&fail | "fail-failed");
+   # &error read/write
+   &error := 42;
+   write(&error);
+   &error := 0;
+   write(&error);
+   # other writable keywords are integers
+   write(type(&dump));
+   write(type(&trace));
+   write(type(&random));
+   # fixed integer keywords
+   write(&col);
+   write(&row);
+   write(&x);
+   write(&y);
+   write(&level);
+end
+procedure if_ok(x)
+   return (x & "yes") | "no";
+end
