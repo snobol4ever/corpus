@@ -1,0 +1,15 @@
+#SRC: IJ-3 focused test: proc() builtin + indirect invocation
+procedure p0()
+   write("p0");
+end
+procedure p1(x)
+   write("p1", x);
+end
+procedure main()
+   local plist;
+   write(image(proc("write", 1)));
+   if not (proc("noexist", 1)) then write("noexist fails");
+   plist := [3, p0, p1];
+   every write((!plist)());
+   every write((!plist)(1));
+end

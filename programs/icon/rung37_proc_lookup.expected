@@ -1,0 +1,6 @@
+function write
+noexist fails
+p0
+p1
+p0
+p11
