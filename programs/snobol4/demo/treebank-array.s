@@ -141,48 +141,22 @@
                         .section         .data
                         .align           8
 .Lexpression_registry:  .quad            .S11             ; .quad            .L32
-                        .quad            .S18             ; .quad            .L64
                         .quad            .S20             ; .quad            .L71
-                        .quad            .S24             ; .quad            .L100
                         .quad            .S26             ; .quad            .L107
-                        .quad            .S31             ; .quad            .L148
                         .quad            .S33             ; .quad            .L155
-                        .quad            .S36             ; .quad            .L174
                         .quad            .S39             ; .quad            .L185
                         .quad            .S41             ; .quad            .L211
-                        .quad            .S46             ; .quad            .L222
                         .quad            .S49             ; .quad            .L233
                         .quad            .S50             ; .quad            .L244
-                        .quad            .S52             ; .quad            .L255
                         .quad            .S55             ; .quad            .L266
                         .quad            .S56             ; .quad            .L277
-                        .quad            .S58             ; .quad            .L288
                         .quad            .S61             ; .quad            .L299
                         .quad            .S62             ; .quad            .L309
-                        .quad            .S64             ; .quad            .L317
                         .quad            .S67             ; .quad            .L328
                         .quad            .S68             ; .quad            .L339
-                        .quad            .S70             ; .quad            .L350
                         .quad            .S72             ; .quad            .L357
-                        .quad            .S81             ; .quad            .L377
-                        .quad            .S86             ; .quad            .L398
-                        .quad            .S89             ; .quad            .L425
-                        .quad            .S90             ; .quad            .L432
                         .quad            .S92             ; .quad            .L439
-                        .quad            .S98             ; .quad            .L465
-                        .quad            .S102            ; .quad            .L492
-                        .quad            .S105            ; .quad            .L517
-                        .quad            .S108            ; .quad            .L552
-                        .quad            .S109            ; .quad            .L568
-                        .quad            .S110            ; .quad            .L571
                         .quad            .S112            ; .quad            .L578
-                        .quad            .S114            ; .quad            .L591
-                        .quad            .S124            ; .quad            .L646
-                        .quad            .S128            ; .quad            .L659
-                        .quad            .S130            ; .quad            .L669
-                        .quad            .S132            ; .quad            .L692
-                        .quad            .S134            ; .quad            .L702
-                        .quad            .S135            ; .quad            .L711
                         .quad            0                ; .quad            0
                         .text
                         .intel_syntax    noprefix
@@ -200,11 +174,11 @@ main:                   push             rbp
 #=======================================================================================================================
                         STNO
 .L0:                    PUSH_INT         10
-                        EXEC_STMT_VARIANT 0
+    PAT_POS
                         PUSH_INT         1
-                        EXEC_STMT_VARIANT 0
+    PAT_LEN
                         PAT_CAPTURE      0, .S0 # nl kind=0
-                        EXEC_STMT_VARIANT 0
+    PAT_CAT
                         PUSH_VAR         .S1 # ALPHABET
                         PUSH_INT         0
                         EXEC_STMT_VARIANT 0, .S1 # subj=ALPHABET
@@ -214,9 +188,7 @@ main:                   push             rbp
                         STNO
                         PUSH_STR         .S2, 0 # "list(head,tail)"
                         CALL_FN          .S3, 1 # DATA
-    # SM_VOID_POP — pop and discard TOS
     VOID_POP
-                        call             rt_pop_void@PLT
 #=======================================================================================================================
 # stmt 3  (line 9):                 frame_id       =  0
 #=======================================================================================================================
@@ -247,23 +219,17 @@ main:                   push             rbp
                         STNO
                         PUSH_STR         .S9, 0 # "stk_push_frame(v)"
                         CALL_FN          .S10, 1 # DEFINE
-    # SM_VOID_POP — pop and discard TOS
     VOID_POP
-                        call             rt_pop_void@PLT
-    # SM_JUMP
                                                                     jmp .L63
                         LABEL
-.L32:                   UNHANDLED        75 # SM_DEFINE_ENTRY
+.L32:                   DEFINE_ENTRY     # stk_push_frame
 #=======================================================================================================================
 # stmt 8  (line 15):  stk_push_frame frame_id              =  frame_id + 1
 #=======================================================================================================================
                         STNO
                         PUSH_VAR         .S4 # frame_id
                         PUSH_INT         1
-    # ADD_NUM
     ADD_NUM
-                        mov              rdi, 0x11
-                        call             rt_arith@PLT
                         STORE_VAR        .S4 # frame_id
 #=======================================================================================================================
 # stmt 9  (line 16):                 stk_tag[frame_id]    =  v
@@ -318,13 +284,10 @@ main:                   push             rbp
                         STNO
                         PUSH_STR         .S19, 0 # "stk_push_item(v,cur)"
                         CALL_FN          .S10, 1 # DEFINE
-    # SM_VOID_POP — pop and discard TOS
     VOID_POP
-                        call             rt_pop_void@PLT
-    # SM_JUMP
                                                                     jmp .L99
                         LABEL
-.L71:                   UNHANDLED        75 # SM_DEFINE_ENTRY
+.L71:                   DEFINE_ENTRY     # stk_push_item
 #=======================================================================================================================
 # stmt 16  (line 24):  stk_push_item  cur                  =  head(stk)
 #=======================================================================================================================
@@ -340,10 +303,7 @@ main:                   push             rbp
                         PUSH_VAR         .S22 # cur
                         CALL_FN          .S23, 2 # IDX
                         PUSH_INT         1
-    # ADD_NUM
     ADD_NUM
-                        mov              rdi, 0x11
-                        call             rt_arith@PLT
                         PUSH_VAR         .S7 # stk_n
                         PUSH_VAR         .S22 # cur
                         CALL_FN          .S13, 3 # IDX_SET
@@ -380,13 +340,10 @@ main:                   push             rbp
                         STNO
                         PUSH_STR         .S25, 0 # "stk_pop_into_parent(child,par,n)"
                         CALL_FN          .S10, 1 # DEFINE
-    # SM_VOID_POP — pop and discard TOS
     VOID_POP
-                        call             rt_pop_void@PLT
-    # SM_JUMP
                                                                     jmp .L147
                         LABEL
-.L107:                  UNHANDLED        75 # SM_DEFINE_ENTRY
+.L107:                  DEFINE_ENTRY     # stk_pop_into_parent
 #=======================================================================================================================
 # stmt 22  (line 32):                 child                =  head(stk)
 #=======================================================================================================================
@@ -426,10 +383,7 @@ main:                   push             rbp
                         STNO
                         PUSH_VAR         .S30 # n
                         PUSH_INT         1
-    # ADD_NUM
     ADD_NUM
-                        mov              rdi, 0x11
-                        call             rt_arith@PLT
                         PUSH_VAR         .S7 # stk_n
                         PUSH_VAR         .S29 # par
                         CALL_FN          .S13, 3 # IDX_SET
@@ -443,10 +397,7 @@ main:                   push             rbp
                         CALL_FN          .S23, 2 # IDX
                         PUSH_VAR         .S30 # n
                         PUSH_INT         1
-    # ADD_NUM
     ADD_NUM
-                        mov              rdi, 0x11
-                        call             rt_arith@PLT
                         CALL_FN          .S13, 3 # IDX_SET
 #=======================================================================================================================
 # stmt 29  (line 38):                 stk_pop_into_parent  =  .dummy               :(RETURN)
@@ -469,13 +420,10 @@ main:                   push             rbp
                         STNO
                         PUSH_STR         .S32, 0 # "stk_pop_final(var,child)"
                         CALL_FN          .S10, 1 # DEFINE
-    # SM_VOID_POP — pop and discard TOS
     VOID_POP
-                        call             rt_pop_void@PLT
-    # SM_JUMP
                                                                     jmp .L173
                         LABEL
-.L155:                  UNHANDLED        75 # SM_DEFINE_ENTRY
+.L155:                  DEFINE_ENTRY     # stk_pop_final
 #=======================================================================================================================
 # stmt 32  (line 42):  stk_pop_final  child                =  head(stk)
 #=======================================================================================================================
@@ -518,22 +466,17 @@ main:                   push             rbp
                         STNO
                         PUSH_STR         .S37, 0 # "init_list(v)"
                         CALL_FN          .S10, 1 # DEFINE
-    # SM_VOID_POP — pop and discard TOS
     VOID_POP
-                        call             rt_pop_void@PLT
 #=======================================================================================================================
 # stmt 38  (line 49):                 DEFINE('Init_list(vs)')                      :(init_list_end)
 #=======================================================================================================================
                         STNO
                         PUSH_STR         .S38, 0 # "Init_list(vs)"
                         CALL_FN          .S10, 1 # DEFINE
-    # SM_VOID_POP — pop and discard TOS
     VOID_POP
-                        call             rt_pop_void@PLT
-    # SM_JUMP
                                                                     jmp .L221
                         LABEL
-.L185:                  UNHANDLED        75 # SM_DEFINE_ENTRY
+.L185:                  DEFINE_ENTRY     # init_list
 #=======================================================================================================================
 # stmt 39  (line 50):  init_list      $v             =
 #=======================================================================================================================
@@ -580,7 +523,7 @@ main:                   push             rbp
                         STORE_VAR        .S39 # init_list
                         RETURN_VARIANT   2, 0, 209 # SM_NRETURN
                         LABEL
-.L211:                  UNHANDLED        75 # SM_DEFINE_ENTRY
+.L211:                  DEFINE_ENTRY     # Init_list
 #=======================================================================================================================
 # stmt 46  (line 57):  Init_list      Init_list      =  EVAL('epsilon . *init_list(' vs ')')  :(RETURN)
 #=======================================================================================================================
@@ -588,12 +531,8 @@ main:                   push             rbp
                         PUSH_STR         .S42, 0 # "epsilon . *init_list("
                         PUSH_VAR         .S43 # vs
                         PUSH_STR         .S44, 0 # ")"
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
                         CALL_FN          .S45, 1 # EVAL
                         STORE_VAR        .S41 # Init_list
                         RETURN
@@ -610,22 +549,17 @@ main:                   push             rbp
                         STNO
                         PUSH_STR         .S47, 0 # "push_list(v)"
                         CALL_FN          .S10, 1 # DEFINE
-    # SM_VOID_POP — pop and discard TOS
     VOID_POP
-                        call             rt_pop_void@PLT
 #=======================================================================================================================
 # stmt 49  (line 61):                 DEFINE('Push_list(vs)')                      :(push_list_end)
 #=======================================================================================================================
                         STNO
                         PUSH_STR         .S48, 0 # "Push_list(vs)"
                         CALL_FN          .S10, 1 # DEFINE
-    # SM_VOID_POP — pop and discard TOS
     VOID_POP
-                        call             rt_pop_void@PLT
-    # SM_JUMP
                                                                     jmp .L254
                         LABEL
-.L233:                  UNHANDLED        75 # SM_DEFINE_ENTRY
+.L233:                  DEFINE_ENTRY     # push_list
 #=======================================================================================================================
 # stmt 50  (line 62):  push_list      dummy          =  stk_push_frame(v)
 #=======================================================================================================================
@@ -642,7 +576,7 @@ main:                   push             rbp
                         STORE_VAR        .S49 # push_list
                         RETURN_VARIANT   2, 0, 242 # SM_NRETURN
                         LABEL
-.L244:                  UNHANDLED        75 # SM_DEFINE_ENTRY
+.L244:                  DEFINE_ENTRY     # Push_list
 #=======================================================================================================================
 # stmt 52  (line 64):  Push_list      Push_list      =  EVAL('epsilon . *push_list(' vs ')')  :(RETURN)
 #=======================================================================================================================
@@ -650,12 +584,8 @@ main:                   push             rbp
                         PUSH_STR         .S51, 0 # "epsilon . *push_list("
                         PUSH_VAR         .S43 # vs
                         PUSH_STR         .S44, 0 # ")"
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
                         CALL_FN          .S45, 1 # EVAL
                         STORE_VAR        .S50 # Push_list
                         RETURN
@@ -672,22 +602,17 @@ main:                   push             rbp
                         STNO
                         PUSH_STR         .S53, 0 # "push_item(v)"
                         CALL_FN          .S10, 1 # DEFINE
-    # SM_VOID_POP — pop and discard TOS
     VOID_POP
-                        call             rt_pop_void@PLT
 #=======================================================================================================================
 # stmt 55  (line 68):                 DEFINE('Push_item(vs)')                      :(push_item_end)
 #=======================================================================================================================
                         STNO
                         PUSH_STR         .S54, 0 # "Push_item(vs)"
                         CALL_FN          .S10, 1 # DEFINE
-    # SM_VOID_POP — pop and discard TOS
     VOID_POP
-                        call             rt_pop_void@PLT
-    # SM_JUMP
                                                                     jmp .L287
                         LABEL
-.L266:                  UNHANDLED        75 # SM_DEFINE_ENTRY
+.L266:                  DEFINE_ENTRY     # push_item
 #=======================================================================================================================
 # stmt 56  (line 69):  push_item      dummy          =  stk_push_item(v)
 #=======================================================================================================================
@@ -704,7 +629,7 @@ main:                   push             rbp
                         STORE_VAR        .S55 # push_item
                         RETURN_VARIANT   2, 0, 275 # SM_NRETURN
                         LABEL
-.L277:                  UNHANDLED        75 # SM_DEFINE_ENTRY
+.L277:                  DEFINE_ENTRY     # Push_item
 #=======================================================================================================================
 # stmt 58  (line 71):  Push_item      Push_item      =  EVAL('epsilon . *push_item(' vs ')')  :(RETURN)
 #=======================================================================================================================
@@ -712,12 +637,8 @@ main:                   push             rbp
                         PUSH_STR         .S57, 0 # "epsilon . *push_item("
                         PUSH_VAR         .S43 # vs
                         PUSH_STR         .S44, 0 # ")"
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
                         CALL_FN          .S45, 1 # EVAL
                         STORE_VAR        .S56 # Push_item
                         RETURN
@@ -734,22 +655,17 @@ main:                   push             rbp
                         STNO
                         PUSH_STR         .S59, 0 # "pop_list()"
                         CALL_FN          .S10, 1 # DEFINE
-    # SM_VOID_POP — pop and discard TOS
     VOID_POP
-                        call             rt_pop_void@PLT
 #=======================================================================================================================
 # stmt 61  (line 75):                 DEFINE('Pop_list()')                         :(pop_list_end)
 #=======================================================================================================================
                         STNO
                         PUSH_STR         .S60, 0 # "Pop_list()"
                         CALL_FN          .S10, 1 # DEFINE
-    # SM_VOID_POP — pop and discard TOS
     VOID_POP
-                        call             rt_pop_void@PLT
-    # SM_JUMP
                                                                     jmp .L316
                         LABEL
-.L299:                  UNHANDLED        75 # SM_DEFINE_ENTRY
+.L299:                  DEFINE_ENTRY     # pop_list
 #=======================================================================================================================
 # stmt 62  (line 76):  pop_list       dummy          =  stk_pop_into_parent()
 #=======================================================================================================================
@@ -765,13 +681,13 @@ main:                   push             rbp
                         STORE_VAR        .S61 # pop_list
                         RETURN_VARIANT   2, 0, 307 # SM_NRETURN
                         LABEL
-.L309:                  UNHANDLED        75 # SM_DEFINE_ENTRY
+.L309:                  DEFINE_ENTRY     # Pop_list
 #=======================================================================================================================
 # stmt 64  (line 78):  Pop_list       Pop_list       =  epsilon . *pop_list()      :(RETURN)
 #=======================================================================================================================
                         STNO
                         PUSH_VAR         .S63 # epsilon
-                        EXEC_STMT_VARIANT 0
+    PAT_DEREF
                         PAT_CAPTURE_FN   0, .S61 # pop_list, (NULL)
                         STORE_VAR        .S62 # Pop_list
                         RETURN
@@ -788,22 +704,17 @@ main:                   push             rbp
                         STNO
                         PUSH_STR         .S65, 0 # "pop_final(v)"
                         CALL_FN          .S10, 1 # DEFINE
-    # SM_VOID_POP — pop and discard TOS
     VOID_POP
-                        call             rt_pop_void@PLT
 #=======================================================================================================================
 # stmt 67  (line 82):                 DEFINE('Pop_final(vs)')                      :(pop_final_end)
 #=======================================================================================================================
                         STNO
                         PUSH_STR         .S66, 0 # "Pop_final(vs)"
                         CALL_FN          .S10, 1 # DEFINE
-    # SM_VOID_POP — pop and discard TOS
     VOID_POP
-                        call             rt_pop_void@PLT
-    # SM_JUMP
                                                                     jmp .L349
                         LABEL
-.L328:                  UNHANDLED        75 # SM_DEFINE_ENTRY
+.L328:                  DEFINE_ENTRY     # pop_final
 #=======================================================================================================================
 # stmt 68  (line 83):  pop_final      dummy          =  stk_pop_final(v)
 #=======================================================================================================================
@@ -820,7 +731,7 @@ main:                   push             rbp
                         STORE_VAR        .S67 # pop_final
                         RETURN_VARIANT   2, 0, 337 # SM_NRETURN
                         LABEL
-.L339:                  UNHANDLED        75 # SM_DEFINE_ENTRY
+.L339:                  DEFINE_ENTRY     # Pop_final
 #=======================================================================================================================
 # stmt 70  (line 85):  Pop_final      Pop_final      =  EVAL('epsilon . *pop_final(' vs ')')  :(RETURN)
 #=======================================================================================================================
@@ -828,12 +739,8 @@ main:                   push             rbp
                         PUSH_STR         .S69, 0 # "epsilon . *pop_final("
                         PUSH_VAR         .S43 # vs
                         PUSH_STR         .S44, 0 # ")"
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
                         CALL_FN          .S45, 1 # EVAL
                         STORE_VAR        .S68 # Pop_final
                         RETURN
@@ -850,13 +757,10 @@ main:                   push             rbp
                         STNO
                         PUSH_STR         .S71, 0 # "node_repr(f)r,sep,i,n,tag"
                         CALL_FN          .S10, 1 # DEFINE
-    # SM_VOID_POP — pop and discard TOS
     VOID_POP
-                        call             rt_pop_void@PLT
-    # SM_JUMP
                                                                     jmp .L431
                         LABEL
-.L357:                  UNHANDLED        75 # SM_DEFINE_ENTRY
+.L357:                  DEFINE_ENTRY     # node_repr
 #=======================================================================================================================
 # stmt 73  (line 89):  node_repr      IDENT(REPLACE(DATATYPE(f), &LCASE, &UCASE), 'STRING')  :F(nr_frame)
 #=======================================================================================================================
@@ -868,10 +772,7 @@ main:                   push             rbp
                         CALL_FN          .S77, 3 # REPLACE
                         PUSH_STR         .S78, 0 # "STRING"
                         CALL_FN          .S79, 2 # IDENT
-    # SM_VOID_POP — pop and discard TOS
     VOID_POP
-                        call             rt_pop_void@PLT
-    # SM_JUMP_F — jump if not last_ok
                         call             rt_last_ok@PLT
                         test             rax, rax
                         je               .L376
@@ -882,12 +783,8 @@ main:                   push             rbp
                         PUSH_STR         .S80, 0 # "'"
                         PUSH_VAR         .S73 # f
                         PUSH_STR         .S80, 0 # "'"
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
                         STORE_VAR        .S72 # node_repr
                         RETURN
                         LABEL
@@ -915,12 +812,8 @@ main:                   push             rbp
                         PUSH_STR         .S83, 0 # "('"
                         PUSH_VAR         .S82 # tag
                         PUSH_STR         .S80, 0 # "'"
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
                         STORE_VAR        .S84 # r
 #=======================================================================================================================
 # stmt 78  (line 94):                 i              =  0
@@ -939,15 +832,9 @@ main:                   push             rbp
                         CALL_FN          .S87, 2 # LT
                         PUSH_VAR         .S85 # i
                         PUSH_INT         1
-    # ADD_NUM
     ADD_NUM
-                        mov              rdi, 0x11
-                        call             rt_arith@PLT
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
                         STORE_VAR        .S85 # i
-    # SM_JUMP_F — jump if not last_ok
                         call             rt_last_ok@PLT
                         test             rax, rax
                         je               .L424
@@ -963,12 +850,8 @@ main:                   push             rbp
                         PUSH_VAR         .S85 # i
                         CALL_FN          .S23, 2 # IDX
                         CALL_FN          .S72, 1 # node_repr
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
                         STORE_VAR        .S84 # r
 #=======================================================================================================================
 # stmt 81  (line 97):                 i              =  i                          :(nr_lp)
@@ -976,7 +859,6 @@ main:                   push             rbp
                         STNO
                         PUSH_VAR         .S85 # i
                         STORE_VAR        .S85 # i
-    # SM_JUMP
                                                                     jmp .L397
                         LABEL
 .L424:
@@ -986,9 +868,7 @@ main:                   push             rbp
                         STNO
 .L425:                  PUSH_VAR         .S84 # r
                         PUSH_STR         .S44, 0 # ")"
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
                         STORE_VAR        .S72 # node_repr
                         RETURN
                         LABEL
@@ -1004,13 +884,10 @@ main:                   push             rbp
                         STNO
                         PUSH_STR         .S91, 0 # "pp_node(f,indent,suffix)r,pad,tag,n,i,nx..."
                         CALL_FN          .S10, 1 # DEFINE
-    # SM_VOID_POP — pop and discard TOS
     VOID_POP
-                        call             rt_pop_void@PLT
-    # SM_JUMP
                                                                     jmp .L570
                         LABEL
-.L439:                  UNHANDLED        75 # SM_DEFINE_ENTRY
+.L439:                  DEFINE_ENTRY     # pp_node
 #=======================================================================================================================
 # stmt 85  (line 102):  pp_node        IDENT(REPLACE(DATATYPE(f), &LCASE, &UCASE), 'STRING')  :F(pp_frame)
 #=======================================================================================================================
@@ -1022,10 +899,7 @@ main:                   push             rbp
                         CALL_FN          .S77, 3 # REPLACE
                         PUSH_STR         .S78, 0 # "STRING"
                         CALL_FN          .S79, 2 # IDENT
-    # SM_VOID_POP — pop and discard TOS
     VOID_POP
-                        call             rt_pop_void@PLT
-    # SM_JUMP_F — jump if not last_ok
                         call             rt_last_ok@PLT
                         test             rax, rax
                         je               .L464
@@ -1040,18 +914,10 @@ main:                   push             rbp
                         PUSH_VAR         .S73 # f
                         PUSH_STR         .S80, 0 # "'"
                         PUSH_VAR         .S96 # suffix
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
                         STORE_VAR        .S97 # OUTPUT
                         RETURN
                         LABEL
@@ -1079,15 +945,9 @@ main:                   push             rbp
                         PUSH_VAR         .S94 # indent
                         PUSH_VAR         .S84 # r
                         CALL_FN          .S100, 1 # SIZE
-    # ADD_NUM
     ADD_NUM
-                        mov              rdi, 0x11
-                        call             rt_arith@PLT
                         CALL_FN          .S101, 2 # GT
-    # SM_VOID_POP — pop and discard TOS
     VOID_POP
-                        call             rt_pop_void@PLT
-    # SM_JUMP_F — jump if not last_ok
                         call             rt_last_ok@PLT
                         test             rax, rax
                         je               .L491
@@ -1098,12 +958,8 @@ main:                   push             rbp
                         PUSH_VAR         .S99 # pad
                         PUSH_VAR         .S84 # r
                         PUSH_VAR         .S96 # suffix
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
                         STORE_VAR        .S97 # OUTPUT
                         RETURN
                         LABEL
@@ -1133,18 +989,10 @@ main:                   push             rbp
                         PUSH_STR         .S80, 0 # "'"
                         PUSH_VAR         .S82 # tag
                         PUSH_STR         .S104, 0 # "',"
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
                         STORE_VAR        .S97 # OUTPUT
 #=======================================================================================================================
 # stmt 94  (line 111):                 i              =  0
@@ -1163,15 +1011,9 @@ main:                   push             rbp
                         CALL_FN          .S87, 2 # LT
                         PUSH_VAR         .S85 # i
                         PUSH_INT         1
-    # ADD_NUM
     ADD_NUM
-                        mov              rdi, 0x11
-                        call             rt_arith@PLT
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
                         STORE_VAR        .S85 # i
-    # SM_JUMP_F — jump if not last_ok
                         call             rt_last_ok@PLT
                         test             rax, rax
                         je               .L567
@@ -1183,11 +1025,8 @@ main:                   push             rbp
                         PUSH_VAR         .S30 # n
                         CALL_FN          .S87, 2 # LT
                         PUSH_VAR         .S85 # i
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
                         STORE_VAR        .S106 # nxt
-    # SM_JUMP_F — jump if not last_ok
                         call             rt_last_ok@PLT
                         test             rax, rax
                         je               .L551
@@ -1202,22 +1041,16 @@ main:                   push             rbp
                         CALL_FN          .S23, 2 # IDX
                         PUSH_VAR         .S94 # indent
                         PUSH_INT         2
-    # ADD_NUM
     ADD_NUM
-                        mov              rdi, 0x11
-                        call             rt_arith@PLT
                         PUSH_STR         .S107, 0 # ","
                         CALL_FN          .S92, 3 # pp_node
-    # SM_VOID_POP — pop and discard TOS
     VOID_POP
-                        call             rt_pop_void@PLT
 #=======================================================================================================================
 # stmt 98  (line 115):                 i              =  i                          :(pp_wch)
 #=======================================================================================================================
                         STNO
                         PUSH_VAR         .S85 # i
                         STORE_VAR        .S85 # i
-    # SM_JUMP
                                                                     jmp .L516
                         LABEL
 .L551:
@@ -1232,19 +1065,12 @@ main:                   push             rbp
                         CALL_FN          .S23, 2 # IDX
                         PUSH_VAR         .S94 # indent
                         PUSH_INT         2
-    # ADD_NUM
     ADD_NUM
-                        mov              rdi, 0x11
-                        call             rt_arith@PLT
                         PUSH_STR         .S44, 0 # ")"
                         PUSH_VAR         .S96 # suffix
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
                         CALL_FN          .S92, 3 # pp_node
-    # SM_VOID_POP — pop and discard TOS
     VOID_POP
-                        call             rt_pop_void@PLT
                         RETURN
                         LABEL
 .L567:
@@ -1266,13 +1092,10 @@ main:                   push             rbp
                         STNO
                         PUSH_STR         .S111, 0 # "pp_bank()"
                         CALL_FN          .S10, 1 # DEFINE
-    # SM_VOID_POP — pop and discard TOS
     VOID_POP
-                        call             rt_pop_void@PLT
-    # SM_JUMP
                                                                     jmp .L590
                         LABEL
-.L578:                  UNHANDLED        75 # SM_DEFINE_ENTRY
+.L578:                  DEFINE_ENTRY     # pp_bank
 #=======================================================================================================================
 # stmt 103  (line 121):  pp_bank        pp_node(bank, 0, '')
 #=======================================================================================================================
@@ -1281,9 +1104,7 @@ main:                   push             rbp
                         PUSH_INT         0
                         PUSH_STR         .S40, 0 # ""
                         CALL_FN          .S92, 3 # pp_node
-    # SM_VOID_POP — pop and discard TOS
     VOID_POP
-                        call             rt_pop_void@PLT
 #=======================================================================================================================
 # stmt 104  (line 122):                 pp_bank        =  .dummy                     :(RETURN)
 #=======================================================================================================================
@@ -1305,10 +1126,8 @@ main:                   push             rbp
                         STNO
                         PUSH_STR         .S93, 0 # " "
                         PUSH_VAR         .S0 # nl
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
-                        EXEC_STMT_VARIANT 0
+    PAT_SPAN
                         STORE_VAR        .S115 # delim
 #=======================================================================================================================
 # stmt 107  (line 126):                 word           =  NOTANY('( )' nl) BREAK('( )' nl)
@@ -1316,19 +1135,13 @@ main:                   push             rbp
                         STNO
                         PUSH_STR         .S116, 0 # "( )"
                         PUSH_VAR         .S0 # nl
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
-                        EXEC_STMT_VARIANT 0
+    PAT_NOTANY
                         PUSH_STR         .S116, 0 # "( )"
                         PUSH_VAR         .S0 # nl
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
-                        EXEC_STMT_VARIANT 0
-    # SM_CONCAT — pop right+left, push concat result
+    PAT_BREAK
     CONCAT
-                        call             rt_concat@PLT
                         STORE_VAR        .S117 # word
 #=======================================================================================================================
 # stmt 108  (line 128):                 group          =
@@ -1336,39 +1149,29 @@ main:                   push             rbp
                         STNO
                         PUSH_STR         .S118, 0 # "("
                         PUSH_VAR         .S117 # word
-                        EXEC_STMT_VARIANT 0
+    PAT_DEREF
                         PAT_CAPTURE      0, .S82 # tag kind=0
                         PUSH_STR         .S82, 0 # "tag"
                         CALL_FN          .S50, 1 # Push_list
                         PAT_REFNAME      .S115 # delim
                         PAT_REFNAME      .S119 # group
                         PUSH_VAR         .S117 # word
-                        EXEC_STMT_VARIANT 0
+    PAT_DEREF
                         PAT_CAPTURE      0, .S120 # wrd kind=0
                         PUSH_STR         .S120, 0 # "wrd"
                         CALL_FN          .S56, 1 # Push_item
-                        EXEC_STMT_VARIANT 0
-                        EXEC_STMT_VARIANT 0
-                        EXEC_STMT_VARIANT 0
-                        EXEC_STMT_VARIANT 0
-                        EXEC_STMT_VARIANT 0
+    PAT_DEREF
+    PAT_CAT
+    PAT_ALT
+    PAT_CAT
+    PAT_ARBNO
                         CALL_FN          .S62, 0 # Pop_list
                         PUSH_STR         .S44, 0 # ")"
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
                         STORE_VAR        .S119 # group
 #=======================================================================================================================
 # stmt 109  (line 140):                 spat           =  ('(' BAL ')') . item
@@ -1376,10 +1179,10 @@ main:                   push             rbp
                         STNO
                         PAT_LIT          .S118 # arg="("
                         PUSH_VAR         .S121 # BAL
-                        EXEC_STMT_VARIANT 0
+    PAT_DEREF
                         PAT_LIT          .S44 # arg=")"
-                        EXEC_STMT_VARIANT 0
-                        EXEC_STMT_VARIANT 0
+    PAT_CAT
+    PAT_CAT
                         PAT_CAPTURE      0, .S122 # item kind=0
                         STORE_VAR        .S123 # spat
                         LABEL
@@ -1390,7 +1193,6 @@ main:                   push             rbp
                         STNO
 .L646:                  PUSH_VAR         .S125 # INPUT
                         STORE_VAR        .S126 # line
-    # SM_JUMP_F — jump if not last_ok
                         call             rt_last_ok@PLT
                         test             rax, rax
                         je               .L658
@@ -1401,14 +1203,9 @@ main:                   push             rbp
                         PUSH_VAR         .S127 # src
                         PUSH_VAR         .S126 # line
                         PUSH_VAR         .S0 # nl
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
                         STORE_VAR        .S127 # src
-    # SM_JUMP
                                                                     jmp .L645
                         LABEL
 .L658:
@@ -1438,11 +1235,10 @@ main:                   push             rbp
 #=======================================================================================================================
                         STNO
 .L669:                  PUSH_VAR         .S123 # spat
-                        EXEC_STMT_VARIANT 0
+    PAT_DEREF
                         PUSH_VAR         .S127 # src
                         PUSH_STR         .S40, 0 # ""
                         EXEC_STMT_VARIANT 1, .S127 # subj=src
-    # SM_JUMP_F — jump if not last_ok
                         call             rt_last_ok@PLT
                         test             rax, rax
                         je               .L701
@@ -1458,11 +1254,10 @@ main:                   push             rbp
 #=======================================================================================================================
                         STNO
                         PUSH_VAR         .S119 # group
-                        EXEC_STMT_VARIANT 0
+    PAT_DEREF
                         PUSH_VAR         .S122 # item
                         PUSH_INT         0
                         EXEC_STMT_VARIANT 0, .S122 # subj=item
-    # SM_JUMP_F — jump if not last_ok
                         call             rt_last_ok@PLT
                         test             rax, rax
                         je               .L691
@@ -1472,7 +1267,6 @@ main:                   push             rbp
                         STNO
                         CALL_FN          .S26, 0 # stk_pop_into_parent
                         STORE_VAR        .S16 # dummy
-    # SM_JUMP
                                                                     jmp .L668
                         LABEL
 .L691:
@@ -1482,9 +1276,7 @@ main:                   push             rbp
                         STNO
 .L692:                  PUSH_STR         .S133, 0 # "Parse failed on: "
                         PUSH_VAR         .S122 # item
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
                         STORE_VAR        .S97 # OUTPUT
 #=======================================================================================================================
 # stmt 120  (line 152):                 dummy          =  stk_pop_into_parent()      :(loop)
@@ -1492,7 +1284,6 @@ main:                   push             rbp
                         STNO
                         CALL_FN          .S26, 0 # stk_pop_into_parent
                         STORE_VAR        .S16 # dummy
-    # SM_JUMP
                                                                     jmp .L668
                         LABEL
 .L701:
@@ -1509,7 +1300,6 @@ main:                   push             rbp
                         STNO
                         CALL_FN          .S112, 0 # pp_bank
                         STORE_VAR        .S16 # dummy
-    # SM_JUMP
                                                                     jmp .L710
                         LABEL
 .L710:

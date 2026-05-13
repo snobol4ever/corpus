@@ -78,6 +78,8 @@
                         call             \tgt
                         .endm
                         .macro           RETURN
+                        mov              rsp, rbp
+                        pop              rbp
                         ret
                         .endm
                         .macro           CALL_FN lbl, n
@@ -230,6 +232,111 @@
                         .endm
                         .macro           STNO
                         .endm
+                        .macro           PUSH_NULL_NOFLIP
+                        call             rt_push_null_noflip@PLT
+                        .endm
+                        .macro           EXP_NUM
+                        call             rt_exp@PLT
+                        .endm
+                        .macro           NEGATE
+                        call             rt_neg@PLT
+                        .endm
+                        .macro           DEFINE_ENTRY
+                        call             rt_define_entry@PLT
+                        push             rbp
+                        mov              rbp, rsp
+                        .endm
+                        .macro           DEFINE
+                        call             rt_define@PLT
+                        .endm
+                        .macro           SUSPEND
+                        mov              edi, 82
+                        call             rt_unhandled_sm@PLT
+                        .endm
+                        .macro           RESUME
+                        mov              edi, 83
+                        call             rt_unhandled_sm@PLT
+                        .endm
+                        .macro           SUSPEND_VALUE
+                        mov              edi, 65
+                        call             rt_unhandled_sm@PLT
+                        .endm
+                        .macro           GEN_TICK
+                        mov              edi, 64
+                        call             rt_unhandled_sm@PLT
+                        .endm
+                        .macro           BB_PUMP
+                        mov              edi, 56
+                        call             rt_unhandled_sm@PLT
+                        .endm
+                        .macro           BB_ONCE
+                        mov              edi, 57
+                        call             rt_unhandled_sm@PLT
+                        .endm
+                        .macro           BB_EVAL
+                        mov              edi, 58
+                        call             rt_unhandled_sm@PLT
+                        .endm
+                        .macro           BB_ONCE_PROC
+                        mov              edi, 59
+                        call             rt_unhandled_sm@PLT
+                        .endm
+                        .macro           BB_PUMP_PROC
+                        mov              edi, 60
+                        call             rt_unhandled_sm@PLT
+                        .endm
+                        .macro           BB_PUMP_CASE
+                        mov              edi, 61
+                        call             rt_unhandled_sm@PLT
+                        .endm
+                        .macro           BB_PUMP_SM
+                        mov              edi, 62
+                        call             rt_unhandled_sm@PLT
+                        .endm
+                        .macro           BB_PUMP_EVERY
+                        mov              edi, 63
+                        call             rt_unhandled_sm@PLT
+                        .endm
+                        .macro           LOAD_GLOCAL
+                        mov              edi, 84
+                        call             rt_unhandled_sm@PLT
+                        .endm
+                        .macro           STORE_GLOCAL
+                        mov              edi, 85
+                        call             rt_unhandled_sm@PLT
+                        .endm
+                        .macro           ICMP_GT
+                        mov              edi, 86
+                        call             rt_unhandled_sm@PLT
+                        .endm
+                        .macro           ICMP_LT
+                        mov              edi, 87
+                        call             rt_unhandled_sm@PLT
+                        .endm
+                        .macro           LOAD_FRAME
+                        mov              edi, 88
+                        call             rt_unhandled_sm@PLT
+                        .endm
+                        .macro           STORE_FRAME
+                        mov              edi, 89
+                        call             rt_unhandled_sm@PLT
+                        .endm
+                        .macro           INCR
+                        mov              edi, 0
+                        call             rt_incr@PLT
+                        .endm
+                        .macro           DECR
+                        mov              edi, 0
+                        call             rt_decr@PLT
+                        .endm
+                        .macro           ACOMP
+                        mov              edi, 0
+                        call             rt_acomp@PLT
+                        .endm
+                        .macro           LCOMP
+                        mov              edi, 0
+                        call             rt_lcomp@PLT
+                        .endm
                         .macro           UNHANDLED op
                         mov              edi, \op
                         call             rt_unhandled_op@PLT
@@ -240,6 +347,8 @@
                         call             rt_do_return@PLT
                         test             eax, eax
                         jz               .Lretskip_\pc
+                        mov              rsp, rbp
+                        pop              rbp
                         ret
 .Lretskip_\pc\():
                         .endm

@@ -20,20 +20,12 @@
 .S16:                   .string          "OUTPUT"
 .S17:                   .string          "END"
                         .text
-                        .section         .data
-                        .align           8
-.Lexpression_registry:  .quad            .S8              ; .quad            .L23
-                        .quad            .S11             ; .quad            .L28
-                        .quad            .S14             ; .quad            .L42
-                        .quad            .S17             ; .quad            .L49
-                        .quad            0                ; .quad            0
-                        .text
                         .intel_syntax    noprefix
                         .globl           main
                         .type            main, @function
 main:                   push             rbp
                         mov              rbp, rsp
-                        lea              rdi, [rip + .Lexpression_registry]
+                        xor              edi, edi
                         call             rt_register_expressions@PLT
                         call             rt_init@PLT # rt_init(argc, argv)
 #=======================================================================================================================
@@ -56,27 +48,19 @@ main:                   push             rbp
                         PUSH_VAR         .S2 # NUMERALS
                         PUSH_VAR         .S4 # UCASE
                         PUSH_VAR         .S5 # LCASE
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
                         STORE_VAR        .S6 # WORD
 #=======================================================================================================================
 # stmt 5  (line 8):        WPAT     =  BREAK(WORD) SPAN(WORD)
 #=======================================================================================================================
                         STNO
                         PUSH_VAR         .S6 # WORD
-                        EXEC_STMT_VARIANT 0
+    PAT_BREAK
                         PUSH_VAR         .S6 # WORD
-                        EXEC_STMT_VARIANT 0
-    # SM_CONCAT — pop right+left, push concat result
+    PAT_SPAN
     CONCAT
-                        call             rt_concat@PLT
                         STORE_VAR        .S7 # WPAT
                         LABEL
 .L22:
@@ -86,7 +70,6 @@ main:                   push             rbp
                         STNO
 .L23:                   PUSH_VAR         .S9 # INPUT
                         STORE_VAR        .S10 # LINE
-    # SM_JUMP_F — jump if not last_ok
                         call             rt_last_ok@PLT
                         test             rax, rax
                         je               .L41
@@ -97,11 +80,10 @@ main:                   push             rbp
 #=======================================================================================================================
                         STNO
 .L28:                   PUSH_VAR         .S7 # WPAT
-                        EXEC_STMT_VARIANT 0
+    PAT_DEREF
                         PUSH_VAR         .S10 # LINE
                         PUSH_STR         .S12, 0 # ""
                         EXEC_STMT_VARIANT 1, .S10 # subj=LINE
-    # SM_JUMP_F — jump if not last_ok
                         call             rt_last_ok@PLT
                         test             rax, rax
                         je               .L22
@@ -111,12 +93,8 @@ main:                   push             rbp
                         STNO
                         PUSH_VAR         .S13 # N
                         PUSH_INT         1
-    # ADD_NUM
     ADD_NUM
-                        mov              rdi, 0x11
-                        call             rt_arith@PLT
                         STORE_VAR        .S13 # N
-    # SM_JUMP
                                                                     jmp .L27
                         LABEL
 .L41:
@@ -125,13 +103,9 @@ main:                   push             rbp
 #=======================================================================================================================
                         STNO
 .L42:                   PUSH_VAR         .S13 # N
-    # SM_COERCE_NUM — coerce TOS string to number
     COERCE_NUM
-                        call             rt_coerce_num@PLT
                         PUSH_STR         .S15, 0 # " words"
-    # SM_CONCAT — pop right+left, push concat result
     CONCAT
-                        call             rt_concat@PLT
                         STORE_VAR        .S16 # OUTPUT
                         LABEL
 #=======================================================================================================================

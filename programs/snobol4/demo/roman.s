@@ -31,23 +31,20 @@ main:                   push             rbp
                         STNO
 .L0:                    PUSH_STR         .S0, 0 # "ROMAN(N)UNITS"
                         CALL_FN          .S1, 1 # DEFINE
-    # SM_VOID_POP — pop and discard TOS
     VOID_POP
-                        call             rt_pop_void@PLT
-    # SM_JUMP
                                                                     jmp .L29
                         LABEL
-.L6:                    UNHANDLED        75 # SM_DEFINE_ENTRY
+.L6:                    DEFINE_ENTRY     # ROMAN
 #=======================================================================================================================
 # stmt 4  (line 10):  ROMAN	N RPOS(1) LEN(1) . UNITS =	:F(RETURN)
 #=======================================================================================================================
                         STNO
                         PUSH_INT         1
-                        EXEC_STMT_VARIANT 0
+    PAT_RPOS
                         PUSH_INT         1
-                        EXEC_STMT_VARIANT 0
+    PAT_LEN
                         PAT_CAPTURE      0, .S3 # UNITS kind=0
-                        EXEC_STMT_VARIANT 0
+    PAT_CAT
                         PUSH_VAR         .S4 # N
                         PUSH_STR         .S5, 0 # ""
                         EXEC_STMT_VARIANT 1, .S4 # subj=N
@@ -57,11 +54,11 @@ main:                   push             rbp
 #=======================================================================================================================
                         STNO
                         PUSH_VAR         .S3 # UNITS
-                        EXEC_STMT_VARIANT 0
+    PAT_DEREF
                         PUSH_STR         .S6, 0 # ","
-                        EXEC_STMT_VARIANT 0
+    PAT_BREAK
                         PAT_CAPTURE      0, .S3 # UNITS kind=0
-                        EXEC_STMT_VARIANT 0
+    PAT_CAT
                         PUSH_STR         .S7, 0 # "0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
                         PUSH_INT         0
                         EXEC_STMT_VARIANT 0
