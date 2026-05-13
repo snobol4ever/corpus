@@ -1,0 +1,14 @@
+#SRC: IJ-7 operator string invocation
+procedure main()
+   call1("+", "3");
+   call1("-", "3");
+   call1("*", "hello");
+   call2("[]", "hello", 2);
+   call2("++", 'abc', 'bcd');
+end
+procedure call1(o, x)
+   write(o(x) | "fail");
+end
+procedure call2(o, x, y)
+   write(o(x, y) | "fail");
+end
