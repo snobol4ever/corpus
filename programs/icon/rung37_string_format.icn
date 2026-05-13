@@ -1,0 +1,8 @@
+# IJ-5: test center/left/right/detab/entab string formatting builtins
+procedure main()
+  write(center("hi",6));
+  write(left("hi",6,"."));
+  write(right("hi",6,"."));
+  write(detab("\tabc"));
+  write(entab("        x"));
+end
