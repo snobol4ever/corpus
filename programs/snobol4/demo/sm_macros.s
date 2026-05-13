@@ -1,6 +1,6 @@
 # === BEGIN sm macro library (generated from g_sm_templates[]) ===
 # EM-7c-sm-macros: one macro per opcode group; bodies and per-call
-#   emissions share one renderer in sm_emit_template.c, so the
+#   emissions share one renderer in emit_sm_template.c, so the
 #   .s and the C dispatcher cannot drift -- they are paired by
 #   shape kind in render_macro_body() / render_call_line().
                         .intel_syntax    noprefix
