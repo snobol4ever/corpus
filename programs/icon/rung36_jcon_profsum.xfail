@@ -1,0 +1,1 @@
+next inside line?{} doesn't restart enclosing while loop — pre-existing control-flow issue (next/break propagation through scan body).

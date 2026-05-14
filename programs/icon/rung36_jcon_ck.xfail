@@ -1,0 +1,1 @@
+tab(span-1|0) — generative argument to tab not supported; Image() procedure requires generator-in-arg. Also: real scan subject coercion now fixed but ck has deeper issues.
