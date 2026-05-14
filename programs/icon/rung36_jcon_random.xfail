@@ -1,0 +1,1 @@
+&random: our LCG differs from JCON/Icon v9 RNG sequence; &random not updated after each ? call
