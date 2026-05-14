@@ -243,6 +243,8 @@
                         .endm
                         .macro           DEFINE_ENTRY
                         call             rt_define_entry@PLT
+                        push             rbp
+                        mov              rbp, rsp
                         .endm
                         .macro           DEFINE
                         call             rt_define@PLT
