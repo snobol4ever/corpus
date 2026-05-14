@@ -1,0 +1,1 @@
+every/suspend exhaustion bug: bar(3) only fires body once instead of 3x. &level values are correct.
