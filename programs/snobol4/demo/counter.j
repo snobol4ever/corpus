@@ -25,9 +25,11 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "I"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     ldc "I"

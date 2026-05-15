@@ -224,9 +224,11 @@
     sipush 128
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 64
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     bipush 32
@@ -243,14 +245,18 @@
     sipush 128
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 64
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 32
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     bipush 16
@@ -267,19 +273,25 @@
     sipush 128
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 64
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 32
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 16
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     bipush 8
@@ -296,24 +308,32 @@
     sipush 128
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 64
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 32
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 16
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 8
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     bipush 8
@@ -2650,9 +2670,11 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     ldc "i"
@@ -3003,9 +3025,11 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "#N"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     ldc "#N"
@@ -3038,9 +3062,11 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "#N"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     ldc "#N"
@@ -3818,9 +3844,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "x"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     ldc "Append"
@@ -3851,9 +3879,11 @@
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
     ldc "x"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -3874,16 +3904,20 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "place"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -3909,9 +3943,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     sipush 300
@@ -3923,9 +3959,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -3942,9 +3980,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     sipush 302
@@ -3952,9 +3992,11 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "x"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     ldc "x"
@@ -3978,9 +4020,11 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "x"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     iconst_0
@@ -3990,9 +4034,11 @@
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
     ldc "x"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -4014,16 +4060,20 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "place"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -4045,9 +4095,11 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     ldc "i"
@@ -4061,9 +4113,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -4080,9 +4134,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     sipush 312
@@ -4090,9 +4146,11 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "x"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     ldc "x"
@@ -4136,9 +4194,11 @@
     invokestatic rt/SnoRt/concat()V
     ldc "nc"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -4196,9 +4256,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -4288,9 +4350,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -4381,9 +4445,11 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     ldc "i"
@@ -4456,9 +4522,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -4508,9 +4576,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -4699,9 +4769,11 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "n"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     ldc "i"
@@ -4716,9 +4788,11 @@
     invokestatic rt/SnoRt/push_int(J)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -4909,9 +4983,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -4977,6 +5053,8 @@
     sipush 140
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     ldc "nl"
@@ -5095,9 +5173,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -5269,9 +5349,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -5290,13 +5372,17 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "len"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "TLump"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_2
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -5363,8 +5449,10 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "#L"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "delta"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     ldc "#L"
@@ -5392,8 +5480,10 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "#L"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "delta"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     ldc "#L"
@@ -5477,8 +5567,10 @@
     invokestatic rt/SnoRt/push_int(J)V
     ldc "#L"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "$X"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     ldc "indent"
@@ -5598,13 +5690,17 @@
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
     ldc "pos"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "$B"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -6362,13 +6458,17 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "rdOfs"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "rdLine"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     ldc "rdOfs"
@@ -6378,9 +6478,11 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "rdLineNo"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     ldc "rdLineNo"
@@ -6551,8 +6653,10 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "lmOfs"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "xOfs"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     ldc "lmOfs"
@@ -6562,9 +6666,11 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "lmLineNo"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     ldc "lmLineNo"
@@ -6759,9 +6865,11 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "iMin"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     ldc "i"
@@ -6775,9 +6883,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -6835,9 +6945,11 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     ldc "i"
@@ -6943,9 +7055,11 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     ldc "i"
@@ -7540,8 +7654,10 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "strOfs"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "ofs"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     ldc "t8Map"
@@ -7631,9 +7747,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -7653,13 +7771,17 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "t8Ofs"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     ldc "t8Pos"
@@ -7681,9 +7803,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -7703,13 +7827,17 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "t8Max"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     ldc "t8MaxPos"
@@ -9083,9 +9211,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -9202,6 +9332,8 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "ppWidth"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/pop_void()V
@@ -9227,6 +9359,8 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "ppWidth"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/pop_void()V
@@ -9713,8 +9847,10 @@
     iconst_4
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "ppLgBump"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -9770,8 +9906,10 @@
     iconst_4
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "ppLgBump"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -9890,8 +10028,10 @@
     iconst_4
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "ppLgBump"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -9978,6 +10118,8 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "ppWidth"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/pop_void()V
@@ -10007,9 +10149,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -10054,6 +10198,8 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "ppWidth"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/pop_void()V
@@ -10097,9 +10243,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -10169,6 +10317,8 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "ppWidth"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/pop_void()V
@@ -10198,9 +10348,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -10245,6 +10397,8 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "ppWidth"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/pop_void()V
@@ -10265,9 +10419,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -10299,6 +10455,8 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "ppWidth"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/pop_void()V
@@ -10328,9 +10486,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -10392,6 +10552,8 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "ppWidth"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/pop_void()V
@@ -10441,6 +10603,8 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "ppWidth"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/pop_void()V
@@ -10712,9 +10876,11 @@
     invokestatic rt/SnoRt/push_int(J)V
     ldc "len"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_2
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     ldc ")"
@@ -10735,9 +10901,11 @@
     invokestatic rt/SnoRt/push_int(J)V
     ldc "len"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_2
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     ldc ">"
@@ -10758,9 +10926,11 @@
     invokestatic rt/SnoRt/push_int(J)V
     ldc "len"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_3
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     ldc ")"
@@ -10781,9 +10951,11 @@
     invokestatic rt/SnoRt/push_int(J)V
     ldc "len"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_3
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     ldc ">"
@@ -10804,9 +10976,11 @@
     invokestatic rt/SnoRt/push_int(J)V
     ldc "len"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_3
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     ldc ")"
@@ -10827,9 +11001,11 @@
     invokestatic rt/SnoRt/push_int(J)V
     ldc "len"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_3
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     ldc ">"
@@ -10850,8 +11026,10 @@
     invokestatic rt/SnoRt/push_int(J)V
     ldc "len"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "t"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -10887,17 +11065,23 @@
     invokestatic rt/SnoRt/push_int(J)V
     ldc "len"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "ss"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "t"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_2
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -11187,9 +11371,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -11208,13 +11394,17 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "len"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "ss"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_2
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -11233,9 +11423,11 @@
     invokestatic rt/SnoRt/push_int(J)V
     ldc "len"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_4
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -11258,9 +11450,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -11279,13 +11473,17 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "len"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "ss"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_3
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -11340,9 +11538,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -11361,13 +11561,17 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "len"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "ss"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_3
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -11403,9 +11607,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -11424,13 +11630,17 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "len"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "ss"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -11466,9 +11676,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -11487,13 +11699,17 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "len"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "ss"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_2
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     ldc "]"
@@ -11515,9 +11731,11 @@
     invokestatic rt/SnoRt/push_int(J)V
     ldc "len"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_2
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     ldc ")"
@@ -11543,13 +11761,17 @@
     invokestatic rt/SnoRt/push_int(J)V
     ldc "len"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "v"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_2
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     ldc ")"
@@ -11593,9 +11815,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "i"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -11658,9 +11882,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "n"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -11793,9 +12019,11 @@
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
     ldc "n"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     invokestatic rt/SnoRt/concat()V
@@ -11816,9 +12044,11 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "s"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     iconst_1
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     ldc "s"

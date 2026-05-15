@@ -26,8 +26,10 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "A"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "B"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 1
     invokestatic rt/SnoRt/arith(I)V
     ldc "OUTPUT"
@@ -37,8 +39,10 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "A"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "B"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 2
     invokestatic rt/SnoRt/arith(I)V
     ldc "OUTPUT"
@@ -48,8 +52,10 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "A"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "B"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 3
     invokestatic rt/SnoRt/arith(I)V
     ldc "OUTPUT"
@@ -59,8 +65,10 @@
     invokestatic rt/SnoRt/set_stno(J)V
     ldc "A"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     ldc "B"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+    invokestatic rt/SnoRt/coerce_num()V
     bipush 4
     invokestatic rt/SnoRt/arith(I)V
     ldc "OUTPUT"
