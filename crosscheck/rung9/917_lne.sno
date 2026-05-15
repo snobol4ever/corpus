@@ -2,29 +2,29 @@
 * Rung 9. 5 assertions.
 
 *       different strings — LNE succeeds
-        lne('abc', 'xyz')          :s(e001)
-        output = 'FAIL 917/001: lne(abc,xyz) should succeed' :(end)
+        LNE('abc', 'xyz')          :s(e001)
+        OUTPUT = 'FAIL 917/001: LNE(abc,xyz) should succeed' :(END)
 e001
 
 *       equal strings — LNE fails
-        lne('abc', 'abc')          :f(e002)
-        output = 'FAIL 917/002: lne(abc,abc) should fail'   :(end)
+        LNE('abc', 'abc')          :f(e002)
+        OUTPUT = 'FAIL 917/002: LNE(abc,abc) should fail'   :(END)
 e002
 
 *       null vs non-empty — not equal, succeeds
-        lne('', 'a')               :s(e003)
-        output = 'FAIL 917/003: lne(null,a) should succeed' :(end)
+        LNE('', 'a')               :s(e003)
+        OUTPUT = 'FAIL 917/003: LNE(null,a) should succeed' :(END)
 e003
 
 *       null equals null — LNE fails
-        lne('', '')                :f(e004)
-        output = 'FAIL 917/004: lne(null,null) should fail' :(end)
+        LNE('', '')                :f(e004)
+        OUTPUT = 'FAIL 917/004: LNE(null,null) should fail' :(END)
 e004
 
 *       ordinal: 'A' /= 'a' (65 /= 97) — LNE must succeed
-        lne('A', 'a')              :s(e005)
-        output = 'FAIL 917/005: lne(A,a) should succeed (ordinal)' :(end)
+        LNE('A', 'a')              :s(e005)
+        OUTPUT = 'FAIL 917/005: LNE(A,a) should succeed (ordinal)' :(END)
 e005
 
-        output = 'PASS 917_lne (5/5)'
-end
+        OUTPUT = 'PASS 917_lne (5/5)'
+END

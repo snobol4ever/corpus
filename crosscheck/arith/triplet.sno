@@ -1,4 +1,4 @@
-*     triplet.sno - Center input lines and add blank line every third.
+*     triplet.sno - Center INPUT lines and add blank line every third.
 *     Tests: DUPL(), REMDR(), integer arithmetic, SIZE(), &TRIM.
 
          &TRIM    =  1

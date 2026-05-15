@@ -1,24 +1,24 @@
 * 813_reverse.sno — REVERSE: reverse a string
 * Rung 8. 4 assertions.
 
-        differ(reverse('hello'), 'olleh')                   :f(e001)
-        output = 'FAIL 813/001: reverse hello'           :(end)
+        DIFFER(REVERSE('hello'), 'olleh')                   :f(e001)
+        OUTPUT = 'FAIL 813/001: reverse hello'           :(END)
 e001
 
 *       single character — unchanged
-        differ(reverse('x'), 'x')                   :f(e002)
-        output = 'FAIL 813/002: reverse single char'    :(end)
+        DIFFER(REVERSE('x'), 'x')                   :f(e002)
+        OUTPUT = 'FAIL 813/002: reverse single char'    :(END)
 e002
 
 *       null reversed is null
-        differ(reverse(''), '')                   :f(e003)
-        output = 'FAIL 813/003: reverse null is null'   :(end)
+        DIFFER(REVERSE(''), '')                   :f(e003)
+        OUTPUT = 'FAIL 813/003: reverse null is null'   :(END)
 e003
 
 *       palindrome unchanged
-        differ(reverse('abcba'), 'abcba')                   :f(e004)
-        output = 'FAIL 813/004: reverse palindrome'     :(end)
+        DIFFER(REVERSE('abcba'), 'abcba')                   :f(e004)
+        OUTPUT = 'FAIL 813/004: reverse palindrome'     :(END)
 e004
 
-        output = 'PASS 813_reverse (4/4)'
-end
+        OUTPUT = 'PASS 813_reverse (4/4)'
+END

@@ -1,5 +1,5 @@
 *     cross.sno - Print visual intersections between two words.
-*     Input: pairs of lines, H then V, one pair per two input lines.
+*     Input: pairs of lines, H then V, one pair per two INPUT lines.
 *     Tests: @N position capture, ANY(string), conditional replacement,
 *            POS(N), LEN(1), DUPL(), nested loop via FAIL-like structure.
 

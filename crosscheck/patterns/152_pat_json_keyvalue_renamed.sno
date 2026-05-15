@@ -1,5 +1,5 @@
 *  152 - 127-renamed: capture variables KVAL/SVAL/NVAL/BVAL instead of K/S/N/B.
-*  Test 127 used 'S' as a capture variable, which collides with input variable 's'
+*  Test 127 used 'S' as a capture variable, which collides with INPUT variable 's'
 *  under SPITBOL's default case-folding.  This obscured what the test was measuring.
 *  This renamed variant exposes the genuine FENCE bug cleanly:
 *    SPITBOL: captures NVAL=42 (FENCE-protected conditional-assign committed)

@@ -4,6 +4,6 @@
 *       unanchored: 'world' is a substring of 'hello world' — succeeds
         subject = 'hello world'
         subject 'world'                    :f(e001)
-        output = 'PASS W01/003: unanchored substring match'  :(end)
-e001    output = 'FAIL W01/003: unanchored substring match should succeed'
-end
+        OUTPUT = 'PASS W01/003: unanchored substring match'  :(END)
+e001    OUTPUT = 'FAIL W01/003: unanchored substring match should succeed'
+END

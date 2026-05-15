@@ -3,6 +3,6 @@
 
         subject = 'hello world'
         subject 'xyz'                      :s(e001)
-        output = 'PASS W01/002: literal mismatch failed correctly'   :(end)
-e001    output = 'FAIL W01/002: literal mismatch should fail'
-end
+        OUTPUT = 'PASS W01/002: literal mismatch failed correctly'   :(END)
+e001    OUTPUT = 'FAIL W01/002: literal mismatch should fail'
+END

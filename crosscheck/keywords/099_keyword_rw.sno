@@ -2,7 +2,7 @@
 * RT-3. 5 assertions.
 
 *       1. &ANCHOR default is 0
-        differ(&ANCHOR, 0)                         :F(e001)
+        DIFFER(&ANCHOR, 0)                         :F(e001)
         OUTPUT = 'FAIL 099/001: &ANCHOR default'   :(END)
 e001
 
@@ -23,13 +23,13 @@ e003    OUTPUT = 'FAIL 099/003: anchor=0 str coerce' :(END)
 e003ok
 
 *       4. &STLIMIT datatype is INTEGER
-        differ(DATATYPE(&STLIMIT), 'INTEGER')      :F(e004)
+        DIFFER(DATATYPE(&STLIMIT), 'INTEGER')      :F(e004)
         OUTPUT = 'FAIL 099/004: STLIMIT datatype'  :(END)
 e004
 
 *       5. &ANCHOR round-trip: set to 1 with int, read back as 1
         &ANCHOR = 1
-        differ(&ANCHOR, 1)                         :F(e005)
+        DIFFER(&ANCHOR, 1)                         :F(e005)
         OUTPUT = 'FAIL 099/005: ANCHOR round-trip' :(END)
 e005
         &ANCHOR = 0

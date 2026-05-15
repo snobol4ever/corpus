@@ -53,5 +53,5 @@ BinaryEnd
 loop     line     =  INPUT                         :F(END)
          line     POS(0) expr RPOS(0)              :F(error)
          OUTPUT   =  Pop()                         :(loop)
-error    OUTPUT   = 'Bad input, try again'         :(loop)
+error    OUTPUT   = 'Bad INPUT, try again'         :(loop)
 END

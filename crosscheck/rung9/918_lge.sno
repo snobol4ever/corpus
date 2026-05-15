@@ -2,34 +2,34 @@
 * Rung 9. 6 assertions.
 
 *       equal strings — LGE succeeds
-        lge('abc', 'abc')          :s(e001)
-        output = 'FAIL 918/001: lge(abc,abc) should succeed' :(end)
+        LGE('abc', 'abc')          :s(e001)
+        OUTPUT = 'FAIL 918/001: LGE(abc,abc) should succeed' :(END)
 e001
 
 *       greater — LGE succeeds
-        lge('xyz', 'abc')          :s(e002)
-        output = 'FAIL 918/002: lge(xyz,abc) should succeed' :(end)
+        LGE('xyz', 'abc')          :s(e002)
+        OUTPUT = 'FAIL 918/002: LGE(xyz,abc) should succeed' :(END)
 e002
 
 *       less — LGE fails
-        lge('abc', 'xyz')          :f(e003)
-        output = 'FAIL 918/003: lge(abc,xyz) should fail'   :(end)
+        LGE('abc', 'xyz')          :f(e003)
+        OUTPUT = 'FAIL 918/003: LGE(abc,xyz) should fail'   :(END)
 e003
 
 *       non-empty >= null
-        lge('abc', '')             :s(e004)
-        output = 'FAIL 918/004: lge(abc,null) should succeed' :(end)
+        LGE('abc', '')             :s(e004)
+        OUTPUT = 'FAIL 918/004: LGE(abc,null) should succeed' :(END)
 e004
 
 *       null >= null
-        lge('', '')                :s(e005)
-        output = 'FAIL 918/005: lge(null,null) should succeed' :(end)
+        LGE('', '')                :s(e005)
+        OUTPUT = 'FAIL 918/005: LGE(null,null) should succeed' :(END)
 e005
 
 *       ordinal: 'a'(97) >= 'A'(65) — LGE succeeds
-        lge('a', 'A')              :s(e006)
-        output = 'FAIL 918/006: lge(a,A) should succeed (ordinal)' :(end)
+        LGE('a', 'A')              :s(e006)
+        OUTPUT = 'FAIL 918/006: LGE(a,A) should succeed (ordinal)' :(END)
 e006
 
-        output = 'PASS 918_lge (6/6)'
-end
+        OUTPUT = 'PASS 918_lge (6/6)'
+END
