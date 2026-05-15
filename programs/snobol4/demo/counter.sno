@@ -1,0 +1,6 @@
+*       Count to 5
+        I = 1
+LOOP    OUTPUT = I
+        I = I + 1
+        LT(I, 6) :S(LOOP)
+END

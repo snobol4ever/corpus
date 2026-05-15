@@ -1,0 +1,8 @@
+*       Arithmetic operations
+        A = 10
+        B = 3
+        OUTPUT = A + B
+        OUTPUT = A - B
+        OUTPUT = A * B
+        OUTPUT = A / B
+END
