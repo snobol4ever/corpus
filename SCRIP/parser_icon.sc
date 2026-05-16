@@ -112,172 +112,16 @@ $'**:='     =   $' ' '**:='  $' ';
 $'?:='      =   $' ' '?:='   $' ';
 $'=:='      =   $' ' '=:='   $' ';
 /* ==================================================================================================================== */
-function push_qlit() {
-    Push(tree('TT_QLIT', strbody));
-    push_qlit = .dummy;
-    nreturn;
-}
+/* Leaf-push helpers: allowed by PST rules — set v.sval/v.dval from token capture, no child inspection. */
+function push_qlit() { Push(tree('TT_QLIT', strbody));   push_qlit = .dummy; nreturn; }
 Push_qlit = (epsilon . *push_qlit());
-/* ==================================================================================================================== */
-function push_cset() {
-    Push(tree('TT_CSET', csetbody));
-    push_cset = .dummy;
-    nreturn;
-}
+function push_cset() { Push(tree('TT_CSET', csetbody));  push_cset = .dummy; nreturn; }
 Push_cset = (epsilon . *push_cset());
-/* ==================================================================================================================== */
-function push_flit(nval) {
-    nval = REAL(rval);
-    Push(tree('TT_FLIT', nval));
-    push_flit = .dummy;
-    nreturn;
-}
+function push_flit() { Push(tree('TT_FLIT', REAL(rval))); push_flit = .dummy; nreturn; }
 Push_flit = (epsilon . *push_flit());
+function push_kw()   { Push(tree('TT_VAR',  '&' kwname)); push_kw   = .dummy; nreturn; }
+Push_kw   = (epsilon . *push_kw());
 /* ==================================================================================================================== */
-function push_kw() {
-    Push(tree('TT_VAR', '&' kwname));
-    push_kw = .dummy;
-    nreturn;
-}
-Push_kw = (epsilon . *push_kw());
-/* ==================================================================================================================== */
-function push_match(inner) {
-    inner = Pop();
-    Push(Tree('TT_FNC', '', 2, tree('TT_VAR', 'match'), inner));
-    push_match = .dummy;
-    nreturn;
-}
-Push_match = (epsilon . *push_match());
-/* ==================================================================================================================== */
-function push_field(fname, lhs) {
-    fname = v(Pop());
-    lhs = Pop();
-    Push(Tree('TT_FIELD', fname, 1, lhs));
-    push_field = .dummy;
-    nreturn;
-}
-Push_field = (epsilon . *push_field());
-/* ==================================================================================================================== */
-function push_subscript(idx, lhs) {
-    idx = Pop();
-    lhs = Pop();
-    Push(Tree('TT_IDX', '', 2, lhs, idx));
-    push_subscript = .dummy;
-    nreturn;
-}
-Push_subscript = (epsilon . *push_subscript());
-/* ==================================================================================================================== */
-function push_section(hi, lo, lhs) {
-    hi = Pop();
-    lo = Pop();
-    lhs = Pop();
-    Push(Tree('TT_SECTION', '', 3, lhs, lo, hi));
-    push_section = .dummy;
-    nreturn;
-}
-Push_section = (epsilon . *push_section());
-/* ==================================================================================================================== */
-function decompose_proc(n_kids, kids, pname, proc, i) {
-    n_kids = TopCounter();
-    kids = GT(n_kids, 0) ARRAY('1:' n_kids);
-    i = n_kids;
-    while (GT(i, 0)) {
-        kids[i] = Pop();
-        i = i - 1;
-    }
-    pname = v(kids[1]);
-    proc = Tree('TT_FNC', pname, n_kids);
-    i = 1;
-    while (LE(i, n_kids)) {
-        proc = Append(proc, kids[i]);
-        i = i + 1;
-    }
-    Push(Tree('STMT', '', 1, Tree(':subj', '', 1, proc)));
-    decompose_proc = .dummy;
-    nreturn;
-}
-Decompose_proc = (epsilon . *decompose_proc());
-/* ==================================================================================================================== */
-function push_record(n_kids, kids, rname, rec, i) {
-    n_kids = TopCounter();
-    kids = GT(n_kids, 0) ARRAY('1:' n_kids);
-    i = n_kids;
-    while (GT(i, 0)) {
-        kids[i] = Pop();
-        i = i - 1;
-    }
-    rname = v(kids[1]);
-    rec = Tree('TT_RECORD', rname, 0);
-    i = 2;
-    while (LE(i, n_kids)) {
-        rec = Append(rec, kids[i]);
-        i = i + 1;
-    }
-    Push(Tree('STMT', '', 1, Tree(':subj', '', 1, rec)));
-    push_record = .dummy;
-    nreturn;
-}
-Push_record = (epsilon . *push_record());
-/* ==================================================================================================================== */
-function push_global_top(n_kids, kids, g, i) {
-    n_kids = TopCounter();
-    kids = GT(n_kids, 0) ARRAY('1:' n_kids);
-    i = n_kids;
-    while (GT(i, 0)) {
-        kids[i] = Pop();
-        i = i - 1;
-    }
-    g = Tree('TT_GLOBAL', '', 0);
-    i = 1;
-    while (LE(i, n_kids)) {
-        g = Append(g, kids[i]);
-        i = i + 1;
-    }
-    Push(Tree('STMT', '', 1, Tree(':subj', '', 1, g)));
-    push_global_top = .dummy;
-    nreturn;
-}
-Push_global_top = (epsilon . *push_global_top());
-/* ==================================================================================================================== */
-function push_local_stmt(n_kids, kids, g, i) {
-    n_kids = TopCounter();
-    kids = GT(n_kids, 0) ARRAY('1:' n_kids);
-    i = n_kids;
-    while (GT(i, 0)) {
-        kids[i] = Pop();
-        i = i - 1;
-    }
-    g = Tree('TT_LOCAL', '', 0);
-    i = 1;
-    while (LE(i, n_kids)) {
-        g = Append(g, kids[i]);
-        i = i + 1;
-    }
-    Push(g);
-    push_local_stmt = .dummy;
-    nreturn;
-}
-Push_local_stmt = (epsilon . *push_local_stmt());
-/* ==================================================================================================================== */
-function push_static_stmt(n_kids, kids, g, i) {
-    n_kids = TopCounter();
-    kids = GT(n_kids, 0) ARRAY('1:' n_kids);
-    i = n_kids;
-    while (GT(i, 0)) {
-        kids[i] = Pop();
-        i = i - 1;
-    }
-    g = Tree('TT_STATIC_DECL', '', 0);
-    i = 1;
-    while (LE(i, n_kids)) {
-        g = Append(g, kids[i]);
-        i = i + 1;
-    }
-    Push(g);
-    push_static_stmt = .dummy;
-    nreturn;
-}
-Push_static_stmt = (epsilon . *push_static_stmt());
 If     = ( $'if'     $'  ' *Expr  $'then' $' ' *Expr
            (  $'else' $' ' *Expr  reduce('TT_IF', 3)
            |  reduce('TT_IF', 2)
@@ -324,12 +168,14 @@ ListCtor  = ( nPush()
               reduce('TT_MAKELIST', 'nTop()')
               nPop()
             );
-FieldTail   = ( $'.' shift(id_pat, 'TT_VAR') Push_field );
+/* FieldTail: shift field name as TT_VAR (source order: object already on stack below),
+   then reduce('TT_FIELD', 2) gives children [object, TT_VAR(name)] in source order. */
+FieldTail   = ( $'.' shift(id_pat, 'TT_VAR') reduce('TT_FIELD', 2) );
 Expr11tail  = ( $'[' *Expr
-                FENCE( $':+' *Expr $']' reduce('TT_SECTION_PLUS', 3)
+                FENCE( $':+' *Expr $']' reduce('TT_SECTION_PLUS',  3)
                      | $':-' *Expr $']' reduce('TT_SECTION_MINUS', 3)
-                     | $':' *Expr $']' Push_section
-                     | $']'           reduce('TT_IDX', 2)
+                     | $':'  *Expr $']' reduce('TT_SECTION',       3)
+                     | $']'            reduce('TT_IDX',            2)
                      )
               | FieldTail
               );
@@ -365,7 +211,7 @@ Expr10 = (   $'-'        *Expr10 reduce('TT_MNS', 1)
          |   $'*'        *Expr10 reduce('TT_SIZE', 1)
          |   $'?'        *Expr10 reduce('TT_RANDOM', 1)
          |   $'/'        *Expr10 reduce('TT_NULL', 1)
-         |   $'='        *Expr10 Push_match
+         |   $'='        *Expr10 reduce('TT_MATCH_UNARY', 1)
          |   $'not' $'  ' *Expr10 reduce('TT_NOT', 1)
          |   *Expr11  ARBNO(Expr11tail)
          );
@@ -465,8 +311,9 @@ ReturnStmt = ( $'return' $'  ' *Expr $' ' semi_opt $' ' reduce('TT_RETURN', 1)
 DeclFirst  = ( $' ' shift(id_pat, 'TT_VAR') nInc() );
 DeclRest   = ( $','  shift(id_pat, 'TT_VAR') nInc() );
 DeclIds    = ( DeclFirst ARBNO(DeclRest) );
-LocalDecl  = ( nPush() $'local'  $'  ' DeclIds $' ' semi_opt $' ' Push_local_stmt nPop() );
-StaticDecl = ( nPush() $'static' $'  ' DeclIds $' ' semi_opt $' ' Push_static_stmt nPop() );
+/* LocalDecl: collect var names, reduce to TT_LOCAL node, push bare (no STMT wrap). */
+LocalDecl  = ( nPush() $'local'  $'  ' DeclIds $' ' semi_opt $' ' reduce('TT_LOCAL',      'nTop()') nPop() );
+StaticDecl = ( nPush() $'static' $'  ' DeclIds $' ' semi_opt $' ' reduce('TT_STATIC_DECL', 'nTop()') nPop() );
 InitialStmt = ( nPush() $'initial' $' '
                 $'{' *Expr nInc() $' ' semi_opt $'}'
                 reduce('TT_INITIAL', 'nTop()')
@@ -494,14 +341,24 @@ Prochead   = ( $'procedure' $'  ' shift(id_pat, 'TT_VAR')  nInc()
              );
 ProcbodyEnd = ( $'end' $' ' ($' ' | RPOS(0)) );
 Procbody    = ( ProcbodyEnd | StmtBody *Procbody );
-Proc        = ( nPush()  Prochead  Procbody  Decompose_proc  nPop() );
-GlobalDecl = ( nPush() $'global' $'  ' DeclIds $' ' semi_opt $' ' Push_global_top nPop() );
+/* Proc: collect name + params + stmts; reduce to TT_FNC; wrap in :subj then STMT. */
+Proc        = ( nPush()  Prochead  Procbody
+                reduce('TT_FNC', 'nTop()') reduce(':subj', 1) reduce('STMT', 1)
+                nPop()
+              );
+/* GlobalDecl: collect var names; reduce to TT_GLOBAL; wrap in :subj then STMT. */
+GlobalDecl = ( nPush() $'global' $'  ' DeclIds $' ' semi_opt $' '
+               reduce('TT_GLOBAL', 'nTop()') reduce(':subj', 1) reduce('STMT', 1)
+               nPop()
+             );
 RecordField = ( $',' shift(id_pat, 'TT_VAR') nInc() );
+/* Record: collect name + fields; reduce to TT_RECORD; wrap in :subj then STMT. */
 Record      = ( nPush()
                 $'record' $'  ' shift(id_pat, 'TT_VAR') nInc()
                 $'(' ( $' ' shift(id_pat, 'TT_VAR') nInc() ARBNO(RecordField) | epsilon ) $')'
                 $' '
-                Push_record nPop()
+                reduce('TT_RECORD', 'nTop()') reduce(':subj', 1) reduce('STMT', 1)
+                nPop()
               );
 Compiland = ( nPush()
               ARBNO( nInc() $' ' (GlobalDecl | Record | Proc) $' ' )
