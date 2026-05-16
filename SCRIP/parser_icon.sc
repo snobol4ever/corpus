@@ -247,7 +247,7 @@ function push_local_stmt(n_kids, kids, g, i) {
         kids[i] = Pop();
         i = i - 1;
     }
-    g = Tree('TT_GLOBAL', '', 0);
+    g = Tree('TT_LOCAL', '', 0);
     i = 1;
     while (LE(i, n_kids)) {
         g = Append(g, kids[i]);
@@ -258,6 +258,26 @@ function push_local_stmt(n_kids, kids, g, i) {
     nreturn;
 }
 Push_local_stmt = (epsilon . *push_local_stmt());
+/* ==================================================================================================================== */
+function push_static_stmt(n_kids, kids, g, i) {
+    n_kids = TopCounter();
+    kids = GT(n_kids, 0) ARRAY('1:' n_kids);
+    i = n_kids;
+    while (GT(i, 0)) {
+        kids[i] = Pop();
+        i = i - 1;
+    }
+    g = Tree('TT_STATIC_DECL', '', 0);
+    i = 1;
+    while (LE(i, n_kids)) {
+        g = Append(g, kids[i]);
+        i = i + 1;
+    }
+    Push(g);
+    push_static_stmt = .dummy;
+    nreturn;
+}
+Push_static_stmt = (epsilon . *push_static_stmt());
 If     = ( $'if'     $'  ' *Expr  $'then' $' ' *Expr
            (  $'else' $' ' *Expr  reduce('TT_IF', 3)
            |  reduce('TT_IF', 2)
@@ -306,7 +326,9 @@ ListCtor  = ( nPush()
             );
 FieldTail   = ( $'.' shift(id_pat, 'TT_VAR') Push_field );
 Expr11tail  = ( $'[' *Expr
-                FENCE( $':' *Expr $']' Push_section
+                FENCE( $':+' *Expr $']' reduce('TT_SECTION_PLUS', 3)
+                     | $':-' *Expr $']' reduce('TT_SECTION_MINUS', 3)
+                     | $':' *Expr $']' Push_section
                      | $']'           reduce('TT_IDX', 2)
                      )
               | FieldTail
@@ -444,7 +466,7 @@ DeclFirst  = ( $' ' shift(id_pat, 'TT_VAR') nInc() );
 DeclRest   = ( $','  shift(id_pat, 'TT_VAR') nInc() );
 DeclIds    = ( DeclFirst ARBNO(DeclRest) );
 LocalDecl  = ( nPush() $'local'  $'  ' DeclIds $' ' semi_opt $' ' Push_local_stmt nPop() );
-StaticDecl = ( nPush() $'static' $'  ' DeclIds $' ' semi_opt $' ' Push_local_stmt nPop() );
+StaticDecl = ( nPush() $'static' $'  ' DeclIds $' ' semi_opt $' ' Push_static_stmt nPop() );
 InitialStmt = ( nPush() $'initial' $' '
                 $'{' *Expr nInc() $' ' semi_opt $'}'
                 reduce('TT_INITIAL', 'nTop()')
