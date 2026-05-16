@@ -1,7 +1,9 @@
 E_Parse            = "'Parse'";
-E_goU              = "':go'";
-E_goS              = "':goS'";
-E_goF              = "':goF'";
+/* PST-SN4-1c (2026-05-16): goto node kinds renamed from TT_ATTR-style tags
+   (':goS'/':goF'/':go') to dedicated TT_GOTO_* kinds, mirroring C stmt_ast.c. */
+E_goU              = "'TT_GOTO_U'";
+E_goS              = "'TT_GOTO_S'";
+E_goF              = "'TT_GOTO_F'";
 Functions   = 'ABS AND ANY APPEND APPLY ARBNO ARG ARRAY ATAN BACKSPACE '
               'BCHAR BREAK BREAKX BSIZE BUFFER CC CHAR CHOP CLEAR CODE '
               'COLLECT COMPL CONVERT COPY COS DATA DATATYPE DATE DEF DEFINE '
@@ -305,7 +307,7 @@ function pp_stmt(x, ppLbl, ppSubj, ppPatrn, ppAsgn, ppRepl, ppGo1, ppGo2,
         }
     }
     if (DIFFER(t(ppGo1)) DIFFER(t(ppGo2))) {
-        if (IDENT(t(ppGo1), ':goS')) { goS_slot = ppGo1; goF_slot = ppGo2; }
+        if (IDENT(t(ppGo1), 'TT_GOTO_S')) { goS_slot = ppGo1; goF_slot = ppGo2; }
         else                          { goS_slot = ppGo2; goF_slot = ppGo1; }
         goS_child = c(goS_slot)[1];
         if (IDENT(t(goS_child), 'TT_INDIRECT') DIFFER(t(c(goS_child)[1]), 'TT_QLIT')) {
