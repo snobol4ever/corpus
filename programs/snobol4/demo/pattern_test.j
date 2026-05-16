@@ -21,7 +21,16 @@ sm_pc_3:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_4:
+    ldc "hello"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_5:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    ldc "X"
+    iconst_0
+    invokestatic rt/SnoPat/capture(Lrt/SnoPat;Ljava/lang/String;I)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_6:
     ldc "STR"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -29,6 +38,9 @@ sm_pc_7:
     ldc ""
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
 sm_pc_8:
+    ldc "STR"
+    iconst_1
+    invokestatic rt/SnoRt/sno_exec_stmt(Ljava/lang/String;I)V
 sm_pc_9:
     iconst_3
     i2l

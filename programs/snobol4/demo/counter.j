@@ -79,6 +79,32 @@ sm_pc_21:
 sm_pc_22:
     invokestatic rt/SnoRt/halt_tos()V
     goto_w sm_pc_end
+sm_ret_dispatch:
+    tableswitch 0 22
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_18
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+      default: sm_pc_end
 sm_pc_end:
     invokestatic rt/SnoRt/finalize_rt()I
     pop

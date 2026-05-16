@@ -244,27 +244,107 @@ sm_pc_67:
     ldc "= "
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
 sm_pc_68:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_brk_nn_68
+    pop
+    ldc ""
+    goto pat_brk_done_68
+pat_brk_nn_68:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_brk_done_68:
+    invokestatic rt/SnoPat/brk(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_69:
     ldc "REM"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_70:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_71:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_72:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    ldc "ppTokName"
+    iconst_0
+    invokestatic rt/SnoPat/capture(Lrt/SnoPat;Ljava/lang/String;I)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_73:
+    ldc "="
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_74:
     ldc " "
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
 sm_pc_75:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_brk_nn_75
+    pop
+    ldc ""
+    goto pat_brk_done_75
+pat_brk_nn_75:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_brk_done_75:
+    invokestatic rt/SnoPat/brk(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_76:
     ldc "REM"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_77:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_78:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_79:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    ldc "ppTokVal"
+    iconst_0
+    invokestatic rt/SnoPat/capture(Lrt/SnoPat;Ljava/lang/String;I)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_80:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_81:
+    ldc ""
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_82:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    ldc "ppTokVal"
+    iconst_0
+    invokestatic rt/SnoPat/capture(Lrt/SnoPat;Ljava/lang/String;I)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_83:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_84:
     invokestatic rt/SnoRt/concat()V
 sm_pc_85:
@@ -282,11 +362,33 @@ sm_pc_89:
     i2l
     invokestatic rt/SnoRt/push_int(J)V
 sm_pc_90:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_long(Ljava/lang/Object;)J
+    invokestatic rt/SnoPat/pos(J)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_91:
     ldc " "
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
 sm_pc_92:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_span_nn_92
+    pop
+    ldc ""
+    goto pat_span_done_92
+pat_span_nn_92:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_span_done_92:
+    invokestatic rt/SnoPat/span(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_93:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_94:
     ldc "ppArgs"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -294,6 +396,9 @@ sm_pc_95:
     ldc ""
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
 sm_pc_96:
+    ldc "ppArgs"
+    iconst_1
+    invokestatic rt/SnoRt/sno_exec_stmt(Ljava/lang/String;I)V
 sm_pc_97:
     bipush 20
     i2l
@@ -320,6 +425,9 @@ sm_pc_103:
     ldc "ppTokPat"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_104:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_105:
     ldc "ppArgs"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -327,6 +435,9 @@ sm_pc_106:
     ldc ""
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
 sm_pc_107:
+    ldc "ppArgs"
+    iconst_1
+    invokestatic rt/SnoRt/sno_exec_stmt(Ljava/lang/String;I)V
 sm_pc_108:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_108_skip
@@ -1293,8 +1404,29 @@ sm_pc_389:
 sm_pc_390:
     invokestatic rt/SnoRt/concat()V
 sm_pc_391:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_span_nn_391
+    pop
+    ldc ""
+    goto pat_span_done_391
+pat_span_nn_391:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_span_done_391:
+    invokestatic rt/SnoPat/span(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_392:
+    ldc ""
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_393:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_394:
     ldc ":"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -1302,14 +1434,56 @@ sm_pc_395:
     ldc "SF"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
 sm_pc_396:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_any_nn_396
+    pop
+    ldc ""
+    goto pat_any_done_396
+pat_any_nn_396:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_any_done_396:
+    invokestatic rt/SnoPat/any(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_397:
+    ldc ""
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_398:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_399:
     ldc "(<"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
 sm_pc_400:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_any_nn_400
+    pop
+    ldc ""
+    goto pat_any_done_400
+pat_any_nn_400:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_any_done_400:
+    invokestatic rt/SnoPat/any(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_401:
+    ldc ""
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_402:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_403:
     ldc "REM"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -1332,7 +1506,24 @@ sm_pc_410:
     ldc ":"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
 sm_pc_411:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_brk_nn_411
+    pop
+    ldc ""
+    goto pat_brk_done_411
+pat_brk_nn_411:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_brk_done_411:
+    invokestatic rt/SnoPat/brk(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_412:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    ldc "ppGCon"
+    iconst_0
+    invokestatic rt/SnoPat/capture(Lrt/SnoPat;Ljava/lang/String;I)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_413:
     ldc "ppGSfx"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -1354,13 +1545,41 @@ sm_pc_418:
 sm_pc_419:
     invokestatic rt/SnoRt/concat()V
 sm_pc_420:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_span_nn_420
+    pop
+    ldc ""
+    goto pat_span_done_420
+pat_span_nn_420:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_span_done_420:
+    invokestatic rt/SnoPat/span(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_421:
     iconst_0
     i2l
     invokestatic rt/SnoRt/push_int(J)V
 sm_pc_422:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_long(Ljava/lang/Object;)J
+    invokestatic rt/SnoPat/rpos(J)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_423:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_424:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    ldc "ppDrop"
+    iconst_0
+    invokestatic rt/SnoPat/capture(Lrt/SnoPat;Ljava/lang/String;I)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_425:
     ldc "ppTrimPat"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -1474,11 +1693,33 @@ sm_pc_457:
     i2l
     invokestatic rt/SnoRt/push_int(J)V
 sm_pc_458:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_long(Ljava/lang/Object;)J
+    invokestatic rt/SnoPat/pos(J)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_459:
     ldc "*-"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
 sm_pc_460:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_any_nn_460
+    pop
+    ldc ""
+    goto pat_any_done_460
+pat_any_nn_460:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_any_done_460:
+    invokestatic rt/SnoPat/any(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_461:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_462:
     ldc "ppLn"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -1487,6 +1728,9 @@ sm_pc_463:
     i2l
     invokestatic rt/SnoRt/push_int(J)V
 sm_pc_464:
+    ldc "ppLn"
+    iconst_0
+    invokestatic rt/SnoRt/sno_exec_stmt(Ljava/lang/String;I)V
 sm_pc_465:
     invokestatic rt/SnoRt/last_ok()Z
     ifeq sm_pc_465_skip
@@ -1501,11 +1745,33 @@ sm_pc_467:
     i2l
     invokestatic rt/SnoRt/push_int(J)V
 sm_pc_468:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_long(Ljava/lang/Object;)J
+    invokestatic rt/SnoPat/pos(J)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_469:
     ldc "+."
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
 sm_pc_470:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_any_nn_470
+    pop
+    ldc ""
+    goto pat_any_done_470
+pat_any_nn_470:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_any_done_470:
+    invokestatic rt/SnoPat/any(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_471:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_472:
     ldc "ppLn"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -1514,6 +1780,9 @@ sm_pc_473:
     i2l
     invokestatic rt/SnoRt/push_int(J)V
 sm_pc_474:
+    ldc "ppLn"
+    iconst_0
+    invokestatic rt/SnoRt/sno_exec_stmt(Ljava/lang/String;I)V
 sm_pc_475:
     invokestatic rt/SnoRt/last_ok()Z
     ifeq sm_pc_475_skip
@@ -1545,6 +1814,9 @@ sm_pc_482:
     ldc "ppGPat"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_483:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_484:
     ldc "ppStmt"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -1553,6 +1825,9 @@ sm_pc_485:
     i2l
     invokestatic rt/SnoRt/push_int(J)V
 sm_pc_486:
+    ldc "ppStmt"
+    iconst_0
+    invokestatic rt/SnoRt/sno_exec_stmt(Ljava/lang/String;I)V
 sm_pc_487:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_487_skip
@@ -1576,6 +1851,9 @@ sm_pc_492:
     ldc "ppTrimPat"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_493:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_494:
     ldc "ppGConT"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -1583,6 +1861,9 @@ sm_pc_495:
     ldc ""
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
 sm_pc_496:
+    ldc "ppGConT"
+    iconst_1
+    invokestatic rt/SnoRt/sno_exec_stmt(Ljava/lang/String;I)V
 sm_pc_497:
     bipush 90
     i2l
@@ -2555,6 +2836,17 @@ sm_pc_805:
     ldc "digits"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_806:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_span_nn_806
+    pop
+    ldc ""
+    goto pat_span_done_806
+pat_span_nn_806:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_span_done_806:
+    invokestatic rt/SnoPat/span(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_807:
     ldc "Integer"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -2574,6 +2866,17 @@ sm_pc_811:
 sm_pc_812:
     invokestatic rt/SnoRt/concat()V
 sm_pc_813:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_brk_nn_813
+    pop
+    ldc ""
+    goto pat_brk_done_813
+pat_brk_nn_813:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_brk_done_813:
+    invokestatic rt/SnoPat/brk(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_814:
     ldc "\""
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -2600,6 +2903,17 @@ sm_pc_821:
 sm_pc_822:
     invokestatic rt/SnoRt/concat()V
 sm_pc_823:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_brk_nn_823
+    pop
+    ldc ""
+    goto pat_brk_done_823
+pat_brk_nn_823:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_brk_done_823:
+    invokestatic rt/SnoPat/brk(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_824:
     ldc "'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -2615,8 +2929,21 @@ sm_pc_828:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_829:
+    ldc "SQ"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_830:
+    ldc "DQ"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_831:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_832:
     ldc "String"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -2628,60 +2955,251 @@ sm_pc_834:
     ldc "digits"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_835:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_span_nn_835
+    pop
+    ldc ""
+    goto pat_span_done_835
+pat_span_nn_835:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_span_done_835:
+    invokestatic rt/SnoPat/span(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_836:
+    ldc "."
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_837:
     ldc "digits"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_838:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_span_nn_838
+    pop
+    ldc ""
+    goto pat_span_done_838
+pat_span_nn_838:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_span_done_838:
+    invokestatic rt/SnoPat/span(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_839:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_840:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_841:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_842:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_843:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_844:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_845:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_846:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_847:
+    ldc "E"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_848:
+    ldc "e"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_849:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_850:
+    ldc "+"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_851:
+    ldc "-"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_852:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_853:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_854:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_855:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_856:
     ldc "digits"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_857:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_span_nn_857
+    pop
+    ldc ""
+    goto pat_span_done_857
+pat_span_nn_857:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_span_done_857:
+    invokestatic rt/SnoPat/span(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_858:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_859:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_860:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_861:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_862:
     ldc "digits"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_863:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_span_nn_863
+    pop
+    ldc ""
+    goto pat_span_done_863
+pat_span_nn_863:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_span_done_863:
+    invokestatic rt/SnoPat/span(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_864:
+    ldc "."
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_865:
     ldc "digits"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_866:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_span_nn_866
+    pop
+    ldc ""
+    goto pat_span_done_866
+pat_span_nn_866:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_span_done_866:
+    invokestatic rt/SnoPat/span(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_867:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_868:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_869:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_870:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_871:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_872:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_873:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_874:
     ldc "Real"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -2698,6 +3216,17 @@ sm_pc_877:
 sm_pc_878:
     invokestatic rt/SnoRt/concat()V
 sm_pc_879:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_any_nn_879
+    pop
+    ldc ""
+    goto pat_any_done_879
+pat_any_nn_879:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_any_done_879:
+    invokestatic rt/SnoPat/any(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_880:
     ldc "."
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -2722,12 +3251,37 @@ sm_pc_887:
 sm_pc_888:
     invokestatic rt/SnoRt/concat()V
 sm_pc_889:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_span_nn_889
+    pop
+    ldc ""
+    goto pat_span_done_889
+pat_span_nn_889:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_span_done_889:
+    invokestatic rt/SnoPat/span(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_890:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_891:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_892:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_893:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_894:
     invokestatic rt/SnoRt/concat()V
 sm_pc_895:
@@ -2761,8 +3315,31 @@ sm_pc_904:
 sm_pc_905:
     invokestatic rt/SnoRt/concat()V
 sm_pc_906:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_span_nn_906
+    pop
+    ldc ""
+    goto pat_span_done_906
+pat_span_nn_906:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_span_done_906:
+    invokestatic rt/SnoPat/span(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_907:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    ldc "tx"
+    iconst_1
+    invokestatic rt/SnoPat/capture(Lrt/SnoPat;Ljava/lang/String;I)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_908:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    ldc "match"
+    ldc "Functions\tTxInList"
+    invokestatic rt/SnoPat/captureFn(Lrt/SnoPat;Ljava/lang/String;Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_909:
     ldc "Function"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -2794,8 +3371,31 @@ sm_pc_918:
 sm_pc_919:
     invokestatic rt/SnoRt/concat()V
 sm_pc_920:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_span_nn_920
+    pop
+    ldc ""
+    goto pat_span_done_920
+pat_span_nn_920:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_span_done_920:
+    invokestatic rt/SnoPat/span(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_921:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    ldc "tx"
+    iconst_1
+    invokestatic rt/SnoPat/capture(Lrt/SnoPat;Ljava/lang/String;I)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_922:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    ldc "match"
+    ldc "BuiltinVars\tTxInList"
+    invokestatic rt/SnoPat/captureFn(Lrt/SnoPat;Ljava/lang/String;Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_923:
     ldc "BuiltinVar"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -2827,8 +3427,31 @@ sm_pc_932:
 sm_pc_933:
     invokestatic rt/SnoRt/concat()V
 sm_pc_934:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_span_nn_934
+    pop
+    ldc ""
+    goto pat_span_done_934
+pat_span_nn_934:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_span_done_934:
+    invokestatic rt/SnoPat/span(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_935:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    ldc "tx"
+    iconst_1
+    invokestatic rt/SnoPat/capture(Lrt/SnoPat;Ljava/lang/String;I)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_936:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    ldc "match"
+    ldc "SpecialNms\tTxInList"
+    invokestatic rt/SnoPat/captureFn(Lrt/SnoPat;Ljava/lang/String;Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_937:
     ldc "SpecialNm"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -2848,8 +3471,31 @@ sm_pc_941:
 sm_pc_942:
     invokestatic rt/SnoRt/concat()V
 sm_pc_943:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_span_nn_943
+    pop
+    ldc ""
+    goto pat_span_done_943
+pat_span_nn_943:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_span_done_943:
+    invokestatic rt/SnoPat/span(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_944:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    ldc "tx"
+    iconst_1
+    invokestatic rt/SnoPat/capture(Lrt/SnoPat;Ljava/lang/String;I)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_945:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    ldc "match"
+    ldc "ProtKwds\tTxInList"
+    invokestatic rt/SnoPat/captureFn(Lrt/SnoPat;Ljava/lang/String;Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_946:
     invokestatic rt/SnoRt/concat()V
 sm_pc_947:
@@ -2871,8 +3517,31 @@ sm_pc_951:
 sm_pc_952:
     invokestatic rt/SnoRt/concat()V
 sm_pc_953:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_span_nn_953
+    pop
+    ldc ""
+    goto pat_span_done_953
+pat_span_nn_953:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_span_done_953:
+    invokestatic rt/SnoPat/span(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_954:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    ldc "tx"
+    iconst_1
+    invokestatic rt/SnoPat/capture(Lrt/SnoPat;Ljava/lang/String;I)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_955:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    ldc "match"
+    ldc "UnprotKwds\tTxInList"
+    invokestatic rt/SnoPat/captureFn(Lrt/SnoPat;Ljava/lang/String;Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_956:
     invokestatic rt/SnoRt/concat()V
 sm_pc_957:
@@ -2883,11 +3552,24 @@ sm_pc_958:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_959:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_960:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_961:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_962:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_963:
     ldc "Gray"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -2904,13 +3586,40 @@ sm_pc_966:
 sm_pc_967:
     invokestatic rt/SnoRt/concat()V
 sm_pc_968:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_span_nn_968
+    pop
+    ldc ""
+    goto pat_span_done_968
+pat_span_nn_968:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_span_done_968:
+    invokestatic rt/SnoPat/span(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_969:
     ldc "nl"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_970:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_971:
+    ldc "+"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_972:
+    ldc "."
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_973:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_974:
     ldc " "
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -2920,28 +3629,104 @@ sm_pc_975:
 sm_pc_976:
     invokestatic rt/SnoRt/concat()V
 sm_pc_977:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_span_nn_977
+    pop
+    ldc ""
+    goto pat_span_done_977
+pat_span_nn_977:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_span_done_977:
+    invokestatic rt/SnoPat/span(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_978:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_979:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_980:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_981:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_982:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_983:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_984:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_985:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_986:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_987:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_988:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_989:
     ldc "nl"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_990:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_991:
+    ldc "+"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_992:
+    ldc "."
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_993:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_994:
     ldc " "
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -2951,15 +3736,61 @@ sm_pc_995:
 sm_pc_996:
     invokestatic rt/SnoRt/concat()V
 sm_pc_997:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_span_nn_997
+    pop
+    ldc ""
+    goto pat_span_done_997
+pat_span_nn_997:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_span_done_997:
+    invokestatic rt/SnoPat/span(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_998:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_999:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1000:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1001:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1002:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1003:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1004:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1005:
     ldc "White"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -2972,8 +3803,22 @@ sm_pc_1007:
     i2l
     invokestatic rt/SnoRt/push_int(J)V
 sm_pc_1008:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_long(Ljava/lang/Object;)J
+    invokestatic rt/SnoPat/pos(J)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1009:
+    ldc " "
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1010:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1011:
     ldc "upr(tx)"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -2982,12 +3827,26 @@ sm_pc_1012:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1013:
+    ldc " "
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1014:
     iconst_0
     i2l
     invokestatic rt/SnoRt/push_int(J)V
 sm_pc_1015:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_long(Ljava/lang/Object;)J
+    invokestatic rt/SnoPat/rpos(J)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1016:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1017:
     invokestatic rt/SnoRt/concat()V
 sm_pc_1018:
@@ -3110,10 +3969,33 @@ sm_pc_1059:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1060:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1061:
+    ldc "="
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1062:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1063:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1064:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1065:
     ldc "="
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3126,10 +4008,33 @@ sm_pc_1067:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1068:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1069:
+    ldc "?"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1070:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1071:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1072:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1073:
     ldc "?"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3142,10 +4047,33 @@ sm_pc_1075:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1076:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1077:
+    ldc "|"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1078:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1079:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1080:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1081:
     ldc "|"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3158,10 +4086,33 @@ sm_pc_1083:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1084:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1085:
+    ldc "+"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1086:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1087:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1088:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1089:
     ldc "+"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3174,10 +4125,33 @@ sm_pc_1091:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1092:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1093:
+    ldc "-"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1094:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1095:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1096:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1097:
     ldc "-"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3190,10 +4164,33 @@ sm_pc_1099:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1100:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1101:
+    ldc "/"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1102:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1103:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1104:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1105:
     ldc "/"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3206,10 +4203,33 @@ sm_pc_1107:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1108:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1109:
+    ldc "*"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1110:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1111:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1112:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1113:
     ldc "*"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3222,10 +4242,33 @@ sm_pc_1115:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1116:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1117:
+    ldc "^"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1118:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1119:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1120:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1121:
     ldc "^"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3238,10 +4281,33 @@ sm_pc_1123:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1124:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1125:
+    ldc "!"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1126:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1127:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1128:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1129:
     ldc "!"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3254,10 +4320,33 @@ sm_pc_1131:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1132:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1133:
+    ldc "**"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1134:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1135:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1136:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1137:
     ldc "**"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3270,10 +4359,33 @@ sm_pc_1139:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1140:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1141:
+    ldc "$"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1142:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1143:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1144:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1145:
     ldc "$"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3286,10 +4398,33 @@ sm_pc_1147:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1148:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1149:
+    ldc "."
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1150:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1151:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1152:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1153:
     ldc "."
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3302,10 +4437,33 @@ sm_pc_1155:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1156:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1157:
+    ldc "&"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1158:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1159:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1160:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1161:
     ldc "&"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3318,10 +4476,33 @@ sm_pc_1163:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1164:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1165:
+    ldc "@"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1166:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1167:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1168:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1169:
     ldc "@"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3334,10 +4515,33 @@ sm_pc_1171:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1172:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1173:
+    ldc "#"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1174:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1175:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1176:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1177:
     ldc "#"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3350,10 +4554,33 @@ sm_pc_1179:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1180:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1181:
+    ldc "%"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1182:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1183:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1184:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1185:
     ldc "%"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3366,10 +4593,33 @@ sm_pc_1187:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1188:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1189:
+    ldc "~"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1190:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1191:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1192:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1193:
     ldc "~"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3382,10 +4632,33 @@ sm_pc_1195:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1196:
+    ldc "Gray"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1197:
+    ldc ","
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1198:
+    ldc "Gray"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1199:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1200:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1201:
     ldc ","
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3398,8 +4671,21 @@ sm_pc_1203:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1204:
+    ldc "("
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1205:
+    ldc "Gray"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1206:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1207:
     ldc "("
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3412,8 +4698,21 @@ sm_pc_1209:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1210:
+    ldc "["
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1211:
+    ldc "Gray"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1212:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1213:
     ldc "["
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3426,8 +4725,21 @@ sm_pc_1215:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1216:
+    ldc "<"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1217:
+    ldc "Gray"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1218:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1219:
     ldc "<"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3440,8 +4752,21 @@ sm_pc_1221:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1222:
+    ldc "Gray"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1223:
+    ldc ")"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1224:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1225:
     ldc ")"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3454,8 +4779,21 @@ sm_pc_1227:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1228:
+    ldc "Gray"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1229:
+    ldc "]"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1230:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1231:
     ldc "]"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3468,8 +4806,21 @@ sm_pc_1233:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1234:
+    ldc "Gray"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1235:
+    ldc ">"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1236:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1237:
     ldc ">"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3486,7 +4837,13 @@ sm_pc_1240:
     iconst_0
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1241:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1242:
+    ldc "XList"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1243:
     ldc "'ExprList'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3498,14 +4855,41 @@ sm_pc_1245:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1246:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1247:
     ldc "nPop"
     iconst_0
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1248:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1249:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1250:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1251:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1252:
     ldc "ExprList"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -3518,6 +4902,9 @@ sm_pc_1254:
     iconst_0
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1255:
+    ldc "Expr"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1256:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -3529,7 +4916,17 @@ sm_pc_1258:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1259:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1260:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1261:
     ldc ","
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3538,14 +4935,41 @@ sm_pc_1262:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1263:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1264:
+    ldc "XList"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1265:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1266:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1267:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1268:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1269:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1270:
     invokestatic rt/SnoRt/concat()V
 sm_pc_1271:
@@ -3564,6 +4988,13 @@ sm_pc_1276:
     ldc "Expr0"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1277:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_1278:
 sm_pc_1279:
 sm_pc_1280:
@@ -3574,6 +5005,9 @@ sm_pc_1281:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1282:
+    ldc "Expr1"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1283:
     ldc "="
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3582,7 +5016,13 @@ sm_pc_1284:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1285:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1286:
+    ldc "Expr0"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1287:
     ldc "'='"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3595,15 +5035,53 @@ sm_pc_1289:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1290:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1291:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1292:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1293:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1294:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1295:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1296:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1297:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1298:
     ldc "Expr0"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -3612,6 +5090,9 @@ sm_pc_1299:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1300:
+    ldc "Expr2"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1301:
     ldc "?"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3620,7 +5101,13 @@ sm_pc_1302:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1303:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1304:
+    ldc "Expr1"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1305:
     ldc "'?'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3633,15 +5120,53 @@ sm_pc_1307:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1308:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1309:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1310:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1311:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1312:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1313:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1314:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1315:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1316:
     ldc "Expr1"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -3650,6 +5175,9 @@ sm_pc_1317:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1318:
+    ldc "Expr3"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1319:
     ldc "&"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3658,7 +5186,13 @@ sm_pc_1320:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1321:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1322:
+    ldc "Expr2"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1323:
     ldc "'&'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3671,15 +5205,53 @@ sm_pc_1325:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1326:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1327:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1328:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1329:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1330:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1331:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1332:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1333:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1334:
     ldc "Expr2"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -3692,7 +5264,13 @@ sm_pc_1336:
     iconst_0
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1337:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1338:
+    ldc "X3"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1339:
     ldc "'|'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3704,14 +5282,41 @@ sm_pc_1341:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1342:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1343:
     ldc "nPop"
     iconst_0
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1344:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1345:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1346:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1347:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1348:
     ldc "Expr3"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -3724,7 +5329,13 @@ sm_pc_1350:
     iconst_0
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1351:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1352:
+    ldc "Expr4"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1353:
     ldc "|"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3733,16 +5344,57 @@ sm_pc_1354:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1355:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1356:
+    ldc "X3"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1357:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1358:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1359:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1360:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1361:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1362:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1363:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1364:
     ldc "X3"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -3755,7 +5407,13 @@ sm_pc_1366:
     iconst_0
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1367:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1368:
+    ldc "X4"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1369:
     ldc "'..'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3767,14 +5425,41 @@ sm_pc_1371:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1372:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1373:
     ldc "nPop"
     iconst_0
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1374:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1375:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1376:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1377:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1378:
     ldc "Expr4"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -3787,18 +5472,65 @@ sm_pc_1380:
     iconst_0
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1381:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1382:
+    ldc "Expr5"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1383:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1384:
+    ldc "X4"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1385:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1386:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1387:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1388:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1389:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1390:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1391:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1392:
     ldc "X4"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -3807,6 +5539,9 @@ sm_pc_1393:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1394:
+    ldc "Expr6"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1395:
     ldc "@"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3815,7 +5550,13 @@ sm_pc_1396:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1397:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1398:
+    ldc "Expr5"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1399:
     ldc "'@'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3828,15 +5569,53 @@ sm_pc_1401:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1402:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1403:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1404:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1405:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1406:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1407:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1408:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1409:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1410:
     ldc "Expr5"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -3845,6 +5624,9 @@ sm_pc_1411:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1412:
+    ldc "Expr7"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1413:
     ldc "+"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3853,7 +5635,13 @@ sm_pc_1414:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1415:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1416:
+    ldc "Expr6"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1417:
     ldc "'+'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3866,8 +5654,25 @@ sm_pc_1419:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1420:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1421:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1422:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1423:
     ldc "-"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3876,7 +5681,13 @@ sm_pc_1424:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1425:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1426:
+    ldc "Expr6"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1427:
     ldc "'-'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3889,16 +5700,61 @@ sm_pc_1429:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1430:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1431:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1432:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1433:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1434:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1435:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1436:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1437:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1438:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1439:
     ldc "Expr6"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -3907,6 +5763,9 @@ sm_pc_1440:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1441:
+    ldc "Expr8"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1442:
     ldc "#"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3915,7 +5774,13 @@ sm_pc_1443:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1444:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1445:
+    ldc "Expr7"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1446:
     ldc "'#'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3928,15 +5793,53 @@ sm_pc_1448:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1449:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1450:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1451:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1452:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1453:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1454:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1455:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1456:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1457:
     ldc "Expr7"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -3945,6 +5848,9 @@ sm_pc_1458:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1459:
+    ldc "Expr9"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1460:
     ldc "/"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3953,7 +5859,13 @@ sm_pc_1461:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1462:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1463:
+    ldc "Expr8"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1464:
     ldc "'/'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3966,15 +5878,53 @@ sm_pc_1466:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1467:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1468:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1469:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1470:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1471:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1472:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1473:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1474:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1475:
     ldc "Expr8"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -3983,6 +5933,9 @@ sm_pc_1476:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1477:
+    ldc "Expr10"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1478:
     ldc "*"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -3991,7 +5944,13 @@ sm_pc_1479:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1480:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1481:
+    ldc "Expr9"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1482:
     ldc "'*'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4004,15 +5963,53 @@ sm_pc_1484:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1485:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1486:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1487:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1488:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1489:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1490:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1491:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1492:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1493:
     ldc "Expr9"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -4021,6 +6018,9 @@ sm_pc_1494:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1495:
+    ldc "Expr11"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1496:
     ldc "%"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4029,7 +6029,13 @@ sm_pc_1497:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1498:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1499:
+    ldc "Expr10"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1500:
     ldc "'%'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4042,15 +6048,53 @@ sm_pc_1502:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1503:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1504:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1505:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1506:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1507:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1508:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1509:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1510:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1511:
     ldc "Expr10"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -4059,6 +6103,9 @@ sm_pc_1512:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1513:
+    ldc "Expr12"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1514:
     ldc "^"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4067,6 +6114,9 @@ sm_pc_1515:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1516:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1517:
     ldc "!"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4075,6 +6125,9 @@ sm_pc_1518:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1519:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1520:
     ldc "**"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4083,9 +6136,29 @@ sm_pc_1521:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1522:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1523:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1524:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1525:
+    ldc "Expr11"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1526:
     ldc "'^'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4098,15 +6171,53 @@ sm_pc_1528:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1529:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1530:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1531:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1532:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1533:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1534:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1535:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1536:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1537:
     ldc "Expr11"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -4115,6 +6226,9 @@ sm_pc_1538:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1539:
+    ldc "Expr13"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1540:
     ldc "$"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4123,7 +6237,13 @@ sm_pc_1541:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1542:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1543:
+    ldc "Expr12"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1544:
     ldc "'$'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4136,8 +6256,25 @@ sm_pc_1546:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1547:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1548:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1549:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1550:
     ldc "."
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4146,7 +6283,13 @@ sm_pc_1551:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1552:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1553:
+    ldc "Expr12"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1554:
     ldc "'.'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4159,16 +6302,61 @@ sm_pc_1556:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1557:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1558:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1559:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1560:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1561:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1562:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1563:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1564:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1565:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1566:
     ldc "Expr12"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -4177,6 +6365,9 @@ sm_pc_1567:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1568:
+    ldc "Expr14"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1569:
     ldc "~"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4185,7 +6376,13 @@ sm_pc_1570:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1571:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1572:
+    ldc "Expr13"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1573:
     ldc "'~'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4198,15 +6395,53 @@ sm_pc_1575:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1576:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1577:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1578:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1579:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1580:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1581:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1582:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1583:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1584:
     ldc "Expr13"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -4215,7 +6450,13 @@ sm_pc_1585:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1586:
+    ldc "@"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1587:
+    ldc "Expr14"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1588:
     ldc "'@'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4228,10 +6469,33 @@ sm_pc_1590:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1591:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1592:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1593:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1594:
+    ldc "~"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1595:
+    ldc "Expr14"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1596:
     ldc "'~'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4244,10 +6508,33 @@ sm_pc_1598:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1599:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1600:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1601:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1602:
+    ldc "?"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1603:
+    ldc "Expr14"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1604:
     ldc "'?'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4260,8 +6547,25 @@ sm_pc_1606:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1607:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1608:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1609:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1610:
     goto_w sm_pc_1614
 sm_pc_1611:
@@ -4269,6 +6573,13 @@ sm_pc_1612:
     ldc "ProtKwd"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1613:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_1614:
 sm_pc_1615:
 sm_pc_1616:
@@ -4279,6 +6590,9 @@ sm_pc_1617:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1618:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1619:
     goto_w sm_pc_1623
 sm_pc_1620:
@@ -4286,6 +6600,13 @@ sm_pc_1621:
     ldc "UnprotKwd"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1622:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_1623:
 sm_pc_1624:
 sm_pc_1625:
@@ -4296,8 +6617,17 @@ sm_pc_1626:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1627:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1628:
+    ldc "&"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1629:
+    ldc "Expr14"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1630:
     ldc "'&'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4310,10 +6640,33 @@ sm_pc_1632:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1633:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1634:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1635:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1636:
+    ldc "+"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1637:
+    ldc "Expr14"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1638:
     ldc "'+'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4326,10 +6679,33 @@ sm_pc_1640:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1641:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1642:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1643:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1644:
+    ldc "-"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1645:
+    ldc "Expr14"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1646:
     ldc "'-'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4342,10 +6718,33 @@ sm_pc_1648:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1649:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1650:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1651:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1652:
+    ldc "*"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1653:
+    ldc "Expr14"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1654:
     ldc "'*'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4358,10 +6757,33 @@ sm_pc_1656:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1657:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1658:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1659:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1660:
+    ldc "$"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1661:
+    ldc "Expr14"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1662:
     ldc "'$'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4374,10 +6796,33 @@ sm_pc_1664:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1665:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1666:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1667:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1668:
+    ldc "."
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1669:
+    ldc "Expr14"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1670:
     ldc "'.'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4390,10 +6835,33 @@ sm_pc_1672:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1673:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1674:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1675:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1676:
+    ldc "!"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1677:
+    ldc "Expr14"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1678:
     ldc "'!'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4406,10 +6874,33 @@ sm_pc_1680:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1681:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1682:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1683:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1684:
+    ldc "%"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1685:
+    ldc "Expr14"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1686:
     ldc "'%'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4422,10 +6913,33 @@ sm_pc_1688:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1689:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1690:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1691:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1692:
+    ldc "/"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1693:
+    ldc "Expr14"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1694:
     ldc "'/'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4438,10 +6952,33 @@ sm_pc_1696:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1697:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1698:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1699:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1700:
+    ldc "#"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1701:
+    ldc "Expr14"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1702:
     ldc "'#'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4454,10 +6991,33 @@ sm_pc_1704:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1705:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1706:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1707:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1708:
+    ldc "="
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1709:
+    ldc "Expr14"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1710:
     ldc "'='"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4470,10 +7030,33 @@ sm_pc_1712:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1713:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1714:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1715:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1716:
+    ldc "|"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1717:
+    ldc "Expr14"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1718:
     ldc "'|'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4486,26 +7069,165 @@ sm_pc_1720:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1721:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1722:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1723:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1724:
+    ldc "Expr15"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1725:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1726:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1727:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1728:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1729:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1730:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1731:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1732:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1733:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1734:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1735:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1736:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1737:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1738:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1739:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1740:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1741:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1742:
     ldc "Expr14"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -4514,12 +7236,21 @@ sm_pc_1743:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1744:
+    ldc "Expr17"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1745:
     ldc "nPush"
     iconst_0
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1746:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1747:
+    ldc "Expr16"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1748:
     ldc "'[]'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4531,21 +7262,69 @@ sm_pc_1750:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1751:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1752:
     ldc "nPop"
     iconst_0
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1753:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1754:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1755:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1756:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1757:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1758:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1759:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1760:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1761:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1762:
     ldc "Expr15"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -4565,7 +7344,13 @@ sm_pc_1766:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1767:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1768:
+    ldc "ExprList"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1769:
     ldc "]"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4574,8 +7359,25 @@ sm_pc_1770:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1771:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1772:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1773:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1774:
     ldc "<"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4584,7 +7386,13 @@ sm_pc_1775:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1776:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1777:
+    ldc "ExprList"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1778:
     ldc ">"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4593,16 +7401,57 @@ sm_pc_1779:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1780:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1781:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1782:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1783:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1784:
+    ldc "Expr16"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1785:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1786:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1787:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1788:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1789:
     invokestatic rt/SnoRt/concat()V
 sm_pc_1790:
@@ -4619,6 +7468,9 @@ sm_pc_1793:
     iconst_0
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1794:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1795:
     ldc "("
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4627,7 +7479,13 @@ sm_pc_1796:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1797:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1798:
+    ldc "Expr"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1799:
     ldc ","
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4636,7 +7494,13 @@ sm_pc_1800:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1801:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1802:
+    ldc "XList"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1803:
     ldc "','"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4648,12 +7512,32 @@ sm_pc_1805:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1806:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1807:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1808:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1809:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1810:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1811:
     ldc "'()'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4666,8 +7550,25 @@ sm_pc_1813:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1814:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1815:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1816:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1817:
     ldc ")"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4676,16 +7577,57 @@ sm_pc_1818:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1819:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1820:
     ldc "nPop"
     iconst_0
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1821:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1822:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1823:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1824:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1825:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1826:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1827:
     goto_w sm_pc_1831
 sm_pc_1828:
@@ -4693,6 +7635,13 @@ sm_pc_1829:
     ldc "Function"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1830:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_1831:
 sm_pc_1832:
 sm_pc_1833:
@@ -4703,6 +7652,9 @@ sm_pc_1834:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1835:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1836:
     ldc "("
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4711,7 +7663,13 @@ sm_pc_1837:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1838:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1839:
+    ldc "ExprList"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1840:
     ldc ")"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4720,6 +7678,9 @@ sm_pc_1841:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1842:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1843:
     ldc "'Call'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4732,10 +7693,41 @@ sm_pc_1845:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1846:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1847:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1848:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1849:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1850:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1851:
     goto_w sm_pc_1855
 sm_pc_1852:
@@ -4743,6 +7735,13 @@ sm_pc_1853:
     ldc "Id"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1854:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_1855:
 sm_pc_1856:
 sm_pc_1857:
@@ -4753,6 +7752,9 @@ sm_pc_1858:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1859:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1860:
     ldc "("
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4761,7 +7763,13 @@ sm_pc_1861:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1862:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1863:
+    ldc "ExprList"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1864:
     ldc ")"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4770,6 +7778,9 @@ sm_pc_1865:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1866:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1867:
     ldc "'Call'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -4782,10 +7793,41 @@ sm_pc_1869:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1870:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1871:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1872:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1873:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1874:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1875:
     goto_w sm_pc_1879
 sm_pc_1876:
@@ -4793,6 +7835,13 @@ sm_pc_1877:
     ldc "BuiltinVar"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1878:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_1879:
 sm_pc_1880:
 sm_pc_1881:
@@ -4803,6 +7852,9 @@ sm_pc_1882:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1883:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1884:
     goto_w sm_pc_1888
 sm_pc_1885:
@@ -4810,6 +7862,13 @@ sm_pc_1886:
     ldc "SpecialNm"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1887:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_1888:
 sm_pc_1889:
 sm_pc_1890:
@@ -4820,6 +7879,9 @@ sm_pc_1891:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1892:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1893:
     goto_w sm_pc_1897
 sm_pc_1894:
@@ -4827,6 +7889,13 @@ sm_pc_1895:
     ldc "Id"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1896:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_1897:
 sm_pc_1898:
 sm_pc_1899:
@@ -4837,6 +7906,9 @@ sm_pc_1900:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1901:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1902:
     goto_w sm_pc_1906
 sm_pc_1903:
@@ -4844,6 +7916,13 @@ sm_pc_1904:
     ldc "String"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1905:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_1906:
 sm_pc_1907:
 sm_pc_1908:
@@ -4854,6 +7933,9 @@ sm_pc_1909:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1910:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1911:
     goto_w sm_pc_1915
 sm_pc_1912:
@@ -4861,6 +7943,13 @@ sm_pc_1913:
     ldc "Real"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1914:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_1915:
 sm_pc_1916:
 sm_pc_1917:
@@ -4871,6 +7960,9 @@ sm_pc_1918:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1919:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1920:
     goto_w sm_pc_1924
 sm_pc_1921:
@@ -4878,6 +7970,13 @@ sm_pc_1922:
     ldc "Integer"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_1923:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_1924:
 sm_pc_1925:
 sm_pc_1926:
@@ -4888,15 +7987,78 @@ sm_pc_1927:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1928:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1929:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1930:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1931:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1932:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1933:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1934:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1935:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1936:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1937:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1938:
     ldc "Expr17"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -4905,8 +8067,21 @@ sm_pc_1939:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1940:
+    ldc "S"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1941:
+    ldc "s"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1942:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1943:
     goto_w sm_pc_1948
 sm_pc_1944:
@@ -4918,6 +8093,13 @@ sm_pc_1946:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1947:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_1948:
 sm_pc_1949:
 sm_pc_1950:
@@ -4930,12 +8112,43 @@ sm_pc_1954:
     ldc "S"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
 sm_pc_1955:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_1956:
 sm_pc_1957:
 sm_pc_1958:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_1959:
 sm_pc_1960:
 sm_pc_1961:
+    bipush 2
+    anewarray java/lang/Object
+    dup
+    bipush 1
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    aastore
+    dup
+    bipush 0
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    aastore
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    ldc "assign"
+    swap
+    invokestatic rt/SnoPat/captureFnArgs(Lrt/SnoPat;Ljava/lang/String;[Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1962:
     ldc "SGoto"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -4944,8 +8157,21 @@ sm_pc_1963:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1964:
+    ldc "F"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1965:
+    ldc "f"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1966:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1967:
     goto_w sm_pc_1972
 sm_pc_1968:
@@ -4957,6 +8183,13 @@ sm_pc_1970:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1971:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_1972:
 sm_pc_1973:
 sm_pc_1974:
@@ -4969,12 +8202,43 @@ sm_pc_1978:
     ldc "F"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
 sm_pc_1979:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_1980:
 sm_pc_1981:
 sm_pc_1982:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_1983:
 sm_pc_1984:
 sm_pc_1985:
+    bipush 2
+    anewarray java/lang/Object
+    dup
+    bipush 1
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    aastore
+    dup
+    bipush 0
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    aastore
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    ldc "assign"
+    swap
+    invokestatic rt/SnoPat/captureFnArgs(Lrt/SnoPat;Ljava/lang/String;[Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1986:
     ldc "FGoto"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -4983,8 +8247,21 @@ sm_pc_1987:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_1988:
+    ldc "SGoto"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1989:
+    ldc "FGoto"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1990:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1991:
     ldc "SorF"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -5000,6 +8277,9 @@ sm_pc_1994:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_1995:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_1996:
     goto_w sm_pc_2001
 sm_pc_1997:
@@ -5011,6 +8291,13 @@ sm_pc_1999:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2000:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_2001:
 sm_pc_2002:
 sm_pc_2003:
@@ -5023,13 +8310,47 @@ sm_pc_2007:
     ldc "()"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
 sm_pc_2008:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_2009:
 sm_pc_2010:
 sm_pc_2011:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_2012:
 sm_pc_2013:
 sm_pc_2014:
+    bipush 2
+    anewarray java/lang/Object
+    dup
+    bipush 1
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    aastore
+    dup
+    bipush 0
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    aastore
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    ldc "assign"
+    swap
+    invokestatic rt/SnoPat/captureFnArgs(Lrt/SnoPat;Ljava/lang/String;[Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2015:
+    ldc "Expr"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2016:
     ldc ")"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -5038,8 +8359,25 @@ sm_pc_2017:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2018:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2019:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2020:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2021:
     ldc "<"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -5048,6 +8386,9 @@ sm_pc_2022:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2023:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2024:
     goto_w sm_pc_2029
 sm_pc_2025:
@@ -5059,6 +8400,13 @@ sm_pc_2027:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2028:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_2029:
 sm_pc_2030:
 sm_pc_2031:
@@ -5071,13 +8419,47 @@ sm_pc_2035:
     ldc "<>"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
 sm_pc_2036:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_2037:
 sm_pc_2038:
 sm_pc_2039:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_2040:
 sm_pc_2041:
 sm_pc_2042:
+    bipush 2
+    anewarray java/lang/Object
+    dup
+    bipush 1
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    aastore
+    dup
+    bipush 0
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    aastore
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    ldc "assign"
+    swap
+    invokestatic rt/SnoPat/captureFnArgs(Lrt/SnoPat;Ljava/lang/String;[Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2043:
+    ldc "Expr"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2044:
     ldc ">"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -5086,9 +8468,33 @@ sm_pc_2045:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2046:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2047:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2048:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2049:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2050:
     ldc "Target"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -5097,9 +8503,21 @@ sm_pc_2051:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_2052:
+    ldc "Gray"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2053:
+    ldc ":"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2054:
+    ldc "Gray"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2055:
+    ldc "Target"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2056:
     ldc "*(':' Brackets)"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -5112,6 +8530,9 @@ sm_pc_2058:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2059:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2060:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -5123,12 +8544,45 @@ sm_pc_2062:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2063:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2064:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2065:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2066:
+    ldc "SGoto"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2067:
+    ldc "FGoto"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2068:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2069:
+    ldc "Target"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2070:
     ldc "*(':' SorF Brackets)"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -5141,11 +8595,33 @@ sm_pc_2072:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2073:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2074:
+    ldc "Gray"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2075:
+    ldc "SGoto"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2076:
+    ldc "FGoto"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2077:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2078:
+    ldc "Target"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2079:
     ldc "*(':' SorF Brackets)"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -5158,9 +8634,33 @@ sm_pc_2081:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2082:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2083:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2084:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2085:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2086:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -5172,16 +8672,83 @@ sm_pc_2088:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2089:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2090:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2091:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2092:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2093:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2094:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2095:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2096:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2097:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2098:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2099:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2100:
     ldc "Goto"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -5201,6 +8768,17 @@ sm_pc_2104:
 sm_pc_2105:
     invokestatic rt/SnoRt/concat()V
 sm_pc_2106:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_brk_nn_2106
+    pop
+    ldc ""
+    goto pat_brk_done_2106
+pat_brk_nn_2106:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_brk_done_2106:
+    invokestatic rt/SnoPat/brk(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2107:
     invokestatic rt/SnoRt/concat()V
 sm_pc_2108:
@@ -5217,6 +8795,17 @@ sm_pc_2111:
     ldc "nl"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_2112:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_brk_nn_2112
+    pop
+    ldc ""
+    goto pat_brk_done_2112
+pat_brk_nn_2112:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_brk_done_2112:
+    invokestatic rt/SnoPat/brk(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2113:
     invokestatic rt/SnoRt/concat()V
 sm_pc_2114:
@@ -5245,6 +8834,17 @@ sm_pc_2121:
 sm_pc_2122:
     invokestatic rt/SnoRt/concat()V
 sm_pc_2123:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_brk_nn_2123
+    pop
+    ldc ""
+    goto pat_brk_done_2123
+pat_brk_nn_2123:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_brk_done_2123:
+    invokestatic rt/SnoPat/brk(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2124:
     ldc "Label"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -5260,8 +8860,17 @@ sm_pc_2127:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_2128:
+    ldc "Label"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2129:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2130:
+    ldc "Expr14"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2131:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -5273,7 +8882,13 @@ sm_pc_2133:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2134:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2135:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2136:
     ldc "="
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -5285,10 +8900,33 @@ sm_pc_2138:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2139:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2140:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2141:
+    ldc "Expr"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2142:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2143:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2144:
     ldc "="
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -5300,6 +8938,9 @@ sm_pc_2146:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2147:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2148:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -5311,10 +8952,41 @@ sm_pc_2150:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2151:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2152:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2153:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2154:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2155:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2156:
     ldc "?"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -5323,10 +8995,29 @@ sm_pc_2157:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2158:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2159:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2160:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2161:
+    ldc "Expr1"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2162:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2163:
     ldc "="
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -5338,10 +9029,33 @@ sm_pc_2165:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2166:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2167:
+    ldc "White"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2168:
+    ldc "Expr"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2169:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2170:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2171:
     ldc "="
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -5353,6 +9067,9 @@ sm_pc_2173:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2174:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2175:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -5364,9 +9081,33 @@ sm_pc_2177:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2178:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2179:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2180:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2181:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2182:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -5378,6 +9119,9 @@ sm_pc_2184:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2185:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2186:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -5389,11 +9133,46 @@ sm_pc_2188:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2189:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2190:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2191:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2192:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2193:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2194:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2195:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -5405,6 +9184,9 @@ sm_pc_2197:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2198:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2199:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -5416,6 +9198,9 @@ sm_pc_2201:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2202:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2203:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -5427,13 +9212,62 @@ sm_pc_2205:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2206:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2207:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2208:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2209:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2210:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2211:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2212:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2213:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2214:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -5445,6 +9279,9 @@ sm_pc_2216:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2217:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2218:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -5456,6 +9293,9 @@ sm_pc_2220:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2221:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2222:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -5467,6 +9307,9 @@ sm_pc_2224:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2225:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2226:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -5478,11 +9321,45 @@ sm_pc_2228:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2229:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2230:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2231:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2232:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2233:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2234:
+    ldc "Goto"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2235:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -5494,6 +9371,9 @@ sm_pc_2237:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2238:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2239:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -5505,13 +9385,58 @@ sm_pc_2241:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2242:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2243:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2244:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2245:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2246:
+    ldc "Gray"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2247:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2248:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2249:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2250:
     ldc "Stmt"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -5520,14 +9445,41 @@ sm_pc_2251:
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
 sm_pc_2252:
+    ldc "Command"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2253:
+    ldc "Commands"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2254:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_2255:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2256:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2257:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2258:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2259:
     ldc "Commands"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -5546,6 +9498,13 @@ sm_pc_2264:
     ldc "Comment"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_2265:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_2266:
 sm_pc_2267:
 sm_pc_2268:
@@ -5556,6 +9515,9 @@ sm_pc_2269:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2270:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2271:
     ldc "'Comment'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -5568,12 +9530,32 @@ sm_pc_2273:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2274:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2275:
     ldc "nl"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_2276:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2277:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2278:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2279:
     goto_w sm_pc_2283
 sm_pc_2280:
@@ -5581,6 +9563,13 @@ sm_pc_2281:
     ldc "Control"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_2282:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_2283:
 sm_pc_2284:
 sm_pc_2285:
@@ -5591,6 +9580,9 @@ sm_pc_2286:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2287:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2288:
     ldc "'Control'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -5603,15 +9595,48 @@ sm_pc_2290:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2291:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2292:
     ldc "nl"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_2293:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2294:
+    ldc ";"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2295:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2296:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2297:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2298:
+    ldc "Stmt"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2299:
     ldc "'Stmt'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -5624,17 +9649,65 @@ sm_pc_2301:
     iconst_2
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2302:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2303:
     ldc "nl"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_2304:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2305:
+    ldc ";"
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2306:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2307:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2308:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2309:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2310:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2311:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/fence1(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2312:
     invokestatic rt/SnoRt/concat()V
 sm_pc_2313:
@@ -5649,7 +9722,14 @@ sm_pc_2315:
     iconst_0
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2316:
+    ldc "Command"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2317:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/arbno(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2318:
     ldc "'Parse'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -5682,7 +9762,14 @@ sm_pc_2327:
     iconst_0
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2328:
+    ldc "Command"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2329:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/arbno(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2330:
     ldc "'Parse'"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -5701,39 +9788,132 @@ sm_pc_2334:
     iconst_1
     invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
 sm_pc_2335:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2336:
+    ldc " "
+    invokestatic rt/SnoPat/lit(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2337:
     ldc "nl"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_2338:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_brk_nn_2338
+    pop
+    ldc ""
+    goto pat_brk_done_2338
+pat_brk_nn_2338:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_brk_done_2338:
+    invokestatic rt/SnoPat/brk(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2339:
     ldc "nl"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_2340:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2341:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2342:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2343:
     ldc "nl"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_2344:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2345:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2346:
     ldc "nl"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_2347:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_brk_nn_2347
+    pop
+    ldc ""
+    goto pat_brk_done_2347
+pat_brk_nn_2347:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_brk_done_2347:
+    invokestatic rt/SnoPat/brk(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2348:
     ldc "nl"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_2349:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2350:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2351:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoPat/arbno(Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2352:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2353:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2354:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_2355:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2356:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_2357:
     ldc "nPop"
     iconst_0
@@ -5780,6 +9960,16 @@ sm_pc_2372:
 sm_pc_2373:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2374:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_2374_rf_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_2374_rf_skip:
 sm_pc_2375:
     sipush 217
     i2l
@@ -5917,6 +10107,16 @@ sm_pc_2417:
 sm_pc_2418:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2419:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_2419_rf_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_2419_rf_skip:
 sm_pc_2420:
 sm_pc_2421:
     sipush 223
@@ -5985,6 +10185,16 @@ sm_pc_2442:
     ldc "i"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_2443:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_2443_rf_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_2443_rf_skip:
 sm_pc_2444:
     sipush 226
     i2l
@@ -6002,7 +10212,10 @@ sm_pc_2447:
 sm_pc_2448:
     ldc "pp"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 2449
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_2368
 sm_pc_2449:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2450:
@@ -6018,7 +10231,10 @@ sm_pc_2453:
 sm_pc_2454:
     ldc "ss"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 2455
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_2455:
     ldc "Gen"
     iconst_1
@@ -6026,6 +10242,16 @@ sm_pc_2455:
 sm_pc_2456:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2457:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_2457_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_2457_rs_skip:
 sm_pc_2458:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_2458_skip
@@ -6042,7 +10268,10 @@ sm_pc_2461:
 sm_pc_2462:
     ldc "ss"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 2463
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_2463:
     ldc "Gen"
     iconst_1
@@ -6050,6 +10279,16 @@ sm_pc_2463:
 sm_pc_2464:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2465:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_2465_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_2465_rs_skip:
 sm_pc_2466:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_2466_skip
@@ -6066,7 +10305,10 @@ sm_pc_2469:
 sm_pc_2470:
     ldc "ss"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 2471
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_2471:
     ldc "Gen"
     iconst_1
@@ -6074,6 +10316,16 @@ sm_pc_2471:
 sm_pc_2472:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2473:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_2473_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_2473_rs_skip:
 sm_pc_2474:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_2474_skip
@@ -6090,7 +10342,10 @@ sm_pc_2477:
 sm_pc_2478:
     ldc "ss"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 2479
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_2479:
     ldc "Gen"
     iconst_1
@@ -6098,6 +10353,16 @@ sm_pc_2479:
 sm_pc_2480:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2481:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_2481_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_2481_rs_skip:
 sm_pc_2482:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_2482_skip
@@ -6114,7 +10379,10 @@ sm_pc_2485:
 sm_pc_2486:
     ldc "ss"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 2487
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_2487:
     ldc "Gen"
     iconst_1
@@ -6122,6 +10390,16 @@ sm_pc_2487:
 sm_pc_2488:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2489:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_2489_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_2489_rs_skip:
 sm_pc_2490:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_2490_skip
@@ -6138,7 +10416,10 @@ sm_pc_2493:
 sm_pc_2494:
     ldc "ss"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 2495
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_2495:
     ldc "Gen"
     iconst_1
@@ -6146,6 +10427,16 @@ sm_pc_2495:
 sm_pc_2496:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2497:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_2497_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_2497_rs_skip:
 sm_pc_2498:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_2498_skip
@@ -6162,7 +10453,10 @@ sm_pc_2501:
 sm_pc_2502:
     ldc "ss"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 2503
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_2503:
     ldc "Gen"
     iconst_1
@@ -6170,6 +10464,16 @@ sm_pc_2503:
 sm_pc_2504:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2505:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_2505_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_2505_rs_skip:
 sm_pc_2506:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_2506_skip
@@ -6186,7 +10490,10 @@ sm_pc_2509:
 sm_pc_2510:
     ldc "ss"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 2511
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_2511:
     ldc "Gen"
     iconst_1
@@ -6194,6 +10501,16 @@ sm_pc_2511:
 sm_pc_2512:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2513:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_2513_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_2513_rs_skip:
 sm_pc_2514:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_2514_skip
@@ -6210,7 +10527,10 @@ sm_pc_2517:
 sm_pc_2518:
     ldc "ss"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 2519
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_2519:
     ldc "Gen"
     iconst_1
@@ -6218,6 +10538,16 @@ sm_pc_2519:
 sm_pc_2520:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2521:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_2521_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_2521_rs_skip:
 sm_pc_2522:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_2522_skip
@@ -6234,7 +10564,10 @@ sm_pc_2525:
 sm_pc_2526:
     ldc "ss"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 2527
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_2527:
     ldc "Gen"
     iconst_1
@@ -6242,6 +10575,16 @@ sm_pc_2527:
 sm_pc_2528:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2529:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_2529_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_2529_rs_skip:
 sm_pc_2530:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_2530_skip
@@ -6258,7 +10601,10 @@ sm_pc_2533:
 sm_pc_2534:
     ldc "ss"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 2535
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_2535:
     ldc "Gen"
     iconst_1
@@ -6266,6 +10612,16 @@ sm_pc_2535:
 sm_pc_2536:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2537:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_2537_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_2537_rs_skip:
 sm_pc_2538:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_2538_skip
@@ -6282,7 +10638,10 @@ sm_pc_2541:
 sm_pc_2542:
     ldc "ss"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 2543
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_2543:
     ldc "Gen"
     iconst_1
@@ -6290,6 +10649,16 @@ sm_pc_2543:
 sm_pc_2544:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2545:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_2545_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_2545_rs_skip:
 sm_pc_2546:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_2546_skip
@@ -6306,7 +10675,10 @@ sm_pc_2549:
 sm_pc_2550:
     ldc "ss"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 2551
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_2551:
     ldc "Gen"
     iconst_1
@@ -6314,6 +10686,16 @@ sm_pc_2551:
 sm_pc_2552:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2553:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_2553_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_2553_rs_skip:
 sm_pc_2554:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_2554_skip
@@ -6330,7 +10712,10 @@ sm_pc_2557:
 sm_pc_2558:
     ldc "ss"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 2559
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_2559:
     ldc "Gen"
     iconst_1
@@ -6338,6 +10723,16 @@ sm_pc_2559:
 sm_pc_2560:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2561:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_2561_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_2561_rs_skip:
 sm_pc_2562:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_2562_skip
@@ -6354,7 +10749,10 @@ sm_pc_2565:
 sm_pc_2566:
     ldc "ss"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 2567
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_2567:
     ldc "Gen"
     iconst_1
@@ -6362,6 +10760,16 @@ sm_pc_2567:
 sm_pc_2568:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2569:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_2569_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_2569_rs_skip:
 sm_pc_2570:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_2570_skip
@@ -6378,7 +10786,10 @@ sm_pc_2573:
 sm_pc_2574:
     ldc "ss"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 2575
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_2575:
     ldc "Gen"
     iconst_1
@@ -6386,6 +10797,16 @@ sm_pc_2575:
 sm_pc_2576:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2577:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_2577_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_2577_rs_skip:
 sm_pc_2578:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_2578_skip
@@ -6416,7 +10837,10 @@ sm_pc_2586:
 sm_pc_2587:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 2588
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_2588:
     ldc "Gen"
     iconst_1
@@ -6424,6 +10848,16 @@ sm_pc_2588:
 sm_pc_2589:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2590:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_2590_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_2590_rs_skip:
 sm_pc_2591:
     sipush 244
     i2l
@@ -6455,10 +10889,20 @@ sm_pc_2598:
 sm_pc_2599:
     ldc "pp"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 2600
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_2368
 sm_pc_2600:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2601:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_2602:
 sm_pc_2603:
     sipush 246
@@ -6484,7 +10928,10 @@ sm_pc_2609:
 sm_pc_2610:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 2611
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_2611:
     ldc "Gen"
     iconst_1
@@ -6492,6 +10939,16 @@ sm_pc_2611:
 sm_pc_2612:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2613:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_2613_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_2613_rs_skip:
 sm_pc_2614:
     sipush 247
     i2l
@@ -6510,7 +10967,10 @@ sm_pc_2617:
 sm_pc_2618:
     ldc "pp"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 2619
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_2368
 sm_pc_2619:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2620:
@@ -6587,10 +11047,20 @@ sm_pc_2640:
 sm_pc_2641:
     ldc "pp"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 2642
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_2368
 sm_pc_2642:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2643:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_2644:
 sm_pc_2645:
     sipush 254
@@ -7348,6 +11818,13 @@ sm_pc_2856:
 sm_pc_2857:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2858:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_2859:
 sm_pc_2860:
     sipush 285
@@ -7404,6 +11881,13 @@ sm_pc_2874:
 sm_pc_2875:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2876:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_2877:
 sm_pc_2878:
     sipush 288
@@ -7468,7 +11952,10 @@ sm_pc_2894:
 sm_pc_2895:
     ldc "ss"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 2896
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_2896:
     ldc "ppLbl"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -7747,7 +12234,10 @@ sm_pc_2975:
 sm_pc_2976:
     ldc "pp"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 2977
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_2368
 sm_pc_2977:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_2978:
@@ -7887,7 +12377,10 @@ sm_pc_3017:
 sm_pc_3018:
     ldc "pp"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3019
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_2368
 sm_pc_3019:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3020:
@@ -7966,7 +12459,10 @@ sm_pc_3040:
 sm_pc_3041:
     ldc "pp"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3042
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_2368
 sm_pc_3042:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3043:
@@ -8186,7 +12682,10 @@ sm_pc_3106:
 sm_pc_3107:
     ldc "pp"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3108
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_2368
 sm_pc_3108:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3109:
@@ -8303,7 +12802,10 @@ sm_pc_3141:
 sm_pc_3142:
     ldc "pp"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3143
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_2368
 sm_pc_3143:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3144:
@@ -8338,7 +12840,10 @@ sm_pc_3151:
 sm_pc_3152:
     ldc "pp"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3153
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_2368
 sm_pc_3153:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3154:
@@ -8358,6 +12863,13 @@ sm_pc_3158:
 sm_pc_3159:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3160:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_3161:
 sm_pc_3162:
     sipush 337
@@ -8383,7 +12895,10 @@ sm_pc_3168:
 sm_pc_3169:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3170
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_3170:
     ldc "Gen"
     iconst_1
@@ -8391,6 +12906,16 @@ sm_pc_3170:
 sm_pc_3171:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3172:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_3172_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3172_rs_skip:
 sm_pc_3173:
     sipush 338
     i2l
@@ -8409,7 +12934,10 @@ sm_pc_3176:
 sm_pc_3177:
     ldc "pp"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3178
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_2368
 sm_pc_3178:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3179:
@@ -8458,6 +12986,16 @@ sm_pc_3193:
     ldc "i"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_3194:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_3194_rf_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3194_rf_skip:
 sm_pc_3195:
     sipush 341
     i2l
@@ -8531,7 +13069,10 @@ sm_pc_3215:
 sm_pc_3216:
     ldc "pp"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3217
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_2368
 sm_pc_3217:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3218:
@@ -8561,7 +13102,10 @@ sm_pc_3226:
 sm_pc_3227:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3228
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_3228:
     ldc "Gen"
     iconst_1
@@ -8569,6 +13113,16 @@ sm_pc_3228:
 sm_pc_3229:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3230:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_3230_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3230_rs_skip:
 sm_pc_3231:
     sipush 348
     i2l
@@ -8620,7 +13174,10 @@ sm_pc_3244:
 sm_pc_3245:
     ldc "pp"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3246
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_2368
 sm_pc_3246:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3247:
@@ -8746,7 +13303,10 @@ sm_pc_3283:
 sm_pc_3284:
     ldc "pp"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3285
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_2368
 sm_pc_3285:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3286:
@@ -8789,6 +13349,13 @@ sm_pc_3297:
 sm_pc_3298:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3299:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_3300:
 sm_pc_3301:
     sipush 363
@@ -8836,7 +13403,10 @@ sm_pc_3313:
 sm_pc_3314:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3315
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_3315:
     ldc "Gen"
     iconst_1
@@ -8844,6 +13414,16 @@ sm_pc_3315:
 sm_pc_3316:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3317:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_3317_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3317_rs_skip:
 sm_pc_3318:
     sipush 365
     i2l
@@ -8862,7 +13442,10 @@ sm_pc_3321:
 sm_pc_3322:
     ldc "pp"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3323
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_2368
 sm_pc_3323:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3324:
@@ -8911,6 +13494,16 @@ sm_pc_3338:
     ldc "i"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_3339:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_3339_rf_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3339_rf_skip:
 sm_pc_3340:
     sipush 368
     i2l
@@ -8984,7 +13577,10 @@ sm_pc_3360:
 sm_pc_3361:
     ldc "pp"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3362
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_2368
 sm_pc_3362:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3363:
@@ -9014,7 +13610,10 @@ sm_pc_3371:
 sm_pc_3372:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3373
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_3373:
     ldc "Gen"
     iconst_1
@@ -9022,6 +13621,16 @@ sm_pc_3373:
 sm_pc_3374:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3375:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_3375_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3375_rs_skip:
 sm_pc_3376:
     sipush 375
     i2l
@@ -9068,6 +13677,16 @@ sm_pc_3390:
     ldc "i"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_3391:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_3391_rf_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3391_rf_skip:
 sm_pc_3392:
     sipush 377
     i2l
@@ -9085,7 +13704,10 @@ sm_pc_3395:
 sm_pc_3396:
     ldc "pp"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3397
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_2368
 sm_pc_3397:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3398:
@@ -9140,7 +13762,10 @@ sm_pc_3414:
 sm_pc_3415:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3416
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_3416:
     ldc "Gen"
     iconst_1
@@ -9148,6 +13773,16 @@ sm_pc_3416:
 sm_pc_3417:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3418:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_3418_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3418_rs_skip:
 sm_pc_3419:
     sipush 380
     i2l
@@ -9166,7 +13801,10 @@ sm_pc_3422:
 sm_pc_3423:
     ldc "pp"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3424
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_2368
 sm_pc_3424:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3425:
@@ -9215,6 +13853,16 @@ sm_pc_3439:
     ldc "i"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_3440:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_3440_rf_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3440_rf_skip:
 sm_pc_3441:
     sipush 383
     i2l
@@ -9265,7 +13913,10 @@ sm_pc_3454:
 sm_pc_3455:
     ldc "pp"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3456
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_2368
 sm_pc_3456:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3457:
@@ -9356,7 +14007,10 @@ sm_pc_3484:
 sm_pc_3485:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3486
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_3486:
     ldc "Gen"
     iconst_1
@@ -9364,6 +14018,16 @@ sm_pc_3486:
 sm_pc_3487:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3488:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_3488_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3488_rs_skip:
 sm_pc_3489:
     sipush 392
     i2l
@@ -9415,7 +14079,10 @@ sm_pc_3502:
 sm_pc_3503:
     ldc "pp"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3504
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_2368
 sm_pc_3504:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3505:
@@ -9455,6 +14122,13 @@ sm_pc_3514:
 sm_pc_3515:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3516:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_3517:
 sm_pc_3518:
     sipush 399
@@ -9480,7 +14154,10 @@ sm_pc_3524:
 sm_pc_3525:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3526
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_3526:
     ldc "Gen"
     iconst_1
@@ -9488,6 +14165,16 @@ sm_pc_3526:
 sm_pc_3527:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3528:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_3528_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3528_rs_skip:
 sm_pc_3529:
     sipush 400
     i2l
@@ -9506,7 +14193,10 @@ sm_pc_3532:
 sm_pc_3533:
     ldc "pp"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3534
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_2368
 sm_pc_3534:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3535:
@@ -9565,7 +14255,10 @@ sm_pc_3550:
 sm_pc_3551:
     ldc "pp"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3552
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_2368
 sm_pc_3552:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3553:
@@ -9605,6 +14298,13 @@ sm_pc_3562:
 sm_pc_3563:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3564:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_3565:
 sm_pc_3566:
     sipush 408
@@ -9641,6 +14341,16 @@ sm_pc_3576:
 sm_pc_3577:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3578:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_3578_rf_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3578_rf_skip:
 sm_pc_3579:
     sipush 411
     i2l
@@ -9679,6 +14389,16 @@ sm_pc_3588:
 sm_pc_3589:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3590:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_3590_ff_skip
+    iconst_1
+    iconst_0
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3590_ff_skip:
 sm_pc_3591:
     sipush 413
     i2l
@@ -9816,6 +14536,16 @@ sm_pc_3633:
 sm_pc_3634:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3635:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_3635_rf_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3635_rf_skip:
 sm_pc_3636:
 sm_pc_3637:
     sipush 419
@@ -9886,14 +14616,39 @@ sm_pc_3660:
     i2l
     invokestatic rt/SnoRt/push_int(J)V
 sm_pc_3661:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_long(Ljava/lang/Object;)J
+    invokestatic rt/SnoPat/pos(J)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_3662:
+    ldc "SpecialNm"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_3663:
     iconst_0
     i2l
     invokestatic rt/SnoRt/push_int(J)V
 sm_pc_3664:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_long(Ljava/lang/Object;)J
+    invokestatic rt/SnoPat/rpos(J)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_3665:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_3666:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_3667:
     ldc "v"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -9902,6 +14657,9 @@ sm_pc_3668:
     i2l
     invokestatic rt/SnoRt/push_int(J)V
 sm_pc_3669:
+    ldc "v"
+    iconst_0
+    invokestatic rt/SnoRt/sno_exec_stmt(Ljava/lang/String;I)V
 sm_pc_3670:
     invokestatic rt/SnoRt/last_ok()Z
     ifeq sm_pc_3670_skip
@@ -10041,7 +14799,27 @@ sm_pc_3716:
 sm_pc_3717:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_3718:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_3718_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3718_rs_skip:
 sm_pc_3719:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_3719_ff_skip
+    iconst_1
+    iconst_0
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3719_ff_skip:
 sm_pc_3720:
 sm_pc_3721:
     sipush 432
@@ -10078,7 +14856,10 @@ sm_pc_3730:
 sm_pc_3731:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3732
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_3732:
     ldc ")"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -10090,6 +14871,16 @@ sm_pc_3735:
     ldc "ss"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_3736:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_3736_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3736_rs_skip:
 sm_pc_3737:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_3737_skip
@@ -10131,7 +14922,10 @@ sm_pc_3748:
 sm_pc_3749:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3750
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_3750:
     ldc ">"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -10143,6 +14937,16 @@ sm_pc_3753:
     ldc "ss"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_3754:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_3754_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3754_rs_skip:
 sm_pc_3755:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_3755_skip
@@ -10184,7 +14988,10 @@ sm_pc_3766:
 sm_pc_3767:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3768
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_3768:
     ldc ")"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -10196,6 +15003,16 @@ sm_pc_3771:
     ldc "ss"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_3772:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_3772_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3772_rs_skip:
 sm_pc_3773:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_3773_skip
@@ -10237,7 +15054,10 @@ sm_pc_3784:
 sm_pc_3785:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3786
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_3786:
     ldc ">"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -10249,6 +15069,16 @@ sm_pc_3789:
     ldc "ss"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_3790:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_3790_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3790_rs_skip:
 sm_pc_3791:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_3791_skip
@@ -10290,7 +15120,10 @@ sm_pc_3802:
 sm_pc_3803:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3804
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_3804:
     ldc ")"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -10302,6 +15135,16 @@ sm_pc_3807:
     ldc "ss"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_3808:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_3808_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3808_rs_skip:
 sm_pc_3809:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_3809_skip
@@ -10343,7 +15186,10 @@ sm_pc_3820:
 sm_pc_3821:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3822
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_3822:
     ldc ">"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -10355,6 +15201,16 @@ sm_pc_3825:
     ldc "ss"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_3826:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_3826_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3826_rs_skip:
 sm_pc_3827:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_3827_skip
@@ -10399,14 +15255,37 @@ sm_pc_3839:
 sm_pc_3840:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3841
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_3841:
     invokestatic rt/SnoRt/concat()V
 sm_pc_3842:
     ldc "ss"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_3843:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_3843_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3843_rs_skip:
 sm_pc_3844:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_3844_ff_skip
+    iconst_1
+    iconst_0
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3844_ff_skip:
 sm_pc_3845:
 sm_pc_3846:
     sipush 439
@@ -10429,11 +15308,24 @@ sm_pc_3850:
 sm_pc_3851:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3852
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_3852:
     ldc "ss"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_3853:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_3853_ff_skip
+    iconst_1
+    iconst_0
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3853_ff_skip:
 sm_pc_3854:
     sipush 440
     i2l
@@ -10506,7 +15398,10 @@ sm_pc_3876:
 sm_pc_3877:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 3878
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_3878:
     invokestatic rt/SnoRt/concat()V
 sm_pc_3879:
@@ -10519,7 +15414,27 @@ sm_pc_3882:
     ldc "ss"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_3883:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_3883_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3883_rs_skip:
 sm_pc_3884:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_3884_ff_skip
+    iconst_1
+    iconst_0
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_3884_ff_skip:
 sm_pc_3885:
 sm_pc_3886:
     sipush 441
@@ -11243,11 +16158,24 @@ sm_pc_4087:
 sm_pc_4088:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 4089
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_4089:
     ldc "ss"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_4090:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_4090_ff_skip
+    iconst_1
+    iconst_0
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4090_ff_skip:
 sm_pc_4091:
     sipush 470
     i2l
@@ -11294,6 +16222,16 @@ sm_pc_4105:
     ldc "i"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_4106:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_4106_rf_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4106_rf_skip:
 sm_pc_4107:
     sipush 472
     i2l
@@ -11345,7 +16283,10 @@ sm_pc_4122:
 sm_pc_4123:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 4124
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_4124:
     invokestatic rt/SnoRt/concat()V
 sm_pc_4125:
@@ -11359,6 +16300,16 @@ sm_pc_4127:
     goto_w sm_pc_4094
 sm_pc_4127_skip:
 sm_pc_4128:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_4128_ff_skip
+    iconst_1
+    iconst_0
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4128_ff_skip:
 sm_pc_4129:
 sm_pc_4130:
     sipush 473
@@ -11395,13 +16346,26 @@ sm_pc_4139:
 sm_pc_4140:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 4141
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_4141:
     invokestatic rt/SnoRt/concat()V
 sm_pc_4142:
     ldc "ss"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_4143:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_4143_ff_skip
+    iconst_1
+    iconst_0
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4143_ff_skip:
 sm_pc_4144:
     sipush 474
     i2l
@@ -11503,7 +16467,10 @@ sm_pc_4175:
 sm_pc_4176:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 4177
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_4177:
     invokestatic rt/SnoRt/concat()V
 sm_pc_4178:
@@ -11517,6 +16484,16 @@ sm_pc_4180:
     goto_w sm_pc_4147
 sm_pc_4180_skip:
 sm_pc_4181:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_4181_ff_skip
+    iconst_1
+    iconst_0
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4181_ff_skip:
 sm_pc_4182:
 sm_pc_4183:
     sipush 477
@@ -11534,6 +16511,13 @@ sm_pc_4187:
     ldc "ss"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_4188:
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_4189:
 sm_pc_4190:
     sipush 478
@@ -11578,11 +16562,24 @@ sm_pc_4200:
 sm_pc_4201:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 4202
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_4202:
     ldc "ss"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_4203:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_4203_ff_skip
+    iconst_1
+    iconst_0
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4203_ff_skip:
 sm_pc_4204:
     sipush 480
     i2l
@@ -11629,6 +16626,16 @@ sm_pc_4218:
     ldc "i"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_4219:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_4219_rf_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4219_rf_skip:
 sm_pc_4220:
     sipush 482
     i2l
@@ -11680,7 +16687,10 @@ sm_pc_4235:
 sm_pc_4236:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 4237
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_4237:
     invokestatic rt/SnoRt/concat()V
 sm_pc_4238:
@@ -11694,6 +16704,16 @@ sm_pc_4240:
     goto_w sm_pc_4207
 sm_pc_4240_skip:
 sm_pc_4241:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_4241_ff_skip
+    iconst_1
+    iconst_0
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4241_ff_skip:
 sm_pc_4242:
 sm_pc_4243:
     sipush 483
@@ -11716,11 +16736,24 @@ sm_pc_4247:
 sm_pc_4248:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 4249
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_4249:
     ldc "ss"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_4250:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_4250_ff_skip
+    iconst_1
+    iconst_0
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4250_ff_skip:
 sm_pc_4251:
     sipush 484
     i2l
@@ -11767,6 +16800,16 @@ sm_pc_4265:
     ldc "i"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_4266:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_4266_rf_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4266_rf_skip:
 sm_pc_4267:
     sipush 486
     i2l
@@ -11818,7 +16861,10 @@ sm_pc_4282:
 sm_pc_4283:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 4284
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_4284:
     invokestatic rt/SnoRt/concat()V
 sm_pc_4285:
@@ -11832,6 +16878,16 @@ sm_pc_4287:
     goto_w sm_pc_4254
 sm_pc_4287_skip:
 sm_pc_4288:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_4288_ff_skip
+    iconst_1
+    iconst_0
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4288_ff_skip:
 sm_pc_4289:
 sm_pc_4290:
     sipush 487
@@ -11854,11 +16910,24 @@ sm_pc_4294:
 sm_pc_4295:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 4296
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_4296:
     ldc "ss"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_4297:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_4297_ff_skip
+    iconst_1
+    iconst_0
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4297_ff_skip:
 sm_pc_4298:
     sipush 488
     i2l
@@ -11905,6 +16974,16 @@ sm_pc_4312:
     ldc "i"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_4313:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_4313_rf_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4313_rf_skip:
 sm_pc_4314:
     sipush 490
     i2l
@@ -11956,7 +17035,10 @@ sm_pc_4329:
 sm_pc_4330:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 4331
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_4331:
     ldc "]"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -11975,6 +17057,16 @@ sm_pc_4336:
     goto_w sm_pc_4301
 sm_pc_4336_skip:
 sm_pc_4337:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_4337_ff_skip
+    iconst_1
+    iconst_0
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4337_ff_skip:
 sm_pc_4338:
 sm_pc_4339:
     sipush 491
@@ -12011,7 +17103,10 @@ sm_pc_4348:
 sm_pc_4349:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 4350
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_4350:
     ldc ")"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -12023,7 +17118,27 @@ sm_pc_4353:
     ldc "ss"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_4354:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_4354_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4354_rs_skip:
 sm_pc_4355:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_4355_ff_skip
+    iconst_1
+    iconst_0
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4355_ff_skip:
 sm_pc_4356:
 sm_pc_4357:
     sipush 492
@@ -12043,7 +17158,10 @@ sm_pc_4360:
 sm_pc_4361:
     ldc "ss"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 4362
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_4362:
     ldc "("
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -12089,7 +17207,10 @@ sm_pc_4375:
 sm_pc_4376:
     ldc "ss"
     iconst_2
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 4377
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_4377:
     ldc ")"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -12103,7 +17224,27 @@ sm_pc_4381:
     ldc "ss"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_4382:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_4382_rs_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4382_rs_skip:
 sm_pc_4383:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_4383_ff_skip
+    iconst_1
+    iconst_0
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4383_ff_skip:
 sm_pc_4384:
 sm_pc_4385:
     sipush 493
@@ -12146,6 +17287,16 @@ sm_pc_4397:
 sm_pc_4398:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_4399:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_4399_rf_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4399_rf_skip:
 sm_pc_4400:
     sipush 496
     i2l
@@ -12196,6 +17347,16 @@ sm_pc_4415:
     ldc "i"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_4416:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_4416_rf_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4416_rf_skip:
 sm_pc_4417:
     sipush 498
     i2l
@@ -12271,6 +17432,16 @@ sm_pc_4440:
 sm_pc_4441:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_4442:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_4442_rf_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4442_rf_skip:
 sm_pc_4443:
     sipush 503
     i2l
@@ -12346,6 +17517,16 @@ sm_pc_4465:
     ldc "n"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_4466:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_4466_ff_skip
+    iconst_1
+    iconst_0
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4466_ff_skip:
 sm_pc_4467:
     sipush 506
     i2l
@@ -12432,7 +17613,10 @@ sm_pc_4491:
 sm_pc_4492:
     ldc "ss"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 4493
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_4493:
     ldc "v"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -12460,6 +17644,16 @@ sm_pc_4500:
 sm_pc_4501:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_4502:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_4502_rf_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4502_rf_skip:
 sm_pc_4503:
     sipush 510
     i2l
@@ -12486,6 +17680,10 @@ sm_pc_4510:
     i2l
     invokestatic rt/SnoRt/push_int(J)V
 sm_pc_4511:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_long(Ljava/lang/Object;)J
+    invokestatic rt/SnoPat/pos(J)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4512:
     ldc "0123456789"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
@@ -12500,13 +17698,42 @@ sm_pc_4515:
 sm_pc_4516:
     invokestatic rt/SnoRt/concat()V
 sm_pc_4517:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_span_nn_4517
+    pop
+    ldc ""
+    goto pat_span_done_4517
+pat_span_nn_4517:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_span_done_4517:
+    invokestatic rt/SnoPat/span(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4518:
     iconst_0
     i2l
     invokestatic rt/SnoRt/push_int(J)V
 sm_pc_4519:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_long(Ljava/lang/Object;)J
+    invokestatic rt/SnoPat/rpos(J)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4520:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4521:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4522:
     ldc "v"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -12515,7 +17742,20 @@ sm_pc_4523:
     i2l
     invokestatic rt/SnoRt/push_int(J)V
 sm_pc_4524:
+    ldc "v"
+    iconst_0
+    invokestatic rt/SnoRt/sno_exec_stmt(Ljava/lang/String;I)V
 sm_pc_4525:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_4525_ff_skip
+    iconst_1
+    iconst_0
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4525_ff_skip:
 sm_pc_4526:
     sipush 512
     i2l
@@ -12546,6 +17786,16 @@ sm_pc_4535:
     ldc "Refs"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_4536:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifeq sm_pc_4536_fs_skip
+    iconst_1
+    iconst_0
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4536_fs_skip:
 sm_pc_4537:
     sipush 513
     i2l
@@ -12566,6 +17816,13 @@ sm_pc_4542:
     ldc "Refs"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_4543:
+    iconst_1
+    iconst_0
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
 sm_pc_4544:
 sm_pc_4545:
     sipush 514
@@ -12652,6 +17909,16 @@ sm_pc_4572:
     ldc "n"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
 sm_pc_4573:
+    invokestatic rt/SnoRt/last_ok()Z
+    ifne sm_pc_4573_rf_skip
+    iconst_0
+    iconst_1
+    invokestatic rt/SnoRt/do_return(II)I
+    pop
+    invokestatic rt/SnoRt/fn_return_push()V
+    invokestatic rt/SnoRt/pop_ret_pc()I
+    goto_w sm_ret_dispatch
+sm_pc_4573_rf_skip:
 sm_pc_4574:
     sipush 519
     i2l
@@ -12913,7 +18180,10 @@ sm_pc_4645:
 sm_pc_4646:
     ldc "ss"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 4647
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_3572
 sm_pc_4647:
     ldc "subj"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -13047,11 +18317,32 @@ sm_pc_4686:
 sm_pc_4687:
     invokestatic rt/SnoRt/concat()V
 sm_pc_4688:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_span_nn_4688
+    pop
+    ldc ""
+    goto pat_span_done_4688
+pat_span_nn_4688:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_span_done_4688:
+    invokestatic rt/SnoPat/span(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4689:
     ldc "epsilon"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
 sm_pc_4690:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoPat/deref(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4691:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/alt(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4692:
     ldc "Space"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
@@ -13091,11 +18382,33 @@ sm_pc_4703:
     i2l
     invokestatic rt/SnoRt/push_int(J)V
 sm_pc_4704:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_long(Ljava/lang/Object;)J
+    invokestatic rt/SnoPat/pos(J)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4705:
     ldc "*-"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
 sm_pc_4706:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_any_nn_4706
+    pop
+    ldc ""
+    goto pat_any_done_4706
+pat_any_nn_4706:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_any_done_4706:
+    invokestatic rt/SnoPat/any(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4707:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4708:
     ldc "Line"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -13104,6 +18417,9 @@ sm_pc_4709:
     i2l
     invokestatic rt/SnoRt/push_int(J)V
 sm_pc_4710:
+    ldc "Line"
+    iconst_0
+    invokestatic rt/SnoRt/sno_exec_stmt(Ljava/lang/String;I)V
 sm_pc_4711:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_4711_skip
@@ -13166,11 +18482,33 @@ sm_pc_4729:
     i2l
     invokestatic rt/SnoRt/push_int(J)V
 sm_pc_4730:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_long(Ljava/lang/Object;)J
+    invokestatic rt/SnoPat/pos(J)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4731:
     ldc ".+"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
 sm_pc_4732:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    dup
+    ifnonnull pat_any_nn_4732
+    pop
+    ldc ""
+    goto pat_any_done_4732
+pat_any_nn_4732:
+    invokevirtual java/lang/Object/toString()Ljava/lang/String;
+pat_any_done_4732:
+    invokestatic rt/SnoPat/any(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4733:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4734:
     ldc "Line"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -13179,6 +18517,9 @@ sm_pc_4735:
     i2l
     invokestatic rt/SnoRt/push_int(J)V
 sm_pc_4736:
+    ldc "Line"
+    iconst_0
+    invokestatic rt/SnoRt/sno_exec_stmt(Ljava/lang/String;I)V
 sm_pc_4737:
     invokestatic rt/SnoRt/last_ok()Z
     ifeq sm_pc_4737_skip
@@ -13193,16 +18534,51 @@ sm_pc_4739:
     i2l
     invokestatic rt/SnoRt/push_int(J)V
 sm_pc_4740:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_long(Ljava/lang/Object;)J
+    invokestatic rt/SnoPat/pos(J)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4741:
+    ldc "Parse"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4742:
+    ldc "Space"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4743:
     iconst_0
     i2l
     invokestatic rt/SnoRt/push_int(J)V
 sm_pc_4744:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_long(Ljava/lang/Object;)J
+    invokestatic rt/SnoPat/rpos(J)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4745:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4746:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4747:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4748:
     ldc "Src"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -13211,6 +18587,9 @@ sm_pc_4749:
     i2l
     invokestatic rt/SnoRt/push_int(J)V
 sm_pc_4750:
+    ldc "Src"
+    iconst_0
+    invokestatic rt/SnoRt/sno_exec_stmt(Ljava/lang/String;I)V
 sm_pc_4751:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_4751_skip
@@ -13248,7 +18627,10 @@ sm_pc_4759:
 sm_pc_4760:
     ldc "pp"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 4761
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_2368
 sm_pc_4761:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_4762:
@@ -13263,16 +18645,51 @@ sm_pc_4765:
     i2l
     invokestatic rt/SnoRt/push_int(J)V
 sm_pc_4766:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_long(Ljava/lang/Object;)J
+    invokestatic rt/SnoPat/pos(J)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4767:
+    ldc "Parse"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4768:
+    ldc "Space"
+    invokestatic rt/SnoPat/refname(Ljava/lang/String;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4769:
     iconst_0
     i2l
     invokestatic rt/SnoRt/push_int(J)V
 sm_pc_4770:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_long(Ljava/lang/Object;)J
+    invokestatic rt/SnoPat/rpos(J)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4771:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4772:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4773:
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/pop_obj()Ljava/lang/Object;
+    invokestatic rt/SnoRt/coerce_to_pat(Ljava/lang/Object;)Lrt/SnoPat;
+    swap
+    invokestatic rt/SnoPat/cat(Lrt/SnoPat;Lrt/SnoPat;)Lrt/SnoPat;
+    invokestatic rt/SnoRt/push_obj(Ljava/lang/Object;)V
 sm_pc_4774:
     ldc "Src"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
@@ -13281,6 +18698,9 @@ sm_pc_4775:
     i2l
     invokestatic rt/SnoRt/push_int(J)V
 sm_pc_4776:
+    ldc "Src"
+    iconst_0
+    invokestatic rt/SnoRt/sno_exec_stmt(Ljava/lang/String;I)V
 sm_pc_4777:
     invokestatic rt/SnoRt/last_ok()Z
     ifne sm_pc_4777_skip
@@ -13318,7 +18738,10 @@ sm_pc_4785:
 sm_pc_4786:
     ldc "pp"
     iconst_1
-    invokestatic rt/SnoRt/call(Ljava/lang/String;I)V
+    invokestatic rt/SnoRt/bind_params(Ljava/lang/String;I)V
+    sipush 4787
+    invokestatic rt/SnoRt/push_ret_pc(I)V
+    goto_w sm_pc_2368
 sm_pc_4787:
     invokestatic rt/SnoRt/pop_void()V
 sm_pc_4788:
@@ -13377,6 +18800,4817 @@ sm_pc_4806:
 sm_pc_4807:
     invokestatic rt/SnoRt/halt_tos()V
     goto_w sm_pc_end
+sm_ret_dispatch:
+    tableswitch 0 4807
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_20
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_34
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_40
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_45
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_50
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_55
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_64
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_100
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_113
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_120
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_125
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_130
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_135
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_147
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_154
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_159
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_164
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_169
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_181
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_188
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_193
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_198
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_203
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_215
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_222
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_227
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_232
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_237
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_249
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_256
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_261
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_266
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_271
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_283
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_291
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_297
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_305
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_311
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_319
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_325
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_333
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_339
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_351
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_363
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_381
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_386
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_432
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_437
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_444
+        sm_pc_end
+        sm_pc_end
+        sm_pc_447
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_479
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_500
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_505
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_519
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_537
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_546
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_561
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_574
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_581
+        sm_pc_582
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_588
+        sm_pc_end
+        sm_pc_end
+        sm_pc_591
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_601
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_618
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_628
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_633
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_649
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_653
+        sm_pc_end
+        sm_pc_655
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_662
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_669
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_686
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_690
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_697
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_701
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_708
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_714
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_733
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_737
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_748
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_763
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_767
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_771
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_775
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_798
+        sm_pc_end
+        sm_pc_end
+        sm_pc_801
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1013
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1067
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1075
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1083
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1091
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1099
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1107
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1115
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1123
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1131
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1139
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1147
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1155
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1163
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1171
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1179
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1187
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1195
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1203
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1209
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1215
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1221
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1227
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1233
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1239
+        sm_pc_end
+        sm_pc_1241
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1246
+        sm_pc_end
+        sm_pc_1248
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1255
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1259
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1263
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1285
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1290
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1303
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1308
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1321
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1326
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1337
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1342
+        sm_pc_end
+        sm_pc_1344
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1351
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1355
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1367
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1372
+        sm_pc_end
+        sm_pc_1374
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1381
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1397
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1402
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1415
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1420
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1425
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1430
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1444
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1449
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1462
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1467
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1480
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1485
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1498
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1503
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1516
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1519
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1522
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1529
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1542
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1547
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1552
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1557
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1571
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1576
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1591
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1599
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1607
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1618
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1627
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1633
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1641
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1649
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1657
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1665
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1673
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1681
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1689
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1697
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1705
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1713
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1721
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1746
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1751
+        sm_pc_end
+        sm_pc_1753
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1765
+        sm_pc_end
+        sm_pc_1767
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1771
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1776
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1780
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1794
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1797
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1801
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1806
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1814
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1819
+        sm_pc_end
+        sm_pc_1821
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1835
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1838
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1842
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1846
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1859
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1862
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1866
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1870
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1883
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1892
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1901
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1910
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1919
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1928
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1947
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1971
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_1995
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2000
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2018
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2023
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2028
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2046
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2059
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2063
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2073
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2082
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2089
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2126
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2134
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2139
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2147
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2151
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2158
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2166
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2174
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2178
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2185
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2189
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2198
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2202
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2206
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2217
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2221
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2225
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2229
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2238
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2242
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2262
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2270
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2274
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2287
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2291
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2302
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2316
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2321
+        sm_pc_2322
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2328
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2333
+        sm_pc_end
+        sm_pc_2335
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2358
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2366
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2373
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2378
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2382
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2386
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2390
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2395
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2403
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2418
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2425
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2436
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2448
+        sm_pc_2449
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2455
+        sm_pc_2456
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2463
+        sm_pc_2464
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2471
+        sm_pc_2472
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2479
+        sm_pc_2480
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2487
+        sm_pc_2488
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2495
+        sm_pc_2496
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2503
+        sm_pc_2504
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2511
+        sm_pc_2512
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2519
+        sm_pc_2520
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2527
+        sm_pc_2528
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2535
+        sm_pc_2536
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2543
+        sm_pc_2544
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2551
+        sm_pc_2552
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2559
+        sm_pc_2560
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2567
+        sm_pc_2568
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2575
+        sm_pc_2576
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2585
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2588
+        sm_pc_2589
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2594
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2599
+        sm_pc_2600
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2608
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2611
+        sm_pc_2612
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2618
+        sm_pc_2619
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2623
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2626
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2630
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2633
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2636
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2641
+        sm_pc_2642
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2649
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2656
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2662
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2670
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2676
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2684
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2690
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2698
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2704
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2712
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2718
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2726
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2732
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2740
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2746
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2754
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2760
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2768
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2774
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2782
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2788
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2796
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2802
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2810
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2816
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2824
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2832
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2838
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2845
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2848
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2853
+        sm_pc_2854
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2857
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2863
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2866
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2871
+        sm_pc_2872
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2875
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2881
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2885
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2890
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2895
+        sm_pc_2896
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2901
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2906
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2911
+        sm_pc_2912
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2917
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2922
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2927
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2931
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2935
+        sm_pc_2936
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2941
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2946
+        sm_pc_2947
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2952
+        sm_pc_2953
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2957
+        sm_pc_2958
+        sm_pc_end
+        sm_pc_2960
+        sm_pc_end
+        sm_pc_2962
+        sm_pc_2963
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2966
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2977
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2981
+        sm_pc_2982
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2987
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2992
+        sm_pc_2993
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_2998
+        sm_pc_2999
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3003
+        sm_pc_end
+        sm_pc_3005
+        sm_pc_3006
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3009
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3019
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3023
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3028
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3032
+        sm_pc_3033
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3038
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3042
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3048
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3053
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3058
+        sm_pc_3059
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3064
+        sm_pc_3065
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3069
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3073
+        sm_pc_3074
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3079
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3084
+        sm_pc_3085
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3090
+        sm_pc_3091
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3095
+        sm_pc_3096
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3099
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3108
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3114
+        sm_pc_3115
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3123
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3128
+        sm_pc_3129
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3134
+        sm_pc_3135
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3139
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3143
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3147
+        sm_pc_3148
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3153
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3159
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3167
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3170
+        sm_pc_3171
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3177
+        sm_pc_3178
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3187
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3198
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3201
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3205
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3208
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3211
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3216
+        sm_pc_3217
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3225
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3228
+        sm_pc_3229
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3234
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3237
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3240
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3245
+        sm_pc_3246
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3255
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3266
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3269
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3273
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3276
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3279
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3284
+        sm_pc_3285
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3291
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3294
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3298
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3305
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3312
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3315
+        sm_pc_3316
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3322
+        sm_pc_3323
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3332
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3343
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3346
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3350
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3353
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3356
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3361
+        sm_pc_3362
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3370
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3373
+        sm_pc_3374
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3384
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3396
+        sm_pc_3397
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3402
+        sm_pc_end
+        sm_pc_3404
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3413
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3416
+        sm_pc_3417
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3423
+        sm_pc_3424
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3433
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3444
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3447
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3450
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3455
+        sm_pc_3456
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3460
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3463
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3467
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3472
+        sm_pc_end
+        sm_pc_3474
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3483
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3486
+        sm_pc_3487
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3492
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3495
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3498
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3503
+        sm_pc_3504
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3508
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3511
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3515
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3523
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3526
+        sm_pc_3527
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3533
+        sm_pc_3534
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3540
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3543
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3546
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3551
+        sm_pc_3552
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3556
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3559
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3563
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3570
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3577
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3582
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3589
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3594
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3598
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3602
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3606
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3611
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3619
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3634
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3640
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3646
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3676
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3687
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3698
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3709
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3715
+        sm_pc_end
+        sm_pc_3717
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3726
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3732
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3744
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3750
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3762
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3768
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3780
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3786
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3798
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3804
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3816
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3822
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3834
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3838
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3841
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3850
+        sm_pc_end
+        sm_pc_3852
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3862
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3866
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3871
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3878
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3890
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3897
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3903
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3911
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3917
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3925
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3931
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3939
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3945
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3953
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3959
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3967
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3973
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3981
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3987
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_3995
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4001
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4009
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4015
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4023
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4029
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4037
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4043
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4051
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4057
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4065
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4073
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4079
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4087
+        sm_pc_end
+        sm_pc_4089
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4099
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4113
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4117
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4124
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4135
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4141
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4152
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4166
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4170
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4177
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4194
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4200
+        sm_pc_end
+        sm_pc_4202
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4212
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4226
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4230
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4237
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4247
+        sm_pc_end
+        sm_pc_4249
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4259
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4273
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4277
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4284
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4294
+        sm_pc_end
+        sm_pc_4296
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4306
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4320
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4324
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4331
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4344
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4350
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4361
+        sm_pc_4362
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4366
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4370
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4377
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4390
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4398
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4408
+        sm_pc_4409
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4420
+        sm_pc_end
+        sm_pc_4422
+        sm_pc_end
+        sm_pc_4424
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4431
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4441
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4446
+        sm_pc_end
+        sm_pc_4448
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4458
+        sm_pc_4459
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4470
+        sm_pc_end
+        sm_pc_4472
+        sm_pc_end
+        sm_pc_4474
+        sm_pc_4475
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4481
+        sm_pc_end
+        sm_pc_4483
+        sm_pc_end
+        sm_pc_4485
+        sm_pc_end
+        sm_pc_4487
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4493
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4499
+        sm_pc_end
+        sm_pc_4501
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4506
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4529
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4540
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4549
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4556
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4565
+        sm_pc_4566
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4578
+        sm_pc_4579
+        sm_pc_end
+        sm_pc_4581
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4594
+        sm_pc_4595
+        sm_pc_end
+        sm_pc_4597
+        sm_pc_4598
+        sm_pc_4599
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4605
+        sm_pc_4606
+        sm_pc_end
+        sm_pc_4608
+        sm_pc_4609
+        sm_pc_end
+        sm_pc_4611
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4617
+        sm_pc_4618
+        sm_pc_end
+        sm_pc_4620
+        sm_pc_4621
+        sm_pc_end
+        sm_pc_4623
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4629
+        sm_pc_4630
+        sm_pc_end
+        sm_pc_4632
+        sm_pc_4633
+        sm_pc_end
+        sm_pc_4635
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4643
+        sm_pc_4644
+        sm_pc_end
+        sm_pc_4646
+        sm_pc_4647
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4655
+        sm_pc_4656
+        sm_pc_end
+        sm_pc_4658
+        sm_pc_end
+        sm_pc_4660
+        sm_pc_4661
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4667
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4671
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4754
+        sm_pc_end
+        sm_pc_4756
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4761
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4780
+        sm_pc_end
+        sm_pc_4782
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_4787
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+        sm_pc_end
+      default: sm_pc_end
 sm_pc_end:
     invokestatic rt/SnoRt/finalize_rt()I
     pop
