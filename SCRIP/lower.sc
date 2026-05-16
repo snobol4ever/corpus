@@ -473,17 +473,55 @@ function lower_if(t, jf, jend) {
     return;
 }
 /* ==================================================================================================================== */
-function lower_while_until(t, exit_on_success, top, jx) {
-    top = sm_label();
+/* PST-SC-4c (2026-05-16): lower_if_stmt handles TT_IF(cond, TT_PROGRAM(then), TT_PROGRAM(else?)).
+ * Bodies executed for effect via lower_stmt iteration; break inside body jumps to enclosing
+ * while's exit label, bypassing the if entirely — no stack value left behind.
+ * Mirror of C lower.c lower_if_stmt. */
+function lower_if_stmt(t, jf, jend, then_b, else_b, i) {
+    if (LT(n(t), 1)) { return; }
+    lower_expr(c(t)[1]);
+    jf = emit_i('SM_JUMP_F', 0);
+    emit('SM_VOID_POP');
+    then_b = (GT(n(t), 1)) c(t)[2] ;
+    if (DIFFER(then_b) IDENT(t(then_b), 'TT_PROGRAM')) {
+        i = 1; while (LE(i, n(then_b))) { if (DIFFER(c(then_b)[i])) lower_stmt(c(then_b)[i]); i = i + 1; }
+    } else if (DIFFER(then_b)) { lower_expr(then_b); emit('SM_VOID_POP'); }
+    jend = emit_i('SM_JUMP', 0);
+    sm_patch_jump(jf, sm_label());
+    emit('SM_VOID_POP');
+    else_b = (GT(n(t), 2)) c(t)[3] ;
+    if (DIFFER(else_b) IDENT(t(else_b), 'TT_PROGRAM')) {
+        i = 1; while (LE(i, n(else_b))) { if (DIFFER(c(else_b)[i])) lower_stmt(c(else_b)[i]); i = i + 1; }
+    } else if (DIFFER(else_b)) { lower_expr(else_b); emit('SM_VOID_POP'); }
+    sm_patch_jump(jend, sm_label());
+    emit('SM_PUSH_NULL');
+    return;
+}
+/* ==================================================================================================================== */
+/* PST-SC-4c (2026-05-16): updated lower_while_until handles TT_WHILE(cond, TT_PROGRAM(body), QLIT(cont), QLIT(end)).
+ * TT_PROGRAM body: iterate via lower_stmt so break mid-body doesn't strand SM_VOID_POP at exit.
+ * QLIT children 2/3 carry label strings; labtab_define places them at the right instruction positions.
+ * Mirror of C lower.c lower_while_until. */
+function lower_while_until(t, exit_on_success, top, jx, body, exit_pos, lbl_cont, lbl_end, i) {
+    lbl_cont = (GT(n(t), 2) DIFFER(c(t)[3])) c(t)[3].sval ;
+    lbl_end  = (GT(n(t), 3) DIFFER(c(t)[4])) c(t)[4].sval ;
+    top = g_count;
+    if (DIFFER(lbl_cont) NE(SIZE(lbl_cont), 0)) labtab_define(lbl_cont, top);
     if (LT(n(t), 1)) { emit('SM_PUSH_NULL'); return; }
     lower_expr(c(t)[1]);
     if (IDENT(exit_on_success, 1)) jx = emit_i('SM_JUMP_S', 0);
     else                            jx = emit_i('SM_JUMP_F', 0);
     emit('SM_VOID_POP');
-    if (GT(n(t), 1)) { lower_expr(c(t)[2]); emit('SM_VOID_POP'); }
+    body = (GT(n(t), 1)) c(t)[2] ;
+    if (DIFFER(body) IDENT(t(body), 'TT_PROGRAM')) {
+        i = 1; while (LE(i, n(body))) { if (DIFFER(c(body)[i])) lower_stmt(c(body)[i]); i = i + 1; }
+    } else if (DIFFER(body)) { lower_expr(body); emit('SM_VOID_POP'); }
     emit_i('SM_JUMP', top);
-    sm_patch_jump(jx, sm_label());
-    emit('SM_VOID_POP'); emit('SM_PUSH_NULL');
+    exit_pos = g_count;
+    sm_patch_jump(jx, exit_pos);
+    if (DIFFER(lbl_end) NE(SIZE(lbl_end), 0)) labtab_define(lbl_end, exit_pos);
+    if (~ (DIFFER(body) IDENT(t(body), 'TT_PROGRAM'))) { emit('SM_VOID_POP'); }
+    emit('SM_PUSH_NULL');
     return;
 }
 /* ==================================================================================================================== */
@@ -861,7 +899,8 @@ function lower_expr(t, k) {
     if (IDENT(k, 'TT_IDENTICAL'))  { lower_identical(t);  return; }
     if (IDENT(k, 'TT_AUGOP'))      { lower_augop(t);      return; }
     if (IDENT(k, 'TT_SEQ_EXPR'))   { lower_seq_expr(t);   return; }
-    if (IDENT(k, 'TT_IF'))         { lower_if(t);         return; }
+    /* PST-SC-4c: Snocone if bodies are TT_PROGRAM (stmt blocks); use lower_if_stmt */
+    if (IDENT(k, 'TT_IF'))         { (GT(n(t), 1) DIFFER(c(t)[2]) IDENT(t(c(t)[2]), 'TT_PROGRAM')) lower_if_stmt(t) :f lower_if(t); return; }
     if (IDENT(k, 'TT_WHILE'))      { lower_while(t);      return; }
     /* PST-SC-4b (2026-05-16): TT_PROGRAM as a block body inside TT_IF then/else slots.
      * Lower each child statement for effect; push null as block value. */
