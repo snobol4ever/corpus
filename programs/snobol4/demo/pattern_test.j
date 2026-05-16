@@ -5,31 +5,49 @@
     .limit stack 10
     .limit locals 2
     invokestatic rt/SnoRt/init()V
+    ; ── SM Program instructions ──
+sm_pc_0:
     iconst_1
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
+sm_pc_1:
     ldc "hello world"
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
+sm_pc_2:
     ldc "STR"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
+sm_pc_3:
     iconst_2
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
+sm_pc_4:
+sm_pc_5:
+sm_pc_6:
     ldc "STR"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+sm_pc_7:
     ldc ""
     invokestatic rt/SnoRt/push_str(Ljava/lang/String;)V
+sm_pc_8:
+sm_pc_9:
     iconst_3
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
+sm_pc_10:
     ldc "X"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+sm_pc_11:
     ldc "OUTPUT"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
+sm_pc_12:
+sm_pc_13:
     iconst_4
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
+sm_pc_14:
     invokestatic rt/SnoRt/halt_tos()V
+    goto_w sm_pc_end
+sm_pc_end:
     invokestatic rt/SnoRt/finalize_rt()I
     pop
     return

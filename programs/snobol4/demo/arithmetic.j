@@ -5,78 +5,118 @@
     .limit stack 10
     .limit locals 2
     invokestatic rt/SnoRt/init()V
+    ; ── SM Program instructions ──
+sm_pc_0:
     iconst_1
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
+sm_pc_1:
     bipush 10
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+sm_pc_2:
     ldc "A"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
+sm_pc_3:
     iconst_2
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
+sm_pc_4:
     iconst_3
     i2l
     invokestatic rt/SnoRt/push_int(J)V
+sm_pc_5:
     ldc "B"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
+sm_pc_6:
     iconst_3
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
+sm_pc_7:
     ldc "A"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+sm_pc_8:
     invokestatic rt/SnoRt/coerce_num()V
+sm_pc_9:
     ldc "B"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+sm_pc_10:
     invokestatic rt/SnoRt/coerce_num()V
-    bipush 1
+sm_pc_11:
+    bipush 0
     invokestatic rt/SnoRt/arith(I)V
+sm_pc_12:
     ldc "OUTPUT"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
+sm_pc_13:
     iconst_4
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
+sm_pc_14:
     ldc "A"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+sm_pc_15:
     invokestatic rt/SnoRt/coerce_num()V
+sm_pc_16:
     ldc "B"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+sm_pc_17:
     invokestatic rt/SnoRt/coerce_num()V
-    bipush 2
+sm_pc_18:
+    bipush 1
     invokestatic rt/SnoRt/arith(I)V
+sm_pc_19:
     ldc "OUTPUT"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
+sm_pc_20:
     iconst_5
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
+sm_pc_21:
     ldc "A"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+sm_pc_22:
     invokestatic rt/SnoRt/coerce_num()V
+sm_pc_23:
     ldc "B"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+sm_pc_24:
     invokestatic rt/SnoRt/coerce_num()V
-    bipush 3
+sm_pc_25:
+    bipush 2
     invokestatic rt/SnoRt/arith(I)V
+sm_pc_26:
     ldc "OUTPUT"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
+sm_pc_27:
     bipush 6
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
+sm_pc_28:
     ldc "A"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+sm_pc_29:
     invokestatic rt/SnoRt/coerce_num()V
+sm_pc_30:
     ldc "B"
     invokestatic rt/SnoRt/push_var(Ljava/lang/String;)V
+sm_pc_31:
     invokestatic rt/SnoRt/coerce_num()V
-    bipush 4
+sm_pc_32:
+    bipush 3
     invokestatic rt/SnoRt/arith(I)V
+sm_pc_33:
     ldc "OUTPUT"
     invokestatic rt/SnoRt/store_var(Ljava/lang/String;)V
+sm_pc_34:
+sm_pc_35:
     bipush 7
     i2l
     invokestatic rt/SnoRt/set_stno(J)V
+sm_pc_36:
     invokestatic rt/SnoRt/halt_tos()V
+    goto_w sm_pc_end
+sm_pc_end:
     invokestatic rt/SnoRt/finalize_rt()I
     pop
     return
