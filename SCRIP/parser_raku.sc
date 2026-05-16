@@ -471,25 +471,7 @@ function finish_smartmatch(pat, subj, fn, node) {
 }
 Finish_smartmatch = (epsilon . *finish_smartmatch());
 /* ==================================================================================================================== */
-function finish_not(inner, node) {
-    inner = Pop();
-    node  = tree('TT_NOT', '');
-    Append(node, inner);
-    Push(node);
-    finish_not = .dummy;
-    nreturn;
-}
-Finish_not = (epsilon . *finish_not());
 /* ==================================================================================================================== */
-function finish_mns(inner, node) {
-    inner = Pop();
-    node  = tree('TT_MNS', '');
-    Append(node, inner);
-    Push(node);
-    finish_mns = .dummy;
-    nreturn;
-}
-Finish_mns = (epsilon . *finish_mns());
 given_has_def = 0;
 /* ==================================================================================================================== */
 function finish_given(n_whens, def_body, kids, ec, i, val, body) {
@@ -946,12 +928,6 @@ function finish_sink(ex, fn, node) {
 }
 Finish_sink = (epsilon . *finish_sink());
 /* ==================================================================================================================== */
-function parse_closure_expr(body) {
-    body = Pop();
-    Push(body);
-    parse_closure_expr = .dummy;
-    nreturn;
-}
 ClosureExpr = ( $'{' *Expr $'}' );
 /* ==================================================================================================================== */
 function finish_map(lst, clos, fn, node) {
@@ -1376,8 +1352,8 @@ MethodTail = FENCE(
       | epsilon              Finish_field
     )
 );
-Expr11 = ( $'!'  *Expr11  Finish_not
-         | ($' ' '-')  *Expr11  Finish_mns
+Expr11 = ( $'!'  *Expr11  reduce("'TT_NOT'", 1)
+         | ($' ' '-')  *Expr11  reduce("'TT_MNS'", 1)
          | $'die' $'  '  *Expr11  Finish_die
          | $'map'  $'  '  ClosureExpr  $'  '  *Expr  Finish_map
          | $'grep' $'  '  ClosureExpr  $'  '  *Expr  Finish_grep
@@ -1499,7 +1475,7 @@ WhileStmt = ( $'while'  $'(' Expr $')'
               reduce("'TT_WHILE'", 2)
             );
 UnlessStmt = ( $'unless'  $'(' Expr $')'
-               Finish_not
+               reduce("'TT_NOT'", 1)
                Block
                ( $'else'  Block  reduce("'TT_IF'", 3)
                | reduce("'TT_IF'", 2)
