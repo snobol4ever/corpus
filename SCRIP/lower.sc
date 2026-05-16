@@ -886,6 +886,42 @@ function lower_expr(t, k) {
     return;
 }
 /* ==================================================================================================================== */
+/* PST-SN4-2 (2026-05-16): parser now emits TT_STMT with source-order children:
+ *   TT_LABEL? subject? TT_PAT(pat)? TT_EQ(repl?)? TT_GOTO_U/S/F*
+ * lower_sno_unpack walks those children by kind and populates lower_stmt's locals.
+ * The old sno_pp_stmt / sno_strip_parens / sno_make_goto_slot helpers are gone. */
+function lower_sno_unpack(s, i, ch, k, eq_node,
+                          out_label, out_is_end, out_subject, out_pattern,
+                          out_has_eq, out_replacement, out_goto_s, out_goto_f, out_goto_u) {
+    out_label = ''; out_is_end = 0; out_subject = NULL; out_pattern = NULL;
+    out_has_eq = 0; out_replacement = NULL;
+    out_goto_s = ''; out_goto_f = ''; out_goto_u = '';
+    i = 1;
+    while (LE(i, n(s))) {
+        ch = c(s)[i];
+        k  = t(ch);
+        if (IDENT(k, 'TT_LABEL')) {
+            out_label  = v(ch);
+            out_is_end = (IDENT(out_label, 'END') 1, 0);
+        } else if (IDENT(k, 'TT_PAT')) {
+            out_pattern = (GT(n(ch), 0) c(ch)[1], NULL);
+        } else if (IDENT(k, 'TT_EQ')) {
+            out_has_eq  = 1;
+            out_replacement = (GT(n(ch), 0) c(ch)[1], NULL);
+        } else if (IDENT(k, 'TT_GOTO_S')) {
+            out_goto_s = (GT(n(ch), 0) v(c(ch)[1]), '');
+        } else if (IDENT(k, 'TT_GOTO_F')) {
+            out_goto_f = (GT(n(ch), 0) v(c(ch)[1]), '');
+        } else if (IDENT(k, 'TT_GOTO_U')) {
+            out_goto_u = (GT(n(ch), 0) v(c(ch)[1]), '');
+        } else {
+            out_subject = ch;
+        }
+        i = i + 1;
+    }
+    return;
+}
+/* ==================================================================================================================== */
 function stmt_attr_find(s, tag, i, ch) {
     stmt_attr_find = NULL;
     i = 1;
@@ -922,32 +958,40 @@ function lower_stmt(s, label, lang, stno, lineno, subject, pattern, has_eq,
                     goto_u_expr,
                     is_end, sname, sv_name, ts,
                     first_child, seq_n_lwr, pat_seq_lwr, i_lwr) {
-    is_end = (DIFFER(stmt_attr_find(s, SL_END)) 1, 0);
-    if (IDENT(is_end, 1)) {
-        label = stmt_attr_str(s, SL_LBL);
-        if (DIFFER(label)) {
-            emit_s('SM_LABEL', label);
-            labtab_define(label, g_count - 1);
+    /* PST-SN4-2: TT_STMT is the new pure-syntax-tree shape from parser_snobol4.sc.
+     * lower_sno_unpack extracts fields by child kind; old attr-tag path handles
+     * pre-existing STMT nodes from test harnesses and other callers. */
+    if (IDENT(t(s), 'TT_STMT')) {
+        lower_sno_unpack(s, , , , , label, is_end, subject, pattern, has_eq, replacement, goto_s, goto_f, goto_u);
+        goto_u_expr = NULL;
+        lang = LANG_SNO; g_lang = LANG_SNO; stno = 0; lineno = 0;
+        if (IDENT(is_end, 1)) {
+            if (DIFFER(label)) { emit_s('SM_LABEL', label); labtab_define(label, g_count - 1); }
+            emit_ii('SM_STNO', stno, lineno); emit('SM_HALT'); return;
         }
-        stno   = attr_int_of(s, SL_STNO);
-        lineno = attr_int_of(s, SL_LINE);
-        emit_ii('SM_STNO', stno, lineno);
-        emit('SM_HALT');
-        return;
+    } else {
+        is_end = (DIFFER(stmt_attr_find(s, SL_END)) 1, 0);
+        if (IDENT(is_end, 1)) {
+            label = stmt_attr_str(s, SL_LBL);
+            if (DIFFER(label)) { emit_s('SM_LABEL', label); labtab_define(label, g_count - 1); }
+            stno   = attr_int_of(s, SL_STNO);
+            lineno = attr_int_of(s, SL_LINE);
+            emit_ii('SM_STNO', stno, lineno); emit('SM_HALT'); return;
+        }
+        label   = stmt_attr_str(s, SL_LBL);
+        lang    = attr_int_of(s, SL_LANG);
+        g_lang  = lang;
+        stno    = attr_int_of(s, SL_STNO);
+        lineno  = attr_int_of(s, SL_LINE);
+        subject     = attr_expr_of(s, SL_SUBJ);
+        pattern     = attr_expr_of(s, SL_PAT);
+        has_eq      = (DIFFER(stmt_attr_find(s, SL_EQ)) 1, 0);
+        replacement = attr_expr_of(s, SL_REPL);
+        goto_s      = stmt_attr_str(s, SL_GOS);
+        goto_f      = stmt_attr_str(s, SL_GOF);
+        goto_u      = stmt_attr_str(s, SL_GOU);
+        goto_u_expr = attr_expr_of(s, SL_GOU);
     }
-    label   = stmt_attr_str(s, SL_LBL);
-    lang    = attr_int_of(s, SL_LANG);
-    g_lang  = lang;
-    stno    = attr_int_of(s, SL_STNO);
-    lineno  = attr_int_of(s, SL_LINE);
-    subject     = attr_expr_of(s, SL_SUBJ);
-    pattern     = attr_expr_of(s, SL_PAT);
-    has_eq      = (DIFFER(stmt_attr_find(s, SL_EQ)) 1, 0);
-    replacement = attr_expr_of(s, SL_REPL);
-    goto_s      = stmt_attr_str(s, SL_GOS);
-    goto_f      = stmt_attr_str(s, SL_GOF);
-    goto_u      = stmt_attr_str(s, SL_GOU);
-    goto_u_expr = attr_expr_of(s, SL_GOU);
     if (IDENT(label) IDENT(subject) IDENT(pattern) EQ(has_eq, 0)
         IDENT(goto_u) IDENT(goto_s) IDENT(goto_f) IDENT(goto_u_expr)) return;
     if (DIFFER(label)) {

@@ -26,6 +26,10 @@ ProtKwds    = 'ABORT ALPHABET ARB BAL COMPNO DIGITS FAIL FATAL FENCE FILE '
 BuiltinVars = 'ABORT ARB BAL FAIL REM SUCCEED TERMINAL ';
 SpecialNms  = 'ABORT CONTINUE END FRETURN NRETURN RETURN SCONTINUE START ';
 /* ==================================================================================================================== */
+/* PST-SN4-2 (2026-05-16): sn_match and sn_upr are pure tokenizer helpers — they perform
+   keyword classification during lexing and build no tree nodes.  They are the only functions
+   permitted in a pure-syntax-tree parser.  All stmt-building helpers (pp_stmt, strip_parens,
+   make_goto_slot, push_qlit) are deleted; the grammar builds TT_STMT directly. */
 function sn_match(subject, pattern) { sn_match = .dummy; if (subject ? pattern) nreturn; else freturn; }
 /* ==================================================================================================================== */
 function sn_upr(s)                  { sn_upr   = REPLACE(s, &LCASE, &UCASE); return; }
@@ -80,8 +84,6 @@ $')'        =  $' ' ')';
 $']'        =  $' ' ']';
 $'>'        =  $' ' '>';
 /* ==================================================================================================================== */
-function push_qlit() { Push(tree('TT_QLIT', str_body)); push_qlit = .dummy; nreturn; }
-Push_qlit = (epsilon . *push_qlit());
 FnArgList   =  nInc() *Expr FENCE(*FnArgTail | epsilon);
 FnArgTail   =  $',' nInc() *Expr FENCE(*FnArgTail | epsilon);
 ExprList    =  nPush()
@@ -165,7 +167,7 @@ Expr17      =  FENCE(
                |  shift(*BuiltinVar, "'TT_VAR'")
                |  shift(*SpecialNm, "'TT_VAR'")
                |  shift(*Id, "'TT_VAR'") FENCE(nPush() $'(' FENCE(*FnArgList | epsilon) reduce_call() nPop() $')' | epsilon)
-               |  *String Push_qlit
+               |  *String shift(str_body, "'TT_QLIT'")
                |  shift(*Real, "'TT_RLIT'")
                |  shift(*Integer, "'TT_ILIT'")
                );
@@ -197,33 +199,37 @@ Goto        =  $' ' ':'
                );
 Control     =  '-' BREAK(nl ';');
 Comment     =  '*' BREAK(nl);
-Label       =  shift(BREAK(' ' tab nl ';'), 'Label');
-Stmt        =  *Label
-               (  $'  '
-                  *Expr14
+/* PST-SN4-2 (2026-05-16): Stmt redesigned to emit TT_STMT directly as a pure syntax tree.
+   Children in source order: TT_LABEL? subject? TT_PAT? TT_EQ? replacement? goto*.
+   No post-parse cooking.  Counter tracks child count for reduce('TT_STMT', nTop()). */
+StmtLabel   =  shift(BREAK(' ' tab nl ';'), "'TT_LABEL'");
+StmtRepl    =  $'=' $' ' *Expr reduce("'TT_EQ'", 2)
+            |  $'=' shift(epsilon, "'TT_EQ'");
+StmtGoto    =  FENCE(*Goto | epsilon);
+Stmt        =  nPush()
+               FENCE(nInc() *StmtLabel | epsilon)
+               FENCE(
+                  $'  '
+                  nInc() *Expr14
                   FENCE(
-                     shift(epsilon, '')
-                     $'  '
-                     (shift('=', '=') $'  ' *Expr | shift('=', '=') shift(epsilon, ''))
-                  |  ($'?' | $'  ')
-                     *Expr1
-                     FENCE(
-                        $'  '
-                        (shift('=', '=') $'  ' *Expr | shift('=', '=') shift(epsilon, ''))
-                     |  shift(epsilon, '') shift(epsilon, '')
-                     )
-                  |  shift(epsilon, '') shift(epsilon, '') shift(epsilon, '')
+                     $'?'
+                     nInc() *Expr1 reduce("'TT_PAT'", 1)
+                     FENCE(nInc() *StmtRepl | epsilon)
+                  |  nInc() *StmtRepl
+                  |  epsilon
                   )
-               |  shift(epsilon, '') shift(epsilon, '') shift(epsilon, '') shift(epsilon, '')
+               |  epsilon
                )
-               FENCE(*Goto | shift(epsilon, '') shift(epsilon, ''))
+               *StmtGoto
+               reduce("'TT_STMT'", 'nTop()')
+               nPop()
                $' ';
 Commands    =  *Command FENCE(*Commands | epsilon);
 Command     =  nInc()
                FENCE(
-                  shift(*Comment, 'comment') reduce("'Comment'", 1) nl
-               |  shift(*Control, 'control') reduce("'Control'", 1) (nl | ';')
-               |  *Stmt reduce("'Stmt'", 7) (nl | ';')
+                  shift(*Comment, "'TT_COMMENT'") reduce("'TT_COMMENT'", 1) nl
+               |  shift(*Control, "'TT_CONTROL'") reduce("'TT_CONTROL'", 1) (nl | ';')
+               |  *Stmt (nl | ';')
                );
 Compiland   =  nPush()
                ARBNO(*Command)
@@ -231,95 +237,6 @@ Compiland   =  nPush()
                ('END' (' ' BREAK(nl) nl | nl) ARBNO(BREAK(nl) nl) | epsilon)
                nPop();
 /* ==================================================================================================================== */
-function strip_parens(x, t, result, i, xlist, j) {
-    if (IDENT(x))              { strip_parens = x; return; }
-    t = t(x);
-    if (IDENT(t))              { strip_parens = x; return; }
-    if (IDENT(t, '()') EQ(n(x), 1)) { strip_parens = strip_parens(c(x)[1]); return; }
-    if (IDENT(t, 'TT_IDX')) {
-        result = Tree('TT_IDX', '', 0);
-        i = 1;
-        while (LE(i, n(x))) {
-            if (IDENT(t(c(x)[i]), 'ExprList')) {
-                xlist = c(x)[i];
-                j = 1;
-                while (LE(j, n(xlist))) { Append(result, strip_parens(c(xlist)[j])); j = j + 1; }
-            } else {
-                Append(result, strip_parens(c(x)[i]));
-            }
-            i = i + 1;
-        }
-        strip_parens = result;
-        return;
-    }
-    result = Tree(t, v(x), 0);
-    i = 1;
-    while (LE(i, n(x))) { Append(result, strip_parens(c(x)[i])); i = i + 1; }
-    strip_parens = result;
-    return;
-}
-/* ==================================================================================================================== */
-function make_goto_slot(g, tgt, tgt_v) {
-    tgt   = c(g)[1];
-    if (IDENT(t(tgt), 'TT_INDIRECT') EQ(n(tgt), 1) IDENT(t(c(tgt)[1]), 'TT_QLIT')) {
-        tgt_v = v(c(tgt)[1]);
-    } else if (IDENT(t(tgt), 'TT_INDIRECT') EQ(n(tgt), 1)) {
-        inner = strip_parens(c(tgt)[1]);
-        tgt_v = '$(' TLump(inner, 99999) ')';
-    } else if (DIFFER(v(tgt))) {
-        tgt_v = v(tgt);
-    } else {
-        tgt_v = '$(' TLump(tgt, 99999) ')';
-    }
-    make_goto_slot = tree(t(g), tgt_v);
-    return;
-}
-/* ==================================================================================================================== */
-function pp_stmt(x, ppLbl, ppSubj, ppPatrn, ppAsgn, ppRepl, ppGo1, ppGo2,
-                 result, subj_ir, pat_ir, seq_n, pat_seq, i) {
-    ppLbl   = v(c(x)[1]);
-    ppSubj  = c(x)[2];
-    ppPatrn = c(x)[3];
-    ppAsgn  = v(c(x)[4]);
-    ppRepl  = c(x)[5];
-    ppGo1   = c(x)[6];
-    ppGo2   = c(x)[7];
-    if (IDENT(ppLbl, 'END') IDENT(t(ppSubj))) {
-        pp_stmt = Tree('STMT', '', 2, tree(':lbl', 'END'), tree(':end', ''));
-        return;
-    }
-    result = Tree('STMT', '', 0);
-    if (DIFFER(ppLbl))        { Append(result, tree(':lbl', ppLbl)); }
-    if (DIFFER(t(ppSubj))) {
-        if (DIFFER(ppAsgn))   { Append(result, tree(':eq', '')); }
-        /* PST-SN4-1b (2026-05-16): TT_ALT-rewiring and TT_SEQ-splitting removed.
-         * Parser now emits pure syntax: :subj and :pat slots without restructuring.
-         * lower.sc performs the split (mirrors C lower.c). */
-        subj_ir = strip_parens(ppSubj);
-        Append(result, Tree(':subj', '', 1, subj_ir));
-        if (DIFFER(t(ppPatrn))) {
-            Append(result, Tree(':pat', '', 1, strip_parens(ppPatrn)));
-        }
-        if (DIFFER(t(ppRepl))) {
-            Append(result, Tree(':repl', '', 1, strip_parens(ppRepl)));
-        } else if (DIFFER(ppAsgn)) {
-            Append(result, Tree(':repl', '', 1, tree('TT_QLIT', '')));
-        }
-    }
-    if (DIFFER(t(ppGo1)) DIFFER(t(ppGo2))) {
-        if (IDENT(t(ppGo1), 'TT_GOTO_S')) { goS_slot = ppGo1; goF_slot = ppGo2; }
-        else                          { goS_slot = ppGo2; goF_slot = ppGo1; }
-        goS_child = c(goS_slot)[1];
-        if (IDENT(t(goS_child), 'TT_INDIRECT') DIFFER(t(c(goS_child)[1]), 'TT_QLIT')) {
-            Append(result, make_goto_slot(goF_slot)); Append(result, make_goto_slot(goS_slot));
-        } else {
-            Append(result, make_goto_slot(goS_slot)); Append(result, make_goto_slot(goF_slot));
-        }
-    } else if (DIFFER(t(ppGo1))) { Append(result, make_goto_slot(ppGo1)); }
-    else if (DIFFER(t(ppGo2))) { Append(result, make_goto_slot(ppGo2)); }
-    pp_stmt = result;
-    return;
-}
 InitCounter();
 InitStack();
 Src = '';
@@ -328,14 +245,10 @@ if (Src ? Compiland) {
     ptree = Pop();
     i = 1;
     nk = n(ptree);
-    prev_label_only = '';
     while (LE(i, nk)) {
         cmd = c(ptree)[i];
-        if (IDENT(t(cmd), 'Stmt')) {
-            result = pp_stmt(cmd);
-            if (IDENT(n(result), '') IDENT(prev_label_only, 'yes')) { i = i + 1; }
-            else { Lower_collect(result); prev_label_only = (IDENT(n(result), 1) IDENT(t(c(result)[1]), ':lbl') 'yes', ''); i = i + 1; }
-        } else { i = i + 1; }
+        if (IDENT(t(cmd), 'TT_STMT')) { Lower_collect(cmd); }
+        i = i + 1;
     }
     Lower_run();
 } else OUTPUT = 'Parse Error.';
