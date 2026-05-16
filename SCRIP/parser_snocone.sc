@@ -86,6 +86,13 @@ $'*='       =   $'  ' '*='  $'  ';
 $'/='       =   $'  ' '/='  $'  ';
 $'^='       =   $'  ' '^='  $'  ';
 lbl_n = 0;
+TK_AUGPLUS   = 1001;
+TK_AUGMINUS  = 1002;
+TK_AUGSTAR   = 1003;
+TK_AUGSLASH  = 1004;
+TK_AUGMOD    = 1005;
+TK_AUGCONCAT = 1006;
+TK_AUGPOW    = 1007;
 sc_cond = ARRAY('1:64');
 sc_cond_top = 0;
 /* ==================================================================================================================== */
@@ -566,10 +573,10 @@ function push_empty_str()   { push_empty_str    = .dummy; Push(tree('TT_QLIT', '
 /* ==================================================================================================================== */
 function push_mns(e)        { e = Pop(); Push(Tree('TT_MNS', '', 1, e)); push_mns = .dummy; nreturn; }
 /* ==================================================================================================================== */
-function reduce_augmented(op, rhs, lhs) {
+function reduce_augop(op, rhs, lhs) {
     rhs = Pop(); lhs = Pop();
-    Push(Tree('TT_ASSIGN', '', 2, lhs, Tree(op, '', 2, lhs, rhs)));
-    reduce_augmented = .dummy; nreturn;
+    Push(tree('TT_AUGOP', op, 2, lhs, rhs));
+    reduce_augop = .dummy; nreturn;
 }
 /* ==================================================================================================================== */
 function push_call_name_var() {
@@ -679,7 +686,7 @@ function Push_empty_str()       { Push_empty_str      = epsilon . thx . *push_em
 /* ==================================================================================================================== */
 function Push_mns()             { Push_mns            = epsilon . thx . *push_mns();                         return; }
 /* ==================================================================================================================== */
-function Reduce_augmented(op)   { Reduce_augmented    = EVAL("epsilon . thx . *reduce_augmented(" op ")"); return; }
+function Reduce_augop(op)   { Reduce_augop = EVAL("epsilon . thx . *reduce_augop('" op "')"); return; }
 /* ==================================================================================================================== */
 function Push_idx()             { Push_idx            = epsilon . thx . *push_idx();                         return; }
 /* ==================================================================================================================== */
@@ -806,11 +813,11 @@ Expr2           =   *Expr3 FENCE($'&' *Expr2 reduce("'TT_SEQ'", 2) | epsilon);
 Expr1           =   *Expr2 FENCE($'?' *Expr1 reduce("'TT_SCAN'", 2) | epsilon);
 Expr0           =   *Expr1 FENCE(
                       $'='  FENCE(*Expr0 | Push_empty_str())  reduce("'TT_ASSIGN'", 2)
-                    | $'+=' *Expr0  Reduce_augmented("'TT_ADD'")
-                    | $'-=' *Expr0  Reduce_augmented("'TT_SUB'")
-                    | $'*=' *Expr0  Reduce_augmented("'TT_MUL'")
-                    | $'/=' *Expr0  Reduce_augmented("'TT_DIV'")
-                    | $'^=' *Expr0  Reduce_augmented("'TT_POW'")
+                    | $'+=' *Expr0  Reduce_augop(TK_AUGPLUS)
+                    | $'-=' *Expr0  Reduce_augop(TK_AUGMINUS)
+                    | $'*=' *Expr0  Reduce_augop(TK_AUGSTAR)
+                    | $'/=' *Expr0  Reduce_augop(TK_AUGSLASH)
+                    | $'^=' *Expr0  Reduce_augop(TK_AUGPOW)
                     | epsilon);
 stmt_body       =   *Expr0 ($';' | epsilon) Decompose_stmt();
 stmt_cmd        =   nInc() stmt_body;

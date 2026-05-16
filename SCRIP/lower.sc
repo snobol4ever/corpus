@@ -6,6 +6,7 @@ TK_AUGSTAR          = 1003;
 TK_AUGSLASH         = 1004;
 TK_AUGMOD           = 1005;
 TK_AUGCONCAT        = 1006;
+TK_AUGPOW           = 1007;
 SL_LBL  = ':lbl';
 SL_LANG = ':lang';
 SL_LINE = ':line';
