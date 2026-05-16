@@ -529,6 +529,30 @@ function lower_while(t) { lower_while_until(t, 0); return; }
 /* ==================================================================================================================== */
 function lower_until(t) { lower_while_until(t, 1); return; }
 /* ==================================================================================================================== */
+/* PST-SC-4d (2026-05-16): lower TT_DO_WHILE(TT_PROGRAM(body), cond, QLIT(cont), QLIT(end)).
+ * Body executed first (lower_stmt iteration), then cond tested — jump back to top if true.
+ * cont label defined before cond; end label defined at exit. Mirror of C lower.c lower_do_while. */
+function lower_do_while(t, top, body, lbl_cont, lbl_end, jback, exit_pos, i) {
+    lbl_cont = (GT(n(t), 2) DIFFER(c(t)[3])) c(t)[3].sval ;
+    lbl_end  = (GT(n(t), 3) DIFFER(c(t)[4])) c(t)[4].sval ;
+    top = g_count;
+    body = (GT(n(t), 0)) c(t)[1] ;
+    if (DIFFER(body) IDENT(t(body), 'TT_PROGRAM')) {
+        i = 1; while (LE(i, n(body))) { if (DIFFER(c(body)[i])) lower_stmt(c(body)[i]); i = i + 1; }
+    } else if (DIFFER(body)) { lower_expr(body); emit('SM_VOID_POP'); }
+    if (DIFFER(lbl_cont) NE(SIZE(lbl_cont), 0)) labtab_define(lbl_cont, g_count);
+    if (GT(n(t), 1) DIFFER(c(t)[2])) {
+        lower_expr(c(t)[2]);
+        jback = emit_i('SM_JUMP_S', 0);
+        emit('SM_VOID_POP');
+        sm_patch_jump(jback, top);
+    }
+    exit_pos = g_count;
+    if (DIFFER(lbl_end) NE(SIZE(lbl_end), 0)) labtab_define(lbl_end, exit_pos);
+    emit('SM_PUSH_NULL');
+    return;
+}
+/* ==================================================================================================================== */
 function lower_repeat(t, top) {
     top = sm_label();
     if (GT(n(t), 0)) { lower_expr(c(t)[1]); emit('SM_VOID_POP'); }
@@ -902,6 +926,7 @@ function lower_expr(t, k) {
     /* PST-SC-4c: Snocone if bodies are TT_PROGRAM (stmt blocks); use lower_if_stmt */
     if (IDENT(k, 'TT_IF'))         { (GT(n(t), 1) DIFFER(c(t)[2]) IDENT(t(c(t)[2]), 'TT_PROGRAM')) lower_if_stmt(t) :f lower_if(t); return; }
     if (IDENT(k, 'TT_WHILE'))      { lower_while(t);      return; }
+    if (IDENT(k, 'TT_DO_WHILE'))   { lower_do_while(t);   return; }
     /* PST-SC-4b (2026-05-16): TT_PROGRAM as a block body inside TT_IF then/else slots.
      * Lower each child statement for effect; push null as block value. */
     if (IDENT(k, 'TT_PROGRAM'))    { lower_program_block(t); return; }
