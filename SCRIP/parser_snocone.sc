@@ -327,29 +327,35 @@ function pop_body(n, arr, i) {
     pop_body = arr; return;
 }
 /* ==================================================================================================================== */
-function finalize_if(nthen_v, body, Lend, n, ce, i) {
+/* PST-SC-4b (2026-05-16): build TT_IF(cond, then_block) — no synthetic labels or gotos.
+ * Mirror of C sc_finalize_if_no_else_pst. */
+function finalize_if(nthen_v, body, n, ce, then_block, if_node, i) {
     n = $nthen_v; ce = pop_cond();
     body = pop_body(n);
-    Lend = new_label('Lend');
-    Push(make_cond_stmt(ce, ':goF', Lend));
-    i = 1; while (LE(i, n)) { Push(body[i]); i = i + 1; }
-    Push(make_label_stmt(Lend));
-    i = 0; while (LT(i, n + 1)) { IncCounter(); i = i + 1; }
+    then_block = tree('TT_PROGRAM', '', n);
+    i = 1; while (LE(i, n)) { c(then_block)[i] = body[i]; i = i + 1; }
+    if_node = tree('TT_IF', '', 2);
+    c(if_node)[1] = ce; c(if_node)[2] = then_block;
+    Push(Tree('STMT', '', 1, Tree(':subj', '', 1, if_node)));
+    IncCounter();
     finalize_if = .dummy; nreturn;
 }
 /* ==================================================================================================================== */
+/* PST-SC-4b (2026-05-16): build TT_IF(cond, then_block, else_block).
+ * Mirror of C sc_finalize_if_else_pst. */
 function finalize_if_else(nthen_v, nelse_v, cond_v,
-                              tb, eb, Lelse, Lend, nt, ne, ce, i) {
+                              tb, eb, nt, ne, ce,
+                              then_block, else_block, if_node, i) {
     nt = $nthen_v; ne = $nelse_v; ce = pop_cond();
     eb = pop_body(ne); tb = pop_body(nt);
-    Lelse = new_label('Lelse'); Lend = new_label('Lend');
-    Push(make_cond_stmt(ce, ':goF', Lelse));
-    i = 1; while (LE(i, nt)) { Push(tb[i]); i = i + 1; }
-    Push(make_goto_stmt(Lend));
-    Push(make_label_stmt(Lelse));
-    i = 1; while (LE(i, ne)) { Push(eb[i]); i = i + 1; }
-    Push(make_label_stmt(Lend));
-    i = 0; while (LT(i, nt + ne + 3)) { IncCounter(); i = i + 1; }
+    then_block = tree('TT_PROGRAM', '', nt);
+    i = 1; while (LE(i, nt)) { c(then_block)[i] = tb[i]; i = i + 1; }
+    else_block = tree('TT_PROGRAM', '', ne);
+    i = 1; while (LE(i, ne)) { c(else_block)[i] = eb[i]; i = i + 1; }
+    if_node = tree('TT_IF', '', 3);
+    c(if_node)[1] = ce; c(if_node)[2] = then_block; c(if_node)[3] = else_block;
+    Push(Tree('STMT', '', 1, Tree(':subj', '', 1, if_node)));
+    IncCounter();
     finalize_if_else = .dummy; nreturn;
 }
 /* ==================================================================================================================== */

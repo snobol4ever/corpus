@@ -446,6 +446,19 @@ function lower_seq_expr(t, i) {
     return;
 }
 /* ==================================================================================================================== */
+/* PST-SC-4b (2026-05-16): lower a TT_PROGRAM block body (then/else of TT_IF).
+ * Each child is a TT_STMT; lower each for effect, push null as block result value.
+ * Mirror of C lower.c case TT_PROGRAM in lower_expr_inner. */
+function lower_program_block(t, i) {
+    i = 1;
+    while (LE(i, n(t))) {
+        if (DIFFER(c(t)[i])) { lower_stmt(c(t)[i]); }
+        i = i + 1;
+    }
+    emit('SM_PUSH_NULL');
+    return;
+}
+/* ==================================================================================================================== */
 function lower_if(t, jf, jend) {
     if (LT(n(t), 1)) { emit('SM_PUSH_NULL'); return; }
     lower_expr(c(t)[1]);
@@ -850,6 +863,9 @@ function lower_expr(t, k) {
     if (IDENT(k, 'TT_SEQ_EXPR'))   { lower_seq_expr(t);   return; }
     if (IDENT(k, 'TT_IF'))         { lower_if(t);         return; }
     if (IDENT(k, 'TT_WHILE'))      { lower_while(t);      return; }
+    /* PST-SC-4b (2026-05-16): TT_PROGRAM as a block body inside TT_IF then/else slots.
+     * Lower each child statement for effect; push null as block value. */
+    if (IDENT(k, 'TT_PROGRAM'))    { lower_program_block(t); return; }
     if (IDENT(k, 'TT_UNTIL'))      { lower_until(t);      return; }
     if (IDENT(k, 'TT_REPEAT'))     { lower_repeat(t);     return; }
     if (IDENT(k, 'TT_LOOP_BREAK')) { lower_loop_break(t); return; }
