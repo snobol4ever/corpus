@@ -447,34 +447,11 @@ function finish_hash_delete_brace(key, arr, fn, node) {
 }
 Finish_hash_delete_brace = (epsilon . *finish_hash_delete_brace());
 /* ==================================================================================================================== */
-function finish_for_range(body, hi, lo, vvar, incr_rhs, incr, cond, init, body2, wloop, seq, i) {
+function finish_for_range(body, hi, lo) {
     body = Pop();
     hi   = Pop();
     lo   = Pop();
-    vvar = tree('TT_VAR', for_iter);
-    incr_rhs = tree('TT_ADD', '');
-    Append(incr_rhs, tree('TT_VAR', for_iter));
-    Append(incr_rhs, tree('TT_ILIT', '1'));
-    incr = tree('TT_ASSIGN', '');
-    Append(incr, tree('TT_VAR', for_iter));
-    Append(incr, incr_rhs);
-    body2 = tree('TT_SEQ_EXPR', '');
-    i = 1;
-    while (LE(i, n(body))) { Append(body2, c(body)[i]); i = i + 1; }
-    Append(body2, incr);
-    cond  = tree('TT_LE', '');
-    Append(cond, tree('TT_VAR', for_iter));
-    Append(cond, hi);
-    wloop = tree('TT_WHILE', '');
-    Append(wloop, cond);
-    Append(wloop, body2);
-    init = tree('TT_ASSIGN', '');
-    Append(init, tree('TT_VAR', for_iter));
-    Append(init, lo);
-    seq = tree('TT_SEQ_EXPR', '');
-    Append(seq, init);
-    Append(seq, wloop);
-    Push(seq);
+    Push(Tree('TT_FOR', for_iter, 3, lo, hi, body));
     finish_for_range = .dummy;
     nreturn;
 }
@@ -515,7 +492,7 @@ function finish_mns(inner, node) {
 Finish_mns = (epsilon . *finish_mns());
 given_has_def = 0;
 /* ==================================================================================================================== */
-function finish_given(n_whens, def_body, kids, ec, i, cmpkind, cmpnode, val, body) {
+function finish_given(n_whens, def_body, kids, ec, i, val, body) {
     n_whens = TopCounter();
     if (EQ(given_has_def, 1)) def_body = Pop();
     kids = GT(n_whens, 0) ARRAY('1:' (n_whens * 2));
@@ -527,15 +504,11 @@ function finish_given(n_whens, def_body, kids, ec, i, cmpkind, cmpnode, val, bod
     while (LE(i, n_whens)) {
         val  = kids[(i - 1) * 2 + 1];
         body = kids[(i - 1) * 2 + 2];
-        if (IDENT(t(val), 'TT_QLIT')) { cmpkind = '73'; } else { cmpkind = '67'; }
-        cmpnode = tree('TT_ILIT', cmpkind);
-        Append(ec, cmpnode);
         Append(ec, val);
         Append(ec, body);
         i = i + 1;
     }
     if (EQ(given_has_def, 1)) {
-        Append(ec, tree('TT_NUL', ''));
         Append(ec, tree('TT_NUL', ''));
         Append(ec, def_body);
     }
@@ -1098,7 +1071,7 @@ function finish_method(n_kids, kids, mname, efnc, i) {
 }
 Finish_method = (epsilon . *finish_method());
 /* ==================================================================================================================== */
-function finish_class(n_items, items, cname, rec, item, fname, fullname, efnc, subj, stmt, i) {
+function finish_class(n_items, items, cname, rec, subj, stmt, i) {
     n_items = TopCounter();
     items   = GT(n_items, 0) ARRAY('1:' n_items);
     i = n_items;
@@ -1110,19 +1083,7 @@ function finish_class(n_items, items, cname, rec, item, fname, fullname, efnc, s
     rec = tree('TT_RECORD', cname);
     i = 1;
     while (LE(i, n_items)) {
-        item = items[i];
-        if (IDENT(t(item), 'TT_FNC')) {
-            fullname = cname '__' v(item);
-            v(item) = fullname;
-            v(c(item)[1]) = fullname;
-            subj = tree(':subj', '');
-            Append(subj, item);
-            stmt = tree('STMT', '');
-            Append(stmt, subj);
-            sub_list = slink(sub_list, stmt);
-        } else {
-            Append(rec, item);
-        }
+        Append(rec, items[i]);
         i = i + 1;
     }
     subj = tree(':subj', '');
@@ -1396,80 +1357,6 @@ function finish_main(n_kids, kids, efnc, subj, stmt, i) {
 }
 Finish_main  = (epsilon . *finish_main());
 /* ==================================================================================================================== */
-function flatten_add(rhs, lhs, node) {
-    rhs = Pop();
-    lhs = Pop();
-    node = DIFFER(t(lhs)) IDENT(t(lhs), 'TT_ADD') lhs;
-    if (DIFFER(node)) { Append(node, rhs); Push(node); } else {
-        node = tree('TT_ADD', '');
-        Append(node, lhs);
-        Append(node, rhs);
-        Push(node);
-    }
-    flatten_add = .dummy;
-    nreturn;
-}
-Flatten_add = (epsilon . *flatten_add());
-/* ==================================================================================================================== */
-function flatten_sub(rhs, lhs, node) {
-    rhs = Pop();
-    lhs = Pop();
-    node = DIFFER(t(lhs)) IDENT(t(lhs), 'TT_SUB') lhs;
-    if (DIFFER(node)) { Append(node, rhs); Push(node); } else {
-        node = tree('TT_SUB', '');
-        Append(node, lhs);
-        Append(node, rhs);
-        Push(node);
-    }
-    flatten_sub = .dummy;
-    nreturn;
-}
-Flatten_sub = (epsilon . *flatten_sub());
-/* ==================================================================================================================== */
-function flatten_mul(rhs, lhs, node) {
-    rhs = Pop();
-    lhs = Pop();
-    node = DIFFER(t(lhs)) IDENT(t(lhs), 'TT_MUL') lhs;
-    if (DIFFER(node)) { Append(node, rhs); Push(node); } else {
-        node = tree('TT_MUL', '');
-        Append(node, lhs);
-        Append(node, rhs);
-        Push(node);
-    }
-    flatten_mul = .dummy;
-    nreturn;
-}
-Flatten_mul = (epsilon . *flatten_mul());
-/* ==================================================================================================================== */
-function flatten_div(rhs, lhs, node) {
-    rhs = Pop();
-    lhs = Pop();
-    node = DIFFER(t(lhs)) IDENT(t(lhs), 'TT_DIV') lhs;
-    if (DIFFER(node)) { Append(node, rhs); Push(node); } else {
-        node = tree('TT_DIV', '');
-        Append(node, lhs);
-        Append(node, rhs);
-        Push(node);
-    }
-    flatten_div = .dummy;
-    nreturn;
-}
-Flatten_div = (epsilon . *flatten_div());
-/* ==================================================================================================================== */
-function flatten_cat(rhs, lhs, node) {
-    rhs = Pop();
-    lhs = Pop();
-    node = DIFFER(t(lhs)) IDENT(t(lhs), 'TT_CAT') lhs;
-    if (DIFFER(node)) { Append(node, rhs); Push(node); } else {
-        node = tree('TT_CAT', '');
-        Append(node, lhs);
-        Append(node, rhs);
-        Push(node);
-    }
-    flatten_cat = .dummy;
-    nreturn;
-}
-Flatten_cat = (epsilon . *flatten_cat());
 NamedArgTail = ( $','  $' ' ((ident_first (ident_rest | epsilon)) . capnamedkey) $'=>'  Push_named_key  *Expr  nInc() nInc() );
 NewCallName = ($' ' fnf . capclsf fnro . capclsr);
 CallArgTail = ( $','  *Expr  nInc() );
@@ -1540,15 +1427,15 @@ Expr11 = ( $'!'  *Expr11  Finish_not
          | BareIdent              Push_var
          )
          ARBNO(*MethodTail);
-Expr7tail = FENCE( $'*'  *Expr11  Flatten_mul
-                 | $'/'  *Expr11  Flatten_div
-                 | $'div' *Expr11  Flatten_div
+Expr7tail = FENCE( $'*'  *Expr11  reduce("'TT_MUL'", 2)
+                 | $'/'  *Expr11  reduce("'TT_DIV'", 2)
+                 | $'div' *Expr11  reduce("'TT_DIV'", 2)
                  | $'%'  *Expr11  reduce("'TT_MOD'", 2)
                  );
 Expr7     = ( Expr11 ARBNO(Expr7tail) );
-Expr6tail = FENCE( $'+'  *Expr7  Flatten_add
-                 | $'-'  *Expr7  Flatten_sub
-                 | $'~'  *Expr7  Flatten_cat
+Expr6tail = FENCE( $'+'  *Expr7  reduce("'TT_ADD'", 2)
+                 | $'-'  *Expr7  reduce("'TT_SUB'", 2)
+                 | $'~'  *Expr7  reduce("'TT_CAT'", 2)
                  );
 Expr6     = ( Expr7  ARBNO(Expr6tail) );
 Expr5     = ( Expr6
