@@ -283,35 +283,13 @@ function pp_stmt(x, ppLbl, ppSubj, ppPatrn, ppAsgn, ppRepl, ppGo1, ppGo2,
     if (DIFFER(ppLbl))        { Append(result, tree(':lbl', ppLbl)); }
     if (DIFFER(t(ppSubj))) {
         if (DIFFER(ppAsgn))   { Append(result, tree(':eq', '')); }
+        /* PST-SN4-1b (2026-05-16): TT_ALT-rewiring and TT_SEQ-splitting removed.
+         * Parser now emits pure syntax: :subj and :pat slots without restructuring.
+         * lower.sc performs the split (mirrors C lower.c). */
         subj_ir = strip_parens(ppSubj);
+        Append(result, Tree(':subj', '', 1, subj_ir));
         if (DIFFER(t(ppPatrn))) {
-            pat_ir = ppPatrn;
-            if (IDENT(t(pat_ir), 'TT_ALT') GT(n(pat_ir), 0) DIFFER(t(ppPatrn), '()')) {
-                seq_n = Tree('TT_SEQ', '', 2, subj_ir, strip_parens(c(pat_ir)[1]));
-                pat_seq = Tree('TT_ALT', '', 1, seq_n);
-                i = 2;
-                while (LE(i, n(pat_ir))) { Append(pat_seq, strip_parens(c(pat_ir)[i])); i = i + 1; }
-                Append(result, Tree(':subj', '', 1, pat_seq));
-            } else {
-                pat_ir = strip_parens(pat_ir);
-                Append(result, Tree(':subj', '', 1, subj_ir));
-                Append(result, Tree(':pat',  '', 1, pat_ir));
-            }
-        } else {
-            if (IDENT(t(subj_ir), 'TT_SEQ') GT(n(subj_ir), 1) IDENT(t(c(subj_ir)[1]), 'TT_VAR')) {
-                seq_n = n(subj_ir);
-                Append(result, Tree(':subj', '', 1, c(subj_ir)[1]));
-                if (LE(seq_n, 2)) {
-                    Append(result, Tree(':pat', '', 1, c(subj_ir)[2]));
-                } else {
-                    pat_seq = Tree('TT_SEQ', '', 0);
-                    i = 2;
-                    while (LE(i, seq_n)) { Append(pat_seq, c(subj_ir)[i]); i = i + 1; }
-                    Append(result, Tree(':pat', '', 1, pat_seq));
-                }
-            } else {
-                Append(result, Tree(':subj', '', 1, subj_ir));
-            }
+            Append(result, Tree(':pat', '', 1, strip_parens(ppPatrn)));
         }
         if (DIFFER(t(ppRepl))) {
             Append(result, Tree(':repl', '', 1, strip_parens(ppRepl)));

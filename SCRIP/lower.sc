@@ -920,7 +920,8 @@ function attr_expr_of(s, tag, a) {
 function lower_stmt(s, label, lang, stno, lineno, subject, pattern, has_eq,
                     replacement, goto_s, goto_f, goto_u,
                     goto_u_expr,
-                    is_end, sname, sv_name, ts) {
+                    is_end, sname, sv_name, ts,
+                    first_child, seq_n_lwr, pat_seq_lwr, i_lwr) {
     is_end = (DIFFER(stmt_attr_find(s, SL_END)) 1, 0);
     if (IDENT(is_end, 1)) {
         label = stmt_attr_str(s, SL_LBL);
@@ -965,6 +966,28 @@ function lower_stmt(s, label, lang, stno, lineno, subject, pattern, has_eq,
             emit('SM_BB_ONCE');
         }
         goto emit_gotos;
+    }
+    /* PST-SN4-1b (2026-05-16): subject/pattern split moved from pp_stmt.
+     * Mirrors C lower.c: unpack TT_SCAN and split TT_SEQ(var,...) into subj/pat. */
+    if (IDENT(pattern) IDENT(t(subject), 'TT_SCAN') EQ(n(subject), 2)) {
+        pattern = c(subject)[2];
+        subject = c(subject)[1];
+    }
+    if (IDENT(pattern) DIFFER(subject) IDENT(t(subject), 'TT_SEQ') GT(n(subject), 1)) {
+        first_child = c(subject)[1];
+        if (IDENT(t(first_child), 'TT_VAR') | IDENT(t(first_child), 'TT_KEYWORD')
+            | IDENT(t(first_child), 'TT_QLIT') | IDENT(t(first_child), 'TT_INDIRECT')) {
+            seq_n_lwr = n(subject);
+            if (EQ(seq_n_lwr, 2)) {
+                pattern = c(subject)[2];
+            } else {
+                pat_seq_lwr = Tree('TT_SEQ', '', 0);
+                i_lwr = 2;
+                while (LE(i_lwr, seq_n_lwr)) { Append(pat_seq_lwr, c(subject)[i_lwr]); i_lwr = i_lwr + 1; }
+                pattern = pat_seq_lwr;
+            }
+            subject = first_child;
+        }
     }
     if (DIFFER(pattern)) {
         lower_pat_expr(pattern);
