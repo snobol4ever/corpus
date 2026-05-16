@@ -447,23 +447,27 @@ function finish_hash_delete_brace(key, arr, fn, node) {
 }
 Finish_hash_delete_brace = (epsilon . *finish_hash_delete_brace());
 /* ==================================================================================================================== */
-function finish_for_range(body, hi, lo, vvar, incr, cond, init, wloop, seq) {
+function finish_for_range(body, hi, lo, vvar, incr_rhs, incr, cond, init, body2, wloop, seq, i) {
     body = Pop();
     hi   = Pop();
     lo   = Pop();
     vvar = tree('TT_VAR', for_iter);
-    incr = tree('TT_ADD', '');
+    incr_rhs = tree('TT_ADD', '');
+    Append(incr_rhs, tree('TT_VAR', for_iter));
+    Append(incr_rhs, tree('TT_ILIT', '1'));
+    incr = tree('TT_ASSIGN', '');
     Append(incr, tree('TT_VAR', for_iter));
-    Append(incr, tree('TT_ILIT', '1'));
-    Append(body, tree('TT_ASSIGN', ''));
-    Append(c(body)[n(body)], tree('TT_VAR', for_iter));
-    Append(c(body)[n(body)], incr);
+    Append(incr, incr_rhs);
+    body2 = tree('TT_SEQ_EXPR', '');
+    i = 1;
+    while (LE(i, n(body))) { Append(body2, c(body)[i]); i = i + 1; }
+    Append(body2, incr);
     cond  = tree('TT_LE', '');
     Append(cond, tree('TT_VAR', for_iter));
     Append(cond, hi);
     wloop = tree('TT_WHILE', '');
     Append(wloop, cond);
-    Append(wloop, body);
+    Append(wloop, body2);
     init = tree('TT_ASSIGN', '');
     Append(init, tree('TT_VAR', for_iter));
     Append(init, lo);
