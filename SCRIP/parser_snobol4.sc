@@ -91,10 +91,17 @@ Expr        =  *Expr0;
 Expr0       =  *Expr1 FENCE($'=' *Expr0 reduce("'TT_ASSIGN'", 2) | epsilon);
 Expr1       =  *Expr2 FENCE($'?' *Expr1 reduce_opsyn('?', 2) | epsilon);
 Expr2       =  *Expr3 FENCE($'&' *Expr2 reduce_opsyn('&', 2) | epsilon);
-Expr3       =  nPush() *X3 reduce("'TT_ALT'", '*(GT(nTop(), 1) nTop())') nPop();
-X3          =  nInc() *Expr4 FENCE($'|' *X3 | epsilon);
-Expr4       =  nPush() *X4 reduce("'TT_SEQ'", '*(GT(nTop(), 1) nTop())') nPop();
-X4          =  nInc() *Expr5 FENCE($'  ' *X4 | epsilon);
+/* PST-SN4-1d-SCRIP (2026-05-16): replaced flat n-ary nPush/nInc/nPop/reduce(GT(nTop()>1))
+   form with left-recursive binary always-wrap form.  Mirrors the C-side fix in snobol4.y
+   (PST-SN4-1d, commit 544a6de0).  Produces right-leaning binary chains:
+     a b c  =>  TT_SEQ(TT_SEQ(a,b),c)
+     a|b|c  =>  TT_ALT(TT_ALT(a,b),c)
+   Re-flattening, if ever wanted, is a downstream (lower) concern.
+   X3 and X4 helpers deleted; replaced by Expr3tail / Expr4tail. */
+Expr3       =  *Expr4 FENCE($'|' *Expr4 reduce("'TT_ALT'", 2) *Expr3tail | epsilon);
+Expr3tail   =  FENCE($'|' *Expr4 reduce("'TT_ALT'", 2) *Expr3tail | epsilon);
+Expr4       =  *Expr5 FENCE($'  ' *Expr5 reduce("'TT_SEQ'", 2) *Expr4tail | epsilon);
+Expr4tail   =  FENCE($'  ' *Expr5 reduce("'TT_SEQ'", 2) *Expr4tail | epsilon);
 Expr5       =  *Expr6 FENCE($'@' *Expr5 reduce_opsyn('@', 2) | epsilon);
 Expr6       =  *Expr7
                FENCE($'+' *Expr7 foldop("'TT_ADD'") *Expr6cont | $'-' *Expr7 foldop("'TT_SUB'") *Expr6cont | epsilon);
