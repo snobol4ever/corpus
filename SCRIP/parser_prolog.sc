@@ -774,34 +774,10 @@ list = (    $'['
               nPop()
             )
        );
-primary = (   Atom . p_name nPushName('p_name') $'('
-                  nPush() args $')'
-                                      Reduce_compound_ns
-              nPop()
-          |   $' ' Graphic_atom . g_name nPushName('g_name') $'('
-                  nPush() args $')'
-                                      Reduce_compound_ns
-              nPop()
-          |   shift(Graphic_atom2, 'TT_FNC')
-          |   Tk_cut                  Push_cut
-          |   "0'" NOTANY(nl) . p_cc    Push_char_code('p_cc')
-          |   shift(Float,'TT_FLIT')
-          |   '0x' SPAN(hex_digits) . p_radix   Push_hex_int('p_radix')
-          |   '0b' SPAN(bin_digits) . p_radix   Push_bin_int('p_radix')
-          |   '0o' SPAN(oct_digits) . p_radix   Push_oct_int('p_radix')
-          |   shift(Int,  'TT_ILIT')
-          |   shift(Atom, 'TT_FNC')
-          |   Qatom                   Push_atom_body('q_body')
-          |   Str                     Push_atom_body('s_body')
-          |   Var . p_text            Push_var('p_text')
-          |   $'(' *unify_expr $')'
-          |   *list
-          |   $' ' '-' Float . p_negf   Push_neg_float('p_negf')
-          |   $' ' '-' Int . p_negi    Push_neg_int('p_negi')
-          |   $'\' $' ' *primary            Reduce_unop
-          |   $' ' '-' *primary        epsilon . *do_uminus()
-          );
 /* ==================================================================================================================== */
+/* SCT-pivot (2026-05-17): moved push_radix_hex/bin/oct and Push_hex/bin/oct_int/do_uminus before primary
+   because primary calls Push_hex_int('p_radix') etc. at pattern-build time;
+   SPITBOL must have them defined before evaluating the primary RHS. */
 function push_radix_hex(varname, raw, val, s) {
     raw = $varname;
     val = EVAL('0x' raw) '';
@@ -856,6 +832,34 @@ function do_uminus(operand, f) {
     Push(f);
     do_uminus = .dummy;  nreturn;
 }
+/* ==================================================================================================================== */
+primary = (   Atom . p_name nPushName('p_name') $'('
+                  nPush() args $')'
+                                      Reduce_compound_ns
+              nPop()
+          |   $' ' Graphic_atom . g_name nPushName('g_name') $'('
+                  nPush() args $')'
+                                      Reduce_compound_ns
+              nPop()
+          |   shift(Graphic_atom2, 'TT_FNC')
+          |   Tk_cut                  Push_cut
+          |   "0'" NOTANY(nl) . p_cc    Push_char_code('p_cc')
+          |   shift(Float,'TT_FLIT')
+          |   '0x' SPAN(hex_digits) . p_radix   Push_hex_int('p_radix')
+          |   '0b' SPAN(bin_digits) . p_radix   Push_bin_int('p_radix')
+          |   '0o' SPAN(oct_digits) . p_radix   Push_oct_int('p_radix')
+          |   shift(Int,  'TT_ILIT')
+          |   shift(Atom, 'TT_FNC')
+          |   Qatom                   Push_atom_body('q_body')
+          |   Str                     Push_atom_body('s_body')
+          |   Var . p_text            Push_var('p_text')
+          |   $'(' *unify_expr $')'
+          |   *list
+          |   $' ' '-' Float . p_negf   Push_neg_float('p_negf')
+          |   $' ' '-' Int . p_negi    Push_neg_int('p_negi')
+          |   $'\' $' ' *primary            Reduce_unop
+          |   $' ' '-' *primary        epsilon . *do_uminus()
+          );
 pow_expr  = (   primary
                 FENCE( $'^'  *pow_expr Reduce_binop
                      | $'**' primary  Reduce_binop
@@ -1018,14 +1022,21 @@ function push_skip() {
 Push_skip = epsilon . *push_skip();
 skip_to_dot = ( BREAKX('.') $'.' Push_skip );
 top_form_safe = ( top_form | skip_to_dot );
+/* SCT-pivot (2026-05-17): nInc() must fire AFTER top_form_safe commits, not before.
+   If nInc() precedes top_form_safe and top_form_safe fails (e.g. trailing newline),
+   the counter is corrupted and reduce(E_Parse, nTop()) pops the wrong number of items.
+   Fix: FENCE(top_form_safe) commits, then nInc() fires; if top_form_safe fails, FENCE
+   fails, ARBNO takes epsilon, nInc() never fires. */
 Compiland = nPush()
-            POS(0) ARBNO( $' ' nInc() top_form_safe $' ' ) RPOS(0)
+            POS(0) ARBNO( $' ' FENCE(top_form_safe nInc()) $' ' ) RPOS(0)
             reduce(E_Parse, 'nTop()')
             nPop();
 InitCounter();
 InitStack();
 Src = '';
 while ((Line = INPUT)) Src = Src Line nl ;
+/* SCT-pivot (2026-05-17): strip the trailing nl added by the loop. */
+if (GT(SIZE(Src), 0)) Src = SUBSTR(Src, 1, SIZE(Src) - 1);
 if (Src ? Compiland) {
     ptree = Pop();
     if (DIFFER(ptree)) {
