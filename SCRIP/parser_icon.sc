@@ -1,6 +1,4 @@
 /* ==================================================================================================================== */
-function notmatch(s, pat) { notmatch = .dummy; if (s ? pat) freturn; else nreturn; }
-white        =   (  SPAN(' ' tab nl)
                  |  '#' BREAK(nl) nl
                  );
 White        =   white ARBNO(white);
@@ -113,14 +111,6 @@ $'?:='      =   $' ' '?:='   $' ';
 $'=:='      =   $' ' '=:='   $' ';
 /* ==================================================================================================================== */
 /* Leaf-push helpers: allowed by PST rules — set v.sval/v.dval from token capture, no child inspection. */
-function push_qlit() { Push(tree('TT_QLIT', strbody));   push_qlit = .dummy; nreturn; }
-Push_qlit = (epsilon . *push_qlit());
-function push_cset() { Push(tree('TT_CSET', csetbody));  push_cset = .dummy; nreturn; }
-Push_cset = (epsilon . *push_cset());
-function push_flit() { Push(tree('TT_FLIT', REAL(rval))); push_flit = .dummy; nreturn; }
-Push_flit = (epsilon . *push_flit());
-function push_kw()   { Push(tree('TT_VAR',  '&' kwname)); push_kw   = .dummy; nreturn; }
-Push_kw   = (epsilon . *push_kw());
 /* ==================================================================================================================== */
 If     = ( $'if'     $'  ' *Expr  $'then' $' ' *Expr
            (  $'else' $' ' *Expr  reduce('TT_IF', 3)
