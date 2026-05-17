@@ -13,9 +13,8 @@ Integer = SPAN(digits);
 Real    = SPAN(digits) '.' SPAN(digits);
 KW_open = '&';
 KW_body = ANY(&UCASE &LCASE '_') (SPAN(&UCASE &LCASE digits '_') | epsilon);
-DQ_str  = '"' BREAK('"') . strbody '"';
-SQ_str  = "'" BREAK("'") . strbody "'";
-String  = *DQ_str | *SQ_str;
+DQ_body = BREAK('"');
+SQ_body = BREAK("'");
 $'('        =       '('        $' ';  $')'        = $' ' ')';
 $'['        =       '['        $' ';  $']'        = $' ' ']';
 $'.'        = $' '  '.'        $' ';
@@ -110,114 +109,15 @@ SUBASSIGN   = 'SUBASSIGN';
 CATASSIGN   = 'CATASSIGN';
 COMPOUND    = 'COMPOUND';
 nTop_count   = 'nTop()';
-nTop_plus1   = 'nTop() + 1';
 X_sub = nInc() *expr FENCE($',' *X_sub | epsilon);
-/* ==================================================================================================================== */
-function push_qlit() {
-    push_qlit = .dummy;
-    Push(tree('TT_QLIT', strbody));
-    nreturn;
-}
-/* ==================================================================================================================== */
-function Push_qlit() {
-    Push_qlit = epsilon . *push_qlit();
-    return;
-}
-/* ==================================================================================================================== */
-function push_nul() {
-    push_nul = .dummy;
-    Push(tree('TT_NUL', ''));
-    nreturn;
-}
-/* ==================================================================================================================== */
-function Push_nul() {
-    Push_nul = epsilon . *push_nul();
-    return;
-}
-/* ==================================================================================================================== */
-function decompose_call(nargs, kids, fname, call, i) {
-    nargs = nTop();
-    kids  = ARRAY('1:' nargs + 1);
-    i = 0;
-    while (i = LT(i, nargs + 1) i + 1) kids[i] = Pop();
-    fname = REPLACE(v(kids[nargs + 1]), &LCASE, &UCASE);
-    call  = tree('TT_FNC', fname);
-    i = nargs;
-    while (GE(i, 1)) { call = Append(call, kids[i]); i = i - 1; }
-    Push(call);
-    decompose_call = .dummy;
-    nreturn;
-}
-/* ==================================================================================================================== */
-function decompose_sub(nargs, base, kids, sub, i) {
-    nargs = nTop();
-    kids  = ARRAY('1:' nargs + 1);
-    i = 0;
-    while (i = LT(i, nargs + 1) i + 1) kids[i] = Pop();
-    base = kids[nargs + 1];
-    sub  = tree('TT_IDX', '');
-    sub  = Append(sub, base);
-    i = nargs;
-    while (GE(i, 1)) { sub = Append(sub, kids[i]); i = i - 1; }
-    Push(sub);
-    decompose_sub = .dummy;
-    nreturn;
-}
-/* ==================================================================================================================== */
-function Decompose_sub() {
-    Decompose_sub = epsilon . *decompose_sub();
-    return;
-}
-/* ==================================================================================================================== */
-function push_call_id() {
-    push_call_id = .dummy;
-    Push(tree('TT_VAR', REPLACE(rbCallName, &LCASE, &UCASE)));
-    nreturn;
-}
-rbKwName = '';
-/* ==================================================================================================================== */
-function push_keyword() {
-    push_keyword = .dummy;
-    Push(tree('TT_KEYWORD', REPLACE(rbKwName, &LCASE, &UCASE)));
-    nreturn;
-}
-/* ==================================================================================================================== */
-function Decompose_call() {
-    Decompose_call = epsilon . *decompose_call();
-    return;
-}
-/* ==================================================================================================================== */
-function Push_call_id() {
-    Push_call_id = epsilon . *push_call_id();
-    return;
-}
-/* ==================================================================================================================== */
-function Push_keyword() {
-    Push_keyword = epsilon . *push_keyword();
-    return;
-}
-rbCursorName = '';
-/* ==================================================================================================================== */
-function push_cursor() {
-    push_cursor = .dummy;
-    Push(tree('TT_CAPT_CURSOR', REPLACE(rbCursorName, &LCASE, &UCASE)));
-    nreturn;
-}
-/* ==================================================================================================================== */
-function Push_cursor() {
-    Push_cursor = epsilon . *push_cursor();
-    return;
-}
-rbCallName = '';
-nInc_then_nul = nInc() Push_nul();
-X_args   = nInc() *alt_expr FENCE($',' FENCE(*X_args | *nInc_then_nul FENCE($',' *X_args | epsilon)) | epsilon);
-call_or_id = FENCE(  (*Id . rbCallName) $'(' nPush() Push_call_id()
-                     FENCE(*X_args | epsilon) $')' Decompose_call() nPop()
+X_args   = nInc() *alt_expr FENCE($',' FENCE(*X_args | nInc() shift(epsilon, 'TT_NUL') FENCE($',' *X_args | epsilon)) | epsilon);
+call_or_id = FENCE(  nPush() shift(*Id, 'TT_VAR') nInc() $'(' FENCE(*X_args | epsilon) $')' reduce('TT_FNC', nTop_count) nPop()
                    | shift(*Id, 'TT_VAR')
                   );
-primary = FENCE(  *String  Push_qlit()
-                | KW_open (*KW_body . rbKwName) Push_keyword()
-                | '@' (*Id . rbCursorName) Push_cursor()
+primary = FENCE(  '"' shift(*DQ_body, 'TT_QLIT') '"'
+                | "'" shift(*SQ_body, 'TT_QLIT') "'"
+                | KW_open shift(*KW_body, 'TT_KEYWORD')
+                | '@' shift(*Id, 'TT_CAPT_CURSOR')
                 | shift(*Real, 'TT_FLIT')
                 | shift(*Integer, 'TT_ILIT')
                 | *call_or_id
@@ -226,8 +126,8 @@ primary = FENCE(  *String  Push_qlit()
 postfix_expr = *primary
                FENCE(  $'[' *alt_expr $'+:' *alt_expr $']' reduce('TT_IDX', 2) reduce('TT_IDX', 2)
                          FENCE($'[' *alt_expr $'+:' *alt_expr $']' reduce('TT_IDX', 2) reduce('TT_IDX', 2) | epsilon)
-                      | $'[' nPush() *X_sub $']' Decompose_sub() nPop()
-                         FENCE($'[' nPush() *X_sub $']' Decompose_sub() nPop() | epsilon)
+                      | $'[' nPush() nInc() *X_sub $']' reduce('TT_IDX', nTop_count) nPop()
+                         FENCE($'[' nPush() nInc() *X_sub $']' reduce('TT_IDX', nTop_count) nPop() | epsilon)
                       | *dot_capt    *primary reduce('TT_CAPT_COND_ASGN', 2)
                          FENCE(*dot_capt    *primary reduce('TT_CAPT_COND_ASGN', 2) | epsilon)
                       | *dollar_capt *primary reduce('TT_CAPT_IMMED_ASGN',  2)
@@ -349,348 +249,18 @@ rec_cmd  = nInc() *record_decl;
 blank    = $' ' nl;
 Command  = *func_cmd | *rec_cmd | *blank;
 Compiland = nPush() ARBNO(Command) reduce(Parse, nTop_count) nPop();
-label_n = 0;
-/* ==================================================================================================================== */
-function new_label() {
-    label_n = label_n + 1;
-    new_label = 'rb_' label_n;
-    return;
-}
-/* ==================================================================================================================== */
-function emit_subj(s) {
-    TDump(Tree('STMT', '', 1, Tree(':subj', '', 1, s)));
-    return;
-}
-/* ==================================================================================================================== */
-function emit_go(tgt) {
-    TDump(Tree('STMT', '', 1, Tree(':go', tgt)));
-    return;
-}
-/* ==================================================================================================================== */
-function emit_lbl(lbl) {
-    TDump(Tree('STMT', '', 1, Tree(':lbl', lbl)));
-    return;
-}
-/* ==================================================================================================================== */
-function emit_assign(lhs, rhs) {
-    TDump(Tree('STMT', '', 3,
-               Tree(':eq',   ''),
-               Tree(':subj', '', 1, lhs),
-               Tree(':repl', '', 1, rhs)));
-    return;
-}
-/* ==================================================================================================================== */
-function emit_match(lhs, rhs) {
-    TDump(Tree('STMT', '', 2,
-               Tree(':subj', '', 1, lhs),
-               Tree(':pat',  '', 1, rhs)));
-    return;
-}
-/* ==================================================================================================================== */
-function emit_subj_goSF(s, sLbl, fLbl) {
-    TDump(Tree('STMT', '', 3,
-               Tree(':subj', '', 1, s),
-               Tree(':goS', sLbl),
-               Tree(':goF', fLbl)));
-    return;
-}
-/* ==================================================================================================================== */
-function emit_subj_goS(s, lbl) {
-    TDump(Tree('STMT', '', 2,
-               Tree(':subj', '', 1, s),
-               Tree(':goS', lbl)));
-    return;
-}
-/* ==================================================================================================================== */
-function emit_replace(s, p, r) {
-    TDump(Tree('STMT', '', 3,
-               Tree(':subj', '', 1, s),
-               Tree(':pat',  '', 1, p),
-               Tree(':repl', '', 1, r)));
-    return;
-}
-/* ==================================================================================================================== */
-function lower_case(x, lEnd, lNext, lMatch, tempVar, tempExpr, tmpN, i, cl, ck) {
-    lEnd    = new_label();
-    tmpN    = label_n;
-    tempVar = 'rb_case_' tmpN;
-    tempExpr = tree('TT_VAR', tempVar);
-    TDump(Tree('STMT', '', 1,
-               Tree(':subj', '', 1,
-                    Tree('TT_ASSIGN', '', 2, tempExpr, lower_atom(c(x)[1])))));
-    i = 1;
-    lNext = '';
-    while (i = LT(i, n(x)) i + 1) {
-        cl = c(x)[i];
-        ck = t(cl);
-        if (DIFFER(lNext)) { emit_lbl(lNext); lNext = ''; }
-        if (IDENT(ck, 'CASE_DEFAULT')) {
-            lower_stmt(c(cl)[1]);
-            emit_go(lEnd);
-        } else {
-            lMatch = new_label();
-            lNext  = new_label();
-            emit_subj_goSF(Tree('TT_FNC', 'IDENT', 2, tempExpr, lower_atom(c(cl)[1])), lMatch, lNext);
-            emit_lbl(lMatch);
-            lower_stmt(c(cl)[2]);
-            emit_go(lEnd);
-        }
-    }
-    if (DIFFER(lNext)) emit_lbl(lNext);
-    emit_lbl(lEnd);
-    return;
-}
-/* ==================================================================================================================== */
-function lower_atom(x, k, acc, i, idxN, idxBase, idxI) {
-    k = t(x);
-    if (IDENT(k, 'TT_VAR'))       lower_atom = tree('TT_VAR', REPLACE(v(x), &LCASE, &UCASE));
-    else if (IDENT(k, 'TT_ILIT')) lower_atom = x;
-    else if (IDENT(k, 'TT_QLIT')) lower_atom = x;
-    else if (IDENT(k, 'TT_FLIT')) lower_atom = x;
-    else if (IDENT(k, 'TT_KEYWORD')) lower_atom = tree('TT_KEYWORD', REPLACE(v(x), &LCASE, &UCASE));
-    else if (IDENT(k, 'TT_FNC')) {
-        acc = tree('TT_FNC', v(x));
-        i = 0;
-        while (i = LT(i, n(x)) i + 1) acc = Append(acc, lower_atom(c(x)[i]));
-        lower_atom = acc;
-    }
-    else if (IDENT(k, 'TT_MNS')) {
-        lower_atom = Tree('TT_MNS', '', 1, lower_atom(c(x)[1]));
-    }
-    else if (IDENT(k, 'TT_POS')) lower_atom = lower_atom(c(x)[1]);
-    else if (IDENT(k, 'TT_ADD')) lower_atom = Tree('TT_ADD', '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'TT_SUB')) lower_atom = Tree('TT_SUB', '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'TT_MUL')) lower_atom = Tree('TT_MUL', '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'TT_DIV')) lower_atom = Tree('TT_DIV', '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'TT_CAT')) lower_atom = Tree('TT_CAT', '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_EQ')) lower_atom = Tree('TT_FNC', 'EQ',     2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_NE')) lower_atom = Tree('TT_FNC', 'NE',     2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_LT')) lower_atom = Tree('TT_FNC', 'LT',     2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_LE')) lower_atom = Tree('TT_FNC', 'LE',     2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_GT')) lower_atom = Tree('TT_FNC', 'GT',     2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_GE')) lower_atom = Tree('TT_FNC', 'GE',     2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_SEQ')) lower_atom = Tree('TT_FNC', 'IDENT',  2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_SNE')) lower_atom = Tree('TT_FNC', 'DIFFER', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_SLT')) lower_atom = Tree('TT_FNC', 'LLT',   2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_SLE')) lower_atom = Tree('TT_FNC', 'LLE',   2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_SGT')) lower_atom = Tree('TT_FNC', 'LGT',   2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'CMP_SGE')) lower_atom = Tree('TT_FNC', 'LGE',   2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'TT_POW'))   lower_atom = Tree('TT_POW', '',      2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'REMDR'))   lower_atom = Tree('TT_FNC', 'REMDR', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'TT_IDX')) {
-        idxN = n(x);
-        idxBase = lower_atom(c(x)[1]);
-        if (EQ(idxN, 2)) lower_atom = Tree('TT_IDX', '', 2, idxBase, lower_atom(c(x)[2]));
-        else {
-            lower_atom = Tree('TT_IDX', '', 1, idxBase);
-            idxI = 2;
-            while (GE(idxI, 0) LT(idxI, idxN + 1)) {
-                lower_atom = Append(lower_atom, lower_atom(c(x)[idxI]));
-                idxI = idxI + 1;
-            }
-        }
-    }
-    else if (IDENT(k, 'TT_CAPT_COND_ASGN')) {
-        if (EQ(n(x), 1)) lower_atom = Tree('TT_CAPT_COND_ASGN', '', 2, tree('TT_NUL', ''), lower_atom(c(x)[1]));
-        else lower_atom = Tree('TT_CAPT_COND_ASGN', '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    }
-    else if (IDENT(k, 'TT_CAPT_IMMED_ASGN'))
-        lower_atom = Tree('TT_CAPT_IMMED_ASGN',  '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'TT_NOTPAT'))  lower_atom = Tree('TT_FNC', 'DIFFER',  1, lower_atom(c(x)[1]));
-    else if (IDENT(k, 'TT_BANGPAT')) lower_atom = Tree('TT_ITERATE', '',     1, lower_atom(c(x)[1]));
-    else if (IDENT(k, 'TT_VALUEPAT')) lower_atom = Tree('TT_FNC', 'IDENT',  1, lower_atom(c(x)[1]));
-    else if (IDENT(k, 'TT_INDIRECT')) lower_atom = Tree('TT_INDIRECT', '',   1, lower_atom(c(x)[1]));
-    else if (IDENT(k, 'TT_CAPT_CURSOR')) lower_atom = x;
-    else if (IDENT(k, 'ALT')) {
-        if (EQ(n(x), 1)) lower_atom = lower_atom(c(x)[1]);
-        else {
-            acc = tree('TT_ALT', '', 0, NULL);
-            i = 0;
-            while (i = LT(i, n(x)) i + 1) acc = Append(acc, lower_atom(c(x)[i]));
-            lower_atom = acc;
-        }
-    }
-    else if (IDENT(k, 'ADDASSIGN'))
-        lower_atom = Tree('TT_ASSIGN', '', 2, lower_atom(c(x)[1]), Tree('TT_ADD', '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])));
-    else if (IDENT(k, 'SUBASSIGN'))
-        lower_atom = Tree('TT_ASSIGN', '', 2, lower_atom(c(x)[1]), Tree('TT_SUB', '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])));
-    else if (IDENT(k, 'CATASSIGN'))
-        lower_atom = Tree('TT_ASSIGN', '', 2, lower_atom(c(x)[1]), Tree('TT_CAT', '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])));
-    else if (IDENT(k, 'EXCHG'))
-        lower_atom = Tree('TT_FNC', 'EXCHG', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else lower_atom = x;
-    return;
-}
-/* ==================================================================================================================== */
-function lower_stmt(x, k, lblS, lblF, lblM, forVar, forStep) {
-    k = t(x);
-    if (IDENT(k, 'ASSIGN'))          emit_assign(lower_atom(c(x)[1]), lower_atom(c(x)[2]));
-    else if (IDENT(k, 'ADDASSIGN'))  emit_assign(lower_atom(c(x)[1]), Tree('TT_ADD', '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])));
-    else if (IDENT(k, 'SUBASSIGN'))  emit_assign(lower_atom(c(x)[1]), Tree('TT_SUB', '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])));
-    else if (IDENT(k, 'CATASSIGN'))  emit_assign(lower_atom(c(x)[1]), Tree('TT_CAT', '', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])));
-    else if (IDENT(k, 'EXCHG'))      TDump(Tree('STMT', '', 1, Tree(':subj', '', 1, Tree('TT_FNC', 'EXCHG', 2, lower_atom(c(x)[1]), lower_atom(c(x)[2])))));
-    else if (IDENT(k, 'MATCH'))      { emit_match(lower_atom(c(x)[1]), lower_atom(c(x)[2])); }
-    else if (IDENT(k, 'REPLACE'))    emit_replace(lower_atom(c(x)[1]), lower_atom(c(x)[2]), lower_atom(c(x)[3]));
-    else if (IDENT(k, 'REPLN'))      emit_replace(lower_atom(c(x)[1]), lower_atom(c(x)[2]), tree('TT_NUL', ''));
-    else if (IDENT(k, 'RB_RETURN'))  emit_go('RETURN');
-    else if (IDENT(k, 'RB_RETURN_VAL')) {
-        emit_assign(tree('TT_VAR', curFname), lower_atom(c(x)[1]));
-        emit_go('RETURN');
-    }
-    else if (IDENT(k, 'RB_FAIL'))    emit_go('FRETURN');
-    else if (IDENT(k, 'RB_STOP'))    TDump(Tree('STMT', '', 1, Tree(':end', '')));
-    else if (IDENT(k, 'RB_EXIT'))    TDump(Tree('STMT', '', 1, Tree(':end', '')));
-    else if (IDENT(k, 'RB_NEXT'))    { }
-    else if (IDENT(k, 'IF')) {
-        lblS = new_label();
-        lblF = new_label();
-        lblM = new_label();
-        emit_subj_goSF(tree('TT_NUL', ''), lblS, lblF);
-        emit_lbl(lblS);
-        lower_stmt(c(x)[1]);
-        emit_go(lblM);
-        emit_lbl(lblF);
-        lower_stmt(c(x)[2]);
-        emit_lbl(lblM);
-    }
-    else if (IDENT(k, 'WHILE')) {
-        lblS = new_label();
-        lblM = new_label();
-        lblF = new_label();
-        emit_lbl(lblS);
-        emit_subj_goSF(tree('TT_NUL', ''), lblM, lblF);
-        emit_lbl(lblM);
-        lower_stmt(c(x)[1]);
-        emit_go(lblS);
-        emit_lbl(lblF);
-    }
-    else if (IDENT(k, 'UNLESS')) {
-        lblF = new_label();
-        lblS = new_label();
-        emit_subj_goSF(tree('TT_NUL', ''), lblS, lblF);
-        emit_lbl(lblF);
-        lower_stmt(c(x)[1]);
-        emit_lbl(lblS);
-    }
-    else if (IDENT(k, 'UNTIL')) {
-        lblS = new_label();
-        lblF = new_label();
-        lblM = new_label();
-        emit_lbl(lblS);
-        emit_subj_goSF(tree('TT_NUL', ''), lblM, lblF);
-        emit_lbl(lblF);
-        lower_stmt(c(x)[1]);
-        emit_go(lblS);
-        emit_lbl(lblM);
-    }
-    else if (IDENT(k, 'REPEAT')) {
-        lblS = new_label();
-        lblM = new_label();
-        emit_lbl(lblS);
-        emit_go(lblS);
-        emit_lbl(lblM);
-    }
-    else if (IDENT(k, 'IFELSE')) {
-        lblS = new_label();
-        lblF = new_label();
-        lblM = new_label();
-        emit_subj_goSF(tree('TT_NUL', ''), lblS, lblF);
-        emit_lbl(lblS);
-        lower_stmt(c(x)[1]);
-        emit_go(lblM);
-        emit_lbl(lblF);
-        lower_stmt(c(x)[2]);
-        emit_lbl(lblM);
-    }
-    else if (IDENT(k, 'RB_FOR')) {
-        forVar  = lower_atom(c(x)[1]);
-        forStep = (EQ(n(x), 4) lower_atom(c(x)[4]), Tree('TT_ILIT', '1'));
-        lblS = new_label();
-        lblM = new_label();
-        TDump(Tree('STMT', '', 1, Tree(':subj', '', 1, Tree('TT_ASSIGN', '', 2, forVar, lower_atom(c(x)[2])))));
-        emit_lbl(lblS);
-        emit_subj_goS(Tree('TT_FNC', 'GT', 2, forVar, lower_atom(c(x)[3])), lblM);
-        TDump(Tree('STMT', '', 1, Tree(':subj', '', 1, Tree('TT_ASSIGN', '', 2, forVar, Tree('TT_ADD', '', 2, forVar, forStep)))));
-        emit_go(lblS);
-        emit_lbl(lblM);
-    }
-    else if (IDENT(k, 'RB_CASE'))       lower_case(x);
-    else if (IDENT(k, 'COMPOUND')) {
-        i = 0;
-        while (i = LT(i, n(x)) i + 1) lower_stmt(c(x)[i]);
-    }
-    else                            emit_subj(lower_atom(x));
-    return;
-}
-curFname = '';
-/* ==================================================================================================================== */
-function lower_function_decl(x, nm, pm, lc, init, bd, fname, pstr, lstr, i, lbl) {
-    nm    = c(x)[1];
-    pm    = c(x)[2];
-    lc    = c(x)[3];
-    init  = c(x)[4];
-    bd    = c(x)[5];
-    fname = REPLACE(v(nm), &LCASE, &UCASE);
-    curFname = fname;
-    pstr  = '';
-    i = 0;
-    while (i = LT(i, n(pm)) i + 1)
-        pstr = pstr (GT(i, 1) ',', '') REPLACE(v(c(pm)[i]), &LCASE, &UCASE);
-    lstr  = '';
-    i = 0;
-    while (i = LT(i, n(lc)) i + 1)
-        lstr = lstr (GT(i, 1) ',', '') REPLACE(v(c(lc)[i]), &LCASE, &UCASE);
-    emit_subj(Tree('TT_FNC', 'DEFINE', 1, tree('TT_QLIT', fname '(' pstr ')' (DIFFER(lstr) '/' lstr, ''))));
-    lbl = new_label();
-    emit_go(lbl);
-    emit_lbl(fname);
-    if (DIFFER(n(init), 0)) {
-        lblS = new_label();
-        initVar = 'rb_init_' fname;
-        TDump(Tree('STMT', '', 2,
-                   Tree(':subj', '', 1, tree('TT_VAR', initVar)),
-                   Tree(':goS', lblS)));
-        lower_stmt(c(init)[1]);
-        emit_subj(Tree('TT_ASSIGN', '', 2, tree('TT_VAR', initVar), tree('TT_ILIT', '1')));
-        emit_lbl(lblS);
-    }
-    i = 0;
-    while (i = LT(i, n(bd)) i + 1)
-        lower_stmt(c(bd)[i]);
-    emit_go('RETURN');
-    emit_lbl(lbl);
-    return;
-}
-/* ==================================================================================================================== */
-function lower_record_decl(x, nm, fd, fname, fstr, i) {
-    nm    = c(x)[1];
-    fd    = c(x)[2];
-    fname = REPLACE(v(nm), &LCASE, &UCASE);
-    fstr  = '';
-    i = 0;
-    while (i = LT(i, n(fd)) i + 1)
-        fstr = fstr (GT(i, 1) ',', '') REPLACE(v(c(fd)[i]), &LCASE, &UCASE);
-    emit_subj(Tree('TT_FNC', 'DATA', 1, tree('TT_QLIT', fname '(' fstr ')')));
-    return;
-}
-/* ==================================================================================================================== */
-function lower_decl(x, k) {
-    k = t(x);
-    if (IDENT(k, 'FUNC_DECL')) lower_function_decl(x);
-    else if (IDENT(k, 'REC_DECL'))  lower_record_decl(x);
-    return;
-}
 InitCounter();
 InitStack();
 Src = '';
 while (Line = INPUT) Src = Src Line nl;
 if (Src ? Compiland) {
-    parseRoot = Pop();
-    if (DIFFER(parseRoot)) {
-        i = 0;
-        while (i = LT(i, n(parseRoot)) i + 1) lower_decl(c(parseRoot)[i]);
-        emit_subj(tree('TT_FNC', 'MAIN'));
+    ptree = Pop();
+    if (DIFFER(ptree)) {
+        i = 1;
+        n_kids = n(ptree);
+        while (LE(i, n_kids)) {
+            TDump(c(ptree)[i]);
+            i = i + 1;
+        }
     }
-} else {
-    OUTPUT = 'Parse Error';
-}
+} else OUTPUT = 'Parse Error';
