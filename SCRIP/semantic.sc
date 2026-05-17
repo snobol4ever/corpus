@@ -1,7 +1,7 @@
 OPSYN('~', 'shift', 2);
 OPSYN('&', 'reduce', 2);
 /* ==================================================================================================================== */
-/* _qtag wraps a tag-name (e.g. 'TT_VAR') in the outer quotes needed by EVAL.
+/* qtag wraps a tag-name (e.g. 'TT_VAR') in the outer quotes needed by EVAL.
  *
  * Fast-paths (in order):
  *   1. empty             -> "''"
@@ -18,33 +18,33 @@ OPSYN('&', 'reduce', 2);
  * SL-2 follow-on (2026-05-17): added fast-path 4 to unblock all six
  * SCRIP-hosted parsers, which were hanging at load time when SQize
  * looped on identifier inputs.  The pure SQize bug is separate (tracked
- * as SL-3); _qtag's fast-path avoids triggering it for the common case.
+ * as SL-3); qtag's fast-path avoids triggering it for the common case.
  *
  * The apos-check uses REPLACE rather than pattern matching because
  * SCRIP's runtime has a separate bug where BREAK("'") / ARB "'" /
  * ARB ANY("'") all spuriously succeed on inputs that contain no
  * apostrophe — a SCRIP-runtime issue tracked as SL-4.  REPLACE works. */
-function _qtag(t) {
-    if (SIZE(t) == 0)                    { _qtag = "''"; return; }
-    if (IDENT(SUBSTR(t, 1, 1), "'"))     { _qtag = t;    return; }   // already 'tag'
-    if (IDENT(SUBSTR(t, 1, 1), '"'))     { _qtag = t;    return; }   // already "tag"
-    if (IDENT(REPLACE(t, "'", ""), t))   { _qtag = "'" t "'"; return; }   // identifier-shape
-    _qtag = SQize(t);
+function qtag(t) {
+    if (SIZE(t) == 0)                    { qtag = "''"; return; }
+    if (IDENT(SUBSTR(t, 1, 1), "'"))     { qtag = t;    return; }   // already 'tag'
+    if (IDENT(SUBSTR(t, 1, 1), '"'))     { qtag = t;    return; }   // already "tag"
+    if (IDENT(REPLACE(t, "'", ""), t))   { qtag = "'" t "'"; return; }   // identifier-shape
+    qtag = SQize(t);
     return;
 }
 /* ==================================================================================================================== */
 function shift(p, t) {
-    shift = EVAL("p . thx . *Shift(" _qtag(t) ", thx)");
+    shift = EVAL("p . thx . *Shift(" qtag(t) ", thx)");
     return;
 }
 /* ==================================================================================================================== */
 function reduce(t, n) {
-    reduce = EVAL("epsilon . *Reduce(" _qtag(t) ", " n ")");
+    reduce = EVAL("epsilon . *Reduce(" qtag(t) ", " n ")");
     return;
 }
 /* ==================================================================================================================== */
 function foldop(t) {
-    foldop = EVAL("epsilon . *FoldOp(" _qtag(t) ")");
+    foldop = EVAL("epsilon . *FoldOp(" qtag(t) ")");
     return;
 }
 /* ==================================================================================================================== */
