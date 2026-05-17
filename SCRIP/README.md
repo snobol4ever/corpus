@@ -68,6 +68,25 @@ scrip --ir-run \
 | `parser_icon.sc`    | `GOAL-PARSER-ICON.md`    | written under PARSER-IC-0 |
 | `parser_prolog.sc`  | `GOAL-PARSER-PROLOG.md`  | written under PARSER-PR-0 |
 
+### Per-language helper sidecars (transitional)
+
+A handful of helpers that were taken out of parser files during the
+PST cleanup live in sidecars and are loaded by
+`one4all/scripts/run_scrip_parser.sh` alongside the parser:
+
+| File | Loaded with | Contents |
+|------|-------------|----------|
+| `icon_helpers.sc` | `parser_icon.sc`  | 4 leaf-push helpers (`push_qlit`, `push_cset`, `push_flit`, `push_kw`) + `notmatch` redef of `match.sc` |
+| `raku_helpers.sc` | `parser_raku.sc`  | `push_interp_str`, `dq_unescape`, 9 `finish_*` counter-based variable-arity assemblers |
+
+The sidecars exist because the helpers cannot yet be expressed as
+inline `shift`/`reduce` actions — the `finish_*` ones use
+`TopCounter`-driven loops and need a function body, and the leaf
+constructors hold pattern-match-time literal-typing decisions. They
+will fold into the SCRIP runtime or into the grammar once that side
+stabilises. Today only `parser_rebus.sc` is genuinely sidecar-free
+(no `rebus_helpers.sc` exists); the others still need theirs.
+
 ### Smoke test
 
 `smoke.sc` loads the runtime and verifies a Shift/Pop round-trip plus
