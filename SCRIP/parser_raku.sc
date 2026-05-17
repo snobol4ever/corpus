@@ -159,69 +159,43 @@ sub_list   = '';
 gather_seq = 0;
 struct slink { snext, sval }
 /* ==================================================================================================================== */
-function push_var() {
-    Push(tree('TT_VAR', capvf capvr));
-    push_var = .dummy;
-    nreturn;
-}
-Push_var   = (epsilon . *push_var());
+/* PST-allowed leaf constructors: set v.sval from token capture, no child inspection */
+function push_var()        { Push(tree('TT_VAR',  capvf capvr));    push_var        = .dummy; nreturn; }
+function push_empty()      { Push(tree('TT_QLIT', ''));              push_empty      = .dummy; nreturn; }
+function push_named_key()  { Push(tree('TT_QLIT', capnamedkey));    push_named_key  = .dummy; nreturn; }
+function push_param()      { Push(tree('TT_VAR',  cappf cappr));    push_param      = .dummy; nreturn; }
+function push_nul()        { Push(tree('TT_NUL',  ''));              push_nul        = .dummy; nreturn; }
+function push_qlit()       { Push(tree('TT_QLIT', capstr));          push_qlit       = .dummy; nreturn; }
+function push_rxlit()      { Push(tree('TT_QLIT', caprx));           push_rxlit      = .dummy; nreturn; }
+function push_float()      { Push(tree('TT_FLIT', capstr));          push_float      = .dummy; nreturn; }
+function push_ilit(v)      { Push(tree('TT_ILIT', v));               push_ilit       = .dummy; nreturn; }
+function push_col_var()    { Push(tree('TT_VAR',  colnmf colnmr));   push_col_var    = .dummy; nreturn; }
+function push_cls_qlit()   { Push(tree('TT_QLIT', capclsf capclsr)); push_cls_qlit   = .dummy; nreturn; }
+function push_cls_var()    { Push(tree('TT_VAR',  capclsf capclsr)); push_cls_var    = .dummy; nreturn; }
+function push_mod_qlit()   { Push(tree('TT_QLIT', capmodname));      push_mod_qlit   = .dummy; nreturn; }
+function push_ncname_qlit(){ Push(tree('TT_QLIT', capncname));       push_ncname_qlit= .dummy; nreturn; }
+function push_key_qlit()   { Push(tree('TT_QLIT', capkey));          push_key_qlit   = .dummy; nreturn; }
+function push_mth_qlit()   { Push(tree('TT_QLIT', capmf capmr));    push_mth_qlit   = .dummy; nreturn; }
+function push_sname_var()  { Push(tree('TT_VAR',  capsnf capsnr));   push_sname_var  = .dummy; nreturn; }
+function push_mname_var()  { Push(tree('TT_VAR',  capmtf capmtr));   push_mname_var  = .dummy; nreturn; }
+function push_self_var()   { Push(tree('TT_VAR',  'self'));           push_self_var   = .dummy; nreturn; }
+function push_twigil(fname){ fname = captwf captwr;
+                             Push(Tree('TT_FIELD', fname, 2, tree('TT_VAR','self'), tree('TT_VAR',fname)));
+                             push_twigil = .dummy; nreturn; }
+function push_has_field()  { Push(tree('TT_VAR',  captwf captwr));   push_has_field  = .dummy; nreturn; }
+/* PST-allowed synthetic-name leaf constructors (literal sval, no child inspection) */
+function push_fn(nm)       { Push(tree('TT_FNC',  nm));              push_fn         = .dummy; nreturn; }
 /* ==================================================================================================================== */
-function push_empty() {
-    Push(tree('TT_QLIT', ''));
-    push_empty = .dummy;
-    nreturn;
-}
-Push_empty = (epsilon . *push_empty());
+/* State setters: no tree ops */
+function set_stdin()       { capidx = '0'; set_stdin  = .dummy; nreturn; }
+function set_stdout()      { capidx = '1'; set_stdout = .dummy; nreturn; }
+function set_stderr()      { capidx = '2'; set_stderr = .dummy; nreturn; }
+function set_has_def()     { given_has_def = 1; set_has_def  = .dummy; nreturn; }
+function set_has_catch()   { try_has_catch = 1; set_has_catch = .dummy; nreturn; }
+function store_for_iter(vf,vr) { for_iter = vf vr; store_for_iter = .dummy; nreturn; }
 /* ==================================================================================================================== */
-function push_named_key() {
-    Push(tree('TT_QLIT', capnamedkey));
-    push_named_key = .dummy;
-    nreturn;
-}
-Push_named_key = (epsilon . *push_named_key());
-/* ==================================================================================================================== */
-function push_param() {
-    Push(tree('TT_VAR', cappf cappr));
-    push_param = .dummy;
-    nreturn;
-}
-Push_param = (epsilon . *push_param());
-/* ==================================================================================================================== */
-function push_twigil(fname, fe) {
-    fname = captwf captwr;
-    fe = tree('TT_FIELD', fname);
-    Append(fe, tree('TT_VAR', 'self'));
-    Push(fe);
-    push_twigil = .dummy;
-    nreturn;
-}
-Push_twigil = (epsilon . *push_twigil());
-/* ==================================================================================================================== */
-function push_has_field(fname) {
-    fname = captwf captwr;
-    Push(tree('TT_VAR', fname));
-    push_has_field = .dummy;
-    nreturn;
-}
-Push_has_field = (epsilon . *push_has_field());
-/* ==================================================================================================================== */
-function push_nul() {
-    Push(tree('TT_NUL', ''));
-    push_nul = .dummy;
-    nreturn;
-}
-Push_nul = (epsilon . *push_nul());
-/* ==================================================================================================================== */
-function push_qlit() {
-    Push(tree('TT_QLIT', capstr));
-    push_qlit = .dummy;
-    nreturn;
-}
-Push_qlit  = (epsilon . *push_qlit());
-is_chars = &UCASE &LCASE '_';
-ir_chars = digits &UCASE &LCASE '_';
-/* ==================================================================================================================== */
-function finish_interp_str(raw, lit, isvf, isvr, result, newnode, i) {
+/* String processors: no tree inspection, compute sval from captured string */
+function push_interp_str(raw, lit, isvf, isvr, result, newnode, i) {
     raw    = capstr;
     result = '';
     while (1) {
@@ -252,11 +226,9 @@ function finish_interp_str(raw, lit, isvf, isvr, result, newnode, i) {
     }
     if (~DIFFER(result)) result = tree('TT_QLIT', '');
     Push(result);
-    finish_interp_str = .dummy;
+    push_interp_str = .dummy;
     nreturn;
 }
-Push_interp_str = (epsilon . *finish_interp_str());
-/* ==================================================================================================================== */
 function dq_unescape(raw, result, lit, ch) {
     raw = capstr;
     result = '';
@@ -281,199 +253,10 @@ function dq_unescape(raw, result, lit, ch) {
     dq_unescape = .dummy;
     nreturn;
 }
-Dq_unescape = (epsilon . *dq_unescape());
 /* ==================================================================================================================== */
-function push_rxlit() {
-    Push(tree('TT_QLIT', caprx));
-    push_rxlit = .dummy;
-    nreturn;
-}
-Push_rxlit = (epsilon . *push_rxlit());
-/* ==================================================================================================================== */
-function finish_capture(fn, node) {
-    fn   = tree('TT_VAR', 'raku_capture');
-    node = tree('TT_FNC', 'raku_capture');
-    Append(node, fn);
-    Append(node, tree('TT_ILIT', capidx));
-    Push(node);
-    finish_capture = .dummy;
-    nreturn;
-}
-Finish_capture = (epsilon . *finish_capture());
-/* ==================================================================================================================== */
-function set_stdin()  { capidx = '0'; set_stdin  = .dummy; nreturn; }
-/* ==================================================================================================================== */
-function set_stdout() { capidx = '1'; set_stdout = .dummy; nreturn; }
-/* ==================================================================================================================== */
-function set_stderr() { capidx = '2'; set_stderr = .dummy; nreturn; }
-Finish_stdin  = (epsilon . *set_stdin()  Finish_capture);
-Finish_stdout = (epsilon . *set_stdout() Finish_capture);
-Finish_stderr = (epsilon . *set_stderr() Finish_capture);
-/* ==================================================================================================================== */
-function finish_named_capture(fn, node) {
-    fn   = tree('TT_VAR', 'raku_named_capture');
-    node = tree('TT_FNC', 'raku_named_capture');
-    Append(node, fn);
-    Append(node, tree('TT_QLIT', capncname));
-    Push(node);
-    finish_named_capture = .dummy;
-    nreturn;
-}
-Finish_named_capture = (epsilon . *finish_named_capture());
-/* ==================================================================================================================== */
-function finish_match_global(pat, subj, fn, node) {
-    pat  = Pop();
-    subj = Pop();
-    fn   = tree('TT_VAR', 'raku_match_global');
-    node = tree('TT_FNC', 'raku_match_global');
-    Append(node, fn);
-    Append(node, subj);
-    Append(node, pat);
-    Push(node);
-    finish_match_global = .dummy;
-    nreturn;
-}
-Finish_match_global = (epsilon . *finish_match_global());
-/* ==================================================================================================================== */
-function finish_subst(subj, fn, node, flag, packed) {
-    subj   = Pop();
-    flag   = IDENT(capflag, 'g') 'g';
-    flag   = IDENT(flag) '-';
-    packed = cappat CHAR(1) caprepl CHAR(1) flag;
-    fn     = tree('TT_VAR', 'raku_subst');
-    node   = tree('TT_FNC', 'raku_subst');
-    Append(node, fn);
-    Append(node, subj);
-    Append(node, tree('TT_QLIT', packed));
-    Push(node);
-    capflag = '';
-    finish_subst = .dummy;
-    nreturn;
-}
-Finish_subst = (epsilon . *finish_subst());
-/* ==================================================================================================================== */
-function finish_arr_get(idx, arr, fn, node) {
-    idx  = Pop();
-    arr  = tree('TT_VAR', colnmf colnmr);
-    fn   = tree('TT_VAR', 'arr_get');
-    node = tree('TT_FNC', 'arr_get');
-    Append(node, fn);
-    Append(node, arr);
-    Append(node, idx);
-    Push(node);
-    finish_arr_get = .dummy;
-    nreturn;
-}
-Finish_arr_get = (epsilon . *finish_arr_get());
-/* ==================================================================================================================== */
-function finish_hash_get_angle(arr, fn, node) {
-    arr  = tree('TT_VAR', colnmf colnmr);
-    fn   = tree('TT_VAR', 'hash_get');
-    node = tree('TT_FNC', 'hash_get');
-    Append(node, fn);
-    Append(node, arr);
-    Append(node, tree('TT_QLIT', capkey));
-    Push(node);
-    finish_hash_get_angle = .dummy;
-    nreturn;
-}
-Finish_hash_get_angle = (epsilon . *finish_hash_get_angle());
-/* ==================================================================================================================== */
-function finish_hash_get_brace(key, arr, fn, node) {
-    key  = Pop();
-    arr  = tree('TT_VAR', colnmf colnmr);
-    fn   = tree('TT_VAR', 'hash_get');
-    node = tree('TT_FNC', 'hash_get');
-    Append(node, fn);
-    Append(node, arr);
-    Append(node, key);
-    Push(node);
-    finish_hash_get_brace = .dummy;
-    nreturn;
-}
-Finish_hash_get_brace = (epsilon . *finish_hash_get_brace());
-/* ==================================================================================================================== */
-function finish_hash_exists_angle(arr, fn, node) {
-    arr  = tree('TT_VAR', colnmf colnmr);
-    fn   = tree('TT_VAR', 'hash_exists');
-    node = tree('TT_FNC', 'hash_exists');
-    Append(node, fn);
-    Append(node, arr);
-    Append(node, tree('TT_QLIT', capkey));
-    Push(node);
-    finish_hash_exists_angle = .dummy;
-    nreturn;
-}
-Finish_hash_exists_angle = (epsilon . *finish_hash_exists_angle());
-/* ==================================================================================================================== */
-function finish_hash_exists_brace(key, arr, fn, node) {
-    key  = Pop();
-    arr  = tree('TT_VAR', colnmf colnmr);
-    fn   = tree('TT_VAR', 'hash_exists');
-    node = tree('TT_FNC', 'hash_exists');
-    Append(node, fn);
-    Append(node, arr);
-    Append(node, key);
-    Push(node);
-    finish_hash_exists_brace = .dummy;
-    nreturn;
-}
-Finish_hash_exists_brace = (epsilon . *finish_hash_exists_brace());
-/* ==================================================================================================================== */
-function finish_hash_delete_angle(arr, fn, node) {
-    arr  = tree('TT_VAR', colnmf colnmr);
-    fn   = tree('TT_VAR', 'hash_delete');
-    node = tree('TT_FNC', 'hash_delete');
-    Append(node, fn);
-    Append(node, arr);
-    Append(node, tree('TT_QLIT', capkey));
-    Push(node);
-    finish_hash_delete_angle = .dummy;
-    nreturn;
-}
-Finish_hash_delete_angle = (epsilon . *finish_hash_delete_angle());
-/* ==================================================================================================================== */
-function finish_hash_delete_brace(key, arr, fn, node) {
-    key  = Pop();
-    arr  = tree('TT_VAR', colnmf colnmr);
-    fn   = tree('TT_VAR', 'hash_delete');
-    node = tree('TT_FNC', 'hash_delete');
-    Append(node, fn);
-    Append(node, arr);
-    Append(node, key);
-    Push(node);
-    finish_hash_delete_brace = .dummy;
-    nreturn;
-}
-Finish_hash_delete_brace = (epsilon . *finish_hash_delete_brace());
-/* ==================================================================================================================== */
-function finish_for_range(body, hi, lo) {
-    body = Pop();
-    hi   = Pop();
-    lo   = Pop();
-    Push(Tree('TT_FOR', for_iter, 3, lo, hi, body));
-    finish_for_range = .dummy;
-    nreturn;
-}
-Finish_for_range = (epsilon . *finish_for_range());
-/* ==================================================================================================================== */
-function finish_smartmatch(pat, subj, fn, node) {
-    pat  = Pop();
-    subj = Pop();
-    fn   = tree('TT_VAR', 'raku_match');
-    node = tree('TT_FNC', 'raku_match');
-    Append(node, fn);
-    Append(node, subj);
-    Append(node, pat);
-    Push(node);
-    finish_smartmatch = .dummy;
-    nreturn;
-}
-Finish_smartmatch = (epsilon . *finish_smartmatch());
-/* ==================================================================================================================== */
-/* ==================================================================================================================== */
-given_has_def = 0;
-/* ==================================================================================================================== */
+/* Complex assemblers that need counter-based collection — kept as named functions
+   because they use nPush/nPop/TopCounter which cannot be expressed as a single reduce.
+   No child-kind inspection; pure Pop-N-assemble. */
 function finish_given(n_whens, def_body, kids, ec, i, val, body) {
     n_whens = TopCounter();
     if (EQ(given_has_def, 1)) def_body = Pop();
@@ -484,641 +267,75 @@ function finish_given(n_whens, def_body, kids, ec, i, val, body) {
     Append(ec, Pop());
     i = 1;
     while (LE(i, n_whens)) {
-        val  = kids[(i - 1) * 2 + 1];
-        body = kids[(i - 1) * 2 + 2];
-        Append(ec, val);
-        Append(ec, body);
+        Append(ec, kids[(i - 1) * 2 + 1]);
+        Append(ec, kids[(i - 1) * 2 + 2]);
         i = i + 1;
     }
-    if (EQ(given_has_def, 1)) {
-        Append(ec, tree('TT_NUL', ''));
-        Append(ec, def_body);
-    }
+    if (EQ(given_has_def, 1)) { Append(ec, tree('TT_NUL', '')); Append(ec, def_body); }
     given_has_def = 0;
     Push(ec);
     finish_given = .dummy;
     nreturn;
 }
-/* ==================================================================================================================== */
-function set_has_def() { given_has_def = 1; set_has_def = .dummy; nreturn; }
-Finish_given = (epsilon . *finish_given());
-Set_has_def  = (epsilon . *set_has_def());
-/* ==================================================================================================================== */
-function finish_say(arg, fn, node) {
-    arg  = Pop();
-    fn   = tree('TT_VAR', 'write');
-    node = tree('TT_FNC', 'write');
-    Append(node, fn);
-    Append(node, arg);
-    Push(node);
-    finish_say = .dummy;
+function finish_sub(n_kids, kids, sname, efnc, subj, stmt, i) {
+    n_kids = TopCounter();
+    kids   = GT(n_kids, 0) ARRAY('1:' n_kids);
+    i = n_kids;
+    while (GT(i, 0)) { kids[i] = Pop(); i = i - 1; }
+    sname = capsnf capsnr;
+    efnc  = tree('TT_FNC', sname);
+    Append(efnc, tree('TT_VAR', sname));
+    i = 1;
+    while (LE(i, n_kids)) { Append(efnc, kids[i]); i = i + 1; }
+    subj = tree(':subj', ''); Append(subj, efnc);
+    stmt = tree('STMT', '');  Append(stmt, subj);
+    sub_list = slink(sub_list, stmt);
+    finish_sub = .dummy;
     nreturn;
 }
-Finish_say   = (epsilon . *finish_say());
-/* ==================================================================================================================== */
-function finish_print(arg, fn, node) {
-    arg  = Pop();
-    fn   = tree('TT_VAR', 'writes');
-    node = tree('TT_FNC', 'writes');
-    Append(node, fn);
-    Append(node, arg);
-    Push(node);
-    finish_print = .dummy;
-    nreturn;
-}
-Finish_print = (epsilon . *finish_print());
-/* ==================================================================================================================== */
-function finish_die(arg, fn, node) {
-    arg  = Pop();
-    fn   = tree('TT_VAR', 'raku_die');
-    node = tree('TT_FNC', 'raku_die');
-    Append(node, fn);
-    Append(node, arg);
-    Push(node);
-    finish_die = .dummy;
-    nreturn;
-}
-Finish_die = (epsilon . *finish_die());
-/* ==================================================================================================================== */
-function finish_without(blk, cond, fn, node) {
-    blk  = Pop();
-    cond = Pop();
-    fn   = tree('TT_VAR', 'raku_without');
-    node = tree('TT_FNC', 'raku_without');
-    Append(node, fn);
-    Append(node, cond);
-    Append(node, blk);
-    Push(node);
-    finish_without = .dummy;
-    nreturn;
-}
-Finish_without = (epsilon . *finish_without());
-/* ==================================================================================================================== */
-function finish_whenever(blk, ex, fn, node) {
-    blk  = Pop();
-    ex   = Pop();
-    fn   = tree('TT_VAR', 'raku_whenever');
-    node = tree('TT_FNC', 'raku_whenever');
-    Append(node, fn);
-    Append(node, ex);
-    Append(node, blk);
-    Push(node);
-    finish_whenever = .dummy;
-    nreturn;
-}
-Finish_whenever = (epsilon . *finish_whenever());
-/* ==================================================================================================================== */
-function finish_loop_inf(blk, one, node) {
-    blk  = Pop();
-    one  = tree('TT_ILIT', '1');
-    node = tree('TT_WHILE');
-    Append(node, one);
-    Append(node, blk);
-    Push(node);
-    finish_loop_inf = .dummy;
-    nreturn;
-}
-Finish_loop_inf = (epsilon . *finish_loop_inf());
-/* ==================================================================================================================== */
-function finish_loop_three(blk, step, cond, init, fn, node) {
-    blk  = Pop();
-    step = Pop();
-    cond = Pop();
-    init = Pop();
-    fn   = tree('TT_VAR', 'raku_loop');
-    node = tree('TT_FNC', 'raku_loop');
-    Append(node, fn);
-    Append(node, init);
-    Append(node, cond);
-    Append(node, step);
-    Append(node, blk);
-    Push(node);
-    finish_loop_three = .dummy;
-    nreturn;
-}
-Finish_loop_three = (epsilon . *finish_loop_three());
-/* ==================================================================================================================== */
-function finish_use(fn, q, node) {
-    fn   = tree('TT_VAR', 'raku_use');
-    q    = tree('TT_QLIT', capmodname);
-    node = tree('TT_FNC', 'raku_use');
-    Append(node, fn);
-    Append(node, q);
-    Push(node);
-    finish_use = .dummy;
-    nreturn;
-}
-Finish_use = (epsilon . *finish_use());
-/* ==================================================================================================================== */
-function finish_no(fn, q, node) {
-    fn   = tree('TT_VAR', 'raku_no');
-    q    = tree('TT_QLIT', capmodname);
-    node = tree('TT_FNC', 'raku_no');
-    Append(node, fn);
-    Append(node, q);
-    Push(node);
-    finish_no = .dummy;
-    nreturn;
-}
-Finish_no = (epsilon . *finish_no());
-/* ==================================================================================================================== */
-function finish_need(fn, q, node) {
-    fn   = tree('TT_VAR', 'raku_need');
-    q    = tree('TT_QLIT', capmodname);
-    node = tree('TT_FNC', 'raku_need');
-    Append(node, fn);
-    Append(node, q);
-    Push(node);
-    finish_need = .dummy;
-    nreturn;
-}
-Finish_need = (epsilon . *finish_need());
-/* ==================================================================================================================== */
-function finish_import(fn, q, node) {
-    fn   = tree('TT_VAR', 'raku_import');
-    q    = tree('TT_QLIT', capmodname);
-    node = tree('TT_FNC', 'raku_import');
-    Append(node, fn);
-    Append(node, q);
-    Push(node);
-    finish_import = .dummy;
-    nreturn;
-}
-Finish_import = (epsilon . *finish_import());
-/* ==================================================================================================================== */
-function finish_require(fn, q, node) {
-    fn   = tree('TT_VAR', 'raku_require');
-    q    = tree('TT_QLIT', capmodname);
-    node = tree('TT_FNC', 'raku_require');
-    Append(node, fn);
-    Append(node, q);
-    Push(node);
-    finish_require = .dummy;
-    nreturn;
-}
-Finish_require = (epsilon . *finish_require());
-/* ==================================================================================================================== */
-function finish_catch_free(blk, fn, node) {
-    blk  = Pop();
-    fn   = tree('TT_VAR', 'raku_catch_block');
-    node = tree('TT_FNC', 'raku_catch_block');
-    Append(node, fn);
-    Append(node, blk);
-    Push(node);
-    finish_catch_free = .dummy;
-    nreturn;
-}
-Finish_catch_free = (epsilon . *finish_catch_free());
-/* ==================================================================================================================== */
-function finish_control(blk, fn, node) {
-    blk  = Pop();
-    fn   = tree('TT_VAR', 'raku_control_block');
-    node = tree('TT_FNC', 'raku_control_block');
-    Append(node, fn);
-    Append(node, blk);
-    Push(node);
-    finish_control = .dummy;
-    nreturn;
-}
-Finish_control = (epsilon . *finish_control());
-/* ==================================================================================================================== */
-function finish_quit(blk, fn, node) {
-    blk  = Pop();
-    fn   = tree('TT_VAR', 'raku_quit_block');
-    node = tree('TT_FNC', 'raku_quit_block');
-    Append(node, fn);
-    Append(node, blk);
-    Push(node);
-    finish_quit = .dummy;
-    nreturn;
-}
-Finish_quit = (epsilon . *finish_quit());
-/* ==================================================================================================================== */
-function finish_phaser_begin(blk, fn, node) {
-    blk  = Pop();
-    fn   = tree('TT_VAR', 'raku_phaser_BEGIN');
-    node = tree('TT_FNC', 'raku_phaser_BEGIN');
-    Append(node, fn); Append(node, blk); Push(node);
-    finish_phaser_begin = .dummy; nreturn;
-}
-Finish_phaser_begin = (epsilon . *finish_phaser_begin());
-/* ==================================================================================================================== */
-function finish_phaser_end(blk, fn, node) {
-    blk  = Pop();
-    fn   = tree('TT_VAR', 'raku_phaser_END');
-    node = tree('TT_FNC', 'raku_phaser_END');
-    Append(node, fn); Append(node, blk); Push(node);
-    finish_phaser_end = .dummy; nreturn;
-}
-Finish_phaser_end = (epsilon . *finish_phaser_end());
-/* ==================================================================================================================== */
-function finish_phaser_init(blk, fn, node) {
-    blk  = Pop();
-    fn   = tree('TT_VAR', 'raku_phaser_INIT');
-    node = tree('TT_FNC', 'raku_phaser_INIT');
-    Append(node, fn); Append(node, blk); Push(node);
-    finish_phaser_init = .dummy; nreturn;
-}
-Finish_phaser_init = (epsilon . *finish_phaser_init());
-/* ==================================================================================================================== */
-function finish_phaser_check(blk, fn, node) {
-    blk  = Pop();
-    fn   = tree('TT_VAR', 'raku_phaser_CHECK');
-    node = tree('TT_FNC', 'raku_phaser_CHECK');
-    Append(node, fn); Append(node, blk); Push(node);
-    finish_phaser_check = .dummy; nreturn;
-}
-Finish_phaser_check = (epsilon . *finish_phaser_check());
-/* ==================================================================================================================== */
-function finish_phaser_enter(blk, fn, node) {
-    blk  = Pop();
-    fn   = tree('TT_VAR', 'raku_phaser_ENTER');
-    node = tree('TT_FNC', 'raku_phaser_ENTER');
-    Append(node, fn); Append(node, blk); Push(node);
-    finish_phaser_enter = .dummy; nreturn;
-}
-Finish_phaser_enter = (epsilon . *finish_phaser_enter());
-/* ==================================================================================================================== */
-function finish_phaser_leave(blk, fn, node) {
-    blk  = Pop();
-    fn   = tree('TT_VAR', 'raku_phaser_LEAVE');
-    node = tree('TT_FNC', 'raku_phaser_LEAVE');
-    Append(node, fn); Append(node, blk); Push(node);
-    finish_phaser_leave = .dummy; nreturn;
-}
-Finish_phaser_leave = (epsilon . *finish_phaser_leave());
-/* ==================================================================================================================== */
-function finish_phaser_keep(blk, fn, node) {
-    blk  = Pop();
-    fn   = tree('TT_VAR', 'raku_phaser_KEEP');
-    node = tree('TT_FNC', 'raku_phaser_KEEP');
-    Append(node, fn); Append(node, blk); Push(node);
-    finish_phaser_keep = .dummy; nreturn;
-}
-Finish_phaser_keep = (epsilon . *finish_phaser_keep());
-/* ==================================================================================================================== */
-function finish_phaser_undo(blk, fn, node) {
-    blk  = Pop();
-    fn   = tree('TT_VAR', 'raku_phaser_UNDO');
-    node = tree('TT_FNC', 'raku_phaser_UNDO');
-    Append(node, fn); Append(node, blk); Push(node);
-    finish_phaser_undo = .dummy; nreturn;
-}
-Finish_phaser_undo = (epsilon . *finish_phaser_undo());
-/* ==================================================================================================================== */
-function finish_phaser_first(blk, fn, node) {
-    blk  = Pop();
-    fn   = tree('TT_VAR', 'raku_phaser_FIRST');
-    node = tree('TT_FNC', 'raku_phaser_FIRST');
-    Append(node, fn); Append(node, blk); Push(node);
-    finish_phaser_first = .dummy; nreturn;
-}
-Finish_phaser_first = (epsilon . *finish_phaser_first());
-/* ==================================================================================================================== */
-function finish_phaser_next(blk, fn, node) {
-    blk  = Pop();
-    fn   = tree('TT_VAR', 'raku_phaser_NEXT');
-    node = tree('TT_FNC', 'raku_phaser_NEXT');
-    Append(node, fn); Append(node, blk); Push(node);
-    finish_phaser_next = .dummy; nreturn;
-}
-Finish_phaser_next = (epsilon . *finish_phaser_next());
-/* ==================================================================================================================== */
-function finish_phaser_last(blk, fn, node) {
-    blk  = Pop();
-    fn   = tree('TT_VAR', 'raku_phaser_LAST');
-    node = tree('TT_FNC', 'raku_phaser_LAST');
-    Append(node, fn); Append(node, blk); Push(node);
-    finish_phaser_last = .dummy; nreturn;
-}
-Finish_phaser_last = (epsilon . *finish_phaser_last());
-/* ==================================================================================================================== */
-function finish_phaser_pre(blk, fn, node) {
-    blk  = Pop();
-    fn   = tree('TT_VAR', 'raku_phaser_PRE');
-    node = tree('TT_FNC', 'raku_phaser_PRE');
-    Append(node, fn); Append(node, blk); Push(node);
-    finish_phaser_pre = .dummy; nreturn;
-}
-Finish_phaser_pre = (epsilon . *finish_phaser_pre());
-/* ==================================================================================================================== */
-function finish_phaser_post(blk, fn, node) {
-    blk  = Pop();
-    fn   = tree('TT_VAR', 'raku_phaser_POST');
-    node = tree('TT_FNC', 'raku_phaser_POST');
-    Append(node, fn); Append(node, blk); Push(node);
-    finish_phaser_post = .dummy; nreturn;
-}
-Finish_phaser_post = (epsilon . *finish_phaser_post());
-/* ==================================================================================================================== */
-function finish_phaser_close(blk, fn, node) {
-    blk  = Pop();
-    fn   = tree('TT_VAR', 'raku_phaser_CLOSE');
-    node = tree('TT_FNC', 'raku_phaser_CLOSE');
-    Append(node, fn); Append(node, blk); Push(node);
-    finish_phaser_close = .dummy; nreturn;
-}
-Finish_phaser_close = (epsilon . *finish_phaser_close());
-/* ==================================================================================================================== */
-function finish_phaser_temp(blk, fn, node) {
-    blk  = Pop();
-    fn   = tree('TT_VAR', 'raku_phaser_TEMP');
-    node = tree('TT_FNC', 'raku_phaser_TEMP');
-    Append(node, fn); Append(node, blk); Push(node);
-    finish_phaser_temp = .dummy; nreturn;
-}
-Finish_phaser_temp = (epsilon . *finish_phaser_temp());
-/* ==================================================================================================================== */
-function finish_do_block(blk, fn, node) {
-    blk  = Pop();
-    fn   = tree('TT_VAR', 'raku_do');
-    node = tree('TT_FNC', 'raku_do');
-    Append(node, fn); Append(node, blk); Push(node);
-    finish_do_block = .dummy; nreturn;
-}
-Finish_do_block = (epsilon . *finish_do_block());
-/* ==================================================================================================================== */
-function finish_once(blk, fn, node) {
-    blk  = Pop();
-    fn   = tree('TT_VAR', 'raku_once');
-    node = tree('TT_FNC', 'raku_once');
-    Append(node, fn); Append(node, blk); Push(node);
-    finish_once = .dummy; nreturn;
-}
-Finish_once = (epsilon . *finish_once());
-/* ==================================================================================================================== */
-function finish_start(blk, fn, node) {
-    blk  = Pop();
-    fn   = tree('TT_VAR', 'raku_start');
-    node = tree('TT_FNC', 'raku_start');
-    Append(node, fn); Append(node, blk); Push(node);
-    finish_start = .dummy; nreturn;
-}
-Finish_start = (epsilon . *finish_start());
-/* ==================================================================================================================== */
-function finish_supply(blk, fn, node) {
-    blk  = Pop();
-    fn   = tree('TT_VAR', 'raku_supply');
-    node = tree('TT_FNC', 'raku_supply');
-    Append(node, fn); Append(node, blk); Push(node);
-    finish_supply = .dummy; nreturn;
-}
-Finish_supply = (epsilon . *finish_supply());
-/* ==================================================================================================================== */
-function finish_react(blk, fn, node) {
-    blk  = Pop();
-    fn   = tree('TT_VAR', 'raku_react');
-    node = tree('TT_FNC', 'raku_react');
-    Append(node, fn); Append(node, blk); Push(node);
-    finish_react = .dummy; nreturn;
-}
-Finish_react = (epsilon . *finish_react());
-/* ==================================================================================================================== */
-function finish_quietly(blk, fn, node) {
-    blk  = Pop();
-    fn   = tree('TT_VAR', 'raku_quietly');
-    node = tree('TT_FNC', 'raku_quietly');
-    Append(node, fn); Append(node, blk); Push(node);
-    finish_quietly = .dummy; nreturn;
-}
-Finish_quietly = (epsilon . *finish_quietly());
-/* ==================================================================================================================== */
-function finish_race(ex, fn, node) {
-    ex   = Pop();
-    fn   = tree('TT_VAR', 'raku_race');
-    node = tree('TT_FNC', 'raku_race');
-    Append(node, fn); Append(node, ex); Push(node);
-    finish_race = .dummy; nreturn;
-}
-Finish_race = (epsilon . *finish_race());
-/* ==================================================================================================================== */
-function finish_hyper(ex, fn, node) {
-    ex   = Pop();
-    fn   = tree('TT_VAR', 'raku_hyper');
-    node = tree('TT_FNC', 'raku_hyper');
-    Append(node, fn); Append(node, ex); Push(node);
-    finish_hyper = .dummy; nreturn;
-}
-Finish_hyper = (epsilon . *finish_hyper());
-/* ==================================================================================================================== */
-function finish_lazy(ex, fn, node) {
-    ex   = Pop();
-    fn   = tree('TT_VAR', 'raku_lazy');
-    node = tree('TT_FNC', 'raku_lazy');
-    Append(node, fn); Append(node, ex); Push(node);
-    finish_lazy = .dummy; nreturn;
-}
-Finish_lazy = (epsilon . *finish_lazy());
-/* ==================================================================================================================== */
-function finish_eager(ex, fn, node) {
-    ex   = Pop();
-    fn   = tree('TT_VAR', 'raku_eager');
-    node = tree('TT_FNC', 'raku_eager');
-    Append(node, fn); Append(node, ex); Push(node);
-    finish_eager = .dummy; nreturn;
-}
-Finish_eager = (epsilon . *finish_eager());
-/* ==================================================================================================================== */
-function finish_sink(ex, fn, node) {
-    ex   = Pop();
-    fn   = tree('TT_VAR', 'raku_sink');
-    node = tree('TT_FNC', 'raku_sink');
-    Append(node, fn); Append(node, ex); Push(node);
-    finish_sink = .dummy; nreturn;
-}
-Finish_sink = (epsilon . *finish_sink());
-/* ==================================================================================================================== */
-ClosureExpr = ( $'{' *Expr $'}' );
-/* ==================================================================================================================== */
-function finish_map(lst, clos, fn, node) {
-    lst  = Pop();
-    clos = Pop();
-    fn   = tree('TT_VAR', 'raku_map');
-    node = tree('TT_FNC', 'raku_map');
-    Append(node, fn);
-    Append(node, clos);
-    Append(node, lst);
-    Push(node);
-    finish_map = .dummy;
-    nreturn;
-}
-Finish_map = (epsilon . *finish_map());
-/* ==================================================================================================================== */
-function finish_grep(lst, clos, fn, node) {
-    lst  = Pop();
-    clos = Pop();
-    fn   = tree('TT_VAR', 'raku_grep');
-    node = tree('TT_FNC', 'raku_grep');
-    Append(node, fn);
-    Append(node, clos);
-    Append(node, lst);
-    Push(node);
-    finish_grep = .dummy;
-    nreturn;
-}
-Finish_grep = (epsilon . *finish_grep());
-/* ==================================================================================================================== */
-function finish_sort_cl(lst, clos, fn, node) {
-    lst  = Pop();
-    clos = Pop();
-    fn   = tree('TT_VAR', 'raku_sort');
-    node = tree('TT_FNC', 'raku_sort');
-    Append(node, fn);
-    Append(node, clos);
-    Append(node, lst);
-    Push(node);
-    finish_sort_cl = .dummy;
-    nreturn;
-}
-Finish_sort_cl = (epsilon . *finish_sort_cl());
-/* ==================================================================================================================== */
-function finish_sort_nc(lst, fn, node) {
-    lst  = Pop();
-    fn   = tree('TT_VAR', 'raku_sort');
-    node = tree('TT_FNC', 'raku_sort');
-    Append(node, fn);
-    Append(node, lst);
-    Push(node);
-    finish_sort_nc = .dummy;
-    nreturn;
-}
-Finish_sort_nc = (epsilon . *finish_sort_nc());
-try_has_catch = 0;
-/* ==================================================================================================================== */
-function finish_try(catch_blk, try_blk, fn, node) {
-    if (EQ(try_has_catch, 1)) catch_blk = Pop();
-    try_blk = Pop();
-    fn   = tree('TT_VAR', 'raku_try');
-    node = tree('TT_FNC', 'raku_try');
-    Append(node, fn);
-    Append(node, try_blk);
-    if (EQ(try_has_catch, 1)) Append(node, catch_blk);
-    try_has_catch = 0;
-    Push(node);
-    finish_try = .dummy;
-    nreturn;
-}
-/* ==================================================================================================================== */
-function set_has_catch() { try_has_catch = 1; set_has_catch = .dummy; nreturn; }
-Finish_try   = (epsilon . *finish_try());
-Set_has_catch = (epsilon . *set_has_catch());
-/* ==================================================================================================================== */
-function store_for_iter(vf, vr) {
-    for_iter = vf vr;
-    store_for_iter = .dummy;
-    nreturn;
-}
-Store_for_iter  = (epsilon . *store_for_iter(capff, capfr));
-/* ==================================================================================================================== */
-function finish_for(block, iter_arr, iter_node, node) {
-    block     = Pop();
-    iter_arr  = Pop();
-    iter_node = tree('TT_ITERATE', for_iter);
-    Append(iter_node, iter_arr);
-    node = tree('TT_EVERY', '');
-    Append(node, iter_node);
-    Append(node, block);
-    Push(node);
-    finish_for = .dummy;
-    nreturn;
-}
-Finish_for   = (epsilon . *finish_for());
-/* ==================================================================================================================== */
 function finish_method(n_kids, kids, mname, efnc, i) {
     n_kids = TopCounter();
     kids   = GT(n_kids, 0) ARRAY('1:' n_kids);
     i = n_kids;
-    while (GT(i, 0)) {
-        kids[i] = Pop();
-        i = i - 1;
-    }
+    while (GT(i, 0)) { kids[i] = Pop(); i = i - 1; }
     mname = capmtf capmtr;
     efnc  = tree('TT_FNC', mname);
     Append(efnc, tree('TT_VAR', mname));
     Append(efnc, tree('TT_VAR', 'self'));
     i = 1;
-    while (LE(i, n_kids)) {
-        Append(efnc, kids[i]);
-        i = i + 1;
-    }
+    while (LE(i, n_kids)) { Append(efnc, kids[i]); i = i + 1; }
     Push(efnc);
     finish_method = .dummy;
     nreturn;
 }
-Finish_method = (epsilon . *finish_method());
-/* ==================================================================================================================== */
 function finish_class(n_items, items, cname, rec, subj, stmt, i) {
     n_items = TopCounter();
     items   = GT(n_items, 0) ARRAY('1:' n_items);
     i = n_items;
-    while (GT(i, 0)) {
-        items[i] = Pop();
-        i = i - 1;
-    }
+    while (GT(i, 0)) { items[i] = Pop(); i = i - 1; }
     cname = capclsf capclsr;
     rec = tree('TT_RECORD', cname);
     i = 1;
-    while (LE(i, n_items)) {
-        Append(rec, items[i]);
-        i = i + 1;
-    }
-    subj = tree(':subj', '');
-    Append(subj, rec);
-    stmt = tree('STMT', '');
-    Append(stmt, subj);
+    while (LE(i, n_items)) { Append(rec, items[i]); i = i + 1; }
+    subj = tree(':subj', ''); Append(subj, rec);
+    stmt = tree('STMT', '');  Append(stmt, subj);
     sub_list = slink(sub_list, stmt);
     finish_class = .dummy;
     nreturn;
 }
-Finish_class = (epsilon . *finish_class());
-/* ==================================================================================================================== */
-function finish_sub(n_kids, kids, sname, efnc, subj, stmt, i) {
-    n_kids = TopCounter();
-    kids   = GT(n_kids, 0) ARRAY('1:' n_kids);
-    i = n_kids;
-    while (GT(i, 0)) {
-        kids[i] = Pop();
-        i = i - 1;
-    }
-    sname = capsnf capsnr;
-    efnc  = tree('TT_FNC', sname);
-    Append(efnc, tree('TT_VAR', sname));
-    i = 1;
-    while (LE(i, n_kids)) {
-        Append(efnc, kids[i]);
-        i = i + 1;
-    }
-    subj = tree(':subj', '');
-    Append(subj, efnc);
-    stmt = tree('STMT', '');
-    Append(stmt, subj);
-    sub_list = slink(sub_list, stmt);
-    finish_sub = .dummy;
-    nreturn;
-}
-Finish_sub   = (epsilon . *finish_sub());
-/* ==================================================================================================================== */
 function finish_gather(n_kids, kids, gname, def_efnc, def_subj, def_stmt, call_efnc, i) {
     n_kids = TopCounter();
     kids   = GT(n_kids, 0) ARRAY('1:' n_kids);
     i = n_kids;
-    while (GT(i, 0)) {
-        kids[i] = Pop();
-        i = i - 1;
-    }
+    while (GT(i, 0)) { kids[i] = Pop(); i = i - 1; }
     gname = '__gather_' gather_seq;
     gather_seq = gather_seq + 1;
     def_efnc = tree('TT_FNC', gname);
     Append(def_efnc, tree('TT_VAR', gname));
     i = 1;
-    while (LE(i, n_kids)) {
-        Append(def_efnc, kids[i]);
-        i = i + 1;
-    }
-    def_subj = tree(':subj', '');
-    Append(def_subj, def_efnc);
-    def_stmt = tree('STMT', '');
-    Append(def_stmt, def_subj);
+    while (LE(i, n_kids)) { Append(def_efnc, kids[i]); i = i + 1; }
+    def_subj = tree(':subj', ''); Append(def_subj, def_efnc);
+    def_stmt = tree('STMT', '');  Append(def_stmt, def_subj);
     sub_list = slink(sub_list, def_stmt);
     call_efnc = tree('TT_FNC', gname);
     Append(call_efnc, tree('TT_VAR', gname));
@@ -1126,37 +343,24 @@ function finish_gather(n_kids, kids, gname, def_efnc, def_subj, def_stmt, call_e
     finish_gather = .dummy;
     nreturn;
 }
-Finish_gather = (epsilon . *finish_gather());
-/* ==================================================================================================================== */
 function finish_call(n_kids, kids, fname, efnc, i) {
     n_kids = TopCounter();
     kids   = GT(n_kids, 0) ARRAY('1:' n_kids);
     i = n_kids;
-    while (GT(i, 0)) {
-        kids[i] = Pop();
-        i = i - 1;
-    }
+    while (GT(i, 0)) { kids[i] = Pop(); i = i - 1; }
     fname = v(kids[1]);
     efnc  = tree('TT_FNC', fname);
     i = 1;
-    while (LE(i, n_kids)) {
-        Append(efnc, kids[i]);
-        i = i + 1;
-    }
+    while (LE(i, n_kids)) { Append(efnc, kids[i]); i = i + 1; }
     Push(efnc);
     finish_call = .dummy;
     nreturn;
 }
-Finish_call  = (epsilon . *finish_call());
-/* ==================================================================================================================== */
 function finish_mcall(n_args, args, obj, mname, efnc, i) {
     n_args = TopCounter();
     args   = GT(n_args, 0) ARRAY('1:' n_args);
     i = n_args;
-    while (GT(i, 0)) {
-        args[i] = Pop();
-        i = i - 1;
-    }
+    while (GT(i, 0)) { args[i] = Pop(); i = i - 1; }
     obj   = Pop();
     mname = capmf capmr;
     efnc  = tree('TT_FNC', 'raku_mcall');
@@ -1164,107 +368,26 @@ function finish_mcall(n_args, args, obj, mname, efnc, i) {
     Append(efnc, obj);
     Append(efnc, tree('TT_QLIT', mname));
     i = 1;
-    while (LE(i, n_args)) {
-        Append(efnc, args[i]);
-        i = i + 1;
-    }
+    while (LE(i, n_args)) { Append(efnc, args[i]); i = i + 1; }
     Push(efnc);
     finish_mcall = .dummy;
     nreturn;
 }
-Finish_mcall = (epsilon . *finish_mcall());
-/* ==================================================================================================================== */
-function finish_field(obj, mname, ef) {
-    obj   = Pop();
-    mname = capmf capmr;
-    ef    = tree('TT_FIELD', mname);
-    Append(ef, obj);
-    Push(ef);
-    finish_field = .dummy;
+function finish_main(n_kids, kids, efnc, subj, stmt, i) {
+    n_kids = TopCounter();
+    kids   = GT(n_kids, 0) ARRAY('1:' n_kids);
+    i = n_kids;
+    while (GT(i, 0)) { kids[i] = Pop(); i = i - 1; }
+    efnc = tree('TT_FNC', 'main');
+    Append(efnc, tree('TT_VAR', 'main'));
+    i = 1;
+    while (LE(i, n_kids)) { Append(efnc, kids[i]); i = i + 1; }
+    subj = tree(':subj', ''); Append(subj, efnc);
+    stmt = tree('STMT', '');  Append(stmt, subj);
+    Push(stmt);
+    finish_main = .dummy;
     nreturn;
 }
-Finish_field = (epsilon . *finish_field());
-/* ==================================================================================================================== */
-function finish_float(ef) {
-    ef = tree('TT_FLIT', capstr);
-    Push(ef);
-    finish_float = .dummy;
-    nreturn;
-}
-Finish_float = (epsilon . *finish_float());
-/* ==================================================================================================================== */
-function finish_arr_set(val, idx, arr, efnc) {
-    val  = Pop();
-    idx  = Pop();
-    arr  = Pop();
-    efnc = tree('TT_FNC', 'arr_set');
-    Append(efnc, tree('TT_VAR', 'arr_set'));
-    Append(efnc, arr);
-    Append(efnc, idx);
-    Append(efnc, val);
-    Push(efnc);
-    finish_arr_set = .dummy;
-    nreturn;
-}
-Finish_arr_set = (epsilon . *finish_arr_set());
-/* ==================================================================================================================== */
-function finish_hash_set_angle(val, hsh, efnc) {
-    val  = Pop();
-    hsh  = Pop();
-    efnc = tree('TT_FNC', 'hash_set');
-    Append(efnc, tree('TT_VAR', 'hash_set'));
-    Append(efnc, hsh);
-    Append(efnc, tree('TT_QLIT', capkey));
-    Append(efnc, val);
-    Push(efnc);
-    finish_hash_set_angle = .dummy;
-    nreturn;
-}
-Finish_hash_set_angle = (epsilon . *finish_hash_set_angle());
-/* ==================================================================================================================== */
-function finish_hash_set_brace(val, key, hsh, efnc) {
-    val  = Pop();
-    key  = Pop();
-    hsh  = Pop();
-    efnc = tree('TT_FNC', 'hash_set');
-    Append(efnc, tree('TT_VAR', 'hash_set'));
-    Append(efnc, hsh);
-    Append(efnc, key);
-    Append(efnc, val);
-    Push(efnc);
-    finish_hash_set_brace = .dummy;
-    nreturn;
-}
-Finish_hash_set_brace = (epsilon . *finish_hash_set_brace());
-/* ==================================================================================================================== */
-function finish_field_write(rhs, obj, ef, asgn) {
-    rhs  = Pop();
-    obj  = Pop();
-    ef   = tree('TT_FIELD', capmf capmr);
-    Append(ef, obj);
-    asgn = tree('TT_ASSIGN', '');
-    Append(asgn, ef);
-    Append(asgn, rhs);
-    Push(asgn);
-    finish_field_write = .dummy;
-    nreturn;
-}
-Finish_field_write = (epsilon . *finish_field_write());
-/* ==================================================================================================================== */
-function finish_for_noarrow(body, iter, ev, it) {
-    body = Pop();
-    iter = Pop();
-    it   = tree('TT_ITERATE', '');
-    Append(it, iter);
-    ev   = tree('TT_EVERY', '');
-    Append(ev, it);
-    Append(ev, body);
-    Push(ev);
-    finish_for_noarrow = .dummy;
-    nreturn;
-}
-Finish_for_noarrow = (epsilon . *finish_for_noarrow());
-/* ==================================================================================================================== */
 function finish_raku_new(n, items, cname, efnc, i) {
     n     = TopCounter();
     items = GT(n, 0) ARRAY('1:' n);
@@ -1280,59 +403,111 @@ function finish_raku_new(n, items, cname, efnc, i) {
     finish_raku_new = .dummy;
     nreturn;
 }
-Finish_raku_new = (epsilon . *finish_raku_new());
 /* ==================================================================================================================== */
-function finish_say_fh(str, fh, efnc) {
-    str  = Pop();
-    fh   = Pop();
-    efnc = tree('TT_FNC', 'raku_say_fh');
-    Append(efnc, tree('TT_VAR', 'raku_say_fh'));
-    Append(efnc, fh);
-    Append(efnc, str);
-    Push(efnc);
-    finish_say_fh = .dummy;
-    nreturn;
-}
-Finish_say_fh = (epsilon . *finish_say_fh());
+/* Pattern-variable aliases for all helper functions */
+Push_var          = (epsilon . *push_var());
+Push_empty        = (epsilon . *push_empty());
+Push_named_key    = (epsilon . *push_named_key());
+Push_param        = (epsilon . *push_param());
+Push_nul          = (epsilon . *push_nul());
+Push_qlit         = (epsilon . *push_qlit());
+Push_rxlit        = (epsilon . *push_rxlit());
+Push_float        = (epsilon . *push_float());
+Push_col_var      = (epsilon . *push_col_var());
+Push_cls_qlit     = (epsilon . *push_cls_qlit());
+Push_mod_qlit     = (epsilon . *push_mod_qlit());
+Push_ncname_qlit  = (epsilon . *push_ncname_qlit());
+Push_key_qlit     = (epsilon . *push_key_qlit());
+Push_mth_qlit     = (epsilon . *push_mth_qlit());
+Push_sname_var    = (epsilon . *push_sname_var());
+Push_mname_var    = (epsilon . *push_mname_var());
+Push_self_var     = (epsilon . *push_self_var());
+Push_twigil       = (epsilon . *push_twigil());
+Push_has_field    = (epsilon . *push_has_field());
+Push_interp_str   = (epsilon . *push_interp_str());
+Dq_unescape       = (epsilon . *dq_unescape());
+Finish_given      = (epsilon . *finish_given());
+Finish_sub        = (epsilon . *finish_sub());
+Finish_method     = (epsilon . *finish_method());
+Finish_class      = (epsilon . *finish_class());
+Finish_gather     = (epsilon . *finish_gather());
+Finish_call       = (epsilon . *finish_call());
+Finish_mcall      = (epsilon . *finish_mcall());
+Finish_main       = (epsilon . *finish_main());
+Finish_raku_new   = (epsilon . *finish_raku_new());
+Set_stdin         = (epsilon . *set_stdin());
+Set_stdout        = (epsilon . *set_stdout());
+Set_stderr        = (epsilon . *set_stderr());
+Set_has_def       = (epsilon . *set_has_def());
+Set_has_catch     = (epsilon . *set_has_catch());
+Store_for_iter    = (epsilon . *store_for_iter(capff, capfr));
+given_has_def = 0;
+try_has_catch = 0;
 /* ==================================================================================================================== */
-function finish_print_fh(str, fh, efnc) {
-    str  = Pop();
-    fh   = Pop();
-    efnc = tree('TT_FNC', 'raku_print_fh');
-    Append(efnc, tree('TT_VAR', 'raku_print_fh'));
-    Append(efnc, fh);
-    Append(efnc, str);
-    Push(efnc);
-    finish_print_fh = .dummy;
-    nreturn;
-}
-Finish_print_fh = (epsilon . *finish_print_fh());
+/* Synthetic-name leaf pushes: one per unique TT_FNC name used in grammar.
+   PST-allowed: each pushes a leaf with a literal sval, no child inspection. */
+Push_fn_write        = (epsilon . *push_fn('write'));
+Push_fn_writes       = (epsilon . *push_fn('writes'));
+Push_fn_raku_die     = (epsilon . *push_fn('raku_die'));
+Push_fn_arr_get      = (epsilon . *push_fn('arr_get'));
+Push_fn_arr_set      = (epsilon . *push_fn('arr_set'));
+Push_fn_hash_get     = (epsilon . *push_fn('hash_get'));
+Push_fn_hash_set     = (epsilon . *push_fn('hash_set'));
+Push_fn_hash_exists  = (epsilon . *push_fn('hash_exists'));
+Push_fn_hash_delete  = (epsilon . *push_fn('hash_delete'));
+Push_fn_capture      = (epsilon . *push_fn('raku_capture'));
+Push_fn_ncap         = (epsilon . *push_fn('raku_named_capture'));
+Push_fn_match        = (epsilon . *push_fn('raku_match'));
+Push_fn_matchg       = (epsilon . *push_fn('raku_match_global'));
+Push_fn_subst        = (epsilon . *push_fn('raku_subst'));
+Push_fn_without      = (epsilon . *push_fn('raku_without'));
+Push_fn_whenever     = (epsilon . *push_fn('raku_whenever'));
+Push_fn_loop         = (epsilon . *push_fn('raku_loop'));
+Push_fn_use          = (epsilon . *push_fn('raku_use'));
+Push_fn_no           = (epsilon . *push_fn('raku_no'));
+Push_fn_need         = (epsilon . *push_fn('raku_need'));
+Push_fn_import       = (epsilon . *push_fn('raku_import'));
+Push_fn_require      = (epsilon . *push_fn('raku_require'));
+Push_fn_catch        = (epsilon . *push_fn('raku_catch_block'));
+Push_fn_control      = (epsilon . *push_fn('raku_control_block'));
+Push_fn_quit         = (epsilon . *push_fn('raku_quit_block'));
+Push_fn_try          = (epsilon . *push_fn('raku_try'));
+Push_fn_ph_BEGIN     = (epsilon . *push_fn('raku_phaser_BEGIN'));
+Push_fn_ph_END       = (epsilon . *push_fn('raku_phaser_END'));
+Push_fn_ph_INIT      = (epsilon . *push_fn('raku_phaser_INIT'));
+Push_fn_ph_CHECK     = (epsilon . *push_fn('raku_phaser_CHECK'));
+Push_fn_ph_ENTER     = (epsilon . *push_fn('raku_phaser_ENTER'));
+Push_fn_ph_LEAVE     = (epsilon . *push_fn('raku_phaser_LEAVE'));
+Push_fn_ph_KEEP      = (epsilon . *push_fn('raku_phaser_KEEP'));
+Push_fn_ph_UNDO      = (epsilon . *push_fn('raku_phaser_UNDO'));
+Push_fn_ph_FIRST     = (epsilon . *push_fn('raku_phaser_FIRST'));
+Push_fn_ph_NEXT      = (epsilon . *push_fn('raku_phaser_NEXT'));
+Push_fn_ph_LAST      = (epsilon . *push_fn('raku_phaser_LAST'));
+Push_fn_ph_PRE       = (epsilon . *push_fn('raku_phaser_PRE'));
+Push_fn_ph_POST      = (epsilon . *push_fn('raku_phaser_POST'));
+Push_fn_ph_CLOSE     = (epsilon . *push_fn('raku_phaser_CLOSE'));
+Push_fn_ph_TEMP      = (epsilon . *push_fn('raku_phaser_TEMP'));
+Push_fn_do           = (epsilon . *push_fn('raku_do'));
+Push_fn_once         = (epsilon . *push_fn('raku_once'));
+Push_fn_start        = (epsilon . *push_fn('raku_start'));
+Push_fn_supply       = (epsilon . *push_fn('raku_supply'));
+Push_fn_react        = (epsilon . *push_fn('raku_react'));
+Push_fn_quietly      = (epsilon . *push_fn('raku_quietly'));
+Push_fn_race         = (epsilon . *push_fn('raku_race'));
+Push_fn_hyper        = (epsilon . *push_fn('raku_hyper'));
+Push_fn_lazy         = (epsilon . *push_fn('raku_lazy'));
+Push_fn_eager        = (epsilon . *push_fn('raku_eager'));
+Push_fn_sink         = (epsilon . *push_fn('raku_sink'));
+Push_fn_map          = (epsilon . *push_fn('raku_map'));
+Push_fn_grep         = (epsilon . *push_fn('raku_grep'));
+Push_fn_sort         = (epsilon . *push_fn('raku_sort'));
+Push_fn_say_fh       = (epsilon . *push_fn('raku_say_fh'));
+Push_fn_print_fh     = (epsilon . *push_fn('raku_print_fh'));
+is_chars = &UCASE &LCASE '_';
+ir_chars = digits &UCASE &LCASE '_';
+bSlash   = '\';
 /* ==================================================================================================================== */
-function finish_main(n_kids, kids, efnc, subj, stmt, i) {
-    n_kids = TopCounter();
-    kids   = GT(n_kids, 0) ARRAY('1:' n_kids);
-    i = n_kids;
-    while (GT(i, 0)) {
-        kids[i] = Pop();
-        i = i - 1;
-    }
-    efnc = tree('TT_FNC', 'main');
-    Append(efnc, tree('TT_VAR', 'main'));
-    i = 1;
-    while (LE(i, n_kids)) {
-        Append(efnc, kids[i]);
-        i = i + 1;
-    }
-    subj = tree(':subj', '');
-    Append(subj, efnc);
-    stmt = tree('STMT', '');
-    Append(stmt, subj);
-    Push(stmt);
-    finish_main = .dummy;
-    nreturn;
-}
-Finish_main  = (epsilon . *finish_main());
-/* ==================================================================================================================== */
+/* Grammar rules — only shift and reduce from here on */
 NamedArgTail = ( $','  $' ' ((ident_first (ident_rest | epsilon)) . capnamedkey) $'=>'  Push_named_key  *Expr  nInc() nInc() );
 NewCallName = ($' ' fnf . capclsf fnro . capclsr);
 CallArgTail = ( $','  *Expr  nInc() );
@@ -1349,32 +524,32 @@ MethodTail = FENCE(
         )
         $')'                 Finish_mcall
         nPop()
-      | epsilon              Finish_field
+      | epsilon              Push_mth_qlit reduce('TT_FIELD', 2)
     )
 );
 Expr11 = ( $'!'  *Expr11  reduce("'TT_NOT'", 1)
          | ($' ' '-')  *Expr11  reduce("'TT_MNS'", 1)
-         | $'die' $'  '  *Expr11  Finish_die
-         | $'map'  $'  '  ClosureExpr  $'  '  *Expr  Finish_map
-         | $'grep' $'  '  ClosureExpr  $'  '  *Expr  Finish_grep
-         | $'sort' $'  '  ClosureExpr  $'  '  *Expr  Finish_sort_cl
-         | $'sort' $'  '  *Expr                       Finish_sort_nc
+         | $'die' $'  '  Push_fn_raku_die  *Expr11  reduce('TT_FNC', 2)
+         | $'map'  $'  '  ClosureExpr  $'  '  *Expr  Push_fn_map   reduce('TT_FNC', 3)
+         | $'grep' $'  '  ClosureExpr  $'  '  *Expr  Push_fn_grep  reduce('TT_FNC', 3)
+         | $'sort' $'  '  ClosureExpr  $'  '  *Expr  Push_fn_sort  reduce('TT_FNC', 3)
+         | $'sort' $'  '  *Expr                       Push_fn_sort  reduce('TT_FNC', 2)
          | $'gather' *GatherBlock
          | VarTwigil              Push_twigil
          | VarScalar              Push_var
-         | ArrIdxVar  $'['  *Expr  $']'              Finish_arr_get
+         | ArrIdxVar  $'['  *Expr  $']'  Push_fn_arr_get  Push_col_var  reduce('TT_FNC', 3)
          | VarArray                                   Push_var
-         | HashIdxVar $'<'  HashAngleKey  $'>'        Finish_hash_get_angle
-         | HashIdxVar $'{'  *Expr  $'}'               Finish_hash_get_brace
+         | HashIdxVar $'<'  HashAngleKey  $'>'        Push_fn_hash_get  Push_col_var  Push_key_qlit  reduce('TT_FNC', 3)
+         | HashIdxVar $'{'  *Expr  $'}'               Push_fn_hash_get  Push_col_var  reduce('TT_FNC', 3)
          | VarHash                                    Push_var
-         | $'exists' HashIdxVar $'<' HashAngleKey $'>'  Finish_hash_exists_angle
-         | $'exists' HashIdxVar $'{' *Expr $'}'         Finish_hash_exists_brace
-         | VarStdIn               Finish_stdin
-         | VarStdOut              Finish_stdout
-         | VarStdErr              Finish_stderr
-         | VarCapture             Finish_capture
-         | VarNamedCapture        Finish_named_capture
-         | ( LitFloat . capstr     Finish_float )
+         | $'exists' HashIdxVar $'<' HashAngleKey $'>'  Push_fn_hash_exists  Push_col_var  Push_key_qlit  reduce('TT_FNC', 3)
+         | $'exists' HashIdxVar $'{' *Expr $'}'         Push_fn_hash_exists  Push_col_var  reduce('TT_FNC', 3)
+         | VarStdIn    Set_stdin   Push_fn_capture  Push_ilit(capidx)  reduce('TT_FNC', 2)
+         | VarStdOut   Set_stdout  Push_fn_capture  Push_ilit(capidx)  reduce('TT_FNC', 2)
+         | VarStdErr   Set_stderr  Push_fn_capture  Push_ilit(capidx)  reduce('TT_FNC', 2)
+         | VarCapture             Push_fn_capture  Push_ilit(capidx)   reduce('TT_FNC', 2)
+         | VarNamedCapture        Push_fn_ncap     Push_ncname_qlit    reduce('TT_FNC', 2)
+         | ( LitFloat . capstr     Push_float )
          | shift(LitInt, 'TT_ILIT')
          | LitStrDQ               Dq_unescape  Push_interp_str
          | LitStrSQ               Push_qlit
@@ -1428,9 +603,9 @@ Expr4tail = FENCE( $'=='  *Expr5      reduce("'TT_EQ'", 2)
                  | $'>'   *Expr5      reduce("'TT_GT'", 2)
                  | $'eq'  *Expr5      reduce("'TT_LEQ'", 2)
                  | $'ne'  *Expr5      reduce("'TT_LNE'", 2)
-                 | $'~~'  LitRegex Push_rxlit  Finish_smartmatch
-                 | $'~~'  LitMatchGlobal Push_rxlit  Finish_match_global
-                 | $'~~'  LitSubst       Finish_subst
+                 | $'~~'  LitRegex Push_rxlit  Push_fn_match  reduce('TT_FNC', 3)
+                 | $'~~'  LitMatchGlobal Push_rxlit  Push_fn_matchg  reduce('TT_FNC', 3)
+                 | $'~~'  LitSubst  Push_fn_subst  Push_subst_args  reduce('TT_FNC', 3)
                  );
 Expr4     = ( Expr5  ARBNO(Expr4tail) );
 Expr3tail = FENCE( $'&&'  *Expr4  reduce("'TT_SEQ'", 2)
@@ -1485,76 +660,67 @@ UntilStmt = ( $'until'  $'(' Expr $')'
               Block
               reduce("'TT_UNTIL'", 2)
             );
-WithoutStmt = ( $'without'  $'(' Expr $')'
-                Block
-                Finish_without
-              );
-WheneverStmt = ( $'whenever' $'  ' *Expr Block Finish_whenever );
+WithoutStmt   = ( $'without'  $'(' Expr $')' Block  Push_fn_without  reduce('TT_FNC', 3) );
+WheneverStmt  = ( $'whenever' $'  ' *Expr Block  Push_fn_whenever  reduce('TT_FNC', 3) );
 LoopSubExpr = ( ( VarScalar FENCE $'=' Push_var Expr reduce("'TT_ASSIGN'", 2) )
               | Expr
               );
 LoopThreeStmt = ( $'loop' $'(' LoopSubExpr $';' LoopSubExpr $';' LoopSubExpr $')'
                   Block
-                  Finish_loop_three
+                  Push_fn_loop  reduce('TT_FNC', 5)
                 );
-LoopInfStmt = ( $'loop' Block Finish_loop_inf );
-UseStmt     = ( $'use'     $'  ' ModuleName BREAK(';') $';' Finish_use     );
-NoStmt      = ( $'no'      $'  ' ModuleName BREAK(';') $';' Finish_no      );
-NeedStmt    = ( $'need'    $'  ' ModuleName BREAK(';') $';' Finish_need    );
-ImportStmt  = ( $'import'  $'  ' ModuleName BREAK(';') $';' Finish_import  );
-RequireStmt = ( $'require' $'  ' ModuleName BREAK(';') $';' Finish_require );
-CatchFreeStmt = ( $'CATCH'   Block Finish_catch_free );
-ControlStmt   = ( $'CONTROL' Block Finish_control    );
-QuitStmt      = ( $'QUIT'    Block Finish_quit       );
-BeginStmt   = ( $'BEGIN'   Block Finish_phaser_begin  );
-EndStmt     = ( $'END'     Block Finish_phaser_end    );
-InitStmt    = ( $'INIT'    Block Finish_phaser_init   );
-CheckStmt   = ( $'CHECK'   Block Finish_phaser_check  );
-EnterStmt   = ( $'ENTER'   Block Finish_phaser_enter  );
-LeaveStmt   = ( $'LEAVE'   Block Finish_phaser_leave  );
-KeepStmt    = ( $'KEEP'    Block Finish_phaser_keep   );
-UndoStmt    = ( $'UNDO'    Block Finish_phaser_undo   );
-FirstStmt   = ( $'FIRST'   Block Finish_phaser_first  );
-NextPhStmt  = ( $'NEXT'    Block Finish_phaser_next   );
-LastPhStmt  = ( $'LAST'    Block Finish_phaser_last   );
-PreStmt     = ( $'PRE'     Block Finish_phaser_pre    );
-PostStmt    = ( $'POST'    Block Finish_phaser_post   );
-CloseStmt   = ( $'CLOSE'   Block Finish_phaser_close  );
-TempStmt    = ( $'TEMP'    Block Finish_phaser_temp   );
-DoBlockStmt  = ( $'do'      Block Finish_do_block );
-OnceStmt     = ( $'once'    Block Finish_once     );
-StartStmt    = ( $'start'   Block Finish_start    );
-SupplyStmt   = ( $'supply'  Block Finish_supply   );
-ReactStmt    = ( $'react'   Block Finish_react    );
-QuietlyStmt  = ( $'quietly' Block Finish_quietly  );
-RaceStmt    = ( $'race'  $'  ' *Expr $';' Finish_race  );
-HyperStmt   = ( $'hyper' $'  ' *Expr $';' Finish_hyper );
-LazyStmt    = ( $'lazy'  $'  ' *Expr $';' Finish_lazy  );
-EagerStmt   = ( $'eager' $'  ' *Expr $';' Finish_eager );
-SinkStmt    = ( $'sink'  $'  ' *Expr $';' Finish_sink  );
-ForeachStmt = ( $'foreach' $'  '  Expr
-                $'->'
-                ForLoopvar  Store_for_iter
-                Block  Finish_for
-              );
-ForStmt = ( $'for' $'  '  Expr
-            $'->'
-            ForLoopvar  Store_for_iter
-            Block  Finish_for
-          );
+LoopInfStmt  = ( $'loop'  Block  shift(POS(0) RPOS(0), 'TT_ILIT')  reduce("'TT_WHILE'", 2) );
+UseStmt      = ( $'use'     $'  ' ModuleName BREAK(';') $';'  Push_fn_use     Push_mod_qlit  reduce('TT_FNC', 2) );
+NoStmt       = ( $'no'      $'  ' ModuleName BREAK(';') $';'  Push_fn_no      Push_mod_qlit  reduce('TT_FNC', 2) );
+NeedStmt     = ( $'need'    $'  ' ModuleName BREAK(';') $';'  Push_fn_need    Push_mod_qlit  reduce('TT_FNC', 2) );
+ImportStmt   = ( $'import'  $'  ' ModuleName BREAK(';') $';'  Push_fn_import  Push_mod_qlit  reduce('TT_FNC', 2) );
+RequireStmt  = ( $'require' $'  ' ModuleName BREAK(';') $';'  Push_fn_require Push_mod_qlit  reduce('TT_FNC', 2) );
+CatchFreeStmt = ( $'CATCH'   Block  Push_fn_catch   reduce('TT_FNC', 2) );
+ControlStmt   = ( $'CONTROL' Block  Push_fn_control reduce('TT_FNC', 2) );
+QuitStmt      = ( $'QUIT'    Block  Push_fn_quit    reduce('TT_FNC', 2) );
+BeginStmt  = ( $'BEGIN'  Block  Push_fn_ph_BEGIN  reduce('TT_FNC', 2) );
+EndStmt    = ( $'END'    Block  Push_fn_ph_END    reduce('TT_FNC', 2) );
+InitStmt   = ( $'INIT'   Block  Push_fn_ph_INIT   reduce('TT_FNC', 2) );
+CheckStmt  = ( $'CHECK'  Block  Push_fn_ph_CHECK  reduce('TT_FNC', 2) );
+EnterStmt  = ( $'ENTER'  Block  Push_fn_ph_ENTER  reduce('TT_FNC', 2) );
+LeaveStmt  = ( $'LEAVE'  Block  Push_fn_ph_LEAVE  reduce('TT_FNC', 2) );
+KeepStmt   = ( $'KEEP'   Block  Push_fn_ph_KEEP   reduce('TT_FNC', 2) );
+UndoStmt   = ( $'UNDO'   Block  Push_fn_ph_UNDO   reduce('TT_FNC', 2) );
+FirstStmt  = ( $'FIRST'  Block  Push_fn_ph_FIRST  reduce('TT_FNC', 2) );
+NextPhStmt = ( $'NEXT'   Block  Push_fn_ph_NEXT   reduce('TT_FNC', 2) );
+LastPhStmt = ( $'LAST'   Block  Push_fn_ph_LAST   reduce('TT_FNC', 2) );
+PreStmt    = ( $'PRE'    Block  Push_fn_ph_PRE    reduce('TT_FNC', 2) );
+PostStmt   = ( $'POST'   Block  Push_fn_ph_POST   reduce('TT_FNC', 2) );
+CloseStmt  = ( $'CLOSE'  Block  Push_fn_ph_CLOSE  reduce('TT_FNC', 2) );
+TempStmt   = ( $'TEMP'   Block  Push_fn_ph_TEMP   reduce('TT_FNC', 2) );
+DoBlockStmt = ( $'do'    Block  Push_fn_do        reduce('TT_FNC', 2) );
+OnceStmt    = ( $'once'  Block  Push_fn_once      reduce('TT_FNC', 2) );
+StartStmt   = ( $'start' Block  Push_fn_start     reduce('TT_FNC', 2) );
+SupplyStmt  = ( $'supply' Block Push_fn_supply    reduce('TT_FNC', 2) );
+ReactStmt   = ( $'react'  Block Push_fn_react     reduce('TT_FNC', 2) );
+QuietlyStmt = ( $'quietly' Block Push_fn_quietly  reduce('TT_FNC', 2) );
+RaceStmt    = ( $'race'  $'  ' *Expr $';'  Push_fn_race   reduce('TT_FNC', 2) );
+HyperStmt   = ( $'hyper' $'  ' *Expr $';'  Push_fn_hyper  reduce('TT_FNC', 2) );
+LazyStmt    = ( $'lazy'  $'  ' *Expr $';'  Push_fn_lazy   reduce('TT_FNC', 2) );
+EagerStmt   = ( $'eager' $'  ' *Expr $';'  Push_fn_eager  reduce('TT_FNC', 2) );
+SinkStmt    = ( $'sink'  $'  ' *Expr $';'  Push_fn_sink   reduce('TT_FNC', 2) );
+ForeachStmt = ( $'foreach' $'  '  Expr $'->' ForLoopvar  Store_for_iter  Block
+                reduce('TT_ITERATE', 1)  reduce("'TT_EVERY'", 2) );
+ForStmt     = ( $'for' $'  '  Expr $'->' ForLoopvar  Store_for_iter  Block
+                reduce('TT_ITERATE', 1)  reduce("'TT_EVERY'", 2) );
 ForRangeStmt = ( $'for' $'  '
                  Expr6
                  FENCE( $'..^' | $'..' )
                  Expr6
                  $'->'
                  ForLoopvar  Store_for_iter
-                 Block  Finish_for_range
+                 Block  reduce("'TT_FOR'", 3)
                );
 DeleteHashAngle = ( $'delete'  HashIdxVar  $'<'  HashAngleKey  $'>'  $';'
-                    Finish_hash_delete_angle
+                    Push_fn_hash_delete  Push_col_var  Push_key_qlit  reduce('TT_FNC', 3)
                   );
 DeleteHashBrace = ( $'delete'  HashIdxVar  $'{'  Expr  $'}'  $';'
-                    Finish_hash_delete_brace
+                    Push_fn_hash_delete  Push_col_var  reduce('TT_FNC', 3)
                   );
 ReturnStmt = ( $'return'
                ( $';'         reduce("'TT_RETURN'", 0)
@@ -1579,9 +745,8 @@ AssignStmt = ( ($'my' $'  ' | epsilon)
                )
                $'='  Expr  $';'  reduce("'TT_ASSIGN'", 2)
              );
-SayStmt = ( $'say'
-            Expr  $';'  Finish_say
-          );
+SayStmt  = ( $'say'  Expr $';'  Push_fn_write   reduce('TT_FNC', 2) );
+PrintStmt = ( $'print' Expr $';' Push_fn_writes reduce('TT_FNC', 2) );
 WhenClause = ( $'when' $'  '
                Expr
                Block
@@ -1601,38 +766,37 @@ GivenStmt = ( $'given' $'  '
               Finish_given
               nPop()
             );
-ArrSetStmt = ( VarArray Push_var $'[' *Expr $']' $'=' *Expr $';'  Finish_arr_set );
+ArrSetStmt = ( VarArray Push_var $'[' *Expr $']' $'=' *Expr $';'
+               Push_fn_arr_set  Push_var  reduce('TT_FNC', 4) );
 HashAngleSetKey = ($' ' BREAK('>') . capkey);
-HashSetAngleStmt = ( VarHash Push_var $'<' HashAngleSetKey $'>' $'=' *Expr $';'  Finish_hash_set_angle );
-HashSetBraceStmt = ( VarHash Push_var $'{' *Expr $'}' $'=' *Expr $';'  Finish_hash_set_brace );
-FieldWriteStmt = ( VarScalar Push_var '.' MethodName $'=' *Expr $';'  Finish_field_write );
-SayFhStmt = ( $'say' $'('
-              ( VarScalar FENCE $','  Push_var
-              | VarStdIn  FENCE $','  Finish_stdin
-              | VarStdOut FENCE $','  Finish_stdout
-              | VarStdErr FENCE $','  Finish_stderr
-              )
-              *Expr $')' $';' Finish_say_fh );
-PrintFhStmt = ( $'print' $'('
-                ( VarScalar FENCE $','  Push_var
-                | VarStdIn  FENCE $','  Finish_stdin
-                | VarStdOut FENCE $','  Finish_stdout
-                | VarStdErr FENCE $','  Finish_stderr
-                )
-                *Expr $')' $';' Finish_print_fh );
+HashSetAngleStmt = ( VarHash Push_var $'<' HashAngleSetKey $'>' $'=' *Expr $';'
+                     Push_fn_hash_set  Push_var  Push_key_qlit  reduce('TT_FNC', 4) );
+HashSetBraceStmt = ( VarHash Push_var $'{' *Expr $'}' $'=' *Expr $';'
+                     Push_fn_hash_set  Push_var  reduce('TT_FNC', 4) );
+FieldWriteStmt = ( VarScalar Push_var '.' MethodName $'=' *Expr $';'
+                   Push_mth_qlit  reduce('TT_FIELD', 2)
+                   reduce("'TT_ASSIGN'", 2) );
+FhVar = ( VarScalar FENCE $','  Push_var
+        | VarStdIn  FENCE $','  Set_stdin  Push_fn_capture  Push_ilit(capidx)  reduce('TT_FNC', 2)
+        | VarStdOut FENCE $','  Set_stdout Push_fn_capture  Push_ilit(capidx)  reduce('TT_FNC', 2)
+        | VarStdErr FENCE $','  Set_stderr Push_fn_capture  Push_ilit(capidx)  reduce('TT_FNC', 2)
+        );
+SayFhStmt   = ( $'say'   $'(' FhVar *Expr $')' $';'  Push_fn_say_fh   reduce('TT_FNC', 3) );
+PrintFhStmt = ( $'print' $'(' FhVar *Expr $')' $';'  Push_fn_print_fh reduce('TT_FNC', 3) );
 BareStmt = ( Expr $';' );
-PrintStmt = ( $'print'
-              Expr  $';'  Finish_print
-            );
 TryStmt = ( $'try'
             Block
             ( $'CATCH'  Block  Set_has_catch
             | epsilon
             )
-            Finish_try
+            Push_fn_try
+            ( EQ(try_has_catch, 1) reduce('TT_FNC', 3)
+            | reduce('TT_FNC', 2)
+            )
           );
 RepeatStmt = ( $'repeat' Block reduce("'TT_REPEAT'", 1) );
-ForNoArrowStmt = ( $'for' $'  ' *Expr Block Finish_for_noarrow );
+ForNoArrowStmt = ( $'for' $'  ' *Expr Block
+                   reduce('TT_ITERATE', 1)  reduce("'TT_EVERY'", 2) );
 Stmt = ( GivenStmt
        | TryStmt
        | CatchFreeStmt
@@ -1747,6 +911,7 @@ ClassDecl = ( $'class' $'  '
               Finish_class
               nPop()
             );
+ClosureExpr = ( $'{' *Expr $'}' );
 Compiland = nPush()
             nPush()
             ARBNO( SubStmt | (*ClassDecl Push_nul nInc()) | (Stmt nInc()) )
