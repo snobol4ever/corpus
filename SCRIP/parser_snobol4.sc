@@ -110,14 +110,23 @@ Expr5       =  *Expr6 FENCE($'@' *Expr5 reduce_opsyn('@', 2) | epsilon);
 Expr6       =  *Expr7
                FENCE($'+' *Expr7 foldop("'TT_ADD'") *Expr6cont | $'-' *Expr7 foldop("'TT_SUB'") *Expr6cont | epsilon);
 Expr6cont   =  FENCE($'+' *Expr7 foldop("'TT_ADD'") *Expr6cont | $'-' *Expr7 foldop("'TT_SUB'") *Expr6cont | epsilon);
-Expr7       =  *Expr8 FENCE($'#' *Expr7 foldop("'TT_MUL'") | epsilon);
+/* SCT-9g-snobol4 (2026-05-17): # is left-assoc (Manual pri 7 left, OPSYN slot).
+   Added Expr7cont loop matching the foldop+cont pattern of Expr6/Expr8/Expr9. */
+Expr7       =  *Expr8 FENCE($'#' *Expr8 foldop("'TT_MUL'") *Expr7cont | epsilon);
+Expr7cont   =  FENCE($'#' *Expr8 foldop("'TT_MUL'") *Expr7cont | epsilon);
 Expr8       =  *Expr9 FENCE($'/' *Expr9 foldop("'TT_DIV'") *Expr8cont | epsilon);
 Expr8cont   =  FENCE($'/' *Expr9 foldop("'TT_DIV'") *Expr8cont | epsilon);
 Expr9       =  *Expr10 FENCE($'*' *Expr10 foldop("'TT_MUL'") *Expr9cont | epsilon);
 Expr9cont   =  FENCE($'*' *Expr10 foldop("'TT_MUL'") *Expr9cont | epsilon);
-Expr10      =  *Expr11 FENCE($'%' *Expr10 foldop("'TT_DIV'") | epsilon);
-Expr11      =  *Expr12 FENCE(($'^' | $'!' | $'**') *Expr12 foldop("'TT_POW'") *Expr11cont | epsilon);
-Expr11cont  =  FENCE(($'^' | $'!' | $'**') *Expr12 foldop("'TT_POW'") *Expr11cont | epsilon);
+/* SCT-9g-snobol4 (2026-05-17): % is left-assoc (Manual pri 10 left, OPSYN slot).
+   Added Expr10cont loop matching the foldop+cont pattern of Expr6/Expr8/Expr9. */
+Expr10      =  *Expr11 FENCE($'%' *Expr11 foldop("'TT_DIV'") *Expr10cont | epsilon);
+Expr10cont  =  FENCE($'%' *Expr11 foldop("'TT_DIV'") *Expr10cont | epsilon);
+/* SCT-9g-snobol4 (2026-05-17): exponentiation is RIGHT-associative per SPITBOL Manual Ch.15
+   pri 11.  The previous foldop+Expr11cont pattern produced LEFT-fold, making 2^3^2=64 instead
+   of 512.  Fixed to plain right-recursive reduce, mirroring C grammar
+   expr11 : expr12 T_2CARET expr11.  Expr11cont helper deleted. */
+Expr11      =  *Expr12 FENCE(($'^' | $'!' | $'**') *Expr11 reduce("'TT_POW'", 2) | epsilon);
 Expr12      =  *Expr13
                FENCE(
                   $'$' *Expr13 reduce("'TT_CAPT_IMMED_ASGN'", 2) *Expr12tail_immed
