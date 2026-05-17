@@ -28,9 +28,22 @@ g_instr_tbl = TABLE();
 g_lang      = 0;
 g_in_proc   = 0;
 g_unhandled = TABLE();
+/* PST-SC-4h: loop-label stack for break/continue resolution */
+g_loop_stack = tree('LOOPSTK', '');
+g_loop_sp    = 0;
 LANG_SNO = 0;
 LANG_ICN = 1;
 LANG_PL  = 2;
+/* ==================================================================================================================== */
+function loop_push(cont, end) {
+    Append(g_loop_stack, tree('LF', '' cont end));
+    g_loop_sp = g_loop_sp + 1;
+    return;
+}
+function loop_pop() {
+    if (GT(g_loop_sp, 0)) { g_loop_sp = g_loop_sp - 1; }
+    return;
+}
 /* ==================================================================================================================== */
 function _emit(op, a0, a1, a2, idx, ins) {
     idx = g_count;
@@ -512,10 +525,12 @@ function lower_while_until(t, exit_on_success, top, jx, body, exit_pos, lbl_cont
     if (IDENT(exit_on_success, 1)) jx = emit_i('SM_JUMP_S', 0);
     else                            jx = emit_i('SM_JUMP_F', 0);
     emit('SM_VOID_POP');
+    loop_push(lbl_cont, lbl_end);
     body = (GT(n(t), 1)) c(t)[2] ;
     if (DIFFER(body) IDENT(t(body), 'TT_PROGRAM')) {
         i = 1; while (LE(i, n(body))) { if (DIFFER(c(body)[i])) lower_stmt(c(body)[i]); i = i + 1; }
     } else if (DIFFER(body)) { lower_expr(body); emit('SM_VOID_POP'); }
+    loop_pop();
     emit_i('SM_JUMP', top);
     exit_pos = g_count;
     sm_patch_jump(jx, exit_pos);
@@ -536,10 +551,12 @@ function lower_do_while(t, top, body, lbl_cont, lbl_end, jback, exit_pos, i) {
     lbl_cont = (GT(n(t), 2) DIFFER(c(t)[3])) c(t)[3].sval ;
     lbl_end  = (GT(n(t), 3) DIFFER(c(t)[4])) c(t)[4].sval ;
     top = g_count;
+    loop_push(lbl_cont, lbl_end);
     body = (GT(n(t), 0)) c(t)[1] ;
     if (DIFFER(body) IDENT(t(body), 'TT_PROGRAM')) {
         i = 1; while (LE(i, n(body))) { if (DIFFER(c(body)[i])) lower_stmt(c(body)[i]); i = i + 1; }
     } else if (DIFFER(body)) { lower_expr(body); emit('SM_VOID_POP'); }
+    loop_pop();
     if (DIFFER(lbl_cont) NE(SIZE(lbl_cont), 0)) labtab_define(lbl_cont, g_count);
     if (GT(n(t), 1) DIFFER(c(t)[2])) {
         lower_expr(c(t)[2]);
@@ -565,10 +582,12 @@ function lower_for(t, lbl_cont, lbl_end, top, jf, body, i, exit_pos) {
     lower_expr(c(t)[1]);
     jf = emit_i('SM_JUMP_F', 0);
     emit('SM_VOID_POP');
+    loop_push(lbl_cont, lbl_end);
     body = (GT(n(t), 2)) c(t)[3] ;
     if (DIFFER(body) IDENT(t(body), 'TT_PROGRAM')) {
         i = 1; while (LE(i, n(body))) { if (DIFFER(c(body)[i])) lower_stmt(c(body)[i]); i = i + 1; }
     } else if (DIFFER(body)) { lower_expr(body); emit('SM_VOID_POP'); }
+    loop_pop();
     if (DIFFER(lbl_cont) NE(SIZE(lbl_cont), 0)) labtab_define(lbl_cont, g_count);
     if (GT(n(t), 1) DIFFER(c(t)[2])) { lower_expr(c(t)[2]); emit('SM_VOID_POP'); }
     emit_i('SM_JUMP', top);
@@ -588,13 +607,28 @@ function lower_repeat(t, top) {
     return;
 }
 /* ==================================================================================================================== */
-function lower_loop_break(t) {
+/* PST-SC-4h: TT_LOOP_BREAK([QLIT(user_label)]). Snocone: resolve via g_loop_stack. */
+function lower_loop_break(t, user_lbl, end_lbl) {
+    user_lbl = (GT(n(t), 0) DIFFER(c(t)[1]) IDENT(t(c(t)[1]), 'TT_QLIT')) c(t)[1].sval ;
+    if (GT(g_loop_sp, 0)) {
+        end_lbl = (DIFFER(user_lbl)) user_lbl :f v(c(g_loop_stack)[g_loop_sp])[2] ;
+        if (DIFFER(end_lbl) NE(SIZE(end_lbl), 0)) { emit_goto('SM_JUMP', end_lbl); return; }
+    }
     if (GT(n(t), 0)) lower_expr(c(t)[1]); else emit('SM_PUSH_NULL');
     emit_i('SM_JUMP', g_count + 1);
     return;
 }
 /* ==================================================================================================================== */
-function lower_loop_next(t) { emit('SM_PUSH_NULL'); return; }
+/* PST-SC-4h: TT_LOOP_NEXT([QLIT(user_label)]). Snocone: jump to cont label. */
+function lower_loop_next(t, user_lbl, cont_lbl) {
+    user_lbl = (GT(n(t), 0) DIFFER(c(t)[1]) IDENT(t(c(t)[1]), 'TT_QLIT')) c(t)[1].sval ;
+    if (GT(g_loop_sp, 0)) {
+        cont_lbl = (DIFFER(user_lbl)) user_lbl :f v(c(g_loop_stack)[g_loop_sp])[1] ;
+        if (DIFFER(cont_lbl) NE(SIZE(cont_lbl), 0)) { emit_goto('SM_JUMP', cont_lbl); return; }
+    }
+    emit('SM_PUSH_NULL');
+    return;
+}
 /* ==================================================================================================================== */
 function lower_return(t) {
     if (GT(n(t), 0)) lower_expr(c(t)[1]); else emit('SM_PUSH_NULL');
@@ -1118,6 +1152,10 @@ function lower_stmt(s, label, lang, stno, lineno, subject, pattern, has_eq,
                     is_end, sname, sv_name, ts,
                     first_child, seq_n_lwr, pat_seq_lwr, i_lwr,
                     name, sig, body, skip, entry_pos, i) {
+    /* PST-SC-4h: TT_LOOP_BREAK/NEXT appear directly as stmt children of TT_PROGRAM */
+    if (IDENT(t(s), 'TT_LOOP_BREAK') | IDENT(t(s), 'TT_LOOP_NEXT')) {
+        lower_expr(s); emit('SM_VOID_POP'); return;
+    }
     /* PST-SC-4g: TT_DEFINE(QLIT(name), QLIT(sig), TT_PROGRAM(body)) */
     if (IDENT(t(s), 'TT_DEFINE')) {
         name = (GT(n(s), 0) DIFFER(c(s)[1])) c(s)[1].sval ;
