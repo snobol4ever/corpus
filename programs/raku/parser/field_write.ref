@@ -1,16 +1,16 @@
-(STMT :subj (AST_FNC main
-  (AST_VAR main)
-  (AST_ASSIGN
-    (AST_VAR obj)
-    (AST_FNC raku_new
-      (AST_VAR raku_new)
-      (AST_QLIT "Foo")
-      (AST_QLIT "x")
-      (AST_ILIT 1)
+(STMT :subj (TT_FNC main
+  (TT_VAR main)
+  (TT_ASSIGN
+    (TT_VAR obj)
+    (TT_FNC raku_new
+      (TT_VAR raku_new)
+      (TT_QLIT "Foo")
+      (TT_QLIT "x")
+      (TT_ILIT 1)
     )
   )
-  (AST_ASSIGN
-    (AST_FIELD x (AST_VAR obj))
-    (AST_ILIT 42)
+  (TT_ASSIGN
+    (TT_FIELD x (TT_VAR obj))
+    (TT_ILIT 42)
   )
 ))

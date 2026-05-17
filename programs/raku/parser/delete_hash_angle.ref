@@ -1,8 +1,8 @@
-(STMT :subj (AST_FNC main
-  (AST_VAR main)
-  (AST_FNC hash_delete
-    (AST_VAR hash_delete)
-    (AST_VAR h)
-    (AST_QLIT "foo")
+(STMT :subj (TT_FNC main
+  (TT_VAR main)
+  (TT_FNC hash_delete
+    (TT_VAR hash_delete)
+    (TT_VAR h)
+    (TT_QLIT "foo")
   )
 ))

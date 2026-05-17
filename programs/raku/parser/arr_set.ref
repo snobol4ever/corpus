@@ -1,21 +1,21 @@
-(STMT :subj (AST_FNC main
-  (AST_VAR main)
-  (AST_ASSIGN
-    (AST_VAR a)
-    (AST_QLIT "")
+(STMT :subj (TT_FNC main
+  (TT_VAR main)
+  (TT_ASSIGN
+    (TT_VAR a)
+    (TT_QLIT "")
   )
-  (AST_FNC arr_set
-    (AST_VAR arr_set)
-    (AST_VAR a)
-    (AST_ILIT 0)
-    (AST_ILIT 99)
+  (TT_FNC arr_set
+    (TT_VAR arr_set)
+    (TT_VAR a)
+    (TT_ILIT 0)
+    (TT_ILIT 99)
   )
-  (AST_FNC write
-    (AST_VAR write)
-    (AST_FNC arr_get
-      (AST_VAR arr_get)
-      (AST_VAR a)
-      (AST_ILIT 0)
+  (TT_FNC write
+    (TT_VAR write)
+    (TT_FNC arr_get
+      (TT_VAR arr_get)
+      (TT_VAR a)
+      (TT_ILIT 0)
     )
   )
 ))

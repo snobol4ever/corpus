@@ -1,14 +1,14 @@
-(STMT :subj (AST_FNC main
-  (AST_VAR main)
-  (AST_ASSIGN
-    (AST_VAR x)
-    (AST_LIMIT
-      (AST_VAR gen)
-      (AST_ILIT 5)
+(STMT :subj (TT_FNC main
+  (TT_VAR main)
+  (TT_ASSIGN
+    (TT_VAR x)
+    (TT_LIMIT
+      (TT_VAR gen)
+      (TT_ILIT 5)
     )
   )
-  (AST_FNC
-    (AST_VAR write)
-    (AST_VAR x)
+  (TT_FNC
+    (TT_VAR write)
+    (TT_VAR x)
   )
 ))

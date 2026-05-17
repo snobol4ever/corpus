@@ -1,8 +1,8 @@
-(STMT :eq :subj (AST_VAR x) :repl (AST_ILIT 0))
+(STMT :eq :subj (TT_VAR x) :repl (TT_ILIT 0))
 (STMT :lbl _Ltop_0003)
-(STMT :eq :subj (AST_VAR x) :repl (AST_ADD
-  (AST_VAR x)
-  (AST_ILIT 1)
+(STMT :eq :subj (TT_VAR x) :repl (TT_ADD
+  (TT_VAR x)
+  (TT_ILIT 1)
 ))
-(STMT :subj (AST_VAR x) :goS _Ltop_0003)
+(STMT :subj (TT_VAR x) :goS _Ltop_0003)
 (STMT :lbl _Lend_0002)

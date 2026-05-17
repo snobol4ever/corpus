@@ -1,1 +1,1 @@
-(STMT :subj (AST_FNC DATA (AST_QLIT "Point(x,y)")))
+(STMT :subj (TT_FNC DATA (TT_QLIT "Point(x,y)")))

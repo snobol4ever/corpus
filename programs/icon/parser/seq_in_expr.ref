@@ -1,15 +1,15 @@
-(STMT :subj (AST_FNC main
-  (AST_VAR main)
-  (AST_ASSIGN
-    (AST_VAR x)
-    (AST_SEQ
-      (AST_FNC
-        (AST_VAR write)
-        (AST_QLIT "a")
+(STMT :subj (TT_FNC main
+  (TT_VAR main)
+  (TT_ASSIGN
+    (TT_VAR x)
+    (TT_SEQ
+      (TT_FNC
+        (TT_VAR write)
+        (TT_QLIT "a")
       )
-      (AST_FNC
-        (AST_VAR write)
-        (AST_QLIT "b")
+      (TT_FNC
+        (TT_VAR write)
+        (TT_QLIT "b")
       )
     )
   )

@@ -1,7 +1,7 @@
-(STMT :subj (AST_FNC main
-  (AST_VAR main)
-  (AST_REPEAT (AST_FNC
-      (AST_VAR write)
-      (AST_QLIT "x")
+(STMT :subj (TT_FNC main
+  (TT_VAR main)
+  (TT_REPEAT (TT_FNC
+      (TT_VAR write)
+      (TT_QLIT "x")
     ))
 ))

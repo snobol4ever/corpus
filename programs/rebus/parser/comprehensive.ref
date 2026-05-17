@@ -1,56 +1,56 @@
-(STMT :subj (AST_FNC DATA (AST_QLIT "STACK(TOP,DATA)")))
-(STMT :subj (AST_FNC DEFINE (AST_QLIT "PUSH(S,V)")))
+(STMT :subj (TT_FNC DATA (TT_QLIT "STACK(TOP,DATA)")))
+(STMT :subj (TT_FNC DEFINE (TT_QLIT "PUSH(S,V)")))
 (STMT :go rb_1)
 (STMT :lbl PUSH)
-(STMT :eq :subj (AST_IDX
-  (AST_VAR S.DATA)
-  (AST_ASSIGN
-    (AST_VAR S.TOP)
-    (AST_ADD
-      (AST_VAR S.TOP)
-      (AST_ILIT 1)
+(STMT :eq :subj (TT_IDX
+  (TT_VAR S.DATA)
+  (TT_ASSIGN
+    (TT_VAR S.TOP)
+    (TT_ADD
+      (TT_VAR S.TOP)
+      (TT_ILIT 1)
     )
   )
-) :repl (AST_VAR V))
+) :repl (TT_VAR V))
 (STMT :go RETURN)
 (STMT :lbl rb_1)
-(STMT :subj (AST_FNC DEFINE (AST_QLIT "POP(S,V)")))
+(STMT :subj (TT_FNC DEFINE (TT_QLIT "POP(S,V)")))
 (STMT :go rb_2)
 (STMT :lbl POP)
-(STMT :eq :subj (AST_VAR V) :repl (AST_IDX
-  (AST_VAR S.DATA)
-  (AST_VAR S.TOP)
+(STMT :eq :subj (TT_VAR V) :repl (TT_IDX
+  (TT_VAR S.DATA)
+  (TT_VAR S.TOP)
 ))
-(STMT :eq :subj (AST_VAR S.TOP) :repl (AST_SUB
-  (AST_VAR S.TOP)
-  (AST_ILIT 1)
+(STMT :eq :subj (TT_VAR S.TOP) :repl (TT_SUB
+  (TT_VAR S.TOP)
+  (TT_ILIT 1)
 ))
-(STMT :eq :subj (AST_VAR POP) :repl (AST_VAR V))
+(STMT :eq :subj (TT_VAR POP) :repl (TT_VAR V))
 (STMT :go RETURN)
 (STMT :go RETURN)
 (STMT :lbl rb_2)
-(STMT :subj (AST_FNC DEFINE (AST_QLIT "MAIN()/S")))
+(STMT :subj (TT_FNC DEFINE (TT_QLIT "MAIN()/S")))
 (STMT :go rb_3)
 (STMT :lbl MAIN)
-(STMT :subj (AST_VAR rb_init_MAIN) :goS rb_4)
-(STMT :eq :subj (AST_VAR S) :repl (AST_FNC STACK
-  (AST_ILIT 0)
-  (AST_FNC ARRAY (AST_QLIT "1:100"))
+(STMT :subj (TT_VAR rb_init_MAIN) :goS rb_4)
+(STMT :eq :subj (TT_VAR S) :repl (TT_FNC STACK
+  (TT_ILIT 0)
+  (TT_FNC ARRAY (TT_QLIT "1:100"))
 ))
-(STMT :subj (AST_ASSIGN
-  (AST_VAR rb_init_MAIN)
-  (AST_ILIT 1)
+(STMT :subj (TT_ASSIGN
+  (TT_VAR rb_init_MAIN)
+  (TT_ILIT 1)
 ))
 (STMT :lbl rb_4)
-(STMT :subj (AST_FNC PUSH
-  (AST_VAR S)
-  (AST_ILIT 42)
+(STMT :subj (TT_FNC PUSH
+  (TT_VAR S)
+  (TT_ILIT 42)
 ))
-(STMT :subj (AST_FNC PUSH
-  (AST_VAR S)
-  (AST_ILIT 99)
+(STMT :subj (TT_FNC PUSH
+  (TT_VAR S)
+  (TT_ILIT 99)
 ))
-(STMT :eq :subj (AST_VAR OUTPUT) :repl (AST_FNC POP (AST_VAR S)))
+(STMT :eq :subj (TT_VAR OUTPUT) :repl (TT_FNC POP (TT_VAR S)))
 (STMT :go RETURN)
 (STMT :lbl rb_3)
-(STMT :subj (AST_FNC MAIN))
+(STMT :subj (TT_FNC MAIN))

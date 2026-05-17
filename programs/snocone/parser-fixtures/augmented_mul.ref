@@ -1,4 +1,4 @@
-(STMT :eq :subj (AST_VAR x) :repl (AST_MUL
-  (AST_VAR x)
-  (AST_ILIT 3)
+(STMT :eq :subj (TT_VAR x) :repl (TT_MUL
+  (TT_VAR x)
+  (TT_ILIT 3)
 ))

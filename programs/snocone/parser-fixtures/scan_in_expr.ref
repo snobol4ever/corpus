@@ -1,4 +1,4 @@
-(STMT :eq :subj (AST_VAR y) :repl (AST_SCAN
-  (AST_VAR x)
-  (AST_QLIT "foo")
+(STMT :eq :subj (TT_VAR y) :repl (TT_SCAN
+  (TT_VAR x)
+  (TT_QLIT "foo")
 ))

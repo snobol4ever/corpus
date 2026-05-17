@@ -1,1 +1,1 @@
-(STMT :subj (AST_VAR x))
+(STMT :subj (TT_VAR x))

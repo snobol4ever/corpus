@@ -1,24 +1,24 @@
-(STMT :subj (AST_FNC DEFINE (AST_QLIT "MAIN()")))
+(STMT :subj (TT_FNC DEFINE (TT_QLIT "MAIN()")))
 (STMT :go rb_1)
 (STMT :lbl MAIN)
-(STMT :subj (AST_ASSIGN
-  (AST_VAR I)
-  (AST_ILIT 1)
+(STMT :subj (TT_ASSIGN
+  (TT_VAR I)
+  (TT_ILIT 1)
 ))
 (STMT :lbl rb_2)
-(STMT :subj (AST_FNC GT
-  (AST_VAR I)
-  (AST_ILIT 5)
+(STMT :subj (TT_FNC GT
+  (TT_VAR I)
+  (TT_ILIT 5)
 ) :goS rb_3)
-(STMT :subj (AST_ASSIGN
-  (AST_VAR I)
-  (AST_ADD
-    (AST_VAR I)
-    (AST_ILIT 1)
+(STMT :subj (TT_ASSIGN
+  (TT_VAR I)
+  (TT_ADD
+    (TT_VAR I)
+    (TT_ILIT 1)
   )
 ))
 (STMT :go rb_2)
 (STMT :lbl rb_3)
 (STMT :go RETURN)
 (STMT :lbl rb_1)
-(STMT :subj (AST_FNC MAIN))
+(STMT :subj (TT_FNC MAIN))

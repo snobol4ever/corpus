@@ -1,8 +1,8 @@
-(STMT :subj (AST_FNC f
-  (AST_VAR f)
-  (AST_RETURN)
+(STMT :subj (TT_FNC f
+  (TT_VAR f)
+  (TT_RETURN)
 ))
-(STMT :subj (AST_FNC main
-  (AST_VAR main)
-  (AST_FNC f (AST_VAR f))
+(STMT :subj (TT_FNC main
+  (TT_VAR main)
+  (TT_FNC f (TT_VAR f))
 ))

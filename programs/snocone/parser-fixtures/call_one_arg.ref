@@ -1,1 +1,1 @@
-(STMT :eq :subj (AST_VAR x) :repl (AST_FNC g (AST_ILIT 42)))
+(STMT :eq :subj (TT_VAR x) :repl (TT_FNC g (TT_ILIT 42)))

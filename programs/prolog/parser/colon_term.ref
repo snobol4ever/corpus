@@ -1,10 +1,10 @@
-(STMT :subj (AST_CHOICE foo/1 (AST_CLAUSE foo/1
-    (AST_VAR _V0)
-    (AST_UNIFY
-      (AST_VAR _V0)
-      (AST_FNC :
-        (AST_FNC a)
-        (AST_FNC b)
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE foo/1
+    (TT_VAR _V0)
+    (TT_UNIFY
+      (TT_VAR _V0)
+      (TT_FNC :
+        (TT_FNC a)
+        (TT_FNC b)
       )
     )
   )))

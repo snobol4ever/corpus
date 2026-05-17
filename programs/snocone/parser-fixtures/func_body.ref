@@ -1,9 +1,9 @@
-(STMT :subj (AST_FNC DEFINE (AST_QLIT "f(a,b)")))
+(STMT :subj (TT_FNC DEFINE (TT_QLIT "f(a,b)")))
 (STMT :go f_end)
 (STMT :lbl f)
-(STMT :eq :subj (AST_VAR c) :repl (AST_ADD
-  (AST_VAR a)
-  (AST_VAR b)
+(STMT :eq :subj (TT_VAR c) :repl (TT_ADD
+  (TT_VAR a)
+  (TT_VAR b)
 ))
-(STMT :eq :subj (AST_VAR f) :repl (AST_VAR c) :go RETURN)
+(STMT :eq :subj (TT_VAR f) :repl (TT_VAR c) :go RETURN)
 (STMT :lbl f_end)

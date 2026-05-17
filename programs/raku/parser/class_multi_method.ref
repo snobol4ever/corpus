@@ -1,22 +1,22 @@
-(STMT :subj (AST_FNC Counter__get
-  (AST_VAR Counter__get)
-  (AST_VAR self)
-  (AST_FNC write
-    (AST_VAR write)
-    (AST_FIELD count (AST_VAR self))
+(STMT :subj (TT_FNC Counter__get
+  (TT_VAR Counter__get)
+  (TT_VAR self)
+  (TT_FNC write
+    (TT_VAR write)
+    (TT_FIELD count (TT_VAR self))
   )
 ))
-(STMT :subj (AST_FNC Counter__show
-  (AST_VAR Counter__show)
-  (AST_VAR self)
-  (AST_VAR x)
-  (AST_FNC write
-    (AST_VAR write)
-    (AST_VAR x)
+(STMT :subj (TT_FNC Counter__show
+  (TT_VAR Counter__show)
+  (TT_VAR self)
+  (TT_VAR x)
+  (TT_FNC write
+    (TT_VAR write)
+    (TT_VAR x)
   )
 ))
-(STMT :subj (AST_RECORD Counter (AST_VAR count)))
-(STMT :subj (AST_FNC main
-  (AST_VAR main)
-  (AST_NUL)
+(STMT :subj (TT_RECORD Counter (TT_VAR count)))
+(STMT :subj (TT_FNC main
+  (TT_VAR main)
+  (TT_NUL)
 ))

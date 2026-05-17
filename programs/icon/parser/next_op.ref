@@ -1,16 +1,16 @@
-(STMT :subj (AST_FNC main
-  (AST_VAR main)
-  (AST_EVERY (AST_SEQ_EXPR
-      (AST_IF
-        (AST_LT
-          (AST_VAR x)
-          (AST_ILIT 0)
+(STMT :subj (TT_FNC main
+  (TT_VAR main)
+  (TT_EVERY (TT_SEQ_EXPR
+      (TT_IF
+        (TT_LT
+          (TT_VAR x)
+          (TT_ILIT 0)
         )
-        (AST_LOOP_NEXT)
+        (TT_LOOP_NEXT)
       )
-      (AST_FNC
-        (AST_VAR write)
-        (AST_VAR x)
+      (TT_FNC
+        (TT_VAR write)
+        (TT_VAR x)
       )
     ))
 ))

@@ -1,7 +1,7 @@
-(STMT :eq :subj (AST_VAR x) :repl (AST_SUB
-  (AST_SUB
-    (AST_VAR a)
-    (AST_VAR b)
+(STMT :eq :subj (TT_VAR x) :repl (TT_SUB
+  (TT_SUB
+    (TT_VAR a)
+    (TT_VAR b)
   )
-  (AST_VAR c)
+  (TT_VAR c)
 ))

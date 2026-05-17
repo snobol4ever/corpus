@@ -1,16 +1,16 @@
-(STMT :subj (AST_FNC Point__sum
-  (AST_VAR Point__sum)
-  (AST_VAR self)
-  (AST_FNC write
-    (AST_VAR write)
-    (AST_FIELD x (AST_VAR self))
+(STMT :subj (TT_FNC Point__sum
+  (TT_VAR Point__sum)
+  (TT_VAR self)
+  (TT_FNC write
+    (TT_VAR write)
+    (TT_FIELD x (TT_VAR self))
   )
 ))
-(STMT :subj (AST_RECORD Point
-  (AST_VAR x)
-  (AST_VAR y)
+(STMT :subj (TT_RECORD Point
+  (TT_VAR x)
+  (TT_VAR y)
 ))
-(STMT :subj (AST_FNC main
-  (AST_VAR main)
-  (AST_NUL)
+(STMT :subj (TT_FNC main
+  (TT_VAR main)
+  (TT_NUL)
 ))

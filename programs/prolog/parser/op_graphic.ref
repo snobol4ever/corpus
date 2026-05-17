@@ -1,5 +1,5 @@
-(STMT :subj (AST_FNC op
-  (AST_ILIT 700)
-  (AST_FNC xfx)
-  (AST_FNC ===)
+(STMT :subj (TT_FNC op
+  (TT_ILIT 700)
+  (TT_FNC xfx)
+  (TT_FNC ===)
 ))

@@ -1,14 +1,14 @@
-(STMT :subj (AST_FNC main
-  (AST_VAR main)
-  (AST_ASSIGN
-    (AST_VAR r)
-    (AST_FNC raku_grep
-      (AST_VAR raku_grep)
-      (AST_LEQ
-        (AST_VAR _)
-        (AST_QLIT "x")
+(STMT :subj (TT_FNC main
+  (TT_VAR main)
+  (TT_ASSIGN
+    (TT_VAR r)
+    (TT_FNC raku_grep
+      (TT_VAR raku_grep)
+      (TT_LEQ
+        (TT_VAR _)
+        (TT_QLIT "x")
       )
-      (AST_VAR words)
+      (TT_VAR words)
     )
   )
 ))

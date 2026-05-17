@@ -1,1 +1,1 @@
-(STMT :subj (AST_ILIT 42))
+(STMT :subj (TT_ILIT 42))

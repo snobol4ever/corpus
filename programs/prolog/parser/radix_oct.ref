@@ -1,1 +1,1 @@
-(STMT :subj (AST_CHOICE foo/1 (AST_CLAUSE foo/1 (AST_ILIT 15))))
+(STMT :subj (TT_CHOICE foo/1 (TT_CLAUSE foo/1 (TT_ILIT 15))))

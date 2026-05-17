@@ -1,15 +1,15 @@
-(STMT :subj (AST_FNC __gather_0
-  (AST_VAR __gather_0)
-  (AST_SUSPEND (AST_VAR x))
+(STMT :subj (TT_FNC __gather_0
+  (TT_VAR __gather_0)
+  (TT_SUSPEND (TT_VAR x))
 ))
-(STMT :subj (AST_FNC main
-  (AST_VAR main)
-  (AST_ASSIGN
-    (AST_VAR x)
-    (AST_ILIT 5)
+(STMT :subj (TT_FNC main
+  (TT_VAR main)
+  (TT_ASSIGN
+    (TT_VAR x)
+    (TT_ILIT 5)
   )
-  (AST_ASSIGN
-    (AST_VAR r)
-    (AST_FNC __gather_0 (AST_VAR __gather_0))
+  (TT_ASSIGN
+    (TT_VAR r)
+    (TT_FNC __gather_0 (TT_VAR __gather_0))
   )
 ))

@@ -1,23 +1,23 @@
-(STMT :subj (AST_GLOBAL
-  (AST_VAR x)
-  (AST_VAR y)
-  (AST_VAR z)
+(STMT :subj (TT_GLOBAL
+  (TT_VAR x)
+  (TT_VAR y)
+  (TT_VAR z)
 ))
-(STMT :subj (AST_FNC main
-  (AST_VAR main)
-  (AST_ASSIGN
-    (AST_VAR x)
-    (AST_ILIT 1)
+(STMT :subj (TT_FNC main
+  (TT_VAR main)
+  (TT_ASSIGN
+    (TT_VAR x)
+    (TT_ILIT 1)
   )
-  (AST_ASSIGN
-    (AST_VAR y)
-    (AST_ILIT 2)
+  (TT_ASSIGN
+    (TT_VAR y)
+    (TT_ILIT 2)
   )
-  (AST_ASSIGN
-    (AST_VAR z)
-    (AST_ADD
-      (AST_VAR x)
-      (AST_VAR y)
+  (TT_ASSIGN
+    (TT_VAR z)
+    (TT_ADD
+      (TT_VAR x)
+      (TT_VAR y)
     )
   )
 ))

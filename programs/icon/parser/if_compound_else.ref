@@ -1,23 +1,23 @@
-(STMT :subj (AST_FNC main
-  (AST_VAR main)
-  (AST_IF
-    (AST_GT
-      (AST_VAR x)
-      (AST_ILIT 0)
+(STMT :subj (TT_FNC main
+  (TT_VAR main)
+  (TT_IF
+    (TT_GT
+      (TT_VAR x)
+      (TT_ILIT 0)
     )
-    (AST_SEQ_EXPR
-      (AST_FNC
-        (AST_VAR write)
-        (AST_QLIT "pos")
+    (TT_SEQ_EXPR
+      (TT_FNC
+        (TT_VAR write)
+        (TT_QLIT "pos")
       )
-      (AST_FNC
-        (AST_VAR write)
-        (AST_QLIT "ok")
+      (TT_FNC
+        (TT_VAR write)
+        (TT_QLIT "ok")
       )
     )
-    (AST_FNC
-      (AST_VAR write)
-      (AST_QLIT "neg")
+    (TT_FNC
+      (TT_VAR write)
+      (TT_QLIT "neg")
     )
   )
 ))

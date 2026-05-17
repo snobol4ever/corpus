@@ -1,25 +1,25 @@
-(STMT :subj (AST_FNC DEFINE (AST_QLIT "PUSH(S,V)")))
+(STMT :subj (TT_FNC DEFINE (TT_QLIT "PUSH(S,V)")))
 (STMT :go rb_1)
 (STMT :lbl PUSH)
-(STMT :eq :subj (AST_IDX
-  (AST_VAR S.DATA)
-  (AST_ASSIGN
-    (AST_VAR S.TOP)
-    (AST_ADD
-      (AST_VAR S.TOP)
-      (AST_ILIT 1)
+(STMT :eq :subj (TT_IDX
+  (TT_VAR S.DATA)
+  (TT_ASSIGN
+    (TT_VAR S.TOP)
+    (TT_ADD
+      (TT_VAR S.TOP)
+      (TT_ILIT 1)
     )
   )
-) :repl (AST_VAR V))
+) :repl (TT_VAR V))
 (STMT :go RETURN)
 (STMT :lbl rb_1)
-(STMT :subj (AST_FNC DEFINE (AST_QLIT "MAIN()")))
+(STMT :subj (TT_FNC DEFINE (TT_QLIT "MAIN()")))
 (STMT :go rb_2)
 (STMT :lbl MAIN)
-(STMT :subj (AST_FNC PUSH
-  (AST_VAR S)
-  (AST_ILIT 1)
+(STMT :subj (TT_FNC PUSH
+  (TT_VAR S)
+  (TT_ILIT 1)
 ))
 (STMT :go RETURN)
 (STMT :lbl rb_2)
-(STMT :subj (AST_FNC MAIN))
+(STMT :subj (TT_FNC MAIN))

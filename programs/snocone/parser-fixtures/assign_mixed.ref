@@ -1,4 +1,4 @@
-(STMT :eq :subj (AST_VAR x) :repl (AST_ILIT 42))
-(STMT :eq :subj (AST_VAR y) :repl (AST_QLIT "hello"))
-(STMT :eq :subj (AST_VAR z) :repl (AST_VAR x))
-(STMT :subj (AST_VAR w))
+(STMT :eq :subj (TT_VAR x) :repl (TT_ILIT 42))
+(STMT :eq :subj (TT_VAR y) :repl (TT_QLIT "hello"))
+(STMT :eq :subj (TT_VAR z) :repl (TT_VAR x))
+(STMT :subj (TT_VAR w))

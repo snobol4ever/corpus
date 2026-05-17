@@ -1,12 +1,12 @@
-(STMT :subj (AST_CHOICE foo/3 (AST_CLAUSE foo/3
-    (AST_VAR _V0)
-    (AST_VAR _V1)
-    (AST_VAR _V2)
-    (AST_FNC ;
-      (AST_FNC ->
-        (AST_VAR _V0)
-        (AST_VAR _V1)
+(STMT :subj (TT_CHOICE foo/3 (TT_CLAUSE foo/3
+    (TT_VAR _V0)
+    (TT_VAR _V1)
+    (TT_VAR _V2)
+    (TT_FNC ;
+      (TT_FNC ->
+        (TT_VAR _V0)
+        (TT_VAR _V1)
       )
-      (AST_VAR _V2)
+      (TT_VAR _V2)
     )
   )))

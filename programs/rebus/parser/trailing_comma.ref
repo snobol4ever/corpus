@@ -1,11 +1,11 @@
-(STMT :subj (AST_FNC DEFINE (AST_QLIT "MAIN()")))
+(STMT :subj (TT_FNC DEFINE (TT_QLIT "MAIN()")))
 (STMT :go rb_1)
 (STMT :lbl MAIN)
-(STMT :subj (AST_FNC FOO
-  (AST_ILIT 1)
-  (AST_ILIT 2)
-  (AST_NUL)
+(STMT :subj (TT_FNC FOO
+  (TT_ILIT 1)
+  (TT_ILIT 2)
+  (TT_NUL)
 ))
 (STMT :go RETURN)
 (STMT :lbl rb_1)
-(STMT :subj (AST_FNC MAIN))
+(STMT :subj (TT_FNC MAIN))

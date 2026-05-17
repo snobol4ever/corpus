@@ -1,4 +1,4 @@
-(STMT :subj (AST_FNC multifile (AST_DIV
-    (AST_FNC foo)
-    (AST_ILIT 1)
+(STMT :subj (TT_FNC multifile (TT_DIV
+    (TT_FNC foo)
+    (TT_ILIT 1)
   )))

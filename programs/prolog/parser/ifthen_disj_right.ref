@@ -1,7 +1,7 @@
-(STMT :subj (AST_CHOICE foo/0 (AST_CLAUSE foo/0 (AST_FNC ;
-      (AST_FNC a)
-      (AST_FNC ->
-        (AST_FNC b)
-        (AST_FNC c)
+(STMT :subj (TT_CHOICE foo/0 (TT_CLAUSE foo/0 (TT_FNC ;
+      (TT_FNC a)
+      (TT_FNC ->
+        (TT_FNC b)
+        (TT_FNC c)
       )
     ))))

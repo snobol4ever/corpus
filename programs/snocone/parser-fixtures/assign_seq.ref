@@ -1,2 +1,2 @@
-(STMT :eq :subj (AST_VAR a) :repl (AST_ILIT 1))
-(STMT :eq :subj (AST_VAR b) :repl (AST_ILIT 2))
+(STMT :eq :subj (TT_VAR a) :repl (TT_ILIT 1))
+(STMT :eq :subj (TT_VAR b) :repl (TT_ILIT 2))

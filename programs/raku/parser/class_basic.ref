@@ -1,13 +1,13 @@
-(STMT :subj (AST_FNC Dog__speak
-  (AST_VAR Dog__speak)
-  (AST_VAR self)
-  (AST_FNC write
-    (AST_VAR write)
-    (AST_QLIT "woof")
+(STMT :subj (TT_FNC Dog__speak
+  (TT_VAR Dog__speak)
+  (TT_VAR self)
+  (TT_FNC write
+    (TT_VAR write)
+    (TT_QLIT "woof")
   )
 ))
-(STMT :subj (AST_RECORD Dog (AST_VAR name)))
-(STMT :subj (AST_FNC main
-  (AST_VAR main)
-  (AST_NUL)
+(STMT :subj (TT_RECORD Dog (TT_VAR name)))
+(STMT :subj (TT_FNC main
+  (TT_VAR main)
+  (TT_NUL)
 ))

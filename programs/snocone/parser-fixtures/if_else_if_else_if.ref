@@ -1,22 +1,22 @@
-(STMT :subj (AST_FNC EQ
-  (AST_VAR x)
-  (AST_ILIT 1)
+(STMT :subj (TT_FNC EQ
+  (TT_VAR x)
+  (TT_ILIT 1)
 ) :goF _Lelse_0004)
-(STMT :eq :subj (AST_VAR y) :repl (AST_ILIT 1))
+(STMT :eq :subj (TT_VAR y) :repl (TT_ILIT 1))
 (STMT :go _Lend_0005)
 (STMT :lbl _Lelse_0004)
-(STMT :subj (AST_FNC EQ
-  (AST_VAR x)
-  (AST_ILIT 2)
+(STMT :subj (TT_FNC EQ
+  (TT_VAR x)
+  (TT_ILIT 2)
 ) :goF _Lelse_0002)
-(STMT :eq :subj (AST_VAR y) :repl (AST_ILIT 2))
+(STMT :eq :subj (TT_VAR y) :repl (TT_ILIT 2))
 (STMT :go _Lend_0003)
 (STMT :lbl _Lelse_0002)
-(STMT :subj (AST_FNC EQ
-  (AST_VAR x)
-  (AST_ILIT 3)
+(STMT :subj (TT_FNC EQ
+  (TT_VAR x)
+  (TT_ILIT 3)
 ) :goF _Lend_0001)
-(STMT :eq :subj (AST_VAR y) :repl (AST_ILIT 3))
+(STMT :eq :subj (TT_VAR y) :repl (TT_ILIT 3))
 (STMT :lbl _Lend_0001)
 (STMT :lbl _Lend_0003)
 (STMT :lbl _Lend_0005)

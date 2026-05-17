@@ -1,7 +1,7 @@
 (STMT :lbl _Ltop_0001)
-(STMT :subj (AST_FNC EQ
-  (AST_VAR x)
-  (AST_ILIT 1)
+(STMT :subj (TT_FNC EQ
+  (TT_VAR x)
+  (TT_ILIT 1)
 ) :goF _Lend_0002)
 (STMT :go _Ltop_0001)
 (STMT :go _Ltop_0001)

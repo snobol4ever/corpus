@@ -1,5 +1,5 @@
-(STMT :eq :subj (AST_VAR x) :repl (AST_FNC h
-  (AST_VAR a)
-  (AST_VAR b)
-  (AST_VAR c)
+(STMT :eq :subj (TT_VAR x) :repl (TT_FNC h
+  (TT_VAR a)
+  (TT_VAR b)
+  (TT_VAR c)
 ))

@@ -1,11 +1,11 @@
-(STMT :subj (AST_FNC main
-  (AST_VAR main)
-  (AST_ASSIGN
-    (AST_VAR s)
-    (AST_CAT
-      (AST_QLIT "hello")
-      (AST_QLIT " ")
-      (AST_QLIT "world")
+(STMT :subj (TT_FNC main
+  (TT_VAR main)
+  (TT_ASSIGN
+    (TT_VAR s)
+    (TT_CAT
+      (TT_QLIT "hello")
+      (TT_QLIT " ")
+      (TT_QLIT "world")
     )
   )
 ))

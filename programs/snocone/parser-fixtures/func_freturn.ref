@@ -1,4 +1,4 @@
-(STMT :subj (AST_FNC DEFINE (AST_QLIT "p()")))
+(STMT :subj (TT_FNC DEFINE (TT_QLIT "p()")))
 (STMT :go p_end)
 (STMT :lbl p)
 (STMT :go FRETURN)

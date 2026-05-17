@@ -1,26 +1,26 @@
-(STMT :subj (AST_FNC Dog__speak
-  (AST_VAR Dog__speak)
-  (AST_VAR self)
-  (AST_FNC write
-    (AST_VAR write)
-    (AST_QLIT "woof")
+(STMT :subj (TT_FNC Dog__speak
+  (TT_VAR Dog__speak)
+  (TT_VAR self)
+  (TT_FNC write
+    (TT_VAR write)
+    (TT_QLIT "woof")
   )
 ))
-(STMT :subj (AST_RECORD Dog (AST_VAR name)))
-(STMT :subj (AST_FNC main
-  (AST_VAR main)
-  (AST_NUL)
-  (AST_ASSIGN
-    (AST_VAR d)
-    (AST_FNC raku_new
-      (AST_VAR raku_new)
-      (AST_QLIT "Dog")
-      (AST_QLIT "name")
-      (AST_QLIT "Rex")
+(STMT :subj (TT_RECORD Dog (TT_VAR name)))
+(STMT :subj (TT_FNC main
+  (TT_VAR main)
+  (TT_NUL)
+  (TT_ASSIGN
+    (TT_VAR d)
+    (TT_FNC raku_new
+      (TT_VAR raku_new)
+      (TT_QLIT "Dog")
+      (TT_QLIT "name")
+      (TT_QLIT "Rex")
     )
   )
-  (AST_FNC write
-    (AST_VAR write)
-    (AST_FIELD name (AST_VAR d))
+  (TT_FNC write
+    (TT_VAR write)
+    (TT_FIELD name (TT_VAR d))
   )
 ))

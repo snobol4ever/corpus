@@ -1,4 +1,4 @@
-(STMT :eq :subj (AST_VAR x) :pat (AST_ALT
-  (AST_QLIT "a")
-  (AST_QLIT "b")
-) :repl (AST_QLIT "z"))
+(STMT :eq :subj (TT_VAR x) :pat (TT_ALT
+  (TT_QLIT "a")
+  (TT_QLIT "b")
+) :repl (TT_QLIT "z"))

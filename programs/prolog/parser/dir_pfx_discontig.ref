@@ -1,4 +1,4 @@
-(STMT :subj (AST_FNC discontiguous (AST_DIV
-    (AST_FNC bar)
-    (AST_ILIT 2)
+(STMT :subj (TT_FNC discontiguous (TT_DIV
+    (TT_FNC bar)
+    (TT_ILIT 2)
   )))

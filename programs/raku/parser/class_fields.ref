@@ -1,8 +1,8 @@
-(STMT :subj (AST_RECORD Point
-  (AST_VAR x)
-  (AST_VAR y)
+(STMT :subj (TT_RECORD Point
+  (TT_VAR x)
+  (TT_VAR y)
 ))
-(STMT :subj (AST_FNC main
-  (AST_VAR main)
-  (AST_NUL)
+(STMT :subj (TT_FNC main
+  (TT_VAR main)
+  (TT_NUL)
 ))

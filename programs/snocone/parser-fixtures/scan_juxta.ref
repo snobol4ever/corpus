@@ -1,1 +1,1 @@
-(STMT :subj (AST_VAR x) :pat (AST_QLIT "foo"))
+(STMT :subj (TT_VAR x) :pat (TT_QLIT "foo"))
