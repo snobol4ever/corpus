@@ -1,8 +1,6 @@
-(STMT :lbl _Ltop_0001)
-(STMT :subj (TT_FNC EQ
-  (TT_VAR x)
-  (TT_ILIT 1)
-) :goF _Lend_0002)
-(STMT :go _Lend_0002)
-(STMT :go _Ltop_0001)
-(STMT :lbl _Lend_0002)
+(STMT :subj (TT_WHILE
+  (TT_FNC EQ (TT_VAR x) (TT_ILIT 1))
+  (TT_PROGRAM (TT_STMT (TT_ATTR :line (TT_QLIT "2")) (TT_ATTR :stno (TT_QLIT "1")) (TT_ATTR :subj (TT_LOOP_BREAK))))
+  (TT_QLIT "_Ltop_0001")
+  (TT_QLIT "_Lend_0002")
+))

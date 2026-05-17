@@ -1,17 +1,41 @@
-(STMT :subj (TT_FNC EQ
-  (TT_VAR x)
-  (TT_ILIT 1)
-) :goF _Lelse_0003)
-(STMT :eq :subj (TT_VAR y) :repl (TT_ILIT 1))
-(STMT :go _Lend_0004)
-(STMT :lbl _Lelse_0003)
-(STMT :subj (TT_FNC EQ
-  (TT_VAR x)
-  (TT_ILIT 2)
-) :goF _Lelse_0001)
-(STMT :eq :subj (TT_VAR y) :repl (TT_ILIT 2))
-(STMT :go _Lend_0002)
-(STMT :lbl _Lelse_0001)
-(STMT :eq :subj (TT_VAR y) :repl (TT_ILIT 3))
-(STMT :lbl _Lend_0002)
-(STMT :lbl _Lend_0004)
+(STMT :subj (TT_IF
+  (TT_FNC EQ (TT_VAR x) (TT_ILIT 1))
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :subj (TT_VAR y))
+      (TT_ATTR :eq)
+      (TT_ATTR :repl (TT_ILIT 1))
+    )
+  )
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "4"))
+      (TT_ATTR :subj
+        (TT_IF
+          (TT_FNC EQ (TT_VAR x) (TT_ILIT 2))
+          (TT_PROGRAM
+            (TT_STMT
+              (TT_ATTR :line (TT_QLIT "1"))
+              (TT_ATTR :stno (TT_QLIT "2"))
+              (TT_ATTR :subj (TT_VAR y))
+              (TT_ATTR :eq)
+              (TT_ATTR :repl (TT_ILIT 2))
+            )
+          )
+          (TT_PROGRAM
+            (TT_STMT
+              (TT_ATTR :line (TT_QLIT "1"))
+              (TT_ATTR :stno (TT_QLIT "3"))
+              (TT_ATTR :subj (TT_VAR y))
+              (TT_ATTR :eq)
+              (TT_ATTR :repl (TT_ILIT 3))
+            )
+          )
+        )
+      )
+    )
+  )
+))

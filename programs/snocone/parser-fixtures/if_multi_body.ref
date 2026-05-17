@@ -1,4 +1,19 @@
-(STMT :subj (TT_VAR x) :goF _Lend_0001)
-(STMT :eq :subj (TT_VAR a) :repl (TT_ILIT 1))
-(STMT :eq :subj (TT_VAR b) :repl (TT_ILIT 2))
-(STMT :lbl _Lend_0001)
+(STMT :subj (TT_IF
+  (TT_VAR x)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :subj (TT_VAR a))
+      (TT_ATTR :eq)
+      (TT_ATTR :repl (TT_ILIT 1))
+    )
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "2"))
+      (TT_ATTR :subj (TT_VAR b))
+      (TT_ATTR :eq)
+      (TT_ATTR :repl (TT_ILIT 2))
+    )
+  )
+))

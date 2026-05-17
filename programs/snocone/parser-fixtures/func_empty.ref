@@ -1,4 +1,1 @@
-(STMT :subj (TT_FNC DEFINE (TT_QLIT "f()")))
-(STMT :go f_end)
-(STMT :lbl f)
-(STMT :lbl f_end)
+(STMT :subj (TT_DEFINE (TT_QLIT "f") (TT_QLIT "f()") (TT_PROGRAM)))

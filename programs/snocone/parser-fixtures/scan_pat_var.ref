@@ -1,4 +1,1 @@
-(STMT :subj (TT_VAR x) :pat (TT_SEQ
-  (TT_VAR p)
-  (TT_QLIT "foo")
-))
+(STMT :subj (TT_VAR x) :pat (TT_SEQ (TT_VAR p) (TT_QLIT "foo")))

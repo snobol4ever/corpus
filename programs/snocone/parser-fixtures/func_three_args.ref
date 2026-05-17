@@ -1,5 +1,14 @@
-(STMT :subj (TT_FNC DEFINE (TT_QLIT "g(a,b,c)")))
-(STMT :go g_end)
-(STMT :lbl g)
-(STMT :eq :subj (TT_VAR g) :repl (TT_VAR c) :go RETURN)
-(STMT :lbl g_end)
+(STMT :subj (TT_DEFINE
+  (TT_QLIT "g")
+  (TT_QLIT "g(a,b,c)")
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :subj (TT_VAR g))
+      (TT_ATTR :eq)
+      (TT_ATTR :repl (TT_VAR c))
+    )
+    (TT_STMT (TT_ATTR :line (TT_QLIT "1")) (TT_ATTR :stno (TT_QLIT "2")) (TT_ATTR :subj (TT_RETURN)))
+  )
+))

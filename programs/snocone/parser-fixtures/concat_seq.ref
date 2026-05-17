@@ -1,4 +1,1 @@
-(STMT :eq :subj (TT_VAR x) :repl (TT_SEQ
-  (TT_QLIT "hello")
-  (TT_VAR name)
-))
+(STMT :eq :subj (TT_VAR x) :repl (TT_SEQ (TT_QLIT "hello") (TT_VAR name)))

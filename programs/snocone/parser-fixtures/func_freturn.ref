@@ -1,5 +1,5 @@
-(STMT :subj (TT_FNC DEFINE (TT_QLIT "p()")))
-(STMT :go p_end)
-(STMT :lbl p)
-(STMT :go FRETURN)
-(STMT :lbl p_end)
+(STMT :subj (TT_DEFINE
+  (TT_QLIT "p")
+  (TT_QLIT "p()")
+  (TT_PROGRAM (TT_STMT (TT_ATTR :line (TT_QLIT "1")) (TT_ATTR :stno (TT_QLIT "1")) (TT_ATTR :subj (TT_PROC_FAIL))))
+))

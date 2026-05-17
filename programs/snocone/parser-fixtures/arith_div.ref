@@ -1,4 +1,1 @@
-(STMT :eq :subj (TT_VAR x) :repl (TT_DIV
-  (TT_ILIT 10)
-  (TT_VAR b)
-))
+(STMT :eq :subj (TT_VAR x) :repl (TT_DIV (TT_ILIT 10) (TT_VAR b)))

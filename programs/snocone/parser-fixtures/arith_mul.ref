@@ -1,4 +1,1 @@
-(STMT :eq :subj (TT_VAR x) :repl (TT_MUL
-  (TT_VAR a)
-  (TT_VAR b)
-))
+(STMT :eq :subj (TT_VAR x) :repl (TT_MUL (TT_VAR a) (TT_VAR b)))

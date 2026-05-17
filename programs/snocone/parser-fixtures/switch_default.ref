@@ -1,12 +1,24 @@
-(STMT :eq :subj (TT_VAR _Lswitch_t_0001) :repl (TT_VAR x))
-(STMT :subj (TT_FNC IDENT
-  (TT_VAR _Lswitch_t_0001)
+(STMT :subj (TT_CASE
+  (TT_VAR x)
   (TT_ILIT 1)
-) :goS _Lcase_0004)
-(STMT :go _Ldefault_0003)
-(STMT :lbl _Lcase_0004)
-(STMT :eq :subj (TT_VAR y) :repl (TT_ILIT 10))
-(STMT :go _Lend_0002)
-(STMT :lbl _Ldefault_0003)
-(STMT :eq :subj (TT_VAR y) :repl (TT_ILIT 99))
-(STMT :lbl _Lend_0002)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :subj (TT_VAR y))
+      (TT_ATTR :eq)
+      (TT_ATTR :repl (TT_ILIT 10))
+    )
+  )
+  (TT_NUL)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "3"))
+      (TT_ATTR :stno (TT_QLIT "2"))
+      (TT_ATTR :subj (TT_VAR y))
+      (TT_ATTR :eq)
+      (TT_ATTR :repl (TT_ILIT 99))
+    )
+  )
+  (TT_QLIT "_Lend_0001")
+))

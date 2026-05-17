@@ -1,5 +1,14 @@
-(STMT :eq :subj (TT_VAR _Lswitch_t_0001) :repl (TT_VAR x))
-(STMT :go _Ldefault_0003)
-(STMT :lbl _Ldefault_0003)
-(STMT :eq :subj (TT_VAR y) :repl (TT_ILIT 0))
-(STMT :lbl _Lend_0002)
+(STMT :subj (TT_CASE
+  (TT_VAR x)
+  (TT_NUL)
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "2"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :subj (TT_VAR y))
+      (TT_ATTR :eq)
+      (TT_ATTR :repl (TT_ILIT 0))
+    )
+  )
+  (TT_QLIT "_Lend_0001")
+))

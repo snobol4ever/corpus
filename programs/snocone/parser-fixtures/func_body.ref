@@ -1,9 +1,21 @@
-(STMT :subj (TT_FNC DEFINE (TT_QLIT "f(a,b)")))
-(STMT :go f_end)
-(STMT :lbl f)
-(STMT :eq :subj (TT_VAR c) :repl (TT_ADD
-  (TT_VAR a)
-  (TT_VAR b)
+(STMT :subj (TT_DEFINE
+  (TT_QLIT "f")
+  (TT_QLIT "f(a,b)")
+  (TT_PROGRAM
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "1"))
+      (TT_ATTR :subj (TT_VAR c))
+      (TT_ATTR :eq)
+      (TT_ATTR :repl (TT_ADD (TT_VAR a) (TT_VAR b)))
+    )
+    (TT_STMT
+      (TT_ATTR :line (TT_QLIT "1"))
+      (TT_ATTR :stno (TT_QLIT "2"))
+      (TT_ATTR :subj (TT_VAR f))
+      (TT_ATTR :eq)
+      (TT_ATTR :repl (TT_VAR c))
+    )
+    (TT_STMT (TT_ATTR :line (TT_QLIT "1")) (TT_ATTR :stno (TT_QLIT "3")) (TT_ATTR :subj (TT_RETURN)))
+  )
 ))
-(STMT :eq :subj (TT_VAR f) :repl (TT_VAR c) :go RETURN)
-(STMT :lbl f_end)
