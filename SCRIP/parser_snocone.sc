@@ -911,7 +911,7 @@ Command         =   $' ' ( if_cmd
                     | stmt_cmd
                     );
 Compiland       =   nPush()
-                    ARBNO(Command)
+                    POS(0) ARBNO(Command) RPOS(0)
                     reduce_prim(E_Parse)
                     nPop();
 InitCounter();

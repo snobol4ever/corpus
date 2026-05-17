@@ -352,7 +352,7 @@ Record      = ( nPush()
                 nPop()
               );
 Compiland = ( nPush()
-              ARBNO( nInc() $' ' (GlobalDecl | Record | Proc) $' ' )
+              POS(0) ARBNO( nInc() $' ' (GlobalDecl | Record | Proc) $' ' ) RPOS(0)
               reduce('Parse', 'nTop()')
               nPop()
             );

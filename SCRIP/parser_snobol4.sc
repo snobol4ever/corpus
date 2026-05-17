@@ -232,7 +232,7 @@ Command     =  nInc()
                |  *Stmt (nl | ';')
                );
 Compiland   =  nPush()
-               ARBNO(*Command)
+               POS(0) ARBNO(*Command) RPOS(0)
                reduce(E_Parse, 'nTop()')
                ('END' (' ' BREAK(nl) nl | nl) ARBNO(BREAK(nl) nl) | epsilon)
                nPop();

@@ -568,8 +568,9 @@ ClassDecl = ( $'class' $'  '
 ClosureExpr = ( $'{' *Expr $'}' );
 Compiland = nPush()
             nPush()
-            ARBNO( SubStmt | (*ClassDecl Push_nul nInc()) | (Stmt nInc()) )
+            POS(0) ARBNO( SubStmt | (*ClassDecl Push_nul nInc()) | (Stmt nInc()) )
             $' '
+            RPOS(0)
             Finish_main_body
             nPop()
             nInc()

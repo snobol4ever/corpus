@@ -248,7 +248,7 @@ func_cmd = nInc() *function_decl;
 rec_cmd  = nInc() *record_decl;
 blank    = $' ' nl;
 Command  = *func_cmd | *rec_cmd | *blank;
-Compiland = nPush() ARBNO(Command) reduce(Parse, nTop_count) nPop();
+Compiland = nPush() POS(0) ARBNO(Command) RPOS(0) reduce(Parse, nTop_count) nPop();
 InitCounter();
 InitStack();
 Src = '';

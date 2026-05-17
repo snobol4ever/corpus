@@ -1019,7 +1019,7 @@ Push_skip = epsilon . *push_skip();
 skip_to_dot = ( BREAKX('.') $'.' Push_skip );
 top_form_safe = ( top_form | skip_to_dot );
 Compiland = nPush()
-            ARBNO( $' ' nInc() top_form_safe $' ' )
+            POS(0) ARBNO( $' ' nInc() top_form_safe $' ' ) RPOS(0)
             reduce(E_Parse, 'nTop()')
             nPop();
 InitCounter();
