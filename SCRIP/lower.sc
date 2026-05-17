@@ -606,8 +606,58 @@ function lower_proc_fail(t) { emit('SM_PUSH_NULL'); emit('SM_FRETURN'); return; 
 /* ==================================================================================================================== */
 /* Case: Icon pair layout — topic + (val,body)* + [default].
  * Raku triple layout uses emit_thunk; Ph1 stubbed via SM_PUSH_EXPR fallback. */
-function lower_case(t, nc, has_def, npairs, jumps, jf, end_lbl, i, base, end) {
+/* PST-SC-4f: lower_case handles both Snocone TT_CASE (QLIT last child, TT_PROGRAM bodies)
+ * and Icon/Raku TT_CASE (numeric shape). Detect by TT_QLIT as last child. */
+function lower_case(t, last_idx, is_snocone, nc, has_def, npairs, jumps, jf, end_lbl, lbl_end,
+                    i, base, end, narms, arm_entries, end_jumps, val, body, ji, jdefault, exit_pos) {
     if (LT(n(t), 1)) { emit('SM_PUSH_NULL'); return; }
+    last_idx = n(t);
+    is_snocone = (GE(last_idx, 2) DIFFER(c(t)[last_idx]) IDENT(t(c(t)[last_idx]), 'TT_QLIT'));
+    if (is_snocone) {
+        lbl_end = c(t)[last_idx].sval;
+        narms = (last_idx - 2) / 2;
+        lower_expr(c(t)[1]);
+        emit_s('SM_STORE_VAR', '__case_topic__'); emit('SM_VOID_POP');
+        arm_entries = tree('ARMS', '');
+        end_jumps   = tree('ENDS', '');
+        jdefault = -1;
+        i = 0;
+        while (LT(i, narms)) {
+            val = c(t)[2 + i * 2];
+            if (~ IDENT(t(val), 'TT_NUL')) {
+                emit_s('SM_PUSH_VAR', '__case_topic__');
+                lower_expr(val);
+                emit_si('SM_CALL_FN', 'ICN_CASE_EQ', 2);
+                Append(arm_entries, tree('J', '' emit_i('SM_JUMP_S', 0)));
+                emit('SM_VOID_POP');
+            }
+            i = i + 1;
+        }
+        jdefault = emit_i('SM_JUMP', 0);
+        i = 0; ji = 1;
+        while (LT(i, narms)) {
+            val  = c(t)[2 + i * 2];
+            body = c(t)[3 + i * 2];
+            if (IDENT(t(val), 'TT_NUL')) {
+                sm_patch_jump(jdefault, g_count); jdefault = -1;
+            } else {
+                sm_patch_jump(v(c(arm_entries)[ji]), g_count); ji = ji + 1;
+                emit('SM_VOID_POP');
+            }
+            if (DIFFER(body) IDENT(t(body), 'TT_PROGRAM')) {
+                i = 1; while (LE(i, n(body))) { if (DIFFER(c(body)[i])) lower_stmt(c(body)[i]); i = i + 1; }
+                i = i;
+            } else if (DIFFER(body)) { lower_expr(body); emit('SM_VOID_POP'); }
+            Append(end_jumps, tree('J', '' emit_i('SM_JUMP', 0)));
+            i = i + 1;
+        }
+        exit_pos = g_count;
+        if (NE(jdefault, -1)) sm_patch_jump(jdefault, exit_pos);
+        i = 1; while (LE(i, n(end_jumps))) { sm_patch_jump(v(c(end_jumps)[i]), exit_pos); i = i + 1; }
+        if (DIFFER(lbl_end) NE(SIZE(lbl_end), 0)) labtab_define(lbl_end, exit_pos);
+        emit('SM_PUSH_NULL');
+        return;
+    }
     nc = n(t) - 1;
     has_def = REMDR(nc, 2);
     npairs  = (nc - has_def) / 2;
