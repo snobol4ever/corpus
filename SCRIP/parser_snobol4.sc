@@ -95,17 +95,17 @@ Expr        =  *Expr0;
 Expr0       =  *Expr1 FENCE($'=' *Expr0 reduce("'TT_ASSIGN'", 2) | epsilon);
 Expr1       =  *Expr2 FENCE($'?' *Expr1 reduce_opsyn('?', 2) | epsilon);
 Expr2       =  *Expr3 FENCE($'&' *Expr2 reduce_opsyn('&', 2) | epsilon);
-/* PST-SN4-1d-SCRIP (2026-05-16): replaced flat n-ary nPush/nInc/nPop/reduce(GT(nTop()>1))
-   form with left-recursive binary always-wrap form.  Mirrors the C-side fix in snobol4.y
-   (PST-SN4-1d, commit 544a6de0).  Produces right-leaning binary chains:
-     a b c  =>  TT_SEQ(TT_SEQ(a,b),c)
-     a|b|c  =>  TT_ALT(TT_ALT(a,b),c)
-   Re-flattening, if ever wanted, is a downstream (lower) concern.
-   X3 and X4 helpers deleted; replaced by Expr3tail / Expr4tail. */
-Expr3       =  *Expr4 FENCE($'|' *Expr4 reduce("'TT_ALT'", 2) *Expr3tail | epsilon);
-Expr3tail   =  FENCE($'|' *Expr4 reduce("'TT_ALT'", 2) *Expr3tail | epsilon);
-Expr4       =  *Expr5 FENCE($'  ' *Expr5 reduce("'TT_SEQ'", 2) *Expr4tail | epsilon);
-Expr4tail   =  FENCE($'  ' *Expr5 reduce("'TT_SEQ'", 2) *Expr4tail | epsilon);
+/* SCT-9g-snobol4 n-ary rewrite (2026-05-17, Claude Sonnet 4.6):
+   Expr3 (|/TT_ALT) and Expr4 (space/TT_SEQ) now produce flat n-ary trees via foldop+cont.
+   FoldOp() in ShiftReduce.sc checks if lhs.tag == target tag and calls Append() to extend
+   the existing node: a|b|c => TT_ALT(a,b,c), not TT_ALT(TT_ALT(a,b),c).
+   Associativity direction is left to lower-level code; the parse tree records children
+   left-to-right as tokens arrive (shift-reduce constraint).
+   Supersedes PST-SN4-1d-SCRIP; Expr3tail/Expr4tail deleted, replaced by Expr3cont/Expr4cont. */
+Expr3       =  *Expr4 FENCE($'|'  *Expr4 foldop("'TT_ALT'") *Expr3cont | epsilon);
+Expr3cont   =  FENCE($'|'  *Expr4 foldop("'TT_ALT'") *Expr3cont | epsilon);
+Expr4       =  *Expr5 FENCE($'  ' *Expr5 foldop("'TT_SEQ'") *Expr4cont | epsilon);
+Expr4cont   =  FENCE($'  ' *Expr5 foldop("'TT_SEQ'") *Expr4cont | epsilon);
 Expr5       =  *Expr6 FENCE($'@' *Expr5 reduce_opsyn('@', 2) | epsilon);
 Expr6       =  *Expr7
                FENCE($'+' *Expr7 foldop("'TT_ADD'") *Expr6cont | $'-' *Expr7 foldop("'TT_SUB'") *Expr6cont | epsilon);
@@ -122,11 +122,12 @@ Expr9cont   =  FENCE($'*' *Expr10 foldop("'TT_MUL'") *Expr9cont | epsilon);
    Added Expr10cont loop matching the foldop+cont pattern of Expr6/Expr8/Expr9. */
 Expr10      =  *Expr11 FENCE($'%' *Expr11 foldop("'TT_DIV'") *Expr10cont | epsilon);
 Expr10cont  =  FENCE($'%' *Expr11 foldop("'TT_DIV'") *Expr10cont | epsilon);
-/* SCT-9g-snobol4 (2026-05-17): exponentiation is RIGHT-associative per SPITBOL Manual Ch.15
-   pri 11.  The previous foldop+Expr11cont pattern produced LEFT-fold, making 2^3^2=64 instead
-   of 512.  Fixed to plain right-recursive reduce, mirroring C grammar
-   expr11 : expr12 T_2CARET expr11.  Expr11cont helper deleted. */
-Expr11      =  *Expr12 FENCE(($'^' | $'!' | $'**') *Expr11 reduce("'TT_POW'", 2) | epsilon);
+/* SCT-9g-snobol4 n-ary rewrite (2026-05-17): exponentiation n-ary flat, lowerer right-folds.
+   a^b^c => TT_POW(a,b,c); lower_sno.c / sm_lower.c right-fold to a^(b^c).
+   Uses nPush/nInc/X11/nPop pattern (same as snocone X3/X4) to collect all base/exponent
+   operands in left-to-right order, then reduce to flat n-ary node. */
+Expr11      =  nPush() *X11 reduce("'TT_POW'", '*(GT(nTop(), 1) nTop())') nPop();
+X11         =  nInc() *Expr12 FENCE(($'^' | $'!' | $'**') *X11 | epsilon);
 Expr12      =  *Expr13
                FENCE(
                   $'$' *Expr13 reduce("'TT_CAPT_IMMED_ASGN'", 2) *Expr12tail_immed
