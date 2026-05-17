@@ -1116,7 +1116,23 @@ function lower_stmt(s, label, lang, stno, lineno, subject, pattern, has_eq,
                     replacement, goto_s, goto_f, goto_u,
                     goto_u_expr,
                     is_end, sname, sv_name, ts,
-                    first_child, seq_n_lwr, pat_seq_lwr, i_lwr) {
+                    first_child, seq_n_lwr, pat_seq_lwr, i_lwr,
+                    name, sig, body, skip, entry_pos, i) {
+    /* PST-SC-4g: TT_DEFINE(QLIT(name), QLIT(sig), TT_PROGRAM(body)) */
+    if (IDENT(t(s), 'TT_DEFINE')) {
+        name = (GT(n(s), 0) DIFFER(c(s)[1])) c(s)[1].sval ;
+        sig  = (GT(n(s), 1) DIFFER(c(s)[2])) c(s)[2].sval ;
+        emit_s('SM_PUSH_LIT_S', sig); emit_si('SM_CALL_FN', 'DEFINE', 1); emit('SM_VOID_POP');
+        skip = emit_i('SM_JUMP', 0);
+        entry_pos = g_count;
+        emit_s('SM_LABEL', name); labtab_define(name, g_count - 1);
+        body = (GT(n(s), 2)) c(s)[3] ;
+        if (DIFFER(body) IDENT(t(body), 'TT_PROGRAM')) {
+            i = 1; while (LE(i, n(body))) { if (DIFFER(c(body)[i])) lower_stmt(c(body)[i]); i = i + 1; }
+        } else if (DIFFER(body)) { lower_expr(body); emit('SM_VOID_POP'); }
+        sm_patch_jump(skip, g_count);
+        return;
+    }
     /* PST-SN4-2: TT_STMT is the new pure-syntax-tree shape from parser_snobol4.sc.
      * lower_sno_unpack extracts fields by child kind; old attr-tag path handles
      * pre-existing STMT nodes from test harnesses and other callers. */
