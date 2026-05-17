@@ -545,23 +545,21 @@ function finalize_function(nbody_v, body, n, name, args, Lend, i) {
     finalize_function = .dummy; nreturn;
 }
 /* ==================================================================================================================== */
-function emit_return_value(rhs, lhs, s) {
-    rhs = Pop();
-    lhs = tree('TT_VAR', cur_func_name);
-    s   = Tree('STMT', '', 4,
-                  Tree(':eq', ''),
-                  Tree(':subj', '', 1, lhs),
-                  Tree(':repl', '', 1, rhs),
-                  tree(':go', 'RETURN'));
-    Push(s);
+/* PST-SC-4j (2026-05-16): return/freturn/nreturn → pure tree nodes matching C parser output. */
+function emit_return_value(rhs, lhs, asgn) {
+    rhs  = Pop();
+    lhs  = tree('TT_VAR', cur_func_name);
+    asgn = Tree('TT_ASSIGN', '', 2, lhs, rhs);
+    Push(asgn);
+    Push(tree('TT_RETURN', ''));
     emit_return_value = .dummy; nreturn;
 }
 /* ==================================================================================================================== */
-function emit_return_void() { emit_return_void  = .dummy; Push(make_goto_stmt('RETURN'));  nreturn; }
+function emit_return_void() { emit_return_void  = .dummy; Push(tree('TT_RETURN',    '')); nreturn; }
 /* ==================================================================================================================== */
-function emit_freturn()     { emit_freturn      = .dummy; Push(make_goto_stmt('FRETURN')); nreturn; }
+function emit_freturn()     { emit_freturn      = .dummy; Push(tree('TT_PROC_FAIL', '')); nreturn; }
 /* ==================================================================================================================== */
-function emit_nreturn()     { emit_nreturn      = .dummy; Push(make_goto_stmt('NRETURN')); nreturn; }
+function emit_nreturn()     { emit_nreturn      = .dummy; Push(tree('TT_NRETURN',   '')); nreturn; }
 /* ==================================================================================================================== */
 function goto_emit()        { goto_emit         = .dummy; Push(make_goto_stmt(captured_goto)); nreturn; }
 /* ==================================================================================================================== */
