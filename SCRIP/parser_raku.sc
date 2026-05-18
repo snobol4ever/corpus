@@ -1,15 +1,10 @@
 
 E_Parse     = "'Parse'";
-/* PRF-10 (2026-05-18): r_nTop idiom — reduce only when count > 1, else fall through
- * leaving the single leaf bare on the stack. Used to skip TT_CAT wrapping for
- * non-interpolated DQ strings. */
-r_nTop      = '*(GT(nTop(), 1) nTop())';
 /* ==================================================================================================================== */
 /* PST-clean functions in this file (PRF-S7, 2026-05-18):
  *   dq_unescape        — pure string processor: applies \n/\t/\"/\\ escapes on capstr.
- *   push_interp_leaves — pure string pre-pass: walks capstr, pushes TT_QLIT/TT_VAR
- *                        leaves + IncCounter() per chunk. No Append, no tree-of-trees.
- *   Both are permitted under the PST principle as pre-pass string transformers.
+ *   dq_unescape only — push_interp_leaves eliminated; DQ strings emitted as single
+ *                        TT_QLIT leaf; lower handles interpolation.
  *   All other helpers eliminated: class-a stubs inlined as shift_val/assign;
  *   class-b stubs (emit_to_sub_list, push_stmt_subj) eliminated: replaced by nPop+nInc
  *   pattern — sub/class/gather TT_FNC/TT_RECORD nodes placed directly in TT_PROGRAM.
@@ -43,46 +38,8 @@ function dq_unescape(raw, result, lit, ch) {
 }
 Dq_unescape = (epsilon . *dq_unescape());
 /* ==================================================================================================================== */
-/* push_interp_leaves — pure string pre-pass (class-c PST-clean).
- * Walks capstr (post dq_unescape), pushing one TT_QLIT or TT_VAR leaf per
- * interpolation chunk, calling IncCounter() per push.  No Append, no tree-of-trees.
- * The grammar wraps with: nPush() LitStrDQ Dq_unescape Push_interp_leaves
- *   reduce('TT_CAT', r_nTop) nPop
- * When n==1, r_nTop returns failure (GT(1,1) fails), leaving the single leaf bare.
- * Moved from raku_stubs.sc to here (PRF-S7-4, 2026-05-18) alongside dq_unescape. */
-is_chars_il = &UCASE &LCASE '_';
-ir_chars_il = digits &UCASE &LCASE '_';
-function push_interp_leaves(raw, lit, isvf, isvr) {
-    raw = capstr;
-    while (1) {
-        if (IDENT(raw)) break;
-        lit = ''; isvf = ''; isvr = '';
-        if (raw ? (POS(0) BREAK('$') . lit '$' ANY(is_chars_il) . isvf (SPAN(ir_chars_il) | epsilon) . isvr) = ) {
-            if (DIFFER(lit)) {
-                Push(tree('TT_QLIT', lit));
-                IncCounter();
-            }
-            Push(tree('TT_VAR', isvf isvr));
-            IncCounter();
-        } else {
-            if (raw ? (POS(0) REM . lit) = ) {
-                if (DIFFER(lit)) {
-                    Push(tree('TT_QLIT', lit));
-                    IncCounter();
-                }
-            }
-            break;
-        }
-    }
-    /* Empty string case: nothing pushed yet — push one empty TT_QLIT leaf. */
-    if (EQ(TopCounter(), 0)) {
-        Push(tree('TT_QLIT', ''));
-        IncCounter();
-    }
-    push_interp_leaves = .dummy;
-    nreturn;
-}
-Push_interp_leaves = (epsilon . *push_interp_leaves());
+/* push_interp_leaves eliminated (PRF-S7, 2026-05-18): DQ string emitted as
+ * single TT_QLIT leaf; lower handles $var interpolation expansion. */
 /* ==================================================================================================================== */
 /* PRF-8 (2026-05-18): finish_given eliminated. WhenClause/DefaultClause inline pushes
  * (val, body) pairs via nInc()×2. GivenStmt uses reduce('TT_CASE','nTop()+1') with
@@ -305,11 +262,7 @@ Expr11 = ( $'!'  *Expr11  reduce("'TT_NOT'", 1)
          | VarNamedCapture        shift_val('raku_ncap', 'TT_VAR')     shift_val(capncname, 'TT_QLIT')    reduce('TT_FNC', 2)
          | ( LitFloat . capstr     shift_val(capstr, 'TT_FLIT') )
          | shift(LitInt, 'TT_ILIT')
-         | ( nPush()
-             LitStrDQ              Dq_unescape  Push_interp_leaves
-             reduce('TT_CAT', r_nTop)
-             nPop()
-           )
+         | ( LitStrDQ  Dq_unescape  shift_val(capstr, 'TT_QLIT') )
          | LitStrSQ               shift_val(capstr, 'TT_QLIT')
          | ( nPush()
              shift_val('raku_new', 'TT_VAR')  nInc()
