@@ -92,55 +92,9 @@ function finish_given(n_whens, def_body, kids, ec, i) {
     nreturn;
 }
 /* ==================================================================================================================== */
-function finish_sub_body(n_kids, kids, sname, efnc, subj, stmt, i) {
-    n_kids = TopCounter();
-    kids   = GT(n_kids, 0) ARRAY('1:' n_kids);
-    i = n_kids;
-    while (GT(i, 0)) { kids[i] = Pop(); i = i - 1; }
-    sname = capsnf capsnr;
-    efnc  = tree('TT_FNC', sname);
-    Append(efnc, tree('TT_VAR', sname));
-    i = 1;
-    while (LE(i, n_kids)) { Append(efnc, kids[i]); i = i + 1; }
-    subj = tree(':subj', ''); Append(subj, efnc);
-    stmt = tree('STMT', '');  Append(stmt, subj);
-    sub_list = slink(sub_list, stmt);
-    finish_sub_body = .dummy;
-    nreturn;
-}
-/* ==================================================================================================================== */
-function finish_method_body(n_kids, kids, mname, efnc, i) {
-    n_kids = TopCounter();
-    kids   = GT(n_kids, 0) ARRAY('1:' n_kids);
-    i = n_kids;
-    while (GT(i, 0)) { kids[i] = Pop(); i = i - 1; }
-    mname = capmtf capmtr;
-    efnc  = tree('TT_FNC', mname);
-    Append(efnc, tree('TT_VAR', mname));
-    Append(efnc, tree('TT_VAR', 'self'));
-    i = 1;
-    while (LE(i, n_kids)) { Append(efnc, kids[i]); i = i + 1; }
-    Push(efnc);
-    finish_method_body = .dummy;
-    nreturn;
-}
-/* ==================================================================================================================== */
-function finish_class_body(n_items, items, cname, rec, subj, stmt, i) {
-    n_items = TopCounter();
-    items   = GT(n_items, 0) ARRAY('1:' n_items);
-    i = n_items;
-    while (GT(i, 0)) { items[i] = Pop(); i = i - 1; }
-    cname = capclsf capclsr;
-    rec = tree('TT_RECORD', cname);
-    i = 1;
-    while (LE(i, n_items)) { Append(rec, items[i]); i = i + 1; }
-    subj = tree(':subj', ''); Append(subj, rec);
-    stmt = tree('STMT', '');  Append(stmt, subj);
-    sub_list = slink(sub_list, stmt);
-    finish_class_body = .dummy;
-    nreturn;
-}
-/* ==================================================================================================================== */
+
+
+
 function finish_gather_body(n_kids, kids, gname, def_efnc, def_subj, def_stmt, call_efnc, i) {
     n_kids = TopCounter();
     kids   = GT(n_kids, 0) ARRAY('1:' n_kids);
@@ -162,68 +116,8 @@ function finish_gather_body(n_kids, kids, gname, def_efnc, def_subj, def_stmt, c
     nreturn;
 }
 /* ==================================================================================================================== */
-function finish_call_body(n_kids, kids, efnc, i) {
-    n_kids = TopCounter();
-    kids   = GT(n_kids, 0) ARRAY('1:' n_kids);
-    i = n_kids;
-    while (GT(i, 0)) { kids[i] = Pop(); i = i - 1; }
-    efnc = tree('TT_FNC', capfnf capfnr);
-    i = 1;
-    while (LE(i, n_kids)) { Append(efnc, kids[i]); i = i + 1; }
-    Push(efnc);
-    finish_call_body = .dummy;
-    nreturn;
-}
-/* ==================================================================================================================== */
-function finish_mcall_body(n_args, args, obj, efnc, i) {
-    n_args = TopCounter();
-    args   = GT(n_args, 0) ARRAY('1:' n_args);
-    i = n_args;
-    while (GT(i, 0)) { args[i] = Pop(); i = i - 1; }
-    obj  = Pop();
-    efnc = tree('TT_FNC', 'raku_mcall');
-    Append(efnc, tree('TT_VAR', 'raku_mcall'));
-    Append(efnc, obj);
-    Append(efnc, tree('TT_QLIT', capmf capmr));
-    i = 1;
-    while (LE(i, n_args)) { Append(efnc, args[i]); i = i + 1; }
-    Push(efnc);
-    finish_mcall_body = .dummy;
-    nreturn;
-}
-/* ==================================================================================================================== */
-function finish_main_body(n_kids, kids, efnc, subj, stmt, i) {
-    n_kids = TopCounter();
-    kids   = GT(n_kids, 0) ARRAY('1:' n_kids);
-    i = n_kids;
-    while (GT(i, 0)) { kids[i] = Pop(); i = i - 1; }
-    efnc = tree('TT_FNC', 'main');
-    Append(efnc, tree('TT_VAR', 'main'));
-    i = 1;
-    while (LE(i, n_kids)) { Append(efnc, kids[i]); i = i + 1; }
-    subj = tree(':subj', ''); Append(subj, efnc);
-    stmt = tree('STMT', '');  Append(stmt, subj);
-    Push(stmt);
-    finish_main_body = .dummy;
-    nreturn;
-}
-/* ==================================================================================================================== */
-function finish_new_body(n, items, cname, efnc, i) {
-    n     = TopCounter();
-    items = GT(n, 0) ARRAY('1:' n);
-    i = n;
-    while (GT(i, 0)) { items[i] = Pop(); i = i - 1; }
-    cname = capclsf capclsr;
-    efnc  = tree('TT_FNC', 'raku_new');
-    Append(efnc, tree('TT_VAR', 'raku_new'));
-    Append(efnc, tree('TT_QLIT', cname));
-    i = 1;
-    while (LE(i, n)) { Append(efnc, items[i]); i = i + 1; }
-    Push(efnc);
-    finish_new_body = .dummy;
-    nreturn;
-}
-/* ==================================================================================================================== */
+
+
 White       =   (  SPAN(' ' tab nl)  FENCE('#' BREAK(nl) nl | epsilon)
                 |  '#' BREAK(nl) nl
                 );
@@ -396,11 +290,13 @@ MethodTail = FENCE(
     FENCE(
         '('
         nPush()
+        Push_fn_raku_mcall  nInc()
+        Push_mcall_mth_qlit nInc()
         ( *Expr              nInc()
           ARBNO( *McallArgTail )
         | epsilon
         )
-        $')'                 (epsilon . *finish_mcall_body())
+        $')'                 reduce('TT_FNC', 'nTop() + 1')
         nPop()
       | epsilon              Push_mth_qlit reduce('TT_FIELD', 2)
     )
@@ -432,14 +328,15 @@ Expr11 = ( $'!'  *Expr11  reduce("'TT_NOT'", 1)
          | LitStrDQ               Dq_unescape  Push_interp_str
          | LitStrSQ               Push_qlit
          | ( nPush()
-             NewCallName
+             Push_fn_raku_new  nInc()
+             NewCallName  Push_cls_qlit  nInc()
              '.' 'new'
              $'('
              ( $' ' ((ident_first (ident_rest | epsilon)) . capnamedkey) $'=>'  Push_named_key  *Expr  nInc() nInc()
                ARBNO( *NamedArgTail )
              | epsilon
              )
-             $')'                 (epsilon . *finish_new_body())
+             $')'                 reduce('TT_FNC', 'nTop()')
              nPop()
            )
          | $'(' *Expr $')'
@@ -450,7 +347,7 @@ Expr11 = ( $'!'  *Expr11  reduce("'TT_NOT'", 1)
                ARBNO( *CallArgTail )
              | epsilon
              )
-             $')'                 (epsilon . *finish_call_body())
+             $')'                 reduce('TT_FNC', 'nTop()')
              nPop()
            )
          | BareIdent              Push_var
@@ -753,8 +650,11 @@ SubParams = ( SubParam  Push_param  nInc()
 SubStmt = ( $'sub' $'  '
             SubName
             nPush()
+            Push_sub_name_var  nInc()
             $'(' SubParams $')'
-            SubBlock  (epsilon . *finish_sub_body())
+            SubBlock
+            reduce('TT_FNC', 'nTop()')
+            Emit_to_sub_list
             nPop()
           );
 HasDeclTwigil  = ( VarTwigil  Push_has_field );
@@ -774,8 +674,11 @@ MethodParams = ( SubParam  Push_param  nInc()
 MethodDef = ( $'method' $'  '
               MethodIdent
               nPush()
+              Push_mth_name_var  nInc()
+              Push_self_var      nInc()
               $'(' *MethodParams $')'
-              *SubBlock  (epsilon . *finish_method_body())
+              *SubBlock
+              reduce('TT_FNC', 'nTop()')
               nPop()
               nInc()
             );
@@ -784,18 +687,22 @@ ClassDecl = ( $'class' $'  '
               ClassName
               $'{'
               nPush()
+              Push_cls_qlit  nInc()
               ARBNO( *ClassBodyItem )
               $'}'
-              (epsilon . *finish_class_body())
+              reduce('TT_RECORD', 'nTop()')
+              Emit_to_sub_list
               nPop()
             );
 ClosureExpr = ( $'{' *Expr $'}' );
 Compiland = nPush()
             nPush()
+            Push_main_var  nInc()
             POS(0) ARBNO( SubStmt | (*ClassDecl Push_nul nInc()) | (Stmt nInc()) )
             $' '
             RPOS(0)
-            (epsilon . *finish_main_body())
+            reduce('TT_FNC', 'nTop()')
+            Push_stmt_subj
             nPop()
             nInc()
             (reduce(E_Parse, 1))

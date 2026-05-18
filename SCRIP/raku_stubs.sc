@@ -23,6 +23,10 @@ function push_named_key() { Push(tree('TT_QLIT', capnamedkey));    push_named_ke
 function push_subst_args(){ Push(tree('TT_QLIT', caprepl));        push_subst_args= .dummy; nreturn; }
 
 /* Built-in function name pushers — push a TT_VAR node so reduce('TT_FNC',N) wraps it */
+function push_fn_raku_mcall(){ Push(tree('TT_VAR','raku_mcall'));    push_fn_raku_mcall= .dummy; nreturn; }
+function push_mcall_mth_qlit(){ Push(tree('TT_QLIT',capmf capmr));  push_mcall_mth_qlit= .dummy; nreturn; }
+function push_fn_raku_new(){ Push(tree('TT_VAR','raku_new'));      push_fn_raku_new= .dummy; nreturn; }
+function push_cls_qlit()  { Push(tree('TT_QLIT',capclsf capclsr)); push_cls_qlit  = .dummy; nreturn; }
 function push_fn_raku_die(){ Push(tree('TT_VAR','die'));           push_fn_raku_die= .dummy; nreturn; }
 function push_fn_map()    { Push(tree('TT_VAR','map'));            push_fn_map    = .dummy; nreturn; }
 function push_fn_grep()   { Push(tree('TT_VAR','grep'));           push_fn_grep   = .dummy; nreturn; }
@@ -84,6 +88,20 @@ function push_fn_ph_POST() { Push(tree('TT_VAR','raku_POST'));  push_fn_ph_POST 
 function push_fn_ph_CLOSE(){ Push(tree('TT_VAR','raku_CLOSE')); push_fn_ph_CLOSE= .dummy; nreturn; }
 function push_fn_ph_TEMP() { Push(tree('TT_VAR','raku_TEMP'));  push_fn_ph_TEMP = .dummy; nreturn; }
 
+function push_sub_name_var() { Push(tree('TT_VAR', capsnf capsnr)); push_sub_name_var = .dummy; nreturn; }
+function push_mth_name_var() { Push(tree('TT_VAR', capmtf capmtr)); push_mth_name_var = .dummy; nreturn; }
+function push_self_var()     { Push(tree('TT_VAR', 'self'));         push_self_var     = .dummy; nreturn; }
+function push_cls_name_var() { Push(tree('TT_VAR', capclsf capclsr)); push_cls_name_var = .dummy; nreturn; }
+/* Sub-list emitter: pops top node, wraps in STMT(:subj), slinks to sub_list. No child inspection. */
+function emit_to_sub_list(nd, subj, stmt) {
+    nd   = Pop();
+    subj = tree(':subj', ''); Append(subj, nd);
+    stmt = tree('STMT',  ''); Append(stmt, subj);
+    sub_list = slink(sub_list, stmt);
+    emit_to_sub_list = .dummy;
+    nreturn;
+}
+Emit_to_sub_list = (epsilon . *emit_to_sub_list());
 /* Flag setters — pure side-effects, no stack interaction */
 function set_has_def()    { raku_has_def  = 1; set_has_def   = .dummy; nreturn; }
 function set_has_catch()  { raku_has_catch= 1; set_has_catch = .dummy; nreturn; }
@@ -109,6 +127,26 @@ Push_mod_qlit  = (epsilon . *push_mod_qlit());
 Push_ncname_qlit = (epsilon . *push_ncname_qlit());
 Push_named_key = (epsilon . *push_named_key());
 Push_subst_args= (epsilon . *push_subst_args());
+function push_main_var()     { Push(tree('TT_VAR', 'main'));        push_main_var     = .dummy; nreturn; }
+/* Wraps top node in STMT(:subj(nd)) and pushes — for finish_main_body replacement */
+function push_stmt_subj(nd, subj, stmt) {
+    nd   = Pop();
+    subj = tree(':subj', ''); Append(subj, nd);
+    stmt = tree('STMT',  ''); Append(stmt, subj);
+    Push(stmt);
+    push_stmt_subj = .dummy;
+    nreturn;
+}
+Push_main_var    = (epsilon . *push_main_var());
+Push_stmt_subj   = (epsilon . *push_stmt_subj());
+Push_sub_name_var = (epsilon . *push_sub_name_var());
+Push_mth_name_var = (epsilon . *push_mth_name_var());
+Push_self_var     = (epsilon . *push_self_var());
+Push_cls_name_var = (epsilon . *push_cls_name_var());
+Push_fn_raku_mcall=(epsilon . *push_fn_raku_mcall());
+Push_mcall_mth_qlit=(epsilon . *push_mcall_mth_qlit());
+Push_fn_raku_new=(epsilon . *push_fn_raku_new());
+Push_cls_qlit  = (epsilon . *push_cls_qlit());
 Push_fn_raku_die=(epsilon . *push_fn_raku_die());
 Push_fn_map    = (epsilon . *push_fn_map());
 Push_fn_grep   = (epsilon . *push_fn_grep());
