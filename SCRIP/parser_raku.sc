@@ -2,41 +2,12 @@
 E_Parse     = "'Parse'";
 /* ==================================================================================================================== */
 /* PST-clean functions in this file (PRF-S7, 2026-05-18):
- *   dq_unescape        — pure string processor: applies \n/\t/\"/\\ escapes on capstr.
- *   dq_unescape only — push_interp_leaves eliminated; DQ strings emitted as single
- *                        TT_QLIT leaf; lower handles interpolation.
+ *   Zero functions — dq_unescape eliminated: raw DQ string content emitted as
+ *   TT_QLIT; lower owns all escape and interpolation processing.
  *   All other helpers eliminated: class-a stubs inlined as shift_val/assign;
  *   class-b stubs (emit_to_sub_list, push_stmt_subj) eliminated: replaced by nPop+nInc
  *   pattern — sub/class/gather TT_FNC/TT_RECORD nodes placed directly in TT_PROGRAM.
  * ==================================================================================================================== */
-bSlash   = '\';
-/* ==================================================================================================================== */
-/* ==================================================================================================================== */
-function dq_unescape(raw, result, lit, ch) {
-    raw = capstr;
-    result = '';
-    while (1) {
-        if (IDENT(raw)) break;
-        if (raw ? (POS(0) BREAK(bSlash) . lit) = ) { result = result lit; }
-        if (IDENT(raw)) break;
-        if (raw ? (POS(0) bSlash) = ) {
-            if (raw ? (POS(0) LEN(1) . ch) = ) {
-                if      (IDENT(ch, 'n'))      { result = result nl;     }
-                else if (IDENT(ch, 't'))      { result = result tab;    }
-                else if (IDENT(ch, bSlash))   { result = result bSlash; }
-                else if (IDENT(ch, '"'))      { result = result '"';    }
-                else                          { result = result bSlash ch; }
-            }
-        } else {
-            if (raw ? (POS(0) REM . lit) = ) { result = result lit; }
-            break;
-        }
-    }
-    capstr = result;
-    dq_unescape = .dummy;
-    nreturn;
-}
-Dq_unescape = (epsilon . *dq_unescape());
 /* ==================================================================================================================== */
 /* push_interp_leaves eliminated (PRF-S7, 2026-05-18): DQ string emitted as
  * single TT_QLIT leaf; lower handles $var interpolation expansion. */
@@ -262,7 +233,7 @@ Expr11 = ( $'!'  *Expr11  reduce("'TT_NOT'", 1)
          | VarNamedCapture        shift_val('raku_ncap', 'TT_VAR')     shift_val(capncname, 'TT_QLIT')    reduce('TT_FNC', 2)
          | ( LitFloat . capstr     shift_val(capstr, 'TT_FLIT') )
          | shift(LitInt, 'TT_ILIT')
-         | ( LitStrDQ  Dq_unescape  shift_val(capstr, 'TT_QLIT') )
+         | ( LitStrDQ  shift_val(capstr, 'TT_QLIT') )
          | LitStrSQ               shift_val(capstr, 'TT_QLIT')
          | ( nPush()
              shift_val('raku_new', 'TT_VAR')  nInc()
