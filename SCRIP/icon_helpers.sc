@@ -1,5 +1,8 @@
 /* icon_helpers.sc — helpers for parser_icon.sc, loaded before it. */
-function notmatch(s, pat) { notmatch = .dummy; if (s ? pat) freturn; else nreturn; }
+/* notmatch() removed 2026-05-18 (SCT-9): provided by match.sc loaded first in    */
+/* the runtime chain; redefining here triggered SPITBOL ERROR 217 duplicate-label.*/
+/* (icon_helpers.sc itself is slated for elimination in SCT-4 — eliminating this  */
+/* function is one step toward that.)                                              */
 function push_qlit() { Push(tree('TT_QLIT', strbody));    push_qlit = .dummy; nreturn; }
 function push_cset() { Push(tree('TT_CSET', csetbody));   push_cset = .dummy; nreturn; }
 function push_flit() { Push(tree('TT_FLIT', REAL(rval)));  push_flit = .dummy; nreturn; }

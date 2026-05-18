@@ -4,7 +4,10 @@ r_nTop            = '*(GT(nTop(), 1) nTop())';
 r_nTopP1          = '*(nTop() + 1)';
 reserved          = POS(0) ('if' | 'else' | 'while' | 'do' | 'for') RPOS(0);
 /* ==================================================================================================================== */
-function notmatch(s, pat) { notmatch = .dummy; if (s ? pat) freturn; else nreturn; }
+/* notmatch() is provided by corpus/SCRIP/match.sc (loaded first in the runtime chain by  */
+/* run_parser_sync_monitor.sh / run_scrip_parser.sh).  Redefining it here triggered       */
+/* SPITBOL ERROR 217 duplicate-label when the transpiled .sno was run under SPITBOL with  */
+/* match.sc included in the prelude.  SCT-9 (Opus 4.7, 2026-05-18).                       */
 white       =   (  SPAN(' ' tab nl)
                 |  '//' BREAK(nl) nl
                 |  '/*' BREAKX('*') '*/'
