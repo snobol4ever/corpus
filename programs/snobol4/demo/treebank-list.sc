@@ -1,6 +1,6 @@
 // treebank-list.sc — Penn Treebank s-expression parser (LISP-style, Snocone)
 // ENG 685, Lon Cherryholmes Sr.
-// Run: scrip --ir-run treebank-list.sc < VBGinTASA.dat
+// Run: scrip --interp treebank-list.sc < VBGinTASA.dat
 //------------------------------------------------------------------------------
 &ALPHABET POS(10) LEN(1) . nl;
 //------------------------------------------------------------------------------

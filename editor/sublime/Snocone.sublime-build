@@ -5,7 +5,7 @@
 //
 //  Lon's Windows-flavoured SNOBOL4.sublime-build was a useful
 //  reference for the env / file_regex / cancel keys.  This Snocone
-//  build is platform-neutral: shell_cmd invokes `scrip --ir-run` on
+//  build is platform-neutral: shell_cmd invokes `scrip --interp` on
 //  the file Sublime is currently building, capturing stdout to
 //  $project_base_name.out for inspection.
 
@@ -13,7 +13,7 @@
 //  "path": "/home/lon/snobol4ever/one4all",
 //  "path": "C:\\snobol4ever\\one4all",
 
-    "shell_cmd": "scrip --ir-run \"$file\" > \"$file_base_name.out\" 2>&1",
+    "shell_cmd": "scrip --interp \"$file\" > \"$file_base_name.out\" 2>&1",
 
 //  Snocone parser error messages come out as
 //      filename:line:col: error: message

@@ -1,7 +1,7 @@
 // ---------------------------------------------------------------------------------------------------------
 // porter.sc -- Porter (1980) stemming algorithm in Snocone
 // Snocone translation of porter.sno. Run:
-//   scrip --ir-run porter.sc < porter.input | diff - porter.ref
+//   scrip --interp porter.sc < porter.input | diff - porter.ref
 // Oracle for .ref: SPITBOL x64 running porter.sno (23531-line voc.txt/output.txt fixture).
 // ---------------------------------------------------------------------------------------------------------
 

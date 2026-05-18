@@ -1,6 +1,6 @@
 // treebank-array.sc — Penn Treebank s-expression parser (array style, Snocone)
 // ENG 685, Lon Cherryholmes Sr.
-// Run: scrip --ir-run treebank-array.sc < VBGinTASA.dat
+// Run: scrip --interp treebank-array.sc < VBGinTASA.dat
 //------------------------------------------------------------------------------
 &ALPHABET POS(10) LEN(1) . nl;
 //------------------------------------------------------------------------------

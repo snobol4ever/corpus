@@ -33,7 +33,7 @@ Compiland = nPush() ARBNO(*Command) reduce('Parse', 'nTop()') nPop();
 Snocone has no `-include` directive; callers pass every file as a blob:
 
 ```
-scrip --ir-run \
+scrip --interp \
   corpus/SCRIP/global.sc \
   corpus/SCRIP/tree.sc \
   corpus/SCRIP/stack.sc \

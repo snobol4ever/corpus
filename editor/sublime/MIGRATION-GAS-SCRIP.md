@@ -150,5 +150,5 @@ The SCRIP overlay (`SCRIP-x86.sublime-syntax`) is small, focused, and
 purely additive: 194 lines covering banners, triple-fusion, SM/PAT
 opcodes, BB broker primitives, runtime calls, and Greek-port label
 refinement.  Activated on `.s` files that begin with
-`.include "sm_macros.s"` (every `scrip --jit-emit --x64`-emitted `.s`
+`.include "sm_macros.s"` (every `scrip --compile`-emitted `.s`
 matches), it adds SCRIP semantics on top of the GAS base.

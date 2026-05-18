@@ -1,7 +1,7 @@
 // claws5.sc — CLAWS5 POS-tagged corpus tokenizer (Snocone, one-phase)
 // ENG 685, Lon Cherryholmes Sr.
-// Run: scrip --ir-run claws5.sc < claws5.input
-// Memory: scrip --ir-run needs -P 34000 for full corpus (CLAWS5inTASA.dat).
+// Run: scrip --interp claws5.sc < claws5.input
+// Memory: scrip --interp needs -P 34000 for full corpus (CLAWS5inTASA.dat).
 //         claws5.input (4 sentences) runs without -P flag.
 //------------------------------------------------------------------------------
 DIGITS  = '0123456789';

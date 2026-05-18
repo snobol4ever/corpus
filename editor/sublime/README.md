@@ -17,7 +17,7 @@ them consistently.
 | `SNOBOL4.sublime-settings`        | Editor settings applied when SNOBOL4 syntax is active    |
 | `Snocone.sublime-settings`        | Editor settings applied when Snocone  syntax is active   |
 | `SNOBOL4.sublime-build`           | Build / run command for SNOBOL4 (Lon's local SPITBOL)    |
-| `Snocone.sublime-build`           | Build / run command for Snocone (uses `scrip --ir-run`)  |
+| `Snocone.sublime-build`           | Build / run command for Snocone (uses `scrip --interp`)  |
 | `Preferences.sublime-settings`    | Global editor preferences (font size, trim trailing ws)  |
 | `DEFINE.sublime-snippet`          | `DEFINE` ↹  expansion for SNOBOL4 prototype-string form  |
 | `START.sublime-snippet`           | `START` ↹  expansion for SNOBOL4 program skeleton        |
@@ -116,7 +116,7 @@ the configured build.
   SPITBOL's `filename(line,col) : Error N…` diagnostic format and
   jumps to the offending source line on error.
 
-* **Snocone** — `Snocone.sublime-build` invokes `scrip --ir-run` on
+* **Snocone** — `Snocone.sublime-build` invokes `scrip --interp` on
   the active `.sc` file, capturing stdout/stderr to a matching
   `.out` file alongside.  Build `scrip` from
   `snobol4ever/one4all/scripts/build_scrip.sh` and put it on PATH
@@ -242,7 +242,7 @@ SCRIP-specific contexts on top via `meta_prepend`.
 It owns scope `source.asm.scrip`.  File extension `[s, S]` is shared
 with the base; Sublime resolves the conflict via `first_line_match`:
 an `.s` file whose first line matches `\.include\s+"(sm|bb)_macros\.s"`
-(every `scrip --jit-emit --x64`-emitted `.s` begins this way)
+(every `scrip --compile`-emitted `.s` begins this way)
 activates this syntax; otherwise the file falls through to GAS-x86.
 
 **What the overlay adds:**

@@ -17,7 +17,7 @@ acceptable and intentional.
 ## Why this directory exists
 
 `parser_raku.sc`'s original goal (RK-0..RK-27) was byte-for-byte
-oracle parity with the C frontend `--dump-ir`.  That goal CLOSED at
+oracle parity with the C frontend `--dump-ast`.  That goal CLOSED at
 PASS=147 FAIL=0 (≈95% of `raku.y` covered).
 
 The post-PIVOT goal (RK-28..RK-50) is full coverage of the **official
