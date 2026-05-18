@@ -1,49 +1,16 @@
 
 E_Parse     = "'Parse'";
+/* PRF-10 (2026-05-18): r_nTop idiom — reduce only when count > 1, else fall through
+ * leaving the single leaf bare on the stack. Used to skip TT_CAT wrapping for
+ * non-interpolated DQ strings. */
+r_nTop      = '*(GT(nTop(), 1) nTop())';
 /* ==================================================================================================================== */
-/* Helper functions inlined from former raku_helpers.sc (deleted 2026-05-18).                                          */
-/* push_interp_str and dq_unescape: string processors, no tree child inspection.                                       */
-/* finish_* : variable-arity tree builders; cannot be a single reduce() call.                                          */
+/* Remaining function in this file: dq_unescape — pure string processor (no tree() / Push /
+ * Append). All tree-building helpers have been replaced with shift/reduce in the grammar
+ * or with leaf-only pushers in raku_stubs.sc. */
 /* ==================================================================================================================== */
-is_chars = &UCASE &LCASE '_';
-ir_chars = digits &UCASE &LCASE '_';
 bSlash   = '\';
 /* ==================================================================================================================== */
-function push_interp_str(raw, lit, isvf, isvr, result, newnode, i) {
-    raw    = capstr;
-    result = '';
-    while (1) {
-        if (IDENT(raw)) break;
-        lit = ''; isvf = ''; isvr = '';
-        if (raw ? (POS(0) BREAK('$') . lit '$' ANY(is_chars) . isvf (SPAN(ir_chars) | epsilon) . isvr) = ) {
-            if (DIFFER(lit)) {
-                newnode = tree('TT_QLIT', lit);
-                if (DIFFER(result)) {
-                    i = tree('TT_CAT', ''); Append(i, result); Append(i, newnode); result = i;
-                } else { result = newnode; }
-            }
-            newnode = tree('TT_VAR', isvf isvr);
-            if (DIFFER(result)) {
-                i = tree('TT_CAT', ''); Append(i, result); Append(i, newnode); result = i;
-            } else { result = newnode; }
-        } else {
-            if (raw ? (POS(0) REM . lit) = ) {
-                if (DIFFER(lit)) {
-                    newnode = tree('TT_QLIT', lit);
-                    if (DIFFER(result)) {
-                        i = tree('TT_CAT', ''); Append(i, result); Append(i, newnode); result = i;
-                    } else { result = newnode; }
-                }
-            }
-            break;
-        }
-    }
-    if (~DIFFER(result)) result = tree('TT_QLIT', '');
-    Push(result);
-    push_interp_str = .dummy;
-    nreturn;
-}
-Push_interp_str = (epsilon . *push_interp_str());
 /* ==================================================================================================================== */
 function dq_unescape(raw, result, lit, ch) {
     raw = capstr;
@@ -71,50 +38,18 @@ function dq_unescape(raw, result, lit, ch) {
 }
 Dq_unescape = (epsilon . *dq_unescape());
 /* ==================================================================================================================== */
-function finish_given(n_whens, def_body, kids, ec, i) {
-    n_whens = TopCounter();
-    if (EQ(given_has_def, 1)) def_body = Pop();
-    kids = GT(n_whens, 0) ARRAY('1:' (n_whens * 2));
-    i = n_whens * 2;
-    while (GT(i, 0)) { kids[i] = Pop(); i = i - 1; }
-    ec = tree('TT_CASE', '');
-    Append(ec, Pop());
-    i = 1;
-    while (LE(i, n_whens)) {
-        Append(ec, kids[(i - 1) * 2 + 1]);
-        Append(ec, kids[(i - 1) * 2 + 2]);
-        i = i + 1;
-    }
-    if (EQ(given_has_def, 1)) { Append(ec, tree('TT_NUL', '')); Append(ec, def_body); }
-    given_has_def = 0;
-    Push(ec);
-    finish_given = .dummy;
-    nreturn;
-}
+/* PRF-8 (2026-05-18): finish_given eliminated. WhenClause/DefaultClause inline pushes
+ * (val, body) pairs via nInc()×2. GivenStmt uses reduce('TT_CASE','nTop()+1') with
+ * topic pushed before nPush. cmpkind moved to lower.c (derived from val->t). */
 /* ==================================================================================================================== */
 
 
 
-function finish_gather_body(n_kids, kids, gname, def_efnc, def_subj, def_stmt, call_efnc, i) {
-    n_kids = TopCounter();
-    kids   = GT(n_kids, 0) ARRAY('1:' n_kids);
-    i = n_kids;
-    while (GT(i, 0)) { kids[i] = Pop(); i = i - 1; }
-    gname = '__gather_' gather_seq;
-    gather_seq = gather_seq + 1;
-    def_efnc = tree('TT_FNC', gname);
-    Append(def_efnc, tree('TT_VAR', gname));
-    i = 1;
-    while (LE(i, n_kids)) { Append(def_efnc, kids[i]); i = i + 1; }
-    def_subj = tree(':subj', ''); Append(def_subj, def_efnc);
-    def_stmt = tree('STMT', '');  Append(def_stmt, def_subj);
-    sub_list = slink(sub_list, def_stmt);
-    call_efnc = tree('TT_FNC', gname);
-    Append(call_efnc, tree('TT_VAR', gname));
-    Push(call_efnc);
-    finish_gather_body = .dummy;
-    nreturn;
-}
+/* ==================================================================================================================== */
+/* PRF-9 (2026-05-18): finish_gather_body eliminated. GatherBlock inlines two reduce
+ * pairs: one for def (Push_gather_name_var + SubBlock body, Emit_to_sub_list), one
+ * for call (Push_gather_name_var alone). Set_gather_name fountains '__gather_N'. */
+/* ==================================================================================================================== */
 /* ==================================================================================================================== */
 
 
@@ -325,7 +260,11 @@ Expr11 = ( $'!'  *Expr11  reduce("'TT_NOT'", 1)
          | VarNamedCapture        Push_fn_ncap     Push_ncname_qlit    reduce('TT_FNC', 2)
          | ( LitFloat . capstr     Push_float )
          | shift(LitInt, 'TT_ILIT')
-         | LitStrDQ               Dq_unescape  Push_interp_str
+         | ( nPush()
+             LitStrDQ              Dq_unescape  Push_interp_leaves
+             reduce('TT_CAT', r_nTop)
+             nPop()
+           )
          | LitStrSQ               Push_qlit
          | ( nPush()
              Push_fn_raku_new  nInc()
@@ -403,11 +342,22 @@ SubBlock = ( $'{'
              ARBNO( SubBlock_body )
              $'}'
            );
+/* PRF-9 (2026-05-18): GatherBlock builds two TT_FNCs sharing a fresh '__gather_N' name.
+ * Inside braces: Set_gather_name fills cap_gather_name; first nPush counts def children
+ * (TT_VAR name + each SubBlock stmt), reduce/Emit_to_sub_list/nPop emits def to sub_list.
+ * Second nPush builds the call (TT_VAR name only, count 1), reduce/nPop leaves call on stack. */
 GatherBlock = ( $'{'
+                Set_gather_name
                 nPush()
+                Push_gather_name_var  nInc()
                 ARBNO( *SubBlock_body )
                 $'}'
-                (epsilon . *finish_gather_body())
+                reduce('TT_FNC', 'nTop()')
+                Emit_to_sub_list
+                nPop()
+                nPush()
+                Push_gather_name_var  nInc()
+                reduce('TT_FNC', 'nTop()')
                 nPop()
               );
 IfStmt = ( $'if'  $'(' Expr $')'
@@ -523,13 +473,12 @@ AssignStmt = ( ($'my' $'  ' | epsilon)
 SayStmt  = ( $'say'  Expr $';'  Push_fn_write   reduce('TT_FNC', 2) );
 PrintStmt = ( $'print' Expr $';' Push_fn_writes reduce('TT_FNC', 2) );
 WhenClause = ( $'when' $'  '
-               Expr
-               Block
-               nInc()
+               Expr     nInc()
+               Block    nInc()
              );
 DefaultClause = ( $'default'
-                  Block
-                  Set_has_def
+                  Push_nul Block
+                  nInc() nInc()
                 );
 GivenStmt = ( $'given' $'  '
               Expr
@@ -538,7 +487,7 @@ GivenStmt = ( $'given' $'  '
               ARBNO( *WhenClause )
               (DefaultClause | epsilon)
               $'}'
-              (epsilon . *finish_given())
+              reduce('TT_CASE', 'nTop() + 1')
               nPop()
             );
 ArrSetStmt = ( VarArray Push_var $'[' *Expr $']' $'=' *Expr $';'

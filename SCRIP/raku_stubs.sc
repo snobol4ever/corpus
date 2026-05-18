@@ -127,7 +127,61 @@ Push_mod_qlit  = (epsilon . *push_mod_qlit());
 Push_ncname_qlit = (epsilon . *push_ncname_qlit());
 Push_named_key = (epsilon . *push_named_key());
 Push_subst_args= (epsilon . *push_subst_args());
-function push_main_var()     { Push(tree('TT_VAR', 'main'));        push_main_var     = .dummy; nreturn; }
+/* PRF-10 (2026-05-18): push_interp_leaves walks capstr (post dq_unescape), pushing one
+ * TT_QLIT or TT_VAR leaf per chunk and calling IncCounter() per push. The grammar wraps
+ * with nPush() / push_interp_leaves / reduce('TT_CAT', r_nTop) / nPop — when n==1 the
+ * reduce is a no-op (r_nTop returns failure for n<=1), leaving the single leaf bare.
+ * NO Append, NO tree-of-trees: pure leaf-pushes. Constants is_chars_il/ir_chars_il are
+ * duplicated here so this stub is self-contained (parser_raku.sc has its own). */
+is_chars_il = &UCASE &LCASE '_';
+ir_chars_il = digits &UCASE &LCASE '_';
+function push_interp_leaves(raw, lit, isvf, isvr) {
+    raw = capstr;
+    while (1) {
+        if (IDENT(raw)) break;
+        lit = ''; isvf = ''; isvr = '';
+        if (raw ? (POS(0) BREAK('$') . lit '$' ANY(is_chars_il) . isvf (SPAN(ir_chars_il) | epsilon) . isvr) = ) {
+            if (DIFFER(lit)) {
+                Push(tree('TT_QLIT', lit));
+                IncCounter();
+            }
+            Push(tree('TT_VAR', isvf isvr));
+            IncCounter();
+        } else {
+            if (raw ? (POS(0) REM . lit) = ) {
+                if (DIFFER(lit)) {
+                    Push(tree('TT_QLIT', lit));
+                    IncCounter();
+                }
+            }
+            break;
+        }
+    }
+    /* Empty string case: nothing pushed yet — push one empty TT_QLIT leaf. */
+    if (EQ(TopCounter(), 0)) {
+        Push(tree('TT_QLIT', ''));
+        IncCounter();
+    }
+    push_interp_leaves = .dummy;
+    nreturn;
+}
+Push_interp_leaves = (epsilon . *push_interp_leaves());
+/* PRF-9 (2026-05-18): gather name capture + push.
+ * set_gather_name bumps gather_seq, stores '__gather_N' in cap_gather_name (dedicated, not tx).
+ * push_gather_name_var pushes TT_VAR(cap_gather_name). Used twice per gather: once as
+ * c[0] of the def TT_FNC, once as c[0] of the call TT_FNC. Both reads see the same name. */
+function set_gather_name() {
+    cap_gather_name = '__gather_' gather_seq;
+    gather_seq = gather_seq + 1;
+    set_gather_name = .dummy;
+    nreturn;
+}
+function push_gather_name_var() {
+    Push(tree('TT_VAR', cap_gather_name));
+    push_gather_name_var = .dummy;
+    nreturn;
+}
+cap_gather_name = '';
 /* Wraps top node in STMT(:subj(nd)) and pushes — for finish_main_body replacement */
 function push_stmt_subj(nd, subj, stmt) {
     nd   = Pop();
@@ -139,6 +193,8 @@ function push_stmt_subj(nd, subj, stmt) {
 }
 Push_main_var    = (epsilon . *push_main_var());
 Push_stmt_subj   = (epsilon . *push_stmt_subj());
+Set_gather_name      = (epsilon . *set_gather_name());
+Push_gather_name_var = (epsilon . *push_gather_name_var());
 Push_sub_name_var = (epsilon . *push_sub_name_var());
 Push_mth_name_var = (epsilon . *push_mth_name_var());
 Push_self_var     = (epsilon . *push_self_var());
