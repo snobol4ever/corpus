@@ -187,11 +187,11 @@ Expr11 = (   If  |  Until  |  While  |  Every  |  Repeat  |  Case
          |   $'fail'  $' '  reduce('TT_PROC_FAIL', 0)
          |   ListCtor
          |   Call  |  Paren  |  Compound
-         |   $' ' cset_pat (epsilon . *Shift('TT_CSET', csetbody))
-         |   $' ' str_pat  (epsilon . *Shift('TT_QLIT', strbody))
-         |   $' ' real_pat . rval (epsilon . *Shift('TT_FLIT', REAL(rval)))
+         |   $' ' cset_pat shift_val(csetbody, 'TT_CSET')
+         |   $' ' str_pat  shift_val(strbody,  'TT_QLIT')
+         |   $' ' real_pat . rval shift_val(REAL(rval), 'TT_FLIT')
          |   $' ' shift(int_pat, 'TT_ILIT')
-         |   $' ' '&' id_pat . kwname (epsilon . *Shift('TT_VAR', '&' kwname))
+         |   $' ' '&' id_pat . kwname shift_val('&' kwname, 'TT_VAR')
          |   $' ' shift(id_pat, 'TT_VAR')
          );
 Expr10 = (   $'-'        *Expr10 reduce('TT_MNS', 1)
