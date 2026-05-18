@@ -229,3 +229,6 @@ function finish_new_body(n, items, cname, efnc, i) {
     nreturn;
 }
 Finish_new_body = (epsilon . *finish_new_body());
+/* SCT-9-arbno-fence fix: Push_ilit(n) -- raku needs 1-arg variant for capidx */
+function push_ilit_n(n)     { Push(tree('TT_ILIT', n));  push_ilit_n = .dummy; nreturn; }
+function Push_ilit(n)       { Push_ilit = EVAL("epsilon . thx . *push_ilit_n('" n "')"); return; }
