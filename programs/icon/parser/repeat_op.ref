@@ -1,7 +1,1 @@
-(STMT :subj (TT_FNC main
-  (TT_VAR main)
-  (TT_REPEAT (TT_FNC
-      (TT_VAR write)
-      (TT_QLIT "x")
-    ))
-))
+(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_REPEAT (TT_FNC (TT_VAR write) (TT_QLIT "x"))))))
