@@ -1,2 +1,2 @@
-(STMT :subj (TT_ASSIGN (TT_VAR a) (TT_QLIT "")))
+(STMT :subj (TT_DECL (TT_VAR Array) (TT_VAR a)))
 (STMT :subj (TT_EVERY (TT_ITERATE (TT_VAR a)) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "x")))))

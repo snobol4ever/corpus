@@ -1,0 +1,2 @@
+(STMT :subj (TT_DECL (TT_VAR Str) (TT_VAR h) (TT_FNC raku_new_hash (TT_VAR raku_new_hash))))
+(STMT :subj (TT_SAY (TT_VAR h)))

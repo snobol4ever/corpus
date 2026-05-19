@@ -1,0 +1,2 @@
+(STMT :subj (TT_DECL (TT_VAR Int) (TT_VAR nums) (TT_FNC raku_sort (TT_VAR raku_sort) (TT_VAR data))))
+(STMT :subj (TT_SAY (TT_VAR nums)))

@@ -1,0 +1,2 @@
+(STMT :subj (TT_DECL (TT_VAR Int) (TT_VAR nums)))
+(STMT :subj (TT_SAY (TT_VAR nums)))
