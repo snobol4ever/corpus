@@ -93,35 +93,24 @@ ExprList    =  nPush()
 XList       =  nInc() (*Expr | shift(epsilon, '')) FENCE($',' *XList | epsilon);
 Expr        =  *Expr0;
 Expr0       =  *Expr1 FENCE($'=' *Expr0 reduce("'TT_ASSIGN'", 2) | epsilon);
-Expr1       =  *Expr2 FENCE($'?' *Expr1 reduce_opsyn('?', 2) | epsilon);
-Expr2       =  *Expr3 FENCE($'&' *Expr2 reduce_opsyn('&', 2) | epsilon);
-/* SCT-9g-snobol4 n-ary rewrite (2026-05-17, Claude Sonnet 4.6):
-   Expr3 (|/TT_ALT) and Expr4 (space/TT_SEQ) now produce flat n-ary trees via foldop+cont.
-   FoldOp() in ShiftReduce.sc checks if lhs.tag == target tag and calls Append() to extend
-   the existing node: a|b|c => TT_ALT(a,b,c), not TT_ALT(TT_ALT(a,b),c).
-   Associativity direction is left to lower-level code; the parse tree records children
-   left-to-right as tokens arrive (shift-reduce constraint).
-   Supersedes PST-SN4-1d-SCRIP; Expr3tail/Expr4tail deleted, replaced by Expr3cont/Expr4cont. */
-Expr3       =  *Expr4 FENCE($'|'  *Expr4 foldop("'TT_ALT'") *Expr3cont | epsilon);
-Expr3cont   =  FENCE($'|'  *Expr4 foldop("'TT_ALT'") *Expr3cont | epsilon);
-Expr4       =  *Expr5 FENCE($'  ' *Expr5 foldop("'TT_SEQ'") *Expr4cont | epsilon);
-Expr4cont   =  FENCE($'  ' *Expr5 foldop("'TT_SEQ'") *Expr4cont | epsilon);
-Expr5       =  *Expr6 FENCE($'@' *Expr5 reduce_opsyn('@', 2) | epsilon);
+Expr1       =  *Expr2 FENCE($'?' *Expr1 reduce("'TT_SCAN'", 2) | epsilon);
+Expr2       =  *Expr3 FENCE($'&' *Expr2 reduce("'TT_SEQ'", 2) | epsilon);
+/* PST-SN4-SC-4 (2026-05-19): replaced all foldop chains with pure shift/reduce.
+   Expr3 (|/TT_ALT) and Expr4 (space/TT_SEQ): n-ary flat collect via nPush/nInc/X/nPop.
+   Expr6-Expr10 binary arithmetic: right-recursive reduce(tag,2); lower flattens later.
+   All *cont helper rules deleted. */
+Expr3       =  nPush() *X3  reduce(\"'TT_ALT'\", '*(GT(nTop(), 1) nTop())') nPop();
+X3          =  nInc() *Expr4 FENCE($'|'  *X3 | epsilon);
+Expr4       =  nPush() *X4  reduce(\"'TT_SEQ'\", '*(GT(nTop(), 1) nTop())') nPop();
+X4          =  nInc() *Expr5 FENCE($'  ' *X4 | epsilon);
+Expr5       =  *Expr6 FENCE($'@' *Expr5 reduce(\"'TT_CAPT_CURSOR'\", 2) | epsilon);
 Expr6       =  *Expr7
-               FENCE($'+' *Expr7 foldop("'TT_ADD'") *Expr6cont | $'-' *Expr7 foldop("'TT_SUB'") *Expr6cont | epsilon);
-Expr6cont   =  FENCE($'+' *Expr7 foldop("'TT_ADD'") *Expr6cont | $'-' *Expr7 foldop("'TT_SUB'") *Expr6cont | epsilon);
-/* SCT-9g-snobol4 (2026-05-17): # is left-assoc (Manual pri 7 left, OPSYN slot).
-   Added Expr7cont loop matching the foldop+cont pattern of Expr6/Expr8/Expr9. */
-Expr7       =  *Expr8 FENCE($'#' *Expr8 foldop("'TT_MUL'") *Expr7cont | epsilon);
-Expr7cont   =  FENCE($'#' *Expr8 foldop("'TT_MUL'") *Expr7cont | epsilon);
-Expr8       =  *Expr9 FENCE($'/' *Expr9 foldop("'TT_DIV'") *Expr8cont | epsilon);
-Expr8cont   =  FENCE($'/' *Expr9 foldop("'TT_DIV'") *Expr8cont | epsilon);
-Expr9       =  *Expr10 FENCE($'*' *Expr10 foldop("'TT_MUL'") *Expr9cont | epsilon);
-Expr9cont   =  FENCE($'*' *Expr10 foldop("'TT_MUL'") *Expr9cont | epsilon);
-/* SCT-9g-snobol4 (2026-05-17): % is left-assoc (Manual pri 10 left, OPSYN slot).
-   Added Expr10cont loop matching the foldop+cont pattern of Expr6/Expr8/Expr9. */
-Expr10      =  *Expr11 FENCE($'%' *Expr11 foldop("'TT_DIV'") *Expr10cont | epsilon);
-Expr10cont  =  FENCE($'%' *Expr11 foldop("'TT_DIV'") *Expr10cont | epsilon);
+               FENCE($'+' *Expr6 reduce(\"'TT_ADD'\", 2) | $'-' *Expr6 reduce(\"'TT_SUB'\", 2) | epsilon);
+Expr7       =  *Expr8 FENCE($'#' *Expr7 reduce(\"'TT_MUL'\", 2) | epsilon);
+Expr8       =  *Expr9 FENCE($'/' *Expr8 reduce(\"'TT_DIV'\", 2) | epsilon);
+Expr9       =  *Expr10 FENCE($'*' *Expr9 reduce(\"'TT_MUL'\", 2) | epsilon);
+Expr10      =  *Expr11 FENCE($'%' *Expr10 reduce(\"'TT_DIV'\", 2) | epsilon);
+Expr10      =  *Expr11 FENCE($'%' *Expr10 reduce("'TT_DIV'", 2) | epsilon);
 /* SCT-9g-snobol4 n-ary rewrite (2026-05-17): exponentiation n-ary flat, lowerer right-folds.
    a^b^c => TT_POW(a,b,c); lower_sno.c / sm_lower.c right-fold to a^(b^c).
    Uses nPush/nInc/X11/nPop pattern (same as snocone X3/X4) to collect all base/exponent
@@ -136,7 +125,7 @@ Expr12      =  *Expr13
                );
 Expr12tail_immed =  FENCE($'$' *Expr13 reduce("'TT_CAPT_IMMED_ASGN'", 2) *Expr12tail_immed | epsilon);
 Expr12tail_cond  =  FENCE($'.' *Expr13 reduce("'TT_CAPT_COND_ASGN'", 2) *Expr12tail_cond  | epsilon);
-Expr13      =  *Expr14 FENCE($'~' *Expr13 reduce_opsyn('~', 2) | epsilon);
+Expr13      =  *Expr14 FENCE($'~' *Expr13 reduce("'TT_NOT'", 2) | epsilon);
 Expr14      =  '@' *Expr14 reduce("'TT_CAPT_CURSOR'", 1)
             |  '~' *Expr14 reduce("'TT_NOT'", 1)
             |  '?' *Expr14 reduce("'TT_INTERROGATE'", 1)
@@ -161,22 +150,22 @@ Expr16      =  nInc()
                FENCE(*Expr16 | epsilon);
 Expr17      =  FENCE(
                   nPush() $'(' *Expr $')' reduce("'()'", 1) nPop()
-               |  *PrimLEN    $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim("'TT_LEN'")    nPop() $')'
-               |  *PrimBREAK  $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim("'TT_BREAK'")  nPop() $')'
-               |  *PrimSPAN   $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim("'TT_SPAN'")   nPop() $')'
-               |  *PrimANY    $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim("'TT_ANY'")    nPop() $')'
-               |  *PrimNOTANY $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim("'TT_NOTANY'") nPop() $')'
-               |  *PrimFENCE  $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim("'TT_FENCE'")  nPop() $')'
-               |  *PrimARBNO  $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim("'TT_ARBNO'")  nPop() $')'
-               |  *PrimPOS    $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim("'TT_POS'")    nPop() $')'
-               |  *PrimRPOS   $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim("'TT_RPOS'")   nPop() $')'
-               |  *PrimTAB    $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim("'TT_TAB'")    nPop() $')'
-               |  *PrimRTAB   $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim("'TT_RTAB'")   nPop() $')'
-               |  *PrimBREAKX $'(' nPush() FENCE(*FnArgList | epsilon) reduce_prim("'TT_BREAKX'") nPop() $')'
-               |  shift(*Function, "'TT_VAR'") FENCE(nPush() $'(' FENCE(*FnArgList | epsilon) reduce_call() nPop() $')' | epsilon)
+               |  *PrimLEN    $'(' nPush() FENCE(*FnArgList | epsilon) reduce("'TT_LEN'",    'nTop()')    nPop() $')'
+               |  *PrimBREAK  $'(' nPush() FENCE(*FnArgList | epsilon) reduce("'TT_BREAK'", 'nTop()')  nPop() $')'
+               |  *PrimSPAN   $'(' nPush() FENCE(*FnArgList | epsilon) reduce("'TT_SPAN'", 'nTop()')   nPop() $')'
+               |  *PrimANY    $'(' nPush() FENCE(*FnArgList | epsilon) reduce("'TT_ANY'", 'nTop()')    nPop() $')'
+               |  *PrimNOTANY $'(' nPush() FENCE(*FnArgList | epsilon) reduce("'TT_NOTANY'", 'nTop()') nPop() $')'
+               |  *PrimFENCE  $'(' nPush() FENCE(*FnArgList | epsilon) reduce("'TT_FENCE'", 'nTop()')  nPop() $')'
+               |  *PrimARBNO  $'(' nPush() FENCE(*FnArgList | epsilon) reduce("'TT_ARBNO'", 'nTop()')  nPop() $')'
+               |  *PrimPOS    $'(' nPush() FENCE(*FnArgList | epsilon) reduce("'TT_POS'", 'nTop()')    nPop() $')'
+               |  *PrimRPOS   $'(' nPush() FENCE(*FnArgList | epsilon) reduce("'TT_RPOS'", 'nTop()')   nPop() $')'
+               |  *PrimTAB    $'(' nPush() FENCE(*FnArgList | epsilon) reduce("'TT_TAB'", 'nTop()')    nPop() $')'
+               |  *PrimRTAB   $'(' nPush() FENCE(*FnArgList | epsilon) reduce("'TT_RTAB'", 'nTop()')   nPop() $')'
+               |  *PrimBREAKX $'(' nPush() FENCE(*FnArgList | epsilon) reduce("'TT_BREAKX'", 'nTop()') nPop() $')'
+               |  shift(*Function, "'TT_VAR'") FENCE(nPush() $'(' FENCE(*FnArgList | epsilon) reduce("'TT_FNC'", 'nTop()') nPop() $')' | epsilon)
                |  shift(*BuiltinVar, "'TT_VAR'")
                |  shift(*SpecialNm, "'TT_VAR'")
-               |  shift(*Id, "'TT_VAR'") FENCE(nPush() $'(' FENCE(*FnArgList | epsilon) reduce_call() nPop() $')' | epsilon)
+               |  shift(*Id, "'TT_VAR'") FENCE(nPush() $'(' FENCE(*FnArgList | epsilon) reduce("'TT_FNC'", 'nTop()') nPop() $')' | epsilon)
                |  *String shift(str_body, "'TT_QLIT'")
                |  shift(*Real, "'TT_RLIT'")
                |  shift(*Integer, "'TT_ILIT'")
