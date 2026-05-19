@@ -1,0 +1,1 @@
+(STMT :subj (TT_SUB_DECL main (TT_VAR main) (TT_IF (TT_HASH_EXISTS (TT_VAR h) (TT_QLIT "x")) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "yes"))))))

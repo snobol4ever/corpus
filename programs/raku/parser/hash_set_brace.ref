@@ -1,10 +1,7 @@
 (STMT :subj (TT_SUB_DECL main
   (TT_VAR main)
-  (TT_SEQ_EXPR)
-  (TT_SEQ_EXPR
-    (TT_ASSIGN (TT_VAR h) (TT_QLIT ""))
-    (TT_ASSIGN (TT_VAR k) (TT_QLIT "foo"))
-    (TT_FNC hash_set (TT_VAR hash_set) (TT_VAR h) (TT_VAR k) (TT_QLIT "baz"))
-    (TT_SAY (TT_FNC hash_get (TT_VAR hash_get) (TT_VAR h) (TT_VAR k)))
-  )
+  (TT_ASSIGN (TT_VAR h) (TT_QLIT ""))
+  (TT_ASSIGN (TT_VAR k) (TT_QLIT "foo"))
+  (TT_HASH_SET (TT_VAR h) (TT_VAR k) (TT_QLIT "baz"))
+  (TT_SAY (TT_HASH_GET (TT_VAR h) (TT_VAR k)))
 ))
