@@ -8,10 +8,14 @@
  *   cmp_expr / range_expr / add_expr / mul_expr / unary_expr / postfix_expr /
  *   call_expr / arg_list / atom.
  *
- * Left-recursive bison rules `X : X op Y | Y` are translated to right-recursive
- * Snocone shape `X = Y FENCE(op X | epsilon)`.  The tree action (later) builds
- * n-ary nodes via nPush/nInc/nPop, so left vs right recursion makes no semantic
- * difference for the final tree shape — only the recognition direction differs.
+ * Translation of raku.y to Snocone:
+ *   - Left-recursive binary-op chains `X : X op Y | Y`  →  right-recursive
+ *     `X = Y FENCE(op X | epsilon)`.  Tree action (later) collects n-ary via
+ *     nPush/nInc/nPop, so the resulting tree shape is identical to what
+ *     left-recursion would produce.
+ *   - Left-recursive list collectors `L : L item | epsilon`  →  preserved
+ *     as `ARBNO(item)` — ARBNO is right-leaning iteration that naturally
+ *     produces the same n-ary list at reduce time.
  *
  * NO tree-building actions (shift/reduce/nPush/nInc/nPop/nTop/assign).
  * NO captures (. var / $ var).  Pure recognition only.  PRF-14 will re-attach
@@ -95,12 +99,13 @@ HashAngleKey    = (BREAK('>'));                                 /* IDENT between
  *
  * raku.y top:                            this file:
  *   program  : stmt_list                   Compiland = stmt_list
- *   stmt_list: epsilon                     stmt_list = FENCE(*stmt *stmt_list | epsilon)
+ *   stmt_list: epsilon                     stmt_list = ARBNO(*stmt)
  *            | stmt_list stmt
  *
- * (left recursion converted to right recursion — same n-ary tree at reduce time)
+ * (ARBNO is right-leaning iteration — same n-ary tree at reduce time as
+ *  raku.y's left-recursive list collection.)
  * ==================================================================================================================== */
-stmt_list = FENCE( *stmt *stmt_list | epsilon );
+stmt_list = ARBNO(*stmt);
 /* --- stmt --- */
 stmt = FENCE(
          /* declared, typed: KW_MY IDENT VAR_X '=' expr ';'  /  KW_MY IDENT VAR_X ';' */
@@ -164,8 +169,8 @@ for_stmt = $'for' FENCE(
               );
 /* --- given_stmt --- */
 given_stmt = $'given' *expr $'{' *when_list FENCE( $'default' *block | epsilon ) $'}';
-/* --- when_list (right-recursive) --- */
-when_list = FENCE( $'when' *expr *block *when_list | epsilon );
+/* --- when_list --- */
+when_list = ARBNO( $'when' *expr *block );
 /* --- sub_decl --- */
 sub_decl = $'sub' Ident $'(' FENCE( *param_list | epsilon ) $')' *block;
 /* --- class_decl --- */
@@ -176,12 +181,12 @@ class_body_item = FENCE(
                   | $'has' VarScalar $';'
                   | $'method' Ident $'(' FENCE( *param_list | epsilon ) $')' *block
                   );
-class_body_list = FENCE( *class_body_item *class_body_list | epsilon );
-/* --- named_arg_list (right-recursive) --- */
+class_body_list = ARBNO(*class_body_item);
+/* --- named_arg_list --- */
 named_arg = Ident $'=>' *expr;
-named_arg_list = *named_arg FENCE( $',' *named_arg_list | epsilon );
-/* --- param_list (right-recursive) --- */
-param_list = VarScalar FENCE( $',' *param_list | epsilon );
+named_arg_list = *named_arg ARBNO( $',' *named_arg );
+/* --- param_list --- */
+param_list = VarScalar ARBNO( $',' VarScalar );
 /* --- block --- */
 block = $'{' *stmt_list $'}';
 /* --- closure --- */
@@ -254,12 +259,11 @@ postfix_expr = *call_expr;
  * raku.y mixes prefix-keyword call forms (die/map/grep/sort) with
  * IDENT '(' args ')' and atom '.' IDENT '(' args ')' postfix chains.
  * Try keyword-prefix forms first, then IDENT-headed call/new forms,
- * then atom followed by right-recursive method-call postfix chain.
+ * then atom followed by ARBNO of method-call postfixes.
  */
-arg_list = *expr FENCE( $',' *arg_list | epsilon );
+arg_list = *expr ARBNO( $',' *expr );
 new_args = FENCE( *named_arg_list | epsilon );
 call_args = FENCE( *arg_list | epsilon );
-method_postfix_tail = FENCE( *method_postfix *method_postfix_tail | epsilon );
 method_postfix = $'.' FENCE(
                    Ident $'(' *call_args $')'
                  | Ident
@@ -274,8 +278,8 @@ call_expr = FENCE(
                   $'(' *call_args $')'
                 | $'.' $'new' $'(' *new_args $')'
                 )
-            /* atom followed by right-recursive `.` postfix chain (method calls / field access) */
-            | *atom *method_postfix_tail
+            /* atom followed by ARBNO of `.` postfix (method call / field access) */
+            | *atom ARBNO(*method_postfix)
             );
 /* --- atom --- */
 atom = FENCE(
