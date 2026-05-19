@@ -1,3 +1,4 @@
+/* PST-ICN-SC ✅ 2026-05-19 — 4 × shift_val → assign+shift in Expr11; zero violations. */
 /* ==================================================================================================================== */
 white        =   (  SPAN(' ' tab nl)
                  |  '#' BREAK(nl) nl
@@ -187,11 +188,11 @@ Expr11 = (   If  |  Until  |  While  |  Every  |  Repeat  |  Case
          |   $'fail'  $' '  reduce('TT_PROC_FAIL', 0)
          |   ListCtor
          |   Call  |  Paren  |  Compound
-         |   $' ' cset_pat shift_val(csetbody, 'TT_CSET')
-         |   $' ' str_pat  shift_val(strbody,  'TT_QLIT')
-         |   $' ' real_pat . rval shift_val(REAL(rval), 'TT_FLIT')
+         |   $' ' cset_pat assign(.t_imm, csetbody) shift(t_imm, 'TT_CSET')
+         |   $' ' str_pat  assign(.t_imm, strbody)  shift(t_imm, 'TT_QLIT')
+         |   $' ' real_pat . rval assign(.t_imm, REAL(rval)) shift(t_imm, 'TT_FLIT')
          |   $' ' shift(int_pat, 'TT_ILIT')
-         |   $' ' '&' id_pat . kwname shift_val('&' kwname, 'TT_VAR')
+         |   $' ' '&' id_pat . kwname assign(.t_imm, '&' kwname) shift(t_imm, 'TT_VAR')
          |   $' ' shift(id_pat, 'TT_VAR')
          );
 Expr10 = (   $'-'        *Expr10 reduce('TT_MNS', 1)
