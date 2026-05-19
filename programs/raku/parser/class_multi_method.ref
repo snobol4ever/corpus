@@ -1,9 +1,6 @@
-(STMT :subj (TT_SUB_DECL
-  (TT_VAR main)
-  (TT_CLASS_DECL
-    (TT_VAR Counter)
-    (TT_VAR count)
-    (TT_SUB_DECL (TT_VAR get) (TT_VAR self) (TT_SAY (TT_FIELD count (TT_VAR self))))
-    (TT_SUB_DECL (TT_VAR show) (TT_VAR self) (TT_VAR x) (TT_SAY (TT_VAR x)))
-  )
+(STMT :subj (TT_CLASS_DECL
+  (TT_VAR Counter)
+  (TT_VAR count)
+  (TT_SUB_DECL (TT_VAR get) (TT_VAR self) (TT_SAY (TT_FIELD count (TT_VAR self))))
+  (TT_SUB_DECL (TT_VAR show) (TT_VAR self) (TT_VAR x) (TT_SAY (TT_VAR x)))
 ))

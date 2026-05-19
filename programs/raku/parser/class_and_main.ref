@@ -1,6 +1,3 @@
-(STMT :subj (TT_SUB_DECL
-  (TT_VAR main)
-  (TT_CLASS_DECL (TT_VAR Dog) (TT_VAR name) (TT_SUB_DECL (TT_VAR speak) (TT_VAR self) (TT_SAY (TT_QLIT "woof"))))
-  (TT_ASSIGN (TT_VAR d) (TT_FNC raku_new (TT_VAR raku_new) (TT_QLIT "Dog") (TT_QLIT "name") (TT_QLIT "Rex")))
-  (TT_SAY (TT_FIELD name (TT_VAR d)))
-))
+(STMT :subj (TT_CLASS_DECL (TT_VAR Dog) (TT_VAR name) (TT_SUB_DECL (TT_VAR speak) (TT_VAR self) (TT_SAY (TT_QLIT "woof")))))
+(STMT :subj (TT_ASSIGN (TT_VAR d) (TT_FNC raku_new (TT_VAR raku_new) (TT_QLIT "Dog") (TT_QLIT "name") (TT_QLIT "Rex"))))
+(STMT :subj (TT_SAY (TT_FIELD name (TT_VAR d))))

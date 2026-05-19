@@ -1,1 +1,1 @@
-(STMT :subj (TT_SUB_DECL (TT_VAR main) (TT_ASSIGN (TT_VAR s) (TT_CAT (TT_CAT (TT_QLIT "hello") (TT_QLIT " ")) (TT_QLIT "world")))))
+(STMT :subj (TT_ASSIGN (TT_VAR s) (TT_CAT (TT_CAT (TT_QLIT "hello") (TT_QLIT " ")) (TT_QLIT "world"))))

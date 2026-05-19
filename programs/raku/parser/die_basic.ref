@@ -1,1 +1,1 @@
-(STMT :subj (TT_SUB_DECL (TT_VAR main) (TT_DIE (TT_QLIT "fatal error"))))
+(STMT :subj (TT_DIE (TT_QLIT "fatal error")))

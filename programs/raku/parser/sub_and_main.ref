@@ -1,2 +1,3 @@
 (STMT :subj (TT_SUB_DECL (TT_VAR double) (TT_VAR x) (TT_RETURN (TT_ADD (TT_VAR x) (TT_VAR x)))))
-(STMT :subj (TT_SUB_DECL (TT_VAR main) (TT_ASSIGN (TT_VAR r) (TT_FNC double (TT_VAR double) (TT_ILIT 3))) (TT_SAY (TT_VAR r))))
+(STMT :subj (TT_ASSIGN (TT_VAR r) (TT_FNC double (TT_VAR double) (TT_ILIT 3))))
+(STMT :subj (TT_SAY (TT_VAR r)))

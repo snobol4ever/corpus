@@ -1,5 +1,2 @@
-(STMT :subj (TT_SUB_DECL
-  (TT_VAR main)
-  (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello"))
-  (TT_SAY (TT_FNC raku_mcall (TT_VAR raku_mcall) (TT_VAR s) (TT_QLIT "uc")))
-))
+(STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello")))
+(STMT :subj (TT_SAY (TT_FNC raku_mcall (TT_VAR raku_mcall) (TT_VAR s) (TT_QLIT "uc"))))

@@ -1,1 +1,1 @@
-(STMT :subj (TT_SUB_DECL (TT_VAR main) (TT_IF (TT_LEQ (TT_VAR a) (TT_VAR b)) (TT_SEQ_EXPR (TT_SAY (TT_VAR a))))))
+(STMT :subj (TT_IF (TT_LEQ (TT_VAR a) (TT_VAR b)) (TT_SEQ_EXPR (TT_SAY (TT_VAR a)))))

@@ -1,6 +1,3 @@
-(STMT :subj (TT_SUB_DECL
-  (TT_VAR main)
-  (TT_ASSIGN (TT_VAR h) (TT_QLIT ""))
-  (TT_HASH_SET (TT_VAR h) (TT_QLIT "foo") (TT_QLIT "bar"))
-  (TT_SAY (TT_HASH_GET (TT_VAR h) (TT_QLIT "foo")))
-))
+(STMT :subj (TT_ASSIGN (TT_VAR h) (TT_QLIT "")))
+(STMT :subj (TT_HASH_SET (TT_VAR h) (TT_QLIT "foo") (TT_QLIT "bar")))
+(STMT :subj (TT_SAY (TT_HASH_GET (TT_VAR h) (TT_QLIT "foo"))))

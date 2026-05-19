@@ -1,6 +1,3 @@
-(STMT :subj (TT_SUB_DECL
-  (TT_VAR main)
-  (TT_ASSIGN (TT_VAR a) (TT_QLIT ""))
-  (TT_ARR_SET (TT_VAR a) (TT_ILIT 0) (TT_ILIT 99))
-  (TT_SAY (TT_ARR_GET (TT_VAR a) (TT_ILIT 0)))
-))
+(STMT :subj (TT_ASSIGN (TT_VAR a) (TT_QLIT "")))
+(STMT :subj (TT_ARR_SET (TT_VAR a) (TT_ILIT 0) (TT_ILIT 99)))
+(STMT :subj (TT_SAY (TT_ARR_GET (TT_VAR a) (TT_ILIT 0))))

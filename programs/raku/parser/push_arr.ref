@@ -1,1 +1,1 @@
-(STMT :subj (TT_SUB_DECL (TT_VAR main) (TT_FNC push (TT_VAR push) (TT_VAR a) (TT_ILIT 1))))
+(STMT :subj (TT_FNC push (TT_VAR push) (TT_VAR a) (TT_ILIT 1)))

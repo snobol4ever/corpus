@@ -1,5 +1,2 @@
-(STMT :subj (TT_SUB_DECL
-  (TT_VAR main)
-  (TT_ASSIGN (TT_VAR obj) (TT_FNC raku_new (TT_VAR raku_new) (TT_QLIT "Foo") (TT_QLIT "x") (TT_ILIT 1)))
-  (TT_ASSIGN (TT_FIELD x (TT_VAR obj)) (TT_ILIT 42))
-))
+(STMT :subj (TT_ASSIGN (TT_VAR obj) (TT_FNC raku_new (TT_VAR raku_new) (TT_QLIT "Foo") (TT_QLIT "x") (TT_ILIT 1))))
+(STMT :subj (TT_ASSIGN (TT_FIELD x (TT_VAR obj)) (TT_ILIT 42)))

@@ -1,7 +1,4 @@
 (STMT :subj (TT_SUB_DECL (TT_VAR __gather_0) (TT_SUSPEND (TT_VAR n))))
-(STMT :subj (TT_SUB_DECL
-  (TT_VAR main)
-  (TT_ASSIGN (TT_VAR n) (TT_ILIT 10))
-  (TT_ASSIGN (TT_VAR r) (TT_FNC __gather_0 (TT_VAR __gather_0)))
-  (TT_SAY (TT_VAR r))
-))
+(STMT :subj (TT_ASSIGN (TT_VAR n) (TT_ILIT 10)))
+(STMT :subj (TT_ASSIGN (TT_VAR r) (TT_FNC __gather_0 (TT_VAR __gather_0))))
+(STMT :subj (TT_SAY (TT_VAR r)))

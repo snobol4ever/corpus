@@ -1,1 +1,2 @@
-(STMT :subj (TT_SUB_DECL (TT_VAR main) (TT_ASSIGN (TT_VAR k) (TT_QLIT "bar")) (TT_HASH_DELETE (TT_VAR h) (TT_VAR k))))
+(STMT :subj (TT_ASSIGN (TT_VAR k) (TT_QLIT "bar")))
+(STMT :subj (TT_HASH_DELETE (TT_VAR h) (TT_VAR k)))
