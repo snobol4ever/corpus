@@ -1,5 +1,2 @@
 (STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello")))
-(STMT :subj (TT_IF
-  (TT_SMATCH (TT_VAR s) (TT_QLIT "e(l+)") (TT_QLIT "match"))
-  (TT_SEQ_EXPR (TT_SAY (TT_FNC raku_capture (TT_VAR raku_capture) (TT_ILIT 0))))
-))
+(STMT :subj (TT_IF (TT_SMATCH (TT_VAR s) (TT_QLIT "e(l+)") (TT_QLIT "match")) (TT_SEQ_EXPR (TT_SAY (TT_CAPTURE (TT_ILIT 0))))))
