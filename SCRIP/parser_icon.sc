@@ -1,4 +1,4 @@
-/* PST-ICN-SC ✅ 2026-05-19 — 4 × shift_val → assign+shift in Expr11; zero violations. */
+/* PST-ICN-SC ✅ 2026-05-19 — Expr11 pure shift/reduce; zero violations. */
 /* ==================================================================================================================== */
 white        =   (  SPAN(' ' tab nl)
                  |  '#' BREAK(nl) nl
