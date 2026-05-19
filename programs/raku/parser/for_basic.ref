@@ -1,0 +1,1 @@
+(STMT :subj (TT_EVERY (TT_ITERATE x (TT_VAR a)) (TT_SEQ_EXPR (TT_SAY (TT_VAR x)))))
