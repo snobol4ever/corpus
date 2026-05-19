@@ -1,2 +1,2 @@
-(STMT :subj (TT_FNC __gather_0 (TT_VAR __gather_0) (TT_SUSPEND (TT_ILIT 1))))
-(STMT :subj (TT_FNC main (TT_VAR main) (TT_ASSIGN (TT_VAR r) (TT_FNC __gather_0 (TT_VAR __gather_0)))))
+(STMT :subj (TT_SUB_DECL __gather_0 (TT_VAR __gather_0) (TT_SEQ_EXPR) (TT_SEQ_EXPR (TT_SUSPEND (TT_ILIT 1)))))
+(STMT :subj (TT_SUB_DECL main (TT_VAR main) (TT_SEQ_EXPR) (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR r) (TT_FNC __gather_0 (TT_VAR __gather_0))))))

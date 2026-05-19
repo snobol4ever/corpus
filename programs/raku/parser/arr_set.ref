@@ -1,6 +1,9 @@
-(STMT :subj (TT_FNC main
+(STMT :subj (TT_SUB_DECL main
   (TT_VAR main)
-  (TT_ASSIGN (TT_VAR a) (TT_QLIT ""))
-  (TT_FNC arr_set (TT_VAR arr_set) (TT_VAR a) (TT_ILIT 0) (TT_ILIT 99))
-  (TT_SAY (TT_FNC arr_get (TT_VAR arr_get) (TT_VAR a) (TT_ILIT 0)))
+  (TT_SEQ_EXPR)
+  (TT_SEQ_EXPR
+    (TT_ASSIGN (TT_VAR a) (TT_QLIT ""))
+    (TT_FNC arr_set (TT_VAR arr_set) (TT_VAR a) (TT_ILIT 0) (TT_ILIT 99))
+    (TT_SAY (TT_FNC arr_get (TT_VAR arr_get) (TT_VAR a) (TT_ILIT 0)))
+  )
 ))

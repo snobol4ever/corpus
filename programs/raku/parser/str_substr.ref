@@ -1,5 +1,8 @@
-(STMT :subj (TT_FNC main
+(STMT :subj (TT_SUB_DECL main
   (TT_VAR main)
-  (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello world"))
-  (TT_SAY (TT_FNC raku_mcall (TT_VAR raku_mcall) (TT_VAR s) (TT_QLIT "substr") (TT_ILIT 6) (TT_ILIT 5)))
+  (TT_SEQ_EXPR)
+  (TT_SEQ_EXPR
+    (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello world"))
+    (TT_SAY (TT_FNC raku_mcall (TT_VAR raku_mcall) (TT_VAR s) (TT_QLIT "substr") (TT_ILIT 6) (TT_ILIT 5)))
+  )
 ))

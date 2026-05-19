@@ -1,0 +1,1 @@
+(STMT :subj (TT_SUB_DECL greet (TT_VAR greet) (TT_SEQ_EXPR (TT_VAR first) (TT_VAR last)) (TT_SEQ_EXPR (TT_SAY (TT_VAR first)) (TT_SAY (TT_VAR last)))))

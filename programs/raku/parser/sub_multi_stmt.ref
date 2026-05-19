@@ -1,0 +1,5 @@
+(STMT :subj (TT_SUB_DECL add
+  (TT_VAR add)
+  (TT_SEQ_EXPR (TT_VAR a) (TT_VAR b))
+  (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR r) (TT_ADD (TT_VAR a) (TT_VAR b))) (TT_RETURN (TT_VAR r)))
+))

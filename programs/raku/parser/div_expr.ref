@@ -1,10 +1,1 @@
-(STMT :subj (TT_FNC main
-  (TT_VAR main)
-  (TT_ASSIGN
-    (TT_VAR r)
-    (TT_DIV
-      (TT_ILIT 10)
-      (TT_VAR n)
-    )
-  )
-))
+(STMT :subj (TT_SUB_DECL main (TT_VAR main) (TT_SEQ_EXPR) (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR r) (TT_DIV (TT_ILIT 10) (TT_VAR n))))))

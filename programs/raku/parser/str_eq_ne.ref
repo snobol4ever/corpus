@@ -1,5 +1,8 @@
-(STMT :subj (TT_FNC main
+(STMT :subj (TT_SUB_DECL main
   (TT_VAR main)
-  (TT_IF (TT_LEQ (TT_VAR a) (TT_VAR b)) (TT_SEQ_EXPR (TT_SAY (TT_VAR a))))
-  (TT_IF (TT_LNE (TT_VAR a) (TT_VAR b)) (TT_SEQ_EXPR (TT_SAY (TT_VAR b))))
+  (TT_SEQ_EXPR)
+  (TT_SEQ_EXPR
+    (TT_IF (TT_LEQ (TT_VAR a) (TT_VAR b)) (TT_SEQ_EXPR (TT_SAY (TT_VAR a))))
+    (TT_IF (TT_LNE (TT_VAR a) (TT_VAR b)) (TT_SEQ_EXPR (TT_SAY (TT_VAR b))))
+  )
 ))

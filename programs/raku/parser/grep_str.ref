@@ -1,14 +1,5 @@
-(STMT :subj (TT_FNC main
+(STMT :subj (TT_SUB_DECL main
   (TT_VAR main)
-  (TT_ASSIGN
-    (TT_VAR r)
-    (TT_FNC raku_grep
-      (TT_VAR raku_grep)
-      (TT_LEQ
-        (TT_VAR _)
-        (TT_QLIT "x")
-      )
-      (TT_VAR words)
-    )
-  )
+  (TT_SEQ_EXPR)
+  (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR r) (TT_FNC raku_grep (TT_VAR raku_grep) (TT_LEQ (TT_VAR _) (TT_QLIT "x")) (TT_VAR words))))
 ))

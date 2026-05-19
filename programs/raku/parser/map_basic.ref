@@ -1,14 +1,5 @@
-(STMT :subj (TT_FNC main
+(STMT :subj (TT_SUB_DECL main
   (TT_VAR main)
-  (TT_ASSIGN
-    (TT_VAR b)
-    (TT_FNC raku_map
-      (TT_VAR raku_map)
-      (TT_MUL
-        (TT_VAR _)
-        (TT_ILIT 2)
-      )
-      (TT_VAR a)
-    )
-  )
+  (TT_SEQ_EXPR)
+  (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR b) (TT_FNC raku_map (TT_VAR raku_map) (TT_MUL (TT_VAR _) (TT_ILIT 2)) (TT_VAR a))))
 ))

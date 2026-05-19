@@ -1,1 +1,5 @@
-(STMT :subj (TT_FNC main (TT_VAR main) (TT_ASSIGN (TT_VAR x) (TT_ILIT 2)) (TT_IF (TT_EQ (TT_VAR x) (TT_ILIT 1)) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "one"))))))
+(STMT :subj (TT_SUB_DECL main
+  (TT_VAR main)
+  (TT_SEQ_EXPR)
+  (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR x) (TT_ILIT 2)) (TT_IF (TT_EQ (TT_VAR x) (TT_ILIT 1)) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "one")))))
+))
