@@ -1,3 +1,4 @@
+/* PST-RB-SC ✅ 2026-05-19 — already shift/reduce-pure; verified zero violations. */
 &FULLSCAN = 1;
 white       =   (  SPAN(' ' tab)
                 |  '#'  BREAK(nl)
