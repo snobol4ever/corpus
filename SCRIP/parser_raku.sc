@@ -7,6 +7,7 @@ E_Parse     = "'Parse'";
  *   All other helpers eliminated: class-a stubs inlined as shift_val/assign;
  *   class-b stubs (emit_to_sub_list, push_stmt_subj) eliminated: replaced by nPop+nInc
  *   pattern — sub/class/gather TT_FNC/TT_RECORD nodes placed directly in TT_PROGRAM.
+ * PRF-13 (2026-05-19): all 111 shift_val → assign(.t_imm,…) shift(t_imm,…). CLEAN.
  * ==================================================================================================================== */
 bSlash   = '\';
 /* ==================================================================================================================== */
@@ -50,10 +51,10 @@ Dq_unescape = (epsilon . *dq_unescape());
 
 
 /* ==================================================================================================================== */
-/* PRF-9 (2026-05-18): finish_gather_body eliminated. GatherBlock inlines two reduce
- * pairs: one for def TT_FNC (def placed on outer counter via nPop+nInc),
- * one for call TT_FNC (stays on parse stack as gather-expr). Set_gather_name fountains '__gather_N'. */
-/* ==================================================================================================================== */
+/* PRF-9 (2026-05-18): finish_gather_body eliminated. GatherBlock — two TT_FNCs sharing a fresh '__gather_N' name.
+ * The def TT_FNC is placed on outer counter via nPop+nInc (goes into TT_PROGRAM children).
+ * The call TT_FNC stays on parse stack as the gather-expr in context.
+ * Set_gather_name/Push_gather_name_var transitional (PRF-12 gather step). */
 /* ==================================================================================================================== */
 
 
@@ -213,12 +214,16 @@ capmtr        = '';
 captwf        = '';
 captwr        = '';
 gather_seq = 0;
+t_imm      = '';
 struct slink { snext, sval }
 /* ==================================================================================================================== */
 /* PST-allowed leaf constructors: set v.sval from token capture, no child inspection */
+/* PRF-13 (2026-05-19): shift_val(EXPR, KIND) → assign(.t_imm, EXPR) shift(t_imm, KIND) */
 /* ==================================================================================================================== */
 /* Grammar rules — only shift and reduce from here on */
-NamedArgTail = ( $','  $' ' ((ident_first (ident_rest | epsilon)) . capnamedkey) $'=>'  shift_val(capnamedkey, 'TT_QLIT')  *Expr  nInc() nInc() );
+NamedArgTail = ( $','  $' ' ((ident_first (ident_rest | epsilon)) . capnamedkey) $'=>'
+                 assign(.t_imm, capnamedkey) shift(t_imm, 'TT_QLIT')
+                 *Expr  nInc() nInc() );
 NewCallName = ($' ' fnf . capclsf fnro . capclsr);
 CallArgTail = ( $','  *Expr  nInc() );
 McallArgTail = ( $','  *Expr  nInc() );
@@ -228,49 +233,49 @@ MethodTail = FENCE(
     FENCE(
         '('
         nPush()
-        shift_val('raku_mcall', 'TT_VAR')  nInc()
-        shift_val(capmf capmr, 'TT_QLIT') nInc()
+        assign(.t_imm, 'raku_mcall') shift(t_imm, 'TT_VAR')  nInc()
+        assign(.t_imm, capmf capmr)  shift(t_imm, 'TT_QLIT') nInc()
         ( *Expr              nInc()
           ARBNO( *McallArgTail )
         | epsilon
         )
         $')'                 reduce('TT_FNC', 'nTop() + 1')
         nPop()
-      | epsilon              shift_val(capmtf capmtr, 'TT_QLIT') reduce('TT_FIELD', 2)
+      | epsilon              assign(.t_imm, capmtf capmtr) shift(t_imm, 'TT_QLIT') reduce('TT_FIELD', 2)
     )
 );
 Expr11 = ( $'!'  *Expr11  reduce("'TT_NOT'", 1)
          | ($' ' '-')  *Expr11  reduce("'TT_MNS'", 1)
-         | $'die' $'  '  shift_val('die', 'TT_VAR')  *Expr11  reduce('TT_FNC', 2)
-         | $'map'  $'  '  ClosureExpr  $'  '  *Expr  shift_val('map', 'TT_VAR')   reduce('TT_FNC', 3)
-         | $'grep' $'  '  ClosureExpr  $'  '  *Expr  shift_val('grep', 'TT_VAR')  reduce('TT_FNC', 3)
-         | $'sort' $'  '  ClosureExpr  $'  '  *Expr  shift_val('sort', 'TT_VAR')  reduce('TT_FNC', 3)
-         | $'sort' $'  '  *Expr                       shift_val('sort', 'TT_VAR')  reduce('TT_FNC', 2)
+         | $'die' $'  '  assign(.t_imm, 'die') shift(t_imm, 'TT_VAR')  *Expr11  reduce('TT_FNC', 2)
+         | $'map'  $'  '  ClosureExpr  $'  '  *Expr  assign(.t_imm, 'map')  shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 3)
+         | $'grep' $'  '  ClosureExpr  $'  '  *Expr  assign(.t_imm, 'grep') shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 3)
+         | $'sort' $'  '  ClosureExpr  $'  '  *Expr  assign(.t_imm, 'sort') shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 3)
+         | $'sort' $'  '  *Expr                       assign(.t_imm, 'sort') shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2)
          | $'gather' *GatherBlock
-         | VarTwigil              shift_val(captwf captwr, 'TT_VAR')
-         | VarScalar              shift_val(capvf capvr, 'TT_VAR')
-         | ArrIdxVar  $'['  *Expr  $']'  shift_val('raku_arr_get', 'TT_VAR')  shift_val(colnmf colnmr, 'TT_VAR')  reduce('TT_FNC', 3)
-         | VarArray                                   shift_val(capvf capvr, 'TT_VAR')
-         | HashIdxVar $'<'  HashAngleKey  $'>'        shift_val('raku_hash_get', 'TT_VAR')  shift_val(colnmf colnmr, 'TT_VAR')  shift_val(capkey, 'TT_QLIT')  reduce('TT_FNC', 3)
-         | HashIdxVar $'{'  *Expr  $'}'               shift_val('raku_hash_get', 'TT_VAR')  shift_val(colnmf colnmr, 'TT_VAR')  reduce('TT_FNC', 3)
-         | VarHash                                    shift_val(capvf capvr, 'TT_VAR')
-         | $'exists' HashIdxVar $'<' HashAngleKey $'>'  shift_val('raku_hash_exists', 'TT_VAR')  shift_val(colnmf colnmr, 'TT_VAR')  shift_val(capkey, 'TT_QLIT')  reduce('TT_FNC', 3)
-         | $'exists' HashIdxVar $'{' *Expr $'}'         shift_val('raku_hash_exists', 'TT_VAR')  shift_val(colnmf colnmr, 'TT_VAR')  reduce('TT_FNC', 3)
-         | VarStdIn    (epsilon . *assign(.capidx, 0))   shift_val('raku_cap', 'TT_VAR')  shift_val(capidx, 'TT_ILIT')  reduce('TT_FNC', 2)
-         | VarStdOut   (epsilon . *assign(.capidx, 1))  shift_val('raku_cap', 'TT_VAR')  shift_val(capidx, 'TT_ILIT')  reduce('TT_FNC', 2)
-         | VarStdErr   (epsilon . *assign(.capidx, 2))  shift_val('raku_cap', 'TT_VAR')  shift_val(capidx, 'TT_ILIT')  reduce('TT_FNC', 2)
-         | VarCapture             shift_val('raku_cap', 'TT_VAR')  shift_val(capidx, 'TT_ILIT')   reduce('TT_FNC', 2)
-         | VarNamedCapture        shift_val('raku_ncap', 'TT_VAR')     shift_val(capncname, 'TT_QLIT')    reduce('TT_FNC', 2)
-         | ( LitFloat . capstr     shift_val(capstr, 'TT_FLIT') )
+         | VarTwigil              assign(.t_imm, captwf captwr) shift(t_imm, 'TT_VAR')
+         | VarScalar              assign(.t_imm, capvf capvr)   shift(t_imm, 'TT_VAR')
+         | ArrIdxVar  $'['  *Expr  $']'  assign(.t_imm, 'raku_arr_get') shift(t_imm, 'TT_VAR')  assign(.t_imm, colnmf colnmr) shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 3)
+         | VarArray                                   assign(.t_imm, capvf capvr) shift(t_imm, 'TT_VAR')
+         | HashIdxVar $'<'  HashAngleKey  $'>'        assign(.t_imm, 'raku_hash_get') shift(t_imm, 'TT_VAR')  assign(.t_imm, colnmf colnmr) shift(t_imm, 'TT_VAR')  assign(.t_imm, capkey) shift(t_imm, 'TT_QLIT')  reduce('TT_FNC', 3)
+         | HashIdxVar $'{'  *Expr  $'}'               assign(.t_imm, 'raku_hash_get') shift(t_imm, 'TT_VAR')  assign(.t_imm, colnmf colnmr) shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 3)
+         | VarHash                                    assign(.t_imm, capvf capvr) shift(t_imm, 'TT_VAR')
+         | $'exists' HashIdxVar $'<' HashAngleKey $'>'  assign(.t_imm, 'raku_hash_exists') shift(t_imm, 'TT_VAR')  assign(.t_imm, colnmf colnmr) shift(t_imm, 'TT_VAR')  assign(.t_imm, capkey) shift(t_imm, 'TT_QLIT')  reduce('TT_FNC', 3)
+         | $'exists' HashIdxVar $'{' *Expr $'}'         assign(.t_imm, 'raku_hash_exists') shift(t_imm, 'TT_VAR')  assign(.t_imm, colnmf colnmr) shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 3)
+         | VarStdIn    (epsilon . *assign(.capidx, 0))   assign(.t_imm, 'raku_cap') shift(t_imm, 'TT_VAR')  assign(.t_imm, capidx) shift(t_imm, 'TT_ILIT')  reduce('TT_FNC', 2)
+         | VarStdOut   (epsilon . *assign(.capidx, 1))   assign(.t_imm, 'raku_cap') shift(t_imm, 'TT_VAR')  assign(.t_imm, capidx) shift(t_imm, 'TT_ILIT')  reduce('TT_FNC', 2)
+         | VarStdErr   (epsilon . *assign(.capidx, 2))   assign(.t_imm, 'raku_cap') shift(t_imm, 'TT_VAR')  assign(.t_imm, capidx) shift(t_imm, 'TT_ILIT')  reduce('TT_FNC', 2)
+         | VarCapture             assign(.t_imm, 'raku_cap')  shift(t_imm, 'TT_VAR')  assign(.t_imm, capidx)    shift(t_imm, 'TT_ILIT')   reduce('TT_FNC', 2)
+         | VarNamedCapture        assign(.t_imm, 'raku_ncap') shift(t_imm, 'TT_VAR')  assign(.t_imm, capncname) shift(t_imm, 'TT_QLIT')    reduce('TT_FNC', 2)
+         | ( LitFloat . capstr     assign(.t_imm, capstr) shift(t_imm, 'TT_FLIT') )
          | shift(LitInt, 'TT_ILIT')
-         | ( LitStrDQ  Dq_unescape  shift_val(capstr, 'TT_QLIT') )
-         | LitStrSQ               shift_val(capstr, 'TT_QLIT')
+         | ( LitStrDQ  Dq_unescape  assign(.t_imm, capstr) shift(t_imm, 'TT_QLIT') )
+         | LitStrSQ               assign(.t_imm, capstr) shift(t_imm, 'TT_QLIT')
          | ( nPush()
-             shift_val('raku_new', 'TT_VAR')  nInc()
-             NewCallName  shift_val(capclsf capclsr, 'TT_QLIT')  nInc()
+             assign(.t_imm, 'raku_new') shift(t_imm, 'TT_VAR')  nInc()
+             NewCallName  assign(.t_imm, capclsf capclsr) shift(t_imm, 'TT_QLIT')  nInc()
              '.' 'new'
              $'('
-             ( $' ' ((ident_first (ident_rest | epsilon)) . capnamedkey) $'=>'  shift_val(capnamedkey, 'TT_QLIT')  *Expr  nInc() nInc()
+             ( $' ' ((ident_first (ident_rest | epsilon)) . capnamedkey) $'=>'  assign(.t_imm, capnamedkey) shift(t_imm, 'TT_QLIT')  *Expr  nInc() nInc()
                ARBNO( *NamedArgTail )
              | epsilon
              )
@@ -288,7 +293,7 @@ Expr11 = ( $'!'  *Expr11  reduce("'TT_NOT'", 1)
              $')'                 reduce('TT_FNC', 'nTop()')
              nPop()
            )
-         | BareIdent              shift_val(capvf capvr, 'TT_VAR')
+         | BareIdent              assign(.t_imm, capvf capvr) shift(t_imm, 'TT_VAR')
          )
          ARBNO(*MethodTail);
 Expr7tail = FENCE( $'*'  *Expr11  reduce("'TT_MUL'", 2)
@@ -316,9 +321,9 @@ Expr4tail = FENCE( $'=='  *Expr5      reduce("'TT_EQ'", 2)
                  | $'>'   *Expr5      reduce("'TT_GT'", 2)
                  | $'eq'  *Expr5      reduce("'TT_LEQ'", 2)
                  | $'ne'  *Expr5      reduce("'TT_LNE'", 2)
-                 | $'~~'  LitRegex shift_val(capstr, 'TT_RXLIT')  shift_val('raku_match', 'TT_VAR')  reduce('TT_FNC', 3)
-                 | $'~~'  LitMatchGlobal shift_val(capstr, 'TT_RXLIT')  shift_val('raku_matchg', 'TT_VAR')  reduce('TT_FNC', 3)
-                 | $'~~'  LitSubst  shift_val('raku_subst', 'TT_VAR')  shift_val(caprepl, 'TT_QLIT')  reduce('TT_FNC', 3)
+                 | $'~~'  LitRegex       assign(.t_imm, capstr)  shift(t_imm, 'TT_RXLIT')  assign(.t_imm, 'raku_match')  shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 3)
+                 | $'~~'  LitMatchGlobal assign(.t_imm, capstr)  shift(t_imm, 'TT_RXLIT')  assign(.t_imm, 'raku_matchg') shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 3)
+                 | $'~~'  LitSubst  assign(.t_imm, 'raku_subst') shift(t_imm, 'TT_VAR')  assign(.t_imm, caprepl) shift(t_imm, 'TT_QLIT')  reduce('TT_FNC', 3)
                  );
 Expr4     = ( Expr5  ARBNO(Expr4tail) );
 Expr3tail = FENCE( $'&&'  *Expr4  reduce("'TT_SEQ'", 2)
@@ -384,67 +389,67 @@ UntilStmt = ( $'until'  $'(' Expr $')'
               Block
               reduce("'TT_UNTIL'", 2)
             );
-WithoutStmt   = ( $'without'  $'(' Expr $')' Block  shift_val('raku_without', 'TT_VAR')  reduce('TT_FNC', 3) );
-WheneverStmt  = ( $'whenever' $'  ' *Expr Block  shift_val('raku_whenever', 'TT_VAR')  reduce('TT_FNC', 3) );
-LoopSubExpr = ( ( VarScalar FENCE $'=' shift_val(capvf capvr, 'TT_VAR') Expr reduce("'TT_ASSIGN'", 2) )
+WithoutStmt   = ( $'without'  $'(' Expr $')' Block  assign(.t_imm, 'raku_without')  shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 3) );
+WheneverStmt  = ( $'whenever' $'  ' *Expr Block  assign(.t_imm, 'raku_whenever')  shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 3) );
+LoopSubExpr = ( ( VarScalar FENCE $'=' assign(.t_imm, capvf capvr) shift(t_imm, 'TT_VAR') Expr reduce("'TT_ASSIGN'", 2) )
               | Expr
               );
 LoopThreeStmt = ( $'loop' $'(' LoopSubExpr $';' LoopSubExpr $';' LoopSubExpr $')'
                   Block
-                  shift_val('raku_loop', 'TT_VAR')  reduce('TT_FNC', 5)
+                  assign(.t_imm, 'raku_loop') shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 5)
                 );
 LoopInfStmt  = ( $'loop'  Block  shift(POS(0) RPOS(0), 'TT_ILIT')  reduce("'TT_WHILE'", 2) );
-UseStmt      = ( $'use'     $'  ' ModuleName BREAK(';') $';'  shift_val('raku_use', 'TT_VAR')     shift_val(capmodname, 'TT_QLIT')  reduce('TT_FNC', 2) );
-NoStmt       = ( $'no'      $'  ' ModuleName BREAK(';') $';'  shift_val('raku_no', 'TT_VAR')      shift_val(capmodname, 'TT_QLIT')  reduce('TT_FNC', 2) );
-NeedStmt     = ( $'need'    $'  ' ModuleName BREAK(';') $';'  shift_val('raku_need', 'TT_VAR')    shift_val(capmodname, 'TT_QLIT')  reduce('TT_FNC', 2) );
-ImportStmt   = ( $'import'  $'  ' ModuleName BREAK(';') $';'  shift_val('raku_import', 'TT_VAR')  shift_val(capmodname, 'TT_QLIT')  reduce('TT_FNC', 2) );
-RequireStmt  = ( $'require' $'  ' ModuleName BREAK(';') $';'  shift_val('raku_require', 'TT_VAR') shift_val(capmodname, 'TT_QLIT')  reduce('TT_FNC', 2) );
-CatchFreeStmt = ( $'CATCH'   Block  shift_val('raku_catch', 'TT_VAR')   reduce('TT_FNC', 2) );
-ControlStmt   = ( $'CONTROL' Block  shift_val('raku_control', 'TT_VAR') reduce('TT_FNC', 2) );
-QuitStmt      = ( $'QUIT'    Block  shift_val('raku_quit', 'TT_VAR')    reduce('TT_FNC', 2) );
-BeginStmt  = ( $'BEGIN'  Block  shift_val('raku_BEGIN', 'TT_VAR')  reduce('TT_FNC', 2) );
-EndStmt    = ( $'END'    Block  shift_val('raku_END', 'TT_VAR')    reduce('TT_FNC', 2) );
-InitStmt   = ( $'INIT'   Block  shift_val('raku_INIT', 'TT_VAR')   reduce('TT_FNC', 2) );
-CheckStmt  = ( $'CHECK'  Block  shift_val('raku_CHECK', 'TT_VAR')  reduce('TT_FNC', 2) );
-EnterStmt  = ( $'ENTER'  Block  shift_val('raku_ENTER', 'TT_VAR')  reduce('TT_FNC', 2) );
-LeaveStmt  = ( $'LEAVE'  Block  shift_val('raku_LEAVE', 'TT_VAR')  reduce('TT_FNC', 2) );
-KeepStmt   = ( $'KEEP'   Block  shift_val('raku_KEEP', 'TT_VAR')   reduce('TT_FNC', 2) );
-UndoStmt   = ( $'UNDO'   Block  shift_val('raku_UNDO', 'TT_VAR')   reduce('TT_FNC', 2) );
-FirstStmt  = ( $'FIRST'  Block  shift_val('raku_FIRST', 'TT_VAR')  reduce('TT_FNC', 2) );
-NextPhStmt = ( $'NEXT'   Block  shift_val('raku_NEXT', 'TT_VAR')   reduce('TT_FNC', 2) );
-LastPhStmt = ( $'LAST'   Block  shift_val('raku_LAST', 'TT_VAR')   reduce('TT_FNC', 2) );
-PreStmt    = ( $'PRE'    Block  shift_val('raku_PRE', 'TT_VAR')    reduce('TT_FNC', 2) );
-PostStmt   = ( $'POST'   Block  shift_val('raku_POST', 'TT_VAR')   reduce('TT_FNC', 2) );
-CloseStmt  = ( $'CLOSE'  Block  shift_val('raku_CLOSE', 'TT_VAR')  reduce('TT_FNC', 2) );
-TempStmt   = ( $'TEMP'   Block  shift_val('raku_TEMP', 'TT_VAR')   reduce('TT_FNC', 2) );
-DoBlockStmt = ( $'do'    Block  shift_val('raku_do', 'TT_VAR')        reduce('TT_FNC', 2) );
-OnceStmt    = ( $'once'  Block  shift_val('raku_once', 'TT_VAR')      reduce('TT_FNC', 2) );
-StartStmt   = ( $'start' Block  shift_val('raku_start', 'TT_VAR')     reduce('TT_FNC', 2) );
-SupplyStmt  = ( $'supply' Block shift_val('raku_supply', 'TT_VAR')    reduce('TT_FNC', 2) );
-ReactStmt   = ( $'react'  Block shift_val('raku_react', 'TT_VAR')     reduce('TT_FNC', 2) );
-QuietlyStmt = ( $'quietly' Block shift_val('raku_quietly', 'TT_VAR')  reduce('TT_FNC', 2) );
-RaceStmt    = ( $'race'  $'  ' *Expr $';'  shift_val('raku_race', 'TT_VAR')   reduce('TT_FNC', 2) );
-HyperStmt   = ( $'hyper' $'  ' *Expr $';'  shift_val('raku_hyper', 'TT_VAR')  reduce('TT_FNC', 2) );
-LazyStmt    = ( $'lazy'  $'  ' *Expr $';'  shift_val('raku_lazy', 'TT_VAR')   reduce('TT_FNC', 2) );
-EagerStmt   = ( $'eager' $'  ' *Expr $';'  shift_val('raku_eager', 'TT_VAR')  reduce('TT_FNC', 2) );
-SinkStmt    = ( $'sink'  $'  ' *Expr $';'  shift_val('raku_sink', 'TT_VAR')   reduce('TT_FNC', 2) );
-ForeachStmt = ( $'foreach' $'  '  Expr $'->' ForLoopvar  shift_val(capff capfr, 'TT_VAR')  Block
+UseStmt      = ( $'use'     $'  ' ModuleName BREAK(';') $';'  assign(.t_imm, 'raku_use')     shift(t_imm, 'TT_VAR')  assign(.t_imm, capmodname) shift(t_imm, 'TT_QLIT')  reduce('TT_FNC', 2) );
+NoStmt       = ( $'no'      $'  ' ModuleName BREAK(';') $';'  assign(.t_imm, 'raku_no')      shift(t_imm, 'TT_VAR')  assign(.t_imm, capmodname) shift(t_imm, 'TT_QLIT')  reduce('TT_FNC', 2) );
+NeedStmt     = ( $'need'    $'  ' ModuleName BREAK(';') $';'  assign(.t_imm, 'raku_need')    shift(t_imm, 'TT_VAR')  assign(.t_imm, capmodname) shift(t_imm, 'TT_QLIT')  reduce('TT_FNC', 2) );
+ImportStmt   = ( $'import'  $'  ' ModuleName BREAK(';') $';'  assign(.t_imm, 'raku_import')  shift(t_imm, 'TT_VAR')  assign(.t_imm, capmodname) shift(t_imm, 'TT_QLIT')  reduce('TT_FNC', 2) );
+RequireStmt  = ( $'require' $'  ' ModuleName BREAK(';') $';'  assign(.t_imm, 'raku_require') shift(t_imm, 'TT_VAR')  assign(.t_imm, capmodname) shift(t_imm, 'TT_QLIT')  reduce('TT_FNC', 2) );
+CatchFreeStmt = ( $'CATCH'   Block  assign(.t_imm, 'raku_catch')   shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+ControlStmt   = ( $'CONTROL' Block  assign(.t_imm, 'raku_control') shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 3) );
+QuitStmt      = ( $'QUIT'    Block  assign(.t_imm, 'raku_quit')    shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+BeginStmt  = ( $'BEGIN'  Block  assign(.t_imm, 'raku_BEGIN')  shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+EndStmt    = ( $'END'    Block  assign(.t_imm, 'raku_END')    shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+InitStmt   = ( $'INIT'   Block  assign(.t_imm, 'raku_INIT')   shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+CheckStmt  = ( $'CHECK'  Block  assign(.t_imm, 'raku_CHECK')  shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+EnterStmt  = ( $'ENTER'  Block  assign(.t_imm, 'raku_ENTER')  shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+LeaveStmt  = ( $'LEAVE'  Block  assign(.t_imm, 'raku_LEAVE')  shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+KeepStmt   = ( $'KEEP'   Block  assign(.t_imm, 'raku_KEEP')   shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+UndoStmt   = ( $'UNDO'   Block  assign(.t_imm, 'raku_UNDO')   shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+FirstStmt  = ( $'FIRST'  Block  assign(.t_imm, 'raku_FIRST')  shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+NextPhStmt = ( $'NEXT'   Block  assign(.t_imm, 'raku_NEXT')   shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+LastPhStmt = ( $'LAST'   Block  assign(.t_imm, 'raku_LAST')   shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+PreStmt    = ( $'PRE'    Block  assign(.t_imm, 'raku_PRE')    shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+PostStmt   = ( $'POST'   Block  assign(.t_imm, 'raku_POST')   shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+CloseStmt  = ( $'CLOSE'  Block  assign(.t_imm, 'raku_CLOSE')  shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+TempStmt   = ( $'TEMP'   Block  assign(.t_imm, 'raku_TEMP')   shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+DoBlockStmt = ( $'do'    Block  assign(.t_imm, 'raku_do')     shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+OnceStmt    = ( $'once'  Block  assign(.t_imm, 'raku_once')   shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+StartStmt   = ( $'start' Block  assign(.t_imm, 'raku_start')  shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+SupplyStmt  = ( $'supply' Block assign(.t_imm, 'raku_supply') shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+ReactStmt   = ( $'react'  Block assign(.t_imm, 'raku_react')  shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+QuietlyStmt = ( $'quietly' Block assign(.t_imm, 'raku_quietly') shift(t_imm, 'TT_VAR') reduce('TT_FNC', 2) );
+RaceStmt    = ( $'race'  $'  ' *Expr $';'  assign(.t_imm, 'raku_race')  shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+HyperStmt   = ( $'hyper' $'  ' *Expr $';'  assign(.t_imm, 'raku_hyper') shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+LazyStmt    = ( $'lazy'  $'  ' *Expr $';'  assign(.t_imm, 'raku_lazy')  shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+EagerStmt   = ( $'eager' $'  ' *Expr $';'  assign(.t_imm, 'raku_eager') shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+SinkStmt    = ( $'sink'  $'  ' *Expr $';'  assign(.t_imm, 'raku_sink')  shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+ForeachStmt = ( $'foreach' $'  '  Expr $'->' ForLoopvar  assign(.t_imm, capff capfr) shift(t_imm, 'TT_VAR')  Block
                 reduce('TT_ITERATE', 1)  reduce("'TT_EVERY'", 2) );
-ForStmt     = ( $'for' $'  '  Expr $'->' ForLoopvar  shift_val(capff capfr, 'TT_VAR')  Block
+ForStmt     = ( $'for' $'  '  Expr $'->' ForLoopvar  assign(.t_imm, capff capfr) shift(t_imm, 'TT_VAR')  Block
                 reduce('TT_ITERATE', 1)  reduce("'TT_EVERY'", 2) );
 ForRangeStmt = ( $'for' $'  '
                  Expr6
                  FENCE( $'..^' | $'..' )
                  Expr6
                  $'->'
-                 ForLoopvar  shift_val(capff capfr, 'TT_VAR')
+                 ForLoopvar  assign(.t_imm, capff capfr) shift(t_imm, 'TT_VAR')
                  Block  reduce("'TT_FOR'", 3)
                );
 DeleteHashAngle = ( $'delete'  HashIdxVar  $'<'  HashAngleKey  $'>'  $';'
-                    shift_val('raku_hash_delete', 'TT_VAR')  shift_val(colnmf colnmr, 'TT_VAR')  shift_val(capkey, 'TT_QLIT')  reduce('TT_FNC', 3)
+                    assign(.t_imm, 'raku_hash_delete') shift(t_imm, 'TT_VAR')  assign(.t_imm, colnmf colnmr) shift(t_imm, 'TT_VAR')  assign(.t_imm, capkey) shift(t_imm, 'TT_QLIT')  reduce('TT_FNC', 3)
                   );
 DeleteHashBrace = ( $'delete'  HashIdxVar  $'{'  Expr  $'}'  $';'
-                    shift_val('raku_hash_delete', 'TT_VAR')  shift_val(colnmf colnmr, 'TT_VAR')  reduce('TT_FNC', 3)
+                    assign(.t_imm, 'raku_hash_delete') shift(t_imm, 'TT_VAR')  assign(.t_imm, colnmf colnmr) shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 3)
                   );
 ReturnStmt = ( $'return'
                ( $';'         reduce("'TT_RETURN'", 0)
@@ -455,28 +460,28 @@ TakeStmt = ( $'take' $'  ' Expr $';' reduce("'TT_SUSPEND'", 1) );
 TypedDeclStmt = ( $'my' $'  '
                   $' ' ident_first (ident_rest | epsilon)
                   $'  '
-                  ( ( VarScalar shift_val(capvf capvr, 'TT_VAR') | VarArray shift_val(capvf capvr, 'TT_VAR') | VarHash shift_val(capvf capvr, 'TT_VAR') )
+                  ( ( VarScalar assign(.t_imm, capvf capvr) shift(t_imm, 'TT_VAR') | VarArray assign(.t_imm, capvf capvr) shift(t_imm, 'TT_VAR') | VarHash assign(.t_imm, capvf capvr) shift(t_imm, 'TT_VAR') )
                     $'=' *Expr $';'  reduce("'TT_ASSIGN'", 2)
-                  | ( VarScalar shift_val(capvf capvr, 'TT_VAR') | VarArray shift_val(capvf capvr, 'TT_VAR') | VarHash shift_val(capvf capvr, 'TT_VAR') )
-                    $';'             shift_val('', 'TT_NUL')  reduce("'TT_ASSIGN'", 2)
+                  | ( VarScalar assign(.t_imm, capvf capvr) shift(t_imm, 'TT_VAR') | VarArray assign(.t_imm, capvf capvr) shift(t_imm, 'TT_VAR') | VarHash assign(.t_imm, capvf capvr) shift(t_imm, 'TT_VAR') )
+                    $';'             assign(.t_imm, '') shift(t_imm, 'TT_NUL')  reduce("'TT_ASSIGN'", 2)
                   )
                 );
 ReturnBareStmt = ( $'return' $';' reduce("'TT_RETURN'", 0) );
 AssignStmt = ( ($'my' $'  ' | epsilon)
-               ( VarScalar  shift_val(capvf capvr, 'TT_VAR')
-               | VarArray   shift_val(capvf capvr, 'TT_VAR')
-               | VarHash    shift_val(capvf capvr, 'TT_VAR')
+               ( VarScalar  assign(.t_imm, capvf capvr) shift(t_imm, 'TT_VAR')
+               | VarArray   assign(.t_imm, capvf capvr) shift(t_imm, 'TT_VAR')
+               | VarHash    assign(.t_imm, capvf capvr) shift(t_imm, 'TT_VAR')
                )
                $'='  Expr  $';'  reduce("'TT_ASSIGN'", 2)
              );
-SayStmt  = ( $'say'  Expr $';'  shift_val('raku_write', 'TT_VAR')   reduce('TT_FNC', 2) );
-PrintStmt = ( $'print' Expr $';' shift_val('raku_writes', 'TT_VAR') reduce('TT_FNC', 2) );
+SayStmt  = ( $'say'  Expr $';'  assign(.t_imm, 'raku_write')  shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 2) );
+PrintStmt = ( $'print' Expr $';' assign(.t_imm, 'raku_writes') shift(t_imm, 'TT_VAR') reduce('TT_FNC', 2) );
 WhenClause = ( $'when' $'  '
                Expr     nInc()
                Block    nInc()
              );
 DefaultClause = ( $'default'
-                  shift_val('', 'TT_NUL') Block
+                  assign(.t_imm, '') shift(t_imm, 'TT_NUL') Block
                   nInc() nInc()
                 );
 GivenStmt = ( $'given' $'  '
@@ -489,30 +494,30 @@ GivenStmt = ( $'given' $'  '
               reduce('TT_CASE', 'nTop() + 1')
               nPop()
             );
-ArrSetStmt = ( VarArray shift_val(capvf capvr, 'TT_VAR') $'[' *Expr $']' $'=' *Expr $';'
-               shift_val('raku_arr_set', 'TT_VAR')  shift_val(capvf capvr, 'TT_VAR')  reduce('TT_FNC', 4) );
+ArrSetStmt = ( VarArray assign(.t_imm, capvf capvr) shift(t_imm, 'TT_VAR') $'[' *Expr $']' $'=' *Expr $';'
+               assign(.t_imm, 'raku_arr_set') shift(t_imm, 'TT_VAR')  assign(.t_imm, capvf capvr) shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 4) );
 HashAngleSetKey = ($' ' BREAK('>') . capkey);
-HashSetAngleStmt = ( VarHash shift_val(capvf capvr, 'TT_VAR') $'<' HashAngleSetKey $'>' $'=' *Expr $';'
-                     shift_val('raku_hash_set', 'TT_VAR')  shift_val(capvf capvr, 'TT_VAR')  shift_val(capkey, 'TT_QLIT')  reduce('TT_FNC', 4) );
-HashSetBraceStmt = ( VarHash shift_val(capvf capvr, 'TT_VAR') $'{' *Expr $'}' $'=' *Expr $';'
-                     shift_val('raku_hash_set', 'TT_VAR')  shift_val(capvf capvr, 'TT_VAR')  reduce('TT_FNC', 4) );
-FieldWriteStmt = ( VarScalar shift_val(capvf capvr, 'TT_VAR') '.' MethodName $'=' *Expr $';'
-                   shift_val(capmtf capmtr, 'TT_QLIT')  reduce('TT_FIELD', 2)
+HashSetAngleStmt = ( VarHash assign(.t_imm, capvf capvr) shift(t_imm, 'TT_VAR') $'<' HashAngleSetKey $'>' $'=' *Expr $';'
+                     assign(.t_imm, 'raku_hash_set') shift(t_imm, 'TT_VAR')  assign(.t_imm, capvf capvr) shift(t_imm, 'TT_VAR')  assign(.t_imm, capkey) shift(t_imm, 'TT_QLIT')  reduce('TT_FNC', 4) );
+HashSetBraceStmt = ( VarHash assign(.t_imm, capvf capvr) shift(t_imm, 'TT_VAR') $'{' *Expr $'}' $'=' *Expr $';'
+                     assign(.t_imm, 'raku_hash_set') shift(t_imm, 'TT_VAR')  assign(.t_imm, capvf capvr) shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 4) );
+FieldWriteStmt = ( VarScalar assign(.t_imm, capvf capvr) shift(t_imm, 'TT_VAR') '.' MethodName $'=' *Expr $';'
+                   assign(.t_imm, capmtf capmtr) shift(t_imm, 'TT_QLIT')  reduce('TT_FIELD', 2)
                    reduce("'TT_ASSIGN'", 2) );
-FhVar = ( VarScalar FENCE $','  shift_val(capvf capvr, 'TT_VAR')
-        | VarStdIn  FENCE $','  (epsilon . *assign(.capidx, 0))  shift_val('raku_cap', 'TT_VAR')  shift_val(capidx, 'TT_ILIT')  reduce('TT_FNC', 2)
-        | VarStdOut FENCE $','  (epsilon . *assign(.capidx, 1)) shift_val('raku_cap', 'TT_VAR')  shift_val(capidx, 'TT_ILIT')  reduce('TT_FNC', 2)
-        | VarStdErr FENCE $','  (epsilon . *assign(.capidx, 2)) shift_val('raku_cap', 'TT_VAR')  shift_val(capidx, 'TT_ILIT')  reduce('TT_FNC', 2)
+FhVar = ( VarScalar FENCE $','  assign(.t_imm, capvf capvr) shift(t_imm, 'TT_VAR')
+        | VarStdIn  FENCE $','  (epsilon . *assign(.capidx, 0))  assign(.t_imm, 'raku_cap') shift(t_imm, 'TT_VAR')  assign(.t_imm, capidx) shift(t_imm, 'TT_ILIT')  reduce('TT_FNC', 2)
+        | VarStdOut FENCE $','  (epsilon . *assign(.capidx, 1))  assign(.t_imm, 'raku_cap') shift(t_imm, 'TT_VAR')  assign(.t_imm, capidx) shift(t_imm, 'TT_ILIT')  reduce('TT_FNC', 2)
+        | VarStdErr FENCE $','  (epsilon . *assign(.capidx, 2))  assign(.t_imm, 'raku_cap') shift(t_imm, 'TT_VAR')  assign(.t_imm, capidx) shift(t_imm, 'TT_ILIT')  reduce('TT_FNC', 2)
         );
-SayFhStmt   = ( $'say'   $'(' FhVar *Expr $')' $';'  shift_val('raku_say_fh', 'TT_VAR')   reduce('TT_FNC', 3) );
-PrintFhStmt = ( $'print' $'(' FhVar *Expr $')' $';'  shift_val('raku_print_fh', 'TT_VAR') reduce('TT_FNC', 3) );
+SayFhStmt   = ( $'say'   $'(' FhVar *Expr $')' $';'  assign(.t_imm, 'raku_say_fh')   shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 3) );
+PrintFhStmt = ( $'print' $'(' FhVar *Expr $')' $';'  assign(.t_imm, 'raku_print_fh') shift(t_imm, 'TT_VAR')  reduce('TT_FNC', 3) );
 BareStmt = ( Expr $';' );
 TryStmt = ( $'try'
             Block
             ( $'CATCH'  Block  (epsilon . *assign(.raku_has_catch, 1))
             | epsilon
             )
-            shift_val('raku_try', 'TT_VAR')
+            assign(.t_imm, 'raku_try') shift(t_imm, 'TT_VAR')
             ( EQ(try_has_catch, 1) reduce('TT_FNC', 3)
             | reduce('TT_FNC', 2)
             )
@@ -589,9 +594,9 @@ Stmt = ( GivenStmt
 BlockStmt = ( GivenStmt | TryStmt | CatchFreeStmt | ControlStmt | QuitStmt | IfStmt | WhileStmt | UnlessStmt | WithoutStmt | WheneverStmt | UntilStmt | RepeatStmt | LoopThreeStmt | LoopInfStmt | UseStmt | NoStmt | NeedStmt | ImportStmt | RequireStmt | ForeachStmt | ForRangeStmt | ForNoArrowStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ArrSetStmt | HashSetAngleStmt | HashSetBraceStmt | FieldWriteStmt | SayFhStmt | PrintFhStmt | TypedDeclStmt | ReturnBareStmt | ReturnStmt | TakeStmt | AssignStmt | SayStmt | PrintStmt | BareStmt | BeginStmt | EndStmt | InitStmt | CheckStmt | EnterStmt | LeaveStmt | KeepStmt | UndoStmt | FirstStmt | NextPhStmt | LastPhStmt | PreStmt | PostStmt | CloseStmt | TempStmt | DoBlockStmt | OnceStmt | StartStmt | SupplyStmt | ReactStmt | QuietlyStmt | RaceStmt | HyperStmt | LazyStmt | EagerStmt | SinkStmt );
 SubBlockStmt = ( GivenStmt | TryStmt | CatchFreeStmt | ControlStmt | QuitStmt | IfStmt | WhileStmt | UnlessStmt | WithoutStmt | WheneverStmt | UntilStmt | RepeatStmt | LoopThreeStmt | LoopInfStmt | UseStmt | NoStmt | NeedStmt | ImportStmt | RequireStmt | ForeachStmt | ForRangeStmt | ForNoArrowStmt | ForStmt | DeleteHashAngle | DeleteHashBrace | ArrSetStmt | HashSetAngleStmt | HashSetBraceStmt | FieldWriteStmt | SayFhStmt | PrintFhStmt | TypedDeclStmt | ReturnBareStmt | ReturnStmt | TakeStmt | AssignStmt | SayStmt | PrintStmt | BareStmt | BeginStmt | EndStmt | InitStmt | CheckStmt | EnterStmt | LeaveStmt | KeepStmt | UndoStmt | FirstStmt | NextPhStmt | LastPhStmt | PreStmt | PostStmt | CloseStmt | TempStmt | DoBlockStmt | OnceStmt | StartStmt | SupplyStmt | ReactStmt | QuietlyStmt | RaceStmt | HyperStmt | LazyStmt | EagerStmt | SinkStmt );
 SubParamTail = ( $','
-                 SubParam  shift_val(cappf cappr, 'TT_VAR')  nInc()
+                 SubParam  assign(.t_imm, cappf cappr) shift(t_imm, 'TT_VAR')  nInc()
                );
-SubParams = ( SubParam  shift_val(cappf cappr, 'TT_VAR')  nInc()
+SubParams = ( SubParam  assign(.t_imm, cappf cappr) shift(t_imm, 'TT_VAR')  nInc()
               ARBNO( SubParamTail )
             | epsilon
             );
@@ -600,32 +605,32 @@ SubParams = ( SubParam  shift_val(cappf cappr, 'TT_VAR')  nInc()
 SubStmt = ( $'sub' $'  '
             SubName
             nPush()
-            shift_val(capsnf capsnr, 'TT_VAR')  nInc()
+            assign(.t_imm, capsnf capsnr) shift(t_imm, 'TT_VAR')  nInc()
             $'(' SubParams $')'
             SubBlock
             reduce('TT_FNC', 'nTop()')
             nPop()
             nInc()
           );
-HasDeclTwigil  = ( VarTwigil  shift_val(capff capfr, 'TT_VAR') );
-HasDeclScalar  = ( VarScalar  shift_val(capvf capvr, 'TT_VAR')       );
+HasDeclTwigil  = ( VarTwigil  assign(.t_imm, capff capfr) shift(t_imm, 'TT_VAR') );
+HasDeclScalar  = ( VarScalar  assign(.t_imm, capvf capvr) shift(t_imm, 'TT_VAR')       );
 HasDecl = ( $'has' $'  '
             ( HasDeclTwigil | HasDeclScalar )
             $';'
             nInc()
           );
 MethodParamTail = ( $','
-                    SubParam  shift_val(cappf cappr, 'TT_VAR')  nInc()
+                    SubParam  assign(.t_imm, cappf cappr) shift(t_imm, 'TT_VAR')  nInc()
                   );
-MethodParams = ( SubParam  shift_val(cappf cappr, 'TT_VAR')  nInc()
+MethodParams = ( SubParam  assign(.t_imm, cappf cappr) shift(t_imm, 'TT_VAR')  nInc()
                  ARBNO( MethodParamTail )
                | epsilon
                );
 MethodDef = ( $'method' $'  '
               MethodIdent
               nPush()
-              shift_val(capmtf capmtr, 'TT_VAR')  nInc()
-              shift_val('self', 'TT_VAR')      nInc()
+              assign(.t_imm, capmtf capmtr) shift(t_imm, 'TT_VAR')  nInc()
+              assign(.t_imm, 'self')        shift(t_imm, 'TT_VAR')  nInc()
               $'(' *MethodParams $')'
               *SubBlock
               reduce('TT_FNC', 'nTop()')
@@ -639,7 +644,7 @@ ClassDecl = ( $'class' $'  '
               ClassName
               $'{'
               nPush()
-              shift_val(capclsf capclsr, 'TT_QLIT')  nInc()
+              assign(.t_imm, capclsf capclsr) shift(t_imm, 'TT_QLIT')  nInc()
               ARBNO( *ClassBodyItem )
               $'}'
               reduce('TT_RECORD', 'nTop()')
