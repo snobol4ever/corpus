@@ -1,2 +1,2 @@
-(STMT :subj (TT_ASSIGN (TT_VAR d) (TT_FNC raku_new (TT_VAR raku_new) (TT_QLIT "Dog") (TT_QLIT "name") (TT_QLIT "Rex"))))
+(STMT :subj (TT_ASSIGN (TT_VAR d) (TT_NEW (TT_QLIT "Dog") (TT_QLIT "name") (TT_QLIT "Rex"))))
 (STMT :subj (TT_SAY (TT_FIELD name (TT_VAR d))))

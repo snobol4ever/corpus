@@ -1,0 +1,2 @@
+(STMT :subj (TT_ASSIGN (TT_VAR d) (TT_NEW (TT_QLIT "Dog") (TT_QLIT "name") (TT_FNC get_name (TT_VAR get_name)))))
+(STMT :subj (TT_SAY (TT_VAR d)))
