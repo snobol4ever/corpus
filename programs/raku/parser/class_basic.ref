@@ -1,1 +1,1 @@
-(STMT :subj (TT_CLASS_DECL (TT_VAR Dog) (TT_VAR name) (TT_SUB_DECL (TT_VAR speak) (TT_VAR self) (TT_SAY (TT_QLIT "woof")))))
+(STMT :subj (TT_CLASS_DECL (TT_VAR Dog) (TT_VAR name) (TT_SUB_DECL (TT_VAR speak) (TT_SAY (TT_QLIT "woof")))))

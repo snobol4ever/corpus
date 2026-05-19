@@ -1,1 +1,1 @@
-(STMT :subj (TT_CLASS_DECL (TT_VAR Point) (TT_VAR x) (TT_VAR y) (TT_SUB_DECL (TT_VAR sum) (TT_VAR self) (TT_SAY (TT_FIELD x (TT_VAR self))))))
+(STMT :subj (TT_CLASS_DECL (TT_VAR Point) (TT_VAR x) (TT_VAR y) (TT_SUB_DECL (TT_VAR sum) (TT_SAY (TT_FIELD x (TT_VAR self))))))
