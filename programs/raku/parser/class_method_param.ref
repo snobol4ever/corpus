@@ -1,0 +1,4 @@
+(STMT :subj (TT_SUB_DECL
+  (TT_VAR main)
+  (TT_CLASS_DECL (TT_VAR Greeter) (TT_VAR name) (TT_SUB_DECL (TT_VAR greet) (TT_VAR self) (TT_VAR msg) (TT_SAY (TT_VAR msg))))
+))

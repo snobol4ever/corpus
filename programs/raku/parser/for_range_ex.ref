@@ -1,10 +1,7 @@
-(STMT :subj (TT_SUB_DECL main
+(STMT :subj (TT_SUB_DECL
   (TT_VAR main)
-  (TT_SEQ_EXPR)
   (TT_SEQ_EXPR
-    (TT_SEQ_EXPR
-      (TT_ASSIGN (TT_VAR i) (TT_ILIT 1))
-      (TT_WHILE (TT_LE (TT_VAR i) (TT_ILIT 5)) (TT_SEQ_EXPR (TT_SAY (TT_VAR i)) (TT_ASSIGN (TT_VAR i) (TT_ADD (TT_VAR i) (TT_ILIT 1)))))
-    )
+    (TT_ASSIGN (TT_VAR i) (TT_ILIT 1))
+    (TT_WHILE (TT_LE (TT_VAR i) (TT_ILIT 5)) (TT_SEQ_EXPR (TT_SAY (TT_VAR i)) (TT_ASSIGN (TT_VAR i) (TT_ADD (TT_VAR i) (TT_ILIT 1)))))
   )
 ))

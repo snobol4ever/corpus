@@ -1,4 +1,4 @@
-(STMT :subj (TT_SUB_DECL main
+(STMT :subj (TT_SUB_DECL
   (TT_VAR main)
   (TT_ASSIGN (TT_VAR a) (TT_QLIT ""))
   (TT_ARR_SET (TT_VAR a) (TT_ILIT 0) (TT_ILIT 99))

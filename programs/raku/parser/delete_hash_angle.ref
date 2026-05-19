@@ -1,1 +1,1 @@
-(STMT :subj (TT_SUB_DECL main (TT_VAR main) (TT_HASH_DELETE (TT_VAR h) (TT_QLIT "foo"))))
+(STMT :subj (TT_SUB_DECL (TT_VAR main) (TT_HASH_DELETE (TT_VAR h) (TT_QLIT "foo"))))
