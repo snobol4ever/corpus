@@ -1,10 +1,1 @@
-(STMT :subj (TT_FNC main
-  (TT_VAR main)
-  (TT_FNC write
-    (TT_VAR write)
-    (TT_CAT
-      (TT_VAR a)
-      (TT_VAR b)
-    )
-  )
-))
+(STMT :subj (TT_FNC main (TT_VAR main) (TT_SAY (TT_CAT (TT_VAR a) (TT_VAR b)))))
