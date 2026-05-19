@@ -1,0 +1,10 @@
+(STMT :subj (TT_ASSIGN
+  (TT_VAR r)
+  (TT_METHCALL
+    (TT_VAR s)
+    (TT_QLIT "substr")
+    (TT_FNC find_start (TT_VAR find_start) (TT_VAR s))
+    (TT_FNC find_len (TT_VAR find_len) (TT_VAR s))
+  )
+))
+(STMT :subj (TT_SAY (TT_VAR r)))
