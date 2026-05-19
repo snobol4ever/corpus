@@ -1,0 +1,3 @@
+(STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello")))
+(STMT :subj (TT_SMATCH (TT_VAR s) (TT_QLIT "l\x01r\x01-") (TT_QLIT "subst")))
+(STMT :subj (TT_SAY (TT_VAR s)))
