@@ -99,17 +99,17 @@ Expr2       =  *Expr3 FENCE($'&' *Expr2 reduce("'TT_SEQ'", 2) | epsilon);
    Expr3 (|/TT_ALT) and Expr4 (space/TT_SEQ): n-ary flat collect via nPush/nInc/X/nPop.
    Expr6-Expr10 binary arithmetic: right-recursive reduce(tag,2); lower flattens later.
    All *cont helper rules deleted. */
-Expr3       =  nPush() *X3  reduce(\"'TT_ALT'\", '*(GT(nTop(), 1) nTop())') nPop();
+Expr3       =  nPush() *X3  reduce("'TT_ALT'", '*(GT(nTop(), 1) nTop())') nPop();
 X3          =  nInc() *Expr4 FENCE($'|'  *X3 | epsilon);
-Expr4       =  nPush() *X4  reduce(\"'TT_SEQ'\", '*(GT(nTop(), 1) nTop())') nPop();
+Expr4       =  nPush() *X4  reduce("'TT_SEQ'", '*(GT(nTop(), 1) nTop())') nPop();
 X4          =  nInc() *Expr5 FENCE($'  ' *X4 | epsilon);
-Expr5       =  *Expr6 FENCE($'@' *Expr5 reduce(\"'TT_CAPT_CURSOR'\", 2) | epsilon);
+Expr5       =  *Expr6 FENCE($'@' *Expr5 reduce("'TT_CAPT_CURSOR'", 2) | epsilon);
 Expr6       =  *Expr7
-               FENCE($'+' *Expr6 reduce(\"'TT_ADD'\", 2) | $'-' *Expr6 reduce(\"'TT_SUB'\", 2) | epsilon);
-Expr7       =  *Expr8 FENCE($'#' *Expr7 reduce(\"'TT_MUL'\", 2) | epsilon);
-Expr8       =  *Expr9 FENCE($'/' *Expr8 reduce(\"'TT_DIV'\", 2) | epsilon);
-Expr9       =  *Expr10 FENCE($'*' *Expr9 reduce(\"'TT_MUL'\", 2) | epsilon);
-Expr10      =  *Expr11 FENCE($'%' *Expr10 reduce(\"'TT_DIV'\", 2) | epsilon);
+               FENCE($'+' *Expr6 reduce("'TT_ADD'", 2) | $'-' *Expr6 reduce("'TT_SUB'", 2) | epsilon);
+Expr7       =  *Expr8 FENCE($'#' *Expr7 reduce("'TT_MUL'", 2) | epsilon);
+Expr8       =  *Expr9 FENCE($'/' *Expr8 reduce("'TT_DIV'", 2) | epsilon);
+Expr9       =  *Expr10 FENCE($'*' *Expr9 reduce("'TT_MUL'", 2) | epsilon);
+Expr10      =  *Expr11 FENCE($'%' *Expr10 reduce("'TT_DIV'", 2) | epsilon);
 Expr10      =  *Expr11 FENCE($'%' *Expr10 reduce("'TT_DIV'", 2) | epsilon);
 /* SCT-9g-snobol4 n-ary rewrite (2026-05-17): exponentiation n-ary flat, lowerer right-folds.
    a^b^c => TT_POW(a,b,c); lower_sno.c / sm_lower.c right-fold to a^(b^c).
