@@ -224,11 +224,10 @@ Stmt        =  nPush()
                nPop()
                $' ';
 Commands    =  *Command FENCE(*Commands | epsilon);
-Command     =  nInc()
-               FENCE(
-                  shift(*Comment, "'TT_COMMENT'") reduce("'TT_COMMENT'", 1) nl
-               |  shift(*Control, "'TT_CONTROL'") reduce("'TT_CONTROL'", 1) (nl | ';')
-               |  *Stmt (nl | ';')
+Command     =  FENCE(
+                  shift(*Comment, "'TT_COMMENT'") nInc() reduce("'TT_COMMENT'", 1) nl
+               |  shift(*Control, "'TT_CONTROL'") nInc() reduce("'TT_CONTROL'", 1) (nl | ';')
+               |  *Stmt nInc() (nl | ';')
                );
 Compiland   =  nPush()
                POS(0) ARBNO(*Command) RPOS(0)
