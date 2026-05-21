@@ -29,7 +29,7 @@ UnprotKwd = '&' SPAN(&UCASE &LCASE) . tx . *match(UnprotKwds, TxInList);
 Gray = *White | epsilon;
 White = SPAN(' ' tab) FENCE(nl ('+' | '.') FENCE(SPAN(' ' tab) | epsilon) | epsilon)
       | nl ('+' | '.') FENCE(SPAN(' ' tab) | epsilon);
-TxInList = (POS(0) | ' ') EVAL('upr(tx)') (' ' | RPOS(0));
+TxInList = (POS(0) | ' ') *upr(tx) (' ' | RPOS(0));
 SpecialNms = 'ABORT CONTINUE END FRETURN NRETURN RETURN SCONTINUE START';
 BuiltinVars = 'ABORT ARB BAL FAIL FENCE INPUT OUTPUT REM TERMINAL';
 ProtKwds = 'ABORT ALPHABET ARB BAL FAIL FENCE FILE FNCLEVEL '
@@ -59,7 +59,7 @@ $'~' = *White '~' *White; $',' = *Gray ',' *Gray;
 $'(' = '(' *Gray; $'[' = '[' *Gray; $'<' = '<' *Gray;
 $')' = *Gray ')'; $']' = *Gray ']'; $'>' = *Gray '>';
 ExprList = nPush() *XList reduce('ExprList', '*(GT(nTop(), 1) nTop())') nPop();
-XList = nInc() (*Expr | epsilon . '') FENCE($',' *XList | epsilon);
+XList = nInc() (*Expr | shift(epsilon, '')) FENCE($',' *XList | epsilon);
 Expr = *Expr0;
 Expr0 = *Expr1 FENCE($'=' *Expr0 reduce('=', 2) | epsilon);
 Expr1 = *Expr2 FENCE($'?' *Expr1 reduce('?', 2) | epsilon);
@@ -90,7 +90,7 @@ Expr15 = *Expr17 FENCE(nPush() *Expr16 reduce('[]', 'nTop() + 1') nPop() | epsil
 Expr16 = nInc() ($'[' *ExprList $']' | $'<' *ExprList $'>') FENCE(*Expr16 | epsilon);
 Expr17 = FENCE(
              nPush() $'(' *Expr
-                 ($',' *XList reduce(',', 'nTop() + 1') | epsilon . '' reduce('()', 1))
+                 ($',' *XList reduce(',', 'nTop() + 1') | epsilon reduce('()', 1))
                  $')' nPop()
            | shift(*Function, 'Function') $'(' *ExprList $')' reduce('Call', 2)
            | shift(*Id, 'Id') $'(' *ExprList $')' reduce('Call', 2)
@@ -105,9 +105,9 @@ Target = $'(' . *assign(.Brackets, *'()') *Expr $')'
          | $'<' . *assign(.Brackets, *'<>') *Expr $'>';
 Goto = *Gray ':' *Gray
           FENCE(
-             *Target reduce("*(':' Brackets)", 1) epsilon . ''
+             *Target reduce("*(':' Brackets)", 1) shift(epsilon, '')
            | (*SGoto | *FGoto) *Target reduce("*(':' SorF Brackets)", 1)
-               FENCE(*Gray (*SGoto | *FGoto) *Target reduce("*(':' SorF Brackets)", 1) | epsilon . '')
+               FENCE(*Gray (*SGoto | *FGoto) *Target reduce("*(':' SorF Brackets)", 1) | shift(epsilon, ''))
            );
 Control = '-' BREAK(nl ';');
 Comment = '*' BREAK(nl);
@@ -115,13 +115,13 @@ Label = shift(BREAK(' ' tab nl ';'), 'Label');
 Stmt = *Label
            ( *White *Expr14
                 FENCE(
-                   epsilon . '' *White ('=' . '' *White *Expr | '=' . '' epsilon . '')
+                   shift(epsilon, '') *White (shift('=', '=') *White *Expr | shift('=', '=') shift(epsilon, ''))
                  | ($'?' | *White) *Expr1
-                     FENCE( *White ('=' . '' *White *Expr | '=' . '' epsilon . '')
-                            | epsilon . '' epsilon . '')
-                 | epsilon . '' epsilon . '' epsilon . '')
-            | epsilon . '' epsilon . '' epsilon . '' epsilon . '')
-           FENCE(*Goto | epsilon . '' epsilon . '') *Gray;
+                     FENCE( *White (shift('=', '=') *White *Expr | shift('=', '=') shift(epsilon, ''))
+                            | shift(epsilon, '') shift(epsilon, ''))
+                 | shift(epsilon, '') shift(epsilon, '') shift(epsilon, ''))
+            | shift(epsilon, '') shift(epsilon, '') shift(epsilon, '') shift(epsilon, ''))
+           FENCE(*Goto | shift(epsilon, '') shift(epsilon, '')) *Gray;
 Commands = *Command FENCE(*Commands | epsilon);
 Command = nInc()
            FENCE(

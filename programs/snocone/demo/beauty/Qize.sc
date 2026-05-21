@@ -3,17 +3,6 @@
 //---------------------------------------------------------------------------------------------------
 QizeWierd = bSlash bs ff nl cr tab;
 
-// LEQ, Ucvt: SPITBOL builtin and canonical-Qize.inc helper not in scrip Snocone.
-// Provided here per pass #2 audit note (G-4, G-5).
-function LEQ(a, b) {
-    if (IDENT(a, b)) { LEQ = a; return; }
-    if (LLT(a, b))   { LEQ = a; return; }
-    freturn;
-}
-function Ucvt(hex2) {
-    Ucvt = CHAR(INTEGER('0X' hex2));
-    return;
-}
 //---------------------------------------------------------------------------------------------------
 function Qize(str, part) {
     if (Qize = IDENT(str) "''") return;
