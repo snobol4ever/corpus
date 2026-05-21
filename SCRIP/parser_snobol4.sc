@@ -241,11 +241,14 @@ InitStack();
 Src = '';
 while ((Line = INPUT)) Src = Src Line nl ;
 if (Src ? Compiland) {
+    /* SCT-fix: $'[' and $']' are OPSYN binary operators (Expr16) that override
+     * SPITBOL's built-in array-indexing brackets.  Use ITEM(array, index) which
+     * is standard SNOBOL4 and not affected by OPSYN redefinition of '['. */
     ptree = Pop();
     i = 1;
     nk = n(ptree);
     while (LE(i, nk)) {
-        cmd = c(ptree)[i];
+        cmd = ITEM(c(ptree), i);
         if (IDENT(t(cmd), 'TT_STMT')) { TDump(cmd); }
         i = i + 1;
     }
