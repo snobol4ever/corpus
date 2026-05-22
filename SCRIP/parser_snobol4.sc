@@ -213,8 +213,8 @@ Stmt        =  nPush()
                   FENCE(
                      $'?'
                      nInc() *Expr1 reduce("'TT_PAT'", 1)
-                     FENCE(nInc() *StmtRepl | epsilon)
-                  |  nInc() *StmtRepl
+                     FENCE(*StmtRepl | epsilon)
+                  |  *StmtRepl
                   |  epsilon
                   )
                |  epsilon
