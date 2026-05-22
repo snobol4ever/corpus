@@ -203,20 +203,19 @@ Comment     =  '*' BREAK(nl);
    No post-parse cooking.  Counter tracks child count for reduce('TT_STMT', nTop()). */
 StmtLabel   =  shift(BREAK(' ' tab nl ';'), "'TT_LABEL'");
 StmtRepl    =  $'=' $' ' *Expr reduce("'TT_EQ'", 2)
-            |  $'=' shift(epsilon, "'TT_EQ'");
+            |  $'  ' '=' $' ' shift(epsilon, "'TT_EQ'");
 StmtGoto    =  FENCE(*Goto | epsilon);
 Stmt        =  nPush()
                FENCE(nInc() *StmtLabel | epsilon)
                FENCE(
                   $'  '
                   nInc() *Expr14
-                  FENCE(
-                     $'?'
-                     nInc() *Expr1 reduce("'TT_PAT'", 1)
-                     FENCE(*StmtRepl | epsilon)
-                  |  *StmtRepl
-                  |  epsilon
-                  )
+                  $'?'
+                  nInc() *Expr1 reduce("'TT_PAT'", 1)
+                  FENCE(*StmtRepl | epsilon)
+               |  $'  '
+                  nInc() *Expr1
+                  FENCE(*StmtRepl | epsilon)
                |  epsilon
                )
                *StmtGoto
