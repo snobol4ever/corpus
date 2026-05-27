@@ -1,0 +1,7 @@
+procedure noisy()
+  write("[eval]");
+  return "X";
+end
+procedure main()
+  every write(1 | 2, noisy(), 3 | 4);
+end
