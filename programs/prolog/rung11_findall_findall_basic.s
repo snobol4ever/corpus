@@ -317,20 +317,20 @@ call rt_init@PLT
  mov edi, 64
  call pl_bb_env_push@PLT
 plseq1_g0_α:
- bb91744_α:
- # BOX PL_BUILTIN(findall/2045402976)
+ bb18656_α:
+ # BOX PL_BUILTIN(findall/-1752395936)
  # PL_BUILTIN: unknown 'findall' — stub
  jmp plseq1_g1_α
 plseq1_g0_β: jmp plseq1_g1_α
 plseq1_g1_α:
- bb91520_α:
+ bb18432_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 1
  call rt_pl_write_var@PLT
  jmp plseq1_g2_α
 plseq1_g1_β: jmp plseq1_g2_α
 plseq1_g2_α:
- bb91408_α:
+ bb18320_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
@@ -351,7 +351,7 @@ plseq1_g2_β: jmp .Lplent0_γ
 .intel_syntax noprefix
 .Lplpred_color_1: 
 # env push/pop handled by caller (bb_pl_call site)
- bb84160_α:
+ bb11072_α:
 # BOX PL_CHOICE n=3 (mode-4 first-solution)
  jmp .Lplch4_c0_pre
  .Lplch4_c0_pre:
@@ -365,63 +365,69 @@ plseq1_g2_β: jmp .Lplent0_γ
  jmp .Lplch4_c2_body
 .Lplpb3_β: jmp .Lplpb3_ω
 .Lplch4_c0_body:
- bb85984_α:
+ bb12896_α:
 # BOX PL_UNIFY
+ sub rsp, 16
  mov edi, 57
  mov rsi, 0
  xor edx, edx
  xorps xmm0, xmm0
  call rt_pl_node_to_term@PLT
- push rax
+ mov qword ptr [rsp + 0], rax
  mov edi, 58
  mov rsi, 0
  lea rdx, [rip + .S5]
  xorps xmm0, xmm0
  call rt_pl_node_to_term@PLT
  mov rsi, rax
- pop rdi
+ mov rdi, qword ptr [rsp + 0]
+ add rsp, 16
  call rt_pl_unify_terms@PLT
  test eax, eax
  je .Lplch4_c1_pre
  jmp .Lplpb3_γ
 .Lplch4_c0_beta: jmp .Lplch4_c1_pre
 .Lplch4_c1_body:
- bb87920_α:
+ bb14832_α:
 # BOX PL_UNIFY
+ sub rsp, 16
  mov edi, 57
  mov rsi, 0
  xor edx, edx
  xorps xmm0, xmm0
  call rt_pl_node_to_term@PLT
- push rax
+ mov qword ptr [rsp + 0], rax
  mov edi, 58
  mov rsi, 0
  lea rdx, [rip + .S6]
  xorps xmm0, xmm0
  call rt_pl_node_to_term@PLT
  mov rsi, rax
- pop rdi
+ mov rdi, qword ptr [rsp + 0]
+ add rsp, 16
  call rt_pl_unify_terms@PLT
  test eax, eax
  je .Lplch4_c2_pre
  jmp .Lplpb3_γ
 .Lplch4_c1_beta: jmp .Lplch4_c2_pre
 .Lplch4_c2_body:
- bb89824_α:
+ bb16736_α:
 # BOX PL_UNIFY
+ sub rsp, 16
  mov edi, 57
  mov rsi, 0
  xor edx, edx
  xorps xmm0, xmm0
  call rt_pl_node_to_term@PLT
- push rax
+ mov qword ptr [rsp + 0], rax
  mov edi, 58
  mov rsi, 0
  lea rdx, [rip + .S7]
  xorps xmm0, xmm0
  call rt_pl_node_to_term@PLT
  mov rsi, rax
- pop rdi
+ mov rdi, qword ptr [rsp + 0]
+ add rsp, 16
  call rt_pl_unify_terms@PLT
  test eax, eax
  je .Lplpb3_ω

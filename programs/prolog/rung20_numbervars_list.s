@@ -309,13 +309,13 @@ call rt_init@PLT
  mov edi, 64
  call pl_bb_env_push@PLT
 plseq1_g0_α:
- bb76048_α:
+ bb16592_α:
  # BOX PL_BUILTIN(numbervars/3)
  # PL_BUILTIN: unknown 'numbervars' — stub
  jmp plseq1_g1_α
 plseq1_g0_β: jmp plseq1_g1_α
 plseq1_g1_α:
- bb75152_α:
+ bb15696_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S7]
  mov rdi, rcx
@@ -365,21 +365,21 @@ plseq1_g1_α:
  jmp plseq1_g2_α
 plseq1_g1_β: jmp plseq1_g2_α
 plseq1_g2_α:
- bb75040_α:
+ bb15584_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq1_g3_α
 plseq1_g2_β: jmp plseq1_g3_α
 plseq1_g3_α:
- bb74816_α:
+ bb15360_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 3
  call rt_pl_write_var@PLT
  jmp plseq1_g4_α
 plseq1_g3_β: jmp plseq1_g4_α
 plseq1_g4_α:
- bb74704_α:
+ bb15248_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT

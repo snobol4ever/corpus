@@ -307,20 +307,20 @@ call rt_init@PLT
  mov edi, 64
  call pl_bb_env_push@PLT
 plseq1_g0_α:
- bb80464_α:
- # BOX PL_BUILTIN(findall/-679546912)
+ bb18192_α:
+ # BOX PL_BUILTIN(findall/856457184)
  # PL_BUILTIN: unknown 'findall' — stub
  jmp plseq1_g1_α
 plseq1_g0_β: jmp plseq1_g1_α
 plseq1_g1_α:
- bb80240_α:
+ bb17968_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 1
  call rt_pl_write_var@PLT
  jmp plseq1_g2_α
 plseq1_g1_β: jmp plseq1_g2_α
 plseq1_g2_α:
- bb80128_α:
+ bb17856_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT

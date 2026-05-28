@@ -310,7 +310,7 @@ call rt_init@PLT
  mov edi, 64
  call pl_bb_env_push@PLT
 plseq1_g0_α:
- bb69904_α:
+ bb61456_α:
 # BOX PL_CALL catch/3 (n_args=3)
  mov edi, 59
  mov rsi, 1
@@ -352,7 +352,7 @@ plseq1_g0_α:
  jmp .Lplent0_ω
 plseq1_g0_β: jmp .Lplent0_ω
 plseq1_g1_α:
- bb69792_α:
+ bb61344_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT

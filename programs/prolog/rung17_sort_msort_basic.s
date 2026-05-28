@@ -311,7 +311,7 @@ call rt_init@PLT
 .intel_syntax noprefix
  mov edi, 64
  call pl_bb_env_push@PLT
- bb61632_α:
+ bb56192_α:
 # BOX PL_CHOICE n=2 (mode-4 first-solution)
  jmp .Lplch1_c0_pre
  .Lplch1_c0_pre:
@@ -323,83 +323,137 @@ call rt_init@PLT
 .Lplent0_β: jmp .Lplent0_ω
 .Lplch1_c0_body:
 plseq2_g0_α:
- bb66064_α:
+ bb60624_α:
  # BOX PL_BUILTIN(msort/2)
  # PL_BUILTIN: unknown 'msort' — stub
  jmp plseq2_g1_α
 plseq2_g0_β: jmp plseq2_g1_α
 plseq2_g1_α:
- bb65952_α:
+ bb60512_α:
 # BOX PL_UNIFY
+ sub rsp, 16
  mov edi, 57
  mov rsi, 0
  xor edx, edx
  xorps xmm0, xmm0
  call rt_pl_node_to_term@PLT
- push rax
- mov edi, 59
- mov rsi, 2
- lea rdx, [rip + .S7]
- xorps xmm0, xmm0
+ mov qword ptr [rsp + 0], rax
+ sub rsp, 16
+ mov edi, 57
+ mov rsi, 1
+ xor edx, edx
+ xor ecx, ecx
  call rt_pl_node_to_term@PLT
+ mov qword ptr [rsp + 0], rax
+ sub rsp, 16
+ mov edi, 57
+ mov rsi, 2
+ xor edx, edx
+ xor ecx, ecx
+ call rt_pl_node_to_term@PLT
+ mov qword ptr [rsp + 0], rax
+ sub rsp, 16
+ mov edi, 57
+ mov rsi, 3
+ xor edx, edx
+ xor ecx, ecx
+ call rt_pl_node_to_term@PLT
+ mov qword ptr [rsp + 0], rax
+ sub rsp, 16
+ mov edi, 57
+ mov rsi, 4
+ xor edx, edx
+ xor ecx, ecx
+ call rt_pl_node_to_term@PLT
+ mov qword ptr [rsp + 0], rax
+ mov edi, 58
+ mov rsi, 0
+ lea rdx, [rip + .S6]
+ xor ecx, ecx
+ call rt_pl_node_to_term@PLT
+ mov qword ptr [rsp + 8], rax
+ lea rdi, [rip + .S7]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_build_n@PLT
+ add rsp, 16
+ mov qword ptr [rsp + 8], rax
+ lea rdi, [rip + .S7]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_build_n@PLT
+ add rsp, 16
+ mov qword ptr [rsp + 8], rax
+ lea rdi, [rip + .S7]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_build_n@PLT
+ add rsp, 16
+ mov qword ptr [rsp + 8], rax
+ lea rdi, [rip + .S7]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_build_n@PLT
+ add rsp, 16
  mov rsi, rax
- pop rdi
+ mov rdi, qword ptr [rsp + 0]
+ add rsp, 16
  call rt_pl_unify_terms@PLT
  test eax, eax
  je .Lplch1_c1_pre
  jmp plseq2_g2_α
 plseq2_g1_β: jmp .Lplch1_c1_pre
 plseq2_g2_α:
- bb64608_α:
+ bb59168_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 1
  call rt_pl_write_var@PLT
  jmp plseq2_g3_α
 plseq2_g2_β: jmp plseq2_g3_α
 plseq2_g3_α:
- bb64496_α:
+ bb59056_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq2_g4_α
 plseq2_g3_β: jmp plseq2_g4_α
 plseq2_g4_α:
- bb64272_α:
+ bb58832_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 2
  call rt_pl_write_var@PLT
  jmp plseq2_g5_α
 plseq2_g4_β: jmp plseq2_g5_α
 plseq2_g5_α:
- bb64160_α:
+ bb58720_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq2_g6_α
 plseq2_g5_β: jmp plseq2_g6_α
 plseq2_g6_α:
- bb63936_α:
+ bb58496_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 3
  call rt_pl_write_var@PLT
  jmp plseq2_g7_α
 plseq2_g6_β: jmp plseq2_g7_α
 plseq2_g7_α:
- bb63824_α:
+ bb58384_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq2_g8_α
 plseq2_g7_β: jmp plseq2_g8_α
 plseq2_g8_α:
- bb63600_α:
+ bb58160_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 4
  call rt_pl_write_var@PLT
  jmp plseq2_g9_α
 plseq2_g8_β: jmp plseq2_g9_α
 plseq2_g9_α:
- bb63488_α:
+ bb58048_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
@@ -408,7 +462,7 @@ plseq2_g9_β: jmp .Lplent0_γ
 .Lplch1_c0_beta:
  jmp .Lplch1_c1_pre
 .Lplch1_c1_body:
- bb68800_α:
+ bb63360_α:
 # BOX SUCCEED()
  jmp .Lplent0_γ
 .Lplch1_c1_beta:

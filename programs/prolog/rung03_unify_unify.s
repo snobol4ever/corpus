@@ -310,35 +310,63 @@ call rt_init@PLT
  mov edi, 64
  call pl_bb_env_push@PLT
 plseq1_g0_α:
- bb30864_α:
+ bb62640_α:
 # BOX PL_UNIFY
- mov edi, 59
- mov rsi, 2
- lea rdx, [rip + .S7]
- xorps xmm0, xmm0
+ sub rsp, 16
+ sub rsp, 16
+ mov edi, 57
+ mov rsi, 0
+ xor edx, edx
+ xor ecx, ecx
  call rt_pl_node_to_term@PLT
- push rax
- mov edi, 59
- mov rsi, 2
- lea rdx, [rip + .S7]
- xorps xmm0, xmm0
+ mov qword ptr [rsp + 0], rax
+ mov edi, 58
+ mov rsi, 0
+ lea rdx, [rip + .S8]
+ xor ecx, ecx
  call rt_pl_node_to_term@PLT
+ mov qword ptr [rsp + 8], rax
+ lea rdi, [rip + .S7]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_build_n@PLT
+ add rsp, 16
+ mov qword ptr [rsp + 0], rax
+ sub rsp, 16
+ mov edi, 58
+ mov rsi, 0
+ lea rdx, [rip + .S9]
+ xor ecx, ecx
+ call rt_pl_node_to_term@PLT
+ mov qword ptr [rsp + 0], rax
+ mov edi, 57
+ mov rsi, 1
+ xor edx, edx
+ xor ecx, ecx
+ call rt_pl_node_to_term@PLT
+ mov qword ptr [rsp + 8], rax
+ lea rdi, [rip + .S7]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_build_n@PLT
+ add rsp, 16
  mov rsi, rax
- pop rdi
+ mov rdi, qword ptr [rsp + 0]
+ add rsp, 16
  call rt_pl_unify_terms@PLT
  test eax, eax
  je .Lplent0_ω
  jmp plseq1_g1_α
 plseq1_g0_β: jmp .Lplent0_ω
 plseq1_g1_α:
- bb29968_α:
+ bb61744_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 0
  call rt_pl_write_var@PLT
  jmp plseq1_g2_α
 plseq1_g1_β: jmp plseq1_g2_α
 plseq1_g2_α:
- bb29744_α:
+ bb61520_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S6]
  mov rdi, rcx
@@ -346,14 +374,14 @@ plseq1_g2_α:
  jmp plseq1_g3_α
 plseq1_g2_β: jmp plseq1_g3_α
 plseq1_g3_α:
- bb29520_α:
+ bb61296_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 1
  call rt_pl_write_var@PLT
  jmp plseq1_g4_α
 plseq1_g3_β: jmp plseq1_g4_α
 plseq1_g4_α:
- bb29408_α:
+ bb61184_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT

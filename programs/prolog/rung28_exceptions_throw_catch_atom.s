@@ -310,7 +310,7 @@ call rt_init@PLT
 .intel_syntax noprefix
  mov edi, 64
  call pl_bb_env_push@PLT
- bb83680_α:
+ bb43968_α:
 # BOX PL_CALL catch/3 (n_args=3)
  mov edi, 59
  mov rsi, 1

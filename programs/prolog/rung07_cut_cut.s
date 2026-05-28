@@ -318,7 +318,7 @@ call rt_init@PLT
  mov edi, 64
  call pl_bb_env_push@PLT
 plseq1_g0_α:
- bb82480_α:
+ bb87536_α:
 # BOX PL_CALL differ/2 (n_args=2)
  mov edi, 58
  mov rsi, 0
@@ -353,7 +353,7 @@ plseq1_g0_α:
  jmp xite2_else_α
 xite2_cond_β: jmp xite2_else_α
 xite2_then_α:
- bb82256_α:
+ bb87312_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S8]
  mov rdi, rcx
@@ -361,7 +361,7 @@ xite2_then_α:
  jmp plseq1_g1_α
 xite2_then_β: jmp plseq1_g1_α
 xite2_else_α:
- bb82032_α:
+ bb87088_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S7]
  mov rdi, rcx
@@ -372,14 +372,14 @@ xite2_else_β: jmp plseq1_g1_α
 plseq1_g0_β:
  jmp .Lplent0_ω
 plseq1_g1_α:
- bb81920_α:
+ bb86976_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq1_g2_α
 plseq1_g1_β: jmp plseq1_g2_α
 plseq1_g2_α:
- bb81472_α:
+ bb86528_α:
 # BOX PL_CALL differ/2 (n_args=2)
  mov edi, 58
  mov rsi, 0
@@ -414,7 +414,7 @@ plseq1_g2_α:
  jmp xite3_else_α
 xite3_cond_β: jmp xite3_else_α
 xite3_then_α:
- bb81248_α:
+ bb86304_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S8]
  mov rdi, rcx
@@ -422,7 +422,7 @@ xite3_then_α:
  jmp plseq1_g3_α
 xite3_then_β: jmp plseq1_g3_α
 xite3_else_α:
- bb81024_α:
+ bb86080_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S7]
  mov rdi, rcx
@@ -433,7 +433,7 @@ xite3_else_β: jmp plseq1_g3_α
 plseq1_g2_β:
  jmp .Lplent0_ω
 plseq1_g3_α:
- bb80912_α:
+ bb85968_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
@@ -454,7 +454,7 @@ plseq1_g3_β: jmp .Lplent0_γ
 .intel_syntax noprefix
 .Lplpred_differ_2: 
 # env push/pop handled by caller (bb_pl_call site)
- bb74416_α:
+ bb79472_α:
 # BOX PL_CHOICE n=2 (mode-4 first-solution)
  jmp .Lplch6_c0_pre
  .Lplch6_c0_pre:
@@ -466,5 +466,5 @@ plseq1_g3_β: jmp .Lplent0_γ
 .Lplpb5_β: jmp .Lplpb5_ω
 .Lplch6_c0_body:
 plseq7_g0_α:
- bb76864_α:
+ bb81920_α:
 # BOX P

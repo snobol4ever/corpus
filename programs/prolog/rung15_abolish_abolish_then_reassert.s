@@ -325,7 +325,7 @@ call rt_init@PLT
 .intel_syntax noprefix
  mov edi, 64
  call pl_bb_env_push@PLT
- bb43568_α:
+ bb59152_α:
 # BOX PL_CHOICE n=2 (mode-4 first-solution)
  jmp .Lplch1_c0_pre
  .Lplch1_c0_pre:
@@ -337,13 +337,13 @@ call rt_init@PLT
 .Lplent0_β: jmp .Lplent0_ω
 .Lplch1_c0_body:
 plseq2_g0_α:
- bb46640_α:
+ bb62224_α:
  # BOX PL_BUILTIN(abolish/1)
  # PL_BUILTIN: unknown 'abolish' — stub
  jmp plseq2_g1_α
 plseq2_g0_β: jmp plseq2_g1_α
 plseq2_g1_α:
- bb46304_α:
+ bb61888_α:
 # BOX PL_CALL assertz/1 (n_args=1)
  mov edi, 59
  mov rsi, 1
@@ -367,7 +367,7 @@ plseq2_g1_α:
  jmp .Lplch1_c1_pre
 plseq2_g1_β: jmp .Lplch1_c1_pre
 plseq2_g2_α:
- bb45968_α:
+ bb61552_α:
 # BOX PL_CALL assertz/1 (n_args=1)
  mov edi, 59
  mov rsi, 1
@@ -391,7 +391,7 @@ plseq2_g2_α:
  jmp plseq2_g1_β
 plseq2_g2_β: jmp plseq2_g1_β
 plseq2_g3_α:
- bb45744_α:
+ bb61328_α:
 # BOX PL_CALL color/1 (n_args=1)
  mov edi, 57
  mov rsi, 0
@@ -415,28 +415,28 @@ plseq2_g3_α:
  jmp plseq2_g2_β
 plseq2_g3_β: jmp plseq2_g2_β
 plseq2_g4_α:
- bb45520_α:
+ bb61104_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 0
  call rt_pl_write_var@PLT
  jmp plseq2_g5_α
 plseq2_g4_β: jmp plseq2_g5_α
 plseq2_g5_α:
- bb45408_α:
+ bb60992_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq2_g6_α
 plseq2_g5_β: jmp plseq2_g6_α
 plseq2_g6_α:
- bb45296_α:
+ bb60880_α:
 # BOX FAIL()
  jmp plseq2_g3_β
 plseq2_g6_β: jmp plseq2_g3_β
 .Lplch1_c0_beta:
  jmp plseq2_g3_β
 .Lplch1_c1_body:
- bb48560_α:
+ bb64144_α:
 # BOX SUCCEED()
  jmp .Lplent0_γ
 .Lplch1_c1_beta:
@@ -454,7 +454,7 @@ plseq2_g6_β: jmp plseq2_g3_β
 .intel_syntax noprefix
 .Lplpred_color_1: 
 # env push/pop handled by caller (bb_pl_call site)
- bb38736_α:
+ bb54320_α:
 # BOX PL_CHOICE n=2 (mode-4 first-solution)
  jmp .Lplch5_c0_pre
  .Lplch5_c0_pre:
@@ -465,42 +465,46 @@ plseq2_g6_β: jmp plseq2_g3_β
  jmp .Lplch5_c1_body
 .Lplpb4_β: jmp .Lplpb4_ω
 .Lplch5_c0_body:
- bb40560_α:
+ bb56144_α:
 # BOX PL_UNIFY
+ sub rsp, 16
  mov edi, 57
  mov rsi, 0
  xor edx, edx
  xorps xmm0, xmm0
  call rt_pl_node_to_term@PLT
- push rax
+ mov qword ptr [rsp + 0], rax
  mov edi, 58
  mov rsi, 0
  lea rdx, [rip + .S5]
  xorps xmm0, xmm0
  call rt_pl_node_to_term@PLT
  mov rsi, rax
- pop rdi
+ mov rdi, qword ptr [rsp + 0]
+ add rsp, 16
  call rt_pl_unify_terms@PLT
  test eax, eax
  je .Lplch5_c1_pre
  jmp .Lplpb4_γ
 .Lplch5_c0_beta: jmp .Lplch5_c1_pre
 .Lplch5_c1_body:
- bb42496_α:
+ bb58080_α:
 # BOX PL_UNIFY
+ sub rsp, 16
  mov edi, 57
  mov rsi, 0
  xor edx, edx
  xorps xmm0, xmm0
  call rt_pl_node_to_term@PLT
- push rax
+ mov qword ptr [rsp + 0], rax
  mov edi, 58
  mov rsi, 0
  lea rdx, [rip + .S6]
  xorps xmm0, xmm0
  call rt_pl_node_to_term@PLT
  mov rsi, rax
- pop rdi
+ mov rdi, qword ptr [rsp + 0]
+ add rsp, 16
  call rt_pl_unify_terms@PLT
  test eax, eax
  je .Lplpb4_ω

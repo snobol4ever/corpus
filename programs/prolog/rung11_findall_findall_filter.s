@@ -324,20 +324,20 @@ call rt_init@PLT
  mov edi, 64
  call pl_bb_env_push@PLT
 plseq1_g0_α:
- bb57376_α:
- # BOX PL_BUILTIN(findall/-1647415552)
+ bb92480_α:
+ # BOX PL_BUILTIN(findall/1995403008)
  # PL_BUILTIN: unknown 'findall' — stub
  jmp plseq1_g1_α
 plseq1_g0_β: jmp plseq1_g1_α
 plseq1_g1_α:
- bb57152_α:
+ bb92256_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 1
  call rt_pl_write_var@PLT
  jmp plseq1_g2_α
 plseq1_g1_β: jmp plseq1_g2_α
 plseq1_g2_α:
- bb57040_α:
+ bb92144_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
@@ -358,7 +358,7 @@ plseq1_g2_β: jmp .Lplent0_γ
 .intel_syntax noprefix
 .Lplpred_num_1: 
 # env push/pop handled by caller (bb_pl_call site)
- bb43520_α:
+ bb78624_α:
 # BOX PL_CHOICE n=5 (mode-4 first-solution)
  jmp .Lplch4_c0_pre
  .Lplch4_c0_pre:
@@ -378,105 +378,115 @@ plseq1_g2_β: jmp .Lplent0_γ
  jmp .Lplch4_c4_body
 .Lplpb3_β: jmp .Lplpb3_ω
 .Lplch4_c0_body:
- bb45344_α:
+ bb80448_α:
 # BOX PL_UNIFY
+ sub rsp, 16
  mov edi, 57
  mov rsi, 0
  xor edx, edx
  xorps xmm0, xmm0
  call rt_pl_node_to_term@PLT
- push rax
+ mov qword ptr [rsp + 0], rax
  mov edi, 0
  mov rsi, 1
  xor edx, edx
  xorps xmm0, xmm0
  call rt_pl_node_to_term@PLT
  mov rsi, rax
- pop rdi
+ mov rdi, qword ptr [rsp + 0]
+ add rsp, 16
  call rt_pl_unify_terms@PLT
  test eax, eax
  je .Lplch4_c1_pre
  jmp .Lplpb3_γ
 .Lplch4_c0_beta: jmp .Lplch4_c1_pre
 .Lplch4_c1_body:
- bb47280_α:
+ bb82384_α:
 # BOX PL_UNIFY
+ sub rsp, 16
  mov edi, 57
  mov rsi, 0
  xor edx, edx
  xorps xmm0, xmm0
  call rt_pl_node_to_term@PLT
- push rax
+ mov qword ptr [rsp + 0], rax
  mov edi, 0
  mov rsi, 2
  xor edx, edx
  xorps xmm0, xmm0
  call rt_pl_node_to_term@PLT
  mov rsi, rax
- pop rdi
+ mov rdi, qword ptr [rsp + 0]
+ add rsp, 16
  call rt_pl_unify_terms@PLT
  test eax, eax
  je .Lplch4_c2_pre
  jmp .Lplpb3_γ
 .Lplch4_c1_beta: jmp .Lplch4_c2_pre
 .Lplch4_c2_body:
- bb49184_α:
+ bb84288_α:
 # BOX PL_UNIFY
+ sub rsp, 16
  mov edi, 57
  mov rsi, 0
  xor edx, edx
  xorps xmm0, xmm0
  call rt_pl_node_to_term@PLT
- push rax
+ mov qword ptr [rsp + 0], rax
  mov edi, 0
  mov rsi, 3
  xor edx, edx
  xorps xmm0, xmm0
  call rt_pl_node_to_term@PLT
  mov rsi, rax
- pop rdi
+ mov rdi, qword ptr [rsp + 0]
+ add rsp, 16
  call rt_pl_unify_terms@PLT
  test eax, eax
  je .Lplch4_c3_pre
  jmp .Lplpb3_γ
 .Lplch4_c2_beta: jmp .Lplch4_c3_pre
 .Lplch4_c3_body:
- bb50992_α:
+ bb86096_α:
 # BOX PL_UNIFY
+ sub rsp, 16
  mov edi, 57
  mov rsi, 0
  xor edx, edx
  xorps xmm0, xmm0
  call rt_pl_node_to_term@PLT
- push rax
+ mov qword ptr [rsp + 0], rax
  mov edi, 0
  mov rsi, 4
  xor edx, edx
  xorps xmm0, xmm0
  call rt_pl_node_to_term@PLT
  mov rsi, rax
- pop rdi
+ mov rdi, qword ptr [rsp + 0]
+ add rsp, 16
  call rt_pl_unify_terms@PLT
  test eax, eax
  je .Lplch4_c4_pre
  jmp .Lplpb3_γ
 .Lplch4_c3_beta: jmp .Lplch4_c4_pre
 .Lplch4_c4_body:
- bb52800_α:
+ bb87904_α:
 # BOX PL_UNIFY
+ sub rsp, 16
  mov edi, 57
  mov rsi, 0
  xor edx, edx
  xorps xmm0, xmm0
  call rt_pl_node_to_term@PLT
- push rax
+ mov qword ptr [rsp + 0], rax
  mov edi, 0
  mov rsi, 5
  xor edx, edx
  xorps xmm0, xmm0
  call rt_pl_node_to_term@PLT
  mov rsi, rax
- pop rdi
+ mov rdi, qword ptr [rsp + 0]
+ add rsp, 16
  call rt_pl_unify_terms@PLT
  test eax, eax
  je .Lplpb3_ω
@@ -495,28 +505,30 @@ plseq1_g2_β: jmp .Lplent0_γ
 .Lplpred_even_1: 
 # env push/pop handled by caller (bb_pl_call site)
 plseq6_g0_α:
- bb55392_α:
+ bb90496_α:
 # BOX PL_UNIFY
+ sub rsp, 16
  mov edi, 57
  mov rsi, 0
  xor edx, edx
  xorps xmm0, xmm0
  call rt_pl_node_to_term@PLT
- push rax
+ mov qword ptr [rsp + 0], rax
  mov edi, 57
  mov rsi, 0
  xor edx, edx
  xorps xmm0, xmm0
  call rt_pl_node_to_term@PLT
  mov rsi, rax
- pop rdi
+ mov rdi, qword ptr [rsp + 0]
+ add rsp, 16
  call rt_pl_unify_terms@PLT
  test eax, eax
  je .Lplpb5_ω
  jmp plseq6_g1_α
 plseq6_g0_β: jmp .Lplpb5_ω
 plseq6_g1_α:
- bb54944_α:
+ bb90048_α:
 # BOX PL_CALL num/1 (n_args=1)
  mov edi, 57
  mov rsi, 0
@@ -540,7 +552,7 @@ plseq6_g1_α:
  jmp .Lplpb5_ω
 plseq6_g1_β: jmp .Lplpb5_ω
 plseq6_g2_α:
- bb54384_α:
+ bb89488_α:
  # BOX PL_BUILTIN(is/2)
  # PL_BUILTIN: unknown 'is' — stub
  jmp .Lplpb5_γ

@@ -314,13 +314,13 @@ call rt_init@PLT
  mov edi, 64
  call pl_bb_env_push@PLT
 plseq1_g0_α:
- bb15344_α:
+ bb45136_α:
  # BOX PL_BUILTIN(char_type/2)
  # PL_BUILTIN: unknown 'char_type' — stub
  jmp xite2_then_α
 xite2_cond_β: jmp xite2_then_α
 xite2_then_α:
- bb15120_α:
+ bb44912_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S7]
  mov rdi, rcx
@@ -328,7 +328,7 @@ xite2_then_α:
  jmp plseq1_g1_α
 xite2_then_β: jmp plseq1_g1_α
 xite2_else_α:
- bb14896_α:
+ bb44688_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S6]
  mov rdi, rcx
@@ -339,20 +339,20 @@ xite2_else_β: jmp plseq1_g1_α
 plseq1_g0_β:
  jmp .Lplent0_ω
 plseq1_g1_α:
- bb14784_α:
+ bb44576_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq1_g2_α
 plseq1_g1_β: jmp plseq1_g2_α
 plseq1_g2_α:
- bb14336_α:
+ bb44128_α:
  # BOX PL_BUILTIN(char_type/2)
  # PL_BUILTIN: unknown 'char_type' — stub
  jmp xite3_then_α
 xite3_cond_β: jmp xite3_then_α
 xite3_then_α:
- bb14112_α:
+ bb43904_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S7]
  mov rdi, rcx
@@ -360,7 +360,7 @@ xite3_then_α:
  jmp plseq1_g3_α
 xite3_then_β: jmp plseq1_g3_α
 xite3_else_α:
- bb13888_α:
+ bb43680_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S6]
  mov rdi, rcx
@@ -371,20 +371,20 @@ xite3_else_β: jmp plseq1_g3_α
 plseq1_g2_β:
  jmp .Lplent0_ω
 plseq1_g3_α:
- bb13776_α:
+ bb43568_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq1_g4_α
 plseq1_g3_β: jmp plseq1_g4_α
 plseq1_g4_α:
- bb13328_α:
+ bb43120_α:
  # BOX PL_BUILTIN(char_type/2)
  # PL_BUILTIN: unknown 'char_type' — stub
  jmp xite4_then_α
 xite4_cond_β: jmp xite4_then_α
 xite4_then_α:
- bb13104_α:
+ bb42896_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S7]
  mov rdi, rcx
@@ -392,7 +392,7 @@ xite4_then_α:
  jmp plseq1_g5_α
 xite4_then_β: jmp plseq1_g5_α
 xite4_else_α:
- bb12880_α:
+ bb42672_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S6]
  mov rdi, rcx
@@ -403,7 +403,7 @@ xite4_else_β: jmp plseq1_g5_α
 plseq1_g4_β:
  jmp .Lplent0_ω
 plseq1_g5_α:
- bb12768_α:
+ bb42560_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT

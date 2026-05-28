@@ -310,60 +310,60 @@ call rt_init@PLT
  mov edi, 64
  call pl_bb_env_push@PLT
 plseq1_g0_α:
- bb50880_α:
+ bb89568_α:
  # BOX PL_BUILTIN(is/2)
  # PL_BUILTIN: unknown 'is' — stub
  jmp plseq1_g1_α
 plseq1_g0_β: jmp plseq1_g1_α
 plseq1_g1_α:
- bb50656_α:
+ bb89344_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 0
  call rt_pl_write_var@PLT
  jmp plseq1_g2_α
 plseq1_g1_β: jmp plseq1_g2_α
 plseq1_g2_α:
- bb50544_α:
+ bb89232_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq1_g3_α
 plseq1_g2_β: jmp plseq1_g3_α
 plseq1_g3_α:
- bb50096_α:
+ bb88784_α:
  # BOX PL_BUILTIN(is/2)
  # PL_BUILTIN: unknown 'is' — stub
  jmp plseq1_g4_α
 plseq1_g3_β: jmp plseq1_g4_α
 plseq1_g4_α:
- bb49872_α:
+ bb88560_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 1
  call rt_pl_write_var@PLT
  jmp plseq1_g5_α
 plseq1_g4_β: jmp plseq1_g5_α
 plseq1_g5_α:
- bb49760_α:
+ bb88448_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq1_g6_α
 plseq1_g5_β: jmp plseq1_g6_α
 plseq1_g6_α:
- bb49312_α:
+ bb88000_α:
  # BOX PL_BUILTIN(is/2)
  # PL_BUILTIN: unknown 'is' — stub
  jmp plseq1_g7_α
 plseq1_g6_β: jmp plseq1_g7_α
 plseq1_g7_α:
- bb49088_α:
+ bb87776_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 2
  call rt_pl_write_var@PLT
  jmp plseq1_g8_α
 plseq1_g7_β: jmp plseq1_g8_α
 plseq1_g8_α:
- bb48976_α:
+ bb87664_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT

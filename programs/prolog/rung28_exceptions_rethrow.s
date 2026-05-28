@@ -320,7 +320,7 @@ call rt_init@PLT
 .intel_syntax noprefix
  mov edi, 64
  call pl_bb_env_push@PLT
- bb81760_α:
+ bb56160_α:
 # BOX PL_CALL catch/3 (n_args=3)
  mov edi, 58
  mov rsi, 0
@@ -374,7 +374,7 @@ call rt_init@PLT
 .intel_syntax noprefix
 .Lplpred_inner_0: 
 # env push/pop handled by caller (bb_pl_call site)
- bb79488_α:
+ bb53888_α:
 # BOX PL_CALL catch/3 (n_args=3)
  mov edi, 59
  mov rsi, 1

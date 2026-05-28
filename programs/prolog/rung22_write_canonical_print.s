@@ -307,26 +307,26 @@ call rt_init@PLT
  mov edi, 64
  call pl_bb_env_push@PLT
 plseq1_g0_α:
- bb33344_α:
+ bb76064_α:
  # BOX PL_BUILTIN(print/1)
  # PL_BUILTIN: unknown 'print' — stub
  jmp plseq1_g1_α
 plseq1_g0_β: jmp plseq1_g1_α
 plseq1_g1_α:
- bb33232_α:
+ bb75952_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq1_g2_α
 plseq1_g1_β: jmp plseq1_g2_α
 plseq1_g2_α:
- bb33008_α:
+ bb75728_α:
  # BOX PL_BUILTIN(print/1)
  # PL_BUILTIN: unknown 'print' — stub
  jmp plseq1_g3_α
 plseq1_g2_β: jmp plseq1_g3_α
 plseq1_g3_α:
- bb32896_α:
+ bb75616_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT

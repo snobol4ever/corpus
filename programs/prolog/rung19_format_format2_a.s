@@ -308,7 +308,7 @@ call rt_init@PLT
 .intel_syntax noprefix
  mov edi, 64
  call pl_bb_env_push@PLT
- bb13728_α:
+ bb35520_α:
  # BOX PL_BUILTIN(format/2)
  # PL_BUILTIN: unknown 'format' — stub
  jmp .Lplent0_γ
