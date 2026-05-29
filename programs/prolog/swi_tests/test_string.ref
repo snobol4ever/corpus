@@ -1,2 +1,2 @@
-EMPTY string
-EMPTY string_bytes
+FAIL string
+PASS string_bytes
