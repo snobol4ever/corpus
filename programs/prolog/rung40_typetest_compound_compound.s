@@ -287,9 +287,14 @@
 .S2: .string ","
 .S3: .string ")"
 .S4: .string "nl"
-.S5: .string "writeq"
-.S6: .string "foo"
-.S7: .string "hello world"
+.S5: .string "write"
+.S6: .string "no"
+.S7: .string "yes"
+.S8: .string "compound"
+.S9: .string "foo"
+.S10: .string "f"
+.S11: .string "a"
+.S12: .string "b"
 .text
 .intel_syntax noprefix
 .globl main
@@ -320,26 +325,94 @@ call rt_init@PLT
  mov edi, 64
  call pl_bb_env_push@PLT
 plseq1_g0_α:
- bb98016_α:
- # BOX PL_BUILTIN(writeq/1)
- # PL_BUILTIN: unknown 'writeq' — stub
+ bb63408_α:
+ # BOX PL_BUILTIN(compound/1)
+ sub rsp, 16
+ sub rsp, 16
+ mov edi, 57
+ mov rsi, 0
+ lea rdx, [rip + .S11]
+ xor ecx, ecx
+ call rt_pl_node_to_term@PLT
+ mov qword ptr [rsp + 0], rax
+ mov edi, 57
+ mov rsi, 0
+ lea rdx, [rip + .S12]
+ xor ecx, ecx
+ call rt_pl_node_to_term@PLT
+ mov qword ptr [rsp + 8], rax
+ lea rdi, [rip + .S10]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_build_n@PLT
+ add rsp, 16
+ mov rsi, rax
+ lea rdi, [rip + .S8]
+ call rt_pl_type_test_term@PLT
+ add rsp, 16
+ test eax, eax
+ je xite2_else_α
+ jmp xite2_then_α
+xite2_cond_β: jmp xite2_else_α
+xite2_then_α:
+ bb63184_α:
+ # BOX PL_BUILTIN(write/1)
+ lea rcx, [rip + .S7]
+ mov rdi, rcx
+ call rt_pl_write_atom@PLT
  jmp plseq1_g1_α
-plseq1_g0_β: jmp plseq1_g1_α
+xite2_then_β: jmp plseq1_g1_α
+xite2_else_α:
+ bb62960_α:
+ # BOX PL_BUILTIN(write/1)
+ lea rcx, [rip + .S6]
+ mov rdi, rcx
+ call rt_pl_write_atom@PLT
+ jmp plseq1_g1_α
+xite2_else_β: jmp plseq1_g1_α
+# END PL_ITE (β-tombstone via EP)
+plseq1_g0_β:
+ jmp .Lplent0_ω
 plseq1_g1_α:
- bb97904_α:
+ bb62848_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq1_g2_α
 plseq1_g1_β: jmp plseq1_g2_α
 plseq1_g2_α:
- bb97680_α:
- # BOX PL_BUILTIN(writeq/1)
- # PL_BUILTIN: unknown 'writeq' — stub
+ bb62512_α:
+ # BOX PL_BUILTIN(compound/1)
+ lea rdi, [rip + .S8]
+ mov esi, 57
+ mov rdx, 0
+ lea rcx, [rip + .S9]
+ call rt_pl_type_test@PLT
+ test eax, eax
+ je xite3_else_α
+ jmp xite3_then_α
+xite3_cond_β: jmp xite3_else_α
+xite3_then_α:
+ bb62288_α:
+ # BOX PL_BUILTIN(write/1)
+ lea rcx, [rip + .S7]
+ mov rdi, rcx
+ call rt_pl_write_atom@PLT
  jmp plseq1_g3_α
-plseq1_g2_β: jmp plseq1_g3_α
+xite3_then_β: jmp plseq1_g3_α
+xite3_else_α:
+ bb62064_α:
+ # BOX PL_BUILTIN(write/1)
+ lea rcx, [rip + .S6]
+ mov rdi, rcx
+ call rt_pl_write_atom@PLT
+ jmp plseq1_g3_α
+xite3_else_β: jmp plseq1_g3_α
+# END PL_ITE (β-tombstone via EP)
+plseq1_g2_β:
+ jmp .Lplent0_ω
 plseq1_g3_α:
- bb97568_α:
+ bb61952_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
