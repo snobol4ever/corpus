@@ -157,6 +157,14 @@
  movabs rdi, \val
  call rt_push_real_bits@PLT
 .endm
+.macro LOAD_FRAME slot
+ mov edi, \slot
+ call rt_load_frame@PLT
+.endm
+.macro STORE_FRAME slot
+ mov edi, \slot
+ call rt_store_frame@PLT
+.endm
 .macro PUSH_EXPRESSION entry, arity
  lea rdi, [rip + .L\entry]
  mov esi, 2
@@ -178,8 +186,11 @@
  mov esi, \n
  call rt_call@PLT
 .endm
-.macro BB_PUMP_PROC tgt
- call \tgt
+.macro NAMED_CALL lbl, n
+ mov edi, \n
+ call rt_frame_enter@PLT
+ call \lbl
+ call rt_frame_leave@PLT
 .endm
 .macro DEFINE_ENTRY
  call rt_define_entry@PLT
@@ -294,6 +305,7 @@ call rt_register_expressions@PLT
 call rt_init@PLT
 .L0:
  JUMP .L3
+.Lsub_main_0:
  LABEL
 .L2:
  RETURN
@@ -304,45 +316,61 @@ call rt_init@PLT
 #=======================================================================================================================
  mov edi, 0
  call rt_set_stno@PLT
-# SM_BB_SWITCH PL_ENTRY main/0/0 (inline flat four-port)
+# SM_BB_PL_INVOKE main/0/0 (inline flat four-port)
 .intel_syntax noprefix
  mov edi, 64
  call pl_bb_env_push@PLT
 plseq1_g0_α:
- bb78208_α:
+ bb11008_α:
  # BOX PL_BUILTIN(is/2)
- # PL_BUILTIN: unknown 'is' — stub
+ mov edi, 0
+ lea rsi, [rip + .S8]
+ mov edx, 0
+ mov rcx, 7
+ mov r8d, -1
+ mov r9, 0
+ call rt_pl_is@PLT
+ test eax, eax
+ je .Lplent0_ω
  jmp plseq1_g1_α
-plseq1_g0_β: jmp plseq1_g1_α
+plseq1_g0_β: jmp .Lplent0_ω
 plseq1_g1_α:
- bb77984_α:
+ bb10784_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 0
  call rt_pl_write_var@PLT
  jmp plseq1_g2_α
 plseq1_g1_β: jmp plseq1_g2_α
 plseq1_g2_α:
- bb77872_α:
+ bb10672_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq1_g3_α
 plseq1_g2_β: jmp plseq1_g3_α
 plseq1_g3_α:
- bb77424_α:
+ bb10224_α:
  # BOX PL_BUILTIN(is/2)
- # PL_BUILTIN: unknown 'is' — stub
+ mov edi, 1
+ lea rsi, [rip + .S7]
+ mov edx, 0
+ mov rcx, 4
+ mov r8d, -1
+ mov r9, 0
+ call rt_pl_is@PLT
+ test eax, eax
+ je .Lplent0_ω
  jmp plseq1_g4_α
-plseq1_g3_β: jmp plseq1_g4_α
+plseq1_g3_β: jmp .Lplent0_ω
 plseq1_g4_α:
- bb77200_α:
+ bb10000_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 1
  call rt_pl_write_var@PLT
  jmp plseq1_g5_α
 plseq1_g4_β: jmp plseq1_g5_α
 plseq1_g5_α:
- bb77088_α:
+ bb9888_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT

@@ -321,13 +321,13 @@ call rt_init@PLT
  mov edi, 64
  call pl_bb_env_push@PLT
 plseq1_g0_α:
- bb23088_α:
+ bb50096_α:
  # BOX PL_BUILTIN(writeq/1)
  # PL_BUILTIN: unknown 'writeq' — stub
  jmp plseq1_g1_α
 plseq1_g0_β: jmp plseq1_g1_α
 plseq1_g1_α:
- bb22976_α:
+ bb49984_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT

@@ -157,6 +157,14 @@
  movabs rdi, \val
  call rt_push_real_bits@PLT
 .endm
+.macro LOAD_FRAME slot
+ mov edi, \slot
+ call rt_load_frame@PLT
+.endm
+.macro STORE_FRAME slot
+ mov edi, \slot
+ call rt_store_frame@PLT
+.endm
 .macro PUSH_EXPRESSION entry, arity
  lea rdi, [rip + .L\entry]
  mov esi, 2
@@ -178,8 +186,11 @@
  mov esi, \n
  call rt_call@PLT
 .endm
-.macro BB_PUMP_PROC tgt
- call \tgt
+.macro NAMED_CALL lbl, n
+ mov edi, \n
+ call rt_frame_enter@PLT
+ call \lbl
+ call rt_frame_leave@PLT
 .endm
 .macro DEFINE_ENTRY
  call rt_define_entry@PLT
@@ -282,11 +293,6 @@
 .S8: .string "integer"
 .S9: .string "foo"
 .S10: .string "context"
-.S11: .string "catch"
-.S12: .string "write"
-.S13: .string "caught"
-.S14: .string " "
-.S15: .string "nl"
 .text
 .intel_syntax noprefix
 .globl main
@@ -301,12 +307,14 @@ call rt_register_expressions@PLT
 call rt_init@PLT
 .L0:
  JUMP .L3
+.Lsub_foo_0:
  LABEL
 .L2:
  RETURN
 .L3:
  LABEL
  JUMP .L7
+.Lsub_main_0:
  LABEL
 .L6:
  RETURN
@@ -317,49 +325,12 @@ call rt_init@PLT
 #=======================================================================================================================
  mov edi, 0
  call rt_set_stno@PLT
-# SM_BB_SWITCH PL_ENTRY main/0/0 (inline flat four-port)
+# SM_BB_PL_INVOKE main/0/0 (inline flat four-port)
 .intel_syntax noprefix
  mov edi, 64
  call pl_bb_env_push@PLT
- bb54240_α:
-# BOX PL_CALL catch/3 (n_args=3)
- mov edi, 58
- mov rsi, 0
- lea rdx, [rip + .S9]
- xorps xmm0, xmm0
- call rt_pl_node_to_term@PLT
- push rax
- mov edi, 57
- mov rsi, 0
- xor edx, edx
- xorps xmm0, xmm0
- call rt_pl_node_to_term@PLT
- push rax
- mov edi, 59
- mov rsi, 2
- lea rdx, [rip + .S3]
- xorps xmm0, xmm0
- call rt_pl_node_to_term@PLT
- push rax
- mov edi, 19
- call pl_bb_env_save_push@PLT
- push rax
- mov rsi, [rsp + 8]
- mov edi, 2
- call pl_bb_bind_arg@PLT
- mov rsi, [rsp + 16]
- mov edi, 1
- call pl_bb_bind_arg@PLT
- mov rsi, [rsp + 24]
- mov edi, 0
- call pl_bb_bind_arg@PLT
- call .Lplpred_catch_3
- pop rdi
- call pl_bb_env_pop@PLT
- add rsp, 24
- call rt_last_ok@PLT
- test eax, eax
- jne .Lplent0_γ
+ bb80704_α:
+# BOX PL_CATCH (mode-4 STUB — WAM-CP-13 will implement; today fails through)
  jmp .Lplent0_ω
 .Lplent0_β: jmp .Lplent0_ω
 .Lplent0_γ: 
@@ -375,29 +346,12 @@ call rt_init@PLT
 .intel_syntax noprefix
 .Lplpred_foo_0: 
 # env push/pop handled by caller (bb_pl_call site)
- bb51968_α:
-# BOX PL_CALL throw/1 (n_args=1)
- mov edi, 59
- mov rsi, 2
- lea rdx, [rip + .S6]
- xorps xmm0, xmm0
- call rt_pl_node_to_term@PLT
- push rax
- mov edi, 17
- call pl_bb_env_save_push@PLT
- push rax
- mov rsi, [rsp + 8]
- mov edi, 0
- call pl_bb_bind_arg@PLT
- call .Lplpred_throw_1
- pop rdi
- call pl_bb_env_pop@PLT
- add rsp, 8
- call rt_last_ok@PLT
- test eax, eax
- jne .Lplpb2_γ
- jmp .Lplpb2_ω
-.Lplpb2_β: jmp .Lplpb2_ω
+# redo entry: .Lplpred_foo_0_redo
+ bb78432_α:
+ # BOX PL_BUILTIN(throw/0)
+ # PL_BUILTIN: unknown 'throw' — stub
+ jmp .Lplpb2_γ
+.Lplpb2_β: jmp .Lplpb2_γ
 .Lplpb2_γ: 
  mov rdi, 1
  call rt_set_last_ok@PLT
@@ -406,6 +360,7 @@ call rt_init@PLT
  mov rdi, 0
  call rt_set_last_ok@PLT
  ret
+.Lplpred_foo_0_redo: jmp .Lplpb2_β
 .Lplcallees1_end: 
 #=======================================================================================================================
 # stmt 0

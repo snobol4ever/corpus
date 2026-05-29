@@ -157,6 +157,14 @@
  movabs rdi, \val
  call rt_push_real_bits@PLT
 .endm
+.macro LOAD_FRAME slot
+ mov edi, \slot
+ call rt_load_frame@PLT
+.endm
+.macro STORE_FRAME slot
+ mov edi, \slot
+ call rt_store_frame@PLT
+.endm
 .macro PUSH_EXPRESSION entry, arity
  lea rdi, [rip + .L\entry]
  mov esi, 2
@@ -178,8 +186,11 @@
  mov esi, \n
  call rt_call@PLT
 .endm
-.macro BB_PUMP_PROC tgt
- call \tgt
+.macro NAMED_CALL lbl, n
+ mov edi, \n
+ call rt_frame_enter@PLT
+ call \lbl
+ call rt_frame_leave@PLT
 .endm
 .macro DEFINE_ENTRY
  call rt_define_entry@PLT
@@ -296,6 +307,7 @@ call rt_register_expressions@PLT
 call rt_init@PLT
 .L0:
  JUMP .L3
+.Lsub_main_0:
  LABEL
 .L2:
  RETURN
@@ -306,30 +318,91 @@ call rt_init@PLT
 #=======================================================================================================================
  mov edi, 0
  call rt_set_stno@PLT
-# SM_BB_SWITCH PL_ENTRY main/0/0 (inline flat four-port)
+# SM_BB_PL_INVOKE main/0/0 (inline flat four-port)
 .intel_syntax noprefix
  mov edi, 64
  call pl_bb_env_push@PLT
- bb3248_α:
-# BOX PL_CHOICE n=2 (mode-4 first-solution)
- jmp .Lplch1_c0_pre
+ bb32336_α:
+# BOX PL_CHOICE n=2 (WAM-CP-5 heap cursor, WAM-CP-9 cut)
+ call rt_pl_env_current@PLT
+ mov rdx, rax
+ call rt_pl_trail_mark@PLT
+ mov rsi, rax
+ xor edi, edi
+ xor ecx, ecx
+ xor r8d, r8d
+ call pl_cp_push@PLT
+ mov rdi, rax
+ call rt_pl_choice_cut_enter@PLT
+ .Lplch1_dispatch:
+ call pl_cp_current@PLT
+ mov edi, [rax + 48]
+ cmp edi, 2
+ jge .Lplch1_exhausted
+ cmp edi, 0
+ je .Lplch1_c0_pre
+ cmp edi, 1
+ je .Lplch1_c1_pre
+ jmp .Lplch1_exhausted
  .Lplch1_c0_pre:
- call rt_pl_trail_mark_push@PLT
+ call pl_cp_current@PLT
+ inc dword ptr [rax + 48]
  jmp .Lplch1_c0_body
  .Lplch1_c1_pre:
- call rt_pl_trail_unwind_top@PLT
+ call pl_cp_current@PLT
+ mov edi, [rax + 16]
+ call rt_pl_trail_unwind@PLT
+ call pl_cp_current@PLT
+ inc dword ptr [rax + 48]
  jmp .Lplch1_c1_body
-.Lplent0_β: jmp .Lplent0_ω
+ .Lplch1_exit_γ:
+ call rt_pl_get_cut_flag@PLT
+ test eax, eax
+ jnz .Lplch1_cut_γ
+ call pl_cp_current@PLT
+ mov rdi, rax
+ call rt_pl_choice_cut_exit@PLT
+ jmp .Lplent0_γ
+ .Lplch1_cut_γ:
+ call pl_cp_current@PLT
+ mov rdi, rax
+ call rt_pl_choice_cut_unwind@PLT
+ jmp .Lplent0_γ
+ .Lplch1_cut_ω:
+ call pl_cp_current@PLT
+ mov rdi, rax
+ call rt_pl_choice_cut_unwind@PLT
+ jmp .Lplent0_ω
+ .Lplch1_exhausted:
+ call pl_cp_current@PLT
+ mov rdi, rax
+ call rt_pl_choice_cut_exit@PLT
+ call pl_cp_current@PLT
+ mov edi, [rax + 16]
+ call rt_pl_trail_unwind@PLT
+ call pl_cp_pop@PLT
+ jmp .Lplent0_ω
+ .Lplent0_β:
+ call rt_pl_get_cut_flag@PLT
+ test eax, eax
+ jnz .Lplch1_cut_ω
+ call pl_cp_current@PLT
+ test rax, rax
+ je .Lplch1_β_nosol
+ mov rdi, rax
+ call rt_pl_choice_cut_enter@PLT
+ jmp .Lplch1_dispatch
+.Lplch1_β_nosol: jmp .Lplent0_ω
 .Lplch1_c0_body:
 plseq2_g0_α:
- bb7552_α:
+ bb36640_α:
  # BOX PL_BUILTIN(@=</2)
  sub rsp, 16
  lea rdi, [rip + .S8]
- mov esi, 58
+ mov esi, 57
  mov rdx, 0
  lea rcx, [rip + .S10]
- mov r8d, 58
+ mov r8d, 57
  mov r9, 0
  lea rax, [rip + .S9]
  mov qword ptr [rsp + 0], rax
@@ -340,7 +413,7 @@ plseq2_g0_α:
  jmp xite3_then_α
 xite3_cond_β: jmp xite3_else_α
 xite3_then_α:
- bb7328_α:
+ bb36416_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S7]
  mov rdi, rcx
@@ -348,7 +421,7 @@ xite3_then_α:
  jmp plseq2_g1_α
 xite3_then_β: jmp plseq2_g1_α
 xite3_else_α:
- bb7104_α:
+ bb36192_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S6]
  mov rdi, rcx
@@ -357,23 +430,23 @@ xite3_else_α:
 xite3_else_β: jmp plseq2_g1_α
 # END PL_ITE (β-tombstone via EP)
 plseq2_g0_β:
- jmp .Lplch1_c1_pre
+ jmp .Lplent0_β
 plseq2_g1_α:
- bb6992_α:
+ bb36080_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq2_g2_α
 plseq2_g1_β: jmp plseq2_g2_α
 plseq2_g2_α:
- bb6544_α:
+ bb35632_α:
  # BOX PL_BUILTIN(@=</2)
  sub rsp, 16
  lea rdi, [rip + .S8]
- mov esi, 58
+ mov esi, 57
  mov rdx, 0
  lea rcx, [rip + .S10]
- mov r8d, 58
+ mov r8d, 57
  mov r9, 0
  lea rax, [rip + .S10]
  mov qword ptr [rsp + 0], rax
@@ -384,7 +457,7 @@ plseq2_g2_α:
  jmp xite4_then_α
 xite4_cond_β: jmp xite4_else_α
 xite4_then_α:
- bb6320_α:
+ bb35408_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S7]
  mov rdi, rcx
@@ -392,7 +465,7 @@ xite4_then_α:
  jmp plseq2_g3_α
 xite4_then_β: jmp plseq2_g3_α
 xite4_else_α:
- bb6096_α:
+ bb35184_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S6]
  mov rdi, rcx
@@ -401,23 +474,23 @@ xite4_else_α:
 xite4_else_β: jmp plseq2_g3_α
 # END PL_ITE (β-tombstone via EP)
 plseq2_g2_β:
- jmp .Lplch1_c1_pre
+ jmp .Lplent0_β
 plseq2_g3_α:
- bb5984_α:
+ bb35072_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq2_g4_α
 plseq2_g3_β: jmp plseq2_g4_α
 plseq2_g4_α:
- bb5536_α:
+ bb34624_α:
  # BOX PL_BUILTIN(@=</2)
  sub rsp, 16
  lea rdi, [rip + .S8]
- mov esi, 58
+ mov esi, 57
  mov rdx, 0
  lea rcx, [rip + .S9]
- mov r8d, 58
+ mov r8d, 57
  mov r9, 0
  lea rax, [rip + .S10]
  mov qword ptr [rsp + 0], rax
@@ -428,7 +501,7 @@ plseq2_g4_α:
  jmp xite5_then_α
 xite5_cond_β: jmp xite5_else_α
 xite5_then_α:
- bb5312_α:
+ bb34400_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S7]
  mov rdi, rcx
@@ -436,7 +509,7 @@ xite5_then_α:
  jmp plseq2_g5_α
 xite5_then_β: jmp plseq2_g5_α
 xite5_else_α:
- bb5088_α:
+ bb34176_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S6]
  mov rdi, rcx
@@ -445,22 +518,22 @@ xite5_else_α:
 xite5_else_β: jmp plseq2_g5_α
 # END PL_ITE (β-tombstone via EP)
 plseq2_g4_β:
- jmp .Lplch1_c1_pre
+ jmp .Lplent0_β
 plseq2_g5_α:
- bb4976_α:
+ bb34064_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
- jmp .Lplent0_γ
-plseq2_g5_β: jmp .Lplent0_γ
+ jmp .Lplch1_exit_γ
+plseq2_g5_β: jmp .Lplch1_exit_γ
 .Lplch1_c0_beta:
- jmp .Lplch1_c1_pre
+ jmp .Lplent0_β
 .Lplch1_c1_body:
- bb9504_α:
+ bb38592_α:
 # BOX SUCCEED()
- jmp .Lplent0_γ
+ jmp .Lplch1_exit_γ
 .Lplch1_c1_beta:
- jmp .Lplent0_ω
+ jmp .Lplent0_β
 .Lplent0_γ: 
  mov rdi, 1
  call rt_set_last_ok@PLT

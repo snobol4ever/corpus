@@ -157,6 +157,14 @@
  movabs rdi, \val
  call rt_push_real_bits@PLT
 .endm
+.macro LOAD_FRAME slot
+ mov edi, \slot
+ call rt_load_frame@PLT
+.endm
+.macro STORE_FRAME slot
+ mov edi, \slot
+ call rt_store_frame@PLT
+.endm
 .macro PUSH_EXPRESSION entry, arity
  lea rdi, [rip + .L\entry]
  mov esi, 2
@@ -178,8 +186,11 @@
  mov esi, \n
  call rt_call@PLT
 .endm
-.macro BB_PUMP_PROC tgt
- call \tgt
+.macro NAMED_CALL lbl, n
+ mov edi, \n
+ call rt_frame_enter@PLT
+ call \lbl
+ call rt_frame_leave@PLT
 .endm
 .macro DEFINE_ENTRY
  call rt_define_entry@PLT
@@ -295,6 +306,7 @@ call rt_register_expressions@PLT
 call rt_init@PLT
 .L0:
  JUMP .L3
+.Lsub_main_0:
  LABEL
 .L2:
  RETURN
@@ -305,22 +317,22 @@ call rt_init@PLT
 #=======================================================================================================================
  mov edi, 0
  call rt_set_stno@PLT
-# SM_BB_SWITCH PL_ENTRY main/0/0 (inline flat four-port)
+# SM_BB_PL_INVOKE main/0/0 (inline flat four-port)
 .intel_syntax noprefix
  mov edi, 64
  call pl_bb_env_push@PLT
 plseq1_g0_α:
- bb62640_α:
+ bb15824_α:
 # BOX PL_UNIFY
  sub rsp, 16
  sub rsp, 16
- mov edi, 57
+ mov edi, 56
  mov rsi, 0
  xor edx, edx
  xor ecx, ecx
  call rt_pl_node_to_term@PLT
  mov qword ptr [rsp + 0], rax
- mov edi, 58
+ mov edi, 57
  mov rsi, 0
  lea rdx, [rip + .S8]
  xor ecx, ecx
@@ -333,13 +345,13 @@ plseq1_g0_α:
  add rsp, 16
  mov qword ptr [rsp + 0], rax
  sub rsp, 16
- mov edi, 58
+ mov edi, 57
  mov rsi, 0
  lea rdx, [rip + .S9]
  xor ecx, ecx
  call rt_pl_node_to_term@PLT
  mov qword ptr [rsp + 0], rax
- mov edi, 57
+ mov edi, 56
  mov rsi, 1
  xor edx, edx
  xor ecx, ecx
@@ -359,14 +371,14 @@ plseq1_g0_α:
  jmp plseq1_g1_α
 plseq1_g0_β: jmp .Lplent0_ω
 plseq1_g1_α:
- bb61744_α:
+ bb14928_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 0
  call rt_pl_write_var@PLT
  jmp plseq1_g2_α
 plseq1_g1_β: jmp plseq1_g2_α
 plseq1_g2_α:
- bb61520_α:
+ bb14704_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S6]
  mov rdi, rcx
@@ -374,14 +386,14 @@ plseq1_g2_α:
  jmp plseq1_g3_α
 plseq1_g2_β: jmp plseq1_g3_α
 plseq1_g3_α:
- bb61296_α:
+ bb14480_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 1
  call rt_pl_write_var@PLT
  jmp plseq1_g4_α
 plseq1_g3_β: jmp plseq1_g4_α
 plseq1_g4_α:
- bb61184_α:
+ bb14368_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT

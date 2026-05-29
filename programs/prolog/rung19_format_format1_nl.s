@@ -157,6 +157,14 @@
  movabs rdi, \val
  call rt_push_real_bits@PLT
 .endm
+.macro LOAD_FRAME slot
+ mov edi, \slot
+ call rt_load_frame@PLT
+.endm
+.macro STORE_FRAME slot
+ mov edi, \slot
+ call rt_store_frame@PLT
+.endm
 .macro PUSH_EXPRESSION entry, arity
  lea rdi, [rip + .L\entry]
  mov esi, 2
@@ -178,8 +186,11 @@
  mov esi, \n
  call rt_call@PLT
 .endm
-.macro BB_PUMP_PROC tgt
- call \tgt
+.macro NAMED_CALL lbl, n
+ mov edi, \n
+ call rt_frame_enter@PLT
+ call \lbl
+ call rt_frame_leave@PLT
 .endm
 .macro DEFINE_ENTRY
  call rt_define_entry@PLT
@@ -291,6 +302,7 @@ call rt_register_expressions@PLT
 call rt_init@PLT
 .L0:
  JUMP .L3
+.Lsub_main_0:
  LABEL
 .L2:
  RETURN
@@ -301,15 +313,26 @@ call rt_init@PLT
 #=======================================================================================================================
  mov edi, 0
  call rt_set_stno@PLT
-# SM_BB_SWITCH PL_ENTRY main/0/0 (inline flat four-port)
+# SM_BB_PL_INVOKE main/0/0 (inline flat four-port)
 .intel_syntax noprefix
  mov edi, 64
  call pl_bb_env_push@PLT
- bb96768_α:
+ bb38816_α:
  # BOX PL_BUILTIN(format/1)
- # PL_BUILTIN: unknown 'format' — stub
+ sub rsp, 16
+ mov edi, 1
+ mov esi, 57
+ mov rdx, 0
+ lea rcx, [rip + .S5]
+ mov r8d, 0
+ mov r9, 0
+ mov qword ptr [rsp + 0], 0
+ call rt_pl_format@PLT
+ add rsp, 16
+ test eax, eax
+ je .Lplent0_ω
  jmp .Lplent0_γ
-.Lplent0_β: jmp .Lplent0_γ
+.Lplent0_β: jmp .Lplent0_ω
 .Lplent0_γ: 
  mov rdi, 1
  call rt_set_last_ok@PLT

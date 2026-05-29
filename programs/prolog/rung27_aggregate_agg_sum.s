@@ -157,6 +157,14 @@
  movabs rdi, \val
  call rt_push_real_bits@PLT
 .endm
+.macro LOAD_FRAME slot
+ mov edi, \slot
+ call rt_load_frame@PLT
+.endm
+.macro STORE_FRAME slot
+ mov edi, \slot
+ call rt_store_frame@PLT
+.endm
 .macro PUSH_EXPRESSION entry, arity
  lea rdi, [rip + .L\entry]
  mov esi, 2
@@ -178,8 +186,11 @@
  mov esi, \n
  call rt_call@PLT
 .endm
-.macro BB_PUMP_PROC tgt
- call \tgt
+.macro NAMED_CALL lbl, n
+ mov edi, \n
+ call rt_frame_enter@PLT
+ call \lbl
+ call rt_frame_leave@PLT
 .endm
 .macro DEFINE_ENTRY
  call rt_define_entry@PLT
@@ -258,4 +269,273 @@
  ret
 .Lretskip_\pc\():
 .endm
-.macro NRETU
+.macro NRETURN_VAR kind, cond, pc
+ mov edi, \kind
+ mov esi, \cond
+ call rt_do_nreturn@PLT
+ test eax, eax
+ jz .Lretskip_\pc
+ mov rsp, rbp
+ pop rbp
+ ret
+.Lretskip_\pc\():
+.endm
+.intel_syntax noprefix
+.section .rodata
+.S0: .string "score/1"
+.S1: .string "main/0"
+.S2: .string "("
+.S3: .string ","
+.S4: .string ")"
+.S5: .string "nl"
+.S6: .string "write"
+.S7: .string "aggregate_all"
+.S8: .string "sum"
+.S9: .string "score"
+.text
+.intel_syntax noprefix
+.globl main
+.type main, @function
+main: push rbp
+mov rbp, rsp
+call rt_gc_init@PLT
+mov edi, 2
+call rt_set_lang@PLT
+xor edi, edi
+call rt_register_expressions@PLT
+call rt_init@PLT
+.L0:
+ JUMP .L3
+.Lsub_score_1:
+ LABEL
+.L2:
+ RETURN
+.L3:
+ LABEL
+ JUMP .L7
+.Lsub_main_0:
+ LABEL
+.L6:
+ RETURN
+.L7:
+ LABEL
+#=======================================================================================================================
+# stmt 0  (line 1)
+#=======================================================================================================================
+ mov edi, 0
+ call rt_set_stno@PLT
+# SM_BB_PL_INVOKE main/0/0 (inline flat four-port)
+.intel_syntax noprefix
+ mov edi, 64
+ call pl_bb_env_push@PLT
+plseq1_g0_α:
+ bb80576_α:
+ # BOX PL_BUILTIN(aggregate_all/3)
+ # PL_BUILTIN: unknown 'aggregate_all' — stub
+ jmp plseq1_g1_α
+plseq1_g0_β: jmp plseq1_g1_α
+plseq1_g1_α:
+ bb80352_α:
+ # BOX PL_BUILTIN(write/1)
+ mov edi, 1
+ call rt_pl_write_var@PLT
+ jmp plseq1_g2_α
+plseq1_g1_β: jmp plseq1_g2_α
+plseq1_g2_α:
+ bb80240_α:
+ # BOX PL_BUILTIN(nl/0)
+ mov edi, 10
+ call putchar@PLT
+ jmp .Lplent0_γ
+plseq1_g2_β: jmp .Lplent0_γ
+.Lplent0_β:
+ jmp .Lplent0_ω
+.Lplent0_γ: 
+ mov rdi, 1
+ call rt_set_last_ok@PLT
+ jmp .Lplent0_done
+.Lplent0_ω: 
+ mov rdi, 0
+ call rt_set_last_ok@PLT
+.Lplent0_done: 
+ jmp .Lplcallees2_end
+# PL CALLEE BLOCK score/1/1
+.intel_syntax noprefix
+.Lplpred_score_1: 
+# env push/pop handled by caller (bb_pl_call site)
+# redo entry: .Lplpred_score_1_redo
+ bb72992_α:
+# BOX PL_CHOICE n=3 (WAM-CP-5 heap cursor, WAM-CP-9 cut)
+ call rt_pl_env_current@PLT
+ mov rdx, rax
+ call rt_pl_trail_mark@PLT
+ mov rsi, rax
+ xor edi, edi
+ xor ecx, ecx
+ xor r8d, r8d
+ call pl_cp_push@PLT
+ mov rdi, rax
+ call rt_pl_choice_cut_enter@PLT
+ .Lplch4_dispatch:
+ call pl_cp_current@PLT
+ mov edi, [rax + 48]
+ cmp edi, 3
+ jge .Lplch4_exhausted
+ cmp edi, 0
+ je .Lplch4_c0_pre
+ cmp edi, 1
+ je .Lplch4_c1_pre
+ cmp edi, 2
+ je .Lplch4_c2_pre
+ jmp .Lplch4_exhausted
+ .Lplch4_c0_pre:
+ call pl_cp_current@PLT
+ inc dword ptr [rax + 48]
+ jmp .Lplch4_c0_body
+ .Lplch4_c1_pre:
+ call pl_cp_current@PLT
+ mov edi, [rax + 16]
+ call rt_pl_trail_unwind@PLT
+ call pl_cp_current@PLT
+ inc dword ptr [rax + 48]
+ jmp .Lplch4_c1_body
+ .Lplch4_c2_pre:
+ call pl_cp_current@PLT
+ mov edi, [rax + 16]
+ call rt_pl_trail_unwind@PLT
+ call pl_cp_current@PLT
+ inc dword ptr [rax + 48]
+ jmp .Lplch4_c2_body
+ .Lplch4_exit_γ:
+ call rt_pl_get_cut_flag@PLT
+ test eax, eax
+ jnz .Lplch4_cut_γ
+ call pl_cp_current@PLT
+ mov rdi, rax
+ call rt_pl_choice_cut_exit@PLT
+ jmp .Lplpb3_γ
+ .Lplch4_cut_γ:
+ call pl_cp_current@PLT
+ mov rdi, rax
+ call rt_pl_choice_cut_unwind@PLT
+ jmp .Lplpb3_γ
+ .Lplch4_cut_ω:
+ call pl_cp_current@PLT
+ mov rdi, rax
+ call rt_pl_choice_cut_unwind@PLT
+ jmp .Lplpb3_ω
+ .Lplch4_exhausted:
+ call pl_cp_current@PLT
+ mov rdi, rax
+ call rt_pl_choice_cut_exit@PLT
+ call pl_cp_current@PLT
+ mov edi, [rax + 16]
+ call rt_pl_trail_unwind@PLT
+ call pl_cp_pop@PLT
+ jmp .Lplpb3_ω
+ .Lplpb3_β:
+ call rt_pl_get_cut_flag@PLT
+ test eax, eax
+ jnz .Lplch4_cut_ω
+ call pl_cp_current@PLT
+ test rax, rax
+ je .Lplch4_β_nosol
+ mov rdi, rax
+ call rt_pl_choice_cut_enter@PLT
+ jmp .Lplch4_dispatch
+.Lplch4_β_nosol: jmp .Lplpb3_ω
+.Lplch4_c0_body:
+ bb74816_α:
+# BOX PL_UNIFY
+ sub rsp, 16
+ mov edi, 56
+ mov rsi, 0
+ xor edx, edx
+ xorps xmm0, xmm0
+ call rt_pl_node_to_term@PLT
+ mov qword ptr [rsp + 0], rax
+ mov edi, 0
+ mov rsi, 10
+ xor edx, edx
+ xorps xmm0, xmm0
+ call rt_pl_node_to_term@PLT
+ mov rsi, rax
+ mov rdi, qword ptr [rsp + 0]
+ add rsp, 16
+ call rt_pl_unify_terms@PLT
+ test eax, eax
+ je .Lplpb3_β
+ jmp .Lplch4_exit_γ
+.Lplch4_c0_beta: jmp .Lplpb3_β
+.Lplch4_c1_body:
+ bb76752_α:
+# BOX PL_UNIFY
+ sub rsp, 16
+ mov edi, 56
+ mov rsi, 0
+ xor edx, edx
+ xorps xmm0, xmm0
+ call rt_pl_node_to_term@PLT
+ mov qword ptr [rsp + 0], rax
+ mov edi, 0
+ mov rsi, 20
+ xor edx, edx
+ xorps xmm0, xmm0
+ call rt_pl_node_to_term@PLT
+ mov rsi, rax
+ mov rdi, qword ptr [rsp + 0]
+ add rsp, 16
+ call rt_pl_unify_terms@PLT
+ test eax, eax
+ je .Lplpb3_β
+ jmp .Lplch4_exit_γ
+.Lplch4_c1_beta: jmp .Lplpb3_β
+.Lplch4_c2_body:
+ bb78656_α:
+# BOX PL_UNIFY
+ sub rsp, 16
+ mov edi, 56
+ mov rsi, 0
+ xor edx, edx
+ xorps xmm0, xmm0
+ call rt_pl_node_to_term@PLT
+ mov qword ptr [rsp + 0], rax
+ mov edi, 0
+ mov rsi, 30
+ xor edx, edx
+ xorps xmm0, xmm0
+ call rt_pl_node_to_term@PLT
+ mov rsi, rax
+ mov rdi, qword ptr [rsp + 0]
+ add rsp, 16
+ call rt_pl_unify_terms@PLT
+ test eax, eax
+ je .Lplpb3_β
+ jmp .Lplch4_exit_γ
+.Lplch4_c2_beta: jmp .Lplpb3_β
+.Lplpb3_γ: 
+ mov rdi, 1
+ call rt_set_last_ok@PLT
+ ret
+.Lplpb3_ω: 
+ mov rdi, 0
+ call rt_set_last_ok@PLT
+ ret
+.Lplpred_score_1_redo: jmp .Lplpb3_β
+.Lplcallees2_end: 
+#=======================================================================================================================
+# stmt 0
+#=======================================================================================================================
+ mov edi, 0
+ call rt_set_stno@PLT
+#=======================================================================================================================
+# stmt 0
+#=======================================================================================================================
+ mov edi, 0
+ call rt_set_stno@PLT
+ HALT
+call rt_finalize@PLT
+pop rbp
+ret
+.size main, .-main
+.section .note.GNU-stack
