@@ -323,7 +323,7 @@ call rt_init@PLT
 .intel_syntax noprefix
  mov edi, 64
  call pl_bb_env_push@PLT
- bb38320_α:
+ bb91856_α:
 # BOX PL_CHOICE n=2 (WAM-CP-5 heap cursor, WAM-CP-9 cut)
  call rt_pl_env_current@PLT
  mov rdx, rax
@@ -396,7 +396,7 @@ call rt_init@PLT
 .Lplch1_β_nosol: jmp .Lplent0_ω
 .Lplch1_c0_body:
 plseq2_g0_α:
- bb43376_α:
+ bb96912_α:
  # BOX PL_BUILTIN(msort/2)
  sub rsp, 16
  sub rsp, 16
@@ -481,7 +481,7 @@ plseq2_g0_α:
  jmp plseq2_g1_α
 plseq2_g0_β: jmp .Lplent0_β
 plseq2_g1_α:
- bb43264_α:
+ bb96800_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56
@@ -569,70 +569,70 @@ plseq2_g1_α:
  jmp plseq2_g2_α
 plseq2_g1_β: jmp .Lplent0_β
 plseq2_g2_α:
- bb41696_α:
+ bb95232_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 1
  call rt_pl_write_var@PLT
  jmp plseq2_g3_α
 plseq2_g2_β: jmp plseq2_g3_α
 plseq2_g3_α:
- bb41584_α:
+ bb95120_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq2_g4_α
 plseq2_g3_β: jmp plseq2_g4_α
 plseq2_g4_α:
- bb41360_α:
+ bb94896_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 2
  call rt_pl_write_var@PLT
  jmp plseq2_g5_α
 plseq2_g4_β: jmp plseq2_g5_α
 plseq2_g5_α:
- bb41248_α:
+ bb94784_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq2_g6_α
 plseq2_g5_β: jmp plseq2_g6_α
 plseq2_g6_α:
- bb41024_α:
+ bb94560_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 3
  call rt_pl_write_var@PLT
  jmp plseq2_g7_α
 plseq2_g6_β: jmp plseq2_g7_α
 plseq2_g7_α:
- bb40912_α:
+ bb94448_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq2_g8_α
 plseq2_g7_β: jmp plseq2_g8_α
 plseq2_g8_α:
- bb40688_α:
+ bb94224_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 4
  call rt_pl_write_var@PLT
  jmp plseq2_g9_α
 plseq2_g8_β: jmp plseq2_g9_α
 plseq2_g9_α:
- bb40576_α:
+ bb94112_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq2_g10_α
 plseq2_g9_β: jmp plseq2_g10_α
 plseq2_g10_α:
- bb40352_α:
+ bb93888_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 5
  call rt_pl_write_var@PLT
  jmp plseq2_g11_α
 plseq2_g10_β: jmp plseq2_g11_α
 plseq2_g11_α:
- bb40240_α:
+ bb93776_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
@@ -641,7 +641,7 @@ plseq2_g11_β: jmp .Lplch1_exit_γ
 .Lplch1_c0_beta:
  jmp .Lplent0_β
 .Lplch1_c1_body:
- bb46336_α:
+ bb99872_α:
 # BOX SUCCEED()
  jmp .Lplch1_exit_γ
 .Lplch1_c1_beta:

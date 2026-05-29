@@ -335,7 +335,7 @@ call rt_init@PLT
 .intel_syntax noprefix
  mov edi, 64
  call pl_bb_env_push@PLT
- bb39040_α:
+ bb79392_α:
 # BOX PL_CHOICE n=2 (WAM-CP-5 heap cursor, WAM-CP-9 cut)
  call rt_pl_env_current@PLT
  mov rdx, rax
@@ -408,7 +408,7 @@ call rt_init@PLT
 .Lplch1_β_nosol: jmp .Lplent0_ω
 .Lplch1_c0_body:
 plseq2_g0_α:
- bb41600_α:
+ bb81952_α:
 # BOX PL_CALL person/2 (WAM-CP-5, n_args=2)
  mov edi, 56
  mov rsi, 0
@@ -438,38 +438,38 @@ plseq2_g0_α:
  add rsp, 16
  call rt_last_ok@PLT
  test eax, eax
- je bb41600_α_fail5
+ je bb81952_α_fail5
  call pl_bb_env_install@PLT
  mov rdi, rax
  call rt_pl_cp_save_caller_env@PLT
  jmp plseq2_g1_α
-bb41600_α_fail5: 
+bb81952_α_fail5: 
  call pl_bb_env_pop@PLT
  jmp .Lplent0_β
  plseq2_g0_β:
  call pl_cp_current@PLT
  test rax, rax
- je bb41600_α_nosol
+ je bb81952_α_nosol
  mov rdi, [rax + 24]
  call pl_bb_env_install@PLT
  call .Lplpred_person_2_redo
  call rt_last_ok@PLT
  test eax, eax
- je bb41600_α_nosol
+ je bb81952_α_nosol
  call pl_cp_current@PLT
  mov rdi, [rax + 40]
  call pl_bb_env_install@PLT
  jmp plseq2_g1_α
-bb41600_α_nosol: jmp .Lplent0_β
+bb81952_α_nosol: jmp .Lplent0_β
 plseq2_g1_α:
- bb41376_α:
+ bb81728_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 0
  call rt_pl_write_var@PLT
  jmp plseq2_g2_α
 plseq2_g1_β: jmp plseq2_g2_α
 plseq2_g2_α:
- bb41152_α:
+ bb81504_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S10]
  mov rdi, rcx
@@ -477,28 +477,28 @@ plseq2_g2_α:
  jmp plseq2_g3_α
 plseq2_g2_β: jmp plseq2_g3_α
 plseq2_g3_α:
- bb40928_α:
+ bb81280_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 1
  call rt_pl_write_var@PLT
  jmp plseq2_g4_α
 plseq2_g3_β: jmp plseq2_g4_α
 plseq2_g4_α:
- bb40816_α:
+ bb81168_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq2_g5_α
 plseq2_g4_β: jmp plseq2_g5_α
 plseq2_g5_α:
- bb40704_α:
+ bb81056_α:
 # BOX FAIL()
  jmp plseq2_g0_β
 plseq2_g5_β: jmp plseq2_g0_β
 .Lplch1_c0_beta:
  jmp plseq2_g0_β
 .Lplch1_c1_body:
- bb43408_α:
+ bb83760_α:
 # BOX SUCCEED()
  jmp .Lplch1_exit_γ
 .Lplch1_c1_beta:
@@ -517,7 +517,7 @@ plseq2_g5_β: jmp plseq2_g0_β
 .Lplpred_person_2: 
 # env push/pop handled by caller (bb_pl_call site)
 # redo entry: .Lplpred_person_2_redo
- bb31296_α:
+ bb71648_α:
 # BOX PL_CHOICE n=3 (WAM-CP-5 heap cursor, WAM-CP-9 cut)
  call rt_pl_env_current@PLT
  mov rdx, rax
@@ -599,7 +599,7 @@ plseq2_g5_β: jmp plseq2_g0_β
 .Lplch5_β_nosol: jmp .Lplpb4_ω
 .Lplch5_c0_body:
 plseq6_g0_α:
- bb33456_α:
+ bb73808_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56
@@ -622,7 +622,7 @@ plseq6_g0_α:
  jmp plseq6_g1_α
 plseq6_g0_β: jmp .Lplpb4_β
 plseq6_g1_α:
- bb33120_α:
+ bb73472_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56
@@ -648,7 +648,7 @@ plseq6_g1_β: jmp .Lplpb4_β
  jmp .Lplpb4_β
 .Lplch5_c1_body:
 plseq7_g0_α:
- bb35728_α:
+ bb76080_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56
@@ -671,7 +671,7 @@ plseq7_g0_α:
  jmp plseq7_g1_α
 plseq7_g0_β: jmp .Lplpb4_β
 plseq7_g1_α:
- bb35392_α:
+ bb75744_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56
@@ -697,7 +697,7 @@ plseq7_g1_β: jmp .Lplpb4_β
  jmp .Lplpb4_β
 .Lplch5_c2_body:
 plseq8_g0_α:
- bb37968_α:
+ bb78320_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56
@@ -720,7 +720,7 @@ plseq8_g0_α:
  jmp plseq8_g1_α
 plseq8_g0_β: jmp .Lplpb4_β
 plseq8_g1_α:
- bb37632_α:
+ bb77984_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56

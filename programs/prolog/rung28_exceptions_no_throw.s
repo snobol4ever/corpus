@@ -328,12 +328,12 @@ call rt_init@PLT
  mov edi, 64
  call pl_bb_env_push@PLT
 plseq1_g0_α:
- bb58720_α:
+ bb96320_α:
 # BOX PL_CATCH (mode-4 STUB — WAM-CP-13 will implement; today fails through)
  jmp .Lplent0_ω
 plseq1_g0_β: jmp .Lplent0_ω
 plseq1_g1_α:
- bb58496_α:
+ bb96096_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S8]
  mov rdi, rcx
@@ -341,7 +341,7 @@ plseq1_g1_α:
  jmp plseq1_g2_α
 plseq1_g1_β: jmp plseq1_g2_α
 plseq1_g2_α:
- bb58384_α:
+ bb95984_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
@@ -364,7 +364,7 @@ plseq1_g2_β: jmp .Lplent0_γ
 # env push/pop handled by caller (bb_pl_call site)
 # redo entry: .Lplpred_safe_1_redo
 plseq4_g0_α:
- bb56608_α:
+ bb94208_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56
@@ -387,7 +387,7 @@ plseq4_g0_α:
  jmp plseq4_g1_α
 plseq4_g0_β: jmp .Lplpb3_ω
 plseq4_g1_α:
- bb56048_α:
+ bb93648_α:
  # BOX PL_BUILTIN(>/2)
  sub rsp, 16
  lea rdi, [rip + .S7]
@@ -405,14 +405,14 @@ plseq4_g1_α:
  jmp plseq4_g2_α
 plseq4_g1_β: jmp .Lplpb3_ω
 plseq4_g2_α:
- bb55824_α:
+ bb93424_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 0
  call rt_pl_write_var@PLT
  jmp plseq4_g3_α
 plseq4_g2_β: jmp plseq4_g3_α
 plseq4_g3_α:
- bb55712_α:
+ bb93312_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT

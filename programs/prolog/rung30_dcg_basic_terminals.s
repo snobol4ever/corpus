@@ -334,7 +334,7 @@ call rt_init@PLT
  mov edi, 64
  call pl_bb_env_push@PLT
 plseq1_g0_α:
- bb5360_α:
+ bb51248_α:
 # BOX PL_CALL greeting/2 (WAM-CP-5, n_args=2)
  sub rsp, 16
  mov edi, 57
@@ -390,31 +390,31 @@ plseq1_g0_α:
  add rsp, 16
  call rt_last_ok@PLT
  test eax, eax
- je bb5360_α_fail5
+ je bb51248_α_fail5
  call pl_bb_env_install@PLT
  mov rdi, rax
  call rt_pl_cp_save_caller_env@PLT
  jmp xite2_then_α
-bb5360_α_fail5: 
+bb51248_α_fail5: 
  call pl_bb_env_pop@PLT
  jmp xite2_else_α
  xite2_cond_β:
  call pl_cp_current@PLT
  test rax, rax
- je bb5360_α_nosol
+ je bb51248_α_nosol
  mov rdi, [rax + 24]
  call pl_bb_env_install@PLT
  call .Lplpred_greeting_2_redo
  call rt_last_ok@PLT
  test eax, eax
- je bb5360_α_nosol
+ je bb51248_α_nosol
  call pl_cp_current@PLT
  mov rdi, [rax + 40]
  call pl_bb_env_install@PLT
  jmp xite2_then_α
-bb5360_α_nosol: jmp xite2_else_α
+bb51248_α_nosol: jmp xite2_else_α
 xite2_then_α:
- bb5136_α:
+ bb51024_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S11]
  mov rdi, rcx
@@ -422,7 +422,7 @@ xite2_then_α:
  jmp plseq1_g1_α
 xite2_then_β: jmp plseq1_g1_α
 xite2_else_α:
- bb4912_α:
+ bb50800_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S10]
  mov rdi, rcx
@@ -433,14 +433,14 @@ xite2_else_β: jmp plseq1_g1_α
 plseq1_g0_β:
  jmp .Lplent0_ω
 plseq1_g1_α:
- bb4800_α:
+ bb50688_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq1_g2_α
 plseq1_g1_β: jmp plseq1_g2_α
 plseq1_g2_α:
- bb3904_α:
+ bb49792_α:
 # BOX PL_CALL greeting/2 (WAM-CP-5, n_args=2)
  sub rsp, 16
  mov edi, 57
@@ -496,31 +496,31 @@ plseq1_g2_α:
  add rsp, 16
  call rt_last_ok@PLT
  test eax, eax
- je bb3904_α_fail5
+ je bb49792_α_fail5
  call pl_bb_env_install@PLT
  mov rdi, rax
  call rt_pl_cp_save_caller_env@PLT
  jmp xite3_then_α
-bb3904_α_fail5: 
+bb49792_α_fail5: 
  call pl_bb_env_pop@PLT
  jmp xite3_else_α
  xite3_cond_β:
  call pl_cp_current@PLT
  test rax, rax
- je bb3904_α_nosol
+ je bb49792_α_nosol
  mov rdi, [rax + 24]
  call pl_bb_env_install@PLT
  call .Lplpred_greeting_2_redo
  call rt_last_ok@PLT
  test eax, eax
- je bb3904_α_nosol
+ je bb49792_α_nosol
  call pl_cp_current@PLT
  mov rdi, [rax + 40]
  call pl_bb_env_install@PLT
  jmp xite3_then_α
-bb3904_α_nosol: jmp xite3_else_α
+bb49792_α_nosol: jmp xite3_else_α
 xite3_then_α:
- bb3680_α:
+ bb49568_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S11]
  mov rdi, rcx
@@ -528,7 +528,7 @@ xite3_then_α:
  jmp plseq1_g3_α
 xite3_then_β: jmp plseq1_g3_α
 xite3_else_α:
- bb3456_α:
+ bb49344_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S10]
  mov rdi, rcx
@@ -539,7 +539,7 @@ xite3_else_β: jmp plseq1_g3_α
 plseq1_g2_β:
  jmp .Lplent0_ω
 plseq1_g3_α:
- bb3344_α:
+ bb49232_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
@@ -562,7 +562,7 @@ plseq1_g3_β: jmp .Lplent0_γ
 # env push/pop handled by caller (bb_pl_call site)
 # redo entry: .Lplpred_greeting_2_redo
 plseq6_g0_α:
- bb1504_α:
+ bb47392_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56
@@ -585,7 +585,7 @@ plseq6_g0_α:
  jmp plseq6_g1_α
 plseq6_g0_β: jmp .Lplpb5_ω
 plseq6_g1_α:
- bb1168_α:
+ bb47056_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56
@@ -608,7 +608,7 @@ plseq6_g1_α:
  jmp plseq6_g2_α
 plseq6_g1_β: jmp .Lplpb5_ω
 plseq6_g2_α:
- bb832_α:
+ bb46720_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56
@@ -644,7 +644,7 @@ plseq6_g2_α:
  jmp plseq6_g3_α
 plseq6_g2_β: jmp .Lplpb5_ω
 plseq6_g3_α:
- bb272_α:
+ bb46160_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56

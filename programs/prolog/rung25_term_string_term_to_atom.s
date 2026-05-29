@@ -323,60 +323,151 @@ call rt_init@PLT
  mov edi, 64
  call pl_bb_env_push@PLT
 plseq1_g0_α:
- bb84272_α:
+ bb39248_α:
  # BOX PL_BUILTIN(term_to_atom/2)
- # PL_BUILTIN: unknown 'term_to_atom' — stub
+ sub rsp, 16
+ sub rsp, 16
+ mov edi, 0
+ mov rsi, 1
+ xor edx, edx
+ xor ecx, ecx
+ call rt_pl_node_to_term@PLT
+ mov qword ptr [rsp + 0], rax
+ mov edi, 0
+ mov rsi, 2
+ xor edx, edx
+ xor ecx, ecx
+ call rt_pl_node_to_term@PLT
+ mov qword ptr [rsp + 8], rax
+ lea rdi, [rip + .S10]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_build_n@PLT
+ add rsp, 16
+ mov rdi, rax
+ mov esi, 56
+ mov rdx, 0
+ xor ecx, ecx
+ call rt_pl_term_to_atom_term@PLT
+ add rsp, 16
+ test eax, eax
+ je .Lplent0_ω
  jmp plseq1_g1_α
-plseq1_g0_β: jmp plseq1_g1_α
+plseq1_g0_β: jmp .Lplent0_ω
 plseq1_g1_α:
- bb84048_α:
+ bb39024_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 0
  call rt_pl_write_var@PLT
  jmp plseq1_g2_α
 plseq1_g1_β: jmp plseq1_g2_α
 plseq1_g2_α:
- bb83936_α:
+ bb38912_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq1_g3_α
 plseq1_g2_β: jmp plseq1_g3_α
 plseq1_g3_α:
- bb83600_α:
+ bb38576_α:
  # BOX PL_BUILTIN(term_to_atom/2)
- # PL_BUILTIN: unknown 'term_to_atom' — stub
+ sub rsp, 16
+ mov edi, 57
+ mov rsi, 0
+ lea rdx, [rip + .S9]
+ xor ecx, ecx
+ call rt_pl_node_to_term@PLT
+ mov rdi, rax
+ mov esi, 56
+ mov rdx, 1
+ xor ecx, ecx
+ call rt_pl_term_to_atom_term@PLT
+ add rsp, 16
+ test eax, eax
+ je .Lplent0_ω
  jmp plseq1_g4_α
-plseq1_g3_β: jmp plseq1_g4_α
+plseq1_g3_β: jmp .Lplent0_ω
 plseq1_g4_α:
- bb83376_α:
+ bb38352_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 1
  call rt_pl_write_var@PLT
  jmp plseq1_g5_α
 plseq1_g4_β: jmp plseq1_g5_α
 plseq1_g5_α:
- bb83264_α:
+ bb38240_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq1_g6_α
 plseq1_g5_β: jmp plseq1_g6_α
 plseq1_g6_α:
- bb82256_α:
+ bb37232_α:
  # BOX PL_BUILTIN(term_to_atom/2)
- # PL_BUILTIN: unknown 'term_to_atom' — stub
+ sub rsp, 16
+ sub rsp, 16
+ mov edi, 0
+ mov rsi, 1
+ xor edx, edx
+ xor ecx, ecx
+ call rt_pl_node_to_term@PLT
+ mov qword ptr [rsp + 0], rax
+ sub rsp, 16
+ mov edi, 0
+ mov rsi, 2
+ xor edx, edx
+ xor ecx, ecx
+ call rt_pl_node_to_term@PLT
+ mov qword ptr [rsp + 0], rax
+ sub rsp, 16
+ mov edi, 0
+ mov rsi, 3
+ xor edx, edx
+ xor ecx, ecx
+ call rt_pl_node_to_term@PLT
+ mov qword ptr [rsp + 0], rax
+ mov edi, 57
+ mov rsi, 0
+ lea rdx, [rip + .S7]
+ xor ecx, ecx
+ call rt_pl_node_to_term@PLT
+ mov qword ptr [rsp + 8], rax
+ lea rdi, [rip + .S8]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_build_n@PLT
+ add rsp, 16
+ mov qword ptr [rsp + 8], rax
+ lea rdi, [rip + .S8]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_build_n@PLT
+ add rsp, 16
+ mov qword ptr [rsp + 8], rax
+ lea rdi, [rip + .S8]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_build_n@PLT
+ add rsp, 16
+ mov rdi, rax
+ mov esi, 56
+ mov rdx, 2
+ xor ecx, ecx
+ call rt_pl_term_to_atom_term@PLT
+ add rsp, 16
+ test eax, eax
+ je .Lplent0_ω
  jmp plseq1_g7_α
-plseq1_g6_β: jmp plseq1_g7_α
+plseq1_g6_β: jmp .Lplent0_ω
 plseq1_g7_α:
- bb82032_α:
+ bb37008_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 2
  call rt_pl_write_var@PLT
  jmp plseq1_g8_α
 plseq1_g7_β: jmp plseq1_g8_α
 plseq1_g8_α:
- bb81920_α:
+ bb36896_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT

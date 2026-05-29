@@ -322,13 +322,13 @@ call rt_init@PLT
  mov edi, 64
  call pl_bb_env_push@PLT
 plseq1_g0_α:
- bb51104_α:
+ bb90048_α:
  # BOX PL_BUILTIN(write_canonical/1)
  # PL_BUILTIN: unknown 'write_canonical' — stub
  jmp plseq1_g1_α
 plseq1_g0_β: jmp plseq1_g1_α
 plseq1_g1_α:
- bb50992_α:
+ bb89936_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT

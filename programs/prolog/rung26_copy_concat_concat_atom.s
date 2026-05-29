@@ -324,20 +324,20 @@ call rt_init@PLT
  mov edi, 64
  call pl_bb_env_push@PLT
 plseq1_g0_α:
- bb74336_α:
+ bb3712_α:
  # BOX PL_BUILTIN(concat_atom/2)
  # PL_BUILTIN: unknown 'concat_atom' — stub
  jmp plseq1_g1_α
 plseq1_g0_β: jmp plseq1_g1_α
 plseq1_g1_α:
- bb74112_α:
+ bb3488_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 0
  call rt_pl_write_var@PLT
  jmp plseq1_g2_α
 plseq1_g1_β: jmp plseq1_g2_α
 plseq1_g2_α:
- bb74000_α:
+ bb3376_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT

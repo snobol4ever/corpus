@@ -335,7 +335,7 @@ call rt_init@PLT
  mov edi, 64
  call pl_bb_env_push@PLT
 plseq1_g0_α:
- bb64544_α:
+ bb16256_α:
 # BOX PL_CALL fact/2 (WAM-CP-5, n_args=2)
  mov edi, 0
  mov rsi, 2
@@ -365,38 +365,38 @@ plseq1_g0_α:
  add rsp, 16
  call rt_last_ok@PLT
  test eax, eax
- je bb64544_α_fail5
+ je bb16256_α_fail5
  call pl_bb_env_install@PLT
  mov rdi, rax
  call rt_pl_cp_save_caller_env@PLT
  jmp plseq1_g1_α
-bb64544_α_fail5: 
+bb16256_α_fail5: 
  call pl_bb_env_pop@PLT
  jmp .Lplent0_ω
  plseq1_g0_β:
  call pl_cp_current@PLT
  test rax, rax
- je bb64544_α_nosol
+ je bb16256_α_nosol
  mov rdi, [rax + 24]
  call pl_bb_env_install@PLT
  call .Lplpred_fact_2_redo
  call rt_last_ok@PLT
  test eax, eax
- je bb64544_α_nosol
+ je bb16256_α_nosol
  call pl_cp_current@PLT
  mov rdi, [rax + 40]
  call pl_bb_env_install@PLT
  jmp plseq1_g1_α
-bb64544_α_nosol: jmp .Lplent0_ω
+bb16256_α_nosol: jmp .Lplent0_ω
 plseq1_g1_α:
- bb64320_α:
+ bb16032_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 0
  call rt_pl_write_var@PLT
  jmp plseq1_g2_α
 plseq1_g1_β: jmp plseq1_g2_α
 plseq1_g2_α:
- bb64208_α:
+ bb15920_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
@@ -418,7 +418,7 @@ plseq1_g2_β: jmp .Lplent0_γ
 .Lplpred_fact_2: 
 # env push/pop handled by caller (bb_pl_call site)
 # redo entry: .Lplpred_fact_2_redo
- bb55952_α:
+ bb7664_α:
 # BOX PL_CHOICE n=3 (WAM-CP-5 heap cursor, WAM-CP-9 cut)
  call rt_pl_env_current@PLT
  mov rdx, rax
@@ -500,7 +500,7 @@ plseq1_g2_β: jmp .Lplent0_γ
 .Lplch4_β_nosol: jmp .Lplpb3_ω
 .Lplch4_c0_body:
 plseq5_g0_α:
- bb58112_α:
+ bb9824_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56
@@ -523,7 +523,7 @@ plseq5_g0_α:
  jmp plseq5_g1_α
 plseq5_g0_β: jmp .Lplpb3_β
 plseq5_g1_α:
- bb57776_α:
+ bb9488_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56
@@ -549,7 +549,7 @@ plseq5_g1_β: jmp .Lplpb3_β
  jmp .Lplpb3_β
 .Lplch4_c1_body:
 plseq6_g0_α:
- bb60384_α:
+ bb12096_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56
@@ -572,7 +572,7 @@ plseq6_g0_α:
  jmp plseq6_g1_α
 plseq6_g0_β: jmp .Lplpb3_β
 plseq6_g1_α:
- bb60048_α:
+ bb11760_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56
@@ -598,7 +598,7 @@ plseq6_g1_β: jmp .Lplpb3_β
  jmp .Lplpb3_β
 .Lplch4_c2_body:
 plseq7_g0_α:
- bb62624_α:
+ bb14336_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56
@@ -621,7 +621,7 @@ plseq7_g0_α:
  jmp plseq7_g1_α
 plseq7_g0_β: jmp .Lplpb3_β
 plseq7_g1_α:
- bb62288_α:
+ bb14000_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56

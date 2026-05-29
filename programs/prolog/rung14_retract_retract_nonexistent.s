@@ -323,13 +323,13 @@ call rt_init@PLT
  mov edi, 64
  call pl_bb_env_push@PLT
 plseq1_g0_α:
- bb83392_α:
+ bb27200_α:
  # BOX PL_BUILTIN(retract/1)
  # PL_BUILTIN: unknown 'retract' — stub
  jmp xite2_then_α
 xite2_cond_β: jmp xite2_then_α
 xite2_then_α:
- bb83168_α:
+ bb26976_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S7]
  mov rdi, rcx
@@ -337,7 +337,7 @@ xite2_then_α:
  jmp plseq1_g1_α
 xite2_then_β: jmp plseq1_g1_α
 xite2_else_α:
- bb82944_α:
+ bb26752_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S6]
  mov rdi, rcx
@@ -348,7 +348,7 @@ xite2_else_β: jmp plseq1_g1_α
 plseq1_g0_β:
  jmp .Lplent0_ω
 plseq1_g1_α:
- bb82832_α:
+ bb26640_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT

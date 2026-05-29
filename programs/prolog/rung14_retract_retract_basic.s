@@ -335,7 +335,7 @@ call rt_init@PLT
 .intel_syntax noprefix
  mov edi, 64
  call pl_bb_env_push@PLT
- bb37696_α:
+ bb39296_α:
 # BOX PL_CHOICE n=2 (WAM-CP-5 heap cursor, WAM-CP-9 cut)
  call rt_pl_env_current@PLT
  mov rdx, rax
@@ -408,13 +408,13 @@ call rt_init@PLT
 .Lplch1_β_nosol: jmp .Lplent0_ω
 .Lplch1_c0_body:
 plseq2_g0_α:
- bb39936_α:
+ bb41536_α:
  # BOX PL_BUILTIN(retract/1)
  # PL_BUILTIN: unknown 'retract' — stub
  jmp plseq2_g1_α
 plseq2_g0_β: jmp plseq2_g1_α
 plseq2_g1_α:
- bb39712_α:
+ bb41312_α:
 # BOX PL_CALL color/1 (WAM-CP-5, n_args=1)
  mov edi, 56
  mov rsi, 0
@@ -433,52 +433,52 @@ plseq2_g1_α:
  add rsp, 8
  call rt_last_ok@PLT
  test eax, eax
- je bb39712_α_fail5
+ je bb41312_α_fail5
  call pl_bb_env_install@PLT
  mov rdi, rax
  call rt_pl_cp_save_caller_env@PLT
  jmp plseq2_g2_α
-bb39712_α_fail5: 
+bb41312_α_fail5: 
  call pl_bb_env_pop@PLT
  jmp .Lplent0_β
  plseq2_g1_β:
  call pl_cp_current@PLT
  test rax, rax
- je bb39712_α_nosol
+ je bb41312_α_nosol
  mov rdi, [rax + 24]
  call pl_bb_env_install@PLT
  call .Lplpred_color_1_redo
  call rt_last_ok@PLT
  test eax, eax
- je bb39712_α_nosol
+ je bb41312_α_nosol
  call pl_cp_current@PLT
  mov rdi, [rax + 40]
  call pl_bb_env_install@PLT
  jmp plseq2_g2_α
-bb39712_α_nosol: jmp .Lplent0_β
+bb41312_α_nosol: jmp .Lplent0_β
 plseq2_g2_α:
- bb39488_α:
+ bb41088_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 0
  call rt_pl_write_var@PLT
  jmp plseq2_g3_α
 plseq2_g2_β: jmp plseq2_g3_α
 plseq2_g3_α:
- bb39376_α:
+ bb40976_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq2_g4_α
 plseq2_g3_β: jmp plseq2_g4_α
 plseq2_g4_α:
- bb39264_α:
+ bb40864_α:
 # BOX FAIL()
  jmp plseq2_g1_β
 plseq2_g4_β: jmp plseq2_g1_β
 .Lplch1_c0_beta:
  jmp plseq2_g1_β
 .Lplch1_c1_body:
- bb41744_α:
+ bb43344_α:
 # BOX SUCCEED()
  jmp .Lplch1_exit_γ
 .Lplch1_c1_beta:
@@ -497,7 +497,7 @@ plseq2_g4_β: jmp plseq2_g1_β
 .Lplpred_color_1: 
 # env push/pop handled by caller (bb_pl_call site)
 # redo entry: .Lplpred_color_1_redo
- bb30960_α:
+ bb32560_α:
 # BOX PL_CHOICE n=3 (WAM-CP-5 heap cursor, WAM-CP-9 cut)
  call rt_pl_env_current@PLT
  mov rdx, rax
@@ -578,7 +578,7 @@ plseq2_g4_β: jmp plseq2_g1_β
  jmp .Lplch5_dispatch
 .Lplch5_β_nosol: jmp .Lplpb4_ω
 .Lplch5_c0_body:
- bb32784_α:
+ bb34384_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56
@@ -601,7 +601,7 @@ plseq2_g4_β: jmp plseq2_g1_β
  jmp .Lplch5_exit_γ
 .Lplch5_c0_beta: jmp .Lplpb4_β
 .Lplch5_c1_body:
- bb34720_α:
+ bb36320_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56
@@ -624,7 +624,7 @@ plseq2_g4_β: jmp plseq2_g1_β
  jmp .Lplch5_exit_γ
 .Lplch5_c1_beta: jmp .Lplpb4_β
 .Lplch5_c2_body:
- bb36624_α:
+ bb38224_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56

@@ -324,7 +324,7 @@ call rt_init@PLT
 .intel_syntax noprefix
  mov edi, 64
  call pl_bb_env_push@PLT
- bb75968_α:
+ bb38784_α:
 # BOX PL_CATCH (mode-4 STUB — WAM-CP-13 will implement; today fails through)
  jmp .Lplent0_ω
 .Lplent0_β: jmp .Lplent0_ω
@@ -342,7 +342,7 @@ call rt_init@PLT
 .Lplpred_inner_0: 
 # env push/pop handled by caller (bb_pl_call site)
 # redo entry: .Lplpred_inner_0_redo
- bb70976_α:
+ bb33792_α:
 # BOX PL_CATCH (mode-4 STUB — WAM-CP-13 will implement; today fails through)
  jmp .Lplpb2_ω
 .Lplpb2_β: jmp .Lplpb2_ω

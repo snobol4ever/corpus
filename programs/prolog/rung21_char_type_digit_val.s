@@ -321,7 +321,7 @@ call rt_init@PLT
  mov edi, 64
  call pl_bb_env_push@PLT
 plseq1_g0_α:
- bb2832_α:
+ bb14736_α:
  # BOX PL_BUILTIN(char_type/2)
  sub rsp, 16
  mov edi, 57
@@ -341,14 +341,14 @@ plseq1_g0_α:
  jmp plseq1_g1_α
 plseq1_g0_β: jmp .Lplent0_ω
 plseq1_g1_α:
- bb2608_α:
+ bb14512_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 0
  call rt_pl_write_var@PLT
  jmp plseq1_g2_α
 plseq1_g1_β: jmp plseq1_g2_α
 plseq1_g2_α:
- bb2496_α:
+ bb14400_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT

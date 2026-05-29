@@ -318,12 +318,12 @@ call rt_init@PLT
  mov edi, 64
  call pl_bb_env_push@PLT
 plseq1_g0_α:
- bb43216_α:
+ bb68304_α:
 # BOX PL_CATCH (mode-4 STUB — WAM-CP-13 will implement; today fails through)
  jmp .Lplent0_ω
 plseq1_g0_β: jmp .Lplent0_ω
 plseq1_g1_α:
- bb43104_α:
+ bb68192_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT

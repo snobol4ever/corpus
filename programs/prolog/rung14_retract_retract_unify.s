@@ -335,20 +335,20 @@ call rt_init@PLT
  mov edi, 64
  call pl_bb_env_push@PLT
 plseq1_g0_α:
- bb37632_α:
+ bb32096_α:
  # BOX PL_BUILTIN(retract/1)
  # PL_BUILTIN: unknown 'retract' — stub
  jmp plseq1_g1_α
 plseq1_g0_β: jmp plseq1_g1_α
 plseq1_g1_α:
- bb37408_α:
+ bb31872_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 0
  call rt_pl_write_var@PLT
  jmp plseq1_g2_α
 plseq1_g1_β: jmp plseq1_g2_α
 plseq1_g2_α:
- bb37296_α:
+ bb31760_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
@@ -370,7 +370,7 @@ plseq1_g2_β: jmp .Lplent0_γ
 .Lplpred_age_2: 
 # env push/pop handled by caller (bb_pl_call site)
 # redo entry: .Lplpred_age_2_redo
- bb31184_α:
+ bb25648_α:
 # BOX PL_CHOICE n=2 (WAM-CP-5 heap cursor, WAM-CP-9 cut)
  call rt_pl_env_current@PLT
  mov rdx, rax
@@ -443,7 +443,7 @@ plseq1_g2_β: jmp .Lplent0_γ
 .Lplch4_β_nosol: jmp .Lplpb3_ω
 .Lplch4_c0_body:
 plseq5_g0_α:
- bb33344_α:
+ bb27808_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56
@@ -466,7 +466,7 @@ plseq5_g0_α:
  jmp plseq5_g1_α
 plseq5_g0_β: jmp .Lplpb3_β
 plseq5_g1_α:
- bb33008_α:
+ bb27472_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56
@@ -492,7 +492,7 @@ plseq5_g1_β: jmp .Lplpb3_β
  jmp .Lplpb3_β
 .Lplch4_c1_body:
 plseq6_g0_α:
- bb35616_α:
+ bb30080_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56
@@ -515,7 +515,7 @@ plseq6_g0_α:
  jmp plseq6_g1_α
 plseq6_g0_β: jmp .Lplpb3_β
 plseq6_g1_α:
- bb35280_α:
+ bb29744_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56

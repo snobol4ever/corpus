@@ -323,7 +323,7 @@ call rt_init@PLT
 .intel_syntax noprefix
  mov edi, 64
  call pl_bb_env_push@PLT
- bb35744_α:
+ bb81600_α:
 # BOX PL_CHOICE n=2 (WAM-CP-5 heap cursor, WAM-CP-9 cut)
  call rt_pl_env_current@PLT
  mov rdx, rax
@@ -396,7 +396,7 @@ call rt_init@PLT
 .Lplch1_β_nosol: jmp .Lplent0_ω
 .Lplch1_c0_body:
 plseq2_g0_α:
- bb40176_α:
+ bb86032_α:
  # BOX PL_BUILTIN(msort/2)
  sub rsp, 16
  sub rsp, 16
@@ -468,7 +468,7 @@ plseq2_g0_α:
  jmp plseq2_g1_α
 plseq2_g0_β: jmp .Lplent0_β
 plseq2_g1_α:
- bb40064_α:
+ bb85920_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56
@@ -543,56 +543,56 @@ plseq2_g1_α:
  jmp plseq2_g2_α
 plseq2_g1_β: jmp .Lplent0_β
 plseq2_g2_α:
- bb38720_α:
+ bb84576_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 1
  call rt_pl_write_var@PLT
  jmp plseq2_g3_α
 plseq2_g2_β: jmp plseq2_g3_α
 plseq2_g3_α:
- bb38608_α:
+ bb84464_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq2_g4_α
 plseq2_g3_β: jmp plseq2_g4_α
 plseq2_g4_α:
- bb38384_α:
+ bb84240_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 2
  call rt_pl_write_var@PLT
  jmp plseq2_g5_α
 plseq2_g4_β: jmp plseq2_g5_α
 plseq2_g5_α:
- bb38272_α:
+ bb84128_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq2_g6_α
 plseq2_g5_β: jmp plseq2_g6_α
 plseq2_g6_α:
- bb38048_α:
+ bb83904_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 3
  call rt_pl_write_var@PLT
  jmp plseq2_g7_α
 plseq2_g6_β: jmp plseq2_g7_α
 plseq2_g7_α:
- bb37936_α:
+ bb83792_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq2_g8_α
 plseq2_g7_β: jmp plseq2_g8_α
 plseq2_g8_α:
- bb37712_α:
+ bb83568_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 4
  call rt_pl_write_var@PLT
  jmp plseq2_g9_α
 plseq2_g8_β: jmp plseq2_g9_α
 plseq2_g9_α:
- bb37600_α:
+ bb83456_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
@@ -601,7 +601,7 @@ plseq2_g9_β: jmp .Lplch1_exit_γ
 .Lplch1_c0_beta:
  jmp .Lplent0_β
 .Lplch1_c1_body:
- bb42912_α:
+ bb88768_α:
 # BOX SUCCEED()
  jmp .Lplch1_exit_γ
 .Lplch1_c1_beta:

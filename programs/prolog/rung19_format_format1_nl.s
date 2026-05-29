@@ -317,7 +317,7 @@ call rt_init@PLT
 .intel_syntax noprefix
  mov edi, 64
  call pl_bb_env_push@PLT
- bb38816_α:
+ bb63424_α:
  # BOX PL_BUILTIN(format/1)
  sub rsp, 16
  mov edi, 1

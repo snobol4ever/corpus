@@ -321,7 +321,7 @@ call rt_init@PLT
 .intel_syntax noprefix
  mov edi, 64
  call pl_bb_env_push@PLT
- bb75456_α:
+ bb18304_α:
 # BOX PL_CHOICE n=2 (WAM-CP-5 heap cursor, WAM-CP-9 cut)
  call rt_pl_env_current@PLT
  mov rdx, rax
@@ -394,13 +394,13 @@ call rt_init@PLT
 .Lplch1_β_nosol: jmp .Lplent0_ω
 .Lplch1_c0_body:
 plseq2_g0_α:
- bb77392_α:
+ bb20240_α:
  # BOX PL_BUILTIN(abolish/1)
  # PL_BUILTIN: unknown 'abolish' — stub
  jmp plseq2_g1_α
 plseq2_g0_β: jmp plseq2_g1_α
 plseq2_g1_α:
- bb77168_α:
+ bb20016_α:
  # BOX PL_BUILTIN(write/1)
  lea rcx, [rip + .S6]
  mov rdi, rcx
@@ -408,7 +408,7 @@ plseq2_g1_α:
  jmp plseq2_g2_α
 plseq2_g1_β: jmp plseq2_g2_α
 plseq2_g2_α:
- bb77056_α:
+ bb19904_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
@@ -417,7 +417,7 @@ plseq2_g2_β: jmp .Lplch1_exit_γ
 .Lplch1_c0_beta:
  jmp .Lplent0_β
 .Lplch1_c1_body:
- bb79344_α:
+ bb22192_α:
 # BOX SUCCEED()
  jmp .Lplch1_exit_γ
 .Lplch1_c1_beta:

@@ -330,40 +330,40 @@ call rt_init@PLT
  mov edi, 64
  call pl_bb_env_push@PLT
 plseq1_g0_α:
- bb46768_α:
+ bb50192_α:
  # BOX PL_BUILTIN(aggregate_all/3)
  # PL_BUILTIN: unknown 'aggregate_all' — stub
  jmp plseq1_g1_α
 plseq1_g0_β: jmp plseq1_g1_α
 plseq1_g1_α:
- bb46544_α:
+ bb49968_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 1
  call rt_pl_write_var@PLT
  jmp plseq1_g2_α
 plseq1_g1_β: jmp plseq1_g2_α
 plseq1_g2_α:
- bb46432_α:
+ bb49856_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq1_g3_α
 plseq1_g2_β: jmp plseq1_g3_α
 plseq1_g3_α:
- bb45760_α:
+ bb49184_α:
  # BOX PL_BUILTIN(aggregate_all/3)
  # PL_BUILTIN: unknown 'aggregate_all' — stub
  jmp plseq1_g4_α
 plseq1_g3_β: jmp plseq1_g4_α
 plseq1_g4_α:
- bb45536_α:
+ bb48960_α:
  # BOX PL_BUILTIN(write/1)
  mov edi, 3
  call rt_pl_write_var@PLT
  jmp plseq1_g5_α
 plseq1_g4_β: jmp plseq1_g5_α
 plseq1_g5_α:
- bb45424_α:
+ bb48848_α:
  # BOX PL_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
@@ -385,7 +385,7 @@ plseq1_g5_β: jmp .Lplent0_γ
 .Lplpred_val_1: 
 # env push/pop handled by caller (bb_pl_call site)
 # redo entry: .Lplpred_val_1_redo
- bb36176_α:
+ bb39600_α:
 # BOX PL_CHOICE n=4 (WAM-CP-5 heap cursor, WAM-CP-9 cut)
  call rt_pl_env_current@PLT
  mov rdx, rax
@@ -475,7 +475,7 @@ plseq1_g5_β: jmp .Lplent0_γ
  jmp .Lplch4_dispatch
 .Lplch4_β_nosol: jmp .Lplpb3_ω
 .Lplch4_c0_body:
- bb38000_α:
+ bb41424_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56
@@ -498,7 +498,7 @@ plseq1_g5_β: jmp .Lplent0_γ
  jmp .Lplch4_exit_γ
 .Lplch4_c0_beta: jmp .Lplpb3_β
 .Lplch4_c1_body:
- bb39936_α:
+ bb43360_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56
@@ -521,7 +521,7 @@ plseq1_g5_β: jmp .Lplent0_γ
  jmp .Lplch4_exit_γ
 .Lplch4_c1_beta: jmp .Lplpb3_β
 .Lplch4_c2_body:
- bb41840_α:
+ bb45264_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56
@@ -544,7 +544,7 @@ plseq1_g5_β: jmp .Lplent0_γ
  jmp .Lplch4_exit_γ
 .Lplch4_c2_beta: jmp .Lplpb3_β
 .Lplch4_c3_body:
- bb43648_α:
+ bb47072_α:
 # BOX PL_UNIFY
  sub rsp, 16
  mov edi, 56
