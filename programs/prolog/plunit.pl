@@ -1,4 +1,4 @@
-/* PATCHED:v3 */
+/* PATCHED:v4 SWI-5 EMPTY verdict */
 /* plunit.pl — scrip shim. No -> operator; uses nb_setval state machine only. */
 
 module(_, _). use_module(_). use_module(_, _). ensure_loaded(_).
@@ -23,12 +23,22 @@ begin_tests(Suite) :- pj_suites_add(Suite, []).
 begin_tests(Suite, Opts) :- pj_suites_add(Suite, Opts).
 end_tests(_).
 
-pj_init :- nb_setval(pj_p,0), nb_setval(pj_f,0), nb_setval(pj_s,0).
+/* SWI-5 (Opus 4.7, 2026-05-28): pj_tc counts tests that actually produced a verdict
+ * (pass / fail / skip). Incrementing it on enqueue would over-count: pj_run_one can
+ * fail silently when scrip's catch/once interaction misbehaves on a malformed goal,
+ * leaving the test enqueued but no verdict recorded — which would falsely promote
+ * a suite from EMPTY to PASS via the (TC>0, SF=0) rule. By bumping pj_tc only from
+ * pj_inc_{pass,fail,skip}, "TC=0" correctly means "no test made it through to a
+ * verdict line." */
+pj_init :- nb_setval(pj_p,0), nb_setval(pj_f,0), nb_setval(pj_s,0), nb_setval(pj_tc,0).
 pj_inc_pass :- nb_getval(pj_p,N), N1 is N+1, nb_setval(pj_p,N1),
-               nb_getval(pj_sf,SF), nb_setval(pj_sf,SF).
+               nb_getval(pj_sf,SF), nb_setval(pj_sf,SF),
+               nb_getval(pj_tc,TC), TC1 is TC+1, nb_setval(pj_tc,TC1).
 pj_inc_fail :- nb_getval(pj_f,N), N1 is N+1, nb_setval(pj_f,N1),
-               nb_getval(pj_sf,SF), SF1 is SF+1, nb_setval(pj_sf,SF1).
-pj_inc_skip :- nb_getval(pj_s,N), N1 is N+1, nb_setval(pj_s,N1).
+               nb_getval(pj_sf,SF), SF1 is SF+1, nb_setval(pj_sf,SF1),
+               nb_getval(pj_tc,TC), TC1 is TC+1, nb_setval(pj_tc,TC1).
+pj_inc_skip :- nb_getval(pj_s,N), N1 is N+1, nb_setval(pj_s,N1),
+               nb_getval(pj_tc,TC), TC1 is TC+1, nb_setval(pj_tc,TC1).
 pj_summary  :- nb_getval(pj_p,P), nb_getval(pj_f,F), nb_getval(pj_s,S),
                format('~n% ~w passed, ~w failed, ~w skipped~n',[P,F,S]).
 
@@ -46,17 +56,36 @@ pj_run_list([]).
 pj_run_list([H|T]) :- ( pj_run_suite(H) -> true ; true ), !, pj_run_list(T).
 
 /* SWI-2b: pj_run_suite no longer reads suite-options via pj_suite/2 (skip_cond on
- * the suite level loses its source); the per-test pj_skip_cond on Opts still fires. */
+ * the suite level loses its source); the per-test pj_skip_cond on Opts still fires.
+ * SWI-5: reset pj_tc per suite alongside pj_sf so the verdict can tell "no tests
+ * ran" from "all passed". */
 pj_run_suite(Suite) :-
     format('~n% PL-Unit: ~w~n',[Suite]),
     nb_setval(pj_sf,0),
+    nb_setval(pj_tc,0),
     findall(t(N,O,G), pj_test(Suite,N,O,G), Tests),
     ( pj_run_tests(Suite, Tests) -> true ; true ),
     nb_getval(pj_sf,SF),
-    pj_suite_verdict(Suite, SF), !.
+    nb_getval(pj_tc,TC),
+    pj_suite_verdict(Suite, TC, SF), !.
 
-pj_suite_verdict(Suite, SF) :-
-    ( SF =:= 0 -> format('PASS ~w~n',[Suite]) ; format('FAIL ~w~n',[Suite]) ).
+/* SWI-5 (Opus 4.7, 2026-05-28): three-way verdict.
+ *   TC =:= 0           -> EMPTY  (no test bodies registered or executed)
+ *   TC > 0,  SF =:= 0  -> PASS   (every test that ran succeeded)
+ *   TC > 0,  SF >  0   -> FAIL   (at least one test failed)
+ * Pre-SWI-5 the two-way (SF =:= 0) check printed PASS whenever no failure was
+ * recorded, including when zero test bodies ran — masking the 4 expected-FAIL
+ * suites in the .ref files as MISS-PASS. Multi-clause form (not nested ITE)
+ * because nested `(C1 -> T1 ; C2 -> T2 ; E)` is unreliable in scrip's mode-2
+ * interp (verified 2026-05-28: middle branch is skipped, control jumps to the
+ * final else; see /tmp/probe_ite.pl). Each clause is independently dispatched
+ * by single-rightmost choice in BB_CHOICE — robust against the ITE bug. */
+pj_suite_verdict(Suite, TC, _SF) :- TC =:= 0, !,
+    format('EMPTY ~w~n',[Suite]).
+pj_suite_verdict(Suite, _TC, SF) :- SF =:= 0, !,
+    format('PASS ~w~n',[Suite]).
+pj_suite_verdict(Suite, _TC, _SF) :-
+    format('FAIL ~w~n',[Suite]).
 
 pj_run_tests(_, []).
 pj_run_tests(Suite, [t(N,O,G)|Rest]) :-

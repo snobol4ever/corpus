@@ -1,5 +1,5 @@
-PASS numbervars
-FAIL variant
-PASS compound
-PASS zero_arity_compound
-PASS term_singletons
+EMPTY numbervars
+EMPTY variant
+EMPTY compound
+EMPTY zero_arity_compound
+EMPTY term_singletons

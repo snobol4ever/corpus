@@ -1,5 +1,5 @@
-PASS expand_goal
-PASS rule_expansions
-PASS dcg_rule_expansions
-PASS steadfastness
-PASS context
+EMPTY expand_goal
+EMPTY rule_expansions
+EMPTY dcg_rule_expansions
+EMPTY steadfastness
+EMPTY context
