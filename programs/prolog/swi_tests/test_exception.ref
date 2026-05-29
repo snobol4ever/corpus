@@ -1,2 +1,2 @@
-EMPTY throw
-EMPTY ex_coroutining
+FAIL throw
+FAIL ex_coroutining
