@@ -7,13 +7,21 @@ module(_, _). use_module(_). use_module(_, _). ensure_loaded(_).
 :- dynamic pj_test/4.
 :- dynamic pj_current_suite/1.
 
-begin_tests(Suite) :-
-    ( pj_suite(Suite,_) -> true ; assertz(pj_suite(Suite,[])) ),
-    retractall(pj_current_suite(_)), assertz(pj_current_suite(Suite)).
-begin_tests(Suite, Opts) :-
-    ( pj_suite(Suite,_) -> true ; assertz(pj_suite(Suite,Opts)) ),
-    retractall(pj_current_suite(_)), assertz(pj_current_suite(Suite)).
-end_tests(_) :- retractall(pj_current_suite(_)).
+/* SWI-2b (Opus 4.7, 2026-05-28): suite registry uses nb_setval(pj_suites, [Suite-Opts|Old])
+ * instead of assertz(pj_suite(Suite, Opts)).  Runtime assertz (PL-RT-ASSERTZ) is not yet
+ * implemented in scrip — runtime calls fall silently — but nb_setval/getval are real
+ * builtins, so the registry works there.  pj_suites_init seeds the list to [] from
+ * :- initialization(pj_suites_init) so that subsequent begin_tests calls see a real list. */
+pj_suites_init :- nb_setval(pj_suites, []).
+:- initialization(pj_suites_init).
+
+pj_suites_add(Suite, Opts) :-
+    nb_getval(pj_suites, Old),
+    nb_setval(pj_suites, [Suite-Opts|Old]).
+
+begin_tests(Suite) :- pj_suites_add(Suite, []).
+begin_tests(Suite, Opts) :- pj_suites_add(Suite, Opts).
+end_tests(_).
 
 pj_init :- nb_setval(pj_p,0), nb_setval(pj_f,0), nb_setval(pj_s,0).
 pj_inc_pass :- nb_getval(pj_p,N), N1 is N+1, nb_setval(pj_p,N1),
@@ -24,20 +32,21 @@ pj_inc_skip :- nb_getval(pj_s,N), N1 is N+1, nb_setval(pj_s,N1).
 pj_summary  :- nb_getval(pj_p,P), nb_getval(pj_f,F), nb_getval(pj_s,S),
                format('~n% ~w passed, ~w failed, ~w skipped~n',[P,F,S]).
 
-run_tests    :- pj_init, findall(S,pj_suite(S,_),Ss), pj_run_list(Ss), pj_summary.
+/* SWI-2b: run_tests reads the suite list from nb_setval(pj_suites). The list is built
+ * right-to-left (newest at head) by pj_suites_add, so reverse to get source order. */
+run_tests    :- pj_init, nb_getval(pj_suites, Sx), pj_reverse(Sx, Ss),
+                pj_run_pairs(Ss), pj_summary.
 run_tests(L) :- is_list(L), !, pj_init, pj_run_list(L), pj_summary.
 run_tests(S) :- pj_init, pj_run_suite(S), pj_summary.
+
+pj_run_pairs([]).
+pj_run_pairs([Suite-_Opts|T]) :- ( pj_run_suite(Suite) -> true ; true ), !, pj_run_pairs(T).
 
 pj_run_list([]).
 pj_run_list([H|T]) :- ( pj_run_suite(H) -> true ; true ), !, pj_run_list(T).
 
-pj_run_suite(Suite) :-
-    pj_suite(Suite,SOpts),
-    pj_skip_cond(SOpts), !,
-    format('~n% PL-Unit: ~w~n',[Suite]),
-    format('  skip-suite: ~w  [cond]~n',[Suite]),
-    pj_inc_skip,
-    format('PASS ~w~n',[Suite]).
+/* SWI-2b: pj_run_suite no longer reads suite-options via pj_suite/2 (skip_cond on
+ * the suite level loses its source); the per-test pj_skip_cond on Opts still fires. */
 pj_run_suite(Suite) :-
     format('~n% PL-Unit: ~w~n',[Suite]),
     nb_setval(pj_sf,0),
