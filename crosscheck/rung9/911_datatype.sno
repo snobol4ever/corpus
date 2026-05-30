@@ -1,22 +1,23 @@
 * 911_datatype.sno — DATATYPE: runtime type name as string
 * Rung 9. 4 assertions.
-* NOTE: DATATYPE() case is implementation-defined. We compare via LCASE()
-*       so the test is portable across scrip-cc (uppercase) and SPITBOL (lowercase).
+* NOTE: DATATYPE() case is implementation-defined. We normalize to lowercase via
+*       REPLACE(...,&UCASE,&LCASE) so the test is portable across scrip-cc
+*       (uppercase) and SPITBOL (lowercase).
 
-        DIFFER(lcase(DATATYPE('hello')), 'string')            :f(e001)
+        DIFFER(REPLACE(DATATYPE('hello'),&UCASE,&LCASE), 'string')   :f(e001)
         OUTPUT = 'FAIL 911/001: string literal datatype' :(END)
 e001
 
-        DIFFER(lcase(DATATYPE(12)), 'integer')                :f(e002)
+        DIFFER(REPLACE(DATATYPE(12),&UCASE,&LCASE), 'integer')       :f(e002)
         OUTPUT = 'FAIL 911/002: integer datatype'       :(END)
 e002
 
-        DIFFER(lcase(DATATYPE(1.33)), 'real')                 :f(e003)
+        DIFFER(REPLACE(DATATYPE(1.33),&UCASE,&LCASE), 'real')        :f(e003)
         OUTPUT = 'FAIL 911/003: real datatype'          :(END)
 e003
 
 *       null string has datatype string, not a special null type
-        DIFFER(lcase(DATATYPE('')), 'string')                 :f(e004)
+        DIFFER(REPLACE(DATATYPE(''),&UCASE,&LCASE), 'string')        :f(e004)
         OUTPUT = 'FAIL 911/004: null is string'         :(END)
 e004
 
