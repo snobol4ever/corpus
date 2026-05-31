@@ -1,5 +1,5 @@
 'use strict';
-const rt = require('/home/claude/one4all/src/runtime/js/sno_runtime.js');
+const rt = require('/home/claude/SCRIP/src/runtime/js/sno_runtime.js');
 rt._init();
 rt._register_label_pcs({"START":0,"LOOP":5,"END":22,"START":1509,"NOTOK":1530,"END":1535});
 let _pc = 0;

@@ -72,7 +72,7 @@ scrip --interp \
 
 A handful of helpers that were taken out of parser files during the
 PST cleanup live in sidecars and are loaded by
-`one4all/scripts/run_scrip_parser.sh` alongside the parser:
+`SCRIP/scripts/run_scrip_parser.sh` alongside the parser:
 
 | File | Loaded with | Contents |
 |------|-------------|----------|
@@ -90,7 +90,7 @@ stabilises. Today only `parser_rebus.sc` is genuinely sidecar-free
 ### Smoke test
 
 `smoke.sc` loads the runtime and verifies a Shift/Pop round-trip plus
-the global-prelude binding. `one4all/scripts/test_scrip.sh` runs it
+the global-prelude binding. `SCRIP/scripts/test_scrip.sh` runs it
 with the full blob and expects two lines on stdout:
 
 ```

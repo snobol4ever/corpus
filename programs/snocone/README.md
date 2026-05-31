@@ -64,4 +64,4 @@ The snobol4ever project implements its own Snocone front-end (post-LS-4
 Flex+Bison) that translates `.sc` source to SNOBOL4 IR natively. The
 language it accepts is *derived from* but *not identical to* Andrew's
 original — see `.github/ARCH-SNOCONE.md` for the spec and operator
-tables. The implementation lives at `one4all/src/frontend/snocone/`.
+tables. The implementation lives at `SCRIP/src/frontend/snocone/`.

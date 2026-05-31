@@ -1,4 +1,4 @@
-#SRC: one4all-IJ9
+#SRC: SCRIP-IJ9
 # rung37_scan_alt.icn — IJ-9: scan alternation beta semantics
 # Each subject in (A|B|C)?body gets exactly ONE body alpha tick.
 # External beta advances to next subject, never resumes body generator.

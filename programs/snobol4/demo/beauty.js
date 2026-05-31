@@ -65,7 +65,7 @@ sm_lower: undefined label 'error' → Error 24
 sm_lower: undefined label 'error' → Error 24
 sm_lower: undefined label 'error' → Error 24
 'use strict';
-const rt = require('/home/claude/one4all/src/runtime/js/sno_runtime.js');
+const rt = require('/home/claude/SCRIP/src/runtime/js/sno_runtime.js');
 rt._init();
 let _pc = 0;
 loop: while (true) { switch (_pc) {

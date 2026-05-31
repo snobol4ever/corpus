@@ -1,5 +1,5 @@
 'use strict';
-const rt = require('/home/claude/one4all/src/runtime/js/sno_runtime.js');
+const rt = require('/home/claude/SCRIP/src/runtime/js/sno_runtime.js');
 rt._init();
 rt._register_label_pcs({"stk_push_frame":31,"stk_push_frame_end":65,"stk_push_item":72,"stk_push_item_end":103,"stk_pop_into_parent":110,"stk_pop_into_parent_end":155,"stk_pop_final":162,"stk_pop_final_end":181,"init_list":192,"Init_list":218,"init_list_end":229,"push_list":240,"Push_list":251,"push_list_end":262,"push_item":273,"Push_item":284,"push_item_end":295,"pop_list":306,"Pop_list":316,"pop_list_end":324,"pop_final":335,"Pop_final":346,"pop_final_end":357,"node_repr":364,"nr_frame":384,"nr_lp":405,"nr_done":434,"node_repr_end":441,"pp_node":448,"pp_frame":474,"pp_wrap":503,"pp_wch":528,"pp_wlast":567,"pp_wdone":585,"pp_node_end":588,"pp_bank":595,"pp_bank_end":608,"slurp":663,"slurp_done":676,"loop":686,"parse_fail":709,"all_done":719,"END":728});
 let _pc = 0;

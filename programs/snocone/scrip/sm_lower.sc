@@ -5,8 +5,8 @@
 // Phase 2 (SL-10): lower_pat_expr fully translated.
 //
 // C originals:
-//   one4all/src/runtime/x86/lower.c
-//   one4all/src/runtime/x86/lower_ctx.c
+//   SCRIP/src/runtime/x86/lower.c
+//   SCRIP/src/runtime/x86/lower_ctx.c
 //
 // Authors: Lon Jones Cherryholmes · Claude Sonnet 4.6
 

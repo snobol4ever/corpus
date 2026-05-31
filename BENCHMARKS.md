@@ -7,7 +7,7 @@
 - CSNOBOL4 2.3.3 — compiled C (`snobol4 -`)
 - snobol4dotnet — C#/.NET 10 threaded executor HEAD `d8f11f9` (session154 BenchmarkSuite2)
 - snobol4jvm 0.2.0 — Clojure/JVM uberjar
-- **one4all JS** — scrip-cc JS backend HEAD `09fb31f`, Node.js v22, trampoline engine (SJ-8)
+- **SCRIP JS** — scrip-cc JS backend HEAD `09fb31f`, Node.js v22, trampoline engine (SJ-8)
 
 **Methodology**: Each engine runs each benchmark at a count suited to its
 own speed, timed by `TIME()` calls inside the program (startup excluded).

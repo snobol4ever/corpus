@@ -1,6 +1,6 @@
 {
 //  Snocone build — invokes scrip on the current .sc file.  scrip is
-//  the multi-frontend driver from snobol4ever/one4all; build it with
+//  the multi-frontend driver from snobol4ever/SCRIP; build it with
 //  scripts/build_scrip.sh and put it on PATH (or set "path" below).
 //
 //  Lon's Windows-flavoured SNOBOL4.sublime-build was a useful
@@ -10,8 +10,8 @@
 //  $project_base_name.out for inspection.
 
 //  If scrip is not on PATH, set "path" to a directory containing it:
-//  "path": "/home/lon/snobol4ever/one4all",
-//  "path": "C:\\snobol4ever\\one4all",
+//  "path": "/home/lon/snobol4ever/SCRIP",
+//  "path": "C:\\snobol4ever\\SCRIP",
 
     "shell_cmd": "scrip --interp \"$file\" > \"$file_base_name.out\" 2>&1",
 

@@ -119,7 +119,7 @@ the configured build.
 * **Snocone** — `Snocone.sublime-build` invokes `scrip --interp` on
   the active `.sc` file, capturing stdout/stderr to a matching
   `.out` file alongside.  Build `scrip` from
-  `snobol4ever/one4all/scripts/build_scrip.sh` and put it on PATH
+  `snobol4ever/SCRIP/scripts/build_scrip.sh` and put it on PATH
   (or set the build's `path` setting).  Cross-platform; no path
   edits needed if `scrip` is on PATH.
 
@@ -150,14 +150,14 @@ The regexes are calibrated against:
     identifier rules (Ch. 3 §3 Variable Names).  Real numbers per
     Ch. 3: must have decimal point OR exponent, ≥1 digit left of
     decimal point.
-  * `one4all/src/frontend/snobol4/snobol4.l` — the flex lexer for
+  * `SCRIP/src/frontend/snobol4/snobol4.l` — the flex lexer for
     SNOBOL4.  ALPHA = `[A-Za-z\x80-\xFF]`, IDCONT =
     `[A-Za-z0-9_.\x80-\xFF]`.
-  * `one4all/src/frontend/snocone/snocone_lex.c` — the threaded-code
+  * `SCRIP/src/frontend/snocone/snocone_lex.c` — the threaded-code
     FSM lexer for Snocone.  is_alpha includes `_`, is_idcont
     includes digits.  S_INT/S_FRAC/S_EXP_DIG accept e/E and d/D for
     the exponent letter.
-  * `one4all/src/frontend/snocone/snocone_parse.y` — Bison grammar
+  * `SCRIP/src/frontend/snocone/snocone_parse.y` — Bison grammar
     for token name / keyword inventory.
 
 ## FENCE — both variable and function

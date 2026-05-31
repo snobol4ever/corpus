@@ -1,5 +1,5 @@
 'use strict';
-const rt = require('/home/claude/one4all/src/runtime/js/sno_runtime.js');
+const rt = require('/home/claude/SCRIP/src/runtime/js/sno_runtime.js');
 rt._init();
 rt._register_label_pcs({"new_sent":21,"new_sent_end":37,"add_tok":44,"new_wrd":86,"new_tag":94,"done":104,"add_tok_end":110,"pp_mem":117,"pm_cnt_loop":129,"pm_sent_loop":154,"pm_wrd_loop":220,"pm_sq":268,"pm_tdict":276,"pm_tag_loop":291,"pm_tag_sep":333,"pm_tag_close":348,"pm_mid_wrd":379,"pm_last_wrd":392,"pm_last_mid":409,"pm_last_emit":419,"pm_last_mid2":432,"pm_done":439,"pp_mem_end":445,"slurp":447,"slurp_done":458,"fail":517,"END":521});
 let _pc = 0;

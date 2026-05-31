@@ -12,7 +12,7 @@ Icon construct.
 
 This is the canonical reference for how every Icon operator, generator, and
 control-flow form maps to BB ports — used directly when writing `icn_bb_*`
-boxes in `one4all/src/frontend/icon/icon_gen.c`.
+boxes in `SCRIP/src/frontend/icon/icon_gen.c`.
 
 ## Key procedures
 
@@ -34,6 +34,6 @@ boxes in `one4all/src/frontend/icon/icon_gen.c`.
 
 ## Companion docs
 
-- `one4all/.github` → `archive/MISC-ICON-JCON.md` — full analysis of this file
+- `SCRIP/.github` → `archive/MISC-ICON-JCON.md` — full analysis of this file
   with four-port wiring tables for every construct.
-- `one4all/src/frontend/icon/icon_gen.c` — our BB boxes, informed by this reference.
+- `SCRIP/src/frontend/icon/icon_gen.c` — our BB boxes, informed by this reference.

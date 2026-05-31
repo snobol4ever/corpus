@@ -13,7 +13,7 @@ serve as a stepping stone toward Milestone 2 (compiler self-hosting).
 
 | File | C original | Status |
 |------|-----------|--------|
-| `sm_lower.sc` | `one4all/src/runtime/x86/sm_lower.c` | In progress (see GOAL-SNOCONE-SM-LOWER.md) |
+| `sm_lower.sc` | `SCRIP/src/runtime/x86/sm_lower.c` | In progress (see GOAL-SNOCONE-SM-LOWER.md) |
 | `sm_lower_test.sc` | — | Test driver for sm_lower.sc |
 
 ## Running

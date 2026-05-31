@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# run_all.sh — one4all crosscheck harness
+# run_all.sh — SCRIP crosscheck harness
 #
 # Runs every .sno file through scrip-cc, compiles the C, runs the binary,
 # diffs output against the .ref oracle. Pass = green, fail = red.
@@ -8,7 +8,7 @@
 #   bash run_all.sh [--scrip-cc path/to/scrip-cc] [--filter pattern]
 #
 # Dependencies:
-#   scrip-cc     — one4all compiler (default: ../one4all/src/scrip-cc/scrip-cc)
+#   scrip-cc     — SCRIP compiler (default: ../SCRIP/src/scrip-cc/scrip-cc)
 #   gcc       — C compiler with -lgc available
 #   libgc-dev — Boehm GC
 
@@ -18,8 +18,8 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 # Defaults
-SCRIP_CC="${SCRIP_CC:-$REPO_ROOT/../one4all/src/scrip-cc/scrip-cc}"
-RUNTIME="$REPO_ROOT/../one4all/src/runtime"
+SCRIP_CC="${SCRIP_CC:-$REPO_ROOT/../SCRIP/src/scrip-cc/scrip-cc}"
+RUNTIME="$REPO_ROOT/../SCRIP/src/runtime"
 FILTER="${1:-}"
 TMPDIR_RUN=$(mktemp -d)
 trap "rm -rf $TMPDIR_RUN" EXIT
@@ -31,7 +31,7 @@ GREEN='\033[0;32m'; RED='\033[0;31m'; YELLOW='\033[0;33m'; RESET='\033[0m'
 
 if [[ ! -x "$SCRIP_CC" ]]; then
     echo "ERROR: scrip-cc not found at $SCRIP_CC"
-    echo "Build with: make -C ../one4all/src/scrip-cc"
+    echo "Build with: make -C ../SCRIP/src/scrip-cc"
     exit 1
 fi
 
@@ -80,7 +80,7 @@ run_test() {
     fi
 }
 
-echo "=== one4all crosscheck ==="
+echo "=== SCRIP crosscheck ==="
 echo "scrip-cc: $SCRIP_CC"
 echo ""
 

@@ -3,8 +3,8 @@
 set -uo pipefail
 
 DEMO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SCRIP="${SCRIP:-/home/claude/one4all/scrip}"
-JASMIN="${JASMIN:-/home/claude/one4all/src/backend/jasmin.jar}"
+SCRIP="${SCRIP:-/home/claude/SCRIP/scrip}"
+JASMIN="${JASMIN:-/home/claude/SCRIP/src/backend/jasmin.jar}"
 
 echo "Verifying JVM demo artifacts in $DEMO_DIR"
 
