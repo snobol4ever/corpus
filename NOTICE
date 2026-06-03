@@ -25,3 +25,31 @@ The files in programs/aisnobol/ are derived from programs originally
 published in:
 
   Michael G. Shafto (ed.), "AI
+
+---
+
+programs/pascal/ contains SCRIP Pascal test probes (e.g. recursion.pas) and a
+README documenting the Pascal-P4 reference oracle. The Pascal-P4 sources
+themselves are NOT bundled in this repository; they are fetched separately during
+development (see programs/pascal/README.md). Pascal-P4 -- the portable Pascal
+compiler and interpreter -- was originally written at:
+
+  Institut fuer Informatik, Eidgenoessische Technische Hochschule (ETH)
+  CH-8096 Zuerich
+
+  pcom.pas  - compiler, by Urs Ammann, Kesav Nori, and Christian Jacobi
+  pint.pas  - P-code assembler/interpreter, credited to
+              K. Jensen, N. Wirth, and Ch. Jacobi (ETH, May 1976)
+
+This code is documented in:
+
+  Steven Pemberton and Martin Daniels, "Pascal Implementation"
+  Ellis Horwood, Chichester, UK, 1982 (ISBN 0-13-653-0311)
+
+Pascal-P4 was distributed by ETH as a portable implementation kit intended
+to be copied, ported, and modified. The copy here is the Free Pascal / Delphi
+port by Christophe Staiesse (2013); the lex/yacc grammar in programs/pascal/
+grammar/ carries an MIT license. These files are included for reference,
+testing, and educational purposes. The CC0 dedication in LICENSE applies to
+original contributions in this repository; it does not retroactively affect
+the copyright status of the original ETH Pascal-P4 sources.
