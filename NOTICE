@@ -28,11 +28,8 @@ published in:
 
 ---
 
-programs/pascal/ contains SCRIP Pascal test probes (e.g. recursion.pas) and a
-README documenting the Pascal-P4 reference oracle. The Pascal-P4 sources
-themselves are NOT bundled in this repository; they are fetched separately during
-development (see programs/pascal/README.md). Pascal-P4 -- the portable Pascal
-compiler and interpreter -- was originally written at:
+The files in programs/pascal/ are the Pascal-P4 portable Pascal compiler
+and interpreter, originally written at:
 
   Institut fuer Informatik, Eidgenoessische Technische Hochschule (ETH)
   CH-8096 Zuerich

@@ -1,23 +1,10 @@
-# Pascal-P4 — a working bootstrap compiler (reference oracle)
+# Pascal-P4 — a working bootstrap compiler
 
-> **The Pascal-P4 sources are NOT bundled in this repository.** We do not
-> redistribute them. SCRIP implements the P4 subset in its own original C and
-> uses Pascal-P4 only as a private behavioral oracle during development. To work
-> with the reference, fetch it into a local (never-committed) directory:
->
-> ```bash
-> git clone https://github.com/BackupTheBerlios/pp4fpc.git /home/claude/pp4ref
-> ```
->
-> The only Pascal source in *this* directory is our own `recursion.pas` probe.
-> The notes below document that reference toolchain; every command runs inside
-> the fetched clone.
-
-**Pascal-P4** is a complete, self-hosting Pascal compiler in ~4000 lines of
-Pascal that targets a tiny stack machine, plus the interpreter for that machine.
-It is SCRIP's reference frontend oracle (see `GOAL-PASCAL-BB.md` in the `.github`
-repo) and a beautifully compact worked example of how a self-hosting compiler
-bootstraps.
+This directory holds the **Pascal-P4** compiler and interpreter: a complete,
+self-hosting Pascal compiler in ~4000 lines of Pascal that targets a tiny
+stack machine, plus the interpreter for that machine. It is included here as a
+reference frontend for SCRIP (see `GOAL-PASCAL-BB.md` in the `.github` repo) and
+as a beautifully compact worked example of how a self-hosting compiler bootstraps.
 
 It is also a museum piece worth running. The interpreter header reads
 *"K. Jensen, N. Wirth, Ch. Jacobi, ETH May 76"* — this code is approaching its
@@ -39,15 +26,6 @@ CC0 dedication that covers the rest of the corpus.
 
 ## The files
 
-**In this directory (ours):**
-
-| File | What it is |
-|------|------------|
-| `README.md` | This writeup. |
-| `recursion.pas` | `fact` and `fib` — a SCRIP Pascal probe that exercises the activation-record machinery. |
-
-**In the reference clone (fetched separately, not bundled):**
-
 | File | What it is |
 |------|------------|
 | `pcom.pas` | The compiler. Reads Pascal on stdin, writes P-code to a file named `prr`. |
@@ -55,7 +33,8 @@ CC0 dedication that covers the rest of the corpus.
 | `pinthelper.inc` | Helper routines included by `pint.pas`. |
 | `ppp.pas` | A tiny preprocessor needed so `pcom` can compile *itself* (see bootstrap below). |
 | `sieve.pas` | Sieve of Eratosthenes — a clean control-flow + array test program. |
-| `grammar/` | A lex (`pascalp.l`) + yacc (`pascalp.y`) grammar for Pascal-P (MIT-licensed). The token rules are the source of truth for a `TT_*` lexer. |
+| `recursion.pas` | `fact` and `fib` — exercises the P-machine's activation-record machinery. |
+| `grammar/` | A lex (`pascalp.l`) + yacc (`pascalp.y`) grammar for Pascal-P. The token rules are the source of truth for a `TT_*` lexer. |
 | `errormsg.txt` | The compiler's numbered error-message list. |
 | `Makefile` | Builds `pcom` + `pint` with Free Pascal and runs the self-compile test. |
 
