@@ -1,10 +1,24 @@
   .intel_syntax noprefix
   .text
+  .section .data
+  .align 8
+.Lpl_pred_table:
+  .quad .Lpl_pname_1
+  .quad 1
+  .quad .Lplpred_a_1
+  .quad .Lplpred_a_1_redo
+  .section .rodata
+.Lpl_pname_1:
+  .asciz "a"
+  .text
   .globl main
 main:
   push rbp
   mov rbp, rsp
   call rt_main_init@PLT
+  lea rdi, [rip + .Lpl_pred_table]
+  mov esi, 1
+  call rt_pl_table_install@PLT
   mov edi, 2
   call rt_env_alloc@PLT
   call rt_frame@PLT
@@ -15,7 +29,7 @@ main:
   pop rbp
   ret
 .Lplpred_a_1:
- bb28144_α:
+ bb74320_α:
 # BOX RESOLVE_CHOICE n=3 (WAM-CP-5 heap cursor, WAM-CP-9 cut)
  call rt_env_current@PLT
  mov rdx, rax
@@ -96,7 +110,7 @@ main:
  jmp .Lplch0_dispatch
 .Lplch0_β_nosol: jmp .Lplpred_a_1_ω
 .Lplch0_c0_body:
- bb21024_α:
+ bb67200_α:
 # BOX RESOLVE_UNIFY (WAM-CP-7 var-const)  [x86() self-encoding]
  mov edi, 0
  mov esi, 0
@@ -110,7 +124,7 @@ main:
  .Lplch0_c0_beta:
  jmp .Lplpred_a_1_β
 .Lplch0_c1_body:
- bb24096_α:
+ bb70272_α:
 # BOX RESOLVE_UNIFY (WAM-CP-7 var-const)  [x86() self-encoding]
  mov edi, 0
  mov esi, 0
@@ -124,7 +138,7 @@ main:
  .Lplch0_c1_beta:
  jmp .Lplpred_a_1_β
 .Lplch0_c2_body:
- bb27168_α:
+ bb73344_α:
 # BOX RESOLVE_UNIFY (WAM-CP-7 var-const)  [x86() self-encoding]
  mov edi, 0
  mov esi, 0
@@ -158,7 +172,7 @@ push r12
   lea r10, [rip + Δ]
 main_α_body:
 plseq1_g0_α:
- bb8912_α:
+ bb55088_α:
 # BOX RESOLVE_ALT n=2 (mode-4 first-solution)  [x86() self-encoding]
  jmp .Lplch2_c0_pre
  .Lplch2_c0_pre:
@@ -170,7 +184,7 @@ plseq1_g0_α:
 plseq1_g0_β: jmp main_ω
 .Lplch2_c0_body:
 plseq3_g0_α:
- bb9920_α:
+ bb56096_α:
 # BOX RESOLVE_CALL a/1 (WAM-CP-5, n_args=1)
  mov edi, 56
  mov rsi, 0
@@ -189,37 +203,37 @@ plseq3_g0_α:
  add rsp, 8
  call rt_last_ok@PLT
  test eax, eax
- je bb9920_α_fail5
+ je bb56096_α_fail5
  call resolve_bb_env_install@PLT
  mov rdi, rax
  call rt_cp_save_caller_env@PLT
  jmp xite4_then_α
-bb9920_α_fail5: 
+bb56096_α_fail5: 
  call resolve_bb_env_pop@PLT
  jmp xite4_else_α
  xite4_cond_β:
  call resolve_cp_current@PLT
  test rax, rax
- je bb9920_α_nosol
+ je bb56096_α_nosol
  mov rdi, [rax + 24]
  call resolve_bb_env_install@PLT
  call .Lplpred_a_1_redo
  call rt_last_ok@PLT
  test eax, eax
- je bb9920_α_nosol
+ je bb56096_α_nosol
  call resolve_cp_current@PLT
  mov rdi, [rax + 40]
  call resolve_bb_env_install@PLT
  jmp xite4_then_α
-bb9920_α_nosol: jmp xite4_else_α
+bb56096_α_nosol: jmp xite4_else_α
 xite4_then_α:
- bb9808_α:
+ bb55984_α:
 # BOX SUCCEED() [x86() self-encoding — jmp γ; β: jmp ω]
  jmp plseq3_g1_α
  xite4_then_β:
  jmp .Lplch2_c1_pre
 xite4_else_α:
- bb9696_α:
+ bb55872_α:
 # BOX FAIL()  [x86() self-encoding]
  jmp .Lplch2_c1_pre
  xite4_else_β:
@@ -228,21 +242,21 @@ xite4_else_α:
 plseq3_g0_β:
  jmp .Lplch2_c1_pre
 plseq3_g1_α:
- bb9472_α:
+ bb55648_α:
  # BOX RESOLVE_BUILTIN(write/1)
  mov edi, 0
  call rt_write_var@PLT
  jmp plseq3_g2_α
 plseq3_g1_β: jmp plseq3_g2_α
 plseq3_g2_α:
- bb9360_α:
+ bb55536_α:
  # BOX RESOLVE_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq3_g3_α
 plseq3_g2_β: jmp plseq3_g3_α
 plseq3_g3_α:
- bb9248_α:
+ bb55424_α:
 # BOX FAIL()  [x86() self-encoding]
  jmp .Lplch2_c1_pre
  plseq3_g3_β:
@@ -250,13 +264,13 @@ plseq3_g3_α:
 .Lplch2_c0_beta:
  jmp .Lplch2_c1_pre
 .Lplch2_c1_body:
- bb9024_α:
+ bb55200_α:
 # BOX SUCCEED() [x86() self-encoding — jmp γ; β: jmp ω]
  jmp plseq1_g1_α
  .Lplch2_c1_beta:
  jmp main_ω
 plseq1_g1_α:
- bb8576_α:
+ bb54752_α:
 # BOX RESOLVE_CALL a/1 (WAM-CP-5, n_args=1)
  mov edi, 56
  mov rsi, 1
@@ -275,38 +289,38 @@ plseq1_g1_α:
  add rsp, 8
  call rt_last_ok@PLT
  test eax, eax
- je bb8576_α_fail5
+ je bb54752_α_fail5
  call resolve_bb_env_install@PLT
  mov rdi, rax
  call rt_cp_save_caller_env@PLT
  jmp xite5_then_α
-bb8576_α_fail5: 
+bb54752_α_fail5: 
  call resolve_bb_env_pop@PLT
  jmp xite5_else_α
  xite5_cond_β:
  call resolve_cp_current@PLT
  test rax, rax
- je bb8576_α_nosol
+ je bb54752_α_nosol
  mov rdi, [rax + 24]
  call resolve_bb_env_install@PLT
  call .Lplpred_a_1_redo
  call rt_last_ok@PLT
  test eax, eax
- je bb8576_α_nosol
+ je bb54752_α_nosol
  call resolve_cp_current@PLT
  mov rdi, [rax + 40]
  call resolve_bb_env_install@PLT
  jmp xite5_then_α
-bb8576_α_nosol: jmp xite5_else_α
+bb54752_α_nosol: jmp xite5_else_α
 xite5_then_α:
- bb8352_α:
+ bb54528_α:
  # BOX RESOLVE_BUILTIN(write/1)
  mov edi, 1
  call rt_write_var@PLT
  jmp plseq1_g2_α
 xite5_then_β: jmp plseq1_g2_α
 xite5_else_α:
- bb8128_α:
+ bb54304_α:
  # BOX RESOLVE_BUILTIN(write/1)
  lea rcx, [rip + .S1]
  mov rdi, rcx
@@ -317,20 +331,20 @@ xite5_else_β: jmp plseq1_g2_α
 plseq1_g1_β:
  jmp plseq1_g0_β
 plseq1_g2_α:
- bb8016_α:
+ bb54192_α:
  # BOX RESOLVE_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq1_g3_α
 plseq1_g2_β: jmp plseq1_g3_α
 plseq1_g3_α:
- bb7792_α:
+ bb53968_α:
 # BOX FAIL()  [x86() self-encoding]
  jmp xite6_else_α
  xite6_cond_β:
  jmp xite6_else_α
 xite6_then_α:
- bb7568_α:
+ bb53744_α:
  # BOX RESOLVE_BUILTIN(write/1)
  lea rcx, [rip + .S2]
  mov rdi, rcx
@@ -338,7 +352,7 @@ xite6_then_α:
  jmp plseq1_g4_α
 xite6_then_β: jmp plseq1_g4_α
 xite6_else_α:
- bb7344_α:
+ bb53520_α:
  # BOX RESOLVE_BUILTIN(write/1)
  lea rcx, [rip + .S3]
  mov rdi, rcx
@@ -349,20 +363,20 @@ xite6_else_β: jmp plseq1_g4_α
 plseq1_g3_β:
  jmp plseq1_g0_β
 plseq1_g4_α:
- bb7232_α:
+ bb53408_α:
  # BOX RESOLVE_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp plseq1_g5_α
 plseq1_g4_β: jmp plseq1_g5_α
 plseq1_g5_α:
- bb7008_α:
+ bb53184_α:
 # BOX FAIL()  [x86() self-encoding]
  jmp xite7_else_α
  xite7_cond_β:
  jmp xite7_else_α
 xite7_then_α:
- bb6784_α:
+ bb52960_α:
  # BOX RESOLVE_BUILTIN(write/1)
  lea rcx, [rip + .S0]
  mov rdi, rcx
@@ -370,13 +384,13 @@ xite7_then_α:
  jmp plseq1_g6_α
 xite7_then_β: jmp plseq1_g6_α
 xite7_else_α:
- bb6560_α:
+ bb52736_α:
 # BOX FAIL()  [x86() self-encoding]
  jmp xite8_else_α
  xite8_cond_β:
  jmp xite8_else_α
 xite8_then_α:
- bb6336_α:
+ bb52512_α:
  # BOX RESOLVE_BUILTIN(write/1)
  lea rcx, [rip + .S4]
  mov rdi, rcx
@@ -384,7 +398,7 @@ xite8_then_α:
  jmp plseq1_g6_α
 xite8_then_β: jmp plseq1_g6_α
 xite8_else_α:
- bb6112_α:
+ bb52288_α:
  # BOX RESOLVE_BUILTIN(write/1)
  lea rcx, [rip + .S5]
  mov rdi, rcx
@@ -398,7 +412,7 @@ xite7_else_β:
 plseq1_g5_β:
  jmp plseq1_g0_β
 plseq1_g6_α:
- bb6000_α:
+ bb52176_α:
  # BOX RESOLVE_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT

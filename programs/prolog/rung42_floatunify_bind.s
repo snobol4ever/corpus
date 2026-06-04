@@ -1,10 +1,16 @@
   .intel_syntax noprefix
   .text
+  .section .data
+  .align 8
+.Lpl_pred_table:
+  .section .rodata
+  .text
   .globl main
 main:
   push rbp
   mov rbp, rsp
-  mov edi, 3
+  call rt_main_init@PLT
+  mov edi, 2
   call rt_env_alloc@PLT
   call rt_frame@PLT
   mov rdi, rax
@@ -24,89 +30,84 @@ push r12
   lea r10, [rip + Δ]
 main_α_body:
 plseq0_g0_α:
- bb72288_α:
- # BOX RESOLVE_BUILTIN(is/2)
- mov edi, 0
- lea rsi, [rip + .S0]
+ bb8736_α:
+# BOX RESOLVE_UNIFY (general)  [x86() self-encoding]
+ sub rsp, 16
+ mov edi, 56
+ mov rsi, 0
  mov edx, 0
- mov rcx, -5
- mov r8d, -1
- mov r9, 0
- call rt_is@PLT
+ xorps xmm0, xmm0
+ call rt_node_to_term@PLT
+ mov qword ptr [rsp + 0], rax
+ mov edi, 2
+ mov rsi, 0
+ mov edx, 0
+ movabs rax, 4614253070214989087
+ movq xmm0, rax
+ call rt_node_to_term@PLT
+ mov rsi, rax
+ mov rdi, qword ptr [rsp + 0]
+ add rsp, 16
+ call rt_unify_terms@PLT
  test eax, eax
  je main_ω
  jmp plseq0_g1_α
-plseq0_g0_β: jmp main_ω
+ plseq0_g0_β:
+ jmp main_ω
 plseq0_g1_α:
- bb72064_α:
+ bb8400_α:
+# BOX RESOLVE_UNIFY (general)  [x86() self-encoding]
+ sub rsp, 16
+ mov edi, 2
+ mov rsi, 0
+ mov edx, 0
+ movabs rax, 4612811918334230528
+ movq xmm0, rax
+ call rt_node_to_term@PLT
+ mov qword ptr [rsp + 0], rax
+ mov edi, 56
+ mov rsi, 1
+ mov edx, 0
+ xorps xmm0, xmm0
+ call rt_node_to_term@PLT
+ mov rsi, rax
+ mov rdi, qword ptr [rsp + 0]
+ add rsp, 16
+ call rt_unify_terms@PLT
+ test eax, eax
+ je main_ω
+ jmp plseq0_g2_α
+ plseq0_g1_β:
+ jmp main_ω
+plseq0_g2_α:
+ bb8176_α:
  # BOX RESOLVE_BUILTIN(write/1)
  mov edi, 0
  call rt_write_var@PLT
- jmp plseq0_g2_α
-plseq0_g1_β: jmp plseq0_g2_α
-plseq0_g2_α:
- bb71952_α:
- # BOX RESOLVE_BUILTIN(nl/0)
- mov edi, 10
- call putchar@PLT
  jmp plseq0_g3_α
 plseq0_g2_β: jmp plseq0_g3_α
 plseq0_g3_α:
- bb71504_α:
- # BOX RESOLVE_BUILTIN(is/2)
- mov edi, 1
- lea rsi, [rip + .S0]
- mov edx, 0
- mov rcx, 0
- mov r8d, -1
- mov r9, 0
- call rt_is@PLT
- test eax, eax
- je main_ω
+ bb7952_α:
+ # BOX RESOLVE_BUILTIN(write/1)
+ lea rcx, [rip + .S0]
+ mov rdi, rcx
+ call rt_write_atom@PLT
  jmp plseq0_g4_α
-plseq0_g3_β: jmp main_ω
+plseq0_g3_β: jmp plseq0_g4_α
 plseq0_g4_α:
- bb71280_α:
+ bb7728_α:
  # BOX RESOLVE_BUILTIN(write/1)
  mov edi, 1
  call rt_write_var@PLT
  jmp plseq0_g5_α
 plseq0_g4_β: jmp plseq0_g5_α
 plseq0_g5_α:
- bb71168_α:
- # BOX RESOLVE_BUILTIN(nl/0)
- mov edi, 10
- call putchar@PLT
- jmp plseq0_g6_α
-plseq0_g5_β: jmp plseq0_g6_α
-plseq0_g6_α:
- bb70720_α:
- # BOX RESOLVE_BUILTIN(is/2)
- mov edi, 2
- lea rsi, [rip + .S0]
- mov edx, 0
- mov rcx, 3
- mov r8d, -1
- mov r9, 0
- call rt_is@PLT
- test eax, eax
- je main_ω
- jmp plseq0_g7_α
-plseq0_g6_β: jmp main_ω
-plseq0_g7_α:
- bb70496_α:
- # BOX RESOLVE_BUILTIN(write/1)
- mov edi, 2
- call rt_write_var@PLT
- jmp plseq0_g8_α
-plseq0_g7_β: jmp plseq0_g8_α
-plseq0_g8_α:
- bb70384_α:
+ bb7616_α:
  # BOX RESOLVE_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp main_γ
-plseq0_g8_β: jmp main_γ
+plseq0_g5_β: jmp main_γ
 main_β:
  jmp main_ω
 main_γ:
@@ -124,5 +125,5 @@ xor edx, edx
 pop r12
 ret
 .section .rodata
-.S0: .string "sign"
+.S0: .string " "
 .text

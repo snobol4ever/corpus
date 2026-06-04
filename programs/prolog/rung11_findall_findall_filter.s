@@ -1,707 +1,374 @@
-.macro HALT
- call rt_halt_tos@PLT
-.endm
-.macro CONCAT
- call rt_concat@PLT
-.endm
-.macro NEGATE
- call rt_neg@PLT
-.endm
-.macro COERCE_NUM
- call rt_coerce_num@PLT
-.endm
-.macro EXP_NUM
- call rt_exp@PLT
-.endm
-.macro PUSH_NULL
- call rt_push_null@PLT
-.endm
-.macro PUSH_NULL_NOFLIP
- call rt_push_null_noflip@PLT
-.endm
-.macro VOID_POP
- call rt_pop_void@PLT
-.endm
-.macro ADD_NUM n=0
- mov edi, 17
- call rt_arith@PLT
-.endm
-.macro SUB_NUM n=0
- mov edi, 18
- call rt_arith@PLT
-.endm
-.macro MUL_NUM n=0
- mov edi, 19
- call rt_arith@PLT
-.endm
-.macro DIV_NUM n=0
- mov edi, 20
- call rt_arith@PLT
-.endm
-.macro MOD_NUM n=0
- mov edi, 22
- call rt_arith@PLT
-.endm
-.macro ACOMP n=0
- mov edi, \n
- call rt_acomp@PLT
-.endm
-.macro LCOMP n=0
- mov edi, \n
- call rt_lcomp@PLT
-.endm
-.macro PAT_ARB
- call rt_pat_arb@PLT
-.endm
-.macro PAT_ARBNO
- call rt_pat_arbno@PLT
-.endm
-.macro PAT_REM
- call rt_pat_rem@PLT
-.endm
-.macro PAT_FENCE
- call rt_pat_fence@PLT
-.endm
-.macro PAT_FENCE1
- call rt_pat_fence1@PLT
-.endm
-.macro PAT_FAIL
- call rt_pat_fail@PLT
-.endm
-.macro PAT_SUCCEED
- call rt_pat_succeed@PLT
-.endm
-.macro PAT_ABORT
- call rt_pat_abort@PLT
-.endm
-.macro PAT_BAL
- call rt_pat_bal@PLT
-.endm
-.macro PAT_EPS
- call rt_pat_eps@PLT
-.endm
-.macro PAT_DEREF
- call rt_pat_deref@PLT
-.endm
-.macro PAT_ANY
- call rt_pat_any@PLT
-.endm
-.macro PAT_NOTANY
- call rt_pat_notany@PLT
-.endm
-.macro PAT_SPAN
- call rt_pat_span@PLT
-.endm
-.macro PAT_BREAK
- call rt_pat_break@PLT
-.endm
-.macro PAT_BREAKX
- call rt_pat_breakx@PLT
-.endm
-.macro PAT_LEN
- call rt_pat_len@PLT
-.endm
-.macro PAT_POS
- call rt_pat_pos@PLT
-.endm
-.macro PAT_RPOS
- call rt_pat_rpos@PLT
-.endm
-.macro PAT_TAB
- call rt_pat_tab@PLT
-.endm
-.macro PAT_RTAB
- call rt_pat_rtab@PLT
-.endm
-.macro PAT_CAT
- call rt_pat_cat@PLT
-.endm
-.macro PAT_ALT
- call rt_pat_alt@PLT
-.endm
-.macro JUMP tgt
- jmp \tgt
-.endm
-.macro JUMP_S tgt
- call rt_last_ok@PLT
- test eax, eax
- jnz \tgt
-.endm
-.macro JUMP_F tgt
- call rt_last_ok@PLT
- test eax, eax
- jz \tgt
-.endm
-.macro LABEL
-.endm
-.macro STNO
-.endm
-.macro PUSH_VAR lbl
- lea rdi, [rip + \lbl]
- call rt_nv_get@PLT
-.endm
-.macro STORE_VAR lbl
- lea rdi, [rip + \lbl]
- call rt_nv_set@PLT
-.endm
-.macro PUSH_INT val
- movabs rdi, \val
- call rt_push_int@PLT
-.endm
-.macro PUSH_STR lbl, n
- lea rdi, [rip + \lbl]
- mov esi, \n
- call rt_push_str@PLT
-.endm
-.macro PUSH_REAL val
- movabs rdi, \val
- call rt_push_real_bits@PLT
-.endm
-.macro LOAD_FRAME slot
- mov edi, \slot
- call rt_load_frame@PLT
-.endm
-.macro STORE_FRAME slot
- mov edi, \slot
- call rt_store_frame@PLT
-.endm
-.macro PUSH_EXPRESSION entry, arity
- lea rdi, [rip + .L\entry]
- mov esi, 2
- call rt_push_expression_descr@PLT
-.endm
-.macro CALL_EXPRESSION tgt
- call \tgt
-.endm
-.macro INCR n
- movabs rdi, \n
- call rt_incr@PLT
-.endm
-.macro DECR n
- movabs rdi, \n
- call rt_decr@PLT
-.endm
-.macro CALL_FN lbl, n
- lea rdi, [rip + \lbl]
- mov esi, \n
- call rt_call@PLT
-.endm
-.macro NAMED_CALL lbl, n
- mov edi, \n
- call rt_frame_enter@PLT
- call \lbl
- call rt_frame_leave@PLT
-.endm
-.macro DEFINE_ENTRY
- call rt_define_entry@PLT
-.endm
-.macro DEFINE
- call rt_define@PLT
-.endm
-.macro PAT_LIT lbl
-.ifnb \lbl
- lea rdi, [rip + \lbl]
-.endif
- call rt_pat_lit@PLT
-.endm
-.macro PAT_REFNAME lbl
-.ifnb \lbl
- lea rdi, [rip + \lbl]
-.endif
- call rt_pat_refname@PLT
-.endm
-.macro PAT_USERCALL lbl
-.ifnb \lbl
- lea rdi, [rip + \lbl]
-.endif
- call rt_pat_usercall@PLT
-.endm
-.macro PAT_CAPTURE n, lbl
-.ifnb \lbl
- lea rdi, [rip + \lbl]
-.endif
- mov esi, \n
- call rt_pat_capture@PLT
-.endm
-.macro PAT_CAPTURE_FN is_imm, fname_lbl, namelist_lbl
-.ifnb \fname_lbl
- lea rdi, [rip + \fname_lbl]
-.endif
- mov esi, \is_imm
-.ifnb \namelist_lbl
- lea rdx, [rip + \namelist_lbl]
-.endif
- call rt_pat_capture_fn@PLT
-.endm
-.macro PAT_CAPTURE_FN_ARGS is_imm, nargs, fname_lbl
-.ifnb \fname_lbl
- lea rdi, [rip + \fname_lbl]
-.endif
- mov esi, \is_imm
- mov edx, \nargs
- call rt_pat_capture_fn_args@PLT
-.endm
-.macro PAT_USERCALL_ARGS n, lbl
-.ifnb \lbl
- lea rdi, [rip + \lbl]
-.endif
- mov esi, \n
- call rt_pat_usercall_args@PLT
-.endm
-.macro EXEC_STMT_VARIANT has_repl, subj_lbl
-.ifnb \subj_lbl
- lea rdi, [rip + \subj_lbl]
-.endif
- mov esi, \has_repl
- call rt_match_variant@PLT
-.endm
-.macro RETURN
- ret
-.endm
-.macro RETURN_VARIANT kind, cond, pc
- mov edi, \kind
- mov esi, \cond
- call rt_do_return@PLT
- test eax, eax
- jz .Lretskip_\pc
- mov rsp, rbp
- pop rbp
- ret
-.Lretskip_\pc\():
-.endm
-.macro NRETURN_VAR kind, cond, pc
- mov edi, \kind
- mov esi, \cond
- call rt_do_nreturn@PLT
- test eax, eax
- jz .Lretskip_\pc
- mov rsp, rbp
- pop rbp
- ret
-.Lretskip_\pc\():
-.endm
-.intel_syntax noprefix
-.section .rodata
-.S0: .string "num/1"
-.S1: .string "even/1"
-.S2: .string "main/0"
-.S3: .string "("
-.S4: .string ","
-.S5: .string ")"
-.S6: .string "is"
-.S7: .string "mod"
-.S8: .string "num"
-.S9: .string "nl"
-.S10: .string "write"
-.S11: .string "findall"
-.text
-.intel_syntax noprefix
-.globl main
-.type main, @function
-main: push rbp
-mov rbp, rsp
-call rt_gc_init@PLT
-mov edi, 2
-call rt_set_lang@PLT
-xor edi, edi
-call rt_register_expressions@PLT
-call rt_init@PLT
-.L0:
- JUMP .L3
-.Lsub_num_1:
- LABEL
-.L2:
- RETURN
-.L3:
- LABEL
- JUMP .L7
-.Lsub_even_1:
- LABEL
-.L6:
- RETURN
-.L7:
- LABEL
- JUMP .L11
-.Lsub_main_0:
- LABEL
-.L10:
- RETURN
-.L11:
- LABEL
-#=======================================================================================================================
-# stmt 0  (line 1)
-#=======================================================================================================================
- mov edi, 0
- call rt_set_stno@PLT
-# SM_BB_PL_INVOKE main/0/0 (inline flat four-port)
-.intel_syntax noprefix
- mov edi, 64
- call pl_bb_env_push@PLT
-plseq1_g0_α:
- bb30208_α:
- # BOX PL_BUILTIN(findall/541818816)
- # PL_BUILTIN: unknown 'findall' — stub
- jmp plseq1_g1_α
-plseq1_g0_β: jmp plseq1_g1_α
-plseq1_g1_α:
- bb29984_α:
- # BOX PL_BUILTIN(write/1)
- mov edi, 1
- call rt_pl_write_var@PLT
- jmp plseq1_g2_α
-plseq1_g1_β: jmp plseq1_g2_α
-plseq1_g2_α:
- bb29872_α:
- # BOX PL_BUILTIN(nl/0)
- mov edi, 10
- call putchar@PLT
- jmp .Lplent0_γ
-plseq1_g2_β: jmp .Lplent0_γ
-.Lplent0_β:
- jmp .Lplent0_ω
-.Lplent0_γ: 
- mov rdi, 1
- call rt_set_last_ok@PLT
- jmp .Lplent0_done
-.Lplent0_ω: 
- mov rdi, 0
- call rt_set_last_ok@PLT
-.Lplent0_done: 
- jmp .Lplcallees2_end
-# PL CALLEE BLOCK num/1/1
-.intel_syntax noprefix
-.Lplpred_num_1: 
-# env push/pop handled by caller (bb_pl_call site)
-# redo entry: .Lplpred_num_1_redo
- bb16352_α:
-# BOX PL_CHOICE n=5 (WAM-CP-5 heap cursor, WAM-CP-9 cut)
- call rt_pl_env_current@PLT
+  .intel_syntax noprefix
+  .text
+  .section .data
+  .align 8
+.Lpl_pred_table:
+  .quad .Lpl_pname_0
+  .quad 1
+  .quad .Lplpred_num_1
+  .quad .Lplpred_num_1_redo
+  .quad .Lpl_pname_1
+  .quad 1
+  .quad .Lplpred_even_1
+  .quad .Lplpred_even_1_redo
+  .section .rodata
+.Lpl_pname_0:
+  .asciz "num"
+.Lpl_pname_1:
+  .asciz "even"
+  .text
+  .globl main
+main:
+  push rbp
+  mov rbp, rsp
+  call rt_main_init@PLT
+  lea rdi, [rip + .Lpl_pred_table]
+  mov esi, 2
+  call rt_pl_table_install@PLT
+  mov edi, 2
+  call rt_env_alloc@PLT
+  call rt_frame@PLT
+  mov rdi, rax
+  xor esi, esi
+  call main_α
+  xor eax, eax
+  pop rbp
+  ret
+.Lplpred_num_1:
+ bb14240_α:
+# BOX RESOLVE_CHOICE n=5 (WAM-CP-5 heap cursor, WAM-CP-9 cut)
+ call rt_env_current@PLT
  mov rdx, rax
- call rt_pl_trail_mark@PLT
+ call rt_trail_mark@PLT
  mov rsi, rax
  xor edi, edi
  xor ecx, ecx
  xor r8d, r8d
- call pl_cp_push@PLT
+ call resolve_cp_push@PLT
  mov rdi, rax
- call rt_pl_choice_cut_enter@PLT
- .Lplch4_dispatch:
- call pl_cp_current@PLT
+ call rt_choice_cut_enter@PLT
+ .Lplch0_dispatch:
+ call resolve_cp_current@PLT
  mov edi, [rax + 48]
  cmp edi, 5
- jge .Lplch4_exhausted
+ jge .Lplch0_exhausted
  cmp edi, 0
- je .Lplch4_c0_pre
+ je .Lplch0_c0_pre
  cmp edi, 1
- je .Lplch4_c1_pre
+ je .Lplch0_c1_pre
  cmp edi, 2
- je .Lplch4_c2_pre
+ je .Lplch0_c2_pre
  cmp edi, 3
- je .Lplch4_c3_pre
+ je .Lplch0_c3_pre
  cmp edi, 4
- je .Lplch4_c4_pre
- jmp .Lplch4_exhausted
- .Lplch4_c0_pre:
- call pl_cp_current@PLT
+ je .Lplch0_c4_pre
+ jmp .Lplch0_exhausted
+ .Lplch0_c0_pre:
+ call resolve_cp_current@PLT
  inc dword ptr [rax + 48]
- jmp .Lplch4_c0_body
- .Lplch4_c1_pre:
- call pl_cp_current@PLT
+ jmp .Lplch0_c0_body
+ .Lplch0_c1_pre:
+ call resolve_cp_current@PLT
  mov edi, [rax + 16]
- call rt_pl_trail_unwind@PLT
- call pl_cp_current@PLT
+ call rt_trail_unwind@PLT
+ call resolve_cp_current@PLT
  inc dword ptr [rax + 48]
- jmp .Lplch4_c1_body
- .Lplch4_c2_pre:
- call pl_cp_current@PLT
+ jmp .Lplch0_c1_body
+ .Lplch0_c2_pre:
+ call resolve_cp_current@PLT
  mov edi, [rax + 16]
- call rt_pl_trail_unwind@PLT
- call pl_cp_current@PLT
+ call rt_trail_unwind@PLT
+ call resolve_cp_current@PLT
  inc dword ptr [rax + 48]
- jmp .Lplch4_c2_body
- .Lplch4_c3_pre:
- call pl_cp_current@PLT
+ jmp .Lplch0_c2_body
+ .Lplch0_c3_pre:
+ call resolve_cp_current@PLT
  mov edi, [rax + 16]
- call rt_pl_trail_unwind@PLT
- call pl_cp_current@PLT
+ call rt_trail_unwind@PLT
+ call resolve_cp_current@PLT
  inc dword ptr [rax + 48]
- jmp .Lplch4_c3_body
- .Lplch4_c4_pre:
- call pl_cp_current@PLT
+ jmp .Lplch0_c3_body
+ .Lplch0_c4_pre:
+ call resolve_cp_current@PLT
  mov edi, [rax + 16]
- call rt_pl_trail_unwind@PLT
- call pl_cp_current@PLT
+ call rt_trail_unwind@PLT
+ call resolve_cp_current@PLT
  inc dword ptr [rax + 48]
- jmp .Lplch4_c4_body
- .Lplch4_exit_γ:
- call rt_pl_get_cut_flag@PLT
+ jmp .Lplch0_c4_body
+ .Lplch0_exit_γ:
+ call rt_get_cut_flag@PLT
  test eax, eax
- jnz .Lplch4_cut_γ
- call pl_cp_current@PLT
+ jnz .Lplch0_cut_γ
+ call resolve_cp_current@PLT
  mov rdi, rax
- call rt_pl_choice_cut_exit@PLT
- jmp .Lplpb3_γ
- .Lplch4_cut_γ:
- call pl_cp_current@PLT
+ call rt_choice_cut_exit@PLT
+ jmp .Lplpred_num_1_γ
+ .Lplch0_cut_γ:
+ call resolve_cp_current@PLT
  mov rdi, rax
- call rt_pl_choice_cut_unwind@PLT
- jmp .Lplpb3_γ
- .Lplch4_cut_ω:
- call pl_cp_current@PLT
+ call rt_choice_cut_unwind@PLT
+ jmp .Lplpred_num_1_γ
+ .Lplch0_cut_ω:
+ call resolve_cp_current@PLT
  mov rdi, rax
- call rt_pl_choice_cut_unwind@PLT
- jmp .Lplpb3_ω
- .Lplch4_exhausted:
- call pl_cp_current@PLT
+ call rt_choice_cut_unwind@PLT
+ jmp .Lplpred_num_1_ω
+ .Lplch0_exhausted:
+ call resolve_cp_current@PLT
  mov rdi, rax
- call rt_pl_choice_cut_exit@PLT
- call pl_cp_current@PLT
+ call rt_choice_cut_exit@PLT
+ call resolve_cp_current@PLT
  mov edi, [rax + 16]
- call rt_pl_trail_unwind@PLT
- call pl_cp_pop@PLT
- jmp .Lplpb3_ω
- .Lplpb3_β:
- call rt_pl_get_cut_flag@PLT
+ call rt_trail_unwind@PLT
+ call resolve_cp_pop@PLT
+ jmp .Lplpred_num_1_ω
+ .Lplpred_num_1_β:
+ call rt_get_cut_flag@PLT
  test eax, eax
- jnz .Lplch4_cut_ω
- call pl_cp_current@PLT
+ jnz .Lplch0_cut_ω
+ call resolve_cp_current@PLT
  test rax, rax
- je .Lplch4_β_nosol
+ je .Lplch0_β_nosol
  mov rdi, rax
- call rt_pl_choice_cut_enter@PLT
- jmp .Lplch4_dispatch
-.Lplch4_β_nosol: jmp .Lplpb3_ω
-.Lplch4_c0_body:
- bb18176_α:
-# BOX PL_UNIFY
- sub rsp, 16
- mov edi, 56
- mov rsi, 0
- xor edx, edx
- xorps xmm0, xmm0
- call rt_pl_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
+ call rt_choice_cut_enter@PLT
+ jmp .Lplch0_dispatch
+.Lplch0_β_nosol: jmp .Lplpred_num_1_ω
+.Lplch0_c0_body:
+ bb976_α:
+# BOX RESOLVE_UNIFY (WAM-CP-7 var-const)  [x86() self-encoding]
  mov edi, 0
- mov rsi, 1
- xor edx, edx
+ mov esi, 0
+ mov rdx, 1
+ mov ecx, 0
  xorps xmm0, xmm0
- call rt_pl_node_to_term@PLT
- mov rsi, rax
- mov rdi, qword ptr [rsp + 0]
- add rsp, 16
- call rt_pl_unify_terms@PLT
+ call rt_unify_const@PLT
  test eax, eax
- je .Lplpb3_β
- jmp .Lplch4_exit_γ
-.Lplch4_c0_beta: jmp .Lplpb3_β
-.Lplch4_c1_body:
- bb20112_α:
-# BOX PL_UNIFY
- sub rsp, 16
- mov edi, 56
- mov rsi, 0
- xor edx, edx
- xorps xmm0, xmm0
- call rt_pl_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
+ je .Lplpred_num_1_β
+ jmp .Lplch0_exit_γ
+ .Lplch0_c0_beta:
+ jmp .Lplpred_num_1_β
+.Lplch0_c1_body:
+ bb4048_α:
+# BOX RESOLVE_UNIFY (WAM-CP-7 var-const)  [x86() self-encoding]
  mov edi, 0
- mov rsi, 2
- xor edx, edx
+ mov esi, 0
+ mov rdx, 2
+ mov ecx, 0
  xorps xmm0, xmm0
- call rt_pl_node_to_term@PLT
- mov rsi, rax
- mov rdi, qword ptr [rsp + 0]
- add rsp, 16
- call rt_pl_unify_terms@PLT
+ call rt_unify_const@PLT
  test eax, eax
- je .Lplpb3_β
- jmp .Lplch4_exit_γ
-.Lplch4_c1_beta: jmp .Lplpb3_β
-.Lplch4_c2_body:
- bb22016_α:
-# BOX PL_UNIFY
- sub rsp, 16
- mov edi, 56
- mov rsi, 0
- xor edx, edx
- xorps xmm0, xmm0
- call rt_pl_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
+ je .Lplpred_num_1_β
+ jmp .Lplch0_exit_γ
+ .Lplch0_c1_beta:
+ jmp .Lplpred_num_1_β
+.Lplch0_c2_body:
+ bb7120_α:
+# BOX RESOLVE_UNIFY (WAM-CP-7 var-const)  [x86() self-encoding]
  mov edi, 0
- mov rsi, 3
- xor edx, edx
+ mov esi, 0
+ mov rdx, 3
+ mov ecx, 0
  xorps xmm0, xmm0
- call rt_pl_node_to_term@PLT
- mov rsi, rax
- mov rdi, qword ptr [rsp + 0]
- add rsp, 16
- call rt_pl_unify_terms@PLT
+ call rt_unify_const@PLT
  test eax, eax
- je .Lplpb3_β
- jmp .Lplch4_exit_γ
-.Lplch4_c2_beta: jmp .Lplpb3_β
-.Lplch4_c3_body:
- bb23824_α:
-# BOX PL_UNIFY
- sub rsp, 16
- mov edi, 56
- mov rsi, 0
- xor edx, edx
- xorps xmm0, xmm0
- call rt_pl_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
+ je .Lplpred_num_1_β
+ jmp .Lplch0_exit_γ
+ .Lplch0_c2_beta:
+ jmp .Lplpred_num_1_β
+.Lplch0_c3_body:
+ bb10192_α:
+# BOX RESOLVE_UNIFY (WAM-CP-7 var-const)  [x86() self-encoding]
  mov edi, 0
- mov rsi, 4
- xor edx, edx
+ mov esi, 0
+ mov rdx, 4
+ mov ecx, 0
  xorps xmm0, xmm0
- call rt_pl_node_to_term@PLT
- mov rsi, rax
- mov rdi, qword ptr [rsp + 0]
- add rsp, 16
- call rt_pl_unify_terms@PLT
+ call rt_unify_const@PLT
  test eax, eax
- je .Lplpb3_β
- jmp .Lplch4_exit_γ
-.Lplch4_c3_beta: jmp .Lplpb3_β
-.Lplch4_c4_body:
- bb25632_α:
-# BOX PL_UNIFY
- sub rsp, 16
- mov edi, 56
- mov rsi, 0
- xor edx, edx
- xorps xmm0, xmm0
- call rt_pl_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
+ je .Lplpred_num_1_β
+ jmp .Lplch0_exit_γ
+ .Lplch0_c3_beta:
+ jmp .Lplpred_num_1_β
+.Lplch0_c4_body:
+ bb13264_α:
+# BOX RESOLVE_UNIFY (WAM-CP-7 var-const)  [x86() self-encoding]
  mov edi, 0
- mov rsi, 5
- xor edx, edx
+ mov esi, 0
+ mov rdx, 5
+ mov ecx, 0
  xorps xmm0, xmm0
- call rt_pl_node_to_term@PLT
- mov rsi, rax
- mov rdi, qword ptr [rsp + 0]
- add rsp, 16
- call rt_pl_unify_terms@PLT
+ call rt_unify_const@PLT
  test eax, eax
- je .Lplpb3_β
- jmp .Lplch4_exit_γ
-.Lplch4_c4_beta: jmp .Lplpb3_β
-.Lplpb3_γ: 
- mov rdi, 1
- call rt_set_last_ok@PLT
- ret
-.Lplpb3_ω: 
- mov rdi, 0
- call rt_set_last_ok@PLT
- ret
-.Lplpred_num_1_redo: jmp .Lplpb3_β
-# PL CALLEE BLOCK even/1/1
-.intel_syntax noprefix
-.Lplpred_even_1: 
-# env push/pop handled by caller (bb_pl_call site)
-# redo entry: .Lplpred_even_1_redo
-plseq6_g0_α:
- bb28224_α:
-# BOX PL_UNIFY
- sub rsp, 16
+ je .Lplpred_num_1_β
+ jmp .Lplch0_exit_γ
+ .Lplch0_c4_beta:
+ jmp .Lplpred_num_1_β
+.Lplpred_num_1_redo:
+jmp .Lplpred_num_1_β
+.Lplpred_num_1_γ:
+  mov edi, 1
+  call rt_set_last_ok@PLT
+  ret
+.Lplpred_num_1_ω:
+  mov edi, 0
+  call rt_set_last_ok@PLT
+  ret
+.Lplpred_even_1:
+plseq1_g0_α:
+ bb17904_α:
+# BOX RESOLVE_UNIFY (WAM-CP-7 self-unify x=x — vacuous success)  [x86() self-encoding]
+ jmp plseq1_g1_α
+ plseq1_g0_β:
+ jmp .Lplpred_even_1_ω
+plseq1_g1_α:
+ bb17680_α:
+# BOX RESOLVE_CALL num/1 (WAM-CP-5, n_args=1)
  mov edi, 56
  mov rsi, 0
  xor edx, edx
  xorps xmm0, xmm0
- call rt_pl_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- mov edi, 56
- mov rsi, 0
- xor edx, edx
- xorps xmm0, xmm0
- call rt_pl_node_to_term@PLT
- mov rsi, rax
- mov rdi, qword ptr [rsp + 0]
- add rsp, 16
- call rt_pl_unify_terms@PLT
- test eax, eax
- je .Lplpb5_ω
- jmp plseq6_g1_α
-plseq6_g0_β: jmp .Lplpb5_ω
-plseq6_g1_α:
- bb27776_α:
-# BOX PL_CALL num/1 (WAM-CP-5, n_args=1)
- mov edi, 56
- mov rsi, 0
- xor edx, edx
- xorps xmm0, xmm0
- call rt_pl_node_to_term@PLT
+ call rt_node_to_term@PLT
  push rax
  mov edi, 17
- call pl_bb_env_save_push@PLT
+ call resolve_bb_env_save_push@PLT
  push rax
  mov rsi, [rsp + 8]
  mov edi, 0
- call pl_bb_bind_arg@PLT
+ call resolve_bb_bind_arg@PLT
  call .Lplpred_num_1
  pop rdi
  add rsp, 8
  call rt_last_ok@PLT
  test eax, eax
- je bb27776_α_fail5
- call pl_bb_env_install@PLT
+ je bb17680_α_fail5
+ call resolve_bb_env_install@PLT
  mov rdi, rax
- call rt_pl_cp_save_caller_env@PLT
- jmp plseq6_g2_α
-bb27776_α_fail5: 
- call pl_bb_env_pop@PLT
- jmp .Lplpb5_ω
- plseq6_g1_β:
- call pl_cp_current@PLT
+ call rt_cp_save_caller_env@PLT
+ jmp plseq1_g2_α
+bb17680_α_fail5: 
+ call resolve_bb_env_pop@PLT
+ jmp .Lplpred_even_1_ω
+ plseq1_g1_β:
+ call resolve_cp_current@PLT
  test rax, rax
- je bb27776_α_nosol
+ je bb17680_α_nosol
  mov rdi, [rax + 24]
- call pl_bb_env_install@PLT
+ call resolve_bb_env_install@PLT
  call .Lplpred_num_1_redo
  call rt_last_ok@PLT
  test eax, eax
- je bb27776_α_nosol
- call pl_cp_current@PLT
+ je bb17680_α_nosol
+ call resolve_cp_current@PLT
  mov rdi, [rax + 40]
- call pl_bb_env_install@PLT
- jmp plseq6_g2_α
-bb27776_α_nosol: jmp .Lplpb5_ω
-plseq6_g2_α:
- bb27216_α:
- # BOX PL_BUILTIN(is/2)
- # PL_BUILTIN: unknown 'is' — stub
- jmp .Lplpb5_γ
-plseq6_g2_β: jmp .Lplpb5_γ
-.Lplpb5_β:
- jmp plseq6_g1_β
-.Lplpb5_γ: 
- mov rdi, 1
- call rt_set_last_ok@PLT
- ret
-.Lplpb5_ω: 
+ call resolve_bb_env_install@PLT
+ jmp plseq1_g2_α
+bb17680_α_nosol: jmp .Lplpred_even_1_ω
+plseq1_g2_α:
+ bb17120_α:
+ # BOX RESOLVE_BUILTIN(is/2)
  mov rdi, 0
- call rt_set_last_ok@PLT
- ret
-.Lplpred_even_1_redo: jmp .Lplpb5_β
-.Lplcallees2_end: 
+ lea rsi, [rip + .S1]
+ mov edx, 56
+ mov rcx, 0
+ mov r8d, 0
+ mov r9, 2
+ call rt_is_lint@PLT
+ test eax, eax
+ je plseq1_g1_β
+ jmp .Lplpred_even_1_γ
+plseq1_g2_β: jmp plseq1_g1_β
+.Lplpred_even_1_β:
+ jmp plseq1_g1_β
+.Lplpred_even_1_redo:
+jmp .Lplpred_even_1_β
+.Lplpred_even_1_γ:
+  mov edi, 1
+  call rt_set_last_ok@PLT
+  ret
+.Lplpred_even_1_ω:
+  mov edi, 0
+  call rt_set_last_ok@PLT
+  ret
+main_α:
 #=======================================================================================================================
-# stmt 0
-#=======================================================================================================================
- mov edi, 0
- call rt_set_stno@PLT
-#=======================================================================================================================
-# stmt 0
-#=======================================================================================================================
- mov edi, 0
- call rt_set_stno@PLT
-#=======================================================================================================================
-# stmt 0
-#=======================================================================================================================
- mov edi, 0
- call rt_set_stno@PLT
- HALT
-call rt_finalize@PLT
-pop rbp
+    .global main_α
+    .global main_β
+    .global main_γ
+    .global main_ω
+push r12
+  mov r12, rdi
+  lea r10, [rip + Δ]
+main_α_body:
+plseq2_g0_α:
+ bb96160_α:
+ # BOX RESOLVE_BUILTIN(findall/156355296)
+ sub rsp, 16
+ mov edi, 56
+ mov rsi, 0
+ xor edx, edx
+ xor ecx, ecx
+ call rt_node_to_term@PLT
+ mov qword ptr [rsp + 0], rax
+ lea rdi, [rip + .S2]
+ mov esi, 1
+ mov rdx, rsp
+ call rt_compound_build_n@PLT
+ add rsp, 16
+ push rax
+ mov edi, 56
+ mov rsi, 0
+ xor edx, edx
+ xor ecx, ecx
+ call rt_node_to_term@PLT
+ push rax
+ mov edi, 56
+ mov rsi, 1
+ xor edx, edx
+ xor ecx, ecx
+ call rt_node_to_term@PLT
+ push rax
+ sub rsp, 8
+ mov rdx, [rsp + 8]
+ mov rsi, [rsp + 16]
+ mov rdi, [rsp + 24]
+ call rt_findall_term@PLT
+ add rsp, 32
+ test eax, eax
+ je main_ω
+ jmp plseq2_g1_α
+plseq2_g0_β: jmp main_ω
+plseq2_g1_α:
+ bb95936_α:
+ # BOX RESOLVE_BUILTIN(write/1)
+ mov edi, 1
+ call rt_write_var@PLT
+ jmp plseq2_g2_α
+plseq2_g1_β: jmp plseq2_g2_α
+plseq2_g2_α:
+ bb95824_α:
+ # BOX RESOLVE_BUILTIN(nl/0)
+ mov edi, 10
+ call putchar@PLT
+ jmp main_γ
+plseq2_g2_β: jmp main_γ
+main_β:
+ jmp main_ω
+main_γ:
+mov eax, 1
+xor edx, edx
+pop r12
 ret
-.size main, .-main
-.section .note.GNU-stack
+main_ω:
+# GZ-10 PROC FAIL EXIT: write FAILDESCR to frame[0] so rt_call_proc_descr sees failure
+mov dword ptr [r12+0], 99
+mov dword ptr [r12+4], 0
+mov qword ptr [r12+8], 0
+mov eax, 99
+xor edx, edx
+pop r12
+ret
+.section .rodata
+.S0: .string "num"
+.S1: .string "mod"
+.S2: .string "even"
+.text

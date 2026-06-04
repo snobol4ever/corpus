@@ -28,35 +28,43 @@ push r12
   lea r10, [rip + Δ]
 main_α_body:
 plseq0_g0_α:
- bb47888_α:
- # BOX RESOLVE_BUILTIN(@</2)
+ bb23840_α:
+# BOX RESOLVE_UNIFY (general)  [x86() self-encoding]
  sub rsp, 16
- lea rdi, [rip + .S1]
- mov esi, 57
- mov rdx, 0
- lea rcx, [rip + .S0]
- mov r8d, 57
- mov r9, 0
- lea rax, [rip + .S2]
+ mov edi, 2
+ mov rsi, 0
+ mov edx, 0
+ movabs rax, 4612811918334230528
+ movq xmm0, rax
+ call rt_node_to_term@PLT
  mov qword ptr [rsp + 0], rax
- call rt_term_cmp@PLT
+ mov edi, 2
+ mov rsi, 0
+ mov edx, 0
+ movabs rax, 4612811918334230528
+ movq xmm0, rax
+ call rt_node_to_term@PLT
+ mov rsi, rax
+ mov rdi, qword ptr [rsp + 0]
  add rsp, 16
+ call rt_unify_terms@PLT
  test eax, eax
  je xite1_else_α
  jmp xite1_then_α
-xite1_cond_β: jmp xite1_else_α
+ xite1_cond_β:
+ jmp xite1_else_α
 xite1_then_α:
- bb47664_α:
+ bb23616_α:
  # BOX RESOLVE_BUILTIN(write/1)
- lea rcx, [rip + .S3]
+ lea rcx, [rip + .S0]
  mov rdi, rcx
  call rt_write_atom@PLT
  jmp plseq0_g1_α
 xite1_then_β: jmp plseq0_g1_α
 xite1_else_α:
- bb47440_α:
+ bb23392_α:
  # BOX RESOLVE_BUILTIN(write/1)
- lea rcx, [rip + .S4]
+ lea rcx, [rip + .S1]
  mov rdi, rcx
  call rt_write_atom@PLT
  jmp plseq0_g1_α
@@ -65,32 +73,41 @@ xite1_else_β: jmp plseq0_g1_α
 plseq0_g0_β:
  jmp main_ω
 plseq0_g1_α:
- bb47328_α:
- # BOX RESOLVE_BUILTIN(nl/0)
- mov edi, 10
- call putchar@PLT
+ bb23168_α:
+ # BOX RESOLVE_BUILTIN(write/1)
+ lea rcx, [rip + .S2]
+ mov rdi, rcx
+ call rt_write_atom@PLT
  jmp plseq0_g2_α
 plseq0_g1_β: jmp plseq0_g2_α
 plseq0_g2_α:
- bb46880_α:
- # BOX RESOLVE_BUILTIN(@</2)
+ bb22720_α:
+# BOX RESOLVE_UNIFY (general)  [x86() self-encoding]
  sub rsp, 16
- lea rdi, [rip + .S1]
- mov esi, 57
- mov rdx, 0
- lea rcx, [rip + .S2]
- mov r8d, 57
- mov r9, 0
- lea rax, [rip + .S0]
+ mov edi, 2
+ mov rsi, 0
+ mov edx, 0
+ movabs rax, 4609434218613702656
+ movq xmm0, rax
+ call rt_node_to_term@PLT
  mov qword ptr [rsp + 0], rax
- call rt_term_cmp@PLT
+ mov edi, 2
+ mov rsi, 0
+ mov edx, 0
+ movabs rax, 4612811918334230528
+ movq xmm0, rax
+ call rt_node_to_term@PLT
+ mov rsi, rax
+ mov rdi, qword ptr [rsp + 0]
  add rsp, 16
+ call rt_unify_terms@PLT
  test eax, eax
  je xite2_else_α
  jmp xite2_then_α
-xite2_cond_β: jmp xite2_else_α
+ xite2_cond_β:
+ jmp xite2_else_α
 xite2_then_α:
- bb46656_α:
+ bb22496_α:
  # BOX RESOLVE_BUILTIN(write/1)
  lea rcx, [rip + .S3]
  mov rdi, rcx
@@ -98,7 +115,7 @@ xite2_then_α:
  jmp plseq0_g3_α
 xite2_then_β: jmp plseq0_g3_α
 xite2_else_α:
- bb46432_α:
+ bb22272_α:
  # BOX RESOLVE_BUILTIN(write/1)
  lea rcx, [rip + .S4]
  mov rdi, rcx
@@ -109,56 +126,12 @@ xite2_else_β: jmp plseq0_g3_α
 plseq0_g2_β:
  jmp main_ω
 plseq0_g3_α:
- bb46320_α:
- # BOX RESOLVE_BUILTIN(nl/0)
- mov edi, 10
- call putchar@PLT
- jmp plseq0_g4_α
-plseq0_g3_β: jmp plseq0_g4_α
-plseq0_g4_α:
- bb45872_α:
- # BOX RESOLVE_BUILTIN(@</2)
- sub rsp, 16
- lea rdi, [rip + .S1]
- mov esi, 57
- mov rdx, 0
- lea rcx, [rip + .S0]
- mov r8d, 57
- mov r9, 0
- lea rax, [rip + .S0]
- mov qword ptr [rsp + 0], rax
- call rt_term_cmp@PLT
- add rsp, 16
- test eax, eax
- je xite3_else_α
- jmp xite3_then_α
-xite3_cond_β: jmp xite3_else_α
-xite3_then_α:
- bb45648_α:
- # BOX RESOLVE_BUILTIN(write/1)
- lea rcx, [rip + .S3]
- mov rdi, rcx
- call rt_write_atom@PLT
- jmp plseq0_g5_α
-xite3_then_β: jmp plseq0_g5_α
-xite3_else_α:
- bb45424_α:
- # BOX RESOLVE_BUILTIN(write/1)
- lea rcx, [rip + .S4]
- mov rdi, rcx
- call rt_write_atom@PLT
- jmp plseq0_g5_α
-xite3_else_β: jmp plseq0_g5_α
-# END RESOLVE_ITE (β-tombstone via EP)  [x86() self-encoding]
-plseq0_g4_β:
- jmp main_ω
-plseq0_g5_α:
- bb45312_α:
+ bb22160_α:
  # BOX RESOLVE_BUILTIN(nl/0)
  mov edi, 10
  call putchar@PLT
  jmp main_γ
-plseq0_g5_β: jmp main_γ
+plseq0_g3_β: jmp main_γ
 main_β:
  jmp main_ω
 main_γ:
@@ -176,9 +149,9 @@ xor edx, edx
 pop r12
 ret
 .section .rodata
-.S0: .string "a"
-.S1: .string "@<"
-.S2: .string "b"
-.S3: .string "yes"
-.S4: .string "no"
+.S0: .string "yes"
+.S1: .string "no"
+.S2: .string " "
+.S3: .string "eq"
+.S4: .string "neq"
 .text
