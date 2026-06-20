@@ -1,1 +1,6 @@
-oracle raises ERROR; benchmark invalid as written
+ORACLE-ERROR (broken upstream). `$FN(X)` with FN='ADD1' makes the sbl oracle
+itself raise ERROR 022 (undefined function called) at line 13. M4 produces
+empty output (no error). This benchmark is invalid as written; it is excluded
+from the correctness denominator. "Working" = match the oracle's error/empty
+disposition, which M4 does (empty out, rc=0). Do NOT count as a green win.
+Verified 2026-06-20 (Claude) vs /home/claude/x64/bin/sbl -b.
