@@ -1,51 +1,33 @@
-# Icon & JCON Benchmarks
+# Icon Benchmarks
 
-Canonical benchmark suites for the SCRIP Icon front-end, copied verbatim from
-the upstream sources provided in `icon-master/tests/bench/` (reference Icon
-interpreter, C) and `jcon-master/bmark/` (JCON, Java). These are the headline
-programs the SCRIP "ten times faster" pitch is measured on.
+Canonical benchmark suite for the SCRIP Icon front-end, merged from
+`icon-master/tests/bench/` (reference Icon interpreter, C) and
+`jcon-master/bmark/` (JCON, Java). All sources live in `benchmarks/icon/`.
 
-## `icon/` — from icon-master/tests/bench
+## `icon/` — merged icon-master + jcon-master
 
-| File | Role | Inputs |
-|------|------|--------|
-| `queens.icn`   | **benchmark** — N-queens generator | — |
-| `concord.icn`  | **benchmark** — concordance (tables + scan + sort) | `concord.dat` |
-| `deal.icn`     | **benchmark** — card dealing (lists + shuffle + random) | (link `shuffle`) |
-| `ipxref.icn`   | **benchmark** — cross-reference (records + tables + sort + scan) | `ipxref.dat` |
-| `rsg.icn`      | **benchmark** — random sentence generator (tables + records + recursion) | `rsg.dat` |
-| `micro.icn`    | **benchmark** — micro-operation timing battery | — |
-| `micsum.icn`   | **benchmark** — micro summary | — |
-| `options.icn`  | support — command-line option parsing (link dependency) | — |
-| `post.icn`     | support — postfix helper (link dependency) | — |
-| `shuffle.icn`  | support — list shuffle (link dependency for `deal`) | — |
-| `*.std`        | upstream reference output. **Note:** the icon-master `.std` files are the icont *self-benchmark* dumps (`&features` banner + storage/GC stats + elapsed time), **not** plain program stdout — not directly diffable. | — |
+| File | Source | Role | Inputs |
+|------|--------|------|--------|
+| `queens.icn`   | both   | **benchmark** — N-queens generator | — |
+| `concord.icn`  | both   | **benchmark** — concordance (tables + scan + sort) | `concord.dat` |
+| `deal.icn`     | both   | **benchmark** — card dealing (lists + shuffle + random) | (link `shuffle`) |
+| `ipxref.icn`   | both   | **benchmark** — cross-reference (records + tables + sort + scan) | `ipxref.dat` |
+| `rsg.icn`      | both   | **benchmark** — random sentence generator (tables + records + recursion) | `rsg.dat` |
+| `tgrlink.icn`  | jcon   | **benchmark** — long-runner (graph link) | `tgrlink.dat` |
+| `geddump.icn`  | jcon   | **benchmark** — GED dump | `geddump.dat` |
+| `micro.icn`    | icon   | **benchmark** — micro-operation timing battery | — |
+| `micsum.icn`   | icon   | **benchmark** — micro summary | — |
+| `options.icn`  | both   | support — command-line option parsing (link dependency) | — |
+| `post.icn`     | both   | support — postfix helper (link dependency) | — |
+| `shuffle.icn`  | both   | support — list shuffle (link dependency for `deal`) | — |
+| `version.icn`  | jcon   | support — version string (link dependency) | — |
+| `*.std`        | icon   | upstream reference output — icont *self-benchmark* dumps, NOT plain stdout, not diffable | — |
 
-## `jcon/` — from jcon-master/bmark
+## Notes
 
-| File | Role | Inputs |
-|------|------|--------|
-| `queens.icn`   | **benchmark** — N-queens | — |
-| `concord.icn`  | **benchmark** — concordance | `concord.dat` |
-| `deal.icn`     | **benchmark** — card dealing | (link `shuffle`) |
-| `ipxref.icn`   | **benchmark** — cross-reference | (input) |
-| `rsg.icn`      | **benchmark** — random sentence generator | `rsg.dat` |
-| `tgrlink.icn`  | **benchmark** — long-runner (graph link) | `tgrlink.dat` |
-| `geddump.icn`  | **benchmark** — GED dump | `geddump.dat` |
-| `options.icn`  | support — option parsing (link dependency) | — |
-| `post.icn`     | support — postfix helper (link dependency) | — |
-| `shuffle.icn`  | support — list shuffle (link dependency for `deal`) | — |
-| `version.icn`  | support — version string (link dependency) | — |
-
-## The five standard benchmarks (both suites)
-
-`queens` · `concord` · `deal` · `rsg` · `ipxref` — plus JCON long-runners
-`tgrlink` / `geddump` and the icon-master microbench `micro` / `micsum`.
-
-## Link-free corpus variants
-
-Link-free transcriptions of several of these (inlined arg parsing, dropped
-`options()`/`Init__()`/`Term__()`) live alongside the corpus Icon programs as
-`programs/icon/rung36_jcon_*.icn`, each with a `.expected` oracle (real program
-stdout) — those are the gating oracles for the SCRIP native-execution work.
-The files here are the **unmodified upstream originals**.
+- `concord.dat`: jcon version used (superset of icon-master's; icon-master content + additional pages).
+- `rsg.dat`: icon-master version (1000-poem count; jcon used 2500).
+- `*.std` files are the icont self-benchmark format (`&features` banner + storage/GC stats + elapsed
+  time); they are NOT diffable oracles. The real oracles are in `corpus/programs/icon/rung36_jcon_*.expected`.
+- These upstream originals use `link options, post, shuffle, version`; they are NOT link-free.
+  Link-free, oracle-bearing variants for the SCRIP native-execution gate live in `programs/icon/rung36_jcon_*`.
