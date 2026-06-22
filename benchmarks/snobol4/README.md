@@ -1,14 +1,21 @@
-# corpus / benchmarks
+# corpus / benchmarks / snobol4
 
-Canonical benchmark programs for all snobol4ever implementations.
+Canonical SNOBOL4 benchmark programs for all snobol4ever implementations.
+Namespaced under `snobol4/` so the benchmark root can hold per-language
+sets (`snobol4/`, and future `icon/`, `prolog/`, …), mirroring
+`corpus/programs/<lang>/`.
 
 Each `.sno` file is a self-contained SNOBOL4 program that writes its result
 to OUTPUT. The `.spt` files are SPITBOL-dialect programs (use `-TITLE` and
 `./*` preprocessor directives) from the original SPITBOL test suite.
 
-Each implementation repo (`snobol4jvm`, `snobol4dotnet`) points to this
-corpus as a Git submodule and provides its own benchmark runner that loads
-programs from this folder.
+⚠️ PATH NOTE (2026-06-22 reorg): programs moved from `corpus/benchmarks/`
+to `corpus/benchmarks/snobol4/`. Sibling repos (`snobol4jvm`,
+`snobol4dotnet`) point to this corpus as a Git submodule and load programs
+from this folder — their benchmark runners need their load path updated
+from `benchmarks/*.sno` to `benchmarks/snobol4/*.sno`. The SCRIP-side
+runners (`test_bench_snobol4_modes.sh`, `util_regen_benchmark_s_artifacts.sh`,
+`test_crosscheck_jvm_artifact_check.sh`) were updated in the same reorg.
 
 ---
 
