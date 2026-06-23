@@ -26,98 +26,98 @@ global Save__, Saves__, Name__
 
 # List information before running.
 #
-procedure Init__(prog)
-   Name__ := prog			# program name
-   Signature__()			# initial information
-   Regions__()
-   Time__()
+procedure Init__(prog);
+   Name__ := prog; # program name
+   Signature__(); # initial information
+   Regions__();
+   Time__();
    if getenv("OUTPUT") then {	# if OUTPUT is set, allow output
-      write("*** Benchmarking with output ***")
+      write("*** Benchmarking with output ***");
       return
-      }
-   Save__ := write			# turn off output
-   Saves__ := writes
-   write := writes := 1
-   return
+      };
+   Save__ := write; # turn off output
+   Saves__ := writes;
+   write := writes := 1;
+   return;
 end
 
 # List information at termination.
 
-procedure Term__()
+procedure Term__();
    if not getenv("OUTPUT") then {	# if OUTPUT is not set, restore output
-      write := Save__
+      write := Save__;
       writes := Saves__
-      }
+      };
 					# final information
-   write(Name__," elapsed time = ",Time__())
-   Regions__()
-   Storage__()
-   Collections__()
-   return
+   write(Name__," elapsed time = ",Time__());
+   Regions__();
+   Storage__();
+   Collections__();
+   return;
 end
 
 # List garbage collections performed.
 #
-procedure Collections__()
-   static labels
-   local collections
+procedure Collections__();
+   static labels;
+   local collections;
    
-   initial labels := ["total","static","string","block"]
+   initial labels := ["total","static","string","block"];
 
-   collections := []
-   every put(collections,&collections)
-   write("collections")
+   collections := [];
+   every put(collections,&collections);
+   write("collections");
    every i := 1 to *labels do
-      write(labels[i],right(collections[i],8))
-   return
+      write(labels[i],right(collections[i],8));
+   return;
 end
 
 # List region sizes.
 #
-procedure Regions__()
-   static labels
-   local regions
+procedure Regions__();
+   static labels;
+   local regions;
    
-   initial labels := ["static","string","block"]
+   initial labels := ["static","string","block"];
 
-   regions := []
-   every put(regions,&regions)
-   write("regions")
+   regions := [];
+   every put(regions,&regions);
+   write("regions");
    every i := 1 to *labels do
-      write(labels[i],right(regions[i],8))
-   return
+      write(labels[i],right(regions[i],8));
+   return;
 end
 
 # List relveant implementation information
 #
-procedure Signature__()
-   write(&version)
-   write(&host)
-   every write(&features)
-   return
+procedure Signature__();
+   write(&version);
+   write(&host);
+   every write(&features);
+   return;
 end
 
 # List storage used.
 #
-procedure Storage__()
-   static labels
-   local storage
+procedure Storage__();
+   static labels;
+   local storage;
    
-   initial labels := ["static","string","block"]
+   initial labels := ["static","string","block"];
 
-   storage := []
-   every put(storage,&storage)
-   write("storage")
+   storage := [];
+   every put(storage,&storage);
+   write("storage");
    every i := 1 to *labels do
-      write(labels[i],right(storage[i],8))
-   return
+      write(labels[i],right(storage[i],8));
+   return;
 end
 
 # List elapsed time.
 #
-procedure Time__()
-   static lasttime
+procedure Time__();
+   static lasttime;
 
-   initial lasttime := &time
-   return &time - lasttime
+   initial lasttime := &time;
+   return &time - lasttime;
 end

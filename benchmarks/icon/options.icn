@@ -41,25 +41,25 @@
 #  
 ############################################################################
 
-procedure options(arg,optstring)
+procedure options(arg,optstring);
    local x,i,c,otab,flist,o,p
-   /optstring := string(&letters)
-   otab := table()
-   flist := []
+   /optstring := string(&letters);
+   otab := table();
+   flist := [];
    while x := get(arg) do
       x ? {
          if ="-" & not pos(0) then {
-            if ="-" & pos(0) then break
+            if ="-" & pos(0) then break;
             while c := move(1) do
                if i := find(c,optstring) + 1 then
                   otab[c] :=
                      if any(':+.',o := optstring[i]) then {
                         p := "" ~== tab(0) | get(arg) |
-                              stop("No parameter following -",c)
+                              stop("No parameter following -",c);
                         case o of {
-                           ":": p
+                           ":": p;
                            "+": integer(p) |
-                                 stop("-",c," needs numeric parameter")
+                                 stop("-",c," needs numeric parameter");
                            ".": real(p) |
                                  stop("-",c," needs numeric parameter")
                            }
@@ -68,7 +68,7 @@ procedure options(arg,optstring)
                else stop("Unrecognized option: -",c)
          }
          else put(flist,x)
-      }
-   while push(arg,pull(flist))
-   return otab
+      };
+   while push(arg,pull(flist));
+   return otab;
 end

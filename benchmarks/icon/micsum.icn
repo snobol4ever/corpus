@@ -15,62 +15,62 @@
 #  gmean    geometric mean of microbenchmark times
 
 
-procedure main(args)
-   local a, f
+procedure main(args);
+   local a, f;
 
-   write("  N ovhead rmserr median  gmean   filename")
+   write("  N ovhead rmserr median  gmean   filename");
    if *args = 0 then
       dofile(&input, "stdin")
    else while a := get(args) do {
-      f := open(a) | stop("cannot open ", a)
+      f := open(a) | stop("cannot open ", a);
       dofile(f, a)
-   }
+   };
 end
 
-procedure dofile(f, name)
-   local line, label, overhead, nothings, others, n, t, v
-   nothings := []
-   others := []
+procedure dofile(f, name);
+   local line, label, overhead, nothings, others, n, t, v;
+   nothings := [];
+   others := [];
 
    while line := read(f) do line ? {
-      tab(many(' '))
-      n := integer(tab(many('-0123456789')))
-      tab(many(' '))
-      label := tab(0)
+      tab(many(' '));
+      n := integer(tab(many('-0123456789')));
+      tab(many(' '));
+      label := tab(0);
       if label == "overhead" then
          overhead := n
       else if label == "nothing" then
          put(nothings, n)
       else
          put(others, n)
-   }
+   };
 
    # count of measurements
-   writes(*others)
+   writes(*others);
 
    # overhead value
-   writes(right(overhead, 7))
+   writes(right(overhead, 7));
 
    # RMS error ("nothing" values)
-   t := 0
-   every t +:= !nothings ^ 2
-   t := integer(sqrt(t / *nothings) + 0.5)
-   writes(right(t, 7))
+   t := 0;
+   every t +:= !nothings ^ 2;
+   t := integer(sqrt(t / *nothings) + 0.5);
+   writes(right(t, 7));
 
    # median of other values
-   others := sort(others)
-   t := others[*others / 2 + 1]
-   writes(right(t, 7))
+   others := sort(others);
+   t := others[*others / 2 + 1];
+   writes(right(t, 7));
 
    # geometric mean of other values
-   t := 0.0
+   t := 0.0;
    every v := !others do
-      t +:= (if v <= 0 then 0 else log(v))
-   t := integer(&e ^ (t / *others) + 0.5)
-   writes(right(t, 7))
+      t +:= (if v <= 0 then 0 else log(v));
+   t := integer(&e ^ (t / *others) + 0.5);
+   writes(right(t, 7));
 
    # file name
-   write("   ", name)
-   return
+   write("   ", name);
+   return;
 
 end

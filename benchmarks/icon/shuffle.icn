@@ -17,8 +17,8 @@
 #  
 ############################################################################
 
-procedure shuffle(x)
-   x := string(x)
-   every !x :=: ?x
-   return x
+procedure shuffle(x);
+   x := string(x);
+   every !x :=: ?x;
+   return x;
 end
