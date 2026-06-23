@@ -179,6 +179,29 @@ smatch19_retry:
 bb17_α:
  lea rdi, [rip + .S7]
  mov esi, 0
+ push rbx
+ mov rbx, rsp
+ and rsp, -16
+ call rt_defer_get_pat_fn@PLT
+ mov rsp, rbx
+ pop rbx
+ test rax, rax
+ jz .Lx22_0
+ push rax
+ push rbx
+ mov rbx, rsp
+ and rsp, -16
+ call rt_frame@PLT
+ mov rsp, rbx
+ pop rbx
+ pop rcx
+ mov rdi, rax
+ xor esi, esi
+ call rcx
+ cmp eax, 1
+ jne smatch19_adv
+ jmp xscan16_dok
+.Lx22_0:
  mov edx, r14d
  push rbx
  mov rbx, rsp
