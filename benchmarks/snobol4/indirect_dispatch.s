@@ -293,88 +293,24 @@ bb21_α:
  snoch7_n14_β:
  jmp snoch7_n11_α
 snoch7_n15_α:
-# IR_VAR
 bb22_α:
- mov rdi, qword ptr [rip + .Lx34_0]
- call NV_GET_fn@PLT
- mov qword ptr [r12 + 136], rax
- mov qword ptr [r12 + 144], rdx
- jmp xgvarg32_done
- xgvarg32_β:
- jmp snoch7_n11_α
-.Lx34_0:
- .quad .Lx34_0_s
-.Lx34_0_s:
- .string "N"
-xgvarg32_done:
-# IR_LIT_I
-bb23_α:
- mov qword ptr [r12 + 32], 6
- mov rax, qword ptr [rip + .Lx36_0]
- mov qword ptr [r12 + 40], rax
- jmp xgvarg35_done
- xgvarg35_β:
- jmp snoch7_n11_α
-.Lx36_0:
- .quad 500
-xgvarg35_done:
-bb24_α:
-# BOX IR_CALL LT(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
-# marshal arg0 = producer-box slot [r12+16] -> [r12+168]
- mov rax, qword ptr [r12 + 16]
- mov qword ptr [r12 + 168], rax
- mov rax, qword ptr [r12 + 24]
- mov qword ptr [r12 + 176], rax
-# marshal arg1 = producer-box slot [r12+32] -> [r12+184]
- mov rax, qword ptr [r12 + 32]
- mov qword ptr [r12 + 184], rax
- mov rax, qword ptr [r12 + 40]
- mov qword ptr [r12 + 192], rax
-  .section .rodata
-  .Lbynamefn38: .string "LT"
-  .section .text
-  .intel_syntax noprefix
-   lea rdi, [rip + .Lbynamefn38]
- lea rsi, [r12 + 168]
- mov edx, 2
- call rt_call_arr@PLT
- mov qword ptr [r12 + 152], rax
- mov qword ptr [r12 + 160], rdx
- cmp eax, 99
- je snoch7_n11_α
- jmp xgvcat31_0d
-xgvcat31_0b:
- jmp snoch7_n11_α
-xgvcat31_0d:
-bb25_α:
-# IR_BINOP_GVAR_ARITH
- lea rdi, [rip + .S6]
- call rt_gvar_get_int@PLT
- mov rcx, 1
- add rax, rcx
- mov qword ptr [r12 + 200], rax
- jmp xgvcat39_1d
- xgvcat39_1b:
- jmp snoch7_n11_α
-xgvcat39_1d:
-bb26_α:
 # IR_BINOP_GVAR_CONCAT
  mov rdi, qword ptr [r12 + 48]
  mov rsi, qword ptr [r12 + 56]
  mov rdx, 6
  mov rcx, qword ptr [r12 + 128]
  call str_concat_d@PLT
- mov qword ptr [r12 + 208], rax
- mov qword ptr [r12 + 216], rdx
+ mov qword ptr [r12 + 136], rax
+ mov qword ptr [r12 + 144], rdx
  jmp snoch7_n16_α
  snoch7_n15_β:
  jmp snoch7_n11_α
 snoch7_n16_α:
-bb27_α:
+bb23_α:
 # IR_ASSIGN
  lea rdi, [rip + .S6]
- mov rsi, qword ptr [r12 + 208]
- mov rdx, qword ptr [r12 + 216]
+ mov rsi, qword ptr [r12 + 136]
+ mov rdx, qword ptr [r12 + 144]
  call rt_gvar_assign_descr@PLT
  jmp snoch7_n9_α
  snoch7_n16_β:
