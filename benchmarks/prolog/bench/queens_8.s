@@ -597,7 +597,7 @@ gzp58_g1_α:
 bb35_α:
 # IR_CELL_CALL
  lea rdi, [r12 + 32]
- mov esi, 11
+ mov esi, 15
  call rt_enter@PLT
  mov rdi, rax
  mov rsi, qword ptr [r12 + 8]
@@ -638,7 +638,7 @@ gzp57_α:
  mov dword ptr [r12 + 0], eax
  mov dword ptr [r12 + 4], 1
  lea rdi, [r12 + 32]
- mov esi, 7
+ mov esi, 11
  call rt_pl_cells_init@PLT
  jmp gzp65_g0_α
 gzp65_g0_α:
@@ -790,8 +790,8 @@ bb48_α:
 gzp65_g10_α:
 bb49_α:
 # IR_CELL_CALL
- lea rdi, [r12 + 88]
- mov esi, 11
+ lea rdi, [r12 + 120]
+ mov esi, 15
  call rt_enter@PLT
  mov rdi, rax
  mov rsi, qword ptr [r12 + 56]
@@ -803,7 +803,7 @@ bb49_α:
  jne gzp65_γ
  jmp gzp65_ω
  gzp65_g10_β:
- mov rdi, qword ptr [r12 + 88]
+ mov rdi, qword ptr [r12 + 120]
  call gzp57_β
  jmp .Lx89_0
 # IR_CALLEE_FRAME

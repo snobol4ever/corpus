@@ -37,7 +37,7 @@ gzq0_g1_α:
 bb3_α:
 # IR_CELL_CALL
  lea rdi, [r12 + 24]
- mov esi, 8
+ mov esi, 14
  call rt_enter@PLT
  mov rdi, rax
  mov rsi, qword ptr [r12 + 16]
@@ -84,7 +84,7 @@ gzp1_α:
  mov dword ptr [r12 + 0], eax
  mov dword ptr [r12 + 4], 1
  lea rdi, [r12 + 24]
- mov esi, 4
+ mov esi, 10
  call rt_pl_cells_init@PLT
  jmp gzp11_g0_α
 gzp11_g0_α:
@@ -204,8 +204,8 @@ bb18_α:
 gzp11_g9_α:
 bb19_α:
 # IR_CELL_CALL
- lea rdi, [r12 + 56]
- mov esi, 8
+ lea rdi, [r12 + 104]
+ mov esi, 14
  call rt_enter@PLT
  mov rdi, rax
  mov rsi, qword ptr [r12 + 24]
@@ -216,14 +216,14 @@ bb19_α:
  jne gzp11_g10_α
  jmp gzp11_ω
  gzp11_g9_β:
- mov rdi, qword ptr [r12 + 56]
+ mov rdi, qword ptr [r12 + 104]
  call gzp1_β
  jmp .Lx34_0
 gzp11_g10_α:
 bb20_α:
 # IR_CELL_CALL
- lea rdi, [r12 + 64]
- mov esi, 8
+ lea rdi, [r12 + 112]
+ mov esi, 14
  call rt_enter@PLT
  mov rdi, rax
  mov rsi, qword ptr [r12 + 32]
@@ -234,7 +234,7 @@ bb20_α:
  jne gzp11_g11_α
  jmp gzp11_g9_β
  gzp11_g10_β:
- mov rdi, qword ptr [r12 + 64]
+ mov rdi, qword ptr [r12 + 112]
  call gzp1_β
  jmp .Lx36_0
 gzp11_g11_α:

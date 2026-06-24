@@ -204,7 +204,7 @@ gzp24_g2_α:
 bb14_α:
 # IR_CELL_CALL
  lea rdi, [r12 + 32]
- mov esi, 10
+ mov esi, 12
  call rt_enter@PLT
  mov rdi, rax
  mov rsi, qword ptr [r12 + 16]
@@ -251,7 +251,7 @@ gzp23_α:
  mov dword ptr [r12 + 0], eax
  mov dword ptr [r12 + 4], 1
  lea rdi, [r12 + 32]
- mov esi, 5
+ mov esi, 7
  call rt_pl_cells_init@PLT
  jmp gzp36_g0_α
 gzp36_g0_α:
@@ -454,8 +454,8 @@ bb24_α:
 gzp36_g6_α:
 bb25_α:
 # IR_CELL_CALL
- lea rdi, [r12 + 72]
- mov esi, 10
+ lea rdi, [r12 + 88]
+ mov esi, 12
  call rt_enter@PLT
  mov rdi, rax
  mov rsi, qword ptr [r12 + 64]
@@ -467,13 +467,13 @@ bb25_α:
  jne gzp36_g7_α
  jmp gzp36_ω
  gzp36_g6_β:
- mov rdi, qword ptr [r12 + 72]
+ mov rdi, qword ptr [r12 + 88]
  call gzp23_β
  jmp .Lx52_0
 gzp36_g7_α:
 bb26_α:
 # IR_CELL_CALL
- lea rdi, [r12 + 80]
+ lea rdi, [r12 + 96]
  mov esi, 7
  call rt_enter@PLT
  mov rdi, rax
@@ -486,7 +486,7 @@ bb26_α:
  jne gzp36_γ
  jmp gzp36_g6_β
  gzp36_g7_β:
- mov rdi, qword ptr [r12 + 80]
+ mov rdi, qword ptr [r12 + 96]
  call gzp35_β
  jmp .Lx54_0
 # IR_CALLEE_FRAME
