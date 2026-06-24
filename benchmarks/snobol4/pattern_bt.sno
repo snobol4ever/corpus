@@ -12,5 +12,6 @@ LOOP    S PAT                           :F(DONE)
     N = LT(N, 500000) N + 1            :S(LOOP)
 DONE    T2 = TIME()
     OUTPUT = "result: " N
+    OUTPUT = "W: " W
     OUTPUT = "ms: " (T2 - T1)
 END
