@@ -3325,8 +3325,12 @@ ret
   .section .rodata
   .Lpn0: .string "list_reverse"
   .Lpp0_0: .string "lst"
+  .Lpp0_1: .string "acc"
+  .Lpp0_2: .string "cur"
   .Lpnames0:
   .quad .Lpp0_0
+  .quad .Lpp0_1
+  .quad .Lpp0_2
   .quad 0
   .Lpn1: .string "stk_push_frame"
   .Lpp1_0: .string "v"
@@ -3339,7 +3343,9 @@ ret
   .quad .Lpp2_0
   .quad 0
   .Lpn3: .string "stk_pop_into_parent"
+  .Lpp3_0: .string "child"
   .Lpnames3:
+  .quad .Lpp3_0
   .quad 0
   .Lpn4: .string "stk_pop_final"
   .Lpp4_0: .string "var"
@@ -3394,20 +3400,36 @@ ret
   .quad 0
   .Lpn15: .string "node_repr"
   .Lpp15_0: .string "node"
+  .Lpp15_1: .string "r"
+  .Lpp15_2: .string "c"
+  .Lpp15_3: .string "sep"
   .Lpnames15:
   .quad .Lpp15_0
+  .quad .Lpp15_1
+  .quad .Lpp15_2
+  .quad .Lpp15_3
   .quad 0
   .Lpn16: .string "pp_node"
   .Lpp16_0: .string "node"
   .Lpp16_1: .string "indent"
   .Lpp16_2: .string "suffix"
+  .Lpp16_3: .string "r"
+  .Lpp16_4: .string "pad"
+  .Lpp16_5: .string "c"
+  .Lpp16_6: .string "nxt"
   .Lpnames16:
   .quad .Lpp16_0
   .quad .Lpp16_1
   .quad .Lpp16_2
+  .quad .Lpp16_3
+  .quad .Lpp16_4
+  .quad .Lpp16_5
+  .quad .Lpp16_6
   .quad 0
   .Lpn17: .string "pp_bank"
+  .Lpp17_0: .string "cur"
   .Lpnames17:
+  .quad .Lpp17_0
   .quad 0
   .section .text
   .intel_syntax noprefix
@@ -3418,7 +3440,7 @@ proc_startup:
   call rt_proc_reset@PLT
   lea rdi, [rip + .Lpn0]
   lea rsi, [rip + .Lpnames0]
-  mov edx, 1
+  mov edx, 3
   call rt_proc_register@PLT
   lea rdi, [rip + .Lpn0]
   lea rsi, [rip + list_reverse_α]
@@ -3448,7 +3470,7 @@ proc_startup:
   call rt_proc_set_frame_bytes@PLT
   lea rdi, [rip + .Lpn3]
   lea rsi, [rip + .Lpnames3]
-  mov edx, 0
+  mov edx, 1
   call rt_proc_register@PLT
   lea rdi, [rip + .Lpn3]
   lea rsi, [rip + stk_pop_into_parent_α]
@@ -3568,7 +3590,7 @@ proc_startup:
   call rt_proc_set_frame_bytes@PLT
   lea rdi, [rip + .Lpn15]
   lea rsi, [rip + .Lpnames15]
-  mov edx, 1
+  mov edx, 4
   call rt_proc_register@PLT
   lea rdi, [rip + .Lpn15]
   lea rsi, [rip + node_repr_α]
@@ -3578,7 +3600,7 @@ proc_startup:
   call rt_proc_set_frame_bytes@PLT
   lea rdi, [rip + .Lpn16]
   lea rsi, [rip + .Lpnames16]
-  mov edx, 3
+  mov edx, 7
   call rt_proc_register@PLT
   lea rdi, [rip + .Lpn16]
   lea rsi, [rip + pp_node_α]
@@ -3588,7 +3610,7 @@ proc_startup:
   call rt_proc_set_frame_bytes@PLT
   lea rdi, [rip + .Lpn17]
   lea rsi, [rip + .Lpnames17]
-  mov edx, 0
+  mov edx, 1
   call rt_proc_register@PLT
   lea rdi, [rip + .Lpn17]
   lea rsi, [rip + pp_bank_α]
@@ -3598,11 +3620,94 @@ proc_startup:
   call rt_proc_set_frame_bytes@PLT
   pop rbp
   ret
+  .section .rodata
+  .Lgvan0: .string "acc"
+  .Lgvan1: .string "cur"
+  .Lgvan2: .string "lst"
+  .Lgvan3: .string "list_reverse"
+  .Lgvan4: .string "stk"
+  .Lgvan5: .string "stk_push_frame"
+  .Lgvan6: .string "stk_push_item"
+  .Lgvan7: .string "child"
+  .Lgvan8: .string "stk_pop_into_parent"
+  .Lgvan9: .string "stk_pop_final"
+  .Lgvan10: .string "init_list"
+  .Lgvan11: .string "Init_list"
+  .Lgvan12: .string "dummy"
+  .Lgvan13: .string "push_list"
+  .Lgvan14: .string "Push_list"
+  .Lgvan15: .string "push_item"
+  .Lgvan16: .string "Push_item"
+  .Lgvan17: .string "pop_list"
+  .Lgvan18: .string "Pop_list"
+  .Lgvan19: .string "pop_final"
+  .Lgvan20: .string "Pop_final"
+  .Lgvan21: .string "delim"
+  .Lgvan22: .string "word"
+  .Lgvan23: .string "group"
+  .Lgvan24: .string "treebank"
+  .Lgvan25: .string "node_repr"
+  .Lgvan26: .string "r"
+  .Lgvan27: .string "sep"
+  .Lgvan28: .string "c"
+  .Lgvan29: .string "node"
+  .Lgvan30: .string "pad"
+  .Lgvan31: .string "nxt"
+  .Lgvan32: .string "pp_bank"
+  .Lgvan33: .string "line"
+  .Lgvan34: .string "src"
+  .align 8
+__gva_names:
+  .quad .Lgvan0
+  .quad .Lgvan1
+  .quad .Lgvan2
+  .quad .Lgvan3
+  .quad .Lgvan4
+  .quad .Lgvan5
+  .quad .Lgvan6
+  .quad .Lgvan7
+  .quad .Lgvan8
+  .quad .Lgvan9
+  .quad .Lgvan10
+  .quad .Lgvan11
+  .quad .Lgvan12
+  .quad .Lgvan13
+  .quad .Lgvan14
+  .quad .Lgvan15
+  .quad .Lgvan16
+  .quad .Lgvan17
+  .quad .Lgvan18
+  .quad .Lgvan19
+  .quad .Lgvan20
+  .quad .Lgvan21
+  .quad .Lgvan22
+  .quad .Lgvan23
+  .quad .Lgvan24
+  .quad .Lgvan25
+  .quad .Lgvan26
+  .quad .Lgvan27
+  .quad .Lgvan28
+  .quad .Lgvan29
+  .quad .Lgvan30
+  .quad .Lgvan31
+  .quad .Lgvan32
+  .quad .Lgvan33
+  .quad .Lgvan34
+  .section .bss
+  .align 16
+__gva: .space 560, 0
+  .section .text
+  .intel_syntax noprefix
   .globl main
 main:
   push rbp
   mov rbp, rsp
   call proc_startup
+  lea rdi, [rip + __gva_names]
+  lea rsi, [rip + __gva]
+  mov edx, 35
+  call gva_register@PLT
+  mov rbx, rax
   call rt_frame@PLT
   mov rdi, rax
   xor esi, esi
@@ -3940,19 +4045,15 @@ bb216_α:
  snoch352_n22_β:
  jmp snoch352_n23_α
 snoch352_n23_α:
-# IR_VAR
+# IR_VAR gva
 bb217_α:
- mov rdi, qword ptr [rip + .Lx395_0]
- call NV_GET_fn@PLT
+ mov rax, qword ptr [rbx + 544]
+ mov rdx, qword ptr [rbx + 552]
  mov qword ptr [r12 + 128], rax
  mov qword ptr [r12 + 136], rdx
  jmp snoch352_n25_α
  snoch352_n23_β:
  jmp snoch352_n26_α
-.Lx395_0:
- .quad .Lx395_0_s
-.Lx395_0_s:
- .string "src"
 snoch352_n24_α:
 bb218_α:
 # IR_ASSIGN_CONCAT 3 parts
@@ -4116,11 +4217,11 @@ bb226_α:
  jmp flat_γ
 snoch352_n29_α:
 bb227_α:
-# IR_ASSIGN_CALL
- lea rdi, [rip + .S14]
- mov rsi, qword ptr [r12 + 224]
- mov rdx, qword ptr [r12 + 232]
- call rt_gvar_assign_descr@PLT
+# IR_ASSIGN_CALL gva
+ mov rax, qword ptr [r12 + 224]
+ mov rcx, qword ptr [r12 + 232]
+ mov qword ptr [rbx + 192], rax
+ mov qword ptr [rbx + 200], rcx
  jmp flat_γ
  snoch352_n29_β:
  jmp flat_γ

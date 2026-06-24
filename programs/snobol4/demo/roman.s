@@ -316,8 +316,10 @@ ret
   .section .rodata
   .Lpn0: .string "ROMAN"
   .Lpp0_0: .string "N"
+  .Lpp0_1: .string "UNITS"
   .Lpnames0:
   .quad .Lpp0_0
+  .quad .Lpp0_1
   .quad 0
   .section .text
   .intel_syntax noprefix
@@ -328,7 +330,7 @@ proc_startup:
   call rt_proc_reset@PLT
   lea rdi, [rip + .Lpn0]
   lea rsi, [rip + .Lpnames0]
-  mov edx, 1
+  mov edx, 2
   call rt_proc_register@PLT
   lea rdi, [rip + .Lpn0]
   lea rsi, [rip + ROMAN_α]
