@@ -95,11 +95,36 @@ proc_startup:
   call rt_proc_set_frame_bytes@PLT
   pop rbp
   ret
+  .section .rodata
+  .Lgvan0: .string "ADD1"
+  .Lgvan1: .string "V"
+  .Lgvan2: .string "FN"
+  .Lgvan3: .string "X"
+  .Lgvan4: .string "N"
+  .Lgvan5: .string "R"
+  .align 8
+__gva_names:
+  .quad .Lgvan0
+  .quad .Lgvan1
+  .quad .Lgvan2
+  .quad .Lgvan3
+  .quad .Lgvan4
+  .quad .Lgvan5
+  .section .bss
+  .align 16
+__gva: .space 96, 0
+  .section .text
+  .intel_syntax noprefix
   .globl main
 main:
   push rbp
   mov rbp, rsp
   call proc_startup
+  lea rdi, [rip + __gva_names]
+  lea rsi, [rip + __gva]
+  mov edx, 6
+  call gva_register@PLT
+  mov rbx, rax
   call rt_frame@PLT
   mov rdi, rax
   xor esi, esi
@@ -186,19 +211,15 @@ bb13_α:
  snoch7_n8_β:
  jmp snoch7_n9_α
 snoch7_n9_α:
-# IR_VAR
+# IR_VAR gva
 bb14_α:
- mov rdi, qword ptr [rip + .Lx19_0]
- call NV_GET_fn@PLT
+ mov rax, qword ptr [rbx + 64]
+ mov rdx, qword ptr [rbx + 72]
  mov qword ptr [r12 + 16], rax
  mov qword ptr [r12 + 24], rdx
  jmp xgvarg17_done
  xgvarg17_β:
  jmp snoch7_n11_α
-.Lx19_0:
- .quad .Lx19_0_s
-.Lx19_0_s:
- .string "N"
 xgvarg17_done:
 # IR_LIT_I
 bb15_α:
@@ -212,60 +233,39 @@ bb15_α:
  .quad 500
 xgvarg20_done:
 bb16_α:
-# BOX IR_CALL LT(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
-# marshal arg0 = producer-box slot [r12+16] -> [r12+64]
- mov rax, qword ptr [r12 + 16]
+# BOX IR_CALL LT(...) inline integer relop [four-port, FAIL->ω]
+   lea rdi, [rip + .S6]
+ call rt_gvar_get_int@PLT
  mov qword ptr [r12 + 64], rax
- mov rax, qword ptr [r12 + 24]
- mov qword ptr [r12 + 72], rax
-# marshal arg1 = producer-box slot [r12+32] -> [r12+80]
- mov rax, qword ptr [r12 + 32]
- mov qword ptr [r12 + 80], rax
- mov rax, qword ptr [r12 + 40]
- mov qword ptr [r12 + 88], rax
-  .section .rodata
-  .Lbynamefn23: .string "LT"
-  .section .text
-  .intel_syntax noprefix
-   lea rdi, [rip + .Lbynamefn23]
- lea rsi, [r12 + 64]
- mov edx, 2
- call rt_call_arr@PLT
- mov qword ptr [r12 + 48], rax
- mov qword ptr [r12 + 56], rdx
- cmp eax, 99
- je snoch7_n11_α
+ mov rcx, 500
+ mov qword ptr [r12 + 48], 0
+ mov qword ptr [r12 + 56], 0
+ mov rax, qword ptr [r12 + 64]
+ cmp rax, rcx
+ jge snoch7_n11_α
  jmp snoch7_n10_α
-snoch7_n9_β:
+ snoch7_n9_β:
  jmp snoch7_n11_α
 snoch7_n10_α:
-# IR_VAR
+# IR_VAR gva
 bb17_α:
- mov rdi, qword ptr [rip + .Lx25_0]
- call NV_GET_fn@PLT
- mov qword ptr [r12 + 96], rax
- mov qword ptr [r12 + 104], rdx
+ mov rax, qword ptr [rbx + 64]
+ mov rdx, qword ptr [rbx + 72]
+ mov qword ptr [r12 + 80], rax
+ mov qword ptr [r12 + 88], rdx
  jmp snoch7_n12_α
  snoch7_n10_β:
  jmp snoch7_n11_α
-.Lx25_0:
- .quad .Lx25_0_s
-.Lx25_0_s:
- .string "N"
 snoch7_n11_α:
-# IR_VAR
+# IR_VAR gva
 bb18_α:
- mov rdi, qword ptr [rip + .Lx27_0]
- call NV_GET_fn@PLT
- mov qword ptr [r12 + 112], rax
- mov qword ptr [r12 + 120], rdx
+ mov rax, qword ptr [rbx + 80]
+ mov rdx, qword ptr [rbx + 88]
+ mov qword ptr [r12 + 96], rax
+ mov qword ptr [r12 + 104], rdx
  jmp snoch7_n13_α
  snoch7_n11_β:
  jmp flat_γ
-.Lx27_0:
- .quad .Lx27_0_s
-.Lx27_0_s:
- .string "R"
 snoch7_n12_α:
 # IR_LIT_scalar
 bb19_α:
@@ -284,11 +284,10 @@ bb20_α:
 snoch7_n14_α:
 bb21_α:
 # IR_BINOP_GVAR_ARITH
- lea rdi, [rip + .S6]
- call rt_gvar_get_int@PLT
+ mov rax, qword ptr [rbx + 72]
  mov rcx, 1
  add rax, rcx
- mov qword ptr [r12 + 128], rax
+ mov qword ptr [r12 + 112], rax
  jmp snoch7_n15_α
  snoch7_n14_β:
  jmp snoch7_n11_α
@@ -298,20 +297,20 @@ bb22_α:
  mov rdi, qword ptr [r12 + 48]
  mov rsi, qword ptr [r12 + 56]
  mov rdx, 6
- mov rcx, qword ptr [r12 + 128]
+ mov rcx, qword ptr [r12 + 112]
  call str_concat_d@PLT
- mov qword ptr [r12 + 136], rax
- mov qword ptr [r12 + 144], rdx
+ mov qword ptr [r12 + 120], rax
+ mov qword ptr [r12 + 128], rdx
  jmp snoch7_n16_α
  snoch7_n15_β:
  jmp snoch7_n11_α
 snoch7_n16_α:
 bb23_α:
 # IR_ASSIGN
- lea rdi, [rip + .S6]
- mov rsi, qword ptr [r12 + 136]
- mov rdx, qword ptr [r12 + 144]
- call rt_gvar_assign_descr@PLT
+ mov rax, qword ptr [r12 + 120]
+ mov rcx, qword ptr [r12 + 128]
+ mov qword ptr [rbx + 64], rax
+ mov qword ptr [rbx + 72], rcx
  jmp snoch7_n9_α
  snoch7_n16_β:
  jmp snoch7_n11_α
