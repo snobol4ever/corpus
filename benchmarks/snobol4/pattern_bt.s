@@ -383,7 +383,15 @@ bb28_α:
 snoch0_n22_α:
 bb29_α:
 # IR_BINOP_GVAR_ARITH
+ mov rdx, qword ptr [rbx + 48]
+ cmp edx, 6
+ jne .Lx41_0
  mov rax, qword ptr [rbx + 56]
+ jmp .Lx41_1
+.Lx41_0:
+ lea rdi, [rip + .S6]
+ call rt_gvar_get_int@PLT
+.Lx41_1:
  mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 208], rax
@@ -416,8 +424,27 @@ bb31_α:
 snoch0_n25_α:
 bb32_α:
 # IR_BINOP_GVAR_ARITH
- mov rax, qword ptr [rbx + 72]
+ mov rdx, qword ptr [rbx + 32]
+ cmp edx, 6
+ jne .Lx46_0
  mov rcx, qword ptr [rbx + 40]
+ jmp .Lx46_1
+.Lx46_0:
+ lea rdi, [rip + .S5]
+ call rt_gvar_get_int@PLT
+ mov rcx, rax
+.Lx46_1:
+ mov qword ptr [r12 + 248], rcx
+ mov rdx, qword ptr [rbx + 64]
+ cmp edx, 6
+ jne .Lx46_2
+ mov rax, qword ptr [rbx + 72]
+ jmp .Lx46_3
+.Lx46_2:
+ lea rdi, [rip + .S8]
+ call rt_gvar_get_int@PLT
+.Lx46_3:
+ mov rcx, qword ptr [r12 + 248]
  sub rax, rcx
  mov qword ptr [r12 + 248], rax
  jmp snoch0_n27_α
@@ -437,16 +464,16 @@ snoch0_n27_α:
 # IR_LIT_S
 bb34_α:
  mov qword ptr [r12 + 256], 1
- mov rax, qword ptr [rip + .Lx48_0]
+ mov rax, qword ptr [rip + .Lx50_0]
  mov qword ptr [r12 + 264], rax
- jmp xgvcat47_0d
- xgvcat47_0b:
+ jmp xgvcat49_0d
+ xgvcat49_0b:
  jmp flat_γ
-.Lx48_0:
- .quad .Lx48_0_s
-.Lx48_0_s:
+.Lx50_0:
+ .quad .Lx50_0_s
+.Lx50_0_s:
  .string "ms: "
-xgvcat47_0d:
+xgvcat49_0d:
 bb35_α:
 # IR_BINOP_GVAR_CONCAT
  mov rdi, qword ptr [r12 + 256]

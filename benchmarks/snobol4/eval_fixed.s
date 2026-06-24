@@ -240,7 +240,15 @@ bb18_α:
 snoch0_n16_α:
 bb19_α:
 # IR_BINOP_GVAR_ARITH
+ mov rdx, qword ptr [rbx + 32]
+ cmp edx, 6
+ jne .Lx26_0
  mov rax, qword ptr [rbx + 40]
+ jmp .Lx26_1
+.Lx26_0:
+ lea rdi, [rip + .S4]
+ call rt_gvar_get_int@PLT
+.Lx26_1:
  mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 144], rax
@@ -300,16 +308,16 @@ snoch0_n22_α:
 # IR_LIT_S
 bb25_α:
  mov qword ptr [r12 + 200], 1
- mov rax, qword ptr [rip + .Lx35_0]
+ mov rax, qword ptr [rip + .Lx36_0]
  mov qword ptr [r12 + 208], rax
- jmp xgvarg34_done
- xgvarg34_β:
+ jmp xgvarg35_done
+ xgvarg35_β:
  jmp snoch0_n10_α
-.Lx35_0:
- .quad .Lx35_0_s
-.Lx35_0_s:
+.Lx36_0:
+ .quad .Lx36_0_s
+.Lx36_0_s:
  .string "X + 1"
-xgvarg34_done:
+xgvarg35_done:
 bb26_α:
 # BOX IR_CALL EVAL(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
 # marshal arg0 = producer-box slot [r12+200] -> [r12+232]
@@ -318,10 +326,10 @@ bb26_α:
  mov rax, qword ptr [r12 + 208]
  mov qword ptr [r12 + 240], rax
   .section .rodata
-  .Lbynamefn37: .string "EVAL"
+  .Lbynamefn38: .string "EVAL"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lbynamefn37]
+   lea rdi, [rip + .Lbynamefn38]
  lea rsi, [r12 + 232]
  mov edx, 1
  call rt_call_arr@PLT
@@ -335,8 +343,27 @@ snoch0_n22_β:
 snoch0_n23_α:
 bb27_α:
 # IR_BINOP_GVAR_ARITH
- mov rax, qword ptr [rbx + 72]
+ mov rdx, qword ptr [rbx + 0]
+ cmp edx, 6
+ jne .Lx40_0
  mov rcx, qword ptr [rbx + 8]
+ jmp .Lx40_1
+.Lx40_0:
+ lea rdi, [rip + .S2]
+ call rt_gvar_get_int@PLT
+ mov rcx, rax
+.Lx40_1:
+ mov qword ptr [r12 + 248], rcx
+ mov rdx, qword ptr [rbx + 64]
+ cmp edx, 6
+ jne .Lx40_2
+ mov rax, qword ptr [rbx + 72]
+ jmp .Lx40_3
+.Lx40_2:
+ lea rdi, [rip + .S5]
+ call rt_gvar_get_int@PLT
+.Lx40_3:
+ mov rcx, qword ptr [r12 + 248]
  sub rax, rcx
  mov qword ptr [r12 + 248], rax
  jmp snoch0_n25_α
@@ -356,16 +383,16 @@ snoch0_n25_α:
 # IR_LIT_S
 bb29_α:
  mov qword ptr [r12 + 256], 1
- mov rax, qword ptr [rip + .Lx41_0]
+ mov rax, qword ptr [rip + .Lx43_0]
  mov qword ptr [r12 + 264], rax
- jmp xgvcat40_0d
- xgvcat40_0b:
+ jmp xgvcat42_0d
+ xgvcat42_0b:
  jmp flat_γ
-.Lx41_0:
- .quad .Lx41_0_s
-.Lx41_0_s:
+.Lx43_0:
+ .quad .Lx43_0_s
+.Lx43_0_s:
  .string "ms: "
-xgvcat40_0d:
+xgvcat42_0d:
 bb30_α:
 # IR_BINOP_GVAR_CONCAT
  mov rdi, qword ptr [r12 + 256]

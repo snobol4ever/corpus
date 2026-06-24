@@ -259,7 +259,15 @@ bb20_α:
 snoch0_n18_α:
 bb21_α:
 # IR_BINOP_GVAR_ARITH
+ mov rdx, qword ptr [rbx + 16]
+ cmp edx, 6
+ jne .Lx29_0
  mov rax, qword ptr [rbx + 24]
+ jmp .Lx29_1
+.Lx29_0:
+ lea rdi, [rip + .S6]
+ call rt_gvar_get_int@PLT
+.Lx29_1:
  mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 216], rax
@@ -324,8 +332,27 @@ bb27_α:
 snoch0_n25_α:
 bb28_α:
 # IR_BINOP_GVAR_ARITH
- mov rax, qword ptr [rbx + 72]
+ mov rdx, qword ptr [rbx + 0]
+ cmp edx, 6
+ jne .Lx40_0
  mov rcx, qword ptr [rbx + 8]
+ jmp .Lx40_1
+.Lx40_0:
+ lea rdi, [rip + .S2]
+ call rt_gvar_get_int@PLT
+ mov rcx, rax
+.Lx40_1:
+ mov qword ptr [r12 + 272], rcx
+ mov rdx, qword ptr [rbx + 64]
+ cmp edx, 6
+ jne .Lx40_2
+ mov rax, qword ptr [rbx + 72]
+ jmp .Lx40_3
+.Lx40_2:
+ lea rdi, [rip + .S7]
+ call rt_gvar_get_int@PLT
+.Lx40_3:
+ mov rcx, qword ptr [r12 + 272]
  sub rax, rcx
  mov qword ptr [r12 + 272], rax
  jmp snoch0_n28_α
@@ -350,16 +377,16 @@ snoch0_n28_α:
 # IR_LIT_S
 bb31_α:
  mov qword ptr [r12 + 280], 1
- mov rax, qword ptr [rip + .Lx42_0]
+ mov rax, qword ptr [rip + .Lx44_0]
  mov qword ptr [r12 + 288], rax
- jmp xgvcat41_0d
- xgvcat41_0b:
+ jmp xgvcat43_0d
+ xgvcat43_0b:
  jmp flat_γ
-.Lx42_0:
- .quad .Lx42_0_s
-.Lx42_0_s:
+.Lx44_0:
+ .quad .Lx44_0_s
+.Lx44_0_s:
  .string "ms: "
-xgvcat41_0d:
+xgvcat43_0d:
 bb32_α:
 # IR_BINOP_GVAR_CONCAT
  mov rdi, qword ptr [r12 + 280]
@@ -410,10 +437,10 @@ bb36_α:
  mov rsp, rbx
  pop rbx
  pop r10
- jmp xscan48_sγ
- xscan48_sβ:
+ jmp xscan50_sγ
+ xscan50_sβ:
  jmp snoch0_n12_α
-xscan48_sγ:
+xscan50_sγ:
  push rbx
  mov rbx, rsp
  and rsp, -16
@@ -426,10 +453,10 @@ bb37_α:
  mov r15d, dword ptr [r12 + 320]
  mov dword ptr [r12 + 328], 0
  lea r10, [r12 + 336]
- jmp smatch51_retry
+ jmp smatch53_retry
  snoch0_n32_β:
- jmp xscan48_dfail
-smatch51_retry:
+ jmp xscan50_dfail
+smatch53_retry:
 # IR_MATCH_RETRY
  mov r14d, dword ptr [r12 + 328]
 # IR_MATCH_DEFER
@@ -443,7 +470,7 @@ bb39_α:
  mov rsp, rbx
  pop rbx
  test rax, rax
- jz .Lx54_0
+ jz .Lx56_0
  push rax
  push rbx
  mov rbx, rsp
@@ -456,9 +483,9 @@ bb39_α:
  xor esi, esi
  call rcx
  cmp eax, 1
- jne smatch51_adv
- jmp xscan48_dok
-.Lx54_0:
+ jne smatch53_adv
+ jmp xscan50_dok
+.Lx56_0:
  mov edx, r14d
  push rbx
  mov rbx, rsp
@@ -467,23 +494,23 @@ bb39_α:
  mov rsp, rbx
  pop rbx
  test eax, eax
- js smatch51_adv
+ js smatch53_adv
  mov r14d, eax
- jmp xscan48_dok
- smatch51_elemb:
- jmp smatch51_adv
-smatch51_adv:
+ jmp xscan50_dok
+ smatch53_elemb:
+ jmp smatch53_adv
+smatch53_adv:
 # IR_MATCH_ADVANCE
  add dword ptr [r12 + 328], 1
  mov eax, dword ptr [r12 + 328]
  cmp eax, r15d
- jg xscan48_dfail
+ jg xscan50_dfail
  lea rcx, [rip + kw_anchor]
  mov rax, qword ptr [rcx]
  cmp rax, 0
- jne xscan48_dfail
- jmp smatch51_retry
-xscan48_dok:
+ jne xscan50_dfail
+ jmp smatch53_retry
+xscan50_dok:
  push rbx
  mov rbx, rsp
  and rsp, -16
@@ -501,7 +528,7 @@ xscan48_dok:
  mov rsp, rbx
  pop rbx
 jmp snoch0_n33_α
-xscan48_dfail:
+xscan50_dfail:
  push rbx
  mov rbx, rsp
  and rsp, -16
