@@ -2178,11 +2178,25 @@ __gva_names:
 __gva: .space 464, 0
   .section .text
   .intel_syntax noprefix
+  .section .rodata
+  .Lprocn0: .string "pp_mem"
+  .align 8
+__proc_names:
+  .quad .Lprocn0
+  .section .bss
+  .align 8
+__proc: .space 8, 0
+  .section .text
+  .intel_syntax noprefix
   .globl main
 main:
   push rbp
   mov rbp, rsp
   call proc_startup
+  lea rdi, [rip + __proc]
+  lea rsi, [rip + __proc_names]
+  mov edx, 1
+  call rt_proc_table_fill@PLT
   lea rdi, [rip + __gva_names]
   lea rsi, [rip + __gva]
   mov edx, 29
@@ -2585,14 +2599,10 @@ bb162_α:
  mov qword ptr [r12 + 208], rax
  mov rax, qword ptr [r12 + 184]
  mov qword ptr [r12 + 216], rax
-  .section .rodata
-  .Lprocfn266: .string "pp_mem"
-  .section .text
-  .intel_syntax noprefix
-   lea rdi, [rip + .Lprocfn266]
+   mov rdi, [rip + __proc + 0]
  lea rsi, [r12 + 208]
  mov edx, 1
- call rt_call_named_proc@PLT
+ call rt_call_proc_direct@PLT
  mov qword ptr [r12 + 192], rax
  mov qword ptr [r12 + 200], rdx
  cmp eax, 99
