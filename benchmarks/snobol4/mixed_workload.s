@@ -987,7 +987,7 @@ bb67_α:
  jmp snoch37_n16_α
 xgvidxv104_done:
 bb68_α:
-# IR_IDX_SET (subscript_set, by-name)
+# IR_IDX_SET: AXS inline DT_A+int fast path, else subscript_set
  lea rdi, [rip + .S10]
  call NV_GET_fn@PLT
  mov qword ptr [r12 + 344], rax
@@ -1000,6 +1000,34 @@ bb68_α:
  movabs rdx, 6
  mov qword ptr [r12 + 264], rdx
  mov qword ptr [r12 + 272], rax
+ mov rax, qword ptr [r12 + 344]
+ cmp eax, 4
+ jne .Lx108_0
+ mov rax, qword ptr [r12 + 360]
+ cmp eax, 6
+ jne .Lx108_0
+ mov rsi, qword ptr [r12 + 352]
+ mov rcx, qword ptr [r12 + 368]
+ mov r8, qword ptr [rsi]
+ sub ecx, r8d
+ js .Lx108_0
+ mov r9, qword ptr [rsi + 4]
+ sub r9d, r8d
+ cmp ecx, r9d
+ jg .Lx108_0
+ mov r11, qword ptr [rsi + 24]
+ movsxd rcx, ecx
+ add rcx, rcx
+ add rcx, rcx
+ add rcx, rcx
+ add rcx, rcx
+ add r11, rcx
+ mov rax, qword ptr [r12 + 264]
+ mov rdx, qword ptr [r12 + 272]
+ mov qword ptr [r11 + 0], rax
+ mov qword ptr [r11 + 8], rdx
+ jmp snoch37_n16_α
+.Lx108_0:
  mov rdi, qword ptr [r12 + 344]
  mov rsi, qword ptr [r12 + 352]
  mov rdx, qword ptr [r12 + 360]
@@ -1017,13 +1045,13 @@ bb69_α:
 # IR_BINOP_GVAR_ARITH
  mov rdx, qword ptr [rbx + 144]
  cmp edx, 6
- jne .Lx109_0
+ jne .Lx110_0
  mov rax, qword ptr [rbx + 152]
- jmp .Lx109_1
-.Lx109_0:
+ jmp .Lx110_1
+.Lx110_0:
  lea rdi, [rip + .S15]
  call rt_gvar_get_int@PLT
-.Lx109_1:
+.Lx110_1:
  mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 376], rax
@@ -1044,10 +1072,10 @@ snoch37_n38_α:
 bb71_α:
 # BOX IR_CALL TIME(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
-  .Lrkfn113: .string "TIME"
+  .Lrkfn114: .string "TIME"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn113]
+   lea rdi, [rip + .Lrkfn114]
  lea rsi, [r12 + 416]
  mov edx, 0
  call rt_call_arr@PLT
@@ -1125,13 +1153,13 @@ bb77_α:
 # IR_BINOP_GVAR_ARITH
  mov rdx, qword ptr [rbx + 48]
  cmp edx, 6
- jne .Lx121_0
+ jne .Lx122_0
  mov rax, qword ptr [rbx + 56]
- jmp .Lx121_1
-.Lx121_0:
+ jmp .Lx122_1
+.Lx122_0:
  lea rdi, [rip + .S9]
  call rt_gvar_get_int@PLT
-.Lx121_1:
+.Lx122_1:
  mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 464], rax
@@ -1179,17 +1207,41 @@ bb81_α:
  jmp flat_γ
 snoch37_n49_α:
 bb82_α:
-# IR_IDX (subscript_get, by-name)
- lea rdi, [rip + .S10]
+# IR_IDX: AXS inline DT_A+int fast path, else subscript_get
+ lea rdi, [rip + .S15]
  call NV_GET_fn@PLT
  mov qword ptr [r12 + 520], rax
  mov qword ptr [r12 + 528], rdx
- lea rdi, [rip + .S15]
+ lea rdi, [rip + .S10]
  call NV_GET_fn@PLT
- mov rcx, rdx
- mov rdx, rax
- mov rdi, qword ptr [r12 + 520]
- mov rsi, qword ptr [r12 + 528]
+ cmp eax, 4
+ jne .Lx130_0
+ mov r8, qword ptr [r12 + 520]
+ cmp r8d, 6
+ jne .Lx130_0
+ mov rcx, qword ptr [r12 + 528]
+ mov rsi, rdx
+ mov r8, qword ptr [rsi]
+ sub ecx, r8d
+ js .Lx130_0
+ mov r9, qword ptr [rsi + 4]
+ sub r9d, r8d
+ cmp ecx, r9d
+ jg .Lx130_0
+ mov r11, qword ptr [rsi + 24]
+ movsxd rcx, ecx
+ add rcx, rcx
+ mov rax, [r11 + rcx*8]
+ add r11, 8
+ mov rdx, [r11 + rcx*8]
+ mov qword ptr [r12 + 536], rax
+ mov qword ptr [r12 + 544], rdx
+ jmp snoch37_n52_α
+.Lx130_0:
+ mov rdi, rax
+ mov rsi, rdx
+ mov rdx, qword ptr [r12 + 520]
+ mov rcx, qword ptr [r12 + 528]
  call subscript_get@PLT
  mov qword ptr [r12 + 536], rax
  mov qword ptr [r12 + 544], rdx
@@ -1218,24 +1270,48 @@ bb84_α:
  jmp flat_γ
 snoch37_n52_α:
 bb85_α:
-# IR_IDX (subscript_get, by-name)
- lea rdi, [rip + .S10]
+# IR_IDX: AXS inline DT_A+int fast path, else subscript_get
+ lea rdi, [rip + .S15]
  call NV_GET_fn@PLT
  mov qword ptr [r12 + 568], rax
  mov qword ptr [r12 + 576], rdx
- lea rdi, [rip + .S15]
+ lea rdi, [rip + .S10]
  call NV_GET_fn@PLT
- mov rcx, rdx
- mov rdx, rax
- mov rdi, qword ptr [r12 + 568]
- mov rsi, qword ptr [r12 + 576]
+ cmp eax, 4
+ jne .Lx137_0
+ mov r8, qword ptr [r12 + 568]
+ cmp r8d, 6
+ jne .Lx137_0
+ mov rcx, qword ptr [r12 + 576]
+ mov rsi, rdx
+ mov r8, qword ptr [rsi]
+ sub ecx, r8d
+ js .Lx137_0
+ mov r9, qword ptr [rsi + 4]
+ sub r9d, r8d
+ cmp ecx, r9d
+ jg .Lx137_0
+ mov r11, qword ptr [rsi + 24]
+ movsxd rcx, ecx
+ add rcx, rcx
+ mov rax, [r11 + rcx*8]
+ add r11, 8
+ mov rdx, [r11 + rcx*8]
+ mov qword ptr [r12 + 584], rax
+ mov qword ptr [r12 + 592], rdx
+ jmp xgvidx135_done
+.Lx137_0:
+ mov rdi, rax
+ mov rsi, rdx
+ mov rdx, qword ptr [r12 + 568]
+ mov rcx, qword ptr [r12 + 576]
  call subscript_get@PLT
  mov qword ptr [r12 + 584], rax
  mov qword ptr [r12 + 592], rdx
- jmp xgvidx133_done
- xgvidx133_β:
+ jmp xgvidx135_done
+ xgvidx135_β:
  jmp snoch37_n25_α
-xgvidx133_done:
+xgvidx135_done:
 bb86_α:
 # IR_BINOP_GVAR_ARITH (dynamic operands: DESCR-in DESCR-out via rt_num_arith)
  lea rdi, [rip + .S14]
@@ -1260,24 +1336,24 @@ bb87_α:
 # IR_BINOP_GVAR_ARITH
  mov rdx, qword ptr [rbx + 32]
  cmp edx, 6
- jne .Lx137_0
+ jne .Lx140_0
  mov rcx, qword ptr [rbx + 40]
- jmp .Lx137_1
-.Lx137_0:
+ jmp .Lx140_1
+.Lx140_0:
  lea rdi, [rip + .S8]
  call rt_gvar_get_int@PLT
  mov rcx, rax
-.Lx137_1:
+.Lx140_1:
  mov qword ptr [r12 + 616], rcx
  mov rdx, qword ptr [rbx + 176]
  cmp edx, 6
- jne .Lx137_2
+ jne .Lx140_2
  mov rax, qword ptr [rbx + 184]
- jmp .Lx137_3
-.Lx137_2:
+ jmp .Lx140_3
+.Lx140_2:
  lea rdi, [rip + .S17]
  call rt_gvar_get_int@PLT
-.Lx137_3:
+.Lx140_3:
  mov rcx, qword ptr [r12 + 616]
  sub rax, rcx
  mov qword ptr [r12 + 616], rax
@@ -1298,16 +1374,16 @@ snoch37_n55_α:
 # IR_LIT_S
 bb89_α:
  mov qword ptr [r12 + 624], 1
- mov rax, qword ptr [rip + .Lx141_0]
+ mov rax, qword ptr [rip + .Lx144_0]
  mov qword ptr [r12 + 632], rax
- jmp xgvcat140_0d
- xgvcat140_0b:
+ jmp xgvcat143_0d
+ xgvcat143_0b:
  jmp flat_γ
-.Lx141_0:
- .quad .Lx141_0_s
-.Lx141_0_s:
+.Lx144_0:
+ .quad .Lx144_0_s
+.Lx144_0_s:
  .string "ms: "
-xgvcat140_0d:
+xgvcat143_0d:
 bb90_α:
 # IR_BINOP_GVAR_CONCAT
  mov rdi, qword ptr [r12 + 624]
