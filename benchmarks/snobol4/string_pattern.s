@@ -252,8 +252,15 @@ bb16_α:
 xgvarg22_done:
 bb17_α:
 # BOX IR_CALL LT(...) inline integer relop [four-port, FAIL->ω]
+ mov rdx, qword ptr [rbx + 16]
+ cmp edx, 6
+ jne .Lx25_0
+ mov rax, qword ptr [rbx + 24]
+ jmp .Lx25_1
+.Lx25_0:
    lea rdi, [rip + .S6]
  call rt_gvar_get_int@PLT
+.Lx25_1:
  mov qword ptr [r12 + 64], rax
  mov rcx, 500000
  mov qword ptr [r12 + 48], 0
@@ -278,10 +285,10 @@ snoch8_n11_α:
 bb19_α:
 # BOX IR_CALL TIME(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
-  .Lrkfn28: .string "TIME"
+  .Lrkfn29: .string "TIME"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn28]
+   lea rdi, [rip + .Lrkfn29]
  lea rsi, [r12 + 112]
  mov edx, 0
  call rt_call_arr@PLT
@@ -336,13 +343,13 @@ bb23_α:
 # IR_BINOP_GVAR_ARITH
  mov rdx, qword ptr [rbx + 16]
  cmp edx, 6
- jne .Lx33_0
+ jne .Lx34_0
  mov rax, qword ptr [rbx + 24]
- jmp .Lx33_1
-.Lx33_0:
+ jmp .Lx34_1
+.Lx34_0:
  lea rdi, [rip + .S6]
  call rt_gvar_get_int@PLT
-.Lx33_1:
+.Lx34_1:
  mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 144], rax
@@ -409,24 +416,24 @@ bb30_α:
 # IR_BINOP_GVAR_ARITH
  mov rdx, qword ptr [rbx + 0]
  cmp edx, 6
- jne .Lx44_0
+ jne .Lx45_0
  mov rcx, qword ptr [rbx + 8]
- jmp .Lx44_1
-.Lx44_0:
+ jmp .Lx45_1
+.Lx45_0:
  lea rdi, [rip + .S5]
  call rt_gvar_get_int@PLT
  mov rcx, rax
-.Lx44_1:
+.Lx45_1:
  mov qword ptr [r12 + 200], rcx
  mov rdx, qword ptr [rbx + 64]
  cmp edx, 6
- jne .Lx44_2
+ jne .Lx45_2
  mov rax, qword ptr [rbx + 72]
- jmp .Lx44_3
-.Lx44_2:
+ jmp .Lx45_3
+.Lx45_2:
  lea rdi, [rip + .S7]
  call rt_gvar_get_int@PLT
-.Lx44_3:
+.Lx45_3:
  mov rcx, qword ptr [r12 + 200]
  sub rax, rcx
  mov qword ptr [r12 + 200], rax
@@ -452,16 +459,16 @@ snoch8_n25_α:
 # IR_LIT_S
 bb33_α:
  mov qword ptr [r12 + 208], 1
- mov rax, qword ptr [rip + .Lx48_0]
+ mov rax, qword ptr [rip + .Lx49_0]
  mov qword ptr [r12 + 216], rax
- jmp xgvcat47_0d
- xgvcat47_0b:
+ jmp xgvcat48_0d
+ xgvcat48_0b:
  jmp flat_γ
-.Lx48_0:
- .quad .Lx48_0_s
-.Lx48_0_s:
+.Lx49_0:
+ .quad .Lx49_0_s
+.Lx49_0_s:
  .string "ms: "
-xgvcat47_0d:
+xgvcat48_0d:
 bb34_α:
 # IR_BINOP_GVAR_CONCAT
  mov rdi, qword ptr [r12 + 208]
@@ -512,10 +519,10 @@ bb38_α:
  mov rsp, rbx
  pop rbx
  pop r10
- jmp xscan54_sγ
- xscan54_sβ:
+ jmp xscan55_sγ
+ xscan55_sβ:
  jmp snoch8_n9_α
-xscan54_sγ:
+xscan55_sγ:
  push rbx
  mov rbx, rsp
  and rsp, -16
@@ -528,17 +535,17 @@ bb39_α:
  mov r15d, dword ptr [r12 + 248]
  mov dword ptr [r12 + 256], 0
  lea r10, [r12 + 264]
- jmp smatch57_retry
+ jmp smatch58_retry
  snoch8_n29_β:
- jmp xscan54_dfail
-smatch57_retry:
+ jmp xscan55_dfail
+smatch58_retry:
 # IR_MATCH_RETRY
  mov r14d, dword ptr [r12 + 256]
 # IR_MATCH_DEFER inlined frozen head (FZ-5b)
 bb41_α:
  lea rax, [rip + flat_c0_α]
  test rax, rax
- jz .Lx60_0
+ jz .Lx61_0
  push rax
  push rbx
  mov rbx, rsp
@@ -551,9 +558,9 @@ bb41_α:
  xor esi, esi
  call rcx
  cmp eax, 1
- jne smatch57_adv
- jmp xscan54_dok
-.Lx60_0:
+ jne smatch58_adv
+ jmp xscan55_dok
+.Lx61_0:
  mov edx, r14d
  push rbx
  mov rbx, rsp
@@ -562,23 +569,23 @@ bb41_α:
  mov rsp, rbx
  pop rbx
  test eax, eax
- js smatch57_adv
+ js smatch58_adv
  mov r14d, eax
- jmp xscan54_dok
- smatch57_elemb:
- jmp smatch57_adv
-smatch57_adv:
+ jmp xscan55_dok
+ smatch58_elemb:
+ jmp smatch58_adv
+smatch58_adv:
 # IR_MATCH_ADVANCE
  add dword ptr [r12 + 256], 1
  mov eax, dword ptr [r12 + 256]
  cmp eax, r15d
- jg xscan54_dfail
+ jg xscan55_dfail
  lea rcx, [rip + kw_anchor]
  mov rax, qword ptr [rcx]
  cmp rax, 0
- jne xscan54_dfail
- jmp smatch57_retry
-xscan54_dok:
+ jne xscan55_dfail
+ jmp smatch58_retry
+xscan55_dok:
  push rbx
  mov rbx, rsp
  and rsp, -16
@@ -596,7 +603,7 @@ xscan54_dok:
  mov rsp, rbx
  pop rbx
 jmp snoch8_n30_α
-xscan54_dfail:
+xscan55_dfail:
  push rbx
  mov rbx, rsp
  and rsp, -16

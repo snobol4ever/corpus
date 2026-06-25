@@ -155,8 +155,15 @@ bb12_α:
 xgvarg16_done:
 bb13_α:
 # BOX IR_CALL LT(...) inline integer relop [four-port, FAIL->ω]
+ mov rdx, qword ptr [rbx + 16]
+ cmp edx, 6
+ jne .Lx19_0
+ mov rax, qword ptr [rbx + 24]
+ jmp .Lx19_1
+.Lx19_0:
    lea rdi, [rip + .S3]
  call rt_gvar_get_int@PLT
+.Lx19_1:
  mov qword ptr [r12 + 80], rax
  mov rcx, 1000000
  mov qword ptr [r12 + 64], 0
@@ -172,13 +179,13 @@ bb14_α:
 # IR_BINOP_GVAR_ARITH
  mov rdx, qword ptr [rbx + 16]
  cmp edx, 6
- jne .Lx20_0
+ jne .Lx21_0
  mov rax, qword ptr [rbx + 24]
- jmp .Lx20_1
-.Lx20_0:
+ jmp .Lx21_1
+.Lx21_0:
  lea rdi, [rip + .S3]
  call rt_gvar_get_int@PLT
-.Lx20_1:
+.Lx21_1:
  mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 96], rax
@@ -199,10 +206,10 @@ snoch0_n13_α:
 bb16_α:
 # BOX IR_CALL TIME(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
-  .Lrkfn24: .string "TIME"
+  .Lrkfn25: .string "TIME"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn24]
+   lea rdi, [rip + .Lrkfn25]
  lea rsi, [r12 + 136]
  mov edx, 0
  call rt_call_arr@PLT
@@ -309,24 +316,24 @@ bb25_α:
 # IR_BINOP_GVAR_ARITH
  mov rdx, qword ptr [rbx + 0]
  cmp edx, 6
- jne .Lx38_0
+ jne .Lx39_0
  mov rcx, qword ptr [rbx + 8]
- jmp .Lx38_1
-.Lx38_0:
+ jmp .Lx39_1
+.Lx39_0:
  lea rdi, [rip + .S2]
  call rt_gvar_get_int@PLT
  mov rcx, rax
-.Lx38_1:
+.Lx39_1:
  mov qword ptr [r12 + 216], rcx
  mov rdx, qword ptr [rbx + 32]
  cmp edx, 6
- jne .Lx38_2
+ jne .Lx39_2
  mov rax, qword ptr [rbx + 40]
- jmp .Lx38_3
-.Lx38_2:
+ jmp .Lx39_3
+.Lx39_2:
  lea rdi, [rip + .S4]
  call rt_gvar_get_int@PLT
-.Lx38_3:
+.Lx39_3:
  mov rcx, qword ptr [r12 + 216]
  sub rax, rcx
  mov qword ptr [r12 + 216], rax
@@ -337,16 +344,16 @@ snoch0_n23_α:
 # IR_LIT_S
 bb26_α:
  mov qword ptr [r12 + 224], 1
- mov rax, qword ptr [rip + .Lx40_0]
+ mov rax, qword ptr [rip + .Lx41_0]
  mov qword ptr [r12 + 232], rax
- jmp xgvcat39_0d
- xgvcat39_0b:
+ jmp xgvcat40_0d
+ xgvcat40_0b:
  jmp flat_γ
-.Lx40_0:
- .quad .Lx40_0_s
-.Lx40_0_s:
+.Lx41_0:
+ .quad .Lx41_0_s
+.Lx41_0_s:
  .string "ms: "
-xgvcat39_0d:
+xgvcat40_0d:
 bb27_α:
 # IR_BINOP_GVAR_CONCAT
  mov rdi, qword ptr [r12 + 224]

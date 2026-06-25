@@ -143,8 +143,15 @@ bb10_α:
 xgvarg13_done:
 bb11_α:
 # BOX IR_CALL LT(...) inline integer relop [four-port, FAIL->ω]
+ mov rdx, qword ptr [rbx + 16]
+ cmp edx, 6
+ jne .Lx16_0
+ mov rax, qword ptr [rbx + 24]
+ jmp .Lx16_1
+.Lx16_0:
    lea rdi, [rip + .S3]
  call rt_gvar_get_int@PLT
+.Lx16_1:
  mov qword ptr [r12 + 64], rax
  mov rcx, 1000000
  mov qword ptr [r12 + 48], 0
@@ -169,10 +176,10 @@ snoch0_n10_α:
 bb13_α:
 # BOX IR_CALL TIME(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
-  .Lrkfn19: .string "TIME"
+  .Lrkfn20: .string "TIME"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn19]
+   lea rdi, [rip + .Lrkfn20]
  lea rsi, [r12 + 112]
  mov edx, 0
  call rt_call_arr@PLT
@@ -227,13 +234,13 @@ bb17_α:
 # IR_BINOP_GVAR_ARITH
  mov rdx, qword ptr [rbx + 16]
  cmp edx, 6
- jne .Lx24_0
+ jne .Lx25_0
  mov rax, qword ptr [rbx + 24]
- jmp .Lx24_1
-.Lx24_0:
+ jmp .Lx25_1
+.Lx25_0:
  lea rdi, [rip + .S3]
  call rt_gvar_get_int@PLT
-.Lx24_1:
+.Lx25_1:
  mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 144], rax
@@ -317,24 +324,24 @@ bb24_α:
 # IR_BINOP_GVAR_ARITH
  mov rdx, qword ptr [rbx + 0]
  cmp edx, 6
- jne .Lx35_0
+ jne .Lx36_0
  mov rcx, qword ptr [rbx + 8]
- jmp .Lx35_1
-.Lx35_0:
+ jmp .Lx36_1
+.Lx36_0:
  lea rdi, [rip + .S2]
  call rt_gvar_get_int@PLT
  mov rcx, rax
-.Lx35_1:
+.Lx36_1:
  mov qword ptr [r12 + 232], rcx
  mov rdx, qword ptr [rbx + 64]
  cmp edx, 6
- jne .Lx35_2
+ jne .Lx36_2
  mov rax, qword ptr [rbx + 72]
- jmp .Lx35_3
-.Lx35_2:
+ jmp .Lx36_3
+.Lx36_2:
  lea rdi, [rip + .S4]
  call rt_gvar_get_int@PLT
-.Lx35_3:
+.Lx36_3:
  mov rcx, qword ptr [r12 + 232]
  sub rax, rcx
  mov qword ptr [r12 + 232], rax
@@ -348,10 +355,10 @@ bb25_α:
  mov rdx, qword ptr [rbx + 40]
  mov qword ptr [r12 + 240], rax
  mov qword ptr [r12 + 248], rdx
- jmp xgvarg36_done
- xgvarg36_β:
+ jmp xgvarg37_done
+ xgvarg37_β:
  jmp snoch0_n8_α
-xgvarg36_done:
+xgvarg37_done:
 bb26_α:
 # BOX IR_CALL EVAL(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
 # marshal arg0 = producer-box slot [r12+240] -> [r12+272]
@@ -360,10 +367,10 @@ bb26_α:
  mov rax, qword ptr [r12 + 248]
  mov qword ptr [r12 + 280], rax
   .section .rodata
-  .Lbynamefn40: .string "EVAL"
+  .Lbynamefn41: .string "EVAL"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lbynamefn40]
+   lea rdi, [rip + .Lbynamefn41]
  lea rsi, [r12 + 272]
  mov edx, 1
  call rt_call_arr@PLT
@@ -378,16 +385,16 @@ snoch0_n23_α:
 # IR_LIT_S
 bb27_α:
  mov qword ptr [r12 + 288], 1
- mov rax, qword ptr [rip + .Lx42_0]
+ mov rax, qword ptr [rip + .Lx43_0]
  mov qword ptr [r12 + 296], rax
- jmp xgvcat41_0d
- xgvcat41_0b:
+ jmp xgvcat42_0d
+ xgvcat42_0b:
  jmp flat_γ
-.Lx42_0:
- .quad .Lx42_0_s
-.Lx42_0_s:
+.Lx43_0:
+ .quad .Lx43_0_s
+.Lx43_0_s:
  .string "ms: "
-xgvcat41_0d:
+xgvcat42_0d:
 bb28_α:
 # IR_BINOP_GVAR_CONCAT
  mov rdi, qword ptr [r12 + 288]

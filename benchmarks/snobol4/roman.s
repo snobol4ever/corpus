@@ -671,8 +671,15 @@ bb42_α:
 xgvarg68_done:
 bb43_α:
 # BOX IR_CALL LT(...) inline integer relop [four-port, FAIL->ω]
+ mov rdx, qword ptr [rbx + 48]
+ cmp edx, 6
+ jne .Lx71_0
+ mov rax, qword ptr [rbx + 56]
+ jmp .Lx71_1
+.Lx71_0:
    lea rdi, [rip + .S0]
  call rt_gvar_get_int@PLT
+.Lx71_1:
  mov qword ptr [r12 + 112], rax
  mov rcx, 100000
  mov qword ptr [r12 + 96], 0
@@ -697,10 +704,10 @@ snoch49_n13_α:
 bb45_α:
 # BOX IR_CALL TIME(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
-  .Lrkfn74: .string "TIME"
+  .Lrkfn75: .string "TIME"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn74]
+   lea rdi, [rip + .Lrkfn75]
  lea rsi, [r12 + 160]
  mov edx, 0
  call rt_call_arr@PLT
@@ -755,13 +762,13 @@ bb49_α:
 # IR_BINOP_GVAR_ARITH
  mov rdx, qword ptr [rbx + 48]
  cmp edx, 6
- jne .Lx79_0
+ jne .Lx80_0
  mov rax, qword ptr [rbx + 56]
- jmp .Lx79_1
-.Lx79_0:
+ jmp .Lx80_1
+.Lx80_0:
  lea rdi, [rip + .S0]
  call rt_gvar_get_int@PLT
-.Lx79_1:
+.Lx80_1:
  mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 192], rax
@@ -822,24 +829,24 @@ bb55_α:
 # IR_BINOP_GVAR_ARITH
  mov rdx, qword ptr [rbx + 32]
  cmp edx, 6
- jne .Lx89_0
+ jne .Lx90_0
  mov rcx, qword ptr [rbx + 40]
- jmp .Lx89_1
-.Lx89_0:
+ jmp .Lx90_1
+.Lx90_0:
  lea rdi, [rip + .S8]
  call rt_gvar_get_int@PLT
  mov rcx, rax
-.Lx89_1:
+.Lx90_1:
  mov qword ptr [r12 + 248], rcx
  mov rdx, qword ptr [rbx + 80]
  cmp edx, 6
- jne .Lx89_2
+ jne .Lx90_2
  mov rax, qword ptr [rbx + 88]
- jmp .Lx89_3
-.Lx89_2:
+ jmp .Lx90_3
+.Lx90_2:
  lea rdi, [rip + .S10]
  call rt_gvar_get_int@PLT
-.Lx89_3:
+.Lx90_3:
  mov rcx, qword ptr [r12 + 248]
  sub rax, rcx
  mov qword ptr [r12 + 248], rax
@@ -850,16 +857,16 @@ snoch49_n24_α:
 # IR_LIT_S
 bb56_α:
  mov qword ptr [r12 + 256], 1
- mov rax, qword ptr [rip + .Lx91_0]
+ mov rax, qword ptr [rip + .Lx92_0]
  mov qword ptr [r12 + 264], rax
- jmp xgvcat90_0d
- xgvcat90_0b:
+ jmp xgvcat91_0d
+ xgvcat91_0b:
  jmp flat_γ
-.Lx91_0:
- .quad .Lx91_0_s
-.Lx91_0_s:
+.Lx92_0:
+ .quad .Lx92_0_s
+.Lx92_0_s:
  .string "ms: "
-xgvcat90_0d:
+xgvcat91_0d:
 bb57_α:
 # IR_BINOP_GVAR_CONCAT
  mov rdi, qword ptr [r12 + 256]
