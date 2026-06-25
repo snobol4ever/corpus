@@ -113,11 +113,25 @@ __gva_names:
 __gva: .space 80, 0
   .section .text
   .intel_syntax noprefix
+  .section .rodata
+  .Lprocn0: .string "INC"
+  .align 8
+__proc_names:
+  .quad .Lprocn0
+  .section .bss
+  .align 8
+__proc: .space 8, 0
+  .section .text
+  .intel_syntax noprefix
   .globl main
 main:
   push rbp
   mov rbp, rsp
   call proc_startup
+  lea rdi, [rip + __proc]
+  lea rsi, [rip + __proc_names]
+  mov edx, 1
+  call rt_proc_table_fill@PLT
   lea rdi, [rip + __gva_names]
   lea rsi, [rip + __gva]
   mov edx, 5
@@ -431,14 +445,10 @@ bb31_α:
  mov qword ptr [r12 + 232], rax
  mov rax, qword ptr [r12 + 208]
  mov qword ptr [r12 + 240], rax
-  .section .rodata
-  .Lprocfn49: .string "INC"
-  .section .text
-  .intel_syntax noprefix
-   lea rdi, [rip + .Lprocfn49]
+   mov rdi, [rip + __proc + 0]
  lea rsi, [r12 + 232]
  mov edx, 1
- call rt_call_named_proc@PLT
+ call rt_call_proc_direct@PLT
  mov qword ptr [r12 + 216], rax
  mov qword ptr [r12 + 224], rdx
  cmp eax, 99
@@ -451,24 +461,24 @@ bb32_α:
 # IR_BINOP_GVAR_ARITH
  mov rdx, qword ptr [rbx + 32]
  cmp edx, 6
- jne .Lx51_0
+ jne .Lx50_0
  mov rcx, qword ptr [rbx + 40]
- jmp .Lx51_1
-.Lx51_0:
+ jmp .Lx50_1
+.Lx50_0:
  lea rdi, [rip + .S5]
  call rt_gvar_get_int@PLT
  mov rcx, rax
-.Lx51_1:
+.Lx50_1:
  mov qword ptr [r12 + 248], rcx
  mov rdx, qword ptr [rbx + 64]
  cmp edx, 6
- jne .Lx51_2
+ jne .Lx50_2
  mov rax, qword ptr [rbx + 72]
- jmp .Lx51_3
-.Lx51_2:
+ jmp .Lx50_3
+.Lx50_2:
  lea rdi, [rip + .S7]
  call rt_gvar_get_int@PLT
-.Lx51_3:
+.Lx50_3:
  mov rcx, qword ptr [r12 + 248]
  sub rax, rcx
  mov qword ptr [r12 + 248], rax
@@ -489,16 +499,16 @@ snoch8_n26_α:
 # IR_LIT_S
 bb34_α:
  mov qword ptr [r12 + 256], 1
- mov rax, qword ptr [rip + .Lx54_0]
+ mov rax, qword ptr [rip + .Lx53_0]
  mov qword ptr [r12 + 264], rax
- jmp xgvcat53_0d
- xgvcat53_0b:
+ jmp xgvcat52_0d
+ xgvcat52_0b:
  jmp flat_γ
-.Lx54_0:
- .quad .Lx54_0_s
-.Lx54_0_s:
+.Lx53_0:
+ .quad .Lx53_0_s
+.Lx53_0_s:
  .string "ms: "
-xgvcat53_0d:
+xgvcat52_0d:
 bb35_α:
 # IR_BINOP_GVAR_CONCAT
  mov rdi, qword ptr [r12 + 256]
