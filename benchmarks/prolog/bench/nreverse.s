@@ -26,7 +26,7 @@ gzq0_g0_α:
 bb2_α:
 # IR_CELL_UNIFY
  sub rsp, 16
- mov rax, qword ptr [r12 + 16]
+ mov rax, qword ptr [r12 + 24]
  mov qword ptr [rsp + 0], rax
  sub rsp, 16
  mov edi, 0
@@ -434,11 +434,11 @@ bb2_α:
 gzq0_g1_α:
 bb3_α:
 # IR_CELL_CALL
- lea rdi, [r12 + 24]
+ lea rdi, [r12 + 40]
  mov esi, 8
  call rt_enter@PLT
  mov rdi, rax
- mov rsi, qword ptr [r12 + 16]
+ mov rsi, qword ptr [r12 + 24]
  mov rdx, qword ptr [r12 + 8]
  call gzp1_α
 .Lx6_0:
@@ -446,7 +446,7 @@ bb3_α:
  jne gzq0_g2_α
  jmp gzq0_ω
  gzq0_g1_β:
- mov rdi, qword ptr [r12 + 24]
+ mov rdi, qword ptr [r12 + 40]
  call gzp1_β
  jmp .Lx6_0
 gzq0_g2_α:
@@ -477,11 +477,11 @@ gzp1_α:
  push r12
  mov r12, rdi
  mov qword ptr [r12 + 8], rsi
- mov qword ptr [r12 + 16], rdx
+ mov qword ptr [r12 + 24], rdx
  call rt_trail_mark@PLT
  mov dword ptr [r12 + 0], eax
  mov dword ptr [r12 + 4], 1
- lea rdi, [r12 + 24]
+ lea rdi, [r12 + 40]
  mov esi, 4
  call rt_pl_cells_init@PLT
  jmp gzp12_g0_α
@@ -492,9 +492,9 @@ bb8_α:
  mov rax, qword ptr [r12 + 8]
  mov qword ptr [rsp + 0], rax
  sub rsp, 16
- mov rax, qword ptr [r12 + 24]
+ mov rax, qword ptr [r12 + 40]
  mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 32]
+ mov rax, qword ptr [r12 + 56]
  mov qword ptr [rsp + 8], rax
  lea rdi, [rip + .S0]
  mov esi, 2
@@ -512,29 +512,29 @@ bb8_α:
 gzp12_g1_α:
 bb9_α:
 # IR_CELL_CALL
- lea rdi, [r12 + 56]
+ lea rdi, [r12 + 104]
  mov esi, 8
  call rt_enter@PLT
  mov rdi, rax
- mov rsi, qword ptr [r12 + 32]
- mov rdx, qword ptr [r12 + 40]
+ mov rsi, qword ptr [r12 + 56]
+ mov rdx, qword ptr [r12 + 72]
  call gzp1_α
 .Lx17_0:
  test eax, eax
  jne gzp12_g2_α
  jmp gzp12_c0_adv
  gzp12_g1_β:
- mov rdi, qword ptr [r12 + 56]
+ mov rdi, qword ptr [r12 + 104]
  call gzp1_β
  jmp .Lx17_0
 gzp12_g2_α:
 bb10_α:
 # IR_CELL_UNIFY
  sub rsp, 16
- mov rax, qword ptr [r12 + 48]
+ mov rax, qword ptr [r12 + 88]
  mov qword ptr [rsp + 0], rax
  sub rsp, 16
- mov rax, qword ptr [r12 + 24]
+ mov rax, qword ptr [r12 + 40]
  mov qword ptr [rsp + 0], rax
  mov edi, 67
  xor rsi, rsi
@@ -558,20 +558,20 @@ bb10_α:
 gzp12_g3_α:
 bb11_α:
 # IR_CELL_CALL
- lea rdi, [r12 + 64]
+ lea rdi, [r12 + 120]
  mov esi, 7
  call rt_enter@PLT
  mov rdi, rax
- mov rsi, qword ptr [r12 + 40]
- mov rdx, qword ptr [r12 + 48]
- mov rcx, qword ptr [r12 + 16]
+ mov rsi, qword ptr [r12 + 72]
+ mov rdx, qword ptr [r12 + 88]
+ mov rcx, qword ptr [r12 + 24]
  call gzp11_α
 .Lx21_0:
  test eax, eax
  jne gzp12_γ
  jmp gzp12_g1_β
  gzp12_g3_β:
- mov rdi, qword ptr [r12 + 64]
+ mov rdi, qword ptr [r12 + 120]
  call gzp11_β
  jmp .Lx21_0
 gzp12_c0_adv:
@@ -598,7 +598,7 @@ bb13_α:
 gzp12_g5_α:
 bb14_α:
 # IR_CELL_UNIFY
- mov rdi, qword ptr [r12 + 16]
+ mov rdi, qword ptr [r12 + 24]
  mov esi, 67
  mov rdx, 0
  mov rcx, qword ptr [rip + .Lx26_0]
@@ -635,12 +635,12 @@ gzp11_α:
  push r12
  mov r12, rdi
  mov qword ptr [r12 + 8], rsi
- mov qword ptr [r12 + 16], rdx
- mov qword ptr [r12 + 24], rcx
+ mov qword ptr [r12 + 24], rdx
+ mov qword ptr [r12 + 40], rcx
  call rt_trail_mark@PLT
  mov dword ptr [r12 + 0], eax
  mov dword ptr [r12 + 4], 1
- lea rdi, [r12 + 32]
+ lea rdi, [r12 + 56]
  mov esi, 3
  call rt_pl_cells_init@PLT
  jmp gzp30_g0_α
@@ -651,9 +651,9 @@ bb19_α:
  mov rax, qword ptr [r12 + 8]
  mov qword ptr [rsp + 0], rax
  sub rsp, 16
- mov rax, qword ptr [r12 + 32]
+ mov rax, qword ptr [r12 + 56]
  mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 40]
+ mov rax, qword ptr [r12 + 72]
  mov qword ptr [rsp + 8], rax
  lea rdi, [rip + .S0]
  mov esi, 2
@@ -672,12 +672,12 @@ gzp30_g1_α:
 bb20_α:
 # IR_CELL_UNIFY
  sub rsp, 16
- mov rax, qword ptr [r12 + 24]
+ mov rax, qword ptr [r12 + 40]
  mov qword ptr [rsp + 0], rax
  sub rsp, 16
- mov rax, qword ptr [r12 + 32]
+ mov rax, qword ptr [r12 + 56]
  mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 48]
+ mov rax, qword ptr [r12 + 88]
  mov qword ptr [rsp + 8], rax
  lea rdi, [rip + .S0]
  mov esi, 2
@@ -695,20 +695,20 @@ bb20_α:
 gzp30_g2_α:
 bb21_α:
 # IR_CELL_CALL
- lea rdi, [r12 + 56]
+ lea rdi, [r12 + 104]
  mov esi, 7
  call rt_enter@PLT
  mov rdi, rax
- mov rsi, qword ptr [r12 + 40]
- mov rdx, qword ptr [r12 + 16]
- mov rcx, qword ptr [r12 + 48]
+ mov rsi, qword ptr [r12 + 72]
+ mov rdx, qword ptr [r12 + 24]
+ mov rcx, qword ptr [r12 + 88]
  call gzp11_α
 .Lx37_0:
  test eax, eax
  jne gzp30_γ
  jmp gzp30_c0_adv
  gzp30_g2_β:
- mov rdi, qword ptr [r12 + 56]
+ mov rdi, qword ptr [r12 + 104]
  call gzp11_β
  jmp .Lx37_0
 gzp30_c0_adv:
@@ -735,8 +735,8 @@ bb23_α:
 gzp30_g4_α:
 bb24_α:
 # IR_CELL_UNIFY
- mov rdi, qword ptr [r12 + 24]
- mov rsi, qword ptr [r12 + 16]
+ mov rdi, qword ptr [r12 + 40]
+ mov rsi, qword ptr [r12 + 24]
  call rt_unify_terms@PLT
  test eax, eax
  je gzp30_ω
