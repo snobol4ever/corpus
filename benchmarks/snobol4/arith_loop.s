@@ -359,7 +359,7 @@ bb27_α:
  mov rdi, qword ptr [r12 + 224]
  mov rsi, qword ptr [r12 + 232]
  mov rdx, 6
- mov rcx, qword ptr [r12 + 216]
+ mov rcx, qword ptr [r12 + 224]
  call str_concat_d@PLT
  mov qword ptr [r12 + 240], rax
  mov qword ptr [r12 + 248], rdx

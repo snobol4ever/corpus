@@ -312,7 +312,7 @@ bb22_α:
  mov rdi, qword ptr [r12 + 48]
  mov rsi, qword ptr [r12 + 56]
  mov rdx, 6
- mov rcx, qword ptr [r12 + 112]
+ mov rcx, qword ptr [r12 + 120]
  call str_concat_d@PLT
  mov qword ptr [r12 + 120], rax
  mov qword ptr [r12 + 128], rdx

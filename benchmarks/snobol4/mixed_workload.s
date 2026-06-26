@@ -182,7 +182,7 @@ bb12_α:
  mov rdi, qword ptr [r12 + 48]
  mov rsi, qword ptr [r12 + 56]
  mov rdx, 6
- mov rcx, qword ptr [r12 + 96]
+ mov rcx, qword ptr [r12 + 104]
  call str_concat_d@PLT
  mov qword ptr [r12 + 112], rax
  mov qword ptr [r12 + 120], rdx
@@ -234,6 +234,8 @@ bb15_α:
  call rt_gvar_get_int@PLT
  mov rcx, qword ptr [r12 + 136]
  add rax, rcx
+ mov qword ptr [r12 + 184], rax
+ movabs rax, 6
  mov qword ptr [r12 + 176], rax
  jmp snoch8_n8_α
  snoch8_n7_β:
@@ -1109,7 +1111,7 @@ bb73_α:
  mov rdi, qword ptr [r12 + 160]
  mov rsi, qword ptr [r12 + 168]
  mov rdx, 6
- mov rcx, qword ptr [r12 + 368]
+ mov rcx, qword ptr [r12 + 376]
  call str_concat_d@PLT
  mov qword ptr [r12 + 408], rax
  mov qword ptr [r12 + 416], rdx
@@ -1205,7 +1207,7 @@ bb81_α:
  mov rdi, qword ptr [r12 + 304]
  mov rsi, qword ptr [r12 + 312]
  mov rdx, 6
- mov rcx, qword ptr [r12 + 456]
+ mov rcx, qword ptr [r12 + 464]
  call str_concat_d@PLT
  mov qword ptr [r12 + 480], rax
  mov qword ptr [r12 + 488], rdx
@@ -1406,7 +1408,7 @@ bb91_α:
  mov rdi, qword ptr [r12 + 616]
  mov rsi, qword ptr [r12 + 624]
  mov rdx, 6
- mov rcx, qword ptr [r12 + 608]
+ mov rcx, qword ptr [r12 + 616]
  call str_concat_d@PLT
  mov qword ptr [r12 + 632], rax
  mov qword ptr [r12 + 640], rdx

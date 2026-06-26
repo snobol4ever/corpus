@@ -604,7 +604,7 @@ bb41_α:
  mov rdi, qword ptr [r12 + 112]
  mov rsi, qword ptr [r12 + 120]
  mov rdx, 6
- mov rcx, qword ptr [r12 + 224]
+ mov rcx, qword ptr [r12 + 232]
  call str_concat_d@PLT
  mov qword ptr [r12 + 248], rax
  mov qword ptr [r12 + 256], rdx
@@ -679,7 +679,7 @@ bb46_α:
  mov rdi, qword ptr [r12 + 288]
  mov rsi, qword ptr [r12 + 296]
  mov rdx, 6
- mov rcx, qword ptr [r12 + 280]
+ mov rcx, qword ptr [r12 + 288]
  call str_concat_d@PLT
  mov qword ptr [r12 + 304], rax
  mov qword ptr [r12 + 312], rdx
