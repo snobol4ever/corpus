@@ -859,9 +859,8 @@ snoch0_n49_α:
 bb61_α:
 # IR_ASSIGN
  mov rax, qword ptr [r12 + 600]
- mov rcx, qword ptr [r12 + 608]
- mov qword ptr [rbx + 64], rax
- mov qword ptr [rbx + 72], rcx
+ mov qword ptr [rbx + 64], 6
+ mov qword ptr [rbx + 72], rax
  jmp snoch0_n20_α
  snoch0_n49_β:
  jmp snoch0_n20_α

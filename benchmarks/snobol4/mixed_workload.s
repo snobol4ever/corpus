@@ -234,8 +234,6 @@ bb15_α:
  call rt_gvar_get_int@PLT
  mov rcx, qword ptr [r12 + 136]
  add rax, rcx
- mov qword ptr [r12 + 184], rax
- movabs rax, 6
  mov qword ptr [r12 + 176], rax
  jmp snoch8_n8_α
  snoch8_n7_β:
@@ -245,8 +243,7 @@ bb16_α:
 # IR_ASSIGN
  lea rdi, [rip + .S3]
  mov rsi, qword ptr [r12 + 176]
- mov rdx, qword ptr [r12 + 184]
- call rt_gvar_assign_descr@PLT
+ call rt_gvar_assign_int@PLT
  jmp snoch8_n5_α
  snoch8_n8_β:
  jmp snoch8_n5_α
@@ -1383,9 +1380,8 @@ snoch37_n54_α:
 bb89_α:
 # IR_ASSIGN
  mov rax, qword ptr [r12 + 592]
- mov rcx, qword ptr [r12 + 600]
- mov qword ptr [rbx + 128], rax
- mov qword ptr [rbx + 136], rcx
+ mov qword ptr [rbx + 128], 6
+ mov qword ptr [rbx + 136], rax
  jmp snoch37_n25_α
  snoch37_n54_β:
  jmp snoch37_n25_α
