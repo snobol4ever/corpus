@@ -21,7 +21,7 @@ push r12
   mov r12, rdi
   lea r10, [rip + Δ]
 main_α_body:
-bb00001_α:
+bb1_α:
 # BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = nested producer-box slot [r12+16] -> [r12+16]
  mov rax, qword ptr [r12 + 16]
