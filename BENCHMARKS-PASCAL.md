@@ -98,3 +98,85 @@ a specific, addressable bottleneck rather than diffuse slowness.
 - **No in-program clock** in the SCRIP Pascal frontend — the reason timing is
   external. A `__pas_clock` builtin (milliseconds) would let these self-time and
   mirror the SNOBOL `BENCHMARKS.md` methodology exactly.
+
+---
+
+# PAS-DISPLAY-5 — lexical display vs static-link chain-walk (addressing only)
+
+**Date**: 2026-06-27
+**Host**: Linux x86-64 (container), same machine throughout.
+**What is measured**: the *addressing* cost of a Tier-2 (enclosing-routine local)
+variable access — a register-resident lexical **display** (`mov rax, r13`, one
+load, O(1) regardless of depth) versus the **static-link chain-walk**
+(`lea rax,[r12]; FOR hops { mov rax,[rax+0] }`, an `hops`-deep dependent load
+chain). This is the win PAS-DISPLAY-1..4 implements. It is **orthogonal** to the
+boxed-integer and call-frame forks reported above — those dominate absolute
+SCRIP-vs-fpc time; this isolates only the uplevel-addressing instruction.
+
+**Benchmarks** (`programs/pascal/bench/`):
+- `uplevel2.pas` — a level-3 inner loop reading+writing two level-1 locals
+  (`sum := sum + a`), 30000×8000 = 2.4e8 iterations. Tier-2 hop distance = **2**.
+- `uplevel3.pas` — same kernel one level deeper (level-4 inner loop), hop
+  distance = **3** (the deepest the 3-register display covers; level ≥4 falls
+  back to the walk). Both verify `sum = 240000000` in M3, M4, and the walk build.
+
+**Method**: same two-build A/B as the rest of this file, but the two builds are
+*the same source* compiled by two *compilers*: the real display build, and a
+"walk-baseline" build with the display forced off in all four frame templates
+(`bb_var_frame`, `bb_assign_frame`, `bb_assign_frame_ref`, `bb_var_frame_ref`)
+**and** the display push/set/pop removed from `xa_flat.cpp`, so the baseline pays
+no display-machinery overhead — the two differ *only* in how a Tier-2 access is
+addressed. The runtime `.so` is identical for both (emitter-only change).
+M4 native exe, wall-clock; 10 interleaved A/B samples to cancel frequency drift.
+
+## Results — wall-clock seconds per run (median of 10, interleaved)
+
+| Benchmark | hops | display | walk | Δ (display − walk) | hot-body insns (disp/walk) |
+|-----------|-----:|--------:|-----:|-------------------:|:--------------------------:|
+| uplevel2  | 2 | 1.144 | 0.948 | **+0.196 (display SLOWER)** | 115 / 124 |
+| uplevel3  | 3 | 1.078 | 1.009 | **+0.069 (display SLOWER)** | 115 / 124 |
+
+(uplevel3 figures from the interleaved A/B run; display 1.067–1.093 vs walk
+0.997–1.020 — the two distributions do **not** overlap, so the gap is real, not
+measurement noise.)
+
+## Honest interpretation — the architectural win does NOT show up as wall-clock here
+
+The display build emits **fewer** instructions in the hot loop (115 vs 124 — the
+9 saved per iteration are exactly the eliminated `lea`+`mov,[rax+0]` walk steps),
+yet it runs **~7–20% slower** at the shallow depths this P4 dialect actually uses.
+The gap **shrinks as depth grows** (+0.196 s at 2 hops → +0.069 s at 3 hops),
+i.e. the trend is in the direction the design predicts (deeper walks cost more,
+so the display saves more), but even at the maximum in-budget depth (3) the
+display does not break even on this machine.
+
+Why a 9-instruction-per-iteration saving loses:
+- The static-link slot `[r12+0]` is **L1-cache-hot** (touched every iteration),
+  so each walk hop is a ~1-cycle load the out-of-order core hides under the
+  loop's real critical path (the loop-counter increment/compare recurrence). The
+  walk is **not the bottleneck** at 2–3 hops, so removing it cannot speed the loop
+  up — there is no dependent-chain stall to recover.
+- Pinning the uplevel frame into a callee-saved register (`r13`) for the whole
+  nest, plus the entry `push r13; mov r13,r12; sub rsp,8` / exit `pop`, is real
+  work that the addressing saving does not pay back when the loop body is already
+  bottlenecked elsewhere. The slightly different instruction layout also perturbs
+  loop decode/alignment.
+
+**This is the honest, unflattering result the rung asked for.** The display is the
+right *architectural* model — O(1) per access vs O(hops), strictly fewer
+instructions, no dependent chain, and the **only** model that keeps uplevel
+access from degrading as nesting deepens — but on this microarchitecture, at the
+≤3-hop depths real P4 programs exhibit (and with the static-link slot staying
+L1-hot), it does **not** translate into a wall-clock win, and at shallow depth it
+is a measurable wall-clock *loss*. The win would be expected to appear only where
+(a) nesting is deep enough that the walk's dependent chain actually gates the
+loop, or (b) the static-link slots fall out of L1 (large per-frame footprint /
+cache pressure), neither of which the current corpus exercises. No claim of
+speedup is made; the value of PAS-DISPLAY is correctness-preserving O(1) uplevel
+addressing and instruction-count reduction, not measured throughput on shallow
+nests.
+
+(Both builds remain bit-for-bit correct: `sum = 240000000` for M3, M4, and the
+walk-baseline. The walk-baseline build was a throwaway measurement harness and is
+**not** committed — only the real display templates and these two benchmark
+programs are.)
