@@ -40,7 +40,7 @@ push r12
   lea r10, [rip + Δ]
 main_α_body:
 xchain0_n0_α:
-bb32240_α:
+bb1_α:
 # BOX IR_CALL coord(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = LIT_I -> [r12+32]
  mov qword ptr [r12 + 32], 6
@@ -66,7 +66,7 @@ bb32240_α:
  xchain0_n0_β:
  jmp xchain0_n2_α
 xchain0_n1_α:
-bb32160_α:
+bb2_α:
 # IR_ASSIGN local
  mov rax, qword ptr [r12 + 16]
  mov rdx, qword ptr [r12 + 24]
@@ -79,7 +79,7 @@ bb32160_α:
  jmp xchain0_n2_α
 xchain0_n2_α:
 # IR_VAR
-bb31424_α:
+bb3_α:
  mov rax, qword ptr [r12 + 0]
  mov qword ptr [r12 + 0], rax
  mov rax, qword ptr [r12 + 8]
@@ -89,7 +89,7 @@ bb31424_α:
  jmp main_ω
 xchain0_n3_α:
 # IR_FIELD_GET
-bb31344_α:
+bb4_α:
  mov rdi, qword ptr [rip + .Lx7_0]
  mov rsi, qword ptr [r12 + 0]
  mov rdx, qword ptr [r12 + 8]
@@ -105,7 +105,7 @@ bb31344_α:
  .string "x"
 xchain0_n4_α:
 # IR_VAR
-bb31616_α:
+bb5_α:
  mov rax, qword ptr [r12 + 0]
  mov qword ptr [r12 + 0], rax
  mov rax, qword ptr [r12 + 8]
@@ -115,7 +115,7 @@ bb31616_α:
  jmp main_ω
 xchain0_n5_α:
 # IR_FIELD_GET
-bb31536_α:
+bb6_α:
  mov rdi, qword ptr [rip + .Lx11_0]
  mov rsi, qword ptr [r12 + 0]
  mov rdx, qword ptr [r12 + 8]
@@ -130,7 +130,7 @@ bb31536_α:
 .Lx11_0_s:
  .string "y"
 xchain0_n6_α:
-bb31264_α:
+bb7_α:
 # IR_BINOP_ARITH
  mov rax, qword ptr [r12 + 88]
  mov rcx, qword ptr [r12 + 104]
@@ -141,7 +141,7 @@ bb31264_α:
  xchain0_n6_β:
  jmp main_ω
 xchain0_n7_α:
-bb31184_α:
+bb8_α:
 # BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
  mov rdi, qword ptr [r12 + 112]
  mov rsi, qword ptr [r12 + 120]

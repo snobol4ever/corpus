@@ -22,7 +22,7 @@ push r12
   lea r10, [rip + Δ]
 main_α_body:
 xchain0_n0_α:
-bb00001_α:
+bb1_α:
 # BOX IR_CALL map(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = LIT_S (string REG-RO sealed in-band) -> [r12+16]
  mov qword ptr [r12 + 16], 1
@@ -50,7 +50,7 @@ bb00001_α:
  xchain0_n0_β:
  jmp xchain0_n2_α
 xchain0_n1_α:
-bb00002_α:
+bb2_α:
 # BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
  mov rdi, qword ptr [r12 + 0]
  mov rsi, qword ptr [r12 + 8]
@@ -60,7 +60,7 @@ xchain0_n1_β:
 xchain0_n1_β:
  jmp xchain0_n2_α
 xchain0_n2_α:
-bb00003_α:
+bb3_α:
 # BOX IR_CALL map(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = LIT_S (string REG-RO sealed in-band) -> [r12+48]
  mov qword ptr [r12 + 48], 1
@@ -88,7 +88,7 @@ bb00003_α:
  xchain0_n2_β:
  jmp xchain0_n4_α
 xchain0_n3_α:
-bb00004_α:
+bb4_α:
 # BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
  mov rdi, qword ptr [r12 + 32]
  mov rsi, qword ptr [r12 + 40]
@@ -98,7 +98,7 @@ xchain0_n3_β:
 xchain0_n3_β:
  jmp xchain0_n4_α
 xchain0_n4_α:
-bb00005_α:
+bb5_α:
 # BOX IR_CALL map(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = LIT_S (string REG-RO sealed in-band) -> [r12+80]
  mov qword ptr [r12 + 80], 1
@@ -136,7 +136,7 @@ bb00005_α:
  xchain0_n4_β:
  jmp xchain0_n6_α
 xchain0_n5_α:
-bb00006_α:
+bb6_α:
 # BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
  mov rdi, qword ptr [r12 + 64]
  mov rsi, qword ptr [r12 + 72]
@@ -146,7 +146,7 @@ xchain0_n5_β:
 xchain0_n5_β:
  jmp xchain0_n6_α
 xchain0_n6_α:
-bb00007_α:
+bb7_α:
 # BOX IR_CALL map(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = LIT_S (string REG-RO sealed in-band) -> [r12+128]
  mov qword ptr [r12 + 128], 1
@@ -184,7 +184,7 @@ bb00007_α:
  xchain0_n6_β:
  jmp xchain0_n8_α
 xchain0_n7_α:
-bb00008_α:
+bb8_α:
 # BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
  mov rdi, qword ptr [r12 + 112]
  mov rsi, qword ptr [r12 + 120]
@@ -194,7 +194,7 @@ xchain0_n7_β:
 xchain0_n7_β:
  jmp xchain0_n8_α
 xchain0_n8_α:
-bb00009_α:
+bb9_α:
 # BOX IR_CALL map(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = LIT_S (string REG-RO sealed in-band) -> [r12+176]
  mov qword ptr [r12 + 176], 1
@@ -237,7 +237,7 @@ bb00009_α:
  xchain0_n8_β:
  jmp xchain0_n10_α
 xchain0_n9_α:
-bb00010_α:
+bb10_α:
 # BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
  mov rdi, qword ptr [r12 + 160]
  mov rsi, qword ptr [r12 + 168]
@@ -247,7 +247,7 @@ xchain0_n9_β:
 xchain0_n9_β:
  jmp xchain0_n10_α
 xchain0_n10_α:
-bb00011_α:
+bb11_α:
 # BOX IR_CALL map(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = LIT_S (string REG-RO sealed in-band) -> [r12+240]
  mov qword ptr [r12 + 240], 1
@@ -290,7 +290,7 @@ bb00011_α:
  xchain0_n10_β:
  jmp xchain0_n12_α
 xchain0_n11_α:
-bb00012_α:
+bb12_α:
 # BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
  mov rdi, qword ptr [r12 + 224]
  mov rsi, qword ptr [r12 + 232]
@@ -300,7 +300,7 @@ xchain0_n11_β:
 xchain0_n11_β:
  jmp xchain0_n12_α
 xchain0_n12_α:
-bb00013_α:
+bb13_α:
 # BOX IR_CALL map(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = LIT_S (string REG-RO sealed in-band) -> [r12+304]
  mov qword ptr [r12 + 304], 1
@@ -348,7 +348,7 @@ bb00013_α:
  xchain0_n12_β:
  jmp xchain0_n14_α
 xchain0_n13_α:
-bb00014_α:
+bb14_α:
 # BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
  mov rdi, qword ptr [r12 + 288]
  mov rsi, qword ptr [r12 + 296]
@@ -358,7 +358,7 @@ xchain0_n13_β:
 xchain0_n13_β:
  jmp xchain0_n14_α
 xchain0_n14_α:
-bb00015_α:
+bb15_α:
 # BOX IR_CALL map(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = LIT_S (string REG-RO sealed in-band) -> [r12+368]
  mov qword ptr [r12 + 368], 1
@@ -406,7 +406,7 @@ bb00015_α:
  xchain0_n14_β:
  jmp xchain0_n16_α
 xchain0_n15_α:
-bb00016_α:
+bb16_α:
 # BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
  mov rdi, qword ptr [r12 + 352]
  mov rsi, qword ptr [r12 + 360]
@@ -416,7 +416,7 @@ xchain0_n15_β:
 xchain0_n15_β:
  jmp xchain0_n16_α
 xchain0_n16_α:
-bb00017_α:
+bb17_α:
 # BOX IR_CALL map(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = LIT_S (string REG-RO sealed in-band) -> [r12+432]
  mov qword ptr [r12 + 432], 1
@@ -464,7 +464,7 @@ bb00017_α:
  xchain0_n16_β:
  jmp xchain0_n18_α
 xchain0_n17_α:
-bb00018_α:
+bb18_α:
 # BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
  mov rdi, qword ptr [r12 + 416]
  mov rsi, qword ptr [r12 + 424]
@@ -474,7 +474,7 @@ xchain0_n17_β:
 xchain0_n17_β:
  jmp xchain0_n18_α
 xchain0_n18_α:
-bb00019_α:
+bb19_α:
 # BOX IR_CALL map(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = LIT_S (string REG-RO sealed in-band) -> [r12+496]
  mov qword ptr [r12 + 496], 1
@@ -522,7 +522,7 @@ bb00019_α:
  xchain0_n18_β:
  jmp main_ω
 xchain0_n19_α:
-bb00020_α:
+bb20_α:
 # BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
  mov rdi, qword ptr [r12 + 480]
  mov rsi, qword ptr [r12 + 488]

@@ -23,8 +23,9 @@ push r12
 main_α_body:
 xchain0_n0_α:
 # IR_LIT_S
-bb95904_α:
+bb1_α:
  mov qword ptr [r12 + 16], 1
+ mov dword ptr [r12 + 20], -1
  mov rax, qword ptr [rip + .Lx1_0]
  mov qword ptr [r12 + 24], rax
  jmp xchain0_n1_α
@@ -35,7 +36,7 @@ bb95904_α:
 .Lx1_0_s:
  .string "aeiou"
 xchain0_n1_α:
-bb95824_α:
+bb2_α:
 # IR_ASSIGN local
  mov rax, qword ptr [r12 + 16]
  mov rdx, qword ptr [r12 + 24]
@@ -49,7 +50,7 @@ bb95824_α:
 xchain0_n2_α:
 xargsub4_n0_α:
 # IR_LIT_S
-bb61776_α:
+bb3_α:
  mov qword ptr [r12 + 48], 1
  mov rax, qword ptr [rip + .Lx5_0]
  mov qword ptr [r12 + 56], rax
@@ -77,7 +78,7 @@ xscan3_subj_done:
 xscan3_body_start:
 xargsub8_n0_α:
 # IR_SCAN_ANY (var cset)
-bb78800_α:
+bb4_α:
  mov eax, r14d
  cmp eax, r15d
  jge xscan3_body_fail
@@ -97,7 +98,7 @@ bb78800_α:
  xargsub8_n0_β:
  jmp xscan3_body_fail
 xargsub8_n1_α:
-bb78720_α:
+bb5_α:
 # BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
  mov rdi, qword ptr [r12 + 88]
  mov rsi, qword ptr [r12 + 96]

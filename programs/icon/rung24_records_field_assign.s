@@ -34,7 +34,7 @@ push r12
   lea r10, [rip + Δ]
 main_α_body:
 xchain0_n0_α:
-bb24448_α:
+bb1_α:
 # BOX IR_CALL box(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = LIT_I -> [r12+32]
  mov qword ptr [r12 + 32], 6
@@ -60,7 +60,7 @@ bb24448_α:
  xchain0_n0_β:
  jmp xchain0_n2_α
 xchain0_n1_α:
-bb24368_α:
+bb2_α:
 # IR_ASSIGN local
  mov rax, qword ptr [r12 + 16]
  mov rdx, qword ptr [r12 + 24]
@@ -73,7 +73,7 @@ bb24368_α:
  jmp xchain0_n2_α
 xchain0_n2_α:
 # IR_VAR
-bb24256_α:
+bb3_α:
  mov rax, qword ptr [r12 + 0]
  mov qword ptr [r12 + 0], rax
  mov rax, qword ptr [r12 + 8]
@@ -83,7 +83,7 @@ bb24256_α:
  jmp xchain0_n5_α
 xchain0_n3_α:
 # IR_LIT_I
-bb24176_α:
+bb4_α:
  mov qword ptr [r12 + 80], 6
  mov rax, qword ptr [rip + .Lx6_0]
  mov qword ptr [r12 + 88], rax
@@ -94,7 +94,7 @@ bb24176_α:
  .quad 99
 xchain0_n4_α:
 # IR_FIELD_SET
-bb24096_α:
+bb5_α:
  mov rdi, qword ptr [rip + .Lx8_0]
  mov rsi, qword ptr [r12 + 0]
  mov rdx, qword ptr [r12 + 8]
@@ -110,7 +110,7 @@ bb24096_α:
  .string "w"
 xchain0_n5_α:
 # IR_VAR
-bb23984_α:
+bb6_α:
  mov rax, qword ptr [r12 + 0]
  mov qword ptr [r12 + 0], rax
  mov rax, qword ptr [r12 + 8]
@@ -120,7 +120,7 @@ bb23984_α:
  jmp xchain0_n8_α
 xchain0_n6_α:
 # IR_FIELD_GET
-bb23904_α:
+bb7_α:
  mov rdi, qword ptr [rip + .Lx12_0]
  mov rsi, qword ptr [r12 + 0]
  mov rdx, qword ptr [r12 + 8]
@@ -135,7 +135,7 @@ bb23904_α:
 .Lx12_0_s:
  .string "w"
 xchain0_n7_α:
-bb23824_α:
+bb8_α:
 # BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
  mov rdi, qword ptr [r12 + 96]
  mov rsi, qword ptr [r12 + 104]
@@ -146,7 +146,7 @@ xchain0_n7_β:
  jmp xchain0_n8_α
 xchain0_n8_α:
 # IR_VAR
-bb23712_α:
+bb9_α:
  mov rax, qword ptr [r12 + 0]
  mov qword ptr [r12 + 0], rax
  mov rax, qword ptr [r12 + 8]
@@ -156,7 +156,7 @@ bb23712_α:
  jmp main_ω
 xchain0_n9_α:
 # IR_FIELD_GET
-bb23632_α:
+bb10_α:
  mov rdi, qword ptr [rip + .Lx17_0]
  mov rsi, qword ptr [r12 + 0]
  mov rdx, qword ptr [r12 + 8]
@@ -171,7 +171,7 @@ bb23632_α:
 .Lx17_0_s:
  .string "h"
 xchain0_n10_α:
-bb23552_α:
+bb11_α:
 # BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
  mov rdi, qword ptr [r12 + 112]
  mov rsi, qword ptr [r12 + 120]
