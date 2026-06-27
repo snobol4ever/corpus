@@ -428,10 +428,6 @@ bb18_α:
  test eax, eax
  jne gzp21_g6_α
  jmp gzp21_g4_β
- gzp21_g5_β:
- mov rdi, qword ptr [r12 + 168]
- call gzp20_β
- jmp .Lx35_0
 gzp21_g6_α:
 bb19_α:
 # IR_CELL_UNIFY
@@ -453,7 +449,7 @@ bb19_α:
  call rt_pl_unify_struct@PLT
  add rsp, 32
  test eax, eax
- je gzp21_g5_β
+ je gzp21_g4_β
  jmp gzp21_g7_α
 gzp21_g7_α:
 bb20_α:
@@ -469,7 +465,7 @@ bb20_α:
 .Lx39_0:
  test eax, eax
  jne gzp21_γ
- jmp gzp21_g5_β
+ jmp gzp21_g4_β
  gzp21_g7_β:
  mov rdi, qword ptr [r12 + 184]
  call gzp11_β

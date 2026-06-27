@@ -89,10 +89,6 @@ bb7_α:
  test eax, eax
  jne gzp13_g1_α
  jmp gzp13_ω
- gzp13_g0_β:
- mov rdi, qword ptr [r12 + 1544]
- call gzp9_β
- jmp .Lx16_0
 gzp13_g1_α:
 bb8_α:
 # IR_CELL_UNIFY
@@ -137,7 +133,7 @@ bb8_α:
  call rt_pl_unify_struct@PLT
  add rsp, 80
  test eax, eax
- je gzp13_g0_β
+ je gzp13_ω
  jmp gzp13_g2_α
 gzp13_g2_α:
 bb9_α:
@@ -152,7 +148,7 @@ bb9_α:
 .Lx20_0:
  test eax, eax
  jne gzp13_g3_α
- jmp gzp13_g0_β
+ jmp gzp13_ω
  gzp13_g2_β:
  mov rdi, qword ptr [r12 + 1560]
  call gzp10_β

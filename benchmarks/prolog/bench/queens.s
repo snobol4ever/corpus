@@ -118,10 +118,6 @@ bb9_α:
  test eax, eax
  jne gzp13_g2_α
  jmp gzp13_ω
- gzp13_g1_β:
- mov rdi, qword ptr [r12 + 88]
- call gzp11_β
- jmp .Lx18_0
 gzp13_g2_α:
 bb10_α:
 # IR_CELL_UNIFY
@@ -131,7 +127,7 @@ bb10_α:
  mov rcx, qword ptr [rip + .Lx20_0]
  call rt_pl_unify_cell_const@PLT
  test eax, eax
- je gzp13_g1_β
+ je gzp13_ω
  jmp gzp13_g3_α
 .Lx20_0:
  .quad .Lx20_0_s
@@ -151,7 +147,7 @@ bb11_α:
 .Lx22_0:
  test eax, eax
  jne gzp13_γ
- jmp gzp13_g1_β
+ jmp gzp13_ω
  gzp13_g3_β:
  mov rdi, qword ptr [r12 + 104]
  call gzp12_β

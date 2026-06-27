@@ -1133,10 +1133,6 @@ bb31_α:
  test eax, eax
  jne gzp17_g24_α
  jmp gzp17_g19_β
- gzp17_g23_β:
- mov rdi, qword ptr [r12 + 680]
- call gzp16_β
- jmp .Lx66_0
 gzp17_g24_α:
 bb32_α:
 # IR_CELL_CALL
@@ -1149,7 +1145,7 @@ bb32_α:
 .Lx68_0:
  test eax, eax
  jne gzp17_g25_α
- jmp gzp17_g23_β
+ jmp gzp17_g19_β
  gzp17_g24_β:
  mov rdi, qword ptr [r12 + 696]
  call gzp11_β

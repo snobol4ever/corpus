@@ -47,10 +47,6 @@ bb3_α:
  test eax, eax
  jne gzq0_g2_α
  jmp gzq0_ω
- gzq0_g1_β:
- mov rdi, qword ptr [r12 + 40]
- call gzp1_β
- jmp .Lx6_0
 gzq0_g2_α:
 bb4_α:
 # IR_DET_WRITE
@@ -221,10 +217,6 @@ bb19_α:
  test eax, eax
  jne gzp11_g10_α
  jmp gzp11_ω
- gzp11_g9_β:
- mov rdi, qword ptr [r12 + 200]
- call gzp1_β
- jmp .Lx34_0
 gzp11_g10_α:
 bb20_α:
 # IR_CELL_CALL
@@ -238,11 +230,7 @@ bb20_α:
 .Lx36_0:
  test eax, eax
  jne gzp11_g11_α
- jmp gzp11_g9_β
- gzp11_g10_β:
- mov rdi, qword ptr [r12 + 216]
- call gzp1_β
- jmp .Lx36_0
+ jmp gzp11_ω
 gzp11_g11_α:
 bb21_α:
 # IR_DET_IS
@@ -252,10 +240,10 @@ bb21_α:
  mov rcx, qword ptr [rip + .Lx38_0]
  call rt_pl_is_cell_bivar@PLT
  test eax, eax
- je gzp11_g10_β
+ je gzp11_ω
  jmp gzp11_γ
  gzp11_g11_β:
- jmp gzp11_g10_β
+ jmp gzp11_ω
 .Lx38_0:
  .quad .Lx38_0_s
 .Lx38_0_s:
