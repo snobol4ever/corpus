@@ -1,5 +1,5 @@
 (* PB-35: block_sim using actual eof(input) check - exact mirror of pcom block()
-   Reads actual stdin. Feed with: echo "begin end." | scrip --interp pb35.pas
+   Reads actual stdin. Feed with: echo "begin end." | scrip --run pb35.pas
    Expected: 1 cycle, 0 stmts *)
 program pb35(output);
 var

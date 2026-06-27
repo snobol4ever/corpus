@@ -4,7 +4,7 @@
 * record per stmt entry, with stno = 1, 2, 3 in order on the wire.
 * CSNOBOL4 fires LABEL only on user statements (3 LABELs).
 * SPITBOL counts END as a stmt (4 LABELs: 1, 2, 3, 4).
-* scrip --interp matches CSN; --interp / --run match SPL.
+* scrip --run matches CSN; --run / --run match SPL.
 *
 * The drivers (test_smoke_sn26_label_flow*.sh) verify each runtime emits
 * its expected LABEL stream interleaved with VALUE records on assignments.

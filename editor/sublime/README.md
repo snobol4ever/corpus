@@ -17,7 +17,7 @@ them consistently.
 | `SNOBOL4.sublime-settings`        | Editor settings applied when SNOBOL4 syntax is active    |
 | `Snocone.sublime-settings`        | Editor settings applied when Snocone  syntax is active   |
 | `SNOBOL4.sublime-build`           | Build / run command for SNOBOL4 (Lon's local SPITBOL)    |
-| `Snocone.sublime-build`           | Build / run command for Snocone (uses `scrip --interp`)  |
+| `Snocone.sublime-build`           | Build / run command for Snocone (uses `scrip --run`)  |
 | `Preferences.sublime-settings`    | Global editor preferences (font size, trim trailing ws)  |
 | `DEFINE.sublime-snippet`          | `DEFINE` ↹  expansion for SNOBOL4 prototype-string form  |
 | `START.sublime-snippet`           | `START` ↹  expansion for SNOBOL4 program skeleton        |
@@ -116,7 +116,7 @@ the configured build.
   SPITBOL's `filename(line,col) : Error N…` diagnostic format and
   jumps to the offending source line on error.
 
-* **Snocone** — `Snocone.sublime-build` invokes `scrip --interp` on
+* **Snocone** — `Snocone.sublime-build` invokes `scrip --run` on
   the active `.sc` file, capturing stdout/stderr to a matching
   `.out` file alongside.  Build `scrip` from
   `snobol4ever/SCRIP/scripts/build_scrip.sh` and put it on PATH
