@@ -421,6 +421,8 @@ bb22_α:
  mov rdx, qword ptr [r12 + 64]
  mov rcx, qword ptr [r12 + 72]
  call subscript_get@PLT
+ cmp eax, 99
+ je snoch37_n4_α
  mov qword ptr [r12 + 80], rax
  mov qword ptr [r12 + 88], rdx
  jmp snoch37_n3_α
@@ -484,6 +486,8 @@ bb25_α:
  mov rdx, qword ptr [r12 + 112]
  mov rcx, qword ptr [r12 + 120]
  call subscript_get@PLT
+ cmp eax, 99
+ je snoch37_n4_α
  mov qword ptr [r12 + 128], rax
  mov qword ptr [r12 + 136], rdx
  jmp xgvidx49_done
@@ -798,6 +802,8 @@ bb40_α:
  mov rdx, qword ptr [r12 + 160]
  mov rcx, qword ptr [r12 + 168]
  call subscript_get@PLT
+ cmp eax, 99
+ je snoch61_n8_α
  mov qword ptr [r12 + 176], rax
  mov qword ptr [r12 + 184], rdx
  jmp snoch61_n7_α
@@ -2816,6 +2822,8 @@ bb148_α:
  mov rdx, qword ptr [r12 + 272]
  mov rcx, qword ptr [r12 + 280]
  call subscript_get@PLT
+ cmp eax, 99
+ je snoch240_n5_α
  mov qword ptr [r12 + 288], rax
  mov qword ptr [r12 + 296], rdx
  jmp snoch240_n4_α
@@ -2873,6 +2881,8 @@ bb150_α:
  mov rdx, qword ptr [r12 + 304]
  mov rcx, qword ptr [r12 + 312]
  call subscript_get@PLT
+ cmp eax, 99
+ je snoch240_n7_α
  mov qword ptr [r12 + 320], rax
  mov qword ptr [r12 + 328], rdx
  jmp snoch240_n6_α
@@ -3575,6 +3585,8 @@ bb190_α:
  mov rdx, qword ptr [r12 + 640]
  mov rcx, qword ptr [r12 + 648]
  call subscript_get@PLT
+ cmp eax, 99
+ je snoch288_n15_α
  mov qword ptr [r12 + 656], rax
  mov qword ptr [r12 + 664], rdx
  jmp snoch288_n14_α
@@ -3641,6 +3653,8 @@ bb193_α:
  mov rdx, qword ptr [r12 + 688]
  mov rcx, qword ptr [r12 + 696]
  call subscript_get@PLT
+ cmp eax, 99
+ je snoch288_n18_α
  mov qword ptr [r12 + 704], rax
  mov qword ptr [r12 + 712], rdx
  jmp snoch288_n17_α
