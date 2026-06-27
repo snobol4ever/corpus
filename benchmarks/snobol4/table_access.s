@@ -732,6 +732,8 @@ bb55_α:
  mov rdx, qword ptr [r12 + 528]
  mov rcx, qword ptr [r12 + 536]
  call subscript_get@PLT
+ cmp eax, 99
+ je snoch0_n20_α
  mov qword ptr [r12 + 544], rax
  mov qword ptr [r12 + 552], rdx
  jmp snoch0_n47_α
@@ -804,6 +806,8 @@ bb57_α:
  mov rdx, qword ptr [r12 + 568]
  mov rcx, qword ptr [r12 + 576]
  call subscript_get@PLT
+ cmp eax, 99
+ je snoch0_n20_α
  mov qword ptr [r12 + 584], rax
  mov qword ptr [r12 + 592], rdx
  jmp xgvidx93_done
