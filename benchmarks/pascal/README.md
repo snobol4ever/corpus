@@ -1,0 +1,73 @@
+# Pascal Benchmarks (PAS-BENCH)
+
+Canonical Pascal benchmark programs imported for cross-engine speed comparison
+(SCRIP vs. a reference x86-64 Pascal system, Free Pascal / `fpc`).
+
+Each `.pas` carries a tunable repeat count read from stdin (`readln(reps)`) so a
+single compiled artifact can be run at any iteration count; the timing harness
+uses a two-point slope to cancel process-startup / JIT-compile cost. Each
+benchmark reduces its result to one (or two) deterministic integers, stored in
+the matching `.ref` (SCRIP M3 width-10 formatting, numeric value cross-checked
+against `fpc`).
+
+## Provenance
+
+| File | Origin | Author | Status |
+|------|--------|--------|--------|
+| `sieve.pas`  | Sieve of Eratosthenes (Byte-magazine sieve lineage) | classic | public domain |
+| `bubble.pas` | Hennessy "Bubble", Stanford integer suite | John L. Hennessy, Stanford (c.1981) | long-circulated, public domain |
+| `quick.pas`  | Hennessy "Quick" (Hoare quicksort), Stanford suite | John L. Hennessy | public domain |
+| `towers.pas` | Hennessy "Towers" (Towers of Hanoi), Stanford suite | John L. Hennessy | public domain |
+| `queens.pas` | Hennessy "Queens" (Wirth 8-queens), Stanford suite | John L. Hennessy / N. Wirth | public domain |
+| `intmm.pas`  | Hennessy "Intmm" (40x40 integer matrix multiply), Stanford suite | John L. Hennessy | public domain |
+| `perm.pas`   | Hennessy "Perm" (recursive permutation), Stanford suite | John L. Hennessy | public domain — **FRONTIER (see below)** |
+
+Algorithm and constants for the Hennessy/Stanford programs were taken from the
+faithful C descendant in the LLVM test-suite
+(`github.com/llvm/llvm-test-suite`, `SingleSource/Benchmarks/Stanford`), whose
+comments preserve the original Pascal type declarations. These six are
+P4-faithful hand transliterations into the SCRIP Pascal subset (no variant
+records, no negative array bounds — diagonals in `queens` are offset to
+non-negative indices).
+
+The canonical Hennessy pseudo-random generator is used where the original does:
+`seed := (seed * 1309 + 13849) mod 65536`, seed0 = 74755.
+
+Dhrystone (Reinhold P. Weicker, Siemens, 1984; v2.1 1988; from
+`github.com/Keith-S-Thompson/dhrystone`, `v2.1/dhry.p`) is **not yet imported as
+runnable** — it requires variant records (`case Discr: Enumeration of`), forward
+declarations, and a `clock` primitive, all currently beyond the SCRIP Pascal
+frontend. See the report's frontier list.
+
+## Integer-width discipline (IMPORTANT for fair comparison)
+
+SCRIP's Pascal `integer` is 64-bit; `fpc`'s default `integer` is **16-bit**,
+which overflows the RNG multiply (`seed*1309`) before the `mod 65536` and yields
+a different sequence. The canonical benchmark intends wide arithmetic (the LLVM C
+port converts `seed` to `long` "for 16 bit"). The peer `fpc` builds therefore
+prepend `{$mode objfpc}` (32-bit `integer`); both compilers then compute
+identical results. Verified byte-identical for all six runnable benchmarks.
+
+## Known frontier — `perm.pas`
+
+`perm` exercises a recursive call **inside a `for` loop** whose control variable
+is read after the call returns. SCRIP currently returns 635 instead of 43300
+(= 5 x P(7), P(7)=8660): the inner activation's `for`-loop control variable is
+not allocated per-activation, so the outer loop's variable is clobbered and the
+loop terminates early. Minimal repro: a recursive procedure with
+`for k := 1 to 3 do begin rec(n-1); cnt := cnt+1 end` called as `rec(2)` yields 4
+on SCRIP, 12 on `fpc`. Tracked as **PAS-FOR-RECURSE**. The other five recursive
+benchmarks are unaffected (none nests a recursive call inside a live `for` loop;
+`queens` uses `repeat`, whose variable survives).
+
+## Reproducing
+
+```
+# SCRIP in-process (M3):     echo <reps> | scrip --run bubble.pas
+# SCRIP compiled (M4):       scrip --compile bubble.pas > bubble.s
+#                            gcc -c bubble.s && gcc -no-pie bubble.o -o bubble \
+#                              -L<out> -lscrip_rt -lgc -lm -Wl,-rpath,<out>
+#                            echo <reps> | ./bubble
+# fpc peer:                  ( printf '{$mode objfpc}\n'; cat bubble.pas ) > b.pas
+#                            fpc -O2 -ob b.pas ; echo <reps> | ./b
+```
