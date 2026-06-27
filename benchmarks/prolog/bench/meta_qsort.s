@@ -108,8 +108,8 @@ gzp1_α:
 gzp24_g0_α:
 bb12_α:
 # IR_CELL_UNIFY
- mov rdi, qword ptr [r12 + 8]
- mov esi, 67
+ lea rdi, [r12 + 8]
+ mov esi, 68
  mov rdx, 0
  mov rcx, qword ptr [rip + .Lx27_0]
  call rt_pl_unify_cell_const@PLT
@@ -127,7 +127,7 @@ bb13_α:
  mov esi, 5
  call rt_enter@PLT
  mov rdi, rax
- mov rsi, qword ptr [r12 + 8]
+ lea rsi, [r12 + 8]
  call gzp23_α
 .Lx29_0:
  test eax, eax
@@ -156,7 +156,10 @@ gzp23_α:
 # IR_CALLEE_FRAME
  push r12
  mov r12, rdi
- mov qword ptr [r12 + 8], rsi
+ mov r11, qword ptr [rsi + 0]
+ mov qword ptr [r12 + 8], r11
+ mov r11, qword ptr [rsi + 8]
+ mov qword ptr [r12 + 16], r11
  call rt_trail_mark@PLT
  mov dword ptr [r12 + 0], eax
  lea rdi, [r12 + 24]
@@ -170,8 +173,8 @@ bb16_α:
  mov esi, 29
  call rt_enter@PLT
  mov rdi, rax
- mov rsi, qword ptr [r12 + 8]
- mov rdx, qword ptr [r12 + 24]
+ lea rsi, [r12 + 8]
+ lea rdx, [r12 + 24]
  call gzp31_α
 .Lx35_0:
  test eax, eax
@@ -187,7 +190,7 @@ bb17_α:
 gzi39_g0_α:
 bb18_α:
 # IR_DET_TYPE_TEST
- mov rdi, qword ptr [r12 + 24]
+ lea rdi, [r12 + 24]
  mov rsi, qword ptr [rip + .Lx41_0]
  call rt_pl_type_test_cell@PLT
  test eax, eax
@@ -215,7 +218,7 @@ bb21_α:
  mov esi, 5
  call rt_enter@PLT
  mov rdi, rax
- mov rsi, qword ptr [r12 + 24]
+ lea rsi, [r12 + 24]
  call gzp23_α
 .Lx48_0:
  test eax, eax
@@ -250,8 +253,14 @@ gzp31_α:
 # IR_CALLEE_FRAME
  push r12
  mov r12, rdi
- mov qword ptr [r12 + 8], rsi
- mov qword ptr [r12 + 24], rdx
+ mov r11, qword ptr [rsi + 0]
+ mov qword ptr [r12 + 8], r11
+ mov r11, qword ptr [rsi + 8]
+ mov qword ptr [r12 + 16], r11
+ mov r11, qword ptr [rdx + 0]
+ mov qword ptr [r12 + 24], r11
+ mov r11, qword ptr [rdx + 8]
+ mov qword ptr [r12 + 32], r11
  call rt_trail_mark@PLT
  mov dword ptr [r12 + 0], eax
  mov dword ptr [r12 + 4], 1
@@ -262,8 +271,8 @@ gzp31_α:
 gzp56_g0_α:
 bb25_α:
 # IR_CELL_UNIFY
- mov rdi, qword ptr [r12 + 24]
- mov rsi, qword ptr [r12 + 40]
+ lea rdi, [r12 + 24]
+ lea rsi, [r12 + 40]
  call rt_unify_terms@PLT
  test eax, eax
  je gzp56_c0_adv
@@ -271,7 +280,7 @@ bb25_α:
 gzp56_g1_α:
 bb26_α:
 # IR_DET_TYPE_TEST
- mov rdi, qword ptr [r12 + 8]
+ lea rdi, [r12 + 8]
  mov rsi, qword ptr [rip + .Lx61_0]
  call rt_pl_type_test_cell@PLT
  test eax, eax
@@ -302,24 +311,23 @@ gzp56_c0_adv:
 gzp56_g4_α:
 bb30_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- mov rax, qword ptr [r12 + 8]
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
- mov rax, qword ptr [r12 + 56]
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 72]
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S1]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
+ sub rsp, 32
+ lea rax, [r12 + 56]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 72]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [r12 + 8]
+ lea rsi, [rip + .S1]
+ mov edx, 2
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
+ add rsp, 32
  test eax, eax
  je gzp56_c1_adv
  jmp gzp56_g5_α
@@ -336,8 +344,8 @@ bb32_α:
  mov esi, 29
  call rt_enter@PLT
  mov rdi, rax
- mov rsi, qword ptr [r12 + 56]
- mov rdx, qword ptr [r12 + 88]
+ lea rsi, [r12 + 56]
+ lea rdx, [r12 + 88]
  call gzp31_α
 .Lx71_0:
  test eax, eax
@@ -353,7 +361,7 @@ bb33_α:
 gzi75_g0_α:
 bb34_α:
 # IR_DET_TYPE_TEST
- mov rdi, qword ptr [r12 + 88]
+ lea rdi, [r12 + 88]
  mov rsi, qword ptr [rip + .Lx77_0]
  call rt_pl_type_test_cell@PLT
  test eax, eax
@@ -377,24 +385,23 @@ gzi72_t:
 gzi82_g0_α:
 bb37_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- mov rax, qword ptr [r12 + 24]
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
- mov rax, qword ptr [r12 + 88]
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 72]
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S1]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
+ sub rsp, 32
+ lea rax, [r12 + 88]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 72]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [r12 + 24]
+ lea rsi, [rip + .S1]
+ mov edx, 2
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
+ add rsp, 32
  test eax, eax
  je gzp56_g6_β
  jmp gzp56_γ
@@ -408,8 +415,8 @@ bb38_α:
  mov esi, 29
  call rt_enter@PLT
  mov rdi, rax
- mov rsi, qword ptr [r12 + 72]
- mov rdx, qword ptr [r12 + 24]
+ lea rsi, [r12 + 72]
+ lea rdx, [r12 + 24]
  call gzp31_α
 .Lx87_0:
  test eax, eax
@@ -434,24 +441,23 @@ gzp56_c1_adv:
 gzp56_g8_α:
 bb41_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- mov rax, qword ptr [r12 + 8]
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
- mov rax, qword ptr [r12 + 120]
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 136]
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S2]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
+ sub rsp, 32
+ lea rax, [r12 + 120]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 136]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [r12 + 8]
+ lea rsi, [rip + .S2]
+ mov edx, 2
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
+ add rsp, 32
  test eax, eax
  je gzp56_c2_adv
  jmp gzp56_g9_α
@@ -468,9 +474,9 @@ bb43_α:
  mov esi, 17
  call rt_enter@PLT
  mov rdi, rax
- mov rsi, qword ptr [r12 + 120]
- mov rdx, qword ptr [r12 + 136]
- mov rcx, qword ptr [r12 + 24]
+ lea rsi, [r12 + 120]
+ lea rdx, [r12 + 136]
+ lea rcx, [r12 + 24]
  call gzp52_α
 .Lx96_0:
  test eax, eax
@@ -489,24 +495,23 @@ gzp56_c2_adv:
 gzp56_g11_α:
 bb45_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- mov rax, qword ptr [r12 + 8]
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
- mov rax, qword ptr [r12 + 152]
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 168]
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S3]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
+ sub rsp, 32
+ lea rax, [r12 + 152]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 168]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [r12 + 8]
+ lea rsi, [rip + .S3]
+ mov edx, 2
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
+ add rsp, 32
  test eax, eax
  je gzp56_c3_adv
  jmp gzp56_g12_α
@@ -519,32 +524,31 @@ bb46_α:
 gzp56_g13_α:
 bb47_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- mov rax, qword ptr [r12 + 184]
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
- mov rax, qword ptr [r12 + 40]
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 56]
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S3]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
+ sub rsp, 32
+ lea rax, [r12 + 152]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 168]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [r12 + 184]
+ lea rsi, [rip + .S3]
+ mov edx, 2
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
+ add rsp, 32
  test eax, eax
  je gzp56_g12_β
  jmp gzp56_g14_α
 gzp56_g14_α:
 bb48_α:
 # IR_CELL_UNIFY
- mov rdi, qword ptr [r12 + 200]
- mov esi, 67
+ lea rdi, [r12 + 200]
+ mov esi, 68
  mov rdx, 0
  mov rcx, qword ptr [rip + .Lx105_0]
  call rt_pl_unify_cell_const@PLT
@@ -562,9 +566,9 @@ bb49_α:
  mov esi, 17
  call rt_enter@PLT
  mov rdi, rax
- mov rsi, qword ptr [r12 + 184]
- mov rdx, qword ptr [r12 + 200]
- mov rcx, qword ptr [r12 + 24]
+ lea rsi, [r12 + 184]
+ lea rdx, [r12 + 200]
+ lea rcx, [r12 + 24]
  call gzp52_α
 .Lx107_0:
  test eax, eax
@@ -584,21 +588,17 @@ gzp56_g16_α:
 bb51_α:
 # IR_CELL_UNIFY
  sub rsp, 16
- mov rax, qword ptr [r12 + 8]
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
- mov rax, qword ptr [r12 + 216]
- mov qword ptr [rsp + 0], rax
- lea rdi, [rip + .S5]
- mov esi, 1
- mov rdx, rsp
- call rt_compound_build_n@PLT
+ lea rax, [r12 + 216]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rdi, [r12 + 8]
+ lea rsi, [rip + .S5]
+ mov edx, 1
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
  add rsp, 16
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
  test eax, eax
  je gzp56_c4_adv
  jmp gzp56_g17_α
@@ -611,36 +611,35 @@ bb52_α:
 gzp56_g18_α:
 bb53_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- mov rax, qword ptr [r12 + 232]
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
- mov rax, qword ptr [r12 + 40]
- mov qword ptr [rsp + 0], rax
- mov edi, 67
+ sub rsp, 32
+ lea rax, [r12 + 216]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ mov edi, 68
  xor rsi, rsi
  lea rdx, [rip + .S4]
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S3]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [r12 + 232]
+ lea rsi, [rip + .S3]
+ mov edx, 2
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
+ add rsp, 32
  test eax, eax
  je gzp56_g17_β
  jmp gzp56_g19_α
 gzp56_g19_α:
 bb54_α:
 # IR_CELL_UNIFY
- mov rdi, qword ptr [r12 + 248]
- mov esi, 67
+ lea rdi, [r12 + 248]
+ mov esi, 68
  mov rdx, 0
  mov rcx, qword ptr [rip + .Lx116_0]
  call rt_pl_unify_cell_const@PLT
@@ -658,9 +657,9 @@ bb55_α:
  mov esi, 17
  call rt_enter@PLT
  mov rdi, rax
- mov rsi, qword ptr [r12 + 232]
- mov rdx, qword ptr [r12 + 248]
- mov rcx, qword ptr [r12 + 24]
+ lea rsi, [r12 + 232]
+ lea rdx, [r12 + 248]
+ lea rcx, [r12 + 24]
  call gzp52_α
 .Lx118_0:
  test eax, eax
@@ -679,8 +678,8 @@ gzp56_c4_adv:
 gzp56_g21_α:
 bb57_α:
 # IR_CELL_UNIFY
- mov rdi, qword ptr [r12 + 8]
- mov esi, 67
+ lea rdi, [r12 + 8]
+ mov esi, 68
  mov rdx, 0
  mov rcx, qword ptr [rip + .Lx121_0]
  call rt_pl_unify_cell_const@PLT
@@ -694,8 +693,8 @@ bb57_α:
 gzp56_g22_α:
 bb58_α:
 # IR_CELL_UNIFY
- mov rdi, qword ptr [r12 + 24]
- mov esi, 67
+ lea rdi, [r12 + 24]
+ mov esi, 68
  mov rdx, 0
  mov rcx, qword ptr [rip + .Lx123_0]
  call rt_pl_unify_cell_const@PLT
@@ -721,8 +720,8 @@ gzp56_c5_adv:
 gzp56_g24_α:
 bb61_α:
 # IR_CELL_UNIFY
- mov rdi, qword ptr [r12 + 24]
- mov rsi, qword ptr [r12 + 264]
+ lea rdi, [r12 + 24]
+ lea rsi, [r12 + 264]
  call rt_unify_terms@PLT
  test eax, eax
  je gzp56_c6_adv
@@ -730,7 +729,7 @@ bb61_α:
 gzp56_g25_α:
 bb62_α:
 # IR_DET_TYPE_TEST
- mov rdi, qword ptr [r12 + 8]
+ lea rdi, [r12 + 8]
  mov rsi, qword ptr [rip + .Lx130_0]
  call rt_pl_type_test_cell@PLT
  test eax, eax
@@ -761,8 +760,8 @@ gzp56_c6_adv:
 gzp56_g28_α:
 bb66_α:
 # IR_CELL_UNIFY
- mov rdi, qword ptr [r12 + 24]
- mov rsi, qword ptr [r12 + 280]
+ lea rdi, [r12 + 24]
+ lea rsi, [r12 + 280]
  call rt_unify_terms@PLT
  test eax, eax
  je gzp56_c7_adv
@@ -774,7 +773,7 @@ bb67_α:
  mov esi, 3
  call rt_enter@PLT
  mov rdi, rax
- mov rsi, qword ptr [r12 + 8]
+ lea rsi, [r12 + 8]
  call gzp53_α
 .Lx138_0:
  test eax, eax
@@ -797,7 +796,7 @@ bb69_α:
  mov esi, 3
  call rt_enter@PLT
  mov rdi, rax
- mov rsi, qword ptr [r12 + 8]
+ lea rsi, [r12 + 8]
  call gzp54_α
 .Lx142_0:
  test eax, eax
@@ -816,8 +815,8 @@ gzp56_c7_adv:
 gzp56_g32_α:
 bb71_α:
 # IR_CELL_UNIFY
- mov rdi, qword ptr [r12 + 24]
- mov rsi, qword ptr [r12 + 296]
+ lea rdi, [r12 + 24]
+ lea rsi, [r12 + 296]
  call rt_unify_terms@PLT
  test eax, eax
  je gzp56_ω
@@ -829,8 +828,8 @@ bb72_α:
  mov esi, 22
  call rt_enter@PLT
  mov rdi, rax
- mov rsi, qword ptr [r12 + 8]
- mov rdx, qword ptr [r12 + 312]
+ lea rsi, [r12 + 8]
+ lea rdx, [r12 + 312]
  call gzp55_α
 .Lx147_0:
  test eax, eax
@@ -847,7 +846,7 @@ bb73_α:
  mov esi, 5
  call rt_enter@PLT
  mov rdi, rax
- mov rsi, qword ptr [r12 + 312]
+ lea rsi, [r12 + 312]
  call gzp23_α
 .Lx149_0:
  test eax, eax
@@ -900,9 +899,18 @@ gzp52_α:
 # IR_CALLEE_FRAME
  push r12
  mov r12, rdi
- mov qword ptr [r12 + 8], rsi
- mov qword ptr [r12 + 24], rdx
- mov qword ptr [r12 + 40], rcx
+ mov r11, qword ptr [rsi + 0]
+ mov qword ptr [r12 + 8], r11
+ mov r11, qword ptr [rsi + 8]
+ mov qword ptr [r12 + 16], r11
+ mov r11, qword ptr [rdx + 0]
+ mov qword ptr [r12 + 24], r11
+ mov r11, qword ptr [rdx + 8]
+ mov qword ptr [r12 + 32], r11
+ mov r11, qword ptr [rcx + 0]
+ mov qword ptr [r12 + 40], r11
+ mov r11, qword ptr [rcx + 8]
+ mov qword ptr [r12 + 48], r11
  call rt_trail_mark@PLT
  mov dword ptr [r12 + 0], eax
  mov dword ptr [r12 + 4], 1
@@ -913,32 +921,31 @@ gzp52_α:
 gzp160_g0_α:
 bb85_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- mov rax, qword ptr [r12 + 8]
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
- mov rax, qword ptr [r12 + 56]
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 72]
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S3]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
+ sub rsp, 32
+ lea rax, [r12 + 56]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 72]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [r12 + 8]
+ lea rsi, [rip + .S3]
+ mov edx, 2
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
+ add rsp, 32
  test eax, eax
  je gzp160_c0_adv
  jmp gzp160_g1_α
 gzp160_g1_α:
 bb86_α:
 # IR_CELL_UNIFY
- mov rdi, qword ptr [r12 + 24]
- mov rsi, qword ptr [r12 + 88]
+ lea rdi, [r12 + 24]
+ lea rsi, [r12 + 88]
  call rt_unify_terms@PLT
  test eax, eax
  je gzp160_c0_adv
@@ -950,8 +957,8 @@ bb87_α:
  mov esi, 29
  call rt_enter@PLT
  mov rdi, rax
- mov rsi, qword ptr [r12 + 56]
- mov rdx, qword ptr [r12 + 104]
+ lea rsi, [r12 + 56]
+ lea rdx, [r12 + 104]
  call gzp31_α
 .Lx167_0:
  test eax, eax
@@ -973,7 +980,7 @@ bb89_α:
 gzi173_g0_α:
 bb90_α:
 # IR_DET_TYPE_TEST
- mov rdi, qword ptr [r12 + 104]
+ lea rdi, [r12 + 104]
  mov rsi, qword ptr [rip + .Lx175_0]
  call rt_pl_type_test_cell@PLT
  test eax, eax
@@ -997,24 +1004,23 @@ gzi170_t:
 gzi180_g0_α:
 bb93_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- mov rax, qword ptr [r12 + 40]
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
- mov rax, qword ptr [r12 + 104]
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 72]
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S3]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
+ sub rsp, 32
+ lea rax, [r12 + 104]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 72]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [r12 + 40]
+ lea rsi, [rip + .S3]
+ mov edx, 2
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
+ add rsp, 32
  test eax, eax
  je gzp160_g3_β
  jmp gzp160_γ
@@ -1028,8 +1034,8 @@ bb94_α:
  mov esi, 29
  call rt_enter@PLT
  mov rdi, rax
- mov rsi, qword ptr [r12 + 72]
- mov rdx, qword ptr [r12 + 40]
+ lea rsi, [r12 + 72]
+ lea rdx, [r12 + 40]
  call gzp31_α
 .Lx185_0:
  test eax, eax
@@ -1054,24 +1060,23 @@ gzp160_c0_adv:
 gzp160_g5_α:
 bb97_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- mov rax, qword ptr [r12 + 8]
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
- mov rax, qword ptr [r12 + 136]
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 152]
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S3]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
+ sub rsp, 32
+ lea rax, [r12 + 136]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 152]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [r12 + 8]
+ lea rsi, [rip + .S3]
+ mov edx, 2
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
+ add rsp, 32
  test eax, eax
  je gzp160_c1_adv
  jmp gzp160_g6_α
@@ -1088,8 +1093,8 @@ bb99_α:
  mov esi, 29
  call rt_enter@PLT
  mov rdi, rax
- mov rsi, qword ptr [r12 + 24]
- mov rdx, qword ptr [r12 + 40]
+ lea rsi, [r12 + 24]
+ lea rdx, [r12 + 40]
  call gzp31_α
 .Lx194_0:
  test eax, eax
@@ -1108,8 +1113,8 @@ gzp160_c1_adv:
 gzp160_g8_α:
 bb101_α:
 # IR_CELL_UNIFY
- mov rdi, qword ptr [r12 + 24]
- mov rsi, qword ptr [r12 + 168]
+ lea rdi, [r12 + 24]
+ lea rsi, [r12 + 168]
  call rt_unify_terms@PLT
  test eax, eax
  je gzp160_c2_adv
@@ -1121,8 +1126,8 @@ bb102_α:
  mov esi, 29
  call rt_enter@PLT
  mov rdi, rax
- mov rsi, qword ptr [r12 + 8]
- mov rdx, qword ptr [r12 + 40]
+ lea rsi, [r12 + 8]
+ lea rdx, [r12 + 40]
  call gzp31_α
 .Lx199_0:
  test eax, eax
@@ -1141,8 +1146,8 @@ gzp160_c2_adv:
 gzp160_g10_α:
 bb104_α:
 # IR_CELL_UNIFY
- mov rdi, qword ptr [r12 + 8]
- mov rsi, qword ptr [r12 + 184]
+ lea rdi, [r12 + 8]
+ lea rsi, [r12 + 184]
  call rt_unify_terms@PLT
  test eax, eax
  je gzp160_ω
@@ -1154,8 +1159,8 @@ bb105_α:
  mov esi, 29
  call rt_enter@PLT
  mov rdi, rax
- mov rsi, qword ptr [r12 + 24]
- mov rdx, qword ptr [r12 + 40]
+ lea rsi, [r12 + 24]
+ lea rdx, [r12 + 40]
  call gzp31_α
 .Lx204_0:
  test eax, eax
@@ -1193,7 +1198,10 @@ gzp53_α:
 # IR_CALLEE_FRAME
  push r12
  mov r12, rdi
- mov qword ptr [r12 + 8], rsi
+ mov r11, qword ptr [rsi + 0]
+ mov qword ptr [r12 + 8], r11
+ mov r11, qword ptr [rsi + 8]
+ mov qword ptr [r12 + 16], r11
  call rt_trail_mark@PLT
  mov dword ptr [r12 + 0], eax
  mov dword ptr [r12 + 4], 1
@@ -1204,8 +1212,8 @@ gzp53_α:
 gzp210_g0_α:
 bb112_α:
 # IR_CELL_UNIFY
- mov rdi, qword ptr [r12 + 8]
- mov esi, 67
+ lea rdi, [r12 + 8]
+ mov esi, 68
  mov rdx, 0
  mov rcx, qword ptr [rip + .Lx213_0]
  call rt_pl_unify_cell_const@PLT
@@ -1227,24 +1235,23 @@ gzp210_c0_adv:
 gzp210_g1_α:
 bb114_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- mov rax, qword ptr [r12 + 8]
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
- mov rax, qword ptr [r12 + 24]
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 40]
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S8]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
+ sub rsp, 32
+ lea rax, [r12 + 24]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 40]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [r12 + 8]
+ lea rsi, [rip + .S8]
+ mov edx, 2
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
+ add rsp, 32
  test eax, eax
  je gzp210_ω
  jmp gzp210_γ
@@ -1272,7 +1279,10 @@ gzp54_α:
 # IR_CALLEE_FRAME
  push r12
  mov r12, rdi
- mov qword ptr [r12 + 8], rsi
+ mov r11, qword ptr [rsi + 0]
+ mov qword ptr [r12 + 8], r11
+ mov r11, qword ptr [rsi + 8]
+ mov qword ptr [r12 + 16], r11
  call rt_trail_mark@PLT
  mov dword ptr [r12 + 0], eax
  mov dword ptr [r12 + 4], 1
@@ -1283,8 +1293,8 @@ gzp54_α:
 gzp220_g0_α:
 bb119_α:
 # IR_CELL_UNIFY
- mov rdi, qword ptr [r12 + 8]
- mov esi, 67
+ lea rdi, [r12 + 8]
+ mov esi, 68
  mov rdx, 0
  mov rcx, qword ptr [rip + .Lx223_0]
  call rt_pl_unify_cell_const@PLT
@@ -1306,24 +1316,23 @@ gzp220_c0_adv:
 gzp220_g1_α:
 bb121_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- mov rax, qword ptr [r12 + 8]
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
- mov rax, qword ptr [r12 + 24]
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 40]
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S8]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
+ sub rsp, 32
+ lea rax, [r12 + 24]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 40]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [r12 + 8]
+ lea rsi, [rip + .S8]
+ mov edx, 2
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
+ add rsp, 32
  test eax, eax
  je gzp220_ω
  jmp gzp220_g2_α
@@ -1331,9 +1340,9 @@ gzp220_g2_α:
 bb122_α:
 # IR_DET_CMP
  mov rdi, qword ptr [rip + .Lx228_0]
- mov rsi, qword ptr [r12 + 24]
+ lea rsi, [r12 + 24]
  mov rdx, 0
- mov rcx, qword ptr [r12 + 40]
+ lea rcx, [r12 + 40]
  mov r8, 0
  call rt_pl_arith_cmp_cell_val@PLT
  test eax, eax
@@ -1367,8 +1376,14 @@ gzp55_α:
 # IR_CALLEE_FRAME
  push r12
  mov r12, rdi
- mov qword ptr [r12 + 8], rsi
- mov qword ptr [r12 + 24], rdx
+ mov r11, qword ptr [rsi + 0]
+ mov qword ptr [r12 + 8], r11
+ mov r11, qword ptr [rsi + 8]
+ mov qword ptr [r12 + 16], r11
+ mov r11, qword ptr [rdx + 0]
+ mov qword ptr [r12 + 24], r11
+ mov r11, qword ptr [rdx + 8]
+ mov qword ptr [r12 + 32], r11
  call rt_trail_mark@PLT
  mov dword ptr [r12 + 0], eax
  mov dword ptr [r12 + 4], 1
@@ -1379,8 +1394,8 @@ gzp55_α:
 gzp232_g0_α:
 bb127_α:
 # IR_CELL_UNIFY
- mov rdi, qword ptr [r12 + 8]
- mov esi, 67
+ lea rdi, [r12 + 8]
+ mov esi, 68
  mov rdx, 0
  mov rcx, qword ptr [rip + .Lx235_0]
  call rt_pl_unify_cell_const@PLT
@@ -1394,684 +1409,986 @@ bb127_α:
 gzp232_g1_α:
 bb128_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- mov rax, qword ptr [r12 + 24]
- mov qword ptr [rsp + 0], rax
+ sub rsp, 48
  sub rsp, 32
- sub rsp, 16
  mov edi, 0
  mov rsi, 27
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 74
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 17
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 33
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 94
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 18
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 46
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 83
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 65
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 2
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 32
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 53
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 28
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 85
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 99
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 47
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 28
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 82
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 6
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 11
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 55
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 29
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 39
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 81
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 90
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 37
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 10
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 0
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 66
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 51
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 7
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 21
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 85
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 27
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 31
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 63
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 75
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 4
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 95
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 99
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 11
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 28
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 61
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 74
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 18
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 92
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 40
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 53
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 59
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
  mov edi, 0
  mov rsi, 8
  xor edx, edx
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- mov edi, 67
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ mov edi, 68
  xor rsi, rsi
  lea rdx, [rip + .S10]
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 8], rax
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
  lea rdi, [rip + .S9]
  mov esi, 2
  mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 40]
- mov qword ptr [rsp + 8], rax
- mov edi, 67
- xor rsi, rsi
- lea rdx, [rip + .S10]
- xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 16], rax
- lea rdi, [rip + .S0]
- mov esi, 3
- mov rdx, rsp
- call rt_compound_build_n@PLT
+ call rt_pl_compound_cell@PLT
  add rsp, 32
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 40]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ mov edi, 68
+ xor rsi, rsi
+ lea rdx, [rip + .S10]
+ xorps xmm0, xmm0
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 32], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 40], r11
+ lea rdi, [r12 + 24]
+ lea rsi, [rip + .S0]
+ mov edx, 3
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
+ add rsp, 48
  test eax, eax
  je gzp232_c0_adv
  jmp gzp232_γ
@@ -2086,112 +2403,161 @@ gzp232_c0_adv:
 gzp232_g2_α:
 bb130_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- mov rax, qword ptr [r12 + 8]
- mov qword ptr [rsp + 0], rax
+ sub rsp, 48
  sub rsp, 32
- sub rsp, 16
- mov rax, qword ptr [r12 + 56]
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 72]
- mov qword ptr [rsp + 8], rax
+ lea rax, [r12 + 56]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 72]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
  lea rdi, [rip + .S9]
  mov esi, 2
  mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 88]
- mov qword ptr [rsp + 8], rax
- mov rax, qword ptr [r12 + 104]
- mov qword ptr [rsp + 16], rax
- lea rdi, [rip + .S0]
- mov esi, 3
- mov rdx, rsp
- call rt_compound_build_n@PLT
+ call rt_pl_compound_cell@PLT
  add rsp, 32
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 88]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rax, [r12 + 104]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 32], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 40], r11
+ lea rdi, [r12 + 8]
+ lea rsi, [rip + .S0]
+ mov edx, 3
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
+ add rsp, 48
  test eax, eax
  je gzp232_c1_adv
  jmp gzp232_g3_α
 gzp232_g3_α:
 bb131_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- mov rax, qword ptr [r12 + 24]
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
  sub rsp, 32
- mov rax, qword ptr [r12 + 72]
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 56]
- mov qword ptr [rsp + 8], rax
- mov rax, qword ptr [r12 + 120]
- mov qword ptr [rsp + 16], rax
- mov rax, qword ptr [r12 + 136]
- mov qword ptr [rsp + 24], rax
+ sub rsp, 64
+ lea rax, [r12 + 72]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 56]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rax, [r12 + 120]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 32], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 40], r11
+ lea rax, [r12 + 136]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 48], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 56], r11
  lea rdi, [rip + .S11]
  mov esi, 4
  mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 32
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
+ call rt_pl_compound_cell@PLT
+ add rsp, 64
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
  sub rsp, 32
- mov rax, qword ptr [r12 + 136]
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 152]
- mov qword ptr [rsp + 8], rax
- mov rax, qword ptr [r12 + 104]
- mov qword ptr [rsp + 16], rax
+ sub rsp, 48
+ lea rax, [r12 + 136]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 152]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rax, [r12 + 104]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 32], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 40], r11
  lea rdi, [rip + .S0]
  mov esi, 3
  mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 32
- mov qword ptr [rsp + 0], rax
+ call rt_pl_compound_cell@PLT
+ add rsp, 48
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 48
+ lea rax, [r12 + 120]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 88]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
  sub rsp, 32
- mov rax, qword ptr [r12 + 120]
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 88]
- mov qword ptr [rsp + 8], rax
- sub rsp, 16
- mov rax, qword ptr [r12 + 56]
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 152]
- mov qword ptr [rsp + 8], rax
+ lea rax, [r12 + 56]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 152]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
  lea rdi, [rip + .S9]
  mov esi, 2
  mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 16], rax
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 32], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 40], r11
  lea rdi, [rip + .S0]
  mov esi, 3
  mov rdx, rsp
- call rt_compound_build_n@PLT
+ call rt_pl_compound_cell@PLT
+ add rsp, 48
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S1]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
  add rsp, 32
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S1]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S1]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [r12 + 24]
+ lea rsi, [rip + .S1]
+ mov edx, 2
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
+ add rsp, 32
  test eax, eax
  je gzp232_c1_adv
  jmp gzp232_γ
@@ -2206,38 +2572,40 @@ gzp232_c1_adv:
 gzp232_g4_α:
 bb133_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- mov rax, qword ptr [r12 + 8]
- mov qword ptr [rsp + 0], rax
- sub rsp, 32
- mov edi, 67
+ sub rsp, 48
+ mov edi, 68
  xor rsi, rsi
  lea rdx, [rip + .S10]
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 168]
- mov qword ptr [rsp + 8], rax
- mov rax, qword ptr [r12 + 168]
- mov qword ptr [rsp + 16], rax
- lea rdi, [rip + .S0]
- mov esi, 3
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 32
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 168]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rax, [r12 + 168]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 32], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 40], r11
+ lea rdi, [r12 + 8]
+ lea rsi, [rip + .S0]
+ mov edx, 3
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
+ add rsp, 48
  test eax, eax
  je gzp232_c2_adv
  jmp gzp232_g5_α
 gzp232_g5_α:
 bb134_α:
 # IR_CELL_UNIFY
- mov rdi, qword ptr [r12 + 24]
- mov esi, 67
+ lea rdi, [r12 + 24]
+ mov esi, 68
  mov rdx, 0
  mov rcx, qword ptr [rip + .Lx247_0]
  call rt_pl_unify_cell_const@PLT
@@ -2259,105 +2627,145 @@ gzp232_c2_adv:
 gzp232_g6_α:
 bb136_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- mov rax, qword ptr [r12 + 8]
- mov qword ptr [rsp + 0], rax
+ sub rsp, 64
  sub rsp, 32
- sub rsp, 16
- mov rax, qword ptr [r12 + 184]
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 200]
- mov qword ptr [rsp + 8], rax
+ lea rax, [r12 + 184]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 200]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
  lea rdi, [rip + .S9]
  mov esi, 2
  mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 216]
- mov qword ptr [rsp + 8], rax
- sub rsp, 16
- mov rax, qword ptr [r12 + 184]
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 232]
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 16], rax
- mov rax, qword ptr [r12 + 248]
- mov qword ptr [rsp + 24], rax
- lea rdi, [rip + .S11]
- mov esi, 4
- mov rdx, rsp
- call rt_compound_build_n@PLT
+ call rt_pl_compound_cell@PLT
  add rsp, 32
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 216]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ sub rsp, 32
+ lea rax, [r12 + 184]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 232]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 32], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 40], r11
+ lea rax, [r12 + 248]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 48], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 56], r11
+ lea rdi, [r12 + 8]
+ lea rsi, [rip + .S11]
+ mov edx, 4
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
+ add rsp, 64
  test eax, eax
  je gzp232_c3_adv
  jmp gzp232_g7_α
 gzp232_g7_α:
 bb137_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- mov rax, qword ptr [r12 + 24]
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
- sub rsp, 16
- mov rax, qword ptr [r12 + 184]
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 216]
- mov qword ptr [rsp + 8], rax
+ sub rsp, 32
+ sub rsp, 32
+ lea rax, [r12 + 184]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 216]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
  lea rdi, [rip + .S8]
  mov esi, 2
  mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 0], rax
- sub rsp, 16
- mov edi, 67
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 32
+ mov edi, 68
  xor rsi, rsi
  lea rdx, [rip + .S7]
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- sub rsp, 32
- mov rax, qword ptr [r12 + 200]
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 216]
- mov qword ptr [rsp + 8], rax
- mov rax, qword ptr [r12 + 232]
- mov qword ptr [rsp + 16], rax
- mov rax, qword ptr [r12 + 248]
- mov qword ptr [rsp + 24], rax
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ sub rsp, 64
+ lea rax, [r12 + 200]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 216]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rax, [r12 + 232]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 32], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 40], r11
+ lea rax, [r12 + 248]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 48], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 56], r11
  lea rdi, [rip + .S11]
  mov esi, 4
  mov rdx, rsp
- call rt_compound_build_n@PLT
+ call rt_pl_compound_cell@PLT
+ add rsp, 64
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S1]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
  add rsp, 32
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S1]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S1]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [r12 + 24]
+ lea rsi, [rip + .S1]
+ mov edx, 2
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
+ add rsp, 32
  test eax, eax
  je gzp232_c3_adv
  jmp gzp232_γ
@@ -2372,74 +2780,96 @@ gzp232_c3_adv:
 gzp232_g8_α:
 bb139_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- mov rax, qword ptr [r12 + 8]
- mov qword ptr [rsp + 0], rax
+ sub rsp, 64
  sub rsp, 32
- sub rsp, 16
- mov rax, qword ptr [r12 + 264]
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 280]
- mov qword ptr [rsp + 8], rax
+ lea rax, [r12 + 264]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 280]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
  lea rdi, [rip + .S9]
  mov esi, 2
  mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 296]
- mov qword ptr [rsp + 8], rax
- mov rax, qword ptr [r12 + 312]
- mov qword ptr [rsp + 16], rax
- sub rsp, 16
- mov rax, qword ptr [r12 + 264]
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 328]
- mov qword ptr [rsp + 8], rax
- lea rdi, [rip + .S9]
- mov esi, 2
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 16
- mov qword ptr [rsp + 24], rax
- lea rdi, [rip + .S11]
- mov esi, 4
- mov rdx, rsp
- call rt_compound_build_n@PLT
+ call rt_pl_compound_cell@PLT
  add rsp, 32
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 296]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rax, [r12 + 312]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 32], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 40], r11
+ sub rsp, 32
+ lea rax, [r12 + 264]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 328]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rdi, [rip + .S9]
+ mov esi, 2
+ mov rdx, rsp
+ call rt_pl_compound_cell@PLT
+ add rsp, 32
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 48], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 56], r11
+ lea rdi, [r12 + 8]
+ lea rsi, [rip + .S11]
+ mov edx, 4
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
+ add rsp, 64
  test eax, eax
  je gzp232_c4_adv
  jmp gzp232_g9_α
 gzp232_g9_α:
 bb140_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- mov rax, qword ptr [r12 + 24]
- mov qword ptr [rsp + 0], rax
- sub rsp, 32
- mov rax, qword ptr [r12 + 280]
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 296]
- mov qword ptr [rsp + 8], rax
- mov rax, qword ptr [r12 + 312]
- mov qword ptr [rsp + 16], rax
- mov rax, qword ptr [r12 + 328]
- mov qword ptr [rsp + 24], rax
- lea rdi, [rip + .S11]
- mov esi, 4
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 32
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
+ sub rsp, 64
+ lea rax, [r12 + 280]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 296]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ lea rax, [r12 + 312]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 32], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 40], r11
+ lea rax, [r12 + 328]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 48], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 56], r11
+ lea rdi, [r12 + 24]
+ lea rsi, [rip + .S11]
+ mov edx, 4
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
+ add rsp, 64
  test eax, eax
  je gzp232_c4_adv
  jmp gzp232_γ
@@ -2454,48 +2884,53 @@ gzp232_c4_adv:
 gzp232_g10_α:
 bb142_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- mov rax, qword ptr [r12 + 8]
- mov qword ptr [rsp + 0], rax
- sub rsp, 32
- mov edi, 67
+ sub rsp, 64
+ mov edi, 68
  xor rsi, rsi
  lea rdx, [rip + .S10]
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 0], rax
- mov rax, qword ptr [r12 + 344]
- mov qword ptr [rsp + 8], rax
- mov edi, 67
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 0], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 8], r11
+ lea rax, [r12 + 344]
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 16], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 24], r11
+ mov edi, 68
  xor rsi, rsi
  lea rdx, [rip + .S10]
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 16], rax
- mov edi, 67
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 32], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 40], r11
+ mov edi, 68
  xor rsi, rsi
  lea rdx, [rip + .S10]
  xorps xmm0, xmm0
- call rt_node_to_term@PLT
- mov qword ptr [rsp + 24], rax
- lea rdi, [rip + .S11]
- mov esi, 4
- mov rdx, rsp
- call rt_compound_build_n@PLT
- add rsp, 32
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
+ call rt_pl_lit_cell@PLT
+ mov r11, qword ptr [rax + 0]
+ mov qword ptr [rsp + 48], r11
+ mov r11, qword ptr [rax + 8]
+ mov qword ptr [rsp + 56], r11
+ lea rdi, [r12 + 8]
+ lea rsi, [rip + .S11]
+ mov edx, 4
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
+ add rsp, 64
  test eax, eax
  je gzp232_ω
  jmp gzp232_g11_α
 gzp232_g11_α:
 bb143_α:
 # IR_CELL_UNIFY
- mov rdi, qword ptr [r12 + 24]
- mov esi, 67
+ lea rdi, [r12 + 24]
+ mov esi, 68
  mov rdx, 0
  mov rcx, qword ptr [rip + .Lx262_0]
  call rt_pl_unify_cell_const@PLT

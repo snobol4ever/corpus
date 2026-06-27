@@ -206,9 +206,6 @@ bb14_α:
 gzp24_g1_α:
 bb15_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- lea rax, [r12 + 40]
- mov qword ptr [rsp + 0], rax
  sub rsp, 32
  lea rax, [r12 + 8]
  mov r11, qword ptr [rax + 0]
@@ -224,16 +221,12 @@ bb15_α:
  mov qword ptr [rsp + 16], r11
  mov r11, qword ptr [rax + 8]
  mov qword ptr [rsp + 24], r11
- lea rdi, [rip + .S1]
- mov esi, 2
- mov rdx, rsp
- call rt_pl_compound_cell@PLT
+ lea rdi, [r12 + 40]
+ lea rsi, [rip + .S1]
+ mov edx, 2
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
  add rsp, 32
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
  test eax, eax
  je gzp24_c0_adv
  jmp gzp24_g2_α
@@ -252,9 +245,6 @@ gzp24_c0_adv:
 gzp24_g3_α:
 bb18_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- lea rax, [r12 + 40]
- mov qword ptr [rsp + 0], rax
  sub rsp, 32
  lea rax, [r12 + 8]
  mov r11, qword ptr [rax + 0]
@@ -266,16 +256,12 @@ bb18_α:
  mov qword ptr [rsp + 16], r11
  mov r11, qword ptr [rax + 8]
  mov qword ptr [rsp + 24], r11
- lea rdi, [rip + .S1]
- mov esi, 2
- mov rdx, rsp
- call rt_pl_compound_cell@PLT
+ lea rdi, [r12 + 40]
+ lea rsi, [rip + .S1]
+ mov edx, 2
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
  add rsp, 32
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
  test eax, eax
  je gzp24_ω
  jmp gzp24_g4_α
@@ -442,9 +428,6 @@ bb30_α:
 gzp46_g4_α:
 bb31_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- lea rax, [r12 + 88]
- mov qword ptr [rsp + 0], rax
  sub rsp, 32
  lea rax, [r12 + 72]
  mov r11, qword ptr [rax + 0]
@@ -456,16 +439,12 @@ bb31_α:
  mov qword ptr [rsp + 16], r11
  mov r11, qword ptr [rax + 8]
  mov qword ptr [rsp + 24], r11
- lea rdi, [rip + .S1]
- mov esi, 2
- mov rdx, rsp
- call rt_pl_compound_cell@PLT
+ lea rdi, [r12 + 88]
+ lea rsi, [rip + .S1]
+ mov edx, 2
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
  add rsp, 32
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
  test eax, eax
  je gzp46_g3_β
  jmp gzp46_g5_α
@@ -532,9 +511,6 @@ gzp44_α:
 gzp64_g0_α:
 bb37_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- lea rax, [r12 + 8]
- mov qword ptr [rsp + 0], rax
  sub rsp, 32
  lea rax, [r12 + 40]
  mov r11, qword ptr [rax + 0]
@@ -546,16 +522,12 @@ bb37_α:
  mov qword ptr [rsp + 16], r11
  mov r11, qword ptr [rax + 8]
  mov qword ptr [rsp + 24], r11
- lea rdi, [rip + .S1]
- mov esi, 2
- mov rdx, rsp
- call rt_pl_compound_cell@PLT
+ lea rdi, [r12 + 8]
+ lea rsi, [rip + .S1]
+ mov edx, 2
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
  add rsp, 32
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
  test eax, eax
  je gzp64_c0_adv
  jmp gzp64_γ
@@ -570,9 +542,6 @@ gzp64_c0_adv:
 gzp64_g1_α:
 bb39_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- lea rax, [r12 + 8]
- mov qword ptr [rsp + 0], rax
  sub rsp, 32
  lea rax, [r12 + 56]
  mov r11, qword ptr [rax + 0]
@@ -584,25 +553,18 @@ bb39_α:
  mov qword ptr [rsp + 16], r11
  mov r11, qword ptr [rax + 8]
  mov qword ptr [rsp + 24], r11
- lea rdi, [rip + .S1]
- mov esi, 2
- mov rdx, rsp
- call rt_pl_compound_cell@PLT
+ lea rdi, [r12 + 8]
+ lea rsi, [rip + .S1]
+ mov edx, 2
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
  add rsp, 32
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
  test eax, eax
  je gzp64_ω
  jmp gzp64_g2_α
 gzp64_g2_α:
 bb40_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- lea rax, [r12 + 24]
- mov qword ptr [rsp + 0], rax
  sub rsp, 32
  lea rax, [r12 + 56]
  mov r11, qword ptr [rax + 0]
@@ -614,16 +576,12 @@ bb40_α:
  mov qword ptr [rsp + 16], r11
  mov r11, qword ptr [rax + 8]
  mov qword ptr [rsp + 24], r11
- lea rdi, [rip + .S1]
- mov esi, 2
- mov rdx, rsp
- call rt_pl_compound_cell@PLT
+ lea rdi, [r12 + 24]
+ lea rsi, [rip + .S1]
+ mov edx, 2
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
  add rsp, 32
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
  test eax, eax
  je gzp64_ω
  jmp gzp64_g3_α
@@ -794,9 +752,6 @@ gzp86_c0_adv:
 gzp86_g3_α:
 bb54_α:
 # IR_CELL_UNIFY
- sub rsp, 16
- lea rax, [r12 + 8]
- mov qword ptr [rsp + 0], rax
  sub rsp, 32
  lea rax, [r12 + 88]
  mov r11, qword ptr [rax + 0]
@@ -808,16 +763,12 @@ bb54_α:
  mov qword ptr [rsp + 16], r11
  mov r11, qword ptr [rax + 8]
  mov qword ptr [rsp + 24], r11
- lea rdi, [rip + .S1]
- mov esi, 2
- mov rdx, rsp
- call rt_pl_compound_cell@PLT
+ lea rdi, [r12 + 8]
+ lea rsi, [rip + .S1]
+ mov edx, 2
+ mov rcx, rsp
+ call rt_pl_unify_struct@PLT
  add rsp, 32
- mov qword ptr [rsp + 8], rax
- mov rdi, qword ptr [rsp + 0]
- mov rsi, qword ptr [rsp + 8]
- add rsp, 16
- call rt_unify_terms@PLT
  test eax, eax
  je gzp86_ω
  jmp gzp86_g4_α

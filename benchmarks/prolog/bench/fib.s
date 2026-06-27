@@ -25,7 +25,7 @@ bb1_α:
 gzq0_g0_α:
 bb2_α:
 # IR_CELL_UNIFY
- mov rdi, qword ptr [r12 + 24]
+ lea rdi, [r12 + 24]
  mov esi, 0
  mov rdx, 20
  mov ecx, 0
@@ -40,8 +40,8 @@ bb3_α:
  mov esi, 14
  call rt_enter@PLT
  mov rdi, rax
- mov rsi, qword ptr [r12 + 24]
- mov rdx, qword ptr [r12 + 8]
+ lea rsi, [r12 + 24]
+ lea rdx, [r12 + 8]
  call gzp1_α
 .Lx6_0:
  test eax, eax
@@ -54,7 +54,7 @@ bb3_α:
 gzq0_g2_α:
 bb4_α:
 # IR_DET_WRITE
- mov rdi, qword ptr [r12 + 8]
+ lea rdi, [r12 + 8]
  call rt_pl_write_cell@PLT
  jmp gzq0_g3_α
 gzq0_g3_α:
@@ -78,8 +78,14 @@ gzp1_α:
 # IR_CALLEE_FRAME
  push r12
  mov r12, rdi
- mov qword ptr [r12 + 8], rsi
- mov qword ptr [r12 + 24], rdx
+ mov r11, qword ptr [rsi + 0]
+ mov qword ptr [r12 + 8], r11
+ mov r11, qword ptr [rsi + 8]
+ mov qword ptr [r12 + 16], r11
+ mov r11, qword ptr [rdx + 0]
+ mov qword ptr [r12 + 24], r11
+ mov r11, qword ptr [rdx + 8]
+ mov qword ptr [r12 + 32], r11
  call rt_trail_mark@PLT
  mov dword ptr [r12 + 0], eax
  mov dword ptr [r12 + 4], 1
@@ -90,7 +96,7 @@ gzp1_α:
 gzp11_g0_α:
 bb8_α:
 # IR_CELL_UNIFY
- mov rdi, qword ptr [r12 + 8]
+ lea rdi, [r12 + 8]
  mov esi, 0
  mov rdx, 0
  mov ecx, 0
@@ -101,7 +107,7 @@ bb8_α:
 gzp11_g1_α:
 bb9_α:
 # IR_CELL_UNIFY
- mov rdi, qword ptr [r12 + 24]
+ lea rdi, [r12 + 24]
  mov esi, 0
  mov rdx, 1
  mov ecx, 0
@@ -124,7 +130,7 @@ gzp11_c0_adv:
 gzp11_g3_α:
 bb12_α:
 # IR_CELL_UNIFY
- mov rdi, qword ptr [r12 + 8]
+ lea rdi, [r12 + 8]
  mov esi, 0
  mov rdx, 1
  mov ecx, 0
@@ -135,7 +141,7 @@ bb12_α:
 gzp11_g4_α:
 bb13_α:
 # IR_CELL_UNIFY
- mov rdi, qword ptr [r12 + 24]
+ lea rdi, [r12 + 24]
  mov esi, 0
  mov rdx, 1
  mov ecx, 0
@@ -159,7 +165,7 @@ gzp11_g6_α:
 bb16_α:
 # IR_DET_CMP
  mov rdi, qword ptr [rip + .Lx28_0]
- mov rsi, qword ptr [r12 + 8]
+ lea rsi, [r12 + 8]
  mov rdx, 0
  xor ecx, ecx
  mov r8, 1
@@ -174,8 +180,8 @@ bb16_α:
 gzp11_g7_α:
 bb17_α:
 # IR_DET_IS
- mov rdi, qword ptr [r12 + 40]
- mov rsi, qword ptr [r12 + 8]
+ lea rdi, [r12 + 40]
+ lea rsi, [r12 + 8]
  mov rdx, qword ptr [rip + .Lx30_0]
  mov rcx, 1
  call rt_pl_is_cell_arith@PLT
@@ -189,8 +195,8 @@ bb17_α:
 gzp11_g8_α:
 bb18_α:
 # IR_DET_IS
- mov rdi, qword ptr [r12 + 56]
- mov rsi, qword ptr [r12 + 8]
+ lea rdi, [r12 + 56]
+ lea rsi, [r12 + 8]
  mov rdx, qword ptr [rip + .Lx32_0]
  mov rcx, 2
  call rt_pl_is_cell_arith@PLT
@@ -208,8 +214,8 @@ bb19_α:
  mov esi, 14
  call rt_enter@PLT
  mov rdi, rax
- mov rsi, qword ptr [r12 + 40]
- mov rdx, qword ptr [r12 + 72]
+ lea rsi, [r12 + 40]
+ lea rdx, [r12 + 72]
  call gzp1_α
 .Lx34_0:
  test eax, eax
@@ -226,8 +232,8 @@ bb20_α:
  mov esi, 14
  call rt_enter@PLT
  mov rdi, rax
- mov rsi, qword ptr [r12 + 56]
- mov rdx, qword ptr [r12 + 88]
+ lea rsi, [r12 + 56]
+ lea rdx, [r12 + 88]
  call gzp1_α
 .Lx36_0:
  test eax, eax
@@ -240,9 +246,9 @@ bb20_α:
 gzp11_g11_α:
 bb21_α:
 # IR_DET_IS
- mov rdi, qword ptr [r12 + 24]
- mov rsi, qword ptr [r12 + 72]
- mov rdx, qword ptr [r12 + 88]
+ lea rdi, [r12 + 24]
+ lea rsi, [r12 + 72]
+ lea rdx, [r12 + 88]
  mov rcx, qword ptr [rip + .Lx38_0]
  call rt_pl_is_cell_bivar@PLT
  test eax, eax
