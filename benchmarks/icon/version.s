@@ -19,7 +19,6 @@ main_α:
     .global main_ω
 push r12
   mov r12, rdi
-  lea r10, [rip + Δ]
 main_α_body:
 xchain0_n0_α:
 # IR_KEYWORD_read
