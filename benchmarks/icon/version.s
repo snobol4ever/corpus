@@ -25,8 +25,8 @@ xchain0_n0_α:
 bb1_α:
  mov rdi, qword ptr [rip + .Lx1_0]
  call rt_keyword_read@PLT
- mov qword ptr [r12 + 0], rax
- mov qword ptr [r12 + 8], rdx
+ mov qword ptr [r12 + 48], rax
+ mov qword ptr [r12 + 56], rdx
  jmp xchain0_n1_α
  xchain0_n0_β:
  jmp main_ω
@@ -37,10 +37,10 @@ bb1_α:
 xchain0_n1_α:
 bb2_α:
 # BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = nested producer-box slot [r12+0] -> [r12+32]
- mov rax, qword ptr [r12 + 0]
+# marshal arg0 = producer-box slot [r12+48] -> [r12+32]
+ mov rax, qword ptr [r12 + 48]
  mov qword ptr [r12 + 32], rax
- mov rax, qword ptr [r12 + 8]
+ mov rax, qword ptr [r12 + 56]
  mov qword ptr [r12 + 40], rax
   .section .rodata
   .Lrkfn3: .string "write"
