@@ -1,0 +1,34 @@
+{
+//  Icon build — invokes scrip on the current .icn file.  scrip is
+//  the multi-frontend driver from snobol4ever/SCRIP; build it with
+//  scripts/build_scrip.sh and put it on PATH (or set "path" below).
+//
+//  Mirrors Snocone.sublime-build.  Two SCRIP-Icon-specific notes:
+//
+//  * SCRIP Icon is SEMICOLON-REQUIRED (no newline processing —
+//    RULES.md FACT RULE), so a classic newline-separated source
+//    will parse-error here by design; add the semicolons to the
+//    source, never expect the compiler to infer them.
+//
+//  * SCRIP's `link` directive is currently a no-op: pass linked
+//    .icn files as extra scrip arguments instead, e.g.
+//        scrip --run queens.icn options.icn post.icn
+//    (the driver compiles every file argument into one program).
+//    This single-file build covers the common case; multi-file
+//    programs get a project-specific variant of this build.
+
+//  If scrip is not on PATH, set "path" to a directory containing it:
+//  "path": "/home/lon/snobol4ever/SCRIP",
+//  "path": "C:\\snobol4ever\\SCRIP",
+
+    "shell_cmd": "scrip --run \"$file\" > \"$file_base_name.out\" 2>&1",
+
+//  SCRIP Icon parse errors come out as
+//      filename:line:col: error: message
+    "file_regex": "^([^:]+):([0-9]+):([0-9]+): (.*)$",
+
+    "selector": "source.icn",
+    "file_patterns": ["*.icn"],
+    "target": "exec",
+    "cancel": {"kill": true}
+}

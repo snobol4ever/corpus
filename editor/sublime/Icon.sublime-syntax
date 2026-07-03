@@ -1,0 +1,450 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/syntax.html
+#
+# Icon.sublime-syntax — companion to SNOBOL4.sublime-syntax and
+# Snocone.sublime-syntax (third of the family; SNOBOL4 by Lon,
+# Snocone by Claude Sonnet, Icon by Claude).
+#
+# Icon is Ralph Griswold's goal-directed successor to SNOBOL4:
+# expressions are generators that succeed or fail, `every` drives
+# them, and string scanning (`s ? expr`) replaces the pattern
+# statement.  Reference: The Icon Programming Language, 3rd ed.
+# (Griswold & Griswold) — full grammar in Appendix A.
+#
+# THE DIALECT THIS FILE COLORS IS SCRIP ICON.  Lexical facts below
+# are deduced from SCRIP's hand-written lexer and parser
+# (SCRIP/src/parser/icon/icon_lex.c + icon_parse.c), with the line
+# numbers cited.  Where SCRIP diverges from classic icont, SCRIP
+# wins here; the divergences are small and noted:
+#
+#   * SEMICOLON-REQUIRED.  SCRIP Icon does ZERO newline processing —
+#     a newline is whitespace, never a statement separator
+#     (RULES.md FACT RULE; icon_lex.c skip_ws treats '\n' via
+#     isspace, and TK_SEMICOL is minted only from a literal ';').
+#     Highlighting is line-agnostic anyway, so this costs nothing
+#     here, but it is why corpus sources carry explicit semicolons.
+#   * `$...` lines are consumed to end-of-line by skip_ws
+#     (icon_lex.c ~line 109) — classic Icon's $include/$define/
+#     $ifdef preprocessor directives are recognized-and-skipped.
+#     Colored as preprocessor comments.
+#   * Leading `-IMPORT` / `-EXPORT` lines are likewise consumed
+#     (icon_lex.c ~line 114, a SCRIP/JCON-corpus artifact).
+#   * `0x` / `0X` hex integers are accepted (icon_lex.c
+#     scan_number's first branch) — a SCRIP extension; classic Icon
+#     spells hex 16rFF.
+#   * `->` lexes as `-` (icon_lex.c '-' case tolerates a trailing
+#     '>'), a JCON-source tolerance.  Not separately colored.
+#
+# Strings and csets both accept raw newlines (scan_string/scan_cset
+# loop until the closing quote, not end-of-line), so the string
+# contexts here are multi-line, matching the lexer rather than
+# classic icont's continuation-underscore rule.
+#
+# Escapes recognized by scan_string: \n \t \r \\ \" \' \0 — any
+# other \x pair is kept literally (default arm).  scan_cset
+# recognizes \' \\ \n \t \r.  Both sets are colored as escapes;
+# unknown pairs are left as string body, mirroring the lexer.
+#
+# Scope vocabulary kept consistent with SNOBOL4.sublime-syntax /
+# Snocone.sublime-syntax so one color scheme renders all three
+# dialects alike.
+
+name: Icon
+file_extensions: [icn]
+scope: source.icn
+
+variables:
+  # Icon identifiers: [A-Za-z_][A-Za-z0-9_]*  (icon_lex.c scan_ident:
+  # entry requires isalpha or '_', continuation isalnum or '_').
+  ident: '[A-Za-z_][0-9A-Za-z_]*'
+
+  # Reserved words — the keywords[] table, icon_lex.c lines 51-81,
+  # verbatim and complete (29 entries).
+  kw_control: \b(if|then|else|while|until|repeat|every|do|case|of|default|break|next|return|suspend|fail|to|by|create|not|initial)\b
+  kw_decl:    \b(procedure|end|record|global|local|static|link|invocable)\b
+
+  # &keyword names recognized by SCRIP's runtime
+  # (SCRIP/src/runtime/keywords.c) plus the canonical Icon set from
+  # the book (Appendix D).  The parser accepts `&` + any identifier
+  # (icon_parse.c ~line 88), so unknown names still get a generic
+  # tier below — same two-tier shape as the SNOBOL4 file's
+  # protected/unprotected split.
+  amp_known: |-
+    (?x:allocated|ascii|clock|collections|col|control|cset|current
+    |dateline|date|digits|dump|errornumber|errortext|errorvalue
+    |errout|error|events|e|fail|features|file|host|input|interval
+    |lcase|ldrag|letters|level|line|lpress|lrelease|main|mdrag
+    |meta|mpress|mrelease|null|output|phi|pi|pos|progname|random
+    |rdrag|regions|resize|row|rpress|rrelease|scrip|shift|source
+    |storage|subject|time|trace|ucase|version|window|x|y)
+
+  # Canonical Icon built-in functions — The Icon Programming
+  # Language, 3rd ed., Appendix A function list (graphics/window
+  # functions omitted; SCRIP registers the useful core of this set
+  # in src/runtime/by_name_dispatch.c).
+  builtin_function: |-
+    (?x:\b(abs|acos|any|args|asin|atan|bal|center|char|close|collect
+    |copy|cos|cset|delete|detab|display|dtor|entab|exit|exp|find
+    |flush|get|getenv|iand|icom|image|insert|integer|ior|ishift
+    |ixor|key|left|list|log|many|map|match|member|move|name|numeric
+    |open|ord|pop|pos|proc|pull|push|put|read|reads|real|remove
+    |rename|repl|reverse|right|rtod|runerr|save|seek|seq|serial|set
+    |sin|sort|sortf|sqrt|stop|string|system|tab|table|tan|trim|type
+    |upto|variable|where|write|writes)\b)
+
+contexts:
+################################################################################
+# prototype — auto-included in every context (official sublime-syntax
+# mechanism), so `#` comments and skipped preprocessor lines color
+# correctly everywhere except inside string/cset bodies, which opt
+# out via meta_include_prototype: false.
+################################################################################
+  prototype:
+    - include: comments
+
+  comments:
+    # Line comment: `#` to end of line (icon_lex.c skip_ws ~line 95).
+    - match: '#'
+      scope: punctuation.definition.comment.icn
+      push:
+        - meta_scope: comment.line.number-sign.icn
+        - match: $
+          pop: true
+
+    # Preprocessor directives: whole `$...` line consumed by skip_ws
+    # (~line 109).  $include/$define/$ifdef etc. in classic sources.
+    - match: '^\s*(\$)\S*'
+      scope: comment.line.preprocessor.icn
+      captures:
+        1: punctuation.definition.keyword.icn
+
+    # `-IMPORT` / `-EXPORT` marker lines consumed by skip_ws (~114).
+    - match: '^\s*-\s*(IMPORT|EXPORT)\b.*$'
+      scope: comment.line.directive.icn
+
+################################################################################
+# main
+################################################################################
+  main:
+    # ---- declarations -------------------------------------------------------
+    # `procedure name(params)` — name as entity.name.function, params
+    # as variable.parameter until the closing paren.
+    - match: \b(procedure)\s+({{ident}})\b
+      captures:
+        1: storage.type.function.icn
+        2: entity.name.function.icn
+      push: param_list
+
+    # `record name(fields)` — fields highlighted like DATA() fields
+    # in the SNOBOL4 file (entity.name.function).
+    - match: \b(record)\s+({{ident}})\b
+      captures:
+        1: storage.type.icn
+        2: entity.name.type.icn
+      push: record_fields
+
+    - match: \b(global|local|static)\b
+      scope: storage.modifier.icn
+
+    - match: \b(link|invocable)\b
+      scope: keyword.control.import.icn
+
+    - match: \b(end)\b
+      scope: storage.type.function.end.icn
+
+    # ---- keywords -----------------------------------------------------------
+    - match: '{{kw_control}}'
+      scope: keyword.control.icn
+
+    - match: '{{kw_decl}}'
+      scope: storage.type.icn
+
+    # ---- &keywords ----------------------------------------------------------
+    # Two tiers, mirroring SNOBOL4's protected/unprotected split:
+    # recognized names as constant.language, anything else the
+    # parser will still accept (& + identifier) as constant.other.
+    - match: '(&){{amp_known}}\b'
+      scope: constant.language.icn
+      captures:
+        1: punctuation.definition.keyword.begin.icn
+
+    - match: '(&)({{ident}})\b'
+      scope: constant.other.icn
+      captures:
+        1: punctuation.definition.variable.begin.icn
+
+    # ---- literals -----------------------------------------------------------
+    - include: string
+    - include: cset
+    - include: number
+
+    # ---- calls & atoms ------------------------------------------------------
+    - match: \b({{builtin_function}})(\()
+      captures:
+        1: support.function.icn
+        2: punctuation.section.group.begin.icn
+      push: brackets
+
+    - match: \b({{ident}})(\()
+      captures:
+        1: entity.name.class.forward-decl.icn
+        2: punctuation.section.group.begin.icn
+      push: brackets
+
+    - match: \b{{ident}}\b
+      scope: variable.other.icn
+
+    # ---- operators ----------------------------------------------------------
+    - include: operators
+
+    # ---- punctuation --------------------------------------------------------
+    - match: \(
+      scope: punctuation.section.group.begin.icn
+      push: brackets
+    - match: \)
+      scope: invalid.illegal.stray-bracket.icn
+    - match: '\{'
+      scope: punctuation.section.block.begin.icn
+    - match: '\}'
+      scope: punctuation.section.block.end.icn
+    - match: \[
+      scope: punctuation.section.brackets.begin.icn
+    - match: \]
+      scope: punctuation.section.brackets.end.icn
+    - match: ','
+      scope: punctuation.separator.icn
+    - match: ';'
+      scope: punctuation.terminator.icn
+
+################################################################################
+# procedure parameter list / record field list
+################################################################################
+  param_list:
+    - match: \(
+      scope: punctuation.section.group.begin.icn
+      set:
+        - match: \b{{ident}}\b
+          scope: variable.parameter.icn
+        - match: ','
+          scope: punctuation.separator.icn
+        - match: \[\]
+          scope: keyword.operator.variadic.icn
+        - match: \)
+          scope: punctuation.section.group.end.icn
+          pop: true
+        - match: (?=\S)
+          pop: true
+    - match: (?=\S)
+      pop: true
+
+  record_fields:
+    - match: \(
+      scope: punctuation.section.group.begin.icn
+      set:
+        - match: \b{{ident}}\b
+          scope: entity.name.function.icn
+        - match: ','
+          scope: punctuation.separator.icn
+        - match: \)
+          scope: punctuation.section.group.end.icn
+          pop: true
+        - match: (?=\S)
+          pop: true
+    - match: (?=\S)
+      pop: true
+
+################################################################################
+# Strings — "..." with \-escapes; raw newlines allowed (icon_lex.c
+# scan_string loops to the closing quote, ~line 129).  Recognized
+# escapes \n \t \r \\ \" \' \0 colored; unknown \x pairs are kept
+# literally by the lexer, so they stay plain string body here.
+################################################################################
+  string:
+    - match: '"'
+      scope: punctuation.definition.string.begin.icn
+      push: double_quoted_string
+
+  double_quoted_string:
+    - meta_include_prototype: false
+    - meta_scope: string.quoted.double.icn
+    - match: \\[ntr\\"'0]
+      scope: constant.character.escape.icn
+    - match: '"'
+      scope: punctuation.definition.string.end.icn
+      pop: true
+
+################################################################################
+# Csets — '...' with \-escapes (icon_lex.c scan_cset ~line 161);
+# recognized escapes \' \\ \n \t \r.  Distinct scope from strings so
+# color schemes can render Icon's character-set literals apart.
+################################################################################
+  cset:
+    - match: \'
+      scope: punctuation.definition.string.begin.icn
+      push: cset_body
+
+  cset_body:
+    - meta_include_prototype: false
+    - meta_scope: string.quoted.single.icn
+    - match: \\['\\ntr]
+      scope: constant.character.escape.icn
+    - match: \'
+      scope: punctuation.definition.string.end.icn
+      pop: true
+
+################################################################################
+# Numbers — icon_lex.c scan_number, in the lexer's own precedence:
+#   0x/0X hex (SCRIP extension) · NrDIGITS radix (2r1010, 16rff,
+#   36rZZ; r or R, alnum digits) · reals digits.digits / trailing-dot
+#   / leading-dot / e-exponent with optional sign · plain integers.
+################################################################################
+  number:
+    - match: \b0[xX][0-9A-Fa-f]+\b
+      scope: constant.numeric.integer.hexadecimal.icn
+
+    - match: \b[0-9]+[rR][0-9A-Za-z]+\b
+      scope: constant.numeric.integer.radix.icn
+
+    - match: \b[0-9]+\.[0-9]+([eE][-+]?[0-9]+)?\b
+      scope: constant.numeric.float.icn
+
+    - match: \b[0-9]+[eE][-+]?[0-9]+\b
+      scope: constant.numeric.float.icn
+
+    # Trailing-dot form `1.` (scan_number: dot consumed when len>0).
+    - match: \b[0-9]+\.(?![0-9.])
+      scope: constant.numeric.float.icn
+
+    # Leading-dot form `.5` (lex_one '.' case rewinds into
+    # scan_number when a digit follows, ~line 484).
+    - match: (?<![0-9A-Za-z_])\.[0-9]+([eE][-+]?[0-9]+)?\b
+      scope: constant.numeric.float.icn
+
+    - match: \b[0-9]+\b
+      scope: constant.numeric.integer.icn
+
+################################################################################
+# Operators — the lex_one ladder (icon_lex.c ~lines 280-500),
+# longest-first so multi-char forms win.  Icon's augmented family is
+# uniformly OP:= (TK_AUG*), swap is :=:, reversible assign <- and
+# reversible swap <->, string comparators are the doubled forms.
+################################################################################
+  operators:
+    # Augmented assignment — every binary op + `:=`.  Complete set of
+    # TK_AUG* tokens from the lex_one ladder; SCRIP mints no @:= or
+    # &:= (the '@' and '&' cases return plain tokens), so those two
+    # canonical-Icon forms are deliberately absent here.
+    - match: \|\|:=|\+\+:=|--:=|\*\*:=|<<=:=|>>=:=|~==:=|<<:=|>>:=|<=:=|>=:=|~=:=|==:=|\+:=|-:=|\*:=|/:=|%:=|\^:=|<:=|>:=|=:=|\?:=
+      scope: keyword.operator.assignment.augmented.icn
+
+    # Assignment / exchange family (':' case + '<' case).
+    - match: ':=:'
+      scope: keyword.operator.assignment.swap.icn
+    - match: ':='
+      scope: keyword.operator.assignment.icn
+    - match: '<->'
+      scope: keyword.operator.assignment.revswap.icn
+    - match: '<-'
+      scope: keyword.operator.assignment.revassign.icn
+
+    # Identity (=== / ~===), string comparison (== ~== << <<= >> >>=),
+    # numeric comparison (= ~= < <= > >=) — longest first.
+    - match: '~==='
+      scope: keyword.operator.comparison.identity.icn
+    - match: '==='
+      scope: keyword.operator.comparison.identity.icn
+    - match: '~=='
+      scope: keyword.operator.comparison.lexical.icn
+    - match: '=='
+      scope: keyword.operator.comparison.lexical.icn
+    - match: '<<=|>>='
+      scope: keyword.operator.comparison.lexical.icn
+    - match: '<<|>>'
+      scope: keyword.operator.comparison.lexical.icn
+    - match: '~=|<=|>='
+      scope: keyword.operator.comparison.icn
+    - match: '[<>=]'
+      scope: keyword.operator.comparison.icn
+
+    # Concatenation: ||| (list) then || (string) then | (alternation).
+    - match: \|\|\|
+      scope: keyword.operator.concatenation.list.icn
+    - match: \|\|
+      scope: keyword.operator.concatenation.icn
+    - match: \|
+      scope: keyword.operator.alternation.icn
+
+    # Cset union/difference/intersection double forms before the
+    # arithmetic singles.
+    - match: \+\+|--|\*\*
+      scope: keyword.operator.cset.icn
+
+    # Arithmetic (including % mod and ^ power).
+    - match: '[-+*/%^]'
+      scope: keyword.operator.arithmetic.icn
+
+    # Section markers `i+:n` / `i-:n` come out of the lexer as
+    # TK_PLUSCOLON / TK_MINUSCOLON — colored by the arithmetic +
+    # separator rules; nothing extra needed.
+
+    # Unary/prefix & misc: ~ (complement/negation forms), \ (non-null
+    # / limitation), / (null test — shares the arithmetic slash),
+    # ! (element generation/apply), ? (scan/random), @ (activation),
+    # . (dereference/field), & (conjunction — bare, after &kw rules).
+    - match: '~'
+      scope: keyword.operator.complement.icn
+    - match: \\
+      scope: keyword.operator.nonnull.icn
+    - match: '!'
+      scope: keyword.operator.bang.icn
+    - match: \?
+      scope: keyword.operator.scan.icn
+    - match: '@'
+      scope: keyword.operator.activate.icn
+    - match: \.
+      scope: punctuation.accessor.icn
+    - match: '&'
+      scope: keyword.operator.conjunction.icn
+    - match: ':'
+      scope: punctuation.separator.icn
+
+################################################################################
+# Bracket context — track nesting so a closing `)` pops correctly
+# (same shape as the Snocone file's `brackets`).
+################################################################################
+  brackets:
+    - match: \)
+      scope: punctuation.section.group.end.icn
+      pop: true
+    - include: string
+    - include: cset
+    - include: number
+    - match: '{{kw_control}}'
+      scope: keyword.control.icn
+    - match: '(&){{amp_known}}\b'
+      scope: constant.language.icn
+      captures:
+        1: punctuation.definition.keyword.begin.icn
+    - match: '(&)({{ident}})\b'
+      scope: constant.other.icn
+      captures:
+        1: punctuation.definition.variable.begin.icn
+    - match: \b({{builtin_function}})(\()
+      captures:
+        1: support.function.icn
+        2: punctuation.section.group.begin.icn
+      push: brackets
+    - match: \b({{ident}})(\()
+      captures:
+        1: entity.name.class.forward-decl.icn
+        2: punctuation.section.group.begin.icn
+      push: brackets
+    - match: \b{{ident}}\b
+      scope: variable.other.icn
+    - include: operators
+    - match: \(
+      scope: punctuation.section.group.begin.icn
+      push: brackets
+    - match: '[\[\],;{}]'
+      scope: punctuation.separator.icn
