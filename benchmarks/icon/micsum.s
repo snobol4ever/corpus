@@ -1235,6 +1235,12 @@ bb80_α:
  mov eax, dword ptr [r12 + 928]
  cmp eax, 100
  je .Lx00002_0
+ mov eax, dword ptr [r12 + 896]
+ cmp eax, 6
+ jne .Lx00002_2
+ mov eax, dword ptr [r12 + 928]
+ cmp eax, 6
+ jne .Lx00002_2
 .Lx00002_1:
  mov rax, qword ptr [r12 + 904]
  mov rcx, qword ptr [r12 + 936]
@@ -1252,7 +1258,19 @@ bb80_α:
  lea r9, [r12 + 880]
  call rt_binop_overload@PLT
  test eax, eax
- je .Lx00002_1
+ jne .Lx00002_3
+.Lx00002_2:
+ mov rdi, qword ptr [r12 + 896]
+ mov rsi, qword ptr [r12 + 904]
+ mov rdx, qword ptr [r12 + 928]
+ mov rcx, qword ptr [r12 + 936]
+ mov r8d, 3
+ call rt_num_arith@PLT
+ cmp eax, 99
+ je xchain0_n76_α
+ mov qword ptr [r12 + 880], rax
+ mov qword ptr [r12 + 888], rdx
+.Lx00002_3:
  jmp xchain0_n83_α
  xchain0_n79_β:
  jmp xchain0_n76_α
@@ -1349,6 +1367,12 @@ bb88_α:
  mov eax, dword ptr [r12 + 944]
  cmp eax, 100
  je .Lx00005_0
+ mov eax, dword ptr [r12 + 880]
+ cmp eax, 6
+ jne .Lx00005_2
+ mov eax, dword ptr [r12 + 944]
+ cmp eax, 6
+ jne .Lx00005_2
 .Lx00005_1:
  mov rax, qword ptr [r12 + 888]
  mov rcx, qword ptr [r12 + 952]
@@ -1365,7 +1389,19 @@ bb88_α:
  lea r9, [r12 + 864]
  call rt_binop_overload@PLT
  test eax, eax
- je .Lx00005_1
+ jne .Lx00005_3
+.Lx00005_2:
+ mov rdi, qword ptr [r12 + 880]
+ mov rsi, qword ptr [r12 + 888]
+ mov rdx, qword ptr [r12 + 944]
+ mov rcx, qword ptr [r12 + 952]
+ mov r8d, 0
+ call rt_num_arith@PLT
+ cmp eax, 99
+ je xchain0_n76_α
+ mov qword ptr [r12 + 864], rax
+ mov qword ptr [r12 + 872], rdx
+.Lx00005_3:
  jmp xchain0_n90_α
  xchain0_n87_β:
  jmp xchain0_n76_α
