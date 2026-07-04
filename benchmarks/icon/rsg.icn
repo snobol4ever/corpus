@@ -167,7 +167,7 @@ procedure main(args);
 
    opts := options(args,"tl+s+");
    limit := \opts["l"] | 1000;
-   tswitch := \opts["t"]
+   tswitch := \opts["t"];
    &random := \opts["s"];
 
    ifile := [&input]; # stack of input files

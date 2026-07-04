@@ -59,7 +59,7 @@ procedure main(args);
    denom := &lcase[1+:suitsize];
 
    opts := options(args,"h+s+");
-   hands := \opts["h"] | 1
+   hands := \opts["h"] | 1;
    &random := \opts["s"];
 
    every 1 to hands do
