@@ -124,8 +124,8 @@ bb9_α:
 xchain0_n9_α:
 # IR_UNOP
 bb10_α:
- mov rdi, qword ptr [r12 + 1664]
- mov rsi, qword ptr [r12 + 1672]
+ mov rdi, qword ptr [r12 + 2480]
+ mov rsi, qword ptr [r12 + 2488]
  call rt_size_d@PLT
  mov qword ptr [r12 + 1648], rax
  mov qword ptr [r12 + 1656], rdx
@@ -603,8 +603,8 @@ bb34_α:
 xchain0_n34_α:
 bb35_α:
 # IR_BINOP_ARITH_REAL
- mov rdi, qword ptr [r12 + 2448]
- mov rsi, qword ptr [r12 + 2456]
+ mov rdi, qword ptr [r12 + 1376]
+ mov rsi, qword ptr [r12 + 1384]
  mov rdx, qword ptr [r12 + 1392]
  mov rcx, qword ptr [r12 + 1400]
  mov r8d, 0
@@ -694,8 +694,8 @@ bb40_α:
 xchain0_n40_α:
 # IR_UNOP
 bb41_α:
- mov rdi, qword ptr [r12 + 1312]
- mov rsi, qword ptr [r12 + 1320]
+ mov rdi, qword ptr [r12 + 2560]
+ mov rsi, qword ptr [r12 + 2568]
  call rt_size_d@PLT
  mov qword ptr [r12 + 1296], rax
  mov qword ptr [r12 + 1304], rdx
@@ -717,8 +717,8 @@ bb42_α:
 xchain0_n42_α:
 bb43_α:
 # IR_BINOP_ARITH_REAL
- mov rdi, qword ptr [r12 + 2448]
- mov rsi, qword ptr [r12 + 2456]
+ mov rdi, qword ptr [r12 + 1280]
+ mov rsi, qword ptr [r12 + 1288]
  mov rdx, qword ptr [r12 + 1296]
  mov rcx, qword ptr [r12 + 1304]
  mov r8d, 3
@@ -1111,8 +1111,8 @@ bb71_α:
 xchain0_n71_α:
 # IR_UNOP
 bb72_α:
- mov rdi, qword ptr [r12 + 912]
- mov rsi, qword ptr [r12 + 920]
+ mov rdi, qword ptr [r12 + 2480]
+ mov rsi, qword ptr [r12 + 2488]
  call rt_size_d@PLT
  mov qword ptr [r12 + 896], rax
  mov qword ptr [r12 + 904], rdx
@@ -1654,8 +1654,8 @@ bb00017_α:
 xchain0_n00017_α:
 bb00019_α:
 # IR_BINOP_ARITH_REAL
- mov rdi, qword ptr [r12 + 2448]
- mov rsi, qword ptr [r12 + 2456]
+ mov rdi, qword ptr [r12 + 528]
+ mov rsi, qword ptr [r12 + 536]
  mov rdx, qword ptr [r12 + 544]
  mov rcx, qword ptr [r12 + 552]
  mov r8d, 0
@@ -1755,8 +1755,8 @@ bb00027_α:
 xchain0_n00027_α:
 # IR_UNOP
 bb00029_α:
- mov rdi, qword ptr [r12 + 400]
- mov rsi, qword ptr [r12 + 408]
+ mov rdi, qword ptr [r12 + 2480]
+ mov rsi, qword ptr [r12 + 2488]
  call rt_size_d@PLT
  mov qword ptr [r12 + 384], rax
  mov qword ptr [r12 + 392], rdx
@@ -1794,8 +1794,8 @@ bb00030_α:
 xchain0_n00030_α:
 bb00031_α:
 # IR_BINOP_ARITH_REAL
- mov rdi, qword ptr [r12 + 2448]
- mov rsi, qword ptr [r12 + 2456]
+ mov rdi, qword ptr [r12 + 368]
+ mov rsi, qword ptr [r12 + 376]
  mov rdx, qword ptr [r12 + 384]
  mov rcx, qword ptr [r12 + 392]
  mov r8d, 3
@@ -2077,8 +2077,8 @@ bb00044_α:
 xchain00041_n3_α:
 # IR_UNOP
 bb00045_α:
- mov rdi, qword ptr [r12 + 512]
- mov rsi, qword ptr [r12 + 520]
+ mov rdi, qword ptr [r12 + 16]
+ mov rsi, qword ptr [r12 + 24]
  call rt_size_d@PLT
  mov qword ptr [r12 + 496], rax
  mov qword ptr [r12 + 504], rdx
