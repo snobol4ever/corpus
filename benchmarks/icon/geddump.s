@@ -8098,6 +8098,9 @@ proc_startup:
   lea rdi, [rip + .Lstartup_pname6]
   mov esi, 2
   call rt_proc_set_nparams@PLT
+  lea rdi, [rip + .Lstartup_pname6]
+  mov esi, 1
+  call rt_proc_set_variadic@PLT
   .section .rodata
   .Lstartup_pname7: .string "gedval"
   .section .text
@@ -8108,6 +8111,9 @@ proc_startup:
   lea rdi, [rip + .Lstartup_pname7]
   mov esi, 1
   call rt_proc_set_nparams@PLT
+  lea rdi, [rip + .Lstartup_pname7]
+  mov esi, 1
+  call rt_proc_set_variadic@PLT
   .section .rodata
   .Lstartup_pname8: .string "gedref"
   .section .text
@@ -8118,6 +8124,9 @@ proc_startup:
   lea rdi, [rip + .Lstartup_pname8]
   mov esi, 1
   call rt_proc_set_nparams@PLT
+  lea rdi, [rip + .Lstartup_pname8]
+  mov esi, 1
+  call rt_proc_set_variadic@PLT
   .section .rodata
   .Lstartup_pname9: .string "gedfnf"
   .section .text
