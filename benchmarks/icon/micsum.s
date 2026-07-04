@@ -2110,7 +2110,7 @@ bb00050_α:
  mov qword ptr [r12 + 216], rax
  jmp xchain00043_n7_α
  xchain00043_n5_β:
- jmp xchain00043_n10_α
+ jmp xchain00043_n13_α
 xchain00043_n6_α:
 bb00051_α:
 # IR_BINOP_TEST
@@ -2164,10 +2164,10 @@ bb00002_α:
  mov qword ptr [r12 + 176], rax
  mov qword ptr [r12 + 184], rdx
  cmp eax, 99
- je xchain00043_n10_α
+ je xchain00043_n13_α
  jmp xchain00043_n9_α
  xchain00043_n7_β:
- jmp xchain00043_n10_α
+ jmp xchain00043_n13_α
 xchain00043_n8_α:
 # IR_KEYWORD_read
 bb00003_α:
@@ -2193,7 +2193,7 @@ bb00004_α:
  mov qword ptr [r12 + 168], rdx
  jmp xchain00043_n12_α
  xchain00043_n9_β:
- jmp xchain00043_n10_α
+ jmp xchain00043_n13_α
 xchain00043_n10_α:
  jmp xchain00043_n13_α
 xchain00043_n10_β:

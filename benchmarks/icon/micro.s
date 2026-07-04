@@ -402,7 +402,7 @@ bb23_α:
  mov qword ptr [r12 + 1304], rdx
  jmp xchain25_n6_α
  xchain25_n5_β:
- jmp xchain25_n7_α
+ jmp xchain25_n8_α
 .Lx33_0:
  .quad .Lx33_0_s
 .Lx33_0_s:
@@ -416,9 +416,9 @@ bb24_α:
  mov qword ptr [r12 + 1512], rdx
  mov qword ptr [r12 + 1280], rax
  mov qword ptr [r12 + 1288], rdx
- jmp xchain25_n7_α
+ jmp xchain25_n8_α
  xchain25_n6_β:
- jmp xchain25_n7_α
+ jmp xchain25_n8_α
 xchain25_n7_α:
  jmp xchain25_n8_α
 xchain25_n7_β:
@@ -689,7 +689,7 @@ bb41_α:
  mov qword ptr [r12 + 904], rax
  jmp xchain25_n25_α
  xchain25_n23_β:
- jmp xchain25_n7_α
+ jmp xchain25_n8_α
 xchain25_n24_α:
 bb42_α:
 # IR_ASSIGN local
@@ -711,7 +711,7 @@ bb43_α:
  mov qword ptr [r12 + 936], rdx
  jmp xchain25_n26_α
  xchain25_n25_β:
- jmp xchain25_n7_α
+ jmp xchain25_n8_α
 xchain25_n26_α:
 # IR_LIT_INTEGER
 bb44_α:
@@ -720,7 +720,7 @@ bb44_α:
  mov qword ptr [r12 + 952], rax
  jmp xchain25_n27_α
  xchain25_n26_β:
- jmp xchain25_n7_α
+ jmp xchain25_n8_α
 .Lx63_0:
  .quad 20
 xchain25_n27_α:
@@ -764,13 +764,13 @@ bb45_α:
  mov r8d, 3
  call rt_num_arith@PLT
  cmp eax, 99
- je xchain25_n7_α
+ je xchain25_n8_α
  mov qword ptr [r12 + 912], rax
  mov qword ptr [r12 + 920], rdx
 .Lx64_3:
  jmp xchain25_n28_α
  xchain25_n27_β:
- jmp xchain25_n7_α
+ jmp xchain25_n8_α
 xchain25_n28_α:
 bb46_α:
 # IR_BINOP_TEST
@@ -784,12 +784,12 @@ bb46_α:
  mov rax, qword ptr [r12 + 1480]
  mov rcx, qword ptr [r12 + 920]
  cmp rax, rcx
- jl xchain25_n7_α
+ jl xchain25_n8_α
  mov rcx, qword ptr [r12 + 912]
  mov qword ptr [r12 + 880], rcx
  mov rcx, qword ptr [r12 + 920]
  mov qword ptr [r12 + 888], rcx
- jmp xchain25_n29_α
+ jmp xchain25_n30_α
 .Lx65_0:
  mov rdi, qword ptr [r12 + 1472]
  mov rsi, qword ptr [r12 + 1480]
@@ -801,10 +801,10 @@ bb46_α:
  test eax, eax
  je .Lx65_1
  cmp eax, 1
- je xchain25_n7_α
- jmp xchain25_n29_α
+ je xchain25_n8_α
+ jmp xchain25_n30_α
  xchain25_n28_β:
- jmp xchain25_n7_α
+ jmp xchain25_n8_α
 xchain25_n29_α:
  jmp xchain25_n30_α
 xchain25_n29_β:
@@ -5140,7 +5140,7 @@ bb00146_α:
  mov qword ptr [r12 + 272], rcx
  mov rcx, qword ptr [r12 + 424]
  mov qword ptr [r12 + 280], rcx
- jmp xchain00231_n26_α
+ jmp xchain00231_n11_α
 .Lx00266_0:
  mov rdi, qword ptr [r12 + 288]
  mov rsi, qword ptr [r12 + 296]
@@ -5153,7 +5153,7 @@ bb00146_α:
  je .Lx00266_1
  cmp eax, 1
  je xchain00231_n18_β
- jmp xchain00231_n26_α
+ jmp xchain00231_n11_α
  xchain00231_n24_β:
  jmp xchain00231_n18_β
 xchain00231_n25_α:
