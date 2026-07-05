@@ -1,0 +1,14 @@
+*  202 - GC: ARBLK cells holding strings must adjust after slide
+        A = ARRAY(20)
+        I = 0
+fill    I = LT(I, 20) I + 1                                         :F(churn)
+        A<I> = 'elem-' I '-' DUPL('e', 10)
+        :(fill)
+churn   J = 0
+cl      J = LT(J, 300) J + 1                                        :F(chk)
+        G = 'junk' J DUPL('z', 30)
+        :(cl)
+chk     OUTPUT = A<1>
+        OUTPUT = A<10>
+        OUTPUT = A<20>
+END

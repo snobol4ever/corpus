@@ -1,0 +1,10 @@
+*  204 - GC: recursive DEFINE, locals live across recursive call while callee churns
+        DEFINE('build(n)s,t')                                       :(b_end)
+build   s = 'L' n
+        t = DUPL('q', 12) '-' n
+        build = EQ(n, 0) 'base'                                     :S(RETURN)
+        build = s '/' build(n - 1)                                  :(RETURN)
+b_end
+        OUTPUT = build(6)
+        OUTPUT = build(3)
+END

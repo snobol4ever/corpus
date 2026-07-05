@@ -15,6 +15,7 @@ corpus/
 │   ├── control/         ← goto, :S :F, loops, label resolution
 │   ├── functions/       ← DEFINE, CALL, RETURN, FRETURN, recursion
 │   ├── arrays/          ← ARRAY, TABLE, DATA types
+│   ├── gc/              ← 3-stage GC torture: one test per collector root family + exhaustion (see SCRIP scripts/test_gc_stress_suite.sh)
 │   └── code/            ← CODE(), EVAL(), dynamic execution
 │
 ├── benchmarks/          ← performance programs (timing comparisons)

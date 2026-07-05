@@ -1,0 +1,13 @@
+*  210 - GC: table -> array -> record -> string adjust chain
+        DATA('box(payload)')
+        A = ARRAY(5)
+        A<3> = box('deep-' DUPL('d', 8))
+        T = TABLE()
+        T<'slot'> = A
+        J = 0
+cl      J = LT(J, 250) J + 1                                        :F(rd)
+        G = 'nest-junk' J DUPL('n', 22)
+        :(cl)
+rd      TMP = T<'slot'>
+        OUTPUT = payload(TMP<3>)
+END

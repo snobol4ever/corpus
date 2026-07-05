@@ -1,0 +1,12 @@
+*  209 - GC: multi-KB blocks slide correctly; verify size + head + tail
+        BIG = DUPL('abcdefghij', 500)
+        J = 0
+cl      J = LT(J, 250) J + 1                                        :F(rd)
+        G = 'medium-' J '-' DUPL('g', 35)
+        :(cl)
+rd      OUTPUT = SIZE(BIG)
+        BIG POS(0) LEN(10) . HEAD10
+        OUTPUT = HEAD10
+        BIG RTAB(10) REM . TAIL10
+        OUTPUT = TAIL10
+END

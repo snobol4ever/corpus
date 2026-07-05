@@ -1,0 +1,15 @@
+*  214 - GC: 100 live strings slide repeatedly while 40MB churns past them
+        A = ARRAY(100)
+        I = 0
+fill    I = LT(I, 100) I + 1                                        :F(churn)
+        A<I> = 'live-' I '-' DUPL('L', 50)
+        :(fill)
+churn   J = 0
+cl      J = LT(J, 20000) J + 1                                      :F(chk)
+        G = 'waste-' J '-' DUPL('w', 2000)
+        :(cl)
+chk     OUTPUT = A<1>
+        OUTPUT = A<50>
+        OUTPUT = A<100>
+        OUTPUT = SIZE(A<77>)
+END

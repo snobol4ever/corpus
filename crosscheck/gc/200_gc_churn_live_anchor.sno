@@ -1,0 +1,10 @@
+*  200 - GC: heavy churn, one live anchor must survive many regenerations
+        KEEP = 'anchor-' DUPL('K', 15)
+        I = 0
+loop    I = LT(I, 400) I + 1                                        :F(done)
+        G = 'garbage-' I '-' DUPL('x', 20)
+        G = G '-more-' I
+        :(loop)
+done    OUTPUT = KEEP
+        OUTPUT = 'iterations=' I
+END

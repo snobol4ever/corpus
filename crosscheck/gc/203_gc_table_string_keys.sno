@@ -1,0 +1,15 @@
+*  203 - GC: TBBLK string keys+values; lookup by freshly built equal key after slide
+        T = TABLE()
+        I = 0
+mk      I = LT(I, 15) I + 1                                         :F(churn)
+        T<'key-' I> = 'val-' I '-' DUPL('v', 6)
+        :(mk)
+churn   J = 0
+cl      J = LT(J, 300) J + 1                                        :F(rd)
+        G = DUPL('w', 25) J
+        :(cl)
+rd      K = 2 + 1
+        OUTPUT = T<'key-' K>
+        OUTPUT = T<'key-' 15>
+        OUTPUT = T<'key-' 7>
+END
