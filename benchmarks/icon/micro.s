@@ -17937,7 +17937,7 @@ bb01236_α:
  .quad 0
 xchain01219_n17_α:
 bb01238_α:
-# BOX IR_CALL put(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
+# BOX IR_CALL put(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+176] -> [r12+144]
  mov rax, qword ptr [r12 + 176]
  mov qword ptr [r12 + 144], rax
@@ -17949,10 +17949,10 @@ bb01238_α:
  mov rax, qword ptr [r12 + 200]
  mov qword ptr [r12 + 168], rax
   .section .rodata
-  .Lbynamefn1705: .string "put"
+  .Lrkfn1705: .string "put"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lbynamefn1705]
+   lea rdi, [rip + .Lrkfn1705]
  lea rsi, [r12 + 144]
  mov edx, 2
  call rt_call_arr@PLT
@@ -17961,7 +17961,7 @@ bb01238_α:
  cmp eax, 99
  je xchain01219_n13_β
  jmp xchain01219_n18_α
-xchain01219_n17_β:
+ xchain01219_n17_β:
  jmp xchain01219_n13_β
 xchain01219_n18_α:
 bb01239_α:
@@ -18224,7 +18224,7 @@ bb01257_α:
  .quad 2
 xchain01240_n18_α:
 bb01259_α:
-# BOX IR_CALL put(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
+# BOX IR_CALL put(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+256] -> [r12+208]
  mov rax, qword ptr [r12 + 256]
  mov qword ptr [r12 + 208], rax
@@ -18241,10 +18241,10 @@ bb01259_α:
  mov rax, qword ptr [r12 + 296]
  mov qword ptr [r12 + 248], rax
   .section .rodata
-  .Lbynamefn1735: .string "put"
+  .Lrkfn1735: .string "put"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lbynamefn1735]
+   lea rdi, [rip + .Lrkfn1735]
  lea rsi, [r12 + 208]
  mov edx, 3
  call rt_call_arr@PLT
@@ -18253,7 +18253,7 @@ bb01259_α:
  cmp eax, 99
  je xchain01240_n13_β
  jmp xchain01240_n19_α
-xchain01240_n18_β:
+ xchain01240_n18_β:
  jmp xchain01240_n13_β
 xchain01240_n19_α:
 # IR_VAR gva
@@ -18574,7 +18574,7 @@ bb00868_α:
  .quad 3
 xchain01263_n19_α:
 bb00870_α:
-# BOX IR_CALL put(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
+# BOX IR_CALL put(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+320] -> [r12+256]
  mov rax, qword ptr [r12 + 320]
  mov qword ptr [r12 + 256], rax
@@ -18596,10 +18596,10 @@ bb00870_α:
  mov rax, qword ptr [r12 + 376]
  mov qword ptr [r12 + 312], rax
   .section .rodata
-  .Lbynamefn1771: .string "put"
+  .Lrkfn1771: .string "put"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lbynamefn1771]
+   lea rdi, [rip + .Lrkfn1771]
  lea rsi, [r12 + 256]
  mov edx, 4
  call rt_call_arr@PLT
@@ -18608,7 +18608,7 @@ bb00870_α:
  cmp eax, 99
  je xchain01263_n13_β
  jmp xchain01263_n20_α
-xchain01263_n19_β:
+ xchain01263_n19_β:
  jmp xchain01263_n13_β
 xchain01263_n20_α:
 # IR_VAR gva
@@ -18973,7 +18973,7 @@ bb00887_α:
  .quad 4
 xchain01289_n20_α:
 bb01311_α:
-# BOX IR_CALL put(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
+# BOX IR_CALL put(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+384] -> [r12+304]
  mov rax, qword ptr [r12 + 384]
  mov qword ptr [r12 + 304], rax
@@ -19000,10 +19000,10 @@ bb01311_α:
  mov rax, qword ptr [r12 + 456]
  mov qword ptr [r12 + 376], rax
   .section .rodata
-  .Lbynamefn1811: .string "put"
+  .Lrkfn1811: .string "put"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lbynamefn1811]
+   lea rdi, [rip + .Lrkfn1811]
  lea rsi, [r12 + 304]
  mov edx, 5
  call rt_call_arr@PLT
@@ -19012,7 +19012,7 @@ bb01311_α:
  cmp eax, 99
  je xchain01289_n13_β
  jmp xchain01289_n21_α
-xchain01289_n20_β:
+ xchain01289_n20_β:
  jmp xchain01289_n13_β
 xchain01289_n21_α:
 # IR_VAR gva
@@ -19377,7 +19377,7 @@ bb01333_α:
  .quad 0
 xchain01317_n17_α:
 bb01335_α:
-# BOX IR_CALL push(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
+# BOX IR_CALL push(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+176] -> [r12+144]
  mov rax, qword ptr [r12 + 176]
  mov qword ptr [r12 + 144], rax
@@ -19389,10 +19389,10 @@ bb01335_α:
  mov rax, qword ptr [r12 + 200]
  mov qword ptr [r12 + 168], rax
   .section .rodata
-  .Lbynamefn1851: .string "push"
+  .Lrkfn1851: .string "push"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lbynamefn1851]
+   lea rdi, [rip + .Lrkfn1851]
  lea rsi, [r12 + 144]
  mov edx, 2
  call rt_call_arr@PLT
@@ -19401,7 +19401,7 @@ bb01335_α:
  cmp eax, 99
  je xchain01317_n13_β
  jmp xchain01317_n18_α
-xchain01317_n17_β:
+ xchain01317_n17_β:
  jmp xchain01317_n13_β
 xchain01317_n18_α:
 bb00908_α:
@@ -19678,7 +19678,7 @@ bb00919_α:
  .quad 9
 xchain01336_n19_α:
 bb00920_α:
-# BOX IR_CALL put(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
+# BOX IR_CALL put(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+176] -> [r12+144]
  mov rax, qword ptr [r12 + 176]
  mov qword ptr [r12 + 144], rax
@@ -19690,10 +19690,10 @@ bb00920_α:
  mov rax, qword ptr [r12 + 200]
  mov qword ptr [r12 + 168], rax
   .section .rodata
-  .Lbynamefn1879: .string "put"
+  .Lrkfn1879: .string "put"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lbynamefn1879]
+   lea rdi, [rip + .Lrkfn1879]
  lea rsi, [r12 + 144]
  mov edx, 2
  call rt_call_arr@PLT
@@ -19702,7 +19702,7 @@ bb00920_α:
  cmp eax, 99
  je xchain01336_n13_β
  jmp xchain01336_n21_α
-xchain01336_n19_β:
+ xchain01336_n19_β:
  jmp xchain01336_n13_β
 xchain01336_n20_α:
 # IR_LIT_INTEGER
@@ -20134,7 +20134,7 @@ bb00940_α:
  .quad 9
 xchain01373_n19_α:
 bb00942_α:
-# BOX IR_CALL push(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
+# BOX IR_CALL push(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+176] -> [r12+144]
  mov rax, qword ptr [r12 + 176]
  mov qword ptr [r12 + 144], rax
@@ -20146,10 +20146,10 @@ bb00942_α:
  mov rax, qword ptr [r12 + 200]
  mov qword ptr [r12 + 168], rax
   .section .rodata
-  .Lbynamefn1920: .string "push"
+  .Lrkfn1920: .string "push"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lbynamefn1920]
+   lea rdi, [rip + .Lrkfn1920]
  lea rsi, [r12 + 144]
  mov edx, 2
  call rt_call_arr@PLT
@@ -20158,7 +20158,7 @@ bb00942_α:
  cmp eax, 99
  je xchain01373_n13_β
  jmp xchain01373_n21_α
-xchain01373_n19_β:
+ xchain01373_n19_β:
  jmp xchain01373_n13_β
 xchain01373_n20_α:
 # IR_LIT_INTEGER
@@ -27418,7 +27418,7 @@ xchain01777_n34_β:
  jmp xchain01777_n27_β
 xchain01777_n35_α:
 bb01819_α:
-# BOX IR_CALL put(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
+# BOX IR_CALL put(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+6240] -> [r12+6208]
  mov rax, qword ptr [r12 + 6240]
  mov qword ptr [r12 + 6208], rax
@@ -27430,10 +27430,10 @@ bb01819_α:
  mov rax, qword ptr [r12 + 6264]
  mov qword ptr [r12 + 6232], rax
   .section .rodata
-  .Lbynamefn2516: .string "put"
+  .Lrkfn2516: .string "put"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lbynamefn2516]
+   lea rdi, [rip + .Lrkfn2516]
  lea rsi, [r12 + 6208]
  mov edx, 2
  call rt_call_arr@PLT
@@ -27442,7 +27442,7 @@ bb01819_α:
  cmp eax, 99
  je xchain01777_n27_β
  jmp xchain01777_n36_α
-xchain01777_n35_β:
+ xchain01777_n35_β:
  jmp xchain01777_n27_β
 xchain01777_n36_α:
  jmp xchain01777_n27_β

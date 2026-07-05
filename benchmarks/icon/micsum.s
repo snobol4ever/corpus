@@ -1140,7 +1140,7 @@ bb74_α:
  jmp xchain0_n80_α
 xchain0_n74_α:
 bb75_α:
-# BOX IR_CALL put(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
+# BOX IR_CALL put(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1920] -> [r12+1888]
  mov rax, qword ptr [r12 + 1920]
  mov qword ptr [r12 + 1888], rax
@@ -1152,10 +1152,10 @@ bb75_α:
  mov rax, qword ptr [r12 + 1944]
  mov qword ptr [r12 + 1912], rax
   .section .rodata
-  .Lbynamefn120: .string "put"
+  .Lrkfn120: .string "put"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lbynamefn120]
+   lea rdi, [rip + .Lrkfn120]
  lea rsi, [r12 + 1888]
  mov edx, 2
  call rt_call_arr@PLT
@@ -1164,11 +1164,11 @@ bb75_α:
  cmp eax, 99
  je xchain0_n63_α
  jmp xchain0_n77_α
-xchain0_n74_β:
+ xchain0_n74_β:
  jmp xchain0_n63_α
 xchain0_n75_α:
 bb76_α:
-# BOX IR_CALL put(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
+# BOX IR_CALL put(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+2000] -> [r12+1968]
  mov rax, qword ptr [r12 + 2000]
  mov qword ptr [r12 + 1968], rax
@@ -1180,10 +1180,10 @@ bb76_α:
  mov rax, qword ptr [r12 + 2024]
  mov qword ptr [r12 + 1992], rax
   .section .rodata
-  .Lbynamefn122: .string "put"
+  .Lrkfn122: .string "put"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lbynamefn122]
+   lea rdi, [rip + .Lrkfn122]
  lea rsi, [r12 + 1968]
  mov edx, 2
  call rt_call_arr@PLT
@@ -1192,7 +1192,7 @@ bb76_α:
  cmp eax, 99
  je xchain0_n63_α
  jmp xchain0_n78_α
-xchain0_n75_β:
+ xchain0_n75_β:
  jmp xchain0_n63_α
 xchain0_n76_α:
 # IR_UNOP
@@ -1208,6 +1208,10 @@ bb77_α:
 xchain0_n77_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
 bb78_α:
+ mov rax, qword ptr [r12 + 1872]
+ mov qword ptr [r12 + 1840], rax
+ mov rax, qword ptr [r12 + 1880]
+ mov qword ptr [r12 + 1848], rax
  lea rax, [rip + xchain0_n63_α]
  mov qword ptr [r12 + 1856], rax
  jmp xchain0_n81_α
@@ -1216,6 +1220,10 @@ bb78_α:
 xchain0_n78_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
 bb79_α:
+ mov rax, qword ptr [r12 + 1952]
+ mov qword ptr [r12 + 1840], rax
+ mov rax, qword ptr [r12 + 1960]
+ mov qword ptr [r12 + 1848], rax
  lea rax, [rip + xchain0_n63_α]
  mov qword ptr [r12 + 1856], rax
  jmp xchain0_n81_α
