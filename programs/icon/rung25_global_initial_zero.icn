@@ -1,5 +1,5 @@
 procedure counter()
-  local n;
+  static n;
   initial n := 0;
   n := n + 1;
   write(n);

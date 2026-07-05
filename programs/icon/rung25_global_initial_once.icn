@@ -1,5 +1,5 @@
 procedure count()
-  local x;
+  static x;
   initial x := 10;
   x := x + 1;
   write(x);
