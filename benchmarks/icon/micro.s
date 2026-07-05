@@ -13319,7 +13319,7 @@ bb00889_α:
  jg xchain00880_n18_α
  mov qword ptr [r12 + 64], 6
  mov qword ptr [r12 + 72], rax
- jmp xchain00880_n9_β
+ jmp xchain00880_n9_α
  xchain00880_n8_β:
  inc qword ptr [r12 + 80]
  jmp .Lx00890_0
@@ -27299,7 +27299,7 @@ bb01809_α:
  jg xchain01777_n37_α
  mov qword ptr [r12 + 6128], 6
  mov qword ptr [r12 + 6136], rax
- jmp xchain01777_n28_β
+ jmp xchain01777_n28_α
  xchain01777_n27_β:
  inc qword ptr [r12 + 6144]
  jmp .Lx01810_0
