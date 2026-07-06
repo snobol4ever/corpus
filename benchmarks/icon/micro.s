@@ -5140,7 +5140,7 @@ bb00146_α:
  mov qword ptr [r12 + 272], rcx
  mov rcx, qword ptr [r12 + 424]
  mov qword ptr [r12 + 280], rcx
- jmp xchain00231_n11_α
+ jmp xchain00231_n11_β
 .Lx00266_0:
  mov rdi, qword ptr [r12 + 288]
  mov rsi, qword ptr [r12 + 296]
@@ -5153,7 +5153,7 @@ bb00146_α:
  je .Lx00266_1
  cmp eax, 1
  je xchain00231_n18_β
- jmp xchain00231_n11_α
+ jmp xchain00231_n11_β
  xchain00231_n24_β:
  jmp xchain00231_n18_β
 xchain00231_n25_α:
