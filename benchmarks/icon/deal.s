@@ -590,7 +590,7 @@ bb37_α:
 .Lx48_0:
  .quad 1
 xchain0_n37_α:
-# IR_SUBSCRIPT section
+# IR_SUBSCRIPT section extended (x[i+:n]/x[i-:n]; end pre-computed by IR_BINOP; wraparound→ω)
 bb38_α:
  mov rdi, qword ptr [r12 + 928]
  mov rsi, qword ptr [r12 + 936]
@@ -598,7 +598,9 @@ bb38_α:
  mov rcx, qword ptr [r12 + 952]
  mov r8, qword ptr [r12 + 1088]
  mov r9, qword ptr [r12 + 1096]
- call subscript_get2@PLT
+ call subscript_get2_ext@PLT
+ cmp eax, 99
+ je xchain0_n22_β
  mov qword ptr [r12 + 912], rax
  mov qword ptr [r12 + 920], rdx
  jmp xchain0_n39_α
@@ -2645,7 +2647,7 @@ bb00074_α:
  xchain00046_n21_β:
  jmp xchain00046_n23_α
 xchain00046_n22_α:
-# IR_SUBSCRIPT section
+# IR_SUBSCRIPT section extended (x[i+:n]/x[i-:n]; end pre-computed by IR_BINOP; wraparound→ω)
 bb00076_α:
  mov rdi, qword ptr [r12 + 496]
  mov rsi, qword ptr [r12 + 504]
@@ -2653,7 +2655,9 @@ bb00076_α:
  mov rcx, qword ptr [r12 + 520]
  mov r8, qword ptr [r12 + 544]
  mov r9, qword ptr [r12 + 552]
- call subscript_get2@PLT
+ call subscript_get2_ext@PLT
+ cmp eax, 99
+ je xchain00046_n23_α
  mov qword ptr [r12 + 480], rax
  mov qword ptr [r12 + 488], rdx
  jmp xchain00046_n24_α
