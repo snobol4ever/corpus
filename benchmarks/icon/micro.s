@@ -9926,10 +9926,11 @@ bb00411_α:
  call rt_jct_relop@PLT
  test eax, eax
  jz xchain00621_n6_β
- mov rax, qword ptr [r12 + 128]
+ mov rdi, qword ptr [r12 + 128]
+ mov rsi, qword ptr [r12 + 136]
+ call rt_str_coerce@PLT
  mov qword ptr [r12 + 96], rax
- mov rax, qword ptr [r12 + 136]
- mov qword ptr [r12 + 104], rax
+ mov qword ptr [r12 + 104], rdx
  jmp xchain00621_n6_β
  xchain00621_n9_β:
  jmp xchain00621_n6_β

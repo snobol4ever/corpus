@@ -774,10 +774,11 @@ bb47_α:
  call rt_jct_relop@PLT
  test eax, eax
  jz xchain0_n50_α
- mov rax, qword ptr [r12 + 2144]
+ mov rdi, qword ptr [r12 + 2144]
+ mov rsi, qword ptr [r12 + 2152]
+ call rt_str_coerce@PLT
  mov qword ptr [r12 + 2112], rax
- mov rax, qword ptr [r12 + 2152]
- mov qword ptr [r12 + 2120], rax
+ mov qword ptr [r12 + 2120], rdx
  jmp xchain0_n49_α
  xchain0_n46_β:
  jmp xchain0_n50_α
@@ -971,10 +972,11 @@ bb60_α:
  call rt_jct_relop@PLT
  test eax, eax
  jz xchain0_n66_α
- mov rax, qword ptr [r12 + 2096]
+ mov rdi, qword ptr [r12 + 2096]
+ mov rsi, qword ptr [r12 + 2104]
+ call rt_str_coerce@PLT
  mov qword ptr [r12 + 2064], rax
- mov rax, qword ptr [r12 + 2104]
- mov qword ptr [r12 + 2072], rax
+ mov qword ptr [r12 + 2072], rdx
  jmp xchain0_n65_α
  xchain0_n59_β:
  jmp xchain0_n66_α

@@ -64,10 +64,11 @@ bb4_α:
  call rt_jct_relop@PLT
  test eax, eax
  jz xchain0_n4_α
- mov rax, qword ptr [r12 + 688]
+ mov rdi, qword ptr [r12 + 688]
+ mov rsi, qword ptr [r12 + 696]
+ call rt_str_coerce@PLT
  mov qword ptr [r12 + 656], rax
- mov rax, qword ptr [r12 + 696]
- mov qword ptr [r12 + 664], rax
+ mov qword ptr [r12 + 664], rdx
  jmp xchain0_n5_α
  xchain0_n3_β:
  jmp xchain0_n4_α
@@ -159,10 +160,11 @@ bb10_α:
  call rt_jct_relop@PLT
  test eax, eax
  jz xchain0_n10_α
- mov rax, qword ptr [r12 + 592]
+ mov rdi, qword ptr [r12 + 592]
+ mov rsi, qword ptr [r12 + 600]
+ call rt_str_coerce@PLT
  mov qword ptr [r12 + 560], rax
- mov rax, qword ptr [r12 + 600]
- mov qword ptr [r12 + 568], rax
+ mov qword ptr [r12 + 568], rdx
  jmp xchain0_n11_α
  xchain0_n9_β:
  jmp xchain0_n10_α
@@ -3982,10 +3984,11 @@ bb00077_α:
  call rt_jct_relop@PLT
  test eax, eax
  jz xchain00164_n7_β
- mov rax, qword ptr [r12 + 608]
+ mov rdi, qword ptr [r12 + 608]
+ mov rsi, qword ptr [r12 + 616]
+ call rt_str_coerce@PLT
  mov qword ptr [r12 + 416], rax
- mov rax, qword ptr [r12 + 616]
- mov qword ptr [r12 + 424], rax
+ mov qword ptr [r12 + 424], rdx
  jmp xchain00164_n13_α
  xchain00164_n12_β:
  jmp xchain00164_n7_β
