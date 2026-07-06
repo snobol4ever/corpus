@@ -1544,6 +1544,12 @@ bb00007_α:
  mov eax, dword ptr [r12 + 1792]
  cmp eax, 100
  je .Lx00008_0
+ mov eax, dword ptr [r12 + 1760]
+ cmp eax, 6
+ jne .Lx00008_2
+ mov eax, dword ptr [r12 + 1792]
+ cmp eax, 6
+ jne .Lx00008_2
 .Lx00008_1:
  mov rax, qword ptr [r12 + 1768]
  mov rcx, qword ptr [r12 + 1800]
@@ -1566,6 +1572,20 @@ bb00007_α:
  je .Lx00008_1
  cmp eax, 1
  je xchain78_n45_α
+ jmp xchain78_n19_α
+.Lx00008_2:
+ mov rdi, qword ptr [r12 + 1760]
+ mov rsi, qword ptr [r12 + 1768]
+ mov rdx, qword ptr [r12 + 1792]
+ mov rcx, qword ptr [r12 + 1800]
+ mov r8d, 9
+ call rt_jct_relop@PLT
+ test eax, eax
+ jz xchain78_n45_α
+ mov rax, qword ptr [r12 + 1792]
+ mov qword ptr [r12 + 1744], rax
+ mov rax, qword ptr [r12 + 1800]
+ mov qword ptr [r12 + 1752], rax
  jmp xchain78_n19_α
  xchain78_n47_β:
  jmp xchain78_n45_α
@@ -1920,6 +1940,12 @@ bb00036_α:
  mov eax, dword ptr [r12 + 1200]
  cmp eax, 100
  je .Lx00037_0
+ mov eax, dword ptr [r12 + 1168]
+ cmp eax, 6
+ jne .Lx00037_2
+ mov eax, dword ptr [r12 + 1200]
+ cmp eax, 6
+ jne .Lx00037_2
 .Lx00037_1:
  mov rax, qword ptr [r12 + 1176]
  mov rcx, qword ptr [r12 + 1208]
@@ -1942,6 +1968,20 @@ bb00036_α:
  je .Lx00037_1
  cmp eax, 1
  je xchain78_n75_α
+ jmp xchain78_n74_α
+.Lx00037_2:
+ mov rdi, qword ptr [r12 + 1168]
+ mov rsi, qword ptr [r12 + 1176]
+ mov rdx, qword ptr [r12 + 1200]
+ mov rcx, qword ptr [r12 + 1208]
+ mov r8d, 8
+ call rt_jct_relop@PLT
+ test eax, eax
+ jz xchain78_n75_α
+ mov rax, qword ptr [r12 + 1200]
+ mov qword ptr [r12 + 1152], rax
+ mov rax, qword ptr [r12 + 1208]
+ mov qword ptr [r12 + 1160], rax
  jmp xchain78_n74_α
  xchain78_n73_β:
  jmp xchain78_n75_α
@@ -4000,6 +4040,12 @@ bb00184_α:
  mov eax, dword ptr [r12 + 400]
  cmp eax, 100
  je .Lx00185_0
+ mov eax, dword ptr [r12 + 368]
+ cmp eax, 6
+ jne .Lx00185_2
+ mov eax, dword ptr [r12 + 400]
+ cmp eax, 6
+ jne .Lx00185_2
 .Lx00185_1:
  mov rax, qword ptr [r12 + 376]
  mov rcx, qword ptr [r12 + 408]
@@ -4022,6 +4068,20 @@ bb00184_α:
  je .Lx00185_1
  cmp eax, 1
  je xchain00164_n16_α
+ jmp xchain00164_n19_α
+.Lx00185_2:
+ mov rdi, qword ptr [r12 + 368]
+ mov rsi, qword ptr [r12 + 376]
+ mov rdx, qword ptr [r12 + 400]
+ mov rcx, qword ptr [r12 + 408]
+ mov r8d, 7
+ call rt_jct_relop@PLT
+ test eax, eax
+ jz xchain00164_n16_α
+ mov rax, qword ptr [r12 + 400]
+ mov qword ptr [r12 + 352], rax
+ mov rax, qword ptr [r12 + 408]
+ mov qword ptr [r12 + 360], rax
  jmp xchain00164_n19_α
  xchain00164_n17_β:
  jmp xchain00164_n16_α
@@ -4757,6 +4817,12 @@ bb00119_α:
  mov eax, dword ptr [r12 + 688]
  cmp eax, 100
  je .Lx00226_0
+ mov eax, dword ptr [r12 + 640]
+ cmp eax, 6
+ jne .Lx00226_2
+ mov eax, dword ptr [r12 + 688]
+ cmp eax, 6
+ jne .Lx00226_2
 .Lx00226_1:
  mov rax, qword ptr [r12 + 648]
  mov rcx, qword ptr [r12 + 696]
@@ -4779,6 +4845,20 @@ bb00119_α:
  je .Lx00226_1
  cmp eax, 1
  je proc_gedfnf_ω
+ jmp xchain00207_n21_α
+.Lx00226_2:
+ mov rdi, qword ptr [r12 + 640]
+ mov rsi, qword ptr [r12 + 648]
+ mov rdx, qword ptr [r12 + 688]
+ mov rcx, qword ptr [r12 + 696]
+ mov r8d, 9
+ call rt_jct_relop@PLT
+ test eax, eax
+ jz proc_gedfnf_ω
+ mov rax, qword ptr [r12 + 688]
+ mov qword ptr [r12 + 624], rax
+ mov rax, qword ptr [r12 + 696]
+ mov qword ptr [r12 + 632], rax
  jmp xchain00207_n21_α
  xchain00207_n19_β:
  jmp proc_gedfnf_ω
@@ -4982,6 +5062,12 @@ bb00135_α:
  mov eax, dword ptr [r12 + 384]
  cmp eax, 100
  je .Lx00239_0
+ mov eax, dword ptr [r12 + 352]
+ cmp eax, 6
+ jne .Lx00239_2
+ mov eax, dword ptr [r12 + 384]
+ cmp eax, 6
+ jne .Lx00239_2
 .Lx00239_1:
  mov rax, qword ptr [r12 + 360]
  mov rcx, qword ptr [r12 + 392]
@@ -5004,6 +5090,20 @@ bb00135_α:
  je .Lx00239_1
  cmp eax, 1
  je xchain00207_n34_α
+ jmp xchain00207_n37_α
+.Lx00239_2:
+ mov rdi, qword ptr [r12 + 352]
+ mov rsi, qword ptr [r12 + 360]
+ mov rdx, qword ptr [r12 + 384]
+ mov rcx, qword ptr [r12 + 392]
+ mov r8d, 7
+ call rt_jct_relop@PLT
+ test eax, eax
+ jz xchain00207_n34_α
+ mov rax, qword ptr [r12 + 384]
+ mov qword ptr [r12 + 336], rax
+ mov rax, qword ptr [r12 + 392]
+ mov qword ptr [r12 + 344], rax
  jmp xchain00207_n37_α
  xchain00207_n35_β:
  jmp xchain00207_n34_α
@@ -5593,6 +5693,12 @@ bb00282_α:
  mov eax, dword ptr [r12 + 560]
  cmp eax, 100
  je .Lx00283_0
+ mov eax, dword ptr [r12 + 512]
+ cmp eax, 6
+ jne .Lx00283_2
+ mov eax, dword ptr [r12 + 560]
+ cmp eax, 6
+ jne .Lx00283_2
 .Lx00283_1:
  mov rax, qword ptr [r12 + 520]
  mov rcx, qword ptr [r12 + 568]
@@ -5615,6 +5721,20 @@ bb00282_α:
  je .Lx00283_1
  cmp eax, 1
  je proc_gedlnf_ω
+ jmp xchain00258_n21_α
+.Lx00283_2:
+ mov rdi, qword ptr [r12 + 512]
+ mov rsi, qword ptr [r12 + 520]
+ mov rdx, qword ptr [r12 + 560]
+ mov rcx, qword ptr [r12 + 568]
+ mov r8d, 9
+ call rt_jct_relop@PLT
+ test eax, eax
+ jz proc_gedlnf_ω
+ mov rax, qword ptr [r12 + 560]
+ mov qword ptr [r12 + 496], rax
+ mov rax, qword ptr [r12 + 568]
+ mov qword ptr [r12 + 504], rax
  jmp xchain00258_n21_α
  xchain00258_n19_β:
  jmp proc_gedlnf_ω
@@ -6739,6 +6859,12 @@ bb00369_α:
  mov eax, dword ptr [r12 + 256]
  cmp eax, 100
  je .Lx00370_0
+ mov eax, dword ptr [r12 + 224]
+ cmp eax, 6
+ jne .Lx00370_2
+ mov eax, dword ptr [r12 + 256]
+ cmp eax, 6
+ jne .Lx00370_2
 .Lx00370_1:
  mov rax, qword ptr [r12 + 232]
  mov rcx, qword ptr [r12 + 264]
@@ -6761,6 +6887,20 @@ bb00369_α:
  je .Lx00370_1
  cmp eax, 1
  je xchain00309_n49_α
+ jmp xchain00309_n57_α
+.Lx00370_2:
+ mov rdi, qword ptr [r12 + 224]
+ mov rsi, qword ptr [r12 + 232]
+ mov rdx, qword ptr [r12 + 256]
+ mov rcx, qword ptr [r12 + 264]
+ mov r8d, 7
+ call rt_jct_relop@PLT
+ test eax, eax
+ jz xchain00309_n49_α
+ mov rax, qword ptr [r12 + 256]
+ mov qword ptr [r12 + 208], rax
+ mov rax, qword ptr [r12 + 264]
+ mov qword ptr [r12 + 216], rax
  jmp xchain00309_n57_α
  xchain00309_n52_β:
  jmp xchain00309_n49_α
@@ -8288,6 +8428,12 @@ bb00486_α:
  mov eax, dword ptr [r12 + 3392]
  cmp eax, 100
  je .Lx00487_0
+ mov eax, dword ptr [r12 + 3360]
+ cmp eax, 6
+ jne .Lx00487_2
+ mov eax, dword ptr [r12 + 3392]
+ cmp eax, 6
+ jne .Lx00487_2
 .Lx00487_1:
  mov rax, qword ptr [r12 + 3368]
  mov rcx, qword ptr [r12 + 3400]
@@ -8310,6 +8456,20 @@ bb00486_α:
  je .Lx00487_1
  cmp eax, 1
  je xchain00480_n3_α
+ jmp xchain00480_n6_α
+.Lx00487_2:
+ mov rdi, qword ptr [r12 + 3360]
+ mov rsi, qword ptr [r12 + 3368]
+ mov rdx, qword ptr [r12 + 3392]
+ mov rcx, qword ptr [r12 + 3400]
+ mov r8d, 7
+ call rt_jct_relop@PLT
+ test eax, eax
+ jz xchain00480_n3_α
+ mov rax, qword ptr [r12 + 3392]
+ mov qword ptr [r12 + 3344], rax
+ mov rax, qword ptr [r12 + 3400]
+ mov qword ptr [r12 + 3352], rax
  jmp xchain00480_n6_α
  xchain00480_n4_β:
  jmp xchain00480_n3_α
