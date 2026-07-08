@@ -22,10 +22,18 @@ main_α:
     .global main_ω
 push r12
   mov r12, rdi
+ push rsi
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ call rt_zls_mark@PLT
+ mov rsp, rbp
+ pop rbp
+ mov qword ptr [r12 + 80], rax
+ pop rsi
 main_α_body:
-xchain0_n0_α:
 # IR_KEYWORD_read
-bb1_α:
+ xchain0_n0_α:
  mov rdi, qword ptr [rip + .Lx1_0]
  call rt_keyword_read@PLT
  mov qword ptr [r12 + 48], rax
@@ -37,8 +45,7 @@ bb1_α:
  .quad .Lx1_0_s
 .Lx1_0_s:
  .string "&version"
-xchain0_n1_α:
-bb2_α:
+ xchain0_n1_α:
 # BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+48] -> [r12+32]
  mov rax, qword ptr [r12 + 48]
@@ -67,6 +74,13 @@ mov eax, 1
 xor edx, edx
 pop r12
 ret
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ mov rdi, qword ptr [r12 + 80]
+ call rt_zls_release_to@PLT
+ mov rsp, rbp
+ pop rbp
 main_ω:
 # GZ-10 PROC FAIL EXIT: write FAILDESCR to frame[0] so rt_call_proc_descr sees failure
 mov dword ptr [r12+0], 99

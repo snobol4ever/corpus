@@ -11,9 +11,17 @@ push r12
   mov r12, rdi
   cmp esi, 0
   jne proc_del_β
+ push rsi
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ call rt_zls_mark@PLT
+ mov rsp, rbp
+ pop rbp
+ mov qword ptr [r12 + 1056], rax
+ pop rsi
 proc_del_α_body:
-xchain0_n0_α:
-bb1_α:
+ xchain0_n0_α:
 # BOX IR_CALL $trail_mark(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
   .Lrkfn2: .string "$trail_mark"
@@ -30,9 +38,8 @@ bb1_α:
  jmp xchain0_n1_α
  xchain0_n0_β:
  jmp proc_del_ω
-xchain0_n1_α:
 # IR_VAR_REF local
-bb2_α:
+ xchain0_n1_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 1024], rax
@@ -40,18 +47,16 @@ bb2_α:
  jmp xchain0_n2_α
  xchain0_n1_β:
  jmp xchain0_n5_α
-xchain0_n2_α:
 # IR_VAR_REF local
-bb3_α:
- lea rdi, [r12 + 1056]
+ xchain0_n2_α:
+ lea rdi, [r12 + 1072]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 1040], rax
  mov qword ptr [r12 + 1048], rdx
  jmp xchain0_n3_α
  xchain0_n2_β:
  jmp xchain0_n5_α
-xchain0_n3_α:
-bb4_α:
+ xchain0_n3_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1024] -> [r12+992]
  mov rax, qword ptr [r12 + 1024]
@@ -78,9 +83,8 @@ bb4_α:
  jmp xchain0_n4_α
  xchain0_n3_β:
  jmp xchain0_n5_α
-xchain0_n4_α:
 # IR_VAR_REF local
-bb5_α:
+ xchain0_n4_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 848], rax
@@ -88,8 +92,7 @@ bb5_α:
  jmp xchain0_n6_α
  xchain0_n4_β:
  jmp xchain0_n5_α
-xchain0_n5_α:
-bb6_α:
+ xchain0_n5_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+96] -> [r12+704]
  mov rax, qword ptr [r12 + 96]
@@ -111,9 +114,8 @@ bb6_α:
  jmp xchain0_n7_α
  xchain0_n5_β:
  jmp proc_del_ω
-xchain0_n6_α:
 # IR_LIT_STRING
-bb7_α:
+ xchain0_n6_α:
  mov qword ptr [r12 + 960], 1
  mov rax, qword ptr [rip + .Lx13_0]
  mov qword ptr [r12 + 968], rax
@@ -124,9 +126,8 @@ bb7_α:
  .quad .Lx13_0_s
 .Lx13_0_s:
  .string "."
-xchain0_n7_α:
 # IR_VAR_REF local
-bb8_α:
+ xchain0_n7_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 656], rax
@@ -134,38 +135,34 @@ bb8_α:
  jmp xchain0_n9_α
  xchain0_n7_β:
  jmp xchain0_n14_α
-xchain0_n8_α:
 # IR_VAR_REF local
-bb9_α:
- lea rdi, [r12 + 1056]
+ xchain0_n8_α:
+ lea rdi, [r12 + 1072]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 880], rax
  mov qword ptr [r12 + 888], rdx
  jmp xchain0_n10_α
  xchain0_n8_β:
  jmp proc_del_ω
-xchain0_n9_α:
 # IR_VAR_REF local
-bb10_α:
- lea rdi, [r12 + 1056]
+ xchain0_n9_α:
+ lea rdi, [r12 + 1072]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 672], rax
  mov qword ptr [r12 + 680], rdx
  jmp xchain0_n11_α
  xchain0_n9_β:
  jmp xchain0_n14_α
-xchain0_n10_α:
 # IR_VAR_REF local
-bb11_α:
- lea rdi, [r12 + 1120]
+ xchain0_n10_α:
+ lea rdi, [r12 + 1136]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 864], rax
  mov qword ptr [r12 + 872], rdx
  jmp xchain0_n12_α
  xchain0_n10_β:
  jmp proc_del_ω
-xchain0_n11_α:
-bb12_α:
+ xchain0_n11_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+656] -> [r12+624]
  mov rax, qword ptr [r12 + 656]
@@ -192,8 +189,7 @@ bb12_α:
  jmp xchain0_n13_α
  xchain0_n11_β:
  jmp xchain0_n14_α
-xchain0_n12_α:
-bb13_α:
+ xchain0_n12_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+960] -> [r12+912]
  mov rax, qword ptr [r12 + 960]
@@ -225,9 +221,8 @@ bb13_α:
  jmp xchain0_n15_α
  xchain0_n12_β:
  jmp xchain0_n5_α
-xchain0_n13_α:
 # IR_VAR_REF local
-bb14_α:
+ xchain0_n13_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 480], rax
@@ -235,8 +230,7 @@ bb14_α:
  jmp xchain0_n16_α
  xchain0_n13_β:
  jmp xchain0_n14_α
-xchain0_n14_α:
-bb15_α:
+ xchain0_n14_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+96] -> [r12+128]
  mov rax, qword ptr [r12 + 96]
@@ -258,8 +252,7 @@ bb15_α:
  jmp proc_del_ω
  xchain0_n14_β:
  jmp proc_del_ω
-xchain0_n15_α:
-bb16_α:
+ xchain0_n15_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+848] -> [r12+816]
  mov rax, qword ptr [r12 + 848]
@@ -286,9 +279,8 @@ bb16_α:
  jmp xchain0_n17_α
  xchain0_n15_β:
  jmp xchain0_n5_α
-xchain0_n16_α:
 # IR_LIT_STRING
-bb17_α:
+ xchain0_n16_α:
  mov qword ptr [r12 + 592], 1
  mov rax, qword ptr [rip + .Lx32_0]
  mov qword ptr [r12 + 600], rax
@@ -299,9 +291,8 @@ bb17_α:
  .quad .Lx32_0_s
 .Lx32_0_s:
  .string "."
-xchain0_n17_α:
 # IR_VAR_REF local
-bb18_α:
+ xchain0_n17_α:
  lea rdi, [r12 + 48]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 768], rax
@@ -309,38 +300,34 @@ bb18_α:
  jmp xchain0_n19_α
  xchain0_n17_β:
  jmp xchain0_n5_α
-xchain0_n18_α:
 # IR_VAR_REF local
-bb19_α:
- lea rdi, [r12 + 1104]
+ xchain0_n18_α:
+ lea rdi, [r12 + 1120]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 512], rax
  mov qword ptr [r12 + 520], rdx
  jmp xchain0_n20_α
  xchain0_n18_β:
  jmp proc_del_ω
-xchain0_n19_α:
 # IR_VAR_REF local
-bb20_α:
- lea rdi, [r12 + 1120]
+ xchain0_n19_α:
+ lea rdi, [r12 + 1136]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 784], rax
  mov qword ptr [r12 + 792], rdx
  jmp xchain0_n21_α
  xchain0_n19_β:
  jmp xchain0_n5_α
-xchain0_n20_α:
 # IR_VAR_REF local
-bb21_α:
- lea rdi, [r12 + 1072]
+ xchain0_n20_α:
+ lea rdi, [r12 + 1088]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 496], rax
  mov qword ptr [r12 + 504], rdx
  jmp xchain0_n22_α
  xchain0_n20_β:
  jmp proc_del_ω
-xchain0_n21_α:
-bb22_α:
+ xchain0_n21_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+768] -> [r12+736]
  mov rax, qword ptr [r12 + 768]
@@ -367,8 +354,7 @@ bb22_α:
  jmp xchain0_n23_α
  xchain0_n21_β:
  jmp xchain0_n5_α
-xchain0_n22_α:
-bb23_α:
+ xchain0_n22_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+592] -> [r12+544]
  mov rax, qword ptr [r12 + 592]
@@ -400,16 +386,14 @@ bb23_α:
  jmp xchain0_n24_α
  xchain0_n22_β:
  jmp xchain0_n14_α
-xchain0_n23_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb24_α:
+ xchain0_n23_α:
  lea rax, [rip + xchain0_n5_α]
  mov qword ptr [r12 + 80], rax
  jmp proc_del_γ
  xchain0_n23_β:
  jmp proc_del_ω
-xchain0_n24_α:
-bb25_α:
+ xchain0_n24_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+480] -> [r12+448]
  mov rax, qword ptr [r12 + 480]
@@ -436,15 +420,13 @@ bb25_α:
  jmp xchain0_n26_α
  xchain0_n24_β:
  jmp xchain0_n14_α
-xchain0_n25_α:
 # IR_INDIRECT_GOTO alt-resume: jmp *t
-bb26_α:
+ xchain0_n25_α:
  jmp qword ptr [r12 + 80]
  xchain0_n25_β:
  jmp proc_del_ω
-xchain0_n26_α:
 # IR_VAR_REF local
-bb27_α:
+ xchain0_n26_α:
  lea rdi, [r12 + 48]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 304], rax
@@ -452,9 +434,8 @@ bb27_α:
  jmp xchain0_n27_α
  xchain0_n26_β:
  jmp xchain0_n14_α
-xchain0_n27_α:
 # IR_LIT_STRING
-bb28_α:
+ xchain0_n27_α:
  mov qword ptr [r12 + 416], 1
  mov rax, qword ptr [rip + .Lx53_0]
  mov qword ptr [r12 + 424], rax
@@ -465,28 +446,25 @@ bb28_α:
  .quad .Lx53_0_s
 .Lx53_0_s:
  .string "."
-xchain0_n28_α:
 # IR_VAR_REF local
-bb29_α:
- lea rdi, [r12 + 1104]
+ xchain0_n28_α:
+ lea rdi, [r12 + 1120]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 336], rax
  mov qword ptr [r12 + 344], rdx
  jmp xchain0_n29_α
  xchain0_n28_β:
  jmp proc_del_ω
-xchain0_n29_α:
 # IR_VAR_REF local
-bb30_α:
- lea rdi, [r12 + 1088]
+ xchain0_n29_α:
+ lea rdi, [r12 + 1104]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 320], rax
  mov qword ptr [r12 + 328], rdx
  jmp xchain0_n30_α
  xchain0_n29_β:
  jmp proc_del_ω
-xchain0_n30_α:
-bb31_α:
+ xchain0_n30_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+416] -> [r12+368]
  mov rax, qword ptr [r12 + 416]
@@ -518,8 +496,7 @@ bb31_α:
  jmp xchain0_n31_α
  xchain0_n30_β:
  jmp xchain0_n14_α
-xchain0_n31_α:
-bb32_α:
+ xchain0_n31_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+304] -> [r12+272]
  mov rax, qword ptr [r12 + 304]
@@ -546,38 +523,34 @@ bb32_α:
  jmp xchain0_n32_α
  xchain0_n31_β:
  jmp xchain0_n14_α
-xchain0_n32_α:
 # IR_VAR_REF local
-bb33_α:
- lea rdi, [r12 + 1056]
+ xchain0_n32_α:
+ lea rdi, [r12 + 1072]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 208], rax
  mov qword ptr [r12 + 216], rdx
  jmp xchain0_n33_α
  xchain0_n32_β:
  jmp xchain0_n14_α
-xchain0_n33_α:
 # IR_VAR_REF local
-bb34_α:
- lea rdi, [r12 + 1072]
+ xchain0_n33_α:
+ lea rdi, [r12 + 1088]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 224], rax
  mov qword ptr [r12 + 232], rdx
  jmp xchain0_n34_α
  xchain0_n33_β:
  jmp xchain0_n14_α
-xchain0_n34_α:
 # IR_VAR_REF local
-bb35_α:
- lea rdi, [r12 + 1088]
+ xchain0_n34_α:
+ lea rdi, [r12 + 1104]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 240], rax
  mov qword ptr [r12 + 248], rdx
  jmp xchain0_n35_α
  xchain0_n34_β:
  jmp xchain0_n14_α
-xchain0_n35_α:
-bb36_α:
+ xchain0_n35_α:
   .section .rodata
   .Lcall36_pname: .string "del"
   .section .text
@@ -609,9 +582,8 @@ xchain0_n35_β:
  cmp eax, 99
  je xchain0_n14_α
  jmp xchain0_n36_α
-xchain0_n36_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb37_α:
+ xchain0_n36_α:
  lea rax, [rip + xchain0_n35_β]
  mov qword ptr [r12 + 80], rax
  jmp proc_del_γ
@@ -624,6 +596,13 @@ mov eax, 1
 xor edx, edx
 pop r12
 ret
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ mov rdi, qword ptr [r12 + 1056]
+ call rt_zls_release_to@PLT
+ mov rsp, rbp
+ pop rbp
 proc_del_ω:
 # GZ-10 PROC FAIL EXIT: write FAILDESCR to frame[0] so rt_call_proc_descr sees failure
 mov dword ptr [r12+0], 99
@@ -644,9 +623,17 @@ push r12
   mov r12, rdi
   cmp esi, 0
   jne proc_el_β
+ push rsi
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ call rt_zls_mark@PLT
+ mov rsp, rbp
+ pop rbp
+ mov qword ptr [r12 + 752], rax
+ pop rsi
 proc_el_α_body:
-xchain71_n0_α:
-bb38_α:
+ xchain71_n0_α:
 # BOX IR_CALL $trail_mark(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
   .Lrkfn73: .string "$trail_mark"
@@ -663,9 +650,8 @@ bb38_α:
  jmp xchain71_n1_α
  xchain71_n0_β:
  jmp proc_el_ω
-xchain71_n1_α:
 # IR_VAR_REF local
-bb39_α:
+ xchain71_n1_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 720], rax
@@ -673,18 +659,16 @@ bb39_α:
  jmp xchain71_n2_α
  xchain71_n1_β:
  jmp xchain71_n5_α
-xchain71_n2_α:
 # IR_VAR_REF local
-bb40_α:
- lea rdi, [r12 + 752]
+ xchain71_n2_α:
+ lea rdi, [r12 + 768]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 736], rax
  mov qword ptr [r12 + 744], rdx
  jmp xchain71_n3_α
  xchain71_n2_β:
  jmp xchain71_n5_α
-xchain71_n3_α:
-bb41_α:
+ xchain71_n3_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+720] -> [r12+688]
  mov rax, qword ptr [r12 + 720]
@@ -711,9 +695,8 @@ bb41_α:
  jmp xchain71_n4_α
  xchain71_n3_β:
  jmp xchain71_n5_α
-xchain71_n4_α:
 # IR_VAR_REF local
-bb42_α:
+ xchain71_n4_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 544], rax
@@ -721,8 +704,7 @@ bb42_α:
  jmp xchain71_n6_α
  xchain71_n4_β:
  jmp xchain71_n5_α
-xchain71_n5_α:
-bb43_α:
+ xchain71_n5_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+80] -> [r12+480]
  mov rax, qword ptr [r12 + 80]
@@ -744,9 +726,8 @@ bb43_α:
  jmp xchain71_n7_α
  xchain71_n5_β:
  jmp proc_el_ω
-xchain71_n6_α:
 # IR_LIT_STRING
-bb44_α:
+ xchain71_n6_α:
  mov qword ptr [r12 + 656], 1
  mov rax, qword ptr [rip + .Lx84_0]
  mov qword ptr [r12 + 664], rax
@@ -757,9 +738,8 @@ bb44_α:
  .quad .Lx84_0_s
 .Lx84_0_s:
  .string "."
-xchain71_n7_α:
 # IR_VAR_REF local
-bb45_α:
+ xchain71_n7_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 432], rax
@@ -767,38 +747,34 @@ bb45_α:
  jmp xchain71_n9_α
  xchain71_n7_β:
  jmp xchain71_n14_α
-xchain71_n8_α:
 # IR_VAR_REF local
-bb46_α:
- lea rdi, [r12 + 752]
+ xchain71_n8_α:
+ lea rdi, [r12 + 768]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 576], rax
  mov qword ptr [r12 + 584], rdx
  jmp xchain71_n10_α
  xchain71_n8_β:
  jmp proc_el_ω
-xchain71_n9_α:
 # IR_VAR_REF local
-bb47_α:
- lea rdi, [r12 + 752]
+ xchain71_n9_α:
+ lea rdi, [r12 + 768]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 448], rax
  mov qword ptr [r12 + 456], rdx
  jmp xchain71_n11_α
  xchain71_n9_β:
  jmp xchain71_n14_α
-xchain71_n10_α:
 # IR_VAR_REF local
-bb48_α:
- lea rdi, [r12 + 784]
+ xchain71_n10_α:
+ lea rdi, [r12 + 800]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 560], rax
  mov qword ptr [r12 + 568], rdx
  jmp xchain71_n12_α
  xchain71_n10_β:
  jmp proc_el_ω
-xchain71_n11_α:
-bb49_α:
+ xchain71_n11_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+432] -> [r12+400]
  mov rax, qword ptr [r12 + 432]
@@ -825,8 +801,7 @@ bb49_α:
  jmp xchain71_n13_α
  xchain71_n11_β:
  jmp xchain71_n14_α
-xchain71_n12_α:
-bb50_α:
+ xchain71_n12_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+656] -> [r12+608]
  mov rax, qword ptr [r12 + 656]
@@ -858,9 +833,8 @@ bb50_α:
  jmp xchain71_n15_α
  xchain71_n12_β:
  jmp xchain71_n5_α
-xchain71_n13_α:
 # IR_VAR_REF local
-bb51_α:
+ xchain71_n13_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 256], rax
@@ -868,8 +842,7 @@ bb51_α:
  jmp xchain71_n16_α
  xchain71_n13_β:
  jmp xchain71_n14_α
-xchain71_n14_α:
-bb52_α:
+ xchain71_n14_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+80] -> [r12+112]
  mov rax, qword ptr [r12 + 80]
@@ -891,8 +864,7 @@ bb52_α:
  jmp proc_el_ω
  xchain71_n14_β:
  jmp proc_el_ω
-xchain71_n15_α:
-bb53_α:
+ xchain71_n15_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+544] -> [r12+512]
  mov rax, qword ptr [r12 + 544]
@@ -919,9 +891,8 @@ bb53_α:
  jmp xchain71_n17_α
  xchain71_n15_β:
  jmp xchain71_n5_α
-xchain71_n16_α:
 # IR_LIT_STRING
-bb54_α:
+ xchain71_n16_α:
  mov qword ptr [r12 + 368], 1
  mov rax, qword ptr [rip + .Lx103_0]
  mov qword ptr [r12 + 376], rax
@@ -932,42 +903,37 @@ bb54_α:
  .quad .Lx103_0_s
 .Lx103_0_s:
  .string "."
-xchain71_n17_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb55_α:
+ xchain71_n17_α:
  lea rax, [rip + xchain71_n5_α]
  mov qword ptr [r12 + 64], rax
  jmp proc_el_γ
  xchain71_n17_β:
  jmp proc_el_ω
-xchain71_n18_α:
 # IR_VAR_REF local
-bb56_α:
- lea rdi, [r12 + 784]
+ xchain71_n18_α:
+ lea rdi, [r12 + 800]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 288], rax
  mov qword ptr [r12 + 296], rdx
  jmp xchain71_n20_α
  xchain71_n18_β:
  jmp proc_el_ω
-xchain71_n19_α:
 # IR_INDIRECT_GOTO alt-resume: jmp *t
-bb57_α:
+ xchain71_n19_α:
  jmp qword ptr [r12 + 64]
  xchain71_n19_β:
  jmp proc_el_ω
-xchain71_n20_α:
 # IR_VAR_REF local
-bb58_α:
- lea rdi, [r12 + 768]
+ xchain71_n20_α:
+ lea rdi, [r12 + 784]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 272], rax
  mov qword ptr [r12 + 280], rdx
  jmp xchain71_n21_α
  xchain71_n20_β:
  jmp proc_el_ω
-xchain71_n21_α:
-bb59_α:
+ xchain71_n21_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+368] -> [r12+320]
  mov rax, qword ptr [r12 + 368]
@@ -999,8 +965,7 @@ bb59_α:
  jmp xchain71_n22_α
  xchain71_n21_β:
  jmp xchain71_n14_α
-xchain71_n22_α:
-bb60_α:
+ xchain71_n22_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+256] -> [r12+224]
  mov rax, qword ptr [r12 + 256]
@@ -1027,28 +992,25 @@ bb60_α:
  jmp xchain71_n23_α
  xchain71_n22_β:
  jmp xchain71_n14_α
-xchain71_n23_α:
 # IR_VAR_REF local
-bb61_α:
- lea rdi, [r12 + 752]
+ xchain71_n23_α:
+ lea rdi, [r12 + 768]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 176], rax
  mov qword ptr [r12 + 184], rdx
  jmp xchain71_n24_α
  xchain71_n23_β:
  jmp xchain71_n14_α
-xchain71_n24_α:
 # IR_VAR_REF local
-bb62_α:
- lea rdi, [r12 + 768]
+ xchain71_n24_α:
+ lea rdi, [r12 + 784]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 192], rax
  mov qword ptr [r12 + 200], rdx
  jmp xchain71_n25_α
  xchain71_n24_β:
  jmp xchain71_n14_α
-xchain71_n25_α:
-bb63_α:
+ xchain71_n25_α:
   .section .rodata
   .Lcall63_pname: .string "el"
   .section .text
@@ -1076,9 +1038,8 @@ xchain71_n25_β:
  cmp eax, 99
  je xchain71_n14_α
  jmp xchain71_n26_α
-xchain71_n26_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb64_α:
+ xchain71_n26_α:
  lea rax, [rip + xchain71_n25_β]
  mov qword ptr [r12 + 64], rax
  jmp proc_el_γ
@@ -1091,6 +1052,13 @@ mov eax, 1
 xor edx, edx
 pop r12
 ret
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ mov rdi, qword ptr [r12 + 752]
+ call rt_zls_release_to@PLT
+ mov rsp, rbp
+ pop rbp
 proc_el_ω:
 # GZ-10 PROC FAIL EXIT: write FAILDESCR to frame[0] so rt_call_proc_descr sees failure
 mov dword ptr [r12+0], 99
@@ -1111,9 +1079,17 @@ push r12
   mov r12, rdi
   cmp esi, 0
   jne proc_connect_β
+ push rsi
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ call rt_zls_mark@PLT
+ mov rsp, rbp
+ pop rbp
+ mov qword ptr [r12 + 9696], rax
+ pop rsi
 proc_connect_α_body:
-xchain123_n0_α:
-bb65_α:
+ xchain123_n0_α:
 # BOX IR_CALL $trail_mark(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
   .Lrkfn125: .string "$trail_mark"
@@ -1130,9 +1106,8 @@ bb65_α:
  jmp xchain123_n1_α
  xchain123_n0_β:
  jmp proc_connect_ω
-xchain123_n1_α:
 # IR_VAR_REF local
-bb66_α:
+ xchain123_n1_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 9664], rax
@@ -1140,9 +1115,8 @@ bb66_α:
  jmp xchain123_n2_α
  xchain123_n1_β:
  jmp xchain123_n5_α
-xchain123_n2_α:
 # IR_LIT_STRING
-bb67_α:
+ xchain123_n2_α:
  mov qword ptr [r12 + 9680], 1
  mov rax, qword ptr [rip + .Lx128_0]
  mov qword ptr [r12 + 9688], rax
@@ -1153,8 +1127,7 @@ bb67_α:
  .quad .Lx128_0_s
 .Lx128_0_s:
  .string "a"
-xchain123_n3_α:
-bb68_α:
+ xchain123_n3_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+9664] -> [r12+9632]
  mov rax, qword ptr [r12 + 9664]
@@ -1181,9 +1154,8 @@ bb68_α:
  jmp xchain123_n4_α
  xchain123_n3_β:
  jmp xchain123_n5_α
-xchain123_n4_α:
 # IR_VAR_REF local
-bb69_α:
+ xchain123_n4_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 9296], rax
@@ -1191,8 +1163,7 @@ bb69_α:
  jmp xchain123_n6_α
  xchain123_n4_β:
  jmp xchain123_n5_α
-xchain123_n5_α:
-bb70_α:
+ xchain123_n5_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+80] -> [r12+9232]
  mov rax, qword ptr [r12 + 80]
@@ -1214,9 +1185,8 @@ bb70_α:
  jmp xchain123_n7_α
  xchain123_n5_β:
  jmp proc_connect_ω
-xchain123_n6_α:
 # IR_LIT_STRING
-bb71_α:
+ xchain123_n6_α:
  mov qword ptr [r12 + 9600], 1
  mov rax, qword ptr [rip + .Lx135_0]
  mov qword ptr [r12 + 9608], rax
@@ -1227,9 +1197,8 @@ bb71_α:
  .quad .Lx135_0_s
 .Lx135_0_s:
  .string "."
-xchain123_n7_α:
 # IR_VAR_REF local
-bb72_α:
+ xchain123_n7_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 9184], rax
@@ -1237,9 +1206,8 @@ bb72_α:
  jmp xchain123_n9_α
  xchain123_n7_β:
  jmp xchain123_n14_α
-xchain123_n8_α:
 # IR_LIT_STRING
-bb73_α:
+ xchain123_n8_α:
  mov qword ptr [r12 + 9520], 1
  mov rax, qword ptr [rip + .Lx138_0]
  mov qword ptr [r12 + 9528], rax
@@ -1250,9 +1218,8 @@ bb73_α:
  .quad .Lx138_0_s
 .Lx138_0_s:
  .string "b"
-xchain123_n9_α:
 # IR_LIT_STRING
-bb74_α:
+ xchain123_n9_α:
  mov qword ptr [r12 + 9200], 1
  mov rax, qword ptr [rip + .Lx139_0]
  mov qword ptr [r12 + 9208], rax
@@ -1263,9 +1230,8 @@ bb74_α:
  .quad .Lx139_0_s
 .Lx139_0_s:
  .string "b"
-xchain123_n10_α:
 # IR_LIT_STRING
-bb75_α:
+ xchain123_n10_α:
  mov qword ptr [r12 + 9504], 1
  mov rax, qword ptr [rip + .Lx140_0]
  mov qword ptr [r12 + 9512], rax
@@ -1276,8 +1242,7 @@ bb75_α:
  .quad .Lx140_0_s
 .Lx140_0_s:
  .string "."
-xchain123_n11_α:
-bb76_α:
+ xchain123_n11_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+9184] -> [r12+9152]
  mov rax, qword ptr [r12 + 9184]
@@ -1304,9 +1269,8 @@ bb76_α:
  jmp xchain123_n13_α
  xchain123_n11_β:
  jmp xchain123_n14_α
-xchain123_n12_α:
 # IR_LIT_STRING
-bb77_α:
+ xchain123_n12_α:
  mov qword ptr [r12 + 9424], 1
  mov rax, qword ptr [rip + .Lx143_0]
  mov qword ptr [r12 + 9432], rax
@@ -1317,9 +1281,8 @@ bb77_α:
  .quad .Lx143_0_s
 .Lx143_0_s:
  .string "j"
-xchain123_n13_α:
 # IR_VAR_REF local
-bb78_α:
+ xchain123_n13_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 8816], rax
@@ -1327,8 +1290,7 @@ bb78_α:
  jmp xchain123_n16_α
  xchain123_n13_β:
  jmp xchain123_n14_α
-xchain123_n14_α:
-bb79_α:
+ xchain123_n14_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+80] -> [r12+8752]
  mov rax, qword ptr [r12 + 80]
@@ -1350,9 +1312,8 @@ bb79_α:
  jmp xchain123_n17_α
  xchain123_n14_β:
  jmp proc_connect_ω
-xchain123_n15_α:
 # IR_LIT_STRING
-bb80_α:
+ xchain123_n15_α:
  mov qword ptr [r12 + 9408], 1
  mov rax, qword ptr [rip + .Lx148_0]
  mov qword ptr [r12 + 9416], rax
@@ -1363,9 +1324,8 @@ bb80_α:
  .quad .Lx148_0_s
 .Lx148_0_s:
  .string "."
-xchain123_n16_α:
 # IR_LIT_STRING
-bb81_α:
+ xchain123_n16_α:
  mov qword ptr [r12 + 9120], 1
  mov rax, qword ptr [rip + .Lx149_0]
  mov qword ptr [r12 + 9128], rax
@@ -1376,9 +1336,8 @@ bb81_α:
  .quad .Lx149_0_s
 .Lx149_0_s:
  .string "."
-xchain123_n17_α:
 # IR_VAR_REF local
-bb82_α:
+ xchain123_n17_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 8704], rax
@@ -1386,9 +1345,8 @@ bb82_α:
  jmp xchain123_n20_α
  xchain123_n17_β:
  jmp xchain123_n27_α
-xchain123_n18_α:
 # IR_LIT_STRING
-bb83_α:
+ xchain123_n18_α:
  mov qword ptr [r12 + 9328], 1
  mov rax, qword ptr [rip + .Lx152_0]
  mov qword ptr [r12 + 9336], rax
@@ -1399,9 +1357,8 @@ bb83_α:
  .quad .Lx152_0_s
 .Lx152_0_s:
  .string "k"
-xchain123_n19_α:
 # IR_LIT_STRING
-bb84_α:
+ xchain123_n19_α:
  mov qword ptr [r12 + 9040], 1
  mov rax, qword ptr [rip + .Lx153_0]
  mov qword ptr [r12 + 9048], rax
@@ -1412,9 +1369,8 @@ bb84_α:
  .quad .Lx153_0_s
 .Lx153_0_s:
  .string "a"
-xchain123_n20_α:
 # IR_LIT_STRING
-bb85_α:
+ xchain123_n20_α:
  mov qword ptr [r12 + 8720], 1
  mov rax, qword ptr [rip + .Lx154_0]
  mov qword ptr [r12 + 8728], rax
@@ -1425,9 +1381,8 @@ bb85_α:
  .quad .Lx154_0_s
 .Lx154_0_s:
  .string "c"
-xchain123_n21_α:
 # IR_LIT_STRING
-bb86_α:
+ xchain123_n21_α:
  mov qword ptr [r12 + 9312], 1
  mov rax, qword ptr [rip + .Lx155_0]
  mov qword ptr [r12 + 9320], rax
@@ -1438,9 +1393,8 @@ bb86_α:
  .quad .Lx155_0_s
 .Lx155_0_s:
  .string "[]"
-xchain123_n22_α:
 # IR_LIT_STRING
-bb87_α:
+ xchain123_n22_α:
  mov qword ptr [r12 + 9024], 1
  mov rax, qword ptr [rip + .Lx156_0]
  mov qword ptr [r12 + 9032], rax
@@ -1451,8 +1405,7 @@ bb87_α:
  .quad .Lx156_0_s
 .Lx156_0_s:
  .string "."
-xchain123_n23_α:
-bb88_α:
+ xchain123_n23_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+8704] -> [r12+8672]
  mov rax, qword ptr [r12 + 8704]
@@ -1479,8 +1432,7 @@ bb88_α:
  jmp xchain123_n26_α
  xchain123_n23_β:
  jmp xchain123_n27_α
-xchain123_n24_α:
-bb89_α:
+ xchain123_n24_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+9408] -> [r12+9360]
  mov rax, qword ptr [r12 + 9408]
@@ -1512,9 +1464,8 @@ bb89_α:
  jmp xchain123_n28_α
  xchain123_n24_β:
  jmp proc_connect_ω
-xchain123_n25_α:
 # IR_LIT_STRING
-bb90_α:
+ xchain123_n25_α:
  mov qword ptr [r12 + 8944], 1
  mov rax, qword ptr [rip + .Lx161_0]
  mov qword ptr [r12 + 8952], rax
@@ -1525,9 +1476,8 @@ bb90_α:
  .quad .Lx161_0_s
 .Lx161_0_s:
  .string "c"
-xchain123_n26_α:
 # IR_VAR_REF local
-bb91_α:
+ xchain123_n26_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 8336], rax
@@ -1535,8 +1485,7 @@ bb91_α:
  jmp xchain123_n30_α
  xchain123_n26_β:
  jmp xchain123_n27_α
-xchain123_n27_α:
-bb92_α:
+ xchain123_n27_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+80] -> [r12+8272]
  mov rax, qword ptr [r12 + 80]
@@ -1558,8 +1507,7 @@ bb92_α:
  jmp xchain123_n31_α
  xchain123_n27_β:
  jmp proc_connect_ω
-xchain123_n28_α:
-bb93_α:
+ xchain123_n28_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+9504] -> [r12+9456]
  mov rax, qword ptr [r12 + 9504]
@@ -1591,9 +1539,8 @@ bb93_α:
  jmp xchain123_n32_α
  xchain123_n28_β:
  jmp proc_connect_ω
-xchain123_n29_α:
 # IR_LIT_STRING
-bb94_α:
+ xchain123_n29_α:
  mov qword ptr [r12 + 8928], 1
  mov rax, qword ptr [rip + .Lx168_0]
  mov qword ptr [r12 + 8936], rax
@@ -1604,9 +1551,8 @@ bb94_α:
  .quad .Lx168_0_s
 .Lx168_0_s:
  .string "."
-xchain123_n30_α:
 # IR_LIT_STRING
-bb95_α:
+ xchain123_n30_α:
  mov qword ptr [r12 + 8640], 1
  mov rax, qword ptr [rip + .Lx169_0]
  mov qword ptr [r12 + 8648], rax
@@ -1617,9 +1563,8 @@ bb95_α:
  .quad .Lx169_0_s
 .Lx169_0_s:
  .string "."
-xchain123_n31_α:
 # IR_VAR_REF local
-bb96_α:
+ xchain123_n31_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 8224], rax
@@ -1627,8 +1572,7 @@ bb96_α:
  jmp xchain123_n35_α
  xchain123_n31_β:
  jmp xchain123_n44_α
-xchain123_n32_α:
-bb97_α:
+ xchain123_n32_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+9600] -> [r12+9552]
  mov rax, qword ptr [r12 + 9600]
@@ -1660,9 +1604,8 @@ bb97_α:
  jmp xchain123_n36_α
  xchain123_n32_β:
  jmp xchain123_n5_α
-xchain123_n33_α:
 # IR_LIT_STRING
-bb98_α:
+ xchain123_n33_α:
  mov qword ptr [r12 + 8848], 1
  mov rax, qword ptr [rip + .Lx174_0]
  mov qword ptr [r12 + 8856], rax
@@ -1673,9 +1616,8 @@ bb98_α:
  .quad .Lx174_0_s
 .Lx174_0_s:
  .string "p"
-xchain123_n34_α:
 # IR_LIT_STRING
-bb99_α:
+ xchain123_n34_α:
  mov qword ptr [r12 + 8560], 1
  mov rax, qword ptr [rip + .Lx175_0]
  mov qword ptr [r12 + 8568], rax
@@ -1686,9 +1628,8 @@ bb99_α:
  .quad .Lx175_0_s
 .Lx175_0_s:
  .string "b"
-xchain123_n35_α:
 # IR_LIT_STRING
-bb100_α:
+ xchain123_n35_α:
  mov qword ptr [r12 + 8240], 1
  mov rax, qword ptr [rip + .Lx176_0]
  mov qword ptr [r12 + 8248], rax
@@ -1699,8 +1640,7 @@ bb100_α:
  .quad .Lx176_0_s
 .Lx176_0_s:
  .string "d"
-xchain123_n36_α:
-bb101_α:
+ xchain123_n36_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+9296] -> [r12+9264]
  mov rax, qword ptr [r12 + 9296]
@@ -1727,9 +1667,8 @@ bb101_α:
  jmp xchain123_n40_α
  xchain123_n36_β:
  jmp xchain123_n5_α
-xchain123_n37_α:
 # IR_LIT_STRING
-bb102_α:
+ xchain123_n37_α:
  mov qword ptr [r12 + 8832], 1
  mov rax, qword ptr [rip + .Lx179_0]
  mov qword ptr [r12 + 8840], rax
@@ -1740,9 +1679,8 @@ bb102_α:
  .quad .Lx179_0_s
 .Lx179_0_s:
  .string "[]"
-xchain123_n38_α:
 # IR_LIT_STRING
-bb103_α:
+ xchain123_n38_α:
  mov qword ptr [r12 + 8544], 1
  mov rax, qword ptr [rip + .Lx180_0]
  mov qword ptr [r12 + 8552], rax
@@ -1753,8 +1691,7 @@ bb103_α:
  .quad .Lx180_0_s
 .Lx180_0_s:
  .string "."
-xchain123_n39_α:
-bb104_α:
+ xchain123_n39_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+8224] -> [r12+8192]
  mov rax, qword ptr [r12 + 8224]
@@ -1781,16 +1718,14 @@ bb104_α:
  jmp xchain123_n43_α
  xchain123_n39_β:
  jmp xchain123_n44_α
-xchain123_n40_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb105_α:
+ xchain123_n40_α:
  lea rax, [rip + xchain123_n5_α]
  mov qword ptr [r12 + 64], rax
  jmp proc_connect_γ
  xchain123_n40_β:
  jmp proc_connect_ω
-xchain123_n41_α:
-bb106_α:
+ xchain123_n41_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+8928] -> [r12+8880]
  mov rax, qword ptr [r12 + 8928]
@@ -1822,9 +1757,8 @@ bb106_α:
  jmp xchain123_n46_α
  xchain123_n41_β:
  jmp proc_connect_ω
-xchain123_n42_α:
 # IR_LIT_STRING
-bb107_α:
+ xchain123_n42_α:
  mov qword ptr [r12 + 8464], 1
  mov rax, qword ptr [rip + .Lx187_0]
  mov qword ptr [r12 + 8472], rax
@@ -1835,9 +1769,8 @@ bb107_α:
  .quad .Lx187_0_s
 .Lx187_0_s:
  .string "d"
-xchain123_n43_α:
 # IR_VAR_REF local
-bb108_α:
+ xchain123_n43_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 7856], rax
@@ -1845,8 +1778,7 @@ bb108_α:
  jmp xchain123_n48_α
  xchain123_n43_β:
  jmp xchain123_n44_α
-xchain123_n44_α:
-bb109_α:
+ xchain123_n44_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+80] -> [r12+7792]
  mov rax, qword ptr [r12 + 80]
@@ -1868,14 +1800,12 @@ bb109_α:
  jmp xchain123_n49_α
  xchain123_n44_β:
  jmp proc_connect_ω
-xchain123_n45_α:
 # IR_INDIRECT_GOTO alt-resume: jmp *t
-bb110_α:
+ xchain123_n45_α:
  jmp qword ptr [r12 + 64]
  xchain123_n45_β:
  jmp proc_connect_ω
-xchain123_n46_α:
-bb111_α:
+ xchain123_n46_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+9024] -> [r12+8976]
  mov rax, qword ptr [r12 + 9024]
@@ -1907,9 +1837,8 @@ bb111_α:
  jmp xchain123_n50_α
  xchain123_n46_β:
  jmp proc_connect_ω
-xchain123_n47_α:
 # IR_LIT_STRING
-bb112_α:
+ xchain123_n47_α:
  mov qword ptr [r12 + 8448], 1
  mov rax, qword ptr [rip + .Lx196_0]
  mov qword ptr [r12 + 8456], rax
@@ -1920,9 +1849,8 @@ bb112_α:
  .quad .Lx196_0_s
 .Lx196_0_s:
  .string "."
-xchain123_n48_α:
 # IR_LIT_STRING
-bb113_α:
+ xchain123_n48_α:
  mov qword ptr [r12 + 8160], 1
  mov rax, qword ptr [rip + .Lx197_0]
  mov qword ptr [r12 + 8168], rax
@@ -1933,9 +1861,8 @@ bb113_α:
  .quad .Lx197_0_s
 .Lx197_0_s:
  .string "."
-xchain123_n49_α:
 # IR_VAR_REF local
-bb114_α:
+ xchain123_n49_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 7744], rax
@@ -1943,8 +1870,7 @@ bb114_α:
  jmp xchain123_n53_α
  xchain123_n49_β:
  jmp xchain123_n62_α
-xchain123_n50_α:
-bb115_α:
+ xchain123_n50_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+9120] -> [r12+9072]
  mov rax, qword ptr [r12 + 9120]
@@ -1976,9 +1902,8 @@ bb115_α:
  jmp xchain123_n54_α
  xchain123_n50_β:
  jmp xchain123_n14_α
-xchain123_n51_α:
 # IR_LIT_STRING
-bb116_α:
+ xchain123_n51_α:
  mov qword ptr [r12 + 8368], 1
  mov rax, qword ptr [rip + .Lx202_0]
  mov qword ptr [r12 + 8376], rax
@@ -1989,9 +1914,8 @@ bb116_α:
  .quad .Lx202_0_s
 .Lx202_0_s:
  .string "l"
-xchain123_n52_α:
 # IR_LIT_STRING
-bb117_α:
+ xchain123_n52_α:
  mov qword ptr [r12 + 8080], 1
  mov rax, qword ptr [rip + .Lx203_0]
  mov qword ptr [r12 + 8088], rax
@@ -2002,9 +1926,8 @@ bb117_α:
  .quad .Lx203_0_s
 .Lx203_0_s:
  .string "c"
-xchain123_n53_α:
 # IR_LIT_STRING
-bb118_α:
+ xchain123_n53_α:
  mov qword ptr [r12 + 7760], 1
  mov rax, qword ptr [rip + .Lx204_0]
  mov qword ptr [r12 + 7768], rax
@@ -2015,8 +1938,7 @@ bb118_α:
  .quad .Lx204_0_s
 .Lx204_0_s:
  .string "e"
-xchain123_n54_α:
-bb119_α:
+ xchain123_n54_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+8816] -> [r12+8784]
  mov rax, qword ptr [r12 + 8816]
@@ -2043,9 +1965,8 @@ bb119_α:
  jmp xchain123_n58_α
  xchain123_n54_β:
  jmp xchain123_n14_α
-xchain123_n55_α:
 # IR_LIT_STRING
-bb120_α:
+ xchain123_n55_α:
  mov qword ptr [r12 + 8352], 1
  mov rax, qword ptr [rip + .Lx207_0]
  mov qword ptr [r12 + 8360], rax
@@ -2056,9 +1977,8 @@ bb120_α:
  .quad .Lx207_0_s
 .Lx207_0_s:
  .string "[]"
-xchain123_n56_α:
 # IR_LIT_STRING
-bb121_α:
+ xchain123_n56_α:
  mov qword ptr [r12 + 8064], 1
  mov rax, qword ptr [rip + .Lx208_0]
  mov qword ptr [r12 + 8072], rax
@@ -2069,8 +1989,7 @@ bb121_α:
  .quad .Lx208_0_s
 .Lx208_0_s:
  .string "."
-xchain123_n57_α:
-bb122_α:
+ xchain123_n57_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+7744] -> [r12+7712]
  mov rax, qword ptr [r12 + 7744]
@@ -2097,16 +2016,14 @@ bb122_α:
  jmp xchain123_n61_α
  xchain123_n57_β:
  jmp xchain123_n62_α
-xchain123_n58_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb123_α:
+ xchain123_n58_α:
  lea rax, [rip + xchain123_n14_α]
  mov qword ptr [r12 + 64], rax
  jmp proc_connect_γ
  xchain123_n58_β:
  jmp proc_connect_ω
-xchain123_n59_α:
-bb124_α:
+ xchain123_n59_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+8448] -> [r12+8400]
  mov rax, qword ptr [r12 + 8448]
@@ -2138,9 +2055,8 @@ bb124_α:
  jmp xchain123_n63_α
  xchain123_n59_β:
  jmp proc_connect_ω
-xchain123_n60_α:
 # IR_LIT_STRING
-bb125_α:
+ xchain123_n60_α:
  mov qword ptr [r12 + 7984], 1
  mov rax, qword ptr [rip + .Lx215_0]
  mov qword ptr [r12 + 7992], rax
@@ -2151,9 +2067,8 @@ bb125_α:
  .quad .Lx215_0_s
 .Lx215_0_s:
  .string "e"
-xchain123_n61_α:
 # IR_VAR_REF local
-bb126_α:
+ xchain123_n61_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 7376], rax
@@ -2161,8 +2076,7 @@ bb126_α:
  jmp xchain123_n65_α
  xchain123_n61_β:
  jmp xchain123_n62_α
-xchain123_n62_α:
-bb127_α:
+ xchain123_n62_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+80] -> [r12+7312]
  mov rax, qword ptr [r12 + 80]
@@ -2184,8 +2098,7 @@ bb127_α:
  jmp xchain123_n66_α
  xchain123_n62_β:
  jmp proc_connect_ω
-xchain123_n63_α:
-bb128_α:
+ xchain123_n63_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+8544] -> [r12+8496]
  mov rax, qword ptr [r12 + 8544]
@@ -2217,9 +2130,8 @@ bb128_α:
  jmp xchain123_n67_α
  xchain123_n63_β:
  jmp proc_connect_ω
-xchain123_n64_α:
 # IR_LIT_STRING
-bb129_α:
+ xchain123_n64_α:
  mov qword ptr [r12 + 7968], 1
  mov rax, qword ptr [rip + .Lx222_0]
  mov qword ptr [r12 + 7976], rax
@@ -2230,9 +2142,8 @@ bb129_α:
  .quad .Lx222_0_s
 .Lx222_0_s:
  .string "."
-xchain123_n65_α:
 # IR_LIT_STRING
-bb130_α:
+ xchain123_n65_α:
  mov qword ptr [r12 + 7680], 1
  mov rax, qword ptr [rip + .Lx223_0]
  mov qword ptr [r12 + 7688], rax
@@ -2243,9 +2154,8 @@ bb130_α:
  .quad .Lx223_0_s
 .Lx223_0_s:
  .string "."
-xchain123_n66_α:
 # IR_VAR_REF local
-bb131_α:
+ xchain123_n66_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 7264], rax
@@ -2253,8 +2163,7 @@ bb131_α:
  jmp xchain123_n70_α
  xchain123_n66_β:
  jmp xchain123_n79_α
-xchain123_n67_α:
-bb132_α:
+ xchain123_n67_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+8640] -> [r12+8592]
  mov rax, qword ptr [r12 + 8640]
@@ -2286,9 +2195,8 @@ bb132_α:
  jmp xchain123_n71_α
  xchain123_n67_β:
  jmp xchain123_n27_α
-xchain123_n68_α:
 # IR_LIT_STRING
-bb133_α:
+ xchain123_n68_α:
  mov qword ptr [r12 + 7888], 1
  mov rax, qword ptr [rip + .Lx228_0]
  mov qword ptr [r12 + 7896], rax
@@ -2299,9 +2207,8 @@ bb133_α:
  .quad .Lx228_0_s
 .Lx228_0_s:
  .string "q"
-xchain123_n69_α:
 # IR_LIT_STRING
-bb134_α:
+ xchain123_n69_α:
  mov qword ptr [r12 + 7600], 1
  mov rax, qword ptr [rip + .Lx229_0]
  mov qword ptr [r12 + 7608], rax
@@ -2312,9 +2219,8 @@ bb134_α:
  .quad .Lx229_0_s
 .Lx229_0_s:
  .string "d"
-xchain123_n70_α:
 # IR_LIT_STRING
-bb135_α:
+ xchain123_n70_α:
  mov qword ptr [r12 + 7280], 1
  mov rax, qword ptr [rip + .Lx230_0]
  mov qword ptr [r12 + 7288], rax
@@ -2325,8 +2231,7 @@ bb135_α:
  .quad .Lx230_0_s
 .Lx230_0_s:
  .string "f"
-xchain123_n71_α:
-bb136_α:
+ xchain123_n71_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+8336] -> [r12+8304]
  mov rax, qword ptr [r12 + 8336]
@@ -2353,9 +2258,8 @@ bb136_α:
  jmp xchain123_n75_α
  xchain123_n71_β:
  jmp xchain123_n27_α
-xchain123_n72_α:
 # IR_LIT_STRING
-bb137_α:
+ xchain123_n72_α:
  mov qword ptr [r12 + 7872], 1
  mov rax, qword ptr [rip + .Lx233_0]
  mov qword ptr [r12 + 7880], rax
@@ -2366,9 +2270,8 @@ bb137_α:
  .quad .Lx233_0_s
 .Lx233_0_s:
  .string "[]"
-xchain123_n73_α:
 # IR_LIT_STRING
-bb138_α:
+ xchain123_n73_α:
  mov qword ptr [r12 + 7584], 1
  mov rax, qword ptr [rip + .Lx234_0]
  mov qword ptr [r12 + 7592], rax
@@ -2379,8 +2282,7 @@ bb138_α:
  .quad .Lx234_0_s
 .Lx234_0_s:
  .string "."
-xchain123_n74_α:
-bb139_α:
+ xchain123_n74_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+7264] -> [r12+7232]
  mov rax, qword ptr [r12 + 7264]
@@ -2407,16 +2309,14 @@ bb139_α:
  jmp xchain123_n78_α
  xchain123_n74_β:
  jmp xchain123_n79_α
-xchain123_n75_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb140_α:
+ xchain123_n75_α:
  lea rax, [rip + xchain123_n27_α]
  mov qword ptr [r12 + 64], rax
  jmp proc_connect_γ
  xchain123_n75_β:
  jmp proc_connect_ω
-xchain123_n76_α:
-bb141_α:
+ xchain123_n76_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+7968] -> [r12+7920]
  mov rax, qword ptr [r12 + 7968]
@@ -2448,9 +2348,8 @@ bb141_α:
  jmp xchain123_n80_α
  xchain123_n76_β:
  jmp proc_connect_ω
-xchain123_n77_α:
 # IR_LIT_STRING
-bb142_α:
+ xchain123_n77_α:
  mov qword ptr [r12 + 7504], 1
  mov rax, qword ptr [rip + .Lx241_0]
  mov qword ptr [r12 + 7512], rax
@@ -2461,9 +2360,8 @@ bb142_α:
  .quad .Lx241_0_s
 .Lx241_0_s:
  .string "f"
-xchain123_n78_α:
 # IR_VAR_REF local
-bb143_α:
+ xchain123_n78_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 6896], rax
@@ -2471,8 +2369,7 @@ bb143_α:
  jmp xchain123_n82_α
  xchain123_n78_β:
  jmp xchain123_n79_α
-xchain123_n79_α:
-bb144_α:
+ xchain123_n79_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+80] -> [r12+6832]
  mov rax, qword ptr [r12 + 80]
@@ -2494,8 +2391,7 @@ bb144_α:
  jmp xchain123_n83_α
  xchain123_n79_β:
  jmp proc_connect_ω
-xchain123_n80_α:
-bb145_α:
+ xchain123_n80_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+8064] -> [r12+8016]
  mov rax, qword ptr [r12 + 8064]
@@ -2527,9 +2423,8 @@ bb145_α:
  jmp xchain123_n84_α
  xchain123_n80_β:
  jmp proc_connect_ω
-xchain123_n81_α:
 # IR_LIT_STRING
-bb146_α:
+ xchain123_n81_α:
  mov qword ptr [r12 + 7488], 1
  mov rax, qword ptr [rip + .Lx248_0]
  mov qword ptr [r12 + 7496], rax
@@ -2540,9 +2435,8 @@ bb146_α:
  .quad .Lx248_0_s
 .Lx248_0_s:
  .string "."
-xchain123_n82_α:
 # IR_LIT_STRING
-bb147_α:
+ xchain123_n82_α:
  mov qword ptr [r12 + 7200], 1
  mov rax, qword ptr [rip + .Lx249_0]
  mov qword ptr [r12 + 7208], rax
@@ -2553,9 +2447,8 @@ bb147_α:
  .quad .Lx249_0_s
 .Lx249_0_s:
  .string "."
-xchain123_n83_α:
 # IR_VAR_REF local
-bb148_α:
+ xchain123_n83_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 6784], rax
@@ -2563,8 +2456,7 @@ bb148_α:
  jmp xchain123_n87_α
  xchain123_n83_β:
  jmp xchain123_n96_α
-xchain123_n84_α:
-bb149_α:
+ xchain123_n84_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+8160] -> [r12+8112]
  mov rax, qword ptr [r12 + 8160]
@@ -2596,9 +2488,8 @@ bb149_α:
  jmp xchain123_n88_α
  xchain123_n84_β:
  jmp xchain123_n44_α
-xchain123_n85_α:
 # IR_LIT_STRING
-bb150_α:
+ xchain123_n85_α:
  mov qword ptr [r12 + 7408], 1
  mov rax, qword ptr [rip + .Lx254_0]
  mov qword ptr [r12 + 7416], rax
@@ -2609,9 +2500,8 @@ bb150_α:
  .quad .Lx254_0_s
 .Lx254_0_s:
  .string "m"
-xchain123_n86_α:
 # IR_LIT_STRING
-bb151_α:
+ xchain123_n86_α:
  mov qword ptr [r12 + 7120], 1
  mov rax, qword ptr [rip + .Lx255_0]
  mov qword ptr [r12 + 7128], rax
@@ -2622,9 +2512,8 @@ bb151_α:
  .quad .Lx255_0_s
 .Lx255_0_s:
  .string "e"
-xchain123_n87_α:
 # IR_LIT_STRING
-bb152_α:
+ xchain123_n87_α:
  mov qword ptr [r12 + 6800], 1
  mov rax, qword ptr [rip + .Lx256_0]
  mov qword ptr [r12 + 6808], rax
@@ -2635,8 +2524,7 @@ bb152_α:
  .quad .Lx256_0_s
 .Lx256_0_s:
  .string "g"
-xchain123_n88_α:
-bb153_α:
+ xchain123_n88_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+7856] -> [r12+7824]
  mov rax, qword ptr [r12 + 7856]
@@ -2663,9 +2551,8 @@ bb153_α:
  jmp xchain123_n92_α
  xchain123_n88_β:
  jmp xchain123_n44_α
-xchain123_n89_α:
 # IR_LIT_STRING
-bb154_α:
+ xchain123_n89_α:
  mov qword ptr [r12 + 7392], 1
  mov rax, qword ptr [rip + .Lx259_0]
  mov qword ptr [r12 + 7400], rax
@@ -2676,9 +2563,8 @@ bb154_α:
  .quad .Lx259_0_s
 .Lx259_0_s:
  .string "[]"
-xchain123_n90_α:
 # IR_LIT_STRING
-bb155_α:
+ xchain123_n90_α:
  mov qword ptr [r12 + 7104], 1
  mov rax, qword ptr [rip + .Lx260_0]
  mov qword ptr [r12 + 7112], rax
@@ -2689,8 +2575,7 @@ bb155_α:
  .quad .Lx260_0_s
 .Lx260_0_s:
  .string "."
-xchain123_n91_α:
-bb156_α:
+ xchain123_n91_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+6784] -> [r12+6752]
  mov rax, qword ptr [r12 + 6784]
@@ -2717,16 +2602,14 @@ bb156_α:
  jmp xchain123_n95_α
  xchain123_n91_β:
  jmp xchain123_n96_α
-xchain123_n92_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb157_α:
+ xchain123_n92_α:
  lea rax, [rip + xchain123_n44_α]
  mov qword ptr [r12 + 64], rax
  jmp proc_connect_γ
  xchain123_n92_β:
  jmp proc_connect_ω
-xchain123_n93_α:
-bb158_α:
+ xchain123_n93_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+7488] -> [r12+7440]
  mov rax, qword ptr [r12 + 7488]
@@ -2758,9 +2641,8 @@ bb158_α:
  jmp xchain123_n97_α
  xchain123_n93_β:
  jmp proc_connect_ω
-xchain123_n94_α:
 # IR_LIT_STRING
-bb159_α:
+ xchain123_n94_α:
  mov qword ptr [r12 + 7024], 1
  mov rax, qword ptr [rip + .Lx267_0]
  mov qword ptr [r12 + 7032], rax
@@ -2771,9 +2653,8 @@ bb159_α:
  .quad .Lx267_0_s
 .Lx267_0_s:
  .string "g"
-xchain123_n95_α:
 # IR_VAR_REF local
-bb160_α:
+ xchain123_n95_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 6416], rax
@@ -2781,8 +2662,7 @@ bb160_α:
  jmp xchain123_n99_α
  xchain123_n95_β:
  jmp xchain123_n96_α
-xchain123_n96_α:
-bb161_α:
+ xchain123_n96_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+80] -> [r12+6352]
  mov rax, qword ptr [r12 + 80]
@@ -2804,8 +2684,7 @@ bb161_α:
  jmp xchain123_n100_α
  xchain123_n96_β:
  jmp proc_connect_ω
-xchain123_n97_α:
-bb162_α:
+ xchain123_n97_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+7584] -> [r12+7536]
  mov rax, qword ptr [r12 + 7584]
@@ -2837,9 +2716,8 @@ bb162_α:
  jmp xchain123_n101_α
  xchain123_n97_β:
  jmp proc_connect_ω
-xchain123_n98_α:
 # IR_LIT_STRING
-bb163_α:
+ xchain123_n98_α:
  mov qword ptr [r12 + 7008], 1
  mov rax, qword ptr [rip + .Lx274_0]
  mov qword ptr [r12 + 7016], rax
@@ -2850,9 +2728,8 @@ bb163_α:
  .quad .Lx274_0_s
 .Lx274_0_s:
  .string "."
-xchain123_n99_α:
 # IR_LIT_STRING
-bb164_α:
+ xchain123_n99_α:
  mov qword ptr [r12 + 6720], 1
  mov rax, qword ptr [rip + .Lx275_0]
  mov qword ptr [r12 + 6728], rax
@@ -2863,9 +2740,8 @@ bb164_α:
  .quad .Lx275_0_s
 .Lx275_0_s:
  .string "."
-xchain123_n100_α:
 # IR_VAR_REF local
-bb165_α:
+ xchain123_n100_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 6304], rax
@@ -2873,8 +2749,7 @@ bb165_α:
  jmp xchain123_n104_α
  xchain123_n100_β:
  jmp xchain123_n113_α
-xchain123_n101_α:
-bb166_α:
+ xchain123_n101_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+7680] -> [r12+7632]
  mov rax, qword ptr [r12 + 7680]
@@ -2906,9 +2781,8 @@ bb166_α:
  jmp xchain123_n105_α
  xchain123_n101_β:
  jmp xchain123_n62_α
-xchain123_n102_α:
 # IR_LIT_STRING
-bb167_α:
+ xchain123_n102_α:
  mov qword ptr [r12 + 6928], 1
  mov rax, qword ptr [rip + .Lx280_0]
  mov qword ptr [r12 + 6936], rax
@@ -2919,9 +2793,8 @@ bb167_α:
  .quad .Lx280_0_s
 .Lx280_0_s:
  .string "r"
-xchain123_n103_α:
 # IR_LIT_STRING
-bb168_α:
+ xchain123_n103_α:
  mov qword ptr [r12 + 6640], 1
  mov rax, qword ptr [rip + .Lx281_0]
  mov qword ptr [r12 + 6648], rax
@@ -2932,9 +2805,8 @@ bb168_α:
  .quad .Lx281_0_s
 .Lx281_0_s:
  .string "f"
-xchain123_n104_α:
 # IR_LIT_STRING
-bb169_α:
+ xchain123_n104_α:
  mov qword ptr [r12 + 6320], 1
  mov rax, qword ptr [rip + .Lx282_0]
  mov qword ptr [r12 + 6328], rax
@@ -2945,8 +2817,7 @@ bb169_α:
  .quad .Lx282_0_s
 .Lx282_0_s:
  .string "h"
-xchain123_n105_α:
-bb170_α:
+ xchain123_n105_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+7376] -> [r12+7344]
  mov rax, qword ptr [r12 + 7376]
@@ -2973,9 +2844,8 @@ bb170_α:
  jmp xchain123_n109_α
  xchain123_n105_β:
  jmp xchain123_n62_α
-xchain123_n106_α:
 # IR_LIT_STRING
-bb171_α:
+ xchain123_n106_α:
  mov qword ptr [r12 + 6912], 1
  mov rax, qword ptr [rip + .Lx285_0]
  mov qword ptr [r12 + 6920], rax
@@ -2986,9 +2856,8 @@ bb171_α:
  .quad .Lx285_0_s
 .Lx285_0_s:
  .string "[]"
-xchain123_n107_α:
 # IR_LIT_STRING
-bb172_α:
+ xchain123_n107_α:
  mov qword ptr [r12 + 6624], 1
  mov rax, qword ptr [rip + .Lx286_0]
  mov qword ptr [r12 + 6632], rax
@@ -2999,8 +2868,7 @@ bb172_α:
  .quad .Lx286_0_s
 .Lx286_0_s:
  .string "."
-xchain123_n108_α:
-bb173_α:
+ xchain123_n108_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+6304] -> [r12+6272]
  mov rax, qword ptr [r12 + 6304]
@@ -3027,16 +2895,14 @@ bb173_α:
  jmp xchain123_n112_α
  xchain123_n108_β:
  jmp xchain123_n113_α
-xchain123_n109_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb174_α:
+ xchain123_n109_α:
  lea rax, [rip + xchain123_n62_α]
  mov qword ptr [r12 + 64], rax
  jmp proc_connect_γ
  xchain123_n109_β:
  jmp proc_connect_ω
-xchain123_n110_α:
-bb175_α:
+ xchain123_n110_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+7008] -> [r12+6960]
  mov rax, qword ptr [r12 + 7008]
@@ -3068,9 +2934,8 @@ bb175_α:
  jmp xchain123_n114_α
  xchain123_n110_β:
  jmp proc_connect_ω
-xchain123_n111_α:
 # IR_LIT_STRING
-bb176_α:
+ xchain123_n111_α:
  mov qword ptr [r12 + 6544], 1
  mov rax, qword ptr [rip + .Lx293_0]
  mov qword ptr [r12 + 6552], rax
@@ -3081,9 +2946,8 @@ bb176_α:
  .quad .Lx293_0_s
 .Lx293_0_s:
  .string "h"
-xchain123_n112_α:
 # IR_VAR_REF local
-bb177_α:
+ xchain123_n112_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 5936], rax
@@ -3091,8 +2955,7 @@ bb177_α:
  jmp xchain123_n116_α
  xchain123_n112_β:
  jmp xchain123_n113_α
-xchain123_n113_α:
-bb178_α:
+ xchain123_n113_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+80] -> [r12+5872]
  mov rax, qword ptr [r12 + 80]
@@ -3114,8 +2977,7 @@ bb178_α:
  jmp xchain123_n117_α
  xchain123_n113_β:
  jmp proc_connect_ω
-xchain123_n114_α:
-bb179_α:
+ xchain123_n114_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+7104] -> [r12+7056]
  mov rax, qword ptr [r12 + 7104]
@@ -3147,9 +3009,8 @@ bb179_α:
  jmp xchain123_n118_α
  xchain123_n114_β:
  jmp proc_connect_ω
-xchain123_n115_α:
 # IR_LIT_STRING
-bb180_α:
+ xchain123_n115_α:
  mov qword ptr [r12 + 6528], 1
  mov rax, qword ptr [rip + .Lx300_0]
  mov qword ptr [r12 + 6536], rax
@@ -3160,9 +3021,8 @@ bb180_α:
  .quad .Lx300_0_s
 .Lx300_0_s:
  .string "."
-xchain123_n116_α:
 # IR_LIT_STRING
-bb181_α:
+ xchain123_n116_α:
  mov qword ptr [r12 + 6240], 1
  mov rax, qword ptr [rip + .Lx301_0]
  mov qword ptr [r12 + 6248], rax
@@ -3173,9 +3033,8 @@ bb181_α:
  .quad .Lx301_0_s
 .Lx301_0_s:
  .string "."
-xchain123_n117_α:
 # IR_VAR_REF local
-bb182_α:
+ xchain123_n117_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 5824], rax
@@ -3183,8 +3042,7 @@ bb182_α:
  jmp xchain123_n121_α
  xchain123_n117_β:
  jmp xchain123_n130_α
-xchain123_n118_α:
-bb183_α:
+ xchain123_n118_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+7200] -> [r12+7152]
  mov rax, qword ptr [r12 + 7200]
@@ -3216,9 +3074,8 @@ bb183_α:
  jmp xchain123_n122_α
  xchain123_n118_β:
  jmp xchain123_n79_α
-xchain123_n119_α:
 # IR_LIT_STRING
-bb184_α:
+ xchain123_n119_α:
  mov qword ptr [r12 + 6448], 1
  mov rax, qword ptr [rip + .Lx306_0]
  mov qword ptr [r12 + 6456], rax
@@ -3229,9 +3086,8 @@ bb184_α:
  .quad .Lx306_0_s
 .Lx306_0_s:
  .string "n"
-xchain123_n120_α:
 # IR_LIT_STRING
-bb185_α:
+ xchain123_n120_α:
  mov qword ptr [r12 + 6160], 1
  mov rax, qword ptr [rip + .Lx307_0]
  mov qword ptr [r12 + 6168], rax
@@ -3242,9 +3098,8 @@ bb185_α:
  .quad .Lx307_0_s
 .Lx307_0_s:
  .string "i"
-xchain123_n121_α:
 # IR_LIT_STRING
-bb186_α:
+ xchain123_n121_α:
  mov qword ptr [r12 + 5840], 1
  mov rax, qword ptr [rip + .Lx308_0]
  mov qword ptr [r12 + 5848], rax
@@ -3255,8 +3110,7 @@ bb186_α:
  .quad .Lx308_0_s
 .Lx308_0_s:
  .string "i"
-xchain123_n122_α:
-bb187_α:
+ xchain123_n122_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+6896] -> [r12+6864]
  mov rax, qword ptr [r12 + 6896]
@@ -3283,9 +3137,8 @@ bb187_α:
  jmp xchain123_n126_α
  xchain123_n122_β:
  jmp xchain123_n79_α
-xchain123_n123_α:
 # IR_LIT_STRING
-bb188_α:
+ xchain123_n123_α:
  mov qword ptr [r12 + 6432], 1
  mov rax, qword ptr [rip + .Lx311_0]
  mov qword ptr [r12 + 6440], rax
@@ -3296,9 +3149,8 @@ bb188_α:
  .quad .Lx311_0_s
 .Lx311_0_s:
  .string "[]"
-xchain123_n124_α:
 # IR_LIT_STRING
-bb189_α:
+ xchain123_n124_α:
  mov qword ptr [r12 + 6144], 1
  mov rax, qword ptr [rip + .Lx312_0]
  mov qword ptr [r12 + 6152], rax
@@ -3309,8 +3161,7 @@ bb189_α:
  .quad .Lx312_0_s
 .Lx312_0_s:
  .string "."
-xchain123_n125_α:
-bb190_α:
+ xchain123_n125_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+5824] -> [r12+5792]
  mov rax, qword ptr [r12 + 5824]
@@ -3337,16 +3188,14 @@ bb190_α:
  jmp xchain123_n129_α
  xchain123_n125_β:
  jmp xchain123_n130_α
-xchain123_n126_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb191_α:
+ xchain123_n126_α:
  lea rax, [rip + xchain123_n79_α]
  mov qword ptr [r12 + 64], rax
  jmp proc_connect_γ
  xchain123_n126_β:
  jmp proc_connect_ω
-xchain123_n127_α:
-bb192_α:
+ xchain123_n127_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+6528] -> [r12+6480]
  mov rax, qword ptr [r12 + 6528]
@@ -3378,9 +3227,8 @@ bb192_α:
  jmp xchain123_n131_α
  xchain123_n127_β:
  jmp proc_connect_ω
-xchain123_n128_α:
 # IR_LIT_STRING
-bb193_α:
+ xchain123_n128_α:
  mov qword ptr [r12 + 6064], 1
  mov rax, qword ptr [rip + .Lx319_0]
  mov qword ptr [r12 + 6072], rax
@@ -3391,9 +3239,8 @@ bb193_α:
  .quad .Lx319_0_s
 .Lx319_0_s:
  .string "g"
-xchain123_n129_α:
 # IR_VAR_REF local
-bb194_α:
+ xchain123_n129_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 5456], rax
@@ -3401,8 +3248,7 @@ bb194_α:
  jmp xchain123_n133_α
  xchain123_n129_β:
  jmp xchain123_n130_α
-xchain123_n130_α:
-bb195_α:
+ xchain123_n130_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+80] -> [r12+5392]
  mov rax, qword ptr [r12 + 80]
@@ -3424,8 +3270,7 @@ bb195_α:
  jmp xchain123_n134_α
  xchain123_n130_β:
  jmp proc_connect_ω
-xchain123_n131_α:
-bb196_α:
+ xchain123_n131_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+6624] -> [r12+6576]
  mov rax, qword ptr [r12 + 6624]
@@ -3457,9 +3302,8 @@ bb196_α:
  jmp xchain123_n135_α
  xchain123_n131_β:
  jmp proc_connect_ω
-xchain123_n132_α:
 # IR_LIT_STRING
-bb197_α:
+ xchain123_n132_α:
  mov qword ptr [r12 + 6048], 1
  mov rax, qword ptr [rip + .Lx326_0]
  mov qword ptr [r12 + 6056], rax
@@ -3470,9 +3314,8 @@ bb197_α:
  .quad .Lx326_0_s
 .Lx326_0_s:
  .string "."
-xchain123_n133_α:
 # IR_LIT_STRING
-bb198_α:
+ xchain123_n133_α:
  mov qword ptr [r12 + 5760], 1
  mov rax, qword ptr [rip + .Lx327_0]
  mov qword ptr [r12 + 5768], rax
@@ -3483,9 +3326,8 @@ bb198_α:
  .quad .Lx327_0_s
 .Lx327_0_s:
  .string "."
-xchain123_n134_α:
 # IR_VAR_REF local
-bb199_α:
+ xchain123_n134_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 5344], rax
@@ -3493,8 +3335,7 @@ bb199_α:
  jmp xchain123_n138_α
  xchain123_n134_β:
  jmp xchain123_n147_α
-xchain123_n135_α:
-bb200_α:
+ xchain123_n135_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+6720] -> [r12+6672]
  mov rax, qword ptr [r12 + 6720]
@@ -3526,9 +3367,8 @@ bb200_α:
  jmp xchain123_n139_α
  xchain123_n135_β:
  jmp xchain123_n96_α
-xchain123_n136_α:
 # IR_LIT_STRING
-bb201_α:
+ xchain123_n136_α:
  mov qword ptr [r12 + 5968], 1
  mov rax, qword ptr [rip + .Lx332_0]
  mov qword ptr [r12 + 5976], rax
@@ -3539,9 +3379,8 @@ bb201_α:
  .quad .Lx332_0_s
 .Lx332_0_s:
  .string "s"
-xchain123_n137_α:
 # IR_LIT_STRING
-bb202_α:
+ xchain123_n137_α:
  mov qword ptr [r12 + 5680], 1
  mov rax, qword ptr [rip + .Lx333_0]
  mov qword ptr [r12 + 5688], rax
@@ -3552,9 +3391,8 @@ bb202_α:
  .quad .Lx333_0_s
 .Lx333_0_s:
  .string "j"
-xchain123_n138_α:
 # IR_LIT_STRING
-bb203_α:
+ xchain123_n138_α:
  mov qword ptr [r12 + 5360], 1
  mov rax, qword ptr [rip + .Lx334_0]
  mov qword ptr [r12 + 5368], rax
@@ -3565,8 +3403,7 @@ bb203_α:
  .quad .Lx334_0_s
 .Lx334_0_s:
  .string "j"
-xchain123_n139_α:
-bb204_α:
+ xchain123_n139_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+6416] -> [r12+6384]
  mov rax, qword ptr [r12 + 6416]
@@ -3593,9 +3430,8 @@ bb204_α:
  jmp xchain123_n143_α
  xchain123_n139_β:
  jmp xchain123_n96_α
-xchain123_n140_α:
 # IR_LIT_STRING
-bb205_α:
+ xchain123_n140_α:
  mov qword ptr [r12 + 5952], 1
  mov rax, qword ptr [rip + .Lx337_0]
  mov qword ptr [r12 + 5960], rax
@@ -3606,9 +3442,8 @@ bb205_α:
  .quad .Lx337_0_s
 .Lx337_0_s:
  .string "[]"
-xchain123_n141_α:
 # IR_LIT_STRING
-bb206_α:
+ xchain123_n141_α:
  mov qword ptr [r12 + 5664], 1
  mov rax, qword ptr [rip + .Lx338_0]
  mov qword ptr [r12 + 5672], rax
@@ -3619,8 +3454,7 @@ bb206_α:
  .quad .Lx338_0_s
 .Lx338_0_s:
  .string "."
-xchain123_n142_α:
-bb207_α:
+ xchain123_n142_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+5344] -> [r12+5312]
  mov rax, qword ptr [r12 + 5344]
@@ -3647,16 +3481,14 @@ bb207_α:
  jmp xchain123_n146_α
  xchain123_n142_β:
  jmp xchain123_n147_α
-xchain123_n143_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb208_α:
+ xchain123_n143_α:
  lea rax, [rip + xchain123_n96_α]
  mov qword ptr [r12 + 64], rax
  jmp proc_connect_γ
  xchain123_n143_β:
  jmp proc_connect_ω
-xchain123_n144_α:
-bb209_α:
+ xchain123_n144_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+6048] -> [r12+6000]
  mov rax, qword ptr [r12 + 6048]
@@ -3688,9 +3520,8 @@ bb209_α:
  jmp xchain123_n148_α
  xchain123_n144_β:
  jmp proc_connect_ω
-xchain123_n145_α:
 # IR_LIT_STRING
-bb210_α:
+ xchain123_n145_α:
  mov qword ptr [r12 + 5584], 1
  mov rax, qword ptr [rip + .Lx345_0]
  mov qword ptr [r12 + 5592], rax
@@ -3701,9 +3532,8 @@ bb210_α:
  .quad .Lx345_0_s
 .Lx345_0_s:
  .string "h"
-xchain123_n146_α:
 # IR_VAR_REF local
-bb211_α:
+ xchain123_n146_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 4976], rax
@@ -3711,8 +3541,7 @@ bb211_α:
  jmp xchain123_n150_α
  xchain123_n146_β:
  jmp xchain123_n147_α
-xchain123_n147_α:
-bb212_α:
+ xchain123_n147_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+80] -> [r12+4912]
  mov rax, qword ptr [r12 + 80]
@@ -3734,8 +3563,7 @@ bb212_α:
  jmp xchain123_n151_α
  xchain123_n147_β:
  jmp proc_connect_ω
-xchain123_n148_α:
-bb213_α:
+ xchain123_n148_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+6144] -> [r12+6096]
  mov rax, qword ptr [r12 + 6144]
@@ -3767,9 +3595,8 @@ bb213_α:
  jmp xchain123_n152_α
  xchain123_n148_β:
  jmp proc_connect_ω
-xchain123_n149_α:
 # IR_LIT_STRING
-bb214_α:
+ xchain123_n149_α:
  mov qword ptr [r12 + 5568], 1
  mov rax, qword ptr [rip + .Lx352_0]
  mov qword ptr [r12 + 5576], rax
@@ -3780,9 +3607,8 @@ bb214_α:
  .quad .Lx352_0_s
 .Lx352_0_s:
  .string "."
-xchain123_n150_α:
 # IR_LIT_STRING
-bb215_α:
+ xchain123_n150_α:
  mov qword ptr [r12 + 5280], 1
  mov rax, qword ptr [rip + .Lx353_0]
  mov qword ptr [r12 + 5288], rax
@@ -3793,9 +3619,8 @@ bb215_α:
  .quad .Lx353_0_s
 .Lx353_0_s:
  .string "."
-xchain123_n151_α:
 # IR_VAR_REF local
-bb216_α:
+ xchain123_n151_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 4864], rax
@@ -3803,8 +3628,7 @@ bb216_α:
  jmp xchain123_n155_α
  xchain123_n151_β:
  jmp xchain123_n164_α
-xchain123_n152_α:
-bb217_α:
+ xchain123_n152_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+6240] -> [r12+6192]
  mov rax, qword ptr [r12 + 6240]
@@ -3836,9 +3660,8 @@ bb217_α:
  jmp xchain123_n156_α
  xchain123_n152_β:
  jmp xchain123_n113_α
-xchain123_n153_α:
 # IR_LIT_STRING
-bb218_α:
+ xchain123_n153_α:
  mov qword ptr [r12 + 5488], 1
  mov rax, qword ptr [rip + .Lx358_0]
  mov qword ptr [r12 + 5496], rax
@@ -3849,9 +3672,8 @@ bb218_α:
  .quad .Lx358_0_s
 .Lx358_0_s:
  .string "o"
-xchain123_n154_α:
 # IR_LIT_STRING
-bb219_α:
+ xchain123_n154_α:
  mov qword ptr [r12 + 5200], 1
  mov rax, qword ptr [rip + .Lx359_0]
  mov qword ptr [r12 + 5208], rax
@@ -3862,9 +3684,8 @@ bb219_α:
  .quad .Lx359_0_s
 .Lx359_0_s:
  .string "a"
-xchain123_n155_α:
 # IR_LIT_STRING
-bb220_α:
+ xchain123_n155_α:
  mov qword ptr [r12 + 4880], 1
  mov rax, qword ptr [rip + .Lx360_0]
  mov qword ptr [r12 + 4888], rax
@@ -3875,8 +3696,7 @@ bb220_α:
  .quad .Lx360_0_s
 .Lx360_0_s:
  .string "k"
-xchain123_n156_α:
-bb221_α:
+ xchain123_n156_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+5936] -> [r12+5904]
  mov rax, qword ptr [r12 + 5936]
@@ -3903,9 +3723,8 @@ bb221_α:
  jmp xchain123_n160_α
  xchain123_n156_β:
  jmp xchain123_n113_α
-xchain123_n157_α:
 # IR_LIT_STRING
-bb222_α:
+ xchain123_n157_α:
  mov qword ptr [r12 + 5472], 1
  mov rax, qword ptr [rip + .Lx363_0]
  mov qword ptr [r12 + 5480], rax
@@ -3916,9 +3735,8 @@ bb222_α:
  .quad .Lx363_0_s
 .Lx363_0_s:
  .string "[]"
-xchain123_n158_α:
 # IR_LIT_STRING
-bb223_α:
+ xchain123_n158_α:
  mov qword ptr [r12 + 5184], 1
  mov rax, qword ptr [rip + .Lx364_0]
  mov qword ptr [r12 + 5192], rax
@@ -3929,8 +3747,7 @@ bb223_α:
  .quad .Lx364_0_s
 .Lx364_0_s:
  .string "."
-xchain123_n159_α:
-bb224_α:
+ xchain123_n159_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+4864] -> [r12+4832]
  mov rax, qword ptr [r12 + 4864]
@@ -3957,16 +3774,14 @@ bb224_α:
  jmp xchain123_n163_α
  xchain123_n159_β:
  jmp xchain123_n164_α
-xchain123_n160_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb225_α:
+ xchain123_n160_α:
  lea rax, [rip + xchain123_n113_α]
  mov qword ptr [r12 + 64], rax
  jmp proc_connect_γ
  xchain123_n160_β:
  jmp proc_connect_ω
-xchain123_n161_α:
-bb226_α:
+ xchain123_n161_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+5568] -> [r12+5520]
  mov rax, qword ptr [r12 + 5568]
@@ -3998,9 +3813,8 @@ bb226_α:
  jmp xchain123_n165_α
  xchain123_n161_β:
  jmp proc_connect_ω
-xchain123_n162_α:
 # IR_LIT_STRING
-bb227_α:
+ xchain123_n162_α:
  mov qword ptr [r12 + 5104], 1
  mov rax, qword ptr [rip + .Lx371_0]
  mov qword ptr [r12 + 5112], rax
@@ -4011,9 +3825,8 @@ bb227_α:
  .quad .Lx371_0_s
 .Lx371_0_s:
  .string "i"
-xchain123_n163_α:
 # IR_VAR_REF local
-bb228_α:
+ xchain123_n163_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 4496], rax
@@ -4021,8 +3834,7 @@ bb228_α:
  jmp xchain123_n167_α
  xchain123_n163_β:
  jmp xchain123_n164_α
-xchain123_n164_α:
-bb229_α:
+ xchain123_n164_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+80] -> [r12+4432]
  mov rax, qword ptr [r12 + 80]
@@ -4044,8 +3856,7 @@ bb229_α:
  jmp xchain123_n168_α
  xchain123_n164_β:
  jmp proc_connect_ω
-xchain123_n165_α:
-bb230_α:
+ xchain123_n165_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+5664] -> [r12+5616]
  mov rax, qword ptr [r12 + 5664]
@@ -4077,9 +3888,8 @@ bb230_α:
  jmp xchain123_n169_α
  xchain123_n165_β:
  jmp proc_connect_ω
-xchain123_n166_α:
 # IR_LIT_STRING
-bb231_α:
+ xchain123_n166_α:
  mov qword ptr [r12 + 5088], 1
  mov rax, qword ptr [rip + .Lx378_0]
  mov qword ptr [r12 + 5096], rax
@@ -4090,9 +3900,8 @@ bb231_α:
  .quad .Lx378_0_s
 .Lx378_0_s:
  .string "."
-xchain123_n167_α:
 # IR_LIT_STRING
-bb232_α:
+ xchain123_n167_α:
  mov qword ptr [r12 + 4800], 1
  mov rax, qword ptr [rip + .Lx379_0]
  mov qword ptr [r12 + 4808], rax
@@ -4103,9 +3912,8 @@ bb232_α:
  .quad .Lx379_0_s
 .Lx379_0_s:
  .string "."
-xchain123_n168_α:
 # IR_VAR_REF local
-bb233_α:
+ xchain123_n168_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 4384], rax
@@ -4113,8 +3921,7 @@ bb233_α:
  jmp xchain123_n172_α
  xchain123_n168_β:
  jmp xchain123_n181_α
-xchain123_n169_α:
-bb234_α:
+ xchain123_n169_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+5760] -> [r12+5712]
  mov rax, qword ptr [r12 + 5760]
@@ -4146,9 +3953,8 @@ bb234_α:
  jmp xchain123_n173_α
  xchain123_n169_β:
  jmp xchain123_n130_α
-xchain123_n170_α:
 # IR_LIT_STRING
-bb235_α:
+ xchain123_n170_α:
  mov qword ptr [r12 + 5008], 1
  mov rax, qword ptr [rip + .Lx384_0]
  mov qword ptr [r12 + 5016], rax
@@ -4159,9 +3965,8 @@ bb235_α:
  .quad .Lx384_0_s
 .Lx384_0_s:
  .string "t"
-xchain123_n171_α:
 # IR_LIT_STRING
-bb236_α:
+ xchain123_n171_α:
  mov qword ptr [r12 + 4720], 1
  mov rax, qword ptr [rip + .Lx385_0]
  mov qword ptr [r12 + 4728], rax
@@ -4172,9 +3977,8 @@ bb236_α:
  .quad .Lx385_0_s
 .Lx385_0_s:
  .string "o"
-xchain123_n172_α:
 # IR_LIT_STRING
-bb237_α:
+ xchain123_n172_α:
  mov qword ptr [r12 + 4400], 1
  mov rax, qword ptr [rip + .Lx386_0]
  mov qword ptr [r12 + 4408], rax
@@ -4185,8 +3989,7 @@ bb237_α:
  .quad .Lx386_0_s
 .Lx386_0_s:
  .string "l"
-xchain123_n173_α:
-bb238_α:
+ xchain123_n173_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+5456] -> [r12+5424]
  mov rax, qword ptr [r12 + 5456]
@@ -4213,9 +4016,8 @@ bb238_α:
  jmp xchain123_n177_α
  xchain123_n173_β:
  jmp xchain123_n130_α
-xchain123_n174_α:
 # IR_LIT_STRING
-bb239_α:
+ xchain123_n174_α:
  mov qword ptr [r12 + 4992], 1
  mov rax, qword ptr [rip + .Lx389_0]
  mov qword ptr [r12 + 5000], rax
@@ -4226,9 +4028,8 @@ bb239_α:
  .quad .Lx389_0_s
 .Lx389_0_s:
  .string "[]"
-xchain123_n175_α:
 # IR_LIT_STRING
-bb240_α:
+ xchain123_n175_α:
  mov qword ptr [r12 + 4704], 1
  mov rax, qword ptr [rip + .Lx390_0]
  mov qword ptr [r12 + 4712], rax
@@ -4239,8 +4040,7 @@ bb240_α:
  .quad .Lx390_0_s
 .Lx390_0_s:
  .string "."
-xchain123_n176_α:
-bb241_α:
+ xchain123_n176_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+4384] -> [r12+4352]
  mov rax, qword ptr [r12 + 4384]
@@ -4267,16 +4067,14 @@ bb241_α:
  jmp xchain123_n180_α
  xchain123_n176_β:
  jmp xchain123_n181_α
-xchain123_n177_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb242_α:
+ xchain123_n177_α:
  lea rax, [rip + xchain123_n130_α]
  mov qword ptr [r12 + 64], rax
  jmp proc_connect_γ
  xchain123_n177_β:
  jmp proc_connect_ω
-xchain123_n178_α:
-bb243_α:
+ xchain123_n178_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+5088] -> [r12+5040]
  mov rax, qword ptr [r12 + 5088]
@@ -4308,9 +4106,8 @@ bb243_α:
  jmp xchain123_n182_α
  xchain123_n178_β:
  jmp proc_connect_ω
-xchain123_n179_α:
 # IR_LIT_STRING
-bb244_α:
+ xchain123_n179_α:
  mov qword ptr [r12 + 4624], 1
  mov rax, qword ptr [rip + .Lx397_0]
  mov qword ptr [r12 + 4632], rax
@@ -4321,9 +4118,8 @@ bb244_α:
  .quad .Lx397_0_s
 .Lx397_0_s:
  .string "l"
-xchain123_n180_α:
 # IR_VAR_REF local
-bb245_α:
+ xchain123_n180_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 4016], rax
@@ -4331,8 +4127,7 @@ bb245_α:
  jmp xchain123_n184_α
  xchain123_n180_β:
  jmp xchain123_n181_α
-xchain123_n181_α:
-bb246_α:
+ xchain123_n181_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+80] -> [r12+3952]
  mov rax, qword ptr [r12 + 80]
@@ -4354,8 +4149,7 @@ bb246_α:
  jmp xchain123_n185_α
  xchain123_n181_β:
  jmp proc_connect_ω
-xchain123_n182_α:
-bb247_α:
+ xchain123_n182_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+5184] -> [r12+5136]
  mov rax, qword ptr [r12 + 5184]
@@ -4387,9 +4181,8 @@ bb247_α:
  jmp xchain123_n186_α
  xchain123_n182_β:
  jmp proc_connect_ω
-xchain123_n183_α:
 # IR_LIT_STRING
-bb248_α:
+ xchain123_n183_α:
  mov qword ptr [r12 + 4608], 1
  mov rax, qword ptr [rip + .Lx404_0]
  mov qword ptr [r12 + 4616], rax
@@ -4400,9 +4193,8 @@ bb248_α:
  .quad .Lx404_0_s
 .Lx404_0_s:
  .string "."
-xchain123_n184_α:
 # IR_LIT_STRING
-bb249_α:
+ xchain123_n184_α:
  mov qword ptr [r12 + 4320], 1
  mov rax, qword ptr [rip + .Lx405_0]
  mov qword ptr [r12 + 4328], rax
@@ -4413,9 +4205,8 @@ bb249_α:
  .quad .Lx405_0_s
 .Lx405_0_s:
  .string "."
-xchain123_n185_α:
 # IR_VAR_REF local
-bb250_α:
+ xchain123_n185_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 3904], rax
@@ -4423,8 +4214,7 @@ bb250_α:
  jmp xchain123_n189_α
  xchain123_n185_β:
  jmp xchain123_n198_α
-xchain123_n186_α:
-bb251_α:
+ xchain123_n186_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+5280] -> [r12+5232]
  mov rax, qword ptr [r12 + 5280]
@@ -4456,9 +4246,8 @@ bb251_α:
  jmp xchain123_n190_α
  xchain123_n186_β:
  jmp xchain123_n147_α
-xchain123_n187_α:
 # IR_LIT_STRING
-bb252_α:
+ xchain123_n187_α:
  mov qword ptr [r12 + 4528], 1
  mov rax, qword ptr [rip + .Lx410_0]
  mov qword ptr [r12 + 4536], rax
@@ -4469,9 +4258,8 @@ bb252_α:
  .quad .Lx410_0_s
 .Lx410_0_s:
  .string "a"
-xchain123_n188_α:
 # IR_LIT_STRING
-bb253_α:
+ xchain123_n188_α:
  mov qword ptr [r12 + 4240], 1
  mov rax, qword ptr [rip + .Lx411_0]
  mov qword ptr [r12 + 4248], rax
@@ -4482,9 +4270,8 @@ bb253_α:
  .quad .Lx411_0_s
 .Lx411_0_s:
  .string "k"
-xchain123_n189_α:
 # IR_LIT_STRING
-bb254_α:
+ xchain123_n189_α:
  mov qword ptr [r12 + 3920], 1
  mov rax, qword ptr [rip + .Lx412_0]
  mov qword ptr [r12 + 3928], rax
@@ -4495,8 +4282,7 @@ bb254_α:
  .quad .Lx412_0_s
 .Lx412_0_s:
  .string "m"
-xchain123_n190_α:
-bb255_α:
+ xchain123_n190_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+4976] -> [r12+4944]
  mov rax, qword ptr [r12 + 4976]
@@ -4523,9 +4309,8 @@ bb255_α:
  jmp xchain123_n194_α
  xchain123_n190_β:
  jmp xchain123_n147_α
-xchain123_n191_α:
 # IR_LIT_STRING
-bb256_α:
+ xchain123_n191_α:
  mov qword ptr [r12 + 4512], 1
  mov rax, qword ptr [rip + .Lx415_0]
  mov qword ptr [r12 + 4520], rax
@@ -4536,9 +4321,8 @@ bb256_α:
  .quad .Lx415_0_s
 .Lx415_0_s:
  .string "[]"
-xchain123_n192_α:
 # IR_LIT_STRING
-bb257_α:
+ xchain123_n192_α:
  mov qword ptr [r12 + 4224], 1
  mov rax, qword ptr [rip + .Lx416_0]
  mov qword ptr [r12 + 4232], rax
@@ -4549,8 +4333,7 @@ bb257_α:
  .quad .Lx416_0_s
 .Lx416_0_s:
  .string "."
-xchain123_n193_α:
-bb258_α:
+ xchain123_n193_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+3904] -> [r12+3872]
  mov rax, qword ptr [r12 + 3904]
@@ -4577,16 +4360,14 @@ bb258_α:
  jmp xchain123_n197_α
  xchain123_n193_β:
  jmp xchain123_n198_α
-xchain123_n194_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb259_α:
+ xchain123_n194_α:
  lea rax, [rip + xchain123_n147_α]
  mov qword ptr [r12 + 64], rax
  jmp proc_connect_γ
  xchain123_n194_β:
  jmp proc_connect_ω
-xchain123_n195_α:
-bb260_α:
+ xchain123_n195_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+4608] -> [r12+4560]
  mov rax, qword ptr [r12 + 4608]
@@ -4618,9 +4399,8 @@ bb260_α:
  jmp xchain123_n199_α
  xchain123_n195_β:
  jmp proc_connect_ω
-xchain123_n196_α:
 # IR_LIT_STRING
-bb261_α:
+ xchain123_n196_α:
  mov qword ptr [r12 + 4144], 1
  mov rax, qword ptr [rip + .Lx423_0]
  mov qword ptr [r12 + 4152], rax
@@ -4631,9 +4411,8 @@ bb261_α:
  .quad .Lx423_0_s
 .Lx423_0_s:
  .string "m"
-xchain123_n197_α:
 # IR_VAR_REF local
-bb262_α:
+ xchain123_n197_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 3536], rax
@@ -4641,8 +4420,7 @@ bb262_α:
  jmp xchain123_n201_α
  xchain123_n197_β:
  jmp xchain123_n198_α
-xchain123_n198_α:
-bb263_α:
+ xchain123_n198_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+80] -> [r12+3472]
  mov rax, qword ptr [r12 + 80]
@@ -4664,8 +4442,7 @@ bb263_α:
  jmp xchain123_n202_α
  xchain123_n198_β:
  jmp proc_connect_ω
-xchain123_n199_α:
-bb264_α:
+ xchain123_n199_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+4704] -> [r12+4656]
  mov rax, qword ptr [r12 + 4704]
@@ -4697,9 +4474,8 @@ bb264_α:
  jmp xchain123_n203_α
  xchain123_n199_β:
  jmp proc_connect_ω
-xchain123_n200_α:
 # IR_LIT_STRING
-bb265_α:
+ xchain123_n200_α:
  mov qword ptr [r12 + 4128], 1
  mov rax, qword ptr [rip + .Lx430_0]
  mov qword ptr [r12 + 4136], rax
@@ -4710,9 +4486,8 @@ bb265_α:
  .quad .Lx430_0_s
 .Lx430_0_s:
  .string "."
-xchain123_n201_α:
 # IR_LIT_STRING
-bb266_α:
+ xchain123_n201_α:
  mov qword ptr [r12 + 3840], 1
  mov rax, qword ptr [rip + .Lx431_0]
  mov qword ptr [r12 + 3848], rax
@@ -4723,9 +4498,8 @@ bb266_α:
  .quad .Lx431_0_s
 .Lx431_0_s:
  .string "."
-xchain123_n202_α:
 # IR_VAR_REF local
-bb267_α:
+ xchain123_n202_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 3424], rax
@@ -4733,8 +4507,7 @@ bb267_α:
  jmp xchain123_n206_α
  xchain123_n202_β:
  jmp xchain123_n215_α
-xchain123_n203_α:
-bb268_α:
+ xchain123_n203_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+4800] -> [r12+4752]
  mov rax, qword ptr [r12 + 4800]
@@ -4766,9 +4539,8 @@ bb268_α:
  jmp xchain123_n207_α
  xchain123_n203_β:
  jmp xchain123_n164_α
-xchain123_n204_α:
 # IR_LIT_STRING
-bb269_α:
+ xchain123_n204_α:
  mov qword ptr [r12 + 4048], 1
  mov rax, qword ptr [rip + .Lx436_0]
  mov qword ptr [r12 + 4056], rax
@@ -4779,9 +4551,8 @@ bb269_α:
  .quad .Lx436_0_s
 .Lx436_0_s:
  .string "c"
-xchain123_n205_α:
 # IR_LIT_STRING
-bb270_α:
+ xchain123_n205_α:
  mov qword ptr [r12 + 3760], 1
  mov rax, qword ptr [rip + .Lx437_0]
  mov qword ptr [r12 + 3768], rax
@@ -4792,9 +4563,8 @@ bb270_α:
  .quad .Lx437_0_s
 .Lx437_0_s:
  .string "l"
-xchain123_n206_α:
 # IR_LIT_STRING
-bb271_α:
+ xchain123_n206_α:
  mov qword ptr [r12 + 3440], 1
  mov rax, qword ptr [rip + .Lx438_0]
  mov qword ptr [r12 + 3448], rax
@@ -4805,8 +4575,7 @@ bb271_α:
  .quad .Lx438_0_s
 .Lx438_0_s:
  .string "n"
-xchain123_n207_α:
-bb272_α:
+ xchain123_n207_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+4496] -> [r12+4464]
  mov rax, qword ptr [r12 + 4496]
@@ -4833,9 +4602,8 @@ bb272_α:
  jmp xchain123_n211_α
  xchain123_n207_β:
  jmp xchain123_n164_α
-xchain123_n208_α:
 # IR_LIT_STRING
-bb273_α:
+ xchain123_n208_α:
  mov qword ptr [r12 + 4032], 1
  mov rax, qword ptr [rip + .Lx441_0]
  mov qword ptr [r12 + 4040], rax
@@ -4846,9 +4614,8 @@ bb273_α:
  .quad .Lx441_0_s
 .Lx441_0_s:
  .string "[]"
-xchain123_n209_α:
 # IR_LIT_STRING
-bb274_α:
+ xchain123_n209_α:
  mov qword ptr [r12 + 3744], 1
  mov rax, qword ptr [rip + .Lx442_0]
  mov qword ptr [r12 + 3752], rax
@@ -4859,8 +4626,7 @@ bb274_α:
  .quad .Lx442_0_s
 .Lx442_0_s:
  .string "."
-xchain123_n210_α:
-bb275_α:
+ xchain123_n210_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+3424] -> [r12+3392]
  mov rax, qword ptr [r12 + 3424]
@@ -4887,16 +4653,14 @@ bb275_α:
  jmp xchain123_n214_α
  xchain123_n210_β:
  jmp xchain123_n215_α
-xchain123_n211_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb276_α:
+ xchain123_n211_α:
  lea rax, [rip + xchain123_n164_α]
  mov qword ptr [r12 + 64], rax
  jmp proc_connect_γ
  xchain123_n211_β:
  jmp proc_connect_ω
-xchain123_n212_α:
-bb277_α:
+ xchain123_n212_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+4128] -> [r12+4080]
  mov rax, qword ptr [r12 + 4128]
@@ -4928,9 +4692,8 @@ bb277_α:
  jmp xchain123_n216_α
  xchain123_n212_β:
  jmp proc_connect_ω
-xchain123_n213_α:
 # IR_LIT_STRING
-bb278_α:
+ xchain123_n213_α:
  mov qword ptr [r12 + 3664], 1
  mov rax, qword ptr [rip + .Lx449_0]
  mov qword ptr [r12 + 3672], rax
@@ -4941,9 +4704,8 @@ bb278_α:
  .quad .Lx449_0_s
 .Lx449_0_s:
  .string "n"
-xchain123_n214_α:
 # IR_VAR_REF local
-bb279_α:
+ xchain123_n214_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 3056], rax
@@ -4951,8 +4713,7 @@ bb279_α:
  jmp xchain123_n218_α
  xchain123_n214_β:
  jmp xchain123_n215_α
-xchain123_n215_α:
-bb280_α:
+ xchain123_n215_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+80] -> [r12+2992]
  mov rax, qword ptr [r12 + 80]
@@ -4974,8 +4735,7 @@ bb280_α:
  jmp xchain123_n219_α
  xchain123_n215_β:
  jmp proc_connect_ω
-xchain123_n216_α:
-bb281_α:
+ xchain123_n216_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+4224] -> [r12+4176]
  mov rax, qword ptr [r12 + 4224]
@@ -5007,9 +4767,8 @@ bb281_α:
  jmp xchain123_n220_α
  xchain123_n216_β:
  jmp proc_connect_ω
-xchain123_n217_α:
 # IR_LIT_STRING
-bb282_α:
+ xchain123_n217_α:
  mov qword ptr [r12 + 3648], 1
  mov rax, qword ptr [rip + .Lx456_0]
  mov qword ptr [r12 + 3656], rax
@@ -5020,9 +4779,8 @@ bb282_α:
  .quad .Lx456_0_s
 .Lx456_0_s:
  .string "."
-xchain123_n218_α:
 # IR_LIT_STRING
-bb283_α:
+ xchain123_n218_α:
  mov qword ptr [r12 + 3360], 1
  mov rax, qword ptr [rip + .Lx457_0]
  mov qword ptr [r12 + 3368], rax
@@ -5033,9 +4791,8 @@ bb283_α:
  .quad .Lx457_0_s
 .Lx457_0_s:
  .string "."
-xchain123_n219_α:
 # IR_VAR_REF local
-bb284_α:
+ xchain123_n219_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 2944], rax
@@ -5043,8 +4800,7 @@ bb284_α:
  jmp xchain123_n223_α
  xchain123_n219_β:
  jmp xchain123_n232_α
-xchain123_n220_α:
-bb285_α:
+ xchain123_n220_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+4320] -> [r12+4272]
  mov rax, qword ptr [r12 + 4320]
@@ -5076,9 +4832,8 @@ bb285_α:
  jmp xchain123_n224_α
  xchain123_n220_β:
  jmp xchain123_n181_α
-xchain123_n221_α:
 # IR_LIT_STRING
-bb286_α:
+ xchain123_n221_α:
  mov qword ptr [r12 + 3568], 1
  mov rax, qword ptr [rip + .Lx462_0]
  mov qword ptr [r12 + 3576], rax
@@ -5089,9 +4844,8 @@ bb286_α:
  .quad .Lx462_0_s
 .Lx462_0_s:
  .string "e"
-xchain123_n222_α:
 # IR_LIT_STRING
-bb287_α:
+ xchain123_n222_α:
  mov qword ptr [r12 + 3280], 1
  mov rax, qword ptr [rip + .Lx463_0]
  mov qword ptr [r12 + 3288], rax
@@ -5102,9 +4856,8 @@ bb287_α:
  .quad .Lx463_0_s
 .Lx463_0_s:
  .string "m"
-xchain123_n223_α:
 # IR_LIT_STRING
-bb288_α:
+ xchain123_n223_α:
  mov qword ptr [r12 + 2960], 1
  mov rax, qword ptr [rip + .Lx464_0]
  mov qword ptr [r12 + 2968], rax
@@ -5115,8 +4868,7 @@ bb288_α:
  .quad .Lx464_0_s
 .Lx464_0_s:
  .string "o"
-xchain123_n224_α:
-bb289_α:
+ xchain123_n224_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+4016] -> [r12+3984]
  mov rax, qword ptr [r12 + 4016]
@@ -5143,9 +4895,8 @@ bb289_α:
  jmp xchain123_n228_α
  xchain123_n224_β:
  jmp xchain123_n181_α
-xchain123_n225_α:
 # IR_LIT_STRING
-bb290_α:
+ xchain123_n225_α:
  mov qword ptr [r12 + 3552], 1
  mov rax, qword ptr [rip + .Lx467_0]
  mov qword ptr [r12 + 3560], rax
@@ -5156,9 +4907,8 @@ bb290_α:
  .quad .Lx467_0_s
 .Lx467_0_s:
  .string "[]"
-xchain123_n226_α:
 # IR_LIT_STRING
-bb291_α:
+ xchain123_n226_α:
  mov qword ptr [r12 + 3264], 1
  mov rax, qword ptr [rip + .Lx468_0]
  mov qword ptr [r12 + 3272], rax
@@ -5169,8 +4919,7 @@ bb291_α:
  .quad .Lx468_0_s
 .Lx468_0_s:
  .string "."
-xchain123_n227_α:
-bb292_α:
+ xchain123_n227_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+2944] -> [r12+2912]
  mov rax, qword ptr [r12 + 2944]
@@ -5197,16 +4946,14 @@ bb292_α:
  jmp xchain123_n231_α
  xchain123_n227_β:
  jmp xchain123_n232_α
-xchain123_n228_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb293_α:
+ xchain123_n228_α:
  lea rax, [rip + xchain123_n181_α]
  mov qword ptr [r12 + 64], rax
  jmp proc_connect_γ
  xchain123_n228_β:
  jmp proc_connect_ω
-xchain123_n229_α:
-bb294_α:
+ xchain123_n229_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+3648] -> [r12+3600]
  mov rax, qword ptr [r12 + 3648]
@@ -5238,9 +4985,8 @@ bb294_α:
  jmp xchain123_n233_α
  xchain123_n229_β:
  jmp proc_connect_ω
-xchain123_n230_α:
 # IR_LIT_STRING
-bb295_α:
+ xchain123_n230_α:
  mov qword ptr [r12 + 3184], 1
  mov rax, qword ptr [rip + .Lx475_0]
  mov qword ptr [r12 + 3192], rax
@@ -5251,9 +4997,8 @@ bb295_α:
  .quad .Lx475_0_s
 .Lx475_0_s:
  .string "o"
-xchain123_n231_α:
 # IR_VAR_REF local
-bb296_α:
+ xchain123_n231_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 2576], rax
@@ -5261,8 +5006,7 @@ bb296_α:
  jmp xchain123_n235_α
  xchain123_n231_β:
  jmp xchain123_n232_α
-xchain123_n232_α:
-bb297_α:
+ xchain123_n232_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+80] -> [r12+2512]
  mov rax, qword ptr [r12 + 80]
@@ -5284,8 +5028,7 @@ bb297_α:
  jmp xchain123_n236_α
  xchain123_n232_β:
  jmp proc_connect_ω
-xchain123_n233_α:
-bb298_α:
+ xchain123_n233_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+3744] -> [r12+3696]
  mov rax, qword ptr [r12 + 3744]
@@ -5317,9 +5060,8 @@ bb298_α:
  jmp xchain123_n237_α
  xchain123_n233_β:
  jmp proc_connect_ω
-xchain123_n234_α:
 # IR_LIT_STRING
-bb299_α:
+ xchain123_n234_α:
  mov qword ptr [r12 + 3168], 1
  mov rax, qword ptr [rip + .Lx482_0]
  mov qword ptr [r12 + 3176], rax
@@ -5330,9 +5072,8 @@ bb299_α:
  .quad .Lx482_0_s
 .Lx482_0_s:
  .string "."
-xchain123_n235_α:
 # IR_LIT_STRING
-bb300_α:
+ xchain123_n235_α:
  mov qword ptr [r12 + 2880], 1
  mov rax, qword ptr [rip + .Lx483_0]
  mov qword ptr [r12 + 2888], rax
@@ -5343,9 +5084,8 @@ bb300_α:
  .quad .Lx483_0_s
 .Lx483_0_s:
  .string "."
-xchain123_n236_α:
 # IR_VAR_REF local
-bb301_α:
+ xchain123_n236_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 2464], rax
@@ -5353,8 +5093,7 @@ bb301_α:
  jmp xchain123_n240_α
  xchain123_n236_β:
  jmp xchain123_n249_α
-xchain123_n237_α:
-bb302_α:
+ xchain123_n237_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+3840] -> [r12+3792]
  mov rax, qword ptr [r12 + 3840]
@@ -5386,9 +5125,8 @@ bb302_α:
  jmp xchain123_n241_α
  xchain123_n237_β:
  jmp xchain123_n198_α
-xchain123_n238_α:
 # IR_LIT_STRING
-bb303_α:
+ xchain123_n238_α:
  mov qword ptr [r12 + 3088], 1
  mov rax, qword ptr [rip + .Lx488_0]
  mov qword ptr [r12 + 3096], rax
@@ -5399,9 +5137,8 @@ bb303_α:
  .quad .Lx488_0_s
 .Lx488_0_s:
  .string "g"
-xchain123_n239_α:
 # IR_LIT_STRING
-bb304_α:
+ xchain123_n239_α:
  mov qword ptr [r12 + 2800], 1
  mov rax, qword ptr [rip + .Lx489_0]
  mov qword ptr [r12 + 2808], rax
@@ -5412,9 +5149,8 @@ bb304_α:
  .quad .Lx489_0_s
 .Lx489_0_s:
  .string "n"
-xchain123_n240_α:
 # IR_LIT_STRING
-bb305_α:
+ xchain123_n240_α:
  mov qword ptr [r12 + 2480], 1
  mov rax, qword ptr [rip + .Lx490_0]
  mov qword ptr [r12 + 2488], rax
@@ -5425,8 +5161,7 @@ bb305_α:
  .quad .Lx490_0_s
 .Lx490_0_s:
  .string "p"
-xchain123_n241_α:
-bb306_α:
+ xchain123_n241_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+3536] -> [r12+3504]
  mov rax, qword ptr [r12 + 3536]
@@ -5453,9 +5188,8 @@ bb306_α:
  jmp xchain123_n245_α
  xchain123_n241_β:
  jmp xchain123_n198_α
-xchain123_n242_α:
 # IR_LIT_STRING
-bb307_α:
+ xchain123_n242_α:
  mov qword ptr [r12 + 3072], 1
  mov rax, qword ptr [rip + .Lx493_0]
  mov qword ptr [r12 + 3080], rax
@@ -5466,9 +5200,8 @@ bb307_α:
  .quad .Lx493_0_s
 .Lx493_0_s:
  .string "[]"
-xchain123_n243_α:
 # IR_LIT_STRING
-bb308_α:
+ xchain123_n243_α:
  mov qword ptr [r12 + 2784], 1
  mov rax, qword ptr [rip + .Lx494_0]
  mov qword ptr [r12 + 2792], rax
@@ -5479,8 +5212,7 @@ bb308_α:
  .quad .Lx494_0_s
 .Lx494_0_s:
  .string "."
-xchain123_n244_α:
-bb309_α:
+ xchain123_n244_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+2464] -> [r12+2432]
  mov rax, qword ptr [r12 + 2464]
@@ -5507,16 +5239,14 @@ bb309_α:
  jmp xchain123_n248_α
  xchain123_n244_β:
  jmp xchain123_n249_α
-xchain123_n245_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb310_α:
+ xchain123_n245_α:
  lea rax, [rip + xchain123_n198_α]
  mov qword ptr [r12 + 64], rax
  jmp proc_connect_γ
  xchain123_n245_β:
  jmp proc_connect_ω
-xchain123_n246_α:
-bb311_α:
+ xchain123_n246_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+3168] -> [r12+3120]
  mov rax, qword ptr [r12 + 3168]
@@ -5548,9 +5278,8 @@ bb311_α:
  jmp xchain123_n250_α
  xchain123_n246_β:
  jmp proc_connect_ω
-xchain123_n247_α:
 # IR_LIT_STRING
-bb312_α:
+ xchain123_n247_α:
  mov qword ptr [r12 + 2704], 1
  mov rax, qword ptr [rip + .Lx501_0]
  mov qword ptr [r12 + 2712], rax
@@ -5561,9 +5290,8 @@ bb312_α:
  .quad .Lx501_0_s
 .Lx501_0_s:
  .string "k"
-xchain123_n248_α:
 # IR_VAR_REF local
-bb313_α:
+ xchain123_n248_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 2096], rax
@@ -5571,8 +5299,7 @@ bb313_α:
  jmp xchain123_n252_α
  xchain123_n248_β:
  jmp xchain123_n249_α
-xchain123_n249_α:
-bb314_α:
+ xchain123_n249_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+80] -> [r12+2032]
  mov rax, qword ptr [r12 + 80]
@@ -5594,8 +5321,7 @@ bb314_α:
  jmp xchain123_n253_α
  xchain123_n249_β:
  jmp proc_connect_ω
-xchain123_n250_α:
-bb315_α:
+ xchain123_n250_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+3264] -> [r12+3216]
  mov rax, qword ptr [r12 + 3264]
@@ -5627,9 +5353,8 @@ bb315_α:
  jmp xchain123_n254_α
  xchain123_n250_β:
  jmp proc_connect_ω
-xchain123_n251_α:
 # IR_LIT_STRING
-bb316_α:
+ xchain123_n251_α:
  mov qword ptr [r12 + 2688], 1
  mov rax, qword ptr [rip + .Lx508_0]
  mov qword ptr [r12 + 2696], rax
@@ -5640,9 +5365,8 @@ bb316_α:
  .quad .Lx508_0_s
 .Lx508_0_s:
  .string "."
-xchain123_n252_α:
 # IR_LIT_STRING
-bb317_α:
+ xchain123_n252_α:
  mov qword ptr [r12 + 2400], 1
  mov rax, qword ptr [rip + .Lx509_0]
  mov qword ptr [r12 + 2408], rax
@@ -5653,9 +5377,8 @@ bb317_α:
  .quad .Lx509_0_s
 .Lx509_0_s:
  .string "."
-xchain123_n253_α:
 # IR_VAR_REF local
-bb318_α:
+ xchain123_n253_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 1984], rax
@@ -5663,8 +5386,7 @@ bb318_α:
  jmp xchain123_n257_α
  xchain123_n253_β:
  jmp xchain123_n266_α
-xchain123_n254_α:
-bb319_α:
+ xchain123_n254_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+3360] -> [r12+3312]
  mov rax, qword ptr [r12 + 3360]
@@ -5696,9 +5418,8 @@ bb319_α:
  jmp xchain123_n258_α
  xchain123_n254_β:
  jmp xchain123_n215_α
-xchain123_n255_α:
 # IR_LIT_STRING
-bb320_α:
+ xchain123_n255_α:
  mov qword ptr [r12 + 2608], 1
  mov rax, qword ptr [rip + .Lx514_0]
  mov qword ptr [r12 + 2616], rax
@@ -5709,9 +5430,8 @@ bb320_α:
  .quad .Lx514_0_s
 .Lx514_0_s:
  .string "i"
-xchain123_n256_α:
 # IR_LIT_STRING
-bb321_α:
+ xchain123_n256_α:
  mov qword ptr [r12 + 2320], 1
  mov rax, qword ptr [rip + .Lx515_0]
  mov qword ptr [r12 + 2328], rax
@@ -5722,9 +5442,8 @@ bb321_α:
  .quad .Lx515_0_s
 .Lx515_0_s:
  .string "b"
-xchain123_n257_α:
 # IR_LIT_STRING
-bb322_α:
+ xchain123_n257_α:
  mov qword ptr [r12 + 2000], 1
  mov rax, qword ptr [rip + .Lx516_0]
  mov qword ptr [r12 + 2008], rax
@@ -5735,8 +5454,7 @@ bb322_α:
  .quad .Lx516_0_s
 .Lx516_0_s:
  .string "q"
-xchain123_n258_α:
-bb323_α:
+ xchain123_n258_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+3056] -> [r12+3024]
  mov rax, qword ptr [r12 + 3056]
@@ -5763,9 +5481,8 @@ bb323_α:
  jmp xchain123_n262_α
  xchain123_n258_β:
  jmp xchain123_n215_α
-xchain123_n259_α:
 # IR_LIT_STRING
-bb324_α:
+ xchain123_n259_α:
  mov qword ptr [r12 + 2592], 1
  mov rax, qword ptr [rip + .Lx519_0]
  mov qword ptr [r12 + 2600], rax
@@ -5776,9 +5493,8 @@ bb324_α:
  .quad .Lx519_0_s
 .Lx519_0_s:
  .string "[]"
-xchain123_n260_α:
 # IR_LIT_STRING
-bb325_α:
+ xchain123_n260_α:
  mov qword ptr [r12 + 2304], 1
  mov rax, qword ptr [rip + .Lx520_0]
  mov qword ptr [r12 + 2312], rax
@@ -5789,8 +5505,7 @@ bb325_α:
  .quad .Lx520_0_s
 .Lx520_0_s:
  .string "."
-xchain123_n261_α:
-bb326_α:
+ xchain123_n261_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1984] -> [r12+1952]
  mov rax, qword ptr [r12 + 1984]
@@ -5817,16 +5532,14 @@ bb326_α:
  jmp xchain123_n265_α
  xchain123_n261_β:
  jmp xchain123_n266_α
-xchain123_n262_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb327_α:
+ xchain123_n262_α:
  lea rax, [rip + xchain123_n215_α]
  mov qword ptr [r12 + 64], rax
  jmp proc_connect_γ
  xchain123_n262_β:
  jmp proc_connect_ω
-xchain123_n263_α:
-bb328_α:
+ xchain123_n263_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+2688] -> [r12+2640]
  mov rax, qword ptr [r12 + 2688]
@@ -5858,9 +5571,8 @@ bb328_α:
  jmp xchain123_n267_α
  xchain123_n263_β:
  jmp proc_connect_ω
-xchain123_n264_α:
 # IR_LIT_STRING
-bb329_α:
+ xchain123_n264_α:
  mov qword ptr [r12 + 2224], 1
  mov rax, qword ptr [rip + .Lx527_0]
  mov qword ptr [r12 + 2232], rax
@@ -5871,9 +5583,8 @@ bb329_α:
  .quad .Lx527_0_s
 .Lx527_0_s:
  .string "q"
-xchain123_n265_α:
 # IR_VAR_REF local
-bb330_α:
+ xchain123_n265_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 1616], rax
@@ -5881,8 +5592,7 @@ bb330_α:
  jmp xchain123_n269_α
  xchain123_n265_β:
  jmp xchain123_n266_α
-xchain123_n266_α:
-bb331_α:
+ xchain123_n266_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+80] -> [r12+1552]
  mov rax, qword ptr [r12 + 80]
@@ -5904,8 +5614,7 @@ bb331_α:
  jmp xchain123_n270_α
  xchain123_n266_β:
  jmp proc_connect_ω
-xchain123_n267_α:
-bb332_α:
+ xchain123_n267_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+2784] -> [r12+2736]
  mov rax, qword ptr [r12 + 2784]
@@ -5937,9 +5646,8 @@ bb332_α:
  jmp xchain123_n271_α
  xchain123_n267_β:
  jmp proc_connect_ω
-xchain123_n268_α:
 # IR_LIT_STRING
-bb333_α:
+ xchain123_n268_α:
  mov qword ptr [r12 + 2208], 1
  mov rax, qword ptr [rip + .Lx534_0]
  mov qword ptr [r12 + 2216], rax
@@ -5950,9 +5658,8 @@ bb333_α:
  .quad .Lx534_0_s
 .Lx534_0_s:
  .string "."
-xchain123_n269_α:
 # IR_LIT_STRING
-bb334_α:
+ xchain123_n269_α:
  mov qword ptr [r12 + 1920], 1
  mov rax, qword ptr [rip + .Lx535_0]
  mov qword ptr [r12 + 1928], rax
@@ -5963,9 +5670,8 @@ bb334_α:
  .quad .Lx535_0_s
 .Lx535_0_s:
  .string "."
-xchain123_n270_α:
 # IR_VAR_REF local
-bb335_α:
+ xchain123_n270_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 1504], rax
@@ -5973,8 +5679,7 @@ bb335_α:
  jmp xchain123_n274_α
  xchain123_n270_β:
  jmp xchain123_n283_α
-xchain123_n271_α:
-bb336_α:
+ xchain123_n271_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+2880] -> [r12+2832]
  mov rax, qword ptr [r12 + 2880]
@@ -6006,9 +5711,8 @@ bb336_α:
  jmp xchain123_n275_α
  xchain123_n271_β:
  jmp xchain123_n232_α
-xchain123_n272_α:
 # IR_LIT_STRING
-bb337_α:
+ xchain123_n272_α:
  mov qword ptr [r12 + 2128], 1
  mov rax, qword ptr [rip + .Lx540_0]
  mov qword ptr [r12 + 2136], rax
@@ -6019,9 +5723,8 @@ bb337_α:
  .quad .Lx540_0_s
 .Lx540_0_s:
  .string "t"
-xchain123_n273_α:
 # IR_LIT_STRING
-bb338_α:
+ xchain123_n273_α:
  mov qword ptr [r12 + 1840], 1
  mov rax, qword ptr [rip + .Lx541_0]
  mov qword ptr [r12 + 1848], rax
@@ -6032,9 +5735,8 @@ bb338_α:
  .quad .Lx541_0_s
 .Lx541_0_s:
  .string "p"
-xchain123_n274_α:
 # IR_LIT_STRING
-bb339_α:
+ xchain123_n274_α:
  mov qword ptr [r12 + 1520], 1
  mov rax, qword ptr [rip + .Lx542_0]
  mov qword ptr [r12 + 1528], rax
@@ -6045,8 +5747,7 @@ bb339_α:
  .quad .Lx542_0_s
 .Lx542_0_s:
  .string "r"
-xchain123_n275_α:
-bb340_α:
+ xchain123_n275_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+2576] -> [r12+2544]
  mov rax, qword ptr [r12 + 2576]
@@ -6073,9 +5774,8 @@ bb340_α:
  jmp xchain123_n279_α
  xchain123_n275_β:
  jmp xchain123_n232_α
-xchain123_n276_α:
 # IR_LIT_STRING
-bb341_α:
+ xchain123_n276_α:
  mov qword ptr [r12 + 2112], 1
  mov rax, qword ptr [rip + .Lx545_0]
  mov qword ptr [r12 + 2120], rax
@@ -6086,9 +5786,8 @@ bb341_α:
  .quad .Lx545_0_s
 .Lx545_0_s:
  .string "[]"
-xchain123_n277_α:
 # IR_LIT_STRING
-bb342_α:
+ xchain123_n277_α:
  mov qword ptr [r12 + 1824], 1
  mov rax, qword ptr [rip + .Lx546_0]
  mov qword ptr [r12 + 1832], rax
@@ -6099,8 +5798,7 @@ bb342_α:
  .quad .Lx546_0_s
 .Lx546_0_s:
  .string "."
-xchain123_n278_α:
-bb343_α:
+ xchain123_n278_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1504] -> [r12+1472]
  mov rax, qword ptr [r12 + 1504]
@@ -6127,16 +5825,14 @@ bb343_α:
  jmp xchain123_n282_α
  xchain123_n278_β:
  jmp xchain123_n283_α
-xchain123_n279_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb344_α:
+ xchain123_n279_α:
  lea rax, [rip + xchain123_n232_α]
  mov qword ptr [r12 + 64], rax
  jmp proc_connect_γ
  xchain123_n279_β:
  jmp proc_connect_ω
-xchain123_n280_α:
-bb345_α:
+ xchain123_n280_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+2208] -> [r12+2160]
  mov rax, qword ptr [r12 + 2208]
@@ -6168,9 +5864,8 @@ bb345_α:
  jmp xchain123_n284_α
  xchain123_n280_β:
  jmp proc_connect_ω
-xchain123_n281_α:
 # IR_LIT_STRING
-bb346_α:
+ xchain123_n281_α:
  mov qword ptr [r12 + 1744], 1
  mov rax, qword ptr [rip + .Lx553_0]
  mov qword ptr [r12 + 1752], rax
@@ -6181,9 +5876,8 @@ bb346_α:
  .quad .Lx553_0_s
 .Lx553_0_s:
  .string "r"
-xchain123_n282_α:
 # IR_VAR_REF local
-bb347_α:
+ xchain123_n282_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 1136], rax
@@ -6191,8 +5885,7 @@ bb347_α:
  jmp xchain123_n286_α
  xchain123_n282_β:
  jmp xchain123_n283_α
-xchain123_n283_α:
-bb348_α:
+ xchain123_n283_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+80] -> [r12+1072]
  mov rax, qword ptr [r12 + 80]
@@ -6214,8 +5907,7 @@ bb348_α:
  jmp xchain123_n287_α
  xchain123_n283_β:
  jmp proc_connect_ω
-xchain123_n284_α:
-bb349_α:
+ xchain123_n284_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+2304] -> [r12+2256]
  mov rax, qword ptr [r12 + 2304]
@@ -6247,9 +5939,8 @@ bb349_α:
  jmp xchain123_n288_α
  xchain123_n284_β:
  jmp proc_connect_ω
-xchain123_n285_α:
 # IR_LIT_STRING
-bb350_α:
+ xchain123_n285_α:
  mov qword ptr [r12 + 1728], 1
  mov rax, qword ptr [rip + .Lx560_0]
  mov qword ptr [r12 + 1736], rax
@@ -6260,9 +5951,8 @@ bb350_α:
  .quad .Lx560_0_s
 .Lx560_0_s:
  .string "."
-xchain123_n286_α:
 # IR_LIT_STRING
-bb351_α:
+ xchain123_n286_α:
  mov qword ptr [r12 + 1440], 1
  mov rax, qword ptr [rip + .Lx561_0]
  mov qword ptr [r12 + 1448], rax
@@ -6273,9 +5963,8 @@ bb351_α:
  .quad .Lx561_0_s
 .Lx561_0_s:
  .string "."
-xchain123_n287_α:
 # IR_VAR_REF local
-bb352_α:
+ xchain123_n287_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 1024], rax
@@ -6283,8 +5972,7 @@ bb352_α:
  jmp xchain123_n291_α
  xchain123_n287_β:
  jmp xchain123_n300_α
-xchain123_n288_α:
-bb353_α:
+ xchain123_n288_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+2400] -> [r12+2352]
  mov rax, qword ptr [r12 + 2400]
@@ -6316,9 +6004,8 @@ bb353_α:
  jmp xchain123_n292_α
  xchain123_n288_β:
  jmp xchain123_n249_α
-xchain123_n289_α:
 # IR_LIT_STRING
-bb354_α:
+ xchain123_n289_α:
  mov qword ptr [r12 + 1648], 1
  mov rax, qword ptr [rip + .Lx566_0]
  mov qword ptr [r12 + 1656], rax
@@ -6329,9 +6016,8 @@ bb354_α:
  .quad .Lx566_0_s
 .Lx566_0_s:
  .string "d"
-xchain123_n290_α:
 # IR_LIT_STRING
-bb355_α:
+ xchain123_n290_α:
  mov qword ptr [r12 + 1360], 1
  mov rax, qword ptr [rip + .Lx567_0]
  mov qword ptr [r12 + 1368], rax
@@ -6342,9 +6028,8 @@ bb355_α:
  .quad .Lx567_0_s
 .Lx567_0_s:
  .string "q"
-xchain123_n291_α:
 # IR_LIT_STRING
-bb356_α:
+ xchain123_n291_α:
  mov qword ptr [r12 + 1040], 1
  mov rax, qword ptr [rip + .Lx568_0]
  mov qword ptr [r12 + 1048], rax
@@ -6355,8 +6040,7 @@ bb356_α:
  .quad .Lx568_0_s
 .Lx568_0_s:
  .string "s"
-xchain123_n292_α:
-bb357_α:
+ xchain123_n292_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+2096] -> [r12+2064]
  mov rax, qword ptr [r12 + 2096]
@@ -6383,9 +6067,8 @@ bb357_α:
  jmp xchain123_n296_α
  xchain123_n292_β:
  jmp xchain123_n249_α
-xchain123_n293_α:
 # IR_LIT_STRING
-bb358_α:
+ xchain123_n293_α:
  mov qword ptr [r12 + 1632], 1
  mov rax, qword ptr [rip + .Lx571_0]
  mov qword ptr [r12 + 1640], rax
@@ -6396,9 +6079,8 @@ bb358_α:
  .quad .Lx571_0_s
 .Lx571_0_s:
  .string "[]"
-xchain123_n294_α:
 # IR_LIT_STRING
-bb359_α:
+ xchain123_n294_α:
  mov qword ptr [r12 + 1344], 1
  mov rax, qword ptr [rip + .Lx572_0]
  mov qword ptr [r12 + 1352], rax
@@ -6409,8 +6091,7 @@ bb359_α:
  .quad .Lx572_0_s
 .Lx572_0_s:
  .string "."
-xchain123_n295_α:
-bb360_α:
+ xchain123_n295_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1024] -> [r12+992]
  mov rax, qword ptr [r12 + 1024]
@@ -6437,16 +6118,14 @@ bb360_α:
  jmp xchain123_n299_α
  xchain123_n295_β:
  jmp xchain123_n300_α
-xchain123_n296_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb361_α:
+ xchain123_n296_α:
  lea rax, [rip + xchain123_n249_α]
  mov qword ptr [r12 + 64], rax
  jmp proc_connect_γ
  xchain123_n296_β:
  jmp proc_connect_ω
-xchain123_n297_α:
-bb362_α:
+ xchain123_n297_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1728] -> [r12+1680]
  mov rax, qword ptr [r12 + 1728]
@@ -6478,9 +6157,8 @@ bb362_α:
  jmp xchain123_n301_α
  xchain123_n297_β:
  jmp proc_connect_ω
-xchain123_n298_α:
 # IR_LIT_STRING
-bb363_α:
+ xchain123_n298_α:
  mov qword ptr [r12 + 1264], 1
  mov rax, qword ptr [rip + .Lx579_0]
  mov qword ptr [r12 + 1272], rax
@@ -6491,9 +6169,8 @@ bb363_α:
  .quad .Lx579_0_s
 .Lx579_0_s:
  .string "s"
-xchain123_n299_α:
 # IR_VAR_REF local
-bb364_α:
+ xchain123_n299_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 656], rax
@@ -6501,8 +6178,7 @@ bb364_α:
  jmp xchain123_n303_α
  xchain123_n299_β:
  jmp xchain123_n300_α
-xchain123_n300_α:
-bb365_α:
+ xchain123_n300_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+80] -> [r12+592]
  mov rax, qword ptr [r12 + 80]
@@ -6524,8 +6200,7 @@ bb365_α:
  jmp xchain123_n304_α
  xchain123_n300_β:
  jmp proc_connect_ω
-xchain123_n301_α:
-bb366_α:
+ xchain123_n301_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1824] -> [r12+1776]
  mov rax, qword ptr [r12 + 1824]
@@ -6557,9 +6232,8 @@ bb366_α:
  jmp xchain123_n305_α
  xchain123_n301_β:
  jmp proc_connect_ω
-xchain123_n302_α:
 # IR_LIT_STRING
-bb367_α:
+ xchain123_n302_α:
  mov qword ptr [r12 + 1248], 1
  mov rax, qword ptr [rip + .Lx586_0]
  mov qword ptr [r12 + 1256], rax
@@ -6570,9 +6244,8 @@ bb367_α:
  .quad .Lx586_0_s
 .Lx586_0_s:
  .string "."
-xchain123_n303_α:
 # IR_LIT_STRING
-bb368_α:
+ xchain123_n303_α:
  mov qword ptr [r12 + 960], 1
  mov rax, qword ptr [rip + .Lx587_0]
  mov qword ptr [r12 + 968], rax
@@ -6583,9 +6256,8 @@ bb368_α:
  .quad .Lx587_0_s
 .Lx587_0_s:
  .string "."
-xchain123_n304_α:
 # IR_VAR_REF local
-bb369_α:
+ xchain123_n304_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 544], rax
@@ -6593,8 +6265,7 @@ bb369_α:
  jmp xchain123_n308_α
  xchain123_n304_β:
  jmp xchain123_n317_α
-xchain123_n305_α:
-bb370_α:
+ xchain123_n305_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1920] -> [r12+1872]
  mov rax, qword ptr [r12 + 1920]
@@ -6626,9 +6297,8 @@ bb370_α:
  jmp xchain123_n309_α
  xchain123_n305_β:
  jmp xchain123_n266_α
-xchain123_n306_α:
 # IR_LIT_STRING
-bb371_α:
+ xchain123_n306_α:
  mov qword ptr [r12 + 1168], 1
  mov rax, qword ptr [rip + .Lx592_0]
  mov qword ptr [r12 + 1176], rax
@@ -6639,9 +6309,8 @@ bb371_α:
  .quad .Lx592_0_s
 .Lx592_0_s:
  .string "f"
-xchain123_n307_α:
 # IR_LIT_STRING
-bb372_α:
+ xchain123_n307_α:
  mov qword ptr [r12 + 880], 1
  mov rax, qword ptr [rip + .Lx593_0]
  mov qword ptr [r12 + 888], rax
@@ -6652,9 +6321,8 @@ bb372_α:
  .quad .Lx593_0_s
 .Lx593_0_s:
  .string "r"
-xchain123_n308_α:
 # IR_LIT_STRING
-bb373_α:
+ xchain123_n308_α:
  mov qword ptr [r12 + 560], 1
  mov rax, qword ptr [rip + .Lx594_0]
  mov qword ptr [r12 + 568], rax
@@ -6665,8 +6333,7 @@ bb373_α:
  .quad .Lx594_0_s
 .Lx594_0_s:
  .string "t"
-xchain123_n309_α:
-bb374_α:
+ xchain123_n309_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1616] -> [r12+1584]
  mov rax, qword ptr [r12 + 1616]
@@ -6693,9 +6360,8 @@ bb374_α:
  jmp xchain123_n313_α
  xchain123_n309_β:
  jmp xchain123_n266_α
-xchain123_n310_α:
 # IR_LIT_STRING
-bb375_α:
+ xchain123_n310_α:
  mov qword ptr [r12 + 1152], 1
  mov rax, qword ptr [rip + .Lx597_0]
  mov qword ptr [r12 + 1160], rax
@@ -6706,9 +6372,8 @@ bb375_α:
  .quad .Lx597_0_s
 .Lx597_0_s:
  .string "[]"
-xchain123_n311_α:
 # IR_LIT_STRING
-bb376_α:
+ xchain123_n311_α:
  mov qword ptr [r12 + 864], 1
  mov rax, qword ptr [rip + .Lx598_0]
  mov qword ptr [r12 + 872], rax
@@ -6719,8 +6384,7 @@ bb376_α:
  .quad .Lx598_0_s
 .Lx598_0_s:
  .string "."
-xchain123_n312_α:
-bb377_α:
+ xchain123_n312_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+544] -> [r12+512]
  mov rax, qword ptr [r12 + 544]
@@ -6747,16 +6411,14 @@ bb377_α:
  jmp xchain123_n316_α
  xchain123_n312_β:
  jmp xchain123_n317_α
-xchain123_n313_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb378_α:
+ xchain123_n313_α:
  lea rax, [rip + xchain123_n266_α]
  mov qword ptr [r12 + 64], rax
  jmp proc_connect_γ
  xchain123_n313_β:
  jmp proc_connect_ω
-xchain123_n314_α:
-bb379_α:
+ xchain123_n314_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1248] -> [r12+1200]
  mov rax, qword ptr [r12 + 1248]
@@ -6788,9 +6450,8 @@ bb379_α:
  jmp xchain123_n318_α
  xchain123_n314_β:
  jmp proc_connect_ω
-xchain123_n315_α:
 # IR_LIT_STRING
-bb380_α:
+ xchain123_n315_α:
  mov qword ptr [r12 + 784], 1
  mov rax, qword ptr [rip + .Lx605_0]
  mov qword ptr [r12 + 792], rax
@@ -6801,9 +6462,8 @@ bb380_α:
  .quad .Lx605_0_s
 .Lx605_0_s:
  .string "t"
-xchain123_n316_α:
 # IR_VAR_REF local
-bb381_α:
+ xchain123_n316_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 176], rax
@@ -6811,8 +6471,7 @@ bb381_α:
  jmp xchain123_n320_α
  xchain123_n316_β:
  jmp xchain123_n317_α
-xchain123_n317_α:
-bb382_α:
+ xchain123_n317_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+80] -> [r12+112]
  mov rax, qword ptr [r12 + 80]
@@ -6834,8 +6493,7 @@ bb382_α:
  jmp proc_connect_ω
  xchain123_n317_β:
  jmp proc_connect_ω
-xchain123_n318_α:
-bb383_α:
+ xchain123_n318_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1344] -> [r12+1296]
  mov rax, qword ptr [r12 + 1344]
@@ -6867,9 +6525,8 @@ bb383_α:
  jmp xchain123_n321_α
  xchain123_n318_β:
  jmp proc_connect_ω
-xchain123_n319_α:
 # IR_LIT_STRING
-bb384_α:
+ xchain123_n319_α:
  mov qword ptr [r12 + 768], 1
  mov rax, qword ptr [rip + .Lx612_0]
  mov qword ptr [r12 + 776], rax
@@ -6880,9 +6537,8 @@ bb384_α:
  .quad .Lx612_0_s
 .Lx612_0_s:
  .string "."
-xchain123_n320_α:
 # IR_LIT_STRING
-bb385_α:
+ xchain123_n320_α:
  mov qword ptr [r12 + 480], 1
  mov rax, qword ptr [rip + .Lx613_0]
  mov qword ptr [r12 + 488], rax
@@ -6893,8 +6549,7 @@ bb385_α:
  .quad .Lx613_0_s
 .Lx613_0_s:
  .string "."
-xchain123_n321_α:
-bb386_α:
+ xchain123_n321_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1440] -> [r12+1392]
  mov rax, qword ptr [r12 + 1440]
@@ -6926,9 +6581,8 @@ bb386_α:
  jmp xchain123_n324_α
  xchain123_n321_β:
  jmp xchain123_n283_α
-xchain123_n322_α:
 # IR_LIT_STRING
-bb387_α:
+ xchain123_n322_α:
  mov qword ptr [r12 + 688], 1
  mov rax, qword ptr [rip + .Lx616_0]
  mov qword ptr [r12 + 696], rax
@@ -6939,9 +6593,8 @@ bb387_α:
  .quad .Lx616_0_s
 .Lx616_0_s:
  .string "h"
-xchain123_n323_α:
 # IR_LIT_STRING
-bb388_α:
+ xchain123_n323_α:
  mov qword ptr [r12 + 400], 1
  mov rax, qword ptr [rip + .Lx617_0]
  mov qword ptr [r12 + 408], rax
@@ -6952,8 +6605,7 @@ bb388_α:
  .quad .Lx617_0_s
 .Lx617_0_s:
  .string "p"
-xchain123_n324_α:
-bb389_α:
+ xchain123_n324_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1136] -> [r12+1104]
  mov rax, qword ptr [r12 + 1136]
@@ -6980,9 +6632,8 @@ bb389_α:
  jmp xchain123_n327_α
  xchain123_n324_β:
  jmp xchain123_n283_α
-xchain123_n325_α:
 # IR_LIT_STRING
-bb390_α:
+ xchain123_n325_α:
  mov qword ptr [r12 + 672], 1
  mov rax, qword ptr [rip + .Lx620_0]
  mov qword ptr [r12 + 680], rax
@@ -6993,9 +6644,8 @@ bb390_α:
  .quad .Lx620_0_s
 .Lx620_0_s:
  .string "[]"
-xchain123_n326_α:
 # IR_LIT_STRING
-bb391_α:
+ xchain123_n326_α:
  mov qword ptr [r12 + 384], 1
  mov rax, qword ptr [rip + .Lx621_0]
  mov qword ptr [r12 + 392], rax
@@ -7006,16 +6656,14 @@ bb391_α:
  .quad .Lx621_0_s
 .Lx621_0_s:
  .string "."
-xchain123_n327_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb392_α:
+ xchain123_n327_α:
  lea rax, [rip + xchain123_n283_α]
  mov qword ptr [r12 + 64], rax
  jmp proc_connect_γ
  xchain123_n327_β:
  jmp proc_connect_ω
-xchain123_n328_α:
-bb393_α:
+ xchain123_n328_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+768] -> [r12+720]
  mov rax, qword ptr [r12 + 768]
@@ -7047,9 +6695,8 @@ bb393_α:
  jmp xchain123_n330_α
  xchain123_n328_β:
  jmp proc_connect_ω
-xchain123_n329_α:
 # IR_LIT_STRING
-bb394_α:
+ xchain123_n329_α:
  mov qword ptr [r12 + 304], 1
  mov rax, qword ptr [rip + .Lx626_0]
  mov qword ptr [r12 + 312], rax
@@ -7060,8 +6707,7 @@ bb394_α:
  .quad .Lx626_0_s
 .Lx626_0_s:
  .string "s"
-xchain123_n330_α:
-bb395_α:
+ xchain123_n330_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+864] -> [r12+816]
  mov rax, qword ptr [r12 + 864]
@@ -7093,9 +6739,8 @@ bb395_α:
  jmp xchain123_n332_α
  xchain123_n330_β:
  jmp proc_connect_ω
-xchain123_n331_α:
 # IR_LIT_STRING
-bb396_α:
+ xchain123_n331_α:
  mov qword ptr [r12 + 288], 1
  mov rax, qword ptr [rip + .Lx629_0]
  mov qword ptr [r12 + 296], rax
@@ -7106,8 +6751,7 @@ bb396_α:
  .quad .Lx629_0_s
 .Lx629_0_s:
  .string "."
-xchain123_n332_α:
-bb397_α:
+ xchain123_n332_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+960] -> [r12+912]
  mov rax, qword ptr [r12 + 960]
@@ -7139,9 +6783,8 @@ bb397_α:
  jmp xchain123_n334_α
  xchain123_n332_β:
  jmp xchain123_n300_α
-xchain123_n333_α:
 # IR_LIT_STRING
-bb398_α:
+ xchain123_n333_α:
  mov qword ptr [r12 + 208], 1
  mov rax, qword ptr [rip + .Lx632_0]
  mov qword ptr [r12 + 216], rax
@@ -7152,8 +6795,7 @@ bb398_α:
  .quad .Lx632_0_s
 .Lx632_0_s:
  .string "j"
-xchain123_n334_α:
-bb399_α:
+ xchain123_n334_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+656] -> [r12+624]
  mov rax, qword ptr [r12 + 656]
@@ -7180,9 +6822,8 @@ bb399_α:
  jmp xchain123_n336_α
  xchain123_n334_β:
  jmp xchain123_n300_α
-xchain123_n335_α:
 # IR_LIT_STRING
-bb400_α:
+ xchain123_n335_α:
  mov qword ptr [r12 + 192], 1
  mov rax, qword ptr [rip + .Lx635_0]
  mov qword ptr [r12 + 200], rax
@@ -7193,16 +6834,14 @@ bb400_α:
  .quad .Lx635_0_s
 .Lx635_0_s:
  .string "[]"
-xchain123_n336_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb401_α:
+ xchain123_n336_α:
  lea rax, [rip + xchain123_n300_α]
  mov qword ptr [r12 + 64], rax
  jmp proc_connect_γ
  xchain123_n336_β:
  jmp proc_connect_ω
-xchain123_n337_α:
-bb402_α:
+ xchain123_n337_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+288] -> [r12+240]
  mov rax, qword ptr [r12 + 288]
@@ -7234,8 +6873,7 @@ bb402_α:
  jmp xchain123_n338_α
  xchain123_n337_β:
  jmp proc_connect_ω
-xchain123_n338_α:
-bb403_α:
+ xchain123_n338_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+384] -> [r12+336]
  mov rax, qword ptr [r12 + 384]
@@ -7267,8 +6905,7 @@ bb403_α:
  jmp xchain123_n339_α
  xchain123_n338_β:
  jmp proc_connect_ω
-xchain123_n339_α:
-bb404_α:
+ xchain123_n339_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+480] -> [r12+432]
  mov rax, qword ptr [r12 + 480]
@@ -7300,8 +6937,7 @@ bb404_α:
  jmp xchain123_n340_α
  xchain123_n339_β:
  jmp xchain123_n317_α
-xchain123_n340_α:
-bb405_α:
+ xchain123_n340_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+176] -> [r12+144]
  mov rax, qword ptr [r12 + 176]
@@ -7328,9 +6964,8 @@ bb405_α:
  jmp xchain123_n341_α
  xchain123_n340_β:
  jmp xchain123_n317_α
-xchain123_n341_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb406_α:
+ xchain123_n341_α:
  lea rax, [rip + xchain123_n317_α]
  mov qword ptr [r12 + 64], rax
  jmp proc_connect_γ
@@ -7343,6 +6978,13 @@ mov eax, 1
 xor edx, edx
 pop r12
 ret
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ mov rdi, qword ptr [r12 + 9696]
+ call rt_zls_release_to@PLT
+ mov rsp, rbp
+ pop rbp
 proc_connect_ω:
 # GZ-10 PROC FAIL EXIT: write FAILDESCR to frame[0] so rt_call_proc_descr sees failure
 mov dword ptr [r12+0], 99
@@ -7363,9 +7005,17 @@ push r12
   mov r12, rdi
   cmp esi, 0
   jne proc_cycle_ham_β
+ push rsi
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ call rt_zls_mark@PLT
+ mov rsp, rbp
+ pop rbp
+ mov qword ptr [r12 + 960], rax
+ pop rsi
 proc_cycle_ham_α_body:
-xchain648_n0_α:
-bb407_α:
+ xchain648_n0_α:
 # BOX IR_CALL $trail_mark(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
   .Lrkfn650: .string "$trail_mark"
@@ -7382,9 +7032,8 @@ bb407_α:
  jmp xchain648_n1_α
  xchain648_n0_β:
  jmp proc_cycle_ham_ω
-xchain648_n1_α:
 # IR_VAR_REF local
-bb408_α:
+ xchain648_n1_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 832], rax
@@ -7392,9 +7041,8 @@ bb408_α:
  jmp xchain648_n2_α
  xchain648_n1_β:
  jmp xchain648_n7_α
-xchain648_n2_α:
 # IR_LIT_STRING
-bb409_α:
+ xchain648_n2_α:
  mov qword ptr [r12 + 944], 1
  mov rax, qword ptr [rip + .Lx653_0]
  mov qword ptr [r12 + 952], rax
@@ -7405,28 +7053,25 @@ bb409_α:
  .quad .Lx653_0_s
 .Lx653_0_s:
  .string "."
-xchain648_n3_α:
 # IR_VAR_REF local
-bb410_α:
- lea rdi, [r12 + 976]
+ xchain648_n3_α:
+ lea rdi, [r12 + 992]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 864], rax
  mov qword ptr [r12 + 872], rdx
  jmp xchain648_n4_α
  xchain648_n3_β:
  jmp proc_cycle_ham_ω
-xchain648_n4_α:
 # IR_VAR_REF local
-bb411_α:
- lea rdi, [r12 + 992]
+ xchain648_n4_α:
+ lea rdi, [r12 + 1008]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 848], rax
  mov qword ptr [r12 + 856], rdx
  jmp xchain648_n5_α
  xchain648_n4_β:
  jmp proc_cycle_ham_ω
-xchain648_n5_α:
-bb412_α:
+ xchain648_n5_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+944] -> [r12+896]
  mov rax, qword ptr [r12 + 944]
@@ -7458,8 +7103,7 @@ bb412_α:
  jmp xchain648_n6_α
  xchain648_n5_β:
  jmp xchain648_n7_α
-xchain648_n6_α:
-bb413_α:
+ xchain648_n6_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+832] -> [r12+800]
  mov rax, qword ptr [r12 + 832]
@@ -7486,8 +7130,7 @@ bb413_α:
  jmp xchain648_n8_α
  xchain648_n6_β:
  jmp xchain648_n7_α
-xchain648_n7_α:
-bb414_α:
+ xchain648_n7_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+80] -> [r12+112]
  mov rax, qword ptr [r12 + 80]
@@ -7509,9 +7152,8 @@ bb414_α:
  jmp proc_cycle_ham_ω
  xchain648_n7_β:
  jmp proc_cycle_ham_ω
-xchain648_n8_α:
 # IR_VAR_REF local
-bb415_α:
+ xchain648_n8_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 560], rax
@@ -7519,9 +7161,8 @@ bb415_α:
  jmp xchain648_n9_α
  xchain648_n8_β:
  jmp xchain648_n7_α
-xchain648_n9_α:
 # IR_LIT_STRING
-bb416_α:
+ xchain648_n9_α:
  mov qword ptr [r12 + 768], 1
  mov rax, qword ptr [rip + .Lx666_0]
  mov qword ptr [r12 + 776], rax
@@ -7532,19 +7173,17 @@ bb416_α:
  .quad .Lx666_0_s
 .Lx666_0_s:
  .string "."
-xchain648_n10_α:
 # IR_VAR_REF local
-bb417_α:
- lea rdi, [r12 + 976]
+ xchain648_n10_α:
+ lea rdi, [r12 + 992]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 688], rax
  mov qword ptr [r12 + 696], rdx
  jmp xchain648_n11_α
  xchain648_n10_β:
  jmp proc_cycle_ham_ω
-xchain648_n11_α:
 # IR_LIT_STRING
-bb418_α:
+ xchain648_n11_α:
  mov qword ptr [r12 + 672], 1
  mov rax, qword ptr [rip + .Lx669_0]
  mov qword ptr [r12 + 680], rax
@@ -7555,28 +7194,25 @@ bb418_α:
  .quad .Lx669_0_s
 .Lx669_0_s:
  .string "."
-xchain648_n12_α:
 # IR_VAR_REF local
-bb419_α:
- lea rdi, [r12 + 960]
+ xchain648_n12_α:
+ lea rdi, [r12 + 976]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 592], rax
  mov qword ptr [r12 + 600], rdx
  jmp xchain648_n13_α
  xchain648_n12_β:
  jmp proc_cycle_ham_ω
-xchain648_n13_α:
 # IR_VAR_REF local
-bb420_α:
- lea rdi, [r12 + 1008]
+ xchain648_n13_α:
+ lea rdi, [r12 + 1024]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 576], rax
  mov qword ptr [r12 + 584], rdx
  jmp xchain648_n14_α
  xchain648_n13_β:
  jmp proc_cycle_ham_ω
-xchain648_n14_α:
-bb421_α:
+ xchain648_n14_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+672] -> [r12+624]
  mov rax, qword ptr [r12 + 672]
@@ -7608,8 +7244,7 @@ bb421_α:
  jmp xchain648_n15_α
  xchain648_n14_β:
  jmp proc_cycle_ham_ω
-xchain648_n15_α:
-bb422_α:
+ xchain648_n15_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+768] -> [r12+720]
  mov rax, qword ptr [r12 + 768]
@@ -7641,8 +7276,7 @@ bb422_α:
  jmp xchain648_n16_α
  xchain648_n15_β:
  jmp xchain648_n7_α
-xchain648_n16_α:
-bb423_α:
+ xchain648_n16_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+560] -> [r12+528]
  mov rax, qword ptr [r12 + 560]
@@ -7669,9 +7303,8 @@ bb423_α:
  jmp xchain648_n17_α
  xchain648_n16_β:
  jmp xchain648_n7_α
-xchain648_n17_α:
 # IR_LIT_STRING
-bb424_α:
+ xchain648_n17_α:
  mov qword ptr [r12 + 368], 1
  mov rax, qword ptr [rip + .Lx680_0]
  mov qword ptr [r12 + 376], rax
@@ -7682,28 +7315,25 @@ bb424_α:
  .quad .Lx680_0_s
 .Lx680_0_s:
  .string "."
-xchain648_n18_α:
 # IR_VAR_REF local
-bb425_α:
- lea rdi, [r12 + 976]
+ xchain648_n18_α:
+ lea rdi, [r12 + 992]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 288], rax
  mov qword ptr [r12 + 296], rdx
  jmp xchain648_n19_α
  xchain648_n18_β:
  jmp proc_cycle_ham_ω
-xchain648_n19_α:
 # IR_VAR_REF local
-bb426_α:
- lea rdi, [r12 + 992]
+ xchain648_n19_α:
+ lea rdi, [r12 + 1008]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 272], rax
  mov qword ptr [r12 + 280], rdx
  jmp xchain648_n20_α
  xchain648_n19_β:
  jmp proc_cycle_ham_ω
-xchain648_n20_α:
-bb427_α:
+ xchain648_n20_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+368] -> [r12+320]
  mov rax, qword ptr [r12 + 368]
@@ -7735,9 +7365,8 @@ bb427_α:
  jmp xchain648_n21_α
  xchain648_n20_β:
  jmp xchain648_n7_α
-xchain648_n21_α:
 # IR_LIT_STRING
-bb428_α:
+ xchain648_n21_α:
  mov qword ptr [r12 + 384], 1
  mov rax, qword ptr [rip + .Lx687_0]
  mov qword ptr [r12 + 392], rax
@@ -7748,9 +7377,8 @@ bb428_α:
  .quad .Lx687_0_s
 .Lx687_0_s:
  .string "[]"
-xchain648_n22_α:
 # IR_LIT_STRING
-bb429_α:
+ xchain648_n22_α:
  mov qword ptr [r12 + 496], 1
  mov rax, qword ptr [rip + .Lx688_0]
  mov qword ptr [r12 + 504], rax
@@ -7761,28 +7389,25 @@ bb429_α:
  .quad .Lx688_0_s
 .Lx688_0_s:
  .string "."
-xchain648_n23_α:
 # IR_VAR_REF local
-bb430_α:
- lea rdi, [r12 + 960]
+ xchain648_n23_α:
+ lea rdi, [r12 + 976]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 416], rax
  mov qword ptr [r12 + 424], rdx
  jmp xchain648_n24_α
  xchain648_n23_β:
  jmp proc_cycle_ham_ω
-xchain648_n24_α:
 # IR_VAR_REF local
-bb431_α:
- lea rdi, [r12 + 1008]
+ xchain648_n24_α:
+ lea rdi, [r12 + 1024]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 400], rax
  mov qword ptr [r12 + 408], rdx
  jmp xchain648_n25_α
  xchain648_n24_β:
  jmp proc_cycle_ham_ω
-xchain648_n25_α:
-bb432_α:
+ xchain648_n25_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+496] -> [r12+448]
  mov rax, qword ptr [r12 + 496]
@@ -7814,8 +7439,7 @@ bb432_α:
  jmp xchain648_n26_α
  xchain648_n25_β:
  jmp xchain648_n7_α
-xchain648_n26_α:
-bb433_α:
+ xchain648_n26_α:
   .section .rodata
   .Lcall433_pname: .string "chain_ham"
   .section .text
@@ -7847,28 +7471,25 @@ xchain648_n26_β:
  cmp eax, 99
  je xchain648_n7_α
  jmp xchain648_n27_α
-xchain648_n27_α:
 # IR_VAR_REF local
-bb434_α:
- lea rdi, [r12 + 960]
+ xchain648_n27_α:
+ lea rdi, [r12 + 976]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 176], rax
  mov qword ptr [r12 + 184], rdx
  jmp xchain648_n28_α
  xchain648_n27_β:
  jmp xchain648_n7_α
-xchain648_n28_α:
 # IR_VAR_REF local
-bb435_α:
- lea rdi, [r12 + 976]
+ xchain648_n28_α:
+ lea rdi, [r12 + 992]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 192], rax
  mov qword ptr [r12 + 200], rdx
  jmp xchain648_n29_α
  xchain648_n28_β:
  jmp xchain648_n7_α
-xchain648_n29_α:
-bb436_α:
+ xchain648_n29_α:
   .section .rodata
   .Lcall436_pname: .string "edge"
   .section .text
@@ -7896,17 +7517,15 @@ xchain648_n29_β:
  cmp eax, 99
  je xchain648_n26_β
  jmp xchain648_n30_α
-xchain648_n30_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb437_α:
+ xchain648_n30_α:
  lea rax, [rip + xchain648_n26_β]
  mov qword ptr [r12 + 64], rax
  jmp proc_cycle_ham_γ
  xchain648_n30_β:
  jmp proc_cycle_ham_ω
-xchain648_n31_α:
 # IR_INDIRECT_GOTO alt-resume: jmp *t
-bb438_α:
+ xchain648_n31_α:
  jmp qword ptr [r12 + 64]
  xchain648_n31_β:
  jmp proc_cycle_ham_ω
@@ -7917,6 +7536,13 @@ mov eax, 1
 xor edx, edx
 pop r12
 ret
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ mov rdi, qword ptr [r12 + 960]
+ call rt_zls_release_to@PLT
+ mov rsp, rbp
+ pop rbp
 proc_cycle_ham_ω:
 # GZ-10 PROC FAIL EXIT: write FAILDESCR to frame[0] so rt_call_proc_descr sees failure
 mov dword ptr [r12+0], 99
@@ -7937,9 +7563,17 @@ push r12
   mov r12, rdi
   cmp esi, 0
   jne proc_ham1_β
+ push rsi
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ call rt_zls_mark@PLT
+ mov rsp, rbp
+ pop rbp
+ mov qword ptr [r12 + 2192], rax
+ pop rsi
 proc_ham1_α_body:
-xchain705_n0_α:
-bb439_α:
+ xchain705_n0_α:
 # BOX IR_CALL $trail_mark(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
   .Lrkfn707: .string "$trail_mark"
@@ -7956,9 +7590,8 @@ bb439_α:
  jmp xchain705_n1_α
  xchain705_n0_β:
  jmp proc_ham1_ω
-xchain705_n1_α:
 # IR_VAR_REF local
-bb440_α:
+ xchain705_n1_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 2160], rax
@@ -7966,18 +7599,16 @@ bb440_α:
  jmp xchain705_n2_α
  xchain705_n1_β:
  jmp xchain705_n5_α
-xchain705_n2_α:
 # IR_VAR_REF local
-bb441_α:
- lea rdi, [r12 + 2192]
+ xchain705_n2_α:
+ lea rdi, [r12 + 2208]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 2176], rax
  mov qword ptr [r12 + 2184], rdx
  jmp xchain705_n3_α
  xchain705_n2_β:
  jmp xchain705_n5_α
-xchain705_n3_α:
-bb442_α:
+ xchain705_n3_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+2160] -> [r12+2128]
  mov rax, qword ptr [r12 + 2160]
@@ -8004,9 +7635,8 @@ bb442_α:
  jmp xchain705_n4_α
  xchain705_n3_β:
  jmp xchain705_n5_α
-xchain705_n4_α:
 # IR_LIT_STRING
-bb443_α:
+ xchain705_n4_α:
  mov qword ptr [r12 + 2080], 1
  mov rax, qword ptr [rip + .Lx714_0]
  mov qword ptr [r12 + 2088], rax
@@ -8017,8 +7647,7 @@ bb443_α:
  .quad .Lx714_0_s
 .Lx714_0_s:
  .string "."
-xchain705_n5_α:
-bb444_α:
+ xchain705_n5_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+64] -> [r12+96]
  mov rax, qword ptr [r12 + 64]
@@ -8040,9 +7669,8 @@ bb444_α:
  jmp proc_ham1_ω
  xchain705_n5_β:
  jmp proc_ham1_ω
-xchain705_n6_α:
 # IR_LIT_STRING
-bb445_α:
+ xchain705_n6_α:
  mov qword ptr [r12 + 2000], 1
  mov rax, qword ptr [rip + .Lx717_0]
  mov qword ptr [r12 + 2008], rax
@@ -8053,9 +7681,8 @@ bb445_α:
  .quad .Lx717_0_s
 .Lx717_0_s:
  .string "a"
-xchain705_n7_α:
 # IR_LIT_STRING
-bb446_α:
+ xchain705_n7_α:
  mov qword ptr [r12 + 1984], 1
  mov rax, qword ptr [rip + .Lx718_0]
  mov qword ptr [r12 + 1992], rax
@@ -8066,9 +7693,8 @@ bb446_α:
  .quad .Lx718_0_s
 .Lx718_0_s:
  .string "."
-xchain705_n8_α:
 # IR_LIT_STRING
-bb447_α:
+ xchain705_n8_α:
  mov qword ptr [r12 + 1904], 1
  mov rax, qword ptr [rip + .Lx719_0]
  mov qword ptr [r12 + 1912], rax
@@ -8079,9 +7705,8 @@ bb447_α:
  .quad .Lx719_0_s
 .Lx719_0_s:
  .string "b"
-xchain705_n9_α:
 # IR_LIT_STRING
-bb448_α:
+ xchain705_n9_α:
  mov qword ptr [r12 + 1888], 1
  mov rax, qword ptr [rip + .Lx720_0]
  mov qword ptr [r12 + 1896], rax
@@ -8092,9 +7717,8 @@ bb448_α:
  .quad .Lx720_0_s
 .Lx720_0_s:
  .string "."
-xchain705_n10_α:
 # IR_LIT_STRING
-bb449_α:
+ xchain705_n10_α:
  mov qword ptr [r12 + 1808], 1
  mov rax, qword ptr [rip + .Lx721_0]
  mov qword ptr [r12 + 1816], rax
@@ -8105,9 +7729,8 @@ bb449_α:
  .quad .Lx721_0_s
 .Lx721_0_s:
  .string "c"
-xchain705_n11_α:
 # IR_LIT_STRING
-bb450_α:
+ xchain705_n11_α:
  mov qword ptr [r12 + 1792], 1
  mov rax, qword ptr [rip + .Lx722_0]
  mov qword ptr [r12 + 1800], rax
@@ -8118,9 +7741,8 @@ bb450_α:
  .quad .Lx722_0_s
 .Lx722_0_s:
  .string "."
-xchain705_n12_α:
 # IR_LIT_STRING
-bb451_α:
+ xchain705_n12_α:
  mov qword ptr [r12 + 1712], 1
  mov rax, qword ptr [rip + .Lx723_0]
  mov qword ptr [r12 + 1720], rax
@@ -8131,9 +7753,8 @@ bb451_α:
  .quad .Lx723_0_s
 .Lx723_0_s:
  .string "d"
-xchain705_n13_α:
 # IR_LIT_STRING
-bb452_α:
+ xchain705_n13_α:
  mov qword ptr [r12 + 1696], 1
  mov rax, qword ptr [rip + .Lx724_0]
  mov qword ptr [r12 + 1704], rax
@@ -8144,9 +7765,8 @@ bb452_α:
  .quad .Lx724_0_s
 .Lx724_0_s:
  .string "."
-xchain705_n14_α:
 # IR_LIT_STRING
-bb453_α:
+ xchain705_n14_α:
  mov qword ptr [r12 + 1616], 1
  mov rax, qword ptr [rip + .Lx725_0]
  mov qword ptr [r12 + 1624], rax
@@ -8157,9 +7777,8 @@ bb453_α:
  .quad .Lx725_0_s
 .Lx725_0_s:
  .string "e"
-xchain705_n15_α:
 # IR_LIT_STRING
-bb454_α:
+ xchain705_n15_α:
  mov qword ptr [r12 + 1600], 1
  mov rax, qword ptr [rip + .Lx726_0]
  mov qword ptr [r12 + 1608], rax
@@ -8170,9 +7789,8 @@ bb454_α:
  .quad .Lx726_0_s
 .Lx726_0_s:
  .string "."
-xchain705_n16_α:
 # IR_LIT_STRING
-bb455_α:
+ xchain705_n16_α:
  mov qword ptr [r12 + 1520], 1
  mov rax, qword ptr [rip + .Lx727_0]
  mov qword ptr [r12 + 1528], rax
@@ -8183,9 +7801,8 @@ bb455_α:
  .quad .Lx727_0_s
 .Lx727_0_s:
  .string "f"
-xchain705_n17_α:
 # IR_LIT_STRING
-bb456_α:
+ xchain705_n17_α:
  mov qword ptr [r12 + 1504], 1
  mov rax, qword ptr [rip + .Lx728_0]
  mov qword ptr [r12 + 1512], rax
@@ -8196,9 +7813,8 @@ bb456_α:
  .quad .Lx728_0_s
 .Lx728_0_s:
  .string "."
-xchain705_n18_α:
 # IR_LIT_STRING
-bb457_α:
+ xchain705_n18_α:
  mov qword ptr [r12 + 1424], 1
  mov rax, qword ptr [rip + .Lx729_0]
  mov qword ptr [r12 + 1432], rax
@@ -8209,9 +7825,8 @@ bb457_α:
  .quad .Lx729_0_s
 .Lx729_0_s:
  .string "g"
-xchain705_n19_α:
 # IR_LIT_STRING
-bb458_α:
+ xchain705_n19_α:
  mov qword ptr [r12 + 1408], 1
  mov rax, qword ptr [rip + .Lx730_0]
  mov qword ptr [r12 + 1416], rax
@@ -8222,9 +7837,8 @@ bb458_α:
  .quad .Lx730_0_s
 .Lx730_0_s:
  .string "."
-xchain705_n20_α:
 # IR_LIT_STRING
-bb459_α:
+ xchain705_n20_α:
  mov qword ptr [r12 + 1328], 1
  mov rax, qword ptr [rip + .Lx731_0]
  mov qword ptr [r12 + 1336], rax
@@ -8235,9 +7849,8 @@ bb459_α:
  .quad .Lx731_0_s
 .Lx731_0_s:
  .string "h"
-xchain705_n21_α:
 # IR_LIT_STRING
-bb460_α:
+ xchain705_n21_α:
  mov qword ptr [r12 + 1312], 1
  mov rax, qword ptr [rip + .Lx732_0]
  mov qword ptr [r12 + 1320], rax
@@ -8248,9 +7861,8 @@ bb460_α:
  .quad .Lx732_0_s
 .Lx732_0_s:
  .string "."
-xchain705_n22_α:
 # IR_LIT_STRING
-bb461_α:
+ xchain705_n22_α:
  mov qword ptr [r12 + 1232], 1
  mov rax, qword ptr [rip + .Lx733_0]
  mov qword ptr [r12 + 1240], rax
@@ -8261,9 +7873,8 @@ bb461_α:
  .quad .Lx733_0_s
 .Lx733_0_s:
  .string "i"
-xchain705_n23_α:
 # IR_LIT_STRING
-bb462_α:
+ xchain705_n23_α:
  mov qword ptr [r12 + 1216], 1
  mov rax, qword ptr [rip + .Lx734_0]
  mov qword ptr [r12 + 1224], rax
@@ -8274,9 +7885,8 @@ bb462_α:
  .quad .Lx734_0_s
 .Lx734_0_s:
  .string "."
-xchain705_n24_α:
 # IR_LIT_STRING
-bb463_α:
+ xchain705_n24_α:
  mov qword ptr [r12 + 1136], 1
  mov rax, qword ptr [rip + .Lx735_0]
  mov qword ptr [r12 + 1144], rax
@@ -8287,9 +7897,8 @@ bb463_α:
  .quad .Lx735_0_s
 .Lx735_0_s:
  .string "j"
-xchain705_n25_α:
 # IR_LIT_STRING
-bb464_α:
+ xchain705_n25_α:
  mov qword ptr [r12 + 1120], 1
  mov rax, qword ptr [rip + .Lx736_0]
  mov qword ptr [r12 + 1128], rax
@@ -8300,9 +7909,8 @@ bb464_α:
  .quad .Lx736_0_s
 .Lx736_0_s:
  .string "."
-xchain705_n26_α:
 # IR_LIT_STRING
-bb465_α:
+ xchain705_n26_α:
  mov qword ptr [r12 + 1040], 1
  mov rax, qword ptr [rip + .Lx737_0]
  mov qword ptr [r12 + 1048], rax
@@ -8313,9 +7921,8 @@ bb465_α:
  .quad .Lx737_0_s
 .Lx737_0_s:
  .string "k"
-xchain705_n27_α:
 # IR_LIT_STRING
-bb466_α:
+ xchain705_n27_α:
  mov qword ptr [r12 + 1024], 1
  mov rax, qword ptr [rip + .Lx738_0]
  mov qword ptr [r12 + 1032], rax
@@ -8326,9 +7933,8 @@ bb466_α:
  .quad .Lx738_0_s
 .Lx738_0_s:
  .string "."
-xchain705_n28_α:
 # IR_LIT_STRING
-bb467_α:
+ xchain705_n28_α:
  mov qword ptr [r12 + 944], 1
  mov rax, qword ptr [rip + .Lx739_0]
  mov qword ptr [r12 + 952], rax
@@ -8339,9 +7945,8 @@ bb467_α:
  .quad .Lx739_0_s
 .Lx739_0_s:
  .string "l"
-xchain705_n29_α:
 # IR_LIT_STRING
-bb468_α:
+ xchain705_n29_α:
  mov qword ptr [r12 + 928], 1
  mov rax, qword ptr [rip + .Lx740_0]
  mov qword ptr [r12 + 936], rax
@@ -8352,9 +7957,8 @@ bb468_α:
  .quad .Lx740_0_s
 .Lx740_0_s:
  .string "."
-xchain705_n30_α:
 # IR_LIT_STRING
-bb469_α:
+ xchain705_n30_α:
  mov qword ptr [r12 + 848], 1
  mov rax, qword ptr [rip + .Lx741_0]
  mov qword ptr [r12 + 856], rax
@@ -8365,9 +7969,8 @@ bb469_α:
  .quad .Lx741_0_s
 .Lx741_0_s:
  .string "m"
-xchain705_n31_α:
 # IR_LIT_STRING
-bb470_α:
+ xchain705_n31_α:
  mov qword ptr [r12 + 832], 1
  mov rax, qword ptr [rip + .Lx742_0]
  mov qword ptr [r12 + 840], rax
@@ -8378,9 +7981,8 @@ bb470_α:
  .quad .Lx742_0_s
 .Lx742_0_s:
  .string "."
-xchain705_n32_α:
 # IR_LIT_STRING
-bb471_α:
+ xchain705_n32_α:
  mov qword ptr [r12 + 752], 1
  mov rax, qword ptr [rip + .Lx743_0]
  mov qword ptr [r12 + 760], rax
@@ -8391,9 +7993,8 @@ bb471_α:
  .quad .Lx743_0_s
 .Lx743_0_s:
  .string "n"
-xchain705_n33_α:
 # IR_LIT_STRING
-bb472_α:
+ xchain705_n33_α:
  mov qword ptr [r12 + 736], 1
  mov rax, qword ptr [rip + .Lx744_0]
  mov qword ptr [r12 + 744], rax
@@ -8404,9 +8005,8 @@ bb472_α:
  .quad .Lx744_0_s
 .Lx744_0_s:
  .string "."
-xchain705_n34_α:
 # IR_LIT_STRING
-bb473_α:
+ xchain705_n34_α:
  mov qword ptr [r12 + 656], 1
  mov rax, qword ptr [rip + .Lx745_0]
  mov qword ptr [r12 + 664], rax
@@ -8417,9 +8017,8 @@ bb473_α:
  .quad .Lx745_0_s
 .Lx745_0_s:
  .string "o"
-xchain705_n35_α:
 # IR_LIT_STRING
-bb474_α:
+ xchain705_n35_α:
  mov qword ptr [r12 + 640], 1
  mov rax, qword ptr [rip + .Lx746_0]
  mov qword ptr [r12 + 648], rax
@@ -8430,9 +8029,8 @@ bb474_α:
  .quad .Lx746_0_s
 .Lx746_0_s:
  .string "."
-xchain705_n36_α:
 # IR_LIT_STRING
-bb475_α:
+ xchain705_n36_α:
  mov qword ptr [r12 + 560], 1
  mov rax, qword ptr [rip + .Lx747_0]
  mov qword ptr [r12 + 568], rax
@@ -8443,9 +8041,8 @@ bb475_α:
  .quad .Lx747_0_s
 .Lx747_0_s:
  .string "p"
-xchain705_n37_α:
 # IR_LIT_STRING
-bb476_α:
+ xchain705_n37_α:
  mov qword ptr [r12 + 544], 1
  mov rax, qword ptr [rip + .Lx748_0]
  mov qword ptr [r12 + 552], rax
@@ -8456,9 +8053,8 @@ bb476_α:
  .quad .Lx748_0_s
 .Lx748_0_s:
  .string "."
-xchain705_n38_α:
 # IR_LIT_STRING
-bb477_α:
+ xchain705_n38_α:
  mov qword ptr [r12 + 464], 1
  mov rax, qword ptr [rip + .Lx749_0]
  mov qword ptr [r12 + 472], rax
@@ -8469,9 +8065,8 @@ bb477_α:
  .quad .Lx749_0_s
 .Lx749_0_s:
  .string "q"
-xchain705_n39_α:
 # IR_LIT_STRING
-bb478_α:
+ xchain705_n39_α:
  mov qword ptr [r12 + 448], 1
  mov rax, qword ptr [rip + .Lx750_0]
  mov qword ptr [r12 + 456], rax
@@ -8482,9 +8077,8 @@ bb478_α:
  .quad .Lx750_0_s
 .Lx750_0_s:
  .string "."
-xchain705_n40_α:
 # IR_LIT_STRING
-bb479_α:
+ xchain705_n40_α:
  mov qword ptr [r12 + 368], 1
  mov rax, qword ptr [rip + .Lx751_0]
  mov qword ptr [r12 + 376], rax
@@ -8495,9 +8089,8 @@ bb479_α:
  .quad .Lx751_0_s
 .Lx751_0_s:
  .string "r"
-xchain705_n41_α:
 # IR_LIT_STRING
-bb480_α:
+ xchain705_n41_α:
  mov qword ptr [r12 + 352], 1
  mov rax, qword ptr [rip + .Lx752_0]
  mov qword ptr [r12 + 360], rax
@@ -8508,9 +8101,8 @@ bb480_α:
  .quad .Lx752_0_s
 .Lx752_0_s:
  .string "."
-xchain705_n42_α:
 # IR_LIT_STRING
-bb481_α:
+ xchain705_n42_α:
  mov qword ptr [r12 + 272], 1
  mov rax, qword ptr [rip + .Lx753_0]
  mov qword ptr [r12 + 280], rax
@@ -8521,9 +8113,8 @@ bb481_α:
  .quad .Lx753_0_s
 .Lx753_0_s:
  .string "s"
-xchain705_n43_α:
 # IR_LIT_STRING
-bb482_α:
+ xchain705_n43_α:
  mov qword ptr [r12 + 256], 1
  mov rax, qword ptr [rip + .Lx754_0]
  mov qword ptr [r12 + 264], rax
@@ -8534,9 +8125,8 @@ bb482_α:
  .quad .Lx754_0_s
 .Lx754_0_s:
  .string "."
-xchain705_n44_α:
 # IR_LIT_STRING
-bb483_α:
+ xchain705_n44_α:
  mov qword ptr [r12 + 176], 1
  mov rax, qword ptr [rip + .Lx755_0]
  mov qword ptr [r12 + 184], rax
@@ -8547,9 +8137,8 @@ bb483_α:
  .quad .Lx755_0_s
 .Lx755_0_s:
  .string "t"
-xchain705_n45_α:
 # IR_LIT_STRING
-bb484_α:
+ xchain705_n45_α:
  mov qword ptr [r12 + 160], 1
  mov rax, qword ptr [rip + .Lx756_0]
  mov qword ptr [r12 + 168], rax
@@ -8560,8 +8149,7 @@ bb484_α:
  .quad .Lx756_0_s
 .Lx756_0_s:
  .string "[]"
-xchain705_n46_α:
-bb485_α:
+ xchain705_n46_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+256] -> [r12+208]
  mov rax, qword ptr [r12 + 256]
@@ -8593,8 +8181,7 @@ bb485_α:
  jmp xchain705_n47_α
  xchain705_n46_β:
  jmp proc_ham1_ω
-xchain705_n47_α:
-bb486_α:
+ xchain705_n47_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+352] -> [r12+304]
  mov rax, qword ptr [r12 + 352]
@@ -8626,8 +8213,7 @@ bb486_α:
  jmp xchain705_n48_α
  xchain705_n47_β:
  jmp proc_ham1_ω
-xchain705_n48_α:
-bb487_α:
+ xchain705_n48_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+448] -> [r12+400]
  mov rax, qword ptr [r12 + 448]
@@ -8659,8 +8245,7 @@ bb487_α:
  jmp xchain705_n49_α
  xchain705_n48_β:
  jmp proc_ham1_ω
-xchain705_n49_α:
-bb488_α:
+ xchain705_n49_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+544] -> [r12+496]
  mov rax, qword ptr [r12 + 544]
@@ -8692,8 +8277,7 @@ bb488_α:
  jmp xchain705_n50_α
  xchain705_n49_β:
  jmp proc_ham1_ω
-xchain705_n50_α:
-bb489_α:
+ xchain705_n50_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+640] -> [r12+592]
  mov rax, qword ptr [r12 + 640]
@@ -8725,8 +8309,7 @@ bb489_α:
  jmp xchain705_n51_α
  xchain705_n50_β:
  jmp proc_ham1_ω
-xchain705_n51_α:
-bb490_α:
+ xchain705_n51_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+736] -> [r12+688]
  mov rax, qword ptr [r12 + 736]
@@ -8758,8 +8341,7 @@ bb490_α:
  jmp xchain705_n52_α
  xchain705_n51_β:
  jmp proc_ham1_ω
-xchain705_n52_α:
-bb491_α:
+ xchain705_n52_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+832] -> [r12+784]
  mov rax, qword ptr [r12 + 832]
@@ -8791,8 +8373,7 @@ bb491_α:
  jmp xchain705_n53_α
  xchain705_n52_β:
  jmp proc_ham1_ω
-xchain705_n53_α:
-bb492_α:
+ xchain705_n53_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+928] -> [r12+880]
  mov rax, qword ptr [r12 + 928]
@@ -8824,8 +8405,7 @@ bb492_α:
  jmp xchain705_n54_α
  xchain705_n53_β:
  jmp proc_ham1_ω
-xchain705_n54_α:
-bb493_α:
+ xchain705_n54_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1024] -> [r12+976]
  mov rax, qword ptr [r12 + 1024]
@@ -8857,8 +8437,7 @@ bb493_α:
  jmp xchain705_n55_α
  xchain705_n54_β:
  jmp proc_ham1_ω
-xchain705_n55_α:
-bb494_α:
+ xchain705_n55_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1120] -> [r12+1072]
  mov rax, qword ptr [r12 + 1120]
@@ -8890,8 +8469,7 @@ bb494_α:
  jmp xchain705_n56_α
  xchain705_n55_β:
  jmp proc_ham1_ω
-xchain705_n56_α:
-bb495_α:
+ xchain705_n56_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1216] -> [r12+1168]
  mov rax, qword ptr [r12 + 1216]
@@ -8923,8 +8501,7 @@ bb495_α:
  jmp xchain705_n57_α
  xchain705_n56_β:
  jmp proc_ham1_ω
-xchain705_n57_α:
-bb496_α:
+ xchain705_n57_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1312] -> [r12+1264]
  mov rax, qword ptr [r12 + 1312]
@@ -8956,8 +8533,7 @@ bb496_α:
  jmp xchain705_n58_α
  xchain705_n57_β:
  jmp proc_ham1_ω
-xchain705_n58_α:
-bb497_α:
+ xchain705_n58_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1408] -> [r12+1360]
  mov rax, qword ptr [r12 + 1408]
@@ -8989,8 +8565,7 @@ bb497_α:
  jmp xchain705_n59_α
  xchain705_n58_β:
  jmp proc_ham1_ω
-xchain705_n59_α:
-bb498_α:
+ xchain705_n59_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1504] -> [r12+1456]
  mov rax, qword ptr [r12 + 1504]
@@ -9022,8 +8597,7 @@ bb498_α:
  jmp xchain705_n60_α
  xchain705_n59_β:
  jmp proc_ham1_ω
-xchain705_n60_α:
-bb499_α:
+ xchain705_n60_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1600] -> [r12+1552]
  mov rax, qword ptr [r12 + 1600]
@@ -9055,8 +8629,7 @@ bb499_α:
  jmp xchain705_n61_α
  xchain705_n60_β:
  jmp proc_ham1_ω
-xchain705_n61_α:
-bb500_α:
+ xchain705_n61_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1696] -> [r12+1648]
  mov rax, qword ptr [r12 + 1696]
@@ -9088,8 +8661,7 @@ bb500_α:
  jmp xchain705_n62_α
  xchain705_n61_β:
  jmp proc_ham1_ω
-xchain705_n62_α:
-bb501_α:
+ xchain705_n62_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1792] -> [r12+1744]
  mov rax, qword ptr [r12 + 1792]
@@ -9121,8 +8693,7 @@ bb501_α:
  jmp xchain705_n63_α
  xchain705_n62_β:
  jmp proc_ham1_ω
-xchain705_n63_α:
-bb502_α:
+ xchain705_n63_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1888] -> [r12+1840]
  mov rax, qword ptr [r12 + 1888]
@@ -9154,8 +8725,7 @@ bb502_α:
  jmp xchain705_n64_α
  xchain705_n63_β:
  jmp proc_ham1_ω
-xchain705_n64_α:
-bb503_α:
+ xchain705_n64_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1984] -> [r12+1936]
  mov rax, qword ptr [r12 + 1984]
@@ -9187,8 +8757,7 @@ bb503_α:
  jmp xchain705_n65_α
  xchain705_n64_β:
  jmp proc_ham1_ω
-xchain705_n65_α:
-bb504_α:
+ xchain705_n65_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+2080] -> [r12+2032]
  mov rax, qword ptr [r12 + 2080]
@@ -9220,18 +8789,16 @@ bb504_α:
  jmp xchain705_n66_α
  xchain705_n65_β:
  jmp xchain705_n5_α
-xchain705_n66_α:
 # IR_VAR_REF local
-bb505_α:
- lea rdi, [r12 + 2192]
+ xchain705_n66_α:
+ lea rdi, [r12 + 2208]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 2096], rax
  mov qword ptr [r12 + 2104], rdx
  jmp xchain705_n67_α
  xchain705_n66_β:
  jmp xchain705_n5_α
-xchain705_n67_α:
-bb506_α:
+ xchain705_n67_α:
   .section .rodata
   .Lcall506_pname: .string "cycle_ham"
   .section .text
@@ -9259,17 +8826,15 @@ xchain705_n67_β:
  cmp eax, 99
  je xchain705_n5_α
  jmp xchain705_n68_α
-xchain705_n68_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb507_α:
+ xchain705_n68_α:
  lea rax, [rip + xchain705_n67_β]
  mov qword ptr [r12 + 48], rax
  jmp proc_ham1_γ
  xchain705_n68_β:
  jmp proc_ham1_ω
-xchain705_n69_α:
 # IR_INDIRECT_GOTO alt-resume: jmp *t
-bb508_α:
+ xchain705_n69_α:
  jmp qword ptr [r12 + 48]
  xchain705_n69_β:
  jmp proc_ham1_ω
@@ -9280,6 +8845,13 @@ mov eax, 1
 xor edx, edx
 pop r12
 ret
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ mov rdi, qword ptr [r12 + 2192]
+ call rt_zls_release_to@PLT
+ mov rsp, rbp
+ pop rbp
 proc_ham1_ω:
 # GZ-10 PROC FAIL EXIT: write FAILDESCR to frame[0] so rt_call_proc_descr sees failure
 mov dword ptr [r12+0], 99
@@ -9300,9 +8872,17 @@ push r12
   mov r12, rdi
   cmp esi, 0
   jne proc_chain_ham_β
+ push rsi
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ call rt_zls_mark@PLT
+ mov rsp, rbp
+ pop rbp
+ mov qword ptr [r12 + 1440], rax
+ pop rsi
 proc_chain_ham_α_body:
-xchain804_n0_α:
-bb509_α:
+ xchain804_n0_α:
 # BOX IR_CALL $trail_mark(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
   .Lrkfn806: .string "$trail_mark"
@@ -9319,9 +8899,8 @@ bb509_α:
  jmp xchain804_n1_α
  xchain804_n0_β:
  jmp proc_chain_ham_ω
-xchain804_n1_α:
 # IR_VAR_REF local
-bb510_α:
+ xchain804_n1_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 1312], rax
@@ -9329,9 +8908,8 @@ bb510_α:
  jmp xchain804_n2_α
  xchain804_n1_β:
  jmp xchain804_n7_α
-xchain804_n2_α:
 # IR_LIT_STRING
-bb511_α:
+ xchain804_n2_α:
  mov qword ptr [r12 + 1424], 1
  mov rax, qword ptr [rip + .Lx809_0]
  mov qword ptr [r12 + 1432], rax
@@ -9342,19 +8920,17 @@ bb511_α:
  .quad .Lx809_0_s
 .Lx809_0_s:
  .string "."
-xchain804_n3_α:
 # IR_VAR_REF local
-bb512_α:
- lea rdi, [r12 + 1488]
+ xchain804_n3_α:
+ lea rdi, [r12 + 1504]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 1344], rax
  mov qword ptr [r12 + 1352], rdx
  jmp xchain804_n4_α
  xchain804_n3_β:
  jmp proc_chain_ham_ω
-xchain804_n4_α:
 # IR_LIT_STRING
-bb513_α:
+ xchain804_n4_α:
  mov qword ptr [r12 + 1328], 1
  mov rax, qword ptr [rip + .Lx812_0]
  mov qword ptr [r12 + 1336], rax
@@ -9365,8 +8941,7 @@ bb513_α:
  .quad .Lx812_0_s
 .Lx812_0_s:
  .string "[]"
-xchain804_n5_α:
-bb514_α:
+ xchain804_n5_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1424] -> [r12+1376]
  mov rax, qword ptr [r12 + 1424]
@@ -9398,8 +8973,7 @@ bb514_α:
  jmp xchain804_n6_α
  xchain804_n5_β:
  jmp xchain804_n7_α
-xchain804_n6_α:
-bb515_α:
+ xchain804_n6_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1312] -> [r12+1280]
  mov rax, qword ptr [r12 + 1312]
@@ -9426,8 +9000,7 @@ bb515_α:
  jmp xchain804_n8_α
  xchain804_n6_β:
  jmp xchain804_n7_α
-xchain804_n7_α:
-bb516_α:
+ xchain804_n7_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+96] -> [r12+992]
  mov rax, qword ptr [r12 + 96]
@@ -9449,9 +9022,8 @@ bb516_α:
  jmp xchain804_n9_α
  xchain804_n7_β:
  jmp proc_chain_ham_ω
-xchain804_n8_α:
 # IR_VAR_REF local
-bb517_α:
+ xchain804_n8_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 1232], rax
@@ -9459,9 +9031,8 @@ bb517_α:
  jmp xchain804_n10_α
  xchain804_n8_β:
  jmp xchain804_n7_α
-xchain804_n9_α:
 # IR_VAR_REF local
-bb518_α:
+ xchain804_n9_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 848], rax
@@ -9469,19 +9040,17 @@ bb518_α:
  jmp xchain804_n11_α
  xchain804_n9_β:
  jmp xchain804_n20_α
-xchain804_n10_α:
 # IR_VAR_REF local
-bb519_α:
- lea rdi, [r12 + 1472]
+ xchain804_n10_α:
+ lea rdi, [r12 + 1488]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 1248], rax
  mov qword ptr [r12 + 1256], rdx
  jmp xchain804_n12_α
  xchain804_n10_β:
  jmp xchain804_n7_α
-xchain804_n11_α:
 # IR_LIT_STRING
-bb520_α:
+ xchain804_n11_α:
  mov qword ptr [r12 + 960], 1
  mov rax, qword ptr [rip + .Lx825_0]
  mov qword ptr [r12 + 968], rax
@@ -9492,8 +9061,7 @@ bb520_α:
  .quad .Lx825_0_s
 .Lx825_0_s:
  .string "."
-xchain804_n12_α:
-bb521_α:
+ xchain804_n12_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1232] -> [r12+1200]
  mov rax, qword ptr [r12 + 1232]
@@ -9520,19 +9088,17 @@ bb521_α:
  jmp xchain804_n14_α
  xchain804_n12_β:
  jmp xchain804_n7_α
-xchain804_n13_α:
 # IR_VAR_REF local
-bb522_α:
- lea rdi, [r12 + 1488]
+ xchain804_n13_α:
+ lea rdi, [r12 + 1504]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 880], rax
  mov qword ptr [r12 + 888], rdx
  jmp xchain804_n15_α
  xchain804_n13_β:
  jmp proc_chain_ham_ω
-xchain804_n14_α:
 # IR_VAR_REF local
-bb523_α:
+ xchain804_n14_α:
  lea rdi, [r12 + 48]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 1056], rax
@@ -9540,19 +9106,17 @@ bb523_α:
  jmp xchain804_n16_α
  xchain804_n14_β:
  jmp xchain804_n7_α
-xchain804_n15_α:
 # IR_VAR_REF local
-bb524_α:
- lea rdi, [r12 + 1520]
+ xchain804_n15_α:
+ lea rdi, [r12 + 1536]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 864], rax
  mov qword ptr [r12 + 872], rdx
  jmp xchain804_n17_α
  xchain804_n15_β:
  jmp proc_chain_ham_ω
-xchain804_n16_α:
 # IR_LIT_STRING
-bb525_α:
+ xchain804_n16_α:
  mov qword ptr [r12 + 1168], 1
  mov rax, qword ptr [rip + .Lx834_0]
  mov qword ptr [r12 + 1176], rax
@@ -9563,8 +9127,7 @@ bb525_α:
  .quad .Lx834_0_s
 .Lx834_0_s:
  .string "."
-xchain804_n17_α:
-bb526_α:
+ xchain804_n17_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+960] -> [r12+912]
  mov rax, qword ptr [r12 + 960]
@@ -9596,18 +9159,16 @@ bb526_α:
  jmp xchain804_n19_α
  xchain804_n17_β:
  jmp xchain804_n20_α
-xchain804_n18_α:
 # IR_VAR_REF local
-bb527_α:
- lea rdi, [r12 + 1488]
+ xchain804_n18_α:
+ lea rdi, [r12 + 1504]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 1088], rax
  mov qword ptr [r12 + 1096], rdx
  jmp xchain804_n21_α
  xchain804_n18_β:
  jmp proc_chain_ham_ω
-xchain804_n19_α:
-bb528_α:
+ xchain804_n19_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+848] -> [r12+816]
  mov rax, qword ptr [r12 + 848]
@@ -9634,8 +9195,7 @@ bb528_α:
  jmp xchain804_n22_α
  xchain804_n19_β:
  jmp xchain804_n20_α
-xchain804_n20_α:
-bb529_α:
+ xchain804_n20_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+96] -> [r12+128]
  mov rax, qword ptr [r12 + 96]
@@ -9657,19 +9217,17 @@ bb529_α:
  jmp proc_chain_ham_ω
  xchain804_n20_β:
  jmp proc_chain_ham_ω
-xchain804_n21_α:
 # IR_VAR_REF local
-bb530_α:
- lea rdi, [r12 + 1472]
+ xchain804_n21_α:
+ lea rdi, [r12 + 1488]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 1072], rax
  mov qword ptr [r12 + 1080], rdx
  jmp xchain804_n23_α
  xchain804_n21_β:
  jmp proc_chain_ham_ω
-xchain804_n22_α:
 # IR_VAR_REF local
-bb531_α:
+ xchain804_n22_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 768], rax
@@ -9677,8 +9235,7 @@ bb531_α:
  jmp xchain804_n24_α
  xchain804_n22_β:
  jmp xchain804_n20_α
-xchain804_n23_α:
-bb532_α:
+ xchain804_n23_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1168] -> [r12+1120]
  mov rax, qword ptr [r12 + 1168]
@@ -9710,18 +9267,16 @@ bb532_α:
  jmp xchain804_n25_α
  xchain804_n23_β:
  jmp xchain804_n7_α
-xchain804_n24_α:
 # IR_VAR_REF local
-bb533_α:
- lea rdi, [r12 + 1472]
+ xchain804_n24_α:
+ lea rdi, [r12 + 1488]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 784], rax
  mov qword ptr [r12 + 792], rdx
  jmp xchain804_n26_α
  xchain804_n24_β:
  jmp xchain804_n20_α
-xchain804_n25_α:
-bb534_α:
+ xchain804_n25_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+1056] -> [r12+1024]
  mov rax, qword ptr [r12 + 1056]
@@ -9748,8 +9303,7 @@ bb534_α:
  jmp xchain804_n27_α
  xchain804_n25_β:
  jmp xchain804_n7_α
-xchain804_n26_α:
-bb535_α:
+ xchain804_n26_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+768] -> [r12+736]
  mov rax, qword ptr [r12 + 768]
@@ -9776,17 +9330,15 @@ bb535_α:
  jmp xchain804_n28_α
  xchain804_n26_β:
  jmp xchain804_n20_α
-xchain804_n27_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb536_α:
+ xchain804_n27_α:
  lea rax, [rip + xchain804_n7_α]
  mov qword ptr [r12 + 80], rax
  jmp proc_chain_ham_γ
  xchain804_n27_β:
  jmp proc_chain_ham_ω
-xchain804_n28_α:
 # IR_VAR_REF local
-bb537_α:
+ xchain804_n28_α:
  lea rdi, [r12 + 48]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 688], rax
@@ -9794,24 +9346,21 @@ bb537_α:
  jmp xchain804_n30_α
  xchain804_n28_β:
  jmp xchain804_n20_α
-xchain804_n29_α:
 # IR_INDIRECT_GOTO alt-resume: jmp *t
-bb538_α:
+ xchain804_n29_α:
  jmp qword ptr [r12 + 80]
  xchain804_n29_β:
  jmp proc_chain_ham_ω
-xchain804_n30_α:
 # IR_VAR_REF local
-bb539_α:
- lea rdi, [r12 + 1504]
+ xchain804_n30_α:
+ lea rdi, [r12 + 1520]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 704], rax
  mov qword ptr [r12 + 712], rdx
  jmp xchain804_n31_α
  xchain804_n30_β:
  jmp xchain804_n20_α
-xchain804_n31_α:
-bb540_α:
+ xchain804_n31_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+688] -> [r12+656]
  mov rax, qword ptr [r12 + 688]
@@ -9838,38 +9387,34 @@ bb540_α:
  jmp xchain804_n32_α
  xchain804_n31_β:
  jmp xchain804_n20_α
-xchain804_n32_α:
 # IR_VAR_REF local
-bb541_α:
- lea rdi, [r12 + 1456]
+ xchain804_n32_α:
+ lea rdi, [r12 + 1472]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 592], rax
  mov qword ptr [r12 + 600], rdx
  jmp xchain804_n33_α
  xchain804_n32_β:
  jmp xchain804_n20_α
-xchain804_n33_α:
 # IR_VAR_REF local
-bb542_α:
- lea rdi, [r12 + 1520]
+ xchain804_n33_α:
+ lea rdi, [r12 + 1536]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 608], rax
  mov qword ptr [r12 + 616], rdx
  jmp xchain804_n34_α
  xchain804_n33_β:
  jmp xchain804_n20_α
-xchain804_n34_α:
 # IR_VAR_REF local
-bb543_α:
- lea rdi, [r12 + 1440]
+ xchain804_n34_α:
+ lea rdi, [r12 + 1456]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 624], rax
  mov qword ptr [r12 + 632], rdx
  jmp xchain804_n35_α
  xchain804_n34_β:
  jmp xchain804_n20_α
-xchain804_n35_α:
-bb544_α:
+ xchain804_n35_α:
   .section .rodata
   .Lcall544_pname: .string "del"
   .section .text
@@ -9901,28 +9446,25 @@ xchain804_n35_β:
  cmp eax, 99
  je xchain804_n20_α
  jmp xchain804_n36_α
-xchain804_n36_α:
 # IR_VAR_REF local
-bb545_α:
- lea rdi, [r12 + 1488]
+ xchain804_n36_α:
+ lea rdi, [r12 + 1504]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 496], rax
  mov qword ptr [r12 + 504], rdx
  jmp xchain804_n37_α
  xchain804_n36_β:
  jmp xchain804_n20_α
-xchain804_n37_α:
 # IR_VAR_REF local
-bb546_α:
- lea rdi, [r12 + 1456]
+ xchain804_n37_α:
+ lea rdi, [r12 + 1472]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 512], rax
  mov qword ptr [r12 + 520], rdx
  jmp xchain804_n38_α
  xchain804_n37_β:
  jmp xchain804_n20_α
-xchain804_n38_α:
-bb547_α:
+ xchain804_n38_α:
   .section .rodata
   .Lcall547_pname: .string "edge"
   .section .text
@@ -9950,9 +9492,8 @@ xchain804_n38_β:
  cmp eax, 99
  je xchain804_n35_β
  jmp xchain804_n39_α
-xchain804_n39_α:
 # IR_LIT_STRING
-bb548_α:
+ xchain804_n39_α:
  mov qword ptr [r12 + 304], 1
  mov rax, qword ptr [rip + .Lx877_0]
  mov qword ptr [r12 + 312], rax
@@ -9963,28 +9504,25 @@ bb548_α:
  .quad .Lx877_0_s
 .Lx877_0_s:
  .string "."
-xchain804_n40_α:
 # IR_VAR_REF local
-bb549_α:
- lea rdi, [r12 + 1456]
+ xchain804_n40_α:
+ lea rdi, [r12 + 1472]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 224], rax
  mov qword ptr [r12 + 232], rdx
  jmp xchain804_n41_α
  xchain804_n40_β:
  jmp proc_chain_ham_ω
-xchain804_n41_α:
 # IR_VAR_REF local
-bb550_α:
- lea rdi, [r12 + 1440]
+ xchain804_n41_α:
+ lea rdi, [r12 + 1456]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 208], rax
  mov qword ptr [r12 + 216], rdx
  jmp xchain804_n42_α
  xchain804_n41_β:
  jmp proc_chain_ham_ω
-xchain804_n42_α:
-bb551_α:
+ xchain804_n42_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+304] -> [r12+256]
  mov rax, qword ptr [r12 + 304]
@@ -10016,9 +9554,8 @@ bb551_α:
  jmp xchain804_n43_α
  xchain804_n42_β:
  jmp xchain804_n20_α
-xchain804_n43_α:
 # IR_LIT_STRING
-bb552_α:
+ xchain804_n43_α:
  mov qword ptr [r12 + 416], 1
  mov rax, qword ptr [rip + .Lx884_0]
  mov qword ptr [r12 + 424], rax
@@ -10029,28 +9566,25 @@ bb552_α:
  .quad .Lx884_0_s
 .Lx884_0_s:
  .string "."
-xchain804_n44_α:
 # IR_VAR_REF local
-bb553_α:
- lea rdi, [r12 + 1488]
+ xchain804_n44_α:
+ lea rdi, [r12 + 1504]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 336], rax
  mov qword ptr [r12 + 344], rdx
  jmp xchain804_n45_α
  xchain804_n44_β:
  jmp proc_chain_ham_ω
-xchain804_n45_α:
 # IR_VAR_REF local
-bb554_α:
- lea rdi, [r12 + 1472]
+ xchain804_n45_α:
+ lea rdi, [r12 + 1488]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 320], rax
  mov qword ptr [r12 + 328], rdx
  jmp xchain804_n46_α
  xchain804_n45_β:
  jmp proc_chain_ham_ω
-xchain804_n46_α:
-bb555_α:
+ xchain804_n46_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+416] -> [r12+368]
  mov rax, qword ptr [r12 + 416]
@@ -10082,18 +9616,16 @@ bb555_α:
  jmp xchain804_n47_α
  xchain804_n46_β:
  jmp xchain804_n20_α
-xchain804_n47_α:
 # IR_VAR_REF local
-bb556_α:
- lea rdi, [r12 + 1504]
+ xchain804_n47_α:
+ lea rdi, [r12 + 1520]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 432], rax
  mov qword ptr [r12 + 440], rdx
  jmp xchain804_n48_α
  xchain804_n47_β:
  jmp xchain804_n20_α
-xchain804_n48_α:
-bb557_α:
+ xchain804_n48_α:
   .section .rodata
   .Lcall557_pname: .string "chain_ham"
   .section .text
@@ -10125,9 +9657,8 @@ xchain804_n48_β:
  cmp eax, 99
  je xchain804_n38_β
  jmp xchain804_n49_α
-xchain804_n49_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb558_α:
+ xchain804_n49_α:
  lea rax, [rip + xchain804_n35_β]
  mov qword ptr [r12 + 80], rax
  jmp proc_chain_ham_γ
@@ -10140,6 +9671,13 @@ mov eax, 1
 xor edx, edx
 pop r12
 ret
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ mov rdi, qword ptr [r12 + 1440]
+ call rt_zls_release_to@PLT
+ mov rsp, rbp
+ pop rbp
 proc_chain_ham_ω:
 # GZ-10 PROC FAIL EXIT: write FAILDESCR to frame[0] so rt_call_proc_descr sees failure
 mov dword ptr [r12+0], 99
@@ -10160,9 +9698,17 @@ push r12
   mov r12, rdi
   cmp esi, 0
   jne proc_edge_β
+ push rsi
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ call rt_zls_mark@PLT
+ mov rsp, rbp
+ pop rbp
+ mov qword ptr [r12 + 448], rax
+ pop rsi
 proc_edge_α_body:
-xchain896_n0_α:
-bb559_α:
+ xchain896_n0_α:
 # BOX IR_CALL $trail_mark(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
   .Lrkfn898: .string "$trail_mark"
@@ -10179,9 +9725,8 @@ bb559_α:
  jmp xchain896_n1_α
  xchain896_n0_β:
  jmp proc_edge_ω
-xchain896_n1_α:
 # IR_VAR_REF local
-bb560_α:
+ xchain896_n1_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 416], rax
@@ -10189,18 +9734,16 @@ bb560_α:
  jmp xchain896_n2_α
  xchain896_n1_β:
  jmp xchain896_n5_α
-xchain896_n2_α:
 # IR_VAR_REF local
-bb561_α:
- lea rdi, [r12 + 480]
+ xchain896_n2_α:
+ lea rdi, [r12 + 496]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 432], rax
  mov qword ptr [r12 + 440], rdx
  jmp xchain896_n3_α
  xchain896_n2_β:
  jmp xchain896_n5_α
-xchain896_n3_α:
-bb562_α:
+ xchain896_n3_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+416] -> [r12+384]
  mov rax, qword ptr [r12 + 416]
@@ -10227,9 +9770,8 @@ bb562_α:
  jmp xchain896_n4_α
  xchain896_n3_β:
  jmp xchain896_n5_α
-xchain896_n4_α:
 # IR_VAR_REF local
-bb563_α:
+ xchain896_n4_α:
  lea rdi, [r12 + 32]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 336], rax
@@ -10237,8 +9779,7 @@ bb563_α:
  jmp xchain896_n6_α
  xchain896_n4_β:
  jmp xchain896_n5_α
-xchain896_n5_α:
-bb564_α:
+ xchain896_n5_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+80] -> [r12+112]
  mov rax, qword ptr [r12 + 80]
@@ -10260,18 +9801,16 @@ bb564_α:
  jmp proc_edge_ω
  xchain896_n5_β:
  jmp proc_edge_ω
-xchain896_n6_α:
 # IR_VAR_REF local
-bb565_α:
- lea rdi, [r12 + 448]
+ xchain896_n6_α:
+ lea rdi, [r12 + 464]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 352], rax
  mov qword ptr [r12 + 360], rdx
  jmp xchain896_n7_α
  xchain896_n6_β:
  jmp xchain896_n5_α
-xchain896_n7_α:
-bb566_α:
+ xchain896_n7_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+336] -> [r12+304]
  mov rax, qword ptr [r12 + 336]
@@ -10298,28 +9837,25 @@ bb566_α:
  jmp xchain896_n8_α
  xchain896_n7_β:
  jmp xchain896_n5_α
-xchain896_n8_α:
 # IR_VAR_REF local
-bb567_α:
- lea rdi, [r12 + 480]
+ xchain896_n8_α:
+ lea rdi, [r12 + 496]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 256], rax
  mov qword ptr [r12 + 264], rdx
  jmp xchain896_n9_α
  xchain896_n8_β:
  jmp xchain896_n5_α
-xchain896_n9_α:
 # IR_VAR_REF local
-bb568_α:
- lea rdi, [r12 + 464]
+ xchain896_n9_α:
+ lea rdi, [r12 + 480]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 272], rax
  mov qword ptr [r12 + 280], rdx
  jmp xchain896_n10_α
  xchain896_n9_β:
  jmp xchain896_n5_α
-xchain896_n10_α:
-bb569_α:
+ xchain896_n10_α:
   .section .rodata
   .Lcall569_pname: .string "connect"
   .section .text
@@ -10347,28 +9883,25 @@ xchain896_n10_β:
  cmp eax, 99
  je xchain896_n5_α
  jmp xchain896_n11_α
-xchain896_n11_α:
 # IR_VAR_REF local
-bb570_α:
- lea rdi, [r12 + 448]
+ xchain896_n11_α:
+ lea rdi, [r12 + 464]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 176], rax
  mov qword ptr [r12 + 184], rdx
  jmp xchain896_n12_α
  xchain896_n11_β:
  jmp xchain896_n5_α
-xchain896_n12_α:
 # IR_VAR_REF local
-bb571_α:
- lea rdi, [r12 + 464]
+ xchain896_n12_α:
+ lea rdi, [r12 + 480]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 192], rax
  mov qword ptr [r12 + 200], rdx
  jmp xchain896_n13_α
  xchain896_n12_β:
  jmp xchain896_n5_α
-xchain896_n13_α:
-bb572_α:
+ xchain896_n13_α:
   .section .rodata
   .Lcall572_pname: .string "el"
   .section .text
@@ -10396,17 +9929,15 @@ xchain896_n13_β:
  cmp eax, 99
  je xchain896_n10_β
  jmp xchain896_n14_α
-xchain896_n14_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb573_α:
+ xchain896_n14_α:
  lea rax, [rip + xchain896_n10_β]
  mov qword ptr [r12 + 64], rax
  jmp proc_edge_γ
  xchain896_n14_β:
  jmp proc_edge_ω
-xchain896_n15_α:
 # IR_INDIRECT_GOTO alt-resume: jmp *t
-bb574_α:
+ xchain896_n15_α:
  jmp qword ptr [r12 + 64]
  xchain896_n15_β:
  jmp proc_edge_ω
@@ -10417,6 +9948,13 @@ mov eax, 1
 xor edx, edx
 pop r12
 ret
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ mov rdi, qword ptr [r12 + 448]
+ call rt_zls_release_to@PLT
+ mov rsp, rbp
+ pop rbp
 proc_edge_ω:
 # GZ-10 PROC FAIL EXIT: write FAILDESCR to frame[0] so rt_call_proc_descr sees failure
 mov dword ptr [r12+0], 99
@@ -10524,9 +10062,17 @@ main_α:
     .global main_ω
 push r12
   mov r12, rdi
+ push rsi
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ call rt_zls_mark@PLT
+ mov rsp, rbp
+ pop rbp
+ mov qword ptr [r12 + 240], rax
+ pop rsi
 main_α_body:
-xchain927_n0_α:
-bb575_α:
+ xchain927_n0_α:
 # BOX IR_CALL $trail_mark(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
   .Lrkfn929: .string "$trail_mark"
@@ -10543,18 +10089,16 @@ bb575_α:
  jmp xchain927_n1_α
  xchain927_n0_β:
  jmp main_ω
-xchain927_n1_α:
 # IR_VAR_REF local
-bb576_α:
- lea rdi, [r12 + 240]
+ xchain927_n1_α:
+ lea rdi, [r12 + 256]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 224], rax
  mov qword ptr [r12 + 232], rdx
  jmp xchain927_n2_α
  xchain927_n1_β:
  jmp xchain927_n4_α
-xchain927_n2_α:
-bb577_α:
+ xchain927_n2_α:
   .section .rodata
   .Lcall577_pname: .string "ham1"
   .section .text
@@ -10578,18 +10122,16 @@ xchain927_n2_β:
  cmp eax, 99
  je xchain927_n4_α
  jmp xchain927_n3_α
-xchain927_n3_α:
 # IR_VAR
-bb578_α:
- mov rax, qword ptr [r12 + 240]
+ xchain927_n3_α:
+ mov rax, qword ptr [r12 + 256]
  mov qword ptr [r12 + 176], rax
- mov rax, qword ptr [r12 + 248]
+ mov rax, qword ptr [r12 + 264]
  mov qword ptr [r12 + 184], rax
  jmp xchain927_n5_α
  xchain927_n3_β:
  jmp xchain927_n4_α
-xchain927_n4_α:
-bb579_α:
+ xchain927_n4_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+48] -> [r12+80]
  mov rax, qword ptr [r12 + 48]
@@ -10611,8 +10153,7 @@ bb579_α:
  jmp main_ω
  xchain927_n4_β:
  jmp main_ω
-xchain927_n5_α:
-bb580_α:
+ xchain927_n5_α:
 # BOX IR_CALL writes(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+176] -> [r12+160]
  mov rax, qword ptr [r12 + 176]
@@ -10634,9 +10175,8 @@ bb580_α:
  jmp xchain927_n6_α
  xchain927_n5_β:
  jmp xchain927_n2_β
-xchain927_n6_α:
 # IR_LIT_STRING
-bb581_α:
+ xchain927_n6_α:
  mov qword ptr [r12 + 128], 1
  mov rax, qword ptr [rip + .Lx939_0]
  mov qword ptr [r12 + 136], rax
@@ -10647,8 +10187,7 @@ bb581_α:
  .quad .Lx939_0_s
 .Lx939_0_s:
  .string ""
-xchain927_n7_α:
-bb582_α:
+ xchain927_n7_α:
 # BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+128] -> [r12+112]
  mov rax, qword ptr [r12 + 128]
@@ -10670,17 +10209,15 @@ bb582_α:
  jmp xchain927_n8_α
  xchain927_n7_β:
  jmp xchain927_n2_β
-xchain927_n8_α:
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
-bb583_α:
+ xchain927_n8_α:
  lea rax, [rip + xchain927_n2_β]
  mov qword ptr [r12 + 32], rax
  jmp main_γ
  xchain927_n8_β:
  jmp main_ω
-xchain927_n9_α:
 # IR_INDIRECT_GOTO alt-resume: jmp *t
-bb584_α:
+ xchain927_n9_α:
  jmp qword ptr [r12 + 32]
  xchain927_n9_β:
  jmp main_ω
@@ -10691,6 +10228,13 @@ mov eax, 1
 xor edx, edx
 pop r12
 ret
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ mov rdi, qword ptr [r12 + 240]
+ call rt_zls_release_to@PLT
+ mov rsp, rbp
+ pop rbp
 main_ω:
 # GZ-10 PROC FAIL EXIT: write FAILDESCR to frame[0] so rt_call_proc_descr sees failure
 mov dword ptr [r12+0], 99

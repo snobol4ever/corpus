@@ -11,9 +11,17 @@ push r12
   mov r12, rdi
   cmp esi, 0
   jne proc_interpret_β
+ push rsi
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ call rt_zls_mark@PLT
+ mov rsp, rbp
+ pop rbp
+ mov qword ptr [r12 + 336], rax
+ pop rsi
 proc_interpret_α_body:
-xchain0_n0_α:
-bb1_α:
+ xchain0_n0_α:
 # BOX IR_CALL $trail_mark(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
   .Lrkfn2: .string "$trail_mark"
@@ -30,9 +38,8 @@ bb1_α:
  jmp xchain0_n1_α
  xchain0_n0_β:
  jmp proc_interpret_ω
-xchain0_n1_α:
 # IR_VAR_REF local
-bb2_α:
+ xchain0_n1_α:
  lea rdi, [r12 + 16]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 304], rax
@@ -40,18 +47,16 @@ bb2_α:
  jmp xchain0_n2_α
  xchain0_n1_β:
  jmp xchain0_n5_α
-xchain0_n2_α:
 # IR_VAR_REF local
-bb3_α:
- lea rdi, [r12 + 352]
+ xchain0_n2_α:
+ lea rdi, [r12 + 368]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 320], rax
  mov qword ptr [r12 + 328], rdx
  jmp xchain0_n3_α
  xchain0_n2_β:
  jmp xchain0_n5_α
-xchain0_n3_α:
-bb4_α:
+ xchain0_n3_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+304] -> [r12+272]
  mov rax, qword ptr [r12 + 304]
@@ -78,18 +83,16 @@ bb4_α:
  jmp xchain0_n4_α
  xchain0_n3_β:
  jmp xchain0_n5_α
-xchain0_n4_α:
 # IR_VAR_REF local
-bb5_α:
- lea rdi, [r12 + 352]
+ xchain0_n4_α:
+ lea rdi, [r12 + 368]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 224], rax
  mov qword ptr [r12 + 232], rdx
  jmp xchain0_n6_α
  xchain0_n4_β:
  jmp xchain0_n5_α
-xchain0_n5_α:
-bb6_α:
+ xchain0_n5_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+64] -> [r12+96]
  mov rax, qword ptr [r12 + 64]
@@ -111,18 +114,16 @@ bb6_α:
  jmp proc_interpret_ω
  xchain0_n5_β:
  jmp proc_interpret_ω
-xchain0_n6_α:
 # IR_VAR_REF local
-bb7_α:
- lea rdi, [r12 + 336]
+ xchain0_n6_α:
+ lea rdi, [r12 + 352]
  call rt_var_ref_cell@PLT
  mov qword ptr [r12 + 240], rax
  mov qword ptr [r12 + 248], rdx
  jmp xchain0_n7_α
  xchain0_n6_β:
  jmp xchain0_n5_α
-xchain0_n7_α:
-bb8_α:
+ xchain0_n7_α:
   .section .rodata
   .Lcall8_pname: .string "interpret"
   .section .text
@@ -150,4 +151,3 @@ xchain0_n7_β:
  cmp eax, 99
  je xchain0_n5_α
  jmp xchain0_n8_α
-xchain0_n8_α:
