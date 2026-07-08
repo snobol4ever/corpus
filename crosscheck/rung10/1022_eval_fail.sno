@@ -1,0 +1,5 @@
+*  1022 - EVAL fails (statement F branch) on a syntax error in the string
+	X = EVAL('3 +* 5')	:S(BAD)F(OK)
+BAD	OUTPUT = 'no-fail'	:(END)
+OK	OUTPUT = 'failed ok'
+END

@@ -1,0 +1,7 @@
+*  1021 - direct Goto through a CODE value: C = CODE(S) then :<C>
+*  transfers to the first statement of the compiled block
+	S = 'X OUTPUT = "in-block " N; N = LT(N,2) N + 1 :S(X)F(FIN)'
+	N = 1
+	C = CODE(S)	:<C>
+FIN	OUTPUT = 'fin'
+END
