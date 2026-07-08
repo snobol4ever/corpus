@@ -7142,15 +7142,15 @@ push r12
  call rt_zls_mark@PLT
  mov rsp, rbp
  pop rbp
- mov qword ptr [r12 + 144], rax
+ mov qword ptr [r12 + 176], rax
  pop rsi
 proc_evsusp_α_body:
 # IR_VAR
  xchain00211_n0_α:
  mov rax, qword ptr [r12 + 16]
- mov qword ptr [r12 + 128], rax
+ mov qword ptr [r12 + 160], rax
  mov rax, qword ptr [r12 + 24]
- mov qword ptr [r12 + 136], rax
+ mov qword ptr [r12 + 168], rax
  jmp xchain00211_n1_α
  xchain00211_n0_β:
  jmp xchain00211_n2_α
@@ -7161,25 +7161,25 @@ proc_evsusp_α_body:
  je xchain00211_n2_α
  cmp eax, 0
  jne xchain00211_n2_α
- mov qword ptr [r12 + 112], 0
- mov qword ptr [r12 + 120], 0
+ mov qword ptr [r12 + 144], 0
+ mov qword ptr [r12 + 152], 0
  jmp xchain00211_n3_α
  xchain00211_n1_β:
  jmp xchain00211_n2_α
 # IR_VAR
  xchain00211_n2_α:
  mov rax, qword ptr [r12 + 16]
- mov qword ptr [r12 + 48], rax
+ mov qword ptr [r12 + 80], rax
  mov rax, qword ptr [r12 + 24]
- mov qword ptr [r12 + 56], rax
+ mov qword ptr [r12 + 88], rax
  jmp xchain00211_n4_α
  xchain00211_n2_β:
  jmp proc_evsusp_ω
 # IR_LIT_STRING
  xchain00211_n3_α:
- mov qword ptr [r12 + 96], 1
+ mov qword ptr [r12 + 128], 1
  mov rax, qword ptr [rip + .Lx00212_0]
- mov qword ptr [r12 + 104], rax
+ mov qword ptr [r12 + 136], rax
  jmp xchain00211_n5_α
  xchain00211_n3_β:
  jmp proc_evsusp_ω
@@ -7193,11 +7193,12 @@ proc_evsusp_α_body:
   .section .text
   .intel_syntax noprefix
  mov edi, 0
- mov rsi, qword ptr [r12 + 48]
- mov rdx, qword ptr [r12 + 56]
+ mov rsi, qword ptr [r12 + 80]
+ mov rdx, qword ptr [r12 + 88]
  call rt_arg_stage@PLT
    lea rdi, [rip + .Lcall00134_pname]
  mov esi, 1
+ lea rdx, [r12 + 64]
  call rt_proc_call_gen@PLT
  mov qword ptr [r12 + 32], rax
  mov qword ptr [r12 + 40], rdx
@@ -7205,6 +7206,7 @@ proc_evsusp_α_body:
  je proc_evsusp_ω
  jmp xchain00211_n4_β
 xchain00211_n4_β:
+ mov rdi, qword ptr [r12 + 64]
  call rt_proc_resume_gen@PLT
  mov qword ptr [r12 + 32], rax
  mov qword ptr [r12 + 40], rdx
@@ -7213,8 +7215,8 @@ xchain00211_n4_β:
  jmp xchain00211_n4_β
 # IR_RETURN
  xchain00211_n5_α:
- mov rax, qword ptr [r12 + 96]
- mov rdx, qword ptr [r12 + 104]
+ mov rax, qword ptr [r12 + 128]
+ mov rdx, qword ptr [r12 + 136]
  mov qword ptr [r12 + 0], rax
  mov qword ptr [r12 + 8], rdx
  jmp proc_evsusp_γ
@@ -7228,7 +7230,7 @@ ret
  push rbp
  mov rbp, rsp
  and rsp, -16
- mov rdi, qword ptr [r12 + 144]
+ mov rdi, qword ptr [r12 + 176]
  call rt_zls_release_to@PLT
  mov rsp, rbp
  pop rbp
