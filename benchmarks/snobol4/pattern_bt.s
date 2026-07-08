@@ -613,6 +613,7 @@ main_α_body:
  lea rdi, [rip + g_zls2_cur]
  mov rax, qword ptr [r12 + 432]
  mov qword ptr [rdi + 0], rax
+ call rt_dcap_end_fail@PLT
  mov rsp, rbp
  pop rbp
  jmp xchain25_n20_α
@@ -719,6 +720,7 @@ main_α_body:
  lea rdi, [rip + g_zls2_cur]
  mov rax, qword ptr [r12 + 432]
  mov qword ptr [rdi + 0], rax
+ call rt_dcap_end_ok@PLT
  mov rsp, rbp
  pop rbp
  jmp xchain25_n26_α
