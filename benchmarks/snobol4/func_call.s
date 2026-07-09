@@ -9,6 +9,11 @@ proc_INC_α:
     .global proc_INC_ω
 push r12
   mov r12, rdi
+  lea rax, [rip + g_gva_base]
+  mov rbx, qword ptr [rax]
+  push rbp
+  mov rbp, rsp
+  sub rsp, 8
  push rsi
  push rbp
  mov rbp, rsp
@@ -100,6 +105,8 @@ jmp proc_INC_ω
 proc_INC_γ:
 mov eax, 1
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
  push rbp
@@ -116,6 +123,8 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
 proc_startup:
@@ -169,6 +178,7 @@ main:
   mov rbp, rsp
   push rdi
   push rsi
+  call core_lib_init@PLT
   call proc_startup
   lea rdi, [rip + __gva_names]
   lea rsi, [rip + __gva]
@@ -191,6 +201,11 @@ main_α:
     .global main_ω
 push r12
   mov r12, rdi
+  lea rax, [rip + g_gva_base]
+  mov rbx, qword ptr [rax]
+  push rbp
+  mov rbp, rsp
+  sub rsp, 8
  push rsi
  push rbp
  mov rbp, rsp
@@ -726,6 +741,8 @@ jmp main_ω
 main_γ:
 mov eax, 1
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
  push rbp
@@ -742,5 +759,7 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret

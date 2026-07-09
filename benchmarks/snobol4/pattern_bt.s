@@ -9,6 +9,11 @@ proc_PAT$0_α:
     .global proc_PAT$0_ω
 push r12
   mov r12, rdi
+  lea rax, [rip + g_gva_base]
+  mov rbx, qword ptr [rax]
+  push rbp
+  mov rbp, rsp
+  sub rsp, 8
  push rsi
  push rbp
  mov rbp, rsp
@@ -214,6 +219,8 @@ jmp proc_PAT$0_ω
 proc_PAT$0_γ:
 mov eax, 1
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
  push rbp
@@ -230,6 +237,8 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
 proc_startup:
@@ -273,6 +282,7 @@ main:
   mov rbp, rsp
   push rdi
   push rsi
+  call core_lib_init@PLT
   call proc_startup
   lea rdi, [rip + __gva_names]
   lea rsi, [rip + __gva]
@@ -295,6 +305,11 @@ main_α:
     .global main_ω
 push r12
   mov r12, rdi
+  lea rax, [rip + g_gva_base]
+  mov rbx, qword ptr [rax]
+  push rbp
+  mov rbp, rsp
+  sub rsp, 8
  push rsi
  push rbp
  mov rbp, rsp
@@ -582,9 +597,7 @@ main_α_body:
  xchain25_n19_α:
  call rt_zls_mark@PLT
  mov qword ptr [r12 + 424], rax
- lea rdi, [rip + g_zls2_cur]
- mov rax, qword ptr [rdi + 0]
- mov qword ptr [r12 + 432], rax
+ mov qword ptr [r12 + 432], rsp
  mov rdi, qword ptr [r12 + 448]
  mov rsi, qword ptr [r12 + 456]
  call rt_match_enter@PLT
@@ -610,9 +623,12 @@ main_α_body:
  and rsp, -16
  mov rdi, qword ptr [r12 + 424]
  call rt_zls_release_to@PLT
- lea rdi, [rip + g_zls2_cur]
- mov rax, qword ptr [r12 + 432]
- mov qword ptr [rdi + 0], rax
+ mov rsp, rbp
+ pop rbp
+ mov rsp, qword ptr [r12 + 432]
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
  call rt_dcap_end_fail@PLT
  mov rsp, rbp
  pop rbp
@@ -717,9 +733,12 @@ main_α_body:
  and rsp, -16
  mov rdi, qword ptr [r12 + 424]
  call rt_zls_release_to@PLT
- lea rdi, [rip + g_zls2_cur]
- mov rax, qword ptr [r12 + 432]
- mov qword ptr [rdi + 0], rax
+ mov rsp, rbp
+ pop rbp
+ mov rsp, qword ptr [r12 + 432]
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
  call rt_dcap_end_ok@PLT
  mov rsp, rbp
  pop rbp
@@ -1050,6 +1069,8 @@ jmp main_ω
 main_γ:
 mov eax, 1
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
  push rbp
@@ -1066,6 +1087,8 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
 .section .rodata
