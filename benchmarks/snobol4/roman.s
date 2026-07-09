@@ -9,6 +9,11 @@ proc_ROMAN_α:
     .global proc_ROMAN_ω
 push r12
   mov r12, rdi
+  lea rax, [rip + g_gva_base]
+  mov rbx, qword ptr [rax]
+  push rbp
+  mov rbp, rsp
+  sub rsp, 8
  push rsi
  push rbp
  mov rbp, rsp
@@ -32,9 +37,7 @@ proc_ROMAN_α_body:
  xchain0_n1_α:
  call rt_zls_mark@PLT
  mov qword ptr [r12 + 184], rax
- lea rdi, [rip + g_zls2_cur]
- mov rax, qword ptr [rdi + 0]
- mov qword ptr [r12 + 192], rax
+ mov qword ptr [r12 + 192], rsp
  mov rdi, qword ptr [r12 + 256]
  mov rsi, qword ptr [r12 + 264]
  call rt_match_enter@PLT
@@ -60,9 +63,12 @@ proc_ROMAN_α_body:
  and rsp, -16
  mov rdi, qword ptr [r12 + 184]
  call rt_zls_release_to@PLT
- lea rdi, [rip + g_zls2_cur]
- mov rax, qword ptr [r12 + 192]
- mov qword ptr [rdi + 0], rax
+ mov rsp, rbp
+ pop rbp
+ mov rsp, qword ptr [r12 + 192]
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
  call rt_dcap_end_fail@PLT
  mov rsp, rbp
  pop rbp
@@ -142,9 +148,12 @@ proc_ROMAN_α_body:
  and rsp, -16
  mov rdi, qword ptr [r12 + 184]
  call rt_zls_release_to@PLT
- lea rdi, [rip + g_zls2_cur]
- mov rax, qword ptr [r12 + 192]
- mov qword ptr [rdi + 0], rax
+ mov rsp, rbp
+ pop rbp
+ mov rsp, qword ptr [r12 + 192]
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
  call rt_dcap_end_ok@PLT
  mov rsp, rbp
  pop rbp
@@ -198,9 +207,7 @@ proc_ROMAN_α_body:
  xchain0_n11_α:
  call rt_zls_mark@PLT
  mov qword ptr [r12 + 280], rax
- lea rdi, [rip + g_zls2_cur]
- mov rax, qword ptr [rdi + 0]
- mov qword ptr [r12 + 288], rax
+ mov qword ptr [r12 + 288], rsp
  mov rdi, qword ptr [r12 + 336]
  mov rsi, qword ptr [r12 + 344]
  call rt_match_enter@PLT
@@ -226,9 +233,12 @@ proc_ROMAN_α_body:
  and rsp, -16
  mov rdi, qword ptr [r12 + 280]
  call rt_zls_release_to@PLT
- lea rdi, [rip + g_zls2_cur]
- mov rax, qword ptr [r12 + 288]
- mov qword ptr [rdi + 0], rax
+ mov rsp, rbp
+ pop rbp
+ mov rsp, qword ptr [r12 + 288]
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
  call rt_dcap_end_fail@PLT
  mov rsp, rbp
  pop rbp
@@ -358,9 +368,12 @@ proc_ROMAN_α_body:
  and rsp, -16
  mov rdi, qword ptr [r12 + 280]
  call rt_zls_release_to@PLT
- lea rdi, [rip + g_zls2_cur]
- mov rax, qword ptr [r12 + 288]
- mov qword ptr [rdi + 0], rax
+ mov rsp, rbp
+ pop rbp
+ mov rsp, qword ptr [r12 + 288]
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
  call rt_dcap_end_ok@PLT
  mov rsp, rbp
  pop rbp
@@ -486,6 +499,8 @@ jmp proc_ROMAN_ω
 proc_ROMAN_γ:
 mov eax, 1
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
  push rbp
@@ -502,6 +517,8 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
 proc_startup:
@@ -559,6 +576,7 @@ main:
   mov rbp, rsp
   push rdi
   push rsi
+  call core_lib_init@PLT
   call proc_startup
   lea rdi, [rip + __gva_names]
   lea rsi, [rip + __gva]
@@ -581,6 +599,11 @@ main_α:
     .global main_ω
 push r12
   mov r12, rdi
+  lea rax, [rip + g_gva_base]
+  mov rbx, qword ptr [rax]
+  push rbp
+  mov rbp, rsp
+  sub rsp, 8
  push rsi
  push rbp
  mov rbp, rsp
@@ -1098,6 +1121,8 @@ jmp main_ω
 main_γ:
 mov eax, 1
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
  push rbp
@@ -1114,6 +1139,8 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
 .section .rodata
