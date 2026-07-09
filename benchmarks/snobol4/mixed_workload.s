@@ -9,11 +9,6 @@ proc_RSUM_α:
     .global proc_RSUM_ω
 push r12
   mov r12, rdi
-  lea rax, [rip + g_gva_base]
-  mov rbx, qword ptr [rax]
-  push rbp
-  mov rbp, rsp
-  sub rsp, 8
  push rsi
  push rbp
  mov rbp, rsp
@@ -24,7 +19,7 @@ push r12
  mov qword ptr [r12 + 1680], rax
  pop rsi
 proc_RSUM_α_body:
-# IR_VAR gva
+# IR_VAR
  xchain0_n0_α:
  mov rax, qword ptr [rbx + 16]
  mov rdx, qword ptr [rbx + 24]
@@ -43,7 +38,7 @@ proc_RSUM_α_body:
  jmp xchain0_n2_α
 .Lx2_0:
  .quad 0
-# IR_VAR gva
+# IR_VAR
  xchain0_n2_α:
  mov rax, qword ptr [rbx + 16]
  mov rdx, qword ptr [rbx + 24]
@@ -79,7 +74,7 @@ proc_RSUM_α_body:
  jmp xchain0_n5_α
  xchain0_n3_β:
  jmp xchain0_n2_α
-# IR_VAR gva
+# IR_VAR
  xchain0_n4_α:
  mov rax, qword ptr [rbx + 16]
  mov rdx, qword ptr [rbx + 24]
@@ -258,8 +253,6 @@ jmp proc_RSUM_ω
 proc_RSUM_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, rbp
-pop rbp
 pop r12
 ret
  push rbp
@@ -276,8 +269,6 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
-mov rsp, rbp
-pop rbp
 pop r12
 ret
   .globl proc_PAT$0_α
@@ -289,11 +280,6 @@ proc_PAT$0_α:
     .global proc_PAT$0_ω
 push r12
   mov r12, rdi
-  lea rax, [rip + g_gva_base]
-  mov rbx, qword ptr [rax]
-  push rbp
-  mov rbp, rsp
-  sub rsp, 8
  push rsi
  push rbp
  mov rbp, rsp
@@ -394,8 +380,6 @@ jmp proc_PAT$0_ω
 proc_PAT$0_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, rbp
-pop rbp
 pop r12
 ret
  push rbp
@@ -412,8 +396,6 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
-mov rsp, rbp
-pop rbp
 pop r12
 ret
   .globl proc_PAT$1_α
@@ -425,11 +407,6 @@ proc_PAT$1_α:
     .global proc_PAT$1_ω
 push r12
   mov r12, rdi
-  lea rax, [rip + g_gva_base]
-  mov rbx, qword ptr [rax]
-  push rbp
-  mov rbp, rsp
-  sub rsp, 8
  push rsi
  push rbp
  mov rbp, rsp
@@ -530,8 +507,6 @@ jmp proc_PAT$1_ω
 proc_PAT$1_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, rbp
-pop rbp
 pop r12
 ret
  push rbp
@@ -548,8 +523,6 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
-mov rsp, rbp
-pop rbp
 pop r12
 ret
 proc_startup:
@@ -639,7 +612,6 @@ main:
   mov rbp, rsp
   push rdi
   push rsi
-  call core_lib_init@PLT
   call proc_startup
   lea rdi, [rip + __gva_names]
   lea rsi, [rip + __gva]
@@ -662,11 +634,6 @@ main_α:
     .global main_ω
 push r12
   mov r12, rdi
-  lea rax, [rip + g_gva_base]
-  mov rbx, qword ptr [rax]
-  push rbp
-  mov rbp, rsp
-  sub rsp, 8
  push rsi
  push rbp
  mov rbp, rsp
@@ -956,7 +923,7 @@ main_α_body:
  jmp xchain33_n20_α
  xchain33_n19_β:
  jmp xchain33_n20_α
-# IR_VAR gva
+# IR_VAR
  xchain33_n20_α:
  mov rax, qword ptr [rbx + 96]
  mov rdx, qword ptr [rbx + 104]
@@ -969,7 +936,9 @@ main_α_body:
  xchain33_n21_α:
  call rt_zls_mark@PLT
  mov qword ptr [r12 + 696], rax
- mov qword ptr [r12 + 704], rsp
+ lea rdi, [rip + g_zls2_cur]
+ mov rax, qword ptr [rdi + 0]
+ mov qword ptr [r12 + 704], rax
  mov rdi, qword ptr [r12 + 736]
  mov rsi, qword ptr [r12 + 744]
  call rt_match_enter@PLT
@@ -995,12 +964,9 @@ main_α_body:
  and rsp, -16
  mov rdi, qword ptr [r12 + 696]
  call rt_zls_release_to@PLT
- mov rsp, rbp
- pop rbp
- mov rsp, qword ptr [r12 + 704]
- push rbp
- mov rbp, rsp
- and rsp, -16
+ lea rdi, [rip + g_zls2_cur]
+ mov rax, qword ptr [r12 + 704]
+ mov qword ptr [rdi + 0], rax
  call rt_dcap_end_fail@PLT
  mov rsp, rbp
  pop rbp
@@ -1087,12 +1053,9 @@ main_α_body:
  and rsp, -16
  mov rdi, qword ptr [r12 + 696]
  call rt_zls_release_to@PLT
- mov rsp, rbp
- pop rbp
- mov rsp, qword ptr [r12 + 704]
- push rbp
- mov rbp, rsp
- and rsp, -16
+ lea rdi, [rip + g_zls2_cur]
+ mov rax, qword ptr [r12 + 704]
+ mov qword ptr [rdi + 0], rax
  call rt_dcap_end_ok@PLT
  mov rsp, rbp
  pop rbp
@@ -1151,7 +1114,7 @@ main_α_body:
  .string "DATA"
 .Lx71_1:
  jmp xchain33_n31_α
-# IR_VAR gva
+# IR_VAR
  xchain33_n30_α:
  mov rax, qword ptr [rbx + 160]
  mov rdx, qword ptr [rbx + 168]
@@ -1160,7 +1123,7 @@ main_α_body:
  jmp xchain33_n32_α
  xchain33_n30_β:
  jmp xchain33_n33_α
-# IR_VAR gva
+# IR_VAR
  xchain33_n31_α:
  mov rax, qword ptr [rbx + 112]
  mov rdx, qword ptr [rbx + 120]
@@ -1169,7 +1132,7 @@ main_α_body:
  jmp xchain33_n34_α
  xchain33_n31_β:
  jmp xchain33_n35_α
-# IR_VAR gva
+# IR_VAR
  xchain33_n32_α:
  mov rax, qword ptr [rbx + 112]
  mov rdx, qword ptr [rbx + 120]
@@ -1198,7 +1161,7 @@ main_α_body:
  jmp xchain33_n35_α
 .Lx76_0:
  .quad 1
-# IR_VAR gva
+# IR_VAR
  xchain33_n35_α:
  mov rax, qword ptr [rbx + 80]
  mov rdx, qword ptr [rbx + 88]
@@ -1299,7 +1262,7 @@ xchain33_n37_β:
  jmp xchain33_n43_α
  xchain33_n38_β:
  jmp xchain33_n35_α
-# IR_VAR gva
+# IR_VAR
  xchain33_n39_α:
  mov rax, qword ptr [rbx + 112]
  mov rdx, qword ptr [rbx + 120]
@@ -1308,7 +1271,7 @@ xchain33_n37_β:
  jmp xchain33_n44_α
  xchain33_n39_β:
  jmp xchain33_n20_α
-# IR_VAR gva
+# IR_VAR
  xchain33_n40_α:
  mov rax, qword ptr [rbx + 160]
  mov rdx, qword ptr [rbx + 168]
@@ -1328,7 +1291,7 @@ xchain33_n37_β:
  jmp xchain33_n42_α
  xchain33_n41_β:
  jmp xchain33_n42_α
-# IR_VAR gva
+# IR_VAR
  xchain33_n42_α:
  mov rax, qword ptr [rbx + 64]
  mov rdx, qword ptr [rbx + 72]
@@ -1399,7 +1362,7 @@ xchain33_n37_β:
  jmp xchain33_n51_α
  xchain33_n47_β:
  jmp xchain33_n52_α
-# IR_VAR gva
+# IR_VAR
  xchain33_n48_α:
  mov rax, qword ptr [rbx + 128]
  mov rdx, qword ptr [rbx + 136]
@@ -1526,7 +1489,7 @@ xchain33_n37_β:
  jmp xchain33_n58_α
  xchain33_n54_β:
  jmp xchain33_n33_α
-# IR_VAR gva
+# IR_VAR
  xchain33_n55_α:
  mov rax, qword ptr [rbx + 64]
  mov rdx, qword ptr [rbx + 72]
@@ -1535,7 +1498,7 @@ xchain33_n37_β:
  jmp xchain33_n59_α
  xchain33_n55_β:
  jmp xchain33_n47_α
-# IR_VAR gva
+# IR_VAR
  xchain33_n56_α:
  mov rax, qword ptr [rbx + 144]
  mov rdx, qword ptr [rbx + 152]
@@ -1649,7 +1612,7 @@ xchain33_n37_β:
  jmp xchain33_n20_α
  xchain33_n62_β:
  jmp xchain33_n20_α
-# IR_VAR gva
+# IR_VAR
  xchain33_n63_α:
  mov rax, qword ptr [rbx + 144]
  mov rdx, qword ptr [rbx + 152]
@@ -1719,7 +1682,7 @@ xchain33_n37_β:
  .quad .Lx110_0_s
 .Lx110_0_s:
  .string "OUTPUT"
-# IR_VAR gva
+# IR_VAR
  xchain33_n66_α:
  mov rax, qword ptr [rbx + 192]
  mov rdx, qword ptr [rbx + 200]
@@ -1728,7 +1691,7 @@ xchain33_n37_β:
  jmp xchain33_n69_α
  xchain33_n66_β:
  jmp main_γ
-# IR_VAR gva
+# IR_VAR
  xchain33_n67_α:
  mov rax, qword ptr [rbx + 80]
  mov rdx, qword ptr [rbx + 88]
@@ -1749,7 +1712,7 @@ xchain33_n37_β:
  jmp xchain33_n71_α
  xchain33_n68_β:
  jmp xchain33_n47_α
-# IR_VAR gva
+# IR_VAR
  xchain33_n69_α:
  mov rax, qword ptr [rbx + 48]
  mov rdx, qword ptr [rbx + 56]
@@ -1758,7 +1721,7 @@ xchain33_n37_β:
  jmp xchain33_n72_α
  xchain33_n69_β:
  jmp main_γ
-# IR_VAR gva
+# IR_VAR
  xchain33_n70_α:
  mov rax, qword ptr [rbx + 160]
  mov rdx, qword ptr [rbx + 168]
@@ -1939,8 +1902,6 @@ jmp main_ω
 main_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, rbp
-pop rbp
 pop r12
 ret
  push rbp
@@ -1957,8 +1918,6 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
-mov rsp, rbp
-pop rbp
 pop r12
 ret
 .section .rodata

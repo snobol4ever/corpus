@@ -9,11 +9,6 @@ proc_PAT$0_α:
     .global proc_PAT$0_ω
 push r12
   mov r12, rdi
-  lea rax, [rip + g_gva_base]
-  mov rbx, qword ptr [rax]
-  push rbp
-  mov rbp, rsp
-  sub rsp, 8
  push rsi
  push rbp
  mov rbp, rsp
@@ -114,8 +109,6 @@ jmp proc_PAT$0_ω
 proc_PAT$0_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, rbp
-pop rbp
 pop r12
 ret
  push rbp
@@ -132,8 +125,6 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
-mov rsp, rbp
-pop rbp
 pop r12
 ret
 proc_startup:
@@ -179,7 +170,6 @@ main:
   mov rbp, rsp
   push rdi
   push rsi
-  call core_lib_init@PLT
   call proc_startup
   lea rdi, [rip + __gva_names]
   lea rsi, [rip + __gva]
@@ -202,11 +192,6 @@ main_α:
     .global main_ω
 push r12
   mov r12, rdi
-  lea rax, [rip + g_gva_base]
-  mov rbx, qword ptr [rax]
-  push rbp
-  mov rbp, rsp
-  sub rsp, 8
  push rsi
  push rbp
  mov rbp, rsp
@@ -409,7 +394,7 @@ main_α_body:
  jmp xchain9_n13_α
  xchain9_n12_β:
  jmp xchain9_n13_α
-# IR_VAR gva
+# IR_VAR
  xchain9_n13_α:
  mov rax, qword ptr [rbx + 32]
  mov rdx, qword ptr [rbx + 40]
@@ -495,7 +480,7 @@ main_α_body:
  .quad .Lx34_0_s
 .Lx34_0_s:
  .string "result: "
-# IR_VAR gva
+# IR_VAR
  xchain9_n19_α:
  mov rax, qword ptr [rbx + 32]
  mov rdx, qword ptr [rbx + 40]
@@ -504,7 +489,7 @@ main_α_body:
  jmp xchain9_n21_α
  xchain9_n19_β:
  jmp xchain9_n15_α
-# IR_VAR gva
+# IR_VAR
  xchain9_n20_α:
  mov rax, qword ptr [rbx + 64]
  mov rdx, qword ptr [rbx + 72]
@@ -608,7 +593,7 @@ main_α_body:
  .quad .Lx41_0_s
 .Lx41_0_s:
  .string "OUTPUT"
-# IR_VAR gva
+# IR_VAR
  xchain9_n26_α:
  mov rax, qword ptr [rbx + 96]
  mov rdx, qword ptr [rbx + 104]
@@ -629,7 +614,7 @@ main_α_body:
  jmp xchain9_n29_α
  xchain9_n27_β:
  jmp xchain9_n15_α
-# IR_VAR gva
+# IR_VAR
  xchain9_n28_α:
  mov rax, qword ptr [rbx + 16]
  mov rdx, qword ptr [rbx + 24]
@@ -768,7 +753,7 @@ main_α_body:
  jmp xchain9_n37_α
  xchain9_n36_β:
  jmp xchain9_n37_α
-# IR_VAR gva
+# IR_VAR
  xchain9_n37_α:
  mov rax, qword ptr [rbx + 48]
  mov rdx, qword ptr [rbx + 56]
@@ -781,7 +766,9 @@ main_α_body:
  xchain9_n38_α:
  call rt_zls_mark@PLT
  mov qword ptr [r12 + 536], rax
- mov qword ptr [r12 + 544], rsp
+ lea rdi, [rip + g_zls2_cur]
+ mov rax, qword ptr [rdi + 0]
+ mov qword ptr [r12 + 544], rax
  mov rdi, qword ptr [r12 + 576]
  mov rsi, qword ptr [r12 + 584]
  call rt_match_enter@PLT
@@ -807,12 +794,9 @@ main_α_body:
  and rsp, -16
  mov rdi, qword ptr [r12 + 536]
  call rt_zls_release_to@PLT
- mov rsp, rbp
- pop rbp
- mov rsp, qword ptr [r12 + 544]
- push rbp
- mov rbp, rsp
- and rsp, -16
+ lea rdi, [rip + g_zls2_cur]
+ mov rax, qword ptr [r12 + 544]
+ mov qword ptr [rdi + 0], rax
  call rt_dcap_end_fail@PLT
  mov rsp, rbp
  pop rbp
@@ -878,12 +862,9 @@ main_α_body:
  and rsp, -16
  mov rdi, qword ptr [r12 + 536]
  call rt_zls_release_to@PLT
- mov rsp, rbp
- pop rbp
- mov rsp, qword ptr [r12 + 544]
- push rbp
- mov rbp, rsp
- and rsp, -16
+ lea rdi, [rip + g_zls2_cur]
+ mov rax, qword ptr [r12 + 544]
+ mov qword ptr [rdi + 0], rax
  call rt_dcap_end_ok@PLT
  mov rsp, rbp
  pop rbp
@@ -921,7 +902,7 @@ main_α_body:
  .string "S"
 .Lx61_1:
  jmp xchain9_n43_α
-# IR_VAR gva
+# IR_VAR
  xchain9_n43_α:
  mov rax, qword ptr [rbx + 64]
  mov rdx, qword ptr [rbx + 72]
@@ -930,7 +911,7 @@ main_α_body:
  jmp xchain9_n44_α
  xchain9_n43_β:
  jmp xchain9_n37_α
-# IR_VAR gva
+# IR_VAR
  xchain9_n44_α:
  mov rax, qword ptr [rbx + 80]
  mov rdx, qword ptr [rbx + 88]
@@ -967,8 +948,6 @@ jmp main_ω
 main_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, rbp
-pop rbp
 pop r12
 ret
  push rbp
@@ -985,8 +964,6 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
-mov rsp, rbp
-pop rbp
 pop r12
 ret
 .section .rodata

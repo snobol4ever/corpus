@@ -9,11 +9,6 @@ proc_FIB_α:
     .global proc_FIB_ω
 push r12
   mov r12, rdi
-  lea rax, [rip + g_gva_base]
-  mov rbx, qword ptr [rax]
-  push rbp
-  mov rbp, rsp
-  sub rsp, 8
  push rsi
  push rbp
  mov rbp, rsp
@@ -24,7 +19,7 @@ push r12
  mov qword ptr [r12 + 784], rax
  pop rsi
 proc_FIB_α_body:
-# IR_VAR gva
+# IR_VAR
  xchain0_n0_α:
  mov rax, qword ptr [rbx + 16]
  mov rdx, qword ptr [rbx + 24]
@@ -43,7 +38,7 @@ proc_FIB_α_body:
  jmp xchain0_n2_α
 .Lx2_0:
  .quad 2
-# IR_VAR gva
+# IR_VAR
  xchain0_n2_α:
  mov rax, qword ptr [rbx + 16]
  mov rdx, qword ptr [rbx + 24]
@@ -89,7 +84,7 @@ proc_FIB_α_body:
  jmp proc_FIB_γ
 .Lx6_0:
  .quad 1
-# IR_VAR gva
+# IR_VAR
  xchain0_n5_α:
  mov rax, qword ptr [rbx + 16]
  mov rdx, qword ptr [rbx + 24]
@@ -186,7 +181,7 @@ xchain0_n8_β:
  jmp proc_FIB_γ
  xchain0_n9_β:
  jmp xchain0_n2_α
-# IR_VAR gva
+# IR_VAR
  xchain0_n10_α:
  mov rax, qword ptr [rbx + 16]
  mov rdx, qword ptr [rbx + 24]
@@ -332,8 +327,6 @@ jmp proc_FIB_ω
 proc_FIB_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, rbp
-pop rbp
 pop r12
 ret
  push rbp
@@ -350,8 +343,6 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
-mov rsp, rbp
-pop rbp
 pop r12
 ret
 proc_startup:
@@ -405,7 +396,6 @@ main:
   mov rbp, rsp
   push rdi
   push rsi
-  call core_lib_init@PLT
   call proc_startup
   lea rdi, [rip + __gva_names]
   lea rsi, [rip + __gva]
@@ -428,11 +418,6 @@ main_α:
     .global main_ω
 push r12
   mov r12, rdi
-  lea rax, [rip + g_gva_base]
-  mov rbx, qword ptr [rax]
-  push rbp
-  mov rbp, rsp
-  sub rsp, 8
  push rsi
  push rbp
  mov rbp, rsp
@@ -649,7 +634,7 @@ xchain18_n9_β:
  .quad .Lx36_0_s
 .Lx36_0_s:
  .string "result: "
-# IR_VAR gva
+# IR_VAR
  xchain18_n14_α:
  mov rax, qword ptr [rbx + 48]
  mov rdx, qword ptr [rbx + 56]
@@ -697,7 +682,7 @@ xchain18_n9_β:
  .quad .Lx40_0_s
 .Lx40_0_s:
  .string "OUTPUT"
-# IR_VAR gva
+# IR_VAR
  xchain18_n18_α:
  mov rax, qword ptr [rbx + 64]
  mov rdx, qword ptr [rbx + 72]
@@ -706,7 +691,7 @@ xchain18_n9_β:
  jmp xchain18_n19_α
  xchain18_n18_β:
  jmp main_γ
-# IR_VAR gva
+# IR_VAR
  xchain18_n19_α:
  mov rax, qword ptr [rbx + 32]
  mov rdx, qword ptr [rbx + 40]
@@ -793,8 +778,6 @@ jmp main_ω
 main_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, rbp
-pop rbp
 pop r12
 ret
  push rbp
@@ -811,7 +794,5 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
-mov rsp, rbp
-pop rbp
 pop r12
 ret

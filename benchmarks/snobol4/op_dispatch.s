@@ -22,7 +22,6 @@ main:
   mov rbp, rsp
   push rdi
   push rsi
-  call core_lib_init@PLT
   lea rdi, [rip + __gva_names]
   lea rsi, [rip + __gva]
   mov edx, 4
@@ -44,11 +43,6 @@ main_α:
     .global main_ω
 push r12
   mov r12, rdi
-  lea rax, [rip + g_gva_base]
-  mov rbx, qword ptr [rax]
-  push rbp
-  mov rbp, rsp
-  sub rsp, 8
  push rsi
  push rbp
  mov rbp, rsp
@@ -227,7 +221,7 @@ main_α_body:
  jmp xchain0_n12_α
  xchain0_n11_β:
  jmp xchain0_n12_α
-# IR_VAR gva
+# IR_VAR
  xchain0_n12_α:
  mov rax, qword ptr [rbx + 16]
  mov rdx, qword ptr [rbx + 24]
@@ -246,7 +240,7 @@ main_α_body:
  jmp xchain0_n14_α
 .Lx17_0:
  .quad 3
-# IR_VAR gva
+# IR_VAR
  xchain0_n14_α:
  mov rax, qword ptr [rbx + 16]
  mov rdx, qword ptr [rbx + 24]
@@ -311,7 +305,7 @@ main_α_body:
  jmp xchain0_n17_α
 .Lx20_0:
  .quad 1
-# IR_VAR gva
+# IR_VAR
  xchain0_n17_α:
  mov rax, qword ptr [rbx + 16]
  mov rdx, qword ptr [rbx + 24]
@@ -387,7 +381,7 @@ main_α_body:
  jmp xchain0_n21_α
 .Lx24_0:
  .quad 2
-# IR_VAR gva
+# IR_VAR
  xchain0_n21_α:
  mov rax, qword ptr [rbx + 16]
  mov rdx, qword ptr [rbx + 24]
@@ -463,7 +457,7 @@ main_α_body:
  jmp xchain0_n25_α
 .Lx28_0:
  .quad 10000000
-# IR_VAR gva
+# IR_VAR
  xchain0_n25_α:
  mov rax, qword ptr [rbx + 32]
  mov rdx, qword ptr [rbx + 40]
@@ -537,7 +531,7 @@ main_α_body:
  jmp xchain0_n32_α
  xchain0_n29_β:
  jmp xchain0_n33_α
-# IR_VAR gva
+# IR_VAR
  xchain0_n30_α:
  mov rax, qword ptr [rbx + 16]
  mov rdx, qword ptr [rbx + 24]
@@ -606,7 +600,7 @@ main_α_body:
  jmp xchain0_n25_α
 .Lx41_0:
  .quad 10000
-# IR_VAR gva
+# IR_VAR
  xchain0_n35_α:
  mov rax, qword ptr [rbx + 32]
  mov rdx, qword ptr [rbx + 40]
@@ -615,7 +609,7 @@ main_α_body:
  jmp xchain0_n38_α
  xchain0_n35_β:
  jmp xchain0_n29_α
-# IR_VAR gva
+# IR_VAR
  xchain0_n36_α:
  mov rax, qword ptr [rbx + 16]
  mov rdx, qword ptr [rbx + 24]
@@ -778,7 +772,7 @@ main_α_body:
  .quad .Lx50_0_s
 .Lx50_0_s:
  .string "OUTPUT"
-# IR_VAR gva
+# IR_VAR
  xchain0_n44_α:
  mov rax, qword ptr [rbx + 48]
  mov rdx, qword ptr [rbx + 56]
@@ -810,7 +804,7 @@ main_α_body:
  jmp xchain0_n48_α
  xchain0_n46_β:
  jmp xchain0_n29_α
-# IR_VAR gva
+# IR_VAR
  xchain0_n47_α:
  mov rax, qword ptr [rbx + 0]
  mov rdx, qword ptr [rbx + 8]
@@ -908,8 +902,6 @@ jmp main_ω
 main_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, rbp
-pop rbp
 pop r12
 ret
  push rbp
@@ -926,7 +918,5 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
-mov rsp, rbp
-pop rbp
 pop r12
 ret

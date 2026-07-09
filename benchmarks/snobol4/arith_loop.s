@@ -20,7 +20,6 @@ main:
   mov rbp, rsp
   push rdi
   push rsi
-  call core_lib_init@PLT
   lea rdi, [rip + __gva_names]
   lea rsi, [rip + __gva]
   mov edx, 3
@@ -42,11 +41,6 @@ main_α:
     .global main_ω
 push r12
   mov r12, rdi
-  lea rax, [rip + g_gva_base]
-  mov rbx, qword ptr [rax]
-  push rbp
-  mov rbp, rsp
-  sub rsp, 8
  push rsi
  push rbp
  mov rbp, rsp
@@ -204,7 +198,7 @@ main_α_body:
  jmp xchain0_n10_α
  xchain0_n9_β:
  jmp xchain0_n10_α
-# IR_VAR gva
+# IR_VAR
  xchain0_n10_α:
  mov rax, qword ptr [rbx + 16]
  mov rdx, qword ptr [rbx + 24]
@@ -223,7 +217,7 @@ main_α_body:
  jmp xchain0_n12_α
 .Lx15_0:
  .quad 1
-# IR_VAR gva
+# IR_VAR
  xchain0_n12_α:
  mov rax, qword ptr [rbx + 16]
  mov rdx, qword ptr [rbx + 24]
@@ -366,7 +360,7 @@ main_α_body:
  .quad .Lx25_0_s
 .Lx25_0_s:
  .string "iterations: "
-# IR_VAR gva
+# IR_VAR
  xchain0_n20_α:
  mov rax, qword ptr [rbx + 16]
  mov rdx, qword ptr [rbx + 24]
@@ -375,7 +369,7 @@ main_α_body:
  jmp xchain0_n22_α
  xchain0_n20_β:
  jmp xchain0_n15_α
-# IR_VAR gva
+# IR_VAR
  xchain0_n21_α:
  mov rax, qword ptr [rbx + 16]
  mov rdx, qword ptr [rbx + 24]
@@ -446,7 +440,7 @@ main_α_body:
  .quad .Lx32_0_s
 .Lx32_0_s:
  .string "OUTPUT"
-# IR_VAR gva
+# IR_VAR
  xchain0_n27_α:
  mov rax, qword ptr [rbx + 32]
  mov rdx, qword ptr [rbx + 40]
@@ -455,7 +449,7 @@ main_α_body:
  jmp xchain0_n28_α
  xchain0_n27_β:
  jmp main_γ
-# IR_VAR gva
+# IR_VAR
  xchain0_n28_α:
  mov rax, qword ptr [rbx + 0]
  mov rdx, qword ptr [rbx + 8]
@@ -542,8 +536,6 @@ jmp main_ω
 main_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, rbp
-pop rbp
 pop r12
 ret
  push rbp
@@ -560,7 +552,5 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
-mov rsp, rbp
-pop rbp
 pop r12
 ret

@@ -9,11 +9,6 @@ proc_ADD1_α:
     .global proc_ADD1_ω
 push r12
   mov r12, rdi
-  lea rax, [rip + g_gva_base]
-  mov rbx, qword ptr [rax]
-  push rbp
-  mov rbp, rsp
-  sub rsp, 8
  push rsi
  push rbp
  mov rbp, rsp
@@ -24,7 +19,7 @@ push r12
  mov qword ptr [r12 + 560], rax
  pop rsi
 proc_ADD1_α_body:
-# IR_VAR gva
+# IR_VAR
  xchain0_n0_α:
  mov rax, qword ptr [rbx + 16]
  mov rdx, qword ptr [rbx + 24]
@@ -105,8 +100,6 @@ jmp proc_ADD1_ω
 proc_ADD1_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, rbp
-pop rbp
 pop r12
 ret
  push rbp
@@ -123,8 +116,6 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
-mov rsp, rbp
-pop rbp
 pop r12
 ret
 proc_startup:
@@ -180,7 +171,6 @@ main:
   mov rbp, rsp
   push rdi
   push rsi
-  call core_lib_init@PLT
   call proc_startup
   lea rdi, [rip + __gva_names]
   lea rsi, [rip + __gva]
@@ -203,11 +193,6 @@ main_α:
     .global main_ω
 push r12
   mov r12, rdi
-  lea rax, [rip + g_gva_base]
-  mov rbx, qword ptr [rax]
-  push rbp
-  mov rbp, rsp
-  sub rsp, 8
  push rsi
  push rbp
  mov rbp, rsp
@@ -332,7 +317,7 @@ main_α_body:
  jmp xchain5_n9_α
  xchain5_n8_β:
  jmp xchain5_n9_α
-# IR_VAR gva
+# IR_VAR
  xchain5_n9_α:
  mov rax, qword ptr [rbx + 64]
  mov rdx, qword ptr [rbx + 72]
@@ -351,7 +336,7 @@ main_α_body:
  jmp xchain5_n11_α
 .Lx17_0:
  .quad 500
-# IR_VAR gva
+# IR_VAR
  xchain5_n11_α:
  mov rax, qword ptr [rbx + 80]
  mov rdx, qword ptr [rbx + 88]
@@ -402,7 +387,7 @@ main_α_body:
  .quad .Lx21_0_s
 .Lx21_0_s:
  .string "OUTPUT"
-# IR_VAR gva
+# IR_VAR
  xchain5_n14_α:
  mov rax, qword ptr [rbx + 64]
  mov rdx, qword ptr [rbx + 72]
@@ -490,7 +475,7 @@ main_α_body:
  jmp xchain5_n19_α
  xchain5_n18_β:
  jmp xchain5_n11_α
-# IR_VAR gva
+# IR_VAR
  xchain5_n19_α:
  mov rax, qword ptr [rbx + 48]
  mov rdx, qword ptr [rbx + 56]
@@ -571,8 +556,6 @@ jmp main_ω
 main_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, rbp
-pop rbp
 pop r12
 ret
  push rbp
@@ -589,7 +572,5 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
-mov rsp, rbp
-pop rbp
 pop r12
 ret
