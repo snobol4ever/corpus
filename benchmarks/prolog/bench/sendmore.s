@@ -63,12 +63,12 @@ proc_sumdigit_α_body:
  jmp xchain0_n5_α
  xchain0_n3_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+1216] -> [r12+1184]
+# marshal arg0 = producer-box slot [zr+1216] -> [zr+1184]
  mov rax, qword ptr [r12 + 1216]
  mov qword ptr [r12 + 1184], rax
  mov rax, qword ptr [r12 + 1224]
  mov qword ptr [r12 + 1192], rax
-# marshal arg1 = producer-box slot [r12+1232] -> [r12+1200]
+# marshal arg1 = producer-box slot [zr+1232] -> [zr+1200]
  mov rax, qword ptr [r12 + 1232]
  mov qword ptr [r12 + 1200], rax
  mov rax, qword ptr [r12 + 1240]
@@ -99,7 +99,7 @@ proc_sumdigit_α_body:
  jmp xchain0_n5_α
  xchain0_n5_α:
 # BOX IR_CALL $trail_unwind(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+128] -> [r12+160]
+# marshal arg0 = producer-box slot [zr+128] -> [zr+160]
  mov rax, qword ptr [r12 + 128]
  mov qword ptr [r12 + 160], rax
  mov rax, qword ptr [r12 + 136]
@@ -130,12 +130,12 @@ proc_sumdigit_α_body:
  jmp xchain0_n5_α
  xchain0_n7_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+1136] -> [r12+1104]
+# marshal arg0 = producer-box slot [zr+1136] -> [zr+1104]
  mov rax, qword ptr [r12 + 1136]
  mov qword ptr [r12 + 1104], rax
  mov rax, qword ptr [r12 + 1144]
  mov qword ptr [r12 + 1112], rax
-# marshal arg1 = producer-box slot [r12+1152] -> [r12+1120]
+# marshal arg1 = producer-box slot [zr+1152] -> [zr+1120]
  mov rax, qword ptr [r12 + 1152]
  mov qword ptr [r12 + 1120], rax
  mov rax, qword ptr [r12 + 1160]
@@ -175,12 +175,12 @@ proc_sumdigit_α_body:
  jmp xchain0_n5_α
  xchain0_n10_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+1056] -> [r12+1024]
+# marshal arg0 = producer-box slot [zr+1056] -> [zr+1024]
  mov rax, qword ptr [r12 + 1056]
  mov qword ptr [r12 + 1024], rax
  mov rax, qword ptr [r12 + 1064]
  mov qword ptr [r12 + 1032], rax
-# marshal arg1 = producer-box slot [r12+1072] -> [r12+1040]
+# marshal arg1 = producer-box slot [zr+1072] -> [zr+1040]
  mov rax, qword ptr [r12 + 1072]
  mov qword ptr [r12 + 1040], rax
  mov rax, qword ptr [r12 + 1080]
@@ -220,12 +220,12 @@ proc_sumdigit_α_body:
  jmp xchain0_n5_α
  xchain0_n13_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+976] -> [r12+944]
+# marshal arg0 = producer-box slot [zr+976] -> [zr+944]
  mov rax, qword ptr [r12 + 976]
  mov qword ptr [r12 + 944], rax
  mov rax, qword ptr [r12 + 984]
  mov qword ptr [r12 + 952], rax
-# marshal arg1 = producer-box slot [r12+992] -> [r12+960]
+# marshal arg1 = producer-box slot [zr+992] -> [zr+960]
  mov rax, qword ptr [r12 + 992]
  mov qword ptr [r12 + 960], rax
  mov rax, qword ptr [r12 + 1000]
@@ -265,12 +265,12 @@ proc_sumdigit_α_body:
  jmp xchain0_n5_α
  xchain0_n16_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+896] -> [r12+864]
+# marshal arg0 = producer-box slot [zr+896] -> [zr+864]
  mov rax, qword ptr [r12 + 896]
  mov qword ptr [r12 + 864], rax
  mov rax, qword ptr [r12 + 904]
  mov qword ptr [r12 + 872], rax
-# marshal arg1 = producer-box slot [r12+912] -> [r12+880]
+# marshal arg1 = producer-box slot [zr+912] -> [zr+880]
  mov rax, qword ptr [r12 + 912]
  mov qword ptr [r12 + 880], rax
  mov rax, qword ptr [r12 + 920]
@@ -319,12 +319,12 @@ proc_sumdigit_α_body:
  jmp proc_sumdigit_ω
  xchain0_n20_α:
 # BOX IR_CALL $ax_add(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+800] -> [r12+768]
+# marshal arg0 = producer-box slot [zr+800] -> [zr+768]
  mov rax, qword ptr [r12 + 800]
  mov qword ptr [r12 + 768], rax
  mov rax, qword ptr [r12 + 808]
  mov qword ptr [r12 + 776], rax
-# marshal arg1 = producer-box slot [r12+816] -> [r12+784]
+# marshal arg1 = producer-box slot [zr+816] -> [zr+784]
  mov rax, qword ptr [r12 + 816]
  mov qword ptr [r12 + 784], rax
  mov rax, qword ptr [r12 + 824]
@@ -355,12 +355,12 @@ proc_sumdigit_α_body:
  jmp proc_sumdigit_ω
  xchain0_n22_α:
 # BOX IR_CALL $ax_add(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+752] -> [r12+720]
+# marshal arg0 = producer-box slot [zr+752] -> [zr+720]
  mov rax, qword ptr [r12 + 752]
  mov qword ptr [r12 + 720], rax
  mov rax, qword ptr [r12 + 760]
  mov qword ptr [r12 + 728], rax
-# marshal arg1 = producer-box slot [r12+832] -> [r12+736]
+# marshal arg1 = producer-box slot [zr+832] -> [zr+736]
  mov rax, qword ptr [r12 + 832]
  mov qword ptr [r12 + 736], rax
  mov rax, qword ptr [r12 + 840]
@@ -382,12 +382,12 @@ proc_sumdigit_α_body:
  jmp xchain0_n5_α
  xchain0_n23_α:
 # BOX IR_CALL $is_v(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+688] -> [r12+656]
+# marshal arg0 = producer-box slot [zr+688] -> [zr+656]
  mov rax, qword ptr [r12 + 688]
  mov qword ptr [r12 + 656], rax
  mov rax, qword ptr [r12 + 696]
  mov qword ptr [r12 + 664], rax
-# marshal arg1 = producer-box slot [r12+704] -> [r12+672]
+# marshal arg1 = producer-box slot [zr+704] -> [zr+672]
  mov rax, qword ptr [r12 + 704]
  mov qword ptr [r12 + 672], rax
  mov rax, qword ptr [r12 + 712]
@@ -437,12 +437,12 @@ proc_sumdigit_α_body:
  jmp xchain0_n5_α
  xchain0_n27_α:
 # BOX IR_CALL $cmp_lt(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+608] -> [r12+576]
+# marshal arg0 = producer-box slot [zr+608] -> [zr+576]
  mov rax, qword ptr [r12 + 608]
  mov qword ptr [r12 + 576], rax
  mov rax, qword ptr [r12 + 616]
  mov qword ptr [r12 + 584], rax
-# marshal arg1 = producer-box slot [r12+624] -> [r12+592]
+# marshal arg1 = producer-box slot [zr+624] -> [zr+592]
  mov rax, qword ptr [r12 + 624]
  mov qword ptr [r12 + 592], rax
  mov rax, qword ptr [r12 + 632]
@@ -501,12 +501,12 @@ proc_sumdigit_α_body:
  jmp xchain0_n5_α
  xchain0_n32_α:
 # BOX IR_CALL $ax_sub(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+528] -> [r12+496]
+# marshal arg0 = producer-box slot [zr+528] -> [zr+496]
  mov rax, qword ptr [r12 + 528]
  mov qword ptr [r12 + 496], rax
  mov rax, qword ptr [r12 + 536]
  mov qword ptr [r12 + 504], rax
-# marshal arg1 = producer-box slot [r12+544] -> [r12+512]
+# marshal arg1 = producer-box slot [zr+544] -> [zr+512]
  mov rax, qword ptr [r12 + 544]
  mov qword ptr [r12 + 512], rax
  mov rax, qword ptr [r12 + 552]
@@ -528,12 +528,12 @@ proc_sumdigit_α_body:
  jmp xchain0_n5_α
  xchain0_n33_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+304] -> [r12+272]
+# marshal arg0 = producer-box slot [zr+304] -> [zr+272]
  mov rax, qword ptr [r12 + 304]
  mov qword ptr [r12 + 272], rax
  mov rax, qword ptr [r12 + 312]
  mov qword ptr [r12 + 280], rax
-# marshal arg1 = producer-box slot [r12+320] -> [r12+288]
+# marshal arg1 = producer-box slot [zr+320] -> [zr+288]
  mov rax, qword ptr [r12 + 320]
  mov qword ptr [r12 + 288], rax
  mov rax, qword ptr [r12 + 328]
@@ -555,12 +555,12 @@ proc_sumdigit_α_body:
  jmp xchain0_n5_α
  xchain0_n34_α:
 # BOX IR_CALL $is_v(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+464] -> [r12+432]
+# marshal arg0 = producer-box slot [zr+464] -> [zr+432]
  mov rax, qword ptr [r12 + 464]
  mov qword ptr [r12 + 432], rax
  mov rax, qword ptr [r12 + 472]
  mov qword ptr [r12 + 440], rax
-# marshal arg1 = producer-box slot [r12+480] -> [r12+448]
+# marshal arg1 = producer-box slot [zr+480] -> [zr+448]
  mov rax, qword ptr [r12 + 480]
  mov qword ptr [r12 + 448], rax
  mov rax, qword ptr [r12 + 488]
@@ -620,12 +620,12 @@ proc_sumdigit_α_body:
  .quad 1
  xchain0_n39_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+224] -> [r12+192]
+# marshal arg0 = producer-box slot [zr+224] -> [zr+192]
  mov rax, qword ptr [r12 + 224]
  mov qword ptr [r12 + 192], rax
  mov rax, qword ptr [r12 + 232]
  mov qword ptr [r12 + 200], rax
-# marshal arg1 = producer-box slot [r12+240] -> [r12+208]
+# marshal arg1 = producer-box slot [zr+240] -> [zr+208]
  mov rax, qword ptr [r12 + 240]
  mov qword ptr [r12 + 208], rax
  mov rax, qword ptr [r12 + 248]
@@ -647,12 +647,12 @@ proc_sumdigit_α_body:
  jmp xchain0_n5_α
  xchain0_n40_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+384] -> [r12+352]
+# marshal arg0 = producer-box slot [zr+384] -> [zr+352]
  mov rax, qword ptr [r12 + 384]
  mov qword ptr [r12 + 352], rax
  mov rax, qword ptr [r12 + 392]
  mov qword ptr [r12 + 360], rax
-# marshal arg1 = producer-box slot [r12+400] -> [r12+368]
+# marshal arg1 = producer-box slot [zr+400] -> [zr+368]
  mov rax, qword ptr [r12 + 400]
  mov qword ptr [r12 + 368], rax
  mov rax, qword ptr [r12 + 408]
