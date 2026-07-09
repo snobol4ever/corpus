@@ -9,6 +9,11 @@ proc_interpret_α:
     .global proc_interpret_ω
 push r12
   mov r12, rdi
+  lea rax, [rip + g_gva_base]
+  mov rbx, qword ptr [rax]
+  push rbp
+  mov rbp, rsp
+  sub rsp, 8
   cmp esi, 0
   jne proc_interpret_β
  push rsi
@@ -124,30 +129,6 @@ proc_interpret_α_body:
  xchain0_n6_β:
  jmp xchain0_n5_α
  xchain0_n7_α:
-  .section .rodata
-  .Lcall8_pname: .string "interpret"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12 + 224]
- mov rdx, qword ptr [r12 + 232]
- call rt_arg_stage@PLT
- mov edi, 1
- mov rsi, qword ptr [r12 + 240]
- mov rdx, qword ptr [r12 + 248]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall8_pname]
- mov esi, 2
- call rt_proc_call_gen@PLT
- mov qword ptr [r12 + 176], rax
- mov qword ptr [r12 + 184], rdx
- cmp eax, 99
- je xchain0_n5_α
- jmp xchain0_n8_α
-xchain0_n7_β:
- call rt_proc_resume_gen@PLT
- mov qword ptr [r12 + 176], rax
- mov qword ptr [r12 + 184], rdx
- cmp eax, 99
- je xchain0_n5_α
- jmp xchain0_n8_α
+ lea rdi, [rip + .S0]
+ call rt_bomb@PLT
+ ud2

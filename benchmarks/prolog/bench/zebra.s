@@ -9,6 +9,11 @@ proc_zebra_α:
     .global proc_zebra_ω
 push r12
   mov r12, rdi
+  lea rax, [rip + g_gva_base]
+  mov rbx, qword ptr [rax]
+  push rbp
+  mov rbp, rsp
+  sub rsp, 8
   cmp esi, 0
   jne proc_zebra_β
  push rsi
@@ -115,29 +120,9 @@ proc_zebra_α_body:
  xchain0_n5_β:
  jmp proc_zebra_ω
  xchain0_n6_α:
-  .section .rodata
-  .Lcall7_pname: .string "houses"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12 + 5968]
- mov rdx, qword ptr [r12 + 5976]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall7_pname]
- mov esi, 1
- call rt_proc_call_gen@PLT
- mov qword ptr [r12 + 5936], rax
- mov qword ptr [r12 + 5944], rdx
- cmp eax, 99
- je xchain0_n5_α
- jmp xchain0_n7_α
-xchain0_n6_β:
- call rt_proc_resume_gen@PLT
- mov qword ptr [r12 + 5936], rax
- mov qword ptr [r12 + 5944], rdx
- cmp eax, 99
- je xchain0_n5_α
- jmp xchain0_n7_α
+ lea rdi, [rip + .S0]
+ call rt_bomb@PLT
+ ud2
 # IR_LIT_STRING
  xchain0_n7_α:
  mov qword ptr [r12 + 5904], 1
@@ -258,33 +243,9 @@ xchain0_n6_β:
  xchain0_n14_β:
  jmp xchain0_n5_α
  xchain0_n15_α:
-  .section .rodata
-  .Lcall16_pname: .string "my_member"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12 + 5792]
- mov rdx, qword ptr [r12 + 5800]
- call rt_arg_stage@PLT
- mov edi, 1
- mov rsi, qword ptr [r12 + 5920]
- mov rdx, qword ptr [r12 + 5928]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall16_pname]
- mov esi, 2
- call rt_proc_call_gen@PLT
- mov qword ptr [r12 + 5664], rax
- mov qword ptr [r12 + 5672], rdx
- cmp eax, 99
- je xchain0_n6_β
- jmp xchain0_n16_α
-xchain0_n15_β:
- call rt_proc_resume_gen@PLT
- mov qword ptr [r12 + 5664], rax
- mov qword ptr [r12 + 5672], rdx
- cmp eax, 99
- je xchain0_n6_β
- jmp xchain0_n16_α
+ lea rdi, [rip + .S0]
+ call rt_bomb@PLT
+ ud2
 # IR_LIT_STRING
  xchain0_n16_α:
  mov qword ptr [r12 + 5632], 1
@@ -405,33 +366,9 @@ xchain0_n15_β:
  xchain0_n23_β:
  jmp xchain0_n5_α
  xchain0_n24_α:
-  .section .rodata
-  .Lcall25_pname: .string "my_member"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12 + 5520]
- mov rdx, qword ptr [r12 + 5528]
- call rt_arg_stage@PLT
- mov edi, 1
- mov rsi, qword ptr [r12 + 5648]
- mov rdx, qword ptr [r12 + 5656]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall25_pname]
- mov esi, 2
- call rt_proc_call_gen@PLT
- mov qword ptr [r12 + 5392], rax
- mov qword ptr [r12 + 5400], rdx
- cmp eax, 99
- je xchain0_n15_β
- jmp xchain0_n25_α
-xchain0_n24_β:
- call rt_proc_resume_gen@PLT
- mov qword ptr [r12 + 5392], rax
- mov qword ptr [r12 + 5400], rdx
- cmp eax, 99
- je xchain0_n15_β
- jmp xchain0_n25_α
+ lea rdi, [rip + .S0]
+ call rt_bomb@PLT
+ ud2
 # IR_LIT_STRING
  xchain0_n25_α:
  mov qword ptr [r12 + 5360], 1
@@ -552,33 +489,9 @@ xchain0_n24_β:
  xchain0_n32_β:
  jmp xchain0_n5_α
  xchain0_n33_α:
-  .section .rodata
-  .Lcall34_pname: .string "my_member"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12 + 5248]
- mov rdx, qword ptr [r12 + 5256]
- call rt_arg_stage@PLT
- mov edi, 1
- mov rsi, qword ptr [r12 + 5376]
- mov rdx, qword ptr [r12 + 5384]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall34_pname]
- mov esi, 2
- call rt_proc_call_gen@PLT
- mov qword ptr [r12 + 5120], rax
- mov qword ptr [r12 + 5128], rdx
- cmp eax, 99
- je xchain0_n24_β
- jmp xchain0_n34_α
-xchain0_n33_β:
- call rt_proc_resume_gen@PLT
- mov qword ptr [r12 + 5120], rax
- mov qword ptr [r12 + 5128], rdx
- cmp eax, 99
- je xchain0_n24_β
- jmp xchain0_n34_α
+ lea rdi, [rip + .S0]
+ call rt_bomb@PLT
+ ud2
 # IR_LIT_STRING
  xchain0_n34_α:
  mov qword ptr [r12 + 5088], 1
@@ -699,33 +612,9 @@ xchain0_n33_β:
  xchain0_n41_β:
  jmp xchain0_n5_α
  xchain0_n42_α:
-  .section .rodata
-  .Lcall43_pname: .string "my_member"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12 + 4976]
- mov rdx, qword ptr [r12 + 4984]
- call rt_arg_stage@PLT
- mov edi, 1
- mov rsi, qword ptr [r12 + 5104]
- mov rdx, qword ptr [r12 + 5112]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall43_pname]
- mov esi, 2
- call rt_proc_call_gen@PLT
- mov qword ptr [r12 + 4848], rax
- mov qword ptr [r12 + 4856], rdx
- cmp eax, 99
- je xchain0_n33_β
- jmp xchain0_n43_α
-xchain0_n42_β:
- call rt_proc_resume_gen@PLT
- mov qword ptr [r12 + 4848], rax
- mov qword ptr [r12 + 4856], rdx
- cmp eax, 99
- je xchain0_n33_β
- jmp xchain0_n43_α
+ lea rdi, [rip + .S0]
+ call rt_bomb@PLT
+ ud2
 # IR_LIT_STRING
  xchain0_n43_α:
  mov qword ptr [r12 + 4608], 1
@@ -950,37 +839,9 @@ xchain0_n42_β:
  xchain0_n57_β:
  jmp xchain0_n5_α
  xchain0_n58_α:
-  .section .rodata
-  .Lcall59_pname: .string "right_of"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12 + 4496]
- mov rdx, qword ptr [r12 + 4504]
- call rt_arg_stage@PLT
- mov edi, 1
- mov rsi, qword ptr [r12 + 4704]
- mov rdx, qword ptr [r12 + 4712]
- call rt_arg_stage@PLT
- mov edi, 2
- mov rsi, qword ptr [r12 + 4832]
- mov rdx, qword ptr [r12 + 4840]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall59_pname]
- mov esi, 3
- call rt_proc_call_gen@PLT
- mov qword ptr [r12 + 4352], rax
- mov qword ptr [r12 + 4360], rdx
- cmp eax, 99
- je xchain0_n42_β
- jmp xchain0_n59_α
-xchain0_n58_β:
- call rt_proc_resume_gen@PLT
- mov qword ptr [r12 + 4352], rax
- mov qword ptr [r12 + 4360], rdx
- cmp eax, 99
- je xchain0_n42_β
- jmp xchain0_n59_α
+ lea rdi, [rip + .S0]
+ call rt_bomb@PLT
+ ud2
 # IR_LIT_STRING
  xchain0_n59_α:
  mov qword ptr [r12 + 4320], 1
@@ -1101,33 +962,9 @@ xchain0_n58_β:
  xchain0_n66_β:
  jmp xchain0_n5_α
  xchain0_n67_α:
-  .section .rodata
-  .Lcall68_pname: .string "my_member"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12 + 4208]
- mov rdx, qword ptr [r12 + 4216]
- call rt_arg_stage@PLT
- mov edi, 1
- mov rsi, qword ptr [r12 + 4336]
- mov rdx, qword ptr [r12 + 4344]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall68_pname]
- mov esi, 2
- call rt_proc_call_gen@PLT
- mov qword ptr [r12 + 4080], rax
- mov qword ptr [r12 + 4088], rdx
- cmp eax, 99
- je xchain0_n58_β
- jmp xchain0_n68_α
-xchain0_n67_β:
- call rt_proc_resume_gen@PLT
- mov qword ptr [r12 + 4080], rax
- mov qword ptr [r12 + 4088], rdx
- cmp eax, 99
- je xchain0_n58_β
- jmp xchain0_n68_α
+ lea rdi, [rip + .S0]
+ call rt_bomb@PLT
+ ud2
 # IR_LIT_STRING
  xchain0_n68_α:
  mov qword ptr [r12 + 4048], 1
@@ -1248,33 +1085,9 @@ xchain0_n67_β:
  xchain0_n75_β:
  jmp xchain0_n5_α
  xchain0_n76_α:
-  .section .rodata
-  .Lcall77_pname: .string "my_member"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12 + 3936]
- mov rdx, qword ptr [r12 + 3944]
- call rt_arg_stage@PLT
- mov edi, 1
- mov rsi, qword ptr [r12 + 4064]
- mov rdx, qword ptr [r12 + 4072]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall77_pname]
- mov esi, 2
- call rt_proc_call_gen@PLT
- mov qword ptr [r12 + 3808], rax
- mov qword ptr [r12 + 3816], rdx
- cmp eax, 99
- je xchain0_n67_β
- jmp xchain0_n77_α
-xchain0_n76_β:
- call rt_proc_resume_gen@PLT
- mov qword ptr [r12 + 3808], rax
- mov qword ptr [r12 + 3816], rdx
- cmp eax, 99
- je xchain0_n67_β
- jmp xchain0_n77_α
+ lea rdi, [rip + .S0]
+ call rt_bomb@PLT
+ ud2
 # IR_VAR_REF local
  xchain0_n77_α:
  lea rdi, [r12 + 6144]
@@ -2106,37 +1919,9 @@ xchain0_n76_β:
  xchain0_n127_β:
  jmp xchain0_n5_α
  xchain0_n128_α:
-  .section .rodata
-  .Lcall129_pname: .string "next_to"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12 + 2336]
- mov rdx, qword ptr [r12 + 2344]
- call rt_arg_stage@PLT
- mov edi, 1
- mov rsi, qword ptr [r12 + 2544]
- mov rdx, qword ptr [r12 + 2552]
- call rt_arg_stage@PLT
- mov edi, 2
- mov rsi, qword ptr [r12 + 2672]
- mov rdx, qword ptr [r12 + 2680]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall129_pname]
- mov esi, 3
- call rt_proc_call_gen@PLT
- mov qword ptr [r12 + 2192], rax
- mov qword ptr [r12 + 2200], rdx
- cmp eax, 99
- je xchain0_n76_β
- jmp xchain0_n129_α
-xchain0_n128_β:
- call rt_proc_resume_gen@PLT
- mov qword ptr [r12 + 2192], rax
- mov qword ptr [r12 + 2200], rdx
- cmp eax, 99
- je xchain0_n76_β
- jmp xchain0_n129_α
+ lea rdi, [rip + .S0]
+ call rt_bomb@PLT
+ ud2
 # IR_LIT_STRING
  xchain0_n129_α:
  mov qword ptr [r12 + 1952], 1
@@ -2361,37 +2146,9 @@ xchain0_n128_β:
  xchain0_n143_β:
  jmp xchain0_n5_α
  xchain0_n144_α:
-  .section .rodata
-  .Lcall145_pname: .string "next_to"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12 + 1840]
- mov rdx, qword ptr [r12 + 1848]
- call rt_arg_stage@PLT
- mov edi, 1
- mov rsi, qword ptr [r12 + 2048]
- mov rdx, qword ptr [r12 + 2056]
- call rt_arg_stage@PLT
- mov edi, 2
- mov rsi, qword ptr [r12 + 2176]
- mov rdx, qword ptr [r12 + 2184]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall145_pname]
- mov esi, 3
- call rt_proc_call_gen@PLT
- mov qword ptr [r12 + 1696], rax
- mov qword ptr [r12 + 1704], rdx
- cmp eax, 99
- je xchain0_n128_β
- jmp xchain0_n145_α
-xchain0_n144_β:
- call rt_proc_resume_gen@PLT
- mov qword ptr [r12 + 1696], rax
- mov qword ptr [r12 + 1704], rdx
- cmp eax, 99
- je xchain0_n128_β
- jmp xchain0_n145_α
+ lea rdi, [rip + .S0]
+ call rt_bomb@PLT
+ ud2
 # IR_LIT_STRING
  xchain0_n145_α:
  mov qword ptr [r12 + 1664], 1
@@ -2512,33 +2269,9 @@ xchain0_n144_β:
  xchain0_n152_β:
  jmp xchain0_n5_α
  xchain0_n153_α:
-  .section .rodata
-  .Lcall154_pname: .string "my_member"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12 + 1552]
- mov rdx, qword ptr [r12 + 1560]
- call rt_arg_stage@PLT
- mov edi, 1
- mov rsi, qword ptr [r12 + 1680]
- mov rdx, qword ptr [r12 + 1688]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall154_pname]
- mov esi, 2
- call rt_proc_call_gen@PLT
- mov qword ptr [r12 + 1424], rax
- mov qword ptr [r12 + 1432], rdx
- cmp eax, 99
- je xchain0_n144_β
- jmp xchain0_n154_α
-xchain0_n153_β:
- call rt_proc_resume_gen@PLT
- mov qword ptr [r12 + 1424], rax
- mov qword ptr [r12 + 1432], rdx
- cmp eax, 99
- je xchain0_n144_β
- jmp xchain0_n154_α
+ lea rdi, [rip + .S0]
+ call rt_bomb@PLT
+ ud2
 # IR_LIT_STRING
  xchain0_n154_α:
  mov qword ptr [r12 + 1392], 1
@@ -2659,33 +2392,9 @@ xchain0_n153_β:
  xchain0_n161_β:
  jmp xchain0_n5_α
  xchain0_n162_α:
-  .section .rodata
-  .Lcall163_pname: .string "my_member"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12 + 1280]
- mov rdx, qword ptr [r12 + 1288]
- call rt_arg_stage@PLT
- mov edi, 1
- mov rsi, qword ptr [r12 + 1408]
- mov rdx, qword ptr [r12 + 1416]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall163_pname]
- mov esi, 2
- call rt_proc_call_gen@PLT
- mov qword ptr [r12 + 1152], rax
- mov qword ptr [r12 + 1160], rdx
- cmp eax, 99
- je xchain0_n153_β
- jmp xchain0_n163_α
-xchain0_n162_β:
- call rt_proc_resume_gen@PLT
- mov qword ptr [r12 + 1152], rax
- mov qword ptr [r12 + 1160], rdx
- cmp eax, 99
- je xchain0_n153_β
- jmp xchain0_n163_α
+ lea rdi, [rip + .S0]
+ call rt_bomb@PLT
+ ud2
 # IR_LIT_STRING
  xchain0_n163_α:
  mov qword ptr [r12 + 912], 1
@@ -2910,37 +2619,9 @@ xchain0_n162_β:
  xchain0_n177_β:
  jmp xchain0_n5_α
  xchain0_n178_α:
-  .section .rodata
-  .Lcall179_pname: .string "next_to"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12 + 800]
- mov rdx, qword ptr [r12 + 808]
- call rt_arg_stage@PLT
- mov edi, 1
- mov rsi, qword ptr [r12 + 1008]
- mov rdx, qword ptr [r12 + 1016]
- call rt_arg_stage@PLT
- mov edi, 2
- mov rsi, qword ptr [r12 + 1136]
- mov rdx, qword ptr [r12 + 1144]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall179_pname]
- mov esi, 3
- call rt_proc_call_gen@PLT
- mov qword ptr [r12 + 656], rax
- mov qword ptr [r12 + 664], rdx
- cmp eax, 99
- je xchain0_n162_β
- jmp xchain0_n179_α
-xchain0_n178_β:
- call rt_proc_resume_gen@PLT
- mov qword ptr [r12 + 656], rax
- mov qword ptr [r12 + 664], rdx
- cmp eax, 99
- je xchain0_n162_β
- jmp xchain0_n179_α
+ lea rdi, [rip + .S0]
+ call rt_bomb@PLT
+ ud2
 # IR_LIT_STRING
  xchain0_n179_α:
  mov qword ptr [r12 + 624], 1
@@ -3058,33 +2739,9 @@ xchain0_n178_β:
  xchain0_n186_β:
  jmp xchain0_n5_α
  xchain0_n187_α:
-  .section .rodata
-  .Lcall188_pname: .string "my_member"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12 + 512]
- mov rdx, qword ptr [r12 + 520]
- call rt_arg_stage@PLT
- mov edi, 1
- mov rsi, qword ptr [r12 + 640]
- mov rdx, qword ptr [r12 + 648]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall188_pname]
- mov esi, 2
- call rt_proc_call_gen@PLT
- mov qword ptr [r12 + 384], rax
- mov qword ptr [r12 + 392], rdx
- cmp eax, 99
- je xchain0_n178_β
- jmp xchain0_n188_α
-xchain0_n187_β:
- call rt_proc_resume_gen@PLT
- mov qword ptr [r12 + 384], rax
- mov qword ptr [r12 + 392], rdx
- cmp eax, 99
- je xchain0_n178_β
- jmp xchain0_n188_α
+ lea rdi, [rip + .S0]
+ call rt_bomb@PLT
+ ud2
 # IR_LIT_STRING
  xchain0_n188_α:
  mov qword ptr [r12 + 352], 1
@@ -3202,33 +2859,9 @@ xchain0_n187_β:
  xchain0_n195_β:
  jmp xchain0_n5_α
  xchain0_n196_α:
-  .section .rodata
-  .Lcall197_pname: .string "my_member"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12 + 240]
- mov rdx, qword ptr [r12 + 248]
- call rt_arg_stage@PLT
- mov edi, 1
- mov rsi, qword ptr [r12 + 368]
- mov rdx, qword ptr [r12 + 376]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall197_pname]
- mov esi, 2
- call rt_proc_call_gen@PLT
- mov qword ptr [r12 + 112], rax
- mov qword ptr [r12 + 120], rdx
- cmp eax, 99
- je xchain0_n187_β
- jmp xchain0_n197_α
-xchain0_n196_β:
- call rt_proc_resume_gen@PLT
- mov qword ptr [r12 + 112], rax
- mov qword ptr [r12 + 120], rdx
- cmp eax, 99
- je xchain0_n187_β
- jmp xchain0_n197_α
+ lea rdi, [rip + .S0]
+ call rt_bomb@PLT
+ ud2
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
  xchain0_n197_α:
  lea rax, [rip + xchain0_n6_β]
@@ -3246,6 +2879,8 @@ jmp xchain0_n198_α
 proc_zebra_γ:
 mov eax, 1
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
  push rbp
@@ -3262,6 +2897,8 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
   .globl proc_right_of_α
@@ -3273,6 +2910,11 @@ proc_right_of_α:
     .global proc_right_of_ω
 push r12
   mov r12, rdi
+  lea rax, [rip + g_gva_base]
+  mov rbx, qword ptr [rax]
+  push rbp
+  mov rbp, rsp
+  sub rsp, 8
   cmp esi, 0
   jne proc_right_of_β
  push rsi
@@ -3815,37 +3457,9 @@ proc_right_of_α_body:
  xchain329_n34_β:
  jmp xchain329_n14_α
  xchain329_n35_α:
-  .section .rodata
-  .Lcall235_pname: .string "right_of"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12 + 208]
- mov rdx, qword ptr [r12 + 216]
- call rt_arg_stage@PLT
- mov edi, 1
- mov rsi, qword ptr [r12 + 224]
- mov rdx, qword ptr [r12 + 232]
- call rt_arg_stage@PLT
- mov edi, 2
- mov rsi, qword ptr [r12 + 240]
- mov rdx, qword ptr [r12 + 248]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall235_pname]
- mov esi, 3
- call rt_proc_call_gen@PLT
- mov qword ptr [r12 + 144], rax
- mov qword ptr [r12 + 152], rdx
- cmp eax, 99
- je xchain329_n14_α
- jmp xchain329_n36_α
-xchain329_n35_β:
- call rt_proc_resume_gen@PLT
- mov qword ptr [r12 + 144], rax
- mov qword ptr [r12 + 152], rdx
- cmp eax, 99
- je xchain329_n14_α
- jmp xchain329_n36_α
+ lea rdi, [rip + .S0]
+ call rt_bomb@PLT
+ ud2
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
  xchain329_n36_α:
  lea rax, [rip + xchain329_n35_β]
@@ -3858,6 +3472,8 @@ jmp xchain329_n31_α
 proc_right_of_γ:
 mov eax, 1
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
  push rbp
@@ -3874,6 +3490,8 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
   .globl proc_next_to_α
@@ -3885,6 +3503,11 @@ proc_next_to_α:
     .global proc_next_to_ω
 push r12
   mov r12, rdi
+  lea rax, [rip + g_gva_base]
+  mov rbx, qword ptr [rax]
+  push rbp
+  mov rbp, rsp
+  sub rsp, 8
   cmp esi, 0
   jne proc_next_to_β
  push rsi
@@ -4697,37 +4320,9 @@ proc_next_to_α_body:
  xchain400_n51_β:
  jmp xchain400_n27_α
  xchain400_n52_α:
-  .section .rodata
-  .Lcall289_pname: .string "next_to"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12 + 208]
- mov rdx, qword ptr [r12 + 216]
- call rt_arg_stage@PLT
- mov edi, 1
- mov rsi, qword ptr [r12 + 224]
- mov rdx, qword ptr [r12 + 232]
- call rt_arg_stage@PLT
- mov edi, 2
- mov rsi, qword ptr [r12 + 240]
- mov rdx, qword ptr [r12 + 248]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall289_pname]
- mov esi, 3
- call rt_proc_call_gen@PLT
- mov qword ptr [r12 + 144], rax
- mov qword ptr [r12 + 152], rdx
- cmp eax, 99
- je xchain400_n27_α
- jmp xchain400_n53_α
-xchain400_n52_β:
- call rt_proc_resume_gen@PLT
- mov qword ptr [r12 + 144], rax
- mov qword ptr [r12 + 152], rdx
- cmp eax, 99
- je xchain400_n27_α
- jmp xchain400_n53_α
+ lea rdi, [rip + .S0]
+ call rt_bomb@PLT
+ ud2
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
  xchain400_n53_α:
  lea rax, [rip + xchain400_n52_β]
@@ -4740,6 +4335,8 @@ jmp xchain400_n40_α
 proc_next_to_γ:
 mov eax, 1
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
  push rbp
@@ -4756,6 +4353,8 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
   .globl proc_my_member_α
@@ -4767,6 +4366,11 @@ proc_my_member_α:
     .global proc_my_member_ω
 push r12
   mov r12, rdi
+  lea rax, [rip + g_gva_base]
+  mov rbx, qword ptr [rax]
+  push rbp
+  mov rbp, rsp
+  sub rsp, 8
   cmp esi, 0
   jne proc_my_member_β
  push rsi
@@ -5157,33 +4761,9 @@ proc_my_member_α_body:
  xchain503_n24_β:
  jmp xchain503_n14_α
  xchain503_n25_α:
-  .section .rodata
-  .Lcall316_pname: .string "my_member"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12 + 176]
- mov rdx, qword ptr [r12 + 184]
- call rt_arg_stage@PLT
- mov edi, 1
- mov rsi, qword ptr [r12 + 192]
- mov rdx, qword ptr [r12 + 200]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall316_pname]
- mov esi, 2
- call rt_proc_call_gen@PLT
- mov qword ptr [r12 + 128], rax
- mov qword ptr [r12 + 136], rdx
- cmp eax, 99
- je xchain503_n14_α
- jmp xchain503_n26_α
-xchain503_n25_β:
- call rt_proc_resume_gen@PLT
- mov qword ptr [r12 + 128], rax
- mov qword ptr [r12 + 136], rdx
- cmp eax, 99
- je xchain503_n14_α
- jmp xchain503_n26_α
+ lea rdi, [rip + .S0]
+ call rt_bomb@PLT
+ ud2
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
  xchain503_n26_α:
  lea rax, [rip + xchain503_n25_β]
@@ -5196,6 +4776,8 @@ jmp xchain503_n19_α
 proc_my_member_γ:
 mov eax, 1
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
  push rbp
@@ -5212,6 +4794,8 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
   .globl proc_houses_α
@@ -5223,6 +4807,11 @@ proc_houses_α:
     .global proc_houses_ω
 push r12
   mov r12, rdi
+  lea rax, [rip + g_gva_base]
+  mov rbx, qword ptr [rax]
+  push rbp
+  mov rbp, rsp
+  sub rsp, 8
   cmp esi, 0
   jne proc_houses_β
  push rsi
@@ -6079,6 +5668,8 @@ jmp xchain555_n51_α
 proc_houses_γ:
 mov eax, 1
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
  push rbp
@@ -6095,6 +5686,8 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
 proc_startup:
@@ -6158,6 +5751,7 @@ main:
   mov rbp, rsp
   push rdi
   push rsi
+  call core_lib_init@PLT
   call proc_startup
   call rt_frame@PLT
   mov rdi, rax
@@ -6175,6 +5769,11 @@ main_α:
     .global main_ω
 push r12
   mov r12, rdi
+  lea rax, [rip + g_gva_base]
+  mov rbx, qword ptr [rax]
+  push rbp
+  mov rbp, rsp
+  sub rsp, 8
  push rsi
  push rbp
  mov rbp, rsp
@@ -6212,29 +5811,9 @@ main_α_body:
  xchain649_n1_β:
  jmp xchain649_n4_α
  xchain649_n2_α:
-  .section .rodata
-  .Lcall372_pname: .string "zebra"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12 + 224]
- mov rdx, qword ptr [r12 + 232]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall372_pname]
- mov esi, 1
- call rt_proc_call_gen@PLT
- mov qword ptr [r12 + 192], rax
- mov qword ptr [r12 + 200], rdx
- cmp eax, 99
- je xchain649_n4_α
- jmp xchain649_n3_α
-xchain649_n2_β:
- call rt_proc_resume_gen@PLT
- mov qword ptr [r12 + 192], rax
- mov qword ptr [r12 + 200], rdx
- cmp eax, 99
- je xchain649_n4_α
- jmp xchain649_n3_α
+ lea rdi, [rip + .S0]
+ call rt_bomb@PLT
+ ud2
 # IR_VAR
  xchain649_n3_α:
  mov rax, qword ptr [r12 + 256]
@@ -6267,14 +5846,14 @@ xchain649_n2_β:
  xchain649_n4_β:
  jmp main_ω
  xchain649_n5_α:
-# BOX IR_CALL writes(...) -> rt_call_arr [operand-marshal, FAIL->ω]
+# BOX IR_CALL $write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+176] -> [r12+160]
  mov rax, qword ptr [r12 + 176]
  mov qword ptr [r12 + 160], rax
  mov rax, qword ptr [r12 + 184]
  mov qword ptr [r12 + 168], rax
   .section .rodata
-  .Lrkfn660: .string "writes"
+  .Lrkfn660: .string "$write"
   .section .text
   .intel_syntax noprefix
    lea rdi, [rip + .Lrkfn660]
@@ -6339,6 +5918,8 @@ jmp xchain649_n9_α
 main_γ:
 mov eax, 1
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
  push rbp
@@ -6355,5 +5936,10 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
+.section .rodata
+.S0: .string "bb_call_proc_staged: generator call on an op kind without a callgen.act ZLS2 handle grant (zeta_storage.c widens only IR_PROC_GEN / IR_CALL_PROC_STAGED)"
+.text

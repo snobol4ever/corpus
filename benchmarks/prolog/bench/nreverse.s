@@ -9,6 +9,11 @@ proc_nreverse_α:
     .global proc_nreverse_ω
 push r12
   mov r12, rdi
+  lea rax, [rip + g_gva_base]
+  mov rbx, qword ptr [rax]
+  push rbp
+  mov rbp, rsp
+  sub rsp, 8
   cmp esi, 0
   jne proc_nreverse_β
  push rsi
@@ -313,33 +318,9 @@ proc_nreverse_α_body:
 .Lx35_0_s:
  .string "[]"
  xchain0_n19_α:
-  .section .rodata
-  .Lcall20_pname: .string "nreverse"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12 + 576]
- mov rdx, qword ptr [r12 + 584]
- call rt_arg_stage@PLT
- mov edi, 1
- mov rsi, qword ptr [r12 + 592]
- mov rdx, qword ptr [r12 + 600]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall20_pname]
- mov esi, 2
- call rt_proc_call_gen@PLT
- mov qword ptr [r12 + 528], rax
- mov qword ptr [r12 + 536], rdx
- cmp eax, 99
- je xchain0_n7_α
- jmp xchain0_n21_α
-xchain0_n19_β:
- call rt_proc_resume_gen@PLT
- mov qword ptr [r12 + 528], rax
- mov qword ptr [r12 + 536], rdx
- cmp eax, 99
- je xchain0_n7_α
- jmp xchain0_n21_α
+ lea rdi, [rip + .S0]
+ call rt_bomb@PLT
+ ud2
  xchain0_n20_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+176] -> [r12+144]
@@ -463,37 +444,9 @@ xchain0_n19_β:
  xchain0_n28_β:
  jmp xchain0_n7_α
  xchain0_n29_α:
-  .section .rodata
-  .Lcall30_pname: .string "concatenate"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12 + 384]
- mov rdx, qword ptr [r12 + 392]
- call rt_arg_stage@PLT
- mov edi, 1
- mov rsi, qword ptr [r12 + 432]
- mov rdx, qword ptr [r12 + 440]
- call rt_arg_stage@PLT
- mov edi, 2
- mov rsi, qword ptr [r12 + 512]
- mov rdx, qword ptr [r12 + 520]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall30_pname]
- mov esi, 3
- call rt_proc_call_gen@PLT
- mov qword ptr [r12 + 320], rax
- mov qword ptr [r12 + 328], rdx
- cmp eax, 99
- je xchain0_n19_β
- jmp xchain0_n30_α
-xchain0_n29_β:
- call rt_proc_resume_gen@PLT
- mov qword ptr [r12 + 320], rax
- mov qword ptr [r12 + 328], rdx
- cmp eax, 99
- je xchain0_n19_β
- jmp xchain0_n30_α
+ lea rdi, [rip + .S0]
+ call rt_bomb@PLT
+ ud2
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
  xchain0_n30_α:
  lea rax, [rip + xchain0_n19_β]
@@ -506,6 +459,8 @@ jmp xchain0_n24_α
 proc_nreverse_γ:
 mov eax, 1
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
  push rbp
@@ -522,6 +477,8 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
   .globl proc_concatenate_α
@@ -533,6 +490,11 @@ proc_concatenate_α:
     .global proc_concatenate_ω
 push r12
   mov r12, rdi
+  lea rax, [rip + g_gva_base]
+  mov rbx, qword ptr [rax]
+  push rbp
+  mov rbp, rsp
+  sub rsp, 8
   cmp esi, 0
   jne proc_concatenate_β
  push rsi
@@ -1025,37 +987,9 @@ proc_concatenate_α_body:
  xchain56_n31_β:
  jmp xchain56_n7_α
  xchain56_n32_α:
-  .section .rodata
-  .Lcall64_pname: .string "concatenate"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12 + 480]
- mov rdx, qword ptr [r12 + 488]
- call rt_arg_stage@PLT
- mov edi, 1
- mov rsi, qword ptr [r12 + 496]
- mov rdx, qword ptr [r12 + 504]
- call rt_arg_stage@PLT
- mov edi, 2
- mov rsi, qword ptr [r12 + 512]
- mov rdx, qword ptr [r12 + 520]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall64_pname]
- mov esi, 3
- call rt_proc_call_gen@PLT
- mov qword ptr [r12 + 416], rax
- mov qword ptr [r12 + 424], rdx
- cmp eax, 99
- je xchain56_n7_α
- jmp xchain56_n33_α
-xchain56_n32_β:
- call rt_proc_resume_gen@PLT
- mov qword ptr [r12 + 416], rax
- mov qword ptr [r12 + 424], rdx
- cmp eax, 99
- je xchain56_n7_α
- jmp xchain56_n33_α
+ lea rdi, [rip + .S0]
+ call rt_bomb@PLT
+ ud2
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
  xchain56_n33_α:
  lea rax, [rip + xchain56_n32_β]
@@ -1068,6 +1002,8 @@ jmp xchain56_n30_α
 proc_concatenate_γ:
 mov eax, 1
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
  push rbp
@@ -1084,6 +1020,8 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
 proc_startup:
@@ -1117,6 +1055,7 @@ main:
   mov rbp, rsp
   push rdi
   push rsi
+  call core_lib_init@PLT
   call proc_startup
   call rt_frame@PLT
   mov rdi, rax
@@ -1134,6 +1073,11 @@ main_α:
     .global main_ω
 push r12
   mov r12, rdi
+  lea rax, [rip + g_gva_base]
+  mov rbx, qword ptr [rax]
+  push rbp
+  mov rbp, rsp
+  sub rsp, 8
  push rsi
  push rbp
  mov rbp, rsp
@@ -2825,33 +2769,9 @@ main_α_body:
  xchain121_n93_β:
  jmp main_ω
  xchain121_n94_α:
-  .section .rodata
-  .Lcall160_pname: .string "nreverse"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12 + 3056]
- mov rdx, qword ptr [r12 + 3064]
- call rt_arg_stage@PLT
- mov edi, 1
- mov rsi, qword ptr [r12 + 3136]
- mov rdx, qword ptr [r12 + 3144]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall160_pname]
- mov esi, 2
- call rt_proc_call_gen@PLT
- mov qword ptr [r12 + 192], rax
- mov qword ptr [r12 + 200], rdx
- cmp eax, 99
- je xchain121_n93_α
- jmp xchain121_n95_α
-xchain121_n94_β:
- call rt_proc_resume_gen@PLT
- mov qword ptr [r12 + 192], rax
- mov qword ptr [r12 + 200], rdx
- cmp eax, 99
- je xchain121_n93_α
- jmp xchain121_n95_α
+ lea rdi, [rip + .S0]
+ call rt_bomb@PLT
+ ud2
 # IR_VAR
  xchain121_n95_α:
  mov rax, qword ptr [r12 + 3168]
@@ -2862,14 +2782,14 @@ xchain121_n94_β:
  xchain121_n95_β:
  jmp xchain121_n93_α
  xchain121_n96_α:
-# BOX IR_CALL writes(...) -> rt_call_arr [operand-marshal, FAIL->ω]
+# BOX IR_CALL $write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [r12+176] -> [r12+160]
  mov rax, qword ptr [r12 + 176]
  mov qword ptr [r12 + 160], rax
  mov rax, qword ptr [r12 + 184]
  mov qword ptr [r12 + 168], rax
   .section .rodata
-  .Lrkfn253: .string "writes"
+  .Lrkfn253: .string "$write"
   .section .text
   .intel_syntax noprefix
    lea rdi, [rip + .Lrkfn253]
@@ -2934,6 +2854,8 @@ jmp xchain121_n100_α
 main_γ:
 mov eax, 1
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
  push rbp
@@ -2950,5 +2872,10 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
+mov rsp, rbp
+pop rbp
 pop r12
 ret
+.section .rodata
+.S0: .string "bb_call_proc_staged: generator call on an op kind without a callgen.act ZLS2 handle grant (zeta_storage.c widens only IR_PROC_GEN / IR_CALL_PROC_STAGED)"
+.text
