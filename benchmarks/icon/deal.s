@@ -82,7 +82,7 @@ proc_display_α_body:
  jmp xchain0_n3_α
  xchain0_n5_α:
 # BOX IR_CALL shuffle(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
-# marshal arg0 = producer-box slot [r12+1184] -> [r12+1168]
+# marshal arg0 = producer-box slot [zr+1184] -> [zr+1168]
  mov rax, qword ptr [r12 + 1184]
  mov qword ptr [r12 + 1168], rax
  mov rax, qword ptr [r12 + 1192]
@@ -205,12 +205,12 @@ xchain0_n5_β:
  jmp xchain0_n17_α
  xchain0_n15_α:
 # BOX IR_CALL repl(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+1424] -> [r12+1392]
+# marshal arg0 = producer-box slot [zr+1424] -> [zr+1392]
  mov rax, qword ptr [r12 + 1424]
  mov qword ptr [r12 + 1392], rax
  mov rax, qword ptr [r12 + 1432]
  mov qword ptr [r12 + 1400], rax
-# marshal arg1 = producer-box slot [r12+1440] -> [r12+1408]
+# marshal arg1 = producer-box slot [zr+1440] -> [zr+1408]
  mov rax, qword ptr [r12 + 1440]
  mov qword ptr [r12 + 1408], rax
  mov rax, qword ptr [r12 + 1448]
@@ -367,12 +367,12 @@ xchain0_n5_β:
  .quad 1
  xchain0_n28_α:
 # BOX IR_CALL repl(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+1296] -> [r12+1264]
+# marshal arg0 = producer-box slot [zr+1296] -> [zr+1264]
  mov rax, qword ptr [r12 + 1296]
  mov qword ptr [r12 + 1264], rax
  mov rax, qword ptr [r12 + 1304]
  mov qword ptr [r12 + 1272], rax
-# marshal arg1 = producer-box slot [r12+1312] -> [r12+1280]
+# marshal arg1 = producer-box slot [zr+1312] -> [zr+1280]
  mov rax, qword ptr [r12 + 1312]
  mov qword ptr [r12 + 1280], rax
  mov rax, qword ptr [r12 + 1320]
@@ -609,12 +609,12 @@ xchain0_n36_β:
  jmp xchain0_n14_α
  xchain0_n42_α:
 # BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+688] -> [r12+656]
+# marshal arg0 = producer-box slot [zr+688] -> [zr+656]
  mov rax, qword ptr [r12 + 688]
  mov qword ptr [r12 + 656], rax
  mov rax, qword ptr [r12 + 696]
  mov qword ptr [r12 + 664], rax
-# marshal arg1 = producer-box slot [r12+704] -> [r12+672]
+# marshal arg1 = producer-box slot [zr+704] -> [zr+672]
  mov rax, qword ptr [r12 + 704]
  mov qword ptr [r12 + 672], rax
  mov rax, qword ptr [r12 + 712]
@@ -787,12 +787,12 @@ xchain0_n51_β:
  jmp xchain0_n35_β
  xchain0_n53_α:
 # BOX IR_CALL push(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+864] -> [r12+832]
+# marshal arg0 = producer-box slot [zr+864] -> [zr+832]
  mov rax, qword ptr [r12 + 864]
  mov qword ptr [r12 + 832], rax
  mov rax, qword ptr [r12 + 872]
  mov qword ptr [r12 + 840], rax
-# marshal arg1 = producer-box slot [r12+880] -> [r12+848]
+# marshal arg1 = producer-box slot [zr+880] -> [zr+848]
  mov rax, qword ptr [r12 + 880]
  mov qword ptr [r12 + 848], rax
  mov rax, qword ptr [r12 + 888]
@@ -836,12 +836,12 @@ xchain0_n51_β:
  .quad 20
  xchain0_n56_α:
 # BOX IR_CALL left(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+496] -> [r12+384]
+# marshal arg0 = producer-box slot [zr+496] -> [zr+384]
  mov rax, qword ptr [r12 + 496]
  mov qword ptr [r12 + 384], rax
  mov rax, qword ptr [r12 + 504]
  mov qword ptr [r12 + 392], rax
-# marshal arg1 = producer-box slot [r12+512] -> [r12+400]
+# marshal arg1 = producer-box slot [zr+512] -> [zr+400]
  mov rax, qword ptr [r12 + 512]
  mov qword ptr [r12 + 400], rax
  mov rax, qword ptr [r12 + 520]
@@ -931,12 +931,12 @@ xchain0_n51_β:
  jmp xchain0_n35_β
  xchain0_n63_α:
 # BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+368] -> [r12+336]
+# marshal arg0 = producer-box slot [zr+368] -> [zr+336]
  mov rax, qword ptr [r12 + 368]
  mov qword ptr [r12 + 336], rax
  mov rax, qword ptr [r12 + 376]
  mov qword ptr [r12 + 344], rax
-# marshal arg1 = producer-box slot [r12+608] -> [r12+352]
+# marshal arg1 = producer-box slot [zr+608] -> [zr+352]
  mov rax, qword ptr [r12 + 608]
  mov qword ptr [r12 + 352], rax
  mov rax, qword ptr [r12 + 616]
@@ -1012,7 +1012,7 @@ xchain0_n51_β:
  .quad 3
  xchain0_n69_α:
 # BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+48] -> [r12+32]
+# marshal arg0 = producer-box slot [zr+48] -> [zr+32]
  mov rax, qword ptr [r12 + 48]
  mov qword ptr [r12 + 32], rax
  mov rax, qword ptr [r12 + 56]
@@ -1076,12 +1076,12 @@ xchain0_n51_β:
  jmp .Lx99_0
  xchain0_n73_α:
 # BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+112] -> [r12+80]
+# marshal arg0 = producer-box slot [zr+112] -> [zr+80]
  mov rax, qword ptr [r12 + 112]
  mov qword ptr [r12 + 80], rax
  mov rax, qword ptr [r12 + 120]
  mov qword ptr [r12 + 88], rax
-# marshal arg1 = producer-box slot [r12+128] -> [r12+96]
+# marshal arg1 = producer-box slot [zr+128] -> [zr+96]
  mov rax, qword ptr [r12 + 128]
  mov qword ptr [r12 + 96], rax
  mov rax, qword ptr [r12 + 136]
@@ -1317,12 +1317,12 @@ xchain00001_n10_β:
  jmp proc_show_ω
  xchain00001_n15_α:
 # BOX IR_CALL repl(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+1136] -> [r12+1104]
+# marshal arg0 = producer-box slot [zr+1136] -> [zr+1104]
  mov rax, qword ptr [r12 + 1136]
  mov qword ptr [r12 + 1104], rax
  mov rax, qword ptr [r12 + 1144]
  mov qword ptr [r12 + 1112], rax
-# marshal arg1 = producer-box slot [r12+1152] -> [r12+1120]
+# marshal arg1 = producer-box slot [zr+1152] -> [zr+1120]
  mov rax, qword ptr [r12 + 1152]
  mov qword ptr [r12 + 1120], rax
  mov rax, qword ptr [r12 + 1160]
@@ -1408,12 +1408,12 @@ xchain00001_n10_β:
  jmp xchain00001_n13_α
  xchain00001_n22_α:
 # BOX IR_CALL repl(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+816] -> [r12+784]
+# marshal arg0 = producer-box slot [zr+816] -> [zr+784]
  mov rax, qword ptr [r12 + 816]
  mov qword ptr [r12 + 784], rax
  mov rax, qword ptr [r12 + 824]
  mov qword ptr [r12 + 792], rax
-# marshal arg1 = producer-box slot [r12+832] -> [r12+800]
+# marshal arg1 = producer-box slot [zr+832] -> [zr+800]
  mov rax, qword ptr [r12 + 832]
  mov qword ptr [r12 + 800], rax
  mov rax, qword ptr [r12 + 840]
@@ -1484,12 +1484,12 @@ xchain00001_n10_β:
  jmp xchain00001_n18_α
  xchain00001_n28_α:
 # BOX IR_CALL repl(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+672] -> [r12+640]
+# marshal arg0 = producer-box slot [zr+672] -> [zr+640]
  mov rax, qword ptr [r12 + 672]
  mov qword ptr [r12 + 640], rax
  mov rax, qword ptr [r12 + 680]
  mov qword ptr [r12 + 648], rax
-# marshal arg1 = producer-box slot [r12+688] -> [r12+656]
+# marshal arg1 = producer-box slot [zr+688] -> [zr+656]
  mov rax, qword ptr [r12 + 688]
  mov qword ptr [r12 + 656], rax
  mov rax, qword ptr [r12 + 696]
@@ -1520,12 +1520,12 @@ xchain00001_n10_β:
  jmp proc_show_ω
  xchain00001_n30_α:
 # BOX IR_CALL repl(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+1008] -> [r12+976]
+# marshal arg0 = producer-box slot [zr+1008] -> [zr+976]
  mov rax, qword ptr [r12 + 1008]
  mov qword ptr [r12 + 976], rax
  mov rax, qword ptr [r12 + 1016]
  mov qword ptr [r12 + 984], rax
-# marshal arg1 = producer-box slot [r12+1024] -> [r12+992]
+# marshal arg1 = producer-box slot [zr+1024] -> [zr+992]
  mov rax, qword ptr [r12 + 1024]
  mov qword ptr [r12 + 992], rax
  mov rax, qword ptr [r12 + 1032]
@@ -1933,17 +1933,17 @@ proc_arrange_α_body:
  jmp proc_arrange_ω
  xchain00013_n3_α:
 # BOX IR_CALL map(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+192] -> [r12+144]
+# marshal arg0 = producer-box slot [zr+192] -> [zr+144]
  mov rax, qword ptr [r12 + 192]
  mov qword ptr [r12 + 144], rax
  mov rax, qword ptr [r12 + 200]
  mov qword ptr [r12 + 152], rax
-# marshal arg1 = producer-box slot [r12+208] -> [r12+160]
+# marshal arg1 = producer-box slot [zr+208] -> [zr+160]
  mov rax, qword ptr [r12 + 208]
  mov qword ptr [r12 + 160], rax
  mov rax, qword ptr [r12 + 216]
  mov qword ptr [r12 + 168], rax
-# marshal arg2 = producer-box slot [r12+224] -> [r12+176]
+# marshal arg2 = producer-box slot [zr+224] -> [zr+176]
  mov rax, qword ptr [r12 + 224]
  mov qword ptr [r12 + 176], rax
  mov rax, qword ptr [r12 + 232]
@@ -2011,17 +2011,17 @@ proc_arrange_α_body:
  jmp proc_arrange_ω
  xchain00013_n8_α:
 # BOX IR_CALL map(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+112] -> [r12+64]
+# marshal arg0 = producer-box slot [zr+112] -> [zr+64]
  mov rax, qword ptr [r12 + 112]
  mov qword ptr [r12 + 64], rax
  mov rax, qword ptr [r12 + 120]
  mov qword ptr [r12 + 72], rax
-# marshal arg1 = producer-box slot [r12+256] -> [r12+80]
+# marshal arg1 = producer-box slot [zr+256] -> [zr+80]
  mov rax, qword ptr [r12 + 256]
  mov qword ptr [r12 + 80], rax
  mov rax, qword ptr [r12 + 264]
  mov qword ptr [r12 + 88], rax
-# marshal arg2 = producer-box slot [r12+272] -> [r12+96]
+# marshal arg2 = producer-box slot [zr+272] -> [zr+96]
  mov rax, qword ptr [r12 + 272]
  mov qword ptr [r12 + 96], rax
  mov rax, qword ptr [r12 + 280]
@@ -2207,7 +2207,7 @@ main_α_body:
  .string "deal"
  xchain00015_n1_α:
 # BOX IR_CALL Init__(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
-# marshal arg0 = producer-box slot [r12+896] -> [r12+880]
+# marshal arg0 = producer-box slot [zr+896] -> [zr+880]
  mov rax, qword ptr [r12 + 896]
  mov qword ptr [r12 + 880], rax
  mov rax, qword ptr [r12 + 904]
@@ -2242,7 +2242,7 @@ xchain00015_n1_β:
  .string "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
  xchain00015_n3_α:
 # BOX IR_CALL string(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+848] -> [r12+832]
+# marshal arg0 = producer-box slot [zr+848] -> [zr+832]
  mov rax, qword ptr [r12 + 848]
  mov qword ptr [r12 + 832], rax
  mov rax, qword ptr [r12 + 856]
@@ -2428,12 +2428,12 @@ xchain00015_n1_β:
  jmp xchain00015_n8_α
  xchain00015_n16_α:
 # BOX IR_CALL repl(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [r12+624] -> [r12+592]
+# marshal arg0 = producer-box slot [zr+624] -> [zr+592]
  mov rax, qword ptr [r12 + 624]
  mov qword ptr [r12 + 592], rax
  mov rax, qword ptr [r12 + 632]
  mov qword ptr [r12 + 600], rax
-# marshal arg1 = producer-box slot [r12+640] -> [r12+608]
+# marshal arg1 = producer-box slot [zr+640] -> [zr+608]
  mov rax, qword ptr [r12 + 640]
  mov qword ptr [r12 + 608], rax
  mov rax, qword ptr [r12 + 648]
@@ -2601,12 +2601,12 @@ xchain00015_n1_β:
  jmp xchain00015_n22_α
  xchain00015_n27_α:
 # BOX IR_CALL options(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
-# marshal arg0 = producer-box slot [r12+432] -> [r12+400]
+# marshal arg0 = producer-box slot [zr+432] -> [zr+400]
  mov rax, qword ptr [r12 + 432]
  mov qword ptr [r12 + 400], rax
  mov rax, qword ptr [r12 + 440]
  mov qword ptr [r12 + 408], rax
-# marshal arg1 = producer-box slot [r12+448] -> [r12+416]
+# marshal arg1 = producer-box slot [zr+448] -> [zr+416]
  mov rax, qword ptr [r12 + 448]
  mov qword ptr [r12 + 416], rax
  mov rax, qword ptr [r12 + 456]
