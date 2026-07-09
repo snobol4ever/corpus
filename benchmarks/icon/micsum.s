@@ -561,7 +561,7 @@ proc_dofile_α_body:
  jmp xchain0_n42_α
  xchain0_n36_β:
  jmp xchain0_n37_α
-# IR_VAR_REF local
+# IR_VAR_REF
  xchain0_n37_α:
  lea rdi, [r12 + 2576]
  call rt_var_ref_cell@PLT
