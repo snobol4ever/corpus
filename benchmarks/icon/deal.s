@@ -3097,10 +3097,10 @@ xchain00016_n50_β:
  mov rax, qword ptr [r12 + 1544]
  mov qword ptr [r12 + 1512], rax
   .section .rodata
-  .Lbynamefn300: .string "any"
+  .Lbynamefn213: .string "any"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lbynamefn300]
+ lea rdi, [rip + .Lbynamefn213]
  lea rsi, [r12 + 1488]
  mov edx, 2
  call rt_call_arr@PLT
@@ -3109,7 +3109,7 @@ xchain00016_n50_β:
  cmp eax, 99
  je xchain00016_n65_α
  jmp xchain00016_n73_α
-xchain00016_n71_β:
+ xchain00016_n71_β:
  jmp xchain00016_n65_α
 # IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
  xchain00016_n72_α:
@@ -3221,10 +3221,10 @@ xchain00016_n71_β:
  mov rax, qword ptr [r12 + 1368]
  mov qword ptr [r12 + 1352], rax
   .section .rodata
-  .Lrkfn313: .string "get"
+  .Lrkfn312: .string "get"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn313]
+   lea rdi, [rip + .Lrkfn312]
  lea rsi, [r12 + 1344]
  mov edx, 1
  call rt_call_arr@PLT
@@ -3305,10 +3305,10 @@ xchain00016_n71_β:
  mov rax, qword ptr [r12 + 1320]
  mov qword ptr [r12 + 1288], rax
   .section .rodata
-  .Lrkfn325: .string "stop"
+  .Lrkfn324: .string "stop"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn325]
+   lea rdi, [rip + .Lrkfn324]
  lea rsi, [r12 + 1264]
  mov edx, 2
  call rt_call_arr@PLT
@@ -3355,10 +3355,10 @@ xchain00016_n71_β:
  mov rax, qword ptr [r12 + 1112]
  mov qword ptr [r12 + 1192], rax
   .section .rodata
-  .Lrkfn330: .string "IDENTICAL"
+  .Lrkfn329: .string "IDENTICAL"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn330]
+   lea rdi, [rip + .Lrkfn329]
  lea rsi, [r12 + 1168]
  mov edx, 2
  call rt_call_arr@PLT
@@ -3414,10 +3414,10 @@ xchain00016_n71_β:
  mov rax, qword ptr [r12 + 840]
  mov qword ptr [r12 + 1096], rax
   .section .rodata
-  .Lrkfn336: .string "IDENTICAL"
+  .Lrkfn335: .string "IDENTICAL"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn336]
+   lea rdi, [rip + .Lrkfn335]
  lea rsi, [r12 + 1072]
  mov edx, 2
  call rt_call_arr@PLT
@@ -3470,10 +3470,10 @@ xchain00016_n97_β:
  mov rax, qword ptr [r12 + 1032]
  mov qword ptr [r12 + 1016], rax
   .section .rodata
-  .Lrkfn344: .string "integer"
+  .Lrkfn343: .string "integer"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn344]
+   lea rdi, [rip + .Lrkfn343]
  lea rsi, [r12 + 1008]
  mov edx, 1
  call rt_call_arr@PLT
@@ -3509,10 +3509,10 @@ xchain00016_n97_β:
  mov rax, qword ptr [r12 + 568]
  mov qword ptr [r12 + 824], rax
   .section .rodata
-  .Lrkfn347: .string "IDENTICAL"
+  .Lrkfn346: .string "IDENTICAL"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn347]
+   lea rdi, [rip + .Lrkfn346]
  lea rsi, [r12 + 800]
  mov edx, 2
  call rt_call_arr@PLT
@@ -3588,10 +3588,10 @@ xchain00016_n97_β:
  mov rax, qword ptr [r12 + 760]
  mov qword ptr [r12 + 744], rax
   .section .rodata
-  .Lrkfn360: .string "real"
+  .Lrkfn359: .string "real"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn360]
+   lea rdi, [rip + .Lrkfn359]
  lea rsi, [r12 + 736]
  mov edx, 1
  call rt_call_arr@PLT
@@ -3643,10 +3643,10 @@ xchain00016_n97_β:
  mov rax, qword ptr [r12 + 984]
  mov qword ptr [r12 + 936], rax
   .section .rodata
-  .Lrkfn364: .string "stop"
+  .Lrkfn363: .string "stop"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn364]
+   lea rdi, [rip + .Lrkfn363]
  lea rsi, [r12 + 896]
  mov edx, 3
  call rt_call_arr@PLT
@@ -3734,10 +3734,10 @@ xchain00016_n97_β:
  mov rax, qword ptr [r12 + 712]
  mov qword ptr [r12 + 664], rax
   .section .rodata
-  .Lrkfn376: .string "stop"
+  .Lrkfn375: .string "stop"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn376]
+   lea rdi, [rip + .Lrkfn375]
  lea rsi, [r12 + 624]
  mov edx, 3
  call rt_call_arr@PLT
@@ -3895,10 +3895,10 @@ xchain00060_n4_β:
  mov rax, qword ptr [r12 + 264]
  mov qword ptr [r12 + 248], rax
   .section .rodata
-  .Lrkfn388: .string "getenv"
+  .Lrkfn387: .string "getenv"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn388]
+   lea rdi, [rip + .Lrkfn387]
  lea rsi, [r12 + 240]
  mov edx, 1
  call rt_call_arr@PLT
@@ -3944,10 +3944,10 @@ xchain00060_n4_β:
  mov rax, qword ptr [r12 + 216]
  mov qword ptr [r12 + 200], rax
   .section .rodata
-  .Lrkfn392: .string "write"
+  .Lrkfn391: .string "write"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn392]
+   lea rdi, [rip + .Lrkfn391]
  lea rsi, [r12 + 192]
  mov edx, 1
  call rt_call_arr@PLT
@@ -4120,10 +4120,10 @@ proc_Term___α_body:
  mov rax, qword ptr [r12 + 328]
  mov qword ptr [r12 + 312], rax
   .section .rodata
-  .Lrkfn404: .string "getenv"
+  .Lrkfn403: .string "getenv"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn404]
+   lea rdi, [rip + .Lrkfn403]
  lea rsi, [r12 + 304]
  mov edx, 1
  call rt_call_arr@PLT
@@ -4258,10 +4258,10 @@ xchain00070_n8_β:
  mov rax, qword ptr [r12 + 168]
  mov qword ptr [r12 + 120], rax
   .section .rodata
-  .Lrkfn415: .string "write"
+  .Lrkfn414: .string "write"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn415]
+   lea rdi, [rip + .Lrkfn414]
  lea rsi, [r12 + 80]
  mov edx, 3
  call rt_call_arr@PLT
@@ -4544,10 +4544,10 @@ proc_Collections___α_body:
  mov rax, qword ptr [r12 + 472]
  mov qword ptr [r12 + 440], rax
   .section .rodata
-  .Lrkfn441: .string "put"
+  .Lrkfn440: .string "put"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn441]
+   lea rdi, [rip + .Lrkfn440]
  lea rsi, [r12 + 416]
  mov edx, 2
  call rt_call_arr@PLT
@@ -4566,10 +4566,10 @@ proc_Collections___α_body:
  mov rax, qword ptr [r12 + 392]
  mov qword ptr [r12 + 376], rax
   .section .rodata
-  .Lrkfn443: .string "write"
+  .Lrkfn442: .string "write"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn443]
+   lea rdi, [rip + .Lrkfn442]
  lea rsi, [r12 + 368]
  mov edx, 1
  call rt_call_arr@PLT
@@ -4816,10 +4816,10 @@ proc_Collections___α_body:
  mov rax, qword ptr [r12 + 344]
  mov qword ptr [r12 + 264], rax
   .section .rodata
-  .Lrkfn473: .string "right"
+  .Lrkfn472: .string "right"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn473]
+   lea rdi, [rip + .Lrkfn472]
  lea rsi, [r12 + 240]
  mov edx, 2
  call rt_call_arr@PLT
@@ -4843,10 +4843,10 @@ proc_Collections___α_body:
  mov rax, qword ptr [r12 + 232]
  mov qword ptr [r12 + 152], rax
   .section .rodata
-  .Lrkfn475: .string "write"
+  .Lrkfn474: .string "write"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn475]
+   lea rdi, [rip + .Lrkfn474]
  lea rsi, [r12 + 128]
  mov edx, 2
  call rt_call_arr@PLT
@@ -5072,10 +5072,10 @@ proc_Regions___α_body:
  mov rax, qword ptr [r12 + 472]
  mov qword ptr [r12 + 440], rax
   .section .rodata
-  .Lrkfn493: .string "put"
+  .Lrkfn492: .string "put"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn493]
+   lea rdi, [rip + .Lrkfn492]
  lea rsi, [r12 + 416]
  mov edx, 2
  call rt_call_arr@PLT
@@ -5094,10 +5094,10 @@ proc_Regions___α_body:
  mov rax, qword ptr [r12 + 392]
  mov qword ptr [r12 + 376], rax
   .section .rodata
-  .Lrkfn495: .string "write"
+  .Lrkfn494: .string "write"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn495]
+   lea rdi, [rip + .Lrkfn494]
  lea rsi, [r12 + 368]
  mov edx, 1
  call rt_call_arr@PLT
@@ -5328,10 +5328,10 @@ proc_Regions___α_body:
  mov rax, qword ptr [r12 + 344]
  mov qword ptr [r12 + 264], rax
   .section .rodata
-  .Lrkfn524: .string "right"
+  .Lrkfn523: .string "right"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn524]
+   lea rdi, [rip + .Lrkfn523]
  lea rsi, [r12 + 240]
  mov edx, 2
  call rt_call_arr@PLT
@@ -5355,10 +5355,10 @@ proc_Regions___α_body:
  mov rax, qword ptr [r12 + 232]
  mov qword ptr [r12 + 152], rax
   .section .rodata
-  .Lrkfn526: .string "write"
+  .Lrkfn525: .string "write"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn526]
+   lea rdi, [rip + .Lrkfn525]
  lea rsi, [r12 + 128]
  mov edx, 2
  call rt_call_arr@PLT
@@ -5441,10 +5441,10 @@ proc_Signature___α_body:
  mov rax, qword ptr [r12 + 184]
  mov qword ptr [r12 + 168], rax
   .section .rodata
-  .Lrkfn530: .string "write"
+  .Lrkfn529: .string "write"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn530]
+   lea rdi, [rip + .Lrkfn529]
  lea rsi, [r12 + 160]
  mov edx, 1
  call rt_call_arr@PLT
@@ -5476,10 +5476,10 @@ proc_Signature___α_body:
  mov rax, qword ptr [r12 + 120]
  mov qword ptr [r12 + 104], rax
   .section .rodata
-  .Lrkfn533: .string "write"
+  .Lrkfn532: .string "write"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn533]
+   lea rdi, [rip + .Lrkfn532]
  lea rsi, [r12 + 96]
  mov edx, 1
  call rt_call_arr@PLT
@@ -5519,10 +5519,10 @@ proc_Signature___α_body:
  mov rax, qword ptr [r12 + 56]
  mov qword ptr [r12 + 40], rax
   .section .rodata
-  .Lrkfn536: .string "write"
+  .Lrkfn535: .string "write"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn536]
+   lea rdi, [rip + .Lrkfn535]
  lea rsi, [r12 + 32]
  mov edx, 1
  call rt_call_arr@PLT
@@ -5755,10 +5755,10 @@ proc_Storage___α_body:
  mov rax, qword ptr [r12 + 472]
  mov qword ptr [r12 + 440], rax
   .section .rodata
-  .Lrkfn555: .string "put"
+  .Lrkfn554: .string "put"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn555]
+   lea rdi, [rip + .Lrkfn554]
  lea rsi, [r12 + 416]
  mov edx, 2
  call rt_call_arr@PLT
@@ -5777,10 +5777,10 @@ proc_Storage___α_body:
  mov rax, qword ptr [r12 + 392]
  mov qword ptr [r12 + 376], rax
   .section .rodata
-  .Lrkfn557: .string "write"
+  .Lrkfn556: .string "write"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn557]
+   lea rdi, [rip + .Lrkfn556]
  lea rsi, [r12 + 368]
  mov edx, 1
  call rt_call_arr@PLT
@@ -6011,10 +6011,10 @@ proc_Storage___α_body:
  mov rax, qword ptr [r12 + 344]
  mov qword ptr [r12 + 264], rax
   .section .rodata
-  .Lrkfn586: .string "right"
+  .Lrkfn585: .string "right"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn586]
+   lea rdi, [rip + .Lrkfn585]
  lea rsi, [r12 + 240]
  mov edx, 2
  call rt_call_arr@PLT
@@ -6038,10 +6038,10 @@ proc_Storage___α_body:
  mov rax, qword ptr [r12 + 232]
  mov qword ptr [r12 + 152], rax
   .section .rodata
-  .Lrkfn588: .string "write"
+  .Lrkfn587: .string "write"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn588]
+   lea rdi, [rip + .Lrkfn587]
  lea rsi, [r12 + 128]
  mov edx, 2
  call rt_call_arr@PLT
@@ -6338,10 +6338,10 @@ proc_shuffle_α_body:
  mov rax, qword ptr [r12 + 200]
  mov qword ptr [r12 + 184], rax
   .section .rodata
-  .Lrkfn609: .string "string"
+  .Lrkfn608: .string "string"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn609]
+   lea rdi, [rip + .Lrkfn608]
  lea rsi, [r12 + 176]
  mov edx, 1
  call rt_call_arr@PLT
@@ -6720,14 +6720,14 @@ main_α_body:
  .string "deal"
  xchain00120_n1_α:
   .section .rodata
-  .Lcall00080_pname: .string "Init__"
+  .Lcall00122_pname: .string "Init__"
   .section .text
   .intel_syntax noprefix
  mov edi, 0
  mov rsi, qword ptr [r12 + 896]
  mov rdx, qword ptr [r12 + 904]
  call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall00080_pname]
+   lea rdi, [rip + .Lcall00122_pname]
  mov esi, 1
  call rt_call_proc_descr@PLT
  mov qword ptr [r12 + 864], rax
@@ -6741,14 +6741,14 @@ xchain00120_n1_β:
  xchain00120_n2_α:
  mov qword ptr [r12 + 848], 1
  mov dword ptr [r12 + 852], -1
- mov rax, qword ptr [rip + .Lx00122_0]
+ mov rax, qword ptr [rip + .Lx00123_0]
  mov qword ptr [r12 + 856], rax
  jmp xchain00120_n3_α
  xchain00120_n2_β:
  jmp xchain00120_n5_α
-.Lx00122_0:
- .quad .Lx00122_0_s
-.Lx00122_0_s:
+.Lx00123_0:
+ .quad .Lx00123_0_s
+.Lx00123_0_s:
  .string "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
  xchain00120_n3_α:
 # BOX IR_CALL string(...) -> rt_call_arr [operand-marshal, FAIL->ω]
@@ -6758,10 +6758,10 @@ xchain00120_n1_β:
  mov rax, qword ptr [r12 + 856]
  mov qword ptr [r12 + 840], rax
   .section .rodata
-  .Lrkfn627: .string "string"
+  .Lrkfn626: .string "string"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn627]
+   lea rdi, [rip + .Lrkfn626]
  lea rsi, [r12 + 832]
  mov edx, 1
  call rt_call_arr@PLT
@@ -6816,24 +6816,24 @@ xchain00120_n1_β:
 # IR_LIT_STRING
  xchain00120_n8_α:
  mov qword ptr [r12 + 672], 1
- mov rax, qword ptr [rip + .Lx00123_0]
+ mov rax, qword ptr [rip + .Lx00124_0]
  mov qword ptr [r12 + 680], rax
  jmp xchain00120_n10_α
  xchain00120_n8_β:
  jmp xchain00120_n12_α
-.Lx00123_0:
- .quad .Lx00123_0_s
-.Lx00123_0_s:
+.Lx00124_0:
+ .quad .Lx00124_0_s
+.Lx00124_0_s:
  .string "AKQJT98765432"
 # IR_LIT_INTEGER
  xchain00120_n9_α:
  mov qword ptr [r12 + 768], 6
- mov rax, qword ptr [rip + .Lx00124_0]
+ mov rax, qword ptr [rip + .Lx00125_0]
  mov qword ptr [r12 + 776], rax
  jmp xchain00120_n11_α
  xchain00120_n9_β:
  jmp xchain00120_n8_α
-.Lx00124_0:
+.Lx00125_0:
  .quad 4
 # IR_ASSIGN gva
  xchain00120_n10_α:
@@ -6850,17 +6850,17 @@ xchain00120_n1_β:
 # IR_BINOP_ARITH
  mov eax, dword ptr [r12 + 736]
  cmp eax, 100
- je .Lx00125_0
+ je .Lx00126_0
  mov eax, dword ptr [r12 + 768]
  cmp eax, 100
- je .Lx00125_0
+ je .Lx00126_0
  mov eax, dword ptr [r12 + 736]
  cmp eax, 6
- jne .Lx00125_2
+ jne .Lx00126_2
  mov eax, dword ptr [r12 + 768]
  cmp eax, 6
- jne .Lx00125_2
-.Lx00125_1:
+ jne .Lx00126_2
+.Lx00126_1:
  mov rax, qword ptr [r12 + 744]
  mov rcx, qword ptr [r12 + 776]
  cqo
@@ -6868,7 +6868,7 @@ xchain00120_n1_β:
  mov qword ptr [r12 + 720], 6
  mov qword ptr [r12 + 728], rax
  jmp xchain00120_n13_α
-.Lx00125_0:
+.Lx00126_0:
  mov rdi, qword ptr [r12 + 736]
  mov rsi, qword ptr [r12 + 744]
  mov rdx, qword ptr [r12 + 768]
@@ -6877,8 +6877,8 @@ xchain00120_n1_β:
  lea r9, [r12 + 720]
  call rt_binop_overload@PLT
  test eax, eax
- jne .Lx00125_3
-.Lx00125_2:
+ jne .Lx00126_3
+.Lx00126_2:
  mov rdi, qword ptr [r12 + 736]
  mov rsi, qword ptr [r12 + 744]
  mov rdx, qword ptr [r12 + 768]
@@ -6889,21 +6889,21 @@ xchain00120_n1_β:
  je xchain00120_n8_α
  mov qword ptr [r12 + 720], rax
  mov qword ptr [r12 + 728], rdx
-.Lx00125_3:
+.Lx00126_3:
  jmp xchain00120_n13_α
  xchain00120_n11_β:
  jmp xchain00120_n8_α
 # IR_LIT_STRING
  xchain00120_n12_α:
  mov qword ptr [r12 + 624], 1
- mov rax, qword ptr [rip + .Lx00126_0]
+ mov rax, qword ptr [rip + .Lx00127_0]
  mov qword ptr [r12 + 632], rax
  jmp xchain00120_n14_α
  xchain00120_n12_β:
  jmp xchain00120_n17_α
-.Lx00126_0:
- .quad .Lx00126_0_s
-.Lx00126_0_s:
+.Lx00127_0:
+ .quad .Lx00127_0_s
+.Lx00127_0_s:
  .string " "
 # IR_ASSIGN gva
  xchain00120_n13_α:
@@ -6949,10 +6949,10 @@ xchain00120_n1_β:
  mov rax, qword ptr [r12 + 648]
  mov qword ptr [r12 + 616], rax
   .section .rodata
-  .Lrkfn641: .string "repl"
+  .Lrkfn640: .string "repl"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn641]
+   lea rdi, [rip + .Lrkfn640]
  lea rsi, [r12 + 592]
  mov edx, 2
  call rt_call_arr@PLT
@@ -6967,14 +6967,14 @@ xchain00120_n1_β:
  xchain00120_n17_α:
  mov qword ptr [r12 + 496], 1
  mov dword ptr [r12 + 500], -1
- mov rax, qword ptr [rip + .Lx00127_0]
+ mov rax, qword ptr [rip + .Lx00128_0]
  mov qword ptr [r12 + 504], rax
  jmp xchain00120_n19_α
  xchain00120_n17_β:
  jmp xchain00120_n22_α
-.Lx00127_0:
- .quad .Lx00127_0_s
-.Lx00127_0_s:
+.Lx00128_0:
+ .quad .Lx00128_0_s
+.Lx00128_0_s:
  .string "abcdefghijklmnopqrstuvwxyz"
 # IR_ASSIGN gva
  xchain00120_n18_α:
@@ -6990,12 +6990,12 @@ xchain00120_n1_β:
 # IR_LIT_INTEGER
  xchain00120_n19_α:
  mov qword ptr [r12 + 512], 6
- mov rax, qword ptr [rip + .Lx00128_0]
+ mov rax, qword ptr [rip + .Lx00129_0]
  mov qword ptr [r12 + 520], rax
  jmp xchain00120_n20_α
  xchain00120_n19_β:
  jmp xchain00120_n22_α
-.Lx00128_0:
+.Lx00129_0:
  .quad 1
 # IR_VAR
  xchain00120_n20_α:
@@ -7010,24 +7010,24 @@ xchain00120_n1_β:
 # IR_BINOP_ARITH
  mov eax, dword ptr [r12 + 512]
  cmp eax, 100
- je .Lx00129_0
+ je .Lx00130_0
  mov eax, dword ptr [r12 + 528]
  cmp eax, 100
- je .Lx00129_0
+ je .Lx00130_0
  mov eax, dword ptr [r12 + 512]
  cmp eax, 6
- jne .Lx00129_2
+ jne .Lx00130_2
  mov eax, dword ptr [r12 + 528]
  cmp eax, 6
- jne .Lx00129_2
-.Lx00129_1:
+ jne .Lx00130_2
+.Lx00130_1:
  mov rax, qword ptr [r12 + 520]
  mov rcx, qword ptr [r12 + 536]
  add rax, rcx
  mov qword ptr [r12 + 544], 6
  mov qword ptr [r12 + 552], rax
  jmp xchain00120_n23_α
-.Lx00129_0:
+.Lx00130_0:
  mov rdi, qword ptr [r12 + 512]
  mov rsi, qword ptr [r12 + 520]
  mov rdx, qword ptr [r12 + 528]
@@ -7036,8 +7036,8 @@ xchain00120_n1_β:
  lea r9, [r12 + 544]
  call rt_binop_overload@PLT
  test eax, eax
- jne .Lx00129_3
-.Lx00129_2:
+ jne .Lx00130_3
+.Lx00130_2:
  mov rdi, qword ptr [r12 + 512]
  mov rsi, qword ptr [r12 + 520]
  mov rdx, qword ptr [r12 + 528]
@@ -7048,7 +7048,7 @@ xchain00120_n1_β:
  je xchain00120_n22_α
  mov qword ptr [r12 + 544], rax
  mov qword ptr [r12 + 552], rdx
-.Lx00129_3:
+.Lx00130_3:
  jmp xchain00120_n23_α
  xchain00120_n21_β:
  jmp xchain00120_n22_α
@@ -7080,14 +7080,14 @@ xchain00120_n1_β:
 # IR_LIT_STRING
  xchain00120_n24_α:
  mov qword ptr [r12 + 448], 1
- mov rax, qword ptr [rip + .Lx00130_0]
+ mov rax, qword ptr [rip + .Lx00131_0]
  mov qword ptr [r12 + 456], rax
  jmp xchain00120_n27_α
  xchain00120_n24_β:
  jmp xchain00120_n25_α
-.Lx00130_0:
- .quad .Lx00130_0_s
-.Lx00130_0_s:
+.Lx00131_0:
+ .quad .Lx00131_0_s
+.Lx00131_0_s:
  .string "h+s+"
 # IR_VAR_REF
  xchain00120_n25_α:
@@ -7111,7 +7111,7 @@ xchain00120_n1_β:
  jmp xchain00120_n22_α
  xchain00120_n27_α:
   .section .rodata
-  .Lcall00131_pname: .string "options"
+  .Lcall00132_pname: .string "options"
   .section .text
   .intel_syntax noprefix
  mov edi, 0
@@ -7122,7 +7122,7 @@ xchain00120_n1_β:
  mov rsi, qword ptr [r12 + 448]
  mov rdx, qword ptr [r12 + 456]
  call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall00131_pname]
+   lea rdi, [rip + .Lcall00132_pname]
  mov esi, 2
  call rt_call_proc_descr@PLT
  mov qword ptr [r12 + 384], rax
@@ -7135,14 +7135,14 @@ xchain00120_n27_β:
 # IR_LIT_STRING
  xchain00120_n28_α:
  mov qword ptr [r12 + 320], 1
- mov rax, qword ptr [rip + .Lx00132_0]
+ mov rax, qword ptr [rip + .Lx00133_0]
  mov qword ptr [r12 + 328], rax
  jmp xchain00120_n30_α
  xchain00120_n28_β:
  jmp xchain00120_n32_α
-.Lx00132_0:
- .quad .Lx00132_0_s
-.Lx00132_0_s:
+.Lx00133_0:
+ .quad .Lx00133_0_s
+.Lx00133_0_s:
  .string "h"
  xchain00120_n29_α:
 # IR_ASSIGN local
@@ -7184,12 +7184,12 @@ xchain00120_n27_β:
 # IR_LIT_INTEGER
  xchain00120_n32_α:
  mov qword ptr [r12 + 272], 6
- mov rax, qword ptr [rip + .Lx00133_0]
+ mov rax, qword ptr [rip + .Lx00134_0]
  mov qword ptr [r12 + 280], rax
  jmp xchain00120_n34_α
  xchain00120_n32_β:
  jmp xchain00120_n37_α
-.Lx00133_0:
+.Lx00134_0:
  .quad 1
 # IR_UNOP
  xchain00120_n33_α:
@@ -7255,14 +7255,14 @@ xchain00120_n27_β:
 # IR_LIT_STRING
  xchain00120_n39_α:
  mov qword ptr [r12 + 176], 1
- mov rax, qword ptr [rip + .Lx00134_0]
+ mov rax, qword ptr [rip + .Lx00135_0]
  mov qword ptr [r12 + 184], rax
  jmp xchain00120_n40_α
  xchain00120_n39_β:
  jmp xchain00120_n42_α
-.Lx00134_0:
- .quad .Lx00134_0_s
-.Lx00134_0_s:
+.Lx00135_0:
+ .quad .Lx00135_0_s
+.Lx00135_0_s:
  .string "s"
 # IR_SUBSCRIPT x[i] variable
  xchain00120_n40_α:
@@ -7293,12 +7293,12 @@ xchain00120_n27_β:
 # IR_LIT_INTEGER
  xchain00120_n42_α:
  mov qword ptr [r12 + 80], 6
- mov rax, qword ptr [rip + .Lx00135_0]
+ mov rax, qword ptr [rip + .Lx00136_0]
  mov qword ptr [r12 + 88], rax
  jmp xchain00120_n44_α
  xchain00120_n42_β:
  jmp xchain00120_n47_α
-.Lx00135_0:
+.Lx00136_0:
  .quad 1
 # IR_UNOP
  xchain00120_n43_α:
@@ -7339,7 +7339,7 @@ xchain00120_n27_β:
  xchain00120_n46_α:
  mov rax, qword ptr [r12 + 88]
  mov qword ptr [r12 + 64], rax
-.Lx00136_0:
+.Lx00137_0:
  mov rax, qword ptr [r12 + 64]
  mov rcx, qword ptr [r12 + 104]
  cmp rax, rcx
@@ -7349,13 +7349,13 @@ xchain00120_n27_β:
  jmp xchain00120_n48_α
  xchain00120_n46_β:
  inc qword ptr [r12 + 64]
- jmp .Lx00136_0
+ jmp .Lx00137_0
  xchain00120_n47_α:
   .section .rodata
-  .Lcall00137_pname: .string "Term__"
+  .Lcall00090_pname: .string "Term__"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lcall00137_pname]
+   lea rdi, [rip + .Lcall00090_pname]
  mov esi, 0
  call rt_call_proc_descr@PLT
  mov qword ptr [r12 + 32], rax
@@ -7367,10 +7367,10 @@ xchain00120_n47_β:
  jmp main_ω
  xchain00120_n48_α:
   .section .rodata
-  .Lcall00090_pname: .string "display"
+  .Lcall00138_pname: .string "display"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lcall00090_pname]
+   lea rdi, [rip + .Lcall00138_pname]
  mov esi, 0
  call rt_call_proc_descr@PLT
  mov qword ptr [r12 + 112], rax
