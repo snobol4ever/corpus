@@ -7508,8 +7508,8 @@ proc_evsusp_α_body:
  je proc_evsusp_ω
  jmp xchain00207_n4_β
 xchain00207_n4_β:
- mov rdi, qword ptr [r12 + 64]
- call rt_proc_resume_frame@PLT
+ lea rdi, [r12 + 64]
+ call rt_proc_resume_frame_h@PLT
  mov qword ptr [r12 + 32], rax
  mov qword ptr [r12 + 40], rdx
  cmp eax, 99

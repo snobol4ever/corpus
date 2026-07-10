@@ -158,8 +158,8 @@ xchain0_n2_β:
  je xchain0_n8_α
  jmp xchain0_n12_α
 xchain0_n9_β:
- mov rdi, qword ptr [r12 + 640]
- call rt_proc_resume_frame@PLT
+ lea rdi, [r12 + 640]
+ call rt_proc_resume_frame_h@PLT
  mov qword ptr [r12 + 592], rax
  mov qword ptr [r12 + 600], rdx
  cmp eax, 99
@@ -1206,8 +1206,8 @@ proc_gedload_α_body:
  je xchain78_n24_α
  jmp xchain78_n26_α
 xchain78_n23_β:
- mov rdi, qword ptr [r12 + 224]
- call rt_proc_resume_frame@PLT
+ lea rdi, [r12 + 224]
+ call rt_proc_resume_frame_h@PLT
  mov qword ptr [r12 + 192], rax
  mov qword ptr [r12 + 200], rdx
  cmp eax, 99
@@ -3686,8 +3686,8 @@ mov qword ptr [r12 + 192], rax
  je proc_gedwalk_ω
  jmp xchain00065_n8_α
 xchain00065_n7_β:
- mov rdi, qword ptr [r12 + 96]
- call rt_proc_resume_frame@PLT
+ lea rdi, [r12 + 96]
+ call rt_proc_resume_frame_h@PLT
  mov qword ptr [r12 + 64], rax
  mov qword ptr [r12 + 72], rdx
  cmp eax, 99
@@ -4526,8 +4526,8 @@ proc_gedfnf_α_body:
  je proc_gedfnf_ω
  jmp xchain00082_n3_α
 xchain00082_n2_β:
- mov rdi, qword ptr [r12 + 1008]
- call rt_proc_resume_frame@PLT
+ lea rdi, [r12 + 1008]
+ call rt_proc_resume_frame_h@PLT
  mov qword ptr [r12 + 960], rax
  mov qword ptr [r12 + 968], rdx
  cmp eax, 99
@@ -4992,8 +4992,8 @@ xchain00082_n2_β:
  je xchain00082_n20_α
  jmp xchain00082_n39_α
 xchain00082_n35_β:
- mov rdi, qword ptr [r12 + 176]
- call rt_proc_resume_frame@PLT
+ lea rdi, [r12 + 176]
+ call rt_proc_resume_frame_h@PLT
  mov qword ptr [r12 + 128], rax
  mov qword ptr [r12 + 136], rdx
  cmp eax, 99
@@ -5379,8 +5379,8 @@ proc_gedlnf_α_body:
  je proc_gedlnf_ω
  jmp xchain00100_n3_α
 xchain00100_n2_β:
- mov rdi, qword ptr [r12 + 880]
- call rt_proc_resume_frame@PLT
+ lea rdi, [r12 + 880]
+ call rt_proc_resume_frame_h@PLT
  mov qword ptr [r12 + 832], rax
  mov qword ptr [r12 + 840], rdx
  cmp eax, 99
@@ -5731,8 +5731,8 @@ xchain00100_n2_β:
  je xchain00100_n15_α
  jmp xchain00100_n31_α
 xchain00100_n27_β:
- mov rdi, qword ptr [r12 + 176]
- call rt_proc_resume_frame@PLT
+ lea rdi, [r12 + 176]
+ call rt_proc_resume_frame_h@PLT
  mov qword ptr [r12 + 128], rax
  mov qword ptr [r12 + 136], rdx
  cmp eax, 99
@@ -6172,8 +6172,8 @@ proc_geddate_α_body:
  je proc_geddate_ω
  jmp xchain00118_n10_α
 xchain00118_n7_β:
- mov rdi, qword ptr [r12 + 992]
- call rt_proc_resume_frame@PLT
+ lea rdi, [r12 + 992]
+ call rt_proc_resume_frame_h@PLT
  mov qword ptr [r12 + 944], rax
  mov qword ptr [r12 + 952], rdx
  cmp eax, 99
@@ -9280,8 +9280,8 @@ xchain00205_n60_β:
  je xchain00205_n70_α
  jmp xchain00205_n81_α
 xchain00205_n77_β:
- mov rdi, qword ptr [r12 + 2384]
- call rt_proc_resume_frame@PLT
+ lea rdi, [r12 + 2384]
+ call rt_proc_resume_frame_h@PLT
  mov qword ptr [r12 + 2336], rax
  mov qword ptr [r12 + 2344], rdx
  cmp eax, 99
@@ -9436,8 +9436,8 @@ xchain00205_n80_β:
  je xchain00205_n79_α
  jmp xchain00205_n89_α
 xchain00205_n86_β:
- mov rdi, qword ptr [r12 + 1904]
- call rt_proc_resume_frame@PLT
+ lea rdi, [r12 + 1904]
+ call rt_proc_resume_frame_h@PLT
  mov qword ptr [r12 + 1856], rax
  mov qword ptr [r12 + 1864], rdx
  cmp eax, 99
@@ -9581,8 +9581,8 @@ xchain00205_n89_β:
  je xchain00205_n93_α
  jmp xchain00205_n00022_α
 xchain00205_n96_β:
- mov rdi, qword ptr [r12 + 2272]
- call rt_proc_resume_frame@PLT
+ lea rdi, [r12 + 2272]
+ call rt_proc_resume_frame_h@PLT
  mov qword ptr [r12 + 2224], rax
  mov qword ptr [r12 + 2232], rdx
  cmp eax, 99
@@ -9620,8 +9620,8 @@ xchain00205_n96_β:
  je xchain00205_n91_α
  jmp xchain00205_n00025_α
 xchain00205_n98_β:
- mov rdi, qword ptr [r12 + 336]
- call rt_proc_resume_frame@PLT
+ lea rdi, [r12 + 336]
+ call rt_proc_resume_frame_h@PLT
  mov qword ptr [r12 + 288], rax
  mov qword ptr [r12 + 296], rdx
  cmp eax, 99
@@ -9725,8 +9725,8 @@ xchain00205_n00022_β:
  je xchain00205_n70_α
  jmp xchain00205_n00030_α
 xchain00205_n00027_β:
- mov rdi, qword ptr [r12 + 2112]
- call rt_proc_resume_frame@PLT
+ lea rdi, [r12 + 2112]
+ call rt_proc_resume_frame_h@PLT
  mov qword ptr [r12 + 2064], rax
  mov qword ptr [r12 + 2072], rdx
  cmp eax, 99
@@ -9767,8 +9767,8 @@ xchain00205_n00027_β:
  je xchain00205_n50_β
  jmp xchain00205_n00032_α
 xchain00205_n00029_β:
- mov rdi, qword ptr [r12 + 208]
- call rt_proc_resume_frame@PLT
+ lea rdi, [r12 + 208]
+ call rt_proc_resume_frame_h@PLT
  mov qword ptr [r12 + 160], rax
  mov qword ptr [r12 + 168], rdx
  cmp eax, 99
@@ -9895,8 +9895,8 @@ xchain00205_n00160_β:
  je xchain00205_n00159_α
  jmp xchain00205_n00167_α
 xchain00205_n00164_β:
- mov rdi, qword ptr [r12 + 1696]
- call rt_proc_resume_frame@PLT
+ lea rdi, [r12 + 1696]
+ call rt_proc_resume_frame_h@PLT
  mov qword ptr [r12 + 1648], rax
  mov qword ptr [r12 + 1656], rdx
  cmp eax, 99

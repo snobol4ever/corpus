@@ -1634,8 +1634,8 @@ proc_dumpcode_α_body:
  je xchain00011_n10_α
  jmp xchain00011_n9_α
 xchain00011_n8_β:
- mov rdi, qword ptr [r12 + 128]
- call rt_proc_resume_frame@PLT
+ lea rdi, [r12 + 128]
+ call rt_proc_resume_frame_h@PLT
  mov qword ptr [r12 + 112], rax
  mov qword ptr [r12 + 120], rdx
  cmp eax, 99
@@ -14860,8 +14860,8 @@ xchain00259_n87_β:
  je main_ω
  jmp xchain00259_n00056_α
 xchain00259_n00054_β:
- mov rdi, qword ptr [r12 + 96]
- call rt_proc_resume_frame@PLT
+ lea rdi, [r12 + 96]
+ call rt_proc_resume_frame_h@PLT
  mov qword ptr [r12 + 64], rax
  mov qword ptr [r12 + 72], rdx
  cmp eax, 99

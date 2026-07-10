@@ -7182,8 +7182,8 @@ xchain00138_n5_β:
  je xchain00138_n33_α
  jmp xchain00138_n32_α
 xchain00138_n31_β:
- mov rdi, qword ptr [r12 + 448]
- call rt_proc_resume_frame@PLT
+ lea rdi, [r12 + 448]
+ call rt_proc_resume_frame_h@PLT
  mov qword ptr [r12 + 432], rax
  mov qword ptr [r12 + 440], rdx
  cmp eax, 99
