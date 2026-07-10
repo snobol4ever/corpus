@@ -1928,6 +1928,9 @@ proc_startup:
   lea rdi, [rip + .Lstartup_pname0]
   mov esi, 2
   call rt_proc_set_nparams@PLT
+  lea rdi, [rip + .Lstartup_pname0]
+  mov esi, 2688
+  call rt_proc_set_frame_bytes@PLT
   pop rbp
   ret
   .globl main
@@ -2146,7 +2149,7 @@ xchain00035_n7_β:
  xchain00035_n10_α:
  lea rax, [rip + xchain00035_n4_α]
  mov qword ptr [r12 + 48], rax
- jmp main_γ
+ jmp main_ω
  xchain00035_n10_β:
  jmp main_ω
 # IR_KEYWORD_read
@@ -2273,7 +2276,7 @@ xchain00035_n17_β:
  mov qword ptr [r12 + 40], rax
  lea rax, [rip + main_ω]
  mov qword ptr [r12 + 48], rax
- jmp main_γ
+ jmp main_ω
  xchain00035_n20_β:
  jmp main_ω
  xchain00035_n21_α:

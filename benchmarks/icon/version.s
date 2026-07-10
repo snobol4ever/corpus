@@ -70,7 +70,7 @@ main_α_body:
  mov qword ptr [r12 + 24], rdx
  cmp eax, 99
  je main_ω
- jmp main_γ
+ jmp main_ω
  xchain0_n1_β:
  jmp main_ω
 main_β:
