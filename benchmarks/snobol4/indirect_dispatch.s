@@ -499,7 +499,7 @@ main_α_body:
  jmp xchain5_n20_α
  xchain5_n19_β:
  jmp xchain5_n9_α
-# IR_VAR gva
+# IR_VAR
  xchain5_n20_α:
  mov rax, qword ptr [rbx + 48]
  mov rdx, qword ptr [rbx + 56]
