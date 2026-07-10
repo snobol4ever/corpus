@@ -1,0 +1,8 @@
+*  065 - capture immediately left of ARBNO: the resume stamp must chase to
+*  ARBNO's F exhaust, never clobber G's repurposed body-entry omega.
+*  Minimal reproducer of the 2026-07-10 ARBNO-EXHAUST CHASE fix.
+        t = 'ab'
+        t POS(0) LEN(1) . V ARBNO(LEN(1)) RPOS(0)             :S(YES)F(NO)
+YES     OUTPUT = 'capture-then-arbno ok V=' V                 :(END)
+NO      OUTPUT = 'fail'
+END
