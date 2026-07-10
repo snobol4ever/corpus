@@ -5149,7 +5149,7 @@ xchain00075_n34_β:
  mov r8d, 16
  call rt_jct_relop@PLT
  test eax, eax
- jz xchain00075_n43_α
+ jz xchain00075_n46_β
  mov rdi, qword ptr [r12 + 496]
  mov rsi, qword ptr [r12 + 504]
  call rt_str_coerce@PLT
@@ -5157,7 +5157,7 @@ xchain00075_n34_β:
  mov qword ptr [r12 + 472], rdx
  jmp xchain00075_n54_α
  xchain00075_n50_β:
- jmp xchain00075_n43_α
+ jmp xchain00075_n46_β
 # IR_VAR
  xchain00075_n51_α:
  mov rax, qword ptr [r12 + 1504]
