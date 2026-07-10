@@ -1,0 +1,15 @@
+	V = 'q'
+	V = ','
+	'ab,cd' LEN(1) $ V BREAK(V) . W
+	OUTPUT = 'S:' W ':' V
+	V = ','
+	'ab,cd' BREAK(V) . W
+	OUTPUT = W
+	V = 'd'
+	'ab,cd' BREAK(V) . W
+	OUTPUT = W
+	A = 'q'
+	A = 'x'
+	'axyb' BREAK(A 'y') . W
+	OUTPUT = W
+END
