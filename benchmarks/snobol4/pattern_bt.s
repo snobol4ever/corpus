@@ -317,7 +317,7 @@ push r12
  call rt_zls_mark@PLT
  mov rsp, rbp
  pop rbp
- mov qword ptr [r12 + 928], rax
+ mov qword ptr [r12 + 944], rax
  pop rsi
 main_α_body:
 # IR_LIT_STRING
@@ -588,8 +588,8 @@ main_α_body:
  xchain25_n18_α:
  mov rax, qword ptr [rbx + 16]
  mov rdx, qword ptr [rbx + 24]
- mov qword ptr [r12 + 496], rax
- mov qword ptr [r12 + 504], rdx
+ mov qword ptr [r12 + 512], rax
+ mov qword ptr [r12 + 520], rdx
  jmp xchain25_n19_α
  xchain25_n18_β:
  jmp xchain25_n20_α
@@ -598,8 +598,8 @@ main_α_body:
  call rt_zls_mark@PLT
  mov qword ptr [r12 + 472], rax
  mov qword ptr [r12 + 480], rsp
- mov rdi, qword ptr [r12 + 496]
- mov rsi, qword ptr [r12 + 504]
+ mov rdi, qword ptr [r12 + 512]
+ mov rsi, qword ptr [r12 + 520]
  call rt_match_enter@PLT
  mov r13, rax
  mov r15, rdx
@@ -640,26 +640,19 @@ main_α_body:
   .section .text
   .intel_syntax noprefix
    lea rdi, [rip + .Lrkfn53]
- lea rsi, [r12 + 704]
+ lea rsi, [r12 + 720]
  mov edx, 0
  call rt_call_arr@PLT
- mov qword ptr [r12 + 688], rax
- mov qword ptr [r12 + 696], rdx
+ mov qword ptr [r12 + 704], rax
+ mov qword ptr [r12 + 712], rdx
  cmp eax, 99
  je xchain25_n23_α
  jmp xchain25_n22_α
  xchain25_n20_β:
  jmp xchain25_n23_α
-# IR_MATCH_DEFER
+# IR_MATCH_DEFER inlined frozen head (FZ-5b)
  xchain25_n21_α:
- lea rdi, [rip + .S6]
- xor esi, esi
- push rbp
- mov rbp, rsp
- and rsp, -16
- call rt_defer_get_pat_fn@PLT
- mov rsp, rbp
- pop rbp
+ lea rax, [rip + proc_PAT$0_α]
  test rax, rax
  jz .Lx54_0
  push rax
@@ -705,20 +698,20 @@ main_α_body:
  jmp xchain25_n19_β
 # IR_ASSIGN gva
  xchain25_n22_α:
- mov rax, qword ptr [r12 + 688]
- mov rdx, qword ptr [r12 + 696]
+ mov rax, qword ptr [r12 + 704]
+ mov rdx, qword ptr [r12 + 712]
  mov qword ptr [rbx + 64], rax
  mov qword ptr [rbx + 72], rdx
- mov qword ptr [r12 + 672], rax
- mov qword ptr [r12 + 680], rdx
+ mov qword ptr [r12 + 688], rax
+ mov qword ptr [r12 + 696], rdx
  jmp xchain25_n23_α
  xchain25_n22_β:
  jmp xchain25_n23_α
 # IR_LIT_STRING
  xchain25_n23_α:
- mov qword ptr [r12 + 736], 1
+ mov qword ptr [r12 + 752], 1
  mov rax, qword ptr [rip + .Lx56_0]
- mov qword ptr [r12 + 744], rax
+ mov qword ptr [r12 + 760], rax
  jmp xchain25_n25_α
  xchain25_n23_β:
  jmp xchain25_n28_α
@@ -747,8 +740,8 @@ main_α_body:
  xchain25_n25_α:
  mov rax, qword ptr [rbx + 48]
  mov rdx, qword ptr [rbx + 56]
- mov qword ptr [r12 + 752], rax
- mov qword ptr [r12 + 760], rdx
+ mov qword ptr [r12 + 768], rax
+ mov qword ptr [r12 + 776], rdx
  jmp xchain25_n27_α
  xchain25_n25_β:
  jmp xchain25_n28_α
@@ -756,28 +749,28 @@ main_α_body:
  xchain25_n26_α:
  mov rax, qword ptr [rbx + 48]
  mov rdx, qword ptr [rbx + 56]
- mov qword ptr [r12 + 592], rax
- mov qword ptr [r12 + 600], rdx
+ mov qword ptr [r12 + 608], rax
+ mov qword ptr [r12 + 616], rdx
  jmp xchain25_n29_α
  xchain25_n26_β:
  jmp xchain25_n20_α
  xchain25_n27_α:
 # IR_BINOP_CONCAT
- mov rdi, qword ptr [r12 + 736]
- mov rsi, qword ptr [r12 + 744]
- mov rdx, qword ptr [r12 + 752]
- mov rcx, qword ptr [r12 + 760]
+ mov rdi, qword ptr [r12 + 752]
+ mov rsi, qword ptr [r12 + 760]
+ mov rdx, qword ptr [r12 + 768]
+ mov rcx, qword ptr [r12 + 776]
  call str_concat_d@PLT
- mov qword ptr [r12 + 720], rax
- mov qword ptr [r12 + 728], rdx
+ mov qword ptr [r12 + 736], rax
+ mov qword ptr [r12 + 744], rdx
  jmp xchain25_n30_α
  xchain25_n27_β:
  jmp xchain25_n28_α
 # IR_LIT_STRING
  xchain25_n28_α:
- mov qword ptr [r12 + 800], 1
+ mov qword ptr [r12 + 816], 1
  mov rax, qword ptr [rip + .Lx62_0]
- mov qword ptr [r12 + 808], rax
+ mov qword ptr [r12 + 824], rax
  jmp xchain25_n31_α
  xchain25_n28_β:
  jmp xchain25_n34_α
@@ -787,9 +780,9 @@ main_α_body:
  .string "W: "
 # IR_LIT_INTEGER
  xchain25_n29_α:
- mov qword ptr [r12 + 608], 6
+ mov qword ptr [r12 + 624], 6
  mov rax, qword ptr [rip + .Lx63_0]
- mov qword ptr [r12 + 616], rax
+ mov qword ptr [r12 + 632], rax
  jmp xchain25_n32_α
  xchain25_n29_β:
  jmp xchain25_n20_α
@@ -797,12 +790,12 @@ main_α_body:
  .quad 500000
 # IR_ASSIGN global
  xchain25_n30_α:
- mov rsi, qword ptr [r12 + 720]
- mov rdx, qword ptr [r12 + 728]
+ mov rsi, qword ptr [r12 + 736]
+ mov rdx, qword ptr [r12 + 744]
  mov rdi, qword ptr [rip + .Lx64_0]
  call NV_SET_fn@PLT
- mov qword ptr [r12 + 704], rax
- mov qword ptr [r12 + 712], rdx
+ mov qword ptr [r12 + 720], rax
+ mov qword ptr [r12 + 728], rdx
  jmp xchain25_n28_α
  xchain25_n30_β:
  jmp xchain25_n28_α
@@ -814,33 +807,33 @@ main_α_body:
  xchain25_n31_α:
  mov rax, qword ptr [rbx + 80]
  mov rdx, qword ptr [rbx + 88]
- mov qword ptr [r12 + 816], rax
- mov qword ptr [r12 + 824], rdx
+ mov qword ptr [r12 + 832], rax
+ mov qword ptr [r12 + 840], rdx
  jmp xchain25_n33_α
  xchain25_n31_β:
  jmp xchain25_n34_α
  xchain25_n32_α:
 # BOX IR_CALL LT(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [zr+592] -> [zr+560]
- mov rax, qword ptr [r12 + 592]
- mov qword ptr [r12 + 560], rax
- mov rax, qword ptr [r12 + 600]
- mov qword ptr [r12 + 568], rax
-# marshal arg1 = producer-box slot [zr+608] -> [zr+576]
+# marshal arg0 = producer-box slot [zr+608] -> [zr+576]
  mov rax, qword ptr [r12 + 608]
  mov qword ptr [r12 + 576], rax
  mov rax, qword ptr [r12 + 616]
  mov qword ptr [r12 + 584], rax
+# marshal arg1 = producer-box slot [zr+624] -> [zr+592]
+ mov rax, qword ptr [r12 + 624]
+ mov qword ptr [r12 + 592], rax
+ mov rax, qword ptr [r12 + 632]
+ mov qword ptr [r12 + 600], rax
   .section .rodata
   .Lrkfn67: .string "LT"
   .section .text
   .intel_syntax noprefix
    lea rdi, [rip + .Lrkfn67]
- lea rsi, [r12 + 560]
+ lea rsi, [r12 + 576]
  mov edx, 2
  call rt_call_arr@PLT
- mov qword ptr [r12 + 544], rax
- mov qword ptr [r12 + 552], rdx
+ mov qword ptr [r12 + 560], rax
+ mov qword ptr [r12 + 568], rdx
  cmp eax, 99
  je xchain25_n20_α
  jmp xchain25_n35_α
@@ -848,21 +841,21 @@ main_α_body:
  jmp xchain25_n20_α
  xchain25_n33_α:
 # IR_BINOP_CONCAT
- mov rdi, qword ptr [r12 + 800]
- mov rsi, qword ptr [r12 + 808]
- mov rdx, qword ptr [r12 + 816]
- mov rcx, qword ptr [r12 + 824]
+ mov rdi, qword ptr [r12 + 816]
+ mov rsi, qword ptr [r12 + 824]
+ mov rdx, qword ptr [r12 + 832]
+ mov rcx, qword ptr [r12 + 840]
  call str_concat_d@PLT
- mov qword ptr [r12 + 784], rax
- mov qword ptr [r12 + 792], rdx
+ mov qword ptr [r12 + 800], rax
+ mov qword ptr [r12 + 808], rdx
  jmp xchain25_n36_α
  xchain25_n33_β:
  jmp xchain25_n34_α
 # IR_LIT_STRING
  xchain25_n34_α:
- mov qword ptr [r12 + 864], 1
+ mov qword ptr [r12 + 880], 1
  mov rax, qword ptr [rip + .Lx69_0]
- mov qword ptr [r12 + 872], rax
+ mov qword ptr [r12 + 888], rax
  jmp xchain25_n37_α
  xchain25_n34_β:
  jmp main_γ
@@ -874,19 +867,19 @@ main_α_body:
  xchain25_n35_α:
  mov rax, qword ptr [rbx + 48]
  mov rdx, qword ptr [rbx + 56]
- mov qword ptr [r12 + 640], rax
- mov qword ptr [r12 + 648], rdx
+ mov qword ptr [r12 + 656], rax
+ mov qword ptr [r12 + 664], rdx
  jmp xchain25_n38_α
  xchain25_n35_β:
  jmp xchain25_n20_α
 # IR_ASSIGN global
  xchain25_n36_α:
- mov rsi, qword ptr [r12 + 784]
- mov rdx, qword ptr [r12 + 792]
+ mov rsi, qword ptr [r12 + 800]
+ mov rdx, qword ptr [r12 + 808]
  mov rdi, qword ptr [rip + .Lx71_0]
  call NV_SET_fn@PLT
- mov qword ptr [r12 + 768], rax
- mov qword ptr [r12 + 776], rdx
+ mov qword ptr [r12 + 784], rax
+ mov qword ptr [r12 + 792], rdx
  jmp xchain25_n34_α
  xchain25_n36_β:
  jmp xchain25_n34_α
@@ -898,16 +891,16 @@ main_α_body:
  xchain25_n37_α:
  mov rax, qword ptr [rbx + 64]
  mov rdx, qword ptr [rbx + 72]
- mov qword ptr [r12 + 896], rax
- mov qword ptr [r12 + 904], rdx
+ mov qword ptr [r12 + 912], rax
+ mov qword ptr [r12 + 920], rdx
  jmp xchain25_n39_α
  xchain25_n37_β:
  jmp main_γ
 # IR_LIT_INTEGER
  xchain25_n38_α:
- mov qword ptr [r12 + 656], 6
+ mov qword ptr [r12 + 672], 6
  mov rax, qword ptr [rip + .Lx73_0]
- mov qword ptr [r12 + 664], rax
+ mov qword ptr [r12 + 680], rax
  jmp xchain25_n40_α
  xchain25_n38_β:
  jmp xchain25_n20_α
@@ -917,146 +910,146 @@ main_α_body:
  xchain25_n39_α:
  mov rax, qword ptr [rbx + 32]
  mov rdx, qword ptr [rbx + 40]
- mov qword ptr [r12 + 912], rax
- mov qword ptr [r12 + 920], rdx
+ mov qword ptr [r12 + 928], rax
+ mov qword ptr [r12 + 936], rdx
  jmp xchain25_n41_α
  xchain25_n39_β:
  jmp main_γ
  xchain25_n40_α:
 # IR_BINOP_ARITH
- mov eax, dword ptr [r12 + 640]
- cmp eax, 100
- je .Lx75_0
  mov eax, dword ptr [r12 + 656]
  cmp eax, 100
  je .Lx75_0
- mov eax, dword ptr [r12 + 640]
+ mov eax, dword ptr [r12 + 672]
+ cmp eax, 100
+ je .Lx75_0
+ mov eax, dword ptr [r12 + 656]
  cmp eax, 6
  jne .Lx75_2
- mov eax, dword ptr [r12 + 656]
+ mov eax, dword ptr [r12 + 672]
  cmp eax, 6
  jne .Lx75_2
 .Lx75_1:
- mov rax, qword ptr [r12 + 648]
- mov rcx, qword ptr [r12 + 664]
+ mov rax, qword ptr [r12 + 664]
+ mov rcx, qword ptr [r12 + 680]
  add rax, rcx
- mov qword ptr [r12 + 624], 6
- mov qword ptr [r12 + 632], rax
+ mov qword ptr [r12 + 640], 6
+ mov qword ptr [r12 + 648], rax
  jmp xchain25_n42_α
 .Lx75_0:
- mov rdi, qword ptr [r12 + 640]
- mov rsi, qword ptr [r12 + 648]
- mov rdx, qword ptr [r12 + 656]
- mov rcx, qword ptr [r12 + 664]
+ mov rdi, qword ptr [r12 + 656]
+ mov rsi, qword ptr [r12 + 664]
+ mov rdx, qword ptr [r12 + 672]
+ mov rcx, qword ptr [r12 + 680]
  mov r8d, 0
- lea r9, [r12 + 624]
+ lea r9, [r12 + 640]
  call rt_binop_overload@PLT
  test eax, eax
  jne .Lx75_3
 .Lx75_2:
- mov rdi, qword ptr [r12 + 640]
- mov rsi, qword ptr [r12 + 648]
- mov rdx, qword ptr [r12 + 656]
- mov rcx, qword ptr [r12 + 664]
+ mov rdi, qword ptr [r12 + 656]
+ mov rsi, qword ptr [r12 + 664]
+ mov rdx, qword ptr [r12 + 672]
+ mov rcx, qword ptr [r12 + 680]
  mov r8d, 0
  call rt_num_arith@PLT
  cmp eax, 99
  je xchain25_n20_α
- mov qword ptr [r12 + 624], rax
- mov qword ptr [r12 + 632], rdx
+ mov qword ptr [r12 + 640], rax
+ mov qword ptr [r12 + 648], rdx
 .Lx75_3:
  jmp xchain25_n42_α
  xchain25_n40_β:
  jmp xchain25_n20_α
  xchain25_n41_α:
 # IR_BINOP_ARITH
- mov eax, dword ptr [r12 + 896]
- cmp eax, 100
- je .Lx76_0
  mov eax, dword ptr [r12 + 912]
  cmp eax, 100
  je .Lx76_0
- mov eax, dword ptr [r12 + 896]
+ mov eax, dword ptr [r12 + 928]
+ cmp eax, 100
+ je .Lx76_0
+ mov eax, dword ptr [r12 + 912]
  cmp eax, 6
  jne .Lx76_2
- mov eax, dword ptr [r12 + 912]
+ mov eax, dword ptr [r12 + 928]
  cmp eax, 6
  jne .Lx76_2
 .Lx76_1:
- mov rax, qword ptr [r12 + 904]
- mov rcx, qword ptr [r12 + 920]
+ mov rax, qword ptr [r12 + 920]
+ mov rcx, qword ptr [r12 + 936]
  sub rax, rcx
- mov qword ptr [r12 + 880], 6
- mov qword ptr [r12 + 888], rax
+ mov qword ptr [r12 + 896], 6
+ mov qword ptr [r12 + 904], rax
  jmp xchain25_n43_α
 .Lx76_0:
- mov rdi, qword ptr [r12 + 896]
- mov rsi, qword ptr [r12 + 904]
- mov rdx, qword ptr [r12 + 912]
- mov rcx, qword ptr [r12 + 920]
+ mov rdi, qword ptr [r12 + 912]
+ mov rsi, qword ptr [r12 + 920]
+ mov rdx, qword ptr [r12 + 928]
+ mov rcx, qword ptr [r12 + 936]
  mov r8d, 1
- lea r9, [r12 + 880]
+ lea r9, [r12 + 896]
  call rt_binop_overload@PLT
  test eax, eax
  jne .Lx76_3
 .Lx76_2:
- mov rdi, qword ptr [r12 + 896]
- mov rsi, qword ptr [r12 + 904]
- mov rdx, qword ptr [r12 + 912]
- mov rcx, qword ptr [r12 + 920]
+ mov rdi, qword ptr [r12 + 912]
+ mov rsi, qword ptr [r12 + 920]
+ mov rdx, qword ptr [r12 + 928]
+ mov rcx, qword ptr [r12 + 936]
  mov r8d, 1
  call rt_num_arith@PLT
  cmp eax, 99
  je main_γ
- mov qword ptr [r12 + 880], rax
- mov qword ptr [r12 + 888], rdx
+ mov qword ptr [r12 + 896], rax
+ mov qword ptr [r12 + 904], rdx
 .Lx76_3:
  jmp xchain25_n43_α
  xchain25_n41_β:
  jmp main_γ
  xchain25_n42_α:
 # IR_BINOP_CONCAT
- mov rdi, qword ptr [r12 + 544]
- mov rsi, qword ptr [r12 + 552]
- mov rdx, qword ptr [r12 + 624]
- mov rcx, qword ptr [r12 + 632]
+ mov rdi, qword ptr [r12 + 560]
+ mov rsi, qword ptr [r12 + 568]
+ mov rdx, qword ptr [r12 + 640]
+ mov rcx, qword ptr [r12 + 648]
  call str_concat_d@PLT
- mov qword ptr [r12 + 528], rax
- mov qword ptr [r12 + 536], rdx
+ mov qword ptr [r12 + 544], rax
+ mov qword ptr [r12 + 552], rdx
  jmp xchain25_n44_α
  xchain25_n42_β:
  jmp xchain25_n20_α
  xchain25_n43_α:
 # IR_BINOP_CONCAT
- mov rdi, qword ptr [r12 + 864]
- mov rsi, qword ptr [r12 + 872]
- mov rdx, qword ptr [r12 + 880]
- mov rcx, qword ptr [r12 + 888]
+ mov rdi, qword ptr [r12 + 880]
+ mov rsi, qword ptr [r12 + 888]
+ mov rdx, qword ptr [r12 + 896]
+ mov rcx, qword ptr [r12 + 904]
  call str_concat_d@PLT
- mov qword ptr [r12 + 848], rax
- mov qword ptr [r12 + 856], rdx
+ mov qword ptr [r12 + 864], rax
+ mov qword ptr [r12 + 872], rdx
  jmp xchain25_n45_α
  xchain25_n43_β:
  jmp main_γ
 # IR_ASSIGN gva
  xchain25_n44_α:
- mov rax, qword ptr [r12 + 528]
- mov rdx, qword ptr [r12 + 536]
+ mov rax, qword ptr [r12 + 544]
+ mov rdx, qword ptr [r12 + 552]
  mov qword ptr [rbx + 48], rax
  mov qword ptr [rbx + 56], rdx
- mov qword ptr [r12 + 512], rax
- mov qword ptr [r12 + 520], rdx
+ mov qword ptr [r12 + 528], rax
+ mov qword ptr [r12 + 536], rdx
  jmp xchain25_n18_α
  xchain25_n44_β:
  jmp xchain25_n20_α
 # IR_ASSIGN global
  xchain25_n45_α:
- mov rsi, qword ptr [r12 + 848]
- mov rdx, qword ptr [r12 + 856]
+ mov rsi, qword ptr [r12 + 864]
+ mov rdx, qword ptr [r12 + 872]
  mov rdi, qword ptr [rip + .Lx80_0]
  call NV_SET_fn@PLT
- mov qword ptr [r12 + 832], rax
- mov qword ptr [r12 + 840], rdx
+ mov qword ptr [r12 + 848], rax
+ mov qword ptr [r12 + 856], rdx
  jmp main_γ
  xchain25_n45_β:
  jmp main_γ
@@ -1076,7 +1069,7 @@ ret
  push rbp
  mov rbp, rsp
  and rsp, -16
- mov rdi, qword ptr [r12 + 928]
+ mov rdi, qword ptr [r12 + 944]
  call rt_zls_release_to@PLT
  mov rsp, rbp
  pop rbp
