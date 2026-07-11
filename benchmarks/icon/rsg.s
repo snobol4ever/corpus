@@ -11480,7 +11480,7 @@ main_α_body:
  jmp xchain00230_n1_α
 xchain00230_n0_β:
  jmp xchain00230_n1_α
-# IR_PROC_VALUE first-class procedure value
+# IR_PROC_VALUE
  xchain00230_n1_α:
  mov rdi, qword ptr [rip + .Lx00231_0]
  call rt_proc_value@PLT
@@ -11493,7 +11493,7 @@ xchain00230_n0_β:
  .quad .Lx00231_0_s
 .Lx00231_0_s:
  .string "define"
-# IR_PROC_VALUE first-class procedure value
+# IR_PROC_VALUE
  xchain00230_n2_α:
  mov rdi, qword ptr [rip + .Lx00232_0]
  call rt_proc_value@PLT
@@ -11506,7 +11506,7 @@ xchain00230_n0_β:
  .quad .Lx00232_0_s
 .Lx00232_0_s:
  .string "generate"
-# IR_PROC_VALUE first-class procedure value
+# IR_PROC_VALUE
  xchain00230_n3_α:
  mov rdi, qword ptr [rip + .Lx00233_0]
  call rt_proc_value@PLT
@@ -11519,7 +11519,7 @@ xchain00230_n0_β:
  .quad .Lx00233_0_s
 .Lx00233_0_s:
  .string "grammar"
-# IR_PROC_VALUE first-class procedure value
+# IR_PROC_VALUE
  xchain00230_n4_α:
  mov rdi, qword ptr [rip + .Lx00234_0]
  call rt_proc_value@PLT
@@ -11532,7 +11532,7 @@ xchain00230_n0_β:
  .quad .Lx00234_0_s
 .Lx00234_0_s:
  .string "source"
-# IR_PROC_VALUE first-class procedure value
+# IR_PROC_VALUE
  xchain00230_n5_α:
  mov rdi, qword ptr [rip + .Lx00235_0]
  call rt_proc_value@PLT
@@ -11545,7 +11545,7 @@ xchain00230_n0_β:
  .quad .Lx00235_0_s
 .Lx00235_0_s:
  .string "comment"
-# IR_PROC_VALUE first-class procedure value
+# IR_PROC_VALUE
  xchain00230_n6_α:
  mov rdi, qword ptr [rip + .Lx00236_0]
  call rt_proc_value@PLT
@@ -11558,7 +11558,7 @@ xchain00230_n0_β:
  .quad .Lx00236_0_s
 .Lx00236_0_s:
  .string "prompter"
-# IR_PROC_VALUE first-class procedure value
+# IR_PROC_VALUE
  xchain00230_n7_α:
  mov rdi, qword ptr [rip + .Lx00237_0]
  call rt_proc_value@PLT
