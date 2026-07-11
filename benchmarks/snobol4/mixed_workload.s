@@ -415,7 +415,20 @@ proc_PAT$0_α_body:
  mov esi, eax
  mov edx, r14d
  mov ecx, 0
- call rt_cap_assign_cursor@PLT
+ call rt_cap_open@PLT
+ test rax, rax
+ je .Lx26_1
+ sub rsp, rax
+ mov rdi, rsp
+ mov rsi, rax
+ call rt_frame_prep@PLT
+ mov rdi, rsp
+ xor esi, esi
+ call rax
+ mov rdi, rax
+ mov rsi, rdx
+ call rt_cap_finish@PLT
+.Lx26_1:
  mov rsp, rbp
  pop rbp
  jmp xchain20_n3_α
