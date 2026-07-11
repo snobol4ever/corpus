@@ -2730,10 +2730,9 @@ xchain00058_n7_β:
 .Lx00064_0_s:
  .string "cannot open "
  xchain00058_n17_α:
-  .section .rodata
-  .Lcall00065_pname: .string "dofile"
-  .section .text
-  .intel_syntax noprefix
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
  mov edi, 0
  mov rsi, qword ptr [r12 + 112]
  mov rdx, qword ptr [r12 + 120]
@@ -2742,16 +2741,38 @@ xchain00058_n7_β:
  mov rsi, qword ptr [r12 + 144]
  mov rdx, qword ptr [r12 + 152]
  call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall00065_pname]
+ mov rdi, qword ptr [rip + .Lx00065_0]
  mov esi, 2
- call rt_call_proc_descr@PLT
+ call rt_proc_call_open@PLT
+ test rax, rax
+ je .Lx00065_1
+ sub rsp, rax
+ mov rdi, rsp
+ mov rsi, rax
+ call rt_frame_prep@PLT
+ mov rdi, rsp
+ xor esi, esi
+ call rax
+ mov rdi, rax
+ mov rsi, rdx
+ call rt_proc_call_epilogue@PLT
+ jmp .Lx00065_2
+.Lx00065_1:
+ call rt_faildescr@PLT
+.Lx00065_2:
+ mov rsp, rbp
+ pop rbp
  mov qword ptr [r12 + 64], rax
  mov qword ptr [r12 + 72], rdx
  cmp eax, 99
  je main_ω
  jmp xchain00058_n20_α
-xchain00058_n17_β:
+ xchain00058_n17_β:
  jmp main_ω
+.Lx00065_0:
+ .quad .Lx00065_0_s
+.Lx00065_0_s:
+ .string "dofile"
 # IR_MOVE_LABEL
  xchain00058_n18_α:
  mov rax, qword ptr [r12 + 432]
@@ -2812,10 +2833,10 @@ xchain00058_n17_β:
  mov rax, qword ptr [r12 + 424]
  mov qword ptr [r12 + 392], rax
   .section .rodata
-  .Lrkfn265: .string "stop"
+  .Lrkfn266: .string "stop"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn265]
+   lea rdi, [rip + .Lrkfn266]
  lea rsi, [r12 + 368]
  mov edx, 2
  call rt_call_arr@PLT
@@ -2856,10 +2877,9 @@ xchain00058_n17_β:
  xchain00058_n26_β:
  jmp xchain00058_n4_α
  xchain00058_n27_α:
-  .section .rodata
-  .Lcall00066_pname: .string "dofile"
-  .section .text
-  .intel_syntax noprefix
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
  mov edi, 0
  mov rsi, qword ptr [r12 + 272]
  mov rdx, qword ptr [r12 + 280]
@@ -2868,16 +2888,38 @@ xchain00058_n17_β:
  mov rsi, qword ptr [r12 + 288]
  mov rdx, qword ptr [r12 + 296]
  call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall00066_pname]
+ mov rdi, qword ptr [rip + .Lx00066_0]
  mov esi, 2
- call rt_call_proc_descr@PLT
+ call rt_proc_call_open@PLT
+ test rax, rax
+ je .Lx00066_1
+ sub rsp, rax
+ mov rdi, rsp
+ mov rsi, rax
+ call rt_frame_prep@PLT
+ mov rdi, rsp
+ xor esi, esi
+ call rax
+ mov rdi, rax
+ mov rsi, rdx
+ call rt_proc_call_epilogue@PLT
+ jmp .Lx00066_2
+.Lx00066_1:
+ call rt_faildescr@PLT
+.Lx00066_2:
+ mov rsp, rbp
+ pop rbp
  mov qword ptr [r12 + 224], rax
  mov qword ptr [r12 + 232], rdx
  cmp eax, 99
  je xchain00058_n4_α
  jmp xchain00058_n28_α
-xchain00058_n27_β:
+ xchain00058_n27_β:
  jmp xchain00058_n4_α
+.Lx00066_0:
+ .quad .Lx00066_0_s
+.Lx00066_0_s:
+ .string "dofile"
  xchain00058_n28_α:
  jmp xchain00058_n4_α
 xchain00058_n28_β:
