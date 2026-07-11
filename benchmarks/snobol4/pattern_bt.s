@@ -202,7 +202,7 @@ proc_PAT$0_α_body:
  call rt_dcap_pop@PLT
  mov rsp, rbp
  pop rbp
- jmp xchain0_n4_β
+ jmp xchain0_n6_β
 # IR_MATCH_ALT_JOIN
  xchain0_n9_α:
  lea rax, [rip + .Lx20_0]

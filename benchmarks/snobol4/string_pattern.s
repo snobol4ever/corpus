@@ -94,7 +94,7 @@ proc_PAT$0_α_body:
  call rt_dcap_pop@PLT
  mov rsp, rbp
  pop rbp
- jmp xchain0_n0_β
+ jmp xchain0_n1_β
 # IR_MATCH_LIT
  xchain0_n3_α:
  mov eax, r14d
