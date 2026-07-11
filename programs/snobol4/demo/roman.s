@@ -139,6 +139,12 @@ proc_ROMAN_α_body:
  pop rbp
  jmp xchain0_n7_α
  xchain0_n6_β:
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ call rt_dcap_pop@PLT
+ mov rsp, rbp
+ pop rbp
  jmp xchain0_n4_β
 # IR_MATCH_RELEASE
  xchain0_n7_α:
@@ -360,6 +366,12 @@ proc_ROMAN_α_body:
  pop rbp
  jmp xchain0_n16_α
  xchain0_n15_β:
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ call rt_dcap_pop@PLT
+ mov rsp, rbp
+ pop rbp
  jmp xchain0_n13_β
 # IR_MATCH_RELEASE
  xchain0_n16_α:
