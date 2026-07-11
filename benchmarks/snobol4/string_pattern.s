@@ -901,13 +901,40 @@ main_α_body:
 .Lx60_1:
  jmp xchain9_n42_α
 .Lx60_0:
+ push r14
+ push r15
+ push r13
  lea rdi, [rip + .S2]
  xor esi, esi
- mov edx, r14d
  push rbp
  mov rbp, rsp
  and rsp, -16
- call rt_defer_match@PLT
+ call rt_defer_open@PLT
+.Lx60_2:
+ test rax, rax
+ je .Lx60_3
+ sub rsp, rax
+ mov rdi, rsp
+ mov rsi, rax
+ call rt_frame_prep@PLT
+ mov rdi, rsp
+ xor esi, esi
+ call rax
+ mov rdi, rax
+ mov rsi, rdx
+ call rt_defer_step@PLT
+ jmp .Lx60_2
+.Lx60_3:
+ mov rsp, rbp
+ pop rbp
+ pop r13
+ pop r15
+ pop r14
+ mov edi, r14d
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ call rt_defer_close@PLT
  mov rsp, rbp
  pop rbp
  test eax, eax
