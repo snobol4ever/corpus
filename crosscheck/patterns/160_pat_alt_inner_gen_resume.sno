@@ -1,0 +1,4 @@
+ 'aXb' ? ('a' ARB . V | 'q') 'b'                              :S(Y)F(N)
+Y OUTPUT = 'V=[' V ']'                                        :(END)
+N OUTPUT = 'fail'
+END
