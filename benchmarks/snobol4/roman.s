@@ -139,6 +139,12 @@ proc_ROMAN_α_body:
  pop rbp
  jmp xchain0_n7_α
  xchain0_n6_β:
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ call rt_dcap_pop@PLT
+ mov rsp, rbp
+ pop rbp
  jmp xchain0_n4_β
 # IR_MATCH_RELEASE
  xchain0_n7_α:
@@ -360,6 +366,12 @@ proc_ROMAN_α_body:
  pop rbp
  jmp xchain0_n16_α
  xchain0_n15_β:
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ call rt_dcap_pop@PLT
+ mov rsp, rbp
+ pop rbp
  jmp xchain0_n13_β
 # IR_MATCH_RELEASE
  xchain0_n16_α:
@@ -844,11 +856,27 @@ xchain37_n11_β:
  jmp xchain37_n18_α
 # IR_COERCE_NUMERIC
  xchain37_n16_α:
+ mov eax, dword ptr [r12 + 816]
+ cmp eax, 7
+ je .Lx59_1
+ cmp eax, 6
+ jne .Lx59_0
+ mov eax, dword ptr [r12 + 800]
+ cmp eax, 6
+ jne .Lx59_0
+.Lx59_1:
+ mov rax, qword ptr [r12 + 816]
+ mov qword ptr [r12 + 784], rax
+ mov rax, qword ptr [r12 + 824]
+ mov qword ptr [r12 + 792], rax
+ jmp .Lx59_2
+.Lx59_0:
  lea rdi, [r12 + 816]
  lea rsi, [r12 + 800]
  lea rdx, [r12 + 784]
  mov rcx, 147
  call rt_coerce_num2_d@PLT
+.Lx59_2:
  jmp xchain37_n19_α
  xchain37_n16_β:
  jmp xchain37_n15_α
@@ -877,11 +905,27 @@ xchain37_n11_β:
  .string "result: "
 # IR_COERCE_NUMERIC
  xchain37_n19_α:
+ mov eax, dword ptr [r12 + 800]
+ cmp eax, 7
+ je .Lx63_1
+ cmp eax, 6
+ jne .Lx63_0
+ mov eax, dword ptr [r12 + 816]
+ cmp eax, 6
+ jne .Lx63_0
+.Lx63_1:
+ mov rax, qword ptr [r12 + 800]
+ mov qword ptr [r12 + 768], rax
+ mov rax, qword ptr [r12 + 808]
+ mov qword ptr [r12 + 776], rax
+ jmp .Lx63_2
+.Lx63_0:
  lea rdi, [r12 + 800]
  lea rsi, [r12 + 816]
  lea rdx, [r12 + 768]
  mov rcx, 148
  call rt_coerce_num2_d@PLT
+.Lx63_2:
  jmp xchain37_n21_α
  xchain37_n19_β:
  jmp xchain37_n15_α

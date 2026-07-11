@@ -27,6 +27,13 @@ proc_PAT$0_α_body:
 # IR_MATCH_ALT_SAVE
  xchain0_n0_α:
  mov dword ptr [r12 + 48], r14d
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ call rt_dcap_height@PLT
+ mov rsp, rbp
+ pop rbp
+ mov dword ptr [r12 + 52], eax
  jmp xchain0_n1_α
  xchain0_n0_β:
  jmp qword ptr [r12 + 56]
@@ -58,6 +65,13 @@ proc_PAT$0_α_body:
  xchain0_n2_β:
 .Lx6_0:
  mov r14d, dword ptr [r12 + 48]
+ mov edi, dword ptr [r12 + 52]
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ call rt_dcap_restore_to@PLT
+ mov rsp, rbp
+ pop rbp
  jmp xchain0_n3_α
 # IR_MATCH_LIT
  xchain0_n3_α:
@@ -107,6 +121,13 @@ proc_PAT$0_α_body:
  xchain0_n5_β:
 .Lx12_0:
  mov r14d, dword ptr [r12 + 48]
+ mov edi, dword ptr [r12 + 52]
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ call rt_dcap_restore_to@PLT
+ mov rsp, rbp
+ pop rbp
  jmp xchain0_n7_α
 # IR_MATCH_SPAN
  xchain0_n6_α:
@@ -175,6 +196,12 @@ proc_PAT$0_α_body:
  pop rbp
  jmp proc_PAT$0_γ
  xchain0_n8_β:
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ call rt_dcap_pop@PLT
+ mov rsp, rbp
+ pop rbp
  jmp xchain0_n4_β
 # IR_MATCH_ALT_JOIN
  xchain0_n9_α:
@@ -184,6 +211,13 @@ proc_PAT$0_α_body:
  xchain0_n9_β:
 .Lx20_0:
  mov r14d, dword ptr [r12 + 48]
+ mov edi, dword ptr [r12 + 52]
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ call rt_dcap_restore_to@PLT
+ mov rsp, rbp
+ pop rbp
  jmp xchain0_n10_α
 # IR_MATCH_LIT
  xchain0_n10_α:
@@ -213,6 +247,13 @@ proc_PAT$0_α_body:
  xchain0_n11_β:
 .Lx24_0:
  mov r14d, dword ptr [r12 + 48]
+ mov edi, dword ptr [r12 + 52]
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ call rt_dcap_restore_to@PLT
+ mov rsp, rbp
+ pop rbp
  jmp proc_PAT$0_ω
 proc_PAT$0_β:
 jmp proc_PAT$0_ω
@@ -817,11 +858,27 @@ main_α_body:
  jmp xchain25_n34_α
 # IR_COERCE_NUMERIC
  xchain25_n32_α:
+ mov eax, dword ptr [r12 + 624]
+ cmp eax, 7
+ je .Lx67_1
+ cmp eax, 6
+ jne .Lx67_0
+ mov eax, dword ptr [r12 + 608]
+ cmp eax, 6
+ jne .Lx67_0
+.Lx67_1:
+ mov rax, qword ptr [r12 + 624]
+ mov qword ptr [r12 + 592], rax
+ mov rax, qword ptr [r12 + 632]
+ mov qword ptr [r12 + 600], rax
+ jmp .Lx67_2
+.Lx67_0:
  lea rdi, [r12 + 624]
  lea rsi, [r12 + 608]
  lea rdx, [r12 + 592]
  mov rcx, 147
  call rt_coerce_num2_d@PLT
+.Lx67_2:
  jmp xchain25_n35_α
  xchain25_n32_β:
  jmp xchain25_n20_α
@@ -851,11 +908,27 @@ main_α_body:
  .string "ms: "
 # IR_COERCE_NUMERIC
  xchain25_n35_α:
+ mov eax, dword ptr [r12 + 608]
+ cmp eax, 7
+ je .Lx71_1
+ cmp eax, 6
+ jne .Lx71_0
+ mov eax, dword ptr [r12 + 624]
+ cmp eax, 6
+ jne .Lx71_0
+.Lx71_1:
+ mov rax, qword ptr [r12 + 608]
+ mov qword ptr [r12 + 576], rax
+ mov rax, qword ptr [r12 + 616]
+ mov qword ptr [r12 + 584], rax
+ jmp .Lx71_2
+.Lx71_0:
  lea rdi, [r12 + 608]
  lea rsi, [r12 + 624]
  lea rdx, [r12 + 576]
  mov rcx, 148
  call rt_coerce_num2_d@PLT
+.Lx71_2:
  jmp xchain25_n38_α
  xchain25_n35_β:
  jmp xchain25_n20_α

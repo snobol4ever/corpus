@@ -88,6 +88,12 @@ proc_PAT$0_α_body:
  pop rbp
  jmp xchain0_n3_α
  xchain0_n2_β:
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ call rt_dcap_pop@PLT
+ mov rsp, rbp
+ pop rbp
  jmp xchain0_n0_β
 # IR_MATCH_LIT
  xchain0_n3_α:
@@ -450,11 +456,27 @@ main_α_body:
  jmp xchain9_n18_α
 # IR_COERCE_NUMERIC
  xchain9_n16_α:
+ mov eax, dword ptr [r12 + 448]
+ cmp eax, 7
+ je .Lx32_1
+ cmp eax, 6
+ jne .Lx32_0
+ mov eax, dword ptr [r12 + 432]
+ cmp eax, 6
+ jne .Lx32_0
+.Lx32_1:
+ mov rax, qword ptr [r12 + 448]
+ mov qword ptr [r12 + 416], rax
+ mov rax, qword ptr [r12 + 456]
+ mov qword ptr [r12 + 424], rax
+ jmp .Lx32_2
+.Lx32_0:
  lea rdi, [r12 + 448]
  lea rsi, [r12 + 432]
  lea rdx, [r12 + 416]
  mov rcx, 147
  call rt_coerce_num2_d@PLT
+.Lx32_2:
  jmp xchain9_n19_α
  xchain9_n16_β:
  jmp xchain9_n15_α
@@ -483,11 +505,27 @@ main_α_body:
  .string "result: "
 # IR_COERCE_NUMERIC
  xchain9_n19_α:
+ mov eax, dword ptr [r12 + 432]
+ cmp eax, 7
+ je .Lx36_1
+ cmp eax, 6
+ jne .Lx36_0
+ mov eax, dword ptr [r12 + 448]
+ cmp eax, 6
+ jne .Lx36_0
+.Lx36_1:
+ mov rax, qword ptr [r12 + 432]
+ mov qword ptr [r12 + 400], rax
+ mov rax, qword ptr [r12 + 440]
+ mov qword ptr [r12 + 408], rax
+ jmp .Lx36_2
+.Lx36_0:
  lea rdi, [r12 + 432]
  lea rsi, [r12 + 448]
  lea rdx, [r12 + 400]
  mov rcx, 148
  call rt_coerce_num2_d@PLT
+.Lx36_2:
  jmp xchain9_n21_α
  xchain9_n19_β:
  jmp xchain9_n15_α
