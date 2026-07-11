@@ -1,0 +1,17 @@
+*  *F() deferred value: re-fetched at EVERY match-time reference (manual p.85-86).
+*  F's body runs a NESTED MATCH — which clobbers r14/r15 inside the callee graph.
+        DEFINE('F()')                            :(MAIN)
+F       N = N + 1
+        JUNK = 'xxyy'
+        JUNK ? 'xx'
+        F = 'AB'                                 :(RETURN)
+MAIN    N = 0
+        'ABC' ? 'A' *F() 'C'                     :S(YES)F(NO)
+YES     OUTPUT = 'match'                         :(NEXT)
+NO      OUTPUT = 'fail'
+NEXT    OUTPUT = 'calls=' N
+        'AABZ' ? 'A' *F() 'Z'                    :S(Y2)F(N2)
+Y2      OUTPUT = 'match2'                        :(DONE)
+N2      OUTPUT = 'fail2'
+DONE    OUTPUT = 'calls=' N
+END
