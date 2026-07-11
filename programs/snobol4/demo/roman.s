@@ -21,7 +21,7 @@ push r12
  call rt_zls_mark@PLT
  mov rsp, rbp
  pop rbp
- mov qword ptr [r12 + 240], rax
+ mov qword ptr [r12 + 256], rax
  pop rsi
 proc_ROMAN_α_body:
 # IR_VAR
@@ -240,9 +240,9 @@ proc_ROMAN_α_body:
  jmp xchain0_n10_α
 # IR_LIT_STRING
  xchain0_n10_α:
- mov qword ptr [r12 + 224], 1
+ mov qword ptr [r12 + 240], 1
  mov rax, qword ptr [rip + .Lx16_0]
- mov qword ptr [r12 + 232], rax
+ mov qword ptr [r12 + 248], rax
  jmp xchain0_n11_α
  xchain0_n10_β:
  jmp proc_ROMAN_ω
@@ -255,8 +255,8 @@ proc_ROMAN_α_body:
  call rt_zls_mark@PLT
  mov qword ptr [r12 + 168], rax
  mov qword ptr [r12 + 176], rsp
- mov rdi, qword ptr [r12 + 224]
- mov rsi, qword ptr [r12 + 232]
+ mov rdi, qword ptr [r12 + 240]
+ mov rsi, qword ptr [r12 + 248]
  call rt_match_enter@PLT
  mov r13, rax
  mov r15, rdx
@@ -300,9 +300,11 @@ proc_ROMAN_α_body:
  call rt_defer_get_pat_fn@PLT
  mov rsp, rbp
  pop rbp
+ xor ecx, ecx
+ mov qword ptr [r12 + 224], rcx
  test rax, rax
  jz .Lx19_0
- push rax
+ mov qword ptr [r12 + 224], rax
  push rbp
  mov rbp, rsp
  and rsp, -16
@@ -310,20 +312,22 @@ proc_ROMAN_α_body:
  call rt_zls_alloc@PLT
  mov rsp, rbp
  pop rbp
- pop rcx
- push rax
+ mov qword ptr [r12 + 232], rax
+ mov rcx, qword ptr [r12 + 224]
  mov rdi, rax
  xor esi, esi
  call rcx
- pop rdi
  cmp eax, 1
  je .Lx19_1
+ mov rdi, qword ptr [r12 + 232]
  push rbp
  mov rbp, rsp
  and rsp, -16
  call rt_zls_release@PLT
  mov rsp, rbp
  pop rbp
+ xor eax, eax
+ mov qword ptr [r12 + 224], rax
  jmp xchain0_n11_β
 .Lx19_1:
  jmp xchain0_n13_α
@@ -369,6 +373,23 @@ proc_ROMAN_α_body:
  mov r14d, eax
  jmp xchain0_n13_α
  xchain0_n12_β:
+ mov rcx, qword ptr [r12 + 224]
+ test rcx, rcx
+ jz xchain0_n11_β
+ mov rdi, qword ptr [r12 + 232]
+ mov esi, 1
+ call rcx
+ cmp eax, 1
+ je .Lx19_1
+ mov rdi, qword ptr [r12 + 232]
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
+ call rt_zls_release@PLT
+ mov rsp, rbp
+ pop rbp
+ xor eax, eax
+ mov qword ptr [r12 + 224], rax
  jmp xchain0_n11_β
 # IR_MATCH_CAPTURE_SAVE push
  xchain0_n13_α:
@@ -510,7 +531,7 @@ ret
  push rbp
  mov rbp, rsp
  and rsp, -16
- mov rdi, qword ptr [r12 + 240]
+ mov rdi, qword ptr [r12 + 256]
  call rt_zls_release_to@PLT
  mov rsp, rbp
  pop rbp
@@ -553,7 +574,7 @@ proc_startup:
   mov esi, 2
   call rt_proc_set_nparams@PLT
   lea rdi, [rip + .Lstartup_pname0]
-  mov esi, 256
+  mov esi, 272
   call rt_proc_set_frame_bytes@PLT
   pop rbp
   ret
@@ -612,7 +633,7 @@ push r12
  call rt_zls_mark@PLT
  mov rsp, rbp
  pop rbp
- mov qword ptr [r12 + 240], rax
+ mov qword ptr [r12 + 256], rax
  pop rsi
 main_α_body:
 # IR_GOTO_DEFERRED
@@ -643,7 +664,7 @@ ret
  push rbp
  mov rbp, rsp
  and rsp, -16
- mov rdi, qword ptr [r12 + 240]
+ mov rdi, qword ptr [r12 + 256]
  call rt_zls_release_to@PLT
  mov rsp, rbp
  pop rbp
