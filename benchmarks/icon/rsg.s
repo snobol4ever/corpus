@@ -1877,7 +1877,7 @@ xchain00007_n20_β:
  jmp xchain00007_n2_α
 xchain00007_n32_β:
  jmp xchain00007_n2_α
-# IR_RANDOM ?x -> element variable / value (canonical LCG, oref.r random)
+# IR_RANDOM
  xchain00007_n33_α:
  mov rdi, qword ptr [r12 + 912]
  mov rsi, qword ptr [r12 + 920]
@@ -2064,7 +2064,7 @@ xchain00007_n32_β:
  jmp xchain00007_n5_α
 xchain00007_n47_β:
  jmp xchain00007_n5_α
-# IR_RANDOM ?x -> element variable / value (canonical LCG, oref.r random)
+# IR_RANDOM
  xchain00007_n48_α:
  mov rdi, qword ptr [r12 + 656]
  mov rsi, qword ptr [r12 + 664]

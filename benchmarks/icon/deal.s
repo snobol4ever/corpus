@@ -6397,7 +6397,7 @@ proc_shuffle_α_body:
  jmp xchain00118_n6_α
  xchain00118_n5_β:
  jmp xchain00118_n8_α
-# IR_RANDOM ?x -> element variable / value (canonical LCG, oref.r random)
+# IR_RANDOM
  xchain00118_n6_α:
  mov rdi, qword ptr [r12 + 112]
  mov rsi, qword ptr [r12 + 120]
