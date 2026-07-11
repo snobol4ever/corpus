@@ -112,7 +112,7 @@ proc_ROMAN_α_body:
  call rt_cap_pop@PLT
  mov rsp, rbp
  pop rbp
- jmp xchain0_n1_β
+ jmp xchain0_n3_β
 # IR_MATCH_LEN
  xchain0_n5_α:
  mov eax, r14d
@@ -122,6 +122,7 @@ proc_ROMAN_α_body:
  add r14d, 1
  jmp xchain0_n6_α
  xchain0_n5_β:
+ sub r14d, 1
  jmp xchain0_n4_β
 # IR_MATCH_CAPTURE_COND
  xchain0_n6_α:
@@ -145,7 +146,7 @@ proc_ROMAN_α_body:
  call rt_dcap_pop@PLT
  mov rsp, rbp
  pop rbp
- jmp xchain0_n4_β
+ jmp xchain0_n5_β
 # IR_MATCH_RELEASE
  xchain0_n7_α:
  mov qword ptr [r12 + 88], r14
@@ -321,7 +322,7 @@ proc_ROMAN_α_body:
  call rt_cap_pop@PLT
  mov rsp, rbp
  pop rbp
- jmp xchain0_n11_β
+ jmp xchain0_n12_β
 # IR_MATCH_BREAK
  xchain0_n14_α:
  mov dword ptr [r12 + 208], 0
@@ -372,7 +373,7 @@ proc_ROMAN_α_body:
  call rt_dcap_pop@PLT
  mov rsp, rbp
  pop rbp
- jmp xchain0_n13_β
+ jmp xchain0_n14_β
 # IR_MATCH_RELEASE
  xchain0_n16_α:
  push rbp
