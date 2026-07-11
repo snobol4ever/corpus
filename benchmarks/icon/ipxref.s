@@ -52,7 +52,7 @@ proc_addword_α_body:
  xchain0_n2_β:
  jmp proc_addword_ω
  xchain0_n3_α:
-# BOX IR_CALL any(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
+# BOX CALL any(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
 # marshal arg0 = producer-box slot [zr+1280] -> [zr+1248]
  mov rax, qword ptr [r12 + 1280]
  mov qword ptr [r12 + 1248], rax
@@ -1377,7 +1377,7 @@ xchain00001_n3_β:
  xchain00001_n33_β:
  jmp xchain00001_n17_α
  xchain00001_n34_α:
-# BOX IR_CALL upto(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
+# BOX CALL upto(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
 # marshal arg0 = producer-box slot [zr+1920] -> [zr+1872]
  mov rax, qword ptr [r12 + 1920]
  mov qword ptr [r12 + 1872], rax
@@ -1975,7 +1975,7 @@ xchain00001_n58_β:
  xchain00001_n79_β:
  jmp xchain00001_n61_α
  xchain00001_n80_α:
-# BOX IR_CALL many(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
+# BOX CALL many(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
 # marshal arg0 = producer-box slot [zr+1440] -> [zr+1392]
  mov rax, qword ptr [r12 + 1440]
  mov qword ptr [r12 + 1392], rax
@@ -2710,7 +2710,7 @@ xchain00001_n00046_β:
  xchain00001_n00057_β:
  jmp proc_getword_ω
  xchain00001_n00058_α:
-# BOX IR_CALL upto(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
+# BOX CALL upto(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
 # marshal arg0 = producer-box slot [zr+656] -> [zr+608]
  mov rax, qword ptr [r12 + 656]
  mov qword ptr [r12 + 608], rax
@@ -5157,7 +5157,7 @@ proc_options_α_body:
  jmp xchain00116_n30_α
  xchain00116_n28_β:
  jmp xchain00116_n26_α
-# IR_KEYWORD_null
+# KEYWORD_null
  xchain00116_n29_α:
  mov qword ptr [r12 + 2064], 0
  mov qword ptr [r12 + 2072], 0
@@ -5403,7 +5403,7 @@ xchain00116_n46_β:
  xchain00116_n49_β:
  jmp xchain00116_n26_α
  xchain00116_n50_α:
-# BOX IR_CALL_BUILTIN_GEN find(...) -> rt_call_arr_gen by-name [four-port generator; alpha zeroes resume cell, beta re-pumps invoke with persisted cell]
+# BOX CALL_GEN find(...) -> rt_call_arr_gen by-name [four-port generator; alpha zeroes resume cell, beta re-pumps invoke with persisted cell]
 # marshal arg0 = producer-box slot [zr+1792] -> [zr+1744]
  mov rax, qword ptr [r12 + 1792]
  mov qword ptr [r12 + 1744], rax
@@ -5692,7 +5692,7 @@ xchain00116_n46_β:
  xchain00116_n70_β:
  jmp xchain00116_n37_α
  xchain00116_n71_α:
-# BOX IR_CALL any(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
+# BOX CALL any(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
 # marshal arg0 = producer-box slot [zr+1520] -> [zr+1488]
  mov rax, qword ptr [r12 + 1520]
  mov qword ptr [r12 + 1488], rax
@@ -6750,7 +6750,7 @@ proc_Term___α_body:
  jmp xchain00156_n4_α
  xchain00156_n2_β:
  jmp xchain00156_n5_α
-# IR_KEYWORD_null
+# KEYWORD_null
  xchain00156_n3_α:
  mov qword ptr [r12 + 272], 0
  mov qword ptr [r12 + 280], 0
@@ -7093,7 +7093,7 @@ proc_Collections___α_body:
  .quad .Lx00168_0_s
 .Lx00168_0_s:
  .string "static"
-# IR_KEYWORD_gen
+# KEYWORD_gen
  xchain00165_n9_α:
  mov qword ptr [r12 + 480], 0
 .Lx00169_1:
@@ -7621,7 +7621,7 @@ proc_Regions___α_body:
  .quad .Lx00179_0_s
 .Lx00179_0_s:
  .string "string"
-# IR_KEYWORD_gen
+# KEYWORD_gen
  xchain00176_n9_α:
  mov qword ptr [r12 + 480], 0
 .Lx00180_1:
@@ -8027,7 +8027,7 @@ push r12
  mov qword ptr [r12 + 208], rax
  pop rsi
 proc_Signature___α_body:
-# IR_KEYWORD_read
+# KEYWORD_read
  xchain00186_n0_α:
  mov rdi, qword ptr [rip + .Lx00187_0]
  call rt_keyword_read@PLT
@@ -8062,7 +8062,7 @@ proc_Signature___α_body:
  jmp xchain00186_n2_α
  xchain00186_n1_β:
  jmp xchain00186_n2_α
-# IR_KEYWORD_read
+# KEYWORD_read
  xchain00186_n2_α:
  mov rdi, qword ptr [rip + .Lx00188_0]
  call rt_keyword_read@PLT
@@ -8097,7 +8097,7 @@ proc_Signature___α_body:
  jmp xchain00186_n4_α
  xchain00186_n3_β:
  jmp xchain00186_n4_α
-# IR_KEYWORD_gen
+# KEYWORD_gen
  xchain00186_n4_α:
  mov qword ptr [r12 + 64], 0
 .Lx00189_1:
@@ -8304,7 +8304,7 @@ proc_Storage___α_body:
  .quad .Lx00193_0_s
 .Lx00193_0_s:
  .string "string"
-# IR_KEYWORD_gen
+# KEYWORD_gen
  xchain00190_n9_α:
  mov qword ptr [r12 + 480], 0
 .Lx00194_1:
@@ -8748,7 +8748,7 @@ proc_Time___α_body:
  jmp xchain00200_n3_α
 .Lx00201_0:
  .quad 1
-# IR_KEYWORD_read
+# KEYWORD_read
  xchain00200_n3_α:
  mov rdi, qword ptr [rip + .Lx00202_0]
  call rt_keyword_read@PLT
@@ -8784,7 +8784,7 @@ proc_Time___α_body:
  jmp xchain00200_n7_α
  xchain00200_n5_β:
  jmp proc_Time___ω
-# IR_KEYWORD_read
+# KEYWORD_read
  xchain00200_n6_α:
  mov rdi, qword ptr [rip + .Lx00203_0]
  call rt_keyword_read@PLT

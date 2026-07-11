@@ -1136,7 +1136,7 @@ proc_dofile_α_body:
  xchain0_n68_β:
  inc qword ptr [r12 + 464]
  jmp .Lx00003_0
-# IR_KEYWORD_read
+# KEYWORD_read
  xchain0_n69_α:
  mov rdi, qword ptr [rip + .Lx00004_0]
  call rt_keyword_read@PLT
@@ -2152,7 +2152,7 @@ xchain00035_n7_β:
  jmp main_ω
  xchain00035_n10_β:
  jmp main_ω
-# IR_KEYWORD_read
+# KEYWORD_read
  xchain00035_n11_α:
  mov rdi, qword ptr [rip + .Lx00039_0]
  call rt_keyword_read@PLT

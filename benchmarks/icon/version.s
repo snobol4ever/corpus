@@ -38,7 +38,7 @@ push r12
  mov qword ptr [r12 + 80], rax
  pop rsi
 main_α_body:
-# IR_KEYWORD_read
+# KEYWORD_read
  xchain0_n0_α:
  mov rdi, qword ptr [rip + .Lx1_0]
  call rt_keyword_read@PLT
