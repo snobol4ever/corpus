@@ -94,6 +94,10 @@ proc_addword_α_body:
  jmp proc_addword_ω
 # IR_MOVE_LABEL
  xchain0_n5_α:
+ mov rax, qword ptr [r12 + 1232]
+ mov qword ptr [r12 + 1168], rax
+ mov rax, qword ptr [r12 + 1240]
+ mov qword ptr [r12 + 1176], rax
  lea rax, [rip + xchain0_n2_α]
  mov qword ptr [r12 + 1184], rax
  jmp xchain0_n7_α
