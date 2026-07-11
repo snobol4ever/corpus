@@ -735,24 +735,45 @@ main_α_body:
  xchain5_n34_β:
  jmp xchain5_n12_α
  xchain5_n35_α:
-  .section .rodata
-  .Lcall40_pname: .string "INC"
-  .section .text
-  .intel_syntax noprefix
+ push rbp
+ mov rbp, rsp
+ and rsp, -16
  mov edi, 0
  mov rsi, qword ptr [r12 + 592]
  mov rdx, qword ptr [r12 + 600]
  call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall40_pname]
+ mov rdi, qword ptr [rip + .Lx49_0]
  mov esi, 1
- call rt_call_proc_descr@PLT
+ call rt_proc_call_open@PLT
+ test rax, rax
+ je .Lx49_1
+ sub rsp, rax
+ mov rdi, rsp
+ mov rsi, rax
+ call rt_frame_prep@PLT
+ mov rdi, rsp
+ xor esi, esi
+ call rax
+ mov rdi, rax
+ mov rsi, rdx
+ call rt_proc_call_epilogue@PLT
+ jmp .Lx49_2
+.Lx49_1:
+ call rt_faildescr@PLT
+.Lx49_2:
+ mov rsp, rbp
+ pop rbp
  mov qword ptr [r12 + 560], rax
  mov qword ptr [r12 + 568], rdx
  cmp eax, 99
  je xchain5_n12_α
  jmp xchain5_n36_α
-xchain5_n35_β:
+ xchain5_n35_β:
  jmp xchain5_n12_α
+.Lx49_0:
+ .quad .Lx49_0_s
+.Lx49_0_s:
+ .string "INC"
 # IR_ASSIGN gva
  xchain5_n36_α:
  mov rax, qword ptr [r12 + 560]
