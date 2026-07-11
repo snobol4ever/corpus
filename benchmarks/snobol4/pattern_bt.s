@@ -986,18 +986,12 @@ main_α_body:
  mov eax, dword ptr [r12 + 656]
  cmp eax, 100
  je .Lx81_0
- mov eax, dword ptr [r12 + 672]
- cmp eax, 100
- je .Lx81_0
  mov eax, dword ptr [r12 + 656]
- cmp eax, 6
- jne .Lx81_2
- mov eax, dword ptr [r12 + 672]
  cmp eax, 6
  jne .Lx81_2
 .Lx81_1:
  mov rax, qword ptr [r12 + 664]
- mov rcx, qword ptr [r12 + 680]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 640], 6
  mov qword ptr [r12 + 648], rax

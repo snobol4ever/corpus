@@ -260,18 +260,12 @@ main_α_body:
  mov eax, dword ptr [r12 + 352]
  cmp eax, 100
  je .Lx19_0
- mov eax, dword ptr [r12 + 368]
- cmp eax, 100
- je .Lx19_0
  mov eax, dword ptr [r12 + 352]
- cmp eax, 6
- jne .Lx19_2
- mov eax, dword ptr [r12 + 368]
  cmp eax, 6
  jne .Lx19_2
 .Lx19_1:
  mov rax, qword ptr [r12 + 360]
- mov rcx, qword ptr [r12 + 376]
+ mov rcx, 3
  add rax, rcx
  mov qword ptr [r12 + 336], 6
  mov qword ptr [r12 + 344], rax
@@ -336,18 +330,12 @@ main_α_body:
  mov eax, dword ptr [r12 + 416]
  cmp eax, 100
  je .Lx23_0
- mov eax, dword ptr [r12 + 432]
- cmp eax, 100
- je .Lx23_0
  mov eax, dword ptr [r12 + 416]
- cmp eax, 6
- jne .Lx23_2
- mov eax, dword ptr [r12 + 432]
  cmp eax, 6
  jne .Lx23_2
 .Lx23_1:
  mov rax, qword ptr [r12 + 424]
- mov rcx, qword ptr [r12 + 440]
+ mov rcx, 1
  sub rax, rcx
  mov qword ptr [r12 + 400], 6
  mov qword ptr [r12 + 408], rax
@@ -412,18 +400,12 @@ main_α_body:
  mov eax, dword ptr [r12 + 480]
  cmp eax, 100
  je .Lx27_0
- mov eax, dword ptr [r12 + 496]
- cmp eax, 100
- je .Lx27_0
  mov eax, dword ptr [r12 + 480]
- cmp eax, 6
- jne .Lx27_2
- mov eax, dword ptr [r12 + 496]
  cmp eax, 6
  jne .Lx27_2
 .Lx27_1:
  mov rax, qword ptr [r12 + 488]
- mov rcx, qword ptr [r12 + 504]
+ mov rcx, 2
  imul rax, rcx
  mov qword ptr [r12 + 464], 6
  mov qword ptr [r12 + 472], rax
@@ -687,18 +669,12 @@ main_α_body:
  mov eax, dword ptr [r12 + 640]
  cmp eax, 100
  je .Lx56_0
- mov eax, dword ptr [r12 + 656]
- cmp eax, 100
- je .Lx56_0
  mov eax, dword ptr [r12 + 640]
- cmp eax, 6
- jne .Lx56_2
- mov eax, dword ptr [r12 + 656]
  cmp eax, 6
  jne .Lx56_2
 .Lx56_1:
  mov rax, qword ptr [r12 + 648]
- mov rcx, qword ptr [r12 + 664]
+ mov rcx, 10000
  cqo
  idiv rcx
  mov qword ptr [r12 + 624], 6
@@ -765,18 +741,12 @@ main_α_body:
  mov eax, dword ptr [r12 + 800]
  cmp eax, 100
  je .Lx60_0
- mov eax, dword ptr [r12 + 816]
- cmp eax, 100
- je .Lx60_0
  mov eax, dword ptr [r12 + 800]
- cmp eax, 6
- jne .Lx60_2
- mov eax, dword ptr [r12 + 816]
  cmp eax, 6
  jne .Lx60_2
 .Lx60_1:
  mov rax, qword ptr [r12 + 808]
- mov rcx, qword ptr [r12 + 824]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 784], 6
  mov qword ptr [r12 + 792], rax

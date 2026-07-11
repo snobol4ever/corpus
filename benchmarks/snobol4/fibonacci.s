@@ -87,18 +87,12 @@ proc_FIB_α_body:
  mov eax, dword ptr [r12 + 432]
  cmp eax, 100
  je .Lx9_0
- mov eax, dword ptr [r12 + 448]
- cmp eax, 100
- je .Lx9_0
  mov eax, dword ptr [r12 + 432]
- cmp eax, 6
- jne .Lx9_2
- mov eax, dword ptr [r12 + 448]
  cmp eax, 6
  jne .Lx9_2
 .Lx9_1:
  mov rax, qword ptr [r12 + 440]
- mov rcx, qword ptr [r12 + 456]
+ mov rcx, 1
  sub rax, rcx
  mov qword ptr [r12 + 416], 6
  mov qword ptr [r12 + 424], rax
@@ -215,18 +209,12 @@ xchain0_n8_β:
  mov eax, dword ptr [r12 + 512]
  cmp eax, 100
  je .Lx18_0
- mov eax, dword ptr [r12 + 528]
- cmp eax, 100
- je .Lx18_0
  mov eax, dword ptr [r12 + 512]
- cmp eax, 6
- jne .Lx18_2
- mov eax, dword ptr [r12 + 528]
  cmp eax, 6
  jne .Lx18_2
 .Lx18_1:
  mov rax, qword ptr [r12 + 520]
- mov rcx, qword ptr [r12 + 536]
+ mov rcx, 2
  sub rax, rcx
  mov qword ptr [r12 + 496], 6
  mov qword ptr [r12 + 504], rax

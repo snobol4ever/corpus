@@ -389,18 +389,12 @@ main_α_body:
  mov eax, dword ptr [r12 + 416]
  cmp eax, 100
  je .Lx34_0
- mov eax, dword ptr [r12 + 432]
- cmp eax, 100
- je .Lx34_0
  mov eax, dword ptr [r12 + 416]
- cmp eax, 6
- jne .Lx34_2
- mov eax, dword ptr [r12 + 432]
  cmp eax, 6
  jne .Lx34_2
 .Lx34_1:
  mov rax, qword ptr [r12 + 424]
- mov rcx, qword ptr [r12 + 440]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 400], 6
  mov qword ptr [r12 + 408], rax

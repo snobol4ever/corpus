@@ -352,18 +352,12 @@ main_α_body:
  mov eax, dword ptr [r12 + 480]
  cmp eax, 100
  je .Lx27_0
- mov eax, dword ptr [r12 + 496]
- cmp eax, 100
- je .Lx27_0
  mov eax, dword ptr [r12 + 480]
- cmp eax, 6
- jne .Lx27_2
- mov eax, dword ptr [r12 + 496]
  cmp eax, 6
  jne .Lx27_2
 .Lx27_1:
  mov rax, qword ptr [r12 + 488]
- mov rcx, qword ptr [r12 + 504]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 464], 6
  mov qword ptr [r12 + 472], rax
@@ -428,18 +422,12 @@ main_α_body:
  mov eax, dword ptr [r12 + 544]
  cmp eax, 100
  je .Lx31_0
- mov eax, dword ptr [r12 + 560]
- cmp eax, 100
- je .Lx31_0
  mov eax, dword ptr [r12 + 544]
- cmp eax, 6
- jne .Lx31_2
- mov eax, dword ptr [r12 + 560]
  cmp eax, 6
  jne .Lx31_2
 .Lx31_1:
  mov rax, qword ptr [r12 + 552]
- mov rcx, qword ptr [r12 + 568]
+ mov rcx, 2
  add rax, rcx
  mov qword ptr [r12 + 528], 6
  mov qword ptr [r12 + 536], rax
@@ -877,18 +865,12 @@ main_α_body:
  mov eax, dword ptr [r12 + 896]
  cmp eax, 100
  je .Lx64_0
- mov eax, dword ptr [r12 + 912]
- cmp eax, 100
- je .Lx64_0
  mov eax, dword ptr [r12 + 896]
- cmp eax, 6
- jne .Lx64_2
- mov eax, dword ptr [r12 + 912]
  cmp eax, 6
  jne .Lx64_2
 .Lx64_1:
  mov rax, qword ptr [r12 + 904]
- mov rcx, qword ptr [r12 + 920]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 880], 6
  mov qword ptr [r12 + 888], rax

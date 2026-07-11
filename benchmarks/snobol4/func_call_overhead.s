@@ -48,18 +48,12 @@ proc_INC_α_body:
  mov eax, dword ptr [r12 + 256]
  cmp eax, 100
  je .Lx3_0
- mov eax, dword ptr [r12 + 272]
- cmp eax, 100
- je .Lx3_0
  mov eax, dword ptr [r12 + 256]
- cmp eax, 6
- jne .Lx3_2
- mov eax, dword ptr [r12 + 272]
  cmp eax, 6
  jne .Lx3_2
 .Lx3_1:
  mov rax, qword ptr [r12 + 264]
- mov rcx, qword ptr [r12 + 280]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 240], 6
  mov qword ptr [r12 + 248], rax
@@ -568,18 +562,12 @@ main_α_body:
  mov eax, dword ptr [r12 + 512]
  cmp eax, 100
  je .Lx41_0
- mov eax, dword ptr [r12 + 528]
- cmp eax, 100
- je .Lx41_0
  mov eax, dword ptr [r12 + 512]
- cmp eax, 6
- jne .Lx41_2
- mov eax, dword ptr [r12 + 528]
  cmp eax, 6
  jne .Lx41_2
 .Lx41_1:
  mov rax, qword ptr [r12 + 520]
- mov rcx, qword ptr [r12 + 536]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 496], 6
  mov qword ptr [r12 + 504], rax

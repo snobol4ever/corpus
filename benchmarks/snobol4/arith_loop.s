@@ -237,18 +237,12 @@ main_α_body:
  mov eax, dword ptr [r12 + 320]
  cmp eax, 100
  je .Lx17_0
- mov eax, dword ptr [r12 + 336]
- cmp eax, 100
- je .Lx17_0
  mov eax, dword ptr [r12 + 320]
- cmp eax, 6
- jne .Lx17_2
- mov eax, dword ptr [r12 + 336]
  cmp eax, 6
  jne .Lx17_2
 .Lx17_1:
  mov rax, qword ptr [r12 + 328]
- mov rcx, qword ptr [r12 + 344]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 304], 6
  mov qword ptr [r12 + 312], rax

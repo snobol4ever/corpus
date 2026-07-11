@@ -48,18 +48,12 @@ proc_ADD1_α_body:
  mov eax, dword ptr [r12 + 176]
  cmp eax, 100
  je .Lx3_0
- mov eax, dword ptr [r12 + 192]
- cmp eax, 100
- je .Lx3_0
  mov eax, dword ptr [r12 + 176]
- cmp eax, 6
- jne .Lx3_2
- mov eax, dword ptr [r12 + 192]
  cmp eax, 6
  jne .Lx3_2
 .Lx3_1:
  mov rax, qword ptr [r12 + 184]
- mov rcx, qword ptr [r12 + 200]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 160], 6
  mov qword ptr [r12 + 168], rax
@@ -434,18 +428,12 @@ main_α_body:
  mov eax, dword ptr [r12 + 432]
  cmp eax, 100
  je .Lx28_0
- mov eax, dword ptr [r12 + 448]
- cmp eax, 100
- je .Lx28_0
  mov eax, dword ptr [r12 + 432]
- cmp eax, 6
- jne .Lx28_2
- mov eax, dword ptr [r12 + 448]
  cmp eax, 6
  jne .Lx28_2
 .Lx28_1:
  mov rax, qword ptr [r12 + 440]
- mov rcx, qword ptr [r12 + 456]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 416], 6
  mov qword ptr [r12 + 424], rax

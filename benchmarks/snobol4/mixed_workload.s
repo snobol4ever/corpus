@@ -108,18 +108,12 @@ proc_RSUM_α_body:
  mov eax, dword ptr [r12 + 448]
  cmp eax, 100
  je .Lx12_0
- mov eax, dword ptr [r12 + 464]
- cmp eax, 100
- je .Lx12_0
  mov eax, dword ptr [r12 + 448]
- cmp eax, 6
- jne .Lx12_2
- mov eax, dword ptr [r12 + 464]
  cmp eax, 6
  jne .Lx12_2
 .Lx12_1:
  mov rax, qword ptr [r12 + 456]
- mov rcx, qword ptr [r12 + 472]
+ mov rcx, 1
  sub rax, rcx
  mov qword ptr [r12 + 432], 6
  mov qword ptr [r12 + 440], rax
@@ -1099,18 +1093,12 @@ xchain28_n37_β:
  mov eax, dword ptr [r12 + 848]
  cmp eax, 100
  je .Lx76_0
- mov eax, dword ptr [r12 + 864]
- cmp eax, 100
- je .Lx76_0
  mov eax, dword ptr [r12 + 848]
- cmp eax, 6
- jne .Lx76_2
- mov eax, dword ptr [r12 + 864]
  cmp eax, 6
  jne .Lx76_2
 .Lx76_1:
  mov rax, qword ptr [r12 + 856]
- mov rcx, qword ptr [r12 + 872]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 832], 6
  mov qword ptr [r12 + 840], rax
@@ -1338,18 +1326,12 @@ xchain28_n37_β:
  mov eax, dword ptr [r12 + 944]
  cmp eax, 100
  je .Lx100_0
- mov eax, dword ptr [r12 + 960]
- cmp eax, 100
- je .Lx100_0
  mov eax, dword ptr [r12 + 944]
- cmp eax, 6
- jne .Lx100_2
- mov eax, dword ptr [r12 + 960]
  cmp eax, 6
  jne .Lx100_2
 .Lx100_1:
  mov rax, qword ptr [r12 + 952]
- mov rcx, qword ptr [r12 + 968]
+ mov rcx, 0
  add rax, rcx
  mov qword ptr [r12 + 928], 6
  mov qword ptr [r12 + 936], rax
@@ -1384,18 +1366,12 @@ xchain28_n37_β:
  mov eax, dword ptr [r12 + 1184]
  cmp eax, 100
  je .Lx101_0
- mov eax, dword ptr [r12 + 1200]
- cmp eax, 100
- je .Lx101_0
  mov eax, dword ptr [r12 + 1184]
- cmp eax, 6
- jne .Lx101_2
- mov eax, dword ptr [r12 + 1200]
  cmp eax, 6
  jne .Lx101_2
 .Lx101_1:
  mov rax, qword ptr [r12 + 1192]
- mov rcx, qword ptr [r12 + 1208]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 1168], 6
  mov qword ptr [r12 + 1176], rax
@@ -1564,18 +1540,12 @@ xchain28_n37_β:
  mov eax, dword ptr [r12 + 1520]
  cmp eax, 100
  je .Lx115_0
- mov eax, dword ptr [r12 + 1536]
- cmp eax, 100
- je .Lx115_0
  mov eax, dword ptr [r12 + 1520]
- cmp eax, 6
- jne .Lx115_2
- mov eax, dword ptr [r12 + 1536]
  cmp eax, 6
  jne .Lx115_2
 .Lx115_1:
  mov rax, qword ptr [r12 + 1528]
- mov rcx, qword ptr [r12 + 1544]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 1504], 6
  mov qword ptr [r12 + 1512], rax

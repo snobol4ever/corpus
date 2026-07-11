@@ -987,18 +987,12 @@ xchain37_n11_β:
  mov eax, dword ptr [r12 + 848]
  cmp eax, 100
  je .Lx74_0
- mov eax, dword ptr [r12 + 864]
- cmp eax, 100
- je .Lx74_0
  mov eax, dword ptr [r12 + 848]
- cmp eax, 6
- jne .Lx74_2
- mov eax, dword ptr [r12 + 864]
  cmp eax, 6
  jne .Lx74_2
 .Lx74_1:
  mov rax, qword ptr [r12 + 856]
- mov rcx, qword ptr [r12 + 872]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 832], 6
  mov qword ptr [r12 + 840], rax
