@@ -1,0 +1,2 @@
+ 'AXB' ? 'A' ARB . OUTPUT ('B' | 'C')
+END
