@@ -151,7 +151,7 @@ xchain0_n8_β:
  jmp xchain0_n4_α
  xchain0_n10_β:
  jmp xchain0_n4_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain0_n11_α:
  mov rax, qword ptr [r12 + 288]
  mov qword ptr [r12 + 240], rax
@@ -227,7 +227,7 @@ xchain0_n8_β:
  jmp xchain0_n17_α
 xchain0_n15_β:
  jmp xchain0_n10_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain0_n16_α:
  mov rax, qword ptr [r12 + 272]
  mov qword ptr [r12 + 240], rax
@@ -303,7 +303,7 @@ xchain0_n15_β:
  xchain0_n19_β:
  mov r14, qword ptr [r12 + 384]
  jmp xchain0_n10_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain0_n20_α:
  mov rax, qword ptr [r12 + 368]
  mov qword ptr [r12 + 336], rax
@@ -1804,7 +1804,7 @@ xchain00007_n20_β:
  .quad .Lx00011_0_s
 .Lx00011_0_s:
  .string "nonterm"
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00007_n27_α:
  mov rax, qword ptr [r12 + 1184]
  mov qword ptr [r12 + 1152], rax
@@ -2158,7 +2158,7 @@ xchain00007_n47_β:
  jmp xchain00007_n54_α
  xchain00007_n53_β:
  jmp xchain00007_n39_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00007_n54_α:
  mov rax, qword ptr [r12 + 624]
  mov qword ptr [r12 + 416], rax
@@ -2726,7 +2726,7 @@ xchain00021_n18_β:
  xchain00021_n19_β:
  mov r14, qword ptr [r12 + 336]
  jmp xchain00021_n5_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00021_n20_α:
  mov rax, qword ptr [r12 + 368]
  mov qword ptr [r12 + 256], rax
@@ -2783,7 +2783,7 @@ xchain00021_n24_β:
  jmp qword ptr [r12 + 272]
  xchain00021_n25_β:
  jmp xchain00021_n5_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00021_n26_α:
  mov rax, qword ptr [r12 + 288]
  mov qword ptr [r12 + 256], rax
@@ -3525,7 +3525,7 @@ proc_grammar_α_body:
  .quad .Lx00057_0_s
 .Lx00057_0_s:
  .string "&output"
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00045_n22_α:
  mov rax, qword ptr [r12 + 880]
  mov qword ptr [r12 + 720], rax
@@ -3545,7 +3545,7 @@ proc_grammar_α_body:
  jmp xchain00045_n27_α
  xchain00045_n23_β:
  jmp proc_grammar_ω
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00045_n24_α:
  mov rax, qword ptr [r12 + 688]
  mov qword ptr [r12 + 656], rax
@@ -3556,7 +3556,7 @@ proc_grammar_α_body:
  jmp xchain00045_n28_α
  xchain00045_n24_β:
  jmp xchain00045_n6_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00045_n25_α:
  mov rax, qword ptr [r12 + 720]
  mov qword ptr [r12 + 656], rax
@@ -3753,7 +3753,7 @@ xchain00045_n31_β:
  jmp xchain00045_n41_α
  xchain00045_n39_β:
  jmp proc_grammar_ω
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00045_n40_α:
  mov rax, qword ptr [r12 + 512]
  mov qword ptr [r12 + 288], rax
@@ -4031,7 +4031,7 @@ xchain00045_n58_β:
  .quad .Lx00066_0_s
 .Lx00066_0_s:
  .string ">"
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00045_n61_α:
  mov rax, qword ptr [r12 + 96]
  mov qword ptr [r12 + 64], rax
@@ -4069,7 +4069,7 @@ xchain00045_n58_β:
  jmp xchain00045_n65_α
 xchain00045_n64_β:
  jmp proc_grammar_ω
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00045_n65_α:
  mov rax, qword ptr [r12 + 320]
  mov qword ptr [r12 + 288], rax
@@ -4810,7 +4810,7 @@ proc_pwrite_α_body:
  jmp xchain00075_n28_α
  xchain00075_n22_β:
  jmp xchain00075_n10_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00075_n23_α:
  mov rax, qword ptr [r12 + 672]
  mov qword ptr [r12 + 640], rax
@@ -4896,7 +4896,7 @@ xchain00075_n27_β:
  jmp xchain00075_n10_α
 .Lx00087_0:
  .quad 2
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00075_n29_α:
  mov rax, qword ptr [r12 + 640]
  mov qword ptr [r12 + 48], rax
@@ -4986,7 +4986,7 @@ xchain00075_n34_β:
  jmp xchain00075_n42_α
  xchain00075_n38_β:
  jmp xchain00075_n43_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00075_n39_α:
  lea rax, [rip + xchain00075_n21_α]
  mov qword ptr [r12 + 64], rax
@@ -5187,7 +5187,7 @@ xchain00075_n34_β:
  jmp xchain00075_n56_α
  xchain00075_n52_β:
  jmp xchain00075_n10_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00075_n53_α:
  mov rax, qword ptr [r12 + 1136]
  mov qword ptr [r12 + 1104], rax
@@ -5337,7 +5337,7 @@ xchain00075_n59_β:
  jmp xchain00075_n64_α
  xchain00075_n62_β:
  jmp xchain00075_n21_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00075_n63_α:
  mov rax, qword ptr [r12 + 752]
  mov qword ptr [r12 + 640], rax
@@ -5665,7 +5665,7 @@ proc_source_α_body:
  .quad .Lx00104_0_s
 .Lx00104_0_s:
  .string "*** cannot open "
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00097_n12_α:
  mov rax, qword ptr [r12 + 416]
  mov qword ptr [r12 + 256], rax
@@ -6418,7 +6418,7 @@ proc_syms_α_body:
  mov qword ptr [r12 + 0], rax
  mov qword ptr [r12 + 8], rdx
  jmp proc_syms_γ
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00115_n14_α:
  mov rax, qword ptr [r12 + 704]
  mov qword ptr [r12 + 672], rax
@@ -6538,7 +6538,7 @@ xchain00115_n16_β:
  .quad .Lx00121_0_s
 .Lx00121_0_s:
  .string "<"
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00115_n23_α:
  mov rax, qword ptr [r12 + 560]
  mov qword ptr [r12 + 176], rax
@@ -6804,7 +6804,7 @@ xchain00115_n16_β:
  jmp xchain00115_n35_α
 xchain00115_n34_β:
  jmp xchain00115_n20_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00115_n35_α:
  mov rax, qword ptr [r12 + 208]
  mov qword ptr [r12 + 176], rax
@@ -7304,7 +7304,7 @@ proc_options_α_body:
  jmp xchain00129_n31_α
  xchain00129_n29_β:
  jmp xchain00129_n23_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00129_n30_α:
  mov rax, qword ptr [r12 + 1984]
  mov qword ptr [r12 + 304], rax
@@ -7535,7 +7535,7 @@ xchain00129_n46_β:
  .quad .Lx00142_0_s
 .Lx00142_0_s:
  .string "Unrecognized option: -"
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00129_n49_α:
  lea rax, [rip + xchain00129_n52_α]
  mov qword ptr [r12 + 320], rax
@@ -7669,7 +7669,7 @@ xchain00129_n46_β:
  jmp xchain00129_n57_α
  xchain00129_n55_β:
  jmp xchain00129_n48_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00129_n56_α:
  mov rax, qword ptr [r12 + 1616]
  mov qword ptr [r12 + 400], rax
@@ -7790,7 +7790,7 @@ xchain00129_n46_β:
  jmp xchain00129_n68_α
  xchain00129_n66_β:
  jmp xchain00129_n65_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00129_n67_α:
  mov rax, qword ptr [r12 + 1456]
  mov qword ptr [r12 + 496], rax
@@ -7858,7 +7858,7 @@ xchain00129_n46_β:
  jmp xchain00129_n73_α
  xchain00129_n71_β:
  jmp xchain00129_n65_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00129_n72_α:
  mov rax, qword ptr [r12 + 480]
  mov qword ptr [r12 + 400], rax
@@ -7949,7 +7949,7 @@ xchain00129_n46_β:
  jmp xchain00129_n79_α
  xchain00129_n77_β:
  jmp xchain00129_n80_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00129_n78_α:
  mov rax, qword ptr [r12 + 1376]
  mov qword ptr [r12 + 1216], rax
@@ -8010,7 +8010,7 @@ xchain00129_n46_β:
  jmp qword ptr [r12 + 1232]
  xchain00129_n82_β:
  jmp xchain00129_n85_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00129_n83_α:
  mov rax, qword ptr [r12 + 1328]
  mov qword ptr [r12 + 1216], rax
@@ -8078,7 +8078,7 @@ xchain00129_n46_β:
  .quad .Lx00152_0_s
 .Lx00152_0_s:
  .string ":"
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00129_n88_α:
  mov rax, qword ptr [r12 + 1248]
  mov qword ptr [r12 + 1216], rax
@@ -8270,7 +8270,7 @@ xchain00129_n97_β:
  jmp xchain00129_n00002_α
  xchain00129_n00001_β:
  jmp xchain00129_n37_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00129_n00155_α:
  mov rax, qword ptr [r12 + 528]
  mov qword ptr [r12 + 496], rax
@@ -8281,7 +8281,7 @@ xchain00129_n97_β:
  jmp xchain00129_n69_α
  xchain00129_n00155_β:
  jmp xchain00129_n37_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00129_n00156_α:
  mov rax, qword ptr [r12 + 992]
  mov qword ptr [r12 + 848], rax
@@ -8404,7 +8404,7 @@ xchain00129_n97_β:
  jmp xchain00129_n00167_α
  xchain00129_n00163_β:
  jmp xchain00129_n37_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00129_n00164_α:
  mov rax, qword ptr [r12 + 720]
  mov qword ptr [r12 + 576], rax
@@ -8424,7 +8424,7 @@ xchain00129_n97_β:
  jmp xchain00129_n00169_α
  xchain00129_n00166_β:
  jmp xchain00129_n37_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00129_n00167_α:
  mov rax, qword ptr [r12 + 880]
  mov qword ptr [r12 + 848], rax
@@ -8495,7 +8495,7 @@ xchain00129_n97_β:
  jmp xchain00129_n00006_α
  xchain00129_n00005_β:
  jmp xchain00129_n37_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00129_n00006_α:
  mov rax, qword ptr [r12 + 608]
  mov qword ptr [r12 + 576], rax
@@ -9060,7 +9060,7 @@ xchain00183_n12_β:
  jmp xchain00183_n16_α
 xchain00183_n15_β:
  jmp xchain00183_n2_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00183_n16_α:
  mov rax, qword ptr [r12 + 208]
  mov qword ptr [r12 + 176], rax
@@ -9410,7 +9410,7 @@ proc_Collections___α_body:
  mov qword ptr [r12 + 0], 0
  mov qword ptr [r12 + 8], 0
  jmp proc_Collections___γ
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00190_n21_α:
  mov rax, qword ptr [r12 + 560]
  mov qword ptr [r12 + 528], rax
@@ -9907,7 +9907,7 @@ proc_Regions___α_body:
  jmp xchain00201_n19_α
  xchain00201_n17_β:
  jmp xchain00201_n20_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00201_n18_α:
  mov rax, qword ptr [r12 + 560]
  mov qword ptr [r12 + 528], rax
@@ -10590,7 +10590,7 @@ proc_Storage___α_body:
  jmp xchain00215_n19_α
  xchain00215_n17_β:
  jmp xchain00215_n20_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00215_n18_α:
  mov rax, qword ptr [r12 + 560]
  mov qword ptr [r12 + 528], rax
@@ -11001,7 +11001,7 @@ proc_Time___α_body:
  mov qword ptr [r12 + 0], rax
  mov qword ptr [r12 + 8], rdx
  jmp proc_Time___γ
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00225_n10_α:
  mov rax, qword ptr [r12 + 112]
  mov qword ptr [r12 + 80], rax
@@ -12555,7 +12555,7 @@ xchain00230_n72_β:
  jmp xchain00230_n82_α
  xchain00230_n80_β:
  jmp xchain00230_n79_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00230_n81_α:
  mov rax, qword ptr [r12 + 1152]
  mov qword ptr [r12 + 1120], rax
@@ -12566,7 +12566,7 @@ xchain00230_n72_β:
  jmp xchain00230_n83_α
  xchain00230_n81_β:
  jmp xchain00230_n84_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00230_n82_α:
  mov rax, qword ptr [r12 + 1168]
  mov qword ptr [r12 + 1120], rax
@@ -12973,7 +12973,7 @@ xchain00230_n00164_β:
  jmp xchain00230_n00169_α
  xchain00230_n00166_β:
  jmp xchain00230_n00004_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00230_n00167_α:
  mov rax, qword ptr [r12 + 608]
  mov qword ptr [r12 + 576], rax
@@ -13075,7 +13075,7 @@ xchain00230_n00164_β:
  jmp xchain00230_n00156_α
 xchain00230_n00267_β:
  jmp xchain00230_n00156_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00230_n00268_α:
  mov rax, qword ptr [r12 + 688]
  mov qword ptr [r12 + 656], rax
@@ -13313,7 +13313,7 @@ xchain00230_n00283_β:
  jmp xchain00230_n00292_α
  xchain00230_n00291_β:
  jmp xchain00230_n00270_α
-# IR_MOVE_LABEL: shared value := arm value; t := &arm-resume
+# IR_MOVE_LABEL
  xchain00230_n00292_α:
  mov rax, qword ptr [r12 + 432]
  mov qword ptr [r12 + 400], rax
