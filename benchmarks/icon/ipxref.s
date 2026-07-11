@@ -1335,18 +1335,12 @@ xchain00001_n3_β:
  mov eax, dword ptr [r12 + 2272]
  cmp eax, 100
  je .Lx00007_0
- mov eax, dword ptr [r12 + 2304]
- cmp eax, 100
- je .Lx00007_0
  mov eax, dword ptr [r12 + 2272]
- cmp eax, 6
- jne .Lx00007_2
- mov eax, dword ptr [r12 + 2304]
  cmp eax, 6
  jne .Lx00007_2
 .Lx00007_1:
  mov rax, qword ptr [r12 + 2280]
- mov rcx, qword ptr [r12 + 2312]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 2256], 6
  mov qword ptr [r12 + 2264], rax
@@ -1497,18 +1491,12 @@ xchain00001_n3_β:
  mov eax, dword ptr [r12 + 1792]
  cmp eax, 100
  je .Lx00011_0
- mov eax, dword ptr [r12 + 1824]
- cmp eax, 100
- je .Lx00011_0
  mov eax, dword ptr [r12 + 1792]
- cmp eax, 6
- jne .Lx00011_2
- mov eax, dword ptr [r12 + 1824]
  cmp eax, 6
  jne .Lx00011_2
 .Lx00011_1:
  mov rax, qword ptr [r12 + 1800]
- mov rcx, qword ptr [r12 + 1832]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 1776], 6
  mov qword ptr [r12 + 1784], rax
@@ -1653,18 +1641,12 @@ xchain00001_n50_β:
  mov eax, dword ptr [r12 + 2064]
  cmp eax, 100
  je .Lx00013_0
- mov eax, dword ptr [r12 + 2080]
- cmp eax, 100
- je .Lx00013_0
  mov eax, dword ptr [r12 + 2064]
- cmp eax, 6
- jne .Lx00013_2
- mov eax, dword ptr [r12 + 2080]
  cmp eax, 6
  jne .Lx00013_2
 .Lx00013_1:
  mov rax, qword ptr [r12 + 2072]
- mov rcx, qword ptr [r12 + 2088]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 2048], 6
  mov qword ptr [r12 + 2056], rax
@@ -2011,18 +1993,12 @@ xchain00001_n58_β:
  mov eax, dword ptr [r12 + 1328]
  cmp eax, 100
  je .Lx00018_0
- mov eax, dword ptr [r12 + 1344]
- cmp eax, 100
- je .Lx00018_0
  mov eax, dword ptr [r12 + 1328]
- cmp eax, 6
- jne .Lx00018_2
- mov eax, dword ptr [r12 + 1344]
  cmp eax, 6
  jne .Lx00018_2
 .Lx00018_1:
  mov rax, qword ptr [r12 + 1336]
- mov rcx, qword ptr [r12 + 1352]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 1312], 6
  mov qword ptr [r12 + 1320], rax
@@ -2166,18 +2142,12 @@ xchain00001_n58_β:
  mov eax, dword ptr [r12 + 1232]
  cmp eax, 100
  je .Lx00022_0
- mov eax, dword ptr [r12 + 1248]
- cmp eax, 100
- je .Lx00022_0
  mov eax, dword ptr [r12 + 1232]
- cmp eax, 6
- jne .Lx00022_2
- mov eax, dword ptr [r12 + 1248]
  cmp eax, 6
  jne .Lx00022_2
 .Lx00022_1:
  mov rax, qword ptr [r12 + 1240]
- mov rcx, qword ptr [r12 + 1256]
+ mov rcx, 1
  sub rax, rcx
  mov qword ptr [r12 + 1216], 6
  mov qword ptr [r12 + 1224], rax
@@ -2221,18 +2191,12 @@ xchain00001_n58_β:
  mov eax, dword ptr [r12 + 928]
  cmp eax, 100
  je .Lx00023_0
- mov eax, dword ptr [r12 + 944]
- cmp eax, 100
- je .Lx00023_0
  mov eax, dword ptr [r12 + 928]
- cmp eax, 6
- jne .Lx00023_2
- mov eax, dword ptr [r12 + 944]
  cmp eax, 6
  jne .Lx00023_2
 .Lx00023_1:
  mov rax, qword ptr [r12 + 936]
- mov rcx, qword ptr [r12 + 952]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 912], 6
  mov qword ptr [r12 + 920], rax
@@ -2334,18 +2298,12 @@ xchain00001_n58_β:
  mov eax, dword ptr [r12 + 1056]
  cmp eax, 100
  je .Lx00033_0
- mov eax, dword ptr [r12 + 1088]
- cmp eax, 100
- je .Lx00033_0
  mov eax, dword ptr [r12 + 1056]
- cmp eax, 6
- jne .Lx00033_2
- mov eax, dword ptr [r12 + 1088]
  cmp eax, 6
  jne .Lx00033_2
 .Lx00033_1:
  mov rax, qword ptr [r12 + 1064]
- mov rcx, qword ptr [r12 + 1096]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 1040], 6
  mov qword ptr [r12 + 1048], rax
@@ -2483,18 +2441,12 @@ xchain00001_n00039_β:
  mov eax, dword ptr [r12 + 784]
  cmp eax, 100
  je .Lx00043_0
- mov eax, dword ptr [r12 + 800]
- cmp eax, 100
- je .Lx00043_0
  mov eax, dword ptr [r12 + 784]
- cmp eax, 6
- jne .Lx00043_2
- mov eax, dword ptr [r12 + 800]
  cmp eax, 6
  jne .Lx00043_2
 .Lx00043_1:
  mov rax, qword ptr [r12 + 792]
- mov rcx, qword ptr [r12 + 808]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 768], 6
  mov qword ptr [r12 + 776], rax
@@ -2746,18 +2698,12 @@ xchain00001_n00046_β:
  mov eax, dword ptr [r12 + 496]
  cmp eax, 100
  je .Lx00063_0
- mov eax, dword ptr [r12 + 512]
- cmp eax, 100
- je .Lx00063_0
  mov eax, dword ptr [r12 + 496]
- cmp eax, 6
- jne .Lx00063_2
- mov eax, dword ptr [r12 + 512]
  cmp eax, 6
  jne .Lx00063_2
 .Lx00063_1:
  mov rax, qword ptr [r12 + 504]
- mov rcx, qword ptr [r12 + 520]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 480], 6
  mov qword ptr [r12 + 488], rax
@@ -2846,18 +2792,12 @@ xchain00001_n00046_β:
  mov eax, dword ptr [r12 + 592]
  cmp eax, 100
  je .Lx00069_0
- mov eax, dword ptr [r12 + 736]
- cmp eax, 100
- je .Lx00069_0
  mov eax, dword ptr [r12 + 592]
- cmp eax, 6
- jne .Lx00069_2
- mov eax, dword ptr [r12 + 736]
  cmp eax, 6
  jne .Lx00069_2
 .Lx00069_1:
  mov rax, qword ptr [r12 + 600]
- mov rcx, qword ptr [r12 + 744]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 576], 6
  mov qword ptr [r12 + 584], rax
@@ -2976,18 +2916,12 @@ xchain00001_n00071_β:
  mov eax, dword ptr [r12 + 288]
  cmp eax, 100
  je .Lx00081_0
- mov eax, dword ptr [r12 + 304]
- cmp eax, 100
- je .Lx00081_0
  mov eax, dword ptr [r12 + 288]
- cmp eax, 6
- jne .Lx00081_2
- mov eax, dword ptr [r12 + 304]
  cmp eax, 6
  jne .Lx00081_2
 .Lx00081_1:
  mov rax, qword ptr [r12 + 296]
- mov rcx, qword ptr [r12 + 312]
+ mov rcx, 1
  sub rax, rcx
  mov qword ptr [r12 + 272], 6
  mov qword ptr [r12 + 280], rax
@@ -3046,18 +2980,12 @@ xchain00001_n00071_β:
  mov eax, dword ptr [r12 + 208]
  cmp eax, 100
  je .Lx00084_0
- mov eax, dword ptr [r12 + 224]
- cmp eax, 100
- je .Lx00084_0
  mov eax, dword ptr [r12 + 208]
- cmp eax, 6
- jne .Lx00084_2
- mov eax, dword ptr [r12 + 224]
  cmp eax, 6
  jne .Lx00084_2
 .Lx00084_1:
  mov rax, qword ptr [r12 + 216]
- mov rcx, qword ptr [r12 + 232]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 192], 6
  mov qword ptr [r12 + 200], rax
@@ -4218,18 +4146,12 @@ xchain00091_n71_β:
  mov eax, dword ptr [r12 + 2048]
  cmp eax, 100
  je .Lx00110_0
- mov eax, dword ptr [r12 + 1488]
- cmp eax, 100
- je .Lx00110_0
  mov eax, dword ptr [r12 + 2048]
- cmp eax, 6
- jne .Lx00110_2
- mov eax, dword ptr [r12 + 1488]
  cmp eax, 6
  jne .Lx00110_2
 .Lx00110_1:
  mov rax, qword ptr [r12 + 2056]
- mov rcx, qword ptr [r12 + 1496]
+ mov rcx, 16
  sub rax, rcx
  mov qword ptr [r12 + 1456], 6
  mov qword ptr [r12 + 1464], rax
@@ -5488,18 +5410,12 @@ xchain00116_n46_β:
  mov eax, dword ptr [r12 + 1728]
  cmp eax, 100
  je .Lx00132_0
- mov eax, dword ptr [r12 + 1824]
- cmp eax, 100
- je .Lx00132_0
  mov eax, dword ptr [r12 + 1728]
- cmp eax, 6
- jne .Lx00132_2
- mov eax, dword ptr [r12 + 1824]
  cmp eax, 6
  jne .Lx00132_2
 .Lx00132_1:
  mov rax, qword ptr [r12 + 1736]
- mov rcx, qword ptr [r12 + 1832]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 1712], 6
  mov qword ptr [r12 + 1720], rax

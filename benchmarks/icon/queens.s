@@ -135,20 +135,14 @@ proc_q_α_body:
  jmp proc_q_ω
  xchain0_n10_α:
 # IR_BINOP_ARITH
- mov eax, dword ptr [r12 + 1504]
- cmp eax, 100
- je .Lx13_0
  mov eax, dword ptr [r12 + 1520]
  cmp eax, 100
  je .Lx13_0
- mov eax, dword ptr [r12 + 1504]
- cmp eax, 6
- jne .Lx13_2
  mov eax, dword ptr [r12 + 1520]
  cmp eax, 6
  jne .Lx13_2
 .Lx13_1:
- mov rax, qword ptr [r12 + 1512]
+ mov rax, 2
  mov rcx, qword ptr [r12 + 1528]
  imul rax, rcx
  mov qword ptr [r12 + 1488], 6
@@ -239,18 +233,12 @@ proc_q_α_body:
  mov eax, dword ptr [r12 + 1488]
  cmp eax, 100
  je .Lx20_0
- mov eax, dword ptr [r12 + 1536]
- cmp eax, 100
- je .Lx20_0
  mov eax, dword ptr [r12 + 1488]
- cmp eax, 6
- jne .Lx20_2
- mov eax, dword ptr [r12 + 1536]
  cmp eax, 6
  jne .Lx20_2
 .Lx20_1:
  mov rax, qword ptr [r12 + 1496]
- mov rcx, qword ptr [r12 + 1544]
+ mov rcx, 1
  sub rax, rcx
  mov qword ptr [r12 + 1472], 6
  mov qword ptr [r12 + 1480], rax
@@ -282,20 +270,14 @@ proc_q_α_body:
  jmp xchain0_n11_α
  xchain0_n17_α:
 # IR_BINOP_ARITH
- mov eax, dword ptr [r12 + 1344]
- cmp eax, 100
- je .Lx21_0
  mov eax, dword ptr [r12 + 1360]
  cmp eax, 100
  je .Lx21_0
- mov eax, dword ptr [r12 + 1344]
- cmp eax, 6
- jne .Lx21_2
  mov eax, dword ptr [r12 + 1360]
  cmp eax, 6
  jne .Lx21_2
 .Lx21_1:
- mov rax, qword ptr [r12 + 1352]
+ mov rax, 2
  mov rcx, qword ptr [r12 + 1368]
  imul rax, rcx
  mov qword ptr [r12 + 1328], 6
@@ -423,18 +405,12 @@ proc_q_α_body:
  mov eax, dword ptr [r12 + 1328]
  cmp eax, 100
  je .Lx30_0
- mov eax, dword ptr [r12 + 1376]
- cmp eax, 100
- je .Lx30_0
  mov eax, dword ptr [r12 + 1328]
- cmp eax, 6
- jne .Lx30_2
- mov eax, dword ptr [r12 + 1376]
  cmp eax, 6
  jne .Lx30_2
 .Lx30_1:
  mov rax, qword ptr [r12 + 1336]
- mov rcx, qword ptr [r12 + 1384]
+ mov rcx, 1
  sub rax, rcx
  mov qword ptr [r12 + 1312], 6
  mov qword ptr [r12 + 1320], rax
@@ -929,18 +905,12 @@ xchain0_n33_β:
  mov eax, dword ptr [r12 + 768]
  cmp eax, 100
  je .Lx65_0
- mov eax, dword ptr [r12 + 816]
- cmp eax, 100
- je .Lx65_0
  mov eax, dword ptr [r12 + 768]
- cmp eax, 6
- jne .Lx65_2
- mov eax, dword ptr [r12 + 816]
  cmp eax, 6
  jne .Lx65_2
 .Lx65_1:
  mov rax, qword ptr [r12 + 776]
- mov rcx, qword ptr [r12 + 824]
+ mov rcx, 1
  sub rax, rcx
  mov qword ptr [r12 + 752], 6
  mov qword ptr [r12 + 760], rax
@@ -1311,18 +1281,12 @@ xchain0_n33_β:
  mov eax, dword ptr [r12 + 288]
  cmp eax, 100
  je .Lx92_0
- mov eax, dword ptr [r12 + 336]
- cmp eax, 100
- je .Lx92_0
  mov eax, dword ptr [r12 + 288]
- cmp eax, 6
- jne .Lx92_2
- mov eax, dword ptr [r12 + 336]
  cmp eax, 6
  jne .Lx92_2
 .Lx92_1:
  mov rax, qword ptr [r12 + 296]
- mov rcx, qword ptr [r12 + 344]
+ mov rcx, 1
  sub rax, rcx
  mov qword ptr [r12 + 272], 6
  mov qword ptr [r12 + 280], rax
@@ -1617,18 +1581,12 @@ xchain0_n86_β:
  mov eax, dword ptr [r12 + 16]
  cmp eax, 100
  je .Lx00003_0
- mov eax, dword ptr [r12 + 976]
- cmp eax, 100
- je .Lx00003_0
  mov eax, dword ptr [r12 + 16]
- cmp eax, 6
- jne .Lx00003_2
- mov eax, dword ptr [r12 + 976]
  cmp eax, 6
  jne .Lx00003_2
 .Lx00003_1:
  mov rax, qword ptr [r12 + 24]
- mov rcx, qword ptr [r12 + 984]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 944], 6
  mov qword ptr [r12 + 952], rax
@@ -1880,18 +1838,12 @@ proc_show_α_body:
  mov eax, dword ptr [r12 + 592]
  cmp eax, 100
  je .Lx00010_0
- mov eax, dword ptr [r12 + 608]
- cmp eax, 100
- je .Lx00010_0
  mov eax, dword ptr [r12 + 592]
- cmp eax, 6
- jne .Lx00010_2
- mov eax, dword ptr [r12 + 608]
  cmp eax, 6
  jne .Lx00010_2
 .Lx00010_1:
  mov rax, qword ptr [r12 + 600]
- mov rcx, qword ptr [r12 + 616]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 576], 6
  mov qword ptr [r12 + 584], rax
@@ -2214,18 +2166,12 @@ proc_show_α_body:
  mov eax, dword ptr [r12 + 112]
  cmp eax, 100
  je .Lx00018_0
- mov eax, dword ptr [r12 + 160]
- cmp eax, 100
- je .Lx00018_0
  mov eax, dword ptr [r12 + 112]
- cmp eax, 6
- jne .Lx00018_2
- mov eax, dword ptr [r12 + 160]
  cmp eax, 6
  jne .Lx00018_2
 .Lx00018_1:
  mov rax, qword ptr [r12 + 120]
- mov rcx, qword ptr [r12 + 168]
+ mov rcx, 1
  sub rax, rcx
  mov qword ptr [r12 + 96], 6
  mov qword ptr [r12 + 104], rax
@@ -2269,20 +2215,14 @@ proc_show_α_body:
  jmp xchain00004_n3_α
  xchain00004_n33_α:
 # IR_BINOP_ARITH
- mov eax, dword ptr [r12 + 80]
- cmp eax, 100
- je .Lx00019_0
  mov eax, dword ptr [r12 + 96]
  cmp eax, 100
  je .Lx00019_0
- mov eax, dword ptr [r12 + 80]
- cmp eax, 6
- jne .Lx00019_2
  mov eax, dword ptr [r12 + 96]
  cmp eax, 6
  jne .Lx00019_2
 .Lx00019_1:
- mov rax, qword ptr [r12 + 88]
+ mov rax, 4
  mov rcx, qword ptr [r12 + 104]
  imul rax, rcx
  mov qword ptr [r12 + 64], 6
@@ -2343,18 +2283,12 @@ xchain00004_n36_β:
  mov eax, dword ptr [r12 + 64]
  cmp eax, 100
  je .Lx00021_0
- mov eax, dword ptr [r12 + 176]
- cmp eax, 100
- je .Lx00021_0
  mov eax, dword ptr [r12 + 64]
- cmp eax, 6
- jne .Lx00021_2
- mov eax, dword ptr [r12 + 176]
  cmp eax, 6
  jne .Lx00021_2
 .Lx00021_1:
  mov rax, qword ptr [r12 + 72]
- mov rcx, qword ptr [r12 + 184]
+ mov rcx, 3
  add rax, rcx
  mov qword ptr [r12 + 48], 6
  mov qword ptr [r12 + 56], rax
@@ -3363,18 +3297,12 @@ xchain00025_n46_β:
  mov eax, dword ptr [r12 + 1728]
  cmp eax, 100
  je .Lx00041_0
- mov eax, dword ptr [r12 + 1824]
- cmp eax, 100
- je .Lx00041_0
  mov eax, dword ptr [r12 + 1728]
- cmp eax, 6
- jne .Lx00041_2
- mov eax, dword ptr [r12 + 1824]
  cmp eax, 6
  jne .Lx00041_2
 .Lx00041_1:
  mov rax, qword ptr [r12 + 1736]
- mov rcx, qword ptr [r12 + 1832]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 1712], 6
  mov qword ptr [r12 + 1720], rax

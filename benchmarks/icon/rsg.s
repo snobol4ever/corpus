@@ -7628,18 +7628,12 @@ xchain00129_n46_β:
  mov eax, dword ptr [r12 + 1728]
  cmp eax, 100
  je .Lx00145_0
- mov eax, dword ptr [r12 + 1824]
- cmp eax, 100
- je .Lx00145_0
  mov eax, dword ptr [r12 + 1728]
- cmp eax, 6
- jne .Lx00145_2
- mov eax, dword ptr [r12 + 1824]
  cmp eax, 6
  jne .Lx00145_2
 .Lx00145_1:
  mov rax, qword ptr [r12 + 1736]
- mov rcx, qword ptr [r12 + 1832]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 1712], 6
  mov qword ptr [r12 + 1720], rax

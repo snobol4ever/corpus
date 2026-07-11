@@ -901,18 +901,12 @@ proc_dofile_α_body:
  mov eax, dword ptr [r12 + 896]
  cmp eax, 100
  je .Lx92_0
- mov eax, dword ptr [r12 + 928]
- cmp eax, 100
- je .Lx92_0
  mov eax, dword ptr [r12 + 896]
- cmp eax, 6
- jne .Lx92_2
- mov eax, dword ptr [r12 + 928]
  cmp eax, 6
  jne .Lx92_2
 .Lx92_1:
  mov rax, qword ptr [r12 + 904]
- mov rcx, qword ptr [r12 + 936]
+ mov rcx, 2
  cqo
  idiv rcx
  mov qword ptr [r12 + 880], 6
@@ -1079,18 +1073,12 @@ proc_dofile_α_body:
  mov eax, dword ptr [r12 + 880]
  cmp eax, 100
  je .Lx00002_0
- mov eax, dword ptr [r12 + 944]
- cmp eax, 100
- je .Lx00002_0
  mov eax, dword ptr [r12 + 880]
- cmp eax, 6
- jne .Lx00002_2
- mov eax, dword ptr [r12 + 944]
  cmp eax, 6
  jne .Lx00002_2
 .Lx00002_1:
  mov rax, qword ptr [r12 + 888]
- mov rcx, qword ptr [r12 + 952]
+ mov rcx, 1
  add rax, rcx
  mov qword ptr [r12 + 864], 6
  mov qword ptr [r12 + 872], rax
