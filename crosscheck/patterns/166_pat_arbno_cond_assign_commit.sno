@@ -1,0 +1,4 @@
+ 'ab-cd-x' ? POS(0) (ARBNO(LEN(2) . C '-')) . W 'x' RPOS(0)   :S(Y)F(N)
+Y OUTPUT = 'C=[' C '] W=[' W ']'                              :(END)
+N OUTPUT = 'fail'
+END

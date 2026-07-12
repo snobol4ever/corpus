@@ -1,0 +1,4 @@
+ 'AAAB' ? POS(0) ARBNO( ('AA' | 'A') $ OUTPUT ) 'B' RPOS(0)   :S(Y)F(N)
+Y OUTPUT = 'ok'                                               :(END)
+N OUTPUT = 'fail'
+END

@@ -1,0 +1,5 @@
+ S = DUPL('a',20000) 'b'
+ S ? POS(0) ARBNO('a') 'b' RPOS(0)                            :S(Y)F(N)
+Y OUTPUT = 'depth-ok'                                         :(END)
+N OUTPUT = 'depth-fail'
+END
