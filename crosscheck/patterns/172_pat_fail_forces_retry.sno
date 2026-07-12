@@ -1,0 +1,6 @@
+* SPITBOL manual Ch.9 p.125: FAIL backtracks and seeks alternatives, and (unlike
+* ABORT) lets the scanner advance the start position -- the side-effect idiom.
+ 'abc' ? LEN(1) $ OUTPUT FAIL   :S(Y)F(N)
+Y OUTPUT = 'matched'            :(END)
+N OUTPUT = 'failed as expected'
+END

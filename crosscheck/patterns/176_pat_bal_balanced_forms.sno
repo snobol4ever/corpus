@@ -1,0 +1,11 @@
+* Manual Ch.9 p.124: these strings ARE balanced.
+ '(A!(C:D))' ? POS(0) BAL . X RPOS(0)   :F(N1)
+ OUTPUT = 'bal1=' X                      :(T2)
+N1 OUTPUT = 'bal1 FAILED'
+T2 '(AB)+(CD)' ? POS(0) BAL . Y RPOS(0)  :F(N2)
+ OUTPUT = 'bal2=' Y                      :(T3)
+N2 OUTPUT = 'bal2 FAILED'
+T3 '9395' ? POS(0) BAL . Z RPOS(0)       :F(N3)
+ OUTPUT = 'bal3=' Z                      :(END)
+N3 OUTPUT = 'bal3 FAILED'
+END

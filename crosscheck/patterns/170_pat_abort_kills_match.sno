@@ -1,0 +1,9 @@
+* SPITBOL manual Ch.9 p.124: ABORT ends the ENTIRE match, seeking no alternatives
+* and retrying no start position.  Both polarities of the manual's own example.
+ '-AB-1-' ? (ANY('AB') | '1' ABORT)   :S(A)F(B)
+A OUTPUT = 'first ok'                 :(C)
+B OUTPUT = 'first FAIL'
+C '-1B-A-' ? (ANY('AB') | '1' ABORT)  :S(D)F(E)
+D OUTPUT = 'second ok'                :(END)
+E OUTPUT = 'second aborted'
+END

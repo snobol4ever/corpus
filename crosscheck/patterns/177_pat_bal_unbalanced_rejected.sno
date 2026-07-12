@@ -1,0 +1,12 @@
+* Manual Ch.9 p.124: these are NOT balanced.  A ')' that closes nothing ENDS the
+* generator -- nothing further right can rebalance it.
+ ')A+B' ? POS(0) BAL RPOS(0)     :S(Y1)F(N1)
+Y1 OUTPUT = 'unbal1 MATCHED'     :(T2)
+N1 OUTPUT = 'unbal1 rejected'
+T2 '(A*(B+)' ? POS(0) BAL RPOS(0) :S(Y2)F(N2)
+Y2 OUTPUT = 'unbal2 MATCHED'     :(T3)
+N2 OUTPUT = 'unbal2 rejected'
+T3 '(X))' ? POS(0) BAL RPOS(0)   :S(Y3)F(N3)
+Y3 OUTPUT = 'unbal3 MATCHED'     :(END)
+N3 OUTPUT = 'unbal3 rejected'
+END
