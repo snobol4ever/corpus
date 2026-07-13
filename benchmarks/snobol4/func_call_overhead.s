@@ -116,8 +116,7 @@ mov rsp, qword ptr [r12 + 1352]
 pop r12
 ret
 proc_startup:
-  push rbp
-  mov rbp, rsp
+  sub rsp, 8
   .section .rodata
   .Lstartup_pname0: .string "INC"
   .Lstartup_pp0_0: .string "N"
@@ -143,7 +142,7 @@ proc_startup:
   lea rdi, [rip + .Lstartup_pname0]
   mov esi, 1360
   call rt_proc_set_frame_bytes@PLT
-  pop rbp
+  add rsp, 8
   ret
   .section .rodata
   .Lgvan0: .string "INC"
@@ -165,8 +164,7 @@ __gva: .space 80, 0
   .intel_syntax noprefix
   .globl main
 main:
-  push rbp
-  mov rbp, rsp
+  sub rsp, 8
   push rdi
   push rsi
   call core_lib_init@PLT
@@ -181,8 +179,7 @@ main:
   xor esi, esi
   call main_α
   xor eax, eax
-  mov rsp, rbp
-  pop rbp
+  add rsp, 24
   ret
 main_α:
 #=======================================================================================================================
@@ -726,8 +723,8 @@ main_α_body:
  xchain5_n34_β:
  jmp xchain5_n12_α
  xchain5_n35_α:
- push rbp
- mov rbp, rsp
+ push rsp
+ push qword ptr [rsp]
  and rsp, -16
  mov edi, 0
  mov rsi, qword ptr [r12 + 976]
@@ -738,22 +735,28 @@ main_α_body:
  call rt_proc_call_open@PLT
  test rax, rax
  je .Lx49_1
+ mov rcx, rsp
  sub rsp, rax
+ sub rsp, 16
+ and rsp, -16
+ mov qword ptr [rsp + 0], rcx
  mov rdi, rsp
+ add rdi, 16
  mov rsi, rax
  call rt_frame_prep@PLT
  mov rdi, rsp
+ add rdi, 16
  xor esi, esi
  call rax
  mov rdi, rax
  mov rsi, rdx
+ mov rsp, qword ptr [rsp + 0]
  call rt_proc_call_epilogue@PLT
  jmp .Lx49_2
 .Lx49_1:
  call rt_faildescr@PLT
 .Lx49_2:
- mov rsp, rbp
- pop rbp
+ mov rsp, [rsp + 8]
  mov qword ptr [r12 + 928], rax
  mov qword ptr [r12 + 936], rdx
  cmp eax, 99
