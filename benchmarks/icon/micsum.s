@@ -11,9 +11,7 @@ push r12
   mov r12, rdi
   lea rax, [rip + g_gva_base]
   mov rbx, qword ptr [rax]
-  push rbp
-  mov rbp, rsp
-  sub rsp, 8
+  mov qword ptr [r12 + 4472], rsp
  push rsi
  push rsp
  push qword ptr [rsp]
@@ -2405,8 +2403,7 @@ jmp proc_dofile_ω
 proc_dofile_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, rbp
-pop rbp
+mov rsp, qword ptr [r12 + 4472]
 pop r12
 ret
  push rsp
@@ -2422,13 +2419,11 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
-mov rsp, rbp
-pop rbp
+mov rsp, qword ptr [r12 + 4472]
 pop r12
 ret
 proc_startup:
-  push rbp
-  mov rbp, rsp
+  sub rsp, 8
   .section .rodata
   .Lstartup_pname0: .string "dofile"
   .section .text
@@ -2442,12 +2437,11 @@ proc_startup:
   lea rdi, [rip + .Lstartup_pname0]
   mov esi, 4608
   call rt_proc_set_frame_bytes@PLT
-  pop rbp
+  add rsp, 8
   ret
   .globl main
 main:
-  push rbp
-  mov rbp, rsp
+  sub rsp, 8
   push rdi
   push rsi
   call core_lib_init@PLT
@@ -2456,9 +2450,9 @@ main:
   mov rdi, rax
   push rdi
   sub rsp, 8
-  mov rdi, qword ptr [rbp - 16]
+  mov rdi, qword ptr [rsp + 16]
   add rdi, 8
-  mov esi, dword ptr [rbp - 8]
+  mov esi, dword ptr [rsp + 24]
   sub esi, 1
   call rt_args_list_from@PLT
   add rsp, 8
@@ -2468,8 +2462,7 @@ main:
   xor esi, esi
   call main_α
   xor eax, eax
-  mov rsp, rbp
-  pop rbp
+  add rsp, 24
   ret
 main_α:
 #=======================================================================================================================
@@ -2481,9 +2474,7 @@ push r12
   mov r12, rdi
   lea rax, [rip + g_gva_base]
   mov rbx, qword ptr [rax]
-  push rbp
-  mov rbp, rsp
-  sub rsp, 8
+  mov qword ptr [r12 + 904], rsp
  push rsi
  push rsp
  push qword ptr [rsp]
@@ -2736,8 +2727,8 @@ xchain00058_n7_β:
 .Lx00064_0_s:
  .string "cannot open "
  xchain00058_n17_α:
- push rbp
- mov rbp, rsp
+ push rsp
+ push qword ptr [rsp]
  and rsp, -16
  mov edi, 0
  mov rsi, qword ptr [r12 + 128]
@@ -2752,22 +2743,28 @@ xchain00058_n7_β:
  call rt_proc_call_open@PLT
  test rax, rax
  je .Lx00065_1
+ mov rcx, rsp
  sub rsp, rax
+ sub rsp, 16
+ and rsp, -16
+ mov qword ptr [rsp + 0], rcx
  mov rdi, rsp
+ add rdi, 16
  mov rsi, rax
  call rt_frame_prep@PLT
  mov rdi, rsp
+ add rdi, 16
  xor esi, esi
  call rax
  mov rdi, rax
  mov rsi, rdx
+ mov rsp, qword ptr [rsp + 0]
  call rt_proc_call_epilogue@PLT
  jmp .Lx00065_2
 .Lx00065_1:
  call rt_faildescr@PLT
 .Lx00065_2:
- mov rsp, rbp
- pop rbp
+ mov rsp, [rsp + 8]
  mov qword ptr [r12 + 64], rax
  mov qword ptr [r12 + 72], rdx
  cmp eax, 99
@@ -2883,8 +2880,8 @@ xchain00058_n7_β:
  xchain00058_n26_β:
  jmp xchain00058_n4_α
  xchain00058_n27_α:
- push rbp
- mov rbp, rsp
+ push rsp
+ push qword ptr [rsp]
  and rsp, -16
  mov edi, 0
  mov rsi, qword ptr [r12 + 368]
@@ -2899,22 +2896,28 @@ xchain00058_n7_β:
  call rt_proc_call_open@PLT
  test rax, rax
  je .Lx00066_1
+ mov rcx, rsp
  sub rsp, rax
+ sub rsp, 16
+ and rsp, -16
+ mov qword ptr [rsp + 0], rcx
  mov rdi, rsp
+ add rdi, 16
  mov rsi, rax
  call rt_frame_prep@PLT
  mov rdi, rsp
+ add rdi, 16
  xor esi, esi
  call rax
  mov rdi, rax
  mov rsi, rdx
+ mov rsp, qword ptr [rsp + 0]
  call rt_proc_call_epilogue@PLT
  jmp .Lx00066_2
 .Lx00066_1:
  call rt_faildescr@PLT
 .Lx00066_2:
- mov rsp, rbp
- pop rbp
+ mov rsp, [rsp + 8]
  mov qword ptr [r12 + 304], rax
  mov qword ptr [r12 + 312], rdx
  cmp eax, 99
@@ -2940,8 +2943,7 @@ jmp main_ω
 main_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, rbp
-pop rbp
+mov rsp, qword ptr [r12 + 904]
 pop r12
 ret
  push rsp
@@ -2957,7 +2959,6 @@ mov dword ptr [r12+4], 0
 mov qword ptr [r12+8], 0
 mov eax, 99
 xor edx, edx
-mov rsp, rbp
-pop rbp
+mov rsp, qword ptr [r12 + 904]
 pop r12
 ret
