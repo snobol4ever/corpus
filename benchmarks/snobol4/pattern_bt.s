@@ -158,9 +158,7 @@ xchain0_n1_af:
  lea rdi, [r13 + rcx]
  lea rsi, [rip + .S1]
  mov edx, 3
- sub rsp, 8
  call memcmp@PLT
- add rsp, 8
  test eax, eax
  jne xchain0_n1_af
  add r14d, 3
@@ -178,9 +176,7 @@ xchain0_n1_af:
  lea rdi, [r13 + rcx]
  lea rsi, [rip + .S2]
  mov edx, 3
- sub rsp, 8
  call memcmp@PLT
- add rsp, 8
  test eax, eax
  jne xchain0_n1_af
  add r14d, 3
@@ -198,9 +194,7 @@ xchain0_n1_af:
  lea rdi, [r13 + rcx]
  lea rsi, [rip + .S3]
  mov edx, 3
- sub rsp, 8
  call memcmp@PLT
- add rsp, 8
  test eax, eax
  jne xchain0_n1_af
  add r14d, 3
@@ -218,9 +212,7 @@ xchain0_n1_af:
  lea rdi, [r13 + rcx]
  lea rsi, [rip + .S4]
  mov edx, 3
- sub rsp, 8
  call memcmp@PLT
- add rsp, 8
  test eax, eax
  jne xchain0_n1_af
  add r14d, 3
@@ -239,9 +231,7 @@ xchain0_n1_af:
  movsxd rcx, eax
  movzx esi, byte ptr [r13+rcx]
  lea rdi, [rip + .S5]
- sub rsp, 8
  call strchr@PLT
- add rsp, 8
  test rax, rax
  je .Lx18_1
  add dword ptr [r12 + 208], 1
