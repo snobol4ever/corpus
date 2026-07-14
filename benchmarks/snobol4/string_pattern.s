@@ -25,55 +25,26 @@ push r12
 proc_PAT$0_α_body:
 lea rax, [rip + xchain0_n0_β]
 mov qword ptr [r12 + 144], rax
-# IR_MATCH_SEQ_NARY
+# IR_MATCH_SEQ_NARY (ZB-FC-3b: zero cell, LIFO-structural)
  xchain0_n0_α:
- mov dword ptr [r12 + 32], r14d
- mov dword ptr [r12 + 36], 0
  jmp xchain0_n1_α
 xchain0_n0_as:
- mov eax, dword ptr [r12 + 36]
- add eax, 1
- mov dword ptr [r12 + 36], eax
- cmp eax, 1
- je xchain0_n3_α
  jmp proc_PAT$0_γ
  xchain0_n0_β:
- mov dword ptr [r12 + 36], 2
+ jmp xchain0_n3_β
 xchain0_n0_af:
- mov eax, dword ptr [r12 + 36]
- sub eax, 1
- mov dword ptr [r12 + 36], eax
- cmp eax, 0
- je xchain0_n2_β
- cmp eax, 1
- je xchain0_n3_β
  jmp proc_PAT$0_ω
-# IR_MATCH_CAPTURE_SAVE push
+# IR_MATCH_CAPTURE_SAVE fc cell
  xchain0_n1_α:
- lea rdi, [r12 + 80]
- mov esi, r14d
- push rsp
- push qword ptr [rsp]
- and rsp, -16
- call rt_cap_push@PLT
- mov rsp, [rsp + 8]
+ sub rsp, 16
+ mov dword ptr [rsp + 0], r14d
  jmp xchain0_n4_α
  xchain0_n1_β:
- lea rdi, [r12 + 80]
- push rsp
- push qword ptr [rsp]
- and rsp, -16
- call rt_cap_pop@PLT
- mov rsp, [rsp + 8]
+ add rsp, 16
  jmp xchain0_n0_af
 # IR_MATCH_CAPTURE_COND (rbp-dcap inline pend)
  xchain0_n2_α:
- push rsp
- push qword ptr [rsp]
- and rsp, -16
- lea rdi, [r12 + 80]
- call rt_cap_top@PLT
- mov rsp, [rsp + 8]
+ mov eax, dword ptr [rsp + 16]
  lea rcx, [rip + .S0]
  mov qword ptr [rbp + 0], rcx
  mov esi, eax
@@ -82,7 +53,7 @@ xchain0_n0_af:
  sub edx, eax
  mov qword ptr [rbp + 16], rdx
  add rbp, 24
- jmp xchain0_n0_as
+ jmp xchain0_n3_α
  xchain0_n2_β:
  sub rbp, 24
  jmp xchain0_n4_β
@@ -91,44 +62,49 @@ xchain0_n0_af:
  mov eax, r14d
  add eax, 1
  cmp eax, r15d
- jg xchain0_n0_af
+ jg xchain0_n2_β
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
  lea rsi, [rip + .S1]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
- jne xchain0_n0_af
+ jne xchain0_n2_β
  add r14d, 1
  jmp xchain0_n0_as
  xchain0_n3_β:
  sub r14d, 1
- jmp xchain0_n0_af
+ jmp xchain0_n2_β
 # IR_MATCH_BREAK
  xchain0_n4_α:
- mov dword ptr [r12 + 112], 0
+ sub rsp, 16
+ mov dword ptr [rsp + 0], 0
 .Lx10_0:
  mov eax, r14d
- add eax, dword ptr [r12 + 112]
+ add eax, dword ptr [rsp + 0]
  cmp eax, r15d
- jge xchain0_n1_β
+ jl .Lx10_240
+ add rsp, 16
+ jmp xchain0_n1_β
+.Lx10_240:
  movsxd rcx, eax
  movzx esi, byte ptr [r13+rcx]
  lea rdi, [rip + .S1]
  call strchr@PLT
  test rax, rax
  jnz .Lx10_1
- add dword ptr [r12 + 112], 1
+ add dword ptr [rsp + 0], 1
  jmp .Lx10_0
 .Lx10_1:
  mov eax, r14d
- add eax, dword ptr [r12 + 112]
+ add eax, dword ptr [rsp + 0]
  mov r14d, eax
  jmp xchain0_n2_α
  xchain0_n4_β:
  mov eax, r14d
- sub eax, dword ptr [r12 + 112]
+ sub eax, dword ptr [rsp + 0]
  mov r14d, eax
+ add rsp, 16
  jmp xchain0_n1_β
 proc_PAT$0_β:
 jmp qword ptr [r12 + 144]

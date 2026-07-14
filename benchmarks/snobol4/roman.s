@@ -176,32 +176,17 @@ xchain0_n2_af:
  jmp xchain0_n2_as
  xchain0_n5_β:
  jmp xchain0_n2_af
-# IR_MATCH_CAPTURE_SAVE push
+# IR_MATCH_CAPTURE_SAVE fc cell
  xchain0_n6_α:
- lea rdi, [r12 + 576]
- mov esi, r14d
- push rsp
- push qword ptr [rsp]
- and rsp, -16
- call rt_cap_push@PLT
- mov rsp, [rsp + 8]
+ sub rsp, 16
+ mov dword ptr [rsp + 0], r14d
  jmp xchain0_n9_α
  xchain0_n6_β:
- lea rdi, [r12 + 576]
- push rsp
- push qword ptr [rsp]
- and rsp, -16
- call rt_cap_pop@PLT
- mov rsp, [rsp + 8]
+ add rsp, 16
  jmp xchain0_n2_af
 # IR_MATCH_CAPTURE_COND (rbp-dcap inline pend)
  xchain0_n7_α:
- push rsp
- push qword ptr [rsp]
- and rsp, -16
- lea rdi, [r12 + 576]
- call rt_cap_top@PLT
- mov rsp, [rsp + 8]
+ mov eax, dword ptr [rsp + 0]
  lea rcx, [rip + .S0]
  mov qword ptr [rbp + 0], rcx
  mov esi, eax
@@ -500,32 +485,17 @@ xchain0_n13_af:
  xor eax, eax
  mov qword ptr [r12 + 752], rax
  jmp xchain0_n13_af
-# IR_MATCH_CAPTURE_SAVE push
+# IR_MATCH_CAPTURE_SAVE fc cell
  xchain0_n16_α:
- lea rdi, [r12 + 800]
- mov esi, r14d
- push rsp
- push qword ptr [rsp]
- and rsp, -16
- call rt_cap_push@PLT
- mov rsp, [rsp + 8]
+ sub rsp, 16
+ mov dword ptr [rsp + 0], r14d
  jmp xchain0_n19_α
  xchain0_n16_β:
- lea rdi, [r12 + 800]
- push rsp
- push qword ptr [rsp]
- and rsp, -16
- call rt_cap_pop@PLT
- mov rsp, [rsp + 8]
+ add rsp, 16
  jmp xchain0_n13_af
 # IR_MATCH_CAPTURE_COND (rbp-dcap inline pend)
  xchain0_n17_α:
- push rsp
- push qword ptr [rsp]
- and rsp, -16
- lea rdi, [r12 + 800]
- call rt_cap_top@PLT
- mov rsp, [rsp + 8]
+ mov eax, dword ptr [rsp + 16]
  lea rcx, [rip + .S0]
  mov qword ptr [rbp + 0], rcx
  mov esi, eax
@@ -549,29 +519,34 @@ xchain0_n13_af:
  jmp proc_ROMAN_ω
 # IR_MATCH_BREAK
  xchain0_n19_α:
- mov dword ptr [r12 + 832], 0
+ sub rsp, 16
+ mov dword ptr [rsp + 0], 0
 .Lx32_0:
  mov eax, r14d
- add eax, dword ptr [r12 + 832]
+ add eax, dword ptr [rsp + 0]
  cmp eax, r15d
- jge xchain0_n16_β
+ jl .Lx32_240
+ add rsp, 16
+ jmp xchain0_n16_β
+.Lx32_240:
  movsxd rcx, eax
  movzx esi, byte ptr [r13+rcx]
  lea rdi, [rip + .S1]
  call strchr@PLT
  test rax, rax
  jnz .Lx32_1
- add dword ptr [r12 + 832], 1
+ add dword ptr [rsp + 0], 1
  jmp .Lx32_0
 .Lx32_1:
  mov eax, r14d
- add eax, dword ptr [r12 + 832]
+ add eax, dword ptr [rsp + 0]
  mov r14d, eax
  jmp xchain0_n17_α
  xchain0_n19_β:
  mov eax, r14d
- sub eax, dword ptr [r12 + 832]
+ sub eax, dword ptr [rsp + 0]
  mov r14d, eax
+ add rsp, 16
  jmp xchain0_n16_β
  xchain0_n20_α:
  push rsp
