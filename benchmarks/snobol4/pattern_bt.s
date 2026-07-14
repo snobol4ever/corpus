@@ -7,13 +7,18 @@ proc_PAT$0_α:
     .global proc_PAT$0_β
     .global proc_PAT$0_γ
     .global proc_PAT$0_ω
-push r12
-  mov r12, rdi
+  sub rsp, 288
+  mov [rsp+8], rcx
+  mov [rsp+16], rdx
+  mov [rsp+24], r12
+  lea r12, [rsp+32]
+  mov rdi, r12
+  mov ecx, 256
+  xor eax, eax
+  rep stosb
   lea rax, [rip + g_gva_base]
   mov rbx, qword ptr [rax]
   mov qword ptr [r12 + 248], rsp
-  cmp esi, 0
-  jne proc_PAT$0_β
  push rsi
  push rsp
  push qword ptr [rsp]
@@ -200,14 +205,18 @@ xchain0_n1_af:
  mov r14d, dword ptr [rsp + 4]
  add rsp, 16
  jmp xchain0_n2_β
+proc_PAT$0_res:
+add rsp, 8
+pop r12
 proc_PAT$0_β:
 jmp qword ptr [r12 + 224]
 proc_PAT$0_γ:
-mov eax, 1
-xor edx, edx
-mov rsp, qword ptr [r12 + 248]
-pop r12
-ret
+push r12
+lea rax, [rip + proc_PAT$0_res]
+push rax
+mov rax, [r12-24]
+mov r12, [r12-8]
+jmp rax
  push rsp
  push qword ptr [rsp]
  and rsp, -16
@@ -215,15 +224,10 @@ ret
  call rt_zls_release_to@PLT
  mov rsp, [rsp + 8]
 proc_PAT$0_ω:
-# GZ-10 PROC FAIL EXIT: write FAILDESCR to frame[0] so rt_call_proc_descr sees failure
-mov dword ptr [r12+0], 99
-mov dword ptr [r12+4], 0
-mov qword ptr [r12+8], 0
-mov eax, 99
-xor edx, edx
-mov rsp, qword ptr [r12 + 248]
-pop r12
-ret
+mov rax, [r12-16]
+lea rsp, [r12 + 256]
+mov r12, [r12-8]
+jmp rax
 proc_startup:
   sub rsp, 8
   .section .rodata
@@ -640,40 +644,24 @@ main_α_body:
  jmp xchain19_n22_α
  xchain19_n20_β:
  jmp xchain19_n23_α
-# IR_MATCH_DEFER inlined frozen head (FZ-5b)
+# IR_MATCH_DEFER (ZS-2 jmp-entry)
  xchain19_n21_α:
- lea rax, [rip + proc_PAT$0_α]
- xor ecx, ecx
- mov qword ptr [r12 + 800], rcx
+ lea rdi, [rip + .S6]
+ xor esi, esi
+ push rsp
+ push qword ptr [rsp]
+ and rsp, -16
+ call rt_defer_get_pat_fn@PLT
+ mov rsp, [rsp + 8]
  test rax, rax
  jz .Lx48_0
- mov qword ptr [r12 + 800], rax
- push rsp
- push qword ptr [rsp]
- and rsp, -16
- mov rdi, qword ptr [r12 + 800]
- call rt_fn_frame_bytes@PLT
- mov rdi, rax
- call rt_zls_alloc@PLT
- mov rsp, [rsp + 8]
- mov qword ptr [r12 + 808], rax
- mov rcx, qword ptr [r12 + 800]
- mov rdi, rax
- xor esi, esi
- call rcx
- cmp eax, 1
- je .Lx48_1
- mov rdi, qword ptr [r12 + 808]
- push rsp
- push qword ptr [rsp]
- and rsp, -16
- call rt_zls_release@PLT
- mov rsp, [rsp + 8]
- xor eax, eax
- mov qword ptr [r12 + 800], rax
- jmp xchain19_n19_β
-.Lx48_1:
+ lea rcx, [rip + .Lx48_4]
+ lea rdx, [rip + .Lx48_5]
+ jmp rax
+.Lx48_4:
  jmp xchain19_n24_α
+.Lx48_5:
+ jmp xchain19_n19_β
 .Lx48_0:
  push r14
  push r15
@@ -721,25 +709,15 @@ main_α_body:
  test eax, eax
  js xchain19_n19_β
  mov r14d, eax
+ lea rax, [rip + .Lx48_6]
+ sub rsp, 8
+ push rax
  jmp xchain19_n24_α
- xchain19_n21_β:
- mov rcx, qword ptr [r12 + 800]
- test rcx, rcx
- jz xchain19_n19_β
- mov rdi, qword ptr [r12 + 808]
- mov esi, 1
- call rcx
- cmp eax, 1
- je .Lx48_1
- mov rdi, qword ptr [r12 + 808]
- push rsp
- push qword ptr [rsp]
- and rsp, -16
- call rt_zls_release@PLT
- mov rsp, [rsp + 8]
- xor eax, eax
- mov qword ptr [r12 + 800], rax
+.Lx48_6:
+ add rsp, 16
  jmp xchain19_n19_β
+ xchain19_n21_β:
+ jmp qword ptr [rsp]
 # IR_ASSIGN gva
  xchain19_n22_α:
  mov rax, qword ptr [r12 + 1200]
