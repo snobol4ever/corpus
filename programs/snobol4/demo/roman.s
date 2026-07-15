@@ -7,8 +7,15 @@ proc_ROMAN_α:
     .global proc_ROMAN_β
     .global proc_ROMAN_γ
     .global proc_ROMAN_ω
-push r12
-  mov r12, rdi
+  sub rsp, 672
+  mov [rsp+8], rcx
+  mov [rsp+16], rdx
+  mov [rsp+24], r12
+  lea r12, [rsp+32]
+  mov rdi, r12
+  mov ecx, 640
+  xor eax, eax
+  rep stosb
   lea rax, [rip + g_gva_base]
   mov rbx, qword ptr [rax]
   mov qword ptr [r12 + 632], rsp
@@ -127,22 +134,33 @@ xchain0_n2_af:
 .Lx7_1:
  test rax, rax
  je .Lx7_2
- mov rcx, rsp
- sub rsp, rax
- sub rsp, 16
- and rsp, -16
- mov qword ptr [rsp + 0], rcx
- mov rdi, rsp
- add rdi, 16
- mov rsi, rax
- call rt_frame_prep@PLT
- mov rdi, rsp
- add rdi, 16
- xor esi, esi
- call rax
+ call rt_proc_open_fn@PLT
+ push r12
+ sub rsp, 8
+ lea rcx, [rip + .Lx7_3]
+ lea rdx, [rip + .Lx7_4]
+ mov r12, rsp
+ jmp rax
+.Lx7_3:
+ mov rax, rsp
+ mov rax, qword ptr [rax + 8]
+ mov rdi, qword ptr [rax + 0]
+ mov rsi, qword ptr [rax + 8]
+ mov rsp, r12
+ add rsp, 8
+ pop r12
+ call rt_proc_call_epilogue_γ@PLT
  mov rdi, rax
  mov rsi, rdx
- mov rsp, qword ptr [rsp + 0]
+ call rt_dcap_step@PLT
+ jmp .Lx7_1
+.Lx7_4:
+ mov rsp, r12
+ add rsp, 8
+ pop r12
+ call rt_proc_call_epilogue_ω@PLT
+ mov rdi, rax
+ mov rsi, rdx
  call rt_dcap_step@PLT
  jmp .Lx7_1
 .Lx7_2:
@@ -350,22 +368,33 @@ xchain0_n13_af:
 .Lx24_1:
  test rax, rax
  je .Lx24_2
- mov rcx, rsp
- sub rsp, rax
- sub rsp, 16
- and rsp, -16
- mov qword ptr [rsp + 0], rcx
- mov rdi, rsp
- add rdi, 16
- mov rsi, rax
- call rt_frame_prep@PLT
- mov rdi, rsp
- add rdi, 16
- xor esi, esi
- call rax
+ call rt_proc_open_fn@PLT
+ push r12
+ sub rsp, 8
+ lea rcx, [rip + .Lx24_3]
+ lea rdx, [rip + .Lx24_4]
+ mov r12, rsp
+ jmp rax
+.Lx24_3:
+ mov rax, rsp
+ mov rax, qword ptr [rax + 8]
+ mov rdi, qword ptr [rax + 0]
+ mov rsi, qword ptr [rax + 8]
+ mov rsp, r12
+ add rsp, 8
+ pop r12
+ call rt_proc_call_epilogue_γ@PLT
  mov rdi, rax
  mov rsi, rdx
- mov rsp, qword ptr [rsp + 0]
+ call rt_dcap_step@PLT
+ jmp .Lx24_1
+.Lx24_4:
+ mov rsp, r12
+ add rsp, 8
+ pop r12
+ call rt_proc_call_epilogue_ω@PLT
+ mov rdi, rax
+ mov rsi, rdx
  call rt_dcap_step@PLT
  jmp .Lx24_1
 .Lx24_2:
@@ -412,22 +441,33 @@ xchain0_n13_af:
 .Lx25_2:
  test rax, rax
  je .Lx25_3
- mov rcx, rsp
- sub rsp, rax
- sub rsp, 16
- and rsp, -16
- mov qword ptr [rsp + 0], rcx
- mov rdi, rsp
- add rdi, 16
- mov rsi, rax
- call rt_frame_prep@PLT
- mov rdi, rsp
- add rdi, 16
- xor esi, esi
- call rax
+ call rt_proc_open_fn@PLT
+ push r12
+ sub rsp, 8
+ lea rcx, [rip + .Lx25_7]
+ lea rdx, [rip + .Lx25_8]
+ mov r12, rsp
+ jmp rax
+.Lx25_7:
+ mov rax, rsp
+ mov rax, qword ptr [rax + 8]
+ mov rdi, qword ptr [rax + 0]
+ mov rsi, qword ptr [rax + 8]
+ mov rsp, r12
+ add rsp, 8
+ pop r12
+ call rt_proc_call_epilogue_γ@PLT
  mov rdi, rax
  mov rsi, rdx
- mov rsp, qword ptr [rsp + 0]
+ call rt_defer_step@PLT
+ jmp .Lx25_2
+.Lx25_8:
+ mov rsp, r12
+ add rsp, 8
+ pop r12
+ call rt_proc_call_epilogue_ω@PLT
+ mov rdi, rax
+ mov rsi, rdx
  call rt_defer_step@PLT
  jmp .Lx25_2
 .Lx25_3:
@@ -507,14 +547,18 @@ xchain0_n13_af:
  mov r14d, eax
  add rsp, 16
  jmp xchain0_n16_β
+proc_ROMAN_res:
+add rsp, 8
+pop r12
 proc_ROMAN_β:
 jmp proc_ROMAN_ω
 proc_ROMAN_γ:
-mov eax, 1
-xor edx, edx
-mov rsp, qword ptr [r12 + 632]
-pop r12
-ret
+push r12
+lea rax, [rip + proc_ROMAN_res]
+push rax
+mov rax, [r12-24]
+mov r12, [r12-8]
+jmp rax
  push rsp
  push qword ptr [rsp]
  and rsp, -16
@@ -522,15 +566,10 @@ ret
  call rt_zls_release_to@PLT
  mov rsp, [rsp + 8]
 proc_ROMAN_ω:
-# GZ-10 PROC FAIL EXIT: write FAILDESCR to frame[0] so rt_call_proc_descr sees failure
-mov dword ptr [r12+0], 99
-mov dword ptr [r12+4], 0
-mov qword ptr [r12+8], 0
-mov eax, 99
-xor edx, edx
-mov rsp, qword ptr [r12 + 632]
-pop r12
-ret
+mov rax, [r12-16]
+lea rsp, [r12 + 640]
+mov r12, [r12-8]
+jmp rax
 proc_startup:
   sub rsp, 8
   .section .rodata
