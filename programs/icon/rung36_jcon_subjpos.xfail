@@ -1,7 +1,0 @@
-KNOWN HANG — quarantined 2026-05-26.
-rung36_jcon_subjpos.icn loops indefinitely under `scrip --run` (subject/&pos
-scanning path), exhausting the rung timeout (~30s) and dominating full-suite
-runtime. Sole true hang among 75 rung36 files (timing audit: 71 run in <1s,
-lgint 7.8s, mindfa/toby ~1.6s, subjpos = timeout). Skipped as XFAIL so the gate
-stays fast. Investigate as a real interp infinite-loop bug, separate from the
-quarantine. See GOAL-ICON-BB.md.
