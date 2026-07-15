@@ -572,26 +572,27 @@ main_α_body:
  jmp xchain19_n20_α
 # IR_MATCH_HEAD
  xchain19_n19_α:
- mov rdi, qword ptr [rsp + 848]
- mov rsi, qword ptr [rsp + 856]
+ mov r12, rsp
+ mov rdi, qword ptr [r12 + 848]
+ mov rsi, qword ptr [r12 + 856]
  call rt_match_enter@PLT
  mov r13, rax
  mov r15, rdx
- mov qword ptr [rsp + 776], rbp
+ mov qword ptr [r12 + 776], rbp
  lea rcx, [rip + g_dcap_top]
  mov rbp, qword ptr [rcx + 0]
- mov qword ptr [rsp + 768], rbp
- mov qword ptr [rsp + 752], rsp
+ mov qword ptr [r12 + 768], rbp
+ mov qword ptr [r12 + 752], rsp
  lea rcx, [rip + g_patstk_sp]
  mov rax, qword ptr [rcx + 0]
- mov qword ptr [rsp + 744], rax
- mov dword ptr [rsp + 736], 0
+ mov qword ptr [r12 + 744], rax
+ mov dword ptr [r12 + 736], 0
 .Lx45_0:
- mov r14d, dword ptr [rsp + 736]
+ mov r14d, dword ptr [r12 + 736]
  jmp xchain19_n21_α
  xchain19_n19_β:
- add dword ptr [rsp + 736], 1
- mov eax, dword ptr [rsp + 736]
+ add dword ptr [r12 + 736], 1
+ mov eax, dword ptr [r12 + 736]
  cmp eax, r15d
  jg .Lx45_1
  lea rcx, [rip + g_anchor]
@@ -600,14 +601,14 @@ main_α_body:
  jne .Lx45_1
  jmp .Lx45_0
 .Lx45_1:
- mov rax, qword ptr [rsp + 744]
+ mov rax, qword ptr [r12 + 744]
  lea rcx, [rip + g_patstk_sp]
  mov qword ptr [rcx + 0], rax
- mov rsp, qword ptr [rsp + 752]
+ mov rsp, qword ptr [r12 + 752]
  lea rcx, [rip + g_dcap_top]
- mov rax, qword ptr [rsp + 768]
+ mov rax, qword ptr [r12 + 768]
  mov qword ptr [rcx + 0], rax
- mov rbp, qword ptr [rsp + 776]
+ mov rbp, qword ptr [r12 + 776]
  jmp xchain19_n20_α
  xchain19_n20_α:
 # BOX IR_CALL TIME(...) -> rt_call_arr [operand-marshal, FAIL->ω]
@@ -741,10 +742,10 @@ main_α_body:
  .string "result: "
 # IR_MATCH_RELEASE
  xchain19_n24_α:
- mov rax, qword ptr [rsp + 744]
+ mov rax, qword ptr [r12 + 744]
  lea rcx, [rip + g_patstk_sp]
  mov qword ptr [rcx + 0], rax
- mov rsp, qword ptr [rsp + 752]
+ mov rsp, qword ptr [r12 + 752]
  push r14
  push r15
  push r13
@@ -781,9 +782,9 @@ main_α_body:
  pop r15
  pop r14
  lea rcx, [rip + g_dcap_top]
- mov rax, qword ptr [rsp + 768]
+ mov rax, qword ptr [r12 + 768]
  mov qword ptr [rcx + 0], rax
- mov rbp, qword ptr [rsp + 776]
+ mov rbp, qword ptr [r12 + 776]
  jmp xchain19_n26_α
 # IR_VAR
  xchain19_n25_α:
