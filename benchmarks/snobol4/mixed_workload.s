@@ -351,20 +351,21 @@ xchain20_n0_af:
  xchain20_n1_β:
  add rsp, 16
  jmp xchain20_n0_af
-# IR_MATCH_CAPTURE_COND (rbp-dcap inline pend)
+# IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain20_n2_α:
  mov eax, dword ptr [rsp + 16]
+ mov rdi, qword ptr [1879048192]
  lea rcx, [rip + .S0]
- mov qword ptr [rbp + 0], rcx
+ mov qword ptr [rdi + 0], rcx
  mov esi, eax
- mov qword ptr [rbp + 8], rsi
+ mov qword ptr [rdi + 8], rsi
  mov edx, r14d
  sub edx, eax
- mov qword ptr [rbp + 16], rdx
- add rbp, 24
+ mov qword ptr [rdi + 16], rdx
+ add qword ptr [1879048192], 24
  jmp xchain20_n3_α
  xchain20_n2_β:
- sub rbp, 24
+ sub qword ptr [1879048192], 24
  jmp xchain20_n4_β
 # IR_MATCH_LIT
  xchain20_n3_α:
@@ -832,27 +833,26 @@ main_α_body:
  jmp xchain31_n22_α
 # IR_MATCH_HEAD
  xchain31_n21_α:
- mov r12, rsp
- mov rdi, qword ptr [r12 + 1376]
- mov rsi, qword ptr [r12 + 1384]
+ mov qword ptr [rsp + 1256], rbp
+ mov rbp, rsp
+ mov rdi, qword ptr [rbp + 1376]
+ mov rsi, qword ptr [rbp + 1384]
  call rt_match_enter@PLT
  mov r13, rax
  mov r15, rdx
- mov qword ptr [r12 + 1256], rbp
- lea rcx, [rip + g_dcap_top]
- mov rbp, qword ptr [rcx + 0]
- mov qword ptr [r12 + 1248], rbp
- mov qword ptr [r12 + 1232], rsp
+ mov rax, qword ptr [1879048192]
+ mov qword ptr [rbp + 1248], rax
+ mov qword ptr [rbp + 1232], rsp
  lea rcx, [rip + g_patstk_sp]
  mov rax, qword ptr [rcx + 0]
- mov qword ptr [r12 + 1224], rax
- mov dword ptr [r12 + 1216], 0
+ mov qword ptr [rbp + 1224], rax
+ mov dword ptr [rbp + 1216], 0
 .Lx59_0:
- mov r14d, dword ptr [r12 + 1216]
+ mov r14d, dword ptr [rbp + 1216]
  jmp xchain31_n23_α
  xchain31_n21_β:
- add dword ptr [r12 + 1216], 1
- mov eax, dword ptr [r12 + 1216]
+ add dword ptr [rbp + 1216], 1
+ mov eax, dword ptr [rbp + 1216]
  cmp eax, r15d
  jg .Lx59_1
  lea rcx, [rip + g_anchor]
@@ -861,14 +861,13 @@ main_α_body:
  jne .Lx59_1
  jmp .Lx59_0
 .Lx59_1:
- mov rax, qword ptr [r12 + 1224]
+ mov rax, qword ptr [rbp + 1224]
  lea rcx, [rip + g_patstk_sp]
  mov qword ptr [rcx + 0], rax
- mov rsp, qword ptr [r12 + 1232]
- lea rcx, [rip + g_dcap_top]
- mov rax, qword ptr [r12 + 1248]
- mov qword ptr [rcx + 0], rax
- mov rbp, qword ptr [r12 + 1256]
+ mov rsp, qword ptr [rbp + 1232]
+ mov rax, qword ptr [rbp + 1248]
+ mov qword ptr [1879048192], rax
+ mov rbp, qword ptr [rbp + 1256]
  jmp xchain31_n22_α
 # IR_LIT_INTEGER
  xchain31_n22_α:
@@ -911,8 +910,6 @@ main_α_body:
  push r15
  push r13
  sub rsp, 8
- lea rcx, [rip + g_dcap_top]
- mov qword ptr [rcx + 0], rbp
  lea rdi, [rip + .S2]
  xor esi, esi
  call rt_defer_open@PLT
@@ -983,19 +980,17 @@ main_α_body:
  jmp xchain31_n26_α
 # IR_MATCH_RELEASE
  xchain31_n25_α:
- mov rax, qword ptr [r12 + 1224]
+ mov rax, qword ptr [rbp + 1224]
  lea rcx, [rip + g_patstk_sp]
  mov qword ptr [rcx + 0], rax
- mov qword ptr [r12 + 1240], r14
- mov rsp, qword ptr [r12 + 1232]
+ mov qword ptr [rbp + 1240], r14
+ mov rsp, qword ptr [rbp + 1232]
  push r14
  push r15
  push r13
  sub rsp, 8
- lea rcx, [rip + g_dcap_top]
- mov qword ptr [rcx + 0], rbp
  mov rdi, qword ptr [rsp + 1280]
- mov rsi, rbp
+ mov rsi, qword ptr [1879048192]
  mov rdx, r13
  call rt_dcap_end_ok_open@PLT
 .Lx64_1:
@@ -1023,10 +1018,8 @@ main_α_body:
  pop r13
  pop r15
  pop r14
- lea rcx, [rip + g_dcap_top]
- mov rax, qword ptr [r12 + 1248]
- mov qword ptr [rcx + 0], rax
- mov rbp, qword ptr [r12 + 1256]
+ mov rax, qword ptr [rbp + 1248]
+ mov qword ptr [1879048192], rax
  jmp xchain31_n27_α
 # IR_LIT_INTEGER
  xchain31_n26_α:
@@ -1064,11 +1057,11 @@ main_α_body:
 # IR_MATCH_REPLACE
  xchain31_n29_α:
  mov rdi, qword ptr [rip + .Lx69_0]
- mov rsi, qword ptr [r12 + 1376]
- mov rdx, qword ptr [r12 + 1384]
- mov ecx, dword ptr [r12 + 1216]
- mov r8, qword ptr [r12 + 1240]
- lea r9, [r12 + 1280]
+ mov rsi, qword ptr [rbp + 1376]
+ mov rdx, qword ptr [rbp + 1384]
+ mov ecx, dword ptr [rbp + 1216]
+ mov r8, qword ptr [rbp + 1240]
+ lea r9, [rbp + 1280]
  call rt_match_replace@PLT
  jmp .Lx69_1
 .Lx69_0:
@@ -1076,6 +1069,7 @@ main_α_body:
 .Lx69_0_s:
  .string "DATA"
 .Lx69_1:
+ mov rbp, qword ptr [rbp + 1256]
  jmp xchain31_n31_α
 # IR_VAR
  xchain31_n30_α:

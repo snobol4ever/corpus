@@ -45,20 +45,21 @@ xchain0_n0_af:
  xchain0_n1_β:
  add rsp, 16
  jmp xchain0_n0_af
-# IR_MATCH_CAPTURE_COND (rbp-dcap inline pend)
+# IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain0_n2_α:
  mov eax, dword ptr [rsp + 16]
+ mov rdi, qword ptr [1879048192]
  lea rcx, [rip + .S0]
- mov qword ptr [rbp + 0], rcx
+ mov qword ptr [rdi + 0], rcx
  mov esi, eax
- mov qword ptr [rbp + 8], rsi
+ mov qword ptr [rdi + 8], rsi
  mov edx, r14d
  sub edx, eax
- mov qword ptr [rbp + 16], rdx
- add rbp, 24
+ mov qword ptr [rdi + 16], rdx
+ add qword ptr [1879048192], 24
  jmp xchain0_n3_α
  xchain0_n2_β:
- sub rbp, 24
+ sub qword ptr [1879048192], 24
  jmp xchain0_n4_β
 # IR_MATCH_LIT
  xchain0_n3_α:
@@ -792,27 +793,26 @@ main_α_body:
  jmp xchain11_n13_α
 # IR_MATCH_HEAD
  xchain11_n40_α:
- mov r12, rsp
- mov rdi, qword ptr [r12 + 1120]
- mov rsi, qword ptr [r12 + 1128]
+ mov qword ptr [rsp + 1000], rbp
+ mov rbp, rsp
+ mov rdi, qword ptr [rbp + 1120]
+ mov rsi, qword ptr [rbp + 1128]
  call rt_match_enter@PLT
  mov r13, rax
  mov r15, rdx
- mov qword ptr [r12 + 1000], rbp
- lea rcx, [rip + g_dcap_top]
- mov rbp, qword ptr [rcx + 0]
- mov qword ptr [r12 + 992], rbp
- mov qword ptr [r12 + 976], rsp
+ mov rax, qword ptr [1879048192]
+ mov qword ptr [rbp + 992], rax
+ mov qword ptr [rbp + 976], rsp
  lea rcx, [rip + g_patstk_sp]
  mov rax, qword ptr [rcx + 0]
- mov qword ptr [r12 + 968], rax
- mov dword ptr [r12 + 960], 0
+ mov qword ptr [rbp + 968], rax
+ mov dword ptr [rbp + 960], 0
 .Lx61_0:
- mov r14d, dword ptr [r12 + 960]
+ mov r14d, dword ptr [rbp + 960]
  jmp xchain11_n41_α
  xchain11_n40_β:
- add dword ptr [r12 + 960], 1
- mov eax, dword ptr [r12 + 960]
+ add dword ptr [rbp + 960], 1
+ mov eax, dword ptr [rbp + 960]
  cmp eax, r15d
  jg .Lx61_1
  lea rcx, [rip + g_anchor]
@@ -821,14 +821,13 @@ main_α_body:
  jne .Lx61_1
  jmp .Lx61_0
 .Lx61_1:
- mov rax, qword ptr [r12 + 968]
+ mov rax, qword ptr [rbp + 968]
  lea rcx, [rip + g_patstk_sp]
  mov qword ptr [rcx + 0], rax
- mov rsp, qword ptr [r12 + 976]
- lea rcx, [rip + g_dcap_top]
- mov rax, qword ptr [r12 + 992]
- mov qword ptr [rcx + 0], rax
- mov rbp, qword ptr [r12 + 1000]
+ mov rsp, qword ptr [rbp + 976]
+ mov rax, qword ptr [rbp + 992]
+ mov qword ptr [1879048192], rax
+ mov rbp, qword ptr [rbp + 1000]
  jmp xchain11_n13_α
 # IR_MATCH_DEFER (ZS-2 jmp-entry)
  xchain11_n41_α:
@@ -861,8 +860,6 @@ main_α_body:
  push r15
  push r13
  sub rsp, 8
- lea rcx, [rip + g_dcap_top]
- mov qword ptr [rcx + 0], rbp
  lea rdi, [rip + .S2]
  xor esi, esi
  call rt_defer_open@PLT
@@ -922,19 +919,17 @@ main_α_body:
  jmp qword ptr [rsp]
 # IR_MATCH_RELEASE
  xchain11_n42_α:
- mov rax, qword ptr [r12 + 968]
+ mov rax, qword ptr [rbp + 968]
  lea rcx, [rip + g_patstk_sp]
  mov qword ptr [rcx + 0], rax
- mov qword ptr [r12 + 984], r14
- mov rsp, qword ptr [r12 + 976]
+ mov qword ptr [rbp + 984], r14
+ mov rsp, qword ptr [rbp + 976]
  push r14
  push r15
  push r13
  sub rsp, 8
- lea rcx, [rip + g_dcap_top]
- mov qword ptr [rcx + 0], rbp
  mov rdi, qword ptr [rsp + 1024]
- mov rsi, rbp
+ mov rsi, qword ptr [1879048192]
  mov rdx, r13
  call rt_dcap_end_ok_open@PLT
 .Lx64_1:
@@ -962,10 +957,8 @@ main_α_body:
  pop r13
  pop r15
  pop r14
- lea rcx, [rip + g_dcap_top]
- mov rax, qword ptr [r12 + 992]
- mov qword ptr [rcx + 0], rax
- mov rbp, qword ptr [r12 + 1000]
+ mov rax, qword ptr [rbp + 992]
+ mov qword ptr [1879048192], rax
  jmp xchain11_n43_α
 # IR_LIT_STRING
  xchain11_n43_α:
@@ -982,11 +975,11 @@ main_α_body:
 # IR_MATCH_REPLACE
  xchain11_n44_α:
  mov rdi, qword ptr [rip + .Lx67_0]
- mov rsi, qword ptr [r12 + 1120]
- mov rdx, qword ptr [r12 + 1128]
- mov ecx, dword ptr [r12 + 960]
- mov r8, qword ptr [r12 + 984]
- lea r9, [r12 + 1024]
+ mov rsi, qword ptr [rbp + 1120]
+ mov rdx, qword ptr [rbp + 1128]
+ mov ecx, dword ptr [rbp + 960]
+ mov r8, qword ptr [rbp + 984]
+ lea r9, [rbp + 1024]
  call rt_match_replace@PLT
  jmp .Lx67_1
 .Lx67_0:
@@ -994,6 +987,7 @@ main_α_body:
 .Lx67_0_s:
  .string "S"
 .Lx67_1:
+ mov rbp, qword ptr [rbp + 1000]
  jmp xchain11_n45_α
 # IR_VAR
  xchain11_n45_α:
