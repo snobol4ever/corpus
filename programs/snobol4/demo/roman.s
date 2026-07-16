@@ -14,14 +14,12 @@ proc_ROMAN_α:
   mov ecx, 640
   xor eax, eax
   rep stosb
-  lea rax, [rip + g_gva_base]
-  mov rbx, qword ptr [rax]
   mov qword ptr [rsp + 632], rsp
 proc_ROMAN_α_body:
 # IR_VAR
  xchain0_n0_α:
- mov rax, qword ptr [rbx + 16]
- mov rdx, qword ptr [rbx + 24]
+ mov rax, qword ptr [1879052304]
+ mov rdx, qword ptr [1879052312]
  mov qword ptr [rsp + 352], rax
  mov qword ptr [rsp + 360], rdx
  jmp xchain0_n1_α
@@ -528,9 +526,6 @@ __gva_names:
   .quad .Lgvan0
   .quad .Lgvan1
   .quad .Lgvan2
-  .section .bss
-  .align 16
-__gva: .space 48, 0
   .section .text
   .intel_syntax noprefix
   .globl main
@@ -540,11 +535,12 @@ main:
   push rsi
   call core_lib_init@PLT
   call proc_startup
+  mov edi, 3
+  call rt_gva_island@PLT
+  mov rsi, rax
   lea rdi, [rip + __gva_names]
-  lea rsi, [rip + __gva]
   mov edx, 3
   call gva_register@PLT
-  mov rbx, rax
   xor esi, esi
   call main_α
   xor eax, eax
@@ -561,8 +557,6 @@ main_α:
   mov ecx, 65544
   xor eax, eax
   rep stosb
-  lea rax, [rip + g_gva_base]
-  mov rbx, qword ptr [rax]
   mov qword ptr [rsp + 632], rsp
 main_α_body:
 # IR_GOTO_DEFERRED
