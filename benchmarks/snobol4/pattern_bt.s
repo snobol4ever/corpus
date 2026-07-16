@@ -16,8 +16,6 @@ proc_PAT$0_α:
   mov ecx, 256
   xor eax, eax
   rep stosb
-  lea rax, [rip + g_gva_base]
-  mov rbx, qword ptr [rax]
   mov qword ptr [r12 + 248], rsp
  push rsi
  push rsp
@@ -260,9 +258,6 @@ __gva_names:
   .quad .Lgvan3
   .quad .Lgvan4
   .quad .Lgvan5
-  .section .bss
-  .align 16
-__gva: .space 96, 0
   .section .text
   .intel_syntax noprefix
   .globl main
@@ -272,11 +267,12 @@ main:
   push rsi
   call core_lib_init@PLT
   call proc_startup
+  mov edi, 6
+  call rt_gva_island@PLT
+  mov rsi, rax
   lea rdi, [rip + __gva_names]
-  lea rsi, [rip + __gva]
   mov edx, 6
   call gva_register@PLT
-  mov rbx, rax
   xor esi, esi
   call main_α
   xor eax, eax
@@ -293,8 +289,6 @@ main_α:
   mov ecx, 65544
   xor eax, eax
   rep stosb
-  lea rax, [rip + g_gva_base]
-  mov rbx, qword ptr [rax]
   mov qword ptr [rsp + 1640], rsp
 main_α_body:
 # IR_LIT_STRING
@@ -335,7 +329,7 @@ main_α_body:
   .Lrkfn23: .string "SNO$KWSET"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn23]
+ lea rdi, [rip + .Lrkfn23]
  lea rsi, [rsp + 112]
  mov edx, 2
  call rt_call_arr@PLT
@@ -384,7 +378,7 @@ main_α_body:
   .Lrkfn27: .string "SNO$KWSET"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn27]
+ lea rdi, [rip + .Lrkfn27]
  lea rsi, [rsp + 240]
  mov edx, 2
  call rt_call_arr@PLT
@@ -433,7 +427,7 @@ main_α_body:
   .Lrkfn31: .string "SNO$KWSET"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn31]
+ lea rdi, [rip + .Lrkfn31]
  lea rsi, [rsp + 368]
  mov edx, 2
  call rt_call_arr@PLT
@@ -467,7 +461,7 @@ main_α_body:
   .Lrkfn34: .string "SNO$MKPAT"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn34]
+ lea rdi, [rip + .Lrkfn34]
  lea rsi, [rsp + 512]
  mov edx, 1
  call rt_call_arr@PLT
@@ -482,8 +476,8 @@ main_α_body:
  xchain19_n11_α:
  mov rax, qword ptr [rsp + 496]
  mov rdx, qword ptr [rsp + 504]
- mov qword ptr [rbx + 0], rax
- mov qword ptr [rbx + 8], rdx
+ mov qword ptr [1879052288], rax
+ mov qword ptr [1879052296], rdx
  mov qword ptr [rsp + 480], rax
  mov qword ptr [rsp + 488], rdx
  jmp xchain19_n12_α
@@ -505,8 +499,8 @@ main_α_body:
  xchain19_n13_α:
  mov rax, qword ptr [rsp + 592]
  mov rdx, qword ptr [rsp + 600]
- mov qword ptr [rbx + 16], rax
- mov qword ptr [rbx + 24], rdx
+ mov qword ptr [1879052304], rax
+ mov qword ptr [1879052312], rdx
  mov qword ptr [rsp + 576], rax
  mov qword ptr [rsp + 584], rdx
  jmp xchain19_n14_α
@@ -518,7 +512,7 @@ main_α_body:
   .Lrkfn39: .string "TIME"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn39]
+ lea rdi, [rip + .Lrkfn39]
  lea rsi, [rsp + 656]
  mov edx, 0
  call rt_call_arr@PLT
@@ -533,8 +527,8 @@ main_α_body:
  xchain19_n15_α:
  mov rax, qword ptr [rsp + 640]
  mov rdx, qword ptr [rsp + 648]
- mov qword ptr [rbx + 32], rax
- mov qword ptr [rbx + 40], rdx
+ mov qword ptr [1879052320], rax
+ mov qword ptr [1879052328], rdx
  mov qword ptr [rsp + 624], rax
  mov qword ptr [rsp + 632], rdx
  jmp xchain19_n16_α
@@ -554,8 +548,8 @@ main_α_body:
  xchain19_n17_α:
  mov rax, qword ptr [rsp + 688]
  mov rdx, qword ptr [rsp + 696]
- mov qword ptr [rbx + 48], rax
- mov qword ptr [rbx + 56], rdx
+ mov qword ptr [1879052336], rax
+ mov qword ptr [1879052344], rdx
  mov qword ptr [rsp + 672], rax
  mov qword ptr [rsp + 680], rdx
  jmp xchain19_n18_α
@@ -563,8 +557,8 @@ main_α_body:
  jmp xchain19_n18_α
 # IR_VAR
  xchain19_n18_α:
- mov rax, qword ptr [rbx + 16]
- mov rdx, qword ptr [rbx + 24]
+ mov rax, qword ptr [1879052304]
+ mov rdx, qword ptr [1879052312]
  mov qword ptr [rsp + 848], rax
  mov qword ptr [rsp + 856], rdx
  jmp xchain19_n19_α
@@ -616,7 +610,7 @@ main_α_body:
   .Lrkfn47: .string "TIME"
   .section .text
   .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn47]
+ lea rdi, [rip + .Lrkfn47]
  lea rsi, [rsp + 1216]
  mov edx, 0
  call rt_call_arr@PLT
@@ -721,8 +715,8 @@ main_α_body:
  xchain19_n22_α:
  mov rax, qword ptr [rsp + 1200]
  mov rdx, qword ptr [rsp + 1208]
- mov qword ptr [rbx + 64], rax
- mov qword ptr [rbx + 72], rdx
+ mov qword ptr [1879052352], rax
+ mov qword ptr [1879052360], rdx
  mov qword ptr [rsp + 1184], rax
  mov qword ptr [rsp + 1192], rdx
  jmp xchain19_n23_α
@@ -788,8 +782,8 @@ main_α_body:
  jmp xchain19_n26_α
 # IR_VAR
  xchain19_n25_α:
- mov rax, qword ptr [rbx + 48]
- mov rdx, qword ptr [rbx + 56]
+ mov rax, qword ptr [1879052336]
+ mov rdx, qword ptr [1879052344]
  mov qword ptr [rsp + 1312], rax
  mov qword ptr [rsp + 1320], rdx
  jmp xchain19_n27_α
@@ -797,8 +791,8 @@ main_α_body:
  jmp xchain19_n28_α
 # IR_VAR
  xchain19_n26_α:
- mov rax, qword ptr [rbx + 48]
- mov rdx, qword ptr [rbx + 56]
+ mov rax, qword ptr [1879052336]
+ mov rdx, qword ptr [1879052344]
  mov qword ptr [rsp + 1056], rax
  mov qword ptr [rsp + 1064], rdx
  jmp xchain19_n29_α
@@ -855,8 +849,8 @@ main_α_body:
  .string "OUTPUT"
 # IR_VAR
  xchain19_n31_α:
- mov rax, qword ptr [rbx + 80]
- mov rdx, qword ptr [rbx + 88]
+ mov rax, qword ptr [1879052368]
+ mov rdx, qword ptr [1879052376]
  mov qword ptr [rsp + 1424], rax
  mov qword ptr [rsp + 1432], rdx
  jmp xchain19_n33_α
@@ -955,8 +949,8 @@ main_α_body:
  .string "OUTPUT"
 # IR_VAR
  xchain19_n37_α:
- mov rax, qword ptr [rbx + 64]
- mov rdx, qword ptr [rbx + 72]
+ mov rax, qword ptr [1879052352]
+ mov rdx, qword ptr [1879052360]
  mov qword ptr [rsp + 1568], rax
  mov qword ptr [rsp + 1576], rdx
  jmp xchain19_n39_α
@@ -976,8 +970,8 @@ main_α_body:
  jmp xchain19_n20_α
 # IR_VAR
  xchain19_n39_α:
- mov rax, qword ptr [rbx + 32]
- mov rdx, qword ptr [rbx + 40]
+ mov rax, qword ptr [1879052320]
+ mov rdx, qword ptr [1879052328]
  mov qword ptr [rsp + 1600], rax
  mov qword ptr [rsp + 1608], rdx
  jmp xchain19_n41_α
@@ -985,8 +979,8 @@ main_α_body:
  jmp main_γ
 # IR_VAR
  xchain19_n40_α:
- mov rax, qword ptr [rbx + 48]
- mov rdx, qword ptr [rbx + 56]
+ mov rax, qword ptr [1879052336]
+ mov rdx, qword ptr [1879052344]
  mov qword ptr [rsp + 1120], rax
  mov qword ptr [rsp + 1128], rdx
  jmp xchain19_n42_α
@@ -1131,8 +1125,8 @@ main_α_body:
  xchain19_n47_α:
  mov rax, qword ptr [rsp + 896]
  mov rdx, qword ptr [rsp + 904]
- mov qword ptr [rbx + 48], rax
- mov qword ptr [rbx + 56], rdx
+ mov qword ptr [1879052336], rax
+ mov qword ptr [1879052344], rdx
  mov qword ptr [rsp + 880], rax
  mov qword ptr [rsp + 888], rdx
  jmp xchain19_n18_α
