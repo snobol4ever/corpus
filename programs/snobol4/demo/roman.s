@@ -22,20 +22,20 @@ proc_ROMAN_α_body:
  xchain0_n0_α:
  mov rax, qword ptr [1879052304]
  mov rdx, qword ptr [1879052312]
- mov qword ptr [rsp + 352], rax
- mov qword ptr [rsp + 360], rdx
+ mov qword ptr [rbp + 352], rax
+ mov qword ptr [rbp + 360], rdx
  jmp xchain0_n1_α
  xchain0_n0_β:
  jmp proc_ROMAN_γ
 # IR_MATCH_HEAD
  xchain0_n1_α:
- mov qword ptr [rsp + 152], rbp
- mov rdi, qword ptr [rsp + 352]
- mov rsi, qword ptr [rsp + 360]
+ mov qword ptr [rbp + 152], rbp
+ mov rdi, qword ptr [rbp + 352]
+ mov rsi, qword ptr [rbp + 360]
  call rt_match_enter@PLT
  mov r13, rax
  mov r15, rdx
- mov qword ptr [rsp + 144], r12
+ mov qword ptr [rbp + 144], r12
  mov rax, rsp
  sub rsp, 32
  mov qword ptr [rsp + 16], rax
@@ -61,8 +61,8 @@ proc_ROMAN_α_body:
  lea rcx, [rip + g_patstk_sp]
  mov qword ptr [rcx + 0], rax
  mov rsp, qword ptr [rsp + 16]
- mov r12, qword ptr [rsp + 144]
- mov rbp, qword ptr [rsp + 152]
+ mov r12, qword ptr [rbp + 144]
+ mov rbp, qword ptr [rbp + 152]
  jmp proc_ROMAN_γ
 # IR_MATCH_SEQ_NARY (ZB-FC-3b: zero cell, LIFO-structural)
  xchain0_n2_α:
@@ -115,13 +115,13 @@ xchain0_n2_af:
  pop r13
  pop r15
  pop r14
- mov r12, qword ptr [rsp + 144]
+ mov r12, qword ptr [rbp + 144]
  jmp xchain0_n8_α
 # IR_LIT_INTEGER
  xchain0_n4_α:
- mov qword ptr [rsp + 288], 6
+ mov qword ptr [rbp + 256], 6
  mov rax, qword ptr [rip + .Lx8_0]
- mov qword ptr [rsp + 296], rax
+ mov qword ptr [rbp + 264], rax
  jmp xchain0_n5_α
  xchain0_n4_β:
  jmp xchain0_n2_af
@@ -162,9 +162,9 @@ xchain0_n2_af:
  jmp xchain0_n9_β
 # IR_LIT_STRING
  xchain0_n8_α:
- mov qword ptr [rsp + 176], 1
+ mov qword ptr [rbp + 176], 1
  mov rax, qword ptr [rip + .Lx14_0]
- mov qword ptr [rsp + 184], rax
+ mov qword ptr [rbp + 184], rax
  jmp xchain0_n10_α
  xchain0_n8_β:
  jmp proc_ROMAN_γ
@@ -186,11 +186,11 @@ xchain0_n2_af:
 # IR_MATCH_REPLACE
  xchain0_n10_α:
  mov rdi, qword ptr [rip + .Lx17_0]
- mov rsi, qword ptr [rsp + 352]
- mov rdx, qword ptr [rsp + 360]
- mov ecx, dword ptr [rsp + 112]
- mov r8, qword ptr [rsp + 136]
- lea r9, [rsp + 176]
+ mov rsi, qword ptr [rbp + 352]
+ mov rdx, qword ptr [rbp + 360]
+ mov ecx, dword ptr [rbp + 112]
+ mov r8, qword ptr [rbp + 136]
+ lea r9, [rbp + 176]
  call rt_match_replace@PLT
  jmp .Lx17_1
 .Lx17_0:
@@ -198,13 +198,13 @@ xchain0_n2_af:
 .Lx17_0_s:
  .string "N"
 .Lx17_1:
- mov rbp, qword ptr [rsp + 152]
+ mov rbp, qword ptr [rbp + 152]
  jmp xchain0_n11_α
 # IR_LIT_STRING
  xchain0_n11_α:
- mov qword ptr [rsp + 592], 1
+ mov qword ptr [rbp + 592], 1
  mov rax, qword ptr [rip + .Lx18_0]
- mov qword ptr [rsp + 600], rax
+ mov qword ptr [rbp + 600], rax
  jmp xchain0_n12_α
  xchain0_n11_β:
  jmp proc_ROMAN_ω
@@ -214,8 +214,7 @@ xchain0_n2_af:
  .string "0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
 # IR_MATCH_HEAD
  xchain0_n12_α:
- mov qword ptr [rsp + 440], rbp
- mov rbp, rsp
+ mov qword ptr [rbp + 440], rbp
  mov rdi, qword ptr [rbp + 592]
  mov rsi, qword ptr [rbp + 600]
  call rt_match_enter@PLT
