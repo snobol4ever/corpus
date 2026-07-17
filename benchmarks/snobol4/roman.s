@@ -146,14 +146,13 @@ xchain0_n2_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain0_n7_α:
  mov eax, dword ptr [rsp + 0]
- mov rdi, r12
  lea rcx, [rip + .S0]
- mov qword ptr [rdi + 0], rcx
+ mov qword ptr [r12 + 0], rcx
  mov esi, eax
- mov qword ptr [rdi + 8], rsi
+ mov qword ptr [r12 + 8], rsi
  mov edx, r14d
  sub edx, eax
- mov qword ptr [rdi + 16], rdx
+ mov qword ptr [r12 + 16], rdx
  add r12, 24
  jmp xchain0_n2_as
  xchain0_n7_β:
@@ -411,14 +410,13 @@ xchain0_n13_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain0_n17_α:
  mov eax, dword ptr [rsp + 16]
- mov rdi, r12
  lea rcx, [rip + .S0]
- mov qword ptr [rdi + 0], rcx
+ mov qword ptr [r12 + 0], rcx
  mov esi, eax
- mov qword ptr [rdi + 8], rsi
+ mov qword ptr [r12 + 8], rsi
  mov edx, r14d
  sub edx, eax
- mov qword ptr [rdi + 16], rdx
+ mov qword ptr [r12 + 16], rdx
  add r12, 24
  jmp xchain0_n13_as
  xchain0_n17_β:
