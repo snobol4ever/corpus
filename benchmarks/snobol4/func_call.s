@@ -90,7 +90,7 @@ proc_INC_α_body:
  jmp proc_INC_γ
 proc_INC_res:
 add rsp, 8
-pop rsp
+pop rbp
 proc_INC_β:
 jmp proc_INC_ω
 proc_INC_γ:

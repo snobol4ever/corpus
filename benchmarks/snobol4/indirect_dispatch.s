@@ -90,7 +90,7 @@ proc_ADD1_α_body:
  jmp proc_ADD1_γ
 proc_ADD1_res:
 add rsp, 8
-pop rsp
+pop rbp
 proc_ADD1_β:
 jmp proc_ADD1_ω
 proc_ADD1_γ:
