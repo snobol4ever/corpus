@@ -3862,12 +3862,12 @@ jmp qword ptr [rbp + 208]
 proc_gedwalk_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, qword ptr [rsp + 232]
+mov rsp, qword ptr [rbp + 232]
 mov rbp, [rsp + 65536]
 add rsp, 65544
 ret
 proc_gedwalk_ω:
-mov rsp, qword ptr [rsp + 232]
+mov rsp, qword ptr [rbp + 232]
 mov dword ptr [rsp+0], 99
 mov dword ptr [rsp+4], 0
 mov qword ptr [rsp+8], 0
@@ -4298,12 +4298,12 @@ jmp qword ptr [rbp + 864]
 proc_gedsub_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, qword ptr [rsp + 888]
+mov rsp, qword ptr [rbp + 888]
 mov rbp, [rsp + 65536]
 add rsp, 65544
 ret
 proc_gedsub_ω:
-mov rsp, qword ptr [rsp + 888]
+mov rsp, qword ptr [rbp + 888]
 mov dword ptr [rsp+0], 99
 mov dword ptr [rsp+4], 0
 mov qword ptr [rsp+8], 0
@@ -4414,12 +4414,12 @@ jmp qword ptr [rbp + 192]
 proc_gedval_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, qword ptr [rsp + 216]
+mov rsp, qword ptr [rbp + 216]
 mov rbp, [rsp + 65536]
 add rsp, 65544
 ret
 proc_gedval_ω:
-mov rsp, qword ptr [rsp + 216]
+mov rsp, qword ptr [rbp + 216]
 mov dword ptr [rsp+0], 99
 mov dword ptr [rsp+4], 0
 mov qword ptr [rsp+8], 0
@@ -4544,12 +4544,12 @@ jmp qword ptr [rbp + 224]
 proc_gedref_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, qword ptr [rsp + 248]
+mov rsp, qword ptr [rbp + 248]
 mov rbp, [rsp + 65536]
 add rsp, 65544
 ret
 proc_gedref_ω:
-mov rsp, qword ptr [rsp + 248]
+mov rsp, qword ptr [rbp + 248]
 mov dword ptr [rsp+0], 99
 mov dword ptr [rsp+4], 0
 mov qword ptr [rsp+8], 0
@@ -11364,12 +11364,12 @@ jmp main_ω
 main_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, qword ptr [rsp + 5976]
+mov rsp, qword ptr [rbp + 5976]
 mov rbp, [rsp + 65536]
 add rsp, 65544
 ret
 main_ω:
-mov rsp, qword ptr [rsp + 5976]
+mov rsp, qword ptr [rbp + 5976]
 mov dword ptr [rsp+0], 99
 mov dword ptr [rsp+4], 0
 mov qword ptr [rsp+8], 0

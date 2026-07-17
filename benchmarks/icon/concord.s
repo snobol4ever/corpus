@@ -2539,12 +2539,12 @@ jmp qword ptr [rbp + 1168]
 proc_item_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, qword ptr [rsp + 1192]
+mov rsp, qword ptr [rbp + 1192]
 mov rbp, [rsp + 65536]
 add rsp, 65544
 ret
 proc_item_ω:
-mov rsp, qword ptr [rsp + 1192]
+mov rsp, qword ptr [rbp + 1192]
 mov dword ptr [rsp+0], 99
 mov dword ptr [rsp+4], 0
 mov qword ptr [rsp+8], 0
@@ -7864,12 +7864,12 @@ jmp main_ω
 main_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, qword ptr [rsp + 1512]
+mov rsp, qword ptr [rbp + 1512]
 mov rbp, [rsp + 65536]
 add rsp, 65544
 ret
 main_ω:
-mov rsp, qword ptr [rsp + 1512]
+mov rsp, qword ptr [rbp + 1512]
 mov dword ptr [rsp+0], 99
 mov dword ptr [rsp+4], 0
 mov qword ptr [rsp+8], 0

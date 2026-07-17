@@ -1488,12 +1488,12 @@ jmp qword ptr [rbp + 896]
 proc_kgen_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, qword ptr [rsp + 920]
+mov rsp, qword ptr [rbp + 920]
 mov rbp, [rsp + 65536]
 add rsp, 65544
 ret
 proc_kgen_ω:
-mov rsp, qword ptr [rsp + 920]
+mov rsp, qword ptr [rbp + 920]
 mov dword ptr [rsp+0], 99
 mov dword ptr [rsp+4], 0
 mov qword ptr [rsp+8], 0
@@ -2799,12 +2799,12 @@ jmp qword ptr [rbp + 1136]
 proc_aseq_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, qword ptr [rsp + 1160]
+mov rsp, qword ptr [rbp + 1160]
 mov rbp, [rsp + 65536]
 add rsp, 65544
 ret
 proc_aseq_ω:
-mov rsp, qword ptr [rsp + 1160]
+mov rsp, qword ptr [rbp + 1160]
 mov dword ptr [rsp+0], 99
 mov dword ptr [rsp+4], 0
 mov qword ptr [rsp+8], 0
@@ -17667,12 +17667,12 @@ jmp main_ω
 main_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, qword ptr [rsp + 3336]
+mov rsp, qword ptr [rbp + 3336]
 mov rbp, [rsp + 65536]
 add rsp, 65544
 ret
 main_ω:
-mov rsp, qword ptr [rsp + 3336]
+mov rsp, qword ptr [rbp + 3336]
 mov dword ptr [rsp+0], 99
 mov dword ptr [rsp+4], 0
 mov qword ptr [rsp+8], 0

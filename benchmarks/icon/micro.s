@@ -8147,12 +8147,12 @@ jmp qword ptr [rbp + 128]
 proc_susproc_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, qword ptr [rsp + 152]
+mov rsp, qword ptr [rbp + 152]
 mov rbp, [rsp + 65536]
 add rsp, 65544
 ret
 proc_susproc_ω:
-mov rsp, qword ptr [rsp + 152]
+mov rsp, qword ptr [rbp + 152]
 mov dword ptr [rsp+0], 99
 mov dword ptr [rsp+4], 0
 mov qword ptr [rsp+8], 0
@@ -35283,12 +35283,12 @@ jmp main_ω
 main_γ:
 mov eax, 1
 xor edx, edx
-mov rsp, qword ptr [rsp + 11480]
+mov rsp, qword ptr [rbp + 11480]
 mov rbp, [rsp + 65536]
 add rsp, 65544
 ret
 main_ω:
-mov rsp, qword ptr [rsp + 11480]
+mov rsp, qword ptr [rbp + 11480]
 mov dword ptr [rsp+0], 99
 mov dword ptr [rsp+4], 0
 mov qword ptr [rsp+8], 0
