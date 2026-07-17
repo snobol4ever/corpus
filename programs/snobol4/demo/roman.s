@@ -319,24 +319,12 @@ xchain0_n13_af:
  call rt_defer_get_pat_fn@PLT
  test rax, rax
  jz .Lx25_0
- lea rcx, [rip + g_pat_main_rsp]
- mov qword ptr [rcx + 0], rsp
- lea rcx, [rip + g_patstk_sp]
- mov rsp, qword ptr [rcx + 0]
  lea rcx, [rip + .Lx25_4]
  lea rdx, [rip + .Lx25_5]
  jmp rax
 .Lx25_4:
- lea rcx, [rip + g_patstk_sp]
- mov qword ptr [rcx + 0], rsp
- lea rcx, [rip + g_pat_main_rsp]
- mov rsp, qword ptr [rcx + 0]
  jmp xchain0_n13_as
 .Lx25_5:
- lea rcx, [rip + g_patstk_sp]
- mov qword ptr [rcx + 0], rsp
- lea rcx, [rip + g_pat_main_rsp]
- mov rsp, qword ptr [rcx + 0]
  jmp xchain0_n13_af
 .Lx25_0:
  push r14
@@ -376,29 +364,13 @@ xchain0_n13_af:
  js xchain0_n13_af
  mov r14d, eax
  lea rax, [rip + .Lx25_6]
- lea rcx, [rip + g_pat_main_rsp]
- mov qword ptr [rcx + 0], rsp
- lea rcx, [rip + g_patstk_sp]
- mov rsp, qword ptr [rcx + 0]
  sub rsp, 8
  push rax
- lea rcx, [rip + g_patstk_sp]
- mov qword ptr [rcx + 0], rsp
- lea rcx, [rip + g_pat_main_rsp]
- mov rsp, qword ptr [rcx + 0]
  jmp xchain0_n13_as
 .Lx25_6:
  add rsp, 16
- lea rcx, [rip + g_patstk_sp]
- mov qword ptr [rcx + 0], rsp
- lea rcx, [rip + g_pat_main_rsp]
- mov rsp, qword ptr [rcx + 0]
  jmp xchain0_n13_af
  xchain0_n15_β:
- lea rcx, [rip + g_pat_main_rsp]
- mov qword ptr [rcx + 0], rsp
- lea rcx, [rip + g_patstk_sp]
- mov rsp, qword ptr [rcx + 0]
  jmp qword ptr [rsp]
 # IR_MATCH_CAPTURE_SAVE fc cell
  xchain0_n16_α:
@@ -544,6 +516,7 @@ main_α:
   rep stosb
   mov qword ptr [rsp + 632], rsp
   mov r12, qword ptr [1879048192]
+  mov [rsp + 65536], rbp
   mov rbp, rsp
 main_α_body:
 # IR_GOTO_DEFERRED
@@ -563,6 +536,7 @@ main_γ:
 mov eax, 1
 xor edx, edx
 mov rsp, qword ptr [rsp + 632]
+mov rbp, [rsp + 65536]
 add rsp, 65544
 ret
 main_ω:
@@ -572,6 +546,7 @@ mov dword ptr [rsp+4], 0
 mov qword ptr [rsp+8], 0
 mov eax, 99
 xor edx, edx
+mov rbp, [rsp + 65536]
 add rsp, 65544
 ret
 .section .rodata
