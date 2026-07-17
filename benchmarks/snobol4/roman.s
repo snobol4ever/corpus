@@ -10,6 +10,8 @@ proc_ROMAN_α:
   sub rsp, 2064
   mov [rsp + 2040], rcx
   mov [rsp + 2048], rdx
+  mov [rsp + 2056], rbp
+  mov rbp, rsp
   mov rdi, rsp
   mov ecx, 2032
   xor eax, eax
@@ -593,10 +595,12 @@ proc_ROMAN_γ:
 mov rdi, [rsp]
 mov rsi, [rsp + 8]
 mov rax, [rsp + 2040]
+mov rbp, [rbp + 2056]
 lea rsp, [rsp + 2064]
 jmp rax
 proc_ROMAN_ω:
 mov rax, [rsp + 2048]
+mov rbp, [rbp + 2056]
 lea rsp, [rsp + 2064]
 jmp rax
 proc_startup:
@@ -678,6 +682,7 @@ main_α:
   rep stosb
   mov qword ptr [rsp + 2024], rsp
   mov r12, qword ptr [1879048192]
+  mov rbp, rsp
 main_α_body:
 # IR_LIT_STRING
  xchain42_n0_α:

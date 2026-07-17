@@ -10,6 +10,8 @@ proc_INC_α:
   sub rsp, 1392
   mov [rsp + 1368], rcx
   mov [rsp + 1376], rdx
+  mov [rsp + 1384], rbp
+  mov rbp, rsp
   mov rdi, rsp
   mov ecx, 1360
   xor eax, eax
@@ -95,10 +97,12 @@ proc_INC_γ:
 mov rdi, [rsp]
 mov rsi, [rsp + 8]
 mov rax, [rsp + 1368]
+mov rbp, [rbp + 1384]
 lea rsp, [rsp + 1392]
 jmp rax
 proc_INC_ω:
 mov rax, [rsp + 1376]
+mov rbp, [rbp + 1384]
 lea rsp, [rsp + 1392]
 jmp rax
 proc_startup:
@@ -176,6 +180,7 @@ main_α:
   rep stosb
   mov qword ptr [rsp + 1352], rsp
   mov r12, qword ptr [1879048192]
+  mov rbp, rsp
 main_α_body:
 # IR_LIT_STRING
  xchain5_n0_α:

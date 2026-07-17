@@ -10,6 +10,8 @@ proc_RSUM_α:
   sub rsp, 3104
   mov [rsp + 3080], rcx
   mov [rsp + 3088], rdx
+  mov [rsp + 3096], rbp
+  mov rbp, rsp
   mov rdi, rsp
   mov ecx, 3072
   xor eax, eax
@@ -300,10 +302,12 @@ proc_RSUM_γ:
 mov rdi, [rsp]
 mov rsi, [rsp + 8]
 mov rax, [rsp + 3080]
+mov rbp, [rbp + 3096]
 lea rsp, [rsp + 3104]
 jmp rax
 proc_RSUM_ω:
 mov rax, [rsp + 3088]
+mov rbp, [rbp + 3096]
 lea rsp, [rsp + 3104]
 jmp rax
   .globl proc_PAT$0_α
@@ -542,6 +546,7 @@ main_α:
   rep stosb
   mov qword ptr [rsp + 3064], rsp
   mov r12, qword ptr [1879048192]
+  mov rbp, rsp
 main_α_body:
 # IR_LIT_STRING
  xchain31_n0_α:
