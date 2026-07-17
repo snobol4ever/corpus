@@ -428,7 +428,7 @@ xchain0_n13_af:
  jmp xchain0_n16_β
 proc_ROMAN_res:
 add rsp, 8
-pop rsp
+pop rbp
 proc_ROMAN_β:
 jmp proc_ROMAN_ω
 proc_ROMAN_γ:
