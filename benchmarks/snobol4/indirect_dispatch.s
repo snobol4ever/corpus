@@ -94,16 +94,16 @@ pop rbp
 proc_ADD1_β:
 jmp proc_ADD1_ω
 proc_ADD1_γ:
-mov rdi, [rsp]
-mov rsi, [rsp + 8]
-mov rax, [rsp + 1000]
+mov rdi, [rbp]
+mov rsi, [rbp + 8]
+mov rax, [rbp + 1000]
+lea rsp, [rbp + 1024]
 mov rbp, [rbp + 1016]
-lea rsp, [rsp + 1024]
 jmp rax
 proc_ADD1_ω:
-mov rax, [rsp + 1008]
+mov rax, [rbp + 1008]
+lea rsp, [rbp + 1024]
 mov rbp, [rbp + 1016]
-lea rsp, [rsp + 1024]
 jmp rax
 proc_startup:
   sub rsp, 8
@@ -132,6 +132,9 @@ proc_startup:
   lea rdi, [rip + .Lstartup_pname0]
   mov esi, 992
   call rt_proc_set_frame_bytes@PLT
+  lea rdi, [rip + .Lstartup_pname0]
+  mov esi, 1
+  call rt_proc_set_jmpentry@PLT
   add rsp, 8
   ret
   .section .rodata

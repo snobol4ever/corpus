@@ -299,16 +299,16 @@ pop rbp
 proc_RSUM_β:
 jmp proc_RSUM_ω
 proc_RSUM_γ:
-mov rdi, [rsp]
-mov rsi, [rsp + 8]
-mov rax, [rsp + 3080]
+mov rdi, [rbp]
+mov rsi, [rbp + 8]
+mov rax, [rbp + 3080]
+lea rsp, [rbp + 3104]
 mov rbp, [rbp + 3096]
-lea rsp, [rsp + 3104]
 jmp rax
 proc_RSUM_ω:
-mov rax, [rsp + 3088]
+mov rax, [rbp + 3088]
+lea rsp, [rbp + 3104]
 mov rbp, [rbp + 3096]
-lea rsp, [rsp + 3104]
 jmp rax
   .globl proc_PAT$0_α
 proc_PAT$0_α:
@@ -455,6 +455,9 @@ proc_startup:
   lea rdi, [rip + .Lstartup_pname0]
   mov esi, 3072
   call rt_proc_set_frame_bytes@PLT
+  lea rdi, [rip + .Lstartup_pname0]
+  mov esi, 1
+  call rt_proc_set_jmpentry@PLT
   .section .rodata
   .Lstartup_pname1: .string "PAT$0"
   .section .text
@@ -468,6 +471,9 @@ proc_startup:
   lea rdi, [rip + .Lstartup_pname1]
   mov esi, 176
   call rt_proc_set_frame_bytes@PLT
+  lea rdi, [rip + .Lstartup_pname1]
+  mov esi, 1
+  call rt_proc_set_jmpentry@PLT
   add rsp, 8
   ret
   .section .rodata
