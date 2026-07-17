@@ -33,8 +33,7 @@ proc_ROMAN_α_body:
  call rt_match_enter@PLT
  mov r13, rax
  mov r15, rdx
- mov rax, qword ptr [1879048192]
- mov qword ptr [rsp + 144], rax
+ mov qword ptr [rsp + 144], r12
  mov rax, rsp
  sub rsp, 32
  mov qword ptr [rsp + 16], rax
@@ -60,8 +59,7 @@ proc_ROMAN_α_body:
  lea rcx, [rip + g_patstk_sp]
  mov qword ptr [rcx + 0], rax
  mov rsp, qword ptr [rsp + 16]
- mov rax, qword ptr [rsp + 144]
- mov qword ptr [1879048192], rax
+ mov r12, qword ptr [rsp + 144]
  mov rbp, qword ptr [rsp + 152]
  jmp proc_ROMAN_γ
 # IR_MATCH_SEQ_NARY (ZB-FC-3b: zero cell, LIFO-structural)
@@ -87,7 +85,7 @@ xchain0_n2_af:
  push r13
  sub rsp, 8
  mov rdi, qword ptr [rsp + 176]
- mov rsi, qword ptr [1879048192]
+ mov rsi, r12
  mov rdx, r13
  call rt_dcap_end_ok_open@PLT
 .Lx7_1:
@@ -115,8 +113,7 @@ xchain0_n2_af:
  pop r13
  pop r15
  pop r14
- mov rax, qword ptr [rsp + 144]
- mov qword ptr [1879048192], rax
+ mov r12, qword ptr [rsp + 144]
  jmp xchain0_n8_α
 # IR_LIT_INTEGER
  xchain0_n4_α:
@@ -149,7 +146,7 @@ xchain0_n2_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain0_n7_α:
  mov eax, dword ptr [rsp + 0]
- mov rdi, qword ptr [1879048192]
+ mov rdi, r12
  lea rcx, [rip + .S0]
  mov qword ptr [rdi + 0], rcx
  mov esi, eax
@@ -157,10 +154,10 @@ xchain0_n2_af:
  mov edx, r14d
  sub edx, eax
  mov qword ptr [rdi + 16], rdx
- add qword ptr [1879048192], 24
+ add r12, 24
  jmp xchain0_n2_as
  xchain0_n7_β:
- sub qword ptr [1879048192], 24
+ sub r12, 24
  jmp xchain0_n9_β
 # IR_LIT_STRING
  xchain0_n8_α:
@@ -223,8 +220,7 @@ xchain0_n2_af:
  call rt_match_enter@PLT
  mov r13, rax
  mov r15, rdx
- mov rax, qword ptr [1879048192]
- mov qword ptr [rbp + 432], rax
+ mov qword ptr [rbp + 432], r12
  mov qword ptr [rbp + 416], rsp
  lea rcx, [rip + g_patstk_sp]
  mov rax, qword ptr [rcx + 0]
@@ -248,8 +244,7 @@ xchain0_n2_af:
  lea rcx, [rip + g_patstk_sp]
  mov qword ptr [rcx + 0], rax
  mov rsp, qword ptr [rbp + 416]
- mov rax, qword ptr [rbp + 432]
- mov qword ptr [1879048192], rax
+ mov r12, qword ptr [rbp + 432]
  mov rbp, qword ptr [rbp + 440]
  jmp proc_ROMAN_ω
 # IR_MATCH_SEQ_NARY
@@ -286,7 +281,7 @@ xchain0_n13_af:
  push r13
  sub rsp, 8
  mov rdi, qword ptr [rsp + 464]
- mov rsi, qword ptr [1879048192]
+ mov rsi, r12
  mov rdx, r13
  call rt_dcap_end_ok_open@PLT
 .Lx24_1:
@@ -314,8 +309,7 @@ xchain0_n13_af:
  pop r13
  pop r15
  pop r14
- mov rax, qword ptr [rbp + 432]
- mov qword ptr [1879048192], rax
+ mov r12, qword ptr [rbp + 432]
  mov rbp, qword ptr [rbp + 440]
  jmp proc_ROMAN_γ
 # IR_MATCH_DEFER (ZS-2 jmp-entry)
@@ -417,7 +411,7 @@ xchain0_n13_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain0_n17_α:
  mov eax, dword ptr [rsp + 16]
- mov rdi, qword ptr [1879048192]
+ mov rdi, r12
  lea rcx, [rip + .S0]
  mov qword ptr [rdi + 0], rcx
  mov esi, eax
@@ -425,10 +419,10 @@ xchain0_n13_af:
  mov edx, r14d
  sub edx, eax
  mov qword ptr [rdi + 16], rdx
- add qword ptr [1879048192], 24
+ add r12, 24
  jmp xchain0_n13_as
  xchain0_n17_β:
- sub qword ptr [1879048192], 24
+ sub r12, 24
  jmp xchain0_n18_β
 # IR_MATCH_BREAK
  xchain0_n18_α:
@@ -548,6 +542,7 @@ main_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 632], rsp
+  mov r12, qword ptr [1879048192]
 main_α_body:
 # IR_GOTO_DEFERRED
  xchain32_n0_α:
