@@ -1,0 +1,20 @@
+# ICN-IDX-GEN-ENTRY (2026-07-18): subscripting by a generator-procedure call.
+# The forward first-entry into the index expression must land the generator's
+# alpha, never its beta (beta with no staged activation = jmp through a zeroed
+# resume cell, rip=0 SEGV — the tgrlink class). Covers bounded, every-driven,
+# and every-with-assignment forms.
+procedure aseq()
+   suspend 2;
+   suspend 4;
+   suspend 3 to 3;
+   suspend 1 to 1;
+   fail;
+end
+procedure main()
+   local alist, l;
+   alist := ["a1", "a2", "a3", "a4"];
+   write(alist[aseq()]);
+   every write(alist[aseq()]);
+   every l := alist[aseq()] do
+      write("l=", l);
+end
