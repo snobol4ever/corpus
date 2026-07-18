@@ -334,6 +334,7 @@ mov qword ptr [rbp + 1344], rax
  lea rdx, [rip + .Lx37_4]
  jmp rax
 .Lx37_3:
+ mov qword ptr [rbp + 856], rsp
  mov rax, qword ptr [rbp + 848]
  test rax, rax
  jne .Lx37_5
@@ -363,6 +364,7 @@ mov qword ptr [rbp + 1344], rax
  jmp xchain0_n21_α
  xchain0_n19_β:
  call rt_gen_spine_resume_enter@PLT
+ mov rsp, qword ptr [rbp + 856]
  jmp qword ptr [rsp]
 .Lx37_0:
  .quad .Lx37_0_s
@@ -513,6 +515,7 @@ mov qword ptr [rbp + 1344], rax
  lea rdx, [rip + .Lx53_4]
  jmp rax
 .Lx53_3:
+ mov qword ptr [rbp + 536], rsp
  mov rax, qword ptr [rbp + 528]
  test rax, rax
  jne .Lx53_5
@@ -542,6 +545,7 @@ mov qword ptr [rbp + 1344], rax
  jmp xchain0_n29_α
  xchain0_n28_β:
  call rt_gen_spine_resume_enter@PLT
+ mov rsp, qword ptr [rbp + 536]
  jmp qword ptr [rsp]
 .Lx53_0:
  .quad .Lx53_0_s
@@ -783,6 +787,7 @@ mov qword ptr [rbp + 608], rax
  lea rdx, [rip + .Lx79_4]
  jmp rax
 .Lx79_3:
+ mov qword ptr [rbp + 232], rsp
  mov rax, qword ptr [rbp + 224]
  test rax, rax
  jne .Lx79_5
@@ -812,6 +817,7 @@ mov qword ptr [rbp + 608], rax
  jmp xchain56_n12_α
  xchain56_n11_β:
  call rt_gen_spine_resume_enter@PLT
+ mov rsp, qword ptr [rbp + 232]
  jmp qword ptr [rsp]
 .Lx79_0:
  .quad .Lx79_0_s
@@ -1372,6 +1378,7 @@ mov qword ptr [rbp + 1472], rax
  lea rdx, [rip + .Lx143_4]
  jmp rax
 .Lx143_3:
+ mov qword ptr [rbp + 248], rsp
  mov rax, qword ptr [rbp + 240]
  test rax, rax
  jne .Lx143_5
@@ -1401,6 +1408,7 @@ mov qword ptr [rbp + 1472], rax
  jmp xchain82_n32_α
  xchain82_n31_β:
  call rt_gen_spine_resume_enter@PLT
+ mov rsp, qword ptr [rbp + 248]
  jmp qword ptr [rsp]
 .Lx143_0:
  .quad .Lx143_0_s
@@ -1961,6 +1969,7 @@ mov qword ptr [rbp + 1472], rax
  lea rdx, [rip + .Lx207_4]
  jmp rax
 .Lx207_3:
+ mov qword ptr [rbp + 680], rsp
  mov rax, qword ptr [rbp + 672]
  test rax, rax
  jne .Lx207_5
@@ -1990,6 +1999,7 @@ mov qword ptr [rbp + 1472], rax
  jmp xchain146_n32_α
  xchain146_n31_β:
  call rt_gen_spine_resume_enter@PLT
+ mov rsp, qword ptr [rbp + 680]
  jmp qword ptr [rsp]
 .Lx207_0:
  .quad .Lx207_0_s
@@ -3833,6 +3843,7 @@ main_α_body:
  lea rdx, [rip + .Lx339_4]
  jmp rax
 .Lx339_3:
+ mov qword ptr [rbp + 344], rsp
  mov rax, qword ptr [rbp + 336]
  test rax, rax
  jne .Lx339_5
@@ -3862,6 +3873,7 @@ main_α_body:
  jmp xchain210_n95_α
  xchain210_n94_β:
  call rt_gen_spine_resume_enter@PLT
+ mov rsp, qword ptr [rbp + 344]
  jmp qword ptr [rsp]
 .Lx339_0:
  .quad .Lx339_0_s

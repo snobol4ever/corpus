@@ -3594,6 +3594,7 @@ mov qword ptr [rbp + 1840], rax
  lea rdx, [rip + .Lx388_4]
  jmp rax
 .Lx388_3:
+ mov qword ptr [rbp + 1048], rsp
  mov rax, qword ptr [rbp + 1040]
  test rax, rax
  jne .Lx388_5
@@ -3623,6 +3624,7 @@ mov qword ptr [rbp + 1840], rax
  jmp xchain353_n20_α
  xchain353_n19_β:
  call rt_gen_spine_resume_enter@PLT
+ mov rsp, qword ptr [rbp + 1048]
  jmp qword ptr [rsp]
 .Lx388_0:
  .quad .Lx388_0_s
@@ -3666,6 +3668,7 @@ mov qword ptr [rbp + 1840], rax
  lea rdx, [rip + .Lx394_4]
  jmp rax
 .Lx394_3:
+ mov qword ptr [rbp + 904], rsp
  mov rax, qword ptr [rbp + 896]
  test rax, rax
  jne .Lx394_5
@@ -3695,6 +3698,7 @@ mov qword ptr [rbp + 1840], rax
  jmp xchain353_n23_α
  xchain353_n22_β:
  call rt_gen_spine_resume_enter@PLT
+ mov rsp, qword ptr [rbp + 904]
  jmp qword ptr [rsp]
 .Lx394_0:
  .quad .Lx394_0_s
@@ -7408,6 +7412,7 @@ mov qword ptr [rbp + 1024], rax
  lea rdx, [rip + .Lx802_4]
  jmp rax
 .Lx802_3:
+ mov qword ptr [rbp + 680], rsp
  mov rax, qword ptr [rbp + 672]
  test rax, rax
  jne .Lx802_5
@@ -7437,6 +7442,7 @@ mov qword ptr [rbp + 1024], rax
  jmp xchain780_n11_α
  xchain780_n10_β:
  call rt_gen_spine_resume_enter@PLT
+ mov rsp, qword ptr [rbp + 680]
  jmp qword ptr [rsp]
 .Lx802_0:
  .quad .Lx802_0_s
@@ -7480,6 +7486,7 @@ mov qword ptr [rbp + 1024], rax
  lea rdx, [rip + .Lx808_4]
  jmp rax
 .Lx808_3:
+ mov qword ptr [rbp + 536], rsp
  mov rax, qword ptr [rbp + 528]
  test rax, rax
  jne .Lx808_5
@@ -7509,6 +7516,7 @@ mov qword ptr [rbp + 1024], rax
  jmp xchain780_n14_α
  xchain780_n13_β:
  call rt_gen_spine_resume_enter@PLT
+ mov rsp, qword ptr [rbp + 536]
  jmp qword ptr [rsp]
 .Lx808_0:
  .quad .Lx808_0_s
@@ -8027,6 +8035,7 @@ main_α_body:
  lea rdx, [rip + .Lx849_4]
  jmp rax
 .Lx849_3:
+ mov qword ptr [rbp + 696], rsp
  mov rax, qword ptr [rbp + 688]
  test rax, rax
  jne .Lx849_5
@@ -8056,6 +8065,7 @@ main_α_body:
  jmp xchain824_n16_α
  xchain824_n14_β:
  call rt_gen_spine_resume_enter@PLT
+ mov rsp, qword ptr [rbp + 696]
  jmp qword ptr [rsp]
 .Lx849_0:
  .quad .Lx849_0_s
