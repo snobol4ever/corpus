@@ -1,0 +1,9 @@
+procedure absv(n)
+  n > 0 | return -n;
+  return n;
+end
+procedure main()
+  write(absv(5));
+  write(absv(-7));
+  every write((1 to 2) | (8 to 9));
+end
