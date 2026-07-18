@@ -7698,7 +7698,11 @@ main:
   lea rdi, [rip + __gva_names]
   mov edx, 21
   call gva_register@PLT
-  # R12-ERAD FENCE: main(args) stuffing pending under RSP self-alloc
+  mov rdi, qword ptr [rsp]
+  add rdi, 8
+  mov esi, dword ptr [rsp + 8]
+  sub esi, 1
+  call rt_main_args_stage@PLT
   xor esi, esi
   call main_α
   xor eax, eax
@@ -7719,6 +7723,13 @@ main_α:
   mov r12, qword ptr [1879048192]
   mov [rsp + 65536], rbp
   mov rbp, rsp
+  push rsi
+  sub rsp, 8
+  call rt_main_args_fetch@PLT
+  add rsp, 8
+  pop rsi
+  mov [rbp + 16], rax
+  mov [rbp + 24], rdx
 main_α_body:
  xchain00152_n0_α:
  mov rdi, qword ptr [rip + .Lx00153_0]

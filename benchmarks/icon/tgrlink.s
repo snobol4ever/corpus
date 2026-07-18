@@ -1603,7 +1603,7 @@ proc_dumpcode_α_body:
  call rt_var_ref_cell@PLT
  mov qword ptr [rbp + 112], rax
  mov qword ptr [rbp + 120], rdx
- jmp xchain00011_n8_β
+ jmp xchain00011_n8_α
  xchain00011_n6_β:
  jmp xchain00011_n10_α
  xchain00011_n7_α:
@@ -1629,6 +1629,7 @@ proc_dumpcode_α_body:
  lea rdx, [rip + .Lx00012_4]
  jmp rax
 .Lx00012_3:
+ mov qword ptr [rbp + 168], rsp
  mov rax, qword ptr [rbp + 160]
  test rax, rax
  jne .Lx00012_5
@@ -1658,6 +1659,7 @@ proc_dumpcode_α_body:
  jmp xchain00011_n9_α
  xchain00011_n8_β:
  call rt_gen_spine_resume_enter@PLT
+ mov rsp, qword ptr [rbp + 168]
  jmp qword ptr [rsp]
 .Lx00012_0:
  .quad .Lx00012_0_s
@@ -15897,7 +15899,11 @@ main:
   lea rdi, [rip + __gva_names]
   mov edx, 10
   call gva_register@PLT
-  # R12-ERAD FENCE: main(args) stuffing pending under RSP self-alloc
+  mov rdi, qword ptr [rsp]
+  add rdi, 8
+  mov esi, dword ptr [rsp + 8]
+  sub esi, 1
+  call rt_main_args_stage@PLT
   xor esi, esi
   call main_α
   xor eax, eax
@@ -15918,6 +15924,13 @@ main_α:
   mov r12, qword ptr [1879048192]
   mov [rsp + 65536], rbp
   mov rbp, rsp
+  push rsi
+  sub rsp, 8
+  call rt_main_args_fetch@PLT
+  add rsp, 8
+  pop rsi
+  mov [rbp + 16], rax
+  mov [rbp + 24], rdx
 main_α_body:
 # IR_VAR
  xchain00385_n0_α:
@@ -17390,6 +17403,7 @@ main_α_body:
  lea rdx, [rip + .Lx00419_4]
  jmp rax
 .Lx00419_3:
+ mov qword ptr [rbp + 120], rsp
  mov rax, qword ptr [rbp + 112]
  test rax, rax
  jne .Lx00419_5
@@ -17419,6 +17433,7 @@ main_α_body:
  jmp xchain00385_n00078_α
  xchain00385_n00001_β:
  call rt_gen_spine_resume_enter@PLT
+ mov rsp, qword ptr [rbp + 120]
  jmp qword ptr [rsp]
 .Lx00419_0:
  .quad .Lx00419_0_s

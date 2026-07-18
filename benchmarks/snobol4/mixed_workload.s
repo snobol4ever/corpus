@@ -876,9 +876,16 @@ main_α_body:
  .quad 0
 # IR_MATCH_DEFER (ZS-2 jmp-entry)
  xchain31_n23_α:
- lea rdi, [rip + .S2]
- xor esi, esi
- call rt_defer_get_pat_fn@PLT
+ mov rax, qword ptr [1879052320]
+ mov rdx, qword ptr [1879052328]
+ cmp eax, 3
+ jne .Lx61_9
+ mov rdi, rdx
+ call dtp_fn_of@PLT
+ jmp .Lx61_10
+.Lx61_9:
+ xor eax, eax
+.Lx61_10:
  test rax, rax
  jz .Lx61_0
  lea rcx, [rip + .Lx61_4]

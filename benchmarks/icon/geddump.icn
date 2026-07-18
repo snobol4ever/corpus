@@ -252,7 +252,7 @@ procedure gedfnf(r); #: get last name first
 
    s := gedval(r, "NAME") | fail;
    s ? {
-      first := trim(tab(upto('/'))) | return tab(0)
+      first := trim(tab(upto('/'))) | return tab(0);
       ="/";
       last := tab(upto('/') | 0)
    };
@@ -273,7 +273,7 @@ procedure gedlnf(r); #: get last name first
 
    s := gedval(r, "NAME") | fail;
    s ? {
-      first := trim(tab(upto('/'))) | return tab(0)
+      first := trim(tab(upto('/'))) | return tab(0);
       ="/";
       last := tab(upto('/') | 0)
    };
