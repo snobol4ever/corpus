@@ -1,0 +1,38 @@
+% sendmore — SEND+MORE=MONEY cryptoaddition (van Roy suite). Arithmetic constraint search.
+% Source: SWI-Prolog/bench (sendmore). Prints the digit assignment.
+:- initialization(main).
+bench__main :- (solve(S,E,N,D,M,O,R,Y) -> write([S,E,N,D,M,O,R,Y]) ; write(none)), nl.
+solve(S,E,N,D,M,O,R,Y):-
+        digit(D), digit(E), D=\=E,
+        sumdigit(0, D, E, Y, C1),
+        digit(N), N=\=Y, N=\=E, N=\=D,
+        digit(R), R=\=N, R=\=Y, R=\=E, R=\=D,
+        sumdigit(C1,N, R, E, C2),
+        digit(O), O=\=R, O=\=N, O=\=Y, O=\=E, O=\=D,
+        sumdigit(C2,E, O, N, C3),
+        leftdigit(S), S=\=O, S=\=R, S=\=N, S=\=Y, S=\=E, S=\=D,
+        leftdigit(M), M=\=S, M=\=O, M=\=R, M=\=N, M=\=Y, M=\=E, M=\=D,
+        sumdigit(C3,S, M, O, M).
+sumdigit(C, A, B, S, D) :- X is (C+A+B), (X<10 -> S=X, D=0 ; S is X-10, D=1).
+digit(0).
+digit(1).
+digit(2).
+digit(3).
+digit(4).
+digit(5).
+digit(6).
+digit(7).
+digit(8).
+digit(9).
+leftdigit(1).
+leftdigit(2).
+leftdigit(3).
+leftdigit(4).
+leftdigit(5).
+leftdigit(6).
+leftdigit(7).
+leftdigit(8).
+leftdigit(9).
+main :- l__(256).
+l__(N__) :- between(1, N__, _), bench__main, fail.
+l__(_).
