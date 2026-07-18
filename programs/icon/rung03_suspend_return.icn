@@ -1,9 +1,8 @@
-# rung03 t02: procedure with explicit return E
-procedure double(n)
-  return n * 2;
+procedure g()
+  suspend 1;
+  return 2;
 end
-
 procedure main()
-  write(double(3));
-  write(double(7));
+  every write(g());
+  write("done");
 end
