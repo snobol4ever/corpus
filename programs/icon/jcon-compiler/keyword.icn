@@ -1,0 +1,17 @@
+#SRC: JCON (jcon-master/tran/keyword.icn) — semicolons added for SCRIP; otherwise verbatim.
+#     Original: Gregg Townsend & Todd Proebsting, Arizona. See COPYRIGHT in this dir.
+# keywords.icn:  provide information about keywords to the compiler
+
+procedure key_generator(name);
+    static t;
+    initial {
+	t := set([
+		    "features",
+		    "allocated",
+		    "collections",
+		    "regions",
+		    "storage"
+		    ])
+    };
+    return member(t, name);
+end

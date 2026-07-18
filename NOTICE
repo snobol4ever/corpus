@@ -50,3 +50,22 @@ grammar/ carries an MIT license. These files are included for reference,
 testing, and educational purposes. The CC0 dedication in LICENSE applies to
 original contributions in this repository; it does not retroactively affect
 the copyright status of the original ETH Pascal-P4 sources.
+
+---
+
+The files in programs/icon/jcon-compiler/ are the JCON translator and linker,
+a compiler for the Icon programming language written in Icon, originally from:
+
+  JCON — a Java implementation of Icon
+  Gregg Townsend and Todd Proebsting
+  Copyright 1998-1999 Arizona Board of Regents; all rights reserved.
+  http://www.cs.arizona.edu/icon/jcon/
+
+JCON's license permits use, copying, modification, and distribution provided
+the full notice travels with the copies; that notice is reproduced verbatim in
+programs/icon/jcon-compiler/COPYRIGHT. The only modification made here is the
+addition of statement-terminating semicolons required by the SCRIP Icon
+front-end (see that directory's README.md). These files are included for
+reference, testing, and educational purposes. The CC0 dedication in LICENSE
+applies to original contributions in this repository; it does not retroactively
+affect the copyright status of the original JCON sources.
