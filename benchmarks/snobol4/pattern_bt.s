@@ -96,11 +96,14 @@ xchain0_n1_af:
  cmp eax, r15d
  jg xchain0_n1_af
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S1]
- mov edx, 3
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 97
+ jne xchain0_n1_af
+ movzx eax, byte ptr [r13+rcx+1]
+ cmp eax, 97
+ jne xchain0_n1_af
+ movzx eax, byte ptr [r13+rcx+2]
+ cmp eax, 97
  jne xchain0_n1_af
  add r14d, 3
  jmp xchain0_n1_s0
@@ -114,11 +117,14 @@ xchain0_n1_af:
  cmp eax, r15d
  jg xchain0_n1_af
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
- mov edx, 3
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 98
+ jne xchain0_n1_af
+ movzx eax, byte ptr [r13+rcx+1]
+ cmp eax, 98
+ jne xchain0_n1_af
+ movzx eax, byte ptr [r13+rcx+2]
+ cmp eax, 98
  jne xchain0_n1_af
  add r14d, 3
  jmp xchain0_n1_s1
@@ -132,11 +138,14 @@ xchain0_n1_af:
  cmp eax, r15d
  jg xchain0_n1_af
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S3]
- mov edx, 3
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 99
+ jne xchain0_n1_af
+ movzx eax, byte ptr [r13+rcx+1]
+ cmp eax, 99
+ jne xchain0_n1_af
+ movzx eax, byte ptr [r13+rcx+2]
+ cmp eax, 99
  jne xchain0_n1_af
  add r14d, 3
  jmp xchain0_n1_s2
@@ -150,11 +159,14 @@ xchain0_n1_af:
  cmp eax, r15d
  jg xchain0_n1_af
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S4]
- mov edx, 3
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 100
+ jne xchain0_n1_af
+ movzx eax, byte ptr [r13+rcx+1]
+ cmp eax, 100
+ jne xchain0_n1_af
+ movzx eax, byte ptr [r13+rcx+2]
+ cmp eax, 100
  jne xchain0_n1_af
  add r14d, 3
  jmp xchain0_n1_s3
@@ -607,7 +619,7 @@ main_α_body:
  push r15
  push r13
  sub rsp, 8
- lea rdi, [rip + .S5]
+ lea rdi, [rip + .S1]
  xor esi, esi
  call rt_defer_open@PLT
 .Lx48_2:
@@ -1036,11 +1048,7 @@ add rsp, 65544
 ret
 .section .rodata
 .S0: .string "W"
-.S1: .string "aaa"
-.S2: .string "bbb"
-.S3: .string "ccc"
-.S4: .string "ddd"
-.S5: .string "PAT"
+.S1: .string "PAT"
 .text
 .section .rodata
 .C0:

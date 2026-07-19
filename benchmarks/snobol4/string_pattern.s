@@ -59,11 +59,8 @@ xchain0_n0_af:
  cmp eax, r15d
  jg xchain0_n2_β
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S1]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 44
  jne xchain0_n2_β
  add r14d, 1
  jmp xchain0_n0_as
@@ -774,7 +771,7 @@ main_α_body:
  push r15
  push r13
  sub rsp, 8
- lea rdi, [rip + .S2]
+ lea rdi, [rip + .S1]
  xor esi, esi
  call rt_defer_open@PLT
 .Lx62_2:
@@ -938,8 +935,7 @@ add rsp, 65544
 ret
 .section .rodata
 .S0: .string "WORD"
-.S1: .string ","
-.S2: .string "PAT"
+.S1: .string "PAT"
 .text
 .section .rodata
 .C0:
