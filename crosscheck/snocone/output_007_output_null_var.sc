@@ -1,2 +1,2 @@
-# 007 - Uninitialized variable outputs empty line
-OUTPUT = x
+// 007 - Uninitialized variable outputs empty line
+OUTPUT = x;

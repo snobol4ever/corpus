@@ -1,3 +1,3 @@
-# 010 - Assign integer to variable, output it
-n = 42
-OUTPUT = n
+// 010 - Assign integer to variable, output it
+n = 42;
+OUTPUT = n;

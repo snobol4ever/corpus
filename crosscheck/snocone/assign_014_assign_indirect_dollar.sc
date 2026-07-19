@@ -1,3 +1,3 @@
-# 014 - Indirect assignment via dollar
-$'x' = 'hello'
-OUTPUT = x
+// 014 - Indirect assignment via dollar
+$'x' = 'hello';
+OUTPUT = x;

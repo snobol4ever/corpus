@@ -1,2 +1,2 @@
-# 008 - Double-quoted string literal
-OUTPUT = "hello world"
+// 008 - Double-quoted string literal
+OUTPUT = "hello world";

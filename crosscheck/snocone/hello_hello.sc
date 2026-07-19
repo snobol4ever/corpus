@@ -1,2 +1,2 @@
-# hello.sc - Minimal output test.
-OUTPUT = 'hello world'
+// hello.sc - Minimal output test.
+OUTPUT = 'hello world';

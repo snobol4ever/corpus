@@ -1,2 +1,2 @@
-# 004 - Output empty string produces blank line
-OUTPUT = ''
+// 004 - Output empty string produces blank line
+OUTPUT = '';

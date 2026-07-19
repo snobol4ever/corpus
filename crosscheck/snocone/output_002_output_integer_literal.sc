@@ -1,2 +1,2 @@
-# 002 - Output an integer literal
-OUTPUT = 42
+// 002 - Output an integer literal
+OUTPUT = 42;

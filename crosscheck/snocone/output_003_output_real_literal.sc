@@ -1,2 +1,2 @@
-# 003 - Output a real literal
-OUTPUT = 3.14
+// 003 - Output a real literal
+OUTPUT = 3.14;

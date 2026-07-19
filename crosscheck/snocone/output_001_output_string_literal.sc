@@ -1,2 +1,2 @@
-# 001 - Output a string literal
-OUTPUT = 'hello world'
+// 001 - Output a string literal
+OUTPUT = 'hello world';
