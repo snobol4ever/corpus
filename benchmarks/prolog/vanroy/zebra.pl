@@ -29,6 +29,6 @@ next_to(A, B, [B, A | _]).
 next_to(A, B, [_ | Y]) :- next_to(A, B, Y).
 my_member(X, [X|_]).
 my_member(X, [_|T]) :- my_member(X, T).
-main :- l__(64).
+main :- l__(256).
 l__(N__) :- between(1, N__, _), bench__main, fail.
 l__(_).
