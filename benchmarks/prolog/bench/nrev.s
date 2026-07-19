@@ -296,15 +296,16 @@ mov qword ptr [rbp + 1472], rax
  mov qword ptr [rbp + 1360], rax
  mov rax, qword ptr [rbp + 1416]
  mov qword ptr [rbp + 1368], rax
-# marshal arg1 = producer-box slot [zr+1440] -> [zr+1376]
- mov rax, qword ptr [rbp + 1440]
- mov qword ptr [rbp + 1376], rax
- mov rax, qword ptr [rbp + 1448]
- mov qword ptr [rbp + 1384], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-REGAIN-5 const head-unify leaf: rt_pl_dop_unify_cs (const in reg, one-operand marshal)
  lea rdi, [rbp + 1360]
- mov esi, 2
- call rt_pl_dop_unify@PLT
+ mov rsi, qword ptr [rip + .Lx27_2]
+ jmp .Lx27_3
+.Lx27_2:
+ .quad .Lx27_2_s
+.Lx27_2_s:
+ .string "[]"
+.Lx27_3:
+ call rt_pl_dop_unify_cs@PLT
  mov qword ptr [rbp + 1344], rax
  mov qword ptr [rbp + 1352], rdx
  cmp eax, 99
@@ -802,15 +803,16 @@ mov qword ptr [rbp + 1472], rax
  mov qword ptr [rbp + 1360], rax
  mov rax, qword ptr [rbp + 1416]
  mov qword ptr [rbp + 1368], rax
-# marshal arg1 = producer-box slot [zr+1440] -> [zr+1376]
- mov rax, qword ptr [rbp + 1440]
- mov qword ptr [rbp + 1376], rax
- mov rax, qword ptr [rbp + 1448]
- mov qword ptr [rbp + 1384], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-REGAIN-5 const head-unify leaf: rt_pl_dop_unify_cs (const in reg, one-operand marshal)
  lea rdi, [rbp + 1360]
- mov esi, 2
- call rt_pl_dop_unify@PLT
+ mov rsi, qword ptr [rip + .Lx80_2]
+ jmp .Lx80_3
+.Lx80_2:
+ .quad .Lx80_2_s
+.Lx80_2_s:
+ .string "[]"
+.Lx80_3:
+ call rt_pl_dop_unify_cs@PLT
  mov qword ptr [rbp + 1344], rax
  mov qword ptr [rbp + 1352], rdx
  cmp eax, 99
@@ -1308,15 +1310,16 @@ mov qword ptr [rbp + 1344], rax
  mov qword ptr [rbp + 1232], rax
  mov rax, qword ptr [rbp + 1288]
  mov qword ptr [rbp + 1240], rax
-# marshal arg1 = producer-box slot [zr+1312] -> [zr+1248]
- mov rax, qword ptr [rbp + 1312]
- mov qword ptr [rbp + 1248], rax
- mov rax, qword ptr [rbp + 1320]
- mov qword ptr [rbp + 1256], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-REGAIN-5 const head-unify leaf: rt_pl_dop_unify_cs (const in reg, one-operand marshal)
  lea rdi, [rbp + 1232]
- mov esi, 2
- call rt_pl_dop_unify@PLT
+ mov rsi, qword ptr [rip + .Lx133_2]
+ jmp .Lx133_3
+.Lx133_2:
+ .quad .Lx133_2_s
+.Lx133_2_s:
+ .string "[]"
+.Lx133_3:
+ call rt_pl_dop_unify_cs@PLT
  mov qword ptr [rbp + 1216], rax
  mov qword ptr [rbp + 1224], rdx
  cmp eax, 99
@@ -1373,15 +1376,16 @@ mov qword ptr [rbp + 1344], rax
  mov qword ptr [rbp + 1104], rax
  mov rax, qword ptr [rbp + 1160]
  mov qword ptr [rbp + 1112], rax
-# marshal arg1 = producer-box slot [zr+1184] -> [zr+1120]
- mov rax, qword ptr [rbp + 1184]
- mov qword ptr [rbp + 1120], rax
- mov rax, qword ptr [rbp + 1192]
- mov qword ptr [rbp + 1128], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-REGAIN-5 const head-unify leaf: rt_pl_dop_unify_cs (const in reg, one-operand marshal)
  lea rdi, [rbp + 1104]
- mov esi, 2
- call rt_pl_dop_unify@PLT
+ mov rsi, qword ptr [rip + .Lx140_2]
+ jmp .Lx140_3
+.Lx140_2:
+ .quad .Lx140_2_s
+.Lx140_2_s:
+ .string "[]"
+.Lx140_3:
+ call rt_pl_dop_unify_cs@PLT
  mov qword ptr [rbp + 1088], rax
  mov qword ptr [rbp + 1096], rdx
  cmp eax, 99
@@ -1816,15 +1820,16 @@ mov qword ptr [rbp + 1360], rax
  mov qword ptr [rbp + 1248], rax
  mov rax, qword ptr [rbp + 1304]
  mov qword ptr [rbp + 1256], rax
-# marshal arg1 = producer-box slot [zr+1328] -> [zr+1264]
- mov rax, qword ptr [rbp + 1328]
- mov qword ptr [rbp + 1264], rax
- mov rax, qword ptr [rbp + 1336]
- mov qword ptr [rbp + 1272], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-REGAIN-5 const head-unify leaf: rt_pl_dop_unify_cs (const in reg, one-operand marshal)
  lea rdi, [rbp + 1248]
- mov esi, 2
- call rt_pl_dop_unify@PLT
+ mov rsi, qword ptr [rip + .Lx180_2]
+ jmp .Lx180_3
+.Lx180_2:
+ .quad .Lx180_2_s
+.Lx180_2_s:
+ .string "[]"
+.Lx180_3:
+ call rt_pl_dop_unify_cs@PLT
  mov qword ptr [rbp + 1232], rax
  mov qword ptr [rbp + 1240], rdx
  cmp eax, 99
@@ -1879,15 +1884,10 @@ mov qword ptr [rbp + 1360], rax
  mov qword ptr [rbp + 1120], rax
  mov rax, qword ptr [rbp + 1176]
  mov qword ptr [rbp + 1128], rax
-# marshal arg1 = producer-box slot [zr+1200] -> [zr+1136]
- mov rax, qword ptr [rbp + 1200]
- mov qword ptr [rbp + 1136], rax
- mov rax, qword ptr [rbp + 1208]
- mov qword ptr [rbp + 1144], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-REGAIN-5 const head-unify leaf: rt_pl_dop_unify_ci (const in reg, one-operand marshal)
  lea rdi, [rbp + 1120]
- mov esi, 2
- call rt_pl_dop_unify@PLT
+ movabs rsi, 0
+ call rt_pl_dop_unify_ci@PLT
  mov qword ptr [rbp + 1104], rax
  mov qword ptr [rbp + 1112], rdx
  cmp eax, 99
