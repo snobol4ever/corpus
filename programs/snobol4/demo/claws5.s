@@ -2524,11 +2524,8 @@ xchain88_n107_af:
  cmp eax, r15d
  jg xchain88_n111_β
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S0]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 39
  jne xchain88_n111_β
  add r14d, 1
  jmp xchain88_n107_as
@@ -5686,7 +5683,7 @@ xchain396_n2_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain396_n7_α:
  mov eax, dword ptr [rsp + 0]
- lea rcx, [rip + .S1]
+ lea rcx, [rip + .S0]
  mov qword ptr [r12 + 0], rcx
  mov esi, eax
  mov qword ptr [r12 + 8], rsi
@@ -6015,7 +6012,7 @@ xchain396_n2_af:
  push r15
  push r13
  sub rsp, 8
- lea rdi, [rip + .S2]
+ lea rdi, [rip + .S1]
  xor esi, esi
  call rt_defer_open@PLT
 .Lx434_2:
@@ -7231,7 +7228,6 @@ mov rbp, [rsp + 65536]
 add rsp, 65544
 ret
 .section .rodata
-.S0: .string "'"
-.S1: .string "nl"
-.S2: .string "claws"
+.S0: .string "nl"
+.S1: .string "claws"
 .text

@@ -10037,11 +10037,8 @@ xchain635_n1_af:
  cmp eax, r15d
  jg xchain635_n1_af
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S1]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 40
  jne xchain635_n1_af
  add r14d, 1
  jmp xchain635_n4_α
@@ -10095,11 +10092,8 @@ xchain635_n1_af:
  cmp eax, r15d
  jg xchain635_n4_β
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 41
  jne xchain635_n4_β
  add r14d, 1
  jmp xchain635_n1_as
@@ -10396,11 +10390,8 @@ xchain666_n1_af:
  cmp eax, r15d
  jg xchain666_n1_af
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S1]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 40
  jne xchain666_n1_af
  add r14d, 1
  jmp xchain666_n4_α
@@ -10454,11 +10445,8 @@ xchain666_n1_af:
  cmp eax, r15d
  jg xchain666_n4_β
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 41
  jne xchain666_n4_β
  add r14d, 1
  jmp xchain666_n1_as
@@ -10755,11 +10743,8 @@ xchain697_n1_af:
  cmp eax, r15d
  jg xchain697_n1_af
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S1]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 40
  jne xchain697_n1_af
  add r14d, 1
  jmp xchain697_n4_α
@@ -10813,11 +10798,8 @@ xchain697_n1_af:
  cmp eax, r15d
  jg xchain697_n4_β
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 41
  jne xchain697_n4_β
  add r14d, 1
  jmp xchain697_n1_as
@@ -11114,11 +11096,8 @@ xchain728_n1_af:
  cmp eax, r15d
  jg xchain728_n1_af
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S1]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 40
  jne xchain728_n1_af
  add r14d, 1
  jmp xchain728_n4_α
@@ -11172,11 +11151,8 @@ xchain728_n1_af:
  cmp eax, r15d
  jg xchain728_n4_β
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 41
  jne xchain728_n4_β
  add r14d, 1
  jmp xchain728_n1_as
@@ -11473,11 +11449,8 @@ xchain759_n1_af:
  cmp eax, r15d
  jg xchain759_n1_af
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S1]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 40
  jne xchain759_n1_af
  add r14d, 1
  jmp xchain759_n4_α
@@ -11531,11 +11504,8 @@ xchain759_n1_af:
  cmp eax, r15d
  jg xchain759_n4_β
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 41
  jne xchain759_n4_β
  add r14d, 1
  jmp xchain759_n1_as
@@ -11832,11 +11802,8 @@ xchain790_n1_af:
  cmp eax, r15d
  jg xchain790_n1_af
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S1]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 40
  jne xchain790_n1_af
  add r14d, 1
  jmp xchain790_n4_α
@@ -11890,11 +11857,8 @@ xchain790_n1_af:
  cmp eax, r15d
  jg xchain790_n4_β
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 41
  jne xchain790_n4_β
  add r14d, 1
  jmp xchain790_n1_as
@@ -12191,11 +12155,8 @@ xchain821_n1_af:
  cmp eax, r15d
  jg xchain821_n1_af
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S1]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 40
  jne xchain821_n1_af
  add r14d, 1
  jmp xchain821_n4_α
@@ -12249,11 +12210,8 @@ xchain821_n1_af:
  cmp eax, r15d
  jg xchain821_n4_β
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 41
  jne xchain821_n4_β
  add r14d, 1
  jmp xchain821_n1_as
@@ -12550,11 +12508,8 @@ xchain852_n1_af:
  cmp eax, r15d
  jg xchain852_n1_af
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S1]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 40
  jne xchain852_n1_af
  add r14d, 1
  jmp xchain852_n4_α
@@ -12608,11 +12563,8 @@ xchain852_n1_af:
  cmp eax, r15d
  jg xchain852_n4_β
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 41
  jne xchain852_n4_β
  add r14d, 1
  jmp xchain852_n1_as
@@ -12909,11 +12861,8 @@ xchain883_n1_af:
  cmp eax, r15d
  jg xchain883_n1_af
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S1]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 40
  jne xchain883_n1_af
  add r14d, 1
  jmp xchain883_n4_α
@@ -12967,11 +12916,8 @@ xchain883_n1_af:
  cmp eax, r15d
  jg xchain883_n4_β
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 41
  jne xchain883_n4_β
  add r14d, 1
  jmp xchain883_n1_as
@@ -13268,11 +13214,8 @@ xchain914_n1_af:
  cmp eax, r15d
  jg xchain914_n1_af
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S1]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 40
  jne xchain914_n1_af
  add r14d, 1
  jmp xchain914_n4_α
@@ -13326,11 +13269,8 @@ xchain914_n1_af:
  cmp eax, r15d
  jg xchain914_n4_β
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 41
  jne xchain914_n4_β
  add r14d, 1
  jmp xchain914_n1_as
@@ -13627,11 +13567,8 @@ xchain945_n1_af:
  cmp eax, r15d
  jg xchain945_n1_af
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S1]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 40
  jne xchain945_n1_af
  add r14d, 1
  jmp xchain945_n4_α
@@ -13685,11 +13622,8 @@ xchain945_n1_af:
  cmp eax, r15d
  jg xchain945_n4_β
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 41
  jne xchain945_n4_β
  add r14d, 1
  jmp xchain945_n1_as
@@ -13986,11 +13920,8 @@ xchain976_n1_af:
  cmp eax, r15d
  jg xchain976_n1_af
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S1]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 40
  jne xchain976_n1_af
  add r14d, 1
  jmp xchain976_n4_α
@@ -14044,11 +13975,8 @@ xchain976_n1_af:
  cmp eax, r15d
  jg xchain976_n4_β
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 41
  jne xchain976_n4_β
  add r14d, 1
  jmp xchain976_n1_as
@@ -14345,11 +14273,8 @@ xchain1007_n1_af:
  cmp eax, r15d
  jg xchain1007_n1_af
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S1]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 40
  jne xchain1007_n1_af
  add r14d, 1
  jmp xchain1007_n4_α
@@ -14403,11 +14328,8 @@ xchain1007_n1_af:
  cmp eax, r15d
  jg xchain1007_n4_β
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 41
  jne xchain1007_n4_β
  add r14d, 1
  jmp xchain1007_n1_as
@@ -14704,11 +14626,8 @@ xchain1038_n1_af:
  cmp eax, r15d
  jg xchain1038_n1_af
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S1]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 40
  jne xchain1038_n1_af
  add r14d, 1
  jmp xchain1038_n4_α
@@ -14762,11 +14681,8 @@ xchain1038_n1_af:
  cmp eax, r15d
  jg xchain1038_n4_β
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 41
  jne xchain1038_n4_β
  add r14d, 1
  jmp xchain1038_n1_as
@@ -15063,11 +14979,8 @@ xchain1069_n1_af:
  cmp eax, r15d
  jg xchain1069_n1_af
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S1]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 40
  jne xchain1069_n1_af
  add r14d, 1
  jmp xchain1069_n4_α
@@ -15121,11 +15034,8 @@ xchain1069_n1_af:
  cmp eax, r15d
  jg xchain1069_n4_β
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 41
  jne xchain1069_n4_β
  add r14d, 1
  jmp xchain1069_n1_as
@@ -15422,11 +15332,8 @@ xchain1100_n1_af:
  cmp eax, r15d
  jg xchain1100_n1_af
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S1]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 40
  jne xchain1100_n1_af
  add r14d, 1
  jmp xchain1100_n4_α
@@ -15480,11 +15387,8 @@ xchain1100_n1_af:
  cmp eax, r15d
  jg xchain1100_n4_β
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 41
  jne xchain1100_n4_β
  add r14d, 1
  jmp xchain1100_n1_as
@@ -15781,11 +15685,8 @@ xchain1131_n1_af:
  cmp eax, r15d
  jg xchain1131_n1_af
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S1]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 40
  jne xchain1131_n1_af
  add r14d, 1
  jmp xchain1131_n4_α
@@ -15839,11 +15740,8 @@ xchain1131_n1_af:
  cmp eax, r15d
  jg xchain1131_n4_β
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 41
  jne xchain1131_n4_β
  add r14d, 1
  jmp xchain1131_n1_as
@@ -16140,11 +16038,8 @@ xchain1162_n1_af:
  cmp eax, r15d
  jg xchain1162_n1_af
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S1]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 40
  jne xchain1162_n1_af
  add r14d, 1
  jmp xchain1162_n4_α
@@ -16198,11 +16093,8 @@ xchain1162_n1_af:
  cmp eax, r15d
  jg xchain1162_n4_β
  movsxd rcx, r14d
- lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
- mov edx, 1
- call memcmp@PLT
- test eax, eax
+ movzx eax, byte ptr [r13+rcx]
+ cmp eax, 41
  jne xchain1162_n4_β
  add r14d, 1
  jmp xchain1162_n1_as
@@ -19493,7 +19385,7 @@ xchain1175_n2_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain1175_n7_α:
  mov eax, dword ptr [rsp + 0]
- lea rcx, [rip + .S3]
+ lea rcx, [rip + .S1]
  mov qword ptr [r12 + 0], rcx
  mov esi, eax
  mov qword ptr [r12 + 8], rsi
@@ -20586,7 +20478,7 @@ xchain1175_n2_af:
  push r15
  push r13
  sub rsp, 8
- lea rdi, [rip + .S4]
+ lea rdi, [rip + .S2]
  xor esi, esi
  call rt_defer_open@PLT
 .Lx1265_2:
@@ -21273,7 +21165,7 @@ xchain1175_n2_af:
  push r15
  push r13
  sub rsp, 8
- lea rdi, [rip + .S5]
+ lea rdi, [rip + .S3]
  xor esi, esi
  call rt_defer_open@PLT
 .Lx1294_2:
@@ -21783,9 +21675,7 @@ add rsp, 65544
 ret
 .section .rodata
 .S0: .string "item"
-.S1: .string "("
-.S2: .string ")"
-.S3: .string "nl"
-.S4: .string "spat"
-.S5: .string "group"
+.S1: .string "nl"
+.S2: .string "spat"
+.S3: .string "group"
 .text
