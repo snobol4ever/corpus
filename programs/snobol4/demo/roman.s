@@ -409,6 +409,7 @@ xchain0_n13_af:
 # IR_MATCH_BREAK
  xchain0_n18_α:
  sub rsp, 16
+ lea rdi, [rip + .C0]
  mov dword ptr [rsp + 0], 0
 .Lx31_0:
  mov eax, r14d
@@ -421,9 +422,7 @@ xchain0_n13_af:
 .Lx31_240:
  movsxd rcx, eax
  movzx esi, byte ptr [r13+rcx]
- lea rdi, [rip + .S1]
- call strchr@PLT
- test rax, rax
+ cmp byte ptr [rdi+rsi], 0
  jnz .Lx31_1
  add dword ptr [rsp + 0], 1
  jmp .Lx31_0
@@ -567,5 +566,23 @@ add rsp, 65544
 ret
 .section .rodata
 .S0: .string "UNITS"
-.S1: .string ","
+.text
+.section .rodata
+.C0:
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 .text

@@ -19048,7 +19048,7 @@ xchain972_n2_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain972_n7_α:
  mov eax, dword ptr [rsp + 0]
- lea rcx, [rip + .S1]
+ lea rcx, [rip + .S0]
  mov qword ptr [r12 + 0], rcx
  mov esi, eax
  mov qword ptr [r12 + 8], rsi
@@ -19855,7 +19855,7 @@ xchain972_n2_af:
  push r15
  push r13
  sub rsp, 8
- lea rdi, [rip + .S2]
+ lea rdi, [rip + .S1]
  xor esi, esi
  call rt_defer_open@PLT
 .Lx1039_2:
@@ -21094,7 +21094,6 @@ mov rbp, [rsp + 65536]
 add rsp, 65544
 ret
 .section .rodata
-.S0: .string ""
-.S1: .string "nl"
-.S2: .string "treebank"
+.S0: .string "nl"
+.S1: .string "treebank"
 .text

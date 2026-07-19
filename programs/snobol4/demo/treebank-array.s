@@ -10018,7 +10018,7 @@ xchain635_n1_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain635_n2_α:
  mov eax, dword ptr [rsp + 16]
- lea rcx, [rip + .S1]
+ lea rcx, [rip + .S0]
  mov qword ptr [r12 + 0], rcx
  mov esi, eax
  mov qword ptr [r12 + 8], rsi
@@ -10038,7 +10038,7 @@ xchain635_n1_af:
  jg xchain635_n1_af
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
+ lea rsi, [rip + .S1]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -10096,7 +10096,7 @@ xchain635_n1_af:
  jg xchain635_n4_β
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S3]
+ lea rsi, [rip + .S2]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -10377,7 +10377,7 @@ xchain666_n1_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain666_n2_α:
  mov eax, dword ptr [rsp + 16]
- lea rcx, [rip + .S1]
+ lea rcx, [rip + .S0]
  mov qword ptr [r12 + 0], rcx
  mov esi, eax
  mov qword ptr [r12 + 8], rsi
@@ -10397,7 +10397,7 @@ xchain666_n1_af:
  jg xchain666_n1_af
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
+ lea rsi, [rip + .S1]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -10455,7 +10455,7 @@ xchain666_n1_af:
  jg xchain666_n4_β
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S3]
+ lea rsi, [rip + .S2]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -10736,7 +10736,7 @@ xchain697_n1_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain697_n2_α:
  mov eax, dword ptr [rsp + 16]
- lea rcx, [rip + .S1]
+ lea rcx, [rip + .S0]
  mov qword ptr [r12 + 0], rcx
  mov esi, eax
  mov qword ptr [r12 + 8], rsi
@@ -10756,7 +10756,7 @@ xchain697_n1_af:
  jg xchain697_n1_af
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
+ lea rsi, [rip + .S1]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -10814,7 +10814,7 @@ xchain697_n1_af:
  jg xchain697_n4_β
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S3]
+ lea rsi, [rip + .S2]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -11095,7 +11095,7 @@ xchain728_n1_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain728_n2_α:
  mov eax, dword ptr [rsp + 16]
- lea rcx, [rip + .S1]
+ lea rcx, [rip + .S0]
  mov qword ptr [r12 + 0], rcx
  mov esi, eax
  mov qword ptr [r12 + 8], rsi
@@ -11115,7 +11115,7 @@ xchain728_n1_af:
  jg xchain728_n1_af
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
+ lea rsi, [rip + .S1]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -11173,7 +11173,7 @@ xchain728_n1_af:
  jg xchain728_n4_β
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S3]
+ lea rsi, [rip + .S2]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -11454,7 +11454,7 @@ xchain759_n1_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain759_n2_α:
  mov eax, dword ptr [rsp + 16]
- lea rcx, [rip + .S1]
+ lea rcx, [rip + .S0]
  mov qword ptr [r12 + 0], rcx
  mov esi, eax
  mov qword ptr [r12 + 8], rsi
@@ -11474,7 +11474,7 @@ xchain759_n1_af:
  jg xchain759_n1_af
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
+ lea rsi, [rip + .S1]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -11532,7 +11532,7 @@ xchain759_n1_af:
  jg xchain759_n4_β
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S3]
+ lea rsi, [rip + .S2]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -11813,7 +11813,7 @@ xchain790_n1_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain790_n2_α:
  mov eax, dword ptr [rsp + 16]
- lea rcx, [rip + .S1]
+ lea rcx, [rip + .S0]
  mov qword ptr [r12 + 0], rcx
  mov esi, eax
  mov qword ptr [r12 + 8], rsi
@@ -11833,7 +11833,7 @@ xchain790_n1_af:
  jg xchain790_n1_af
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
+ lea rsi, [rip + .S1]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -11891,7 +11891,7 @@ xchain790_n1_af:
  jg xchain790_n4_β
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S3]
+ lea rsi, [rip + .S2]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -12172,7 +12172,7 @@ xchain821_n1_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain821_n2_α:
  mov eax, dword ptr [rsp + 16]
- lea rcx, [rip + .S1]
+ lea rcx, [rip + .S0]
  mov qword ptr [r12 + 0], rcx
  mov esi, eax
  mov qword ptr [r12 + 8], rsi
@@ -12192,7 +12192,7 @@ xchain821_n1_af:
  jg xchain821_n1_af
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
+ lea rsi, [rip + .S1]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -12250,7 +12250,7 @@ xchain821_n1_af:
  jg xchain821_n4_β
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S3]
+ lea rsi, [rip + .S2]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -12531,7 +12531,7 @@ xchain852_n1_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain852_n2_α:
  mov eax, dword ptr [rsp + 16]
- lea rcx, [rip + .S1]
+ lea rcx, [rip + .S0]
  mov qword ptr [r12 + 0], rcx
  mov esi, eax
  mov qword ptr [r12 + 8], rsi
@@ -12551,7 +12551,7 @@ xchain852_n1_af:
  jg xchain852_n1_af
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
+ lea rsi, [rip + .S1]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -12609,7 +12609,7 @@ xchain852_n1_af:
  jg xchain852_n4_β
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S3]
+ lea rsi, [rip + .S2]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -12890,7 +12890,7 @@ xchain883_n1_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain883_n2_α:
  mov eax, dword ptr [rsp + 16]
- lea rcx, [rip + .S1]
+ lea rcx, [rip + .S0]
  mov qword ptr [r12 + 0], rcx
  mov esi, eax
  mov qword ptr [r12 + 8], rsi
@@ -12910,7 +12910,7 @@ xchain883_n1_af:
  jg xchain883_n1_af
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
+ lea rsi, [rip + .S1]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -12968,7 +12968,7 @@ xchain883_n1_af:
  jg xchain883_n4_β
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S3]
+ lea rsi, [rip + .S2]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -13249,7 +13249,7 @@ xchain914_n1_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain914_n2_α:
  mov eax, dword ptr [rsp + 16]
- lea rcx, [rip + .S1]
+ lea rcx, [rip + .S0]
  mov qword ptr [r12 + 0], rcx
  mov esi, eax
  mov qword ptr [r12 + 8], rsi
@@ -13269,7 +13269,7 @@ xchain914_n1_af:
  jg xchain914_n1_af
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
+ lea rsi, [rip + .S1]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -13327,7 +13327,7 @@ xchain914_n1_af:
  jg xchain914_n4_β
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S3]
+ lea rsi, [rip + .S2]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -13608,7 +13608,7 @@ xchain945_n1_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain945_n2_α:
  mov eax, dword ptr [rsp + 16]
- lea rcx, [rip + .S1]
+ lea rcx, [rip + .S0]
  mov qword ptr [r12 + 0], rcx
  mov esi, eax
  mov qword ptr [r12 + 8], rsi
@@ -13628,7 +13628,7 @@ xchain945_n1_af:
  jg xchain945_n1_af
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
+ lea rsi, [rip + .S1]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -13686,7 +13686,7 @@ xchain945_n1_af:
  jg xchain945_n4_β
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S3]
+ lea rsi, [rip + .S2]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -13967,7 +13967,7 @@ xchain976_n1_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain976_n2_α:
  mov eax, dword ptr [rsp + 16]
- lea rcx, [rip + .S1]
+ lea rcx, [rip + .S0]
  mov qword ptr [r12 + 0], rcx
  mov esi, eax
  mov qword ptr [r12 + 8], rsi
@@ -13987,7 +13987,7 @@ xchain976_n1_af:
  jg xchain976_n1_af
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
+ lea rsi, [rip + .S1]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -14045,7 +14045,7 @@ xchain976_n1_af:
  jg xchain976_n4_β
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S3]
+ lea rsi, [rip + .S2]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -14326,7 +14326,7 @@ xchain1007_n1_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain1007_n2_α:
  mov eax, dword ptr [rsp + 16]
- lea rcx, [rip + .S1]
+ lea rcx, [rip + .S0]
  mov qword ptr [r12 + 0], rcx
  mov esi, eax
  mov qword ptr [r12 + 8], rsi
@@ -14346,7 +14346,7 @@ xchain1007_n1_af:
  jg xchain1007_n1_af
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
+ lea rsi, [rip + .S1]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -14404,7 +14404,7 @@ xchain1007_n1_af:
  jg xchain1007_n4_β
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S3]
+ lea rsi, [rip + .S2]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -14685,7 +14685,7 @@ xchain1038_n1_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain1038_n2_α:
  mov eax, dword ptr [rsp + 16]
- lea rcx, [rip + .S1]
+ lea rcx, [rip + .S0]
  mov qword ptr [r12 + 0], rcx
  mov esi, eax
  mov qword ptr [r12 + 8], rsi
@@ -14705,7 +14705,7 @@ xchain1038_n1_af:
  jg xchain1038_n1_af
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
+ lea rsi, [rip + .S1]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -14763,7 +14763,7 @@ xchain1038_n1_af:
  jg xchain1038_n4_β
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S3]
+ lea rsi, [rip + .S2]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -15044,7 +15044,7 @@ xchain1069_n1_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain1069_n2_α:
  mov eax, dword ptr [rsp + 16]
- lea rcx, [rip + .S1]
+ lea rcx, [rip + .S0]
  mov qword ptr [r12 + 0], rcx
  mov esi, eax
  mov qword ptr [r12 + 8], rsi
@@ -15064,7 +15064,7 @@ xchain1069_n1_af:
  jg xchain1069_n1_af
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
+ lea rsi, [rip + .S1]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -15122,7 +15122,7 @@ xchain1069_n1_af:
  jg xchain1069_n4_β
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S3]
+ lea rsi, [rip + .S2]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -15403,7 +15403,7 @@ xchain1100_n1_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain1100_n2_α:
  mov eax, dword ptr [rsp + 16]
- lea rcx, [rip + .S1]
+ lea rcx, [rip + .S0]
  mov qword ptr [r12 + 0], rcx
  mov esi, eax
  mov qword ptr [r12 + 8], rsi
@@ -15423,7 +15423,7 @@ xchain1100_n1_af:
  jg xchain1100_n1_af
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
+ lea rsi, [rip + .S1]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -15481,7 +15481,7 @@ xchain1100_n1_af:
  jg xchain1100_n4_β
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S3]
+ lea rsi, [rip + .S2]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -15762,7 +15762,7 @@ xchain1131_n1_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain1131_n2_α:
  mov eax, dword ptr [rsp + 16]
- lea rcx, [rip + .S1]
+ lea rcx, [rip + .S0]
  mov qword ptr [r12 + 0], rcx
  mov esi, eax
  mov qword ptr [r12 + 8], rsi
@@ -15782,7 +15782,7 @@ xchain1131_n1_af:
  jg xchain1131_n1_af
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
+ lea rsi, [rip + .S1]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -15840,7 +15840,7 @@ xchain1131_n1_af:
  jg xchain1131_n4_β
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S3]
+ lea rsi, [rip + .S2]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -16121,7 +16121,7 @@ xchain1162_n1_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain1162_n2_α:
  mov eax, dword ptr [rsp + 16]
- lea rcx, [rip + .S1]
+ lea rcx, [rip + .S0]
  mov qword ptr [r12 + 0], rcx
  mov esi, eax
  mov qword ptr [r12 + 8], rsi
@@ -16141,7 +16141,7 @@ xchain1162_n1_af:
  jg xchain1162_n1_af
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S2]
+ lea rsi, [rip + .S1]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -16199,7 +16199,7 @@ xchain1162_n1_af:
  jg xchain1162_n4_β
  movsxd rcx, r14d
  lea rdi, [r13 + rcx]
- lea rsi, [rip + .S3]
+ lea rsi, [rip + .S2]
  mov edx, 1
  call memcmp@PLT
  test eax, eax
@@ -19493,7 +19493,7 @@ xchain1175_n2_af:
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain1175_n7_α:
  mov eax, dword ptr [rsp + 0]
- lea rcx, [rip + .S4]
+ lea rcx, [rip + .S3]
  mov qword ptr [r12 + 0], rcx
  mov esi, eax
  mov qword ptr [r12 + 8], rsi
@@ -20586,7 +20586,7 @@ xchain1175_n2_af:
  push r15
  push r13
  sub rsp, 8
- lea rdi, [rip + .S5]
+ lea rdi, [rip + .S4]
  xor esi, esi
  call rt_defer_open@PLT
 .Lx1265_2:
@@ -21273,7 +21273,7 @@ xchain1175_n2_af:
  push r15
  push r13
  sub rsp, 8
- lea rdi, [rip + .S6]
+ lea rdi, [rip + .S5]
  xor esi, esi
  call rt_defer_open@PLT
 .Lx1294_2:
@@ -21782,11 +21782,10 @@ mov rbp, [rsp + 65536]
 add rsp, 65544
 ret
 .section .rodata
-.S0: .string ""
-.S1: .string "item"
-.S2: .string "("
-.S3: .string ")"
-.S4: .string "nl"
-.S5: .string "spat"
-.S6: .string "group"
+.S0: .string "item"
+.S1: .string "("
+.S2: .string ")"
+.S3: .string "nl"
+.S4: .string "spat"
+.S5: .string "group"
 .text
