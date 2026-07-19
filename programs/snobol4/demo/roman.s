@@ -144,7 +144,7 @@ xchain0_n2_af:
  jmp xchain0_n9_α
  xchain0_n6_β:
  add rsp, 16
- jmp xchain0_n5_β
+ jmp xchain0_n2_af
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain0_n7_α:
  mov eax, dword ptr [rsp + 0]
@@ -177,12 +177,16 @@ xchain0_n2_af:
  mov eax, r14d
  add eax, 1
  cmp eax, r15d
- jg xchain0_n6_β
+ jle .Lx15_240
+ add rsp, 16
+ jmp xchain0_n2_af
+.Lx15_240:
  add r14d, 1
  jmp xchain0_n7_α
  xchain0_n9_β:
  sub r14d, 1
- jmp xchain0_n6_β
+ add rsp, 16
+ jmp xchain0_n2_af
 # IR_MATCH_REPLACE
  xchain0_n10_α:
  mov rdi, qword ptr [rip + .Lx17_0]
@@ -412,7 +416,8 @@ xchain0_n13_af:
  cmp eax, r15d
  jl .Lx31_240
  add rsp, 16
- jmp xchain0_n16_β
+ add rsp, 16
+ jmp xchain0_n13_af
 .Lx31_240:
  movsxd rcx, eax
  movzx esi, byte ptr [r13+rcx]
@@ -432,7 +437,8 @@ xchain0_n13_af:
  sub eax, dword ptr [rsp + 0]
  mov r14d, eax
  add rsp, 16
- jmp xchain0_n16_β
+ add rsp, 16
+ jmp xchain0_n13_af
 proc_ROMAN_res:
 add rsp, 8
 pop rbp

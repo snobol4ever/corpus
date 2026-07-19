@@ -31,6 +31,8 @@ main_α_body:
  xchain0_n0_α:
  mov rdi, qword ptr [rip + .Lx1_0]
  call rt_keyword_read@PLT
+ cmp eax, 99
+ je main_ω
  mov qword ptr [rbp + 64], rax
  mov qword ptr [rbp + 72], rdx
  jmp xchain0_n1_α
