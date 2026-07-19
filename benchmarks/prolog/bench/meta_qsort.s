@@ -1104,10 +1104,10 @@ mov qword ptr [rbp + 5472], rax
  mov qword ptr [rbp + 4208], rax
  mov qword ptr [rbp + 4216], rdx
  cmp eax, 99
- je xchain25_n16_α
+ je xchain25_n32_β
  jmp xchain25_n63_α
  xchain25_n59_β:
- jmp xchain25_n16_α
+ jmp xchain25_n32_β
  xchain25_n60_α:
  mov qword ptr [rbp + 3472], 0
  mov edi, 0
@@ -1204,10 +1204,10 @@ mov qword ptr [rbp + 5472], rax
  mov qword ptr [rbp + 4048], rax
  mov qword ptr [rbp + 4056], rdx
  cmp eax, 99
- je xchain25_n16_α
+ je xchain25_n32_β
  jmp xchain25_n55_α
  xchain25_n63_β:
- jmp xchain25_n16_α
+ jmp xchain25_n32_β
 # IR_SUSPEND yield+resume
  xchain25_n64_α:
  lea rax, [rip + xchain25_n64_β]
