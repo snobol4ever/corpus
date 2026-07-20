@@ -317,6 +317,7 @@ xchain0_n13_af:
 .Lx25_10:
  test rax, rax
  jz .Lx25_0
+ mov r8d, 0
  lea rcx, [rip + .Lx25_4]
  lea rdx, [rip + .Lx25_5]
  jmp rax
