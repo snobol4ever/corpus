@@ -6000,6 +6000,7 @@ xchain396_n2_af:
 .Lx434_10:
  test rax, rax
  jz .Lx434_0
+ mov r8d, 0
  lea rcx, [rip + .Lx434_4]
  lea rdx, [rip + .Lx434_5]
  jmp rax

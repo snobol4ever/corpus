@@ -10824,6 +10824,9 @@ proc_PAT$0_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 136], rsp
+mov qword ptr [rbp + 144], r8
+mov dword ptr [rbp + 136], r14d
+proc_PAT$0_attempt:
 proc_PAT$0_α_body:
 lea rax, [rip + xchain630_n2_β]
 mov qword ptr [rbp + 112], rax
@@ -10863,18 +10866,42 @@ mov qword ptr [rbp + 112], rax
  test eax, eax
  jg .Lx635_240
  add rsp, 16
- jmp proc_PAT$0_ω
+ jmp proc_PAT$0_scanfail
 .Lx635_240:
  mov edx, r14d
  mov dword ptr [rsp + 4], edx
  add edx, eax
  mov r14d, edx
- jmp proc_PAT$0_γ
+ jmp proc_PAT$0_scanhit
  xchain630_n2_β:
  xchain630_n2_β:
  mov r14d, dword ptr [rsp + 4]
  add rsp, 16
- jmp proc_PAT$0_ω
+ jmp proc_PAT$0_scanfail
+proc_PAT$0_scanhit:
+cmp qword ptr [rbp + 144], 1
+jne 7f
+mov ecx, dword ptr [rbp + 136]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$0_γ
+proc_PAT$0_scanfail:
+cmp qword ptr [rbp + 144], 1
+jne 8f
+mov eax, dword ptr [rbp + 136]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 136], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$0_attempt
+8:
+jmp proc_PAT$0_ω
 proc_PAT$0_res:
 add rsp, 8
 pop rbp
@@ -10909,6 +10936,9 @@ proc_PAT$1_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 248], rsp
+mov qword ptr [rbp + 256], r8
+mov dword ptr [rbp + 248], r14d
+proc_PAT$1_attempt:
 proc_PAT$1_α_body:
 lea rax, [rip + xchain636_n4_β]
 mov qword ptr [rbp + 224], rax
@@ -10920,7 +10950,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 200], rdx
  jmp xchain636_n1_α
  xchain636_n0_β:
- jmp proc_PAT$1_ω
+ jmp proc_PAT$1_scanfail
 # IR_COERCE_STRING
  xchain636_n1_α:
  lea rdi, [rbp + 192]
@@ -10929,7 +10959,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain636_n2_α
  xchain636_n1_β:
- jmp proc_PAT$1_ω
+ jmp proc_PAT$1_scanfail
 # IR_VAR
  xchain636_n2_α:
  mov rax, qword ptr [1879054560]
@@ -10938,7 +10968,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 136], rdx
  jmp xchain636_n3_α
  xchain636_n2_β:
- jmp proc_PAT$1_ω
+ jmp proc_PAT$1_scanfail
 # IR_COERCE_STRING
  xchain636_n3_α:
  lea rdi, [rbp + 128]
@@ -10947,7 +10977,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain636_n4_α
  xchain636_n3_β:
- jmp proc_PAT$1_ω
+ jmp proc_PAT$1_scanfail
 # IR_MATCH_SEQ_NARY (ZB-FC-3b: zero cell, LIFO-structural)
  xchain636_n4_α:
  jmp xchain636_n5_α
@@ -11004,6 +11034,30 @@ xchain636_n4_af:
  mov r14d, eax
  add rsp, 16
  jmp xchain636_n5_β
+proc_PAT$1_scanhit:
+cmp qword ptr [rbp + 256], 1
+jne 7f
+mov ecx, dword ptr [rbp + 248]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$1_γ
+proc_PAT$1_scanfail:
+cmp qword ptr [rbp + 256], 1
+jne 8f
+mov eax, dword ptr [rbp + 248]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 248], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$1_attempt
+8:
+jmp proc_PAT$1_ω
 proc_PAT$1_res:
 add rsp, 8
 pop rbp
@@ -11038,6 +11092,9 @@ proc_PAT$2_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 136], rsp
+mov qword ptr [rbp + 144], r8
+mov dword ptr [rbp + 136], r14d
+proc_PAT$2_attempt:
 proc_PAT$2_α_body:
 lea rax, [rip + xchain648_n2_β]
 mov qword ptr [rbp + 112], rax
@@ -11077,18 +11134,42 @@ mov qword ptr [rbp + 112], rax
  test eax, eax
  jg .Lx653_240
  add rsp, 16
- jmp proc_PAT$2_ω
+ jmp proc_PAT$2_scanfail
 .Lx653_240:
  mov edx, r14d
  mov dword ptr [rsp + 4], edx
  add edx, eax
  mov r14d, edx
- jmp proc_PAT$2_γ
+ jmp proc_PAT$2_scanhit
  xchain648_n2_β:
  xchain648_n2_β:
  mov r14d, dword ptr [rsp + 4]
  add rsp, 16
- jmp proc_PAT$2_ω
+ jmp proc_PAT$2_scanfail
+proc_PAT$2_scanhit:
+cmp qword ptr [rbp + 144], 1
+jne 7f
+mov ecx, dword ptr [rbp + 136]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$2_γ
+proc_PAT$2_scanfail:
+cmp qword ptr [rbp + 144], 1
+jne 8f
+mov eax, dword ptr [rbp + 136]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 136], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$2_attempt
+8:
+jmp proc_PAT$2_ω
 proc_PAT$2_res:
 add rsp, 8
 pop rbp
@@ -11123,6 +11204,9 @@ proc_PAT$3_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 248], rsp
+mov qword ptr [rbp + 256], r8
+mov dword ptr [rbp + 248], r14d
+proc_PAT$3_attempt:
 proc_PAT$3_α_body:
 lea rax, [rip + xchain654_n4_β]
 mov qword ptr [rbp + 224], rax
@@ -11134,7 +11218,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 200], rdx
  jmp xchain654_n1_α
  xchain654_n0_β:
- jmp proc_PAT$3_ω
+ jmp proc_PAT$3_scanfail
 # IR_COERCE_STRING
  xchain654_n1_α:
  lea rdi, [rbp + 192]
@@ -11143,7 +11227,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain654_n2_α
  xchain654_n1_β:
- jmp proc_PAT$3_ω
+ jmp proc_PAT$3_scanfail
 # IR_VAR
  xchain654_n2_α:
  mov rax, qword ptr [1879054608]
@@ -11152,7 +11236,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 136], rdx
  jmp xchain654_n3_α
  xchain654_n2_β:
- jmp proc_PAT$3_ω
+ jmp proc_PAT$3_scanfail
 # IR_COERCE_STRING
  xchain654_n3_α:
  lea rdi, [rbp + 128]
@@ -11161,7 +11245,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain654_n4_α
  xchain654_n3_β:
- jmp proc_PAT$3_ω
+ jmp proc_PAT$3_scanfail
 # IR_MATCH_SEQ_NARY (ZB-FC-3b: zero cell, LIFO-structural)
  xchain654_n4_α:
  jmp xchain654_n5_α
@@ -11218,6 +11302,30 @@ xchain654_n4_af:
  mov r14d, eax
  add rsp, 16
  jmp xchain654_n5_β
+proc_PAT$3_scanhit:
+cmp qword ptr [rbp + 256], 1
+jne 7f
+mov ecx, dword ptr [rbp + 248]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$3_γ
+proc_PAT$3_scanfail:
+cmp qword ptr [rbp + 256], 1
+jne 8f
+mov eax, dword ptr [rbp + 248]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 248], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$3_attempt
+8:
+jmp proc_PAT$3_ω
 proc_PAT$3_res:
 add rsp, 8
 pop rbp
@@ -11252,6 +11360,9 @@ proc_PAT$4_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 136], rsp
+mov qword ptr [rbp + 144], r8
+mov dword ptr [rbp + 136], r14d
+proc_PAT$4_attempt:
 proc_PAT$4_α_body:
 lea rax, [rip + xchain666_n2_β]
 mov qword ptr [rbp + 112], rax
@@ -11291,18 +11402,42 @@ mov qword ptr [rbp + 112], rax
  test eax, eax
  jg .Lx671_240
  add rsp, 16
- jmp proc_PAT$4_ω
+ jmp proc_PAT$4_scanfail
 .Lx671_240:
  mov edx, r14d
  mov dword ptr [rsp + 4], edx
  add edx, eax
  mov r14d, edx
- jmp proc_PAT$4_γ
+ jmp proc_PAT$4_scanhit
  xchain666_n2_β:
  xchain666_n2_β:
  mov r14d, dword ptr [rsp + 4]
  add rsp, 16
- jmp proc_PAT$4_ω
+ jmp proc_PAT$4_scanfail
+proc_PAT$4_scanhit:
+cmp qword ptr [rbp + 144], 1
+jne 7f
+mov ecx, dword ptr [rbp + 136]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$4_γ
+proc_PAT$4_scanfail:
+cmp qword ptr [rbp + 144], 1
+jne 8f
+mov eax, dword ptr [rbp + 136]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 136], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$4_attempt
+8:
+jmp proc_PAT$4_ω
 proc_PAT$4_res:
 add rsp, 8
 pop rbp
@@ -11337,6 +11472,9 @@ proc_PAT$5_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 248], rsp
+mov qword ptr [rbp + 256], r8
+mov dword ptr [rbp + 248], r14d
+proc_PAT$5_attempt:
 proc_PAT$5_α_body:
 lea rax, [rip + xchain672_n4_β]
 mov qword ptr [rbp + 224], rax
@@ -11348,7 +11486,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 200], rdx
  jmp xchain672_n1_α
  xchain672_n0_β:
- jmp proc_PAT$5_ω
+ jmp proc_PAT$5_scanfail
 # IR_COERCE_STRING
  xchain672_n1_α:
  lea rdi, [rbp + 192]
@@ -11357,7 +11495,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain672_n2_α
  xchain672_n1_β:
- jmp proc_PAT$5_ω
+ jmp proc_PAT$5_scanfail
 # IR_VAR
  xchain672_n2_α:
  mov rax, qword ptr [1879054656]
@@ -11366,7 +11504,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 136], rdx
  jmp xchain672_n3_α
  xchain672_n2_β:
- jmp proc_PAT$5_ω
+ jmp proc_PAT$5_scanfail
 # IR_COERCE_STRING
  xchain672_n3_α:
  lea rdi, [rbp + 128]
@@ -11375,7 +11513,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain672_n4_α
  xchain672_n3_β:
- jmp proc_PAT$5_ω
+ jmp proc_PAT$5_scanfail
 # IR_MATCH_SEQ_NARY (ZB-FC-3b: zero cell, LIFO-structural)
  xchain672_n4_α:
  jmp xchain672_n5_α
@@ -11432,6 +11570,30 @@ xchain672_n4_af:
  mov r14d, eax
  add rsp, 16
  jmp xchain672_n5_β
+proc_PAT$5_scanhit:
+cmp qword ptr [rbp + 256], 1
+jne 7f
+mov ecx, dword ptr [rbp + 248]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$5_γ
+proc_PAT$5_scanfail:
+cmp qword ptr [rbp + 256], 1
+jne 8f
+mov eax, dword ptr [rbp + 248]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 248], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$5_attempt
+8:
+jmp proc_PAT$5_ω
 proc_PAT$5_res:
 add rsp, 8
 pop rbp
@@ -11466,6 +11628,9 @@ proc_PAT$6_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 136], rsp
+mov qword ptr [rbp + 144], r8
+mov dword ptr [rbp + 136], r14d
+proc_PAT$6_attempt:
 proc_PAT$6_α_body:
 lea rax, [rip + xchain684_n2_β]
 mov qword ptr [rbp + 112], rax
@@ -11505,18 +11670,42 @@ mov qword ptr [rbp + 112], rax
  test eax, eax
  jg .Lx689_240
  add rsp, 16
- jmp proc_PAT$6_ω
+ jmp proc_PAT$6_scanfail
 .Lx689_240:
  mov edx, r14d
  mov dword ptr [rsp + 4], edx
  add edx, eax
  mov r14d, edx
- jmp proc_PAT$6_γ
+ jmp proc_PAT$6_scanhit
  xchain684_n2_β:
  xchain684_n2_β:
  mov r14d, dword ptr [rsp + 4]
  add rsp, 16
- jmp proc_PAT$6_ω
+ jmp proc_PAT$6_scanfail
+proc_PAT$6_scanhit:
+cmp qword ptr [rbp + 144], 1
+jne 7f
+mov ecx, dword ptr [rbp + 136]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$6_γ
+proc_PAT$6_scanfail:
+cmp qword ptr [rbp + 144], 1
+jne 8f
+mov eax, dword ptr [rbp + 136]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 136], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$6_attempt
+8:
+jmp proc_PAT$6_ω
 proc_PAT$6_res:
 add rsp, 8
 pop rbp
@@ -11551,6 +11740,9 @@ proc_PAT$7_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 248], rsp
+mov qword ptr [rbp + 256], r8
+mov dword ptr [rbp + 248], r14d
+proc_PAT$7_attempt:
 proc_PAT$7_α_body:
 lea rax, [rip + xchain690_n4_β]
 mov qword ptr [rbp + 224], rax
@@ -11562,7 +11754,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 200], rdx
  jmp xchain690_n1_α
  xchain690_n0_β:
- jmp proc_PAT$7_ω
+ jmp proc_PAT$7_scanfail
 # IR_COERCE_STRING
  xchain690_n1_α:
  lea rdi, [rbp + 192]
@@ -11571,7 +11763,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain690_n2_α
  xchain690_n1_β:
- jmp proc_PAT$7_ω
+ jmp proc_PAT$7_scanfail
 # IR_VAR
  xchain690_n2_α:
  mov rax, qword ptr [1879054704]
@@ -11580,7 +11772,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 136], rdx
  jmp xchain690_n3_α
  xchain690_n2_β:
- jmp proc_PAT$7_ω
+ jmp proc_PAT$7_scanfail
 # IR_COERCE_STRING
  xchain690_n3_α:
  lea rdi, [rbp + 128]
@@ -11589,7 +11781,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain690_n4_α
  xchain690_n3_β:
- jmp proc_PAT$7_ω
+ jmp proc_PAT$7_scanfail
 # IR_MATCH_SEQ_NARY (ZB-FC-3b: zero cell, LIFO-structural)
  xchain690_n4_α:
  jmp xchain690_n5_α
@@ -11646,6 +11838,30 @@ xchain690_n4_af:
  mov r14d, eax
  add rsp, 16
  jmp xchain690_n5_β
+proc_PAT$7_scanhit:
+cmp qword ptr [rbp + 256], 1
+jne 7f
+mov ecx, dword ptr [rbp + 248]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$7_γ
+proc_PAT$7_scanfail:
+cmp qword ptr [rbp + 256], 1
+jne 8f
+mov eax, dword ptr [rbp + 248]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 248], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$7_attempt
+8:
+jmp proc_PAT$7_ω
 proc_PAT$7_res:
 add rsp, 8
 pop rbp
@@ -11680,6 +11896,9 @@ proc_PAT$8_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 136], rsp
+mov qword ptr [rbp + 144], r8
+mov dword ptr [rbp + 136], r14d
+proc_PAT$8_attempt:
 proc_PAT$8_α_body:
 lea rax, [rip + xchain702_n2_β]
 mov qword ptr [rbp + 112], rax
@@ -11719,18 +11938,42 @@ mov qword ptr [rbp + 112], rax
  test eax, eax
  jg .Lx707_240
  add rsp, 16
- jmp proc_PAT$8_ω
+ jmp proc_PAT$8_scanfail
 .Lx707_240:
  mov edx, r14d
  mov dword ptr [rsp + 4], edx
  add edx, eax
  mov r14d, edx
- jmp proc_PAT$8_γ
+ jmp proc_PAT$8_scanhit
  xchain702_n2_β:
  xchain702_n2_β:
  mov r14d, dword ptr [rsp + 4]
  add rsp, 16
- jmp proc_PAT$8_ω
+ jmp proc_PAT$8_scanfail
+proc_PAT$8_scanhit:
+cmp qword ptr [rbp + 144], 1
+jne 7f
+mov ecx, dword ptr [rbp + 136]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$8_γ
+proc_PAT$8_scanfail:
+cmp qword ptr [rbp + 144], 1
+jne 8f
+mov eax, dword ptr [rbp + 136]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 136], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$8_attempt
+8:
+jmp proc_PAT$8_ω
 proc_PAT$8_res:
 add rsp, 8
 pop rbp
@@ -11765,6 +12008,9 @@ proc_PAT$9_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 248], rsp
+mov qword ptr [rbp + 256], r8
+mov dword ptr [rbp + 248], r14d
+proc_PAT$9_attempt:
 proc_PAT$9_α_body:
 lea rax, [rip + xchain708_n4_β]
 mov qword ptr [rbp + 224], rax
@@ -11776,7 +12022,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 200], rdx
  jmp xchain708_n1_α
  xchain708_n0_β:
- jmp proc_PAT$9_ω
+ jmp proc_PAT$9_scanfail
 # IR_COERCE_STRING
  xchain708_n1_α:
  lea rdi, [rbp + 192]
@@ -11785,7 +12031,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain708_n2_α
  xchain708_n1_β:
- jmp proc_PAT$9_ω
+ jmp proc_PAT$9_scanfail
 # IR_VAR
  xchain708_n2_α:
  mov rax, qword ptr [1879054752]
@@ -11794,7 +12040,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 136], rdx
  jmp xchain708_n3_α
  xchain708_n2_β:
- jmp proc_PAT$9_ω
+ jmp proc_PAT$9_scanfail
 # IR_COERCE_STRING
  xchain708_n3_α:
  lea rdi, [rbp + 128]
@@ -11803,7 +12049,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain708_n4_α
  xchain708_n3_β:
- jmp proc_PAT$9_ω
+ jmp proc_PAT$9_scanfail
 # IR_MATCH_SEQ_NARY (ZB-FC-3b: zero cell, LIFO-structural)
  xchain708_n4_α:
  jmp xchain708_n5_α
@@ -11860,6 +12106,30 @@ xchain708_n4_af:
  mov r14d, eax
  add rsp, 16
  jmp xchain708_n5_β
+proc_PAT$9_scanhit:
+cmp qword ptr [rbp + 256], 1
+jne 7f
+mov ecx, dword ptr [rbp + 248]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$9_γ
+proc_PAT$9_scanfail:
+cmp qword ptr [rbp + 256], 1
+jne 8f
+mov eax, dword ptr [rbp + 248]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 248], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$9_attempt
+8:
+jmp proc_PAT$9_ω
 proc_PAT$9_res:
 add rsp, 8
 pop rbp
@@ -11894,6 +12164,9 @@ proc_PAT$10_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 136], rsp
+mov qword ptr [rbp + 144], r8
+mov dword ptr [rbp + 136], r14d
+proc_PAT$10_attempt:
 proc_PAT$10_α_body:
 lea rax, [rip + xchain720_n2_β]
 mov qword ptr [rbp + 112], rax
@@ -11933,18 +12206,42 @@ mov qword ptr [rbp + 112], rax
  test eax, eax
  jg .Lx725_240
  add rsp, 16
- jmp proc_PAT$10_ω
+ jmp proc_PAT$10_scanfail
 .Lx725_240:
  mov edx, r14d
  mov dword ptr [rsp + 4], edx
  add edx, eax
  mov r14d, edx
- jmp proc_PAT$10_γ
+ jmp proc_PAT$10_scanhit
  xchain720_n2_β:
  xchain720_n2_β:
  mov r14d, dword ptr [rsp + 4]
  add rsp, 16
- jmp proc_PAT$10_ω
+ jmp proc_PAT$10_scanfail
+proc_PAT$10_scanhit:
+cmp qword ptr [rbp + 144], 1
+jne 7f
+mov ecx, dword ptr [rbp + 136]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$10_γ
+proc_PAT$10_scanfail:
+cmp qword ptr [rbp + 144], 1
+jne 8f
+mov eax, dword ptr [rbp + 136]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 136], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$10_attempt
+8:
+jmp proc_PAT$10_ω
 proc_PAT$10_res:
 add rsp, 8
 pop rbp
@@ -11979,6 +12276,9 @@ proc_PAT$11_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 248], rsp
+mov qword ptr [rbp + 256], r8
+mov dword ptr [rbp + 248], r14d
+proc_PAT$11_attempt:
 proc_PAT$11_α_body:
 lea rax, [rip + xchain726_n4_β]
 mov qword ptr [rbp + 224], rax
@@ -11990,7 +12290,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 200], rdx
  jmp xchain726_n1_α
  xchain726_n0_β:
- jmp proc_PAT$11_ω
+ jmp proc_PAT$11_scanfail
 # IR_COERCE_STRING
  xchain726_n1_α:
  lea rdi, [rbp + 192]
@@ -11999,7 +12299,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain726_n2_α
  xchain726_n1_β:
- jmp proc_PAT$11_ω
+ jmp proc_PAT$11_scanfail
 # IR_VAR
  xchain726_n2_α:
  mov rax, qword ptr [1879054800]
@@ -12008,7 +12308,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 136], rdx
  jmp xchain726_n3_α
  xchain726_n2_β:
- jmp proc_PAT$11_ω
+ jmp proc_PAT$11_scanfail
 # IR_COERCE_STRING
  xchain726_n3_α:
  lea rdi, [rbp + 128]
@@ -12017,7 +12317,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain726_n4_α
  xchain726_n3_β:
- jmp proc_PAT$11_ω
+ jmp proc_PAT$11_scanfail
 # IR_MATCH_SEQ_NARY (ZB-FC-3b: zero cell, LIFO-structural)
  xchain726_n4_α:
  jmp xchain726_n5_α
@@ -12074,6 +12374,30 @@ xchain726_n4_af:
  mov r14d, eax
  add rsp, 16
  jmp xchain726_n5_β
+proc_PAT$11_scanhit:
+cmp qword ptr [rbp + 256], 1
+jne 7f
+mov ecx, dword ptr [rbp + 248]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$11_γ
+proc_PAT$11_scanfail:
+cmp qword ptr [rbp + 256], 1
+jne 8f
+mov eax, dword ptr [rbp + 248]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 248], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$11_attempt
+8:
+jmp proc_PAT$11_ω
 proc_PAT$11_res:
 add rsp, 8
 pop rbp
@@ -12108,6 +12432,9 @@ proc_PAT$12_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 136], rsp
+mov qword ptr [rbp + 144], r8
+mov dword ptr [rbp + 136], r14d
+proc_PAT$12_attempt:
 proc_PAT$12_α_body:
 lea rax, [rip + xchain738_n2_β]
 mov qword ptr [rbp + 112], rax
@@ -12147,18 +12474,42 @@ mov qword ptr [rbp + 112], rax
  test eax, eax
  jg .Lx743_240
  add rsp, 16
- jmp proc_PAT$12_ω
+ jmp proc_PAT$12_scanfail
 .Lx743_240:
  mov edx, r14d
  mov dword ptr [rsp + 4], edx
  add edx, eax
  mov r14d, edx
- jmp proc_PAT$12_γ
+ jmp proc_PAT$12_scanhit
  xchain738_n2_β:
  xchain738_n2_β:
  mov r14d, dword ptr [rsp + 4]
  add rsp, 16
- jmp proc_PAT$12_ω
+ jmp proc_PAT$12_scanfail
+proc_PAT$12_scanhit:
+cmp qword ptr [rbp + 144], 1
+jne 7f
+mov ecx, dword ptr [rbp + 136]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$12_γ
+proc_PAT$12_scanfail:
+cmp qword ptr [rbp + 144], 1
+jne 8f
+mov eax, dword ptr [rbp + 136]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 136], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$12_attempt
+8:
+jmp proc_PAT$12_ω
 proc_PAT$12_res:
 add rsp, 8
 pop rbp
@@ -12193,6 +12544,9 @@ proc_PAT$13_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 248], rsp
+mov qword ptr [rbp + 256], r8
+mov dword ptr [rbp + 248], r14d
+proc_PAT$13_attempt:
 proc_PAT$13_α_body:
 lea rax, [rip + xchain744_n4_β]
 mov qword ptr [rbp + 224], rax
@@ -12204,7 +12558,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 200], rdx
  jmp xchain744_n1_α
  xchain744_n0_β:
- jmp proc_PAT$13_ω
+ jmp proc_PAT$13_scanfail
 # IR_COERCE_STRING
  xchain744_n1_α:
  lea rdi, [rbp + 192]
@@ -12213,7 +12567,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain744_n2_α
  xchain744_n1_β:
- jmp proc_PAT$13_ω
+ jmp proc_PAT$13_scanfail
 # IR_VAR
  xchain744_n2_α:
  mov rax, qword ptr [1879054848]
@@ -12222,7 +12576,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 136], rdx
  jmp xchain744_n3_α
  xchain744_n2_β:
- jmp proc_PAT$13_ω
+ jmp proc_PAT$13_scanfail
 # IR_COERCE_STRING
  xchain744_n3_α:
  lea rdi, [rbp + 128]
@@ -12231,7 +12585,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain744_n4_α
  xchain744_n3_β:
- jmp proc_PAT$13_ω
+ jmp proc_PAT$13_scanfail
 # IR_MATCH_SEQ_NARY (ZB-FC-3b: zero cell, LIFO-structural)
  xchain744_n4_α:
  jmp xchain744_n5_α
@@ -12288,6 +12642,30 @@ xchain744_n4_af:
  mov r14d, eax
  add rsp, 16
  jmp xchain744_n5_β
+proc_PAT$13_scanhit:
+cmp qword ptr [rbp + 256], 1
+jne 7f
+mov ecx, dword ptr [rbp + 248]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$13_γ
+proc_PAT$13_scanfail:
+cmp qword ptr [rbp + 256], 1
+jne 8f
+mov eax, dword ptr [rbp + 248]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 248], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$13_attempt
+8:
+jmp proc_PAT$13_ω
 proc_PAT$13_res:
 add rsp, 8
 pop rbp
@@ -12322,6 +12700,9 @@ proc_PAT$14_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 136], rsp
+mov qword ptr [rbp + 144], r8
+mov dword ptr [rbp + 136], r14d
+proc_PAT$14_attempt:
 proc_PAT$14_α_body:
 lea rax, [rip + xchain756_n2_β]
 mov qword ptr [rbp + 112], rax
@@ -12361,18 +12742,42 @@ mov qword ptr [rbp + 112], rax
  test eax, eax
  jg .Lx761_240
  add rsp, 16
- jmp proc_PAT$14_ω
+ jmp proc_PAT$14_scanfail
 .Lx761_240:
  mov edx, r14d
  mov dword ptr [rsp + 4], edx
  add edx, eax
  mov r14d, edx
- jmp proc_PAT$14_γ
+ jmp proc_PAT$14_scanhit
  xchain756_n2_β:
  xchain756_n2_β:
  mov r14d, dword ptr [rsp + 4]
  add rsp, 16
- jmp proc_PAT$14_ω
+ jmp proc_PAT$14_scanfail
+proc_PAT$14_scanhit:
+cmp qword ptr [rbp + 144], 1
+jne 7f
+mov ecx, dword ptr [rbp + 136]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$14_γ
+proc_PAT$14_scanfail:
+cmp qword ptr [rbp + 144], 1
+jne 8f
+mov eax, dword ptr [rbp + 136]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 136], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$14_attempt
+8:
+jmp proc_PAT$14_ω
 proc_PAT$14_res:
 add rsp, 8
 pop rbp
@@ -12407,6 +12812,9 @@ proc_PAT$15_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 248], rsp
+mov qword ptr [rbp + 256], r8
+mov dword ptr [rbp + 248], r14d
+proc_PAT$15_attempt:
 proc_PAT$15_α_body:
 lea rax, [rip + xchain762_n4_β]
 mov qword ptr [rbp + 224], rax
@@ -12418,7 +12826,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 200], rdx
  jmp xchain762_n1_α
  xchain762_n0_β:
- jmp proc_PAT$15_ω
+ jmp proc_PAT$15_scanfail
 # IR_COERCE_STRING
  xchain762_n1_α:
  lea rdi, [rbp + 192]
@@ -12427,7 +12835,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain762_n2_α
  xchain762_n1_β:
- jmp proc_PAT$15_ω
+ jmp proc_PAT$15_scanfail
 # IR_VAR
  xchain762_n2_α:
  mov rax, qword ptr [1879054896]
@@ -12436,7 +12844,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 136], rdx
  jmp xchain762_n3_α
  xchain762_n2_β:
- jmp proc_PAT$15_ω
+ jmp proc_PAT$15_scanfail
 # IR_COERCE_STRING
  xchain762_n3_α:
  lea rdi, [rbp + 128]
@@ -12445,7 +12853,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain762_n4_α
  xchain762_n3_β:
- jmp proc_PAT$15_ω
+ jmp proc_PAT$15_scanfail
 # IR_MATCH_SEQ_NARY (ZB-FC-3b: zero cell, LIFO-structural)
  xchain762_n4_α:
  jmp xchain762_n5_α
@@ -12502,6 +12910,30 @@ xchain762_n4_af:
  mov r14d, eax
  add rsp, 16
  jmp xchain762_n5_β
+proc_PAT$15_scanhit:
+cmp qword ptr [rbp + 256], 1
+jne 7f
+mov ecx, dword ptr [rbp + 248]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$15_γ
+proc_PAT$15_scanfail:
+cmp qword ptr [rbp + 256], 1
+jne 8f
+mov eax, dword ptr [rbp + 248]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 248], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$15_attempt
+8:
+jmp proc_PAT$15_ω
 proc_PAT$15_res:
 add rsp, 8
 pop rbp
@@ -12536,6 +12968,9 @@ proc_PAT$16_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 136], rsp
+mov qword ptr [rbp + 144], r8
+mov dword ptr [rbp + 136], r14d
+proc_PAT$16_attempt:
 proc_PAT$16_α_body:
 lea rax, [rip + xchain774_n2_β]
 mov qword ptr [rbp + 112], rax
@@ -12575,18 +13010,42 @@ mov qword ptr [rbp + 112], rax
  test eax, eax
  jg .Lx779_240
  add rsp, 16
- jmp proc_PAT$16_ω
+ jmp proc_PAT$16_scanfail
 .Lx779_240:
  mov edx, r14d
  mov dword ptr [rsp + 4], edx
  add edx, eax
  mov r14d, edx
- jmp proc_PAT$16_γ
+ jmp proc_PAT$16_scanhit
  xchain774_n2_β:
  xchain774_n2_β:
  mov r14d, dword ptr [rsp + 4]
  add rsp, 16
- jmp proc_PAT$16_ω
+ jmp proc_PAT$16_scanfail
+proc_PAT$16_scanhit:
+cmp qword ptr [rbp + 144], 1
+jne 7f
+mov ecx, dword ptr [rbp + 136]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$16_γ
+proc_PAT$16_scanfail:
+cmp qword ptr [rbp + 144], 1
+jne 8f
+mov eax, dword ptr [rbp + 136]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 136], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$16_attempt
+8:
+jmp proc_PAT$16_ω
 proc_PAT$16_res:
 add rsp, 8
 pop rbp
@@ -12621,6 +13080,9 @@ proc_PAT$17_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 248], rsp
+mov qword ptr [rbp + 256], r8
+mov dword ptr [rbp + 248], r14d
+proc_PAT$17_attempt:
 proc_PAT$17_α_body:
 lea rax, [rip + xchain780_n4_β]
 mov qword ptr [rbp + 224], rax
@@ -12632,7 +13094,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 200], rdx
  jmp xchain780_n1_α
  xchain780_n0_β:
- jmp proc_PAT$17_ω
+ jmp proc_PAT$17_scanfail
 # IR_COERCE_STRING
  xchain780_n1_α:
  lea rdi, [rbp + 192]
@@ -12641,7 +13103,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain780_n2_α
  xchain780_n1_β:
- jmp proc_PAT$17_ω
+ jmp proc_PAT$17_scanfail
 # IR_VAR
  xchain780_n2_α:
  mov rax, qword ptr [1879054944]
@@ -12650,7 +13112,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 136], rdx
  jmp xchain780_n3_α
  xchain780_n2_β:
- jmp proc_PAT$17_ω
+ jmp proc_PAT$17_scanfail
 # IR_COERCE_STRING
  xchain780_n3_α:
  lea rdi, [rbp + 128]
@@ -12659,7 +13121,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain780_n4_α
  xchain780_n3_β:
- jmp proc_PAT$17_ω
+ jmp proc_PAT$17_scanfail
 # IR_MATCH_SEQ_NARY (ZB-FC-3b: zero cell, LIFO-structural)
  xchain780_n4_α:
  jmp xchain780_n5_α
@@ -12716,6 +13178,30 @@ xchain780_n4_af:
  mov r14d, eax
  add rsp, 16
  jmp xchain780_n5_β
+proc_PAT$17_scanhit:
+cmp qword ptr [rbp + 256], 1
+jne 7f
+mov ecx, dword ptr [rbp + 248]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$17_γ
+proc_PAT$17_scanfail:
+cmp qword ptr [rbp + 256], 1
+jne 8f
+mov eax, dword ptr [rbp + 248]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 248], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$17_attempt
+8:
+jmp proc_PAT$17_ω
 proc_PAT$17_res:
 add rsp, 8
 pop rbp
@@ -12750,6 +13236,9 @@ proc_PAT$18_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 136], rsp
+mov qword ptr [rbp + 144], r8
+mov dword ptr [rbp + 136], r14d
+proc_PAT$18_attempt:
 proc_PAT$18_α_body:
 lea rax, [rip + xchain792_n2_β]
 mov qword ptr [rbp + 112], rax
@@ -12789,18 +13278,42 @@ mov qword ptr [rbp + 112], rax
  test eax, eax
  jg .Lx797_240
  add rsp, 16
- jmp proc_PAT$18_ω
+ jmp proc_PAT$18_scanfail
 .Lx797_240:
  mov edx, r14d
  mov dword ptr [rsp + 4], edx
  add edx, eax
  mov r14d, edx
- jmp proc_PAT$18_γ
+ jmp proc_PAT$18_scanhit
  xchain792_n2_β:
  xchain792_n2_β:
  mov r14d, dword ptr [rsp + 4]
  add rsp, 16
- jmp proc_PAT$18_ω
+ jmp proc_PAT$18_scanfail
+proc_PAT$18_scanhit:
+cmp qword ptr [rbp + 144], 1
+jne 7f
+mov ecx, dword ptr [rbp + 136]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$18_γ
+proc_PAT$18_scanfail:
+cmp qword ptr [rbp + 144], 1
+jne 8f
+mov eax, dword ptr [rbp + 136]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 136], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$18_attempt
+8:
+jmp proc_PAT$18_ω
 proc_PAT$18_res:
 add rsp, 8
 pop rbp
@@ -12835,6 +13348,9 @@ proc_PAT$19_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 248], rsp
+mov qword ptr [rbp + 256], r8
+mov dword ptr [rbp + 248], r14d
+proc_PAT$19_attempt:
 proc_PAT$19_α_body:
 lea rax, [rip + xchain798_n4_β]
 mov qword ptr [rbp + 224], rax
@@ -12846,7 +13362,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 200], rdx
  jmp xchain798_n1_α
  xchain798_n0_β:
- jmp proc_PAT$19_ω
+ jmp proc_PAT$19_scanfail
 # IR_COERCE_STRING
  xchain798_n1_α:
  lea rdi, [rbp + 192]
@@ -12855,7 +13371,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain798_n2_α
  xchain798_n1_β:
- jmp proc_PAT$19_ω
+ jmp proc_PAT$19_scanfail
 # IR_VAR
  xchain798_n2_α:
  mov rax, qword ptr [1879054992]
@@ -12864,7 +13380,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 136], rdx
  jmp xchain798_n3_α
  xchain798_n2_β:
- jmp proc_PAT$19_ω
+ jmp proc_PAT$19_scanfail
 # IR_COERCE_STRING
  xchain798_n3_α:
  lea rdi, [rbp + 128]
@@ -12873,7 +13389,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain798_n4_α
  xchain798_n3_β:
- jmp proc_PAT$19_ω
+ jmp proc_PAT$19_scanfail
 # IR_MATCH_SEQ_NARY (ZB-FC-3b: zero cell, LIFO-structural)
  xchain798_n4_α:
  jmp xchain798_n5_α
@@ -12930,6 +13446,30 @@ xchain798_n4_af:
  mov r14d, eax
  add rsp, 16
  jmp xchain798_n5_β
+proc_PAT$19_scanhit:
+cmp qword ptr [rbp + 256], 1
+jne 7f
+mov ecx, dword ptr [rbp + 248]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$19_γ
+proc_PAT$19_scanfail:
+cmp qword ptr [rbp + 256], 1
+jne 8f
+mov eax, dword ptr [rbp + 248]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 248], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$19_attempt
+8:
+jmp proc_PAT$19_ω
 proc_PAT$19_res:
 add rsp, 8
 pop rbp
@@ -12964,6 +13504,9 @@ proc_PAT$20_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 136], rsp
+mov qword ptr [rbp + 144], r8
+mov dword ptr [rbp + 136], r14d
+proc_PAT$20_attempt:
 proc_PAT$20_α_body:
 lea rax, [rip + xchain810_n2_β]
 mov qword ptr [rbp + 112], rax
@@ -13003,18 +13546,42 @@ mov qword ptr [rbp + 112], rax
  test eax, eax
  jg .Lx815_240
  add rsp, 16
- jmp proc_PAT$20_ω
+ jmp proc_PAT$20_scanfail
 .Lx815_240:
  mov edx, r14d
  mov dword ptr [rsp + 4], edx
  add edx, eax
  mov r14d, edx
- jmp proc_PAT$20_γ
+ jmp proc_PAT$20_scanhit
  xchain810_n2_β:
  xchain810_n2_β:
  mov r14d, dword ptr [rsp + 4]
  add rsp, 16
- jmp proc_PAT$20_ω
+ jmp proc_PAT$20_scanfail
+proc_PAT$20_scanhit:
+cmp qword ptr [rbp + 144], 1
+jne 7f
+mov ecx, dword ptr [rbp + 136]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$20_γ
+proc_PAT$20_scanfail:
+cmp qword ptr [rbp + 144], 1
+jne 8f
+mov eax, dword ptr [rbp + 136]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 136], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$20_attempt
+8:
+jmp proc_PAT$20_ω
 proc_PAT$20_res:
 add rsp, 8
 pop rbp
@@ -13049,6 +13616,9 @@ proc_PAT$21_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 248], rsp
+mov qword ptr [rbp + 256], r8
+mov dword ptr [rbp + 248], r14d
+proc_PAT$21_attempt:
 proc_PAT$21_α_body:
 lea rax, [rip + xchain816_n4_β]
 mov qword ptr [rbp + 224], rax
@@ -13060,7 +13630,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 200], rdx
  jmp xchain816_n1_α
  xchain816_n0_β:
- jmp proc_PAT$21_ω
+ jmp proc_PAT$21_scanfail
 # IR_COERCE_STRING
  xchain816_n1_α:
  lea rdi, [rbp + 192]
@@ -13069,7 +13639,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain816_n2_α
  xchain816_n1_β:
- jmp proc_PAT$21_ω
+ jmp proc_PAT$21_scanfail
 # IR_VAR
  xchain816_n2_α:
  mov rax, qword ptr [1879055040]
@@ -13078,7 +13648,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 136], rdx
  jmp xchain816_n3_α
  xchain816_n2_β:
- jmp proc_PAT$21_ω
+ jmp proc_PAT$21_scanfail
 # IR_COERCE_STRING
  xchain816_n3_α:
  lea rdi, [rbp + 128]
@@ -13087,7 +13657,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain816_n4_α
  xchain816_n3_β:
- jmp proc_PAT$21_ω
+ jmp proc_PAT$21_scanfail
 # IR_MATCH_SEQ_NARY (ZB-FC-3b: zero cell, LIFO-structural)
  xchain816_n4_α:
  jmp xchain816_n5_α
@@ -13144,6 +13714,30 @@ xchain816_n4_af:
  mov r14d, eax
  add rsp, 16
  jmp xchain816_n5_β
+proc_PAT$21_scanhit:
+cmp qword ptr [rbp + 256], 1
+jne 7f
+mov ecx, dword ptr [rbp + 248]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$21_γ
+proc_PAT$21_scanfail:
+cmp qword ptr [rbp + 256], 1
+jne 8f
+mov eax, dword ptr [rbp + 248]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 248], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$21_attempt
+8:
+jmp proc_PAT$21_ω
 proc_PAT$21_res:
 add rsp, 8
 pop rbp
@@ -13178,6 +13772,9 @@ proc_PAT$22_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 136], rsp
+mov qword ptr [rbp + 144], r8
+mov dword ptr [rbp + 136], r14d
+proc_PAT$22_attempt:
 proc_PAT$22_α_body:
 lea rax, [rip + xchain828_n2_β]
 mov qword ptr [rbp + 112], rax
@@ -13217,18 +13814,42 @@ mov qword ptr [rbp + 112], rax
  test eax, eax
  jg .Lx833_240
  add rsp, 16
- jmp proc_PAT$22_ω
+ jmp proc_PAT$22_scanfail
 .Lx833_240:
  mov edx, r14d
  mov dword ptr [rsp + 4], edx
  add edx, eax
  mov r14d, edx
- jmp proc_PAT$22_γ
+ jmp proc_PAT$22_scanhit
  xchain828_n2_β:
  xchain828_n2_β:
  mov r14d, dword ptr [rsp + 4]
  add rsp, 16
- jmp proc_PAT$22_ω
+ jmp proc_PAT$22_scanfail
+proc_PAT$22_scanhit:
+cmp qword ptr [rbp + 144], 1
+jne 7f
+mov ecx, dword ptr [rbp + 136]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$22_γ
+proc_PAT$22_scanfail:
+cmp qword ptr [rbp + 144], 1
+jne 8f
+mov eax, dword ptr [rbp + 136]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 136], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$22_attempt
+8:
+jmp proc_PAT$22_ω
 proc_PAT$22_res:
 add rsp, 8
 pop rbp
@@ -13263,6 +13884,9 @@ proc_PAT$23_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 248], rsp
+mov qword ptr [rbp + 256], r8
+mov dword ptr [rbp + 248], r14d
+proc_PAT$23_attempt:
 proc_PAT$23_α_body:
 lea rax, [rip + xchain834_n4_β]
 mov qword ptr [rbp + 224], rax
@@ -13274,7 +13898,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 200], rdx
  jmp xchain834_n1_α
  xchain834_n0_β:
- jmp proc_PAT$23_ω
+ jmp proc_PAT$23_scanfail
 # IR_COERCE_STRING
  xchain834_n1_α:
  lea rdi, [rbp + 192]
@@ -13283,7 +13907,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain834_n2_α
  xchain834_n1_β:
- jmp proc_PAT$23_ω
+ jmp proc_PAT$23_scanfail
 # IR_VAR
  xchain834_n2_α:
  mov rax, qword ptr [1879055088]
@@ -13292,7 +13916,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 136], rdx
  jmp xchain834_n3_α
  xchain834_n2_β:
- jmp proc_PAT$23_ω
+ jmp proc_PAT$23_scanfail
 # IR_COERCE_STRING
  xchain834_n3_α:
  lea rdi, [rbp + 128]
@@ -13301,7 +13925,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain834_n4_α
  xchain834_n3_β:
- jmp proc_PAT$23_ω
+ jmp proc_PAT$23_scanfail
 # IR_MATCH_SEQ_NARY (ZB-FC-3b: zero cell, LIFO-structural)
  xchain834_n4_α:
  jmp xchain834_n5_α
@@ -13358,6 +13982,30 @@ xchain834_n4_af:
  mov r14d, eax
  add rsp, 16
  jmp xchain834_n5_β
+proc_PAT$23_scanhit:
+cmp qword ptr [rbp + 256], 1
+jne 7f
+mov ecx, dword ptr [rbp + 248]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$23_γ
+proc_PAT$23_scanfail:
+cmp qword ptr [rbp + 256], 1
+jne 8f
+mov eax, dword ptr [rbp + 248]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 248], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$23_attempt
+8:
+jmp proc_PAT$23_ω
 proc_PAT$23_res:
 add rsp, 8
 pop rbp
@@ -13392,6 +14040,9 @@ proc_PAT$24_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 136], rsp
+mov qword ptr [rbp + 144], r8
+mov dword ptr [rbp + 136], r14d
+proc_PAT$24_attempt:
 proc_PAT$24_α_body:
 lea rax, [rip + xchain846_n2_β]
 mov qword ptr [rbp + 112], rax
@@ -13431,18 +14082,42 @@ mov qword ptr [rbp + 112], rax
  test eax, eax
  jg .Lx851_240
  add rsp, 16
- jmp proc_PAT$24_ω
+ jmp proc_PAT$24_scanfail
 .Lx851_240:
  mov edx, r14d
  mov dword ptr [rsp + 4], edx
  add edx, eax
  mov r14d, edx
- jmp proc_PAT$24_γ
+ jmp proc_PAT$24_scanhit
  xchain846_n2_β:
  xchain846_n2_β:
  mov r14d, dword ptr [rsp + 4]
  add rsp, 16
- jmp proc_PAT$24_ω
+ jmp proc_PAT$24_scanfail
+proc_PAT$24_scanhit:
+cmp qword ptr [rbp + 144], 1
+jne 7f
+mov ecx, dword ptr [rbp + 136]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$24_γ
+proc_PAT$24_scanfail:
+cmp qword ptr [rbp + 144], 1
+jne 8f
+mov eax, dword ptr [rbp + 136]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 136], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$24_attempt
+8:
+jmp proc_PAT$24_ω
 proc_PAT$24_res:
 add rsp, 8
 pop rbp
@@ -13477,6 +14152,9 @@ proc_PAT$25_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 248], rsp
+mov qword ptr [rbp + 256], r8
+mov dword ptr [rbp + 248], r14d
+proc_PAT$25_attempt:
 proc_PAT$25_α_body:
 lea rax, [rip + xchain852_n4_β]
 mov qword ptr [rbp + 224], rax
@@ -13488,7 +14166,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 200], rdx
  jmp xchain852_n1_α
  xchain852_n0_β:
- jmp proc_PAT$25_ω
+ jmp proc_PAT$25_scanfail
 # IR_COERCE_STRING
  xchain852_n1_α:
  lea rdi, [rbp + 192]
@@ -13497,7 +14175,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain852_n2_α
  xchain852_n1_β:
- jmp proc_PAT$25_ω
+ jmp proc_PAT$25_scanfail
 # IR_VAR
  xchain852_n2_α:
  mov rax, qword ptr [1879055136]
@@ -13506,7 +14184,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 136], rdx
  jmp xchain852_n3_α
  xchain852_n2_β:
- jmp proc_PAT$25_ω
+ jmp proc_PAT$25_scanfail
 # IR_COERCE_STRING
  xchain852_n3_α:
  lea rdi, [rbp + 128]
@@ -13515,7 +14193,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain852_n4_α
  xchain852_n3_β:
- jmp proc_PAT$25_ω
+ jmp proc_PAT$25_scanfail
 # IR_MATCH_SEQ_NARY (ZB-FC-3b: zero cell, LIFO-structural)
  xchain852_n4_α:
  jmp xchain852_n5_α
@@ -13572,6 +14250,30 @@ xchain852_n4_af:
  mov r14d, eax
  add rsp, 16
  jmp xchain852_n5_β
+proc_PAT$25_scanhit:
+cmp qword ptr [rbp + 256], 1
+jne 7f
+mov ecx, dword ptr [rbp + 248]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$25_γ
+proc_PAT$25_scanfail:
+cmp qword ptr [rbp + 256], 1
+jne 8f
+mov eax, dword ptr [rbp + 248]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 248], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$25_attempt
+8:
+jmp proc_PAT$25_ω
 proc_PAT$25_res:
 add rsp, 8
 pop rbp
@@ -13606,6 +14308,9 @@ proc_PAT$26_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 136], rsp
+mov qword ptr [rbp + 144], r8
+mov dword ptr [rbp + 136], r14d
+proc_PAT$26_attempt:
 proc_PAT$26_α_body:
 lea rax, [rip + xchain864_n2_β]
 mov qword ptr [rbp + 112], rax
@@ -13645,18 +14350,42 @@ mov qword ptr [rbp + 112], rax
  test eax, eax
  jg .Lx869_240
  add rsp, 16
- jmp proc_PAT$26_ω
+ jmp proc_PAT$26_scanfail
 .Lx869_240:
  mov edx, r14d
  mov dword ptr [rsp + 4], edx
  add edx, eax
  mov r14d, edx
- jmp proc_PAT$26_γ
+ jmp proc_PAT$26_scanhit
  xchain864_n2_β:
  xchain864_n2_β:
  mov r14d, dword ptr [rsp + 4]
  add rsp, 16
- jmp proc_PAT$26_ω
+ jmp proc_PAT$26_scanfail
+proc_PAT$26_scanhit:
+cmp qword ptr [rbp + 144], 1
+jne 7f
+mov ecx, dword ptr [rbp + 136]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$26_γ
+proc_PAT$26_scanfail:
+cmp qword ptr [rbp + 144], 1
+jne 8f
+mov eax, dword ptr [rbp + 136]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 136], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$26_attempt
+8:
+jmp proc_PAT$26_ω
 proc_PAT$26_res:
 add rsp, 8
 pop rbp
@@ -13691,6 +14420,9 @@ proc_PAT$27_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 248], rsp
+mov qword ptr [rbp + 256], r8
+mov dword ptr [rbp + 248], r14d
+proc_PAT$27_attempt:
 proc_PAT$27_α_body:
 lea rax, [rip + xchain870_n4_β]
 mov qword ptr [rbp + 224], rax
@@ -13702,7 +14434,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 200], rdx
  jmp xchain870_n1_α
  xchain870_n0_β:
- jmp proc_PAT$27_ω
+ jmp proc_PAT$27_scanfail
 # IR_COERCE_STRING
  xchain870_n1_α:
  lea rdi, [rbp + 192]
@@ -13711,7 +14443,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain870_n2_α
  xchain870_n1_β:
- jmp proc_PAT$27_ω
+ jmp proc_PAT$27_scanfail
 # IR_VAR
  xchain870_n2_α:
  mov rax, qword ptr [1879055184]
@@ -13720,7 +14452,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 136], rdx
  jmp xchain870_n3_α
  xchain870_n2_β:
- jmp proc_PAT$27_ω
+ jmp proc_PAT$27_scanfail
 # IR_COERCE_STRING
  xchain870_n3_α:
  lea rdi, [rbp + 128]
@@ -13729,7 +14461,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain870_n4_α
  xchain870_n3_β:
- jmp proc_PAT$27_ω
+ jmp proc_PAT$27_scanfail
 # IR_MATCH_SEQ_NARY (ZB-FC-3b: zero cell, LIFO-structural)
  xchain870_n4_α:
  jmp xchain870_n5_α
@@ -13786,6 +14518,30 @@ xchain870_n4_af:
  mov r14d, eax
  add rsp, 16
  jmp xchain870_n5_β
+proc_PAT$27_scanhit:
+cmp qword ptr [rbp + 256], 1
+jne 7f
+mov ecx, dword ptr [rbp + 248]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$27_γ
+proc_PAT$27_scanfail:
+cmp qword ptr [rbp + 256], 1
+jne 8f
+mov eax, dword ptr [rbp + 248]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 248], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$27_attempt
+8:
+jmp proc_PAT$27_ω
 proc_PAT$27_res:
 add rsp, 8
 pop rbp
@@ -13820,6 +14576,9 @@ proc_PAT$28_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 136], rsp
+mov qword ptr [rbp + 144], r8
+mov dword ptr [rbp + 136], r14d
+proc_PAT$28_attempt:
 proc_PAT$28_α_body:
 lea rax, [rip + xchain882_n2_β]
 mov qword ptr [rbp + 112], rax
@@ -13859,18 +14618,42 @@ mov qword ptr [rbp + 112], rax
  test eax, eax
  jg .Lx887_240
  add rsp, 16
- jmp proc_PAT$28_ω
+ jmp proc_PAT$28_scanfail
 .Lx887_240:
  mov edx, r14d
  mov dword ptr [rsp + 4], edx
  add edx, eax
  mov r14d, edx
- jmp proc_PAT$28_γ
+ jmp proc_PAT$28_scanhit
  xchain882_n2_β:
  xchain882_n2_β:
  mov r14d, dword ptr [rsp + 4]
  add rsp, 16
- jmp proc_PAT$28_ω
+ jmp proc_PAT$28_scanfail
+proc_PAT$28_scanhit:
+cmp qword ptr [rbp + 144], 1
+jne 7f
+mov ecx, dword ptr [rbp + 136]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$28_γ
+proc_PAT$28_scanfail:
+cmp qword ptr [rbp + 144], 1
+jne 8f
+mov eax, dword ptr [rbp + 136]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 136], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$28_attempt
+8:
+jmp proc_PAT$28_ω
 proc_PAT$28_res:
 add rsp, 8
 pop rbp
@@ -13905,6 +14688,9 @@ proc_PAT$29_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 248], rsp
+mov qword ptr [rbp + 256], r8
+mov dword ptr [rbp + 248], r14d
+proc_PAT$29_attempt:
 proc_PAT$29_α_body:
 lea rax, [rip + xchain888_n4_β]
 mov qword ptr [rbp + 224], rax
@@ -13916,7 +14702,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 200], rdx
  jmp xchain888_n1_α
  xchain888_n0_β:
- jmp proc_PAT$29_ω
+ jmp proc_PAT$29_scanfail
 # IR_COERCE_STRING
  xchain888_n1_α:
  lea rdi, [rbp + 192]
@@ -13925,7 +14711,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain888_n2_α
  xchain888_n1_β:
- jmp proc_PAT$29_ω
+ jmp proc_PAT$29_scanfail
 # IR_VAR
  xchain888_n2_α:
  mov rax, qword ptr [1879055232]
@@ -13934,7 +14720,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 136], rdx
  jmp xchain888_n3_α
  xchain888_n2_β:
- jmp proc_PAT$29_ω
+ jmp proc_PAT$29_scanfail
 # IR_COERCE_STRING
  xchain888_n3_α:
  lea rdi, [rbp + 128]
@@ -13943,7 +14729,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain888_n4_α
  xchain888_n3_β:
- jmp proc_PAT$29_ω
+ jmp proc_PAT$29_scanfail
 # IR_MATCH_SEQ_NARY (ZB-FC-3b: zero cell, LIFO-structural)
  xchain888_n4_α:
  jmp xchain888_n5_α
@@ -14000,6 +14786,30 @@ xchain888_n4_af:
  mov r14d, eax
  add rsp, 16
  jmp xchain888_n5_β
+proc_PAT$29_scanhit:
+cmp qword ptr [rbp + 256], 1
+jne 7f
+mov ecx, dword ptr [rbp + 248]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$29_γ
+proc_PAT$29_scanfail:
+cmp qword ptr [rbp + 256], 1
+jne 8f
+mov eax, dword ptr [rbp + 248]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 248], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$29_attempt
+8:
+jmp proc_PAT$29_ω
 proc_PAT$29_res:
 add rsp, 8
 pop rbp
@@ -14034,6 +14844,9 @@ proc_PAT$30_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 136], rsp
+mov qword ptr [rbp + 144], r8
+mov dword ptr [rbp + 136], r14d
+proc_PAT$30_attempt:
 proc_PAT$30_α_body:
 lea rax, [rip + xchain900_n2_β]
 mov qword ptr [rbp + 112], rax
@@ -14073,18 +14886,42 @@ mov qword ptr [rbp + 112], rax
  test eax, eax
  jg .Lx905_240
  add rsp, 16
- jmp proc_PAT$30_ω
+ jmp proc_PAT$30_scanfail
 .Lx905_240:
  mov edx, r14d
  mov dword ptr [rsp + 4], edx
  add edx, eax
  mov r14d, edx
- jmp proc_PAT$30_γ
+ jmp proc_PAT$30_scanhit
  xchain900_n2_β:
  xchain900_n2_β:
  mov r14d, dword ptr [rsp + 4]
  add rsp, 16
- jmp proc_PAT$30_ω
+ jmp proc_PAT$30_scanfail
+proc_PAT$30_scanhit:
+cmp qword ptr [rbp + 144], 1
+jne 7f
+mov ecx, dword ptr [rbp + 136]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$30_γ
+proc_PAT$30_scanfail:
+cmp qword ptr [rbp + 144], 1
+jne 8f
+mov eax, dword ptr [rbp + 136]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 136], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$30_attempt
+8:
+jmp proc_PAT$30_ω
 proc_PAT$30_res:
 add rsp, 8
 pop rbp
@@ -14119,6 +14956,9 @@ proc_PAT$31_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 248], rsp
+mov qword ptr [rbp + 256], r8
+mov dword ptr [rbp + 248], r14d
+proc_PAT$31_attempt:
 proc_PAT$31_α_body:
 lea rax, [rip + xchain906_n4_β]
 mov qword ptr [rbp + 224], rax
@@ -14130,7 +14970,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 200], rdx
  jmp xchain906_n1_α
  xchain906_n0_β:
- jmp proc_PAT$31_ω
+ jmp proc_PAT$31_scanfail
 # IR_COERCE_STRING
  xchain906_n1_α:
  lea rdi, [rbp + 192]
@@ -14139,7 +14979,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain906_n2_α
  xchain906_n1_β:
- jmp proc_PAT$31_ω
+ jmp proc_PAT$31_scanfail
 # IR_VAR
  xchain906_n2_α:
  mov rax, qword ptr [1879055280]
@@ -14148,7 +14988,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 136], rdx
  jmp xchain906_n3_α
  xchain906_n2_β:
- jmp proc_PAT$31_ω
+ jmp proc_PAT$31_scanfail
 # IR_COERCE_STRING
  xchain906_n3_α:
  lea rdi, [rbp + 128]
@@ -14157,7 +14997,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain906_n4_α
  xchain906_n3_β:
- jmp proc_PAT$31_ω
+ jmp proc_PAT$31_scanfail
 # IR_MATCH_SEQ_NARY (ZB-FC-3b: zero cell, LIFO-structural)
  xchain906_n4_α:
  jmp xchain906_n5_α
@@ -14214,6 +15054,30 @@ xchain906_n4_af:
  mov r14d, eax
  add rsp, 16
  jmp xchain906_n5_β
+proc_PAT$31_scanhit:
+cmp qword ptr [rbp + 256], 1
+jne 7f
+mov ecx, dword ptr [rbp + 248]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$31_γ
+proc_PAT$31_scanfail:
+cmp qword ptr [rbp + 256], 1
+jne 8f
+mov eax, dword ptr [rbp + 248]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 248], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$31_attempt
+8:
+jmp proc_PAT$31_ω
 proc_PAT$31_res:
 add rsp, 8
 pop rbp
@@ -14248,6 +15112,9 @@ proc_PAT$32_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 136], rsp
+mov qword ptr [rbp + 144], r8
+mov dword ptr [rbp + 136], r14d
+proc_PAT$32_attempt:
 proc_PAT$32_α_body:
 lea rax, [rip + xchain918_n2_β]
 mov qword ptr [rbp + 112], rax
@@ -14287,18 +15154,42 @@ mov qword ptr [rbp + 112], rax
  test eax, eax
  jg .Lx923_240
  add rsp, 16
- jmp proc_PAT$32_ω
+ jmp proc_PAT$32_scanfail
 .Lx923_240:
  mov edx, r14d
  mov dword ptr [rsp + 4], edx
  add edx, eax
  mov r14d, edx
- jmp proc_PAT$32_γ
+ jmp proc_PAT$32_scanhit
  xchain918_n2_β:
  xchain918_n2_β:
  mov r14d, dword ptr [rsp + 4]
  add rsp, 16
- jmp proc_PAT$32_ω
+ jmp proc_PAT$32_scanfail
+proc_PAT$32_scanhit:
+cmp qword ptr [rbp + 144], 1
+jne 7f
+mov ecx, dword ptr [rbp + 136]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$32_γ
+proc_PAT$32_scanfail:
+cmp qword ptr [rbp + 144], 1
+jne 8f
+mov eax, dword ptr [rbp + 136]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 136], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$32_attempt
+8:
+jmp proc_PAT$32_ω
 proc_PAT$32_res:
 add rsp, 8
 pop rbp
@@ -14333,6 +15224,9 @@ proc_PAT$33_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 248], rsp
+mov qword ptr [rbp + 256], r8
+mov dword ptr [rbp + 248], r14d
+proc_PAT$33_attempt:
 proc_PAT$33_α_body:
 lea rax, [rip + xchain924_n4_β]
 mov qword ptr [rbp + 224], rax
@@ -14344,7 +15238,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 200], rdx
  jmp xchain924_n1_α
  xchain924_n0_β:
- jmp proc_PAT$33_ω
+ jmp proc_PAT$33_scanfail
 # IR_COERCE_STRING
  xchain924_n1_α:
  lea rdi, [rbp + 192]
@@ -14353,7 +15247,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain924_n2_α
  xchain924_n1_β:
- jmp proc_PAT$33_ω
+ jmp proc_PAT$33_scanfail
 # IR_VAR
  xchain924_n2_α:
  mov rax, qword ptr [1879055328]
@@ -14362,7 +15256,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 136], rdx
  jmp xchain924_n3_α
  xchain924_n2_β:
- jmp proc_PAT$33_ω
+ jmp proc_PAT$33_scanfail
 # IR_COERCE_STRING
  xchain924_n3_α:
  lea rdi, [rbp + 128]
@@ -14371,7 +15265,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain924_n4_α
  xchain924_n3_β:
- jmp proc_PAT$33_ω
+ jmp proc_PAT$33_scanfail
 # IR_MATCH_SEQ_NARY (ZB-FC-3b: zero cell, LIFO-structural)
  xchain924_n4_α:
  jmp xchain924_n5_α
@@ -14428,6 +15322,30 @@ xchain924_n4_af:
  mov r14d, eax
  add rsp, 16
  jmp xchain924_n5_β
+proc_PAT$33_scanhit:
+cmp qword ptr [rbp + 256], 1
+jne 7f
+mov ecx, dword ptr [rbp + 248]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$33_γ
+proc_PAT$33_scanfail:
+cmp qword ptr [rbp + 256], 1
+jne 8f
+mov eax, dword ptr [rbp + 248]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 248], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$33_attempt
+8:
+jmp proc_PAT$33_ω
 proc_PAT$33_res:
 add rsp, 8
 pop rbp
@@ -14462,6 +15380,9 @@ proc_PAT$34_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 136], rsp
+mov qword ptr [rbp + 144], r8
+mov dword ptr [rbp + 136], r14d
+proc_PAT$34_attempt:
 proc_PAT$34_α_body:
 lea rax, [rip + xchain936_n2_β]
 mov qword ptr [rbp + 112], rax
@@ -14501,18 +15422,42 @@ mov qword ptr [rbp + 112], rax
  test eax, eax
  jg .Lx941_240
  add rsp, 16
- jmp proc_PAT$34_ω
+ jmp proc_PAT$34_scanfail
 .Lx941_240:
  mov edx, r14d
  mov dword ptr [rsp + 4], edx
  add edx, eax
  mov r14d, edx
- jmp proc_PAT$34_γ
+ jmp proc_PAT$34_scanhit
  xchain936_n2_β:
  xchain936_n2_β:
  mov r14d, dword ptr [rsp + 4]
  add rsp, 16
- jmp proc_PAT$34_ω
+ jmp proc_PAT$34_scanfail
+proc_PAT$34_scanhit:
+cmp qword ptr [rbp + 144], 1
+jne 7f
+mov ecx, dword ptr [rbp + 136]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$34_γ
+proc_PAT$34_scanfail:
+cmp qword ptr [rbp + 144], 1
+jne 8f
+mov eax, dword ptr [rbp + 136]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 136], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$34_attempt
+8:
+jmp proc_PAT$34_ω
 proc_PAT$34_res:
 add rsp, 8
 pop rbp
@@ -14547,6 +15492,9 @@ proc_PAT$35_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 248], rsp
+mov qword ptr [rbp + 256], r8
+mov dword ptr [rbp + 248], r14d
+proc_PAT$35_attempt:
 proc_PAT$35_α_body:
 lea rax, [rip + xchain942_n4_β]
 mov qword ptr [rbp + 224], rax
@@ -14558,7 +15506,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 200], rdx
  jmp xchain942_n1_α
  xchain942_n0_β:
- jmp proc_PAT$35_ω
+ jmp proc_PAT$35_scanfail
 # IR_COERCE_STRING
  xchain942_n1_α:
  lea rdi, [rbp + 192]
@@ -14567,7 +15515,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain942_n2_α
  xchain942_n1_β:
- jmp proc_PAT$35_ω
+ jmp proc_PAT$35_scanfail
 # IR_VAR
  xchain942_n2_α:
  mov rax, qword ptr [1879055376]
@@ -14576,7 +15524,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 136], rdx
  jmp xchain942_n3_α
  xchain942_n2_β:
- jmp proc_PAT$35_ω
+ jmp proc_PAT$35_scanfail
 # IR_COERCE_STRING
  xchain942_n3_α:
  lea rdi, [rbp + 128]
@@ -14585,7 +15533,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain942_n4_α
  xchain942_n3_β:
- jmp proc_PAT$35_ω
+ jmp proc_PAT$35_scanfail
 # IR_MATCH_SEQ_NARY (ZB-FC-3b: zero cell, LIFO-structural)
  xchain942_n4_α:
  jmp xchain942_n5_α
@@ -14642,6 +15590,30 @@ xchain942_n4_af:
  mov r14d, eax
  add rsp, 16
  jmp xchain942_n5_β
+proc_PAT$35_scanhit:
+cmp qword ptr [rbp + 256], 1
+jne 7f
+mov ecx, dword ptr [rbp + 248]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$35_γ
+proc_PAT$35_scanfail:
+cmp qword ptr [rbp + 256], 1
+jne 8f
+mov eax, dword ptr [rbp + 248]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 248], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$35_attempt
+8:
+jmp proc_PAT$35_ω
 proc_PAT$35_res:
 add rsp, 8
 pop rbp
@@ -14676,6 +15648,9 @@ proc_PAT$36_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 136], rsp
+mov qword ptr [rbp + 144], r8
+mov dword ptr [rbp + 136], r14d
+proc_PAT$36_attempt:
 proc_PAT$36_α_body:
 lea rax, [rip + xchain954_n2_β]
 mov qword ptr [rbp + 112], rax
@@ -14715,18 +15690,42 @@ mov qword ptr [rbp + 112], rax
  test eax, eax
  jg .Lx959_240
  add rsp, 16
- jmp proc_PAT$36_ω
+ jmp proc_PAT$36_scanfail
 .Lx959_240:
  mov edx, r14d
  mov dword ptr [rsp + 4], edx
  add edx, eax
  mov r14d, edx
- jmp proc_PAT$36_γ
+ jmp proc_PAT$36_scanhit
  xchain954_n2_β:
  xchain954_n2_β:
  mov r14d, dword ptr [rsp + 4]
  add rsp, 16
- jmp proc_PAT$36_ω
+ jmp proc_PAT$36_scanfail
+proc_PAT$36_scanhit:
+cmp qword ptr [rbp + 144], 1
+jne 7f
+mov ecx, dword ptr [rbp + 136]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$36_γ
+proc_PAT$36_scanfail:
+cmp qword ptr [rbp + 144], 1
+jne 8f
+mov eax, dword ptr [rbp + 136]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 136], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$36_attempt
+8:
+jmp proc_PAT$36_ω
 proc_PAT$36_res:
 add rsp, 8
 pop rbp
@@ -14761,6 +15760,9 @@ proc_PAT$37_α:
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 248], rsp
+mov qword ptr [rbp + 256], r8
+mov dword ptr [rbp + 248], r14d
+proc_PAT$37_attempt:
 proc_PAT$37_α_body:
 lea rax, [rip + xchain960_n4_β]
 mov qword ptr [rbp + 224], rax
@@ -14772,7 +15774,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 200], rdx
  jmp xchain960_n1_α
  xchain960_n0_β:
- jmp proc_PAT$37_ω
+ jmp proc_PAT$37_scanfail
 # IR_COERCE_STRING
  xchain960_n1_α:
  lea rdi, [rbp + 192]
@@ -14781,7 +15783,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain960_n2_α
  xchain960_n1_β:
- jmp proc_PAT$37_ω
+ jmp proc_PAT$37_scanfail
 # IR_VAR
  xchain960_n2_α:
  mov rax, qword ptr [1879055424]
@@ -14790,7 +15792,7 @@ mov qword ptr [rbp + 224], rax
  mov qword ptr [rbp + 136], rdx
  jmp xchain960_n3_α
  xchain960_n2_β:
- jmp proc_PAT$37_ω
+ jmp proc_PAT$37_scanfail
 # IR_COERCE_STRING
  xchain960_n3_α:
  lea rdi, [rbp + 128]
@@ -14799,7 +15801,7 @@ mov qword ptr [rbp + 224], rax
  call rt_coerce_str_d@PLT
  jmp xchain960_n4_α
  xchain960_n3_β:
- jmp proc_PAT$37_ω
+ jmp proc_PAT$37_scanfail
 # IR_MATCH_SEQ_NARY (ZB-FC-3b: zero cell, LIFO-structural)
  xchain960_n4_α:
  jmp xchain960_n5_α
@@ -14856,6 +15858,30 @@ xchain960_n4_af:
  mov r14d, eax
  add rsp, 16
  jmp xchain960_n5_β
+proc_PAT$37_scanhit:
+cmp qword ptr [rbp + 256], 1
+jne 7f
+mov ecx, dword ptr [rbp + 248]
+lea rdx, [rip + g_scan_hit_start]
+mov dword ptr [rdx], ecx
+7:
+jmp proc_PAT$37_γ
+proc_PAT$37_scanfail:
+cmp qword ptr [rbp + 256], 1
+jne 8f
+mov eax, dword ptr [rbp + 248]
+inc eax
+cmp eax, r15d
+jg 8f
+lea rcx, [rip + g_anchor]
+cmp qword ptr [rcx], 0
+jne 8f
+mov dword ptr [rbp + 248], eax
+mov r14d, eax
+mov rsp, rbp
+jmp proc_PAT$37_attempt
+8:
+jmp proc_PAT$37_ω
 proc_PAT$37_res:
 add rsp, 8
 pop rbp
@@ -19843,6 +20869,7 @@ xchain972_n2_af:
 .Lx1039_10:
  test rax, rax
  jz .Lx1039_0
+ mov r8d, 0
  lea rcx, [rip + .Lx1039_4]
  lea rdx, [rip + .Lx1039_5]
  jmp rax
