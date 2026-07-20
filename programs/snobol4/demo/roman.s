@@ -251,28 +251,15 @@ xchain0_n2_af:
  mov r12, qword ptr [rbp + 432]
  mov rbp, qword ptr [rbp + 440]
  jmp proc_ROMAN_ω
-# IR_MATCH_SEQ_NARY
+# IR_MATCH_SEQ_NARY (SPD SEQ-STATIC: zero-counter, sigma/phi statically wired)
  xchain0_n13_α:
  mov dword ptr [rbp + 464], r14d
- mov dword ptr [rbp + 468], 0
  jmp xchain0_n15_α
 xchain0_n13_as:
- mov eax, dword ptr [rbp + 468]
- add eax, 1
- mov dword ptr [rbp + 468], eax
- cmp eax, 1
- je xchain0_n16_α
  jmp xchain0_n14_α
  xchain0_n13_β:
- mov dword ptr [rbp + 468], 2
+ jmp xchain0_n17_β
 xchain0_n13_af:
- mov eax, dword ptr [rbp + 468]
- sub eax, 1
- mov dword ptr [rbp + 468], eax
- cmp eax, 0
- je xchain0_n15_β
- cmp eax, 1
- je xchain0_n17_β
  jmp xchain0_n12_β
 # IR_MATCH_RELEASE
  xchain0_n14_α:
@@ -334,7 +321,7 @@ xchain0_n13_af:
  lea rdx, [rip + .Lx25_5]
  jmp rax
 .Lx25_4:
- jmp xchain0_n13_as
+ jmp xchain0_n16_α
 .Lx25_5:
  jmp xchain0_n13_af
 .Lx25_0:
@@ -377,7 +364,7 @@ xchain0_n13_af:
  lea rax, [rip + .Lx25_6]
  sub rsp, 8
  push rax
- jmp xchain0_n13_as
+ jmp xchain0_n16_α
 .Lx25_6:
  add rsp, 16
  jmp xchain0_n13_af
@@ -390,7 +377,7 @@ xchain0_n13_af:
  jmp xchain0_n18_α
  xchain0_n16_β:
  add rsp, 16
- jmp xchain0_n13_af
+ jmp xchain0_n15_β
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain0_n17_α:
  mov eax, dword ptr [rsp + 16]
@@ -418,7 +405,7 @@ xchain0_n13_af:
  jl .Lx31_240
  add rsp, 16
  add rsp, 16
- jmp xchain0_n13_af
+ jmp xchain0_n15_β
 .Lx31_240:
  movsxd rcx, eax
  movzx esi, byte ptr [r13+rcx]
@@ -437,7 +424,7 @@ xchain0_n13_af:
  mov r14d, eax
  add rsp, 16
  add rsp, 16
- jmp xchain0_n13_af
+ jmp xchain0_n15_β
 proc_ROMAN_res:
 add rsp, 8
 pop rbp
