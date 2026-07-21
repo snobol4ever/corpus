@@ -1,0 +1,11 @@
+$stream(1)
+$stream(0)
+setout_existence
+curout_domain
+setout_inst
+setout_domain
+setout_perm
+setin_perm
+flushed0
+flushed1
+done
