@@ -40,6 +40,17 @@ order above; the driver merges them into one program.
 
 ## Status
 
-All 18 modules parse cleanly under SCRIP. Compiling the merged program emits x86
-assembly but still bombs on some constructs (led by local-variable assignment);
-completing those is tracked in `.github/GOAL-JCON-IN-SCRIP.md` / `GOAL-ICON-BB.md`.
+All 18 modules parse cleanly under SCRIP. The full self-host toolchain now
+BUILDS: the 17-module merged translator (`jtran`) and the 2-module linker
+(`jlink`) both compile to x86 assembly and link against `libscrip_rt.so`, and
+the JCON Java runtime (`jcon.zip`) builds from the SCRIP-generated iTrampoline.
+End-to-end self-host of a trivial program (`hello, world`) succeeds:
+SCRIP-`jtran` -> SCRIP-`jlink` -> JVM matches the icont/iconx oracle.
+
+The remaining blocker is a value-alternation case selector nested inside a live
+string-scan environment (`preprocessor.icn` `case move(1) of { "\"" | "'": ... }`):
+entering such a selector fresh is required for correctness but currently
+disturbs the scan registers, so non-trivial programs that exercise that path
+still crash. Root-caused to the emitter's chain walk (not the lowerer); tracked
+in `.github/GOAL-ICON-BB.md` (LIVE CURSOR: ICN-CASE-ALT-SELECTOR) and
+`.github/GOAL-JCON-IN-SCRIP.md`.
