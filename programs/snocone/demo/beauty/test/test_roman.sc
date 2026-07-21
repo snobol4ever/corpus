@@ -2,7 +2,7 @@
 function Roman(n, s, i, len, d, place, ones, fives, tens, result) {
     s = CONVERT(n, 'STRING'); len = SIZE(s); result = ''; i = 0;
     while (LT(i, len)) {
-        i = i + 1; d = INTEGER(SUBSTR(s, i, 1)); place = len - i;
+        i = i + 1; d = CONVERT(SUBSTR(s, i, 1), 'INTEGER'); place = len - i;
         if (EQ(place, 0)) { ones = 'I'; fives = 'V'; tens = 'X'; }
         if (EQ(place, 1)) { ones = 'X'; fives = 'L'; tens = 'C'; }
         if (EQ(place, 2)) { ones = 'C'; fives = 'D'; tens = 'M'; }

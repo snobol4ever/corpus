@@ -1,1 +1,5 @@
-SKIP: blocked by SB-6.E.7-H rollback bug
+PASS: 1 SQize basic
+PASS: 2 SQize empty
+PASS: 3 DQize basic
+PASS: 4 SqlSQize basic
+PASS: 5 SqlSQize doubles quote
