@@ -1,0 +1,7 @@
+readback(h,e,108)
+firstchar(h)
+existence_ok
+iomode_ok
+inst_ok
+sourcesink_ok
+done
