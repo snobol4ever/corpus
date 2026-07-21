@@ -1,0 +1,2 @@
+OUTPUT = &UCASE;
+OUTPUT = &LCASE;

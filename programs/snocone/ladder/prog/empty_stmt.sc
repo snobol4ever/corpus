@@ -1,0 +1,4 @@
+OUTPUT = 'before';
+;
+;
+OUTPUT = 'after';

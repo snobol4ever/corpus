@@ -1,0 +1,2 @@
+OUTPUT = 2 + 3;
+OUTPUT = 10 - 4;
