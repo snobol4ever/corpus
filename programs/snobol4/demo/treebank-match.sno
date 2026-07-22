@@ -1,0 +1,95 @@
+*------------------------------------------------------------------------------
+* treebank-match.sno — treebank s-expression parser ISOLATED: whole file in
+* memory, ONE BIG MATCH, side-effect counters only (no list building, no
+* pretty-printing).  Lifted verbatim from treebank-list.sno: the recursive
+* group/treebank pattern, the &ALPHABET nl trick, the EVAL-built
+* (epsilon . *fn(arg)) deferred workers and the bare epsilon . *fn() form,
+* all NRETURN .dummy shape.
+* Run: sbl -b -d512m -i64m -s256m (with -CASE 0 prepend) treebank-match.sno < VBGinTASA.dat
+*      snobol4 -b -f -d 8m -P 4m -S 4m treebank-match.sno < VBGinTASA.dat
+*      scrip --run treebank-match.sno < VBGinTASA.dat
+*------------------------------------------------------------------------------
+               &ALPHABET      POS(10) LEN(1) . nl
+*------------------------------------------------------------------------------
+               DEFINE('init_cnt(v)')
+               DEFINE('Init_cnt(vs)')                       :(init_cnt_end)
+init_cnt       ngrp           =  0
+               grpchars       =  0
+               nwrd           =  0
+               wrdchars       =  0
+               npop           =  0
+               nbank          =  0
+               banksig        =  v
+               init_cnt       =  .dummy                     :(NRETURN)
+Init_cnt       Init_cnt       =  EVAL("epsilon . *init_cnt(" vs ")")  :(RETURN)
+init_cnt_end
+*------------------------------------------------------------------------------
+               DEFINE('push_grp(v)')
+               DEFINE('Push_grp(vs)')                       :(push_grp_end)
+push_grp       ngrp           =  ngrp + 1
+               grpchars       =  grpchars + SIZE(v)
+               push_grp       =  .dummy                     :(NRETURN)
+Push_grp       Push_grp       =  EVAL("epsilon . *push_grp(" vs ")")  :(RETURN)
+push_grp_end
+*------------------------------------------------------------------------------
+               DEFINE('push_wrd(v)')
+               DEFINE('Push_wrd(vs)')                       :(push_wrd_end)
+push_wrd       nwrd           =  nwrd + 1
+               wrdchars       =  wrdchars + SIZE(v)
+               push_wrd       =  .dummy                     :(NRETURN)
+Push_wrd       Push_wrd       =  EVAL("epsilon . *push_wrd(" vs ")")  :(RETURN)
+push_wrd_end
+*------------------------------------------------------------------------------
+               DEFINE('pop_grp()')
+               DEFINE('Pop_grp()')                          :(pop_grp_end)
+pop_grp        npop           =  npop + 1
+               pop_grp        =  .dummy                     :(NRETURN)
+Pop_grp        Pop_grp        =  epsilon . *pop_grp()       :(RETURN)
+pop_grp_end
+*------------------------------------------------------------------------------
+               DEFINE('pop_final(v)')
+               DEFINE('Pop_final(vs)')                      :(pop_final_end)
+pop_final      nbank          =  nbank + 1
+               banksig        =  banksig v
+               pop_final      =  .dummy                     :(NRETURN)
+Pop_final      Pop_final      =  EVAL("epsilon . *pop_final(" vs ")")  :(RETURN)
+pop_final_end
+*------------------------------------------------------------------------------
+               delim          =  SPAN(' ' nl)
+               word           =  NOTANY('( )' nl) BREAK('( )' nl)
+*------------------------------------------------------------------------------
+               group          =
++              '('
++              (word . tag) Push_grp('tag')
++              ARBNO(
++                  *delim
++                  ( *group
++                  | (word . wrd) Push_wrd('wrd')
++                  )
++              )
++              Pop_grp()
++              ')'
+*------------------------------------------------------------------------------
+               treebank       =
++              POS(0)
++              Init_cnt("'bank'")
++              Push_grp("'BANK'")
++              ARBNO(
++                  Push_grp("'ROOT'")
++                  ARBNO(*group)
++                  *delim
++                  Pop_grp()
++              )
++              Pop_final("'bank'")
++              RPOS(0)
+*------------------------------------------------------------------------------
+slurp          line           =  INPUT                      :F(slurp_done)
+               src            =  src line nl                :(slurp)
+slurp_done     src            treebank                      :F(main_fail)
+               OUTPUT         =  'bytes=' SIZE(src) ' groups=' ngrp
++                                ' grpchars=' grpchars ' words=' nwrd
++                                ' wrdchars=' wrdchars ' pops=' npop
++                                ' banks=' nbank ' sig=' banksig  :(END)
+main_fail      OUTPUT         =  'Pattern match failed'
+*------------------------------------------------------------------------------
+END
