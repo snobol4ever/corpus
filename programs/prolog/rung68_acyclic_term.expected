@@ -1,0 +1,9 @@
+compound_yes
+var_yes
+list_yes
+int_yes
+atom_yes
+shared_yes
+oper_yes
+cyclic(no)
+done
