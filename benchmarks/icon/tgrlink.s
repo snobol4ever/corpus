@@ -14683,7 +14683,7 @@ xchain00380_n81_β:
  mov qword ptr [rbp + 1560], rdx
  cmp eax, 99
  je xchain00380_n89_α
- jmp xchain00380_n88_β
+ jmp xchain00380_n88_α
  xchain00380_n86_β:
  jmp xchain00380_n89_α
 # IR_VAR
@@ -14847,7 +14847,7 @@ xchain00380_n88_af:
  mov qword ptr [rbp + 1160], rdx
  cmp eax, 99
  je xchain00380_n28_α
- jmp xchain00380_n97_β
+ jmp xchain00380_n97_α
  xchain00380_n95_β:
  jmp xchain00380_n28_α
 # IR_VAR
