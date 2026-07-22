@@ -6133,6 +6133,8 @@ mov qword ptr [rbp + 112], rax
  xchain442_n2_α:
  sub rsp, 16
  mov dword ptr [rsp + 0], 0
+ mov r8, qword ptr [rbp + 56]
+ mov r9d, dword ptr [rbp + 52]
 .Lx447_0:
  mov eax, r14d
  add eax, dword ptr [rsp + 0]
@@ -6140,10 +6142,16 @@ mov qword ptr [rbp + 112], rax
  jge .Lx447_1
  movsxd rcx, eax
  movzx esi, byte ptr [r13+rcx]
- mov rdi, qword ptr [rbp + 56]
- call strchr@PLT
- test rax, rax
- je .Lx447_1
+ mov edx, 0
+.Lx447_2:
+ cmp edx, r9d
+ jge .Lx447_1
+ movzx edi, byte ptr [r8 + rdx]
+ cmp esi, edi
+ je .Lx447_3
+ add edx, 1
+ jmp .Lx447_2
+.Lx447_3:
  add dword ptr [rsp + 0], 1
  jmp .Lx447_0
 .Lx447_1:
@@ -6279,10 +6287,18 @@ xchain448_n4_af:
  jge xchain448_n4_af
  movsxd rcx, r14d
  movzx esi, byte ptr [r13+rcx]
- mov rdi, qword ptr [rbp + 104]
- call strchr@PLT
- test rax, rax
- jne xchain448_n4_af
+ mov r8, qword ptr [rbp + 104]
+ mov r9d, dword ptr [rbp + 100]
+ mov edx, 0
+.Lx457_5:
+ cmp edx, r9d
+ jge .Lx457_6
+ movzx edi, byte ptr [r8 + rdx]
+ cmp esi, edi
+ je xchain448_n4_af
+ add edx, 1
+ jmp .Lx457_5
+.Lx457_6:
  add r14d, 1
  jmp xchain448_n6_α
  xchain448_n5_β:
@@ -6292,6 +6308,8 @@ xchain448_n4_af:
  xchain448_n6_α:
  sub rsp, 16
  mov dword ptr [rsp + 0], 0
+ mov r8, qword ptr [rbp + 168]
+ mov r9d, dword ptr [rbp + 164]
 .Lx459_0:
  mov eax, r14d
  add eax, dword ptr [rsp + 0]
@@ -6302,10 +6320,16 @@ xchain448_n4_af:
 .Lx459_240:
  movsxd rcx, eax
  movzx esi, byte ptr [r13+rcx]
- mov rdi, qword ptr [rbp + 168]
- call strchr@PLT
- test rax, rax
- jnz .Lx459_1
+ mov edx, 0
+.Lx459_2:
+ cmp edx, r9d
+ jge .Lx459_3
+ movzx edi, byte ptr [r8 + rdx]
+ cmp esi, edi
+ je .Lx459_1
+ add edx, 1
+ jmp .Lx459_2
+.Lx459_3:
  add dword ptr [rsp + 0], 1
  jmp .Lx459_0
 .Lx459_1:

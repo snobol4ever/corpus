@@ -5027,6 +5027,8 @@ mov qword ptr [rbp + 112], rax
  xchain331_n2_α:
  sub rsp, 16
  mov dword ptr [rsp + 0], 0
+ mov r8, qword ptr [rbp + 56]
+ mov r9d, dword ptr [rbp + 52]
 .Lx336_0:
  mov eax, r14d
  add eax, dword ptr [rsp + 0]
@@ -5034,10 +5036,16 @@ mov qword ptr [rbp + 112], rax
  jge .Lx336_1
  movsxd rcx, eax
  movzx esi, byte ptr [r13+rcx]
- mov rdi, qword ptr [rbp + 56]
- call strchr@PLT
- test rax, rax
- je .Lx336_1
+ mov edx, 0
+.Lx336_2:
+ cmp edx, r9d
+ jge .Lx336_1
+ movzx edi, byte ptr [r8 + rdx]
+ cmp esi, edi
+ je .Lx336_3
+ add edx, 1
+ jmp .Lx336_2
+.Lx336_3:
  add dword ptr [rsp + 0], 1
  jmp .Lx336_0
 .Lx336_1:
@@ -5173,10 +5181,18 @@ xchain337_n4_af:
  jge xchain337_n4_af
  movsxd rcx, r14d
  movzx esi, byte ptr [r13+rcx]
- mov rdi, qword ptr [rbp + 104]
- call strchr@PLT
- test rax, rax
- jne xchain337_n4_af
+ mov r8, qword ptr [rbp + 104]
+ mov r9d, dword ptr [rbp + 100]
+ mov edx, 0
+.Lx346_5:
+ cmp edx, r9d
+ jge .Lx346_6
+ movzx edi, byte ptr [r8 + rdx]
+ cmp esi, edi
+ je xchain337_n4_af
+ add edx, 1
+ jmp .Lx346_5
+.Lx346_6:
  add r14d, 1
  jmp xchain337_n6_α
  xchain337_n5_β:
@@ -5186,6 +5202,8 @@ xchain337_n4_af:
  xchain337_n6_α:
  sub rsp, 16
  mov dword ptr [rsp + 0], 0
+ mov r8, qword ptr [rbp + 168]
+ mov r9d, dword ptr [rbp + 164]
 .Lx348_0:
  mov eax, r14d
  add eax, dword ptr [rsp + 0]
@@ -5196,10 +5214,16 @@ xchain337_n4_af:
 .Lx348_240:
  movsxd rcx, eax
  movzx esi, byte ptr [r13+rcx]
- mov rdi, qword ptr [rbp + 168]
- call strchr@PLT
- test rax, rax
- jnz .Lx348_1
+ mov edx, 0
+.Lx348_2:
+ cmp edx, r9d
+ jge .Lx348_3
+ movzx edi, byte ptr [r8 + rdx]
+ cmp esi, edi
+ je .Lx348_1
+ add edx, 1
+ jmp .Lx348_2
+.Lx348_3:
  add dword ptr [rsp + 0], 1
  jmp .Lx348_0
 .Lx348_1:
