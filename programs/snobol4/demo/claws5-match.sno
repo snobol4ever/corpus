@@ -7,9 +7,8 @@
 *      snobol4 -b -f -d 8m -P 4m -S 4m claws5-match.sno < CLAWS5inTASA.dat
 *      scrip --run claws5-match.sno < CLAWS5inTASA.dat
 *------------------------------------------------------------------------------
-                &ALPHABET       POS(10) LEN(1) . nl
-                DIGITS          =  '0123456789'
-                UCASE           =  'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+*------------------------------------------------------------------------------
+                &TRIM          =  0
 *------------------------------------------------------------------------------
 slurp           line            =   INPUT                       :F(slurp_done)
                 src             =   src line                    :(slurp)
@@ -18,10 +17,10 @@ slurp_done
                 claws           =
 +               POS(0)
 +               ARBNO(
-+                ( SPAN(DIGITS) '_CRD :_PUN'
++                ( SPAN('0123456789') '_CRD :_PUN'
 +                | NOTANY('_') BREAK('_')
 +                  '_'
-+                  ANY(UCASE) SPAN(DIGITS UCASE)
++                  ANY(&UCASE) SPAN('0123456789' &UCASE)
 +                )
 +                ' '
 +               )

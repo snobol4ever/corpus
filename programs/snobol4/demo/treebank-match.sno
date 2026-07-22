@@ -9,10 +9,8 @@
 *      snobol4 -b -f -d 8m -P 4m -S 4m treebank-match.sno < VBGinTASA.dat
 *      scrip --run treebank-match.sno < VBGinTASA.dat
 *------------------------------------------------------------------------------
-               &ALPHABET      POS(10) LEN(1) . nl
-*------------------------------------------------------------------------------
-               delim          =  SPAN(' ' nl)
-               word           =  NOTANY('( )' nl) BREAK('( )' nl)
+               delim          =  SPAN(' ' CHAR(10))
+               word           =  NOTANY('( )' CHAR(10)) BREAK('( )' CHAR(10))
 *------------------------------------------------------------------------------
                group          =
 +              '('
@@ -33,8 +31,10 @@
 +              )
 +              RPOS(0)
 *------------------------------------------------------------------------------
+                &TRIM          =  0
+*------------------------------------------------------------------------------
 slurp          line           =  INPUT                      :F(slurp_done)
-               src            =  src line nl                :(slurp)
+               src            =  src line CHAR(10)                :(slurp)
 slurp_done     src            treebank                      :F(main_fail)
                OUTPUT         =  'matched bytes=' SIZE(src) :(END)
 main_fail      OUTPUT         =  'Pattern match failed'
