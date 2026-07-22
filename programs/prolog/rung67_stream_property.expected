@@ -1,0 +1,10 @@
+mode_write_ok
+is_output
+correctly_not_input
+type_text_ok
+has_file_name
+correctly_not_read
+read_mode_ok
+read_is_input
+nonempty_not_eof
+done
