@@ -179,63 +179,32 @@ xchain0_n1_af:
 # IR_MATCH_SPAN
  xchain0_n8_α:
  sub rsp, 16
+ lea rdi, [rip + .C0]
  movsxd rcx, r14d
 .Lx18_0:
  cmp ecx, r15d
  jge .Lx18_1
  movzx esi, byte ptr [r13+rcx]
- cmp esi, 97
- je .Lx18_10
- cmp esi, 98
- je .Lx18_10
- cmp esi, 99
- je .Lx18_10
- cmp esi, 100
- je .Lx18_10
- jmp .Lx18_1
-.Lx18_10:
+ cmp byte ptr [rdi+rsi], 0
+ je .Lx18_1
  add ecx, 1
  cmp ecx, r15d
  jge .Lx18_1
  movzx esi, byte ptr [r13+rcx]
- cmp esi, 97
- je .Lx18_11
- cmp esi, 98
- je .Lx18_11
- cmp esi, 99
- je .Lx18_11
- cmp esi, 100
- je .Lx18_11
- jmp .Lx18_1
-.Lx18_11:
+ cmp byte ptr [rdi+rsi], 0
+ je .Lx18_1
  add ecx, 1
  cmp ecx, r15d
  jge .Lx18_1
  movzx esi, byte ptr [r13+rcx]
- cmp esi, 97
- je .Lx18_12
- cmp esi, 98
- je .Lx18_12
- cmp esi, 99
- je .Lx18_12
- cmp esi, 100
- je .Lx18_12
- jmp .Lx18_1
-.Lx18_12:
+ cmp byte ptr [rdi+rsi], 0
+ je .Lx18_1
  add ecx, 1
  cmp ecx, r15d
  jge .Lx18_1
  movzx esi, byte ptr [r13+rcx]
- cmp esi, 97
- je .Lx18_13
- cmp esi, 98
- je .Lx18_13
- cmp esi, 99
- je .Lx18_13
- cmp esi, 100
- je .Lx18_13
- jmp .Lx18_1
-.Lx18_13:
+ cmp byte ptr [rdi+rsi], 0
+ je .Lx18_1
  add ecx, 1
  jmp .Lx18_0
 .Lx18_1:
@@ -1123,4 +1092,23 @@ ret
 .section .rodata
 .S0: .string "W"
 .S1: .string "PAT"
+.text
+.section .rodata
+.C0:
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+ .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 .text
