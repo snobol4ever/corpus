@@ -73,32 +73,55 @@ xchain0_n0_af:
 # IR_MATCH_BREAK
  xchain0_n4_α:
  sub rsp, 16
- lea rdi, [rip + .C0]
- mov dword ptr [rsp + 0], 0
+ movsxd rcx, r14d
 .Lx10_0:
- mov eax, r14d
- add eax, dword ptr [rsp + 0]
- cmp eax, r15d
+ cmp ecx, r15d
+ jl .Lx10_237
+ add rsp, 16
+ add rsp, 16
+ jmp xchain0_n0_af
+.Lx10_237:
+ movzx esi, byte ptr [r13+rcx]
+ cmp esi, 44
+ je .Lx10_1
+ add ecx, 1
+ cmp ecx, r15d
+ jl .Lx10_238
+ add rsp, 16
+ add rsp, 16
+ jmp xchain0_n0_af
+.Lx10_238:
+ movzx esi, byte ptr [r13+rcx]
+ cmp esi, 44
+ je .Lx10_1
+ add ecx, 1
+ cmp ecx, r15d
+ jl .Lx10_239
+ add rsp, 16
+ add rsp, 16
+ jmp xchain0_n0_af
+.Lx10_239:
+ movzx esi, byte ptr [r13+rcx]
+ cmp esi, 44
+ je .Lx10_1
+ add ecx, 1
+ cmp ecx, r15d
  jl .Lx10_240
  add rsp, 16
  add rsp, 16
  jmp xchain0_n0_af
 .Lx10_240:
- movsxd rcx, eax
  movzx esi, byte ptr [r13+rcx]
- cmp byte ptr [rdi+rsi], 0
- jnz .Lx10_1
- add dword ptr [rsp + 0], 1
+ cmp esi, 44
+ je .Lx10_1
+ add ecx, 1
  jmp .Lx10_0
 .Lx10_1:
- mov eax, r14d
- add eax, dword ptr [rsp + 0]
- mov r14d, eax
+ mov dword ptr [rsp + 0], r14d
+ mov r14d, ecx
  jmp xchain0_n2_α
  xchain0_n4_β:
- mov eax, r14d
- sub eax, dword ptr [rsp + 0]
- mov r14d, eax
+ mov r14d, dword ptr [rsp + 0]
  add rsp, 16
  add rsp, 16
  jmp xchain0_n0_af
@@ -967,23 +990,4 @@ ret
 .section .rodata
 .S0: .string "WORD"
 .S1: .string "PAT"
-.text
-.section .rodata
-.C0:
- .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
- .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
- .byte 0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
- .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
- .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
- .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
- .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
- .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
- .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
- .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
- .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
- .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
- .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
- .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
- .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
- .byte 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 .text
