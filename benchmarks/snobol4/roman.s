@@ -309,6 +309,9 @@ xchain0_n13_af:
  mov rdx, qword ptr [1879052328]
  cmp eax, 3
  jne .Lx25_9
+ mov rax, qword ptr [rdx + 0]
+ test rax, rax
+ jne .Lx25_10
  mov rdi, rdx
  call dtp_fn_of@PLT
  jmp .Lx25_10
