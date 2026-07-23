@@ -38,9 +38,11 @@
 *------------------------------------------------------------------------------
                 &TRIM          =  0
 *------------------------------------------------------------------------------
-slurp           line            =   INPUT                       :F(slurp_done)
-                src             =   src line CHAR(10)           :(slurp)
-slurp_done      src             json                            :F(fail)
+*  ONE READ — SPITBOL raw mode: -f0 attaches stdin, -r sets raw record length;
+*  newlines come back in-string, short read at EOF (manual, file processing options)
+                INPUT(.INPUT, 9, '[-f0 -r1000000]')
+                src             =   INPUT                       :F(fail)
+                src             json                            :F(fail)
                 OUTPUT          =  'matched bytes=' SIZE(src)   :(END)
 fail            OUTPUT          =  'Pattern match failed'
 *------------------------------------------------------------------------------

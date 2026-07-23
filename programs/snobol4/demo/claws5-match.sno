@@ -10,9 +10,10 @@
 *------------------------------------------------------------------------------
                 &TRIM          =  0
 *------------------------------------------------------------------------------
-slurp           line            =   INPUT                       :F(slurp_done)
-                src             =   src line                    :(slurp)
-slurp_done
+*  ONE READ — SPITBOL raw mode: -f0 attaches stdin, -r sets raw record length;
+*  newlines come back in-string (separator below widened to SPAN(' ' CHAR(10)))
+                INPUT(.INPUT, 9, '[-f0 -r1000000]')
+                src             =   INPUT                       :F(fail)
 *------------------------------------------------------------------------------
                 claws           =
 +               POS(0)
@@ -22,7 +23,7 @@ slurp_done
 +                  '_'
 +                  ANY(&UCASE) SPAN('0123456789' &UCASE)
 +                )
-+                ' '
++                SPAN(' ' CHAR(10))
 +               )
 +               RPOS(0)
 *------------------------------------------------------------------------------

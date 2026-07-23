@@ -33,9 +33,11 @@
 *------------------------------------------------------------------------------
                 &TRIM          =  0
 *------------------------------------------------------------------------------
-slurp          line           =  INPUT                      :F(slurp_done)
-               src            =  src line CHAR(10)                :(slurp)
-slurp_done     src            treebank                      :F(main_fail)
+*  ONE READ — SPITBOL raw mode: -f0 attaches stdin, -r sets raw record length;
+*  newlines come back in-string, short read at EOF (manual, file processing options)
+               INPUT(.INPUT, 9, '[-f0 -r1000000]')
+               src            =  INPUT                      :F(main_fail)
+               src            treebank                      :F(main_fail)
                OUTPUT         =  'matched bytes=' SIZE(src) :(END)
 main_fail      OUTPUT         =  'Pattern match failed'
 *------------------------------------------------------------------------------
