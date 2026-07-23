@@ -1,0 +1,6 @@
+t1=foo(bar,42,[x,y,z])
+t2=hello
+t3=shared_ok
+t4=end_of_file
+x1=foo(bar,42,[x,y,z])
+done

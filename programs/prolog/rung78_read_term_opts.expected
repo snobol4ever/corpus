@@ -1,0 +1,7 @@
+nvars=3
+nnames=3
+nsingletons=2
+a_shared_ok
+rt2_singletons=1
+rt2_shared_ok
+done

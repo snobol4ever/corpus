@@ -1,0 +1,9 @@
+getchar_on_write=perm(input,stream)
+getcode_on_write=perm(input,stream)
+peekchar_on_write=perm(input,stream)
+getbyte_on_write=perm(input,stream)
+ateof_on_write=perm(input,stream)
+putchar_on_read=perm(output,stream)
+putcode_on_read=perm(output,stream)
+putbyte_on_read=perm(output,stream)
+done

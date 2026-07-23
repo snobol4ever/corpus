@@ -1,0 +1,9 @@
+at0_false
+read(a,b,c)
+ateof_true
+past(end_of_file)
+pasteof_true
+cur_false
+exist(stream,nosuch)
+instantiation_caught
+done
