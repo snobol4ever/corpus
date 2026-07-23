@@ -6736,6 +6736,9 @@ xchain460_n6_af:
  mov rdx, qword ptr [1879052968]
  cmp eax, 3
  jne .Lx478_9
+ mov rax, qword ptr [rdx + 0]
+ test rax, rax
+ jne .Lx478_10
  mov rdi, rdx
  call dtp_fn_of@PLT
  jmp .Lx478_10
@@ -6911,6 +6914,9 @@ xchain460_n12_af:
  mov rdx, qword ptr [1879052952]
  cmp eax, 3
  jne .Lx484_9
+ mov rax, qword ptr [rdx + 0]
+ test rax, rax
+ jne .Lx484_10
  mov rdi, rdx
  call dtp_fn_of@PLT
  jmp .Lx484_10
@@ -7083,6 +7089,9 @@ xchain460_n15_af:
  mov rdx, qword ptr [1879052984]
  cmp eax, 3
  jne .Lx489_9
+ mov rax, qword ptr [rdx + 0]
+ test rax, rax
+ jne .Lx489_10
  mov rdi, rdx
  call dtp_fn_of@PLT
  jmp .Lx489_10
@@ -7231,6 +7240,9 @@ xchain460_n18_af:
  mov rdx, qword ptr [1879052968]
  cmp eax, 3
  jne .Lx497_9
+ mov rax, qword ptr [rdx + 0]
+ test rax, rax
+ jne .Lx497_10
  mov rdi, rdx
  call dtp_fn_of@PLT
  jmp .Lx497_10
@@ -9211,6 +9223,9 @@ xchain511_n2_af:
  mov rdx, qword ptr [1879053016]
  cmp eax, 3
  jne .Lx588_9
+ mov rax, qword ptr [rdx + 0]
+ test rax, rax
+ jne .Lx588_10
  mov rdi, rdx
  call dtp_fn_of@PLT
  jmp .Lx588_10
@@ -9698,6 +9713,9 @@ xchain511_n2_af:
  mov rdx, qword ptr [1879052984]
  cmp eax, 3
  jne .Lx608_9
+ mov rax, qword ptr [rdx + 0]
+ test rax, rax
+ jne .Lx608_10
  mov rdi, rdx
  call dtp_fn_of@PLT
  jmp .Lx608_10
