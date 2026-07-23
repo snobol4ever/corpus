@@ -5332,8 +5332,6 @@ xchain00104_n33_af:
  je xchain00104_n39_α
  jmp xchain00104_n50_α
  xchain00104_n34_α:
- mov rdi, r14
- call rt_scan_sync_out@PLT
  mov qword ptr [rbp + 256], 0
  mov edi, 0
  mov rsi, qword ptr [rbp + 288]
@@ -5376,20 +5374,12 @@ xchain00104_n33_af:
 .Lx00123_1:
  call rt_faildescr@PLT
 .Lx00123_2:
- push rax
- push rdx
- call rt_scan_sync_in@PLT
- mov r14, rax
- pop rdx
- pop rax
  mov qword ptr [rbp + 208], rax
  mov qword ptr [rbp + 216], rdx
  cmp eax, 99
  je xchain00104_n20_α
  jmp xchain00104_n40_α
  xchain00104_n34_β:
- mov rdi, r14
- call rt_scan_sync_out@PLT
  call rt_gen_spine_resume_enter@PLT
  mov rsp, qword ptr [rbp + 264]
  jmp qword ptr [rsp]
@@ -6231,8 +6221,6 @@ xchain00130_n30_af:
  mov qword ptr [rbp + 360], rdx
  jmp xchain00130_n10_α
  xchain00130_n32_α:
- mov rdi, r14
- call rt_scan_sync_out@PLT
  mov qword ptr [rbp + 256], 0
  mov edi, 0
  mov rsi, qword ptr [rbp + 288]
@@ -6275,20 +6263,12 @@ xchain00130_n30_af:
 .Lx00147_1:
  call rt_faildescr@PLT
 .Lx00147_2:
- push rax
- push rdx
- call rt_scan_sync_in@PLT
- mov r14, rax
- pop rdx
- pop rax
  mov qword ptr [rbp + 208], rax
  mov qword ptr [rbp + 216], rdx
  cmp eax, 99
  je xchain00130_n18_α
  jmp xchain00130_n37_α
  xchain00130_n32_β:
- mov rdi, r14
- call rt_scan_sync_out@PLT
  call rt_gen_spine_resume_enter@PLT
  mov rsp, qword ptr [rbp + 264]
  jmp qword ptr [rsp]

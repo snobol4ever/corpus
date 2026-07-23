@@ -160,6 +160,8 @@ xchain0_n3_β:
  mov qword ptr [rbp + 2000], rax
  mov rax, qword ptr [rbp + 2072]
  mov qword ptr [rbp + 2008], rax
+ mov rdi, r14
+ call rt_scan_sync_out@PLT
   .section .rodata
   .Lbynamefn8: .string "any"
   .section .text
@@ -170,6 +172,12 @@ xchain0_n3_β:
  call rt_call_arr@PLT
  mov qword ptr [rbp + 1968], rax
  mov qword ptr [rbp + 1976], rdx
+ push rax
+ push rdx
+ call rt_scan_sync_in@PLT
+ mov r14, rax
+ pop rdx
+ pop rax
  cmp eax, 99
  je xchain0_n1_af
  jmp xchain0_n1_as
@@ -1682,6 +1690,8 @@ xchain99_n42_af:
  mov rax, qword ptr [rbp + 3368]
  mov qword ptr [rbp + 3272], rax
  mov qword ptr [rbp + 3280], 0
+ mov rdi, r14
+ call rt_scan_sync_out@PLT
 .Lx00017_60:
   .section .rodata
   .Lbynamegenfn116: .string "upto"
@@ -2257,6 +2267,8 @@ xchain99_n74_af:
  mov qword ptr [rbp + 2656], rax
  mov rax, qword ptr [rbp + 2760]
  mov qword ptr [rbp + 2664], rax
+ mov rdi, r14
+ call rt_scan_sync_out@PLT
   .section .rodata
   .Lbynamefn157: .string "many"
   .section .text
@@ -2267,6 +2279,12 @@ xchain99_n74_af:
  call rt_call_arr@PLT
  mov qword ptr [rbp + 2608], rax
  mov qword ptr [rbp + 2616], rdx
+ push rax
+ push rdx
+ call rt_scan_sync_in@PLT
+ mov r14, rax
+ pop rdx
+ pop rax
  cmp eax, 99
  je xchain99_n42_af
  jmp xchain99_n98_α
@@ -3151,6 +3169,8 @@ xchain99_n00003_β:
  mov rax, qword ptr [rbp + 936]
  mov qword ptr [rbp + 776], rax
  mov qword ptr [rbp + 784], 0
+ mov rdi, r14
+ call rt_scan_sync_out@PLT
 .Lx00094_60:
   .section .rodata
   .Lbynamegenfn214: .string "upto"
@@ -5722,6 +5742,8 @@ xchain00145_n41_β:
  mov rax, qword ptr [rbp + 2584]
  mov qword ptr [rbp + 2520], rax
  mov qword ptr [rbp + 2528], 0
+ mov rdi, r14
+ call rt_scan_sync_out@PLT
 .Lx00159_60:
   .section .rodata
   .Lbynamegenfn385: .string "find"
@@ -5766,7 +5788,7 @@ xchain00145_n41_β:
  jne xchain00145_n50_α
  mov qword ptr [rbp + 3024], 6
  mov qword ptr [rbp + 3032], rax
- jmp xchain00145_n20_af
+ jmp xchain00145_n36_α
 # IR_LIT_INTEGER
  xchain00145_n48_α:
  mov qword ptr [rbp + 2608], 6
@@ -5788,7 +5810,7 @@ xchain00145_n41_β:
  mov qword ptr [rbp + 3000], 0
  jmp xchain00145_n53_α
  xchain00145_n50_β:
- jmp xchain00145_n20_af
+ jmp xchain00145_n36_α
 # IR_COERCE_NUMERIC
  xchain00145_n51_α:
  mov eax, dword ptr [rbp + 2480]
@@ -5951,6 +5973,8 @@ xchain00145_n56_af:
  mov qword ptr [rbp + 2176], rax
  mov rax, qword ptr [rbp + 2248]
  mov qword ptr [rbp + 2184], rax
+ mov rdi, r14
+ call rt_scan_sync_out@PLT
   .section .rodata
   .Lbynamefn401: .string "any"
   .section .text
@@ -5961,6 +5985,12 @@ xchain00145_n56_af:
  call rt_call_arr@PLT
  mov qword ptr [rbp + 2144], rax
  mov qword ptr [rbp + 2152], rdx
+ push rax
+ push rdx
+ call rt_scan_sync_in@PLT
+ mov r14, rax
+ pop rdx
+ pop rax
  cmp eax, 99
  je xchain00145_n30_af
  jmp xchain00145_n64_α
@@ -6251,15 +6281,15 @@ xchain00145_n64_af:
  add rax, 1
 .Lx00173_0:
  cmp rax, 1
- jl xchain00145_n56_af
+ jl xchain00145_n65_α
  mov rcx, r15
  add rcx, 1
  cmp rax, rcx
- jg xchain00145_n56_af
+ jg xchain00145_n65_α
  mov rcx, r14
  add rcx, 1
  cmp rax, rcx
- jne xchain00145_n56_af
+ jne xchain00145_n65_α
  mov qword ptr [rbp + 2816], 6
  mov qword ptr [rbp + 2824], rax
  jmp xchain00145_n81_α

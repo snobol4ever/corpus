@@ -18112,14 +18112,14 @@ xchain00589_n0_af:
  cmp rax, 1
  jge .Lx00598_239
  add rsp, 16
- jmp xchain00589_n15_α
+ jmp xchain00589_n13_α
 .Lx00598_239:
  mov rcx, r15
  add rcx, 1
  cmp rax, rcx
  jle .Lx00598_240
  add rsp, 16
- jmp xchain00589_n15_α
+ jmp xchain00589_n13_α
 .Lx00598_240:
  mov qword ptr [rsp + 0], r14
  mov rdi, r13
@@ -18138,7 +18138,7 @@ xchain00589_n0_af:
  xchain00589_n16_β:
  mov r14, qword ptr [rsp + 0]
  add rsp, 16
- jmp xchain00589_n15_α
+ jmp xchain00589_n13_α
  xchain00589_n17_α:
 # IR_CONJUNCTION value-forward copy
  mov rax, qword ptr [rbp + 272]
@@ -18351,11 +18351,12 @@ xchain00600_n0_af:
  xchain00600_n11_α:
  mov qword ptr [rbp + 208], rsp
  jmp xchain00600_n12_α
-# KEYWORD_pos_call
+# KEYWORD_pos_reg [always r14+1: register cursor is the source of truth, incl. ?-less scanning callees]
  xchain00600_n12_α:
- call rt_keyword_pos@PLT
- mov qword ptr [rbp + 496], rax
- mov qword ptr [rbp + 504], rdx
+ mov qword ptr [rbp + 496], 6
+ mov rax, r14
+ add rax, 1
+ mov qword ptr [rbp + 504], rax
  jmp xchain00600_n13_α
  xchain00600_n12_β:
  jmp xchain00600_n16_α
@@ -18433,7 +18434,7 @@ xchain00600_n0_af:
  xchain00600_n16_α:
  mov rsp, qword ptr [rbp + 208]
  jmp xchain00600_n9_β
-# BOX ICN IR_KEYWORD_ASSIGN pos call [non-scan: rt_keyword_pos_set cvpos vs strlen(scan_subj), set scan_pos, fail->omega]
+# BOX ICN IR_KEYWORD_ASSIGN pos [unconditional two-world sync: scan_pos global + r14 delta; fail->omega; result {DT_I,pos}]
  xchain00600_n17_α:
  mov rdi, qword ptr [rbp + 432]
  mov rsi, qword ptr [rbp + 440]
@@ -18442,12 +18443,15 @@ xchain00600_n0_af:
  je xchain00600_n16_α
  mov qword ptr [rbp + 416], rax
  mov qword ptr [rbp + 424], rdx
+ mov r14, rdx
+ sub r14, 1
  jmp xchain00600_n18_α
-# KEYWORD_pos_call
+# KEYWORD_pos_reg [always r14+1: register cursor is the source of truth, incl. ?-less scanning callees]
  xchain00600_n18_α:
- call rt_keyword_pos@PLT
- mov qword ptr [rbp + 352], rax
- mov qword ptr [rbp + 360], rdx
+ mov qword ptr [rbp + 352], 6
+ mov rax, r14
+ add rax, 1
+ mov qword ptr [rbp + 360], rax
  jmp xchain00600_n19_α
  xchain00600_n18_β:
  jmp xchain00600_n16_α
@@ -18521,7 +18525,7 @@ xchain00600_n0_af:
  jmp xchain00600_n22_α
  xchain00600_n21_β:
  jmp xchain00600_n16_α
-# BOX ICN IR_KEYWORD_ASSIGN pos call [non-scan: rt_keyword_pos_set cvpos vs strlen(scan_subj), set scan_pos, fail->omega]
+# BOX ICN IR_KEYWORD_ASSIGN pos [unconditional two-world sync: scan_pos global + r14 delta; fail->omega; result {DT_I,pos}]
  xchain00600_n22_α:
  mov rdi, qword ptr [rbp + 288]
  mov rsi, qword ptr [rbp + 296]
@@ -18530,6 +18534,8 @@ xchain00600_n0_af:
  je xchain00600_n16_α
  mov qword ptr [rbp + 272], rax
  mov qword ptr [rbp + 280], rdx
+ mov r14, rdx
+ sub r14, 1
  jmp xchain00600_n23_α
  xchain00600_n23_α:
 # IR_CONJUNCTION value-forward copy
