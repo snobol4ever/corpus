@@ -1,0 +1,92 @@
+*------------------------------------------------------------------------------
+* calculator-2.sno — precedence calculator, Variant 2: LEFT associativity
+* (Lon, 2026-07-24).  Same atoms/factors as calculator-1; terms and
+* expressions fold LEFT: 10-2-3 = (10-2)-3 = 5; 8/4/2 = (8/4)/2 = 1.
+* Lon's intended form was Gimpel's left-recursive grammar (p. 411, the
+* L_ONE program):  T = F | *T ANY('*/') F ;  X = T | *X ANY('+-') T.
+* That form worked in mainframe SNOBOL4 ONLY because quickscan assumed
+* every deferred pattern eats >= 1 character, bounding the recursion by
+* subject length.  Measured 2026-07-24: it stack-overflows on 3+4 under
+* SPITBOL (ERROR 246), SCRIP m3 (SEGV, same plunge), and csnobol4 in BOTH
+* &FULLSCAN modes (Error 16) — csnobol4's quickscan does not propagate the
+* length budget into deferred expansions.  See programs/gimpel/L_ONE.sno's
+* header: the Catspaw patch removed the left recursion for SPITBOL and
+* bought right associativity as the price; calculator-1.sno is that shape.
+* THIS file keeps the associativity left recursion was for, fullscan-safe,
+* by ITERATION: T = F ARBNO(op F . *action) — instances match left to
+* right, actions fold left.  Unary signs: ANY('+-') pushes the sign char,
+* SGN pops value+sign after the recursive *F (sign chains work: --3 = 3).
+* Operand order conventional (head OP tail).  Variables in a TABLE keyed
+* by letter; x=1, y=2, z=3; other lowercase letters deref to null = 0.
+* Shares calculator.input / calculator-gen.py with calculator-1; own ref
+* (490 of 2208 lines differ from calculator-1.ref — the associativity
+* delta).  Every '/' divisor is a trailing nonzero literal digit, safe
+* under either grouping.
+* Run: sbl -b calculator-2.sno < calculator.input
+*      scrip --run calculator-2.sno < calculator.input
+*------------------------------------------------------------------------------
+        DEFINE('PSH()')                         :(PSH_x)
+PSH     sp = sp + 1
+        PSH = .S[sp]                            :(NRETURN)
+PSH_x
+        DEFINE('DRF(nm)')                       :(DRF_x)
+DRF     nm POS(0) ANY(&LCASE) RPOS(0)           :F(DRF_n)
+        DRF = vars[nm]                          :(RETURN)
+DRF_n   DRF = nm                                :(RETURN)
+DRF_x
+        DEFINE('ADD()p1')                       :(ADD_x)
+ADD     p1 = DRF(S[sp])
+        sp = sp - 1
+        S[sp] = DRF(S[sp]) + p1
+        ADD = .dm                               :(NRETURN)
+ADD_x
+        DEFINE('SUB()p1')                       :(SUB_x)
+SUB     p1 = DRF(S[sp])
+        sp = sp - 1
+        S[sp] = DRF(S[sp]) - p1
+        SUB = .dm                               :(NRETURN)
+SUB_x
+        DEFINE('MUL()p1')                       :(MUL_x)
+MUL     p1 = DRF(S[sp])
+        sp = sp - 1
+        S[sp] = DRF(S[sp]) * p1
+        MUL = .dm                               :(NRETURN)
+MUL_x
+        DEFINE('DIV()p1')                       :(DIV_x)
+DIV     p1 = DRF(S[sp])
+        sp = sp - 1
+        S[sp] = DRF(S[sp]) / p1
+        DIV = .dm                               :(NRETURN)
+DIV_x
+        DEFINE('SGN()p1')                       :(SGN_x)
+SGN     p1 = DRF(S[sp])
+        sp = sp - 1
+        IDENT(S[sp], '-')                       :F(SGN1)
+        p1 = -p1
+SGN1    S[sp] = p1
+        SGN = .dm                               :(NRETURN)
+SGN_x
+*------------------------------------------------------------------------------
+        S = ARRAY(65536)
+        LCASE = &LCASE
+        DIGITS = '0123456789'
+        V = ANY(LCASE) . *PSH()
+        I = SPAN(DIGITS) . *PSH()
+        A = V | I | '(' *X ')'
+        F = ANY('+-') . *PSH() *F . *SGN()
++         | A
+        T = F ARBNO('*' F . *MUL() | '/' F . *DIV())
+        X = T ARBNO('+' T . *ADD() | '-' T . *SUB())
+        C = POS(0) X RPOS(0)
+*------------------------------------------------------------------------------
+        &TRIM = 1
+        vars = TABLE()
+        vars['x'] = 1
+        vars['y'] = 2
+        vars['z'] = 3
+loop    line = INPUT                            :F(END)
+        sp = 0
+        line C                                  :F(bad)
+        OUTPUT = DRF(S[1])                      :(loop)
+bad     OUTPUT = 'Boo!'                         :(loop)
+END

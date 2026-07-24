@@ -1,0 +1,89 @@
+*------------------------------------------------------------------------------
+* calculator-1.sno — precedence calculator, Variant 1: RIGHT recursion (Lon, 2026-07-24; renamed
+* from expression-eval.sno).  Atoms A (letters, ints, parens), signed factors
+* F (unary sign chains via *F), terms T ('*' '/'), expressions X ('+' '-'),
+* C anchors the whole line.  Right recursion makes '-' and '/' RIGHT-
+* associative: 10-2-3 = 10-(2-3) = 11; 8/4/2 = 8/(4/2) = 4.  Semantic
+* actions fire only along the surviving parse path, via conditional
+* assignment to NRETURN by-name targets (the expr_eval.sno idiom).  Operand
+* order is CONVENTIONAL (head OP tail) — departs from expression-eval's
+* Python pop-order, which died with the rename.  Variables live in a TABLE
+* keyed by letter; x=1, y=2, z=3; any other lowercase letter derefs to
+* null = 0.  No bare single-letter globals: the official sbl folds
+* identifier case, so x=1 would clobber pattern X (found the hard way).
+* Every '/' in committed input has a single nonzero literal digit as its
+* entire right tail (generator rule, calculator-gen.py beside) — no divide
+* by zero is reachable; SPITBOL '/' truncates.
+* This is the Catspaw-patch shape (see programs/gimpel/L_ONE.sno header):
+* right recursion in T/X, hence the right associativity above.  Sibling
+* calculator-2.sno gets LEFT associativity via ARBNO iteration (the literal
+* Gimpel left-recursive form stack-overflows on every engine we have).
+* Run: sbl -b calculator-1.sno < calculator.input
+*      scrip --run calculator-1.sno < calculator.input
+*------------------------------------------------------------------------------
+        DEFINE('PSH()')                         :(PSH_x)
+PSH     sp = sp + 1
+        PSH = .S[sp]                            :(NRETURN)
+PSH_x
+        DEFINE('DRF(nm)')                       :(DRF_x)
+DRF     nm POS(0) ANY(&LCASE) RPOS(0)           :F(DRF_n)
+        DRF = vars[nm]                          :(RETURN)
+DRF_n   DRF = nm                                :(RETURN)
+DRF_x
+        DEFINE('ADD()p1')                       :(ADD_x)
+ADD     p1 = DRF(S[sp])
+        sp = sp - 1
+        S[sp] = DRF(S[sp]) + p1
+        ADD = .dm                               :(NRETURN)
+ADD_x
+        DEFINE('SUB()p1')                       :(SUB_x)
+SUB     p1 = DRF(S[sp])
+        sp = sp - 1
+        S[sp] = DRF(S[sp]) - p1
+        SUB = .dm                               :(NRETURN)
+SUB_x
+        DEFINE('MUL()p1')                       :(MUL_x)
+MUL     p1 = DRF(S[sp])
+        sp = sp - 1
+        S[sp] = DRF(S[sp]) * p1
+        MUL = .dm                               :(NRETURN)
+MUL_x
+        DEFINE('DIV()p1')                       :(DIV_x)
+DIV     p1 = DRF(S[sp])
+        sp = sp - 1
+        S[sp] = DRF(S[sp]) / p1
+        DIV = .dm                               :(NRETURN)
+DIV_x
+        DEFINE('NEG()')                         :(NEG_x)
+NEG     S[sp] = -DRF(S[sp])
+        NEG = .dm                               :(NRETURN)
+NEG_x
+*------------------------------------------------------------------------------
+        S = ARRAY(65536)
+        LCASE = &LCASE
+        DIGITS = '0123456789'
+        V = ANY(LCASE) . *PSH()
+        I = SPAN(DIGITS) . *PSH()
+        A = V | I | '(' *X ')'
+        F = '+' *F
++         | '-' *F . *NEG()
++         | A
+        T = F '*' *T . *MUL()
++         | F '/' *T . *DIV()
++         | F
+        X = T '+' *X . *ADD()
++         | T '-' *X . *SUB()
++         | T
+        C = POS(0) X RPOS(0)
+*------------------------------------------------------------------------------
+        &TRIM = 1
+        vars = TABLE()
+        vars['x'] = 1
+        vars['y'] = 2
+        vars['z'] = 3
+loop    line = INPUT                            :F(END)
+        sp = 0
+        line C                                  :F(bad)
+        OUTPUT = DRF(S[1])                      :(loop)
+bad     OUTPUT = 'Boo!'                         :(loop)
+END
