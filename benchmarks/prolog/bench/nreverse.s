@@ -1,12 +1,12 @@
   .intel_syntax noprefix
   .text
-  .globl proc_nreverse$2_α
-proc_nreverse$2_α:
+  .globl proc_nreverse$2F2_α
+proc_nreverse$2F2_α:
 #=======================================================================================================================
-    .global proc_nreverse$2_α
-    .global proc_nreverse$2_β
-    .global proc_nreverse$2_γ
-    .global proc_nreverse$2_ω
+    .global proc_nreverse$2F2_α
+    .global proc_nreverse$2F2_β
+    .global proc_nreverse$2F2_γ
+    .global proc_nreverse$2F2_ω
   sub rsp, 1728
   mov [rsp + 1704], rcx
   mov [rsp + 1712], rdx
@@ -17,7 +17,7 @@ proc_nreverse$2_α:
   mov esi, 1600
   mov edx, 1696
   call rt_jmp_frame_lexprep2@PLT
-proc_nreverse$2_α_body:
+proc_nreverse$2F2_α_body:
 lea rax, [rip + xchain0_n28_β]
 mov qword ptr [rbp + 1600], rax
  xchain0_n0_α:
@@ -29,10 +29,10 @@ mov qword ptr [rbp + 1600], rax
  mov qword ptr [rbp + 80], rax
  mov qword ptr [rbp + 88], rdx
  cmp eax, 99
- je proc_nreverse$2_ω
+ je proc_nreverse$2F2_ω
  jmp xchain0_n1_α
  xchain0_n0_β:
- jmp proc_nreverse$2_ω
+ jmp proc_nreverse$2F2_ω
 # IR_VAR_REF
  xchain0_n1_α:
  mov rax, 4294967305
@@ -207,10 +207,10 @@ mov qword ptr [rbp + 1600], rax
  mov qword ptr [rbp + 592], rax
  mov qword ptr [rbp + 600], rdx
  cmp eax, 99
- je proc_nreverse$2_ω
+ je proc_nreverse$2F2_ω
  jmp xchain0_n6_α
  xchain0_n14_β:
- jmp proc_nreverse$2_ω
+ jmp proc_nreverse$2F2_ω
 # IR_VAR_REF
  xchain0_n15_α:
  mov rax, 4294967305
@@ -232,10 +232,10 @@ mov qword ptr [rbp + 1600], rax
  mov qword ptr [rbp + 112], rax
  mov qword ptr [rbp + 120], rdx
  cmp eax, 99
- je proc_nreverse$2_ω
- jmp proc_nreverse$2_ω
+ je proc_nreverse$2F2_ω
+ jmp proc_nreverse$2F2_ω
  xchain0_n16_β:
- jmp proc_nreverse$2_ω
+ jmp proc_nreverse$2F2_ω
 # IR_VAR_REF
  xchain0_n17_α:
  mov rax, 4294967305
@@ -426,7 +426,7 @@ mov qword ptr [rbp + 1600], rax
  mov qword ptr [rbp + 0], rax
  mov rax, qword ptr [rbp + 88]
  mov qword ptr [rbp + 8], rax
- jmp proc_nreverse$2_γ
+ jmp proc_nreverse$2F2_γ
  xchain0_n28_β:
  jmp xchain0_n16_α
 # IR_LIT_STRING
@@ -559,35 +559,35 @@ mov qword ptr [rbp + 1600], rax
  mov qword ptr [rbp + 0], rax
  mov rax, qword ptr [rbp + 88]
  mov qword ptr [rbp + 8], rax
- jmp proc_nreverse$2_γ
+ jmp proc_nreverse$2F2_γ
  xchain0_n35_β:
  jmp xchain0_n34_β
-proc_nreverse$2_res:
+proc_nreverse$2F2_res:
 add rsp, 8
 pop rbp
-proc_nreverse$2_β:
+proc_nreverse$2F2_β:
 jmp qword ptr [rbp + 1600]
-proc_nreverse$2_γ:
+proc_nreverse$2F2_γ:
 mov rdi, [rbp]
 mov rsi, [rbp + 8]
 push rbp
-lea rax, [rip + proc_nreverse$2_res]
+lea rax, [rip + proc_nreverse$2F2_res]
 push rax
 mov rax, [rbp + 1704]
 mov rbp, [rbp + 1720]
 jmp rax
-proc_nreverse$2_ω:
+proc_nreverse$2F2_ω:
 mov rax, [rbp + 1712]
 lea rsp, [rbp + 1728]
 mov rbp, [rbp + 1720]
 jmp rax
-  .globl proc_reverse$2_α
-proc_reverse$2_α:
+  .globl proc_reverse$2F2_α
+proc_reverse$2F2_α:
 #=======================================================================================================================
-    .global proc_reverse$2_α
-    .global proc_reverse$2_β
-    .global proc_reverse$2_γ
-    .global proc_reverse$2_ω
+    .global proc_reverse$2F2_α
+    .global proc_reverse$2F2_β
+    .global proc_reverse$2F2_γ
+    .global proc_reverse$2F2_ω
   sub rsp, 704
   mov [rsp + 680], rcx
   mov [rsp + 688], rdx
@@ -598,7 +598,7 @@ proc_reverse$2_α:
   mov esi, 608
   mov edx, 672
   call rt_jmp_frame_lexprep2@PLT
-proc_reverse$2_α_body:
+proc_reverse$2F2_α_body:
 lea rax, [rip + xchain55_n12_β]
 mov qword ptr [rbp + 608], rax
  xchain55_n0_α:
@@ -610,10 +610,10 @@ mov qword ptr [rbp + 608], rax
  mov qword ptr [rbp + 80], rax
  mov qword ptr [rbp + 88], rdx
  cmp eax, 99
- je proc_reverse$2_ω
+ je proc_reverse$2F2_ω
  jmp xchain55_n1_α
  xchain55_n0_β:
- jmp proc_reverse$2_ω
+ jmp proc_reverse$2F2_ω
 # IR_VAR_REF
  xchain55_n1_α:
  mov rax, 4294967305
@@ -672,10 +672,10 @@ mov qword ptr [rbp + 608], rax
  mov qword ptr [rbp + 112], rax
  mov qword ptr [rbp + 120], rdx
  cmp eax, 99
- je proc_reverse$2_ω
- jmp proc_reverse$2_ω
+ je proc_reverse$2F2_ω
+ jmp proc_reverse$2F2_ω
  xchain55_n5_β:
- jmp proc_reverse$2_ω
+ jmp proc_reverse$2F2_ω
 # IR_VAR_REF
  xchain55_n6_α:
  mov rax, 4294967305
@@ -798,35 +798,35 @@ mov qword ptr [rbp + 608], rax
  mov qword ptr [rbp + 0], rax
  mov rax, qword ptr [rbp + 88]
  mov qword ptr [rbp + 8], rax
- jmp proc_reverse$2_γ
+ jmp proc_reverse$2F2_γ
  xchain55_n12_β:
  jmp xchain55_n11_β
-proc_reverse$2_res:
+proc_reverse$2F2_res:
 add rsp, 8
 pop rbp
-proc_reverse$2_β:
+proc_reverse$2F2_β:
 jmp qword ptr [rbp + 608]
-proc_reverse$2_γ:
+proc_reverse$2F2_γ:
 mov rdi, [rbp]
 mov rsi, [rbp + 8]
 push rbp
-lea rax, [rip + proc_reverse$2_res]
+lea rax, [rip + proc_reverse$2F2_res]
 push rax
 mov rax, [rbp + 680]
 mov rbp, [rbp + 696]
 jmp rax
-proc_reverse$2_ω:
+proc_reverse$2F2_ω:
 mov rax, [rbp + 688]
 lea rsp, [rbp + 704]
 mov rbp, [rbp + 696]
 jmp rax
-  .globl proc_$reverse_$3_α
-proc_$reverse_$3_α:
+  .globl proc_$reverse_$2F3_α
+proc_$reverse_$2F3_α:
 #=======================================================================================================================
-    .global proc_$reverse_$3_α
-    .global proc_$reverse_$3_β
-    .global proc_$reverse_$3_γ
-    .global proc_$reverse_$3_ω
+    .global proc_$reverse_$2F3_α
+    .global proc_$reverse_$2F3_β
+    .global proc_$reverse_$2F3_γ
+    .global proc_$reverse_$2F3_ω
   sub rsp, 1856
   mov [rsp + 1832], rcx
   mov [rsp + 1840], rdx
@@ -837,7 +837,7 @@ proc_$reverse_$3_α:
   mov esi, 1728
   mov edx, 1824
   call rt_jmp_frame_lexprep2@PLT
-proc_$reverse_$3_α_body:
+proc_$reverse_$2F3_α_body:
 lea rax, [rip + xchain77_n25_β]
 mov qword ptr [rbp + 1728], rax
  xchain77_n0_α:
@@ -849,10 +849,10 @@ mov qword ptr [rbp + 1728], rax
  mov qword ptr [rbp + 96], rax
  mov qword ptr [rbp + 104], rdx
  cmp eax, 99
- je proc_$reverse_$3_ω
+ je proc_$reverse_$2F3_ω
  jmp xchain77_n1_α
  xchain77_n0_β:
- jmp proc_$reverse_$3_ω
+ jmp proc_$reverse_$2F3_ω
 # IR_VAR_REF
  xchain77_n1_α:
  mov rax, 4294967305
@@ -991,10 +991,10 @@ mov qword ptr [rbp + 1728], rax
  mov qword ptr [rbp + 1120], rax
  mov qword ptr [rbp + 1128], rdx
  cmp eax, 99
- je proc_$reverse_$3_ω
+ je proc_$reverse_$2F3_ω
  jmp xchain77_n6_α
  xchain77_n12_β:
- jmp proc_$reverse_$3_ω
+ jmp proc_$reverse_$2F3_ω
  xchain77_n13_α:
 # BOX IR_CALL $ix_g(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+1024] -> [zr+960]
@@ -1051,10 +1051,10 @@ mov qword ptr [rbp + 1728], rax
  mov qword ptr [rbp + 128], rax
  mov qword ptr [rbp + 136], rdx
  cmp eax, 99
- je proc_$reverse_$3_ω
- jmp proc_$reverse_$3_ω
+ je proc_$reverse_$2F3_ω
+ jmp proc_$reverse_$2F3_ω
  xchain77_n16_β:
- jmp proc_$reverse_$3_ω
+ jmp proc_$reverse_$2F3_ω
  xchain77_n17_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+1360] -> [zr+1312]
@@ -1172,7 +1172,7 @@ mov qword ptr [rbp + 1728], rax
  mov qword ptr [rbp + 0], rax
  mov rax, qword ptr [rbp + 104]
  mov qword ptr [rbp + 8], rax
- jmp proc_$reverse_$3_γ
+ jmp proc_$reverse_$2F3_γ
  xchain77_n25_β:
  jmp xchain77_n12_α
 # IR_VAR_REF
@@ -1376,35 +1376,35 @@ mov qword ptr [rbp + 1728], rax
  mov qword ptr [rbp + 0], rax
  mov rax, qword ptr [rbp + 104]
  mov qword ptr [rbp + 8], rax
- jmp proc_$reverse_$3_γ
+ jmp proc_$reverse_$2F3_γ
  xchain77_n38_β:
  jmp xchain77_n37_β
-proc_$reverse_$3_res:
+proc_$reverse_$2F3_res:
 add rsp, 8
 pop rbp
-proc_$reverse_$3_β:
+proc_$reverse_$2F3_β:
 jmp qword ptr [rbp + 1728]
-proc_$reverse_$3_γ:
+proc_$reverse_$2F3_γ:
 mov rdi, [rbp]
 mov rsi, [rbp + 8]
 push rbp
-lea rax, [rip + proc_$reverse_$3_res]
+lea rax, [rip + proc_$reverse_$2F3_res]
 push rax
 mov rax, [rbp + 1832]
 mov rbp, [rbp + 1848]
 jmp rax
-proc_$reverse_$3_ω:
+proc_$reverse_$2F3_ω:
 mov rax, [rbp + 1840]
 lea rsp, [rbp + 1856]
 mov rbp, [rbp + 1848]
 jmp rax
-  .globl proc_concatenate$3_α
-proc_concatenate$3_α:
+  .globl proc_concatenate$2F3_α
+proc_concatenate$2F3_α:
 #=======================================================================================================================
-    .global proc_concatenate$3_α
-    .global proc_concatenate$3_β
-    .global proc_concatenate$3_γ
-    .global proc_concatenate$3_ω
+    .global proc_concatenate$2F3_α
+    .global proc_concatenate$2F3_β
+    .global proc_concatenate$2F3_γ
+    .global proc_concatenate$2F3_ω
   sub rsp, 1760
   mov [rsp + 1736], rcx
   mov [rsp + 1744], rdx
@@ -1415,7 +1415,7 @@ proc_concatenate$3_α:
   mov esi, 1632
   mov edx, 1728
   call rt_jmp_frame_lexprep2@PLT
-proc_concatenate$3_α_body:
+proc_concatenate$2F3_α_body:
 lea rax, [rip + xchain138_n34_β]
 mov qword ptr [rbp + 1632], rax
  xchain138_n0_α:
@@ -1427,10 +1427,10 @@ mov qword ptr [rbp + 1632], rax
  mov qword ptr [rbp + 96], rax
  mov qword ptr [rbp + 104], rdx
  cmp eax, 99
- je proc_concatenate$3_ω
+ je proc_concatenate$2F3_ω
  jmp xchain138_n1_α
  xchain138_n0_β:
- jmp proc_concatenate$3_ω
+ jmp proc_concatenate$2F3_ω
 # IR_VAR_REF
  xchain138_n1_α:
  mov rax, 4294967305
@@ -1605,10 +1605,10 @@ mov qword ptr [rbp + 1632], rax
  mov qword ptr [rbp + 736], rax
  mov qword ptr [rbp + 744], rdx
  cmp eax, 99
- je proc_concatenate$3_ω
+ je proc_concatenate$2F3_ω
  jmp xchain138_n6_α
  xchain138_n14_β:
- jmp proc_concatenate$3_ω
+ jmp proc_concatenate$2F3_ω
 # IR_VAR_REF
  xchain138_n15_α:
  mov rax, 4294967305
@@ -1630,10 +1630,10 @@ mov qword ptr [rbp + 1632], rax
  mov qword ptr [rbp + 128], rax
  mov qword ptr [rbp + 136], rdx
  cmp eax, 99
- je proc_concatenate$3_ω
- jmp proc_concatenate$3_ω
+ je proc_concatenate$2F3_ω
+ jmp proc_concatenate$2F3_ω
  xchain138_n16_β:
- jmp proc_concatenate$3_ω
+ jmp proc_concatenate$2F3_ω
 # IR_VAR_REF
  xchain138_n17_α:
  mov rax, 4294967305
@@ -1850,7 +1850,7 @@ mov qword ptr [rbp + 1632], rax
  mov qword ptr [rbp + 0], rax
  mov rax, qword ptr [rbp + 104]
  mov qword ptr [rbp + 8], rax
- jmp proc_concatenate$3_γ
+ jmp proc_concatenate$2F3_γ
  xchain138_n34_β:
  jmp xchain138_n16_α
  xchain138_n35_α:
@@ -1921,24 +1921,24 @@ mov qword ptr [rbp + 1632], rax
  mov qword ptr [rbp + 0], rax
  mov rax, qword ptr [rbp + 104]
  mov qword ptr [rbp + 8], rax
- jmp proc_concatenate$3_γ
+ jmp proc_concatenate$2F3_γ
  xchain138_n36_β:
  jmp xchain138_n35_β
-proc_concatenate$3_res:
+proc_concatenate$2F3_res:
 add rsp, 8
 pop rbp
-proc_concatenate$3_β:
+proc_concatenate$2F3_β:
 jmp qword ptr [rbp + 1632]
-proc_concatenate$3_γ:
+proc_concatenate$2F3_γ:
 mov rdi, [rbp]
 mov rsi, [rbp + 8]
 push rbp
-lea rax, [rip + proc_concatenate$3_res]
+lea rax, [rip + proc_concatenate$2F3_res]
 push rax
 mov rax, [rbp + 1736]
 mov rbp, [rbp + 1752]
 jmp rax
-proc_concatenate$3_ω:
+proc_concatenate$2F3_ω:
 mov rax, [rbp + 1744]
 lea rsp, [rbp + 1760]
 mov rbp, [rbp + 1752]
@@ -1950,7 +1950,7 @@ proc_startup:
   .section .text
   .intel_syntax noprefix
   lea rdi, [rip + .Lstartup_pname0]
-  lea rsi, [rip + proc_nreverse$2_α]
+  lea rsi, [rip + proc_nreverse$2F2_α]
   call rt_proc_set_fn@PLT
   lea rdi, [rip + .Lstartup_pname0]
   mov esi, 2
@@ -1969,7 +1969,7 @@ proc_startup:
   .section .text
   .intel_syntax noprefix
   lea rdi, [rip + .Lstartup_pname1]
-  lea rsi, [rip + proc_reverse$2_α]
+  lea rsi, [rip + proc_reverse$2F2_α]
   call rt_proc_set_fn@PLT
   lea rdi, [rip + .Lstartup_pname1]
   mov esi, 2
@@ -1988,7 +1988,7 @@ proc_startup:
   .section .text
   .intel_syntax noprefix
   lea rdi, [rip + .Lstartup_pname2]
-  lea rsi, [rip + proc_$reverse_$3_α]
+  lea rsi, [rip + proc_$reverse_$2F3_α]
   call rt_proc_set_fn@PLT
   lea rdi, [rip + .Lstartup_pname2]
   mov esi, 3
@@ -2007,7 +2007,7 @@ proc_startup:
   .section .text
   .intel_syntax noprefix
   lea rdi, [rip + .Lstartup_pname3]
-  lea rsi, [rip + proc_concatenate$3_α]
+  lea rsi, [rip + proc_concatenate$2F3_α]
   call rt_proc_set_fn@PLT
   lea rdi, [rip + .Lstartup_pname3]
   mov esi, 3
@@ -3575,14 +3575,14 @@ main_α_body:
 .Lx299_0_s:
  .string ""
  xchain197_n98_α:
-# BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
+# BOX IR_CALL $nl0(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+176] -> [zr+144]
  mov rax, qword ptr [rbp + 176]
  mov qword ptr [rbp + 144], rax
  mov rax, qword ptr [rbp + 184]
  mov qword ptr [rbp + 152], rax
   .section .rodata
-  .Lrkfn301: .string "write"
+  .Lrkfn301: .string "$nl0"
   .section .text
   .intel_syntax noprefix
  lea rdi, [rip + .Lrkfn301]

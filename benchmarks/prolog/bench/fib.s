@@ -1,12 +1,12 @@
   .intel_syntax noprefix
   .text
-  .globl proc_fib$2_α
-proc_fib$2_α:
+  .globl proc_fib$2F2_α
+proc_fib$2F2_α:
 #=======================================================================================================================
-    .global proc_fib$2_α
-    .global proc_fib$2_β
-    .global proc_fib$2_γ
-    .global proc_fib$2_ω
+    .global proc_fib$2F2_α
+    .global proc_fib$2F2_β
+    .global proc_fib$2F2_γ
+    .global proc_fib$2F2_ω
   sub rsp, 2576
   mov [rsp + 2552], rcx
   mov [rsp + 2560], rdx
@@ -17,7 +17,7 @@ proc_fib$2_α:
   mov esi, 2432
   mov edx, 2544
   call rt_jmp_frame_lexprep2@PLT
-proc_fib$2_α_body:
+proc_fib$2F2_α_body:
  xchain0_n0_α:
 # BOX IR_CALL $trail_mark(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # PL-REGAIN-2 direct det leaf: rt_pl_dop_trail_mark (no by-name dispatch)
@@ -27,10 +27,10 @@ proc_fib$2_α_body:
  mov qword ptr [rbp + 80], rax
  mov qword ptr [rbp + 88], rdx
  cmp eax, 99
- je proc_fib$2_ω
+ je proc_fib$2F2_ω
  jmp xchain0_n1_α
  xchain0_n0_β:
- jmp proc_fib$2_ω
+ jmp proc_fib$2F2_ω
 # IR_VAR_REF
  xchain0_n1_α:
  mov rax, 4294967305
@@ -159,10 +159,10 @@ proc_fib$2_α_body:
  mov qword ptr [rbp + 1952], rax
  mov qword ptr [rbp + 1960], rdx
  cmp eax, 99
- je proc_fib$2_ω
+ je proc_fib$2F2_ω
  jmp xchain0_n6_α
  xchain0_n12_β:
- jmp proc_fib$2_ω
+ jmp proc_fib$2F2_ω
  xchain0_n13_α:
 # BOX IR_CALL $ix_g(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+1856] -> [zr+1792]
@@ -294,7 +294,7 @@ proc_fib$2_α_body:
  xchain0_n23_α:
  lea rax, [rip + xchain0_n12_α]
  mov qword ptr [rbp + 64], rax
- jmp proc_fib$2_γ
+ jmp proc_fib$2F2_γ
 # IR_VAR_REF
  xchain0_n24_α:
  mov rax, 4294967305
@@ -316,10 +316,10 @@ proc_fib$2_α_body:
  mov qword ptr [rbp + 1472], rax
  mov qword ptr [rbp + 1480], rdx
  cmp eax, 99
- je proc_fib$2_ω
+ je proc_fib$2F2_ω
  jmp xchain0_n16_α
  xchain0_n25_β:
- jmp proc_fib$2_ω
+ jmp proc_fib$2F2_ω
 # IR_VAR_REF
  xchain0_n26_α:
  mov rax, 4294967305
@@ -341,15 +341,15 @@ proc_fib$2_α_body:
  mov qword ptr [rbp + 112], rax
  mov qword ptr [rbp + 120], rdx
  cmp eax, 99
- je proc_fib$2_ω
- jmp proc_fib$2_ω
+ je proc_fib$2F2_ω
+ jmp proc_fib$2F2_ω
  xchain0_n27_β:
- jmp proc_fib$2_ω
+ jmp proc_fib$2F2_ω
 # IR_INDIRECT_GOTO alt-resume: jmp *t
  xchain0_n28_α:
  jmp qword ptr [rbp + 64]
  xchain0_n28_β:
- jmp proc_fib$2_ω
+ jmp proc_fib$2F2_ω
 # IR_LIT_INTEGER
  xchain0_n29_α:
  mov qword ptr [rbp + 1616], 6
@@ -420,7 +420,7 @@ proc_fib$2_α_body:
  xchain0_n35_α:
  lea rax, [rip + xchain0_n25_α]
  mov qword ptr [rbp + 64], rax
- jmp proc_fib$2_γ
+ jmp proc_fib$2F2_γ
 # IR_LIT_INTEGER
  xchain0_n36_α:
  mov qword ptr [rbp + 1184], 6
@@ -721,25 +721,25 @@ proc_fib$2_α_body:
  xchain0_n59_α:
  lea rax, [rip + xchain0_n53_β]
  mov qword ptr [rbp + 64], rax
- jmp proc_fib$2_γ
-proc_fib$2_res:
+ jmp proc_fib$2F2_γ
+proc_fib$2F2_res:
 add rsp, 8
 pop rbp
-proc_fib$2_β:
+proc_fib$2F2_β:
 jmp xchain0_n28_α
-proc_fib$2_γ:
+proc_fib$2F2_γ:
 mov rdi, [rbp]
 mov rsi, [rbp + 8]
 mov rax, [rbp + 2552]
 lea rsp, [rbp + 2576]
 mov rbp, [rbp + 2568]
 jmp rax
-proc_fib$2_ω:
+proc_fib$2F2_ω:
 mov rax, [rbp + 2560]
 lea rsp, [rbp + 2576]
 mov rbp, [rbp + 2568]
 jmp rax
-proc_fib$2_dcα:
+proc_fib$2F2_dcα:
 # PL-DC direct-call entry: retaddr -> kt-32 pad, wires -> local ret-shims, one prep crossing, shared body
  pop r11
  sub rsp, 2592
@@ -761,7 +761,7 @@ proc_fib$2_dcα:
  mov r8d, 2
  mov r9d, 0
  call rt_pl_dc_prep@PLT
- jmp proc_fib$2_α_body
+ jmp proc_fib$2F2_α_body
 .Lx89_2:
  mov rdx, qword ptr [rsp + -2592]
  mov rcx, rsp
@@ -783,7 +783,7 @@ proc_startup:
   .section .text
   .intel_syntax noprefix
   lea rdi, [rip + .Lstartup_pname0]
-  lea rsi, [rip + proc_fib$2_α]
+  lea rsi, [rip + proc_fib$2F2_α]
   call rt_proc_set_fn@PLT
   lea rdi, [rip + .Lstartup_pname0]
   mov esi, 2
@@ -795,7 +795,7 @@ proc_startup:
   mov esi, 1
   call rt_proc_set_jmpentry@PLT
   lea rdi, [rip + .Lstartup_pname0]
-  lea rsi, [rip + proc_fib$2_dcα]
+  lea rsi, [rip + proc_fib$2F2_dcα]
   call rt_proc_set_dcfn@PLT
   add rsp, 8
   ret
@@ -930,14 +930,14 @@ main_α_body:
 .Lx102_0_s:
  .string ""
  xchain90_n8_α:
-# BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
+# BOX IR_CALL $nl0(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+176] -> [zr+144]
  mov rax, qword ptr [rbp + 176]
  mov qword ptr [rbp + 144], rax
  mov rax, qword ptr [rbp + 184]
  mov qword ptr [rbp + 152], rax
   .section .rodata
-  .Lrkfn104: .string "write"
+  .Lrkfn104: .string "$nl0"
   .section .text
   .intel_syntax noprefix
  lea rdi, [rip + .Lrkfn104]

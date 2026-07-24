@@ -1,12 +1,12 @@
   .intel_syntax noprefix
   .text
-  .globl proc_tak$4_α
-proc_tak$4_α:
+  .globl proc_tak$2F4_α
+proc_tak$2F4_α:
 #=======================================================================================================================
-    .global proc_tak$4_α
-    .global proc_tak$4_β
-    .global proc_tak$4_γ
-    .global proc_tak$4_ω
+    .global proc_tak$2F4_α
+    .global proc_tak$2F4_β
+    .global proc_tak$2F4_γ
+    .global proc_tak$2F4_ω
   sub rsp, 3424
   mov [rsp + 3400], rcx
   mov [rsp + 3408], rdx
@@ -17,7 +17,7 @@ proc_tak$4_α:
   mov esi, 3216
   mov edx, 3392
   call rt_jmp_frame_lexprep2@PLT
-proc_tak$4_α_body:
+proc_tak$2F4_α_body:
  xchain0_n0_α:
 # BOX IR_CALL $trail_mark(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # PL-REGAIN-2 direct det leaf: rt_pl_dop_trail_mark (no by-name dispatch)
@@ -27,10 +27,10 @@ proc_tak$4_α_body:
  mov qword ptr [rbp + 112], rax
  mov qword ptr [rbp + 120], rdx
  cmp eax, 99
- je proc_tak$4_ω
+ je proc_tak$2F4_ω
  jmp xchain0_n1_α
  xchain0_n0_β:
- jmp proc_tak$4_ω
+ jmp proc_tak$2F4_ω
 # IR_VAR_REF
  xchain0_n1_α:
  mov rax, 4294967305
@@ -89,10 +89,10 @@ proc_tak$4_α_body:
  mov qword ptr [rbp + 2400], rax
  mov qword ptr [rbp + 2408], rdx
  cmp eax, 99
- je proc_tak$4_ω
+ je proc_tak$2F4_ω
  jmp xchain0_n7_α
  xchain0_n5_β:
- jmp proc_tak$4_ω
+ jmp proc_tak$2F4_ω
 # IR_VAR_REF
  xchain0_n6_α:
  mov rax, 4294967305
@@ -195,10 +195,10 @@ proc_tak$4_α_body:
  mov qword ptr [rbp + 144], rax
  mov qword ptr [rbp + 152], rdx
  cmp eax, 99
- je proc_tak$4_ω
- jmp proc_tak$4_ω
+ je proc_tak$2F4_ω
+ jmp proc_tak$2F4_ω
  xchain0_n14_β:
- jmp proc_tak$4_ω
+ jmp proc_tak$2F4_ω
  xchain0_n15_α:
 # BOX IR_CALL $unify(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+2896] -> [zr+2848]
@@ -455,7 +455,7 @@ proc_tak$4_α_body:
  xchain0_n35_α:
  lea rax, [rip + xchain0_n5_α]
  mov qword ptr [rbp + 96], rax
- jmp proc_tak$4_γ
+ jmp proc_tak$2F4_γ
  xchain0_n36_α:
 # BOX IR_CALL $cmp_gt(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+1824] -> [zr+1776]
@@ -483,7 +483,7 @@ proc_tak$4_α_body:
  xchain0_n37_α:
  jmp qword ptr [rbp + 96]
  xchain0_n37_β:
- jmp proc_tak$4_ω
+ jmp proc_tak$2F4_ω
 # IR_VAR_REF
  xchain0_n38_α:
  mov rax, 4294967305
@@ -880,25 +880,25 @@ proc_tak$4_α_body:
  xchain0_n73_α:
  lea rax, [rip + xchain0_n72_β]
  mov qword ptr [rbp + 96], rax
- jmp proc_tak$4_γ
-proc_tak$4_res:
+ jmp proc_tak$2F4_γ
+proc_tak$2F4_res:
 add rsp, 8
 pop rbp
-proc_tak$4_β:
+proc_tak$2F4_β:
 jmp xchain0_n37_α
-proc_tak$4_γ:
+proc_tak$2F4_γ:
 mov rdi, [rbp]
 mov rsi, [rbp + 8]
 mov rax, [rbp + 3400]
 lea rsp, [rbp + 3424]
 mov rbp, [rbp + 3416]
 jmp rax
-proc_tak$4_ω:
+proc_tak$2F4_ω:
 mov rax, [rbp + 3408]
 lea rsp, [rbp + 3424]
 mov rbp, [rbp + 3416]
 jmp rax
-proc_tak$4_dcα:
+proc_tak$2F4_dcα:
 # PL-DC direct-call entry: retaddr -> kt-32 pad, wires -> local ret-shims, one prep crossing, shared body
  pop r11
  sub rsp, 3440
@@ -922,7 +922,7 @@ proc_tak$4_dcα:
  mov r8d, 4
  mov r9d, 0
  call rt_pl_dc_prep@PLT
- jmp proc_tak$4_α_body
+ jmp proc_tak$2F4_α_body
 .Lx126_2:
  mov rdx, qword ptr [rsp + -3440]
  mov rcx, rsp
@@ -944,7 +944,7 @@ proc_startup:
   .section .text
   .intel_syntax noprefix
   lea rdi, [rip + .Lstartup_pname0]
-  lea rsi, [rip + proc_tak$4_α]
+  lea rsi, [rip + proc_tak$2F4_α]
   call rt_proc_set_fn@PLT
   lea rdi, [rip + .Lstartup_pname0]
   mov esi, 4
@@ -956,7 +956,7 @@ proc_startup:
   mov esi, 1
   call rt_proc_set_jmpentry@PLT
   lea rdi, [rip + .Lstartup_pname0]
-  lea rsi, [rip + proc_tak$4_dcα]
+  lea rsi, [rip + proc_tak$2F4_dcα]
   call rt_proc_set_dcfn@PLT
   add rsp, 8
   ret
@@ -1109,14 +1109,14 @@ main_α_body:
 .Lx141_0_s:
  .string ""
  xchain127_n10_α:
-# BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
+# BOX IR_CALL $nl0(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+176] -> [zr+144]
  mov rax, qword ptr [rbp + 176]
  mov qword ptr [rbp + 144], rax
  mov rax, qword ptr [rbp + 184]
  mov qword ptr [rbp + 152], rax
   .section .rodata
-  .Lrkfn143: .string "write"
+  .Lrkfn143: .string "$nl0"
   .section .text
   .intel_syntax noprefix
  lea rdi, [rip + .Lrkfn143]

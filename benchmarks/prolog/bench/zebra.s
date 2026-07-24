@@ -1,12 +1,12 @@
   .intel_syntax noprefix
   .text
-  .globl proc_zebra$1_α
-proc_zebra$1_α:
+  .globl proc_zebra$2F1_α
+proc_zebra$2F1_α:
 #=======================================================================================================================
-    .global proc_zebra$1_α
-    .global proc_zebra$1_β
-    .global proc_zebra$1_γ
-    .global proc_zebra$1_ω
+    .global proc_zebra$2F1_α
+    .global proc_zebra$2F1_β
+    .global proc_zebra$2F1_γ
+    .global proc_zebra$2F1_ω
   sub rsp, 10656
   mov [rsp + 10632], rcx
   mov [rsp + 10640], rdx
@@ -17,7 +17,7 @@ proc_zebra$1_α:
   mov esi, 9344
   mov edx, 10624
   call rt_jmp_frame_lexprep2@PLT
-proc_zebra$1_α_body:
+proc_zebra$2F1_α_body:
 lea rax, [rip + xchain0_n195_β]
 mov qword ptr [rbp + 9344], rax
  xchain0_n0_α:
@@ -29,10 +29,10 @@ mov qword ptr [rbp + 9344], rax
  mov qword ptr [rbp + 64], rax
  mov qword ptr [rbp + 72], rdx
  cmp eax, 99
- je proc_zebra$1_ω
+ je proc_zebra$2F1_ω
  jmp xchain0_n1_α
  xchain0_n0_β:
- jmp proc_zebra$1_ω
+ jmp proc_zebra$2F1_ω
 # IR_VAR_REF
  xchain0_n1_α:
  mov rax, 4294967305
@@ -91,10 +91,10 @@ mov qword ptr [rbp + 9344], rax
  mov qword ptr [rbp + 96], rax
  mov qword ptr [rbp + 104], rdx
  cmp eax, 99
- je proc_zebra$1_ω
- jmp proc_zebra$1_ω
+ je proc_zebra$2F1_ω
+ jmp proc_zebra$2F1_ω
  xchain0_n5_β:
- jmp proc_zebra$1_ω
+ jmp proc_zebra$2F1_ω
  xchain0_n6_α:
  lea rsi, [rbp + 9184]
  call proc_houses$1_dcα
@@ -1440,10 +1440,10 @@ mov qword ptr [rbp + 9344], rax
  mov qword ptr [rbp + 5216], rax
  mov qword ptr [rbp + 5224], rdx
  cmp eax, 99
- je proc_zebra$1_ω
+ je proc_zebra$2F1_ω
  jmp xchain0_n90_α
  xchain0_n89_β:
- jmp proc_zebra$1_ω
+ jmp proc_zebra$2F1_ω
 # IR_LIT_STRING
  xchain0_n90_α:
  mov qword ptr [rbp + 5024], 1
@@ -1512,10 +1512,10 @@ mov qword ptr [rbp + 9344], rax
  mov qword ptr [rbp + 4800], rax
  mov qword ptr [rbp + 4808], rdx
  cmp eax, 99
- je proc_zebra$1_ω
+ je proc_zebra$2F1_ω
  jmp xchain0_n96_α
  xchain0_n95_β:
- jmp proc_zebra$1_ω
+ jmp proc_zebra$2F1_ω
  xchain0_n96_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+5024] -> [zr+4960]
@@ -1540,10 +1540,10 @@ mov qword ptr [rbp + 9344], rax
  mov qword ptr [rbp + 4944], rax
  mov qword ptr [rbp + 4952], rdx
  cmp eax, 99
- je proc_zebra$1_ω
+ je proc_zebra$2F1_ω
  jmp xchain0_n97_α
  xchain0_n96_β:
- jmp proc_zebra$1_ω
+ jmp proc_zebra$2F1_ω
  xchain0_n97_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+5456] -> [zr+5392]
@@ -1568,10 +1568,10 @@ mov qword ptr [rbp + 9344], rax
  mov qword ptr [rbp + 5376], rax
  mov qword ptr [rbp + 5384], rdx
  cmp eax, 99
- je proc_zebra$1_ω
+ je proc_zebra$2F1_ω
  jmp xchain0_n98_α
  xchain0_n97_β:
- jmp proc_zebra$1_ω
+ jmp proc_zebra$2F1_ω
  xchain0_n98_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+5600] -> [zr+5536]
@@ -1596,10 +1596,10 @@ mov qword ptr [rbp + 9344], rax
  mov qword ptr [rbp + 5520], rax
  mov qword ptr [rbp + 5528], rdx
  cmp eax, 99
- je proc_zebra$1_ω
+ je proc_zebra$2F1_ω
  jmp xchain0_n99_α
  xchain0_n98_β:
- jmp proc_zebra$1_ω
+ jmp proc_zebra$2F1_ω
  xchain0_n99_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+5744] -> [zr+5680]
@@ -3161,35 +3161,35 @@ mov qword ptr [rbp + 9344], rax
  mov qword ptr [rbp + 0], rax
  mov rax, qword ptr [rbp + 72]
  mov qword ptr [rbp + 8], rax
- jmp proc_zebra$1_γ
+ jmp proc_zebra$2F1_γ
  xchain0_n195_β:
  jmp xchain0_n194_β
-proc_zebra$1_res:
+proc_zebra$2F1_res:
 add rsp, 8
 pop rbp
-proc_zebra$1_β:
+proc_zebra$2F1_β:
 jmp qword ptr [rbp + 9344]
-proc_zebra$1_γ:
+proc_zebra$2F1_γ:
 mov rdi, [rbp]
 mov rsi, [rbp + 8]
 push rbp
-lea rax, [rip + proc_zebra$1_res]
+lea rax, [rip + proc_zebra$2F1_res]
 push rax
 mov rax, [rbp + 10632]
 mov rbp, [rbp + 10648]
 jmp rax
-proc_zebra$1_ω:
+proc_zebra$2F1_ω:
 mov rax, [rbp + 10640]
 lea rsp, [rbp + 10656]
 mov rbp, [rbp + 10648]
 jmp rax
-  .globl proc_right_of$3_α
-proc_right_of$3_α:
+  .globl proc_right_of$2F3_α
+proc_right_of$2F3_α:
 #=======================================================================================================================
-    .global proc_right_of$3_α
-    .global proc_right_of$3_β
-    .global proc_right_of$3_γ
-    .global proc_right_of$3_ω
+    .global proc_right_of$2F3_α
+    .global proc_right_of$2F3_β
+    .global proc_right_of$2F3_γ
+    .global proc_right_of$2F3_ω
   sub rsp, 1648
   mov [rsp + 1624], rcx
   mov [rsp + 1632], rdx
@@ -3200,7 +3200,7 @@ proc_right_of$3_α:
   mov esi, 1520
   mov edx, 1616
   call rt_jmp_frame_lexprep2@PLT
-proc_right_of$3_α_body:
+proc_right_of$2F3_α_body:
 lea rax, [rip + xchain309_n29_β]
 mov qword ptr [rbp + 1520], rax
  xchain309_n0_α:
@@ -3212,10 +3212,10 @@ mov qword ptr [rbp + 1520], rax
  mov qword ptr [rbp + 96], rax
  mov qword ptr [rbp + 104], rdx
  cmp eax, 99
- je proc_right_of$3_ω
+ je proc_right_of$2F3_ω
  jmp xchain309_n1_α
  xchain309_n0_β:
- jmp proc_right_of$3_ω
+ jmp proc_right_of$2F3_ω
 # IR_VAR_REF
  xchain309_n1_α:
  mov rax, 4294967305
@@ -3274,10 +3274,10 @@ mov qword ptr [rbp + 1520], rax
  mov qword ptr [rbp + 800], rax
  mov qword ptr [rbp + 808], rdx
  cmp eax, 99
- je proc_right_of$3_ω
+ je proc_right_of$2F3_ω
  jmp xchain309_n7_α
  xchain309_n5_β:
- jmp proc_right_of$3_ω
+ jmp proc_right_of$2F3_ω
 # IR_VAR_REF
  xchain309_n6_α:
  mov rax, 4294967305
@@ -3383,10 +3383,10 @@ mov qword ptr [rbp + 1520], rax
  mov qword ptr [rbp + 128], rax
  mov qword ptr [rbp + 136], rdx
  cmp eax, 99
- je proc_right_of$3_ω
- jmp proc_right_of$3_ω
+ je proc_right_of$2F3_ω
+ jmp proc_right_of$2F3_ω
  xchain309_n14_β:
- jmp proc_right_of$3_ω
+ jmp proc_right_of$2F3_ω
 # IR_VAR_REF
  xchain309_n15_α:
  mov rax, 4294967305
@@ -3486,10 +3486,10 @@ mov qword ptr [rbp + 1520], rax
  mov qword ptr [rbp + 1008], rax
  mov qword ptr [rbp + 1016], rdx
  cmp eax, 99
- je proc_right_of$3_ω
+ je proc_right_of$2F3_ω
  jmp xchain309_n25_α
  xchain309_n23_β:
- jmp proc_right_of$3_ω
+ jmp proc_right_of$2F3_ω
 # IR_VAR_REF
  xchain309_n24_α:
  mov rax, 4294967305
@@ -3591,7 +3591,7 @@ mov qword ptr [rbp + 1520], rax
  mov qword ptr [rbp + 0], rax
  mov rax, qword ptr [rbp + 104]
  mov qword ptr [rbp + 8], rax
- jmp proc_right_of$3_γ
+ jmp proc_right_of$2F3_γ
  xchain309_n29_β:
  jmp xchain309_n5_α
 # IR_VAR_REF
@@ -3676,35 +3676,35 @@ mov qword ptr [rbp + 1520], rax
  mov qword ptr [rbp + 0], rax
  mov rax, qword ptr [rbp + 104]
  mov qword ptr [rbp + 8], rax
- jmp proc_right_of$3_γ
+ jmp proc_right_of$2F3_γ
  xchain309_n33_β:
  jmp xchain309_n32_β
-proc_right_of$3_res:
+proc_right_of$2F3_res:
 add rsp, 8
 pop rbp
-proc_right_of$3_β:
+proc_right_of$2F3_β:
 jmp qword ptr [rbp + 1520]
-proc_right_of$3_γ:
+proc_right_of$2F3_γ:
 mov rdi, [rbp]
 mov rsi, [rbp + 8]
 push rbp
-lea rax, [rip + proc_right_of$3_res]
+lea rax, [rip + proc_right_of$2F3_res]
 push rax
 mov rax, [rbp + 1624]
 mov rbp, [rbp + 1640]
 jmp rax
-proc_right_of$3_ω:
+proc_right_of$2F3_ω:
 mov rax, [rbp + 1632]
 lea rsp, [rbp + 1648]
 mov rbp, [rbp + 1640]
 jmp rax
-  .globl proc_next_to$3_α
-proc_next_to$3_α:
+  .globl proc_next_to$2F3_α
+proc_next_to$2F3_α:
 #=======================================================================================================================
-    .global proc_next_to$3_α
-    .global proc_next_to$3_β
-    .global proc_next_to$3_γ
-    .global proc_next_to$3_ω
+    .global proc_next_to$2F3_α
+    .global proc_next_to$2F3_β
+    .global proc_next_to$2F3_γ
+    .global proc_next_to$2F3_ω
   sub rsp, 2368
   mov [rsp + 2344], rcx
   mov [rsp + 2352], rdx
@@ -3715,7 +3715,7 @@ proc_next_to$3_α:
   mov esi, 2240
   mov edx, 2336
   call rt_jmp_frame_lexprep2@PLT
-proc_next_to$3_α_body:
+proc_next_to$2F3_α_body:
 lea rax, [rip + xchain365_n37_β]
 mov qword ptr [rbp + 2240], rax
  xchain365_n0_α:
@@ -3727,10 +3727,10 @@ mov qword ptr [rbp + 2240], rax
  mov qword ptr [rbp + 96], rax
  mov qword ptr [rbp + 104], rdx
  cmp eax, 99
- je proc_next_to$3_ω
+ je proc_next_to$2F3_ω
  jmp xchain365_n1_α
  xchain365_n0_β:
- jmp proc_next_to$3_ω
+ jmp proc_next_to$2F3_ω
 # IR_VAR_REF
  xchain365_n1_α:
  mov rax, 4294967305
@@ -3789,10 +3789,10 @@ mov qword ptr [rbp + 2240], rax
  mov qword ptr [rbp + 1520], rax
  mov qword ptr [rbp + 1528], rdx
  cmp eax, 99
- je proc_next_to$3_ω
+ je proc_next_to$2F3_ω
  jmp xchain365_n7_α
  xchain365_n5_β:
- jmp proc_next_to$3_ω
+ jmp proc_next_to$2F3_ω
 # IR_VAR_REF
  xchain365_n6_α:
  mov rax, 4294967305
@@ -3898,10 +3898,10 @@ mov qword ptr [rbp + 2240], rax
  mov qword ptr [rbp + 800], rax
  mov qword ptr [rbp + 808], rdx
  cmp eax, 99
- je proc_next_to$3_ω
+ je proc_next_to$2F3_ω
  jmp xchain365_n17_α
  xchain365_n14_β:
- jmp proc_next_to$3_ω
+ jmp proc_next_to$2F3_ω
 # IR_VAR_REF
  xchain365_n15_α:
  mov rax, 4294967305
@@ -4038,10 +4038,10 @@ mov qword ptr [rbp + 2240], rax
  mov qword ptr [rbp + 128], rax
  mov qword ptr [rbp + 136], rdx
  cmp eax, 99
- je proc_next_to$3_ω
- jmp proc_next_to$3_ω
+ je proc_next_to$2F3_ω
+ jmp proc_next_to$2F3_ω
  xchain365_n27_β:
- jmp proc_next_to$3_ω
+ jmp proc_next_to$2F3_ω
  xchain365_n28_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+1808] -> [zr+1744]
@@ -4066,10 +4066,10 @@ mov qword ptr [rbp + 2240], rax
  mov qword ptr [rbp + 1728], rax
  mov qword ptr [rbp + 1736], rdx
  cmp eax, 99
- je proc_next_to$3_ω
+ je proc_next_to$2F3_ω
  jmp xchain365_n31_α
  xchain365_n28_β:
- jmp proc_next_to$3_ω
+ jmp proc_next_to$2F3_ω
 # IR_VAR_REF
  xchain365_n29_α:
  mov rax, 4294967305
@@ -4190,7 +4190,7 @@ mov qword ptr [rbp + 2240], rax
  mov qword ptr [rbp + 0], rax
  mov rax, qword ptr [rbp + 104]
  mov qword ptr [rbp + 8], rax
- jmp proc_next_to$3_γ
+ jmp proc_next_to$2F3_γ
  xchain365_n37_β:
  jmp xchain365_n5_α
 # IR_VAR_REF
@@ -4231,10 +4231,10 @@ mov qword ptr [rbp + 2240], rax
  mov qword ptr [rbp + 1008], rax
  mov qword ptr [rbp + 1016], rdx
  cmp eax, 99
- je proc_next_to$3_ω
+ je proc_next_to$2F3_ω
  jmp xchain365_n42_α
  xchain365_n40_β:
- jmp proc_next_to$3_ω
+ jmp proc_next_to$2F3_ω
 # IR_VAR_REF
  xchain365_n41_α:
  mov rax, 4294967305
@@ -4336,7 +4336,7 @@ mov qword ptr [rbp + 2240], rax
  mov qword ptr [rbp + 0], rax
  mov rax, qword ptr [rbp + 104]
  mov qword ptr [rbp + 8], rax
- jmp proc_next_to$3_γ
+ jmp proc_next_to$2F3_γ
  xchain365_n46_β:
  jmp xchain365_n14_α
 # IR_VAR_REF
@@ -4421,35 +4421,35 @@ mov qword ptr [rbp + 2240], rax
  mov qword ptr [rbp + 0], rax
  mov rax, qword ptr [rbp + 104]
  mov qword ptr [rbp + 8], rax
- jmp proc_next_to$3_γ
+ jmp proc_next_to$2F3_γ
  xchain365_n50_β:
  jmp xchain365_n49_β
-proc_next_to$3_res:
+proc_next_to$2F3_res:
 add rsp, 8
 pop rbp
-proc_next_to$3_β:
+proc_next_to$2F3_β:
 jmp qword ptr [rbp + 2240]
-proc_next_to$3_γ:
+proc_next_to$2F3_γ:
 mov rdi, [rbp]
 mov rsi, [rbp + 8]
 push rbp
-lea rax, [rip + proc_next_to$3_res]
+lea rax, [rip + proc_next_to$2F3_res]
 push rax
 mov rax, [rbp + 2344]
 mov rbp, [rbp + 2360]
 jmp rax
-proc_next_to$3_ω:
+proc_next_to$2F3_ω:
 mov rax, [rbp + 2352]
 lea rsp, [rbp + 2368]
 mov rbp, [rbp + 2360]
 jmp rax
-  .globl proc_my_member$2_α
-proc_my_member$2_α:
+  .globl proc_my_member$2F2_α
+proc_my_member$2F2_α:
 #=======================================================================================================================
-    .global proc_my_member$2_α
-    .global proc_my_member$2_β
-    .global proc_my_member$2_γ
-    .global proc_my_member$2_ω
+    .global proc_my_member$2F2_α
+    .global proc_my_member$2F2_β
+    .global proc_my_member$2F2_γ
+    .global proc_my_member$2F2_ω
   sub rsp, 1072
   mov [rsp + 1048], rcx
   mov [rsp + 1056], rdx
@@ -4460,7 +4460,7 @@ proc_my_member$2_α:
   mov esi, 960
   mov edx, 1040
   call rt_jmp_frame_lexprep2@PLT
-proc_my_member$2_α_body:
+proc_my_member$2F2_α_body:
 lea rax, [rip + xchain447_n12_β]
 mov qword ptr [rbp + 960], rax
  xchain447_n0_α:
@@ -4472,10 +4472,10 @@ mov qword ptr [rbp + 960], rax
  mov qword ptr [rbp + 80], rax
  mov qword ptr [rbp + 88], rdx
  cmp eax, 99
- je proc_my_member$2_ω
+ je proc_my_member$2F2_ω
  jmp xchain447_n1_α
  xchain447_n0_β:
- jmp proc_my_member$2_ω
+ jmp proc_my_member$2F2_ω
 # IR_VAR_REF
  xchain447_n1_α:
  mov rax, 4294967305
@@ -4534,10 +4534,10 @@ mov qword ptr [rbp + 960], rax
  mov qword ptr [rbp + 608], rax
  mov qword ptr [rbp + 616], rdx
  cmp eax, 99
- je proc_my_member$2_ω
+ je proc_my_member$2F2_ω
  jmp xchain447_n7_α
  xchain447_n5_β:
- jmp proc_my_member$2_ω
+ jmp proc_my_member$2F2_ω
 # IR_VAR_REF
  xchain447_n6_α:
  mov rax, 4294967305
@@ -4625,7 +4625,7 @@ mov qword ptr [rbp + 960], rax
  mov qword ptr [rbp + 0], rax
  mov rax, qword ptr [rbp + 88]
  mov qword ptr [rbp + 8], rax
- jmp proc_my_member$2_γ
+ jmp proc_my_member$2F2_γ
  xchain447_n12_β:
  jmp xchain447_n5_α
 # IR_VAR_REF
@@ -4649,10 +4649,10 @@ mov qword ptr [rbp + 960], rax
  mov qword ptr [rbp + 112], rax
  mov qword ptr [rbp + 120], rdx
  cmp eax, 99
- je proc_my_member$2_ω
- jmp proc_my_member$2_ω
+ je proc_my_member$2F2_ω
+ jmp proc_my_member$2F2_ω
  xchain447_n14_β:
- jmp proc_my_member$2_ω
+ jmp proc_my_member$2F2_ω
 # IR_VAR_REF
  xchain447_n15_α:
  mov rax, 4294967305
@@ -4773,35 +4773,35 @@ mov qword ptr [rbp + 960], rax
  mov qword ptr [rbp + 0], rax
  mov rax, qword ptr [rbp + 88]
  mov qword ptr [rbp + 8], rax
- jmp proc_my_member$2_γ
+ jmp proc_my_member$2F2_γ
  xchain447_n21_β:
  jmp xchain447_n20_β
-proc_my_member$2_res:
+proc_my_member$2F2_res:
 add rsp, 8
 pop rbp
-proc_my_member$2_β:
+proc_my_member$2F2_β:
 jmp qword ptr [rbp + 960]
-proc_my_member$2_γ:
+proc_my_member$2F2_γ:
 mov rdi, [rbp]
 mov rsi, [rbp + 8]
 push rbp
-lea rax, [rip + proc_my_member$2_res]
+lea rax, [rip + proc_my_member$2F2_res]
 push rax
 mov rax, [rbp + 1048]
 mov rbp, [rbp + 1064]
 jmp rax
-proc_my_member$2_ω:
+proc_my_member$2F2_ω:
 mov rax, [rbp + 1056]
 lea rsp, [rbp + 1072]
 mov rbp, [rbp + 1064]
 jmp rax
-  .globl proc_houses$1_α
-proc_houses$1_α:
+  .globl proc_houses$2F1_α
+proc_houses$2F1_α:
 #=======================================================================================================================
-    .global proc_houses$1_α
-    .global proc_houses$1_β
-    .global proc_houses$1_γ
-    .global proc_houses$1_ω
+    .global proc_houses$2F1_α
+    .global proc_houses$2F1_β
+    .global proc_houses$2F1_γ
+    .global proc_houses$2F1_ω
   sub rsp, 2880
   mov [rsp + 2856], rcx
   mov [rsp + 2864], rdx
@@ -4812,7 +4812,7 @@ proc_houses$1_α:
   mov esi, 2432
   mov edx, 2848
   call rt_jmp_frame_lexprep2@PLT
-proc_houses$1_α_body:
+proc_houses$2F1_α_body:
  xchain485_n0_α:
 # BOX IR_CALL $trail_mark(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # PL-REGAIN-2 direct det leaf: rt_pl_dop_trail_mark (no by-name dispatch)
@@ -4822,10 +4822,10 @@ proc_houses$1_α_body:
  mov qword ptr [rbp + 64], rax
  mov qword ptr [rbp + 72], rdx
  cmp eax, 99
- je proc_houses$1_ω
+ je proc_houses$2F1_ω
  jmp xchain485_n1_α
  xchain485_n0_β:
- jmp proc_houses$1_ω
+ jmp proc_houses$2F1_ω
 # IR_VAR_REF
  xchain485_n1_α:
  mov rax, 4294967305
@@ -4927,10 +4927,10 @@ proc_houses$1_α_body:
  mov qword ptr [rbp + 2160], rax
  mov qword ptr [rbp + 2168], rdx
  cmp eax, 99
- je proc_houses$1_ω
+ je proc_houses$2F1_ω
  jmp xchain485_n10_α
  xchain485_n9_β:
- jmp proc_houses$1_ω
+ jmp proc_houses$2F1_ω
 # IR_LIT_STRING
  xchain485_n10_α:
  mov qword ptr [rbp + 1968], 1
@@ -5025,10 +5025,10 @@ proc_houses$1_α_body:
  mov qword ptr [rbp + 1728], rax
  mov qword ptr [rbp + 1736], rdx
  cmp eax, 99
- je proc_houses$1_ω
+ je proc_houses$2F1_ω
  jmp xchain485_n18_α
  xchain485_n17_β:
- jmp proc_houses$1_ω
+ jmp proc_houses$2F1_ω
 # IR_LIT_STRING
  xchain485_n18_α:
  mov qword ptr [rbp + 1536], 1
@@ -5123,10 +5123,10 @@ proc_houses$1_α_body:
  mov qword ptr [rbp + 1296], rax
  mov qword ptr [rbp + 1304], rdx
  cmp eax, 99
- je proc_houses$1_ω
+ je proc_houses$2F1_ω
  jmp xchain485_n26_α
  xchain485_n25_β:
- jmp proc_houses$1_ω
+ jmp proc_houses$2F1_ω
 # IR_LIT_STRING
  xchain485_n26_α:
  mov qword ptr [rbp + 1104], 1
@@ -5221,10 +5221,10 @@ proc_houses$1_α_body:
  mov qword ptr [rbp + 864], rax
  mov qword ptr [rbp + 872], rdx
  cmp eax, 99
- je proc_houses$1_ω
+ je proc_houses$2F1_ω
  jmp xchain485_n34_α
  xchain485_n33_β:
- jmp proc_houses$1_ω
+ jmp proc_houses$2F1_ω
 # IR_LIT_STRING
  xchain485_n34_α:
  mov qword ptr [rbp + 672], 1
@@ -5319,10 +5319,10 @@ proc_houses$1_α_body:
  mov qword ptr [rbp + 432], rax
  mov qword ptr [rbp + 440], rdx
  cmp eax, 99
- je proc_houses$1_ω
+ je proc_houses$2F1_ω
  jmp xchain485_n42_α
  xchain485_n41_β:
- jmp proc_houses$1_ω
+ jmp proc_houses$2F1_ω
 # IR_LIT_STRING
  xchain485_n42_α:
  mov qword ptr [rbp + 240], 1
@@ -5357,10 +5357,10 @@ proc_houses$1_α_body:
  mov qword ptr [rbp + 592], rax
  mov qword ptr [rbp + 600], rdx
  cmp eax, 99
- je proc_houses$1_ω
+ je proc_houses$2F1_ω
  jmp xchain485_n44_α
  xchain485_n43_β:
- jmp proc_houses$1_ω
+ jmp proc_houses$2F1_ω
  xchain485_n44_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+1104] -> [zr+1040]
@@ -5385,10 +5385,10 @@ proc_houses$1_α_body:
  mov qword ptr [rbp + 1024], rax
  mov qword ptr [rbp + 1032], rdx
  cmp eax, 99
- je proc_houses$1_ω
+ je proc_houses$2F1_ω
  jmp xchain485_n45_α
  xchain485_n44_β:
- jmp proc_houses$1_ω
+ jmp proc_houses$2F1_ω
  xchain485_n45_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+1536] -> [zr+1472]
@@ -5413,10 +5413,10 @@ proc_houses$1_α_body:
  mov qword ptr [rbp + 1456], rax
  mov qword ptr [rbp + 1464], rdx
  cmp eax, 99
- je proc_houses$1_ω
+ je proc_houses$2F1_ω
  jmp xchain485_n46_α
  xchain485_n45_β:
- jmp proc_houses$1_ω
+ jmp proc_houses$2F1_ω
  xchain485_n46_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+1968] -> [zr+1904]
@@ -5441,10 +5441,10 @@ proc_houses$1_α_body:
  mov qword ptr [rbp + 1888], rax
  mov qword ptr [rbp + 1896], rdx
  cmp eax, 99
- je proc_houses$1_ω
+ je proc_houses$2F1_ω
  jmp xchain485_n47_α
  xchain485_n46_β:
- jmp proc_houses$1_ω
+ jmp proc_houses$2F1_ω
  xchain485_n47_α:
 # BOX IR_CALL $mkc(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+2400] -> [zr+2336]
@@ -5510,38 +5510,38 @@ proc_houses$1_α_body:
  mov qword ptr [rbp + 96], rax
  mov qword ptr [rbp + 104], rdx
  cmp eax, 99
- je proc_houses$1_ω
- jmp proc_houses$1_ω
+ je proc_houses$2F1_ω
+ jmp proc_houses$2F1_ω
  xchain485_n49_β:
- jmp proc_houses$1_ω
+ jmp proc_houses$2F1_ω
 # IR_MOVE_LABEL
  xchain485_n50_α:
  lea rax, [rip + xchain485_n49_α]
  mov qword ptr [rbp + 48], rax
- jmp proc_houses$1_γ
+ jmp proc_houses$2F1_γ
 # IR_INDIRECT_GOTO alt-resume: jmp *t
  xchain485_n51_α:
  jmp qword ptr [rbp + 48]
  xchain485_n51_β:
- jmp proc_houses$1_ω
-proc_houses$1_res:
+ jmp proc_houses$2F1_ω
+proc_houses$2F1_res:
 add rsp, 8
 pop rbp
-proc_houses$1_β:
+proc_houses$2F1_β:
 jmp xchain485_n51_α
-proc_houses$1_γ:
+proc_houses$2F1_γ:
 mov rdi, [rbp]
 mov rsi, [rbp + 8]
 mov rax, [rbp + 2856]
 lea rsp, [rbp + 2880]
 mov rbp, [rbp + 2872]
 jmp rax
-proc_houses$1_ω:
+proc_houses$2F1_ω:
 mov rax, [rbp + 2864]
 lea rsp, [rbp + 2880]
 mov rbp, [rbp + 2872]
 jmp rax
-proc_houses$1_dcα:
+proc_houses$2F1_dcα:
 # PL-DC direct-call entry: retaddr -> kt-32 pad, wires -> local ret-shims, one prep crossing, shared body
  pop r11
  sub rsp, 2896
@@ -5562,7 +5562,7 @@ proc_houses$1_dcα:
  mov r8d, 1
  mov r9d, 0
  call rt_pl_dc_prep@PLT
- jmp proc_houses$1_α_body
+ jmp proc_houses$2F1_α_body
 .Lx566_2:
  mov rdx, qword ptr [rsp + -2896]
  mov rcx, rsp
@@ -5584,7 +5584,7 @@ proc_startup:
   .section .text
   .intel_syntax noprefix
   lea rdi, [rip + .Lstartup_pname0]
-  lea rsi, [rip + proc_zebra$1_α]
+  lea rsi, [rip + proc_zebra$2F1_α]
   call rt_proc_set_fn@PLT
   lea rdi, [rip + .Lstartup_pname0]
   mov esi, 1
@@ -5603,7 +5603,7 @@ proc_startup:
   .section .text
   .intel_syntax noprefix
   lea rdi, [rip + .Lstartup_pname1]
-  lea rsi, [rip + proc_right_of$3_α]
+  lea rsi, [rip + proc_right_of$2F3_α]
   call rt_proc_set_fn@PLT
   lea rdi, [rip + .Lstartup_pname1]
   mov esi, 3
@@ -5622,7 +5622,7 @@ proc_startup:
   .section .text
   .intel_syntax noprefix
   lea rdi, [rip + .Lstartup_pname2]
-  lea rsi, [rip + proc_next_to$3_α]
+  lea rsi, [rip + proc_next_to$2F3_α]
   call rt_proc_set_fn@PLT
   lea rdi, [rip + .Lstartup_pname2]
   mov esi, 3
@@ -5641,7 +5641,7 @@ proc_startup:
   .section .text
   .intel_syntax noprefix
   lea rdi, [rip + .Lstartup_pname3]
-  lea rsi, [rip + proc_my_member$2_α]
+  lea rsi, [rip + proc_my_member$2F2_α]
   call rt_proc_set_fn@PLT
   lea rdi, [rip + .Lstartup_pname3]
   mov esi, 2
@@ -5660,7 +5660,7 @@ proc_startup:
   .section .text
   .intel_syntax noprefix
   lea rdi, [rip + .Lstartup_pname4]
-  lea rsi, [rip + proc_houses$1_α]
+  lea rsi, [rip + proc_houses$2F1_α]
   call rt_proc_set_fn@PLT
   lea rdi, [rip + .Lstartup_pname4]
   mov esi, 1
@@ -5672,7 +5672,7 @@ proc_startup:
   mov esi, 1
   call rt_proc_set_jmpentry@PLT
   lea rdi, [rip + .Lstartup_pname4]
-  lea rsi, [rip + proc_houses$1_dcα]
+  lea rsi, [rip + proc_houses$2F1_dcα]
   call rt_proc_set_dcfn@PLT
   add rsp, 8
   ret
@@ -5834,14 +5834,14 @@ main_α_body:
 .Lx578_0_s:
  .string ""
  xchain567_n7_α:
-# BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
+# BOX IR_CALL $nl0(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+176] -> [zr+144]
  mov rax, qword ptr [rbp + 176]
  mov qword ptr [rbp + 144], rax
  mov rax, qword ptr [rbp + 184]
  mov qword ptr [rbp + 152], rax
   .section .rodata
-  .Lrkfn580: .string "write"
+  .Lrkfn580: .string "$nl0"
   .section .text
   .intel_syntax noprefix
  lea rdi, [rip + .Lrkfn580]
