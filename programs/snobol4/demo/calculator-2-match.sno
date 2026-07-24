@@ -1,0 +1,40 @@
+*------------------------------------------------------------------------------
+* calculator-2-match.sno — arithmetic-expression pattern match ONLY, Variant 2:
+* ARBNO iteration (the grammar of calculator-2.sno with every semantic action
+* stripped).  Whole file in memory, ONE BIG MATCH, zero side effects.  The
+* subject is the entire input: a run of newline-terminated expression lines,
+* ARBNO(X eol), anchored POS(0)..RPOS(0).
+*
+* Atoms A (lowercase letters, unsigned ints, parens), signed factors F (unary
+* sign chains via *F), terms T ('*' '/'), expressions X ('+' '-').  Where -1
+* uses right recursion in T/X, this variant folds the operator chains with
+* ARBNO — the fullscan-safe iterative shape (calculator-2.sno's header
+* explains why the literal Gimpel left-recursive form stack-overflows on every
+* engine).  Language recognized is identical to calculator-1-match; the ARBNO
+* form removes the alternative re-parse of F that the right-recursive form
+* pays, so the two make a clean A/B on how the pattern engine handles deferred
+* recursion vs bounded iteration.  Shares calculator.input / calculator-gen.py.
+* Run: sbl -b calculator-2-match.sno < calculator.input
+*      snobol4 -b -f -d 8m -P 4m -S 4m calculator-2-match.sno < calculator.input
+*      scrip --run calculator-2-match.sno < calculator.input
+*------------------------------------------------------------------------------
+        V              =  ANY('abcdefghijklmnopqrstuvwxyz')
+        I              =  SPAN('0123456789')
+        A              =  V | I | '(' *X ')'
+        F              =  A | ANY('+-') *F
+        T              =  F ARBNO(ANY('*/') F)
+        X              =  T ARBNO(ANY('+-') T)
+        eol            =  CHAR(10)
+        C              =  POS(0) ARBNO(X eol) RPOS(0)
+*------------------------------------------------------------------------------
+        &TRIM          =  0
+*------------------------------------------------------------------------------
+*  ONE READ — SPITBOL raw mode: -f0 attaches stdin, -r sets raw record length;
+*  newlines come back in-string, short read at EOF (manual, file processing)
+        INPUT(.INPUT, 9, '[-f0 -r4000000]')
+        src            =  INPUT                          :F(fail)
+        src            C                                 :F(fail)
+        OUTPUT         =  'matched bytes=' SIZE(src)      :(END)
+fail    OUTPUT         =  'Pattern match failed'
+*------------------------------------------------------------------------------
+END
