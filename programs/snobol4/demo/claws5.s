@@ -12,10 +12,9 @@ proc_new_sent_α:
   mov [rsp + 448], rdx
   mov [rsp + 456], rbp
   mov rbp, rsp
-  mov rdi, rsp
-  mov ecx, 432
-  xor eax, eax
-  rep stosb
+  mov qword ptr [rsp], 0
+  mov qword ptr [rsp + 8], 0
+  mov qword ptr [rsp + 416], 0
   mov qword ptr [rsp + 424], rsp
 proc_new_sent_α_body:
 # IR_VAR
@@ -199,10 +198,9 @@ proc_add_tok_α:
   mov [rsp + 1920], rdx
   mov [rsp + 1928], rbp
   mov rbp, rsp
-  mov rdi, rsp
-  mov ecx, 1904
-  xor eax, eax
-  rep stosb
+  mov qword ptr [rsp], 0
+  mov qword ptr [rsp + 8], 0
+  mov qword ptr [rsp + 1888], 0
   mov qword ptr [rsp + 1896], rsp
 proc_add_tok_α_body:
 # IR_VAR
@@ -935,10 +933,9 @@ proc_pp_mem_α:
   mov [rsp + 7616], rdx
   mov [rsp + 7624], rbp
   mov rbp, rsp
-  mov rdi, rsp
-  mov ecx, 7600
-  xor eax, eax
-  rep stosb
+  mov qword ptr [rsp], 0
+  mov qword ptr [rsp + 8], 0
+  mov qword ptr [rsp + 7584], 0
   mov qword ptr [rsp + 7592], rsp
 proc_pp_mem_α_body:
 # IR_VAR
@@ -4244,8 +4241,11 @@ proc_PAT$0_α:
   mov [rsp + 736], rdx
   mov [rsp + 744], rbp
   mov rbp, rsp
+  mov qword ptr [rsp], 0
+  mov qword ptr [rsp + 8], 0
   mov rdi, rsp
-  mov ecx, 720
+  add rdi, 224
+  mov ecx, 496
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 712], rsp
@@ -4299,85 +4299,11 @@ xchain364_n0_af:
  mov qword ptr [rsp + 8], r14
  mov qword ptr [rsp + 16], rax
  mov eax, 0
- mov qword ptr [rsp + 24], rax
- mov qword ptr [rsp + 32], rax
- mov qword ptr [rsp + 40], rax
- mov qword ptr [rsp + 48], rax
- mov qword ptr [rsp + 56], rax
- mov qword ptr [rsp + 64], rax
- mov qword ptr [rsp + 72], rax
- mov qword ptr [rsp + 80], rax
- mov qword ptr [rsp + 88], rax
- mov qword ptr [rsp + 96], rax
- mov qword ptr [rsp + 104], rax
- mov qword ptr [rsp + 112], rax
- mov qword ptr [rsp + 120], rax
- mov qword ptr [rsp + 128], rax
- mov qword ptr [rsp + 136], rax
- mov qword ptr [rsp + 144], rax
- mov qword ptr [rsp + 152], rax
- mov qword ptr [rsp + 160], rax
- mov qword ptr [rsp + 168], rax
- mov qword ptr [rsp + 176], rax
- mov qword ptr [rsp + 184], rax
- mov qword ptr [rsp + 192], rax
- mov qword ptr [rsp + 200], rax
- mov qword ptr [rsp + 208], rax
  mov qword ptr [rsp + 216], rax
- mov qword ptr [rsp + 224], rax
- mov qword ptr [rsp + 232], rax
- mov qword ptr [rsp + 240], rax
- mov qword ptr [rsp + 248], rax
- mov qword ptr [rsp + 256], rax
- mov qword ptr [rsp + 264], rax
- mov qword ptr [rsp + 272], rax
- mov qword ptr [rsp + 280], rax
- mov qword ptr [rsp + 288], rax
  mov qword ptr [rsp + 296], rax
- mov qword ptr [rsp + 304], rax
- mov qword ptr [rsp + 312], rax
- mov qword ptr [rsp + 320], rax
- mov qword ptr [rsp + 328], rax
- mov qword ptr [rsp + 336], rax
- mov qword ptr [rsp + 344], rax
- mov qword ptr [rsp + 352], rax
- mov qword ptr [rsp + 360], rax
- mov qword ptr [rsp + 368], rax
- mov qword ptr [rsp + 376], rax
- mov qword ptr [rsp + 384], rax
  mov qword ptr [rsp + 392], rax
- mov qword ptr [rsp + 400], rax
- mov qword ptr [rsp + 408], rax
- mov qword ptr [rsp + 416], rax
- mov qword ptr [rsp + 424], rax
- mov qword ptr [rsp + 432], rax
- mov qword ptr [rsp + 440], rax
- mov qword ptr [rsp + 448], rax
- mov qword ptr [rsp + 456], rax
- mov qword ptr [rsp + 464], rax
- mov qword ptr [rsp + 472], rax
- mov qword ptr [rsp + 480], rax
  mov qword ptr [rsp + 488], rax
- mov qword ptr [rsp + 496], rax
- mov qword ptr [rsp + 504], rax
- mov qword ptr [rsp + 512], rax
- mov qword ptr [rsp + 520], rax
- mov qword ptr [rsp + 528], rax
- mov qword ptr [rsp + 536], rax
- mov qword ptr [rsp + 544], rax
- mov qword ptr [rsp + 552], rax
- mov qword ptr [rsp + 560], rax
- mov qword ptr [rsp + 568], rax
- mov qword ptr [rsp + 576], rax
  mov qword ptr [rsp + 584], rax
- mov qword ptr [rsp + 592], rax
- mov qword ptr [rsp + 600], rax
- mov qword ptr [rsp + 608], rax
- mov qword ptr [rsp + 616], rax
- mov qword ptr [rsp + 624], rax
- mov qword ptr [rsp + 632], rax
- mov qword ptr [rsp + 640], rax
- mov qword ptr [rsp + 648], rax
  mov qword ptr [rbp + 112], rsp
  mov rbp, rsp
  add rbp, -8
@@ -5652,6 +5578,10 @@ xchain422_n2_af:
  .string "Pattern match failed"
 # IR_MATCH_DEFER (ZS-2 jmp-entry)
  xchain422_n27_α:
+ lea rsi, [rip + g_sno_defer_cells+0]
+ mov rax, qword ptr [rsi + 0]
+ test rax, rax
+ jne .Lx458_11
  mov rax, qword ptr [1879052768]
  mov rdx, qword ptr [1879052776]
  cmp eax, 3
@@ -5665,6 +5595,9 @@ xchain422_n2_af:
 .Lx458_9:
  xor eax, eax
 .Lx458_10:
+ lea rsi, [rip + g_sno_defer_cells+0]
+ mov qword ptr [rsi + 0], rax
+.Lx458_11:
  test rax, rax
  jz .Lx458_0
  mov r8d, 0
