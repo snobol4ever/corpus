@@ -14,11 +14,11 @@ proc_ROMAN_α:
   mov rbp, rsp
   mov qword ptr [rsp], 0
   mov qword ptr [rsp + 8], 0
-  mov rdi, rsp
-  add rdi, 304
-  mov ecx, 288
-  xor eax, eax
-  rep stosb
+  mov qword ptr [rsp + 304], 0
+  mov qword ptr [rsp + 312], 0
+  mov qword ptr [rsp + 496], 0
+  mov qword ptr [rsp + 504], 0
+  mov qword ptr [rsp + 576], 0
   mov qword ptr [rsp + 584], rsp
 proc_ROMAN_α_body:
 # IR_VAR

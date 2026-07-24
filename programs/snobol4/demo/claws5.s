@@ -4243,11 +4243,19 @@ proc_PAT$0_α:
   mov rbp, rsp
   mov qword ptr [rsp], 0
   mov qword ptr [rsp + 8], 0
-  mov rdi, rsp
-  add rdi, 224
-  mov ecx, 496
-  xor eax, eax
-  rep stosb
+  mov qword ptr [rsp + 224], 0
+  mov qword ptr [rsp + 232], 0
+  mov qword ptr [rsp + 304], 0
+  mov qword ptr [rsp + 312], 0
+  mov qword ptr [rsp + 400], 0
+  mov qword ptr [rsp + 408], 0
+  mov qword ptr [rsp + 496], 0
+  mov qword ptr [rsp + 504], 0
+  mov qword ptr [rsp + 592], 0
+  mov qword ptr [rsp + 600], 0
+  mov qword ptr [rsp + 688], 0
+  mov qword ptr [rsp + 696], 0
+  mov qword ptr [rsp + 704], 0
   mov qword ptr [rsp + 712], rsp
 mov qword ptr [rbp + 720], r8
 mov dword ptr [rbp + 712], r14d
