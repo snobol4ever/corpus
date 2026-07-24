@@ -12,8 +12,11 @@ proc_ROMAN_α:
   mov [rsp + 912], rdx
   mov [rsp + 920], rbp
   mov rbp, rsp
+  mov qword ptr [rsp], 0
+  mov qword ptr [rsp + 8], 0
   mov rdi, rsp
-  mov ecx, 896
+  add rdi, 304
+  mov ecx, 592
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 888], rsp

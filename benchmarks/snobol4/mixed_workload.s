@@ -12,10 +12,9 @@ proc_RSUM_α:
   mov [rsp + 592], rdx
   mov [rsp + 600], rbp
   mov rbp, rsp
-  mov rdi, rsp
-  mov ecx, 576
-  xor eax, eax
-  rep stosb
+  mov qword ptr [rsp], 0
+  mov qword ptr [rsp + 8], 0
+  mov qword ptr [rsp + 560], 0
   mov qword ptr [rsp + 568], rsp
 proc_RSUM_α_body:
 # IR_VAR
@@ -345,8 +344,11 @@ proc_PAT$0_α:
   mov [rsp + 176], rdx
   mov [rsp + 184], rbp
   mov rbp, rsp
+  mov qword ptr [rsp], 0
+  mov qword ptr [rsp + 8], 0
   mov rdi, rsp
-  mov ecx, 160
+  add rdi, 64
+  mov ecx, 96
   xor eax, eax
   rep stosb
   mov qword ptr [rsp + 152], rsp
@@ -913,6 +915,10 @@ main_α_body:
  .quad 0
 # IR_MATCH_DEFER (ZS-2 jmp-entry)
  xchain31_n23_α:
+ lea rsi, [rip + g_sno_defer_cells+0]
+ mov rax, qword ptr [rsi + 0]
+ test rax, rax
+ jne .Lx61_11
  mov rax, qword ptr [1879052320]
  mov rdx, qword ptr [1879052328]
  cmp eax, 3
@@ -926,6 +932,9 @@ main_α_body:
 .Lx61_9:
  xor eax, eax
 .Lx61_10:
+ lea rsi, [rip + g_sno_defer_cells+0]
+ mov qword ptr [rsi + 0], rax
+.Lx61_11:
  test rax, rax
  jz .Lx61_0
  mov r8d, 1
