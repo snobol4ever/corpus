@@ -17,16 +17,16 @@
                 dig            =  '0123456789'
 *------------------------------------------------------------------------------
                 jescape        =  bslash
-+                                 ( ANY('"/bfnrt' bslash)
-+                                 | 'u' ANY(hex) ANY(hex) ANY(hex) ANY(hex)
++                                 ( ANY('"/bfnrt\')
++                                 | 'u' ANY('0123456789abcdefABCDEF') ANY('0123456789abcdefABCDEF') ANY('0123456789abcdefABCDEF') ANY('0123456789abcdefABCDEF')
 +                                 )
-                jchunk         =  BREAK('"' bslash CHAR(10) CHAR(13))
+                jchunk         =  BREAK('"\' CHAR(10) CHAR(13))
                 jstring        =  '"' jchunk ARBNO(jescape jchunk) '"'
 *------------------------------------------------------------------------------
                 jnumber        =  FENCE('-' | '')
-+                                 ( '0' | ANY('123456789') FENCE(SPAN(dig) | '') )
-+                                 FENCE('.' SPAN(dig) | '')
-+                                 FENCE(ANY('eE') FENCE(ANY('+-') | '') SPAN(dig) | '')
++                                 ( '0' | ANY('123456789') FENCE(SPAN('0123456789') | '') )
++                                 FENCE('.' SPAN('0123456789') | '')
++                                 FENCE(ANY('eE') FENCE(ANY('+-') | '') SPAN('0123456789') | '')
 *------------------------------------------------------------------------------
                 jmember        =  ws jstring ws ':' *jelement
                 jobject        =  '{' ( jmember ARBNO(',' jmember) | ws ) '}'

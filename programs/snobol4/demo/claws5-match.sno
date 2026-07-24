@@ -21,7 +21,7 @@
 +                ( SPAN('0123456789') '_CRD :_PUN'
 +                | NOTANY('_') BREAK('_')
 +                  '_'
-+                  ANY(&UCASE) SPAN('0123456789' &UCASE)
++                  ANY('ABCDEFGHIJKLMNOPQRSTUVWXYZ') SPAN('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ')
 +                )
 +                SPAN(' ' CHAR(10))
 +               )
