@@ -1,0 +1,33 @@
+*------------------------------------------------------------------------------
+* expression-match.sno — arithmetic-expression pattern match ONLY: whole file
+* in memory, ONE BIG MATCH, zero side effects (no captures, no deferred calls,
+* no semantic actions).  The grammar is Gimpel's L1 expression grammar
+* (corpus programs/gimpel/L_ONE.sno) reduced to single-character pattern names
+* E (expression), T (term), X (primary), right-recursive with the common
+* prefix factored into an epsilon-alternative suffix — the UNfactored book
+* form (T = X op *T | X) re-parses parenthesized primaries on every chain-end
+* fall-through and is exponential under SPITBOL's exhaustive, heuristic-free
+* matching (manual, "Recursive Patterns" / "Quickscan and Fullscan").
+* Variables are single uppercase letters matched one character at a time by
+* ANY; the recursive *T / *E deferred VARIABLES remain — they are the parse
+* structure itself, not side effects (X is bound before T, T before E).
+* Run: sbl -b expression-match.sno < expression.input
+*      snobol4 -b -f -d 8m -P 4m -S 4m expression-match.sno < expression.input
+*      scrip --run expression-match.sno < expression.input
+*------------------------------------------------------------------------------
+               X              =  ANY('ABCDEFGHIJKLMNOPQRSTUVWXYZ') | '(' *E ')'
+               T              =  X (ANY('*/') *T | '')
+               E              =  T (ANY('+-') *E | '')
+               expr           =  POS(0) E RPOS(0)
+*------------------------------------------------------------------------------
+               &TRIM          =  0
+*------------------------------------------------------------------------------
+*  ONE READ — SPITBOL raw mode: -f0 attaches stdin, -r sets raw record length;
+*  newlines come back in-string, short read at EOF (manual, file processing options)
+               INPUT(.INPUT, 9, '[-f0 -r4000000]')
+               src             =   INPUT                       :F(fail)
+               src             expr                            :F(fail)
+               OUTPUT          =  'matched bytes=' SIZE(src)   :(END)
+fail           OUTPUT          =  'Pattern match failed'
+*------------------------------------------------------------------------------
+END
