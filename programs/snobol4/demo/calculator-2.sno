@@ -73,8 +73,8 @@ SGN_x
         V = ANY(LCASE) . *PSH()
         I = SPAN(DIGITS) . *PSH()
         A = V | I | '(' *X ')'
-        F = ANY('+-') . *PSH() *F . *SGN()
-+         | A
+        F = A
++         | ANY('+-') . *PSH() *F . *SGN()
         T = F ARBNO('*' F . *MUL() | '/' F . *DIV())
         X = T ARBNO('+' T . *ADD() | '-' T . *SUB())
         C = POS(0) X RPOS(0)

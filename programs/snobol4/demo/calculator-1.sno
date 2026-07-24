@@ -65,9 +65,9 @@ NEG_x
         V = ANY(LCASE) . *PSH()
         I = SPAN(DIGITS) . *PSH()
         A = V | I | '(' *X ')'
-        F = '+' *F
+        F = A
++         | '+' *F
 +         | '-' *F . *NEG()
-+         | A
         T = F '*' *T . *MUL()
 +         | F '/' *T . *DIV()
 +         | F
