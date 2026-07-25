@@ -3116,14 +3116,38 @@ mov qword ptr [rbp + 1744], rax
  jmp xchain277_n19_α
  xchain277_n19_α:
  mov qword ptr [rbp + 960], 0
+ lea r11, [rip + g_gc_pending]
+ mov eax, dword ptr [r11 + 0]
+ test eax, eax
+ jne .Lx305_20
+ mov rax, qword ptr [rbp + 992]
+ mov rdx, qword ptr [rbp + 1000]
+ lea r10, [rip + g_call_args]
+ mov qword ptr [r10 + 0], rax
+ mov qword ptr [r10 + 8], rdx
+ jmp .Lx305_21
+.Lx305_20:
  mov edi, 0
  mov rsi, qword ptr [rbp + 992]
  mov rdx, qword ptr [rbp + 1000]
  call rt_arg_stage@PLT
+.Lx305_21:
+ lea r11, [rip + g_gc_pending]
+ mov eax, dword ptr [r11 + 0]
+ test eax, eax
+ jne .Lx305_22
+ mov rax, qword ptr [rbp + 1024]
+ mov rdx, qword ptr [rbp + 1032]
+ lea r10, [rip + g_call_args]
+ mov qword ptr [r10 + 16], rax
+ mov qword ptr [r10 + 24], rdx
+ jmp .Lx305_23
+.Lx305_22:
  mov edi, 1
  mov rsi, qword ptr [rbp + 1024]
  mov rdx, qword ptr [rbp + 1032]
  call rt_arg_stage@PLT
+.Lx305_23:
  mov rdi, qword ptr [rip + .Lx305_0]
  mov esi, 2
  call rt_proc_call_open@PLT
@@ -3186,14 +3210,38 @@ mov qword ptr [rbp + 1744], rax
  jmp xchain277_n22_α
  xchain277_n22_α:
  mov qword ptr [rbp + 816], 0
+ lea r11, [rip + g_gc_pending]
+ mov eax, dword ptr [r11 + 0]
+ test eax, eax
+ jne .Lx311_20
+ mov rax, qword ptr [rbp + 848]
+ mov rdx, qword ptr [rbp + 856]
+ lea r10, [rip + g_call_args]
+ mov qword ptr [r10 + 0], rax
+ mov qword ptr [r10 + 8], rdx
+ jmp .Lx311_21
+.Lx311_20:
  mov edi, 0
  mov rsi, qword ptr [rbp + 848]
  mov rdx, qword ptr [rbp + 856]
  call rt_arg_stage@PLT
+.Lx311_21:
+ lea r11, [rip + g_gc_pending]
+ mov eax, dword ptr [r11 + 0]
+ test eax, eax
+ jne .Lx311_22
+ mov rax, qword ptr [rbp + 880]
+ mov rdx, qword ptr [rbp + 888]
+ lea r10, [rip + g_call_args]
+ mov qword ptr [r10 + 16], rax
+ mov qword ptr [r10 + 24], rdx
+ jmp .Lx311_23
+.Lx311_22:
  mov edi, 1
  mov rsi, qword ptr [rbp + 880]
  mov rdx, qword ptr [rbp + 888]
  call rt_arg_stage@PLT
+.Lx311_23:
  mov rdi, qword ptr [rip + .Lx311_0]
  mov esi, 2
  call rt_proc_call_open@PLT
@@ -6652,14 +6700,38 @@ mov qword ptr [rbp + 960], rax
  jmp xchain615_n10_α
  xchain615_n10_α:
  mov qword ptr [rbp + 640], 0
+ lea r11, [rip + g_gc_pending]
+ mov eax, dword ptr [r11 + 0]
+ test eax, eax
+ jne .Lx633_20
+ mov rax, qword ptr [rbp + 672]
+ mov rdx, qword ptr [rbp + 680]
+ lea r10, [rip + g_call_args]
+ mov qword ptr [r10 + 0], rax
+ mov qword ptr [r10 + 8], rdx
+ jmp .Lx633_21
+.Lx633_20:
  mov edi, 0
  mov rsi, qword ptr [rbp + 672]
  mov rdx, qword ptr [rbp + 680]
  call rt_arg_stage@PLT
+.Lx633_21:
+ lea r11, [rip + g_gc_pending]
+ mov eax, dword ptr [r11 + 0]
+ test eax, eax
+ jne .Lx633_22
+ mov rax, qword ptr [rbp + 704]
+ mov rdx, qword ptr [rbp + 712]
+ lea r10, [rip + g_call_args]
+ mov qword ptr [r10 + 16], rax
+ mov qword ptr [r10 + 24], rdx
+ jmp .Lx633_23
+.Lx633_22:
  mov edi, 1
  mov rsi, qword ptr [rbp + 704]
  mov rdx, qword ptr [rbp + 712]
  call rt_arg_stage@PLT
+.Lx633_23:
  mov rdi, qword ptr [rip + .Lx633_0]
  mov esi, 2
  call rt_proc_call_open@PLT
@@ -6722,14 +6794,38 @@ mov qword ptr [rbp + 960], rax
  jmp xchain615_n13_α
  xchain615_n13_α:
  mov qword ptr [rbp + 496], 0
+ lea r11, [rip + g_gc_pending]
+ mov eax, dword ptr [r11 + 0]
+ test eax, eax
+ jne .Lx639_20
+ mov rax, qword ptr [rbp + 528]
+ mov rdx, qword ptr [rbp + 536]
+ lea r10, [rip + g_call_args]
+ mov qword ptr [r10 + 0], rax
+ mov qword ptr [r10 + 8], rdx
+ jmp .Lx639_21
+.Lx639_20:
  mov edi, 0
  mov rsi, qword ptr [rbp + 528]
  mov rdx, qword ptr [rbp + 536]
  call rt_arg_stage@PLT
+.Lx639_21:
+ lea r11, [rip + g_gc_pending]
+ mov eax, dword ptr [r11 + 0]
+ test eax, eax
+ jne .Lx639_22
+ mov rax, qword ptr [rbp + 560]
+ mov rdx, qword ptr [rbp + 568]
+ lea r10, [rip + g_call_args]
+ mov qword ptr [r10 + 16], rax
+ mov qword ptr [r10 + 24], rdx
+ jmp .Lx639_23
+.Lx639_22:
  mov edi, 1
  mov rsi, qword ptr [rbp + 560]
  mov rdx, qword ptr [rbp + 568]
  call rt_arg_stage@PLT
+.Lx639_23:
  mov rdi, qword ptr [rip + .Lx639_0]
  mov esi, 2
  call rt_proc_call_open@PLT
@@ -7217,10 +7313,22 @@ main_α_body:
  jmp xchain652_n15_α
  xchain652_n14_α:
  mov qword ptr [rbp + 624], 0
+ lea r11, [rip + g_gc_pending]
+ mov eax, dword ptr [r11 + 0]
+ test eax, eax
+ jne .Lx672_20
+ mov rax, qword ptr [rbp + 1152]
+ mov rdx, qword ptr [rbp + 1160]
+ lea r10, [rip + g_call_args]
+ mov qword ptr [r10 + 0], rax
+ mov qword ptr [r10 + 8], rdx
+ jmp .Lx672_21
+.Lx672_20:
  mov edi, 0
  mov rsi, qword ptr [rbp + 1152]
  mov rdx, qword ptr [rbp + 1160]
  call rt_arg_stage@PLT
+.Lx672_21:
  mov rdi, qword ptr [rip + .Lx672_0]
  mov esi, 1
  call rt_proc_call_open@PLT
