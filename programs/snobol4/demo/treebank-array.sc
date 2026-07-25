@@ -117,7 +117,7 @@ group =
     '('
       (word . tag) . *push_list(tag)
       ARBNO(
-        *delim
+        delim
           ( *group
            | (word . wrd) . *push_item(wrd)
            )

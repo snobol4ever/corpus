@@ -83,7 +83,7 @@ pop_final_end
 +              '('
 +              (word . tag) Push_list('tag')
 +              ARBNO(
-+                  *delim
++                  delim
 +                  ( *group
 +                  | (word . wrd) Push_item('wrd')
 +                  )
@@ -98,7 +98,7 @@ pop_final_end
 +              ARBNO(
 +                  Push_list("'ROOT'")
 +                  ARBNO(*group)
-+                  *delim
++                  delim
 +                  Pop_list()
 +              )
 +              Pop_final("'bank'")

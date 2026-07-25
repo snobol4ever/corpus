@@ -129,7 +129,7 @@ pp_bank_end
 +              '('
 +              (word . tag) Push_list('tag')
 +              ARBNO(
-+                  *delim
++                  delim
 +                  ( *group
 +                  | (word . wrd) Push_item('wrd')
 +                  )
