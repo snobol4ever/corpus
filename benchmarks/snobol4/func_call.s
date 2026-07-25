@@ -689,10 +689,22 @@ main_α_body:
  jmp .Lx49_2
 .Lx49_5:
  add rsp, 32
+ lea r11, [rip + g_gc_pending]
+ mov eax, dword ptr [r11 + 0]
+ test eax, eax
+ jne .Lx49_20
+ mov rax, qword ptr [rbp + 976]
+ mov rdx, qword ptr [rbp + 984]
+ lea r10, [rip + g_call_args]
+ mov qword ptr [r10 + 0], rax
+ mov qword ptr [r10 + 8], rdx
+ jmp .Lx49_21
+.Lx49_20:
  mov edi, 0
  mov rsi, qword ptr [rbp + 976]
  mov rdx, qword ptr [rbp + 984]
  call rt_arg_stage@PLT
+.Lx49_21:
  mov rdi, qword ptr [rip + .Lx49_0]
  mov esi, 1
  call rt_proc_call_open@PLT
