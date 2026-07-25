@@ -6272,7 +6272,7 @@ xchain448_n4_af:
  xchain448_n5_α:
  mov eax, r14d
  cmp eax, r15d
- jge xchain448_n4_af
+ jge proc_PAT$2_ω
  movsxd rcx, r14d
  movzx esi, byte ptr [r13+rcx]
  mov r8, qword ptr [rbp + 72]
@@ -6283,7 +6283,7 @@ xchain448_n4_af:
  jge .Lx457_6
  movzx edi, byte ptr [r8 + rdx]
  cmp esi, edi
- je xchain448_n4_af
+ je proc_PAT$2_ω
  add edx, 1
  jmp .Lx457_5
 .Lx457_6:
@@ -6291,7 +6291,7 @@ xchain448_n4_af:
  jmp xchain448_n6_α
  xchain448_n5_β:
  sub r14d, 1
- jmp xchain448_n4_af
+ jmp proc_PAT$2_ω
 # IR_MATCH_BREAK
  xchain448_n6_α:
  sub rsp, 16
@@ -6325,7 +6325,7 @@ xchain448_n4_af:
  add eax, dword ptr [rsp + 0]
  mov dword ptr [rsp + 0], r14d
  mov r14d, eax
- jmp xchain448_n4_as
+ jmp proc_PAT$2_γ
  xchain448_n6_β:
  mov r14d, dword ptr [rsp + 0]
  add rsp, 16
@@ -6883,7 +6883,7 @@ xchain460_n12_af:
 .Lx484_4:
  jmp xchain460_n15_α
 .Lx484_5:
- jmp xchain460_n12_af
+ jmp xchain460_n6_af
 .Lx484_0:
  push r14
  push r15
@@ -6919,7 +6919,7 @@ xchain460_n12_af:
  mov edi, r14d
  call rt_defer_close@PLT
  test eax, eax
- js xchain460_n12_af
+ js xchain460_n6_af
  mov r14d, eax
  lea rax, [rip + .Lx484_6]
  sub rsp, 8
@@ -6927,7 +6927,7 @@ xchain460_n12_af:
  jmp xchain460_n15_α
 .Lx484_6:
  add rsp, 16
- jmp xchain460_n12_af
+ jmp xchain460_n6_af
  xchain460_n14_β:
  jmp qword ptr [rsp]
 # IR_MATCH_ALT_NARY
@@ -6936,7 +6936,7 @@ xchain460_n12_af:
  mov dword ptr [rbp + 324], 0
  jmp xchain460_n17_α
 xchain460_n15_as:
- jmp xchain460_n12_as
+ jmp xchain460_n6_as
  xchain460_n15_β:
  mov eax, dword ptr [rbp + 324]
  cmp eax, 0
@@ -7360,16 +7360,16 @@ xchain498_n1_af:
  mov eax, r14d
  add eax, 1
  cmp eax, r15d
- jg xchain498_n1_af
+ jg xchain498_n0_β
  movsxd rcx, r14d
  movzx eax, byte ptr [r13+rcx]
  cmp eax, 40
- jne xchain498_n1_af
+ jne xchain498_n0_β
  add r14d, 1
  jmp xchain498_n4_α
  xchain498_n3_β:
  sub r14d, 1
- jmp xchain498_n1_af
+ jmp xchain498_n0_β
 # IR_MATCH_BAL
  xchain498_n4_α:
  sub rsp, 16
@@ -7421,7 +7421,7 @@ xchain498_n1_af:
  cmp eax, 41
  jne xchain498_n4_β
  add r14d, 1
- jmp xchain498_n1_as
+ jmp xchain498_n2_α
  xchain498_n5_β:
  sub r14d, 1
  jmp xchain498_n4_β
@@ -8320,17 +8320,17 @@ xchain511_n2_af:
  mov qword ptr [rbp + 200], rax
  jmp xchain511_n5_α
  xchain511_n4_β:
- jmp xchain511_n2_af
+ jmp xchain511_n1_β
 .Lx519_0:
  .quad 10
 # IR_MATCH_POS
  xchain511_n5_α:
  mov rax, 10
  cmp r14d, eax
- jne xchain511_n2_af
+ jne xchain511_n1_β
  jmp xchain511_n6_α
  xchain511_n5_β:
- jmp xchain511_n2_af
+ jmp xchain511_n1_β
 # IR_MATCH_CAPTURE_SAVE fc cell
  xchain511_n6_α:
  sub rsp, 16
@@ -8338,7 +8338,7 @@ xchain511_n2_af:
  jmp xchain511_n9_α
  xchain511_n6_β:
  add rsp, 16
- jmp xchain511_n2_af
+ jmp xchain511_n1_β
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain511_n7_α:
  mov eax, dword ptr [rsp + 0]
@@ -8350,7 +8350,7 @@ xchain511_n2_af:
  sub edx, eax
  mov qword ptr [r12 + 16], rdx
  add r12, 24
- jmp xchain511_n2_as
+ jmp xchain511_n3_α
  xchain511_n7_β:
  sub r12, 24
  jmp xchain511_n9_β
@@ -8373,14 +8373,14 @@ xchain511_n2_af:
  cmp eax, r15d
  jle .Lx526_240
  add rsp, 16
- jmp xchain511_n2_af
+ jmp xchain511_n1_β
 .Lx526_240:
  add r14d, 1
  jmp xchain511_n7_α
  xchain511_n9_β:
  sub r14d, 1
  add rsp, 16
- jmp xchain511_n2_af
+ jmp xchain511_n1_β
  xchain511_n10_α:
 # BOX IR_CALL DATA(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+352] -> [zr+320]
