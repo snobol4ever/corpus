@@ -1887,10 +1887,77 @@ mov qword ptr [rbp + 3296], rax
  mov qword ptr [rbp + 3184], rax
  mov rax, qword ptr [rbp + 3272]
  mov qword ptr [rbp + 3192], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_ix_g (no by-name dispatch)
+# PL-SINK-4 inline $ix_g specialized guard (kk emit-time constant); rt_pl_dop_ix_g stays the slow-path oracle (unmodified args)
  lea rdi, [rbp + 3152]
+ lea r8, [rbp + 3152]
+.Lx71_110:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx71_113
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx71_111
+ cmp esi, 1
+ jne .Lx71_112
+ mov r8, rax
+ jmp .Lx71_110
+.Lx71_112:
+ cmp esi, 2
+ jne .Lx71_111
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx71_111
+ mov r8, rax
+ jmp .Lx71_110
+.Lx71_113:
+ cmp eax, 13
+ jne .Lx71_111
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx71_111
+ cmp rax, r8
+ je .Lx71_111
+ mov r8, rax
+ jmp .Lx71_110
+.Lx71_111:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx71_114
+ cmp eax, 99
+ je .Lx71_114
+ cmp eax, 13
+ jne .Lx71_118
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx71_114
+ jmp .Lx71_118
+.Lx71_118:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 14
+ je .Lx71_115
+ cmp eax, 6
+ jne .Lx71_114
+ mov esi, dword ptr [r8 + 4]
+ cmp esi, 0
+ jne .Lx71_114
+ movabs rdx, 0
+ mov rsi, qword ptr [r8 + 8]
+ cmp rsi, rdx
+ jne .Lx71_115
+ jmp .Lx71_114
+.Lx71_114:
+ mov eax, 6
+ mov edx, 1
+ jmp .Lx71_117
+.Lx71_115:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx71_117
+.Lx71_116:
  mov esi, 3
  call rt_pl_dop_ix_g@PLT
+.Lx71_117:
  mov qword ptr [rbp + 3136], rax
  mov qword ptr [rbp + 3144], rdx
  cmp eax, 99
@@ -2000,10 +2067,77 @@ mov qword ptr [rbp + 3296], rax
  mov qword ptr [rbp + 2864], rax
  mov rax, qword ptr [rbp + 2952]
  mov qword ptr [rbp + 2872], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_ix_g (no by-name dispatch)
+# PL-SINK-4 inline $ix_g specialized guard (kk emit-time constant); rt_pl_dop_ix_g stays the slow-path oracle (unmodified args)
  lea rdi, [rbp + 2832]
+ lea r8, [rbp + 2832]
+.Lx83_110:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx83_113
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx83_111
+ cmp esi, 1
+ jne .Lx83_112
+ mov r8, rax
+ jmp .Lx83_110
+.Lx83_112:
+ cmp esi, 2
+ jne .Lx83_111
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx83_111
+ mov r8, rax
+ jmp .Lx83_110
+.Lx83_113:
+ cmp eax, 13
+ jne .Lx83_111
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx83_111
+ cmp rax, r8
+ je .Lx83_111
+ mov r8, rax
+ jmp .Lx83_110
+.Lx83_111:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx83_114
+ cmp eax, 99
+ je .Lx83_114
+ cmp eax, 13
+ jne .Lx83_118
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx83_114
+ jmp .Lx83_118
+.Lx83_118:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 14
+ je .Lx83_115
+ cmp eax, 6
+ jne .Lx83_114
+ mov esi, dword ptr [r8 + 4]
+ cmp esi, 0
+ jne .Lx83_114
+ movabs rdx, 1
+ mov rsi, qword ptr [r8 + 8]
+ cmp rsi, rdx
+ jne .Lx83_115
+ jmp .Lx83_114
+.Lx83_114:
+ mov eax, 6
+ mov edx, 1
+ jmp .Lx83_117
+.Lx83_115:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx83_117
+.Lx83_116:
  mov esi, 3
  call rt_pl_dop_ix_g@PLT
+.Lx83_117:
  mov qword ptr [rbp + 2816], rax
  mov qword ptr [rbp + 2824], rdx
  cmp eax, 99
@@ -2113,10 +2247,77 @@ mov qword ptr [rbp + 3296], rax
  mov qword ptr [rbp + 2544], rax
  mov rax, qword ptr [rbp + 2632]
  mov qword ptr [rbp + 2552], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_ix_g (no by-name dispatch)
+# PL-SINK-4 inline $ix_g specialized guard (kk emit-time constant); rt_pl_dop_ix_g stays the slow-path oracle (unmodified args)
  lea rdi, [rbp + 2512]
+ lea r8, [rbp + 2512]
+.Lx95_110:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx95_113
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx95_111
+ cmp esi, 1
+ jne .Lx95_112
+ mov r8, rax
+ jmp .Lx95_110
+.Lx95_112:
+ cmp esi, 2
+ jne .Lx95_111
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx95_111
+ mov r8, rax
+ jmp .Lx95_110
+.Lx95_113:
+ cmp eax, 13
+ jne .Lx95_111
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx95_111
+ cmp rax, r8
+ je .Lx95_111
+ mov r8, rax
+ jmp .Lx95_110
+.Lx95_111:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx95_114
+ cmp eax, 99
+ je .Lx95_114
+ cmp eax, 13
+ jne .Lx95_118
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx95_114
+ jmp .Lx95_118
+.Lx95_118:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 14
+ je .Lx95_115
+ cmp eax, 6
+ jne .Lx95_114
+ mov esi, dword ptr [r8 + 4]
+ cmp esi, 0
+ jne .Lx95_114
+ movabs rdx, 2
+ mov rsi, qword ptr [r8 + 8]
+ cmp rsi, rdx
+ jne .Lx95_115
+ jmp .Lx95_114
+.Lx95_114:
+ mov eax, 6
+ mov edx, 1
+ jmp .Lx95_117
+.Lx95_115:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx95_117
+.Lx95_116:
  mov esi, 3
  call rt_pl_dop_ix_g@PLT
+.Lx95_117:
  mov qword ptr [rbp + 2496], rax
  mov qword ptr [rbp + 2504], rdx
  cmp eax, 99
@@ -2226,10 +2427,77 @@ mov qword ptr [rbp + 3296], rax
  mov qword ptr [rbp + 2224], rax
  mov rax, qword ptr [rbp + 2312]
  mov qword ptr [rbp + 2232], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_ix_g (no by-name dispatch)
+# PL-SINK-4 inline $ix_g specialized guard (kk emit-time constant); rt_pl_dop_ix_g stays the slow-path oracle (unmodified args)
  lea rdi, [rbp + 2192]
+ lea r8, [rbp + 2192]
+.Lx107_110:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx107_113
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx107_111
+ cmp esi, 1
+ jne .Lx107_112
+ mov r8, rax
+ jmp .Lx107_110
+.Lx107_112:
+ cmp esi, 2
+ jne .Lx107_111
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx107_111
+ mov r8, rax
+ jmp .Lx107_110
+.Lx107_113:
+ cmp eax, 13
+ jne .Lx107_111
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx107_111
+ cmp rax, r8
+ je .Lx107_111
+ mov r8, rax
+ jmp .Lx107_110
+.Lx107_111:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx107_114
+ cmp eax, 99
+ je .Lx107_114
+ cmp eax, 13
+ jne .Lx107_118
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx107_114
+ jmp .Lx107_118
+.Lx107_118:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 14
+ je .Lx107_115
+ cmp eax, 6
+ jne .Lx107_114
+ mov esi, dword ptr [r8 + 4]
+ cmp esi, 0
+ jne .Lx107_114
+ movabs rdx, 3
+ mov rsi, qword ptr [r8 + 8]
+ cmp rsi, rdx
+ jne .Lx107_115
+ jmp .Lx107_114
+.Lx107_114:
+ mov eax, 6
+ mov edx, 1
+ jmp .Lx107_117
+.Lx107_115:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx107_117
+.Lx107_116:
  mov esi, 3
  call rt_pl_dop_ix_g@PLT
+.Lx107_117:
  mov qword ptr [rbp + 2176], rax
  mov qword ptr [rbp + 2184], rdx
  cmp eax, 99
@@ -2339,10 +2607,77 @@ mov qword ptr [rbp + 3296], rax
  mov qword ptr [rbp + 1904], rax
  mov rax, qword ptr [rbp + 1992]
  mov qword ptr [rbp + 1912], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_ix_g (no by-name dispatch)
+# PL-SINK-4 inline $ix_g specialized guard (kk emit-time constant); rt_pl_dop_ix_g stays the slow-path oracle (unmodified args)
  lea rdi, [rbp + 1872]
+ lea r8, [rbp + 1872]
+.Lx119_110:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx119_113
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx119_111
+ cmp esi, 1
+ jne .Lx119_112
+ mov r8, rax
+ jmp .Lx119_110
+.Lx119_112:
+ cmp esi, 2
+ jne .Lx119_111
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx119_111
+ mov r8, rax
+ jmp .Lx119_110
+.Lx119_113:
+ cmp eax, 13
+ jne .Lx119_111
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx119_111
+ cmp rax, r8
+ je .Lx119_111
+ mov r8, rax
+ jmp .Lx119_110
+.Lx119_111:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx119_114
+ cmp eax, 99
+ je .Lx119_114
+ cmp eax, 13
+ jne .Lx119_118
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx119_114
+ jmp .Lx119_118
+.Lx119_118:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 14
+ je .Lx119_115
+ cmp eax, 6
+ jne .Lx119_114
+ mov esi, dword ptr [r8 + 4]
+ cmp esi, 0
+ jne .Lx119_114
+ movabs rdx, 4
+ mov rsi, qword ptr [r8 + 8]
+ cmp rsi, rdx
+ jne .Lx119_115
+ jmp .Lx119_114
+.Lx119_114:
+ mov eax, 6
+ mov edx, 1
+ jmp .Lx119_117
+.Lx119_115:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx119_117
+.Lx119_116:
  mov esi, 3
  call rt_pl_dop_ix_g@PLT
+.Lx119_117:
  mov qword ptr [rbp + 1856], rax
  mov qword ptr [rbp + 1864], rdx
  cmp eax, 99
@@ -2452,10 +2787,77 @@ mov qword ptr [rbp + 3296], rax
  mov qword ptr [rbp + 1584], rax
  mov rax, qword ptr [rbp + 1672]
  mov qword ptr [rbp + 1592], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_ix_g (no by-name dispatch)
+# PL-SINK-4 inline $ix_g specialized guard (kk emit-time constant); rt_pl_dop_ix_g stays the slow-path oracle (unmodified args)
  lea rdi, [rbp + 1552]
+ lea r8, [rbp + 1552]
+.Lx131_110:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx131_113
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx131_111
+ cmp esi, 1
+ jne .Lx131_112
+ mov r8, rax
+ jmp .Lx131_110
+.Lx131_112:
+ cmp esi, 2
+ jne .Lx131_111
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx131_111
+ mov r8, rax
+ jmp .Lx131_110
+.Lx131_113:
+ cmp eax, 13
+ jne .Lx131_111
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx131_111
+ cmp rax, r8
+ je .Lx131_111
+ mov r8, rax
+ jmp .Lx131_110
+.Lx131_111:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx131_114
+ cmp eax, 99
+ je .Lx131_114
+ cmp eax, 13
+ jne .Lx131_118
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx131_114
+ jmp .Lx131_118
+.Lx131_118:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 14
+ je .Lx131_115
+ cmp eax, 6
+ jne .Lx131_114
+ mov esi, dword ptr [r8 + 4]
+ cmp esi, 0
+ jne .Lx131_114
+ movabs rdx, 5
+ mov rsi, qword ptr [r8 + 8]
+ cmp rsi, rdx
+ jne .Lx131_115
+ jmp .Lx131_114
+.Lx131_114:
+ mov eax, 6
+ mov edx, 1
+ jmp .Lx131_117
+.Lx131_115:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx131_117
+.Lx131_116:
  mov esi, 3
  call rt_pl_dop_ix_g@PLT
+.Lx131_117:
  mov qword ptr [rbp + 1536], rax
  mov qword ptr [rbp + 1544], rdx
  cmp eax, 99
@@ -2565,10 +2967,77 @@ mov qword ptr [rbp + 3296], rax
  mov qword ptr [rbp + 1264], rax
  mov rax, qword ptr [rbp + 1352]
  mov qword ptr [rbp + 1272], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_ix_g (no by-name dispatch)
+# PL-SINK-4 inline $ix_g specialized guard (kk emit-time constant); rt_pl_dop_ix_g stays the slow-path oracle (unmodified args)
  lea rdi, [rbp + 1232]
+ lea r8, [rbp + 1232]
+.Lx143_110:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx143_113
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx143_111
+ cmp esi, 1
+ jne .Lx143_112
+ mov r8, rax
+ jmp .Lx143_110
+.Lx143_112:
+ cmp esi, 2
+ jne .Lx143_111
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx143_111
+ mov r8, rax
+ jmp .Lx143_110
+.Lx143_113:
+ cmp eax, 13
+ jne .Lx143_111
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx143_111
+ cmp rax, r8
+ je .Lx143_111
+ mov r8, rax
+ jmp .Lx143_110
+.Lx143_111:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx143_114
+ cmp eax, 99
+ je .Lx143_114
+ cmp eax, 13
+ jne .Lx143_118
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx143_114
+ jmp .Lx143_118
+.Lx143_118:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 14
+ je .Lx143_115
+ cmp eax, 6
+ jne .Lx143_114
+ mov esi, dword ptr [r8 + 4]
+ cmp esi, 0
+ jne .Lx143_114
+ movabs rdx, 6
+ mov rsi, qword ptr [r8 + 8]
+ cmp rsi, rdx
+ jne .Lx143_115
+ jmp .Lx143_114
+.Lx143_114:
+ mov eax, 6
+ mov edx, 1
+ jmp .Lx143_117
+.Lx143_115:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx143_117
+.Lx143_116:
  mov esi, 3
  call rt_pl_dop_ix_g@PLT
+.Lx143_117:
  mov qword ptr [rbp + 1216], rax
  mov qword ptr [rbp + 1224], rdx
  cmp eax, 99
@@ -2678,10 +3147,77 @@ mov qword ptr [rbp + 3296], rax
  mov qword ptr [rbp + 944], rax
  mov rax, qword ptr [rbp + 1032]
  mov qword ptr [rbp + 952], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_ix_g (no by-name dispatch)
+# PL-SINK-4 inline $ix_g specialized guard (kk emit-time constant); rt_pl_dop_ix_g stays the slow-path oracle (unmodified args)
  lea rdi, [rbp + 912]
+ lea r8, [rbp + 912]
+.Lx155_110:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx155_113
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx155_111
+ cmp esi, 1
+ jne .Lx155_112
+ mov r8, rax
+ jmp .Lx155_110
+.Lx155_112:
+ cmp esi, 2
+ jne .Lx155_111
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx155_111
+ mov r8, rax
+ jmp .Lx155_110
+.Lx155_113:
+ cmp eax, 13
+ jne .Lx155_111
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx155_111
+ cmp rax, r8
+ je .Lx155_111
+ mov r8, rax
+ jmp .Lx155_110
+.Lx155_111:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx155_114
+ cmp eax, 99
+ je .Lx155_114
+ cmp eax, 13
+ jne .Lx155_118
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx155_114
+ jmp .Lx155_118
+.Lx155_118:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 14
+ je .Lx155_115
+ cmp eax, 6
+ jne .Lx155_114
+ mov esi, dword ptr [r8 + 4]
+ cmp esi, 0
+ jne .Lx155_114
+ movabs rdx, 7
+ mov rsi, qword ptr [r8 + 8]
+ cmp rsi, rdx
+ jne .Lx155_115
+ jmp .Lx155_114
+.Lx155_114:
+ mov eax, 6
+ mov edx, 1
+ jmp .Lx155_117
+.Lx155_115:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx155_117
+.Lx155_116:
  mov esi, 3
  call rt_pl_dop_ix_g@PLT
+.Lx155_117:
  mov qword ptr [rbp + 896], rax
  mov qword ptr [rbp + 904], rdx
  cmp eax, 99
@@ -2791,10 +3327,77 @@ mov qword ptr [rbp + 3296], rax
  mov qword ptr [rbp + 624], rax
  mov rax, qword ptr [rbp + 712]
  mov qword ptr [rbp + 632], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_ix_g (no by-name dispatch)
+# PL-SINK-4 inline $ix_g specialized guard (kk emit-time constant); rt_pl_dop_ix_g stays the slow-path oracle (unmodified args)
  lea rdi, [rbp + 592]
+ lea r8, [rbp + 592]
+.Lx167_110:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx167_113
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx167_111
+ cmp esi, 1
+ jne .Lx167_112
+ mov r8, rax
+ jmp .Lx167_110
+.Lx167_112:
+ cmp esi, 2
+ jne .Lx167_111
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx167_111
+ mov r8, rax
+ jmp .Lx167_110
+.Lx167_113:
+ cmp eax, 13
+ jne .Lx167_111
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx167_111
+ cmp rax, r8
+ je .Lx167_111
+ mov r8, rax
+ jmp .Lx167_110
+.Lx167_111:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx167_114
+ cmp eax, 99
+ je .Lx167_114
+ cmp eax, 13
+ jne .Lx167_118
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx167_114
+ jmp .Lx167_118
+.Lx167_118:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 14
+ je .Lx167_115
+ cmp eax, 6
+ jne .Lx167_114
+ mov esi, dword ptr [r8 + 4]
+ cmp esi, 0
+ jne .Lx167_114
+ movabs rdx, 8
+ mov rsi, qword ptr [r8 + 8]
+ cmp rsi, rdx
+ jne .Lx167_115
+ jmp .Lx167_114
+.Lx167_114:
+ mov eax, 6
+ mov edx, 1
+ jmp .Lx167_117
+.Lx167_115:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx167_117
+.Lx167_116:
  mov esi, 3
  call rt_pl_dop_ix_g@PLT
+.Lx167_117:
  mov qword ptr [rbp + 576], rax
  mov qword ptr [rbp + 584], rdx
  cmp eax, 99
@@ -2904,10 +3507,77 @@ mov qword ptr [rbp + 3296], rax
  mov qword ptr [rbp + 304], rax
  mov rax, qword ptr [rbp + 392]
  mov qword ptr [rbp + 312], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_ix_g (no by-name dispatch)
+# PL-SINK-4 inline $ix_g specialized guard (kk emit-time constant); rt_pl_dop_ix_g stays the slow-path oracle (unmodified args)
  lea rdi, [rbp + 272]
+ lea r8, [rbp + 272]
+.Lx179_110:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx179_113
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx179_111
+ cmp esi, 1
+ jne .Lx179_112
+ mov r8, rax
+ jmp .Lx179_110
+.Lx179_112:
+ cmp esi, 2
+ jne .Lx179_111
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx179_111
+ mov r8, rax
+ jmp .Lx179_110
+.Lx179_113:
+ cmp eax, 13
+ jne .Lx179_111
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx179_111
+ cmp rax, r8
+ je .Lx179_111
+ mov r8, rax
+ jmp .Lx179_110
+.Lx179_111:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx179_114
+ cmp eax, 99
+ je .Lx179_114
+ cmp eax, 13
+ jne .Lx179_118
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx179_114
+ jmp .Lx179_118
+.Lx179_118:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 14
+ je .Lx179_115
+ cmp eax, 6
+ jne .Lx179_114
+ mov esi, dword ptr [r8 + 4]
+ cmp esi, 0
+ jne .Lx179_114
+ movabs rdx, 9
+ mov rsi, qword ptr [r8 + 8]
+ cmp rsi, rdx
+ jne .Lx179_115
+ jmp .Lx179_114
+.Lx179_114:
+ mov eax, 6
+ mov edx, 1
+ jmp .Lx179_117
+.Lx179_115:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx179_117
+.Lx179_116:
  mov esi, 3
  call rt_pl_dop_ix_g@PLT
+.Lx179_117:
  mov qword ptr [rbp + 256], rax
  mov qword ptr [rbp + 264], rdx
  cmp eax, 99
@@ -7193,10 +7863,77 @@ mov qword ptr [rbp + 2976], rax
  mov qword ptr [rbp + 2864], rax
  mov rax, qword ptr [rbp + 2952]
  mov qword ptr [rbp + 2872], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_ix_g (no by-name dispatch)
+# PL-SINK-4 inline $ix_g specialized guard (kk emit-time constant); rt_pl_dop_ix_g stays the slow-path oracle (unmodified args)
  lea rdi, [rbp + 2832]
+ lea r8, [rbp + 2832]
+.Lx443_110:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx443_113
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx443_111
+ cmp esi, 1
+ jne .Lx443_112
+ mov r8, rax
+ jmp .Lx443_110
+.Lx443_112:
+ cmp esi, 2
+ jne .Lx443_111
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx443_111
+ mov r8, rax
+ jmp .Lx443_110
+.Lx443_113:
+ cmp eax, 13
+ jne .Lx443_111
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx443_111
+ cmp rax, r8
+ je .Lx443_111
+ mov r8, rax
+ jmp .Lx443_110
+.Lx443_111:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx443_114
+ cmp eax, 99
+ je .Lx443_114
+ cmp eax, 13
+ jne .Lx443_118
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx443_114
+ jmp .Lx443_118
+.Lx443_118:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 14
+ je .Lx443_115
+ cmp eax, 6
+ jne .Lx443_114
+ mov esi, dword ptr [r8 + 4]
+ cmp esi, 0
+ jne .Lx443_114
+ movabs rdx, 1
+ mov rsi, qword ptr [r8 + 8]
+ cmp rsi, rdx
+ jne .Lx443_115
+ jmp .Lx443_114
+.Lx443_114:
+ mov eax, 6
+ mov edx, 1
+ jmp .Lx443_117
+.Lx443_115:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx443_117
+.Lx443_116:
  mov esi, 3
  call rt_pl_dop_ix_g@PLT
+.Lx443_117:
  mov qword ptr [rbp + 2816], rax
  mov qword ptr [rbp + 2824], rdx
  cmp eax, 99
@@ -7306,10 +8043,77 @@ mov qword ptr [rbp + 2976], rax
  mov qword ptr [rbp + 2544], rax
  mov rax, qword ptr [rbp + 2632]
  mov qword ptr [rbp + 2552], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_ix_g (no by-name dispatch)
+# PL-SINK-4 inline $ix_g specialized guard (kk emit-time constant); rt_pl_dop_ix_g stays the slow-path oracle (unmodified args)
  lea rdi, [rbp + 2512]
+ lea r8, [rbp + 2512]
+.Lx455_110:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx455_113
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx455_111
+ cmp esi, 1
+ jne .Lx455_112
+ mov r8, rax
+ jmp .Lx455_110
+.Lx455_112:
+ cmp esi, 2
+ jne .Lx455_111
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx455_111
+ mov r8, rax
+ jmp .Lx455_110
+.Lx455_113:
+ cmp eax, 13
+ jne .Lx455_111
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx455_111
+ cmp rax, r8
+ je .Lx455_111
+ mov r8, rax
+ jmp .Lx455_110
+.Lx455_111:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx455_114
+ cmp eax, 99
+ je .Lx455_114
+ cmp eax, 13
+ jne .Lx455_118
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx455_114
+ jmp .Lx455_118
+.Lx455_118:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 14
+ je .Lx455_115
+ cmp eax, 6
+ jne .Lx455_114
+ mov esi, dword ptr [r8 + 4]
+ cmp esi, 0
+ jne .Lx455_114
+ movabs rdx, 2
+ mov rsi, qword ptr [r8 + 8]
+ cmp rsi, rdx
+ jne .Lx455_115
+ jmp .Lx455_114
+.Lx455_114:
+ mov eax, 6
+ mov edx, 1
+ jmp .Lx455_117
+.Lx455_115:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx455_117
+.Lx455_116:
  mov esi, 3
  call rt_pl_dop_ix_g@PLT
+.Lx455_117:
  mov qword ptr [rbp + 2496], rax
  mov qword ptr [rbp + 2504], rdx
  cmp eax, 99
@@ -7419,10 +8223,77 @@ mov qword ptr [rbp + 2976], rax
  mov qword ptr [rbp + 2224], rax
  mov rax, qword ptr [rbp + 2312]
  mov qword ptr [rbp + 2232], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_ix_g (no by-name dispatch)
+# PL-SINK-4 inline $ix_g specialized guard (kk emit-time constant); rt_pl_dop_ix_g stays the slow-path oracle (unmodified args)
  lea rdi, [rbp + 2192]
+ lea r8, [rbp + 2192]
+.Lx467_110:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx467_113
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx467_111
+ cmp esi, 1
+ jne .Lx467_112
+ mov r8, rax
+ jmp .Lx467_110
+.Lx467_112:
+ cmp esi, 2
+ jne .Lx467_111
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx467_111
+ mov r8, rax
+ jmp .Lx467_110
+.Lx467_113:
+ cmp eax, 13
+ jne .Lx467_111
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx467_111
+ cmp rax, r8
+ je .Lx467_111
+ mov r8, rax
+ jmp .Lx467_110
+.Lx467_111:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx467_114
+ cmp eax, 99
+ je .Lx467_114
+ cmp eax, 13
+ jne .Lx467_118
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx467_114
+ jmp .Lx467_118
+.Lx467_118:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 14
+ je .Lx467_115
+ cmp eax, 6
+ jne .Lx467_114
+ mov esi, dword ptr [r8 + 4]
+ cmp esi, 0
+ jne .Lx467_114
+ movabs rdx, 3
+ mov rsi, qword ptr [r8 + 8]
+ cmp rsi, rdx
+ jne .Lx467_115
+ jmp .Lx467_114
+.Lx467_114:
+ mov eax, 6
+ mov edx, 1
+ jmp .Lx467_117
+.Lx467_115:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx467_117
+.Lx467_116:
  mov esi, 3
  call rt_pl_dop_ix_g@PLT
+.Lx467_117:
  mov qword ptr [rbp + 2176], rax
  mov qword ptr [rbp + 2184], rdx
  cmp eax, 99
@@ -7532,10 +8403,77 @@ mov qword ptr [rbp + 2976], rax
  mov qword ptr [rbp + 1904], rax
  mov rax, qword ptr [rbp + 1992]
  mov qword ptr [rbp + 1912], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_ix_g (no by-name dispatch)
+# PL-SINK-4 inline $ix_g specialized guard (kk emit-time constant); rt_pl_dop_ix_g stays the slow-path oracle (unmodified args)
  lea rdi, [rbp + 1872]
+ lea r8, [rbp + 1872]
+.Lx479_110:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx479_113
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx479_111
+ cmp esi, 1
+ jne .Lx479_112
+ mov r8, rax
+ jmp .Lx479_110
+.Lx479_112:
+ cmp esi, 2
+ jne .Lx479_111
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx479_111
+ mov r8, rax
+ jmp .Lx479_110
+.Lx479_113:
+ cmp eax, 13
+ jne .Lx479_111
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx479_111
+ cmp rax, r8
+ je .Lx479_111
+ mov r8, rax
+ jmp .Lx479_110
+.Lx479_111:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx479_114
+ cmp eax, 99
+ je .Lx479_114
+ cmp eax, 13
+ jne .Lx479_118
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx479_114
+ jmp .Lx479_118
+.Lx479_118:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 14
+ je .Lx479_115
+ cmp eax, 6
+ jne .Lx479_114
+ mov esi, dword ptr [r8 + 4]
+ cmp esi, 0
+ jne .Lx479_114
+ movabs rdx, 4
+ mov rsi, qword ptr [r8 + 8]
+ cmp rsi, rdx
+ jne .Lx479_115
+ jmp .Lx479_114
+.Lx479_114:
+ mov eax, 6
+ mov edx, 1
+ jmp .Lx479_117
+.Lx479_115:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx479_117
+.Lx479_116:
  mov esi, 3
  call rt_pl_dop_ix_g@PLT
+.Lx479_117:
  mov qword ptr [rbp + 1856], rax
  mov qword ptr [rbp + 1864], rdx
  cmp eax, 99
@@ -7645,10 +8583,77 @@ mov qword ptr [rbp + 2976], rax
  mov qword ptr [rbp + 1584], rax
  mov rax, qword ptr [rbp + 1672]
  mov qword ptr [rbp + 1592], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_ix_g (no by-name dispatch)
+# PL-SINK-4 inline $ix_g specialized guard (kk emit-time constant); rt_pl_dop_ix_g stays the slow-path oracle (unmodified args)
  lea rdi, [rbp + 1552]
+ lea r8, [rbp + 1552]
+.Lx491_110:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx491_113
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx491_111
+ cmp esi, 1
+ jne .Lx491_112
+ mov r8, rax
+ jmp .Lx491_110
+.Lx491_112:
+ cmp esi, 2
+ jne .Lx491_111
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx491_111
+ mov r8, rax
+ jmp .Lx491_110
+.Lx491_113:
+ cmp eax, 13
+ jne .Lx491_111
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx491_111
+ cmp rax, r8
+ je .Lx491_111
+ mov r8, rax
+ jmp .Lx491_110
+.Lx491_111:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx491_114
+ cmp eax, 99
+ je .Lx491_114
+ cmp eax, 13
+ jne .Lx491_118
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx491_114
+ jmp .Lx491_118
+.Lx491_118:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 14
+ je .Lx491_115
+ cmp eax, 6
+ jne .Lx491_114
+ mov esi, dword ptr [r8 + 4]
+ cmp esi, 0
+ jne .Lx491_114
+ movabs rdx, 5
+ mov rsi, qword ptr [r8 + 8]
+ cmp rsi, rdx
+ jne .Lx491_115
+ jmp .Lx491_114
+.Lx491_114:
+ mov eax, 6
+ mov edx, 1
+ jmp .Lx491_117
+.Lx491_115:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx491_117
+.Lx491_116:
  mov esi, 3
  call rt_pl_dop_ix_g@PLT
+.Lx491_117:
  mov qword ptr [rbp + 1536], rax
  mov qword ptr [rbp + 1544], rdx
  cmp eax, 99
@@ -7758,10 +8763,77 @@ mov qword ptr [rbp + 2976], rax
  mov qword ptr [rbp + 1264], rax
  mov rax, qword ptr [rbp + 1352]
  mov qword ptr [rbp + 1272], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_ix_g (no by-name dispatch)
+# PL-SINK-4 inline $ix_g specialized guard (kk emit-time constant); rt_pl_dop_ix_g stays the slow-path oracle (unmodified args)
  lea rdi, [rbp + 1232]
+ lea r8, [rbp + 1232]
+.Lx503_110:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx503_113
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx503_111
+ cmp esi, 1
+ jne .Lx503_112
+ mov r8, rax
+ jmp .Lx503_110
+.Lx503_112:
+ cmp esi, 2
+ jne .Lx503_111
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx503_111
+ mov r8, rax
+ jmp .Lx503_110
+.Lx503_113:
+ cmp eax, 13
+ jne .Lx503_111
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx503_111
+ cmp rax, r8
+ je .Lx503_111
+ mov r8, rax
+ jmp .Lx503_110
+.Lx503_111:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx503_114
+ cmp eax, 99
+ je .Lx503_114
+ cmp eax, 13
+ jne .Lx503_118
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx503_114
+ jmp .Lx503_118
+.Lx503_118:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 14
+ je .Lx503_115
+ cmp eax, 6
+ jne .Lx503_114
+ mov esi, dword ptr [r8 + 4]
+ cmp esi, 0
+ jne .Lx503_114
+ movabs rdx, 6
+ mov rsi, qword ptr [r8 + 8]
+ cmp rsi, rdx
+ jne .Lx503_115
+ jmp .Lx503_114
+.Lx503_114:
+ mov eax, 6
+ mov edx, 1
+ jmp .Lx503_117
+.Lx503_115:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx503_117
+.Lx503_116:
  mov esi, 3
  call rt_pl_dop_ix_g@PLT
+.Lx503_117:
  mov qword ptr [rbp + 1216], rax
  mov qword ptr [rbp + 1224], rdx
  cmp eax, 99
@@ -7871,10 +8943,77 @@ mov qword ptr [rbp + 2976], rax
  mov qword ptr [rbp + 944], rax
  mov rax, qword ptr [rbp + 1032]
  mov qword ptr [rbp + 952], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_ix_g (no by-name dispatch)
+# PL-SINK-4 inline $ix_g specialized guard (kk emit-time constant); rt_pl_dop_ix_g stays the slow-path oracle (unmodified args)
  lea rdi, [rbp + 912]
+ lea r8, [rbp + 912]
+.Lx515_110:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx515_113
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx515_111
+ cmp esi, 1
+ jne .Lx515_112
+ mov r8, rax
+ jmp .Lx515_110
+.Lx515_112:
+ cmp esi, 2
+ jne .Lx515_111
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx515_111
+ mov r8, rax
+ jmp .Lx515_110
+.Lx515_113:
+ cmp eax, 13
+ jne .Lx515_111
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx515_111
+ cmp rax, r8
+ je .Lx515_111
+ mov r8, rax
+ jmp .Lx515_110
+.Lx515_111:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx515_114
+ cmp eax, 99
+ je .Lx515_114
+ cmp eax, 13
+ jne .Lx515_118
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx515_114
+ jmp .Lx515_118
+.Lx515_118:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 14
+ je .Lx515_115
+ cmp eax, 6
+ jne .Lx515_114
+ mov esi, dword ptr [r8 + 4]
+ cmp esi, 0
+ jne .Lx515_114
+ movabs rdx, 7
+ mov rsi, qword ptr [r8 + 8]
+ cmp rsi, rdx
+ jne .Lx515_115
+ jmp .Lx515_114
+.Lx515_114:
+ mov eax, 6
+ mov edx, 1
+ jmp .Lx515_117
+.Lx515_115:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx515_117
+.Lx515_116:
  mov esi, 3
  call rt_pl_dop_ix_g@PLT
+.Lx515_117:
  mov qword ptr [rbp + 896], rax
  mov qword ptr [rbp + 904], rdx
  cmp eax, 99
@@ -7984,10 +9123,77 @@ mov qword ptr [rbp + 2976], rax
  mov qword ptr [rbp + 624], rax
  mov rax, qword ptr [rbp + 712]
  mov qword ptr [rbp + 632], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_ix_g (no by-name dispatch)
+# PL-SINK-4 inline $ix_g specialized guard (kk emit-time constant); rt_pl_dop_ix_g stays the slow-path oracle (unmodified args)
  lea rdi, [rbp + 592]
+ lea r8, [rbp + 592]
+.Lx527_110:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx527_113
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx527_111
+ cmp esi, 1
+ jne .Lx527_112
+ mov r8, rax
+ jmp .Lx527_110
+.Lx527_112:
+ cmp esi, 2
+ jne .Lx527_111
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx527_111
+ mov r8, rax
+ jmp .Lx527_110
+.Lx527_113:
+ cmp eax, 13
+ jne .Lx527_111
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx527_111
+ cmp rax, r8
+ je .Lx527_111
+ mov r8, rax
+ jmp .Lx527_110
+.Lx527_111:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx527_114
+ cmp eax, 99
+ je .Lx527_114
+ cmp eax, 13
+ jne .Lx527_118
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx527_114
+ jmp .Lx527_118
+.Lx527_118:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 14
+ je .Lx527_115
+ cmp eax, 6
+ jne .Lx527_114
+ mov esi, dword ptr [r8 + 4]
+ cmp esi, 0
+ jne .Lx527_114
+ movabs rdx, 8
+ mov rsi, qword ptr [r8 + 8]
+ cmp rsi, rdx
+ jne .Lx527_115
+ jmp .Lx527_114
+.Lx527_114:
+ mov eax, 6
+ mov edx, 1
+ jmp .Lx527_117
+.Lx527_115:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx527_117
+.Lx527_116:
  mov esi, 3
  call rt_pl_dop_ix_g@PLT
+.Lx527_117:
  mov qword ptr [rbp + 576], rax
  mov qword ptr [rbp + 584], rdx
  cmp eax, 99
@@ -8097,10 +9303,77 @@ mov qword ptr [rbp + 2976], rax
  mov qword ptr [rbp + 304], rax
  mov rax, qword ptr [rbp + 392]
  mov qword ptr [rbp + 312], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_ix_g (no by-name dispatch)
+# PL-SINK-4 inline $ix_g specialized guard (kk emit-time constant); rt_pl_dop_ix_g stays the slow-path oracle (unmodified args)
  lea rdi, [rbp + 272]
+ lea r8, [rbp + 272]
+.Lx539_110:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx539_113
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx539_111
+ cmp esi, 1
+ jne .Lx539_112
+ mov r8, rax
+ jmp .Lx539_110
+.Lx539_112:
+ cmp esi, 2
+ jne .Lx539_111
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx539_111
+ mov r8, rax
+ jmp .Lx539_110
+.Lx539_113:
+ cmp eax, 13
+ jne .Lx539_111
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx539_111
+ cmp rax, r8
+ je .Lx539_111
+ mov r8, rax
+ jmp .Lx539_110
+.Lx539_111:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx539_114
+ cmp eax, 99
+ je .Lx539_114
+ cmp eax, 13
+ jne .Lx539_118
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx539_114
+ jmp .Lx539_118
+.Lx539_118:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 14
+ je .Lx539_115
+ cmp eax, 6
+ jne .Lx539_114
+ mov esi, dword ptr [r8 + 4]
+ cmp esi, 0
+ jne .Lx539_114
+ movabs rdx, 9
+ mov rsi, qword ptr [r8 + 8]
+ cmp rsi, rdx
+ jne .Lx539_115
+ jmp .Lx539_114
+.Lx539_114:
+ mov eax, 6
+ mov edx, 1
+ jmp .Lx539_117
+.Lx539_115:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx539_117
+.Lx539_116:
  mov esi, 3
  call rt_pl_dop_ix_g@PLT
+.Lx539_117:
  mov qword ptr [rbp + 256], rax
  mov qword ptr [rbp + 264], rdx
  cmp eax, 99
