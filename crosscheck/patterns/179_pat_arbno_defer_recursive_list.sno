@@ -1,0 +1,17 @@
+*  179 - ARBNO(*P): recursive nested list via deferred pattern var (SPITBOL manual ch.9)
+*        LIST = "(" ITEM ARBNO("," ITEM) ")" ; ITEM = SPAN(digits) | *LIST
+*        The ARBNO body carries a deferred pattern reference (*LIST) whose arriving
+*        blob's per-activation extent is unknown at compile time — the ARBNO(*P) case.
+        ITEM = SPAN('0123456789') | *LIST
+        LIST = '(' ITEM ARBNO(',' ITEM) ')'
+        TEST = POS(0) LIST RPOS(0)
+        '(12,(3,45,(6)),78)' ? TEST                           :S(OK1)F(BAD1)
+OK1     OUTPUT = 'match1 ok'                                   :(T2)
+BAD1    OUTPUT = 'match1 FAIL'
+T2      '(12,(34)' ? TEST                                     :S(BAD2)F(OK2)
+OK2     OUTPUT = 'match2 rejected ok'                          :(T3)
+BAD2    OUTPUT = 'match2 FAIL'
+T3      '((1,2),(3,(4,5,6)),7)' ? TEST                        :S(OK3)F(BAD3)
+OK3     OUTPUT = 'match3 ok'                                   :(END)
+BAD3    OUTPUT = 'match3 FAIL'
+END
