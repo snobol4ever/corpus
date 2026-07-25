@@ -546,6 +546,9 @@ proc_startup:
   call rt_proc_set_frame_bytes@PLT
   lea rdi, [rip + .Lstartup_pname1]
   mov esi, 1
+  call rt_proc_set_zstatic@PLT
+  lea rdi, [rip + .Lstartup_pname1]
+  mov esi, 1
   call rt_proc_set_jmpentry@PLT
   add rsp, 8
   ret
