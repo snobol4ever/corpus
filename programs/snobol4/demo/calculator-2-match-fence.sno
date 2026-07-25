@@ -1,0 +1,15 @@
+        V              =  ANY('abcdefghijklmnopqrstuvwxyz')
+        I              =  SPAN('0123456789')
+        A              =  FENCE(V | I | '(' *X ')')
+        F              =  FENCE(A | ANY('+-') *F)
+        T              =  F ARBNO(ANY('*/') F)
+        X              =  T ARBNO(ANY('+-') T)
+        eol            =  CHAR(10)
+        C              =  POS(0) ARBNO(X eol) RPOS(0)
+        &TRIM          =  0
+        INPUT(.INPUT, 9, '[-f0 -r4000000]')
+        src            =  INPUT                          :F(fail)
+        src            C                                 :F(fail)
+        OUTPUT         =  'matched bytes=' SIZE(src)      :(END)
+fail    OUTPUT         =  'Pattern match failed'
+END

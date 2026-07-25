@@ -1,0 +1,49 @@
+*------------------------------------------------------------------------------
+* json-match.sno — JSON pattern match ONLY: whole file in memory, ONE BIG
+* MATCH, zero side effects (no captures, no deferred calls, no tables).
+* The grammar is corpus programs/include/JSON.inc's recognizer with all
+* conditional assignments, TY/TZ tracing, and (epsilon . *fn()) semantic
+* actions stripped; language recognized is strict RFC-8259 JSON (raw newline
+* or CR inside a string fails the match, as in JSON.inc's BREAK set).
+* The recursive *jvalue / *jelement deferred VARIABLES remain — they are the
+* parse structure itself, not side effects.
+* Run: sbl -b -d512m -i64m -s256m (with -CASE 0 prepend) json-match.sno < citm_catalog.json
+*      snobol4 -b -f -d 8m -P 4m -S 4m json-match.sno < citm_catalog.json
+*      scrip --run json-match.sno < citm_catalog.json
+*------------------------------------------------------------------------------
+                bslash         =  CHAR(92)
+                ws             =  FENCE(SPAN(' ' CHAR(9) CHAR(10) CHAR(13)) | '')
+                hex            =  '0123456789abcdefABCDEF'
+                dig            =  '0123456789'
+*------------------------------------------------------------------------------
+                jescape        =  bslash
++                                 ( ANY('"/bfnrt\')
++                                 | 'u' ANY('0123456789abcdefABCDEF') ANY('0123456789abcdefABCDEF') ANY('0123456789abcdefABCDEF') ANY('0123456789abcdefABCDEF')
++                                 )
+                jchunk         =  BREAK('"\' CHAR(10) CHAR(13))
+                jstring        =  '"' jchunk ARBNO(jescape jchunk) '"'
+*------------------------------------------------------------------------------
+                jnumber        =  FENCE('-' | '')
++                                 ( '0' | ANY('123456789') FENCE(SPAN('0123456789') | '') )
++                                 FENCE('.' SPAN('0123456789') | '')
++                                 FENCE(ANY('eE') FENCE(ANY('+-') | '') SPAN('0123456789') | '')
+*------------------------------------------------------------------------------
+                jmember        =  ws jstring ws ':' *jelement
+                jobject        =  '{' ( jmember ARBNO(',' jmember) | ws ) '}'
+                jarray         =  '[' ( *jelement ARBNO(',' *jelement) | ws ) ']'
+                jvalue         =  jstring | jnumber | jobject | jarray
++                                 | 'true' | 'false' | 'null'
+                jelement       =  ws *jvalue ws
+                json           =  POS(0) jelement RPOS(0)
+*------------------------------------------------------------------------------
+                &TRIM          =  0
+*------------------------------------------------------------------------------
+*  ONE READ — SPITBOL raw mode: -f0 attaches stdin, -r sets raw record length;
+*  newlines come back in-string, short read at EOF (manual, file processing options)
+                INPUT(.INPUT, 9, '[-f0 -r1000000]')
+                src             =   INPUT                       :F(fail)
+                src             json                            :F(fail)
+                OUTPUT          =  'matched bytes=' SIZE(src)   :(END)
+fail            OUTPUT          =  'Pattern match failed'
+*------------------------------------------------------------------------------
+END

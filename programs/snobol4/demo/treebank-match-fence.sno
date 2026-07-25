@@ -1,0 +1,11 @@
+               delim          =  SPAN(' ' CHAR(10))
+               word           =  NOTANY('( )' CHAR(10)) BREAK('( )' CHAR(10))
+               group          =  FENCE('(' word ARBNO(delim FENCE( *group | word )) ')')
+               treebank       =  POS(0) ARBNO(FENCE(ARBNO(*group) delim)) RPOS(0)
+                &TRIM          =  0
+               INPUT(.INPUT, 9, '[-f0 -r1000000]')
+               src            =  INPUT                      :F(main_fail)
+               src            treebank                      :F(main_fail)
+               OUTPUT         =  'matched bytes=' SIZE(src) :(END)
+main_fail      OUTPUT         =  'Pattern match failed'
+END
