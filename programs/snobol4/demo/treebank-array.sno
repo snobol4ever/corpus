@@ -1,3 +1,4 @@
+-CASE 0
 *------------------------------------------------------------------------------
 * treebank-array.sno — Penn Treebank s-expression parser (array/append style)
 * ENG 685, Lon Cherryholmes Sr.
@@ -125,17 +126,17 @@ pp_bank_end
                delim          =  SPAN(' ' CHAR(10))
                word           =  NOTANY('( )' CHAR(10)) BREAK('( )' CHAR(10))
 *------------------------------------------------------------------------------
-               group          =
+               group          =  FENCE(
 +              '('
 +              (word . tag) Push_list('tag')
 +              ARBNO(
 +                  delim
-+                  ( *group
++                  FENCE( *group
 +                  | (word . wrd) Push_item('wrd')
 +                  )
 +              )
 +              Pop_list()
-+              ')'
++              ')' )
 *------------------------------------------------------------------------------
                spat           =  ('(' BAL ')') . item
 *------------------------------------------------------------------------------
@@ -144,13 +145,16 @@ slurp          line           =  INPUT                      :F(slurp_done)
 slurp_done
                dummy          =  init_list('bank')
                dummy          =  stk_push_frame('BANK')
+               t0             =  TIME()
 loop           src            spat =  ''                    :F(all_done)
                dummy          =  stk_push_frame('ROOT')
                item           group                         :F(parse_fail)
                dummy          =  stk_pop_into_parent()      :(loop)
 parse_fail     OUTPUT         =  'Parse failed on: ' item
                dummy          =  stk_pop_into_parent()      :(loop)
-all_done       dummy          =  stk_pop_final('bank')
+all_done       t1             =  TIME()
+               TERMINAL       =  'match_ms=' (t1 - t0)
+               dummy          =  stk_pop_final('bank')
                dummy          =  pp_bank()                  :(END)
 *------------------------------------------------------------------------------
 END

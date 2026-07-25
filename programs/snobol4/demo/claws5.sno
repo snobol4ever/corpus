@@ -72,14 +72,24 @@ pm_last_mid2    OUTPUT          =   lline '},'                  :(pm_sent_loop)
 pm_done         pp_mem          =   .dummy                      :(RETURN)
 pp_mem_end
 *------------------------------------------------------------------------------
-slurp           line            =   INPUT                       :F(slurp_done)
-                src             =   src line                    :(slurp)
+                &TRIM           =   0
+                nl              =   CHAR(10)
+slurp           line            =   INPUT                       :F(slurp_f)
+                b1              =   b1 line nl
+                GT(SIZE(b1), 8192)                              :F(slurp)
+                b2              =   b2 b1
+                b1              =
+                GT(SIZE(b2), 262144)                            :F(slurp)
+                src             =   src b2
+                b2              =                               :(slurp)
+slurp_f         src             =   src b2 b1
 slurp_done
                 mem             =   TABLE()
 *------------------------------------------------------------------------------
                 claws           =
 +               POS(0)
 +               ARBNO(
++                FENCE
 +                ( (SPAN('0123456789') . num) '_CRD :_PUN'
 +                  (epsilon . *new_sent())
 +                | (NOTANY('_') BREAK('_')) . wrd
@@ -87,11 +97,14 @@ slurp_done
 +                  (ANY(&UCASE) SPAN('0123456789' &UCASE)) . tag
 +                  (epsilon . *add_tok())
 +                )
-+                ' '
++                SPAN(' ' CHAR(10))
 +               )
 +               RPOS(0)
 *------------------------------------------------------------------------------
+                t0              =   TIME()
                 src             claws                           :F(fail)
+                t1              =   TIME()
+                TERMINAL        =   'match_ms=' (t1 - t0)
                 pp_mem(mem)                                     :(END)
 fail            OUTPUT          =  'Pattern match failed'
 *------------------------------------------------------------------------------

@@ -1,3 +1,4 @@
+-CASE 0
 *------------------------------------------------------------------------------
 * treebank-list.sno — Penn Treebank s-expression parser (LISP-style)
 * ENG 685, Lon Cherryholmes Sr.
@@ -79,28 +80,28 @@ pop_final_end
                delim          =  SPAN(' ' CHAR(10))
                word           =  NOTANY('( )' CHAR(10)) BREAK('( )' CHAR(10))
 *------------------------------------------------------------------------------
-               group          =
+               group          =  FENCE(
 +              '('
 +              (word . tag) Push_list('tag')
 +              ARBNO(
 +                  delim
-+                  ( *group
++                  FENCE( *group
 +                  | (word . wrd) Push_item('wrd')
 +                  )
 +              )
 +              Pop_list()
-+              ')'
++              ')' )
 *------------------------------------------------------------------------------
                treebank       =
 +              POS(0)
 +              Init_list("'bank'")
 +              Push_list("'BANK'")
-+              ARBNO(
++              ARBNO( FENCE(
 +                  Push_list("'ROOT'")
 +                  ARBNO(*group)
 +                  delim
 +                  Pop_list()
-+              )
++              ) )
 +              Pop_final("'bank'")
 +              RPOS(0)
 *------------------------------------------------------------------------------
@@ -140,7 +141,10 @@ pp_bank_end
 *------------------------------------------------------------------------------
 slurp          line           =  INPUT                      :F(slurp_done)
                src            =  src line nl                :(slurp)
-slurp_done     src            treebank                      :F(main_fail)
+slurp_done     t0             =  TIME()
+               src            treebank                      :F(main_fail)
+               t1             =  TIME()
+               TERMINAL       =  'match_ms=' (t1 - t0)
                dummy          =  pp_bank()                  :(END)
 main_fail      OUTPUT         =  'Pattern match failed'
 *------------------------------------------------------------------------------
