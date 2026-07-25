@@ -22,10 +22,25 @@ lea rax, [rip + xchain0_n19_β]
 mov qword ptr [rbp + 1216], rax
  xchain0_n0_α:
 # BOX IR_CALL $trail_mark(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_trail_mark (no by-name dispatch)
+# PL-SINK-8 inline $trail_mark fast path: guards prove the zh/cw mark push is a no-op, then mark = g_pl_trail.top; rt_pl_dop_trail_mark is the slow-path oracle (unmodified args)
+ lea r10, [rip + g_plw_cellws_on]
+ mov eax, dword ptr [r10 + 0]
+ test eax, eax
+ jne .Lx1_100
+ lea r10, [rip + g_zeta_mode]
+ mov eax, dword ptr [r10 + 0]
+ cmp eax, 2
+ je .Lx1_100
+ lea r10, [rip + g_pl_trail]
+ mov eax, dword ptr [r10 + 32]
+ movsxd rdx, eax
+ mov eax, 6
+ jmp .Lx1_101
+.Lx1_100:
  lea rdi, [rbp + 112]
  mov esi, 0
  call rt_pl_dop_trail_mark@PLT
+.Lx1_101:
  mov qword ptr [rbp + 96], rax
  mov qword ptr [rbp + 104], rdx
  cmp eax, 99
@@ -2179,12 +2194,11 @@ mov qword ptr [rbp + 1216], rax
  mov rdx, qword ptr [rbp + 328]
  call rt_arg_stage@PLT
 .Lx49_25:
- mov rdi, qword ptr [rip + .Lx49_0]
+ mov edi, 0
  mov esi, 3
- call rt_proc_call_open@PLT
+ call rt_proc_call_open_det@PLT
  test rax, rax
  je .Lx49_1
- call rt_proc_open_fn@PLT
  lea rcx, [rip + .Lx49_3]
  lea rdx, [rip + .Lx49_4]
  jmp rax
@@ -2277,10 +2291,25 @@ lea rax, [rip + xchain52_n12_β]
 mov qword ptr [rbp + 880], rax
  xchain52_n0_α:
 # BOX IR_CALL $trail_mark(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_trail_mark (no by-name dispatch)
+# PL-SINK-8 inline $trail_mark fast path: guards prove the zh/cw mark push is a no-op, then mark = g_pl_trail.top; rt_pl_dop_trail_mark is the slow-path oracle (unmodified args)
+ lea r10, [rip + g_plw_cellws_on]
+ mov eax, dword ptr [r10 + 0]
+ test eax, eax
+ jne .Lx53_100
+ lea r10, [rip + g_zeta_mode]
+ mov eax, dword ptr [r10 + 0]
+ cmp eax, 2
+ je .Lx53_100
+ lea r10, [rip + g_pl_trail]
+ mov eax, dword ptr [r10 + 32]
+ movsxd rdx, eax
+ mov eax, 6
+ jmp .Lx53_101
+.Lx53_100:
  lea rdi, [rbp + 96]
  mov esi, 0
  call rt_pl_dop_trail_mark@PLT
+.Lx53_101:
  mov qword ptr [rbp + 80], rax
  mov qword ptr [rbp + 88], rdx
  cmp eax, 99
@@ -3735,12 +3764,11 @@ mov qword ptr [rbp + 880], rax
  mov rdx, qword ptr [rbp + 264]
  call rt_arg_stage@PLT
 .Lx87_23:
- mov rdi, qword ptr [rip + .Lx87_0]
+ mov edi, 1
  mov esi, 2
- call rt_proc_call_open@PLT
+ call rt_proc_call_open_det@PLT
  test rax, rax
  je .Lx87_1
- call rt_proc_open_fn@PLT
  lea rcx, [rip + .Lx87_3]
  lea rdx, [rip + .Lx87_4]
  jmp rax
@@ -3833,10 +3861,25 @@ lea rax, [rip + xchain90_n40_β]
 mov qword ptr [rbp + 14192], rax
  xchain90_n0_α:
 # BOX IR_CALL $trail_mark(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_trail_mark (no by-name dispatch)
+# PL-SINK-8 inline $trail_mark fast path: guards prove the zh/cw mark push is a no-op, then mark = g_pl_trail.top; rt_pl_dop_trail_mark is the slow-path oracle (unmodified args)
+ lea r10, [rip + g_plw_cellws_on]
+ mov eax, dword ptr [r10 + 0]
+ test eax, eax
+ jne .Lx91_100
+ lea r10, [rip + g_zeta_mode]
+ mov eax, dword ptr [r10 + 0]
+ cmp eax, 2
+ je .Lx91_100
+ lea r10, [rip + g_pl_trail]
+ mov eax, dword ptr [r10 + 32]
+ movsxd rdx, eax
+ mov eax, 6
+ jmp .Lx91_101
+.Lx91_100:
  lea rdi, [rbp + 96]
  mov esi, 0
  call rt_pl_dop_trail_mark@PLT
+.Lx91_101:
  mov qword ptr [rbp + 80], rax
  mov qword ptr [rbp + 88], rdx
  cmp eax, 99
@@ -13005,10 +13048,25 @@ lea rax, [rip + xchain492_n28_β]
 mov qword ptr [rbp + 1328], rax
  xchain492_n0_α:
 # BOX IR_CALL $trail_mark(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_trail_mark (no by-name dispatch)
+# PL-SINK-8 inline $trail_mark fast path: guards prove the zh/cw mark push is a no-op, then mark = g_pl_trail.top; rt_pl_dop_trail_mark is the slow-path oracle (unmodified args)
+ lea r10, [rip + g_plw_cellws_on]
+ mov eax, dword ptr [r10 + 0]
+ test eax, eax
+ jne .Lx493_100
+ lea r10, [rip + g_zeta_mode]
+ mov eax, dword ptr [r10 + 0]
+ cmp eax, 2
+ je .Lx493_100
+ lea r10, [rip + g_pl_trail]
+ mov eax, dword ptr [r10 + 32]
+ movsxd rdx, eax
+ mov eax, 6
+ jmp .Lx493_101
+.Lx493_100:
  lea rdi, [rbp + 96]
  mov esi, 0
  call rt_pl_dop_trail_mark@PLT
+.Lx493_101:
  mov qword ptr [rbp + 80], rax
  mov qword ptr [rbp + 88], rdx
  cmp eax, 99
@@ -13964,12 +14022,11 @@ mov qword ptr [rbp + 1328], rax
  mov rdx, qword ptr [rbp + 664]
  call rt_arg_stage@PLT
 .Lx529_25:
- mov rdi, qword ptr [rip + .Lx529_0]
+ mov edi, 5
  mov esi, 3
- call rt_proc_call_open@PLT
+ call rt_proc_call_open_det@PLT
  test rax, rax
  je .Lx529_1
- call rt_proc_open_fn@PLT
  lea rcx, [rip + .Lx529_3]
  lea rdx, [rip + .Lx529_4]
  jmp rax
@@ -14058,12 +14115,11 @@ mov qword ptr [rbp + 1328], rax
  mov rdx, qword ptr [rbp + 264]
  call rt_arg_stage@PLT
 .Lx535_23:
- mov rdi, qword ptr [rip + .Lx535_0]
+ mov edi, 6
  mov esi, 2
- call rt_proc_call_open@PLT
+ call rt_proc_call_open_det@PLT
  test rax, rax
  je .Lx535_1
- call rt_proc_open_fn@PLT
  lea rcx, [rip + .Lx535_3]
  lea rdx, [rip + .Lx535_4]
  jmp rax
@@ -14156,10 +14212,25 @@ lea rax, [rip + xchain538_n68_β]
 mov qword ptr [rbp + 3264], rax
  xchain538_n0_α:
 # BOX IR_CALL $trail_mark(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_trail_mark (no by-name dispatch)
+# PL-SINK-8 inline $trail_mark fast path: guards prove the zh/cw mark push is a no-op, then mark = g_pl_trail.top; rt_pl_dop_trail_mark is the slow-path oracle (unmodified args)
+ lea r10, [rip + g_plw_cellws_on]
+ mov eax, dword ptr [r10 + 0]
+ test eax, eax
+ jne .Lx539_100
+ lea r10, [rip + g_zeta_mode]
+ mov eax, dword ptr [r10 + 0]
+ cmp eax, 2
+ je .Lx539_100
+ lea r10, [rip + g_pl_trail]
+ mov eax, dword ptr [r10 + 32]
+ movsxd rdx, eax
+ mov eax, 6
+ jmp .Lx539_101
+.Lx539_100:
  lea rdi, [rbp + 80]
  mov esi, 0
  call rt_pl_dop_trail_mark@PLT
+.Lx539_101:
  mov qword ptr [rbp + 64], rax
  mov qword ptr [rbp + 72], rdx
  cmp eax, 99
@@ -15435,12 +15506,11 @@ mov qword ptr [rbp + 3264], rax
  mov rdx, qword ptr [rbp + 3128]
  call rt_arg_stage@PLT
 .Lx610_23:
- mov rdi, qword ptr [rip + .Lx610_0]
+ mov edi, 3
  mov esi, 2
- call rt_proc_call_open@PLT
+ call rt_proc_call_open_det@PLT
  test rax, rax
  je .Lx610_1
- call rt_proc_open_fn@PLT
  lea rcx, [rip + .Lx610_3]
  lea rdx, [rip + .Lx610_4]
  jmp rax
@@ -15533,10 +15603,25 @@ lea rax, [rip + xchain613_n33_β]
 mov qword ptr [rbp + 2256], rax
  xchain613_n0_α:
 # BOX IR_CALL $trail_mark(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_trail_mark (no by-name dispatch)
+# PL-SINK-8 inline $trail_mark fast path: guards prove the zh/cw mark push is a no-op, then mark = g_pl_trail.top; rt_pl_dop_trail_mark is the slow-path oracle (unmodified args)
+ lea r10, [rip + g_plw_cellws_on]
+ mov eax, dword ptr [r10 + 0]
+ test eax, eax
+ jne .Lx614_100
+ lea r10, [rip + g_zeta_mode]
+ mov eax, dword ptr [r10 + 0]
+ cmp eax, 2
+ je .Lx614_100
+ lea r10, [rip + g_pl_trail]
+ mov eax, dword ptr [r10 + 32]
+ movsxd rdx, eax
+ mov eax, 6
+ jmp .Lx614_101
+.Lx614_100:
  lea rdi, [rbp + 112]
  mov esi, 0
  call rt_pl_dop_trail_mark@PLT
+.Lx614_101:
  mov qword ptr [rbp + 96], rax
  mov qword ptr [rbp + 104], rdx
  cmp eax, 99
@@ -17642,12 +17727,11 @@ mov qword ptr [rbp + 2256], rax
  mov rdx, qword ptr [rbp + 952]
  call rt_arg_stage@PLT
 .Lx673_25:
- mov rdi, qword ptr [rip + .Lx673_0]
+ mov edi, 0
  mov esi, 3
- call rt_proc_call_open@PLT
+ call rt_proc_call_open_det@PLT
  test rax, rax
  je .Lx673_1
- call rt_proc_open_fn@PLT
  lea rcx, [rip + .Lx673_3]
  lea rdx, [rip + .Lx673_4]
  jmp rax
@@ -17736,12 +17820,11 @@ mov qword ptr [rbp + 2256], rax
  mov rdx, qword ptr [rbp + 760]
  call rt_arg_stage@PLT
 .Lx679_23:
- mov rdi, qword ptr [rip + .Lx679_0]
+ mov edi, 6
  mov esi, 2
- call rt_proc_call_open@PLT
+ call rt_proc_call_open_det@PLT
  test rax, rax
  je .Lx679_1
- call rt_proc_open_fn@PLT
  lea rcx, [rip + .Lx679_3]
  lea rdx, [rip + .Lx679_4]
  jmp rax
@@ -17943,12 +18026,11 @@ mov qword ptr [rbp + 2256], rax
  mov rdx, qword ptr [rbp + 616]
  call rt_arg_stage@PLT
 .Lx695_25:
- mov rdi, qword ptr [rip + .Lx695_0]
+ mov edi, 5
  mov esi, 3
- call rt_proc_call_open@PLT
+ call rt_proc_call_open_det@PLT
  test rax, rax
  je .Lx695_1
- call rt_proc_open_fn@PLT
  lea rcx, [rip + .Lx695_3]
  lea rdx, [rip + .Lx695_4]
  jmp rax
@@ -18041,10 +18123,25 @@ lea rax, [rip + xchain698_n14_β]
 mov qword ptr [rbp + 656], rax
  xchain698_n0_α:
 # BOX IR_CALL $trail_mark(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_trail_mark (no by-name dispatch)
+# PL-SINK-8 inline $trail_mark fast path: guards prove the zh/cw mark push is a no-op, then mark = g_pl_trail.top; rt_pl_dop_trail_mark is the slow-path oracle (unmodified args)
+ lea r10, [rip + g_plw_cellws_on]
+ mov eax, dword ptr [r10 + 0]
+ test eax, eax
+ jne .Lx699_100
+ lea r10, [rip + g_zeta_mode]
+ mov eax, dword ptr [r10 + 0]
+ cmp eax, 2
+ je .Lx699_100
+ lea r10, [rip + g_pl_trail]
+ mov eax, dword ptr [r10 + 32]
+ movsxd rdx, eax
+ mov eax, 6
+ jmp .Lx699_101
+.Lx699_100:
  lea rdi, [rbp + 96]
  mov esi, 0
  call rt_pl_dop_trail_mark@PLT
+.Lx699_101:
  mov qword ptr [rbp + 80], rax
  mov qword ptr [rbp + 88], rdx
  cmp eax, 99
@@ -18596,12 +18693,11 @@ mov qword ptr [rbp + 656], rax
  mov rdx, qword ptr [rbp + 408]
  call rt_arg_stage@PLT
 .Lx716_23:
- mov rdi, qword ptr [rip + .Lx716_0]
+ mov edi, 2
  mov esi, 2
- call rt_proc_call_open@PLT
+ call rt_proc_call_open_det@PLT
  test rax, rax
  je .Lx716_1
- call rt_proc_open_fn@PLT
  lea rcx, [rip + .Lx716_3]
  lea rdx, [rip + .Lx716_4]
  jmp rax
@@ -18690,12 +18786,11 @@ mov qword ptr [rbp + 656], rax
  mov rdx, qword ptr [rbp + 264]
  call rt_arg_stage@PLT
 .Lx722_23:
- mov rdi, qword ptr [rip + .Lx722_0]
+ mov edi, 1
  mov esi, 2
- call rt_proc_call_open@PLT
+ call rt_proc_call_open_det@PLT
  test rax, rax
  je .Lx722_1
- call rt_proc_open_fn@PLT
  lea rcx, [rip + .Lx722_3]
  lea rdx, [rip + .Lx722_4]
  jmp rax
@@ -18933,10 +19028,25 @@ main_α:
 main_α_body:
  xchain725_n0_α:
 # BOX IR_CALL $trail_mark(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_trail_mark (no by-name dispatch)
+# PL-SINK-8 inline $trail_mark fast path: guards prove the zh/cw mark push is a no-op, then mark = g_pl_trail.top; rt_pl_dop_trail_mark is the slow-path oracle (unmodified args)
+ lea r10, [rip + g_plw_cellws_on]
+ mov eax, dword ptr [r10 + 0]
+ test eax, eax
+ jne .Lx726_100
+ lea r10, [rip + g_zeta_mode]
+ mov eax, dword ptr [r10 + 0]
+ cmp eax, 2
+ je .Lx726_100
+ lea r10, [rip + g_pl_trail]
+ mov eax, dword ptr [r10 + 32]
+ movsxd rdx, eax
+ mov eax, 6
+ jmp .Lx726_101
+.Lx726_100:
  lea rdi, [rbp + 64]
  mov esi, 0
  call rt_pl_dop_trail_mark@PLT
+.Lx726_101:
  mov qword ptr [rbp + 48], rax
  mov qword ptr [rbp + 56], rdx
  cmp eax, 99
@@ -18969,12 +19079,11 @@ main_α_body:
  mov rdx, qword ptr [rbp + 312]
  call rt_arg_stage@PLT
 .Lx730_21:
- mov rdi, qword ptr [rip + .Lx730_0]
+ mov edi, 4
  mov esi, 1
- call rt_proc_call_open@PLT
+ call rt_proc_call_open_det@PLT
  test rax, rax
  je .Lx730_1
- call rt_proc_open_fn@PLT
  lea rcx, [rip + .Lx730_3]
  lea rdx, [rip + .Lx730_4]
  jmp rax
