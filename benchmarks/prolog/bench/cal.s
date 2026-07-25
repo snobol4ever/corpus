@@ -1189,10 +1189,212 @@ mov qword ptr [rbp + 1104], rax
  mov qword ptr [rbp + 1024], rax
  mov rax, qword ptr [rbp + 1080]
  mov qword ptr [rbp + 1032], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-SINK-1 inline $unify fast path: deref/bind/trail/int-eq emitted; rt_pl_dop_unify stays the slow-path oracle (bit-identical fallback, unmodified args)
  lea rdi, [rbp + 1008]
+ lea r8, [rbp + 1008]
+.Lx120_40:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx120_56
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx120_41
+ cmp esi, 1
+ jne .Lx120_55
+ mov r8, rax
+ jmp .Lx120_40
+.Lx120_55:
+ cmp esi, 2
+ jne .Lx120_41
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx120_41
+ mov r8, rax
+ jmp .Lx120_40
+.Lx120_56:
+ cmp eax, 13
+ jne .Lx120_41
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx120_41
+ cmp rax, r8
+ je .Lx120_41
+ mov r8, rax
+ jmp .Lx120_40
+.Lx120_41:
+ lea r9, [rbp + 1024]
+.Lx120_42:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 9
+ jne .Lx120_58
+ mov esi, dword ptr [r9 + 4]
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx120_43
+ cmp esi, 1
+ jne .Lx120_57
+ mov r9, rax
+ jmp .Lx120_42
+.Lx120_57:
+ cmp esi, 2
+ jne .Lx120_43
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx120_43
+ mov r9, rax
+ jmp .Lx120_42
+.Lx120_58:
+ cmp eax, 13
+ jne .Lx120_43
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx120_43
+ cmp rax, r9
+ je .Lx120_43
+ mov r9, rax
+ jmp .Lx120_42
+.Lx120_43:
+ cmp r8, r9
+ je .Lx120_51
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx120_44
+ cmp eax, 99
+ je .Lx120_44
+ cmp eax, 13
+ jne .Lx120_45
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx120_44
+ jmp .Lx120_45
+.Lx120_44:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx120_53
+ cmp eax, 99
+ je .Lx120_53
+ cmp eax, 13
+ jne .Lx120_46
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx120_53
+ jmp .Lx120_46
+.Lx120_46:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx120_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx120_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r8
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r8 + 0], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r8 + 8], rax
+ jmp .Lx120_51
+.Lx120_45:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx120_47
+ cmp eax, 99
+ je .Lx120_47
+ cmp eax, 13
+ jne .Lx120_48
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx120_47
+ jmp .Lx120_48
+.Lx120_47:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx120_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx120_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r9
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r9 + 0], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r9 + 8], rax
+ jmp .Lx120_51
+.Lx120_48:
+ mov ecx, dword ptr [r8 + 0]
+ mov edx, dword ptr [r9 + 0]
+ cmp ecx, 14
+ jne .Lx120_49
+ cmp edx, 14
+ je .Lx120_53
+ jmp .Lx120_52
+.Lx120_49:
+ cmp edx, 14
+ je .Lx120_52
+ cmp ecx, 7
+ je .Lx120_53
+ cmp edx, 7
+ je .Lx120_53
+ cmp ecx, 6
+ jne .Lx120_50
+ cmp edx, 6
+ jne .Lx120_50
+ mov rax, qword ptr [r8 + 0]
+ cmp rax, 6
+ jne .Lx120_53
+ mov rax, qword ptr [r9 + 0]
+ cmp rax, 6
+ jne .Lx120_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ je .Lx120_51
+ jmp .Lx120_52
+.Lx120_50:
+ mov rax, qword ptr [r8 + 0]
+ mov rsi, qword ptr [r9 + 0]
+ cmp rax, rsi
+ jne .Lx120_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ jne .Lx120_53
+.Lx120_51:
+ mov rax, qword ptr [r8 + 0]
+ mov rdx, qword ptr [r8 + 8]
+ jmp .Lx120_54
+.Lx120_52:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx120_54
+.Lx120_53:
  mov esi, 2
  call rt_pl_dop_unify@PLT
+.Lx120_54:
  mov qword ptr [rbp + 992], rax
  mov qword ptr [rbp + 1000], rdx
  cmp eax, 99
@@ -1244,10 +1446,212 @@ mov qword ptr [rbp + 1104], rax
  mov qword ptr [rbp + 912], rax
  mov rax, qword ptr [rbp + 968]
  mov qword ptr [rbp + 920], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-SINK-1 inline $unify fast path: deref/bind/trail/int-eq emitted; rt_pl_dop_unify stays the slow-path oracle (bit-identical fallback, unmodified args)
  lea rdi, [rbp + 896]
+ lea r8, [rbp + 896]
+.Lx126_40:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx126_56
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx126_41
+ cmp esi, 1
+ jne .Lx126_55
+ mov r8, rax
+ jmp .Lx126_40
+.Lx126_55:
+ cmp esi, 2
+ jne .Lx126_41
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx126_41
+ mov r8, rax
+ jmp .Lx126_40
+.Lx126_56:
+ cmp eax, 13
+ jne .Lx126_41
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx126_41
+ cmp rax, r8
+ je .Lx126_41
+ mov r8, rax
+ jmp .Lx126_40
+.Lx126_41:
+ lea r9, [rbp + 912]
+.Lx126_42:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 9
+ jne .Lx126_58
+ mov esi, dword ptr [r9 + 4]
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx126_43
+ cmp esi, 1
+ jne .Lx126_57
+ mov r9, rax
+ jmp .Lx126_42
+.Lx126_57:
+ cmp esi, 2
+ jne .Lx126_43
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx126_43
+ mov r9, rax
+ jmp .Lx126_42
+.Lx126_58:
+ cmp eax, 13
+ jne .Lx126_43
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx126_43
+ cmp rax, r9
+ je .Lx126_43
+ mov r9, rax
+ jmp .Lx126_42
+.Lx126_43:
+ cmp r8, r9
+ je .Lx126_51
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx126_44
+ cmp eax, 99
+ je .Lx126_44
+ cmp eax, 13
+ jne .Lx126_45
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx126_44
+ jmp .Lx126_45
+.Lx126_44:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx126_53
+ cmp eax, 99
+ je .Lx126_53
+ cmp eax, 13
+ jne .Lx126_46
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx126_53
+ jmp .Lx126_46
+.Lx126_46:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx126_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx126_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r8
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r8 + 0], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r8 + 8], rax
+ jmp .Lx126_51
+.Lx126_45:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx126_47
+ cmp eax, 99
+ je .Lx126_47
+ cmp eax, 13
+ jne .Lx126_48
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx126_47
+ jmp .Lx126_48
+.Lx126_47:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx126_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx126_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r9
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r9 + 0], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r9 + 8], rax
+ jmp .Lx126_51
+.Lx126_48:
+ mov ecx, dword ptr [r8 + 0]
+ mov edx, dword ptr [r9 + 0]
+ cmp ecx, 14
+ jne .Lx126_49
+ cmp edx, 14
+ je .Lx126_53
+ jmp .Lx126_52
+.Lx126_49:
+ cmp edx, 14
+ je .Lx126_52
+ cmp ecx, 7
+ je .Lx126_53
+ cmp edx, 7
+ je .Lx126_53
+ cmp ecx, 6
+ jne .Lx126_50
+ cmp edx, 6
+ jne .Lx126_50
+ mov rax, qword ptr [r8 + 0]
+ cmp rax, 6
+ jne .Lx126_53
+ mov rax, qword ptr [r9 + 0]
+ cmp rax, 6
+ jne .Lx126_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ je .Lx126_51
+ jmp .Lx126_52
+.Lx126_50:
+ mov rax, qword ptr [r8 + 0]
+ mov rsi, qword ptr [r9 + 0]
+ cmp rax, rsi
+ jne .Lx126_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ jne .Lx126_53
+.Lx126_51:
+ mov rax, qword ptr [r8 + 0]
+ mov rdx, qword ptr [r8 + 8]
+ jmp .Lx126_54
+.Lx126_52:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx126_54
+.Lx126_53:
  mov esi, 2
  call rt_pl_dop_unify@PLT
+.Lx126_54:
  mov qword ptr [rbp + 880], rax
  mov qword ptr [rbp + 888], rdx
  cmp eax, 99
@@ -1281,10 +1685,212 @@ mov qword ptr [rbp + 1104], rax
  mov qword ptr [rbp + 800], rax
  mov rax, qword ptr [rbp + 856]
  mov qword ptr [rbp + 808], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-SINK-1 inline $unify fast path: deref/bind/trail/int-eq emitted; rt_pl_dop_unify stays the slow-path oracle (bit-identical fallback, unmodified args)
  lea rdi, [rbp + 784]
+ lea r8, [rbp + 784]
+.Lx131_40:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx131_56
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx131_41
+ cmp esi, 1
+ jne .Lx131_55
+ mov r8, rax
+ jmp .Lx131_40
+.Lx131_55:
+ cmp esi, 2
+ jne .Lx131_41
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx131_41
+ mov r8, rax
+ jmp .Lx131_40
+.Lx131_56:
+ cmp eax, 13
+ jne .Lx131_41
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx131_41
+ cmp rax, r8
+ je .Lx131_41
+ mov r8, rax
+ jmp .Lx131_40
+.Lx131_41:
+ lea r9, [rbp + 800]
+.Lx131_42:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 9
+ jne .Lx131_58
+ mov esi, dword ptr [r9 + 4]
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx131_43
+ cmp esi, 1
+ jne .Lx131_57
+ mov r9, rax
+ jmp .Lx131_42
+.Lx131_57:
+ cmp esi, 2
+ jne .Lx131_43
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx131_43
+ mov r9, rax
+ jmp .Lx131_42
+.Lx131_58:
+ cmp eax, 13
+ jne .Lx131_43
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx131_43
+ cmp rax, r9
+ je .Lx131_43
+ mov r9, rax
+ jmp .Lx131_42
+.Lx131_43:
+ cmp r8, r9
+ je .Lx131_51
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx131_44
+ cmp eax, 99
+ je .Lx131_44
+ cmp eax, 13
+ jne .Lx131_45
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx131_44
+ jmp .Lx131_45
+.Lx131_44:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx131_53
+ cmp eax, 99
+ je .Lx131_53
+ cmp eax, 13
+ jne .Lx131_46
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx131_53
+ jmp .Lx131_46
+.Lx131_46:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx131_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx131_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r8
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r8 + 0], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r8 + 8], rax
+ jmp .Lx131_51
+.Lx131_45:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx131_47
+ cmp eax, 99
+ je .Lx131_47
+ cmp eax, 13
+ jne .Lx131_48
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx131_47
+ jmp .Lx131_48
+.Lx131_47:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx131_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx131_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r9
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r9 + 0], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r9 + 8], rax
+ jmp .Lx131_51
+.Lx131_48:
+ mov ecx, dword ptr [r8 + 0]
+ mov edx, dword ptr [r9 + 0]
+ cmp ecx, 14
+ jne .Lx131_49
+ cmp edx, 14
+ je .Lx131_53
+ jmp .Lx131_52
+.Lx131_49:
+ cmp edx, 14
+ je .Lx131_52
+ cmp ecx, 7
+ je .Lx131_53
+ cmp edx, 7
+ je .Lx131_53
+ cmp ecx, 6
+ jne .Lx131_50
+ cmp edx, 6
+ jne .Lx131_50
+ mov rax, qword ptr [r8 + 0]
+ cmp rax, 6
+ jne .Lx131_53
+ mov rax, qword ptr [r9 + 0]
+ cmp rax, 6
+ jne .Lx131_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ je .Lx131_51
+ jmp .Lx131_52
+.Lx131_50:
+ mov rax, qword ptr [r8 + 0]
+ mov rsi, qword ptr [r9 + 0]
+ cmp rax, rsi
+ jne .Lx131_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ jne .Lx131_53
+.Lx131_51:
+ mov rax, qword ptr [r8 + 0]
+ mov rdx, qword ptr [r8 + 8]
+ jmp .Lx131_54
+.Lx131_52:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx131_54
+.Lx131_53:
  mov esi, 2
  call rt_pl_dop_unify@PLT
+.Lx131_54:
  mov qword ptr [rbp + 768], rax
  mov qword ptr [rbp + 776], rdx
  cmp eax, 99
@@ -1318,10 +1924,212 @@ mov qword ptr [rbp + 1104], rax
  mov qword ptr [rbp + 688], rax
  mov rax, qword ptr [rbp + 744]
  mov qword ptr [rbp + 696], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-SINK-1 inline $unify fast path: deref/bind/trail/int-eq emitted; rt_pl_dop_unify stays the slow-path oracle (bit-identical fallback, unmodified args)
  lea rdi, [rbp + 672]
+ lea r8, [rbp + 672]
+.Lx136_40:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx136_56
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx136_41
+ cmp esi, 1
+ jne .Lx136_55
+ mov r8, rax
+ jmp .Lx136_40
+.Lx136_55:
+ cmp esi, 2
+ jne .Lx136_41
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx136_41
+ mov r8, rax
+ jmp .Lx136_40
+.Lx136_56:
+ cmp eax, 13
+ jne .Lx136_41
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx136_41
+ cmp rax, r8
+ je .Lx136_41
+ mov r8, rax
+ jmp .Lx136_40
+.Lx136_41:
+ lea r9, [rbp + 688]
+.Lx136_42:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 9
+ jne .Lx136_58
+ mov esi, dword ptr [r9 + 4]
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx136_43
+ cmp esi, 1
+ jne .Lx136_57
+ mov r9, rax
+ jmp .Lx136_42
+.Lx136_57:
+ cmp esi, 2
+ jne .Lx136_43
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx136_43
+ mov r9, rax
+ jmp .Lx136_42
+.Lx136_58:
+ cmp eax, 13
+ jne .Lx136_43
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx136_43
+ cmp rax, r9
+ je .Lx136_43
+ mov r9, rax
+ jmp .Lx136_42
+.Lx136_43:
+ cmp r8, r9
+ je .Lx136_51
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx136_44
+ cmp eax, 99
+ je .Lx136_44
+ cmp eax, 13
+ jne .Lx136_45
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx136_44
+ jmp .Lx136_45
+.Lx136_44:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx136_53
+ cmp eax, 99
+ je .Lx136_53
+ cmp eax, 13
+ jne .Lx136_46
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx136_53
+ jmp .Lx136_46
+.Lx136_46:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx136_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx136_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r8
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r8 + 0], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r8 + 8], rax
+ jmp .Lx136_51
+.Lx136_45:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx136_47
+ cmp eax, 99
+ je .Lx136_47
+ cmp eax, 13
+ jne .Lx136_48
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx136_47
+ jmp .Lx136_48
+.Lx136_47:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx136_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx136_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r9
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r9 + 0], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r9 + 8], rax
+ jmp .Lx136_51
+.Lx136_48:
+ mov ecx, dword ptr [r8 + 0]
+ mov edx, dword ptr [r9 + 0]
+ cmp ecx, 14
+ jne .Lx136_49
+ cmp edx, 14
+ je .Lx136_53
+ jmp .Lx136_52
+.Lx136_49:
+ cmp edx, 14
+ je .Lx136_52
+ cmp ecx, 7
+ je .Lx136_53
+ cmp edx, 7
+ je .Lx136_53
+ cmp ecx, 6
+ jne .Lx136_50
+ cmp edx, 6
+ jne .Lx136_50
+ mov rax, qword ptr [r8 + 0]
+ cmp rax, 6
+ jne .Lx136_53
+ mov rax, qword ptr [r9 + 0]
+ cmp rax, 6
+ jne .Lx136_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ je .Lx136_51
+ jmp .Lx136_52
+.Lx136_50:
+ mov rax, qword ptr [r8 + 0]
+ mov rsi, qword ptr [r9 + 0]
+ cmp rax, rsi
+ jne .Lx136_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ jne .Lx136_53
+.Lx136_51:
+ mov rax, qword ptr [r8 + 0]
+ mov rdx, qword ptr [r8 + 8]
+ jmp .Lx136_54
+.Lx136_52:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx136_54
+.Lx136_53:
  mov esi, 2
  call rt_pl_dop_unify@PLT
+.Lx136_54:
  mov qword ptr [rbp + 656], rax
  mov qword ptr [rbp + 664], rdx
  cmp eax, 99
@@ -7066,10 +7874,212 @@ mov qword ptr [rbp + 2480], rax
  mov qword ptr [rbp + 2400], rax
  mov rax, qword ptr [rbp + 2456]
  mov qword ptr [rbp + 2408], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-SINK-1 inline $unify fast path: deref/bind/trail/int-eq emitted; rt_pl_dop_unify stays the slow-path oracle (bit-identical fallback, unmodified args)
  lea rdi, [rbp + 2384]
+ lea r8, [rbp + 2384]
+.Lx767_40:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx767_56
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx767_41
+ cmp esi, 1
+ jne .Lx767_55
+ mov r8, rax
+ jmp .Lx767_40
+.Lx767_55:
+ cmp esi, 2
+ jne .Lx767_41
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx767_41
+ mov r8, rax
+ jmp .Lx767_40
+.Lx767_56:
+ cmp eax, 13
+ jne .Lx767_41
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx767_41
+ cmp rax, r8
+ je .Lx767_41
+ mov r8, rax
+ jmp .Lx767_40
+.Lx767_41:
+ lea r9, [rbp + 2400]
+.Lx767_42:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 9
+ jne .Lx767_58
+ mov esi, dword ptr [r9 + 4]
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx767_43
+ cmp esi, 1
+ jne .Lx767_57
+ mov r9, rax
+ jmp .Lx767_42
+.Lx767_57:
+ cmp esi, 2
+ jne .Lx767_43
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx767_43
+ mov r9, rax
+ jmp .Lx767_42
+.Lx767_58:
+ cmp eax, 13
+ jne .Lx767_43
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx767_43
+ cmp rax, r9
+ je .Lx767_43
+ mov r9, rax
+ jmp .Lx767_42
+.Lx767_43:
+ cmp r8, r9
+ je .Lx767_51
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx767_44
+ cmp eax, 99
+ je .Lx767_44
+ cmp eax, 13
+ jne .Lx767_45
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx767_44
+ jmp .Lx767_45
+.Lx767_44:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx767_53
+ cmp eax, 99
+ je .Lx767_53
+ cmp eax, 13
+ jne .Lx767_46
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx767_53
+ jmp .Lx767_46
+.Lx767_46:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx767_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx767_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r8
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r8 + 0], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r8 + 8], rax
+ jmp .Lx767_51
+.Lx767_45:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx767_47
+ cmp eax, 99
+ je .Lx767_47
+ cmp eax, 13
+ jne .Lx767_48
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx767_47
+ jmp .Lx767_48
+.Lx767_47:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx767_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx767_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r9
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r9 + 0], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r9 + 8], rax
+ jmp .Lx767_51
+.Lx767_48:
+ mov ecx, dword ptr [r8 + 0]
+ mov edx, dword ptr [r9 + 0]
+ cmp ecx, 14
+ jne .Lx767_49
+ cmp edx, 14
+ je .Lx767_53
+ jmp .Lx767_52
+.Lx767_49:
+ cmp edx, 14
+ je .Lx767_52
+ cmp ecx, 7
+ je .Lx767_53
+ cmp edx, 7
+ je .Lx767_53
+ cmp ecx, 6
+ jne .Lx767_50
+ cmp edx, 6
+ jne .Lx767_50
+ mov rax, qword ptr [r8 + 0]
+ cmp rax, 6
+ jne .Lx767_53
+ mov rax, qword ptr [r9 + 0]
+ cmp rax, 6
+ jne .Lx767_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ je .Lx767_51
+ jmp .Lx767_52
+.Lx767_50:
+ mov rax, qword ptr [r8 + 0]
+ mov rsi, qword ptr [r9 + 0]
+ cmp rax, rsi
+ jne .Lx767_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ jne .Lx767_53
+.Lx767_51:
+ mov rax, qword ptr [r8 + 0]
+ mov rdx, qword ptr [r8 + 8]
+ jmp .Lx767_54
+.Lx767_52:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx767_54
+.Lx767_53:
  mov esi, 2
  call rt_pl_dop_unify@PLT
+.Lx767_54:
  mov qword ptr [rbp + 2368], rax
  mov qword ptr [rbp + 2376], rdx
  cmp eax, 99
@@ -7121,10 +8131,212 @@ mov qword ptr [rbp + 2480], rax
  mov qword ptr [rbp + 2288], rax
  mov rax, qword ptr [rbp + 2344]
  mov qword ptr [rbp + 2296], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-SINK-1 inline $unify fast path: deref/bind/trail/int-eq emitted; rt_pl_dop_unify stays the slow-path oracle (bit-identical fallback, unmodified args)
  lea rdi, [rbp + 2272]
+ lea r8, [rbp + 2272]
+.Lx773_40:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx773_56
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx773_41
+ cmp esi, 1
+ jne .Lx773_55
+ mov r8, rax
+ jmp .Lx773_40
+.Lx773_55:
+ cmp esi, 2
+ jne .Lx773_41
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx773_41
+ mov r8, rax
+ jmp .Lx773_40
+.Lx773_56:
+ cmp eax, 13
+ jne .Lx773_41
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx773_41
+ cmp rax, r8
+ je .Lx773_41
+ mov r8, rax
+ jmp .Lx773_40
+.Lx773_41:
+ lea r9, [rbp + 2288]
+.Lx773_42:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 9
+ jne .Lx773_58
+ mov esi, dword ptr [r9 + 4]
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx773_43
+ cmp esi, 1
+ jne .Lx773_57
+ mov r9, rax
+ jmp .Lx773_42
+.Lx773_57:
+ cmp esi, 2
+ jne .Lx773_43
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx773_43
+ mov r9, rax
+ jmp .Lx773_42
+.Lx773_58:
+ cmp eax, 13
+ jne .Lx773_43
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx773_43
+ cmp rax, r9
+ je .Lx773_43
+ mov r9, rax
+ jmp .Lx773_42
+.Lx773_43:
+ cmp r8, r9
+ je .Lx773_51
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx773_44
+ cmp eax, 99
+ je .Lx773_44
+ cmp eax, 13
+ jne .Lx773_45
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx773_44
+ jmp .Lx773_45
+.Lx773_44:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx773_53
+ cmp eax, 99
+ je .Lx773_53
+ cmp eax, 13
+ jne .Lx773_46
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx773_53
+ jmp .Lx773_46
+.Lx773_46:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx773_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx773_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r8
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r8 + 0], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r8 + 8], rax
+ jmp .Lx773_51
+.Lx773_45:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx773_47
+ cmp eax, 99
+ je .Lx773_47
+ cmp eax, 13
+ jne .Lx773_48
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx773_47
+ jmp .Lx773_48
+.Lx773_47:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx773_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx773_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r9
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r9 + 0], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r9 + 8], rax
+ jmp .Lx773_51
+.Lx773_48:
+ mov ecx, dword ptr [r8 + 0]
+ mov edx, dword ptr [r9 + 0]
+ cmp ecx, 14
+ jne .Lx773_49
+ cmp edx, 14
+ je .Lx773_53
+ jmp .Lx773_52
+.Lx773_49:
+ cmp edx, 14
+ je .Lx773_52
+ cmp ecx, 7
+ je .Lx773_53
+ cmp edx, 7
+ je .Lx773_53
+ cmp ecx, 6
+ jne .Lx773_50
+ cmp edx, 6
+ jne .Lx773_50
+ mov rax, qword ptr [r8 + 0]
+ cmp rax, 6
+ jne .Lx773_53
+ mov rax, qword ptr [r9 + 0]
+ cmp rax, 6
+ jne .Lx773_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ je .Lx773_51
+ jmp .Lx773_52
+.Lx773_50:
+ mov rax, qword ptr [r8 + 0]
+ mov rsi, qword ptr [r9 + 0]
+ cmp rax, rsi
+ jne .Lx773_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ jne .Lx773_53
+.Lx773_51:
+ mov rax, qword ptr [r8 + 0]
+ mov rdx, qword ptr [r8 + 8]
+ jmp .Lx773_54
+.Lx773_52:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx773_54
+.Lx773_53:
  mov esi, 2
  call rt_pl_dop_unify@PLT
+.Lx773_54:
  mov qword ptr [rbp + 2256], rax
  mov qword ptr [rbp + 2264], rdx
  cmp eax, 99
@@ -7158,10 +8370,212 @@ mov qword ptr [rbp + 2480], rax
  mov qword ptr [rbp + 2176], rax
  mov rax, qword ptr [rbp + 2232]
  mov qword ptr [rbp + 2184], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-SINK-1 inline $unify fast path: deref/bind/trail/int-eq emitted; rt_pl_dop_unify stays the slow-path oracle (bit-identical fallback, unmodified args)
  lea rdi, [rbp + 2160]
+ lea r8, [rbp + 2160]
+.Lx778_40:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx778_56
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx778_41
+ cmp esi, 1
+ jne .Lx778_55
+ mov r8, rax
+ jmp .Lx778_40
+.Lx778_55:
+ cmp esi, 2
+ jne .Lx778_41
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx778_41
+ mov r8, rax
+ jmp .Lx778_40
+.Lx778_56:
+ cmp eax, 13
+ jne .Lx778_41
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx778_41
+ cmp rax, r8
+ je .Lx778_41
+ mov r8, rax
+ jmp .Lx778_40
+.Lx778_41:
+ lea r9, [rbp + 2176]
+.Lx778_42:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 9
+ jne .Lx778_58
+ mov esi, dword ptr [r9 + 4]
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx778_43
+ cmp esi, 1
+ jne .Lx778_57
+ mov r9, rax
+ jmp .Lx778_42
+.Lx778_57:
+ cmp esi, 2
+ jne .Lx778_43
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx778_43
+ mov r9, rax
+ jmp .Lx778_42
+.Lx778_58:
+ cmp eax, 13
+ jne .Lx778_43
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx778_43
+ cmp rax, r9
+ je .Lx778_43
+ mov r9, rax
+ jmp .Lx778_42
+.Lx778_43:
+ cmp r8, r9
+ je .Lx778_51
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx778_44
+ cmp eax, 99
+ je .Lx778_44
+ cmp eax, 13
+ jne .Lx778_45
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx778_44
+ jmp .Lx778_45
+.Lx778_44:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx778_53
+ cmp eax, 99
+ je .Lx778_53
+ cmp eax, 13
+ jne .Lx778_46
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx778_53
+ jmp .Lx778_46
+.Lx778_46:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx778_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx778_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r8
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r8 + 0], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r8 + 8], rax
+ jmp .Lx778_51
+.Lx778_45:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx778_47
+ cmp eax, 99
+ je .Lx778_47
+ cmp eax, 13
+ jne .Lx778_48
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx778_47
+ jmp .Lx778_48
+.Lx778_47:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx778_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx778_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r9
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r9 + 0], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r9 + 8], rax
+ jmp .Lx778_51
+.Lx778_48:
+ mov ecx, dword ptr [r8 + 0]
+ mov edx, dword ptr [r9 + 0]
+ cmp ecx, 14
+ jne .Lx778_49
+ cmp edx, 14
+ je .Lx778_53
+ jmp .Lx778_52
+.Lx778_49:
+ cmp edx, 14
+ je .Lx778_52
+ cmp ecx, 7
+ je .Lx778_53
+ cmp edx, 7
+ je .Lx778_53
+ cmp ecx, 6
+ jne .Lx778_50
+ cmp edx, 6
+ jne .Lx778_50
+ mov rax, qword ptr [r8 + 0]
+ cmp rax, 6
+ jne .Lx778_53
+ mov rax, qword ptr [r9 + 0]
+ cmp rax, 6
+ jne .Lx778_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ je .Lx778_51
+ jmp .Lx778_52
+.Lx778_50:
+ mov rax, qword ptr [r8 + 0]
+ mov rsi, qword ptr [r9 + 0]
+ cmp rax, rsi
+ jne .Lx778_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ jne .Lx778_53
+.Lx778_51:
+ mov rax, qword ptr [r8 + 0]
+ mov rdx, qword ptr [r8 + 8]
+ jmp .Lx778_54
+.Lx778_52:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx778_54
+.Lx778_53:
  mov esi, 2
  call rt_pl_dop_unify@PLT
+.Lx778_54:
  mov qword ptr [rbp + 2144], rax
  mov qword ptr [rbp + 2152], rdx
  cmp eax, 99
@@ -7195,10 +8609,212 @@ mov qword ptr [rbp + 2480], rax
  mov qword ptr [rbp + 2064], rax
  mov rax, qword ptr [rbp + 2120]
  mov qword ptr [rbp + 2072], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-SINK-1 inline $unify fast path: deref/bind/trail/int-eq emitted; rt_pl_dop_unify stays the slow-path oracle (bit-identical fallback, unmodified args)
  lea rdi, [rbp + 2048]
+ lea r8, [rbp + 2048]
+.Lx783_40:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx783_56
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx783_41
+ cmp esi, 1
+ jne .Lx783_55
+ mov r8, rax
+ jmp .Lx783_40
+.Lx783_55:
+ cmp esi, 2
+ jne .Lx783_41
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx783_41
+ mov r8, rax
+ jmp .Lx783_40
+.Lx783_56:
+ cmp eax, 13
+ jne .Lx783_41
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx783_41
+ cmp rax, r8
+ je .Lx783_41
+ mov r8, rax
+ jmp .Lx783_40
+.Lx783_41:
+ lea r9, [rbp + 2064]
+.Lx783_42:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 9
+ jne .Lx783_58
+ mov esi, dword ptr [r9 + 4]
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx783_43
+ cmp esi, 1
+ jne .Lx783_57
+ mov r9, rax
+ jmp .Lx783_42
+.Lx783_57:
+ cmp esi, 2
+ jne .Lx783_43
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx783_43
+ mov r9, rax
+ jmp .Lx783_42
+.Lx783_58:
+ cmp eax, 13
+ jne .Lx783_43
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx783_43
+ cmp rax, r9
+ je .Lx783_43
+ mov r9, rax
+ jmp .Lx783_42
+.Lx783_43:
+ cmp r8, r9
+ je .Lx783_51
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx783_44
+ cmp eax, 99
+ je .Lx783_44
+ cmp eax, 13
+ jne .Lx783_45
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx783_44
+ jmp .Lx783_45
+.Lx783_44:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx783_53
+ cmp eax, 99
+ je .Lx783_53
+ cmp eax, 13
+ jne .Lx783_46
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx783_53
+ jmp .Lx783_46
+.Lx783_46:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx783_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx783_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r8
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r8 + 0], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r8 + 8], rax
+ jmp .Lx783_51
+.Lx783_45:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx783_47
+ cmp eax, 99
+ je .Lx783_47
+ cmp eax, 13
+ jne .Lx783_48
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx783_47
+ jmp .Lx783_48
+.Lx783_47:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx783_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx783_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r9
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r9 + 0], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r9 + 8], rax
+ jmp .Lx783_51
+.Lx783_48:
+ mov ecx, dword ptr [r8 + 0]
+ mov edx, dword ptr [r9 + 0]
+ cmp ecx, 14
+ jne .Lx783_49
+ cmp edx, 14
+ je .Lx783_53
+ jmp .Lx783_52
+.Lx783_49:
+ cmp edx, 14
+ je .Lx783_52
+ cmp ecx, 7
+ je .Lx783_53
+ cmp edx, 7
+ je .Lx783_53
+ cmp ecx, 6
+ jne .Lx783_50
+ cmp edx, 6
+ jne .Lx783_50
+ mov rax, qword ptr [r8 + 0]
+ cmp rax, 6
+ jne .Lx783_53
+ mov rax, qword ptr [r9 + 0]
+ cmp rax, 6
+ jne .Lx783_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ je .Lx783_51
+ jmp .Lx783_52
+.Lx783_50:
+ mov rax, qword ptr [r8 + 0]
+ mov rsi, qword ptr [r9 + 0]
+ cmp rax, rsi
+ jne .Lx783_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ jne .Lx783_53
+.Lx783_51:
+ mov rax, qword ptr [r8 + 0]
+ mov rdx, qword ptr [r8 + 8]
+ jmp .Lx783_54
+.Lx783_52:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx783_54
+.Lx783_53:
  mov esi, 2
  call rt_pl_dop_unify@PLT
+.Lx783_54:
  mov qword ptr [rbp + 2032], rax
  mov qword ptr [rbp + 2040], rdx
  cmp eax, 99
@@ -7232,10 +8848,212 @@ mov qword ptr [rbp + 2480], rax
  mov qword ptr [rbp + 1952], rax
  mov rax, qword ptr [rbp + 2008]
  mov qword ptr [rbp + 1960], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-SINK-1 inline $unify fast path: deref/bind/trail/int-eq emitted; rt_pl_dop_unify stays the slow-path oracle (bit-identical fallback, unmodified args)
  lea rdi, [rbp + 1936]
+ lea r8, [rbp + 1936]
+.Lx788_40:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx788_56
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx788_41
+ cmp esi, 1
+ jne .Lx788_55
+ mov r8, rax
+ jmp .Lx788_40
+.Lx788_55:
+ cmp esi, 2
+ jne .Lx788_41
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx788_41
+ mov r8, rax
+ jmp .Lx788_40
+.Lx788_56:
+ cmp eax, 13
+ jne .Lx788_41
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx788_41
+ cmp rax, r8
+ je .Lx788_41
+ mov r8, rax
+ jmp .Lx788_40
+.Lx788_41:
+ lea r9, [rbp + 1952]
+.Lx788_42:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 9
+ jne .Lx788_58
+ mov esi, dword ptr [r9 + 4]
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx788_43
+ cmp esi, 1
+ jne .Lx788_57
+ mov r9, rax
+ jmp .Lx788_42
+.Lx788_57:
+ cmp esi, 2
+ jne .Lx788_43
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx788_43
+ mov r9, rax
+ jmp .Lx788_42
+.Lx788_58:
+ cmp eax, 13
+ jne .Lx788_43
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx788_43
+ cmp rax, r9
+ je .Lx788_43
+ mov r9, rax
+ jmp .Lx788_42
+.Lx788_43:
+ cmp r8, r9
+ je .Lx788_51
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx788_44
+ cmp eax, 99
+ je .Lx788_44
+ cmp eax, 13
+ jne .Lx788_45
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx788_44
+ jmp .Lx788_45
+.Lx788_44:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx788_53
+ cmp eax, 99
+ je .Lx788_53
+ cmp eax, 13
+ jne .Lx788_46
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx788_53
+ jmp .Lx788_46
+.Lx788_46:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx788_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx788_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r8
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r8 + 0], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r8 + 8], rax
+ jmp .Lx788_51
+.Lx788_45:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx788_47
+ cmp eax, 99
+ je .Lx788_47
+ cmp eax, 13
+ jne .Lx788_48
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx788_47
+ jmp .Lx788_48
+.Lx788_47:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx788_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx788_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r9
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r9 + 0], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r9 + 8], rax
+ jmp .Lx788_51
+.Lx788_48:
+ mov ecx, dword ptr [r8 + 0]
+ mov edx, dword ptr [r9 + 0]
+ cmp ecx, 14
+ jne .Lx788_49
+ cmp edx, 14
+ je .Lx788_53
+ jmp .Lx788_52
+.Lx788_49:
+ cmp edx, 14
+ je .Lx788_52
+ cmp ecx, 7
+ je .Lx788_53
+ cmp edx, 7
+ je .Lx788_53
+ cmp ecx, 6
+ jne .Lx788_50
+ cmp edx, 6
+ jne .Lx788_50
+ mov rax, qword ptr [r8 + 0]
+ cmp rax, 6
+ jne .Lx788_53
+ mov rax, qword ptr [r9 + 0]
+ cmp rax, 6
+ jne .Lx788_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ je .Lx788_51
+ jmp .Lx788_52
+.Lx788_50:
+ mov rax, qword ptr [r8 + 0]
+ mov rsi, qword ptr [r9 + 0]
+ cmp rax, rsi
+ jne .Lx788_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ jne .Lx788_53
+.Lx788_51:
+ mov rax, qword ptr [r8 + 0]
+ mov rdx, qword ptr [r8 + 8]
+ jmp .Lx788_54
+.Lx788_52:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx788_54
+.Lx788_53:
  mov esi, 2
  call rt_pl_dop_unify@PLT
+.Lx788_54:
  mov qword ptr [rbp + 1920], rax
  mov qword ptr [rbp + 1928], rdx
  cmp eax, 99
@@ -7901,10 +9719,212 @@ mov qword ptr [rbp + 3680], rax
  mov qword ptr [rbp + 3600], rax
  mov rax, qword ptr [rbp + 3656]
  mov qword ptr [rbp + 3608], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-SINK-1 inline $unify fast path: deref/bind/trail/int-eq emitted; rt_pl_dop_unify stays the slow-path oracle (bit-identical fallback, unmodified args)
  lea rdi, [rbp + 3584]
+ lea r8, [rbp + 3584]
+.Lx852_40:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx852_56
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx852_41
+ cmp esi, 1
+ jne .Lx852_55
+ mov r8, rax
+ jmp .Lx852_40
+.Lx852_55:
+ cmp esi, 2
+ jne .Lx852_41
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx852_41
+ mov r8, rax
+ jmp .Lx852_40
+.Lx852_56:
+ cmp eax, 13
+ jne .Lx852_41
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx852_41
+ cmp rax, r8
+ je .Lx852_41
+ mov r8, rax
+ jmp .Lx852_40
+.Lx852_41:
+ lea r9, [rbp + 3600]
+.Lx852_42:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 9
+ jne .Lx852_58
+ mov esi, dword ptr [r9 + 4]
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx852_43
+ cmp esi, 1
+ jne .Lx852_57
+ mov r9, rax
+ jmp .Lx852_42
+.Lx852_57:
+ cmp esi, 2
+ jne .Lx852_43
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx852_43
+ mov r9, rax
+ jmp .Lx852_42
+.Lx852_58:
+ cmp eax, 13
+ jne .Lx852_43
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx852_43
+ cmp rax, r9
+ je .Lx852_43
+ mov r9, rax
+ jmp .Lx852_42
+.Lx852_43:
+ cmp r8, r9
+ je .Lx852_51
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx852_44
+ cmp eax, 99
+ je .Lx852_44
+ cmp eax, 13
+ jne .Lx852_45
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx852_44
+ jmp .Lx852_45
+.Lx852_44:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx852_53
+ cmp eax, 99
+ je .Lx852_53
+ cmp eax, 13
+ jne .Lx852_46
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx852_53
+ jmp .Lx852_46
+.Lx852_46:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx852_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx852_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r8
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r8 + 0], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r8 + 8], rax
+ jmp .Lx852_51
+.Lx852_45:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx852_47
+ cmp eax, 99
+ je .Lx852_47
+ cmp eax, 13
+ jne .Lx852_48
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx852_47
+ jmp .Lx852_48
+.Lx852_47:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx852_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx852_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r9
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r9 + 0], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r9 + 8], rax
+ jmp .Lx852_51
+.Lx852_48:
+ mov ecx, dword ptr [r8 + 0]
+ mov edx, dword ptr [r9 + 0]
+ cmp ecx, 14
+ jne .Lx852_49
+ cmp edx, 14
+ je .Lx852_53
+ jmp .Lx852_52
+.Lx852_49:
+ cmp edx, 14
+ je .Lx852_52
+ cmp ecx, 7
+ je .Lx852_53
+ cmp edx, 7
+ je .Lx852_53
+ cmp ecx, 6
+ jne .Lx852_50
+ cmp edx, 6
+ jne .Lx852_50
+ mov rax, qword ptr [r8 + 0]
+ cmp rax, 6
+ jne .Lx852_53
+ mov rax, qword ptr [r9 + 0]
+ cmp rax, 6
+ jne .Lx852_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ je .Lx852_51
+ jmp .Lx852_52
+.Lx852_50:
+ mov rax, qword ptr [r8 + 0]
+ mov rsi, qword ptr [r9 + 0]
+ cmp rax, rsi
+ jne .Lx852_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ jne .Lx852_53
+.Lx852_51:
+ mov rax, qword ptr [r8 + 0]
+ mov rdx, qword ptr [r8 + 8]
+ jmp .Lx852_54
+.Lx852_52:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx852_54
+.Lx852_53:
  mov esi, 2
  call rt_pl_dop_unify@PLT
+.Lx852_54:
  mov qword ptr [rbp + 3568], rax
  mov qword ptr [rbp + 3576], rdx
  cmp eax, 99
@@ -7963,10 +9983,212 @@ mov qword ptr [rbp + 3680], rax
  mov qword ptr [rbp + 3488], rax
  mov rax, qword ptr [rbp + 3544]
  mov qword ptr [rbp + 3496], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-SINK-1 inline $unify fast path: deref/bind/trail/int-eq emitted; rt_pl_dop_unify stays the slow-path oracle (bit-identical fallback, unmodified args)
  lea rdi, [rbp + 3472]
+ lea r8, [rbp + 3472]
+.Lx860_40:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx860_56
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx860_41
+ cmp esi, 1
+ jne .Lx860_55
+ mov r8, rax
+ jmp .Lx860_40
+.Lx860_55:
+ cmp esi, 2
+ jne .Lx860_41
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx860_41
+ mov r8, rax
+ jmp .Lx860_40
+.Lx860_56:
+ cmp eax, 13
+ jne .Lx860_41
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx860_41
+ cmp rax, r8
+ je .Lx860_41
+ mov r8, rax
+ jmp .Lx860_40
+.Lx860_41:
+ lea r9, [rbp + 3488]
+.Lx860_42:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 9
+ jne .Lx860_58
+ mov esi, dword ptr [r9 + 4]
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx860_43
+ cmp esi, 1
+ jne .Lx860_57
+ mov r9, rax
+ jmp .Lx860_42
+.Lx860_57:
+ cmp esi, 2
+ jne .Lx860_43
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx860_43
+ mov r9, rax
+ jmp .Lx860_42
+.Lx860_58:
+ cmp eax, 13
+ jne .Lx860_43
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx860_43
+ cmp rax, r9
+ je .Lx860_43
+ mov r9, rax
+ jmp .Lx860_42
+.Lx860_43:
+ cmp r8, r9
+ je .Lx860_51
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx860_44
+ cmp eax, 99
+ je .Lx860_44
+ cmp eax, 13
+ jne .Lx860_45
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx860_44
+ jmp .Lx860_45
+.Lx860_44:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx860_53
+ cmp eax, 99
+ je .Lx860_53
+ cmp eax, 13
+ jne .Lx860_46
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx860_53
+ jmp .Lx860_46
+.Lx860_46:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx860_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx860_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r8
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r8 + 0], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r8 + 8], rax
+ jmp .Lx860_51
+.Lx860_45:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx860_47
+ cmp eax, 99
+ je .Lx860_47
+ cmp eax, 13
+ jne .Lx860_48
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx860_47
+ jmp .Lx860_48
+.Lx860_47:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx860_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx860_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r9
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r9 + 0], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r9 + 8], rax
+ jmp .Lx860_51
+.Lx860_48:
+ mov ecx, dword ptr [r8 + 0]
+ mov edx, dword ptr [r9 + 0]
+ cmp ecx, 14
+ jne .Lx860_49
+ cmp edx, 14
+ je .Lx860_53
+ jmp .Lx860_52
+.Lx860_49:
+ cmp edx, 14
+ je .Lx860_52
+ cmp ecx, 7
+ je .Lx860_53
+ cmp edx, 7
+ je .Lx860_53
+ cmp ecx, 6
+ jne .Lx860_50
+ cmp edx, 6
+ jne .Lx860_50
+ mov rax, qword ptr [r8 + 0]
+ cmp rax, 6
+ jne .Lx860_53
+ mov rax, qword ptr [r9 + 0]
+ cmp rax, 6
+ jne .Lx860_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ je .Lx860_51
+ jmp .Lx860_52
+.Lx860_50:
+ mov rax, qword ptr [r8 + 0]
+ mov rsi, qword ptr [r9 + 0]
+ cmp rax, rsi
+ jne .Lx860_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ jne .Lx860_53
+.Lx860_51:
+ mov rax, qword ptr [r8 + 0]
+ mov rdx, qword ptr [r8 + 8]
+ jmp .Lx860_54
+.Lx860_52:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx860_54
+.Lx860_53:
  mov esi, 2
  call rt_pl_dop_unify@PLT
+.Lx860_54:
  mov qword ptr [rbp + 3456], rax
  mov qword ptr [rbp + 3464], rdx
  cmp eax, 99
@@ -8000,10 +10222,212 @@ mov qword ptr [rbp + 3680], rax
  mov qword ptr [rbp + 2768], rax
  mov rax, qword ptr [rbp + 2824]
  mov qword ptr [rbp + 2776], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-SINK-1 inline $unify fast path: deref/bind/trail/int-eq emitted; rt_pl_dop_unify stays the slow-path oracle (bit-identical fallback, unmodified args)
  lea rdi, [rbp + 2752]
+ lea r8, [rbp + 2752]
+.Lx865_40:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx865_56
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx865_41
+ cmp esi, 1
+ jne .Lx865_55
+ mov r8, rax
+ jmp .Lx865_40
+.Lx865_55:
+ cmp esi, 2
+ jne .Lx865_41
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx865_41
+ mov r8, rax
+ jmp .Lx865_40
+.Lx865_56:
+ cmp eax, 13
+ jne .Lx865_41
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx865_41
+ cmp rax, r8
+ je .Lx865_41
+ mov r8, rax
+ jmp .Lx865_40
+.Lx865_41:
+ lea r9, [rbp + 2768]
+.Lx865_42:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 9
+ jne .Lx865_58
+ mov esi, dword ptr [r9 + 4]
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx865_43
+ cmp esi, 1
+ jne .Lx865_57
+ mov r9, rax
+ jmp .Lx865_42
+.Lx865_57:
+ cmp esi, 2
+ jne .Lx865_43
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx865_43
+ mov r9, rax
+ jmp .Lx865_42
+.Lx865_58:
+ cmp eax, 13
+ jne .Lx865_43
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx865_43
+ cmp rax, r9
+ je .Lx865_43
+ mov r9, rax
+ jmp .Lx865_42
+.Lx865_43:
+ cmp r8, r9
+ je .Lx865_51
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx865_44
+ cmp eax, 99
+ je .Lx865_44
+ cmp eax, 13
+ jne .Lx865_45
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx865_44
+ jmp .Lx865_45
+.Lx865_44:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx865_53
+ cmp eax, 99
+ je .Lx865_53
+ cmp eax, 13
+ jne .Lx865_46
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx865_53
+ jmp .Lx865_46
+.Lx865_46:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx865_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx865_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r8
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r8 + 0], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r8 + 8], rax
+ jmp .Lx865_51
+.Lx865_45:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx865_47
+ cmp eax, 99
+ je .Lx865_47
+ cmp eax, 13
+ jne .Lx865_48
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx865_47
+ jmp .Lx865_48
+.Lx865_47:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx865_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx865_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r9
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r9 + 0], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r9 + 8], rax
+ jmp .Lx865_51
+.Lx865_48:
+ mov ecx, dword ptr [r8 + 0]
+ mov edx, dword ptr [r9 + 0]
+ cmp ecx, 14
+ jne .Lx865_49
+ cmp edx, 14
+ je .Lx865_53
+ jmp .Lx865_52
+.Lx865_49:
+ cmp edx, 14
+ je .Lx865_52
+ cmp ecx, 7
+ je .Lx865_53
+ cmp edx, 7
+ je .Lx865_53
+ cmp ecx, 6
+ jne .Lx865_50
+ cmp edx, 6
+ jne .Lx865_50
+ mov rax, qword ptr [r8 + 0]
+ cmp rax, 6
+ jne .Lx865_53
+ mov rax, qword ptr [r9 + 0]
+ cmp rax, 6
+ jne .Lx865_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ je .Lx865_51
+ jmp .Lx865_52
+.Lx865_50:
+ mov rax, qword ptr [r8 + 0]
+ mov rsi, qword ptr [r9 + 0]
+ cmp rax, rsi
+ jne .Lx865_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ jne .Lx865_53
+.Lx865_51:
+ mov rax, qword ptr [r8 + 0]
+ mov rdx, qword ptr [r8 + 8]
+ jmp .Lx865_54
+.Lx865_52:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx865_54
+.Lx865_53:
  mov esi, 2
  call rt_pl_dop_unify@PLT
+.Lx865_54:
  mov qword ptr [rbp + 2736], rax
  mov qword ptr [rbp + 2744], rdx
  cmp eax, 99
@@ -8055,10 +10479,212 @@ mov qword ptr [rbp + 3680], rax
  mov qword ptr [rbp + 3376], rax
  mov rax, qword ptr [rbp + 3432]
  mov qword ptr [rbp + 3384], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-SINK-1 inline $unify fast path: deref/bind/trail/int-eq emitted; rt_pl_dop_unify stays the slow-path oracle (bit-identical fallback, unmodified args)
  lea rdi, [rbp + 3360]
+ lea r8, [rbp + 3360]
+.Lx871_40:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx871_56
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx871_41
+ cmp esi, 1
+ jne .Lx871_55
+ mov r8, rax
+ jmp .Lx871_40
+.Lx871_55:
+ cmp esi, 2
+ jne .Lx871_41
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx871_41
+ mov r8, rax
+ jmp .Lx871_40
+.Lx871_56:
+ cmp eax, 13
+ jne .Lx871_41
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx871_41
+ cmp rax, r8
+ je .Lx871_41
+ mov r8, rax
+ jmp .Lx871_40
+.Lx871_41:
+ lea r9, [rbp + 3376]
+.Lx871_42:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 9
+ jne .Lx871_58
+ mov esi, dword ptr [r9 + 4]
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx871_43
+ cmp esi, 1
+ jne .Lx871_57
+ mov r9, rax
+ jmp .Lx871_42
+.Lx871_57:
+ cmp esi, 2
+ jne .Lx871_43
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx871_43
+ mov r9, rax
+ jmp .Lx871_42
+.Lx871_58:
+ cmp eax, 13
+ jne .Lx871_43
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx871_43
+ cmp rax, r9
+ je .Lx871_43
+ mov r9, rax
+ jmp .Lx871_42
+.Lx871_43:
+ cmp r8, r9
+ je .Lx871_51
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx871_44
+ cmp eax, 99
+ je .Lx871_44
+ cmp eax, 13
+ jne .Lx871_45
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx871_44
+ jmp .Lx871_45
+.Lx871_44:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx871_53
+ cmp eax, 99
+ je .Lx871_53
+ cmp eax, 13
+ jne .Lx871_46
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx871_53
+ jmp .Lx871_46
+.Lx871_46:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx871_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx871_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r8
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r8 + 0], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r8 + 8], rax
+ jmp .Lx871_51
+.Lx871_45:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx871_47
+ cmp eax, 99
+ je .Lx871_47
+ cmp eax, 13
+ jne .Lx871_48
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx871_47
+ jmp .Lx871_48
+.Lx871_47:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx871_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx871_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r9
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r9 + 0], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r9 + 8], rax
+ jmp .Lx871_51
+.Lx871_48:
+ mov ecx, dword ptr [r8 + 0]
+ mov edx, dword ptr [r9 + 0]
+ cmp ecx, 14
+ jne .Lx871_49
+ cmp edx, 14
+ je .Lx871_53
+ jmp .Lx871_52
+.Lx871_49:
+ cmp edx, 14
+ je .Lx871_52
+ cmp ecx, 7
+ je .Lx871_53
+ cmp edx, 7
+ je .Lx871_53
+ cmp ecx, 6
+ jne .Lx871_50
+ cmp edx, 6
+ jne .Lx871_50
+ mov rax, qword ptr [r8 + 0]
+ cmp rax, 6
+ jne .Lx871_53
+ mov rax, qword ptr [r9 + 0]
+ cmp rax, 6
+ jne .Lx871_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ je .Lx871_51
+ jmp .Lx871_52
+.Lx871_50:
+ mov rax, qword ptr [r8 + 0]
+ mov rsi, qword ptr [r9 + 0]
+ cmp rax, rsi
+ jne .Lx871_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ jne .Lx871_53
+.Lx871_51:
+ mov rax, qword ptr [r8 + 0]
+ mov rdx, qword ptr [r8 + 8]
+ jmp .Lx871_54
+.Lx871_52:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx871_54
+.Lx871_53:
  mov esi, 2
  call rt_pl_dop_unify@PLT
+.Lx871_54:
  mov qword ptr [rbp + 3344], rax
  mov qword ptr [rbp + 3352], rdx
  cmp eax, 99
@@ -8099,10 +10725,212 @@ mov qword ptr [rbp + 3680], rax
  mov qword ptr [rbp + 2656], rax
  mov rax, qword ptr [rbp + 2712]
  mov qword ptr [rbp + 2664], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-SINK-1 inline $unify fast path: deref/bind/trail/int-eq emitted; rt_pl_dop_unify stays the slow-path oracle (bit-identical fallback, unmodified args)
  lea rdi, [rbp + 2640]
+ lea r8, [rbp + 2640]
+.Lx878_40:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx878_56
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx878_41
+ cmp esi, 1
+ jne .Lx878_55
+ mov r8, rax
+ jmp .Lx878_40
+.Lx878_55:
+ cmp esi, 2
+ jne .Lx878_41
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx878_41
+ mov r8, rax
+ jmp .Lx878_40
+.Lx878_56:
+ cmp eax, 13
+ jne .Lx878_41
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx878_41
+ cmp rax, r8
+ je .Lx878_41
+ mov r8, rax
+ jmp .Lx878_40
+.Lx878_41:
+ lea r9, [rbp + 2656]
+.Lx878_42:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 9
+ jne .Lx878_58
+ mov esi, dword ptr [r9 + 4]
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx878_43
+ cmp esi, 1
+ jne .Lx878_57
+ mov r9, rax
+ jmp .Lx878_42
+.Lx878_57:
+ cmp esi, 2
+ jne .Lx878_43
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx878_43
+ mov r9, rax
+ jmp .Lx878_42
+.Lx878_58:
+ cmp eax, 13
+ jne .Lx878_43
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx878_43
+ cmp rax, r9
+ je .Lx878_43
+ mov r9, rax
+ jmp .Lx878_42
+.Lx878_43:
+ cmp r8, r9
+ je .Lx878_51
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx878_44
+ cmp eax, 99
+ je .Lx878_44
+ cmp eax, 13
+ jne .Lx878_45
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx878_44
+ jmp .Lx878_45
+.Lx878_44:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx878_53
+ cmp eax, 99
+ je .Lx878_53
+ cmp eax, 13
+ jne .Lx878_46
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx878_53
+ jmp .Lx878_46
+.Lx878_46:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx878_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx878_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r8
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r8 + 0], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r8 + 8], rax
+ jmp .Lx878_51
+.Lx878_45:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx878_47
+ cmp eax, 99
+ je .Lx878_47
+ cmp eax, 13
+ jne .Lx878_48
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx878_47
+ jmp .Lx878_48
+.Lx878_47:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx878_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx878_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r9
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r9 + 0], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r9 + 8], rax
+ jmp .Lx878_51
+.Lx878_48:
+ mov ecx, dword ptr [r8 + 0]
+ mov edx, dword ptr [r9 + 0]
+ cmp ecx, 14
+ jne .Lx878_49
+ cmp edx, 14
+ je .Lx878_53
+ jmp .Lx878_52
+.Lx878_49:
+ cmp edx, 14
+ je .Lx878_52
+ cmp ecx, 7
+ je .Lx878_53
+ cmp edx, 7
+ je .Lx878_53
+ cmp ecx, 6
+ jne .Lx878_50
+ cmp edx, 6
+ jne .Lx878_50
+ mov rax, qword ptr [r8 + 0]
+ cmp rax, 6
+ jne .Lx878_53
+ mov rax, qword ptr [r9 + 0]
+ cmp rax, 6
+ jne .Lx878_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ je .Lx878_51
+ jmp .Lx878_52
+.Lx878_50:
+ mov rax, qword ptr [r8 + 0]
+ mov rsi, qword ptr [r9 + 0]
+ cmp rax, rsi
+ jne .Lx878_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ jne .Lx878_53
+.Lx878_51:
+ mov rax, qword ptr [r8 + 0]
+ mov rdx, qword ptr [r8 + 8]
+ jmp .Lx878_54
+.Lx878_52:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx878_54
+.Lx878_53:
  mov esi, 2
  call rt_pl_dop_unify@PLT
+.Lx878_54:
  mov qword ptr [rbp + 2624], rax
  mov qword ptr [rbp + 2632], rdx
  cmp eax, 99
@@ -8143,10 +10971,212 @@ mov qword ptr [rbp + 3680], rax
  mov qword ptr [rbp + 1728], rax
  mov rax, qword ptr [rbp + 1784]
  mov qword ptr [rbp + 1736], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-SINK-1 inline $unify fast path: deref/bind/trail/int-eq emitted; rt_pl_dop_unify stays the slow-path oracle (bit-identical fallback, unmodified args)
  lea rdi, [rbp + 1712]
+ lea r8, [rbp + 1712]
+.Lx885_40:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx885_56
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx885_41
+ cmp esi, 1
+ jne .Lx885_55
+ mov r8, rax
+ jmp .Lx885_40
+.Lx885_55:
+ cmp esi, 2
+ jne .Lx885_41
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx885_41
+ mov r8, rax
+ jmp .Lx885_40
+.Lx885_56:
+ cmp eax, 13
+ jne .Lx885_41
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx885_41
+ cmp rax, r8
+ je .Lx885_41
+ mov r8, rax
+ jmp .Lx885_40
+.Lx885_41:
+ lea r9, [rbp + 1728]
+.Lx885_42:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 9
+ jne .Lx885_58
+ mov esi, dword ptr [r9 + 4]
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx885_43
+ cmp esi, 1
+ jne .Lx885_57
+ mov r9, rax
+ jmp .Lx885_42
+.Lx885_57:
+ cmp esi, 2
+ jne .Lx885_43
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx885_43
+ mov r9, rax
+ jmp .Lx885_42
+.Lx885_58:
+ cmp eax, 13
+ jne .Lx885_43
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx885_43
+ cmp rax, r9
+ je .Lx885_43
+ mov r9, rax
+ jmp .Lx885_42
+.Lx885_43:
+ cmp r8, r9
+ je .Lx885_51
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx885_44
+ cmp eax, 99
+ je .Lx885_44
+ cmp eax, 13
+ jne .Lx885_45
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx885_44
+ jmp .Lx885_45
+.Lx885_44:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx885_53
+ cmp eax, 99
+ je .Lx885_53
+ cmp eax, 13
+ jne .Lx885_46
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx885_53
+ jmp .Lx885_46
+.Lx885_46:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx885_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx885_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r8
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r8 + 0], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r8 + 8], rax
+ jmp .Lx885_51
+.Lx885_45:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx885_47
+ cmp eax, 99
+ je .Lx885_47
+ cmp eax, 13
+ jne .Lx885_48
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx885_47
+ jmp .Lx885_48
+.Lx885_47:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx885_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx885_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r9
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r9 + 0], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r9 + 8], rax
+ jmp .Lx885_51
+.Lx885_48:
+ mov ecx, dword ptr [r8 + 0]
+ mov edx, dword ptr [r9 + 0]
+ cmp ecx, 14
+ jne .Lx885_49
+ cmp edx, 14
+ je .Lx885_53
+ jmp .Lx885_52
+.Lx885_49:
+ cmp edx, 14
+ je .Lx885_52
+ cmp ecx, 7
+ je .Lx885_53
+ cmp edx, 7
+ je .Lx885_53
+ cmp ecx, 6
+ jne .Lx885_50
+ cmp edx, 6
+ jne .Lx885_50
+ mov rax, qword ptr [r8 + 0]
+ cmp rax, 6
+ jne .Lx885_53
+ mov rax, qword ptr [r9 + 0]
+ cmp rax, 6
+ jne .Lx885_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ je .Lx885_51
+ jmp .Lx885_52
+.Lx885_50:
+ mov rax, qword ptr [r8 + 0]
+ mov rsi, qword ptr [r9 + 0]
+ cmp rax, rsi
+ jne .Lx885_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ jne .Lx885_53
+.Lx885_51:
+ mov rax, qword ptr [r8 + 0]
+ mov rdx, qword ptr [r8 + 8]
+ jmp .Lx885_54
+.Lx885_52:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx885_54
+.Lx885_53:
  mov esi, 2
  call rt_pl_dop_unify@PLT
+.Lx885_54:
  mov qword ptr [rbp + 1696], rax
  mov qword ptr [rbp + 1704], rdx
  cmp eax, 99
@@ -8166,10 +11196,212 @@ mov qword ptr [rbp + 3680], rax
  mov qword ptr [rbp + 3264], rax
  mov rax, qword ptr [rbp + 3320]
  mov qword ptr [rbp + 3272], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-SINK-1 inline $unify fast path: deref/bind/trail/int-eq emitted; rt_pl_dop_unify stays the slow-path oracle (bit-identical fallback, unmodified args)
  lea rdi, [rbp + 3248]
+ lea r8, [rbp + 3248]
+.Lx886_40:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx886_56
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx886_41
+ cmp esi, 1
+ jne .Lx886_55
+ mov r8, rax
+ jmp .Lx886_40
+.Lx886_55:
+ cmp esi, 2
+ jne .Lx886_41
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx886_41
+ mov r8, rax
+ jmp .Lx886_40
+.Lx886_56:
+ cmp eax, 13
+ jne .Lx886_41
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx886_41
+ cmp rax, r8
+ je .Lx886_41
+ mov r8, rax
+ jmp .Lx886_40
+.Lx886_41:
+ lea r9, [rbp + 3264]
+.Lx886_42:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 9
+ jne .Lx886_58
+ mov esi, dword ptr [r9 + 4]
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx886_43
+ cmp esi, 1
+ jne .Lx886_57
+ mov r9, rax
+ jmp .Lx886_42
+.Lx886_57:
+ cmp esi, 2
+ jne .Lx886_43
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx886_43
+ mov r9, rax
+ jmp .Lx886_42
+.Lx886_58:
+ cmp eax, 13
+ jne .Lx886_43
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx886_43
+ cmp rax, r9
+ je .Lx886_43
+ mov r9, rax
+ jmp .Lx886_42
+.Lx886_43:
+ cmp r8, r9
+ je .Lx886_51
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx886_44
+ cmp eax, 99
+ je .Lx886_44
+ cmp eax, 13
+ jne .Lx886_45
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx886_44
+ jmp .Lx886_45
+.Lx886_44:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx886_53
+ cmp eax, 99
+ je .Lx886_53
+ cmp eax, 13
+ jne .Lx886_46
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx886_53
+ jmp .Lx886_46
+.Lx886_46:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx886_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx886_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r8
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r8 + 0], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r8 + 8], rax
+ jmp .Lx886_51
+.Lx886_45:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx886_47
+ cmp eax, 99
+ je .Lx886_47
+ cmp eax, 13
+ jne .Lx886_48
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx886_47
+ jmp .Lx886_48
+.Lx886_47:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx886_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx886_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r9
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r9 + 0], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r9 + 8], rax
+ jmp .Lx886_51
+.Lx886_48:
+ mov ecx, dword ptr [r8 + 0]
+ mov edx, dword ptr [r9 + 0]
+ cmp ecx, 14
+ jne .Lx886_49
+ cmp edx, 14
+ je .Lx886_53
+ jmp .Lx886_52
+.Lx886_49:
+ cmp edx, 14
+ je .Lx886_52
+ cmp ecx, 7
+ je .Lx886_53
+ cmp edx, 7
+ je .Lx886_53
+ cmp ecx, 6
+ jne .Lx886_50
+ cmp edx, 6
+ jne .Lx886_50
+ mov rax, qword ptr [r8 + 0]
+ cmp rax, 6
+ jne .Lx886_53
+ mov rax, qword ptr [r9 + 0]
+ cmp rax, 6
+ jne .Lx886_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ je .Lx886_51
+ jmp .Lx886_52
+.Lx886_50:
+ mov rax, qword ptr [r8 + 0]
+ mov rsi, qword ptr [r9 + 0]
+ cmp rax, rsi
+ jne .Lx886_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ jne .Lx886_53
+.Lx886_51:
+ mov rax, qword ptr [r8 + 0]
+ mov rdx, qword ptr [r8 + 8]
+ jmp .Lx886_54
+.Lx886_52:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx886_54
+.Lx886_53:
  mov esi, 2
  call rt_pl_dop_unify@PLT
+.Lx886_54:
  mov qword ptr [rbp + 3232], rax
  mov qword ptr [rbp + 3240], rdx
  cmp eax, 99
@@ -8229,10 +11461,212 @@ mov qword ptr [rbp + 3680], rax
  mov qword ptr [rbp + 2544], rax
  mov rax, qword ptr [rbp + 2600]
  mov qword ptr [rbp + 2552], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-SINK-1 inline $unify fast path: deref/bind/trail/int-eq emitted; rt_pl_dop_unify stays the slow-path oracle (bit-identical fallback, unmodified args)
  lea rdi, [rbp + 2528]
+ lea r8, [rbp + 2528]
+.Lx893_40:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx893_56
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx893_41
+ cmp esi, 1
+ jne .Lx893_55
+ mov r8, rax
+ jmp .Lx893_40
+.Lx893_55:
+ cmp esi, 2
+ jne .Lx893_41
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx893_41
+ mov r8, rax
+ jmp .Lx893_40
+.Lx893_56:
+ cmp eax, 13
+ jne .Lx893_41
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx893_41
+ cmp rax, r8
+ je .Lx893_41
+ mov r8, rax
+ jmp .Lx893_40
+.Lx893_41:
+ lea r9, [rbp + 2544]
+.Lx893_42:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 9
+ jne .Lx893_58
+ mov esi, dword ptr [r9 + 4]
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx893_43
+ cmp esi, 1
+ jne .Lx893_57
+ mov r9, rax
+ jmp .Lx893_42
+.Lx893_57:
+ cmp esi, 2
+ jne .Lx893_43
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx893_43
+ mov r9, rax
+ jmp .Lx893_42
+.Lx893_58:
+ cmp eax, 13
+ jne .Lx893_43
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx893_43
+ cmp rax, r9
+ je .Lx893_43
+ mov r9, rax
+ jmp .Lx893_42
+.Lx893_43:
+ cmp r8, r9
+ je .Lx893_51
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx893_44
+ cmp eax, 99
+ je .Lx893_44
+ cmp eax, 13
+ jne .Lx893_45
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx893_44
+ jmp .Lx893_45
+.Lx893_44:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx893_53
+ cmp eax, 99
+ je .Lx893_53
+ cmp eax, 13
+ jne .Lx893_46
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx893_53
+ jmp .Lx893_46
+.Lx893_46:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx893_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx893_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r8
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r8 + 0], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r8 + 8], rax
+ jmp .Lx893_51
+.Lx893_45:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx893_47
+ cmp eax, 99
+ je .Lx893_47
+ cmp eax, 13
+ jne .Lx893_48
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx893_47
+ jmp .Lx893_48
+.Lx893_47:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx893_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx893_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r9
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r9 + 0], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r9 + 8], rax
+ jmp .Lx893_51
+.Lx893_48:
+ mov ecx, dword ptr [r8 + 0]
+ mov edx, dword ptr [r9 + 0]
+ cmp ecx, 14
+ jne .Lx893_49
+ cmp edx, 14
+ je .Lx893_53
+ jmp .Lx893_52
+.Lx893_49:
+ cmp edx, 14
+ je .Lx893_52
+ cmp ecx, 7
+ je .Lx893_53
+ cmp edx, 7
+ je .Lx893_53
+ cmp ecx, 6
+ jne .Lx893_50
+ cmp edx, 6
+ jne .Lx893_50
+ mov rax, qword ptr [r8 + 0]
+ cmp rax, 6
+ jne .Lx893_53
+ mov rax, qword ptr [r9 + 0]
+ cmp rax, 6
+ jne .Lx893_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ je .Lx893_51
+ jmp .Lx893_52
+.Lx893_50:
+ mov rax, qword ptr [r8 + 0]
+ mov rsi, qword ptr [r9 + 0]
+ cmp rax, rsi
+ jne .Lx893_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ jne .Lx893_53
+.Lx893_51:
+ mov rax, qword ptr [r8 + 0]
+ mov rdx, qword ptr [r8 + 8]
+ jmp .Lx893_54
+.Lx893_52:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx893_54
+.Lx893_53:
  mov esi, 2
  call rt_pl_dop_unify@PLT
+.Lx893_54:
  mov qword ptr [rbp + 2512], rax
  mov qword ptr [rbp + 2520], rdx
  cmp eax, 99
@@ -8280,10 +11714,212 @@ mov qword ptr [rbp + 3680], rax
  mov qword ptr [rbp + 1616], rax
  mov rax, qword ptr [rbp + 1672]
  mov qword ptr [rbp + 1624], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-SINK-1 inline $unify fast path: deref/bind/trail/int-eq emitted; rt_pl_dop_unify stays the slow-path oracle (bit-identical fallback, unmodified args)
  lea rdi, [rbp + 1600]
+ lea r8, [rbp + 1600]
+.Lx902_40:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx902_56
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx902_41
+ cmp esi, 1
+ jne .Lx902_55
+ mov r8, rax
+ jmp .Lx902_40
+.Lx902_55:
+ cmp esi, 2
+ jne .Lx902_41
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx902_41
+ mov r8, rax
+ jmp .Lx902_40
+.Lx902_56:
+ cmp eax, 13
+ jne .Lx902_41
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx902_41
+ cmp rax, r8
+ je .Lx902_41
+ mov r8, rax
+ jmp .Lx902_40
+.Lx902_41:
+ lea r9, [rbp + 1616]
+.Lx902_42:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 9
+ jne .Lx902_58
+ mov esi, dword ptr [r9 + 4]
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx902_43
+ cmp esi, 1
+ jne .Lx902_57
+ mov r9, rax
+ jmp .Lx902_42
+.Lx902_57:
+ cmp esi, 2
+ jne .Lx902_43
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx902_43
+ mov r9, rax
+ jmp .Lx902_42
+.Lx902_58:
+ cmp eax, 13
+ jne .Lx902_43
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx902_43
+ cmp rax, r9
+ je .Lx902_43
+ mov r9, rax
+ jmp .Lx902_42
+.Lx902_43:
+ cmp r8, r9
+ je .Lx902_51
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx902_44
+ cmp eax, 99
+ je .Lx902_44
+ cmp eax, 13
+ jne .Lx902_45
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx902_44
+ jmp .Lx902_45
+.Lx902_44:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx902_53
+ cmp eax, 99
+ je .Lx902_53
+ cmp eax, 13
+ jne .Lx902_46
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx902_53
+ jmp .Lx902_46
+.Lx902_46:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx902_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx902_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r8
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r8 + 0], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r8 + 8], rax
+ jmp .Lx902_51
+.Lx902_45:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx902_47
+ cmp eax, 99
+ je .Lx902_47
+ cmp eax, 13
+ jne .Lx902_48
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx902_47
+ jmp .Lx902_48
+.Lx902_47:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx902_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx902_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r9
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r9 + 0], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r9 + 8], rax
+ jmp .Lx902_51
+.Lx902_48:
+ mov ecx, dword ptr [r8 + 0]
+ mov edx, dword ptr [r9 + 0]
+ cmp ecx, 14
+ jne .Lx902_49
+ cmp edx, 14
+ je .Lx902_53
+ jmp .Lx902_52
+.Lx902_49:
+ cmp edx, 14
+ je .Lx902_52
+ cmp ecx, 7
+ je .Lx902_53
+ cmp edx, 7
+ je .Lx902_53
+ cmp ecx, 6
+ jne .Lx902_50
+ cmp edx, 6
+ jne .Lx902_50
+ mov rax, qword ptr [r8 + 0]
+ cmp rax, 6
+ jne .Lx902_53
+ mov rax, qword ptr [r9 + 0]
+ cmp rax, 6
+ jne .Lx902_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ je .Lx902_51
+ jmp .Lx902_52
+.Lx902_50:
+ mov rax, qword ptr [r8 + 0]
+ mov rsi, qword ptr [r9 + 0]
+ cmp rax, rsi
+ jne .Lx902_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ jne .Lx902_53
+.Lx902_51:
+ mov rax, qword ptr [r8 + 0]
+ mov rdx, qword ptr [r8 + 8]
+ jmp .Lx902_54
+.Lx902_52:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx902_54
+.Lx902_53:
  mov esi, 2
  call rt_pl_dop_unify@PLT
+.Lx902_54:
  mov qword ptr [rbp + 1584], rax
  mov qword ptr [rbp + 1592], rdx
  cmp eax, 99
@@ -8332,10 +11968,212 @@ mov qword ptr [rbp + 3680], rax
  mov qword ptr [rbp + 896], rax
  mov rax, qword ptr [rbp + 952]
  mov qword ptr [rbp + 904], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-SINK-1 inline $unify fast path: deref/bind/trail/int-eq emitted; rt_pl_dop_unify stays the slow-path oracle (bit-identical fallback, unmodified args)
  lea rdi, [rbp + 880]
+ lea r8, [rbp + 880]
+.Lx910_40:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx910_56
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx910_41
+ cmp esi, 1
+ jne .Lx910_55
+ mov r8, rax
+ jmp .Lx910_40
+.Lx910_55:
+ cmp esi, 2
+ jne .Lx910_41
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx910_41
+ mov r8, rax
+ jmp .Lx910_40
+.Lx910_56:
+ cmp eax, 13
+ jne .Lx910_41
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx910_41
+ cmp rax, r8
+ je .Lx910_41
+ mov r8, rax
+ jmp .Lx910_40
+.Lx910_41:
+ lea r9, [rbp + 896]
+.Lx910_42:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 9
+ jne .Lx910_58
+ mov esi, dword ptr [r9 + 4]
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx910_43
+ cmp esi, 1
+ jne .Lx910_57
+ mov r9, rax
+ jmp .Lx910_42
+.Lx910_57:
+ cmp esi, 2
+ jne .Lx910_43
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx910_43
+ mov r9, rax
+ jmp .Lx910_42
+.Lx910_58:
+ cmp eax, 13
+ jne .Lx910_43
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx910_43
+ cmp rax, r9
+ je .Lx910_43
+ mov r9, rax
+ jmp .Lx910_42
+.Lx910_43:
+ cmp r8, r9
+ je .Lx910_51
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx910_44
+ cmp eax, 99
+ je .Lx910_44
+ cmp eax, 13
+ jne .Lx910_45
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx910_44
+ jmp .Lx910_45
+.Lx910_44:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx910_53
+ cmp eax, 99
+ je .Lx910_53
+ cmp eax, 13
+ jne .Lx910_46
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx910_53
+ jmp .Lx910_46
+.Lx910_46:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx910_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx910_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r8
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r8 + 0], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r8 + 8], rax
+ jmp .Lx910_51
+.Lx910_45:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx910_47
+ cmp eax, 99
+ je .Lx910_47
+ cmp eax, 13
+ jne .Lx910_48
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx910_47
+ jmp .Lx910_48
+.Lx910_47:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx910_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx910_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r9
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r9 + 0], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r9 + 8], rax
+ jmp .Lx910_51
+.Lx910_48:
+ mov ecx, dword ptr [r8 + 0]
+ mov edx, dword ptr [r9 + 0]
+ cmp ecx, 14
+ jne .Lx910_49
+ cmp edx, 14
+ je .Lx910_53
+ jmp .Lx910_52
+.Lx910_49:
+ cmp edx, 14
+ je .Lx910_52
+ cmp ecx, 7
+ je .Lx910_53
+ cmp edx, 7
+ je .Lx910_53
+ cmp ecx, 6
+ jne .Lx910_50
+ cmp edx, 6
+ jne .Lx910_50
+ mov rax, qword ptr [r8 + 0]
+ cmp rax, 6
+ jne .Lx910_53
+ mov rax, qword ptr [r9 + 0]
+ cmp rax, 6
+ jne .Lx910_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ je .Lx910_51
+ jmp .Lx910_52
+.Lx910_50:
+ mov rax, qword ptr [r8 + 0]
+ mov rsi, qword ptr [r9 + 0]
+ cmp rax, rsi
+ jne .Lx910_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ jne .Lx910_53
+.Lx910_51:
+ mov rax, qword ptr [r8 + 0]
+ mov rdx, qword ptr [r8 + 8]
+ jmp .Lx910_54
+.Lx910_52:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx910_54
+.Lx910_53:
  mov esi, 2
  call rt_pl_dop_unify@PLT
+.Lx910_54:
  mov qword ptr [rbp + 864], rax
  mov qword ptr [rbp + 872], rdx
  cmp eax, 99
@@ -8378,10 +12216,212 @@ mov qword ptr [rbp + 3680], rax
  mov qword ptr [rbp + 2432], rax
  mov rax, qword ptr [rbp + 2488]
  mov qword ptr [rbp + 2440], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-SINK-1 inline $unify fast path: deref/bind/trail/int-eq emitted; rt_pl_dop_unify stays the slow-path oracle (bit-identical fallback, unmodified args)
  lea rdi, [rbp + 2416]
+ lea r8, [rbp + 2416]
+.Lx912_40:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx912_56
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx912_41
+ cmp esi, 1
+ jne .Lx912_55
+ mov r8, rax
+ jmp .Lx912_40
+.Lx912_55:
+ cmp esi, 2
+ jne .Lx912_41
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx912_41
+ mov r8, rax
+ jmp .Lx912_40
+.Lx912_56:
+ cmp eax, 13
+ jne .Lx912_41
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx912_41
+ cmp rax, r8
+ je .Lx912_41
+ mov r8, rax
+ jmp .Lx912_40
+.Lx912_41:
+ lea r9, [rbp + 2432]
+.Lx912_42:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 9
+ jne .Lx912_58
+ mov esi, dword ptr [r9 + 4]
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx912_43
+ cmp esi, 1
+ jne .Lx912_57
+ mov r9, rax
+ jmp .Lx912_42
+.Lx912_57:
+ cmp esi, 2
+ jne .Lx912_43
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx912_43
+ mov r9, rax
+ jmp .Lx912_42
+.Lx912_58:
+ cmp eax, 13
+ jne .Lx912_43
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx912_43
+ cmp rax, r9
+ je .Lx912_43
+ mov r9, rax
+ jmp .Lx912_42
+.Lx912_43:
+ cmp r8, r9
+ je .Lx912_51
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx912_44
+ cmp eax, 99
+ je .Lx912_44
+ cmp eax, 13
+ jne .Lx912_45
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx912_44
+ jmp .Lx912_45
+.Lx912_44:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx912_53
+ cmp eax, 99
+ je .Lx912_53
+ cmp eax, 13
+ jne .Lx912_46
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx912_53
+ jmp .Lx912_46
+.Lx912_46:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx912_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx912_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r8
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r8 + 0], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r8 + 8], rax
+ jmp .Lx912_51
+.Lx912_45:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx912_47
+ cmp eax, 99
+ je .Lx912_47
+ cmp eax, 13
+ jne .Lx912_48
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx912_47
+ jmp .Lx912_48
+.Lx912_47:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx912_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx912_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r9
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r9 + 0], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r9 + 8], rax
+ jmp .Lx912_51
+.Lx912_48:
+ mov ecx, dword ptr [r8 + 0]
+ mov edx, dword ptr [r9 + 0]
+ cmp ecx, 14
+ jne .Lx912_49
+ cmp edx, 14
+ je .Lx912_53
+ jmp .Lx912_52
+.Lx912_49:
+ cmp edx, 14
+ je .Lx912_52
+ cmp ecx, 7
+ je .Lx912_53
+ cmp edx, 7
+ je .Lx912_53
+ cmp ecx, 6
+ jne .Lx912_50
+ cmp edx, 6
+ jne .Lx912_50
+ mov rax, qword ptr [r8 + 0]
+ cmp rax, 6
+ jne .Lx912_53
+ mov rax, qword ptr [r9 + 0]
+ cmp rax, 6
+ jne .Lx912_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ je .Lx912_51
+ jmp .Lx912_52
+.Lx912_50:
+ mov rax, qword ptr [r8 + 0]
+ mov rsi, qword ptr [r9 + 0]
+ cmp rax, rsi
+ jne .Lx912_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ jne .Lx912_53
+.Lx912_51:
+ mov rax, qword ptr [r8 + 0]
+ mov rdx, qword ptr [r8 + 8]
+ jmp .Lx912_54
+.Lx912_52:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx912_54
+.Lx912_53:
  mov esi, 2
  call rt_pl_dop_unify@PLT
+.Lx912_54:
  mov qword ptr [rbp + 2400], rax
  mov qword ptr [rbp + 2408], rdx
  cmp eax, 99
@@ -8464,10 +12504,212 @@ mov qword ptr [rbp + 3680], rax
  mov qword ptr [rbp + 1504], rax
  mov rax, qword ptr [rbp + 1560]
  mov qword ptr [rbp + 1512], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-SINK-1 inline $unify fast path: deref/bind/trail/int-eq emitted; rt_pl_dop_unify stays the slow-path oracle (bit-identical fallback, unmodified args)
  lea rdi, [rbp + 1488]
+ lea r8, [rbp + 1488]
+.Lx920_40:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx920_56
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx920_41
+ cmp esi, 1
+ jne .Lx920_55
+ mov r8, rax
+ jmp .Lx920_40
+.Lx920_55:
+ cmp esi, 2
+ jne .Lx920_41
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx920_41
+ mov r8, rax
+ jmp .Lx920_40
+.Lx920_56:
+ cmp eax, 13
+ jne .Lx920_41
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx920_41
+ cmp rax, r8
+ je .Lx920_41
+ mov r8, rax
+ jmp .Lx920_40
+.Lx920_41:
+ lea r9, [rbp + 1504]
+.Lx920_42:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 9
+ jne .Lx920_58
+ mov esi, dword ptr [r9 + 4]
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx920_43
+ cmp esi, 1
+ jne .Lx920_57
+ mov r9, rax
+ jmp .Lx920_42
+.Lx920_57:
+ cmp esi, 2
+ jne .Lx920_43
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx920_43
+ mov r9, rax
+ jmp .Lx920_42
+.Lx920_58:
+ cmp eax, 13
+ jne .Lx920_43
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx920_43
+ cmp rax, r9
+ je .Lx920_43
+ mov r9, rax
+ jmp .Lx920_42
+.Lx920_43:
+ cmp r8, r9
+ je .Lx920_51
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx920_44
+ cmp eax, 99
+ je .Lx920_44
+ cmp eax, 13
+ jne .Lx920_45
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx920_44
+ jmp .Lx920_45
+.Lx920_44:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx920_53
+ cmp eax, 99
+ je .Lx920_53
+ cmp eax, 13
+ jne .Lx920_46
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx920_53
+ jmp .Lx920_46
+.Lx920_46:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx920_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx920_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r8
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r8 + 0], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r8 + 8], rax
+ jmp .Lx920_51
+.Lx920_45:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx920_47
+ cmp eax, 99
+ je .Lx920_47
+ cmp eax, 13
+ jne .Lx920_48
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx920_47
+ jmp .Lx920_48
+.Lx920_47:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx920_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx920_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r9
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r9 + 0], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r9 + 8], rax
+ jmp .Lx920_51
+.Lx920_48:
+ mov ecx, dword ptr [r8 + 0]
+ mov edx, dword ptr [r9 + 0]
+ cmp ecx, 14
+ jne .Lx920_49
+ cmp edx, 14
+ je .Lx920_53
+ jmp .Lx920_52
+.Lx920_49:
+ cmp edx, 14
+ je .Lx920_52
+ cmp ecx, 7
+ je .Lx920_53
+ cmp edx, 7
+ je .Lx920_53
+ cmp ecx, 6
+ jne .Lx920_50
+ cmp edx, 6
+ jne .Lx920_50
+ mov rax, qword ptr [r8 + 0]
+ cmp rax, 6
+ jne .Lx920_53
+ mov rax, qword ptr [r9 + 0]
+ cmp rax, 6
+ jne .Lx920_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ je .Lx920_51
+ jmp .Lx920_52
+.Lx920_50:
+ mov rax, qword ptr [r8 + 0]
+ mov rsi, qword ptr [r9 + 0]
+ cmp rax, rsi
+ jne .Lx920_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ jne .Lx920_53
+.Lx920_51:
+ mov rax, qword ptr [r8 + 0]
+ mov rdx, qword ptr [r8 + 8]
+ jmp .Lx920_54
+.Lx920_52:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx920_54
+.Lx920_53:
  mov esi, 2
  call rt_pl_dop_unify@PLT
+.Lx920_54:
  mov qword ptr [rbp + 1472], rax
  mov qword ptr [rbp + 1480], rdx
  cmp eax, 99
@@ -8511,10 +12753,212 @@ mov qword ptr [rbp + 3680], rax
  mov qword ptr [rbp + 784], rax
  mov rax, qword ptr [rbp + 840]
  mov qword ptr [rbp + 792], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-SINK-1 inline $unify fast path: deref/bind/trail/int-eq emitted; rt_pl_dop_unify stays the slow-path oracle (bit-identical fallback, unmodified args)
  lea rdi, [rbp + 768]
+ lea r8, [rbp + 768]
+.Lx928_40:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx928_56
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx928_41
+ cmp esi, 1
+ jne .Lx928_55
+ mov r8, rax
+ jmp .Lx928_40
+.Lx928_55:
+ cmp esi, 2
+ jne .Lx928_41
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx928_41
+ mov r8, rax
+ jmp .Lx928_40
+.Lx928_56:
+ cmp eax, 13
+ jne .Lx928_41
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx928_41
+ cmp rax, r8
+ je .Lx928_41
+ mov r8, rax
+ jmp .Lx928_40
+.Lx928_41:
+ lea r9, [rbp + 784]
+.Lx928_42:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 9
+ jne .Lx928_58
+ mov esi, dword ptr [r9 + 4]
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx928_43
+ cmp esi, 1
+ jne .Lx928_57
+ mov r9, rax
+ jmp .Lx928_42
+.Lx928_57:
+ cmp esi, 2
+ jne .Lx928_43
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx928_43
+ mov r9, rax
+ jmp .Lx928_42
+.Lx928_58:
+ cmp eax, 13
+ jne .Lx928_43
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx928_43
+ cmp rax, r9
+ je .Lx928_43
+ mov r9, rax
+ jmp .Lx928_42
+.Lx928_43:
+ cmp r8, r9
+ je .Lx928_51
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx928_44
+ cmp eax, 99
+ je .Lx928_44
+ cmp eax, 13
+ jne .Lx928_45
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx928_44
+ jmp .Lx928_45
+.Lx928_44:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx928_53
+ cmp eax, 99
+ je .Lx928_53
+ cmp eax, 13
+ jne .Lx928_46
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx928_53
+ jmp .Lx928_46
+.Lx928_46:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx928_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx928_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r8
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r8 + 0], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r8 + 8], rax
+ jmp .Lx928_51
+.Lx928_45:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx928_47
+ cmp eax, 99
+ je .Lx928_47
+ cmp eax, 13
+ jne .Lx928_48
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx928_47
+ jmp .Lx928_48
+.Lx928_47:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx928_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx928_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r9
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r9 + 0], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r9 + 8], rax
+ jmp .Lx928_51
+.Lx928_48:
+ mov ecx, dword ptr [r8 + 0]
+ mov edx, dword ptr [r9 + 0]
+ cmp ecx, 14
+ jne .Lx928_49
+ cmp edx, 14
+ je .Lx928_53
+ jmp .Lx928_52
+.Lx928_49:
+ cmp edx, 14
+ je .Lx928_52
+ cmp ecx, 7
+ je .Lx928_53
+ cmp edx, 7
+ je .Lx928_53
+ cmp ecx, 6
+ jne .Lx928_50
+ cmp edx, 6
+ jne .Lx928_50
+ mov rax, qword ptr [r8 + 0]
+ cmp rax, 6
+ jne .Lx928_53
+ mov rax, qword ptr [r9 + 0]
+ cmp rax, 6
+ jne .Lx928_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ je .Lx928_51
+ jmp .Lx928_52
+.Lx928_50:
+ mov rax, qword ptr [r8 + 0]
+ mov rsi, qword ptr [r9 + 0]
+ cmp rax, rsi
+ jne .Lx928_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ jne .Lx928_53
+.Lx928_51:
+ mov rax, qword ptr [r8 + 0]
+ mov rdx, qword ptr [r8 + 8]
+ jmp .Lx928_54
+.Lx928_52:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx928_54
+.Lx928_53:
  mov esi, 2
  call rt_pl_dop_unify@PLT
+.Lx928_54:
  mov qword ptr [rbp + 752], rax
  mov qword ptr [rbp + 760], rdx
  cmp eax, 99
@@ -8593,10 +13037,212 @@ mov qword ptr [rbp + 3680], rax
  mov qword ptr [rbp + 1392], rax
  mov rax, qword ptr [rbp + 1448]
  mov qword ptr [rbp + 1400], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-SINK-1 inline $unify fast path: deref/bind/trail/int-eq emitted; rt_pl_dop_unify stays the slow-path oracle (bit-identical fallback, unmodified args)
  lea rdi, [rbp + 1376]
+ lea r8, [rbp + 1376]
+.Lx939_40:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx939_56
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx939_41
+ cmp esi, 1
+ jne .Lx939_55
+ mov r8, rax
+ jmp .Lx939_40
+.Lx939_55:
+ cmp esi, 2
+ jne .Lx939_41
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx939_41
+ mov r8, rax
+ jmp .Lx939_40
+.Lx939_56:
+ cmp eax, 13
+ jne .Lx939_41
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx939_41
+ cmp rax, r8
+ je .Lx939_41
+ mov r8, rax
+ jmp .Lx939_40
+.Lx939_41:
+ lea r9, [rbp + 1392]
+.Lx939_42:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 9
+ jne .Lx939_58
+ mov esi, dword ptr [r9 + 4]
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx939_43
+ cmp esi, 1
+ jne .Lx939_57
+ mov r9, rax
+ jmp .Lx939_42
+.Lx939_57:
+ cmp esi, 2
+ jne .Lx939_43
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx939_43
+ mov r9, rax
+ jmp .Lx939_42
+.Lx939_58:
+ cmp eax, 13
+ jne .Lx939_43
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx939_43
+ cmp rax, r9
+ je .Lx939_43
+ mov r9, rax
+ jmp .Lx939_42
+.Lx939_43:
+ cmp r8, r9
+ je .Lx939_51
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx939_44
+ cmp eax, 99
+ je .Lx939_44
+ cmp eax, 13
+ jne .Lx939_45
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx939_44
+ jmp .Lx939_45
+.Lx939_44:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx939_53
+ cmp eax, 99
+ je .Lx939_53
+ cmp eax, 13
+ jne .Lx939_46
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx939_53
+ jmp .Lx939_46
+.Lx939_46:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx939_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx939_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r8
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r8 + 0], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r8 + 8], rax
+ jmp .Lx939_51
+.Lx939_45:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx939_47
+ cmp eax, 99
+ je .Lx939_47
+ cmp eax, 13
+ jne .Lx939_48
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx939_47
+ jmp .Lx939_48
+.Lx939_47:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx939_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx939_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r9
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r9 + 0], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r9 + 8], rax
+ jmp .Lx939_51
+.Lx939_48:
+ mov ecx, dword ptr [r8 + 0]
+ mov edx, dword ptr [r9 + 0]
+ cmp ecx, 14
+ jne .Lx939_49
+ cmp edx, 14
+ je .Lx939_53
+ jmp .Lx939_52
+.Lx939_49:
+ cmp edx, 14
+ je .Lx939_52
+ cmp ecx, 7
+ je .Lx939_53
+ cmp edx, 7
+ je .Lx939_53
+ cmp ecx, 6
+ jne .Lx939_50
+ cmp edx, 6
+ jne .Lx939_50
+ mov rax, qword ptr [r8 + 0]
+ cmp rax, 6
+ jne .Lx939_53
+ mov rax, qword ptr [r9 + 0]
+ cmp rax, 6
+ jne .Lx939_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ je .Lx939_51
+ jmp .Lx939_52
+.Lx939_50:
+ mov rax, qword ptr [r8 + 0]
+ mov rsi, qword ptr [r9 + 0]
+ cmp rax, rsi
+ jne .Lx939_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ jne .Lx939_53
+.Lx939_51:
+ mov rax, qword ptr [r8 + 0]
+ mov rdx, qword ptr [r8 + 8]
+ jmp .Lx939_54
+.Lx939_52:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx939_54
+.Lx939_53:
  mov esi, 2
  call rt_pl_dop_unify@PLT
+.Lx939_54:
  mov qword ptr [rbp + 1360], rax
  mov qword ptr [rbp + 1368], rdx
  cmp eax, 99
@@ -8710,10 +13356,212 @@ mov qword ptr [rbp + 3680], rax
  mov qword ptr [rbp + 672], rax
  mov rax, qword ptr [rbp + 728]
  mov qword ptr [rbp + 680], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-SINK-1 inline $unify fast path: deref/bind/trail/int-eq emitted; rt_pl_dop_unify stays the slow-path oracle (bit-identical fallback, unmodified args)
  lea rdi, [rbp + 656]
+ lea r8, [rbp + 656]
+.Lx946_40:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx946_56
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx946_41
+ cmp esi, 1
+ jne .Lx946_55
+ mov r8, rax
+ jmp .Lx946_40
+.Lx946_55:
+ cmp esi, 2
+ jne .Lx946_41
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx946_41
+ mov r8, rax
+ jmp .Lx946_40
+.Lx946_56:
+ cmp eax, 13
+ jne .Lx946_41
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx946_41
+ cmp rax, r8
+ je .Lx946_41
+ mov r8, rax
+ jmp .Lx946_40
+.Lx946_41:
+ lea r9, [rbp + 672]
+.Lx946_42:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 9
+ jne .Lx946_58
+ mov esi, dword ptr [r9 + 4]
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx946_43
+ cmp esi, 1
+ jne .Lx946_57
+ mov r9, rax
+ jmp .Lx946_42
+.Lx946_57:
+ cmp esi, 2
+ jne .Lx946_43
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx946_43
+ mov r9, rax
+ jmp .Lx946_42
+.Lx946_58:
+ cmp eax, 13
+ jne .Lx946_43
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx946_43
+ cmp rax, r9
+ je .Lx946_43
+ mov r9, rax
+ jmp .Lx946_42
+.Lx946_43:
+ cmp r8, r9
+ je .Lx946_51
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx946_44
+ cmp eax, 99
+ je .Lx946_44
+ cmp eax, 13
+ jne .Lx946_45
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx946_44
+ jmp .Lx946_45
+.Lx946_44:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx946_53
+ cmp eax, 99
+ je .Lx946_53
+ cmp eax, 13
+ jne .Lx946_46
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx946_53
+ jmp .Lx946_46
+.Lx946_46:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx946_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx946_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r8
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r8 + 0], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r8 + 8], rax
+ jmp .Lx946_51
+.Lx946_45:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx946_47
+ cmp eax, 99
+ je .Lx946_47
+ cmp eax, 13
+ jne .Lx946_48
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx946_47
+ jmp .Lx946_48
+.Lx946_47:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx946_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx946_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r9
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r9 + 0], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r9 + 8], rax
+ jmp .Lx946_51
+.Lx946_48:
+ mov ecx, dword ptr [r8 + 0]
+ mov edx, dword ptr [r9 + 0]
+ cmp ecx, 14
+ jne .Lx946_49
+ cmp edx, 14
+ je .Lx946_53
+ jmp .Lx946_52
+.Lx946_49:
+ cmp edx, 14
+ je .Lx946_52
+ cmp ecx, 7
+ je .Lx946_53
+ cmp edx, 7
+ je .Lx946_53
+ cmp ecx, 6
+ jne .Lx946_50
+ cmp edx, 6
+ jne .Lx946_50
+ mov rax, qword ptr [r8 + 0]
+ cmp rax, 6
+ jne .Lx946_53
+ mov rax, qword ptr [r9 + 0]
+ cmp rax, 6
+ jne .Lx946_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ je .Lx946_51
+ jmp .Lx946_52
+.Lx946_50:
+ mov rax, qword ptr [r8 + 0]
+ mov rsi, qword ptr [r9 + 0]
+ cmp rax, rsi
+ jne .Lx946_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ jne .Lx946_53
+.Lx946_51:
+ mov rax, qword ptr [r8 + 0]
+ mov rdx, qword ptr [r8 + 8]
+ jmp .Lx946_54
+.Lx946_52:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx946_54
+.Lx946_53:
  mov esi, 2
  call rt_pl_dop_unify@PLT
+.Lx946_54:
  mov qword ptr [rbp + 640], rax
  mov qword ptr [rbp + 648], rdx
  cmp eax, 99
@@ -8813,10 +13661,212 @@ mov qword ptr [rbp + 3680], rax
  mov qword ptr [rbp + 560], rax
  mov rax, qword ptr [rbp + 616]
  mov qword ptr [rbp + 568], rax
-# PL-REGAIN-2 direct det leaf: rt_pl_dop_unify (no by-name dispatch)
+# PL-SINK-1 inline $unify fast path: deref/bind/trail/int-eq emitted; rt_pl_dop_unify stays the slow-path oracle (bit-identical fallback, unmodified args)
  lea rdi, [rbp + 544]
+ lea r8, [rbp + 544]
+.Lx962_40:
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 9
+ jne .Lx962_56
+ mov esi, dword ptr [r8 + 4]
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx962_41
+ cmp esi, 1
+ jne .Lx962_55
+ mov r8, rax
+ jmp .Lx962_40
+.Lx962_55:
+ cmp esi, 2
+ jne .Lx962_41
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx962_41
+ mov r8, rax
+ jmp .Lx962_40
+.Lx962_56:
+ cmp eax, 13
+ jne .Lx962_41
+ mov rax, qword ptr [r8 + 8]
+ test rax, rax
+ je .Lx962_41
+ cmp rax, r8
+ je .Lx962_41
+ mov r8, rax
+ jmp .Lx962_40
+.Lx962_41:
+ lea r9, [rbp + 560]
+.Lx962_42:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 9
+ jne .Lx962_58
+ mov esi, dword ptr [r9 + 4]
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx962_43
+ cmp esi, 1
+ jne .Lx962_57
+ mov r9, rax
+ jmp .Lx962_42
+.Lx962_57:
+ cmp esi, 2
+ jne .Lx962_43
+ mov rax, qword ptr [rax + 0]
+ test rax, rax
+ je .Lx962_43
+ mov r9, rax
+ jmp .Lx962_42
+.Lx962_58:
+ cmp eax, 13
+ jne .Lx962_43
+ mov rax, qword ptr [r9 + 8]
+ test rax, rax
+ je .Lx962_43
+ cmp rax, r9
+ je .Lx962_43
+ mov r9, rax
+ jmp .Lx962_42
+.Lx962_43:
+ cmp r8, r9
+ je .Lx962_51
+ mov eax, dword ptr [r8 + 0]
+ cmp eax, 0
+ je .Lx962_44
+ cmp eax, 99
+ je .Lx962_44
+ cmp eax, 13
+ jne .Lx962_45
+ mov rax, qword ptr [r8 + 8]
+ cmp rax, r8
+ je .Lx962_44
+ jmp .Lx962_45
+.Lx962_44:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx962_53
+ cmp eax, 99
+ je .Lx962_53
+ cmp eax, 13
+ jne .Lx962_46
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx962_53
+ jmp .Lx962_46
+.Lx962_46:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx962_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx962_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r8
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r8 + 0], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r8 + 8], rax
+ jmp .Lx962_51
+.Lx962_45:
+ mov eax, dword ptr [r9 + 0]
+ cmp eax, 0
+ je .Lx962_47
+ cmp eax, 99
+ je .Lx962_47
+ cmp eax, 13
+ jne .Lx962_48
+ mov rax, qword ptr [r9 + 8]
+ cmp rax, r9
+ je .Lx962_47
+ jmp .Lx962_48
+.Lx962_47:
+ lea r10, [rip + g_pl_trail]
+ mov r11, qword ptr [r10 + 0]
+ test r11, r11
+ je .Lx962_53
+ mov eax, dword ptr [r10 + 32]
+ mov esi, 24
+ imul rsi, rax
+ mov rax, qword ptr [r10 + 24]
+ sub rax, 24
+ cmp rsi, rax
+ ja .Lx962_53
+ add r11, rsi
+ mov qword ptr [r11 + 0], r9
+ mov rax, qword ptr [r9 + 0]
+ mov qword ptr [r11 + 8], rax
+ mov rax, qword ptr [r9 + 8]
+ mov qword ptr [r11 + 16], rax
+ mov eax, dword ptr [r10 + 32]
+ add eax, 1
+ mov dword ptr [r10 + 32], eax
+ mov rax, qword ptr [r8 + 0]
+ mov qword ptr [r9 + 0], rax
+ mov rax, qword ptr [r8 + 8]
+ mov qword ptr [r9 + 8], rax
+ jmp .Lx962_51
+.Lx962_48:
+ mov ecx, dword ptr [r8 + 0]
+ mov edx, dword ptr [r9 + 0]
+ cmp ecx, 14
+ jne .Lx962_49
+ cmp edx, 14
+ je .Lx962_53
+ jmp .Lx962_52
+.Lx962_49:
+ cmp edx, 14
+ je .Lx962_52
+ cmp ecx, 7
+ je .Lx962_53
+ cmp edx, 7
+ je .Lx962_53
+ cmp ecx, 6
+ jne .Lx962_50
+ cmp edx, 6
+ jne .Lx962_50
+ mov rax, qword ptr [r8 + 0]
+ cmp rax, 6
+ jne .Lx962_53
+ mov rax, qword ptr [r9 + 0]
+ cmp rax, 6
+ jne .Lx962_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ je .Lx962_51
+ jmp .Lx962_52
+.Lx962_50:
+ mov rax, qword ptr [r8 + 0]
+ mov rsi, qword ptr [r9 + 0]
+ cmp rax, rsi
+ jne .Lx962_53
+ mov rax, qword ptr [r8 + 8]
+ mov rsi, qword ptr [r9 + 8]
+ cmp rax, rsi
+ jne .Lx962_53
+.Lx962_51:
+ mov rax, qword ptr [r8 + 0]
+ mov rdx, qword ptr [r8 + 8]
+ jmp .Lx962_54
+.Lx962_52:
+ mov eax, 99
+ mov edx, 0
+ jmp .Lx962_54
+.Lx962_53:
  mov esi, 2
  call rt_pl_dop_unify@PLT
+.Lx962_54:
  mov qword ptr [rbp + 528], rax
  mov qword ptr [rbp + 536], rdx
  cmp eax, 99
