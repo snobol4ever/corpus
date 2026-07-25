@@ -1,0 +1,12 @@
+*  180 - ARBNO(*P), non-recursive: *P defers to a zstatic blob (LEN(2)) — the PS-3
+*        FAST-ARM target (uniform per-iteration stride, self-contained, currently on
+*        the chain arm). Contrast 179 (recursive *LIST, zstatic==0 -> stays chain).
+        P = LEN(2)
+        S = 'aabbccddee'
+        S POS(0) ARBNO(*P) RPOS(0)                            :S(OK1)F(BAD1)
+OK1     OUTPUT = 'even ok'                                     :(T2)
+BAD1    OUTPUT = 'even FAIL'
+T2      'abcde' POS(0) ARBNO(*P) RPOS(0)                      :S(BAD2)F(OK2)
+OK2     OUTPUT = 'odd rejected ok'                             :(END)
+BAD2    OUTPUT = 'odd FAIL'
+END
