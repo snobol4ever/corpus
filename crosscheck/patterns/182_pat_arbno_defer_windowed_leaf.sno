@@ -1,0 +1,44 @@
+* 182: PS-3 s153 defer-as-KNOWN-FOOTPRINT-LEAF in the WINDOWED R12-EXIT tail.
+* Body = literal window + *ITEM defer (NOT pure-defer: that is the s152 DT arm).
+* ITEM/ITEM2 are UNIFORM targets (defer-free, no ARBNO; ITEM2 carries an ALT so
+* fp > 16 exercises the SUSP formula's fp term).  NEST is RECURSIVE (non-uniform)
+* so T7 exercises the finalize DECLINE (chain-arm fallback + SEQ unregister).
+* T4 forces commit-then-retract (fail-glue pop + resume of a committed element).
+        ITEM  = SPAN("0123456789")
+        ITEM2 = SPAN("0123456789") | "x"
+        NEST  = SPAN("0123456789") | "(" *NEST ")"
+        LISTP = "(" *ITEM ARBNO("," *ITEM) ")"
+        S1 = "(1,22,333)"
+        S2 = "(7)"
+        S3 = "(1,,2)"
+        S4 = "(11,22)"
+        S5 = "a1,2,3z"
+        S6 = "(4,5)"
+        S7 = "(1,(2),3)"
+        S8 = "(1,2,3,4,5,6,7,8,9,10,11,12)"
+        S1 POS(0) "(" *ITEM ARBNO("," *ITEM) ")" RPOS(0)   :S(A1)F(B1)
+A1      OUTPUT = "T1 MATCH"             :(N1)
+B1      OUTPUT = "T1 NOMATCH"
+N1      S2 POS(0) "(" *ITEM ARBNO("," *ITEM) ")" RPOS(0)  :S(A2)F(B2)
+A2      OUTPUT = "T2 MATCH"             :(N2)
+B2      OUTPUT = "T2 NOMATCH"
+N2      S3 POS(0) "(" *ITEM ARBNO("," *ITEM) ")" RPOS(0)  :S(A3)F(B3)
+A3      OUTPUT = "T3 MATCH"             :(N3)
+B3      OUTPUT = "T3 NOMATCH"
+N3      S4 POS(0) "(" *ITEM ARBNO("," *ITEM) "," *ITEM ")" RPOS(0)  :S(A4)F(B4)
+A4      OUTPUT = "T4 MATCH"             :(N4)
+B4      OUTPUT = "T4 NOMATCH"
+N4      S5 POS(0) "a" *ITEM2 ARBNO("," *ITEM2) "z" RPOS(0)  :S(A5)F(B5)
+A5      OUTPUT = "T5 MATCH"             :(N5)
+B5      OUTPUT = "T5 NOMATCH"
+N5      S6 POS(0) LISTP RPOS(0)         :S(A6)F(B6)
+A6      OUTPUT = "T6 MATCH"             :(N6)
+B6      OUTPUT = "T6 NOMATCH"
+N6      S7 POS(0) "(" *NEST ARBNO("," *NEST) ")" RPOS(0)  :S(A7)F(B7)
+A7      OUTPUT = "T7 MATCH"             :(N7)
+B7      OUTPUT = "T7 NOMATCH"
+N7      S8 POS(0) "(" *ITEM ARBNO("," *ITEM) ")" RPOS(0)  :S(A8)F(B8)
+A8      OUTPUT = "T8 MATCH"             :(N8)
+B8      OUTPUT = "T8 NOMATCH"
+N8
+END
