@@ -76,8 +76,8 @@ pop_final      dummy          =  stk_pop_final(v)
 Pop_final      Pop_final      =  EVAL("epsilon . *pop_final(" vs ")")  :(RETURN)
 pop_final_end
 *------------------------------------------------------------------------------
-               delim          =  SPAN(' ' nl)
-               word           =  NOTANY('( )' nl) BREAK('( )' nl)
+               delim          =  SPAN(' ' CHAR(10))
+               word           =  NOTANY('( )' CHAR(10)) BREAK('( )' CHAR(10))
 *------------------------------------------------------------------------------
                group          =
 +              '('

@@ -80,11 +80,11 @@ slurp_done
                 claws           =
 +               POS(0)
 +               ARBNO(
-+                ( (SPAN(DIGITS) . num) '_CRD :_PUN'
++                ( (SPAN('0123456789') . num) '_CRD :_PUN'
 +                  (epsilon . *new_sent())
 +                | (NOTANY('_') BREAK('_')) . wrd
 +                  '_'
-+                  (ANY(UCASE) SPAN(DIGITS UCASE)) . tag
++                  (ANY(&UCASE) SPAN('0123456789' &UCASE)) . tag
 +                  (epsilon . *add_tok())
 +                )
 +                ' '

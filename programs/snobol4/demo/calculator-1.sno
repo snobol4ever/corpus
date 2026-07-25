@@ -62,8 +62,8 @@ NEG_x
         S = ARRAY(65536)
         LCASE = &LCASE
         DIGITS = '0123456789'
-        V = ANY(LCASE) . *PSH()
-        I = SPAN(DIGITS) . *PSH()
+        V = ANY(&LCASE) . *PSH()
+        I = SPAN('0123456789') . *PSH()
         A = V | I | '(' *X ')'
         F = A
 +         | '+' *F
