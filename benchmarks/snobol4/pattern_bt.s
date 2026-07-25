@@ -71,7 +71,7 @@ xchain0_n1_af:
  cmp eax, 3
  je xchain0_n7_α
  add rsp, 16
- jmp xchain0_n0_af
+ jmp proc_PAT$0_ω
 # IR_MATCH_CAPTURE_SAVE fc cell
  xchain0_n2_α:
  sub rsp, 16
@@ -91,7 +91,7 @@ xchain0_n1_af:
  sub edx, eax
  mov qword ptr [r12 + 16], rdx
  add r12, 24
- jmp xchain0_n0_as
+ jmp proc_PAT$0_γ
  xchain0_n3_β:
  sub r12, 24
  jmp xchain0_n8_β

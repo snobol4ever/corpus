@@ -374,7 +374,7 @@ xchain20_n0_af:
  jmp xchain20_n4_α
  xchain20_n1_β:
  add rsp, 16
- jmp xchain20_n0_af
+ jmp proc_PAT$0_ω
 # IR_MATCH_CAPTURE_COND (pend-park inline pend)
  xchain20_n2_α:
  mov eax, dword ptr [rsp + 16]
@@ -401,7 +401,7 @@ xchain20_n0_af:
  cmp eax, 44
  jne xchain20_n2_β
  add r14d, 1
- jmp xchain20_n0_as
+ jmp proc_PAT$0_γ
  xchain20_n3_β:
  sub r14d, 1
  jmp xchain20_n2_β
@@ -414,7 +414,7 @@ xchain20_n0_af:
  jl .Lx30_237
  add rsp, 16
  add rsp, 16
- jmp xchain20_n0_af
+ jmp proc_PAT$0_ω
 .Lx30_237:
  movzx esi, byte ptr [r13+rcx]
  cmp esi, 44
@@ -424,7 +424,7 @@ xchain20_n0_af:
  jl .Lx30_238
  add rsp, 16
  add rsp, 16
- jmp xchain20_n0_af
+ jmp proc_PAT$0_ω
 .Lx30_238:
  movzx esi, byte ptr [r13+rcx]
  cmp esi, 44
@@ -434,7 +434,7 @@ xchain20_n0_af:
  jl .Lx30_239
  add rsp, 16
  add rsp, 16
- jmp xchain20_n0_af
+ jmp proc_PAT$0_ω
 .Lx30_239:
  movzx esi, byte ptr [r13+rcx]
  cmp esi, 44
@@ -444,7 +444,7 @@ xchain20_n0_af:
  jl .Lx30_240
  add rsp, 16
  add rsp, 16
- jmp xchain20_n0_af
+ jmp proc_PAT$0_ω
 .Lx30_240:
  movzx esi, byte ptr [r13+rcx]
  cmp esi, 44
@@ -459,7 +459,7 @@ xchain20_n0_af:
  mov r14d, dword ptr [rsp + 0]
  add rsp, 16
  add rsp, 16
- jmp xchain20_n0_af
+ jmp proc_PAT$0_ω
 proc_PAT$0_scanhit:
 cmp qword ptr [rbp + 160], 1
 jne 7f
