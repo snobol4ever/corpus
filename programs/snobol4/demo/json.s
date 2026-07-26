@@ -1,5 +1,5 @@
-  .intel_syntax noprefix
-  .text
+                        .intel_syntax    noprefix
+                        .text
   .globl proc_jutf8_α
 proc_jutf8_α:
 #=======================================================================================================================
@@ -13603,801 +13603,801 @@ lea rsp, [rbp + 192]
 mov rbp, [rbp + 184]
 jmp rax
 proc_startup:
-  sub rsp, 8
-  .section .rodata
-  .Lclassspec0: .string "jobj(otab,okeys,onum)"
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lclassspec0]
-  call record_register@PLT
-  .section .rodata
-  .Lstartup_pname0: .string "jutf8"
-  .Lstartup_pp0_0: .string "n"
-  .align 8
-  .Lstartup_pnames0:
-  .quad .Lstartup_pp0_0
-  .quad 0
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname0]
-  lea rsi, [rip + .Lstartup_pnames0]
-  mov edx, 1
-  call rt_proc_register@PLT
-  lea rdi, [rip + .Lstartup_pname0]
-  mov esi, 1
-  call rt_proc_set_dyn_scope@PLT
-  lea rdi, [rip + .Lstartup_pname0]
-  lea rsi, [rip + proc_jutf8_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname0]
-  mov esi, 1
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname0]
-  mov esi, 1856
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname0]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  .section .rodata
-  .Lstartup_pname1: .string "jdec"
-  .Lstartup_pp1_0: .string "s"
-  .Lstartup_pp1_1: .string "r"
-  .Lstartup_pp1_2: .string "seg"
-  .Lstartup_pp1_3: .string "ec"
-  .Lstartup_pp1_4: .string "hx"
-  .Lstartup_pp1_5: .string "n"
-  .align 8
-  .Lstartup_pnames1:
-  .quad .Lstartup_pp1_0
-  .quad .Lstartup_pp1_1
-  .quad .Lstartup_pp1_2
-  .quad .Lstartup_pp1_3
-  .quad .Lstartup_pp1_4
-  .quad .Lstartup_pp1_5
-  .quad 0
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname1]
-  lea rsi, [rip + .Lstartup_pnames1]
-  mov edx, 6
-  call rt_proc_register@PLT
-  lea rdi, [rip + .Lstartup_pname1]
-  mov esi, 1
-  call rt_proc_set_dyn_scope@PLT
-  lea rdi, [rip + .Lstartup_pname1]
-  lea rsi, [rip + proc_jdec_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname1]
-  mov esi, 6
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname1]
-  mov esi, 2976
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname1]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  .section .rodata
-  .Lstartup_pname2: .string "vpush"
-  .Lstartup_pp2_0: .string "v"
-  .align 8
-  .Lstartup_pnames2:
-  .quad .Lstartup_pp2_0
-  .quad 0
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname2]
-  lea rsi, [rip + .Lstartup_pnames2]
-  mov edx, 1
-  call rt_proc_register@PLT
-  lea rdi, [rip + .Lstartup_pname2]
-  mov esi, 1
-  call rt_proc_set_dyn_scope@PLT
-  lea rdi, [rip + .Lstartup_pname2]
-  lea rsi, [rip + proc_vpush_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname2]
-  mov esi, 1
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname2]
-  mov esi, 832
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname2]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  .section .rodata
-  .Lstartup_pname3: .string "pobj"
-  .align 8
-  .Lstartup_pnames3:
-  .quad 0
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname3]
-  lea rsi, [rip + .Lstartup_pnames3]
-  mov edx, 0
-  call rt_proc_register@PLT
-  lea rdi, [rip + .Lstartup_pname3]
-  mov esi, 1
-  call rt_proc_set_dyn_scope@PLT
-  lea rdi, [rip + .Lstartup_pname3]
-  lea rsi, [rip + proc_pobj_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname3]
-  mov esi, 0
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname3]
-  mov esi, 1040
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname3]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  .section .rodata
-  .Lstartup_pname4: .string "parr"
-  .align 8
-  .Lstartup_pnames4:
-  .quad 0
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname4]
-  lea rsi, [rip + .Lstartup_pnames4]
-  mov edx, 0
-  call rt_proc_register@PLT
-  lea rdi, [rip + .Lstartup_pname4]
-  mov esi, 1
-  call rt_proc_set_dyn_scope@PLT
-  lea rdi, [rip + .Lstartup_pname4]
-  lea rsi, [rip + proc_parr_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname4]
-  mov esi, 0
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname4]
-  mov esi, 1040
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname4]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  .section .rodata
-  .Lstartup_pname5: .string "ekey"
-  .align 8
-  .Lstartup_pnames5:
-  .quad 0
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname5]
-  lea rsi, [rip + .Lstartup_pnames5]
-  mov edx, 0
-  call rt_proc_register@PLT
-  lea rdi, [rip + .Lstartup_pname5]
-  mov esi, 1
-  call rt_proc_set_dyn_scope@PLT
-  lea rdi, [rip + .Lstartup_pname5]
-  lea rsi, [rip + proc_ekey_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname5]
-  mov esi, 0
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname5]
-  mov esi, 512
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname5]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  .section .rodata
-  .Lstartup_pname6: .string "eobj"
-  .Lstartup_pp6_0: .string "vb"
-  .Lstartup_pp6_1: .string "kb"
-  .Lstartup_pp6_2: .string "n"
-  .Lstartup_pp6_3: .string "t"
-  .Lstartup_pp6_4: .string "ka"
-  .Lstartup_pp6_5: .string "i"
-  .align 8
-  .Lstartup_pnames6:
-  .quad .Lstartup_pp6_0
-  .quad .Lstartup_pp6_1
-  .quad .Lstartup_pp6_2
-  .quad .Lstartup_pp6_3
-  .quad .Lstartup_pp6_4
-  .quad .Lstartup_pp6_5
-  .quad 0
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname6]
-  lea rsi, [rip + .Lstartup_pnames6]
-  mov edx, 6
-  call rt_proc_register@PLT
-  lea rdi, [rip + .Lstartup_pname6]
-  mov esi, 1
-  call rt_proc_set_dyn_scope@PLT
-  lea rdi, [rip + .Lstartup_pname6]
-  lea rsi, [rip + proc_eobj_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname6]
-  mov esi, 6
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname6]
-  mov esi, 2576
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname6]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  .section .rodata
-  .Lstartup_pname7: .string "earr"
-  .Lstartup_pp7_0: .string "vb"
-  .Lstartup_pp7_1: .string "n"
-  .Lstartup_pp7_2: .string "a"
-  .Lstartup_pp7_3: .string "i"
-  .align 8
-  .Lstartup_pnames7:
-  .quad .Lstartup_pp7_0
-  .quad .Lstartup_pp7_1
-  .quad .Lstartup_pp7_2
-  .quad .Lstartup_pp7_3
-  .quad 0
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname7]
-  lea rsi, [rip + .Lstartup_pnames7]
-  mov edx, 4
-  call rt_proc_register@PLT
-  lea rdi, [rip + .Lstartup_pname7]
-  mov esi, 1
-  call rt_proc_set_dyn_scope@PLT
-  lea rdi, [rip + .Lstartup_pname7]
-  lea rsi, [rip + proc_earr_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname7]
-  mov esi, 4
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname7]
-  mov esi, 1840
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname7]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  .section .rodata
-  .Lstartup_pname8: .string "estr"
-  .align 8
-  .Lstartup_pnames8:
-  .quad 0
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname8]
-  lea rsi, [rip + .Lstartup_pnames8]
-  mov edx, 0
-  call rt_proc_register@PLT
-  lea rdi, [rip + .Lstartup_pname8]
-  mov esi, 1
-  call rt_proc_set_dyn_scope@PLT
-  lea rdi, [rip + .Lstartup_pname8]
-  lea rsi, [rip + proc_estr_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname8]
-  mov esi, 0
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname8]
-  mov esi, 464
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname8]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  .section .rodata
-  .Lstartup_pname9: .string "enum"
-  .align 8
-  .Lstartup_pnames9:
-  .quad 0
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname9]
-  lea rsi, [rip + .Lstartup_pnames9]
-  mov edx, 0
-  call rt_proc_register@PLT
-  lea rdi, [rip + .Lstartup_pname9]
-  mov esi, 1
-  call rt_proc_set_dyn_scope@PLT
-  lea rdi, [rip + .Lstartup_pname9]
-  lea rsi, [rip + proc_enum_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname9]
-  mov esi, 0
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname9]
-  mov esi, 1024
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname9]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  .section .rodata
-  .Lstartup_pname10: .string "etru"
-  .align 8
-  .Lstartup_pnames10:
-  .quad 0
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname10]
-  lea rsi, [rip + .Lstartup_pnames10]
-  mov edx, 0
-  call rt_proc_register@PLT
-  lea rdi, [rip + .Lstartup_pname10]
-  mov esi, 1
-  call rt_proc_set_dyn_scope@PLT
-  lea rdi, [rip + .Lstartup_pname10]
-  lea rsi, [rip + proc_etru_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname10]
-  mov esi, 0
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname10]
-  mov esi, 416
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname10]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  .section .rodata
-  .Lstartup_pname11: .string "efal"
-  .align 8
-  .Lstartup_pnames11:
-  .quad 0
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname11]
-  lea rsi, [rip + .Lstartup_pnames11]
-  mov edx, 0
-  call rt_proc_register@PLT
-  lea rdi, [rip + .Lstartup_pname11]
-  mov esi, 1
-  call rt_proc_set_dyn_scope@PLT
-  lea rdi, [rip + .Lstartup_pname11]
-  lea rsi, [rip + proc_efal_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname11]
-  mov esi, 0
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname11]
-  mov esi, 416
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname11]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  .section .rodata
-  .Lstartup_pname12: .string "enul"
-  .align 8
-  .Lstartup_pnames12:
-  .quad 0
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname12]
-  lea rsi, [rip + .Lstartup_pnames12]
-  mov edx, 0
-  call rt_proc_register@PLT
-  lea rdi, [rip + .Lstartup_pname12]
-  mov esi, 1
-  call rt_proc_set_dyn_scope@PLT
-  lea rdi, [rip + .Lstartup_pname12]
-  lea rsi, [rip + proc_enul_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname12]
-  mov esi, 0
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname12]
-  mov esi, 416
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname12]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  .section .rodata
-  .Lstartup_pname13: .string "PAT$0"
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname13]
-  lea rsi, [rip + proc_PAT$0_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname13]
-  mov esi, 0
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname13]
-  mov esi, 160
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname13]
-  mov esi, 1
-  call rt_proc_set_zstatic@PLT
-  lea rdi, [rip + .Lstartup_pname13]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  .section .rodata
-  .Lstartup_pname14: .string "PAT$1"
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname14]
-  lea rsi, [rip + proc_PAT$1_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname14]
-  mov esi, 0
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname14]
-  mov esi, 192
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname14]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  .section .rodata
-  .Lstartup_pname15: .string "PAT$2"
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname15]
-  lea rsi, [rip + proc_PAT$2_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname15]
-  mov esi, 0
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname15]
-  mov esi, 128
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname15]
-  mov esi, 1
-  call rt_proc_set_zstatic@PLT
-  lea rdi, [rip + .Lstartup_pname15]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  .section .rodata
-  .Lstartup_pname16: .string "PAT$3"
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname16]
-  lea rsi, [rip + proc_PAT$3_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname16]
-  mov esi, 0
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname16]
-  mov esi, 208
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname16]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  .section .rodata
-  .Lstartup_pname17: .string "PAT$4"
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname17]
-  lea rsi, [rip + proc_PAT$4_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname17]
-  mov esi, 0
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname17]
-  mov esi, 560
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname17]
-  mov esi, 1
-  call rt_proc_set_zstatic@PLT
-  lea rdi, [rip + .Lstartup_pname17]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  .section .rodata
-  .Lstartup_pname18: .string "PAT$5"
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname18]
-  lea rsi, [rip + proc_PAT$5_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname18]
-  mov esi, 0
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname18]
-  mov esi, 256
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname18]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  .section .rodata
-  .Lstartup_pname19: .string "PAT$6"
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname19]
-  lea rsi, [rip + proc_PAT$6_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname19]
-  mov esi, 0
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname19]
-  mov esi, 256
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname19]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  .section .rodata
-  .Lstartup_pname20: .string "PAT$7"
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname20]
-  lea rsi, [rip + proc_PAT$7_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname20]
-  mov esi, 0
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname20]
-  mov esi, 144
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname20]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  .section .rodata
-  .Lstartup_pname21: .string "PAT$8"
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname21]
-  lea rsi, [rip + proc_PAT$8_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname21]
-  mov esi, 0
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname21]
-  mov esi, 432
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname21]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  .section .rodata
-  .Lstartup_pname22: .string "PAT$9"
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname22]
-  lea rsi, [rip + proc_PAT$9_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname22]
-  mov esi, 0
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname22]
-  mov esi, 432
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname22]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  .section .rodata
-  .Lstartup_pname23: .string "PAT$10"
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname23]
-  lea rsi, [rip + proc_PAT$10_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname23]
-  mov esi, 0
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname23]
-  mov esi, 528
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname23]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  .section .rodata
-  .Lstartup_pname24: .string "PAT$11"
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname24]
-  lea rsi, [rip + proc_PAT$11_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname24]
-  mov esi, 0
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname24]
-  mov esi, 112
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname24]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  .section .rodata
-  .Lstartup_pname25: .string "PAT$12"
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname25]
-  lea rsi, [rip + proc_PAT$12_α]
-  call rt_proc_set_fn@PLT
-  lea rdi, [rip + .Lstartup_pname25]
-  mov esi, 0
-  call rt_proc_set_nparams@PLT
-  lea rdi, [rip + .Lstartup_pname25]
-  mov esi, 160
-  call rt_proc_set_frame_bytes@PLT
-  lea rdi, [rip + .Lstartup_pname25]
-  mov esi, 1
-  call rt_proc_set_jmpentry@PLT
-  add rsp, 8
-  ret
-  .section .rodata
-  .Lgvan0: .string "jutf8"
-  .Lgvan1: .string "n"
-  .Lgvan2: .string "jdec"
-  .Lgvan3: .string "s"
-  .Lgvan4: .string "r"
-  .Lgvan5: .string "seg"
-  .Lgvan6: .string "ec"
-  .Lgvan7: .string "hx"
-  .Lgvan8: .string "vpush"
-  .Lgvan9: .string "v"
-  .Lgvan10: .string "pobj"
-  .Lgvan11: .string "parr"
-  .Lgvan12: .string "ekey"
-  .Lgvan13: .string "eobj"
-  .Lgvan14: .string "vb"
-  .Lgvan15: .string "kb"
-  .Lgvan16: .string "t"
-  .Lgvan17: .string "ka"
-  .Lgvan18: .string "i"
-  .Lgvan19: .string "earr"
-  .Lgvan20: .string "a"
-  .Lgvan21: .string "estr"
-  .Lgvan22: .string "enum"
-  .Lgvan23: .string "etru"
-  .Lgvan24: .string "efal"
-  .Lgvan25: .string "enul"
-  .Lgvan26: .string "bslash"
-  .Lgvan27: .string "tabch"
-  .Lgvan28: .string "lf"
-  .Lgvan29: .string "cr"
-  .Lgvan30: .string "dq"
-  .Lgvan31: .string "dig"
-  .Lgvan32: .string "VMAX"
-  .Lgvan33: .string "DMAX"
-  .Lgvan34: .string "vs"
-  .Lgvan35: .string "ks"
-  .Lgvan36: .string "fkd"
-  .Lgvan37: .string "fvb"
-  .Lgvan38: .string "fkb"
-  .Lgvan39: .string "vsp"
-  .Lgvan40: .string "ksp"
-  .Lgvan41: .string "dep"
-  .Lgvan42: .string "maxdep"
-  .Lgvan43: .string "nObj"
-  .Lgvan44: .string "nArr"
-  .Lgvan45: .string "nStr"
-  .Lgvan46: .string "nInt"
-  .Lgvan47: .string "nReal"
-  .Lgvan48: .string "nBool"
-  .Lgvan49: .string "nNull"
-  .Lgvan50: .string "esc"
-  .Lgvan51: .string "hxv"
-  .Lgvan52: .string "hxs"
-  .Lgvan53: .string "hxi"
-  .Lgvan54: .string "hxc"
-  .Lgvan55: .string "dummy"
-  .Lgvan56: .string "jxk"
-  .Lgvan57: .string "jxs"
-  .Lgvan58: .string "jxn"
-  .Lgvan59: .string "NULL"
-  .Lgvan60: .string "ws"
-  .Lgvan61: .string "jescape"
-  .Lgvan62: .string "jchunk"
-  .Lgvan63: .string "jstrbody"
-  .Lgvan64: .string "jnumber"
-  .Lgvan65: .string "jkey"
-  .Lgvan66: .string "jstring"
-  .Lgvan67: .string "jmember"
-  .Lgvan68: .string "jobject"
-  .Lgvan69: .string "jarray"
-  .Lgvan70: .string "jvalue"
-  .Lgvan71: .string "jelement"
-  .Lgvan72: .string "json"
-  .Lgvan73: .string "line"
-  .Lgvan74: .string "b1"
-  .Lgvan75: .string "b2"
-  .Lgvan76: .string "src"
-  .Lgvan77: .string "t0"
-  .Lgvan78: .string "t1"
-  .Lgvan79: .string "root"
-  .Lgvan80: .string "PAT$0$A0"
-  .Lgvan81: .string "PAT$1$A0"
-  .Lgvan82: .string "PAT$2$A0"
-  .Lgvan83: .string "PAT$4$A0"
-  .Lgvan84: .string "PAT$4$A1"
-  .Lgvan85: .string "PAT$4$A2"
-  .align 8
+                        sub              rsp, 8
+                        .section         .rodata
+.Lclassspec0:           .string          "jobj(otab,okeys,onum)"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lclassspec0]
+                        call             record_register@PLT
+                        .section         .rodata
+.Lstartup_pname0:       .string          "jutf8"
+.Lstartup_pp0_0:        .string          "n"
+                        .align           8
+.Lstartup_pnames0:
+                        .quad            .Lstartup_pp0_0
+                        .quad            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname0]
+                        lea              rsi, [rip + .Lstartup_pnames0]
+                        mov              edx, 1
+                        call             rt_proc_register@PLT
+                        lea              rdi, [rip + .Lstartup_pname0]
+                        mov              esi, 1
+                        call             rt_proc_set_dyn_scope@PLT
+                        lea              rdi, [rip + .Lstartup_pname0]
+                        lea              rsi, [rip + proc_jutf8_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname0]
+                        mov              esi, 1
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname0]
+                        mov              esi, 1856
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname0]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        .section         .rodata
+.Lstartup_pname1:       .string          "jdec"
+.Lstartup_pp1_0:        .string          "s"
+.Lstartup_pp1_1:        .string          "r"
+.Lstartup_pp1_2:        .string          "seg"
+.Lstartup_pp1_3:        .string          "ec"
+.Lstartup_pp1_4:        .string          "hx"
+.Lstartup_pp1_5:        .string          "n"
+                        .align           8
+.Lstartup_pnames1:
+                        .quad            .Lstartup_pp1_0
+                        .quad            .Lstartup_pp1_1
+                        .quad            .Lstartup_pp1_2
+                        .quad            .Lstartup_pp1_3
+                        .quad            .Lstartup_pp1_4
+                        .quad            .Lstartup_pp1_5
+                        .quad            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname1]
+                        lea              rsi, [rip + .Lstartup_pnames1]
+                        mov              edx, 6
+                        call             rt_proc_register@PLT
+                        lea              rdi, [rip + .Lstartup_pname1]
+                        mov              esi, 1
+                        call             rt_proc_set_dyn_scope@PLT
+                        lea              rdi, [rip + .Lstartup_pname1]
+                        lea              rsi, [rip + proc_jdec_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname1]
+                        mov              esi, 6
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname1]
+                        mov              esi, 2976
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname1]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        .section         .rodata
+.Lstartup_pname2:       .string          "vpush"
+.Lstartup_pp2_0:        .string          "v"
+                        .align           8
+.Lstartup_pnames2:
+                        .quad            .Lstartup_pp2_0
+                        .quad            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname2]
+                        lea              rsi, [rip + .Lstartup_pnames2]
+                        mov              edx, 1
+                        call             rt_proc_register@PLT
+                        lea              rdi, [rip + .Lstartup_pname2]
+                        mov              esi, 1
+                        call             rt_proc_set_dyn_scope@PLT
+                        lea              rdi, [rip + .Lstartup_pname2]
+                        lea              rsi, [rip + proc_vpush_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname2]
+                        mov              esi, 1
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname2]
+                        mov              esi, 832
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname2]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        .section         .rodata
+.Lstartup_pname3:       .string          "pobj"
+                        .align           8
+.Lstartup_pnames3:
+                        .quad            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname3]
+                        lea              rsi, [rip + .Lstartup_pnames3]
+                        mov              edx, 0
+                        call             rt_proc_register@PLT
+                        lea              rdi, [rip + .Lstartup_pname3]
+                        mov              esi, 1
+                        call             rt_proc_set_dyn_scope@PLT
+                        lea              rdi, [rip + .Lstartup_pname3]
+                        lea              rsi, [rip + proc_pobj_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname3]
+                        mov              esi, 0
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname3]
+                        mov              esi, 1040
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname3]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        .section         .rodata
+.Lstartup_pname4:       .string          "parr"
+                        .align           8
+.Lstartup_pnames4:
+                        .quad            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname4]
+                        lea              rsi, [rip + .Lstartup_pnames4]
+                        mov              edx, 0
+                        call             rt_proc_register@PLT
+                        lea              rdi, [rip + .Lstartup_pname4]
+                        mov              esi, 1
+                        call             rt_proc_set_dyn_scope@PLT
+                        lea              rdi, [rip + .Lstartup_pname4]
+                        lea              rsi, [rip + proc_parr_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname4]
+                        mov              esi, 0
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname4]
+                        mov              esi, 1040
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname4]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        .section         .rodata
+.Lstartup_pname5:       .string          "ekey"
+                        .align           8
+.Lstartup_pnames5:
+                        .quad            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname5]
+                        lea              rsi, [rip + .Lstartup_pnames5]
+                        mov              edx, 0
+                        call             rt_proc_register@PLT
+                        lea              rdi, [rip + .Lstartup_pname5]
+                        mov              esi, 1
+                        call             rt_proc_set_dyn_scope@PLT
+                        lea              rdi, [rip + .Lstartup_pname5]
+                        lea              rsi, [rip + proc_ekey_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname5]
+                        mov              esi, 0
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname5]
+                        mov              esi, 512
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname5]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        .section         .rodata
+.Lstartup_pname6:       .string          "eobj"
+.Lstartup_pp6_0:        .string          "vb"
+.Lstartup_pp6_1:        .string          "kb"
+.Lstartup_pp6_2:        .string          "n"
+.Lstartup_pp6_3:        .string          "t"
+.Lstartup_pp6_4:        .string          "ka"
+.Lstartup_pp6_5:        .string          "i"
+                        .align           8
+.Lstartup_pnames6:
+                        .quad            .Lstartup_pp6_0
+                        .quad            .Lstartup_pp6_1
+                        .quad            .Lstartup_pp6_2
+                        .quad            .Lstartup_pp6_3
+                        .quad            .Lstartup_pp6_4
+                        .quad            .Lstartup_pp6_5
+                        .quad            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname6]
+                        lea              rsi, [rip + .Lstartup_pnames6]
+                        mov              edx, 6
+                        call             rt_proc_register@PLT
+                        lea              rdi, [rip + .Lstartup_pname6]
+                        mov              esi, 1
+                        call             rt_proc_set_dyn_scope@PLT
+                        lea              rdi, [rip + .Lstartup_pname6]
+                        lea              rsi, [rip + proc_eobj_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname6]
+                        mov              esi, 6
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname6]
+                        mov              esi, 2576
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname6]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        .section         .rodata
+.Lstartup_pname7:       .string          "earr"
+.Lstartup_pp7_0:        .string          "vb"
+.Lstartup_pp7_1:        .string          "n"
+.Lstartup_pp7_2:        .string          "a"
+.Lstartup_pp7_3:        .string          "i"
+                        .align           8
+.Lstartup_pnames7:
+                        .quad            .Lstartup_pp7_0
+                        .quad            .Lstartup_pp7_1
+                        .quad            .Lstartup_pp7_2
+                        .quad            .Lstartup_pp7_3
+                        .quad            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname7]
+                        lea              rsi, [rip + .Lstartup_pnames7]
+                        mov              edx, 4
+                        call             rt_proc_register@PLT
+                        lea              rdi, [rip + .Lstartup_pname7]
+                        mov              esi, 1
+                        call             rt_proc_set_dyn_scope@PLT
+                        lea              rdi, [rip + .Lstartup_pname7]
+                        lea              rsi, [rip + proc_earr_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname7]
+                        mov              esi, 4
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname7]
+                        mov              esi, 1840
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname7]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        .section         .rodata
+.Lstartup_pname8:       .string          "estr"
+                        .align           8
+.Lstartup_pnames8:
+                        .quad            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname8]
+                        lea              rsi, [rip + .Lstartup_pnames8]
+                        mov              edx, 0
+                        call             rt_proc_register@PLT
+                        lea              rdi, [rip + .Lstartup_pname8]
+                        mov              esi, 1
+                        call             rt_proc_set_dyn_scope@PLT
+                        lea              rdi, [rip + .Lstartup_pname8]
+                        lea              rsi, [rip + proc_estr_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname8]
+                        mov              esi, 0
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname8]
+                        mov              esi, 464
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname8]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        .section         .rodata
+.Lstartup_pname9:       .string          "enum"
+                        .align           8
+.Lstartup_pnames9:
+                        .quad            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname9]
+                        lea              rsi, [rip + .Lstartup_pnames9]
+                        mov              edx, 0
+                        call             rt_proc_register@PLT
+                        lea              rdi, [rip + .Lstartup_pname9]
+                        mov              esi, 1
+                        call             rt_proc_set_dyn_scope@PLT
+                        lea              rdi, [rip + .Lstartup_pname9]
+                        lea              rsi, [rip + proc_enum_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname9]
+                        mov              esi, 0
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname9]
+                        mov              esi, 1024
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname9]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        .section         .rodata
+.Lstartup_pname10:      .string          "etru"
+                        .align           8
+.Lstartup_pnames10:
+                        .quad            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname10]
+                        lea              rsi, [rip + .Lstartup_pnames10]
+                        mov              edx, 0
+                        call             rt_proc_register@PLT
+                        lea              rdi, [rip + .Lstartup_pname10]
+                        mov              esi, 1
+                        call             rt_proc_set_dyn_scope@PLT
+                        lea              rdi, [rip + .Lstartup_pname10]
+                        lea              rsi, [rip + proc_etru_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname10]
+                        mov              esi, 0
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname10]
+                        mov              esi, 416
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname10]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        .section         .rodata
+.Lstartup_pname11:      .string          "efal"
+                        .align           8
+.Lstartup_pnames11:
+                        .quad            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname11]
+                        lea              rsi, [rip + .Lstartup_pnames11]
+                        mov              edx, 0
+                        call             rt_proc_register@PLT
+                        lea              rdi, [rip + .Lstartup_pname11]
+                        mov              esi, 1
+                        call             rt_proc_set_dyn_scope@PLT
+                        lea              rdi, [rip + .Lstartup_pname11]
+                        lea              rsi, [rip + proc_efal_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname11]
+                        mov              esi, 0
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname11]
+                        mov              esi, 416
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname11]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        .section         .rodata
+.Lstartup_pname12:      .string          "enul"
+                        .align           8
+.Lstartup_pnames12:
+                        .quad            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname12]
+                        lea              rsi, [rip + .Lstartup_pnames12]
+                        mov              edx, 0
+                        call             rt_proc_register@PLT
+                        lea              rdi, [rip + .Lstartup_pname12]
+                        mov              esi, 1
+                        call             rt_proc_set_dyn_scope@PLT
+                        lea              rdi, [rip + .Lstartup_pname12]
+                        lea              rsi, [rip + proc_enul_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname12]
+                        mov              esi, 0
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname12]
+                        mov              esi, 416
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname12]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        .section         .rodata
+.Lstartup_pname13:      .string          "PAT$0"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname13]
+                        lea              rsi, [rip + proc_PAT$0_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname13]
+                        mov              esi, 0
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname13]
+                        mov              esi, 160
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname13]
+                        mov              esi, 1
+                        call             rt_proc_set_zstatic@PLT
+                        lea              rdi, [rip + .Lstartup_pname13]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        .section         .rodata
+.Lstartup_pname14:      .string          "PAT$1"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname14]
+                        lea              rsi, [rip + proc_PAT$1_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname14]
+                        mov              esi, 0
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname14]
+                        mov              esi, 192
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname14]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        .section         .rodata
+.Lstartup_pname15:      .string          "PAT$2"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname15]
+                        lea              rsi, [rip + proc_PAT$2_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname15]
+                        mov              esi, 0
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname15]
+                        mov              esi, 128
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname15]
+                        mov              esi, 1
+                        call             rt_proc_set_zstatic@PLT
+                        lea              rdi, [rip + .Lstartup_pname15]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        .section         .rodata
+.Lstartup_pname16:      .string          "PAT$3"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname16]
+                        lea              rsi, [rip + proc_PAT$3_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname16]
+                        mov              esi, 0
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname16]
+                        mov              esi, 208
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname16]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        .section         .rodata
+.Lstartup_pname17:      .string          "PAT$4"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname17]
+                        lea              rsi, [rip + proc_PAT$4_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname17]
+                        mov              esi, 0
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname17]
+                        mov              esi, 560
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname17]
+                        mov              esi, 1
+                        call             rt_proc_set_zstatic@PLT
+                        lea              rdi, [rip + .Lstartup_pname17]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        .section         .rodata
+.Lstartup_pname18:      .string          "PAT$5"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname18]
+                        lea              rsi, [rip + proc_PAT$5_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname18]
+                        mov              esi, 0
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname18]
+                        mov              esi, 256
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname18]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        .section         .rodata
+.Lstartup_pname19:      .string          "PAT$6"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname19]
+                        lea              rsi, [rip + proc_PAT$6_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname19]
+                        mov              esi, 0
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname19]
+                        mov              esi, 256
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname19]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        .section         .rodata
+.Lstartup_pname20:      .string          "PAT$7"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname20]
+                        lea              rsi, [rip + proc_PAT$7_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname20]
+                        mov              esi, 0
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname20]
+                        mov              esi, 144
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname20]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        .section         .rodata
+.Lstartup_pname21:      .string          "PAT$8"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname21]
+                        lea              rsi, [rip + proc_PAT$8_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname21]
+                        mov              esi, 0
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname21]
+                        mov              esi, 432
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname21]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        .section         .rodata
+.Lstartup_pname22:      .string          "PAT$9"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname22]
+                        lea              rsi, [rip + proc_PAT$9_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname22]
+                        mov              esi, 0
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname22]
+                        mov              esi, 432
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname22]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        .section         .rodata
+.Lstartup_pname23:      .string          "PAT$10"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname23]
+                        lea              rsi, [rip + proc_PAT$10_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname23]
+                        mov              esi, 0
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname23]
+                        mov              esi, 528
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname23]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        .section         .rodata
+.Lstartup_pname24:      .string          "PAT$11"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname24]
+                        lea              rsi, [rip + proc_PAT$11_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname24]
+                        mov              esi, 0
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname24]
+                        mov              esi, 112
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname24]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        .section         .rodata
+.Lstartup_pname25:      .string          "PAT$12"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname25]
+                        lea              rsi, [rip + proc_PAT$12_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname25]
+                        mov              esi, 0
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname25]
+                        mov              esi, 160
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname25]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        add              rsp, 8
+                        ret
+                        .section         .rodata
+.Lgvan0:                .string          "jutf8"
+.Lgvan1:                .string          "n"
+.Lgvan2:                .string          "jdec"
+.Lgvan3:                .string          "s"
+.Lgvan4:                .string          "r"
+.Lgvan5:                .string          "seg"
+.Lgvan6:                .string          "ec"
+.Lgvan7:                .string          "hx"
+.Lgvan8:                .string          "vpush"
+.Lgvan9:                .string          "v"
+.Lgvan10:               .string          "pobj"
+.Lgvan11:               .string          "parr"
+.Lgvan12:               .string          "ekey"
+.Lgvan13:               .string          "eobj"
+.Lgvan14:               .string          "vb"
+.Lgvan15:               .string          "kb"
+.Lgvan16:               .string          "t"
+.Lgvan17:               .string          "ka"
+.Lgvan18:               .string          "i"
+.Lgvan19:               .string          "earr"
+.Lgvan20:               .string          "a"
+.Lgvan21:               .string          "estr"
+.Lgvan22:               .string          "enum"
+.Lgvan23:               .string          "etru"
+.Lgvan24:               .string          "efal"
+.Lgvan25:               .string          "enul"
+.Lgvan26:               .string          "bslash"
+.Lgvan27:               .string          "tabch"
+.Lgvan28:               .string          "lf"
+.Lgvan29:               .string          "cr"
+.Lgvan30:               .string          "dq"
+.Lgvan31:               .string          "dig"
+.Lgvan32:               .string          "VMAX"
+.Lgvan33:               .string          "DMAX"
+.Lgvan34:               .string          "vs"
+.Lgvan35:               .string          "ks"
+.Lgvan36:               .string          "fkd"
+.Lgvan37:               .string          "fvb"
+.Lgvan38:               .string          "fkb"
+.Lgvan39:               .string          "vsp"
+.Lgvan40:               .string          "ksp"
+.Lgvan41:               .string          "dep"
+.Lgvan42:               .string          "maxdep"
+.Lgvan43:               .string          "nObj"
+.Lgvan44:               .string          "nArr"
+.Lgvan45:               .string          "nStr"
+.Lgvan46:               .string          "nInt"
+.Lgvan47:               .string          "nReal"
+.Lgvan48:               .string          "nBool"
+.Lgvan49:               .string          "nNull"
+.Lgvan50:               .string          "esc"
+.Lgvan51:               .string          "hxv"
+.Lgvan52:               .string          "hxs"
+.Lgvan53:               .string          "hxi"
+.Lgvan54:               .string          "hxc"
+.Lgvan55:               .string          "dummy"
+.Lgvan56:               .string          "jxk"
+.Lgvan57:               .string          "jxs"
+.Lgvan58:               .string          "jxn"
+.Lgvan59:               .string          "NULL"
+.Lgvan60:               .string          "ws"
+.Lgvan61:               .string          "jescape"
+.Lgvan62:               .string          "jchunk"
+.Lgvan63:               .string          "jstrbody"
+.Lgvan64:               .string          "jnumber"
+.Lgvan65:               .string          "jkey"
+.Lgvan66:               .string          "jstring"
+.Lgvan67:               .string          "jmember"
+.Lgvan68:               .string          "jobject"
+.Lgvan69:               .string          "jarray"
+.Lgvan70:               .string          "jvalue"
+.Lgvan71:               .string          "jelement"
+.Lgvan72:               .string          "json"
+.Lgvan73:               .string          "line"
+.Lgvan74:               .string          "b1"
+.Lgvan75:               .string          "b2"
+.Lgvan76:               .string          "src"
+.Lgvan77:               .string          "t0"
+.Lgvan78:               .string          "t1"
+.Lgvan79:               .string          "root"
+.Lgvan80:               .string          "PAT$0$A0"
+.Lgvan81:               .string          "PAT$1$A0"
+.Lgvan82:               .string          "PAT$2$A0"
+.Lgvan83:               .string          "PAT$4$A0"
+.Lgvan84:               .string          "PAT$4$A1"
+.Lgvan85:               .string          "PAT$4$A2"
+                        .align           8
 __gva_names:
-  .quad .Lgvan0
-  .quad .Lgvan1
-  .quad .Lgvan2
-  .quad .Lgvan3
-  .quad .Lgvan4
-  .quad .Lgvan5
-  .quad .Lgvan6
-  .quad .Lgvan7
-  .quad .Lgvan8
-  .quad .Lgvan9
-  .quad .Lgvan10
-  .quad .Lgvan11
-  .quad .Lgvan12
-  .quad .Lgvan13
-  .quad .Lgvan14
-  .quad .Lgvan15
-  .quad .Lgvan16
-  .quad .Lgvan17
-  .quad .Lgvan18
-  .quad .Lgvan19
-  .quad .Lgvan20
-  .quad .Lgvan21
-  .quad .Lgvan22
-  .quad .Lgvan23
-  .quad .Lgvan24
-  .quad .Lgvan25
-  .quad .Lgvan26
-  .quad .Lgvan27
-  .quad .Lgvan28
-  .quad .Lgvan29
-  .quad .Lgvan30
-  .quad .Lgvan31
-  .quad .Lgvan32
-  .quad .Lgvan33
-  .quad .Lgvan34
-  .quad .Lgvan35
-  .quad .Lgvan36
-  .quad .Lgvan37
-  .quad .Lgvan38
-  .quad .Lgvan39
-  .quad .Lgvan40
-  .quad .Lgvan41
-  .quad .Lgvan42
-  .quad .Lgvan43
-  .quad .Lgvan44
-  .quad .Lgvan45
-  .quad .Lgvan46
-  .quad .Lgvan47
-  .quad .Lgvan48
-  .quad .Lgvan49
-  .quad .Lgvan50
-  .quad .Lgvan51
-  .quad .Lgvan52
-  .quad .Lgvan53
-  .quad .Lgvan54
-  .quad .Lgvan55
-  .quad .Lgvan56
-  .quad .Lgvan57
-  .quad .Lgvan58
-  .quad .Lgvan59
-  .quad .Lgvan60
-  .quad .Lgvan61
-  .quad .Lgvan62
-  .quad .Lgvan63
-  .quad .Lgvan64
-  .quad .Lgvan65
-  .quad .Lgvan66
-  .quad .Lgvan67
-  .quad .Lgvan68
-  .quad .Lgvan69
-  .quad .Lgvan70
-  .quad .Lgvan71
-  .quad .Lgvan72
-  .quad .Lgvan73
-  .quad .Lgvan74
-  .quad .Lgvan75
-  .quad .Lgvan76
-  .quad .Lgvan77
-  .quad .Lgvan78
-  .quad .Lgvan79
-  .quad .Lgvan80
-  .quad .Lgvan81
-  .quad .Lgvan82
-  .quad .Lgvan83
-  .quad .Lgvan84
-  .quad .Lgvan85
-  .section .text
-  .intel_syntax noprefix
-  .globl main
+                        .quad            .Lgvan0
+                        .quad            .Lgvan1
+                        .quad            .Lgvan2
+                        .quad            .Lgvan3
+                        .quad            .Lgvan4
+                        .quad            .Lgvan5
+                        .quad            .Lgvan6
+                        .quad            .Lgvan7
+                        .quad            .Lgvan8
+                        .quad            .Lgvan9
+                        .quad            .Lgvan10
+                        .quad            .Lgvan11
+                        .quad            .Lgvan12
+                        .quad            .Lgvan13
+                        .quad            .Lgvan14
+                        .quad            .Lgvan15
+                        .quad            .Lgvan16
+                        .quad            .Lgvan17
+                        .quad            .Lgvan18
+                        .quad            .Lgvan19
+                        .quad            .Lgvan20
+                        .quad            .Lgvan21
+                        .quad            .Lgvan22
+                        .quad            .Lgvan23
+                        .quad            .Lgvan24
+                        .quad            .Lgvan25
+                        .quad            .Lgvan26
+                        .quad            .Lgvan27
+                        .quad            .Lgvan28
+                        .quad            .Lgvan29
+                        .quad            .Lgvan30
+                        .quad            .Lgvan31
+                        .quad            .Lgvan32
+                        .quad            .Lgvan33
+                        .quad            .Lgvan34
+                        .quad            .Lgvan35
+                        .quad            .Lgvan36
+                        .quad            .Lgvan37
+                        .quad            .Lgvan38
+                        .quad            .Lgvan39
+                        .quad            .Lgvan40
+                        .quad            .Lgvan41
+                        .quad            .Lgvan42
+                        .quad            .Lgvan43
+                        .quad            .Lgvan44
+                        .quad            .Lgvan45
+                        .quad            .Lgvan46
+                        .quad            .Lgvan47
+                        .quad            .Lgvan48
+                        .quad            .Lgvan49
+                        .quad            .Lgvan50
+                        .quad            .Lgvan51
+                        .quad            .Lgvan52
+                        .quad            .Lgvan53
+                        .quad            .Lgvan54
+                        .quad            .Lgvan55
+                        .quad            .Lgvan56
+                        .quad            .Lgvan57
+                        .quad            .Lgvan58
+                        .quad            .Lgvan59
+                        .quad            .Lgvan60
+                        .quad            .Lgvan61
+                        .quad            .Lgvan62
+                        .quad            .Lgvan63
+                        .quad            .Lgvan64
+                        .quad            .Lgvan65
+                        .quad            .Lgvan66
+                        .quad            .Lgvan67
+                        .quad            .Lgvan68
+                        .quad            .Lgvan69
+                        .quad            .Lgvan70
+                        .quad            .Lgvan71
+                        .quad            .Lgvan72
+                        .quad            .Lgvan73
+                        .quad            .Lgvan74
+                        .quad            .Lgvan75
+                        .quad            .Lgvan76
+                        .quad            .Lgvan77
+                        .quad            .Lgvan78
+                        .quad            .Lgvan79
+                        .quad            .Lgvan80
+                        .quad            .Lgvan81
+                        .quad            .Lgvan82
+                        .quad            .Lgvan83
+                        .quad            .Lgvan84
+                        .quad            .Lgvan85
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .globl           main
 main:
-  sub rsp, 8
-  push rdi
-  push rsi
-  call core_lib_init@PLT
-  call proc_startup
-  mov edi, 86
-  call rt_gva_island@PLT
-  mov rsi, rax
-  lea rdi, [rip + __gva_names]
-  mov edx, 86
-  call gva_register@PLT
-  xor esi, esi
-  call main_α
-  xor eax, eax
-  add rsp, 24
-  ret
+                        sub              rsp, 8
+                        push             rdi
+                        push             rsi
+                        call             core_lib_init@PLT
+                        call             proc_startup
+                        mov              edi, 86
+                        call             rt_gva_island@PLT
+                        mov              rsi, rax
+                        lea              rdi, [rip + __gva_names]
+                        mov              edx, 86
+                        call             gva_register@PLT
+                        xor              esi, esi
+                        call             main_α
+                        xor              eax, eax
+                        add              rsp, 24
+                        ret
 main_α:
 #=======================================================================================================================
     .global main_α
