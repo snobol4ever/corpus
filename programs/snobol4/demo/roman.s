@@ -7,10 +7,10 @@ proc_ROMAN_α:
                         .global          proc_ROMAN_β
                         .global          proc_ROMAN_γ
                         .global          proc_ROMAN_ω
-                        sub              rsp, 624
-                        mov              [rsp + 600], rcx
-                        mov              [rsp + 608], rdx
-                        mov              [rsp + 616], rbp
+                        sub              rsp, 608
+                        mov              [rsp + 584], rcx
+                        mov              [rsp + 592], rdx
+                        mov              [rsp + 600], rbp
                         mov              rbp, rsp
                         mov              qword ptr [rsp], 0
                         mov              qword ptr [rsp + 8], 0
@@ -18,8 +18,6 @@ proc_ROMAN_α:
                         mov              qword ptr [rsp + 312], 0
                         mov              qword ptr [rsp + 496], 0
                         mov              qword ptr [rsp + 504], 0
-                        mov              qword ptr [rsp + 576], 0
-                        mov              qword ptr [rsp + 584], rsp
 proc_ROMAN_α_body:
 #=======================================================================================================================
 # ROMAN	N RPOS(1) LEN(1) . UNITS =	:F(RETURN)
@@ -490,15 +488,15 @@ proc_ROMAN_β:
 proc_ROMAN_γ:
                         mov              rdi, [rbp]
                         mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 600]
-                        lea              rsp, [rbp + 624]
-                        mov              rbp, [rbp + 616]
+                        mov              rax, [rbp + 584]
+                        lea              rsp, [rbp + 608]
+                        mov              rbp, [rbp + 600]
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_ROMAN_ω:
-                        mov              rax, [rbp + 608]
-                        lea              rsp, [rbp + 624]
-                        mov              rbp, [rbp + 616]
+                        mov              rax, [rbp + 592]
+                        lea              rsp, [rbp + 608]
+                        mov              rbp, [rbp + 600]
                                                                                         jmp   rax
 proc_startup:
                         sub              rsp, 8
@@ -527,7 +525,7 @@ proc_startup:
                         mov              esi, 2
                         call             rt_proc_set_nparams@PLT
                         lea              rdi, [rip + .Lstartup_pname0]
-                        mov              esi, 592
+                        mov              esi, 576
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname0]
                         mov              esi, 1
@@ -569,14 +567,13 @@ main_α:
                         .global          main_β
                         .global          main_γ
                         .global          main_ω
-                        sub              rsp, 65544
+                        sub              rsp, 584
                         mov              rdi, rsp
-                        mov              ecx, 65544
+                        mov              ecx, 584
                         xor              eax, eax
                         rep stosb
-                        mov              qword ptr [rsp + 584], rsp
                         mov              r12, qword ptr [1879048192]
-                        mov              [rsp + 65536], rbp
+                        mov              [rsp + 576], rbp
                         mov              rbp, rsp
 main_α_body:
 #=======================================================================================================================
@@ -600,20 +597,20 @@ main_β:
 main_γ:
                         mov              eax, 1
                         xor              edx, edx
-                        mov              rsp, qword ptr [rbp + 584]
-                        mov              rbp, [rsp + 65536]
-                        add              rsp, 65544
+                        mov              rsp, rbp
+                        mov              rbp, [rsp + 576]
+                        add              rsp, 584
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
-                        mov              rsp, qword ptr [rbp + 584]
+                        mov              rsp, rbp
                         mov              dword ptr [rsp+0], 99
                         mov              dword ptr [rsp+4], 0
                         mov              qword ptr [rsp+8], 0
                         mov              eax, 99
                         xor              edx, edx
-                        mov              rbp, [rsp + 65536]
-                        add              rsp, 65544
+                        mov              rbp, [rsp + 576]
+                        add              rsp, 584
                         ret
                         .section         .rodata
 .S0:                    .string          "UNITS"
