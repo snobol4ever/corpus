@@ -46,6 +46,7 @@ main_α:
   mov [rsp + 65536], rbp
   mov rbp, rsp
 main_α_body:
+#     &TRIM = 1
 # IR_LIT_STRING
  xchain0_n0_α:
  mov qword ptr [rbp + 160], 1
@@ -91,6 +92,7 @@ main_α_body:
  jmp xchain0_n3_α
  xchain0_n2_β:
  jmp xchain0_n3_α
+#     &STLIMIT = 1000000000
 # IR_LIT_STRING
  xchain0_n3_α:
  mov qword ptr [rbp + 288], 1
@@ -136,6 +138,7 @@ main_α_body:
  jmp xchain0_n6_α
  xchain0_n5_β:
  jmp xchain0_n6_α
+#     T1 = TIME()
  xchain0_n6_α:
 # BOX IR_CALL TIME(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
@@ -162,6 +165,7 @@ main_α_body:
  mov qword ptr [rbp + 352], rax
  mov qword ptr [rbp + 360], rdx
  jmp xchain0_n8_α
+#     N = 1
 # IR_LIT_INTEGER
  xchain0_n8_α:
  mov qword ptr [rbp + 416], 6
@@ -179,6 +183,7 @@ main_α_body:
  mov qword ptr [rbp + 400], rax
  mov qword ptr [rbp + 408], rdx
  jmp xchain0_n10_α
+#     OUTER = 0
 # IR_LIT_INTEGER
  xchain0_n10_α:
  mov qword ptr [rbp + 464], 6
@@ -196,6 +201,7 @@ main_α_body:
  mov qword ptr [rbp + 448], rax
  mov qword ptr [rbp + 456], rdx
  jmp xchain0_n12_α
+# OUTER   N = N + 3
 # IR_VAR
  xchain0_n12_α:
  mov rax, qword ptr [1879052304]
@@ -211,6 +217,7 @@ main_α_body:
  jmp xchain0_n15_α
 .Lx17_0:
  .quad 3
+#     N = N - 1
 # IR_VAR
  xchain0_n14_α:
  mov rax, qword ptr [1879052304]
@@ -265,6 +272,7 @@ main_α_body:
  jmp xchain0_n19_α
 .Lx20_0:
  .quad 1
+#     N = N * 2
 # IR_VAR
  xchain0_n17_α:
  mov rax, qword ptr [1879052304]
@@ -328,6 +336,7 @@ main_α_body:
  jmp xchain0_n23_α
 .Lx24_0:
  .quad 2
+#     N = GE(N, 10000000) N / 10000      :S(OUTER)F(NEXT)
 # IR_VAR
  xchain0_n21_α:
  mov rax, qword ptr [1879052304]
@@ -391,6 +400,7 @@ main_α_body:
  jmp xchain0_n27_α
 .Lx28_0:
  .quad 10000000
+# NEXT    OUTER = LT(OUTER, 1000000) OUTER + 1  :S(OUTER)
 # IR_VAR
  xchain0_n25_α:
  mov rax, qword ptr [1879052320]
@@ -438,6 +448,7 @@ main_α_body:
  jmp xchain0_n31_α
 .Lx33_0:
  .quad 1000000
+#     T2 = TIME()
  xchain0_n29_α:
 # BOX IR_CALL TIME(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
@@ -510,6 +521,7 @@ main_α_body:
  mov qword ptr [rbp + 1440], rax
  mov qword ptr [rbp + 1448], rdx
  jmp xchain0_n33_α
+#     OUTPUT = "result: " N
 # IR_LIT_STRING
  xchain0_n33_α:
  mov qword ptr [rbp + 1536], 1
@@ -587,6 +599,7 @@ main_α_body:
  mov qword ptr [rbp + 1504], rax
  mov qword ptr [rbp + 1512], rdx
  jmp xchain0_n43_α
+#     OUTPUT = "ms: " (T2 - T1)
 # IR_LIT_STRING
  xchain0_n40_α:
  mov qword ptr [rbp + 1648], 1

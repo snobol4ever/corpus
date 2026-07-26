@@ -50,6 +50,7 @@ main_α:
   mov [rsp + 65536], rbp
   mov rbp, rsp
 main_α_body:
+#     &TRIM = 1
 # IR_LIT_STRING
  xchain0_n0_α:
  mov qword ptr [rbp + 160], 1
@@ -95,6 +96,7 @@ main_α_body:
  jmp xchain0_n3_α
  xchain0_n2_β:
  jmp xchain0_n3_α
+#     &STLIMIT = 1000000000
 # IR_LIT_STRING
  xchain0_n3_α:
  mov qword ptr [rbp + 288], 1
@@ -140,6 +142,7 @@ main_α_body:
  jmp xchain0_n6_α
  xchain0_n5_β:
  jmp xchain0_n6_α
+#     T1 = TIME()
  xchain0_n6_α:
 # BOX IR_CALL TIME(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
@@ -166,6 +169,7 @@ main_α_body:
  mov qword ptr [rbp + 352], rax
  mov qword ptr [rbp + 360], rdx
  jmp xchain0_n8_α
+#     OUTER = 0
 # IR_LIT_INTEGER
  xchain0_n8_α:
  mov qword ptr [rbp + 416], 6
@@ -183,6 +187,7 @@ main_α_body:
  mov qword ptr [rbp + 400], rax
  mov qword ptr [rbp + 408], rdx
  jmp xchain0_n10_α
+# OUTER   T = TABLE(512)
 # IR_LIT_INTEGER
  xchain0_n10_α:
  mov qword ptr [rbp + 512], 6
@@ -222,6 +227,7 @@ main_α_body:
  mov qword ptr [rbp + 448], rax
  mov qword ptr [rbp + 456], rdx
  jmp xchain0_n13_α
+#     I = 0
 # IR_LIT_INTEGER
  xchain0_n13_α:
  mov qword ptr [rbp + 560], 6
@@ -239,6 +245,7 @@ main_α_body:
  mov qword ptr [rbp + 544], rax
  mov qword ptr [rbp + 552], rdx
  jmp xchain0_n15_α
+# FILL    I = LT(I, 500) I + 1           :F(READ)
 # IR_VAR
  xchain0_n15_α:
  mov rax, qword ptr [1879052336]
@@ -254,6 +261,7 @@ main_α_body:
  jmp xchain0_n18_α
 .Lx21_0:
  .quad 500
+# READ    SUM = 0
 # IR_LIT_INTEGER
  xchain0_n17_α:
  mov qword ptr [rbp + 1120], 6
@@ -317,6 +325,7 @@ main_α_body:
  mov rcx, 148
  call rt_coerce_num2_d@PLT
  jmp xchain0_n22_α
+#     I = 0
 # IR_LIT_INTEGER
  xchain0_n21_α:
  mov qword ptr [rbp + 1168], 6
@@ -351,6 +360,7 @@ main_α_body:
  mov qword ptr [rbp + 832], rax
  mov qword ptr [rbp + 840], rdx
  jmp xchain0_n26_α
+# LOOP    I = LT(I, 500) I + 1           :F(CHECK)
 # IR_VAR
  xchain0_n25_α:
  mov rax, qword ptr [1879052336]
@@ -374,6 +384,7 @@ main_α_body:
  jmp xchain0_n30_α
 .Lx35_0:
  .quad 500
+# CHECK   OUTER = LT(OUTER, 5000) OUTER + 1  :S(OUTER)
 # IR_VAR
  xchain0_n28_α:
  mov rax, qword ptr [1879052304]
@@ -451,6 +462,7 @@ main_α_body:
  jmp xchain0_n35_α
 .Lx40_0:
  .quad 5000
+#     T2 = TIME()
  xchain0_n32_α:
 # BOX IR_CALL TIME(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
@@ -533,6 +545,7 @@ main_α_body:
  mov qword ptr [rbp + 2000], rax
  mov qword ptr [rbp + 2008], rdx
  jmp xchain0_n37_α
+#     OUTPUT = "result: " SUM
 # IR_LIT_STRING
  xchain0_n37_α:
  mov qword ptr [rbp + 2096], 1
@@ -592,6 +605,7 @@ main_α_body:
  mov qword ptr [rbp + 2128], rax
  mov qword ptr [rbp + 2136], rdx
  jmp xchain0_n45_α
+#     T<I> = I * 2                       :(FILL)
 # IR_VAR
  xchain0_n42_α:
  mov rax, qword ptr [1879052320]
@@ -626,6 +640,7 @@ main_α_body:
  mov qword ptr [rbp + 2064], rax
  mov qword ptr [rbp + 2072], rdx
  jmp xchain0_n50_α
+#     OUTPUT = "ms: " (T2 - T1)
 # IR_LIT_STRING
  xchain0_n46_α:
  mov qword ptr [rbp + 2208], 1
@@ -921,6 +936,7 @@ main_α_body:
  jmp xchain0_n68_α
  xchain0_n64_β:
  jmp xchain0_n15_α
+#     SUM = SUM + T<I>                   :(LOOP)
 # IR_VAR
  xchain0_n65_α:
  mov rax, qword ptr [1879052352]

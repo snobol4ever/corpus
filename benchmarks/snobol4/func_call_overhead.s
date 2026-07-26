@@ -17,6 +17,7 @@ proc_INC_α:
   mov qword ptr [rsp + 208], 0
   mov qword ptr [rsp + 216], rsp
 proc_INC_α_body:
+# INC     INC = N + 1                    :(RETURN)
 # IR_VAR
  xchain0_n0_α:
  mov rax, qword ptr [1879052304]
@@ -178,6 +179,7 @@ main_α:
   mov [rsp + 65536], rbp
   mov rbp, rsp
 main_α_body:
+#     &TRIM = 1
 # IR_LIT_STRING
  xchain5_n0_α:
  mov qword ptr [rbp + 160], 1
@@ -223,6 +225,7 @@ main_α_body:
  jmp xchain5_n3_α
  xchain5_n2_β:
  jmp xchain5_n3_α
+#     &STLIMIT = 1000000000
 # IR_LIT_STRING
  xchain5_n3_α:
  mov qword ptr [rbp + 288], 1
@@ -268,6 +271,8 @@ main_α_body:
  jmp xchain5_n6_α
  xchain5_n5_β:
  jmp xchain5_n6_α
+#     DEFINE('INC(N)')                    :(INC_END)
+#     T1 = TIME()
  xchain5_n6_α:
 # BOX IR_CALL TIME(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
@@ -294,6 +299,7 @@ main_α_body:
  mov qword ptr [rbp + 464], rax
  mov qword ptr [rbp + 472], rdx
  jmp xchain5_n8_α
+#     R = 0
 # IR_LIT_INTEGER
  xchain5_n8_α:
  mov qword ptr [rbp + 528], 6
@@ -311,6 +317,7 @@ main_α_body:
  mov qword ptr [rbp + 512], rax
  mov qword ptr [rbp + 520], rdx
  jmp xchain5_n10_α
+#     N = 0
 # IR_LIT_INTEGER
  xchain5_n10_α:
  mov qword ptr [rbp + 576], 6
@@ -328,6 +335,7 @@ main_α_body:
  mov qword ptr [rbp + 560], rax
  mov qword ptr [rbp + 568], rdx
  jmp xchain5_n12_α
+# LOOP    N = LT(N, 10000000) N + 1      :F(DONE)
 # IR_VAR
  xchain5_n12_α:
  mov rax, qword ptr [1879052304]
@@ -343,6 +351,7 @@ main_α_body:
  jmp xchain5_n15_α
 .Lx22_0:
  .quad 10000000
+# DONE    T2 = TIME()
  xchain5_n14_α:
 # BOX IR_CALL TIME(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
@@ -392,6 +401,7 @@ main_α_body:
  mov qword ptr [rbp + 1008], rax
  mov qword ptr [rbp + 1016], rdx
  jmp xchain5_n17_α
+#     OUTPUT = "result: " R
 # IR_LIT_STRING
  xchain5_n17_α:
  mov qword ptr [rbp + 1104], 1
@@ -452,6 +462,7 @@ main_α_body:
  mov qword ptr [rbp + 1072], rax
  mov qword ptr [rbp + 1080], rdx
  jmp xchain5_n24_α
+#     OUTPUT = "ms: " (T2 - T1)
 # IR_LIT_STRING
  xchain5_n22_α:
  mov qword ptr [rbp + 1216], 1
@@ -630,6 +641,7 @@ main_α_body:
  .quad .Lx46_0_s
 .Lx46_0_s:
  .string "OUTPUT"
+#     R = INC(R)                         :(LOOP)
 # IR_VAR
  xchain5_n34_α:
  mov rax, qword ptr [1879052336]

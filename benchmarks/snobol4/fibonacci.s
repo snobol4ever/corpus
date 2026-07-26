@@ -17,6 +17,7 @@ proc_FIB_α:
   mov qword ptr [rsp + 672], 0
   mov qword ptr [rsp + 680], rsp
 proc_FIB_α_body:
+# FIB     FIB = LT(N,2) N                    :S(RETURN)
 # IR_VAR
  xchain0_n0_α:
  mov rax, qword ptr [1879052304]
@@ -32,6 +33,7 @@ proc_FIB_α_body:
  jmp xchain0_n3_α
 .Lx2_0:
  .quad 2
+#     FIB = FIB(N - 1) + FIB(N - 2)         :(RETURN)
 # IR_VAR
  xchain0_n2_α:
  mov rax, qword ptr [1879052304]
@@ -568,6 +570,7 @@ main_α:
   mov [rsp + 65536], rbp
   mov rbp, rsp
 main_α_body:
+#     &TRIM = 1
 # IR_LIT_STRING
  xchain24_n0_α:
  mov qword ptr [rbp + 160], 1
@@ -613,6 +616,7 @@ main_α_body:
  jmp xchain24_n3_α
  xchain24_n2_β:
  jmp xchain24_n3_α
+#     &STLIMIT = 1000000000
 # IR_LIT_STRING
  xchain24_n3_α:
  mov qword ptr [rbp + 288], 1
@@ -658,6 +662,8 @@ main_α_body:
  jmp xchain24_n6_α
  xchain24_n5_β:
  jmp xchain24_n6_α
+#     DEFINE('FIB(N)')                        :(FIB_END)
+#     T1 = TIME()
  xchain24_n6_α:
 # BOX IR_CALL TIME(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
@@ -684,6 +690,7 @@ main_α_body:
  mov qword ptr [rbp + 928], rax
  mov qword ptr [rbp + 936], rdx
  jmp xchain24_n8_α
+#     R = FIB(30)
 # IR_LIT_INTEGER
  xchain24_n8_α:
  mov qword ptr [rbp + 1040], 6
@@ -798,6 +805,7 @@ main_α_body:
  mov qword ptr [rbp + 976], rax
  mov qword ptr [rbp + 984], rdx
  jmp xchain24_n11_α
+#     T2 = TIME()
  xchain24_n11_α:
 # BOX IR_CALL TIME(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
@@ -824,6 +832,7 @@ main_α_body:
  mov qword ptr [rbp + 1072], rax
  mov qword ptr [rbp + 1080], rdx
  jmp xchain24_n13_α
+#     OUTPUT = "result: " R
 # IR_LIT_STRING
  xchain24_n13_α:
  mov qword ptr [rbp + 1168], 1
@@ -851,6 +860,7 @@ main_α_body:
  mov qword ptr [rbp + 1136], rax
  mov qword ptr [rbp + 1144], rdx
  jmp xchain24_n17_α
+#     OUTPUT = "ms: " (T2 - T1)
 # IR_LIT_STRING
  xchain24_n16_α:
  mov qword ptr [rbp + 1280], 1

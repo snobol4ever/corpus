@@ -341,6 +341,7 @@ main_α:
   mov [rsp + 65536], rbp
   mov rbp, rsp
 main_α_body:
+#     &TRIM = 1
 # IR_LIT_STRING
  xchain19_n0_α:
  mov qword ptr [rbp + 160], 1
@@ -386,6 +387,7 @@ main_α_body:
  jmp xchain19_n3_α
  xchain19_n2_β:
  jmp xchain19_n3_α
+#     &STLIMIT = 1000000000
 # IR_LIT_STRING
  xchain19_n3_α:
  mov qword ptr [rbp + 288], 1
@@ -431,6 +433,7 @@ main_α_body:
  jmp xchain19_n6_α
  xchain19_n5_β:
  jmp xchain19_n6_α
+#     &ANCHOR = 0
 # IR_LIT_STRING
  xchain19_n6_α:
  mov qword ptr [rbp + 416], 1
@@ -476,6 +479,7 @@ main_α_body:
  jmp xchain19_n9_α
  xchain19_n8_β:
  jmp xchain19_n9_α
+#     PAT = ('aaa' | 'bbb' | 'ccc' | 'ddd') SPAN('abcd') . W
 # IR_LIT_STRING
  xchain19_n9_α:
  mov qword ptr [rbp + 544], 1
@@ -517,6 +521,7 @@ main_α_body:
  mov qword ptr [rbp + 480], rax
  mov qword ptr [rbp + 488], rdx
  jmp xchain19_n12_α
+#     S = 'xxxxxxxxxxbbbccccddddaaaaxxxxxxxxxxbbbccccddddaaaa'
 # IR_LIT_STRING
  xchain19_n12_α:
  mov qword ptr [rbp + 592], 1
@@ -536,6 +541,7 @@ main_α_body:
  mov qword ptr [rbp + 576], rax
  mov qword ptr [rbp + 584], rdx
  jmp xchain19_n14_α
+#     T1 = TIME()
  xchain19_n14_α:
 # BOX IR_CALL TIME(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
@@ -562,6 +568,7 @@ main_α_body:
  mov qword ptr [rbp + 624], rax
  mov qword ptr [rbp + 632], rdx
  jmp xchain19_n16_α
+#     N = 0
 # IR_LIT_INTEGER
  xchain19_n16_α:
  mov qword ptr [rbp + 688], 6
@@ -579,6 +586,7 @@ main_α_body:
  mov qword ptr [rbp + 672], rax
  mov qword ptr [rbp + 680], rdx
  jmp xchain19_n18_α
+# LOOP    S PAT                           :F(DONE)
 # IR_VAR
  xchain19_n18_α:
  mov rax, qword ptr [1879052320]
@@ -621,6 +629,7 @@ main_α_body:
  mov r12, qword ptr [rbp + 768]
  mov rbp, qword ptr [rbp + 776]
  jmp xchain19_n20_α
+# DONE    T2 = TIME()
  xchain19_n20_α:
 # BOX IR_CALL TIME(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
@@ -728,6 +737,7 @@ main_α_body:
  mov qword ptr [rbp + 1168], rax
  mov qword ptr [rbp + 1176], rdx
  jmp xchain19_n23_α
+#     OUTPUT = "result: " N
 # IR_LIT_STRING
  xchain19_n23_α:
  mov qword ptr [rbp + 1264], 1
@@ -787,6 +797,7 @@ main_α_body:
  mov qword ptr [rbp + 1296], rax
  mov qword ptr [rbp + 1304], rdx
  jmp xchain19_n27_α
+#     N = LT(N, 500000) N + 1            :S(LOOP)
 # IR_VAR
  xchain19_n26_α:
  mov rax, qword ptr [1879052352]
@@ -804,6 +815,7 @@ main_α_body:
  mov qword ptr [rbp + 1232], rax
  mov qword ptr [rbp + 1240], rdx
  jmp xchain19_n30_α
+#     OUTPUT = "W: " W
 # IR_LIT_STRING
  xchain19_n28_α:
  mov qword ptr [rbp + 1376], 1
@@ -875,6 +887,7 @@ main_α_body:
  mov qword ptr [rbp + 1344], rax
  mov qword ptr [rbp + 1352], rdx
  jmp xchain19_n36_α
+#     OUTPUT = "ms: " (T2 - T1)
 # IR_LIT_STRING
  xchain19_n34_α:
  mov qword ptr [rbp + 1488], 1

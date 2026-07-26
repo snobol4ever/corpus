@@ -245,6 +245,7 @@ main_α:
   mov [rsp + 65536], rbp
   mov rbp, rsp
 main_α_body:
+#     &TRIM = 1
 # IR_LIT_STRING
  xchain11_n0_α:
  mov qword ptr [rbp + 160], 1
@@ -290,6 +291,7 @@ main_α_body:
  jmp xchain11_n3_α
  xchain11_n2_β:
  jmp xchain11_n3_α
+#     &STLIMIT = 1000000000
 # IR_LIT_STRING
  xchain11_n3_α:
  mov qword ptr [rbp + 288], 1
@@ -335,6 +337,7 @@ main_α_body:
  jmp xchain11_n6_α
  xchain11_n5_β:
  jmp xchain11_n6_α
+#     PAT = BREAK(',') . WORD ','
 # IR_LIT_STRING
  xchain11_n6_α:
  mov qword ptr [rbp + 416], 1
@@ -376,6 +379,7 @@ main_α_body:
  mov qword ptr [rbp + 352], rax
  mov qword ptr [rbp + 360], rdx
  jmp xchain11_n9_α
+#     T1 = TIME()
  xchain11_n9_α:
 # BOX IR_CALL TIME(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
@@ -402,6 +406,7 @@ main_α_body:
  mov qword ptr [rbp + 448], rax
  mov qword ptr [rbp + 456], rdx
  jmp xchain11_n11_α
+#     ITER = 0
 # IR_LIT_INTEGER
  xchain11_n11_α:
  mov qword ptr [rbp + 512], 6
@@ -419,6 +424,7 @@ main_α_body:
  mov qword ptr [rbp + 496], rax
  mov qword ptr [rbp + 504], rdx
  jmp xchain11_n13_α
+# OUTER   ITER = LT(ITER, 500000) ITER + 1   :F(DONE)
 # IR_VAR
  xchain11_n13_α:
  mov rax, qword ptr [1879052336]
@@ -434,6 +440,7 @@ main_α_body:
  jmp xchain11_n16_α
 .Lx30_0:
  .quad 500000
+# DONE    T2 = TIME()
  xchain11_n15_α:
 # BOX IR_CALL TIME(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
@@ -483,6 +490,7 @@ main_α_body:
  mov qword ptr [rbp + 1248], rax
  mov qword ptr [rbp + 1256], rdx
  jmp xchain11_n18_α
+#     OUTPUT = "result: " RESULT
 # IR_LIT_STRING
  xchain11_n18_α:
  mov qword ptr [rbp + 1344], 1
@@ -543,6 +551,7 @@ main_α_body:
  mov qword ptr [rbp + 1312], rax
  mov qword ptr [rbp + 1320], rdx
  jmp xchain11_n25_α
+#     OUTPUT = "ms: " (T2 - T1)
 # IR_LIT_STRING
  xchain11_n23_α:
  mov qword ptr [rbp + 1456], 1
@@ -721,6 +730,7 @@ main_α_body:
  .quad .Lx54_0_s
 .Lx54_0_s:
  .string "OUTPUT"
+#     S = 'alpha,beta,gamma,delta,epsilon,zeta,eta,theta,iota,kappa,'
 # IR_LIT_STRING
  xchain11_n35_α:
  mov qword ptr [rbp + 864], 1
@@ -740,6 +750,7 @@ main_α_body:
  mov qword ptr [rbp + 848], rax
  mov qword ptr [rbp + 856], rdx
  jmp xchain11_n37_α
+#     RESULT = ''
 # IR_LIT_STRING
  xchain11_n37_α:
  mov qword ptr [rbp + 912], 1
@@ -759,6 +770,7 @@ main_α_body:
  mov qword ptr [rbp + 896], rax
  mov qword ptr [rbp + 904], rdx
  jmp xchain11_n39_α
+# INNER   S PAT = ''                          :F(OUTER)
 # IR_VAR
  xchain11_n39_α:
  mov rax, qword ptr [1879052352]
@@ -951,6 +963,7 @@ main_α_body:
 .Lx67_1:
  mov rbp, qword ptr [rbp + 1000]
  jmp xchain11_n45_α
+#     RESULT = RESULT WORD               :(INNER)
 # IR_VAR
  xchain11_n45_α:
  mov rax, qword ptr [1879052368]

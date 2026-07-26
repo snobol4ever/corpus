@@ -17,6 +17,7 @@ proc_ADD1_α:
   mov qword ptr [rsp + 208], 0
   mov qword ptr [rsp + 216], rsp
 proc_ADD1_α_body:
+# ADD1    ADD1 = V + 1                    :(RETURN)
 # IR_VAR
  xchain0_n0_α:
  mov rax, qword ptr [1879052304]
@@ -180,6 +181,7 @@ main_α:
   mov [rsp + 65536], rbp
   mov rbp, rsp
 main_α_body:
+#     &TRIM = 1
 # IR_LIT_STRING
  xchain5_n0_α:
  mov qword ptr [rbp + 160], 1
@@ -225,6 +227,8 @@ main_α_body:
  jmp xchain5_n3_α
  xchain5_n2_β:
  jmp xchain5_n3_α
+#     DEFINE('ADD1(V)')                   :(ADD1END)
+#     FN = 'ADD1'
 # IR_LIT_STRING
  xchain5_n3_α:
  mov qword ptr [rbp + 352], 1
@@ -244,6 +248,7 @@ main_α_body:
  mov qword ptr [rbp + 336], rax
  mov qword ptr [rbp + 344], rdx
  jmp xchain5_n5_α
+#     X = 5
 # IR_LIT_INTEGER
  xchain5_n5_α:
  mov qword ptr [rbp + 400], 6
@@ -261,6 +266,7 @@ main_α_body:
  mov qword ptr [rbp + 384], rax
  mov qword ptr [rbp + 392], rdx
  jmp xchain5_n7_α
+#     N = 0
 # IR_LIT_INTEGER
  xchain5_n7_α:
  mov qword ptr [rbp + 448], 6
@@ -278,6 +284,8 @@ main_α_body:
  mov qword ptr [rbp + 432], rax
  mov qword ptr [rbp + 440], rdx
  jmp xchain5_n9_α
+# LOOP    N = LT(N, 500) N + 1           :F(DONE)
+#     :(LOOP)
 # IR_VAR
  xchain5_n9_α:
  mov rax, qword ptr [1879052352]
@@ -293,6 +301,7 @@ main_α_body:
  jmp xchain5_n12_α
 .Lx17_0:
  .quad 500
+# DONE    OUTPUT = R
 # IR_VAR
  xchain5_n11_α:
  mov rax, qword ptr [1879052368]
@@ -442,6 +451,7 @@ main_α_body:
  mov qword ptr [rbp + 480], rax
  mov qword ptr [rbp + 488], rdx
  jmp xchain5_n21_α
+#     R = APPLY(FN, X)
 # IR_VAR
  xchain5_n21_α:
  mov rax, qword ptr [1879052320]

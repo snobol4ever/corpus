@@ -48,6 +48,7 @@ main_α:
   mov [rsp + 65536], rbp
   mov rbp, rsp
 main_α_body:
+#     &TRIM = 1
 # IR_LIT_STRING
  xchain0_n0_α:
  mov qword ptr [rbp + 160], 1
@@ -93,6 +94,7 @@ main_α_body:
  jmp xchain0_n3_α
  xchain0_n2_β:
  jmp xchain0_n3_α
+#     &STLIMIT = 1000000000
 # IR_LIT_STRING
  xchain0_n3_α:
  mov qword ptr [rbp + 288], 1
@@ -138,6 +140,7 @@ main_α_body:
  jmp xchain0_n6_α
  xchain0_n5_β:
  jmp xchain0_n6_α
+#     T1 = TIME()
  xchain0_n6_α:
 # BOX IR_CALL TIME(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
@@ -164,6 +167,7 @@ main_α_body:
  mov qword ptr [rbp + 352], rax
  mov qword ptr [rbp + 360], rdx
  jmp xchain0_n8_α
+#     ITER = 0
 # IR_LIT_INTEGER
  xchain0_n8_α:
  mov qword ptr [rbp + 416], 6
@@ -181,6 +185,8 @@ main_α_body:
  mov qword ptr [rbp + 400], rax
  mov qword ptr [rbp + 408], rdx
  jmp xchain0_n10_α
+# LOOP    ITER = LT(ITER, 5000000) ITER + 1   :F(DONE)
+#     :(LOOP)
 # IR_VAR
  xchain0_n10_α:
  mov rax, qword ptr [1879052304]
@@ -196,6 +202,7 @@ main_α_body:
  jmp xchain0_n13_α
 .Lx15_0:
  .quad 5000000
+# DONE    T2 = TIME()
  xchain0_n12_α:
 # BOX IR_CALL TIME(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
@@ -245,6 +252,7 @@ main_α_body:
  mov qword ptr [rbp + 1088], rax
  mov qword ptr [rbp + 1096], rdx
  jmp xchain0_n15_α
+#     OUTPUT = "result: " N
 # IR_LIT_STRING
  xchain0_n15_α:
  mov qword ptr [rbp + 1184], 1
@@ -305,6 +313,7 @@ main_α_body:
  mov qword ptr [rbp + 1152], rax
  mov qword ptr [rbp + 1160], rdx
  jmp xchain0_n22_α
+#     OUTPUT = "ms: " (T2 - T1)
 # IR_LIT_STRING
  xchain0_n20_α:
  mov qword ptr [rbp + 1296], 1
@@ -483,6 +492,7 @@ main_α_body:
  .quad .Lx39_0_s
 .Lx39_0_s:
  .string "OUTPUT"
+#     S = 'The quick brown fox jumps over the lazy dog'
 # IR_LIT_STRING
  xchain0_n32_α:
  mov qword ptr [rbp + 768], 1
@@ -502,6 +512,7 @@ main_α_body:
  mov qword ptr [rbp + 752], rax
  mov qword ptr [rbp + 760], rdx
  jmp xchain0_n34_α
+#     S = REPLACE(S, 'aeiou', '*****')
 # IR_VAR
  xchain0_n34_α:
  mov rax, qword ptr [1879052320]
@@ -519,6 +530,7 @@ main_α_body:
  .quad .Lx43_0_s
 .Lx43_0_s:
  .string "aeiou"
+#     N = SIZE(S)
 # IR_VAR
  xchain0_n36_α:
  mov rax, qword ptr [1879052320]
