@@ -1,0 +1,13 @@
+procedure main();
+   local s, str;
+   s := ".abc";
+   s ? {
+      if str <- ="." & str ||:= tab(many(&digits)) then write("A REAL") else write("A pos=", &pos);
+      };
+   s ? {
+      if ="." & tab(many(&digits)) then write("B REAL") else write("B pos=", &pos);
+      };
+   s ? {
+      if ="." & ="9" then write("C REAL") else write("C pos=", &pos);
+      };
+end
