@@ -1981,9 +1981,10 @@ n92_call_β:
 # fail    OUTPUT         =  'Pattern match failed'
 #-----------------------------------------------------------------------------------------------------------------------
 n93_lit_string_α:
-                        mov              qword ptr [rbp + 1168], 1
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 1
                         mov              rax, qword ptr [rip + .Lx140_0]
-                        mov              qword ptr [rbp + 1176], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n96_assign_α
 .Lx140_0:
                         .quad            .Lx140_0_s
@@ -2012,8 +2013,9 @@ n95_lit_string_α:
                         .string          "PAT$1"
 #-----------------------------------------------------------------------------------------------------------------------
 n96_assign_α:
-                        mov              rsi, qword ptr [rbp + 1168]
-                        mov              rdx, qword ptr [rbp + 1176]
+                        mov              rsi, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
+                        add              rsp, 16
                         mov              rdi, qword ptr [rip + .Lx143_0]
                         call             NV_SET_fn@PLT
                         mov              qword ptr [rbp + 1152], rax
@@ -2393,12 +2395,16 @@ n122_lit_integer_α:
 #         src            =  INPUT                          :F(fail)
 #-----------------------------------------------------------------------------------------------------------------------
 n123_var_α:
+                        sub              rsp, 16
                         mov              rdi, qword ptr [rip + .Lx178_0]
                         call             NV_GET_fn@PLT
                         cmp              eax, 99
-                                                                                        je    n93_lit_string_α
-                        mov              qword ptr [rbp + 928], rax
-                        mov              qword ptr [rbp + 936], rdx
+                                                                                        jne   .Lx178_240
+                        add              rsp, 16
+                                                                                        jmp   n93_lit_string_α
+.Lx178_240:
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n125_assign_α
 .Lx178_0:
                         .quad            .Lx178_0_s
@@ -2416,8 +2422,9 @@ n124_lit_string_α:
                         .string          "[-f0 -r4000000]"
 #-----------------------------------------------------------------------------------------------------------------------
 n125_assign_α:
-                        mov              rax, qword ptr [rbp + 928]
-                        mov              rdx, qword ptr [rbp + 936]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
+                        add              rsp, 16
                         mov              qword ptr [1879052416], rax
                         mov              qword ptr [1879052424], rdx
                         mov              qword ptr [rbp + 912], rax

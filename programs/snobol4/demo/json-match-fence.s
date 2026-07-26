@@ -3975,9 +3975,10 @@ n258_call_β:
 # fail            OUTPUT          =  'Pattern match failed'
 #-----------------------------------------------------------------------------------------------------------------------
 n259_lit_string_α:
-                        mov              qword ptr [rbp + 1552], 1
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 1
                         mov              rax, qword ptr [rip + .Lx321_0]
-                        mov              qword ptr [rbp + 1560], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n262_assign_α
 .Lx321_0:
                         .quad            .Lx321_0_s
@@ -4006,8 +4007,9 @@ n261_lit_string_α:
                         .string          "PAT$0"
 #-----------------------------------------------------------------------------------------------------------------------
 n262_assign_α:
-                        mov              rsi, qword ptr [rbp + 1552]
-                        mov              rdx, qword ptr [rbp + 1560]
+                        mov              rsi, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
+                        add              rsp, 16
                         mov              rdi, qword ptr [rip + .Lx324_0]
                         call             NV_SET_fn@PLT
                         mov              qword ptr [rbp + 1536], rax
@@ -4051,9 +4053,10 @@ n264_assign_α:
 #                 hex            =  '0123456789abcdefABCDEF'
 #-----------------------------------------------------------------------------------------------------------------------
 n265_lit_string_α:
-                        mov              qword ptr [rbp + 176], 1
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 1
                         mov              rax, qword ptr [rip + .Lx328_0]
-                        mov              qword ptr [rbp + 184], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n266_assign_α
 .Lx328_0:
                         .quad            .Lx328_0_s
@@ -4061,8 +4064,9 @@ n265_lit_string_α:
                         .string          "0123456789abcdefABCDEF"
 #-----------------------------------------------------------------------------------------------------------------------
 n266_assign_α:
-                        mov              rax, qword ptr [rbp + 176]
-                        mov              rdx, qword ptr [rbp + 184]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
+                        add              rsp, 16
                         mov              qword ptr [1879052320], rax
                         mov              qword ptr [1879052328], rdx
                         mov              qword ptr [rbp + 160], rax
@@ -4072,9 +4076,10 @@ n266_assign_α:
 #                 dig            =  '0123456789'
 #-----------------------------------------------------------------------------------------------------------------------
 n267_lit_string_α:
-                        mov              qword ptr [rbp + 208], 1
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 1
                         mov              rax, qword ptr [rip + .Lx330_0]
-                        mov              qword ptr [rbp + 216], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n268_assign_α
 .Lx330_0:
                         .quad            .Lx330_0_s
@@ -4082,8 +4087,9 @@ n267_lit_string_α:
                         .string          "0123456789"
 #-----------------------------------------------------------------------------------------------------------------------
 n268_assign_α:
-                        mov              rax, qword ptr [rbp + 208]
-                        mov              rdx, qword ptr [rbp + 216]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
+                        add              rsp, 16
                         mov              qword ptr [1879052336], rax
                         mov              qword ptr [1879052344], rdx
                         mov              qword ptr [rbp + 192], rax
@@ -4599,12 +4605,16 @@ n304_lit_integer_α:
 #                 src             =   INPUT                       :F(fail)
 #-----------------------------------------------------------------------------------------------------------------------
 n305_var_α:
+                        sub              rsp, 16
                         mov              rdi, qword ptr [rip + .Lx380_0]
                         call             NV_GET_fn@PLT
                         cmp              eax, 99
-                                                                                        je    n259_lit_string_α
-                        mov              qword ptr [rbp + 1312], rax
-                        mov              qword ptr [rbp + 1320], rdx
+                                                                                        jne   .Lx380_240
+                        add              rsp, 16
+                                                                                        jmp   n259_lit_string_α
+.Lx380_240:
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n307_assign_α
 .Lx380_0:
                         .quad            .Lx380_0_s
@@ -4622,8 +4632,9 @@ n306_lit_string_α:
                         .string          "[-f0 -r1000000]"
 #-----------------------------------------------------------------------------------------------------------------------
 n307_assign_α:
-                        mov              rax, qword ptr [rbp + 1312]
-                        mov              rdx, qword ptr [rbp + 1320]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
+                        add              rsp, 16
                         mov              qword ptr [1879052512], rax
                         mov              qword ptr [1879052520], rdx
                         mov              qword ptr [rbp + 1296], rax

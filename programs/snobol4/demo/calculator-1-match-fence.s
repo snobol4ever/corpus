@@ -2104,9 +2104,10 @@ n118_call_β:
 # fail    OUTPUT         =  'Pattern match failed'
 #-----------------------------------------------------------------------------------------------------------------------
 n119_lit_string_α:
-                        mov              qword ptr [rbp + 1168], 1
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 1
                         mov              rax, qword ptr [rip + .Lx166_0]
-                        mov              qword ptr [rbp + 1176], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n122_assign_α
 .Lx166_0:
                         .quad            .Lx166_0_s
@@ -2135,8 +2136,9 @@ n121_lit_string_α:
                         .string          "PAT$1"
 #-----------------------------------------------------------------------------------------------------------------------
 n122_assign_α:
-                        mov              rsi, qword ptr [rbp + 1168]
-                        mov              rdx, qword ptr [rbp + 1176]
+                        mov              rsi, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
+                        add              rsp, 16
                         mov              rdi, qword ptr [rip + .Lx169_0]
                         call             NV_SET_fn@PLT
                         mov              qword ptr [rbp + 1152], rax
@@ -2516,12 +2518,16 @@ n148_lit_integer_α:
 #         src            =  INPUT                          :F(fail)
 #-----------------------------------------------------------------------------------------------------------------------
 n149_var_α:
+                        sub              rsp, 16
                         mov              rdi, qword ptr [rip + .Lx204_0]
                         call             NV_GET_fn@PLT
                         cmp              eax, 99
-                                                                                        je    n119_lit_string_α
-                        mov              qword ptr [rbp + 928], rax
-                        mov              qword ptr [rbp + 936], rdx
+                                                                                        jne   .Lx204_240
+                        add              rsp, 16
+                                                                                        jmp   n119_lit_string_α
+.Lx204_240:
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n151_assign_α
 .Lx204_0:
                         .quad            .Lx204_0_s
@@ -2539,8 +2545,9 @@ n150_lit_string_α:
                         .string          "[-f0 -r4000000]"
 #-----------------------------------------------------------------------------------------------------------------------
 n151_assign_α:
-                        mov              rax, qword ptr [rbp + 928]
-                        mov              rdx, qword ptr [rbp + 936]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
+                        add              rsp, 16
                         mov              qword ptr [1879052416], rax
                         mov              qword ptr [1879052424], rdx
                         mov              qword ptr [rbp + 912], rax
