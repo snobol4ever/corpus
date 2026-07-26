@@ -1,0 +1,16 @@
+procedure main();
+   local pending, symbol, n;
+   pending := ["A"];
+   n := 0;
+   while symbol := get(pending) do {
+      n +:= 1;
+      case type(symbol) of {
+         "integer": write("int=", symbol);
+         "string": {
+            pending := [1,2] | [9];
+            n +:= 0
+            }
+         }
+      }
+   write("iters=", n, " (expect 3)");
+end
