@@ -913,9 +913,10 @@ n55_assign_α:
 #     ITER = 0
 #-----------------------------------------------------------------------------------------------------------------------
 n56_lit_integer_α:
-                        mov              qword ptr [rbp + 336], 6
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 6
                         mov              rax, qword ptr [rip + .Lx119_0]
-                        mov              qword ptr [rbp + 344], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n60_assign_α
 .Lx119_0:
                         .quad            0
@@ -954,8 +955,9 @@ n59_assign_α:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
 n60_assign_α:
-                        mov              rax, qword ptr [rbp + 336]
-                        mov              rdx, qword ptr [rbp + 344]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
+                        add              rsp, 16
                         mov              qword ptr [1879052336], rax
                         mov              qword ptr [1879052344], rdx
                         mov              qword ptr [rbp + 320], rax
@@ -983,9 +985,10 @@ n62_assign_α:
 #     S = 'alpha,beta,gamma,delta,epsilon,zeta,eta,theta,iota,kappa,'
 #-----------------------------------------------------------------------------------------------------------------------
 n63_lit_string_α:
-                        mov              qword ptr [rbp + 528], 1
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 1
                         mov              rax, qword ptr [rip + .Lx126_0]
-                        mov              qword ptr [rbp + 536], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n64_assign_α
 .Lx126_0:
                         .quad            .Lx126_0_s
@@ -993,8 +996,9 @@ n63_lit_string_α:
                         .string          "alpha,beta,gamma,delta,epsilon,zeta,eta,theta,iota,kappa,"
 #-----------------------------------------------------------------------------------------------------------------------
 n64_assign_α:
-                        mov              rax, qword ptr [rbp + 528]
-                        mov              rdx, qword ptr [rbp + 536]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
+                        add              rsp, 16
                         mov              qword ptr [1879052352], rax
                         mov              qword ptr [1879052360], rdx
                         mov              qword ptr [rbp + 512], rax
@@ -1004,9 +1008,10 @@ n64_assign_α:
 #     RESULT = ''
 #-----------------------------------------------------------------------------------------------------------------------
 n65_lit_string_α:
-                        mov              qword ptr [rbp + 560], 1
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 1
                         mov              rax, qword ptr [rip + .Lx128_0]
-                        mov              qword ptr [rbp + 568], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n66_assign_α
 .Lx128_0:
                         .quad            .Lx128_0_s
@@ -1014,8 +1019,9 @@ n65_lit_string_α:
                         .string          ""
 #-----------------------------------------------------------------------------------------------------------------------
 n66_assign_α:
-                        mov              rax, qword ptr [rbp + 560]
-                        mov              rdx, qword ptr [rbp + 568]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
+                        add              rsp, 16
                         mov              qword ptr [1879052368], rax
                         mov              qword ptr [1879052376], rdx
                         mov              qword ptr [rbp + 544], rax

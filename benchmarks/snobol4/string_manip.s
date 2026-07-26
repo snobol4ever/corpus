@@ -356,9 +356,10 @@ n24_assign_α:
 #     ITER = 0
 #-----------------------------------------------------------------------------------------------------------------------
 n25_lit_integer_α:
-                        mov              qword ptr [rbp + 256], 6
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 6
                         mov              rax, qword ptr [rip + .Lx76_0]
-                        mov              qword ptr [rbp + 264], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n28_assign_α
 .Lx76_0:
                         .quad            0
@@ -417,8 +418,9 @@ n27_binop_β:
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n28_assign_α:
-                        mov              rax, qword ptr [rbp + 256]
-                        mov              rdx, qword ptr [rbp + 264]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
+                        add              rsp, 16
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rdx
                         mov              qword ptr [rbp + 240], rax
@@ -509,9 +511,10 @@ n33_assign_α:
 #     S = 'The quick brown fox jumps over the lazy dog'
 #-----------------------------------------------------------------------------------------------------------------------
 n34_lit_string_α:
-                        mov              qword ptr [rbp + 448], 1
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 1
                         mov              rax, qword ptr [rip + .Lx85_0]
-                        mov              qword ptr [rbp + 456], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n35_assign_α
 .Lx85_0:
                         .quad            .Lx85_0_s
@@ -519,8 +522,9 @@ n34_lit_string_α:
                         .string          "The quick brown fox jumps over the lazy dog"
 #-----------------------------------------------------------------------------------------------------------------------
 n35_assign_α:
-                        mov              rax, qword ptr [rbp + 448]
-                        mov              rdx, qword ptr [rbp + 456]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
+                        add              rsp, 16
                         mov              qword ptr [1879052320], rax
                         mov              qword ptr [1879052328], rdx
                         mov              qword ptr [rbp + 432], rax
