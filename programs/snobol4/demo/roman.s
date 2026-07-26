@@ -21,6 +21,7 @@ proc_ROMAN_α:
   mov qword ptr [rsp + 576], 0
   mov qword ptr [rsp + 584], rsp
 proc_ROMAN_α_body:
+# ROMAN	N RPOS(1) LEN(1) . UNITS =	:F(RETURN)
 # IR_VAR
  xchain0_n0_α:
  mov rax, qword ptr [1879052304]
@@ -207,6 +208,8 @@ xchain0_n2_af:
 .Lx17_1:
  mov rbp, qword ptr [rbp + 152]
  jmp xchain0_n11_α
+# 	DEFINE('ROMAN(N)UNITS')		:(ROMAN_END)
+# 	'0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,' UNITS
 # IR_LIT_STRING
  xchain0_n11_α:
  mov qword ptr [rbp + 544], 1
@@ -551,6 +554,7 @@ main_α:
   mov [rsp + 65536], rbp
   mov rbp, rsp
 main_α_body:
+# 	DEFINE('ROMAN(N)UNITS')		:(ROMAN_END)
 # IR_GOTO_DEFERRED
  xchain32_n0_α:
  mov rdi, qword ptr [rip + .Lx34_0]

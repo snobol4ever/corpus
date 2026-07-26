@@ -17,6 +17,7 @@ proc_new_sent_α:
   mov qword ptr [rsp + 416], 0
   mov qword ptr [rsp + 424], rsp
 proc_new_sent_α_body:
+# new_sent        sentno          =  +num
 # IR_VAR
  xchain0_n0_α:
  mov rax, qword ptr [1879052704]
@@ -32,6 +33,7 @@ proc_new_sent_α_body:
  mov qword ptr [rbp + 112], rax
  mov qword ptr [rbp + 120], rdx
  jmp xchain0_n3_α
+#                 mem[sentno]     =  TABLE()
 # IR_VAR
  xchain0_n2_α:
  mov rax, qword ptr [1879052336]
@@ -55,6 +57,7 @@ proc_new_sent_α_body:
  mov qword ptr [rbp + 208], rax
  mov qword ptr [rbp + 216], rdx
  jmp xchain0_n6_α
+#                 new_sent        =  .dummy                       :(NRETURN)
 # IR_LIT_STRING
  xchain0_n5_α:
  mov qword ptr [rbp + 384], 1
@@ -203,6 +206,7 @@ proc_add_tok_α:
   mov qword ptr [rsp + 1888], 0
   mov qword ptr [rsp + 1896], rsp
 proc_add_tok_α_body:
+# add_tok         DIFFER(mem[sentno][wrd])                        :F(new_wrd)
 # IR_VAR
  xchain17_n0_α:
  mov rax, qword ptr [1879052336]
@@ -217,6 +221,7 @@ proc_add_tok_α_body:
  mov qword ptr [rbp + 176], rax
  mov qword ptr [rbp + 184], rdx
  jmp xchain17_n3_α
+# new_wrd         mem[sentno][wrd]       =  TABLE()
 # IR_VAR
  xchain17_n2_α:
  mov rax, qword ptr [1879052336]
@@ -243,6 +248,7 @@ proc_add_tok_α_body:
  mov qword ptr [rbp + 1296], rax
  mov qword ptr [rbp + 1304], rdx
  jmp xchain17_n7_α
+# new_tag         mem[sentno][wrd][tag]  =  1
 # IR_VAR
  xchain17_n5_α:
  mov rax, qword ptr [1879052336]
@@ -279,6 +285,7 @@ proc_add_tok_α_body:
  mov qword ptr [rbp + 1520], rax
  mov qword ptr [rbp + 1528], rdx
  jmp xchain17_n12_α
+# done            add_tok         =  .dummy                       :(NRETURN)
 # IR_LIT_STRING
  xchain17_n9_α:
  mov qword ptr [rbp + 1856], 1
@@ -490,6 +497,7 @@ proc_add_tok_α_body:
  mov qword ptr [rbp + 1632], rax
  mov qword ptr [rbp + 1640], rdx
  jmp xchain17_n28_α
+#                 DIFFER(mem[sentno][wrd][tag])                   :F(new_tag)
 # IR_VAR
  xchain17_n26_α:
  mov rax, qword ptr [1879052336]
@@ -667,6 +675,7 @@ proc_add_tok_α_body:
  jmp xchain17_n43_α
  xchain17_n42_β:
  jmp xchain17_n5_α
+#                 mem[sentno][wrd][tag]  =  mem[sentno][wrd][tag] + 1  :(done)
 # IR_VAR
  xchain17_n43_α:
  mov rax, qword ptr [1879052336]
@@ -938,6 +947,7 @@ proc_pp_mem_α:
   mov qword ptr [rsp + 7584], 0
   mov qword ptr [rsp + 7592], rsp
 proc_pp_mem_α_body:
+# pp_mem          ssk             =   SORT(mem)
 # IR_VAR
  xchain88_n0_α:
  mov rax, qword ptr [1879052336]
@@ -969,6 +979,7 @@ proc_pp_mem_α_body:
  jmp xchain88_n3_α
  xchain88_n1_β:
  jmp xchain88_n2_α
+#                 si              =   0
 # IR_LIT_INTEGER
  xchain88_n2_α:
  mov qword ptr [rbp + 208], 6
@@ -1001,6 +1012,7 @@ proc_pp_mem_α_body:
  jmp xchain88_n5_α
  xchain88_n4_β:
  jmp xchain88_n5_α
+#                 ns              =   0
 # IR_LIT_INTEGER
  xchain88_n5_α:
  mov qword ptr [rbp + 256], 6
@@ -1022,6 +1034,7 @@ proc_pp_mem_α_body:
  jmp xchain88_n7_α
  xchain88_n6_β:
  jmp xchain88_n7_α
+# pm_cnt_loop     ns              =   ns + 1
 # IR_VAR
  xchain88_n7_α:
  mov rax, qword ptr [1879052640]
@@ -1041,6 +1054,7 @@ proc_pp_mem_α_body:
  jmp xchain88_n9_α
 .Lx97_0:
  .quad 1
+#                 ssk[ns,1]                                       :S(pm_cnt_loop)
 # IR_VAR
  xchain88_n9_α:
  mov rax, qword ptr [1879052352]
@@ -1098,6 +1112,7 @@ proc_pp_mem_α_body:
  jmp xchain88_n14_α
  xchain88_n11_β:
  jmp xchain88_n12_α
+#                 ns              =   ns - 1
 # IR_VAR
  xchain88_n12_α:
  mov rax, qword ptr [1879052640]
@@ -1142,6 +1157,7 @@ proc_pp_mem_α_body:
  jmp xchain88_n16_α
 .Lx104_0:
  .quad 1
+#                 si              =   0
 # IR_LIT_INTEGER
  xchain88_n16_α:
  mov qword ptr [rbp + 704], 6
@@ -1237,6 +1253,7 @@ proc_pp_mem_α_body:
  jmp xchain88_n16_α
  xchain88_n21_β:
  jmp xchain88_n16_α
+# pm_sent_loop    si              =   si + 1
 # IR_VAR
  xchain88_n22_α:
  mov rax, qword ptr [1879052368]
@@ -1268,6 +1285,7 @@ proc_pp_mem_α_body:
  jmp xchain88_n25_α
 .Lx113_0:
  .quad 1
+#                 sentno          =   ssk[si,1]                   :F(pm_done)
 # IR_VAR
  xchain88_n25_α:
  mov rax, qword ptr [1879052352]
@@ -1325,6 +1343,7 @@ proc_pp_mem_α_body:
  jmp xchain88_n30_α
  xchain88_n27_β:
  jmp xchain88_n28_α
+# pm_done         pp_mem          =   .dummy                      :(RETURN)
 # IR_LIT_STRING
  xchain88_n28_α:
  mov qword ptr [rbp + 7552], 1
@@ -1442,6 +1461,7 @@ proc_pp_mem_α_body:
  jmp xchain88_n37_α
  xchain88_n36_β:
  jmp xchain88_n28_α
+#                 last_sent       =   ''
 # IR_LIT_STRING
  xchain88_n37_α:
  mov qword ptr [rbp + 1056], 1
@@ -1465,6 +1485,7 @@ proc_pp_mem_α_body:
  jmp xchain88_n39_α
  xchain88_n38_β:
  jmp xchain88_n39_α
+#                 last_sent       =   IDENT(si, ns) 1
 # IR_VAR
  xchain88_n39_α:
  mov rax, qword ptr [1879052368]
@@ -1483,6 +1504,7 @@ proc_pp_mem_α_body:
  jmp xchain88_n42_α
  xchain88_n40_β:
  jmp xchain88_n41_α
+#                 pad             =   DUPL(' ', SIZE(sentno) + 4)
 # IR_LIT_STRING
  xchain88_n41_α:
  mov qword ptr [rbp + 1376], 1
@@ -1563,6 +1585,7 @@ proc_pp_mem_α_body:
  jmp xchain88_n48_α
  xchain88_n45_β:
  jmp xchain88_n46_α
+#                 pfx             =   EQ(si, 1) '{' sentno ': {'
 # IR_VAR
  xchain88_n46_α:
  mov rax, qword ptr [1879052368]
@@ -1604,6 +1627,7 @@ proc_pp_mem_α_body:
  jmp xchain88_n50_α
 .Lx141_0:
  .quad 1
+#                 pfx             =   NE(si, 1) ' ' sentno ': {'
 # IR_VAR
  xchain88_n50_α:
  mov rax, qword ptr [1879052368]
@@ -1698,6 +1722,7 @@ proc_pp_mem_α_body:
  jmp xchain88_n55_α
 .Lx147_0:
  .quad 1
+#                 wsk             =   SORT(mem[sentno])
 # IR_VAR
  xchain88_n55_α:
  mov rax, qword ptr [1879052336]
@@ -1793,6 +1818,7 @@ proc_pp_mem_α_body:
  jmp xchain88_n64_α
  xchain88_n59_β:
  jmp xchain88_n60_α
+#                 wi              =   0
 # IR_LIT_INTEGER
  xchain88_n60_α:
  mov qword ptr [rbp + 2480], 6
@@ -1912,6 +1938,7 @@ proc_pp_mem_α_body:
  jmp xchain88_n72_α
  xchain88_n68_β:
  jmp xchain88_n60_α
+# pm_wrd_loop     wi              =   wi + 1
 # IR_VAR
  xchain88_n69_α:
  mov rax, qword ptr [1879052416]
@@ -1977,6 +2004,7 @@ proc_pp_mem_α_body:
  jmp xchain88_n74_α
 .Lx172_0:
  .quad 1
+#                 wkey            =   wsk[wi,1]                   :F(pm_sent_loop)
 # IR_VAR
  xchain88_n74_α:
  mov rax, qword ptr [1879052400]
@@ -2241,6 +2269,7 @@ proc_pp_mem_α_body:
  jmp xchain88_n95_α
  xchain88_n94_β:
  jmp xchain88_n22_α
+#                 next_wkey       =   ''
 # IR_LIT_STRING
  xchain88_n95_α:
  mov qword ptr [rbp + 2832], 1
@@ -2264,6 +2293,7 @@ proc_pp_mem_α_body:
  jmp xchain88_n97_α
  xchain88_n96_β:
  jmp xchain88_n97_α
+#                 next_wkey       =   wsk[wi + 1,1]
 # IR_VAR
  xchain88_n97_α:
  mov rax, qword ptr [1879052400]
@@ -2282,6 +2312,7 @@ proc_pp_mem_α_body:
  jmp xchain88_n100_α
  xchain88_n98_β:
  jmp xchain88_n99_α
+#                 wrd             =   wkey
 # IR_VAR
  xchain88_n99_α:
  mov rax, qword ptr [1879052432]
@@ -2312,6 +2343,7 @@ proc_pp_mem_α_body:
  jmp xchain88_n102_α
  xchain88_n101_β:
  jmp xchain88_n102_α
+#                 wrd             ?   ARB "'"  =  ''              :F(pm_sq)
 # IR_VAR
  xchain88_n102_α:
  mov rax, qword ptr [1879052464]
@@ -2397,6 +2429,7 @@ proc_pp_mem_α_body:
  mov r12, qword ptr [rbp + 3216]
  mov rbp, qword ptr [rbp + 3224]
  jmp xchain88_n105_α
+# pm_sq           wq              =   "'" wkey "'"
 # IR_LIT_STRING
  xchain88_n105_α:
  mov qword ptr [rbp + 3632], 1
@@ -2541,6 +2574,7 @@ xchain88_n107_af:
  jmp xchain88_n117_α
  xchain88_n113_β:
  jmp xchain88_n114_α
+# pm_tdict        tsk             =   SORT(mem[sentno][wkey])
 # IR_VAR
  xchain88_n114_α:
  mov rax, qword ptr [1879052336]
@@ -2597,6 +2631,7 @@ xchain88_n107_af:
  jmp xchain88_n123_α
  xchain88_n118_β:
  jmp xchain88_n119_α
+#                 ti              =   0
 # IR_LIT_INTEGER
  xchain88_n119_α:
  mov qword ptr [rbp + 4000], 6
@@ -2684,6 +2719,7 @@ xchain88_n107_af:
  jmp xchain88_n99_α
  xchain88_n125_β:
  jmp xchain88_n99_α
+#                 wq              =   '"' wkey '"'                :(pm_tdict)
 # IR_LIT_STRING
  xchain88_n126_α:
  mov qword ptr [rbp + 3456], 1
@@ -2719,6 +2755,7 @@ xchain88_n107_af:
  jmp xchain88_n131_α
  xchain88_n128_β:
  jmp xchain88_n119_α
+#                 tline           =   '{'
 # IR_LIT_STRING
  xchain88_n129_α:
  mov qword ptr [rbp + 4048], 1
@@ -2786,6 +2823,7 @@ xchain88_n107_af:
  jmp xchain88_n137_α
  xchain88_n134_β:
  jmp xchain88_n119_α
+# pm_tag_loop     ti              =   ti + 1
 # IR_VAR
  xchain88_n135_α:
  mov rax, qword ptr [1879052496]
@@ -2829,6 +2867,7 @@ xchain88_n107_af:
  jmp xchain88_n139_α
 .Lx243_0:
  .quad 1
+#                 tag             =   tsk[ti,1]                   :F(pm_tag_close)
 # IR_VAR
  xchain88_n139_α:
  mov rax, qword ptr [1879052480]
@@ -2920,6 +2959,7 @@ xchain88_n107_af:
  jmp xchain88_n148_α
  xchain88_n143_β:
  jmp xchain88_n144_α
+# pm_tag_close    tline           =   tline '}'
 # IR_VAR
  xchain88_n144_α:
  mov rax, qword ptr [1879052544]
@@ -2988,6 +3028,7 @@ xchain88_n107_af:
  .quad .Lx254_0_s
 .Lx254_0_s:
  .string "}"
+#                 GT(SIZE(next_wkey), 0)                          :F(pm_last_wrd)
 # IR_VAR
  xchain88_n150_α:
  mov rax, qword ptr [1879052592]
@@ -3041,6 +3082,7 @@ xchain88_n107_af:
  jmp xchain88_n157_α
  xchain88_n153_β:
  jmp xchain88_n154_α
+# pm_last_wrd     IDENT(wi, 1)                                    :F(pm_last_mid)
 # IR_VAR
  xchain88_n154_α:
  mov rax, qword ptr [1879052416]
@@ -3095,6 +3137,7 @@ xchain88_n107_af:
  jmp xchain88_n159_α
 .Lx264_0:
  .quad 1
+# pm_last_mid     lline           =   pad wq ': ' tline
 # IR_VAR
  xchain88_n159_α:
  mov rax, qword ptr [1879052576]
@@ -3177,6 +3220,7 @@ xchain88_n107_af:
  jmp xchain88_n168_α
  xchain88_n163_β:
  jmp xchain88_n164_α
+# pm_last_emit    IDENT(last_sent, 1)                             :F(pm_last_mid2)
 # IR_VAR
  xchain88_n164_α:
  mov rax, qword ptr [1879052608]
@@ -3222,6 +3266,7 @@ xchain88_n107_af:
  jmp xchain88_n172_α
  xchain88_n166_β:
  jmp xchain88_n154_α
+#                 lline           =   pfx wq ': ' tline           :(pm_last_emit)
 # IR_VAR
  xchain88_n167_α:
  mov rax, qword ptr [1879052560]
@@ -3253,6 +3298,7 @@ xchain88_n107_af:
  jmp xchain88_n170_α
 .Lx278_0:
  .quad 1
+# pm_last_mid2    OUTPUT          =   lline '},'                  :(pm_sent_loop)
 # IR_VAR
  xchain88_n170_α:
  mov rax, qword ptr [1879052624]
@@ -3262,6 +3308,7 @@ xchain88_n107_af:
  jmp xchain88_n176_α
  xchain88_n170_β:
  jmp xchain88_n22_α
+#                 tv              =   mem[sentno][wkey][tag]
 # IR_VAR
  xchain88_n171_α:
  mov rax, qword ptr [1879052336]
@@ -3352,6 +3399,7 @@ xchain88_n107_af:
  jmp xchain88_n184_α
  xchain88_n177_β:
  jmp xchain88_n178_α
+#                 IDENT(tline, '{')                               :F(pm_tag_sep)
 # IR_VAR
  xchain88_n178_α:
  mov rax, qword ptr [1879052544]
@@ -3361,6 +3409,7 @@ xchain88_n107_af:
  jmp xchain88_n185_α
  xchain88_n178_β:
  jmp xchain88_n186_α
+#                 IDENT(wi, 1)                                    :F(pm_mid_wrd)
 # IR_VAR
  xchain88_n179_α:
  mov rax, qword ptr [1879052416]
@@ -3394,6 +3443,7 @@ xchain88_n107_af:
  jmp xchain88_n190_α
  xchain88_n181_β:
  jmp xchain88_n164_α
+#                 OUTPUT          =   lline '}}'                  :(pm_sent_loop)
 # IR_VAR
  xchain88_n182_α:
  mov rax, qword ptr [1879052624]
@@ -3441,6 +3491,7 @@ xchain88_n107_af:
  .quad .Lx296_0_s
 .Lx296_0_s:
  .string "{"
+# pm_tag_sep      tline           =   tline ', ' "'" tag "': " tv :(pm_tag_loop)
 # IR_VAR
  xchain88_n186_α:
  mov rax, qword ptr [1879052544]
@@ -3460,6 +3511,7 @@ xchain88_n107_af:
  jmp xchain88_n188_α
 .Lx298_0:
  .quad 1
+# pm_mid_wrd      OUTPUT          =   pad wq ': ' tline ','       :(pm_wrd_loop)
 # IR_VAR
  xchain88_n188_α:
  mov rax, qword ptr [1879052576]
@@ -3649,6 +3701,7 @@ xchain88_n107_af:
  jmp xchain88_n209_α
  xchain88_n201_β:
  jmp xchain88_n178_α
+#                 tline           =   tline "'" tag "': " tv      :(pm_tag_loop)
 # IR_VAR
  xchain88_n202_α:
  mov rax, qword ptr [1879052544]
@@ -3670,6 +3723,7 @@ xchain88_n107_af:
  jmp xchain88_n211_α
  xchain88_n203_β:
  jmp xchain88_n135_α
+#                 OUTPUT          =   pfx wq ': ' tline ','       :(pm_wrd_loop)
 # IR_VAR
  xchain88_n204_α:
  mov rax, qword ptr [1879052560]
@@ -5238,6 +5292,7 @@ main_α:
   mov [rsp + 65536], rbp
   mov rbp, rsp
 main_α_body:
+#                 &ALPHABET       POS(10) LEN(1) . nl
 # IR_KEYWORD_SNOBOL4_read
  xchain422_n0_α:
  mov rdi, qword ptr [rip + .Lx423_0]
@@ -5380,6 +5435,7 @@ xchain422_n2_af:
  xchain422_n7_β:
  sub r12, 24
  jmp xchain422_n9_β
+#                 DIGITS          =  '0123456789'
 # IR_LIT_STRING
  xchain422_n8_α:
  mov qword ptr [rbp + 320], 1
@@ -5418,6 +5474,7 @@ xchain422_n2_af:
  jmp xchain422_n11_α
  xchain422_n10_β:
  jmp xchain422_n11_α
+#                 UCASE           =  'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 # IR_LIT_STRING
  xchain422_n11_α:
  mov qword ptr [rbp + 368], 1
@@ -5441,6 +5498,10 @@ xchain422_n2_af:
  jmp xchain422_n13_α
  xchain422_n12_β:
  jmp xchain422_n13_α
+#                 DEFINE('new_sent()')                            :(new_sent_end)
+#                 DEFINE('add_tok()')                             :(add_tok_end)
+#                 DEFINE('pp_mem(mem)ssk,si,sentno,wsk,wi,wkey,wq,wrd,tsk,ti,tag,tv,tline,pfx,pad,next_wkey,last_sent,lline,ns') :(pp_mem_end)
+#                 &TRIM           =   0
 # IR_LIT_STRING
  xchain422_n13_α:
  mov qword ptr [rbp + 10048], 1
@@ -5490,6 +5551,7 @@ xchain422_n2_af:
  jmp xchain422_n16_α
  xchain422_n15_β:
  jmp xchain422_n16_α
+#                 nl              =   CHAR(10)
 # IR_LIT_INTEGER
  xchain422_n16_α:
  mov qword ptr [rbp + 10176], 6
@@ -5533,6 +5595,7 @@ xchain422_n2_af:
  jmp xchain422_n19_α
  xchain422_n18_β:
  jmp xchain422_n19_α
+# slurp           line            =   INPUT                       :F(slurp_f)
 # IR_VAR
  xchain422_n19_α:
  mov rdi, qword ptr [rip + .Lx448_0]
@@ -5559,6 +5622,7 @@ xchain422_n2_af:
  jmp xchain422_n22_α
  xchain422_n20_β:
  jmp xchain422_n21_α
+# slurp_f         src             =   src b2 b1
 # IR_VAR
  xchain422_n21_α:
  mov rax, qword ptr [1879052784]
@@ -5568,6 +5632,7 @@ xchain422_n2_af:
  jmp xchain422_n23_α
  xchain422_n21_β:
  jmp xchain422_n24_α
+#                 b1              =   b1 line nl
 # IR_VAR
  xchain422_n22_α:
  mov rax, qword ptr [1879052752]
@@ -5586,6 +5651,7 @@ xchain422_n2_af:
  jmp xchain422_n27_α
  xchain422_n23_β:
  jmp xchain422_n24_α
+#                 mem             =   TABLE()
  xchain422_n24_α:
 # BOX IR_CALL TABLE(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
@@ -5612,6 +5678,7 @@ xchain422_n2_af:
  jmp xchain422_n30_α
  xchain422_n25_β:
  jmp xchain422_n26_α
+#                 GT(SIZE(b1), 8192)                              :F(slurp)
 # IR_VAR
  xchain422_n26_α:
  mov rax, qword ptr [1879052752]
@@ -5644,6 +5711,7 @@ xchain422_n2_af:
  jmp xchain422_n29_α
  xchain422_n28_β:
  jmp xchain422_n29_α
+#                 claws           =
 # IR_LIT_STRING
  xchain422_n29_α:
  mov qword ptr [rbp + 11456], 1
@@ -5763,6 +5831,7 @@ xchain422_n2_af:
  jmp xchain422_n38_α
  xchain422_n37_β:
  jmp xchain422_n38_α
+#                 t0              =   TIME()
  xchain422_n38_α:
 # BOX IR_CALL TIME(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
@@ -5839,6 +5908,7 @@ xchain422_n2_af:
  jmp xchain422_n43_α
  xchain422_n42_β:
  jmp xchain422_n43_α
+#                 src             claws                           :F(fail)
 # IR_VAR
  xchain422_n43_α:
  mov rax, qword ptr [1879052784]
@@ -5919,6 +5989,7 @@ xchain422_n2_af:
  mov r12, qword ptr [rbp + 11584]
  mov rbp, qword ptr [rbp + 11592]
  jmp xchain422_n47_α
+# fail            OUTPUT          =  'Pattern match failed'
 # IR_LIT_STRING
  xchain422_n47_α:
  mov qword ptr [rbp + 11968], 1
@@ -6036,6 +6107,7 @@ xchain422_n2_af:
  .quad .Lx487_0_s
 .Lx487_0_s:
  .string "OUTPUT"
+#                 b2              =   b2 b1
 # IR_VAR
  xchain422_n51_α:
  mov rax, qword ptr [1879052768]
@@ -6096,6 +6168,7 @@ xchain422_n2_af:
  jmp xchain422_n56_α
  xchain422_n53_β:
  jmp xchain422_n54_α
+#                 b1              =
 # IR_LIT_STRING
  xchain422_n54_α:
  mov qword ptr [rbp + 10768], 1
@@ -6108,6 +6181,7 @@ xchain422_n2_af:
  .quad .Lx492_0_s
 .Lx492_0_s:
  .string ""
+#                 t1              =   TIME()
  xchain422_n55_α:
 # BOX IR_CALL TIME(...) -> rt_call_arr [operand-marshal, FAIL->ω]
   .section .rodata
@@ -6159,6 +6233,7 @@ xchain422_n2_af:
  jmp xchain422_n59_α
  xchain422_n58_β:
  jmp xchain422_n59_α
+#                 TERMINAL        =   'match_ms=' (t1 - t0)
 # IR_LIT_STRING
  xchain422_n59_α:
  mov qword ptr [rbp + 11744], 1
@@ -6182,6 +6257,7 @@ xchain422_n2_af:
  jmp xchain422_n54_α
  xchain422_n60_β:
  jmp xchain422_n54_α
+#                 GT(SIZE(b2), 262144)                            :F(slurp)
 # IR_VAR
  xchain422_n61_α:
  mov rax, qword ptr [1879052768]
@@ -6231,6 +6307,7 @@ xchain422_n2_af:
  jmp xchain422_n67_α
  xchain422_n64_β:
  jmp xchain422_n65_α
+#                 pp_mem(mem)                                     :(END)
 # IR_VAR
  xchain422_n65_α:
  mov rax, qword ptr [1879052336]
@@ -6709,6 +6786,7 @@ xchain422_n2_af:
  jmp xchain422_n74_α
  xchain422_n73_β:
  jmp xchain422_n19_α
+#                 src             =   src b2
 # IR_VAR
  xchain422_n74_α:
  mov rax, qword ptr [1879052784]
@@ -6727,6 +6805,7 @@ xchain422_n2_af:
  jmp xchain422_n77_α
  xchain422_n75_β:
  jmp xchain422_n76_α
+#                 b2              =                               :(slurp)
 # IR_LIT_STRING
  xchain422_n76_α:
  mov qword ptr [rbp + 11136], 1
