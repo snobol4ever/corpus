@@ -1,8 +1,8 @@
                         .intel_syntax    noprefix
                         .text
+#-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_addword_α
 proc_addword_α:
-#=======================================================================================================================
                         .global          proc_addword_α
                         .global          proc_addword_β
                         .global          proc_addword_γ
@@ -18,6 +18,7 @@ proc_addword_α:
                         mov              edx, 2176
                         call             rt_jmp_frame_lexprep2@PLT
 proc_addword_α_body:
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain0_n0_α:
                         mov              qword ptr [rbp + 64], 0
@@ -42,6 +43,7 @@ xchain0_n0_af:
                         add              dword ptr [rbp + 80], 1
                         mov              eax, dword ptr [rbp + 80]
                                                                                         jmp   proc_addword_ω
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain0_n1_α:
                         mov              qword ptr [rbp + 1936], 0
@@ -78,6 +80,7 @@ xchain0_n1_af:
                         cmp              eax, 1
                                                                                         je    xchain0_n6_α
                                                                                         jmp   xchain0_n0_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain0_n2_α:
                         mov              qword ptr [rbp + 112], 0
@@ -114,6 +117,7 @@ xchain0_n2_af:
                         cmp              eax, 1
                                                                                         je    xchain0_n10_α
                                                                                         jmp   proc_addword_ω
+#-----------------------------------------------------------------------------------------------------------------------
 xchain0_n3_α:
 # IR_CONJUNCTION value-forward copy
                         mov              rax, qword ptr [rbp + 112]
@@ -123,6 +127,7 @@ xchain0_n3_α:
                                                                                         jmp   xchain0_n0_as
 xchain0_n3_β:
                                                                                         jmp   proc_addword_ω
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain0_n4_α:
                         mov              rax, 4294967305
@@ -130,6 +135,7 @@ xchain0_n4_α:
                         mov              qword ptr [rbp + 1760], rax
                         mov              qword ptr [rbp + 1768], rdx
                                                                                         jmp   xchain0_n13_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain0_n5_α:
                         mov              rax, qword ptr [1879052320]
@@ -139,6 +145,7 @@ xchain0_n5_α:
                                                                                         jmp   xchain0_n14_α
 xchain0_n5_β:
                                                                                         jmp   xchain0_n1_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain0_n6_α:
                         mov              rax, qword ptr [1879052416]
@@ -148,6 +155,7 @@ xchain0_n6_α:
                                                                                         jmp   xchain0_n8_α
 xchain0_n6_β:
                                                                                         jmp   xchain0_n1_af
+#-----------------------------------------------------------------------------------------------------------------------
 xchain0_n7_α:
 # BOX CALL any(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
 # marshal arg0 = producer-box slot [zr+2032] -> [zr+1984]
@@ -183,6 +191,7 @@ xchain0_n7_α:
                                                                                         jmp   xchain0_n1_as
 xchain0_n7_β:
                                                                                         jmp   xchain0_n1_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNOP
 xchain0_n8_α:
                         mov              eax, dword ptr [rbp + 2128]
@@ -197,6 +206,7 @@ xchain0_n8_α:
                                                                                         jmp   xchain0_n1_as
 xchain0_n8_β:
                                                                                         jmp   xchain0_n1_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain0_n9_α:
                         mov              qword ptr [rbp + 752], 0
@@ -233,6 +243,7 @@ xchain0_n9_af:
                         cmp              eax, 1
                                                                                         je    xchain0_n17_α
                                                                                         jmp   xchain0_n2_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain0_n10_α:
                         mov              rax, 4294967305
@@ -242,14 +253,17 @@ xchain0_n10_α:
                                                                                         jmp   xchain0_n21_α
 xchain0_n10_β:
                                                                                         jmp   xchain0_n27_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain0_n11_α:
                                                                                         jmp   xchain0_n2_as
 xchain0_n11_β:
                                                                                         jmp   proc_addword_ω
+#-----------------------------------------------------------------------------------------------------------------------
 xchain0_n12_α:
                                                                                         jmp   xchain0_n2_as
 xchain0_n12_β:
                                                                                         jmp   proc_addword_ω
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain0_n13_α:
                         mov              rax, qword ptr [rbp + 16]
@@ -257,6 +271,7 @@ xchain0_n13_α:
                         mov              rax, qword ptr [rbp + 24]
                         mov              qword ptr [rbp + 1800], rax
                                                                                         jmp   xchain0_n22_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain0_n14_α:
                         mov              rax, qword ptr [rbp + 16]
@@ -264,6 +279,7 @@ xchain0_n14_α:
                         mov              rax, qword ptr [rbp + 24]
                         mov              qword ptr [rbp + 2072], rax
                                                                                         jmp   xchain0_n7_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain0_n15_α:
                         mov              rax, 4294967305
@@ -271,6 +287,7 @@ xchain0_n15_α:
                         mov              qword ptr [rbp + 432], rax
                         mov              qword ptr [rbp + 440], rdx
                                                                                         jmp   xchain0_n23_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain0_n16_α:
                         mov              rax, 4294967305
@@ -280,6 +297,7 @@ xchain0_n16_α:
                                                                                         jmp   xchain0_n24_α
 xchain0_n16_β:
                                                                                         jmp   xchain0_n9_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain0_n17_α:
                         mov              rax, qword ptr [rbp + 16]
@@ -289,6 +307,7 @@ xchain0_n17_α:
                                                                                         jmp   xchain0_n25_α
 xchain0_n17_β:
                                                                                         jmp   xchain0_n9_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIST_BANG
 xchain0_n18_α:
                         mov              qword ptr [rbp + 1072], 0
@@ -305,6 +324,7 @@ xchain0_n18_α:
 xchain0_n18_β:
                         inc              qword ptr [rbp + 1072]
                                                                                         jmp   .Lx31_0
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNOP
 xchain0_n19_α:
                         mov              eax, dword ptr [rbp + 976]
@@ -317,6 +337,7 @@ xchain0_n19_α:
                                                                                         jmp   xchain0_n9_as
 xchain0_n19_β:
                                                                                         jmp   xchain0_n9_af
+#-----------------------------------------------------------------------------------------------------------------------
 xchain0_n20_α:
 # IR_BINOP_TEST
                         mov              rdi, qword ptr [rbp + 16]
@@ -335,6 +356,7 @@ xchain0_n20_α:
                                                                                         jmp   xchain0_n9_as
 xchain0_n20_β:
                                                                                         jmp   xchain0_n18_β
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain0_n21_α:
                         mov              rax, qword ptr [rbp + 16]
@@ -342,6 +364,7 @@ xchain0_n21_α:
                         mov              rax, qword ptr [rbp + 24]
                         mov              qword ptr [rbp + 1480], rax
                                                                                         jmp   xchain0_n26_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain0_n22_α:
                         mov              rdi, qword ptr [rbp + 1760]
@@ -354,6 +377,7 @@ xchain0_n22_α:
                         mov              qword ptr [rbp + 1824], rax
                         mov              qword ptr [rbp + 1832], rdx
                                                                                         jmp   xchain0_n28_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain0_n23_α:
                         mov              rax, qword ptr [rbp + 16]
@@ -361,6 +385,7 @@ xchain0_n23_α:
                         mov              rax, qword ptr [rbp + 24]
                         mov              qword ptr [rbp + 472], rax
                                                                                         jmp   xchain0_n29_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain0_n24_α:
                         mov              rax, qword ptr [rbp + 16]
@@ -368,6 +393,7 @@ xchain0_n24_α:
                         mov              rax, qword ptr [rbp + 24]
                         mov              qword ptr [rbp + 856], rax
                                                                                         jmp   xchain0_n31_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain0_n25_α:
                         mov              rax, qword ptr [1879052480]
@@ -375,6 +401,7 @@ xchain0_n25_α:
                         mov              qword ptr [rbp + 1120], rax
                         mov              qword ptr [rbp + 1128], rdx
                                                                                         jmp   xchain0_n32_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain0_n26_α:
                         mov              rdi, qword ptr [rbp + 1440]
@@ -387,6 +414,7 @@ xchain0_n26_α:
                         mov              qword ptr [rbp + 1504], rax
                         mov              qword ptr [rbp + 1512], rdx
                                                                                         jmp   xchain0_n33_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain0_n27_α:
                         mov              rax, 4294967305
@@ -394,6 +422,7 @@ xchain0_n27_α:
                         mov              qword ptr [rbp + 1232], rax
                         mov              qword ptr [rbp + 1240], rdx
                                                                                         jmp   xchain0_n34_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_NULLTEST_VAR
 xchain0_n28_α:
                         mov              eax, dword ptr [rbp + 1824]
@@ -411,6 +440,7 @@ xchain0_n28_α:
                         mov              rax, qword ptr [rbp + 1832]
                         mov              qword ptr [rbp + 1864], rax
                                                                                         jmp   xchain0_n35_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain0_n29_α:
                         mov              rdi, qword ptr [rbp + 432]
@@ -423,6 +453,7 @@ xchain0_n29_α:
                         mov              qword ptr [rbp + 496], rax
                         mov              qword ptr [rbp + 504], rdx
                                                                                         jmp   xchain0_n36_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain0_n30_α:
                         mov              rax, 4294967305
@@ -430,6 +461,7 @@ xchain0_n30_α:
                         mov              qword ptr [rbp + 224], rax
                         mov              qword ptr [rbp + 232], rdx
                                                                                         jmp   xchain0_n37_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain0_n31_α:
                         mov              rdi, qword ptr [rbp + 816]
@@ -442,6 +474,7 @@ xchain0_n31_α:
                         mov              qword ptr [rbp + 880], rax
                         mov              qword ptr [rbp + 888], rdx
                                                                                         jmp   xchain0_n38_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNOP
 xchain0_n32_α:
                         mov              eax, dword ptr [rbp + 1120]
@@ -454,6 +487,7 @@ xchain0_n32_α:
                         mov              rax, qword ptr [rbp + 1128]
                         mov              qword ptr [rbp + 1096], rax
                                                                                         jmp   xchain0_n18_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain0_n33_α:
                         mov              qword ptr [rbp + 1536], 1
@@ -464,6 +498,7 @@ xchain0_n33_α:
                         .quad            .Lx51_0_s
 .Lx51_0_s:
                         .string          "global"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain0_n34_α:
                         mov              rax, qword ptr [rbp + 16]
@@ -471,6 +506,7 @@ xchain0_n34_α:
                         mov              rax, qword ptr [rbp + 24]
                         mov              qword ptr [rbp + 1272], rax
                                                                                         jmp   xchain0_n40_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain0_n35_α:
 # BOX IR_CALL table(...) -> rt_call_arr [operand-marshal, FAIL->ω]
                         .section         .rodata
@@ -488,6 +524,7 @@ xchain0_n35_α:
                                                                                         jmp   xchain0_n41_α
 xchain0_n35_β:
                                                                                         jmp   xchain0_n2_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain0_n36_α:
                         mov              rax, qword ptr [rbp + 32]
@@ -495,6 +532,7 @@ xchain0_n36_α:
                         mov              rax, qword ptr [rbp + 40]
                         mov              qword ptr [rbp + 536], rax
                                                                                         jmp   xchain0_n42_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain0_n37_α:
                         mov              rax, qword ptr [rbp + 16]
@@ -502,6 +540,7 @@ xchain0_n37_α:
                         mov              rax, qword ptr [rbp + 24]
                         mov              qword ptr [rbp + 264], rax
                                                                                         jmp   xchain0_n43_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain0_n38_α:
                         mov              qword ptr [rbp + 912], 1
@@ -512,6 +551,7 @@ xchain0_n38_α:
                         .quad            .Lx60_0_s
 .Lx60_0_s:
                         .string          "global"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain0_n39_α:
                         mov              rdi, qword ptr [rbp + 1504]
@@ -524,6 +564,7 @@ xchain0_n39_α:
                         mov              qword ptr [rbp + 1568], rax
                         mov              qword ptr [rbp + 1576], rdx
                                                                                         jmp   xchain0_n45_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain0_n40_α:
                         mov              rdi, qword ptr [rbp + 1232]
@@ -536,6 +577,7 @@ xchain0_n40_α:
                         mov              qword ptr [rbp + 1296], rax
                         mov              qword ptr [rbp + 1304], rdx
                                                                                         jmp   xchain0_n46_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN_VAR
 xchain0_n41_α:
                         mov              rdi, qword ptr [rbp + 1856]
@@ -548,6 +590,7 @@ xchain0_n41_α:
                         mov              qword ptr [rbp + 1888], rax
                         mov              qword ptr [rbp + 1896], rdx
                                                                                         jmp   xchain0_n2_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain0_n42_α:
                         mov              rdi, qword ptr [rbp + 496]
@@ -560,6 +603,7 @@ xchain0_n42_α:
                         mov              qword ptr [rbp + 560], rax
                         mov              qword ptr [rbp + 568], rdx
                                                                                         jmp   xchain0_n47_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain0_n43_α:
                         mov              rdi, qword ptr [rbp + 224]
@@ -572,6 +616,7 @@ xchain0_n43_α:
                         mov              qword ptr [rbp + 288], rax
                         mov              qword ptr [rbp + 296], rdx
                                                                                         jmp   xchain0_n48_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain0_n44_α:
                         mov              rdi, qword ptr [rbp + 880]
@@ -584,6 +629,7 @@ xchain0_n44_α:
                         mov              qword ptr [rbp + 944], rax
                         mov              qword ptr [rbp + 952], rdx
                                                                                         jmp   xchain0_n49_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_NULLTEST_VAR
 xchain0_n45_α:
                         mov              eax, dword ptr [rbp + 1568]
@@ -601,6 +647,7 @@ xchain0_n45_α:
                         mov              rax, qword ptr [rbp + 1576]
                         mov              qword ptr [rbp + 1608], rax
                                                                                         jmp   xchain0_n50_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain0_n46_α:
                         mov              qword ptr [rbp + 1328], 1
@@ -611,6 +658,7 @@ xchain0_n46_α:
                         .quad            .Lx68_0_s
 .Lx68_0_s:
                         .string          "global"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_NULLTEST_VAR
 xchain0_n47_α:
                         mov              eax, dword ptr [rbp + 560]
@@ -628,6 +676,7 @@ xchain0_n47_α:
                         mov              rax, qword ptr [rbp + 568]
                         mov              qword ptr [rbp + 600], rax
                                                                                         jmp   xchain0_n52_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain0_n48_α:
                         mov              rax, qword ptr [rbp + 32]
@@ -635,6 +684,7 @@ xchain0_n48_α:
                         mov              rax, qword ptr [rbp + 40]
                         mov              qword ptr [rbp + 328], rax
                                                                                         jmp   xchain0_n53_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DEREF variable -> value
 xchain0_n49_α:
                         mov              rdi, qword ptr [rbp + 944]
@@ -645,6 +695,7 @@ xchain0_n49_α:
                         mov              qword ptr [rbp + 976], rax
                         mov              qword ptr [rbp + 984], rdx
                                                                                         jmp   xchain0_n19_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain0_n50_α:
                         mov              rax, qword ptr [rbp + 16]
@@ -652,6 +703,7 @@ xchain0_n50_α:
                         mov              rax, qword ptr [rbp + 24]
                         mov              qword ptr [rbp + 1704], rax
                                                                                         jmp   xchain0_n54_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain0_n51_α:
                         mov              rdi, qword ptr [rbp + 1296]
@@ -664,6 +716,7 @@ xchain0_n51_α:
                         mov              qword ptr [rbp + 1360], rax
                         mov              qword ptr [rbp + 1368], rdx
                                                                                         jmp   xchain0_n55_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain0_n52_α:
                         mov              rax, qword ptr [rbp + 16]
@@ -671,6 +724,7 @@ xchain0_n52_α:
                         mov              rax, qword ptr [rbp + 24]
                         mov              qword ptr [rbp + 696], rax
                                                                                         jmp   xchain0_n56_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain0_n53_α:
                         mov              rdi, qword ptr [rbp + 288]
@@ -683,6 +737,7 @@ xchain0_n53_α:
                         mov              qword ptr [rbp + 352], rax
                         mov              qword ptr [rbp + 360], rdx
                                                                                         jmp   xchain0_n57_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain0_n54_α:
                         mov              qword ptr [rbp + 1728], 1
@@ -693,6 +748,7 @@ xchain0_n54_α:
                         .quad            .Lx79_0_s
 .Lx79_0_s:
                         .string          "global"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DEREF variable -> value
 xchain0_n55_α:
                         mov              rdi, qword ptr [rbp + 1360]
@@ -703,6 +759,7 @@ xchain0_n55_α:
                         mov              qword ptr [rbp + 1392], rax
                         mov              qword ptr [rbp + 1400], rdx
                                                                                         jmp   xchain0_n59_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain0_n56_α:
                         mov              rax, qword ptr [rbp + 32]
@@ -710,6 +767,7 @@ xchain0_n56_α:
                         mov              rax, qword ptr [rbp + 40]
                         mov              qword ptr [rbp + 728], rax
                                                                                         jmp   xchain0_n60_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DEREF variable -> value
 xchain0_n57_α:
                         mov              rdi, qword ptr [rbp + 352]
@@ -720,6 +778,7 @@ xchain0_n57_α:
                         mov              qword ptr [rbp + 384], rax
                         mov              qword ptr [rbp + 392], rdx
                                                                                         jmp   xchain0_n61_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_MAKE_LIST
 xchain0_n58_α:
                         mov              rax, qword ptr [rbp + 1696]
@@ -736,6 +795,7 @@ xchain0_n58_α:
                         mov              qword ptr [rbp + 1648], rax
                         mov              qword ptr [rbp + 1656], rdx
                                                                                         jmp   xchain0_n62_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain0_n59_α:
                         mov              rax, qword ptr [rbp + 48]
@@ -743,6 +803,7 @@ xchain0_n59_α:
                         mov              rax, qword ptr [rbp + 56]
                         mov              qword ptr [rbp + 1416], rax
                                                                                         jmp   xchain0_n63_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_MAKE_LIST
 xchain0_n60_α:
                         mov              rax, qword ptr [rbp + 688]
@@ -759,6 +820,7 @@ xchain0_n60_α:
                         mov              qword ptr [rbp + 640], rax
                         mov              qword ptr [rbp + 648], rdx
                                                                                         jmp   xchain0_n64_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain0_n61_α:
                         mov              rax, qword ptr [rbp + 48]
@@ -766,6 +828,7 @@ xchain0_n61_α:
                         mov              rax, qword ptr [rbp + 56]
                         mov              qword ptr [rbp + 408], rax
                                                                                         jmp   xchain0_n65_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN_VAR
 xchain0_n62_α:
                         mov              rdi, qword ptr [rbp + 1600]
@@ -778,6 +841,7 @@ xchain0_n62_α:
                         mov              qword ptr [rbp + 1632], rax
                         mov              qword ptr [rbp + 1640], rdx
                                                                                         jmp   xchain0_n27_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain0_n63_α:
 # BOX IR_CALL put(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+1392] -> [zr+1184]
@@ -805,6 +869,7 @@ xchain0_n63_α:
                                                                                         jmp   xchain0_n12_α
 xchain0_n63_β:
                                                                                         jmp   proc_addword_ω
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN_VAR
 xchain0_n64_α:
                         mov              rdi, qword ptr [rbp + 592]
@@ -817,6 +882,7 @@ xchain0_n64_α:
                         mov              qword ptr [rbp + 624], rax
                         mov              qword ptr [rbp + 632], rdx
                                                                                         jmp   xchain0_n30_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain0_n65_α:
 # BOX IR_CALL put(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+384] -> [zr+176]
@@ -844,11 +910,14 @@ xchain0_n65_α:
                                                                                         jmp   xchain0_n11_α
 xchain0_n65_β:
                                                                                         jmp   proc_addword_ω
+#-----------------------------------------------------------------------------------------------------------------------
 proc_addword_res:
                         add              rsp, 8
                         pop              rbp
+#-----------------------------------------------------------------------------------------------------------------------
 proc_addword_β:
                                                                                         jmp   proc_addword_ω
+#-----------------------------------------------------------------------------------------------------------------------
 proc_addword_γ:
                         mov              rdi, [rbp]
                         mov              rsi, [rbp + 8]
@@ -856,11 +925,13 @@ proc_addword_γ:
                         lea              rsp, [rbp + 2208]
                         mov              rbp, [rbp + 2200]
                                                                                         jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
 proc_addword_ω:
                         mov              rax, [rbp + 2192]
                         lea              rsp, [rbp + 2208]
                         mov              rbp, [rbp + 2200]
                                                                                         jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
 proc_addword_dcα:
 # PL-DC direct-call entry: retaddr -> kt-32 pad, wires -> local ret-shims, one prep crossing, shared body
                         pop              r11
@@ -899,9 +970,9 @@ proc_addword_dcα:
                         mov              r11, qword ptr [rsp + -32]
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
+#-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_getword_α
 proc_getword_α:
-#=======================================================================================================================
                         .global          proc_getword_α
                         .global          proc_getword_β
                         .global          proc_getword_γ
@@ -917,6 +988,7 @@ proc_getword_α:
                         mov              edx, 4768
                         call             rt_jmp_frame_lexprep2@PLT
 proc_getword_α_body:
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain99_n0_α:
                         mov              qword ptr [rbp + 4496], 0
@@ -941,6 +1013,7 @@ xchain99_n0_af:
                         add              dword ptr [rbp + 4512], 1
                         mov              eax, dword ptr [rbp + 4512]
                                                                                         jmp   xchain99_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain99_n1_α:
                         mov              qword ptr [rbp + 4256], 0
@@ -961,6 +1034,7 @@ xchain99_n1_af:
                         add              dword ptr [rbp + 4272], 1
                         mov              eax, dword ptr [rbp + 4272]
                                                                                         jmp   xchain99_n4_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain99_n2_α:
                         mov              rax, 4294967305
@@ -970,6 +1044,7 @@ xchain99_n2_α:
                                                                                         jmp   xchain99_n6_α
 xchain99_n2_β:
                                                                                         jmp   xchain99_n0_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain99_n3_α:
                         mov              rax, qword ptr [rbp + 4544]
@@ -981,6 +1056,7 @@ xchain99_n3_α:
                                                                                         jmp   xchain99_n0_as
 xchain99_n3_β:
                                                                                         jmp   xchain99_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain99_n4_α:
                         mov              qword ptr [rbp + 3568], 0
@@ -1005,6 +1081,7 @@ xchain99_n4_af:
                         add              dword ptr [rbp + 3584], 1
                         mov              eax, dword ptr [rbp + 3584]
                                                                                         jmp   xchain99_n7_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n5_α:
                         mov              rax, qword ptr [1879052368]
@@ -1014,6 +1091,7 @@ xchain99_n5_α:
                                                                                         jmp   xchain99_n10_α
 xchain99_n5_β:
                                                                                         jmp   xchain99_n1_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_NULLTEST_VAR
 xchain99_n6_α:
                         mov              eax, dword ptr [rbp + 4608]
@@ -1031,6 +1109,7 @@ xchain99_n6_α:
                         mov              rax, qword ptr [rbp + 4616]
                         mov              qword ptr [rbp + 4648], rax
                                                                                         jmp   xchain99_n11_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain99_n7_α:
                         mov              qword ptr [rbp + 32], 0
@@ -1067,6 +1146,7 @@ xchain99_n7_af:
                         cmp              eax, 1
                                                                                         je    xchain99_n15_α
                                                                                         jmp   xchain99_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain99_n8_α:
                         mov              qword ptr [rbp + 3936], 0
@@ -1103,6 +1183,7 @@ xchain99_n8_af:
                         cmp              eax, 1
                                                                                         je    xchain99_n19_α
                                                                                         jmp   xchain99_n4_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain99_n9_α:
                         mov              qword ptr [rbp + 3600], 0
@@ -1135,6 +1216,7 @@ xchain99_n9_af:
                         cmp              eax, 1
                                                                                         je    proc_getword_ω
                                                                                         jmp   xchain99_n7_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNOP
 xchain99_n10_α:
                         mov              rdi, qword ptr [rbp + 4432]
@@ -1143,6 +1225,7 @@ xchain99_n10_α:
                         mov              qword ptr [rbp + 4400], rax
                         mov              qword ptr [rbp + 4408], rdx
                                                                                         jmp   xchain99_n24_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain99_n11_α:
                         mov              qword ptr [rbp + 4688], 6
@@ -1151,6 +1234,7 @@ xchain99_n11_α:
                                                                                         jmp   xchain99_n25_α
 .Lx00007_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n12_α:
 # IR_CONJUNCTION value-forward copy
                         mov              rax, qword ptr [rbp + 32]
@@ -1160,6 +1244,7 @@ xchain99_n12_α:
                                                                                         jmp   xchain99_n1_α
 xchain99_n12_β:
                                                                                         jmp   xchain99_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n13_α:
                         mov              rax, qword ptr [1879052576]
@@ -1169,6 +1254,7 @@ xchain99_n13_α:
                                                                                         jmp   xchain99_n26_α
 xchain99_n13_β:
                                                                                         jmp   xchain99_n7_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain99_n14_α:
                         mov              qword ptr [rbp + 80], 0
@@ -1205,6 +1291,7 @@ xchain99_n14_af:
                         cmp              eax, 1
                                                                                         je    xchain99_n29_α
                                                                                         jmp   xchain99_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n15_α:
                         mov              rax, qword ptr [1879052496]
@@ -1214,6 +1301,7 @@ xchain99_n15_α:
                                                                                         jmp   xchain99_n30_α
 xchain99_n15_β:
                                                                                         jmp   xchain99_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n16_α:
 # IR_CONJUNCTION value-forward copy
                         mov              rax, qword ptr [rbp + 80]
@@ -1223,6 +1311,7 @@ xchain99_n16_α:
                                                                                         jmp   xchain99_n7_as
 xchain99_n16_β:
                                                                                         jmp   xchain99_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain99_n17_α:
                         mov              rax, qword ptr [rbp + 3408]
@@ -1234,6 +1323,7 @@ xchain99_n17_α:
                                                                                         jmp   xchain99_n7_as
 xchain99_n17_β:
                                                                                         jmp   xchain99_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n18_α:
                         mov              rax, qword ptr [1879052496]
@@ -1243,6 +1333,7 @@ xchain99_n18_α:
                                                                                         jmp   xchain99_n20_α
 xchain99_n18_β:
                                                                                         jmp   xchain99_n8_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n19_α:
                         mov              rax, qword ptr [1879052560]
@@ -1252,6 +1343,7 @@ xchain99_n19_α:
                                                                                         jmp   xchain99_n31_α
 xchain99_n19_β:
                                                                                         jmp   xchain99_n8_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNOP
 xchain99_n20_α:
                         mov              eax, dword ptr [rbp + 4000]
@@ -1264,6 +1356,7 @@ xchain99_n20_α:
                                                                                         jmp   xchain99_n8_as
 xchain99_n20_β:
                                                                                         jmp   xchain99_n8_af
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n21_α:
 # IR_BINOP_TEST
                         mov              eax, dword ptr [rbp + 4064]
@@ -1317,6 +1410,7 @@ xchain99_n21_α:
                                                                                         jmp   xchain99_n8_as
 xchain99_n21_β:
                                                                                         jmp   xchain99_n8_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n22_α:
                         mov              rax, qword ptr [1879052400]
@@ -1326,10 +1420,12 @@ xchain99_n22_α:
                                                                                         jmp   xchain99_n32_α
 xchain99_n22_β:
                                                                                         jmp   xchain99_n9_af
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n23_α:
                                                                                         jmp   xchain99_n9_as
 xchain99_n23_β:
                                                                                         jmp   xchain99_n7_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain99_n24_α:
                         mov              qword ptr [rbp + 4464], 6
@@ -1338,6 +1434,7 @@ xchain99_n24_α:
                                                                                         jmp   xchain99_n33_α
 .Lx00010_0:
                         .quad            0
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN_VAR
 xchain99_n25_α:
                         mov              rdi, qword ptr [rbp + 4640]
@@ -1350,6 +1447,7 @@ xchain99_n25_α:
                         mov              qword ptr [rbp + 4672], rax
                         mov              qword ptr [rbp + 4680], rdx
                                                                                         jmp   xchain99_n34_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n26_α:
                         mov              rax, qword ptr [1879052496]
@@ -1357,6 +1455,7 @@ xchain99_n26_α:
                         mov              qword ptr [rbp + 3328], rax
                         mov              qword ptr [rbp + 3336], rdx
                                                                                         jmp   xchain99_n35_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain99_n27_α:
                         mov              rax, 4294967305
@@ -1366,6 +1465,7 @@ xchain99_n27_α:
                                                                                         jmp   xchain99_n36_α
 xchain99_n27_β:
                                                                                         jmp   xchain99_n14_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain99_n28_α:
                         mov              qword ptr [rbp + 112], 0
@@ -1402,6 +1502,7 @@ xchain99_n28_af:
                         cmp              eax, 1
                                                                                         je    xchain99_n39_α
                                                                                         jmp   xchain99_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain99_n29_α:
                         mov              qword ptr [rbp + 2048], 0
@@ -1438,6 +1539,7 @@ xchain99_n29_af:
                         cmp              eax, 1
                                                                                         je    xchain99_n42_α
                                                                                         jmp   xchain99_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNOP
 xchain99_n30_α:
                         mov              rdi, qword ptr [rbp + 3504]
@@ -1446,6 +1548,7 @@ xchain99_n30_α:
                         mov              qword ptr [rbp + 3472], rax
                         mov              qword ptr [rbp + 3480], rdx
                                                                                         jmp   xchain99_n44_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n31_α:
                         mov              rax, qword ptr [1879052496]
@@ -1453,6 +1556,7 @@ xchain99_n31_α:
                         mov              qword ptr [rbp + 4192], rax
                         mov              qword ptr [rbp + 4200], rdx
                                                                                         jmp   xchain99_n45_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n32_α:
 # BOX IR_CALL read(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+3904] -> [zr+3872]
@@ -1475,6 +1579,7 @@ xchain99_n32_α:
                                                                                         jmp   xchain99_n46_α
 xchain99_n32_β:
                                                                                         jmp   xchain99_n9_af
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n33_α:
 # IR_BINOP_TEST
                         mov              eax, dword ptr [rbp + 4400]
@@ -1526,6 +1631,7 @@ xchain99_n33_α:
                         mov              rax, qword ptr [rbp + 4472]
                         mov              qword ptr [rbp + 4376], rax
                                                                                         jmp   xchain99_n47_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_CHARSET
 xchain99_n34_α:
                         mov              qword ptr [rbp + 4576], 1
@@ -1537,6 +1643,7 @@ xchain99_n34_α:
                         .quad            .Lx00014_0_s
 .Lx00014_0_s:
                         .string          "\t\n "
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n35_α:
                         mov              rax, qword ptr [1879052560]
@@ -1544,6 +1651,7 @@ xchain99_n35_α:
                         mov              qword ptr [rbp + 3360], rax
                         mov              qword ptr [rbp + 3368], rdx
                                                                                         jmp   xchain99_n49_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n36_α:
                         mov              rax, qword ptr [1879052560]
@@ -1551,6 +1659,7 @@ xchain99_n36_α:
                         mov              qword ptr [rbp + 1872], rax
                         mov              qword ptr [rbp + 1880], rdx
                                                                                         jmp   xchain99_n50_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n37_α:
                         mov              rax, qword ptr [1879052384]
@@ -1560,10 +1669,12 @@ xchain99_n37_α:
                                                                                         jmp   xchain99_n51_α
 xchain99_n37_β:
                                                                                         jmp   xchain99_n28_af
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n38_α:
                                                                                         jmp   xchain99_n28_as
 xchain99_n38_β:
                                                                                         jmp   xchain99_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n39_α:
                         mov              rax, qword ptr [1879052560]
@@ -1573,6 +1684,7 @@ xchain99_n39_α:
                                                                                         jmp   xchain99_n52_α
 xchain99_n39_β:
                                                                                         jmp   xchain99_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain99_n40_α:
                         mov              rax, qword ptr [rbp + 1680]
@@ -1584,6 +1696,7 @@ xchain99_n40_α:
                                                                                         jmp   xchain99_n28_as
 xchain99_n40_β:
                                                                                         jmp   xchain99_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain99_n41_α:
                         mov              rax, 4294967305
@@ -1593,6 +1706,7 @@ xchain99_n41_α:
                                                                                         jmp   xchain99_n53_α
 xchain99_n41_β:
                                                                                         jmp   xchain99_n29_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain99_n42_α:
                         mov              qword ptr [rbp + 2432], 0
@@ -1621,6 +1735,7 @@ xchain99_n42_af:
                         cmp              eax, 1
                                                                                         je    xchain99_n55_α
                                                                                         jmp   xchain99_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain99_n43_α:
                         mov              rax, qword ptr [rbp + 2096]
@@ -1632,6 +1747,7 @@ xchain99_n43_α:
                                                                                         jmp   xchain99_n29_as
 xchain99_n43_β:
                                                                                         jmp   xchain99_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain99_n44_α:
                         mov              qword ptr [rbp + 3536], 6
@@ -1640,6 +1756,7 @@ xchain99_n44_α:
                                                                                         jmp   xchain99_n57_α
 .Lx00016_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNOP
 xchain99_n45_α:
                         mov              rdi, qword ptr [rbp + 4192]
@@ -1648,6 +1765,7 @@ xchain99_n45_α:
                         mov              qword ptr [rbp + 4160], rax
                         mov              qword ptr [rbp + 4168], rdx
                                                                                         jmp   xchain99_n58_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain99_n46_α:
                         mov              rax, qword ptr [rbp + 3856]
@@ -1657,6 +1775,7 @@ xchain99_n46_α:
                         mov              qword ptr [rbp + 3840], rax
                         mov              qword ptr [rbp + 3848], rdx
                                                                                         jmp   xchain99_n59_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n47_α:
                         mov              rax, qword ptr [1879052368]
@@ -1664,6 +1783,7 @@ xchain99_n47_α:
                         mov              qword ptr [rbp + 4336], rax
                         mov              qword ptr [rbp + 4344], rdx
                                                                                         jmp   xchain99_n60_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNOP
 xchain99_n48_α:
                         mov              rdi, qword ptr [rbp + 4576]
@@ -1672,6 +1792,7 @@ xchain99_n48_α:
                         mov              qword ptr [rbp + 4544], rax
                         mov              qword ptr [rbp + 4552], rdx
                                                                                         jmp   xchain99_n3_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n49_α:
 # BOX CALL_GEN upto(...) -> rt_call_arr_gen by-name [four-port generator; alpha zeroes resume cell, beta re-pumps invoke with persisted cell]
 # marshal arg0 = producer-box slot [zr+3296] -> [zr+3232]
@@ -1709,6 +1830,7 @@ xchain99_n49_α:
                                                                                         jmp   xchain99_n61_α
 xchain99_n49_β:
                                                                                         jmp   .Lx00017_60
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain99_n50_α:
                         mov              rdi, qword ptr [rbp + 1840]
@@ -1721,6 +1843,7 @@ xchain99_n50_α:
                         mov              qword ptr [rbp + 1904], rax
                         mov              qword ptr [rbp + 1912], rdx
                                                                                         jmp   xchain99_n62_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNOP
 xchain99_n51_α:
                         mov              eax, dword ptr [rbp + 1632]
@@ -1731,6 +1854,7 @@ xchain99_n51_α:
                         mov              qword ptr [rbp + 1600], 0
                         mov              qword ptr [rbp + 1608], 0
                                                                                         jmp   xchain99_n63_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain99_n52_α:
                         mov              qword ptr [rbp + 1776], 6
@@ -1739,6 +1863,7 @@ xchain99_n52_α:
                                                                                         jmp   xchain99_n64_α
 .Lx00018_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n53_α:
                         mov              rax, qword ptr [1879052560]
@@ -1746,6 +1871,7 @@ xchain99_n53_α:
                         mov              qword ptr [rbp + 2320], rax
                         mov              qword ptr [rbp + 2328], rdx
                                                                                         jmp   xchain99_n65_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n54_α:
                         mov              rax, qword ptr [1879052336]
@@ -1755,6 +1881,7 @@ xchain99_n54_α:
                                                                                         jmp   xchain99_n66_α
 xchain99_n54_β:
                                                                                         jmp   xchain99_n42_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n55_α:
                         mov              rax, qword ptr [1879052560]
@@ -1764,10 +1891,12 @@ xchain99_n55_α:
                                                                                         jmp   xchain99_n67_α
 xchain99_n55_β:
                                                                                         jmp   xchain99_n68_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n56_α:
                                                                                         jmp   xchain99_n42_as
 xchain99_n56_β:
                                                                                         jmp   xchain99_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_COERCE_NUMERIC
 xchain99_n57_α:
                         mov              eax, dword ptr [rbp + 3472]
@@ -1791,6 +1920,7 @@ xchain99_n57_α:
                         mov              rcx, 0
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   xchain99_n69_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain99_n58_α:
                         mov              qword ptr [rbp + 4224], 6
@@ -1799,6 +1929,7 @@ xchain99_n58_α:
                                                                                         jmp   xchain99_n70_α
 .Lx00020_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain99_n59_α:
                         mov              qword ptr [rbp + 3808], 6
@@ -1807,6 +1938,7 @@ xchain99_n59_α:
                                                                                         jmp   xchain99_n71_α
 .Lx00021_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n60_α:
 # BOX IR_CALL get(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+4336] -> [zr+4304]
@@ -1829,6 +1961,7 @@ xchain99_n60_α:
                                                                                         jmp   xchain99_n72_α
 xchain99_n60_β:
                                                                                         jmp   proc_getword_ω
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain99_n61_α:
                         mov              rax, qword ptr [rbp + 3216]
@@ -1838,6 +1971,7 @@ xchain99_n61_α:
                         mov              qword ptr [rbp + 3200], rax
                         mov              qword ptr [rbp + 3208], rdx
                                                                                         jmp   xchain99_n73_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DEREF variable -> value
 xchain99_n62_α:
                         mov              rdi, qword ptr [rbp + 1904]
@@ -1848,6 +1982,7 @@ xchain99_n62_α:
                         mov              qword ptr [rbp + 1936], rax
                         mov              qword ptr [rbp + 1944], rdx
                                                                                         jmp   xchain99_n74_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain99_n63_α:
                         mov              rax, 4294967305
@@ -1855,6 +1990,7 @@ xchain99_n63_α:
                         mov              qword ptr [rbp + 1488], rax
                         mov              qword ptr [rbp + 1496], rdx
                                                                                         jmp   xchain99_n75_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_COERCE_NUMERIC
 xchain99_n64_α:
                         mov              eax, dword ptr [rbp + 1744]
@@ -1878,6 +2014,7 @@ xchain99_n64_α:
                         mov              rcx, 0
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   xchain99_n76_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain99_n65_α:
                         mov              rdi, qword ptr [rbp + 2288]
@@ -1890,6 +2027,7 @@ xchain99_n65_α:
                         mov              qword ptr [rbp + 2352], rax
                         mov              qword ptr [rbp + 2360], rdx
                                                                                         jmp   xchain99_n77_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n66_α:
                         mov              rax, qword ptr [1879052496]
@@ -1897,6 +2035,7 @@ xchain99_n66_α:
                         mov              qword ptr [rbp + 2720], rax
                         mov              qword ptr [rbp + 2728], rdx
                                                                                         jmp   xchain99_n78_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain99_n67_α:
                         mov              qword ptr [rbp + 3120], 6
@@ -1905,6 +2044,7 @@ xchain99_n67_α:
                                                                                         jmp   xchain99_n79_α
 .Lx00023_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain99_n68_α:
                         mov              rax, 4294967305
@@ -1912,6 +2052,7 @@ xchain99_n68_α:
                         mov              qword ptr [rbp + 2800], rax
                         mov              qword ptr [rbp + 2808], rdx
                                                                                         jmp   xchain99_n80_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n69_α:
 # IR_BINOP_ARITH
                         mov              eax, dword ptr [rbp + 3440]
@@ -1951,6 +2092,7 @@ xchain99_n69_α:
                                                                                         jmp   xchain99_n17_α
 xchain99_n69_β:
                                                                                         jmp   xchain99_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_COERCE_NUMERIC
 xchain99_n70_α:
                         mov              eax, dword ptr [rbp + 4160]
@@ -1974,6 +2116,7 @@ xchain99_n70_α:
                         mov              rcx, 0
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   xchain99_n81_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain99_n71_α:
                         mov              rax, qword ptr [rbp + 3808]
@@ -1983,6 +2126,7 @@ xchain99_n71_α:
                         mov              qword ptr [rbp + 3792], rax
                         mov              qword ptr [rbp + 3800], rdx
                                                                                         jmp   xchain99_n82_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_RETURN
 xchain99_n72_α:
                         mov              rax, qword ptr [rbp + 4288]
@@ -1990,6 +2134,7 @@ xchain99_n72_α:
                         mov              qword ptr [rbp + 0], rax
                         mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   proc_getword_γ
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n73_α:
                         mov              rax, qword ptr [1879052560]
@@ -1997,6 +2142,7 @@ xchain99_n73_α:
                         mov              qword ptr [rbp + 3168], rax
                         mov              qword ptr [rbp + 3176], rdx
                                                                                         jmp   xchain99_n83_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain99_n74_α:
                         mov              qword ptr [rbp + 1952], 0
@@ -2033,6 +2179,7 @@ xchain99_n74_af:
                         cmp              eax, 1
                                                                                         je    xchain99_n86_α
                                                                                         jmp   xchain99_n14_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n75_α:
                         mov              rax, qword ptr [1879052560]
@@ -2040,6 +2187,7 @@ xchain99_n75_α:
                         mov              qword ptr [rbp + 1520], rax
                         mov              qword ptr [rbp + 1528], rdx
                                                                                         jmp   xchain99_n87_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n76_α:
 # IR_BINOP_ARITH
                         mov              eax, dword ptr [rbp + 1712]
@@ -2079,6 +2227,7 @@ xchain99_n76_α:
                                                                                         jmp   xchain99_n40_α
 xchain99_n76_β:
                                                                                         jmp   xchain99_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DEREF variable -> value
 xchain99_n77_α:
                         mov              rdi, qword ptr [rbp + 2352]
@@ -2089,6 +2238,7 @@ xchain99_n77_α:
                         mov              qword ptr [rbp + 2384], rax
                         mov              qword ptr [rbp + 2392], rdx
                                                                                         jmp   xchain99_n89_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n78_α:
                         mov              rax, qword ptr [1879052560]
@@ -2096,6 +2246,7 @@ xchain99_n78_α:
                         mov              qword ptr [rbp + 2752], rax
                         mov              qword ptr [rbp + 2760], rdx
                                                                                         jmp   xchain99_n90_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_COERCE_NUMERIC
 xchain99_n79_α:
                         mov              eax, dword ptr [rbp + 3088]
@@ -2119,6 +2270,7 @@ xchain99_n79_α:
                         mov              rcx, 0
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   xchain99_n91_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n80_α:
                         mov              rax, qword ptr [1879052560]
@@ -2126,6 +2278,7 @@ xchain99_n80_α:
                         mov              qword ptr [rbp + 2896], rax
                         mov              qword ptr [rbp + 2904], rdx
                                                                                         jmp   xchain99_n92_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n81_α:
 # IR_BINOP_ARITH
                         mov              eax, dword ptr [rbp + 4128]
@@ -2165,6 +2318,7 @@ xchain99_n81_α:
                                                                                         jmp   xchain99_n21_α
 xchain99_n81_β:
                                                                                         jmp   xchain99_n8_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n82_α:
                         mov              rax, qword ptr [1879052304]
@@ -2172,6 +2326,7 @@ xchain99_n82_α:
                         mov              qword ptr [rbp + 3728], rax
                         mov              qword ptr [rbp + 3736], rdx
                                                                                         jmp   xchain99_n93_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n83_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 3168]
@@ -2181,6 +2336,7 @@ xchain99_n83_α:
                         mov              qword ptr [rbp + 3152], rax
                         mov              qword ptr [rbp + 3160], rdx
                                                                                         jmp   xchain99_n14_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n84_α:
 # IR_BINOP_TEST
                         mov              rdi, qword ptr [rbp + 1936]
@@ -2197,6 +2353,7 @@ xchain99_n84_α:
                         mov              qword ptr [rbp + 1808], rax
                         mov              qword ptr [rbp + 1816], rdx
                                                                                         jmp   xchain99_n28_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain99_n85_α:
                         mov              qword ptr [rbp + 1984], 1
@@ -2209,6 +2366,7 @@ xchain99_n85_β:
                         .quad            .Lx00030_0_s
 .Lx00030_0_s:
                         .string          "'"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain99_n86_α:
                         mov              qword ptr [rbp + 2016], 1
@@ -2221,6 +2379,7 @@ xchain99_n86_β:
                         .quad            .Lx00031_0_s
 .Lx00031_0_s:
                         .string          "\""
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain99_n87_α:
                         mov              rdi, qword ptr [rbp + 1488]
@@ -2233,6 +2392,7 @@ xchain99_n87_α:
                         mov              qword ptr [rbp + 1552], rax
                         mov              qword ptr [rbp + 1560], rdx
                                                                                         jmp   xchain99_n94_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n88_α:
                         mov              rax, qword ptr [1879052560]
@@ -2240,6 +2400,7 @@ xchain99_n88_α:
                         mov              qword ptr [rbp + 1408], rax
                         mov              qword ptr [rbp + 1416], rdx
                                                                                         jmp   xchain99_n95_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain99_n89_α:
                         mov              qword ptr [rbp + 2400], 1
@@ -2250,6 +2411,7 @@ xchain99_n89_α:
                         .quad            .Lx00032_0_s
 .Lx00032_0_s:
                         .string          "#"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n90_α:
 # BOX CALL many(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
 # marshal arg0 = producer-box slot [zr+2688] -> [zr+2624]
@@ -2290,6 +2452,7 @@ xchain99_n90_α:
                                                                                         jmp   xchain99_n98_α
 xchain99_n90_β:
                                                                                         jmp   xchain99_n42_af
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n91_α:
 # IR_BINOP_ARITH
                         mov              eax, dword ptr [rbp + 3056]
@@ -2329,6 +2492,7 @@ xchain99_n91_α:
                                                                                         jmp   xchain99_n99_α
 xchain99_n91_β:
                                                                                         jmp   xchain99_n68_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain99_n92_α:
                         mov              qword ptr [rbp + 2928], 6
@@ -2337,6 +2501,7 @@ xchain99_n92_α:
                                                                                         jmp   xchain99_n00035_α
 .Lx00034_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain99_n93_α:
                         mov              qword ptr [rbp + 3760], 6
@@ -2345,6 +2510,7 @@ xchain99_n93_α:
                                                                                         jmp   xchain99_n00001_α
 .Lx00036_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DEREF variable -> value
 xchain99_n94_α:
                         mov              rdi, qword ptr [rbp + 1552]
@@ -2355,6 +2521,7 @@ xchain99_n94_α:
                         mov              qword ptr [rbp + 1584], rax
                         mov              qword ptr [rbp + 1592], rdx
                                                                                         jmp   xchain99_n00037_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain99_n95_α:
                         mov              qword ptr [rbp + 1440], 6
@@ -2363,6 +2530,7 @@ xchain99_n95_α:
                                                                                         jmp   xchain99_n00002_α
 .Lx00038_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain99_n96_α:
                         mov              qword ptr [rbp + 160], 0
@@ -2399,6 +2567,7 @@ xchain99_n96_af:
                         cmp              eax, 1
                                                                                         je    xchain99_n00043_α
                                                                                         jmp   xchain99_n96_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n97_α:
 # IR_BINOP_TEST
                         mov              rdi, qword ptr [rbp + 2384]
@@ -2415,6 +2584,7 @@ xchain99_n97_α:
                         mov              qword ptr [rbp + 2256], rax
                         mov              qword ptr [rbp + 2264], rdx
                                                                                         jmp   xchain99_n00044_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain99_n98_α:
                         mov              rax, qword ptr [rbp + 2608]
@@ -2424,6 +2594,7 @@ xchain99_n98_α:
                         mov              qword ptr [rbp + 2592], rax
                         mov              qword ptr [rbp + 2600], rdx
                                                                                         jmp   xchain99_n00045_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain99_n99_α:
                         mov              rax, qword ptr [rbp + 3024]
@@ -2433,6 +2604,7 @@ xchain99_n99_α:
                         mov              qword ptr [rbp + 3008], rax
                         mov              qword ptr [rbp + 3016], rdx
                                                                                         jmp   xchain99_n68_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_COERCE_NUMERIC
 xchain99_n00035_α:
                         mov              eax, dword ptr [rbp + 2896]
@@ -2456,6 +2628,7 @@ xchain99_n00035_α:
                         mov              rcx, 0
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   xchain99_n00047_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_COERCE_NUMERIC
 xchain99_n00001_α:
                         mov              eax, dword ptr [rbp + 3728]
@@ -2479,6 +2652,7 @@ xchain99_n00001_α:
                         mov              rcx, 0
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   xchain99_n00004_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n00037_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 1584]
@@ -2488,6 +2662,7 @@ xchain99_n00037_α:
                         mov              qword ptr [rbp + 1472], rax
                         mov              qword ptr [rbp + 1480], rdx
                                                                                         jmp   xchain99_n88_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_COERCE_NUMERIC
 xchain99_n00002_α:
                         mov              eax, dword ptr [rbp + 1408]
@@ -2511,6 +2686,7 @@ xchain99_n00002_α:
                         mov              rcx, 0
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   xchain99_n00050_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n00039_α:
                         mov              rax, qword ptr [rbp + 4736]
@@ -2520,6 +2696,7 @@ xchain99_n00039_α:
                                                                                         jmp   xchain99_n00005_α
 xchain99_n00039_β:
                                                                                         jmp   xchain99_n96_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain99_n00041_α:
                         mov              qword ptr [rbp + 192], 0
@@ -2552,6 +2729,7 @@ xchain99_n00041_af:
                         cmp              eax, 1
                                                                                         je    xchain99_n00006_α
                                                                                         jmp   xchain99_n96_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain99_n00043_α:
                         mov              qword ptr [rbp + 1296], 6
@@ -2562,6 +2740,7 @@ xchain99_n00043_β:
                                                                                         jmp   xchain99_n00054_α
 .Lx00053_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain99_n00042_α:
                         mov              qword ptr [rbp + 1024], 0
@@ -2594,10 +2773,12 @@ xchain99_n00042_af:
                         cmp              eax, 1
                                                                                         je    proc_getword_ω
                                                                                         jmp   xchain99_n96_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n00003_α:
                                                                                         jmp   xchain99_n96_as
 xchain99_n00003_β:
                                                                                         jmp   xchain99_n96_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n00044_α:
                         mov              rax, qword ptr [1879052496]
@@ -2605,6 +2786,7 @@ xchain99_n00044_α:
                         mov              qword ptr [rbp + 2192], rax
                         mov              qword ptr [rbp + 2200], rdx
                                                                                         jmp   xchain99_n00008_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n00045_α:
                         mov              rax, qword ptr [1879052496]
@@ -2612,6 +2794,7 @@ xchain99_n00045_α:
                         mov              qword ptr [rbp + 2496], rax
                         mov              qword ptr [rbp + 2504], rdx
                                                                                         jmp   xchain99_n00058_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n00047_α:
 # IR_BINOP_ARITH
                         mov              eax, dword ptr [rbp + 2864]
@@ -2651,6 +2834,7 @@ xchain99_n00047_α:
                                                                                         jmp   xchain99_n00060_α
 xchain99_n00047_β:
                                                                                         jmp   proc_getword_ω
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n00004_α:
 # IR_BINOP_ARITH
                         mov              eax, dword ptr [rbp + 3696]
@@ -2690,6 +2874,7 @@ xchain99_n00004_α:
                                                                                         jmp   xchain99_n00062_α
 xchain99_n00004_β:
                                                                                         jmp   xchain99_n7_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n00050_α:
 # IR_BINOP_ARITH
                         mov              eax, dword ptr [rbp + 1376]
@@ -2729,6 +2914,7 @@ xchain99_n00050_α:
                                                                                         jmp   xchain99_n00064_α
 xchain99_n00050_β:
                                                                                         jmp   xchain99_n96_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_CHARSET
 xchain99_n00005_α:
                         mov              qword ptr [rbp + 864], 1
@@ -2740,6 +2926,7 @@ xchain99_n00005_α:
                         .quad            .Lx00065_0_s
 .Lx00065_0_s:
                         .string          "\\"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain99_n00051_α:
                         mov              rax, 4294967305
@@ -2749,6 +2936,7 @@ xchain99_n00051_α:
                                                                                         jmp   xchain99_n00067_α
 xchain99_n00051_β:
                                                                                         jmp   xchain99_n00041_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n00006_α:
                         mov              rax, qword ptr [1879052560]
@@ -2758,6 +2946,7 @@ xchain99_n00006_α:
                                                                                         jmp   xchain99_n00009_α
 xchain99_n00006_β:
                                                                                         jmp   xchain99_n96_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain99_n00068_α:
                         mov              rax, qword ptr [rbp + 512]
@@ -2769,6 +2958,7 @@ xchain99_n00068_α:
                                                                                         jmp   xchain99_n00041_as
 xchain99_n00068_β:
                                                                                         jmp   xchain99_n96_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain99_n00007_α:
                         mov              rax, qword ptr [rbp + 1296]
@@ -2778,6 +2968,7 @@ xchain99_n00007_α:
                         mov              qword ptr [rbp + 1280], rax
                         mov              qword ptr [rbp + 1288], rdx
                                                                                         jmp   xchain99_n00054_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain99_n00057_α:
                         mov              rax, qword ptr [rbp + 1024]
@@ -2787,6 +2978,7 @@ xchain99_n00057_α:
                         mov              qword ptr [rbp + 1008], rax
                         mov              qword ptr [rbp + 1016], rdx
                                                                                         jmp   xchain99_n00003_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n00055_α:
                         mov              rax, qword ptr [1879052400]
@@ -2796,6 +2988,7 @@ xchain99_n00055_α:
                                                                                         jmp   xchain99_n00069_α
 xchain99_n00055_β:
                                                                                         jmp   xchain99_n00042_af
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n00069_α:
 # BOX IR_CALL read(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+1104] -> [zr+1072]
@@ -2818,6 +3011,7 @@ xchain99_n00069_α:
                                                                                         jmp   xchain99_n00042_as
 xchain99_n00069_β:
                                                                                         jmp   xchain99_n00042_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNOP
 xchain99_n00008_α:
                         mov              rdi, qword ptr [rbp + 2192]
@@ -2826,6 +3020,7 @@ xchain99_n00008_α:
                         mov              qword ptr [rbp + 2160], rax
                         mov              qword ptr [rbp + 2168], rdx
                                                                                         jmp   xchain99_n00070_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n00058_α:
                         mov              rax, qword ptr [rbp + 4752]
@@ -2833,6 +3028,7 @@ xchain99_n00058_α:
                         mov              rax, qword ptr [rbp + 4760]
                         mov              qword ptr [rbp + 2536], rax
                                                                                         jmp   xchain99_n00010_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain99_n00060_α:
                         mov              rdi, qword ptr [rbp + 2800]
@@ -2845,6 +3041,7 @@ xchain99_n00060_α:
                         mov              qword ptr [rbp + 2960], rax
                         mov              qword ptr [rbp + 2968], rdx
                                                                                         jmp   xchain99_n00071_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain99_n00062_α:
                         mov              rax, qword ptr [rbp + 3664]
@@ -2854,6 +3051,7 @@ xchain99_n00062_α:
                         mov              qword ptr [rbp + 3648], rax
                         mov              qword ptr [rbp + 3656], rdx
                                                                                         jmp   xchain99_n23_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain99_n00064_α:
                         mov              rax, qword ptr [rbp + 1344]
@@ -2863,6 +3061,7 @@ xchain99_n00064_α:
                         mov              qword ptr [rbp + 1328], rax
                         mov              qword ptr [rbp + 1336], rdx
                                                                                         jmp   xchain99_n96_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n00066_α:
 # IR_BINOP_ARITH_REAL
                         mov              rdi, qword ptr [rbp + 832]
@@ -2876,6 +3075,7 @@ xchain99_n00066_α:
                         mov              qword ptr [rbp + 800], rax
                         mov              qword ptr [rbp + 808], rdx
                                                                                         jmp   xchain99_n00072_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n00067_α:
                         mov              rax, qword ptr [1879052560]
@@ -2883,6 +3083,7 @@ xchain99_n00067_α:
                         mov              qword ptr [rbp + 352], rax
                         mov              qword ptr [rbp + 360], rdx
                                                                                         jmp   xchain99_n00073_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain99_n00009_α:
                         mov              qword ptr [rbp + 608], 6
@@ -2891,6 +3092,7 @@ xchain99_n00009_α:
                                                                                         jmp   xchain99_n00075_α
 .Lx00074_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n00054_α:
                         mov              rax, qword ptr [1879052304]
@@ -2898,6 +3100,7 @@ xchain99_n00054_α:
                         mov              qword ptr [rbp + 1216], rax
                         mov              qword ptr [rbp + 1224], rdx
                                                                                         jmp   xchain99_n00076_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain99_n00070_α:
                         mov              qword ptr [rbp + 2224], 6
@@ -2906,6 +3109,7 @@ xchain99_n00070_α:
                                                                                         jmp   xchain99_n00011_α
 .Lx00077_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n00010_α:
                         mov              rax, qword ptr [1879052560]
@@ -2913,6 +3117,7 @@ xchain99_n00010_α:
                         mov              qword ptr [rbp + 2560], rax
                         mov              qword ptr [rbp + 2568], rdx
                                                                                         jmp   xchain99_n00078_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DEREF variable -> value
 xchain99_n00071_α:
                         mov              rdi, qword ptr [rbp + 2960]
@@ -2923,6 +3128,7 @@ xchain99_n00071_α:
                         mov              qword ptr [rbp + 2992], rax
                         mov              qword ptr [rbp + 3000], rdx
                                                                                         jmp   xchain99_n00012_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n00072_α:
                         mov              rax, qword ptr [1879052496]
@@ -2930,6 +3136,7 @@ xchain99_n00072_α:
                         mov              qword ptr [rbp + 896], rax
                         mov              qword ptr [rbp + 904], rdx
                                                                                         jmp   xchain99_n00079_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain99_n00073_α:
                         mov              qword ptr [rbp + 384], 6
@@ -2938,6 +3145,7 @@ xchain99_n00073_α:
                                                                                         jmp   xchain99_n00081_α
 .Lx00080_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_COERCE_NUMERIC
 xchain99_n00075_α:
                         mov              eax, dword ptr [rbp + 576]
@@ -2961,6 +3169,7 @@ xchain99_n00075_α:
                         mov              rcx, 0
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   xchain99_n00083_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain99_n00076_α:
                         mov              qword ptr [rbp + 1248], 6
@@ -2969,6 +3178,7 @@ xchain99_n00076_α:
                                                                                         jmp   xchain99_n00085_α
 .Lx00084_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_COERCE_NUMERIC
 xchain99_n00011_α:
                         mov              eax, dword ptr [rbp + 2160]
@@ -2992,6 +3202,7 @@ xchain99_n00011_α:
                         mov              rcx, 0
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   xchain99_n00013_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT section
 xchain99_n00078_α:
                         mov              rdi, qword ptr [rbp + 2496]
@@ -3006,6 +3217,7 @@ xchain99_n00078_α:
                         mov              qword ptr [rbp + 2464], rax
                         mov              qword ptr [rbp + 2472], rdx
                                                                                         jmp   xchain99_n00014_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_RETURN
 xchain99_n00012_α:
                         mov              rax, qword ptr [rbp + 2992]
@@ -3013,6 +3225,7 @@ xchain99_n00012_α:
                         mov              qword ptr [rbp + 0], rax
                         mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   proc_getword_γ
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n00079_α:
                         mov              rax, qword ptr [1879052560]
@@ -3020,6 +3233,7 @@ xchain99_n00079_α:
                         mov              qword ptr [rbp + 928], rax
                         mov              qword ptr [rbp + 936], rdx
                                                                                         jmp   xchain99_n00087_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_COERCE_NUMERIC
 xchain99_n00081_α:
                         mov              eax, dword ptr [rbp + 352]
@@ -3043,6 +3257,7 @@ xchain99_n00081_α:
                         mov              rcx, 0
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   xchain99_n00089_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n00083_α:
 # IR_BINOP_ARITH
                         mov              eax, dword ptr [rbp + 544]
@@ -3082,6 +3297,7 @@ xchain99_n00083_α:
                                                                                         jmp   xchain99_n00068_α
 xchain99_n00083_β:
                                                                                         jmp   xchain99_n96_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_COERCE_NUMERIC
 xchain99_n00085_α:
                         mov              eax, dword ptr [rbp + 1216]
@@ -3105,6 +3321,7 @@ xchain99_n00085_α:
                         mov              rcx, 0
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   xchain99_n00092_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n00013_α:
 # IR_BINOP_ARITH
                         mov              eax, dword ptr [rbp + 2128]
@@ -3144,6 +3361,7 @@ xchain99_n00013_α:
                                                                                         jmp   xchain99_n43_α
 xchain99_n00013_β:
                                                                                         jmp   xchain99_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_RETURN
 xchain99_n00014_α:
                         mov              rax, qword ptr [rbp + 2464]
@@ -3151,6 +3369,7 @@ xchain99_n00014_α:
                         mov              qword ptr [rbp + 0], rax
                         mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   proc_getword_γ
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n00087_α:
 # BOX CALL_GEN upto(...) -> rt_call_arr_gen by-name [four-port generator; alpha zeroes resume cell, beta re-pumps invoke with persisted cell]
 # marshal arg0 = producer-box slot [zr+800] -> [zr+736]
@@ -3188,6 +3407,7 @@ xchain99_n00087_α:
                                                                                         jmp   xchain99_n00095_α
 xchain99_n00087_β:
                                                                                         jmp   .Lx00094_60
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n00089_α:
 # IR_BINOP_ARITH
                         mov              eax, dword ptr [rbp + 320]
@@ -3227,6 +3447,7 @@ xchain99_n00089_α:
                                                                                         jmp   xchain99_n00097_α
 xchain99_n00089_β:
                                                                                         jmp   xchain99_n00041_af
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n00092_α:
 # IR_BINOP_ARITH
                         mov              eax, dword ptr [rbp + 1184]
@@ -3266,6 +3487,7 @@ xchain99_n00092_α:
                                                                                         jmp   xchain99_n00099_α
 xchain99_n00092_β:
                                                                                         jmp   xchain99_n00042_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain99_n00095_α:
                         mov              qword ptr [rbp + 960], 6
@@ -3274,6 +3496,7 @@ xchain99_n00095_α:
                                                                                         jmp   xchain99_n00101_α
 .Lx00100_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain99_n00097_α:
                         mov              rdi, qword ptr [rbp + 256]
@@ -3286,6 +3509,7 @@ xchain99_n00097_α:
                         mov              qword ptr [rbp + 416], rax
                         mov              qword ptr [rbp + 424], rdx
                                                                                         jmp   xchain99_n00102_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain99_n00099_α:
                         mov              rax, qword ptr [rbp + 1152]
@@ -3295,6 +3519,7 @@ xchain99_n00099_α:
                         mov              qword ptr [rbp + 1136], rax
                         mov              qword ptr [rbp + 1144], rdx
                                                                                         jmp   xchain99_n00042_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_COERCE_NUMERIC
 xchain99_n00101_α:
                         mov              eax, dword ptr [rbp + 720]
@@ -3318,6 +3543,7 @@ xchain99_n00101_α:
                         mov              rcx, 0
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   xchain99_n00104_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DEREF variable -> value
 xchain99_n00102_α:
                         mov              rdi, qword ptr [rbp + 416]
@@ -3328,6 +3554,7 @@ xchain99_n00102_α:
                         mov              qword ptr [rbp + 448], rax
                         mov              qword ptr [rbp + 456], rdx
                                                                                         jmp   xchain99_n00015_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n00104_α:
 # IR_BINOP_ARITH
                         mov              eax, dword ptr [rbp + 688]
@@ -3367,6 +3594,7 @@ xchain99_n00104_α:
                                                                                         jmp   xchain99_n00106_α
 xchain99_n00104_β:
                                                                                         jmp   xchain99_n96_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain99_n00015_α:
                         mov              rax, qword ptr [rbp + 4736]
@@ -3374,6 +3602,7 @@ xchain99_n00015_α:
                         mov              rax, qword ptr [rbp + 4744]
                         mov              qword ptr [rbp + 472], rax
                                                                                         jmp   xchain99_n00016_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain99_n00106_α:
                         mov              rax, qword ptr [rbp + 656]
@@ -3383,6 +3612,7 @@ xchain99_n00106_α:
                         mov              qword ptr [rbp + 640], rax
                         mov              qword ptr [rbp + 648], rdx
                                                                                         jmp   xchain99_n00041_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain99_n00016_α:
 # IR_BINOP_TEST
                         mov              rdi, qword ptr [rbp + 448]
@@ -3399,11 +3629,14 @@ xchain99_n00016_α:
                         mov              qword ptr [rbp + 224], rax
                         mov              qword ptr [rbp + 232], rdx
                                                                                         jmp   xchain99_n38_α
+#-----------------------------------------------------------------------------------------------------------------------
 proc_getword_res:
                         add              rsp, 8
                         pop              rbp
+#-----------------------------------------------------------------------------------------------------------------------
 proc_getword_β:
                                                                                         jmp   proc_getword_ω
+#-----------------------------------------------------------------------------------------------------------------------
 proc_getword_γ:
                         mov              rdi, [rbp]
                         mov              rsi, [rbp + 8]
@@ -3411,11 +3644,13 @@ proc_getword_γ:
                         lea              rsp, [rbp + 4800]
                         mov              rbp, [rbp + 4792]
                                                                                         jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
 proc_getword_ω:
                         mov              rax, [rbp + 4784]
                         lea              rsp, [rbp + 4800]
                         mov              rbp, [rbp + 4792]
                                                                                         jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
 proc_getword_dcα:
 # PL-DC direct-call entry: retaddr -> kt-32 pad, wires -> local ret-shims, one prep crossing, shared body
                         pop              r11
@@ -3451,9 +3686,9 @@ proc_getword_dcα:
                         mov              r11, qword ptr [rsp + -32]
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
+#-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_format_α
 proc_format_α:
-#=======================================================================================================================
                         .global          proc_format_α
                         .global          proc_format_β
                         .global          proc_format_γ
@@ -3469,6 +3704,7 @@ proc_format_α:
                         mov              edx, 3584
                         call             rt_jmp_frame_lexprep2@PLT
 proc_format_α_body:
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00108_n0_α:
                         mov              qword ptr [rbp + 2848], 0
@@ -3493,6 +3729,7 @@ xchain00108_n0_af:
                         add              dword ptr [rbp + 2864], 1
                         mov              eax, dword ptr [rbp + 2864]
                                                                                         jmp   xchain00108_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_MAKE_LIST
 xchain00108_n1_α:
                         lea              rdi, [rbp + 2848]
@@ -3501,6 +3738,7 @@ xchain00108_n1_α:
                         mov              qword ptr [rbp + 2832], rax
                         mov              qword ptr [rbp + 2840], rdx
                                                                                         jmp   xchain00108_n5_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain00108_n2_α:
                         mov              rax, 4294967305
@@ -3510,6 +3748,7 @@ xchain00108_n2_α:
                                                                                         jmp   xchain00108_n6_α
 xchain00108_n2_β:
                                                                                         jmp   xchain00108_n0_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00108_n3_α:
                         mov              qword ptr [rbp + 2912], 0
@@ -3546,10 +3785,12 @@ xchain00108_n3_af:
                         cmp              eax, 1
                                                                                         je    xchain00108_n9_α
                                                                                         jmp   xchain00108_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n4_α:
                                                                                         jmp   xchain00108_n0_as
 xchain00108_n4_β:
                                                                                         jmp   xchain00108_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n5_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 2832]
@@ -3559,6 +3800,7 @@ xchain00108_n5_α:
                         mov              qword ptr [rbp + 2816], rax
                         mov              qword ptr [rbp + 2824], rdx
                                                                                         jmp   xchain00108_n11_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_NULLTEST_VAR
 xchain00108_n6_α:
                         mov              eax, dword ptr [rbp + 3328]
@@ -3576,6 +3818,7 @@ xchain00108_n6_α:
                         mov              rax, qword ptr [rbp + 3336]
                         mov              qword ptr [rbp + 3368], rax
                                                                                         jmp   xchain00108_n12_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n7_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 2912]
@@ -3585,6 +3828,7 @@ xchain00108_n7_α:
                         mov              qword ptr [rbp + 2896], rax
                         mov              qword ptr [rbp + 2904], rdx
                                                                                         jmp   xchain00108_n4_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n8_α:
                         mov              rax, qword ptr [1879052464]
@@ -3594,6 +3838,7 @@ xchain00108_n8_α:
                                                                                         jmp   xchain00108_n10_α
 xchain00108_n8_β:
                                                                                         jmp   xchain00108_n3_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00108_n9_α:
                         mov              qword ptr [rbp + 3008], 6
@@ -3604,6 +3849,7 @@ xchain00108_n9_β:
                                                                                         jmp   xchain00108_n3_af
 .Lx00111_0:
                         .quad            4
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNOP
 xchain00108_n10_α:
                         mov              eax, dword ptr [rbp + 2976]
@@ -3618,6 +3864,7 @@ xchain00108_n10_α:
                                                                                         jmp   xchain00108_n3_as
 xchain00108_n10_β:
                                                                                         jmp   xchain00108_n3_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n11_α:
                         mov              rax, qword ptr [rbp + 3520]
@@ -3625,6 +3872,7 @@ xchain00108_n11_α:
                         mov              rax, qword ptr [rbp + 3528]
                         mov              qword ptr [rbp + 2792], rax
                                                                                         jmp   xchain00108_n13_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00108_n12_α:
                         mov              qword ptr [rbp + 3408], 6
@@ -3633,6 +3881,7 @@ xchain00108_n12_α:
                                                                                         jmp   xchain00108_n15_α
 .Lx00112_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n13_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 2784]
@@ -3642,6 +3891,7 @@ xchain00108_n13_α:
                         mov              qword ptr [rbp + 2768], rax
                         mov              qword ptr [rbp + 2776], rdx
                                                                                         jmp   xchain00108_n14_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n14_α:
                         mov              rax, qword ptr [rbp + 16]
@@ -3649,6 +3899,7 @@ xchain00108_n14_α:
                         mov              rax, qword ptr [rbp + 24]
                         mov              qword ptr [rbp + 344], rax
                                                                                         jmp   xchain00108_n16_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN_VAR
 xchain00108_n15_α:
                         mov              rdi, qword ptr [rbp + 3360]
@@ -3661,6 +3912,7 @@ xchain00108_n15_α:
                         mov              qword ptr [rbp + 3392], rax
                         mov              qword ptr [rbp + 3400], rdx
                                                                                         jmp   xchain00108_n18_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIST_BANG
 xchain00108_n16_α:
                         mov              qword ptr [rbp + 320], 0
@@ -3677,6 +3929,7 @@ xchain00108_n16_α:
 xchain00108_n16_β:
                         inc              qword ptr [rbp + 320]
                                                                                         jmp   .Lx00113_0
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n17_α:
                         mov              rax, qword ptr [rbp + 3456]
@@ -3684,6 +3937,7 @@ xchain00108_n17_α:
                         mov              rax, qword ptr [rbp + 3464]
                         mov              qword ptr [rbp + 264], rax
                                                                                         jmp   xchain00108_n20_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00108_n18_α:
                         mov              qword ptr [rbp + 3200], 0
@@ -3720,6 +3974,7 @@ xchain00108_n18_af:
                         cmp              eax, 1
                                                                                         je    xchain00108_n24_α
                                                                                         jmp   xchain00108_n30_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n19_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 304]
@@ -3729,6 +3984,7 @@ xchain00108_n19_α:
                         mov              qword ptr [rbp + 288], rax
                         mov              qword ptr [rbp + 296], rdx
                                                                                         jmp   xchain00108_n26_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n20_α:
 # BOX IR_CALL sort(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+256] -> [zr+224]
@@ -3751,6 +4007,7 @@ xchain00108_n20_α:
                                                                                         jmp   xchain00108_n27_α
 xchain00108_n20_β:
                                                                                         jmp   xchain00108_n21_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n21_α:
                         mov              rax, qword ptr [rbp + 3456]
@@ -3758,6 +4015,7 @@ xchain00108_n21_α:
                         mov              rax, qword ptr [rbp + 3464]
                         mov              qword ptr [rbp + 136], rax
                                                                                         jmp   xchain00108_n28_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n22_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 3200]
@@ -3767,6 +4025,7 @@ xchain00108_n22_α:
                         mov              qword ptr [rbp + 3184], rax
                         mov              qword ptr [rbp + 3192], rdx
                                                                                         jmp   xchain00108_n30_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n23_α:
                         mov              rax, qword ptr [1879052432]
@@ -3776,6 +4035,7 @@ xchain00108_n23_α:
                                                                                         jmp   xchain00108_n25_α
 xchain00108_n23_β:
                                                                                         jmp   xchain00108_n18_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00108_n24_α:
                         mov              qword ptr [rbp + 3296], 6
@@ -3786,6 +4046,7 @@ xchain00108_n24_β:
                                                                                         jmp   xchain00108_n18_af
 .Lx00115_0:
                         .quad            80
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNOP
 xchain00108_n25_α:
                         mov              eax, dword ptr [rbp + 3264]
@@ -3800,10 +4061,12 @@ xchain00108_n25_α:
                                                                                         jmp   xchain00108_n18_as
 xchain00108_n25_β:
                                                                                         jmp   xchain00108_n18_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_BOUND
 xchain00108_n26_α:
                         mov              qword ptr [rbp + 368], rsp
                                                                                         jmp   xchain00108_n31_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n27_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 208]
@@ -3813,6 +4076,7 @@ xchain00108_n27_α:
                         mov              qword ptr [rbp + 192], rax
                         mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   xchain00108_n21_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00108_n28_α:
                         mov              qword ptr [rbp + 160], 1
@@ -3823,6 +4087,7 @@ xchain00108_n28_α:
                         .quad            .Lx00116_0_s
 .Lx00116_0_s:
                         .string          "variable\tprocedure\t\tline numbers\n"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n29_α:
                         mov              rax, qword ptr [rbp + 3456]
@@ -3830,6 +4095,7 @@ xchain00108_n29_α:
                         mov              rax, qword ptr [rbp + 3464]
                         mov              qword ptr [rbp + 40], rax
                                                                                         jmp   xchain00108_n33_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00108_n30_α:
                         mov              qword ptr [rbp + 3056], 0
@@ -3866,6 +4132,7 @@ xchain00108_n30_af:
                         cmp              eax, 1
                                                                                         je    xchain00108_n36_α
                                                                                         jmp   xchain00108_n3_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n31_α:
                         mov              rax, qword ptr [rbp + 3472]
@@ -3873,6 +4140,7 @@ xchain00108_n31_α:
                         mov              rax, qword ptr [rbp + 3480]
                         mov              qword ptr [rbp + 472], rax
                                                                                         jmp   xchain00108_n38_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n32_α:
 # BOX IR_CALL push(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+128] -> [zr+80]
@@ -3900,6 +4168,7 @@ xchain00108_n32_α:
                                                                                         jmp   xchain00108_n29_α
 xchain00108_n32_β:
                                                                                         jmp   xchain00108_n29_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_RETURN
 xchain00108_n33_α:
                         mov              rax, qword ptr [rbp + 32]
@@ -3907,6 +4176,7 @@ xchain00108_n33_α:
                         mov              qword ptr [rbp + 0], rax
                         mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   proc_format_γ
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n34_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 3056]
@@ -3916,6 +4186,7 @@ xchain00108_n34_α:
                         mov              qword ptr [rbp + 3040], rax
                         mov              qword ptr [rbp + 3048], rdx
                                                                                         jmp   xchain00108_n3_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n35_α:
                         mov              rax, qword ptr [1879052448]
@@ -3925,6 +4196,7 @@ xchain00108_n35_α:
                                                                                         jmp   xchain00108_n37_α
 xchain00108_n35_β:
                                                                                         jmp   xchain00108_n30_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00108_n36_α:
                         mov              qword ptr [rbp + 3152], 6
@@ -3935,6 +4207,7 @@ xchain00108_n36_β:
                                                                                         jmp   xchain00108_n30_af
 .Lx00118_0:
                         .quad            40
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNOP
 xchain00108_n37_α:
                         mov              eax, dword ptr [rbp + 3120]
@@ -3949,6 +4222,7 @@ xchain00108_n37_α:
                                                                                         jmp   xchain00108_n30_as
 xchain00108_n37_β:
                                                                                         jmp   xchain00108_n30_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIST_BANG
 xchain00108_n38_α:
                         mov              qword ptr [rbp + 448], 0
@@ -3965,10 +4239,12 @@ xchain00108_n38_α:
 xchain00108_n38_β:
                         inc              qword ptr [rbp + 448]
                                                                                         jmp   .Lx00119_0
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNMARK
 xchain00108_n39_α:
                         mov              rsp, qword ptr [rbp + 368]
                                                                                         jmp   xchain00108_n16_β
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n40_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 432]
@@ -3978,10 +4254,12 @@ xchain00108_n40_α:
                         mov              qword ptr [rbp + 416], rax
                         mov              qword ptr [rbp + 424], rdx
                                                                                         jmp   xchain00108_n41_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_BOUND
 xchain00108_n41_α:
                         mov              qword ptr [rbp + 496], rsp
                                                                                         jmp   xchain00108_n42_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain00108_n42_α:
                         mov              rax, 4294967305
@@ -3989,6 +4267,7 @@ xchain00108_n42_α:
                         mov              qword ptr [rbp + 2240], rax
                         mov              qword ptr [rbp + 2248], rdx
                                                                                         jmp   xchain00108_n43_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00108_n43_α:
                         mov              qword ptr [rbp + 2272], 6
@@ -3997,6 +4276,7 @@ xchain00108_n43_α:
                                                                                         jmp   xchain00108_n44_α
 .Lx00120_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain00108_n44_α:
                         mov              rdi, qword ptr [rbp + 2240]
@@ -4009,6 +4289,7 @@ xchain00108_n44_α:
                         mov              qword ptr [rbp + 2304], rax
                         mov              qword ptr [rbp + 2312], rdx
                                                                                         jmp   xchain00108_n45_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DEREF variable -> value
 xchain00108_n45_α:
                         mov              rdi, qword ptr [rbp + 2304]
@@ -4019,6 +4300,7 @@ xchain00108_n45_α:
                         mov              qword ptr [rbp + 2336], rax
                         mov              qword ptr [rbp + 2344], rdx
                                                                                         jmp   xchain00108_n47_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n46_α:
                         mov              rax, qword ptr [rbp + 3536]
@@ -4026,6 +4308,7 @@ xchain00108_n46_α:
                         mov              rax, qword ptr [rbp + 3544]
                         mov              qword ptr [rbp + 1064], rax
                                                                                         jmp   xchain00108_n48_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00108_n47_α:
                         mov              qword ptr [rbp + 2352], 6
@@ -4034,6 +4317,7 @@ xchain00108_n47_α:
                                                                                         jmp   xchain00108_n50_α
 .Lx00121_0:
                         .quad            16
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain00108_n48_α:
                         mov              rax, 4294967305
@@ -4041,6 +4325,7 @@ xchain00108_n48_α:
                         mov              qword ptr [rbp + 1168], rax
                         mov              qword ptr [rbp + 1176], rdx
                                                                                         jmp   xchain00108_n51_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00108_n49_α:
                         mov              qword ptr [rbp + 736], 0
@@ -4065,6 +4350,7 @@ xchain00108_n49_af:
                         add              dword ptr [rbp + 752], 1
                         mov              eax, dword ptr [rbp + 752]
                                                                                         jmp   xchain00108_n52_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00108_n50_α:
                         mov              qword ptr [rbp + 2384], 1
@@ -4075,6 +4361,7 @@ xchain00108_n50_α:
                         .quad            .Lx00123_0_s
 .Lx00123_0_s:
                         .string          " "
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00108_n51_α:
                         mov              qword ptr [rbp + 1232], 6
@@ -4083,6 +4370,7 @@ xchain00108_n51_α:
                                                                                         jmp   xchain00108_n56_α
 .Lx00124_0:
                         .quad            3
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n52_α:
                         mov              rax, qword ptr [rbp + 3456]
@@ -4090,6 +4378,7 @@ xchain00108_n52_α:
                         mov              rax, qword ptr [rbp + 3464]
                         mov              qword ptr [rbp + 680], rax
                                                                                         jmp   xchain00108_n57_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n53_α:
                         mov              rax, qword ptr [rbp + 3504]
@@ -4099,6 +4388,7 @@ xchain00108_n53_α:
                                                                                         jmp   xchain00108_n59_α
 xchain00108_n53_β:
                                                                                         jmp   xchain00108_n49_af
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n54_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 784]
@@ -4110,6 +4400,7 @@ xchain00108_n54_α:
                                                                                         jmp   xchain00108_n49_as
 xchain00108_n54_β:
                                                                                         jmp   xchain00108_n52_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n55_α:
 # BOX IR_CALL left(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+2336] -> [zr+2176]
@@ -4142,6 +4433,7 @@ xchain00108_n55_α:
                                                                                         jmp   xchain00108_n60_α
 xchain00108_n55_β:
                                                                                         jmp   xchain00108_n46_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n56_α:
                         mov              rax, qword ptr [rbp + 3488]
@@ -4149,6 +4441,7 @@ xchain00108_n56_α:
                         mov              rax, qword ptr [rbp + 3496]
                         mov              qword ptr [rbp + 1304], rax
                                                                                         jmp   xchain00108_n61_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n57_α:
                         mov              rax, qword ptr [rbp + 3536]
@@ -4156,6 +4449,7 @@ xchain00108_n57_α:
                         mov              rax, qword ptr [rbp + 3544]
                         mov              qword ptr [rbp + 712], rax
                                                                                         jmp   xchain00108_n62_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n58_α:
                         mov              rax, qword ptr [rbp + 3520]
@@ -4163,6 +4457,7 @@ xchain00108_n58_α:
                         mov              rax, qword ptr [rbp + 3528]
                         mov              qword ptr [rbp + 584], rax
                                                                                         jmp   xchain00108_n63_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n59_α:
                         mov              rax, qword ptr [rbp + 3520]
@@ -4170,6 +4465,7 @@ xchain00108_n59_α:
                         mov              rax, qword ptr [rbp + 3528]
                         mov              qword ptr [rbp + 984], rax
                                                                                         jmp   xchain00108_n65_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain00108_n60_α:
                         mov              rax, 4294967305
@@ -4177,6 +4473,7 @@ xchain00108_n60_α:
                         mov              qword ptr [rbp + 2496], rax
                         mov              qword ptr [rbp + 2504], rdx
                                                                                         jmp   xchain00108_n66_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNOP
 xchain00108_n61_α:
                         mov              rdi, qword ptr [rbp + 3488]
@@ -4185,6 +4482,7 @@ xchain00108_n61_α:
                         mov              qword ptr [rbp + 1264], rax
                         mov              qword ptr [rbp + 1272], rdx
                                                                                         jmp   xchain00108_n67_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n62_α:
 # BOX IR_CALL put(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+672] -> [zr+624]
@@ -4212,6 +4510,7 @@ xchain00108_n62_α:
                                                                                         jmp   xchain00108_n58_α
 xchain00108_n62_β:
                                                                                         jmp   xchain00108_n58_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n63_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 576]
@@ -4221,10 +4520,12 @@ xchain00108_n63_α:
                         mov              qword ptr [rbp + 560], rax
                         mov              qword ptr [rbp + 568], rdx
                                                                                         jmp   xchain00108_n68_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNMARK
 xchain00108_n64_α:
                         mov              rsp, qword ptr [rbp + 496]
                                                                                         jmp   xchain00108_n38_β
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n65_α:
 # IR_BINOP_TEST
                         mov              eax, dword ptr [rbp + 3504]
@@ -4276,6 +4577,7 @@ xchain00108_n65_α:
                         mov              rax, qword ptr [rbp + 3528]
                         mov              qword ptr [rbp + 920], rax
                                                                                         jmp   xchain00108_n69_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00108_n66_α:
                         mov              qword ptr [rbp + 2528], 6
@@ -4284,6 +4586,7 @@ xchain00108_n66_α:
                                                                                         jmp   xchain00108_n70_α
 .Lx00126_0:
                         .quad            2
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_TO
 xchain00108_n67_α:
                         mov              rdi, qword ptr [rbp + 1232]
@@ -4309,6 +4612,7 @@ xchain00108_n67_α:
 xchain00108_n67_β:
                         inc              qword ptr [rbp + 1216]
                                                                                         jmp   .Lx00127_0
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n68_α:
 # IR_CONJUNCTION value-forward copy
                         mov              rax, qword ptr [rbp + 560]
@@ -4318,6 +4622,7 @@ xchain00108_n68_α:
                                                                                         jmp   xchain00108_n64_α
 xchain00108_n68_β:
                                                                                         jmp   xchain00108_n64_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n69_α:
                         mov              rax, qword ptr [rbp + 3536]
@@ -4325,6 +4630,7 @@ xchain00108_n69_α:
                         mov              rax, qword ptr [rbp + 3544]
                         mov              qword ptr [rbp + 824], rax
                                                                                         jmp   xchain00108_n72_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain00108_n70_α:
                         mov              rdi, qword ptr [rbp + 2496]
@@ -4337,6 +4643,7 @@ xchain00108_n70_α:
                         mov              qword ptr [rbp + 2560], rax
                         mov              qword ptr [rbp + 2568], rdx
                                                                                         jmp   xchain00108_n73_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain00108_n71_α:
                         mov              rdi, qword ptr [rbp + 1168]
@@ -4349,6 +4656,7 @@ xchain00108_n71_α:
                         mov              qword ptr [rbp + 1328], rax
                         mov              qword ptr [rbp + 1336], rdx
                                                                                         jmp   xchain00108_n74_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00108_n72_α:
                         mov              qword ptr [rbp + 848], 6
@@ -4357,6 +4665,7 @@ xchain00108_n72_α:
                                                                                         jmp   xchain00108_n75_α
 .Lx00128_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DEREF variable -> value
 xchain00108_n73_α:
                         mov              rdi, qword ptr [rbp + 2560]
@@ -4367,6 +4676,7 @@ xchain00108_n73_α:
                         mov              qword ptr [rbp + 2592], rax
                         mov              qword ptr [rbp + 2600], rdx
                                                                                         jmp   xchain00108_n76_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DEREF variable -> value
 xchain00108_n74_α:
                         mov              rdi, qword ptr [rbp + 1328]
@@ -4377,6 +4687,7 @@ xchain00108_n74_α:
                         mov              qword ptr [rbp + 1360], rax
                         mov              qword ptr [rbp + 1368], rdx
                                                                                         jmp   xchain00108_n77_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00108_n75_α:
                         mov              qword ptr [rbp + 880], 6
@@ -4385,6 +4696,7 @@ xchain00108_n75_α:
                                                                                         jmp   xchain00108_n78_α
 .Lx00129_0:
                         .quad            18446744073709551610
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n76_α:
                         mov              rax, qword ptr [rbp + 3520]
@@ -4392,6 +4704,7 @@ xchain00108_n76_α:
                         mov              rax, qword ptr [rbp + 3528]
                         mov              qword ptr [rbp + 2680], rax
                                                                                         jmp   xchain00108_n79_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n77_α:
                         mov              rax, qword ptr [rbp + 3552]
@@ -4399,6 +4712,7 @@ xchain00108_n77_α:
                         mov              rax, qword ptr [rbp + 3560]
                         mov              qword ptr [rbp + 1384], rax
                                                                                         jmp   xchain00108_n80_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT section
 xchain00108_n78_α:
                         mov              rdi, qword ptr [rbp + 816]
@@ -4413,6 +4727,7 @@ xchain00108_n78_α:
                         mov              qword ptr [rbp + 784], rax
                         mov              qword ptr [rbp + 792], rdx
                                                                                         jmp   xchain00108_n54_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00108_n79_α:
                         mov              qword ptr [rbp + 2704], 6
@@ -4421,6 +4736,7 @@ xchain00108_n79_α:
                                                                                         jmp   xchain00108_n81_α
 .Lx00130_0:
                         .quad            16
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00108_n80_α:
                         mov              qword ptr [rbp + 1408], 1
@@ -4431,6 +4747,7 @@ xchain00108_n80_α:
                         .quad            .Lx00131_0_s
 .Lx00131_0_s:
                         .string          " "
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_COERCE_NUMERIC
 xchain00108_n81_α:
                         mov              eax, dword ptr [rbp + 3520]
@@ -4454,6 +4771,7 @@ xchain00108_n81_α:
                         mov              rcx, 0
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   xchain00108_n83_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n82_α:
 # BOX IR_CALL center(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+1360] -> [zr+1104]
@@ -4486,6 +4804,7 @@ xchain00108_n82_α:
                                                                                         jmp   xchain00108_n84_α
 xchain00108_n82_β:
                                                                                         jmp   xchain00108_n67_β
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n83_α:
 # IR_BINOP_ARITH
                         mov              eax, dword ptr [rbp + 2640]
@@ -4525,6 +4844,7 @@ xchain00108_n83_α:
                                                                                         jmp   xchain00108_n85_α
 xchain00108_n83_β:
                                                                                         jmp   xchain00108_n46_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n84_α:
 # IR_BINOP_CONCAT
                         mov              rdi, qword ptr [rbp + 3536]
@@ -4535,6 +4855,7 @@ xchain00108_n84_α:
                         mov              qword ptr [rbp + 1024], rax
                         mov              qword ptr [rbp + 1032], rdx
                                                                                         jmp   xchain00108_n86_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00108_n85_α:
                         mov              qword ptr [rbp + 2736], 1
@@ -4545,6 +4866,7 @@ xchain00108_n85_α:
                         .quad            .Lx00134_0_s
 .Lx00134_0_s:
                         .string          " "
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n86_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 1024]
@@ -4554,6 +4876,7 @@ xchain00108_n86_α:
                         mov              qword ptr [rbp + 1008], rax
                         mov              qword ptr [rbp + 1016], rdx
                                                                                         jmp   xchain00108_n88_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n87_α:
 # BOX IR_CALL left(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+2592] -> [zr+2432]
@@ -4586,10 +4909,12 @@ xchain00108_n87_α:
                                                                                         jmp   xchain00108_n89_α
 xchain00108_n87_β:
                                                                                         jmp   xchain00108_n46_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_BOUND
 xchain00108_n88_α:
                         mov              qword ptr [rbp + 1440], rsp
                                                                                         jmp   xchain00108_n90_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n89_α:
 # IR_BINOP_CONCAT
                         mov              rdi, qword ptr [rbp + 2160]
@@ -4600,6 +4925,7 @@ xchain00108_n89_α:
                         mov              qword ptr [rbp + 2128], rax
                         mov              qword ptr [rbp + 2136], rdx
                                                                                         jmp   xchain00108_n91_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n90_α:
                         mov              rax, qword ptr [rbp + 3504]
@@ -4607,6 +4933,7 @@ xchain00108_n90_α:
                         mov              rax, qword ptr [rbp + 3512]
                         mov              qword ptr [rbp + 2056], rax
                                                                                         jmp   xchain00108_n92_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n91_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 2128]
@@ -4616,6 +4943,7 @@ xchain00108_n91_α:
                         mov              qword ptr [rbp + 2112], rax
                         mov              qword ptr [rbp + 2120], rdx
                                                                                         jmp   xchain00108_n46_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n92_α:
                         mov              rax, qword ptr [rbp + 3552]
@@ -4623,6 +4951,7 @@ xchain00108_n92_α:
                         mov              rax, qword ptr [rbp + 3560]
                         mov              qword ptr [rbp + 2088], rax
                                                                                         jmp   xchain00108_n94_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00108_n93_α:
                         mov              qword ptr [rbp + 1504], 0
@@ -4647,6 +4976,7 @@ xchain00108_n93_af:
                         add              dword ptr [rbp + 1520], 1
                         mov              eax, dword ptr [rbp + 1520]
                                                                                         jmp   xchain00108_n99_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_COERCE_NUMERIC
 xchain00108_n94_α:
                         mov              eax, dword ptr [rbp + 3504]
@@ -4670,6 +5000,7 @@ xchain00108_n94_α:
                         mov              rcx, 0
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   xchain00108_n98_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n95_α:
 # IR_CONJUNCTION value-forward copy
                         mov              rax, qword ptr [rbp + 1504]
@@ -4679,6 +5010,7 @@ xchain00108_n95_α:
                                                                                         jmp   xchain00108_n99_α
 xchain00108_n95_β:
                                                                                         jmp   xchain00108_n99_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n96_α:
                         mov              rax, qword ptr [rbp + 3504]
@@ -4688,10 +5020,12 @@ xchain00108_n96_α:
                                                                                         jmp   xchain00108_n00035_α
 xchain00108_n96_β:
                                                                                         jmp   xchain00108_n93_af
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n97_α:
                                                                                         jmp   xchain00108_n93_as
 xchain00108_n97_β:
                                                                                         jmp   xchain00108_n99_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_COERCE_NUMERIC
 xchain00108_n98_α:
                         mov              eax, dword ptr [rbp + 3552]
@@ -4715,10 +5049,12 @@ xchain00108_n98_α:
                         mov              rcx, 0
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   xchain00108_n00001_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNMARK
 xchain00108_n99_α:
                         mov              rsp, qword ptr [rbp + 1440]
                                                                                         jmp   xchain00108_n67_β
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n00035_α:
                         mov              rax, qword ptr [rbp + 3568]
@@ -4726,6 +5062,7 @@ xchain00108_n00035_α:
                         mov              rax, qword ptr [rbp + 3576]
                         mov              qword ptr [rbp + 1880], rax
                                                                                         jmp   xchain00108_n00037_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n00001_α:
 # IR_BINOP_ARITH
                         mov              eax, dword ptr [rbp + 2016]
@@ -4771,6 +5108,7 @@ xchain00108_n00001_α:
                                                                                         jmp   xchain00108_n00002_α
 xchain00108_n00001_β:
                                                                                         jmp   xchain00108_n93_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n00037_α:
                         mov              rax, qword ptr [rbp + 3552]
@@ -4778,6 +5116,7 @@ xchain00108_n00037_α:
                         mov              rax, qword ptr [rbp + 3560]
                         mov              qword ptr [rbp + 1912], rax
                                                                                         jmp   xchain00108_n00039_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n00002_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 1952]
@@ -4787,6 +5126,7 @@ xchain00108_n00002_α:
                         mov              qword ptr [rbp + 1936], rax
                         mov              qword ptr [rbp + 1944], rdx
                                                                                         jmp   xchain00108_n93_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_COERCE_NUMERIC
 xchain00108_n00039_α:
                         mov              eax, dword ptr [rbp + 3568]
@@ -4810,6 +5150,7 @@ xchain00108_n00039_α:
                         mov              rcx, 0
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   xchain00108_n00041_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_COERCE_NUMERIC
 xchain00108_n00041_α:
                         mov              eax, dword ptr [rbp + 3552]
@@ -4833,6 +5174,7 @@ xchain00108_n00041_α:
                         mov              rcx, 0
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   xchain00108_n00043_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n00043_α:
 # IR_BINOP_ARITH
                         mov              eax, dword ptr [rbp + 1840]
@@ -4878,6 +5220,7 @@ xchain00108_n00043_α:
                                                                                         jmp   xchain00108_n00042_α
 xchain00108_n00043_β:
                                                                                         jmp   xchain00108_n93_af
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n00042_α:
 # IR_BINOP_TEST
                         mov              eax, dword ptr [rbp + 3504]
@@ -4929,6 +5272,7 @@ xchain00108_n00042_α:
                         mov              rax, qword ptr [rbp + 1784]
                         mov              qword ptr [rbp + 1720], rax
                                                                                         jmp   xchain00108_n00003_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n00003_α:
                         mov              rax, qword ptr [rbp + 3536]
@@ -4936,6 +5280,7 @@ xchain00108_n00003_α:
                         mov              rax, qword ptr [rbp + 3544]
                         mov              qword ptr [rbp + 1656], rax
                                                                                         jmp   xchain00108_n00044_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00108_n00044_α:
                         mov              qword ptr [rbp + 1680], 1
@@ -4946,6 +5291,7 @@ xchain00108_n00044_α:
                         .quad            .Lx00143_0_s
 .Lx00143_0_s:
                         .string          "\n\t\t\t\t\t"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00108_n00045_α:
                         mov              rax, qword ptr [rbp + 3520]
@@ -4953,6 +5299,7 @@ xchain00108_n00045_α:
                         mov              rax, qword ptr [rbp + 3528]
                         mov              qword ptr [rbp + 1576], rax
                                                                                         jmp   xchain00108_n00004_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n00047_α:
 # IR_BINOP_CONCAT
                         mov              rdi, qword ptr [rbp + 3536]
@@ -4963,6 +5310,7 @@ xchain00108_n00047_α:
                         mov              qword ptr [rbp + 1616], rax
                         mov              qword ptr [rbp + 1624], rdx
                                                                                         jmp   xchain00108_n00050_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n00004_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 1568]
@@ -4972,6 +5320,7 @@ xchain00108_n00004_α:
                         mov              qword ptr [rbp + 1552], rax
                         mov              qword ptr [rbp + 1560], rdx
                                                                                         jmp   xchain00108_n97_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00108_n00050_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 1616]
@@ -4981,11 +5330,14 @@ xchain00108_n00050_α:
                         mov              qword ptr [rbp + 1600], rax
                         mov              qword ptr [rbp + 1608], rdx
                                                                                         jmp   xchain00108_n00045_α
+#-----------------------------------------------------------------------------------------------------------------------
 proc_format_res:
                         add              rsp, 8
                         pop              rbp
+#-----------------------------------------------------------------------------------------------------------------------
 proc_format_β:
                                                                                         jmp   proc_format_ω
+#-----------------------------------------------------------------------------------------------------------------------
 proc_format_γ:
                         mov              rdi, [rbp]
                         mov              rsi, [rbp + 8]
@@ -4993,11 +5345,13 @@ proc_format_γ:
                         lea              rsp, [rbp + 3616]
                         mov              rbp, [rbp + 3608]
                                                                                         jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
 proc_format_ω:
                         mov              rax, [rbp + 3600]
                         lea              rsp, [rbp + 3616]
                         mov              rbp, [rbp + 3608]
                                                                                         jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
 proc_format_dcα:
 # PL-DC direct-call entry: retaddr -> kt-32 pad, wires -> local ret-shims, one prep crossing, shared body
                         pop              r11
@@ -5034,9 +5388,9 @@ proc_format_dcα:
                         mov              r11, qword ptr [rsp + -32]
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
+#-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_options_α
 proc_options_α:
-#=======================================================================================================================
                         .global          proc_options_α
                         .global          proc_options_β
                         .global          proc_options_γ
@@ -5052,6 +5406,7 @@ proc_options_α:
                         mov              edx, 3728
                         call             rt_jmp_frame_lexprep2@PLT
 proc_options_α_body:
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain00145_n0_α:
                         mov              rax, 4294967305
@@ -5059,6 +5414,7 @@ xchain00145_n0_α:
                         mov              qword ptr [rbp + 3424], rax
                         mov              qword ptr [rbp + 3432], rdx
                                                                                         jmp   xchain00145_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_NULLTEST_VAR
 xchain00145_n1_α:
                         mov              eax, dword ptr [rbp + 3424]
@@ -5076,6 +5432,7 @@ xchain00145_n1_α:
                         mov              rax, qword ptr [rbp + 3432]
                         mov              qword ptr [rbp + 3464], rax
                                                                                         jmp   xchain00145_n2_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_CHARSET
 xchain00145_n2_α:
                         mov              qword ptr [rbp + 3552], 1
@@ -5087,6 +5444,7 @@ xchain00145_n2_α:
                         .quad            .Lx00146_0_s
 .Lx00146_0_s:
                         .string          "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n3_α:
 # BOX IR_CALL table(...) -> rt_call_arr [operand-marshal, FAIL->ω]
                         .section         .rodata
@@ -5104,6 +5462,7 @@ xchain00145_n3_α:
                                                                                         jmp   xchain00145_n5_α
 xchain00145_n3_β:
                                                                                         jmp   xchain00145_n6_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n4_α:
 # BOX IR_CALL string(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+3552] -> [zr+3520]
@@ -5126,6 +5485,7 @@ xchain00145_n4_α:
                                                                                         jmp   xchain00145_n7_α
 xchain00145_n4_β:
                                                                                         jmp   xchain00145_n3_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n5_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 3392]
@@ -5135,6 +5495,7 @@ xchain00145_n5_α:
                         mov              qword ptr [rbp + 3376], rax
                         mov              qword ptr [rbp + 3384], rdx
                                                                                         jmp   xchain00145_n6_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_MAKE_LIST
 xchain00145_n6_α:
                         lea              rdi, [rbp + 3376]
@@ -5143,6 +5504,7 @@ xchain00145_n6_α:
                         mov              qword ptr [rbp + 3360], rax
                         mov              qword ptr [rbp + 3368], rdx
                                                                                         jmp   xchain00145_n8_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN_VAR
 xchain00145_n7_α:
                         mov              rdi, qword ptr [rbp + 3456]
@@ -5155,6 +5517,7 @@ xchain00145_n7_α:
                         mov              qword ptr [rbp + 3488], rax
                         mov              qword ptr [rbp + 3496], rdx
                                                                                         jmp   xchain00145_n3_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n8_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 3360]
@@ -5164,6 +5527,7 @@ xchain00145_n8_α:
                         mov              qword ptr [rbp + 3344], rax
                         mov              qword ptr [rbp + 3352], rdx
                                                                                         jmp   xchain00145_n9_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00145_n9_α:
                         mov              rax, qword ptr [rbp + 16]
@@ -5171,6 +5535,7 @@ xchain00145_n9_α:
                         mov              rax, qword ptr [rbp + 24]
                         mov              qword ptr [rbp + 328], rax
                                                                                         jmp   xchain00145_n10_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n10_α:
 # BOX IR_CALL get(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+320] -> [zr+288]
@@ -5193,6 +5558,7 @@ xchain00145_n10_α:
                                                                                         jmp   xchain00145_n12_α
 xchain00145_n10_β:
                                                                                         jmp   xchain00145_n11_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00145_n11_α:
                         mov              rax, qword ptr [rbp + 16]
@@ -5200,6 +5566,7 @@ xchain00145_n11_α:
                         mov              rax, qword ptr [rbp + 24]
                         mov              qword ptr [rbp + 152], rax
                                                                                         jmp   xchain00145_n13_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n12_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 272]
@@ -5209,6 +5576,7 @@ xchain00145_n12_α:
                         mov              qword ptr [rbp + 256], rax
                         mov              qword ptr [rbp + 264], rdx
                                                                                         jmp   xchain00145_n15_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00145_n13_α:
                         mov              rax, qword ptr [rbp + 3616]
@@ -5216,6 +5584,7 @@ xchain00145_n13_α:
                         mov              rax, qword ptr [rbp + 3624]
                         mov              qword ptr [rbp + 232], rax
                                                                                         jmp   xchain00145_n16_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00145_n14_α:
                         mov              rax, qword ptr [rbp + 3600]
@@ -5223,6 +5592,7 @@ xchain00145_n14_α:
                         mov              rax, qword ptr [rbp + 3608]
                         mov              qword ptr [rbp + 56], rax
                                                                                         jmp   xchain00145_n17_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00145_n15_α:
                         mov              rax, qword ptr [rbp + 3632]
@@ -5230,6 +5600,7 @@ xchain00145_n15_α:
                         mov              rax, qword ptr [rbp + 3640]
                         mov              qword ptr [rbp + 3320], rax
                                                                                         jmp   xchain00145_n18_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n16_α:
 # BOX IR_CALL pull(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+224] -> [zr+192]
@@ -5252,6 +5623,7 @@ xchain00145_n16_α:
                                                                                         jmp   xchain00145_n19_α
 xchain00145_n16_β:
                                                                                         jmp   xchain00145_n14_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_RETURN
 xchain00145_n17_α:
                         mov              rax, qword ptr [rbp + 48]
@@ -5259,6 +5631,7 @@ xchain00145_n17_α:
                         mov              qword ptr [rbp + 0], rax
                         mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   proc_options_γ
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_GEN_SCAN
 xchain00145_n18_α:
                         mov              rdi, qword ptr [rbp + 3312]
@@ -5271,6 +5644,7 @@ xchain00145_n18_α:
                         mov              r15, rdx
                         mov              r14, 0
                                                                                         jmp   xchain00145_n20_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n19_α:
 # BOX IR_CALL push(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+144] -> [zr+96]
@@ -5298,6 +5672,7 @@ xchain00145_n19_α:
                                                                                         jmp   xchain00145_n11_α
 xchain00145_n19_β:
                                                                                         jmp   xchain00145_n14_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00145_n20_α:
                         mov              qword ptr [rbp + 432], 0
@@ -5334,6 +5709,7 @@ xchain00145_n20_af:
                         cmp              eax, 1
                                                                                         je    xchain00145_n24_α
                                                                                         jmp   xchain00145_n35_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_GEN_SCAN
 xchain00145_n21_α:
                         mov              rax, qword ptr [rbp + 432]
@@ -5354,6 +5730,7 @@ xchain00145_n21_β:
                         mov              r14, rax
                                                                                         jmp   xchain00145_n20_β
                                                                                         jmp   xchain00145_n9_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00145_n22_α:
                         mov              qword ptr [rbp + 3152], 1
@@ -5366,6 +5743,7 @@ xchain00145_n22_β:
                         .quad            .Lx00148_0_s
 .Lx00148_0_s:
                         .string          "-"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00145_n23_α:
                         mov              qword ptr [rbp + 560], 0
@@ -5402,6 +5780,7 @@ xchain00145_n23_af:
                         cmp              eax, 1
                                                                                         je    xchain00145_n31_α
                                                                                         jmp   xchain00145_n28_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00145_n24_α:
                         mov              rax, qword ptr [rbp + 3616]
@@ -5411,10 +5790,12 @@ xchain00145_n24_α:
                                                                                         jmp   xchain00145_n34_α
 xchain00145_n24_β:
                                                                                         jmp   xchain00145_n35_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n25_α:
                                                                                         jmp   xchain00145_n20_as
 xchain00145_n25_β:
                                                                                         jmp   xchain00145_n35_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n26_α:
 # BOX IR_CALL put(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+3248] -> [zr+3200]
@@ -5442,6 +5823,7 @@ xchain00145_n26_α:
                                                                                         jmp   xchain00145_n20_as
 xchain00145_n26_β:
                                                                                         jmp   xchain00145_n35_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SCAN_MATCH
 xchain00145_n27_α:
                         sub              rsp, 16
@@ -5473,6 +5855,7 @@ xchain00145_n27_α:
                         .quad            .Lx00150_0_s
 .Lx00150_0_s:
                         .string          "-"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00145_n28_α:
                         mov              qword ptr [rbp + 528], 6
@@ -5481,6 +5864,7 @@ xchain00145_n28_α:
                                                                                         jmp   xchain00145_n37_α
 .Lx00151_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00145_n29_α:
                         mov              rax, qword ptr [rbp + 3648]
@@ -5490,6 +5874,7 @@ xchain00145_n29_α:
                                                                                         jmp   xchain00145_n38_α
 xchain00145_n29_β:
                                                                                         jmp   xchain00145_n23_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00145_n30_α:
                         mov              qword ptr [rbp + 704], 0
@@ -5526,6 +5911,7 @@ xchain00145_n30_af:
                         cmp              eax, 1
                                                                                         je    xchain00145_n40_α
                                                                                         jmp   xchain00145_n28_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00145_n31_α:
                         mov              qword ptr [rbp + 2704], 1
@@ -5538,6 +5924,7 @@ xchain00145_n31_β:
                         .quad            .Lx00153_0_s
 .Lx00153_0_s:
                         .string          "Unrecognized option: -"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN_VAR
 xchain00145_n32_α:
                         mov              rdi, qword ptr [rbp + 656]
@@ -5552,6 +5939,7 @@ xchain00145_n32_α:
                                                                                         jmp   xchain00145_n23_as
 xchain00145_n32_β:
                                                                                         jmp   xchain00145_n28_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n33_α:
 # BOX IR_CALL stop(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+2704] -> [zr+2656]
@@ -5579,6 +5967,7 @@ xchain00145_n33_α:
                                                                                         jmp   xchain00145_n23_as
 xchain00145_n33_β:
                                                                                         jmp   xchain00145_n28_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00145_n34_α:
                         mov              rax, qword ptr [rbp + 3632]
@@ -5586,6 +5975,7 @@ xchain00145_n34_α:
                         mov              rax, qword ptr [rbp + 3640]
                         mov              qword ptr [rbp + 3288], rax
                                                                                         jmp   xchain00145_n26_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_GEN_SCAN
 xchain00145_n35_α:
                         lea              rdi, [rbp + 368]
@@ -5596,6 +5986,7 @@ xchain00145_n35_α:
                                                                                         jmp   xchain00145_n9_α
 xchain00145_n35_β:
                                                                                         jmp   xchain00145_n9_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SCAN_TAB
 xchain00145_n36_α:
                         sub              rsp, 16
@@ -5635,6 +6026,7 @@ xchain00145_n36_β:
                         mov              r14, qword ptr [rsp + 0]
                         add              rsp, 16
                                                                                         jmp   xchain00145_n20_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SCAN_MOVE [fscan.r move: j=&pos+i; fail unless 1<=j<=Delta+1; result substr; data-backtrack restores r14 on beta]
 xchain00145_n37_α:
                         sub              rsp, 16
@@ -5671,6 +6063,7 @@ xchain00145_n37_β:
                         mov              r14, qword ptr [rsp + 0]
                         add              rsp, 16
                                                                                         jmp   xchain00145_n35_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00145_n38_α:
                         mov              rax, qword ptr [rbp + 32]
@@ -5678,6 +6071,7 @@ xchain00145_n38_α:
                         mov              rax, qword ptr [rbp + 40]
                         mov              qword ptr [rbp + 2584], rax
                                                                                         jmp   xchain00145_n45_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_CHARSET
 xchain00145_n39_α:
                         mov              qword ptr [rbp + 2208], 1
@@ -5691,6 +6085,7 @@ xchain00145_n39_β:
                         .quad            .Lx00156_0_s
 .Lx00156_0_s:
                         .string          "+.:"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00145_n40_α:
                         mov              qword ptr [rbp + 2368], 6
@@ -5701,10 +6096,12 @@ xchain00145_n40_β:
                                                                                         jmp   xchain00145_n28_α
 .Lx00157_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n41_α:
                                                                                         jmp   xchain00145_n30_as
 xchain00145_n41_β:
                                                                                         jmp   xchain00145_n28_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00145_n42_α:
                         mov              rax, qword ptr [rbp + 3648]
@@ -5712,6 +6109,7 @@ xchain00145_n42_α:
                         mov              rax, qword ptr [rbp + 3656]
                         mov              qword ptr [rbp + 2744], rax
                                                                                         jmp   xchain00145_n33_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00145_n43_α:
                         mov              qword ptr [rbp + 3056], 6
@@ -5720,6 +6118,7 @@ xchain00145_n43_α:
                                                                                         jmp   xchain00145_n47_α
 .Lx00158_0:
                         .quad            0
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n44_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 496]
@@ -5729,6 +6128,7 @@ xchain00145_n44_α:
                         mov              qword ptr [rbp + 480], rax
                         mov              qword ptr [rbp + 488], rdx
                                                                                         jmp   xchain00145_n23_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n45_α:
 # BOX CALL_GEN find(...) -> rt_call_arr_gen by-name [four-port generator; alpha zeroes resume cell, beta re-pumps invoke with persisted cell]
 # marshal arg0 = producer-box slot [zr+2544] -> [zr+2496]
@@ -5761,6 +6161,7 @@ xchain00145_n45_α:
                                                                                         jmp   xchain00145_n48_α
 xchain00145_n45_β:
                                                                                         jmp   .Lx00159_60
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain00145_n46_α:
                         mov              rax, 4294967305
@@ -5768,6 +6169,7 @@ xchain00145_n46_α:
                         mov              qword ptr [rbp + 2256], rax
                         mov              qword ptr [rbp + 2264], rdx
                                                                                         jmp   xchain00145_n49_α
+#-----------------------------------------------------------------------------------------------------------------------
 # BOX ICN IR_SCAN_POS pos(n) [ICN-SCAN-3 fscan.r: i=cvpos(i,len); succeed iff i==&pos (r14+1); result {DT_I,i} normalized; single-shot beta->omega]
 xchain00145_n47_α:
                         mov              rax, 0
@@ -5789,6 +6191,7 @@ xchain00145_n47_α:
                         mov              qword ptr [rbp + 3024], 6
                         mov              qword ptr [rbp + 3032], rax
                                                                                         jmp   xchain00145_n36_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00145_n48_α:
                         mov              qword ptr [rbp + 2608], 6
@@ -5797,6 +6200,7 @@ xchain00145_n48_α:
                                                                                         jmp   xchain00145_n51_α
 .Lx00161_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00145_n49_α:
                         mov              rax, qword ptr [rbp + 3712]
@@ -5804,6 +6208,7 @@ xchain00145_n49_α:
                         mov              rax, qword ptr [rbp + 3720]
                         mov              qword ptr [rbp + 2296], rax
                                                                                         jmp   xchain00145_n52_α
+#-----------------------------------------------------------------------------------------------------------------------
 # KEYWORD_null
 xchain00145_n50_α:
                         mov              qword ptr [rbp + 2992], 0
@@ -5811,6 +6216,7 @@ xchain00145_n50_α:
                                                                                         jmp   xchain00145_n53_α
 xchain00145_n50_β:
                                                                                         jmp   xchain00145_n36_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_COERCE_NUMERIC
 xchain00145_n51_α:
                         mov              eax, dword ptr [rbp + 2480]
@@ -5834,6 +6240,7 @@ xchain00145_n51_α:
                         mov              rcx, 0
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   xchain00145_n54_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain00145_n52_α:
                         mov              rdi, qword ptr [rbp + 2256]
@@ -5846,6 +6253,7 @@ xchain00145_n52_α:
                         mov              qword ptr [rbp + 2320], rax
                         mov              qword ptr [rbp + 2328], rdx
                                                                                         jmp   xchain00145_n55_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n53_α:
 # IR_CONJUNCTION value-forward copy
                         mov              rax, qword ptr [rbp + 2992]
@@ -5855,6 +6263,7 @@ xchain00145_n53_α:
                                                                                         jmp   xchain00145_n56_α
 xchain00145_n53_β:
                                                                                         jmp   xchain00145_n20_af
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n54_α:
 # IR_BINOP_ARITH
                         mov              eax, dword ptr [rbp + 2448]
@@ -5894,6 +6303,7 @@ xchain00145_n54_α:
                                                                                         jmp   xchain00145_n57_α
 xchain00145_n54_β:
                                                                                         jmp   xchain00145_n23_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DEREF variable -> value
 xchain00145_n55_α:
                         mov              rdi, qword ptr [rbp + 2320]
@@ -5904,6 +6314,7 @@ xchain00145_n55_α:
                         mov              qword ptr [rbp + 2352], rax
                         mov              qword ptr [rbp + 2360], rdx
                                                                                         jmp   xchain00145_n58_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00145_n56_α:
                         mov              qword ptr [rbp + 2768], 0
@@ -5924,6 +6335,7 @@ xchain00145_n56_af:
                         add              dword ptr [rbp + 2784], 1
                         mov              eax, dword ptr [rbp + 2784]
                                                                                         jmp   xchain00145_n28_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n57_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 2416]
@@ -5933,6 +6345,7 @@ xchain00145_n57_α:
                         mov              qword ptr [rbp + 2400], rax
                         mov              qword ptr [rbp + 2408], rdx
                                                                                         jmp   xchain00145_n60_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n58_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 2352]
@@ -5942,6 +6355,7 @@ xchain00145_n58_α:
                         mov              qword ptr [rbp + 2240], rax
                         mov              qword ptr [rbp + 2248], rdx
                                                                                         jmp   xchain00145_n61_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00145_n59_α:
                         mov              qword ptr [rbp + 2944], 1
@@ -5954,6 +6368,7 @@ xchain00145_n59_β:
                         .quad            .Lx00165_0_s
 .Lx00165_0_s:
                         .string          "-"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain00145_n60_α:
                         mov              rax, 4294967305
@@ -5961,6 +6376,7 @@ xchain00145_n60_α:
                         mov              qword ptr [rbp + 592], rax
                         mov              qword ptr [rbp + 600], rdx
                                                                                         jmp   xchain00145_n63_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n61_α:
 # BOX CALL any(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
 # marshal arg0 = producer-box slot [zr+2208] -> [zr+2160]
@@ -5996,6 +6412,7 @@ xchain00145_n61_α:
                                                                                         jmp   xchain00145_n64_α
 xchain00145_n61_β:
                                                                                         jmp   xchain00145_n30_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SCAN_MATCH
 xchain00145_n62_α:
                         sub              rsp, 16
@@ -6027,6 +6444,7 @@ xchain00145_n62_α:
                         .quad            .Lx00166_0_s
 .Lx00166_0_s:
                         .string          "-"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00145_n63_α:
                         mov              rax, qword ptr [rbp + 3648]
@@ -6034,6 +6452,7 @@ xchain00145_n63_α:
                         mov              rax, qword ptr [rbp + 3656]
                         mov              qword ptr [rbp + 632], rax
                                                                                         jmp   xchain00145_n66_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00145_n64_α:
                         mov              qword ptr [rbp + 1776], 0
@@ -6082,6 +6501,7 @@ xchain00145_n64_af:
                         cmp              eax, 2
                                                                                         je    xchain00145_n70_α
                                                                                         jmp   xchain00145_n75_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SCAN_TAB
 xchain00145_n65_α:
                         sub              rsp, 16
@@ -6121,6 +6541,7 @@ xchain00145_n65_β:
                         mov              r14, qword ptr [rsp + 0]
                         add              rsp, 16
                                                                                         jmp   xchain00145_n56_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain00145_n66_α:
                         mov              rdi, qword ptr [rbp + 592]
@@ -6133,6 +6554,7 @@ xchain00145_n66_α:
                         mov              qword ptr [rbp + 656], rax
                         mov              qword ptr [rbp + 664], rdx
                                                                                         jmp   xchain00145_n30_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n67_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 1776]
@@ -6142,6 +6564,7 @@ xchain00145_n67_α:
                         mov              qword ptr [rbp + 1760], rax
                         mov              qword ptr [rbp + 1768], rdx
                                                                                         jmp   xchain00145_n75_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00145_n68_α:
                         mov              qword ptr [rbp + 1840], 1
@@ -6154,6 +6577,7 @@ xchain00145_n68_β:
                         .quad            .Lx00169_0_s
 .Lx00169_0_s:
                         .string          ""
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00145_n69_α:
                         mov              rax, qword ptr [rbp + 16]
@@ -6163,6 +6587,7 @@ xchain00145_n69_α:
                                                                                         jmp   xchain00145_n72_α
 xchain00145_n69_β:
                                                                                         jmp   xchain00145_n64_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00145_n70_α:
                         mov              qword ptr [rbp + 2080], 1
@@ -6175,6 +6600,7 @@ xchain00145_n70_β:
                         .quad            .Lx00170_0_s
 .Lx00170_0_s:
                         .string          "No parameter following -"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n71_α:
 # IR_BINOP_TEST
                         mov              rdi, qword ptr [rbp + 1840]
@@ -6193,6 +6619,7 @@ xchain00145_n71_α:
                                                                                         jmp   xchain00145_n64_as
 xchain00145_n71_β:
                                                                                         jmp   xchain00145_n64_af
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n72_α:
 # BOX IR_CALL get(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+1984] -> [zr+1952]
@@ -6215,6 +6642,7 @@ xchain00145_n72_α:
                                                                                         jmp   xchain00145_n64_as
 xchain00145_n72_β:
                                                                                         jmp   xchain00145_n64_af
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n73_α:
 # BOX IR_CALL stop(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+2080] -> [zr+2032]
@@ -6242,6 +6670,7 @@ xchain00145_n73_α:
                                                                                         jmp   xchain00145_n64_as
 xchain00145_n73_β:
                                                                                         jmp   xchain00145_n64_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00145_n74_α:
                         mov              qword ptr [rbp + 2848], 6
@@ -6250,6 +6679,7 @@ xchain00145_n74_α:
                                                                                         jmp   xchain00145_n78_α
 .Lx00171_0:
                         .quad            0
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00145_n75_α:
                         mov              rax, qword ptr [rbp + 3680]
@@ -6257,6 +6687,7 @@ xchain00145_n75_α:
                         mov              rax, qword ptr [rbp + 3688]
                         mov              qword ptr [rbp + 792], rax
                                                                                         jmp   xchain00145_n79_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00145_n76_α:
                         mov              qword ptr [rbp + 1904], 6
@@ -6265,6 +6696,7 @@ xchain00145_n76_α:
                                                                                         jmp   xchain00145_n80_α
 .Lx00172_0:
                         .quad            0
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00145_n77_α:
                         mov              rax, qword ptr [rbp + 3648]
@@ -6272,6 +6704,7 @@ xchain00145_n77_α:
                         mov              rax, qword ptr [rbp + 3656]
                         mov              qword ptr [rbp + 2120], rax
                                                                                         jmp   xchain00145_n73_α
+#-----------------------------------------------------------------------------------------------------------------------
 # BOX ICN IR_SCAN_POS pos(n) [ICN-SCAN-3 fscan.r: i=cvpos(i,len); succeed iff i==&pos (r14+1); result {DT_I,i} normalized; single-shot beta->omega]
 xchain00145_n78_α:
                         mov              rax, 0
@@ -6293,6 +6726,7 @@ xchain00145_n78_α:
                         mov              qword ptr [rbp + 2816], 6
                         mov              qword ptr [rbp + 2824], rax
                                                                                         jmp   xchain00145_n81_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00145_n79_α:
                         mov              qword ptr [rbp + 1616], 1
@@ -6303,6 +6737,7 @@ xchain00145_n79_α:
                         .quad            .Lx00174_0_s
 .Lx00174_0_s:
                         .string          ":"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SCAN_TAB
 xchain00145_n80_α:
                         sub              rsp, 16
@@ -6342,6 +6777,7 @@ xchain00145_n80_β:
                         mov              r14, qword ptr [rsp + 0]
                         add              rsp, 16
                                                                                         jmp   xchain00145_n64_af
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n81_α:
 # IR_CONJUNCTION value-forward copy
                         mov              rax, qword ptr [rbp + 2816]
@@ -6351,6 +6787,7 @@ xchain00145_n81_α:
                                                                                         jmp   xchain00145_n11_α
 xchain00145_n81_β:
                                                                                         jmp   xchain00145_n56_af
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n82_α:
 # BOX IR_CALL IDENTICAL(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+784] -> [zr+1712]
@@ -6378,6 +6815,7 @@ xchain00145_n82_α:
                                                                                         jmp   xchain00145_n83_α
 xchain00145_n82_β:
                                                                                         jmp   xchain00145_n84_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00145_n83_α:
                         mov              rax, qword ptr [rbp + 3696]
@@ -6385,6 +6823,7 @@ xchain00145_n83_α:
                         mov              rax, qword ptr [rbp + 3704]
                         mov              qword ptr [rbp + 1656], rax
                                                                                         jmp   xchain00145_n85_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00145_n84_α:
                         mov              qword ptr [rbp + 1216], 1
@@ -6395,6 +6834,7 @@ xchain00145_n84_α:
                         .quad            .Lx00176_0_s
 .Lx00176_0_s:
                         .string          "+"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n85_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 1648]
@@ -6404,6 +6844,7 @@ xchain00145_n85_α:
                         mov              qword ptr [rbp + 1680], rax
                         mov              qword ptr [rbp + 1688], rdx
                                                                                         jmp   xchain00145_n87_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n86_α:
 # BOX IR_CALL IDENTICAL(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+784] -> [zr+1568]
@@ -6431,6 +6872,7 @@ xchain00145_n86_α:
                                                                                         jmp   xchain00145_n88_α
 xchain00145_n86_β:
                                                                                         jmp   xchain00145_n89_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00145_n87_α:
                         mov              rax, qword ptr [rbp + 3664]
@@ -6438,6 +6880,7 @@ xchain00145_n87_α:
                         mov              rax, qword ptr [rbp + 3672]
                         mov              qword ptr [rbp + 760], rax
                                                                                         jmp   xchain00145_n41_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00145_n88_α:
                         mov              qword ptr [rbp + 1248], 0
@@ -6474,6 +6917,7 @@ xchain00145_n88_af:
                         cmp              eax, 1
                                                                                         je    xchain00145_n92_α
                                                                                         jmp   xchain00145_n28_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00145_n89_α:
                         mov              qword ptr [rbp + 816], 1
@@ -6484,6 +6928,7 @@ xchain00145_n89_α:
                         .quad            .Lx00178_0_s
 .Lx00178_0_s:
                         .string          "."
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n90_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 1248]
@@ -6493,6 +6938,7 @@ xchain00145_n90_α:
                         mov              qword ptr [rbp + 1536], rax
                         mov              qword ptr [rbp + 1544], rdx
                                                                                         jmp   xchain00145_n87_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00145_n91_α:
                         mov              rax, qword ptr [rbp + 3696]
@@ -6502,6 +6948,7 @@ xchain00145_n91_α:
                                                                                         jmp   xchain00145_n93_α
 xchain00145_n91_β:
                                                                                         jmp   xchain00145_n88_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00145_n92_α:
                         mov              qword ptr [rbp + 1440], 1
@@ -6514,6 +6961,7 @@ xchain00145_n92_β:
                         .quad            .Lx00179_0_s
 .Lx00179_0_s:
                         .string          "-"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n93_α:
 # BOX IR_CALL integer(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+1328] -> [zr+1296]
@@ -6536,6 +6984,7 @@ xchain00145_n93_α:
                                                                                         jmp   xchain00145_n88_as
 xchain00145_n93_β:
                                                                                         jmp   xchain00145_n88_af
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n94_α:
 # BOX IR_CALL stop(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+1440] -> [zr+1376]
@@ -6568,6 +7017,7 @@ xchain00145_n94_α:
                                                                                         jmp   xchain00145_n88_as
 xchain00145_n94_β:
                                                                                         jmp   xchain00145_n88_af
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n95_α:
 # BOX IR_CALL IDENTICAL(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+784] -> [zr+1168]
@@ -6595,6 +7045,7 @@ xchain00145_n95_α:
                                                                                         jmp   xchain00145_n97_α
 xchain00145_n95_β:
                                                                                         jmp   xchain00145_n28_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00145_n96_α:
                         mov              rax, qword ptr [rbp + 3648]
@@ -6602,6 +7053,7 @@ xchain00145_n96_α:
                         mov              rax, qword ptr [rbp + 3656]
                         mov              qword ptr [rbp + 1480], rax
                                                                                         jmp   xchain00145_n98_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00145_n97_α:
                         mov              qword ptr [rbp + 848], 0
@@ -6638,6 +7090,7 @@ xchain00145_n97_af:
                         cmp              eax, 1
                                                                                         je    xchain00145_n00001_α
                                                                                         jmp   xchain00145_n28_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00145_n98_α:
                         mov              qword ptr [rbp + 1504], 1
@@ -6648,6 +7101,7 @@ xchain00145_n98_α:
                         .quad            .Lx00181_0_s
 .Lx00181_0_s:
                         .string          " needs numeric parameter"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n99_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 848]
@@ -6657,6 +7111,7 @@ xchain00145_n99_α:
                         mov              qword ptr [rbp + 1136], rax
                         mov              qword ptr [rbp + 1144], rdx
                                                                                         jmp   xchain00145_n87_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00145_n00035_α:
                         mov              rax, qword ptr [rbp + 3696]
@@ -6666,6 +7121,7 @@ xchain00145_n00035_α:
                                                                                         jmp   xchain00145_n00037_α
 xchain00145_n00035_β:
                                                                                         jmp   xchain00145_n97_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00145_n00001_α:
                         mov              qword ptr [rbp + 1040], 1
@@ -6678,6 +7134,7 @@ xchain00145_n00001_β:
                         .quad            .Lx00182_0_s
 .Lx00182_0_s:
                         .string          "-"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n00037_α:
 # BOX IR_CALL real(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+928] -> [zr+896]
@@ -6700,6 +7157,7 @@ xchain00145_n00037_α:
                                                                                         jmp   xchain00145_n97_as
 xchain00145_n00037_β:
                                                                                         jmp   xchain00145_n97_af
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00145_n00002_α:
 # BOX IR_CALL stop(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+1040] -> [zr+976]
@@ -6732,6 +7190,7 @@ xchain00145_n00002_α:
                                                                                         jmp   xchain00145_n97_as
 xchain00145_n00002_β:
                                                                                         jmp   xchain00145_n97_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00145_n00039_α:
                         mov              rax, qword ptr [rbp + 3648]
@@ -6739,6 +7198,7 @@ xchain00145_n00039_α:
                         mov              rax, qword ptr [rbp + 3656]
                         mov              qword ptr [rbp + 1080], rax
                                                                                         jmp   xchain00145_n00041_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00145_n00041_α:
                         mov              qword ptr [rbp + 1104], 1
@@ -6749,11 +7209,14 @@ xchain00145_n00041_α:
                         .quad            .Lx00183_0_s
 .Lx00183_0_s:
                         .string          " needs numeric parameter"
+#-----------------------------------------------------------------------------------------------------------------------
 proc_options_res:
                         add              rsp, 8
                         pop              rbp
+#-----------------------------------------------------------------------------------------------------------------------
 proc_options_β:
                                                                                         jmp   proc_options_ω
+#-----------------------------------------------------------------------------------------------------------------------
 proc_options_γ:
                         mov              rdi, [rbp]
                         mov              rsi, [rbp + 8]
@@ -6761,11 +7224,13 @@ proc_options_γ:
                         lea              rsp, [rbp + 3760]
                         mov              rbp, [rbp + 3752]
                                                                                         jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
 proc_options_ω:
                         mov              rax, [rbp + 3744]
                         lea              rsp, [rbp + 3760]
                         mov              rbp, [rbp + 3752]
                                                                                         jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
 proc_options_dcα:
 # PL-DC direct-call entry: retaddr -> kt-32 pad, wires -> local ret-shims, one prep crossing, shared body
                         pop              r11
@@ -6803,9 +7268,9 @@ proc_options_dcα:
                         mov              r11, qword ptr [rsp + -32]
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
+#-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_Init___α
 proc_Init___α:
-#=======================================================================================================================
                         .global          proc_Init___α
                         .global          proc_Init___β
                         .global          proc_Init___γ
@@ -6821,6 +7286,7 @@ proc_Init___α:
                         mov              edx, 592
                         call             rt_jmp_frame_lexprep2@PLT
 proc_Init___α_body:
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00185_n0_α:
                         mov              rax, qword ptr [rbp + 16]
@@ -6828,6 +7294,7 @@ xchain00185_n0_α:
                         mov              rax, qword ptr [rbp + 24]
                         mov              qword ptr [rbp + 520], rax
                                                                                         jmp   xchain00185_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain00185_n1_α:
                         mov              rax, qword ptr [rbp + 512]
@@ -6837,6 +7304,7 @@ xchain00185_n1_α:
                         mov              qword ptr [rbp + 496], rax
                         mov              qword ptr [rbp + 504], rdx
                                                                                         jmp   xchain00185_n2_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00185_n2_α:
                         call             proc_Signature___dcα
                                                                                         jmp   .Lx00186_2
@@ -6852,6 +7320,7 @@ xchain00185_n2_β:
                         .quad            .Lx00186_0_s
 .Lx00186_0_s:
                         .string          "Signature__"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00185_n3_α:
                         call             proc_Regions___dcα
                                                                                         jmp   .Lx00187_2
@@ -6867,6 +7336,7 @@ xchain00185_n3_β:
                         .quad            .Lx00187_0_s
 .Lx00187_0_s:
                         .string          "Regions__"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00185_n4_α:
                         call             proc_Time___dcα
                                                                                         jmp   .Lx00188_2
@@ -6882,6 +7352,7 @@ xchain00185_n4_β:
                         .quad            .Lx00188_0_s
 .Lx00188_0_s:
                         .string          "Time__"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00185_n5_α:
                         mov              qword ptr [rbp + 192], 0
@@ -6902,6 +7373,7 @@ xchain00185_n5_af:
                         add              dword ptr [rbp + 208], 1
                         mov              eax, dword ptr [rbp + 208]
                                                                                         jmp   xchain00185_n6_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00185_n6_α:
                         mov              rdi, qword ptr [rip + .Lx00190_0]
@@ -6915,6 +7387,7 @@ xchain00185_n6_α:
                         .quad            .Lx00190_0_s
 .Lx00190_0_s:
                         .string          "write"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00185_n7_α:
                         mov              qword ptr [rbp + 368], 1
@@ -6927,10 +7400,12 @@ xchain00185_n7_β:
                         .quad            .Lx00191_0_s
 .Lx00191_0_s:
                         .string          "OUTPUT"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00185_n8_α:
                                                                                         jmp   xchain00185_n5_as
 xchain00185_n8_β:
                                                                                         jmp   xchain00185_n6_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain00185_n9_α:
                         mov              rax, qword ptr [rbp + 160]
@@ -6940,6 +7415,7 @@ xchain00185_n9_α:
                         mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                                                                                         jmp   xchain00185_n10_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00185_n10_α:
                         mov              rdi, qword ptr [rip + .Lx00192_0]
@@ -6953,6 +7429,7 @@ xchain00185_n10_α:
                         .quad            .Lx00192_0_s
 .Lx00192_0_s:
                         .string          "writes"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00185_n11_α:
 # BOX IR_CALL getenv(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+368] -> [zr+336]
@@ -6975,6 +7452,7 @@ xchain00185_n11_α:
                                                                                         jmp   xchain00185_n14_α
 xchain00185_n11_β:
                                                                                         jmp   xchain00185_n5_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain00185_n12_α:
                         mov              rax, qword ptr [rbp + 112]
@@ -6984,6 +7462,7 @@ xchain00185_n12_α:
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
                                                                                         jmp   xchain00185_n13_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00185_n13_α:
                         mov              qword ptr [rbp + 64], 6
@@ -6992,6 +7471,7 @@ xchain00185_n13_α:
                                                                                         jmp   xchain00185_n15_α
 .Lx00193_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00185_n14_α:
                         mov              qword ptr [rbp + 288], 1
@@ -7002,6 +7482,7 @@ xchain00185_n14_α:
                         .quad            .Lx00194_0_s
 .Lx00194_0_s:
                         .string          "*** Benchmarking with output ***"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN global
 xchain00185_n15_α:
                         mov              rsi, qword ptr [rbp + 64]
@@ -7015,6 +7496,7 @@ xchain00185_n15_α:
                         .quad            .Lx00195_0_s
 .Lx00195_0_s:
                         .string          "writes"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00185_n16_α:
 # BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+288] -> [zr+256]
@@ -7037,6 +7519,7 @@ xchain00185_n16_α:
                                                                                         jmp   xchain00185_n18_α
 xchain00185_n16_β:
                                                                                         jmp   xchain00185_n18_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN global
 xchain00185_n17_α:
                         mov              rsi, qword ptr [rbp + 48]
@@ -7050,21 +7533,26 @@ xchain00185_n17_α:
                         .quad            .Lx00196_0_s
 .Lx00196_0_s:
                         .string          "write"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_RETURN
 xchain00185_n18_α:
                         mov              qword ptr [rbp + 0], 0
                         mov              qword ptr [rbp + 8], 0
                                                                                         jmp   proc_Init___γ
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_RETURN
 xchain00185_n19_α:
                         mov              qword ptr [rbp + 0], 0
                         mov              qword ptr [rbp + 8], 0
                                                                                         jmp   proc_Init___γ
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Init___res:
                         add              rsp, 8
                         pop              rbp
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Init___β:
                                                                                         jmp   proc_Init___ω
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Init___γ:
                         mov              rdi, [rbp]
                         mov              rsi, [rbp + 8]
@@ -7072,11 +7560,13 @@ proc_Init___γ:
                         lea              rsp, [rbp + 624]
                         mov              rbp, [rbp + 616]
                                                                                         jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Init___ω:
                         mov              rax, [rbp + 608]
                         lea              rsp, [rbp + 624]
                         mov              rbp, [rbp + 616]
                                                                                         jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Init___dcα:
 # PL-DC direct-call entry: retaddr -> kt-32 pad, wires -> local ret-shims, one prep crossing, shared body
                         pop              r11
@@ -7113,9 +7603,9 @@ proc_Init___dcα:
                         mov              r11, qword ptr [rsp + -32]
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
+#-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_Term___α
 proc_Term___α:
-#=======================================================================================================================
                         .global          proc_Term___α
                         .global          proc_Term___β
                         .global          proc_Term___γ
@@ -7131,6 +7621,7 @@ proc_Term___α:
                         mov              edx, 592
                         call             rt_jmp_frame_lexprep2@PLT
 proc_Term___α_body:
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00198_n0_α:
                         mov              qword ptr [rbp + 288], 0
@@ -7155,6 +7646,7 @@ xchain00198_n0_af:
                         add              dword ptr [rbp + 304], 1
                         mov              eax, dword ptr [rbp + 304]
                                                                                         jmp   xchain00198_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00198_n1_α:
                         mov              rax, qword ptr [1879052544]
@@ -7162,6 +7654,7 @@ xchain00198_n1_α:
                         mov              qword ptr [rbp + 192], rax
                         mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   xchain00198_n4_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00198_n2_α:
                         mov              qword ptr [rbp + 512], 1
@@ -7174,10 +7667,12 @@ xchain00198_n2_β:
                         .quad            .Lx00200_0_s
 .Lx00200_0_s:
                         .string          "OUTPUT"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00198_n3_α:
                                                                                         jmp   xchain00198_n0_as
 xchain00198_n3_β:
                                                                                         jmp   xchain00198_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00198_n4_α:
                         mov              qword ptr [rbp + 224], 1
@@ -7188,6 +7683,7 @@ xchain00198_n4_α:
                         .quad            .Lx00201_0_s
 .Lx00201_0_s:
                         .string          " elapsed time = "
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00198_n5_α:
                         call             proc_Regions___dcα
                                                                                         jmp   .Lx00202_2
@@ -7203,6 +7699,7 @@ xchain00198_n5_β:
                         .quad            .Lx00202_0_s
 .Lx00202_0_s:
                         .string          "Regions__"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00198_n6_α:
 # BOX IR_CALL getenv(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+512] -> [zr+480]
@@ -7225,6 +7722,7 @@ xchain00198_n6_α:
                                                                                         jmp   xchain00198_n0_af
 xchain00198_n6_β:
                                                                                         jmp   xchain00198_n9_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00198_n7_α:
                         call             proc_Time___dcα
                                                                                         jmp   .Lx00203_2
@@ -7240,6 +7738,7 @@ xchain00198_n7_β:
                         .quad            .Lx00203_0_s
 .Lx00203_0_s:
                         .string          "Time__"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00198_n8_α:
                         call             proc_Storage___dcα
                                                                                         jmp   .Lx00204_2
@@ -7255,6 +7754,7 @@ xchain00198_n8_β:
                         .quad            .Lx00204_0_s
 .Lx00204_0_s:
                         .string          "Storage__"
+#-----------------------------------------------------------------------------------------------------------------------
 # KEYWORD_null
 xchain00198_n9_α:
                         mov              qword ptr [rbp + 432], 0
@@ -7262,6 +7762,7 @@ xchain00198_n9_α:
                                                                                         jmp   xchain00198_n12_α
 xchain00198_n9_β:
                                                                                         jmp   xchain00198_n0_af
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00198_n10_α:
 # BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+192] -> [zr+128]
@@ -7294,6 +7795,7 @@ xchain00198_n10_α:
                                                                                         jmp   xchain00198_n5_α
 xchain00198_n10_β:
                                                                                         jmp   xchain00198_n5_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00198_n11_α:
                         call             proc_Collections___dcα
                                                                                         jmp   .Lx00205_2
@@ -7309,6 +7811,7 @@ xchain00198_n11_β:
                         .quad            .Lx00205_0_s
 .Lx00205_0_s:
                         .string          "Collections__"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00198_n12_α:
                         mov              rax, qword ptr [1879052512]
@@ -7316,11 +7819,13 @@ xchain00198_n12_α:
                         mov              qword ptr [rbp + 400], rax
                         mov              qword ptr [rbp + 408], rdx
                                                                                         jmp   xchain00198_n14_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_RETURN
 xchain00198_n13_α:
                         mov              qword ptr [rbp + 0], 0
                         mov              qword ptr [rbp + 8], 0
                                                                                         jmp   proc_Term___γ
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN global
 xchain00198_n14_α:
                         mov              rsi, qword ptr [rbp + 400]
@@ -7334,6 +7839,7 @@ xchain00198_n14_α:
                         .quad            .Lx00206_0_s
 .Lx00206_0_s:
                         .string          "write"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00198_n15_α:
                         mov              rax, qword ptr [1879052528]
@@ -7341,6 +7847,7 @@ xchain00198_n15_α:
                         mov              qword ptr [rbp + 352], rax
                         mov              qword ptr [rbp + 360], rdx
                                                                                         jmp   xchain00198_n16_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN global
 xchain00198_n16_α:
                         mov              rsi, qword ptr [rbp + 352]
@@ -7354,11 +7861,14 @@ xchain00198_n16_α:
                         .quad            .Lx00207_0_s
 .Lx00207_0_s:
                         .string          "writes"
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Term___res:
                         add              rsp, 8
                         pop              rbp
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Term___β:
                                                                                         jmp   proc_Term___ω
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Term___γ:
                         mov              rdi, [rbp]
                         mov              rsi, [rbp + 8]
@@ -7366,11 +7876,13 @@ proc_Term___γ:
                         lea              rsp, [rbp + 624]
                         mov              rbp, [rbp + 616]
                                                                                         jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Term___ω:
                         mov              rax, [rbp + 608]
                         lea              rsp, [rbp + 624]
                         mov              rbp, [rbp + 616]
                                                                                         jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Term___dcα:
 # PL-DC direct-call entry: retaddr -> kt-32 pad, wires -> local ret-shims, one prep crossing, shared body
                         pop              r11
@@ -7406,9 +7918,9 @@ proc_Term___dcα:
                         mov              r11, qword ptr [rsp + -32]
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
+#-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_Collections___α
 proc_Collections___α:
-#=======================================================================================================================
                         .global          proc_Collections___α
                         .global          proc_Collections___β
                         .global          proc_Collections___γ
@@ -7424,6 +7936,7 @@ proc_Collections___α:
                         mov              edx, 1248
                         call             rt_jmp_frame_lexprep2@PLT
 proc_Collections___α_body:
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00209_n0_α:
                         mov              qword ptr [rbp + 832], 0
@@ -7448,6 +7961,7 @@ xchain00209_n0_af:
                         add              dword ptr [rbp + 848], 1
                         mov              eax, dword ptr [rbp + 848]
                                                                                         jmp   xchain00209_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_MAKE_LIST
 xchain00209_n1_α:
                         lea              rdi, [rbp + 832]
@@ -7456,6 +7970,7 @@ xchain00209_n1_α:
                         mov              qword ptr [rbp + 816], rax
                         mov              qword ptr [rbp + 824], rdx
                                                                                         jmp   xchain00209_n4_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain00209_n2_α:
                         mov              rax, 4294967305
@@ -7465,6 +7980,7 @@ xchain00209_n2_α:
                                                                                         jmp   xchain00209_n5_α
 xchain00209_n2_β:
                                                                                         jmp   xchain00209_n0_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain00209_n3_α:
                         mov              rax, qword ptr [rbp + 880]
@@ -7476,6 +7992,7 @@ xchain00209_n3_α:
                                                                                         jmp   xchain00209_n0_as
 xchain00209_n3_β:
                                                                                         jmp   xchain00209_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00209_n4_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 816]
@@ -7485,6 +8002,7 @@ xchain00209_n4_α:
                         mov              qword ptr [rbp + 800], rax
                         mov              qword ptr [rbp + 808], rdx
                                                                                         jmp   xchain00209_n6_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_NULLTEST_VAR
 xchain00209_n5_α:
                         mov              eax, dword ptr [rbp + 1088]
@@ -7502,6 +8020,7 @@ xchain00209_n5_α:
                         mov              rax, qword ptr [rbp + 1096]
                         mov              qword ptr [rbp + 1128], rax
                                                                                         jmp   xchain00209_n7_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00209_n6_α:
                         mov              rax, qword ptr [rbp + 1232]
@@ -7509,6 +8028,7 @@ xchain00209_n6_α:
                         mov              rax, qword ptr [rbp + 1240]
                         mov              qword ptr [rbp + 744], rax
                                                                                         jmp   xchain00209_n8_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00209_n7_α:
                         mov              qword ptr [rbp + 1168], 6
@@ -7517,6 +8037,7 @@ xchain00209_n7_α:
                                                                                         jmp   xchain00209_n10_α
 .Lx00211_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # KEYWORD_gen
 xchain00209_n8_α:
                         mov              qword ptr [rbp + 784], 0
@@ -7538,6 +8059,7 @@ xchain00209_n8_β:
                         .quad            .Lx00212_0_s
 .Lx00212_0_s:
                         .string          "&collections"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00209_n9_α:
                         mov              qword ptr [rbp + 640], 1
@@ -7548,6 +8070,7 @@ xchain00209_n9_α:
                         .quad            .Lx00213_0_s
 .Lx00213_0_s:
                         .string          "collections"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN_VAR
 xchain00209_n10_α:
                         mov              rdi, qword ptr [rbp + 1120]
@@ -7560,6 +8083,7 @@ xchain00209_n10_α:
                         mov              qword ptr [rbp + 1152], rax
                         mov              qword ptr [rbp + 1160], rdx
                                                                                         jmp   xchain00209_n13_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00209_n11_α:
 # BOX IR_CALL put(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+736] -> [zr+688]
@@ -7587,6 +8111,7 @@ xchain00209_n11_α:
                                                                                         jmp   xchain00209_n8_β
 xchain00209_n11_β:
                                                                                         jmp   xchain00209_n8_β
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00209_n12_α:
 # BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+640] -> [zr+608]
@@ -7609,6 +8134,7 @@ xchain00209_n12_α:
                                                                                         jmp   xchain00209_n14_α
 xchain00209_n12_β:
                                                                                         jmp   xchain00209_n14_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00209_n13_α:
                         mov              qword ptr [rbp + 960], 1
@@ -7619,6 +8145,7 @@ xchain00209_n13_α:
                         .quad            .Lx00214_0_s
 .Lx00214_0_s:
                         .string          "total"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00209_n14_α:
                         mov              qword ptr [rbp + 64], 6
@@ -7627,6 +8154,7 @@ xchain00209_n14_α:
                                                                                         jmp   xchain00209_n16_α
 .Lx00215_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00209_n15_α:
                         mov              qword ptr [rbp + 992], 1
@@ -7637,6 +8165,7 @@ xchain00209_n15_α:
                         .quad            .Lx00216_0_s
 .Lx00216_0_s:
                         .string          "static"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00209_n16_α:
                         mov              rax, qword ptr [1879052624]
@@ -7644,6 +8173,7 @@ xchain00209_n16_α:
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                                                                                         jmp   xchain00209_n18_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00209_n17_α:
                         mov              qword ptr [rbp + 1024], 1
@@ -7654,6 +8184,7 @@ xchain00209_n17_α:
                         .quad            .Lx00217_0_s
 .Lx00217_0_s:
                         .string          "string"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNOP
 xchain00209_n18_α:
                         mov              rdi, qword ptr [rbp + 128]
@@ -7662,11 +8193,13 @@ xchain00209_n18_α:
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
                                                                                         jmp   xchain00209_n21_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_RETURN
 xchain00209_n19_α:
                         mov              qword ptr [rbp + 0], 0
                         mov              qword ptr [rbp + 8], 0
                                                                                         jmp   proc_Collections___γ
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00209_n20_α:
                         mov              qword ptr [rbp + 1056], 1
@@ -7677,6 +8210,7 @@ xchain00209_n20_α:
                         .quad            .Lx00218_0_s
 .Lx00218_0_s:
                         .string          "block"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_TO
 xchain00209_n21_α:
                         mov              rdi, qword ptr [rbp + 64]
@@ -7702,6 +8236,7 @@ xchain00209_n21_α:
 xchain00209_n21_β:
                         inc              qword ptr [rbp + 48]
                                                                                         jmp   .Lx00219_0
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_MAKE_LIST
 xchain00209_n22_α:
                         mov              rax, qword ptr [rbp + 960]
@@ -7726,6 +8261,7 @@ xchain00209_n22_α:
                         mov              qword ptr [rbp + 880], rax
                         mov              qword ptr [rbp + 888], rdx
                                                                                         jmp   xchain00209_n3_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00209_n23_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 32]
@@ -7735,10 +8271,12 @@ xchain00209_n23_α:
                         mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
                                                                                         jmp   xchain00209_n24_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_BOUND
 xchain00209_n24_α:
                         mov              qword ptr [rbp + 160], rsp
                                                                                         jmp   xchain00209_n25_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain00209_n25_α:
                         mov              rax, 4294967305
@@ -7746,6 +8284,7 @@ xchain00209_n25_α:
                         mov              qword ptr [rbp + 272], rax
                         mov              qword ptr [rbp + 280], rdx
                                                                                         jmp   xchain00209_n26_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00209_n26_α:
                         mov              rax, qword ptr [rbp + 1216]
@@ -7753,6 +8292,7 @@ xchain00209_n26_α:
                         mov              rax, qword ptr [rbp + 1224]
                         mov              qword ptr [rbp + 312], rax
                                                                                         jmp   xchain00209_n27_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain00209_n27_α:
                         mov              rdi, qword ptr [rbp + 272]
@@ -7765,10 +8305,12 @@ xchain00209_n27_α:
                         mov              qword ptr [rbp + 336], rax
                         mov              qword ptr [rbp + 344], rdx
                                                                                         jmp   xchain00209_n29_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNMARK
 xchain00209_n28_α:
                         mov              rsp, qword ptr [rbp + 160]
                                                                                         jmp   xchain00209_n21_β
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DEREF variable -> value
 xchain00209_n29_α:
                         mov              rdi, qword ptr [rbp + 336]
@@ -7779,6 +8321,7 @@ xchain00209_n29_α:
                         mov              qword ptr [rbp + 368], rax
                         mov              qword ptr [rbp + 376], rdx
                                                                                         jmp   xchain00209_n30_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain00209_n30_α:
                         mov              rax, 4294967305
@@ -7786,6 +8329,7 @@ xchain00209_n30_α:
                         mov              qword ptr [rbp + 448], rax
                         mov              qword ptr [rbp + 456], rdx
                                                                                         jmp   xchain00209_n31_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00209_n31_α:
                         mov              rax, qword ptr [rbp + 1216]
@@ -7793,6 +8337,7 @@ xchain00209_n31_α:
                         mov              rax, qword ptr [rbp + 1224]
                         mov              qword ptr [rbp + 488], rax
                                                                                         jmp   xchain00209_n32_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain00209_n32_α:
                         mov              rdi, qword ptr [rbp + 448]
@@ -7805,6 +8350,7 @@ xchain00209_n32_α:
                         mov              qword ptr [rbp + 512], rax
                         mov              qword ptr [rbp + 520], rdx
                                                                                         jmp   xchain00209_n33_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DEREF variable -> value
 xchain00209_n33_α:
                         mov              rdi, qword ptr [rbp + 512]
@@ -7815,6 +8361,7 @@ xchain00209_n33_α:
                         mov              qword ptr [rbp + 544], rax
                         mov              qword ptr [rbp + 552], rdx
                                                                                         jmp   xchain00209_n34_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00209_n34_α:
                         mov              qword ptr [rbp + 560], 6
@@ -7823,6 +8370,7 @@ xchain00209_n34_α:
                                                                                         jmp   xchain00209_n35_α
 .Lx00220_0:
                         .quad            8
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00209_n35_α:
 # BOX IR_CALL right(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+544] -> [zr+400]
@@ -7850,6 +8398,7 @@ xchain00209_n35_α:
                                                                                         jmp   xchain00209_n36_α
 xchain00209_n35_β:
                                                                                         jmp   xchain00209_n28_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00209_n36_α:
 # BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+368] -> [zr+224]
@@ -7877,11 +8426,14 @@ xchain00209_n36_α:
                                                                                         jmp   xchain00209_n28_α
 xchain00209_n36_β:
                                                                                         jmp   xchain00209_n28_α
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Collections___res:
                         add              rsp, 8
                         pop              rbp
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Collections___β:
                                                                                         jmp   proc_Collections___ω
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Collections___γ:
                         mov              rdi, [rbp]
                         mov              rsi, [rbp + 8]
@@ -7889,11 +8441,13 @@ proc_Collections___γ:
                         lea              rsp, [rbp + 1280]
                         mov              rbp, [rbp + 1272]
                                                                                         jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Collections___ω:
                         mov              rax, [rbp + 1264]
                         lea              rsp, [rbp + 1280]
                         mov              rbp, [rbp + 1272]
                                                                                         jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Collections___dcα:
 # PL-DC direct-call entry: retaddr -> kt-32 pad, wires -> local ret-shims, one prep crossing, shared body
                         pop              r11
@@ -7929,9 +8483,9 @@ proc_Collections___dcα:
                         mov              r11, qword ptr [rsp + -32]
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
+#-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_Regions___α
 proc_Regions___α:
-#=======================================================================================================================
                         .global          proc_Regions___α
                         .global          proc_Regions___β
                         .global          proc_Regions___γ
@@ -7947,6 +8501,7 @@ proc_Regions___α:
                         mov              edx, 1200
                         call             rt_jmp_frame_lexprep2@PLT
 proc_Regions___α_body:
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00222_n0_α:
                         mov              qword ptr [rbp + 832], 0
@@ -7971,6 +8526,7 @@ xchain00222_n0_af:
                         add              dword ptr [rbp + 848], 1
                         mov              eax, dword ptr [rbp + 848]
                                                                                         jmp   xchain00222_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_MAKE_LIST
 xchain00222_n1_α:
                         lea              rdi, [rbp + 832]
@@ -7979,6 +8535,7 @@ xchain00222_n1_α:
                         mov              qword ptr [rbp + 816], rax
                         mov              qword ptr [rbp + 824], rdx
                                                                                         jmp   xchain00222_n4_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain00222_n2_α:
                         mov              rax, 4294967305
@@ -7988,6 +8545,7 @@ xchain00222_n2_α:
                                                                                         jmp   xchain00222_n5_α
 xchain00222_n2_β:
                                                                                         jmp   xchain00222_n0_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain00222_n3_α:
                         mov              rax, qword ptr [rbp + 880]
@@ -7999,6 +8557,7 @@ xchain00222_n3_α:
                                                                                         jmp   xchain00222_n0_as
 xchain00222_n3_β:
                                                                                         jmp   xchain00222_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00222_n4_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 816]
@@ -8008,6 +8567,7 @@ xchain00222_n4_α:
                         mov              qword ptr [rbp + 800], rax
                         mov              qword ptr [rbp + 808], rdx
                                                                                         jmp   xchain00222_n6_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_NULLTEST_VAR
 xchain00222_n5_α:
                         mov              eax, dword ptr [rbp + 1040]
@@ -8025,6 +8585,7 @@ xchain00222_n5_α:
                         mov              rax, qword ptr [rbp + 1048]
                         mov              qword ptr [rbp + 1080], rax
                                                                                         jmp   xchain00222_n7_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00222_n6_α:
                         mov              rax, qword ptr [rbp + 1184]
@@ -8032,6 +8593,7 @@ xchain00222_n6_α:
                         mov              rax, qword ptr [rbp + 1192]
                         mov              qword ptr [rbp + 744], rax
                                                                                         jmp   xchain00222_n8_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00222_n7_α:
                         mov              qword ptr [rbp + 1120], 6
@@ -8040,6 +8602,7 @@ xchain00222_n7_α:
                                                                                         jmp   xchain00222_n10_α
 .Lx00224_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # KEYWORD_gen
 xchain00222_n8_α:
                         mov              qword ptr [rbp + 784], 0
@@ -8061,6 +8624,7 @@ xchain00222_n8_β:
                         .quad            .Lx00225_0_s
 .Lx00225_0_s:
                         .string          "&regions"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00222_n9_α:
                         mov              qword ptr [rbp + 640], 1
@@ -8071,6 +8635,7 @@ xchain00222_n9_α:
                         .quad            .Lx00226_0_s
 .Lx00226_0_s:
                         .string          "regions"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN_VAR
 xchain00222_n10_α:
                         mov              rdi, qword ptr [rbp + 1072]
@@ -8083,6 +8648,7 @@ xchain00222_n10_α:
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
                                                                                         jmp   xchain00222_n13_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00222_n11_α:
 # BOX IR_CALL put(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+736] -> [zr+688]
@@ -8110,6 +8676,7 @@ xchain00222_n11_α:
                                                                                         jmp   xchain00222_n8_β
 xchain00222_n11_β:
                                                                                         jmp   xchain00222_n8_β
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00222_n12_α:
 # BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+640] -> [zr+608]
@@ -8132,6 +8699,7 @@ xchain00222_n12_α:
                                                                                         jmp   xchain00222_n14_α
 xchain00222_n12_β:
                                                                                         jmp   xchain00222_n14_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00222_n13_α:
                         mov              qword ptr [rbp + 944], 1
@@ -8142,6 +8710,7 @@ xchain00222_n13_α:
                         .quad            .Lx00227_0_s
 .Lx00227_0_s:
                         .string          "static"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00222_n14_α:
                         mov              qword ptr [rbp + 64], 6
@@ -8150,6 +8719,7 @@ xchain00222_n14_α:
                                                                                         jmp   xchain00222_n16_α
 .Lx00228_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00222_n15_α:
                         mov              qword ptr [rbp + 976], 1
@@ -8160,6 +8730,7 @@ xchain00222_n15_α:
                         .quad            .Lx00229_0_s
 .Lx00229_0_s:
                         .string          "string"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00222_n16_α:
                         mov              rax, qword ptr [1879052656]
@@ -8167,6 +8738,7 @@ xchain00222_n16_α:
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                                                                                         jmp   xchain00222_n18_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00222_n17_α:
                         mov              qword ptr [rbp + 1008], 1
@@ -8177,6 +8749,7 @@ xchain00222_n17_α:
                         .quad            .Lx00230_0_s
 .Lx00230_0_s:
                         .string          "block"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNOP
 xchain00222_n18_α:
                         mov              rdi, qword ptr [rbp + 128]
@@ -8185,11 +8758,13 @@ xchain00222_n18_α:
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
                                                                                         jmp   xchain00222_n21_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_RETURN
 xchain00222_n19_α:
                         mov              qword ptr [rbp + 0], 0
                         mov              qword ptr [rbp + 8], 0
                                                                                         jmp   proc_Regions___γ
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_MAKE_LIST
 xchain00222_n20_α:
                         mov              rax, qword ptr [rbp + 944]
@@ -8210,6 +8785,7 @@ xchain00222_n20_α:
                         mov              qword ptr [rbp + 880], rax
                         mov              qword ptr [rbp + 888], rdx
                                                                                         jmp   xchain00222_n3_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_TO
 xchain00222_n21_α:
                         mov              rdi, qword ptr [rbp + 64]
@@ -8235,6 +8811,7 @@ xchain00222_n21_α:
 xchain00222_n21_β:
                         inc              qword ptr [rbp + 48]
                                                                                         jmp   .Lx00231_0
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00222_n22_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 32]
@@ -8244,10 +8821,12 @@ xchain00222_n22_α:
                         mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
                                                                                         jmp   xchain00222_n23_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_BOUND
 xchain00222_n23_α:
                         mov              qword ptr [rbp + 160], rsp
                                                                                         jmp   xchain00222_n24_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain00222_n24_α:
                         mov              rax, 4294967305
@@ -8255,6 +8834,7 @@ xchain00222_n24_α:
                         mov              qword ptr [rbp + 272], rax
                         mov              qword ptr [rbp + 280], rdx
                                                                                         jmp   xchain00222_n25_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00222_n25_α:
                         mov              rax, qword ptr [rbp + 1168]
@@ -8262,6 +8842,7 @@ xchain00222_n25_α:
                         mov              rax, qword ptr [rbp + 1176]
                         mov              qword ptr [rbp + 312], rax
                                                                                         jmp   xchain00222_n26_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain00222_n26_α:
                         mov              rdi, qword ptr [rbp + 272]
@@ -8274,10 +8855,12 @@ xchain00222_n26_α:
                         mov              qword ptr [rbp + 336], rax
                         mov              qword ptr [rbp + 344], rdx
                                                                                         jmp   xchain00222_n28_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNMARK
 xchain00222_n27_α:
                         mov              rsp, qword ptr [rbp + 160]
                                                                                         jmp   xchain00222_n21_β
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DEREF variable -> value
 xchain00222_n28_α:
                         mov              rdi, qword ptr [rbp + 336]
@@ -8288,6 +8871,7 @@ xchain00222_n28_α:
                         mov              qword ptr [rbp + 368], rax
                         mov              qword ptr [rbp + 376], rdx
                                                                                         jmp   xchain00222_n29_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain00222_n29_α:
                         mov              rax, 4294967305
@@ -8295,6 +8879,7 @@ xchain00222_n29_α:
                         mov              qword ptr [rbp + 448], rax
                         mov              qword ptr [rbp + 456], rdx
                                                                                         jmp   xchain00222_n30_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00222_n30_α:
                         mov              rax, qword ptr [rbp + 1168]
@@ -8302,6 +8887,7 @@ xchain00222_n30_α:
                         mov              rax, qword ptr [rbp + 1176]
                         mov              qword ptr [rbp + 488], rax
                                                                                         jmp   xchain00222_n31_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain00222_n31_α:
                         mov              rdi, qword ptr [rbp + 448]
@@ -8314,6 +8900,7 @@ xchain00222_n31_α:
                         mov              qword ptr [rbp + 512], rax
                         mov              qword ptr [rbp + 520], rdx
                                                                                         jmp   xchain00222_n32_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DEREF variable -> value
 xchain00222_n32_α:
                         mov              rdi, qword ptr [rbp + 512]
@@ -8324,6 +8911,7 @@ xchain00222_n32_α:
                         mov              qword ptr [rbp + 544], rax
                         mov              qword ptr [rbp + 552], rdx
                                                                                         jmp   xchain00222_n33_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00222_n33_α:
                         mov              qword ptr [rbp + 560], 6
@@ -8332,6 +8920,7 @@ xchain00222_n33_α:
                                                                                         jmp   xchain00222_n34_α
 .Lx00232_0:
                         .quad            8
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00222_n34_α:
 # BOX IR_CALL right(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+544] -> [zr+400]
@@ -8359,6 +8948,7 @@ xchain00222_n34_α:
                                                                                         jmp   xchain00222_n35_α
 xchain00222_n34_β:
                                                                                         jmp   xchain00222_n27_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00222_n35_α:
 # BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+368] -> [zr+224]
@@ -8386,11 +8976,14 @@ xchain00222_n35_α:
                                                                                         jmp   xchain00222_n27_α
 xchain00222_n35_β:
                                                                                         jmp   xchain00222_n27_α
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Regions___res:
                         add              rsp, 8
                         pop              rbp
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Regions___β:
                                                                                         jmp   proc_Regions___ω
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Regions___γ:
                         mov              rdi, [rbp]
                         mov              rsi, [rbp + 8]
@@ -8398,11 +8991,13 @@ proc_Regions___γ:
                         lea              rsp, [rbp + 1232]
                         mov              rbp, [rbp + 1224]
                                                                                         jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Regions___ω:
                         mov              rax, [rbp + 1216]
                         lea              rsp, [rbp + 1232]
                         mov              rbp, [rbp + 1224]
                                                                                         jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Regions___dcα:
 # PL-DC direct-call entry: retaddr -> kt-32 pad, wires -> local ret-shims, one prep crossing, shared body
                         pop              r11
@@ -8438,9 +9033,9 @@ proc_Regions___dcα:
                         mov              r11, qword ptr [rsp + -32]
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
+#-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_Signature___α
 proc_Signature___α:
-#=======================================================================================================================
                         .global          proc_Signature___α
                         .global          proc_Signature___β
                         .global          proc_Signature___γ
@@ -8456,6 +9051,7 @@ proc_Signature___α:
                         mov              edx, 272
                         call             rt_jmp_frame_lexprep2@PLT
 proc_Signature___α_body:
+#-----------------------------------------------------------------------------------------------------------------------
 # KEYWORD_read
 xchain00234_n0_α:
                         mov              rdi, qword ptr [rip + .Lx00235_0]
@@ -8471,6 +9067,7 @@ xchain00234_n0_β:
                         .quad            .Lx00235_0_s
 .Lx00235_0_s:
                         .string          "&version"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00234_n1_α:
 # BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+224] -> [zr+192]
@@ -8493,6 +9090,7 @@ xchain00234_n1_α:
                                                                                         jmp   xchain00234_n2_α
 xchain00234_n1_β:
                                                                                         jmp   xchain00234_n2_α
+#-----------------------------------------------------------------------------------------------------------------------
 # KEYWORD_read
 xchain00234_n2_α:
                         mov              rdi, qword ptr [rip + .Lx00236_0]
@@ -8508,6 +9106,7 @@ xchain00234_n2_β:
                         .quad            .Lx00236_0_s
 .Lx00236_0_s:
                         .string          "&host"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00234_n3_α:
 # BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+144] -> [zr+112]
@@ -8530,6 +9129,7 @@ xchain00234_n3_α:
                                                                                         jmp   xchain00234_n4_α
 xchain00234_n3_β:
                                                                                         jmp   xchain00234_n4_α
+#-----------------------------------------------------------------------------------------------------------------------
 # KEYWORD_gen
 xchain00234_n4_α:
                         mov              qword ptr [rbp + 80], 0
@@ -8551,6 +9151,7 @@ xchain00234_n4_β:
                         .quad            .Lx00237_0_s
 .Lx00237_0_s:
                         .string          "&features"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00234_n5_α:
 # BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+64] -> [zr+32]
@@ -8573,16 +9174,20 @@ xchain00234_n5_α:
                                                                                         jmp   xchain00234_n4_β
 xchain00234_n5_β:
                                                                                         jmp   xchain00234_n4_β
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_RETURN
 xchain00234_n6_α:
                         mov              qword ptr [rbp + 0], 0
                         mov              qword ptr [rbp + 8], 0
                                                                                         jmp   proc_Signature___γ
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Signature___res:
                         add              rsp, 8
                         pop              rbp
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Signature___β:
                                                                                         jmp   proc_Signature___ω
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Signature___γ:
                         mov              rdi, [rbp]
                         mov              rsi, [rbp + 8]
@@ -8590,11 +9195,13 @@ proc_Signature___γ:
                         lea              rsp, [rbp + 304]
                         mov              rbp, [rbp + 296]
                                                                                         jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Signature___ω:
                         mov              rax, [rbp + 288]
                         lea              rsp, [rbp + 304]
                         mov              rbp, [rbp + 296]
                                                                                         jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Signature___dcα:
 # PL-DC direct-call entry: retaddr -> kt-32 pad, wires -> local ret-shims, one prep crossing, shared body
                         pop              r11
@@ -8630,9 +9237,9 @@ proc_Signature___dcα:
                         mov              r11, qword ptr [rsp + -32]
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
+#-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_Storage___α
 proc_Storage___α:
-#=======================================================================================================================
                         .global          proc_Storage___α
                         .global          proc_Storage___β
                         .global          proc_Storage___γ
@@ -8648,6 +9255,7 @@ proc_Storage___α:
                         mov              edx, 1200
                         call             rt_jmp_frame_lexprep2@PLT
 proc_Storage___α_body:
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00239_n0_α:
                         mov              qword ptr [rbp + 832], 0
@@ -8672,6 +9280,7 @@ xchain00239_n0_af:
                         add              dword ptr [rbp + 848], 1
                         mov              eax, dword ptr [rbp + 848]
                                                                                         jmp   xchain00239_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_MAKE_LIST
 xchain00239_n1_α:
                         lea              rdi, [rbp + 832]
@@ -8680,6 +9289,7 @@ xchain00239_n1_α:
                         mov              qword ptr [rbp + 816], rax
                         mov              qword ptr [rbp + 824], rdx
                                                                                         jmp   xchain00239_n4_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain00239_n2_α:
                         mov              rax, 4294967305
@@ -8689,6 +9299,7 @@ xchain00239_n2_α:
                                                                                         jmp   xchain00239_n5_α
 xchain00239_n2_β:
                                                                                         jmp   xchain00239_n0_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain00239_n3_α:
                         mov              rax, qword ptr [rbp + 880]
@@ -8700,6 +9311,7 @@ xchain00239_n3_α:
                                                                                         jmp   xchain00239_n0_as
 xchain00239_n3_β:
                                                                                         jmp   xchain00239_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00239_n4_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 816]
@@ -8709,6 +9321,7 @@ xchain00239_n4_α:
                         mov              qword ptr [rbp + 800], rax
                         mov              qword ptr [rbp + 808], rdx
                                                                                         jmp   xchain00239_n6_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_NULLTEST_VAR
 xchain00239_n5_α:
                         mov              eax, dword ptr [rbp + 1040]
@@ -8726,6 +9339,7 @@ xchain00239_n5_α:
                         mov              rax, qword ptr [rbp + 1048]
                         mov              qword ptr [rbp + 1080], rax
                                                                                         jmp   xchain00239_n7_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00239_n6_α:
                         mov              rax, qword ptr [rbp + 1184]
@@ -8733,6 +9347,7 @@ xchain00239_n6_α:
                         mov              rax, qword ptr [rbp + 1192]
                         mov              qword ptr [rbp + 744], rax
                                                                                         jmp   xchain00239_n8_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00239_n7_α:
                         mov              qword ptr [rbp + 1120], 6
@@ -8741,6 +9356,7 @@ xchain00239_n7_α:
                                                                                         jmp   xchain00239_n10_α
 .Lx00241_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # KEYWORD_gen
 xchain00239_n8_α:
                         mov              qword ptr [rbp + 784], 0
@@ -8762,6 +9378,7 @@ xchain00239_n8_β:
                         .quad            .Lx00242_0_s
 .Lx00242_0_s:
                         .string          "&storage"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00239_n9_α:
                         mov              qword ptr [rbp + 640], 1
@@ -8772,6 +9389,7 @@ xchain00239_n9_α:
                         .quad            .Lx00243_0_s
 .Lx00243_0_s:
                         .string          "storage"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN_VAR
 xchain00239_n10_α:
                         mov              rdi, qword ptr [rbp + 1072]
@@ -8784,6 +9402,7 @@ xchain00239_n10_α:
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
                                                                                         jmp   xchain00239_n13_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00239_n11_α:
 # BOX IR_CALL put(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+736] -> [zr+688]
@@ -8811,6 +9430,7 @@ xchain00239_n11_α:
                                                                                         jmp   xchain00239_n8_β
 xchain00239_n11_β:
                                                                                         jmp   xchain00239_n8_β
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00239_n12_α:
 # BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+640] -> [zr+608]
@@ -8833,6 +9453,7 @@ xchain00239_n12_α:
                                                                                         jmp   xchain00239_n14_α
 xchain00239_n12_β:
                                                                                         jmp   xchain00239_n14_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00239_n13_α:
                         mov              qword ptr [rbp + 944], 1
@@ -8843,6 +9464,7 @@ xchain00239_n13_α:
                         .quad            .Lx00244_0_s
 .Lx00244_0_s:
                         .string          "static"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00239_n14_α:
                         mov              qword ptr [rbp + 64], 6
@@ -8851,6 +9473,7 @@ xchain00239_n14_α:
                                                                                         jmp   xchain00239_n16_α
 .Lx00245_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00239_n15_α:
                         mov              qword ptr [rbp + 976], 1
@@ -8861,6 +9484,7 @@ xchain00239_n15_α:
                         .quad            .Lx00246_0_s
 .Lx00246_0_s:
                         .string          "string"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00239_n16_α:
                         mov              rax, qword ptr [1879052688]
@@ -8868,6 +9492,7 @@ xchain00239_n16_α:
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                                                                                         jmp   xchain00239_n18_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00239_n17_α:
                         mov              qword ptr [rbp + 1008], 1
@@ -8878,6 +9503,7 @@ xchain00239_n17_α:
                         .quad            .Lx00247_0_s
 .Lx00247_0_s:
                         .string          "block"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNOP
 xchain00239_n18_α:
                         mov              rdi, qword ptr [rbp + 128]
@@ -8886,11 +9512,13 @@ xchain00239_n18_α:
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
                                                                                         jmp   xchain00239_n21_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_RETURN
 xchain00239_n19_α:
                         mov              qword ptr [rbp + 0], 0
                         mov              qword ptr [rbp + 8], 0
                                                                                         jmp   proc_Storage___γ
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_MAKE_LIST
 xchain00239_n20_α:
                         mov              rax, qword ptr [rbp + 944]
@@ -8911,6 +9539,7 @@ xchain00239_n20_α:
                         mov              qword ptr [rbp + 880], rax
                         mov              qword ptr [rbp + 888], rdx
                                                                                         jmp   xchain00239_n3_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_TO
 xchain00239_n21_α:
                         mov              rdi, qword ptr [rbp + 64]
@@ -8936,6 +9565,7 @@ xchain00239_n21_α:
 xchain00239_n21_β:
                         inc              qword ptr [rbp + 48]
                                                                                         jmp   .Lx00248_0
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00239_n22_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 32]
@@ -8945,10 +9575,12 @@ xchain00239_n22_α:
                         mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
                                                                                         jmp   xchain00239_n23_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_BOUND
 xchain00239_n23_α:
                         mov              qword ptr [rbp + 160], rsp
                                                                                         jmp   xchain00239_n24_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain00239_n24_α:
                         mov              rax, 4294967305
@@ -8956,6 +9588,7 @@ xchain00239_n24_α:
                         mov              qword ptr [rbp + 272], rax
                         mov              qword ptr [rbp + 280], rdx
                                                                                         jmp   xchain00239_n25_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00239_n25_α:
                         mov              rax, qword ptr [rbp + 1168]
@@ -8963,6 +9596,7 @@ xchain00239_n25_α:
                         mov              rax, qword ptr [rbp + 1176]
                         mov              qword ptr [rbp + 312], rax
                                                                                         jmp   xchain00239_n26_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain00239_n26_α:
                         mov              rdi, qword ptr [rbp + 272]
@@ -8975,10 +9609,12 @@ xchain00239_n26_α:
                         mov              qword ptr [rbp + 336], rax
                         mov              qword ptr [rbp + 344], rdx
                                                                                         jmp   xchain00239_n28_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNMARK
 xchain00239_n27_α:
                         mov              rsp, qword ptr [rbp + 160]
                                                                                         jmp   xchain00239_n21_β
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DEREF variable -> value
 xchain00239_n28_α:
                         mov              rdi, qword ptr [rbp + 336]
@@ -8989,6 +9625,7 @@ xchain00239_n28_α:
                         mov              qword ptr [rbp + 368], rax
                         mov              qword ptr [rbp + 376], rdx
                                                                                         jmp   xchain00239_n29_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain00239_n29_α:
                         mov              rax, 4294967305
@@ -8996,6 +9633,7 @@ xchain00239_n29_α:
                         mov              qword ptr [rbp + 448], rax
                         mov              qword ptr [rbp + 456], rdx
                                                                                         jmp   xchain00239_n30_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00239_n30_α:
                         mov              rax, qword ptr [rbp + 1168]
@@ -9003,6 +9641,7 @@ xchain00239_n30_α:
                         mov              rax, qword ptr [rbp + 1176]
                         mov              qword ptr [rbp + 488], rax
                                                                                         jmp   xchain00239_n31_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain00239_n31_α:
                         mov              rdi, qword ptr [rbp + 448]
@@ -9015,6 +9654,7 @@ xchain00239_n31_α:
                         mov              qword ptr [rbp + 512], rax
                         mov              qword ptr [rbp + 520], rdx
                                                                                         jmp   xchain00239_n32_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DEREF variable -> value
 xchain00239_n32_α:
                         mov              rdi, qword ptr [rbp + 512]
@@ -9025,6 +9665,7 @@ xchain00239_n32_α:
                         mov              qword ptr [rbp + 544], rax
                         mov              qword ptr [rbp + 552], rdx
                                                                                         jmp   xchain00239_n33_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00239_n33_α:
                         mov              qword ptr [rbp + 560], 6
@@ -9033,6 +9674,7 @@ xchain00239_n33_α:
                                                                                         jmp   xchain00239_n34_α
 .Lx00249_0:
                         .quad            8
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00239_n34_α:
 # BOX IR_CALL right(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+544] -> [zr+400]
@@ -9060,6 +9702,7 @@ xchain00239_n34_α:
                                                                                         jmp   xchain00239_n35_α
 xchain00239_n34_β:
                                                                                         jmp   xchain00239_n27_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00239_n35_α:
 # BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+368] -> [zr+224]
@@ -9087,11 +9730,14 @@ xchain00239_n35_α:
                                                                                         jmp   xchain00239_n27_α
 xchain00239_n35_β:
                                                                                         jmp   xchain00239_n27_α
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Storage___res:
                         add              rsp, 8
                         pop              rbp
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Storage___β:
                                                                                         jmp   proc_Storage___ω
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Storage___γ:
                         mov              rdi, [rbp]
                         mov              rsi, [rbp + 8]
@@ -9099,11 +9745,13 @@ proc_Storage___γ:
                         lea              rsp, [rbp + 1232]
                         mov              rbp, [rbp + 1224]
                                                                                         jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Storage___ω:
                         mov              rax, [rbp + 1216]
                         lea              rsp, [rbp + 1232]
                         mov              rbp, [rbp + 1224]
                                                                                         jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Storage___dcα:
 # PL-DC direct-call entry: retaddr -> kt-32 pad, wires -> local ret-shims, one prep crossing, shared body
                         pop              r11
@@ -9139,9 +9787,9 @@ proc_Storage___dcα:
                         mov              r11, qword ptr [rsp + -32]
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
+#-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_Time___α
 proc_Time___α:
-#=======================================================================================================================
                         .global          proc_Time___α
                         .global          proc_Time___β
                         .global          proc_Time___γ
@@ -9157,6 +9805,7 @@ proc_Time___α:
                         mov              edx, 384
                         call             rt_jmp_frame_lexprep2@PLT
 proc_Time___α_body:
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00251_n0_α:
                         mov              qword ptr [rbp + 176], 0
@@ -9181,6 +9830,7 @@ xchain00251_n0_af:
                         add              dword ptr [rbp + 192], 1
                         mov              eax, dword ptr [rbp + 192]
                                                                                         jmp   xchain00251_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # KEYWORD_read
 xchain00251_n1_α:
                         mov              rdi, qword ptr [rip + .Lx00253_0]
@@ -9196,6 +9846,7 @@ xchain00251_n1_β:
                         .quad            .Lx00253_0_s
 .Lx00253_0_s:
                         .string          "&time"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain00251_n2_α:
                         mov              rax, 4294967305
@@ -9205,6 +9856,7 @@ xchain00251_n2_α:
                                                                                         jmp   xchain00251_n5_α
 xchain00251_n2_β:
                                                                                         jmp   xchain00251_n0_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain00251_n3_α:
                         mov              rax, qword ptr [rbp + 224]
@@ -9216,6 +9868,7 @@ xchain00251_n3_α:
                                                                                         jmp   xchain00251_n0_as
 xchain00251_n3_β:
                                                                                         jmp   xchain00251_n1_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00251_n4_α:
                         mov              rax, qword ptr [1879052720]
@@ -9223,6 +9876,7 @@ xchain00251_n4_α:
                         mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                                                                                         jmp   xchain00251_n6_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_NULLTEST_VAR
 xchain00251_n5_α:
                         mov              eax, dword ptr [rbp + 256]
@@ -9240,6 +9894,7 @@ xchain00251_n5_α:
                         mov              rax, qword ptr [rbp + 264]
                         mov              qword ptr [rbp + 296], rax
                                                                                         jmp   xchain00251_n7_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_COERCE_NUMERIC
 xchain00251_n6_α:
                         mov              eax, dword ptr [rbp + 112]
@@ -9263,6 +9918,7 @@ xchain00251_n6_α:
                         mov              rcx, 0
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   xchain00251_n8_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00251_n7_α:
                         mov              qword ptr [rbp + 336], 6
@@ -9271,6 +9927,7 @@ xchain00251_n7_α:
                                                                                         jmp   xchain00251_n9_α
 .Lx00255_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_COERCE_NUMERIC
 xchain00251_n8_α:
                         mov              eax, dword ptr [rbp + 144]
@@ -9294,6 +9951,7 @@ xchain00251_n8_α:
                         mov              rcx, 0
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   xchain00251_n10_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN_VAR
 xchain00251_n9_α:
                         mov              rdi, qword ptr [rbp + 288]
@@ -9306,6 +9964,7 @@ xchain00251_n9_α:
                         mov              qword ptr [rbp + 320], rax
                         mov              qword ptr [rbp + 328], rdx
                                                                                         jmp   xchain00251_n11_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00251_n10_α:
 # IR_BINOP_ARITH
                         mov              eax, dword ptr [rbp + 80]
@@ -9351,6 +10010,7 @@ xchain00251_n10_α:
                                                                                         jmp   xchain00251_n12_α
 xchain00251_n10_β:
                                                                                         jmp   proc_Time___ω
+#-----------------------------------------------------------------------------------------------------------------------
 # KEYWORD_read
 xchain00251_n11_α:
                         mov              rdi, qword ptr [rip + .Lx00258_0]
@@ -9366,6 +10026,7 @@ xchain00251_n11_β:
                         .quad            .Lx00258_0_s
 .Lx00258_0_s:
                         .string          "&time"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_RETURN
 xchain00251_n12_α:
                         mov              rax, qword ptr [rbp + 16]
@@ -9373,11 +10034,14 @@ xchain00251_n12_α:
                         mov              qword ptr [rbp + 0], rax
                         mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   proc_Time___γ
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Time___res:
                         add              rsp, 8
                         pop              rbp
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Time___β:
                                                                                         jmp   proc_Time___ω
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Time___γ:
                         mov              rdi, [rbp]
                         mov              rsi, [rbp + 8]
@@ -9385,11 +10049,13 @@ proc_Time___γ:
                         lea              rsp, [rbp + 416]
                         mov              rbp, [rbp + 408]
                                                                                         jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Time___ω:
                         mov              rax, [rbp + 400]
                         lea              rsp, [rbp + 416]
                         mov              rbp, [rbp + 408]
                                                                                         jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
 proc_Time___dcα:
 # PL-DC direct-call entry: retaddr -> kt-32 pad, wires -> local ret-shims, one prep crossing, shared body
                         pop              r11
@@ -9730,8 +10396,8 @@ main:
                         xor              eax, eax
                         add              rsp, 24
                         ret
+#-----------------------------------------------------------------------------------------------------------------------
 main_α:
-#=======================================================================================================================
                         .global          main_α
                         .global          main_β
                         .global          main_γ
@@ -9753,6 +10419,7 @@ main_α:
                         mov              [rbp + 16], rax
                         mov              [rbp + 24], rdx
 main_α_body:
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n0_α:
                         mov              qword ptr [rbp + 9408], 1
@@ -9763,6 +10430,7 @@ xchain00260_n0_α:
                         .quad            .Lx00261_0_s
 .Lx00261_0_s:
                         .string          "ipxref"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n1_α:
                         lea              rsi, [rbp + 9408]
                         call             proc_Init___dcα
@@ -9779,6 +10447,7 @@ xchain00260_n1_β:
                         .quad            .Lx00262_0_s
 .Lx00262_0_s:
                         .string          "Init__"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n2_α:
                         mov              qword ptr [rbp + 8464], 1
@@ -9789,6 +10458,7 @@ xchain00260_n2_α:
                         .quad            .Lx00263_0_s
 .Lx00263_0_s:
                         .string          "break"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n3_α:
                         mov              qword ptr [rbp + 8496], 1
@@ -9799,6 +10469,7 @@ xchain00260_n3_α:
                         .quad            .Lx00264_0_s
 .Lx00264_0_s:
                         .string          "by"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n4_α:
                         mov              qword ptr [rbp + 8528], 1
@@ -9809,6 +10480,7 @@ xchain00260_n4_α:
                         .quad            .Lx00265_0_s
 .Lx00265_0_s:
                         .string          "case"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n5_α:
                         mov              qword ptr [rbp + 8560], 1
@@ -9819,6 +10491,7 @@ xchain00260_n5_α:
                         .quad            .Lx00266_0_s
 .Lx00266_0_s:
                         .string          "default"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n6_α:
                         mov              qword ptr [rbp + 8592], 1
@@ -9829,6 +10502,7 @@ xchain00260_n6_α:
                         .quad            .Lx00267_0_s
 .Lx00267_0_s:
                         .string          "do"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n7_α:
                         mov              qword ptr [rbp + 8624], 1
@@ -9839,6 +10513,7 @@ xchain00260_n7_α:
                         .quad            .Lx00268_0_s
 .Lx00268_0_s:
                         .string          "dynamic"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n8_α:
                         mov              qword ptr [rbp + 8656], 1
@@ -9849,6 +10524,7 @@ xchain00260_n8_α:
                         .quad            .Lx00269_0_s
 .Lx00269_0_s:
                         .string          "else"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n9_α:
                         mov              qword ptr [rbp + 8688], 1
@@ -9859,6 +10535,7 @@ xchain00260_n9_α:
                         .quad            .Lx00270_0_s
 .Lx00270_0_s:
                         .string          "end"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n10_α:
                         mov              qword ptr [rbp + 8720], 1
@@ -9869,6 +10546,7 @@ xchain00260_n10_α:
                         .quad            .Lx00271_0_s
 .Lx00271_0_s:
                         .string          "every"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n11_α:
                         mov              qword ptr [rbp + 8752], 1
@@ -9879,6 +10557,7 @@ xchain00260_n11_α:
                         .quad            .Lx00272_0_s
 .Lx00272_0_s:
                         .string          "fail"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n12_α:
                         mov              qword ptr [rbp + 8784], 1
@@ -9889,6 +10568,7 @@ xchain00260_n12_α:
                         .quad            .Lx00273_0_s
 .Lx00273_0_s:
                         .string          "global"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n13_α:
                         mov              qword ptr [rbp + 8816], 1
@@ -9899,6 +10579,7 @@ xchain00260_n13_α:
                         .quad            .Lx00274_0_s
 .Lx00274_0_s:
                         .string          "if"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n14_α:
                         mov              qword ptr [rbp + 8848], 1
@@ -9909,6 +10590,7 @@ xchain00260_n14_α:
                         .quad            .Lx00275_0_s
 .Lx00275_0_s:
                         .string          "initial"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n15_α:
                         mov              qword ptr [rbp + 8880], 1
@@ -9919,6 +10601,7 @@ xchain00260_n15_α:
                         .quad            .Lx00276_0_s
 .Lx00276_0_s:
                         .string          "link"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n16_α:
                         mov              qword ptr [rbp + 8912], 1
@@ -9929,6 +10612,7 @@ xchain00260_n16_α:
                         .quad            .Lx00277_0_s
 .Lx00277_0_s:
                         .string          "local"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n17_α:
                         mov              qword ptr [rbp + 8944], 1
@@ -9939,6 +10623,7 @@ xchain00260_n17_α:
                         .quad            .Lx00278_0_s
 .Lx00278_0_s:
                         .string          "next"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n18_α:
                         mov              qword ptr [rbp + 8976], 1
@@ -9949,6 +10634,7 @@ xchain00260_n18_α:
                         .quad            .Lx00279_0_s
 .Lx00279_0_s:
                         .string          "not"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n19_α:
                         mov              qword ptr [rbp + 9008], 1
@@ -9959,6 +10645,7 @@ xchain00260_n19_α:
                         .quad            .Lx00280_0_s
 .Lx00280_0_s:
                         .string          "of"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n20_α:
                         mov              qword ptr [rbp + 9040], 1
@@ -9969,6 +10656,7 @@ xchain00260_n20_α:
                         .quad            .Lx00281_0_s
 .Lx00281_0_s:
                         .string          "procedure"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n21_α:
                         mov              qword ptr [rbp + 9072], 1
@@ -9979,6 +10667,7 @@ xchain00260_n21_α:
                         .quad            .Lx00282_0_s
 .Lx00282_0_s:
                         .string          "record"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n22_α:
                         mov              qword ptr [rbp + 9104], 1
@@ -9989,6 +10678,7 @@ xchain00260_n22_α:
                         .quad            .Lx00283_0_s
 .Lx00283_0_s:
                         .string          "repeat"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n23_α:
                         mov              qword ptr [rbp + 9136], 1
@@ -9999,6 +10689,7 @@ xchain00260_n23_α:
                         .quad            .Lx00284_0_s
 .Lx00284_0_s:
                         .string          "return"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n24_α:
                         mov              qword ptr [rbp + 9168], 1
@@ -10009,6 +10700,7 @@ xchain00260_n24_α:
                         .quad            .Lx00285_0_s
 .Lx00285_0_s:
                         .string          "static"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n25_α:
                         mov              qword ptr [rbp + 9200], 1
@@ -10019,6 +10711,7 @@ xchain00260_n25_α:
                         .quad            .Lx00286_0_s
 .Lx00286_0_s:
                         .string          "suspend"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n26_α:
                         mov              qword ptr [rbp + 9232], 1
@@ -10029,6 +10722,7 @@ xchain00260_n26_α:
                         .quad            .Lx00287_0_s
 .Lx00287_0_s:
                         .string          "then"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n27_α:
                         mov              qword ptr [rbp + 9264], 1
@@ -10039,6 +10733,7 @@ xchain00260_n27_α:
                         .quad            .Lx00288_0_s
 .Lx00288_0_s:
                         .string          "to"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n28_α:
                         mov              qword ptr [rbp + 9296], 1
@@ -10049,6 +10744,7 @@ xchain00260_n28_α:
                         .quad            .Lx00289_0_s
 .Lx00289_0_s:
                         .string          "until"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n29_α:
                         mov              qword ptr [rbp + 9328], 1
@@ -10059,6 +10755,7 @@ xchain00260_n29_α:
                         .quad            .Lx00290_0_s
 .Lx00290_0_s:
                         .string          "while"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_MAKE_LIST
 xchain00260_n30_α:
                         mov              rax, qword ptr [rbp + 8464]
@@ -10179,6 +10876,7 @@ xchain00260_n30_α:
                         mov              qword ptr [rbp + 8000], rax
                         mov              qword ptr [rbp + 8008], rdx
                                                                                         jmp   xchain00260_n31_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain00260_n31_α:
                         mov              rax, qword ptr [rbp + 8000]
@@ -10188,6 +10886,7 @@ xchain00260_n31_α:
                         mov              qword ptr [rbp + 7984], rax
                         mov              qword ptr [rbp + 7992], rdx
                                                                                         jmp   xchain00260_n32_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00260_n32_α:
                         mov              qword ptr [rbp + 7952], 6
@@ -10196,6 +10895,7 @@ xchain00260_n32_α:
                                                                                         jmp   xchain00260_n33_α
 .Lx00291_0:
                         .quad            0
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain00260_n33_α:
                         mov              rax, qword ptr [rbp + 7952]
@@ -10205,6 +10905,7 @@ xchain00260_n33_α:
                         mov              qword ptr [rbp + 7936], rax
                         mov              qword ptr [rbp + 7944], rdx
                                                                                         jmp   xchain00260_n34_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n34_α:
 # BOX IR_CALL table(...) -> rt_call_arr [operand-marshal, FAIL->ω]
                         .section         .rodata
@@ -10222,6 +10923,7 @@ xchain00260_n34_α:
                                                                                         jmp   xchain00260_n35_α
 xchain00260_n34_β:
                                                                                         jmp   xchain00260_n36_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain00260_n35_α:
                         mov              rax, qword ptr [rbp + 7904]
@@ -10231,6 +10933,7 @@ xchain00260_n35_α:
                         mov              qword ptr [rbp + 7888], rax
                         mov              qword ptr [rbp + 7896], rdx
                                                                                         jmp   xchain00260_n36_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_MAKE_LIST
 xchain00260_n36_α:
                         lea              rdi, [rbp + 7888]
@@ -10239,6 +10942,7 @@ xchain00260_n36_α:
                         mov              qword ptr [rbp + 7872], rax
                         mov              qword ptr [rbp + 7880], rdx
                                                                                         jmp   xchain00260_n37_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n37_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 7872]
@@ -10248,6 +10952,7 @@ xchain00260_n37_α:
                         mov              qword ptr [rbp + 7856], rax
                         mov              qword ptr [rbp + 7864], rdx
                                                                                         jmp   xchain00260_n38_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_MAKE_LIST
 xchain00260_n38_α:
                         lea              rdi, [rbp + 7856]
@@ -10256,6 +10961,7 @@ xchain00260_n38_α:
                         mov              qword ptr [rbp + 7840], rax
                         mov              qword ptr [rbp + 7848], rdx
                                                                                         jmp   xchain00260_n39_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain00260_n39_α:
                         mov              rax, qword ptr [rbp + 7840]
@@ -10265,6 +10971,7 @@ xchain00260_n39_α:
                         mov              qword ptr [rbp + 7824], rax
                         mov              qword ptr [rbp + 7832], rdx
                                                                                         jmp   xchain00260_n40_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_MAKE_LIST
 xchain00260_n40_α:
                         lea              rdi, [rbp + 7824]
@@ -10273,6 +10980,7 @@ xchain00260_n40_α:
                         mov              qword ptr [rbp + 7808], rax
                         mov              qword ptr [rbp + 7816], rdx
                                                                                         jmp   xchain00260_n41_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain00260_n41_α:
                         mov              rax, qword ptr [rbp + 7808]
@@ -10282,6 +10990,7 @@ xchain00260_n41_α:
                         mov              qword ptr [rbp + 7792], rax
                         mov              qword ptr [rbp + 7800], rdx
                                                                                         jmp   xchain00260_n42_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n42_α:
                         mov              qword ptr [rbp + 7760], 1
@@ -10292,6 +11001,7 @@ xchain00260_n42_α:
                         .quad            .Lx00292_0_s
 .Lx00292_0_s:
                         .string          "global"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n43_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 7760]
@@ -10301,6 +11011,7 @@ xchain00260_n43_α:
                         mov              qword ptr [rbp + 7744], rax
                         mov              qword ptr [rbp + 7752], rdx
                                                                                         jmp   xchain00260_n44_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_CHARSET
 xchain00260_n44_α:
                         mov              qword ptr [rbp + 7680], 1
@@ -10312,6 +11023,7 @@ xchain00260_n44_α:
                         .quad            .Lx00293_0_s
 .Lx00293_0_s:
                         .string          "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_CHARSET
 xchain00260_n45_α:
                         mov              qword ptr [rbp + 7712], 1
@@ -10323,6 +11035,7 @@ xchain00260_n45_α:
                         .quad            .Lx00294_0_s
 .Lx00294_0_s:
                         .string          "_"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n46_α:
 # IR_BINOP_ARITH_REAL
                         mov              rdi, qword ptr [rbp + 7680]
@@ -10336,6 +11049,7 @@ xchain00260_n46_α:
                         mov              qword ptr [rbp + 7648], rax
                         mov              qword ptr [rbp + 7656], rdx
                                                                                         jmp   xchain00260_n47_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain00260_n47_α:
                         mov              rax, qword ptr [rbp + 7648]
@@ -10345,6 +11059,7 @@ xchain00260_n47_α:
                         mov              qword ptr [rbp + 7632], rax
                         mov              qword ptr [rbp + 7640], rdx
                                                                                         jmp   xchain00260_n48_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n48_α:
                         mov              rax, qword ptr [1879052320]
@@ -10352,6 +11067,7 @@ xchain00260_n48_α:
                         mov              qword ptr [rbp + 7568], rax
                         mov              qword ptr [rbp + 7576], rdx
                                                                                         jmp   xchain00260_n49_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_CHARSET
 xchain00260_n49_α:
                         mov              qword ptr [rbp + 7600], 1
@@ -10363,6 +11079,7 @@ xchain00260_n49_α:
                         .quad            .Lx00295_0_s
 .Lx00295_0_s:
                         .string          "0123456789"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n50_α:
                         mov              rax, qword ptr [rbp + 16]
@@ -10370,6 +11087,7 @@ xchain00260_n50_α:
                         mov              rax, qword ptr [rbp + 24]
                         mov              qword ptr [rbp + 7464], rax
                                                                                         jmp   xchain00260_n52_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n51_α:
 # IR_BINOP_ARITH_REAL
                         mov              rdi, qword ptr [rbp + 7568]
@@ -10383,6 +11101,7 @@ xchain00260_n51_α:
                         mov              qword ptr [rbp + 7536], rax
                         mov              qword ptr [rbp + 7544], rdx
                                                                                         jmp   xchain00260_n54_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n52_α:
                         mov              qword ptr [rbp + 7488], 1
@@ -10393,6 +11112,7 @@ xchain00260_n52_α:
                         .quad            .Lx00296_0_s
 .Lx00296_0_s:
                         .string          "qxw+l+c+"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00260_n53_α:
                         mov              qword ptr [rbp + 7152], 0
@@ -10417,6 +11137,7 @@ xchain00260_n53_af:
                         add              dword ptr [rbp + 7168], 1
                         mov              eax, dword ptr [rbp + 7168]
                                                                                         jmp   xchain00260_n56_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain00260_n54_α:
                         mov              rax, qword ptr [rbp + 7536]
@@ -10426,6 +11147,7 @@ xchain00260_n54_α:
                         mov              qword ptr [rbp + 7520], rax
                         mov              qword ptr [rbp + 7528], rdx
                                                                                         jmp   xchain00260_n50_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n55_α:
                         lea              rsi, [rbp + 7456]
                         lea              rdx, [rbp + 7488]
@@ -10443,6 +11165,7 @@ xchain00260_n55_β:
                         .quad            .Lx00298_0_s
 .Lx00298_0_s:
                         .string          "options"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00260_n56_α:
                         mov              qword ptr [rbp + 6928], 0
@@ -10467,6 +11190,7 @@ xchain00260_n56_af:
                         add              dword ptr [rbp + 6944], 1
                         mov              eax, dword ptr [rbp + 6944]
                                                                                         jmp   xchain00260_n60_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain00260_n57_α:
                         mov              rax, 4294967305
@@ -10476,6 +11200,7 @@ xchain00260_n57_α:
                                                                                         jmp   xchain00260_n63_α
 xchain00260_n57_β:
                                                                                         jmp   xchain00260_n53_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain00260_n58_α:
                         mov              rax, qword ptr [rbp + 7200]
@@ -10487,6 +11212,7 @@ xchain00260_n58_α:
                                                                                         jmp   xchain00260_n53_as
 xchain00260_n58_β:
                                                                                         jmp   xchain00260_n56_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n59_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 7392]
@@ -10496,6 +11222,7 @@ xchain00260_n59_α:
                         mov              qword ptr [rbp + 7376], rax
                         mov              qword ptr [rbp + 7384], rdx
                                                                                         jmp   xchain00260_n53_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain00260_n60_α:
                         mov              rax, 4294967305
@@ -10503,6 +11230,7 @@ xchain00260_n60_α:
                         mov              qword ptr [rbp + 6816], rax
                         mov              qword ptr [rbp + 6824], rdx
                                                                                         jmp   xchain00260_n64_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain00260_n61_α:
                         mov              rax, 4294967305
@@ -10512,6 +11240,7 @@ xchain00260_n61_α:
                                                                                         jmp   xchain00260_n65_α
 xchain00260_n61_β:
                                                                                         jmp   xchain00260_n56_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain00260_n62_α:
                         mov              rax, qword ptr [rbp + 6976]
@@ -10523,6 +11252,7 @@ xchain00260_n62_α:
                                                                                         jmp   xchain00260_n56_as
 xchain00260_n62_β:
                                                                                         jmp   xchain00260_n60_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n63_α:
                         mov              qword ptr [rbp + 7296], 1
@@ -10533,6 +11263,7 @@ xchain00260_n63_α:
                         .quad            .Lx00300_0_s
 .Lx00300_0_s:
                         .string          "q"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n64_α:
                         mov              qword ptr [rbp + 6848], 1
@@ -10543,6 +11274,7 @@ xchain00260_n64_α:
                         .quad            .Lx00301_0_s
 .Lx00301_0_s:
                         .string          "w"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n65_α:
                         mov              qword ptr [rbp + 7072], 1
@@ -10553,6 +11285,7 @@ xchain00260_n65_α:
                         .quad            .Lx00302_0_s
 .Lx00302_0_s:
                         .string          "x"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain00260_n66_α:
                         mov              rdi, qword ptr [rbp + 7264]
@@ -10565,6 +11298,7 @@ xchain00260_n66_α:
                         mov              qword ptr [rbp + 7328], rax
                         mov              qword ptr [rbp + 7336], rdx
                                                                                         jmp   xchain00260_n69_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain00260_n67_α:
                         mov              rdi, qword ptr [rbp + 6816]
@@ -10577,6 +11311,7 @@ xchain00260_n67_α:
                         mov              qword ptr [rbp + 6880], rax
                         mov              qword ptr [rbp + 6888], rdx
                                                                                         jmp   xchain00260_n70_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain00260_n68_α:
                         mov              rdi, qword ptr [rbp + 7040]
@@ -10589,6 +11324,7 @@ xchain00260_n68_α:
                         mov              qword ptr [rbp + 7104], rax
                         mov              qword ptr [rbp + 7112], rdx
                                                                                         jmp   xchain00260_n72_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DEREF variable -> value
 xchain00260_n69_α:
                         mov              rdi, qword ptr [rbp + 7328]
@@ -10599,6 +11335,7 @@ xchain00260_n69_α:
                         mov              qword ptr [rbp + 7360], rax
                         mov              qword ptr [rbp + 7368], rdx
                                                                                         jmp   xchain00260_n73_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DEREF variable -> value
 xchain00260_n70_α:
                         mov              rdi, qword ptr [rbp + 6880]
@@ -10609,6 +11346,7 @@ xchain00260_n70_α:
                         mov              qword ptr [rbp + 6912], rax
                         mov              qword ptr [rbp + 6920], rdx
                                                                                         jmp   xchain00260_n74_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain00260_n71_α:
                         mov              rax, 4294967305
@@ -10616,6 +11354,7 @@ xchain00260_n71_α:
                         mov              qword ptr [rbp + 6656], rax
                         mov              qword ptr [rbp + 6664], rdx
                                                                                         jmp   xchain00260_n75_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DEREF variable -> value
 xchain00260_n72_α:
                         mov              rdi, qword ptr [rbp + 7104]
@@ -10626,6 +11365,7 @@ xchain00260_n72_α:
                         mov              qword ptr [rbp + 7136], rax
                         mov              qword ptr [rbp + 7144], rdx
                                                                                         jmp   xchain00260_n76_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNOP
 xchain00260_n73_α:
                         mov              eax, dword ptr [rbp + 7360]
@@ -10638,6 +11378,7 @@ xchain00260_n73_α:
                         mov              rax, qword ptr [rbp + 7368]
                         mov              qword ptr [rbp + 7240], rax
                                                                                         jmp   xchain00260_n77_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNOP
 xchain00260_n74_α:
                         mov              eax, dword ptr [rbp + 6912]
@@ -10650,6 +11391,7 @@ xchain00260_n74_α:
                         mov              rax, qword ptr [rbp + 6920]
                         mov              qword ptr [rbp + 6792], rax
                                                                                         jmp   xchain00260_n78_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n75_α:
                         mov              qword ptr [rbp + 6688], 1
@@ -10660,6 +11402,7 @@ xchain00260_n75_α:
                         .quad            .Lx00303_0_s
 .Lx00303_0_s:
                         .string          "l"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNOP
 xchain00260_n76_α:
                         mov              eax, dword ptr [rbp + 7136]
@@ -10672,6 +11415,7 @@ xchain00260_n76_α:
                         mov              rax, qword ptr [rbp + 7144]
                         mov              qword ptr [rbp + 7016], rax
                                                                                         jmp   xchain00260_n80_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00260_n77_α:
                         mov              qword ptr [rbp + 7200], 6
@@ -10680,6 +11424,7 @@ xchain00260_n77_α:
                                                                                         jmp   xchain00260_n58_α
 .Lx00304_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain00260_n78_α:
                         mov              rax, qword ptr [rbp + 6784]
@@ -10689,6 +11434,7 @@ xchain00260_n78_α:
                         mov              qword ptr [rbp + 6768], rax
                         mov              qword ptr [rbp + 6776], rdx
                                                                                         jmp   xchain00260_n71_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain00260_n79_α:
                         mov              rdi, qword ptr [rbp + 6656]
@@ -10701,6 +11447,7 @@ xchain00260_n79_α:
                         mov              qword ptr [rbp + 6720], rax
                         mov              qword ptr [rbp + 6728], rdx
                                                                                         jmp   xchain00260_n81_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00260_n80_α:
                         mov              qword ptr [rbp + 6976], 6
@@ -10709,6 +11456,7 @@ xchain00260_n80_α:
                                                                                         jmp   xchain00260_n62_α
 .Lx00305_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DEREF variable -> value
 xchain00260_n81_α:
                         mov              rdi, qword ptr [rbp + 6720]
@@ -10719,6 +11467,7 @@ xchain00260_n81_α:
                         mov              qword ptr [rbp + 6752], rax
                         mov              qword ptr [rbp + 6760], rdx
                                                                                         jmp   xchain00260_n83_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain00260_n82_α:
                         mov              rax, 4294967305
@@ -10726,6 +11475,7 @@ xchain00260_n82_α:
                         mov              qword ptr [rbp + 6496], rax
                         mov              qword ptr [rbp + 6504], rdx
                                                                                         jmp   xchain00260_n84_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNOP
 xchain00260_n83_α:
                         mov              eax, dword ptr [rbp + 6752]
@@ -10738,6 +11488,7 @@ xchain00260_n83_α:
                         mov              rax, qword ptr [rbp + 6760]
                         mov              qword ptr [rbp + 6632], rax
                                                                                         jmp   xchain00260_n85_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n84_α:
                         mov              qword ptr [rbp + 6528], 1
@@ -10748,6 +11499,7 @@ xchain00260_n84_α:
                         .quad            .Lx00306_0_s
 .Lx00306_0_s:
                         .string          "c"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain00260_n85_α:
                         mov              rax, qword ptr [rbp + 6624]
@@ -10757,6 +11509,7 @@ xchain00260_n85_α:
                         mov              qword ptr [rbp + 6608], rax
                         mov              qword ptr [rbp + 6616], rdx
                                                                                         jmp   xchain00260_n82_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain00260_n86_α:
                         mov              rdi, qword ptr [rbp + 6496]
@@ -10769,6 +11522,7 @@ xchain00260_n86_α:
                         mov              qword ptr [rbp + 6560], rax
                         mov              qword ptr [rbp + 6568], rdx
                                                                                         jmp   xchain00260_n87_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DEREF variable -> value
 xchain00260_n87_α:
                         mov              rdi, qword ptr [rbp + 6560]
@@ -10779,6 +11533,7 @@ xchain00260_n87_α:
                         mov              qword ptr [rbp + 6592], rax
                         mov              qword ptr [rbp + 6600], rdx
                                                                                         jmp   xchain00260_n89_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR_REF
 xchain00260_n88_α:
                         mov              rax, 4294967305
@@ -10786,6 +11541,7 @@ xchain00260_n88_α:
                         mov              qword ptr [rbp + 6304], rax
                         mov              qword ptr [rbp + 6312], rdx
                                                                                         jmp   xchain00260_n90_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNOP
 xchain00260_n89_α:
                         mov              eax, dword ptr [rbp + 6592]
@@ -10798,6 +11554,7 @@ xchain00260_n89_α:
                         mov              rax, qword ptr [rbp + 6600]
                         mov              qword ptr [rbp + 6472], rax
                                                                                         jmp   xchain00260_n91_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00260_n90_α:
                         mov              qword ptr [rbp + 6336], 6
@@ -10806,6 +11563,7 @@ xchain00260_n90_α:
                                                                                         jmp   xchain00260_n92_α
 .Lx00307_0:
                         .quad            1
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain00260_n91_α:
                         mov              rax, qword ptr [rbp + 6464]
@@ -10815,6 +11573,7 @@ xchain00260_n91_α:
                         mov              qword ptr [rbp + 6448], rax
                         mov              qword ptr [rbp + 6456], rdx
                                                                                         jmp   xchain00260_n88_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_SUBSCRIPT x[i] variable
 xchain00260_n92_α:
                         mov              rdi, qword ptr [rbp + 6304]
@@ -10827,6 +11586,7 @@ xchain00260_n92_α:
                         mov              qword ptr [rbp + 6368], rax
                         mov              qword ptr [rbp + 6376], rdx
                                                                                         jmp   xchain00260_n93_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DEREF variable -> value
 xchain00260_n93_α:
                         mov              rdi, qword ptr [rbp + 6368]
@@ -10837,6 +11597,7 @@ xchain00260_n93_α:
                         mov              qword ptr [rbp + 6400], rax
                         mov              qword ptr [rbp + 6408], rdx
                                                                                         jmp   xchain00260_n95_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n94_α:
                         call             proc_getword_dcα
                                                                                         jmp   .Lx00308_2
@@ -10852,6 +11613,7 @@ xchain00260_n94_β:
                         .quad            .Lx00308_0_s
 .Lx00308_0_s:
                         .string          "getword"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n95_α:
                         mov              qword ptr [rbp + 6416], 1
@@ -10862,6 +11624,7 @@ xchain00260_n95_α:
                         .quad            .Lx00309_0_s
 .Lx00309_0_s:
                         .string          "r"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n96_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 1200]
@@ -10871,6 +11634,7 @@ xchain00260_n96_α:
                         mov              qword ptr [rbp + 1184], rax
                         mov              qword ptr [rbp + 1192], rdx
                                                                                         jmp   xchain00260_n99_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n97_α:
                         mov              rax, qword ptr [1879052352]
@@ -10878,6 +11642,7 @@ xchain00260_n97_α:
                         mov              qword ptr [rbp + 1152], rax
                         mov              qword ptr [rbp + 1160], rdx
                                                                                         jmp   xchain00260_n00035_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n98_α:
 # BOX IR_CALL open(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+6400] -> [zr+6256]
@@ -10905,6 +11670,7 @@ xchain00260_n98_α:
                                                                                         jmp   xchain00260_n00037_α
 xchain00260_n98_β:
                                                                                         jmp   xchain00260_n94_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00260_n99_α:
                         mov              qword ptr [rbp + 1232], 0
@@ -10937,6 +11703,7 @@ xchain00260_n99_af:
                         cmp              eax, 1
                                                                                         je    xchain00260_n00039_α
                                                                                         jmp   xchain00260_n94_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00035_α:
                         lea              rsi, [rbp + 1152]
                         call             proc_format_dcα
@@ -10953,6 +11720,7 @@ xchain00260_n00035_β:
                         .quad            .Lx00311_0_s
 .Lx00311_0_s:
                         .string          "format"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n00001_α:
                         mov              qword ptr [rbp + 992], 1
@@ -10963,6 +11731,7 @@ xchain00260_n00001_α:
                         .quad            .Lx00312_0_s
 .Lx00312_0_s:
                         .string          "\n\nprocedures:\tlines:\n"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain00260_n00037_α:
                         mov              rax, qword ptr [rbp + 6240]
@@ -10972,6 +11741,7 @@ xchain00260_n00037_α:
                         mov              qword ptr [rbp + 6224], rax
                         mov              qword ptr [rbp + 6232], rdx
                                                                                         jmp   xchain00260_n94_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00002_α:
                         mov              rax, qword ptr [rbp + 9504]
@@ -10981,6 +11751,7 @@ xchain00260_n00002_α:
                                                                                         jmp   xchain00260_n00003_α
 xchain00260_n00002_β:
                                                                                         jmp   xchain00260_n99_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00260_n00039_α:
                         mov              qword ptr [rbp + 1456], 0
@@ -11017,10 +11788,12 @@ xchain00260_n00039_af:
                         cmp              eax, 1
                                                                                         je    xchain00260_n00045_α
                                                                                         jmp   xchain00260_n94_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00041_α:
                                                                                         jmp   xchain00260_n99_as
 xchain00260_n00041_β:
                                                                                         jmp   xchain00260_n94_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIST_BANG
 xchain00260_n00043_α:
                         mov              qword ptr [rbp + 1088], 0
@@ -11037,6 +11810,7 @@ xchain00260_n00043_α:
 xchain00260_n00043_β:
                         inc              qword ptr [rbp + 1088]
                                                                                         jmp   .Lx00314_0
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00042_α:
 # BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+992] -> [zr+960]
@@ -11059,6 +11833,7 @@ xchain00260_n00042_α:
                                                                                         jmp   xchain00260_n00050_α
 xchain00260_n00042_β:
                                                                                         jmp   xchain00260_n00050_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n00003_α:
                         mov              qword ptr [rbp + 1424], 1
@@ -11069,6 +11844,7 @@ xchain00260_n00003_α:
                         .quad            .Lx00315_0_s
 .Lx00315_0_s:
                         .string          "link"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00044_α:
                         mov              rax, qword ptr [rbp + 9504]
@@ -11078,6 +11854,7 @@ xchain00260_n00044_α:
                                                                                         jmp   xchain00260_n00051_α
 xchain00260_n00044_β:
                                                                                         jmp   xchain00260_n00039_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00260_n00045_α:
                         mov              qword ptr [rbp + 2288], 0
@@ -11114,10 +11891,12 @@ xchain00260_n00045_af:
                         cmp              eax, 1
                                                                                         je    xchain00260_n00068_α
                                                                                         jmp   xchain00260_n94_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00047_α:
                                                                                         jmp   xchain00260_n00039_as
 xchain00260_n00047_β:
                                                                                         jmp   xchain00260_n94_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00004_α:
 # BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+1072] -> [zr+1040]
@@ -11140,6 +11919,7 @@ xchain00260_n00004_α:
                                                                                         jmp   xchain00260_n00043_β
 xchain00260_n00004_β:
                                                                                         jmp   xchain00260_n00043_β
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_MAKE_LIST
 xchain00260_n00050_α:
                         lea              rdi, [rbp + 944]
@@ -11148,6 +11928,7 @@ xchain00260_n00050_α:
                         mov              qword ptr [rbp + 928], rax
                         mov              qword ptr [rbp + 936], rdx
                                                                                         jmp   xchain00260_n00057_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00005_α:
 # IR_BINOP_TEST
                         mov              rdi, qword ptr [rbp + 9504]
@@ -11164,6 +11945,7 @@ xchain00260_n00005_α:
                         mov              qword ptr [rbp + 1360], rax
                         mov              qword ptr [rbp + 1368], rdx
                                                                                         jmp   xchain00260_n00055_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n00051_α:
                         mov              qword ptr [rbp + 2256], 1
@@ -11174,6 +11956,7 @@ xchain00260_n00051_α:
                         .quad            .Lx00317_0_s
 .Lx00317_0_s:
                         .string          "procedure"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00006_α:
                         mov              rax, qword ptr [rbp + 9504]
@@ -11183,6 +11966,7 @@ xchain00260_n00006_α:
                                                                                         jmp   xchain00260_n00008_α
 xchain00260_n00006_β:
                                                                                         jmp   xchain00260_n00045_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00260_n00068_α:
                         mov              qword ptr [rbp + 3456], 0
@@ -11219,10 +12003,12 @@ xchain00260_n00068_af:
                         cmp              eax, 1
                                                                                         je    xchain00260_n00060_α
                                                                                         jmp   xchain00260_n94_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00007_α:
                                                                                         jmp   xchain00260_n00045_as
 xchain00260_n00007_β:
                                                                                         jmp   xchain00260_n94_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00057_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 928]
@@ -11232,6 +12018,7 @@ xchain00260_n00057_α:
                         mov              qword ptr [rbp + 912], rax
                         mov              qword ptr [rbp + 920], rdx
                                                                                         jmp   xchain00260_n00064_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_MAKE_LIST
 xchain00260_n00055_α:
                         lea              rdi, [rbp + 1360]
@@ -11240,6 +12027,7 @@ xchain00260_n00055_α:
                         mov              qword ptr [rbp + 1344], rax
                         mov              qword ptr [rbp + 1352], rdx
                                                                                         jmp   xchain00260_n00066_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00069_α:
 # IR_BINOP_TEST
                         mov              rdi, qword ptr [rbp + 9504]
@@ -11256,6 +12044,7 @@ xchain00260_n00069_α:
                         mov              qword ptr [rbp + 2192], rax
                         mov              qword ptr [rbp + 2200], rdx
                                                                                         jmp   xchain00260_n00067_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00260_n00008_α:
                         mov              qword ptr [rbp + 3328], 0
@@ -11304,6 +12093,7 @@ xchain00260_n00008_af:
                         cmp              eax, 2
                                                                                         je    xchain00260_n00010_α
                                                                                         jmp   xchain00260_n00045_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00058_α:
                         mov              rax, qword ptr [rbp + 9504]
@@ -11313,6 +12103,7 @@ xchain00260_n00058_α:
                                                                                         jmp   xchain00260_n00071_α
 xchain00260_n00058_β:
                                                                                         jmp   xchain00260_n00068_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00260_n00060_α:
                         mov              qword ptr [rbp + 4880], 0
@@ -11349,10 +12140,12 @@ xchain00260_n00060_af:
                         cmp              eax, 1
                                                                                         je    xchain00260_n00073_α
                                                                                         jmp   xchain00260_n94_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00062_α:
                                                                                         jmp   xchain00260_n00068_as
 xchain00260_n00062_β:
                                                                                         jmp   xchain00260_n94_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00064_α:
                         mov              rax, qword ptr [rbp + 9488]
@@ -11360,6 +12153,7 @@ xchain00260_n00064_α:
                         mov              rax, qword ptr [rbp + 9496]
                         mov              qword ptr [rbp + 280], rax
                                                                                         jmp   xchain00260_n00076_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain00260_n00066_α:
                         mov              rax, qword ptr [rbp + 1344]
@@ -11369,6 +12163,7 @@ xchain00260_n00066_α:
                         mov              qword ptr [rbp + 1328], rax
                         mov              qword ptr [rbp + 1336], rdx
                                                                                         jmp   xchain00260_n00078_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00067_α:
                         mov              rax, qword ptr [rbp + 9488]
@@ -11376,6 +12171,7 @@ xchain00260_n00067_α:
                         mov              rax, qword ptr [rbp + 9496]
                         mov              qword ptr [rbp + 1992], rax
                                                                                         jmp   xchain00260_n00012_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00009_α:
 # IR_BINOP_TEST
                         mov              rdi, qword ptr [rbp + 9504]
@@ -11392,6 +12188,7 @@ xchain00260_n00009_α:
                         mov              qword ptr [rbp + 3264], rax
                         mov              qword ptr [rbp + 3272], rdx
                                                                                         jmp   xchain00260_n00081_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n00054_α:
                         mov              qword ptr [rbp + 3360], 1
@@ -11404,6 +12201,7 @@ xchain00260_n00054_β:
                         .quad            .Lx00321_0_s
 .Lx00321_0_s:
                         .string          "global"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n00070_α:
                         mov              qword ptr [rbp + 3392], 1
@@ -11416,6 +12214,7 @@ xchain00260_n00070_β:
                         .quad            .Lx00322_0_s
 .Lx00322_0_s:
                         .string          "link"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n00010_α:
                         mov              qword ptr [rbp + 3424], 1
@@ -11428,6 +12227,7 @@ xchain00260_n00010_β:
                         .quad            .Lx00323_0_s
 .Lx00323_0_s:
                         .string          "record"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00260_n00071_α:
                         mov              qword ptr [rbp + 4752], 0
@@ -11476,6 +12276,7 @@ xchain00260_n00071_af:
                         cmp              eax, 2
                                                                                         je    xchain00260_n00014_α
                                                                                         jmp   xchain00260_n00068_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00072_α:
                         mov              rax, qword ptr [rbp + 9504]
@@ -11485,6 +12286,7 @@ xchain00260_n00072_α:
                                                                                         jmp   xchain00260_n00087_α
 xchain00260_n00072_β:
                                                                                         jmp   xchain00260_n00060_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00260_n00073_α:
                         mov              qword ptr [rbp + 5440], 0
@@ -11517,10 +12319,12 @@ xchain00260_n00073_af:
                         cmp              eax, 1
                                                                                         je    xchain00260_n00092_α
                                                                                         jmp   xchain00260_n94_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00075_α:
                                                                                         jmp   xchain00260_n00060_as
 xchain00260_n00075_β:
                                                                                         jmp   xchain00260_n94_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIST_BANG
 xchain00260_n00076_α:
                         mov              qword ptr [rbp + 256], 0
@@ -11537,6 +12341,7 @@ xchain00260_n00076_α:
 xchain00260_n00076_β:
                         inc              qword ptr [rbp + 256]
                                                                                         jmp   .Lx00326_0
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00011_α:
                         mov              rax, qword ptr [rbp + 9456]
@@ -11544,6 +12349,7 @@ xchain00260_n00011_α:
                         mov              rax, qword ptr [rbp + 9464]
                         mov              qword ptr [rbp + 200], rax
                                                                                         jmp   xchain00260_n00099_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n00078_α:
                         mov              qword ptr [rbp + 1296], 1
@@ -11554,6 +12360,7 @@ xchain00260_n00078_α:
                         .quad            .Lx00327_0_s
 .Lx00327_0_s:
                         .string          ""
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n00012_α:
                         mov              qword ptr [rbp + 2096], 1
@@ -11564,6 +12371,7 @@ xchain00260_n00012_α:
                         .quad            .Lx00328_0_s
 .Lx00328_0_s:
                         .string          ""
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00260_n00079_α:
                         mov              qword ptr [rbp + 1856], 0
@@ -11596,6 +12404,7 @@ xchain00260_n00079_af:
                         cmp              eax, 1
                                                                                         je    xchain00260_n00016_α
                                                                                         jmp   xchain00260_n00330_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00260_n00081_α:
                         mov              qword ptr [rbp + 3200], 0
@@ -11628,6 +12437,7 @@ xchain00260_n00081_af:
                         cmp              eax, 1
                                                                                         je    xchain00260_n00334_α
                                                                                         jmp   xchain00260_n00019_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00083_α:
 # IR_BINOP_TEST
                         mov              rdi, qword ptr [rbp + 9504]
@@ -11644,6 +12454,7 @@ xchain00260_n00083_α:
                         mov              qword ptr [rbp + 4688], rax
                         mov              qword ptr [rbp + 4696], rdx
                                                                                         jmp   xchain00260_n00335_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n00085_α:
                         mov              qword ptr [rbp + 4784], 1
@@ -11656,6 +12467,7 @@ xchain00260_n00085_β:
                         .quad            .Lx00336_0_s
 .Lx00336_0_s:
                         .string          "local"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n00013_α:
                         mov              qword ptr [rbp + 4816], 1
@@ -11668,6 +12480,7 @@ xchain00260_n00013_β:
                         .quad            .Lx00337_0_s
 .Lx00337_0_s:
                         .string          "dynamic"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n00014_α:
                         mov              qword ptr [rbp + 4848], 1
@@ -11680,6 +12493,7 @@ xchain00260_n00014_β:
                         .quad            .Lx00338_0_s
 .Lx00338_0_s:
                         .string          "static"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n00087_α:
                         mov              qword ptr [rbp + 5408], 1
@@ -11690,6 +12504,7 @@ xchain00260_n00087_α:
                         .quad            .Lx00339_0_s
 .Lx00339_0_s:
                         .string          "end"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00089_α:
                         mov              rax, qword ptr [rbp + 9504]
@@ -11699,6 +12514,7 @@ xchain00260_n00089_α:
                                                                                         jmp   xchain00260_n00340_α
 xchain00260_n00089_β:
                                                                                         jmp   xchain00260_n00073_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00092_α:
                         mov              rax, qword ptr [1879052304]
@@ -11708,10 +12524,12 @@ xchain00260_n00092_α:
                                                                                         jmp   xchain00260_n00341_α
 xchain00260_n00092_β:
                                                                                         jmp   xchain00260_n00018_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00095_α:
                                                                                         jmp   xchain00260_n00073_as
 xchain00260_n00095_β:
                                                                                         jmp   xchain00260_n94_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00097_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 240]
@@ -11721,6 +12539,7 @@ xchain00260_n00097_α:
                         mov              qword ptr [rbp + 224], rax
                         mov              qword ptr [rbp + 232], rdx
                                                                                         jmp   xchain00260_n00342_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00099_α:
 # BOX IR_CALL sort(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+192] -> [zr+160]
@@ -11743,6 +12562,7 @@ xchain00260_n00099_α:
                                                                                         jmp   xchain00260_n00343_α
 xchain00260_n00099_β:
                                                                                         jmp   xchain00260_n00101_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00101_α:
                         call             proc_Term___dcα
                                                                                         jmp   .Lx00344_2
@@ -11758,6 +12578,7 @@ xchain00260_n00101_β:
                         .quad            .Lx00344_0_s
 .Lx00344_0_s:
                         .string          "Term__"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain00260_n00102_α:
                         mov              rax, qword ptr [rbp + 1296]
@@ -11767,6 +12588,7 @@ xchain00260_n00102_α:
                         mov              qword ptr [rbp + 1280], rax
                         mov              qword ptr [rbp + 1288], rdx
                                                                                         jmp   xchain00260_n94_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00104_α:
                         mov              rax, qword ptr [1879052304]
@@ -11774,6 +12596,7 @@ xchain00260_n00104_α:
                         mov              qword ptr [rbp + 2128], rax
                         mov              qword ptr [rbp + 2136], rdx
                                                                                         jmp   xchain00260_n00345_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00015_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 1856]
@@ -11783,6 +12606,7 @@ xchain00260_n00015_α:
                         mov              qword ptr [rbp + 1840], rax
                         mov              qword ptr [rbp + 1848], rdx
                                                                                         jmp   xchain00260_n00330_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00106_α:
                         call             proc_getword_dcα
                                                                                         jmp   .Lx00346_2
@@ -11798,10 +12622,12 @@ xchain00260_n00106_β:
                         .quad            .Lx00346_0_s
 .Lx00346_0_s:
                         .string          "getword"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00016_α:
                                                                                         jmp   xchain00260_n97_α
 xchain00260_n00016_β:
                                                                                         jmp   xchain00260_n97_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00333_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 3200]
@@ -11811,6 +12637,7 @@ xchain00260_n00333_α:
                         mov              qword ptr [rbp + 3184], rax
                         mov              qword ptr [rbp + 3192], rdx
                                                                                         jmp   xchain00260_n00019_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00331_α:
                         call             proc_getword_dcα
                                                                                         jmp   .Lx00347_2
@@ -11826,10 +12653,12 @@ xchain00260_n00331_β:
                         .quad            .Lx00347_0_s
 .Lx00347_0_s:
                         .string          "getword"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00334_α:
                                                                                         jmp   xchain00260_n97_α
 xchain00260_n00334_β:
                                                                                         jmp   xchain00260_n97_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00260_n00335_α:
                         mov              qword ptr [rbp + 4624], 0
@@ -11862,6 +12691,7 @@ xchain00260_n00335_af:
                         cmp              eax, 1
                                                                                         je    xchain00260_n00349_α
                                                                                         jmp   xchain00260_n00025_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00017_α:
 # IR_BINOP_TEST
                         mov              rdi, qword ptr [rbp + 9504]
@@ -11878,6 +12708,7 @@ xchain00260_n00017_α:
                         mov              qword ptr [rbp + 5344], rax
                         mov              qword ptr [rbp + 5352], rdx
                                                                                         jmp   xchain00260_n00350_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00340_α:
                         mov              rax, qword ptr [1879052288]
@@ -11885,6 +12716,7 @@ xchain00260_n00340_α:
                         mov              qword ptr [rbp + 5568], rax
                         mov              qword ptr [rbp + 5576], rdx
                                                                                         jmp   xchain00260_n00351_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00341_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 6192]
@@ -11894,6 +12726,7 @@ xchain00260_n00341_α:
                         mov              qword ptr [rbp + 6176], rax
                         mov              qword ptr [rbp + 6184], rdx
                                                                                         jmp   xchain00260_n00018_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00260_n00018_α:
                         mov              qword ptr [rbp + 5792], 0
@@ -11930,10 +12763,12 @@ xchain00260_n00018_af:
                         cmp              eax, 1
                                                                                         je    xchain00260_n00355_α
                                                                                         jmp   xchain00260_n00354_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_BOUND
 xchain00260_n00342_α:
                         mov              qword ptr [rbp + 304], rsp
                                                                                         jmp   xchain00260_n00356_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIST_BANG
 xchain00260_n00343_α:
                         mov              qword ptr [rbp + 128], 0
@@ -11950,10 +12785,12 @@ xchain00260_n00343_α:
 xchain00260_n00343_β:
                         inc              qword ptr [rbp + 128]
                                                                                         jmp   .Lx00357_0
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00359_α:
                                                                                         jmp   xchain00260_n94_α
 xchain00260_n00359_β:
                                                                                         jmp   xchain00260_n94_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00260_n00345_α:
                         mov              qword ptr [rbp + 2160], 6
@@ -11962,6 +12799,7 @@ xchain00260_n00345_α:
                                                                                         jmp   xchain00260_n00023_α
 .Lx00360_0:
                         .quad            0
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00330_α:
                         mov              rax, qword ptr [rbp + 9488]
@@ -11969,6 +12807,7 @@ xchain00260_n00330_α:
                         mov              rax, qword ptr [rbp + 9496]
                         mov              qword ptr [rbp + 1816], rax
                                                                                         jmp   xchain00260_n00361_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00019_α:
                         mov              rax, qword ptr [rbp + 9504]
@@ -11976,6 +12815,7 @@ xchain00260_n00019_α:
                         mov              rax, qword ptr [rbp + 9512]
                         mov              qword ptr [rbp + 3096], rax
                                                                                         jmp   xchain00260_n00024_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00020_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 4624]
@@ -11985,6 +12825,7 @@ xchain00260_n00020_α:
                         mov              qword ptr [rbp + 4608], rax
                         mov              qword ptr [rbp + 4616], rdx
                                                                                         jmp   xchain00260_n00025_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00021_α:
                         call             proc_getword_dcα
                                                                                         jmp   .Lx00362_2
@@ -12000,10 +12841,12 @@ xchain00260_n00021_β:
                         .quad            .Lx00362_0_s
 .Lx00362_0_s:
                         .string          "getword"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00349_α:
                                                                                         jmp   xchain00260_n97_α
 xchain00260_n00349_β:
                                                                                         jmp   xchain00260_n97_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n00350_α:
                         mov              qword ptr [rbp + 5312], 1
@@ -12014,6 +12857,7 @@ xchain00260_n00350_α:
                         .quad            .Lx00363_0_s
 .Lx00363_0_s:
                         .string          "global"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIST_BANG
 xchain00260_n00351_α:
                         mov              qword ptr [rbp + 5552], 0
@@ -12030,6 +12874,7 @@ xchain00260_n00351_α:
 xchain00260_n00351_β:
                         inc              qword ptr [rbp + 5552]
                                                                                         jmp   .Lx00365_0
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00354_α:
                         mov              rax, qword ptr [rbp + 9504]
@@ -12037,6 +12882,7 @@ xchain00260_n00354_α:
                         mov              rax, qword ptr [rbp + 9512]
                         mov              qword ptr [rbp + 5704], rax
                                                                                         jmp   xchain00260_n00367_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00352_α:
                         call             proc_getword_dcα
                                                                                         jmp   .Lx00368_2
@@ -12052,6 +12898,7 @@ xchain00260_n00352_β:
                         .quad            .Lx00368_0_s
 .Lx00368_0_s:
                         .string          "getword"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00355_α:
                         mov              rax, qword ptr [1879052368]
@@ -12061,6 +12908,7 @@ xchain00260_n00355_α:
                                                                                         jmp   xchain00260_n00026_α
 xchain00260_n00355_β:
                                                                                         jmp   xchain00260_n00354_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00370_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 5840]
@@ -12072,6 +12920,7 @@ xchain00260_n00370_α:
                                                                                         jmp   xchain00260_n00018_as
 xchain00260_n00370_β:
                                                                                         jmp   xchain00260_n00354_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00022_α:
 # BOX IR_CALL put(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+6112] -> [zr+6064]
@@ -12099,6 +12948,7 @@ xchain00260_n00022_α:
                                                                                         jmp   xchain00260_n00018_as
 xchain00260_n00022_β:
                                                                                         jmp   xchain00260_n00354_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00356_α:
                         mov              rax, qword ptr [rbp + 9456]
@@ -12106,6 +12956,7 @@ xchain00260_n00356_α:
                         mov              rax, qword ptr [rbp + 9464]
                         mov              qword ptr [rbp + 424], rax
                                                                                         jmp   xchain00260_n00371_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00358_α:
 # BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+112] -> [zr+80]
@@ -12128,6 +12979,7 @@ xchain00260_n00358_α:
                                                                                         jmp   xchain00260_n00343_β
 xchain00260_n00358_β:
                                                                                         jmp   xchain00260_n00343_β
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00023_α:
 # BOX IR_CALL procrec(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+2096] -> [zr+2032]
@@ -12160,6 +13012,7 @@ xchain00260_n00023_α:
                                                                                         jmp   xchain00260_n00372_α
 xchain00260_n00023_β:
                                                                                         jmp   xchain00260_n00079_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00361_α:
 # BOX IR_CALL pull(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+1808] -> [zr+1776]
@@ -12182,6 +13035,7 @@ xchain00260_n00361_α:
                                                                                         jmp   xchain00260_n00374_α
 xchain00260_n00361_β:
                                                                                         jmp   xchain00260_n00373_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00373_α:
                         mov              rax, qword ptr [rbp + 9472]
@@ -12189,6 +13043,7 @@ xchain00260_n00373_α:
                         mov              rax, qword ptr [rbp + 9480]
                         mov              qword ptr [rbp + 1672], rax
                                                                                         jmp   xchain00260_n00375_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n00024_α:
                         mov              qword ptr [rbp + 3120], 1
@@ -12199,6 +13054,7 @@ xchain00260_n00024_α:
                         .quad            .Lx00376_0_s
 .Lx00376_0_s:
                         .string          "global"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00378_α:
                         call             proc_getword_dcα
                                                                                         jmp   .Lx00379_2
@@ -12214,6 +13070,7 @@ xchain00260_n00378_β:
                         .quad            .Lx00379_0_s
 .Lx00379_0_s:
                         .string          "getword"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00025_α:
                         mov              rax, qword ptr [1879052480]
@@ -12221,6 +13078,7 @@ xchain00260_n00025_α:
                         mov              qword ptr [rbp + 4544], rax
                         mov              qword ptr [rbp + 4552], rdx
                                                                                         jmp   xchain00260_n00381_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00364_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 5312]
@@ -12230,6 +13088,7 @@ xchain00260_n00364_α:
                         mov              qword ptr [rbp + 5296], rax
                         mov              qword ptr [rbp + 5304], rdx
                                                                                         jmp   xchain00260_n00030_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00366_α:
 # IR_BINOP_TEST
                         mov              rdi, qword ptr [rbp + 9504]
@@ -12246,6 +13105,7 @@ xchain00260_n00366_α:
                         mov              qword ptr [rbp + 5472], rax
                         mov              qword ptr [rbp + 5480], rdx
                                                                                         jmp   xchain00260_n94_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00367_α:
                         mov              rax, qword ptr [rbp + 9520]
@@ -12253,6 +13113,7 @@ xchain00260_n00367_α:
                         mov              rax, qword ptr [rbp + 9528]
                         mov              qword ptr [rbp + 5736], rax
                                                                                         jmp   xchain00260_n00031_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00369_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 5984]
@@ -12262,6 +13123,7 @@ xchain00260_n00369_α:
                         mov              qword ptr [rbp + 5968], rax
                         mov              qword ptr [rbp + 5976], rdx
                                                                                         jmp   xchain00260_n00382_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00026_α:
                         mov              rax, qword ptr [rbp + 9536]
@@ -12269,6 +13131,7 @@ xchain00260_n00026_α:
                         mov              rax, qword ptr [rbp + 9544]
                         mov              qword ptr [rbp + 6152], rax
                                                                                         jmp   xchain00260_n00022_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00371_α:
                         mov              rax, qword ptr [rbp + 9472]
@@ -12276,10 +13139,12 @@ xchain00260_n00371_α:
                         mov              rax, qword ptr [rbp + 9480]
                         mov              qword ptr [rbp + 664], rax
                                                                                         jmp   xchain00260_n00383_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_UNMARK
 xchain00260_n00027_α:
                         mov              rsp, qword ptr [rbp + 304]
                                                                                         jmp   xchain00260_n00076_β
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00372_α:
 # BOX IR_CALL put(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+1984] -> [zr+1936]
@@ -12307,6 +13172,7 @@ xchain00260_n00372_α:
                                                                                         jmp   xchain00260_n00079_α
 xchain00260_n00372_β:
                                                                                         jmp   xchain00260_n00079_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00374_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 1760]
@@ -12316,6 +13182,7 @@ xchain00260_n00374_α:
                         mov              qword ptr [rbp + 1744], rax
                         mov              qword ptr [rbp + 1752], rdx
                                                                                         jmp   xchain00260_n00373_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_FIELD_GET lv
 xchain00260_n00375_α:
                         mov              rdi, qword ptr [rip + .Lx00384_0]
@@ -12331,6 +13198,7 @@ xchain00260_n00375_α:
                         .quad            .Lx00384_0_s
 .Lx00384_0_s:
                         .string          "pname"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00028_α:
                         mov              rax, qword ptr [rbp + 9488]
@@ -12338,6 +13206,7 @@ xchain00260_n00028_α:
                         mov              rax, qword ptr [rbp + 9496]
                         mov              qword ptr [rbp + 1576], rax
                                                                                         jmp   xchain00260_n00385_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00377_α:
                         mov              rax, qword ptr [1879052304]
@@ -12345,6 +13214,7 @@ xchain00260_n00377_α:
                         mov              qword ptr [rbp + 3152], rax
                         mov              qword ptr [rbp + 3160], rdx
                                                                                         jmp   xchain00260_n00033_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00029_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 2512]
@@ -12354,6 +13224,7 @@ xchain00260_n00029_α:
                         mov              qword ptr [rbp + 2496], rax
                         mov              qword ptr [rbp + 2504], rdx
                                                                                         jmp   xchain00260_n00034_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00380_α:
                         mov              rax, qword ptr [1879052368]
@@ -12361,6 +13232,7 @@ xchain00260_n00380_α:
                         mov              qword ptr [rbp + 2400], rax
                         mov              qword ptr [rbp + 2408], rdx
                                                                                         jmp   xchain00260_n00036_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00381_α:
                         mov              rax, qword ptr [rbp + 9504]
@@ -12368,6 +13240,7 @@ xchain00260_n00381_α:
                         mov              rax, qword ptr [rbp + 9512]
                         mov              qword ptr [rbp + 4584], rax
                                                                                         jmp   xchain00260_n00386_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00387_α:
                         mov              rax, qword ptr [rbp + 9504]
@@ -12375,6 +13248,7 @@ xchain00260_n00387_α:
                         mov              rax, qword ptr [rbp + 9512]
                         mov              qword ptr [rbp + 4392], rax
                                                                                         jmp   xchain00260_n00038_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_MAKE_LIST
 xchain00260_n00030_α:
                         lea              rdi, [rbp + 5296]
@@ -12383,6 +13257,7 @@ xchain00260_n00030_α:
                         mov              qword ptr [rbp + 5280], rax
                         mov              qword ptr [rbp + 5288], rdx
                                                                                         jmp   xchain00260_n00040_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00031_α:
                         mov              rax, qword ptr [rbp + 9552]
@@ -12390,6 +13265,7 @@ xchain00260_n00031_α:
                         mov              rax, qword ptr [rbp + 9560]
                         mov              qword ptr [rbp + 5768], rax
                                                                                         jmp   xchain00260_n00388_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n00382_α:
                         mov              qword ptr [rbp + 6016], 1
@@ -12400,6 +13276,7 @@ xchain00260_n00382_α:
                         .quad            .Lx00389_0_s
 .Lx00389_0_s:
                         .string          "("
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_FIELD_GET
 xchain00260_n00383_α:
                         mov              rdi, qword ptr [rip + .Lx00391_0]
@@ -12415,6 +13292,7 @@ xchain00260_n00383_α:
                         .quad            .Lx00391_0_s
 .Lx00391_0_s:
                         .string          "pname"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00032_α:
                         mov              rax, qword ptr [rbp + 9520]
@@ -12422,6 +13300,7 @@ xchain00260_n00032_α:
                         mov              rax, qword ptr [rbp + 9528]
                         mov              qword ptr [rbp + 1720], rax
                                                                                         jmp   xchain00260_n00393_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00385_α:
                         mov              rax, qword ptr [rbp + 9472]
@@ -12429,6 +13308,7 @@ xchain00260_n00385_α:
                         mov              rax, qword ptr [rbp + 9480]
                         mov              qword ptr [rbp + 1608], rax
                                                                                         jmp   xchain00260_n00046_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00033_α:
                         lea              rsi, [rbp + 3088]
                         lea              rdx, [rbp + 3120]
@@ -12447,6 +13327,7 @@ xchain00260_n00033_β:
                         .quad            .Lx00394_0_s
 .Lx00394_0_s:
                         .string          "addword"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n00034_α:
                         mov              qword ptr [rbp + 2544], 1
@@ -12457,6 +13338,7 @@ xchain00260_n00034_α:
                         .quad            .Lx00395_0_s
 .Lx00395_0_s:
                         .string          ","
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00036_α:
                         mov              rax, qword ptr [rbp + 9536]
@@ -12464,6 +13346,7 @@ xchain00260_n00036_α:
                         mov              rax, qword ptr [rbp + 9544]
                         mov              qword ptr [rbp + 2440], rax
                                                                                         jmp   xchain00260_n00048_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00386_α:
 # BOX IR_CALL put(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+4544] -> [zr+4496]
@@ -12491,6 +13374,7 @@ xchain00260_n00386_α:
                                                                                         jmp   xchain00260_n00387_α
 xchain00260_n00386_β:
                                                                                         jmp   xchain00260_n00387_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00038_α:
                         mov              rax, qword ptr [rbp + 9520]
@@ -12498,6 +13382,7 @@ xchain00260_n00038_α:
                         mov              rax, qword ptr [rbp + 9528]
                         mov              qword ptr [rbp + 4424], rax
                                                                                         jmp   xchain00260_n00397_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00398_α:
                         call             proc_getword_dcα
                                                                                         jmp   .Lx00399_2
@@ -12513,6 +13398,7 @@ xchain00260_n00398_β:
                         .quad            .Lx00399_0_s
 .Lx00399_0_s:
                         .string          "getword"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN gva
 xchain00260_n00040_α:
                         mov              rax, qword ptr [rbp + 5280]
@@ -12522,6 +13408,7 @@ xchain00260_n00040_α:
                         mov              qword ptr [rbp + 5264], rax
                         mov              qword ptr [rbp + 5272], rdx
                                                                                         jmp   xchain00260_n00401_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00388_α:
                         lea              rsi, [rbp + 5696]
                         lea              rdx, [rbp + 5728]
@@ -12540,6 +13427,7 @@ xchain00260_n00388_β:
                         .quad            .Lx00402_0_s
 .Lx00402_0_s:
                         .string          "addword"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00390_α:
 # IR_BINOP_TEST
                         mov              rdi, qword ptr [rbp + 5968]
@@ -12556,6 +13444,7 @@ xchain00260_n00390_α:
                         mov              qword ptr [rbp + 5936], rax
                         mov              qword ptr [rbp + 5944], rdx
                                                                                         jmp   xchain00260_n00403_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_INTEGER
 xchain00260_n00392_α:
                         mov              qword ptr [rbp + 688], 6
@@ -12564,6 +13453,7 @@ xchain00260_n00392_α:
                                                                                         jmp   xchain00260_n00405_α
 .Lx00404_0:
                         .quad            16
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN_VAR
 xchain00260_n00393_α:
                         mov              rdi, qword ptr [rbp + 1632]
@@ -12576,6 +13466,7 @@ xchain00260_n00393_α:
                         mov              qword ptr [rbp + 1696], rax
                         mov              qword ptr [rbp + 1704], rdx
                                                                                         jmp   xchain00260_n00028_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00046_α:
 # BOX IR_CALL put(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+1568] -> [zr+1520]
@@ -12603,6 +13494,7 @@ xchain00260_n00046_α:
                                                                                         jmp   xchain00260_n00047_α
 xchain00260_n00046_β:
                                                                                         jmp   xchain00260_n94_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00396_α:
 # IR_BINOP_TEST
                         mov              rdi, qword ptr [rbp + 2496]
@@ -12619,6 +13511,7 @@ xchain00260_n00396_α:
                         mov              qword ptr [rbp + 2464], rax
                         mov              qword ptr [rbp + 2472], rdx
                                                                                         jmp   xchain00260_n00052_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00048_α:
 # BOX IR_CALL put(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+2400] -> [zr+2352]
@@ -12646,6 +13539,7 @@ xchain00260_n00048_α:
                                                                                         jmp   xchain00260_n00007_α
 xchain00260_n00048_β:
                                                                                         jmp   xchain00260_n94_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00397_α:
                         mov              rax, qword ptr [1879052304]
@@ -12653,6 +13547,7 @@ xchain00260_n00397_α:
                         mov              qword ptr [rbp + 4448], rax
                         mov              qword ptr [rbp + 4456], rdx
                                                                                         jmp   xchain00260_n00053_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00400_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 3680]
@@ -12662,6 +13557,7 @@ xchain00260_n00400_α:
                         mov              qword ptr [rbp + 3664], rax
                         mov              qword ptr [rbp + 3672], rdx
                                                                                         jmp   xchain00260_n00406_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00049_α:
                         mov              rax, qword ptr [1879052368]
@@ -12669,6 +13565,7 @@ xchain00260_n00049_α:
                         mov              qword ptr [rbp + 3568], rax
                         mov              qword ptr [rbp + 3576], rdx
                                                                                         jmp   xchain00260_n00056_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00401_α:
                         mov              rax, qword ptr [rbp + 9488]
@@ -12676,6 +13573,7 @@ xchain00260_n00401_α:
                         mov              rax, qword ptr [rbp + 9496]
                         mov              qword ptr [rbp + 5240], rax
                                                                                         jmp   xchain00260_n00407_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00403_α:
                         mov              rax, qword ptr [rbp + 9504]
@@ -12683,6 +13581,7 @@ xchain00260_n00403_α:
                         mov              rax, qword ptr [rbp + 9512]
                         mov              qword ptr [rbp + 5880], rax
                                                                                         jmp   xchain00260_n00408_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n00405_α:
                         mov              qword ptr [rbp + 720], 1
@@ -12693,6 +13592,7 @@ xchain00260_n00405_α:
                         .quad            .Lx00409_0_s
 .Lx00409_0_s:
                         .string          " "
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00260_n00052_α:
                         mov              qword ptr [rbp + 2848], 0
@@ -12713,6 +13613,7 @@ xchain00260_n00052_af:
                         add              dword ptr [rbp + 2864], 1
                         mov              eax, dword ptr [rbp + 2864]
                                                                                         jmp   xchain00260_n00061_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00053_α:
                         lea              rsi, [rbp + 4384]
                         lea              rdx, [rbp + 4416]
@@ -12731,6 +13632,7 @@ xchain00260_n00053_β:
                         .quad            .Lx00411_0_s
 .Lx00411_0_s:
                         .string          "addword"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n00406_α:
                         mov              qword ptr [rbp + 3712], 1
@@ -12741,6 +13643,7 @@ xchain00260_n00406_α:
                         .quad            .Lx00412_0_s
 .Lx00412_0_s:
                         .string          ","
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00056_α:
                         mov              rax, qword ptr [rbp + 9536]
@@ -12748,6 +13651,7 @@ xchain00260_n00056_α:
                         mov              rax, qword ptr [rbp + 9544]
                         mov              qword ptr [rbp + 3608], rax
                                                                                         jmp   xchain00260_n00413_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00407_α:
 # BOX IR_CALL pull(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+5232] -> [zr+5200]
@@ -12770,6 +13674,7 @@ xchain00260_n00407_α:
                                                                                         jmp   xchain00260_n00415_α
 xchain00260_n00407_β:
                                                                                         jmp   xchain00260_n00414_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00414_α:
                         mov              rax, qword ptr [rbp + 9472]
@@ -12777,6 +13682,7 @@ xchain00260_n00414_α:
                         mov              rax, qword ptr [rbp + 9480]
                         mov              qword ptr [rbp + 5096], rax
                                                                                         jmp   xchain00260_n00416_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n00408_α:
                         mov              qword ptr [rbp + 5904], 1
@@ -12787,6 +13693,7 @@ xchain00260_n00408_α:
                         .quad            .Lx00417_0_s
 .Lx00417_0_s:
                         .string          " *"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00059_α:
 # BOX IR_CALL left(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+624] -> [zr+560]
@@ -12819,6 +13726,7 @@ xchain00260_n00059_α:
                                                                                         jmp   xchain00260_n00419_α
 xchain00260_n00059_β:
                                                                                         jmp   xchain00260_n00027_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00260_n00061_α:
                         mov              qword ptr [rbp + 2784], 0
@@ -12851,6 +13759,7 @@ xchain00260_n00061_af:
                         cmp              eax, 1
                                                                                         je    xchain00260_n00423_α
                                                                                         jmp   xchain00260_n00424_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00063_α:
                         mov              rax, qword ptr [rbp + 9504]
@@ -12860,6 +13769,7 @@ xchain00260_n00063_α:
                                                                                         jmp   xchain00260_n00425_α
 xchain00260_n00063_β:
                                                                                         jmp   xchain00260_n00052_af
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00065_α:
 # IR_BINOP_TEST
                         mov              rdi, qword ptr [rbp + 3664]
@@ -12876,6 +13786,7 @@ xchain00260_n00065_α:
                         mov              qword ptr [rbp + 3632], rax
                         mov              qword ptr [rbp + 3640], rdx
                                                                                         jmp   xchain00260_n00426_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00413_α:
 # BOX IR_CALL put(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+3568] -> [zr+3520]
@@ -12903,6 +13814,7 @@ xchain00260_n00413_α:
                                                                                         jmp   xchain00260_n00062_α
 xchain00260_n00413_β:
                                                                                         jmp   xchain00260_n94_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00415_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 5184]
@@ -12912,6 +13824,7 @@ xchain00260_n00415_α:
                         mov              qword ptr [rbp + 5168], rax
                         mov              qword ptr [rbp + 5176], rdx
                                                                                         jmp   xchain00260_n00414_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_FIELD_GET lv
 xchain00260_n00416_α:
                         mov              rdi, qword ptr [rip + .Lx00427_0]
@@ -12927,6 +13840,7 @@ xchain00260_n00416_α:
                         .quad            .Lx00427_0_s
 .Lx00427_0_s:
                         .string          "lastline"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00428_α:
                         mov              rax, qword ptr [rbp + 9488]
@@ -12934,6 +13848,7 @@ xchain00260_n00428_α:
                         mov              rax, qword ptr [rbp + 9496]
                         mov              qword ptr [rbp + 5000], rax
                                                                                         jmp   xchain00260_n00430_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00418_α:
 # IR_BINOP_CONCAT
                         mov              rdi, qword ptr [rbp + 9504]
@@ -12944,6 +13859,7 @@ xchain00260_n00418_α:
                         mov              qword ptr [rbp + 5840], rax
                         mov              qword ptr [rbp + 5848], rdx
                                                                                         jmp   xchain00260_n00370_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00419_α:
                         mov              rax, qword ptr [rbp + 9472]
@@ -12951,6 +13867,7 @@ xchain00260_n00419_α:
                         mov              rax, qword ptr [rbp + 9480]
                         mov              qword ptr [rbp + 792], rax
                                                                                         jmp   xchain00260_n00431_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00422_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 2784]
@@ -12960,6 +13877,7 @@ xchain00260_n00422_α:
                         mov              qword ptr [rbp + 2768], rax
                         mov              qword ptr [rbp + 2776], rdx
                                                                                         jmp   xchain00260_n00424_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00420_α:
                         call             proc_getword_dcα
                                                                                         jmp   .Lx00432_2
@@ -12975,10 +13893,12 @@ xchain00260_n00420_β:
                         .quad            .Lx00432_0_s
 .Lx00432_0_s:
                         .string          "getword"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00423_α:
                                                                                         jmp   xchain00260_n00380_α
 xchain00260_n00423_β:
                                                                                         jmp   xchain00260_n00380_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00425_α:
                         mov              rax, qword ptr [1879052288]
@@ -12986,6 +13906,7 @@ xchain00260_n00425_α:
                         mov              qword ptr [rbp + 2976], rax
                         mov              qword ptr [rbp + 2984], rdx
                                                                                         jmp   xchain00260_n00433_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00260_n00426_α:
                         mov              qword ptr [rbp + 4144], 0
@@ -13006,6 +13927,7 @@ xchain00260_n00426_af:
                         add              dword ptr [rbp + 4160], 1
                         mov              eax, dword ptr [rbp + 4160]
                                                                                         jmp   xchain00260_n00435_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00429_α:
                         mov              rax, qword ptr [1879052304]
@@ -13013,6 +13935,7 @@ xchain00260_n00429_α:
                         mov              qword ptr [rbp + 5136], rax
                         mov              qword ptr [rbp + 5144], rdx
                                                                                         jmp   xchain00260_n00436_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00430_α:
                         mov              rax, qword ptr [rbp + 9472]
@@ -13020,6 +13943,7 @@ xchain00260_n00430_α:
                         mov              rax, qword ptr [rbp + 9480]
                         mov              qword ptr [rbp + 5032], rax
                                                                                         jmp   xchain00260_n00077_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_FIELD_GET
 xchain00260_n00431_α:
                         mov              rdi, qword ptr [rip + .Lx00437_0]
@@ -13035,6 +13959,7 @@ xchain00260_n00431_α:
                         .quad            .Lx00437_0_s
 .Lx00437_0_s:
                         .string          "begline"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00424_α:
                         mov              rax, qword ptr [rbp + 9504]
@@ -13042,6 +13967,7 @@ xchain00260_n00424_α:
                         mov              rax, qword ptr [rbp + 9512]
                         mov              qword ptr [rbp + 2680], rax
                                                                                         jmp   xchain00260_n00439_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIST_BANG
 xchain00260_n00433_α:
                         mov              qword ptr [rbp + 2960], 0
@@ -13058,6 +13984,7 @@ xchain00260_n00433_α:
 xchain00260_n00433_β:
                         inc              qword ptr [rbp + 2960]
                                                                                         jmp   .Lx00440_0
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_DISJUNCTION_NARY
 xchain00260_n00435_α:
                         mov              qword ptr [rbp + 4080], 0
@@ -13090,6 +14017,7 @@ xchain00260_n00435_af:
                         cmp              eax, 1
                                                                                         je    xchain00260_n00082_α
                                                                                         jmp   xchain00260_n00444_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00074_α:
                         mov              rax, qword ptr [rbp + 9504]
@@ -13099,6 +14027,7 @@ xchain00260_n00074_α:
                                                                                         jmp   xchain00260_n00084_α
 xchain00260_n00074_β:
                                                                                         jmp   xchain00260_n00426_af
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_ASSIGN_VAR
 xchain00260_n00436_α:
                         mov              rdi, qword ptr [rbp + 5056]
@@ -13111,6 +14040,7 @@ xchain00260_n00436_α:
                         mov              qword ptr [rbp + 5120], rax
                         mov              qword ptr [rbp + 5128], rdx
                                                                                         jmp   xchain00260_n00428_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00077_α:
 # BOX IR_CALL put(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+4992] -> [zr+4944]
@@ -13138,6 +14068,7 @@ xchain00260_n00077_α:
                                                                                         jmp   xchain00260_n00075_α
 xchain00260_n00077_β:
                                                                                         jmp   xchain00260_n94_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00438_α:
 # IR_BINOP_CONCAT
                         mov              rdi, qword ptr [rbp + 544]
@@ -13148,6 +14079,7 @@ xchain00260_n00438_α:
                         mov              qword ptr [rbp + 512], rax
                         mov              qword ptr [rbp + 520], rdx
                                                                                         jmp   xchain00260_n00445_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n00439_α:
                         mov              qword ptr [rbp + 2704], 1
@@ -13158,6 +14090,7 @@ xchain00260_n00439_α:
                         .quad            .Lx00446_0_s
 .Lx00446_0_s:
                         .string          "global"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00441_α:
 # IR_BINOP_TEST
                         mov              rdi, qword ptr [rbp + 9504]
@@ -13174,6 +14107,7 @@ xchain00260_n00441_α:
                         mov              qword ptr [rbp + 2880], rax
                         mov              qword ptr [rbp + 2888], rdx
                                                                                         jmp   xchain00260_n00380_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00080_α:
 # IR_ASSIGN local
                         mov              rax, qword ptr [rbp + 4080]
@@ -13183,6 +14117,7 @@ xchain00260_n00080_α:
                         mov              qword ptr [rbp + 4064], rax
                         mov              qword ptr [rbp + 4072], rdx
                                                                                         jmp   xchain00260_n00444_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00442_α:
                         call             proc_getword_dcα
                                                                                         jmp   .Lx00447_2
@@ -13198,10 +14133,12 @@ xchain00260_n00442_β:
                         .quad            .Lx00447_0_s
 .Lx00447_0_s:
                         .string          "getword"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00082_α:
                                                                                         jmp   xchain00260_n00049_α
 xchain00260_n00082_β:
                                                                                         jmp   xchain00260_n00049_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00084_α:
                         mov              rax, qword ptr [1879052288]
@@ -13209,6 +14146,7 @@ xchain00260_n00084_α:
                         mov              qword ptr [rbp + 4272], rax
                         mov              qword ptr [rbp + 4280], rdx
                                                                                         jmp   xchain00260_n00448_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIT_STRING
 xchain00260_n00445_α:
                         mov              qword ptr [rbp + 816], 1
@@ -13219,6 +14157,7 @@ xchain00260_n00445_α:
                         .quad            .Lx00449_0_s
 .Lx00449_0_s:
                         .string          "-"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00086_α:
                         mov              rax, qword ptr [1879052304]
@@ -13226,6 +14165,7 @@ xchain00260_n00086_α:
                         mov              qword ptr [rbp + 2736], rax
                         mov              qword ptr [rbp + 2744], rdx
                                                                                         jmp   xchain00260_n00451_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00444_α:
                         mov              rax, qword ptr [1879052480]
@@ -13233,6 +14173,7 @@ xchain00260_n00444_α:
                         mov              qword ptr [rbp + 4000], rax
                         mov              qword ptr [rbp + 4008], rdx
                                                                                         jmp   xchain00260_n00088_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_LIST_BANG
 xchain00260_n00448_α:
                         mov              qword ptr [rbp + 4256], 0
@@ -13249,6 +14190,7 @@ xchain00260_n00448_α:
 xchain00260_n00448_β:
                         inc              qword ptr [rbp + 4256]
                                                                                         jmp   .Lx00452_0
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00450_α:
 # IR_BINOP_CONCAT
                         mov              rdi, qword ptr [rbp + 512]
@@ -13259,6 +14201,7 @@ xchain00260_n00450_α:
                         mov              qword ptr [rbp + 480], rax
                         mov              qword ptr [rbp + 488], rdx
                                                                                         jmp   xchain00260_n00091_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00451_α:
                         lea              rsi, [rbp + 2672]
                         lea              rdx, [rbp + 2704]
@@ -13277,6 +14220,7 @@ xchain00260_n00451_β:
                         .quad            .Lx00454_0_s
 .Lx00454_0_s:
                         .string          "addword"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00088_α:
                         mov              rax, qword ptr [rbp + 9504]
@@ -13284,6 +14228,7 @@ xchain00260_n00088_α:
                         mov              rax, qword ptr [rbp + 9512]
                         mov              qword ptr [rbp + 4040], rax
                                                                                         jmp   xchain00260_n00455_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00090_α:
                         mov              rax, qword ptr [rbp + 9504]
@@ -13291,6 +14236,7 @@ xchain00260_n00090_α:
                         mov              rax, qword ptr [rbp + 9512]
                         mov              qword ptr [rbp + 3848], rax
                                                                                         jmp   xchain00260_n00094_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00453_α:
 # IR_BINOP_TEST
                         mov              rdi, qword ptr [rbp + 9504]
@@ -13307,6 +14253,7 @@ xchain00260_n00453_α:
                         mov              qword ptr [rbp + 4176], rax
                         mov              qword ptr [rbp + 4184], rdx
                                                                                         jmp   xchain00260_n00049_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00091_α:
                         mov              rax, qword ptr [rbp + 9472]
@@ -13314,6 +14261,7 @@ xchain00260_n00091_α:
                         mov              rax, qword ptr [rbp + 9480]
                         mov              qword ptr [rbp + 888], rax
                                                                                         jmp   xchain00260_n00096_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00093_α:
 # IR_CONJUNCTION value-forward copy
                         mov              rax, qword ptr [rbp + 2592]
@@ -13323,6 +14271,7 @@ xchain00260_n00093_α:
                                                                                         jmp   xchain00260_n00378_α
 xchain00260_n00093_β:
                                                                                         jmp   xchain00260_n00378_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00455_α:
 # BOX IR_CALL put(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+4000] -> [zr+3952]
@@ -13350,6 +14299,7 @@ xchain00260_n00455_α:
                                                                                         jmp   xchain00260_n00090_α
 xchain00260_n00455_β:
                                                                                         jmp   xchain00260_n00090_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00094_α:
                         mov              rax, qword ptr [rbp + 9520]
@@ -13357,6 +14307,7 @@ xchain00260_n00094_α:
                         mov              rax, qword ptr [rbp + 9528]
                         mov              qword ptr [rbp + 3880], rax
                                                                                         jmp   xchain00260_n00098_α
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_FIELD_GET
 xchain00260_n00096_α:
                         mov              rdi, qword ptr [rip + .Lx00456_0]
@@ -13372,6 +14323,7 @@ xchain00260_n00096_α:
                         .quad            .Lx00456_0_s
 .Lx00456_0_s:
                         .string          "lastline"
+#-----------------------------------------------------------------------------------------------------------------------
 # IR_VAR
 xchain00260_n00098_α:
                         mov              rax, qword ptr [1879052304]
@@ -13379,6 +14331,7 @@ xchain00260_n00098_α:
                         mov              qword ptr [rbp + 3904], rax
                         mov              qword ptr [rbp + 3912], rdx
                                                                                         jmp   xchain00260_n00457_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00100_α:
 # IR_BINOP_CONCAT
                         mov              rdi, qword ptr [rbp + 480]
@@ -13389,6 +14342,7 @@ xchain00260_n00100_α:
                         mov              qword ptr [rbp + 448], rax
                         mov              qword ptr [rbp + 456], rdx
                                                                                         jmp   xchain00260_n00458_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00457_α:
                         lea              rsi, [rbp + 3840]
                         lea              rdx, [rbp + 3872]
@@ -13407,6 +14361,7 @@ xchain00260_n00457_β:
                         .quad            .Lx00459_0_s
 .Lx00459_0_s:
                         .string          "addword"
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00458_α:
 # BOX IR_CALL put(...) -> rt_call_arr [operand-marshal, FAIL->ω]
 # marshal arg0 = producer-box slot [zr+416] -> [zr+368]
@@ -13434,6 +14389,7 @@ xchain00260_n00458_α:
                                                                                         jmp   xchain00260_n00027_α
 xchain00260_n00458_β:
                                                                                         jmp   xchain00260_n00027_α
+#-----------------------------------------------------------------------------------------------------------------------
 xchain00260_n00460_α:
 # IR_CONJUNCTION value-forward copy
                         mov              rax, qword ptr [rbp + 3760]
@@ -13443,8 +14399,10 @@ xchain00260_n00460_α:
                                                                                         jmp   xchain00260_n00398_α
 xchain00260_n00460_β:
                                                                                         jmp   xchain00260_n00398_α
+#-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                                         jmp   main_ω
+#-----------------------------------------------------------------------------------------------------------------------
 main_γ:
                         mov              eax, 1
                         xor              edx, edx
@@ -13452,6 +14410,7 @@ main_γ:
                         mov              rbp, [rsp + 65536]
                         add              rsp, 65544
                         ret
+#-----------------------------------------------------------------------------------------------------------------------
 main_ω:
                         mov              rsp, qword ptr [rbp + 9448]
                         mov              dword ptr [rsp+0], 99
@@ -13462,3 +14421,4 @@ main_ω:
                         mov              rbp, [rsp + 65536]
                         add              rsp, 65544
                         ret
+                        .section         .note.GNU-stack,"",@progbits
