@@ -9678,16 +9678,27 @@ xchain00297_n0_af:
  jmp xchain00297_n0_af
  xchain00297_n3_α:
  mov qword ptr [rbp + 64], 0
+ lea r11, [rip + g_gc_pending]
+ mov eax, dword ptr [r11 + 0]
+ test eax, eax
+ jne .Lx00299_20
+ mov rax, qword ptr [rbp + 96]
+ mov rdx, qword ptr [rbp + 104]
+ lea r10, [rip + g_call_args]
+ mov qword ptr [r10 + 0], rax
+ mov qword ptr [r10 + 8], rdx
+ jmp .Lx00299_21
+.Lx00299_20:
  mov edi, 0
  mov rsi, qword ptr [rbp + 96]
  mov rdx, qword ptr [rbp + 104]
  call rt_arg_stage@PLT
- mov rdi, qword ptr [rip + .Lx00299_0]
+.Lx00299_21:
+ mov edi, 34
  mov esi, 1
- call rt_proc_call_open@PLT
+ call rt_proc_call_open_det@PLT
  test rax, rax
  je .Lx00299_1
- call rt_proc_open_fn@PLT
  lea rcx, [rip + .Lx00299_3]
  lea rdx, [rip + .Lx00299_4]
  jmp rax

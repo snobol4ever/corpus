@@ -7470,12 +7470,11 @@ xchain00158_n11_af:
  jmp xchain00158_n27_α
  xchain00158_n27_α:
  mov qword ptr [rbp + 672], 0
- mov rdi, qword ptr [rip + .Lx00171_0]
+ mov edi, 2
  mov esi, 0
- call rt_proc_call_open@PLT
+ call rt_proc_call_open_det@PLT
  test rax, rax
  je .Lx00171_1
- call rt_proc_open_fn@PLT
  lea rcx, [rip + .Lx00171_3]
  lea rdx, [rip + .Lx00171_4]
  jmp rax

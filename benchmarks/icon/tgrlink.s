@@ -1544,12 +1544,11 @@ proc_dumpcode_α_body:
  jmp xchain00011_n3_α
  xchain00011_n8_α:
  mov qword ptr [rbp + 160], 0
- mov rdi, qword ptr [rip + .Lx00012_0]
+ mov edi, 3
  mov esi, 0
- call rt_proc_call_open@PLT
+ call rt_proc_call_open_det@PLT
  test rax, rax
  je .Lx00012_1
- call rt_proc_open_fn@PLT
  lea rcx, [rip + .Lx00012_3]
  lea rdx, [rip + .Lx00012_4]
  jmp rax
@@ -16656,16 +16655,27 @@ xchain00420_n36_af:
  .quad 4611686018427387904
  xchain00420_n86_α:
  mov qword ptr [rbp + 112], 0
+ lea r11, [rip + g_gc_pending]
+ mov eax, dword ptr [r11 + 0]
+ test eax, eax
+ jne .Lx00459_20
+ mov rax, qword ptr [rbp + 144]
+ mov rdx, qword ptr [rbp + 152]
+ lea r10, [rip + g_call_args]
+ mov qword ptr [r10 + 0], rax
+ mov qword ptr [r10 + 8], rdx
+ jmp .Lx00459_21
+.Lx00459_20:
  mov edi, 0
  mov rsi, qword ptr [rbp + 144]
  mov rdx, qword ptr [rbp + 152]
  call rt_arg_stage@PLT
- mov rdi, qword ptr [rip + .Lx00459_0]
+.Lx00459_21:
+ mov edi, 1
  mov esi, 1
- call rt_proc_call_open@PLT
+ call rt_proc_call_open_det@PLT
  test rax, rax
  je .Lx00459_1
- call rt_proc_open_fn@PLT
  lea rcx, [rip + .Lx00459_3]
  lea rdx, [rip + .Lx00459_4]
  jmp rax

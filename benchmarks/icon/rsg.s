@@ -1213,7 +1213,7 @@ xchain83_n0_af:
  mov r13, qword ptr [rbp + 160]
  mov r14, qword ptr [rbp + 168]
  mov r15, qword ptr [rbp + 176]
- jmp xchain83_n0_as
+ jmp xchain83_n0_af
  xchain83_n9_β:
  jmp xchain83_n0_af
 # IR_LIT_INTEGER
@@ -2778,7 +2778,7 @@ xchain00030_n2_β:
  mov r13, qword ptr [rbp + 320]
  mov r14, qword ptr [rbp + 328]
  mov r15, qword ptr [rbp + 336]
- jmp xchain00030_n0_as
+ jmp xchain00030_n0_af
  xchain00030_n7_β:
  jmp xchain00030_n0_af
 # IR_LIT_INTEGER
@@ -3687,7 +3687,7 @@ xchain00059_n2_β:
  mov r13, qword ptr [rbp + 992]
  mov r14, qword ptr [rbp + 1000]
  mov r15, qword ptr [rbp + 1008]
- jmp xchain00059_n0_as
+ jmp xchain00059_n0_af
  xchain00059_n11_β:
  jmp xchain00059_n0_af
 # IR_SCAN_TAB
