@@ -6,6 +6,7 @@ main:
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
+                        mov              r12, qword ptr [1879048192]
                         xor              esi, esi
                         call             main_α
                         xor              eax, eax
@@ -17,54 +18,49 @@ main_α:
                         .global          main_β
                         .global          main_γ
                         .global          main_ω
-                        sub              rsp, 65544
+                        sub              rsp, 88
                         mov              rdi, rsp
-                        mov              ecx, 65544
+                        mov              ecx, 88
                         xor              eax, eax
                         rep stosb
-                        mov              qword ptr [rsp + 104], rsp
-                        mov              r12, qword ptr [1879048192]
-                        mov              [rsp + 65536], rbp
+                        mov              [rsp + 80], rbp
                         mov              rbp, rsp
 main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-# KEYWORD_read
-xchain0_n0_α:
-                        mov              rdi, qword ptr [rip + .Lx1_0]
+n0_keyword_icon_α:
+                        mov              rdi, qword ptr [rip + .Lx2_0]
                         call             rt_keyword_read@PLT
                         cmp              eax, 99
                                                                                         je    main_ω
-                        mov              qword ptr [rbp + 64], rax
-                        mov              qword ptr [rbp + 72], rdx
-                                                                                        jmp   xchain0_n1_α
-xchain0_n0_β:
+                        mov              qword ptr [rbp + 48], rax
+                        mov              qword ptr [rbp + 56], rdx
+                                                                                        jmp   n1_call_builtin_icon_α
+n0_keyword_icon_β:
                                                                                         jmp   main_ω
-.Lx1_0:
-                        .quad            .Lx1_0_s
-.Lx1_0_s:
+.Lx2_0:
+                        .quad            .Lx2_0_s
+.Lx2_0_s:
                         .string          "&version"
 #-----------------------------------------------------------------------------------------------------------------------
-xchain0_n1_α:
-# BOX IR_CALL write(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = producer-box slot [zr+64] -> [zr+32]
-                        mov              rax, qword ptr [rbp + 64]
-                        mov              qword ptr [rbp + 32], rax
-                        mov              rax, qword ptr [rbp + 72]
-                        mov              qword ptr [rbp + 40], rax
+n1_call_builtin_icon_α:
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 16], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 24], rax
                         .section         .rodata
-.Lrkfn3:                .string          "write"
+.Lrkfn4:                .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfn3]
-                        lea              rsi, [rbp + 32]
+                        lea              rdi, [rip + .Lrkfn4]
+                        lea              rsi, [rbp + 16]
                         mov              edx, 1
                         call             rt_call_arr@PLT
-                        mov              qword ptr [rbp + 16], rax
-                        mov              qword ptr [rbp + 24], rdx
+                        mov              qword ptr [rbp + 0], rax
+                        mov              qword ptr [rbp + 8], rdx
                         cmp              eax, 99
                                                                                         je    main_ω
                                                                                         jmp   main_ω
-xchain0_n1_β:
+n1_call_builtin_icon_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
@@ -73,19 +69,16 @@ main_β:
 main_γ:
                         mov              eax, 1
                         xor              edx, edx
-                        mov              rsp, qword ptr [rbp + 104]
-                        mov              rbp, [rsp + 65536]
-                        add              rsp, 65544
+                        mov              rsp, rbp
+                        mov              rbp, [rsp + 80]
+                        add              rsp, 88
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
-                        mov              rsp, qword ptr [rbp + 104]
-                        mov              dword ptr [rsp+0], 99
-                        mov              dword ptr [rsp+4], 0
-                        mov              qword ptr [rsp+8], 0
+                        mov              rsp, rbp
                         mov              eax, 99
                         xor              edx, edx
-                        mov              rbp, [rsp + 65536]
-                        add              rsp, 65544
+                        mov              rbp, [rsp + 80]
+                        add              rsp, 88
                         ret
                         .section         .note.GNU-stack,"",@progbits
