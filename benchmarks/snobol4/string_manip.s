@@ -44,8 +44,6 @@ main_α:
                         mov              ecx, 776
                         xor              eax, eax
                         rep stosb
-                        mov              [rsp + 768], rbp
-                        mov              rbp, rsp
 main_α_body:
 #=======================================================================================================================
 #     &TRIM = 1
@@ -638,16 +636,12 @@ main_β:
 main_γ:
                         mov              eax, 1
                         xor              edx, edx
-                        mov              rsp, rbp
-                        mov              rbp, [rsp + 768]
                         add              rsp, 776
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
-                        mov              rsp, rbp
                         mov              eax, 99
                         xor              edx, edx
-                        mov              rbp, [rsp + 768]
                         add              rsp, 776
                         ret
                         .section         .note.GNU-stack,"",@progbits
