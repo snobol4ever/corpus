@@ -110,8 +110,8 @@ n6_lit_integer_α:
 n7_var_α:
                         mov              rax, qword ptr [1879052288]
                         mov              rdx, qword ptr [1879052296]
-                        mov              qword ptr [rbp + 144], rax
-                        mov              qword ptr [rbp + 152], rdx
+                        mov              qword ptr [rsp + 144], rax
+                        mov              qword ptr [rsp + 152], rdx
                                                                                         jmp   n9_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
 n8_binop_α:
@@ -164,9 +164,9 @@ n8_binop_α:
                                                                                         jmp   n10_assign_α
 #-----------------------------------------------------------------------------------------------------------------------
 n9_lit_integer_α:
-                        mov              qword ptr [rbp + 128], 6
+                        mov              qword ptr [rsp + 128], 6
                         mov              rax, qword ptr [rip + .Lx23_0]
-                        mov              qword ptr [rbp + 136], rax
+                        mov              qword ptr [rsp + 136], rax
                                                                                         jmp   n11_op75_α
 .Lx23_0:
                         .quad            6
@@ -180,54 +180,54 @@ n10_assign_α:
                                                                                         jmp   n7_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n11_op75_α:
-                        mov              eax, dword ptr [rbp + 144]
+                        mov              eax, dword ptr [rsp + 144]
                         cmp              eax, 7
                                                                                         je    .Lx26_1
                         cmp              eax, 6
                                                                                         jne   .Lx26_0
-                        mov              eax, dword ptr [rbp + 128]
+                        mov              eax, dword ptr [rsp + 128]
                         cmp              eax, 6
                                                                                         jne   .Lx26_0
 .Lx26_1:
-                        mov              rax, qword ptr [rbp + 144]
-                        mov              qword ptr [rbp + 112], rax
-                        mov              rax, qword ptr [rbp + 152]
-                        mov              qword ptr [rbp + 120], rax
+                        mov              rax, qword ptr [rsp + 144]
+                        mov              qword ptr [rsp + 112], rax
+                        mov              rax, qword ptr [rsp + 152]
+                        mov              qword ptr [rsp + 120], rax
                                                                                         jmp   n12_op75_α
 .Lx26_0:
-                        lea              rdi, [rbp + 144]
-                        lea              rsi, [rbp + 128]
-                        lea              rdx, [rbp + 112]
+                        lea              rdi, [rsp + 144]
+                        lea              rsi, [rsp + 128]
+                        lea              rdx, [rsp + 112]
                         mov              rcx, 147
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   n12_op75_α
 #-----------------------------------------------------------------------------------------------------------------------
 n12_op75_α:
-                        mov              eax, dword ptr [rbp + 128]
+                        mov              eax, dword ptr [rsp + 128]
                         cmp              eax, 7
                                                                                         je    .Lx28_1
                         cmp              eax, 6
                                                                                         jne   .Lx28_0
-                        mov              eax, dword ptr [rbp + 144]
+                        mov              eax, dword ptr [rsp + 144]
                         cmp              eax, 6
                                                                                         jne   .Lx28_0
 .Lx28_1:
-                        mov              rax, qword ptr [rbp + 128]
-                        mov              qword ptr [rbp + 96], rax
-                        mov              rax, qword ptr [rbp + 136]
-                        mov              qword ptr [rbp + 104], rax
+                        mov              rax, qword ptr [rsp + 128]
+                        mov              qword ptr [rsp + 96], rax
+                        mov              rax, qword ptr [rsp + 136]
+                        mov              qword ptr [rsp + 104], rax
                                                                                         jmp   n13_op77_α
 .Lx28_0:
-                        lea              rdi, [rbp + 128]
-                        lea              rsi, [rbp + 144]
-                        lea              rdx, [rbp + 96]
+                        lea              rdi, [rsp + 128]
+                        lea              rsi, [rsp + 144]
+                        lea              rdx, [rsp + 96]
                         mov              rcx, 148
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   n13_op77_α
 #-----------------------------------------------------------------------------------------------------------------------
 n13_op77_α:
-                        lea              rdi, [rbp + 112]
-                        lea              rsi, [rbp + 96]
+                        lea              rdi, [rsp + 112]
+                        lea              rsi, [rsp + 96]
                         call             rt_cmp_d@PLT
                         test             eax, eax
                                                                                         jns   main_γ
