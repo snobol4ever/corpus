@@ -10,8 +10,6 @@ proc_LBL__ADD1_α:
                         sub              rsp, 512
                         mov              [rsp + 488], rcx
                         mov              [rsp + 496], rdx
-                        mov              [rsp + 504], rbp
-                        mov              rbp, rsp
                         mov              qword ptr [rsp], 0
                         mov              qword ptr [rsp + 8], 0
 proc_LBL__ADD1_α_body:
@@ -112,17 +110,15 @@ proc_LBL__ADD1_β:
                                                                                         jmp   proc_LBL__ADD1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__ADD1_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 488]
-                        lea              rsp, [rbp + 512]
-                        mov              rbp, [rbp + 504]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 488]
+                        add              rsp, 512
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__ADD1_ω:
-                        mov              rax, [rbp + 496]
-                        lea              rsp, [rbp + 512]
-                        mov              rbp, [rbp + 504]
+                        mov              rax, [rsp + 496]
+                        add              rsp, 512
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_ADD1_α
@@ -134,8 +130,6 @@ proc_ADD1_α:
                         sub              rsp, 512
                         mov              [rsp + 488], rcx
                         mov              [rsp + 496], rdx
-                        mov              [rsp + 504], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 480
                         xor              eax, eax
@@ -143,10 +137,10 @@ proc_ADD1_α:
 proc_ADD1_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n13_op14_α:
-                        mov              rdi, qword ptr [rbp + 488]
-                        mov              rsi, qword ptr [rbp + 496]
-                        lea              rdx, [rbp + 512]
-                        mov              rcx, qword ptr [rbp + 504]
+                        mov              rdi, qword ptr [rsp + 488]
+                        mov              rsi, qword ptr [rsp + 496]
+                        lea              rdx, [rsp + 512]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n14_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -169,17 +163,15 @@ proc_ADD1_β:
                                                                                         jmp   proc_ADD1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_ADD1_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 488]
-                        lea              rsp, [rbp + 512]
-                        mov              rbp, [rbp + 504]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 488]
+                        add              rsp, 512
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_ADD1_ω:
-                        mov              rax, [rbp + 496]
-                        lea              rsp, [rbp + 512]
-                        mov              rbp, [rbp + 504]
+                        mov              rax, [rsp + 496]
+                        add              rsp, 512
                                                                                         jmp   rax
 proc_startup:
                         sub              rsp, 8

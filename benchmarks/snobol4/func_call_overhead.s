@@ -10,8 +10,6 @@ proc_LBL__INC_α:
                         sub              rsp, 736
                         mov              [rsp + 712], rcx
                         mov              [rsp + 720], rdx
-                        mov              [rsp + 728], rbp
-                        mov              rbp, rsp
                         mov              qword ptr [rsp], 0
                         mov              qword ptr [rsp + 8], 0
 proc_LBL__INC_α_body:
@@ -112,17 +110,15 @@ proc_LBL__INC_β:
                                                                                         jmp   proc_LBL__INC_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__INC_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 712]
-                        lea              rsp, [rbp + 736]
-                        mov              rbp, [rbp + 728]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 712]
+                        add              rsp, 736
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__INC_ω:
-                        mov              rax, [rbp + 720]
-                        lea              rsp, [rbp + 736]
-                        mov              rbp, [rbp + 728]
+                        mov              rax, [rsp + 720]
+                        add              rsp, 736
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_INC_α
@@ -134,8 +130,6 @@ proc_INC_α:
                         sub              rsp, 736
                         mov              [rsp + 712], rcx
                         mov              [rsp + 720], rdx
-                        mov              [rsp + 728], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 704
                         xor              eax, eax
@@ -143,10 +137,10 @@ proc_INC_α:
 proc_INC_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n13_op14_α:
-                        mov              rdi, qword ptr [rbp + 712]
-                        mov              rsi, qword ptr [rbp + 720]
-                        lea              rdx, [rbp + 736]
-                        mov              rcx, qword ptr [rbp + 728]
+                        mov              rdi, qword ptr [rsp + 712]
+                        mov              rsi, qword ptr [rsp + 720]
+                        lea              rdx, [rsp + 736]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n14_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -169,17 +163,15 @@ proc_INC_β:
                                                                                         jmp   proc_INC_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_INC_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 712]
-                        lea              rsp, [rbp + 736]
-                        mov              rbp, [rbp + 728]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 712]
+                        add              rsp, 736
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_INC_ω:
-                        mov              rax, [rbp + 720]
-                        lea              rsp, [rbp + 736]
-                        mov              rbp, [rbp + 728]
+                        mov              rax, [rsp + 720]
+                        add              rsp, 736
                                                                                         jmp   rax
 proc_startup:
                         sub              rsp, 8

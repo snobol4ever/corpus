@@ -369,8 +369,6 @@ proc_RSUM_α:
                         sub              rsp, 1648
                         mov              [rsp + 1624], rcx
                         mov              [rsp + 1632], rdx
-                        mov              [rsp + 1640], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 1616
                         xor              eax, eax
@@ -378,10 +376,10 @@ proc_RSUM_α:
 proc_RSUM_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n39_op14_α:
-                        mov              rdi, qword ptr [rbp + 1624]
-                        mov              rsi, qword ptr [rbp + 1632]
-                        lea              rdx, [rbp + 1648]
-                        mov              rcx, qword ptr [rbp + 1640]
+                        mov              rdi, qword ptr [rsp + 1624]
+                        mov              rsi, qword ptr [rsp + 1632]
+                        lea              rdx, [rsp + 1648]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n40_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -404,17 +402,15 @@ proc_RSUM_β:
                                                                                         jmp   proc_RSUM_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_RSUM_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 1624]
-                        lea              rsp, [rbp + 1648]
-                        mov              rbp, [rbp + 1640]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 1624]
+                        add              rsp, 1648
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_RSUM_ω:
-                        mov              rax, [rbp + 1632]
-                        lea              rsp, [rbp + 1648]
-                        mov              rbp, [rbp + 1640]
+                        mov              rax, [rsp + 1632]
+                        add              rsp, 1648
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_PAT$0_α
