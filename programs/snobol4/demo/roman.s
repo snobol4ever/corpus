@@ -1079,8 +1079,6 @@ proc_ROMAN_α:
                         sub              rsp, 1296
                         mov              [rsp + 1272], rcx
                         mov              [rsp + 1280], rdx
-                        mov              [rsp + 1288], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 1264
                         xor              eax, eax
@@ -1088,10 +1086,10 @@ proc_ROMAN_α:
 proc_ROMAN_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n117_op14_α:
-                        mov              rdi, qword ptr [rbp + 1272]
-                        mov              rsi, qword ptr [rbp + 1280]
-                        lea              rdx, [rbp + 1296]
-                        mov              rcx, qword ptr [rbp + 1288]
+                        mov              rdi, qword ptr [rsp + 1272]
+                        mov              rsi, qword ptr [rsp + 1280]
+                        lea              rdx, [rsp + 1296]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n118_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1114,17 +1112,15 @@ proc_ROMAN_β:
                                                                                         jmp   proc_ROMAN_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_ROMAN_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 1272]
-                        lea              rsp, [rbp + 1296]
-                        mov              rbp, [rbp + 1288]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 1272]
+                        add              rsp, 1296
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_ROMAN_ω:
-                        mov              rax, [rbp + 1280]
-                        lea              rsp, [rbp + 1296]
-                        mov              rbp, [rbp + 1288]
+                        mov              rax, [rsp + 1280]
+                        add              rsp, 1296
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_TEST_α
@@ -1136,8 +1132,6 @@ proc_TEST_α:
                         sub              rsp, 1296
                         mov              [rsp + 1272], rcx
                         mov              [rsp + 1280], rdx
-                        mov              [rsp + 1288], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 1264
                         xor              eax, eax
@@ -1145,10 +1139,10 @@ proc_TEST_α:
 proc_TEST_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n123_op14_α:
-                        mov              rdi, qword ptr [rbp + 1272]
-                        mov              rsi, qword ptr [rbp + 1280]
-                        lea              rdx, [rbp + 1296]
-                        mov              rcx, qword ptr [rbp + 1288]
+                        mov              rdi, qword ptr [rsp + 1272]
+                        mov              rsi, qword ptr [rsp + 1280]
+                        lea              rdx, [rsp + 1296]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n124_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1171,17 +1165,15 @@ proc_TEST_β:
                                                                                         jmp   proc_TEST_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_TEST_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 1272]
-                        lea              rsp, [rbp + 1296]
-                        mov              rbp, [rbp + 1288]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 1272]
+                        add              rsp, 1296
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_TEST_ω:
-                        mov              rax, [rbp + 1280]
-                        lea              rsp, [rbp + 1296]
-                        mov              rbp, [rbp + 1288]
+                        mov              rax, [rsp + 1280]
+                        add              rsp, 1296
                                                                                         jmp   rax
 proc_startup:
                         sub              rsp, 8

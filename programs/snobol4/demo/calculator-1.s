@@ -3371,8 +3371,6 @@ proc_EMIT_α:
                         sub              rsp, 4560
                         mov              [rsp + 4536], rcx
                         mov              [rsp + 4544], rdx
-                        mov              [rsp + 4552], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 4528
                         xor              eax, eax
@@ -3380,10 +3378,10 @@ proc_EMIT_α:
 proc_EMIT_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n404_op14_α:
-                        mov              rdi, qword ptr [rbp + 4536]
-                        mov              rsi, qword ptr [rbp + 4544]
-                        lea              rdx, [rbp + 4560]
-                        mov              rcx, qword ptr [rbp + 4552]
+                        mov              rdi, qword ptr [rsp + 4536]
+                        mov              rsi, qword ptr [rsp + 4544]
+                        lea              rdx, [rsp + 4560]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n405_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3406,17 +3404,15 @@ proc_EMIT_β:
                                                                                         jmp   proc_EMIT_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_EMIT_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 4536]
-                        lea              rsp, [rbp + 4560]
-                        mov              rbp, [rbp + 4552]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 4536]
+                        add              rsp, 4560
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_EMIT_ω:
-                        mov              rax, [rbp + 4544]
-                        lea              rsp, [rbp + 4560]
-                        mov              rbp, [rbp + 4552]
+                        mov              rax, [rsp + 4544]
+                        add              rsp, 4560
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_PSH_α
@@ -3428,8 +3424,6 @@ proc_PSH_α:
                         sub              rsp, 4560
                         mov              [rsp + 4536], rcx
                         mov              [rsp + 4544], rdx
-                        mov              [rsp + 4552], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 4528
                         xor              eax, eax
@@ -3437,10 +3431,10 @@ proc_PSH_α:
 proc_PSH_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n410_op14_α:
-                        mov              rdi, qword ptr [rbp + 4536]
-                        mov              rsi, qword ptr [rbp + 4544]
-                        lea              rdx, [rbp + 4560]
-                        mov              rcx, qword ptr [rbp + 4552]
+                        mov              rdi, qword ptr [rsp + 4536]
+                        mov              rsi, qword ptr [rsp + 4544]
+                        lea              rdx, [rsp + 4560]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n411_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3463,17 +3457,15 @@ proc_PSH_β:
                                                                                         jmp   proc_PSH_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PSH_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 4536]
-                        lea              rsp, [rbp + 4560]
-                        mov              rbp, [rbp + 4552]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 4536]
+                        add              rsp, 4560
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PSH_ω:
-                        mov              rax, [rbp + 4544]
-                        lea              rsp, [rbp + 4560]
-                        mov              rbp, [rbp + 4552]
+                        mov              rax, [rsp + 4544]
+                        add              rsp, 4560
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_DRF_α
@@ -3485,8 +3477,6 @@ proc_DRF_α:
                         sub              rsp, 4560
                         mov              [rsp + 4536], rcx
                         mov              [rsp + 4544], rdx
-                        mov              [rsp + 4552], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 4528
                         xor              eax, eax
@@ -3494,10 +3484,10 @@ proc_DRF_α:
 proc_DRF_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n416_op14_α:
-                        mov              rdi, qword ptr [rbp + 4536]
-                        mov              rsi, qword ptr [rbp + 4544]
-                        lea              rdx, [rbp + 4560]
-                        mov              rcx, qword ptr [rbp + 4552]
+                        mov              rdi, qword ptr [rsp + 4536]
+                        mov              rsi, qword ptr [rsp + 4544]
+                        lea              rdx, [rsp + 4560]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n417_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3520,17 +3510,15 @@ proc_DRF_β:
                                                                                         jmp   proc_DRF_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_DRF_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 4536]
-                        lea              rsp, [rbp + 4560]
-                        mov              rbp, [rbp + 4552]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 4536]
+                        add              rsp, 4560
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_DRF_ω:
-                        mov              rax, [rbp + 4544]
-                        lea              rsp, [rbp + 4560]
-                        mov              rbp, [rbp + 4552]
+                        mov              rax, [rsp + 4544]
+                        add              rsp, 4560
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_ADD_α
@@ -3542,8 +3530,6 @@ proc_ADD_α:
                         sub              rsp, 4560
                         mov              [rsp + 4536], rcx
                         mov              [rsp + 4544], rdx
-                        mov              [rsp + 4552], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 4528
                         xor              eax, eax
@@ -3551,10 +3537,10 @@ proc_ADD_α:
 proc_ADD_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n422_op14_α:
-                        mov              rdi, qword ptr [rbp + 4536]
-                        mov              rsi, qword ptr [rbp + 4544]
-                        lea              rdx, [rbp + 4560]
-                        mov              rcx, qword ptr [rbp + 4552]
+                        mov              rdi, qword ptr [rsp + 4536]
+                        mov              rsi, qword ptr [rsp + 4544]
+                        lea              rdx, [rsp + 4560]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n423_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3577,17 +3563,15 @@ proc_ADD_β:
                                                                                         jmp   proc_ADD_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_ADD_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 4536]
-                        lea              rsp, [rbp + 4560]
-                        mov              rbp, [rbp + 4552]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 4536]
+                        add              rsp, 4560
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_ADD_ω:
-                        mov              rax, [rbp + 4544]
-                        lea              rsp, [rbp + 4560]
-                        mov              rbp, [rbp + 4552]
+                        mov              rax, [rsp + 4544]
+                        add              rsp, 4560
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_SUB_α
@@ -3599,8 +3583,6 @@ proc_SUB_α:
                         sub              rsp, 4560
                         mov              [rsp + 4536], rcx
                         mov              [rsp + 4544], rdx
-                        mov              [rsp + 4552], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 4528
                         xor              eax, eax
@@ -3608,10 +3590,10 @@ proc_SUB_α:
 proc_SUB_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n428_op14_α:
-                        mov              rdi, qword ptr [rbp + 4536]
-                        mov              rsi, qword ptr [rbp + 4544]
-                        lea              rdx, [rbp + 4560]
-                        mov              rcx, qword ptr [rbp + 4552]
+                        mov              rdi, qword ptr [rsp + 4536]
+                        mov              rsi, qword ptr [rsp + 4544]
+                        lea              rdx, [rsp + 4560]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n429_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3634,17 +3616,15 @@ proc_SUB_β:
                                                                                         jmp   proc_SUB_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_SUB_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 4536]
-                        lea              rsp, [rbp + 4560]
-                        mov              rbp, [rbp + 4552]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 4536]
+                        add              rsp, 4560
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_SUB_ω:
-                        mov              rax, [rbp + 4544]
-                        lea              rsp, [rbp + 4560]
-                        mov              rbp, [rbp + 4552]
+                        mov              rax, [rsp + 4544]
+                        add              rsp, 4560
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_MUL_α
@@ -3656,8 +3636,6 @@ proc_MUL_α:
                         sub              rsp, 4560
                         mov              [rsp + 4536], rcx
                         mov              [rsp + 4544], rdx
-                        mov              [rsp + 4552], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 4528
                         xor              eax, eax
@@ -3665,10 +3643,10 @@ proc_MUL_α:
 proc_MUL_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n434_op14_α:
-                        mov              rdi, qword ptr [rbp + 4536]
-                        mov              rsi, qword ptr [rbp + 4544]
-                        lea              rdx, [rbp + 4560]
-                        mov              rcx, qword ptr [rbp + 4552]
+                        mov              rdi, qword ptr [rsp + 4536]
+                        mov              rsi, qword ptr [rsp + 4544]
+                        lea              rdx, [rsp + 4560]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n435_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3691,17 +3669,15 @@ proc_MUL_β:
                                                                                         jmp   proc_MUL_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_MUL_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 4536]
-                        lea              rsp, [rbp + 4560]
-                        mov              rbp, [rbp + 4552]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 4536]
+                        add              rsp, 4560
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_MUL_ω:
-                        mov              rax, [rbp + 4544]
-                        lea              rsp, [rbp + 4560]
-                        mov              rbp, [rbp + 4552]
+                        mov              rax, [rsp + 4544]
+                        add              rsp, 4560
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_DIV_α
@@ -3713,8 +3689,6 @@ proc_DIV_α:
                         sub              rsp, 4560
                         mov              [rsp + 4536], rcx
                         mov              [rsp + 4544], rdx
-                        mov              [rsp + 4552], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 4528
                         xor              eax, eax
@@ -3722,10 +3696,10 @@ proc_DIV_α:
 proc_DIV_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n440_op14_α:
-                        mov              rdi, qword ptr [rbp + 4536]
-                        mov              rsi, qword ptr [rbp + 4544]
-                        lea              rdx, [rbp + 4560]
-                        mov              rcx, qword ptr [rbp + 4552]
+                        mov              rdi, qword ptr [rsp + 4536]
+                        mov              rsi, qword ptr [rsp + 4544]
+                        lea              rdx, [rsp + 4560]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n441_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3748,17 +3722,15 @@ proc_DIV_β:
                                                                                         jmp   proc_DIV_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_DIV_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 4536]
-                        lea              rsp, [rbp + 4560]
-                        mov              rbp, [rbp + 4552]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 4536]
+                        add              rsp, 4560
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_DIV_ω:
-                        mov              rax, [rbp + 4544]
-                        lea              rsp, [rbp + 4560]
-                        mov              rbp, [rbp + 4552]
+                        mov              rax, [rsp + 4544]
+                        add              rsp, 4560
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_NEG_α
@@ -3770,8 +3742,6 @@ proc_NEG_α:
                         sub              rsp, 4560
                         mov              [rsp + 4536], rcx
                         mov              [rsp + 4544], rdx
-                        mov              [rsp + 4552], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 4528
                         xor              eax, eax
@@ -3779,10 +3749,10 @@ proc_NEG_α:
 proc_NEG_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n446_op14_α:
-                        mov              rdi, qword ptr [rbp + 4536]
-                        mov              rsi, qword ptr [rbp + 4544]
-                        lea              rdx, [rbp + 4560]
-                        mov              rcx, qword ptr [rbp + 4552]
+                        mov              rdi, qword ptr [rsp + 4536]
+                        mov              rsi, qword ptr [rsp + 4544]
+                        lea              rdx, [rsp + 4560]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n447_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3805,17 +3775,15 @@ proc_NEG_β:
                                                                                         jmp   proc_NEG_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_NEG_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 4536]
-                        lea              rsp, [rbp + 4560]
-                        mov              rbp, [rbp + 4552]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 4536]
+                        add              rsp, 4560
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_NEG_ω:
-                        mov              rax, [rbp + 4544]
-                        lea              rsp, [rbp + 4560]
-                        mov              rbp, [rbp + 4552]
+                        mov              rax, [rsp + 4544]
+                        add              rsp, 4560
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_PAT$0_α

@@ -5387,8 +5387,6 @@ proc_list_reverse_α:
                         sub              rsp, 6064
                         mov              [rsp + 6040], rcx
                         mov              [rsp + 6048], rdx
-                        mov              [rsp + 6056], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 6032
                         xor              eax, eax
@@ -5396,10 +5394,10 @@ proc_list_reverse_α:
 proc_list_reverse_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n654_op14_α:
-                        mov              rdi, qword ptr [rbp + 6040]
-                        mov              rsi, qword ptr [rbp + 6048]
-                        lea              rdx, [rbp + 6064]
-                        mov              rcx, qword ptr [rbp + 6056]
+                        mov              rdi, qword ptr [rsp + 6040]
+                        mov              rsi, qword ptr [rsp + 6048]
+                        lea              rdx, [rsp + 6064]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n655_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5422,17 +5420,15 @@ proc_list_reverse_β:
                                                                                         jmp   proc_list_reverse_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_list_reverse_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 6040]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 6040]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_list_reverse_ω:
-                        mov              rax, [rbp + 6048]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rax, [rsp + 6048]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_stk_push_frame_α
@@ -5444,8 +5440,6 @@ proc_stk_push_frame_α:
                         sub              rsp, 6064
                         mov              [rsp + 6040], rcx
                         mov              [rsp + 6048], rdx
-                        mov              [rsp + 6056], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 6032
                         xor              eax, eax
@@ -5453,10 +5447,10 @@ proc_stk_push_frame_α:
 proc_stk_push_frame_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n660_op14_α:
-                        mov              rdi, qword ptr [rbp + 6040]
-                        mov              rsi, qword ptr [rbp + 6048]
-                        lea              rdx, [rbp + 6064]
-                        mov              rcx, qword ptr [rbp + 6056]
+                        mov              rdi, qword ptr [rsp + 6040]
+                        mov              rsi, qword ptr [rsp + 6048]
+                        lea              rdx, [rsp + 6064]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n661_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5479,17 +5473,15 @@ proc_stk_push_frame_β:
                                                                                         jmp   proc_stk_push_frame_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_stk_push_frame_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 6040]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 6040]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_stk_push_frame_ω:
-                        mov              rax, [rbp + 6048]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rax, [rsp + 6048]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_stk_push_item_α
@@ -5501,8 +5493,6 @@ proc_stk_push_item_α:
                         sub              rsp, 6064
                         mov              [rsp + 6040], rcx
                         mov              [rsp + 6048], rdx
-                        mov              [rsp + 6056], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 6032
                         xor              eax, eax
@@ -5510,10 +5500,10 @@ proc_stk_push_item_α:
 proc_stk_push_item_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n666_op14_α:
-                        mov              rdi, qword ptr [rbp + 6040]
-                        mov              rsi, qword ptr [rbp + 6048]
-                        lea              rdx, [rbp + 6064]
-                        mov              rcx, qword ptr [rbp + 6056]
+                        mov              rdi, qword ptr [rsp + 6040]
+                        mov              rsi, qword ptr [rsp + 6048]
+                        lea              rdx, [rsp + 6064]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n667_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5536,17 +5526,15 @@ proc_stk_push_item_β:
                                                                                         jmp   proc_stk_push_item_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_stk_push_item_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 6040]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 6040]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_stk_push_item_ω:
-                        mov              rax, [rbp + 6048]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rax, [rsp + 6048]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_stk_pop_into_parent_α
@@ -5558,8 +5546,6 @@ proc_stk_pop_into_parent_α:
                         sub              rsp, 6064
                         mov              [rsp + 6040], rcx
                         mov              [rsp + 6048], rdx
-                        mov              [rsp + 6056], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 6032
                         xor              eax, eax
@@ -5567,10 +5553,10 @@ proc_stk_pop_into_parent_α:
 proc_stk_pop_into_parent_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n672_op14_α:
-                        mov              rdi, qword ptr [rbp + 6040]
-                        mov              rsi, qword ptr [rbp + 6048]
-                        lea              rdx, [rbp + 6064]
-                        mov              rcx, qword ptr [rbp + 6056]
+                        mov              rdi, qword ptr [rsp + 6040]
+                        mov              rsi, qword ptr [rsp + 6048]
+                        lea              rdx, [rsp + 6064]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n673_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5593,17 +5579,15 @@ proc_stk_pop_into_parent_β:
                                                                                         jmp   proc_stk_pop_into_parent_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_stk_pop_into_parent_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 6040]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 6040]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_stk_pop_into_parent_ω:
-                        mov              rax, [rbp + 6048]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rax, [rsp + 6048]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_stk_pop_final_α
@@ -5615,8 +5599,6 @@ proc_stk_pop_final_α:
                         sub              rsp, 6064
                         mov              [rsp + 6040], rcx
                         mov              [rsp + 6048], rdx
-                        mov              [rsp + 6056], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 6032
                         xor              eax, eax
@@ -5624,10 +5606,10 @@ proc_stk_pop_final_α:
 proc_stk_pop_final_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n678_op14_α:
-                        mov              rdi, qword ptr [rbp + 6040]
-                        mov              rsi, qword ptr [rbp + 6048]
-                        lea              rdx, [rbp + 6064]
-                        mov              rcx, qword ptr [rbp + 6056]
+                        mov              rdi, qword ptr [rsp + 6040]
+                        mov              rsi, qword ptr [rsp + 6048]
+                        lea              rdx, [rsp + 6064]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n679_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5650,17 +5632,15 @@ proc_stk_pop_final_β:
                                                                                         jmp   proc_stk_pop_final_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_stk_pop_final_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 6040]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 6040]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_stk_pop_final_ω:
-                        mov              rax, [rbp + 6048]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rax, [rsp + 6048]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_init_list_α
@@ -5672,8 +5652,6 @@ proc_init_list_α:
                         sub              rsp, 6064
                         mov              [rsp + 6040], rcx
                         mov              [rsp + 6048], rdx
-                        mov              [rsp + 6056], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 6032
                         xor              eax, eax
@@ -5681,10 +5659,10 @@ proc_init_list_α:
 proc_init_list_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n684_op14_α:
-                        mov              rdi, qword ptr [rbp + 6040]
-                        mov              rsi, qword ptr [rbp + 6048]
-                        lea              rdx, [rbp + 6064]
-                        mov              rcx, qword ptr [rbp + 6056]
+                        mov              rdi, qword ptr [rsp + 6040]
+                        mov              rsi, qword ptr [rsp + 6048]
+                        lea              rdx, [rsp + 6064]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n685_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5707,17 +5685,15 @@ proc_init_list_β:
                                                                                         jmp   proc_init_list_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_init_list_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 6040]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 6040]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_init_list_ω:
-                        mov              rax, [rbp + 6048]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rax, [rsp + 6048]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_Init_list_α
@@ -5729,8 +5705,6 @@ proc_Init_list_α:
                         sub              rsp, 6064
                         mov              [rsp + 6040], rcx
                         mov              [rsp + 6048], rdx
-                        mov              [rsp + 6056], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 6032
                         xor              eax, eax
@@ -5738,10 +5712,10 @@ proc_Init_list_α:
 proc_Init_list_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n690_op14_α:
-                        mov              rdi, qword ptr [rbp + 6040]
-                        mov              rsi, qword ptr [rbp + 6048]
-                        lea              rdx, [rbp + 6064]
-                        mov              rcx, qword ptr [rbp + 6056]
+                        mov              rdi, qword ptr [rsp + 6040]
+                        mov              rsi, qword ptr [rsp + 6048]
+                        lea              rdx, [rsp + 6064]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n691_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5764,17 +5738,15 @@ proc_Init_list_β:
                                                                                         jmp   proc_Init_list_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_Init_list_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 6040]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 6040]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_Init_list_ω:
-                        mov              rax, [rbp + 6048]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rax, [rsp + 6048]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_push_list_α
@@ -5786,8 +5758,6 @@ proc_push_list_α:
                         sub              rsp, 6064
                         mov              [rsp + 6040], rcx
                         mov              [rsp + 6048], rdx
-                        mov              [rsp + 6056], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 6032
                         xor              eax, eax
@@ -5795,10 +5765,10 @@ proc_push_list_α:
 proc_push_list_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n696_op14_α:
-                        mov              rdi, qword ptr [rbp + 6040]
-                        mov              rsi, qword ptr [rbp + 6048]
-                        lea              rdx, [rbp + 6064]
-                        mov              rcx, qword ptr [rbp + 6056]
+                        mov              rdi, qword ptr [rsp + 6040]
+                        mov              rsi, qword ptr [rsp + 6048]
+                        lea              rdx, [rsp + 6064]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n697_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5821,17 +5791,15 @@ proc_push_list_β:
                                                                                         jmp   proc_push_list_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_push_list_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 6040]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 6040]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_push_list_ω:
-                        mov              rax, [rbp + 6048]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rax, [rsp + 6048]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_Push_list_α
@@ -5843,8 +5811,6 @@ proc_Push_list_α:
                         sub              rsp, 6064
                         mov              [rsp + 6040], rcx
                         mov              [rsp + 6048], rdx
-                        mov              [rsp + 6056], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 6032
                         xor              eax, eax
@@ -5852,10 +5818,10 @@ proc_Push_list_α:
 proc_Push_list_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n702_op14_α:
-                        mov              rdi, qword ptr [rbp + 6040]
-                        mov              rsi, qword ptr [rbp + 6048]
-                        lea              rdx, [rbp + 6064]
-                        mov              rcx, qword ptr [rbp + 6056]
+                        mov              rdi, qword ptr [rsp + 6040]
+                        mov              rsi, qword ptr [rsp + 6048]
+                        lea              rdx, [rsp + 6064]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n703_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5878,17 +5844,15 @@ proc_Push_list_β:
                                                                                         jmp   proc_Push_list_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_Push_list_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 6040]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 6040]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_Push_list_ω:
-                        mov              rax, [rbp + 6048]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rax, [rsp + 6048]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_push_item_α
@@ -5900,8 +5864,6 @@ proc_push_item_α:
                         sub              rsp, 6064
                         mov              [rsp + 6040], rcx
                         mov              [rsp + 6048], rdx
-                        mov              [rsp + 6056], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 6032
                         xor              eax, eax
@@ -5909,10 +5871,10 @@ proc_push_item_α:
 proc_push_item_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n708_op14_α:
-                        mov              rdi, qword ptr [rbp + 6040]
-                        mov              rsi, qword ptr [rbp + 6048]
-                        lea              rdx, [rbp + 6064]
-                        mov              rcx, qword ptr [rbp + 6056]
+                        mov              rdi, qword ptr [rsp + 6040]
+                        mov              rsi, qword ptr [rsp + 6048]
+                        lea              rdx, [rsp + 6064]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n709_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5935,17 +5897,15 @@ proc_push_item_β:
                                                                                         jmp   proc_push_item_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_push_item_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 6040]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 6040]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_push_item_ω:
-                        mov              rax, [rbp + 6048]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rax, [rsp + 6048]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_Push_item_α
@@ -5957,8 +5917,6 @@ proc_Push_item_α:
                         sub              rsp, 6064
                         mov              [rsp + 6040], rcx
                         mov              [rsp + 6048], rdx
-                        mov              [rsp + 6056], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 6032
                         xor              eax, eax
@@ -5966,10 +5924,10 @@ proc_Push_item_α:
 proc_Push_item_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n714_op14_α:
-                        mov              rdi, qword ptr [rbp + 6040]
-                        mov              rsi, qword ptr [rbp + 6048]
-                        lea              rdx, [rbp + 6064]
-                        mov              rcx, qword ptr [rbp + 6056]
+                        mov              rdi, qword ptr [rsp + 6040]
+                        mov              rsi, qword ptr [rsp + 6048]
+                        lea              rdx, [rsp + 6064]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n715_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5992,17 +5950,15 @@ proc_Push_item_β:
                                                                                         jmp   proc_Push_item_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_Push_item_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 6040]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 6040]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_Push_item_ω:
-                        mov              rax, [rbp + 6048]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rax, [rsp + 6048]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_pop_list_α
@@ -6014,8 +5970,6 @@ proc_pop_list_α:
                         sub              rsp, 6064
                         mov              [rsp + 6040], rcx
                         mov              [rsp + 6048], rdx
-                        mov              [rsp + 6056], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 6032
                         xor              eax, eax
@@ -6023,10 +5977,10 @@ proc_pop_list_α:
 proc_pop_list_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n720_op14_α:
-                        mov              rdi, qword ptr [rbp + 6040]
-                        mov              rsi, qword ptr [rbp + 6048]
-                        lea              rdx, [rbp + 6064]
-                        mov              rcx, qword ptr [rbp + 6056]
+                        mov              rdi, qword ptr [rsp + 6040]
+                        mov              rsi, qword ptr [rsp + 6048]
+                        lea              rdx, [rsp + 6064]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n721_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -6049,17 +6003,15 @@ proc_pop_list_β:
                                                                                         jmp   proc_pop_list_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_pop_list_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 6040]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 6040]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_pop_list_ω:
-                        mov              rax, [rbp + 6048]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rax, [rsp + 6048]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_Pop_list_α
@@ -6071,8 +6023,6 @@ proc_Pop_list_α:
                         sub              rsp, 6064
                         mov              [rsp + 6040], rcx
                         mov              [rsp + 6048], rdx
-                        mov              [rsp + 6056], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 6032
                         xor              eax, eax
@@ -6080,10 +6030,10 @@ proc_Pop_list_α:
 proc_Pop_list_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n726_op14_α:
-                        mov              rdi, qword ptr [rbp + 6040]
-                        mov              rsi, qword ptr [rbp + 6048]
-                        lea              rdx, [rbp + 6064]
-                        mov              rcx, qword ptr [rbp + 6056]
+                        mov              rdi, qword ptr [rsp + 6040]
+                        mov              rsi, qword ptr [rsp + 6048]
+                        lea              rdx, [rsp + 6064]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n727_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -6106,17 +6056,15 @@ proc_Pop_list_β:
                                                                                         jmp   proc_Pop_list_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_Pop_list_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 6040]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 6040]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_Pop_list_ω:
-                        mov              rax, [rbp + 6048]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rax, [rsp + 6048]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_pop_final_α
@@ -6128,8 +6076,6 @@ proc_pop_final_α:
                         sub              rsp, 6064
                         mov              [rsp + 6040], rcx
                         mov              [rsp + 6048], rdx
-                        mov              [rsp + 6056], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 6032
                         xor              eax, eax
@@ -6137,10 +6083,10 @@ proc_pop_final_α:
 proc_pop_final_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n732_op14_α:
-                        mov              rdi, qword ptr [rbp + 6040]
-                        mov              rsi, qword ptr [rbp + 6048]
-                        lea              rdx, [rbp + 6064]
-                        mov              rcx, qword ptr [rbp + 6056]
+                        mov              rdi, qword ptr [rsp + 6040]
+                        mov              rsi, qword ptr [rsp + 6048]
+                        lea              rdx, [rsp + 6064]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n733_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -6163,17 +6109,15 @@ proc_pop_final_β:
                                                                                         jmp   proc_pop_final_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_pop_final_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 6040]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 6040]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_pop_final_ω:
-                        mov              rax, [rbp + 6048]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rax, [rsp + 6048]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_Pop_final_α
@@ -6185,8 +6129,6 @@ proc_Pop_final_α:
                         sub              rsp, 6064
                         mov              [rsp + 6040], rcx
                         mov              [rsp + 6048], rdx
-                        mov              [rsp + 6056], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 6032
                         xor              eax, eax
@@ -6194,10 +6136,10 @@ proc_Pop_final_α:
 proc_Pop_final_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n738_op14_α:
-                        mov              rdi, qword ptr [rbp + 6040]
-                        mov              rsi, qword ptr [rbp + 6048]
-                        lea              rdx, [rbp + 6064]
-                        mov              rcx, qword ptr [rbp + 6056]
+                        mov              rdi, qword ptr [rsp + 6040]
+                        mov              rsi, qword ptr [rsp + 6048]
+                        lea              rdx, [rsp + 6064]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n739_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -6220,17 +6162,15 @@ proc_Pop_final_β:
                                                                                         jmp   proc_Pop_final_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_Pop_final_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 6040]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 6040]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_Pop_final_ω:
-                        mov              rax, [rbp + 6048]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rax, [rsp + 6048]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_node_repr_α
@@ -6242,8 +6182,6 @@ proc_node_repr_α:
                         sub              rsp, 6064
                         mov              [rsp + 6040], rcx
                         mov              [rsp + 6048], rdx
-                        mov              [rsp + 6056], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 6032
                         xor              eax, eax
@@ -6251,10 +6189,10 @@ proc_node_repr_α:
 proc_node_repr_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n744_op14_α:
-                        mov              rdi, qword ptr [rbp + 6040]
-                        mov              rsi, qword ptr [rbp + 6048]
-                        lea              rdx, [rbp + 6064]
-                        mov              rcx, qword ptr [rbp + 6056]
+                        mov              rdi, qword ptr [rsp + 6040]
+                        mov              rsi, qword ptr [rsp + 6048]
+                        lea              rdx, [rsp + 6064]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n745_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -6277,17 +6215,15 @@ proc_node_repr_β:
                                                                                         jmp   proc_node_repr_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_node_repr_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 6040]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 6040]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_node_repr_ω:
-                        mov              rax, [rbp + 6048]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rax, [rsp + 6048]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_pp_node_α
@@ -6299,8 +6235,6 @@ proc_pp_node_α:
                         sub              rsp, 6064
                         mov              [rsp + 6040], rcx
                         mov              [rsp + 6048], rdx
-                        mov              [rsp + 6056], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 6032
                         xor              eax, eax
@@ -6308,10 +6242,10 @@ proc_pp_node_α:
 proc_pp_node_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n750_op14_α:
-                        mov              rdi, qword ptr [rbp + 6040]
-                        mov              rsi, qword ptr [rbp + 6048]
-                        lea              rdx, [rbp + 6064]
-                        mov              rcx, qword ptr [rbp + 6056]
+                        mov              rdi, qword ptr [rsp + 6040]
+                        mov              rsi, qword ptr [rsp + 6048]
+                        lea              rdx, [rsp + 6064]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n751_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -6334,17 +6268,15 @@ proc_pp_node_β:
                                                                                         jmp   proc_pp_node_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_pp_node_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 6040]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 6040]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_pp_node_ω:
-                        mov              rax, [rbp + 6048]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rax, [rsp + 6048]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_pp_bank_α
@@ -6356,8 +6288,6 @@ proc_pp_bank_α:
                         sub              rsp, 6064
                         mov              [rsp + 6040], rcx
                         mov              [rsp + 6048], rdx
-                        mov              [rsp + 6056], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 6032
                         xor              eax, eax
@@ -6365,10 +6295,10 @@ proc_pp_bank_α:
 proc_pp_bank_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n756_op14_α:
-                        mov              rdi, qword ptr [rbp + 6040]
-                        mov              rsi, qword ptr [rbp + 6048]
-                        lea              rdx, [rbp + 6064]
-                        mov              rcx, qword ptr [rbp + 6056]
+                        mov              rdi, qword ptr [rsp + 6040]
+                        mov              rsi, qword ptr [rsp + 6048]
+                        lea              rdx, [rsp + 6064]
+                        mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n757_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -6391,17 +6321,15 @@ proc_pp_bank_β:
                                                                                         jmp   proc_pp_bank_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_pp_bank_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 6040]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 6040]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_pp_bank_ω:
-                        mov              rax, [rbp + 6048]
-                        lea              rsp, [rbp + 6064]
-                        mov              rbp, [rbp + 6056]
+                        mov              rax, [rsp + 6048]
+                        add              rsp, 6064
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_PAT$0_α
