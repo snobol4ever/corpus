@@ -224,8 +224,6 @@ n12_assign_α:
                         add              rsp, 16
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rdx
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   n6_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n13_op75_α:
@@ -256,8 +254,6 @@ n14_assign_α:
                         mov              rdx, qword ptr [rbp + 424]
                         mov              qword ptr [1879052320], rax
                         mov              qword ptr [1879052328], rdx
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   n15_lit_string_α
 #=======================================================================================================================
 #     OUTPUT = "iterations: " N
@@ -387,8 +383,6 @@ n23_assign_α:
                         mov              rdx, qword ptr [rbp + 216]
                         mov              qword ptr [1879052288], rax
                         mov              qword ptr [1879052296], rdx
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   n24_lit_integer_α
 #=======================================================================================================================
 #     N = 0
@@ -415,8 +409,6 @@ n26_assign_α:
                         add              rsp, 16
                         mov              rdi, qword ptr [rip + .Lx68_0]
                         call             NV_SET_fn@PLT
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   n22_lit_string_α
 .Lx68_0:
                         .quad            .Lx68_0_s
@@ -437,8 +429,6 @@ n28_assign_α:
                         add              rsp, 16
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rdx
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   n3_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n29_binop_α:
@@ -464,8 +454,6 @@ n31_assign_α:
                         mov              rdx, qword ptr [rbp + 312]
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rdx
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   n3_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n32_binop_α:
@@ -534,8 +522,6 @@ n34_assign_α:
                         add              rsp, 16
                         mov              rdi, qword ptr [rip + .Lx76_0]
                         call             NV_SET_fn@PLT
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   main_γ
 .Lx76_0:
                         .quad            .Lx76_0_s

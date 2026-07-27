@@ -392,8 +392,6 @@ n26_assign_α:
                         mov              rdx, qword ptr [rbp + 696]
                         mov              qword ptr [1879052384], rax
                         mov              qword ptr [1879052392], rdx
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   n27_lit_string_α
 #=======================================================================================================================
 #     OUTPUT = "result: " RESULT
@@ -681,8 +679,6 @@ n40_assign_α:
                         add              rsp, 16
                         mov              rdi, qword ptr [rip + .Lx100_0]
                         call             NV_SET_fn@PLT
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   n36_lit_string_α
 .Lx100_0:
                         .quad            .Lx100_0_s
@@ -834,8 +830,6 @@ n50_assign_α:
                         mov              rdx, qword ptr [rbp + 216]
                         mov              qword ptr [1879052288], rax
                         mov              qword ptr [1879052296], rdx
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   n51_call_α
 #=======================================================================================================================
 #     T1 = TIME()
@@ -920,8 +914,6 @@ n55_assign_α:
                         mov              rdx, qword ptr [rbp + 280]
                         mov              qword ptr [1879052320], rax
                         mov              qword ptr [1879052328], rdx
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   n56_lit_integer_α
 #=======================================================================================================================
 #     ITER = 0
@@ -962,8 +954,6 @@ n59_assign_α:
                         add              rsp, 16
                         mov              rdi, qword ptr [rip + .Lx122_0]
                         call             NV_SET_fn@PLT
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   main_γ
 .Lx122_0:
                         .quad            .Lx122_0_s
@@ -976,8 +966,6 @@ n60_assign_α:
                         add              rsp, 16
                         mov              qword ptr [1879052336], rax
                         mov              qword ptr [1879052344], rdx
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   n20_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n61_assign_α:
@@ -985,8 +973,6 @@ n61_assign_α:
                         mov              rdx, qword ptr [rbp + 328]
                         mov              qword ptr [1879052336], rax
                         mov              qword ptr [1879052344], rdx
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   n63_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n62_assign_α:
@@ -995,8 +981,6 @@ n62_assign_α:
                         add              rsp, 16
                         mov              qword ptr [1879052368], rax
                         mov              qword ptr [1879052376], rdx
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   n21_var_α
 #=======================================================================================================================
 #     S = 'alpha,beta,gamma,delta,epsilon,zeta,eta,theta,iota,kappa,'
@@ -1018,8 +1002,6 @@ n64_assign_α:
                         add              rsp, 16
                         mov              qword ptr [1879052352], rax
                         mov              qword ptr [1879052360], rdx
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   n65_lit_string_α
 #=======================================================================================================================
 #     RESULT = ''
@@ -1041,8 +1023,6 @@ n66_assign_α:
                         add              rsp, 16
                         mov              qword ptr [1879052368], rax
                         mov              qword ptr [1879052376], rdx
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   n21_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:

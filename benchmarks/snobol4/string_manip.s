@@ -145,8 +145,6 @@ n8_assign_α:
                         mov              rdx, qword ptr [rbp + 616]
                         mov              qword ptr [1879052352], rax
                         mov              qword ptr [1879052360], rdx
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   n9_lit_string_α
 #=======================================================================================================================
 #     OUTPUT = "result: " N
@@ -301,8 +299,6 @@ n19_assign_α:
                         add              rsp, 16
                         mov              rdi, qword ptr [rip + .Lx69_0]
                         call             NV_SET_fn@PLT
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   n16_lit_string_α
 .Lx69_0:
                         .quad            .Lx69_0_s
@@ -356,8 +352,6 @@ n24_assign_α:
                         mov              rdx, qword ptr [rbp + 216]
                         mov              qword ptr [1879052288], rax
                         mov              qword ptr [1879052296], rdx
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   n25_lit_integer_α
 #=======================================================================================================================
 #     ITER = 0
@@ -434,8 +428,6 @@ n28_assign_α:
                         add              rsp, 16
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rdx
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   n4_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n29_binop_α:
@@ -504,8 +496,6 @@ n32_assign_α:
                         add              rsp, 16
                         mov              rdi, qword ptr [rip + .Lx83_0]
                         call             NV_SET_fn@PLT
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   main_γ
 .Lx83_0:
                         .quad            .Lx83_0_s
@@ -517,8 +507,6 @@ n33_assign_α:
                         mov              rdx, qword ptr [rbp + 264]
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rdx
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   n34_lit_string_α
 #=======================================================================================================================
 #     S = 'The quick brown fox jumps over the lazy dog'
@@ -540,8 +528,6 @@ n35_assign_α:
                         add              rsp, 16
                         mov              qword ptr [1879052320], rax
                         mov              qword ptr [1879052328], rdx
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   n36_var_α
 #=======================================================================================================================
 #     S = REPLACE(S, 'aeiou', '*****')
@@ -637,8 +623,6 @@ n42_assign_α:
                         mov              rdx, qword ptr [rbp + 552]
                         mov              qword ptr [1879052336], rax
                         mov              qword ptr [1879052344], rdx
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   n4_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n43_assign_α:
@@ -646,8 +630,6 @@ n43_assign_α:
                         mov              rdx, qword ptr [rbp + 424]
                         mov              qword ptr [1879052320], rax
                         mov              qword ptr [1879052328], rdx
-                        mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx
                                                                                         jmp   n38_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
