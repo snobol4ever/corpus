@@ -62,8 +62,6 @@ n2_assign_α:
                         add              rsp, 16
                         mov              qword ptr [1879052288], rax
                         mov              qword ptr [1879052296], rdx
-                        mov              qword ptr [rbp + 0], rax
-                        mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   n3_var_α
 #=======================================================================================================================
 # LOOP    OUTPUT = I
@@ -82,8 +80,6 @@ n4_assign_α:
                         add              rsp, 16
                         mov              rdi, qword ptr [rip + .Lx18_0]
                         call             NV_SET_fn@PLT
-                        mov              qword ptr [rbp + 0], rax
-                        mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   n5_var_α
 .Lx18_0:
                         .quad            .Lx18_0_s
@@ -181,8 +177,6 @@ n10_assign_α:
                         add              rsp, 16
                         mov              qword ptr [1879052288], rax
                         mov              qword ptr [1879052296], rdx
-                        mov              qword ptr [rbp + 0], rax
-                        mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   n7_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n11_op75_α:

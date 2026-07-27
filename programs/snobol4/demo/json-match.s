@@ -3990,8 +3990,6 @@ n260_assign_α:
                         mov              rdx, qword ptr [rbp + 24]
                         mov              qword ptr [1879052288], rax
                         mov              qword ptr [1879052296], rdx
-                        mov              qword ptr [rbp + 0], rax
-                        mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   n261_lit_string_α
 #=======================================================================================================================
 #                 ws             =  FENCE(SPAN(' ' CHAR(9) CHAR(10) CHAR(13)) | '')
@@ -4012,8 +4010,6 @@ n262_assign_α:
                         add              rsp, 16
                         mov              rdi, qword ptr [rip + .Lx324_0]
                         call             NV_SET_fn@PLT
-                        mov              qword ptr [rbp + 0], rax
-                        mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   main_γ
 .Lx324_0:
                         .quad            .Lx324_0_s
@@ -4046,8 +4042,6 @@ n264_assign_α:
                         mov              rdx, qword ptr [rbp + 88]
                         mov              qword ptr [1879052304], rax
                         mov              qword ptr [1879052312], rdx
-                        mov              qword ptr [rbp + 0], rax
-                        mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   n265_lit_string_α
 #=======================================================================================================================
 #                 hex            =  '0123456789abcdefABCDEF'
@@ -4069,8 +4063,6 @@ n266_assign_α:
                         add              rsp, 16
                         mov              qword ptr [1879052320], rax
                         mov              qword ptr [1879052328], rdx
-                        mov              qword ptr [rbp + 0], rax
-                        mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   n267_lit_string_α
 #=======================================================================================================================
 #                 dig            =  '0123456789'
@@ -4092,8 +4084,6 @@ n268_assign_α:
                         add              rsp, 16
                         mov              qword ptr [1879052336], rax
                         mov              qword ptr [1879052344], rdx
-                        mov              qword ptr [rbp + 0], rax
-                        mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   n269_lit_string_α
 #=======================================================================================================================
 #                 jescape        =  bslash
@@ -4134,8 +4124,6 @@ n271_assign_α:
                         mov              rdx, qword ptr [rbp + 184]
                         mov              qword ptr [1879052352], rax
                         mov              qword ptr [1879052360], rdx
-                        mov              qword ptr [rbp + 0], rax
-                        mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   n272_lit_string_α
 #=======================================================================================================================
 #                 jchunk         =  BREAK('"\' CHAR(10) CHAR(13))
@@ -4176,8 +4164,6 @@ n274_assign_α:
                         mov              rdx, qword ptr [rbp + 248]
                         mov              qword ptr [1879052368], rax
                         mov              qword ptr [1879052376], rdx
-                        mov              qword ptr [rbp + 0], rax
-                        mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   n275_lit_string_α
 #=======================================================================================================================
 #                 jstring        =  '"' jchunk ARBNO(jescape jchunk) '"'
@@ -4218,8 +4204,6 @@ n277_assign_α:
                         mov              rdx, qword ptr [rbp + 312]
                         mov              qword ptr [1879052384], rax
                         mov              qword ptr [1879052392], rdx
-                        mov              qword ptr [rbp + 0], rax
-                        mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   n278_lit_string_α
 #=======================================================================================================================
 #                 jnumber        =  FENCE('-' | '')
@@ -4260,8 +4244,6 @@ n280_assign_α:
                         mov              rdx, qword ptr [rbp + 376]
                         mov              qword ptr [1879052400], rax
                         mov              qword ptr [1879052408], rdx
-                        mov              qword ptr [rbp + 0], rax
-                        mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   n281_lit_string_α
 #=======================================================================================================================
 #                 jmember        =  ws jstring ws ':' *jelement
@@ -4302,8 +4284,6 @@ n283_assign_α:
                         mov              rdx, qword ptr [rbp + 440]
                         mov              qword ptr [1879052416], rax
                         mov              qword ptr [1879052424], rdx
-                        mov              qword ptr [rbp + 0], rax
-                        mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   n284_lit_string_α
 #=======================================================================================================================
 #                 jobject        =  '{' ( jmember ARBNO(',' jmember) | ws ) '}'
@@ -4344,8 +4324,6 @@ n286_assign_α:
                         mov              rdx, qword ptr [rbp + 504]
                         mov              qword ptr [1879052432], rax
                         mov              qword ptr [1879052440], rdx
-                        mov              qword ptr [rbp + 0], rax
-                        mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   n287_lit_string_α
 #=======================================================================================================================
 #                 jarray         =  '[' ( *jelement ARBNO(',' *jelement) | ws ) ']'
@@ -4386,8 +4364,6 @@ n289_assign_α:
                         mov              rdx, qword ptr [rbp + 568]
                         mov              qword ptr [1879052448], rax
                         mov              qword ptr [1879052456], rdx
-                        mov              qword ptr [rbp + 0], rax
-                        mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   n290_lit_string_α
 #=======================================================================================================================
 #                 jvalue         =  jstring | jnumber | jobject | jarray
@@ -4428,8 +4404,6 @@ n292_assign_α:
                         mov              rdx, qword ptr [rbp + 632]
                         mov              qword ptr [1879052464], rax
                         mov              qword ptr [1879052472], rdx
-                        mov              qword ptr [rbp + 0], rax
-                        mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   n293_lit_string_α
 #=======================================================================================================================
 #                 jelement       =  ws *jvalue ws
@@ -4470,8 +4444,6 @@ n295_assign_α:
                         mov              rdx, qword ptr [rbp + 696]
                         mov              qword ptr [1879052480], rax
                         mov              qword ptr [1879052488], rdx
-                        mov              qword ptr [rbp + 0], rax
-                        mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   n296_lit_string_α
 #=======================================================================================================================
 #                 json           =  POS(0) jelement RPOS(0)
@@ -4512,8 +4484,6 @@ n298_assign_α:
                         mov              rdx, qword ptr [rbp + 760]
                         mov              qword ptr [1879052496], rax
                         mov              qword ptr [1879052504], rdx
-                        mov              qword ptr [rbp + 0], rax
-                        mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   n299_lit_string_α
 #=======================================================================================================================
 #                 &TRIM          =  0
@@ -4637,8 +4607,6 @@ n307_assign_α:
                         add              rsp, 16
                         mov              qword ptr [1879052512], rax
                         mov              qword ptr [1879052520], rdx
-                        mov              qword ptr [rbp + 0], rax
-                        mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   n309_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n308_call_α:
@@ -4892,8 +4860,6 @@ n317_assign_α:
                         mov              rdx, qword ptr [rbp + 1208]
                         mov              rdi, qword ptr [rip + .Lx395_0]
                         call             NV_SET_fn@PLT
-                        mov              qword ptr [rbp + 0], rax
-                        mov              qword ptr [rbp + 8], rdx
                                                                                         jmp   main_γ
 .Lx395_0:
                         .quad            .Lx395_0_s
