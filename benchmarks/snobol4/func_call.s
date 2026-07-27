@@ -866,9 +866,9 @@ n63_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx118_5
-                        mov              rax, qword ptr [rsp + 528]
+                        mov              rax, qword ptr [rsp + 560]
                         mov              qword ptr [1879052304], rax
-                        mov              rax, qword ptr [rsp + 536]
+                        mov              rax, qword ptr [rsp + 568]
                         mov              qword ptr [1879052312], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx118_6]
