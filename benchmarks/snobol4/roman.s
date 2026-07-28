@@ -10,8 +10,6 @@ proc_LBL__ROMAN_α:
                         sub              rsp, 1280
                         mov              [rsp + 1256], rcx
                         mov              [rsp + 1264], rdx
-                        mov              [rsp + 1272], rbp
-                        mov              rbp, rsp
                         mov              qword ptr [rsp], 0
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 400], 0
@@ -37,7 +35,6 @@ n1_var_β:
                                                                                         jmp   n3_op14_α
 #-----------------------------------------------------------------------------------------------------------------------
 n2_match_head_α:
-                        mov              qword ptr [rsp + 280], rbp
                         mov              rdi, qword ptr [rsp + 432]
                         mov              rsi, qword ptr [rsp + 440]
                         call             rt_match_enter@PLT
@@ -70,7 +67,6 @@ n2_match_head_β:
                         mov              qword ptr [rcx + 0], rax
                         mov              rsp, qword ptr [rsp + 16]
                         mov              r12, qword ptr [rsp + 272]
-                        mov              rbp, qword ptr [rsp + 280]
                                                                                         jmp   n3_op14_α
 #-----------------------------------------------------------------------------------------------------------------------
 n3_op14_α:
@@ -217,7 +213,6 @@ n12_match_replace_α:
 .Lx49_0_s:
                         .string          "N"
 .Lx49_1:
-                        mov              rbp, qword ptr [rsp + 280]
                                                                                         jmp   n13_lit_string_α
 #=======================================================================================================================
 #     '0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,'
@@ -235,7 +230,6 @@ n13_lit_string_β:
                         .string          "0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
 #-----------------------------------------------------------------------------------------------------------------------
 n14_match_head_α:
-                        mov              qword ptr [rsp + 504], rbp
                         mov              rdi, qword ptr [rsp + 608]
                         mov              rsi, qword ptr [rsp + 616]
                         call             rt_match_enter@PLT
@@ -266,7 +260,6 @@ n14_match_head_β:
                         mov              qword ptr [rcx + 0], rax
                         mov              rsp, qword ptr [rsp + 480]
                         mov              r12, qword ptr [rsp + 496]
-                        mov              rbp, qword ptr [rsp + 504]
                                                                                         jmp   n23_op14_α
 #-----------------------------------------------------------------------------------------------------------------------
 n15_match_sequence_α:
@@ -318,7 +311,6 @@ n16_match_release_α:
                         pop              r15
                         pop              r14
                         mov              r12, qword ptr [rsp + 496]
-                        mov              rbp, qword ptr [rsp + 504]
                                                                                         jmp   n20_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n17_match_defer_α:
@@ -689,17 +681,15 @@ proc_LBL__ROMAN_β:
                                                                                         jmp   proc_LBL__ROMAN_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__ROMAN_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 1256]
-                        lea              rsp, [rbp + 1280]
-                        mov              rbp, [rbp + 1272]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 1256]
+                        add              rsp, 1280
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__ROMAN_ω:
-                        mov              rax, [rbp + 1264]
-                        lea              rsp, [rbp + 1280]
-                        mov              rbp, [rbp + 1272]
+                        mov              rax, [rsp + 1264]
+                        add              rsp, 1280
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_ROMAN_α
@@ -851,8 +841,6 @@ main_α:
                         mov              ecx, 1256
                         xor              eax, eax
                         rep stosb
-                        mov              [rsp + 1248], rbp
-                        mov              rbp, rsp
 main_α_body:
 #=======================================================================================================================
 #     &TRIM = 1
@@ -965,7 +953,6 @@ n90_call_β:
                                                                                         jmp   n96_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n91_match_head_α:
-                        mov              qword ptr [rsp + 280], rbp
                         mov              rdi, qword ptr [rsp + 432]
                         mov              rsi, qword ptr [rsp + 440]
                         call             rt_match_enter@PLT
@@ -998,7 +985,6 @@ n91_match_head_β:
                         mov              qword ptr [rcx + 0], rax
                         mov              rsp, qword ptr [rsp + 16]
                         mov              r12, qword ptr [rsp + 272]
-                        mov              rbp, qword ptr [rsp + 280]
                                                                                         jmp   n92_op14_α
 #-----------------------------------------------------------------------------------------------------------------------
 n92_op14_α:
@@ -1436,7 +1422,6 @@ n115_match_replace_α:
 .Lx195_0_s:
                         .string          "N"
 .Lx195_1:
-                        mov              rbp, qword ptr [rsp + 280]
                                                                                         jmp   n118_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n116_op75_α:
@@ -1533,7 +1518,6 @@ n121_lit_string_β:
                         .string          "ms: "
 #-----------------------------------------------------------------------------------------------------------------------
 n122_match_head_α:
-                        mov              qword ptr [rsp + 504], rbp
                         mov              rdi, qword ptr [rsp + 608]
                         mov              rsi, qword ptr [rsp + 616]
                         call             rt_match_enter@PLT
@@ -1564,7 +1548,6 @@ n122_match_head_β:
                         mov              qword ptr [rcx + 0], rax
                         mov              rsp, qword ptr [rsp + 480]
                         mov              r12, qword ptr [rsp + 496]
-                        mov              rbp, qword ptr [rsp + 504]
                                                                                         jmp   n140_op14_α
 #-----------------------------------------------------------------------------------------------------------------------
 n123_var_α:
@@ -1673,7 +1656,6 @@ n129_match_release_α:
                         pop              r15
                         pop              r14
                         mov              r12, qword ptr [rsp + 496]
-                        mov              rbp, qword ptr [rsp + 504]
                                                                                         jmp   n135_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n130_match_defer_α:
@@ -2182,16 +2164,12 @@ main_β:
 main_γ:
                         mov              eax, 1
                         xor              edx, edx
-                        mov              rsp, rbp
-                        mov              rbp, [rsp + 1248]
                         add              rsp, 1256
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
-                        mov              rsp, rbp
                         mov              eax, 99
                         xor              edx, edx
-                        mov              rbp, [rsp + 1248]
                         add              rsp, 1256
                         ret
                         .section         .rodata

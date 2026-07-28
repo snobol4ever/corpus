@@ -10,8 +10,6 @@ proc_LBL__RSUM_α:
                         sub              rsp, 1648
                         mov              [rsp + 1624], rcx
                         mov              [rsp + 1632], rdx
-                        mov              [rsp + 1640], rbp
-                        mov              rbp, rsp
                         mov              qword ptr [rsp], 0
                         mov              qword ptr [rsp + 8], 0
 proc_LBL__RSUM_α_body:
@@ -347,17 +345,15 @@ proc_LBL__RSUM_β:
                                                                                         jmp   proc_LBL__RSUM_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__RSUM_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 1624]
-                        lea              rsp, [rbp + 1648]
-                        mov              rbp, [rbp + 1640]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 1624]
+                        add              rsp, 1648
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__RSUM_ω:
-                        mov              rax, [rbp + 1632]
-                        lea              rsp, [rbp + 1648]
-                        mov              rbp, [rbp + 1640]
+                        mov              rax, [rsp + 1632]
+                        add              rsp, 1648
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_RSUM_α
@@ -430,8 +426,8 @@ proc_PAT$0_α:
                         mov              qword ptr [rsp + 72], 0
                         mov              qword ptr [rsp + 112], 0
                         mov              qword ptr [rsp + 120], 0
-                        mov              qword ptr [rbp + 128], r8
-                        mov              dword ptr [rbp + 120], r14d
+                        mov              qword ptr [rsp + 128], r8
+                        mov              dword ptr [rsp + 120], r14d
 proc_PAT$0_attempt:
 proc_PAT$0_α_body:
                         lea              rax, [rip + n45_match_sequence_β]
@@ -711,8 +707,6 @@ main_α:
                         mov              ecx, 1624
                         xor              eax, eax
                         rep stosb
-                        mov              [rsp + 1616], rbp
-                        mov              rbp, rsp
 main_α_body:
 #=======================================================================================================================
 #     &TRIM = 1
@@ -926,7 +920,6 @@ n80_call_β:
                                                                                         jmp   n92_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n81_match_head_α:
-                        mov              qword ptr [rsp + 728], rbp
                         mov              rdi, qword ptr [rsp + 800]
                         mov              rsi, qword ptr [rsp + 808]
                         call             rt_match_enter@PLT
@@ -957,7 +950,6 @@ n81_match_head_β:
                         mov              qword ptr [rcx + 0], rax
                         mov              rsp, qword ptr [rsp + 704]
                         mov              r12, qword ptr [rsp + 720]
-                        mov              rbp, qword ptr [rsp + 728]
                                                                                         jmp   n73_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
 n82_assign_α:
@@ -1748,7 +1740,6 @@ n122_match_replace_α:
 .Lx247_0_s:
                         .string          "DATA"
 .Lx247_1:
-                        mov              rbp, qword ptr [rsp + 728]
                                                                                         jmp   n128_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n123_var_α:
@@ -2400,16 +2391,12 @@ main_β:
 main_γ:
                         mov              eax, 1
                         xor              edx, edx
-                        mov              rsp, rbp
-                        mov              rbp, [rsp + 1616]
                         add              rsp, 1624
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
-                        mov              rsp, rbp
                         mov              eax, 99
                         xor              edx, edx
-                        mov              rbp, [rsp + 1616]
                         add              rsp, 1624
                         ret
                         .section         .rodata
