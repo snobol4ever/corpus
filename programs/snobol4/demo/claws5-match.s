@@ -16,8 +16,8 @@ proc_PAT$0_α:
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 224], 0
                         mov              qword ptr [rsp + 232], 0
-                        mov              qword ptr [rbp + 240], r8
-                        mov              dword ptr [rbp + 232], r14d
+                        mov              qword ptr [rsp + 240], r8
+                        mov              dword ptr [rsp + 232], r14d
 proc_PAT$0_attempt:
 proc_PAT$0_α_body:
                         lea              rax, [rip + n0_match_sequence_β]
@@ -545,8 +545,6 @@ main_α:
                         mov              ecx, 600
                         xor              eax, eax
                         rep stosb
-                        mov              [rsp + 592], rbp
-                        mov              rbp, rsp
 main_α_body:
 #=======================================================================================================================
 #                 &TRIM          =  0
@@ -781,7 +779,6 @@ n65_var_α:
                                                                                         jmp   n66_match_head_α
 #-----------------------------------------------------------------------------------------------------------------------
 n66_match_head_α:
-                        mov              qword ptr [rsp + 424], rbp
                         mov              rdi, qword ptr [rsp + 464]
                         mov              rsi, qword ptr [rsp + 472]
                         call             rt_match_enter@PLT
@@ -812,7 +809,6 @@ n66_match_head_β:
                         mov              qword ptr [rcx + 0], rax
                         mov              rsp, qword ptr [rsp + 400]
                         mov              r12, qword ptr [rsp + 416]
-                        mov              rbp, qword ptr [rsp + 424]
                                                                                         jmp   n52_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n67_match_defer_α:
@@ -935,7 +931,6 @@ n68_match_release_α:
                         pop              r15
                         pop              r14
                         mov              r12, qword ptr [rsp + 416]
-                        mov              rbp, qword ptr [rsp + 424]
                                                                                         jmp   n69_lit_string_α
 #=======================================================================================================================
 #                 OUTPUT          =  'matched bytes=' SIZE(src)   :(END)
@@ -1005,16 +1000,12 @@ main_β:
 main_γ:
                         mov              eax, 1
                         xor              edx, edx
-                        mov              rsp, rbp
-                        mov              rbp, [rsp + 592]
                         add              rsp, 600
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
-                        mov              rsp, rbp
                         mov              eax, 99
                         xor              edx, edx
-                        mov              rbp, [rsp + 592]
                         add              rsp, 600
                         ret
                         .section         .rodata

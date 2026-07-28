@@ -16,8 +16,8 @@ proc_PAT$0_α:
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 32], 0
                         mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rbp + 48], r8
-                        mov              dword ptr [rbp + 40], r14d
+                        mov              qword ptr [rsp + 48], r8
+                        mov              dword ptr [rsp + 40], r14d
 proc_PAT$0_attempt:
 proc_PAT$0_α_body:
                         lea              rax, [rip + n0_match_any_β]
@@ -98,8 +98,8 @@ proc_PAT$1_α:
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
                         mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rbp + 32], r8
-                        mov              dword ptr [rbp + 24], r14d
+                        mov              qword ptr [rsp + 32], r8
+                        mov              dword ptr [rsp + 24], r14d
 proc_PAT$1_attempt:
 proc_PAT$1_α_body:
                         lea              rax, [rip + n3_match_span_β]
@@ -209,8 +209,8 @@ proc_PAT$2_α:
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 112], 0
                         mov              qword ptr [rsp + 120], 0
-                        mov              qword ptr [rbp + 128], r8
-                        mov              dword ptr [rbp + 120], r14d
+                        mov              qword ptr [rsp + 128], r8
+                        mov              dword ptr [rsp + 120], r14d
 proc_PAT$2_attempt:
 proc_PAT$2_α_body:
                         lea              rax, [rip + n6_match_alternate_β]
@@ -573,8 +573,8 @@ proc_PAT$3_α:
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 128], 0
                         mov              qword ptr [rsp + 136], 0
-                        mov              qword ptr [rbp + 144], r8
-                        mov              dword ptr [rbp + 136], r14d
+                        mov              qword ptr [rsp + 144], r8
+                        mov              dword ptr [rsp + 136], r14d
 proc_PAT$3_attempt:
 proc_PAT$3_α_body:
                         lea              rax, [rip + n24_match_alternate_β]
@@ -947,8 +947,8 @@ proc_PAT$4_α:
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 160], 0
                         mov              qword ptr [rsp + 168], 0
-                        mov              qword ptr [rbp + 176], r8
-                        mov              dword ptr [rbp + 168], r14d
+                        mov              qword ptr [rsp + 176], r8
+                        mov              dword ptr [rsp + 168], r14d
 proc_PAT$4_attempt:
 proc_PAT$4_α_body:
                         lea              rax, [rip + n45_match_alternate_β]
@@ -1477,8 +1477,8 @@ proc_PAT$5_α:
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 160], 0
                         mov              qword ptr [rsp + 168], 0
-                        mov              qword ptr [rbp + 176], r8
-                        mov              dword ptr [rbp + 168], r14d
+                        mov              qword ptr [rsp + 176], r8
+                        mov              dword ptr [rsp + 168], r14d
 proc_PAT$5_attempt:
 proc_PAT$5_α_body:
                         lea              rax, [rip + n70_match_alternate_β]
@@ -2007,8 +2007,8 @@ proc_PAT$6_α:
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 208], 0
                         mov              qword ptr [rsp + 216], 0
-                        mov              qword ptr [rbp + 224], r8
-                        mov              dword ptr [rbp + 216], r14d
+                        mov              qword ptr [rsp + 224], r8
+                        mov              dword ptr [rsp + 216], r14d
 proc_PAT$6_attempt:
 proc_PAT$6_α_body:
                         lea              rax, [rip + n95_match_sequence_β]
@@ -2486,8 +2486,6 @@ main_α:
                         mov              ecx, 1032
                         xor              eax, eax
                         rep stosb
-                        mov              [rsp + 1024], rbp
-                        mov              rbp, rsp
 main_α_body:
 #=======================================================================================================================
 #         V              =  ANY('abcdefghijklmnopqrstuvwxyz')
@@ -3000,7 +2998,6 @@ n153_var_α:
                                                                                         jmp   n154_match_head_α
 #-----------------------------------------------------------------------------------------------------------------------
 n154_match_head_α:
-                        mov              qword ptr [rsp + 872], rbp
                         mov              rdi, qword ptr [rsp + 896]
                         mov              rsi, qword ptr [rsp + 904]
                         call             rt_match_enter@PLT
@@ -3031,7 +3028,6 @@ n154_match_head_β:
                         mov              qword ptr [rcx + 0], rax
                         mov              rsp, qword ptr [rsp + 848]
                         mov              r12, qword ptr [rsp + 864]
-                        mov              rbp, qword ptr [rsp + 872]
                                                                                         jmp   n119_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n155_match_defer_α:
@@ -3154,7 +3150,6 @@ n156_match_release_α:
                         pop              r15
                         pop              r14
                         mov              r12, qword ptr [rsp + 864]
-                        mov              rbp, qword ptr [rsp + 872]
                                                                                         jmp   n157_lit_string_α
 #=======================================================================================================================
 #         OUTPUT         =  'matched bytes=' SIZE(src)      :(END)
@@ -3224,16 +3219,12 @@ main_β:
 main_γ:
                         mov              eax, 1
                         xor              edx, edx
-                        mov              rsp, rbp
-                        mov              rbp, [rsp + 1024]
                         add              rsp, 1032
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
-                        mov              rsp, rbp
                         mov              eax, 99
                         xor              edx, edx
-                        mov              rbp, [rsp + 1024]
                         add              rsp, 1032
                         ret
                         .section         .rodata
