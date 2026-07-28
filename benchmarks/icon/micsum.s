@@ -2237,9 +2237,8 @@ proc_dofile_ω:
 proc_dofile_dcα:
                         pop              r11
                         sub              rsp, 3136
-                        mov              qword ptr [rsp + 3128], rbp
+                        mov              qword ptr [rsp + 3112], rbp
                         mov              rbp, rsp
-                        add              rbp, 16
                         mov              qword ptr [rbp + 3088], r11
                         lea              rax, [rip + .Lx00094_2]
                         mov              qword ptr [rbp + 3096], rax
@@ -2256,17 +2255,21 @@ proc_dofile_dcα:
                         call             rt_pl_dc_prep@PLT
                                                                                         jmp   proc_dofile_α_body
 .Lx00094_2:
-                        mov              rdx, qword ptr [rsp + -3136]
+                        mov              rdx, qword ptr [rsp + 0]
                         mov              rcx, rsp
                         add              rcx, -3120
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_γ@PLT
 .Lx00094_3:
-                        mov              rdi, qword ptr [rsp + -3136]
+                        mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, rsp
                         add              rsi, -3120
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
 proc_startup:

@@ -379,9 +379,8 @@ proc_alts_ω:
 proc_alts_dcα:
                         pop              r11
                         sub              rsp, 576
-                        mov              qword ptr [rsp + 568], rbp
+                        mov              qword ptr [rsp + 552], rbp
                         mov              rbp, rsp
-                        add              rbp, 16
                         mov              qword ptr [rbp + 528], r11
                         lea              rax, [rip + .Lx54_2]
                         mov              qword ptr [rbp + 536], rax
@@ -397,17 +396,21 @@ proc_alts_dcα:
                         call             rt_pl_dc_prep@PLT
                                                                                         jmp   proc_alts_α_body
 .Lx54_2:
-                        mov              rdx, qword ptr [rsp + -576]
+                        mov              rdx, qword ptr [rsp + 0]
                         mov              rcx, rsp
                         add              rcx, -560
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_γ@PLT
 .Lx54_3:
-                        mov              rdi, qword ptr [rsp + -576]
+                        mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, rsp
                         add              rsi, -560
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
 #-----------------------------------------------------------------------------------------------------------------------
@@ -542,9 +545,8 @@ proc_comment_ω:
 proc_comment_dcα:
                         pop              r11
                         sub              rsp, 208
-                        mov              qword ptr [rsp + 200], rbp
+                        mov              qword ptr [rsp + 184], rbp
                         mov              rbp, rsp
-                        add              rbp, 16
                         mov              qword ptr [rbp + 160], r11
                         lea              rax, [rip + .Lx73_2]
                         mov              qword ptr [rbp + 168], rax
@@ -560,17 +562,21 @@ proc_comment_dcα:
                         call             rt_pl_dc_prep@PLT
                                                                                         jmp   proc_comment_α_body
 .Lx73_2:
-                        mov              rdx, qword ptr [rsp + -208]
+                        mov              rdx, qword ptr [rsp + 0]
                         mov              rcx, rsp
                         add              rcx, -192
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_γ@PLT
 .Lx73_3:
-                        mov              rdi, qword ptr [rsp + -208]
+                        mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, rsp
                         add              rsi, -192
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
 #-----------------------------------------------------------------------------------------------------------------------
@@ -995,9 +1001,8 @@ proc_define_ω:
 proc_define_dcα:
                         pop              r11
                         sub              rsp, 560
-                        mov              qword ptr [rsp + 552], rbp
+                        mov              qword ptr [rsp + 536], rbp
                         mov              rbp, rsp
-                        add              rbp, 16
                         mov              qword ptr [rbp + 512], r11
                         lea              rax, [rip + .Lx00012_2]
                         mov              qword ptr [rbp + 520], rax
@@ -1013,17 +1018,21 @@ proc_define_dcα:
                         call             rt_pl_dc_prep@PLT
                                                                                         jmp   proc_define_α_body
 .Lx00012_2:
-                        mov              rdx, qword ptr [rsp + -560]
+                        mov              rdx, qword ptr [rsp + 0]
                         mov              rcx, rsp
                         add              rcx, -544
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_γ@PLT
 .Lx00012_3:
-                        mov              rdi, qword ptr [rsp + -560]
+                        mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, rsp
                         add              rsi, -544
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1457,9 +1466,8 @@ proc_defnon_ω:
 proc_defnon_dcα:
                         pop              r11
                         sub              rsp, 640
-                        mov              qword ptr [rsp + 632], rbp
+                        mov              qword ptr [rsp + 616], rbp
                         mov              rbp, rsp
-                        add              rbp, 16
                         mov              qword ptr [rbp + 592], r11
                         lea              rax, [rip + .Lx00044_2]
                         mov              qword ptr [rbp + 600], rax
@@ -1475,17 +1483,21 @@ proc_defnon_dcα:
                         call             rt_pl_dc_prep@PLT
                                                                                         jmp   proc_defnon_α_body
 .Lx00044_2:
-                        mov              rdx, qword ptr [rsp + -640]
+                        mov              rdx, qword ptr [rsp + 0]
                         mov              rcx, rsp
                         add              rcx, -624
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_γ@PLT
 .Lx00044_3:
-                        mov              rdi, qword ptr [rsp + -640]
+                        mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, rsp
                         add              rsi, -624
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1498,8 +1510,6 @@ proc_error_α:
                         sub              rsp, 160
                         mov              [rsp + 136], rcx
                         mov              [rsp + 144], rdx
-                        mov              [rsp + 152], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 128
                         mov              edx, 128
@@ -1507,9 +1517,9 @@ proc_error_α:
 proc_error_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n00045_lit_string_α:
-                        mov              qword ptr [rbp + 96], 1
+                        mov              qword ptr [rsp + 96], 1
                         mov              rax, qword ptr [rip + .Lx00046_0]
-                        mov              qword ptr [rbp + 104], rax
+                        mov              qword ptr [rsp + 104], rax
                                                                                         jmp   n00047_var_α
 .Lx00046_0:
                         .quad            .Lx00046_0_s
@@ -1517,31 +1527,31 @@ n00045_lit_string_α:
                         .string          "*** erroneous line:  "
 #-----------------------------------------------------------------------------------------------------------------------
 n00047_var_α:
-                        mov              rax, qword ptr [rbp + 16]
-                        mov              qword ptr [rbp + 112], rax
-                        mov              rax, qword ptr [rbp + 24]
-                        mov              qword ptr [rbp + 120], rax
+                        mov              rax, qword ptr [rsp + 16]
+                        mov              qword ptr [rsp + 112], rax
+                        mov              rax, qword ptr [rsp + 24]
+                        mov              qword ptr [rsp + 120], rax
                                                                                         jmp   n00048_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00048_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 96]
-                        mov              qword ptr [rbp + 48], rax
-                        mov              rax, qword ptr [rbp + 104]
-                        mov              qword ptr [rbp + 56], rax
-                        mov              rax, qword ptr [rbp + 112]
-                        mov              qword ptr [rbp + 64], rax
-                        mov              rax, qword ptr [rbp + 120]
-                        mov              qword ptr [rbp + 72], rax
+                        mov              rax, qword ptr [rsp + 96]
+                        mov              qword ptr [rsp + 48], rax
+                        mov              rax, qword ptr [rsp + 104]
+                        mov              qword ptr [rsp + 56], rax
+                        mov              rax, qword ptr [rsp + 112]
+                        mov              qword ptr [rsp + 64], rax
+                        mov              rax, qword ptr [rsp + 120]
+                        mov              qword ptr [rsp + 72], rax
                         .section         .rodata
 .Lrkfn197:              .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lrkfn197]
-                        lea              rsi, [rbp + 48]
+                        lea              rsi, [rsp + 48]
                         mov              edx, 2
                         call             rt_call_arr@PLT
-                        mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx
+                        mov              qword ptr [rsp + 32], rax
+                        mov              qword ptr [rsp + 40], rdx
                         cmp              eax, 99
                                                                                         je    n00049_return_α
                                                                                         jmp   n00049_return_α
@@ -1549,43 +1559,40 @@ n00048_call_builtin_icon_β:
                                                                                         jmp   n00049_return_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00049_return_α:
-                        mov              qword ptr [rbp + 0], 0
-                        mov              qword ptr [rbp + 8], 0
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                                                                                         jmp   proc_error_γ
 #-----------------------------------------------------------------------------------------------------------------------
 proc_error_res:
                         add              rsp, 8
-                        pop              rbp
+                        pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
 proc_error_β:
                                                                                         jmp   proc_error_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_error_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 136]
-                        lea              rsp, [rbp + 160]
-                        mov              rbp, [rbp + 152]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 136]
+                        add              rsp, 160
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_error_ω:
-                        mov              rax, [rbp + 144]
-                        lea              rsp, [rbp + 160]
-                        mov              rbp, [rbp + 152]
+                        mov              rax, [rsp + 144]
+                        add              rsp, 160
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_error_dcα:
                         pop              r11
                         sub              rsp, 176
-                        mov              qword ptr [rsp + 168], rbp
+                        mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
-                        add              rbp, 16
-                        mov              qword ptr [rbp + 128], r11
+                        mov              qword ptr [rsp + 128], r11
                         lea              rax, [rip + .Lx00050_2]
-                        mov              qword ptr [rbp + 136], rax
+                        mov              qword ptr [rsp + 136], rax
                         lea              rax, [rip + .Lx00050_3]
-                        mov              qword ptr [rbp + 144], rax
-                        mov              qword ptr [rbp + 16], rsi
+                        mov              qword ptr [rsp + 144], rax
+                        mov              qword ptr [rsp + 16], rsi
                         mov              rdi, rbp
                         mov              esi, 128
                         mov              edx, 128
@@ -1595,17 +1602,21 @@ proc_error_dcα:
                         call             rt_pl_dc_prep@PLT
                                                                                         jmp   proc_error_α_body
 .Lx00050_2:
-                        mov              rdx, qword ptr [rsp + -176]
+                        mov              rdx, qword ptr [rsp + 0]
                         mov              rcx, rsp
                         add              rcx, -160
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_γ@PLT
 .Lx00050_3:
-                        mov              rdi, qword ptr [rsp + -176]
+                        mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, rsp
                         add              rsi, -160
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2566,9 +2577,8 @@ proc_gener_ω:
 proc_gener_dcα:
                         pop              r11
                         sub              rsp, 1808
-                        mov              qword ptr [rsp + 1800], rbp
+                        mov              qword ptr [rsp + 1784], rbp
                         mov              rbp, rsp
-                        add              rbp, 16
                         mov              qword ptr [rbp + 1760], r11
                         lea              rax, [rip + .Lx00138_2]
                         mov              qword ptr [rbp + 1768], rax
@@ -2584,17 +2594,21 @@ proc_gener_dcα:
                         call             rt_pl_dc_prep@PLT
                                                                                         jmp   proc_gener_α_body
 .Lx00138_2:
-                        mov              rdx, qword ptr [rsp + -1808]
+                        mov              rdx, qword ptr [rsp + 0]
                         mov              rcx, rsp
                         add              rcx, -1792
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_γ@PLT
 .Lx00138_3:
-                        mov              rdi, qword ptr [rsp + -1808]
+                        mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, rsp
                         add              rsi, -1792
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3202,9 +3216,8 @@ proc_generate_ω:
 proc_generate_dcα:
                         pop              r11
                         sub              rsp, 928
-                        mov              qword ptr [rsp + 920], rbp
+                        mov              qword ptr [rsp + 904], rbp
                         mov              rbp, rsp
-                        add              rbp, 16
                         mov              qword ptr [rbp + 880], r11
                         lea              rax, [rip + .Lx00194_2]
                         mov              qword ptr [rbp + 888], rax
@@ -3220,17 +3233,21 @@ proc_generate_dcα:
                         call             rt_pl_dc_prep@PLT
                                                                                         jmp   proc_generate_α_body
 .Lx00194_2:
-                        mov              rdx, qword ptr [rsp + -928]
+                        mov              rdx, qword ptr [rsp + 0]
                         mov              rcx, rsp
                         add              rcx, -912
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_γ@PLT
 .Lx00194_3:
-                        mov              rdi, qword ptr [rsp + -928]
+                        mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, rsp
                         add              rsi, -912
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
 #-----------------------------------------------------------------------------------------------------------------------
@@ -3420,9 +3437,8 @@ proc_getrhs_ω:
 proc_getrhs_dcα:
                         pop              r11
                         sub              rsp, 352
-                        mov              qword ptr [rsp + 344], rbp
+                        mov              qword ptr [rsp + 328], rbp
                         mov              rbp, rsp
-                        add              rbp, 16
                         mov              qword ptr [rbp + 304], r11
                         lea              rax, [rip + .Lx00216_2]
                         mov              qword ptr [rbp + 312], rax
@@ -3438,17 +3454,21 @@ proc_getrhs_dcα:
                         call             rt_pl_dc_prep@PLT
                                                                                         jmp   proc_getrhs_α_body
 .Lx00216_2:
-                        mov              rdx, qword ptr [rsp + -352]
+                        mov              rdx, qword ptr [rsp + 0]
                         mov              rcx, rsp
                         add              rcx, -336
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_γ@PLT
 .Lx00216_3:
-                        mov              rdi, qword ptr [rsp + -352]
+                        mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, rsp
                         add              rsi, -336
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4465,9 +4485,8 @@ proc_grammar_ω:
 proc_grammar_dcα:
                         pop              r11
                         sub              rsp, 1472
-                        mov              qword ptr [rsp + 1464], rbp
+                        mov              qword ptr [rsp + 1448], rbp
                         mov              rbp, rsp
-                        add              rbp, 16
                         mov              qword ptr [rbp + 1424], r11
                         lea              rax, [rip + .Lx00306_2]
                         mov              qword ptr [rbp + 1432], rax
@@ -4483,17 +4502,21 @@ proc_grammar_dcα:
                         call             rt_pl_dc_prep@PLT
                                                                                         jmp   proc_grammar_α_body
 .Lx00306_2:
-                        mov              rdx, qword ptr [rsp + -1472]
+                        mov              rdx, qword ptr [rsp + 0]
                         mov              rcx, rsp
                         add              rcx, -1456
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_γ@PLT
 .Lx00306_3:
-                        mov              rdi, qword ptr [rsp + -1472]
+                        mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, rsp
                         add              rsi, -1456
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4655,9 +4678,8 @@ proc_listimage_ω:
 proc_listimage_dcα:
                         pop              r11
                         sub              rsp, 352
-                        mov              qword ptr [rsp + 344], rbp
+                        mov              qword ptr [rsp + 328], rbp
                         mov              rbp, rsp
-                        add              rbp, 16
                         mov              qword ptr [rbp + 304], r11
                         lea              rax, [rip + .Lx00324_2]
                         mov              qword ptr [rbp + 312], rax
@@ -4673,17 +4695,21 @@ proc_listimage_dcα:
                         call             rt_pl_dc_prep@PLT
                                                                                         jmp   proc_listimage_α_body
 .Lx00324_2:
-                        mov              rdx, qword ptr [rsp + -352]
+                        mov              rdx, qword ptr [rsp + 0]
                         mov              rcx, rsp
                         add              rcx, -336
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_γ@PLT
 .Lx00324_3:
-                        mov              rdi, qword ptr [rsp + -352]
+                        mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, rsp
                         add              rsi, -336
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4867,9 +4893,8 @@ proc_prompter_ω:
 proc_prompter_dcα:
                         pop              r11
                         sub              rsp, 304
-                        mov              qword ptr [rsp + 296], rbp
+                        mov              qword ptr [rsp + 280], rbp
                         mov              rbp, rsp
-                        add              rbp, 16
                         mov              qword ptr [rbp + 256], r11
                         lea              rax, [rip + .Lx00344_2]
                         mov              qword ptr [rbp + 264], rax
@@ -4885,17 +4910,21 @@ proc_prompter_dcα:
                         call             rt_pl_dc_prep@PLT
                                                                                         jmp   proc_prompter_α_body
 .Lx00344_2:
-                        mov              rdx, qword ptr [rsp + -304]
+                        mov              rdx, qword ptr [rsp + 0]
                         mov              rcx, rsp
                         add              rcx, -288
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_γ@PLT
 .Lx00344_3:
-                        mov              rdi, qword ptr [rsp + -304]
+                        mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, rsp
                         add              rsi, -288
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
 #-----------------------------------------------------------------------------------------------------------------------
@@ -5810,9 +5839,8 @@ proc_pwrite_ω:
 proc_pwrite_dcα:
                         pop              r11
                         sub              rsp, 1744
-                        mov              qword ptr [rsp + 1736], rbp
+                        mov              qword ptr [rsp + 1720], rbp
                         mov              rbp, rsp
-                        add              rbp, 16
                         mov              qword ptr [rbp + 1696], r11
                         lea              rax, [rip + .Lx00434_2]
                         mov              qword ptr [rbp + 1704], rax
@@ -5829,17 +5857,21 @@ proc_pwrite_dcα:
                         call             rt_pl_dc_prep@PLT
                                                                                         jmp   proc_pwrite_α_body
 .Lx00434_2:
-                        mov              rdx, qword ptr [rsp + -1744]
+                        mov              rdx, qword ptr [rsp + 0]
                         mov              rcx, rsp
                         add              rcx, -1728
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_γ@PLT
 .Lx00434_3:
-                        mov              rdi, qword ptr [rsp + -1744]
+                        mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, rsp
                         add              rsi, -1728
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
 #-----------------------------------------------------------------------------------------------------------------------
@@ -6298,9 +6330,8 @@ proc_source_ω:
 proc_source_dcα:
                         pop              r11
                         sub              rsp, 800
-                        mov              qword ptr [rsp + 792], rbp
+                        mov              qword ptr [rsp + 776], rbp
                         mov              rbp, rsp
-                        add              rbp, 16
                         mov              qword ptr [rbp + 752], r11
                         lea              rax, [rip + .Lx00472_2]
                         mov              qword ptr [rbp + 760], rax
@@ -6316,17 +6347,21 @@ proc_source_dcα:
                         call             rt_pl_dc_prep@PLT
                                                                                         jmp   proc_source_α_body
 .Lx00472_2:
-                        mov              rdx, qword ptr [rsp + -800]
+                        mov              rdx, qword ptr [rsp + 0]
                         mov              rcx, rsp
                         add              rcx, -784
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_γ@PLT
 .Lx00472_3:
-                        mov              rdi, qword ptr [rsp + -800]
+                        mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, rsp
                         add              rsi, -784
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
 #-----------------------------------------------------------------------------------------------------------------------
@@ -6339,8 +6374,6 @@ proc_symimage_α:
                         sub              rsp, 624
                         mov              [rsp + 600], rcx
                         mov              [rsp + 608], rdx
-                        mov              [rsp + 616], rbp
-                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 576
                         mov              edx, 592
@@ -6348,27 +6381,27 @@ proc_symimage_α:
 proc_symimage_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n00473_var_α:
-                        mov              rax, qword ptr [rbp + 16]
-                        mov              qword ptr [rbp + 96], rax
-                        mov              rax, qword ptr [rbp + 24]
-                        mov              qword ptr [rbp + 104], rax
+                        mov              rax, qword ptr [rsp + 16]
+                        mov              qword ptr [rsp + 96], rax
+                        mov              rax, qword ptr [rsp + 24]
+                        mov              qword ptr [rsp + 104], rax
                                                                                         jmp   n00474_call_builtin_icon_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00474_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 96]
-                        mov              qword ptr [rbp + 64], rax
-                        mov              rax, qword ptr [rbp + 104]
-                        mov              qword ptr [rbp + 72], rax
+                        mov              rax, qword ptr [rsp + 96]
+                        mov              qword ptr [rsp + 64], rax
+                        mov              rax, qword ptr [rsp + 104]
+                        mov              qword ptr [rsp + 72], rax
                         .section         .rodata
 .Lrkfn979:              .string          "type"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lrkfn979]
-                        lea              rsi, [rbp + 64]
+                        lea              rsi, [rsp + 64]
                         mov              edx, 1
                         call             rt_call_arr@PLT
-                        mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx
+                        mov              qword ptr [rsp + 48], rax
+                        mov              qword ptr [rsp + 56], rdx
                         cmp              eax, 99
                                                                                         je    proc_symimage_ω
                                                                                         jmp   n00475_lit_string_α
@@ -6376,9 +6409,9 @@ n00474_call_builtin_icon_β:
                                                                                         jmp   proc_symimage_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n00475_lit_string_α:
-                        mov              qword ptr [rbp + 480], 1
+                        mov              qword ptr [rsp + 480], 1
                         mov              rax, qword ptr [rip + .Lx00476_0]
-                        mov              qword ptr [rbp + 488], rax
+                        mov              qword ptr [rsp + 488], rax
                                                                                         jmp   n00477_call_builtin_α
 .Lx00476_0:
                         .quad            .Lx00476_0_s
@@ -6386,24 +6419,24 @@ n00475_lit_string_α:
                         .string          "string"
 #-----------------------------------------------------------------------------------------------------------------------
 n00477_call_builtin_α:
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 528], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 536], rax
-                        mov              rax, qword ptr [rbp + 480]
-                        mov              qword ptr [rbp + 544], rax
-                        mov              rax, qword ptr [rbp + 488]
-                        mov              qword ptr [rbp + 552], rax
+                        mov              rax, qword ptr [rsp + 48]
+                        mov              qword ptr [rsp + 528], rax
+                        mov              rax, qword ptr [rsp + 56]
+                        mov              qword ptr [rsp + 536], rax
+                        mov              rax, qword ptr [rsp + 480]
+                        mov              qword ptr [rsp + 544], rax
+                        mov              rax, qword ptr [rsp + 488]
+                        mov              qword ptr [rsp + 552], rax
                         .section         .rodata
 .Lrkfn982:              .string          "IDENTICAL"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lrkfn982]
-                        lea              rsi, [rbp + 528]
+                        lea              rsi, [rsp + 528]
                         mov              edx, 2
                         call             rt_call_arr@PLT
-                        mov              qword ptr [rbp + 512], rax
-                        mov              qword ptr [rbp + 520], rdx
+                        mov              qword ptr [rsp + 512], rax
+                        mov              qword ptr [rsp + 520], rdx
                         cmp              eax, 99
                                                                                         je    n00478_lit_string_α
                                                                                         jmp   n00479_var_α
@@ -6411,16 +6444,16 @@ n00477_call_builtin_β:
                                                                                         jmp   n00478_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00479_var_α:
-                        mov              rax, qword ptr [rbp + 16]
-                        mov              qword ptr [rbp + 496], rax
-                        mov              rax, qword ptr [rbp + 24]
-                        mov              qword ptr [rbp + 504], rax
+                        mov              rax, qword ptr [rsp + 16]
+                        mov              qword ptr [rsp + 496], rax
+                        mov              rax, qword ptr [rsp + 24]
+                        mov              qword ptr [rsp + 504], rax
                                                                                         jmp   n00480_assign_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00478_lit_string_α:
-                        mov              qword ptr [rbp + 304], 1
+                        mov              qword ptr [rsp + 304], 1
                         mov              rax, qword ptr [rip + .Lx00481_0]
-                        mov              qword ptr [rbp + 312], rax
+                        mov              qword ptr [rsp + 312], rax
                                                                                         jmp   n00482_call_builtin_α
 .Lx00481_0:
                         .quad            .Lx00481_0_s
@@ -6428,31 +6461,31 @@ n00478_lit_string_α:
                         .string          "nonterm"
 #-----------------------------------------------------------------------------------------------------------------------
 n00480_assign_α:
-                        mov              rax, qword ptr [rbp + 496]
-                        mov              rdx, qword ptr [rbp + 504]
-                        mov              qword ptr [rbp + 576], rax
-                        mov              qword ptr [rbp + 584], rdx
+                        mov              rax, qword ptr [rsp + 496]
+                        mov              rdx, qword ptr [rsp + 504]
+                        mov              qword ptr [rsp + 576], rax
+                        mov              qword ptr [rsp + 584], rdx
                                                                                         jmp   n00483_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00482_call_builtin_α:
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 432], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 440], rax
-                        mov              rax, qword ptr [rbp + 304]
-                        mov              qword ptr [rbp + 448], rax
-                        mov              rax, qword ptr [rbp + 312]
-                        mov              qword ptr [rbp + 456], rax
+                        mov              rax, qword ptr [rsp + 48]
+                        mov              qword ptr [rsp + 432], rax
+                        mov              rax, qword ptr [rsp + 56]
+                        mov              qword ptr [rsp + 440], rax
+                        mov              rax, qword ptr [rsp + 304]
+                        mov              qword ptr [rsp + 448], rax
+                        mov              rax, qword ptr [rsp + 312]
+                        mov              qword ptr [rsp + 456], rax
                         .section         .rodata
 .Lrkfn988:              .string          "IDENTICAL"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lrkfn988]
-                        lea              rsi, [rbp + 432]
+                        lea              rsi, [rsp + 432]
                         mov              edx, 2
                         call             rt_call_arr@PLT
-                        mov              qword ptr [rbp + 416], rax
-                        mov              qword ptr [rbp + 424], rdx
+                        mov              qword ptr [rsp + 416], rax
+                        mov              qword ptr [rsp + 424], rdx
                         cmp              eax, 99
                                                                                         je    n00484_lit_string_α
                                                                                         jmp   n00485_lit_string_α
@@ -6460,16 +6493,16 @@ n00482_call_builtin_β:
                                                                                         jmp   n00484_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00483_var_α:
-                        mov              rax, qword ptr [rbp + 576]
-                        mov              qword ptr [rbp + 32], rax
-                        mov              rax, qword ptr [rbp + 584]
-                        mov              qword ptr [rbp + 40], rax
+                        mov              rax, qword ptr [rsp + 576]
+                        mov              qword ptr [rsp + 32], rax
+                        mov              rax, qword ptr [rsp + 584]
+                        mov              qword ptr [rsp + 40], rax
                                                                                         jmp   n00486_return_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00485_lit_string_α:
-                        mov              qword ptr [rbp + 352], 1
+                        mov              qword ptr [rsp + 352], 1
                         mov              rax, qword ptr [rip + .Lx00487_0]
-                        mov              qword ptr [rbp + 360], rax
+                        mov              qword ptr [rsp + 360], rax
                                                                                         jmp   n00488_var_α
 .Lx00487_0:
                         .quad            .Lx00487_0_s
@@ -6477,9 +6510,9 @@ n00485_lit_string_α:
                         .string          "<"
 #-----------------------------------------------------------------------------------------------------------------------
 n00484_lit_string_α:
-                        mov              qword ptr [rbp + 112], 1
+                        mov              qword ptr [rsp + 112], 1
                         mov              rax, qword ptr [rip + .Lx00489_0]
-                        mov              qword ptr [rbp + 120], rax
+                        mov              qword ptr [rsp + 120], rax
                                                                                         jmp   n00490_call_builtin_α
 .Lx00489_0:
                         .quad            .Lx00489_0_s
@@ -6487,38 +6520,38 @@ n00484_lit_string_α:
                         .string          "charset"
 #-----------------------------------------------------------------------------------------------------------------------
 n00486_return_α:
-                        mov              rax, qword ptr [rbp + 32]
-                        mov              rdx, qword ptr [rbp + 40]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              qword ptr [rbp + 8], rdx
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              rdx, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   proc_symimage_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n00488_var_α:
-                        mov              rax, qword ptr [rbp + 16]
-                        mov              qword ptr [rbp + 384], rax
-                        mov              rax, qword ptr [rbp + 24]
-                        mov              qword ptr [rbp + 392], rax
+                        mov              rax, qword ptr [rsp + 16]
+                        mov              qword ptr [rsp + 384], rax
+                        mov              rax, qword ptr [rsp + 24]
+                        mov              qword ptr [rsp + 392], rax
                                                                                         jmp   n00491_field_get_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00490_call_builtin_α:
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 256], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 264], rax
-                        mov              rax, qword ptr [rbp + 112]
-                        mov              qword ptr [rbp + 272], rax
-                        mov              rax, qword ptr [rbp + 120]
-                        mov              qword ptr [rbp + 280], rax
+                        mov              rax, qword ptr [rsp + 48]
+                        mov              qword ptr [rsp + 256], rax
+                        mov              rax, qword ptr [rsp + 56]
+                        mov              qword ptr [rsp + 264], rax
+                        mov              rax, qword ptr [rsp + 112]
+                        mov              qword ptr [rsp + 272], rax
+                        mov              rax, qword ptr [rsp + 120]
+                        mov              qword ptr [rsp + 280], rax
                         .section         .rodata
 .Lrkfn997:              .string          "IDENTICAL"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lrkfn997]
-                        lea              rsi, [rbp + 256]
+                        lea              rsi, [rsp + 256]
                         mov              edx, 2
                         call             rt_call_arr@PLT
-                        mov              qword ptr [rbp + 240], rax
-                        mov              qword ptr [rbp + 248], rdx
+                        mov              qword ptr [rsp + 240], rax
+                        mov              qword ptr [rsp + 248], rdx
                         cmp              eax, 99
                                                                                         je    proc_symimage_ω
                                                                                         jmp   n00492_lit_string_α
@@ -6527,13 +6560,13 @@ n00490_call_builtin_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n00491_field_get_α:
                         mov              rdi, qword ptr [rip + .Lx00493_0]
-                        mov              rsi, qword ptr [rbp + 384]
-                        mov              rdx, qword ptr [rbp + 392]
+                        mov              rsi, qword ptr [rsp + 384]
+                        mov              rdx, qword ptr [rsp + 392]
                         call             dat_field_get@PLT
                         cmp              eax, 99
                                                                                         je    proc_symimage_ω
-                        mov              qword ptr [rbp + 368], rax
-                        mov              qword ptr [rbp + 376], rdx
+                        mov              qword ptr [rsp + 368], rax
+                        mov              qword ptr [rsp + 376], rdx
                                                                                         jmp   n00494_binop_α
 .Lx00493_0:
                         .quad            .Lx00493_0_s
@@ -6541,9 +6574,9 @@ n00491_field_get_α:
                         .string          "name"
 #-----------------------------------------------------------------------------------------------------------------------
 n00492_lit_string_α:
-                        mov              qword ptr [rbp + 160], 1
+                        mov              qword ptr [rsp + 160], 1
                         mov              rax, qword ptr [rip + .Lx00495_0]
-                        mov              qword ptr [rbp + 168], rax
+                        mov              qword ptr [rsp + 168], rax
                                                                                         jmp   n00496_var_α
 .Lx00495_0:
                         .quad            .Lx00495_0_s
@@ -6551,26 +6584,26 @@ n00492_lit_string_α:
                         .string          "<'"
 #-----------------------------------------------------------------------------------------------------------------------
 n00494_binop_α:
-                        mov              rdi, qword ptr [rbp + 352]
-                        mov              rsi, qword ptr [rbp + 360]
-                        mov              rdx, qword ptr [rbp + 368]
-                        mov              rcx, qword ptr [rbp + 376]
+                        mov              rdi, qword ptr [rsp + 352]
+                        mov              rsi, qword ptr [rsp + 360]
+                        mov              rdx, qword ptr [rsp + 368]
+                        mov              rcx, qword ptr [rsp + 376]
                         call             str_concat_d@PLT
-                        mov              qword ptr [rbp + 336], rax
-                        mov              qword ptr [rbp + 344], rdx
+                        mov              qword ptr [rsp + 336], rax
+                        mov              qword ptr [rsp + 344], rdx
                                                                                         jmp   n00497_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00496_var_α:
-                        mov              rax, qword ptr [rbp + 16]
-                        mov              qword ptr [rbp + 192], rax
-                        mov              rax, qword ptr [rbp + 24]
-                        mov              qword ptr [rbp + 200], rax
+                        mov              rax, qword ptr [rsp + 16]
+                        mov              qword ptr [rsp + 192], rax
+                        mov              rax, qword ptr [rsp + 24]
+                        mov              qword ptr [rsp + 200], rax
                                                                                         jmp   n00498_field_get_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00497_lit_string_α:
-                        mov              qword ptr [rbp + 400], 1
+                        mov              qword ptr [rsp + 400], 1
                         mov              rax, qword ptr [rip + .Lx00499_0]
-                        mov              qword ptr [rbp + 408], rax
+                        mov              qword ptr [rsp + 408], rax
                                                                                         jmp   n00500_binop_α
 .Lx00499_0:
                         .quad            .Lx00499_0_s
@@ -6579,13 +6612,13 @@ n00497_lit_string_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n00498_field_get_α:
                         mov              rdi, qword ptr [rip + .Lx00501_0]
-                        mov              rsi, qword ptr [rbp + 192]
-                        mov              rdx, qword ptr [rbp + 200]
+                        mov              rsi, qword ptr [rsp + 192]
+                        mov              rdx, qword ptr [rsp + 200]
                         call             dat_field_get@PLT
                         cmp              eax, 99
                                                                                         je    proc_symimage_ω
-                        mov              qword ptr [rbp + 176], rax
-                        mov              qword ptr [rbp + 184], rdx
+                        mov              qword ptr [rsp + 176], rax
+                        mov              qword ptr [rsp + 184], rdx
                                                                                         jmp   n00502_binop_α
 .Lx00501_0:
                         .quad            .Lx00501_0_s
@@ -6593,36 +6626,36 @@ n00498_field_get_α:
                         .string          "chars"
 #-----------------------------------------------------------------------------------------------------------------------
 n00500_binop_α:
-                        mov              rdi, qword ptr [rbp + 336]
-                        mov              rsi, qword ptr [rbp + 344]
-                        mov              rdx, qword ptr [rbp + 400]
-                        mov              rcx, qword ptr [rbp + 408]
+                        mov              rdi, qword ptr [rsp + 336]
+                        mov              rsi, qword ptr [rsp + 344]
+                        mov              rdx, qword ptr [rsp + 400]
+                        mov              rcx, qword ptr [rsp + 408]
                         call             str_concat_d@PLT
-                        mov              qword ptr [rbp + 320], rax
-                        mov              qword ptr [rbp + 328], rdx
+                        mov              qword ptr [rsp + 320], rax
+                        mov              qword ptr [rsp + 328], rdx
                                                                                         jmp   n00503_assign_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00502_binop_α:
-                        mov              rdi, qword ptr [rbp + 160]
-                        mov              rsi, qword ptr [rbp + 168]
-                        mov              rdx, qword ptr [rbp + 176]
-                        mov              rcx, qword ptr [rbp + 184]
+                        mov              rdi, qword ptr [rsp + 160]
+                        mov              rsi, qword ptr [rsp + 168]
+                        mov              rdx, qword ptr [rsp + 176]
+                        mov              rcx, qword ptr [rsp + 184]
                         call             str_concat_d@PLT
-                        mov              qword ptr [rbp + 144], rax
-                        mov              qword ptr [rbp + 152], rdx
+                        mov              qword ptr [rsp + 144], rax
+                        mov              qword ptr [rsp + 152], rdx
                                                                                         jmp   n00504_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00503_assign_α:
-                        mov              rax, qword ptr [rbp + 320]
-                        mov              rdx, qword ptr [rbp + 328]
-                        mov              qword ptr [rbp + 576], rax
-                        mov              qword ptr [rbp + 584], rdx
+                        mov              rax, qword ptr [rsp + 320]
+                        mov              rdx, qword ptr [rsp + 328]
+                        mov              qword ptr [rsp + 576], rax
+                        mov              qword ptr [rsp + 584], rdx
                                                                                         jmp   n00483_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00504_lit_string_α:
-                        mov              qword ptr [rbp + 208], 1
+                        mov              qword ptr [rsp + 208], 1
                         mov              rax, qword ptr [rip + .Lx00505_0]
-                        mov              qword ptr [rbp + 216], rax
+                        mov              qword ptr [rsp + 216], rax
                                                                                         jmp   n00506_binop_α
 .Lx00505_0:
                         .quad            .Lx00505_0_s
@@ -6630,55 +6663,52 @@ n00504_lit_string_α:
                         .string          "'>"
 #-----------------------------------------------------------------------------------------------------------------------
 n00506_binop_α:
-                        mov              rdi, qword ptr [rbp + 144]
-                        mov              rsi, qword ptr [rbp + 152]
-                        mov              rdx, qword ptr [rbp + 208]
-                        mov              rcx, qword ptr [rbp + 216]
+                        mov              rdi, qword ptr [rsp + 144]
+                        mov              rsi, qword ptr [rsp + 152]
+                        mov              rdx, qword ptr [rsp + 208]
+                        mov              rcx, qword ptr [rsp + 216]
                         call             str_concat_d@PLT
-                        mov              qword ptr [rbp + 128], rax
-                        mov              qword ptr [rbp + 136], rdx
+                        mov              qword ptr [rsp + 128], rax
+                        mov              qword ptr [rsp + 136], rdx
                                                                                         jmp   n00507_assign_α
 #-----------------------------------------------------------------------------------------------------------------------
 n00507_assign_α:
-                        mov              rax, qword ptr [rbp + 128]
-                        mov              rdx, qword ptr [rbp + 136]
-                        mov              qword ptr [rbp + 576], rax
-                        mov              qword ptr [rbp + 584], rdx
+                        mov              rax, qword ptr [rsp + 128]
+                        mov              rdx, qword ptr [rsp + 136]
+                        mov              qword ptr [rsp + 576], rax
+                        mov              qword ptr [rsp + 584], rdx
                                                                                         jmp   n00483_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 proc_symimage_res:
                         add              rsp, 8
-                        pop              rbp
+                        pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
 proc_symimage_β:
                                                                                         jmp   proc_symimage_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_symimage_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 600]
-                        lea              rsp, [rbp + 624]
-                        mov              rbp, [rbp + 616]
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 600]
+                        add              rsp, 624
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_symimage_ω:
-                        mov              rax, [rbp + 608]
-                        lea              rsp, [rbp + 624]
-                        mov              rbp, [rbp + 616]
+                        mov              rax, [rsp + 608]
+                        add              rsp, 624
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_symimage_dcα:
                         pop              r11
                         sub              rsp, 640
-                        mov              qword ptr [rsp + 632], rbp
+                        mov              qword ptr [rsp + 616], rbp
                         mov              rbp, rsp
-                        add              rbp, 16
-                        mov              qword ptr [rbp + 592], r11
+                        mov              qword ptr [rsp + 592], r11
                         lea              rax, [rip + .Lx00508_2]
-                        mov              qword ptr [rbp + 600], rax
+                        mov              qword ptr [rsp + 600], rax
                         lea              rax, [rip + .Lx00508_3]
-                        mov              qword ptr [rbp + 608], rax
-                        mov              qword ptr [rbp + 16], rsi
+                        mov              qword ptr [rsp + 608], rax
+                        mov              qword ptr [rsp + 16], rsi
                         mov              rdi, rbp
                         mov              esi, 576
                         mov              edx, 592
@@ -6688,17 +6718,21 @@ proc_symimage_dcα:
                         call             rt_pl_dc_prep@PLT
                                                                                         jmp   proc_symimage_α_body
 .Lx00508_2:
-                        mov              rdx, qword ptr [rsp + -640]
+                        mov              rdx, qword ptr [rsp + 0]
                         mov              rcx, rsp
                         add              rcx, -624
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_γ@PLT
 .Lx00508_3:
-                        mov              rdi, qword ptr [rsp + -640]
+                        mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, rsp
                         add              rsi, -624
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
 #-----------------------------------------------------------------------------------------------------------------------
@@ -7379,9 +7413,8 @@ proc_syms_ω:
 proc_syms_dcα:
                         pop              r11
                         sub              rsp, 928
-                        mov              qword ptr [rsp + 920], rbp
+                        mov              qword ptr [rsp + 904], rbp
                         mov              rbp, rsp
-                        add              rbp, 16
                         mov              qword ptr [rbp + 880], r11
                         lea              rax, [rip + .Lx00558_2]
                         mov              qword ptr [rbp + 888], rax
@@ -7397,17 +7430,21 @@ proc_syms_dcα:
                         call             rt_pl_dc_prep@PLT
                                                                                         jmp   proc_syms_α_body
 .Lx00558_2:
-                        mov              rdx, qword ptr [rsp + -928]
+                        mov              rdx, qword ptr [rsp + 0]
                         mov              rcx, rsp
                         add              rcx, -912
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_γ@PLT
 .Lx00558_3:
-                        mov              rdi, qword ptr [rsp + -928]
+                        mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, rsp
                         add              rsi, -912
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
 #-----------------------------------------------------------------------------------------------------------------------
@@ -9103,9 +9140,8 @@ proc_options_ω:
 proc_options_dcα:
                         pop              r11
                         sub              rsp, 2784
-                        mov              qword ptr [rsp + 2776], rbp
+                        mov              qword ptr [rsp + 2760], rbp
                         mov              rbp, rsp
-                        add              rbp, 16
                         mov              qword ptr [rbp + 2736], r11
                         lea              rax, [rip + .Lx00703_2]
                         mov              qword ptr [rbp + 2744], rax
@@ -9122,17 +9158,21 @@ proc_options_dcα:
                         call             rt_pl_dc_prep@PLT
                                                                                         jmp   proc_options_α_body
 .Lx00703_2:
-                        mov              rdx, qword ptr [rsp + -2784]
+                        mov              rdx, qword ptr [rsp + 0]
                         mov              rcx, rsp
                         add              rcx, -2768
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_γ@PLT
 .Lx00703_3:
-                        mov              rdi, qword ptr [rsp + -2784]
+                        mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, rsp
                         add              rsi, -2768
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
 #-----------------------------------------------------------------------------------------------------------------------
@@ -9420,9 +9460,8 @@ proc_Init___ω:
 proc_Init___dcα:
                         pop              r11
                         sub              rsp, 480
-                        mov              qword ptr [rsp + 472], rbp
+                        mov              qword ptr [rsp + 456], rbp
                         mov              rbp, rsp
-                        add              rbp, 16
                         mov              qword ptr [rbp + 432], r11
                         lea              rax, [rip + .Lx00735_2]
                         mov              qword ptr [rbp + 440], rax
@@ -9438,17 +9477,21 @@ proc_Init___dcα:
                         call             rt_pl_dc_prep@PLT
                                                                                         jmp   proc_Init___α_body
 .Lx00735_2:
-                        mov              rdx, qword ptr [rsp + -480]
+                        mov              rdx, qword ptr [rsp + 0]
                         mov              rcx, rsp
                         add              rcx, -464
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_γ@PLT
 .Lx00735_3:
-                        mov              rdi, qword ptr [rsp + -480]
+                        mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, rsp
                         add              rsi, -464
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
 #-----------------------------------------------------------------------------------------------------------------------
@@ -9715,9 +9758,8 @@ proc_Term___ω:
 proc_Term___dcα:
                         pop              r11
                         sub              rsp, 528
-                        mov              qword ptr [rsp + 520], rbp
+                        mov              qword ptr [rsp + 504], rbp
                         mov              rbp, rsp
-                        add              rbp, 16
                         mov              qword ptr [rbp + 480], r11
                         lea              rax, [rip + .Lx00762_2]
                         mov              qword ptr [rbp + 488], rax
@@ -9732,17 +9774,21 @@ proc_Term___dcα:
                         call             rt_pl_dc_prep@PLT
                                                                                         jmp   proc_Term___α_body
 .Lx00762_2:
-                        mov              rdx, qword ptr [rsp + -528]
+                        mov              rdx, qword ptr [rsp + 0]
                         mov              rcx, rsp
                         add              rcx, -512
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_γ@PLT
 .Lx00762_3:
-                        mov              rdi, qword ptr [rsp + -528]
+                        mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, rsp
                         add              rsi, -512
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10229,9 +10275,8 @@ proc_Collections___ω:
 proc_Collections___dcα:
                         pop              r11
                         sub              rsp, 960
-                        mov              qword ptr [rsp + 952], rbp
+                        mov              qword ptr [rsp + 936], rbp
                         mov              rbp, rsp
-                        add              rbp, 16
                         mov              qword ptr [rbp + 912], r11
                         lea              rax, [rip + .Lx00811_2]
                         mov              qword ptr [rbp + 920], rax
@@ -10246,17 +10291,21 @@ proc_Collections___dcα:
                         call             rt_pl_dc_prep@PLT
                                                                                         jmp   proc_Collections___α_body
 .Lx00811_2:
-                        mov              rdx, qword ptr [rsp + -960]
+                        mov              rdx, qword ptr [rsp + 0]
                         mov              rcx, rsp
                         add              rcx, -944
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_γ@PLT
 .Lx00811_3:
-                        mov              rdi, qword ptr [rsp + -960]
+                        mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, rsp
                         add              rsi, -944
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10729,9 +10778,8 @@ proc_Regions___ω:
 proc_Regions___dcα:
                         pop              r11
                         sub              rsp, 928
-                        mov              qword ptr [rsp + 920], rbp
+                        mov              qword ptr [rsp + 904], rbp
                         mov              rbp, rsp
-                        add              rbp, 16
                         mov              qword ptr [rbp + 880], r11
                         lea              rax, [rip + .Lx00858_2]
                         mov              qword ptr [rbp + 888], rax
@@ -10746,17 +10794,21 @@ proc_Regions___dcα:
                         call             rt_pl_dc_prep@PLT
                                                                                         jmp   proc_Regions___α_body
 .Lx00858_2:
-                        mov              rdx, qword ptr [rsp + -928]
+                        mov              rdx, qword ptr [rsp + 0]
                         mov              rcx, rsp
                         add              rcx, -912
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_γ@PLT
 .Lx00858_3:
-                        mov              rdi, qword ptr [rsp + -928]
+                        mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, rsp
                         add              rsi, -912
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10920,9 +10972,8 @@ proc_Signature___ω:
 proc_Signature___dcα:
                         pop              r11
                         sub              rsp, 304
-                        mov              qword ptr [rsp + 296], rbp
+                        mov              qword ptr [rsp + 280], rbp
                         mov              rbp, rsp
-                        add              rbp, 16
                         mov              qword ptr [rbp + 256], r11
                         lea              rax, [rip + .Lx00869_2]
                         mov              qword ptr [rbp + 264], rax
@@ -10937,17 +10988,21 @@ proc_Signature___dcα:
                         call             rt_pl_dc_prep@PLT
                                                                                         jmp   proc_Signature___α_body
 .Lx00869_2:
-                        mov              rdx, qword ptr [rsp + -304]
+                        mov              rdx, qword ptr [rsp + 0]
                         mov              rcx, rsp
                         add              rcx, -288
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_γ@PLT
 .Lx00869_3:
-                        mov              rdi, qword ptr [rsp + -304]
+                        mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, rsp
                         add              rsi, -288
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
 #-----------------------------------------------------------------------------------------------------------------------
@@ -11420,9 +11475,8 @@ proc_Storage___ω:
 proc_Storage___dcα:
                         pop              r11
                         sub              rsp, 928
-                        mov              qword ptr [rsp + 920], rbp
+                        mov              qword ptr [rsp + 904], rbp
                         mov              rbp, rsp
-                        add              rbp, 16
                         mov              qword ptr [rbp + 880], r11
                         lea              rax, [rip + .Lx00916_2]
                         mov              qword ptr [rbp + 888], rax
@@ -11437,17 +11491,21 @@ proc_Storage___dcα:
                         call             rt_pl_dc_prep@PLT
                                                                                         jmp   proc_Storage___α_body
 .Lx00916_2:
-                        mov              rdx, qword ptr [rsp + -928]
+                        mov              rdx, qword ptr [rsp + 0]
                         mov              rcx, rsp
                         add              rcx, -912
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_γ@PLT
 .Lx00916_3:
-                        mov              rdi, qword ptr [rsp + -928]
+                        mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, rsp
                         add              rsi, -912
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
 #-----------------------------------------------------------------------------------------------------------------------
@@ -11708,9 +11766,8 @@ proc_Time___ω:
 proc_Time___dcα:
                         pop              r11
                         sub              rsp, 304
-                        mov              qword ptr [rsp + 296], rbp
+                        mov              qword ptr [rsp + 280], rbp
                         mov              rbp, rsp
-                        add              rbp, 16
                         mov              qword ptr [rbp + 256], r11
                         lea              rax, [rip + .Lx00937_2]
                         mov              qword ptr [rbp + 264], rax
@@ -11725,17 +11782,21 @@ proc_Time___dcα:
                         call             rt_pl_dc_prep@PLT
                                                                                         jmp   proc_Time___α_body
 .Lx00937_2:
-                        mov              rdx, qword ptr [rsp + -304]
+                        mov              rdx, qword ptr [rsp + 0]
                         mov              rcx, rsp
                         add              rcx, -288
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_γ@PLT
 .Lx00937_3:
-                        mov              rdi, qword ptr [rsp + -304]
+                        mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, rsp
                         add              rsi, -288
                         mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
                         push             r11
                                                                                         jmp   rt_pl_dc_leave_ω@PLT
 proc_startup:

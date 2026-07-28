@@ -23,8 +23,6 @@ main_α:
                         mov              ecx, 88
                         xor              eax, eax
                         rep stosb
-                        mov              [rsp + 80], rbp
-                        mov              rbp, rsp
 main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_keyword_icon_α:
@@ -32,8 +30,8 @@ n0_keyword_icon_α:
                         call             rt_keyword_read@PLT
                         cmp              eax, 99
                                                                                         je    main_ω
-                        mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx
+                        mov              qword ptr [rsp + 48], rax
+                        mov              qword ptr [rsp + 56], rdx
                                                                                         jmp   n1_call_builtin_icon_α
 n0_keyword_icon_β:
                                                                                         jmp   main_ω
@@ -43,20 +41,20 @@ n0_keyword_icon_β:
                         .string          "&version"
 #-----------------------------------------------------------------------------------------------------------------------
 n1_call_builtin_icon_α:
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 16], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 24], rax
+                        mov              rax, qword ptr [rsp + 48]
+                        mov              qword ptr [rsp + 16], rax
+                        mov              rax, qword ptr [rsp + 56]
+                        mov              qword ptr [rsp + 24], rax
                         .section         .rodata
 .Lrkfn4:                .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lrkfn4]
-                        lea              rsi, [rbp + 16]
+                        lea              rsi, [rsp + 16]
                         mov              edx, 1
                         call             rt_call_arr@PLT
-                        mov              qword ptr [rbp + 0], rax
-                        mov              qword ptr [rbp + 8], rdx
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 99
                                                                                         je    main_ω
                                                                                         jmp   main_ω
@@ -69,16 +67,12 @@ main_β:
 main_γ:
                         mov              eax, 1
                         xor              edx, edx
-                        mov              rsp, rbp
-                        mov              rbp, [rsp + 80]
                         add              rsp, 88
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
-                        mov              rsp, rbp
                         mov              eax, 99
                         xor              edx, edx
-                        mov              rbp, [rsp + 80]
                         add              rsp, 88
                         ret
                         .section         .note.GNU-stack,"",@progbits
