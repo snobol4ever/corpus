@@ -32,6 +32,7 @@ runners (`test_bench_snobol4_modes.sh`, `util_regen_benchmark_s_artifacts.sh`,
 | `op_dispatch.sno` | Arithmetic operators | +, -, *, /, GE in loop |
 | `pattern_bt.sno` | Pattern backtracking | Alternation of 4 choices + SPAN, 500 iters |
 | `table_access.sno` | TABLE ops | 500-entry TABLE fill + sum |
+| `table_churn.sno` | Integer-keyed TABLE subscript (AGG) | ONE table, 400-entry fixed live set, 10000 read+write passes. ⛔ Measure with `SCRIP_NOHUGE=1` — see the header comment. |
 | `func_call_overhead.sno` | Call/return overhead | Trivial INC(), 3000 calls |
 | `mixed_workload.sno` | Combined | Pattern parse + TABLE + recursion, 200 iters |
 | `eval_fixed.sno` | EVAL() compile cost | Fixed expression, 200 iters |

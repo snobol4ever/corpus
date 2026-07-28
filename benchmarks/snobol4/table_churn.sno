@@ -1,0 +1,49 @@
+* table_churn.sno
+* RTX-0c INSTRUMENT (s201) — a RELIABLE integer-keyed AGG benchmark.
+* Bottleneck under test: rt_subscript_var (pattern_match.c:1000) — itoa the
+* integer key, hash the resulting string, strcmp down the bucket chain, and
+* mint a VCELL, because a subscript resolves to a NAME and never to a value.
+* ⛔ MEASURE THIS PROGRAM WITH SCRIP_NOHUGE=1.  MEASURED s201, 10 runs each:
+*   SCRIP_NOHUGE=1  454..508 ms  (1.12x spread)
+*   default         367..2764 ms (7.5x spread, BIMODAL)
+* &TIME is clock(), which is CPU time and charges SYSTEM time to the process,
+* so the synchronous kernel compaction that gc_heap.c:149's MADV_HUGEPAGE can
+* trigger lands directly inside the measured window.  That is an ENVIRONMENT
+* hazard, not a property of this program: it inflates every SCRIP benchmark
+* here, and it is the larger half of why table_access's A/B arms swap ranking.
+* STABILITY IS BY CONSTRUCTION, and it is the entire point of the program:
+*   (1) ONE table, created ONCE.  table_access.sno allocates a fresh
+*       TABLE(512) 5,000 times, so its live set repeatedly grows and is
+*       abandoned.  Even with SCRIP_NOHUGE=1 it still spreads 1.62x where
+*       this program spreads 1.12x, so its shape is the SECOND cause.
+*   (2) The working set (400) is BELOW 1000, so bench_sno_rtx.sh's scaler
+*       cannot touch it — it only scales LT() literals >= 1000.  The pass
+*       count is the single scalable literal, so auto-ranging adds PASSES
+*       over a FIXED live set: live bytes constant, GC behaviour constant,
+*       window linear in N.  That is what table_access cannot offer.
+*   (3) NO pattern matching.  The 47 open crosscheck failures and both known
+*       segvs (string_pattern, mixed_workload) are pattern-family; an AGG
+*       instrument must not share a blast radius with them.
+* Deterministic result: after P passes T<I> = I + P, so the checksum is
+* SUM(1..400) + 400*P = 80200 + 400*P.  Feeds the harness's free ON/OFF
+* output-identity gate, which is fatal on mismatch.
+    &TRIM = 1
+    &STLIMIT = 1000000000
+    T = TABLE(1024)
+    I = 0
+FILL    I = LT(I, 400) I + 1                   :F(START)
+    T<I> = I                                   :(FILL)
+START   T1 = TIME()
+    P = 0
+PASS    P = LT(P, 10000) P + 1                 :F(DONE)
+    I = 0
+CELL    I = LT(I, 400) I + 1                   :F(PASS)
+    T<I> = T<I> + 1                            :(CELL)
+DONE    T2 = TIME()
+    SUM = 0
+    I = 0
+SUMUP   I = LT(I, 400) I + 1                   :F(REPORT)
+    SUM = SUM + T<I>                           :(SUMUP)
+REPORT  OUTPUT = "result: " SUM
+    OUTPUT = "ms: " (T2 - T1)
+END
