@@ -1,0 +1,14 @@
+*       Z4 PROBE — capture (.) into a value.  Storage regime under test: capture slots.
+*       Uses capture-at-pattern-START only: a capture preceded by another element
+*       returns a WRONG start delta at HEAD (see FINDING Z4-CAPTURE-START), so the
+*       broken shape is deliberately avoided here and tracked separately.
+        &ANCHOR = 1
+        N = 0
+        T = 0
+LOOP    N = N + 1
+        S = 'abcdefghij0123456789'
+        S SPAN('abcdefghij') . D                       :F(NEXT)
+        T = T + SIZE(D)
+NEXT    LT(N,150000)                                     :S(LOOP)
+        OUTPUT = 'capture ' T
+END

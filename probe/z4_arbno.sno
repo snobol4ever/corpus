@@ -1,0 +1,11 @@
+*       Z4 PROBE — ARBNO backtrack ladder.  The dynamic-housekeeping stressor (RBP-pin class).
+        &ANCHOR = 1
+        N = 0
+        H = 0
+LOOP    N = N + 1
+        S = 'ababababababababababab'
+        S ARBNO('ab') 'ab' RPOS(0)                     :F(NEXT)
+        H = H + 1
+NEXT    LT(N,150000)                                     :S(LOOP)
+        OUTPUT = 'arbno ' H
+END
