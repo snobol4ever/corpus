@@ -40,7 +40,8 @@ n2_match_head_α:
                         call             rt_match_enter@PLT
                         mov              r13, rax
                         mov              r15, rdx
-                        mov              qword ptr [rsp + 272], r12
+                        mov              rax, qword ptr [1879048192]
+                        mov              qword ptr [rsp + 272], rax
                         mov              rax, rsp
                         sub              rsp, 32
                         mov              qword ptr [rsp + 16], rax
@@ -66,7 +67,8 @@ n2_match_head_β:
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
                         mov              rsp, qword ptr [rsp + 16]
-                        mov              r12, qword ptr [rsp + 272]
+                        mov              rax, qword ptr [rsp + 272]
+                        mov              qword ptr [1879048192], rax
                                                                                         jmp   n3_op14_α
 #-----------------------------------------------------------------------------------------------------------------------
 n3_op14_α:
@@ -98,7 +100,7 @@ n5_match_release_α:
                         push             r13
                         sub              rsp, 8
                         mov              rdi, qword ptr [rsp + 304]
-                        mov              rsi, r12
+                        mov              rsi, qword ptr [1879048192]
                         mov              rdx, r13
                         call             rt_dcap_end_ok_open@PLT
 .Lx39_1:
@@ -126,7 +128,8 @@ n5_match_release_α:
                         pop              r13
                         pop              r15
                         pop              r14
-                        mov              r12, qword ptr [rsp + 272]
+                        mov              rax, qword ptr [rsp + 272]
+                        mov              qword ptr [1879048192], rax
                                                                                         jmp   n10_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n6_lit_integer_α:
@@ -160,16 +163,20 @@ n8_match_assign_save_β:
 n9_match_assign_cond_α:
                         mov              eax, dword ptr [rsp + 48]
                         lea              rcx, [rip + .S0]
-                        mov              qword ptr [r12 + 0], rcx
+                        mov              r10, qword ptr [1879048192]
+                        mov              qword ptr [r10 + 0], rcx
                         mov              esi, eax
-                        mov              qword ptr [r12 + 8], rsi
+                        mov              qword ptr [r10 + 8], rsi
                         mov              edx, r14d
                         sub              edx, eax
-                        mov              qword ptr [r12 + 16], rdx
-                        add              r12, 24
+                        mov              qword ptr [r10 + 16], rdx
+                        add              r10, 24
+                        mov              qword ptr [1879048192], r10
                                                                                         jmp   n5_match_release_α
 n9_match_assign_cond_β:
-                        sub              r12, 24
+                        mov              rax, qword ptr [1879048192]
+                        sub              rax, 24
+                        mov              qword ptr [1879048192], rax
                                                                                         jmp   n11_match_len_β
 #-----------------------------------------------------------------------------------------------------------------------
 n10_lit_string_α:
@@ -235,7 +242,8 @@ n14_match_head_α:
                         call             rt_match_enter@PLT
                         mov              r13, rax
                         mov              r15, rdx
-                        mov              qword ptr [rsp + 496], r12
+                        mov              rax, qword ptr [1879048192]
+                        mov              qword ptr [rsp + 496], rax
                         mov              qword ptr [rsp + 480], rsp
                         lea              rcx, [rip + g_patstk_sp]
                         mov              rax, qword ptr [rcx + 0]
@@ -259,7 +267,8 @@ n14_match_head_β:
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
                         mov              rsp, qword ptr [rsp + 480]
-                        mov              r12, qword ptr [rsp + 496]
+                        mov              rax, qword ptr [rsp + 496]
+                        mov              qword ptr [1879048192], rax
                                                                                         jmp   n23_op14_α
 #-----------------------------------------------------------------------------------------------------------------------
 n15_match_sequence_α:
@@ -282,7 +291,7 @@ n16_match_release_α:
                         push             r13
                         sub              rsp, 8
                         mov              rdi, qword ptr [rsp + 528]
-                        mov              rsi, r12
+                        mov              rsi, qword ptr [1879048192]
                         mov              rdx, r13
                         call             rt_dcap_end_ok_open@PLT
 .Lx56_1:
@@ -310,7 +319,8 @@ n16_match_release_α:
                         pop              r13
                         pop              r15
                         pop              r14
-                        mov              r12, qword ptr [rsp + 496]
+                        mov              rax, qword ptr [rsp + 496]
+                        mov              qword ptr [1879048192], rax
                                                                                         jmp   n20_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n17_match_defer_α:
@@ -395,16 +405,20 @@ n18_match_assign_save_β:
 n19_match_assign_cond_α:
                         mov              eax, dword ptr [rsp + 16]
                         lea              rcx, [rip + .S0]
-                        mov              qword ptr [r12 + 0], rcx
+                        mov              r10, qword ptr [1879048192]
+                        mov              qword ptr [r10 + 0], rcx
                         mov              esi, eax
-                        mov              qword ptr [r12 + 8], rsi
+                        mov              qword ptr [r10 + 8], rsi
                         mov              edx, r14d
                         sub              edx, eax
-                        mov              qword ptr [r12 + 16], rdx
-                        add              r12, 24
+                        mov              qword ptr [r10 + 16], rdx
+                        add              r10, 24
+                        mov              qword ptr [1879048192], r10
                                                                                         jmp   n16_match_release_α
 n19_match_assign_cond_β:
-                        sub              r12, 24
+                        mov              rax, qword ptr [1879048192]
+                        sub              rax, 24
+                        mov              qword ptr [1879048192], rax
                                                                                         jmp   n21_match_break_β
 #=======================================================================================================================
 #     ROMAN = REPLACE(ROMAN(N), 'IVXLCDM', 'XLCDM**') T
@@ -824,7 +838,6 @@ main:
                         lea              rdi, [rip + __gva_names]
                         mov              edx, 6
                         call             gva_register@PLT
-                        mov              r12, qword ptr [1879048192]
                         xor              esi, esi
                         call             main_α
                         xor              eax, eax
@@ -958,7 +971,8 @@ n91_match_head_α:
                         call             rt_match_enter@PLT
                         mov              r13, rax
                         mov              r15, rdx
-                        mov              qword ptr [rsp + 272], r12
+                        mov              rax, qword ptr [1879048192]
+                        mov              qword ptr [rsp + 272], rax
                         mov              rax, rsp
                         sub              rsp, 32
                         mov              qword ptr [rsp + 16], rax
@@ -984,7 +998,8 @@ n91_match_head_β:
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
                         mov              rsp, qword ptr [rsp + 16]
-                        mov              r12, qword ptr [rsp + 272]
+                        mov              rax, qword ptr [rsp + 272]
+                        mov              qword ptr [1879048192], rax
                                                                                         jmp   n92_op14_α
 #-----------------------------------------------------------------------------------------------------------------------
 n92_op14_α:
@@ -1203,7 +1218,7 @@ n102_match_release_α:
                         push             r13
                         sub              rsp, 8
                         mov              rdi, qword ptr [rsp + 304]
-                        mov              rsi, r12
+                        mov              rsi, qword ptr [1879048192]
                         mov              rdx, r13
                         call             rt_dcap_end_ok_open@PLT
 .Lx176_1:
@@ -1231,7 +1246,8 @@ n102_match_release_α:
                         pop              r13
                         pop              r15
                         pop              r14
-                        mov              r12, qword ptr [rsp + 272]
+                        mov              rax, qword ptr [rsp + 272]
+                        mov              qword ptr [1879048192], rax
                                                                                         jmp   n110_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n103_lit_integer_α:
@@ -1265,16 +1281,20 @@ n105_match_assign_save_β:
 n106_match_assign_cond_α:
                         mov              eax, dword ptr [rsp + 48]
                         lea              rcx, [rip + .S0]
-                        mov              qword ptr [r12 + 0], rcx
+                        mov              r10, qword ptr [1879048192]
+                        mov              qword ptr [r10 + 0], rcx
                         mov              esi, eax
-                        mov              qword ptr [r12 + 8], rsi
+                        mov              qword ptr [r10 + 8], rsi
                         mov              edx, r14d
                         sub              edx, eax
-                        mov              qword ptr [r12 + 16], rdx
-                        add              r12, 24
+                        mov              qword ptr [r10 + 16], rdx
+                        add              r10, 24
+                        mov              qword ptr [1879048192], r10
                                                                                         jmp   n102_match_release_α
 n106_match_assign_cond_β:
-                        sub              r12, 24
+                        mov              rax, qword ptr [1879048192]
+                        sub              rax, 24
+                        mov              qword ptr [1879048192], rax
                                                                                         jmp   n111_match_len_β
 #-----------------------------------------------------------------------------------------------------------------------
 n107_lit_integer_α:
@@ -1523,7 +1543,8 @@ n122_match_head_α:
                         call             rt_match_enter@PLT
                         mov              r13, rax
                         mov              r15, rdx
-                        mov              qword ptr [rsp + 496], r12
+                        mov              rax, qword ptr [1879048192]
+                        mov              qword ptr [rsp + 496], rax
                         mov              qword ptr [rsp + 480], rsp
                         lea              rcx, [rip + g_patstk_sp]
                         mov              rax, qword ptr [rcx + 0]
@@ -1547,7 +1568,8 @@ n122_match_head_β:
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
                         mov              rsp, qword ptr [rsp + 480]
-                        mov              r12, qword ptr [rsp + 496]
+                        mov              rax, qword ptr [rsp + 496]
+                        mov              qword ptr [1879048192], rax
                                                                                         jmp   n140_op14_α
 #-----------------------------------------------------------------------------------------------------------------------
 n123_var_α:
@@ -1627,7 +1649,7 @@ n129_match_release_α:
                         push             r13
                         sub              rsp, 8
                         mov              rdi, qword ptr [rsp + 528]
-                        mov              rsi, r12
+                        mov              rsi, qword ptr [1879048192]
                         mov              rdx, r13
                         call             rt_dcap_end_ok_open@PLT
 .Lx214_1:
@@ -1655,7 +1677,8 @@ n129_match_release_α:
                         pop              r13
                         pop              r15
                         pop              r14
-                        mov              r12, qword ptr [rsp + 496]
+                        mov              rax, qword ptr [rsp + 496]
+                        mov              qword ptr [1879048192], rax
                                                                                         jmp   n135_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n130_match_defer_α:
@@ -1740,16 +1763,20 @@ n131_match_assign_save_β:
 n132_match_assign_cond_α:
                         mov              eax, dword ptr [rsp + 16]
                         lea              rcx, [rip + .S0]
-                        mov              qword ptr [r12 + 0], rcx
+                        mov              r10, qword ptr [1879048192]
+                        mov              qword ptr [r10 + 0], rcx
                         mov              esi, eax
-                        mov              qword ptr [r12 + 8], rsi
+                        mov              qword ptr [r10 + 8], rsi
                         mov              edx, r14d
                         sub              edx, eax
-                        mov              qword ptr [r12 + 16], rdx
-                        add              r12, 24
+                        mov              qword ptr [r10 + 16], rdx
+                        add              r10, 24
+                        mov              qword ptr [1879048192], r10
                                                                                         jmp   n129_match_release_α
 n132_match_assign_cond_β:
-                        sub              r12, 24
+                        mov              rax, qword ptr [1879048192]
+                        sub              rax, 24
+                        mov              qword ptr [1879048192], rax
                                                                                         jmp   n136_match_break_β
 #-----------------------------------------------------------------------------------------------------------------------
 n133_binop_α:
