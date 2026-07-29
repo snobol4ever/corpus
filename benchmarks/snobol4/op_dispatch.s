@@ -176,6 +176,20 @@ n11_lit_string_α:
                         .string          "STLIMIT"
 #-----------------------------------------------------------------------------------------------------------------------
 n12_binop_α:
+                        mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 6
+                                                                                        jne   .Lx72_0
+                        mov              eax, dword ptr [rsp + 0]
+                        cmp              eax, 6
+                                                                                        jne   .Lx72_0
+                        mov              rax, qword ptr [rsp + 24]
+                        mov              rcx, qword ptr [rsp + 8]
+                        add              rax, rcx
+                        add              rsp, 16
+                        mov              qword ptr [rsp + 0], 6
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n19_assign_α
+.Lx72_0:
                         mov              rdi, qword ptr [rsp + 16]
                         mov              rsi, qword ptr [rsp + 24]
                         mov              rdx, qword ptr [rsp + 0]
@@ -270,6 +284,20 @@ n19_assign_α:
                                                                                         jmp   n8_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n20_binop_α:
+                        mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 6
+                                                                                        jne   .Lx81_0
+                        mov              eax, dword ptr [rsp + 0]
+                        cmp              eax, 6
+                                                                                        jne   .Lx81_0
+                        mov              rax, qword ptr [rsp + 24]
+                        mov              rcx, qword ptr [rsp + 8]
+                        sub              rax, rcx
+                        add              rsp, 16
+                        mov              qword ptr [rsp + 0], 6
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n26_assign_α
+.Lx81_0:
                         mov              rdi, qword ptr [rsp + 16]
                         mov              rsi, qword ptr [rsp + 24]
                         mov              rdx, qword ptr [rsp + 0]
@@ -368,6 +396,20 @@ n26_assign_α:
                                                                                         jmp   n14_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n27_binop_α:
+                        mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 6
+                                                                                        jne   .Lx90_0
+                        mov              eax, dword ptr [rsp + 0]
+                        cmp              eax, 6
+                                                                                        jne   .Lx90_0
+                        mov              rax, qword ptr [rsp + 24]
+                        mov              rcx, qword ptr [rsp + 8]
+                        imul             rax, rcx
+                        add              rsp, 16
+                        mov              qword ptr [rsp + 0], 6
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n33_assign_α
+.Lx90_0:
                         mov              rdi, qword ptr [rsp + 16]
                         mov              rsi, qword ptr [rsp + 24]
                         mov              rdx, qword ptr [rsp + 0]
@@ -578,6 +620,16 @@ n44_op77_α:
                                                                                         jmp   n48_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n45_binop_α:
+                        mov              eax, dword ptr [rsp + 672]
+                        cmp              eax, 6
+                                                                                        jne   .Lx113_0
+                        mov              rax, qword ptr [rsp + 680]
+                        mov              rcx, 1
+                        add              rax, rcx
+                        mov              qword ptr [rsp + 656], 6
+                        mov              qword ptr [rsp + 664], rax
+                                                                                        jmp   n49_binop_α
+.Lx113_0:
                         mov              rdi, qword ptr [rsp + 672]
                         mov              rsi, qword ptr [rsp + 680]
                         mov              rdx, qword ptr [rsp + 688]
@@ -590,6 +642,20 @@ n45_binop_α:
                                                                                         jmp   n49_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n46_binop_α:
+                        mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 6
+                                                                                        jne   .Lx114_0
+                        mov              eax, dword ptr [rsp + 0]
+                        cmp              eax, 6
+                                                                                        jne   .Lx114_0
+                        mov              rax, qword ptr [rsp + 24]
+                        mov              rcx, qword ptr [rsp + 8]
+                        sub              rax, rcx
+                        add              rsp, 16
+                        mov              qword ptr [rsp + 0], 6
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n50_binop_α
+.Lx114_0:
                         mov              rdi, qword ptr [rsp + 16]
                         mov              rsi, qword ptr [rsp + 24]
                         mov              rdx, qword ptr [rsp + 0]

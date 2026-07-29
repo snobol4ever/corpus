@@ -1950,6 +1950,16 @@ n132_match_assign_cond_β:
                                                                                         jmp   n136_match_break_β
 #-----------------------------------------------------------------------------------------------------------------------
 n133_binop_α:
+                        mov              eax, dword ptr [rbp + 1120]
+                        cmp              eax, 6
+                                                                                        jne   .Lx220_0
+                        mov              rax, qword ptr [rbp + 1128]
+                        mov              rcx, 1
+                        add              rax, rcx
+                        mov              qword ptr [rbp + 1104], 6
+                        mov              qword ptr [rbp + 1112], rax
+                                                                                        jmp   n137_binop_α
+.Lx220_0:
                         mov              rdi, qword ptr [rbp + 1120]
                         mov              rsi, qword ptr [rbp + 1128]
                         mov              rdx, qword ptr [rbp + 1136]
@@ -1964,6 +1974,20 @@ n133_binop_β:
                                                                                         jmp   n108_call_α
 #-----------------------------------------------------------------------------------------------------------------------
 n134_binop_α:
+                        mov              eax, dword ptr [rsp + 16]
+                        cmp              eax, 6
+                                                                                        jne   .Lx221_0
+                        mov              eax, dword ptr [rsp + 0]
+                        cmp              eax, 6
+                                                                                        jne   .Lx221_0
+                        mov              rax, qword ptr [rsp + 24]
+                        mov              rcx, qword ptr [rsp + 8]
+                        sub              rax, rcx
+                        add              rsp, 16
+                        mov              qword ptr [rsp + 0], 6
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n138_binop_α
+.Lx221_0:
                         mov              rdi, qword ptr [rsp + 16]
                         mov              rsi, qword ptr [rsp + 24]
                         mov              rdx, qword ptr [rsp + 0]
