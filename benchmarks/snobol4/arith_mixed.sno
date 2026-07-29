@@ -1,0 +1,33 @@
+* arith_mixed.sno
+* Benchmark: MIXED int/real arithmetic — the only shape that reaches rt_num_arith.
+*
+* WHY THIS FILE EXISTS (RTX-0d, s204).  arith_loop.sno calls rt_num_arith ZERO times at
+* every loop count: SCRIP's emitter inlines integer arithmetic, so an integer-only program
+* never reaches the C/asm runtime for it, and no amount of loop scaling changes that — the
+* gap is structural, not a matter of window size.  Any ARITH A/B gated on an integer-only
+* program is a guaranteed false null.  A real operand forces the runtime call.
+*
+* SHAPE: one real accumulator, one integer loop counter, no pattern matching, no I/O in the
+* timed region.  Exactly ONE scalable literal (the LT bound, >= 1000), so the harness's
+* auto-ranger adds PASSES and cannot alter the arithmetic being measured.
+*
+* DETERMINISTIC CHECKSUM, PREDICTED IN ADVANCE (not read off a run):
+*   The loop body runs once more than the bound, because X is incremented BEFORE the LT test
+*   that ends the loop.  So with bound P the accumulator ends at 1.5 * (P + 1), and CONVERT
+*   to INTEGER truncates:      result = floor(1.5 * (P + 1))
+*   P = 40000000  =>  60000001      <- the shipped bound
+*   P = 80000000  => 120000001      <- scaling check
+*   1.5 is exactly representable and 3(P+1)/2 stays far inside 2^53, so X is EXACT — this
+*   checksum is not sensitive to floating-point rounding at any pass count the ranger picks.
+    &TRIM = 1
+    &STLIMIT = 999999999
+    T1 = TIME()
+    N = 0
+    X = 0.0
+LOOP    X = X + 1.5
+    N = LT(N, 40000000) N + 1                 :S(LOOP)
+    T2 = TIME()
+    C = CONVERT(X, "INTEGER")
+    OUTPUT = "result: " C
+    OUTPUT = "ms: " (T2 - T1)
+END

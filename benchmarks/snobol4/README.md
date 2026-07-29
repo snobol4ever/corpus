@@ -33,6 +33,7 @@ runners (`test_bench_snobol4_modes.sh`, `util_regen_benchmark_s_artifacts.sh`,
 | `pattern_bt.sno` | Pattern backtracking | Alternation of 4 choices + SPAN, 500 iters |
 | `table_access.sno` | TABLE ops | 500-entry TABLE fill + sum |
 | `table_churn.sno` | Integer-keyed TABLE subscript (AGG) | ONE table, 400-entry fixed live set, 10000 read+write passes. ⛔ Measure with `SCRIP_NOHUGE=1` — see the header comment. |
+| `arith_mixed.sno` | MIXED int/real arithmetic (ARITH) | The ONLY program that reaches `rt_num_arith`: integer-only programs never do (the emitter inlines int arithmetic), so `arith_loop` counts ZERO at every loop count. 40,000,001 calls/run, scales linearly, ~1.6s natural window at F=1. Checksum `floor(1.5*(P+1))` predicted in advance, matched at P=40M and P=80M. RTX-0d, s204. |
 | `func_call_overhead.sno` | Call/return overhead | Trivial INC(), 3000 calls |
 | `mixed_workload.sno` | Combined | Pattern parse + TABLE + recursion, 200 iters |
 | `eval_fixed.sno` | EVAL() compile cost | Fixed expression, 200 iters |
