@@ -154,14 +154,14 @@ n7_match_rpos_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n8_match_assign_save_α:
                         sub              rsp, 16
-                        mov              dword ptr [rsp + 48], r14d
+                        mov              dword ptr [rsp + 0], r14d
                                                                                         jmp   n11_match_len_α
 n8_match_assign_save_β:
                         add              rsp, 16
                                                                                         jmp   n2_match_head_β
 #-----------------------------------------------------------------------------------------------------------------------
 n9_match_assign_cond_α:
-                        mov              eax, dword ptr [rsp + 48]
+                        mov              eax, dword ptr [rsp + 0]
                         lea              rcx, [rip + .S0]
                         mov              r10, qword ptr [1879048192]
                         mov              qword ptr [r10 + 0], rcx
@@ -1272,14 +1272,14 @@ n104_match_rpos_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n105_match_assign_save_α:
                         sub              rsp, 16
-                        mov              dword ptr [rsp + 48], r14d
+                        mov              dword ptr [rsp + 0], r14d
                                                                                         jmp   n111_match_len_α
 n105_match_assign_save_β:
                         add              rsp, 16
                                                                                         jmp   n91_match_head_β
 #-----------------------------------------------------------------------------------------------------------------------
 n106_match_assign_cond_α:
-                        mov              eax, dword ptr [rsp + 48]
+                        mov              eax, dword ptr [rsp + 0]
                         lea              rcx, [rip + .S0]
                         mov              r10, qword ptr [1879048192]
                         mov              qword ptr [r10 + 0], rcx
