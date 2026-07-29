@@ -1,0 +1,66 @@
+############################################################################
+#
+#       Name:   bench_icnagg_field_isolate.icn
+#
+#       Title:  RTX-8c-ICN isolation benchmark -- dat_field_get fast arm
+#
+############################################################################
+#
+#  Exercises the arm measured live at s215: a record field READ, which
+#  bb_field_get.cpp emits as an UNGUARDED `call dat_field_get@PLT` and which
+#  resolves through data_field_ptr's linear field scan.  That scan calls libc
+#  strcmp ONCE PER FIELD until it hits, so the cost is O(field index) with a
+#  real call per step -- removable at ANY -O level, not -O0 frame ceremony.
+#
+#  WHY THE RECORD HAS TEN FIELDS AND WHY THE READS ARE SPREAD ACROSS THEM:
+#  the ported asm replaces the per-field libc strcmp with an inline byte
+#  compare.  A one-field record would measure the call boundary only; reading
+#  f01 through f10 makes the SCAN itself the dominant term, which is the thing
+#  the port actually deletes.  The late fields (f08..f10) are the expensive
+#  ones and are deliberately over-represented.
+#
+#  THE TWO PROPERTIES INHERITED FROM s211/s212, BOTH LEARNED THE HARD WAY:
+#
+#  1. SELF-TIMED WITH &time, MEASURED INSIDE THE PROGRAM (s211).  A whole-
+#     process wall clock on an Icon benchmark is ~20:1 compile-phase
+#     dominated at these sizes; a window opened after the program is already
+#     running excludes the compiler by construction, not by subtraction.
+#     The harness reads the "ms: " line.
+#
+#  2. ALLOCATION IS HOISTED OUT OF THE TIMED LOOP (s211).  The record is
+#     constructed ONCE, before the window opens.  The RTX-6 benchmark was
+#     REFUSED by the harness because per-iteration allocation made its
+#     samples bimodal with an intra-arm spread larger than the gap; hoisting
+#     took spreads 1.57x -> 1.04x.  This loop allocates nothing.
+#
+#  Field ASSIGNMENT is deliberately absent: `r.f := v` routes through
+#  rt_field_var / the IR_FIELD_VAR lvalue arm, which is a DIFFERENT symbol.
+#  Only reads reach dat_field_get.
+#
+#  N is edited into the source: mode 3 does not forward argv
+#  (`scrip --run p.icn -n8` => cannot open '-n8'), the open half of RTX-0b-ICN.
+#
+############################################################################
+
+record wide(f01, f02, f03, f04, f05, f06, f07, f08, f09, f10);
+
+procedure main();
+   local i, n, c, t0, r;
+
+   n := 1600000;
+   c := 0;
+
+   r := wide(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+   t0 := &time;
+   every i := 1 to n do {
+      c := c + r.f01 + r.f02 + r.f03 + r.f04 + r.f05;
+      c := c + r.f06 + r.f07 + r.f08 + r.f09 + r.f10;
+      c := c + r.f08 + r.f09 + r.f10;
+      c := c + r.f08 + r.f09 + r.f10;
+   };
+
+   write("chk: ", c);
+   write("ms: ", &time - t0);
+
+end
