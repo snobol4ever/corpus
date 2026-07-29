@@ -1,92 +1,118 @@
-  .intel_syntax noprefix
-  .text
-  .globl main
+                        .intel_syntax    noprefix
+                        .text
+                        .globl           main
 main:
-  push rbp
-  mov rbp, rsp
-  call rt_frame@PLT
-  mov rdi, rax
-  xor esi, esi
-  call main_α
-  xor eax, eax
-  pop rbp
-  ret
+                        sub              rsp, 8
+                        push             rdi
+                        push             rsi
+                        call             core_lib_init@PLT
+                        xor              esi, esi
+                        call             main_α
+                        xor              eax, eax
+                        add              rsp, 24
+                        ret
+#-----------------------------------------------------------------------------------------------------------------------
 main_α:
-#=======================================================================================================================
-    .global main_α
-    .global main_β
-    .global main_γ
-    .global main_ω
-push r12
-  mov r12, rdi
-  lea r10, [rip + Δ]
+                        .global          main_α
+                        .global          main_β
+                        .global          main_γ
+                        .global          main_ω
+                        sub              rsp, 152
+                        mov              rdi, rsp
+                        mov              ecx, 152
+                        xor              eax, eax
+                        rep stosb
+                        mov              [rsp + 144], rbp
+                        mov              rbp, rsp
 main_α_body:
-xchain0_n0_α:
-bb1_α:
-# BOX IR_CALL find(...) -> rt_call_arr by-name [four-port, FAIL->ω.node]
-# marshal arg0 = LIT_S (string REG-RO sealed in-band) -> [r12+16]
- mov qword ptr [r12 + 16], 1
- mov rax, qword ptr [rip + .Lx1_0]
- mov qword ptr [r12 + 24], rax
- jmp .Lx1_1
-.Lx1_0:
- .quad .Lx1_0_s
-.Lx1_0_s:
- .string "a"
-.Lx1_1:
-# marshal arg1 = LIT_S (string REG-RO sealed in-band) -> [r12+32]
- mov qword ptr [r12 + 32], 1
- mov rax, qword ptr [rip + .Lx1_2]
- mov qword ptr [r12 + 40], rax
- jmp .Lx1_3
-.Lx1_2:
- .quad .Lx1_2_s
-.Lx1_2_s:
- .string "banana"
-.Lx1_3:
-  .section .rodata
-  .Lbynamefn2: .string "find"
-  .section .text
-  .intel_syntax noprefix
-   lea rdi, [rip + .Lbynamefn2]
- lea rsi, [r12 + 16]
- mov edx, 2
- call rt_call_arr@PLT
- mov qword ptr [r12 + 0], rax
- mov qword ptr [r12 + 8], rdx
- cmp eax, 99
- je xchain0_n2_α
- jmp xchain0_n1_α
-xchain0_n0_β:
- jmp xchain0_n2_α
-xchain0_n1_α:
-bb2_α:
-# BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
- mov rdi, qword ptr [r12 + 0]
- mov rsi, qword ptr [r12 + 8]
- call rt_write_any_nl@PLT
- jmp xchain0_n0_α
-xchain0_n1_β:
-xchain0_n1_β:
- jmp xchain0_n2_α
-xchain0_n2_α:
-# IR_EVERY
- jmp main_ω
- xchain0_n2_β:
- jmp main_ω
+#-----------------------------------------------------------------------------------------------------------------------
+n0_lit_string_α:
+                        mov              qword ptr [rbp + 112], 1
+                        mov              rax, qword ptr [rip + .Lx4_0]
+                        mov              qword ptr [rbp + 120], rax
+                                                                                        jmp   n1_lit_string_α
+.Lx4_0:
+                        .quad            .Lx4_0_s
+.Lx4_0_s:
+                        .string          "a"
+#-----------------------------------------------------------------------------------------------------------------------
+n1_lit_string_α:
+                        mov              qword ptr [rbp + 128], 1
+                        mov              rax, qword ptr [rip + .Lx5_0]
+                        mov              qword ptr [rbp + 136], rax
+                                                                                        jmp   n2_call_builtin_gen_α
+.Lx5_0:
+                        .quad            .Lx5_0_s
+.Lx5_0_s:
+                        .string          "banana"
+#-----------------------------------------------------------------------------------------------------------------------
+n2_call_builtin_gen_α:
+                        mov              rax, qword ptr [rbp + 112]
+                        mov              qword ptr [rbp + 64], rax
+                        mov              rax, qword ptr [rbp + 120]
+                        mov              qword ptr [rbp + 72], rax
+                        mov              rax, qword ptr [rbp + 128]
+                        mov              qword ptr [rbp + 80], rax
+                        mov              rax, qword ptr [rbp + 136]
+                        mov              qword ptr [rbp + 88], rax
+                        mov              qword ptr [rbp + 96], 0
+                        mov              rdi, r14
+                        call             rt_scan_sync_out@PLT
+.Lx6_60:
+                        .section         .rodata
+.Lbynamegenfn3:         .string          "find"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lbynamegenfn3]
+                        lea              rsi, [rbp + 64]
+                        mov              edx, 2
+                        lea              rcx, [rbp + 96]
+                        call             rt_call_arr_gen@PLT
+                        mov              qword ptr [rbp + 48], rax
+                        mov              qword ptr [rbp + 56], rdx
+                        cmp              eax, 99
+                                                                                        je    main_ω
+                                                                                        jmp   n3_call_builtin_icon_α
+n2_call_builtin_gen_β:
+                                                                                        jmp   .Lx6_60
+#-----------------------------------------------------------------------------------------------------------------------
+n3_call_builtin_icon_α:
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 16], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 24], rax
+                        .section         .rodata
+.Lrkfn8:                .string          "write"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn8]
+                        lea              rsi, [rbp + 16]
+                        mov              edx, 1
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rbp + 0], rax
+                        mov              qword ptr [rbp + 8], rdx
+                        cmp              eax, 99
+                                                                                        je    n2_call_builtin_gen_β
+                                                                                        jmp   n2_call_builtin_gen_β
+n3_call_builtin_icon_β:
+                                                                                        jmp   n2_call_builtin_gen_β
+#-----------------------------------------------------------------------------------------------------------------------
 main_β:
-jmp main_ω
+                                                                                        jmp   main_ω
+#-----------------------------------------------------------------------------------------------------------------------
 main_γ:
-mov eax, 1
-xor edx, edx
-pop r12
-ret
+                        mov              eax, 1
+                        xor              edx, edx
+                        mov              rsp, rbp
+                        mov              rbp, [rsp + 144]
+                        add              rsp, 152
+                        ret
+#-----------------------------------------------------------------------------------------------------------------------
 main_ω:
-# GZ-10 PROC FAIL EXIT: write FAILDESCR to frame[0] so rt_call_proc_descr sees failure
-mov dword ptr [r12+0], 99
-mov dword ptr [r12+4], 0
-mov qword ptr [r12+8], 0
-mov eax, 99
-xor edx, edx
-pop r12
-ret
+                        mov              rsp, rbp
+                        mov              eax, 99
+                        xor              edx, edx
+                        mov              rbp, [rsp + 144]
+                        add              rsp, 152
+                        ret
+                        .section         .note.GNU-stack,"",@progbits

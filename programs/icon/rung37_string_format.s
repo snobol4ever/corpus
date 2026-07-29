@@ -1,261 +1,365 @@
-  .intel_syntax noprefix
-  .text
-  .globl main
+                        .intel_syntax    noprefix
+                        .text
+                        .globl           main
 main:
-  push rbp
-  mov rbp, rsp
-  call rt_frame@PLT
-  mov rdi, rax
-  xor esi, esi
-  call main_α
-  xor eax, eax
-  pop rbp
-  ret
+                        sub              rsp, 8
+                        push             rdi
+                        push             rsi
+                        call             core_lib_init@PLT
+                        xor              esi, esi
+                        call             main_α
+                        xor              eax, eax
+                        add              rsp, 24
+                        ret
+#-----------------------------------------------------------------------------------------------------------------------
 main_α:
-#=======================================================================================================================
-    .global main_α
-    .global main_β
-    .global main_γ
-    .global main_ω
-push r12
-  mov r12, rdi
-  lea r10, [rip + Δ]
+                        .global          main_α
+                        .global          main_β
+                        .global          main_γ
+                        .global          main_ω
+                        sub              rsp, 728
+                        mov              rdi, rsp
+                        mov              ecx, 728
+                        xor              eax, eax
+                        rep stosb
 main_α_body:
-xchain0_n0_α:
-bb1_α:
-# BOX IR_CALL center(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = LIT_S (string REG-RO sealed in-band) -> [r12+16]
- mov qword ptr [r12 + 16], 1
- mov rax, qword ptr [rip + .Lx1_0]
- mov qword ptr [r12 + 24], rax
- jmp .Lx1_1
-.Lx1_0:
- .quad .Lx1_0_s
-.Lx1_0_s:
- .string "hi"
-.Lx1_1:
-# marshal arg1 = LIT_I -> [r12+32]
- mov qword ptr [r12 + 32], 6
- movabs rax, 6
- mov qword ptr [r12 + 40], rax
-  .section .rodata
-  .Lrkfn2: .string "center"
-  .section .text
-  .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn2]
- lea rsi, [r12 + 16]
- mov edx, 2
- call rt_call_arr@PLT
- mov qword ptr [r12 + 0], rax
- mov qword ptr [r12 + 8], rdx
- cmp eax, 99
- je xchain0_n2_α
- jmp xchain0_n1_α
- xchain0_n0_β:
- jmp xchain0_n2_α
-xchain0_n1_α:
-bb2_α:
-# BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
- mov rdi, qword ptr [r12 + 0]
- mov rsi, qword ptr [r12 + 8]
- call rt_write_any_nl@PLT
- jmp xchain0_n2_α
-xchain0_n1_β:
-xchain0_n1_β:
- jmp xchain0_n2_α
-xchain0_n2_α:
-bb3_α:
-# BOX IR_CALL left(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = LIT_S (string REG-RO sealed in-band) -> [r12+64]
- mov qword ptr [r12 + 64], 1
- mov rax, qword ptr [rip + .Lx4_0]
- mov qword ptr [r12 + 72], rax
- jmp .Lx4_1
-.Lx4_0:
- .quad .Lx4_0_s
-.Lx4_0_s:
- .string "hi"
-.Lx4_1:
-# marshal arg1 = LIT_I -> [r12+80]
- mov qword ptr [r12 + 80], 6
- movabs rax, 6
- mov qword ptr [r12 + 88], rax
-# marshal arg2 = LIT_S (string REG-RO sealed in-band) -> [r12+96]
- mov qword ptr [r12 + 96], 1
- mov rax, qword ptr [rip + .Lx4_4]
- mov qword ptr [r12 + 104], rax
- jmp .Lx4_5
-.Lx4_4:
- .quad .Lx4_4_s
-.Lx4_4_s:
- .string "."
-.Lx4_5:
-  .section .rodata
-  .Lrkfn5: .string "left"
-  .section .text
-  .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn5]
- lea rsi, [r12 + 64]
- mov edx, 3
- call rt_call_arr@PLT
- mov qword ptr [r12 + 48], rax
- mov qword ptr [r12 + 56], rdx
- cmp eax, 99
- je xchain0_n4_α
- jmp xchain0_n3_α
- xchain0_n2_β:
- jmp xchain0_n4_α
-xchain0_n3_α:
-bb4_α:
-# BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
- mov rdi, qword ptr [r12 + 48]
- mov rsi, qword ptr [r12 + 56]
- call rt_write_any_nl@PLT
- jmp xchain0_n4_α
-xchain0_n3_β:
-xchain0_n3_β:
- jmp xchain0_n4_α
-xchain0_n4_α:
-bb5_α:
-# BOX IR_CALL right(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = LIT_S (string REG-RO sealed in-band) -> [r12+128]
- mov qword ptr [r12 + 128], 1
- mov rax, qword ptr [rip + .Lx7_0]
- mov qword ptr [r12 + 136], rax
- jmp .Lx7_1
-.Lx7_0:
- .quad .Lx7_0_s
-.Lx7_0_s:
- .string "hi"
-.Lx7_1:
-# marshal arg1 = LIT_I -> [r12+144]
- mov qword ptr [r12 + 144], 6
- movabs rax, 6
- mov qword ptr [r12 + 152], rax
-# marshal arg2 = LIT_S (string REG-RO sealed in-band) -> [r12+160]
- mov qword ptr [r12 + 160], 1
- mov rax, qword ptr [rip + .Lx7_4]
- mov qword ptr [r12 + 168], rax
- jmp .Lx7_5
-.Lx7_4:
- .quad .Lx7_4_s
-.Lx7_4_s:
- .string "."
-.Lx7_5:
-  .section .rodata
-  .Lrkfn8: .string "right"
-  .section .text
-  .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn8]
- lea rsi, [r12 + 128]
- mov edx, 3
- call rt_call_arr@PLT
- mov qword ptr [r12 + 112], rax
- mov qword ptr [r12 + 120], rdx
- cmp eax, 99
- je xchain0_n6_α
- jmp xchain0_n5_α
- xchain0_n4_β:
- jmp xchain0_n6_α
-xchain0_n5_α:
-bb6_α:
-# BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
- mov rdi, qword ptr [r12 + 112]
- mov rsi, qword ptr [r12 + 120]
- call rt_write_any_nl@PLT
- jmp xchain0_n6_α
-xchain0_n5_β:
-xchain0_n5_β:
- jmp xchain0_n6_α
-xchain0_n6_α:
-bb7_α:
-# BOX IR_CALL detab(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = LIT_S (string REG-RO sealed in-band) -> [r12+192]
- mov qword ptr [r12 + 192], 1
- mov rax, qword ptr [rip + .Lx10_0]
- mov qword ptr [r12 + 200], rax
- jmp .Lx10_1
-.Lx10_0:
- .quad .Lx10_0_s
-.Lx10_0_s:
- .string "\tabc"
-.Lx10_1:
-  .section .rodata
-  .Lrkfn11: .string "detab"
-  .section .text
-  .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn11]
- lea rsi, [r12 + 192]
- mov edx, 1
- call rt_call_arr@PLT
- mov qword ptr [r12 + 176], rax
- mov qword ptr [r12 + 184], rdx
- cmp eax, 99
- je xchain0_n8_α
- jmp xchain0_n7_α
- xchain0_n6_β:
- jmp xchain0_n8_α
-xchain0_n7_α:
-bb8_α:
-# BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
- mov rdi, qword ptr [r12 + 176]
- mov rsi, qword ptr [r12 + 184]
- call rt_write_any_nl@PLT
- jmp xchain0_n8_α
-xchain0_n7_β:
-xchain0_n7_β:
- jmp xchain0_n8_α
-xchain0_n8_α:
-bb9_α:
-# BOX IR_CALL entab(...) -> rt_call_arr [operand-marshal, FAIL->ω]
-# marshal arg0 = LIT_S (string REG-RO sealed in-band) -> [r12+224]
- mov qword ptr [r12 + 224], 1
- mov rax, qword ptr [rip + .Lx13_0]
- mov qword ptr [r12 + 232], rax
- jmp .Lx13_1
-.Lx13_0:
- .quad .Lx13_0_s
-.Lx13_0_s:
- .string "        x"
-.Lx13_1:
-  .section .rodata
-  .Lrkfn14: .string "entab"
-  .section .text
-  .intel_syntax noprefix
-   lea rdi, [rip + .Lrkfn14]
- lea rsi, [r12 + 224]
- mov edx, 1
- call rt_call_arr@PLT
- mov qword ptr [r12 + 208], rax
- mov qword ptr [r12 + 216], rdx
- cmp eax, 99
- je main_ω
- jmp xchain0_n9_α
- xchain0_n8_β:
- jmp main_ω
-xchain0_n9_α:
-bb10_α:
-# BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
- mov rdi, qword ptr [r12 + 208]
- mov rsi, qword ptr [r12 + 216]
- call rt_write_any_nl@PLT
- jmp main_γ
-xchain0_n9_β:
-xchain0_n9_β:
- jmp main_ω
+#-----------------------------------------------------------------------------------------------------------------------
+n0_lit_string_α:
+                        mov              qword ptr [rsp + 688], 1
+                        mov              rax, qword ptr [rip + .Lx20_0]
+                        mov              qword ptr [rsp + 696], rax
+                                                                                        jmp   n1_lit_integer_α
+.Lx20_0:
+                        .quad            .Lx20_0_s
+.Lx20_0_s:
+                        .string          "hi"
+#-----------------------------------------------------------------------------------------------------------------------
+n1_lit_integer_α:
+                        mov              qword ptr [rsp + 704], 6
+                        mov              rax, qword ptr [rip + .Lx21_0]
+                        mov              qword ptr [rsp + 712], rax
+                                                                                        jmp   n2_call_builtin_icon_α
+.Lx21_0:
+                        .quad            6
+#-----------------------------------------------------------------------------------------------------------------------
+n2_call_builtin_icon_α:
+                        mov              rax, qword ptr [rsp + 688]
+                        mov              qword ptr [rsp + 640], rax
+                        mov              rax, qword ptr [rsp + 696]
+                        mov              qword ptr [rsp + 648], rax
+                        mov              rax, qword ptr [rsp + 704]
+                        mov              qword ptr [rsp + 656], rax
+                        mov              rax, qword ptr [rsp + 712]
+                        mov              qword ptr [rsp + 664], rax
+                        .section         .rodata
+.Lrkfn23:               .string          "center"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn23]
+                        lea              rsi, [rsp + 640]
+                        mov              edx, 2
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rsp + 624], rax
+                        mov              qword ptr [rsp + 632], rdx
+                        cmp              eax, 99
+                                                                                        je    n4_lit_string_α
+                                                                                        jmp   n3_call_builtin_icon_α
+n2_call_builtin_icon_β:
+                                                                                        jmp   n4_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n3_call_builtin_icon_α:
+                        mov              rax, qword ptr [rsp + 624]
+                        mov              qword ptr [rsp + 592], rax
+                        mov              rax, qword ptr [rsp + 632]
+                        mov              qword ptr [rsp + 600], rax
+                        .section         .rodata
+.Lrkfn25:               .string          "write"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn25]
+                        lea              rsi, [rsp + 592]
+                        mov              edx, 1
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rsp + 576], rax
+                        mov              qword ptr [rsp + 584], rdx
+                        cmp              eax, 99
+                                                                                        je    n4_lit_string_α
+                                                                                        jmp   n4_lit_string_α
+n3_call_builtin_icon_β:
+                                                                                        jmp   n4_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n4_lit_string_α:
+                        mov              qword ptr [rsp + 528], 1
+                        mov              rax, qword ptr [rip + .Lx26_0]
+                        mov              qword ptr [rsp + 536], rax
+                                                                                        jmp   n5_lit_integer_α
+.Lx26_0:
+                        .quad            .Lx26_0_s
+.Lx26_0_s:
+                        .string          "hi"
+#-----------------------------------------------------------------------------------------------------------------------
+n5_lit_integer_α:
+                        mov              qword ptr [rsp + 544], 6
+                        mov              rax, qword ptr [rip + .Lx27_0]
+                        mov              qword ptr [rsp + 552], rax
+                                                                                        jmp   n6_lit_string_α
+.Lx27_0:
+                        .quad            6
+#-----------------------------------------------------------------------------------------------------------------------
+n6_lit_string_α:
+                        mov              qword ptr [rsp + 560], 1
+                        mov              rax, qword ptr [rip + .Lx28_0]
+                        mov              qword ptr [rsp + 568], rax
+                                                                                        jmp   n7_call_builtin_icon_α
+.Lx28_0:
+                        .quad            .Lx28_0_s
+.Lx28_0_s:
+                        .string          "."
+#-----------------------------------------------------------------------------------------------------------------------
+n7_call_builtin_icon_α:
+                        mov              rax, qword ptr [rsp + 528]
+                        mov              qword ptr [rsp + 464], rax
+                        mov              rax, qword ptr [rsp + 536]
+                        mov              qword ptr [rsp + 472], rax
+                        mov              rax, qword ptr [rsp + 544]
+                        mov              qword ptr [rsp + 480], rax
+                        mov              rax, qword ptr [rsp + 552]
+                        mov              qword ptr [rsp + 488], rax
+                        mov              rax, qword ptr [rsp + 560]
+                        mov              qword ptr [rsp + 496], rax
+                        mov              rax, qword ptr [rsp + 568]
+                        mov              qword ptr [rsp + 504], rax
+                        .section         .rodata
+.Lrkfn30:               .string          "left"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn30]
+                        lea              rsi, [rsp + 464]
+                        mov              edx, 3
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rsp + 448], rax
+                        mov              qword ptr [rsp + 456], rdx
+                        cmp              eax, 99
+                                                                                        je    n9_lit_string_α
+                                                                                        jmp   n8_call_builtin_icon_α
+n7_call_builtin_icon_β:
+                                                                                        jmp   n9_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n8_call_builtin_icon_α:
+                        mov              rax, qword ptr [rsp + 448]
+                        mov              qword ptr [rsp + 416], rax
+                        mov              rax, qword ptr [rsp + 456]
+                        mov              qword ptr [rsp + 424], rax
+                        .section         .rodata
+.Lrkfn32:               .string          "write"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn32]
+                        lea              rsi, [rsp + 416]
+                        mov              edx, 1
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rsp + 400], rax
+                        mov              qword ptr [rsp + 408], rdx
+                        cmp              eax, 99
+                                                                                        je    n9_lit_string_α
+                                                                                        jmp   n9_lit_string_α
+n8_call_builtin_icon_β:
+                                                                                        jmp   n9_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n9_lit_string_α:
+                        mov              qword ptr [rsp + 352], 1
+                        mov              rax, qword ptr [rip + .Lx33_0]
+                        mov              qword ptr [rsp + 360], rax
+                                                                                        jmp   n10_lit_integer_α
+.Lx33_0:
+                        .quad            .Lx33_0_s
+.Lx33_0_s:
+                        .string          "hi"
+#-----------------------------------------------------------------------------------------------------------------------
+n10_lit_integer_α:
+                        mov              qword ptr [rsp + 368], 6
+                        mov              rax, qword ptr [rip + .Lx34_0]
+                        mov              qword ptr [rsp + 376], rax
+                                                                                        jmp   n11_lit_string_α
+.Lx34_0:
+                        .quad            6
+#-----------------------------------------------------------------------------------------------------------------------
+n11_lit_string_α:
+                        mov              qword ptr [rsp + 384], 1
+                        mov              rax, qword ptr [rip + .Lx35_0]
+                        mov              qword ptr [rsp + 392], rax
+                                                                                        jmp   n12_call_builtin_icon_α
+.Lx35_0:
+                        .quad            .Lx35_0_s
+.Lx35_0_s:
+                        .string          "."
+#-----------------------------------------------------------------------------------------------------------------------
+n12_call_builtin_icon_α:
+                        mov              rax, qword ptr [rsp + 352]
+                        mov              qword ptr [rsp + 288], rax
+                        mov              rax, qword ptr [rsp + 360]
+                        mov              qword ptr [rsp + 296], rax
+                        mov              rax, qword ptr [rsp + 368]
+                        mov              qword ptr [rsp + 304], rax
+                        mov              rax, qword ptr [rsp + 376]
+                        mov              qword ptr [rsp + 312], rax
+                        mov              rax, qword ptr [rsp + 384]
+                        mov              qword ptr [rsp + 320], rax
+                        mov              rax, qword ptr [rsp + 392]
+                        mov              qword ptr [rsp + 328], rax
+                        .section         .rodata
+.Lrkfn37:               .string          "right"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn37]
+                        lea              rsi, [rsp + 288]
+                        mov              edx, 3
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rsp + 272], rax
+                        mov              qword ptr [rsp + 280], rdx
+                        cmp              eax, 99
+                                                                                        je    n14_lit_string_α
+                                                                                        jmp   n13_call_builtin_icon_α
+n12_call_builtin_icon_β:
+                                                                                        jmp   n14_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n13_call_builtin_icon_α:
+                        mov              rax, qword ptr [rsp + 272]
+                        mov              qword ptr [rsp + 240], rax
+                        mov              rax, qword ptr [rsp + 280]
+                        mov              qword ptr [rsp + 248], rax
+                        .section         .rodata
+.Lrkfn39:               .string          "write"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn39]
+                        lea              rsi, [rsp + 240]
+                        mov              edx, 1
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rsp + 224], rax
+                        mov              qword ptr [rsp + 232], rdx
+                        cmp              eax, 99
+                                                                                        je    n14_lit_string_α
+                                                                                        jmp   n14_lit_string_α
+n13_call_builtin_icon_β:
+                                                                                        jmp   n14_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n14_lit_string_α:
+                        mov              qword ptr [rsp + 208], 1
+                        mov              rax, qword ptr [rip + .Lx40_0]
+                        mov              qword ptr [rsp + 216], rax
+                                                                                        jmp   n15_call_builtin_icon_α
+.Lx40_0:
+                        .quad            .Lx40_0_s
+.Lx40_0_s:
+                        .string          "\tabc"
+#-----------------------------------------------------------------------------------------------------------------------
+n15_call_builtin_icon_α:
+                        mov              rax, qword ptr [rsp + 208]
+                        mov              qword ptr [rsp + 176], rax
+                        mov              rax, qword ptr [rsp + 216]
+                        mov              qword ptr [rsp + 184], rax
+                        .section         .rodata
+.Lrkfn42:               .string          "detab"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn42]
+                        lea              rsi, [rsp + 176]
+                        mov              edx, 1
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rsp + 160], rax
+                        mov              qword ptr [rsp + 168], rdx
+                        cmp              eax, 99
+                                                                                        je    n17_lit_string_α
+                                                                                        jmp   n16_call_builtin_icon_α
+n15_call_builtin_icon_β:
+                                                                                        jmp   n17_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n16_call_builtin_icon_α:
+                        mov              rax, qword ptr [rsp + 160]
+                        mov              qword ptr [rsp + 128], rax
+                        mov              rax, qword ptr [rsp + 168]
+                        mov              qword ptr [rsp + 136], rax
+                        .section         .rodata
+.Lrkfn44:               .string          "write"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn44]
+                        lea              rsi, [rsp + 128]
+                        mov              edx, 1
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rsp + 112], rax
+                        mov              qword ptr [rsp + 120], rdx
+                        cmp              eax, 99
+                                                                                        je    n17_lit_string_α
+                                                                                        jmp   n17_lit_string_α
+n16_call_builtin_icon_β:
+                                                                                        jmp   n17_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n17_lit_string_α:
+                        mov              qword ptr [rsp + 96], 1
+                        mov              rax, qword ptr [rip + .Lx45_0]
+                        mov              qword ptr [rsp + 104], rax
+                                                                                        jmp   n18_call_builtin_icon_α
+.Lx45_0:
+                        .quad            .Lx45_0_s
+.Lx45_0_s:
+                        .string          "        x"
+#-----------------------------------------------------------------------------------------------------------------------
+n18_call_builtin_icon_α:
+                        mov              rax, qword ptr [rsp + 96]
+                        mov              qword ptr [rsp + 64], rax
+                        mov              rax, qword ptr [rsp + 104]
+                        mov              qword ptr [rsp + 72], rax
+                        .section         .rodata
+.Lrkfn47:               .string          "entab"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn47]
+                        lea              rsi, [rsp + 64]
+                        mov              edx, 1
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rsp + 48], rax
+                        mov              qword ptr [rsp + 56], rdx
+                        cmp              eax, 99
+                                                                                        je    main_ω
+                                                                                        jmp   n19_call_builtin_icon_α
+n18_call_builtin_icon_β:
+                                                                                        jmp   main_ω
+#-----------------------------------------------------------------------------------------------------------------------
+n19_call_builtin_icon_α:
+                        mov              rax, qword ptr [rsp + 48]
+                        mov              qword ptr [rsp + 16], rax
+                        mov              rax, qword ptr [rsp + 56]
+                        mov              qword ptr [rsp + 24], rax
+                        .section         .rodata
+.Lrkfn49:               .string          "write"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn49]
+                        lea              rsi, [rsp + 16]
+                        mov              edx, 1
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
+                        cmp              eax, 99
+                                                                                        je    main_ω
+                                                                                        jmp   main_ω
+n19_call_builtin_icon_β:
+                                                                                        jmp   main_ω
+#-----------------------------------------------------------------------------------------------------------------------
 main_β:
-jmp main_ω
+                                                                                        jmp   main_ω
+#-----------------------------------------------------------------------------------------------------------------------
 main_γ:
-mov eax, 1
-xor edx, edx
-pop r12
-ret
+                        mov              eax, 1
+                        xor              edx, edx
+                        add              rsp, 728
+                        ret
+#-----------------------------------------------------------------------------------------------------------------------
 main_ω:
-# GZ-10 PROC FAIL EXIT: write FAILDESCR to frame[0] so rt_call_proc_descr sees failure
-mov dword ptr [r12+0], 99
-mov dword ptr [r12+4], 0
-mov qword ptr [r12+8], 0
-mov eax, 99
-xor edx, edx
-pop r12
-ret
+                        mov              eax, 99
+                        xor              edx, edx
+                        add              rsp, 728
+                        ret
+                        .section         .note.GNU-stack,"",@progbits

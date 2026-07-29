@@ -1,155 +1,198 @@
-  .intel_syntax noprefix
-  .text
-  .globl main
+                        .intel_syntax    noprefix
+                        .text
+                        .globl           main
 main:
-  push rbp
-  mov rbp, rsp
-  call rt_frame@PLT
-  mov rdi, rax
-  xor esi, esi
-  call main_α
-  xor eax, eax
-  pop rbp
-  ret
+                        sub              rsp, 8
+                        push             rdi
+                        push             rsi
+                        call             core_lib_init@PLT
+                        xor              esi, esi
+                        call             main_α
+                        xor              eax, eax
+                        add              rsp, 24
+                        ret
+#-----------------------------------------------------------------------------------------------------------------------
 main_α:
-#=======================================================================================================================
-    .global main_α
-    .global main_β
-    .global main_γ
-    .global main_ω
-push r12
-  mov r12, rdi
-  lea r10, [rip + Δ]
+                        .global          main_α
+                        .global          main_β
+                        .global          main_γ
+                        .global          main_ω
+                        sub              rsp, 200
+                        mov              rdi, rsp
+                        mov              ecx, 200
+                        xor              eax, eax
+                        rep stosb
+                        mov              [rsp + 192], rbp
+                        mov              rbp, rsp
 main_α_body:
-xchain0_n0_α:
-bb1_α:
-# IR_ALT
- mov qword ptr [r12 + 16], 0
-.Lx2_2:
- mov rax, qword ptr [r12 + 16]
- cmp rax, 0
- je .Lx2_3
- mov rax, qword ptr [r12 + 16]
- cmp rax, 1
- je .Lx2_4
- jmp xchain0_n4_α
-.Lx2_3:
- mov qword ptr [r12 + 0], 1
- mov rax, qword ptr [rip + .Lx2_0]
- mov qword ptr [r12 + 8], rax
- mov rax, qword ptr [r12 + 16]
- add rax, 1
- mov qword ptr [r12 + 16], rax
- jmp xchain0_n1_α
-.Lx2_4:
- mov qword ptr [r12 + 0], 1
- mov rax, qword ptr [rip + .Lx2_1]
- mov qword ptr [r12 + 8], rax
- mov rax, qword ptr [r12 + 16]
- add rax, 1
- mov qword ptr [r12 + 16], rax
- jmp xchain0_n1_α
- xchain0_n0_β:
- jmp .Lx2_2
-.Lx2_0:
- .quad .Lx2_0_s
-.Lx2_0_s:
- .string "a"
-.Lx2_1:
- .quad .Lx2_1_s
-.Lx2_1_s:
- .string "b"
-xchain0_n1_α:
-bb2_α:
-# IR_ALT
- mov qword ptr [r12 + 40], 0
-.Lx4_2:
- mov rax, qword ptr [r12 + 40]
- cmp rax, 0
- je .Lx4_3
- mov rax, qword ptr [r12 + 40]
- cmp rax, 1
- je .Lx4_4
- jmp xchain0_n0_β
-.Lx4_3:
- mov qword ptr [r12 + 24], 1
- mov rax, qword ptr [rip + .Lx4_0]
- mov qword ptr [r12 + 32], rax
- mov rax, qword ptr [r12 + 40]
- add rax, 1
- mov qword ptr [r12 + 40], rax
- jmp xchain0_n2_α
-.Lx4_4:
- mov qword ptr [r12 + 24], 1
- mov rax, qword ptr [rip + .Lx4_1]
- mov qword ptr [r12 + 32], rax
- mov rax, qword ptr [r12 + 40]
- add rax, 1
- mov qword ptr [r12 + 40], rax
- jmp xchain0_n2_α
- xchain0_n1_β:
- jmp .Lx4_2
-.Lx4_0:
- .quad .Lx4_0_s
-.Lx4_0_s:
- .string "x"
-.Lx4_1:
- .quad .Lx4_1_s
-.Lx4_1_s:
- .string "y"
-xchain0_n2_α:
-bb3_α:
-# IR_BINOP_CONCAT
- mov rdi, qword ptr [r12 + 0]
- mov rsi, qword ptr [r12 + 8]
- mov rdx, qword ptr [r12 + 24]
- mov rcx, qword ptr [r12 + 32]
- call str_concat_d@PLT
- mov qword ptr [r12 + 48], rax
- mov qword ptr [r12 + 56], rdx
- jmp xchain0_n3_α
- xchain0_n2_β:
- jmp xchain0_n1_β
-xchain0_n3_α:
-bb4_α:
-# BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
- mov rdi, qword ptr [r12 + 48]
- mov rsi, qword ptr [r12 + 56]
- call rt_write_any_nl@PLT
- jmp xchain0_n1_β
-xchain0_n3_β:
-xchain0_n3_β:
- jmp xchain0_n1_β
-xchain0_n4_α:
-# IR_LIT_S
-bb5_α:
- mov qword ptr [r12 + 64], 1
- mov rax, qword ptr [rip + .Lx8_0]
- mov qword ptr [r12 + 72], rax
- jmp xevery7_body_β
- xevery7_body_β:
- jmp main_γ
-.Lx8_0:
- .quad .Lx8_0_s
-.Lx8_0_s:
- .string "a"
-# IR_EVERY
- jmp main_ω
- xchain0_n4_β:
- jmp main_ω
+#-----------------------------------------------------------------------------------------------------------------------
+n0_disjunction_α:
+                        mov              qword ptr [rbp + 64], 0
+                        mov              qword ptr [rbp + 72], 0
+                        mov              dword ptr [rbp + 80], 0
+                                                                                        jmp   n2_lit_string_α
+n0_disjunction_as:
+                        mov              eax, dword ptr [rbp + 80]
+                        cmp              eax, 0
+                                                                                        jne   .Lx9_0
+                        mov              rax, qword ptr [rbp + 96]
+                        mov              qword ptr [rbp + 64], rax
+                        mov              rax, qword ptr [rbp + 104]
+                        mov              qword ptr [rbp + 72], rax
+                                                                                        jmp   n1_disjunction_α
+.Lx9_0:
+                        cmp              eax, 1
+                                                                                        jne   .Lx9_1
+                        mov              rax, qword ptr [rbp + 112]
+                        mov              qword ptr [rbp + 64], rax
+                        mov              rax, qword ptr [rbp + 120]
+                        mov              qword ptr [rbp + 72], rax
+                                                                                        jmp   n1_disjunction_α
+.Lx9_1:
+                                                                                        jmp   n1_disjunction_α
+n0_disjunction_β:
+                        mov              eax, dword ptr [rbp + 80]
+                        cmp              eax, 0
+                                                                                        je    n0_disjunction_af
+                                                                                        jmp   n0_disjunction_af
+n0_disjunction_af:
+                        add              dword ptr [rbp + 80], 1
+                        mov              eax, dword ptr [rbp + 80]
+                        cmp              eax, 1
+                                                                                        je    n3_lit_string_α
+                                                                                        jmp   main_ω
+#-----------------------------------------------------------------------------------------------------------------------
+n1_disjunction_α:
+                        mov              qword ptr [rbp + 128], 0
+                        mov              qword ptr [rbp + 136], 0
+                        mov              dword ptr [rbp + 144], 0
+                                                                                        jmp   n5_lit_string_α
+n1_disjunction_as:
+                        mov              eax, dword ptr [rbp + 144]
+                        cmp              eax, 0
+                                                                                        jne   .Lx11_0
+                        mov              rax, qword ptr [rbp + 160]
+                        mov              qword ptr [rbp + 128], rax
+                        mov              rax, qword ptr [rbp + 168]
+                        mov              qword ptr [rbp + 136], rax
+                                                                                        jmp   n4_binop_α
+.Lx11_0:
+                        cmp              eax, 1
+                                                                                        jne   .Lx11_1
+                        mov              rax, qword ptr [rbp + 176]
+                        mov              qword ptr [rbp + 128], rax
+                        mov              rax, qword ptr [rbp + 184]
+                        mov              qword ptr [rbp + 136], rax
+                                                                                        jmp   n4_binop_α
+.Lx11_1:
+                                                                                        jmp   n4_binop_α
+n1_disjunction_β:
+                        mov              eax, dword ptr [rbp + 144]
+                        cmp              eax, 0
+                                                                                        je    n1_disjunction_af
+                                                                                        jmp   n1_disjunction_af
+n1_disjunction_af:
+                        add              dword ptr [rbp + 144], 1
+                        mov              eax, dword ptr [rbp + 144]
+                        cmp              eax, 1
+                                                                                        je    n6_lit_string_α
+                                                                                        jmp   n0_disjunction_β
+#-----------------------------------------------------------------------------------------------------------------------
+n2_lit_string_α:
+                        mov              qword ptr [rbp + 96], 1
+                        mov              rax, qword ptr [rip + .Lx12_0]
+                        mov              qword ptr [rbp + 104], rax
+                                                                                        jmp   n0_disjunction_as
+n2_lit_string_β:
+                                                                                        jmp   n0_disjunction_af
+.Lx12_0:
+                        .quad            .Lx12_0_s
+.Lx12_0_s:
+                        .string          "a"
+#-----------------------------------------------------------------------------------------------------------------------
+n3_lit_string_α:
+                        mov              qword ptr [rbp + 112], 1
+                        mov              rax, qword ptr [rip + .Lx13_0]
+                        mov              qword ptr [rbp + 120], rax
+                                                                                        jmp   n0_disjunction_as
+n3_lit_string_β:
+                                                                                        jmp   n0_disjunction_af
+.Lx13_0:
+                        .quad            .Lx13_0_s
+.Lx13_0_s:
+                        .string          "b"
+#-----------------------------------------------------------------------------------------------------------------------
+n4_binop_α:
+                        mov              rdi, qword ptr [rbp + 64]
+                        mov              rsi, qword ptr [rbp + 72]
+                        mov              rdx, qword ptr [rbp + 128]
+                        mov              rcx, qword ptr [rbp + 136]
+                        call             str_concat_d@PLT
+                        mov              qword ptr [rbp + 48], rax
+                        mov              qword ptr [rbp + 56], rdx
+                                                                                        jmp   n7_call_builtin_icon_α
+#-----------------------------------------------------------------------------------------------------------------------
+n5_lit_string_α:
+                        mov              qword ptr [rbp + 160], 1
+                        mov              rax, qword ptr [rip + .Lx15_0]
+                        mov              qword ptr [rbp + 168], rax
+                                                                                        jmp   n1_disjunction_as
+n5_lit_string_β:
+                                                                                        jmp   n1_disjunction_af
+.Lx15_0:
+                        .quad            .Lx15_0_s
+.Lx15_0_s:
+                        .string          "x"
+#-----------------------------------------------------------------------------------------------------------------------
+n6_lit_string_α:
+                        mov              qword ptr [rbp + 176], 1
+                        mov              rax, qword ptr [rip + .Lx16_0]
+                        mov              qword ptr [rbp + 184], rax
+                                                                                        jmp   n1_disjunction_as
+n6_lit_string_β:
+                                                                                        jmp   n1_disjunction_af
+.Lx16_0:
+                        .quad            .Lx16_0_s
+.Lx16_0_s:
+                        .string          "y"
+#-----------------------------------------------------------------------------------------------------------------------
+n7_call_builtin_icon_α:
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 16], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 24], rax
+                        .section         .rodata
+.Lrkfn18:               .string          "write"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn18]
+                        lea              rsi, [rbp + 16]
+                        mov              edx, 1
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rbp + 0], rax
+                        mov              qword ptr [rbp + 8], rdx
+                        cmp              eax, 99
+                                                                                        je    n1_disjunction_β
+                                                                                        jmp   n1_disjunction_β
+n7_call_builtin_icon_β:
+                                                                                        jmp   n1_disjunction_β
+#-----------------------------------------------------------------------------------------------------------------------
 main_β:
-jmp main_ω
+                                                                                        jmp   main_ω
+#-----------------------------------------------------------------------------------------------------------------------
 main_γ:
-mov eax, 1
-xor edx, edx
-pop r12
-ret
+                        mov              eax, 1
+                        xor              edx, edx
+                        mov              rsp, rbp
+                        mov              rbp, [rsp + 192]
+                        add              rsp, 200
+                        ret
+#-----------------------------------------------------------------------------------------------------------------------
 main_ω:
-# GZ-10 PROC FAIL EXIT: write FAILDESCR to frame[0] so rt_call_proc_descr sees failure
-mov dword ptr [r12+0], 99
-mov dword ptr [r12+4], 0
-mov qword ptr [r12+8], 0
-mov eax, 99
-xor edx, edx
-pop r12
-ret
+                        mov              rsp, rbp
+                        mov              eax, 99
+                        xor              edx, edx
+                        mov              rbp, [rsp + 192]
+                        add              rsp, 200
+                        ret
+                        .section         .note.GNU-stack,"",@progbits

@@ -1,233 +1,281 @@
-  .intel_syntax noprefix
-  .text
-  .globl proc_shout_α
+                        .intel_syntax    noprefix
+                        .text
+#-----------------------------------------------------------------------------------------------------------------------
+                        .globl           proc_shout_α
 proc_shout_α:
-#=======================================================================================================================
-    .global proc_shout_α
-    .global proc_shout_β
-    .global proc_shout_γ
-    .global proc_shout_ω
-push r12
-  mov r12, rdi
-  lea r10, [rip + Δ]
+                        .global          proc_shout_α
+                        .global          proc_shout_β
+                        .global          proc_shout_γ
+                        .global          proc_shout_ω
+                        sub              rsp, 112
+                        mov              [rsp + 88], rcx
+                        mov              [rsp + 96], rdx
+                        mov              rdi, rsp
+                        mov              esi, 80
+                        mov              edx, 80
+                        call             rt_jmp_frame_lexprep2@PLT
 proc_shout_α_body:
-xchain0_n0_α:
-# IR_VAR
-bb1_α:
- mov rax, qword ptr [r12 + 16]
- mov qword ptr [r12 + 16], rax
- mov rax, qword ptr [r12 + 24]
- mov qword ptr [r12 + 24], rax
- jmp xchain0_n1_α
- xchain0_n0_β:
- jmp proc_shout_ω
-xchain0_n1_α:
-# IR_LIT_S
-bb2_α:
- mov qword ptr [r12 + 32], 1
- mov rax, qword ptr [rip + .Lx3_0]
- mov qword ptr [r12 + 40], rax
- jmp xchain0_n2_α
- xchain0_n1_β:
- jmp proc_shout_ω
-.Lx3_0:
- .quad .Lx3_0_s
-.Lx3_0_s:
- .string "!"
-xchain0_n2_α:
-bb3_α:
-# IR_BINOP_CONCAT
- mov rdi, qword ptr [r12 + 16]
- mov rsi, qword ptr [r12 + 24]
- mov rdx, qword ptr [r12 + 32]
- mov rcx, qword ptr [r12 + 40]
- call str_concat_d@PLT
- mov qword ptr [r12 + 48], rax
- mov qword ptr [r12 + 56], rdx
- jmp xchain0_n3_α
- xchain0_n2_β:
- jmp proc_shout_ω
-xchain0_n3_α:
-# IR_RETURN
-bb4_α:
- mov rax, qword ptr [r12 + 48]
- mov rdx, qword ptr [r12 + 56]
- mov qword ptr [r12 + 0], rax
- mov qword ptr [r12 + 8], rdx
- jmp proc_shout_γ
+#-----------------------------------------------------------------------------------------------------------------------
+n0_var_α:
+                        mov              rax, qword ptr [rsp + 16]
+                        mov              qword ptr [rsp + 48], rax
+                        mov              rax, qword ptr [rsp + 24]
+                        mov              qword ptr [rsp + 56], rax
+                                                                                        jmp   n1_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n1_lit_string_α:
+                        mov              qword ptr [rsp + 64], 1
+                        mov              rax, qword ptr [rip + .Lx6_0]
+                        mov              qword ptr [rsp + 72], rax
+                                                                                        jmp   n2_binop_α
+.Lx6_0:
+                        .quad            .Lx6_0_s
+.Lx6_0_s:
+                        .string          "!"
+#-----------------------------------------------------------------------------------------------------------------------
+n2_binop_α:
+                        mov              rdi, qword ptr [rsp + 16]
+                        mov              rsi, qword ptr [rsp + 24]
+                        mov              rdx, qword ptr [rsp + 64]
+                        mov              rcx, qword ptr [rsp + 72]
+                        call             str_concat_d@PLT
+                        mov              qword ptr [rsp + 32], rax
+                        mov              qword ptr [rsp + 40], rdx
+                                                                                        jmp   n3_return_α
+#-----------------------------------------------------------------------------------------------------------------------
+n3_return_α:
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              rdx, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   proc_shout_γ
+#-----------------------------------------------------------------------------------------------------------------------
+proc_shout_res:
+                        add              rsp, 8
+                        pop              rsp
+#-----------------------------------------------------------------------------------------------------------------------
 proc_shout_β:
-jmp proc_shout_ω
+                                                                                        jmp   proc_shout_ω
+#-----------------------------------------------------------------------------------------------------------------------
 proc_shout_γ:
-mov eax, 1
-xor edx, edx
-pop r12
-ret
+                        mov              rdi, [rsp]
+                        mov              rsi, [rsp + 8]
+                        mov              rax, [rsp + 88]
+                        add              rsp, 112
+                                                                                        jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
 proc_shout_ω:
-# GZ-10 PROC FAIL EXIT: write FAILDESCR to frame[0] so rt_call_proc_descr sees failure
-mov dword ptr [r12+0], 99
-mov dword ptr [r12+4], 0
-mov qword ptr [r12+8], 0
-mov eax, 99
-xor edx, edx
-pop r12
-ret
+                        mov              rax, [rsp + 96]
+                        add              rsp, 112
+                                                                                        jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+proc_shout_dcα:
+                        pop              r11
+                        sub              rsp, 128
+                        mov              qword ptr [rsp + 104], rbp
+                        mov              rbp, rsp
+                        mov              qword ptr [rsp + 80], r11
+                        lea              rax, [rip + .Lx9_2]
+                        mov              qword ptr [rsp + 88], rax
+                        lea              rax, [rip + .Lx9_3]
+                        mov              qword ptr [rsp + 96], rax
+                        mov              qword ptr [rsp + 16], rsi
+                        mov              rdi, rbp
+                        mov              esi, 80
+                        mov              edx, 80
+                        mov              ecx, 1
+                        mov              r8d, 1
+                        mov              r9d, 0
+                        call             rt_pl_dc_prep@PLT
+                                                                                        jmp   proc_shout_α_body
+.Lx9_2:
+                        mov              rdx, qword ptr [rsp + 0]
+                        mov              rcx, rsp
+                        add              rcx, -112
+                        mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
+                        push             r11
+                                                                                        jmp   rt_pl_dc_leave_γ@PLT
+.Lx9_3:
+                        mov              rdi, qword ptr [rsp + 0]
+                        mov              rsi, rsp
+                        add              rsi, -112
+                        mov              r11, qword ptr [rsp + -32]
+                        mov              rbp, qword ptr [rsp + -8]
+                        add              rsp, 16
+                        push             r11
+                                                                                        jmp   rt_pl_dc_leave_ω@PLT
 proc_startup:
-  push rbp
-  mov rbp, rsp
-  .section .rodata
-  .Lstartup_pname0: .string "shout"
-  .section .text
-  .intel_syntax noprefix
-  lea rdi, [rip + .Lstartup_pname0]
-  lea rsi, [rip + proc_shout_α]
-  call rt_proc_set_fn@PLT
-  pop rbp
-  ret
-  .globl main
+                        sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "shout"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_pname0]
+                        lea              rsi, [rip + proc_shout_α]
+                        call             rt_proc_set_fn@PLT
+                        lea              rdi, [rip + .Lstartup_pname0]
+                        mov              esi, 1
+                        call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname0]
+                        mov              esi, 80
+                        call             rt_proc_set_frame_bytes@PLT
+                        lea              rdi, [rip + .Lstartup_pname0]
+                        mov              esi, 1
+                        call             rt_proc_set_jmpentry@PLT
+                        lea              rdi, [rip + .Lstartup_pname0]
+                        lea              rsi, [rip + proc_shout_dcα]
+                        call             rt_proc_set_dcfn@PLT
+                        add              rsp, 8
+                        ret
+                        .globl           main
 main:
-  push rbp
-  mov rbp, rsp
-  call proc_startup
-  call rt_frame@PLT
-  mov rdi, rax
-  xor esi, esi
-  call main_α
-  xor eax, eax
-  pop rbp
-  ret
+                        sub              rsp, 8
+                        push             rdi
+                        push             rsi
+                        call             core_lib_init@PLT
+                        call             proc_startup
+                        xor              esi, esi
+                        call             main_α
+                        xor              eax, eax
+                        add              rsp, 24
+                        ret
+#-----------------------------------------------------------------------------------------------------------------------
 main_α:
-#=======================================================================================================================
-    .global main_α
-    .global main_β
-    .global main_γ
-    .global main_ω
-push r12
-  mov r12, rdi
-  lea r10, [rip + Δ]
+                        .global          main_α
+                        .global          main_β
+                        .global          main_γ
+                        .global          main_ω
+                        sub              rsp, 280
+                        mov              rdi, rsp
+                        mov              ecx, 280
+                        xor              eax, eax
+                        rep stosb
 main_α_body:
-xchain6_n0_α:
-xargsub8_n0_α:
-# IR_LIT_S
-bb5_α:
- mov qword ptr [r12 + 16], 1
- mov rax, qword ptr [rip + .Lx9_0]
- mov qword ptr [r12 + 24], rax
- jmp xicnarg7_done
- xargsub8_n0_β:
- jmp xchain6_n2_α
-.Lx9_0:
- .quad .Lx9_0_s
-.Lx9_0_s:
- .string "hi"
-xicnarg7_done:
-bb6_α:
-  .section .rodata
-  .Lcall6_pname: .string "shout"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12+16]
- mov rdx, qword ptr [r12+24]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall6_pname]
- mov esi, 1
- call rt_call_proc_descr@PLT
- mov qword ptr [r12 + 32], rax
- mov qword ptr [r12 + 40], rdx
- cmp eax, 99
- je xchain6_n2_α
- jmp xchain6_n1_α
-xchain6_n0_β:
- jmp xchain6_n2_α
-xchain6_n1_α:
-bb7_α:
-# IR_ASSIGN local
- mov rax, qword ptr [r12 + 32]
- mov rdx, qword ptr [r12 + 40]
- mov qword ptr [r12 + 0], rax
- mov qword ptr [r12 + 8], rdx
- mov qword ptr [r12 + 48], rax
- mov qword ptr [r12 + 56], rdx
- jmp xchain6_n2_α
- xchain6_n1_β:
- jmp xchain6_n2_α
-xchain6_n2_α:
-# IR_VAR
-bb8_α:
- mov rax, qword ptr [r12 + 0]
- mov qword ptr [r12 + 0], rax
- mov rax, qword ptr [r12 + 8]
- mov qword ptr [r12 + 8], rax
- jmp xchain6_n3_α
- xchain6_n2_β:
- jmp xchain6_n4_α
-xchain6_n3_α:
-bb9_α:
-# BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
- mov rdi, qword ptr [r12 + 0]
- mov rsi, qword ptr [r12 + 8]
- call rt_write_any_nl@PLT
- jmp xchain6_n4_α
-xchain6_n3_β:
-xchain6_n3_β:
- jmp xchain6_n4_α
-xchain6_n4_α:
-xargsub16_n0_α:
-# IR_LIT_S
-bb10_α:
- mov qword ptr [r12 + 64], 1
- mov rax, qword ptr [rip + .Lx17_0]
- mov qword ptr [r12 + 72], rax
- jmp xicnarg15_done
- xargsub16_n0_β:
- jmp main_ω
-.Lx17_0:
- .quad .Lx17_0_s
-.Lx17_0_s:
- .string "bye"
-xicnarg15_done:
-bb11_α:
-  .section .rodata
-  .Lcall11_pname: .string "shout"
-  .section .text
-  .intel_syntax noprefix
- mov edi, 0
- mov rsi, qword ptr [r12+64]
- mov rdx, qword ptr [r12+72]
- call rt_arg_stage@PLT
-   lea rdi, [rip + .Lcall11_pname]
- mov esi, 1
- call rt_call_proc_descr@PLT
- mov qword ptr [r12 + 80], rax
- mov qword ptr [r12 + 88], rdx
- cmp eax, 99
- je main_ω
- jmp xchain6_n5_α
-xchain6_n4_β:
- jmp main_ω
-xchain6_n5_α:
-bb12_α:
-# BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
- mov rdi, qword ptr [r12 + 80]
- mov rsi, qword ptr [r12 + 88]
- call rt_write_any_nl@PLT
- jmp main_γ
-xchain6_n5_β:
-xchain6_n5_β:
- jmp main_ω
+#-----------------------------------------------------------------------------------------------------------------------
+n10_lit_string_α:
+                        mov              qword ptr [rsp + 240], 1
+                        mov              rax, qword ptr [rip + .Lx18_0]
+                        mov              qword ptr [rsp + 248], rax
+                                                                                        jmp   n11_call_proc_staged_α
+.Lx18_0:
+                        .quad            .Lx18_0_s
+.Lx18_0_s:
+                        .string          "hi"
+#-----------------------------------------------------------------------------------------------------------------------
+n11_call_proc_staged_α:
+                        lea              rsi, [rsp + 240]
+                        call             proc_shout_dcα
+                                                                                        jmp   .Lx20_2
+.Lx20_2:
+                        mov              qword ptr [rsp + 192], rax
+                        mov              qword ptr [rsp + 200], rdx
+                        cmp              eax, 99
+                                                                                        je    n13_var_α
+                                                                                        jmp   n12_assign_α
+n11_call_proc_staged_β:
+                                                                                        jmp   n13_var_α
+.Lx20_0:
+                        .quad            .Lx20_0_s
+.Lx20_0_s:
+                        .string          "shout"
+#-----------------------------------------------------------------------------------------------------------------------
+n12_assign_α:
+                        mov              rax, qword ptr [rsp + 192]
+                        mov              rdx, qword ptr [rsp + 200]
+                        mov              qword ptr [rsp + 256], rax
+                        mov              qword ptr [rsp + 264], rdx
+                                                                                        jmp   n13_var_α
+#-----------------------------------------------------------------------------------------------------------------------
+n13_var_α:
+                        mov              rax, qword ptr [rsp + 256]
+                        mov              qword ptr [rsp + 160], rax
+                        mov              rax, qword ptr [rsp + 264]
+                        mov              qword ptr [rsp + 168], rax
+                                                                                        jmp   n14_call_builtin_icon_α
+#-----------------------------------------------------------------------------------------------------------------------
+n14_call_builtin_icon_α:
+                        mov              rax, qword ptr [rsp + 160]
+                        mov              qword ptr [rsp + 128], rax
+                        mov              rax, qword ptr [rsp + 168]
+                        mov              qword ptr [rsp + 136], rax
+                        .section         .rodata
+.Lrkfn25:               .string          "write"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn25]
+                        lea              rsi, [rsp + 128]
+                        mov              edx, 1
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rsp + 112], rax
+                        mov              qword ptr [rsp + 120], rdx
+                        cmp              eax, 99
+                                                                                        je    n15_lit_string_α
+                                                                                        jmp   n15_lit_string_α
+n14_call_builtin_icon_β:
+                                                                                        jmp   n15_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n15_lit_string_α:
+                        mov              qword ptr [rsp + 96], 1
+                        mov              rax, qword ptr [rip + .Lx26_0]
+                        mov              qword ptr [rsp + 104], rax
+                                                                                        jmp   n16_call_proc_staged_α
+.Lx26_0:
+                        .quad            .Lx26_0_s
+.Lx26_0_s:
+                        .string          "bye"
+#-----------------------------------------------------------------------------------------------------------------------
+n16_call_proc_staged_α:
+                        lea              rsi, [rsp + 96]
+                        call             proc_shout_dcα
+                                                                                        jmp   .Lx28_2
+.Lx28_2:
+                        mov              qword ptr [rsp + 48], rax
+                        mov              qword ptr [rsp + 56], rdx
+                        cmp              eax, 99
+                                                                                        je    main_ω
+                                                                                        jmp   n17_call_builtin_icon_α
+n16_call_proc_staged_β:
+                                                                                        jmp   main_ω
+.Lx28_0:
+                        .quad            .Lx28_0_s
+.Lx28_0_s:
+                        .string          "shout"
+#-----------------------------------------------------------------------------------------------------------------------
+n17_call_builtin_icon_α:
+                        mov              rax, qword ptr [rsp + 48]
+                        mov              qword ptr [rsp + 16], rax
+                        mov              rax, qword ptr [rsp + 56]
+                        mov              qword ptr [rsp + 24], rax
+                        .section         .rodata
+.Lrkfn30:               .string          "write"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn30]
+                        lea              rsi, [rsp + 16]
+                        mov              edx, 1
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
+                        cmp              eax, 99
+                                                                                        je    main_ω
+                                                                                        jmp   main_ω
+n17_call_builtin_icon_β:
+                                                                                        jmp   main_ω
+#-----------------------------------------------------------------------------------------------------------------------
 main_β:
-jmp main_ω
+                                                                                        jmp   main_ω
+#-----------------------------------------------------------------------------------------------------------------------
 main_γ:
-mov eax, 1
-xor edx, edx
-pop r12
-ret
+                        mov              eax, 1
+                        xor              edx, edx
+                        add              rsp, 280
+                        ret
+#-----------------------------------------------------------------------------------------------------------------------
 main_ω:
-# GZ-10 PROC FAIL EXIT: write FAILDESCR to frame[0] so rt_call_proc_descr sees failure
-mov dword ptr [r12+0], 99
-mov dword ptr [r12+4], 0
-mov qword ptr [r12+8], 0
-mov eax, 99
-xor edx, edx
-pop r12
-ret
+                        mov              eax, 99
+                        xor              edx, edx
+                        add              rsp, 280
+                        ret
+                        .section         .note.GNU-stack,"",@progbits

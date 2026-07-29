@@ -1,241 +1,314 @@
-  .intel_syntax noprefix
-  .text
-  .globl main
+                        .intel_syntax    noprefix
+                        .text
+                        .globl           main
 main:
-  push rbp
-  mov rbp, rsp
-  call rt_frame@PLT
-  mov rdi, rax
-  xor esi, esi
-  call main_α
-  xor eax, eax
-  pop rbp
-  ret
+                        sub              rsp, 8
+                        push             rdi
+                        push             rsi
+                        call             core_lib_init@PLT
+                        xor              esi, esi
+                        call             main_α
+                        xor              eax, eax
+                        add              rsp, 24
+                        ret
+#-----------------------------------------------------------------------------------------------------------------------
 main_α:
-#=======================================================================================================================
-    .global main_α
-    .global main_β
-    .global main_γ
-    .global main_ω
-push r12
-  mov r12, rdi
-  lea r10, [rip + Δ]
+                        .global          main_α
+                        .global          main_β
+                        .global          main_γ
+                        .global          main_ω
+                        sub              rsp, 440
+                        mov              rdi, rsp
+                        mov              ecx, 440
+                        xor              eax, eax
+                        rep stosb
+                        mov              [rsp + 432], rbp
+                        mov              rbp, rsp
 main_α_body:
-xchain0_n0_α:
-xargsub2_n0_α:
-# IR_LIT_S
-bb1_α:
- mov qword ptr [r12 + 0], 1
- mov rax, qword ptr [rip + .Lx3_0]
- mov qword ptr [r12 + 8], rax
- jmp xscan1_subj_done
- xargsub2_n0_β:
- jmp xchain0_n1_α
-.Lx3_0:
- .quad .Lx3_0_s
-.Lx3_0_s:
- .string "hello"
-xscan1_subj_done:
-# IR_GEN_SCAN
- mov rdi, qword ptr [r12 + 0]
- mov rsi, qword ptr [r12 + 8]
- mov rdx, r13
- mov rcx, r14
- mov r8, r15
- call rt_scan_enter@PLT
- mov r13, rax
- mov r15, rdx
- mov r14, 0
- jmp xscan1_body_start
- xscan1_enter_β:
- jmp xchain0_n1_α
-xscan1_body_start:
-xargsub6_n0_α:
-# IR_SCAN_MATCH
-bb2_α:
- mov rax, r15
- sub rax, r14
- cmp rax, 3
- jl xscan1_body_fail
- mov rdi, qword ptr [rip + .Lx8_0]
- mov rsi, r13
- add rsi, r14
- mov rdx, 3
- push r10
- call memcmp@PLT
- pop r10
- test eax, eax
- jne xscan1_body_fail
- mov qword ptr [r12 + 40], 6
- mov rax, r14
- add rax, 4
- mov qword ptr [r12 + 48], rax
- jmp xargsub6_n1_α
- xargsub6_n0_β:
- jmp xscan1_body_fail
-.Lx8_0:
- .quad .Lx8_0_s
-.Lx8_0_s:
- .string "hel"
-xargsub6_n1_α:
-bb3_α:
-# BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
- mov rdi, qword ptr [r12 + 40]
- mov rsi, qword ptr [r12 + 48]
- call rt_write_any_nl@PLT
- jmp xscan1_body_done
-xargsub6_n1_β:
-xargsub6_n1_β:
- jmp xscan1_body_fail
-xscan1_body_done:
-# IR_GEN_SCAN
- lea rdi, [r12 + 16]
- call rt_scan_leave@PLT
- mov r13, qword ptr [r12 + 16]
- mov r14, qword ptr [r12 + 24]
- mov r15, qword ptr [r12 + 32]
- jmp xchain0_n1_α
- xscan1_leaveok_β:
- jmp xchain0_n1_α
-xscan1_body_fail:
-# IR_GEN_SCAN
- lea rdi, [r12 + 16]
- call rt_scan_leave@PLT
- mov r13, qword ptr [r12 + 16]
- mov r14, qword ptr [r12 + 24]
- mov r15, qword ptr [r12 + 32]
- jmp xchain0_n1_α
- xscan1_leavef_β:
- jmp xchain0_n1_α
-xchain0_n1_α:
-xargsub15_n0_α:
-# IR_LIT_S
-bb4_α:
- mov qword ptr [r12 + 56], 1
- mov rax, qword ptr [rip + .Lx16_0]
- mov qword ptr [r12 + 64], rax
- jmp xscan14_subj_done
- xargsub15_n0_β:
- jmp main_ω
+#-----------------------------------------------------------------------------------------------------------------------
+n0_lit_string_α:
+                        mov              qword ptr [rbp + 416], 1
+                        mov              rax, qword ptr [rip + .Lx16_0]
+                        mov              qword ptr [rbp + 424], rax
+                                                                                        jmp   n1_scan_enter_α
 .Lx16_0:
- .quad .Lx16_0_s
+                        .quad            .Lx16_0_s
 .Lx16_0_s:
- .string "world"
-xscan14_subj_done:
-# IR_GEN_SCAN
- mov rdi, qword ptr [r12 + 56]
- mov rsi, qword ptr [r12 + 64]
- mov rdx, r13
- mov rcx, r14
- mov r8, r15
- call rt_scan_enter@PLT
- mov r13, rax
- mov r15, rdx
- mov r14, 0
- jmp xscan14_body_start
- xscan14_enter_β:
- jmp main_ω
-xscan14_body_start:
-xargsub19_n0_α:
-xaltg20_a0_start:
-# IR_SCAN_MATCH
-bb5_α:
- mov rax, r15
- sub rax, r14
- cmp rax, 3
- jl xaltg20_a1_start
- mov rdi, qword ptr [rip + .Lx22_0]
- mov rsi, r13
- add rsi, r14
- mov rdx, 3
- push r10
- call memcmp@PLT
- pop r10
- test eax, eax
- jne xaltg20_a1_start
- mov qword ptr [r12 + 120], 6
- mov rax, r14
- add rax, 4
- mov qword ptr [r12 + 128], rax
- jmp xaltg20_a0_succ
- xaltg20_a0_beta:
- jmp xaltg20_a1_start
-.Lx22_0:
- .quad .Lx22_0_s
-.Lx22_0_s:
- .string "xyz"
-xaltg20_a0_succ:
-# IR_REPALT yield (copy value, yielded:=1)
- mov rax, qword ptr [r12 + 120]
- mov qword ptr [r12 + 96], rax
- mov rax, qword ptr [r12 + 128]
- mov qword ptr [r12 + 104], rax
- mov qword ptr [r12 + 112], 1
-jmp xargsub19_n1_α
-xaltg20_a1_start:
-# IR_LIT_I
-bb6_α:
- mov qword ptr [r12 + 136], 6
- mov rax, qword ptr [rip + .Lx24_0]
- mov qword ptr [r12 + 144], rax
- jmp xaltg20_a1_succ
- xaltg20_a1_beta:
- jmp xscan14_body_fail
-.Lx24_0:
- .quad 0
-xaltg20_a1_succ:
-# IR_REPALT yield (copy value, yielded:=1)
- mov rax, qword ptr [r12 + 136]
- mov qword ptr [r12 + 96], rax
- mov rax, qword ptr [r12 + 144]
- mov qword ptr [r12 + 104], rax
- mov qword ptr [r12 + 112], 1
-jmp xargsub19_n1_α
-xargsub19_n0_β:
-jmp xscan14_body_fail
-xargsub19_n1_α:
-bb7_α:
-# BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
- mov rdi, qword ptr [r12 + 96]
- mov rsi, qword ptr [r12 + 104]
- call rt_write_any_nl@PLT
- jmp xscan14_body_done
-xargsub19_n1_β:
-xargsub19_n1_β:
- jmp xscan14_body_fail
-xscan14_body_done:
-# IR_GEN_SCAN
- lea rdi, [r12 + 72]
- call rt_scan_leave@PLT
- mov r13, qword ptr [r12 + 72]
- mov r14, qword ptr [r12 + 80]
- mov r15, qword ptr [r12 + 88]
- jmp main_γ
- xscan14_leaveok_β:
- jmp main_ω
-xscan14_body_fail:
-# IR_GEN_SCAN
- lea rdi, [r12 + 72]
- call rt_scan_leave@PLT
- mov r13, qword ptr [r12 + 72]
- mov r14, qword ptr [r12 + 80]
- mov r15, qword ptr [r12 + 88]
- jmp main_ω
- xscan14_leavef_β:
- jmp main_ω
+                        .string          "hello"
+#-----------------------------------------------------------------------------------------------------------------------
+n1_scan_enter_α:
+                        mov              rdi, qword ptr [rbp + 416]
+                        mov              rsi, qword ptr [rbp + 424]
+                        mov              rdx, r13
+                        mov              rcx, r14
+                        mov              r8, r15
+                        call             rt_scan_enter@PLT
+                        mov              r13, rax
+                        mov              r15, rdx
+                        mov              r14, 0
+                                                                                        jmp   n2_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n2_lit_string_α:
+                        mov              qword ptr [rbp + 400], 1
+                        mov              rax, qword ptr [rip + .Lx19_0]
+                        mov              qword ptr [rbp + 408], rax
+                                                                                        jmp   n3_scan_match_α
+.Lx19_0:
+                        .quad            .Lx19_0_s
+.Lx19_0_s:
+                        .string          "hel"
+#-----------------------------------------------------------------------------------------------------------------------
+n3_scan_match_α:
+                        sub              rsp, 16
+                        mov              rax, r15
+                        sub              rax, r14
+                        cmp              rax, 3
+                                                                                        jge   .Lx21_239
+                        add              rsp, 16
+                                                                                        jmp   n5_scan_α
+.Lx21_239:
+                        mov              rdi, qword ptr [rip + .Lx21_0]
+                        mov              rsi, r13
+                        add              rsi, r14
+                        mov              rdx, 3
+                        push             r10
+                        call             memcmp@PLT
+                        pop              r10
+                        test             eax, eax
+                                                                                        je    .Lx21_240
+                        add              rsp, 16
+                                                                                        jmp   n5_scan_α
+.Lx21_240:
+                        mov              qword ptr [rbp + 368], 6
+                        mov              rax, r14
+                        add              rax, 4
+                        mov              qword ptr [rbp + 376], rax
+                                                                                        jmp   n4_call_builtin_icon_α
+.Lx21_0:
+                        .quad            .Lx21_0_s
+.Lx21_0_s:
+                        .string          "hel"
+#-----------------------------------------------------------------------------------------------------------------------
+n4_call_builtin_icon_α:
+                        mov              rax, qword ptr [rbp + 368]
+                        mov              qword ptr [rbp + 336], rax
+                        mov              rax, qword ptr [rbp + 376]
+                        mov              qword ptr [rbp + 344], rax
+                        .section         .rodata
+.Lrkfn23:               .string          "write"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn23]
+                        lea              rsi, [rbp + 336]
+                        mov              edx, 1
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rbp + 320], rax
+                        mov              qword ptr [rbp + 328], rdx
+                        cmp              eax, 99
+                                                                                        je    n5_scan_α
+                                                                                        jmp   n6_scan_α
+n4_call_builtin_icon_β:
+                                                                                        jmp   n5_scan_α
+#-----------------------------------------------------------------------------------------------------------------------
+n5_scan_α:
+                        lea              rdi, [rbp + 256]
+                        call             rt_scan_leave@PLT
+                        mov              r13, qword ptr [rbp + 256]
+                        mov              r14, qword ptr [rbp + 264]
+                        mov              r15, qword ptr [rbp + 272]
+                                                                                        jmp   n7_lit_string_α
+n5_scan_β:
+                                                                                        jmp   n7_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n6_scan_α:
+                        mov              rax, qword ptr [rbp + 320]
+                        mov              qword ptr [rbp + 288], rax
+                        mov              rax, qword ptr [rbp + 328]
+                        mov              qword ptr [rbp + 296], rax
+                        lea              rdi, [rbp + 256]
+                        call             rt_scan_leave@PLT
+                        mov              r13, qword ptr [rbp + 256]
+                        mov              r14, qword ptr [rbp + 264]
+                        mov              r15, qword ptr [rbp + 272]
+                                                                                        jmp   n7_lit_string_α
+n6_scan_β:
+                                                                                        jmp   n7_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n7_lit_string_α:
+                        mov              qword ptr [rbp + 224], 1
+                        mov              rax, qword ptr [rip + .Lx28_0]
+                        mov              qword ptr [rbp + 232], rax
+                                                                                        jmp   n8_scan_enter_α
+.Lx28_0:
+                        .quad            .Lx28_0_s
+.Lx28_0_s:
+                        .string          "world"
+#-----------------------------------------------------------------------------------------------------------------------
+n8_scan_enter_α:
+                        mov              rdi, qword ptr [rbp + 224]
+                        mov              rsi, qword ptr [rbp + 232]
+                        mov              rdx, r13
+                        mov              rcx, r14
+                        mov              r8, r15
+                        call             rt_scan_enter@PLT
+                        mov              r13, rax
+                        mov              r15, rdx
+                        mov              r14, 0
+                                                                                        jmp   n9_disjunction_α
+#-----------------------------------------------------------------------------------------------------------------------
+n9_disjunction_α:
+                        mov              qword ptr [rbp + 128], 0
+                        mov              qword ptr [rbp + 136], 0
+                        mov              dword ptr [rbp + 144], 0
+                                                                                        jmp   n11_lit_string_α
+n9_disjunction_as:
+                        mov              eax, dword ptr [rbp + 144]
+                        cmp              eax, 0
+                                                                                        jne   .Lx32_0
+                        mov              rax, qword ptr [rbp + 160]
+                        mov              qword ptr [rbp + 128], rax
+                        mov              rax, qword ptr [rbp + 168]
+                        mov              qword ptr [rbp + 136], rax
+                                                                                        jmp   n10_call_builtin_icon_α
+.Lx32_0:
+                        cmp              eax, 1
+                                                                                        jne   .Lx32_1
+                        mov              rax, qword ptr [rbp + 208]
+                        mov              qword ptr [rbp + 128], rax
+                        mov              rax, qword ptr [rbp + 216]
+                        mov              qword ptr [rbp + 136], rax
+                                                                                        jmp   n10_call_builtin_icon_α
+.Lx32_1:
+                                                                                        jmp   n10_call_builtin_icon_α
+n9_disjunction_β:
+                        mov              eax, dword ptr [rbp + 144]
+                        cmp              eax, 0
+                                                                                        je    n9_disjunction_af
+                                                                                        jmp   n9_disjunction_af
+n9_disjunction_af:
+                        add              dword ptr [rbp + 144], 1
+                        mov              eax, dword ptr [rbp + 144]
+                        cmp              eax, 1
+                                                                                        je    n12_lit_integer_α
+                                                                                        jmp   n15_scan_α
+#-----------------------------------------------------------------------------------------------------------------------
+n10_call_builtin_icon_α:
+                        mov              rax, qword ptr [rbp + 128]
+                        mov              qword ptr [rbp + 96], rax
+                        mov              rax, qword ptr [rbp + 136]
+                        mov              qword ptr [rbp + 104], rax
+                        .section         .rodata
+.Lrkfn34:               .string          "write"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn34]
+                        lea              rsi, [rbp + 96]
+                        mov              edx, 1
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rbp + 80], rax
+                        mov              qword ptr [rbp + 88], rdx
+                        cmp              eax, 99
+                                                                                        je    n9_disjunction_β
+                                                                                        jmp   n14_scan_α
+n10_call_builtin_icon_β:
+                                                                                        jmp   n9_disjunction_β
+#-----------------------------------------------------------------------------------------------------------------------
+n11_lit_string_α:
+                        mov              qword ptr [rbp + 192], 1
+                        mov              rax, qword ptr [rip + .Lx35_0]
+                        mov              qword ptr [rbp + 200], rax
+                                                                                        jmp   n13_scan_match_α
+n11_lit_string_β:
+                                                                                        jmp   n9_disjunction_af
+.Lx35_0:
+                        .quad            .Lx35_0_s
+.Lx35_0_s:
+                        .string          "xyz"
+#-----------------------------------------------------------------------------------------------------------------------
+n12_lit_integer_α:
+                        mov              qword ptr [rbp + 208], 6
+                        mov              rax, qword ptr [rip + .Lx36_0]
+                        mov              qword ptr [rbp + 216], rax
+                                                                                        jmp   n9_disjunction_as
+n12_lit_integer_β:
+                                                                                        jmp   n9_disjunction_af
+.Lx36_0:
+                        .quad            0
+#-----------------------------------------------------------------------------------------------------------------------
+n13_scan_match_α:
+                        sub              rsp, 16
+                        mov              rax, r15
+                        sub              rax, r14
+                        cmp              rax, 3
+                                                                                        jge   .Lx38_239
+                        add              rsp, 16
+                                                                                        jmp   n9_disjunction_af
+.Lx38_239:
+                        mov              rdi, qword ptr [rip + .Lx38_0]
+                        mov              rsi, r13
+                        add              rsi, r14
+                        mov              rdx, 3
+                        push             r10
+                        call             memcmp@PLT
+                        pop              r10
+                        test             eax, eax
+                                                                                        je    .Lx38_240
+                        add              rsp, 16
+                                                                                        jmp   n9_disjunction_af
+.Lx38_240:
+                        mov              qword ptr [rbp + 160], 6
+                        mov              rax, r14
+                        add              rax, 4
+                        mov              qword ptr [rbp + 168], rax
+                                                                                        jmp   n9_disjunction_as
+n13_scan_match_β:
+                        add              rsp, 16
+                                                                                        jmp   n9_disjunction_af
+.Lx38_0:
+                        .quad            .Lx38_0_s
+.Lx38_0_s:
+                        .string          "xyz"
+#-----------------------------------------------------------------------------------------------------------------------
+n14_scan_α:
+                        mov              rax, qword ptr [rbp + 80]
+                        mov              qword ptr [rbp + 48], rax
+                        mov              rax, qword ptr [rbp + 88]
+                        mov              qword ptr [rbp + 56], rax
+                        lea              rdi, [rbp + 16]
+                        call             rt_scan_leave@PLT
+                        mov              r13, qword ptr [rbp + 16]
+                        mov              r14, qword ptr [rbp + 24]
+                        mov              r15, qword ptr [rbp + 32]
+                                                                                        jmp   main_ω
+n14_scan_β:
+                                                                                        jmp   main_ω
+#-----------------------------------------------------------------------------------------------------------------------
+n15_scan_α:
+                        lea              rdi, [rbp + 16]
+                        call             rt_scan_leave@PLT
+                        mov              r13, qword ptr [rbp + 16]
+                        mov              r14, qword ptr [rbp + 24]
+                        mov              r15, qword ptr [rbp + 32]
+                                                                                        jmp   main_ω
+n15_scan_β:
+                                                                                        jmp   main_ω
+#-----------------------------------------------------------------------------------------------------------------------
 main_β:
-jmp main_ω
+                                                                                        jmp   main_ω
+#-----------------------------------------------------------------------------------------------------------------------
 main_γ:
-mov eax, 1
-xor edx, edx
-pop r12
-ret
+                        mov              eax, 1
+                        xor              edx, edx
+                        mov              rsp, rbp
+                        mov              rbp, [rsp + 432]
+                        add              rsp, 440
+                        ret
+#-----------------------------------------------------------------------------------------------------------------------
 main_ω:
-# GZ-10 PROC FAIL EXIT: write FAILDESCR to frame[0] so rt_call_proc_descr sees failure
-mov dword ptr [r12+0], 99
-mov dword ptr [r12+4], 0
-mov qword ptr [r12+8], 0
-mov eax, 99
-xor edx, edx
-pop r12
-ret
+                        mov              rsp, rbp
+                        mov              eax, 99
+                        xor              edx, edx
+                        mov              rbp, [rsp + 432]
+                        add              rsp, 440
+                        ret
+                        .section         .note.GNU-stack,"",@progbits

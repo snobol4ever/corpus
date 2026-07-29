@@ -1,202 +1,168 @@
-  .intel_syntax noprefix
-  .text
-  .globl main
+                        .intel_syntax    noprefix
+                        .text
+                        .globl           main
 main:
-  push rbp
-  mov rbp, rsp
-  call rt_frame@PLT
-  mov rdi, rax
-  xor esi, esi
-  call main_α
-  xor eax, eax
-  pop rbp
-  ret
+                        sub              rsp, 8
+                        push             rdi
+                        push             rsi
+                        call             core_lib_init@PLT
+                        xor              esi, esi
+                        call             main_α
+                        xor              eax, eax
+                        add              rsp, 24
+                        ret
+#-----------------------------------------------------------------------------------------------------------------------
 main_α:
-#=======================================================================================================================
-    .global main_α
-    .global main_β
-    .global main_γ
-    .global main_ω
-push r12
-  mov r12, rdi
-  lea r10, [rip + Δ]
+                        .global          main_α
+                        .global          main_β
+                        .global          main_γ
+                        .global          main_ω
+                        sub              rsp, 248
+                        mov              rdi, rsp
+                        mov              ecx, 248
+                        xor              eax, eax
+                        rep stosb
 main_α_body:
-xchain0_n0_α:
-# IR_LIT_S
-bb1_α:
- mov qword ptr [r12 + 32], 1
- mov rax, qword ptr [rip + .Lx1_0]
- mov qword ptr [r12 + 40], rax
- jmp xchain0_n1_α
- xchain0_n0_β:
- jmp xchain0_n2_α
-.Lx1_0:
- .quad .Lx1_0_s
-.Lx1_0_s:
- .string "foo"
-xchain0_n1_α:
-bb2_α:
-# IR_ASSIGN local
- mov rax, qword ptr [r12 + 32]
- mov rdx, qword ptr [r12 + 40]
- mov qword ptr [r12 + 0], rax
- mov qword ptr [r12 + 8], rdx
- mov qword ptr [r12 + 48], rax
- mov qword ptr [r12 + 56], rdx
- jmp xchain0_n2_α
- xchain0_n1_β:
- jmp xchain0_n2_α
-xchain0_n2_α:
-# IR_LIT_S
-bb3_α:
- mov qword ptr [r12 + 64], 1
- mov rax, qword ptr [rip + .Lx3_0]
- mov qword ptr [r12 + 72], rax
- jmp xchain0_n3_α
- xchain0_n2_β:
- jmp xchain0_n4_α
-.Lx3_0:
- .quad .Lx3_0_s
-.Lx3_0_s:
- .string "bar"
-xchain0_n3_α:
-bb4_α:
-# IR_ASSIGN local
- mov rax, qword ptr [r12 + 64]
- mov rdx, qword ptr [r12 + 72]
- mov qword ptr [r12 + 16], rax
- mov qword ptr [r12 + 24], rdx
- mov qword ptr [r12 + 80], rax
- mov qword ptr [r12 + 88], rdx
- jmp xchain0_n4_α
- xchain0_n3_β:
- jmp xchain0_n4_α
-xchain0_n4_α:
-# IR_VAR
-bb5_α:
- mov rax, qword ptr [r12 + 0]
- mov qword ptr [r12 + 0], rax
- mov rax, qword ptr [r12 + 8]
- mov qword ptr [r12 + 8], rax
- jmp xchain0_n5_α
- xchain0_n4_β:
- jmp xchain0_n8_α
-xchain0_n5_α:
-# IR_LIT_S
-bb6_α:
- mov qword ptr [r12 + 96], 1
- mov rax, qword ptr [rip + .Lx7_0]
- mov qword ptr [r12 + 104], rax
- jmp xchain0_n6_α
- xchain0_n5_β:
- jmp xchain0_n8_α
-.Lx7_0:
- .quad .Lx7_0_s
-.Lx7_0_s:
- .string "-"
-xchain0_n6_α:
-bb7_α:
-# IR_BINOP_CONCAT
- mov rdi, qword ptr [r12 + 0]
- mov rsi, qword ptr [r12 + 8]
- mov rdx, qword ptr [r12 + 96]
- mov rcx, qword ptr [r12 + 104]
- call str_concat_d@PLT
- mov qword ptr [r12 + 112], rax
- mov qword ptr [r12 + 120], rdx
- jmp xchain0_n7_α
- xchain0_n6_β:
- jmp xchain0_n8_α
-xchain0_n7_α:
-bb8_α:
-# IR_ASSIGN local
- mov rax, qword ptr [r12 + 112]
- mov rdx, qword ptr [r12 + 120]
- mov qword ptr [r12 + 0], rax
- mov qword ptr [r12 + 8], rdx
- mov qword ptr [r12 + 128], rax
- mov qword ptr [r12 + 136], rdx
- jmp xchain0_n8_α
- xchain0_n7_β:
- jmp xchain0_n8_α
-xchain0_n8_α:
-# IR_VAR
-bb9_α:
- mov rax, qword ptr [r12 + 0]
- mov qword ptr [r12 + 0], rax
- mov rax, qword ptr [r12 + 8]
- mov qword ptr [r12 + 8], rax
- jmp xchain0_n9_α
- xchain0_n8_β:
- jmp xchain0_n12_α
-xchain0_n9_α:
-# IR_VAR
-bb10_α:
- mov rax, qword ptr [r12 + 16]
- mov qword ptr [r12 + 16], rax
- mov rax, qword ptr [r12 + 24]
- mov qword ptr [r12 + 24], rax
- jmp xchain0_n10_α
- xchain0_n9_β:
- jmp xchain0_n12_α
-xchain0_n10_α:
-bb11_α:
-# IR_BINOP_CONCAT
- mov rdi, qword ptr [r12 + 0]
- mov rsi, qword ptr [r12 + 8]
- mov rdx, qword ptr [r12 + 16]
- mov rcx, qword ptr [r12 + 24]
- call str_concat_d@PLT
- mov qword ptr [r12 + 144], rax
- mov qword ptr [r12 + 152], rdx
- jmp xchain0_n11_α
- xchain0_n10_β:
- jmp xchain0_n12_α
-xchain0_n11_α:
-bb12_α:
-# IR_ASSIGN local
- mov rax, qword ptr [r12 + 144]
- mov rdx, qword ptr [r12 + 152]
- mov qword ptr [r12 + 0], rax
- mov qword ptr [r12 + 8], rdx
- mov qword ptr [r12 + 160], rax
- mov qword ptr [r12 + 168], rdx
- jmp xchain0_n12_α
- xchain0_n11_β:
- jmp xchain0_n12_α
-xchain0_n12_α:
-# IR_VAR
-bb13_α:
- mov rax, qword ptr [r12 + 0]
- mov qword ptr [r12 + 0], rax
- mov rax, qword ptr [r12 + 8]
- mov qword ptr [r12 + 8], rax
- jmp xchain0_n13_α
- xchain0_n12_β:
- jmp main_ω
-xchain0_n13_α:
-bb14_α:
-# BOX IR_CALL write(op) [GZ-7 flat-chain slot -> rt_write_any_nl]
- mov rdi, qword ptr [r12 + 0]
- mov rsi, qword ptr [r12 + 8]
- call rt_write_any_nl@PLT
- jmp main_γ
-xchain0_n13_β:
-xchain0_n13_β:
- jmp main_ω
+#-----------------------------------------------------------------------------------------------------------------------
+n0_lit_string_α:
+                        mov              qword ptr [rsp + 192], 1
+                        mov              rax, qword ptr [rip + .Lx14_0]
+                        mov              qword ptr [rsp + 200], rax
+                                                                                        jmp   n1_assign_α
+.Lx14_0:
+                        .quad            .Lx14_0_s
+.Lx14_0_s:
+                        .string          "foo"
+#-----------------------------------------------------------------------------------------------------------------------
+n1_assign_α:
+                        mov              rax, qword ptr [rsp + 192]
+                        mov              rdx, qword ptr [rsp + 200]
+                        mov              qword ptr [rsp + 208], rax
+                        mov              qword ptr [rsp + 216], rdx
+                                                                                        jmp   n2_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n2_lit_string_α:
+                        mov              qword ptr [rsp + 176], 1
+                        mov              rax, qword ptr [rip + .Lx16_0]
+                        mov              qword ptr [rsp + 184], rax
+                                                                                        jmp   n3_assign_α
+.Lx16_0:
+                        .quad            .Lx16_0_s
+.Lx16_0_s:
+                        .string          "bar"
+#-----------------------------------------------------------------------------------------------------------------------
+n3_assign_α:
+                        mov              rax, qword ptr [rsp + 176]
+                        mov              rdx, qword ptr [rsp + 184]
+                        mov              qword ptr [rsp + 224], rax
+                        mov              qword ptr [rsp + 232], rdx
+                                                                                        jmp   n4_var_α
+#-----------------------------------------------------------------------------------------------------------------------
+n4_var_α:
+                        mov              rax, qword ptr [rsp + 208]
+                        mov              qword ptr [rsp + 144], rax
+                        mov              rax, qword ptr [rsp + 216]
+                        mov              qword ptr [rsp + 152], rax
+                                                                                        jmp   n5_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n5_lit_string_α:
+                        mov              qword ptr [rsp + 160], 1
+                        mov              rax, qword ptr [rip + .Lx20_0]
+                        mov              qword ptr [rsp + 168], rax
+                                                                                        jmp   n7_binop_α
+.Lx20_0:
+                        .quad            .Lx20_0_s
+.Lx20_0_s:
+                        .string          "-"
+#-----------------------------------------------------------------------------------------------------------------------
+n6_var_α:
+                        mov              rax, qword ptr [rsp + 208]
+                        mov              qword ptr [rsp + 96], rax
+                        mov              rax, qword ptr [rsp + 216]
+                        mov              qword ptr [rsp + 104], rax
+                                                                                        jmp   n8_var_α
+#-----------------------------------------------------------------------------------------------------------------------
+n7_binop_α:
+                        mov              rdi, qword ptr [rsp + 208]
+                        mov              rsi, qword ptr [rsp + 216]
+                        mov              rdx, qword ptr [rsp + 160]
+                        mov              rcx, qword ptr [rsp + 168]
+                        call             str_concat_d@PLT
+                        mov              qword ptr [rsp + 128], rax
+                        mov              qword ptr [rsp + 136], rdx
+                                                                                        jmp   n10_assign_α
+#-----------------------------------------------------------------------------------------------------------------------
+n8_var_α:
+                        mov              rax, qword ptr [rsp + 224]
+                        mov              qword ptr [rsp + 112], rax
+                        mov              rax, qword ptr [rsp + 232]
+                        mov              qword ptr [rsp + 120], rax
+                                                                                        jmp   n11_binop_α
+#-----------------------------------------------------------------------------------------------------------------------
+n9_var_α:
+                        mov              rax, qword ptr [rsp + 208]
+                        mov              qword ptr [rsp + 48], rax
+                        mov              rax, qword ptr [rsp + 216]
+                        mov              qword ptr [rsp + 56], rax
+                                                                                        jmp   n12_call_builtin_icon_α
+#-----------------------------------------------------------------------------------------------------------------------
+n10_assign_α:
+                        mov              rax, qword ptr [rsp + 128]
+                        mov              rdx, qword ptr [rsp + 136]
+                        mov              qword ptr [rsp + 208], rax
+                        mov              qword ptr [rsp + 216], rdx
+                                                                                        jmp   n6_var_α
+#-----------------------------------------------------------------------------------------------------------------------
+n11_binop_α:
+                        mov              rdi, qword ptr [rsp + 208]
+                        mov              rsi, qword ptr [rsp + 216]
+                        mov              rdx, qword ptr [rsp + 224]
+                        mov              rcx, qword ptr [rsp + 232]
+                        call             str_concat_d@PLT
+                        mov              qword ptr [rsp + 80], rax
+                        mov              qword ptr [rsp + 88], rdx
+                                                                                        jmp   n13_assign_α
+#-----------------------------------------------------------------------------------------------------------------------
+n12_call_builtin_icon_α:
+                        mov              rax, qword ptr [rsp + 48]
+                        mov              qword ptr [rsp + 16], rax
+                        mov              rax, qword ptr [rsp + 56]
+                        mov              qword ptr [rsp + 24], rax
+                        .section         .rodata
+.Lrkfn31:               .string          "write"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn31]
+                        lea              rsi, [rsp + 16]
+                        mov              edx, 1
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
+                        cmp              eax, 99
+                                                                                        je    main_ω
+                                                                                        jmp   main_ω
+n12_call_builtin_icon_β:
+                                                                                        jmp   main_ω
+#-----------------------------------------------------------------------------------------------------------------------
+n13_assign_α:
+                        mov              rax, qword ptr [rsp + 80]
+                        mov              rdx, qword ptr [rsp + 88]
+                        mov              qword ptr [rsp + 208], rax
+                        mov              qword ptr [rsp + 216], rdx
+                                                                                        jmp   n9_var_α
+#-----------------------------------------------------------------------------------------------------------------------
 main_β:
-jmp main_ω
+                                                                                        jmp   main_ω
+#-----------------------------------------------------------------------------------------------------------------------
 main_γ:
-mov eax, 1
-xor edx, edx
-pop r12
-ret
+                        mov              eax, 1
+                        xor              edx, edx
+                        add              rsp, 248
+                        ret
+#-----------------------------------------------------------------------------------------------------------------------
 main_ω:
-# GZ-10 PROC FAIL EXIT: write FAILDESCR to frame[0] so rt_call_proc_descr sees failure
-mov dword ptr [r12+0], 99
-mov dword ptr [r12+4], 0
-mov qword ptr [r12+8], 0
-mov eax, 99
-xor edx, edx
-pop r12
-ret
+                        mov              eax, 99
+                        xor              edx, edx
+                        add              rsp, 248
+                        ret
+                        .section         .note.GNU-stack,"",@progbits
