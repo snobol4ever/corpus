@@ -801,6 +801,8 @@ proc_ROMAN_α:
                         sub              rsp, 1344
                         mov              [rsp + 1320], rcx
                         mov              [rsp + 1328], rdx
+                        mov              [rsp + 1336], rbp
+                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              ecx, 1312
                         xor              eax, eax
@@ -808,10 +810,10 @@ proc_ROMAN_α:
 proc_ROMAN_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n76_op14_α:
-                        mov              rdi, qword ptr [rsp + 1320]
-                        mov              rsi, qword ptr [rsp + 1328]
-                        lea              rdx, [rsp + 1344]
-                        mov              rcx, rbp
+                        mov              rdi, qword ptr [rbp + 1320]
+                        mov              rsi, qword ptr [rbp + 1328]
+                        lea              rdx, [rbp + 1344]
+                        mov              rcx, qword ptr [rbp + 1336]
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n77_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -828,21 +830,23 @@ n77_goto_deferred_α:
 #-----------------------------------------------------------------------------------------------------------------------
 proc_ROMAN_res:
                         add              rsp, 8
-                        pop              rsp
+                        pop              rbp
 #-----------------------------------------------------------------------------------------------------------------------
 proc_ROMAN_β:
                                                                                         jmp   proc_ROMAN_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_ROMAN_γ:
-                        mov              rdi, [rsp]
-                        mov              rsi, [rsp + 8]
-                        mov              rax, [rsp + 1320]
-                        add              rsp, 1344
+                        mov              rdi, [rbp]
+                        mov              rsi, [rbp + 8]
+                        mov              rax, [rbp + 1320]
+                        lea              rsp, [rbp + 1344]
+                        mov              rbp, [rbp + 1336]
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_ROMAN_ω:
-                        mov              rax, [rsp + 1328]
-                        add              rsp, 1344
+                        mov              rax, [rbp + 1328]
+                        lea              rsp, [rbp + 1344]
+                        mov              rbp, [rbp + 1336]
                                                                                         jmp   rax
 proc_startup:
                         sub              rsp, 8
