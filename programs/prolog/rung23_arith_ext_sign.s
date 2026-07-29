@@ -1,128 +1,445 @@
-  .intel_syntax noprefix
-  .text
-  .globl main
+                        .intel_syntax    noprefix
+                        .text
+                        .globl           main
 main:
-  push rbp
-  mov rbp, rsp
-  mov edi, 3
-  call rt_env_alloc@PLT
-  call rt_frame@PLT
-  mov rdi, rax
-  xor esi, esi
-  call main_α
-  xor eax, eax
-  pop rbp
-  ret
+                        sub              rsp, 8
+                        push             rdi
+                        push             rsi
+                        call             core_lib_init@PLT
+                        xor              esi, esi
+                        call             main_α
+                        xor              eax, eax
+                        add              rsp, 24
+                        ret
+#-----------------------------------------------------------------------------------------------------------------------
 main_α:
-#=======================================================================================================================
-    .global main_α
-    .global main_β
-    .global main_γ
-    .global main_ω
-push r12
-  mov r12, rdi
-  lea r10, [rip + Δ]
+                        .global          main_α
+                        .global          main_β
+                        .global          main_γ
+                        .global          main_ω
+                        sub              rsp, 824
+                        mov              rdi, rsp
+                        mov              ecx, 824
+                        xor              eax, eax
+                        rep stosb
+                        mov              [rsp + 816], rbp
+                        mov              rbp, rsp
 main_α_body:
-plseq0_g0_α:
- bb72288_α:
- # BOX RESOLVE_BUILTIN(is/2)
- mov edi, 0
- lea rsi, [rip + .S0]
- mov edx, 0
- mov rcx, -5
- mov r8d, -1
- mov r9, 0
- call rt_is@PLT
- test eax, eax
- je main_ω
- jmp plseq0_g1_α
-plseq0_g0_β: jmp main_ω
-plseq0_g1_α:
- bb72064_α:
- # BOX RESOLVE_BUILTIN(write/1)
- mov edi, 0
- call rt_write_var@PLT
- jmp plseq0_g2_α
-plseq0_g1_β: jmp plseq0_g2_α
-plseq0_g2_α:
- bb71952_α:
- # BOX RESOLVE_BUILTIN(nl/0)
- mov edi, 10
- call putchar@PLT
- jmp plseq0_g3_α
-plseq0_g2_β: jmp plseq0_g3_α
-plseq0_g3_α:
- bb71504_α:
- # BOX RESOLVE_BUILTIN(is/2)
- mov edi, 1
- lea rsi, [rip + .S0]
- mov edx, 0
- mov rcx, 0
- mov r8d, -1
- mov r9, 0
- call rt_is@PLT
- test eax, eax
- je main_ω
- jmp plseq0_g4_α
-plseq0_g3_β: jmp main_ω
-plseq0_g4_α:
- bb71280_α:
- # BOX RESOLVE_BUILTIN(write/1)
- mov edi, 1
- call rt_write_var@PLT
- jmp plseq0_g5_α
-plseq0_g4_β: jmp plseq0_g5_α
-plseq0_g5_α:
- bb71168_α:
- # BOX RESOLVE_BUILTIN(nl/0)
- mov edi, 10
- call putchar@PLT
- jmp plseq0_g6_α
-plseq0_g5_β: jmp plseq0_g6_α
-plseq0_g6_α:
- bb70720_α:
- # BOX RESOLVE_BUILTIN(is/2)
- mov edi, 2
- lea rsi, [rip + .S0]
- mov edx, 0
- mov rcx, 3
- mov r8d, -1
- mov r9, 0
- call rt_is@PLT
- test eax, eax
- je main_ω
- jmp plseq0_g7_α
-plseq0_g6_β: jmp main_ω
-plseq0_g7_α:
- bb70496_α:
- # BOX RESOLVE_BUILTIN(write/1)
- mov edi, 2
- call rt_write_var@PLT
- jmp plseq0_g8_α
-plseq0_g7_β: jmp plseq0_g8_α
-plseq0_g8_α:
- bb70384_α:
- # BOX RESOLVE_BUILTIN(nl/0)
- mov edi, 10
- call putchar@PLT
- jmp main_γ
-plseq0_g8_β: jmp main_γ
+#-----------------------------------------------------------------------------------------------------------------------
+n0_op11_α:
+                        lea              r10, [rip + g_plw_cellws_on]
+                        mov              eax, dword ptr [r10 + 0]
+                        test             eax, eax
+                                                                                        jne   .Lx28_100
+                        lea              r10, [rip + g_zeta_mode]
+                        mov              eax, dword ptr [r10 + 0]
+                        cmp              eax, 2
+                                                                                        je    .Lx28_100
+                        lea              r10, [rip + g_pl_trail]
+                        mov              eax, dword ptr [r10 + 32]
+                        movsxd           rdx, eax
+                        mov              eax, 6
+                                                                                        jmp   .Lx28_101
+.Lx28_100:
+                        lea              rdi, [rbp + 48]
+                        mov              esi, 0
+                        call             rt_pl_dop_trail_mark@PLT
+.Lx28_101:
+                        mov              qword ptr [rbp + 32], rax
+                        mov              qword ptr [rbp + 40], rdx
+                        cmp              eax, 99
+                                                                                        je    main_ω
+                                                                                        jmp   n1_var_ref_α
+n0_op11_β:
+                                                                                        jmp   main_ω
+#-----------------------------------------------------------------------------------------------------------------------
+n1_var_ref_α:
+                        mov              rax, 4294967305
+                        lea              rdx, [rbp + 800]
+                        mov              qword ptr [rbp + 688], rax
+                        mov              qword ptr [rbp + 696], rdx
+                                                                                        jmp   n2_lit_integer_α
+#-----------------------------------------------------------------------------------------------------------------------
+n2_lit_integer_α:
+                        mov              qword ptr [rbp + 752], 6
+                        mov              rax, qword ptr [rip + .Lx31_0]
+                        mov              qword ptr [rbp + 760], rax
+                                                                                        jmp   n3_op11_α
+.Lx31_0:
+                        .quad            18446744073709551611
+#-----------------------------------------------------------------------------------------------------------------------
+n3_op11_α:
+                        mov              rax, qword ptr [rbp + 752]
+                        mov              qword ptr [rbp + 720], rax
+                        mov              rax, qword ptr [rbp + 760]
+                        mov              qword ptr [rbp + 728], rax
+                        .section         .rodata
+.Lrkfn33:               .string          "$ax_sign"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn33]
+                        lea              rsi, [rbp + 720]
+                        mov              edx, 1
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rbp + 704], rax
+                        mov              qword ptr [rbp + 712], rdx
+                        cmp              eax, 99
+                                                                                        je    n5_op11_α
+                                                                                        jmp   n4_op11_α
+n3_op11_β:
+                                                                                        jmp   n5_op11_α
+#-----------------------------------------------------------------------------------------------------------------------
+n4_op11_α:
+                        mov              rax, qword ptr [rbp + 688]
+                        mov              qword ptr [rbp + 656], rax
+                        mov              rax, qword ptr [rbp + 696]
+                        mov              qword ptr [rbp + 664], rax
+                        mov              rax, qword ptr [rbp + 704]
+                        mov              qword ptr [rbp + 672], rax
+                        mov              rax, qword ptr [rbp + 712]
+                        mov              qword ptr [rbp + 680], rax
+                        lea              rdi, [rbp + 656]
+                        mov              esi, 2
+                        call             rt_pl_dop_is_v@PLT
+                        mov              qword ptr [rbp + 640], rax
+                        mov              qword ptr [rbp + 648], rdx
+                        cmp              eax, 99
+                                                                                        je    n5_op11_α
+                                                                                        jmp   n6_var_α
+n4_op11_β:
+                                                                                        jmp   n5_op11_α
+#-----------------------------------------------------------------------------------------------------------------------
+n5_op11_α:
+                        mov              rax, qword ptr [rbp + 32]
+                        mov              qword ptr [rbp + 80], rax
+                        mov              rax, qword ptr [rbp + 40]
+                        mov              qword ptr [rbp + 88], rax
+                        lea              rdi, [rbp + 80]
+                        mov              esi, 1
+                        call             rt_pl_dop_trail_unwind@PLT
+                        mov              qword ptr [rbp + 64], rax
+                        mov              qword ptr [rbp + 72], rdx
+                        cmp              eax, 99
+                                                                                        je    main_ω
+                                                                                        jmp   main_ω
+n5_op11_β:
+                                                                                        jmp   main_ω
+#-----------------------------------------------------------------------------------------------------------------------
+n6_var_α:
+                        mov              rax, qword ptr [rbp + 800]
+                        mov              qword ptr [rbp + 624], rax
+                        mov              rax, qword ptr [rbp + 808]
+                        mov              qword ptr [rbp + 632], rax
+                                                                                        jmp   n7_op11_α
+#-----------------------------------------------------------------------------------------------------------------------
+n7_op11_α:
+                        mov              rax, qword ptr [rbp + 624]
+                        mov              qword ptr [rbp + 608], rax
+                        mov              rax, qword ptr [rbp + 632]
+                        mov              qword ptr [rbp + 616], rax
+                        .section         .rodata
+.Lrkfn39:               .string          "$write"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn39]
+                        lea              rsi, [rbp + 608]
+                        mov              edx, 1
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rbp + 592], rax
+                        mov              qword ptr [rbp + 600], rdx
+                        cmp              eax, 99
+                                                                                        je    n5_op11_α
+                                                                                        jmp   n8_lit_string_α
+n7_op11_β:
+                                                                                        jmp   n5_op11_α
+#-----------------------------------------------------------------------------------------------------------------------
+n8_lit_string_α:
+                        mov              qword ptr [rbp + 576], 1
+                        mov              rax, qword ptr [rip + .Lx40_0]
+                        mov              qword ptr [rbp + 584], rax
+                                                                                        jmp   n9_op11_α
+.Lx40_0:
+                        .quad            .Lx40_0_s
+.Lx40_0_s:
+                        .string          ""
+#-----------------------------------------------------------------------------------------------------------------------
+n9_op11_α:
+                        mov              rax, qword ptr [rbp + 576]
+                        mov              qword ptr [rbp + 560], rax
+                        mov              rax, qword ptr [rbp + 584]
+                        mov              qword ptr [rbp + 568], rax
+                        .section         .rodata
+.Lrkfn42:               .string          "$nl0"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn42]
+                        lea              rsi, [rbp + 560]
+                        mov              edx, 1
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rbp + 544], rax
+                        mov              qword ptr [rbp + 552], rdx
+                        cmp              eax, 99
+                                                                                        je    n5_op11_α
+                                                                                        jmp   n10_var_ref_α
+n9_op11_β:
+                                                                                        jmp   n5_op11_α
+#-----------------------------------------------------------------------------------------------------------------------
+n10_var_ref_α:
+                        mov              rax, 4294967305
+                        lea              rdx, [rbp + 784]
+                        mov              qword ptr [rbp + 464], rax
+                        mov              qword ptr [rbp + 472], rdx
+                                                                                        jmp   n11_lit_integer_α
+#-----------------------------------------------------------------------------------------------------------------------
+n11_lit_integer_α:
+                        mov              qword ptr [rbp + 528], 6
+                        mov              rax, qword ptr [rip + .Lx45_0]
+                        mov              qword ptr [rbp + 536], rax
+                                                                                        jmp   n12_op11_α
+.Lx45_0:
+                        .quad            0
+#-----------------------------------------------------------------------------------------------------------------------
+n12_op11_α:
+                        mov              rax, qword ptr [rbp + 528]
+                        mov              qword ptr [rbp + 496], rax
+                        mov              rax, qword ptr [rbp + 536]
+                        mov              qword ptr [rbp + 504], rax
+                        .section         .rodata
+.Lrkfn47:               .string          "$ax_sign"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn47]
+                        lea              rsi, [rbp + 496]
+                        mov              edx, 1
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rbp + 480], rax
+                        mov              qword ptr [rbp + 488], rdx
+                        cmp              eax, 99
+                                                                                        je    n5_op11_α
+                                                                                        jmp   n13_op11_α
+n12_op11_β:
+                                                                                        jmp   n5_op11_α
+#-----------------------------------------------------------------------------------------------------------------------
+n13_op11_α:
+                        mov              rax, qword ptr [rbp + 464]
+                        mov              qword ptr [rbp + 432], rax
+                        mov              rax, qword ptr [rbp + 472]
+                        mov              qword ptr [rbp + 440], rax
+                        mov              rax, qword ptr [rbp + 480]
+                        mov              qword ptr [rbp + 448], rax
+                        mov              rax, qword ptr [rbp + 488]
+                        mov              qword ptr [rbp + 456], rax
+                        lea              rdi, [rbp + 432]
+                        mov              esi, 2
+                        call             rt_pl_dop_is_v@PLT
+                        mov              qword ptr [rbp + 416], rax
+                        mov              qword ptr [rbp + 424], rdx
+                        cmp              eax, 99
+                                                                                        je    n5_op11_α
+                                                                                        jmp   n14_var_α
+n13_op11_β:
+                                                                                        jmp   n5_op11_α
+#-----------------------------------------------------------------------------------------------------------------------
+n14_var_α:
+                        mov              rax, qword ptr [rbp + 784]
+                        mov              qword ptr [rbp + 400], rax
+                        mov              rax, qword ptr [rbp + 792]
+                        mov              qword ptr [rbp + 408], rax
+                                                                                        jmp   n15_op11_α
+#-----------------------------------------------------------------------------------------------------------------------
+n15_op11_α:
+                        mov              rax, qword ptr [rbp + 400]
+                        mov              qword ptr [rbp + 384], rax
+                        mov              rax, qword ptr [rbp + 408]
+                        mov              qword ptr [rbp + 392], rax
+                        .section         .rodata
+.Lrkfn52:               .string          "$write"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn52]
+                        lea              rsi, [rbp + 384]
+                        mov              edx, 1
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rbp + 368], rax
+                        mov              qword ptr [rbp + 376], rdx
+                        cmp              eax, 99
+                                                                                        je    n5_op11_α
+                                                                                        jmp   n16_lit_string_α
+n15_op11_β:
+                                                                                        jmp   n5_op11_α
+#-----------------------------------------------------------------------------------------------------------------------
+n16_lit_string_α:
+                        mov              qword ptr [rbp + 352], 1
+                        mov              rax, qword ptr [rip + .Lx53_0]
+                        mov              qword ptr [rbp + 360], rax
+                                                                                        jmp   n17_op11_α
+.Lx53_0:
+                        .quad            .Lx53_0_s
+.Lx53_0_s:
+                        .string          ""
+#-----------------------------------------------------------------------------------------------------------------------
+n17_op11_α:
+                        mov              rax, qword ptr [rbp + 352]
+                        mov              qword ptr [rbp + 336], rax
+                        mov              rax, qword ptr [rbp + 360]
+                        mov              qword ptr [rbp + 344], rax
+                        .section         .rodata
+.Lrkfn55:               .string          "$nl0"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn55]
+                        lea              rsi, [rbp + 336]
+                        mov              edx, 1
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rbp + 320], rax
+                        mov              qword ptr [rbp + 328], rdx
+                        cmp              eax, 99
+                                                                                        je    n5_op11_α
+                                                                                        jmp   n18_var_ref_α
+n17_op11_β:
+                                                                                        jmp   n5_op11_α
+#-----------------------------------------------------------------------------------------------------------------------
+n18_var_ref_α:
+                        mov              rax, 4294967305
+                        lea              rdx, [rbp + 768]
+                        mov              qword ptr [rbp + 240], rax
+                        mov              qword ptr [rbp + 248], rdx
+                                                                                        jmp   n19_lit_integer_α
+#-----------------------------------------------------------------------------------------------------------------------
+n19_lit_integer_α:
+                        mov              qword ptr [rbp + 304], 6
+                        mov              rax, qword ptr [rip + .Lx58_0]
+                        mov              qword ptr [rbp + 312], rax
+                                                                                        jmp   n20_op11_α
+.Lx58_0:
+                        .quad            3
+#-----------------------------------------------------------------------------------------------------------------------
+n20_op11_α:
+                        mov              rax, qword ptr [rbp + 304]
+                        mov              qword ptr [rbp + 272], rax
+                        mov              rax, qword ptr [rbp + 312]
+                        mov              qword ptr [rbp + 280], rax
+                        .section         .rodata
+.Lrkfn60:               .string          "$ax_sign"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn60]
+                        lea              rsi, [rbp + 272]
+                        mov              edx, 1
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rbp + 256], rax
+                        mov              qword ptr [rbp + 264], rdx
+                        cmp              eax, 99
+                                                                                        je    n5_op11_α
+                                                                                        jmp   n21_op11_α
+n20_op11_β:
+                                                                                        jmp   n5_op11_α
+#-----------------------------------------------------------------------------------------------------------------------
+n21_op11_α:
+                        mov              rax, qword ptr [rbp + 240]
+                        mov              qword ptr [rbp + 208], rax
+                        mov              rax, qword ptr [rbp + 248]
+                        mov              qword ptr [rbp + 216], rax
+                        mov              rax, qword ptr [rbp + 256]
+                        mov              qword ptr [rbp + 224], rax
+                        mov              rax, qword ptr [rbp + 264]
+                        mov              qword ptr [rbp + 232], rax
+                        lea              rdi, [rbp + 208]
+                        mov              esi, 2
+                        call             rt_pl_dop_is_v@PLT
+                        mov              qword ptr [rbp + 192], rax
+                        mov              qword ptr [rbp + 200], rdx
+                        cmp              eax, 99
+                                                                                        je    n5_op11_α
+                                                                                        jmp   n22_var_α
+n21_op11_β:
+                                                                                        jmp   n5_op11_α
+#-----------------------------------------------------------------------------------------------------------------------
+n22_var_α:
+                        mov              rax, qword ptr [rbp + 768]
+                        mov              qword ptr [rbp + 176], rax
+                        mov              rax, qword ptr [rbp + 776]
+                        mov              qword ptr [rbp + 184], rax
+                                                                                        jmp   n23_op11_α
+#-----------------------------------------------------------------------------------------------------------------------
+n23_op11_α:
+                        mov              rax, qword ptr [rbp + 176]
+                        mov              qword ptr [rbp + 160], rax
+                        mov              rax, qword ptr [rbp + 184]
+                        mov              qword ptr [rbp + 168], rax
+                        .section         .rodata
+.Lrkfn65:               .string          "$write"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn65]
+                        lea              rsi, [rbp + 160]
+                        mov              edx, 1
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rbp + 144], rax
+                        mov              qword ptr [rbp + 152], rdx
+                        cmp              eax, 99
+                                                                                        je    n5_op11_α
+                                                                                        jmp   n24_lit_string_α
+n23_op11_β:
+                                                                                        jmp   n5_op11_α
+#-----------------------------------------------------------------------------------------------------------------------
+n24_lit_string_α:
+                        mov              qword ptr [rbp + 128], 1
+                        mov              rax, qword ptr [rip + .Lx66_0]
+                        mov              qword ptr [rbp + 136], rax
+                                                                                        jmp   n25_op11_α
+.Lx66_0:
+                        .quad            .Lx66_0_s
+.Lx66_0_s:
+                        .string          ""
+#-----------------------------------------------------------------------------------------------------------------------
+n25_op11_α:
+                        mov              rax, qword ptr [rbp + 128]
+                        mov              qword ptr [rbp + 112], rax
+                        mov              rax, qword ptr [rbp + 136]
+                        mov              qword ptr [rbp + 120], rax
+                        .section         .rodata
+.Lrkfn68:               .string          "$nl0"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn68]
+                        lea              rsi, [rbp + 112]
+                        mov              edx, 1
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rbp + 96], rax
+                        mov              qword ptr [rbp + 104], rdx
+                        cmp              eax, 99
+                                                                                        je    n5_op11_α
+                                                                                        jmp   n26_move_label_α
+n25_op11_β:
+                                                                                        jmp   n5_op11_α
+#-----------------------------------------------------------------------------------------------------------------------
+n26_move_label_α:
+                        lea              rax, [rip + n5_op11_α]
+                        mov              qword ptr [rbp + 16], rax
+                                                                                        jmp   main_γ
+#-----------------------------------------------------------------------------------------------------------------------
+n27_disjunction_α:
+                                                                                        jmp   qword ptr [rbp + 16]
+n27_disjunction_β:
+                                                                                        jmp   main_ω
+#-----------------------------------------------------------------------------------------------------------------------
 main_β:
- jmp main_ω
+                                                                                        jmp   n27_disjunction_α
+#-----------------------------------------------------------------------------------------------------------------------
 main_γ:
-mov eax, 1
-xor edx, edx
-pop r12
-ret
+                        mov              eax, 1
+                        xor              edx, edx
+                        mov              rsp, rbp
+                        mov              rbp, [rsp + 816]
+                        add              rsp, 824
+                        ret
+#-----------------------------------------------------------------------------------------------------------------------
 main_ω:
-# GZ-10 PROC FAIL EXIT: write FAILDESCR to frame[0] so rt_call_proc_descr sees failure
-mov dword ptr [r12+0], 99
-mov dword ptr [r12+4], 0
-mov qword ptr [r12+8], 0
-mov eax, 99
-xor edx, edx
-pop r12
-ret
-.section .rodata
-.S0: .string "sign"
-.text
+                        mov              rsp, rbp
+                        mov              eax, 99
+                        xor              edx, edx
+                        mov              rbp, [rsp + 816]
+                        add              rsp, 824
+                        ret
+                        .section         .note.GNU-stack,"",@progbits
