@@ -1,0 +1,63 @@
+############################################################################
+#
+#       Name:   bench_icnrel_isolate.icn
+#
+#       Title:  RTX-6b-ICN isolation benchmark -- rt_jct_relop string arm
+#
+############################################################################
+#
+#  Exercises the arm measured live at s212: DT_S/DT_S operands under the
+#  string relational operators, which fall past every numeric arm of
+#  rt_jct_relop_impl to its textually LAST block (VARVAL_fn + strcmp).
+#
+#  TWO PROPERTIES THIS PROGRAM IS BUILT AROUND, BOTH LEARNED THE HARD WAY:
+#
+#  1. SELF-TIMED WITH &time, MEASURED INSIDE THE PROGRAM (s211).  A whole-
+#     process wall clock on an Icon benchmark is ~20:1 compile-phase
+#     dominated at these sizes; a window opened after the program is already
+#     running excludes the compiler by construction rather than by
+#     subtraction.  The harness reads the "ms: " line.
+#
+#  2. ALLOCATION IS HOISTED OUT OF THE TIMED LOOP (s211).  The first
+#     RTX-6 benchmark was REFUSED by the harness because per-iteration
+#     allocation made its samples bimodal, with an intra-arm spread larger
+#     than the gap being measured.  Every string here is built once, before
+#     the window opens; the loop allocates nothing.
+#
+#  Integer comparison is deliberately ABSENT.  bb_binop_relop.cpp inlines
+#  DT_I/DT_I and reaches gamma without a call, so an integer comparison
+#  measures the template, not this symbol.  The loop counter's own `1 to n`
+#  is the only integer work and it is identical across all three arms.
+#
+#  N is edited into the source: mode 3 does not forward argv
+#  (`scrip --run p.icn -n8` => cannot open '-n8'), which is the open half
+#  of RTX-0b-ICN.
+#
+############################################################################
+
+procedure main();
+   local i, n, c, t0, eqa, eqb, ne, lo, hi;
+
+   n := 5000000;
+   c := 0;
+
+   eqa := "the quick brown fox jumps over the lazy dog";
+   eqb := "the quick brown fox jumps over the lazy dog";
+   ne  := "the quick brown fox jumps over the lazy dof";
+   lo  := "aardvark astonishes the arbitrary alphabet";
+   hi  := "zeppelin zigzags through zealous zookeepers";
+
+   t0 := &time;
+   every i := 1 to n do {
+      if eqa == eqb then c := c + 1;
+      if eqa == ne  then c := c + 2;
+      if lo  << hi  then c := c + 4;
+      if hi  >> lo  then c := c + 8;
+      if eqa ~== ne then c := c + 16;
+      if lo  <<= hi then c := c + 32;
+   };
+
+   write("chk: ", c);
+   write("ms: ", &time - t0);
+
+end
