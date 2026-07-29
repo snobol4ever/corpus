@@ -1,0 +1,11 @@
+procedure main()
+   local i, s, acc, t0;
+   s := "123456";
+   acc := 0;
+   t0 := &time;
+   every i := 1 to 40000000 do {
+      acc +:= s + 1;
+      };
+   write("ms: ", &time - t0);
+   write("acc: ", acc);
+end
