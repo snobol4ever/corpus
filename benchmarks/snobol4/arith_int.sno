@@ -1,0 +1,15 @@
+* arith_int_big.sno — integer-only ARITH window, sized for the 3-arm harness.
+* arith_loop.sno's 1M-iteration window is ~13ms, far under the harness MIN_MS,
+* so it is UNGRADEABLE by construction. This is the same program shape with a
+* window large enough to grade: 100M iterations of int-int rt_add.
+* Deterministic checksum, predicted in advance: N ends at the bound = 100000000.
+    &TRIM = 1
+    &STLIMIT = 999999999
+    T1 = TIME()
+    N = 0
+LOOP    N = N + 1
+    N = LT(N, 100000000) N        :S(LOOP)
+    T2 = TIME()
+    OUTPUT = "iterations: " N
+    OUTPUT = "ms: " (T2 - T1)
+END
