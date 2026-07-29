@@ -508,7 +508,6 @@ main:
                         lea              rdi, [rip + __gva_names]
                         mov              edx, 2
                         call             gva_register@PLT
-                        mov              r12, qword ptr [1879048192]
                         xor              esi, esi
                         call             main_α
                         xor              eax, eax
@@ -764,7 +763,8 @@ n66_match_head_α:
                         call             rt_match_enter@PLT
                         mov              r13, rax
                         mov              r15, rdx
-                        mov              qword ptr [rsp + 416], r12
+                        mov              rax, qword ptr [1879048192]
+                        mov              qword ptr [rsp + 416], rax
                         mov              qword ptr [rsp + 400], rsp
                         lea              rcx, [rip + g_patstk_sp]
                         mov              rax, qword ptr [rcx + 0]
@@ -788,7 +788,8 @@ n66_match_head_β:
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
                         mov              rsp, qword ptr [rsp + 400]
-                        mov              r12, qword ptr [rsp + 416]
+                        mov              rax, qword ptr [rsp + 416]
+                        mov              qword ptr [1879048192], rax
                                                                                         jmp   n52_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n67_match_defer_α:
@@ -882,7 +883,7 @@ n68_match_release_α:
                         push             r13
                         sub              rsp, 8
                         mov              rdi, qword ptr [rsp + 448]
-                        mov              rsi, r12
+                        mov              rsi, qword ptr [1879048192]
                         mov              rdx, r13
                         call             rt_dcap_end_ok_open@PLT
 .Lx98_1:
@@ -910,7 +911,8 @@ n68_match_release_α:
                         pop              r13
                         pop              r15
                         pop              r14
-                        mov              r12, qword ptr [rsp + 416]
+                        mov              rax, qword ptr [rsp + 416]
+                        mov              qword ptr [1879048192], rax
                                                                                         jmp   n69_lit_string_α
 #=======================================================================================================================
 #                 OUTPUT          =  'matched bytes=' SIZE(src)   :(END)
