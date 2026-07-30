@@ -1,0 +1,19 @@
+# RTX-30-ICN grading window: the table MISS / key-insert trap, isolated.
+# (d2) COMPLIANT BY CONSTRUCTION, and it is NOT the table-building loop:
+#   - the table never grows (an RVALUE miss mints the trap, rt_deref resolves it
+#     via table_get_found, finds nothing, returns the default -- NO insert), so
+#     the bucket chain length is constant across all 2,000,000 iterations;
+#   - the key is a literal, so no per-iteration key allocation is added to the
+#     window that does not belong to the ported path;
+#   - the result is discarded, so the measured cost is the subscript's own
+#     dispatch plus the two allocations the arm inherently performs.
+# A table-BUILDING loop (`t[string(i)] := i`) is the MOTIVATING traffic but is
+# NOT gradeable: it grows the chains, calls string() per iteration, and its cost
+# per access rises monotonically. Measured separately, never used for the ratio.
+procedure main()
+  local i, t, x;
+  t := table(0);
+  t["seed"] := 1;
+  every i := 1 to 2000000 do { x := t["absent"]; };
+  write(x);
+end

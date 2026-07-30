@@ -1,0 +1,22 @@
+# RTX-30-ICN correctness gate. This is the test that separates "mint C's
+# key-INSERT trap" from "return FAILDESCR": an arm that FAILS on a miss reads
+# correct on every rvalue workload and silently breaks `t[k] := v` on a fresh
+# key (s223 finding 3). Every line below is an lvalue insert through the miss
+# arm, a hit through the RTX-26/29 hit arm, or an rvalue miss returning default.
+procedure main()
+  local t, i, s;
+  t := table(0);
+  t["alpha"] := 11;
+  t["beta"] := 22;
+  t[7] := 77;
+  t[-3] := 33;
+  t[0] := 99;
+  t["alpha"] := 111;
+  write(t["alpha"], " ", t["beta"], " ", t[7], " ", t[-3], " ", t[0], " ", t["missing"], " ", t[12345]);
+  s := 0;
+  every i := 1 to 5000 do { t[string(i)] := i; };
+  every i := 1 to 5000 do { s +:= t[string(i)]; };
+  write(s);
+  every i := 1 to 5000 do { s +:= t[i]; };
+  write(s);
+end
