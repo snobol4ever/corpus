@@ -224,6 +224,7 @@ n9_match_assign_cond_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n10_lit_string_α:
                         mov              qword ptr [rbp + 144], 1
+                        mov              dword ptr [rbp + 148], 0
                         mov              rax, qword ptr [rip + .Lx46_0]
                         mov              qword ptr [rbp + 152], rax
                                                                                         jmp   n12_match_replace_α
@@ -271,6 +272,7 @@ n12_match_replace_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n13_lit_string_α:
                         mov              qword ptr [rbp + 480], 1
+                        mov              dword ptr [rbp + 484], 40
                         mov              rax, qword ptr [rip + .Lx50_0]
                         mov              qword ptr [rbp + 488], rax
                                                                                         jmp   n14_match_head_α
@@ -693,6 +695,7 @@ n23_op14_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n24_lit_string_α:
                         mov              qword ptr [rbp + 656], 1
+                        mov              dword ptr [rbp + 660], 7
                         mov              rax, qword ptr [rip + .Lx69_0]
                         mov              qword ptr [rbp + 664], rax
                                                                                         jmp   n25_lit_string_α
@@ -705,6 +708,7 @@ n24_lit_string_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n25_lit_string_α:
                         mov              qword ptr [rbp + 672], 1
+                        mov              dword ptr [rbp + 676], 7
                         mov              rax, qword ptr [rip + .Lx70_0]
                         mov              qword ptr [rbp + 680], rax
                                                                                         jmp   n26_call_α
@@ -830,6 +834,7 @@ n77_var_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n78_lit_string_α:
                         mov              qword ptr [rbp + 752], 1
+                        mov              dword ptr [rbp + 756], 4
                         mov              rax, qword ptr [rip + .Lx96_0]
                         mov              qword ptr [rbp + 760], rax
                                                                                         jmp   n80_binop_α
@@ -1659,6 +1664,7 @@ n139_op14_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n140_lit_string_α:
                         mov              qword ptr [rbp + 752], 1
+                        mov              dword ptr [rbp + 756], 4
                         mov              rax, qword ptr [rip + .Lx204_0]
                         mov              qword ptr [rbp + 760], rax
                                                                                         jmp   n144_binop_α
@@ -2033,6 +2039,7 @@ n156_call_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n157_lit_string_α:
                         mov              qword ptr [rbp + 144], 1
+                        mov              dword ptr [rbp + 148], 0
                         mov              rax, qword ptr [rip + .Lx227_0]
                         mov              qword ptr [rbp + 152], rax
                                                                                         jmp   n163_match_replace_α
@@ -2302,6 +2309,7 @@ n167_lit_integer_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n168_lit_string_α:
                         mov              qword ptr [rbp + 480], 1
+                        mov              dword ptr [rbp + 484], 40
                         mov              rax, qword ptr [rip + .Lx242_0]
                         mov              qword ptr [rbp + 488], rax
                                                                                         jmp   n171_match_head_α
@@ -3019,6 +3027,7 @@ n183_op14_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n184_lit_string_α:
                         mov              qword ptr [rbp + 656], 1
+                        mov              dword ptr [rbp + 660], 7
                         mov              rax, qword ptr [rip + .Lx268_0]
                         mov              qword ptr [rbp + 664], rax
                                                                                         jmp   n185_lit_string_α
@@ -3031,6 +3040,7 @@ n184_lit_string_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n185_lit_string_α:
                         mov              qword ptr [rbp + 672], 1
+                        mov              dword ptr [rbp + 676], 7
                         mov              rax, qword ptr [rip + .Lx269_0]
                         mov              qword ptr [rbp + 680], rax
                                                                                         jmp   n186_call_α
