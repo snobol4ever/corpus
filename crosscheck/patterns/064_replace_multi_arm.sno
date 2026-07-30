@@ -1,0 +1,47 @@
+* 064_replace_multi_arm.sno
+* RTX-8 SLICE 9 GATE COVERAGE. Minted because the ENTIRE 316-program crosscheck
+* corpus executed rt_match_replace exactly ONCE per program, and the ported arm
+* delegates its first call to C by design (g_repl_trace starts -1), so the whole
+* suite scored ZERO commits and could not execute one instruction of the asm.
+* Every statement below is a pattern match with replacement (manual Ch.6 p.72).
+* The count is what matters: >= 2 replacements per run, so commits >= 1.
+    &TRIM = 1
+* --- deletion: rlen = 0, the guarded middle memcpy must be skipped ---
+    A = 'alpha,beta,gamma,'
+DEL A ',' = ''                              :S(DEL)
+    OUTPUT = 'del: ' A
+* --- head replacement: start = 0, the guarded head memcpy must be skipped ---
+    B = 'XXmiddleXX'
+    B 'XX' = 'yy'
+    OUTPUT = 'head: ' B
+* --- tail replacement: slen - end = 0, the guarded tail memcpy must be skipped ---
+    C = 'bodyZZ'
+    C 'ZZ' = 'ww'
+    OUTPUT = 'tail: ' C
+* --- grow and shrink: nlen crosses the subject length in both directions ---
+    D = 'a.b.c.d'
+GROW D '.' = '<->'                          :S(GROW)
+    OUTPUT = 'grow: ' D
+    E = 'aaaabbbbcccc'
+    E 'bbbb' = '-'
+    OUTPUT = 'shrink: ' E
+* --- integer replacement value: exercises the descr_to_str BAIL edge, not the hot arm ---
+    F = 'n=?'
+    F '?' = 42
+    OUTPUT = 'int: ' F
+* --- replacement drawn from a captured substring ---
+    G = 'swap:LEFT|RIGHT'
+    G ('LEFT' . L1) '|' ('RIGHT' . R1) = R1 '|' L1
+    OUTPUT = 'cap: ' G
+* --- null subject span: BREAK to an immediate delimiter ---
+    H = ',lead'
+    H BREAK(',') ',' = 'K'
+    OUTPUT = 'null: ' H
+* --- repeated deletion over a longer subject, so commits accumulate ---
+    S = 'one,two,three,four,five,six,seven,eight,nine,ten,'
+    R = ''
+INNER S BREAK(',') . W ',' = ''             :F(FIN)
+    R = R W
+    :(INNER)
+FIN OUTPUT = 'loop: ' R
+END

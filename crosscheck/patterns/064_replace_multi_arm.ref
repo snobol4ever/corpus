@@ -1,0 +1,9 @@
+del: alphabetagamma
+head: yymiddleXX
+tail: bodyww
+grow: a<->b<->c<->d
+shrink: aaaa-cccc
+int: n=42
+cap: swap:RIGHT|LEFT
+null: Klead
+loop: onetwothreefourfivesixseveneightnineten
