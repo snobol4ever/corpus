@@ -1,0 +1,23 @@
+* pattern_bt.sno
+* Bottleneck: pattern backtracking with alternation.
+* Alternation of 4 choices + SPAN, 8,000,000 iterations -- the RTX-8 GRADED window.
+* WHY 8M AND NOT 4M (s220, measured): warm and cold differ 2.3x on this program (hugepage compaction, s201
+* class).  s219 recorded "4M ~ 870 ms" from a COLD read; WARM, 2M is ~400 ms and 4M ~800 ms, i.e. AT the
+* MIN_MS=800 floor rather than clear of it.  8M gives ~1.6 s warm.  Apply MIN_MS to the WARM window or every
+* rung grades on a cold flier.  MIN-OF-N, DISCARD RUN 1: single runs here swing up to 4.7x, medians are
+* worthless, and only the minimum reproduced across two independent harness layouts (1.136x vs 1.135x).
+* Checksum is input-determined and was PREDICTED IN ADVANCE: result == K, W == ccccddddaaaa at every K.
+    &TRIM = 1
+    &STLIMIT = 1000000000
+    &ANCHOR = 0
+    PAT = ('aaa' | 'bbb' | 'ccc' | 'ddd') SPAN('abcd') . W
+    S = 'xxxxxxxxxxbbbccccddddaaaaxxxxxxxxxxbbbccccddddaaaa'
+    T1 = TIME()
+    N = 0
+LOOP    S PAT                           :F(DONE)
+    N = LT(N, 8000000) N + 1            :S(LOOP)
+DONE    T2 = TIME()
+    OUTPUT = "result: " N
+    OUTPUT = "W: " W
+    OUTPUT = "ms: " (T2 - T1)
+END

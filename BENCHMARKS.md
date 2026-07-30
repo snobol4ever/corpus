@@ -40,6 +40,7 @@ All engines run on the same machine so machine power cancels out.
 
 *† fibonacci: FIB(30), not per-million-iters — single call timing*  
 *‡ pattern_bt: 500K iters total*  
+*pattern_bt_deep: the SAME program at 8M iterations, added s220 as the RTX-8 MATCH GRADING INSTRUMENT — deliberately NOT a cross-engine board row (no other engine was run at 8M, and inventing one would be a false claim). Warm/cold differ 2.3× here, so MIN_MS=800 must be applied to the WARM window; min-of-N, discard run 1.*
 *JS —: feature not yet implemented (DEFINE/RETURN, TABLE, ARRAY, value-context pattern E_18)*
 
 ---
