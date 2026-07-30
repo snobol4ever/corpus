@@ -158,10 +158,12 @@ n6_assign_α:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
 n7_match_lit_α:
+                        sub              rsp, 16
                         mov              eax, r14d
                         add              eax, 5
                         cmp              eax, r15d
                                                                                         jle   .Lx22_238
+                        add              rsp, 16
                         add              rsp, 16
                                                                                         jmp   n3_match_head_β
 .Lx22_238:
@@ -170,18 +172,23 @@ n7_match_lit_α:
                         cmp              edx, 1819043176
                                                                                         je    .Lx22_239
                         add              rsp, 16
+                        add              rsp, 16
                                                                                         jmp   n3_match_head_β
 .Lx22_239:
                         movzx            eax, byte ptr [r13+rcx+4]
                         cmp              eax, 111
                                                                                         je    .Lx22_240
                         add              rsp, 16
+                        add              rsp, 16
                                                                                         jmp   n3_match_head_β
 .Lx22_240:
                         add              r14d, 5
+                        add              rsp, 16
                                                                                         jmp   n8_match_assign_cond_α
 n7_match_lit_β:
+                        sub              rsp, 16
                         sub              r14d, 5
+                        add              rsp, 16
                         add              rsp, 16
                                                                                         jmp   n3_match_head_β
 #-----------------------------------------------------------------------------------------------------------------------
