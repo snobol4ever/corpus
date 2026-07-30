@@ -2026,15 +2026,20 @@ n146_assign_α:
                                                                                         jmp   n136_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n147_subscript_α:
+                        sub              rsp, 16
                         mov              rdi, qword ptr [rbp + 896]
                         mov              rsi, qword ptr [rbp + 904]
                         mov              rdx, qword ptr [rbp + 912]
                         mov              rcx, qword ptr [rbp + 920]
                         call             rt_subscript_var@PLT
                         cmp              eax, 99
-                                                                                        je    n72_var_α
+                                                                                        jne   .Lx274_240
+                        add              rsp, 16
+                                                                                        jmp   n72_var_α
+.Lx274_240:
                         mov              qword ptr [rbp + 928], rax
                         mov              qword ptr [rbp + 936], rdx
+                        add              rsp, 16
                                                                                         jmp   n151_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n148_assign_α:
@@ -2209,25 +2214,35 @@ n161_assign_var_α:
                                                                                         jmp   n72_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n162_subscript_α:
+                        sub              rsp, 16
                         mov              rdi, qword ptr [rbp + 1216]
                         mov              rsi, qword ptr [rbp + 1224]
                         mov              rdx, qword ptr [rbp + 1232]
                         mov              rcx, qword ptr [rbp + 1240]
                         call             rt_subscript_var@PLT
                         cmp              eax, 99
-                                                                                        je    n74_var_α
+                                                                                        jne   .Lx289_240
+                        add              rsp, 16
+                                                                                        jmp   n74_var_α
+.Lx289_240:
                         mov              qword ptr [rbp + 1248], rax
                         mov              qword ptr [rbp + 1256], rdx
+                        add              rsp, 16
                                                                                         jmp   n163_deref_α
 #-----------------------------------------------------------------------------------------------------------------------
 n163_deref_α:
+                        sub              rsp, 16
                         mov              rdi, qword ptr [rbp + 1248]
                         mov              rsi, qword ptr [rbp + 1256]
                         call             rt_deref@PLT
                         cmp              eax, 99
-                                                                                        je    n74_var_α
+                                                                                        jne   .Lx290_240
+                        add              rsp, 16
+                                                                                        jmp   n74_var_α
+.Lx290_240:
                         mov              qword ptr [rbp + 1264], rax
                         mov              qword ptr [rbp + 1272], rdx
+                        add              rsp, 16
                                                                                         jmp   n164_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n164_binop_α:

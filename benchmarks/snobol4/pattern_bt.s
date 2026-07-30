@@ -35,6 +35,7 @@ n0_match_sequence_af:
                                                                                         jmp   proc_PAT$0_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n1_match_alternate_α:
+                        sub              rsp, 32
                         mov              dword ptr [rbp + 32], r14d
                         lea              rax, [rip + .Lx12_21]
                         mov              qword ptr [rbp + 48], rax
@@ -52,18 +53,22 @@ n1_match_alternate_α:
                         mov              qword ptr [rbp + 48], rax
                                                                                         jmp   n7_match_lit_α
 n1_match_alternate_s0:
+                        sub              rsp, 32
                         lea              rax, [rip + .Lx12_40]
                         mov              qword ptr [rbp + 40], rax
                                                                                         jmp   n1_match_alternate_as
 n1_match_alternate_s1:
+                        sub              rsp, 32
                         lea              rax, [rip + .Lx12_41]
                         mov              qword ptr [rbp + 40], rax
                                                                                         jmp   n1_match_alternate_as
 n1_match_alternate_s2:
+                        sub              rsp, 32
                         lea              rax, [rip + .Lx12_42]
                         mov              qword ptr [rbp + 40], rax
                                                                                         jmp   n1_match_alternate_as
 n1_match_alternate_s3:
+                        sub              rsp, 32
                         lea              rax, [rip + .Lx12_43]
                         mov              qword ptr [rbp + 40], rax
                                                                                         jmp   n1_match_alternate_as
@@ -76,15 +81,20 @@ n1_match_alternate_s3:
 .Lx12_43:
                                                                                         jmp   n7_match_lit_β
 n1_match_alternate_as:
+                        sub              rsp, 32
+                        add              rsp, 32
                                                                                         jmp   n2_match_assign_save_α
 n1_match_alternate_β:
+                        sub              rsp, 32
                         mov              rax, qword ptr [rbp + 40]
                                                                                         jmp   rax
 n1_match_alternate_af:
+                        sub              rsp, 32
                         mov              r14d, dword ptr [rbp + 32]
                         mov              rax, qword ptr [rbp + 48]
                                                                                         jmp   rax
 .Lx12_19:
+                        add              rsp, 32
                                                                                         jmp   proc_PAT$0_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n2_match_assign_save_α:

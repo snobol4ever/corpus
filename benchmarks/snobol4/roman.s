@@ -235,17 +235,22 @@ n10_lit_string_β:
                         .string          ""
 #-----------------------------------------------------------------------------------------------------------------------
 n11_match_len_α:
+                        sub              rsp, 16
                         mov              eax, r14d
                         add              eax, 1
                         cmp              eax, r15d
                                                                                         jle   .Lx47_240
                         add              rsp, 16
+                        add              rsp, 16
                                                                                         jmp   n2_match_head_β
 .Lx47_240:
                         add              r14d, 1
+                        add              rsp, 16
                                                                                         jmp   n9_match_assign_cond_α
 n11_match_len_β:
+                        sub              rsp, 16
                         sub              r14d, 1
+                        add              rsp, 16
                         add              rsp, 16
                                                                                         jmp   n2_match_head_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1500,17 +1505,22 @@ n110_lit_string_β:
                         .string          ""
 #-----------------------------------------------------------------------------------------------------------------------
 n111_match_len_α:
+                        sub              rsp, 16
                         mov              eax, r14d
                         add              eax, 1
                         cmp              eax, r15d
                                                                                         jle   .Lx189_240
                         add              rsp, 16
+                        add              rsp, 16
                                                                                         jmp   n91_match_head_β
 .Lx189_240:
                         add              r14d, 1
+                        add              rsp, 16
                                                                                         jmp   n106_match_assign_cond_α
 n111_match_len_β:
+                        sub              rsp, 16
                         sub              r14d, 1
+                        add              rsp, 16
                         add              rsp, 16
                                                                                         jmp   n91_match_head_β
 #-----------------------------------------------------------------------------------------------------------------------
