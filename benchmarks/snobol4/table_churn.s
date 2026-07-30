@@ -51,6 +51,7 @@ main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_lit_string_α:
                         mov              qword ptr [rsp + 64], 1
+                        mov              dword ptr [rsp + 68], 4
                         mov              rax, qword ptr [rip + .Lx102_0]
                         mov              qword ptr [rsp + 72], rax
                                                                                         jmp   n8_lit_integer_α
@@ -181,6 +182,7 @@ n14_var_α:
 n15_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 1
+                        mov              dword ptr [rsp + 4], 8
                         mov              rax, qword ptr [rip + .Lx119_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n25_var_α
@@ -294,6 +296,7 @@ n25_var_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n26_lit_string_α:
                         mov              qword ptr [rsp + 160], 1
+                        mov              dword ptr [rsp + 164], 7
                         mov              rax, qword ptr [rip + .Lx131_0]
                         mov              qword ptr [rsp + 168], rax
                                                                                         jmp   n35_lit_integer_α
@@ -426,6 +429,7 @@ n33_binop_α:
 n34_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 1
+                        mov              dword ptr [rsp + 4], 4
                         mov              rax, qword ptr [rip + .Lx143_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n42_var_α
