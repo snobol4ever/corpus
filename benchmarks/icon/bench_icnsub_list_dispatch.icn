@@ -1,0 +1,6 @@
+procedure main()
+  local i, L, t;
+  L := [11,22,33,44,55,66,77,88];
+  every i := 1 to 2000000 do { t := L[(i % 8) + 1]; }
+  write(t);
+end
