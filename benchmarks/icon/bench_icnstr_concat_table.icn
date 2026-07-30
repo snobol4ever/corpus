@@ -1,0 +1,10 @@
+procedure main()
+  local i, s, t;
+  s := "";
+  t := table(0);
+  every i := 1 to 40000 do {
+    s := s || "x";
+    t["k" || (i % 97)] := i;
+  }
+  write(*s);
+end
