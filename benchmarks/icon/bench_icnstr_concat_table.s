@@ -28,6 +28,7 @@ main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_lit_string_α:
                         mov              qword ptr [rbp + 496], 1
+                        mov              dword ptr [rbp + 500], 0
                         mov              rax, qword ptr [rip + .Lx29_0]
                         mov              qword ptr [rbp + 504], rax
                                                                                         jmp   n1_assign_α
@@ -140,6 +141,7 @@ n10_var_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n11_lit_string_α:
                         mov              qword ptr [rbp + 416], 1
+                        mov              dword ptr [rbp + 420], 1
                         mov              rax, qword ptr [rip + .Lx44_0]
                         mov              qword ptr [rbp + 424], rax
                                                                                         jmp   n13_binop_α
@@ -167,6 +169,7 @@ n13_binop_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n14_lit_string_α:
                         mov              qword ptr [rbp + 256], 1
+                        mov              dword ptr [rbp + 260], 1
                         mov              rax, qword ptr [rip + .Lx48_0]
                         mov              qword ptr [rbp + 264], rax
                                                                                         jmp   n16_var_α
