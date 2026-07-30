@@ -469,7 +469,7 @@ n34_match_head_α:
                         mov              dword ptr [rbp + 448], 0
 .Lx87_0:
                         mov              r14d, dword ptr [rbp + 448]
-                                                                                        jmp   n38_match_defer_α
+                                                                                        jmp   n38_match_patref_α
 n34_match_head_β:
                         add              dword ptr [rbp + 448], 1
                         mov              eax, dword ptr [rbp + 448]
@@ -536,7 +536,7 @@ n37_lit_string_α:
 .Lx90_0_s:
                         .string          "STLIMIT"
 #-----------------------------------------------------------------------------------------------------------------------
-n38_match_defer_α:
+n38_match_patref_α:
                         lea              rsi, [rip + g_sno_defer_cells+0]
                         mov              rax, qword ptr [rsi + 0]
                         test             rax, rax
@@ -614,7 +614,7 @@ n38_match_defer_α:
 .Lx91_6:
                         add              rsp, 16
                                                                                         jmp   n34_match_head_β
-n38_match_defer_β:
+n38_match_patref_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 n39_var_α:

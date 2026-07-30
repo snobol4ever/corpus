@@ -340,7 +340,7 @@ n14_match_head_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n15_match_sequence_α:
                         mov              dword ptr [rbp + 576], r14d
-                                                                                        jmp   n17_match_defer_α
+                                                                                        jmp   n17_match_patref_α
 n15_match_sequence_as:
                                                                                         jmp   n16_match_release_α
 n15_match_sequence_β:
@@ -409,7 +409,7 @@ n16_match_release_α:
                         mov              rbp, qword ptr [rbp + 536]
                                                                                         jmp   n20_var_α
 #-----------------------------------------------------------------------------------------------------------------------
-n17_match_defer_α:
+n17_match_patref_α:
                         mov              rax, qword ptr [1879052320]
                         mov              rdx, qword ptr [1879052328]
                         cmp              eax, 3
@@ -477,7 +477,7 @@ n17_match_defer_α:
 .Lx57_6:
                         add              rsp, 16
                                                                                         jmp   n14_match_head_β
-n17_match_defer_β:
+n17_match_patref_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 n18_match_assign_save_α:
@@ -486,7 +486,7 @@ n18_match_assign_save_α:
                                                                                         jmp   n21_match_break_α
 n18_match_assign_save_β:
                         add              rsp, 16
-                                                                                        jmp   n17_match_defer_β
+                                                                                        jmp   n17_match_patref_β
 #-----------------------------------------------------------------------------------------------------------------------
 n19_match_assign_cond_α:
                         mov              eax, dword ptr [rsp + 16]
@@ -526,7 +526,7 @@ n21_match_break_α:
                                                                                         jl    .Lx64_237
                         add              rsp, 16
                         add              rsp, 16
-                                                                                        jmp   n17_match_defer_β
+                                                                                        jmp   n17_match_patref_β
 .Lx64_237:
                         movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 44
@@ -536,7 +536,7 @@ n21_match_break_α:
                                                                                         jl    .Lx64_238
                         add              rsp, 16
                         add              rsp, 16
-                                                                                        jmp   n17_match_defer_β
+                                                                                        jmp   n17_match_patref_β
 .Lx64_238:
                         movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 44
@@ -546,7 +546,7 @@ n21_match_break_α:
                                                                                         jl    .Lx64_239
                         add              rsp, 16
                         add              rsp, 16
-                                                                                        jmp   n17_match_defer_β
+                                                                                        jmp   n17_match_patref_β
 .Lx64_239:
                         movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 44
@@ -556,7 +556,7 @@ n21_match_break_α:
                                                                                         jl    .Lx64_240
                         add              rsp, 16
                         add              rsp, 16
-                                                                                        jmp   n17_match_defer_β
+                                                                                        jmp   n17_match_patref_β
 .Lx64_240:
                         movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 44
@@ -571,7 +571,7 @@ n21_match_break_β:
                         mov              r14d, dword ptr [rsp + 0]
                         add              rsp, 16
                         add              rsp, 16
-                                                                                        jmp   n17_match_defer_β
+                                                                                        jmp   n17_match_patref_β
 #-----------------------------------------------------------------------------------------------------------------------
 n22_call_α:
                         sub              rsp, 48
@@ -1771,7 +1771,7 @@ n125_var_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n126_match_sequence_α:
                         mov              dword ptr [rbp + 576], r14d
-                                                                                        jmp   n130_match_defer_α
+                                                                                        jmp   n130_match_patref_α
 n126_match_sequence_as:
                                                                                         jmp   n129_match_release_α
 n126_match_sequence_β:
@@ -1862,7 +1862,7 @@ n129_match_release_α:
                         mov              rbp, qword ptr [rbp + 536]
                                                                                         jmp   n135_var_α
 #-----------------------------------------------------------------------------------------------------------------------
-n130_match_defer_α:
+n130_match_patref_α:
                         mov              rax, qword ptr [1879052320]
                         mov              rdx, qword ptr [1879052328]
                         cmp              eax, 3
@@ -1930,7 +1930,7 @@ n130_match_defer_α:
 .Lx215_6:
                         add              rsp, 16
                                                                                         jmp   n122_match_head_β
-n130_match_defer_β:
+n130_match_patref_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 n131_match_assign_save_α:
@@ -1939,7 +1939,7 @@ n131_match_assign_save_α:
                                                                                         jmp   n136_match_break_α
 n131_match_assign_save_β:
                         add              rsp, 16
-                                                                                        jmp   n130_match_defer_β
+                                                                                        jmp   n130_match_patref_β
 #-----------------------------------------------------------------------------------------------------------------------
 n132_match_assign_cond_α:
                         mov              eax, dword ptr [rsp + 16]
@@ -2036,7 +2036,7 @@ n136_match_break_α:
                                                                                         jl    .Lx224_237
                         add              rsp, 16
                         add              rsp, 16
-                                                                                        jmp   n130_match_defer_β
+                                                                                        jmp   n130_match_patref_β
 .Lx224_237:
                         movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 44
@@ -2046,7 +2046,7 @@ n136_match_break_α:
                                                                                         jl    .Lx224_238
                         add              rsp, 16
                         add              rsp, 16
-                                                                                        jmp   n130_match_defer_β
+                                                                                        jmp   n130_match_patref_β
 .Lx224_238:
                         movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 44
@@ -2056,7 +2056,7 @@ n136_match_break_α:
                                                                                         jl    .Lx224_239
                         add              rsp, 16
                         add              rsp, 16
-                                                                                        jmp   n130_match_defer_β
+                                                                                        jmp   n130_match_patref_β
 .Lx224_239:
                         movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 44
@@ -2066,7 +2066,7 @@ n136_match_break_α:
                                                                                         jl    .Lx224_240
                         add              rsp, 16
                         add              rsp, 16
-                                                                                        jmp   n130_match_defer_β
+                                                                                        jmp   n130_match_patref_β
 .Lx224_240:
                         movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 44
@@ -2081,7 +2081,7 @@ n136_match_break_β:
                         mov              r14d, dword ptr [rsp + 0]
                         add              rsp, 16
                         add              rsp, 16
-                                                                                        jmp   n130_match_defer_β
+                                                                                        jmp   n130_match_patref_β
 #-----------------------------------------------------------------------------------------------------------------------
 n137_binop_α:
                         mov              rdi, qword ptr [rbp + 1024]

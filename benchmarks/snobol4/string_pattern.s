@@ -380,7 +380,7 @@ n25_match_head_α:
                         mov              dword ptr [rbp + 512], 0
 .Lx80_0:
                         mov              r14d, dword ptr [rbp + 512]
-                                                                                        jmp   n30_match_defer_α
+                                                                                        jmp   n30_match_patref_α
 n25_match_head_β:
                         add              dword ptr [rbp + 512], 1
                         mov              eax, dword ptr [rbp + 512]
@@ -470,7 +470,7 @@ n29_op75_α:
                         call             rt_coerce_num2_d@PLT
                                                                                         jmp   n33_op75_α
 #-----------------------------------------------------------------------------------------------------------------------
-n30_match_defer_α:
+n30_match_patref_α:
                         lea              rsi, [rip + g_sno_defer_cells+0]
                         mov              rax, qword ptr [rsi + 0]
                         test             rax, rax
@@ -548,7 +548,7 @@ n30_match_defer_α:
 .Lx86_6:
                         add              rsp, 16
                                                                                         jmp   n25_match_head_β
-n30_match_defer_β:
+n30_match_patref_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 n31_var_α:

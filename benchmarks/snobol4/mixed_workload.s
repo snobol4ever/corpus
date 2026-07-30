@@ -917,7 +917,7 @@ n81_match_head_α:
                         mov              dword ptr [rbp + 688], 0
 .Lx191_0:
                         mov              r14d, dword ptr [rbp + 688]
-                                                                                        jmp   n93_match_defer_α
+                                                                                        jmp   n93_match_patref_α
 n81_match_head_β:
                         add              dword ptr [rbp + 688], 1
                         mov              eax, dword ptr [rbp + 688]
@@ -1160,7 +1160,7 @@ n92_lit_string_α:
 .Lx206_0_s:
                         .string          "10,20,30,40,50,60,70,80,90,100,"
 #-----------------------------------------------------------------------------------------------------------------------
-n93_match_defer_α:
+n93_match_patref_α:
                         lea              rsi, [rip + g_sno_defer_cells+0]
                         mov              rax, qword ptr [rsi + 0]
                         test             rax, rax
@@ -1238,7 +1238,7 @@ n93_match_defer_α:
 .Lx207_6:
                         add              rsp, 16
                                                                                         jmp   n81_match_head_β
-n93_match_defer_β:
+n93_match_patref_β:
                                                                                         jmp   qword ptr [rsp]
 #=======================================================================================================================
 #     I = 0
