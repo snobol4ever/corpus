@@ -9541,12 +9541,14 @@ n782_assign_β:
 #         EMIT = .dm                              :(NRETURN)
 #-----------------------------------------------------------------------------------------------------------------------
 n783_lit_string_α:
-                        mov              qword ptr [rsp + 288], 1
-                        mov              dword ptr [rsp + 292], 2
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 1
+                        mov              dword ptr [rsp + 4], 2
                         mov              rax, qword ptr [rip + .Lx1107_0]
-                        mov              qword ptr [rsp + 296], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n784_call_α
 n783_lit_string_β:
+                        add              rsp, 16
                                                                                         jmp   n786_lit_string_α
 .Lx1107_0:
                         .quad            .Lx1107_0_s
@@ -9554,29 +9556,36 @@ n783_lit_string_β:
                         .string          "dm"
 #-----------------------------------------------------------------------------------------------------------------------
 n784_call_α:
-                        mov              rax, qword ptr [rsp + 288]
-                        mov              qword ptr [rsp + 256], rax
-                        mov              rax, qword ptr [rsp + 296]
-                        mov              qword ptr [rsp + 264], rax
+                        sub              rsp, 16
+                        sub              rsp, 16
+                        mov              r10, qword ptr [rsp + 32]
+                        mov              r11, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 0], r10
+                        mov              qword ptr [rsp + 8], r11
                         .section         .rodata
-.Lrkfn1109:             .string          "SNO$NAME"
+.Lrkfnzd1109:           .string          "SNO$NAME"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfn1109]
-                        lea              rsi, [rsp + 256]
+                        lea              rdi, [rip + .Lrkfnzd1109]
+                        lea              rsi, [rsp + 0]
                         mov              edx, 1
                         call             rt_call_arr@PLT
-                        mov              qword ptr [rsp + 240], rax
-                        mov              qword ptr [rsp + 248], rdx
+                        add              rsp, 16
                         cmp              eax, 99
-                                                                                        je    n786_lit_string_α
+                                                                                        jne   .Lx1108_240
+                        add              rsp, 16
+                                                                                        jmp   n786_lit_string_α
+.Lx1108_240:
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n785_assign_α
 n784_call_β:
+                        add              rsp, 16
                                                                                         jmp   n786_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n785_assign_α:
-                        mov              rax, qword ptr [rsp + 240]
-                        mov              rdx, qword ptr [rsp + 248]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052288], rax
                         mov              qword ptr [1879052296], rdx
                                                                                         jmp   n786_lit_string_α
@@ -9584,12 +9593,15 @@ n785_assign_β:
                                                                                         jmp   n786_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n786_lit_string_α:
-                        mov              qword ptr [rsp + 32], 1
-                        mov              dword ptr [rsp + 36], 0
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 1
+                        mov              dword ptr [rsp + 4], 0
                         mov              rax, qword ptr [rip + .Lx1111_0]
-                        mov              qword ptr [rsp + 40], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n787_call_α
 n786_lit_string_β:
+                        add              rsp, 16
+                        add              rsp, 32
                                                                                         jmp   n789_save_restore_α
 .Lx1111_0:
                         .quad            .Lx1111_0_s
@@ -9597,24 +9609,33 @@ n786_lit_string_β:
                         .string          ""
 #-----------------------------------------------------------------------------------------------------------------------
 n787_call_α:
-                        mov              rax, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 64], rax
-                        mov              rax, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 72], rax
+                        sub              rsp, 16
+                        sub              rsp, 16
+                        mov              r10, qword ptr [rsp + 32]
+                        mov              r11, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 0], r10
+                        mov              qword ptr [rsp + 8], r11
                         .section         .rodata
-.Lrkfn1113:             .string          "SNO$NRET"
+.Lrkfnzd1113:           .string          "SNO$NRET"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfn1113]
-                        lea              rsi, [rsp + 64]
+                        lea              rdi, [rip + .Lrkfnzd1113]
+                        lea              rsi, [rsp + 0]
                         mov              edx, 1
                         call             rt_call_arr@PLT
-                        mov              qword ptr [rsp + 48], rax
-                        mov              qword ptr [rsp + 56], rdx
+                        add              rsp, 16
                         cmp              eax, 99
-                                                                                        je    n789_save_restore_α
+                                                                                        jne   .Lx1112_240
+                        add              rsp, 16
+                        add              rsp, 48
+                                                                                        jmp   n789_save_restore_α
+.Lx1112_240:
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n788_save_restore_α
 n787_call_β:
+                        add              rsp, 16
+                        add              rsp, 48
                                                                                         jmp   n789_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n788_save_restore_α:

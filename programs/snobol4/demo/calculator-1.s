@@ -9354,12 +9354,14 @@ n755_assign_β:
 #         EMIT = .dm                              :(NRETURN)
 #-----------------------------------------------------------------------------------------------------------------------
 n756_lit_string_α:
-                        mov              qword ptr [rsp + 288], 1
-                        mov              dword ptr [rsp + 292], 2
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 1
+                        mov              dword ptr [rsp + 4], 2
                         mov              rax, qword ptr [rip + .Lx1065_0]
-                        mov              qword ptr [rsp + 296], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n757_call_α
 n756_lit_string_β:
+                        add              rsp, 16
                                                                                         jmp   n759_lit_string_α
 .Lx1065_0:
                         .quad            .Lx1065_0_s
@@ -9367,29 +9369,36 @@ n756_lit_string_β:
                         .string          "dm"
 #-----------------------------------------------------------------------------------------------------------------------
 n757_call_α:
-                        mov              rax, qword ptr [rsp + 288]
-                        mov              qword ptr [rsp + 256], rax
-                        mov              rax, qword ptr [rsp + 296]
-                        mov              qword ptr [rsp + 264], rax
+                        sub              rsp, 16
+                        sub              rsp, 16
+                        mov              r10, qword ptr [rsp + 32]
+                        mov              r11, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 0], r10
+                        mov              qword ptr [rsp + 8], r11
                         .section         .rodata
-.Lrkfn1067:             .string          "SNO$NAME"
+.Lrkfnzd1067:           .string          "SNO$NAME"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfn1067]
-                        lea              rsi, [rsp + 256]
+                        lea              rdi, [rip + .Lrkfnzd1067]
+                        lea              rsi, [rsp + 0]
                         mov              edx, 1
                         call             rt_call_arr@PLT
-                        mov              qword ptr [rsp + 240], rax
-                        mov              qword ptr [rsp + 248], rdx
+                        add              rsp, 16
                         cmp              eax, 99
-                                                                                        je    n759_lit_string_α
+                                                                                        jne   .Lx1066_240
+                        add              rsp, 16
+                                                                                        jmp   n759_lit_string_α
+.Lx1066_240:
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n758_assign_α
 n757_call_β:
+                        add              rsp, 16
                                                                                         jmp   n759_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n758_assign_α:
-                        mov              rax, qword ptr [rsp + 240]
-                        mov              rdx, qword ptr [rsp + 248]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052288], rax
                         mov              qword ptr [1879052296], rdx
                                                                                         jmp   n759_lit_string_α
@@ -9397,12 +9406,15 @@ n758_assign_β:
                                                                                         jmp   n759_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n759_lit_string_α:
-                        mov              qword ptr [rsp + 32], 1
-                        mov              dword ptr [rsp + 36], 0
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 1
+                        mov              dword ptr [rsp + 4], 0
                         mov              rax, qword ptr [rip + .Lx1069_0]
-                        mov              qword ptr [rsp + 40], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n760_call_α
 n759_lit_string_β:
+                        add              rsp, 16
+                        add              rsp, 32
                                                                                         jmp   n762_save_restore_α
 .Lx1069_0:
                         .quad            .Lx1069_0_s
@@ -9410,24 +9422,33 @@ n759_lit_string_β:
                         .string          ""
 #-----------------------------------------------------------------------------------------------------------------------
 n760_call_α:
-                        mov              rax, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 64], rax
-                        mov              rax, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 72], rax
+                        sub              rsp, 16
+                        sub              rsp, 16
+                        mov              r10, qword ptr [rsp + 32]
+                        mov              r11, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 0], r10
+                        mov              qword ptr [rsp + 8], r11
                         .section         .rodata
-.Lrkfn1071:             .string          "SNO$NRET"
+.Lrkfnzd1071:           .string          "SNO$NRET"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfn1071]
-                        lea              rsi, [rsp + 64]
+                        lea              rdi, [rip + .Lrkfnzd1071]
+                        lea              rsi, [rsp + 0]
                         mov              edx, 1
                         call             rt_call_arr@PLT
-                        mov              qword ptr [rsp + 48], rax
-                        mov              qword ptr [rsp + 56], rdx
+                        add              rsp, 16
                         cmp              eax, 99
-                                                                                        je    n762_save_restore_α
+                                                                                        jne   .Lx1070_240
+                        add              rsp, 16
+                        add              rsp, 48
+                                                                                        jmp   n762_save_restore_α
+.Lx1070_240:
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n761_save_restore_α
 n760_call_β:
+                        add              rsp, 16
+                        add              rsp, 48
                                                                                         jmp   n762_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n761_save_restore_α:
