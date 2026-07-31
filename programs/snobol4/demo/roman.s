@@ -3084,7 +3084,7 @@ n187_binop_α:
                         cmp              eax, 99
                                                                                         jne   .Lx272_240
                         add              rsp, 16
-                        add              rsp, 64
+                        add              rsp, 32
                                                                                         jmp   n173_var_α
 .Lx272_240:
                         mov              qword ptr [rsp + 0], rax
@@ -3092,7 +3092,7 @@ n187_binop_α:
                                                                                         jmp   n188_assign_α
 n187_binop_β:
                         add              rsp, 16
-                        add              rsp, 64
+                        add              rsp, 32
                                                                                         jmp   n173_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n188_assign_α:
