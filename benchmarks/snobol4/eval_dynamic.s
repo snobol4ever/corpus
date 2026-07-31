@@ -507,7 +507,7 @@ n36_binop_α:
                         cmp              eax, 99
                                                                                         jne   .Lx85_240
                         add              rsp, 16
-                        add              rsp, 96
+                        add              rsp, 48
                                                                                         jmp   main_γ
 .Lx85_240:
                         mov              qword ptr [rsp + 0], rax

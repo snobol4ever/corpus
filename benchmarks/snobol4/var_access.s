@@ -312,7 +312,7 @@ n22_binop_α:
                         cmp              eax, 99
                                                                                         jne   .Lx88_240
                         add              rsp, 16
-                        add              rsp, 64
+                        add              rsp, 32
                                                                                         jmp   n24_var_α
 .Lx88_240:
                         mov              qword ptr [rsp + 0], rax
@@ -356,7 +356,7 @@ n26_binop_α:
                         cmp              eax, 99
                                                                                         jne   .Lx92_240
                         add              rsp, 16
-                        add              rsp, 64
+                        add              rsp, 32
                                                                                         jmp   n28_var_α
 .Lx92_240:
                         mov              qword ptr [rsp + 0], rax
@@ -399,7 +399,7 @@ n30_binop_α:
                         cmp              eax, 99
                                                                                         jne   .Lx96_240
                         add              rsp, 16
-                        add              rsp, 64
+                        add              rsp, 32
                                                                                         jmp   n32_var_α
 .Lx96_240:
                         mov              qword ptr [rsp + 0], rax
@@ -442,7 +442,7 @@ n34_binop_α:
                         cmp              eax, 99
                                                                                         jne   .Lx100_240
                         add              rsp, 16
-                        add              rsp, 64
+                        add              rsp, 32
                                                                                         jmp   n36_var_α
 .Lx100_240:
                         mov              qword ptr [rsp + 0], rax
@@ -485,7 +485,7 @@ n38_binop_α:
                         cmp              eax, 99
                                                                                         jne   .Lx104_240
                         add              rsp, 16
-                        add              rsp, 64
+                        add              rsp, 32
                                                                                         jmp   n40_var_α
 .Lx104_240:
                         mov              qword ptr [rsp + 0], rax
@@ -746,7 +746,7 @@ n59_binop_α:
                         cmp              eax, 99
                                                                                         jne   .Lx129_240
                         add              rsp, 16
-                        add              rsp, 96
+                        add              rsp, 48
                                                                                         jmp   main_γ
 .Lx129_240:
                         mov              qword ptr [rsp + 0], rax

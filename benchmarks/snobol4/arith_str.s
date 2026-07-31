@@ -276,7 +276,7 @@ n18_binop_α:
                         cmp              eax, 99
                                                                                         jne   .Lx70_240
                         add              rsp, 16
-                        add              rsp, 64
+                        add              rsp, 32
                                                                                         jmp   n20_var_α
 .Lx70_240:
                         mov              qword ptr [rsp + 0], rax
@@ -319,7 +319,7 @@ n22_binop_α:
                         cmp              eax, 99
                                                                                         jne   .Lx74_240
                         add              rsp, 16
-                        add              rsp, 64
+                        add              rsp, 32
                                                                                         jmp   n24_var_α
 .Lx74_240:
                         mov              qword ptr [rsp + 0], rax
@@ -362,7 +362,7 @@ n26_binop_α:
                         cmp              eax, 99
                                                                                         jne   .Lx78_240
                         add              rsp, 16
-                        add              rsp, 64
+                        add              rsp, 32
                                                                                         jmp   n28_var_α
 .Lx78_240:
                         mov              qword ptr [rsp + 0], rax
@@ -597,7 +597,7 @@ n45_binop_α:
                         cmp              eax, 99
                                                                                         jne   .Lx101_240
                         add              rsp, 16
-                        add              rsp, 96
+                        add              rsp, 48
                                                                                         jmp   main_γ
 .Lx101_240:
                         mov              qword ptr [rsp + 0], rax
