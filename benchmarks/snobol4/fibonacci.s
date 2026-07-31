@@ -7,9 +7,9 @@ proc_LBL__FIB_α:
                         .global          proc_LBL__FIB_β
                         .global          proc_LBL__FIB_γ
                         .global          proc_LBL__FIB_ω
-                        sub              rsp, 832
-                        mov              [rsp + 808], rcx
-                        mov              [rsp + 816], rdx
+                        sub              rsp, 48
+                        mov              [rsp + 24], rcx
+                        mov              [rsp + 32], rdx
                         mov              qword ptr [rsp], 0
                         mov              qword ptr [rsp + 8], 0
 proc_LBL__FIB_α_body:
@@ -437,13 +437,13 @@ proc_LBL__FIB_β:
 proc_LBL__FIB_γ:
                         mov              rdi, [rsp]
                         mov              rsi, [rsp + 8]
-                        mov              rax, [rsp + 808]
-                        add              rsp, 832
+                        mov              rax, [rsp + 24]
+                        add              rsp, 48
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__FIB_ω:
-                        mov              rax, [rsp + 816]
-                        add              rsp, 832
+                        mov              rax, [rsp + 32]
+                        add              rsp, 48
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_FIB_α
@@ -452,19 +452,19 @@ proc_FIB_α:
                         .global          proc_FIB_β
                         .global          proc_FIB_γ
                         .global          proc_FIB_ω
-                        sub              rsp, 832
-                        mov              [rsp + 808], rcx
-                        mov              [rsp + 816], rdx
+                        sub              rsp, 48
+                        mov              [rsp + 24], rcx
+                        mov              [rsp + 32], rdx
                         mov              rdi, rsp
-                        mov              ecx, 800
+                        mov              ecx, 16
                         xor              eax, eax
                         rep stosb
 proc_FIB_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n46_op14_α:
-                        mov              rdi, qword ptr [rsp + 808]
-                        mov              rsi, qword ptr [rsp + 816]
-                        lea              rdx, [rsp + 832]
+                        mov              rdi, qword ptr [rsp + 24]
+                        mov              rsi, qword ptr [rsp + 32]
+                        lea              rdx, [rsp + 48]
                         mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n47_goto_deferred_α
@@ -490,13 +490,13 @@ proc_FIB_β:
 proc_FIB_γ:
                         mov              rdi, [rsp]
                         mov              rsi, [rsp + 8]
-                        mov              rax, [rsp + 808]
-                        add              rsp, 832
+                        mov              rax, [rsp + 24]
+                        add              rsp, 48
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_FIB_ω:
-                        mov              rax, [rsp + 816]
-                        add              rsp, 832
+                        mov              rax, [rsp + 32]
+                        add              rsp, 48
                                                                                         jmp   rax
 proc_startup:
                         sub              rsp, 8
