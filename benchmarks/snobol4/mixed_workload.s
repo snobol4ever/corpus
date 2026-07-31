@@ -34,7 +34,7 @@ n2_lit_integer_α:
                         mov              qword ptr [rbp + 288], 6
                         mov              rax, qword ptr [rip + .Lx19_0]
                         mov              qword ptr [rbp + 296], rax
-                                                                                        jmp   n4_op75_α
+                                                                                        jmp   n4_coerce_numeric_α
 .Lx19_0:
                         .quad            0
 #=======================================================================================================================
@@ -47,7 +47,7 @@ n3_var_α:
                         mov              qword ptr [rbp + 360], rdx
                                                                                         jmp   n5_var_α
 #-----------------------------------------------------------------------------------------------------------------------
-n4_op75_α:
+n4_coerce_numeric_α:
                         mov              eax, dword ptr [rbp + 304]
                         cmp              eax, 7
                                                                                         je    .Lx22_1
@@ -61,14 +61,14 @@ n4_op75_α:
                         mov              qword ptr [rbp + 272], rax
                         mov              rax, qword ptr [rbp + 312]
                         mov              qword ptr [rbp + 280], rax
-                                                                                        jmp   n7_op75_α
+                                                                                        jmp   n7_coerce_numeric_α
 .Lx22_0:
                         lea              rdi, [rbp + 304]
                         lea              rsi, [rbp + 288]
                         lea              rdx, [rbp + 272]
                         mov              rcx, 101
                         call             rt_coerce_num2_d@PLT
-                                                                                        jmp   n7_op75_α
+                                                                                        jmp   n7_coerce_numeric_α
 #-----------------------------------------------------------------------------------------------------------------------
 n5_var_α:
                         mov              rax, qword ptr [1879052304]
@@ -77,14 +77,14 @@ n5_var_α:
                         mov              qword ptr [rbp + 440], rdx
                                                                                         jmp   n8_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n6_op14_α:
+n6_save_restore_α:
                         call             rt_flat_ret_snap@PLT
                         mov              rcx, qword ptr [rax + 0]
                         mov              rbp, qword ptr [rax + 24]
                         mov              rsp, qword ptr [rax + 16]
                                                                                         jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
-n7_op75_α:
+n7_coerce_numeric_α:
                         mov              eax, dword ptr [rbp + 288]
                         cmp              eax, 7
                                                                                         je    .Lx27_1
@@ -98,14 +98,14 @@ n7_op75_α:
                         mov              qword ptr [rbp + 256], rax
                         mov              rax, qword ptr [rbp + 296]
                         mov              qword ptr [rbp + 264], rax
-                                                                                        jmp   n9_op77_α
+                                                                                        jmp   n9_cmp_test_α
 .Lx27_0:
                         lea              rdi, [rbp + 288]
                         lea              rsi, [rbp + 304]
                         lea              rdx, [rbp + 256]
                         mov              rcx, 102
                         call             rt_coerce_num2_d@PLT
-                                                                                        jmp   n9_op77_α
+                                                                                        jmp   n9_cmp_test_α
 #-----------------------------------------------------------------------------------------------------------------------
 n8_lit_integer_α:
                         mov              qword ptr [rbp + 448], 6
@@ -115,7 +115,7 @@ n8_lit_integer_α:
 .Lx28_0:
                         .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
-n9_op77_α:
+n9_cmp_test_α:
                         lea              rdi, [rbp + 272]
                         lea              rsi, [rbp + 256]
                         call             rt_cmp_d@PLT
@@ -142,7 +142,7 @@ n10_binop_α:
                         mov              rcx, qword ptr [rbp + 456]
                         call             rt_sub@PLT
                         cmp              eax, 99
-                                                                                        je    n6_op14_α
+                                                                                        je    n6_save_restore_α
                         mov              qword ptr [rbp + 416], rax
                         mov              qword ptr [rbp + 424], rdx
                                                                                         jmp   n12_call_α
@@ -244,10 +244,10 @@ n12_call_α:
                         mov              qword ptr [rbp + 368], rax
                         mov              qword ptr [rbp + 376], rdx
                         cmp              eax, 99
-                                                                                        je    n6_op14_α
+                                                                                        je    n6_save_restore_α
                                                                                         jmp   n14_binop_α
 n12_call_β:
-                                                                                        jmp   n6_op14_α
+                                                                                        jmp   n6_save_restore_α
 .Lx34_0:
                         .quad            .Lx34_0_s
 .Lx34_0_s:
@@ -283,7 +283,7 @@ n14_binop_α:
                         mov              rcx, qword ptr [rbp + 376]
                         call             rt_add@PLT
                         cmp              eax, 99
-                                                                                        je    n6_op14_α
+                                                                                        je    n6_save_restore_α
                         mov              qword ptr [rbp + 336], rax
                         mov              qword ptr [rbp + 344], rdx
                                                                                         jmp   n16_assign_α
@@ -293,14 +293,14 @@ n15_assign_α:
                         mov              rdx, qword ptr [rbp + 232]
                         mov              qword ptr [1879052288], rax
                         mov              qword ptr [1879052296], rdx
-                                                                                        jmp   n6_op14_α
+                                                                                        jmp   n6_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n16_assign_α:
                         mov              rax, qword ptr [rbp + 336]
                         mov              rdx, qword ptr [rbp + 344]
                         mov              qword ptr [1879052288], rax
                         mov              qword ptr [1879052296], rdx
-                                                                                        jmp   n6_op14_α
+                                                                                        jmp   n6_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__RSUM_res:
                         add              rsp, 8
@@ -338,7 +338,7 @@ proc_RSUM_α:
                         rep stosb
 proc_RSUM_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n39_op14_α:
+n39_save_restore_α:
                         mov              rdi, qword ptr [rsp + 24]
                         mov              rsi, qword ptr [rsp + 32]
                         lea              rdx, [rsp + 48]
@@ -789,10 +789,11 @@ n73_lit_integer_α:
 # ADD     I = LT(I, IDX) I + 1          :F(CHECK)
 #-----------------------------------------------------------------------------------------------------------------------
 n74_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052448]
                         mov              rdx, qword ptr [1879052456]
-                        mov              qword ptr [rbp + 1120], rax
-                        mov              qword ptr [rbp + 1128], rdx
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n83_var_α
 #=======================================================================================================================
 # CHECK   CHECK = RSUM(10)
@@ -834,7 +835,7 @@ n77_lit_integer_α:
                         mov              qword ptr [rbp + 288], 6
                         mov              rax, qword ptr [rip + .Lx184_0]
                         mov              qword ptr [rbp + 296], rax
-                                                                                        jmp   n86_op75_α
+                                                                                        jmp   n86_coerce_numeric_α
 .Lx184_0:
                         .quad            0
 #=======================================================================================================================
@@ -955,11 +956,12 @@ n82_assign_α:
                                                                                         jmp   n94_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
 n83_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052416]
                         mov              rdx, qword ptr [1879052424]
-                        mov              qword ptr [rbp + 1104], rax
-                        mov              qword ptr [rbp + 1112], rdx
-                                                                                        jmp   n95_op75_α
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n95_coerce_numeric_α
 #-----------------------------------------------------------------------------------------------------------------------
 n84_call_α:
                         sub              rsp, 32
@@ -1072,7 +1074,7 @@ n85_lit_string_α:
 .Lx196_0_s:
                         .string          "STLIMIT"
 #-----------------------------------------------------------------------------------------------------------------------
-n86_op75_α:
+n86_coerce_numeric_α:
                         mov              eax, dword ptr [rbp + 304]
                         cmp              eax, 7
                                                                                         je    .Lx198_1
@@ -1086,14 +1088,14 @@ n86_op75_α:
                         mov              qword ptr [rbp + 272], rax
                         mov              rax, qword ptr [rbp + 312]
                         mov              qword ptr [rbp + 280], rax
-                                                                                        jmp   n99_op75_α
+                                                                                        jmp   n99_coerce_numeric_α
 .Lx198_0:
                         lea              rdi, [rbp + 304]
                         lea              rsi, [rbp + 288]
                         lea              rdx, [rbp + 272]
                         mov              rcx, 101
                         call             rt_coerce_num2_d@PLT
-                                                                                        jmp   n99_op75_α
+                                                                                        jmp   n99_coerce_numeric_α
 #-----------------------------------------------------------------------------------------------------------------------
 n87_var_α:
                         mov              rax, qword ptr [1879052304]
@@ -1102,7 +1104,7 @@ n87_var_α:
                         mov              qword ptr [rbp + 440], rdx
                                                                                         jmp   n100_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n88_op14_α:
+n88_save_restore_α:
                         call             rt_flat_ret_snap@PLT
                         mov              rcx, qword ptr [rax + 0]
                         mov              rbp, qword ptr [rax + 24]
@@ -1248,28 +1250,29 @@ n94_lit_integer_α:
 .Lx208_0:
                         .quad            0
 #-----------------------------------------------------------------------------------------------------------------------
-n95_op75_α:
-                        mov              eax, dword ptr [rbp + 1120]
+n95_coerce_numeric_α:
+                        sub              rsp, 16
+                        mov              eax, dword ptr [rsp + 32]
                         cmp              eax, 7
                                                                                         je    .Lx210_1
                         cmp              eax, 6
                                                                                         jne   .Lx210_0
-                        mov              eax, dword ptr [rbp + 1104]
+                        mov              eax, dword ptr [rsp + 16]
                         cmp              eax, 6
                                                                                         jne   .Lx210_0
 .Lx210_1:
-                        mov              rax, qword ptr [rbp + 1120]
-                        mov              qword ptr [rbp + 1088], rax
-                        mov              rax, qword ptr [rbp + 1128]
-                        mov              qword ptr [rbp + 1096], rax
-                                                                                        jmp   n106_op75_α
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n106_coerce_numeric_α
 .Lx210_0:
-                        lea              rdi, [rbp + 1120]
-                        lea              rsi, [rbp + 1104]
-                        lea              rdx, [rbp + 1088]
+                        lea              rdi, [rsp + 32]
+                        lea              rsi, [rsp + 16]
+                        lea              rdx, [rsp + 0]
                         mov              rcx, 147
                         call             rt_coerce_num2_d@PLT
-                                                                                        jmp   n106_op75_α
+                                                                                        jmp   n106_coerce_numeric_α
 #-----------------------------------------------------------------------------------------------------------------------
 n96_assign_α:
                         mov              rax, qword ptr [rbp + 1280]
@@ -1281,10 +1284,11 @@ n96_assign_α:
 #     OUTER = LT(OUTER, 50000) OUTER + 1  :S(OUTER)
 #-----------------------------------------------------------------------------------------------------------------------
 n97_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052368]
                         mov              rdx, qword ptr [1879052376]
-                        mov              qword ptr [rbp + 1424], rax
-                        mov              qword ptr [rbp + 1432], rdx
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n107_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
 n98_lit_integer_α:
@@ -1295,7 +1299,7 @@ n98_lit_integer_α:
 .Lx213_0:
                         .quad            1000000000
 #-----------------------------------------------------------------------------------------------------------------------
-n99_op75_α:
+n99_coerce_numeric_α:
                         mov              eax, dword ptr [rbp + 288]
                         cmp              eax, 7
                                                                                         je    .Lx215_1
@@ -1309,14 +1313,14 @@ n99_op75_α:
                         mov              qword ptr [rbp + 256], rax
                         mov              rax, qword ptr [rbp + 296]
                         mov              qword ptr [rbp + 264], rax
-                                                                                        jmp   n110_op77_α
+                                                                                        jmp   n110_cmp_test_α
 .Lx215_0:
                         lea              rdi, [rbp + 288]
                         lea              rsi, [rbp + 304]
                         lea              rdx, [rbp + 256]
                         mov              rcx, 102
                         call             rt_coerce_num2_d@PLT
-                                                                                        jmp   n110_op77_α
+                                                                                        jmp   n110_cmp_test_α
 #-----------------------------------------------------------------------------------------------------------------------
 n100_lit_integer_α:
                         mov              qword ptr [rbp + 448], 6
@@ -1421,34 +1425,36 @@ n105_assign_α:
                         add              rsp, 16
                                                                                         jmp   n74_var_α
 #-----------------------------------------------------------------------------------------------------------------------
-n106_op75_α:
-                        mov              eax, dword ptr [rbp + 1104]
+n106_coerce_numeric_α:
+                        sub              rsp, 16
+                        mov              eax, dword ptr [rsp + 32]
                         cmp              eax, 7
                                                                                         je    .Lx224_1
                         cmp              eax, 6
                                                                                         jne   .Lx224_0
-                        mov              eax, dword ptr [rbp + 1120]
+                        mov              eax, dword ptr [rsp + 48]
                         cmp              eax, 6
                                                                                         jne   .Lx224_0
 .Lx224_1:
-                        mov              rax, qword ptr [rbp + 1104]
-                        mov              qword ptr [rbp + 1072], rax
-                        mov              rax, qword ptr [rbp + 1112]
-                        mov              qword ptr [rbp + 1080], rax
-                                                                                        jmp   n115_op77_α
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n115_cmp_test_α
 .Lx224_0:
-                        lea              rdi, [rbp + 1104]
-                        lea              rsi, [rbp + 1120]
-                        lea              rdx, [rbp + 1072]
+                        lea              rdi, [rsp + 32]
+                        lea              rsi, [rsp + 48]
+                        lea              rdx, [rsp + 0]
                         mov              rcx, 148
                         call             rt_coerce_num2_d@PLT
-                                                                                        jmp   n115_op77_α
+                                                                                        jmp   n115_cmp_test_α
 #-----------------------------------------------------------------------------------------------------------------------
 n107_lit_integer_α:
-                        mov              qword ptr [rbp + 1408], 6
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 6
                         mov              rax, qword ptr [rip + .Lx225_0]
-                        mov              qword ptr [rbp + 1416], rax
-                                                                                        jmp   n116_op75_α
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n116_coerce_numeric_α
 .Lx225_0:
                         .quad            50000
 #=======================================================================================================================
@@ -1496,7 +1502,7 @@ n109_call_α:
 n109_call_β:
                                                                                         jmp   n70_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n110_op77_α:
+n110_cmp_test_α:
                         lea              rdi, [rbp + 272]
                         lea              rsi, [rbp + 256]
                         call             rt_cmp_d@PLT
@@ -1523,7 +1529,7 @@ n111_binop_α:
                         mov              rcx, qword ptr [rbp + 456]
                         call             rt_sub@PLT
                         cmp              eax, 99
-                                                                                        je    n88_op14_α
+                                                                                        je    n88_save_restore_α
                         mov              qword ptr [rbp + 416], rax
                         mov              qword ptr [rbp + 424], rdx
                                                                                         jmp   n120_call_α
@@ -1558,38 +1564,44 @@ n114_lit_string_α:
 .Lx235_0_s:
                         .string          ""
 #-----------------------------------------------------------------------------------------------------------------------
-n115_op77_α:
-                        lea              rdi, [rbp + 1088]
-                        lea              rsi, [rbp + 1072]
+n115_cmp_test_α:
+                        sub              rsp, 16
+                        lea              rdi, [rsp + 32]
+                        lea              rsi, [rsp + 16]
                         call             rt_cmp_d@PLT
                         test             eax, eax
-                                                                                        jns   n75_lit_integer_α
-                        mov              qword ptr [rbp + 1056], 0
-                        mov              qword ptr [rbp + 1064], 0
+                                                                                        js    .Lx237_240
+                        add              rsp, 16
+                        add              rsp, 64
+                                                                                        jmp   n75_lit_integer_α
+.Lx237_240:
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                                                                                         jmp   n123_var_α
 #-----------------------------------------------------------------------------------------------------------------------
-n116_op75_α:
-                        mov              eax, dword ptr [rbp + 1424]
+n116_coerce_numeric_α:
+                        sub              rsp, 16
+                        mov              eax, dword ptr [rsp + 32]
                         cmp              eax, 7
                                                                                         je    .Lx239_1
                         cmp              eax, 6
                                                                                         jne   .Lx239_0
-                        mov              eax, dword ptr [rbp + 1408]
+                        mov              eax, dword ptr [rsp + 16]
                         cmp              eax, 6
                                                                                         jne   .Lx239_0
 .Lx239_1:
-                        mov              rax, qword ptr [rbp + 1424]
-                        mov              qword ptr [rbp + 1392], rax
-                        mov              rax, qword ptr [rbp + 1432]
-                        mov              qword ptr [rbp + 1400], rax
-                                                                                        jmp   n124_op75_α
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n124_coerce_numeric_α
 .Lx239_0:
-                        lea              rdi, [rbp + 1424]
-                        lea              rsi, [rbp + 1408]
-                        lea              rdx, [rbp + 1392]
+                        lea              rdi, [rsp + 32]
+                        lea              rsi, [rsp + 16]
+                        lea              rdx, [rsp + 0]
                         mov              rcx, 147
                         call             rt_coerce_num2_d@PLT
-                                                                                        jmp   n124_op75_α
+                                                                                        jmp   n124_coerce_numeric_α
 #-----------------------------------------------------------------------------------------------------------------------
 n117_assign_α:
                         mov              rax, qword ptr [rbp + 1488]
@@ -1709,10 +1721,10 @@ n120_call_α:
                         mov              qword ptr [rbp + 368], rax
                         mov              qword ptr [rbp + 376], rdx
                         cmp              eax, 99
-                                                                                        je    n88_op14_α
+                                                                                        je    n88_save_restore_α
                                                                                         jmp   n127_binop_α
 n120_call_β:
-                                                                                        jmp   n88_op14_α
+                                                                                        jmp   n88_save_restore_α
 .Lx244_0:
                         .quad            .Lx244_0_s
 .Lx244_0_s:
@@ -1744,34 +1756,36 @@ n122_match_replace_α:
                                                                                         jmp   n128_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n123_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052448]
                         mov              rdx, qword ptr [1879052456]
-                        mov              qword ptr [rbp + 1152], rax
-                        mov              qword ptr [rbp + 1160], rdx
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n129_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n124_op75_α:
-                        mov              eax, dword ptr [rbp + 1408]
+n124_coerce_numeric_α:
+                        sub              rsp, 16
+                        mov              eax, dword ptr [rsp + 32]
                         cmp              eax, 7
                                                                                         je    .Lx250_1
                         cmp              eax, 6
                                                                                         jne   .Lx250_0
-                        mov              eax, dword ptr [rbp + 1424]
+                        mov              eax, dword ptr [rsp + 48]
                         cmp              eax, 6
                                                                                         jne   .Lx250_0
 .Lx250_1:
-                        mov              rax, qword ptr [rbp + 1408]
-                        mov              qword ptr [rbp + 1376], rax
-                        mov              rax, qword ptr [rbp + 1416]
-                        mov              qword ptr [rbp + 1384], rax
-                                                                                        jmp   n130_op77_α
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n130_cmp_test_α
 .Lx250_0:
-                        lea              rdi, [rbp + 1408]
-                        lea              rsi, [rbp + 1424]
-                        lea              rdx, [rbp + 1376]
+                        lea              rdi, [rsp + 32]
+                        lea              rsi, [rsp + 48]
+                        lea              rdx, [rsp + 0]
                         mov              rcx, 148
                         call             rt_coerce_num2_d@PLT
-                                                                                        jmp   n130_op77_α
+                                                                                        jmp   n130_cmp_test_α
 #-----------------------------------------------------------------------------------------------------------------------
 n125_var_α:
                         sub              rsp, 16
@@ -1811,7 +1825,7 @@ n127_binop_α:
                         mov              rcx, qword ptr [rbp + 376]
                         call             rt_add@PLT
                         cmp              eax, 99
-                                                                                        je    n88_op14_α
+                                                                                        je    n88_save_restore_α
                         mov              qword ptr [rbp + 336], rax
                         mov              qword ptr [rbp + 344], rdx
                                                                                         jmp   n134_assign_α
@@ -1827,30 +1841,36 @@ n128_var_α:
                                                                                         jmp   n135_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
 n129_lit_integer_α:
-                        mov              qword ptr [rbp + 1168], 6
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 6
                         mov              rax, qword ptr [rip + .Lx255_0]
-                        mov              qword ptr [rbp + 1176], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n137_binop_α
 .Lx255_0:
                         .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
-n130_op77_α:
-                        lea              rdi, [rbp + 1392]
-                        lea              rsi, [rbp + 1376]
+n130_cmp_test_α:
+                        sub              rsp, 16
+                        lea              rdi, [rsp + 32]
+                        lea              rsi, [rsp + 16]
                         call             rt_cmp_d@PLT
                         test             eax, eax
-                                                                                        jns   n108_call_α
-                        mov              qword ptr [rbp + 1360], 0
-                        mov              qword ptr [rbp + 1368], 0
+                                                                                        js    .Lx257_240
+                        add              rsp, 16
+                        add              rsp, 64
+                                                                                        jmp   n108_call_α
+.Lx257_240:
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
                                                                                         jmp   n138_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n131_binop_α:
-                        mov              rdi, qword ptr [rsp + 16]
-                        mov              rsi, qword ptr [rsp + 24]
-                        mov              rdx, qword ptr [rsp + 0]
-                        mov              rcx, qword ptr [rsp + 8]
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 32]
+                        mov              rsi, qword ptr [rsp + 40]
+                        mov              rdx, qword ptr [rsp + 16]
+                        mov              rcx, qword ptr [rsp + 24]
                         call             str_concat_d@PLT
-                        add              rsp, 16
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n139_assign_α
@@ -1874,14 +1894,14 @@ n133_assign_α:
                         mov              rdx, qword ptr [rbp + 232]
                         mov              qword ptr [1879052288], rax
                         mov              qword ptr [1879052296], rdx
-                                                                                        jmp   n88_op14_α
+                                                                                        jmp   n88_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n134_assign_α:
                         mov              rax, qword ptr [rbp + 336]
                         mov              rdx, qword ptr [rbp + 344]
                         mov              qword ptr [1879052288], rax
                         mov              qword ptr [1879052296], rdx
-                                                                                        jmp   n88_op14_α
+                                                                                        jmp   n88_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n135_lit_integer_α:
                         sub              rsp, 16
@@ -1902,40 +1922,36 @@ n136_var_α:
                                                                                         jmp   n142_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n137_binop_α:
-                        mov              eax, dword ptr [rbp + 1152]
-                        cmp              eax, 6
-                                                                                        jne   .Lx264_0
-                        mov              rax, qword ptr [rbp + 1160]
-                        mov              rcx, 1
-                        add              rax, rcx
-                        mov              qword ptr [rbp + 1136], 6
-                        mov              qword ptr [rbp + 1144], rax
-                                                                                        jmp   n143_binop_α
-.Lx264_0:
-                        mov              rdi, qword ptr [rbp + 1152]
-                        mov              rsi, qword ptr [rbp + 1160]
-                        mov              rdx, qword ptr [rbp + 1168]
-                        mov              rcx, qword ptr [rbp + 1176]
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 32]
+                        mov              rsi, qword ptr [rsp + 40]
+                        mov              rdx, qword ptr [rsp + 16]
+                        mov              rcx, qword ptr [rsp + 24]
                         call             rt_add@PLT
                         cmp              eax, 99
-                                                                                        je    n75_lit_integer_α
-                        mov              qword ptr [rbp + 1136], rax
-                        mov              qword ptr [rbp + 1144], rdx
+                                                                                        jne   .Lx264_240
+                        add              rsp, 16
+                        add              rsp, 112
+                                                                                        jmp   n75_lit_integer_α
+.Lx264_240:
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n143_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n138_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052368]
                         mov              rdx, qword ptr [1879052376]
-                        mov              qword ptr [rbp + 1456], rax
-                        mov              qword ptr [rbp + 1464], rdx
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n144_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
 n139_assign_α:
                         mov              rsi, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
-                        add              rsp, 16
                         mov              rdi, qword ptr [rip + .Lx266_0]
                         call             NV_SET_fn@PLT
+                        add              rsp, 48
                                                                                         jmp   n132_lit_string_α
 .Lx266_0:
                         .quad            .Lx266_0_s
@@ -1975,19 +1991,21 @@ n142_var_α:
                                                                                         jmp   n147_subscript_α
 #-----------------------------------------------------------------------------------------------------------------------
 n143_binop_α:
-                        mov              rdi, qword ptr [rbp + 1056]
-                        mov              rsi, qword ptr [rbp + 1064]
-                        mov              rdx, qword ptr [rbp + 1136]
-                        mov              rcx, qword ptr [rbp + 1144]
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 64]
+                        mov              rsi, qword ptr [rsp + 72]
+                        mov              rdx, qword ptr [rsp + 16]
+                        mov              rcx, qword ptr [rsp + 24]
                         call             str_concat_d@PLT
-                        mov              qword ptr [rbp + 1040], rax
-                        mov              qword ptr [rbp + 1048], rdx
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n148_assign_α
 #-----------------------------------------------------------------------------------------------------------------------
 n144_lit_integer_α:
-                        mov              qword ptr [rbp + 1472], 6
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 6
                         mov              rax, qword ptr [rip + .Lx271_0]
-                        mov              qword ptr [rbp + 1480], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n149_binop_α
 .Lx271_0:
                         .quad            1
@@ -2026,60 +2044,43 @@ n147_subscript_α:
                                                                                         jmp   n151_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n148_assign_α:
-                        mov              rax, qword ptr [rbp + 1040]
-                        mov              rdx, qword ptr [rbp + 1048]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052448], rax
                         mov              qword ptr [1879052456], rdx
+                        add              rsp, 144
                                                                                         jmp   n152_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n149_binop_α:
-                        mov              eax, dword ptr [rbp + 1456]
-                        cmp              eax, 6
-                                                                                        jne   .Lx276_0
-                        mov              rax, qword ptr [rbp + 1464]
-                        mov              rcx, 1
-                        add              rax, rcx
-                        mov              qword ptr [rbp + 1440], 6
-                        mov              qword ptr [rbp + 1448], rax
-                                                                                        jmp   n153_binop_α
-.Lx276_0:
-                        mov              rdi, qword ptr [rbp + 1456]
-                        mov              rsi, qword ptr [rbp + 1464]
-                        mov              rdx, qword ptr [rbp + 1472]
-                        mov              rcx, qword ptr [rbp + 1480]
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 32]
+                        mov              rsi, qword ptr [rsp + 40]
+                        mov              rdx, qword ptr [rsp + 16]
+                        mov              rcx, qword ptr [rsp + 24]
                         call             rt_add@PLT
                         cmp              eax, 99
-                                                                                        je    n108_call_α
-                        mov              qword ptr [rbp + 1440], rax
-                        mov              qword ptr [rbp + 1448], rdx
+                                                                                        jne   .Lx276_240
+                        add              rsp, 16
+                        add              rsp, 112
+                                                                                        jmp   n108_call_α
+.Lx276_240:
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n153_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n150_binop_α:
-                        mov              eax, dword ptr [rsp + 16]
-                        cmp              eax, 6
-                                                                                        jne   .Lx277_0
-                        mov              eax, dword ptr [rsp + 0]
-                        cmp              eax, 6
-                                                                                        jne   .Lx277_0
-                        mov              rax, qword ptr [rsp + 24]
-                        mov              rcx, qword ptr [rsp + 8]
-                        sub              rax, rcx
-                        add              rsp, 16
-                        mov              qword ptr [rsp + 0], 6
-                        mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n154_binop_α
-.Lx277_0:
-                        mov              rdi, qword ptr [rsp + 16]
-                        mov              rsi, qword ptr [rsp + 24]
-                        mov              rdx, qword ptr [rsp + 0]
-                        mov              rcx, qword ptr [rsp + 8]
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 32]
+                        mov              rsi, qword ptr [rsp + 40]
+                        mov              rdx, qword ptr [rsp + 16]
+                        mov              rcx, qword ptr [rsp + 24]
                         call             rt_sub@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx277_240
-                        add              rsp, 48
+                        add              rsp, 16
+                        add              rsp, 96
                                                                                         jmp   main_γ
 .Lx277_240:
-                        add              rsp, 16
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n154_binop_α
@@ -2101,22 +2102,23 @@ n152_var_α:
                                                                                         jmp   n156_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n153_binop_α:
-                        mov              rdi, qword ptr [rbp + 1360]
-                        mov              rsi, qword ptr [rbp + 1368]
-                        mov              rdx, qword ptr [rbp + 1440]
-                        mov              rcx, qword ptr [rbp + 1448]
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 64]
+                        mov              rsi, qword ptr [rsp + 72]
+                        mov              rdx, qword ptr [rsp + 16]
+                        mov              rcx, qword ptr [rsp + 24]
                         call             str_concat_d@PLT
-                        mov              qword ptr [rbp + 1344], rax
-                        mov              qword ptr [rbp + 1352], rdx
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n157_assign_α
 #-----------------------------------------------------------------------------------------------------------------------
 n154_binop_α:
-                        mov              rdi, qword ptr [rsp + 16]
-                        mov              rsi, qword ptr [rsp + 24]
-                        mov              rdx, qword ptr [rsp + 0]
-                        mov              rcx, qword ptr [rsp + 8]
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 64]
+                        mov              rsi, qword ptr [rsp + 72]
+                        mov              rdx, qword ptr [rsp + 16]
+                        mov              rcx, qword ptr [rsp + 24]
                         call             str_concat_d@PLT
-                        add              rsp, 16
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n158_assign_α
@@ -2137,18 +2139,19 @@ n156_var_α:
                                                                                         jmp   n160_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n157_assign_α:
-                        mov              rax, qword ptr [rbp + 1344]
-                        mov              rdx, qword ptr [rbp + 1352]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052368], rax
                         mov              qword ptr [1879052376], rdx
+                        add              rsp, 144
                                                                                         jmp   n71_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
 n158_assign_α:
                         mov              rsi, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
-                        add              rsp, 16
                         mov              rdi, qword ptr [rip + .Lx285_0]
                         call             NV_SET_fn@PLT
+                        add              rsp, 80
                                                                                         jmp   main_γ
 .Lx285_0:
                         .quad            .Lx285_0_s
