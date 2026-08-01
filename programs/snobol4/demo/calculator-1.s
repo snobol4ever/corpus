@@ -474,6 +474,10 @@ n68_match_head_α:
                         mov              r15, rdx
                         mov              r10, qword ptr [1879048192]
                         mov              qword ptr [r10 + 0], 0
+                        mov              qword ptr [r10 + 8], rsp
+                        lea              rcx, [rip + g_patstk_sp]
+                        mov              rax, qword ptr [rcx + 0]
+                        mov              qword ptr [r10 + 16], rax
                         add              r10, 24
                         mov              qword ptr [1879048192], r10
                         mov              rax, rsp
@@ -497,16 +501,16 @@ n68_match_head_β:
                                                                                         jne   .Lx87_1
                                                                                         jmp   .Lx87_0
 .Lx87_1:
-                        mov              rax, qword ptr [rsp + 8]
-                        lea              rcx, [rip + g_patstk_sp]
-                        mov              qword ptr [rcx + 0], rax
-                        mov              rsp, qword ptr [rsp + 16]
                         mov              r10, qword ptr [1879048192]
 .Lx87_2:
                         sub              r10, 24
                         mov              rax, qword ptr [r10 + 0]
                         test             rax, rax
                                                                                         jne   .Lx87_2
+                        mov              rax, qword ptr [r10 + 16]
+                        lea              rcx, [rip + g_patstk_sp]
+                        mov              qword ptr [rcx + 0], rax
+                        mov              rsp, qword ptr [r10 + 8]
                         mov              qword ptr [1879048192], r10
                         mov              r13, qword ptr [rbp + 464]
                         mov              r14, qword ptr [rbp + 472]
@@ -528,10 +532,16 @@ n69_match_sequence_af:
                                                                                         jmp   n68_match_head_β
 #-----------------------------------------------------------------------------------------------------------------------
 n70_match_release_α:
-                        mov              rax, qword ptr [rsp + 8]
+                        mov              r10, qword ptr [1879048192]
+.Lx91_9:
+                        sub              r10, 24
+                        mov              rax, qword ptr [r10 + 0]
+                        test             rax, rax
+                                                                                        jne   .Lx91_9
+                        mov              rax, qword ptr [r10 + 16]
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
-                        mov              rsp, qword ptr [rsp + 16]
+                        mov              rsp, qword ptr [r10 + 8]
                         push             r14
                         push             r15
                         push             r13
@@ -8169,6 +8179,10 @@ n726_match_head_α:
                         mov              r15, rdx
                         mov              r10, qword ptr [1879048192]
                         mov              qword ptr [r10 + 0], 0
+                        mov              qword ptr [r10 + 8], rsp
+                        lea              rcx, [rip + g_patstk_sp]
+                        mov              rax, qword ptr [rcx + 0]
+                        mov              qword ptr [r10 + 16], rax
                         add              r10, 24
                         mov              qword ptr [1879048192], r10
                         mov              qword ptr [rbp + 4256], rsp
@@ -9122,6 +9136,10 @@ n776_match_head_α:
                         mov              r15, rdx
                         mov              r10, qword ptr [1879048192]
                         mov              qword ptr [r10 + 0], 0
+                        mov              qword ptr [r10 + 8], rsp
+                        lea              rcx, [rip + g_patstk_sp]
+                        mov              rax, qword ptr [rcx + 0]
+                        mov              qword ptr [r10 + 16], rax
                         add              r10, 24
                         mov              qword ptr [1879048192], r10
                         mov              rax, rsp
@@ -9145,16 +9163,16 @@ n776_match_head_β:
                                                                                         jne   .Lx1090_1
                                                                                         jmp   .Lx1090_0
 .Lx1090_1:
-                        mov              rax, qword ptr [rsp + 8]
-                        lea              rcx, [rip + g_patstk_sp]
-                        mov              qword ptr [rcx + 0], rax
-                        mov              rsp, qword ptr [rsp + 16]
                         mov              r10, qword ptr [1879048192]
 .Lx1090_2:
                         sub              r10, 24
                         mov              rax, qword ptr [r10 + 0]
                         test             rax, rax
                                                                                         jne   .Lx1090_2
+                        mov              rax, qword ptr [r10 + 16]
+                        lea              rcx, [rip + g_patstk_sp]
+                        mov              qword ptr [rcx + 0], rax
+                        mov              rsp, qword ptr [r10 + 8]
                         mov              qword ptr [1879048192], r10
                         mov              r13, qword ptr [rbp + 464]
                         mov              r14, qword ptr [rbp + 472]
@@ -9177,10 +9195,16 @@ n777_match_sequence_af:
                                                                                         jmp   n776_match_head_β
 #-----------------------------------------------------------------------------------------------------------------------
 n778_match_release_α:
-                        mov              rax, qword ptr [rsp + 8]
+                        mov              r10, qword ptr [1879048192]
+.Lx1094_9:
+                        sub              r10, 24
+                        mov              rax, qword ptr [r10 + 0]
+                        test             rax, rax
+                                                                                        jne   .Lx1094_9
+                        mov              rax, qword ptr [r10 + 16]
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
-                        mov              rsp, qword ptr [rsp + 16]
+                        mov              rsp, qword ptr [r10 + 8]
                         push             r14
                         push             r15
                         push             r13
