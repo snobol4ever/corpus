@@ -2337,30 +2337,33 @@ n193_assign_β:
                                                                                         jmp   n121_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n194_match_assign_save_α:
-                        sub              rsp, 16
-                        mov              dword ptr [rsp + 0], r14d
+                        sub              rsp, 32
+                        lea              rdi, [rbp + 3920]
+                        mov              esi, r14d
+                        call             rt_cap_push@PLT
+                        add              rsp, 32
                                                                                         jmp   n195_match_len_α
 n194_match_assign_save_β:
-                        add              rsp, 16
+                        sub              rsp, 32
+                        lea              rdi, [rbp + 3920]
+                        call             rt_cap_pop@PLT
+                        add              rsp, 32
                                                                                         jmp   n197_match_patref_β
 #-----------------------------------------------------------------------------------------------------------------------
 n195_match_len_α:
                         mov              eax, r14d
                         add              eax, 1
                         cmp              eax, r15d
-                                                                                        jle   .Lx310_240
-                        add              rsp, 16
-                                                                                        jmp   n197_match_patref_β
-.Lx310_240:
+                                                                                        jg    n194_match_assign_save_β
                         add              r14d, 1
                                                                                         jmp   n196_match_assign_cond_α
 n195_match_len_β:
                         sub              r14d, 1
-                        add              rsp, 16
-                                                                                        jmp   n197_match_patref_β
+                                                                                        jmp   n194_match_assign_save_β
 #-----------------------------------------------------------------------------------------------------------------------
 n196_match_assign_cond_α:
-                        mov              eax, dword ptr [rsp + 0]
+                        lea              rdi, [rbp + 3920]
+                        call             rt_cap_top@PLT
                         lea              rcx, [rip + .S2]
                         mov              r10, qword ptr [1879048192]
                         mov              qword ptr [r10 + 0], rcx
@@ -2450,11 +2453,17 @@ n197_match_patref_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 n198_match_assign_save_α:
-                        sub              rsp, 16
-                        mov              dword ptr [rsp + 0], r14d
+                        sub              rsp, 32
+                        lea              rdi, [rbp + 3808]
+                        mov              esi, r14d
+                        call             rt_cap_push@PLT
+                        add              rsp, 32
                                                                                         jmp   n199_match_alternate_α
 n198_match_assign_save_β:
-                        add              rsp, 16
+                        sub              rsp, 32
+                        lea              rdi, [rbp + 3808]
+                        call             rt_cap_pop@PLT
+                        add              rsp, 32
                                                                                         jmp   n203_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n199_match_alternate_α:
@@ -2495,7 +2504,8 @@ n199_match_alternate_af:
                                                                                         jmp   n198_match_assign_save_β
 #-----------------------------------------------------------------------------------------------------------------------
 n200_match_assign_cond_α:
-                        mov              eax, dword ptr [rsp + 0]
+                        lea              rdi, [rbp + 3808]
+                        call             rt_cap_top@PLT
                         lea              rcx, [rip + .S3]
                         mov              r10, qword ptr [1879048192]
                         mov              qword ptr [r10 + 0], rcx
@@ -10384,11 +10394,15 @@ n1302_coerce_string_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n1303_match_assign_save_α:
                         sub              rsp, 32
-                        mov              dword ptr [rsp + 0], r14d
+                        lea              rdi, [rbp + 48]
+                        mov              esi, r14d
+                        call             rt_cap_push@PLT
                         add              rsp, 32
                                                                                         jmp   n1304_match_fence1_α
 n1303_match_assign_save_β:
                         sub              rsp, 32
+                        lea              rdi, [rbp + 48]
+                        call             rt_cap_pop@PLT
                         add              rsp, 32
                                                                                         jmp   proc_PAT$4_scanfail
 #-----------------------------------------------------------------------------------------------------------------------
@@ -11022,11 +11036,15 @@ n1396_match_sequence_af:
 #-----------------------------------------------------------------------------------------------------------------------
 n1397_match_assign_save_α:
                         sub              rsp, 32
-                        mov              dword ptr [rsp + 0], r14d
+                        lea              rdi, [rbp + 160]
+                        mov              esi, r14d
+                        call             rt_cap_push@PLT
                         add              rsp, 32
                                                                                         jmp   n1398_match_patref_α
 n1397_match_assign_save_β:
                         sub              rsp, 32
+                        lea              rdi, [rbp + 160]
+                        call             rt_cap_pop@PLT
                         add              rsp, 32
                                                                                         jmp   n1400_match_patref_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -11184,11 +11202,15 @@ n1400_match_patref_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n1401_match_assign_save_α:
                         sub              rsp, 32
-                        mov              dword ptr [rsp + 0], r14d
+                        lea              rdi, [rbp + 80]
+                        mov              esi, r14d
+                        call             rt_cap_push@PLT
                         add              rsp, 32
                                                                                         jmp   n1402_match_patref_α
 n1401_match_assign_save_β:
                         sub              rsp, 32
+                        lea              rdi, [rbp + 80]
+                        call             rt_cap_pop@PLT
                         add              rsp, 32
                                                                                         jmp   n1404_match_patref_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -11439,11 +11461,15 @@ n1419_match_sequence_af:
 #-----------------------------------------------------------------------------------------------------------------------
 n1420_match_assign_save_α:
                         sub              rsp, 32
-                        mov              dword ptr [rsp + 0], r14d
+                        lea              rdi, [rbp + 160]
+                        mov              esi, r14d
+                        call             rt_cap_push@PLT
                         add              rsp, 32
                                                                                         jmp   n1421_match_patref_α
 n1420_match_assign_save_β:
                         sub              rsp, 32
+                        lea              rdi, [rbp + 160]
+                        call             rt_cap_pop@PLT
                         add              rsp, 32
                                                                                         jmp   n1423_match_patref_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -11601,11 +11627,15 @@ n1423_match_patref_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n1424_match_assign_save_α:
                         sub              rsp, 32
-                        mov              dword ptr [rsp + 0], r14d
+                        lea              rdi, [rbp + 80]
+                        mov              esi, r14d
+                        call             rt_cap_push@PLT
                         add              rsp, 32
                                                                                         jmp   n1425_match_patref_α
 n1424_match_assign_save_β:
                         sub              rsp, 32
+                        lea              rdi, [rbp + 80]
+                        call             rt_cap_pop@PLT
                         add              rsp, 32
                                                                                         jmp   n1427_match_patref_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -12240,11 +12270,15 @@ n1457_match_fence1_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n1458_match_assign_save_α:
                         sub              rsp, 32
-                        mov              dword ptr [rsp + 0], r14d
+                        lea              rdi, [rbp + 352]
+                        mov              esi, r14d
+                        call             rt_cap_push@PLT
                         add              rsp, 32
                                                                                         jmp   n1459_match_patref_α
 n1458_match_assign_save_β:
                         sub              rsp, 32
+                        lea              rdi, [rbp + 352]
+                        call             rt_cap_pop@PLT
                         add              rsp, 32
                                                                                         jmp   n1461_match_lit_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -12699,11 +12733,15 @@ n1469_match_patref_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n1470_match_assign_save_α:
                         sub              rsp, 32
-                        mov              dword ptr [rsp + 0], r14d
+                        lea              rdi, [rbp + 96]
+                        mov              esi, r14d
+                        call             rt_cap_push@PLT
                         add              rsp, 32
                                                                                         jmp   n1471_match_patref_α
 n1470_match_assign_save_β:
                         sub              rsp, 32
+                        lea              rdi, [rbp + 96]
+                        call             rt_cap_pop@PLT
                         add              rsp, 32
                                                                                         jmp   n1473_match_lit_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -12894,11 +12932,15 @@ n1506_match_fence1_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n1507_match_assign_save_α:
                         sub              rsp, 32
-                        mov              dword ptr [rsp + 0], r14d
+                        lea              rdi, [rbp + 352]
+                        mov              esi, r14d
+                        call             rt_cap_push@PLT
                         add              rsp, 32
                                                                                         jmp   n1508_match_patref_α
 n1507_match_assign_save_β:
                         sub              rsp, 32
+                        lea              rdi, [rbp + 352]
+                        call             rt_cap_pop@PLT
                         add              rsp, 32
                                                                                         jmp   n1510_match_lit_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -13353,11 +13395,15 @@ n1518_match_defer_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n1519_match_assign_save_α:
                         sub              rsp, 32
-                        mov              dword ptr [rsp + 0], r14d
+                        lea              rdi, [rbp + 96]
+                        mov              esi, r14d
+                        call             rt_cap_push@PLT
                         add              rsp, 32
                                                                                         jmp   n1520_match_patref_α
 n1519_match_assign_save_β:
                         sub              rsp, 32
+                        lea              rdi, [rbp + 96]
+                        call             rt_cap_pop@PLT
                         add              rsp, 32
                                                                                         jmp   n1522_match_lit_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -13633,11 +13679,15 @@ n1555_match_sequence_af:
 #-----------------------------------------------------------------------------------------------------------------------
 n1556_match_assign_save_α:
                         sub              rsp, 32
-                        mov              dword ptr [rsp + 0], r14d
+                        lea              rdi, [rbp + 416]
+                        mov              esi, r14d
+                        call             rt_cap_push@PLT
                         add              rsp, 32
                                                                                         jmp   n1557_match_patref_α
 n1556_match_assign_save_β:
                         sub              rsp, 32
+                        lea              rdi, [rbp + 416]
+                        call             rt_cap_pop@PLT
                         add              rsp, 32
                                                                                         jmp   n1559_match_lit_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -13749,11 +13799,15 @@ n1560_match_sequence_af:
 #-----------------------------------------------------------------------------------------------------------------------
 n1561_match_assign_save_α:
                         sub              rsp, 32
-                        mov              dword ptr [rsp + 0], r14d
+                        lea              rdi, [rbp + 336]
+                        mov              esi, r14d
+                        call             rt_cap_push@PLT
                         add              rsp, 32
                                                                                         jmp   n1562_match_patref_α
 n1561_match_assign_save_β:
                         sub              rsp, 32
+                        lea              rdi, [rbp + 336]
+                        call             rt_cap_pop@PLT
                         add              rsp, 32
                                                                                         jmp   n1564_match_lit_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -13868,11 +13922,15 @@ n1565_match_sequence_af:
 #-----------------------------------------------------------------------------------------------------------------------
 n1566_match_assign_save_α:
                         sub              rsp, 32
-                        mov              dword ptr [rsp + 0], r14d
+                        lea              rdi, [rbp + 256]
+                        mov              esi, r14d
+                        call             rt_cap_push@PLT
                         add              rsp, 32
                                                                                         jmp   n1567_match_patref_α
 n1566_match_assign_save_β:
                         sub              rsp, 32
+                        lea              rdi, [rbp + 256]
+                        call             rt_cap_pop@PLT
                         add              rsp, 32
                                                                                         jmp   n1569_match_lit_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -14126,11 +14184,15 @@ n1572_match_sequence_af:
 #-----------------------------------------------------------------------------------------------------------------------
 n1573_match_assign_save_α:
                         sub              rsp, 32
-                        mov              dword ptr [rsp + 0], r14d
+                        lea              rdi, [rbp + 128]
+                        mov              esi, r14d
+                        call             rt_cap_push@PLT
                         add              rsp, 32
                                                                                         jmp   n1574_match_patref_α
 n1573_match_assign_save_β:
                         sub              rsp, 32
+                        lea              rdi, [rbp + 128]
+                        call             rt_cap_pop@PLT
                         add              rsp, 32
                                                                                         jmp   n1576_match_patref_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -23931,30 +23993,33 @@ n2096_assign_β:
                                                                                         jmp   n2024_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n2097_match_assign_save_α:
-                        sub              rsp, 16
-                        mov              dword ptr [rsp + 0], r14d
+                        sub              rsp, 32
+                        lea              rdi, [rbp + 3920]
+                        mov              esi, r14d
+                        call             rt_cap_push@PLT
+                        add              rsp, 32
                                                                                         jmp   n2098_match_len_α
 n2097_match_assign_save_β:
-                        add              rsp, 16
+                        sub              rsp, 32
+                        lea              rdi, [rbp + 3920]
+                        call             rt_cap_pop@PLT
+                        add              rsp, 32
                                                                                         jmp   n2100_match_patref_β
 #-----------------------------------------------------------------------------------------------------------------------
 n2098_match_len_α:
                         mov              eax, r14d
                         add              eax, 1
                         cmp              eax, r15d
-                                                                                        jle   .Lx2996_240
-                        add              rsp, 16
-                                                                                        jmp   n2100_match_patref_β
-.Lx2996_240:
+                                                                                        jg    n2097_match_assign_save_β
                         add              r14d, 1
                                                                                         jmp   n2099_match_assign_cond_α
 n2098_match_len_β:
                         sub              r14d, 1
-                        add              rsp, 16
-                                                                                        jmp   n2100_match_patref_β
+                                                                                        jmp   n2097_match_assign_save_β
 #-----------------------------------------------------------------------------------------------------------------------
 n2099_match_assign_cond_α:
-                        mov              eax, dword ptr [rsp + 0]
+                        lea              rdi, [rbp + 3920]
+                        call             rt_cap_top@PLT
                         lea              rcx, [rip + .S2]
                         mov              r10, qword ptr [1879048192]
                         mov              qword ptr [r10 + 0], rcx
@@ -24044,11 +24109,17 @@ n2100_match_patref_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 n2101_match_assign_save_α:
-                        sub              rsp, 16
-                        mov              dword ptr [rsp + 0], r14d
+                        sub              rsp, 32
+                        lea              rdi, [rbp + 3808]
+                        mov              esi, r14d
+                        call             rt_cap_push@PLT
+                        add              rsp, 32
                                                                                         jmp   n2102_match_alternate_α
 n2101_match_assign_save_β:
-                        add              rsp, 16
+                        sub              rsp, 32
+                        lea              rdi, [rbp + 3808]
+                        call             rt_cap_pop@PLT
+                        add              rsp, 32
                                                                                         jmp   n2106_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n2102_match_alternate_α:
@@ -24089,7 +24160,8 @@ n2102_match_alternate_af:
                                                                                         jmp   n2101_match_assign_save_β
 #-----------------------------------------------------------------------------------------------------------------------
 n2103_match_assign_cond_α:
-                        mov              eax, dword ptr [rsp + 0]
+                        lea              rdi, [rbp + 3808]
+                        call             rt_cap_top@PLT
                         lea              rcx, [rip + .S3]
                         mov              r10, qword ptr [1879048192]
                         mov              qword ptr [r10 + 0], rcx
