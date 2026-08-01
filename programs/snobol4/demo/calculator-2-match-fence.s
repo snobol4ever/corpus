@@ -278,12 +278,12 @@ n9_match_defer_α:
                                                                                         jne   .Lx19_11
                         mov              rax, qword ptr [1879052368]                    # X
                         mov              rdx, qword ptr [1879052376]                    # X
-                        cmp              eax, 3
+                        cmp              eax, 8
                                                                                         jne   .Lx19_9
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax
                                                                                         jne   .Lx19_10
-                        mov              rdi, rdx                                       # headv
+                        mov              rdi, rdx
                         call             dtp_fn_of@PLT
                                                                                         jmp   .Lx19_10
 .Lx19_9:
@@ -307,8 +307,8 @@ n9_match_defer_α:
                         push             r15
                         push             r13
                         sub              rsp, 8
-                        lea              rdi, [rip + .S0]                               # varname
-                        xor              esi, esi                                       # ival_flag
+                        lea              rdi, [rip + .S0]
+                        xor              esi, esi
                         call             rt_defer_open@PLT
 .Lx19_2:
                         test             rax, rax
@@ -319,14 +319,14 @@ n9_match_defer_α:
                                                                                         jmp   rax
 .Lx19_7:
                         call             rt_proc_call_epilogue_γ@PLT
-                        mov              rdi, rax                                       # fret
-                        mov              rsi, rdx                                       # fret
+                        mov              rdi, rax
+                        mov              rsi, rdx
                         call             rt_defer_step@PLT
                                                                                         jmp   .Lx19_2
 .Lx19_8:
                         call             rt_proc_call_epilogue_ω@PLT
-                        mov              rdi, rax                                       # fret
-                        mov              rsi, rdx                                       # fret
+                        mov              rdi, rax
+                        mov              rsi, rdx
                         call             rt_defer_step@PLT
                                                                                         jmp   .Lx19_2
 .Lx19_3:
@@ -334,7 +334,7 @@ n9_match_defer_α:
                         pop              r13
                         pop              r15
                         pop              r14
-                        mov              edi, r14d                                      # cur_delta
+                        mov              edi, r14d
                         call             rt_defer_close@PLT
                         test             eax, eax
                                                                                         js    n10_match_lit_β
@@ -371,12 +371,12 @@ n11_match_patref_α:
                                                                                         jne   .Lx22_11
                         mov              rax, qword ptr [1879052304]                    # I
                         mov              rdx, qword ptr [1879052312]                    # I
-                        cmp              eax, 3
+                        cmp              eax, 8
                                                                                         jne   .Lx22_9
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax
                                                                                         jne   .Lx22_10
-                        mov              rdi, rdx                                       # headv
+                        mov              rdi, rdx
                         call             dtp_fn_of@PLT
                                                                                         jmp   .Lx22_10
 .Lx22_9:
@@ -400,8 +400,8 @@ n11_match_patref_α:
                         push             r15
                         push             r13
                         sub              rsp, 8
-                        lea              rdi, [rip + .S1]                               # varname
-                        xor              esi, esi                                       # ival_flag
+                        lea              rdi, [rip + .S1]
+                        xor              esi, esi
                         call             rt_defer_open@PLT
 .Lx22_2:
                         test             rax, rax
@@ -412,14 +412,14 @@ n11_match_patref_α:
                                                                                         jmp   rax
 .Lx22_7:
                         call             rt_proc_call_epilogue_γ@PLT
-                        mov              rdi, rax                                       # fret
-                        mov              rsi, rdx                                       # fret
+                        mov              rdi, rax
+                        mov              rsi, rdx
                         call             rt_defer_step@PLT
                                                                                         jmp   .Lx22_2
 .Lx22_8:
                         call             rt_proc_call_epilogue_ω@PLT
-                        mov              rdi, rax                                       # fret
-                        mov              rsi, rdx                                       # fret
+                        mov              rdi, rax
+                        mov              rsi, rdx
                         call             rt_defer_step@PLT
                                                                                         jmp   .Lx22_2
 .Lx22_3:
@@ -427,7 +427,7 @@ n11_match_patref_α:
                         pop              r13
                         pop              r15
                         pop              r14
-                        mov              edi, r14d                                      # cur_delta
+                        mov              edi, r14d
                         call             rt_defer_close@PLT
                         test             eax, eax
                                                                                         js    n6_match_alternate_af
@@ -449,12 +449,12 @@ n12_match_patref_α:
                                                                                         jne   .Lx23_11
                         mov              rax, qword ptr [1879052288]                    # V
                         mov              rdx, qword ptr [1879052296]                    # V
-                        cmp              eax, 3
+                        cmp              eax, 8
                                                                                         jne   .Lx23_9
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax
                                                                                         jne   .Lx23_10
-                        mov              rdi, rdx                                       # headv
+                        mov              rdi, rdx
                         call             dtp_fn_of@PLT
                                                                                         jmp   .Lx23_10
 .Lx23_9:
@@ -478,8 +478,8 @@ n12_match_patref_α:
                         push             r15
                         push             r13
                         sub              rsp, 8
-                        lea              rdi, [rip + .S2]                               # varname
-                        xor              esi, esi                                       # ival_flag
+                        lea              rdi, [rip + .S2]
+                        xor              esi, esi
                         call             rt_defer_open@PLT
 .Lx23_2:
                         test             rax, rax
@@ -490,14 +490,14 @@ n12_match_patref_α:
                                                                                         jmp   rax
 .Lx23_7:
                         call             rt_proc_call_epilogue_γ@PLT
-                        mov              rdi, rax                                       # fret
-                        mov              rsi, rdx                                       # fret
+                        mov              rdi, rax
+                        mov              rsi, rdx
                         call             rt_defer_step@PLT
                                                                                         jmp   .Lx23_2
 .Lx23_8:
                         call             rt_proc_call_epilogue_ω@PLT
-                        mov              rdi, rax                                       # fret
-                        mov              rsi, rdx                                       # fret
+                        mov              rdi, rax
+                        mov              rsi, rdx
                         call             rt_defer_step@PLT
                                                                                         jmp   .Lx23_2
 .Lx23_3:
@@ -505,7 +505,7 @@ n12_match_patref_α:
                         pop              r13
                         pop              r15
                         pop              r14
-                        mov              edi, r14d                                      # cur_delta
+                        mov              edi, r14d
                         call             rt_defer_close@PLT
                         test             eax, eax
                                                                                         js    n6_match_alternate_af
@@ -626,12 +626,12 @@ n26_match_defer_α:
                         mov              qword ptr [rbp + 96], rsp
                         mov              rax, qword ptr [1879052336]                    # F
                         mov              rdx, qword ptr [1879052344]                    # F
-                        cmp              eax, 3
+                        cmp              eax, 8
                                                                                         jne   .Lx33_9
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax
                                                                                         jne   .Lx33_10
-                        mov              rdi, rdx                                       # headv
+                        mov              rdi, rdx
                         call             dtp_fn_of@PLT
                                                                                         jmp   .Lx33_10
 .Lx33_9:
@@ -654,8 +654,8 @@ n26_match_defer_α:
                         push             r15
                         push             r13
                         sub              rsp, 8
-                        lea              rdi, [rip + .S3]                               # varname
-                        xor              esi, esi                                       # ival_flag
+                        lea              rdi, [rip + .S3]
+                        xor              esi, esi
                         call             rt_defer_open@PLT
 .Lx33_2:
                         test             rax, rax
@@ -666,14 +666,14 @@ n26_match_defer_α:
                                                                                         jmp   rax
 .Lx33_7:
                         call             rt_proc_call_epilogue_γ@PLT
-                        mov              rdi, rax                                       # fret
-                        mov              rsi, rdx                                       # fret
+                        mov              rdi, rax
+                        mov              rsi, rdx
                         call             rt_defer_step@PLT
                                                                                         jmp   .Lx33_2
 .Lx33_8:
                         call             rt_proc_call_epilogue_ω@PLT
-                        mov              rdi, rax                                       # fret
-                        mov              rsi, rdx                                       # fret
+                        mov              rdi, rax
+                        mov              rsi, rdx
                         call             rt_defer_step@PLT
                                                                                         jmp   .Lx33_2
 .Lx33_3:
@@ -681,7 +681,7 @@ n26_match_defer_α:
                         pop              r13
                         pop              r15
                         pop              r14
-                        mov              edi, r14d                                      # cur_delta
+                        mov              edi, r14d
                         call             rt_defer_close@PLT
                         test             eax, eax
                                                                                         js    n27_match_any_β
@@ -719,12 +719,12 @@ n28_match_patref_α:
                         mov              qword ptr [rbp + 48], rsp
                         mov              rax, qword ptr [1879052320]                    # A
                         mov              rdx, qword ptr [1879052328]                    # A
-                        cmp              eax, 3
+                        cmp              eax, 8
                                                                                         jne   .Lx36_9
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax
                                                                                         jne   .Lx36_10
-                        mov              rdi, rdx                                       # headv
+                        mov              rdi, rdx
                         call             dtp_fn_of@PLT
                                                                                         jmp   .Lx36_10
 .Lx36_9:
@@ -747,8 +747,8 @@ n28_match_patref_α:
                         push             r15
                         push             r13
                         sub              rsp, 8
-                        lea              rdi, [rip + .S4]                               # varname
-                        xor              esi, esi                                       # ival_flag
+                        lea              rdi, [rip + .S4]
+                        xor              esi, esi
                         call             rt_defer_open@PLT
 .Lx36_2:
                         test             rax, rax
@@ -759,14 +759,14 @@ n28_match_patref_α:
                                                                                         jmp   rax
 .Lx36_7:
                         call             rt_proc_call_epilogue_γ@PLT
-                        mov              rdi, rax                                       # fret
-                        mov              rsi, rdx                                       # fret
+                        mov              rdi, rax
+                        mov              rsi, rdx
                         call             rt_defer_step@PLT
                                                                                         jmp   .Lx36_2
 .Lx36_8:
                         call             rt_proc_call_epilogue_ω@PLT
-                        mov              rdi, rax                                       # fret
-                        mov              rsi, rdx                                       # fret
+                        mov              rdi, rax
+                        mov              rsi, rdx
                         call             rt_defer_step@PLT
                                                                                         jmp   .Lx36_2
 .Lx36_3:
@@ -774,7 +774,7 @@ n28_match_patref_α:
                         pop              r13
                         pop              r15
                         pop              r14
-                        mov              edi, r14d                                      # cur_delta
+                        mov              edi, r14d
                         call             rt_defer_close@PLT
                         test             eax, eax
                                                                                         js    n24_match_alternate_af
@@ -919,12 +919,12 @@ n40_match_patref_α:
                         mov              qword ptr [rbp + 160], rsp
                         mov              rax, qword ptr [1879052336]                    # F
                         mov              rdx, qword ptr [1879052344]                    # F
-                        cmp              eax, 3
+                        cmp              eax, 8
                                                                                         jne   .Lx49_9
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax
                                                                                         jne   .Lx49_10
-                        mov              rdi, rdx                                       # headv
+                        mov              rdi, rdx
                         call             dtp_fn_of@PLT
                                                                                         jmp   .Lx49_10
 .Lx49_9:
@@ -947,8 +947,8 @@ n40_match_patref_α:
                         push             r15
                         push             r13
                         sub              rsp, 8
-                        lea              rdi, [rip + .S3]                               # varname
-                        xor              esi, esi                                       # ival_flag
+                        lea              rdi, [rip + .S3]
+                        xor              esi, esi
                         call             rt_defer_open@PLT
 .Lx49_2:
                         test             rax, rax
@@ -959,14 +959,14 @@ n40_match_patref_α:
                                                                                         jmp   rax
 .Lx49_7:
                         call             rt_proc_call_epilogue_γ@PLT
-                        mov              rdi, rax                                       # fret
-                        mov              rsi, rdx                                       # fret
+                        mov              rdi, rax
+                        mov              rsi, rdx
                         call             rt_defer_step@PLT
                                                                                         jmp   .Lx49_2
 .Lx49_8:
                         call             rt_proc_call_epilogue_ω@PLT
-                        mov              rdi, rax                                       # fret
-                        mov              rsi, rdx                                       # fret
+                        mov              rdi, rax
+                        mov              rsi, rdx
                         call             rt_defer_step@PLT
                                                                                         jmp   .Lx49_2
 .Lx49_3:
@@ -974,7 +974,7 @@ n40_match_patref_α:
                         pop              r13
                         pop              r15
                         pop              r14
-                        mov              edi, r14d                                      # cur_delta
+                        mov              edi, r14d
                         call             rt_defer_close@PLT
                         test             eax, eax
                                                                                         js    n41_match_any_β
@@ -1012,12 +1012,12 @@ n42_match_patref_α:
                         mov              qword ptr [rbp + 32], rsp
                         mov              rax, qword ptr [1879052336]                    # F
                         mov              rdx, qword ptr [1879052344]                    # F
-                        cmp              eax, 3
+                        cmp              eax, 8
                                                                                         jne   .Lx52_9
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax
                                                                                         jne   .Lx52_10
-                        mov              rdi, rdx                                       # headv
+                        mov              rdi, rdx
                         call             dtp_fn_of@PLT
                                                                                         jmp   .Lx52_10
 .Lx52_9:
@@ -1040,8 +1040,8 @@ n42_match_patref_α:
                         push             r15
                         push             r13
                         sub              rsp, 8
-                        lea              rdi, [rip + .S3]                               # varname
-                        xor              esi, esi                                       # ival_flag
+                        lea              rdi, [rip + .S3]
+                        xor              esi, esi
                         call             rt_defer_open@PLT
 .Lx52_2:
                         test             rax, rax
@@ -1052,14 +1052,14 @@ n42_match_patref_α:
                                                                                         jmp   rax
 .Lx52_7:
                         call             rt_proc_call_epilogue_γ@PLT
-                        mov              rdi, rax                                       # fret
-                        mov              rsi, rdx                                       # fret
+                        mov              rdi, rax
+                        mov              rsi, rdx
                         call             rt_defer_step@PLT
                                                                                         jmp   .Lx52_2
 .Lx52_8:
                         call             rt_proc_call_epilogue_ω@PLT
-                        mov              rdi, rax                                       # fret
-                        mov              rsi, rdx                                       # fret
+                        mov              rdi, rax
+                        mov              rsi, rdx
                         call             rt_defer_step@PLT
                                                                                         jmp   .Lx52_2
 .Lx52_3:
@@ -1067,7 +1067,7 @@ n42_match_patref_α:
                         pop              r13
                         pop              r15
                         pop              r14
-                        mov              edi, r14d                                      # cur_delta
+                        mov              edi, r14d
                         call             rt_defer_close@PLT
                         test             eax, eax
                                                                                         js    proc_PAT$4_ω
@@ -1215,12 +1215,12 @@ n56_match_patref_α:
                                                                                         jne   .Lx65_11
                         mov              rax, qword ptr [1879052352]                    # T
                         mov              rdx, qword ptr [1879052360]                    # T
-                        cmp              eax, 3
+                        cmp              eax, 8
                                                                                         jne   .Lx65_9
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax
                                                                                         jne   .Lx65_10
-                        mov              rdi, rdx                                       # headv
+                        mov              rdi, rdx
                         call             dtp_fn_of@PLT
                                                                                         jmp   .Lx65_10
 .Lx65_9:
@@ -1244,8 +1244,8 @@ n56_match_patref_α:
                         push             r15
                         push             r13
                         sub              rsp, 8
-                        lea              rdi, [rip + .S5]                               # varname
-                        xor              esi, esi                                       # ival_flag
+                        lea              rdi, [rip + .S5]
+                        xor              esi, esi
                         call             rt_defer_open@PLT
 .Lx65_2:
                         test             rax, rax
@@ -1256,14 +1256,14 @@ n56_match_patref_α:
                                                                                         jmp   rax
 .Lx65_7:
                         call             rt_proc_call_epilogue_γ@PLT
-                        mov              rdi, rax                                       # fret
-                        mov              rsi, rdx                                       # fret
+                        mov              rdi, rax
+                        mov              rsi, rdx
                         call             rt_defer_step@PLT
                                                                                         jmp   .Lx65_2
 .Lx65_8:
                         call             rt_proc_call_epilogue_ω@PLT
-                        mov              rdi, rax                                       # fret
-                        mov              rsi, rdx                                       # fret
+                        mov              rdi, rax
+                        mov              rsi, rdx
                         call             rt_defer_step@PLT
                                                                                         jmp   .Lx65_2
 .Lx65_3:
@@ -1271,7 +1271,7 @@ n56_match_patref_α:
                         pop              r13
                         pop              r15
                         pop              r14
-                        mov              edi, r14d                                      # cur_delta
+                        mov              edi, r14d
                         call             rt_defer_close@PLT
                         test             eax, eax
                                                                                         js    n57_match_any_β
@@ -1311,12 +1311,12 @@ n58_match_patref_α:
                                                                                         jne   .Lx68_11
                         mov              rax, qword ptr [1879052352]                    # T
                         mov              rdx, qword ptr [1879052360]                    # T
-                        cmp              eax, 3
+                        cmp              eax, 8
                                                                                         jne   .Lx68_9
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax
                                                                                         jne   .Lx68_10
-                        mov              rdi, rdx                                       # headv
+                        mov              rdi, rdx
                         call             dtp_fn_of@PLT
                                                                                         jmp   .Lx68_10
 .Lx68_9:
@@ -1340,8 +1340,8 @@ n58_match_patref_α:
                         push             r15
                         push             r13
                         sub              rsp, 8
-                        lea              rdi, [rip + .S5]                               # varname
-                        xor              esi, esi                                       # ival_flag
+                        lea              rdi, [rip + .S5]
+                        xor              esi, esi
                         call             rt_defer_open@PLT
 .Lx68_2:
                         test             rax, rax
@@ -1352,14 +1352,14 @@ n58_match_patref_α:
                                                                                         jmp   rax
 .Lx68_7:
                         call             rt_proc_call_epilogue_γ@PLT
-                        mov              rdi, rax                                       # fret
-                        mov              rsi, rdx                                       # fret
+                        mov              rdi, rax
+                        mov              rsi, rdx
                         call             rt_defer_step@PLT
                                                                                         jmp   .Lx68_2
 .Lx68_8:
                         call             rt_proc_call_epilogue_ω@PLT
-                        mov              rdi, rax                                       # fret
-                        mov              rsi, rdx                                       # fret
+                        mov              rdi, rax
+                        mov              rsi, rdx
                         call             rt_defer_step@PLT
                                                                                         jmp   .Lx68_2
 .Lx68_3:
@@ -1367,7 +1367,7 @@ n58_match_patref_α:
                         pop              r13
                         pop              r15
                         pop              r14
-                        mov              edi, r14d                                      # cur_delta
+                        mov              edi, r14d
                         call             rt_defer_close@PLT
                         test             eax, eax
                                                                                         js    proc_PAT$5_ω
@@ -1452,7 +1452,7 @@ n69_match_sequence_af:
                                                                                         jmp   proc_PAT$6_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n70_lit_integer_α:
-                        mov              qword ptr [rbp + 192], 6                       # lit_integer
+                        mov              qword ptr [rbp + 192], 3                       # lit_integer
                         mov              rax, qword ptr [rip + .Lx80_0]
                         mov              qword ptr [rbp + 200], rax                     # lit_integer
                                                                                         jmp   n71_match_rpos_α
@@ -1530,12 +1530,12 @@ n73_match_sequence_af:
 n74_match_patref_α:
                         mov              rax, qword ptr [1879052384]                    # eol
                         mov              rdx, qword ptr [1879052392]                    # eol
-                        cmp              eax, 3
+                        cmp              eax, 8
                                                                                         jne   .Lx86_9
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax
                                                                                         jne   .Lx86_10
-                        mov              rdi, rdx                                       # headv
+                        mov              rdi, rdx
                         call             dtp_fn_of@PLT
                                                                                         jmp   .Lx86_10
 .Lx86_9:
@@ -1556,8 +1556,8 @@ n74_match_patref_α:
                         push             r15
                         push             r13
                         sub              rsp, 8
-                        lea              rdi, [rip + .S6]                               # varname
-                        xor              esi, esi                                       # ival_flag
+                        lea              rdi, [rip + .S6]
+                        xor              esi, esi
                         call             rt_defer_open@PLT
 .Lx86_2:
                         test             rax, rax
@@ -1568,14 +1568,14 @@ n74_match_patref_α:
                                                                                         jmp   rax
 .Lx86_7:
                         call             rt_proc_call_epilogue_γ@PLT
-                        mov              rdi, rax                                       # fret
-                        mov              rsi, rdx                                       # fret
+                        mov              rdi, rax
+                        mov              rsi, rdx
                         call             rt_defer_step@PLT
                                                                                         jmp   .Lx86_2
 .Lx86_8:
                         call             rt_proc_call_epilogue_ω@PLT
-                        mov              rdi, rax                                       # fret
-                        mov              rsi, rdx                                       # fret
+                        mov              rdi, rax
+                        mov              rsi, rdx
                         call             rt_defer_step@PLT
                                                                                         jmp   .Lx86_2
 .Lx86_3:
@@ -1583,7 +1583,7 @@ n74_match_patref_α:
                         pop              r13
                         pop              r15
                         pop              r14
-                        mov              edi, r14d                                      # cur_delta
+                        mov              edi, r14d
                         call             rt_defer_close@PLT
                         test             eax, eax
                                                                                         js    n75_match_patref_β
@@ -1605,12 +1605,12 @@ n75_match_patref_α:
                                                                                         jne   .Lx87_11
                         mov              rax, qword ptr [1879052368]                    # X
                         mov              rdx, qword ptr [1879052376]                    # X
-                        cmp              eax, 3
+                        cmp              eax, 8
                                                                                         jne   .Lx87_9
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax
                                                                                         jne   .Lx87_10
-                        mov              rdi, rdx                                       # headv
+                        mov              rdi, rdx
                         call             dtp_fn_of@PLT
                                                                                         jmp   .Lx87_10
 .Lx87_9:
@@ -1634,8 +1634,8 @@ n75_match_patref_α:
                         push             r15
                         push             r13
                         sub              rsp, 8
-                        lea              rdi, [rip + .S0]                               # varname
-                        xor              esi, esi                                       # ival_flag
+                        lea              rdi, [rip + .S0]
+                        xor              esi, esi
                         call             rt_defer_open@PLT
 .Lx87_2:
                         test             rax, rax
@@ -1646,14 +1646,14 @@ n75_match_patref_α:
                                                                                         jmp   rax
 .Lx87_7:
                         call             rt_proc_call_epilogue_γ@PLT
-                        mov              rdi, rax                                       # fret
-                        mov              rsi, rdx                                       # fret
+                        mov              rdi, rax
+                        mov              rsi, rdx
                         call             rt_defer_step@PLT
                                                                                         jmp   .Lx87_2
 .Lx87_8:
                         call             rt_proc_call_epilogue_ω@PLT
-                        mov              rdi, rax                                       # fret
-                        mov              rsi, rdx                                       # fret
+                        mov              rdi, rax
+                        mov              rsi, rdx
                         call             rt_defer_step@PLT
                                                                                         jmp   .Lx87_2
 .Lx87_3:
@@ -1661,7 +1661,7 @@ n75_match_patref_α:
                         pop              r13
                         pop              r15
                         pop              r14
-                        mov              edi, r14d                                      # cur_delta
+                        mov              edi, r14d
                         call             rt_defer_close@PLT
                         test             eax, eax
                                                                                         js    n72_match_arbno_af
@@ -1677,7 +1677,7 @@ n75_match_patref_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 n76_lit_integer_α:
-                        mov              qword ptr [rbp + 48], 6                        # lit_integer
+                        mov              qword ptr [rbp + 48], 3                        # lit_integer
                         mov              rax, qword ptr [rip + .Lx88_0]
                         mov              qword ptr [rbp + 56], rax                      # lit_integer
                                                                                         jmp   n77_match_pos_α
@@ -1930,7 +1930,7 @@ main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n90_lit_string_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 1                         # lit_string
+                        mov              qword ptr [rsp + 0], 2                         # lit_string
                         mov              dword ptr [rsp + 4], 5                         # lit_string
                         mov              rax, qword ptr [rip + .Lx136_0]
                         mov              qword ptr [rsp + 8], rax                       # lit_string
@@ -1951,12 +1951,12 @@ n91_call_α:
 .Lrkfnzd138:            .string          "SNO$MKPAT"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfnzd138]                       # fn
-                        lea              rsi, [rsp + 0]                                 # args
-                        mov              edx, 1                                         # nargs
+                        lea              rdi, [rip + .Lrkfnzd138]
+                        lea              rsi, [rsp + 0]
+                        mov              edx, 1
                         call             rt_call_arr@PLT
                         add              rsp, 16
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx137_240
                         add              rsp, 16
                         add              rsp, 16
@@ -1982,7 +1982,7 @@ n92_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n93_lit_string_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 1                         # lit_string
+                        mov              qword ptr [rsp + 0], 2                         # lit_string
                         mov              dword ptr [rsp + 4], 5                         # lit_string
                         mov              rax, qword ptr [rip + .Lx140_0]
                         mov              qword ptr [rsp + 8], rax                       # lit_string
@@ -2003,12 +2003,12 @@ n94_call_α:
 .Lrkfnzd142:            .string          "SNO$MKPAT"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfnzd142]                       # fn
-                        lea              rsi, [rsp + 0]                                 # args
-                        mov              edx, 1                                         # nargs
+                        lea              rdi, [rip + .Lrkfnzd142]
+                        lea              rsi, [rsp + 0]
+                        mov              edx, 1
                         call             rt_call_arr@PLT
                         add              rsp, 16
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx141_240
                         add              rsp, 16
                         add              rsp, 16
@@ -2034,7 +2034,7 @@ n95_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n96_lit_string_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 1                         # lit_string
+                        mov              qword ptr [rsp + 0], 2                         # lit_string
                         mov              dword ptr [rsp + 4], 5                         # lit_string
                         mov              rax, qword ptr [rip + .Lx144_0]
                         mov              qword ptr [rsp + 8], rax                       # lit_string
@@ -2055,12 +2055,12 @@ n97_call_α:
 .Lrkfnzd146:            .string          "SNO$MKPAT"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfnzd146]                       # fn
-                        lea              rsi, [rsp + 0]                                 # args
-                        mov              edx, 1                                         # nargs
+                        lea              rdi, [rip + .Lrkfnzd146]
+                        lea              rsi, [rsp + 0]
+                        mov              edx, 1
                         call             rt_call_arr@PLT
                         add              rsp, 16
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx145_240
                         add              rsp, 16
                         add              rsp, 16
@@ -2086,7 +2086,7 @@ n98_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n99_lit_string_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 1                         # lit_string
+                        mov              qword ptr [rsp + 0], 2                         # lit_string
                         mov              dword ptr [rsp + 4], 5                         # lit_string
                         mov              rax, qword ptr [rip + .Lx148_0]
                         mov              qword ptr [rsp + 8], rax                       # lit_string
@@ -2107,12 +2107,12 @@ n100_call_α:
 .Lrkfnzd150:            .string          "SNO$MKPAT"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfnzd150]                       # fn
-                        lea              rsi, [rsp + 0]                                 # args
-                        mov              edx, 1                                         # nargs
+                        lea              rdi, [rip + .Lrkfnzd150]
+                        lea              rsi, [rsp + 0]
+                        mov              edx, 1
                         call             rt_call_arr@PLT
                         add              rsp, 16
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx149_240
                         add              rsp, 16
                         add              rsp, 16
@@ -2138,7 +2138,7 @@ n101_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n102_lit_string_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 1                         # lit_string
+                        mov              qword ptr [rsp + 0], 2                         # lit_string
                         mov              dword ptr [rsp + 4], 5                         # lit_string
                         mov              rax, qword ptr [rip + .Lx152_0]
                         mov              qword ptr [rsp + 8], rax                       # lit_string
@@ -2159,12 +2159,12 @@ n103_call_α:
 .Lrkfnzd154:            .string          "SNO$MKPAT"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfnzd154]                       # fn
-                        lea              rsi, [rsp + 0]                                 # args
-                        mov              edx, 1                                         # nargs
+                        lea              rdi, [rip + .Lrkfnzd154]
+                        lea              rsi, [rsp + 0]
+                        mov              edx, 1
                         call             rt_call_arr@PLT
                         add              rsp, 16
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx153_240
                         add              rsp, 16
                         add              rsp, 16
@@ -2190,7 +2190,7 @@ n104_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n105_lit_string_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 1                         # lit_string
+                        mov              qword ptr [rsp + 0], 2                         # lit_string
                         mov              dword ptr [rsp + 4], 5                         # lit_string
                         mov              rax, qword ptr [rip + .Lx156_0]
                         mov              qword ptr [rsp + 8], rax                       # lit_string
@@ -2211,12 +2211,12 @@ n106_call_α:
 .Lrkfnzd158:            .string          "SNO$MKPAT"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfnzd158]                       # fn
-                        lea              rsi, [rsp + 0]                                 # args
-                        mov              edx, 1                                         # nargs
+                        lea              rdi, [rip + .Lrkfnzd158]
+                        lea              rsi, [rsp + 0]
+                        mov              edx, 1
                         call             rt_call_arr@PLT
                         add              rsp, 16
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx157_240
                         add              rsp, 16
                         add              rsp, 16
@@ -2242,7 +2242,7 @@ n107_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n108_lit_integer_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 6                         # lit_integer
+                        mov              qword ptr [rsp + 0], 3                         # lit_integer
                         mov              rax, qword ptr [rip + .Lx160_0]
                         mov              qword ptr [rsp + 8], rax                       # lit_integer
                                                                                         jmp   n109_call_α
@@ -2260,12 +2260,12 @@ n109_call_α:
 .Lbynamefnzd55:         .string          "CHAR"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lbynamefnzd55]                    # fn
-                        lea              rsi, [rsp + 0]                                 # args
-                        mov              edx, 1                                         # nargs
+                        lea              rdi, [rip + .Lbynamefnzd55]
+                        lea              rsi, [rsp + 0]
+                        mov              edx, 1
                         call             rt_call_arr@PLT
                         add              rsp, 16
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx161_240
                         add              rsp, 16
                         add              rsp, 16
@@ -2291,7 +2291,7 @@ n110_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n111_lit_string_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 1                         # lit_string
+                        mov              qword ptr [rsp + 0], 2                         # lit_string
                         mov              dword ptr [rsp + 4], 5                         # lit_string
                         mov              rax, qword ptr [rip + .Lx163_0]
                         mov              qword ptr [rsp + 8], rax                       # lit_string
@@ -2312,12 +2312,12 @@ n112_call_α:
 .Lrkfnzd165:            .string          "SNO$MKPAT"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfnzd165]                       # fn
-                        lea              rsi, [rsp + 0]                                 # args
-                        mov              edx, 1                                         # nargs
+                        lea              rdi, [rip + .Lrkfnzd165]
+                        lea              rsi, [rsp + 0]
+                        mov              edx, 1
                         call             rt_call_arr@PLT
                         add              rsp, 16
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx164_240
                         add              rsp, 16
                         add              rsp, 16
@@ -2343,7 +2343,7 @@ n113_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n114_lit_string_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 1                         # lit_string
+                        mov              qword ptr [rsp + 0], 2                         # lit_string
                         mov              dword ptr [rsp + 4], 4                         # lit_string
                         mov              rax, qword ptr [rip + .Lx167_0]
                         mov              qword ptr [rsp + 8], rax                       # lit_string
@@ -2355,7 +2355,7 @@ n114_lit_string_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n115_lit_integer_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 6                         # lit_integer
+                        mov              qword ptr [rsp + 0], 3                         # lit_integer
                         mov              rax, qword ptr [rip + .Lx168_0]
                         mov              qword ptr [rsp + 8], rax                       # lit_integer
                                                                                         jmp   n116_call_α
@@ -2377,12 +2377,12 @@ n116_call_α:
 .Lrkfnzd170:            .string          "SNO$KWSET"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfnzd170]                       # fn
-                        lea              rsi, [rsp + 0]                                 # args
-                        mov              edx, 2                                         # nargs
+                        lea              rdi, [rip + .Lrkfnzd170]
+                        lea              rsi, [rsp + 0]
+                        mov              edx, 2
                         call             rt_call_arr@PLT
                         add              rsp, 32
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx169_240
                         add              rsp, 16
                         add              rsp, 32
@@ -2401,7 +2401,7 @@ n116_call_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n117_lit_string_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 1                         # lit_string
+                        mov              qword ptr [rsp + 0], 2                         # lit_string
                         mov              dword ptr [rsp + 4], 5                         # lit_string
                         mov              rax, qword ptr [rip + .Lx171_0]
                         mov              qword ptr [rsp + 8], rax                       # lit_string
@@ -2422,12 +2422,12 @@ n118_call_α:
 .Lrkfnzd173:            .string          "SNO$NAME"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfnzd173]                       # fn
-                        lea              rsi, [rsp + 0]                                 # args
-                        mov              edx, 1                                         # nargs
+                        lea              rdi, [rip + .Lrkfnzd173]
+                        lea              rsi, [rsp + 0]
+                        mov              edx, 1
                         call             rt_call_arr@PLT
                         add              rsp, 16
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx172_240
                         add              rsp, 16
                         add              rsp, 16
@@ -2443,7 +2443,7 @@ n118_call_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n119_lit_integer_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 6                         # lit_integer
+                        mov              qword ptr [rsp + 0], 3                         # lit_integer
                         mov              rax, qword ptr [rip + .Lx174_0]
                         mov              qword ptr [rsp + 8], rax                       # lit_integer
                                                                                         jmp   n120_lit_string_α
@@ -2452,7 +2452,7 @@ n119_lit_integer_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n120_lit_string_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 1                         # lit_string
+                        mov              qword ptr [rsp + 0], 2                         # lit_string
                         mov              dword ptr [rsp + 4], 15                        # lit_string
                         mov              rax, qword ptr [rip + .Lx175_0]
                         mov              qword ptr [rsp + 8], rax                       # lit_string
@@ -2481,12 +2481,12 @@ n121_call_α:
 .Lbynamefnzd67:         .string          "INPUT"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lbynamefnzd67]                    # fn
-                        lea              rsi, [rsp + 0]                                 # args
-                        mov              edx, 3                                         # nargs
+                        lea              rdi, [rip + .Lbynamefnzd67]
+                        lea              rsi, [rsp + 0]
+                        mov              edx, 3
                         call             rt_call_arr@PLT
                         add              rsp, 48
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx176_240
                         add              rsp, 16
                         add              rsp, 64
@@ -2505,9 +2505,9 @@ n121_call_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n122_var_α:
                         sub              rsp, 16
-                        mov              rdi, qword ptr [rip + .Lx177_0]                # name
+                        mov              rdi, qword ptr [rip + .Lx177_0]
                         call             NV_GET_fn@PLT
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx177_240
                         add              rsp, 16
                                                                                         jmp   n133_lit_string_α
@@ -2611,9 +2611,9 @@ n125_match_head_β:
                         mov              r13, qword ptr [rbp + 64]
                         mov              r14, qword ptr [rbp + 72]
                         mov              r15, qword ptr [rbp + 80]
-                        mov              rdi, r13                                       # sig
-                        mov              rsi, r15                                       # len
-                        mov              rdx, qword ptr [rbp + 88]                      # capgen
+                        mov              rdi, r13
+                        mov              rsi, r15
+                        mov              rdx, qword ptr [rbp + 88]
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + 56]
                         add              rsp, 128
@@ -2626,12 +2626,12 @@ n126_match_patref_α:
                                                                                         jne   .Lx182_11
                         mov              rax, qword ptr [1879052400]                    # C
                         mov              rdx, qword ptr [1879052408]                    # C
-                        cmp              eax, 3
+                        cmp              eax, 8
                                                                                         jne   .Lx182_9
                         mov              rax, qword ptr [rdx + 0]
                         test             rax, rax
                                                                                         jne   .Lx182_10
-                        mov              rdi, rdx                                       # headv
+                        mov              rdi, rdx
                         call             dtp_fn_of@PLT
                                                                                         jmp   .Lx182_10
 .Lx182_9:
@@ -2658,8 +2658,8 @@ n126_match_patref_α:
                         push             r15
                         push             r13
                         sub              rsp, 8
-                        lea              rdi, [rip + .S7]                               # varname
-                        xor              esi, esi                                       # ival_flag
+                        lea              rdi, [rip + .S7]
+                        xor              esi, esi
                         call             rt_defer_open@PLT
 .Lx182_2:
                         test             rax, rax
@@ -2670,14 +2670,14 @@ n126_match_patref_α:
                                                                                         jmp   rax
 .Lx182_7:
                         call             rt_proc_call_epilogue_γ@PLT
-                        mov              rdi, rax                                       # fret
-                        mov              rsi, rdx                                       # fret
+                        mov              rdi, rax
+                        mov              rsi, rdx
                         call             rt_defer_step@PLT
                                                                                         jmp   .Lx182_2
 .Lx182_8:
                         call             rt_proc_call_epilogue_ω@PLT
-                        mov              rdi, rax                                       # fret
-                        mov              rsi, rdx                                       # fret
+                        mov              rdi, rax
+                        mov              rsi, rdx
                         call             rt_defer_step@PLT
                                                                                         jmp   .Lx182_2
 .Lx182_3:
@@ -2685,7 +2685,7 @@ n126_match_patref_α:
                         pop              r13
                         pop              r15
                         pop              r14
-                        mov              edi, r14d                                      # cur_delta
+                        mov              edi, r14d
                         call             rt_defer_close@PLT
                         test             eax, eax
                                                                                         js    n125_match_head_β
@@ -2754,9 +2754,9 @@ n127_match_release_α:
                         mov              r13, qword ptr [rbp + 64]
                         mov              r14, qword ptr [rbp + 72]
                         mov              r15, qword ptr [rbp + 80]
-                        mov              rdi, r13                                       # sig
-                        mov              rsi, r15                                       # len
-                        mov              rdx, qword ptr [rbp + 88]                      # capgen
+                        mov              rdi, r13
+                        mov              rsi, r15
+                        mov              rdx, qword ptr [rbp + 88]
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + 56]
                         add              rsp, 128
@@ -2766,7 +2766,7 @@ n127_match_release_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n128_lit_string_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 1                         # lit_string
+                        mov              qword ptr [rsp + 0], 2                         # lit_string
                         mov              dword ptr [rsp + 4], 14                        # lit_string
                         mov              rax, qword ptr [rip + .Lx185_0]
                         mov              qword ptr [rsp + 8], rax                       # lit_string
@@ -2795,12 +2795,12 @@ n130_call_α:
 .Lrkfnzd188:            .string          "SIZE"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfnzd188]                       # fn
-                        lea              rsi, [rsp + 0]                                 # args
-                        mov              edx, 1                                         # nargs
+                        lea              rdi, [rip + .Lrkfnzd188]
+                        lea              rsi, [rsp + 0]
+                        mov              edx, 1
                         call             rt_call_arr@PLT
                         add              rsp, 16
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx187_240
                         add              rsp, 16
                         add              rsp, 32
@@ -2818,8 +2818,8 @@ n131_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 48]                      # lit_string
                         mov              rsi, qword ptr [rsp + 56]                      # lit_string
-                        mov              rdx, qword ptr [rsp + 16]                      # b
-                        mov              rcx, qword ptr [rsp + 24]                      # b
+                        mov              rdx, qword ptr [rsp + 16]
+                        mov              rcx, qword ptr [rsp + 24]
                         call             str_concat_d@PLT
                         mov              qword ptr [rsp + 0], rax                       # binop
                         mov              qword ptr [rsp + 8], rdx                       # binop
@@ -2828,7 +2828,7 @@ n131_binop_α:
 n132_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # binop
                         mov              rdx, qword ptr [rsp + 8]                       # binop
-                        mov              rdi, qword ptr [rip + .Lx190_0]                # name
+                        mov              rdi, qword ptr [rip + .Lx190_0]
                         call             NV_SET_fn@PLT
                         add              rsp, 64
                                                                                         jmp   main_γ
@@ -2841,7 +2841,7 @@ n132_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n133_lit_string_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 1                         # lit_string
+                        mov              qword ptr [rsp + 0], 2                         # lit_string
                         mov              dword ptr [rsp + 4], 20                        # lit_string
                         mov              rax, qword ptr [rip + .Lx191_0]
                         mov              qword ptr [rsp + 8], rax                       # lit_string
@@ -2854,7 +2854,7 @@ n133_lit_string_α:
 n134_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # lit_string
                         mov              rdx, qword ptr [rsp + 8]                       # lit_string
-                        mov              rdi, qword ptr [rip + .Lx192_0]                # name
+                        mov              rdi, qword ptr [rip + .Lx192_0]
                         call             NV_SET_fn@PLT
                         add              rsp, 16
                                                                                         jmp   main_γ

@@ -34,7 +34,7 @@ main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_lit_integer_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 6                         # lit_integer
+                        mov              qword ptr [rsp + 0], 3                         # lit_integer
                         mov              rax, qword ptr [rip + .Lx20_0]
                         mov              qword ptr [rsp + 8], rax                       # lit_integer
                                                                                         jmp   n1_assign_α
@@ -53,7 +53,7 @@ n1_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n2_lit_integer_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 6                         # lit_integer
+                        mov              qword ptr [rsp + 0], 3                         # lit_integer
                         mov              rax, qword ptr [rip + .Lx22_0]
                         mov              qword ptr [rsp + 8], rax                       # lit_integer
                                                                                         jmp   n3_assign_α
@@ -93,7 +93,7 @@ n6_binop_α:
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
                         call             rt_add@PLT
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx26_240
                         add              rsp, 16
                         add              rsp, 32
@@ -106,7 +106,7 @@ n6_binop_α:
 n7_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # binop
                         mov              rdx, qword ptr [rsp + 8]                       # binop
-                        mov              rdi, qword ptr [rip + .Lx27_0]                 # name
+                        mov              rdi, qword ptr [rip + .Lx27_0]
                         call             NV_SET_fn@PLT
                         add              rsp, 48
                                                                                         jmp   n8_var_α
@@ -140,7 +140,7 @@ n10_binop_α:
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
                         call             rt_sub@PLT
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx30_240
                         add              rsp, 16
                         add              rsp, 32
@@ -153,7 +153,7 @@ n10_binop_α:
 n11_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # binop
                         mov              rdx, qword ptr [rsp + 8]                       # binop
-                        mov              rdi, qword ptr [rip + .Lx31_0]                 # name
+                        mov              rdi, qword ptr [rip + .Lx31_0]
                         call             NV_SET_fn@PLT
                         add              rsp, 48
                                                                                         jmp   n12_var_α
@@ -187,7 +187,7 @@ n14_binop_α:
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
                         call             rt_mul@PLT
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx34_240
                         add              rsp, 16
                         add              rsp, 32
@@ -200,7 +200,7 @@ n14_binop_α:
 n15_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # binop
                         mov              rdx, qword ptr [rsp + 8]                       # binop
-                        mov              rdi, qword ptr [rip + .Lx35_0]                 # name
+                        mov              rdi, qword ptr [rip + .Lx35_0]
                         call             NV_SET_fn@PLT
                         add              rsp, 48
                                                                                         jmp   n16_var_α
@@ -234,7 +234,7 @@ n18_binop_α:
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
                         call             rt_div@PLT
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx38_240
                         add              rsp, 16
                         add              rsp, 32
@@ -247,7 +247,7 @@ n18_binop_α:
 n19_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # binop
                         mov              rdx, qword ptr [rsp + 8]                       # binop
-                        mov              rdi, qword ptr [rip + .Lx39_0]                 # name
+                        mov              rdi, qword ptr [rip + .Lx39_0]
                         call             NV_SET_fn@PLT
                         add              rsp, 48
                                                                                         jmp   main_γ
