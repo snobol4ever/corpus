@@ -623,10 +623,11 @@ n41_assign_α:
 # INNER   S PAT = ''                          :F(OUTER)
 #-----------------------------------------------------------------------------------------------------------------------
 n42_var_α:
+                        sub              rsp, 176
                         mov              rax, qword ptr [1879052352]
                         mov              rdx, qword ptr [1879052360]
-                        mov              qword ptr [rsp + 656], rax
-                        mov              qword ptr [rsp + 664], rdx
+                        mov              qword ptr [rsp + 160], rax
+                        mov              qword ptr [rsp + 168], rdx
                                                                                         jmp   n43_match_head_α
 #-----------------------------------------------------------------------------------------------------------------------
 n43_match_head_α:
@@ -684,6 +685,7 @@ n43_match_head_β:
                         mov              rdx, qword ptr [rbp + 584]
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + 552]
+                        add              rsp, 176
                                                                                         jmp   n28_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n44_match_patref_α:
@@ -829,10 +831,10 @@ n45_match_release_α:
                                                                                         jmp   n46_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n46_lit_string_α:
-                        mov              qword ptr [rsp + 608], 1
-                        mov              dword ptr [rsp + 612], 0
+                        mov              qword ptr [rsp + 112], 1
+                        mov              dword ptr [rsp + 116], 0
                         mov              rax, qword ptr [rip + .Lx107_0]
-                        mov              qword ptr [rsp + 616], rax
+                        mov              qword ptr [rsp + 120], rax
                                                                                         jmp   n47_match_replace_α
 .Lx107_0:
                         .quad            .Lx107_0_s
@@ -854,6 +856,7 @@ n47_match_replace_α:
                         .string          "S"
 .Lx109_1:
                         mov              rbp, qword ptr [rbp + 552]
+                        add              rsp, 176
                                                                                         jmp   n48_var_α
 #=======================================================================================================================
 #     RESULT = RESULT WORD               :(INNER)

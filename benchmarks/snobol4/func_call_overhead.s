@@ -90,9 +90,9 @@ proc_INC_α:
 proc_INC_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n13_save_restore_α:
-                        mov              rdi, qword ptr [rsp + 40]
-                        mov              rsi, qword ptr [rsp + 48]
-                        lea              rdx, [rsp + 64]
+                        mov              rdi, rcx
+                        mov              rsi, rdx
+                        lea              rdx, [rsp + 0]
                         mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n14_goto_deferred_α
@@ -536,10 +536,11 @@ n40_assign_α:
 #     R = INC(R)                         :(LOOP)
 #-----------------------------------------------------------------------------------------------------------------------
 n41_var_α:
+                        sub              rsp, 336
                         mov              rax, qword ptr [1879052336]
                         mov              rdx, qword ptr [1879052344]
-                        mov              qword ptr [rsp + 528], rax
-                        mov              qword ptr [rsp + 536], rdx
+                        mov              qword ptr [rsp + 320], rax
+                        mov              qword ptr [rsp + 328], rdx
                                                                                         jmp   n42_call_α
 #-----------------------------------------------------------------------------------------------------------------------
 n42_call_α:
@@ -598,16 +599,16 @@ n42_call_α:
                         mov              eax, dword ptr [r11 + 0]
                         test             eax, eax
                                                                                         jne   .Lx95_20
-                        mov              rax, qword ptr [rsp + 528]
-                        mov              rdx, qword ptr [rsp + 536]
+                        mov              rax, qword ptr [rsp + 320]
+                        mov              rdx, qword ptr [rsp + 328]
                         lea              r10, [rip + g_call_args]
                         mov              qword ptr [r10 + 0], rax
                         mov              qword ptr [r10 + 8], rdx
                                                                                         jmp   .Lx95_21
 .Lx95_20:
                         mov              edi, 0
-                        mov              rsi, qword ptr [rsp + 528]
-                        mov              rdx, qword ptr [rsp + 536]
+                        mov              rsi, qword ptr [rsp + 320]
+                        mov              rdx, qword ptr [rsp + 328]
                         call             rt_arg_stage@PLT
 .Lx95_21:
                         mov              rdi, qword ptr [rip + .Lx95_0]
@@ -628,10 +629,13 @@ n42_call_α:
 .Lx95_1:
                         call             rt_faildescr@PLT
 .Lx95_2:
-                        mov              qword ptr [rsp + 480], rax
-                        mov              qword ptr [rsp + 488], rdx
+                        mov              qword ptr [rsp + 272], rax
+                        mov              qword ptr [rsp + 280], rdx
                         cmp              eax, 99
-                                                                                        je    n31_var_α
+                                                                                        jne   .Lx95_240
+                        add              rsp, 336
+                                                                                        jmp   n31_var_α
+.Lx95_240:
                                                                                         jmp   n43_assign_α
 n42_call_β:
                                                                                         jmp   n31_var_α
@@ -641,10 +645,11 @@ n42_call_β:
                         .string          "INC"
 #-----------------------------------------------------------------------------------------------------------------------
 n43_assign_α:
-                        mov              rax, qword ptr [rsp + 480]
-                        mov              rdx, qword ptr [rsp + 488]
+                        mov              rax, qword ptr [rsp + 272]
+                        mov              rdx, qword ptr [rsp + 280]
                         mov              qword ptr [1879052336], rax
                         mov              qword ptr [1879052344], rdx
+                        add              rsp, 336
                                                                                         jmp   n31_var_α
 #=======================================================================================================================
 # DONE    T2 = TIME()

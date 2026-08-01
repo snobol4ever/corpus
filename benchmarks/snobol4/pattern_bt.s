@@ -635,10 +635,11 @@ n44_assign_α:
 # LOOP    S PAT                           :F(DONE)
 #-----------------------------------------------------------------------------------------------------------------------
 n45_var_α:
+                        sub              rsp, 144
                         mov              rax, qword ptr [1879052320]
                         mov              rdx, qword ptr [1879052328]
-                        mov              qword ptr [rsp + 560], rax
-                        mov              qword ptr [rsp + 568], rdx
+                        mov              qword ptr [rsp + 128], rax
+                        mov              qword ptr [rsp + 136], rdx
                                                                                         jmp   n46_match_head_α
 #-----------------------------------------------------------------------------------------------------------------------
 n46_match_head_α:
@@ -696,6 +697,7 @@ n46_match_head_β:
                         mov              rdx, qword ptr [rbp + 520]
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + 488]
+                        add              rsp, 144
                                                                                         jmp   n59_call_α
 #-----------------------------------------------------------------------------------------------------------------------
 n47_match_patref_α:
@@ -838,6 +840,7 @@ n48_match_release_α:
                         mov              rdx, qword ptr [rbp + 520]
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + 488]
+                        add              rsp, 144
                                                                                         jmp   n49_var_α
 #=======================================================================================================================
 #     N = LT(N, 500000) N + 1            :S(LOOP)
