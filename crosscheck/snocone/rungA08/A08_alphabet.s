@@ -19,8 +19,8 @@ n0_keyword_snobol4_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rip + .Lx9_0]                  # sval
                         call             rt_keyword_read_snobol4@PLT
-                        mov              qword ptr [rsp + 0], rax                       # keyword_snobol4
-                        mov              qword ptr [rsp + 8], rdx                       # keyword_snobol4
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1_call_α
 .Lx9_0:
                         .quad            .Lx9_0_s
@@ -48,8 +48,8 @@ n1_call_α:
                         add              rsp, 16
                                                                                         jmp   n3_keyword_snobol4_α
 .Lx10_240:
-                        mov              qword ptr [rsp + 0], rax                       # call
-                        mov              qword ptr [rsp + 8], rdx                       # call
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n2_assign_α
 n1_call_β:
                         add              rsp, 16
@@ -57,7 +57,7 @@ n1_call_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n2_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # call
-                        mov              rdx, qword ptr [rsp + 8]                       # call
+                        mov              rdx, qword ptr [rsp + 8]                       # val
                         mov              rdi, qword ptr [rip + .Lx12_0]                 # name
                         call             NV_SET_fn@PLT
                                                                                         jmp   n3_keyword_snobol4_α
@@ -70,8 +70,8 @@ n3_keyword_snobol4_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rip + .Lx13_0]                 # sval
                         call             rt_keyword_read_snobol4@PLT
-                        mov              qword ptr [rsp + 0], rax                       # keyword_snobol4
-                        mov              qword ptr [rsp + 8], rdx                       # keyword_snobol4
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n4_call_α
 .Lx13_0:
                         .quad            .Lx13_0_s
@@ -99,8 +99,8 @@ n4_call_α:
                         add              rsp, 16
                                                                                         jmp   n6_keyword_snobol4_α
 .Lx14_240:
-                        mov              qword ptr [rsp + 0], rax                       # call
-                        mov              qword ptr [rsp + 8], rdx                       # call
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n5_assign_α
 n4_call_β:
                         add              rsp, 16
@@ -108,7 +108,7 @@ n4_call_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n5_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # call
-                        mov              rdx, qword ptr [rsp + 8]                       # call
+                        mov              rdx, qword ptr [rsp + 8]                       # val
                         mov              rdi, qword ptr [rip + .Lx16_0]                 # name
                         call             NV_SET_fn@PLT
                                                                                         jmp   n6_keyword_snobol4_α
@@ -121,8 +121,8 @@ n6_keyword_snobol4_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rip + .Lx17_0]                 # sval
                         call             rt_keyword_read_snobol4@PLT
-                        mov              qword ptr [rsp + 0], rax                       # keyword_snobol4
-                        mov              qword ptr [rsp + 8], rdx                       # keyword_snobol4
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n7_call_α
 .Lx17_0:
                         .quad            .Lx17_0_s
@@ -151,8 +151,8 @@ n7_call_α:
                         add              rsp, 80
                                                                                         jmp   main_γ
 .Lx18_240:
-                        mov              qword ptr [rsp + 0], rax                       # call
-                        mov              qword ptr [rsp + 8], rdx                       # call
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n8_assign_α
 n7_call_β:
                         add              rsp, 16
@@ -161,7 +161,7 @@ n7_call_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n8_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # call
-                        mov              rdx, qword ptr [rsp + 8]                       # call
+                        mov              rdx, qword ptr [rsp + 8]                       # val
                         mov              rdi, qword ptr [rip + .Lx20_0]                 # name
                         call             NV_SET_fn@PLT
                         add              rsp, 96
