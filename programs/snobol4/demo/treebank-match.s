@@ -3,6 +3,11 @@
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_PAT$0_α
 proc_PAT$0_α:
+                        sub              rsp, 80
+                        mov              qword ptr [rsp + 56], rcx
+                        mov              qword ptr [rsp + 64], rdx
+                        mov              qword ptr [rsp + 72], rbp
+                        mov              rbp, rsp
                         mov              qword ptr [rsp + 48], r8
                         mov              dword ptr [rsp + 40], r14d
 proc_PAT$0_attempt:
@@ -101,19 +106,26 @@ proc_PAT$0_β:
                                                                                         jmp   qword ptr [rbp + 16]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$0_γ:
-                        mov              rsp, rbp
-                        pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        push             rbp
+                        lea              rax, [rip + proc_PAT$0_res]
+                        push             rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              rbp, qword ptr [rbp + 72]
+                                                                                        jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$0_ω:
-                        mov              rsp, rbp
-                        pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        mov              rax, qword ptr [rbp + 64]
+                        lea              rsp, [rbp + 80]
+                        mov              rbp, qword ptr [rbp + 72]
+                                                                                        jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_PAT$1_α
 proc_PAT$1_α:
+                        sub              rsp, 112
+                        mov              qword ptr [rsp + 88], rcx
+                        mov              qword ptr [rsp + 96], rdx
+                        mov              qword ptr [rsp + 104], rbp
+                        mov              rbp, rsp
                         mov              qword ptr [rsp + 80], r8
                         mov              dword ptr [rsp + 72], r14d
 proc_PAT$1_attempt:
@@ -228,19 +240,26 @@ proc_PAT$1_β:
                                                                                         jmp   qword ptr [rbp + 48]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$1_γ:
-                        mov              rsp, rbp
-                        pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        push             rbp
+                        lea              rax, [rip + proc_PAT$1_res]
+                        push             rax
+                        mov              rax, qword ptr [rbp + 88]
+                        mov              rbp, qword ptr [rbp + 104]
+                                                                                        jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$1_ω:
-                        mov              rsp, rbp
-                        pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        mov              rax, qword ptr [rbp + 96]
+                        lea              rsp, [rbp + 112]
+                        mov              rbp, qword ptr [rbp + 104]
+                                                                                        jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_PAT$2_α
 proc_PAT$2_α:
+                        sub              rsp, 304
+                        mov              qword ptr [rsp + 280], rcx
+                        mov              qword ptr [rsp + 288], rdx
+                        mov              qword ptr [rsp + 296], rbp
+                        mov              rbp, rsp
                         mov              qword ptr [rsp + 272], r8
                         mov              dword ptr [rsp + 264], r14d
 proc_PAT$2_attempt:
@@ -721,19 +740,26 @@ proc_PAT$2_β:
                                                                                         jmp   qword ptr [rbp + 240]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$2_γ:
-                        mov              rsp, rbp
-                        pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        push             rbp
+                        lea              rax, [rip + proc_PAT$2_res]
+                        push             rax
+                        mov              rax, qword ptr [rbp + 280]
+                        mov              rbp, qword ptr [rbp + 296]
+                                                                                        jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$2_ω:
-                        mov              rsp, rbp
-                        pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        mov              rax, qword ptr [rbp + 288]
+                        lea              rsp, [rbp + 304]
+                        mov              rbp, qword ptr [rbp + 296]
+                                                                                        jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_PAT$3_α
 proc_PAT$3_α:
+                        sub              rsp, 336
+                        mov              qword ptr [rsp + 312], rcx
+                        mov              qword ptr [rsp + 320], rdx
+                        mov              qword ptr [rsp + 328], rbp
+                        mov              rbp, rsp
                         mov              qword ptr [rsp + 304], r8
                         mov              dword ptr [rsp + 296], r14d
 proc_PAT$3_attempt:
@@ -1079,16 +1105,18 @@ proc_PAT$3_β:
                                                                                         jmp   qword ptr [rbp + 272]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$3_γ:
-                        mov              rsp, rbp
-                        pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        push             rbp
+                        lea              rax, [rip + proc_PAT$3_res]
+                        push             rax
+                        mov              rax, qword ptr [rbp + 312]
+                        mov              rbp, qword ptr [rbp + 328]
+                                                                                        jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$3_ω:
-                        mov              rsp, rbp
-                        pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        mov              rax, qword ptr [rbp + 320]
+                        lea              rsp, [rbp + 336]
+                        mov              rbp, qword ptr [rbp + 328]
+                                                                                        jmp   rax
 proc_startup:
                         sub              rsp, 8
                         .section         .rodata
@@ -1613,22 +1641,25 @@ n82_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n83_var_α:
                         sub              rsp, 128
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052352]
                         mov              rdx, qword ptr [1879052360]
-                        mov              qword ptr [rsp + 112], rax
-                        mov              qword ptr [rsp + 120], rdx
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n84_match_head_α
 #-----------------------------------------------------------------------------------------------------------------------
 n84_match_head_α:
+                        mov              rdi, qword ptr [rsp + 0]
+                        mov              rsi, qword ptr [rsp + 8]
+                        add              rsp, 16
+                        mov              qword ptr [rsp + 616], rbp
+                        mov              rbp, rsp
                         mov              qword ptr [rbp + 624], r13
                         mov              qword ptr [rbp + 632], r14
                         mov              qword ptr [rbp + 640], r15
                         lea              rcx, [rip + g_cap_gen]
                         mov              eax, dword ptr [rcx + 0]
                         mov              qword ptr [rbp + 648], rax
-                        mov              qword ptr [rbp + 616], rbp
-                        mov              rdi, qword ptr [rbp + 672]
-                        mov              rsi, qword ptr [rbp + 680]
                         call             rt_match_enter@PLT
                         mov              r13, rax
                         mov              r15, rdx

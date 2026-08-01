@@ -197,12 +197,14 @@ n6_match_replace_α:
 # 	'0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,' UNITS
 #-----------------------------------------------------------------------------------------------------------------------
 n7_lit_string_α:
-                        mov              qword ptr [rsp + 448], 1
-                        mov              dword ptr [rsp + 452], 40
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 1
+                        mov              dword ptr [rsp + 4], 40
                         mov              rax, qword ptr [rip + .Lx41_0]
-                        mov              qword ptr [rsp + 456], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n8_match_head_α
 n7_lit_string_β:
+                        add              rsp, 16
                                                                                         jmp   n19_save_restore_α
 .Lx41_0:
                         .quad            .Lx41_0_s
@@ -210,15 +212,17 @@ n7_lit_string_β:
                         .string          "0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
 #-----------------------------------------------------------------------------------------------------------------------
 n8_match_head_α:
+                        mov              rdi, qword ptr [rsp + 0]
+                        mov              rsi, qword ptr [rsp + 8]
+                        add              rsp, 16
+                        mov              qword ptr [rsp + 328], rbp
+                        mov              rbp, rsp
                         mov              qword ptr [rbp + 336], r13
                         mov              qword ptr [rbp + 344], r14
                         mov              qword ptr [rbp + 352], r15
                         lea              rcx, [rip + g_cap_gen]
                         mov              eax, dword ptr [rcx + 0]
                         mov              qword ptr [rbp + 360], rax
-                        mov              qword ptr [rbp + 328], rbp
-                        mov              rdi, qword ptr [rbp + 448]
-                        mov              rsi, qword ptr [rbp + 456]
                         call             rt_match_enter@PLT
                         mov              r13, rax
                         mov              r15, rdx
@@ -267,7 +271,6 @@ n8_match_head_β:
                         mov              rsi, r15
                         mov              rdx, qword ptr [rbp + 360]
                         call             rt_match_ctx_restore@PLT
-                        mov              rbp, qword ptr [rbp + 328]
                                                                                         jmp   n19_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n9_match_sequence_α:
@@ -338,7 +341,6 @@ n10_match_release_α:
                         mov              rsi, r15
                         mov              rdx, qword ptr [rbp + 360]
                         call             rt_match_ctx_restore@PLT
-                        mov              rbp, qword ptr [rbp + 328]
                                                                                         jmp   n11_var_α
 #=======================================================================================================================
 # 	'0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,' UNITS
@@ -2190,12 +2192,14 @@ n147_match_replace_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n148_lit_string_α:
                         sub              rsp, 192
-                        mov              qword ptr [rsp + 176], 1
-                        mov              dword ptr [rsp + 180], 40
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 1
+                        mov              dword ptr [rsp + 4], 40
                         mov              rax, qword ptr [rip + .Lx217_0]
-                        mov              qword ptr [rsp + 184], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n149_match_head_α
 n148_lit_string_β:
+                        add              rsp, 16
                         add              rsp, 192
                                                                                         jmp   n160_save_restore_α
 .Lx217_0:
@@ -2204,15 +2208,17 @@ n148_lit_string_β:
                         .string          "0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,"
 #-----------------------------------------------------------------------------------------------------------------------
 n149_match_head_α:
+                        mov              rdi, qword ptr [rsp + 0]
+                        mov              rsi, qword ptr [rsp + 8]
+                        add              rsp, 16
+                        mov              qword ptr [rsp + 328], rbp
+                        mov              rbp, rsp
                         mov              qword ptr [rbp + 336], r13
                         mov              qword ptr [rbp + 344], r14
                         mov              qword ptr [rbp + 352], r15
                         lea              rcx, [rip + g_cap_gen]
                         mov              eax, dword ptr [rcx + 0]
                         mov              qword ptr [rbp + 360], rax
-                        mov              qword ptr [rbp + 328], rbp
-                        mov              rdi, qword ptr [rbp + 448]
-                        mov              rsi, qword ptr [rbp + 456]
                         call             rt_match_enter@PLT
                         mov              r13, rax
                         mov              r15, rdx
