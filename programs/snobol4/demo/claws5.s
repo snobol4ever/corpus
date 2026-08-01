@@ -4294,16 +4294,18 @@ proc_new_sent_β:
                                                                                         jmp   proc_new_sent_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_new_sent_γ:
-                        mov              rsp, rbp
-                        pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_new_sent_ω:
-                        mov              rsp, rbp
-                        pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 8]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_add_tok_α
 proc_add_tok_α:
@@ -4336,16 +4338,18 @@ proc_add_tok_β:
                                                                                         jmp   proc_add_tok_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_add_tok_γ:
-                        mov              rsp, rbp
-                        pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_add_tok_ω:
-                        mov              rsp, rbp
-                        pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 8]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_pp_mem_α
 proc_pp_mem_α:
@@ -4378,16 +4382,18 @@ proc_pp_mem_β:
                                                                                         jmp   proc_pp_mem_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_pp_mem_γ:
-                        mov              rsp, rbp
-                        pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_pp_mem_ω:
-                        mov              rsp, rbp
-                        pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 8]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_PAT$0_α
 proc_PAT$0_α:

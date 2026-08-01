@@ -8019,16 +8019,18 @@ proc_jutf8_β:
                                                                                         jmp   proc_jutf8_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_jutf8_γ:
-                        mov              rsp, rbp
-                        pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_jutf8_ω:
-                        mov              rsp, rbp
-                        pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 8]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_jdec_α
 proc_jdec_α:
@@ -8061,16 +8063,18 @@ proc_jdec_β:
                                                                                         jmp   proc_jdec_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_jdec_γ:
-                        mov              rsp, rbp
-                        pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_jdec_ω:
-                        mov              rsp, rbp
-                        pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 8]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_vpush_α
 proc_vpush_α:
@@ -8103,16 +8107,18 @@ proc_vpush_β:
                                                                                         jmp   proc_vpush_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_vpush_γ:
-                        mov              rsp, rbp
-                        pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_vpush_ω:
-                        mov              rsp, rbp
-                        pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 8]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_pobj_α
 proc_pobj_α:
@@ -8145,16 +8151,18 @@ proc_pobj_β:
                                                                                         jmp   proc_pobj_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_pobj_γ:
-                        mov              rsp, rbp
-                        pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_pobj_ω:
-                        mov              rsp, rbp
-                        pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 8]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_parr_α
 proc_parr_α:
@@ -8187,16 +8195,18 @@ proc_parr_β:
                                                                                         jmp   proc_parr_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_parr_γ:
-                        mov              rsp, rbp
-                        pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_parr_ω:
-                        mov              rsp, rbp
-                        pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 8]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_ekey_α
 proc_ekey_α:
@@ -8229,16 +8239,18 @@ proc_ekey_β:
                                                                                         jmp   proc_ekey_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_ekey_γ:
-                        mov              rsp, rbp
-                        pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_ekey_ω:
-                        mov              rsp, rbp
-                        pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 8]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_eobj_α
 proc_eobj_α:
@@ -8271,16 +8283,18 @@ proc_eobj_β:
                                                                                         jmp   proc_eobj_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_eobj_γ:
-                        mov              rsp, rbp
-                        pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_eobj_ω:
-                        mov              rsp, rbp
-                        pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 8]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_earr_α
 proc_earr_α:
@@ -8313,16 +8327,18 @@ proc_earr_β:
                                                                                         jmp   proc_earr_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_earr_γ:
-                        mov              rsp, rbp
-                        pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_earr_ω:
-                        mov              rsp, rbp
-                        pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 8]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_estr_α
 proc_estr_α:
@@ -8355,16 +8371,18 @@ proc_estr_β:
                                                                                         jmp   proc_estr_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_estr_γ:
-                        mov              rsp, rbp
-                        pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_estr_ω:
-                        mov              rsp, rbp
-                        pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 8]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_enum_α
 proc_enum_α:
@@ -8397,16 +8415,18 @@ proc_enum_β:
                                                                                         jmp   proc_enum_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_enum_γ:
-                        mov              rsp, rbp
-                        pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_enum_ω:
-                        mov              rsp, rbp
-                        pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 8]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_etru_α
 proc_etru_α:
@@ -8439,16 +8459,18 @@ proc_etru_β:
                                                                                         jmp   proc_etru_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_etru_γ:
-                        mov              rsp, rbp
-                        pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_etru_ω:
-                        mov              rsp, rbp
-                        pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 8]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_efal_α
 proc_efal_α:
@@ -8481,16 +8503,18 @@ proc_efal_β:
                                                                                         jmp   proc_efal_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_efal_γ:
-                        mov              rsp, rbp
-                        pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_efal_ω:
-                        mov              rsp, rbp
-                        pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 8]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_enul_α
 proc_enul_α:
@@ -8523,16 +8547,18 @@ proc_enul_β:
                                                                                         jmp   proc_enul_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_enul_γ:
-                        mov              rsp, rbp
-                        pop              rbp
-                        xor              edi, edi
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 0]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 proc_enul_ω:
-                        mov              rsp, rbp
-                        pop              rbp
-                        mov              edi, 1
-                        call             exit@PLT
+                        call             rt_flat_ret_snap@PLT
+                        mov              rcx, qword ptr [rax + 8]
+                        mov              rbp, qword ptr [rax + 24]
+                        mov              rsp, qword ptr [rax + 16]
+                                                                                        jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_PAT$0_α
 proc_PAT$0_α:
