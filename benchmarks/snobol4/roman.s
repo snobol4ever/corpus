@@ -3,23 +3,6 @@
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_LBL__ROMAN_α
 proc_LBL__ROMAN_α:
-                        .global          proc_LBL__ROMAN_α
-                        .global          proc_LBL__ROMAN_β
-                        .global          proc_LBL__ROMAN_γ
-                        .global          proc_LBL__ROMAN_ω
-                        sub              rsp, 1328
-                        mov              [rsp + 1304], rcx
-                        mov              [rsp + 1312], rdx
-                        mov              [rsp + 1320], rbp
-                        mov              rbp, rsp
-                        mov              qword ptr [rsp], 0
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 432], 0
-                        mov              qword ptr [rsp + 440], 0
-                        mov              qword ptr [rsp + 624], 0
-                        mov              qword ptr [rsp + 632], 0
-                        mov              qword ptr [rsp + 1280], 0
-                        mov              qword ptr [rsp + 1288], 0
 proc_LBL__ROMAN_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_goto_α:
@@ -556,17 +539,11 @@ n19_save_restore_α:
                                                                                         jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 n20_match_assign_save_α:
-                        sub              rsp, 32
-                        lea              rdi, [rbp + 624]
-                        mov              esi, r14d
-                        call             rt_cap_push@PLT
-                        add              rsp, 32
+                        sub              rsp, 16
+                        mov              dword ptr [rsp + 0], r14d
                                                                                         jmp   n21_match_break_α
 n20_match_assign_save_β:
-                        sub              rsp, 32
-                        lea              rdi, [rbp + 624]
-                        call             rt_cap_pop@PLT
-                        add              rsp, 32
+                        add              rsp, 16
                                                                                         jmp   n23_match_patref_β
 #-----------------------------------------------------------------------------------------------------------------------
 n21_match_break_α:
@@ -576,7 +553,8 @@ n21_match_break_α:
                         cmp              ecx, r15d
                                                                                         jl    .Lx63_237
                         add              rsp, 16
-                                                                                        jmp   n20_match_assign_save_β
+                        add              rsp, 16
+                                                                                        jmp   n23_match_patref_β
 .Lx63_237:
                         movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 44
@@ -585,7 +563,8 @@ n21_match_break_α:
                         cmp              ecx, r15d
                                                                                         jl    .Lx63_238
                         add              rsp, 16
-                                                                                        jmp   n20_match_assign_save_β
+                        add              rsp, 16
+                                                                                        jmp   n23_match_patref_β
 .Lx63_238:
                         movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 44
@@ -594,7 +573,8 @@ n21_match_break_α:
                         cmp              ecx, r15d
                                                                                         jl    .Lx63_239
                         add              rsp, 16
-                                                                                        jmp   n20_match_assign_save_β
+                        add              rsp, 16
+                                                                                        jmp   n23_match_patref_β
 .Lx63_239:
                         movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 44
@@ -603,7 +583,8 @@ n21_match_break_α:
                         cmp              ecx, r15d
                                                                                         jl    .Lx63_240
                         add              rsp, 16
-                                                                                        jmp   n20_match_assign_save_β
+                        add              rsp, 16
+                                                                                        jmp   n23_match_patref_β
 .Lx63_240:
                         movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 44
@@ -617,11 +598,11 @@ n21_match_break_α:
 n21_match_break_β:
                         mov              r14d, dword ptr [rsp + 0]
                         add              rsp, 16
-                                                                                        jmp   n20_match_assign_save_β
+                        add              rsp, 16
+                                                                                        jmp   n23_match_patref_β
 #-----------------------------------------------------------------------------------------------------------------------
 n22_match_assign_cond_α:
-                        lea              rdi, [rbp + 624]
-                        call             rt_cap_top@PLT
+                        mov              eax, dword ptr [rsp + 16]
                         lea              rcx, [rip + .S0]
                         mov              r10, qword ptr [1879048192]
                         mov              qword ptr [r10 + 0], rcx
@@ -787,32 +768,9 @@ proc_LBL__ROMAN_β:
                                                                                         jmp   proc_LBL__ROMAN_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__ROMAN_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 1304]
-                        lea              rsp, [rbp + 1328]
-                        mov              rbp, [rbp + 1320]
-                                                                                        jmp   rax
-#-----------------------------------------------------------------------------------------------------------------------
-proc_LBL__ROMAN_ω:
-                        mov              rax, [rbp + 1312]
-                        lea              rsp, [rbp + 1328]
-                        mov              rbp, [rbp + 1320]
-                                                                                        jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_ROMAN_α
 proc_ROMAN_α:
-                        .global          proc_ROMAN_α
-                        .global          proc_ROMAN_β
-                        .global          proc_ROMAN_γ
-                        .global          proc_ROMAN_ω
-                        sub              rsp, 64
-                        mov              [rsp + 40], rcx
-                        mov              [rsp + 48], rdx
-                        mov              rdi, rsp
-                        mov              ecx, 32
-                        xor              eax, eax
-                        rep stosb
 proc_ROMAN_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n76_save_restore_α:
@@ -842,16 +800,6 @@ proc_ROMAN_β:
                                                                                         jmp   proc_ROMAN_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_ROMAN_γ:
-                        mov              rdi, [rsp]
-                        mov              rsi, [rsp + 8]
-                        mov              rax, [rsp + 40]
-                        add              rsp, 64
-                                                                                        jmp   rax
-#-----------------------------------------------------------------------------------------------------------------------
-proc_ROMAN_ω:
-                        mov              rax, [rsp + 48]
-                        add              rsp, 64
-                                                                                        jmp   rax
 proc_startup:
                         sub              rsp, 8
                         .section         .rodata
@@ -939,17 +887,6 @@ main:
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
-                        .global          main_α
-                        .global          main_β
-                        .global          main_γ
-                        .global          main_ω
-                        sub              rsp, 1288
-                        mov              rdi, rsp
-                        mov              ecx, 1288
-                        xor              eax, eax
-                        rep stosb
-                        mov              [rsp + 1280], rbp
-                        mov              rbp, rsp
 main_α_body:
 #=======================================================================================================================
 #     &TRIM = 1
@@ -2170,17 +2107,11 @@ n136_save_restore_α:
                                                                                         jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 n137_match_assign_save_α:
-                        sub              rsp, 32
-                        lea              rdi, [rbp + 624]
-                        mov              esi, r14d
-                        call             rt_cap_push@PLT
-                        add              rsp, 32
+                        sub              rsp, 16
+                        mov              dword ptr [rsp + 0], r14d
                                                                                         jmp   n138_match_break_α
 n137_match_assign_save_β:
-                        sub              rsp, 32
-                        lea              rdi, [rbp + 624]
-                        call             rt_cap_pop@PLT
-                        add              rsp, 32
+                        add              rsp, 16
                                                                                         jmp   n140_match_patref_β
 #-----------------------------------------------------------------------------------------------------------------------
 n138_match_break_α:
@@ -2190,7 +2121,8 @@ n138_match_break_α:
                         cmp              ecx, r15d
                                                                                         jl    .Lx225_237
                         add              rsp, 16
-                                                                                        jmp   n137_match_assign_save_β
+                        add              rsp, 16
+                                                                                        jmp   n140_match_patref_β
 .Lx225_237:
                         movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 44
@@ -2199,7 +2131,8 @@ n138_match_break_α:
                         cmp              ecx, r15d
                                                                                         jl    .Lx225_238
                         add              rsp, 16
-                                                                                        jmp   n137_match_assign_save_β
+                        add              rsp, 16
+                                                                                        jmp   n140_match_patref_β
 .Lx225_238:
                         movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 44
@@ -2208,7 +2141,8 @@ n138_match_break_α:
                         cmp              ecx, r15d
                                                                                         jl    .Lx225_239
                         add              rsp, 16
-                                                                                        jmp   n137_match_assign_save_β
+                        add              rsp, 16
+                                                                                        jmp   n140_match_patref_β
 .Lx225_239:
                         movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 44
@@ -2217,7 +2151,8 @@ n138_match_break_α:
                         cmp              ecx, r15d
                                                                                         jl    .Lx225_240
                         add              rsp, 16
-                                                                                        jmp   n137_match_assign_save_β
+                        add              rsp, 16
+                                                                                        jmp   n140_match_patref_β
 .Lx225_240:
                         movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 44
@@ -2231,11 +2166,11 @@ n138_match_break_α:
 n138_match_break_β:
                         mov              r14d, dword ptr [rsp + 0]
                         add              rsp, 16
-                                                                                        jmp   n137_match_assign_save_β
+                        add              rsp, 16
+                                                                                        jmp   n140_match_patref_β
 #-----------------------------------------------------------------------------------------------------------------------
 n139_match_assign_cond_α:
-                        lea              rdi, [rbp + 624]
-                        call             rt_cap_top@PLT
+                        mov              eax, dword ptr [rsp + 16]
                         lea              rcx, [rip + .S0]
                         mov              r10, qword ptr [1879048192]
                         mov              qword ptr [r10 + 0], rcx
@@ -2407,20 +2342,6 @@ main_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
-                        mov              eax, 1
-                        xor              edx, edx
-                        mov              rsp, rbp
-                        mov              rbp, [rsp + 1280]
-                        add              rsp, 1288
-                        ret
-#-----------------------------------------------------------------------------------------------------------------------
-main_ω:
-                        mov              rsp, rbp
-                        mov              eax, 99
-                        xor              edx, edx
-                        mov              rbp, [rsp + 1280]
-                        add              rsp, 1288
-                        ret
                         .section         .rodata
 .S0:                    .string          "T"
                         .text
