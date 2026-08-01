@@ -39,8 +39,8 @@ n2_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # lit_real
                         mov              rsi, qword ptr [rsp + 40]                      # lit_real
-                        mov              rdx, qword ptr [rsp + 16]
-                        mov              rcx, qword ptr [rsp + 24]
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_real
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_real
                         call             rt_add@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx53_240
@@ -146,8 +146,8 @@ n9_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # lit_real
                         mov              rsi, qword ptr [rsp + 40]                      # lit_real
-                        mov              rdx, qword ptr [rsp + 16]
-                        mov              rcx, qword ptr [rsp + 24]
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_real
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_real
                         call             rt_sub@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx61_240
@@ -253,8 +253,8 @@ n16_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # lit_real
                         mov              rsi, qword ptr [rsp + 40]                      # lit_real
-                        mov              rdx, qword ptr [rsp + 16]
-                        mov              rcx, qword ptr [rsp + 24]
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_real
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_real
                         call             rt_mul@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx69_240
@@ -360,8 +360,8 @@ n23_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # lit_real
                         mov              rsi, qword ptr [rsp + 40]                      # lit_real
-                        mov              rdx, qword ptr [rsp + 16]
-                        mov              rcx, qword ptr [rsp + 24]
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_real
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_real
                         call             rt_div@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx77_240
@@ -467,8 +467,8 @@ n30_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # lit_real
                         mov              rsi, qword ptr [rsp + 40]                      # lit_real
-                        mov              rdx, qword ptr [rsp + 16]
-                        mov              rcx, qword ptr [rsp + 24]
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_integer
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_integer
                         call             rt_pow@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx85_240
@@ -592,8 +592,8 @@ n39_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # lit_real
                         mov              rsi, qword ptr [rsp + 40]                      # lit_real
-                        mov              rdx, qword ptr [rsp + 16]
-                        mov              rcx, qword ptr [rsp + 24]
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_real
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_real
                         call             rt_sub@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx95_240

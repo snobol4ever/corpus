@@ -103,8 +103,8 @@ n5_subscript_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # var
                         mov              rsi, qword ptr [rsp + 40]                      # var
-                        mov              rdx, qword ptr [rsp + 16]                      # idx
-                        mov              rcx, qword ptr [rsp + 24]                      # idx
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_integer
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_integer
                         call             rt_subscript_var@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx106_240
@@ -211,8 +211,8 @@ n12_subscript_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # var
                         mov              rsi, qword ptr [rsp + 40]                      # var
-                        mov              rdx, qword ptr [rsp + 16]                      # idx
-                        mov              rcx, qword ptr [rsp + 24]                      # idx
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_integer
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_integer
                         call             rt_subscript_var@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx114_240
@@ -237,8 +237,8 @@ n14_assign_var_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # subscript
                         mov              rsi, qword ptr [rsp + 40]                      # subscript
-                        mov              rdx, qword ptr [rsp + 16]                      # val
-                        mov              rcx, qword ptr [rsp + 24]                      # val
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_real
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_real
                         call             rt_assign_var@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx116_240
@@ -274,8 +274,8 @@ n17_subscript_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # var
                         mov              rsi, qword ptr [rsp + 40]                      # var
-                        mov              rdx, qword ptr [rsp + 16]                      # idx
-                        mov              rcx, qword ptr [rsp + 24]                      # idx
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_integer
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_integer
                         call             rt_subscript_var@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx119_240
@@ -395,8 +395,8 @@ n25_subscript_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # var
                         mov              rsi, qword ptr [rsp + 40]                      # var
-                        mov              rdx, qword ptr [rsp + 16]                      # idx
-                        mov              rcx, qword ptr [rsp + 24]                      # idx
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_integer
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_integer
                         call             rt_subscript_var@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx128_240
@@ -473,8 +473,8 @@ n31_subscript_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # var
                         mov              rsi, qword ptr [rsp + 40]                      # var
-                        mov              rdx, qword ptr [rsp + 16]                      # idx
-                        mov              rcx, qword ptr [rsp + 24]                      # idx
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_integer
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_integer
                         call             rt_subscript_var@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx134_240
@@ -716,8 +716,8 @@ n46_subscript_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # var
                         mov              rsi, qword ptr [rsp + 40]                      # var
-                        mov              rdx, qword ptr [rsp + 16]                      # idx
-                        mov              rcx, qword ptr [rsp + 24]                      # idx
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_integer
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_integer
                         call             rt_subscript_var@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx152_240
@@ -745,8 +745,8 @@ n48_assign_var_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # subscript
                         mov              rsi, qword ptr [rsp + 40]                      # subscript
-                        mov              rdx, qword ptr [rsp + 16]                      # val
-                        mov              rcx, qword ptr [rsp + 24]                      # val
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_string
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_string
                         call             rt_assign_var@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx154_240
@@ -782,8 +782,8 @@ n51_subscript_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # var
                         mov              rsi, qword ptr [rsp + 40]                      # var
-                        mov              rdx, qword ptr [rsp + 16]                      # idx
-                        mov              rcx, qword ptr [rsp + 24]                      # idx
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_integer
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_integer
                         call             rt_subscript_var@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx157_240
@@ -1019,8 +1019,8 @@ n65_subscript_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # var
                         mov              rsi, qword ptr [rsp + 40]                      # var
-                        mov              rdx, qword ptr [rsp + 16]                      # idx
-                        mov              rcx, qword ptr [rsp + 24]                      # idx
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_integer
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_integer
                         call             rt_subscript_var@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx174_240
@@ -1045,8 +1045,8 @@ n67_assign_var_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # subscript
                         mov              rsi, qword ptr [rsp + 40]                      # subscript
-                        mov              rdx, qword ptr [rsp + 16]                      # val
-                        mov              rcx, qword ptr [rsp + 24]                      # val
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_real
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_real
                         call             rt_assign_var@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx176_240
@@ -1082,8 +1082,8 @@ n70_subscript_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # var
                         mov              rsi, qword ptr [rsp + 40]                      # var
-                        mov              rdx, qword ptr [rsp + 16]                      # idx
-                        mov              rcx, qword ptr [rsp + 24]                      # idx
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_integer
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_integer
                         call             rt_subscript_var@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx179_240
@@ -1203,8 +1203,8 @@ n78_subscript_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # var
                         mov              rsi, qword ptr [rsp + 40]                      # var
-                        mov              rdx, qword ptr [rsp + 16]                      # idx
-                        mov              rcx, qword ptr [rsp + 24]                      # idx
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_integer
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_integer
                         call             rt_subscript_var@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx188_240
@@ -1232,8 +1232,8 @@ n80_assign_var_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # subscript
                         mov              rsi, qword ptr [rsp + 40]                      # subscript
-                        mov              rdx, qword ptr [rsp + 16]                      # val
-                        mov              rcx, qword ptr [rsp + 24]                      # val
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_string
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_string
                         call             rt_assign_var@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx190_240
@@ -1269,8 +1269,8 @@ n83_subscript_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # var
                         mov              rsi, qword ptr [rsp + 40]                      # var
-                        mov              rdx, qword ptr [rsp + 16]                      # idx
-                        mov              rcx, qword ptr [rsp + 24]                      # idx
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_integer
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_integer
                         call             rt_subscript_var@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx193_240

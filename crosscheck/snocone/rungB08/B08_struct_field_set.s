@@ -223,8 +223,8 @@ n12_assign_var_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # field_var
                         mov              rsi, qword ptr [rsp + 40]                      # field_var
-                        mov              rdx, qword ptr [rsp + 16]                      # val
-                        mov              rcx, qword ptr [rsp + 24]                      # val
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_integer
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_integer
                         call             rt_assign_var@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx34_240

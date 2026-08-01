@@ -1716,14 +1716,14 @@ n88_match_head_α:
                         mov              qword ptr [rbp + 384], rsp
                         lea              rcx, [rip + g_patstk_sp]
                         mov              rax, qword ptr [rcx + 0]
-                        mov              qword ptr [rbp + 376], rax
-                        mov              dword ptr [rbp + 368], 0
+                        mov              qword ptr [rbp + 376], rax                     # patstk_mark
+                        mov              dword ptr [rbp + 368], 0                       # start_δ
 .Lx134_0:
-                        mov              r14d, dword ptr [rbp + 368]
+                        mov              r14d, dword ptr [rbp + 368]                    # start_δ
                                                                                         jmp   n89_match_sequence_α
 n88_match_head_β:
-                        add              dword ptr [rbp + 368], 1
-                        mov              eax, dword ptr [rbp + 368]
+                        add              dword ptr [rbp + 368], 1                       # start_δ
+                        mov              eax, dword ptr [rbp + 368]                     # start_δ
                         cmp              eax, r15d
                                                                                         jg    .Lx134_1
                         lea              rcx, [rip + g_anchor]
@@ -1732,7 +1732,7 @@ n88_match_head_β:
                                                                                         jne   .Lx134_1
                                                                                         jmp   .Lx134_0
 .Lx134_1:
-                        mov              rax, qword ptr [rbp + 376]
+                        mov              rax, qword ptr [rbp + 376]                     # patstk_mark
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
                         mov              rsp, qword ptr [rbp + 384]
@@ -1743,12 +1743,12 @@ n88_match_head_β:
                         test             rax, rax
                                                                                         jne   .Lx134_2
                         mov              qword ptr [1879048192], r10
-                        mov              r13, qword ptr [rbp + 416]
-                        mov              r14, qword ptr [rbp + 424]
-                        mov              r15, qword ptr [rbp + 432]
+                        mov              r13, qword ptr [rbp + 416]                     # outer_Σ
+                        mov              r14, qword ptr [rbp + 424]                     # outer_δ
+                        mov              r15, qword ptr [rbp + 432]                     # outer_Δ
                         mov              rdi, r13                                       # sig
                         mov              rsi, r15                                       # len
-                        mov              rdx, qword ptr [rbp + 440]                     # capgen
+                        mov              rdx, qword ptr [rbp + 440]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + 408]
                         add              rsp, 528
@@ -1815,12 +1815,12 @@ n90_match_release_α:
                         test             rax, rax
                                                                                         jne   .Lx138_6
                         mov              qword ptr [1879048192], r10
-                        mov              r13, qword ptr [rbp + 416]
-                        mov              r14, qword ptr [rbp + 424]
-                        mov              r15, qword ptr [rbp + 432]
+                        mov              r13, qword ptr [rbp + 416]                     # outer_Σ
+                        mov              r14, qword ptr [rbp + 424]                     # outer_δ
+                        mov              r15, qword ptr [rbp + 432]                     # outer_Δ
                         mov              rdi, r13                                       # sig
                         mov              rsi, r15                                       # len
-                        mov              rdx, qword ptr [rbp + 440]                     # capgen
+                        mov              rdx, qword ptr [rbp + 440]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + 408]
                         add              rsp, 528
@@ -1852,8 +1852,8 @@ n93_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # var
                         mov              rsi, qword ptr [rsp + 40]                      # var
-                        mov              rdx, qword ptr [rsp + 16]                      # b
-                        mov              rcx, qword ptr [rsp + 24]                      # b
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_string
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_string
                         call             str_concat_d@PLT
                         mov              qword ptr [rsp + 0], rax                       # binop
                         mov              qword ptr [rsp + 8], rdx                       # binop
@@ -1871,8 +1871,8 @@ n95_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # binop
                         mov              rsi, qword ptr [rsp + 40]                      # binop
-                        mov              rdx, qword ptr [rsp + 16]                      # b
-                        mov              rcx, qword ptr [rsp + 24]                      # b
+                        mov              rdx, qword ptr [rsp + 16]                      # var
+                        mov              rcx, qword ptr [rsp + 24]                      # var
                         call             str_concat_d@PLT
                         mov              qword ptr [rsp + 0], rax                       # binop
                         mov              qword ptr [rsp + 8], rdx                       # binop
@@ -1894,8 +1894,8 @@ n97_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # binop
                         mov              rsi, qword ptr [rsp + 40]                      # binop
-                        mov              rdx, qword ptr [rsp + 16]                      # b
-                        mov              rcx, qword ptr [rsp + 24]                      # b
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_string
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_string
                         call             str_concat_d@PLT
                         mov              qword ptr [rsp + 0], rax                       # binop
                         mov              qword ptr [rsp + 8], rdx                       # binop
@@ -1913,8 +1913,8 @@ n99_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # binop
                         mov              rsi, qword ptr [rsp + 40]                      # binop
-                        mov              rdx, qword ptr [rsp + 16]                      # b
-                        mov              rcx, qword ptr [rsp + 24]                      # b
+                        mov              rdx, qword ptr [rsp + 16]                      # var
+                        mov              rcx, qword ptr [rsp + 24]                      # var
                         call             str_concat_d@PLT
                         mov              qword ptr [rsp + 0], rax                       # binop
                         mov              qword ptr [rsp + 8], rdx                       # binop

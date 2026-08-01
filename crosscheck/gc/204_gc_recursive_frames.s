@@ -36,8 +36,8 @@ n3_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # lit_string
                         mov              rsi, qword ptr [rsp + 40]                      # lit_string
-                        mov              rdx, qword ptr [rsp + 16]                      # b
-                        mov              rcx, qword ptr [rsp + 24]                      # b
+                        mov              rdx, qword ptr [rsp + 16]                      # var
+                        mov              rcx, qword ptr [rsp + 24]                      # var
                         call             str_concat_d@PLT
                         mov              qword ptr [rsp + 0], rax                       # binop
                         mov              qword ptr [rsp + 8], rdx                       # binop
@@ -124,8 +124,8 @@ n9_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # call
                         mov              rsi, qword ptr [rsp + 40]                      # call
-                        mov              rdx, qword ptr [rsp + 16]                      # b
-                        mov              rcx, qword ptr [rsp + 24]                      # b
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_string
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_string
                         call             str_concat_d@PLT
                         mov              qword ptr [rsp + 0], rax                       # binop
                         mov              qword ptr [rsp + 8], rdx                       # binop
@@ -143,8 +143,8 @@ n11_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # binop
                         mov              rsi, qword ptr [rsp + 40]                      # binop
-                        mov              rdx, qword ptr [rsp + 16]                      # b
-                        mov              rcx, qword ptr [rsp + 24]                      # b
+                        mov              rdx, qword ptr [rsp + 16]                      # var
+                        mov              rcx, qword ptr [rsp + 24]                      # var
                         call             str_concat_d@PLT
                         mov              qword ptr [rsp + 0], rax                       # binop
                         mov              qword ptr [rsp + 8], rdx                       # binop
@@ -184,7 +184,7 @@ n15_coerce_numeric_α:
                                                                                         je    .Lx48_1
                         cmp              eax, 6
                                                                                         jne   .Lx48_0
-                        mov              eax, dword ptr [rsp + 16]
+                        mov              eax, dword ptr [rsp + 16]                      # lit_integer
                         cmp              eax, 6
                                                                                         jne   .Lx48_0
 .Lx48_1:
@@ -195,7 +195,7 @@ n15_coerce_numeric_α:
                                                                                         jmp   n16_coerce_numeric_α
 .Lx48_0:
                         lea              rdi, [rsp + 32]                                # var
-                        lea              rsi, [rsp + 16]                                # other
+                        lea              rsi, [rsp + 16]                                # lit_integer
                         lea              rdx, [rsp + 0]                                 # coerce_numeric
                         mov              rcx, 101                                       # codes
                         call             rt_coerce_num2_d@PLT
@@ -208,7 +208,7 @@ n16_coerce_numeric_α:
                                                                                         je    .Lx50_1
                         cmp              eax, 6
                                                                                         jne   .Lx50_0
-                        mov              eax, dword ptr [rsp + 48]
+                        mov              eax, dword ptr [rsp + 48]                      # var
                         cmp              eax, 6
                                                                                         jne   .Lx50_0
 .Lx50_1:
@@ -219,7 +219,7 @@ n16_coerce_numeric_α:
                                                                                         jmp   n17_cmp_test_α
 .Lx50_0:
                         lea              rdi, [rsp + 32]                                # lit_integer
-                        lea              rsi, [rsp + 48]                                # other
+                        lea              rsi, [rsp + 48]                                # var
                         lea              rdx, [rsp + 0]                                 # coerce_numeric
                         mov              rcx, 102                                       # codes
                         call             rt_coerce_num2_d@PLT
@@ -228,7 +228,7 @@ n16_coerce_numeric_α:
 n17_cmp_test_α:
                         sub              rsp, 16
                         lea              rdi, [rsp + 32]                                # coerce_numeric
-                        lea              rsi, [rsp + 16]                                # b
+                        lea              rsi, [rsp + 16]                                # coerce_numeric
                         call             rt_cmp_d@PLT
                         test             eax, eax
                                                                                         je    .Lx52_240
@@ -256,8 +256,8 @@ n19_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # cmp_test
                         mov              rsi, qword ptr [rsp + 40]                      # cmp_test
-                        mov              rdx, qword ptr [rsp + 16]                      # b
-                        mov              rcx, qword ptr [rsp + 24]                      # b
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_string
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_string
                         call             str_concat_d@PLT
                         mov              qword ptr [rsp + 0], rax                       # binop
                         mov              qword ptr [rsp + 8], rdx                       # binop
@@ -1184,8 +1184,8 @@ n83_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # lit_string
                         mov              rsi, qword ptr [rsp + 40]                      # lit_string
-                        mov              rdx, qword ptr [rsp + 16]                      # b
-                        mov              rcx, qword ptr [rsp + 24]                      # b
+                        mov              rdx, qword ptr [rsp + 16]                      # var
+                        mov              rcx, qword ptr [rsp + 24]                      # var
                         call             str_concat_d@PLT
                         mov              qword ptr [rsp + 0], rax                       # binop
                         mov              qword ptr [rsp + 8], rdx                       # binop
@@ -1272,8 +1272,8 @@ n89_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # call
                         mov              rsi, qword ptr [rsp + 40]                      # call
-                        mov              rdx, qword ptr [rsp + 16]                      # b
-                        mov              rcx, qword ptr [rsp + 24]                      # b
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_string
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_string
                         call             str_concat_d@PLT
                         mov              qword ptr [rsp + 0], rax                       # binop
                         mov              qword ptr [rsp + 8], rdx                       # binop
@@ -1291,8 +1291,8 @@ n91_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # binop
                         mov              rsi, qword ptr [rsp + 40]                      # binop
-                        mov              rdx, qword ptr [rsp + 16]                      # b
-                        mov              rcx, qword ptr [rsp + 24]                      # b
+                        mov              rdx, qword ptr [rsp + 16]                      # var
+                        mov              rcx, qword ptr [rsp + 24]                      # var
                         call             str_concat_d@PLT
                         mov              qword ptr [rsp + 0], rax                       # binop
                         mov              qword ptr [rsp + 8], rdx                       # binop
@@ -1332,7 +1332,7 @@ n95_coerce_numeric_α:
                                                                                         je    .Lx137_1
                         cmp              eax, 6
                                                                                         jne   .Lx137_0
-                        mov              eax, dword ptr [rsp + 16]
+                        mov              eax, dword ptr [rsp + 16]                      # lit_integer
                         cmp              eax, 6
                                                                                         jne   .Lx137_0
 .Lx137_1:
@@ -1343,7 +1343,7 @@ n95_coerce_numeric_α:
                                                                                         jmp   n96_coerce_numeric_α
 .Lx137_0:
                         lea              rdi, [rsp + 32]                                # var
-                        lea              rsi, [rsp + 16]                                # other
+                        lea              rsi, [rsp + 16]                                # lit_integer
                         lea              rdx, [rsp + 0]                                 # coerce_numeric
                         mov              rcx, 101                                       # codes
                         call             rt_coerce_num2_d@PLT
@@ -1356,7 +1356,7 @@ n96_coerce_numeric_α:
                                                                                         je    .Lx139_1
                         cmp              eax, 6
                                                                                         jne   .Lx139_0
-                        mov              eax, dword ptr [rsp + 48]
+                        mov              eax, dword ptr [rsp + 48]                      # var
                         cmp              eax, 6
                                                                                         jne   .Lx139_0
 .Lx139_1:
@@ -1367,7 +1367,7 @@ n96_coerce_numeric_α:
                                                                                         jmp   n97_cmp_test_α
 .Lx139_0:
                         lea              rdi, [rsp + 32]                                # lit_integer
-                        lea              rsi, [rsp + 48]                                # other
+                        lea              rsi, [rsp + 48]                                # var
                         lea              rdx, [rsp + 0]                                 # coerce_numeric
                         mov              rcx, 102                                       # codes
                         call             rt_coerce_num2_d@PLT
@@ -1376,7 +1376,7 @@ n96_coerce_numeric_α:
 n97_cmp_test_α:
                         sub              rsp, 16
                         lea              rdi, [rsp + 32]                                # coerce_numeric
-                        lea              rsi, [rsp + 16]                                # b
+                        lea              rsi, [rsp + 16]                                # coerce_numeric
                         call             rt_cmp_d@PLT
                         test             eax, eax
                                                                                         je    .Lx141_240
@@ -1404,8 +1404,8 @@ n99_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # cmp_test
                         mov              rsi, qword ptr [rsp + 40]                      # cmp_test
-                        mov              rdx, qword ptr [rsp + 16]                      # b
-                        mov              rcx, qword ptr [rsp + 24]                      # b
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_string
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_string
                         call             str_concat_d@PLT
                         mov              qword ptr [rsp + 0], rax                       # binop
                         mov              qword ptr [rsp + 8], rdx                       # binop

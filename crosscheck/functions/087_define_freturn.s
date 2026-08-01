@@ -36,7 +36,7 @@ n3_coerce_numeric_α:
                                                                                         je    .Lx12_1
                         cmp              eax, 6
                                                                                         jne   .Lx12_0
-                        mov              eax, dword ptr [rsp + 16]
+                        mov              eax, dword ptr [rsp + 16]                      # lit_integer
                         cmp              eax, 6
                                                                                         jne   .Lx12_0
 .Lx12_1:
@@ -47,7 +47,7 @@ n3_coerce_numeric_α:
                                                                                         jmp   n4_coerce_numeric_α
 .Lx12_0:
                         lea              rdi, [rsp + 32]                                # var
-                        lea              rsi, [rsp + 16]                                # other
+                        lea              rsi, [rsp + 16]                                # lit_integer
                         lea              rdx, [rsp + 0]                                 # coerce_numeric
                         mov              rcx, 111                                       # codes
                         call             rt_coerce_num2_d@PLT
@@ -60,7 +60,7 @@ n4_coerce_numeric_α:
                                                                                         je    .Lx14_1
                         cmp              eax, 6
                                                                                         jne   .Lx14_0
-                        mov              eax, dword ptr [rsp + 48]
+                        mov              eax, dword ptr [rsp + 48]                      # var
                         cmp              eax, 6
                                                                                         jne   .Lx14_0
 .Lx14_1:
@@ -71,7 +71,7 @@ n4_coerce_numeric_α:
                                                                                         jmp   n5_cmp_test_α
 .Lx14_0:
                         lea              rdi, [rsp + 32]                                # lit_integer
-                        lea              rsi, [rsp + 48]                                # other
+                        lea              rsi, [rsp + 48]                                # var
                         lea              rdx, [rsp + 0]                                 # coerce_numeric
                         mov              rcx, 112                                       # codes
                         call             rt_coerce_num2_d@PLT
@@ -80,7 +80,7 @@ n4_coerce_numeric_α:
 n5_cmp_test_α:
                         sub              rsp, 16
                         lea              rdi, [rsp + 32]                                # coerce_numeric
-                        lea              rsi, [rsp + 16]                                # b
+                        lea              rsi, [rsp + 16]                                # coerce_numeric
                         call             rt_cmp_d@PLT
                         test             eax, eax
                                                                                         jg    .Lx16_240
@@ -628,7 +628,7 @@ n43_coerce_numeric_α:
                                                                                         je    .Lx73_1
                         cmp              eax, 6
                                                                                         jne   .Lx73_0
-                        mov              eax, dword ptr [rsp + 16]
+                        mov              eax, dword ptr [rsp + 16]                      # lit_integer
                         cmp              eax, 6
                                                                                         jne   .Lx73_0
 .Lx73_1:
@@ -639,7 +639,7 @@ n43_coerce_numeric_α:
                                                                                         jmp   n44_coerce_numeric_α
 .Lx73_0:
                         lea              rdi, [rsp + 32]                                # var
-                        lea              rsi, [rsp + 16]                                # other
+                        lea              rsi, [rsp + 16]                                # lit_integer
                         lea              rdx, [rsp + 0]                                 # coerce_numeric
                         mov              rcx, 111                                       # codes
                         call             rt_coerce_num2_d@PLT
@@ -652,7 +652,7 @@ n44_coerce_numeric_α:
                                                                                         je    .Lx75_1
                         cmp              eax, 6
                                                                                         jne   .Lx75_0
-                        mov              eax, dword ptr [rsp + 48]
+                        mov              eax, dword ptr [rsp + 48]                      # var
                         cmp              eax, 6
                                                                                         jne   .Lx75_0
 .Lx75_1:
@@ -663,7 +663,7 @@ n44_coerce_numeric_α:
                                                                                         jmp   n45_cmp_test_α
 .Lx75_0:
                         lea              rdi, [rsp + 32]                                # lit_integer
-                        lea              rsi, [rsp + 48]                                # other
+                        lea              rsi, [rsp + 48]                                # var
                         lea              rdx, [rsp + 0]                                 # coerce_numeric
                         mov              rcx, 112                                       # codes
                         call             rt_coerce_num2_d@PLT
@@ -672,7 +672,7 @@ n44_coerce_numeric_α:
 n45_cmp_test_α:
                         sub              rsp, 16
                         lea              rdi, [rsp + 32]                                # coerce_numeric
-                        lea              rsi, [rsp + 16]                                # b
+                        lea              rsi, [rsp + 16]                                # coerce_numeric
                         call             rt_cmp_d@PLT
                         test             eax, eax
                                                                                         jg    .Lx77_240

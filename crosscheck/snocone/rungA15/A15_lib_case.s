@@ -450,8 +450,8 @@ n35_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 112]                     # call
                         mov              rsi, qword ptr [rsp + 120]                     # call
-                        mov              rdx, qword ptr [rsp + 16]                      # b
-                        mov              rcx, qword ptr [rsp + 24]                      # b
+                        mov              rdx, qword ptr [rsp + 16]                      # call
+                        mov              rcx, qword ptr [rsp + 24]                      # call
                         call             str_concat_d@PLT
                         mov              qword ptr [rsp + 0], rax                       # binop
                         mov              qword ptr [rsp + 8], rdx                       # binop

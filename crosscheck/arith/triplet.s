@@ -199,8 +199,8 @@ n11_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 48]                      # lit_integer
                         mov              rsi, qword ptr [rsp + 56]                      # lit_integer
-                        mov              rdx, qword ptr [rsp + 16]
-                        mov              rcx, qword ptr [rsp + 24]
+                        mov              rdx, qword ptr [rsp + 16]                      # call
+                        mov              rcx, qword ptr [rsp + 24]                      # call
                         call             rt_sub@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx44_240
@@ -225,8 +225,8 @@ n13_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # binop
                         mov              rsi, qword ptr [rsp + 40]                      # binop
-                        mov              rdx, qword ptr [rsp + 16]
-                        mov              rcx, qword ptr [rsp + 24]
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_integer
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_integer
                         call             rt_div@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx46_240
@@ -284,8 +284,8 @@ n16_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # call
                         mov              rsi, qword ptr [rsp + 40]                      # call
-                        mov              rdx, qword ptr [rsp + 16]                      # b
-                        mov              rcx, qword ptr [rsp + 24]                      # b
+                        mov              rdx, qword ptr [rsp + 16]                      # var
+                        mov              rcx, qword ptr [rsp + 24]                      # var
                         call             str_concat_d@PLT
                         mov              qword ptr [rsp + 0], rax                       # binop
                         mov              qword ptr [rsp + 8], rdx                       # binop
@@ -326,8 +326,8 @@ n20_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # var
                         mov              rsi, qword ptr [rsp + 40]                      # var
-                        mov              rdx, qword ptr [rsp + 16]
-                        mov              rcx, qword ptr [rsp + 24]
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_integer
+                        mov              rcx, qword ptr [rsp + 24]                      # lit_integer
                         call             rt_add@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx54_240
@@ -416,7 +416,7 @@ n26_coerce_numeric_α:
                                                                                         je    .Lx62_1
                         cmp              eax, 6
                                                                                         jne   .Lx62_0
-                        mov              eax, dword ptr [rsp + 16]
+                        mov              eax, dword ptr [rsp + 16]                      # lit_integer
                         cmp              eax, 6
                                                                                         jne   .Lx62_0
 .Lx62_1:
@@ -427,7 +427,7 @@ n26_coerce_numeric_α:
                                                                                         jmp   n27_coerce_numeric_α
 .Lx62_0:
                         lea              rdi, [rsp + 32]                                # var
-                        lea              rsi, [rsp + 16]                                # other
+                        lea              rsi, [rsp + 16]                                # lit_integer
                         lea              rdx, [rsp + 0]                                 # coerce_numeric
                         mov              rcx, 101                                       # codes
                         call             rt_coerce_num2_d@PLT
@@ -440,7 +440,7 @@ n27_coerce_numeric_α:
                                                                                         je    .Lx64_1
                         cmp              eax, 6
                                                                                         jne   .Lx64_0
-                        mov              eax, dword ptr [rsp + 48]
+                        mov              eax, dword ptr [rsp + 48]                      # var
                         cmp              eax, 6
                                                                                         jne   .Lx64_0
 .Lx64_1:
@@ -451,7 +451,7 @@ n27_coerce_numeric_α:
                                                                                         jmp   n28_cmp_test_α
 .Lx64_0:
                         lea              rdi, [rsp + 32]                                # lit_integer
-                        lea              rsi, [rsp + 48]                                # other
+                        lea              rsi, [rsp + 48]                                # var
                         lea              rdx, [rsp + 0]                                 # coerce_numeric
                         mov              rcx, 102                                       # codes
                         call             rt_coerce_num2_d@PLT
@@ -460,7 +460,7 @@ n27_coerce_numeric_α:
 n28_cmp_test_α:
                         sub              rsp, 16
                         lea              rdi, [rsp + 32]                                # coerce_numeric
-                        lea              rsi, [rsp + 16]                                # b
+                        lea              rsi, [rsp + 16]                                # coerce_numeric
                         call             rt_cmp_d@PLT
                         test             eax, eax
                                                                                         je    .Lx66_240

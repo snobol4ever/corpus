@@ -44,7 +44,7 @@ n1_lit_string_α:
 n2_cmp_test_α:
                         sub              rsp, 16
                         lea              rdi, [rsp + 32]                                # lit_string
-                        lea              rsi, [rsp + 16]                                # b
+                        lea              rsi, [rsp + 16]                                # lit_string
                         call             rt_cmp_d@PLT
                         test             eax, eax
                                                                                         je    .Lx35_240
@@ -84,7 +84,7 @@ n4_lit_string_α:
 n5_cmp_test_α:
                         sub              rsp, 16
                         lea              rdi, [rsp + 32]                                # lit_string
-                        lea              rsi, [rsp + 16]                                # b
+                        lea              rsi, [rsp + 16]                                # lit_string
                         call             rt_cmp_d@PLT
                         test             eax, eax
                                                                                         je    .Lx39_240
@@ -150,7 +150,7 @@ n9_lit_string_α:
 n10_cmp_test_α:
                         sub              rsp, 16
                         lea              rdi, [rsp + 32]                                # lit_string
-                        lea              rsi, [rsp + 16]                                # b
+                        lea              rsi, [rsp + 16]                                # lit_string
                         call             rt_cmp_d@PLT
                         test             eax, eax
                                                                                         je    .Lx45_240
@@ -190,7 +190,7 @@ n12_lit_string_α:
 n13_cmp_test_α:
                         sub              rsp, 16
                         lea              rdi, [rsp + 32]                                # lit_string
-                        lea              rsi, [rsp + 16]                                # b
+                        lea              rsi, [rsp + 16]                                # lit_string
                         call             rt_cmp_d@PLT
                         test             eax, eax
                                                                                         je    .Lx49_240
@@ -256,7 +256,7 @@ n17_lit_string_α:
 n18_cmp_test_α:
                         sub              rsp, 16
                         lea              rdi, [rsp + 32]                                # lit_string
-                        lea              rsi, [rsp + 16]                                # b
+                        lea              rsi, [rsp + 16]                                # lit_string
                         call             rt_cmp_d@PLT
                         test             eax, eax
                                                                                         je    .Lx55_240

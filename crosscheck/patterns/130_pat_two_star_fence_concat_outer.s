@@ -1094,14 +1094,14 @@ n41_match_head_α:
                         mov              qword ptr [rbp + 320], rsp
                         lea              rcx, [rip + g_patstk_sp]
                         mov              rax, qword ptr [rcx + 0]
-                        mov              qword ptr [rbp + 312], rax
-                        mov              dword ptr [rbp + 304], 0
+                        mov              qword ptr [rbp + 312], rax                     # patstk_mark
+                        mov              dword ptr [rbp + 304], 0                       # start_δ
 .Lx75_0:
-                        mov              r14d, dword ptr [rbp + 304]
+                        mov              r14d, dword ptr [rbp + 304]                    # start_δ
                                                                                         jmp   n42_match_sequence_α
 n41_match_head_β:
-                        add              dword ptr [rbp + 304], 1
-                        mov              eax, dword ptr [rbp + 304]
+                        add              dword ptr [rbp + 304], 1                       # start_δ
+                        mov              eax, dword ptr [rbp + 304]                     # start_δ
                         cmp              eax, r15d
                                                                                         jg    .Lx75_1
                         lea              rcx, [rip + g_anchor]
@@ -1110,7 +1110,7 @@ n41_match_head_β:
                                                                                         jne   .Lx75_1
                                                                                         jmp   .Lx75_0
 .Lx75_1:
-                        mov              rax, qword ptr [rbp + 312]
+                        mov              rax, qword ptr [rbp + 312]                     # patstk_mark
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
                         mov              rsp, qword ptr [rbp + 320]
@@ -1121,12 +1121,12 @@ n41_match_head_β:
                         test             rax, rax
                                                                                         jne   .Lx75_2
                         mov              qword ptr [1879048192], r10
-                        mov              r13, qword ptr [rbp + 352]
-                        mov              r14, qword ptr [rbp + 360]
-                        mov              r15, qword ptr [rbp + 368]
+                        mov              r13, qword ptr [rbp + 352]                     # outer_Σ
+                        mov              r14, qword ptr [rbp + 360]                     # outer_δ
+                        mov              r15, qword ptr [rbp + 368]                     # outer_Δ
                         mov              rdi, r13                                       # sig
                         mov              rsi, r15                                       # len
-                        mov              rdx, qword ptr [rbp + 376]                     # capgen
+                        mov              rdx, qword ptr [rbp + 376]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + 344]
                         add              rsp, 464
@@ -1193,12 +1193,12 @@ n43_match_release_α:
                         test             rax, rax
                                                                                         jne   .Lx79_6
                         mov              qword ptr [1879048192], r10
-                        mov              r13, qword ptr [rbp + 352]
-                        mov              r14, qword ptr [rbp + 360]
-                        mov              r15, qword ptr [rbp + 368]
+                        mov              r13, qword ptr [rbp + 352]                     # outer_Σ
+                        mov              r14, qword ptr [rbp + 360]                     # outer_δ
+                        mov              r15, qword ptr [rbp + 368]                     # outer_Δ
                         mov              rdi, r13                                       # sig
                         mov              rsi, r15                                       # len
-                        mov              rdx, qword ptr [rbp + 376]                     # capgen
+                        mov              rdx, qword ptr [rbp + 376]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + 344]
                         add              rsp, 464

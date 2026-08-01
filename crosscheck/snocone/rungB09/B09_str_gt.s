@@ -103,7 +103,7 @@ n7_coerce_string_α:
 n8_cmp_test_α:
                         sub              rsp, 16
                         lea              rdi, [rsp + 32]                                # coerce_string
-                        lea              rsi, [rsp + 16]                                # b
+                        lea              rsi, [rsp + 16]                                # coerce_string
                         call             rt_cmp_d@PLT
                         test             eax, eax
                                                                                         jg    .Lx37_240
@@ -231,7 +231,7 @@ n20_coerce_string_α:
 n21_cmp_test_α:
                         sub              rsp, 16
                         lea              rdi, [rsp + 32]                                # coerce_string
-                        lea              rsi, [rsp + 16]                                # b
+                        lea              rsi, [rsp + 16]                                # coerce_string
                         call             rt_cmp_d@PLT
                         test             eax, eax
                                                                                         jg    .Lx53_240
