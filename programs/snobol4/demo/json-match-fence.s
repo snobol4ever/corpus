@@ -4743,10 +4743,11 @@ n305_assign_α:
 #                 src             json                            :F(fail)
 #-----------------------------------------------------------------------------------------------------------------------
 n306_var_α:
+                        sub              rsp, 128
                         mov              rax, qword ptr [1879052512]
                         mov              rdx, qword ptr [1879052520]
-                        mov              qword ptr [rsp + 1216], rax
-                        mov              qword ptr [rsp + 1224], rdx
+                        mov              qword ptr [rsp + 112], rax
+                        mov              qword ptr [rsp + 120], rdx
                                                                                         jmp   n307_match_head_α
 #-----------------------------------------------------------------------------------------------------------------------
 n307_match_head_α:
@@ -4804,6 +4805,7 @@ n307_match_head_β:
                         mov              rdx, qword ptr [rbp + 1192]
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + 1160]
+                        add              rsp, 128
                                                                                         jmp   n315_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n308_match_patref_α:
@@ -4946,6 +4948,7 @@ n309_match_release_α:
                         mov              rdx, qword ptr [rbp + 1192]
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + 1160]
+                        add              rsp, 128
                                                                                         jmp   n310_lit_string_α
 #=======================================================================================================================
 #                 OUTPUT          =  'matched bytes=' SIZE(src)   :(END)

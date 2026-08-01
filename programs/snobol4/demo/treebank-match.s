@@ -1600,10 +1600,11 @@ n82_assign_α:
 #                src            treebank                      :F(main_fail)
 #-----------------------------------------------------------------------------------------------------------------------
 n83_var_α:
+                        sub              rsp, 128
                         mov              rax, qword ptr [1879052352]
                         mov              rdx, qword ptr [1879052360]
-                        mov              qword ptr [rsp + 672], rax
-                        mov              qword ptr [rsp + 680], rdx
+                        mov              qword ptr [rsp + 112], rax
+                        mov              qword ptr [rsp + 120], rdx
                                                                                         jmp   n84_match_head_α
 #-----------------------------------------------------------------------------------------------------------------------
 n84_match_head_α:
@@ -1661,6 +1662,7 @@ n84_match_head_β:
                         mov              rdx, qword ptr [rbp + 648]
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + 616]
+                        add              rsp, 128
                                                                                         jmp   n92_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n85_match_patref_α:
@@ -1803,6 +1805,7 @@ n86_match_release_α:
                         mov              rdx, qword ptr [rbp + 648]
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + 616]
+                        add              rsp, 128
                                                                                         jmp   n87_lit_string_α
 #=======================================================================================================================
 #                OUTPUT         =  'matched bytes=' SIZE(src) :(END)

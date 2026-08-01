@@ -4268,9 +4268,9 @@ proc_new_sent_α:
 proc_new_sent_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n711_save_restore_α:
-                        mov              rdi, qword ptr [rsp + 40]
-                        mov              rsi, qword ptr [rsp + 48]
-                        lea              rdx, [rsp + 64]
+                        mov              rdi, rcx
+                        mov              rsi, rdx
+                        lea              rdx, [rsp + 0]
                         mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n712_goto_deferred_α
@@ -4310,9 +4310,9 @@ proc_add_tok_α:
 proc_add_tok_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n717_save_restore_α:
-                        mov              rdi, qword ptr [rsp + 40]
-                        mov              rsi, qword ptr [rsp + 48]
-                        lea              rdx, [rsp + 64]
+                        mov              rdi, rcx
+                        mov              rsi, rdx
+                        lea              rdx, [rsp + 0]
                         mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n718_goto_deferred_α
@@ -4352,9 +4352,9 @@ proc_pp_mem_α:
 proc_pp_mem_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n723_save_restore_α:
-                        mov              rdi, qword ptr [rsp + 40]
-                        mov              rsi, qword ptr [rsp + 48]
-                        lea              rdx, [rsp + 64]
+                        mov              rdi, rcx
+                        mov              rsi, rdx
+                        lea              rdx, [rsp + 0]
                         mov              rcx, rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n724_goto_deferred_α
@@ -5444,12 +5444,14 @@ main_α_body:
 #                 &ALPHABET       POS(10) LEN(1) . nl
 #-----------------------------------------------------------------------------------------------------------------------
 n818_keyword_snobol4_α:
+                        sub              rsp, 208
                         mov              rdi, qword ptr [rip + .Lx1254_0]
                         call             rt_keyword_read_snobol4@PLT
-                        mov              qword ptr [rsp + 288], rax
-                        mov              qword ptr [rsp + 296], rdx
+                        mov              qword ptr [rsp + 192], rax
+                        mov              qword ptr [rsp + 200], rdx
                                                                                         jmp   n819_match_head_α
 n818_keyword_snobol4_β:
+                        add              rsp, 208
                                                                                         jmp   n822_lit_string_α
 .Lx1254_0:
                         .quad            .Lx1254_0_s
@@ -5513,6 +5515,7 @@ n819_match_head_β:
                         mov              rdx, qword ptr [rbp + 184]
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + 152]
+                        add              rsp, 208
                                                                                         jmp   n822_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n820_match_sequence_α:
@@ -5583,6 +5586,7 @@ n821_match_release_α:
                         mov              rdx, qword ptr [rbp + 184]
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + 152]
+                        add              rsp, 208
                                                                                         jmp   n822_lit_string_α
 #=======================================================================================================================
 #                 DIGITS          =  '0123456789'
@@ -6502,12 +6506,14 @@ n876_assign_β:
 #                 src             claws                           :F(fail)
 #-----------------------------------------------------------------------------------------------------------------------
 n877_var_α:
+                        sub              rsp, 128
                         mov              rax, qword ptr [1879052784]
                         mov              rdx, qword ptr [1879052792]
-                        mov              qword ptr [rsp + 6480], rax
-                        mov              qword ptr [rsp + 6488], rdx
+                        mov              qword ptr [rsp + 112], rax
+                        mov              qword ptr [rsp + 120], rdx
                                                                                         jmp   n878_match_head_α
 n877_var_β:
+                        add              rsp, 128
                                                                                         jmp   n891_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n878_match_head_α:
@@ -6565,6 +6571,7 @@ n878_match_head_β:
                         mov              rdx, qword ptr [rbp + 6456]
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + 6424]
+                        add              rsp, 128
                                                                                         jmp   n891_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n879_match_patref_α:
@@ -6704,6 +6711,7 @@ n880_match_release_α:
                         mov              rdx, qword ptr [rbp + 6456]
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + 6424]
+                        add              rsp, 128
                                                                                         jmp   n881_call_α
 #=======================================================================================================================
 #                 t1              =   TIME()
@@ -6836,12 +6844,14 @@ n888_assign_β:
 #                 pp_mem(mem)                                     :(END)
 #-----------------------------------------------------------------------------------------------------------------------
 n889_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052336]
                         mov              rdx, qword ptr [1879052344]
-                        mov              qword ptr [rsp + 6656], rax
-                        mov              qword ptr [rsp + 6664], rdx
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n890_call_α
 n889_var_β:
+                        add              rsp, 16
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n890_call_α:
@@ -7128,16 +7138,16 @@ n890_call_α:
                         mov              eax, dword ptr [r11 + 0]
                         test             eax, eax
                                                                                         jne   .Lx1345_20
-                        mov              rax, qword ptr [rsp + 6656]
-                        mov              rdx, qword ptr [rsp + 6664]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
                         lea              r10, [rip + g_call_args]
                         mov              qword ptr [r10 + 0], rax
                         mov              qword ptr [r10 + 8], rdx
                                                                                         jmp   .Lx1345_21
 .Lx1345_20:
                         mov              edi, 0
-                        mov              rsi, qword ptr [rsp + 6656]
-                        mov              rdx, qword ptr [rsp + 6664]
+                        mov              rsi, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
                         call             rt_arg_stage@PLT
 .Lx1345_21:
                         mov              rdi, qword ptr [rip + .Lx1345_0]
@@ -7161,7 +7171,11 @@ n890_call_α:
                         mov              qword ptr [rsp + 6608], rax
                         mov              qword ptr [rsp + 6616], rdx
                         cmp              eax, 99
-                                                                                        je    main_γ
+                                                                                        jne   .Lx1345_240
+                        add              rsp, 16
+                                                                                        jmp   main_γ
+.Lx1345_240:
+                        add              rsp, 16
                                                                                         jmp   main_γ
 n890_call_β:
                                                                                         jmp   main_γ
@@ -7245,9 +7259,9 @@ n895_match_assign_cond_β:
                                                                                         jmp   n894_match_len_β
 #-----------------------------------------------------------------------------------------------------------------------
 n896_lit_integer_α:
-                        mov              qword ptr [rsp + 256], 6
+                        mov              qword ptr [rsp + 160], 6
                         mov              rax, qword ptr [rip + .Lx1353_0]
-                        mov              qword ptr [rsp + 264], rax
+                        mov              qword ptr [rsp + 168], rax
                                                                                         jmp   n897_match_pos_α
 n896_lit_integer_β:
                                                                                         jmp   n819_match_head_β
@@ -10331,12 +10345,14 @@ n1088_assign_β:
 #                 wrd             ?   ARB "'"  =  ''              :F(pm_sq)
 #-----------------------------------------------------------------------------------------------------------------------
 n1089_var_α:
+                        sub              rsp, 3152
                         mov              rax, qword ptr [1879052464]
                         mov              rdx, qword ptr [1879052472]
-                        mov              qword ptr [rsp + 3344], rax
-                        mov              qword ptr [rsp + 3352], rdx
+                        mov              qword ptr [rsp + 3136], rax
+                        mov              qword ptr [rsp + 3144], rdx
                                                                                         jmp   n1090_match_head_α
 n1089_var_β:
+                        add              rsp, 3152
                                                                                         jmp   n1103_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1090_match_head_α:
@@ -10396,6 +10412,7 @@ n1090_match_head_β:
                         mov              rdx, qword ptr [rbp + 3272]
                         call             rt_match_ctx_restore@PLT
                         mov              rbp, qword ptr [rbp + 3240]
+                        add              rsp, 3152
                                                                                         jmp   n1103_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1091_match_sequence_α:
@@ -10471,12 +10488,13 @@ n1092_match_release_α:
                                                                                         jmp   n1093_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1093_lit_string_α:
-                        mov              qword ptr [rsp + 3296], 1
-                        mov              dword ptr [rsp + 3300], 0
+                        mov              qword ptr [rsp + 3088], 1
+                        mov              dword ptr [rsp + 3092], 0
                         mov              rax, qword ptr [rip + .Lx1571_0]
-                        mov              qword ptr [rsp + 3304], rax
+                        mov              qword ptr [rsp + 3096], rax
                                                                                         jmp   n1094_match_replace_α
 n1093_lit_string_β:
+                        add              rsp, 3152
                                                                                         jmp   n1103_lit_string_α
 .Lx1571_0:
                         .quad            .Lx1571_0_s
@@ -10498,6 +10516,7 @@ n1094_match_replace_α:
                         .string          "wrd"
 .Lx1573_1:
                         mov              rbp, qword ptr [rbp + 3240]
+                        add              rsp, 3152
                                                                                         jmp   n1095_lit_string_α
 #=======================================================================================================================
 #                 wq              =   '"' wkey '"'                :(pm_tdict)
