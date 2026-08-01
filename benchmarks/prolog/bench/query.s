@@ -7,20 +7,20 @@ proc_area$2F2_α:
                         .global          proc_area$2F2_β
                         .global          proc_area$2F2_γ
                         .global          proc_area$2F2_ω
-                        sub              rsp, 5328
-                        mov              [rsp + 5304], rcx
-                        mov              [rsp + 5312], rdx
-                        mov              [rsp + 5320], rbp
+                        sub              rsp, 5344
+                        mov              [rsp + 5320], rcx
+                        mov              [rsp + 5328], rdx
+                        mov              [rsp + 5336], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 5280
-                        mov              edx, 5296
+                        mov              edx, 5312
                         call             rt_jmp_frame_lexprep2@PLT
 proc_area$2F2_α_body:
-                        lea              rax, [rip + n10_suspend_β]
+                        lea              rax, [rip + n7_suspend_β]
                         mov              qword ptr [rbp + 5280], rax
 #-----------------------------------------------------------------------------------------------------------------------
-n0_op11_α:
+n0_call_builtin_prolog_α:
                         lea              r10, [rip + g_plw_cellws_on]
                         mov              eax, dword ptr [r10 + 0]
                         test             eax, eax
@@ -44,27 +44,30 @@ n0_op11_α:
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
                                                                                         jmp   n1_var_ref_α
-n0_op11_β:
+n0_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n1_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 5248], rax
                         mov              qword ptr [rbp + 5256], rdx
+                        add              rsp, 16
                                                                                         jmp   n2_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n2_lit_string_α:
                         mov              qword ptr [rbp + 5264], 1
+                        mov              dword ptr [rbp + 5268], 5
                         mov              rax, qword ptr [rip + .Lx204_0]
                         mov              qword ptr [rbp + 5272], rax
-                                                                                        jmp   n3_op11_α
+                                                                                        jmp   n3_call_builtin_prolog_α
 .Lx204_0:
                         .quad            .Lx204_0_s
 .Lx204_0_s:
                         .string          "china"
 #-----------------------------------------------------------------------------------------------------------------------
-n3_op11_α:
+n3_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 5248]
                         mov              qword ptr [rbp + 5216], rax
                         mov              rax, qword ptr [rbp + 5256]
@@ -81,19 +84,56 @@ n3_op11_α:
                         mov              qword ptr [rbp + 5200], rax
                         mov              qword ptr [rbp + 5208], rdx
                         cmp              eax, 99
-                                                                                        je    n5_op11_α
+                                                                                        je    n8_call_builtin_prolog_α
                                                                                         jmp   n4_var_ref_α
-n3_op11_β:
-                                                                                        jmp   n5_op11_α
+n3_call_builtin_prolog_β:
+                                                                                        jmp   n8_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n4_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 5168], rax
                         mov              qword ptr [rbp + 5176], rdx
-                                                                                        jmp   n6_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n5_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n5_op11_α:
+n5_lit_integer_α:
+                        mov              qword ptr [rbp + 5184], 6
+                        mov              rax, qword ptr [rip + .Lx208_0]
+                        mov              qword ptr [rbp + 5192], rax
+                                                                                        jmp   n6_call_builtin_prolog_α
+.Lx208_0:
+                        .quad            3380
+#-----------------------------------------------------------------------------------------------------------------------
+n6_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 5168]
+                        mov              qword ptr [rbp + 5136], rax
+                        mov              rax, qword ptr [rbp + 5176]
+                        mov              qword ptr [rbp + 5144], rax
+                        lea              rdi, [rbp + 5136]
+                        movabs           rsi, 3380
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 5120], rax
+                        mov              qword ptr [rbp + 5128], rdx
+                        cmp              eax, 99
+                                                                                        je    n8_call_builtin_prolog_α
+                                                                                        jmp   n7_suspend_α
+n6_call_builtin_prolog_β:
+                                                                                        jmp   n8_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n7_suspend_α:
+                        lea              rax, [rip + n7_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_area$2F2_γ
+n7_suspend_β:
+                                                                                        jmp   n8_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n8_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 5088], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -105,63 +145,31 @@ n5_op11_α:
                         mov              qword ptr [rbp + 5080], rdx
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
-                                                                                        jmp   n7_var_ref_α
-n5_op11_β:
+                                                                                        jmp   n9_var_ref_α
+n8_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n6_lit_integer_α:
-                        mov              qword ptr [rbp + 5184], 6
-                        mov              rax, qword ptr [rip + .Lx209_0]
-                        mov              qword ptr [rbp + 5192], rax
-                                                                                        jmp   n8_op11_α
-.Lx209_0:
-                        .quad            3380
-#-----------------------------------------------------------------------------------------------------------------------
-n7_var_ref_α:
+n9_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 5040], rax
                         mov              qword ptr [rbp + 5048], rdx
-                                                                                        jmp   n9_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n10_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n8_op11_α:
-                        mov              rax, qword ptr [rbp + 5168]
-                        mov              qword ptr [rbp + 5136], rax
-                        mov              rax, qword ptr [rbp + 5176]
-                        mov              qword ptr [rbp + 5144], rax
-                        lea              rdi, [rbp + 5136]
-                        movabs           rsi, 3380
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 5120], rax
-                        mov              qword ptr [rbp + 5128], rdx
-                        cmp              eax, 99
-                                                                                        je    n5_op11_α
-                                                                                        jmp   n10_suspend_α
-n8_op11_β:
-                                                                                        jmp   n5_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n9_lit_string_α:
+n10_lit_string_α:
                         mov              qword ptr [rbp + 5056], 1
-                        mov              rax, qword ptr [rip + .Lx213_0]
+                        mov              dword ptr [rbp + 5060], 5
+                        mov              rax, qword ptr [rip + .Lx215_0]
                         mov              qword ptr [rbp + 5064], rax
-                                                                                        jmp   n11_op11_α
-.Lx213_0:
-                        .quad            .Lx213_0_s
-.Lx213_0_s:
+                                                                                        jmp   n11_call_builtin_prolog_α
+.Lx215_0:
+                        .quad            .Lx215_0_s
+.Lx215_0_s:
                         .string          "india"
 #-----------------------------------------------------------------------------------------------------------------------
-n10_suspend_α:
-                        lea              rax, [rip + n10_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_area$2F2_γ
-n10_suspend_β:
-                                                                                        jmp   n5_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n11_op11_α:
+n11_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 5040]
                         mov              qword ptr [rbp + 5008], rax
                         mov              rax, qword ptr [rbp + 5048]
@@ -178,19 +186,56 @@ n11_op11_α:
                         mov              qword ptr [rbp + 4992], rax
                         mov              qword ptr [rbp + 5000], rdx
                         cmp              eax, 99
-                                                                                        je    n13_op11_α
+                                                                                        je    n16_call_builtin_prolog_α
                                                                                         jmp   n12_var_ref_α
-n11_op11_β:
-                                                                                        jmp   n13_op11_α
+n11_call_builtin_prolog_β:
+                                                                                        jmp   n16_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n12_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 4960], rax
                         mov              qword ptr [rbp + 4968], rdx
-                                                                                        jmp   n14_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n13_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n13_op11_α:
+n13_lit_integer_α:
+                        mov              qword ptr [rbp + 4976], 6
+                        mov              rax, qword ptr [rip + .Lx219_0]
+                        mov              qword ptr [rbp + 4984], rax
+                                                                                        jmp   n14_call_builtin_prolog_α
+.Lx219_0:
+                        .quad            1139
+#-----------------------------------------------------------------------------------------------------------------------
+n14_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 4960]
+                        mov              qword ptr [rbp + 4928], rax
+                        mov              rax, qword ptr [rbp + 4968]
+                        mov              qword ptr [rbp + 4936], rax
+                        lea              rdi, [rbp + 4928]
+                        movabs           rsi, 1139
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 4912], rax
+                        mov              qword ptr [rbp + 4920], rdx
+                        cmp              eax, 99
+                                                                                        je    n16_call_builtin_prolog_α
+                                                                                        jmp   n15_suspend_α
+n14_call_builtin_prolog_β:
+                                                                                        jmp   n16_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n15_suspend_α:
+                        lea              rax, [rip + n15_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_area$2F2_γ
+n15_suspend_β:
+                                                                                        jmp   n16_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n16_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 4880], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -202,63 +247,31 @@ n13_op11_α:
                         mov              qword ptr [rbp + 4872], rdx
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
-                                                                                        jmp   n15_var_ref_α
-n13_op11_β:
+                                                                                        jmp   n17_var_ref_α
+n16_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n14_lit_integer_α:
-                        mov              qword ptr [rbp + 4976], 6
-                        mov              rax, qword ptr [rip + .Lx220_0]
-                        mov              qword ptr [rbp + 4984], rax
-                                                                                        jmp   n16_op11_α
-.Lx220_0:
-                        .quad            1139
-#-----------------------------------------------------------------------------------------------------------------------
-n15_var_ref_α:
+n17_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 4832], rax
                         mov              qword ptr [rbp + 4840], rdx
-                                                                                        jmp   n17_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n18_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n16_op11_α:
-                        mov              rax, qword ptr [rbp + 4960]
-                        mov              qword ptr [rbp + 4928], rax
-                        mov              rax, qword ptr [rbp + 4968]
-                        mov              qword ptr [rbp + 4936], rax
-                        lea              rdi, [rbp + 4928]
-                        movabs           rsi, 1139
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 4912], rax
-                        mov              qword ptr [rbp + 4920], rdx
-                        cmp              eax, 99
-                                                                                        je    n13_op11_α
-                                                                                        jmp   n18_suspend_α
-n16_op11_β:
-                                                                                        jmp   n13_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n17_lit_string_α:
+n18_lit_string_α:
                         mov              qword ptr [rbp + 4848], 1
-                        mov              rax, qword ptr [rip + .Lx224_0]
+                        mov              dword ptr [rbp + 4852], 4
+                        mov              rax, qword ptr [rip + .Lx226_0]
                         mov              qword ptr [rbp + 4856], rax
-                                                                                        jmp   n19_op11_α
-.Lx224_0:
-                        .quad            .Lx224_0_s
-.Lx224_0_s:
+                                                                                        jmp   n19_call_builtin_prolog_α
+.Lx226_0:
+                        .quad            .Lx226_0_s
+.Lx226_0_s:
                         .string          "ussr"
 #-----------------------------------------------------------------------------------------------------------------------
-n18_suspend_α:
-                        lea              rax, [rip + n18_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_area$2F2_γ
-n18_suspend_β:
-                                                                                        jmp   n13_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n19_op11_α:
+n19_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 4832]
                         mov              qword ptr [rbp + 4800], rax
                         mov              rax, qword ptr [rbp + 4840]
@@ -275,19 +288,56 @@ n19_op11_α:
                         mov              qword ptr [rbp + 4784], rax
                         mov              qword ptr [rbp + 4792], rdx
                         cmp              eax, 99
-                                                                                        je    n21_op11_α
+                                                                                        je    n24_call_builtin_prolog_α
                                                                                         jmp   n20_var_ref_α
-n19_op11_β:
-                                                                                        jmp   n21_op11_α
+n19_call_builtin_prolog_β:
+                                                                                        jmp   n24_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n20_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 4752], rax
                         mov              qword ptr [rbp + 4760], rdx
-                                                                                        jmp   n22_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n21_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n21_op11_α:
+n21_lit_integer_α:
+                        mov              qword ptr [rbp + 4768], 6
+                        mov              rax, qword ptr [rip + .Lx230_0]
+                        mov              qword ptr [rbp + 4776], rax
+                                                                                        jmp   n22_call_builtin_prolog_α
+.Lx230_0:
+                        .quad            8708
+#-----------------------------------------------------------------------------------------------------------------------
+n22_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 4752]
+                        mov              qword ptr [rbp + 4720], rax
+                        mov              rax, qword ptr [rbp + 4760]
+                        mov              qword ptr [rbp + 4728], rax
+                        lea              rdi, [rbp + 4720]
+                        movabs           rsi, 8708
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 4704], rax
+                        mov              qword ptr [rbp + 4712], rdx
+                        cmp              eax, 99
+                                                                                        je    n24_call_builtin_prolog_α
+                                                                                        jmp   n23_suspend_α
+n22_call_builtin_prolog_β:
+                                                                                        jmp   n24_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n23_suspend_α:
+                        lea              rax, [rip + n23_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_area$2F2_γ
+n23_suspend_β:
+                                                                                        jmp   n24_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n24_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 4672], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -299,63 +349,31 @@ n21_op11_α:
                         mov              qword ptr [rbp + 4664], rdx
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
-                                                                                        jmp   n23_var_ref_α
-n21_op11_β:
+                                                                                        jmp   n25_var_ref_α
+n24_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n22_lit_integer_α:
-                        mov              qword ptr [rbp + 4768], 6
-                        mov              rax, qword ptr [rip + .Lx231_0]
-                        mov              qword ptr [rbp + 4776], rax
-                                                                                        jmp   n24_op11_α
-.Lx231_0:
-                        .quad            8708
-#-----------------------------------------------------------------------------------------------------------------------
-n23_var_ref_α:
+n25_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 4624], rax
                         mov              qword ptr [rbp + 4632], rdx
-                                                                                        jmp   n25_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n26_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n24_op11_α:
-                        mov              rax, qword ptr [rbp + 4752]
-                        mov              qword ptr [rbp + 4720], rax
-                        mov              rax, qword ptr [rbp + 4760]
-                        mov              qword ptr [rbp + 4728], rax
-                        lea              rdi, [rbp + 4720]
-                        movabs           rsi, 8708
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 4704], rax
-                        mov              qword ptr [rbp + 4712], rdx
-                        cmp              eax, 99
-                                                                                        je    n21_op11_α
-                                                                                        jmp   n26_suspend_α
-n24_op11_β:
-                                                                                        jmp   n21_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n25_lit_string_α:
+n26_lit_string_α:
                         mov              qword ptr [rbp + 4640], 1
-                        mov              rax, qword ptr [rip + .Lx235_0]
+                        mov              dword ptr [rbp + 4644], 3
+                        mov              rax, qword ptr [rip + .Lx237_0]
                         mov              qword ptr [rbp + 4648], rax
-                                                                                        jmp   n27_op11_α
-.Lx235_0:
-                        .quad            .Lx235_0_s
-.Lx235_0_s:
+                                                                                        jmp   n27_call_builtin_prolog_α
+.Lx237_0:
+                        .quad            .Lx237_0_s
+.Lx237_0_s:
                         .string          "usa"
 #-----------------------------------------------------------------------------------------------------------------------
-n26_suspend_α:
-                        lea              rax, [rip + n26_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_area$2F2_γ
-n26_suspend_β:
-                                                                                        jmp   n21_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n27_op11_α:
+n27_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 4624]
                         mov              qword ptr [rbp + 4592], rax
                         mov              rax, qword ptr [rbp + 4632]
@@ -372,19 +390,56 @@ n27_op11_α:
                         mov              qword ptr [rbp + 4576], rax
                         mov              qword ptr [rbp + 4584], rdx
                         cmp              eax, 99
-                                                                                        je    n29_op11_α
+                                                                                        je    n32_call_builtin_prolog_α
                                                                                         jmp   n28_var_ref_α
-n27_op11_β:
-                                                                                        jmp   n29_op11_α
+n27_call_builtin_prolog_β:
+                                                                                        jmp   n32_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n28_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 4544], rax
                         mov              qword ptr [rbp + 4552], rdx
-                                                                                        jmp   n30_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n29_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n29_op11_α:
+n29_lit_integer_α:
+                        mov              qword ptr [rbp + 4560], 6
+                        mov              rax, qword ptr [rip + .Lx241_0]
+                        mov              qword ptr [rbp + 4568], rax
+                                                                                        jmp   n30_call_builtin_prolog_α
+.Lx241_0:
+                        .quad            3609
+#-----------------------------------------------------------------------------------------------------------------------
+n30_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 4544]
+                        mov              qword ptr [rbp + 4512], rax
+                        mov              rax, qword ptr [rbp + 4552]
+                        mov              qword ptr [rbp + 4520], rax
+                        lea              rdi, [rbp + 4512]
+                        movabs           rsi, 3609
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 4496], rax
+                        mov              qword ptr [rbp + 4504], rdx
+                        cmp              eax, 99
+                                                                                        je    n32_call_builtin_prolog_α
+                                                                                        jmp   n31_suspend_α
+n30_call_builtin_prolog_β:
+                                                                                        jmp   n32_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n31_suspend_α:
+                        lea              rax, [rip + n31_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_area$2F2_γ
+n31_suspend_β:
+                                                                                        jmp   n32_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n32_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 4464], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -396,63 +451,31 @@ n29_op11_α:
                         mov              qword ptr [rbp + 4456], rdx
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
-                                                                                        jmp   n31_var_ref_α
-n29_op11_β:
+                                                                                        jmp   n33_var_ref_α
+n32_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n30_lit_integer_α:
-                        mov              qword ptr [rbp + 4560], 6
-                        mov              rax, qword ptr [rip + .Lx242_0]
-                        mov              qword ptr [rbp + 4568], rax
-                                                                                        jmp   n32_op11_α
-.Lx242_0:
-                        .quad            3609
-#-----------------------------------------------------------------------------------------------------------------------
-n31_var_ref_α:
+n33_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 4416], rax
                         mov              qword ptr [rbp + 4424], rdx
-                                                                                        jmp   n33_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n34_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n32_op11_α:
-                        mov              rax, qword ptr [rbp + 4544]
-                        mov              qword ptr [rbp + 4512], rax
-                        mov              rax, qword ptr [rbp + 4552]
-                        mov              qword ptr [rbp + 4520], rax
-                        lea              rdi, [rbp + 4512]
-                        movabs           rsi, 3609
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 4496], rax
-                        mov              qword ptr [rbp + 4504], rdx
-                        cmp              eax, 99
-                                                                                        je    n29_op11_α
-                                                                                        jmp   n34_suspend_α
-n32_op11_β:
-                                                                                        jmp   n29_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n33_lit_string_α:
+n34_lit_string_α:
                         mov              qword ptr [rbp + 4432], 1
-                        mov              rax, qword ptr [rip + .Lx246_0]
+                        mov              dword ptr [rbp + 4436], 9
+                        mov              rax, qword ptr [rip + .Lx248_0]
                         mov              qword ptr [rbp + 4440], rax
-                                                                                        jmp   n35_op11_α
-.Lx246_0:
-                        .quad            .Lx246_0_s
-.Lx246_0_s:
+                                                                                        jmp   n35_call_builtin_prolog_α
+.Lx248_0:
+                        .quad            .Lx248_0_s
+.Lx248_0_s:
                         .string          "indonesia"
 #-----------------------------------------------------------------------------------------------------------------------
-n34_suspend_α:
-                        lea              rax, [rip + n34_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_area$2F2_γ
-n34_suspend_β:
-                                                                                        jmp   n29_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n35_op11_α:
+n35_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 4416]
                         mov              qword ptr [rbp + 4384], rax
                         mov              rax, qword ptr [rbp + 4424]
@@ -469,19 +492,56 @@ n35_op11_α:
                         mov              qword ptr [rbp + 4368], rax
                         mov              qword ptr [rbp + 4376], rdx
                         cmp              eax, 99
-                                                                                        je    n37_op11_α
+                                                                                        je    n40_call_builtin_prolog_α
                                                                                         jmp   n36_var_ref_α
-n35_op11_β:
-                                                                                        jmp   n37_op11_α
+n35_call_builtin_prolog_β:
+                                                                                        jmp   n40_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n36_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 4336], rax
                         mov              qword ptr [rbp + 4344], rdx
-                                                                                        jmp   n38_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n37_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n37_op11_α:
+n37_lit_integer_α:
+                        mov              qword ptr [rbp + 4352], 6
+                        mov              rax, qword ptr [rip + .Lx252_0]
+                        mov              qword ptr [rbp + 4360], rax
+                                                                                        jmp   n38_call_builtin_prolog_α
+.Lx252_0:
+                        .quad            570
+#-----------------------------------------------------------------------------------------------------------------------
+n38_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 4336]
+                        mov              qword ptr [rbp + 4304], rax
+                        mov              rax, qword ptr [rbp + 4344]
+                        mov              qword ptr [rbp + 4312], rax
+                        lea              rdi, [rbp + 4304]
+                        movabs           rsi, 570
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 4288], rax
+                        mov              qword ptr [rbp + 4296], rdx
+                        cmp              eax, 99
+                                                                                        je    n40_call_builtin_prolog_α
+                                                                                        jmp   n39_suspend_α
+n38_call_builtin_prolog_β:
+                                                                                        jmp   n40_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n39_suspend_α:
+                        lea              rax, [rip + n39_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_area$2F2_γ
+n39_suspend_β:
+                                                                                        jmp   n40_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n40_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 4256], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -493,63 +553,31 @@ n37_op11_α:
                         mov              qword ptr [rbp + 4248], rdx
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
-                                                                                        jmp   n39_var_ref_α
-n37_op11_β:
+                                                                                        jmp   n41_var_ref_α
+n40_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n38_lit_integer_α:
-                        mov              qword ptr [rbp + 4352], 6
-                        mov              rax, qword ptr [rip + .Lx253_0]
-                        mov              qword ptr [rbp + 4360], rax
-                                                                                        jmp   n40_op11_α
-.Lx253_0:
-                        .quad            570
-#-----------------------------------------------------------------------------------------------------------------------
-n39_var_ref_α:
+n41_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 4208], rax
                         mov              qword ptr [rbp + 4216], rdx
-                                                                                        jmp   n41_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n42_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n40_op11_α:
-                        mov              rax, qword ptr [rbp + 4336]
-                        mov              qword ptr [rbp + 4304], rax
-                        mov              rax, qword ptr [rbp + 4344]
-                        mov              qword ptr [rbp + 4312], rax
-                        lea              rdi, [rbp + 4304]
-                        movabs           rsi, 570
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 4288], rax
-                        mov              qword ptr [rbp + 4296], rdx
-                        cmp              eax, 99
-                                                                                        je    n37_op11_α
-                                                                                        jmp   n42_suspend_α
-n40_op11_β:
-                                                                                        jmp   n37_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n41_lit_string_α:
+n42_lit_string_α:
                         mov              qword ptr [rbp + 4224], 1
-                        mov              rax, qword ptr [rip + .Lx257_0]
+                        mov              dword ptr [rbp + 4228], 5
+                        mov              rax, qword ptr [rip + .Lx259_0]
                         mov              qword ptr [rbp + 4232], rax
-                                                                                        jmp   n43_op11_α
-.Lx257_0:
-                        .quad            .Lx257_0_s
-.Lx257_0_s:
+                                                                                        jmp   n43_call_builtin_prolog_α
+.Lx259_0:
+                        .quad            .Lx259_0_s
+.Lx259_0_s:
                         .string          "japan"
 #-----------------------------------------------------------------------------------------------------------------------
-n42_suspend_α:
-                        lea              rax, [rip + n42_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_area$2F2_γ
-n42_suspend_β:
-                                                                                        jmp   n37_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n43_op11_α:
+n43_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 4208]
                         mov              qword ptr [rbp + 4176], rax
                         mov              rax, qword ptr [rbp + 4216]
@@ -566,19 +594,56 @@ n43_op11_α:
                         mov              qword ptr [rbp + 4160], rax
                         mov              qword ptr [rbp + 4168], rdx
                         cmp              eax, 99
-                                                                                        je    n45_op11_α
+                                                                                        je    n48_call_builtin_prolog_α
                                                                                         jmp   n44_var_ref_α
-n43_op11_β:
-                                                                                        jmp   n45_op11_α
+n43_call_builtin_prolog_β:
+                                                                                        jmp   n48_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n44_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 4128], rax
                         mov              qword ptr [rbp + 4136], rdx
-                                                                                        jmp   n46_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n45_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n45_op11_α:
+n45_lit_integer_α:
+                        mov              qword ptr [rbp + 4144], 6
+                        mov              rax, qword ptr [rip + .Lx263_0]
+                        mov              qword ptr [rbp + 4152], rax
+                                                                                        jmp   n46_call_builtin_prolog_α
+.Lx263_0:
+                        .quad            148
+#-----------------------------------------------------------------------------------------------------------------------
+n46_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 4128]
+                        mov              qword ptr [rbp + 4096], rax
+                        mov              rax, qword ptr [rbp + 4136]
+                        mov              qword ptr [rbp + 4104], rax
+                        lea              rdi, [rbp + 4096]
+                        movabs           rsi, 148
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 4080], rax
+                        mov              qword ptr [rbp + 4088], rdx
+                        cmp              eax, 99
+                                                                                        je    n48_call_builtin_prolog_α
+                                                                                        jmp   n47_suspend_α
+n46_call_builtin_prolog_β:
+                                                                                        jmp   n48_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n47_suspend_α:
+                        lea              rax, [rip + n47_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_area$2F2_γ
+n47_suspend_β:
+                                                                                        jmp   n48_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n48_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 4048], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -590,63 +655,31 @@ n45_op11_α:
                         mov              qword ptr [rbp + 4040], rdx
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
-                                                                                        jmp   n47_var_ref_α
-n45_op11_β:
+                                                                                        jmp   n49_var_ref_α
+n48_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n46_lit_integer_α:
-                        mov              qword ptr [rbp + 4144], 6
-                        mov              rax, qword ptr [rip + .Lx264_0]
-                        mov              qword ptr [rbp + 4152], rax
-                                                                                        jmp   n48_op11_α
-.Lx264_0:
-                        .quad            148
-#-----------------------------------------------------------------------------------------------------------------------
-n47_var_ref_α:
+n49_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 4000], rax
                         mov              qword ptr [rbp + 4008], rdx
-                                                                                        jmp   n49_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n50_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n48_op11_α:
-                        mov              rax, qword ptr [rbp + 4128]
-                        mov              qword ptr [rbp + 4096], rax
-                        mov              rax, qword ptr [rbp + 4136]
-                        mov              qword ptr [rbp + 4104], rax
-                        lea              rdi, [rbp + 4096]
-                        movabs           rsi, 148
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 4080], rax
-                        mov              qword ptr [rbp + 4088], rdx
-                        cmp              eax, 99
-                                                                                        je    n45_op11_α
-                                                                                        jmp   n50_suspend_α
-n48_op11_β:
-                                                                                        jmp   n45_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n49_lit_string_α:
+n50_lit_string_α:
                         mov              qword ptr [rbp + 4016], 1
-                        mov              rax, qword ptr [rip + .Lx268_0]
+                        mov              dword ptr [rbp + 4020], 6
+                        mov              rax, qword ptr [rip + .Lx270_0]
                         mov              qword ptr [rbp + 4024], rax
-                                                                                        jmp   n51_op11_α
-.Lx268_0:
-                        .quad            .Lx268_0_s
-.Lx268_0_s:
+                                                                                        jmp   n51_call_builtin_prolog_α
+.Lx270_0:
+                        .quad            .Lx270_0_s
+.Lx270_0_s:
                         .string          "brazil"
 #-----------------------------------------------------------------------------------------------------------------------
-n50_suspend_α:
-                        lea              rax, [rip + n50_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_area$2F2_γ
-n50_suspend_β:
-                                                                                        jmp   n45_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n51_op11_α:
+n51_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 4000]
                         mov              qword ptr [rbp + 3968], rax
                         mov              rax, qword ptr [rbp + 4008]
@@ -663,19 +696,56 @@ n51_op11_α:
                         mov              qword ptr [rbp + 3952], rax
                         mov              qword ptr [rbp + 3960], rdx
                         cmp              eax, 99
-                                                                                        je    n53_op11_α
+                                                                                        je    n56_call_builtin_prolog_α
                                                                                         jmp   n52_var_ref_α
-n51_op11_β:
-                                                                                        jmp   n53_op11_α
+n51_call_builtin_prolog_β:
+                                                                                        jmp   n56_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n52_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 3920], rax
                         mov              qword ptr [rbp + 3928], rdx
-                                                                                        jmp   n54_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n53_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n53_op11_α:
+n53_lit_integer_α:
+                        mov              qword ptr [rbp + 3936], 6
+                        mov              rax, qword ptr [rip + .Lx274_0]
+                        mov              qword ptr [rbp + 3944], rax
+                                                                                        jmp   n54_call_builtin_prolog_α
+.Lx274_0:
+                        .quad            3288
+#-----------------------------------------------------------------------------------------------------------------------
+n54_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 3920]
+                        mov              qword ptr [rbp + 3888], rax
+                        mov              rax, qword ptr [rbp + 3928]
+                        mov              qword ptr [rbp + 3896], rax
+                        lea              rdi, [rbp + 3888]
+                        movabs           rsi, 3288
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 3872], rax
+                        mov              qword ptr [rbp + 3880], rdx
+                        cmp              eax, 99
+                                                                                        je    n56_call_builtin_prolog_α
+                                                                                        jmp   n55_suspend_α
+n54_call_builtin_prolog_β:
+                                                                                        jmp   n56_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n55_suspend_α:
+                        lea              rax, [rip + n55_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_area$2F2_γ
+n55_suspend_β:
+                                                                                        jmp   n56_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n56_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 3840], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -687,63 +757,31 @@ n53_op11_α:
                         mov              qword ptr [rbp + 3832], rdx
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
-                                                                                        jmp   n55_var_ref_α
-n53_op11_β:
+                                                                                        jmp   n57_var_ref_α
+n56_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n54_lit_integer_α:
-                        mov              qword ptr [rbp + 3936], 6
-                        mov              rax, qword ptr [rip + .Lx275_0]
-                        mov              qword ptr [rbp + 3944], rax
-                                                                                        jmp   n56_op11_α
-.Lx275_0:
-                        .quad            3288
-#-----------------------------------------------------------------------------------------------------------------------
-n55_var_ref_α:
+n57_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 3792], rax
                         mov              qword ptr [rbp + 3800], rdx
-                                                                                        jmp   n57_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n58_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n56_op11_α:
-                        mov              rax, qword ptr [rbp + 3920]
-                        mov              qword ptr [rbp + 3888], rax
-                        mov              rax, qword ptr [rbp + 3928]
-                        mov              qword ptr [rbp + 3896], rax
-                        lea              rdi, [rbp + 3888]
-                        movabs           rsi, 3288
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 3872], rax
-                        mov              qword ptr [rbp + 3880], rdx
-                        cmp              eax, 99
-                                                                                        je    n53_op11_α
-                                                                                        jmp   n58_suspend_α
-n56_op11_β:
-                                                                                        jmp   n53_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n57_lit_string_α:
+n58_lit_string_α:
                         mov              qword ptr [rbp + 3808], 1
-                        mov              rax, qword ptr [rip + .Lx279_0]
+                        mov              dword ptr [rbp + 3812], 10
+                        mov              rax, qword ptr [rip + .Lx281_0]
                         mov              qword ptr [rbp + 3816], rax
-                                                                                        jmp   n59_op11_α
-.Lx279_0:
-                        .quad            .Lx279_0_s
-.Lx279_0_s:
+                                                                                        jmp   n59_call_builtin_prolog_α
+.Lx281_0:
+                        .quad            .Lx281_0_s
+.Lx281_0_s:
                         .string          "bangladesh"
 #-----------------------------------------------------------------------------------------------------------------------
-n58_suspend_α:
-                        lea              rax, [rip + n58_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_area$2F2_γ
-n58_suspend_β:
-                                                                                        jmp   n53_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n59_op11_α:
+n59_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 3792]
                         mov              qword ptr [rbp + 3760], rax
                         mov              rax, qword ptr [rbp + 3800]
@@ -760,19 +798,56 @@ n59_op11_α:
                         mov              qword ptr [rbp + 3744], rax
                         mov              qword ptr [rbp + 3752], rdx
                         cmp              eax, 99
-                                                                                        je    n61_op11_α
+                                                                                        je    n64_call_builtin_prolog_α
                                                                                         jmp   n60_var_ref_α
-n59_op11_β:
-                                                                                        jmp   n61_op11_α
+n59_call_builtin_prolog_β:
+                                                                                        jmp   n64_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n60_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 3712], rax
                         mov              qword ptr [rbp + 3720], rdx
-                                                                                        jmp   n62_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n61_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n61_op11_α:
+n61_lit_integer_α:
+                        mov              qword ptr [rbp + 3728], 6
+                        mov              rax, qword ptr [rip + .Lx285_0]
+                        mov              qword ptr [rbp + 3736], rax
+                                                                                        jmp   n62_call_builtin_prolog_α
+.Lx285_0:
+                        .quad            55
+#-----------------------------------------------------------------------------------------------------------------------
+n62_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 3712]
+                        mov              qword ptr [rbp + 3680], rax
+                        mov              rax, qword ptr [rbp + 3720]
+                        mov              qword ptr [rbp + 3688], rax
+                        lea              rdi, [rbp + 3680]
+                        movabs           rsi, 55
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 3664], rax
+                        mov              qword ptr [rbp + 3672], rdx
+                        cmp              eax, 99
+                                                                                        je    n64_call_builtin_prolog_α
+                                                                                        jmp   n63_suspend_α
+n62_call_builtin_prolog_β:
+                                                                                        jmp   n64_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n63_suspend_α:
+                        lea              rax, [rip + n63_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_area$2F2_γ
+n63_suspend_β:
+                                                                                        jmp   n64_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n64_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 3632], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -784,63 +859,31 @@ n61_op11_α:
                         mov              qword ptr [rbp + 3624], rdx
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
-                                                                                        jmp   n63_var_ref_α
-n61_op11_β:
+                                                                                        jmp   n65_var_ref_α
+n64_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n62_lit_integer_α:
-                        mov              qword ptr [rbp + 3728], 6
-                        mov              rax, qword ptr [rip + .Lx286_0]
-                        mov              qword ptr [rbp + 3736], rax
-                                                                                        jmp   n64_op11_α
-.Lx286_0:
-                        .quad            55
-#-----------------------------------------------------------------------------------------------------------------------
-n63_var_ref_α:
+n65_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 3584], rax
                         mov              qword ptr [rbp + 3592], rdx
-                                                                                        jmp   n65_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n66_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n64_op11_α:
-                        mov              rax, qword ptr [rbp + 3712]
-                        mov              qword ptr [rbp + 3680], rax
-                        mov              rax, qword ptr [rbp + 3720]
-                        mov              qword ptr [rbp + 3688], rax
-                        lea              rdi, [rbp + 3680]
-                        movabs           rsi, 55
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 3664], rax
-                        mov              qword ptr [rbp + 3672], rdx
-                        cmp              eax, 99
-                                                                                        je    n61_op11_α
-                                                                                        jmp   n66_suspend_α
-n64_op11_β:
-                                                                                        jmp   n61_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n65_lit_string_α:
+n66_lit_string_α:
                         mov              qword ptr [rbp + 3600], 1
-                        mov              rax, qword ptr [rip + .Lx290_0]
+                        mov              dword ptr [rbp + 3604], 8
+                        mov              rax, qword ptr [rip + .Lx292_0]
                         mov              qword ptr [rbp + 3608], rax
-                                                                                        jmp   n67_op11_α
-.Lx290_0:
-                        .quad            .Lx290_0_s
-.Lx290_0_s:
+                                                                                        jmp   n67_call_builtin_prolog_α
+.Lx292_0:
+                        .quad            .Lx292_0_s
+.Lx292_0_s:
                         .string          "pakistan"
 #-----------------------------------------------------------------------------------------------------------------------
-n66_suspend_α:
-                        lea              rax, [rip + n66_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_area$2F2_γ
-n66_suspend_β:
-                                                                                        jmp   n61_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n67_op11_α:
+n67_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 3584]
                         mov              qword ptr [rbp + 3552], rax
                         mov              rax, qword ptr [rbp + 3592]
@@ -857,19 +900,56 @@ n67_op11_α:
                         mov              qword ptr [rbp + 3536], rax
                         mov              qword ptr [rbp + 3544], rdx
                         cmp              eax, 99
-                                                                                        je    n69_op11_α
+                                                                                        je    n72_call_builtin_prolog_α
                                                                                         jmp   n68_var_ref_α
-n67_op11_β:
-                                                                                        jmp   n69_op11_α
+n67_call_builtin_prolog_β:
+                                                                                        jmp   n72_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n68_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 3504], rax
                         mov              qword ptr [rbp + 3512], rdx
-                                                                                        jmp   n70_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n69_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n69_op11_α:
+n69_lit_integer_α:
+                        mov              qword ptr [rbp + 3520], 6
+                        mov              rax, qword ptr [rip + .Lx296_0]
+                        mov              qword ptr [rbp + 3528], rax
+                                                                                        jmp   n70_call_builtin_prolog_α
+.Lx296_0:
+                        .quad            311
+#-----------------------------------------------------------------------------------------------------------------------
+n70_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 3504]
+                        mov              qword ptr [rbp + 3472], rax
+                        mov              rax, qword ptr [rbp + 3512]
+                        mov              qword ptr [rbp + 3480], rax
+                        lea              rdi, [rbp + 3472]
+                        movabs           rsi, 311
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 3456], rax
+                        mov              qword ptr [rbp + 3464], rdx
+                        cmp              eax, 99
+                                                                                        je    n72_call_builtin_prolog_α
+                                                                                        jmp   n71_suspend_α
+n70_call_builtin_prolog_β:
+                                                                                        jmp   n72_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n71_suspend_α:
+                        lea              rax, [rip + n71_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_area$2F2_γ
+n71_suspend_β:
+                                                                                        jmp   n72_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n72_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 3424], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -881,63 +961,31 @@ n69_op11_α:
                         mov              qword ptr [rbp + 3416], rdx
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
-                                                                                        jmp   n71_var_ref_α
-n69_op11_β:
+                                                                                        jmp   n73_var_ref_α
+n72_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n70_lit_integer_α:
-                        mov              qword ptr [rbp + 3520], 6
-                        mov              rax, qword ptr [rip + .Lx297_0]
-                        mov              qword ptr [rbp + 3528], rax
-                                                                                        jmp   n72_op11_α
-.Lx297_0:
-                        .quad            311
-#-----------------------------------------------------------------------------------------------------------------------
-n71_var_ref_α:
+n73_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 3376], rax
                         mov              qword ptr [rbp + 3384], rdx
-                                                                                        jmp   n73_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n74_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n72_op11_α:
-                        mov              rax, qword ptr [rbp + 3504]
-                        mov              qword ptr [rbp + 3472], rax
-                        mov              rax, qword ptr [rbp + 3512]
-                        mov              qword ptr [rbp + 3480], rax
-                        lea              rdi, [rbp + 3472]
-                        movabs           rsi, 311
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 3456], rax
-                        mov              qword ptr [rbp + 3464], rdx
-                        cmp              eax, 99
-                                                                                        je    n69_op11_α
-                                                                                        jmp   n74_suspend_α
-n72_op11_β:
-                                                                                        jmp   n69_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n73_lit_string_α:
+n74_lit_string_α:
                         mov              qword ptr [rbp + 3392], 1
-                        mov              rax, qword ptr [rip + .Lx301_0]
+                        mov              dword ptr [rbp + 3396], 9
+                        mov              rax, qword ptr [rip + .Lx303_0]
                         mov              qword ptr [rbp + 3400], rax
-                                                                                        jmp   n75_op11_α
-.Lx301_0:
-                        .quad            .Lx301_0_s
-.Lx301_0_s:
+                                                                                        jmp   n75_call_builtin_prolog_α
+.Lx303_0:
+                        .quad            .Lx303_0_s
+.Lx303_0_s:
                         .string          "w_germany"
 #-----------------------------------------------------------------------------------------------------------------------
-n74_suspend_α:
-                        lea              rax, [rip + n74_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_area$2F2_γ
-n74_suspend_β:
-                                                                                        jmp   n69_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n75_op11_α:
+n75_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 3376]
                         mov              qword ptr [rbp + 3344], rax
                         mov              rax, qword ptr [rbp + 3384]
@@ -954,19 +1002,56 @@ n75_op11_α:
                         mov              qword ptr [rbp + 3328], rax
                         mov              qword ptr [rbp + 3336], rdx
                         cmp              eax, 99
-                                                                                        je    n77_op11_α
+                                                                                        je    n80_call_builtin_prolog_α
                                                                                         jmp   n76_var_ref_α
-n75_op11_β:
-                                                                                        jmp   n77_op11_α
+n75_call_builtin_prolog_β:
+                                                                                        jmp   n80_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n76_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 3296], rax
                         mov              qword ptr [rbp + 3304], rdx
-                                                                                        jmp   n78_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n77_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n77_op11_α:
+n77_lit_integer_α:
+                        mov              qword ptr [rbp + 3312], 6
+                        mov              rax, qword ptr [rip + .Lx307_0]
+                        mov              qword ptr [rbp + 3320], rax
+                                                                                        jmp   n78_call_builtin_prolog_α
+.Lx307_0:
+                        .quad            96
+#-----------------------------------------------------------------------------------------------------------------------
+n78_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 3296]
+                        mov              qword ptr [rbp + 3264], rax
+                        mov              rax, qword ptr [rbp + 3304]
+                        mov              qword ptr [rbp + 3272], rax
+                        lea              rdi, [rbp + 3264]
+                        movabs           rsi, 96
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 3248], rax
+                        mov              qword ptr [rbp + 3256], rdx
+                        cmp              eax, 99
+                                                                                        je    n80_call_builtin_prolog_α
+                                                                                        jmp   n79_suspend_α
+n78_call_builtin_prolog_β:
+                                                                                        jmp   n80_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n79_suspend_α:
+                        lea              rax, [rip + n79_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_area$2F2_γ
+n79_suspend_β:
+                                                                                        jmp   n80_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n80_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 3216], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -978,63 +1063,31 @@ n77_op11_α:
                         mov              qword ptr [rbp + 3208], rdx
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
-                                                                                        jmp   n79_var_ref_α
-n77_op11_β:
+                                                                                        jmp   n81_var_ref_α
+n80_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n78_lit_integer_α:
-                        mov              qword ptr [rbp + 3312], 6
-                        mov              rax, qword ptr [rip + .Lx308_0]
-                        mov              qword ptr [rbp + 3320], rax
-                                                                                        jmp   n80_op11_α
-.Lx308_0:
-                        .quad            96
-#-----------------------------------------------------------------------------------------------------------------------
-n79_var_ref_α:
+n81_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 3168], rax
                         mov              qword ptr [rbp + 3176], rdx
-                                                                                        jmp   n81_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n82_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n80_op11_α:
-                        mov              rax, qword ptr [rbp + 3296]
-                        mov              qword ptr [rbp + 3264], rax
-                        mov              rax, qword ptr [rbp + 3304]
-                        mov              qword ptr [rbp + 3272], rax
-                        lea              rdi, [rbp + 3264]
-                        movabs           rsi, 96
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 3248], rax
-                        mov              qword ptr [rbp + 3256], rdx
-                        cmp              eax, 99
-                                                                                        je    n77_op11_α
-                                                                                        jmp   n82_suspend_α
-n80_op11_β:
-                                                                                        jmp   n77_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n81_lit_string_α:
+n82_lit_string_α:
                         mov              qword ptr [rbp + 3184], 1
-                        mov              rax, qword ptr [rip + .Lx312_0]
+                        mov              dword ptr [rbp + 3188], 7
+                        mov              rax, qword ptr [rip + .Lx314_0]
                         mov              qword ptr [rbp + 3192], rax
-                                                                                        jmp   n83_op11_α
-.Lx312_0:
-                        .quad            .Lx312_0_s
-.Lx312_0_s:
+                                                                                        jmp   n83_call_builtin_prolog_α
+.Lx314_0:
+                        .quad            .Lx314_0_s
+.Lx314_0_s:
                         .string          "nigeria"
 #-----------------------------------------------------------------------------------------------------------------------
-n82_suspend_α:
-                        lea              rax, [rip + n82_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_area$2F2_γ
-n82_suspend_β:
-                                                                                        jmp   n77_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n83_op11_α:
+n83_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 3168]
                         mov              qword ptr [rbp + 3136], rax
                         mov              rax, qword ptr [rbp + 3176]
@@ -1051,19 +1104,56 @@ n83_op11_α:
                         mov              qword ptr [rbp + 3120], rax
                         mov              qword ptr [rbp + 3128], rdx
                         cmp              eax, 99
-                                                                                        je    n85_op11_α
+                                                                                        je    n88_call_builtin_prolog_α
                                                                                         jmp   n84_var_ref_α
-n83_op11_β:
-                                                                                        jmp   n85_op11_α
+n83_call_builtin_prolog_β:
+                                                                                        jmp   n88_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n84_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 3088], rax
                         mov              qword ptr [rbp + 3096], rdx
-                                                                                        jmp   n86_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n85_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n85_op11_α:
+n85_lit_integer_α:
+                        mov              qword ptr [rbp + 3104], 6
+                        mov              rax, qword ptr [rip + .Lx318_0]
+                        mov              qword ptr [rbp + 3112], rax
+                                                                                        jmp   n86_call_builtin_prolog_α
+.Lx318_0:
+                        .quad            373
+#-----------------------------------------------------------------------------------------------------------------------
+n86_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 3088]
+                        mov              qword ptr [rbp + 3056], rax
+                        mov              rax, qword ptr [rbp + 3096]
+                        mov              qword ptr [rbp + 3064], rax
+                        lea              rdi, [rbp + 3056]
+                        movabs           rsi, 373
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 3040], rax
+                        mov              qword ptr [rbp + 3048], rdx
+                        cmp              eax, 99
+                                                                                        je    n88_call_builtin_prolog_α
+                                                                                        jmp   n87_suspend_α
+n86_call_builtin_prolog_β:
+                                                                                        jmp   n88_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n87_suspend_α:
+                        lea              rax, [rip + n87_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_area$2F2_γ
+n87_suspend_β:
+                                                                                        jmp   n88_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n88_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 3008], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -1075,63 +1165,31 @@ n85_op11_α:
                         mov              qword ptr [rbp + 3000], rdx
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
-                                                                                        jmp   n87_var_ref_α
-n85_op11_β:
+                                                                                        jmp   n89_var_ref_α
+n88_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n86_lit_integer_α:
-                        mov              qword ptr [rbp + 3104], 6
-                        mov              rax, qword ptr [rip + .Lx319_0]
-                        mov              qword ptr [rbp + 3112], rax
-                                                                                        jmp   n88_op11_α
-.Lx319_0:
-                        .quad            373
-#-----------------------------------------------------------------------------------------------------------------------
-n87_var_ref_α:
+n89_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 2960], rax
                         mov              qword ptr [rbp + 2968], rdx
-                                                                                        jmp   n89_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n90_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n88_op11_α:
-                        mov              rax, qword ptr [rbp + 3088]
-                        mov              qword ptr [rbp + 3056], rax
-                        mov              rax, qword ptr [rbp + 3096]
-                        mov              qword ptr [rbp + 3064], rax
-                        lea              rdi, [rbp + 3056]
-                        movabs           rsi, 373
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 3040], rax
-                        mov              qword ptr [rbp + 3048], rdx
-                        cmp              eax, 99
-                                                                                        je    n85_op11_α
-                                                                                        jmp   n90_suspend_α
-n88_op11_β:
-                                                                                        jmp   n85_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n89_lit_string_α:
+n90_lit_string_α:
                         mov              qword ptr [rbp + 2976], 1
-                        mov              rax, qword ptr [rip + .Lx323_0]
+                        mov              dword ptr [rbp + 2980], 6
+                        mov              rax, qword ptr [rip + .Lx325_0]
                         mov              qword ptr [rbp + 2984], rax
-                                                                                        jmp   n91_op11_α
-.Lx323_0:
-                        .quad            .Lx323_0_s
-.Lx323_0_s:
+                                                                                        jmp   n91_call_builtin_prolog_α
+.Lx325_0:
+                        .quad            .Lx325_0_s
+.Lx325_0_s:
                         .string          "mexico"
 #-----------------------------------------------------------------------------------------------------------------------
-n90_suspend_α:
-                        lea              rax, [rip + n90_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_area$2F2_γ
-n90_suspend_β:
-                                                                                        jmp   n85_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n91_op11_α:
+n91_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 2960]
                         mov              qword ptr [rbp + 2928], rax
                         mov              rax, qword ptr [rbp + 2968]
@@ -1148,19 +1206,56 @@ n91_op11_α:
                         mov              qword ptr [rbp + 2912], rax
                         mov              qword ptr [rbp + 2920], rdx
                         cmp              eax, 99
-                                                                                        je    n93_op11_α
+                                                                                        je    n96_call_builtin_prolog_α
                                                                                         jmp   n92_var_ref_α
-n91_op11_β:
-                                                                                        jmp   n93_op11_α
+n91_call_builtin_prolog_β:
+                                                                                        jmp   n96_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n92_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 2880], rax
                         mov              qword ptr [rbp + 2888], rdx
-                                                                                        jmp   n94_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n93_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n93_op11_α:
+n93_lit_integer_α:
+                        mov              qword ptr [rbp + 2896], 6
+                        mov              rax, qword ptr [rip + .Lx329_0]
+                        mov              qword ptr [rbp + 2904], rax
+                                                                                        jmp   n94_call_builtin_prolog_α
+.Lx329_0:
+                        .quad            764
+#-----------------------------------------------------------------------------------------------------------------------
+n94_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 2880]
+                        mov              qword ptr [rbp + 2848], rax
+                        mov              rax, qword ptr [rbp + 2888]
+                        mov              qword ptr [rbp + 2856], rax
+                        lea              rdi, [rbp + 2848]
+                        movabs           rsi, 764
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 2832], rax
+                        mov              qword ptr [rbp + 2840], rdx
+                        cmp              eax, 99
+                                                                                        je    n96_call_builtin_prolog_α
+                                                                                        jmp   n95_suspend_α
+n94_call_builtin_prolog_β:
+                                                                                        jmp   n96_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n95_suspend_α:
+                        lea              rax, [rip + n95_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_area$2F2_γ
+n95_suspend_β:
+                                                                                        jmp   n96_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n96_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 2800], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -1172,63 +1267,31 @@ n93_op11_α:
                         mov              qword ptr [rbp + 2792], rdx
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
-                                                                                        jmp   n95_var_ref_α
-n93_op11_β:
+                                                                                        jmp   n97_var_ref_α
+n96_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n94_lit_integer_α:
-                        mov              qword ptr [rbp + 2896], 6
-                        mov              rax, qword ptr [rip + .Lx330_0]
-                        mov              qword ptr [rbp + 2904], rax
-                                                                                        jmp   n96_op11_α
-.Lx330_0:
-                        .quad            764
-#-----------------------------------------------------------------------------------------------------------------------
-n95_var_ref_α:
+n97_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 2752], rax
                         mov              qword ptr [rbp + 2760], rdx
-                                                                                        jmp   n97_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n98_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n96_op11_α:
-                        mov              rax, qword ptr [rbp + 2880]
-                        mov              qword ptr [rbp + 2848], rax
-                        mov              rax, qword ptr [rbp + 2888]
-                        mov              qword ptr [rbp + 2856], rax
-                        lea              rdi, [rbp + 2848]
-                        movabs           rsi, 764
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 2832], rax
-                        mov              qword ptr [rbp + 2840], rdx
-                        cmp              eax, 99
-                                                                                        je    n93_op11_α
-                                                                                        jmp   n98_suspend_α
-n96_op11_β:
-                                                                                        jmp   n93_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n97_lit_string_α:
+n98_lit_string_α:
                         mov              qword ptr [rbp + 2768], 1
-                        mov              rax, qword ptr [rip + .Lx334_0]
+                        mov              dword ptr [rbp + 2772], 2
+                        mov              rax, qword ptr [rip + .Lx336_0]
                         mov              qword ptr [rbp + 2776], rax
-                                                                                        jmp   n99_op11_α
-.Lx334_0:
-                        .quad            .Lx334_0_s
-.Lx334_0_s:
+                                                                                        jmp   n99_call_builtin_prolog_α
+.Lx336_0:
+                        .quad            .Lx336_0_s
+.Lx336_0_s:
                         .string          "uk"
 #-----------------------------------------------------------------------------------------------------------------------
-n98_suspend_α:
-                        lea              rax, [rip + n98_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_area$2F2_γ
-n98_suspend_β:
-                                                                                        jmp   n93_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n99_op11_α:
+n99_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 2752]
                         mov              qword ptr [rbp + 2720], rax
                         mov              rax, qword ptr [rbp + 2760]
@@ -1245,19 +1308,56 @@ n99_op11_α:
                         mov              qword ptr [rbp + 2704], rax
                         mov              qword ptr [rbp + 2712], rdx
                         cmp              eax, 99
-                                                                                        je    n101_op11_α
+                                                                                        je    n104_call_builtin_prolog_α
                                                                                         jmp   n100_var_ref_α
-n99_op11_β:
-                                                                                        jmp   n101_op11_α
+n99_call_builtin_prolog_β:
+                                                                                        jmp   n104_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n100_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 2672], rax
                         mov              qword ptr [rbp + 2680], rdx
-                                                                                        jmp   n102_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n101_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n101_op11_α:
+n101_lit_integer_α:
+                        mov              qword ptr [rbp + 2688], 6
+                        mov              rax, qword ptr [rip + .Lx340_0]
+                        mov              qword ptr [rbp + 2696], rax
+                                                                                        jmp   n102_call_builtin_prolog_α
+.Lx340_0:
+                        .quad            86
+#-----------------------------------------------------------------------------------------------------------------------
+n102_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 2672]
+                        mov              qword ptr [rbp + 2640], rax
+                        mov              rax, qword ptr [rbp + 2680]
+                        mov              qword ptr [rbp + 2648], rax
+                        lea              rdi, [rbp + 2640]
+                        movabs           rsi, 86
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 2624], rax
+                        mov              qword ptr [rbp + 2632], rdx
+                        cmp              eax, 99
+                                                                                        je    n104_call_builtin_prolog_α
+                                                                                        jmp   n103_suspend_α
+n102_call_builtin_prolog_β:
+                                                                                        jmp   n104_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n103_suspend_α:
+                        lea              rax, [rip + n103_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_area$2F2_γ
+n103_suspend_β:
+                                                                                        jmp   n104_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n104_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 2592], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -1269,63 +1369,31 @@ n101_op11_α:
                         mov              qword ptr [rbp + 2584], rdx
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
-                                                                                        jmp   n103_var_ref_α
-n101_op11_β:
+                                                                                        jmp   n105_var_ref_α
+n104_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n102_lit_integer_α:
-                        mov              qword ptr [rbp + 2688], 6
-                        mov              rax, qword ptr [rip + .Lx341_0]
-                        mov              qword ptr [rbp + 2696], rax
-                                                                                        jmp   n104_op11_α
-.Lx341_0:
-                        .quad            86
-#-----------------------------------------------------------------------------------------------------------------------
-n103_var_ref_α:
+n105_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 2544], rax
                         mov              qword ptr [rbp + 2552], rdx
-                                                                                        jmp   n105_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n106_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n104_op11_α:
-                        mov              rax, qword ptr [rbp + 2672]
-                        mov              qword ptr [rbp + 2640], rax
-                        mov              rax, qword ptr [rbp + 2680]
-                        mov              qword ptr [rbp + 2648], rax
-                        lea              rdi, [rbp + 2640]
-                        movabs           rsi, 86
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 2624], rax
-                        mov              qword ptr [rbp + 2632], rdx
-                        cmp              eax, 99
-                                                                                        je    n101_op11_α
-                                                                                        jmp   n106_suspend_α
-n104_op11_β:
-                                                                                        jmp   n101_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n105_lit_string_α:
+n106_lit_string_α:
                         mov              qword ptr [rbp + 2560], 1
-                        mov              rax, qword ptr [rip + .Lx345_0]
+                        mov              dword ptr [rbp + 2564], 5
+                        mov              rax, qword ptr [rip + .Lx347_0]
                         mov              qword ptr [rbp + 2568], rax
-                                                                                        jmp   n107_op11_α
-.Lx345_0:
-                        .quad            .Lx345_0_s
-.Lx345_0_s:
+                                                                                        jmp   n107_call_builtin_prolog_α
+.Lx347_0:
+                        .quad            .Lx347_0_s
+.Lx347_0_s:
                         .string          "italy"
 #-----------------------------------------------------------------------------------------------------------------------
-n106_suspend_α:
-                        lea              rax, [rip + n106_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_area$2F2_γ
-n106_suspend_β:
-                                                                                        jmp   n101_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n107_op11_α:
+n107_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 2544]
                         mov              qword ptr [rbp + 2512], rax
                         mov              rax, qword ptr [rbp + 2552]
@@ -1342,19 +1410,56 @@ n107_op11_α:
                         mov              qword ptr [rbp + 2496], rax
                         mov              qword ptr [rbp + 2504], rdx
                         cmp              eax, 99
-                                                                                        je    n109_op11_α
+                                                                                        je    n112_call_builtin_prolog_α
                                                                                         jmp   n108_var_ref_α
-n107_op11_β:
-                                                                                        jmp   n109_op11_α
+n107_call_builtin_prolog_β:
+                                                                                        jmp   n112_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n108_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 2464], rax
                         mov              qword ptr [rbp + 2472], rdx
-                                                                                        jmp   n110_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n109_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n109_op11_α:
+n109_lit_integer_α:
+                        mov              qword ptr [rbp + 2480], 6
+                        mov              rax, qword ptr [rip + .Lx351_0]
+                        mov              qword ptr [rbp + 2488], rax
+                                                                                        jmp   n110_call_builtin_prolog_α
+.Lx351_0:
+                        .quad            116
+#-----------------------------------------------------------------------------------------------------------------------
+n110_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 2464]
+                        mov              qword ptr [rbp + 2432], rax
+                        mov              rax, qword ptr [rbp + 2472]
+                        mov              qword ptr [rbp + 2440], rax
+                        lea              rdi, [rbp + 2432]
+                        movabs           rsi, 116
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 2416], rax
+                        mov              qword ptr [rbp + 2424], rdx
+                        cmp              eax, 99
+                                                                                        je    n112_call_builtin_prolog_α
+                                                                                        jmp   n111_suspend_α
+n110_call_builtin_prolog_β:
+                                                                                        jmp   n112_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n111_suspend_α:
+                        lea              rax, [rip + n111_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_area$2F2_γ
+n111_suspend_β:
+                                                                                        jmp   n112_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n112_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 2384], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -1366,63 +1471,31 @@ n109_op11_α:
                         mov              qword ptr [rbp + 2376], rdx
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
-                                                                                        jmp   n111_var_ref_α
-n109_op11_β:
+                                                                                        jmp   n113_var_ref_α
+n112_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n110_lit_integer_α:
-                        mov              qword ptr [rbp + 2480], 6
-                        mov              rax, qword ptr [rip + .Lx352_0]
-                        mov              qword ptr [rbp + 2488], rax
-                                                                                        jmp   n112_op11_α
-.Lx352_0:
-                        .quad            116
-#-----------------------------------------------------------------------------------------------------------------------
-n111_var_ref_α:
+n113_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 2336], rax
                         mov              qword ptr [rbp + 2344], rdx
-                                                                                        jmp   n113_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n114_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n112_op11_α:
-                        mov              rax, qword ptr [rbp + 2464]
-                        mov              qword ptr [rbp + 2432], rax
-                        mov              rax, qword ptr [rbp + 2472]
-                        mov              qword ptr [rbp + 2440], rax
-                        lea              rdi, [rbp + 2432]
-                        movabs           rsi, 116
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 2416], rax
-                        mov              qword ptr [rbp + 2424], rdx
-                        cmp              eax, 99
-                                                                                        je    n109_op11_α
-                                                                                        jmp   n114_suspend_α
-n112_op11_β:
-                                                                                        jmp   n109_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n113_lit_string_α:
+n114_lit_string_α:
                         mov              qword ptr [rbp + 2352], 1
-                        mov              rax, qword ptr [rip + .Lx356_0]
+                        mov              dword ptr [rbp + 2356], 6
+                        mov              rax, qword ptr [rip + .Lx358_0]
                         mov              qword ptr [rbp + 2360], rax
-                                                                                        jmp   n115_op11_α
-.Lx356_0:
-                        .quad            .Lx356_0_s
-.Lx356_0_s:
+                                                                                        jmp   n115_call_builtin_prolog_α
+.Lx358_0:
+                        .quad            .Lx358_0_s
+.Lx358_0_s:
                         .string          "france"
 #-----------------------------------------------------------------------------------------------------------------------
-n114_suspend_α:
-                        lea              rax, [rip + n114_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_area$2F2_γ
-n114_suspend_β:
-                                                                                        jmp   n109_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n115_op11_α:
+n115_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 2336]
                         mov              qword ptr [rbp + 2304], rax
                         mov              rax, qword ptr [rbp + 2344]
@@ -1439,19 +1512,56 @@ n115_op11_α:
                         mov              qword ptr [rbp + 2288], rax
                         mov              qword ptr [rbp + 2296], rdx
                         cmp              eax, 99
-                                                                                        je    n117_op11_α
+                                                                                        je    n120_call_builtin_prolog_α
                                                                                         jmp   n116_var_ref_α
-n115_op11_β:
-                                                                                        jmp   n117_op11_α
+n115_call_builtin_prolog_β:
+                                                                                        jmp   n120_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n116_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 2256], rax
                         mov              qword ptr [rbp + 2264], rdx
-                                                                                        jmp   n118_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n117_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n117_op11_α:
+n117_lit_integer_α:
+                        mov              qword ptr [rbp + 2272], 6
+                        mov              rax, qword ptr [rip + .Lx362_0]
+                        mov              qword ptr [rbp + 2280], rax
+                                                                                        jmp   n118_call_builtin_prolog_α
+.Lx362_0:
+                        .quad            213
+#-----------------------------------------------------------------------------------------------------------------------
+n118_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 2256]
+                        mov              qword ptr [rbp + 2224], rax
+                        mov              rax, qword ptr [rbp + 2264]
+                        mov              qword ptr [rbp + 2232], rax
+                        lea              rdi, [rbp + 2224]
+                        movabs           rsi, 213
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 2208], rax
+                        mov              qword ptr [rbp + 2216], rdx
+                        cmp              eax, 99
+                                                                                        je    n120_call_builtin_prolog_α
+                                                                                        jmp   n119_suspend_α
+n118_call_builtin_prolog_β:
+                                                                                        jmp   n120_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n119_suspend_α:
+                        lea              rax, [rip + n119_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_area$2F2_γ
+n119_suspend_β:
+                                                                                        jmp   n120_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n120_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 2176], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -1463,63 +1573,31 @@ n117_op11_α:
                         mov              qword ptr [rbp + 2168], rdx
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
-                                                                                        jmp   n119_var_ref_α
-n117_op11_β:
+                                                                                        jmp   n121_var_ref_α
+n120_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n118_lit_integer_α:
-                        mov              qword ptr [rbp + 2272], 6
-                        mov              rax, qword ptr [rip + .Lx363_0]
-                        mov              qword ptr [rbp + 2280], rax
-                                                                                        jmp   n120_op11_α
-.Lx363_0:
-                        .quad            213
-#-----------------------------------------------------------------------------------------------------------------------
-n119_var_ref_α:
+n121_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 2128], rax
                         mov              qword ptr [rbp + 2136], rdx
-                                                                                        jmp   n121_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n122_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n120_op11_α:
-                        mov              rax, qword ptr [rbp + 2256]
-                        mov              qword ptr [rbp + 2224], rax
-                        mov              rax, qword ptr [rbp + 2264]
-                        mov              qword ptr [rbp + 2232], rax
-                        lea              rdi, [rbp + 2224]
-                        movabs           rsi, 213
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 2208], rax
-                        mov              qword ptr [rbp + 2216], rdx
-                        cmp              eax, 99
-                                                                                        je    n117_op11_α
-                                                                                        jmp   n122_suspend_α
-n120_op11_β:
-                                                                                        jmp   n117_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n121_lit_string_α:
+n122_lit_string_α:
                         mov              qword ptr [rbp + 2144], 1
-                        mov              rax, qword ptr [rip + .Lx367_0]
+                        mov              dword ptr [rbp + 2148], 11
+                        mov              rax, qword ptr [rip + .Lx369_0]
                         mov              qword ptr [rbp + 2152], rax
-                                                                                        jmp   n123_op11_α
-.Lx367_0:
-                        .quad            .Lx367_0_s
-.Lx367_0_s:
+                                                                                        jmp   n123_call_builtin_prolog_α
+.Lx369_0:
+                        .quad            .Lx369_0_s
+.Lx369_0_s:
                         .string          "philippines"
 #-----------------------------------------------------------------------------------------------------------------------
-n122_suspend_α:
-                        lea              rax, [rip + n122_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_area$2F2_γ
-n122_suspend_β:
-                                                                                        jmp   n117_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n123_op11_α:
+n123_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 2128]
                         mov              qword ptr [rbp + 2096], rax
                         mov              rax, qword ptr [rbp + 2136]
@@ -1536,19 +1614,56 @@ n123_op11_α:
                         mov              qword ptr [rbp + 2080], rax
                         mov              qword ptr [rbp + 2088], rdx
                         cmp              eax, 99
-                                                                                        je    n125_op11_α
+                                                                                        je    n128_call_builtin_prolog_α
                                                                                         jmp   n124_var_ref_α
-n123_op11_β:
-                                                                                        jmp   n125_op11_α
+n123_call_builtin_prolog_β:
+                                                                                        jmp   n128_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n124_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 2048], rax
                         mov              qword ptr [rbp + 2056], rdx
-                                                                                        jmp   n126_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n125_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n125_op11_α:
+n125_lit_integer_α:
+                        mov              qword ptr [rbp + 2064], 6
+                        mov              rax, qword ptr [rip + .Lx373_0]
+                        mov              qword ptr [rbp + 2072], rax
+                                                                                        jmp   n126_call_builtin_prolog_α
+.Lx373_0:
+                        .quad            90
+#-----------------------------------------------------------------------------------------------------------------------
+n126_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 2048]
+                        mov              qword ptr [rbp + 2016], rax
+                        mov              rax, qword ptr [rbp + 2056]
+                        mov              qword ptr [rbp + 2024], rax
+                        lea              rdi, [rbp + 2016]
+                        movabs           rsi, 90
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 2000], rax
+                        mov              qword ptr [rbp + 2008], rdx
+                        cmp              eax, 99
+                                                                                        je    n128_call_builtin_prolog_α
+                                                                                        jmp   n127_suspend_α
+n126_call_builtin_prolog_β:
+                                                                                        jmp   n128_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n127_suspend_α:
+                        lea              rax, [rip + n127_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_area$2F2_γ
+n127_suspend_β:
+                                                                                        jmp   n128_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n128_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 1968], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -1560,63 +1675,31 @@ n125_op11_α:
                         mov              qword ptr [rbp + 1960], rdx
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
-                                                                                        jmp   n127_var_ref_α
-n125_op11_β:
+                                                                                        jmp   n129_var_ref_α
+n128_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n126_lit_integer_α:
-                        mov              qword ptr [rbp + 2064], 6
-                        mov              rax, qword ptr [rip + .Lx374_0]
-                        mov              qword ptr [rbp + 2072], rax
-                                                                                        jmp   n128_op11_α
-.Lx374_0:
-                        .quad            90
-#-----------------------------------------------------------------------------------------------------------------------
-n127_var_ref_α:
+n129_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 1920], rax
                         mov              qword ptr [rbp + 1928], rdx
-                                                                                        jmp   n129_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n130_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n128_op11_α:
-                        mov              rax, qword ptr [rbp + 2048]
-                        mov              qword ptr [rbp + 2016], rax
-                        mov              rax, qword ptr [rbp + 2056]
-                        mov              qword ptr [rbp + 2024], rax
-                        lea              rdi, [rbp + 2016]
-                        movabs           rsi, 90
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 2000], rax
-                        mov              qword ptr [rbp + 2008], rdx
-                        cmp              eax, 99
-                                                                                        je    n125_op11_α
-                                                                                        jmp   n130_suspend_α
-n128_op11_β:
-                                                                                        jmp   n125_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n129_lit_string_α:
+n130_lit_string_α:
                         mov              qword ptr [rbp + 1936], 1
-                        mov              rax, qword ptr [rip + .Lx378_0]
+                        mov              dword ptr [rbp + 1940], 8
+                        mov              rax, qword ptr [rip + .Lx380_0]
                         mov              qword ptr [rbp + 1944], rax
-                                                                                        jmp   n131_op11_α
-.Lx378_0:
-                        .quad            .Lx378_0_s
-.Lx378_0_s:
+                                                                                        jmp   n131_call_builtin_prolog_α
+.Lx380_0:
+                        .quad            .Lx380_0_s
+.Lx380_0_s:
                         .string          "thailand"
 #-----------------------------------------------------------------------------------------------------------------------
-n130_suspend_α:
-                        lea              rax, [rip + n130_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_area$2F2_γ
-n130_suspend_β:
-                                                                                        jmp   n125_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n131_op11_α:
+n131_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 1920]
                         mov              qword ptr [rbp + 1888], rax
                         mov              rax, qword ptr [rbp + 1928]
@@ -1633,19 +1716,56 @@ n131_op11_α:
                         mov              qword ptr [rbp + 1872], rax
                         mov              qword ptr [rbp + 1880], rdx
                         cmp              eax, 99
-                                                                                        je    n133_op11_α
+                                                                                        je    n136_call_builtin_prolog_α
                                                                                         jmp   n132_var_ref_α
-n131_op11_β:
-                                                                                        jmp   n133_op11_α
+n131_call_builtin_prolog_β:
+                                                                                        jmp   n136_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n132_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 1840], rax
                         mov              qword ptr [rbp + 1848], rdx
-                                                                                        jmp   n134_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n133_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n133_op11_α:
+n133_lit_integer_α:
+                        mov              qword ptr [rbp + 1856], 6
+                        mov              rax, qword ptr [rip + .Lx384_0]
+                        mov              qword ptr [rbp + 1864], rax
+                                                                                        jmp   n134_call_builtin_prolog_α
+.Lx384_0:
+                        .quad            200
+#-----------------------------------------------------------------------------------------------------------------------
+n134_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 1840]
+                        mov              qword ptr [rbp + 1808], rax
+                        mov              rax, qword ptr [rbp + 1848]
+                        mov              qword ptr [rbp + 1816], rax
+                        lea              rdi, [rbp + 1808]
+                        movabs           rsi, 200
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 1792], rax
+                        mov              qword ptr [rbp + 1800], rdx
+                        cmp              eax, 99
+                                                                                        je    n136_call_builtin_prolog_α
+                                                                                        jmp   n135_suspend_α
+n134_call_builtin_prolog_β:
+                                                                                        jmp   n136_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n135_suspend_α:
+                        lea              rax, [rip + n135_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_area$2F2_γ
+n135_suspend_β:
+                                                                                        jmp   n136_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n136_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 1760], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -1657,63 +1777,31 @@ n133_op11_α:
                         mov              qword ptr [rbp + 1752], rdx
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
-                                                                                        jmp   n135_var_ref_α
-n133_op11_β:
+                                                                                        jmp   n137_var_ref_α
+n136_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n134_lit_integer_α:
-                        mov              qword ptr [rbp + 1856], 6
-                        mov              rax, qword ptr [rip + .Lx385_0]
-                        mov              qword ptr [rbp + 1864], rax
-                                                                                        jmp   n136_op11_α
-.Lx385_0:
-                        .quad            200
-#-----------------------------------------------------------------------------------------------------------------------
-n135_var_ref_α:
+n137_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 1712], rax
                         mov              qword ptr [rbp + 1720], rdx
-                                                                                        jmp   n137_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n138_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n136_op11_α:
-                        mov              rax, qword ptr [rbp + 1840]
-                        mov              qword ptr [rbp + 1808], rax
-                        mov              rax, qword ptr [rbp + 1848]
-                        mov              qword ptr [rbp + 1816], rax
-                        lea              rdi, [rbp + 1808]
-                        movabs           rsi, 200
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 1792], rax
-                        mov              qword ptr [rbp + 1800], rdx
-                        cmp              eax, 99
-                                                                                        je    n133_op11_α
-                                                                                        jmp   n138_suspend_α
-n136_op11_β:
-                                                                                        jmp   n133_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n137_lit_string_α:
+n138_lit_string_α:
                         mov              qword ptr [rbp + 1728], 1
-                        mov              rax, qword ptr [rip + .Lx389_0]
+                        mov              dword ptr [rbp + 1732], 6
+                        mov              rax, qword ptr [rip + .Lx391_0]
                         mov              qword ptr [rbp + 1736], rax
-                                                                                        jmp   n139_op11_α
-.Lx389_0:
-                        .quad            .Lx389_0_s
-.Lx389_0_s:
+                                                                                        jmp   n139_call_builtin_prolog_α
+.Lx391_0:
+                        .quad            .Lx391_0_s
+.Lx391_0_s:
                         .string          "turkey"
 #-----------------------------------------------------------------------------------------------------------------------
-n138_suspend_α:
-                        lea              rax, [rip + n138_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_area$2F2_γ
-n138_suspend_β:
-                                                                                        jmp   n133_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n139_op11_α:
+n139_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 1712]
                         mov              qword ptr [rbp + 1680], rax
                         mov              rax, qword ptr [rbp + 1720]
@@ -1730,19 +1818,56 @@ n139_op11_α:
                         mov              qword ptr [rbp + 1664], rax
                         mov              qword ptr [rbp + 1672], rdx
                         cmp              eax, 99
-                                                                                        je    n141_op11_α
+                                                                                        je    n144_call_builtin_prolog_α
                                                                                         jmp   n140_var_ref_α
-n139_op11_β:
-                                                                                        jmp   n141_op11_α
+n139_call_builtin_prolog_β:
+                                                                                        jmp   n144_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n140_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 1632], rax
                         mov              qword ptr [rbp + 1640], rdx
-                                                                                        jmp   n142_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n141_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n141_op11_α:
+n141_lit_integer_α:
+                        mov              qword ptr [rbp + 1648], 6
+                        mov              rax, qword ptr [rip + .Lx395_0]
+                        mov              qword ptr [rbp + 1656], rax
+                                                                                        jmp   n142_call_builtin_prolog_α
+.Lx395_0:
+                        .quad            296
+#-----------------------------------------------------------------------------------------------------------------------
+n142_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 1632]
+                        mov              qword ptr [rbp + 1600], rax
+                        mov              rax, qword ptr [rbp + 1640]
+                        mov              qword ptr [rbp + 1608], rax
+                        lea              rdi, [rbp + 1600]
+                        movabs           rsi, 296
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 1584], rax
+                        mov              qword ptr [rbp + 1592], rdx
+                        cmp              eax, 99
+                                                                                        je    n144_call_builtin_prolog_α
+                                                                                        jmp   n143_suspend_α
+n142_call_builtin_prolog_β:
+                                                                                        jmp   n144_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n143_suspend_α:
+                        lea              rax, [rip + n143_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_area$2F2_γ
+n143_suspend_β:
+                                                                                        jmp   n144_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n144_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 1552], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -1754,63 +1879,31 @@ n141_op11_α:
                         mov              qword ptr [rbp + 1544], rdx
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
-                                                                                        jmp   n143_var_ref_α
-n141_op11_β:
+                                                                                        jmp   n145_var_ref_α
+n144_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n142_lit_integer_α:
-                        mov              qword ptr [rbp + 1648], 6
-                        mov              rax, qword ptr [rip + .Lx396_0]
-                        mov              qword ptr [rbp + 1656], rax
-                                                                                        jmp   n144_op11_α
-.Lx396_0:
-                        .quad            296
-#-----------------------------------------------------------------------------------------------------------------------
-n143_var_ref_α:
+n145_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 1504], rax
                         mov              qword ptr [rbp + 1512], rdx
-                                                                                        jmp   n145_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n146_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n144_op11_α:
-                        mov              rax, qword ptr [rbp + 1632]
-                        mov              qword ptr [rbp + 1600], rax
-                        mov              rax, qword ptr [rbp + 1640]
-                        mov              qword ptr [rbp + 1608], rax
-                        lea              rdi, [rbp + 1600]
-                        movabs           rsi, 296
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 1584], rax
-                        mov              qword ptr [rbp + 1592], rdx
-                        cmp              eax, 99
-                                                                                        je    n141_op11_α
-                                                                                        jmp   n146_suspend_α
-n144_op11_β:
-                                                                                        jmp   n141_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n145_lit_string_α:
+n146_lit_string_α:
                         mov              qword ptr [rbp + 1520], 1
-                        mov              rax, qword ptr [rip + .Lx400_0]
+                        mov              dword ptr [rbp + 1524], 5
+                        mov              rax, qword ptr [rip + .Lx402_0]
                         mov              qword ptr [rbp + 1528], rax
-                                                                                        jmp   n147_op11_α
-.Lx400_0:
-                        .quad            .Lx400_0_s
-.Lx400_0_s:
+                                                                                        jmp   n147_call_builtin_prolog_α
+.Lx402_0:
+                        .quad            .Lx402_0_s
+.Lx402_0_s:
                         .string          "egypt"
 #-----------------------------------------------------------------------------------------------------------------------
-n146_suspend_α:
-                        lea              rax, [rip + n146_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_area$2F2_γ
-n146_suspend_β:
-                                                                                        jmp   n141_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n147_op11_α:
+n147_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 1504]
                         mov              qword ptr [rbp + 1472], rax
                         mov              rax, qword ptr [rbp + 1512]
@@ -1827,19 +1920,56 @@ n147_op11_α:
                         mov              qword ptr [rbp + 1456], rax
                         mov              qword ptr [rbp + 1464], rdx
                         cmp              eax, 99
-                                                                                        je    n149_op11_α
+                                                                                        je    n152_call_builtin_prolog_α
                                                                                         jmp   n148_var_ref_α
-n147_op11_β:
-                                                                                        jmp   n149_op11_α
+n147_call_builtin_prolog_β:
+                                                                                        jmp   n152_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n148_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 1424], rax
                         mov              qword ptr [rbp + 1432], rdx
-                                                                                        jmp   n150_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n149_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n149_op11_α:
+n149_lit_integer_α:
+                        mov              qword ptr [rbp + 1440], 6
+                        mov              rax, qword ptr [rip + .Lx406_0]
+                        mov              qword ptr [rbp + 1448], rax
+                                                                                        jmp   n150_call_builtin_prolog_α
+.Lx406_0:
+                        .quad            386
+#-----------------------------------------------------------------------------------------------------------------------
+n150_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 1424]
+                        mov              qword ptr [rbp + 1392], rax
+                        mov              rax, qword ptr [rbp + 1432]
+                        mov              qword ptr [rbp + 1400], rax
+                        lea              rdi, [rbp + 1392]
+                        movabs           rsi, 386
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 1376], rax
+                        mov              qword ptr [rbp + 1384], rdx
+                        cmp              eax, 99
+                                                                                        je    n152_call_builtin_prolog_α
+                                                                                        jmp   n151_suspend_α
+n150_call_builtin_prolog_β:
+                                                                                        jmp   n152_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n151_suspend_α:
+                        lea              rax, [rip + n151_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_area$2F2_γ
+n151_suspend_β:
+                                                                                        jmp   n152_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n152_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 1344], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -1851,63 +1981,31 @@ n149_op11_α:
                         mov              qword ptr [rbp + 1336], rdx
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
-                                                                                        jmp   n151_var_ref_α
-n149_op11_β:
+                                                                                        jmp   n153_var_ref_α
+n152_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n150_lit_integer_α:
-                        mov              qword ptr [rbp + 1440], 6
-                        mov              rax, qword ptr [rip + .Lx407_0]
-                        mov              qword ptr [rbp + 1448], rax
-                                                                                        jmp   n152_op11_α
-.Lx407_0:
-                        .quad            386
-#-----------------------------------------------------------------------------------------------------------------------
-n151_var_ref_α:
+n153_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 1296], rax
                         mov              qword ptr [rbp + 1304], rdx
-                                                                                        jmp   n153_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n154_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n152_op11_α:
-                        mov              rax, qword ptr [rbp + 1424]
-                        mov              qword ptr [rbp + 1392], rax
-                        mov              rax, qword ptr [rbp + 1432]
-                        mov              qword ptr [rbp + 1400], rax
-                        lea              rdi, [rbp + 1392]
-                        movabs           rsi, 386
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 1376], rax
-                        mov              qword ptr [rbp + 1384], rdx
-                        cmp              eax, 99
-                                                                                        je    n149_op11_α
-                                                                                        jmp   n154_suspend_α
-n152_op11_β:
-                                                                                        jmp   n149_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n153_lit_string_α:
+n154_lit_string_α:
                         mov              qword ptr [rbp + 1312], 1
-                        mov              rax, qword ptr [rip + .Lx411_0]
+                        mov              dword ptr [rbp + 1316], 5
+                        mov              rax, qword ptr [rip + .Lx413_0]
                         mov              qword ptr [rbp + 1320], rax
-                                                                                        jmp   n155_op11_α
-.Lx411_0:
-                        .quad            .Lx411_0_s
-.Lx411_0_s:
+                                                                                        jmp   n155_call_builtin_prolog_α
+.Lx413_0:
+                        .quad            .Lx413_0_s
+.Lx413_0_s:
                         .string          "spain"
 #-----------------------------------------------------------------------------------------------------------------------
-n154_suspend_α:
-                        lea              rax, [rip + n154_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_area$2F2_γ
-n154_suspend_β:
-                                                                                        jmp   n149_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n155_op11_α:
+n155_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 1296]
                         mov              qword ptr [rbp + 1264], rax
                         mov              rax, qword ptr [rbp + 1304]
@@ -1924,19 +2022,56 @@ n155_op11_α:
                         mov              qword ptr [rbp + 1248], rax
                         mov              qword ptr [rbp + 1256], rdx
                         cmp              eax, 99
-                                                                                        je    n157_op11_α
+                                                                                        je    n160_call_builtin_prolog_α
                                                                                         jmp   n156_var_ref_α
-n155_op11_β:
-                                                                                        jmp   n157_op11_α
+n155_call_builtin_prolog_β:
+                                                                                        jmp   n160_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n156_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 1216], rax
                         mov              qword ptr [rbp + 1224], rdx
-                                                                                        jmp   n158_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n157_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n157_op11_α:
+n157_lit_integer_α:
+                        mov              qword ptr [rbp + 1232], 6
+                        mov              rax, qword ptr [rip + .Lx417_0]
+                        mov              qword ptr [rbp + 1240], rax
+                                                                                        jmp   n158_call_builtin_prolog_α
+.Lx417_0:
+                        .quad            190
+#-----------------------------------------------------------------------------------------------------------------------
+n158_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 1216]
+                        mov              qword ptr [rbp + 1184], rax
+                        mov              rax, qword ptr [rbp + 1224]
+                        mov              qword ptr [rbp + 1192], rax
+                        lea              rdi, [rbp + 1184]
+                        movabs           rsi, 190
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 1168], rax
+                        mov              qword ptr [rbp + 1176], rdx
+                        cmp              eax, 99
+                                                                                        je    n160_call_builtin_prolog_α
+                                                                                        jmp   n159_suspend_α
+n158_call_builtin_prolog_β:
+                                                                                        jmp   n160_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n159_suspend_α:
+                        lea              rax, [rip + n159_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_area$2F2_γ
+n159_suspend_β:
+                                                                                        jmp   n160_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n160_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 1136], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -1948,63 +2083,31 @@ n157_op11_α:
                         mov              qword ptr [rbp + 1128], rdx
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
-                                                                                        jmp   n159_var_ref_α
-n157_op11_β:
+                                                                                        jmp   n161_var_ref_α
+n160_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n158_lit_integer_α:
-                        mov              qword ptr [rbp + 1232], 6
-                        mov              rax, qword ptr [rip + .Lx418_0]
-                        mov              qword ptr [rbp + 1240], rax
-                                                                                        jmp   n160_op11_α
-.Lx418_0:
-                        .quad            190
-#-----------------------------------------------------------------------------------------------------------------------
-n159_var_ref_α:
+n161_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 1088], rax
                         mov              qword ptr [rbp + 1096], rdx
-                                                                                        jmp   n161_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n162_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n160_op11_α:
-                        mov              rax, qword ptr [rbp + 1216]
-                        mov              qword ptr [rbp + 1184], rax
-                        mov              rax, qword ptr [rbp + 1224]
-                        mov              qword ptr [rbp + 1192], rax
-                        lea              rdi, [rbp + 1184]
-                        movabs           rsi, 190
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 1168], rax
-                        mov              qword ptr [rbp + 1176], rdx
-                        cmp              eax, 99
-                                                                                        je    n157_op11_α
-                                                                                        jmp   n162_suspend_α
-n160_op11_β:
-                                                                                        jmp   n157_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n161_lit_string_α:
+n162_lit_string_α:
                         mov              qword ptr [rbp + 1104], 1
-                        mov              rax, qword ptr [rip + .Lx422_0]
+                        mov              dword ptr [rbp + 1108], 6
+                        mov              rax, qword ptr [rip + .Lx424_0]
                         mov              qword ptr [rbp + 1112], rax
-                                                                                        jmp   n163_op11_α
-.Lx422_0:
-                        .quad            .Lx422_0_s
-.Lx422_0_s:
+                                                                                        jmp   n163_call_builtin_prolog_α
+.Lx424_0:
+                        .quad            .Lx424_0_s
+.Lx424_0_s:
                         .string          "poland"
 #-----------------------------------------------------------------------------------------------------------------------
-n162_suspend_α:
-                        lea              rax, [rip + n162_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_area$2F2_γ
-n162_suspend_β:
-                                                                                        jmp   n157_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n163_op11_α:
+n163_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 1088]
                         mov              qword ptr [rbp + 1056], rax
                         mov              rax, qword ptr [rbp + 1096]
@@ -2021,19 +2124,56 @@ n163_op11_α:
                         mov              qword ptr [rbp + 1040], rax
                         mov              qword ptr [rbp + 1048], rdx
                         cmp              eax, 99
-                                                                                        je    n165_op11_α
+                                                                                        je    n168_call_builtin_prolog_α
                                                                                         jmp   n164_var_ref_α
-n163_op11_β:
-                                                                                        jmp   n165_op11_α
+n163_call_builtin_prolog_β:
+                                                                                        jmp   n168_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n164_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 1008], rax
                         mov              qword ptr [rbp + 1016], rdx
-                                                                                        jmp   n166_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n165_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n165_op11_α:
+n165_lit_integer_α:
+                        mov              qword ptr [rbp + 1024], 6
+                        mov              rax, qword ptr [rip + .Lx428_0]
+                        mov              qword ptr [rbp + 1032], rax
+                                                                                        jmp   n166_call_builtin_prolog_α
+.Lx428_0:
+                        .quad            121
+#-----------------------------------------------------------------------------------------------------------------------
+n166_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 1008]
+                        mov              qword ptr [rbp + 976], rax
+                        mov              rax, qword ptr [rbp + 1016]
+                        mov              qword ptr [rbp + 984], rax
+                        lea              rdi, [rbp + 976]
+                        movabs           rsi, 121
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 960], rax
+                        mov              qword ptr [rbp + 968], rdx
+                        cmp              eax, 99
+                                                                                        je    n168_call_builtin_prolog_α
+                                                                                        jmp   n167_suspend_α
+n166_call_builtin_prolog_β:
+                                                                                        jmp   n168_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n167_suspend_α:
+                        lea              rax, [rip + n167_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_area$2F2_γ
+n167_suspend_β:
+                                                                                        jmp   n168_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n168_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 928], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -2045,63 +2185,31 @@ n165_op11_α:
                         mov              qword ptr [rbp + 920], rdx
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
-                                                                                        jmp   n167_var_ref_α
-n165_op11_β:
+                                                                                        jmp   n169_var_ref_α
+n168_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n166_lit_integer_α:
-                        mov              qword ptr [rbp + 1024], 6
-                        mov              rax, qword ptr [rip + .Lx429_0]
-                        mov              qword ptr [rbp + 1032], rax
-                                                                                        jmp   n168_op11_α
-.Lx429_0:
-                        .quad            121
-#-----------------------------------------------------------------------------------------------------------------------
-n167_var_ref_α:
+n169_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 880], rax
                         mov              qword ptr [rbp + 888], rdx
-                                                                                        jmp   n169_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n170_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n168_op11_α:
-                        mov              rax, qword ptr [rbp + 1008]
-                        mov              qword ptr [rbp + 976], rax
-                        mov              rax, qword ptr [rbp + 1016]
-                        mov              qword ptr [rbp + 984], rax
-                        lea              rdi, [rbp + 976]
-                        movabs           rsi, 121
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 960], rax
-                        mov              qword ptr [rbp + 968], rdx
-                        cmp              eax, 99
-                                                                                        je    n165_op11_α
-                                                                                        jmp   n170_suspend_α
-n168_op11_β:
-                                                                                        jmp   n165_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n169_lit_string_α:
+n170_lit_string_α:
                         mov              qword ptr [rbp + 896], 1
-                        mov              rax, qword ptr [rip + .Lx433_0]
+                        mov              dword ptr [rbp + 900], 7
+                        mov              rax, qword ptr [rip + .Lx435_0]
                         mov              qword ptr [rbp + 904], rax
-                                                                                        jmp   n171_op11_α
-.Lx433_0:
-                        .quad            .Lx433_0_s
-.Lx433_0_s:
+                                                                                        jmp   n171_call_builtin_prolog_α
+.Lx435_0:
+                        .quad            .Lx435_0_s
+.Lx435_0_s:
                         .string          "s_korea"
 #-----------------------------------------------------------------------------------------------------------------------
-n170_suspend_α:
-                        lea              rax, [rip + n170_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_area$2F2_γ
-n170_suspend_β:
-                                                                                        jmp   n165_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n171_op11_α:
+n171_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 880]
                         mov              qword ptr [rbp + 848], rax
                         mov              rax, qword ptr [rbp + 888]
@@ -2118,19 +2226,56 @@ n171_op11_α:
                         mov              qword ptr [rbp + 832], rax
                         mov              qword ptr [rbp + 840], rdx
                         cmp              eax, 99
-                                                                                        je    n173_op11_α
+                                                                                        je    n176_call_builtin_prolog_α
                                                                                         jmp   n172_var_ref_α
-n171_op11_β:
-                                                                                        jmp   n173_op11_α
+n171_call_builtin_prolog_β:
+                                                                                        jmp   n176_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n172_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 800], rax
                         mov              qword ptr [rbp + 808], rdx
-                                                                                        jmp   n174_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n173_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n173_op11_α:
+n173_lit_integer_α:
+                        mov              qword ptr [rbp + 816], 6
+                        mov              rax, qword ptr [rip + .Lx439_0]
+                        mov              qword ptr [rbp + 824], rax
+                                                                                        jmp   n174_call_builtin_prolog_α
+.Lx439_0:
+                        .quad            37
+#-----------------------------------------------------------------------------------------------------------------------
+n174_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 800]
+                        mov              qword ptr [rbp + 768], rax
+                        mov              rax, qword ptr [rbp + 808]
+                        mov              qword ptr [rbp + 776], rax
+                        lea              rdi, [rbp + 768]
+                        movabs           rsi, 37
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 752], rax
+                        mov              qword ptr [rbp + 760], rdx
+                        cmp              eax, 99
+                                                                                        je    n176_call_builtin_prolog_α
+                                                                                        jmp   n175_suspend_α
+n174_call_builtin_prolog_β:
+                                                                                        jmp   n176_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n175_suspend_α:
+                        lea              rax, [rip + n175_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_area$2F2_γ
+n175_suspend_β:
+                                                                                        jmp   n176_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n176_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 720], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -2142,63 +2287,31 @@ n173_op11_α:
                         mov              qword ptr [rbp + 712], rdx
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
-                                                                                        jmp   n175_var_ref_α
-n173_op11_β:
+                                                                                        jmp   n177_var_ref_α
+n176_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n174_lit_integer_α:
-                        mov              qword ptr [rbp + 816], 6
-                        mov              rax, qword ptr [rip + .Lx440_0]
-                        mov              qword ptr [rbp + 824], rax
-                                                                                        jmp   n176_op11_α
-.Lx440_0:
-                        .quad            37
-#-----------------------------------------------------------------------------------------------------------------------
-n175_var_ref_α:
+n177_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 672], rax
                         mov              qword ptr [rbp + 680], rdx
-                                                                                        jmp   n177_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n178_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n176_op11_α:
-                        mov              rax, qword ptr [rbp + 800]
-                        mov              qword ptr [rbp + 768], rax
-                        mov              rax, qword ptr [rbp + 808]
-                        mov              qword ptr [rbp + 776], rax
-                        lea              rdi, [rbp + 768]
-                        movabs           rsi, 37
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 752], rax
-                        mov              qword ptr [rbp + 760], rdx
-                        cmp              eax, 99
-                                                                                        je    n173_op11_α
-                                                                                        jmp   n178_suspend_α
-n176_op11_β:
-                                                                                        jmp   n173_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n177_lit_string_α:
+n178_lit_string_α:
                         mov              qword ptr [rbp + 688], 1
-                        mov              rax, qword ptr [rip + .Lx444_0]
+                        mov              dword ptr [rbp + 692], 4
+                        mov              rax, qword ptr [rip + .Lx446_0]
                         mov              qword ptr [rbp + 696], rax
-                                                                                        jmp   n179_op11_α
-.Lx444_0:
-                        .quad            .Lx444_0_s
-.Lx444_0_s:
+                                                                                        jmp   n179_call_builtin_prolog_α
+.Lx446_0:
+                        .quad            .Lx446_0_s
+.Lx446_0_s:
                         .string          "iran"
 #-----------------------------------------------------------------------------------------------------------------------
-n178_suspend_α:
-                        lea              rax, [rip + n178_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_area$2F2_γ
-n178_suspend_β:
-                                                                                        jmp   n173_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n179_op11_α:
+n179_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 672]
                         mov              qword ptr [rbp + 640], rax
                         mov              rax, qword ptr [rbp + 680]
@@ -2215,19 +2328,56 @@ n179_op11_α:
                         mov              qword ptr [rbp + 624], rax
                         mov              qword ptr [rbp + 632], rdx
                         cmp              eax, 99
-                                                                                        je    n181_op11_α
+                                                                                        je    n184_call_builtin_prolog_α
                                                                                         jmp   n180_var_ref_α
-n179_op11_β:
-                                                                                        jmp   n181_op11_α
+n179_call_builtin_prolog_β:
+                                                                                        jmp   n184_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n180_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 592], rax
                         mov              qword ptr [rbp + 600], rdx
-                                                                                        jmp   n182_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n181_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n181_op11_α:
+n181_lit_integer_α:
+                        mov              qword ptr [rbp + 608], 6
+                        mov              rax, qword ptr [rip + .Lx450_0]
+                        mov              qword ptr [rbp + 616], rax
+                                                                                        jmp   n182_call_builtin_prolog_α
+.Lx450_0:
+                        .quad            628
+#-----------------------------------------------------------------------------------------------------------------------
+n182_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 592]
+                        mov              qword ptr [rbp + 560], rax
+                        mov              rax, qword ptr [rbp + 600]
+                        mov              qword ptr [rbp + 568], rax
+                        lea              rdi, [rbp + 560]
+                        movabs           rsi, 628
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 544], rax
+                        mov              qword ptr [rbp + 552], rdx
+                        cmp              eax, 99
+                                                                                        je    n184_call_builtin_prolog_α
+                                                                                        jmp   n183_suspend_α
+n182_call_builtin_prolog_β:
+                                                                                        jmp   n184_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n183_suspend_α:
+                        lea              rax, [rip + n183_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_area$2F2_γ
+n183_suspend_β:
+                                                                                        jmp   n184_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n184_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 512], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -2239,63 +2389,31 @@ n181_op11_α:
                         mov              qword ptr [rbp + 504], rdx
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
-                                                                                        jmp   n183_var_ref_α
-n181_op11_β:
+                                                                                        jmp   n185_var_ref_α
+n184_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n182_lit_integer_α:
-                        mov              qword ptr [rbp + 608], 6
-                        mov              rax, qword ptr [rip + .Lx451_0]
-                        mov              qword ptr [rbp + 616], rax
-                                                                                        jmp   n184_op11_α
-.Lx451_0:
-                        .quad            628
-#-----------------------------------------------------------------------------------------------------------------------
-n183_var_ref_α:
+n185_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 464], rax
                         mov              qword ptr [rbp + 472], rdx
-                                                                                        jmp   n185_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n186_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n184_op11_α:
-                        mov              rax, qword ptr [rbp + 592]
-                        mov              qword ptr [rbp + 560], rax
-                        mov              rax, qword ptr [rbp + 600]
-                        mov              qword ptr [rbp + 568], rax
-                        lea              rdi, [rbp + 560]
-                        movabs           rsi, 628
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 544], rax
-                        mov              qword ptr [rbp + 552], rdx
-                        cmp              eax, 99
-                                                                                        je    n181_op11_α
-                                                                                        jmp   n186_suspend_α
-n184_op11_β:
-                                                                                        jmp   n181_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n185_lit_string_α:
+n186_lit_string_α:
                         mov              qword ptr [rbp + 480], 1
-                        mov              rax, qword ptr [rip + .Lx455_0]
+                        mov              dword ptr [rbp + 484], 8
+                        mov              rax, qword ptr [rip + .Lx457_0]
                         mov              qword ptr [rbp + 488], rax
-                                                                                        jmp   n187_op11_α
-.Lx455_0:
-                        .quad            .Lx455_0_s
-.Lx455_0_s:
+                                                                                        jmp   n187_call_builtin_prolog_α
+.Lx457_0:
+                        .quad            .Lx457_0_s
+.Lx457_0_s:
                         .string          "ethiopia"
 #-----------------------------------------------------------------------------------------------------------------------
-n186_suspend_α:
-                        lea              rax, [rip + n186_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_area$2F2_γ
-n186_suspend_β:
-                                                                                        jmp   n181_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n187_op11_α:
+n187_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 464]
                         mov              qword ptr [rbp + 432], rax
                         mov              rax, qword ptr [rbp + 472]
@@ -2312,19 +2430,56 @@ n187_op11_α:
                         mov              qword ptr [rbp + 416], rax
                         mov              qword ptr [rbp + 424], rdx
                         cmp              eax, 99
-                                                                                        je    n189_op11_α
+                                                                                        je    n192_call_builtin_prolog_α
                                                                                         jmp   n188_var_ref_α
-n187_op11_β:
-                                                                                        jmp   n189_op11_α
+n187_call_builtin_prolog_β:
+                                                                                        jmp   n192_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n188_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 384], rax
                         mov              qword ptr [rbp + 392], rdx
-                                                                                        jmp   n190_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n189_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n189_op11_α:
+n189_lit_integer_α:
+                        mov              qword ptr [rbp + 400], 6
+                        mov              rax, qword ptr [rip + .Lx461_0]
+                        mov              qword ptr [rbp + 408], rax
+                                                                                        jmp   n190_call_builtin_prolog_α
+.Lx461_0:
+                        .quad            350
+#-----------------------------------------------------------------------------------------------------------------------
+n190_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 384]
+                        mov              qword ptr [rbp + 352], rax
+                        mov              rax, qword ptr [rbp + 392]
+                        mov              qword ptr [rbp + 360], rax
+                        lea              rdi, [rbp + 352]
+                        movabs           rsi, 350
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 336], rax
+                        mov              qword ptr [rbp + 344], rdx
+                        cmp              eax, 99
+                                                                                        je    n192_call_builtin_prolog_α
+                                                                                        jmp   n191_suspend_α
+n190_call_builtin_prolog_β:
+                                                                                        jmp   n192_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n191_suspend_α:
+                        lea              rax, [rip + n191_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_area$2F2_γ
+n191_suspend_β:
+                                                                                        jmp   n192_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n192_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 304], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -2336,63 +2491,31 @@ n189_op11_α:
                         mov              qword ptr [rbp + 296], rdx
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
-                                                                                        jmp   n191_var_ref_α
-n189_op11_β:
+                                                                                        jmp   n193_var_ref_α
+n192_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n190_lit_integer_α:
-                        mov              qword ptr [rbp + 400], 6
-                        mov              rax, qword ptr [rip + .Lx462_0]
-                        mov              qword ptr [rbp + 408], rax
-                                                                                        jmp   n192_op11_α
-.Lx462_0:
-                        .quad            350
-#-----------------------------------------------------------------------------------------------------------------------
-n191_var_ref_α:
+n193_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 256], rax
                         mov              qword ptr [rbp + 264], rdx
-                                                                                        jmp   n193_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n194_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n192_op11_α:
-                        mov              rax, qword ptr [rbp + 384]
-                        mov              qword ptr [rbp + 352], rax
-                        mov              rax, qword ptr [rbp + 392]
-                        mov              qword ptr [rbp + 360], rax
-                        lea              rdi, [rbp + 352]
-                        movabs           rsi, 350
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 336], rax
-                        mov              qword ptr [rbp + 344], rdx
-                        cmp              eax, 99
-                                                                                        je    n189_op11_α
-                                                                                        jmp   n194_suspend_α
-n192_op11_β:
-                                                                                        jmp   n189_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n193_lit_string_α:
+n194_lit_string_α:
                         mov              qword ptr [rbp + 272], 1
-                        mov              rax, qword ptr [rip + .Lx466_0]
+                        mov              dword ptr [rbp + 276], 9
+                        mov              rax, qword ptr [rip + .Lx468_0]
                         mov              qword ptr [rbp + 280], rax
-                                                                                        jmp   n195_op11_α
-.Lx466_0:
-                        .quad            .Lx466_0_s
-.Lx466_0_s:
+                                                                                        jmp   n195_call_builtin_prolog_α
+.Lx468_0:
+                        .quad            .Lx468_0_s
+.Lx468_0_s:
                         .string          "argentina"
 #-----------------------------------------------------------------------------------------------------------------------
-n194_suspend_α:
-                        lea              rax, [rip + n194_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_area$2F2_γ
-n194_suspend_β:
-                                                                                        jmp   n189_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n195_op11_α:
+n195_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 256]
                         mov              qword ptr [rbp + 224], rax
                         mov              rax, qword ptr [rbp + 264]
@@ -2409,19 +2532,56 @@ n195_op11_α:
                         mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
                         cmp              eax, 99
-                                                                                        je    n197_op11_α
+                                                                                        je    n200_call_builtin_prolog_α
                                                                                         jmp   n196_var_ref_α
-n195_op11_β:
-                                                                                        jmp   n197_op11_α
+n195_call_builtin_prolog_β:
+                                                                                        jmp   n200_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n196_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
-                                                                                        jmp   n198_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n197_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n197_op11_α:
+n197_lit_integer_α:
+                        mov              qword ptr [rbp + 192], 6
+                        mov              rax, qword ptr [rip + .Lx472_0]
+                        mov              qword ptr [rbp + 200], rax
+                                                                                        jmp   n198_call_builtin_prolog_α
+.Lx472_0:
+                        .quad            1080
+#-----------------------------------------------------------------------------------------------------------------------
+n198_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 176]
+                        mov              qword ptr [rbp + 144], rax
+                        mov              rax, qword ptr [rbp + 184]
+                        mov              qword ptr [rbp + 152], rax
+                        lea              rdi, [rbp + 144]
+                        movabs           rsi, 1080
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 128], rax
+                        mov              qword ptr [rbp + 136], rdx
+                        cmp              eax, 99
+                                                                                        je    n200_call_builtin_prolog_α
+                                                                                        jmp   n199_suspend_α
+n198_call_builtin_prolog_β:
+                                                                                        jmp   n200_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n199_suspend_α:
+                        lea              rax, [rip + n199_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_area$2F2_γ
+n199_suspend_β:
+                                                                                        jmp   n200_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n200_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 96], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -2434,43 +2594,8 @@ n197_op11_α:
                         cmp              eax, 99
                                                                                         je    proc_area$2F2_ω
                                                                                         jmp   proc_area$2F2_ω
-n197_op11_β:
+n200_call_builtin_prolog_β:
                                                                                         jmp   proc_area$2F2_ω
-#-----------------------------------------------------------------------------------------------------------------------
-n198_lit_integer_α:
-                        mov              qword ptr [rbp + 192], 6
-                        mov              rax, qword ptr [rip + .Lx473_0]
-                        mov              qword ptr [rbp + 200], rax
-                                                                                        jmp   n199_op11_α
-.Lx473_0:
-                        .quad            1080
-#-----------------------------------------------------------------------------------------------------------------------
-n199_op11_α:
-                        mov              rax, qword ptr [rbp + 176]
-                        mov              qword ptr [rbp + 144], rax
-                        mov              rax, qword ptr [rbp + 184]
-                        mov              qword ptr [rbp + 152], rax
-                        lea              rdi, [rbp + 144]
-                        movabs           rsi, 1080
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 128], rax
-                        mov              qword ptr [rbp + 136], rdx
-                        cmp              eax, 99
-                                                                                        je    n197_op11_α
-                                                                                        jmp   n200_suspend_α
-n199_op11_β:
-                                                                                        jmp   n197_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n200_suspend_α:
-                        lea              rax, [rip + n200_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_area$2F2_γ
-n200_suspend_β:
-                                                                                        jmp   n197_op11_α
 #-----------------------------------------------------------------------------------------------------------------------
 proc_area$2F2_res:
                         add              rsp, 8
@@ -2485,14 +2610,14 @@ proc_area$2F2_γ:
                         push             rbp
                         lea              rax, [rip + proc_area$2F2_res]
                         push             rax
-                        mov              rax, [rbp + 5304]
-                        mov              rbp, [rbp + 5320]
+                        mov              rax, [rbp + 5320]
+                        mov              rbp, [rbp + 5336]
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_area$2F2_ω:
-                        mov              rax, [rbp + 5312]
-                        lea              rsp, [rbp + 5328]
-                        mov              rbp, [rbp + 5320]
+                        mov              rax, [rbp + 5328]
+                        lea              rsp, [rbp + 5344]
+                        mov              rbp, [rbp + 5336]
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_query$2F1_α
@@ -2501,20 +2626,20 @@ proc_query$2F1_α:
                         .global          proc_query$2F1_β
                         .global          proc_query$2F1_γ
                         .global          proc_query$2F1_ω
-                        sub              rsp, 1472
-                        mov              [rsp + 1448], rcx
-                        mov              [rsp + 1456], rdx
-                        mov              [rsp + 1464], rbp
+                        sub              rsp, 1488
+                        mov              [rsp + 1464], rcx
+                        mov              [rsp + 1472], rdx
+                        mov              [rsp + 1480], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1328
-                        mov              edx, 1440
+                        mov              edx, 1456
                         call             rt_jmp_frame_lexprep2@PLT
 proc_query$2F1_α_body:
-                        lea              rax, [rip + n516_suspend_β]
+                        lea              rax, [rip + n515_suspend_β]
                         mov              qword ptr [rbp + 1328], rax
 #-----------------------------------------------------------------------------------------------------------------------
-n477_op11_α:
+n477_call_builtin_prolog_α:
                         lea              r10, [rip + g_plw_cellws_on]
                         mov              eax, dword ptr [r10 + 0]
                         test             eax, eax
@@ -2538,18 +2663,21 @@ n477_op11_α:
                         cmp              eax, 99
                                                                                         je    proc_query$2F1_ω
                                                                                         jmp   n478_var_ref_α
-n477_op11_β:
+n477_call_builtin_prolog_β:
                                                                                         jmp   proc_query$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n478_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 848], rax
                         mov              qword ptr [rbp + 856], rdx
+                        add              rsp, 16
                                                                                         jmp   n479_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n479_lit_string_α:
                         mov              qword ptr [rbp + 1312], 1
+                        mov              dword ptr [rbp + 1316], 1
                         mov              rax, qword ptr [rip + .Lx520_0]
                         mov              qword ptr [rbp + 1320], rax
                                                                                         jmp   n480_var_ref_α
@@ -2559,14 +2687,17 @@ n479_lit_string_α:
                         .string          "."
 #-----------------------------------------------------------------------------------------------------------------------
 n480_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 1424]
                         mov              qword ptr [rbp + 1216], rax
                         mov              qword ptr [rbp + 1224], rdx
+                        add              rsp, 16
                                                                                         jmp   n481_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n481_lit_string_α:
                         mov              qword ptr [rbp + 1200], 1
+                        mov              dword ptr [rbp + 1204], 1
                         mov              rax, qword ptr [rip + .Lx523_0]
                         mov              qword ptr [rbp + 1208], rax
                                                                                         jmp   n482_var_ref_α
@@ -2576,14 +2707,17 @@ n481_lit_string_α:
                         .string          "."
 #-----------------------------------------------------------------------------------------------------------------------
 n482_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 1392]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
+                        add              rsp, 16
                                                                                         jmp   n483_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n483_lit_string_α:
                         mov              qword ptr [rbp + 1088], 1
+                        mov              dword ptr [rbp + 1092], 1
                         mov              rax, qword ptr [rip + .Lx526_0]
                         mov              qword ptr [rbp + 1096], rax
                                                                                         jmp   n484_var_ref_α
@@ -2593,14 +2727,17 @@ n483_lit_string_α:
                         .string          "."
 #-----------------------------------------------------------------------------------------------------------------------
 n484_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 1408]
                         mov              qword ptr [rbp + 992], rax
                         mov              qword ptr [rbp + 1000], rdx
+                        add              rsp, 16
                                                                                         jmp   n485_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n485_lit_string_α:
                         mov              qword ptr [rbp + 976], 1
+                        mov              dword ptr [rbp + 980], 1
                         mov              rax, qword ptr [rip + .Lx529_0]
                         mov              qword ptr [rbp + 984], rax
                                                                                         jmp   n486_var_ref_α
@@ -2610,23 +2747,26 @@ n485_lit_string_α:
                         .string          "."
 #-----------------------------------------------------------------------------------------------------------------------
 n486_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 1376]
                         mov              qword ptr [rbp + 880], rax
                         mov              qword ptr [rbp + 888], rdx
+                        add              rsp, 16
                                                                                         jmp   n487_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n487_lit_string_α:
                         mov              qword ptr [rbp + 864], 1
+                        mov              dword ptr [rbp + 868], 2
                         mov              rax, qword ptr [rip + .Lx532_0]
                         mov              qword ptr [rbp + 872], rax
-                                                                                        jmp   n488_op11_α
+                                                                                        jmp   n488_call_builtin_prolog_α
 .Lx532_0:
                         .quad            .Lx532_0_s
 .Lx532_0_s:
                         .string          "[]"
 #-----------------------------------------------------------------------------------------------------------------------
-n488_op11_α:
+n488_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 976]
                         mov              qword ptr [rbp + 912], rax
                         mov              rax, qword ptr [rbp + 984]
@@ -2646,11 +2786,11 @@ n488_op11_α:
                         mov              qword ptr [rbp + 904], rdx
                         cmp              eax, 99
                                                                                         je    proc_query$2F1_ω
-                                                                                        jmp   n489_op11_α
-n488_op11_β:
+                                                                                        jmp   n489_call_builtin_prolog_α
+n488_call_builtin_prolog_β:
                                                                                         jmp   proc_query$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n489_op11_α:
+n489_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 1088]
                         mov              qword ptr [rbp + 1024], rax
                         mov              rax, qword ptr [rbp + 1096]
@@ -2670,11 +2810,11 @@ n489_op11_α:
                         mov              qword ptr [rbp + 1016], rdx
                         cmp              eax, 99
                                                                                         je    proc_query$2F1_ω
-                                                                                        jmp   n490_op11_α
-n489_op11_β:
+                                                                                        jmp   n490_call_builtin_prolog_α
+n489_call_builtin_prolog_β:
                                                                                         jmp   proc_query$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n490_op11_α:
+n490_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 1200]
                         mov              qword ptr [rbp + 1136], rax
                         mov              rax, qword ptr [rbp + 1208]
@@ -2694,11 +2834,11 @@ n490_op11_α:
                         mov              qword ptr [rbp + 1128], rdx
                         cmp              eax, 99
                                                                                         je    proc_query$2F1_ω
-                                                                                        jmp   n491_op11_α
-n490_op11_β:
+                                                                                        jmp   n491_call_builtin_prolog_α
+n490_call_builtin_prolog_β:
                                                                                         jmp   proc_query$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n491_op11_α:
+n491_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 1312]
                         mov              qword ptr [rbp + 1248], rax
                         mov              rax, qword ptr [rbp + 1320]
@@ -2717,12 +2857,12 @@ n491_op11_α:
                         mov              qword ptr [rbp + 1232], rax
                         mov              qword ptr [rbp + 1240], rdx
                         cmp              eax, 99
-                                                                                        je    n493_op11_α
-                                                                                        jmp   n492_op11_α
-n491_op11_β:
-                                                                                        jmp   n493_op11_α
+                                                                                        je    n516_call_builtin_prolog_α
+                                                                                        jmp   n492_call_builtin_prolog_α
+n491_call_builtin_prolog_β:
+                                                                                        jmp   n516_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
-n492_op11_α:
+n492_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 848]
                         mov              qword ptr [rbp + 816], rax
                         mov              rax, qword ptr [rbp + 856]
@@ -2939,230 +3079,222 @@ n492_op11_α:
                         mov              qword ptr [rbp + 800], rax
                         mov              qword ptr [rbp + 808], rdx
                         cmp              eax, 99
-                                                                                        je    n493_op11_α
-                                                                                        jmp   n494_var_ref_α
-n492_op11_β:
-                                                                                        jmp   n493_op11_α
+                                                                                        je    n516_call_builtin_prolog_α
+                                                                                        jmp   n493_var_ref_α
+n492_call_builtin_prolog_β:
+                                                                                        jmp   n516_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
-n493_op11_α:
-                        mov              rax, qword ptr [rbp + 32]
-                        mov              qword ptr [rbp + 80], rax
-                        mov              rax, qword ptr [rbp + 40]
-                        mov              qword ptr [rbp + 88], rax
-                        lea              rdi, [rbp + 80]
-                        mov              esi, 1
-                        call             rt_pl_dop_trail_unwind@PLT
-                        mov              qword ptr [rbp + 64], rax
-                        mov              qword ptr [rbp + 72], rdx
-                        cmp              eax, 99
-                                                                                        je    proc_query$2F1_ω
-                                                                                        jmp   proc_query$2F1_ω
-n493_op11_β:
-                                                                                        jmp   proc_query$2F1_ω
-#-----------------------------------------------------------------------------------------------------------------------
-n494_var_ref_α:
+n493_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 1424]
                         mov              qword ptr [rbp + 768], rax
                         mov              qword ptr [rbp + 776], rdx
-                                                                                        jmp   n495_var_ref_α
+                        add              rsp, 16
+                                                                                        jmp   n494_var_ref_α
 #-----------------------------------------------------------------------------------------------------------------------
-n495_var_ref_α:
+n494_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 1392]
                         mov              qword ptr [rbp + 784], rax
                         mov              qword ptr [rbp + 792], rdx
-                                                                                        jmp   n496_call_proc_staged_α
+                        add              rsp, 16
+                                                                                        jmp   n495_call_proc_staged_α
 #-----------------------------------------------------------------------------------------------------------------------
-n496_call_proc_staged_α:
+n495_call_proc_staged_α:
                         mov              qword ptr [rbp + 736], 0
                         lea              r11, [rip + g_gc_pending]
                         mov              eax, dword ptr [r11 + 0]
                         test             eax, eax
-                                                                                        jne   .Lx544_20
+                                                                                        jne   .Lx543_20
                         mov              rax, qword ptr [rbp + 768]
                         mov              rdx, qword ptr [rbp + 776]
                         lea              r10, [rip + g_call_args]
                         mov              qword ptr [r10 + 0], rax
                         mov              qword ptr [r10 + 8], rdx
-                                                                                        jmp   .Lx544_21
-.Lx544_20:
+                                                                                        jmp   .Lx543_21
+.Lx543_20:
                         mov              edi, 0
                         mov              rsi, qword ptr [rbp + 768]
                         mov              rdx, qword ptr [rbp + 776]
                         call             rt_arg_stage@PLT
-.Lx544_21:
+.Lx543_21:
                         lea              r11, [rip + g_gc_pending]
                         mov              eax, dword ptr [r11 + 0]
                         test             eax, eax
-                                                                                        jne   .Lx544_22
+                                                                                        jne   .Lx543_22
                         mov              rax, qword ptr [rbp + 784]
                         mov              rdx, qword ptr [rbp + 792]
                         lea              r10, [rip + g_call_args]
                         mov              qword ptr [r10 + 16], rax
                         mov              qword ptr [r10 + 24], rdx
-                                                                                        jmp   .Lx544_23
-.Lx544_22:
+                                                                                        jmp   .Lx543_23
+.Lx543_22:
                         mov              edi, 1
                         mov              rsi, qword ptr [rbp + 784]
                         mov              rdx, qword ptr [rbp + 792]
                         call             rt_arg_stage@PLT
-.Lx544_23:
+.Lx543_23:
                         mov              edi, 3
                         mov              esi, 2
                         call             rt_proc_call_open_det@PLT
                         test             rax, rax
-                                                                                        je    .Lx544_1
-                        lea              rcx, [rip + .Lx544_3]
-                        lea              rdx, [rip + .Lx544_4]
+                                                                                        je    .Lx543_1
+                        lea              rcx, [rip + .Lx543_3]
+                        lea              rdx, [rip + .Lx543_4]
                                                                                         jmp   rax
-.Lx544_3:
+.Lx543_3:
                         mov              qword ptr [rbp + 744], rsp
                         mov              rax, qword ptr [rbp + 736]
                         test             rax, rax
-                                                                                        jne   .Lx544_5
+                                                                                        jne   .Lx543_5
                         mov              qword ptr [rbp + 736], 1
                         call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx544_2
-.Lx544_5:
+                                                                                        jmp   .Lx543_2
+.Lx543_5:
                         call             rt_gen_spine_pass_γ@PLT
-                                                                                        jmp   .Lx544_2
-.Lx544_4:
+                                                                                        jmp   .Lx543_2
+.Lx543_4:
                         mov              rax, qword ptr [rbp + 736]
                         test             rax, rax
-                                                                                        jne   .Lx544_6
+                                                                                        jne   .Lx543_6
                         mov              qword ptr [rbp + 736], 1
                         call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx544_2
-.Lx544_6:
+                                                                                        jmp   .Lx543_2
+.Lx543_6:
                         call             rt_gen_spine_pass_ω@PLT
-                                                                                        jmp   .Lx544_2
-.Lx544_1:
+                                                                                        jmp   .Lx543_2
+.Lx543_1:
                         call             rt_faildescr@PLT
-.Lx544_2:
+.Lx543_2:
                         mov              qword ptr [rbp + 688], rax
                         mov              qword ptr [rbp + 696], rdx
                         cmp              eax, 99
-                                                                                        je    n493_op11_α
-                                                                                        jmp   n497_var_ref_α
-n496_call_proc_staged_β:
+                                                                                        je    n516_call_builtin_prolog_α
+                                                                                        jmp   n496_var_ref_α
+n495_call_proc_staged_β:
                         call             rt_gen_spine_resume_enter@PLT
                         mov              rsp, qword ptr [rbp + 744]
                                                                                         jmp   qword ptr [rsp]
-.Lx544_0:
-                        .quad            .Lx544_0_s
-.Lx544_0_s:
+.Lx543_0:
+                        .quad            .Lx543_0_s
+.Lx543_0_s:
                         .string          "density/2"
 #-----------------------------------------------------------------------------------------------------------------------
-n497_var_ref_α:
+n496_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 1408]
                         mov              qword ptr [rbp + 656], rax
                         mov              qword ptr [rbp + 664], rdx
-                                                                                        jmp   n498_var_ref_α
+                        add              rsp, 16
+                                                                                        jmp   n497_var_ref_α
 #-----------------------------------------------------------------------------------------------------------------------
-n498_var_ref_α:
+n497_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 1376]
                         mov              qword ptr [rbp + 672], rax
                         mov              qword ptr [rbp + 680], rdx
-                                                                                        jmp   n499_call_proc_staged_α
+                        add              rsp, 16
+                                                                                        jmp   n498_call_proc_staged_α
 #-----------------------------------------------------------------------------------------------------------------------
-n499_call_proc_staged_α:
+n498_call_proc_staged_α:
                         mov              qword ptr [rbp + 624], 0
                         lea              r11, [rip + g_gc_pending]
                         mov              eax, dword ptr [r11 + 0]
                         test             eax, eax
-                                                                                        jne   .Lx550_20
+                                                                                        jne   .Lx549_20
                         mov              rax, qword ptr [rbp + 656]
                         mov              rdx, qword ptr [rbp + 664]
                         lea              r10, [rip + g_call_args]
                         mov              qword ptr [r10 + 0], rax
                         mov              qword ptr [r10 + 8], rdx
-                                                                                        jmp   .Lx550_21
-.Lx550_20:
+                                                                                        jmp   .Lx549_21
+.Lx549_20:
                         mov              edi, 0
                         mov              rsi, qword ptr [rbp + 656]
                         mov              rdx, qword ptr [rbp + 664]
                         call             rt_arg_stage@PLT
-.Lx550_21:
+.Lx549_21:
                         lea              r11, [rip + g_gc_pending]
                         mov              eax, dword ptr [r11 + 0]
                         test             eax, eax
-                                                                                        jne   .Lx550_22
+                                                                                        jne   .Lx549_22
                         mov              rax, qword ptr [rbp + 672]
                         mov              rdx, qword ptr [rbp + 680]
                         lea              r10, [rip + g_call_args]
                         mov              qword ptr [r10 + 16], rax
                         mov              qword ptr [r10 + 24], rdx
-                                                                                        jmp   .Lx550_23
-.Lx550_22:
+                                                                                        jmp   .Lx549_23
+.Lx549_22:
                         mov              edi, 1
                         mov              rsi, qword ptr [rbp + 672]
                         mov              rdx, qword ptr [rbp + 680]
                         call             rt_arg_stage@PLT
-.Lx550_23:
+.Lx549_23:
                         mov              edi, 3
                         mov              esi, 2
                         call             rt_proc_call_open_det@PLT
                         test             rax, rax
-                                                                                        je    .Lx550_1
-                        lea              rcx, [rip + .Lx550_3]
-                        lea              rdx, [rip + .Lx550_4]
+                                                                                        je    .Lx549_1
+                        lea              rcx, [rip + .Lx549_3]
+                        lea              rdx, [rip + .Lx549_4]
                                                                                         jmp   rax
-.Lx550_3:
+.Lx549_3:
                         mov              qword ptr [rbp + 632], rsp
                         mov              rax, qword ptr [rbp + 624]
                         test             rax, rax
-                                                                                        jne   .Lx550_5
+                                                                                        jne   .Lx549_5
                         mov              qword ptr [rbp + 624], 1
                         call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx550_2
-.Lx550_5:
+                                                                                        jmp   .Lx549_2
+.Lx549_5:
                         call             rt_gen_spine_pass_γ@PLT
-                                                                                        jmp   .Lx550_2
-.Lx550_4:
+                                                                                        jmp   .Lx549_2
+.Lx549_4:
                         mov              rax, qword ptr [rbp + 624]
                         test             rax, rax
-                                                                                        jne   .Lx550_6
+                                                                                        jne   .Lx549_6
                         mov              qword ptr [rbp + 624], 1
                         call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx550_2
-.Lx550_6:
+                                                                                        jmp   .Lx549_2
+.Lx549_6:
                         call             rt_gen_spine_pass_ω@PLT
-                                                                                        jmp   .Lx550_2
-.Lx550_1:
+                                                                                        jmp   .Lx549_2
+.Lx549_1:
                         call             rt_faildescr@PLT
-.Lx550_2:
+.Lx549_2:
                         mov              qword ptr [rbp + 576], rax
                         mov              qword ptr [rbp + 584], rdx
                         cmp              eax, 99
-                                                                                        je    n496_call_proc_staged_β
-                                                                                        jmp   n500_var_α
-n499_call_proc_staged_β:
+                                                                                        je    n495_call_proc_staged_β
+                                                                                        jmp   n499_var_α
+n498_call_proc_staged_β:
                         call             rt_gen_spine_resume_enter@PLT
                         mov              rsp, qword ptr [rbp + 632]
                                                                                         jmp   qword ptr [rsp]
-.Lx550_0:
-                        .quad            .Lx550_0_s
-.Lx550_0_s:
+.Lx549_0:
+                        .quad            .Lx549_0_s
+.Lx549_0_s:
                         .string          "density/2"
 #-----------------------------------------------------------------------------------------------------------------------
-n500_var_α:
+n499_var_α:
                         mov              rax, qword ptr [rbp + 1392]
                         mov              qword ptr [rbp + 544], rax
                         mov              rax, qword ptr [rbp + 1400]
                         mov              qword ptr [rbp + 552], rax
-                                                                                        jmp   n501_var_α
+                                                                                        jmp   n500_var_α
 #-----------------------------------------------------------------------------------------------------------------------
-n501_var_α:
+n500_var_α:
                         mov              rax, qword ptr [rbp + 1376]
                         mov              qword ptr [rbp + 560], rax
                         mov              rax, qword ptr [rbp + 1384]
                         mov              qword ptr [rbp + 568], rax
-                                                                                        jmp   n502_op11_α
+                                                                                        jmp   n501_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
-n502_op11_α:
+n501_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 544]
                         mov              qword ptr [rbp + 512], rax
                         mov              rax, qword ptr [rbp + 552]
@@ -3177,34 +3309,36 @@ n502_op11_α:
                         mov              qword ptr [rbp + 496], rax
                         mov              qword ptr [rbp + 504], rdx
                         cmp              eax, 99
-                                                                                        je    n499_call_proc_staged_β
-                                                                                        jmp   n503_var_ref_α
-n502_op11_β:
-                                                                                        jmp   n499_call_proc_staged_β
+                                                                                        je    n498_call_proc_staged_β
+                                                                                        jmp   n502_var_ref_α
+n501_call_builtin_prolog_β:
+                                                                                        jmp   n498_call_proc_staged_β
 #-----------------------------------------------------------------------------------------------------------------------
-n503_var_ref_α:
+n502_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 1344]
                         mov              qword ptr [rbp + 384], rax
                         mov              qword ptr [rbp + 392], rdx
-                                                                                        jmp   n504_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n503_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n504_lit_integer_α:
+n503_lit_integer_α:
                         mov              qword ptr [rbp + 464], 6
-                        mov              rax, qword ptr [rip + .Lx558_0]
+                        mov              rax, qword ptr [rip + .Lx557_0]
                         mov              qword ptr [rbp + 472], rax
-                                                                                        jmp   n505_var_α
-.Lx558_0:
+                                                                                        jmp   n504_var_α
+.Lx557_0:
                         .quad            20
 #-----------------------------------------------------------------------------------------------------------------------
-n505_var_α:
+n504_var_α:
                         mov              rax, qword ptr [rbp + 1392]
                         mov              qword ptr [rbp + 480], rax
                         mov              rax, qword ptr [rbp + 1400]
                         mov              qword ptr [rbp + 488], rax
-                                                                                        jmp   n506_op11_α
+                                                                                        jmp   n505_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
-n506_op11_α:
+n505_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 464]
                         mov              qword ptr [rbp + 416], rax
                         mov              rax, qword ptr [rbp + 472]
@@ -3219,12 +3353,12 @@ n506_op11_α:
                         mov              qword ptr [rbp + 400], rax
                         mov              qword ptr [rbp + 408], rdx
                         cmp              eax, 99
-                                                                                        je    n493_op11_α
-                                                                                        jmp   n507_op11_α
-n506_op11_β:
-                                                                                        jmp   n493_op11_α
+                                                                                        je    n516_call_builtin_prolog_α
+                                                                                        jmp   n506_call_builtin_prolog_α
+n505_call_builtin_prolog_β:
+                                                                                        jmp   n516_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
-n507_op11_α:
+n506_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 384]
                         mov              qword ptr [rbp + 352], rax
                         mov              rax, qword ptr [rbp + 392]
@@ -3239,34 +3373,36 @@ n507_op11_α:
                         mov              qword ptr [rbp + 336], rax
                         mov              qword ptr [rbp + 344], rdx
                         cmp              eax, 99
-                                                                                        je    n499_call_proc_staged_β
-                                                                                        jmp   n508_var_ref_α
-n507_op11_β:
-                                                                                        jmp   n499_call_proc_staged_β
+                                                                                        je    n498_call_proc_staged_β
+                                                                                        jmp   n507_var_ref_α
+n506_call_builtin_prolog_β:
+                                                                                        jmp   n498_call_proc_staged_β
 #-----------------------------------------------------------------------------------------------------------------------
-n508_var_ref_α:
+n507_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 1360]
                         mov              qword ptr [rbp + 224], rax
                         mov              qword ptr [rbp + 232], rdx
-                                                                                        jmp   n509_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n508_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n509_lit_integer_α:
+n508_lit_integer_α:
                         mov              qword ptr [rbp + 304], 6
-                        mov              rax, qword ptr [rip + .Lx565_0]
+                        mov              rax, qword ptr [rip + .Lx564_0]
                         mov              qword ptr [rbp + 312], rax
-                                                                                        jmp   n510_var_α
-.Lx565_0:
+                                                                                        jmp   n509_var_α
+.Lx564_0:
                         .quad            21
 #-----------------------------------------------------------------------------------------------------------------------
-n510_var_α:
+n509_var_α:
                         mov              rax, qword ptr [rbp + 1376]
                         mov              qword ptr [rbp + 320], rax
                         mov              rax, qword ptr [rbp + 1384]
                         mov              qword ptr [rbp + 328], rax
-                                                                                        jmp   n511_op11_α
+                                                                                        jmp   n510_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
-n511_op11_α:
+n510_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 304]
                         mov              qword ptr [rbp + 256], rax
                         mov              rax, qword ptr [rbp + 312]
@@ -3281,12 +3417,12 @@ n511_op11_α:
                         mov              qword ptr [rbp + 240], rax
                         mov              qword ptr [rbp + 248], rdx
                         cmp              eax, 99
-                                                                                        je    n493_op11_α
-                                                                                        jmp   n512_op11_α
-n511_op11_β:
-                                                                                        jmp   n493_op11_α
+                                                                                        je    n516_call_builtin_prolog_α
+                                                                                        jmp   n511_call_builtin_prolog_α
+n510_call_builtin_prolog_β:
+                                                                                        jmp   n516_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
-n512_op11_α:
+n511_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 224]
                         mov              qword ptr [rbp + 192], rax
                         mov              rax, qword ptr [rbp + 232]
@@ -3301,26 +3437,26 @@ n512_op11_α:
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         cmp              eax, 99
-                                                                                        je    n499_call_proc_staged_β
-                                                                                        jmp   n513_var_α
-n512_op11_β:
-                                                                                        jmp   n499_call_proc_staged_β
+                                                                                        je    n498_call_proc_staged_β
+                                                                                        jmp   n512_var_α
+n511_call_builtin_prolog_β:
+                                                                                        jmp   n498_call_proc_staged_β
 #-----------------------------------------------------------------------------------------------------------------------
-n513_var_α:
+n512_var_α:
                         mov              rax, qword ptr [rbp + 1344]
                         mov              qword ptr [rbp + 144], rax
                         mov              rax, qword ptr [rbp + 1352]
                         mov              qword ptr [rbp + 152], rax
-                                                                                        jmp   n514_var_α
+                                                                                        jmp   n513_var_α
 #-----------------------------------------------------------------------------------------------------------------------
-n514_var_α:
+n513_var_α:
                         mov              rax, qword ptr [rbp + 1360]
                         mov              qword ptr [rbp + 160], rax
                         mov              rax, qword ptr [rbp + 1368]
                         mov              qword ptr [rbp + 168], rax
-                                                                                        jmp   n515_op11_α
+                                                                                        jmp   n514_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
-n515_op11_α:
+n514_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 144]
                         mov              qword ptr [rbp + 112], rax
                         mov              rax, qword ptr [rbp + 152]
@@ -3335,21 +3471,37 @@ n515_op11_α:
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
                         cmp              eax, 99
-                                                                                        je    n499_call_proc_staged_β
-                                                                                        jmp   n516_suspend_α
-n515_op11_β:
-                                                                                        jmp   n499_call_proc_staged_β
+                                                                                        je    n498_call_proc_staged_β
+                                                                                        jmp   n515_suspend_α
+n514_call_builtin_prolog_β:
+                                                                                        jmp   n498_call_proc_staged_β
 #-----------------------------------------------------------------------------------------------------------------------
-n516_suspend_α:
-                        lea              rax, [rip + n516_suspend_β]
+n515_suspend_α:
+                        lea              rax, [rip + n515_suspend_β]
                         mov              qword ptr [rbp + 1328], rax
                         mov              rax, qword ptr [rbp + 32]
                         mov              qword ptr [rbp + 0], rax
                         mov              rax, qword ptr [rbp + 40]
                         mov              qword ptr [rbp + 8], rax
                                                                                         jmp   proc_query$2F1_γ
-n516_suspend_β:
-                                                                                        jmp   n499_call_proc_staged_β
+n515_suspend_β:
+                                                                                        jmp   n498_call_proc_staged_β
+#-----------------------------------------------------------------------------------------------------------------------
+n516_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 32]
+                        mov              qword ptr [rbp + 80], rax
+                        mov              rax, qword ptr [rbp + 40]
+                        mov              qword ptr [rbp + 88], rax
+                        lea              rdi, [rbp + 80]
+                        mov              esi, 1
+                        call             rt_pl_dop_trail_unwind@PLT
+                        mov              qword ptr [rbp + 64], rax
+                        mov              qword ptr [rbp + 72], rdx
+                        cmp              eax, 99
+                                                                                        je    proc_query$2F1_ω
+                                                                                        jmp   proc_query$2F1_ω
+n516_call_builtin_prolog_β:
+                                                                                        jmp   proc_query$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_query$2F1_res:
                         add              rsp, 8
@@ -3364,14 +3516,14 @@ proc_query$2F1_γ:
                         push             rbp
                         lea              rax, [rip + proc_query$2F1_res]
                         push             rax
-                        mov              rax, [rbp + 1448]
-                        mov              rbp, [rbp + 1464]
+                        mov              rax, [rbp + 1464]
+                        mov              rbp, [rbp + 1480]
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_query$2F1_ω:
-                        mov              rax, [rbp + 1456]
-                        lea              rsp, [rbp + 1472]
-                        mov              rbp, [rbp + 1464]
+                        mov              rax, [rbp + 1472]
+                        lea              rsp, [rbp + 1488]
+                        mov              rbp, [rbp + 1480]
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_pop$2F2_α
@@ -3380,20 +3532,20 @@ proc_pop$2F2_α:
                         .global          proc_pop$2F2_β
                         .global          proc_pop$2F2_γ
                         .global          proc_pop$2F2_ω
-                        sub              rsp, 5328
-                        mov              [rsp + 5304], rcx
-                        mov              [rsp + 5312], rdx
-                        mov              [rsp + 5320], rbp
+                        sub              rsp, 5344
+                        mov              [rsp + 5320], rcx
+                        mov              [rsp + 5328], rdx
+                        mov              [rsp + 5336], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 5280
-                        mov              edx, 5296
+                        mov              edx, 5312
                         call             rt_jmp_frame_lexprep2@PLT
 proc_pop$2F2_α_body:
-                        lea              rax, [rip + n587_suspend_β]
+                        lea              rax, [rip + n584_suspend_β]
                         mov              qword ptr [rbp + 5280], rax
 #-----------------------------------------------------------------------------------------------------------------------
-n577_op11_α:
+n577_call_builtin_prolog_α:
                         lea              r10, [rip + g_plw_cellws_on]
                         mov              eax, dword ptr [r10 + 0]
                         test             eax, eax
@@ -3417,27 +3569,30 @@ n577_op11_α:
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
                                                                                         jmp   n578_var_ref_α
-n577_op11_β:
+n577_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n578_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 5248], rax
                         mov              qword ptr [rbp + 5256], rdx
+                        add              rsp, 16
                                                                                         jmp   n579_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n579_lit_string_α:
                         mov              qword ptr [rbp + 5264], 1
+                        mov              dword ptr [rbp + 5268], 5
                         mov              rax, qword ptr [rip + .Lx781_0]
                         mov              qword ptr [rbp + 5272], rax
-                                                                                        jmp   n580_op11_α
+                                                                                        jmp   n580_call_builtin_prolog_α
 .Lx781_0:
                         .quad            .Lx781_0_s
 .Lx781_0_s:
                         .string          "china"
 #-----------------------------------------------------------------------------------------------------------------------
-n580_op11_α:
+n580_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 5248]
                         mov              qword ptr [rbp + 5216], rax
                         mov              rax, qword ptr [rbp + 5256]
@@ -3454,19 +3609,56 @@ n580_op11_α:
                         mov              qword ptr [rbp + 5200], rax
                         mov              qword ptr [rbp + 5208], rdx
                         cmp              eax, 99
-                                                                                        je    n582_op11_α
+                                                                                        je    n585_call_builtin_prolog_α
                                                                                         jmp   n581_var_ref_α
-n580_op11_β:
-                                                                                        jmp   n582_op11_α
+n580_call_builtin_prolog_β:
+                                                                                        jmp   n585_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n581_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 5168], rax
                         mov              qword ptr [rbp + 5176], rdx
-                                                                                        jmp   n583_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n582_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n582_op11_α:
+n582_lit_integer_α:
+                        mov              qword ptr [rbp + 5184], 6
+                        mov              rax, qword ptr [rip + .Lx785_0]
+                        mov              qword ptr [rbp + 5192], rax
+                                                                                        jmp   n583_call_builtin_prolog_α
+.Lx785_0:
+                        .quad            8250
+#-----------------------------------------------------------------------------------------------------------------------
+n583_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 5168]
+                        mov              qword ptr [rbp + 5136], rax
+                        mov              rax, qword ptr [rbp + 5176]
+                        mov              qword ptr [rbp + 5144], rax
+                        lea              rdi, [rbp + 5136]
+                        movabs           rsi, 8250
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 5120], rax
+                        mov              qword ptr [rbp + 5128], rdx
+                        cmp              eax, 99
+                                                                                        je    n585_call_builtin_prolog_α
+                                                                                        jmp   n584_suspend_α
+n583_call_builtin_prolog_β:
+                                                                                        jmp   n585_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n584_suspend_α:
+                        lea              rax, [rip + n584_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_pop$2F2_γ
+n584_suspend_β:
+                                                                                        jmp   n585_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n585_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 5088], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -3478,63 +3670,31 @@ n582_op11_α:
                         mov              qword ptr [rbp + 5080], rdx
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
-                                                                                        jmp   n584_var_ref_α
-n582_op11_β:
+                                                                                        jmp   n586_var_ref_α
+n585_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n583_lit_integer_α:
-                        mov              qword ptr [rbp + 5184], 6
-                        mov              rax, qword ptr [rip + .Lx786_0]
-                        mov              qword ptr [rbp + 5192], rax
-                                                                                        jmp   n585_op11_α
-.Lx786_0:
-                        .quad            8250
-#-----------------------------------------------------------------------------------------------------------------------
-n584_var_ref_α:
+n586_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 5040], rax
                         mov              qword ptr [rbp + 5048], rdx
-                                                                                        jmp   n586_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n587_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n585_op11_α:
-                        mov              rax, qword ptr [rbp + 5168]
-                        mov              qword ptr [rbp + 5136], rax
-                        mov              rax, qword ptr [rbp + 5176]
-                        mov              qword ptr [rbp + 5144], rax
-                        lea              rdi, [rbp + 5136]
-                        movabs           rsi, 8250
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 5120], rax
-                        mov              qword ptr [rbp + 5128], rdx
-                        cmp              eax, 99
-                                                                                        je    n582_op11_α
-                                                                                        jmp   n587_suspend_α
-n585_op11_β:
-                                                                                        jmp   n582_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n586_lit_string_α:
+n587_lit_string_α:
                         mov              qword ptr [rbp + 5056], 1
-                        mov              rax, qword ptr [rip + .Lx790_0]
+                        mov              dword ptr [rbp + 5060], 5
+                        mov              rax, qword ptr [rip + .Lx792_0]
                         mov              qword ptr [rbp + 5064], rax
-                                                                                        jmp   n588_op11_α
-.Lx790_0:
-                        .quad            .Lx790_0_s
-.Lx790_0_s:
+                                                                                        jmp   n588_call_builtin_prolog_α
+.Lx792_0:
+                        .quad            .Lx792_0_s
+.Lx792_0_s:
                         .string          "india"
 #-----------------------------------------------------------------------------------------------------------------------
-n587_suspend_α:
-                        lea              rax, [rip + n587_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_pop$2F2_γ
-n587_suspend_β:
-                                                                                        jmp   n582_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n588_op11_α:
+n588_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 5040]
                         mov              qword ptr [rbp + 5008], rax
                         mov              rax, qword ptr [rbp + 5048]
@@ -3551,19 +3711,56 @@ n588_op11_α:
                         mov              qword ptr [rbp + 4992], rax
                         mov              qword ptr [rbp + 5000], rdx
                         cmp              eax, 99
-                                                                                        je    n590_op11_α
+                                                                                        je    n593_call_builtin_prolog_α
                                                                                         jmp   n589_var_ref_α
-n588_op11_β:
-                                                                                        jmp   n590_op11_α
+n588_call_builtin_prolog_β:
+                                                                                        jmp   n593_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n589_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 4960], rax
                         mov              qword ptr [rbp + 4968], rdx
-                                                                                        jmp   n591_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n590_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n590_op11_α:
+n590_lit_integer_α:
+                        mov              qword ptr [rbp + 4976], 6
+                        mov              rax, qword ptr [rip + .Lx796_0]
+                        mov              qword ptr [rbp + 4984], rax
+                                                                                        jmp   n591_call_builtin_prolog_α
+.Lx796_0:
+                        .quad            5863
+#-----------------------------------------------------------------------------------------------------------------------
+n591_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 4960]
+                        mov              qword ptr [rbp + 4928], rax
+                        mov              rax, qword ptr [rbp + 4968]
+                        mov              qword ptr [rbp + 4936], rax
+                        lea              rdi, [rbp + 4928]
+                        movabs           rsi, 5863
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 4912], rax
+                        mov              qword ptr [rbp + 4920], rdx
+                        cmp              eax, 99
+                                                                                        je    n593_call_builtin_prolog_α
+                                                                                        jmp   n592_suspend_α
+n591_call_builtin_prolog_β:
+                                                                                        jmp   n593_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n592_suspend_α:
+                        lea              rax, [rip + n592_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_pop$2F2_γ
+n592_suspend_β:
+                                                                                        jmp   n593_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n593_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 4880], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -3575,63 +3772,31 @@ n590_op11_α:
                         mov              qword ptr [rbp + 4872], rdx
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
-                                                                                        jmp   n592_var_ref_α
-n590_op11_β:
+                                                                                        jmp   n594_var_ref_α
+n593_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n591_lit_integer_α:
-                        mov              qword ptr [rbp + 4976], 6
-                        mov              rax, qword ptr [rip + .Lx797_0]
-                        mov              qword ptr [rbp + 4984], rax
-                                                                                        jmp   n593_op11_α
-.Lx797_0:
-                        .quad            5863
-#-----------------------------------------------------------------------------------------------------------------------
-n592_var_ref_α:
+n594_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 4832], rax
                         mov              qword ptr [rbp + 4840], rdx
-                                                                                        jmp   n594_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n595_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n593_op11_α:
-                        mov              rax, qword ptr [rbp + 4960]
-                        mov              qword ptr [rbp + 4928], rax
-                        mov              rax, qword ptr [rbp + 4968]
-                        mov              qword ptr [rbp + 4936], rax
-                        lea              rdi, [rbp + 4928]
-                        movabs           rsi, 5863
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 4912], rax
-                        mov              qword ptr [rbp + 4920], rdx
-                        cmp              eax, 99
-                                                                                        je    n590_op11_α
-                                                                                        jmp   n595_suspend_α
-n593_op11_β:
-                                                                                        jmp   n590_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n594_lit_string_α:
+n595_lit_string_α:
                         mov              qword ptr [rbp + 4848], 1
-                        mov              rax, qword ptr [rip + .Lx801_0]
+                        mov              dword ptr [rbp + 4852], 4
+                        mov              rax, qword ptr [rip + .Lx803_0]
                         mov              qword ptr [rbp + 4856], rax
-                                                                                        jmp   n596_op11_α
-.Lx801_0:
-                        .quad            .Lx801_0_s
-.Lx801_0_s:
+                                                                                        jmp   n596_call_builtin_prolog_α
+.Lx803_0:
+                        .quad            .Lx803_0_s
+.Lx803_0_s:
                         .string          "ussr"
 #-----------------------------------------------------------------------------------------------------------------------
-n595_suspend_α:
-                        lea              rax, [rip + n595_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_pop$2F2_γ
-n595_suspend_β:
-                                                                                        jmp   n590_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n596_op11_α:
+n596_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 4832]
                         mov              qword ptr [rbp + 4800], rax
                         mov              rax, qword ptr [rbp + 4840]
@@ -3648,19 +3813,56 @@ n596_op11_α:
                         mov              qword ptr [rbp + 4784], rax
                         mov              qword ptr [rbp + 4792], rdx
                         cmp              eax, 99
-                                                                                        je    n598_op11_α
+                                                                                        je    n601_call_builtin_prolog_α
                                                                                         jmp   n597_var_ref_α
-n596_op11_β:
-                                                                                        jmp   n598_op11_α
+n596_call_builtin_prolog_β:
+                                                                                        jmp   n601_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n597_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 4752], rax
                         mov              qword ptr [rbp + 4760], rdx
-                                                                                        jmp   n599_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n598_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n598_op11_α:
+n598_lit_integer_α:
+                        mov              qword ptr [rbp + 4768], 6
+                        mov              rax, qword ptr [rip + .Lx807_0]
+                        mov              qword ptr [rbp + 4776], rax
+                                                                                        jmp   n599_call_builtin_prolog_α
+.Lx807_0:
+                        .quad            2521
+#-----------------------------------------------------------------------------------------------------------------------
+n599_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 4752]
+                        mov              qword ptr [rbp + 4720], rax
+                        mov              rax, qword ptr [rbp + 4760]
+                        mov              qword ptr [rbp + 4728], rax
+                        lea              rdi, [rbp + 4720]
+                        movabs           rsi, 2521
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 4704], rax
+                        mov              qword ptr [rbp + 4712], rdx
+                        cmp              eax, 99
+                                                                                        je    n601_call_builtin_prolog_α
+                                                                                        jmp   n600_suspend_α
+n599_call_builtin_prolog_β:
+                                                                                        jmp   n601_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n600_suspend_α:
+                        lea              rax, [rip + n600_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_pop$2F2_γ
+n600_suspend_β:
+                                                                                        jmp   n601_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n601_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 4672], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -3672,63 +3874,31 @@ n598_op11_α:
                         mov              qword ptr [rbp + 4664], rdx
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
-                                                                                        jmp   n600_var_ref_α
-n598_op11_β:
+                                                                                        jmp   n602_var_ref_α
+n601_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n599_lit_integer_α:
-                        mov              qword ptr [rbp + 4768], 6
-                        mov              rax, qword ptr [rip + .Lx808_0]
-                        mov              qword ptr [rbp + 4776], rax
-                                                                                        jmp   n601_op11_α
-.Lx808_0:
-                        .quad            2521
-#-----------------------------------------------------------------------------------------------------------------------
-n600_var_ref_α:
+n602_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 4624], rax
                         mov              qword ptr [rbp + 4632], rdx
-                                                                                        jmp   n602_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n603_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n601_op11_α:
-                        mov              rax, qword ptr [rbp + 4752]
-                        mov              qword ptr [rbp + 4720], rax
-                        mov              rax, qword ptr [rbp + 4760]
-                        mov              qword ptr [rbp + 4728], rax
-                        lea              rdi, [rbp + 4720]
-                        movabs           rsi, 2521
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 4704], rax
-                        mov              qword ptr [rbp + 4712], rdx
-                        cmp              eax, 99
-                                                                                        je    n598_op11_α
-                                                                                        jmp   n603_suspend_α
-n601_op11_β:
-                                                                                        jmp   n598_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n602_lit_string_α:
+n603_lit_string_α:
                         mov              qword ptr [rbp + 4640], 1
-                        mov              rax, qword ptr [rip + .Lx812_0]
+                        mov              dword ptr [rbp + 4644], 3
+                        mov              rax, qword ptr [rip + .Lx814_0]
                         mov              qword ptr [rbp + 4648], rax
-                                                                                        jmp   n604_op11_α
-.Lx812_0:
-                        .quad            .Lx812_0_s
-.Lx812_0_s:
+                                                                                        jmp   n604_call_builtin_prolog_α
+.Lx814_0:
+                        .quad            .Lx814_0_s
+.Lx814_0_s:
                         .string          "usa"
 #-----------------------------------------------------------------------------------------------------------------------
-n603_suspend_α:
-                        lea              rax, [rip + n603_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_pop$2F2_γ
-n603_suspend_β:
-                                                                                        jmp   n598_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n604_op11_α:
+n604_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 4624]
                         mov              qword ptr [rbp + 4592], rax
                         mov              rax, qword ptr [rbp + 4632]
@@ -3745,19 +3915,56 @@ n604_op11_α:
                         mov              qword ptr [rbp + 4576], rax
                         mov              qword ptr [rbp + 4584], rdx
                         cmp              eax, 99
-                                                                                        je    n606_op11_α
+                                                                                        je    n609_call_builtin_prolog_α
                                                                                         jmp   n605_var_ref_α
-n604_op11_β:
-                                                                                        jmp   n606_op11_α
+n604_call_builtin_prolog_β:
+                                                                                        jmp   n609_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n605_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 4544], rax
                         mov              qword ptr [rbp + 4552], rdx
-                                                                                        jmp   n607_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n606_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n606_op11_α:
+n606_lit_integer_α:
+                        mov              qword ptr [rbp + 4560], 6
+                        mov              rax, qword ptr [rip + .Lx818_0]
+                        mov              qword ptr [rbp + 4568], rax
+                                                                                        jmp   n607_call_builtin_prolog_α
+.Lx818_0:
+                        .quad            2119
+#-----------------------------------------------------------------------------------------------------------------------
+n607_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 4544]
+                        mov              qword ptr [rbp + 4512], rax
+                        mov              rax, qword ptr [rbp + 4552]
+                        mov              qword ptr [rbp + 4520], rax
+                        lea              rdi, [rbp + 4512]
+                        movabs           rsi, 2119
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 4496], rax
+                        mov              qword ptr [rbp + 4504], rdx
+                        cmp              eax, 99
+                                                                                        je    n609_call_builtin_prolog_α
+                                                                                        jmp   n608_suspend_α
+n607_call_builtin_prolog_β:
+                                                                                        jmp   n609_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n608_suspend_α:
+                        lea              rax, [rip + n608_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_pop$2F2_γ
+n608_suspend_β:
+                                                                                        jmp   n609_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n609_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 4464], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -3769,63 +3976,31 @@ n606_op11_α:
                         mov              qword ptr [rbp + 4456], rdx
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
-                                                                                        jmp   n608_var_ref_α
-n606_op11_β:
+                                                                                        jmp   n610_var_ref_α
+n609_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n607_lit_integer_α:
-                        mov              qword ptr [rbp + 4560], 6
-                        mov              rax, qword ptr [rip + .Lx819_0]
-                        mov              qword ptr [rbp + 4568], rax
-                                                                                        jmp   n609_op11_α
-.Lx819_0:
-                        .quad            2119
-#-----------------------------------------------------------------------------------------------------------------------
-n608_var_ref_α:
+n610_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 4416], rax
                         mov              qword ptr [rbp + 4424], rdx
-                                                                                        jmp   n610_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n611_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n609_op11_α:
-                        mov              rax, qword ptr [rbp + 4544]
-                        mov              qword ptr [rbp + 4512], rax
-                        mov              rax, qword ptr [rbp + 4552]
-                        mov              qword ptr [rbp + 4520], rax
-                        lea              rdi, [rbp + 4512]
-                        movabs           rsi, 2119
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 4496], rax
-                        mov              qword ptr [rbp + 4504], rdx
-                        cmp              eax, 99
-                                                                                        je    n606_op11_α
-                                                                                        jmp   n611_suspend_α
-n609_op11_β:
-                                                                                        jmp   n606_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n610_lit_string_α:
+n611_lit_string_α:
                         mov              qword ptr [rbp + 4432], 1
-                        mov              rax, qword ptr [rip + .Lx823_0]
+                        mov              dword ptr [rbp + 4436], 9
+                        mov              rax, qword ptr [rip + .Lx825_0]
                         mov              qword ptr [rbp + 4440], rax
-                                                                                        jmp   n612_op11_α
-.Lx823_0:
-                        .quad            .Lx823_0_s
-.Lx823_0_s:
+                                                                                        jmp   n612_call_builtin_prolog_α
+.Lx825_0:
+                        .quad            .Lx825_0_s
+.Lx825_0_s:
                         .string          "indonesia"
 #-----------------------------------------------------------------------------------------------------------------------
-n611_suspend_α:
-                        lea              rax, [rip + n611_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_pop$2F2_γ
-n611_suspend_β:
-                                                                                        jmp   n606_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n612_op11_α:
+n612_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 4416]
                         mov              qword ptr [rbp + 4384], rax
                         mov              rax, qword ptr [rbp + 4424]
@@ -3842,19 +4017,56 @@ n612_op11_α:
                         mov              qword ptr [rbp + 4368], rax
                         mov              qword ptr [rbp + 4376], rdx
                         cmp              eax, 99
-                                                                                        je    n614_op11_α
+                                                                                        je    n617_call_builtin_prolog_α
                                                                                         jmp   n613_var_ref_α
-n612_op11_β:
-                                                                                        jmp   n614_op11_α
+n612_call_builtin_prolog_β:
+                                                                                        jmp   n617_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n613_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 4336], rax
                         mov              qword ptr [rbp + 4344], rdx
-                                                                                        jmp   n615_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n614_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n614_op11_α:
+n614_lit_integer_α:
+                        mov              qword ptr [rbp + 4352], 6
+                        mov              rax, qword ptr [rip + .Lx829_0]
+                        mov              qword ptr [rbp + 4360], rax
+                                                                                        jmp   n615_call_builtin_prolog_α
+.Lx829_0:
+                        .quad            1276
+#-----------------------------------------------------------------------------------------------------------------------
+n615_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 4336]
+                        mov              qword ptr [rbp + 4304], rax
+                        mov              rax, qword ptr [rbp + 4344]
+                        mov              qword ptr [rbp + 4312], rax
+                        lea              rdi, [rbp + 4304]
+                        movabs           rsi, 1276
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 4288], rax
+                        mov              qword ptr [rbp + 4296], rdx
+                        cmp              eax, 99
+                                                                                        je    n617_call_builtin_prolog_α
+                                                                                        jmp   n616_suspend_α
+n615_call_builtin_prolog_β:
+                                                                                        jmp   n617_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n616_suspend_α:
+                        lea              rax, [rip + n616_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_pop$2F2_γ
+n616_suspend_β:
+                                                                                        jmp   n617_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n617_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 4256], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -3866,63 +4078,31 @@ n614_op11_α:
                         mov              qword ptr [rbp + 4248], rdx
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
-                                                                                        jmp   n616_var_ref_α
-n614_op11_β:
+                                                                                        jmp   n618_var_ref_α
+n617_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n615_lit_integer_α:
-                        mov              qword ptr [rbp + 4352], 6
-                        mov              rax, qword ptr [rip + .Lx830_0]
-                        mov              qword ptr [rbp + 4360], rax
-                                                                                        jmp   n617_op11_α
-.Lx830_0:
-                        .quad            1276
-#-----------------------------------------------------------------------------------------------------------------------
-n616_var_ref_α:
+n618_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 4208], rax
                         mov              qword ptr [rbp + 4216], rdx
-                                                                                        jmp   n618_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n619_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n617_op11_α:
-                        mov              rax, qword ptr [rbp + 4336]
-                        mov              qword ptr [rbp + 4304], rax
-                        mov              rax, qword ptr [rbp + 4344]
-                        mov              qword ptr [rbp + 4312], rax
-                        lea              rdi, [rbp + 4304]
-                        movabs           rsi, 1276
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 4288], rax
-                        mov              qword ptr [rbp + 4296], rdx
-                        cmp              eax, 99
-                                                                                        je    n614_op11_α
-                                                                                        jmp   n619_suspend_α
-n617_op11_β:
-                                                                                        jmp   n614_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n618_lit_string_α:
+n619_lit_string_α:
                         mov              qword ptr [rbp + 4224], 1
-                        mov              rax, qword ptr [rip + .Lx834_0]
+                        mov              dword ptr [rbp + 4228], 5
+                        mov              rax, qword ptr [rip + .Lx836_0]
                         mov              qword ptr [rbp + 4232], rax
-                                                                                        jmp   n620_op11_α
-.Lx834_0:
-                        .quad            .Lx834_0_s
-.Lx834_0_s:
+                                                                                        jmp   n620_call_builtin_prolog_α
+.Lx836_0:
+                        .quad            .Lx836_0_s
+.Lx836_0_s:
                         .string          "japan"
 #-----------------------------------------------------------------------------------------------------------------------
-n619_suspend_α:
-                        lea              rax, [rip + n619_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_pop$2F2_γ
-n619_suspend_β:
-                                                                                        jmp   n614_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n620_op11_α:
+n620_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 4208]
                         mov              qword ptr [rbp + 4176], rax
                         mov              rax, qword ptr [rbp + 4216]
@@ -3939,19 +4119,56 @@ n620_op11_α:
                         mov              qword ptr [rbp + 4160], rax
                         mov              qword ptr [rbp + 4168], rdx
                         cmp              eax, 99
-                                                                                        je    n622_op11_α
+                                                                                        je    n625_call_builtin_prolog_α
                                                                                         jmp   n621_var_ref_α
-n620_op11_β:
-                                                                                        jmp   n622_op11_α
+n620_call_builtin_prolog_β:
+                                                                                        jmp   n625_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n621_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 4128], rax
                         mov              qword ptr [rbp + 4136], rdx
-                                                                                        jmp   n623_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n622_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n622_op11_α:
+n622_lit_integer_α:
+                        mov              qword ptr [rbp + 4144], 6
+                        mov              rax, qword ptr [rip + .Lx840_0]
+                        mov              qword ptr [rbp + 4152], rax
+                                                                                        jmp   n623_call_builtin_prolog_α
+.Lx840_0:
+                        .quad            1097
+#-----------------------------------------------------------------------------------------------------------------------
+n623_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 4128]
+                        mov              qword ptr [rbp + 4096], rax
+                        mov              rax, qword ptr [rbp + 4136]
+                        mov              qword ptr [rbp + 4104], rax
+                        lea              rdi, [rbp + 4096]
+                        movabs           rsi, 1097
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 4080], rax
+                        mov              qword ptr [rbp + 4088], rdx
+                        cmp              eax, 99
+                                                                                        je    n625_call_builtin_prolog_α
+                                                                                        jmp   n624_suspend_α
+n623_call_builtin_prolog_β:
+                                                                                        jmp   n625_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n624_suspend_α:
+                        lea              rax, [rip + n624_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_pop$2F2_γ
+n624_suspend_β:
+                                                                                        jmp   n625_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n625_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 4048], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -3963,63 +4180,31 @@ n622_op11_α:
                         mov              qword ptr [rbp + 4040], rdx
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
-                                                                                        jmp   n624_var_ref_α
-n622_op11_β:
+                                                                                        jmp   n626_var_ref_α
+n625_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n623_lit_integer_α:
-                        mov              qword ptr [rbp + 4144], 6
-                        mov              rax, qword ptr [rip + .Lx841_0]
-                        mov              qword ptr [rbp + 4152], rax
-                                                                                        jmp   n625_op11_α
-.Lx841_0:
-                        .quad            1097
-#-----------------------------------------------------------------------------------------------------------------------
-n624_var_ref_α:
+n626_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 4000], rax
                         mov              qword ptr [rbp + 4008], rdx
-                                                                                        jmp   n626_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n627_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n625_op11_α:
-                        mov              rax, qword ptr [rbp + 4128]
-                        mov              qword ptr [rbp + 4096], rax
-                        mov              rax, qword ptr [rbp + 4136]
-                        mov              qword ptr [rbp + 4104], rax
-                        lea              rdi, [rbp + 4096]
-                        movabs           rsi, 1097
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 4080], rax
-                        mov              qword ptr [rbp + 4088], rdx
-                        cmp              eax, 99
-                                                                                        je    n622_op11_α
-                                                                                        jmp   n627_suspend_α
-n625_op11_β:
-                                                                                        jmp   n622_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n626_lit_string_α:
+n627_lit_string_α:
                         mov              qword ptr [rbp + 4016], 1
-                        mov              rax, qword ptr [rip + .Lx845_0]
+                        mov              dword ptr [rbp + 4020], 6
+                        mov              rax, qword ptr [rip + .Lx847_0]
                         mov              qword ptr [rbp + 4024], rax
-                                                                                        jmp   n628_op11_α
-.Lx845_0:
-                        .quad            .Lx845_0_s
-.Lx845_0_s:
+                                                                                        jmp   n628_call_builtin_prolog_α
+.Lx847_0:
+                        .quad            .Lx847_0_s
+.Lx847_0_s:
                         .string          "brazil"
 #-----------------------------------------------------------------------------------------------------------------------
-n627_suspend_α:
-                        lea              rax, [rip + n627_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_pop$2F2_γ
-n627_suspend_β:
-                                                                                        jmp   n622_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n628_op11_α:
+n628_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 4000]
                         mov              qword ptr [rbp + 3968], rax
                         mov              rax, qword ptr [rbp + 4008]
@@ -4036,19 +4221,56 @@ n628_op11_α:
                         mov              qword ptr [rbp + 3952], rax
                         mov              qword ptr [rbp + 3960], rdx
                         cmp              eax, 99
-                                                                                        je    n630_op11_α
+                                                                                        je    n633_call_builtin_prolog_α
                                                                                         jmp   n629_var_ref_α
-n628_op11_β:
-                                                                                        jmp   n630_op11_α
+n628_call_builtin_prolog_β:
+                                                                                        jmp   n633_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n629_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 3920], rax
                         mov              qword ptr [rbp + 3928], rdx
-                                                                                        jmp   n631_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n630_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n630_op11_α:
+n630_lit_integer_α:
+                        mov              qword ptr [rbp + 3936], 6
+                        mov              rax, qword ptr [rip + .Lx851_0]
+                        mov              qword ptr [rbp + 3944], rax
+                                                                                        jmp   n631_call_builtin_prolog_α
+.Lx851_0:
+                        .quad            1042
+#-----------------------------------------------------------------------------------------------------------------------
+n631_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 3920]
+                        mov              qword ptr [rbp + 3888], rax
+                        mov              rax, qword ptr [rbp + 3928]
+                        mov              qword ptr [rbp + 3896], rax
+                        lea              rdi, [rbp + 3888]
+                        movabs           rsi, 1042
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 3872], rax
+                        mov              qword ptr [rbp + 3880], rdx
+                        cmp              eax, 99
+                                                                                        je    n633_call_builtin_prolog_α
+                                                                                        jmp   n632_suspend_α
+n631_call_builtin_prolog_β:
+                                                                                        jmp   n633_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n632_suspend_α:
+                        lea              rax, [rip + n632_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_pop$2F2_γ
+n632_suspend_β:
+                                                                                        jmp   n633_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n633_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 3840], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -4060,63 +4282,31 @@ n630_op11_α:
                         mov              qword ptr [rbp + 3832], rdx
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
-                                                                                        jmp   n632_var_ref_α
-n630_op11_β:
+                                                                                        jmp   n634_var_ref_α
+n633_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n631_lit_integer_α:
-                        mov              qword ptr [rbp + 3936], 6
-                        mov              rax, qword ptr [rip + .Lx852_0]
-                        mov              qword ptr [rbp + 3944], rax
-                                                                                        jmp   n633_op11_α
-.Lx852_0:
-                        .quad            1042
-#-----------------------------------------------------------------------------------------------------------------------
-n632_var_ref_α:
+n634_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 3792], rax
                         mov              qword ptr [rbp + 3800], rdx
-                                                                                        jmp   n634_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n635_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n633_op11_α:
-                        mov              rax, qword ptr [rbp + 3920]
-                        mov              qword ptr [rbp + 3888], rax
-                        mov              rax, qword ptr [rbp + 3928]
-                        mov              qword ptr [rbp + 3896], rax
-                        lea              rdi, [rbp + 3888]
-                        movabs           rsi, 1042
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 3872], rax
-                        mov              qword ptr [rbp + 3880], rdx
-                        cmp              eax, 99
-                                                                                        je    n630_op11_α
-                                                                                        jmp   n635_suspend_α
-n633_op11_β:
-                                                                                        jmp   n630_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n634_lit_string_α:
+n635_lit_string_α:
                         mov              qword ptr [rbp + 3808], 1
-                        mov              rax, qword ptr [rip + .Lx856_0]
+                        mov              dword ptr [rbp + 3812], 10
+                        mov              rax, qword ptr [rip + .Lx858_0]
                         mov              qword ptr [rbp + 3816], rax
-                                                                                        jmp   n636_op11_α
-.Lx856_0:
-                        .quad            .Lx856_0_s
-.Lx856_0_s:
+                                                                                        jmp   n636_call_builtin_prolog_α
+.Lx858_0:
+                        .quad            .Lx858_0_s
+.Lx858_0_s:
                         .string          "bangladesh"
 #-----------------------------------------------------------------------------------------------------------------------
-n635_suspend_α:
-                        lea              rax, [rip + n635_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_pop$2F2_γ
-n635_suspend_β:
-                                                                                        jmp   n630_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n636_op11_α:
+n636_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 3792]
                         mov              qword ptr [rbp + 3760], rax
                         mov              rax, qword ptr [rbp + 3800]
@@ -4133,19 +4323,56 @@ n636_op11_α:
                         mov              qword ptr [rbp + 3744], rax
                         mov              qword ptr [rbp + 3752], rdx
                         cmp              eax, 99
-                                                                                        je    n638_op11_α
+                                                                                        je    n641_call_builtin_prolog_α
                                                                                         jmp   n637_var_ref_α
-n636_op11_β:
-                                                                                        jmp   n638_op11_α
+n636_call_builtin_prolog_β:
+                                                                                        jmp   n641_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n637_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 3712], rax
                         mov              qword ptr [rbp + 3720], rdx
-                                                                                        jmp   n639_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n638_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n638_op11_α:
+n638_lit_integer_α:
+                        mov              qword ptr [rbp + 3728], 6
+                        mov              rax, qword ptr [rip + .Lx862_0]
+                        mov              qword ptr [rbp + 3736], rax
+                                                                                        jmp   n639_call_builtin_prolog_α
+.Lx862_0:
+                        .quad            750
+#-----------------------------------------------------------------------------------------------------------------------
+n639_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 3712]
+                        mov              qword ptr [rbp + 3680], rax
+                        mov              rax, qword ptr [rbp + 3720]
+                        mov              qword ptr [rbp + 3688], rax
+                        lea              rdi, [rbp + 3680]
+                        movabs           rsi, 750
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 3664], rax
+                        mov              qword ptr [rbp + 3672], rdx
+                        cmp              eax, 99
+                                                                                        je    n641_call_builtin_prolog_α
+                                                                                        jmp   n640_suspend_α
+n639_call_builtin_prolog_β:
+                                                                                        jmp   n641_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n640_suspend_α:
+                        lea              rax, [rip + n640_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_pop$2F2_γ
+n640_suspend_β:
+                                                                                        jmp   n641_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n641_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 3632], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -4157,63 +4384,31 @@ n638_op11_α:
                         mov              qword ptr [rbp + 3624], rdx
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
-                                                                                        jmp   n640_var_ref_α
-n638_op11_β:
+                                                                                        jmp   n642_var_ref_α
+n641_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n639_lit_integer_α:
-                        mov              qword ptr [rbp + 3728], 6
-                        mov              rax, qword ptr [rip + .Lx863_0]
-                        mov              qword ptr [rbp + 3736], rax
-                                                                                        jmp   n641_op11_α
-.Lx863_0:
-                        .quad            750
-#-----------------------------------------------------------------------------------------------------------------------
-n640_var_ref_α:
+n642_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 3584], rax
                         mov              qword ptr [rbp + 3592], rdx
-                                                                                        jmp   n642_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n643_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n641_op11_α:
-                        mov              rax, qword ptr [rbp + 3712]
-                        mov              qword ptr [rbp + 3680], rax
-                        mov              rax, qword ptr [rbp + 3720]
-                        mov              qword ptr [rbp + 3688], rax
-                        lea              rdi, [rbp + 3680]
-                        movabs           rsi, 750
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 3664], rax
-                        mov              qword ptr [rbp + 3672], rdx
-                        cmp              eax, 99
-                                                                                        je    n638_op11_α
-                                                                                        jmp   n643_suspend_α
-n641_op11_β:
-                                                                                        jmp   n638_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n642_lit_string_α:
+n643_lit_string_α:
                         mov              qword ptr [rbp + 3600], 1
-                        mov              rax, qword ptr [rip + .Lx867_0]
+                        mov              dword ptr [rbp + 3604], 8
+                        mov              rax, qword ptr [rip + .Lx869_0]
                         mov              qword ptr [rbp + 3608], rax
-                                                                                        jmp   n644_op11_α
-.Lx867_0:
-                        .quad            .Lx867_0_s
-.Lx867_0_s:
+                                                                                        jmp   n644_call_builtin_prolog_α
+.Lx869_0:
+                        .quad            .Lx869_0_s
+.Lx869_0_s:
                         .string          "pakistan"
 #-----------------------------------------------------------------------------------------------------------------------
-n643_suspend_α:
-                        lea              rax, [rip + n643_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_pop$2F2_γ
-n643_suspend_β:
-                                                                                        jmp   n638_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n644_op11_α:
+n644_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 3584]
                         mov              qword ptr [rbp + 3552], rax
                         mov              rax, qword ptr [rbp + 3592]
@@ -4230,19 +4425,56 @@ n644_op11_α:
                         mov              qword ptr [rbp + 3536], rax
                         mov              qword ptr [rbp + 3544], rdx
                         cmp              eax, 99
-                                                                                        je    n646_op11_α
+                                                                                        je    n649_call_builtin_prolog_α
                                                                                         jmp   n645_var_ref_α
-n644_op11_β:
-                                                                                        jmp   n646_op11_α
+n644_call_builtin_prolog_β:
+                                                                                        jmp   n649_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n645_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 3504], rax
                         mov              qword ptr [rbp + 3512], rdx
-                                                                                        jmp   n647_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n646_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n646_op11_α:
+n646_lit_integer_α:
+                        mov              qword ptr [rbp + 3520], 6
+                        mov              rax, qword ptr [rip + .Lx873_0]
+                        mov              qword ptr [rbp + 3528], rax
+                                                                                        jmp   n647_call_builtin_prolog_α
+.Lx873_0:
+                        .quad            682
+#-----------------------------------------------------------------------------------------------------------------------
+n647_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 3504]
+                        mov              qword ptr [rbp + 3472], rax
+                        mov              rax, qword ptr [rbp + 3512]
+                        mov              qword ptr [rbp + 3480], rax
+                        lea              rdi, [rbp + 3472]
+                        movabs           rsi, 682
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 3456], rax
+                        mov              qword ptr [rbp + 3464], rdx
+                        cmp              eax, 99
+                                                                                        je    n649_call_builtin_prolog_α
+                                                                                        jmp   n648_suspend_α
+n647_call_builtin_prolog_β:
+                                                                                        jmp   n649_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n648_suspend_α:
+                        lea              rax, [rip + n648_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_pop$2F2_γ
+n648_suspend_β:
+                                                                                        jmp   n649_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n649_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 3424], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -4254,63 +4486,31 @@ n646_op11_α:
                         mov              qword ptr [rbp + 3416], rdx
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
-                                                                                        jmp   n648_var_ref_α
-n646_op11_β:
+                                                                                        jmp   n650_var_ref_α
+n649_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n647_lit_integer_α:
-                        mov              qword ptr [rbp + 3520], 6
-                        mov              rax, qword ptr [rip + .Lx874_0]
-                        mov              qword ptr [rbp + 3528], rax
-                                                                                        jmp   n649_op11_α
-.Lx874_0:
-                        .quad            682
-#-----------------------------------------------------------------------------------------------------------------------
-n648_var_ref_α:
+n650_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 3376], rax
                         mov              qword ptr [rbp + 3384], rdx
-                                                                                        jmp   n650_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n651_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n649_op11_α:
-                        mov              rax, qword ptr [rbp + 3504]
-                        mov              qword ptr [rbp + 3472], rax
-                        mov              rax, qword ptr [rbp + 3512]
-                        mov              qword ptr [rbp + 3480], rax
-                        lea              rdi, [rbp + 3472]
-                        movabs           rsi, 682
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 3456], rax
-                        mov              qword ptr [rbp + 3464], rdx
-                        cmp              eax, 99
-                                                                                        je    n646_op11_α
-                                                                                        jmp   n651_suspend_α
-n649_op11_β:
-                                                                                        jmp   n646_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n650_lit_string_α:
+n651_lit_string_α:
                         mov              qword ptr [rbp + 3392], 1
-                        mov              rax, qword ptr [rip + .Lx878_0]
+                        mov              dword ptr [rbp + 3396], 9
+                        mov              rax, qword ptr [rip + .Lx880_0]
                         mov              qword ptr [rbp + 3400], rax
-                                                                                        jmp   n652_op11_α
-.Lx878_0:
-                        .quad            .Lx878_0_s
-.Lx878_0_s:
+                                                                                        jmp   n652_call_builtin_prolog_α
+.Lx880_0:
+                        .quad            .Lx880_0_s
+.Lx880_0_s:
                         .string          "w_germany"
 #-----------------------------------------------------------------------------------------------------------------------
-n651_suspend_α:
-                        lea              rax, [rip + n651_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_pop$2F2_γ
-n651_suspend_β:
-                                                                                        jmp   n646_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n652_op11_α:
+n652_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 3376]
                         mov              qword ptr [rbp + 3344], rax
                         mov              rax, qword ptr [rbp + 3384]
@@ -4327,19 +4527,56 @@ n652_op11_α:
                         mov              qword ptr [rbp + 3328], rax
                         mov              qword ptr [rbp + 3336], rdx
                         cmp              eax, 99
-                                                                                        je    n654_op11_α
+                                                                                        je    n657_call_builtin_prolog_α
                                                                                         jmp   n653_var_ref_α
-n652_op11_β:
-                                                                                        jmp   n654_op11_α
+n652_call_builtin_prolog_β:
+                                                                                        jmp   n657_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n653_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 3296], rax
                         mov              qword ptr [rbp + 3304], rdx
-                                                                                        jmp   n655_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n654_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n654_op11_α:
+n654_lit_integer_α:
+                        mov              qword ptr [rbp + 3312], 6
+                        mov              rax, qword ptr [rip + .Lx884_0]
+                        mov              qword ptr [rbp + 3320], rax
+                                                                                        jmp   n655_call_builtin_prolog_α
+.Lx884_0:
+                        .quad            620
+#-----------------------------------------------------------------------------------------------------------------------
+n655_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 3296]
+                        mov              qword ptr [rbp + 3264], rax
+                        mov              rax, qword ptr [rbp + 3304]
+                        mov              qword ptr [rbp + 3272], rax
+                        lea              rdi, [rbp + 3264]
+                        movabs           rsi, 620
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 3248], rax
+                        mov              qword ptr [rbp + 3256], rdx
+                        cmp              eax, 99
+                                                                                        je    n657_call_builtin_prolog_α
+                                                                                        jmp   n656_suspend_α
+n655_call_builtin_prolog_β:
+                                                                                        jmp   n657_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n656_suspend_α:
+                        lea              rax, [rip + n656_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_pop$2F2_γ
+n656_suspend_β:
+                                                                                        jmp   n657_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n657_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 3216], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -4351,63 +4588,31 @@ n654_op11_α:
                         mov              qword ptr [rbp + 3208], rdx
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
-                                                                                        jmp   n656_var_ref_α
-n654_op11_β:
+                                                                                        jmp   n658_var_ref_α
+n657_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n655_lit_integer_α:
-                        mov              qword ptr [rbp + 3312], 6
-                        mov              rax, qword ptr [rip + .Lx885_0]
-                        mov              qword ptr [rbp + 3320], rax
-                                                                                        jmp   n657_op11_α
-.Lx885_0:
-                        .quad            620
-#-----------------------------------------------------------------------------------------------------------------------
-n656_var_ref_α:
+n658_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 3168], rax
                         mov              qword ptr [rbp + 3176], rdx
-                                                                                        jmp   n658_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n659_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n657_op11_α:
-                        mov              rax, qword ptr [rbp + 3296]
-                        mov              qword ptr [rbp + 3264], rax
-                        mov              rax, qword ptr [rbp + 3304]
-                        mov              qword ptr [rbp + 3272], rax
-                        lea              rdi, [rbp + 3264]
-                        movabs           rsi, 620
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 3248], rax
-                        mov              qword ptr [rbp + 3256], rdx
-                        cmp              eax, 99
-                                                                                        je    n654_op11_α
-                                                                                        jmp   n659_suspend_α
-n657_op11_β:
-                                                                                        jmp   n654_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n658_lit_string_α:
+n659_lit_string_α:
                         mov              qword ptr [rbp + 3184], 1
-                        mov              rax, qword ptr [rip + .Lx889_0]
+                        mov              dword ptr [rbp + 3188], 7
+                        mov              rax, qword ptr [rip + .Lx891_0]
                         mov              qword ptr [rbp + 3192], rax
-                                                                                        jmp   n660_op11_α
-.Lx889_0:
-                        .quad            .Lx889_0_s
-.Lx889_0_s:
+                                                                                        jmp   n660_call_builtin_prolog_α
+.Lx891_0:
+                        .quad            .Lx891_0_s
+.Lx891_0_s:
                         .string          "nigeria"
 #-----------------------------------------------------------------------------------------------------------------------
-n659_suspend_α:
-                        lea              rax, [rip + n659_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_pop$2F2_γ
-n659_suspend_β:
-                                                                                        jmp   n654_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n660_op11_α:
+n660_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 3168]
                         mov              qword ptr [rbp + 3136], rax
                         mov              rax, qword ptr [rbp + 3176]
@@ -4424,19 +4629,56 @@ n660_op11_α:
                         mov              qword ptr [rbp + 3120], rax
                         mov              qword ptr [rbp + 3128], rdx
                         cmp              eax, 99
-                                                                                        je    n662_op11_α
+                                                                                        je    n665_call_builtin_prolog_α
                                                                                         jmp   n661_var_ref_α
-n660_op11_β:
-                                                                                        jmp   n662_op11_α
+n660_call_builtin_prolog_β:
+                                                                                        jmp   n665_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n661_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 3088], rax
                         mov              qword ptr [rbp + 3096], rdx
-                                                                                        jmp   n663_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n662_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n662_op11_α:
+n662_lit_integer_α:
+                        mov              qword ptr [rbp + 3104], 6
+                        mov              rax, qword ptr [rip + .Lx895_0]
+                        mov              qword ptr [rbp + 3112], rax
+                                                                                        jmp   n663_call_builtin_prolog_α
+.Lx895_0:
+                        .quad            613
+#-----------------------------------------------------------------------------------------------------------------------
+n663_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 3088]
+                        mov              qword ptr [rbp + 3056], rax
+                        mov              rax, qword ptr [rbp + 3096]
+                        mov              qword ptr [rbp + 3064], rax
+                        lea              rdi, [rbp + 3056]
+                        movabs           rsi, 613
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 3040], rax
+                        mov              qword ptr [rbp + 3048], rdx
+                        cmp              eax, 99
+                                                                                        je    n665_call_builtin_prolog_α
+                                                                                        jmp   n664_suspend_α
+n663_call_builtin_prolog_β:
+                                                                                        jmp   n665_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n664_suspend_α:
+                        lea              rax, [rip + n664_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_pop$2F2_γ
+n664_suspend_β:
+                                                                                        jmp   n665_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n665_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 3008], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -4448,63 +4690,31 @@ n662_op11_α:
                         mov              qword ptr [rbp + 3000], rdx
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
-                                                                                        jmp   n664_var_ref_α
-n662_op11_β:
+                                                                                        jmp   n666_var_ref_α
+n665_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n663_lit_integer_α:
-                        mov              qword ptr [rbp + 3104], 6
-                        mov              rax, qword ptr [rip + .Lx896_0]
-                        mov              qword ptr [rbp + 3112], rax
-                                                                                        jmp   n665_op11_α
-.Lx896_0:
-                        .quad            613
-#-----------------------------------------------------------------------------------------------------------------------
-n664_var_ref_α:
+n666_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 2960], rax
                         mov              qword ptr [rbp + 2968], rdx
-                                                                                        jmp   n666_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n667_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n665_op11_α:
-                        mov              rax, qword ptr [rbp + 3088]
-                        mov              qword ptr [rbp + 3056], rax
-                        mov              rax, qword ptr [rbp + 3096]
-                        mov              qword ptr [rbp + 3064], rax
-                        lea              rdi, [rbp + 3056]
-                        movabs           rsi, 613
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 3040], rax
-                        mov              qword ptr [rbp + 3048], rdx
-                        cmp              eax, 99
-                                                                                        je    n662_op11_α
-                                                                                        jmp   n667_suspend_α
-n665_op11_β:
-                                                                                        jmp   n662_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n666_lit_string_α:
+n667_lit_string_α:
                         mov              qword ptr [rbp + 2976], 1
-                        mov              rax, qword ptr [rip + .Lx900_0]
+                        mov              dword ptr [rbp + 2980], 6
+                        mov              rax, qword ptr [rip + .Lx902_0]
                         mov              qword ptr [rbp + 2984], rax
-                                                                                        jmp   n668_op11_α
-.Lx900_0:
-                        .quad            .Lx900_0_s
-.Lx900_0_s:
+                                                                                        jmp   n668_call_builtin_prolog_α
+.Lx902_0:
+                        .quad            .Lx902_0_s
+.Lx902_0_s:
                         .string          "mexico"
 #-----------------------------------------------------------------------------------------------------------------------
-n667_suspend_α:
-                        lea              rax, [rip + n667_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_pop$2F2_γ
-n667_suspend_β:
-                                                                                        jmp   n662_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n668_op11_α:
+n668_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 2960]
                         mov              qword ptr [rbp + 2928], rax
                         mov              rax, qword ptr [rbp + 2968]
@@ -4521,19 +4731,56 @@ n668_op11_α:
                         mov              qword ptr [rbp + 2912], rax
                         mov              qword ptr [rbp + 2920], rdx
                         cmp              eax, 99
-                                                                                        je    n670_op11_α
+                                                                                        je    n673_call_builtin_prolog_α
                                                                                         jmp   n669_var_ref_α
-n668_op11_β:
-                                                                                        jmp   n670_op11_α
+n668_call_builtin_prolog_β:
+                                                                                        jmp   n673_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n669_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 2880], rax
                         mov              qword ptr [rbp + 2888], rdx
-                                                                                        jmp   n671_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n670_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n670_op11_α:
+n670_lit_integer_α:
+                        mov              qword ptr [rbp + 2896], 6
+                        mov              rax, qword ptr [rip + .Lx906_0]
+                        mov              qword ptr [rbp + 2904], rax
+                                                                                        jmp   n671_call_builtin_prolog_α
+.Lx906_0:
+                        .quad            581
+#-----------------------------------------------------------------------------------------------------------------------
+n671_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 2880]
+                        mov              qword ptr [rbp + 2848], rax
+                        mov              rax, qword ptr [rbp + 2888]
+                        mov              qword ptr [rbp + 2856], rax
+                        lea              rdi, [rbp + 2848]
+                        movabs           rsi, 581
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 2832], rax
+                        mov              qword ptr [rbp + 2840], rdx
+                        cmp              eax, 99
+                                                                                        je    n673_call_builtin_prolog_α
+                                                                                        jmp   n672_suspend_α
+n671_call_builtin_prolog_β:
+                                                                                        jmp   n673_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n672_suspend_α:
+                        lea              rax, [rip + n672_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_pop$2F2_γ
+n672_suspend_β:
+                                                                                        jmp   n673_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n673_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 2800], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -4545,63 +4792,31 @@ n670_op11_α:
                         mov              qword ptr [rbp + 2792], rdx
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
-                                                                                        jmp   n672_var_ref_α
-n670_op11_β:
+                                                                                        jmp   n674_var_ref_α
+n673_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n671_lit_integer_α:
-                        mov              qword ptr [rbp + 2896], 6
-                        mov              rax, qword ptr [rip + .Lx907_0]
-                        mov              qword ptr [rbp + 2904], rax
-                                                                                        jmp   n673_op11_α
-.Lx907_0:
-                        .quad            581
-#-----------------------------------------------------------------------------------------------------------------------
-n672_var_ref_α:
+n674_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 2752], rax
                         mov              qword ptr [rbp + 2760], rdx
-                                                                                        jmp   n674_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n675_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n673_op11_α:
-                        mov              rax, qword ptr [rbp + 2880]
-                        mov              qword ptr [rbp + 2848], rax
-                        mov              rax, qword ptr [rbp + 2888]
-                        mov              qword ptr [rbp + 2856], rax
-                        lea              rdi, [rbp + 2848]
-                        movabs           rsi, 581
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 2832], rax
-                        mov              qword ptr [rbp + 2840], rdx
-                        cmp              eax, 99
-                                                                                        je    n670_op11_α
-                                                                                        jmp   n675_suspend_α
-n673_op11_β:
-                                                                                        jmp   n670_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n674_lit_string_α:
+n675_lit_string_α:
                         mov              qword ptr [rbp + 2768], 1
-                        mov              rax, qword ptr [rip + .Lx911_0]
+                        mov              dword ptr [rbp + 2772], 2
+                        mov              rax, qword ptr [rip + .Lx913_0]
                         mov              qword ptr [rbp + 2776], rax
-                                                                                        jmp   n676_op11_α
-.Lx911_0:
-                        .quad            .Lx911_0_s
-.Lx911_0_s:
+                                                                                        jmp   n676_call_builtin_prolog_α
+.Lx913_0:
+                        .quad            .Lx913_0_s
+.Lx913_0_s:
                         .string          "uk"
 #-----------------------------------------------------------------------------------------------------------------------
-n675_suspend_α:
-                        lea              rax, [rip + n675_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_pop$2F2_γ
-n675_suspend_β:
-                                                                                        jmp   n670_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n676_op11_α:
+n676_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 2752]
                         mov              qword ptr [rbp + 2720], rax
                         mov              rax, qword ptr [rbp + 2760]
@@ -4618,19 +4833,56 @@ n676_op11_α:
                         mov              qword ptr [rbp + 2704], rax
                         mov              qword ptr [rbp + 2712], rdx
                         cmp              eax, 99
-                                                                                        je    n678_op11_α
+                                                                                        je    n681_call_builtin_prolog_α
                                                                                         jmp   n677_var_ref_α
-n676_op11_β:
-                                                                                        jmp   n678_op11_α
+n676_call_builtin_prolog_β:
+                                                                                        jmp   n681_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n677_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 2672], rax
                         mov              qword ptr [rbp + 2680], rdx
-                                                                                        jmp   n679_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n678_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n678_op11_α:
+n678_lit_integer_α:
+                        mov              qword ptr [rbp + 2688], 6
+                        mov              rax, qword ptr [rip + .Lx917_0]
+                        mov              qword ptr [rbp + 2696], rax
+                                                                                        jmp   n679_call_builtin_prolog_α
+.Lx917_0:
+                        .quad            559
+#-----------------------------------------------------------------------------------------------------------------------
+n679_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 2672]
+                        mov              qword ptr [rbp + 2640], rax
+                        mov              rax, qword ptr [rbp + 2680]
+                        mov              qword ptr [rbp + 2648], rax
+                        lea              rdi, [rbp + 2640]
+                        movabs           rsi, 559
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 2624], rax
+                        mov              qword ptr [rbp + 2632], rdx
+                        cmp              eax, 99
+                                                                                        je    n681_call_builtin_prolog_α
+                                                                                        jmp   n680_suspend_α
+n679_call_builtin_prolog_β:
+                                                                                        jmp   n681_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n680_suspend_α:
+                        lea              rax, [rip + n680_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_pop$2F2_γ
+n680_suspend_β:
+                                                                                        jmp   n681_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n681_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 2592], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -4642,63 +4894,31 @@ n678_op11_α:
                         mov              qword ptr [rbp + 2584], rdx
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
-                                                                                        jmp   n680_var_ref_α
-n678_op11_β:
+                                                                                        jmp   n682_var_ref_α
+n681_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n679_lit_integer_α:
-                        mov              qword ptr [rbp + 2688], 6
-                        mov              rax, qword ptr [rip + .Lx918_0]
-                        mov              qword ptr [rbp + 2696], rax
-                                                                                        jmp   n681_op11_α
-.Lx918_0:
-                        .quad            559
-#-----------------------------------------------------------------------------------------------------------------------
-n680_var_ref_α:
+n682_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 2544], rax
                         mov              qword ptr [rbp + 2552], rdx
-                                                                                        jmp   n682_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n683_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n681_op11_α:
-                        mov              rax, qword ptr [rbp + 2672]
-                        mov              qword ptr [rbp + 2640], rax
-                        mov              rax, qword ptr [rbp + 2680]
-                        mov              qword ptr [rbp + 2648], rax
-                        lea              rdi, [rbp + 2640]
-                        movabs           rsi, 559
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 2624], rax
-                        mov              qword ptr [rbp + 2632], rdx
-                        cmp              eax, 99
-                                                                                        je    n678_op11_α
-                                                                                        jmp   n683_suspend_α
-n681_op11_β:
-                                                                                        jmp   n678_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n682_lit_string_α:
+n683_lit_string_α:
                         mov              qword ptr [rbp + 2560], 1
-                        mov              rax, qword ptr [rip + .Lx922_0]
+                        mov              dword ptr [rbp + 2564], 5
+                        mov              rax, qword ptr [rip + .Lx924_0]
                         mov              qword ptr [rbp + 2568], rax
-                                                                                        jmp   n684_op11_α
-.Lx922_0:
-                        .quad            .Lx922_0_s
-.Lx922_0_s:
+                                                                                        jmp   n684_call_builtin_prolog_α
+.Lx924_0:
+                        .quad            .Lx924_0_s
+.Lx924_0_s:
                         .string          "italy"
 #-----------------------------------------------------------------------------------------------------------------------
-n683_suspend_α:
-                        lea              rax, [rip + n683_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_pop$2F2_γ
-n683_suspend_β:
-                                                                                        jmp   n678_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n684_op11_α:
+n684_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 2544]
                         mov              qword ptr [rbp + 2512], rax
                         mov              rax, qword ptr [rbp + 2552]
@@ -4715,19 +4935,56 @@ n684_op11_α:
                         mov              qword ptr [rbp + 2496], rax
                         mov              qword ptr [rbp + 2504], rdx
                         cmp              eax, 99
-                                                                                        je    n686_op11_α
+                                                                                        je    n689_call_builtin_prolog_α
                                                                                         jmp   n685_var_ref_α
-n684_op11_β:
-                                                                                        jmp   n686_op11_α
+n684_call_builtin_prolog_β:
+                                                                                        jmp   n689_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n685_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 2464], rax
                         mov              qword ptr [rbp + 2472], rdx
-                                                                                        jmp   n687_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n686_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n686_op11_α:
+n686_lit_integer_α:
+                        mov              qword ptr [rbp + 2480], 6
+                        mov              rax, qword ptr [rip + .Lx928_0]
+                        mov              qword ptr [rbp + 2488], rax
+                                                                                        jmp   n687_call_builtin_prolog_α
+.Lx928_0:
+                        .quad            554
+#-----------------------------------------------------------------------------------------------------------------------
+n687_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 2464]
+                        mov              qword ptr [rbp + 2432], rax
+                        mov              rax, qword ptr [rbp + 2472]
+                        mov              qword ptr [rbp + 2440], rax
+                        lea              rdi, [rbp + 2432]
+                        movabs           rsi, 554
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 2416], rax
+                        mov              qword ptr [rbp + 2424], rdx
+                        cmp              eax, 99
+                                                                                        je    n689_call_builtin_prolog_α
+                                                                                        jmp   n688_suspend_α
+n687_call_builtin_prolog_β:
+                                                                                        jmp   n689_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n688_suspend_α:
+                        lea              rax, [rip + n688_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_pop$2F2_γ
+n688_suspend_β:
+                                                                                        jmp   n689_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n689_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 2384], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -4739,63 +4996,31 @@ n686_op11_α:
                         mov              qword ptr [rbp + 2376], rdx
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
-                                                                                        jmp   n688_var_ref_α
-n686_op11_β:
+                                                                                        jmp   n690_var_ref_α
+n689_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n687_lit_integer_α:
-                        mov              qword ptr [rbp + 2480], 6
-                        mov              rax, qword ptr [rip + .Lx929_0]
-                        mov              qword ptr [rbp + 2488], rax
-                                                                                        jmp   n689_op11_α
-.Lx929_0:
-                        .quad            554
-#-----------------------------------------------------------------------------------------------------------------------
-n688_var_ref_α:
+n690_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 2336], rax
                         mov              qword ptr [rbp + 2344], rdx
-                                                                                        jmp   n690_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n691_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n689_op11_α:
-                        mov              rax, qword ptr [rbp + 2464]
-                        mov              qword ptr [rbp + 2432], rax
-                        mov              rax, qword ptr [rbp + 2472]
-                        mov              qword ptr [rbp + 2440], rax
-                        lea              rdi, [rbp + 2432]
-                        movabs           rsi, 554
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 2416], rax
-                        mov              qword ptr [rbp + 2424], rdx
-                        cmp              eax, 99
-                                                                                        je    n686_op11_α
-                                                                                        jmp   n691_suspend_α
-n689_op11_β:
-                                                                                        jmp   n686_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n690_lit_string_α:
+n691_lit_string_α:
                         mov              qword ptr [rbp + 2352], 1
-                        mov              rax, qword ptr [rip + .Lx933_0]
+                        mov              dword ptr [rbp + 2356], 6
+                        mov              rax, qword ptr [rip + .Lx935_0]
                         mov              qword ptr [rbp + 2360], rax
-                                                                                        jmp   n692_op11_α
-.Lx933_0:
-                        .quad            .Lx933_0_s
-.Lx933_0_s:
+                                                                                        jmp   n692_call_builtin_prolog_α
+.Lx935_0:
+                        .quad            .Lx935_0_s
+.Lx935_0_s:
                         .string          "france"
 #-----------------------------------------------------------------------------------------------------------------------
-n691_suspend_α:
-                        lea              rax, [rip + n691_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_pop$2F2_γ
-n691_suspend_β:
-                                                                                        jmp   n686_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n692_op11_α:
+n692_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 2336]
                         mov              qword ptr [rbp + 2304], rax
                         mov              rax, qword ptr [rbp + 2344]
@@ -4812,19 +5037,56 @@ n692_op11_α:
                         mov              qword ptr [rbp + 2288], rax
                         mov              qword ptr [rbp + 2296], rdx
                         cmp              eax, 99
-                                                                                        je    n694_op11_α
+                                                                                        je    n697_call_builtin_prolog_α
                                                                                         jmp   n693_var_ref_α
-n692_op11_β:
-                                                                                        jmp   n694_op11_α
+n692_call_builtin_prolog_β:
+                                                                                        jmp   n697_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n693_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 2256], rax
                         mov              qword ptr [rbp + 2264], rdx
-                                                                                        jmp   n695_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n694_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n694_op11_α:
+n694_lit_integer_α:
+                        mov              qword ptr [rbp + 2272], 6
+                        mov              rax, qword ptr [rip + .Lx939_0]
+                        mov              qword ptr [rbp + 2280], rax
+                                                                                        jmp   n695_call_builtin_prolog_α
+.Lx939_0:
+                        .quad            525
+#-----------------------------------------------------------------------------------------------------------------------
+n695_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 2256]
+                        mov              qword ptr [rbp + 2224], rax
+                        mov              rax, qword ptr [rbp + 2264]
+                        mov              qword ptr [rbp + 2232], rax
+                        lea              rdi, [rbp + 2224]
+                        movabs           rsi, 525
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 2208], rax
+                        mov              qword ptr [rbp + 2216], rdx
+                        cmp              eax, 99
+                                                                                        je    n697_call_builtin_prolog_α
+                                                                                        jmp   n696_suspend_α
+n695_call_builtin_prolog_β:
+                                                                                        jmp   n697_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n696_suspend_α:
+                        lea              rax, [rip + n696_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_pop$2F2_γ
+n696_suspend_β:
+                                                                                        jmp   n697_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n697_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 2176], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -4836,63 +5098,31 @@ n694_op11_α:
                         mov              qword ptr [rbp + 2168], rdx
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
-                                                                                        jmp   n696_var_ref_α
-n694_op11_β:
+                                                                                        jmp   n698_var_ref_α
+n697_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n695_lit_integer_α:
-                        mov              qword ptr [rbp + 2272], 6
-                        mov              rax, qword ptr [rip + .Lx940_0]
-                        mov              qword ptr [rbp + 2280], rax
-                                                                                        jmp   n697_op11_α
-.Lx940_0:
-                        .quad            525
-#-----------------------------------------------------------------------------------------------------------------------
-n696_var_ref_α:
+n698_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 2128], rax
                         mov              qword ptr [rbp + 2136], rdx
-                                                                                        jmp   n698_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n699_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n697_op11_α:
-                        mov              rax, qword ptr [rbp + 2256]
-                        mov              qword ptr [rbp + 2224], rax
-                        mov              rax, qword ptr [rbp + 2264]
-                        mov              qword ptr [rbp + 2232], rax
-                        lea              rdi, [rbp + 2224]
-                        movabs           rsi, 525
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 2208], rax
-                        mov              qword ptr [rbp + 2216], rdx
-                        cmp              eax, 99
-                                                                                        je    n694_op11_α
-                                                                                        jmp   n699_suspend_α
-n697_op11_β:
-                                                                                        jmp   n694_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n698_lit_string_α:
+n699_lit_string_α:
                         mov              qword ptr [rbp + 2144], 1
-                        mov              rax, qword ptr [rip + .Lx944_0]
+                        mov              dword ptr [rbp + 2148], 11
+                        mov              rax, qword ptr [rip + .Lx946_0]
                         mov              qword ptr [rbp + 2152], rax
-                                                                                        jmp   n700_op11_α
-.Lx944_0:
-                        .quad            .Lx944_0_s
-.Lx944_0_s:
+                                                                                        jmp   n700_call_builtin_prolog_α
+.Lx946_0:
+                        .quad            .Lx946_0_s
+.Lx946_0_s:
                         .string          "philippines"
 #-----------------------------------------------------------------------------------------------------------------------
-n699_suspend_α:
-                        lea              rax, [rip + n699_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_pop$2F2_γ
-n699_suspend_β:
-                                                                                        jmp   n694_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n700_op11_α:
+n700_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 2128]
                         mov              qword ptr [rbp + 2096], rax
                         mov              rax, qword ptr [rbp + 2136]
@@ -4909,19 +5139,56 @@ n700_op11_α:
                         mov              qword ptr [rbp + 2080], rax
                         mov              qword ptr [rbp + 2088], rdx
                         cmp              eax, 99
-                                                                                        je    n702_op11_α
+                                                                                        je    n705_call_builtin_prolog_α
                                                                                         jmp   n701_var_ref_α
-n700_op11_β:
-                                                                                        jmp   n702_op11_α
+n700_call_builtin_prolog_β:
+                                                                                        jmp   n705_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n701_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 2048], rax
                         mov              qword ptr [rbp + 2056], rdx
-                                                                                        jmp   n703_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n702_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n702_op11_α:
+n702_lit_integer_α:
+                        mov              qword ptr [rbp + 2064], 6
+                        mov              rax, qword ptr [rip + .Lx950_0]
+                        mov              qword ptr [rbp + 2072], rax
+                                                                                        jmp   n703_call_builtin_prolog_α
+.Lx950_0:
+                        .quad            415
+#-----------------------------------------------------------------------------------------------------------------------
+n703_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 2048]
+                        mov              qword ptr [rbp + 2016], rax
+                        mov              rax, qword ptr [rbp + 2056]
+                        mov              qword ptr [rbp + 2024], rax
+                        lea              rdi, [rbp + 2016]
+                        movabs           rsi, 415
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 2000], rax
+                        mov              qword ptr [rbp + 2008], rdx
+                        cmp              eax, 99
+                                                                                        je    n705_call_builtin_prolog_α
+                                                                                        jmp   n704_suspend_α
+n703_call_builtin_prolog_β:
+                                                                                        jmp   n705_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n704_suspend_α:
+                        lea              rax, [rip + n704_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_pop$2F2_γ
+n704_suspend_β:
+                                                                                        jmp   n705_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n705_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 1968], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -4933,63 +5200,31 @@ n702_op11_α:
                         mov              qword ptr [rbp + 1960], rdx
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
-                                                                                        jmp   n704_var_ref_α
-n702_op11_β:
+                                                                                        jmp   n706_var_ref_α
+n705_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n703_lit_integer_α:
-                        mov              qword ptr [rbp + 2064], 6
-                        mov              rax, qword ptr [rip + .Lx951_0]
-                        mov              qword ptr [rbp + 2072], rax
-                                                                                        jmp   n705_op11_α
-.Lx951_0:
-                        .quad            415
-#-----------------------------------------------------------------------------------------------------------------------
-n704_var_ref_α:
+n706_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 1920], rax
                         mov              qword ptr [rbp + 1928], rdx
-                                                                                        jmp   n706_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n707_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n705_op11_α:
-                        mov              rax, qword ptr [rbp + 2048]
-                        mov              qword ptr [rbp + 2016], rax
-                        mov              rax, qword ptr [rbp + 2056]
-                        mov              qword ptr [rbp + 2024], rax
-                        lea              rdi, [rbp + 2016]
-                        movabs           rsi, 415
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 2000], rax
-                        mov              qword ptr [rbp + 2008], rdx
-                        cmp              eax, 99
-                                                                                        je    n702_op11_α
-                                                                                        jmp   n707_suspend_α
-n705_op11_β:
-                                                                                        jmp   n702_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n706_lit_string_α:
+n707_lit_string_α:
                         mov              qword ptr [rbp + 1936], 1
-                        mov              rax, qword ptr [rip + .Lx955_0]
+                        mov              dword ptr [rbp + 1940], 8
+                        mov              rax, qword ptr [rip + .Lx957_0]
                         mov              qword ptr [rbp + 1944], rax
-                                                                                        jmp   n708_op11_α
-.Lx955_0:
-                        .quad            .Lx955_0_s
-.Lx955_0_s:
+                                                                                        jmp   n708_call_builtin_prolog_α
+.Lx957_0:
+                        .quad            .Lx957_0_s
+.Lx957_0_s:
                         .string          "thailand"
 #-----------------------------------------------------------------------------------------------------------------------
-n707_suspend_α:
-                        lea              rax, [rip + n707_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_pop$2F2_γ
-n707_suspend_β:
-                                                                                        jmp   n702_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n708_op11_α:
+n708_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 1920]
                         mov              qword ptr [rbp + 1888], rax
                         mov              rax, qword ptr [rbp + 1928]
@@ -5006,19 +5241,56 @@ n708_op11_α:
                         mov              qword ptr [rbp + 1872], rax
                         mov              qword ptr [rbp + 1880], rdx
                         cmp              eax, 99
-                                                                                        je    n710_op11_α
+                                                                                        je    n713_call_builtin_prolog_α
                                                                                         jmp   n709_var_ref_α
-n708_op11_β:
-                                                                                        jmp   n710_op11_α
+n708_call_builtin_prolog_β:
+                                                                                        jmp   n713_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n709_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 1840], rax
                         mov              qword ptr [rbp + 1848], rdx
-                                                                                        jmp   n711_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n710_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n710_op11_α:
+n710_lit_integer_α:
+                        mov              qword ptr [rbp + 1856], 6
+                        mov              rax, qword ptr [rip + .Lx961_0]
+                        mov              qword ptr [rbp + 1864], rax
+                                                                                        jmp   n711_call_builtin_prolog_α
+.Lx961_0:
+                        .quad            410
+#-----------------------------------------------------------------------------------------------------------------------
+n711_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 1840]
+                        mov              qword ptr [rbp + 1808], rax
+                        mov              rax, qword ptr [rbp + 1848]
+                        mov              qword ptr [rbp + 1816], rax
+                        lea              rdi, [rbp + 1808]
+                        movabs           rsi, 410
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 1792], rax
+                        mov              qword ptr [rbp + 1800], rdx
+                        cmp              eax, 99
+                                                                                        je    n713_call_builtin_prolog_α
+                                                                                        jmp   n712_suspend_α
+n711_call_builtin_prolog_β:
+                                                                                        jmp   n713_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n712_suspend_α:
+                        lea              rax, [rip + n712_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_pop$2F2_γ
+n712_suspend_β:
+                                                                                        jmp   n713_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n713_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 1760], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -5030,63 +5302,31 @@ n710_op11_α:
                         mov              qword ptr [rbp + 1752], rdx
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
-                                                                                        jmp   n712_var_ref_α
-n710_op11_β:
+                                                                                        jmp   n714_var_ref_α
+n713_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n711_lit_integer_α:
-                        mov              qword ptr [rbp + 1856], 6
-                        mov              rax, qword ptr [rip + .Lx962_0]
-                        mov              qword ptr [rbp + 1864], rax
-                                                                                        jmp   n713_op11_α
-.Lx962_0:
-                        .quad            410
-#-----------------------------------------------------------------------------------------------------------------------
-n712_var_ref_α:
+n714_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 1712], rax
                         mov              qword ptr [rbp + 1720], rdx
-                                                                                        jmp   n714_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n715_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n713_op11_α:
-                        mov              rax, qword ptr [rbp + 1840]
-                        mov              qword ptr [rbp + 1808], rax
-                        mov              rax, qword ptr [rbp + 1848]
-                        mov              qword ptr [rbp + 1816], rax
-                        lea              rdi, [rbp + 1808]
-                        movabs           rsi, 410
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 1792], rax
-                        mov              qword ptr [rbp + 1800], rdx
-                        cmp              eax, 99
-                                                                                        je    n710_op11_α
-                                                                                        jmp   n715_suspend_α
-n713_op11_β:
-                                                                                        jmp   n710_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n714_lit_string_α:
+n715_lit_string_α:
                         mov              qword ptr [rbp + 1728], 1
-                        mov              rax, qword ptr [rip + .Lx966_0]
+                        mov              dword ptr [rbp + 1732], 6
+                        mov              rax, qword ptr [rip + .Lx968_0]
                         mov              qword ptr [rbp + 1736], rax
-                                                                                        jmp   n716_op11_α
-.Lx966_0:
-                        .quad            .Lx966_0_s
-.Lx966_0_s:
+                                                                                        jmp   n716_call_builtin_prolog_α
+.Lx968_0:
+                        .quad            .Lx968_0_s
+.Lx968_0_s:
                         .string          "turkey"
 #-----------------------------------------------------------------------------------------------------------------------
-n715_suspend_α:
-                        lea              rax, [rip + n715_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_pop$2F2_γ
-n715_suspend_β:
-                                                                                        jmp   n710_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n716_op11_α:
+n716_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 1712]
                         mov              qword ptr [rbp + 1680], rax
                         mov              rax, qword ptr [rbp + 1720]
@@ -5103,19 +5343,56 @@ n716_op11_α:
                         mov              qword ptr [rbp + 1664], rax
                         mov              qword ptr [rbp + 1672], rdx
                         cmp              eax, 99
-                                                                                        je    n718_op11_α
+                                                                                        je    n721_call_builtin_prolog_α
                                                                                         jmp   n717_var_ref_α
-n716_op11_β:
-                                                                                        jmp   n718_op11_α
+n716_call_builtin_prolog_β:
+                                                                                        jmp   n721_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n717_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 1632], rax
                         mov              qword ptr [rbp + 1640], rdx
-                                                                                        jmp   n719_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n718_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n718_op11_α:
+n718_lit_integer_α:
+                        mov              qword ptr [rbp + 1648], 6
+                        mov              rax, qword ptr [rip + .Lx972_0]
+                        mov              qword ptr [rbp + 1656], rax
+                                                                                        jmp   n719_call_builtin_prolog_α
+.Lx972_0:
+                        .quad            383
+#-----------------------------------------------------------------------------------------------------------------------
+n719_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 1632]
+                        mov              qword ptr [rbp + 1600], rax
+                        mov              rax, qword ptr [rbp + 1640]
+                        mov              qword ptr [rbp + 1608], rax
+                        lea              rdi, [rbp + 1600]
+                        movabs           rsi, 383
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 1584], rax
+                        mov              qword ptr [rbp + 1592], rdx
+                        cmp              eax, 99
+                                                                                        je    n721_call_builtin_prolog_α
+                                                                                        jmp   n720_suspend_α
+n719_call_builtin_prolog_β:
+                                                                                        jmp   n721_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n720_suspend_α:
+                        lea              rax, [rip + n720_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_pop$2F2_γ
+n720_suspend_β:
+                                                                                        jmp   n721_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n721_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 1552], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -5127,63 +5404,31 @@ n718_op11_α:
                         mov              qword ptr [rbp + 1544], rdx
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
-                                                                                        jmp   n720_var_ref_α
-n718_op11_β:
+                                                                                        jmp   n722_var_ref_α
+n721_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n719_lit_integer_α:
-                        mov              qword ptr [rbp + 1648], 6
-                        mov              rax, qword ptr [rip + .Lx973_0]
-                        mov              qword ptr [rbp + 1656], rax
-                                                                                        jmp   n721_op11_α
-.Lx973_0:
-                        .quad            383
-#-----------------------------------------------------------------------------------------------------------------------
-n720_var_ref_α:
+n722_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 1504], rax
                         mov              qword ptr [rbp + 1512], rdx
-                                                                                        jmp   n722_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n723_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n721_op11_α:
-                        mov              rax, qword ptr [rbp + 1632]
-                        mov              qword ptr [rbp + 1600], rax
-                        mov              rax, qword ptr [rbp + 1640]
-                        mov              qword ptr [rbp + 1608], rax
-                        lea              rdi, [rbp + 1600]
-                        movabs           rsi, 383
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 1584], rax
-                        mov              qword ptr [rbp + 1592], rdx
-                        cmp              eax, 99
-                                                                                        je    n718_op11_α
-                                                                                        jmp   n723_suspend_α
-n721_op11_β:
-                                                                                        jmp   n718_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n722_lit_string_α:
+n723_lit_string_α:
                         mov              qword ptr [rbp + 1520], 1
-                        mov              rax, qword ptr [rip + .Lx977_0]
+                        mov              dword ptr [rbp + 1524], 5
+                        mov              rax, qword ptr [rip + .Lx979_0]
                         mov              qword ptr [rbp + 1528], rax
-                                                                                        jmp   n724_op11_α
-.Lx977_0:
-                        .quad            .Lx977_0_s
-.Lx977_0_s:
+                                                                                        jmp   n724_call_builtin_prolog_α
+.Lx979_0:
+                        .quad            .Lx979_0_s
+.Lx979_0_s:
                         .string          "egypt"
 #-----------------------------------------------------------------------------------------------------------------------
-n723_suspend_α:
-                        lea              rax, [rip + n723_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_pop$2F2_γ
-n723_suspend_β:
-                                                                                        jmp   n718_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n724_op11_α:
+n724_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 1504]
                         mov              qword ptr [rbp + 1472], rax
                         mov              rax, qword ptr [rbp + 1512]
@@ -5200,19 +5445,56 @@ n724_op11_α:
                         mov              qword ptr [rbp + 1456], rax
                         mov              qword ptr [rbp + 1464], rdx
                         cmp              eax, 99
-                                                                                        je    n726_op11_α
+                                                                                        je    n729_call_builtin_prolog_α
                                                                                         jmp   n725_var_ref_α
-n724_op11_β:
-                                                                                        jmp   n726_op11_α
+n724_call_builtin_prolog_β:
+                                                                                        jmp   n729_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n725_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 1424], rax
                         mov              qword ptr [rbp + 1432], rdx
-                                                                                        jmp   n727_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n726_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n726_op11_α:
+n726_lit_integer_α:
+                        mov              qword ptr [rbp + 1440], 6
+                        mov              rax, qword ptr [rip + .Lx983_0]
+                        mov              qword ptr [rbp + 1448], rax
+                                                                                        jmp   n727_call_builtin_prolog_α
+.Lx983_0:
+                        .quad            364
+#-----------------------------------------------------------------------------------------------------------------------
+n727_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 1424]
+                        mov              qword ptr [rbp + 1392], rax
+                        mov              rax, qword ptr [rbp + 1432]
+                        mov              qword ptr [rbp + 1400], rax
+                        lea              rdi, [rbp + 1392]
+                        movabs           rsi, 364
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 1376], rax
+                        mov              qword ptr [rbp + 1384], rdx
+                        cmp              eax, 99
+                                                                                        je    n729_call_builtin_prolog_α
+                                                                                        jmp   n728_suspend_α
+n727_call_builtin_prolog_β:
+                                                                                        jmp   n729_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n728_suspend_α:
+                        lea              rax, [rip + n728_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_pop$2F2_γ
+n728_suspend_β:
+                                                                                        jmp   n729_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n729_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 1344], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -5224,63 +5506,31 @@ n726_op11_α:
                         mov              qword ptr [rbp + 1336], rdx
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
-                                                                                        jmp   n728_var_ref_α
-n726_op11_β:
+                                                                                        jmp   n730_var_ref_α
+n729_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n727_lit_integer_α:
-                        mov              qword ptr [rbp + 1440], 6
-                        mov              rax, qword ptr [rip + .Lx984_0]
-                        mov              qword ptr [rbp + 1448], rax
-                                                                                        jmp   n729_op11_α
-.Lx984_0:
-                        .quad            364
-#-----------------------------------------------------------------------------------------------------------------------
-n728_var_ref_α:
+n730_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 1296], rax
                         mov              qword ptr [rbp + 1304], rdx
-                                                                                        jmp   n730_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n731_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n729_op11_α:
-                        mov              rax, qword ptr [rbp + 1424]
-                        mov              qword ptr [rbp + 1392], rax
-                        mov              rax, qword ptr [rbp + 1432]
-                        mov              qword ptr [rbp + 1400], rax
-                        lea              rdi, [rbp + 1392]
-                        movabs           rsi, 364
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 1376], rax
-                        mov              qword ptr [rbp + 1384], rdx
-                        cmp              eax, 99
-                                                                                        je    n726_op11_α
-                                                                                        jmp   n731_suspend_α
-n729_op11_β:
-                                                                                        jmp   n726_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n730_lit_string_α:
+n731_lit_string_α:
                         mov              qword ptr [rbp + 1312], 1
-                        mov              rax, qword ptr [rip + .Lx988_0]
+                        mov              dword ptr [rbp + 1316], 5
+                        mov              rax, qword ptr [rip + .Lx990_0]
                         mov              qword ptr [rbp + 1320], rax
-                                                                                        jmp   n732_op11_α
-.Lx988_0:
-                        .quad            .Lx988_0_s
-.Lx988_0_s:
+                                                                                        jmp   n732_call_builtin_prolog_α
+.Lx990_0:
+                        .quad            .Lx990_0_s
+.Lx990_0_s:
                         .string          "spain"
 #-----------------------------------------------------------------------------------------------------------------------
-n731_suspend_α:
-                        lea              rax, [rip + n731_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_pop$2F2_γ
-n731_suspend_β:
-                                                                                        jmp   n726_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n732_op11_α:
+n732_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 1296]
                         mov              qword ptr [rbp + 1264], rax
                         mov              rax, qword ptr [rbp + 1304]
@@ -5297,19 +5547,56 @@ n732_op11_α:
                         mov              qword ptr [rbp + 1248], rax
                         mov              qword ptr [rbp + 1256], rdx
                         cmp              eax, 99
-                                                                                        je    n734_op11_α
+                                                                                        je    n737_call_builtin_prolog_α
                                                                                         jmp   n733_var_ref_α
-n732_op11_β:
-                                                                                        jmp   n734_op11_α
+n732_call_builtin_prolog_β:
+                                                                                        jmp   n737_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n733_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 1216], rax
                         mov              qword ptr [rbp + 1224], rdx
-                                                                                        jmp   n735_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n734_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n734_op11_α:
+n734_lit_integer_α:
+                        mov              qword ptr [rbp + 1232], 6
+                        mov              rax, qword ptr [rip + .Lx994_0]
+                        mov              qword ptr [rbp + 1240], rax
+                                                                                        jmp   n735_call_builtin_prolog_α
+.Lx994_0:
+                        .quad            352
+#-----------------------------------------------------------------------------------------------------------------------
+n735_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 1216]
+                        mov              qword ptr [rbp + 1184], rax
+                        mov              rax, qword ptr [rbp + 1224]
+                        mov              qword ptr [rbp + 1192], rax
+                        lea              rdi, [rbp + 1184]
+                        movabs           rsi, 352
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 1168], rax
+                        mov              qword ptr [rbp + 1176], rdx
+                        cmp              eax, 99
+                                                                                        je    n737_call_builtin_prolog_α
+                                                                                        jmp   n736_suspend_α
+n735_call_builtin_prolog_β:
+                                                                                        jmp   n737_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n736_suspend_α:
+                        lea              rax, [rip + n736_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_pop$2F2_γ
+n736_suspend_β:
+                                                                                        jmp   n737_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n737_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 1136], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -5321,63 +5608,31 @@ n734_op11_α:
                         mov              qword ptr [rbp + 1128], rdx
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
-                                                                                        jmp   n736_var_ref_α
-n734_op11_β:
+                                                                                        jmp   n738_var_ref_α
+n737_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n735_lit_integer_α:
-                        mov              qword ptr [rbp + 1232], 6
-                        mov              rax, qword ptr [rip + .Lx995_0]
-                        mov              qword ptr [rbp + 1240], rax
-                                                                                        jmp   n737_op11_α
-.Lx995_0:
-                        .quad            352
-#-----------------------------------------------------------------------------------------------------------------------
-n736_var_ref_α:
+n738_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 1088], rax
                         mov              qword ptr [rbp + 1096], rdx
-                                                                                        jmp   n738_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n739_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n737_op11_α:
-                        mov              rax, qword ptr [rbp + 1216]
-                        mov              qword ptr [rbp + 1184], rax
-                        mov              rax, qword ptr [rbp + 1224]
-                        mov              qword ptr [rbp + 1192], rax
-                        lea              rdi, [rbp + 1184]
-                        movabs           rsi, 352
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 1168], rax
-                        mov              qword ptr [rbp + 1176], rdx
-                        cmp              eax, 99
-                                                                                        je    n734_op11_α
-                                                                                        jmp   n739_suspend_α
-n737_op11_β:
-                                                                                        jmp   n734_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n738_lit_string_α:
+n739_lit_string_α:
                         mov              qword ptr [rbp + 1104], 1
-                        mov              rax, qword ptr [rip + .Lx999_0]
+                        mov              dword ptr [rbp + 1108], 6
+                        mov              rax, qword ptr [rip + .Lx1001_0]
                         mov              qword ptr [rbp + 1112], rax
-                                                                                        jmp   n740_op11_α
-.Lx999_0:
-                        .quad            .Lx999_0_s
-.Lx999_0_s:
+                                                                                        jmp   n740_call_builtin_prolog_α
+.Lx1001_0:
+                        .quad            .Lx1001_0_s
+.Lx1001_0_s:
                         .string          "poland"
 #-----------------------------------------------------------------------------------------------------------------------
-n739_suspend_α:
-                        lea              rax, [rip + n739_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_pop$2F2_γ
-n739_suspend_β:
-                                                                                        jmp   n734_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n740_op11_α:
+n740_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 1088]
                         mov              qword ptr [rbp + 1056], rax
                         mov              rax, qword ptr [rbp + 1096]
@@ -5394,19 +5649,56 @@ n740_op11_α:
                         mov              qword ptr [rbp + 1040], rax
                         mov              qword ptr [rbp + 1048], rdx
                         cmp              eax, 99
-                                                                                        je    n742_op11_α
+                                                                                        je    n745_call_builtin_prolog_α
                                                                                         jmp   n741_var_ref_α
-n740_op11_β:
-                                                                                        jmp   n742_op11_α
+n740_call_builtin_prolog_β:
+                                                                                        jmp   n745_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n741_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 1008], rax
                         mov              qword ptr [rbp + 1016], rdx
-                                                                                        jmp   n743_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n742_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n742_op11_α:
+n742_lit_integer_α:
+                        mov              qword ptr [rbp + 1024], 6
+                        mov              rax, qword ptr [rip + .Lx1005_0]
+                        mov              qword ptr [rbp + 1032], rax
+                                                                                        jmp   n743_call_builtin_prolog_α
+.Lx1005_0:
+                        .quad            337
+#-----------------------------------------------------------------------------------------------------------------------
+n743_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 1008]
+                        mov              qword ptr [rbp + 976], rax
+                        mov              rax, qword ptr [rbp + 1016]
+                        mov              qword ptr [rbp + 984], rax
+                        lea              rdi, [rbp + 976]
+                        movabs           rsi, 337
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 960], rax
+                        mov              qword ptr [rbp + 968], rdx
+                        cmp              eax, 99
+                                                                                        je    n745_call_builtin_prolog_α
+                                                                                        jmp   n744_suspend_α
+n743_call_builtin_prolog_β:
+                                                                                        jmp   n745_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n744_suspend_α:
+                        lea              rax, [rip + n744_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_pop$2F2_γ
+n744_suspend_β:
+                                                                                        jmp   n745_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n745_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 928], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -5418,63 +5710,31 @@ n742_op11_α:
                         mov              qword ptr [rbp + 920], rdx
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
-                                                                                        jmp   n744_var_ref_α
-n742_op11_β:
+                                                                                        jmp   n746_var_ref_α
+n745_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n743_lit_integer_α:
-                        mov              qword ptr [rbp + 1024], 6
-                        mov              rax, qword ptr [rip + .Lx1006_0]
-                        mov              qword ptr [rbp + 1032], rax
-                                                                                        jmp   n745_op11_α
-.Lx1006_0:
-                        .quad            337
-#-----------------------------------------------------------------------------------------------------------------------
-n744_var_ref_α:
+n746_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 880], rax
                         mov              qword ptr [rbp + 888], rdx
-                                                                                        jmp   n746_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n747_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n745_op11_α:
-                        mov              rax, qword ptr [rbp + 1008]
-                        mov              qword ptr [rbp + 976], rax
-                        mov              rax, qword ptr [rbp + 1016]
-                        mov              qword ptr [rbp + 984], rax
-                        lea              rdi, [rbp + 976]
-                        movabs           rsi, 337
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 960], rax
-                        mov              qword ptr [rbp + 968], rdx
-                        cmp              eax, 99
-                                                                                        je    n742_op11_α
-                                                                                        jmp   n747_suspend_α
-n745_op11_β:
-                                                                                        jmp   n742_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n746_lit_string_α:
+n747_lit_string_α:
                         mov              qword ptr [rbp + 896], 1
-                        mov              rax, qword ptr [rip + .Lx1010_0]
+                        mov              dword ptr [rbp + 900], 7
+                        mov              rax, qword ptr [rip + .Lx1012_0]
                         mov              qword ptr [rbp + 904], rax
-                                                                                        jmp   n748_op11_α
-.Lx1010_0:
-                        .quad            .Lx1010_0_s
-.Lx1010_0_s:
+                                                                                        jmp   n748_call_builtin_prolog_α
+.Lx1012_0:
+                        .quad            .Lx1012_0_s
+.Lx1012_0_s:
                         .string          "s_korea"
 #-----------------------------------------------------------------------------------------------------------------------
-n747_suspend_α:
-                        lea              rax, [rip + n747_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_pop$2F2_γ
-n747_suspend_β:
-                                                                                        jmp   n742_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n748_op11_α:
+n748_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 880]
                         mov              qword ptr [rbp + 848], rax
                         mov              rax, qword ptr [rbp + 888]
@@ -5491,19 +5751,56 @@ n748_op11_α:
                         mov              qword ptr [rbp + 832], rax
                         mov              qword ptr [rbp + 840], rdx
                         cmp              eax, 99
-                                                                                        je    n750_op11_α
+                                                                                        je    n753_call_builtin_prolog_α
                                                                                         jmp   n749_var_ref_α
-n748_op11_β:
-                                                                                        jmp   n750_op11_α
+n748_call_builtin_prolog_β:
+                                                                                        jmp   n753_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n749_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 800], rax
                         mov              qword ptr [rbp + 808], rdx
-                                                                                        jmp   n751_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n750_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n750_op11_α:
+n750_lit_integer_α:
+                        mov              qword ptr [rbp + 816], 6
+                        mov              rax, qword ptr [rip + .Lx1016_0]
+                        mov              qword ptr [rbp + 824], rax
+                                                                                        jmp   n751_call_builtin_prolog_α
+.Lx1016_0:
+                        .quad            335
+#-----------------------------------------------------------------------------------------------------------------------
+n751_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 800]
+                        mov              qword ptr [rbp + 768], rax
+                        mov              rax, qword ptr [rbp + 808]
+                        mov              qword ptr [rbp + 776], rax
+                        lea              rdi, [rbp + 768]
+                        movabs           rsi, 335
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 752], rax
+                        mov              qword ptr [rbp + 760], rdx
+                        cmp              eax, 99
+                                                                                        je    n753_call_builtin_prolog_α
+                                                                                        jmp   n752_suspend_α
+n751_call_builtin_prolog_β:
+                                                                                        jmp   n753_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n752_suspend_α:
+                        lea              rax, [rip + n752_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_pop$2F2_γ
+n752_suspend_β:
+                                                                                        jmp   n753_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n753_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 720], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -5515,63 +5812,31 @@ n750_op11_α:
                         mov              qword ptr [rbp + 712], rdx
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
-                                                                                        jmp   n752_var_ref_α
-n750_op11_β:
+                                                                                        jmp   n754_var_ref_α
+n753_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n751_lit_integer_α:
-                        mov              qword ptr [rbp + 816], 6
-                        mov              rax, qword ptr [rip + .Lx1017_0]
-                        mov              qword ptr [rbp + 824], rax
-                                                                                        jmp   n753_op11_α
-.Lx1017_0:
-                        .quad            335
-#-----------------------------------------------------------------------------------------------------------------------
-n752_var_ref_α:
+n754_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 672], rax
                         mov              qword ptr [rbp + 680], rdx
-                                                                                        jmp   n754_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n755_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n753_op11_α:
-                        mov              rax, qword ptr [rbp + 800]
-                        mov              qword ptr [rbp + 768], rax
-                        mov              rax, qword ptr [rbp + 808]
-                        mov              qword ptr [rbp + 776], rax
-                        lea              rdi, [rbp + 768]
-                        movabs           rsi, 335
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 752], rax
-                        mov              qword ptr [rbp + 760], rdx
-                        cmp              eax, 99
-                                                                                        je    n750_op11_α
-                                                                                        jmp   n755_suspend_α
-n753_op11_β:
-                                                                                        jmp   n750_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n754_lit_string_α:
+n755_lit_string_α:
                         mov              qword ptr [rbp + 688], 1
-                        mov              rax, qword ptr [rip + .Lx1021_0]
+                        mov              dword ptr [rbp + 692], 4
+                        mov              rax, qword ptr [rip + .Lx1023_0]
                         mov              qword ptr [rbp + 696], rax
-                                                                                        jmp   n756_op11_α
-.Lx1021_0:
-                        .quad            .Lx1021_0_s
-.Lx1021_0_s:
+                                                                                        jmp   n756_call_builtin_prolog_α
+.Lx1023_0:
+                        .quad            .Lx1023_0_s
+.Lx1023_0_s:
                         .string          "iran"
 #-----------------------------------------------------------------------------------------------------------------------
-n755_suspend_α:
-                        lea              rax, [rip + n755_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_pop$2F2_γ
-n755_suspend_β:
-                                                                                        jmp   n750_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n756_op11_α:
+n756_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 672]
                         mov              qword ptr [rbp + 640], rax
                         mov              rax, qword ptr [rbp + 680]
@@ -5588,19 +5853,56 @@ n756_op11_α:
                         mov              qword ptr [rbp + 624], rax
                         mov              qword ptr [rbp + 632], rdx
                         cmp              eax, 99
-                                                                                        je    n758_op11_α
+                                                                                        je    n761_call_builtin_prolog_α
                                                                                         jmp   n757_var_ref_α
-n756_op11_β:
-                                                                                        jmp   n758_op11_α
+n756_call_builtin_prolog_β:
+                                                                                        jmp   n761_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n757_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 592], rax
                         mov              qword ptr [rbp + 600], rdx
-                                                                                        jmp   n759_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n758_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n758_op11_α:
+n758_lit_integer_α:
+                        mov              qword ptr [rbp + 608], 6
+                        mov              rax, qword ptr [rip + .Lx1027_0]
+                        mov              qword ptr [rbp + 616], rax
+                                                                                        jmp   n759_call_builtin_prolog_α
+.Lx1027_0:
+                        .quad            320
+#-----------------------------------------------------------------------------------------------------------------------
+n759_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 592]
+                        mov              qword ptr [rbp + 560], rax
+                        mov              rax, qword ptr [rbp + 600]
+                        mov              qword ptr [rbp + 568], rax
+                        lea              rdi, [rbp + 560]
+                        movabs           rsi, 320
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 544], rax
+                        mov              qword ptr [rbp + 552], rdx
+                        cmp              eax, 99
+                                                                                        je    n761_call_builtin_prolog_α
+                                                                                        jmp   n760_suspend_α
+n759_call_builtin_prolog_β:
+                                                                                        jmp   n761_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n760_suspend_α:
+                        lea              rax, [rip + n760_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_pop$2F2_γ
+n760_suspend_β:
+                                                                                        jmp   n761_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n761_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 512], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -5612,63 +5914,31 @@ n758_op11_α:
                         mov              qword ptr [rbp + 504], rdx
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
-                                                                                        jmp   n760_var_ref_α
-n758_op11_β:
+                                                                                        jmp   n762_var_ref_α
+n761_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n759_lit_integer_α:
-                        mov              qword ptr [rbp + 608], 6
-                        mov              rax, qword ptr [rip + .Lx1028_0]
-                        mov              qword ptr [rbp + 616], rax
-                                                                                        jmp   n761_op11_α
-.Lx1028_0:
-                        .quad            320
-#-----------------------------------------------------------------------------------------------------------------------
-n760_var_ref_α:
+n762_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 464], rax
                         mov              qword ptr [rbp + 472], rdx
-                                                                                        jmp   n762_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n763_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n761_op11_α:
-                        mov              rax, qword ptr [rbp + 592]
-                        mov              qword ptr [rbp + 560], rax
-                        mov              rax, qword ptr [rbp + 600]
-                        mov              qword ptr [rbp + 568], rax
-                        lea              rdi, [rbp + 560]
-                        movabs           rsi, 320
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 544], rax
-                        mov              qword ptr [rbp + 552], rdx
-                        cmp              eax, 99
-                                                                                        je    n758_op11_α
-                                                                                        jmp   n763_suspend_α
-n761_op11_β:
-                                                                                        jmp   n758_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n762_lit_string_α:
+n763_lit_string_α:
                         mov              qword ptr [rbp + 480], 1
-                        mov              rax, qword ptr [rip + .Lx1032_0]
+                        mov              dword ptr [rbp + 484], 8
+                        mov              rax, qword ptr [rip + .Lx1034_0]
                         mov              qword ptr [rbp + 488], rax
-                                                                                        jmp   n764_op11_α
-.Lx1032_0:
-                        .quad            .Lx1032_0_s
-.Lx1032_0_s:
+                                                                                        jmp   n764_call_builtin_prolog_α
+.Lx1034_0:
+                        .quad            .Lx1034_0_s
+.Lx1034_0_s:
                         .string          "ethiopia"
 #-----------------------------------------------------------------------------------------------------------------------
-n763_suspend_α:
-                        lea              rax, [rip + n763_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_pop$2F2_γ
-n763_suspend_β:
-                                                                                        jmp   n758_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n764_op11_α:
+n764_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 464]
                         mov              qword ptr [rbp + 432], rax
                         mov              rax, qword ptr [rbp + 472]
@@ -5685,19 +5955,56 @@ n764_op11_α:
                         mov              qword ptr [rbp + 416], rax
                         mov              qword ptr [rbp + 424], rdx
                         cmp              eax, 99
-                                                                                        je    n766_op11_α
+                                                                                        je    n769_call_builtin_prolog_α
                                                                                         jmp   n765_var_ref_α
-n764_op11_β:
-                                                                                        jmp   n766_op11_α
+n764_call_builtin_prolog_β:
+                                                                                        jmp   n769_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n765_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 384], rax
                         mov              qword ptr [rbp + 392], rdx
-                                                                                        jmp   n767_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n766_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n766_op11_α:
+n766_lit_integer_α:
+                        mov              qword ptr [rbp + 400], 6
+                        mov              rax, qword ptr [rip + .Lx1038_0]
+                        mov              qword ptr [rbp + 408], rax
+                                                                                        jmp   n767_call_builtin_prolog_α
+.Lx1038_0:
+                        .quad            272
+#-----------------------------------------------------------------------------------------------------------------------
+n767_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 384]
+                        mov              qword ptr [rbp + 352], rax
+                        mov              rax, qword ptr [rbp + 392]
+                        mov              qword ptr [rbp + 360], rax
+                        lea              rdi, [rbp + 352]
+                        movabs           rsi, 272
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 336], rax
+                        mov              qword ptr [rbp + 344], rdx
+                        cmp              eax, 99
+                                                                                        je    n769_call_builtin_prolog_α
+                                                                                        jmp   n768_suspend_α
+n767_call_builtin_prolog_β:
+                                                                                        jmp   n769_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n768_suspend_α:
+                        lea              rax, [rip + n768_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_pop$2F2_γ
+n768_suspend_β:
+                                                                                        jmp   n769_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n769_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 304], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -5709,63 +6016,31 @@ n766_op11_α:
                         mov              qword ptr [rbp + 296], rdx
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
-                                                                                        jmp   n768_var_ref_α
-n766_op11_β:
+                                                                                        jmp   n770_var_ref_α
+n769_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n767_lit_integer_α:
-                        mov              qword ptr [rbp + 400], 6
-                        mov              rax, qword ptr [rip + .Lx1039_0]
-                        mov              qword ptr [rbp + 408], rax
-                                                                                        jmp   n769_op11_α
-.Lx1039_0:
-                        .quad            272
-#-----------------------------------------------------------------------------------------------------------------------
-n768_var_ref_α:
+n770_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 256], rax
                         mov              qword ptr [rbp + 264], rdx
-                                                                                        jmp   n770_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n771_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n769_op11_α:
-                        mov              rax, qword ptr [rbp + 384]
-                        mov              qword ptr [rbp + 352], rax
-                        mov              rax, qword ptr [rbp + 392]
-                        mov              qword ptr [rbp + 360], rax
-                        lea              rdi, [rbp + 352]
-                        movabs           rsi, 272
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 336], rax
-                        mov              qword ptr [rbp + 344], rdx
-                        cmp              eax, 99
-                                                                                        je    n766_op11_α
-                                                                                        jmp   n771_suspend_α
-n769_op11_β:
-                                                                                        jmp   n766_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n770_lit_string_α:
+n771_lit_string_α:
                         mov              qword ptr [rbp + 272], 1
-                        mov              rax, qword ptr [rip + .Lx1043_0]
+                        mov              dword ptr [rbp + 276], 9
+                        mov              rax, qword ptr [rip + .Lx1045_0]
                         mov              qword ptr [rbp + 280], rax
-                                                                                        jmp   n772_op11_α
-.Lx1043_0:
-                        .quad            .Lx1043_0_s
-.Lx1043_0_s:
+                                                                                        jmp   n772_call_builtin_prolog_α
+.Lx1045_0:
+                        .quad            .Lx1045_0_s
+.Lx1045_0_s:
                         .string          "argentina"
 #-----------------------------------------------------------------------------------------------------------------------
-n771_suspend_α:
-                        lea              rax, [rip + n771_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_pop$2F2_γ
-n771_suspend_β:
-                                                                                        jmp   n766_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n772_op11_α:
+n772_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 256]
                         mov              qword ptr [rbp + 224], rax
                         mov              rax, qword ptr [rbp + 264]
@@ -5782,19 +6057,56 @@ n772_op11_α:
                         mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
                         cmp              eax, 99
-                                                                                        je    n774_op11_α
+                                                                                        je    n777_call_builtin_prolog_α
                                                                                         jmp   n773_var_ref_α
-n772_op11_β:
-                                                                                        jmp   n774_op11_α
+n772_call_builtin_prolog_β:
+                                                                                        jmp   n777_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n773_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
-                                                                                        jmp   n775_lit_integer_α
+                        add              rsp, 16
+                                                                                        jmp   n774_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n774_op11_α:
+n774_lit_integer_α:
+                        mov              qword ptr [rbp + 192], 6
+                        mov              rax, qword ptr [rip + .Lx1049_0]
+                        mov              qword ptr [rbp + 200], rax
+                                                                                        jmp   n775_call_builtin_prolog_α
+.Lx1049_0:
+                        .quad            251
+#-----------------------------------------------------------------------------------------------------------------------
+n775_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 176]
+                        mov              qword ptr [rbp + 144], rax
+                        mov              rax, qword ptr [rbp + 184]
+                        mov              qword ptr [rbp + 152], rax
+                        lea              rdi, [rbp + 144]
+                        movabs           rsi, 251
+                        call             rt_pl_dop_unify_ci@PLT
+                        mov              qword ptr [rbp + 128], rax
+                        mov              qword ptr [rbp + 136], rdx
+                        cmp              eax, 99
+                                                                                        je    n777_call_builtin_prolog_α
+                                                                                        jmp   n776_suspend_α
+n775_call_builtin_prolog_β:
+                                                                                        jmp   n777_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n776_suspend_α:
+                        lea              rax, [rip + n776_suspend_β]
+                        mov              qword ptr [rbp + 5280], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 0], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 8], rax
+                                                                                        jmp   proc_pop$2F2_γ
+n776_suspend_β:
+                                                                                        jmp   n777_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n777_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 96], rax
                         mov              rax, qword ptr [rbp + 56]
@@ -5807,43 +6119,8 @@ n774_op11_α:
                         cmp              eax, 99
                                                                                         je    proc_pop$2F2_ω
                                                                                         jmp   proc_pop$2F2_ω
-n774_op11_β:
+n777_call_builtin_prolog_β:
                                                                                         jmp   proc_pop$2F2_ω
-#-----------------------------------------------------------------------------------------------------------------------
-n775_lit_integer_α:
-                        mov              qword ptr [rbp + 192], 6
-                        mov              rax, qword ptr [rip + .Lx1050_0]
-                        mov              qword ptr [rbp + 200], rax
-                                                                                        jmp   n776_op11_α
-.Lx1050_0:
-                        .quad            251
-#-----------------------------------------------------------------------------------------------------------------------
-n776_op11_α:
-                        mov              rax, qword ptr [rbp + 176]
-                        mov              qword ptr [rbp + 144], rax
-                        mov              rax, qword ptr [rbp + 184]
-                        mov              qword ptr [rbp + 152], rax
-                        lea              rdi, [rbp + 144]
-                        movabs           rsi, 251
-                        call             rt_pl_dop_unify_ci@PLT
-                        mov              qword ptr [rbp + 128], rax
-                        mov              qword ptr [rbp + 136], rdx
-                        cmp              eax, 99
-                                                                                        je    n774_op11_α
-                                                                                        jmp   n777_suspend_α
-n776_op11_β:
-                                                                                        jmp   n774_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n777_suspend_α:
-                        lea              rax, [rip + n777_suspend_β]
-                        mov              qword ptr [rbp + 5280], rax
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 0], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 8], rax
-                                                                                        jmp   proc_pop$2F2_γ
-n777_suspend_β:
-                                                                                        jmp   n774_op11_α
 #-----------------------------------------------------------------------------------------------------------------------
 proc_pop$2F2_res:
                         add              rsp, 8
@@ -5858,14 +6135,14 @@ proc_pop$2F2_γ:
                         push             rbp
                         lea              rax, [rip + proc_pop$2F2_res]
                         push             rax
-                        mov              rax, [rbp + 5304]
-                        mov              rbp, [rbp + 5320]
+                        mov              rax, [rbp + 5320]
+                        mov              rbp, [rbp + 5336]
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_pop$2F2_ω:
-                        mov              rax, [rbp + 5312]
-                        lea              rsp, [rbp + 5328]
-                        mov              rbp, [rbp + 5320]
+                        mov              rax, [rbp + 5328]
+                        lea              rsp, [rbp + 5344]
+                        mov              rbp, [rbp + 5336]
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_density$2F2_α
@@ -5874,20 +6151,20 @@ proc_density$2F2_α:
                         .global          proc_density$2F2_β
                         .global          proc_density$2F2_γ
                         .global          proc_density$2F2_ω
-                        sub              rsp, 848
-                        mov              [rsp + 824], rcx
-                        mov              [rsp + 832], rdx
-                        mov              [rsp + 840], rbp
+                        sub              rsp, 864
+                        mov              [rsp + 840], rcx
+                        mov              [rsp + 848], rdx
+                        mov              [rsp + 856], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 736
-                        mov              edx, 816
+                        mov              edx, 832
                         call             rt_jmp_frame_lexprep2@PLT
 proc_density$2F2_α_body:
-                        lea              rax, [rip + n1075_suspend_β]
+                        lea              rax, [rip + n1074_suspend_β]
                         mov              qword ptr [rbp + 736], rax
 #-----------------------------------------------------------------------------------------------------------------------
-n1054_op11_α:
+n1054_call_builtin_prolog_α:
                         lea              r10, [rip + g_plw_cellws_on]
                         mov              eax, dword ptr [r10 + 0]
                         test             eax, eax
@@ -5911,24 +6188,28 @@ n1054_op11_α:
                         cmp              eax, 99
                                                                                         je    proc_density$2F2_ω
                                                                                         jmp   n1055_var_ref_α
-n1054_op11_β:
+n1054_call_builtin_prolog_β:
                                                                                         jmp   proc_density$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n1055_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 16]
                         mov              qword ptr [rbp + 704], rax
                         mov              qword ptr [rbp + 712], rdx
+                        add              rsp, 16
                                                                                         jmp   n1056_var_ref_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1056_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 800]
                         mov              qword ptr [rbp + 720], rax
                         mov              qword ptr [rbp + 728], rdx
-                                                                                        jmp   n1057_op11_α
+                        add              rsp, 16
+                                                                                        jmp   n1057_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1057_op11_α:
+n1057_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 704]
                         mov              qword ptr [rbp + 672], rax
                         mov              rax, qword ptr [rbp + 712]
@@ -6145,42 +6426,30 @@ n1057_op11_α:
                         mov              qword ptr [rbp + 656], rax
                         mov              qword ptr [rbp + 664], rdx
                         cmp              eax, 99
-                                                                                        je    n1059_op11_α
+                                                                                        je    n1075_call_builtin_prolog_α
                                                                                         jmp   n1058_var_ref_α
-n1057_op11_β:
-                                                                                        jmp   n1059_op11_α
+n1057_call_builtin_prolog_β:
+                                                                                        jmp   n1075_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1058_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 32]
                         mov              qword ptr [rbp + 624], rax
                         mov              qword ptr [rbp + 632], rdx
-                                                                                        jmp   n1060_var_ref_α
+                        add              rsp, 16
+                                                                                        jmp   n1059_var_ref_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1059_op11_α:
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              qword ptr [rbp + 96], rax
-                        mov              rax, qword ptr [rbp + 56]
-                        mov              qword ptr [rbp + 104], rax
-                        lea              rdi, [rbp + 96]
-                        mov              esi, 1
-                        call             rt_pl_dop_trail_unwind@PLT
-                        mov              qword ptr [rbp + 80], rax
-                        mov              qword ptr [rbp + 88], rdx
-                        cmp              eax, 99
-                                                                                        je    proc_density$2F2_ω
-                                                                                        jmp   proc_density$2F2_ω
-n1059_op11_β:
-                                                                                        jmp   proc_density$2F2_ω
-#-----------------------------------------------------------------------------------------------------------------------
-n1060_var_ref_α:
+n1059_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 752]
                         mov              qword ptr [rbp + 640], rax
                         mov              qword ptr [rbp + 648], rdx
-                                                                                        jmp   n1061_op11_α
+                        add              rsp, 16
+                                                                                        jmp   n1060_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1061_op11_α:
+n1060_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 624]
                         mov              qword ptr [rbp + 592], rax
                         mov              rax, qword ptr [rbp + 632]
@@ -6191,106 +6460,106 @@ n1061_op11_α:
                         mov              qword ptr [rbp + 616], rax
                         lea              rdi, [rbp + 592]
                         lea              r8, [rbp + 592]
-.Lx1087_40:
+.Lx1086_40:
                         mov              eax, dword ptr [r8 + 0]
                         cmp              eax, 9
-                                                                                        jne   .Lx1087_56
+                                                                                        jne   .Lx1086_56
                         mov              esi, dword ptr [r8 + 4]
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax
-                                                                                        je    .Lx1087_41
+                                                                                        je    .Lx1086_41
                         cmp              esi, 1
-                                                                                        jne   .Lx1087_55
+                                                                                        jne   .Lx1086_55
                         mov              r8, rax
-                                                                                        jmp   .Lx1087_40
-.Lx1087_55:
+                                                                                        jmp   .Lx1086_40
+.Lx1086_55:
                         cmp              esi, 2
-                                                                                        jne   .Lx1087_41
+                                                                                        jne   .Lx1086_41
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
-                                                                                        je    .Lx1087_41
+                                                                                        je    .Lx1086_41
                         mov              r8, rax
-                                                                                        jmp   .Lx1087_40
-.Lx1087_56:
+                                                                                        jmp   .Lx1086_40
+.Lx1086_56:
                         cmp              eax, 13
-                                                                                        jne   .Lx1087_41
+                                                                                        jne   .Lx1086_41
                         mov              rax, qword ptr [r8 + 8]
                         test             rax, rax
-                                                                                        je    .Lx1087_41
+                                                                                        je    .Lx1086_41
                         cmp              rax, r8
-                                                                                        je    .Lx1087_41
+                                                                                        je    .Lx1086_41
                         mov              r8, rax
-                                                                                        jmp   .Lx1087_40
-.Lx1087_41:
+                                                                                        jmp   .Lx1086_40
+.Lx1086_41:
                         lea              r9, [rbp + 608]
-.Lx1087_42:
+.Lx1086_42:
                         mov              eax, dword ptr [r9 + 0]
                         cmp              eax, 9
-                                                                                        jne   .Lx1087_58
+                                                                                        jne   .Lx1086_58
                         mov              esi, dword ptr [r9 + 4]
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax
-                                                                                        je    .Lx1087_43
+                                                                                        je    .Lx1086_43
                         cmp              esi, 1
-                                                                                        jne   .Lx1087_57
+                                                                                        jne   .Lx1086_57
                         mov              r9, rax
-                                                                                        jmp   .Lx1087_42
-.Lx1087_57:
+                                                                                        jmp   .Lx1086_42
+.Lx1086_57:
                         cmp              esi, 2
-                                                                                        jne   .Lx1087_43
+                                                                                        jne   .Lx1086_43
                         mov              rax, qword ptr [rax + 0]
                         test             rax, rax
-                                                                                        je    .Lx1087_43
+                                                                                        je    .Lx1086_43
                         mov              r9, rax
-                                                                                        jmp   .Lx1087_42
-.Lx1087_58:
+                                                                                        jmp   .Lx1086_42
+.Lx1086_58:
                         cmp              eax, 13
-                                                                                        jne   .Lx1087_43
+                                                                                        jne   .Lx1086_43
                         mov              rax, qword ptr [r9 + 8]
                         test             rax, rax
-                                                                                        je    .Lx1087_43
+                                                                                        je    .Lx1086_43
                         cmp              rax, r9
-                                                                                        je    .Lx1087_43
+                                                                                        je    .Lx1086_43
                         mov              r9, rax
-                                                                                        jmp   .Lx1087_42
-.Lx1087_43:
+                                                                                        jmp   .Lx1086_42
+.Lx1086_43:
                         cmp              r8, r9
-                                                                                        je    .Lx1087_51
+                                                                                        je    .Lx1086_51
                         mov              eax, dword ptr [r8 + 0]
                         cmp              eax, 0
-                                                                                        je    .Lx1087_44
+                                                                                        je    .Lx1086_44
                         cmp              eax, 99
-                                                                                        je    .Lx1087_44
+                                                                                        je    .Lx1086_44
                         cmp              eax, 13
-                                                                                        jne   .Lx1087_45
+                                                                                        jne   .Lx1086_45
                         mov              rax, qword ptr [r8 + 8]
                         cmp              rax, r8
-                                                                                        je    .Lx1087_44
-                                                                                        jmp   .Lx1087_45
-.Lx1087_44:
+                                                                                        je    .Lx1086_44
+                                                                                        jmp   .Lx1086_45
+.Lx1086_44:
                         mov              eax, dword ptr [r9 + 0]
                         cmp              eax, 0
-                                                                                        je    .Lx1087_53
+                                                                                        je    .Lx1086_53
                         cmp              eax, 99
-                                                                                        je    .Lx1087_53
+                                                                                        je    .Lx1086_53
                         cmp              eax, 13
-                                                                                        jne   .Lx1087_46
+                                                                                        jne   .Lx1086_46
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9
-                                                                                        je    .Lx1087_53
-                                                                                        jmp   .Lx1087_46
-.Lx1087_46:
+                                                                                        je    .Lx1086_53
+                                                                                        jmp   .Lx1086_46
+.Lx1086_46:
                         lea              r10, [rip + g_pl_trail]
                         mov              r11, qword ptr [r10 + 0]
                         test             r11, r11
-                                                                                        je    .Lx1087_53
+                                                                                        je    .Lx1086_53
                         mov              eax, dword ptr [r10 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r10 + 24]
                         sub              rax, 24
                         cmp              rsi, rax
-                                                                                        ja    .Lx1087_53
+                                                                                        ja    .Lx1086_53
                         add              r11, rsi
                         mov              qword ptr [r11 + 0], r8
                         mov              rax, qword ptr [r8 + 0]
@@ -6304,31 +6573,31 @@ n1061_op11_α:
                         mov              qword ptr [r8 + 0], rax
                         mov              rax, qword ptr [r9 + 8]
                         mov              qword ptr [r8 + 8], rax
-                                                                                        jmp   .Lx1087_51
-.Lx1087_45:
+                                                                                        jmp   .Lx1086_51
+.Lx1086_45:
                         mov              eax, dword ptr [r9 + 0]
                         cmp              eax, 0
-                                                                                        je    .Lx1087_47
+                                                                                        je    .Lx1086_47
                         cmp              eax, 99
-                                                                                        je    .Lx1087_47
+                                                                                        je    .Lx1086_47
                         cmp              eax, 13
-                                                                                        jne   .Lx1087_48
+                                                                                        jne   .Lx1086_48
                         mov              rax, qword ptr [r9 + 8]
                         cmp              rax, r9
-                                                                                        je    .Lx1087_47
-                                                                                        jmp   .Lx1087_48
-.Lx1087_47:
+                                                                                        je    .Lx1086_47
+                                                                                        jmp   .Lx1086_48
+.Lx1086_47:
                         lea              r10, [rip + g_pl_trail]
                         mov              r11, qword ptr [r10 + 0]
                         test             r11, r11
-                                                                                        je    .Lx1087_53
+                                                                                        je    .Lx1086_53
                         mov              eax, dword ptr [r10 + 32]
                         mov              esi, 24
                         imul             rsi, rax
                         mov              rax, qword ptr [r10 + 24]
                         sub              rax, 24
                         cmp              rsi, rax
-                                                                                        ja    .Lx1087_53
+                                                                                        ja    .Lx1086_53
                         add              r11, rsi
                         mov              qword ptr [r11 + 0], r9
                         mov              rax, qword ptr [r9 + 0]
@@ -6342,277 +6611,287 @@ n1061_op11_α:
                         mov              qword ptr [r9 + 0], rax
                         mov              rax, qword ptr [r8 + 8]
                         mov              qword ptr [r9 + 8], rax
-                                                                                        jmp   .Lx1087_51
-.Lx1087_48:
+                                                                                        jmp   .Lx1086_51
+.Lx1086_48:
                         mov              ecx, dword ptr [r8 + 0]
                         mov              edx, dword ptr [r9 + 0]
                         cmp              ecx, 14
-                                                                                        jne   .Lx1087_49
+                                                                                        jne   .Lx1086_49
                         cmp              edx, 14
-                                                                                        je    .Lx1087_53
-                                                                                        jmp   .Lx1087_52
-.Lx1087_49:
+                                                                                        je    .Lx1086_53
+                                                                                        jmp   .Lx1086_52
+.Lx1086_49:
                         cmp              edx, 14
-                                                                                        je    .Lx1087_52
+                                                                                        je    .Lx1086_52
                         cmp              ecx, 7
-                                                                                        je    .Lx1087_53
+                                                                                        je    .Lx1086_53
                         cmp              edx, 7
-                                                                                        je    .Lx1087_53
+                                                                                        je    .Lx1086_53
                         cmp              ecx, 6
-                                                                                        jne   .Lx1087_50
+                                                                                        jne   .Lx1086_50
                         cmp              edx, 6
-                                                                                        jne   .Lx1087_50
+                                                                                        jne   .Lx1086_50
                         mov              rax, qword ptr [r8 + 0]
                         cmp              rax, 6
-                                                                                        jne   .Lx1087_53
+                                                                                        jne   .Lx1086_53
                         mov              rax, qword ptr [r9 + 0]
                         cmp              rax, 6
-                                                                                        jne   .Lx1087_53
+                                                                                        jne   .Lx1086_53
                         mov              rax, qword ptr [r8 + 8]
                         mov              rsi, qword ptr [r9 + 8]
                         cmp              rax, rsi
-                                                                                        je    .Lx1087_51
-                                                                                        jmp   .Lx1087_52
-.Lx1087_50:
+                                                                                        je    .Lx1086_51
+                                                                                        jmp   .Lx1086_52
+.Lx1086_50:
                         mov              rax, qword ptr [r8 + 0]
                         mov              rsi, qword ptr [r9 + 0]
                         cmp              rax, rsi
-                                                                                        jne   .Lx1087_53
+                                                                                        jne   .Lx1086_53
                         mov              rax, qword ptr [r8 + 8]
                         mov              rsi, qword ptr [r9 + 8]
                         cmp              rax, rsi
-                                                                                        jne   .Lx1087_53
-.Lx1087_51:
+                                                                                        jne   .Lx1086_53
+.Lx1086_51:
                         mov              rax, qword ptr [r8 + 0]
                         mov              rdx, qword ptr [r8 + 8]
-                                                                                        jmp   .Lx1087_54
-.Lx1087_52:
+                                                                                        jmp   .Lx1086_54
+.Lx1086_52:
                         mov              eax, 99
                         mov              edx, 0
-                                                                                        jmp   .Lx1087_54
-.Lx1087_53:
+                                                                                        jmp   .Lx1086_54
+.Lx1086_53:
                         mov              esi, 2
                         call             rt_pl_dop_unify@PLT
-.Lx1087_54:
+.Lx1086_54:
                         mov              qword ptr [rbp + 576], rax
                         mov              qword ptr [rbp + 584], rdx
                         cmp              eax, 99
-                                                                                        je    n1059_op11_α
-                                                                                        jmp   n1062_var_ref_α
-n1061_op11_β:
-                                                                                        jmp   n1059_op11_α
+                                                                                        je    n1075_call_builtin_prolog_α
+                                                                                        jmp   n1061_var_ref_α
+n1060_call_builtin_prolog_β:
+                                                                                        jmp   n1075_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1062_var_ref_α:
+n1061_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 800]
                         mov              qword ptr [rbp + 544], rax
                         mov              qword ptr [rbp + 552], rdx
-                                                                                        jmp   n1063_var_ref_α
+                        add              rsp, 16
+                                                                                        jmp   n1062_var_ref_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1063_var_ref_α:
+n1062_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 768]
                         mov              qword ptr [rbp + 560], rax
                         mov              qword ptr [rbp + 568], rdx
-                                                                                        jmp   n1064_call_proc_staged_α
+                        add              rsp, 16
+                                                                                        jmp   n1063_call_proc_staged_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1064_call_proc_staged_α:
+n1063_call_proc_staged_α:
                         mov              qword ptr [rbp + 512], 0
                         lea              r11, [rip + g_gc_pending]
                         mov              eax, dword ptr [r11 + 0]
                         test             eax, eax
-                                                                                        jne   .Lx1093_20
+                                                                                        jne   .Lx1092_20
                         mov              rax, qword ptr [rbp + 544]
                         mov              rdx, qword ptr [rbp + 552]
                         lea              r10, [rip + g_call_args]
                         mov              qword ptr [r10 + 0], rax
                         mov              qword ptr [r10 + 8], rdx
-                                                                                        jmp   .Lx1093_21
-.Lx1093_20:
+                                                                                        jmp   .Lx1092_21
+.Lx1092_20:
                         mov              edi, 0
                         mov              rsi, qword ptr [rbp + 544]
                         mov              rdx, qword ptr [rbp + 552]
                         call             rt_arg_stage@PLT
-.Lx1093_21:
+.Lx1092_21:
                         lea              r11, [rip + g_gc_pending]
                         mov              eax, dword ptr [r11 + 0]
                         test             eax, eax
-                                                                                        jne   .Lx1093_22
+                                                                                        jne   .Lx1092_22
                         mov              rax, qword ptr [rbp + 560]
                         mov              rdx, qword ptr [rbp + 568]
                         lea              r10, [rip + g_call_args]
                         mov              qword ptr [r10 + 16], rax
                         mov              qword ptr [r10 + 24], rdx
-                                                                                        jmp   .Lx1093_23
-.Lx1093_22:
+                                                                                        jmp   .Lx1092_23
+.Lx1092_22:
                         mov              edi, 1
                         mov              rsi, qword ptr [rbp + 560]
                         mov              rdx, qword ptr [rbp + 568]
                         call             rt_arg_stage@PLT
-.Lx1093_23:
+.Lx1092_23:
                         mov              edi, 2
                         mov              esi, 2
                         call             rt_proc_call_open_det@PLT
                         test             rax, rax
-                                                                                        je    .Lx1093_1
-                        lea              rcx, [rip + .Lx1093_3]
-                        lea              rdx, [rip + .Lx1093_4]
+                                                                                        je    .Lx1092_1
+                        lea              rcx, [rip + .Lx1092_3]
+                        lea              rdx, [rip + .Lx1092_4]
                                                                                         jmp   rax
-.Lx1093_3:
+.Lx1092_3:
                         mov              qword ptr [rbp + 520], rsp
                         mov              rax, qword ptr [rbp + 512]
                         test             rax, rax
-                                                                                        jne   .Lx1093_5
+                                                                                        jne   .Lx1092_5
                         mov              qword ptr [rbp + 512], 1
                         call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx1093_2
-.Lx1093_5:
+                                                                                        jmp   .Lx1092_2
+.Lx1092_5:
                         call             rt_gen_spine_pass_γ@PLT
-                                                                                        jmp   .Lx1093_2
-.Lx1093_4:
+                                                                                        jmp   .Lx1092_2
+.Lx1092_4:
                         mov              rax, qword ptr [rbp + 512]
                         test             rax, rax
-                                                                                        jne   .Lx1093_6
+                                                                                        jne   .Lx1092_6
                         mov              qword ptr [rbp + 512], 1
                         call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx1093_2
-.Lx1093_6:
+                                                                                        jmp   .Lx1092_2
+.Lx1092_6:
                         call             rt_gen_spine_pass_ω@PLT
-                                                                                        jmp   .Lx1093_2
-.Lx1093_1:
+                                                                                        jmp   .Lx1092_2
+.Lx1092_1:
                         call             rt_faildescr@PLT
-.Lx1093_2:
+.Lx1092_2:
                         mov              qword ptr [rbp + 464], rax
                         mov              qword ptr [rbp + 472], rdx
                         cmp              eax, 99
-                                                                                        je    n1059_op11_α
-                                                                                        jmp   n1065_var_ref_α
-n1064_call_proc_staged_β:
+                                                                                        je    n1075_call_builtin_prolog_α
+                                                                                        jmp   n1064_var_ref_α
+n1063_call_proc_staged_β:
                         call             rt_gen_spine_resume_enter@PLT
                         mov              rsp, qword ptr [rbp + 520]
                                                                                         jmp   qword ptr [rsp]
-.Lx1093_0:
-                        .quad            .Lx1093_0_s
-.Lx1093_0_s:
+.Lx1092_0:
+                        .quad            .Lx1092_0_s
+.Lx1092_0_s:
                         .string          "pop/2"
 #-----------------------------------------------------------------------------------------------------------------------
-n1065_var_ref_α:
+n1064_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 800]
                         mov              qword ptr [rbp + 432], rax
                         mov              qword ptr [rbp + 440], rdx
-                                                                                        jmp   n1066_var_ref_α
+                        add              rsp, 16
+                                                                                        jmp   n1065_var_ref_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1066_var_ref_α:
+n1065_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 784]
                         mov              qword ptr [rbp + 448], rax
                         mov              qword ptr [rbp + 456], rdx
-                                                                                        jmp   n1067_call_proc_staged_α
+                        add              rsp, 16
+                                                                                        jmp   n1066_call_proc_staged_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1067_call_proc_staged_α:
+n1066_call_proc_staged_α:
                         mov              qword ptr [rbp + 400], 0
                         lea              r11, [rip + g_gc_pending]
                         mov              eax, dword ptr [r11 + 0]
                         test             eax, eax
-                                                                                        jne   .Lx1099_20
+                                                                                        jne   .Lx1098_20
                         mov              rax, qword ptr [rbp + 432]
                         mov              rdx, qword ptr [rbp + 440]
                         lea              r10, [rip + g_call_args]
                         mov              qword ptr [r10 + 0], rax
                         mov              qword ptr [r10 + 8], rdx
-                                                                                        jmp   .Lx1099_21
-.Lx1099_20:
+                                                                                        jmp   .Lx1098_21
+.Lx1098_20:
                         mov              edi, 0
                         mov              rsi, qword ptr [rbp + 432]
                         mov              rdx, qword ptr [rbp + 440]
                         call             rt_arg_stage@PLT
-.Lx1099_21:
+.Lx1098_21:
                         lea              r11, [rip + g_gc_pending]
                         mov              eax, dword ptr [r11 + 0]
                         test             eax, eax
-                                                                                        jne   .Lx1099_22
+                                                                                        jne   .Lx1098_22
                         mov              rax, qword ptr [rbp + 448]
                         mov              rdx, qword ptr [rbp + 456]
                         lea              r10, [rip + g_call_args]
                         mov              qword ptr [r10 + 16], rax
                         mov              qword ptr [r10 + 24], rdx
-                                                                                        jmp   .Lx1099_23
-.Lx1099_22:
+                                                                                        jmp   .Lx1098_23
+.Lx1098_22:
                         mov              edi, 1
                         mov              rsi, qword ptr [rbp + 448]
                         mov              rdx, qword ptr [rbp + 456]
                         call             rt_arg_stage@PLT
-.Lx1099_23:
+.Lx1098_23:
                         mov              edi, 0
                         mov              esi, 2
                         call             rt_proc_call_open_det@PLT
                         test             rax, rax
-                                                                                        je    .Lx1099_1
-                        lea              rcx, [rip + .Lx1099_3]
-                        lea              rdx, [rip + .Lx1099_4]
+                                                                                        je    .Lx1098_1
+                        lea              rcx, [rip + .Lx1098_3]
+                        lea              rdx, [rip + .Lx1098_4]
                                                                                         jmp   rax
-.Lx1099_3:
+.Lx1098_3:
                         mov              qword ptr [rbp + 408], rsp
                         mov              rax, qword ptr [rbp + 400]
                         test             rax, rax
-                                                                                        jne   .Lx1099_5
+                                                                                        jne   .Lx1098_5
                         mov              qword ptr [rbp + 400], 1
                         call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx1099_2
-.Lx1099_5:
+                                                                                        jmp   .Lx1098_2
+.Lx1098_5:
                         call             rt_gen_spine_pass_γ@PLT
-                                                                                        jmp   .Lx1099_2
-.Lx1099_4:
+                                                                                        jmp   .Lx1098_2
+.Lx1098_4:
                         mov              rax, qword ptr [rbp + 400]
                         test             rax, rax
-                                                                                        jne   .Lx1099_6
+                                                                                        jne   .Lx1098_6
                         mov              qword ptr [rbp + 400], 1
                         call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx1099_2
-.Lx1099_6:
+                                                                                        jmp   .Lx1098_2
+.Lx1098_6:
                         call             rt_gen_spine_pass_ω@PLT
-                                                                                        jmp   .Lx1099_2
-.Lx1099_1:
+                                                                                        jmp   .Lx1098_2
+.Lx1098_1:
                         call             rt_faildescr@PLT
-.Lx1099_2:
+.Lx1098_2:
                         mov              qword ptr [rbp + 352], rax
                         mov              qword ptr [rbp + 360], rdx
                         cmp              eax, 99
-                                                                                        je    n1064_call_proc_staged_β
-                                                                                        jmp   n1068_var_ref_α
-n1067_call_proc_staged_β:
+                                                                                        je    n1063_call_proc_staged_β
+                                                                                        jmp   n1067_var_ref_α
+n1066_call_proc_staged_β:
                         call             rt_gen_spine_resume_enter@PLT
                         mov              rsp, qword ptr [rbp + 408]
                                                                                         jmp   qword ptr [rsp]
-.Lx1099_0:
-                        .quad            .Lx1099_0_s
-.Lx1099_0_s:
+.Lx1098_0:
+                        .quad            .Lx1098_0_s
+.Lx1098_0_s:
                         .string          "area/2"
 #-----------------------------------------------------------------------------------------------------------------------
-n1068_var_ref_α:
+n1067_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 752]
                         mov              qword ptr [rbp + 160], rax
                         mov              qword ptr [rbp + 168], rdx
-                                                                                        jmp   n1069_var_α
+                        add              rsp, 16
+                                                                                        jmp   n1068_var_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1069_var_α:
+n1068_var_α:
                         mov              rax, qword ptr [rbp + 768]
                         mov              qword ptr [rbp + 304], rax
                         mov              rax, qword ptr [rbp + 776]
                         mov              qword ptr [rbp + 312], rax
-                                                                                        jmp   n1070_lit_integer_α
+                                                                                        jmp   n1069_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1070_lit_integer_α:
+n1069_lit_integer_α:
                         mov              qword ptr [rbp + 320], 6
-                        mov              rax, qword ptr [rip + .Lx1104_0]
+                        mov              rax, qword ptr [rip + .Lx1103_0]
                         mov              qword ptr [rbp + 328], rax
-                                                                                        jmp   n1071_op11_α
-.Lx1104_0:
+                                                                                        jmp   n1070_call_builtin_prolog_α
+.Lx1103_0:
                         .quad            100
 #-----------------------------------------------------------------------------------------------------------------------
-n1071_op11_α:
+n1070_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 304]
                         mov              qword ptr [rbp + 256], rax
                         mov              rax, qword ptr [rbp + 312]
@@ -6627,19 +6906,19 @@ n1071_op11_α:
                         mov              qword ptr [rbp + 240], rax
                         mov              qword ptr [rbp + 248], rdx
                         cmp              eax, 99
-                                                                                        je    n1059_op11_α
-                                                                                        jmp   n1072_var_α
-n1071_op11_β:
-                                                                                        jmp   n1059_op11_α
+                                                                                        je    n1075_call_builtin_prolog_α
+                                                                                        jmp   n1071_var_α
+n1070_call_builtin_prolog_β:
+                                                                                        jmp   n1075_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1072_var_α:
+n1071_var_α:
                         mov              rax, qword ptr [rbp + 784]
                         mov              qword ptr [rbp + 336], rax
                         mov              rax, qword ptr [rbp + 792]
                         mov              qword ptr [rbp + 344], rax
-                                                                                        jmp   n1073_op11_α
+                                                                                        jmp   n1072_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1073_op11_α:
+n1072_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 240]
                         mov              qword ptr [rbp + 192], rax
                         mov              rax, qword ptr [rbp + 248]
@@ -6654,12 +6933,12 @@ n1073_op11_α:
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
                         cmp              eax, 99
-                                                                                        je    n1059_op11_α
-                                                                                        jmp   n1074_op11_α
-n1073_op11_β:
-                                                                                        jmp   n1059_op11_α
+                                                                                        je    n1075_call_builtin_prolog_α
+                                                                                        jmp   n1073_call_builtin_prolog_α
+n1072_call_builtin_prolog_β:
+                                                                                        jmp   n1075_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1074_op11_α:
+n1073_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 160]
                         mov              qword ptr [rbp + 128], rax
                         mov              rax, qword ptr [rbp + 168]
@@ -6674,21 +6953,37 @@ n1074_op11_α:
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         cmp              eax, 99
-                                                                                        je    n1067_call_proc_staged_β
-                                                                                        jmp   n1075_suspend_α
-n1074_op11_β:
-                                                                                        jmp   n1067_call_proc_staged_β
+                                                                                        je    n1066_call_proc_staged_β
+                                                                                        jmp   n1074_suspend_α
+n1073_call_builtin_prolog_β:
+                                                                                        jmp   n1066_call_proc_staged_β
 #-----------------------------------------------------------------------------------------------------------------------
-n1075_suspend_α:
-                        lea              rax, [rip + n1075_suspend_β]
+n1074_suspend_α:
+                        lea              rax, [rip + n1074_suspend_β]
                         mov              qword ptr [rbp + 736], rax
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 0], rax
                         mov              rax, qword ptr [rbp + 56]
                         mov              qword ptr [rbp + 8], rax
                                                                                         jmp   proc_density$2F2_γ
-n1075_suspend_β:
-                                                                                        jmp   n1067_call_proc_staged_β
+n1074_suspend_β:
+                                                                                        jmp   n1066_call_proc_staged_β
+#-----------------------------------------------------------------------------------------------------------------------
+n1075_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 96], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 104], rax
+                        lea              rdi, [rbp + 96]
+                        mov              esi, 1
+                        call             rt_pl_dop_trail_unwind@PLT
+                        mov              qword ptr [rbp + 80], rax
+                        mov              qword ptr [rbp + 88], rdx
+                        cmp              eax, 99
+                                                                                        je    proc_density$2F2_ω
+                                                                                        jmp   proc_density$2F2_ω
+n1075_call_builtin_prolog_β:
+                                                                                        jmp   proc_density$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_density$2F2_res:
                         add              rsp, 8
@@ -6703,14 +6998,14 @@ proc_density$2F2_γ:
                         push             rbp
                         lea              rax, [rip + proc_density$2F2_res]
                         push             rax
-                        mov              rax, [rbp + 824]
-                        mov              rbp, [rbp + 840]
+                        mov              rax, [rbp + 840]
+                        mov              rbp, [rbp + 856]
                                                                                         jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 proc_density$2F2_ω:
-                        mov              rax, [rbp + 832]
-                        lea              rsp, [rbp + 848]
-                        mov              rbp, [rbp + 840]
+                        mov              rax, [rbp + 848]
+                        lea              rsp, [rbp + 864]
+                        mov              rbp, [rbp + 856]
                                                                                         jmp   rax
 proc_startup:
                         sub              rsp, 8
@@ -6819,7 +7114,7 @@ main_α:
                         mov              rbp, rsp
 main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n1112_op11_α:
+n1112_call_builtin_prolog_α:
                         lea              r10, [rip + g_plw_cellws_on]
                         mov              eax, dword ptr [r10 + 0]
                         test             eax, eax
@@ -6843,11 +7138,12 @@ n1112_op11_α:
                         cmp              eax, 99
                                                                                         je    main_ω
                                                                                         jmp   n1113_lit_string_α
-n1112_op11_β:
+n1112_call_builtin_prolog_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n1113_lit_string_α:
                         mov              qword ptr [rbp + 976], 1
+                        mov              dword ptr [rbp + 980], 1
                         mov              rax, qword ptr [rip + .Lx1143_0]
                         mov              qword ptr [rbp + 984], rax
                                                                                         jmp   n1114_var_ref_α
@@ -6857,14 +7153,17 @@ n1113_lit_string_α:
                         .string          "."
 #-----------------------------------------------------------------------------------------------------------------------
 n1114_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 1008]
                         mov              qword ptr [rbp + 880], rax
                         mov              qword ptr [rbp + 888], rdx
+                        add              rsp, 16
                                                                                         jmp   n1115_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1115_lit_string_α:
                         mov              qword ptr [rbp + 864], 1
+                        mov              dword ptr [rbp + 868], 1
                         mov              rax, qword ptr [rip + .Lx1146_0]
                         mov              qword ptr [rbp + 872], rax
                                                                                         jmp   n1116_var_ref_α
@@ -6874,14 +7173,17 @@ n1115_lit_string_α:
                         .string          "."
 #-----------------------------------------------------------------------------------------------------------------------
 n1116_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 1040]
                         mov              qword ptr [rbp + 768], rax
                         mov              qword ptr [rbp + 776], rdx
+                        add              rsp, 16
                                                                                         jmp   n1117_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1117_lit_string_α:
                         mov              qword ptr [rbp + 752], 1
+                        mov              dword ptr [rbp + 756], 1
                         mov              rax, qword ptr [rip + .Lx1149_0]
                         mov              qword ptr [rbp + 760], rax
                                                                                         jmp   n1118_var_ref_α
@@ -6891,14 +7193,17 @@ n1117_lit_string_α:
                         .string          "."
 #-----------------------------------------------------------------------------------------------------------------------
 n1118_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 992]
                         mov              qword ptr [rbp + 656], rax
                         mov              qword ptr [rbp + 664], rdx
+                        add              rsp, 16
                                                                                         jmp   n1119_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1119_lit_string_α:
                         mov              qword ptr [rbp + 640], 1
+                        mov              dword ptr [rbp + 644], 1
                         mov              rax, qword ptr [rip + .Lx1152_0]
                         mov              qword ptr [rbp + 648], rax
                                                                                         jmp   n1120_var_ref_α
@@ -6908,23 +7213,26 @@ n1119_lit_string_α:
                         .string          "."
 #-----------------------------------------------------------------------------------------------------------------------
 n1120_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 1024]
                         mov              qword ptr [rbp + 544], rax
                         mov              qword ptr [rbp + 552], rdx
+                        add              rsp, 16
                                                                                         jmp   n1121_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1121_lit_string_α:
                         mov              qword ptr [rbp + 528], 1
+                        mov              dword ptr [rbp + 532], 2
                         mov              rax, qword ptr [rip + .Lx1155_0]
                         mov              qword ptr [rbp + 536], rax
-                                                                                        jmp   n1122_op11_α
+                                                                                        jmp   n1122_call_builtin_prolog_α
 .Lx1155_0:
                         .quad            .Lx1155_0_s
 .Lx1155_0_s:
                         .string          "[]"
 #-----------------------------------------------------------------------------------------------------------------------
-n1122_op11_α:
+n1122_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 640]
                         mov              qword ptr [rbp + 576], rax
                         mov              rax, qword ptr [rbp + 648]
@@ -6944,11 +7252,11 @@ n1122_op11_α:
                         mov              qword ptr [rbp + 568], rdx
                         cmp              eax, 99
                                                                                         je    main_ω
-                                                                                        jmp   n1123_op11_α
-n1122_op11_β:
+                                                                                        jmp   n1123_call_builtin_prolog_α
+n1122_call_builtin_prolog_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n1123_op11_α:
+n1123_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 752]
                         mov              qword ptr [rbp + 688], rax
                         mov              rax, qword ptr [rbp + 760]
@@ -6968,11 +7276,11 @@ n1123_op11_α:
                         mov              qword ptr [rbp + 680], rdx
                         cmp              eax, 99
                                                                                         je    main_ω
-                                                                                        jmp   n1124_op11_α
-n1123_op11_β:
+                                                                                        jmp   n1124_call_builtin_prolog_α
+n1123_call_builtin_prolog_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n1124_op11_α:
+n1124_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 864]
                         mov              qword ptr [rbp + 800], rax
                         mov              rax, qword ptr [rbp + 872]
@@ -6992,11 +7300,11 @@ n1124_op11_α:
                         mov              qword ptr [rbp + 792], rdx
                         cmp              eax, 99
                                                                                         je    main_ω
-                                                                                        jmp   n1125_op11_α
-n1124_op11_β:
+                                                                                        jmp   n1125_call_builtin_prolog_α
+n1124_call_builtin_prolog_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n1125_op11_α:
+n1125_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 976]
                         mov              qword ptr [rbp + 912], rax
                         mov              rax, qword ptr [rbp + 984]
@@ -7015,10 +7323,10 @@ n1125_op11_α:
                         mov              qword ptr [rbp + 896], rax
                         mov              qword ptr [rbp + 904], rdx
                         cmp              eax, 99
-                                                                                        je    n1127_lit_string_α
+                                                                                        je    n1135_lit_string_α
                                                                                         jmp   n1126_call_proc_staged_α
-n1125_op11_β:
-                                                                                        jmp   n1127_lit_string_α
+n1125_call_builtin_prolog_β:
+                                                                                        jmp   n1135_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1126_call_proc_staged_α:
                         mov              qword ptr [rbp + 496], 0
@@ -7073,8 +7381,8 @@ n1126_call_proc_staged_α:
                         mov              qword ptr [rbp + 464], rax
                         mov              qword ptr [rbp + 472], rdx
                         cmp              eax, 99
-                                                                                        je    n1127_lit_string_α
-                                                                                        jmp   n1128_lit_string_α
+                                                                                        je    n1135_lit_string_α
+                                                                                        jmp   n1127_lit_string_α
 n1126_call_proc_staged_β:
                         call             rt_gen_spine_resume_enter@PLT
                         mov              rsp, qword ptr [rbp + 504]
@@ -7085,138 +7393,57 @@ n1126_call_proc_staged_β:
                         .string          "query/1"
 #-----------------------------------------------------------------------------------------------------------------------
 n1127_lit_string_α:
-                        mov              qword ptr [rbp + 448], 1
+                        mov              qword ptr [rbp + 400], 1
+                        mov              dword ptr [rbp + 404], 1
                         mov              rax, qword ptr [rip + .Lx1162_0]
-                        mov              qword ptr [rbp + 456], rax
-                                                                                        jmp   n1129_op11_α
+                        mov              qword ptr [rbp + 408], rax
+                                                                                        jmp   n1128_var_ref_α
 .Lx1162_0:
                         .quad            .Lx1162_0_s
 .Lx1162_0_s:
-                        .string          "none"
-#-----------------------------------------------------------------------------------------------------------------------
-n1128_lit_string_α:
-                        mov              qword ptr [rbp + 400], 1
-                        mov              rax, qword ptr [rip + .Lx1163_0]
-                        mov              qword ptr [rbp + 408], rax
-                                                                                        jmp   n1130_var_ref_α
-.Lx1163_0:
-                        .quad            .Lx1163_0_s
-.Lx1163_0_s:
                         .string          "."
 #-----------------------------------------------------------------------------------------------------------------------
-n1129_op11_α:
-                        mov              rax, qword ptr [rbp + 448]
-                        mov              qword ptr [rbp + 432], rax
-                        mov              rax, qword ptr [rbp + 456]
-                        mov              qword ptr [rbp + 440], rax
-                        .section         .rodata
-.Lrkfn1165:             .string          "$write"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfn1165]
-                        lea              rsi, [rbp + 432]
-                        mov              edx, 1
-                        call             rt_call_arr@PLT
-                        mov              qword ptr [rbp + 416], rax
-                        mov              qword ptr [rbp + 424], rdx
-                        cmp              eax, 99
-                                                                                        je    n1132_op11_α
-                                                                                        jmp   n1131_lit_string_α
-n1129_op11_β:
-                                                                                        jmp   n1132_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n1130_var_ref_α:
+n1128_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 1008]
                         mov              qword ptr [rbp + 304], rax
                         mov              qword ptr [rbp + 312], rdx
-                                                                                        jmp   n1133_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n1129_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1131_lit_string_α:
-                        mov              qword ptr [rbp + 128], 1
-                        mov              rax, qword ptr [rip + .Lx1168_0]
-                        mov              qword ptr [rbp + 136], rax
-                                                                                        jmp   n1134_op11_α
-.Lx1168_0:
-                        .quad            .Lx1168_0_s
-.Lx1168_0_s:
-                        .string          ""
-#-----------------------------------------------------------------------------------------------------------------------
-n1132_op11_α:
-                        mov              rax, qword ptr [rbp + 32]
-                        mov              qword ptr [rbp + 80], rax
-                        mov              rax, qword ptr [rbp + 40]
-                        mov              qword ptr [rbp + 88], rax
-                        lea              rdi, [rbp + 80]
-                        mov              esi, 1
-                        call             rt_pl_dop_trail_unwind@PLT
-                        mov              qword ptr [rbp + 64], rax
-                        mov              qword ptr [rbp + 72], rdx
-                        cmp              eax, 99
-                                                                                        je    main_ω
-                                                                                        jmp   main_ω
-n1132_op11_β:
-                                                                                        jmp   main_ω
-#-----------------------------------------------------------------------------------------------------------------------
-n1133_lit_string_α:
+n1129_lit_string_α:
                         mov              qword ptr [rbp + 288], 1
-                        mov              rax, qword ptr [rip + .Lx1170_0]
+                        mov              dword ptr [rbp + 292], 1
+                        mov              rax, qword ptr [rip + .Lx1165_0]
                         mov              qword ptr [rbp + 296], rax
-                                                                                        jmp   n1135_var_ref_α
-.Lx1170_0:
-                        .quad            .Lx1170_0_s
-.Lx1170_0_s:
+                                                                                        jmp   n1130_var_ref_α
+.Lx1165_0:
+                        .quad            .Lx1165_0_s
+.Lx1165_0_s:
                         .string          "."
 #-----------------------------------------------------------------------------------------------------------------------
-n1134_op11_α:
-                        mov              rax, qword ptr [rbp + 128]
-                        mov              qword ptr [rbp + 112], rax
-                        mov              rax, qword ptr [rbp + 136]
-                        mov              qword ptr [rbp + 120], rax
-                        .section         .rodata
-.Lrkfn1172:             .string          "$nl0"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfn1172]
-                        lea              rsi, [rbp + 112]
-                        mov              edx, 1
-                        call             rt_call_arr@PLT
-                        mov              qword ptr [rbp + 96], rax
-                        mov              qword ptr [rbp + 104], rdx
-                        cmp              eax, 99
-                                                                                        je    n1132_op11_α
-                                                                                        jmp   n1136_move_label_α
-n1134_op11_β:
-                                                                                        jmp   n1132_op11_α
-#-----------------------------------------------------------------------------------------------------------------------
-n1135_var_ref_α:
+n1130_var_ref_α:
+                        sub              rsp, 16
                         mov              rax, 4294967305
                         lea              rdx, [rbp + 992]
                         mov              qword ptr [rbp + 192], rax
                         mov              qword ptr [rbp + 200], rdx
-                                                                                        jmp   n1137_lit_string_α
+                        add              rsp, 16
+                                                                                        jmp   n1131_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1136_move_label_α:
-                        lea              rax, [rip + n1132_op11_α]
-                        mov              qword ptr [rbp + 16], rax
-                                                                                        jmp   main_γ
-#-----------------------------------------------------------------------------------------------------------------------
-n1137_lit_string_α:
+n1131_lit_string_α:
                         mov              qword ptr [rbp + 176], 1
-                        mov              rax, qword ptr [rip + .Lx1177_0]
+                        mov              dword ptr [rbp + 180], 2
+                        mov              rax, qword ptr [rip + .Lx1168_0]
                         mov              qword ptr [rbp + 184], rax
-                                                                                        jmp   n1139_op11_α
-.Lx1177_0:
-                        .quad            .Lx1177_0_s
-.Lx1177_0_s:
+                                                                                        jmp   n1132_call_builtin_prolog_α
+.Lx1168_0:
+                        .quad            .Lx1168_0_s
+.Lx1168_0_s:
                         .string          "[]"
 #-----------------------------------------------------------------------------------------------------------------------
-n1138_disjunction_α:
-                                                                                        jmp   qword ptr [rbp + 16]
-n1138_disjunction_β:
-                                                                                        jmp   main_ω
-#-----------------------------------------------------------------------------------------------------------------------
-n1139_op11_α:
+n1132_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 288]
                         mov              qword ptr [rbp + 224], rax
                         mov              rax, qword ptr [rbp + 296]
@@ -7236,11 +7463,11 @@ n1139_op11_α:
                         mov              qword ptr [rbp + 216], rdx
                         cmp              eax, 99
                                                                                         je    main_ω
-                                                                                        jmp   n1140_op11_α
-n1139_op11_β:
+                                                                                        jmp   n1133_call_builtin_prolog_α
+n1132_call_builtin_prolog_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n1140_op11_α:
+n1133_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 400]
                         mov              qword ptr [rbp + 336], rax
                         mov              rax, qword ptr [rbp + 408]
@@ -7259,34 +7486,127 @@ n1140_op11_α:
                         mov              qword ptr [rbp + 320], rax
                         mov              qword ptr [rbp + 328], rdx
                         cmp              eax, 99
-                                                                                        je    n1132_op11_α
-                                                                                        jmp   n1141_op11_α
-n1140_op11_β:
-                                                                                        jmp   n1132_op11_α
+                                                                                        je    n1141_call_builtin_prolog_α
+                                                                                        jmp   n1134_call_builtin_prolog_α
+n1133_call_builtin_prolog_β:
+                                                                                        jmp   n1141_call_builtin_prolog_α
 #-----------------------------------------------------------------------------------------------------------------------
-n1141_op11_α:
+n1134_call_builtin_prolog_α:
                         mov              rax, qword ptr [rbp + 320]
                         mov              qword ptr [rbp + 160], rax
                         mov              rax, qword ptr [rbp + 328]
                         mov              qword ptr [rbp + 168], rax
                         .section         .rodata
-.Lrkfn1183:             .string          "$write"
+.Lrkfn1172:             .string          "$write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfn1183]
+                        lea              rdi, [rip + .Lrkfn1172]
                         lea              rsi, [rbp + 160]
                         mov              edx, 1
                         call             rt_call_arr@PLT
                         mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         cmp              eax, 99
-                                                                                        je    n1132_op11_α
-                                                                                        jmp   n1131_lit_string_α
-n1141_op11_β:
-                                                                                        jmp   n1132_op11_α
+                                                                                        je    n1141_call_builtin_prolog_α
+                                                                                        jmp   n1137_lit_string_α
+n1134_call_builtin_prolog_β:
+                                                                                        jmp   n1141_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n1135_lit_string_α:
+                        mov              qword ptr [rbp + 448], 1
+                        mov              dword ptr [rbp + 452], 4
+                        mov              rax, qword ptr [rip + .Lx1173_0]
+                        mov              qword ptr [rbp + 456], rax
+                                                                                        jmp   n1136_call_builtin_prolog_α
+.Lx1173_0:
+                        .quad            .Lx1173_0_s
+.Lx1173_0_s:
+                        .string          "none"
+#-----------------------------------------------------------------------------------------------------------------------
+n1136_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 448]
+                        mov              qword ptr [rbp + 432], rax
+                        mov              rax, qword ptr [rbp + 456]
+                        mov              qword ptr [rbp + 440], rax
+                        .section         .rodata
+.Lrkfn1175:             .string          "$write"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn1175]
+                        lea              rsi, [rbp + 432]
+                        mov              edx, 1
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rbp + 416], rax
+                        mov              qword ptr [rbp + 424], rdx
+                        cmp              eax, 99
+                                                                                        je    n1141_call_builtin_prolog_α
+                                                                                        jmp   n1137_lit_string_α
+n1136_call_builtin_prolog_β:
+                                                                                        jmp   n1141_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n1137_lit_string_α:
+                        mov              qword ptr [rbp + 128], 1
+                        mov              dword ptr [rbp + 132], 0
+                        mov              rax, qword ptr [rip + .Lx1176_0]
+                        mov              qword ptr [rbp + 136], rax
+                                                                                        jmp   n1138_call_builtin_prolog_α
+.Lx1176_0:
+                        .quad            .Lx1176_0_s
+.Lx1176_0_s:
+                        .string          ""
+#-----------------------------------------------------------------------------------------------------------------------
+n1138_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 128]
+                        mov              qword ptr [rbp + 112], rax
+                        mov              rax, qword ptr [rbp + 136]
+                        mov              qword ptr [rbp + 120], rax
+                        .section         .rodata
+.Lrkfn1178:             .string          "$nl0"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lrkfn1178]
+                        lea              rsi, [rbp + 112]
+                        mov              edx, 1
+                        call             rt_call_arr@PLT
+                        mov              qword ptr [rbp + 96], rax
+                        mov              qword ptr [rbp + 104], rdx
+                        cmp              eax, 99
+                                                                                        je    n1141_call_builtin_prolog_α
+                                                                                        jmp   n1139_move_label_α
+n1138_call_builtin_prolog_β:
+                                                                                        jmp   n1141_call_builtin_prolog_α
+#-----------------------------------------------------------------------------------------------------------------------
+n1139_move_label_α:
+                        lea              rax, [rip + n1141_call_builtin_prolog_α]
+                        mov              qword ptr [rbp + 16], rax
+                                                                                        jmp   main_γ
+#-----------------------------------------------------------------------------------------------------------------------
+n1140_disjunction_α:
+                        sub              rsp, 32
+                                                                                        jmp   qword ptr [rbp + 16]
+n1140_disjunction_β:
+                        sub              rsp, 32
+                        add              rsp, 32
+                                                                                        jmp   main_ω
+#-----------------------------------------------------------------------------------------------------------------------
+n1141_call_builtin_prolog_α:
+                        mov              rax, qword ptr [rbp + 32]
+                        mov              qword ptr [rbp + 80], rax
+                        mov              rax, qword ptr [rbp + 40]
+                        mov              qword ptr [rbp + 88], rax
+                        lea              rdi, [rbp + 80]
+                        mov              esi, 1
+                        call             rt_pl_dop_trail_unwind@PLT
+                        mov              qword ptr [rbp + 64], rax
+                        mov              qword ptr [rbp + 72], rdx
+                        cmp              eax, 99
+                                                                                        je    main_ω
+                                                                                        jmp   main_ω
+n1141_call_builtin_prolog_β:
+                                                                                        jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
-                                                                                        jmp   n1138_disjunction_α
+                                                                                        jmp   n1140_disjunction_α
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
                         mov              eax, 1
