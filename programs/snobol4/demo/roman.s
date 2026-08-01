@@ -1039,56 +1039,48 @@ n89_save_restore_α:
 # 	I = I + 1					:(TEST)
 #-----------------------------------------------------------------------------------------------------------------------
 n90_var_α:
-                        sub              rsp, 16
                         mov              rax, qword ptr [1879052352]
                         mov              rdx, qword ptr [1879052360]
-                        mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rsp + 880], rax
+                        mov              qword ptr [rsp + 888], rdx
                                                                                         jmp   n91_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
 n91_lit_integer_α:
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 6
+                        mov              qword ptr [rsp + 896], 6
                         mov              rax, qword ptr [rip + .Lx114_0]
-                        mov              qword ptr [rsp + 8], rax
+                        mov              qword ptr [rsp + 904], rax
                                                                                         jmp   n92_binop_α
 .Lx114_0:
                         .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
 n92_binop_α:
-                        mov              eax, dword ptr [rsp + 16]
+                        mov              eax, dword ptr [rsp + 880]
                         cmp              eax, 6
                                                                                         jne   .Lx115_0
-                        mov              eax, dword ptr [rsp + 0]
-                        cmp              eax, 6
-                                                                                        jne   .Lx115_0
-                        mov              rax, qword ptr [rsp + 24]
-                        mov              rcx, qword ptr [rsp + 8]
+                        mov              rax, qword ptr [rsp + 888]
+                        mov              rcx, 1
                         add              rax, rcx
-                        add              rsp, 16
-                        mov              qword ptr [rsp + 0], 6
-                        mov              qword ptr [rsp + 8], rax
+                        mov              qword ptr [rsp + 864], 6
+                        mov              qword ptr [rsp + 872], rax
                                                                                         jmp   n93_assign_α
 .Lx115_0:
-                        mov              rdi, qword ptr [rsp + 16]
-                        mov              rsi, qword ptr [rsp + 24]
-                        mov              rdx, qword ptr [rsp + 0]
-                        mov              rcx, qword ptr [rsp + 8]
+                        mov              rdi, qword ptr [rsp + 880]
+                        mov              rsi, qword ptr [rsp + 888]
+                        mov              rdx, qword ptr [rsp + 896]
+                        mov              rcx, qword ptr [rsp + 904]
                         call             rt_add@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx115_240
                         add              rsp, 32
                                                                                         jmp   n77_var_α
 .Lx115_240:
-                        add              rsp, 16
-                        mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rsp + 864], rax
+                        mov              qword ptr [rsp + 872], rdx
                                                                                         jmp   n93_assign_α
 #-----------------------------------------------------------------------------------------------------------------------
 n93_assign_α:
-                        mov              rax, qword ptr [rsp + 0]
-                        mov              rdx, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rax, qword ptr [rsp + 864]
+                        mov              rdx, qword ptr [rsp + 872]
                         mov              qword ptr [1879052352], rax
                         mov              qword ptr [1879052360], rdx
                                                                                         jmp   n77_var_α
