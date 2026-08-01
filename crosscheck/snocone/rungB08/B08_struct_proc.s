@@ -6,49 +6,61 @@ proc_make_pair_α:
 proc_make_pair_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_var_α:
-                        mov              rax, qword ptr [1879052304]
-                        mov              rdx, qword ptr [1879052312]
-                        mov              qword ptr [rsp + 80], rax
-                        mov              qword ptr [rsp + 88], rdx
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052304]                    # a
+                        mov              rdx, qword ptr [1879052312]                    # a
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1_var_α:
-                        mov              rax, qword ptr [1879052320]
-                        mov              rdx, qword ptr [1879052328]
-                        mov              qword ptr [rsp + 96], rax
-                        mov              qword ptr [rsp + 104], rdx
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052320]                    # b
+                        mov              rdx, qword ptr [1879052328]                    # b
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n2_call_α
 #-----------------------------------------------------------------------------------------------------------------------
 n2_call_α:
-                        mov              rax, qword ptr [rsp + 80]
-                        mov              qword ptr [rsp + 32], rax
-                        mov              rax, qword ptr [rsp + 88]
-                        mov              qword ptr [rsp + 40], rax
-                        mov              rax, qword ptr [rsp + 96]
-                        mov              qword ptr [rsp + 48], rax
-                        mov              rax, qword ptr [rsp + 104]
-                        mov              qword ptr [rsp + 56], rax
+                        sub              rsp, 16
+                        sub              rsp, 32
+                        mov              r10, qword ptr [rsp + 64]
+                        mov              r11, qword ptr [rsp + 72]
+                        mov              qword ptr [rsp + 0], r10
+                        mov              qword ptr [rsp + 8], r11
+                        mov              r10, qword ptr [rsp + 48]
+                        mov              r11, qword ptr [rsp + 56]
+                        mov              qword ptr [rsp + 16], r10
+                        mov              qword ptr [rsp + 24], r11
                         .section         .rodata
-.Lrkfn7:                .string          "pair"
+.Lrkfnzd7:              .string          "pair"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfn7]
-                        lea              rsi, [rsp + 32]
+                        lea              rdi, [rip + .Lrkfnzd7]
+                        lea              rsi, [rsp + 0]
                         mov              edx, 2
                         call             rt_call_arr@PLT
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rsp + 24], rdx
+                        add              rsp, 32
                         cmp              eax, 99
-                                                                                        je    proc_make_pair_γ
+                                                                                        jne   .Lx6_240
+                        add              rsp, 16
+                        add              rsp, 32
+                                                                                        jmp   proc_make_pair_γ
+.Lx6_240:
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n3_assign_α
 n2_call_β:
+                        add              rsp, 16
+                        add              rsp, 32
                                                                                         jmp   proc_make_pair_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n3_assign_α:
-                        mov              rax, qword ptr [rsp + 16]
-                        mov              rdx, qword ptr [rsp + 24]
-                        mov              qword ptr [1879052288], rax
-                        mov              qword ptr [1879052296], rdx
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
+                        mov              qword ptr [1879052288], rax                    # make_pair
+                        mov              qword ptr [1879052296], rdx                    # make_pair
+                        add              rsp, 48
                                                                                         jmp   proc_make_pair_γ
 #-----------------------------------------------------------------------------------------------------------------------
 proc_make_pair_res:
@@ -149,6 +161,38 @@ main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n9_lit_string_α:
                         sub              rsp, 256
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
+                        mov              qword ptr [rsp + 16], 0
+                        mov              qword ptr [rsp + 24], 0
+                        mov              qword ptr [rsp + 32], 0
+                        mov              qword ptr [rsp + 40], 0
+                        mov              qword ptr [rsp + 0], 0
+                        mov              qword ptr [rsp + 8], 0
+                        mov              qword ptr [rsp + 16], 0
+                        mov              qword ptr [rsp + 24], 0
+                        mov              qword ptr [rsp + 32], 0
+                        mov              qword ptr [rsp + 40], 0
+                        mov              qword ptr [rsp + 48], 0
+                        mov              qword ptr [rsp + 56], 0
+                        mov              qword ptr [rsp + 64], 0
+                        mov              qword ptr [rsp + 72], 0
+                        mov              qword ptr [rsp + 80], 0
+                        mov              qword ptr [rsp + 88], 0
+                        mov              qword ptr [rsp + 96], 0
+                        mov              qword ptr [rsp + 104], 0
+                        mov              qword ptr [rsp + 112], 0
+                        mov              qword ptr [rsp + 120], 0
+                        mov              qword ptr [rsp + 128], 0
+                        mov              qword ptr [rsp + 136], 0
+                        mov              qword ptr [rsp + 144], 0
+                        mov              qword ptr [rsp + 152], 0
+                        mov              qword ptr [rsp + 160], 0
+                        mov              qword ptr [rsp + 168], 0
+                        mov              qword ptr [rsp + 176], 0
+                        mov              qword ptr [rsp + 184], 0
+                        mov              qword ptr [rsp + 192], 0
+                        mov              qword ptr [rsp + 200], 0
                         mov              qword ptr [rsp + 0], 1
                         mov              dword ptr [rsp + 4], 18
                         mov              rax, qword ptr [rip + .Lx21_0]
@@ -204,17 +248,17 @@ n12_lit_string_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n13_call_α:
                         sub              rsp, 48
-                        mov              rax, qword ptr [1879052304]
+                        mov              rax, qword ptr [1879052304]                    # a
                         mov              qword ptr [rsp + 0], rax
-                        mov              rax, qword ptr [1879052312]
+                        mov              rax, qword ptr [1879052312]                    # a
                         mov              qword ptr [rsp + 8], rax
-                        mov              rax, qword ptr [1879052320]
+                        mov              rax, qword ptr [1879052320]                    # b
                         mov              qword ptr [rsp + 16], rax
-                        mov              rax, qword ptr [1879052328]
+                        mov              rax, qword ptr [1879052328]                    # b
                         mov              qword ptr [rsp + 24], rax
-                        mov              rax, qword ptr [1879052288]
+                        mov              rax, qword ptr [1879052288]                    # make_pair
                         mov              qword ptr [rsp + 32], rax
-                        mov              rax, qword ptr [1879052296]
+                        mov              rax, qword ptr [1879052296]                    # make_pair
                         mov              qword ptr [rsp + 40], rax
                         mov              rdi, qword ptr [rip + .Lx27_0]
                         mov              esi, 2
@@ -223,48 +267,48 @@ n13_call_α:
                         test             rax, rax
                                                                                         je    .Lx27_5
                         mov              rax, qword ptr [rsp + 144]
-                        mov              qword ptr [1879052304], rax
+                        mov              qword ptr [1879052304], rax                    # a
                         mov              rax, qword ptr [rsp + 152]
-                        mov              qword ptr [1879052312], rax
+                        mov              qword ptr [1879052312], rax                    # a
                         mov              rax, qword ptr [rsp + 160]
-                        mov              qword ptr [1879052320], rax
+                        mov              qword ptr [1879052320], rax                    # b
                         mov              rax, qword ptr [rsp + 168]
-                        mov              qword ptr [1879052328], rax
+                        mov              qword ptr [1879052328], rax                    # b
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx27_6]
                         lea              rdx, [rip + .Lx27_7]
                                                                                         jmp   rax
 .Lx27_6:
-                        mov              rdi, qword ptr [1879052288]
-                        mov              rsi, qword ptr [1879052296]
+                        mov              rdi, qword ptr [1879052288]                    # make_pair
+                        mov              rsi, qword ptr [1879052296]                    # make_pair
                         mov              rax, qword ptr [rsp + 32]
-                        mov              qword ptr [1879052288], rax
+                        mov              qword ptr [1879052288], rax                    # make_pair
                         mov              rax, qword ptr [rsp + 40]
-                        mov              qword ptr [1879052296], rax
+                        mov              qword ptr [1879052296], rax                    # make_pair
                         mov              rax, qword ptr [rsp + 16]
-                        mov              qword ptr [1879052320], rax
+                        mov              qword ptr [1879052320], rax                    # b
                         mov              rax, qword ptr [rsp + 24]
-                        mov              qword ptr [1879052328], rax
+                        mov              qword ptr [1879052328], rax                    # b
                         mov              rax, qword ptr [rsp + 0]
-                        mov              qword ptr [1879052304], rax
+                        mov              qword ptr [1879052304], rax                    # a
                         mov              rax, qword ptr [rsp + 8]
-                        mov              qword ptr [1879052312], rax
+                        mov              qword ptr [1879052312], rax                    # a
                         add              rsp, 48
                         call             rt_proc_call_epilogue_slim_γ@PLT
                                                                                         jmp   .Lx27_2
 .Lx27_7:
                         mov              rax, qword ptr [rsp + 32]
-                        mov              qword ptr [1879052288], rax
+                        mov              qword ptr [1879052288], rax                    # make_pair
                         mov              rax, qword ptr [rsp + 40]
-                        mov              qword ptr [1879052296], rax
+                        mov              qword ptr [1879052296], rax                    # make_pair
                         mov              rax, qword ptr [rsp + 16]
-                        mov              qword ptr [1879052320], rax
+                        mov              qword ptr [1879052320], rax                    # b
                         mov              rax, qword ptr [rsp + 24]
-                        mov              qword ptr [1879052328], rax
+                        mov              qword ptr [1879052328], rax                    # b
                         mov              rax, qword ptr [rsp + 0]
-                        mov              qword ptr [1879052304], rax
+                        mov              qword ptr [1879052304], rax                    # a
                         mov              rax, qword ptr [rsp + 8]
-                        mov              qword ptr [1879052312], rax
+                        mov              qword ptr [1879052312], rax                    # a
                         add              rsp, 48
                         call             rt_proc_call_epilogue_slim_ω@PLT
                                                                                         jmp   .Lx27_2
@@ -335,13 +379,13 @@ n13_call_β:
 n14_assign_α:
                         mov              rax, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rsp + 40]
-                        mov              qword ptr [1879052336], rax
-                        mov              qword ptr [1879052344], rdx
+                        mov              qword ptr [1879052336], rax                    # p
+                        mov              qword ptr [1879052344], rdx                    # p
                                                                                         jmp   n15_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n15_var_α:
-                        mov              rax, qword ptr [1879052336]
-                        mov              rdx, qword ptr [1879052344]
+                        mov              rax, qword ptr [1879052336]                    # p
+                        mov              rdx, qword ptr [1879052344]                    # p
                         mov              qword ptr [rsp + 176], rax
                         mov              qword ptr [rsp + 184], rdx
                                                                                         jmp   n16_call_α
@@ -379,8 +423,8 @@ n17_assign_α:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
 n18_var_α:
-                        mov              rax, qword ptr [1879052336]
-                        mov              rdx, qword ptr [1879052344]
+                        mov              rax, qword ptr [1879052336]                    # p
+                        mov              rdx, qword ptr [1879052344]                    # p
                         mov              qword ptr [rsp + 240], rax
                         mov              qword ptr [rsp + 248], rdx
                                                                                         jmp   n19_call_α

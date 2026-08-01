@@ -75,8 +75,8 @@ n1_call_β:
 n2_assign_α:
                         mov              rax, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
-                        mov              qword ptr [1879052288], rax
-                        mov              qword ptr [1879052296], rdx
+                        mov              qword ptr [1879052288], rax                    # X
+                        mov              qword ptr [1879052296], rdx                    # X
                         add              rsp, 32
                                                                                         jmp   n3_lit_string_α
 #=======================================================================================================================

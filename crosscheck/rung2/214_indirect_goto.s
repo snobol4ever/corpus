@@ -13,10 +13,11 @@ n0_goto_β:
 # BETA    OUTPUT = 'at BETA'
 #-----------------------------------------------------------------------------------------------------------------------
 n1_lit_string_α:
-                        mov              qword ptr [rsp + 224], 1
-                        mov              dword ptr [rsp + 228], 7
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 1
+                        mov              dword ptr [rsp + 4], 7
                         mov              rax, qword ptr [rip + .Lx7_0]
-                        mov              qword ptr [rsp + 232], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n2_assign_α
 .Lx7_0:
                         .quad            .Lx7_0_s
@@ -24,10 +25,11 @@ n1_lit_string_α:
                         .string          "at BETA"
 #-----------------------------------------------------------------------------------------------------------------------
 n2_assign_α:
-                        mov              rsi, qword ptr [rsp + 224]
-                        mov              rdx, qword ptr [rsp + 232]
+                        mov              rsi, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              rdi, qword ptr [rip + .Lx8_0]
                         call             NV_SET_fn@PLT
+                        add              rsp, 16
                                                                                         jmp   n3_lit_string_α
 .Lx8_0:
                         .quad            .Lx8_0_s
@@ -37,10 +39,11 @@ n2_assign_α:
 #         NEXT = 'GAMMA'
 #-----------------------------------------------------------------------------------------------------------------------
 n3_lit_string_α:
-                        mov              qword ptr [rsp + 240], 1
-                        mov              dword ptr [rsp + 244], 5
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 1
+                        mov              dword ptr [rsp + 4], 5
                         mov              rax, qword ptr [rip + .Lx9_0]
-                        mov              qword ptr [rsp + 248], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n4_assign_α
 .Lx9_0:
                         .quad            .Lx9_0_s
@@ -48,10 +51,11 @@ n3_lit_string_α:
                         .string          "GAMMA"
 #-----------------------------------------------------------------------------------------------------------------------
 n4_assign_α:
-                        mov              rax, qword ptr [rsp + 240]
-                        mov              rdx, qword ptr [rsp + 248]
-                        mov              qword ptr [1879052304], rax
-                        mov              qword ptr [1879052312], rdx
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
+                        mov              qword ptr [1879052304], rax                    # NEXT
+                        mov              qword ptr [1879052312], rdx                    # NEXT
+                        add              rsp, 16
                                                                                         jmp   n5_goto_deferred_α
 #=======================================================================================================================
 #         :($NEXT)
@@ -98,10 +102,11 @@ n13_goto_β:
 # ALPHA   OUTPUT = 'at ALPHA'
 #-----------------------------------------------------------------------------------------------------------------------
 n14_lit_string_α:
-                        mov              qword ptr [rsp + 256], 1
-                        mov              dword ptr [rsp + 260], 8
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 1
+                        mov              dword ptr [rsp + 4], 8
                         mov              rax, qword ptr [rip + .Lx22_0]
-                        mov              qword ptr [rsp + 264], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n15_assign_α
 .Lx22_0:
                         .quad            .Lx22_0_s
@@ -109,10 +114,11 @@ n14_lit_string_α:
                         .string          "at ALPHA"
 #-----------------------------------------------------------------------------------------------------------------------
 n15_assign_α:
-                        mov              rsi, qword ptr [rsp + 256]
-                        mov              rdx, qword ptr [rsp + 264]
+                        mov              rsi, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              rdi, qword ptr [rip + .Lx23_0]
                         call             NV_SET_fn@PLT
+                        add              rsp, 16
                                                                                         jmp   n16_lit_string_α
 .Lx23_0:
                         .quad            .Lx23_0_s
@@ -122,10 +128,11 @@ n15_assign_α:
 #         WHICH = 'BE' 'TA'
 #-----------------------------------------------------------------------------------------------------------------------
 n16_lit_string_α:
-                        mov              qword ptr [rsp + 288], 1
-                        mov              dword ptr [rsp + 292], 2
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 1
+                        mov              dword ptr [rsp + 4], 2
                         mov              rax, qword ptr [rip + .Lx24_0]
-                        mov              qword ptr [rsp + 296], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n17_lit_string_α
 .Lx24_0:
                         .quad            .Lx24_0_s
@@ -133,10 +140,11 @@ n16_lit_string_α:
                         .string          "BE"
 #-----------------------------------------------------------------------------------------------------------------------
 n17_lit_string_α:
-                        mov              qword ptr [rsp + 304], 1
-                        mov              dword ptr [rsp + 308], 2
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 1
+                        mov              dword ptr [rsp + 4], 2
                         mov              rax, qword ptr [rip + .Lx25_0]
-                        mov              qword ptr [rsp + 312], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n18_binop_α
 .Lx25_0:
                         .quad            .Lx25_0_s
@@ -144,20 +152,22 @@ n17_lit_string_α:
                         .string          "TA"
 #-----------------------------------------------------------------------------------------------------------------------
 n18_binop_α:
-                        mov              rdi, qword ptr [rsp + 288]
-                        mov              rsi, qword ptr [rsp + 296]
-                        mov              rdx, qword ptr [rsp + 304]
-                        mov              rcx, qword ptr [rsp + 312]
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 32]
+                        mov              rsi, qword ptr [rsp + 40]
+                        mov              rdx, qword ptr [rsp + 16]
+                        mov              rcx, qword ptr [rsp + 24]
                         call             str_concat_d@PLT
-                        mov              qword ptr [rsp + 272], rax
-                        mov              qword ptr [rsp + 280], rdx
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n19_assign_α
 #-----------------------------------------------------------------------------------------------------------------------
 n19_assign_α:
-                        mov              rax, qword ptr [rsp + 272]
-                        mov              rdx, qword ptr [rsp + 280]
-                        mov              qword ptr [1879052288], rax
-                        mov              qword ptr [1879052296], rdx
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
+                        mov              qword ptr [1879052288], rax                    # WHICH
+                        mov              qword ptr [1879052296], rdx                    # WHICH
+                        add              rsp, 48
                                                                                         jmp   n20_goto_deferred_α
 #=======================================================================================================================
 #         :($WHICH)
@@ -204,10 +214,11 @@ n30_goto_β:
 # GAMMA   OUTPUT = 'at GAMMA'                      :(END)
 #-----------------------------------------------------------------------------------------------------------------------
 n31_lit_string_α:
-                        mov              qword ptr [rsp + 320], 1
-                        mov              dword ptr [rsp + 324], 8
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 1
+                        mov              dword ptr [rsp + 4], 8
                         mov              rax, qword ptr [rip + .Lx34_0]
-                        mov              qword ptr [rsp + 328], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n32_assign_α
 .Lx34_0:
                         .quad            .Lx34_0_s
@@ -215,10 +226,11 @@ n31_lit_string_α:
                         .string          "at GAMMA"
 #-----------------------------------------------------------------------------------------------------------------------
 n32_assign_α:
-                        mov              rsi, qword ptr [rsp + 320]
-                        mov              rdx, qword ptr [rsp + 328]
+                        mov              rsi, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              rdi, qword ptr [rip + .Lx35_0]
                         call             NV_SET_fn@PLT
+                        add              rsp, 16
                                                                                         jmp   proc_LBL__GAMMA_γ
 .Lx35_0:
                         .quad            .Lx35_0_s
@@ -410,8 +422,8 @@ n39_lit_string_α:
 n40_assign_α:
                         mov              rax, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
-                        mov              qword ptr [1879052288], rax
-                        mov              qword ptr [1879052296], rdx
+                        mov              qword ptr [1879052288], rax                    # WHICH
+                        mov              qword ptr [1879052296], rdx                    # WHICH
                         add              rsp, 16
                                                                                         jmp   n41_goto_deferred_α
 #=======================================================================================================================
@@ -476,8 +488,8 @@ n45_lit_string_α:
 n46_assign_α:
                         mov              rax, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
-                        mov              qword ptr [1879052304], rax
-                        mov              qword ptr [1879052312], rdx
+                        mov              qword ptr [1879052304], rax                    # NEXT
+                        mov              qword ptr [1879052312], rdx                    # NEXT
                         add              rsp, 16
                                                                                         jmp   n47_goto_deferred_α
 #=======================================================================================================================
@@ -565,8 +577,8 @@ n53_binop_α:
 n54_assign_α:
                         mov              rax, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
-                        mov              qword ptr [1879052288], rax
-                        mov              qword ptr [1879052296], rdx
+                        mov              qword ptr [1879052288], rax                    # WHICH
+                        mov              qword ptr [1879052296], rdx                    # WHICH
                         add              rsp, 48
                                                                                         jmp   n55_goto_deferred_α
 #=======================================================================================================================

@@ -167,9 +167,9 @@ main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n11_call_α:
                         sub              rsp, 16
-                        mov              rax, qword ptr [1879052288]
+                        mov              rax, qword ptr [1879052288]                    # always_fail
                         mov              qword ptr [rsp + 0], rax
-                        mov              rax, qword ptr [1879052296]
+                        mov              rax, qword ptr [1879052296]                    # always_fail
                         mov              qword ptr [rsp + 8], rax
                         mov              rdi, qword ptr [rip + .Lx21_0]
                         mov              esi, 0
@@ -182,20 +182,20 @@ n11_call_α:
                         lea              rdx, [rip + .Lx21_7]
                                                                                         jmp   rax
 .Lx21_6:
-                        mov              rdi, qword ptr [1879052288]
-                        mov              rsi, qword ptr [1879052296]
+                        mov              rdi, qword ptr [1879052288]                    # always_fail
+                        mov              rsi, qword ptr [1879052296]                    # always_fail
                         mov              rax, qword ptr [rsp + 0]
-                        mov              qword ptr [1879052288], rax
+                        mov              qword ptr [1879052288], rax                    # always_fail
                         mov              rax, qword ptr [rsp + 8]
-                        mov              qword ptr [1879052296], rax
+                        mov              qword ptr [1879052296], rax                    # always_fail
                         add              rsp, 16
                         call             rt_proc_call_epilogue_slim_γ@PLT
                                                                                         jmp   .Lx21_2
 .Lx21_7:
                         mov              rax, qword ptr [rsp + 0]
-                        mov              qword ptr [1879052288], rax
+                        mov              qword ptr [1879052288], rax                    # always_fail
                         mov              rax, qword ptr [rsp + 8]
-                        mov              qword ptr [1879052296], rax
+                        mov              qword ptr [1879052296], rax                    # always_fail
                         add              rsp, 16
                         call             rt_proc_call_epilogue_slim_ω@PLT
                                                                                         jmp   .Lx21_2
