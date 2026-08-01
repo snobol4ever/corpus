@@ -34,46 +34,46 @@ main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_lit_string_α:
                         sub              rsp, 288
-                        mov              qword ptr [rsp + 0], 0
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
-                        mov              qword ptr [rsp + 96], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 120], 0
-                        mov              qword ptr [rsp + 128], 0
-                        mov              qword ptr [rsp + 136], 0
-                        mov              qword ptr [rsp + 144], 0
-                        mov              qword ptr [rsp + 152], 0
-                        mov              qword ptr [rsp + 160], 0
-                        mov              qword ptr [rsp + 168], 0
-                        mov              qword ptr [rsp + 176], 0
-                        mov              qword ptr [rsp + 184], 0
-                        mov              qword ptr [rsp + 192], 0
-                        mov              qword ptr [rsp + 200], 0
-                        mov              qword ptr [rsp + 208], 0
-                        mov              qword ptr [rsp + 216], 0
-                        mov              qword ptr [rsp + 224], 0
-                        mov              qword ptr [rsp + 232], 0
-                        mov              qword ptr [rsp + 240], 0
-                        mov              qword ptr [rsp + 248], 0
-                        mov              qword ptr [rsp + 256], 0
-                        mov              qword ptr [rsp + 264], 0
-                        mov              qword ptr [rsp + 272], 0
-                        mov              qword ptr [rsp + 280], 0
-                        mov              qword ptr [rsp + 16], 1
-                        mov              dword ptr [rsp + 20], 5
+                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
+                        mov              qword ptr [rsp + 8], 0                         # stmt_claim
+                        mov              qword ptr [rsp + 16], 0                        # stmt_claim
+                        mov              qword ptr [rsp + 24], 0                        # stmt_claim
+                        mov              qword ptr [rsp + 32], 0                        # stmt_claim
+                        mov              qword ptr [rsp + 40], 0                        # stmt_claim
+                        mov              qword ptr [rsp + 48], 0                        # stmt_claim
+                        mov              qword ptr [rsp + 56], 0                        # stmt_claim
+                        mov              qword ptr [rsp + 64], 0                        # stmt_claim
+                        mov              qword ptr [rsp + 72], 0                        # stmt_claim
+                        mov              qword ptr [rsp + 80], 0                        # stmt_claim
+                        mov              qword ptr [rsp + 88], 0                        # stmt_claim
+                        mov              qword ptr [rsp + 96], 0                        # stmt_claim
+                        mov              qword ptr [rsp + 104], 0                       # stmt_claim
+                        mov              qword ptr [rsp + 112], 0                       # stmt_claim
+                        mov              qword ptr [rsp + 120], 0                       # stmt_claim
+                        mov              qword ptr [rsp + 128], 0                       # stmt_claim
+                        mov              qword ptr [rsp + 136], 0                       # stmt_claim
+                        mov              qword ptr [rsp + 144], 0                       # stmt_claim
+                        mov              qword ptr [rsp + 152], 0                       # stmt_claim
+                        mov              qword ptr [rsp + 160], 0                       # stmt_claim
+                        mov              qword ptr [rsp + 168], 0                       # stmt_claim
+                        mov              qword ptr [rsp + 176], 0                       # stmt_claim
+                        mov              qword ptr [rsp + 184], 0                       # stmt_claim
+                        mov              qword ptr [rsp + 192], 0                       # stmt_claim
+                        mov              qword ptr [rsp + 200], 0                       # stmt_claim
+                        mov              qword ptr [rsp + 208], 0                       # stmt_claim
+                        mov              qword ptr [rsp + 216], 0                       # stmt_claim
+                        mov              qword ptr [rsp + 224], 0                       # stmt_claim
+                        mov              qword ptr [rsp + 232], 0                       # stmt_claim
+                        mov              qword ptr [rsp + 240], 0                       # stmt_claim
+                        mov              qword ptr [rsp + 248], 0                       # stmt_claim
+                        mov              qword ptr [rsp + 256], 0                       # stmt_claim
+                        mov              qword ptr [rsp + 264], 0                       # stmt_claim
+                        mov              qword ptr [rsp + 272], 0                       # stmt_claim
+                        mov              qword ptr [rsp + 280], 0                       # stmt_claim
+                        mov              qword ptr [rsp + 16], 1                        # lit_string
+                        mov              dword ptr [rsp + 20], 5                        # lit_string
                         mov              rax, qword ptr [rip + .Lx17_0]
-                        mov              qword ptr [rsp + 24], rax
+                        mov              qword ptr [rsp + 24], rax                      # lit_string
                                                                                         jmp   n1_assign_α
 .Lx17_0:
                         .quad            .Lx17_0_s
@@ -88,10 +88,10 @@ n1_assign_α:
                                                                                         jmp   n2_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n2_lit_string_α:
-                        mov              qword ptr [rsp + 32], 1
-                        mov              dword ptr [rsp + 36], 5
+                        mov              qword ptr [rsp + 32], 1                        # lit_string
+                        mov              dword ptr [rsp + 36], 5                        # lit_string
                         mov              rax, qword ptr [rip + .Lx19_0]
-                        mov              qword ptr [rsp + 40], rax
+                        mov              qword ptr [rsp + 40], rax                      # lit_string
                                                                                         jmp   n3_assign_α
 .Lx19_0:
                         .quad            .Lx19_0_s
@@ -108,34 +108,34 @@ n3_assign_α:
 n4_var_α:
                         mov              rax, qword ptr [1879052288]                    # s
                         mov              rdx, qword ptr [1879052296]                    # s
-                        mov              qword ptr [rsp + 272], rax
-                        mov              qword ptr [rsp + 280], rdx
+                        mov              qword ptr [rsp + 272], rax                     # s
+                        mov              qword ptr [rsp + 280], rdx                     # s
                                                                                         jmp   n5_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n5_var_α:
                         mov              rax, qword ptr [1879052304]                    # t
                         mov              rdx, qword ptr [1879052312]                    # t
-                        mov              qword ptr [rsp + 256], rax
-                        mov              qword ptr [rsp + 264], rdx
+                        mov              qword ptr [rsp + 256], rax                     # t
+                        mov              qword ptr [rsp + 264], rdx                     # t
                                                                                         jmp   n6_coerce_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n6_coerce_string_α:
-                        lea              rdi, [rsp + 272]
-                        lea              rsi, [rsp + 240]
-                        mov              rdx, 122
+                        lea              rdi, [rsp + 272]                               # in
+                        lea              rsi, [rsp + 240]                               # out
+                        mov              rdx, 122                                       # codes
                         call             rt_coerce_str_d@PLT
                                                                                         jmp   n7_coerce_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n7_coerce_string_α:
-                        lea              rdi, [rsp + 256]
-                        lea              rsi, [rsp + 224]
-                        mov              rdx, 123
+                        lea              rdi, [rsp + 256]                               # in
+                        lea              rsi, [rsp + 224]                               # out
+                        mov              rdx, 123                                       # codes
                         call             rt_coerce_str_d@PLT
                                                                                         jmp   n8_cmp_test_α
 #-----------------------------------------------------------------------------------------------------------------------
 n8_cmp_test_α:
-                        lea              rdi, [rsp + 240]
-                        lea              rsi, [rsp + 224]
+                        lea              rdi, [rsp + 240]                               # a
+                        lea              rsi, [rsp + 224]                               # b
                         call             rt_cmp_d@PLT
                         test             eax, eax
                                                                                         je    .Lx28_240
@@ -148,8 +148,8 @@ n9_var_α:
                         sub              rsp, 16
                         mov              rax, qword ptr [1879052288]                    # s
                         mov              rdx, qword ptr [1879052296]                    # s
-                        mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rsp + 0], rax                       # s
+                        mov              qword ptr [rsp + 8], rdx                       # s
                                                                                         jmp   n10_match_head_α
 #-----------------------------------------------------------------------------------------------------------------------
 n10_match_head_α:
@@ -208,9 +208,9 @@ n10_match_head_β:
                         mov              r13, qword ptr [rsp + 128]
                         mov              r14, qword ptr [rsp + 136]
                         mov              r15, qword ptr [rsp + 144]
-                        mov              rdi, r13
-                        mov              rsi, r15
-                        mov              rdx, qword ptr [rsp + 152]
+                        mov              rdi, r13                                       # sig
+                        mov              rsi, r15                                       # len
+                        mov              rdx, qword ptr [rsp + 152]                     # capgen
                         call             rt_match_ctx_restore@PLT
                         add              rsp, 288
                                                                                         jmp   main_γ
@@ -336,23 +336,23 @@ n14_match_release_α:
                         mov              r13, qword ptr [rsp + 128]
                         mov              r14, qword ptr [rsp + 136]
                         mov              r15, qword ptr [rsp + 144]
-                        mov              rdi, r13
-                        mov              rsi, r15
-                        mov              rdx, qword ptr [rsp + 152]
+                        mov              rdi, r13                                       # sig
+                        mov              rsi, r15                                       # len
+                        mov              rdx, qword ptr [rsp + 152]                     # capgen
                         call             rt_match_ctx_restore@PLT
                                                                                         jmp   n15_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n15_var_α:
                         mov              rax, qword ptr [1879052320]                    # m
                         mov              rdx, qword ptr [1879052328]                    # m
-                        mov              qword ptr [rsp + 48], rax
-                        mov              qword ptr [rsp + 56], rdx
+                        mov              qword ptr [rsp + 48], rax                      # m
+                        mov              qword ptr [rsp + 56], rdx                      # m
                                                                                         jmp   n16_assign_α
 #-----------------------------------------------------------------------------------------------------------------------
 n16_assign_α:
-                        mov              rsi, qword ptr [rsp + 48]
-                        mov              rdx, qword ptr [rsp + 56]
-                        mov              rdi, qword ptr [rip + .Lx41_0]
+                        mov              rsi, qword ptr [rsp + 48]                      # val
+                        mov              rdx, qword ptr [rsp + 56]                      # val
+                        mov              rdi, qword ptr [rip + .Lx41_0]                 # name
                         call             NV_SET_fn@PLT
                         add              rsp, 288
                                                                                         jmp   main_γ

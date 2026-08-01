@@ -43,15 +43,15 @@ proc_always_fail_α:
 proc_always_fail_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n5_save_restore_α:
-                        mov              rdi, rcx
-                        mov              rsi, rdx
-                        lea              rdx, [rsp + 0]
-                        mov              rcx, rbp
+                        mov              rdi, rcx                                       # gw
+                        mov              rsi, rdx                                       # ww
+                        lea              rdx, [rsp + 0]                                 # rsp
+                        mov              rcx, rbp                                       # rbp
                         call             rt_flat_wire_adopt@PLT
                                                                                         jmp   n6_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
 n6_goto_deferred_α:
-                        mov              rdi, qword ptr [rip + .Lx10_0]
+                        mov              rdi, qword ptr [rip + .Lx10_0]                 # name
                         call             rt_goto_transfer@PLT
                                                                                         jmp   .Lx10_1
 .Lx10_0:
@@ -171,9 +171,9 @@ n11_call_α:
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [1879052296]                    # always_fail
                         mov              qword ptr [rsp + 8], rax
-                        mov              rdi, qword ptr [rip + .Lx21_0]
-                        mov              esi, 0
-                        mov              edx, 0
+                        mov              rdi, qword ptr [rip + .Lx21_0]                 # name
+                        mov              esi, 0                                         # np
+                        mov              edx, 0                                         # nargs
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx21_5
@@ -201,8 +201,8 @@ n11_call_α:
                                                                                         jmp   .Lx21_2
 .Lx21_5:
                         add              rsp, 16
-                        mov              rdi, qword ptr [rip + .Lx21_0]
-                        mov              esi, 0
+                        mov              rdi, qword ptr [rip + .Lx21_0]                 # name
+                        mov              esi, 0                                         # nargs
                         call             rt_proc_call_open@PLT
                         test             rax, rax
                                                                                         je    .Lx21_1
@@ -235,10 +235,10 @@ n11_call_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n12_lit_string_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 1
-                        mov              dword ptr [rsp + 4], 53
+                        mov              qword ptr [rsp + 0], 1                         # lit_string
+                        mov              dword ptr [rsp + 4], 53                        # lit_string
                         mov              rax, qword ptr [rip + .Lx22_0]
-                        mov              qword ptr [rsp + 8], rax
+                        mov              qword ptr [rsp + 8], rax                       # lit_string
                                                                                         jmp   n13_assign_α
 .Lx22_0:
                         .quad            .Lx22_0_s
@@ -246,9 +246,9 @@ n12_lit_string_α:
                         .string          "FAIL 1014/001: freturn should cause statement failure"
 #-----------------------------------------------------------------------------------------------------------------------
 n13_assign_α:
-                        mov              rsi, qword ptr [rsp + 0]
-                        mov              rdx, qword ptr [rsp + 8]
-                        mov              rdi, qword ptr [rip + .Lx23_0]
+                        mov              rsi, qword ptr [rsp + 0]                       # lit_string
+                        mov              rdx, qword ptr [rsp + 8]                       # lit_string
+                        mov              rdi, qword ptr [rip + .Lx23_0]                 # name
                         call             NV_SET_fn@PLT
                         add              rsp, 16
                                                                                         jmp   main_γ
@@ -261,10 +261,10 @@ n13_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n14_lit_string_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 1
-                        mov              dword ptr [rsp + 4], 28
+                        mov              qword ptr [rsp + 0], 1                         # lit_string
+                        mov              dword ptr [rsp + 4], 28                        # lit_string
                         mov              rax, qword ptr [rip + .Lx24_0]
-                        mov              qword ptr [rsp + 8], rax
+                        mov              qword ptr [rsp + 8], rax                       # lit_string
                                                                                         jmp   n15_assign_α
 .Lx24_0:
                         .quad            .Lx24_0_s
@@ -272,9 +272,9 @@ n14_lit_string_α:
                         .string          "PASS 1014_func_freturn (1/1)"
 #-----------------------------------------------------------------------------------------------------------------------
 n15_assign_α:
-                        mov              rsi, qword ptr [rsp + 0]
-                        mov              rdx, qword ptr [rsp + 8]
-                        mov              rdi, qword ptr [rip + .Lx25_0]
+                        mov              rsi, qword ptr [rsp + 0]                       # lit_string
+                        mov              rdx, qword ptr [rsp + 8]                       # lit_string
+                        mov              rdi, qword ptr [rip + .Lx25_0]                 # name
                         call             NV_SET_fn@PLT
                         add              rsp, 16
                                                                                         jmp   main_γ
