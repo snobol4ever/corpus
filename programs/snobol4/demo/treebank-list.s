@@ -8274,6 +8274,9 @@ proc_startup:
                         mov              esi, 0
                         call             rt_proc_set_nparams@PLT
                         lea              rdi, [rip + .Lstartup_pname0]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
+                        lea              rdi, [rip + .Lstartup_pname0]
                         mov              esi, 6080
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname0]
@@ -8289,6 +8292,9 @@ proc_startup:
                         lea              rdi, [rip + .Lstartup_pname1]
                         mov              esi, 0
                         call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname1]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname1]
                         mov              esi, 6080
                         call             rt_proc_set_frame_bytes@PLT
@@ -8306,6 +8312,9 @@ proc_startup:
                         mov              esi, 0
                         call             rt_proc_set_nparams@PLT
                         lea              rdi, [rip + .Lstartup_pname2]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
+                        lea              rdi, [rip + .Lstartup_pname2]
                         mov              esi, 6080
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname2]
@@ -8321,6 +8330,9 @@ proc_startup:
                         lea              rdi, [rip + .Lstartup_pname3]
                         mov              esi, 0
                         call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname3]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname3]
                         mov              esi, 6080
                         call             rt_proc_set_frame_bytes@PLT
@@ -8338,6 +8350,9 @@ proc_startup:
                         mov              esi, 0
                         call             rt_proc_set_nparams@PLT
                         lea              rdi, [rip + .Lstartup_pname4]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
+                        lea              rdi, [rip + .Lstartup_pname4]
                         mov              esi, 6080
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname4]
@@ -8353,6 +8368,9 @@ proc_startup:
                         lea              rdi, [rip + .Lstartup_pname5]
                         mov              esi, 0
                         call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname5]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname5]
                         mov              esi, 6080
                         call             rt_proc_set_frame_bytes@PLT
@@ -8370,6 +8388,9 @@ proc_startup:
                         mov              esi, 0
                         call             rt_proc_set_nparams@PLT
                         lea              rdi, [rip + .Lstartup_pname6]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
+                        lea              rdi, [rip + .Lstartup_pname6]
                         mov              esi, 6080
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname6]
@@ -8385,6 +8406,9 @@ proc_startup:
                         lea              rdi, [rip + .Lstartup_pname7]
                         mov              esi, 0
                         call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname7]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname7]
                         mov              esi, 6080
                         call             rt_proc_set_frame_bytes@PLT
@@ -8402,6 +8426,9 @@ proc_startup:
                         mov              esi, 0
                         call             rt_proc_set_nparams@PLT
                         lea              rdi, [rip + .Lstartup_pname8]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
+                        lea              rdi, [rip + .Lstartup_pname8]
                         mov              esi, 6080
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname8]
@@ -8417,6 +8444,9 @@ proc_startup:
                         lea              rdi, [rip + .Lstartup_pname9]
                         mov              esi, 0
                         call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname9]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname9]
                         mov              esi, 6080
                         call             rt_proc_set_frame_bytes@PLT
@@ -8434,6 +8464,9 @@ proc_startup:
                         mov              esi, 0
                         call             rt_proc_set_nparams@PLT
                         lea              rdi, [rip + .Lstartup_pname10]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
+                        lea              rdi, [rip + .Lstartup_pname10]
                         mov              esi, 6080
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname10]
@@ -8449,6 +8482,9 @@ proc_startup:
                         lea              rdi, [rip + .Lstartup_pname11]
                         mov              esi, 0
                         call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname11]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname11]
                         mov              esi, 6080
                         call             rt_proc_set_frame_bytes@PLT
@@ -8466,6 +8502,9 @@ proc_startup:
                         mov              esi, 0
                         call             rt_proc_set_nparams@PLT
                         lea              rdi, [rip + .Lstartup_pname12]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
+                        lea              rdi, [rip + .Lstartup_pname12]
                         mov              esi, 6080
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname12]
@@ -8481,6 +8520,9 @@ proc_startup:
                         lea              rdi, [rip + .Lstartup_pname13]
                         mov              esi, 0
                         call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname13]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname13]
                         mov              esi, 6080
                         call             rt_proc_set_frame_bytes@PLT
@@ -8498,6 +8540,9 @@ proc_startup:
                         mov              esi, 0
                         call             rt_proc_set_nparams@PLT
                         lea              rdi, [rip + .Lstartup_pname14]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
+                        lea              rdi, [rip + .Lstartup_pname14]
                         mov              esi, 6080
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname14]
@@ -8513,6 +8558,9 @@ proc_startup:
                         lea              rdi, [rip + .Lstartup_pname15]
                         mov              esi, 0
                         call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname15]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname15]
                         mov              esi, 6080
                         call             rt_proc_set_frame_bytes@PLT
@@ -8530,6 +8578,9 @@ proc_startup:
                         mov              esi, 0
                         call             rt_proc_set_nparams@PLT
                         lea              rdi, [rip + .Lstartup_pname16]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
+                        lea              rdi, [rip + .Lstartup_pname16]
                         mov              esi, 6080
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname16]
@@ -8545,6 +8596,9 @@ proc_startup:
                         lea              rdi, [rip + .Lstartup_pname17]
                         mov              esi, 0
                         call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname17]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname17]
                         mov              esi, 6080
                         call             rt_proc_set_frame_bytes@PLT
@@ -8578,6 +8632,9 @@ proc_startup:
                         mov              esi, 3
                         call             rt_proc_set_nparams@PLT
                         lea              rdi, [rip + .Lstartup_pname18]
+                        mov              esi, 1
+                        call             rt_proc_set_nformals@PLT
+                        lea              rdi, [rip + .Lstartup_pname18]
                         mov              esi, 16
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname18]
@@ -8605,6 +8662,9 @@ proc_startup:
                         lea              rdi, [rip + .Lstartup_pname19]
                         mov              esi, 1
                         call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname19]
+                        mov              esi, 1
+                        call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname19]
                         mov              esi, 16
                         call             rt_proc_set_frame_bytes@PLT
@@ -8634,6 +8694,9 @@ proc_startup:
                         mov              esi, 1
                         call             rt_proc_set_nparams@PLT
                         lea              rdi, [rip + .Lstartup_pname20]
+                        mov              esi, 1
+                        call             rt_proc_set_nformals@PLT
+                        lea              rdi, [rip + .Lstartup_pname20]
                         mov              esi, 16
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname20]
@@ -8661,6 +8724,9 @@ proc_startup:
                         lea              rdi, [rip + .Lstartup_pname21]
                         mov              esi, 1
                         call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname21]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname21]
                         mov              esi, 16
                         call             rt_proc_set_frame_bytes@PLT
@@ -8690,6 +8756,9 @@ proc_startup:
                         mov              esi, 1
                         call             rt_proc_set_nparams@PLT
                         lea              rdi, [rip + .Lstartup_pname22]
+                        mov              esi, 1
+                        call             rt_proc_set_nformals@PLT
+                        lea              rdi, [rip + .Lstartup_pname22]
                         mov              esi, 16
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname22]
@@ -8717,6 +8786,9 @@ proc_startup:
                         lea              rdi, [rip + .Lstartup_pname23]
                         mov              esi, 1
                         call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname23]
+                        mov              esi, 1
+                        call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname23]
                         mov              esi, 16
                         call             rt_proc_set_frame_bytes@PLT
@@ -8746,6 +8818,9 @@ proc_startup:
                         mov              esi, 1
                         call             rt_proc_set_nparams@PLT
                         lea              rdi, [rip + .Lstartup_pname24]
+                        mov              esi, 1
+                        call             rt_proc_set_nformals@PLT
+                        lea              rdi, [rip + .Lstartup_pname24]
                         mov              esi, 16
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname24]
@@ -8773,6 +8848,9 @@ proc_startup:
                         lea              rdi, [rip + .Lstartup_pname25]
                         mov              esi, 1
                         call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname25]
+                        mov              esi, 1
+                        call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname25]
                         mov              esi, 16
                         call             rt_proc_set_frame_bytes@PLT
@@ -8802,6 +8880,9 @@ proc_startup:
                         mov              esi, 1
                         call             rt_proc_set_nparams@PLT
                         lea              rdi, [rip + .Lstartup_pname26]
+                        mov              esi, 1
+                        call             rt_proc_set_nformals@PLT
+                        lea              rdi, [rip + .Lstartup_pname26]
                         mov              esi, 16
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname26]
@@ -8829,6 +8910,9 @@ proc_startup:
                         lea              rdi, [rip + .Lstartup_pname27]
                         mov              esi, 1
                         call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname27]
+                        mov              esi, 1
+                        call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname27]
                         mov              esi, 16
                         call             rt_proc_set_frame_bytes@PLT
@@ -8858,6 +8942,9 @@ proc_startup:
                         mov              esi, 1
                         call             rt_proc_set_nparams@PLT
                         lea              rdi, [rip + .Lstartup_pname28]
+                        mov              esi, 1
+                        call             rt_proc_set_nformals@PLT
+                        lea              rdi, [rip + .Lstartup_pname28]
                         mov              esi, 16
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname28]
@@ -8884,6 +8971,9 @@ proc_startup:
                         mov              esi, 0
                         call             rt_proc_set_nparams@PLT
                         lea              rdi, [rip + .Lstartup_pname29]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
+                        lea              rdi, [rip + .Lstartup_pname29]
                         mov              esi, 16
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname29]
@@ -8909,6 +8999,9 @@ proc_startup:
                         lea              rdi, [rip + .Lstartup_pname30]
                         mov              esi, 0
                         call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname30]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname30]
                         mov              esi, 16
                         call             rt_proc_set_frame_bytes@PLT
@@ -8938,6 +9031,9 @@ proc_startup:
                         mov              esi, 1
                         call             rt_proc_set_nparams@PLT
                         lea              rdi, [rip + .Lstartup_pname31]
+                        mov              esi, 1
+                        call             rt_proc_set_nformals@PLT
+                        lea              rdi, [rip + .Lstartup_pname31]
                         mov              esi, 16
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname31]
@@ -8965,6 +9061,9 @@ proc_startup:
                         lea              rdi, [rip + .Lstartup_pname32]
                         mov              esi, 1
                         call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname32]
+                        mov              esi, 1
+                        call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname32]
                         mov              esi, 16
                         call             rt_proc_set_frame_bytes@PLT
@@ -8999,6 +9098,9 @@ proc_startup:
                         lea              rdi, [rip + .Lstartup_pname33]
                         mov              esi, 4
                         call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname33]
+                        mov              esi, 1
+                        call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname33]
                         mov              esi, 16
                         call             rt_proc_set_frame_bytes@PLT
@@ -9040,6 +9142,9 @@ proc_startup:
                         mov              esi, 7
                         call             rt_proc_set_nparams@PLT
                         lea              rdi, [rip + .Lstartup_pname34]
+                        mov              esi, 3
+                        call             rt_proc_set_nformals@PLT
+                        lea              rdi, [rip + .Lstartup_pname34]
                         mov              esi, 16
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname34]
@@ -9068,6 +9173,9 @@ proc_startup:
                         mov              esi, 1
                         call             rt_proc_set_nparams@PLT
                         lea              rdi, [rip + .Lstartup_pname35]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
+                        lea              rdi, [rip + .Lstartup_pname35]
                         mov              esi, 16
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname35]
@@ -9084,6 +9192,9 @@ proc_startup:
                         mov              esi, 0
                         call             rt_proc_set_nparams@PLT
                         lea              rdi, [rip + .Lstartup_pname36]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
+                        lea              rdi, [rip + .Lstartup_pname36]
                         mov              esi, 96
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname36]
@@ -9099,6 +9210,9 @@ proc_startup:
                         lea              rdi, [rip + .Lstartup_pname37]
                         mov              esi, 0
                         call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname37]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname37]
                         mov              esi, 32
                         call             rt_proc_set_frame_bytes@PLT
@@ -9119,6 +9233,9 @@ proc_startup:
                         mov              esi, 0
                         call             rt_proc_set_nparams@PLT
                         lea              rdi, [rip + .Lstartup_pname38]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
+                        lea              rdi, [rip + .Lstartup_pname38]
                         mov              esi, 64
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname38]
@@ -9138,6 +9255,9 @@ proc_startup:
                         mov              esi, 0
                         call             rt_proc_set_nparams@PLT
                         lea              rdi, [rip + .Lstartup_pname39]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
+                        lea              rdi, [rip + .Lstartup_pname39]
                         mov              esi, 528
                         call             rt_proc_set_frame_bytes@PLT
                         lea              rdi, [rip + .Lstartup_pname39]
@@ -9153,6 +9273,9 @@ proc_startup:
                         lea              rdi, [rip + .Lstartup_pname40]
                         mov              esi, 0
                         call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname40]
+                        mov              esi, 0
+                        call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname40]
                         mov              esi, 560
                         call             rt_proc_set_frame_bytes@PLT
@@ -11159,9 +11282,9 @@ n994_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx1350_5
-                        mov              rax, qword ptr [rsp + 1296]
+                        mov              rax, qword ptr [rsp + 1088]
                         mov              qword ptr [1879052304], rax
-                        mov              rax, qword ptr [rsp + 1304]
+                        mov              rax, qword ptr [rsp + 1096]
                         mov              qword ptr [1879052312], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx1350_6]
@@ -12256,9 +12379,9 @@ n1048_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx1419_5
-                        mov              rax, qword ptr [rsp + 2320]
+                        mov              rax, qword ptr [rsp + 2112]
                         mov              qword ptr [1879052368], rax
-                        mov              rax, qword ptr [rsp + 2328]
+                        mov              rax, qword ptr [rsp + 2120]
                         mov              qword ptr [1879052376], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx1419_6]
@@ -12570,9 +12693,9 @@ n1064_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx1438_5
-                        mov              rax, qword ptr [rsp + 2576]
+                        mov              rax, qword ptr [rsp + 2368]
                         mov              qword ptr [1879052368], rax
-                        mov              rax, qword ptr [rsp + 2584]
+                        mov              rax, qword ptr [rsp + 2376]
                         mov              qword ptr [1879052376], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx1438_6]
@@ -13104,9 +13227,9 @@ n1091_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx1471_5
-                        mov              rax, qword ptr [rsp + 2992]
+                        mov              rax, qword ptr [rsp + 2784]
                         mov              qword ptr [1879052448], rax
-                        mov              rax, qword ptr [rsp + 3000]
+                        mov              rax, qword ptr [rsp + 2792]
                         mov              qword ptr [1879052456], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx1471_6]
@@ -13862,9 +13985,9 @@ n1132_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx1520_5
-                        mov              rax, qword ptr [rsp + 4064]
+                        mov              rax, qword ptr [rsp + 3856]
                         mov              qword ptr [1879052656], rax
-                        mov              rax, qword ptr [rsp + 4072]
+                        mov              rax, qword ptr [rsp + 3864]
                         mov              qword ptr [1879052664], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx1520_6]
@@ -14198,9 +14321,9 @@ n1150_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx1540_5
-                        mov              rax, qword ptr [rsp + 4304]
+                        mov              rax, qword ptr [rsp + 4096]
                         mov              qword ptr [1879052656], rax
-                        mov              rax, qword ptr [rsp + 4312]
+                        mov              rax, qword ptr [rsp + 4104]
                         mov              qword ptr [1879052664], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx1540_6]
@@ -15156,13 +15279,13 @@ n1197_call_α:
                         mov              qword ptr [1879052656], rax
                         mov              rax, qword ptr [rsp + 5224]
                         mov              qword ptr [1879052664], rax
-                        mov              rax, qword ptr [rsp + 5280]
+                        mov              rax, qword ptr [rsp + 144]
                         mov              qword ptr [1879052736], rax
-                        mov              rax, qword ptr [rsp + 5288]
+                        mov              rax, qword ptr [rsp + 152]
                         mov              qword ptr [1879052744], rax
-                        mov              rax, qword ptr [rsp + 5328]
+                        mov              rax, qword ptr [rsp + 192]
                         mov              qword ptr [1879052752], rax
-                        mov              rax, qword ptr [rsp + 5336]
+                        mov              rax, qword ptr [rsp + 200]
                         mov              qword ptr [1879052760], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx1599_6]
@@ -15514,17 +15637,17 @@ n1208_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx1612_5
-                        mov              rax, qword ptr [rsp + 80]
+                        mov              rax, qword ptr [rsp + 5440]
                         mov              qword ptr [1879052656], rax
-                        mov              rax, qword ptr [rsp + 88]
+                        mov              rax, qword ptr [rsp + 5448]
                         mov              qword ptr [1879052664], rax
-                        mov              rax, qword ptr [rsp + 5504]
+                        mov              rax, qword ptr [rsp + 144]
                         mov              qword ptr [1879052736], rax
-                        mov              rax, qword ptr [rsp + 5512]
+                        mov              rax, qword ptr [rsp + 152]
                         mov              qword ptr [1879052744], rax
-                        mov              rax, qword ptr [rsp + 5552]
+                        mov              rax, qword ptr [rsp + 192]
                         mov              qword ptr [1879052752], rax
-                        mov              rax, qword ptr [rsp + 5560]
+                        mov              rax, qword ptr [rsp + 200]
                         mov              qword ptr [1879052760], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx1612_6]
@@ -15796,17 +15919,17 @@ n1218_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx1623_5
-                        mov              rax, qword ptr [rsp + 5680]
+                        mov              rax, qword ptr [rsp + 128]
                         mov              qword ptr [1879052656], rax
-                        mov              rax, qword ptr [rsp + 5688]
+                        mov              rax, qword ptr [rsp + 136]
                         mov              qword ptr [1879052664], rax
-                        mov              rax, qword ptr [rsp + 5696]
+                        mov              rax, qword ptr [rsp + 144]
                         mov              qword ptr [1879052736], rax
-                        mov              rax, qword ptr [rsp + 5704]
+                        mov              rax, qword ptr [rsp + 152]
                         mov              qword ptr [1879052744], rax
-                        mov              rax, qword ptr [rsp + 5712]
+                        mov              rax, qword ptr [rsp + 160]
                         mov              qword ptr [1879052752], rax
-                        mov              rax, qword ptr [rsp + 5720]
+                        mov              rax, qword ptr [rsp + 168]
                         mov              qword ptr [1879052760], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx1623_6]
