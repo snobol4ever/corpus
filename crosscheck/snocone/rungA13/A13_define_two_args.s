@@ -3,67 +3,53 @@
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_add_α
 proc_add_α:
-                        .global          proc_add_α
-                        .global          proc_add_β
-                        .global          proc_add_γ
-                        .global          proc_add_ω
-                        sub              rsp, 96
-                        mov              [rsp + 72], rcx
-                        mov              [rsp + 80], rdx
-                        mov              qword ptr [rsp], 0
-                        mov              qword ptr [rsp + 8], 0
 proc_add_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_var_α:
-                        sub              rsp, 16
                         mov              rax, qword ptr [1879052304]
                         mov              rdx, qword ptr [1879052312]
-                        mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rsp + 32], rax
+                        mov              qword ptr [rsp + 40], rdx
                                                                                         jmp   n1_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1_var_α:
-                        sub              rsp, 16
                         mov              rax, qword ptr [1879052320]
                         mov              rdx, qword ptr [1879052328]
-                        mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rsp + 48], rax
+                        mov              qword ptr [rsp + 56], rdx
                                                                                         jmp   n2_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n2_binop_α:
-                        mov              eax, dword ptr [rsp + 16]
+                        mov              eax, dword ptr [rsp + 32]
                         cmp              eax, 6
                                                                                         jne   .Lx6_0
-                        mov              eax, dword ptr [rsp + 0]
+                        mov              eax, dword ptr [rsp + 48]
                         cmp              eax, 6
                                                                                         jne   .Lx6_0
-                        mov              rax, qword ptr [rsp + 24]
-                        mov              rcx, qword ptr [rsp + 8]
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              rcx, qword ptr [rsp + 56]
                         add              rax, rcx
-                        add              rsp, 16
-                        mov              qword ptr [rsp + 0], 6
-                        mov              qword ptr [rsp + 8], rax
+                        mov              qword ptr [rsp + 16], 6
+                        mov              qword ptr [rsp + 24], rax
                                                                                         jmp   n3_assign_α
 .Lx6_0:
-                        mov              rdi, qword ptr [rsp + 16]
-                        mov              rsi, qword ptr [rsp + 24]
-                        mov              rdx, qword ptr [rsp + 0]
-                        mov              rcx, qword ptr [rsp + 8]
+                        mov              rdi, qword ptr [rsp + 32]
+                        mov              rsi, qword ptr [rsp + 40]
+                        mov              rdx, qword ptr [rsp + 48]
+                        mov              rcx, qword ptr [rsp + 56]
                         call             rt_add@PLT
                         cmp              eax, 99
                                                                                         jne   .Lx6_240
                         add              rsp, 32
                                                                                         jmp   proc_add_γ
 .Lx6_240:
-                        add              rsp, 16
-                        mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rsp + 16], rax
+                        mov              qword ptr [rsp + 24], rdx
                                                                                         jmp   n3_assign_α
 #-----------------------------------------------------------------------------------------------------------------------
 n3_assign_α:
-                        mov              rax, qword ptr [rsp + 0]
-                        mov              rdx, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rax, qword ptr [rsp + 16]
+                        mov              rdx, qword ptr [rsp + 24]
                         mov              qword ptr [1879052288], rax
                         mov              qword ptr [1879052296], rdx
                                                                                         jmp   proc_add_γ
@@ -76,16 +62,16 @@ proc_add_β:
                                                                                         jmp   proc_add_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_add_γ:
-                        mov              rdi, [rsp]
-                        mov              rsi, [rsp + 8]
-                        mov              rax, [rsp + 72]
-                        add              rsp, 96
-                                                                                        jmp   rax
+                        mov              rsp, rbp
+                        pop              rbp
+                        xor              edi, edi
+                        call             exit@PLT
 #-----------------------------------------------------------------------------------------------------------------------
 proc_add_ω:
-                        mov              rax, [rsp + 80]
-                        add              rsp, 96
-                                                                                        jmp   rax
+                        mov              rsp, rbp
+                        pop              rbp
+                        mov              edi, 1
+                        call             exit@PLT
 proc_startup:
                         sub              rsp, 8
                         .section         .rodata
@@ -112,6 +98,9 @@ proc_startup:
                         lea              rdi, [rip + .Lstartup_pname0]
                         mov              esi, 2
                         call             rt_proc_set_nparams@PLT
+                        lea              rdi, [rip + .Lstartup_pname0]
+                        mov              esi, 2
+                        call             rt_proc_set_nformals@PLT
                         lea              rdi, [rip + .Lstartup_pname0]
                         mov              esi, 64
                         call             rt_proc_set_frame_bytes@PLT
@@ -145,24 +134,16 @@ main:
                         mov              edx, 3
                         call             gva_register@PLT
                         xor              esi, esi
-                        call             main_α
-                        xor              eax, eax
-                        add              rsp, 24
-                        ret
+                                                                                        jmp   main_α
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
-                        .global          main_α
-                        .global          main_β
-                        .global          main_γ
-                        .global          main_ω
-                        sub              rsp, 216
-                        mov              rdi, rsp
-                        mov              ecx, 216
-                        xor              eax, eax
-                        rep stosb
 main_α_body:
+                        push             rbp
+                        mov              rbp, rsp
+                        sub              rsp, 8
 #-----------------------------------------------------------------------------------------------------------------------
 n8_lit_integer_α:
+                        sub              rsp, 208
                         mov              qword ptr [rsp + 80], 6
                         mov              rax, qword ptr [rip + .Lx16_0]
                         mov              qword ptr [rsp + 88], rax
@@ -456,7 +437,10 @@ n14_call_α:
                         mov              qword ptr [rsp + 112], rax
                         mov              qword ptr [rsp + 120], rdx
                         cmp              eax, 99
-                                                                                        je    main_γ
+                                                                                        jne   .Lx24_240
+                        add              rsp, 208
+                                                                                        jmp   main_γ
+.Lx24_240:
                                                                                         jmp   n15_assign_α
 n14_call_β:
                                                                                         jmp   main_γ
@@ -470,6 +454,7 @@ n15_assign_α:
                         mov              rdx, qword ptr [rsp + 120]
                         mov              rdi, qword ptr [rip + .Lx25_0]
                         call             NV_SET_fn@PLT
+                        add              rsp, 208
                                                                                         jmp   main_γ
 .Lx25_0:
                         .quad            .Lx25_0_s
@@ -480,14 +465,14 @@ main_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
-                        mov              eax, 1
-                        xor              edx, edx
-                        add              rsp, 216
-                        ret
+                        mov              rsp, rbp
+                        pop              rbp
+                        xor              edi, edi
+                        call             exit@PLT
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
-                        mov              eax, 99
-                        xor              edx, edx
-                        add              rsp, 216
-                        ret
+                        mov              rsp, rbp
+                        pop              rbp
+                        mov              edi, 1
+                        call             exit@PLT
                         .section         .note.GNU-stack,"",@progbits
