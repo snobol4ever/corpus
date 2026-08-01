@@ -3,21 +3,6 @@
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_LBL__new_sent_α
 proc_LBL__new_sent_α:
-                        .global          proc_LBL__new_sent_α
-                        .global          proc_LBL__new_sent_β
-                        .global          proc_LBL__new_sent_γ
-                        .global          proc_LBL__new_sent_ω
-                        sub              rsp, 6736
-                        mov              [rsp + 6712], rcx
-                        mov              [rsp + 6720], rdx
-                        mov              [rsp + 6728], rbp
-                        mov              rbp, rsp
-                        mov              qword ptr [rsp], 0
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 272], 0
-                        mov              qword ptr [rsp + 280], 0
-                        mov              qword ptr [rsp + 6688], 0
-                        mov              qword ptr [rsp + 6696], 0
 proc_LBL__new_sent_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_goto_α:
@@ -210,36 +195,9 @@ proc_LBL__new_sent_β:
                                                                                         jmp   proc_LBL__new_sent_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__new_sent_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 6712]
-                        lea              rsp, [rbp + 6736]
-                        mov              rbp, [rbp + 6728]
-                                                                                        jmp   rax
-#-----------------------------------------------------------------------------------------------------------------------
-proc_LBL__new_sent_ω:
-                        mov              rax, [rbp + 6720]
-                        lea              rsp, [rbp + 6736]
-                        mov              rbp, [rbp + 6728]
-                                                                                        jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_LBL__add_tok_α
 proc_LBL__add_tok_α:
-                        .global          proc_LBL__add_tok_α
-                        .global          proc_LBL__add_tok_β
-                        .global          proc_LBL__add_tok_γ
-                        .global          proc_LBL__add_tok_ω
-                        sub              rsp, 6736
-                        mov              [rsp + 6712], rcx
-                        mov              [rsp + 6720], rdx
-                        mov              [rsp + 6728], rbp
-                        mov              rbp, rsp
-                        mov              qword ptr [rsp], 0
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 272], 0
-                        mov              qword ptr [rsp + 280], 0
-                        mov              qword ptr [rsp + 6688], 0
-                        mov              qword ptr [rsp + 6696], 0
 proc_LBL__add_tok_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n37_goto_α:
@@ -1106,36 +1064,9 @@ proc_LBL__add_tok_β:
                                                                                         jmp   proc_LBL__add_tok_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__add_tok_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 6712]
-                        lea              rsp, [rbp + 6736]
-                        mov              rbp, [rbp + 6728]
-                                                                                        jmp   rax
-#-----------------------------------------------------------------------------------------------------------------------
-proc_LBL__add_tok_ω:
-                        mov              rax, [rbp + 6720]
-                        lea              rsp, [rbp + 6736]
-                        mov              rbp, [rbp + 6728]
-                                                                                        jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_LBL__pp_mem_α
 proc_LBL__pp_mem_α:
-                        .global          proc_LBL__pp_mem_α
-                        .global          proc_LBL__pp_mem_β
-                        .global          proc_LBL__pp_mem_γ
-                        .global          proc_LBL__pp_mem_ω
-                        sub              rsp, 6736
-                        mov              [rsp + 6712], rcx
-                        mov              [rsp + 6720], rdx
-                        mov              [rsp + 6728], rbp
-                        mov              rbp, rsp
-                        mov              qword ptr [rsp], 0
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 272], 0
-                        mov              qword ptr [rsp + 280], 0
-                        mov              qword ptr [rsp + 6688], 0
-                        mov              qword ptr [rsp + 6696], 0
 proc_LBL__pp_mem_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n180_goto_α:
@@ -4837,32 +4768,9 @@ proc_LBL__pp_mem_β:
                                                                                         jmp   proc_LBL__pp_mem_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__pp_mem_γ:
-                        mov              rdi, [rbp]
-                        mov              rsi, [rbp + 8]
-                        mov              rax, [rbp + 6712]
-                        lea              rsp, [rbp + 6736]
-                        mov              rbp, [rbp + 6728]
-                                                                                        jmp   rax
-#-----------------------------------------------------------------------------------------------------------------------
-proc_LBL__pp_mem_ω:
-                        mov              rax, [rbp + 6720]
-                        lea              rsp, [rbp + 6736]
-                        mov              rbp, [rbp + 6728]
-                                                                                        jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_new_sent_α
 proc_new_sent_α:
-                        .global          proc_new_sent_α
-                        .global          proc_new_sent_β
-                        .global          proc_new_sent_γ
-                        .global          proc_new_sent_ω
-                        sub              rsp, 64
-                        mov              [rsp + 40], rcx
-                        mov              [rsp + 48], rdx
-                        mov              rdi, rsp
-                        mov              ecx, 32
-                        xor              eax, eax
-                        rep stosb
 proc_new_sent_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n711_save_restore_α:
@@ -4892,30 +4800,9 @@ proc_new_sent_β:
                                                                                         jmp   proc_new_sent_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_new_sent_γ:
-                        mov              rdi, [rsp]
-                        mov              rsi, [rsp + 8]
-                        mov              rax, [rsp + 40]
-                        add              rsp, 64
-                                                                                        jmp   rax
-#-----------------------------------------------------------------------------------------------------------------------
-proc_new_sent_ω:
-                        mov              rax, [rsp + 48]
-                        add              rsp, 64
-                                                                                        jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_add_tok_α
 proc_add_tok_α:
-                        .global          proc_add_tok_α
-                        .global          proc_add_tok_β
-                        .global          proc_add_tok_γ
-                        .global          proc_add_tok_ω
-                        sub              rsp, 64
-                        mov              [rsp + 40], rcx
-                        mov              [rsp + 48], rdx
-                        mov              rdi, rsp
-                        mov              ecx, 32
-                        xor              eax, eax
-                        rep stosb
 proc_add_tok_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n717_save_restore_α:
@@ -4945,30 +4832,9 @@ proc_add_tok_β:
                                                                                         jmp   proc_add_tok_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_add_tok_γ:
-                        mov              rdi, [rsp]
-                        mov              rsi, [rsp + 8]
-                        mov              rax, [rsp + 40]
-                        add              rsp, 64
-                                                                                        jmp   rax
-#-----------------------------------------------------------------------------------------------------------------------
-proc_add_tok_ω:
-                        mov              rax, [rsp + 48]
-                        add              rsp, 64
-                                                                                        jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_pp_mem_α
 proc_pp_mem_α:
-                        .global          proc_pp_mem_α
-                        .global          proc_pp_mem_β
-                        .global          proc_pp_mem_γ
-                        .global          proc_pp_mem_ω
-                        sub              rsp, 64
-                        mov              [rsp + 40], rcx
-                        mov              [rsp + 48], rdx
-                        mov              rdi, rsp
-                        mov              ecx, 32
-                        xor              eax, eax
-                        rep stosb
 proc_pp_mem_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n723_save_restore_α:
@@ -4998,44 +4864,9 @@ proc_pp_mem_β:
                                                                                         jmp   proc_pp_mem_ω
 #-----------------------------------------------------------------------------------------------------------------------
 proc_pp_mem_γ:
-                        mov              rdi, [rsp]
-                        mov              rsi, [rsp + 8]
-                        mov              rax, [rsp + 40]
-                        add              rsp, 64
-                                                                                        jmp   rax
-#-----------------------------------------------------------------------------------------------------------------------
-proc_pp_mem_ω:
-                        mov              rax, [rsp + 48]
-                        add              rsp, 64
-                                                                                        jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
                         .globl           proc_PAT$0_α
 proc_PAT$0_α:
-                        .global          proc_PAT$0_α
-                        .global          proc_PAT$0_β
-                        .global          proc_PAT$0_γ
-                        .global          proc_PAT$0_ω
-                        sub              rsp, 608
-                        mov              [rsp + 584], rcx
-                        mov              [rsp + 592], rdx
-                        mov              [rsp + 600], rbp
-                        mov              rbp, rsp
-                        mov              qword ptr [rsp], 0
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 224], 0
-                        mov              qword ptr [rsp + 232], 0
-                        mov              qword ptr [rsp + 272], 0
-                        mov              qword ptr [rsp + 280], 0
-                        mov              qword ptr [rsp + 352], 0
-                        mov              qword ptr [rsp + 360], 0
-                        mov              qword ptr [rsp + 416], 0
-                        mov              qword ptr [rsp + 424], 0
-                        mov              qword ptr [rsp + 480], 0
-                        mov              qword ptr [rsp + 488], 0
-                        mov              qword ptr [rsp + 544], 0
-                        mov              qword ptr [rsp + 552], 0
-                        mov              qword ptr [rsp + 560], 0
-                        mov              qword ptr [rsp + 568], 0
                         mov              qword ptr [rsp + 576], r8
                         mov              dword ptr [rsp + 568], r14d
 proc_PAT$0_attempt:
@@ -5830,18 +5661,6 @@ proc_PAT$0_β:
                                                                                         jmp   qword ptr [rbp + 544]
 #-----------------------------------------------------------------------------------------------------------------------
 proc_PAT$0_γ:
-                        push             rbp
-                        lea              rax, [rip + proc_PAT$0_res]
-                        push             rax
-                        mov              rax, [rbp + 584]
-                        mov              rbp, [rbp + 600]
-                                                                                        jmp   rax
-#-----------------------------------------------------------------------------------------------------------------------
-proc_PAT$0_ω:
-                        mov              rax, [rbp + 592]
-                        lea              rsp, [rbp + 608]
-                        mov              rbp, [rbp + 600]
-                                                                                        jmp   rax
 proc_startup:
                         sub              rsp, 8
                         .section         .rodata
@@ -6123,17 +5942,6 @@ main:
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
-                        .global          main_α
-                        .global          main_β
-                        .global          main_γ
-                        .global          main_ω
-                        sub              rsp, 6696
-                        mov              rdi, rsp
-                        mov              ecx, 6696
-                        xor              eax, eax
-                        rep stosb
-                        mov              [rsp + 6688], rbp
-                        mov              rbp, rsp
 main_α_body:
 #=======================================================================================================================
 #                 &ALPHABET       POS(10) LEN(1) . nl
@@ -13488,20 +13296,6 @@ main_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
-                        mov              eax, 1
-                        xor              edx, edx
-                        mov              rsp, rbp
-                        mov              rbp, [rsp + 6688]
-                        add              rsp, 6696
-                        ret
-#-----------------------------------------------------------------------------------------------------------------------
-main_ω:
-                        mov              rsp, rbp
-                        mov              eax, 99
-                        xor              edx, edx
-                        mov              rbp, [rsp + 6688]
-                        add              rsp, 6696
-                        ret
                         .section         .rodata
 .S0:                    .string          "epsilon"
 .S1:                    .string          "*add_tok"
