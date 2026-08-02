@@ -804,15 +804,7 @@ n93_assign_α:
 #         DIFFER(lfunc('p', 'q', 'r'), 'aabbdd')                   :f(e004)
 #-----------------------------------------------------------------------------------------------------------------------
 n94_lit_string_α:
-                        sub              rsp, 64
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
+                        sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 1
                         mov              rax, qword ptr [rip + .Lx167_0]
@@ -824,10 +816,11 @@ n94_lit_string_α:
                         .string          "p"
 #-----------------------------------------------------------------------------------------------------------------------
 n95_lit_string_α:
-                        mov              qword ptr [rsp + 16], 2                        # result
-                        mov              dword ptr [rsp + 20], 1
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 1
                         mov              rax, qword ptr [rip + .Lx168_0]
-                        mov              qword ptr [rsp + 24], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n96_lit_string_α
 .Lx168_0:
                         .quad            .Lx168_0_s
@@ -835,10 +828,11 @@ n95_lit_string_α:
                         .string          "q"
 #-----------------------------------------------------------------------------------------------------------------------
 n96_lit_string_α:
-                        mov              qword ptr [rsp + 32], 2                        # result
-                        mov              dword ptr [rsp + 36], 1
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 1
                         mov              rax, qword ptr [rip + .Lx169_0]
-                        mov              qword ptr [rsp + 40], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n97_call_α
 .Lx169_0:
                         .quad            .Lx169_0_s
@@ -846,6 +840,19 @@ n96_lit_string_α:
                         .string          "r"
 #-----------------------------------------------------------------------------------------------------------------------
 n97_call_α:
+                        sub              rsp, 16
+                        mov              edi, 0                                         # idx
+                        mov              rsi, qword ptr [rsp + 48]                      # lit_string
+                        mov              rdx, qword ptr [rsp + 56]                      # v
+                        call             rt_arg_stage@PLT
+                        mov              edi, 1                                         # idx
+                        mov              rsi, qword ptr [rsp + 32]                      # v
+                        mov              rdx, qword ptr [rsp + 40]                      # v
+                        call             rt_arg_stage@PLT
+                        mov              edi, 2                                         # idx
+                        mov              rsi, qword ptr [rsp + 16]                      # v
+                        mov              rdx, qword ptr [rsp + 24]                      # v
+                        call             rt_arg_stage@PLT
                         sub              rsp, 112
                         mov              rax, qword ptr [1879052304]                    # a
                         mov              qword ptr [rsp + 0], rax
@@ -881,17 +888,20 @@ n97_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx171_5
-                        mov              rax, qword ptr [rsp + 112]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 0]
                         mov              qword ptr [1879052304], rax                    # a
-                        mov              rax, qword ptr [rsp + 120]
+                        mov              rax, qword ptr [r10 + 8]
                         mov              qword ptr [1879052312], rax
-                        mov              rax, qword ptr [rsp + 128]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 16]
                         mov              qword ptr [1879052320], rax                    # b
-                        mov              rax, qword ptr [rsp + 136]
+                        mov              rax, qword ptr [r10 + 24]
                         mov              qword ptr [1879052328], rax
-                        mov              rax, qword ptr [rsp + 144]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 32]
                         mov              qword ptr [1879052336], rax                    # c
-                        mov              rax, qword ptr [rsp + 152]
+                        mov              rax, qword ptr [r10 + 40]
                         mov              qword ptr [1879052344], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx171_6]
@@ -965,77 +975,13 @@ n97_call_α:
                                                                                         jmp   .Lx171_2
 .Lx171_5:
                         add              rsp, 112
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx171_20
-                        mov              rax, qword ptr [rsp + 0]
-                        mov              rdx, qword ptr [rsp + 8]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 0], rax
-                        mov              qword ptr [r10 + 8], rdx
-                                                                                        jmp   .Lx171_21
-.Lx171_20:
-                        mov              edi, 0                                         # idx
-                        mov              rsi, qword ptr [rsp + 0]                       # v
-                        mov              rdx, qword ptr [rsp + 8]                       # v
-                        call             rt_arg_stage@PLT
-.Lx171_21:
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx171_22
-                        mov              rax, qword ptr [rsp + 16]
-                        mov              rdx, qword ptr [rsp + 24]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 16], rax
-                        mov              qword ptr [r10 + 24], rdx
-                                                                                        jmp   .Lx171_23
-.Lx171_22:
-                        mov              edi, 1                                         # idx
-                        mov              rsi, qword ptr [rsp + 16]                      # v
-                        mov              rdx, qword ptr [rsp + 24]                      # v
-                        call             rt_arg_stage@PLT
-.Lx171_23:
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx171_24
-                        mov              rax, qword ptr [rsp + 32]
-                        mov              rdx, qword ptr [rsp + 40]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 32], rax
-                        mov              qword ptr [r10 + 40], rdx
-                                                                                        jmp   .Lx171_25
-.Lx171_24:
-                        mov              edi, 2                                         # idx
-                        mov              rsi, qword ptr [rsp + 32]                      # v
-                        mov              rdx, qword ptr [rsp + 40]                      # v
-                        call             rt_arg_stage@PLT
-.Lx171_25:
-                        mov              rdi, qword ptr [rip + .Lx171_0]                # name
-                        mov              esi, 3                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx171_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx171_3]
-                        lea              rdx, [rip + .Lx171_4]
-                                                                                        jmp   rax
-.Lx171_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx171_2
-.Lx171_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx171_2
-.Lx171_1:
-                        call             rt_faildescr@PLT
 .Lx171_2:
-                        mov              qword ptr [rsp + 560], rax
-                        mov              qword ptr [rsp + 568], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx171_240
-                        add              rsp, 64
+                        add              rsp, 16
+                        add              rsp, 48
                                                                                         jmp   n102_var_α
 .Lx171_240:
                                                                                         jmp   n98_lit_string_α
@@ -1047,10 +993,11 @@ n97_call_β:
                         .string          "lfunc"
 #-----------------------------------------------------------------------------------------------------------------------
 n98_lit_string_α:
-                        mov              qword ptr [rsp + 48], 2                        # result
-                        mov              dword ptr [rsp + 52], 6
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 6
                         mov              rax, qword ptr [rip + .Lx172_0]
-                        mov              qword ptr [rsp + 56], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n99_call_α
 .Lx172_0:
                         .quad            .Lx172_0_s
@@ -1058,33 +1005,38 @@ n98_lit_string_α:
                         .string          "aabbdd"
 #-----------------------------------------------------------------------------------------------------------------------
 n99_call_α:
-                        mov              rax, qword ptr [rsp + 560]
-                        mov              qword ptr [rsp + 512], rax
-                        mov              rax, qword ptr [rsp + 568]
-                        mov              qword ptr [rsp + 520], rax
-                        mov              rax, qword ptr [rsp + 48]
-                        mov              qword ptr [rsp + 528], rax
-                        mov              rax, qword ptr [rsp + 56]
-                        mov              qword ptr [rsp + 536], rax
+                        sub              rsp, 16
+                        sub              rsp, 32
+                        mov              r10, qword ptr [rsp + 64]
+                        mov              r11, qword ptr [rsp + 72]
+                        mov              qword ptr [rsp + 0], r10
+                        mov              qword ptr [rsp + 8], r11
+                        mov              r10, qword ptr [rsp + 48]
+                        mov              r11, qword ptr [rsp + 56]
+                        mov              qword ptr [rsp + 16], r10
+                        mov              qword ptr [rsp + 24], r11
                         .section         .rodata
-.Lrkfn174:              .string          "DIFFER"
+.Lrkfnzd174:            .string          "DIFFER"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfn174]                         # fn
-                        lea              rsi, [rsp + 512]                               # args
+                        lea              rdi, [rip + .Lrkfnzd174]                       # fn
+                        lea              rsi, [rsp + 0]                                 # args
                         mov              edx, 2                                         # nargs
                         call             rt_call_arr@PLT
-                        mov              qword ptr [rsp + 496], rax
-                        mov              qword ptr [rsp + 504], rdx
+                        add              rsp, 32
                         cmp              eax, 104
                                                                                         jne   .Lx173_240
-                        add              rsp, 64
+                        add              rsp, 16
+                        add              rsp, 80
                                                                                         jmp   n102_var_α
 .Lx173_240:
-                        add              rsp, 64
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                        add              rsp, 96
                                                                                         jmp   n100_lit_string_α
 n99_call_β:
-                        add              rsp, 64
+                        add              rsp, 16
+                        add              rsp, 80
                                                                                         jmp   n102_var_α
 #=======================================================================================================================
 #         OUTPUT = 'FAIL 1012/004: lfunc return value'   :(END)
@@ -1231,6 +1183,7 @@ n107_call_β:
 #         DIFFER(checklocal())       :f(e007)
 #-----------------------------------------------------------------------------------------------------------------------
 n108_call_α:
+                        sub              rsp, 16
                         sub              rsp, 32
                         mov              rax, qword ptr [1879052416]                    # x
                         mov              qword ptr [rsp + 0], rax
@@ -1278,28 +1231,14 @@ n108_call_α:
                                                                                         jmp   .Lx186_2
 .Lx186_5:
                         add              rsp, 32
-                        mov              rdi, qword ptr [rip + .Lx186_0]                # name
-                        mov              esi, 0                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx186_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx186_3]
-                        lea              rdx, [rip + .Lx186_4]
-                                                                                        jmp   rax
-.Lx186_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx186_2
-.Lx186_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx186_2
-.Lx186_1:
-                        call             rt_faildescr@PLT
 .Lx186_2:
-                        mov              qword ptr [rsp + 1088], rax
-                        mov              qword ptr [rsp + 1096], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
-                                                                                        je    n112_lit_string_α
+                                                                                        jne   .Lx186_240
+                        add              rsp, 16
+                                                                                        jmp   n112_lit_string_α
+.Lx186_240:
                                                                                         jmp   n109_call_α
 n108_call_β:
                                                                                         jmp   n112_lit_string_α
@@ -1309,24 +1248,34 @@ n108_call_β:
                         .string          "checklocal"
 #-----------------------------------------------------------------------------------------------------------------------
 n109_call_α:
-                        mov              rax, qword ptr [rsp + 1088]
-                        mov              qword ptr [rsp + 1056], rax
-                        mov              rax, qword ptr [rsp + 1096]
-                        mov              qword ptr [rsp + 1064], rax
+                        sub              rsp, 16
+                        sub              rsp, 16
+                        mov              r10, qword ptr [rsp + 32]
+                        mov              r11, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 0], r10
+                        mov              qword ptr [rsp + 8], r11
                         .section         .rodata
-.Lrkfn188:              .string          "DIFFER"
+.Lrkfnzd188:            .string          "DIFFER"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfn188]                         # fn
-                        lea              rsi, [rsp + 1056]                              # args
+                        lea              rdi, [rip + .Lrkfnzd188]                       # fn
+                        lea              rsi, [rsp + 0]                                 # args
                         mov              edx, 1                                         # nargs
                         call             rt_call_arr@PLT
-                        mov              qword ptr [rsp + 1040], rax
-                        mov              qword ptr [rsp + 1048], rdx
+                        add              rsp, 16
                         cmp              eax, 104
-                                                                                        je    n112_lit_string_α
+                                                                                        jne   .Lx187_240
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n112_lit_string_α
+.Lx187_240:
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                        add              rsp, 32
                                                                                         jmp   n110_lit_string_α
 n109_call_β:
+                        add              rsp, 16
+                        add              rsp, 16
                                                                                         jmp   n112_lit_string_α
 #=======================================================================================================================
 #         OUTPUT = 'FAIL 1012/007: local null on fresh call' :(END)

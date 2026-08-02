@@ -167,6 +167,7 @@ main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n11_call_α:
                         sub              rsp, 16
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052288]                    # always_fail
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [1879052296]
@@ -201,28 +202,15 @@ n11_call_α:
                                                                                         jmp   .Lx21_2
 .Lx21_5:
                         add              rsp, 16
-                        mov              rdi, qword ptr [rip + .Lx21_0]                 # name
-                        mov              esi, 0                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx21_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx21_3]
-                        lea              rdx, [rip + .Lx21_4]
-                                                                                        jmp   rax
-.Lx21_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx21_2
-.Lx21_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx21_2
-.Lx21_1:
-                        call             rt_faildescr@PLT
 .Lx21_2:
-                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
-                                                                                        je    n14_lit_string_α
+                                                                                        jne   .Lx21_240
+                        add              rsp, 16
+                                                                                        jmp   n14_lit_string_α
+.Lx21_240:
+                        add              rsp, 16
                                                                                         jmp   n12_lit_string_α
 n11_call_β:
                                                                                         jmp   n14_lit_string_α

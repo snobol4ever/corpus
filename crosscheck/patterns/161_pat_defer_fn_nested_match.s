@@ -360,8 +360,6 @@ proc_EXPR$0_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n38_call_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
                         sub              rsp, 16
                         mov              rax, qword ptr [1879052288]                    # F
                         mov              qword ptr [rsp + 0], rax
@@ -397,26 +395,9 @@ n38_call_α:
                                                                                         jmp   .Lx41_2
 .Lx41_5:
                         add              rsp, 16
-                        mov              rdi, qword ptr [rip + .Lx41_0]                 # name
-                        mov              esi, 0                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx41_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx41_3]
-                        lea              rdx, [rip + .Lx41_4]
-                                                                                        jmp   rax
-.Lx41_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx41_2
-.Lx41_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx41_2
-.Lx41_1:
-                        call             rt_faildescr@PLT
 .Lx41_2:
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rsp + 24], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx41_240
                         add              rsp, 16
@@ -431,8 +412,8 @@ n38_call_β:
                         .string          "F"
 #-----------------------------------------------------------------------------------------------------------------------
 n39_assign_α:
-                        mov              rax, qword ptr [rsp + 16]
-                        mov              rdx, qword ptr [rsp + 24]
+                        mov              rax, qword ptr [rsp + 0]                       # call
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052336], rax                    # EXPR$0
                         mov              qword ptr [1879052344], rdx
                         add              rsp, 16
@@ -463,8 +444,6 @@ proc_EXPR$1_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n43_call_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
                         sub              rsp, 16
                         mov              rax, qword ptr [1879052288]                    # F
                         mov              qword ptr [rsp + 0], rax
@@ -500,26 +479,9 @@ n43_call_α:
                                                                                         jmp   .Lx46_2
 .Lx46_5:
                         add              rsp, 16
-                        mov              rdi, qword ptr [rip + .Lx46_0]                 # name
-                        mov              esi, 0                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx46_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx46_3]
-                        lea              rdx, [rip + .Lx46_4]
-                                                                                        jmp   rax
-.Lx46_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx46_2
-.Lx46_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx46_2
-.Lx46_1:
-                        call             rt_faildescr@PLT
 .Lx46_2:
-                        mov              qword ptr [rsp + 16], rax
-                        mov              qword ptr [rsp + 24], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx46_240
                         add              rsp, 16
@@ -534,8 +496,8 @@ n43_call_β:
                         .string          "F"
 #-----------------------------------------------------------------------------------------------------------------------
 n44_assign_α:
-                        mov              rax, qword ptr [rsp + 16]
-                        mov              rdx, qword ptr [rsp + 24]
+                        mov              rax, qword ptr [rsp + 0]                       # call
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052352], rax                    # EXPR$1
                         mov              qword ptr [1879052360], rdx
                         add              rsp, 16
