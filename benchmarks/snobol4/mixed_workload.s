@@ -1041,9 +1041,9 @@ n80_var_α:
                         mov              rdx, qword ptr [1879052408]
                         mov              qword ptr [rsp + 160], rax                     # result
                         mov              qword ptr [rsp + 168], rdx
-                                                                                        jmp   n81_match_head_α
+                                                                                        jmp   n81_match_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
-n81_match_head_α:
+n81_match_begin_α:
                         mov              qword ptr [rsp + 56], rbp                      # old_rbp
                         mov              rbp, rsp                                       # stmt_base
                         mov              qword ptr [rbp + 64], r13                      # outer_Σ
@@ -1073,7 +1073,7 @@ n81_match_head_α:
 .Lx193_0:
                         mov              r14d, dword ptr [rbp + 16]
                                                                                         jmp   n82_match_patref_α
-n81_match_head_β:
+n81_match_begin_β:
                         add              dword ptr [rbp + 16], 1
                         mov              eax, dword ptr [rbp + 16]
                         cmp              eax, r15d
@@ -1137,9 +1137,9 @@ n82_match_patref_α:
                         lea              rcx, [rip + g_scan_hit_start]
                         mov              rax, qword ptr [rcx]
                         mov              dword ptr [rbp + 16], eax
-                                                                                        jmp   n83_match_release_α
+                                                                                        jmp   n83_match_end_α
 .Lx194_5:
-                                                                                        jmp   n81_match_head_β
+                                                                                        jmp   n81_match_begin_β
 .Lx194_0:
                         push             r14
                         push             r15
@@ -1175,19 +1175,19 @@ n82_match_patref_α:
                         mov              edi, r14d                                      # cur_delta
                         call             rt_defer_close@PLT
                         test             eax, eax
-                                                                                        js    n81_match_head_β
+                                                                                        js    n81_match_begin_β
                         mov              r14d, eax
                         lea              rax, [rip + .Lx194_6]
                         sub              rsp, 8
                         push             rax
-                                                                                        jmp   n83_match_release_α
+                                                                                        jmp   n83_match_end_α
 .Lx194_6:
                         add              rsp, 16
-                                                                                        jmp   n81_match_head_β
+                                                                                        jmp   n81_match_begin_β
 n82_match_patref_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
-n83_match_release_α:
+n83_match_end_α:
                         mov              rax, qword ptr [rbp + 24]
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
