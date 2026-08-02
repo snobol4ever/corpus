@@ -4614,15 +4614,16 @@ n282_var_β:
                                                                                         jmp   n296_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n283_match_head_α:
+                        mov              qword ptr [rsp + 888], rbp                     # old_rbp
+                        mov              rbp, rsp                                       # stmt_base
                         mov              qword ptr [rbp + 896], r13                     # outer_Σ
                         mov              qword ptr [rbp + 904], r14                     # outer_δ
                         mov              qword ptr [rbp + 912], r15                     # outer_Δ
                         lea              rcx, [rip + g_cap_gen]
                         mov              eax, dword ptr [rcx + 0]
                         mov              qword ptr [rbp + 920], rax                     # cap_gen
-                        mov              qword ptr [rbp + 888], rbp                     # old_rbp
-                        mov              rdi, qword ptr [rbp + 1040]                    # lo
-                        mov              rsi, qword ptr [rbp + 1048]                    # hi
+                        mov              rdi, qword ptr [rsp + 1040]                    # lo
+                        mov              rsi, qword ptr [rsp + 1048]                    # hi
                         call             rt_match_enter@PLT
                         mov              r13, rax
                         mov              r15, rdx
@@ -4780,7 +4781,6 @@ n287_match_replace_α:
 .Lx433_0_s:
                         .string          "str"
 .Lx433_1:
-                        mov              rbp, qword ptr [rbp + 888]                     # old_rbp
                                                                                         jmp   n288_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n288_lit_string_α:
@@ -4903,15 +4903,16 @@ n296_var_β:
                                                                                         jmp   n307_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n297_match_head_α:
+                        mov              qword ptr [rsp + 1176], rbp                    # old_rbp
+                        mov              rbp, rsp                                       # stmt_base
                         mov              qword ptr [rbp + 1184], r13                    # outer_Σ
                         mov              qword ptr [rbp + 1192], r14                    # outer_δ
                         mov              qword ptr [rbp + 1200], r15                    # outer_Δ
                         lea              rcx, [rip + g_cap_gen]
                         mov              eax, dword ptr [rcx + 0]
                         mov              qword ptr [rbp + 1208], rax                    # cap_gen
-                        mov              qword ptr [rbp + 1176], rbp                    # old_rbp
-                        mov              rdi, qword ptr [rbp + 1328]                    # lo
-                        mov              rsi, qword ptr [rbp + 1336]                    # hi
+                        mov              rdi, qword ptr [rsp + 1328]                    # lo
+                        mov              rsi, qword ptr [rsp + 1336]                    # hi
                         call             rt_match_enter@PLT
                         mov              r13, rax
                         mov              r15, rdx
@@ -5069,7 +5070,6 @@ n301_match_replace_α:
 .Lx455_0_s:
                         .string          "str"
 .Lx455_1:
-                        mov              rbp, qword ptr [rbp + 1176]                    # old_rbp
                                                                                         jmp   n307_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n302_match_assign_save_α:
