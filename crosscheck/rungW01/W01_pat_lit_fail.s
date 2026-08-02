@@ -62,7 +62,15 @@ main_zw5s2_ω_d16:
 #         subject 'xyz'                      :s(e001)
 #-----------------------------------------------------------------------------------------------------------------------
 n4_var_α:
-                        sub              rsp, 144
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052288]                    # subject
+                        mov              rdx, qword ptr [1879052296]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n5_match_begin_α
+#-----------------------------------------------------------------------------------------------------------------------
+n5_match_begin_α:
+                        sub              rsp, 128
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -79,19 +87,8 @@ n4_var_α:
                         mov              qword ptr [rsp + 104], 0
                         mov              qword ptr [rsp + 112], 0
                         mov              qword ptr [rsp + 120], 0
-                        mov              qword ptr [rsp + 128], 0
-                        mov              qword ptr [rsp + 136], 0
-                        sub              rsp, 16
-                        mov              rax, qword ptr [1879052288]                    # subject
-                        mov              rdx, qword ptr [1879052296]
-                        mov              qword ptr [rsp + 0], rax                       # result
-                        mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n5_match_begin_α
-#-----------------------------------------------------------------------------------------------------------------------
-n5_match_begin_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 128]                     # var
+                        mov              rsi, qword ptr [rsp + 136]
                         mov              qword ptr [rsp + 96], r13                      # outer_Σ
                         mov              qword ptr [rsp + 104], r14                     # outer_δ
                         mov              qword ptr [rsp + 112], r15                     # outer_Δ
@@ -148,8 +145,7 @@ n5_match_begin_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rsp + 120]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        add              rsp, 144
-                                                                                        jmp   n12_lit_string_α
+                                                                                        jmp   main_zw5s3_ω_d144
 #-----------------------------------------------------------------------------------------------------------------------
 n6_match_lit_α:
                         mov              eax, r14d
@@ -241,6 +237,12 @@ n7_match_end_α:
 n8_statement_α:
                         add              rsp, 144
                                                                                         jmp   n9_lit_string_α
+main_zw5s3_ω_d144:
+                        add              rsp, 144
+                                                                                        jmp   n12_lit_string_α
+main_zw5s3_ω_d16:
+                        add              rsp, 16
+                                                                                        jmp   n12_lit_string_α
 #=======================================================================================================================
 # e001    OUTPUT = 'FAIL W01/002: literal mismatch should fail'
 #-----------------------------------------------------------------------------------------------------------------------
@@ -272,6 +274,9 @@ n11_statement_α:
                                                                                         jmp   main_γ
 main_zw5s5_ω_d16:
                         add              rsp, 16
+                                                                                        jmp   main_γ
+main_zw5s5_ω_d144:
+                        add              rsp, 144
                                                                                         jmp   main_γ
 #=======================================================================================================================
 #         OUTPUT = 'PASS W01/002: literal mismatch failed correctly'   :(END)

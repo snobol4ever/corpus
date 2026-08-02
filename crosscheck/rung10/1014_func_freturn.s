@@ -6,6 +6,7 @@ proc_LBL__always_fail_α:
 proc_LBL__always_fail_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_goto_α:
+                        sub              rsp, 16
                                                                                         jmp   n1_statement_α
 n0_goto_β:
                                                                                         jmp   proc_LBL__always_fail_ω

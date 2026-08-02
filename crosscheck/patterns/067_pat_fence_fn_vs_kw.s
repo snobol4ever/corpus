@@ -253,7 +253,15 @@ n9_statement_α:
 #         X  FENCE('Z')                                         :S(BAD)
 #-----------------------------------------------------------------------------------------------------------------------
 n10_var_α:
-                        sub              rsp, 272
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052288]                    # X
+                        mov              rdx, qword ptr [1879052296]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n11_match_begin_α
+#-----------------------------------------------------------------------------------------------------------------------
+n11_match_begin_α:
+                        sub              rsp, 256
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -286,19 +294,8 @@ n10_var_α:
                         mov              qword ptr [rsp + 232], 0
                         mov              qword ptr [rsp + 240], 0
                         mov              qword ptr [rsp + 248], 0
-                        mov              qword ptr [rsp + 256], 0
-                        mov              qword ptr [rsp + 264], 0
-                        sub              rsp, 16
-                        mov              rax, qword ptr [1879052288]                    # X
-                        mov              rdx, qword ptr [1879052296]
-                        mov              qword ptr [rsp + 0], rax                       # result
-                        mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n11_match_begin_α
-#-----------------------------------------------------------------------------------------------------------------------
-n11_match_begin_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 256]                     # var
+                        mov              rsi, qword ptr [rsp + 264]
                         mov              qword ptr [rsp + 216], rbp                     # old_rbp
                         mov              rbp, rsp                                       # stmt_base
                         mov              qword ptr [rbp + 224], r13                     # outer_Σ
@@ -357,9 +354,7 @@ n11_match_begin_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rbp + 248]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        mov              rbp, qword ptr [rbp + 216]                     # old_rbp
-                        add              rsp, 272
-                                                                                        jmp   n18_lit_string_α
+                                                                                        jmp   main_zw5s3_ω_d272
 #-----------------------------------------------------------------------------------------------------------------------
 n12_match_lit_α:
                         mov              eax, r14d
@@ -446,6 +441,9 @@ n14_statement_α:
                         mov              rbp, qword ptr [rbp + 216]                     # old_rbp
                         add              rsp, 272
                                                                                         jmp   n15_lit_string_α
+main_zw5s3_ω_d272:
+                        add              rsp, 272
+                                                                                        jmp   n18_lit_string_α
 #=======================================================================================================================
 # BAD     OUTPUT = 'wrong'
 #-----------------------------------------------------------------------------------------------------------------------
@@ -477,6 +475,9 @@ n17_statement_α:
                                                                                         jmp   main_γ
 main_zw5s5_ω_d16:
                         add              rsp, 16
+                                                                                        jmp   main_γ
+main_zw5s5_ω_d272:
+                        add              rsp, 272
                                                                                         jmp   main_γ
 #=======================================================================================================================
 #         OUTPUT = 'both correct'                               :(END)

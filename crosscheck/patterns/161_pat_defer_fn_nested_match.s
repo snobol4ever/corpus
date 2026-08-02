@@ -6,6 +6,7 @@ proc_LBL__F_α:
 proc_LBL__F_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_goto_α:
+                        sub              rsp, 16
                                                                                         jmp   n1_var_α
 n0_goto_β:
                                                                                         jmp   proc_LBL__F_ω
@@ -99,7 +100,15 @@ proc_LBL__F_zw5s3_ω_d48:
 #         JUNK ? 'xx'
 #-----------------------------------------------------------------------------------------------------------------------
 n9_var_α:
-                        sub              rsp, 192
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052320]                    # JUNK
+                        mov              rdx, qword ptr [1879052328]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n10_match_begin_α
+#-----------------------------------------------------------------------------------------------------------------------
+n10_match_begin_α:
+                        sub              rsp, 176
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -122,19 +131,8 @@ n9_var_α:
                         mov              qword ptr [rsp + 152], 0
                         mov              qword ptr [rsp + 160], 0
                         mov              qword ptr [rsp + 168], 0
-                        mov              qword ptr [rsp + 176], 0
-                        mov              qword ptr [rsp + 184], 0
-                        sub              rsp, 16
-                        mov              rax, qword ptr [1879052320]                    # JUNK
-                        mov              rdx, qword ptr [1879052328]
-                        mov              qword ptr [rsp + 0], rax                       # result
-                        mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n10_match_begin_α
-#-----------------------------------------------------------------------------------------------------------------------
-n10_match_begin_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 176]                     # var
+                        mov              rsi, qword ptr [rsp + 184]
                         mov              qword ptr [rsp + 136], rbp                     # old_rbp
                         mov              rbp, rsp                                       # stmt_base
                         mov              qword ptr [rbp + 144], r13                     # outer_Σ
@@ -193,9 +191,7 @@ n10_match_begin_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rbp + 168]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        mov              rbp, qword ptr [rbp + 120]                     # old_rbp
-                        add              rsp, 192
-                                                                                        jmp   n14_lit_string_α
+                                                                                        jmp   proc_LBL__F_zw5s4_ω_d192
 #-----------------------------------------------------------------------------------------------------------------------
 n11_match_lit_α:
                         mov              eax, r14d
@@ -285,6 +281,12 @@ n13_statement_α:
                         mov              rbp, qword ptr [rbp + 136]                     # old_rbp
                         add              rsp, 192
                                                                                         jmp   n14_lit_string_α
+proc_LBL__F_zw5s4_ω_d192:
+                        add              rsp, 192
+                                                                                        jmp   n14_lit_string_α
+proc_LBL__F_zw5s4_ω_d16:
+                        add              rsp, 16
+                                                                                        jmp   n14_lit_string_α
 #=======================================================================================================================
 #         F = 'AB'                                 :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -308,6 +310,9 @@ n15_assign_α:
                                                                                         jmp   n16_statement_α
 #-----------------------------------------------------------------------------------------------------------------------
 n16_statement_α:
+                                                                                        jmp   n17_save_restore_α
+proc_LBL__F_zw5s5_ω_d192:
+                        add              rsp, 192
                                                                                         jmp   n17_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n17_save_restore_α:
@@ -1606,7 +1611,15 @@ main_zw5s3_ω_d48:
 #         JUNK ? 'xx'
 #-----------------------------------------------------------------------------------------------------------------------
 n105_var_α:
-                        sub              rsp, 192
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052320]                    # JUNK
+                        mov              rdx, qword ptr [1879052328]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n106_match_begin_α
+#-----------------------------------------------------------------------------------------------------------------------
+n106_match_begin_α:
+                        sub              rsp, 176
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -1629,19 +1642,8 @@ n105_var_α:
                         mov              qword ptr [rsp + 152], 0
                         mov              qword ptr [rsp + 160], 0
                         mov              qword ptr [rsp + 168], 0
-                        mov              qword ptr [rsp + 176], 0
-                        mov              qword ptr [rsp + 184], 0
-                        sub              rsp, 16
-                        mov              rax, qword ptr [1879052320]                    # JUNK
-                        mov              rdx, qword ptr [1879052328]
-                        mov              qword ptr [rsp + 0], rax                       # result
-                        mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n106_match_begin_α
-#-----------------------------------------------------------------------------------------------------------------------
-n106_match_begin_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 176]                     # var
+                        mov              rsi, qword ptr [rsp + 184]
                         mov              qword ptr [rsp + 136], rbp                     # old_rbp
                         mov              rbp, rsp                                       # stmt_base
                         mov              qword ptr [rbp + 144], r13                     # outer_Σ
@@ -1700,9 +1702,7 @@ n106_match_begin_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rbp + 168]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        mov              rbp, qword ptr [rbp + 120]                     # old_rbp
-                        add              rsp, 192
-                                                                                        jmp   n110_lit_string_α
+                                                                                        jmp   main_zw5s4_ω_d192
 #-----------------------------------------------------------------------------------------------------------------------
 n107_match_lit_α:
                         mov              eax, r14d
@@ -1792,6 +1792,12 @@ n109_statement_α:
                         mov              rbp, qword ptr [rbp + 136]                     # old_rbp
                         add              rsp, 192
                                                                                         jmp   n110_lit_string_α
+main_zw5s4_ω_d192:
+                        add              rsp, 192
+                                                                                        jmp   n110_lit_string_α
+main_zw5s4_ω_d16:
+                        add              rsp, 16
+                                                                                        jmp   n110_lit_string_α
 #=======================================================================================================================
 #         F = 'AB'                                 :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1815,6 +1821,9 @@ n111_assign_α:
                                                                                         jmp   n112_statement_α
 #-----------------------------------------------------------------------------------------------------------------------
 n112_statement_α:
+                                                                                        jmp   n113_save_restore_α
+main_zw5s5_ω_d192:
+                        add              rsp, 192
                                                                                         jmp   n113_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n113_save_restore_α:

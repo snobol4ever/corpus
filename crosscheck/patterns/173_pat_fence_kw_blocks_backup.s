@@ -293,7 +293,19 @@ main_zw5s3_ω_d16:
 # N2 'ABC' ? FENCE 'B'            :S(Y2)F(N3)
 #-----------------------------------------------------------------------------------------------------------------------
 n13_lit_string_α:
-                        sub              rsp, 192
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 3
+                        mov              rax, qword ptr [rip + .Lx50_0]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n14_match_begin_α
+.Lx50_0:
+                        .quad            .Lx50_0_s
+.Lx50_0_s:
+                        .string          "ABC"
+#-----------------------------------------------------------------------------------------------------------------------
+n14_match_begin_α:
+                        sub              rsp, 176
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -316,23 +328,8 @@ n13_lit_string_α:
                         mov              qword ptr [rsp + 152], 0
                         mov              qword ptr [rsp + 160], 0
                         mov              qword ptr [rsp + 168], 0
-                        mov              qword ptr [rsp + 176], 0
-                        mov              qword ptr [rsp + 184], 0
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 3
-                        mov              rax, qword ptr [rip + .Lx50_0]
-                        mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n14_match_begin_α
-.Lx50_0:
-                        .quad            .Lx50_0_s
-.Lx50_0_s:
-                        .string          "ABC"
-#-----------------------------------------------------------------------------------------------------------------------
-n14_match_begin_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 176]                     # lit_string
+                        mov              rsi, qword ptr [rsp + 184]
                         mov              qword ptr [rsp + 136], rbp                     # old_rbp
                         mov              rbp, rsp                                       # stmt_base
                         mov              qword ptr [rbp + 144], r13                     # outer_Σ
@@ -391,34 +388,22 @@ n14_match_begin_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rbp + 168]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        mov              rbp, qword ptr [rbp + 40]                      # old_rbp
-                        add              rsp, 192
-                                                                                        jmp   n21_lit_string_α
+                                                                                        jmp   main_zw5s4_ω_d192
 #-----------------------------------------------------------------------------------------------------------------------
 n15_match_lit_α:
                         mov              eax, r14d
                         add              eax, 1
                         cmp              eax, r15d
-                                                                                        jle   .Lx54_239
-                        mov              rbp, qword ptr [rbp + 40]                      # old_rbp
-                        add              rsp, 192
-                                                                                        jmp   n21_lit_string_α
-.Lx54_239:
+                                                                                        jg    main_zw5s4_ω_d192
                         movsxd           rcx, r14d
                         movzx            eax, byte ptr [r13+rcx]
                         cmp              eax, 66
-                                                                                        je    .Lx54_240
-                        mov              rbp, qword ptr [rbp + 40]
-                        add              rsp, 192
-                                                                                        jmp   n21_lit_string_α
-.Lx54_240:
+                                                                                        jne   main_zw5s4_ω_d192
                         add              r14d, 1
                                                                                         jmp   n16_match_end_α
 n15_match_lit_β:
                         sub              r14d, 1
-                        mov              rbp, qword ptr [rbp + 40]
-                        add              rsp, 192
-                                                                                        jmp   n21_lit_string_α
+                                                                                        jmp   main_zw5s4_ω_d192
 #-----------------------------------------------------------------------------------------------------------------------
 n16_match_end_α:
                         mov              r10, qword ptr [1879048192]
@@ -490,6 +475,12 @@ n17_statement_α:
                         mov              rbp, qword ptr [rbp + 136]                     # old_rbp
                         add              rsp, 192
                                                                                         jmp   n18_lit_string_α
+main_zw5s4_ω_d192:
+                        add              rsp, 192
+                                                                                        jmp   n21_lit_string_α
+main_zw5s4_ω_d16:
+                        add              rsp, 16
+                                                                                        jmp   n21_lit_string_α
 #=======================================================================================================================
 # Y2 OUTPUT = 'anchor-broke'      :(END)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -521,6 +512,9 @@ n20_statement_α:
                                                                                         jmp   main_γ
 main_zw5s5_ω_d16:
                         add              rsp, 16
+                                                                                        jmp   main_γ
+main_zw5s5_ω_d192:
+                        add              rsp, 192
                                                                                         jmp   main_γ
 #=======================================================================================================================
 # N3 OUTPUT = 'fence-first anchors'
