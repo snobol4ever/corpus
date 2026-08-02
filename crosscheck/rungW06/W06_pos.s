@@ -125,7 +125,7 @@ n3_match_begin_β:
                         mov              eax, dword ptr [rsp + 0]
                         cmp              eax, r15d
                                                                                         jg    .Lx48_1
-                        lea              rcx, [rip + g_anchor]
+                        mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
                         mov              rax, qword ptr [rcx]
                         cmp              rax, 0
                                                                                         jne   .Lx48_1
@@ -446,7 +446,7 @@ n16_match_begin_β:
                         mov              eax, dword ptr [rsp + 0]
                         cmp              eax, r15d
                                                                                         jg    .Lx65_1
-                        lea              rcx, [rip + g_anchor]
+                        mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
                         mov              rax, qword ptr [rcx]
                         cmp              rax, 0
                                                                                         jne   .Lx65_1
@@ -794,7 +794,7 @@ n29_match_begin_β:
                         mov              eax, dword ptr [rsp + 0]
                         cmp              eax, r15d
                                                                                         jg    .Lx82_1
-                        lea              rcx, [rip + g_anchor]
+                        mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
                         mov              rax, qword ptr [rcx]
                         cmp              rax, 0
                                                                                         jne   .Lx82_1

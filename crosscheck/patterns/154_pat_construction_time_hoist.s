@@ -205,7 +205,7 @@ n7_match_begin_β:
                         mov              eax, dword ptr [rsp + 0]
                         cmp              eax, r15d
                                                                                         jg    .Lx73_1
-                        lea              rcx, [rip + g_anchor]
+                        mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
                         mov              rax, qword ptr [rcx]
                         cmp              rax, 0
                                                                                         jne   .Lx73_1
@@ -668,7 +668,7 @@ n29_match_begin_β:
                         mov              eax, dword ptr [rsp + 0]
                         cmp              eax, r15d
                                                                                         jg    .Lx104_1
-                        lea              rcx, [rip + g_anchor]
+                        mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
                         mov              rax, qword ptr [rcx]
                         cmp              rax, 0
                                                                                         jne   .Lx104_1
@@ -981,7 +981,7 @@ n41_match_begin_β:
                         mov              eax, dword ptr [rsp + 0]
                         cmp              eax, r15d
                                                                                         jg    .Lx122_1
-                        lea              rcx, [rip + g_anchor]
+                        mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
                         mov              rax, qword ptr [rcx]
                         cmp              rax, 0
                                                                                         jne   .Lx122_1
@@ -1353,7 +1353,7 @@ n57_match_begin_β:
                         mov              eax, dword ptr [rsp + 0]
                         cmp              eax, r15d
                                                                                         jg    .Lx144_1
-                        lea              rcx, [rip + g_anchor]
+                        mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
                         mov              rax, qword ptr [rcx]
                         cmp              rax, 0
                                                                                         jne   .Lx144_1

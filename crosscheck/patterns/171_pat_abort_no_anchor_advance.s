@@ -90,7 +90,7 @@ n1_match_begin_β:
                         mov              eax, dword ptr [rbp + 16]
                         cmp              eax, r15d
                                                                                         jg    .Lx16_1
-                        lea              rcx, [rip + g_anchor]
+                        mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
                         mov              rax, qword ptr [rcx]
                         cmp              rax, 0
                                                                                         jne   .Lx16_1

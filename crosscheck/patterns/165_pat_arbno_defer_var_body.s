@@ -135,7 +135,7 @@ n3_match_begin_β:
                         mov              eax, dword ptr [rbp + 48]
                         cmp              eax, r15d
                                                                                         jg    .Lx41_1
-                        lea              rcx, [rip + g_anchor]
+                        mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
                         mov              rax, qword ptr [rcx]
                         cmp              rax, 0
                                                                                         jne   .Lx41_1
@@ -404,7 +404,7 @@ n11_match_begin_β:
                         mov              eax, dword ptr [rbp + 336]
                         cmp              eax, r15d
                                                                                         jg    .Lx52_1
-                        lea              rcx, [rip + g_anchor]
+                        mov              rcx, qword ptr [rip + rt_anchor_g@GOTPCREL]
                         mov              rax, qword ptr [rcx]
                         cmp              rax, 0
                                                                                         jne   .Lx52_1
