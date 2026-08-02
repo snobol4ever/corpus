@@ -68,8 +68,7 @@ n3_var_α:
                                                                                         jmp   n4_match_begin_α
 n3_var_β:
                         add              rsp, 16
-                        add              rsp, 16
-                                                                                        jmp   n14_lit_string_α
+                                                                                        jmp   main_zw5s4_ω_d16
 #-----------------------------------------------------------------------------------------------------------------------
 n4_match_begin_α:
                         sub              rsp, 240
@@ -161,8 +160,7 @@ n4_match_begin_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rsp + 152]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        add              rsp, 272
-                                                                                        jmp   n14_lit_string_α
+                                                                                        jmp   main_zw5s4_ω_d272
 #-----------------------------------------------------------------------------------------------------------------------
 n5_match_sequence_α:
                                                                                         jmp   n12_lit_integer_α
@@ -356,6 +354,12 @@ n16_statement_α:
                                                                                         jmp   main_γ
 n16_statement_β:
                         add              rsp, 288
+                                                                                        jmp   main_γ
+main_zw5s4_ω_d272:
+                        add              rsp, 272
+                                                                                        jmp   main_γ
+main_zw5s4_ω_d16:
+                        add              rsp, 16
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:

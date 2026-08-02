@@ -116,8 +116,7 @@ n1_match_begin_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rsp + 88]                      # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        add              rsp, 208
-                                                                                        jmp   n5_lit_string_α
+                                                                                        jmp   main_zw5s1_ω_d208
 #-----------------------------------------------------------------------------------------------------------------------
 n2_match_sequence_α:
                                                                                         jmp   n12_lit_integer_α
@@ -200,6 +199,9 @@ n4_statement_α:
 n4_statement_β:
                         add              rsp, 208
                                                                                         jmp   n5_lit_string_α
+main_zw5s1_ω_d208:
+                        add              rsp, 208
+                                                                                        jmp   n5_lit_string_α
 #=======================================================================================================================
 #  OUTPUT = 'done'
 #-----------------------------------------------------------------------------------------------------------------------
@@ -225,8 +227,7 @@ n6_assign_α:
                         call             NV_SET_fn@PLT
                                                                                         jmp   n7_statement_α
 n6_assign_β:
-                        add              rsp, 16
-                                                                                        jmp   main_γ
+                                                                                        jmp   main_zw5s2_ω_d16
 .Lx24_0:
                         .quad            .Lx24_0_s
 .Lx24_0_s:
@@ -237,6 +238,12 @@ n7_statement_α:
                                                                                         jmp   main_γ
 n7_statement_β:
                         add              rsp, 16
+                                                                                        jmp   main_γ
+main_zw5s2_ω_d16:
+                        add              rsp, 16
+                                                                                        jmp   main_γ
+main_zw5s2_ω_d208:
+                        add              rsp, 208
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n8_goto_α:

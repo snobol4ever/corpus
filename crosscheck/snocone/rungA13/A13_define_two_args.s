@@ -367,12 +367,11 @@ n16_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx31_240
                         add              rsp, 16
-                        add              rsp, 80
-                                                                                        jmp   main_γ
+                                                                                        jmp   main_zw5s4_ω_d80
 .Lx31_240:
                                                                                         jmp   n17_assign_α
 n16_call_β:
-                                                                                        jmp   main_γ
+                                                                                        jmp   main_zw5s4_ω_d80
 .Lx31_0:
                         .quad            .Lx31_0_s
 .Lx31_0_s:
@@ -391,6 +390,18 @@ n17_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n18_statement_α:
                         add              rsp, 96
+                                                                                        jmp   main_γ
+main_zw5s4_ω_d96:
+                        add              rsp, 96
+                                                                                        jmp   main_γ
+main_zw5s4_ω_d80:
+                        add              rsp, 80
+                                                                                        jmp   main_γ
+main_zw5s4_ω_d64:
+                        add              rsp, 64
+                                                                                        jmp   main_γ
+main_zw5s4_ω_d48:
+                        add              rsp, 48
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:

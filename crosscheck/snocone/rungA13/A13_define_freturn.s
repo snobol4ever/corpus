@@ -244,12 +244,11 @@ n15_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx33_240
                         add              rsp, 16
-                        add              rsp, 16
-                                                                                        jmp   n18_lit_string_α
+                                                                                        jmp   main_zw5s7_ω_d16
 .Lx33_240:
                                                                                         jmp   n16_lit_string_α
 n15_call_β:
-                                                                                        jmp   n18_lit_string_α
+                                                                                        jmp   main_zw5s7_ω_d16
 .Lx33_0:
                         .quad            .Lx33_0_s
 .Lx33_0_s:
@@ -301,6 +300,9 @@ n19_assign_α:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
 n20_statement_α:
+                                                                                        jmp   n21_lit_integer_α
+main_zw5s7_ω_d16:
+                        add              rsp, 16
                                                                                         jmp   n21_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
 n21_lit_integer_α:
@@ -385,12 +387,11 @@ n23_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx43_240
                         add              rsp, 16
-                        add              rsp, 80
-                                                                                        jmp   n26_lit_string_α
+                                                                                        jmp   main_zw5s10_ω_d80
 .Lx43_240:
                                                                                         jmp   n24_lit_string_α
 n23_call_β:
-                                                                                        jmp   n26_lit_string_α
+                                                                                        jmp   main_zw5s10_ω_d80
 .Lx43_0:
                         .quad            .Lx43_0_s
 .Lx43_0_s:
@@ -443,6 +444,15 @@ n27_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n28_statement_α:
                         add              rsp, 112
+                                                                                        jmp   main_γ
+main_zw5s10_ω_d80:
+                        add              rsp, 80
+                                                                                        jmp   main_γ
+main_zw5s10_ω_d64:
+                        add              rsp, 64
+                                                                                        jmp   main_γ
+main_zw5s10_ω_d48:
+                        add              rsp, 48
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:

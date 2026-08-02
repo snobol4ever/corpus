@@ -815,8 +815,7 @@ n86_binop_α:
                         cmp              eax, 104
                                                                                         jne   .Lx198_240
                         add              rsp, 16
-                        add              rsp, 672
-                                                                                        jmp   main_γ
+                                                                                        jmp   main_zw5s23_ω_d672
 .Lx198_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
@@ -832,8 +831,7 @@ n87_binop_α:
                         cmp              eax, 104
                                                                                         jne   .Lx199_240
                         add              rsp, 16
-                        add              rsp, 688
-                                                                                        jmp   main_γ
+                                                                                        jmp   main_zw5s23_ω_d688
 .Lx199_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
@@ -852,6 +850,24 @@ n88_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n89_statement_α:
                         add              rsp, 704
+                                                                                        jmp   main_γ
+main_zw5s23_ω_d704:
+                        add              rsp, 704
+                                                                                        jmp   main_γ
+main_zw5s23_ω_d688:
+                        add              rsp, 688
+                                                                                        jmp   main_γ
+main_zw5s23_ω_d672:
+                        add              rsp, 672
+                                                                                        jmp   main_γ
+main_zw5s23_ω_d656:
+                        add              rsp, 656
+                                                                                        jmp   main_γ
+main_zw5s23_ω_d640:
+                        add              rsp, 640
+                                                                                        jmp   main_γ
+main_zw5s23_ω_d624:
+                        add              rsp, 624
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:

@@ -855,12 +855,11 @@ n56_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx81_240
                         add              rsp, 16
-                        add              rsp, 112
-                                                                                        jmp   main_γ
+                                                                                        jmp   main_zw5s8_ω_d112
 .Lx81_240:
                                                                                         jmp   n57_assign_α
 n56_call_β:
-                                                                                        jmp   main_γ
+                                                                                        jmp   main_zw5s8_ω_d112
 .Lx81_0:
                         .quad            .Lx81_0_s
 .Lx81_0_s:
@@ -879,6 +878,15 @@ n57_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n58_statement_α:
                         add              rsp, 128
+                                                                                        jmp   main_γ
+main_zw5s8_ω_d128:
+                        add              rsp, 128
+                                                                                        jmp   main_γ
+main_zw5s8_ω_d112:
+                        add              rsp, 112
+                                                                                        jmp   main_γ
+main_zw5s8_ω_d96:
+                        add              rsp, 96
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:

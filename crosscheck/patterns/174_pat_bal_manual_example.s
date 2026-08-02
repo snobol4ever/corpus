@@ -127,8 +127,7 @@ n1_match_begin_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rsp + 88]                      # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        add              rsp, 192
-                                                                                        jmp   n16_lit_string_α
+                                                                                        jmp   main_zw5s1_ω_d192
 #-----------------------------------------------------------------------------------------------------------------------
 n2_match_sequence_α:
                                                                                         jmp   n14_match_any_α
@@ -211,6 +210,9 @@ n4_statement_α:
 n4_statement_β:
                         add              rsp, 192
                                                                                         jmp   n16_lit_string_α
+main_zw5s1_ω_d192:
+                        add              rsp, 192
+                                                                                        jmp   n16_lit_string_α
 #=======================================================================================================================
 #  OUTPUT = 'BAL=' OUT                                 :(END)
 #-----------------------------------------------------------------------------------------------------------------------
@@ -238,8 +240,7 @@ n6_var_α:
                                                                                         jmp   n7_binop_α
 n6_var_β:
                         add              rsp, 16
-                        add              rsp, 16
-                                                                                        jmp   main_γ
+                                                                                        jmp   main_zw5s2_ω_d16
 #-----------------------------------------------------------------------------------------------------------------------
 n7_binop_α:
                         sub              rsp, 16
@@ -253,8 +254,7 @@ n7_binop_α:
                                                                                         jmp   n8_assign_α
 n7_binop_β:
                         add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   main_γ
+                                                                                        jmp   main_zw5s2_ω_d32
 #-----------------------------------------------------------------------------------------------------------------------
 n8_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # binop
@@ -263,8 +263,7 @@ n8_assign_α:
                         call             NV_SET_fn@PLT
                                                                                         jmp   n9_statement_α
 n8_assign_β:
-                        add              rsp, 48
-                                                                                        jmp   main_γ
+                                                                                        jmp   main_zw5s2_ω_d48
 .Lx31_0:
                         .quad            .Lx31_0_s
 .Lx31_0_s:
@@ -275,6 +274,18 @@ n9_statement_α:
                                                                                         jmp   main_γ
 n9_statement_β:
                         add              rsp, 48
+                                                                                        jmp   main_γ
+main_zw5s2_ω_d48:
+                        add              rsp, 48
+                                                                                        jmp   main_γ
+main_zw5s2_ω_d32:
+                        add              rsp, 32
+                                                                                        jmp   main_γ
+main_zw5s2_ω_d16:
+                        add              rsp, 16
+                                                                                        jmp   main_γ
+main_zw5s2_ω_d192:
+                        add              rsp, 192
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n10_match_any_α:
@@ -404,8 +415,7 @@ n17_assign_α:
                         call             NV_SET_fn@PLT
                                                                                         jmp   n18_statement_α
 n17_assign_β:
-                        add              rsp, 16
-                                                                                        jmp   main_γ
+                                                                                        jmp   main_zw5s3_ω_d16
 .Lx46_0:
                         .quad            .Lx46_0_s
 .Lx46_0_s:
@@ -416,6 +426,12 @@ n18_statement_α:
                                                                                         jmp   main_γ
 n18_statement_β:
                         add              rsp, 16
+                                                                                        jmp   main_γ
+main_zw5s3_ω_d16:
+                        add              rsp, 16
+                                                                                        jmp   main_γ
+main_zw5s3_ω_d48:
+                        add              rsp, 48
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:

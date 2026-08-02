@@ -3384,12 +3384,11 @@ n312_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx509_240
                         add              rsp, 16
-                        add              rsp, 528
-                                                                                        jmp   main_γ
+                                                                                        jmp   main_zw5s38_ω_d528
 .Lx509_240:
                                                                                         jmp   n313_assign_α
 n312_call_β:
-                                                                                        jmp   main_γ
+                                                                                        jmp   main_zw5s38_ω_d528
 .Lx509_0:
                         .quad            .Lx509_0_s
 .Lx509_0_s:
@@ -3408,6 +3407,18 @@ n313_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n314_statement_α:
                         add              rsp, 544
+                                                                                        jmp   main_γ
+main_zw5s38_ω_d544:
+                        add              rsp, 544
+                                                                                        jmp   main_γ
+main_zw5s38_ω_d528:
+                        add              rsp, 528
+                                                                                        jmp   main_γ
+main_zw5s38_ω_d512:
+                        add              rsp, 512
+                                                                                        jmp   main_γ
+main_zw5s38_ω_d496:
+                        add              rsp, 496
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n315_goto_α:

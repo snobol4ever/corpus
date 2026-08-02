@@ -204,6 +204,30 @@ n18_assign_α:
 n19_statement_α:
                         add              rsp, 192
                                                                                         jmp   main_γ
+main_zw5s4_ω_d192:
+                        add              rsp, 192
+                                                                                        jmp   main_γ
+main_zw5s4_ω_d176:
+                        add              rsp, 176
+                                                                                        jmp   main_γ
+main_zw5s4_ω_d160:
+                        add              rsp, 160
+                                                                                        jmp   main_γ
+main_zw5s4_ω_d144:
+                        add              rsp, 144
+                                                                                        jmp   main_γ
+main_zw5s4_ω_d128:
+                        add              rsp, 128
+                                                                                        jmp   main_γ
+main_zw5s4_ω_d112:
+                        add              rsp, 112
+                                                                                        jmp   main_γ
+main_zw5s4_ω_d96:
+                        add              rsp, 96
+                                                                                        jmp   main_γ
+main_zw5s4_ω_d80:
+                        add              rsp, 80
+                                                                                        jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                                         jmp   main_ω

@@ -52,13 +52,15 @@ n1_assign_α:
                         mov              qword ptr [1879052296], rdx
                                                                                         jmp   n2_statement_α
 n1_assign_β:
-                        add              rsp, 16
-                                                                                        jmp   n3_var_α
+                                                                                        jmp   main_zw5s1_ω_d16
 #-----------------------------------------------------------------------------------------------------------------------
 n2_statement_α:
                         add              rsp, 16
                                                                                         jmp   n3_var_α
 n2_statement_β:
+                        add              rsp, 16
+                                                                                        jmp   n3_var_α
+main_zw5s1_ω_d16:
                         add              rsp, 16
                                                                                         jmp   n3_var_α
 #=======================================================================================================================
@@ -303,8 +305,7 @@ n12_assign_α:
                         call             NV_SET_fn@PLT
                                                                                         jmp   n13_statement_α
 n12_assign_β:
-                        add              rsp, 16
-                                                                                        jmp   main_γ
+                                                                                        jmp   main_zw5s3_ω_d16
 .Lx43_0:
                         .quad            .Lx43_0_s
 .Lx43_0_s:
@@ -314,6 +315,9 @@ n13_statement_α:
                         add              rsp, 16
                                                                                         jmp   main_γ
 n13_statement_β:
+                        add              rsp, 16
+                                                                                        jmp   main_γ
+main_zw5s3_ω_d16:
                         add              rsp, 16
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
@@ -427,8 +431,7 @@ n21_assign_α:
                         call             NV_SET_fn@PLT
                                                                                         jmp   n22_statement_α
 n21_assign_β:
-                        add              rsp, 16
-                                                                                        jmp   main_γ
+                                                                                        jmp   main_zw5s4_ω_d16
 .Lx54_0:
                         .quad            .Lx54_0_s
 .Lx54_0_s:
@@ -438,6 +441,9 @@ n22_statement_α:
                         add              rsp, 16
                                                                                         jmp   main_γ
 n22_statement_β:
+                        add              rsp, 16
+                                                                                        jmp   main_γ
+main_zw5s4_ω_d16:
                         add              rsp, 16
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------

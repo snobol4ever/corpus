@@ -72,6 +72,12 @@ n4_assign_α:
 n5_statement_α:
                         add              rsp, 32
                                                                                         jmp   main_γ
+main_zw5s2_ω_d32:
+                        add              rsp, 32
+                                                                                        jmp   main_γ
+main_zw5s2_ω_d16:
+                        add              rsp, 16
+                                                                                        jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                                         jmp   main_ω

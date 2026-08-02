@@ -46,16 +46,14 @@ n1_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx15_240
                         add              rsp, 16
-                        add              rsp, 16
-                                                                                        jmp   n4_lit_string_α
+                                                                                        jmp   main_zw5s3_ω_d16
 .Lx15_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n2_lit_string_α
 n1_call_β:
                         add              rsp, 16
-                        add              rsp, 16
-                                                                                        jmp   n4_lit_string_α
+                                                                                        jmp   main_zw5s3_ω_d16
 #-----------------------------------------------------------------------------------------------------------------------
 n2_lit_string_α:
                         sub              rsp, 16
@@ -104,6 +102,9 @@ n5_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n6_statement_α:
                                                                                         jmp   n7_lit_string_α
+main_zw5s3_ω_d16:
+                        add              rsp, 16
+                                                                                        jmp   n7_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n7_lit_string_α:
                         sub              rsp, 16
@@ -136,16 +137,14 @@ n8_call_α:
                         cmp              eax, 104
                                                                                         jne   .Lx24_240
                         add              rsp, 16
-                        add              rsp, 64
-                                                                                        jmp   n11_lit_string_α
+                                                                                        jmp   main_zw5s6_ω_d64
 .Lx24_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n9_lit_string_α
 n8_call_β:
                         add              rsp, 16
-                        add              rsp, 64
-                                                                                        jmp   n11_lit_string_α
+                                                                                        jmp   main_zw5s6_ω_d64
 #-----------------------------------------------------------------------------------------------------------------------
 n9_lit_string_α:
                         sub              rsp, 16
@@ -194,6 +193,12 @@ n12_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n13_statement_α:
                         add              rsp, 96
+                                                                                        jmp   main_γ
+main_zw5s6_ω_d64:
+                        add              rsp, 64
+                                                                                        jmp   main_γ
+main_zw5s6_ω_d48:
+                        add              rsp, 48
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
