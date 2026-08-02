@@ -71,7 +71,7 @@ n1_match_head_α:
                         mov              qword ptr [r10 + 16], rax                      # cas_patstk
                         add              r10, 24
                         mov              qword ptr [1879048192], r10                    # cas_top
-                        mov              qword ptr [rbp + 32], rsp
+                        mov              qword ptr [rbp + 32], rsp                      # zls2_mark
                         lea              rcx, [rip + g_patstk_sp]
                         mov              rax, qword ptr [rcx + 0]
                         mov              qword ptr [rbp + 24], rax                      # patstk_mark
@@ -108,7 +108,7 @@ n1_match_head_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rbp + 88]                      # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        mov              rbp, qword ptr [rbp + 56]
+                        mov              rbp, qword ptr [rbp + 56]                      # old_rbp
                         add              rsp, 144
                                                                                         jmp   n8_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -141,7 +141,7 @@ n4_match_lit_α:
                         add              eax, 1
                         cmp              eax, r15d
                                                                                         jle   .Lx31_239
-                        mov              rbp, qword ptr [rbp + 56]
+                        mov              rbp, qword ptr [rbp + 56]                      # old_rbp
                         add              rsp, 144
                                                                                         jmp   n8_lit_string_α
 .Lx31_239:
@@ -219,7 +219,7 @@ n5_match_release_α:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rbp + 88]                      # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        mov              rbp, qword ptr [rbp + 56]
+                        mov              rbp, qword ptr [rbp + 56]                      # old_rbp
                         add              rsp, 144
                                                                                         jmp   n6_lit_string_α
 #=======================================================================================================================
@@ -376,7 +376,7 @@ n11_match_head_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rbp + 168]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        mov              rbp, qword ptr [rbp + 40]
+                        mov              rbp, qword ptr [rbp + 40]                      # old_rbp
                         add              rsp, 192
                                                                                         jmp   n16_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -385,7 +385,7 @@ n12_match_lit_α:
                         add              eax, 1
                         cmp              eax, r15d
                                                                                         jle   .Lx42_239
-                        mov              rbp, qword ptr [rbp + 40]
+                        mov              rbp, qword ptr [rbp + 40]                      # old_rbp
                         add              rsp, 192
                                                                                         jmp   n16_lit_string_α
 .Lx42_239:
@@ -469,7 +469,7 @@ n13_match_release_α:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rbp + 168]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        mov              rbp, qword ptr [rbp + 40]
+                        mov              rbp, qword ptr [rbp + 40]                      # old_rbp
                         add              rsp, 192
                                                                                         jmp   n14_lit_string_α
 #=======================================================================================================================

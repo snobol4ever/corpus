@@ -492,7 +492,7 @@ n20_match_head_α:
                         mov              qword ptr [r10 + 16], rax                      # cas_patstk
                         add              r10, 24
                         mov              qword ptr [1879048192], r10                    # cas_top
-                        mov              qword ptr [rbp + 192], rsp
+                        mov              qword ptr [rbp + 192], rsp                     # zls2_mark
                         lea              rcx, [rip + g_patstk_sp]
                         mov              rax, qword ptr [rcx + 0]
                         mov              qword ptr [rbp + 184], rax                     # patstk_mark
@@ -529,7 +529,7 @@ n20_match_head_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rbp + 248]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        mov              rbp, qword ptr [rbp + 216]
+                        mov              rbp, qword ptr [rbp + 216]                     # old_rbp
                         add              rsp, 384
                                                                                         jmp   n31_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -601,7 +601,7 @@ n22_match_release_α:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rbp + 248]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        mov              rbp, qword ptr [rbp + 216]
+                        mov              rbp, qword ptr [rbp + 216]                     # old_rbp
                         add              rsp, 384
                                                                                         jmp   n23_lit_string_α
 #=======================================================================================================================

@@ -122,7 +122,7 @@ n3_match_head_α:
                         mov              qword ptr [r10 + 16], rax                      # cas_patstk
                         add              r10, 24
                         mov              qword ptr [1879048192], r10                    # cas_top
-                        mov              qword ptr [rbp + 64], rsp
+                        mov              qword ptr [rbp + 64], rsp                      # zls2_mark
                         lea              rcx, [rip + g_patstk_sp]
                         mov              rax, qword ptr [rcx + 0]
                         mov              qword ptr [rbp + 56], rax                      # patstk_mark
@@ -159,7 +159,7 @@ n3_match_head_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rbp + 120]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        mov              rbp, qword ptr [rbp + 88]
+                        mov              rbp, qword ptr [rbp + 88]                      # old_rbp
                         add              rsp, 272
                                                                                         jmp   n30_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -231,7 +231,7 @@ n5_match_release_α:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rbp + 120]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        mov              rbp, qword ptr [rbp + 88]
+                        mov              rbp, qword ptr [rbp + 88]                      # old_rbp
                         add              rsp, 272
                                                                                         jmp   n6_lit_string_α
 #=======================================================================================================================
@@ -391,7 +391,7 @@ n11_match_head_α:
                         mov              qword ptr [r10 + 16], rax                      # cas_patstk
                         add              r10, 24
                         mov              qword ptr [1879048192], r10                    # cas_top
-                        mov              qword ptr [rbp + 352], rsp
+                        mov              qword ptr [rbp + 352], rsp                     # zls2_mark
                         lea              rcx, [rip + g_patstk_sp]
                         mov              rax, qword ptr [rcx + 0]
                         mov              qword ptr [rbp + 344], rax                     # patstk_mark
@@ -428,7 +428,7 @@ n11_match_head_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rbp + 408]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        mov              rbp, qword ptr [rbp + 376]
+                        mov              rbp, qword ptr [rbp + 376]                     # old_rbp
                         add              rsp, 560
                                                                                         jmp   n35_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -500,7 +500,7 @@ n13_match_release_α:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rbp + 408]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        mov              rbp, qword ptr [rbp + 376]
+                        mov              rbp, qword ptr [rbp + 376]                     # old_rbp
                         add              rsp, 560
                                                                                         jmp   n14_lit_string_α
 #=======================================================================================================================

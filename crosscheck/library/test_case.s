@@ -2858,7 +2858,7 @@ n215_match_head_α:
                         mov              qword ptr [r10 + 16], rax                      # cas_patstk
                         add              r10, 24
                         mov              qword ptr [1879048192], r10                    # cas_top
-                        mov              qword ptr [rbp + 1680], rsp
+                        mov              qword ptr [rbp + 1680], rsp                    # zls2_mark
                         lea              rcx, [rip + g_patstk_sp]
                         mov              rax, qword ptr [rcx + 0]
                         mov              qword ptr [rbp + 1672], rax                    # patstk_mark
@@ -3187,7 +3187,7 @@ n223_match_head_α:
                         mov              qword ptr [r10 + 16], rax                      # cas_patstk
                         add              r10, 24
                         mov              qword ptr [1879048192], r10                    # cas_top
-                        mov              qword ptr [rbp + 1872], rsp
+                        mov              qword ptr [rbp + 1872], rsp                    # zls2_mark
                         lea              rcx, [rip + g_patstk_sp]
                         mov              rax, qword ptr [rcx + 0]
                         mov              qword ptr [rbp + 1864], rax                    # patstk_mark
@@ -3516,7 +3516,7 @@ n231_match_head_α:
                         mov              qword ptr [r10 + 16], rax                      # cas_patstk
                         add              r10, 24
                         mov              qword ptr [1879048192], r10                    # cas_top
-                        mov              qword ptr [rbp + 2064], rsp
+                        mov              qword ptr [rbp + 2064], rsp                    # zls2_mark
                         lea              rcx, [rip + g_patstk_sp]
                         mov              rax, qword ptr [rcx + 0]
                         mov              qword ptr [rbp + 2056], rax                    # patstk_mark
@@ -3816,7 +3816,7 @@ n238_lit_string_α:
                                                                                         jmp   n239_match_head_α
 n238_lit_string_β:
                         add              rsp, 16
-                        mov              rbp, qword ptr [rbp + 2088]
+                        mov              rbp, qword ptr [rbp + 2088]                    # old_rbp
                         add              rsp, 2432
                                                                                         jmp   n317_lit_string_α
 .Lx368_0:
@@ -3847,7 +3847,7 @@ n239_match_head_α:
                         mov              qword ptr [r10 + 16], rax                      # cas_patstk
                         add              r10, 24
                         mov              qword ptr [1879048192], r10                    # cas_top
-                        mov              qword ptr [rbp + 2256], rsp
+                        mov              qword ptr [rbp + 2256], rsp                    # zls2_mark
                         lea              rcx, [rip + g_patstk_sp]
                         mov              rax, qword ptr [rcx + 0]
                         mov              qword ptr [rbp + 2248], rax                    # patstk_mark
@@ -3884,7 +3884,7 @@ n239_match_head_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rbp + 2312]                    # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        mov              rbp, qword ptr [rbp + 2248]
+                        mov              rbp, qword ptr [rbp + 2248]                    # old_rbp
                         add              rsp, 2432
                                                                                         jmp   n317_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4121,7 +4121,7 @@ n244_lit_string_α:
                         mov              qword ptr [rsp + 2424], rax
                                                                                         jmp   n245_assign_α
 n244_lit_string_β:
-                        mov              rbp, qword ptr [rbp + 2280]
+                        mov              rbp, qword ptr [rbp + 2280]                    # old_rbp
                         add              rsp, 2432
                                                                                         jmp   main_γ
 .Lx377_0:
@@ -4134,7 +4134,7 @@ n245_assign_α:
                         mov              rdx, qword ptr [rsp + 2424]                    # val
                         mov              rdi, qword ptr [rip + .Lx378_0]                # name
                         call             NV_SET_fn@PLT
-                        mov              rbp, qword ptr [rbp + 2280]
+                        mov              rbp, qword ptr [rbp + 2280]                    # old_rbp
                         add              rsp, 2432
                                                                                         jmp   main_γ
 n245_assign_β:
