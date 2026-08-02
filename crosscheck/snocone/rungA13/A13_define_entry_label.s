@@ -131,16 +131,19 @@ main_α_body:
                         mov              rbp, rsp
                         sub              rsp, 8
 #-----------------------------------------------------------------------------------------------------------------------
-n8_lit_integer_α:
+n8_statement_α:
+                                                                                        jmp   n9_lit_integer_α
+#-----------------------------------------------------------------------------------------------------------------------
+n9_lit_integer_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3                         # result
-                        mov              rax, qword ptr [rip + .Lx11_0]
+                        mov              rax, qword ptr [rip + .Lx15_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n9_call_α
-.Lx11_0:
+                                                                                        jmp   n10_call_α
+.Lx15_0:
                         .quad            41
 #-----------------------------------------------------------------------------------------------------------------------
-n9_call_α:
+n10_call_α:
                         sub              rsp, 16
                         mov              edi, 0                                         # idx
                         mov              rsi, qword ptr [rsp + 16]                      # lit_integer
@@ -155,22 +158,22 @@ n9_call_α:
                         mov              qword ptr [rsp + 16], rax
                         mov              rax, qword ptr [1879052296]
                         mov              qword ptr [rsp + 24], rax
-                        mov              rdi, qword ptr [rip + .Lx13_0]                 # name
+                        mov              rdi, qword ptr [rip + .Lx17_0]                 # name
                         mov              esi, 1                                         # np
                         mov              edx, 1                                         # nargs
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
-                                                                                        je    .Lx13_5
+                                                                                        je    .Lx17_5
                         lea              r10, [rip + g_call_args]
                         mov              rax, qword ptr [r10 + 0]
                         mov              qword ptr [1879052304], rax                    # v
                         mov              rax, qword ptr [r10 + 8]
                         mov              qword ptr [1879052312], rax
                         call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx13_6]
-                        lea              rdx, [rip + .Lx13_7]
+                        lea              rcx, [rip + .Lx17_6]
+                        lea              rdx, [rip + .Lx17_7]
                                                                                         jmp   rax
-.Lx13_6:
+.Lx17_6:
                         mov              rdi, qword ptr [1879052288]                    # bumpit
                         mov              rsi, qword ptr [1879052296]
                         mov              rax, qword ptr [rsp + 16]
@@ -183,8 +186,8 @@ n9_call_α:
                         mov              qword ptr [1879052312], rax
                         add              rsp, 32
                         call             rt_proc_call_epilogue_slim_γ@PLT
-                                                                                        jmp   .Lx13_2
-.Lx13_7:
+                                                                                        jmp   .Lx17_2
+.Lx17_7:
                         mov              rax, qword ptr [rsp + 16]
                         mov              qword ptr [1879052288], rax                    # bumpit
                         mov              rax, qword ptr [rsp + 24]
@@ -195,37 +198,40 @@ n9_call_α:
                         mov              qword ptr [1879052312], rax
                         add              rsp, 32
                         call             rt_proc_call_epilogue_slim_ω@PLT
-                                                                                        jmp   .Lx13_2
-.Lx13_5:
+                                                                                        jmp   .Lx17_2
+.Lx17_5:
                         add              rsp, 32
-.Lx13_2:
+.Lx17_2:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
-                                                                                        jne   .Lx13_240
+                                                                                        jne   .Lx17_240
                         add              rsp, 16
                         add              rsp, 16
                                                                                         jmp   main_γ
-.Lx13_240:
-                                                                                        jmp   n10_assign_α
-n9_call_β:
+.Lx17_240:
+                                                                                        jmp   n11_assign_α
+n10_call_β:
                                                                                         jmp   main_γ
-.Lx13_0:
-                        .quad            .Lx13_0_s
-.Lx13_0_s:
+.Lx17_0:
+                        .quad            .Lx17_0_s
+.Lx17_0_s:
                         .string          "bumpit"
 #-----------------------------------------------------------------------------------------------------------------------
-n10_assign_α:
+n11_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # call
                         mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx14_0]                 # name
+                        mov              rdi, qword ptr [rip + .Lx18_0]                 # name
                         call             NV_SET_fn@PLT
+                                                                                        jmp   n12_statement_α
+.Lx18_0:
+                        .quad            .Lx18_0_s
+.Lx18_0_s:
+                        .string          "OUTPUT"
+#-----------------------------------------------------------------------------------------------------------------------
+n12_statement_α:
                         add              rsp, 32
                                                                                         jmp   main_γ
-.Lx14_0:
-                        .quad            .Lx14_0_s
-.Lx14_0_s:
-                        .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                                         jmp   main_ω

@@ -16,59 +16,68 @@ n1_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 7
-                        mov              rax, qword ptr [rip + .Lx7_0]
+                        mov              rax, qword ptr [rip + .Lx10_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n2_assign_α
-.Lx7_0:
-                        .quad            .Lx7_0_s
-.Lx7_0_s:
+.Lx10_0:
+                        .quad            .Lx10_0_s
+.Lx10_0_s:
                         .string          "at BETA"
 #-----------------------------------------------------------------------------------------------------------------------
 n2_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # lit_string
                         mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx8_0]                  # name
+                        mov              rdi, qword ptr [rip + .Lx11_0]                 # name
                         call             NV_SET_fn@PLT
-                        add              rsp, 16
-                                                                                        jmp   n3_lit_string_α
-.Lx8_0:
-                        .quad            .Lx8_0_s
-.Lx8_0_s:
+                                                                                        jmp   n3_statement_α
+.Lx11_0:
+                        .quad            .Lx11_0_s
+.Lx11_0_s:
                         .string          "OUTPUT"
+#-----------------------------------------------------------------------------------------------------------------------
+n3_statement_α:
+                        add              rsp, 16
+                                                                                        jmp   n4_lit_string_α
 #=======================================================================================================================
 #         NEXT = 'GAMMA'
 #-----------------------------------------------------------------------------------------------------------------------
-n3_lit_string_α:
+n4_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 5
-                        mov              rax, qword ptr [rip + .Lx9_0]
+                        mov              rax, qword ptr [rip + .Lx14_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n4_assign_α
-.Lx9_0:
-                        .quad            .Lx9_0_s
-.Lx9_0_s:
+                                                                                        jmp   n5_assign_α
+.Lx14_0:
+                        .quad            .Lx14_0_s
+.Lx14_0_s:
                         .string          "GAMMA"
 #-----------------------------------------------------------------------------------------------------------------------
-n4_assign_α:
+n5_assign_α:
                         mov              rax, qword ptr [rsp + 0]                       # lit_string
                         mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052304], rax                    # NEXT
                         mov              qword ptr [1879052312], rdx
+                                                                                        jmp   n6_statement_α
+#-----------------------------------------------------------------------------------------------------------------------
+n6_statement_α:
                         add              rsp, 16
-                                                                                        jmp   n5_goto_deferred_α
+                                                                                        jmp   n7_statement_α
 #=======================================================================================================================
 #         :($NEXT)
 #-----------------------------------------------------------------------------------------------------------------------
-n5_goto_deferred_α:
-                        mov              rdi, qword ptr [rip + .Lx12_0]                 # name
+n7_statement_α:
+                                                                                        jmp   n8_goto_deferred_α
+#-----------------------------------------------------------------------------------------------------------------------
+n8_goto_deferred_α:
+                        mov              rdi, qword ptr [rip + .Lx21_0]                 # name
                         call             rt_goto_transfer@PLT
-                                                                                        jmp   .Lx12_1
-.Lx12_0:
-                        .quad            .Lx12_0_s
-.Lx12_0_s:
+                                                                                        jmp   .Lx21_1
+.Lx21_0:
+                        .quad            .Lx21_0_s
+.Lx21_0_s:
                         .string          "$NEXT"
-.Lx12_1:
+.Lx21_1:
                                                                                         jmp   proc_LBL__BETA_γ
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__BETA_res:
@@ -94,64 +103,67 @@ proc_LBL__BETA_ω:
 proc_LBL__ALPHA_α:
 proc_LBL__ALPHA_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n13_goto_α:
-                                                                                        jmp   n14_lit_string_α
-n13_goto_β:
+n22_goto_α:
+                                                                                        jmp   n23_lit_string_α
+n22_goto_β:
                                                                                         jmp   proc_LBL__ALPHA_ω
 #=======================================================================================================================
 # ALPHA   OUTPUT = 'at ALPHA'
 #-----------------------------------------------------------------------------------------------------------------------
-n14_lit_string_α:
+n23_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 8
-                        mov              rax, qword ptr [rip + .Lx22_0]
+                        mov              rax, qword ptr [rip + .Lx34_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n15_assign_α
-.Lx22_0:
-                        .quad            .Lx22_0_s
-.Lx22_0_s:
+                                                                                        jmp   n24_assign_α
+.Lx34_0:
+                        .quad            .Lx34_0_s
+.Lx34_0_s:
                         .string          "at ALPHA"
 #-----------------------------------------------------------------------------------------------------------------------
-n15_assign_α:
+n24_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # lit_string
                         mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx23_0]                 # name
+                        mov              rdi, qword ptr [rip + .Lx35_0]                 # name
                         call             NV_SET_fn@PLT
-                        add              rsp, 16
-                                                                                        jmp   n16_lit_string_α
-.Lx23_0:
-                        .quad            .Lx23_0_s
-.Lx23_0_s:
+                                                                                        jmp   n25_statement_α
+.Lx35_0:
+                        .quad            .Lx35_0_s
+.Lx35_0_s:
                         .string          "OUTPUT"
+#-----------------------------------------------------------------------------------------------------------------------
+n25_statement_α:
+                        add              rsp, 16
+                                                                                        jmp   n26_lit_string_α
 #=======================================================================================================================
 #         WHICH = 'BE' 'TA'
 #-----------------------------------------------------------------------------------------------------------------------
-n16_lit_string_α:
+n26_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 2
-                        mov              rax, qword ptr [rip + .Lx24_0]
+                        mov              rax, qword ptr [rip + .Lx38_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n17_lit_string_α
-.Lx24_0:
-                        .quad            .Lx24_0_s
-.Lx24_0_s:
+                                                                                        jmp   n27_lit_string_α
+.Lx38_0:
+                        .quad            .Lx38_0_s
+.Lx38_0_s:
                         .string          "BE"
 #-----------------------------------------------------------------------------------------------------------------------
-n17_lit_string_α:
+n27_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 2
-                        mov              rax, qword ptr [rip + .Lx25_0]
+                        mov              rax, qword ptr [rip + .Lx39_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n18_binop_α
-.Lx25_0:
-                        .quad            .Lx25_0_s
-.Lx25_0_s:
+                                                                                        jmp   n28_binop_α
+.Lx39_0:
+                        .quad            .Lx39_0_s
+.Lx39_0_s:
                         .string          "TA"
 #-----------------------------------------------------------------------------------------------------------------------
-n18_binop_α:
+n28_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # lit_string
                         mov              rsi, qword ptr [rsp + 40]                      # a
@@ -160,27 +172,33 @@ n18_binop_α:
                         call             str_concat_d@PLT
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n19_assign_α
+                                                                                        jmp   n29_assign_α
 #-----------------------------------------------------------------------------------------------------------------------
-n19_assign_α:
+n29_assign_α:
                         mov              rax, qword ptr [rsp + 0]                       # binop
                         mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052288], rax                    # WHICH
                         mov              qword ptr [1879052296], rdx
+                                                                                        jmp   n30_statement_α
+#-----------------------------------------------------------------------------------------------------------------------
+n30_statement_α:
                         add              rsp, 48
-                                                                                        jmp   n20_goto_deferred_α
+                                                                                        jmp   n31_statement_α
 #=======================================================================================================================
 #         :($WHICH)
 #-----------------------------------------------------------------------------------------------------------------------
-n20_goto_deferred_α:
-                        mov              rdi, qword ptr [rip + .Lx29_0]                 # name
+n31_statement_α:
+                                                                                        jmp   n32_goto_deferred_α
+#-----------------------------------------------------------------------------------------------------------------------
+n32_goto_deferred_α:
+                        mov              rdi, qword ptr [rip + .Lx47_0]                 # name
                         call             rt_goto_transfer@PLT
-                                                                                        jmp   .Lx29_1
-.Lx29_0:
-                        .quad            .Lx29_0_s
-.Lx29_0_s:
+                                                                                        jmp   .Lx47_1
+.Lx47_0:
+                        .quad            .Lx47_0_s
+.Lx47_0_s:
                         .string          "$WHICH"
-.Lx29_1:
+.Lx47_1:
                                                                                         jmp   proc_LBL__ALPHA_γ
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__ALPHA_res:
@@ -206,36 +224,39 @@ proc_LBL__ALPHA_ω:
 proc_LBL__GAMMA_α:
 proc_LBL__GAMMA_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n30_goto_α:
-                                                                                        jmp   n31_lit_string_α
-n30_goto_β:
+n48_goto_α:
+                                                                                        jmp   n49_lit_string_α
+n48_goto_β:
                                                                                         jmp   proc_LBL__GAMMA_ω
 #=======================================================================================================================
 # GAMMA   OUTPUT = 'at GAMMA'                      :(END)
 #-----------------------------------------------------------------------------------------------------------------------
-n31_lit_string_α:
+n49_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 8
-                        mov              rax, qword ptr [rip + .Lx34_0]
+                        mov              rax, qword ptr [rip + .Lx53_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n32_assign_α
-.Lx34_0:
-                        .quad            .Lx34_0_s
-.Lx34_0_s:
+                                                                                        jmp   n50_assign_α
+.Lx53_0:
+                        .quad            .Lx53_0_s
+.Lx53_0_s:
                         .string          "at GAMMA"
 #-----------------------------------------------------------------------------------------------------------------------
-n32_assign_α:
+n50_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # lit_string
                         mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx35_0]                 # name
+                        mov              rdi, qword ptr [rip + .Lx54_0]                 # name
                         call             NV_SET_fn@PLT
+                                                                                        jmp   n51_statement_α
+.Lx54_0:
+                        .quad            .Lx54_0_s
+.Lx54_0_s:
+                        .string          "OUTPUT"
+#-----------------------------------------------------------------------------------------------------------------------
+n51_statement_α:
                         add              rsp, 16
                                                                                         jmp   proc_LBL__GAMMA_γ
-.Lx35_0:
-                        .quad            .Lx35_0_s
-.Lx35_0_s:
-                        .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
 proc_LBL__GAMMA_res:
                         add              rsp, 8
@@ -349,28 +370,28 @@ main_α_body:
 #=======================================================================================================================
 #         &TRIM = 1
 #-----------------------------------------------------------------------------------------------------------------------
-n36_lit_string_α:
+n57_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 4
-                        mov              rax, qword ptr [rip + .Lx59_0]
+                        mov              rax, qword ptr [rip + .Lx90_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n37_lit_integer_α
-.Lx59_0:
-                        .quad            .Lx59_0_s
-.Lx59_0_s:
+                                                                                        jmp   n58_lit_integer_α
+.Lx90_0:
+                        .quad            .Lx90_0_s
+.Lx90_0_s:
                         .string          "TRIM"
 #-----------------------------------------------------------------------------------------------------------------------
-n37_lit_integer_α:
+n58_lit_integer_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3                         # result
-                        mov              rax, qword ptr [rip + .Lx60_0]
+                        mov              rax, qword ptr [rip + .Lx91_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n38_call_α
-.Lx60_0:
+                                                                                        jmp   n59_call_α
+.Lx91_0:
                         .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
-n38_call_α:
+n59_call_α:
                         sub              rsp, 16
                         sub              rsp, 32
                         mov              r10, qword ptr [rsp + 64]
@@ -382,188 +403,209 @@ n38_call_α:
                         mov              qword ptr [rsp + 16], r10
                         mov              qword ptr [rsp + 24], r11
                         .section         .rodata
-.Lrkfnzd62:             .string          "SNO$KWSET"
+.Lrkfnzd93:             .string          "SNO$KWSET"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfnzd62]                        # fn
+                        lea              rdi, [rip + .Lrkfnzd93]                        # fn
                         lea              rsi, [rsp + 0]                                 # args
                         mov              edx, 2                                         # nargs
                         call             rt_call_arr@PLT
                         add              rsp, 32
                         cmp              eax, 104
-                                                                                        jne   .Lx61_240
+                                                                                        jne   .Lx92_240
                         add              rsp, 16
                         add              rsp, 32
-                                                                                        jmp   n39_lit_string_α
-.Lx61_240:
+                                                                                        jmp   n61_lit_string_α
+.Lx92_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
-                        add              rsp, 48
-                                                                                        jmp   n39_lit_string_α
-n38_call_β:
+                                                                                        jmp   n60_statement_α
+n59_call_β:
                         add              rsp, 16
                         add              rsp, 32
-                                                                                        jmp   n39_lit_string_α
+                                                                                        jmp   n61_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n60_statement_α:
+                        add              rsp, 48
+                                                                                        jmp   n61_lit_string_α
 #=======================================================================================================================
 #         WHICH = 'ALPHA'
 #-----------------------------------------------------------------------------------------------------------------------
-n39_lit_string_α:
+n61_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 5
-                        mov              rax, qword ptr [rip + .Lx63_0]
+                        mov              rax, qword ptr [rip + .Lx96_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n40_assign_α
-.Lx63_0:
-                        .quad            .Lx63_0_s
-.Lx63_0_s:
+                                                                                        jmp   n62_assign_α
+.Lx96_0:
+                        .quad            .Lx96_0_s
+.Lx96_0_s:
                         .string          "ALPHA"
 #-----------------------------------------------------------------------------------------------------------------------
-n40_assign_α:
+n62_assign_α:
                         mov              rax, qword ptr [rsp + 0]                       # lit_string
                         mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052288], rax                    # WHICH
                         mov              qword ptr [1879052296], rdx
+                                                                                        jmp   n63_statement_α
+#-----------------------------------------------------------------------------------------------------------------------
+n63_statement_α:
                         add              rsp, 16
-                                                                                        jmp   n41_goto_deferred_α
+                                                                                        jmp   n64_statement_α
 #=======================================================================================================================
 #         :($WHICH)
 #-----------------------------------------------------------------------------------------------------------------------
-n41_goto_deferred_α:
-                        mov              rdi, qword ptr [rip + .Lx66_0]                 # name
+n64_statement_α:
+                                                                                        jmp   n65_goto_deferred_α
+#-----------------------------------------------------------------------------------------------------------------------
+n65_goto_deferred_α:
+                        mov              rdi, qword ptr [rip + .Lx103_0]                # name
                         call             rt_goto_transfer@PLT
-                                                                                        jmp   .Lx66_1
-.Lx66_0:
-                        .quad            .Lx66_0_s
-.Lx66_0_s:
+                                                                                        jmp   .Lx103_1
+.Lx103_0:
+                        .quad            .Lx103_0_s
+.Lx103_0_s:
                         .string          "$WHICH"
-.Lx66_1:
+.Lx103_1:
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
-n42_goto_α:
-                                                                                        jmp   n43_lit_string_α
-n42_goto_β:
+n66_goto_α:
+                                                                                        jmp   n67_lit_string_α
+n66_goto_β:
                                                                                         jmp   main_ω
 #=======================================================================================================================
 # BETA    OUTPUT = 'at BETA'
 #-----------------------------------------------------------------------------------------------------------------------
-n43_lit_string_α:
+n67_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 7
-                        mov              rax, qword ptr [rip + .Lx68_0]
+                        mov              rax, qword ptr [rip + .Lx105_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n44_assign_α
-.Lx68_0:
-                        .quad            .Lx68_0_s
-.Lx68_0_s:
+                                                                                        jmp   n68_assign_α
+.Lx105_0:
+                        .quad            .Lx105_0_s
+.Lx105_0_s:
                         .string          "at BETA"
 #-----------------------------------------------------------------------------------------------------------------------
-n44_assign_α:
+n68_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # lit_string
                         mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx69_0]                 # name
+                        mov              rdi, qword ptr [rip + .Lx106_0]                # name
                         call             NV_SET_fn@PLT
-                        add              rsp, 16
-                                                                                        jmp   n45_lit_string_α
-.Lx69_0:
-                        .quad            .Lx69_0_s
-.Lx69_0_s:
+                                                                                        jmp   n69_statement_α
+.Lx106_0:
+                        .quad            .Lx106_0_s
+.Lx106_0_s:
                         .string          "OUTPUT"
+#-----------------------------------------------------------------------------------------------------------------------
+n69_statement_α:
+                        add              rsp, 16
+                                                                                        jmp   n70_lit_string_α
 #=======================================================================================================================
 #         NEXT = 'GAMMA'
 #-----------------------------------------------------------------------------------------------------------------------
-n45_lit_string_α:
+n70_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 5
-                        mov              rax, qword ptr [rip + .Lx70_0]
+                        mov              rax, qword ptr [rip + .Lx109_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n46_assign_α
-.Lx70_0:
-                        .quad            .Lx70_0_s
-.Lx70_0_s:
+                                                                                        jmp   n71_assign_α
+.Lx109_0:
+                        .quad            .Lx109_0_s
+.Lx109_0_s:
                         .string          "GAMMA"
 #-----------------------------------------------------------------------------------------------------------------------
-n46_assign_α:
+n71_assign_α:
                         mov              rax, qword ptr [rsp + 0]                       # lit_string
                         mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052304], rax                    # NEXT
                         mov              qword ptr [1879052312], rdx
+                                                                                        jmp   n72_statement_α
+#-----------------------------------------------------------------------------------------------------------------------
+n72_statement_α:
                         add              rsp, 16
-                                                                                        jmp   n47_goto_deferred_α
+                                                                                        jmp   n73_statement_α
 #=======================================================================================================================
 #         :($NEXT)
 #-----------------------------------------------------------------------------------------------------------------------
-n47_goto_deferred_α:
-                        mov              rdi, qword ptr [rip + .Lx73_0]                 # name
+n73_statement_α:
+                                                                                        jmp   n74_goto_deferred_α
+#-----------------------------------------------------------------------------------------------------------------------
+n74_goto_deferred_α:
+                        mov              rdi, qword ptr [rip + .Lx116_0]                # name
                         call             rt_goto_transfer@PLT
-                                                                                        jmp   .Lx73_1
-.Lx73_0:
-                        .quad            .Lx73_0_s
-.Lx73_0_s:
+                                                                                        jmp   .Lx116_1
+.Lx116_0:
+                        .quad            .Lx116_0_s
+.Lx116_0_s:
                         .string          "$NEXT"
-.Lx73_1:
+.Lx116_1:
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
-n48_goto_α:
-                                                                                        jmp   n49_lit_string_α
-n48_goto_β:
+n75_goto_α:
+                                                                                        jmp   n76_lit_string_α
+n75_goto_β:
                                                                                         jmp   main_ω
 #=======================================================================================================================
 # ALPHA   OUTPUT = 'at ALPHA'
 #-----------------------------------------------------------------------------------------------------------------------
-n49_lit_string_α:
+n76_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 8
-                        mov              rax, qword ptr [rip + .Lx75_0]
+                        mov              rax, qword ptr [rip + .Lx118_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n50_assign_α
-.Lx75_0:
-                        .quad            .Lx75_0_s
-.Lx75_0_s:
+                                                                                        jmp   n77_assign_α
+.Lx118_0:
+                        .quad            .Lx118_0_s
+.Lx118_0_s:
                         .string          "at ALPHA"
 #-----------------------------------------------------------------------------------------------------------------------
-n50_assign_α:
+n77_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # lit_string
                         mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx76_0]                 # name
+                        mov              rdi, qword ptr [rip + .Lx119_0]                # name
                         call             NV_SET_fn@PLT
-                        add              rsp, 16
-                                                                                        jmp   n51_lit_string_α
-.Lx76_0:
-                        .quad            .Lx76_0_s
-.Lx76_0_s:
+                                                                                        jmp   n78_statement_α
+.Lx119_0:
+                        .quad            .Lx119_0_s
+.Lx119_0_s:
                         .string          "OUTPUT"
+#-----------------------------------------------------------------------------------------------------------------------
+n78_statement_α:
+                        add              rsp, 16
+                                                                                        jmp   n79_lit_string_α
 #=======================================================================================================================
 #         WHICH = 'BE' 'TA'
 #-----------------------------------------------------------------------------------------------------------------------
-n51_lit_string_α:
+n79_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 2
-                        mov              rax, qword ptr [rip + .Lx77_0]
+                        mov              rax, qword ptr [rip + .Lx122_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n52_lit_string_α
-.Lx77_0:
-                        .quad            .Lx77_0_s
-.Lx77_0_s:
+                                                                                        jmp   n80_lit_string_α
+.Lx122_0:
+                        .quad            .Lx122_0_s
+.Lx122_0_s:
                         .string          "BE"
 #-----------------------------------------------------------------------------------------------------------------------
-n52_lit_string_α:
+n80_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 2
-                        mov              rax, qword ptr [rip + .Lx78_0]
+                        mov              rax, qword ptr [rip + .Lx123_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n53_binop_α
-.Lx78_0:
-                        .quad            .Lx78_0_s
-.Lx78_0_s:
+                                                                                        jmp   n81_binop_α
+.Lx123_0:
+                        .quad            .Lx123_0_s
+.Lx123_0_s:
                         .string          "TA"
 #-----------------------------------------------------------------------------------------------------------------------
-n53_binop_α:
+n81_binop_α:
                         sub              rsp, 16
                         mov              rdi, qword ptr [rsp + 32]                      # lit_string
                         mov              rsi, qword ptr [rsp + 40]                      # a
@@ -572,59 +614,68 @@ n53_binop_α:
                         call             str_concat_d@PLT
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n54_assign_α
+                                                                                        jmp   n82_assign_α
 #-----------------------------------------------------------------------------------------------------------------------
-n54_assign_α:
+n82_assign_α:
                         mov              rax, qword ptr [rsp + 0]                       # binop
                         mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052288], rax                    # WHICH
                         mov              qword ptr [1879052296], rdx
+                                                                                        jmp   n83_statement_α
+#-----------------------------------------------------------------------------------------------------------------------
+n83_statement_α:
                         add              rsp, 48
-                                                                                        jmp   n55_goto_deferred_α
+                                                                                        jmp   n84_statement_α
 #=======================================================================================================================
 #         :($WHICH)
 #-----------------------------------------------------------------------------------------------------------------------
-n55_goto_deferred_α:
-                        mov              rdi, qword ptr [rip + .Lx82_0]                 # name
+n84_statement_α:
+                                                                                        jmp   n85_goto_deferred_α
+#-----------------------------------------------------------------------------------------------------------------------
+n85_goto_deferred_α:
+                        mov              rdi, qword ptr [rip + .Lx131_0]                # name
                         call             rt_goto_transfer@PLT
-                                                                                        jmp   .Lx82_1
-.Lx82_0:
-                        .quad            .Lx82_0_s
-.Lx82_0_s:
+                                                                                        jmp   .Lx131_1
+.Lx131_0:
+                        .quad            .Lx131_0_s
+.Lx131_0_s:
                         .string          "$WHICH"
-.Lx82_1:
+.Lx131_1:
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
-n56_goto_α:
-                                                                                        jmp   n57_lit_string_α
-n56_goto_β:
+n86_goto_α:
+                                                                                        jmp   n87_lit_string_α
+n86_goto_β:
                                                                                         jmp   main_ω
 #=======================================================================================================================
 # GAMMA   OUTPUT = 'at GAMMA'                      :(END)
 #-----------------------------------------------------------------------------------------------------------------------
-n57_lit_string_α:
+n87_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 8
-                        mov              rax, qword ptr [rip + .Lx84_0]
+                        mov              rax, qword ptr [rip + .Lx133_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n58_assign_α
-.Lx84_0:
-                        .quad            .Lx84_0_s
-.Lx84_0_s:
+                                                                                        jmp   n88_assign_α
+.Lx133_0:
+                        .quad            .Lx133_0_s
+.Lx133_0_s:
                         .string          "at GAMMA"
 #-----------------------------------------------------------------------------------------------------------------------
-n58_assign_α:
+n88_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # lit_string
                         mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx85_0]                 # name
+                        mov              rdi, qword ptr [rip + .Lx134_0]                # name
                         call             NV_SET_fn@PLT
+                                                                                        jmp   n89_statement_α
+.Lx134_0:
+                        .quad            .Lx134_0_s
+.Lx134_0_s:
+                        .string          "OUTPUT"
+#-----------------------------------------------------------------------------------------------------------------------
+n89_statement_α:
                         add              rsp, 16
                                                                                         jmp   main_γ
-.Lx85_0:
-                        .quad            .Lx85_0_s
-.Lx85_0_s:
-                        .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                                         jmp   main_ω

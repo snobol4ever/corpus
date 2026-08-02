@@ -14,260 +14,37 @@ main_α_body:
                         push             rbp
                         mov              rbp, rsp
                         sub              rsp, 8
+#-----------------------------------------------------------------------------------------------------------------------
+n0_statement_α:
+                                                                                        jmp   n1_lit_string_α
 #=======================================================================================================================
 #         LLE('abc', 'abc')          :s(e001)
-#-----------------------------------------------------------------------------------------------------------------------
-n0_lit_string_α:
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 3
-                        mov              rax, qword ptr [rip + .Lx38_0]
-                        mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n1_lit_string_α
-.Lx38_0:
-                        .quad            .Lx38_0_s
-.Lx38_0_s:
-                        .string          "abc"
 #-----------------------------------------------------------------------------------------------------------------------
 n1_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 3
-                        mov              rax, qword ptr [rip + .Lx39_0]
-                        mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n2_cmp_test_α
-.Lx39_0:
-                        .quad            .Lx39_0_s
-.Lx39_0_s:
-                        .string          "abc"
-#-----------------------------------------------------------------------------------------------------------------------
-n2_cmp_test_α:
-                        sub              rsp, 16
-                        lea              rdi, [rsp + 32]                                # lit_string
-                        lea              rsi, [rsp + 16]                                # b
-                        call             rt_cmp_d@PLT
-                        test             eax, eax
-                                                                                        jle   .Lx41_240
-                        add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n30_lit_string_α
-.Lx41_240:
-                        add              rsp, 48
-                                                                                        jmp   n3_lit_string_α
-#=======================================================================================================================
-#         LLE('abc', 'xyz')          :s(e002)
-#-----------------------------------------------------------------------------------------------------------------------
-n3_lit_string_α:
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 3
-                        mov              rax, qword ptr [rip + .Lx42_0]
-                        mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n4_lit_string_α
-.Lx42_0:
-                        .quad            .Lx42_0_s
-.Lx42_0_s:
-                        .string          "abc"
-#-----------------------------------------------------------------------------------------------------------------------
-n4_lit_string_α:
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 3
-                        mov              rax, qword ptr [rip + .Lx43_0]
-                        mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n5_cmp_test_α
-.Lx43_0:
-                        .quad            .Lx43_0_s
-.Lx43_0_s:
-                        .string          "xyz"
-#-----------------------------------------------------------------------------------------------------------------------
-n5_cmp_test_α:
-                        sub              rsp, 16
-                        lea              rdi, [rsp + 32]                                # lit_string
-                        lea              rsi, [rsp + 16]                                # b
-                        call             rt_cmp_d@PLT
-                        test             eax, eax
-                                                                                        jle   .Lx45_240
-                        add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n28_lit_string_α
-.Lx45_240:
-                        add              rsp, 48
-                                                                                        jmp   n6_lit_string_α
-#=======================================================================================================================
-#         LLE('xyz', 'abc')          :f(e003)
-#-----------------------------------------------------------------------------------------------------------------------
-n6_lit_string_α:
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 3
-                        mov              rax, qword ptr [rip + .Lx46_0]
-                        mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n7_lit_string_α
-.Lx46_0:
-                        .quad            .Lx46_0_s
-.Lx46_0_s:
-                        .string          "xyz"
-#-----------------------------------------------------------------------------------------------------------------------
-n7_lit_string_α:
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 3
-                        mov              rax, qword ptr [rip + .Lx47_0]
-                        mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n8_cmp_test_α
-.Lx47_0:
-                        .quad            .Lx47_0_s
-.Lx47_0_s:
-                        .string          "abc"
-#-----------------------------------------------------------------------------------------------------------------------
-n8_cmp_test_α:
-                        sub              rsp, 16
-                        lea              rdi, [rsp + 32]                                # lit_string
-                        lea              rsi, [rsp + 16]                                # b
-                        call             rt_cmp_d@PLT
-                        test             eax, eax
-                                                                                        jle   .Lx49_240
-                        add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n11_lit_string_α
-.Lx49_240:
-                        add              rsp, 48
-                                                                                        jmp   n9_lit_string_α
-#=======================================================================================================================
-#         OUTPUT = 'FAIL 919/003: LLE(xyz,abc) should fail'   :(END)
-#-----------------------------------------------------------------------------------------------------------------------
-n9_lit_string_α:
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 38
-                        mov              rax, qword ptr [rip + .Lx50_0]
-                        mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n10_assign_α
-.Lx50_0:
-                        .quad            .Lx50_0_s
-.Lx50_0_s:
-                        .string          "FAIL 919/003: LLE(xyz,abc) should fail"
-#-----------------------------------------------------------------------------------------------------------------------
-n10_assign_α:
-                        mov              rsi, qword ptr [rsp + 0]                       # lit_string
-                        mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx51_0]                 # name
-                        call             NV_SET_fn@PLT
-                        add              rsp, 16
-                                                                                        jmp   main_γ
-.Lx51_0:
-                        .quad            .Lx51_0_s
-.Lx51_0_s:
-                        .string          "OUTPUT"
-#=======================================================================================================================
-#         LLE('', 'abc')             :s(e004)
-#-----------------------------------------------------------------------------------------------------------------------
-n11_lit_string_α:
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 0
-                        mov              rax, qword ptr [rip + .Lx52_0]
-                        mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n12_lit_string_α
-.Lx52_0:
-                        .quad            .Lx52_0_s
-.Lx52_0_s:
-                        .string          ""
-#-----------------------------------------------------------------------------------------------------------------------
-n12_lit_string_α:
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 3
-                        mov              rax, qword ptr [rip + .Lx53_0]
-                        mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n13_cmp_test_α
-.Lx53_0:
-                        .quad            .Lx53_0_s
-.Lx53_0_s:
-                        .string          "abc"
-#-----------------------------------------------------------------------------------------------------------------------
-n13_cmp_test_α:
-                        sub              rsp, 16
-                        lea              rdi, [rsp + 32]                                # lit_string
-                        lea              rsi, [rsp + 16]                                # b
-                        call             rt_cmp_d@PLT
-                        test             eax, eax
-                                                                                        jle   .Lx55_240
-                        add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n26_lit_string_α
-.Lx55_240:
-                        add              rsp, 48
-                                                                                        jmp   n14_lit_string_α
-#=======================================================================================================================
-#         LLE('', '')                :s(e005)
-#-----------------------------------------------------------------------------------------------------------------------
-n14_lit_string_α:
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 0
-                        mov              rax, qword ptr [rip + .Lx56_0]
-                        mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n15_lit_string_α
-.Lx56_0:
-                        .quad            .Lx56_0_s
-.Lx56_0_s:
-                        .string          ""
-#-----------------------------------------------------------------------------------------------------------------------
-n15_lit_string_α:
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 0
-                        mov              rax, qword ptr [rip + .Lx57_0]
-                        mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n16_cmp_test_α
-.Lx57_0:
-                        .quad            .Lx57_0_s
-.Lx57_0_s:
-                        .string          ""
-#-----------------------------------------------------------------------------------------------------------------------
-n16_cmp_test_α:
-                        sub              rsp, 16
-                        lea              rdi, [rsp + 32]                                # lit_string
-                        lea              rsi, [rsp + 16]                                # b
-                        call             rt_cmp_d@PLT
-                        test             eax, eax
-                                                                                        jle   .Lx59_240
-                        add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n24_lit_string_α
-.Lx59_240:
-                        add              rsp, 48
-                                                                                        jmp   n17_lit_string_α
-#=======================================================================================================================
-#         LLE('A', 'a')              :s(e006)
-#-----------------------------------------------------------------------------------------------------------------------
-n17_lit_string_α:
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 1
                         mov              rax, qword ptr [rip + .Lx60_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n18_lit_string_α
+                                                                                        jmp   n2_lit_string_α
 .Lx60_0:
                         .quad            .Lx60_0_s
 .Lx60_0_s:
-                        .string          "A"
+                        .string          "abc"
 #-----------------------------------------------------------------------------------------------------------------------
-n18_lit_string_α:
+n2_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 1
+                        mov              dword ptr [rsp + 4], 3
                         mov              rax, qword ptr [rip + .Lx61_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n19_cmp_test_α
+                                                                                        jmp   n3_cmp_test_α
 .Lx61_0:
                         .quad            .Lx61_0_s
 .Lx61_0_s:
-                        .string          "a"
+                        .string          "abc"
 #-----------------------------------------------------------------------------------------------------------------------
-n19_cmp_test_α:
+n3_cmp_test_α:
                         sub              rsp, 16
                         lea              rdi, [rsp + 32]                                # lit_string
                         lea              rsi, [rsp + 16]                                # b
@@ -276,195 +53,478 @@ n19_cmp_test_α:
                                                                                         jle   .Lx63_240
                         add              rsp, 16
                         add              rsp, 32
-                                                                                        jmp   n22_lit_string_α
+                                                                                        jmp   n49_lit_string_α
 .Lx63_240:
+                                                                                        jmp   n4_statement_α
+#-----------------------------------------------------------------------------------------------------------------------
+n4_statement_α:
+                                                                                        jmp   n5_statement_α
+#-----------------------------------------------------------------------------------------------------------------------
+n5_statement_α:
                         add              rsp, 48
-                                                                                        jmp   n20_lit_string_α
+                                                                                        jmp   n6_lit_string_α
 #=======================================================================================================================
-#         OUTPUT = 'PASS 919_lle (6/6)'
+#         LLE('abc', 'xyz')          :s(e002)
+#-----------------------------------------------------------------------------------------------------------------------
+n6_lit_string_α:
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 3
+                        mov              rax, qword ptr [rip + .Lx68_0]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n7_lit_string_α
+.Lx68_0:
+                        .quad            .Lx68_0_s
+.Lx68_0_s:
+                        .string          "abc"
+#-----------------------------------------------------------------------------------------------------------------------
+n7_lit_string_α:
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 3
+                        mov              rax, qword ptr [rip + .Lx69_0]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n8_cmp_test_α
+.Lx69_0:
+                        .quad            .Lx69_0_s
+.Lx69_0_s:
+                        .string          "xyz"
+#-----------------------------------------------------------------------------------------------------------------------
+n8_cmp_test_α:
+                        sub              rsp, 16
+                        lea              rdi, [rsp + 32]                                # lit_string
+                        lea              rsi, [rsp + 16]                                # b
+                        call             rt_cmp_d@PLT
+                        test             eax, eax
+                                                                                        jle   .Lx71_240
+                        add              rsp, 16
+                        add              rsp, 32
+                                                                                        jmp   n46_lit_string_α
+.Lx71_240:
+                                                                                        jmp   n9_statement_α
+#-----------------------------------------------------------------------------------------------------------------------
+n9_statement_α:
+                                                                                        jmp   n10_statement_α
+#-----------------------------------------------------------------------------------------------------------------------
+n10_statement_α:
+                        add              rsp, 48
+                                                                                        jmp   n11_lit_string_α
+#=======================================================================================================================
+#         LLE('xyz', 'abc')          :f(e003)
+#-----------------------------------------------------------------------------------------------------------------------
+n11_lit_string_α:
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 3
+                        mov              rax, qword ptr [rip + .Lx76_0]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n12_lit_string_α
+.Lx76_0:
+                        .quad            .Lx76_0_s
+.Lx76_0_s:
+                        .string          "xyz"
+#-----------------------------------------------------------------------------------------------------------------------
+n12_lit_string_α:
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 3
+                        mov              rax, qword ptr [rip + .Lx77_0]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n13_cmp_test_α
+.Lx77_0:
+                        .quad            .Lx77_0_s
+.Lx77_0_s:
+                        .string          "abc"
+#-----------------------------------------------------------------------------------------------------------------------
+n13_cmp_test_α:
+                        sub              rsp, 16
+                        lea              rdi, [rsp + 32]                                # lit_string
+                        lea              rsi, [rsp + 16]                                # b
+                        call             rt_cmp_d@PLT
+                        test             eax, eax
+                                                                                        jle   .Lx79_240
+                        add              rsp, 16
+                        add              rsp, 32
+                                                                                        jmp   n18_statement_α
+.Lx79_240:
+                                                                                        jmp   n14_statement_α
+#-----------------------------------------------------------------------------------------------------------------------
+n14_statement_α:
+                        add              rsp, 48
+                                                                                        jmp   n15_lit_string_α
+#=======================================================================================================================
+#         OUTPUT = 'FAIL 919/003: LLE(xyz,abc) should fail'   :(END)
+#-----------------------------------------------------------------------------------------------------------------------
+n15_lit_string_α:
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 38
+                        mov              rax, qword ptr [rip + .Lx82_0]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n16_assign_α
+.Lx82_0:
+                        .quad            .Lx82_0_s
+.Lx82_0_s:
+                        .string          "FAIL 919/003: LLE(xyz,abc) should fail"
+#-----------------------------------------------------------------------------------------------------------------------
+n16_assign_α:
+                        mov              rsi, qword ptr [rsp + 0]                       # lit_string
+                        mov              rdx, qword ptr [rsp + 8]                       # val
+                        mov              rdi, qword ptr [rip + .Lx83_0]                 # name
+                        call             NV_SET_fn@PLT
+                                                                                        jmp   n17_statement_α
+.Lx83_0:
+                        .quad            .Lx83_0_s
+.Lx83_0_s:
+                        .string          "OUTPUT"
+#-----------------------------------------------------------------------------------------------------------------------
+n17_statement_α:
+                        add              rsp, 16
+                                                                                        jmp   main_γ
+#-----------------------------------------------------------------------------------------------------------------------
+n18_statement_α:
+                                                                                        jmp   n19_lit_string_α
+#=======================================================================================================================
+#         LLE('', 'abc')             :s(e004)
+#-----------------------------------------------------------------------------------------------------------------------
+n19_lit_string_α:
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 0
+                        mov              rax, qword ptr [rip + .Lx88_0]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n20_lit_string_α
+.Lx88_0:
+                        .quad            .Lx88_0_s
+.Lx88_0_s:
+                        .string          ""
 #-----------------------------------------------------------------------------------------------------------------------
 n20_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 18
-                        mov              rax, qword ptr [rip + .Lx64_0]
+                        mov              dword ptr [rsp + 4], 3
+                        mov              rax, qword ptr [rip + .Lx89_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n21_assign_α
-.Lx64_0:
-                        .quad            .Lx64_0_s
-.Lx64_0_s:
-                        .string          "PASS 919_lle (6/6)"
+                                                                                        jmp   n21_cmp_test_α
+.Lx89_0:
+                        .quad            .Lx89_0_s
+.Lx89_0_s:
+                        .string          "abc"
 #-----------------------------------------------------------------------------------------------------------------------
-n21_assign_α:
-                        mov              rsi, qword ptr [rsp + 0]                       # lit_string
-                        mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx65_0]                 # name
-                        call             NV_SET_fn@PLT
-                        add              rsp, 16
-                                                                                        jmp   main_γ
-.Lx65_0:
-                        .quad            .Lx65_0_s
-.Lx65_0_s:
-                        .string          "OUTPUT"
-#=======================================================================================================================
-#         OUTPUT = 'FAIL 919/006: LLE(A,a) should succeed (ordinal)' :(END)
-#-----------------------------------------------------------------------------------------------------------------------
-n22_lit_string_α:
+n21_cmp_test_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 47
-                        mov              rax, qword ptr [rip + .Lx66_0]
-                        mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n23_assign_α
-.Lx66_0:
-                        .quad            .Lx66_0_s
-.Lx66_0_s:
-                        .string          "FAIL 919/006: LLE(A,a) should succeed (ordinal)"
-#-----------------------------------------------------------------------------------------------------------------------
-n23_assign_α:
-                        mov              rsi, qword ptr [rsp + 0]                       # lit_string
-                        mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx67_0]                 # name
-                        call             NV_SET_fn@PLT
+                        lea              rdi, [rsp + 32]                                # lit_string
+                        lea              rsi, [rsp + 16]                                # b
+                        call             rt_cmp_d@PLT
+                        test             eax, eax
+                                                                                        jle   .Lx91_240
                         add              rsp, 16
-                                                                                        jmp   main_γ
-.Lx67_0:
-                        .quad            .Lx67_0_s
-.Lx67_0_s:
-                        .string          "OUTPUT"
+                        add              rsp, 32
+                                                                                        jmp   n43_lit_string_α
+.Lx91_240:
+                                                                                        jmp   n22_statement_α
+#-----------------------------------------------------------------------------------------------------------------------
+n22_statement_α:
+                                                                                        jmp   n23_statement_α
+#-----------------------------------------------------------------------------------------------------------------------
+n23_statement_α:
+                        add              rsp, 48
+                                                                                        jmp   n24_lit_string_α
 #=======================================================================================================================
-#         OUTPUT = 'FAIL 919/005: LLE(null,null) should succeed' :(END)
+#         LLE('', '')                :s(e005)
 #-----------------------------------------------------------------------------------------------------------------------
 n24_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 43
-                        mov              rax, qword ptr [rip + .Lx68_0]
+                        mov              dword ptr [rsp + 4], 0
+                        mov              rax, qword ptr [rip + .Lx96_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n25_assign_α
-.Lx68_0:
-                        .quad            .Lx68_0_s
-.Lx68_0_s:
-                        .string          "FAIL 919/005: LLE(null,null) should succeed"
+                                                                                        jmp   n25_lit_string_α
+.Lx96_0:
+                        .quad            .Lx96_0_s
+.Lx96_0_s:
+                        .string          ""
 #-----------------------------------------------------------------------------------------------------------------------
-n25_assign_α:
-                        mov              rsi, qword ptr [rsp + 0]                       # lit_string
-                        mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx69_0]                 # name
-                        call             NV_SET_fn@PLT
-                        add              rsp, 16
-                                                                                        jmp   main_γ
-.Lx69_0:
-                        .quad            .Lx69_0_s
-.Lx69_0_s:
-                        .string          "OUTPUT"
-#=======================================================================================================================
-#         OUTPUT = 'FAIL 919/004: LLE(null,abc) should succeed' :(END)
-#-----------------------------------------------------------------------------------------------------------------------
-n26_lit_string_α:
+n25_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 42
-                        mov              rax, qword ptr [rip + .Lx70_0]
+                        mov              dword ptr [rsp + 4], 0
+                        mov              rax, qword ptr [rip + .Lx97_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n27_assign_α
-.Lx70_0:
-                        .quad            .Lx70_0_s
-.Lx70_0_s:
-                        .string          "FAIL 919/004: LLE(null,abc) should succeed"
+                                                                                        jmp   n26_cmp_test_α
+.Lx97_0:
+                        .quad            .Lx97_0_s
+.Lx97_0_s:
+                        .string          ""
 #-----------------------------------------------------------------------------------------------------------------------
-n27_assign_α:
-                        mov              rsi, qword ptr [rsp + 0]                       # lit_string
-                        mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx71_0]                 # name
-                        call             NV_SET_fn@PLT
+n26_cmp_test_α:
+                        sub              rsp, 16
+                        lea              rdi, [rsp + 32]                                # lit_string
+                        lea              rsi, [rsp + 16]                                # b
+                        call             rt_cmp_d@PLT
+                        test             eax, eax
+                                                                                        jle   .Lx99_240
                         add              rsp, 16
-                                                                                        jmp   main_γ
-.Lx71_0:
-                        .quad            .Lx71_0_s
-.Lx71_0_s:
-                        .string          "OUTPUT"
-#=======================================================================================================================
-#         OUTPUT = 'FAIL 919/002: LLE(abc,xyz) should succeed' :(END)
+                        add              rsp, 32
+                                                                                        jmp   n40_lit_string_α
+.Lx99_240:
+                                                                                        jmp   n27_statement_α
 #-----------------------------------------------------------------------------------------------------------------------
-n28_lit_string_α:
+n27_statement_α:
+                                                                                        jmp   n28_statement_α
+#-----------------------------------------------------------------------------------------------------------------------
+n28_statement_α:
+                        add              rsp, 48
+                                                                                        jmp   n29_lit_string_α
+#=======================================================================================================================
+#         LLE('A', 'a')              :s(e006)
+#-----------------------------------------------------------------------------------------------------------------------
+n29_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 41
-                        mov              rax, qword ptr [rip + .Lx72_0]
+                        mov              dword ptr [rsp + 4], 1
+                        mov              rax, qword ptr [rip + .Lx104_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n29_assign_α
-.Lx72_0:
-                        .quad            .Lx72_0_s
-.Lx72_0_s:
-                        .string          "FAIL 919/002: LLE(abc,xyz) should succeed"
-#-----------------------------------------------------------------------------------------------------------------------
-n29_assign_α:
-                        mov              rsi, qword ptr [rsp + 0]                       # lit_string
-                        mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx73_0]                 # name
-                        call             NV_SET_fn@PLT
-                        add              rsp, 16
-                                                                                        jmp   main_γ
-.Lx73_0:
-                        .quad            .Lx73_0_s
-.Lx73_0_s:
-                        .string          "OUTPUT"
-#=======================================================================================================================
-#         OUTPUT = 'FAIL 919/001: LLE(abc,abc) should succeed' :(END)
+                                                                                        jmp   n30_lit_string_α
+.Lx104_0:
+                        .quad            .Lx104_0_s
+.Lx104_0_s:
+                        .string          "A"
 #-----------------------------------------------------------------------------------------------------------------------
 n30_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 41
-                        mov              rax, qword ptr [rip + .Lx74_0]
+                        mov              dword ptr [rsp + 4], 1
+                        mov              rax, qword ptr [rip + .Lx105_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n31_assign_α
-.Lx74_0:
-                        .quad            .Lx74_0_s
-.Lx74_0_s:
-                        .string          "FAIL 919/001: LLE(abc,abc) should succeed"
+                                                                                        jmp   n31_cmp_test_α
+.Lx105_0:
+                        .quad            .Lx105_0_s
+.Lx105_0_s:
+                        .string          "a"
 #-----------------------------------------------------------------------------------------------------------------------
-n31_assign_α:
+n31_cmp_test_α:
+                        sub              rsp, 16
+                        lea              rdi, [rsp + 32]                                # lit_string
+                        lea              rsi, [rsp + 16]                                # b
+                        call             rt_cmp_d@PLT
+                        test             eax, eax
+                                                                                        jle   .Lx107_240
+                        add              rsp, 16
+                        add              rsp, 32
+                                                                                        jmp   n37_lit_string_α
+.Lx107_240:
+                                                                                        jmp   n32_statement_α
+#-----------------------------------------------------------------------------------------------------------------------
+n32_statement_α:
+                                                                                        jmp   n33_statement_α
+#-----------------------------------------------------------------------------------------------------------------------
+n33_statement_α:
+                        add              rsp, 48
+                                                                                        jmp   n34_lit_string_α
+#=======================================================================================================================
+#         OUTPUT = 'PASS 919_lle (6/6)'
+#-----------------------------------------------------------------------------------------------------------------------
+n34_lit_string_α:
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 18
+                        mov              rax, qword ptr [rip + .Lx112_0]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n35_assign_α
+.Lx112_0:
+                        .quad            .Lx112_0_s
+.Lx112_0_s:
+                        .string          "PASS 919_lle (6/6)"
+#-----------------------------------------------------------------------------------------------------------------------
+n35_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # lit_string
                         mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx75_0]                 # name
+                        mov              rdi, qword ptr [rip + .Lx113_0]                # name
                         call             NV_SET_fn@PLT
-                        add              rsp, 16
-                                                                                        jmp   main_γ
-.Lx75_0:
-                        .quad            .Lx75_0_s
-.Lx75_0_s:
+                                                                                        jmp   n36_statement_α
+.Lx113_0:
+                        .quad            .Lx113_0_s
+.Lx113_0_s:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
-n32_goto_α:
-                                                                                        jmp   n3_lit_string_α
-n32_goto_β:
+n36_statement_α:
+                        add              rsp, 16
+                                                                                        jmp   main_γ
+#=======================================================================================================================
+#         OUTPUT = 'FAIL 919/006: LLE(A,a) should succeed (ordinal)' :(END)
+#-----------------------------------------------------------------------------------------------------------------------
+n37_lit_string_α:
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 47
+                        mov              rax, qword ptr [rip + .Lx116_0]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n38_assign_α
+.Lx116_0:
+                        .quad            .Lx116_0_s
+.Lx116_0_s:
+                        .string          "FAIL 919/006: LLE(A,a) should succeed (ordinal)"
+#-----------------------------------------------------------------------------------------------------------------------
+n38_assign_α:
+                        mov              rsi, qword ptr [rsp + 0]                       # lit_string
+                        mov              rdx, qword ptr [rsp + 8]                       # val
+                        mov              rdi, qword ptr [rip + .Lx117_0]                # name
+                        call             NV_SET_fn@PLT
+                                                                                        jmp   n39_statement_α
+.Lx117_0:
+                        .quad            .Lx117_0_s
+.Lx117_0_s:
+                        .string          "OUTPUT"
+#-----------------------------------------------------------------------------------------------------------------------
+n39_statement_α:
+                        add              rsp, 16
+                                                                                        jmp   main_γ
+#=======================================================================================================================
+#         OUTPUT = 'FAIL 919/005: LLE(null,null) should succeed' :(END)
+#-----------------------------------------------------------------------------------------------------------------------
+n40_lit_string_α:
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 43
+                        mov              rax, qword ptr [rip + .Lx120_0]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n41_assign_α
+.Lx120_0:
+                        .quad            .Lx120_0_s
+.Lx120_0_s:
+                        .string          "FAIL 919/005: LLE(null,null) should succeed"
+#-----------------------------------------------------------------------------------------------------------------------
+n41_assign_α:
+                        mov              rsi, qword ptr [rsp + 0]                       # lit_string
+                        mov              rdx, qword ptr [rsp + 8]                       # val
+                        mov              rdi, qword ptr [rip + .Lx121_0]                # name
+                        call             NV_SET_fn@PLT
+                                                                                        jmp   n42_statement_α
+.Lx121_0:
+                        .quad            .Lx121_0_s
+.Lx121_0_s:
+                        .string          "OUTPUT"
+#-----------------------------------------------------------------------------------------------------------------------
+n42_statement_α:
+                        add              rsp, 16
+                                                                                        jmp   main_γ
+#=======================================================================================================================
+#         OUTPUT = 'FAIL 919/004: LLE(null,abc) should succeed' :(END)
+#-----------------------------------------------------------------------------------------------------------------------
+n43_lit_string_α:
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 42
+                        mov              rax, qword ptr [rip + .Lx124_0]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n44_assign_α
+.Lx124_0:
+                        .quad            .Lx124_0_s
+.Lx124_0_s:
+                        .string          "FAIL 919/004: LLE(null,abc) should succeed"
+#-----------------------------------------------------------------------------------------------------------------------
+n44_assign_α:
+                        mov              rsi, qword ptr [rsp + 0]                       # lit_string
+                        mov              rdx, qword ptr [rsp + 8]                       # val
+                        mov              rdi, qword ptr [rip + .Lx125_0]                # name
+                        call             NV_SET_fn@PLT
+                                                                                        jmp   n45_statement_α
+.Lx125_0:
+                        .quad            .Lx125_0_s
+.Lx125_0_s:
+                        .string          "OUTPUT"
+#-----------------------------------------------------------------------------------------------------------------------
+n45_statement_α:
+                        add              rsp, 16
+                                                                                        jmp   main_γ
+#=======================================================================================================================
+#         OUTPUT = 'FAIL 919/002: LLE(abc,xyz) should succeed' :(END)
+#-----------------------------------------------------------------------------------------------------------------------
+n46_lit_string_α:
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 41
+                        mov              rax, qword ptr [rip + .Lx128_0]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n47_assign_α
+.Lx128_0:
+                        .quad            .Lx128_0_s
+.Lx128_0_s:
+                        .string          "FAIL 919/002: LLE(abc,xyz) should succeed"
+#-----------------------------------------------------------------------------------------------------------------------
+n47_assign_α:
+                        mov              rsi, qword ptr [rsp + 0]                       # lit_string
+                        mov              rdx, qword ptr [rsp + 8]                       # val
+                        mov              rdi, qword ptr [rip + .Lx129_0]                # name
+                        call             NV_SET_fn@PLT
+                                                                                        jmp   n48_statement_α
+.Lx129_0:
+                        .quad            .Lx129_0_s
+.Lx129_0_s:
+                        .string          "OUTPUT"
+#-----------------------------------------------------------------------------------------------------------------------
+n48_statement_α:
+                        add              rsp, 16
+                                                                                        jmp   main_γ
+#=======================================================================================================================
+#         OUTPUT = 'FAIL 919/001: LLE(abc,abc) should succeed' :(END)
+#-----------------------------------------------------------------------------------------------------------------------
+n49_lit_string_α:
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 41
+                        mov              rax, qword ptr [rip + .Lx132_0]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n50_assign_α
+.Lx132_0:
+                        .quad            .Lx132_0_s
+.Lx132_0_s:
+                        .string          "FAIL 919/001: LLE(abc,abc) should succeed"
+#-----------------------------------------------------------------------------------------------------------------------
+n50_assign_α:
+                        mov              rsi, qword ptr [rsp + 0]                       # lit_string
+                        mov              rdx, qword ptr [rsp + 8]                       # val
+                        mov              rdi, qword ptr [rip + .Lx133_0]                # name
+                        call             NV_SET_fn@PLT
+                                                                                        jmp   n51_statement_α
+.Lx133_0:
+                        .quad            .Lx133_0_s
+.Lx133_0_s:
+                        .string          "OUTPUT"
+#-----------------------------------------------------------------------------------------------------------------------
+n51_statement_α:
+                        add              rsp, 16
+                                                                                        jmp   main_γ
+#-----------------------------------------------------------------------------------------------------------------------
+n52_goto_α:
+                                                                                        jmp   n5_statement_α
+n52_goto_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n33_goto_α:
-                                                                                        jmp   n6_lit_string_α
-n33_goto_β:
+n53_goto_α:
+                                                                                        jmp   n10_statement_α
+n53_goto_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n34_goto_α:
-                                                                                        jmp   n11_lit_string_α
-n34_goto_β:
+n54_goto_α:
+                                                                                        jmp   n18_statement_α
+n54_goto_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n35_goto_α:
-                                                                                        jmp   n14_lit_string_α
-n35_goto_β:
+n55_goto_α:
+                                                                                        jmp   n23_statement_α
+n55_goto_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n36_goto_α:
-                                                                                        jmp   n17_lit_string_α
-n36_goto_β:
+n56_goto_α:
+                                                                                        jmp   n28_statement_α
+n56_goto_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n37_goto_α:
-                                                                                        jmp   n20_lit_string_α
-n37_goto_β:
+n57_goto_α:
+                                                                                        jmp   n33_statement_α
+n57_goto_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
