@@ -628,7 +628,15 @@ n25_assign_α:
 #         s POS(0) token . T RPOS(0)                            :S(YES)F(NO)
 #-----------------------------------------------------------------------------------------------------------------------
 n26_var_α:
-                        sub              rsp, 464
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052336]                    # s
+                        mov              rdx, qword ptr [1879052344]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n27_match_head_α
+#-----------------------------------------------------------------------------------------------------------------------
+n27_match_head_α:
+                        sub              rsp, 448
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -685,19 +693,8 @@ n26_var_α:
                         mov              qword ptr [rsp + 424], 0
                         mov              qword ptr [rsp + 432], 0
                         mov              qword ptr [rsp + 440], 0
-                        mov              qword ptr [rsp + 448], 0
-                        mov              qword ptr [rsp + 456], 0
-                        sub              rsp, 16
-                        mov              rax, qword ptr [1879052336]                    # s
-                        mov              rdx, qword ptr [1879052344]
-                        mov              qword ptr [rsp + 0], rax                       # result
-                        mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n27_match_head_α
-#-----------------------------------------------------------------------------------------------------------------------
-n27_match_head_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 448]                     # var
+                        mov              rsi, qword ptr [rsp + 456]
                         mov              qword ptr [rsp + 280], rbp                     # old_rbp
                         mov              rbp, rsp                                       # stmt_base
                         mov              qword ptr [rbp + 288], r13                     # outer_Σ

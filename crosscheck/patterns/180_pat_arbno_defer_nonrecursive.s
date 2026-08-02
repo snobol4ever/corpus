@@ -212,7 +212,15 @@ n6_assign_α:
 #         S POS(0) ARBNO(*P) RPOS(0)                            :S(OK1)F(BAD1)
 #-----------------------------------------------------------------------------------------------------------------------
 n7_var_α:
-                        sub              rsp, 352
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052304]                    # S
+                        mov              rdx, qword ptr [1879052312]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n8_match_head_α
+#-----------------------------------------------------------------------------------------------------------------------
+n8_match_head_α:
+                        sub              rsp, 336
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -255,19 +263,8 @@ n7_var_α:
                         mov              qword ptr [rsp + 312], 0
                         mov              qword ptr [rsp + 320], 0
                         mov              qword ptr [rsp + 328], 0
-                        mov              qword ptr [rsp + 336], 0
-                        mov              qword ptr [rsp + 344], 0
-                        sub              rsp, 16
-                        mov              rax, qword ptr [1879052304]                    # S
-                        mov              rdx, qword ptr [1879052312]
-                        mov              qword ptr [rsp + 0], rax                       # result
-                        mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n8_match_head_α
-#-----------------------------------------------------------------------------------------------------------------------
-n8_match_head_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 336]                     # var
+                        mov              rsi, qword ptr [rsp + 344]
                         mov              qword ptr [rsp + 152], rbp                     # old_rbp
                         mov              rbp, rsp                                       # stmt_base
                         mov              qword ptr [rbp + 160], r13                     # outer_Σ
@@ -630,7 +627,19 @@ n21_assign_α:
 # T2      'abcde' POS(0) ARBNO(*P) RPOS(0)                      :S(BAD2)F(OK2)
 #-----------------------------------------------------------------------------------------------------------------------
 n22_lit_string_α:
-                        sub              rsp, 640
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 5
+                        mov              rax, qword ptr [rip + .Lx67_0]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n23_match_head_α
+.Lx67_0:
+                        .quad            .Lx67_0_s
+.Lx67_0_s:
+                        .string          "abcde"
+#-----------------------------------------------------------------------------------------------------------------------
+n23_match_head_α:
+                        sub              rsp, 624
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -709,23 +718,8 @@ n22_lit_string_α:
                         mov              qword ptr [rsp + 600], 0
                         mov              qword ptr [rsp + 608], 0
                         mov              qword ptr [rsp + 616], 0
-                        mov              qword ptr [rsp + 624], 0
-                        mov              qword ptr [rsp + 632], 0
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 5
-                        mov              rax, qword ptr [rip + .Lx67_0]
-                        mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n23_match_head_α
-.Lx67_0:
-                        .quad            .Lx67_0_s
-.Lx67_0_s:
-                        .string          "abcde"
-#-----------------------------------------------------------------------------------------------------------------------
-n23_match_head_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 624]                     # lit_string
+                        mov              rsi, qword ptr [rsp + 632]
                         mov              qword ptr [rsp + 440], rbp                     # old_rbp
                         mov              rbp, rsp                                       # stmt_base
                         mov              qword ptr [rbp + 448], r13                     # outer_Σ

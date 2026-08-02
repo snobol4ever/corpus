@@ -1014,7 +1014,15 @@ n56_assign_α:
 #         S1 POS(0) ARBNO(*P) RPOS(0)     :S(A1)F(B1)
 #-----------------------------------------------------------------------------------------------------------------------
 n57_var_α:
-                        sub              rsp, 608
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052352]                    # S1
+                        mov              rdx, qword ptr [1879052360]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n58_match_head_α
+#-----------------------------------------------------------------------------------------------------------------------
+n58_match_head_α:
+                        sub              rsp, 592
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -1089,19 +1097,8 @@ n57_var_α:
                         mov              qword ptr [rsp + 568], 0
                         mov              qword ptr [rsp + 576], 0
                         mov              qword ptr [rsp + 584], 0
-                        mov              qword ptr [rsp + 592], 0
-                        mov              qword ptr [rsp + 600], 0
-                        sub              rsp, 16
-                        mov              rax, qword ptr [1879052352]                    # S1
-                        mov              rdx, qword ptr [1879052360]
-                        mov              qword ptr [rsp + 0], rax                       # result
-                        mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n58_match_head_α
-#-----------------------------------------------------------------------------------------------------------------------
-n58_match_head_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 592]                     # var
+                        mov              rsi, qword ptr [rsp + 600]
                         mov              qword ptr [rsp + 408], rbp                     # old_rbp
                         mov              rbp, rsp                                       # stmt_base
                         mov              qword ptr [rbp + 416], r13                     # outer_Σ
@@ -1464,7 +1461,15 @@ n71_assign_α:
 # N1      S2 POS(0) ARBNO(*P) RPOS(0)    :S(A2)F(B2)
 #-----------------------------------------------------------------------------------------------------------------------
 n72_var_α:
-                        sub              rsp, 896
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052368]                    # S2
+                        mov              rdx, qword ptr [1879052376]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n73_match_head_α
+#-----------------------------------------------------------------------------------------------------------------------
+n73_match_head_α:
+                        sub              rsp, 880
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -1575,19 +1580,8 @@ n72_var_α:
                         mov              qword ptr [rsp + 856], 0
                         mov              qword ptr [rsp + 864], 0
                         mov              qword ptr [rsp + 872], 0
-                        mov              qword ptr [rsp + 880], 0
-                        mov              qword ptr [rsp + 888], 0
-                        sub              rsp, 16
-                        mov              rax, qword ptr [1879052368]                    # S2
-                        mov              rdx, qword ptr [1879052376]
-                        mov              qword ptr [rsp + 0], rax                       # result
-                        mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n73_match_head_α
-#-----------------------------------------------------------------------------------------------------------------------
-n73_match_head_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 880]                     # var
+                        mov              rsi, qword ptr [rsp + 888]
                         mov              qword ptr [rsp + 696], rbp                     # old_rbp
                         mov              rbp, rsp                                       # stmt_base
                         mov              qword ptr [rbp + 704], r13                     # outer_Σ
@@ -1950,7 +1944,15 @@ n86_assign_α:
 # N2      S3 POS(0) ARBNO(*Q) RPOS(0)    :S(A3)F(B3)
 #-----------------------------------------------------------------------------------------------------------------------
 n87_var_α:
-                        sub              rsp, 1184
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052384]                    # S3
+                        mov              rdx, qword ptr [1879052392]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n88_match_head_α
+#-----------------------------------------------------------------------------------------------------------------------
+n88_match_head_α:
+                        sub              rsp, 1168
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -2097,19 +2099,8 @@ n87_var_α:
                         mov              qword ptr [rsp + 1144], 0
                         mov              qword ptr [rsp + 1152], 0
                         mov              qword ptr [rsp + 1160], 0
-                        mov              qword ptr [rsp + 1168], 0
-                        mov              qword ptr [rsp + 1176], 0
-                        sub              rsp, 16
-                        mov              rax, qword ptr [1879052384]                    # S3
-                        mov              rdx, qword ptr [1879052392]
-                        mov              qword ptr [rsp + 0], rax                       # result
-                        mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n88_match_head_α
-#-----------------------------------------------------------------------------------------------------------------------
-n88_match_head_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 1168]                    # var
+                        mov              rsi, qword ptr [rsp + 1176]
                         mov              qword ptr [rsp + 984], rbp                     # old_rbp
                         mov              rbp, rsp                                       # stmt_base
                         mov              qword ptr [rbp + 992], r13                     # outer_Σ
@@ -2472,7 +2463,15 @@ n101_assign_α:
 # N3      S4 POS(0) ARBNO(*R) RPOS(0)    :S(A4)F(B4)
 #-----------------------------------------------------------------------------------------------------------------------
 n102_var_α:
-                        sub              rsp, 1472
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052400]                    # S4
+                        mov              rdx, qword ptr [1879052408]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n103_match_head_α
+#-----------------------------------------------------------------------------------------------------------------------
+n103_match_head_α:
+                        sub              rsp, 1456
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -2655,19 +2654,8 @@ n102_var_α:
                         mov              qword ptr [rsp + 1432], 0
                         mov              qword ptr [rsp + 1440], 0
                         mov              qword ptr [rsp + 1448], 0
-                        mov              qword ptr [rsp + 1456], 0
-                        mov              qword ptr [rsp + 1464], 0
-                        sub              rsp, 16
-                        mov              rax, qword ptr [1879052400]                    # S4
-                        mov              rdx, qword ptr [1879052408]
-                        mov              qword ptr [rsp + 0], rax                       # result
-                        mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n103_match_head_α
-#-----------------------------------------------------------------------------------------------------------------------
-n103_match_head_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 1456]                    # var
+                        mov              rsi, qword ptr [rsp + 1464]
                         mov              qword ptr [rsp + 1272], rbp                    # old_rbp
                         mov              rbp, rsp                                       # stmt_base
                         mov              qword ptr [rbp + 1280], r13                    # outer_Σ
@@ -3030,7 +3018,15 @@ n116_assign_α:
 # N4      S5 POS(0) ARBNO(*W) RPOS(0)    :S(A5)F(B5)
 #-----------------------------------------------------------------------------------------------------------------------
 n117_var_α:
-                        sub              rsp, 1760
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052416]                    # S5
+                        mov              rdx, qword ptr [1879052424]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n118_match_head_α
+#-----------------------------------------------------------------------------------------------------------------------
+n118_match_head_α:
+                        sub              rsp, 1744
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -3249,19 +3245,8 @@ n117_var_α:
                         mov              qword ptr [rsp + 1720], 0
                         mov              qword ptr [rsp + 1728], 0
                         mov              qword ptr [rsp + 1736], 0
-                        mov              qword ptr [rsp + 1744], 0
-                        mov              qword ptr [rsp + 1752], 0
-                        sub              rsp, 16
-                        mov              rax, qword ptr [1879052416]                    # S5
-                        mov              rdx, qword ptr [1879052424]
-                        mov              qword ptr [rsp + 0], rax                       # result
-                        mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n118_match_head_α
-#-----------------------------------------------------------------------------------------------------------------------
-n118_match_head_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 1744]                    # var
+                        mov              rsi, qword ptr [rsp + 1752]
                         mov              qword ptr [rsp + 1560], rbp                    # old_rbp
                         mov              rbp, rsp                                       # stmt_base
                         mov              qword ptr [rbp + 1568], r13                    # outer_Σ
@@ -3624,7 +3609,15 @@ n131_assign_α:
 # N5      S1 "ab" ARBNO(*P) "bc" RPOS(0) :S(A6)F(B6)
 #-----------------------------------------------------------------------------------------------------------------------
 n132_var_α:
-                        sub              rsp, 2032
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052352]                    # S1
+                        mov              rdx, qword ptr [1879052360]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n133_match_head_α
+#-----------------------------------------------------------------------------------------------------------------------
+n133_match_head_α:
+                        sub              rsp, 2016
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -3877,19 +3870,8 @@ n132_var_α:
                         mov              qword ptr [rsp + 1992], 0
                         mov              qword ptr [rsp + 2000], 0
                         mov              qword ptr [rsp + 2008], 0
-                        mov              qword ptr [rsp + 2016], 0
-                        mov              qword ptr [rsp + 2024], 0
-                        sub              rsp, 16
-                        mov              rax, qword ptr [1879052352]                    # S1
-                        mov              rdx, qword ptr [1879052360]
-                        mov              qword ptr [rsp + 0], rax                       # result
-                        mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n133_match_head_α
-#-----------------------------------------------------------------------------------------------------------------------
-n133_match_head_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 2016]                    # var
+                        mov              rsi, qword ptr [rsp + 2024]
                         mov              qword ptr [rsp + 1848], rbp                    # old_rbp
                         mov              rbp, rsp                                       # stmt_base
                         mov              qword ptr [rbp + 1856], r13                    # outer_Σ

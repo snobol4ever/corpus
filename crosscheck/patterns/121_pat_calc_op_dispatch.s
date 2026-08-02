@@ -716,7 +716,15 @@ n36_assign_α:
 #         s POS(0) num . A ws op . OP ws num . B RPOS(0)        :S(YES)F(NO)
 #-----------------------------------------------------------------------------------------------------------------------
 n37_var_α:
-                        sub              rsp, 688
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052336]                    # s
+                        mov              rdx, qword ptr [1879052344]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n38_match_head_α
+#-----------------------------------------------------------------------------------------------------------------------
+n38_match_head_α:
+                        sub              rsp, 672
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -801,19 +809,8 @@ n37_var_α:
                         mov              qword ptr [rsp + 648], 0
                         mov              qword ptr [rsp + 656], 0
                         mov              qword ptr [rsp + 664], 0
-                        mov              qword ptr [rsp + 672], 0
-                        mov              qword ptr [rsp + 680], 0
-                        sub              rsp, 16
-                        mov              rax, qword ptr [1879052336]                    # s
-                        mov              rdx, qword ptr [1879052344]
-                        mov              qword ptr [rsp + 0], rax                       # result
-                        mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n38_match_head_α
-#-----------------------------------------------------------------------------------------------------------------------
-n38_match_head_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 672]                     # var
+                        mov              rsi, qword ptr [rsp + 680]
                         mov              qword ptr [rsp + 280], rbp                     # old_rbp
                         mov              rbp, rsp                                       # stmt_base
                         mov              qword ptr [rbp + 288], r13                     # outer_Σ
