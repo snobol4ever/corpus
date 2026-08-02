@@ -54,7 +54,7 @@ n0_lit_string_α:
                         mov              qword ptr [rsp + 168], 0
                         mov              qword ptr [rsp + 176], 0
                         mov              qword ptr [rsp + 184], 0
-                        mov              qword ptr [rsp + 16], 1                        # result
+                        mov              qword ptr [rsp + 16], 2                        # result
                         mov              dword ptr [rsp + 20], 11
                         mov              rax, qword ptr [rip + .Lx10_0]
                         mov              qword ptr [rsp + 24], rax
@@ -230,7 +230,7 @@ n5_match_release_α:
                                                                                         jmp   n6_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n6_lit_string_α:
-                        mov              qword ptr [rsp + 144], 1                       # result
+                        mov              qword ptr [rsp + 144], 2                       # result
                         mov              dword ptr [rsp + 148], 0
                         mov              rax, qword ptr [rip + .Lx19_0]
                         mov              qword ptr [rsp + 152], rax

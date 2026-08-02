@@ -17,7 +17,7 @@ main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_lit_integer_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 6                         # result
+                        mov              qword ptr [rsp + 0], 3                         # result
                         mov              rax, qword ptr [rip + .Lx4_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n1_lit_integer_α
@@ -26,7 +26,7 @@ n0_lit_integer_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n1_lit_integer_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 6                         # result
+                        mov              qword ptr [rsp + 0], 3                         # result
                         mov              rax, qword ptr [rip + .Lx5_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n2_binop_α
@@ -40,7 +40,7 @@ n2_binop_α:
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
                         call             rt_pow@PLT
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx6_240
                         add              rsp, 16
                         add              rsp, 32

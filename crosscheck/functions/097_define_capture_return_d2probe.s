@@ -416,7 +416,7 @@ n34_lit_string_α:
                         mov              qword ptr [rsp + 88], 0
                         mov              qword ptr [rsp + 96], 0
                         mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 96], 1                        # result
+                        mov              qword ptr [rsp + 96], 2                        # result
                         mov              dword ptr [rsp + 100], 2
                         mov              rax, qword ptr [rip + .Lx49_0]
                         mov              qword ptr [rsp + 104], rax
@@ -526,7 +526,7 @@ n35_call_α:
 .Lx51_2:
                         mov              qword ptr [rsp + 48], rax
                         mov              qword ptr [rsp + 56], rdx
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx51_240
                         add              rsp, 112
                                                                                         jmp   main_γ

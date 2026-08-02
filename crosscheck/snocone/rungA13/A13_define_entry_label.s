@@ -15,7 +15,7 @@ n0_var_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n1_lit_integer_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 6                         # result
+                        mov              qword ptr [rsp + 0], 3                         # result
                         mov              rax, qword ptr [rip + .Lx5_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n2_binop_α
@@ -29,7 +29,7 @@ n2_binop_α:
                         mov              rdx, qword ptr [rsp + 16]                      # lit_integer
                         mov              rcx, qword ptr [rsp + 24]
                         call             rt_add@PLT
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx6_240
                         add              rsp, 16
                         add              rsp, 32
@@ -143,7 +143,7 @@ n8_lit_integer_α:
                         mov              qword ptr [rsp + 56], 0
                         mov              qword ptr [rsp + 64], 0
                         mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 64], 6                        # result
+                        mov              qword ptr [rsp + 64], 3                        # result
                         mov              rax, qword ptr [rip + .Lx11_0]
                         mov              qword ptr [rsp + 72], rax
                                                                                         jmp   n9_call_α
@@ -238,7 +238,7 @@ n9_call_α:
 .Lx13_2:
                         mov              qword ptr [rsp + 16], rax
                         mov              qword ptr [rsp + 24], rdx
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx13_240
                         add              rsp, 80
                                                                                         jmp   main_γ

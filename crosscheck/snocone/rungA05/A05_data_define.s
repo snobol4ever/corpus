@@ -41,7 +41,7 @@ main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_lit_string_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 1                         # result
+                        mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 18
                         mov              rax, qword ptr [rip + .Lx13_0]
                         mov              qword ptr [rsp + 8], rax
@@ -67,7 +67,7 @@ n1_call_α:
                         mov              edx, 1                                         # nargs
                         call             rt_call_arr@PLT
                         add              rsp, 16
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx14_240
                         add              rsp, 16
                                                                                         jmp   n2_lit_integer_α
@@ -81,7 +81,7 @@ n1_call_β:
 #-----------------------------------------------------------------------------------------------------------------------
 n2_lit_integer_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 6                         # result
+                        mov              qword ptr [rsp + 0], 3                         # result
                         mov              rax, qword ptr [rip + .Lx16_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n3_lit_integer_α
@@ -90,7 +90,7 @@ n2_lit_integer_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n3_lit_integer_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 6                         # result
+                        mov              qword ptr [rsp + 0], 3                         # result
                         mov              rax, qword ptr [rip + .Lx17_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n4_unop_α
@@ -126,7 +126,7 @@ n5_call_α:
                         mov              edx, 2                                         # nargs
                         call             rt_call_arr@PLT
                         add              rsp, 32
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx19_240
                         add              rsp, 16
                                                                                         jmp   n7_var_α
@@ -169,7 +169,7 @@ n8_call_α:
                         mov              edx, 1                                         # nargs
                         call             rt_call_arr@PLT
                         add              rsp, 16
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx23_240
                         add              rsp, 16
                                                                                         jmp   n10_var_α
@@ -216,7 +216,7 @@ n11_call_α:
                         mov              edx, 1                                         # nargs
                         call             rt_call_arr@PLT
                         add              rsp, 16
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx27_240
                         add              rsp, 16
                         add              rsp, 144

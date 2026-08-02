@@ -28,7 +28,7 @@ n2_binop_α:
                         mov              rdx, qword ptr [rsp + 16]
                         mov              rcx, qword ptr [rsp + 24]
                         call             rt_add@PLT
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx6_240
                         add              rsp, 16
                         add              rsp, 32
@@ -162,7 +162,7 @@ n8_lit_integer_α:
                         mov              qword ptr [rsp + 184], 0
                         mov              qword ptr [rsp + 192], 0
                         mov              qword ptr [rsp + 200], 0
-                        mov              qword ptr [rsp + 80], 6                        # result
+                        mov              qword ptr [rsp + 80], 3                        # result
                         mov              rax, qword ptr [rip + .Lx16_0]
                         mov              qword ptr [rsp + 88], rax
                                                                                         jmp   n9_lit_integer_α
@@ -170,7 +170,7 @@ n8_lit_integer_α:
                         .quad            3
 #-----------------------------------------------------------------------------------------------------------------------
 n9_lit_integer_α:
-                        mov              qword ptr [rsp + 96], 6                        # result
+                        mov              qword ptr [rsp + 96], 3                        # result
                         mov              rax, qword ptr [rip + .Lx17_0]
                         mov              qword ptr [rsp + 104], rax
                                                                                         jmp   n10_call_α
@@ -297,7 +297,7 @@ n10_call_α:
 .Lx19_2:
                         mov              qword ptr [rsp + 16], rax
                         mov              qword ptr [rsp + 24], rdx
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         je    n12_lit_integer_α
                                                                                         jmp   n11_assign_α
 n10_call_β:
@@ -319,7 +319,7 @@ n11_assign_α:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
 n12_lit_integer_α:
-                        mov              qword ptr [rsp + 176], 6                       # result
+                        mov              qword ptr [rsp + 176], 3                       # result
                         mov              rax, qword ptr [rip + .Lx21_0]
                         mov              qword ptr [rsp + 184], rax
                                                                                         jmp   n13_lit_integer_α
@@ -327,7 +327,7 @@ n12_lit_integer_α:
                         .quad            10
 #-----------------------------------------------------------------------------------------------------------------------
 n13_lit_integer_α:
-                        mov              qword ptr [rsp + 192], 6                       # result
+                        mov              qword ptr [rsp + 192], 3                       # result
                         mov              rax, qword ptr [rip + .Lx22_0]
                         mov              qword ptr [rsp + 200], rax
                                                                                         jmp   n14_call_α
@@ -454,7 +454,7 @@ n14_call_α:
 .Lx24_2:
                         mov              qword ptr [rsp + 112], rax
                         mov              qword ptr [rsp + 120], rdx
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx24_240
                         add              rsp, 208
                                                                                         jmp   main_γ

@@ -64,7 +64,7 @@ n0_lit_string_α:
                         mov              qword ptr [rsp + 232], 0
                         mov              qword ptr [rsp + 240], 0
                         mov              qword ptr [rsp + 248], 0
-                        mov              qword ptr [rsp + 16], 1                        # result
+                        mov              qword ptr [rsp + 16], 2                        # result
                         mov              dword ptr [rsp + 20], 6
                         mov              rax, qword ptr [rip + .Lx15_0]
                         mov              qword ptr [rsp + 24], rax
@@ -303,7 +303,7 @@ n10_match_assign_cond_β:
                                                                                         jmp   n9_match_len_β
 #-----------------------------------------------------------------------------------------------------------------------
 n11_lit_integer_α:
-                        mov              qword ptr [rsp + 176], 6                       # result
+                        mov              qword ptr [rsp + 176], 3                       # result
                         mov              rax, qword ptr [rip + .Lx31_0]
                         mov              qword ptr [rsp + 184], rax
                                                                                         jmp   n12_match_tab_α
@@ -334,7 +334,7 @@ n12_match_tab_β:
                                                                                         jmp   n3_match_head_β
 #-----------------------------------------------------------------------------------------------------------------------
 n13_lit_string_α:
-                        mov              qword ptr [rsp + 48], 1                        # result
+                        mov              qword ptr [rsp + 48], 2                        # result
                         mov              dword ptr [rsp + 52], 4
                         mov              rax, qword ptr [rip + .Lx33_0]
                         mov              qword ptr [rsp + 56], rax

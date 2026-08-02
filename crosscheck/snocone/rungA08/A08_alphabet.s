@@ -43,7 +43,7 @@ n1_call_α:
                         mov              edx, 1                                         # nargs
                         call             rt_call_arr@PLT
                         add              rsp, 16
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx10_240
                         add              rsp, 16
                                                                                         jmp   n3_keyword_snobol4_α
@@ -94,7 +94,7 @@ n4_call_α:
                         mov              edx, 1                                         # nargs
                         call             rt_call_arr@PLT
                         add              rsp, 16
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx14_240
                         add              rsp, 16
                                                                                         jmp   n6_keyword_snobol4_α
@@ -145,7 +145,7 @@ n7_call_α:
                         mov              edx, 1                                         # nargs
                         call             rt_call_arr@PLT
                         add              rsp, 16
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx18_240
                         add              rsp, 16
                         add              rsp, 80

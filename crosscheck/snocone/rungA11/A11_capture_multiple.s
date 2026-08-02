@@ -76,7 +76,7 @@ n0_lit_string_α:
                         mov              qword ptr [rsp + 312], 0
                         mov              qword ptr [rsp + 320], 0
                         mov              qword ptr [rsp + 328], 0
-                        mov              qword ptr [rsp + 16], 1                        # result
+                        mov              qword ptr [rsp + 16], 2                        # result
                         mov              dword ptr [rsp + 20], 10
                         mov              rax, qword ptr [rip + .Lx19_0]
                         mov              qword ptr [rsp + 24], rax
@@ -258,7 +258,7 @@ n6_var_β:
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n7_lit_string_α:
-                        mov              qword ptr [rsp + 80], 1                        # result
+                        mov              qword ptr [rsp + 80], 2                        # result
                         mov              dword ptr [rsp + 84], 3
                         mov              rax, qword ptr [rip + .Lx29_0]
                         mov              qword ptr [rsp + 88], rax

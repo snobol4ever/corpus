@@ -60,7 +60,7 @@ n0_lit_string_α:
                         mov              qword ptr [rsp + 200], 0
                         mov              qword ptr [rsp + 208], 0
                         mov              qword ptr [rsp + 216], 0
-                        mov              qword ptr [rsp + 16], 1                        # result
+                        mov              qword ptr [rsp + 16], 2                        # result
                         mov              dword ptr [rsp + 20], 11
                         mov              rax, qword ptr [rip + .Lx12_0]
                         mov              qword ptr [rsp + 24], rax
@@ -316,7 +316,7 @@ n9_assign_α:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
 n10_lit_string_α:
-                        mov              qword ptr [rsp + 48], 1                        # result
+                        mov              qword ptr [rsp + 48], 2                        # result
                         mov              dword ptr [rsp + 52], 8
                         mov              rax, qword ptr [rip + .Lx27_0]
                         mov              qword ptr [rsp + 56], rax

@@ -56,7 +56,7 @@ n0_lit_string_α:
                         mov              qword ptr [rsp + 272], 0
                         mov              qword ptr [rsp + 280], 0
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 1                         # result
+                        mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 3
                         mov              rax, qword ptr [rip + .Lx12_0]
                         mov              qword ptr [rsp + 8], rax
@@ -214,7 +214,7 @@ n3_match_release_α:
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n4_lit_integer_α:
-                        mov              qword ptr [rsp + 256], 6                       # result
+                        mov              qword ptr [rsp + 256], 3                       # result
                         mov              rax, qword ptr [rip + .Lx19_0]
                         mov              qword ptr [rsp + 264], rax
                                                                                         jmp   n5_match_rpos_α
@@ -372,7 +372,7 @@ n9_match_assign_cond_β:
                                                                                         jmp   n8_match_len_β
 #-----------------------------------------------------------------------------------------------------------------------
 n10_lit_integer_α:
-                        mov              qword ptr [rsp + 128], 6                       # result
+                        mov              qword ptr [rsp + 128], 3                       # result
                         mov              rax, qword ptr [rip + .Lx28_0]
                         mov              qword ptr [rsp + 136], rax
                                                                                         jmp   n11_match_pos_α

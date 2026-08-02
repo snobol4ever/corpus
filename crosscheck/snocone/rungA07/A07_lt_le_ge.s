@@ -17,7 +17,7 @@ main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
 n0_lit_integer_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 6                         # result
+                        mov              qword ptr [rsp + 0], 3                         # result
                         mov              rax, qword ptr [rip + .Lx21_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n1_lit_integer_α
@@ -26,7 +26,7 @@ n0_lit_integer_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n1_lit_integer_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 6                         # result
+                        mov              qword ptr [rsp + 0], 3                         # result
                         mov              rax, qword ptr [rip + .Lx22_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n2_coerce_numeric_α
@@ -36,12 +36,12 @@ n1_lit_integer_α:
 n2_coerce_numeric_α:
                         sub              rsp, 16
                         mov              eax, dword ptr [rsp + 32]                      # lit_integer
-                        cmp              eax, 7
+                        cmp              eax, 5
                                                                                         je    .Lx24_1
-                        cmp              eax, 6
+                        cmp              eax, 3
                                                                                         jne   .Lx24_0
                         mov              eax, dword ptr [rsp + 16]
-                        cmp              eax, 6
+                        cmp              eax, 3
                                                                                         jne   .Lx24_0
 .Lx24_1:
                         mov              rax, qword ptr [rsp + 32]
@@ -60,12 +60,12 @@ n2_coerce_numeric_α:
 n3_coerce_numeric_α:
                         sub              rsp, 16
                         mov              eax, dword ptr [rsp + 32]                      # lit_integer
-                        cmp              eax, 7
+                        cmp              eax, 5
                                                                                         je    .Lx26_1
-                        cmp              eax, 6
+                        cmp              eax, 3
                                                                                         jne   .Lx26_0
                         mov              eax, dword ptr [rsp + 48]
-                        cmp              eax, 6
+                        cmp              eax, 3
                                                                                         jne   .Lx26_0
 .Lx26_1:
                         mov              rax, qword ptr [rsp + 32]
@@ -95,7 +95,7 @@ n4_cmp_test_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n5_lit_string_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 1                         # result
+                        mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 5
                         mov              rax, qword ptr [rip + .Lx29_0]
                         mov              qword ptr [rsp + 8], rax
@@ -118,7 +118,7 @@ n6_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n7_lit_integer_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 6                         # result
+                        mov              qword ptr [rsp + 0], 3                         # result
                         mov              rax, qword ptr [rip + .Lx31_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n8_lit_integer_α
@@ -127,7 +127,7 @@ n7_lit_integer_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n8_lit_integer_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 6                         # result
+                        mov              qword ptr [rsp + 0], 3                         # result
                         mov              rax, qword ptr [rip + .Lx32_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n9_coerce_numeric_α
@@ -137,12 +137,12 @@ n8_lit_integer_α:
 n9_coerce_numeric_α:
                         sub              rsp, 16
                         mov              eax, dword ptr [rsp + 32]                      # lit_integer
-                        cmp              eax, 7
+                        cmp              eax, 5
                                                                                         je    .Lx34_1
-                        cmp              eax, 6
+                        cmp              eax, 3
                                                                                         jne   .Lx34_0
                         mov              eax, dword ptr [rsp + 16]
-                        cmp              eax, 6
+                        cmp              eax, 3
                                                                                         jne   .Lx34_0
 .Lx34_1:
                         mov              rax, qword ptr [rsp + 32]
@@ -161,12 +161,12 @@ n9_coerce_numeric_α:
 n10_coerce_numeric_α:
                         sub              rsp, 16
                         mov              eax, dword ptr [rsp + 32]                      # lit_integer
-                        cmp              eax, 7
+                        cmp              eax, 5
                                                                                         je    .Lx36_1
-                        cmp              eax, 6
+                        cmp              eax, 3
                                                                                         jne   .Lx36_0
                         mov              eax, dword ptr [rsp + 48]
-                        cmp              eax, 6
+                        cmp              eax, 3
                                                                                         jne   .Lx36_0
 .Lx36_1:
                         mov              rax, qword ptr [rsp + 32]
@@ -196,7 +196,7 @@ n11_cmp_test_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n12_lit_string_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 1                         # result
+                        mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 6
                         mov              rax, qword ptr [rip + .Lx39_0]
                         mov              qword ptr [rsp + 8], rax
@@ -219,7 +219,7 @@ n13_assign_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n14_lit_integer_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 6                         # result
+                        mov              qword ptr [rsp + 0], 3                         # result
                         mov              rax, qword ptr [rip + .Lx41_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n15_lit_integer_α
@@ -228,7 +228,7 @@ n14_lit_integer_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n15_lit_integer_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 6                         # result
+                        mov              qword ptr [rsp + 0], 3                         # result
                         mov              rax, qword ptr [rip + .Lx42_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n16_coerce_numeric_α
@@ -238,12 +238,12 @@ n15_lit_integer_α:
 n16_coerce_numeric_α:
                         sub              rsp, 16
                         mov              eax, dword ptr [rsp + 32]                      # lit_integer
-                        cmp              eax, 7
+                        cmp              eax, 5
                                                                                         je    .Lx44_1
-                        cmp              eax, 6
+                        cmp              eax, 3
                                                                                         jne   .Lx44_0
                         mov              eax, dword ptr [rsp + 16]
-                        cmp              eax, 6
+                        cmp              eax, 3
                                                                                         jne   .Lx44_0
 .Lx44_1:
                         mov              rax, qword ptr [rsp + 32]
@@ -262,12 +262,12 @@ n16_coerce_numeric_α:
 n17_coerce_numeric_α:
                         sub              rsp, 16
                         mov              eax, dword ptr [rsp + 32]                      # lit_integer
-                        cmp              eax, 7
+                        cmp              eax, 5
                                                                                         je    .Lx46_1
-                        cmp              eax, 6
+                        cmp              eax, 3
                                                                                         jne   .Lx46_0
                         mov              eax, dword ptr [rsp + 48]
-                        cmp              eax, 6
+                        cmp              eax, 3
                                                                                         jne   .Lx46_0
 .Lx46_1:
                         mov              rax, qword ptr [rsp + 32]
@@ -298,7 +298,7 @@ n18_cmp_test_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n19_lit_string_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 1                         # result
+                        mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 6
                         mov              rax, qword ptr [rip + .Lx49_0]
                         mov              qword ptr [rsp + 8], rax

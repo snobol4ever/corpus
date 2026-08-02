@@ -15,7 +15,7 @@ n0_var_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n1_lit_integer_α:
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 6                         # result
+                        mov              qword ptr [rsp + 0], 3                         # result
                         mov              rax, qword ptr [rip + .Lx6_0]
                         mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n2_coerce_numeric_α
@@ -25,12 +25,12 @@ n1_lit_integer_α:
 n2_coerce_numeric_α:
                         sub              rsp, 16
                         mov              eax, dword ptr [rsp + 32]                      # var
-                        cmp              eax, 7
+                        cmp              eax, 5
                                                                                         je    .Lx8_1
-                        cmp              eax, 6
+                        cmp              eax, 3
                                                                                         jne   .Lx8_0
                         mov              eax, dword ptr [rsp + 16]                      # lit_integer
-                        cmp              eax, 6
+                        cmp              eax, 3
                                                                                         jne   .Lx8_0
 .Lx8_1:
                         mov              rax, qword ptr [rsp + 32]                      # var
@@ -49,12 +49,12 @@ n2_coerce_numeric_α:
 n3_coerce_numeric_α:
                         sub              rsp, 16
                         mov              eax, dword ptr [rsp + 32]                      # lit_integer
-                        cmp              eax, 7
+                        cmp              eax, 5
                                                                                         je    .Lx10_1
-                        cmp              eax, 6
+                        cmp              eax, 3
                                                                                         jne   .Lx10_0
                         mov              eax, dword ptr [rsp + 48]                      # var
-                        cmp              eax, 6
+                        cmp              eax, 3
                                                                                         jne   .Lx10_0
 .Lx10_1:
                         mov              rax, qword ptr [rsp + 32]                      # lit_integer
@@ -198,7 +198,7 @@ n13_lit_integer_α:
                         mov              qword ptr [rsp + 200], 0
                         mov              qword ptr [rsp + 208], 0
                         mov              qword ptr [rsp + 216], 0
-                        mov              qword ptr [rsp + 96], 6                        # result
+                        mov              qword ptr [rsp + 96], 3                        # result
                         mov              rax, qword ptr [rip + .Lx26_0]
                         mov              qword ptr [rsp + 104], rax
                                                                                         jmp   n14_call_α
@@ -293,7 +293,7 @@ n14_call_α:
 .Lx28_2:
                         mov              qword ptr [rsp + 48], rax
                         mov              qword ptr [rsp + 56], rdx
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx28_240
                         add              rsp, 224
                                                                                         jmp   n17_lit_string_α
@@ -307,7 +307,7 @@ n14_call_β:
                         .string          "ispos"
 #-----------------------------------------------------------------------------------------------------------------------
 n15_lit_string_α:
-                        mov              qword ptr [rsp + 16], 1                        # result
+                        mov              qword ptr [rsp + 16], 2                        # result
                         mov              dword ptr [rsp + 20], 8
                         mov              rax, qword ptr [rip + .Lx29_0]
                         mov              qword ptr [rsp + 24], rax
@@ -329,7 +329,7 @@ n16_assign_α:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
 n17_lit_string_α:
-                        mov              qword ptr [rsp + 32], 1                        # result
+                        mov              qword ptr [rsp + 32], 2                        # result
                         mov              dword ptr [rsp + 36], 5
                         mov              rax, qword ptr [rip + .Lx31_0]
                         mov              qword ptr [rsp + 40], rax
@@ -351,7 +351,7 @@ n18_assign_α:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
 n19_lit_integer_α:
-                        mov              qword ptr [rsp + 208], 6                       # result
+                        mov              qword ptr [rsp + 208], 3                       # result
                         mov              rax, qword ptr [rip + .Lx33_0]
                         mov              qword ptr [rsp + 216], rax
                                                                                         jmp   n20_unop_α
@@ -454,7 +454,7 @@ n21_call_α:
 .Lx36_2:
                         mov              qword ptr [rsp + 144], rax
                         mov              qword ptr [rsp + 152], rdx
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         jne   .Lx36_240
                         add              rsp, 224
                                                                                         jmp   n24_lit_string_α
@@ -468,7 +468,7 @@ n21_call_β:
                         .string          "ispos"
 #-----------------------------------------------------------------------------------------------------------------------
 n22_lit_string_α:
-                        mov              qword ptr [rsp + 112], 1                       # result
+                        mov              qword ptr [rsp + 112], 2                       # result
                         mov              dword ptr [rsp + 116], 5
                         mov              rax, qword ptr [rip + .Lx37_0]
                         mov              qword ptr [rsp + 120], rax
@@ -491,7 +491,7 @@ n23_assign_α:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
 n24_lit_string_α:
-                        mov              qword ptr [rsp + 128], 1                       # result
+                        mov              qword ptr [rsp + 128], 2                       # result
                         mov              dword ptr [rsp + 132], 12
                         mov              rax, qword ptr [rip + .Lx39_0]
                         mov              qword ptr [rsp + 136], rax

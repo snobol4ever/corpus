@@ -50,7 +50,7 @@ n0_lit_string_α:
                         mov              qword ptr [rsp + 224], 0
                         mov              qword ptr [rsp + 232], 0
                         sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 1                         # result
+                        mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 3
                         mov              rax, qword ptr [rip + .Lx11_0]
                         mov              qword ptr [rsp + 8], rax
