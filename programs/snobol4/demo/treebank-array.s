@@ -2041,334 +2041,19 @@ n305_goto_β:
 # push_list      dummy          =  stk_push_frame(v)
 #-----------------------------------------------------------------------------------------------------------------------
 n306_var_α:
-                        sub              rsp, 2560
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
-                        mov              qword ptr [rsp + 96], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 120], 0
-                        mov              qword ptr [rsp + 128], 0
-                        mov              qword ptr [rsp + 136], 0
-                        mov              qword ptr [rsp + 144], 0
-                        mov              qword ptr [rsp + 152], 0
-                        mov              qword ptr [rsp + 160], 0
-                        mov              qword ptr [rsp + 168], 0
-                        mov              qword ptr [rsp + 176], 0
-                        mov              qword ptr [rsp + 184], 0
-                        mov              qword ptr [rsp + 192], 0
-                        mov              qword ptr [rsp + 200], 0
-                        mov              qword ptr [rsp + 208], 0
-                        mov              qword ptr [rsp + 216], 0
-                        mov              qword ptr [rsp + 224], 0
-                        mov              qword ptr [rsp + 232], 0
-                        mov              qword ptr [rsp + 240], 0
-                        mov              qword ptr [rsp + 248], 0
-                        mov              qword ptr [rsp + 256], 0
-                        mov              qword ptr [rsp + 264], 0
-                        mov              qword ptr [rsp + 272], 0
-                        mov              qword ptr [rsp + 280], 0
-                        mov              qword ptr [rsp + 288], 0
-                        mov              qword ptr [rsp + 296], 0
-                        mov              qword ptr [rsp + 304], 0
-                        mov              qword ptr [rsp + 312], 0
-                        mov              qword ptr [rsp + 320], 0
-                        mov              qword ptr [rsp + 328], 0
-                        mov              qword ptr [rsp + 336], 0
-                        mov              qword ptr [rsp + 344], 0
-                        mov              qword ptr [rsp + 352], 0
-                        mov              qword ptr [rsp + 360], 0
-                        mov              qword ptr [rsp + 368], 0
-                        mov              qword ptr [rsp + 376], 0
-                        mov              qword ptr [rsp + 384], 0
-                        mov              qword ptr [rsp + 392], 0
-                        mov              qword ptr [rsp + 400], 0
-                        mov              qword ptr [rsp + 408], 0
-                        mov              qword ptr [rsp + 416], 0
-                        mov              qword ptr [rsp + 424], 0
-                        mov              qword ptr [rsp + 432], 0
-                        mov              qword ptr [rsp + 440], 0
-                        mov              qword ptr [rsp + 448], 0
-                        mov              qword ptr [rsp + 456], 0
-                        mov              qword ptr [rsp + 464], 0
-                        mov              qword ptr [rsp + 472], 0
-                        mov              qword ptr [rsp + 480], 0
-                        mov              qword ptr [rsp + 488], 0
-                        mov              qword ptr [rsp + 496], 0
-                        mov              qword ptr [rsp + 504], 0
-                        mov              qword ptr [rsp + 512], 0
-                        mov              qword ptr [rsp + 520], 0
-                        mov              qword ptr [rsp + 528], 0
-                        mov              qword ptr [rsp + 536], 0
-                        mov              qword ptr [rsp + 544], 0
-                        mov              qword ptr [rsp + 552], 0
-                        mov              qword ptr [rsp + 560], 0
-                        mov              qword ptr [rsp + 568], 0
-                        mov              qword ptr [rsp + 576], 0
-                        mov              qword ptr [rsp + 584], 0
-                        mov              qword ptr [rsp + 592], 0
-                        mov              qword ptr [rsp + 600], 0
-                        mov              qword ptr [rsp + 608], 0
-                        mov              qword ptr [rsp + 616], 0
-                        mov              qword ptr [rsp + 624], 0
-                        mov              qword ptr [rsp + 632], 0
-                        mov              qword ptr [rsp + 640], 0
-                        mov              qword ptr [rsp + 648], 0
-                        mov              qword ptr [rsp + 656], 0
-                        mov              qword ptr [rsp + 664], 0
-                        mov              qword ptr [rsp + 672], 0
-                        mov              qword ptr [rsp + 680], 0
-                        mov              qword ptr [rsp + 688], 0
-                        mov              qword ptr [rsp + 696], 0
-                        mov              qword ptr [rsp + 704], 0
-                        mov              qword ptr [rsp + 712], 0
-                        mov              qword ptr [rsp + 720], 0
-                        mov              qword ptr [rsp + 728], 0
-                        mov              qword ptr [rsp + 736], 0
-                        mov              qword ptr [rsp + 744], 0
-                        mov              qword ptr [rsp + 752], 0
-                        mov              qword ptr [rsp + 760], 0
-                        mov              qword ptr [rsp + 768], 0
-                        mov              qword ptr [rsp + 776], 0
-                        mov              qword ptr [rsp + 784], 0
-                        mov              qword ptr [rsp + 792], 0
-                        mov              qword ptr [rsp + 800], 0
-                        mov              qword ptr [rsp + 808], 0
-                        mov              qword ptr [rsp + 816], 0
-                        mov              qword ptr [rsp + 824], 0
-                        mov              qword ptr [rsp + 832], 0
-                        mov              qword ptr [rsp + 840], 0
-                        mov              qword ptr [rsp + 848], 0
-                        mov              qword ptr [rsp + 856], 0
-                        mov              qword ptr [rsp + 864], 0
-                        mov              qword ptr [rsp + 872], 0
-                        mov              qword ptr [rsp + 880], 0
-                        mov              qword ptr [rsp + 888], 0
-                        mov              qword ptr [rsp + 896], 0
-                        mov              qword ptr [rsp + 904], 0
-                        mov              qword ptr [rsp + 912], 0
-                        mov              qword ptr [rsp + 920], 0
-                        mov              qword ptr [rsp + 928], 0
-                        mov              qword ptr [rsp + 936], 0
-                        mov              qword ptr [rsp + 944], 0
-                        mov              qword ptr [rsp + 952], 0
-                        mov              qword ptr [rsp + 960], 0
-                        mov              qword ptr [rsp + 968], 0
-                        mov              qword ptr [rsp + 976], 0
-                        mov              qword ptr [rsp + 984], 0
-                        mov              qword ptr [rsp + 992], 0
-                        mov              qword ptr [rsp + 1000], 0
-                        mov              qword ptr [rsp + 1008], 0
-                        mov              qword ptr [rsp + 1016], 0
-                        mov              qword ptr [rsp + 1024], 0
-                        mov              qword ptr [rsp + 1032], 0
-                        mov              qword ptr [rsp + 1040], 0
-                        mov              qword ptr [rsp + 1048], 0
-                        mov              qword ptr [rsp + 1056], 0
-                        mov              qword ptr [rsp + 1064], 0
-                        mov              qword ptr [rsp + 1072], 0
-                        mov              qword ptr [rsp + 1080], 0
-                        mov              qword ptr [rsp + 1088], 0
-                        mov              qword ptr [rsp + 1096], 0
-                        mov              qword ptr [rsp + 1104], 0
-                        mov              qword ptr [rsp + 1112], 0
-                        mov              qword ptr [rsp + 1120], 0
-                        mov              qword ptr [rsp + 1128], 0
-                        mov              qword ptr [rsp + 1136], 0
-                        mov              qword ptr [rsp + 1144], 0
-                        mov              qword ptr [rsp + 1152], 0
-                        mov              qword ptr [rsp + 1160], 0
-                        mov              qword ptr [rsp + 1168], 0
-                        mov              qword ptr [rsp + 1176], 0
-                        mov              qword ptr [rsp + 1184], 0
-                        mov              qword ptr [rsp + 1192], 0
-                        mov              qword ptr [rsp + 1200], 0
-                        mov              qword ptr [rsp + 1208], 0
-                        mov              qword ptr [rsp + 1216], 0
-                        mov              qword ptr [rsp + 1224], 0
-                        mov              qword ptr [rsp + 1232], 0
-                        mov              qword ptr [rsp + 1240], 0
-                        mov              qword ptr [rsp + 1248], 0
-                        mov              qword ptr [rsp + 1256], 0
-                        mov              qword ptr [rsp + 1264], 0
-                        mov              qword ptr [rsp + 1272], 0
-                        mov              qword ptr [rsp + 1280], 0
-                        mov              qword ptr [rsp + 1288], 0
-                        mov              qword ptr [rsp + 1296], 0
-                        mov              qword ptr [rsp + 1304], 0
-                        mov              qword ptr [rsp + 1312], 0
-                        mov              qword ptr [rsp + 1320], 0
-                        mov              qword ptr [rsp + 1328], 0
-                        mov              qword ptr [rsp + 1336], 0
-                        mov              qword ptr [rsp + 1344], 0
-                        mov              qword ptr [rsp + 1352], 0
-                        mov              qword ptr [rsp + 1360], 0
-                        mov              qword ptr [rsp + 1368], 0
-                        mov              qword ptr [rsp + 1376], 0
-                        mov              qword ptr [rsp + 1384], 0
-                        mov              qword ptr [rsp + 1392], 0
-                        mov              qword ptr [rsp + 1400], 0
-                        mov              qword ptr [rsp + 1408], 0
-                        mov              qword ptr [rsp + 1416], 0
-                        mov              qword ptr [rsp + 1424], 0
-                        mov              qword ptr [rsp + 1432], 0
-                        mov              qword ptr [rsp + 1440], 0
-                        mov              qword ptr [rsp + 1448], 0
-                        mov              qword ptr [rsp + 1456], 0
-                        mov              qword ptr [rsp + 1464], 0
-                        mov              qword ptr [rsp + 1472], 0
-                        mov              qword ptr [rsp + 1480], 0
-                        mov              qword ptr [rsp + 1488], 0
-                        mov              qword ptr [rsp + 1496], 0
-                        mov              qword ptr [rsp + 1504], 0
-                        mov              qword ptr [rsp + 1512], 0
-                        mov              qword ptr [rsp + 1520], 0
-                        mov              qword ptr [rsp + 1528], 0
-                        mov              qword ptr [rsp + 1536], 0
-                        mov              qword ptr [rsp + 1544], 0
-                        mov              qword ptr [rsp + 1552], 0
-                        mov              qword ptr [rsp + 1560], 0
-                        mov              qword ptr [rsp + 1568], 0
-                        mov              qword ptr [rsp + 1576], 0
-                        mov              qword ptr [rsp + 1584], 0
-                        mov              qword ptr [rsp + 1592], 0
-                        mov              qword ptr [rsp + 1600], 0
-                        mov              qword ptr [rsp + 1608], 0
-                        mov              qword ptr [rsp + 1616], 0
-                        mov              qword ptr [rsp + 1624], 0
-                        mov              qword ptr [rsp + 1632], 0
-                        mov              qword ptr [rsp + 1640], 0
-                        mov              qword ptr [rsp + 1648], 0
-                        mov              qword ptr [rsp + 1656], 0
-                        mov              qword ptr [rsp + 1664], 0
-                        mov              qword ptr [rsp + 1672], 0
-                        mov              qword ptr [rsp + 1680], 0
-                        mov              qword ptr [rsp + 1688], 0
-                        mov              qword ptr [rsp + 1696], 0
-                        mov              qword ptr [rsp + 1704], 0
-                        mov              qword ptr [rsp + 1712], 0
-                        mov              qword ptr [rsp + 1720], 0
-                        mov              qword ptr [rsp + 1728], 0
-                        mov              qword ptr [rsp + 1736], 0
-                        mov              qword ptr [rsp + 1744], 0
-                        mov              qword ptr [rsp + 1752], 0
-                        mov              qword ptr [rsp + 1760], 0
-                        mov              qword ptr [rsp + 1768], 0
-                        mov              qword ptr [rsp + 1776], 0
-                        mov              qword ptr [rsp + 1784], 0
-                        mov              qword ptr [rsp + 1792], 0
-                        mov              qword ptr [rsp + 1800], 0
-                        mov              qword ptr [rsp + 1808], 0
-                        mov              qword ptr [rsp + 1816], 0
-                        mov              qword ptr [rsp + 1824], 0
-                        mov              qword ptr [rsp + 1832], 0
-                        mov              qword ptr [rsp + 1840], 0
-                        mov              qword ptr [rsp + 1848], 0
-                        mov              qword ptr [rsp + 1856], 0
-                        mov              qword ptr [rsp + 1864], 0
-                        mov              qword ptr [rsp + 1872], 0
-                        mov              qword ptr [rsp + 1880], 0
-                        mov              qword ptr [rsp + 1888], 0
-                        mov              qword ptr [rsp + 1896], 0
-                        mov              qword ptr [rsp + 1904], 0
-                        mov              qword ptr [rsp + 1912], 0
-                        mov              qword ptr [rsp + 1920], 0
-                        mov              qword ptr [rsp + 1928], 0
-                        mov              qword ptr [rsp + 1936], 0
-                        mov              qword ptr [rsp + 1944], 0
-                        mov              qword ptr [rsp + 1952], 0
-                        mov              qword ptr [rsp + 1960], 0
-                        mov              qword ptr [rsp + 1968], 0
-                        mov              qword ptr [rsp + 1976], 0
-                        mov              qword ptr [rsp + 1984], 0
-                        mov              qword ptr [rsp + 1992], 0
-                        mov              qword ptr [rsp + 2000], 0
-                        mov              qword ptr [rsp + 2008], 0
-                        mov              qword ptr [rsp + 2016], 0
-                        mov              qword ptr [rsp + 2024], 0
-                        mov              qword ptr [rsp + 2032], 0
-                        mov              qword ptr [rsp + 2040], 0
-                        mov              qword ptr [rsp + 2048], 0
-                        mov              qword ptr [rsp + 2056], 0
-                        mov              qword ptr [rsp + 2064], 0
-                        mov              qword ptr [rsp + 2072], 0
-                        mov              qword ptr [rsp + 2080], 0
-                        mov              qword ptr [rsp + 2088], 0
-                        mov              qword ptr [rsp + 2096], 0
-                        mov              qword ptr [rsp + 2104], 0
-                        mov              qword ptr [rsp + 2112], 0
-                        mov              qword ptr [rsp + 2120], 0
-                        mov              qword ptr [rsp + 2128], 0
-                        mov              qword ptr [rsp + 2136], 0
-                        mov              qword ptr [rsp + 2144], 0
-                        mov              qword ptr [rsp + 2152], 0
-                        mov              qword ptr [rsp + 2160], 0
-                        mov              qword ptr [rsp + 2168], 0
-                        mov              qword ptr [rsp + 2176], 0
-                        mov              qword ptr [rsp + 2184], 0
-                        mov              qword ptr [rsp + 2192], 0
-                        mov              qword ptr [rsp + 2200], 0
-                        mov              qword ptr [rsp + 2208], 0
-                        mov              qword ptr [rsp + 2216], 0
-                        mov              qword ptr [rsp + 2224], 0
-                        mov              qword ptr [rsp + 2232], 0
-                        mov              qword ptr [rsp + 2240], 0
-                        mov              qword ptr [rsp + 2248], 0
-                        mov              qword ptr [rsp + 2256], 0
-                        mov              qword ptr [rsp + 2264], 0
-                        mov              qword ptr [rsp + 2272], 0
-                        mov              qword ptr [rsp + 2280], 0
-                        mov              qword ptr [rsp + 2288], 0
-                        mov              qword ptr [rsp + 2296], 0
-                        mov              qword ptr [rsp + 2304], 0
-                        mov              qword ptr [rsp + 2312], 0
-                        mov              qword ptr [rsp + 2320], 0
-                        mov              qword ptr [rsp + 2328], 0
-                        mov              qword ptr [rsp + 2336], 0
-                        mov              qword ptr [rsp + 2344], 0
-                        mov              qword ptr [rsp + 2352], 0
-                        mov              qword ptr [rsp + 2360], 0
-                        mov              qword ptr [rsp + 2368], 0
-                        mov              qword ptr [rsp + 2376], 0
-                        mov              qword ptr [rsp + 2384], 0
-                        mov              qword ptr [rsp + 2392], 0
-                        mov              qword ptr [rsp + 2400], 0
-                        mov              qword ptr [rsp + 2408], 0
-                        mov              qword ptr [rsp + 2416], 0
-                        mov              qword ptr [rsp + 2424], 0
-                        mov              qword ptr [rsp + 2432], 0
-                        mov              qword ptr [rsp + 2440], 0
-                        mov              qword ptr [rsp + 2448], 0
-                        mov              qword ptr [rsp + 2456], 0
-                        mov              qword ptr [rsp + 2464], 0
-                        mov              qword ptr [rsp + 2472], 0
-                        mov              qword ptr [rsp + 2480], 0
-                        mov              qword ptr [rsp + 2488], 0
-                        mov              qword ptr [rsp + 2496], 0
-                        mov              qword ptr [rsp + 2504], 0
-                        mov              qword ptr [rsp + 2512], 0
-                        mov              qword ptr [rsp + 2520], 0
-                        mov              qword ptr [rsp + 2528], 0
-                        mov              qword ptr [rsp + 2536], 0
-                        mov              qword ptr [rsp + 2544], 0
-                        mov              qword ptr [rsp + 2552], 0
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052304]                    # v
                         mov              rdx, qword ptr [1879052312]
-                        mov              qword ptr [rsp + 2544], rax                    # result
-                        mov              qword ptr [rsp + 2552], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n307_call_α
 #-----------------------------------------------------------------------------------------------------------------------
 n307_call_α:
+                        sub              rsp, 16
+                        mov              edi, 0                                         # idx
+                        mov              rsi, qword ptr [rsp + 16]                      # var
+                        mov              rdx, qword ptr [rsp + 24]                      # v
+                        call             rt_arg_stage@PLT
                         sub              rsp, 32
                         mov              rax, qword ptr [1879052304]                    # v
                         mov              qword ptr [rsp + 0], rax
@@ -2384,9 +2069,10 @@ n307_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx319_5
-                        mov              rax, qword ptr [rsp + 2576]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 0]
                         mov              qword ptr [1879052304], rax                    # v
-                        mov              rax, qword ptr [rsp + 2584]
+                        mov              rax, qword ptr [r10 + 8]
                         mov              qword ptr [1879052312], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx319_6]
@@ -2420,45 +2106,13 @@ n307_call_α:
                                                                                         jmp   .Lx319_2
 .Lx319_5:
                         add              rsp, 32
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx319_20
-                        mov              rax, qword ptr [rsp + 2544]
-                        mov              rdx, qword ptr [rsp + 2552]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 0], rax
-                        mov              qword ptr [r10 + 8], rdx
-                                                                                        jmp   .Lx319_21
-.Lx319_20:
-                        mov              edi, 0                                         # idx
-                        mov              rsi, qword ptr [rsp + 2544]                    # v
-                        mov              rdx, qword ptr [rsp + 2552]                    # v
-                        call             rt_arg_stage@PLT
-.Lx319_21:
-                        mov              rdi, qword ptr [rip + .Lx319_0]                # name
-                        mov              esi, 1                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx319_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx319_3]
-                        lea              rdx, [rip + .Lx319_4]
-                                                                                        jmp   rax
-.Lx319_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx319_2
-.Lx319_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx319_2
-.Lx319_1:
-                        call             rt_faildescr@PLT
 .Lx319_2:
-                        mov              qword ptr [rsp + 2496], rax
-                        mov              qword ptr [rsp + 2504], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx319_240
-                        add              rsp, 2560
+                        add              rsp, 16
+                        add              rsp, 16
                                                                                         jmp   n309_lit_string_α
 .Lx319_240:
                                                                                         jmp   n308_assign_α
@@ -2470,11 +2124,11 @@ n307_call_β:
                         .string          "stk_push_frame"
 #-----------------------------------------------------------------------------------------------------------------------
 n308_assign_α:
-                        mov              rax, qword ptr [rsp + 2496]
-                        mov              rdx, qword ptr [rsp + 2504]
+                        mov              rax, qword ptr [rsp + 0]                       # call
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052912], rax                    # dummy
                         mov              qword ptr [1879052920], rdx
-                        add              rsp, 2560
+                        add              rsp, 32
                                                                                         jmp   n309_lit_string_α
 #=======================================================================================================================
 #                push_list      =  .dummy                     :(NRETURN)
@@ -2747,366 +2401,19 @@ n352_goto_β:
 # push_item      dummy          =  stk_push_item(v)
 #-----------------------------------------------------------------------------------------------------------------------
 n353_var_α:
-                        sub              rsp, 2816
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
-                        mov              qword ptr [rsp + 96], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 120], 0
-                        mov              qword ptr [rsp + 128], 0
-                        mov              qword ptr [rsp + 136], 0
-                        mov              qword ptr [rsp + 144], 0
-                        mov              qword ptr [rsp + 152], 0
-                        mov              qword ptr [rsp + 160], 0
-                        mov              qword ptr [rsp + 168], 0
-                        mov              qword ptr [rsp + 176], 0
-                        mov              qword ptr [rsp + 184], 0
-                        mov              qword ptr [rsp + 192], 0
-                        mov              qword ptr [rsp + 200], 0
-                        mov              qword ptr [rsp + 208], 0
-                        mov              qword ptr [rsp + 216], 0
-                        mov              qword ptr [rsp + 224], 0
-                        mov              qword ptr [rsp + 232], 0
-                        mov              qword ptr [rsp + 240], 0
-                        mov              qword ptr [rsp + 248], 0
-                        mov              qword ptr [rsp + 256], 0
-                        mov              qword ptr [rsp + 264], 0
-                        mov              qword ptr [rsp + 272], 0
-                        mov              qword ptr [rsp + 280], 0
-                        mov              qword ptr [rsp + 288], 0
-                        mov              qword ptr [rsp + 296], 0
-                        mov              qword ptr [rsp + 304], 0
-                        mov              qword ptr [rsp + 312], 0
-                        mov              qword ptr [rsp + 320], 0
-                        mov              qword ptr [rsp + 328], 0
-                        mov              qword ptr [rsp + 336], 0
-                        mov              qword ptr [rsp + 344], 0
-                        mov              qword ptr [rsp + 352], 0
-                        mov              qword ptr [rsp + 360], 0
-                        mov              qword ptr [rsp + 368], 0
-                        mov              qword ptr [rsp + 376], 0
-                        mov              qword ptr [rsp + 384], 0
-                        mov              qword ptr [rsp + 392], 0
-                        mov              qword ptr [rsp + 400], 0
-                        mov              qword ptr [rsp + 408], 0
-                        mov              qword ptr [rsp + 416], 0
-                        mov              qword ptr [rsp + 424], 0
-                        mov              qword ptr [rsp + 432], 0
-                        mov              qword ptr [rsp + 440], 0
-                        mov              qword ptr [rsp + 448], 0
-                        mov              qword ptr [rsp + 456], 0
-                        mov              qword ptr [rsp + 464], 0
-                        mov              qword ptr [rsp + 472], 0
-                        mov              qword ptr [rsp + 480], 0
-                        mov              qword ptr [rsp + 488], 0
-                        mov              qword ptr [rsp + 496], 0
-                        mov              qword ptr [rsp + 504], 0
-                        mov              qword ptr [rsp + 512], 0
-                        mov              qword ptr [rsp + 520], 0
-                        mov              qword ptr [rsp + 528], 0
-                        mov              qword ptr [rsp + 536], 0
-                        mov              qword ptr [rsp + 544], 0
-                        mov              qword ptr [rsp + 552], 0
-                        mov              qword ptr [rsp + 560], 0
-                        mov              qword ptr [rsp + 568], 0
-                        mov              qword ptr [rsp + 576], 0
-                        mov              qword ptr [rsp + 584], 0
-                        mov              qword ptr [rsp + 592], 0
-                        mov              qword ptr [rsp + 600], 0
-                        mov              qword ptr [rsp + 608], 0
-                        mov              qword ptr [rsp + 616], 0
-                        mov              qword ptr [rsp + 624], 0
-                        mov              qword ptr [rsp + 632], 0
-                        mov              qword ptr [rsp + 640], 0
-                        mov              qword ptr [rsp + 648], 0
-                        mov              qword ptr [rsp + 656], 0
-                        mov              qword ptr [rsp + 664], 0
-                        mov              qword ptr [rsp + 672], 0
-                        mov              qword ptr [rsp + 680], 0
-                        mov              qword ptr [rsp + 688], 0
-                        mov              qword ptr [rsp + 696], 0
-                        mov              qword ptr [rsp + 704], 0
-                        mov              qword ptr [rsp + 712], 0
-                        mov              qword ptr [rsp + 720], 0
-                        mov              qword ptr [rsp + 728], 0
-                        mov              qword ptr [rsp + 736], 0
-                        mov              qword ptr [rsp + 744], 0
-                        mov              qword ptr [rsp + 752], 0
-                        mov              qword ptr [rsp + 760], 0
-                        mov              qword ptr [rsp + 768], 0
-                        mov              qword ptr [rsp + 776], 0
-                        mov              qword ptr [rsp + 784], 0
-                        mov              qword ptr [rsp + 792], 0
-                        mov              qword ptr [rsp + 800], 0
-                        mov              qword ptr [rsp + 808], 0
-                        mov              qword ptr [rsp + 816], 0
-                        mov              qword ptr [rsp + 824], 0
-                        mov              qword ptr [rsp + 832], 0
-                        mov              qword ptr [rsp + 840], 0
-                        mov              qword ptr [rsp + 848], 0
-                        mov              qword ptr [rsp + 856], 0
-                        mov              qword ptr [rsp + 864], 0
-                        mov              qword ptr [rsp + 872], 0
-                        mov              qword ptr [rsp + 880], 0
-                        mov              qword ptr [rsp + 888], 0
-                        mov              qword ptr [rsp + 896], 0
-                        mov              qword ptr [rsp + 904], 0
-                        mov              qword ptr [rsp + 912], 0
-                        mov              qword ptr [rsp + 920], 0
-                        mov              qword ptr [rsp + 928], 0
-                        mov              qword ptr [rsp + 936], 0
-                        mov              qword ptr [rsp + 944], 0
-                        mov              qword ptr [rsp + 952], 0
-                        mov              qword ptr [rsp + 960], 0
-                        mov              qword ptr [rsp + 968], 0
-                        mov              qword ptr [rsp + 976], 0
-                        mov              qword ptr [rsp + 984], 0
-                        mov              qword ptr [rsp + 992], 0
-                        mov              qword ptr [rsp + 1000], 0
-                        mov              qword ptr [rsp + 1008], 0
-                        mov              qword ptr [rsp + 1016], 0
-                        mov              qword ptr [rsp + 1024], 0
-                        mov              qword ptr [rsp + 1032], 0
-                        mov              qword ptr [rsp + 1040], 0
-                        mov              qword ptr [rsp + 1048], 0
-                        mov              qword ptr [rsp + 1056], 0
-                        mov              qword ptr [rsp + 1064], 0
-                        mov              qword ptr [rsp + 1072], 0
-                        mov              qword ptr [rsp + 1080], 0
-                        mov              qword ptr [rsp + 1088], 0
-                        mov              qword ptr [rsp + 1096], 0
-                        mov              qword ptr [rsp + 1104], 0
-                        mov              qword ptr [rsp + 1112], 0
-                        mov              qword ptr [rsp + 1120], 0
-                        mov              qword ptr [rsp + 1128], 0
-                        mov              qword ptr [rsp + 1136], 0
-                        mov              qword ptr [rsp + 1144], 0
-                        mov              qword ptr [rsp + 1152], 0
-                        mov              qword ptr [rsp + 1160], 0
-                        mov              qword ptr [rsp + 1168], 0
-                        mov              qword ptr [rsp + 1176], 0
-                        mov              qword ptr [rsp + 1184], 0
-                        mov              qword ptr [rsp + 1192], 0
-                        mov              qword ptr [rsp + 1200], 0
-                        mov              qword ptr [rsp + 1208], 0
-                        mov              qword ptr [rsp + 1216], 0
-                        mov              qword ptr [rsp + 1224], 0
-                        mov              qword ptr [rsp + 1232], 0
-                        mov              qword ptr [rsp + 1240], 0
-                        mov              qword ptr [rsp + 1248], 0
-                        mov              qword ptr [rsp + 1256], 0
-                        mov              qword ptr [rsp + 1264], 0
-                        mov              qword ptr [rsp + 1272], 0
-                        mov              qword ptr [rsp + 1280], 0
-                        mov              qword ptr [rsp + 1288], 0
-                        mov              qword ptr [rsp + 1296], 0
-                        mov              qword ptr [rsp + 1304], 0
-                        mov              qword ptr [rsp + 1312], 0
-                        mov              qword ptr [rsp + 1320], 0
-                        mov              qword ptr [rsp + 1328], 0
-                        mov              qword ptr [rsp + 1336], 0
-                        mov              qword ptr [rsp + 1344], 0
-                        mov              qword ptr [rsp + 1352], 0
-                        mov              qword ptr [rsp + 1360], 0
-                        mov              qword ptr [rsp + 1368], 0
-                        mov              qword ptr [rsp + 1376], 0
-                        mov              qword ptr [rsp + 1384], 0
-                        mov              qword ptr [rsp + 1392], 0
-                        mov              qword ptr [rsp + 1400], 0
-                        mov              qword ptr [rsp + 1408], 0
-                        mov              qword ptr [rsp + 1416], 0
-                        mov              qword ptr [rsp + 1424], 0
-                        mov              qword ptr [rsp + 1432], 0
-                        mov              qword ptr [rsp + 1440], 0
-                        mov              qword ptr [rsp + 1448], 0
-                        mov              qword ptr [rsp + 1456], 0
-                        mov              qword ptr [rsp + 1464], 0
-                        mov              qword ptr [rsp + 1472], 0
-                        mov              qword ptr [rsp + 1480], 0
-                        mov              qword ptr [rsp + 1488], 0
-                        mov              qword ptr [rsp + 1496], 0
-                        mov              qword ptr [rsp + 1504], 0
-                        mov              qword ptr [rsp + 1512], 0
-                        mov              qword ptr [rsp + 1520], 0
-                        mov              qword ptr [rsp + 1528], 0
-                        mov              qword ptr [rsp + 1536], 0
-                        mov              qword ptr [rsp + 1544], 0
-                        mov              qword ptr [rsp + 1552], 0
-                        mov              qword ptr [rsp + 1560], 0
-                        mov              qword ptr [rsp + 1568], 0
-                        mov              qword ptr [rsp + 1576], 0
-                        mov              qword ptr [rsp + 1584], 0
-                        mov              qword ptr [rsp + 1592], 0
-                        mov              qword ptr [rsp + 1600], 0
-                        mov              qword ptr [rsp + 1608], 0
-                        mov              qword ptr [rsp + 1616], 0
-                        mov              qword ptr [rsp + 1624], 0
-                        mov              qword ptr [rsp + 1632], 0
-                        mov              qword ptr [rsp + 1640], 0
-                        mov              qword ptr [rsp + 1648], 0
-                        mov              qword ptr [rsp + 1656], 0
-                        mov              qword ptr [rsp + 1664], 0
-                        mov              qword ptr [rsp + 1672], 0
-                        mov              qword ptr [rsp + 1680], 0
-                        mov              qword ptr [rsp + 1688], 0
-                        mov              qword ptr [rsp + 1696], 0
-                        mov              qword ptr [rsp + 1704], 0
-                        mov              qword ptr [rsp + 1712], 0
-                        mov              qword ptr [rsp + 1720], 0
-                        mov              qword ptr [rsp + 1728], 0
-                        mov              qword ptr [rsp + 1736], 0
-                        mov              qword ptr [rsp + 1744], 0
-                        mov              qword ptr [rsp + 1752], 0
-                        mov              qword ptr [rsp + 1760], 0
-                        mov              qword ptr [rsp + 1768], 0
-                        mov              qword ptr [rsp + 1776], 0
-                        mov              qword ptr [rsp + 1784], 0
-                        mov              qword ptr [rsp + 1792], 0
-                        mov              qword ptr [rsp + 1800], 0
-                        mov              qword ptr [rsp + 1808], 0
-                        mov              qword ptr [rsp + 1816], 0
-                        mov              qword ptr [rsp + 1824], 0
-                        mov              qword ptr [rsp + 1832], 0
-                        mov              qword ptr [rsp + 1840], 0
-                        mov              qword ptr [rsp + 1848], 0
-                        mov              qword ptr [rsp + 1856], 0
-                        mov              qword ptr [rsp + 1864], 0
-                        mov              qword ptr [rsp + 1872], 0
-                        mov              qword ptr [rsp + 1880], 0
-                        mov              qword ptr [rsp + 1888], 0
-                        mov              qword ptr [rsp + 1896], 0
-                        mov              qword ptr [rsp + 1904], 0
-                        mov              qword ptr [rsp + 1912], 0
-                        mov              qword ptr [rsp + 1920], 0
-                        mov              qword ptr [rsp + 1928], 0
-                        mov              qword ptr [rsp + 1936], 0
-                        mov              qword ptr [rsp + 1944], 0
-                        mov              qword ptr [rsp + 1952], 0
-                        mov              qword ptr [rsp + 1960], 0
-                        mov              qword ptr [rsp + 1968], 0
-                        mov              qword ptr [rsp + 1976], 0
-                        mov              qword ptr [rsp + 1984], 0
-                        mov              qword ptr [rsp + 1992], 0
-                        mov              qword ptr [rsp + 2000], 0
-                        mov              qword ptr [rsp + 2008], 0
-                        mov              qword ptr [rsp + 2016], 0
-                        mov              qword ptr [rsp + 2024], 0
-                        mov              qword ptr [rsp + 2032], 0
-                        mov              qword ptr [rsp + 2040], 0
-                        mov              qword ptr [rsp + 2048], 0
-                        mov              qword ptr [rsp + 2056], 0
-                        mov              qword ptr [rsp + 2064], 0
-                        mov              qword ptr [rsp + 2072], 0
-                        mov              qword ptr [rsp + 2080], 0
-                        mov              qword ptr [rsp + 2088], 0
-                        mov              qword ptr [rsp + 2096], 0
-                        mov              qword ptr [rsp + 2104], 0
-                        mov              qword ptr [rsp + 2112], 0
-                        mov              qword ptr [rsp + 2120], 0
-                        mov              qword ptr [rsp + 2128], 0
-                        mov              qword ptr [rsp + 2136], 0
-                        mov              qword ptr [rsp + 2144], 0
-                        mov              qword ptr [rsp + 2152], 0
-                        mov              qword ptr [rsp + 2160], 0
-                        mov              qword ptr [rsp + 2168], 0
-                        mov              qword ptr [rsp + 2176], 0
-                        mov              qword ptr [rsp + 2184], 0
-                        mov              qword ptr [rsp + 2192], 0
-                        mov              qword ptr [rsp + 2200], 0
-                        mov              qword ptr [rsp + 2208], 0
-                        mov              qword ptr [rsp + 2216], 0
-                        mov              qword ptr [rsp + 2224], 0
-                        mov              qword ptr [rsp + 2232], 0
-                        mov              qword ptr [rsp + 2240], 0
-                        mov              qword ptr [rsp + 2248], 0
-                        mov              qword ptr [rsp + 2256], 0
-                        mov              qword ptr [rsp + 2264], 0
-                        mov              qword ptr [rsp + 2272], 0
-                        mov              qword ptr [rsp + 2280], 0
-                        mov              qword ptr [rsp + 2288], 0
-                        mov              qword ptr [rsp + 2296], 0
-                        mov              qword ptr [rsp + 2304], 0
-                        mov              qword ptr [rsp + 2312], 0
-                        mov              qword ptr [rsp + 2320], 0
-                        mov              qword ptr [rsp + 2328], 0
-                        mov              qword ptr [rsp + 2336], 0
-                        mov              qword ptr [rsp + 2344], 0
-                        mov              qword ptr [rsp + 2352], 0
-                        mov              qword ptr [rsp + 2360], 0
-                        mov              qword ptr [rsp + 2368], 0
-                        mov              qword ptr [rsp + 2376], 0
-                        mov              qword ptr [rsp + 2384], 0
-                        mov              qword ptr [rsp + 2392], 0
-                        mov              qword ptr [rsp + 2400], 0
-                        mov              qword ptr [rsp + 2408], 0
-                        mov              qword ptr [rsp + 2416], 0
-                        mov              qword ptr [rsp + 2424], 0
-                        mov              qword ptr [rsp + 2432], 0
-                        mov              qword ptr [rsp + 2440], 0
-                        mov              qword ptr [rsp + 2448], 0
-                        mov              qword ptr [rsp + 2456], 0
-                        mov              qword ptr [rsp + 2464], 0
-                        mov              qword ptr [rsp + 2472], 0
-                        mov              qword ptr [rsp + 2480], 0
-                        mov              qword ptr [rsp + 2488], 0
-                        mov              qword ptr [rsp + 2496], 0
-                        mov              qword ptr [rsp + 2504], 0
-                        mov              qword ptr [rsp + 2512], 0
-                        mov              qword ptr [rsp + 2520], 0
-                        mov              qword ptr [rsp + 2528], 0
-                        mov              qword ptr [rsp + 2536], 0
-                        mov              qword ptr [rsp + 2544], 0
-                        mov              qword ptr [rsp + 2552], 0
-                        mov              qword ptr [rsp + 2560], 0
-                        mov              qword ptr [rsp + 2568], 0
-                        mov              qword ptr [rsp + 2576], 0
-                        mov              qword ptr [rsp + 2584], 0
-                        mov              qword ptr [rsp + 2592], 0
-                        mov              qword ptr [rsp + 2600], 0
-                        mov              qword ptr [rsp + 2608], 0
-                        mov              qword ptr [rsp + 2616], 0
-                        mov              qword ptr [rsp + 2624], 0
-                        mov              qword ptr [rsp + 2632], 0
-                        mov              qword ptr [rsp + 2640], 0
-                        mov              qword ptr [rsp + 2648], 0
-                        mov              qword ptr [rsp + 2656], 0
-                        mov              qword ptr [rsp + 2664], 0
-                        mov              qword ptr [rsp + 2672], 0
-                        mov              qword ptr [rsp + 2680], 0
-                        mov              qword ptr [rsp + 2688], 0
-                        mov              qword ptr [rsp + 2696], 0
-                        mov              qword ptr [rsp + 2704], 0
-                        mov              qword ptr [rsp + 2712], 0
-                        mov              qword ptr [rsp + 2720], 0
-                        mov              qword ptr [rsp + 2728], 0
-                        mov              qword ptr [rsp + 2736], 0
-                        mov              qword ptr [rsp + 2744], 0
-                        mov              qword ptr [rsp + 2752], 0
-                        mov              qword ptr [rsp + 2760], 0
-                        mov              qword ptr [rsp + 2768], 0
-                        mov              qword ptr [rsp + 2776], 0
-                        mov              qword ptr [rsp + 2784], 0
-                        mov              qword ptr [rsp + 2792], 0
-                        mov              qword ptr [rsp + 2800], 0
-                        mov              qword ptr [rsp + 2808], 0
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052304]                    # v
                         mov              rdx, qword ptr [1879052312]
-                        mov              qword ptr [rsp + 2800], rax                    # result
-                        mov              qword ptr [rsp + 2808], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n354_call_α
 #-----------------------------------------------------------------------------------------------------------------------
 n354_call_α:
+                        sub              rsp, 16
+                        mov              edi, 0                                         # idx
+                        mov              rsi, qword ptr [rsp + 16]                      # var
+                        mov              rdx, qword ptr [rsp + 24]                      # v
+                        call             rt_arg_stage@PLT
                         sub              rsp, 48
                         mov              rax, qword ptr [1879052304]                    # v
                         mov              qword ptr [rsp + 0], rax
@@ -3126,9 +2433,10 @@ n354_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx366_5
-                        mov              rax, qword ptr [rsp + 2848]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 0]
                         mov              qword ptr [1879052304], rax                    # v
-                        mov              rax, qword ptr [rsp + 2856]
+                        mov              rax, qword ptr [r10 + 8]
                         mov              qword ptr [1879052312], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx366_6]
@@ -3170,45 +2478,13 @@ n354_call_α:
                                                                                         jmp   .Lx366_2
 .Lx366_5:
                         add              rsp, 48
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx366_20
-                        mov              rax, qword ptr [rsp + 2800]
-                        mov              rdx, qword ptr [rsp + 2808]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 0], rax
-                        mov              qword ptr [r10 + 8], rdx
-                                                                                        jmp   .Lx366_21
-.Lx366_20:
-                        mov              edi, 0                                         # idx
-                        mov              rsi, qword ptr [rsp + 2800]                    # v
-                        mov              rdx, qword ptr [rsp + 2808]                    # v
-                        call             rt_arg_stage@PLT
-.Lx366_21:
-                        mov              rdi, qword ptr [rip + .Lx366_0]                # name
-                        mov              esi, 1                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx366_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx366_3]
-                        lea              rdx, [rip + .Lx366_4]
-                                                                                        jmp   rax
-.Lx366_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx366_2
-.Lx366_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx366_2
-.Lx366_1:
-                        call             rt_faildescr@PLT
 .Lx366_2:
-                        mov              qword ptr [rsp + 2752], rax
-                        mov              qword ptr [rsp + 2760], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx366_240
-                        add              rsp, 2816
+                        add              rsp, 16
+                        add              rsp, 16
                                                                                         jmp   n356_lit_string_α
 .Lx366_240:
                                                                                         jmp   n355_assign_α
@@ -3220,11 +2496,11 @@ n354_call_β:
                         .string          "stk_push_item"
 #-----------------------------------------------------------------------------------------------------------------------
 n355_assign_α:
-                        mov              rax, qword ptr [rsp + 2752]
-                        mov              rdx, qword ptr [rsp + 2760]
+                        mov              rax, qword ptr [rsp + 0]                       # call
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052912], rax                    # dummy
                         mov              qword ptr [1879052920], rdx
-                        add              rsp, 2816
+                        add              rsp, 32
                                                                                         jmp   n356_lit_string_α
 #=======================================================================================================================
 #                push_item      =  .dummy                     :(NRETURN)
@@ -3497,6 +2773,7 @@ n399_goto_β:
 # pop_list       dummy          =  stk_pop_into_parent()
 #-----------------------------------------------------------------------------------------------------------------------
 n400_call_α:
+                        sub              rsp, 16
                         sub              rsp, 64
                         mov              rax, qword ptr [1879052368]                    # child
                         mov              qword ptr [rsp + 0], rax
@@ -3568,28 +2845,14 @@ n400_call_α:
                                                                                         jmp   .Lx411_2
 .Lx411_5:
                         add              rsp, 64
-                        mov              rdi, qword ptr [rip + .Lx411_0]                # name
-                        mov              esi, 0                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx411_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx411_3]
-                        lea              rdx, [rip + .Lx411_4]
-                                                                                        jmp   rax
-.Lx411_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx411_2
-.Lx411_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx411_2
-.Lx411_1:
-                        call             rt_faildescr@PLT
 .Lx411_2:
-                        mov              qword ptr [rsp + 3216], rax
-                        mov              qword ptr [rsp + 3224], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
-                                                                                        je    n402_lit_string_α
+                                                                                        jne   .Lx411_240
+                        add              rsp, 16
+                                                                                        jmp   n402_lit_string_α
+.Lx411_240:
                                                                                         jmp   n401_assign_α
 n400_call_β:
                                                                                         jmp   n402_lit_string_α
@@ -3599,10 +2862,11 @@ n400_call_β:
                         .string          "stk_pop_into_parent"
 #-----------------------------------------------------------------------------------------------------------------------
 n401_assign_α:
-                        mov              rax, qword ptr [rsp + 3216]
-                        mov              rdx, qword ptr [rsp + 3224]
+                        mov              rax, qword ptr [rsp + 0]                       # call
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052912], rax                    # dummy
                         mov              qword ptr [1879052920], rdx
+                        add              rsp, 16
                                                                                         jmp   n402_lit_string_α
 #=======================================================================================================================
 #                pop_list       =  .dummy                     :(NRETURN)
@@ -3833,420 +3097,21 @@ n436_goto_β:
 # pop_final      dummy          =  stk_pop_final(v)
 #-----------------------------------------------------------------------------------------------------------------------
 n437_var_α:
-                        sub              rsp, 3232
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
-                        mov              qword ptr [rsp + 96], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 120], 0
-                        mov              qword ptr [rsp + 128], 0
-                        mov              qword ptr [rsp + 136], 0
-                        mov              qword ptr [rsp + 144], 0
-                        mov              qword ptr [rsp + 152], 0
-                        mov              qword ptr [rsp + 160], 0
-                        mov              qword ptr [rsp + 168], 0
-                        mov              qword ptr [rsp + 176], 0
-                        mov              qword ptr [rsp + 184], 0
-                        mov              qword ptr [rsp + 192], 0
-                        mov              qword ptr [rsp + 200], 0
-                        mov              qword ptr [rsp + 208], 0
-                        mov              qword ptr [rsp + 216], 0
-                        mov              qword ptr [rsp + 224], 0
-                        mov              qword ptr [rsp + 232], 0
-                        mov              qword ptr [rsp + 240], 0
-                        mov              qword ptr [rsp + 248], 0
-                        mov              qword ptr [rsp + 256], 0
-                        mov              qword ptr [rsp + 264], 0
-                        mov              qword ptr [rsp + 272], 0
-                        mov              qword ptr [rsp + 280], 0
-                        mov              qword ptr [rsp + 288], 0
-                        mov              qword ptr [rsp + 296], 0
-                        mov              qword ptr [rsp + 304], 0
-                        mov              qword ptr [rsp + 312], 0
-                        mov              qword ptr [rsp + 320], 0
-                        mov              qword ptr [rsp + 328], 0
-                        mov              qword ptr [rsp + 336], 0
-                        mov              qword ptr [rsp + 344], 0
-                        mov              qword ptr [rsp + 352], 0
-                        mov              qword ptr [rsp + 360], 0
-                        mov              qword ptr [rsp + 368], 0
-                        mov              qword ptr [rsp + 376], 0
-                        mov              qword ptr [rsp + 384], 0
-                        mov              qword ptr [rsp + 392], 0
-                        mov              qword ptr [rsp + 400], 0
-                        mov              qword ptr [rsp + 408], 0
-                        mov              qword ptr [rsp + 416], 0
-                        mov              qword ptr [rsp + 424], 0
-                        mov              qword ptr [rsp + 432], 0
-                        mov              qword ptr [rsp + 440], 0
-                        mov              qword ptr [rsp + 448], 0
-                        mov              qword ptr [rsp + 456], 0
-                        mov              qword ptr [rsp + 464], 0
-                        mov              qword ptr [rsp + 472], 0
-                        mov              qword ptr [rsp + 480], 0
-                        mov              qword ptr [rsp + 488], 0
-                        mov              qword ptr [rsp + 496], 0
-                        mov              qword ptr [rsp + 504], 0
-                        mov              qword ptr [rsp + 512], 0
-                        mov              qword ptr [rsp + 520], 0
-                        mov              qword ptr [rsp + 528], 0
-                        mov              qword ptr [rsp + 536], 0
-                        mov              qword ptr [rsp + 544], 0
-                        mov              qword ptr [rsp + 552], 0
-                        mov              qword ptr [rsp + 560], 0
-                        mov              qword ptr [rsp + 568], 0
-                        mov              qword ptr [rsp + 576], 0
-                        mov              qword ptr [rsp + 584], 0
-                        mov              qword ptr [rsp + 592], 0
-                        mov              qword ptr [rsp + 600], 0
-                        mov              qword ptr [rsp + 608], 0
-                        mov              qword ptr [rsp + 616], 0
-                        mov              qword ptr [rsp + 624], 0
-                        mov              qword ptr [rsp + 632], 0
-                        mov              qword ptr [rsp + 640], 0
-                        mov              qword ptr [rsp + 648], 0
-                        mov              qword ptr [rsp + 656], 0
-                        mov              qword ptr [rsp + 664], 0
-                        mov              qword ptr [rsp + 672], 0
-                        mov              qword ptr [rsp + 680], 0
-                        mov              qword ptr [rsp + 688], 0
-                        mov              qword ptr [rsp + 696], 0
-                        mov              qword ptr [rsp + 704], 0
-                        mov              qword ptr [rsp + 712], 0
-                        mov              qword ptr [rsp + 720], 0
-                        mov              qword ptr [rsp + 728], 0
-                        mov              qword ptr [rsp + 736], 0
-                        mov              qword ptr [rsp + 744], 0
-                        mov              qword ptr [rsp + 752], 0
-                        mov              qword ptr [rsp + 760], 0
-                        mov              qword ptr [rsp + 768], 0
-                        mov              qword ptr [rsp + 776], 0
-                        mov              qword ptr [rsp + 784], 0
-                        mov              qword ptr [rsp + 792], 0
-                        mov              qword ptr [rsp + 800], 0
-                        mov              qword ptr [rsp + 808], 0
-                        mov              qword ptr [rsp + 816], 0
-                        mov              qword ptr [rsp + 824], 0
-                        mov              qword ptr [rsp + 832], 0
-                        mov              qword ptr [rsp + 840], 0
-                        mov              qword ptr [rsp + 848], 0
-                        mov              qword ptr [rsp + 856], 0
-                        mov              qword ptr [rsp + 864], 0
-                        mov              qword ptr [rsp + 872], 0
-                        mov              qword ptr [rsp + 880], 0
-                        mov              qword ptr [rsp + 888], 0
-                        mov              qword ptr [rsp + 896], 0
-                        mov              qword ptr [rsp + 904], 0
-                        mov              qword ptr [rsp + 912], 0
-                        mov              qword ptr [rsp + 920], 0
-                        mov              qword ptr [rsp + 928], 0
-                        mov              qword ptr [rsp + 936], 0
-                        mov              qword ptr [rsp + 944], 0
-                        mov              qword ptr [rsp + 952], 0
-                        mov              qword ptr [rsp + 960], 0
-                        mov              qword ptr [rsp + 968], 0
-                        mov              qword ptr [rsp + 976], 0
-                        mov              qword ptr [rsp + 984], 0
-                        mov              qword ptr [rsp + 992], 0
-                        mov              qword ptr [rsp + 1000], 0
-                        mov              qword ptr [rsp + 1008], 0
-                        mov              qword ptr [rsp + 1016], 0
-                        mov              qword ptr [rsp + 1024], 0
-                        mov              qword ptr [rsp + 1032], 0
-                        mov              qword ptr [rsp + 1040], 0
-                        mov              qword ptr [rsp + 1048], 0
-                        mov              qword ptr [rsp + 1056], 0
-                        mov              qword ptr [rsp + 1064], 0
-                        mov              qword ptr [rsp + 1072], 0
-                        mov              qword ptr [rsp + 1080], 0
-                        mov              qword ptr [rsp + 1088], 0
-                        mov              qword ptr [rsp + 1096], 0
-                        mov              qword ptr [rsp + 1104], 0
-                        mov              qword ptr [rsp + 1112], 0
-                        mov              qword ptr [rsp + 1120], 0
-                        mov              qword ptr [rsp + 1128], 0
-                        mov              qword ptr [rsp + 1136], 0
-                        mov              qword ptr [rsp + 1144], 0
-                        mov              qword ptr [rsp + 1152], 0
-                        mov              qword ptr [rsp + 1160], 0
-                        mov              qword ptr [rsp + 1168], 0
-                        mov              qword ptr [rsp + 1176], 0
-                        mov              qword ptr [rsp + 1184], 0
-                        mov              qword ptr [rsp + 1192], 0
-                        mov              qword ptr [rsp + 1200], 0
-                        mov              qword ptr [rsp + 1208], 0
-                        mov              qword ptr [rsp + 1216], 0
-                        mov              qword ptr [rsp + 1224], 0
-                        mov              qword ptr [rsp + 1232], 0
-                        mov              qword ptr [rsp + 1240], 0
-                        mov              qword ptr [rsp + 1248], 0
-                        mov              qword ptr [rsp + 1256], 0
-                        mov              qword ptr [rsp + 1264], 0
-                        mov              qword ptr [rsp + 1272], 0
-                        mov              qword ptr [rsp + 1280], 0
-                        mov              qword ptr [rsp + 1288], 0
-                        mov              qword ptr [rsp + 1296], 0
-                        mov              qword ptr [rsp + 1304], 0
-                        mov              qword ptr [rsp + 1312], 0
-                        mov              qword ptr [rsp + 1320], 0
-                        mov              qword ptr [rsp + 1328], 0
-                        mov              qword ptr [rsp + 1336], 0
-                        mov              qword ptr [rsp + 1344], 0
-                        mov              qword ptr [rsp + 1352], 0
-                        mov              qword ptr [rsp + 1360], 0
-                        mov              qword ptr [rsp + 1368], 0
-                        mov              qword ptr [rsp + 1376], 0
-                        mov              qword ptr [rsp + 1384], 0
-                        mov              qword ptr [rsp + 1392], 0
-                        mov              qword ptr [rsp + 1400], 0
-                        mov              qword ptr [rsp + 1408], 0
-                        mov              qword ptr [rsp + 1416], 0
-                        mov              qword ptr [rsp + 1424], 0
-                        mov              qword ptr [rsp + 1432], 0
-                        mov              qword ptr [rsp + 1440], 0
-                        mov              qword ptr [rsp + 1448], 0
-                        mov              qword ptr [rsp + 1456], 0
-                        mov              qword ptr [rsp + 1464], 0
-                        mov              qword ptr [rsp + 1472], 0
-                        mov              qword ptr [rsp + 1480], 0
-                        mov              qword ptr [rsp + 1488], 0
-                        mov              qword ptr [rsp + 1496], 0
-                        mov              qword ptr [rsp + 1504], 0
-                        mov              qword ptr [rsp + 1512], 0
-                        mov              qword ptr [rsp + 1520], 0
-                        mov              qword ptr [rsp + 1528], 0
-                        mov              qword ptr [rsp + 1536], 0
-                        mov              qword ptr [rsp + 1544], 0
-                        mov              qword ptr [rsp + 1552], 0
-                        mov              qword ptr [rsp + 1560], 0
-                        mov              qword ptr [rsp + 1568], 0
-                        mov              qword ptr [rsp + 1576], 0
-                        mov              qword ptr [rsp + 1584], 0
-                        mov              qword ptr [rsp + 1592], 0
-                        mov              qword ptr [rsp + 1600], 0
-                        mov              qword ptr [rsp + 1608], 0
-                        mov              qword ptr [rsp + 1616], 0
-                        mov              qword ptr [rsp + 1624], 0
-                        mov              qword ptr [rsp + 1632], 0
-                        mov              qword ptr [rsp + 1640], 0
-                        mov              qword ptr [rsp + 1648], 0
-                        mov              qword ptr [rsp + 1656], 0
-                        mov              qword ptr [rsp + 1664], 0
-                        mov              qword ptr [rsp + 1672], 0
-                        mov              qword ptr [rsp + 1680], 0
-                        mov              qword ptr [rsp + 1688], 0
-                        mov              qword ptr [rsp + 1696], 0
-                        mov              qword ptr [rsp + 1704], 0
-                        mov              qword ptr [rsp + 1712], 0
-                        mov              qword ptr [rsp + 1720], 0
-                        mov              qword ptr [rsp + 1728], 0
-                        mov              qword ptr [rsp + 1736], 0
-                        mov              qword ptr [rsp + 1744], 0
-                        mov              qword ptr [rsp + 1752], 0
-                        mov              qword ptr [rsp + 1760], 0
-                        mov              qword ptr [rsp + 1768], 0
-                        mov              qword ptr [rsp + 1776], 0
-                        mov              qword ptr [rsp + 1784], 0
-                        mov              qword ptr [rsp + 1792], 0
-                        mov              qword ptr [rsp + 1800], 0
-                        mov              qword ptr [rsp + 1808], 0
-                        mov              qword ptr [rsp + 1816], 0
-                        mov              qword ptr [rsp + 1824], 0
-                        mov              qword ptr [rsp + 1832], 0
-                        mov              qword ptr [rsp + 1840], 0
-                        mov              qword ptr [rsp + 1848], 0
-                        mov              qword ptr [rsp + 1856], 0
-                        mov              qword ptr [rsp + 1864], 0
-                        mov              qword ptr [rsp + 1872], 0
-                        mov              qword ptr [rsp + 1880], 0
-                        mov              qword ptr [rsp + 1888], 0
-                        mov              qword ptr [rsp + 1896], 0
-                        mov              qword ptr [rsp + 1904], 0
-                        mov              qword ptr [rsp + 1912], 0
-                        mov              qword ptr [rsp + 1920], 0
-                        mov              qword ptr [rsp + 1928], 0
-                        mov              qword ptr [rsp + 1936], 0
-                        mov              qword ptr [rsp + 1944], 0
-                        mov              qword ptr [rsp + 1952], 0
-                        mov              qword ptr [rsp + 1960], 0
-                        mov              qword ptr [rsp + 1968], 0
-                        mov              qword ptr [rsp + 1976], 0
-                        mov              qword ptr [rsp + 1984], 0
-                        mov              qword ptr [rsp + 1992], 0
-                        mov              qword ptr [rsp + 2000], 0
-                        mov              qword ptr [rsp + 2008], 0
-                        mov              qword ptr [rsp + 2016], 0
-                        mov              qword ptr [rsp + 2024], 0
-                        mov              qword ptr [rsp + 2032], 0
-                        mov              qword ptr [rsp + 2040], 0
-                        mov              qword ptr [rsp + 2048], 0
-                        mov              qword ptr [rsp + 2056], 0
-                        mov              qword ptr [rsp + 2064], 0
-                        mov              qword ptr [rsp + 2072], 0
-                        mov              qword ptr [rsp + 2080], 0
-                        mov              qword ptr [rsp + 2088], 0
-                        mov              qword ptr [rsp + 2096], 0
-                        mov              qword ptr [rsp + 2104], 0
-                        mov              qword ptr [rsp + 2112], 0
-                        mov              qword ptr [rsp + 2120], 0
-                        mov              qword ptr [rsp + 2128], 0
-                        mov              qword ptr [rsp + 2136], 0
-                        mov              qword ptr [rsp + 2144], 0
-                        mov              qword ptr [rsp + 2152], 0
-                        mov              qword ptr [rsp + 2160], 0
-                        mov              qword ptr [rsp + 2168], 0
-                        mov              qword ptr [rsp + 2176], 0
-                        mov              qword ptr [rsp + 2184], 0
-                        mov              qword ptr [rsp + 2192], 0
-                        mov              qword ptr [rsp + 2200], 0
-                        mov              qword ptr [rsp + 2208], 0
-                        mov              qword ptr [rsp + 2216], 0
-                        mov              qword ptr [rsp + 2224], 0
-                        mov              qword ptr [rsp + 2232], 0
-                        mov              qword ptr [rsp + 2240], 0
-                        mov              qword ptr [rsp + 2248], 0
-                        mov              qword ptr [rsp + 2256], 0
-                        mov              qword ptr [rsp + 2264], 0
-                        mov              qword ptr [rsp + 2272], 0
-                        mov              qword ptr [rsp + 2280], 0
-                        mov              qword ptr [rsp + 2288], 0
-                        mov              qword ptr [rsp + 2296], 0
-                        mov              qword ptr [rsp + 2304], 0
-                        mov              qword ptr [rsp + 2312], 0
-                        mov              qword ptr [rsp + 2320], 0
-                        mov              qword ptr [rsp + 2328], 0
-                        mov              qword ptr [rsp + 2336], 0
-                        mov              qword ptr [rsp + 2344], 0
-                        mov              qword ptr [rsp + 2352], 0
-                        mov              qword ptr [rsp + 2360], 0
-                        mov              qword ptr [rsp + 2368], 0
-                        mov              qword ptr [rsp + 2376], 0
-                        mov              qword ptr [rsp + 2384], 0
-                        mov              qword ptr [rsp + 2392], 0
-                        mov              qword ptr [rsp + 2400], 0
-                        mov              qword ptr [rsp + 2408], 0
-                        mov              qword ptr [rsp + 2416], 0
-                        mov              qword ptr [rsp + 2424], 0
-                        mov              qword ptr [rsp + 2432], 0
-                        mov              qword ptr [rsp + 2440], 0
-                        mov              qword ptr [rsp + 2448], 0
-                        mov              qword ptr [rsp + 2456], 0
-                        mov              qword ptr [rsp + 2464], 0
-                        mov              qword ptr [rsp + 2472], 0
-                        mov              qword ptr [rsp + 2480], 0
-                        mov              qword ptr [rsp + 2488], 0
-                        mov              qword ptr [rsp + 2496], 0
-                        mov              qword ptr [rsp + 2504], 0
-                        mov              qword ptr [rsp + 2512], 0
-                        mov              qword ptr [rsp + 2520], 0
-                        mov              qword ptr [rsp + 2528], 0
-                        mov              qword ptr [rsp + 2536], 0
-                        mov              qword ptr [rsp + 2544], 0
-                        mov              qword ptr [rsp + 2552], 0
-                        mov              qword ptr [rsp + 2560], 0
-                        mov              qword ptr [rsp + 2568], 0
-                        mov              qword ptr [rsp + 2576], 0
-                        mov              qword ptr [rsp + 2584], 0
-                        mov              qword ptr [rsp + 2592], 0
-                        mov              qword ptr [rsp + 2600], 0
-                        mov              qword ptr [rsp + 2608], 0
-                        mov              qword ptr [rsp + 2616], 0
-                        mov              qword ptr [rsp + 2624], 0
-                        mov              qword ptr [rsp + 2632], 0
-                        mov              qword ptr [rsp + 2640], 0
-                        mov              qword ptr [rsp + 2648], 0
-                        mov              qword ptr [rsp + 2656], 0
-                        mov              qword ptr [rsp + 2664], 0
-                        mov              qword ptr [rsp + 2672], 0
-                        mov              qword ptr [rsp + 2680], 0
-                        mov              qword ptr [rsp + 2688], 0
-                        mov              qword ptr [rsp + 2696], 0
-                        mov              qword ptr [rsp + 2704], 0
-                        mov              qword ptr [rsp + 2712], 0
-                        mov              qword ptr [rsp + 2720], 0
-                        mov              qword ptr [rsp + 2728], 0
-                        mov              qword ptr [rsp + 2736], 0
-                        mov              qword ptr [rsp + 2744], 0
-                        mov              qword ptr [rsp + 2752], 0
-                        mov              qword ptr [rsp + 2760], 0
-                        mov              qword ptr [rsp + 2768], 0
-                        mov              qword ptr [rsp + 2776], 0
-                        mov              qword ptr [rsp + 2784], 0
-                        mov              qword ptr [rsp + 2792], 0
-                        mov              qword ptr [rsp + 2800], 0
-                        mov              qword ptr [rsp + 2808], 0
-                        mov              qword ptr [rsp + 2816], 0
-                        mov              qword ptr [rsp + 2824], 0
-                        mov              qword ptr [rsp + 2832], 0
-                        mov              qword ptr [rsp + 2840], 0
-                        mov              qword ptr [rsp + 2848], 0
-                        mov              qword ptr [rsp + 2856], 0
-                        mov              qword ptr [rsp + 2864], 0
-                        mov              qword ptr [rsp + 2872], 0
-                        mov              qword ptr [rsp + 2880], 0
-                        mov              qword ptr [rsp + 2888], 0
-                        mov              qword ptr [rsp + 2896], 0
-                        mov              qword ptr [rsp + 2904], 0
-                        mov              qword ptr [rsp + 2912], 0
-                        mov              qword ptr [rsp + 2920], 0
-                        mov              qword ptr [rsp + 2928], 0
-                        mov              qword ptr [rsp + 2936], 0
-                        mov              qword ptr [rsp + 2944], 0
-                        mov              qword ptr [rsp + 2952], 0
-                        mov              qword ptr [rsp + 2960], 0
-                        mov              qword ptr [rsp + 2968], 0
-                        mov              qword ptr [rsp + 2976], 0
-                        mov              qword ptr [rsp + 2984], 0
-                        mov              qword ptr [rsp + 2992], 0
-                        mov              qword ptr [rsp + 3000], 0
-                        mov              qword ptr [rsp + 3008], 0
-                        mov              qword ptr [rsp + 3016], 0
-                        mov              qword ptr [rsp + 3024], 0
-                        mov              qword ptr [rsp + 3032], 0
-                        mov              qword ptr [rsp + 3040], 0
-                        mov              qword ptr [rsp + 3048], 0
-                        mov              qword ptr [rsp + 3056], 0
-                        mov              qword ptr [rsp + 3064], 0
-                        mov              qword ptr [rsp + 3072], 0
-                        mov              qword ptr [rsp + 3080], 0
-                        mov              qword ptr [rsp + 3088], 0
-                        mov              qword ptr [rsp + 3096], 0
-                        mov              qword ptr [rsp + 3104], 0
-                        mov              qword ptr [rsp + 3112], 0
-                        mov              qword ptr [rsp + 3120], 0
-                        mov              qword ptr [rsp + 3128], 0
-                        mov              qword ptr [rsp + 3136], 0
-                        mov              qword ptr [rsp + 3144], 0
-                        mov              qword ptr [rsp + 3152], 0
-                        mov              qword ptr [rsp + 3160], 0
-                        mov              qword ptr [rsp + 3168], 0
-                        mov              qword ptr [rsp + 3176], 0
-                        mov              qword ptr [rsp + 3184], 0
-                        mov              qword ptr [rsp + 3192], 0
-                        mov              qword ptr [rsp + 3200], 0
-                        mov              qword ptr [rsp + 3208], 0
-                        mov              qword ptr [rsp + 3216], 0
-                        mov              qword ptr [rsp + 3224], 0
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052304]                    # v
                         mov              rdx, qword ptr [1879052312]
-                        mov              qword ptr [rsp + 3216], rax                    # result
-                        mov              qword ptr [rsp + 3224], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n438_call_α
 #-----------------------------------------------------------------------------------------------------------------------
 n438_call_α:
+                        sub              rsp, 16
+                        mov              edi, 0                                         # idx
+                        mov              rsi, qword ptr [rsp + 16]                      # var
+                        mov              rdx, qword ptr [rsp + 24]                      # v
+                        call             rt_arg_stage@PLT
                         sub              rsp, 48
-                        mov              rax, qword ptr [1879052432]                    # var
+                        mov              rax, qword ptr [1879052432]
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [1879052440]
                         mov              qword ptr [rsp + 8], rax
@@ -4264,9 +3129,10 @@ n438_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx450_5
-                        mov              rax, qword ptr [rsp + 3264]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 0]
                         mov              qword ptr [1879052432], rax                    # var
-                        mov              rax, qword ptr [rsp + 3272]
+                        mov              rax, qword ptr [r10 + 8]
                         mov              qword ptr [1879052440], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx450_6]
@@ -4308,45 +3174,13 @@ n438_call_α:
                                                                                         jmp   .Lx450_2
 .Lx450_5:
                         add              rsp, 48
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx450_20
-                        mov              rax, qword ptr [rsp + 3216]
-                        mov              rdx, qword ptr [rsp + 3224]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 0], rax
-                        mov              qword ptr [r10 + 8], rdx
-                                                                                        jmp   .Lx450_21
-.Lx450_20:
-                        mov              edi, 0                                         # idx
-                        mov              rsi, qword ptr [rsp + 3216]                    # v
-                        mov              rdx, qword ptr [rsp + 3224]                    # v
-                        call             rt_arg_stage@PLT
-.Lx450_21:
-                        mov              rdi, qword ptr [rip + .Lx450_0]                # name
-                        mov              esi, 1                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx450_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx450_3]
-                        lea              rdx, [rip + .Lx450_4]
-                                                                                        jmp   rax
-.Lx450_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx450_2
-.Lx450_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx450_2
-.Lx450_1:
-                        call             rt_faildescr@PLT
 .Lx450_2:
-                        mov              qword ptr [rsp + 3168], rax
-                        mov              qword ptr [rsp + 3176], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx450_240
-                        add              rsp, 3232
+                        add              rsp, 16
+                        add              rsp, 16
                                                                                         jmp   n440_lit_string_α
 .Lx450_240:
                                                                                         jmp   n439_assign_α
@@ -4358,11 +3192,11 @@ n438_call_β:
                         .string          "stk_pop_final"
 #-----------------------------------------------------------------------------------------------------------------------
 n439_assign_α:
-                        mov              rax, qword ptr [rsp + 3168]
-                        mov              rdx, qword ptr [rsp + 3176]
+                        mov              rax, qword ptr [rsp + 0]                       # call
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052912], rax                    # dummy
                         mov              qword ptr [1879052920], rdx
-                        add              rsp, 3232
+                        add              rsp, 32
                                                                                         jmp   n440_lit_string_α
 #=======================================================================================================================
 #                pop_final      =  .dummy                     :(NRETURN)
@@ -5181,562 +4015,19 @@ n524_assign_α:
 #                r              =  r ', ' node_repr(stk_c[f][i])
 #-----------------------------------------------------------------------------------------------------------------------
 n525_var_α:
-                        sub              rsp, 4352
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
-                        mov              qword ptr [rsp + 96], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 120], 0
-                        mov              qword ptr [rsp + 128], 0
-                        mov              qword ptr [rsp + 136], 0
-                        mov              qword ptr [rsp + 144], 0
-                        mov              qword ptr [rsp + 152], 0
-                        mov              qword ptr [rsp + 160], 0
-                        mov              qword ptr [rsp + 168], 0
-                        mov              qword ptr [rsp + 176], 0
-                        mov              qword ptr [rsp + 184], 0
-                        mov              qword ptr [rsp + 192], 0
-                        mov              qword ptr [rsp + 200], 0
-                        mov              qword ptr [rsp + 208], 0
-                        mov              qword ptr [rsp + 216], 0
-                        mov              qword ptr [rsp + 224], 0
-                        mov              qword ptr [rsp + 232], 0
-                        mov              qword ptr [rsp + 240], 0
-                        mov              qword ptr [rsp + 248], 0
-                        mov              qword ptr [rsp + 256], 0
-                        mov              qword ptr [rsp + 264], 0
-                        mov              qword ptr [rsp + 272], 0
-                        mov              qword ptr [rsp + 280], 0
-                        mov              qword ptr [rsp + 288], 0
-                        mov              qword ptr [rsp + 296], 0
-                        mov              qword ptr [rsp + 304], 0
-                        mov              qword ptr [rsp + 312], 0
-                        mov              qword ptr [rsp + 320], 0
-                        mov              qword ptr [rsp + 328], 0
-                        mov              qword ptr [rsp + 336], 0
-                        mov              qword ptr [rsp + 344], 0
-                        mov              qword ptr [rsp + 352], 0
-                        mov              qword ptr [rsp + 360], 0
-                        mov              qword ptr [rsp + 368], 0
-                        mov              qword ptr [rsp + 376], 0
-                        mov              qword ptr [rsp + 384], 0
-                        mov              qword ptr [rsp + 392], 0
-                        mov              qword ptr [rsp + 400], 0
-                        mov              qword ptr [rsp + 408], 0
-                        mov              qword ptr [rsp + 416], 0
-                        mov              qword ptr [rsp + 424], 0
-                        mov              qword ptr [rsp + 432], 0
-                        mov              qword ptr [rsp + 440], 0
-                        mov              qword ptr [rsp + 448], 0
-                        mov              qword ptr [rsp + 456], 0
-                        mov              qword ptr [rsp + 464], 0
-                        mov              qword ptr [rsp + 472], 0
-                        mov              qword ptr [rsp + 480], 0
-                        mov              qword ptr [rsp + 488], 0
-                        mov              qword ptr [rsp + 496], 0
-                        mov              qword ptr [rsp + 504], 0
-                        mov              qword ptr [rsp + 512], 0
-                        mov              qword ptr [rsp + 520], 0
-                        mov              qword ptr [rsp + 528], 0
-                        mov              qword ptr [rsp + 536], 0
-                        mov              qword ptr [rsp + 544], 0
-                        mov              qword ptr [rsp + 552], 0
-                        mov              qword ptr [rsp + 560], 0
-                        mov              qword ptr [rsp + 568], 0
-                        mov              qword ptr [rsp + 576], 0
-                        mov              qword ptr [rsp + 584], 0
-                        mov              qword ptr [rsp + 592], 0
-                        mov              qword ptr [rsp + 600], 0
-                        mov              qword ptr [rsp + 608], 0
-                        mov              qword ptr [rsp + 616], 0
-                        mov              qword ptr [rsp + 624], 0
-                        mov              qword ptr [rsp + 632], 0
-                        mov              qword ptr [rsp + 640], 0
-                        mov              qword ptr [rsp + 648], 0
-                        mov              qword ptr [rsp + 656], 0
-                        mov              qword ptr [rsp + 664], 0
-                        mov              qword ptr [rsp + 672], 0
-                        mov              qword ptr [rsp + 680], 0
-                        mov              qword ptr [rsp + 688], 0
-                        mov              qword ptr [rsp + 696], 0
-                        mov              qword ptr [rsp + 704], 0
-                        mov              qword ptr [rsp + 712], 0
-                        mov              qword ptr [rsp + 720], 0
-                        mov              qword ptr [rsp + 728], 0
-                        mov              qword ptr [rsp + 736], 0
-                        mov              qword ptr [rsp + 744], 0
-                        mov              qword ptr [rsp + 752], 0
-                        mov              qword ptr [rsp + 760], 0
-                        mov              qword ptr [rsp + 768], 0
-                        mov              qword ptr [rsp + 776], 0
-                        mov              qword ptr [rsp + 784], 0
-                        mov              qword ptr [rsp + 792], 0
-                        mov              qword ptr [rsp + 800], 0
-                        mov              qword ptr [rsp + 808], 0
-                        mov              qword ptr [rsp + 816], 0
-                        mov              qword ptr [rsp + 824], 0
-                        mov              qword ptr [rsp + 832], 0
-                        mov              qword ptr [rsp + 840], 0
-                        mov              qword ptr [rsp + 848], 0
-                        mov              qword ptr [rsp + 856], 0
-                        mov              qword ptr [rsp + 864], 0
-                        mov              qword ptr [rsp + 872], 0
-                        mov              qword ptr [rsp + 880], 0
-                        mov              qword ptr [rsp + 888], 0
-                        mov              qword ptr [rsp + 896], 0
-                        mov              qword ptr [rsp + 904], 0
-                        mov              qword ptr [rsp + 912], 0
-                        mov              qword ptr [rsp + 920], 0
-                        mov              qword ptr [rsp + 928], 0
-                        mov              qword ptr [rsp + 936], 0
-                        mov              qword ptr [rsp + 944], 0
-                        mov              qword ptr [rsp + 952], 0
-                        mov              qword ptr [rsp + 960], 0
-                        mov              qword ptr [rsp + 968], 0
-                        mov              qword ptr [rsp + 976], 0
-                        mov              qword ptr [rsp + 984], 0
-                        mov              qword ptr [rsp + 992], 0
-                        mov              qword ptr [rsp + 1000], 0
-                        mov              qword ptr [rsp + 1008], 0
-                        mov              qword ptr [rsp + 1016], 0
-                        mov              qword ptr [rsp + 1024], 0
-                        mov              qword ptr [rsp + 1032], 0
-                        mov              qword ptr [rsp + 1040], 0
-                        mov              qword ptr [rsp + 1048], 0
-                        mov              qword ptr [rsp + 1056], 0
-                        mov              qword ptr [rsp + 1064], 0
-                        mov              qword ptr [rsp + 1072], 0
-                        mov              qword ptr [rsp + 1080], 0
-                        mov              qword ptr [rsp + 1088], 0
-                        mov              qword ptr [rsp + 1096], 0
-                        mov              qword ptr [rsp + 1104], 0
-                        mov              qword ptr [rsp + 1112], 0
-                        mov              qword ptr [rsp + 1120], 0
-                        mov              qword ptr [rsp + 1128], 0
-                        mov              qword ptr [rsp + 1136], 0
-                        mov              qword ptr [rsp + 1144], 0
-                        mov              qword ptr [rsp + 1152], 0
-                        mov              qword ptr [rsp + 1160], 0
-                        mov              qword ptr [rsp + 1168], 0
-                        mov              qword ptr [rsp + 1176], 0
-                        mov              qword ptr [rsp + 1184], 0
-                        mov              qword ptr [rsp + 1192], 0
-                        mov              qword ptr [rsp + 1200], 0
-                        mov              qword ptr [rsp + 1208], 0
-                        mov              qword ptr [rsp + 1216], 0
-                        mov              qword ptr [rsp + 1224], 0
-                        mov              qword ptr [rsp + 1232], 0
-                        mov              qword ptr [rsp + 1240], 0
-                        mov              qword ptr [rsp + 1248], 0
-                        mov              qword ptr [rsp + 1256], 0
-                        mov              qword ptr [rsp + 1264], 0
-                        mov              qword ptr [rsp + 1272], 0
-                        mov              qword ptr [rsp + 1280], 0
-                        mov              qword ptr [rsp + 1288], 0
-                        mov              qword ptr [rsp + 1296], 0
-                        mov              qword ptr [rsp + 1304], 0
-                        mov              qword ptr [rsp + 1312], 0
-                        mov              qword ptr [rsp + 1320], 0
-                        mov              qword ptr [rsp + 1328], 0
-                        mov              qword ptr [rsp + 1336], 0
-                        mov              qword ptr [rsp + 1344], 0
-                        mov              qword ptr [rsp + 1352], 0
-                        mov              qword ptr [rsp + 1360], 0
-                        mov              qword ptr [rsp + 1368], 0
-                        mov              qword ptr [rsp + 1376], 0
-                        mov              qword ptr [rsp + 1384], 0
-                        mov              qword ptr [rsp + 1392], 0
-                        mov              qword ptr [rsp + 1400], 0
-                        mov              qword ptr [rsp + 1408], 0
-                        mov              qword ptr [rsp + 1416], 0
-                        mov              qword ptr [rsp + 1424], 0
-                        mov              qword ptr [rsp + 1432], 0
-                        mov              qword ptr [rsp + 1440], 0
-                        mov              qword ptr [rsp + 1448], 0
-                        mov              qword ptr [rsp + 1456], 0
-                        mov              qword ptr [rsp + 1464], 0
-                        mov              qword ptr [rsp + 1472], 0
-                        mov              qword ptr [rsp + 1480], 0
-                        mov              qword ptr [rsp + 1488], 0
-                        mov              qword ptr [rsp + 1496], 0
-                        mov              qword ptr [rsp + 1504], 0
-                        mov              qword ptr [rsp + 1512], 0
-                        mov              qword ptr [rsp + 1520], 0
-                        mov              qword ptr [rsp + 1528], 0
-                        mov              qword ptr [rsp + 1536], 0
-                        mov              qword ptr [rsp + 1544], 0
-                        mov              qword ptr [rsp + 1552], 0
-                        mov              qword ptr [rsp + 1560], 0
-                        mov              qword ptr [rsp + 1568], 0
-                        mov              qword ptr [rsp + 1576], 0
-                        mov              qword ptr [rsp + 1584], 0
-                        mov              qword ptr [rsp + 1592], 0
-                        mov              qword ptr [rsp + 1600], 0
-                        mov              qword ptr [rsp + 1608], 0
-                        mov              qword ptr [rsp + 1616], 0
-                        mov              qword ptr [rsp + 1624], 0
-                        mov              qword ptr [rsp + 1632], 0
-                        mov              qword ptr [rsp + 1640], 0
-                        mov              qword ptr [rsp + 1648], 0
-                        mov              qword ptr [rsp + 1656], 0
-                        mov              qword ptr [rsp + 1664], 0
-                        mov              qword ptr [rsp + 1672], 0
-                        mov              qword ptr [rsp + 1680], 0
-                        mov              qword ptr [rsp + 1688], 0
-                        mov              qword ptr [rsp + 1696], 0
-                        mov              qword ptr [rsp + 1704], 0
-                        mov              qword ptr [rsp + 1712], 0
-                        mov              qword ptr [rsp + 1720], 0
-                        mov              qword ptr [rsp + 1728], 0
-                        mov              qword ptr [rsp + 1736], 0
-                        mov              qword ptr [rsp + 1744], 0
-                        mov              qword ptr [rsp + 1752], 0
-                        mov              qword ptr [rsp + 1760], 0
-                        mov              qword ptr [rsp + 1768], 0
-                        mov              qword ptr [rsp + 1776], 0
-                        mov              qword ptr [rsp + 1784], 0
-                        mov              qword ptr [rsp + 1792], 0
-                        mov              qword ptr [rsp + 1800], 0
-                        mov              qword ptr [rsp + 1808], 0
-                        mov              qword ptr [rsp + 1816], 0
-                        mov              qword ptr [rsp + 1824], 0
-                        mov              qword ptr [rsp + 1832], 0
-                        mov              qword ptr [rsp + 1840], 0
-                        mov              qword ptr [rsp + 1848], 0
-                        mov              qword ptr [rsp + 1856], 0
-                        mov              qword ptr [rsp + 1864], 0
-                        mov              qword ptr [rsp + 1872], 0
-                        mov              qword ptr [rsp + 1880], 0
-                        mov              qword ptr [rsp + 1888], 0
-                        mov              qword ptr [rsp + 1896], 0
-                        mov              qword ptr [rsp + 1904], 0
-                        mov              qword ptr [rsp + 1912], 0
-                        mov              qword ptr [rsp + 1920], 0
-                        mov              qword ptr [rsp + 1928], 0
-                        mov              qword ptr [rsp + 1936], 0
-                        mov              qword ptr [rsp + 1944], 0
-                        mov              qword ptr [rsp + 1952], 0
-                        mov              qword ptr [rsp + 1960], 0
-                        mov              qword ptr [rsp + 1968], 0
-                        mov              qword ptr [rsp + 1976], 0
-                        mov              qword ptr [rsp + 1984], 0
-                        mov              qword ptr [rsp + 1992], 0
-                        mov              qword ptr [rsp + 2000], 0
-                        mov              qword ptr [rsp + 2008], 0
-                        mov              qword ptr [rsp + 2016], 0
-                        mov              qword ptr [rsp + 2024], 0
-                        mov              qword ptr [rsp + 2032], 0
-                        mov              qword ptr [rsp + 2040], 0
-                        mov              qword ptr [rsp + 2048], 0
-                        mov              qword ptr [rsp + 2056], 0
-                        mov              qword ptr [rsp + 2064], 0
-                        mov              qword ptr [rsp + 2072], 0
-                        mov              qword ptr [rsp + 2080], 0
-                        mov              qword ptr [rsp + 2088], 0
-                        mov              qword ptr [rsp + 2096], 0
-                        mov              qword ptr [rsp + 2104], 0
-                        mov              qword ptr [rsp + 2112], 0
-                        mov              qword ptr [rsp + 2120], 0
-                        mov              qword ptr [rsp + 2128], 0
-                        mov              qword ptr [rsp + 2136], 0
-                        mov              qword ptr [rsp + 2144], 0
-                        mov              qword ptr [rsp + 2152], 0
-                        mov              qword ptr [rsp + 2160], 0
-                        mov              qword ptr [rsp + 2168], 0
-                        mov              qword ptr [rsp + 2176], 0
-                        mov              qword ptr [rsp + 2184], 0
-                        mov              qword ptr [rsp + 2192], 0
-                        mov              qword ptr [rsp + 2200], 0
-                        mov              qword ptr [rsp + 2208], 0
-                        mov              qword ptr [rsp + 2216], 0
-                        mov              qword ptr [rsp + 2224], 0
-                        mov              qword ptr [rsp + 2232], 0
-                        mov              qword ptr [rsp + 2240], 0
-                        mov              qword ptr [rsp + 2248], 0
-                        mov              qword ptr [rsp + 2256], 0
-                        mov              qword ptr [rsp + 2264], 0
-                        mov              qword ptr [rsp + 2272], 0
-                        mov              qword ptr [rsp + 2280], 0
-                        mov              qword ptr [rsp + 2288], 0
-                        mov              qword ptr [rsp + 2296], 0
-                        mov              qword ptr [rsp + 2304], 0
-                        mov              qword ptr [rsp + 2312], 0
-                        mov              qword ptr [rsp + 2320], 0
-                        mov              qword ptr [rsp + 2328], 0
-                        mov              qword ptr [rsp + 2336], 0
-                        mov              qword ptr [rsp + 2344], 0
-                        mov              qword ptr [rsp + 2352], 0
-                        mov              qword ptr [rsp + 2360], 0
-                        mov              qword ptr [rsp + 2368], 0
-                        mov              qword ptr [rsp + 2376], 0
-                        mov              qword ptr [rsp + 2384], 0
-                        mov              qword ptr [rsp + 2392], 0
-                        mov              qword ptr [rsp + 2400], 0
-                        mov              qword ptr [rsp + 2408], 0
-                        mov              qword ptr [rsp + 2416], 0
-                        mov              qword ptr [rsp + 2424], 0
-                        mov              qword ptr [rsp + 2432], 0
-                        mov              qword ptr [rsp + 2440], 0
-                        mov              qword ptr [rsp + 2448], 0
-                        mov              qword ptr [rsp + 2456], 0
-                        mov              qword ptr [rsp + 2464], 0
-                        mov              qword ptr [rsp + 2472], 0
-                        mov              qword ptr [rsp + 2480], 0
-                        mov              qword ptr [rsp + 2488], 0
-                        mov              qword ptr [rsp + 2496], 0
-                        mov              qword ptr [rsp + 2504], 0
-                        mov              qword ptr [rsp + 2512], 0
-                        mov              qword ptr [rsp + 2520], 0
-                        mov              qword ptr [rsp + 2528], 0
-                        mov              qword ptr [rsp + 2536], 0
-                        mov              qword ptr [rsp + 2544], 0
-                        mov              qword ptr [rsp + 2552], 0
-                        mov              qword ptr [rsp + 2560], 0
-                        mov              qword ptr [rsp + 2568], 0
-                        mov              qword ptr [rsp + 2576], 0
-                        mov              qword ptr [rsp + 2584], 0
-                        mov              qword ptr [rsp + 2592], 0
-                        mov              qword ptr [rsp + 2600], 0
-                        mov              qword ptr [rsp + 2608], 0
-                        mov              qword ptr [rsp + 2616], 0
-                        mov              qword ptr [rsp + 2624], 0
-                        mov              qword ptr [rsp + 2632], 0
-                        mov              qword ptr [rsp + 2640], 0
-                        mov              qword ptr [rsp + 2648], 0
-                        mov              qword ptr [rsp + 2656], 0
-                        mov              qword ptr [rsp + 2664], 0
-                        mov              qword ptr [rsp + 2672], 0
-                        mov              qword ptr [rsp + 2680], 0
-                        mov              qword ptr [rsp + 2688], 0
-                        mov              qword ptr [rsp + 2696], 0
-                        mov              qword ptr [rsp + 2704], 0
-                        mov              qword ptr [rsp + 2712], 0
-                        mov              qword ptr [rsp + 2720], 0
-                        mov              qword ptr [rsp + 2728], 0
-                        mov              qword ptr [rsp + 2736], 0
-                        mov              qword ptr [rsp + 2744], 0
-                        mov              qword ptr [rsp + 2752], 0
-                        mov              qword ptr [rsp + 2760], 0
-                        mov              qword ptr [rsp + 2768], 0
-                        mov              qword ptr [rsp + 2776], 0
-                        mov              qword ptr [rsp + 2784], 0
-                        mov              qword ptr [rsp + 2792], 0
-                        mov              qword ptr [rsp + 2800], 0
-                        mov              qword ptr [rsp + 2808], 0
-                        mov              qword ptr [rsp + 2816], 0
-                        mov              qword ptr [rsp + 2824], 0
-                        mov              qword ptr [rsp + 2832], 0
-                        mov              qword ptr [rsp + 2840], 0
-                        mov              qword ptr [rsp + 2848], 0
-                        mov              qword ptr [rsp + 2856], 0
-                        mov              qword ptr [rsp + 2864], 0
-                        mov              qword ptr [rsp + 2872], 0
-                        mov              qword ptr [rsp + 2880], 0
-                        mov              qword ptr [rsp + 2888], 0
-                        mov              qword ptr [rsp + 2896], 0
-                        mov              qword ptr [rsp + 2904], 0
-                        mov              qword ptr [rsp + 2912], 0
-                        mov              qword ptr [rsp + 2920], 0
-                        mov              qword ptr [rsp + 2928], 0
-                        mov              qword ptr [rsp + 2936], 0
-                        mov              qword ptr [rsp + 2944], 0
-                        mov              qword ptr [rsp + 2952], 0
-                        mov              qword ptr [rsp + 2960], 0
-                        mov              qword ptr [rsp + 2968], 0
-                        mov              qword ptr [rsp + 2976], 0
-                        mov              qword ptr [rsp + 2984], 0
-                        mov              qword ptr [rsp + 2992], 0
-                        mov              qword ptr [rsp + 3000], 0
-                        mov              qword ptr [rsp + 3008], 0
-                        mov              qword ptr [rsp + 3016], 0
-                        mov              qword ptr [rsp + 3024], 0
-                        mov              qword ptr [rsp + 3032], 0
-                        mov              qword ptr [rsp + 3040], 0
-                        mov              qword ptr [rsp + 3048], 0
-                        mov              qword ptr [rsp + 3056], 0
-                        mov              qword ptr [rsp + 3064], 0
-                        mov              qword ptr [rsp + 3072], 0
-                        mov              qword ptr [rsp + 3080], 0
-                        mov              qword ptr [rsp + 3088], 0
-                        mov              qword ptr [rsp + 3096], 0
-                        mov              qword ptr [rsp + 3104], 0
-                        mov              qword ptr [rsp + 3112], 0
-                        mov              qword ptr [rsp + 3120], 0
-                        mov              qword ptr [rsp + 3128], 0
-                        mov              qword ptr [rsp + 3136], 0
-                        mov              qword ptr [rsp + 3144], 0
-                        mov              qword ptr [rsp + 3152], 0
-                        mov              qword ptr [rsp + 3160], 0
-                        mov              qword ptr [rsp + 3168], 0
-                        mov              qword ptr [rsp + 3176], 0
-                        mov              qword ptr [rsp + 3184], 0
-                        mov              qword ptr [rsp + 3192], 0
-                        mov              qword ptr [rsp + 3200], 0
-                        mov              qword ptr [rsp + 3208], 0
-                        mov              qword ptr [rsp + 3216], 0
-                        mov              qword ptr [rsp + 3224], 0
-                        mov              qword ptr [rsp + 3232], 0
-                        mov              qword ptr [rsp + 3240], 0
-                        mov              qword ptr [rsp + 3248], 0
-                        mov              qword ptr [rsp + 3256], 0
-                        mov              qword ptr [rsp + 3264], 0
-                        mov              qword ptr [rsp + 3272], 0
-                        mov              qword ptr [rsp + 3280], 0
-                        mov              qword ptr [rsp + 3288], 0
-                        mov              qword ptr [rsp + 3296], 0
-                        mov              qword ptr [rsp + 3304], 0
-                        mov              qword ptr [rsp + 3312], 0
-                        mov              qword ptr [rsp + 3320], 0
-                        mov              qword ptr [rsp + 3328], 0
-                        mov              qword ptr [rsp + 3336], 0
-                        mov              qword ptr [rsp + 3344], 0
-                        mov              qword ptr [rsp + 3352], 0
-                        mov              qword ptr [rsp + 3360], 0
-                        mov              qword ptr [rsp + 3368], 0
-                        mov              qword ptr [rsp + 3376], 0
-                        mov              qword ptr [rsp + 3384], 0
-                        mov              qword ptr [rsp + 3392], 0
-                        mov              qword ptr [rsp + 3400], 0
-                        mov              qword ptr [rsp + 3408], 0
-                        mov              qword ptr [rsp + 3416], 0
-                        mov              qword ptr [rsp + 3424], 0
-                        mov              qword ptr [rsp + 3432], 0
-                        mov              qword ptr [rsp + 3440], 0
-                        mov              qword ptr [rsp + 3448], 0
-                        mov              qword ptr [rsp + 3456], 0
-                        mov              qword ptr [rsp + 3464], 0
-                        mov              qword ptr [rsp + 3472], 0
-                        mov              qword ptr [rsp + 3480], 0
-                        mov              qword ptr [rsp + 3488], 0
-                        mov              qword ptr [rsp + 3496], 0
-                        mov              qword ptr [rsp + 3504], 0
-                        mov              qword ptr [rsp + 3512], 0
-                        mov              qword ptr [rsp + 3520], 0
-                        mov              qword ptr [rsp + 3528], 0
-                        mov              qword ptr [rsp + 3536], 0
-                        mov              qword ptr [rsp + 3544], 0
-                        mov              qword ptr [rsp + 3552], 0
-                        mov              qword ptr [rsp + 3560], 0
-                        mov              qword ptr [rsp + 3568], 0
-                        mov              qword ptr [rsp + 3576], 0
-                        mov              qword ptr [rsp + 3584], 0
-                        mov              qword ptr [rsp + 3592], 0
-                        mov              qword ptr [rsp + 3600], 0
-                        mov              qword ptr [rsp + 3608], 0
-                        mov              qword ptr [rsp + 3616], 0
-                        mov              qword ptr [rsp + 3624], 0
-                        mov              qword ptr [rsp + 3632], 0
-                        mov              qword ptr [rsp + 3640], 0
-                        mov              qword ptr [rsp + 3648], 0
-                        mov              qword ptr [rsp + 3656], 0
-                        mov              qword ptr [rsp + 3664], 0
-                        mov              qword ptr [rsp + 3672], 0
-                        mov              qword ptr [rsp + 3680], 0
-                        mov              qword ptr [rsp + 3688], 0
-                        mov              qword ptr [rsp + 3696], 0
-                        mov              qword ptr [rsp + 3704], 0
-                        mov              qword ptr [rsp + 3712], 0
-                        mov              qword ptr [rsp + 3720], 0
-                        mov              qword ptr [rsp + 3728], 0
-                        mov              qword ptr [rsp + 3736], 0
-                        mov              qword ptr [rsp + 3744], 0
-                        mov              qword ptr [rsp + 3752], 0
-                        mov              qword ptr [rsp + 3760], 0
-                        mov              qword ptr [rsp + 3768], 0
-                        mov              qword ptr [rsp + 3776], 0
-                        mov              qword ptr [rsp + 3784], 0
-                        mov              qword ptr [rsp + 3792], 0
-                        mov              qword ptr [rsp + 3800], 0
-                        mov              qword ptr [rsp + 3808], 0
-                        mov              qword ptr [rsp + 3816], 0
-                        mov              qword ptr [rsp + 3824], 0
-                        mov              qword ptr [rsp + 3832], 0
-                        mov              qword ptr [rsp + 3840], 0
-                        mov              qword ptr [rsp + 3848], 0
-                        mov              qword ptr [rsp + 3856], 0
-                        mov              qword ptr [rsp + 3864], 0
-                        mov              qword ptr [rsp + 3872], 0
-                        mov              qword ptr [rsp + 3880], 0
-                        mov              qword ptr [rsp + 3888], 0
-                        mov              qword ptr [rsp + 3896], 0
-                        mov              qword ptr [rsp + 3904], 0
-                        mov              qword ptr [rsp + 3912], 0
-                        mov              qword ptr [rsp + 3920], 0
-                        mov              qword ptr [rsp + 3928], 0
-                        mov              qword ptr [rsp + 3936], 0
-                        mov              qword ptr [rsp + 3944], 0
-                        mov              qword ptr [rsp + 3952], 0
-                        mov              qword ptr [rsp + 3960], 0
-                        mov              qword ptr [rsp + 3968], 0
-                        mov              qword ptr [rsp + 3976], 0
-                        mov              qword ptr [rsp + 3984], 0
-                        mov              qword ptr [rsp + 3992], 0
-                        mov              qword ptr [rsp + 4000], 0
-                        mov              qword ptr [rsp + 4008], 0
-                        mov              qword ptr [rsp + 4016], 0
-                        mov              qword ptr [rsp + 4024], 0
-                        mov              qword ptr [rsp + 4032], 0
-                        mov              qword ptr [rsp + 4040], 0
-                        mov              qword ptr [rsp + 4048], 0
-                        mov              qword ptr [rsp + 4056], 0
-                        mov              qword ptr [rsp + 4064], 0
-                        mov              qword ptr [rsp + 4072], 0
-                        mov              qword ptr [rsp + 4080], 0
-                        mov              qword ptr [rsp + 4088], 0
-                        mov              qword ptr [rsp + 4096], 0
-                        mov              qword ptr [rsp + 4104], 0
-                        mov              qword ptr [rsp + 4112], 0
-                        mov              qword ptr [rsp + 4120], 0
-                        mov              qword ptr [rsp + 4128], 0
-                        mov              qword ptr [rsp + 4136], 0
-                        mov              qword ptr [rsp + 4144], 0
-                        mov              qword ptr [rsp + 4152], 0
-                        mov              qword ptr [rsp + 4160], 0
-                        mov              qword ptr [rsp + 4168], 0
-                        mov              qword ptr [rsp + 4176], 0
-                        mov              qword ptr [rsp + 4184], 0
-                        mov              qword ptr [rsp + 4192], 0
-                        mov              qword ptr [rsp + 4200], 0
-                        mov              qword ptr [rsp + 4208], 0
-                        mov              qword ptr [rsp + 4216], 0
-                        mov              qword ptr [rsp + 4224], 0
-                        mov              qword ptr [rsp + 4232], 0
-                        mov              qword ptr [rsp + 4240], 0
-                        mov              qword ptr [rsp + 4248], 0
-                        mov              qword ptr [rsp + 4256], 0
-                        mov              qword ptr [rsp + 4264], 0
-                        mov              qword ptr [rsp + 4272], 0
-                        mov              qword ptr [rsp + 4280], 0
-                        mov              qword ptr [rsp + 4288], 0
-                        mov              qword ptr [rsp + 4296], 0
-                        mov              qword ptr [rsp + 4304], 0
-                        mov              qword ptr [rsp + 4312], 0
-                        mov              qword ptr [rsp + 4320], 0
-                        mov              qword ptr [rsp + 4328], 0
-                        mov              qword ptr [rsp + 4336], 0
-                        mov              qword ptr [rsp + 4344], 0
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052656]                    # r
                         mov              rdx, qword ptr [1879052664]
-                        mov              qword ptr [rsp + 4160], rax                    # result
-                        mov              qword ptr [rsp + 4168], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n526_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n526_lit_string_α:
-                        mov              qword ptr [rsp + 4176], 2                      # result
-                        mov              dword ptr [rsp + 4180], 2
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 2
                         mov              rax, qword ptr [rip + .Lx594_0]
-                        mov              qword ptr [rsp + 4184], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n527_binop_α
 .Lx594_0:
                         .quad            .Lx594_0_s
@@ -5744,93 +4035,110 @@ n526_lit_string_α:
                         .string          ", "
 #-----------------------------------------------------------------------------------------------------------------------
 n527_binop_α:
-                        mov              rdi, qword ptr [rsp + 4160]                    # a
-                        mov              rsi, qword ptr [rsp + 4168]                    # a
-                        mov              rdx, qword ptr [rsp + 4176]                    # b
-                        mov              rcx, qword ptr [rsp + 4184]                    # b
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 32]                      # var
+                        mov              rsi, qword ptr [rsp + 40]                      # a
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_string
+                        mov              rcx, qword ptr [rsp + 24]                      # b
                         call             str_concat_d@PLT
-                        mov              qword ptr [rsp + 4144], rax
-                        mov              qword ptr [rsp + 4152], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n528_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n528_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052880]                    # stk_c
                         mov              rdx, qword ptr [1879052888]
-                        mov              qword ptr [rsp + 4240], rax                    # result
-                        mov              qword ptr [rsp + 4248], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n529_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n529_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052640]                    # f
                         mov              rdx, qword ptr [1879052648]
-                        mov              qword ptr [rsp + 4256], rax                    # result
-                        mov              qword ptr [rsp + 4264], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n530_subscript_α
 #-----------------------------------------------------------------------------------------------------------------------
 n530_subscript_α:
-                        mov              rdi, qword ptr [rsp + 4240]                    # base
-                        mov              rsi, qword ptr [rsp + 4248]                    # base
-                        mov              rdx, qword ptr [rsp + 4256]                    # idx
-                        mov              rcx, qword ptr [rsp + 4264]                    # idx
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 32]                      # var
+                        mov              rsi, qword ptr [rsp + 40]                      # base
+                        mov              rdx, qword ptr [rsp + 16]                      # idx
+                        mov              rcx, qword ptr [rsp + 24]                      # idx
                         call             rt_subscript_var@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx598_240
-                        add              rsp, 4352
+                        add              rsp, 16
+                        add              rsp, 80
                                                                                         jmp   n538_var_α
 .Lx598_240:
-                        mov              qword ptr [rsp + 4272], rax
-                        mov              qword ptr [rsp + 4280], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n531_deref_α
 #-----------------------------------------------------------------------------------------------------------------------
 n531_deref_α:
-                        mov              rdi, qword ptr [rsp + 4272]                    # d
-                        mov              rsi, qword ptr [rsp + 4280]                    # d
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 16]                      # subscript
+                        mov              rsi, qword ptr [rsp + 24]                      # d
                         call             rt_deref@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx599_240
-                        add              rsp, 4352
+                        add              rsp, 16
+                        add              rsp, 96
                                                                                         jmp   n538_var_α
 .Lx599_240:
-                        mov              qword ptr [rsp + 4288], rax
-                        mov              qword ptr [rsp + 4296], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n532_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n532_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052688]                    # i
                         mov              rdx, qword ptr [1879052696]
-                        mov              qword ptr [rsp + 4304], rax                    # result
-                        mov              qword ptr [rsp + 4312], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n533_subscript_α
 #-----------------------------------------------------------------------------------------------------------------------
 n533_subscript_α:
-                        mov              rdi, qword ptr [rsp + 4288]                    # base
-                        mov              rsi, qword ptr [rsp + 4296]                    # base
-                        mov              rdx, qword ptr [rsp + 4304]                    # idx
-                        mov              rcx, qword ptr [rsp + 4312]                    # idx
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 32]                      # deref
+                        mov              rsi, qword ptr [rsp + 40]                      # base
+                        mov              rdx, qword ptr [rsp + 16]                      # var
+                        mov              rcx, qword ptr [rsp + 24]                      # idx
                         call             rt_subscript_var@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx601_240
-                        add              rsp, 4352
+                        add              rsp, 16
+                        add              rsp, 128
                                                                                         jmp   n538_var_α
 .Lx601_240:
-                        mov              qword ptr [rsp + 4320], rax
-                        mov              qword ptr [rsp + 4328], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n534_deref_α
 #-----------------------------------------------------------------------------------------------------------------------
 n534_deref_α:
-                        mov              rdi, qword ptr [rsp + 4320]                    # d
-                        mov              rsi, qword ptr [rsp + 4328]                    # d
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 16]                      # subscript
+                        mov              rsi, qword ptr [rsp + 24]                      # d
                         call             rt_deref@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx602_240
-                        add              rsp, 4352
+                        add              rsp, 16
+                        add              rsp, 144
                                                                                         jmp   n538_var_α
 .Lx602_240:
-                        mov              qword ptr [rsp + 4336], rax
-                        mov              qword ptr [rsp + 4344], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n535_call_α
 #-----------------------------------------------------------------------------------------------------------------------
 n535_call_α:
+                        sub              rsp, 16
+                        mov              edi, 0                                         # idx
+                        mov              rsi, qword ptr [rsp + 16]                      # deref
+                        mov              rdx, qword ptr [rsp + 24]                      # v
+                        call             rt_arg_stage@PLT
                         sub              rsp, 112
                         mov              rax, qword ptr [1879052640]                    # f
                         mov              qword ptr [rsp + 0], rax
@@ -5866,9 +4174,10 @@ n535_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx604_5
-                        mov              rax, qword ptr [rsp + 4448]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 0]
                         mov              qword ptr [1879052640], rax                    # f
-                        mov              rax, qword ptr [rsp + 4456]
+                        mov              rax, qword ptr [r10 + 8]
                         mov              qword ptr [1879052648], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx604_6]
@@ -5942,45 +4251,13 @@ n535_call_α:
                                                                                         jmp   .Lx604_2
 .Lx604_5:
                         add              rsp, 112
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx604_20
-                        mov              rax, qword ptr [rsp + 4336]
-                        mov              rdx, qword ptr [rsp + 4344]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 0], rax
-                        mov              qword ptr [r10 + 8], rdx
-                                                                                        jmp   .Lx604_21
-.Lx604_20:
-                        mov              edi, 0                                         # idx
-                        mov              rsi, qword ptr [rsp + 4336]                    # v
-                        mov              rdx, qword ptr [rsp + 4344]                    # v
-                        call             rt_arg_stage@PLT
-.Lx604_21:
-                        mov              rdi, qword ptr [rip + .Lx604_0]                # name
-                        mov              esi, 1                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx604_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx604_3]
-                        lea              rdx, [rip + .Lx604_4]
-                                                                                        jmp   rax
-.Lx604_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx604_2
-.Lx604_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx604_2
-.Lx604_1:
-                        call             rt_faildescr@PLT
 .Lx604_2:
-                        mov              qword ptr [rsp + 4192], rax
-                        mov              qword ptr [rsp + 4200], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx604_240
-                        add              rsp, 4352
+                        add              rsp, 16
+                        add              rsp, 160
                                                                                         jmp   n538_var_α
 .Lx604_240:
                                                                                         jmp   n536_binop_α
@@ -5992,21 +4269,22 @@ n535_call_β:
                         .string          "node_repr"
 #-----------------------------------------------------------------------------------------------------------------------
 n536_binop_α:
-                        mov              rdi, qword ptr [rsp + 4144]                    # a
-                        mov              rsi, qword ptr [rsp + 4152]                    # a
-                        mov              rdx, qword ptr [rsp + 4192]                    # b
-                        mov              rcx, qword ptr [rsp + 4200]                    # b
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 144]                     # binop
+                        mov              rsi, qword ptr [rsp + 152]                     # a
+                        mov              rdx, qword ptr [rsp + 16]                      # call
+                        mov              rcx, qword ptr [rsp + 24]                      # b
                         call             str_concat_d@PLT
-                        mov              qword ptr [rsp + 4128], rax
-                        mov              qword ptr [rsp + 4136], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n537_assign_α
 #-----------------------------------------------------------------------------------------------------------------------
 n537_assign_α:
-                        mov              rax, qword ptr [rsp + 4128]
-                        mov              rdx, qword ptr [rsp + 4136]
+                        mov              rax, qword ptr [rsp + 0]                       # binop
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052656], rax                    # r
                         mov              qword ptr [1879052664], rdx
-                        add              rsp, 4352
+                        add              rsp, 192
                                                                                         jmp   n538_var_α
 #=======================================================================================================================
 #                i              =  i                          :(nr_lp)
@@ -6409,634 +4687,19 @@ n634_assign_α:
 # pp_frame       r              =  node_repr(f)
 #-----------------------------------------------------------------------------------------------------------------------
 n635_var_α:
-                        sub              rsp, 4960
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
-                        mov              qword ptr [rsp + 96], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 120], 0
-                        mov              qword ptr [rsp + 128], 0
-                        mov              qword ptr [rsp + 136], 0
-                        mov              qword ptr [rsp + 144], 0
-                        mov              qword ptr [rsp + 152], 0
-                        mov              qword ptr [rsp + 160], 0
-                        mov              qword ptr [rsp + 168], 0
-                        mov              qword ptr [rsp + 176], 0
-                        mov              qword ptr [rsp + 184], 0
-                        mov              qword ptr [rsp + 192], 0
-                        mov              qword ptr [rsp + 200], 0
-                        mov              qword ptr [rsp + 208], 0
-                        mov              qword ptr [rsp + 216], 0
-                        mov              qword ptr [rsp + 224], 0
-                        mov              qword ptr [rsp + 232], 0
-                        mov              qword ptr [rsp + 240], 0
-                        mov              qword ptr [rsp + 248], 0
-                        mov              qword ptr [rsp + 256], 0
-                        mov              qword ptr [rsp + 264], 0
-                        mov              qword ptr [rsp + 272], 0
-                        mov              qword ptr [rsp + 280], 0
-                        mov              qword ptr [rsp + 288], 0
-                        mov              qword ptr [rsp + 296], 0
-                        mov              qword ptr [rsp + 304], 0
-                        mov              qword ptr [rsp + 312], 0
-                        mov              qword ptr [rsp + 320], 0
-                        mov              qword ptr [rsp + 328], 0
-                        mov              qword ptr [rsp + 336], 0
-                        mov              qword ptr [rsp + 344], 0
-                        mov              qword ptr [rsp + 352], 0
-                        mov              qword ptr [rsp + 360], 0
-                        mov              qword ptr [rsp + 368], 0
-                        mov              qword ptr [rsp + 376], 0
-                        mov              qword ptr [rsp + 384], 0
-                        mov              qword ptr [rsp + 392], 0
-                        mov              qword ptr [rsp + 400], 0
-                        mov              qword ptr [rsp + 408], 0
-                        mov              qword ptr [rsp + 416], 0
-                        mov              qword ptr [rsp + 424], 0
-                        mov              qword ptr [rsp + 432], 0
-                        mov              qword ptr [rsp + 440], 0
-                        mov              qword ptr [rsp + 448], 0
-                        mov              qword ptr [rsp + 456], 0
-                        mov              qword ptr [rsp + 464], 0
-                        mov              qword ptr [rsp + 472], 0
-                        mov              qword ptr [rsp + 480], 0
-                        mov              qword ptr [rsp + 488], 0
-                        mov              qword ptr [rsp + 496], 0
-                        mov              qword ptr [rsp + 504], 0
-                        mov              qword ptr [rsp + 512], 0
-                        mov              qword ptr [rsp + 520], 0
-                        mov              qword ptr [rsp + 528], 0
-                        mov              qword ptr [rsp + 536], 0
-                        mov              qword ptr [rsp + 544], 0
-                        mov              qword ptr [rsp + 552], 0
-                        mov              qword ptr [rsp + 560], 0
-                        mov              qword ptr [rsp + 568], 0
-                        mov              qword ptr [rsp + 576], 0
-                        mov              qword ptr [rsp + 584], 0
-                        mov              qword ptr [rsp + 592], 0
-                        mov              qword ptr [rsp + 600], 0
-                        mov              qword ptr [rsp + 608], 0
-                        mov              qword ptr [rsp + 616], 0
-                        mov              qword ptr [rsp + 624], 0
-                        mov              qword ptr [rsp + 632], 0
-                        mov              qword ptr [rsp + 640], 0
-                        mov              qword ptr [rsp + 648], 0
-                        mov              qword ptr [rsp + 656], 0
-                        mov              qword ptr [rsp + 664], 0
-                        mov              qword ptr [rsp + 672], 0
-                        mov              qword ptr [rsp + 680], 0
-                        mov              qword ptr [rsp + 688], 0
-                        mov              qword ptr [rsp + 696], 0
-                        mov              qword ptr [rsp + 704], 0
-                        mov              qword ptr [rsp + 712], 0
-                        mov              qword ptr [rsp + 720], 0
-                        mov              qword ptr [rsp + 728], 0
-                        mov              qword ptr [rsp + 736], 0
-                        mov              qword ptr [rsp + 744], 0
-                        mov              qword ptr [rsp + 752], 0
-                        mov              qword ptr [rsp + 760], 0
-                        mov              qword ptr [rsp + 768], 0
-                        mov              qword ptr [rsp + 776], 0
-                        mov              qword ptr [rsp + 784], 0
-                        mov              qword ptr [rsp + 792], 0
-                        mov              qword ptr [rsp + 800], 0
-                        mov              qword ptr [rsp + 808], 0
-                        mov              qword ptr [rsp + 816], 0
-                        mov              qword ptr [rsp + 824], 0
-                        mov              qword ptr [rsp + 832], 0
-                        mov              qword ptr [rsp + 840], 0
-                        mov              qword ptr [rsp + 848], 0
-                        mov              qword ptr [rsp + 856], 0
-                        mov              qword ptr [rsp + 864], 0
-                        mov              qword ptr [rsp + 872], 0
-                        mov              qword ptr [rsp + 880], 0
-                        mov              qword ptr [rsp + 888], 0
-                        mov              qword ptr [rsp + 896], 0
-                        mov              qword ptr [rsp + 904], 0
-                        mov              qword ptr [rsp + 912], 0
-                        mov              qword ptr [rsp + 920], 0
-                        mov              qword ptr [rsp + 928], 0
-                        mov              qword ptr [rsp + 936], 0
-                        mov              qword ptr [rsp + 944], 0
-                        mov              qword ptr [rsp + 952], 0
-                        mov              qword ptr [rsp + 960], 0
-                        mov              qword ptr [rsp + 968], 0
-                        mov              qword ptr [rsp + 976], 0
-                        mov              qword ptr [rsp + 984], 0
-                        mov              qword ptr [rsp + 992], 0
-                        mov              qword ptr [rsp + 1000], 0
-                        mov              qword ptr [rsp + 1008], 0
-                        mov              qword ptr [rsp + 1016], 0
-                        mov              qword ptr [rsp + 1024], 0
-                        mov              qword ptr [rsp + 1032], 0
-                        mov              qword ptr [rsp + 1040], 0
-                        mov              qword ptr [rsp + 1048], 0
-                        mov              qword ptr [rsp + 1056], 0
-                        mov              qword ptr [rsp + 1064], 0
-                        mov              qword ptr [rsp + 1072], 0
-                        mov              qword ptr [rsp + 1080], 0
-                        mov              qword ptr [rsp + 1088], 0
-                        mov              qword ptr [rsp + 1096], 0
-                        mov              qword ptr [rsp + 1104], 0
-                        mov              qword ptr [rsp + 1112], 0
-                        mov              qword ptr [rsp + 1120], 0
-                        mov              qword ptr [rsp + 1128], 0
-                        mov              qword ptr [rsp + 1136], 0
-                        mov              qword ptr [rsp + 1144], 0
-                        mov              qword ptr [rsp + 1152], 0
-                        mov              qword ptr [rsp + 1160], 0
-                        mov              qword ptr [rsp + 1168], 0
-                        mov              qword ptr [rsp + 1176], 0
-                        mov              qword ptr [rsp + 1184], 0
-                        mov              qword ptr [rsp + 1192], 0
-                        mov              qword ptr [rsp + 1200], 0
-                        mov              qword ptr [rsp + 1208], 0
-                        mov              qword ptr [rsp + 1216], 0
-                        mov              qword ptr [rsp + 1224], 0
-                        mov              qword ptr [rsp + 1232], 0
-                        mov              qword ptr [rsp + 1240], 0
-                        mov              qword ptr [rsp + 1248], 0
-                        mov              qword ptr [rsp + 1256], 0
-                        mov              qword ptr [rsp + 1264], 0
-                        mov              qword ptr [rsp + 1272], 0
-                        mov              qword ptr [rsp + 1280], 0
-                        mov              qword ptr [rsp + 1288], 0
-                        mov              qword ptr [rsp + 1296], 0
-                        mov              qword ptr [rsp + 1304], 0
-                        mov              qword ptr [rsp + 1312], 0
-                        mov              qword ptr [rsp + 1320], 0
-                        mov              qword ptr [rsp + 1328], 0
-                        mov              qword ptr [rsp + 1336], 0
-                        mov              qword ptr [rsp + 1344], 0
-                        mov              qword ptr [rsp + 1352], 0
-                        mov              qword ptr [rsp + 1360], 0
-                        mov              qword ptr [rsp + 1368], 0
-                        mov              qword ptr [rsp + 1376], 0
-                        mov              qword ptr [rsp + 1384], 0
-                        mov              qword ptr [rsp + 1392], 0
-                        mov              qword ptr [rsp + 1400], 0
-                        mov              qword ptr [rsp + 1408], 0
-                        mov              qword ptr [rsp + 1416], 0
-                        mov              qword ptr [rsp + 1424], 0
-                        mov              qword ptr [rsp + 1432], 0
-                        mov              qword ptr [rsp + 1440], 0
-                        mov              qword ptr [rsp + 1448], 0
-                        mov              qword ptr [rsp + 1456], 0
-                        mov              qword ptr [rsp + 1464], 0
-                        mov              qword ptr [rsp + 1472], 0
-                        mov              qword ptr [rsp + 1480], 0
-                        mov              qword ptr [rsp + 1488], 0
-                        mov              qword ptr [rsp + 1496], 0
-                        mov              qword ptr [rsp + 1504], 0
-                        mov              qword ptr [rsp + 1512], 0
-                        mov              qword ptr [rsp + 1520], 0
-                        mov              qword ptr [rsp + 1528], 0
-                        mov              qword ptr [rsp + 1536], 0
-                        mov              qword ptr [rsp + 1544], 0
-                        mov              qword ptr [rsp + 1552], 0
-                        mov              qword ptr [rsp + 1560], 0
-                        mov              qword ptr [rsp + 1568], 0
-                        mov              qword ptr [rsp + 1576], 0
-                        mov              qword ptr [rsp + 1584], 0
-                        mov              qword ptr [rsp + 1592], 0
-                        mov              qword ptr [rsp + 1600], 0
-                        mov              qword ptr [rsp + 1608], 0
-                        mov              qword ptr [rsp + 1616], 0
-                        mov              qword ptr [rsp + 1624], 0
-                        mov              qword ptr [rsp + 1632], 0
-                        mov              qword ptr [rsp + 1640], 0
-                        mov              qword ptr [rsp + 1648], 0
-                        mov              qword ptr [rsp + 1656], 0
-                        mov              qword ptr [rsp + 1664], 0
-                        mov              qword ptr [rsp + 1672], 0
-                        mov              qword ptr [rsp + 1680], 0
-                        mov              qword ptr [rsp + 1688], 0
-                        mov              qword ptr [rsp + 1696], 0
-                        mov              qword ptr [rsp + 1704], 0
-                        mov              qword ptr [rsp + 1712], 0
-                        mov              qword ptr [rsp + 1720], 0
-                        mov              qword ptr [rsp + 1728], 0
-                        mov              qword ptr [rsp + 1736], 0
-                        mov              qword ptr [rsp + 1744], 0
-                        mov              qword ptr [rsp + 1752], 0
-                        mov              qword ptr [rsp + 1760], 0
-                        mov              qword ptr [rsp + 1768], 0
-                        mov              qword ptr [rsp + 1776], 0
-                        mov              qword ptr [rsp + 1784], 0
-                        mov              qword ptr [rsp + 1792], 0
-                        mov              qword ptr [rsp + 1800], 0
-                        mov              qword ptr [rsp + 1808], 0
-                        mov              qword ptr [rsp + 1816], 0
-                        mov              qword ptr [rsp + 1824], 0
-                        mov              qword ptr [rsp + 1832], 0
-                        mov              qword ptr [rsp + 1840], 0
-                        mov              qword ptr [rsp + 1848], 0
-                        mov              qword ptr [rsp + 1856], 0
-                        mov              qword ptr [rsp + 1864], 0
-                        mov              qword ptr [rsp + 1872], 0
-                        mov              qword ptr [rsp + 1880], 0
-                        mov              qword ptr [rsp + 1888], 0
-                        mov              qword ptr [rsp + 1896], 0
-                        mov              qword ptr [rsp + 1904], 0
-                        mov              qword ptr [rsp + 1912], 0
-                        mov              qword ptr [rsp + 1920], 0
-                        mov              qword ptr [rsp + 1928], 0
-                        mov              qword ptr [rsp + 1936], 0
-                        mov              qword ptr [rsp + 1944], 0
-                        mov              qword ptr [rsp + 1952], 0
-                        mov              qword ptr [rsp + 1960], 0
-                        mov              qword ptr [rsp + 1968], 0
-                        mov              qword ptr [rsp + 1976], 0
-                        mov              qword ptr [rsp + 1984], 0
-                        mov              qword ptr [rsp + 1992], 0
-                        mov              qword ptr [rsp + 2000], 0
-                        mov              qword ptr [rsp + 2008], 0
-                        mov              qword ptr [rsp + 2016], 0
-                        mov              qword ptr [rsp + 2024], 0
-                        mov              qword ptr [rsp + 2032], 0
-                        mov              qword ptr [rsp + 2040], 0
-                        mov              qword ptr [rsp + 2048], 0
-                        mov              qword ptr [rsp + 2056], 0
-                        mov              qword ptr [rsp + 2064], 0
-                        mov              qword ptr [rsp + 2072], 0
-                        mov              qword ptr [rsp + 2080], 0
-                        mov              qword ptr [rsp + 2088], 0
-                        mov              qword ptr [rsp + 2096], 0
-                        mov              qword ptr [rsp + 2104], 0
-                        mov              qword ptr [rsp + 2112], 0
-                        mov              qword ptr [rsp + 2120], 0
-                        mov              qword ptr [rsp + 2128], 0
-                        mov              qword ptr [rsp + 2136], 0
-                        mov              qword ptr [rsp + 2144], 0
-                        mov              qword ptr [rsp + 2152], 0
-                        mov              qword ptr [rsp + 2160], 0
-                        mov              qword ptr [rsp + 2168], 0
-                        mov              qword ptr [rsp + 2176], 0
-                        mov              qword ptr [rsp + 2184], 0
-                        mov              qword ptr [rsp + 2192], 0
-                        mov              qword ptr [rsp + 2200], 0
-                        mov              qword ptr [rsp + 2208], 0
-                        mov              qword ptr [rsp + 2216], 0
-                        mov              qword ptr [rsp + 2224], 0
-                        mov              qword ptr [rsp + 2232], 0
-                        mov              qword ptr [rsp + 2240], 0
-                        mov              qword ptr [rsp + 2248], 0
-                        mov              qword ptr [rsp + 2256], 0
-                        mov              qword ptr [rsp + 2264], 0
-                        mov              qword ptr [rsp + 2272], 0
-                        mov              qword ptr [rsp + 2280], 0
-                        mov              qword ptr [rsp + 2288], 0
-                        mov              qword ptr [rsp + 2296], 0
-                        mov              qword ptr [rsp + 2304], 0
-                        mov              qword ptr [rsp + 2312], 0
-                        mov              qword ptr [rsp + 2320], 0
-                        mov              qword ptr [rsp + 2328], 0
-                        mov              qword ptr [rsp + 2336], 0
-                        mov              qword ptr [rsp + 2344], 0
-                        mov              qword ptr [rsp + 2352], 0
-                        mov              qword ptr [rsp + 2360], 0
-                        mov              qword ptr [rsp + 2368], 0
-                        mov              qword ptr [rsp + 2376], 0
-                        mov              qword ptr [rsp + 2384], 0
-                        mov              qword ptr [rsp + 2392], 0
-                        mov              qword ptr [rsp + 2400], 0
-                        mov              qword ptr [rsp + 2408], 0
-                        mov              qword ptr [rsp + 2416], 0
-                        mov              qword ptr [rsp + 2424], 0
-                        mov              qword ptr [rsp + 2432], 0
-                        mov              qword ptr [rsp + 2440], 0
-                        mov              qword ptr [rsp + 2448], 0
-                        mov              qword ptr [rsp + 2456], 0
-                        mov              qword ptr [rsp + 2464], 0
-                        mov              qword ptr [rsp + 2472], 0
-                        mov              qword ptr [rsp + 2480], 0
-                        mov              qword ptr [rsp + 2488], 0
-                        mov              qword ptr [rsp + 2496], 0
-                        mov              qword ptr [rsp + 2504], 0
-                        mov              qword ptr [rsp + 2512], 0
-                        mov              qword ptr [rsp + 2520], 0
-                        mov              qword ptr [rsp + 2528], 0
-                        mov              qword ptr [rsp + 2536], 0
-                        mov              qword ptr [rsp + 2544], 0
-                        mov              qword ptr [rsp + 2552], 0
-                        mov              qword ptr [rsp + 2560], 0
-                        mov              qword ptr [rsp + 2568], 0
-                        mov              qword ptr [rsp + 2576], 0
-                        mov              qword ptr [rsp + 2584], 0
-                        mov              qword ptr [rsp + 2592], 0
-                        mov              qword ptr [rsp + 2600], 0
-                        mov              qword ptr [rsp + 2608], 0
-                        mov              qword ptr [rsp + 2616], 0
-                        mov              qword ptr [rsp + 2624], 0
-                        mov              qword ptr [rsp + 2632], 0
-                        mov              qword ptr [rsp + 2640], 0
-                        mov              qword ptr [rsp + 2648], 0
-                        mov              qword ptr [rsp + 2656], 0
-                        mov              qword ptr [rsp + 2664], 0
-                        mov              qword ptr [rsp + 2672], 0
-                        mov              qword ptr [rsp + 2680], 0
-                        mov              qword ptr [rsp + 2688], 0
-                        mov              qword ptr [rsp + 2696], 0
-                        mov              qword ptr [rsp + 2704], 0
-                        mov              qword ptr [rsp + 2712], 0
-                        mov              qword ptr [rsp + 2720], 0
-                        mov              qword ptr [rsp + 2728], 0
-                        mov              qword ptr [rsp + 2736], 0
-                        mov              qword ptr [rsp + 2744], 0
-                        mov              qword ptr [rsp + 2752], 0
-                        mov              qword ptr [rsp + 2760], 0
-                        mov              qword ptr [rsp + 2768], 0
-                        mov              qword ptr [rsp + 2776], 0
-                        mov              qword ptr [rsp + 2784], 0
-                        mov              qword ptr [rsp + 2792], 0
-                        mov              qword ptr [rsp + 2800], 0
-                        mov              qword ptr [rsp + 2808], 0
-                        mov              qword ptr [rsp + 2816], 0
-                        mov              qword ptr [rsp + 2824], 0
-                        mov              qword ptr [rsp + 2832], 0
-                        mov              qword ptr [rsp + 2840], 0
-                        mov              qword ptr [rsp + 2848], 0
-                        mov              qword ptr [rsp + 2856], 0
-                        mov              qword ptr [rsp + 2864], 0
-                        mov              qword ptr [rsp + 2872], 0
-                        mov              qword ptr [rsp + 2880], 0
-                        mov              qword ptr [rsp + 2888], 0
-                        mov              qword ptr [rsp + 2896], 0
-                        mov              qword ptr [rsp + 2904], 0
-                        mov              qword ptr [rsp + 2912], 0
-                        mov              qword ptr [rsp + 2920], 0
-                        mov              qword ptr [rsp + 2928], 0
-                        mov              qword ptr [rsp + 2936], 0
-                        mov              qword ptr [rsp + 2944], 0
-                        mov              qword ptr [rsp + 2952], 0
-                        mov              qword ptr [rsp + 2960], 0
-                        mov              qword ptr [rsp + 2968], 0
-                        mov              qword ptr [rsp + 2976], 0
-                        mov              qword ptr [rsp + 2984], 0
-                        mov              qword ptr [rsp + 2992], 0
-                        mov              qword ptr [rsp + 3000], 0
-                        mov              qword ptr [rsp + 3008], 0
-                        mov              qword ptr [rsp + 3016], 0
-                        mov              qword ptr [rsp + 3024], 0
-                        mov              qword ptr [rsp + 3032], 0
-                        mov              qword ptr [rsp + 3040], 0
-                        mov              qword ptr [rsp + 3048], 0
-                        mov              qword ptr [rsp + 3056], 0
-                        mov              qword ptr [rsp + 3064], 0
-                        mov              qword ptr [rsp + 3072], 0
-                        mov              qword ptr [rsp + 3080], 0
-                        mov              qword ptr [rsp + 3088], 0
-                        mov              qword ptr [rsp + 3096], 0
-                        mov              qword ptr [rsp + 3104], 0
-                        mov              qword ptr [rsp + 3112], 0
-                        mov              qword ptr [rsp + 3120], 0
-                        mov              qword ptr [rsp + 3128], 0
-                        mov              qword ptr [rsp + 3136], 0
-                        mov              qword ptr [rsp + 3144], 0
-                        mov              qword ptr [rsp + 3152], 0
-                        mov              qword ptr [rsp + 3160], 0
-                        mov              qword ptr [rsp + 3168], 0
-                        mov              qword ptr [rsp + 3176], 0
-                        mov              qword ptr [rsp + 3184], 0
-                        mov              qword ptr [rsp + 3192], 0
-                        mov              qword ptr [rsp + 3200], 0
-                        mov              qword ptr [rsp + 3208], 0
-                        mov              qword ptr [rsp + 3216], 0
-                        mov              qword ptr [rsp + 3224], 0
-                        mov              qword ptr [rsp + 3232], 0
-                        mov              qword ptr [rsp + 3240], 0
-                        mov              qword ptr [rsp + 3248], 0
-                        mov              qword ptr [rsp + 3256], 0
-                        mov              qword ptr [rsp + 3264], 0
-                        mov              qword ptr [rsp + 3272], 0
-                        mov              qword ptr [rsp + 3280], 0
-                        mov              qword ptr [rsp + 3288], 0
-                        mov              qword ptr [rsp + 3296], 0
-                        mov              qword ptr [rsp + 3304], 0
-                        mov              qword ptr [rsp + 3312], 0
-                        mov              qword ptr [rsp + 3320], 0
-                        mov              qword ptr [rsp + 3328], 0
-                        mov              qword ptr [rsp + 3336], 0
-                        mov              qword ptr [rsp + 3344], 0
-                        mov              qword ptr [rsp + 3352], 0
-                        mov              qword ptr [rsp + 3360], 0
-                        mov              qword ptr [rsp + 3368], 0
-                        mov              qword ptr [rsp + 3376], 0
-                        mov              qword ptr [rsp + 3384], 0
-                        mov              qword ptr [rsp + 3392], 0
-                        mov              qword ptr [rsp + 3400], 0
-                        mov              qword ptr [rsp + 3408], 0
-                        mov              qword ptr [rsp + 3416], 0
-                        mov              qword ptr [rsp + 3424], 0
-                        mov              qword ptr [rsp + 3432], 0
-                        mov              qword ptr [rsp + 3440], 0
-                        mov              qword ptr [rsp + 3448], 0
-                        mov              qword ptr [rsp + 3456], 0
-                        mov              qword ptr [rsp + 3464], 0
-                        mov              qword ptr [rsp + 3472], 0
-                        mov              qword ptr [rsp + 3480], 0
-                        mov              qword ptr [rsp + 3488], 0
-                        mov              qword ptr [rsp + 3496], 0
-                        mov              qword ptr [rsp + 3504], 0
-                        mov              qword ptr [rsp + 3512], 0
-                        mov              qword ptr [rsp + 3520], 0
-                        mov              qword ptr [rsp + 3528], 0
-                        mov              qword ptr [rsp + 3536], 0
-                        mov              qword ptr [rsp + 3544], 0
-                        mov              qword ptr [rsp + 3552], 0
-                        mov              qword ptr [rsp + 3560], 0
-                        mov              qword ptr [rsp + 3568], 0
-                        mov              qword ptr [rsp + 3576], 0
-                        mov              qword ptr [rsp + 3584], 0
-                        mov              qword ptr [rsp + 3592], 0
-                        mov              qword ptr [rsp + 3600], 0
-                        mov              qword ptr [rsp + 3608], 0
-                        mov              qword ptr [rsp + 3616], 0
-                        mov              qword ptr [rsp + 3624], 0
-                        mov              qword ptr [rsp + 3632], 0
-                        mov              qword ptr [rsp + 3640], 0
-                        mov              qword ptr [rsp + 3648], 0
-                        mov              qword ptr [rsp + 3656], 0
-                        mov              qword ptr [rsp + 3664], 0
-                        mov              qword ptr [rsp + 3672], 0
-                        mov              qword ptr [rsp + 3680], 0
-                        mov              qword ptr [rsp + 3688], 0
-                        mov              qword ptr [rsp + 3696], 0
-                        mov              qword ptr [rsp + 3704], 0
-                        mov              qword ptr [rsp + 3712], 0
-                        mov              qword ptr [rsp + 3720], 0
-                        mov              qword ptr [rsp + 3728], 0
-                        mov              qword ptr [rsp + 3736], 0
-                        mov              qword ptr [rsp + 3744], 0
-                        mov              qword ptr [rsp + 3752], 0
-                        mov              qword ptr [rsp + 3760], 0
-                        mov              qword ptr [rsp + 3768], 0
-                        mov              qword ptr [rsp + 3776], 0
-                        mov              qword ptr [rsp + 3784], 0
-                        mov              qword ptr [rsp + 3792], 0
-                        mov              qword ptr [rsp + 3800], 0
-                        mov              qword ptr [rsp + 3808], 0
-                        mov              qword ptr [rsp + 3816], 0
-                        mov              qword ptr [rsp + 3824], 0
-                        mov              qword ptr [rsp + 3832], 0
-                        mov              qword ptr [rsp + 3840], 0
-                        mov              qword ptr [rsp + 3848], 0
-                        mov              qword ptr [rsp + 3856], 0
-                        mov              qword ptr [rsp + 3864], 0
-                        mov              qword ptr [rsp + 3872], 0
-                        mov              qword ptr [rsp + 3880], 0
-                        mov              qword ptr [rsp + 3888], 0
-                        mov              qword ptr [rsp + 3896], 0
-                        mov              qword ptr [rsp + 3904], 0
-                        mov              qword ptr [rsp + 3912], 0
-                        mov              qword ptr [rsp + 3920], 0
-                        mov              qword ptr [rsp + 3928], 0
-                        mov              qword ptr [rsp + 3936], 0
-                        mov              qword ptr [rsp + 3944], 0
-                        mov              qword ptr [rsp + 3952], 0
-                        mov              qword ptr [rsp + 3960], 0
-                        mov              qword ptr [rsp + 3968], 0
-                        mov              qword ptr [rsp + 3976], 0
-                        mov              qword ptr [rsp + 3984], 0
-                        mov              qword ptr [rsp + 3992], 0
-                        mov              qword ptr [rsp + 4000], 0
-                        mov              qword ptr [rsp + 4008], 0
-                        mov              qword ptr [rsp + 4016], 0
-                        mov              qword ptr [rsp + 4024], 0
-                        mov              qword ptr [rsp + 4032], 0
-                        mov              qword ptr [rsp + 4040], 0
-                        mov              qword ptr [rsp + 4048], 0
-                        mov              qword ptr [rsp + 4056], 0
-                        mov              qword ptr [rsp + 4064], 0
-                        mov              qword ptr [rsp + 4072], 0
-                        mov              qword ptr [rsp + 4080], 0
-                        mov              qword ptr [rsp + 4088], 0
-                        mov              qword ptr [rsp + 4096], 0
-                        mov              qword ptr [rsp + 4104], 0
-                        mov              qword ptr [rsp + 4112], 0
-                        mov              qword ptr [rsp + 4120], 0
-                        mov              qword ptr [rsp + 4128], 0
-                        mov              qword ptr [rsp + 4136], 0
-                        mov              qword ptr [rsp + 4144], 0
-                        mov              qword ptr [rsp + 4152], 0
-                        mov              qword ptr [rsp + 4160], 0
-                        mov              qword ptr [rsp + 4168], 0
-                        mov              qword ptr [rsp + 4176], 0
-                        mov              qword ptr [rsp + 4184], 0
-                        mov              qword ptr [rsp + 4192], 0
-                        mov              qword ptr [rsp + 4200], 0
-                        mov              qword ptr [rsp + 4208], 0
-                        mov              qword ptr [rsp + 4216], 0
-                        mov              qword ptr [rsp + 4224], 0
-                        mov              qword ptr [rsp + 4232], 0
-                        mov              qword ptr [rsp + 4240], 0
-                        mov              qword ptr [rsp + 4248], 0
-                        mov              qword ptr [rsp + 4256], 0
-                        mov              qword ptr [rsp + 4264], 0
-                        mov              qword ptr [rsp + 4272], 0
-                        mov              qword ptr [rsp + 4280], 0
-                        mov              qword ptr [rsp + 4288], 0
-                        mov              qword ptr [rsp + 4296], 0
-                        mov              qword ptr [rsp + 4304], 0
-                        mov              qword ptr [rsp + 4312], 0
-                        mov              qword ptr [rsp + 4320], 0
-                        mov              qword ptr [rsp + 4328], 0
-                        mov              qword ptr [rsp + 4336], 0
-                        mov              qword ptr [rsp + 4344], 0
-                        mov              qword ptr [rsp + 4352], 0
-                        mov              qword ptr [rsp + 4360], 0
-                        mov              qword ptr [rsp + 4368], 0
-                        mov              qword ptr [rsp + 4376], 0
-                        mov              qword ptr [rsp + 4384], 0
-                        mov              qword ptr [rsp + 4392], 0
-                        mov              qword ptr [rsp + 4400], 0
-                        mov              qword ptr [rsp + 4408], 0
-                        mov              qword ptr [rsp + 4416], 0
-                        mov              qword ptr [rsp + 4424], 0
-                        mov              qword ptr [rsp + 4432], 0
-                        mov              qword ptr [rsp + 4440], 0
-                        mov              qword ptr [rsp + 4448], 0
-                        mov              qword ptr [rsp + 4456], 0
-                        mov              qword ptr [rsp + 4464], 0
-                        mov              qword ptr [rsp + 4472], 0
-                        mov              qword ptr [rsp + 4480], 0
-                        mov              qword ptr [rsp + 4488], 0
-                        mov              qword ptr [rsp + 4496], 0
-                        mov              qword ptr [rsp + 4504], 0
-                        mov              qword ptr [rsp + 4512], 0
-                        mov              qword ptr [rsp + 4520], 0
-                        mov              qword ptr [rsp + 4528], 0
-                        mov              qword ptr [rsp + 4536], 0
-                        mov              qword ptr [rsp + 4544], 0
-                        mov              qword ptr [rsp + 4552], 0
-                        mov              qword ptr [rsp + 4560], 0
-                        mov              qword ptr [rsp + 4568], 0
-                        mov              qword ptr [rsp + 4576], 0
-                        mov              qword ptr [rsp + 4584], 0
-                        mov              qword ptr [rsp + 4592], 0
-                        mov              qword ptr [rsp + 4600], 0
-                        mov              qword ptr [rsp + 4608], 0
-                        mov              qword ptr [rsp + 4616], 0
-                        mov              qword ptr [rsp + 4624], 0
-                        mov              qword ptr [rsp + 4632], 0
-                        mov              qword ptr [rsp + 4640], 0
-                        mov              qword ptr [rsp + 4648], 0
-                        mov              qword ptr [rsp + 4656], 0
-                        mov              qword ptr [rsp + 4664], 0
-                        mov              qword ptr [rsp + 4672], 0
-                        mov              qword ptr [rsp + 4680], 0
-                        mov              qword ptr [rsp + 4688], 0
-                        mov              qword ptr [rsp + 4696], 0
-                        mov              qword ptr [rsp + 4704], 0
-                        mov              qword ptr [rsp + 4712], 0
-                        mov              qword ptr [rsp + 4720], 0
-                        mov              qword ptr [rsp + 4728], 0
-                        mov              qword ptr [rsp + 4736], 0
-                        mov              qword ptr [rsp + 4744], 0
-                        mov              qword ptr [rsp + 4752], 0
-                        mov              qword ptr [rsp + 4760], 0
-                        mov              qword ptr [rsp + 4768], 0
-                        mov              qword ptr [rsp + 4776], 0
-                        mov              qword ptr [rsp + 4784], 0
-                        mov              qword ptr [rsp + 4792], 0
-                        mov              qword ptr [rsp + 4800], 0
-                        mov              qword ptr [rsp + 4808], 0
-                        mov              qword ptr [rsp + 4816], 0
-                        mov              qword ptr [rsp + 4824], 0
-                        mov              qword ptr [rsp + 4832], 0
-                        mov              qword ptr [rsp + 4840], 0
-                        mov              qword ptr [rsp + 4848], 0
-                        mov              qword ptr [rsp + 4856], 0
-                        mov              qword ptr [rsp + 4864], 0
-                        mov              qword ptr [rsp + 4872], 0
-                        mov              qword ptr [rsp + 4880], 0
-                        mov              qword ptr [rsp + 4888], 0
-                        mov              qword ptr [rsp + 4896], 0
-                        mov              qword ptr [rsp + 4904], 0
-                        mov              qword ptr [rsp + 4912], 0
-                        mov              qword ptr [rsp + 4920], 0
-                        mov              qword ptr [rsp + 4928], 0
-                        mov              qword ptr [rsp + 4936], 0
-                        mov              qword ptr [rsp + 4944], 0
-                        mov              qword ptr [rsp + 4952], 0
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052640]                    # f
                         mov              rdx, qword ptr [1879052648]
-                        mov              qword ptr [rsp + 4944], rax                    # result
-                        mov              qword ptr [rsp + 4952], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n636_call_α
 #-----------------------------------------------------------------------------------------------------------------------
 n636_call_α:
+                        sub              rsp, 16
+                        mov              edi, 0                                         # idx
+                        mov              rsi, qword ptr [rsp + 16]                      # var
+                        mov              rdx, qword ptr [rsp + 24]                      # v
+                        call             rt_arg_stage@PLT
                         sub              rsp, 112
                         mov              rax, qword ptr [1879052640]                    # f
                         mov              qword ptr [rsp + 0], rax
@@ -7072,9 +4735,10 @@ n636_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx751_5
-                        mov              rax, qword ptr [rsp + 5056]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 0]
                         mov              qword ptr [1879052640], rax                    # f
-                        mov              rax, qword ptr [rsp + 5064]
+                        mov              rax, qword ptr [r10 + 8]
                         mov              qword ptr [1879052648], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx751_6]
@@ -7148,45 +4812,13 @@ n636_call_α:
                                                                                         jmp   .Lx751_2
 .Lx751_5:
                         add              rsp, 112
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx751_20
-                        mov              rax, qword ptr [rsp + 4944]
-                        mov              rdx, qword ptr [rsp + 4952]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 0], rax
-                        mov              qword ptr [r10 + 8], rdx
-                                                                                        jmp   .Lx751_21
-.Lx751_20:
-                        mov              edi, 0                                         # idx
-                        mov              rsi, qword ptr [rsp + 4944]                    # v
-                        mov              rdx, qword ptr [rsp + 4952]                    # v
-                        call             rt_arg_stage@PLT
-.Lx751_21:
-                        mov              rdi, qword ptr [rip + .Lx751_0]                # name
-                        mov              esi, 1                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx751_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx751_3]
-                        lea              rdx, [rip + .Lx751_4]
-                                                                                        jmp   rax
-.Lx751_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx751_2
-.Lx751_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx751_2
-.Lx751_1:
-                        call             rt_faildescr@PLT
 .Lx751_2:
-                        mov              qword ptr [rsp + 4896], rax
-                        mov              qword ptr [rsp + 4904], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx751_240
-                        add              rsp, 4960
+                        add              rsp, 16
+                        add              rsp, 16
                                                                                         jmp   n638_lit_string_α
 .Lx751_240:
                                                                                         jmp   n637_assign_α
@@ -7198,11 +4830,11 @@ n636_call_β:
                         .string          "node_repr"
 #-----------------------------------------------------------------------------------------------------------------------
 n637_assign_α:
-                        mov              rax, qword ptr [rsp + 4896]
-                        mov              rdx, qword ptr [rsp + 4904]
+                        mov              rax, qword ptr [rsp + 0]                       # call
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052656], rax                    # r
                         mov              qword ptr [1879052664], rdx
-                        add              rsp, 4960
+                        add              rsp, 32
                                                                                         jmp   n638_lit_string_α
 #=======================================================================================================================
 #                pad            =  DUPL(' ', indent)
@@ -7955,29 +5587,7 @@ n695_assign_α:
 #                pp_node(stk_c[f][i], indent + 2, ',')
 #-----------------------------------------------------------------------------------------------------------------------
 n696_var_α:
-                        sub              rsp, 176
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
-                        mov              qword ptr [rsp + 96], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 120], 0
-                        mov              qword ptr [rsp + 128], 0
-                        mov              qword ptr [rsp + 136], 0
-                        mov              qword ptr [rsp + 144], 0
-                        mov              qword ptr [rsp + 152], 0
-                        mov              qword ptr [rsp + 160], 0
-                        mov              qword ptr [rsp + 168], 0
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052880]                    # stk_c
                         mov              rdx, qword ptr [1879052888]
                         mov              qword ptr [rsp + 0], rax                       # result
@@ -7985,120 +5595,125 @@ n696_var_α:
                                                                                         jmp   n697_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n697_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052640]                    # f
                         mov              rdx, qword ptr [1879052648]
-                        mov              qword ptr [rsp + 16], rax                      # result
-                        mov              qword ptr [rsp + 24], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n698_subscript_α
 #-----------------------------------------------------------------------------------------------------------------------
 n698_subscript_α:
-                        mov              rdi, qword ptr [rsp + 0]                       # base
-                        mov              rsi, qword ptr [rsp + 8]                       # base
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 32]                      # var
+                        mov              rsi, qword ptr [rsp + 40]                      # base
                         mov              rdx, qword ptr [rsp + 16]                      # idx
                         mov              rcx, qword ptr [rsp + 24]                      # idx
                         call             rt_subscript_var@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx824_240
-                        add              rsp, 176
+                        add              rsp, 16
+                        add              rsp, 32
                                                                                         jmp   n708_var_α
 .Lx824_240:
-                        mov              qword ptr [rsp + 32], rax
-                        mov              qword ptr [rsp + 40], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n699_deref_α
 #-----------------------------------------------------------------------------------------------------------------------
 n699_deref_α:
-                        mov              rdi, qword ptr [rsp + 32]                      # d
-                        mov              rsi, qword ptr [rsp + 40]                      # d
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 16]                      # subscript
+                        mov              rsi, qword ptr [rsp + 24]                      # d
                         call             rt_deref@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx825_240
-                        add              rsp, 176
+                        add              rsp, 16
+                        add              rsp, 48
                                                                                         jmp   n708_var_α
 .Lx825_240:
-                        mov              qword ptr [rsp + 48], rax
-                        mov              qword ptr [rsp + 56], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n700_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n700_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052688]                    # i
                         mov              rdx, qword ptr [1879052696]
-                        mov              qword ptr [rsp + 64], rax                      # result
-                        mov              qword ptr [rsp + 72], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n701_subscript_α
 #-----------------------------------------------------------------------------------------------------------------------
 n701_subscript_α:
-                        mov              rdi, qword ptr [rsp + 48]                      # base
-                        mov              rsi, qword ptr [rsp + 56]                      # base
-                        mov              rdx, qword ptr [rsp + 64]                      # idx
-                        mov              rcx, qword ptr [rsp + 72]                      # idx
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 32]                      # deref
+                        mov              rsi, qword ptr [rsp + 40]                      # base
+                        mov              rdx, qword ptr [rsp + 16]                      # var
+                        mov              rcx, qword ptr [rsp + 24]                      # idx
                         call             rt_subscript_var@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx827_240
-                        add              rsp, 176
+                        add              rsp, 16
+                        add              rsp, 80
                                                                                         jmp   n708_var_α
 .Lx827_240:
-                        mov              qword ptr [rsp + 80], rax
-                        mov              qword ptr [rsp + 88], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n702_deref_α
 #-----------------------------------------------------------------------------------------------------------------------
 n702_deref_α:
-                        mov              rdi, qword ptr [rsp + 80]                      # d
-                        mov              rsi, qword ptr [rsp + 88]                      # d
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 16]                      # subscript
+                        mov              rsi, qword ptr [rsp + 24]                      # d
                         call             rt_deref@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx828_240
-                        add              rsp, 176
+                        add              rsp, 16
+                        add              rsp, 96
                                                                                         jmp   n708_var_α
 .Lx828_240:
-                        mov              qword ptr [rsp + 96], rax
-                        mov              qword ptr [rsp + 104], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n703_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n703_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052736]                    # indent
                         mov              rdx, qword ptr [1879052744]
-                        mov              qword ptr [rsp + 128], rax                     # result
-                        mov              qword ptr [rsp + 136], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n704_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
 n704_lit_integer_α:
-                        mov              qword ptr [rsp + 144], 3                       # result
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 3                         # result
                         mov              rax, qword ptr [rip + .Lx830_0]
-                        mov              qword ptr [rsp + 152], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n705_binop_α
 .Lx830_0:
                         .quad            2
 #-----------------------------------------------------------------------------------------------------------------------
 n705_binop_α:
-                        mov              eax, dword ptr [rsp + 128]
-                        cmp              eax, 3
-                                                                                        jne   .Lx831_0
-                        mov              rax, qword ptr [rsp + 136]
-                        mov              rcx, 2
-                        add              rax, rcx
-                        mov              qword ptr [rsp + 112], 3
-                        mov              qword ptr [rsp + 120], rax
-                                                                                        jmp   n706_lit_string_α
-.Lx831_0:
-                        mov              rdi, qword ptr [rsp + 128]
-                        mov              rsi, qword ptr [rsp + 136]
-                        mov              rdx, qword ptr [rsp + 144]
-                        mov              rcx, qword ptr [rsp + 152]
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 32]                      # var
+                        mov              rsi, qword ptr [rsp + 40]
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_integer
+                        mov              rcx, qword ptr [rsp + 24]
                         call             rt_add@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx831_240
-                        add              rsp, 176
+                        add              rsp, 16
+                        add              rsp, 144
                                                                                         jmp   n708_var_α
 .Lx831_240:
-                        mov              qword ptr [rsp + 112], rax
-                        mov              qword ptr [rsp + 120], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n706_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n706_lit_string_α:
-                        mov              qword ptr [rsp + 160], 2                       # result
-                        mov              dword ptr [rsp + 164], 1
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 1
                         mov              rax, qword ptr [rip + .Lx832_0]
-                        mov              qword ptr [rsp + 168], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n707_call_α
 .Lx832_0:
                         .quad            .Lx832_0_s
@@ -8106,6 +5721,19 @@ n706_lit_string_α:
                         .string          ","
 #-----------------------------------------------------------------------------------------------------------------------
 n707_call_α:
+                        sub              rsp, 16
+                        mov              edi, 0                                         # idx
+                        mov              rsi, qword ptr [rsp + 80]                      # deref
+                        mov              rdx, qword ptr [rsp + 88]                      # v
+                        call             rt_arg_stage@PLT
+                        mov              edi, 1                                         # idx
+                        mov              rsi, qword ptr [rsp + 32]                      # binop
+                        mov              rdx, qword ptr [rsp + 40]                      # v
+                        call             rt_arg_stage@PLT
+                        mov              edi, 2                                         # idx
+                        mov              rsi, qword ptr [rsp + 16]                      # lit_string
+                        mov              rdx, qword ptr [rsp + 24]                      # v
+                        call             rt_arg_stage@PLT
                         sub              rsp, 160
                         mov              rax, qword ptr [1879052640]                    # f
                         mov              qword ptr [rsp + 0], rax
@@ -8153,17 +5781,20 @@ n707_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx834_5
-                        mov              rax, qword ptr [rsp + 256]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 0]
                         mov              qword ptr [1879052640], rax                    # f
-                        mov              rax, qword ptr [rsp + 264]
+                        mov              rax, qword ptr [r10 + 8]
                         mov              qword ptr [1879052648], rax
-                        mov              rax, qword ptr [rsp + 272]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 16]
                         mov              qword ptr [1879052736], rax                    # indent
-                        mov              rax, qword ptr [rsp + 280]
+                        mov              rax, qword ptr [r10 + 24]
                         mov              qword ptr [1879052744], rax
-                        mov              rax, qword ptr [rsp + 320]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 32]
                         mov              qword ptr [1879052752], rax                    # suffix
-                        mov              rax, qword ptr [rsp + 328]
+                        mov              rax, qword ptr [r10 + 40]
                         mov              qword ptr [1879052760], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx834_6]
@@ -8261,80 +5892,16 @@ n707_call_α:
                                                                                         jmp   .Lx834_2
 .Lx834_5:
                         add              rsp, 160
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx834_20
-                        mov              rax, qword ptr [rsp + 96]
-                        mov              rdx, qword ptr [rsp + 104]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 0], rax
-                        mov              qword ptr [r10 + 8], rdx
-                                                                                        jmp   .Lx834_21
-.Lx834_20:
-                        mov              edi, 0                                         # idx
-                        mov              rsi, qword ptr [rsp + 96]                      # v
-                        mov              rdx, qword ptr [rsp + 104]                     # v
-                        call             rt_arg_stage@PLT
-.Lx834_21:
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx834_22
-                        mov              rax, qword ptr [rsp + 112]
-                        mov              rdx, qword ptr [rsp + 120]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 16], rax
-                        mov              qword ptr [r10 + 24], rdx
-                                                                                        jmp   .Lx834_23
-.Lx834_22:
-                        mov              edi, 1                                         # idx
-                        mov              rsi, qword ptr [rsp + 112]                     # v
-                        mov              rdx, qword ptr [rsp + 120]                     # v
-                        call             rt_arg_stage@PLT
-.Lx834_23:
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx834_24
-                        mov              rax, qword ptr [rsp + 160]
-                        mov              rdx, qword ptr [rsp + 168]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 32], rax
-                        mov              qword ptr [r10 + 40], rdx
-                                                                                        jmp   .Lx834_25
-.Lx834_24:
-                        mov              edi, 2                                         # idx
-                        mov              rsi, qword ptr [rsp + 160]                     # v
-                        mov              rdx, qword ptr [rsp + 168]                     # v
-                        call             rt_arg_stage@PLT
-.Lx834_25:
-                        mov              rdi, qword ptr [rip + .Lx834_0]                # name
-                        mov              esi, 3                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx834_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx834_3]
-                        lea              rdx, [rip + .Lx834_4]
-                                                                                        jmp   rax
-.Lx834_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx834_2
-.Lx834_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx834_2
-.Lx834_1:
-                        call             rt_faildescr@PLT
 .Lx834_2:
-                        mov              qword ptr [rsp + 6032], rax
-                        mov              qword ptr [rsp + 6040], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx834_240
+                        add              rsp, 16
                         add              rsp, 176
                                                                                         jmp   n708_var_α
 .Lx834_240:
-                        add              rsp, 176
+                        add              rsp, 192
                                                                                         jmp   n708_var_α
 n707_call_β:
                                                                                         jmp   n708_var_α
@@ -8364,33 +5931,7 @@ n709_assign_α:
 # pp_wlast       pp_node(stk_c[f][i], indent + 2, ')' suffix) :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
 n710_var_α:
-                        sub              rsp, 208
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
-                        mov              qword ptr [rsp + 96], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 120], 0
-                        mov              qword ptr [rsp + 128], 0
-                        mov              qword ptr [rsp + 136], 0
-                        mov              qword ptr [rsp + 144], 0
-                        mov              qword ptr [rsp + 152], 0
-                        mov              qword ptr [rsp + 160], 0
-                        mov              qword ptr [rsp + 168], 0
-                        mov              qword ptr [rsp + 176], 0
-                        mov              qword ptr [rsp + 184], 0
-                        mov              qword ptr [rsp + 192], 0
-                        mov              qword ptr [rsp + 200], 0
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052880]                    # stk_c
                         mov              rdx, qword ptr [1879052888]
                         mov              qword ptr [rsp + 0], rax                       # result
@@ -8398,120 +5939,125 @@ n710_var_α:
                                                                                         jmp   n711_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n711_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052640]                    # f
                         mov              rdx, qword ptr [1879052648]
-                        mov              qword ptr [rsp + 16], rax                      # result
-                        mov              qword ptr [rsp + 24], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n712_subscript_α
 #-----------------------------------------------------------------------------------------------------------------------
 n712_subscript_α:
-                        mov              rdi, qword ptr [rsp + 0]                       # base
-                        mov              rsi, qword ptr [rsp + 8]                       # base
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 32]                      # var
+                        mov              rsi, qword ptr [rsp + 40]                      # base
                         mov              rdx, qword ptr [rsp + 16]                      # idx
                         mov              rcx, qword ptr [rsp + 24]                      # idx
                         call             rt_subscript_var@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx839_240
-                        add              rsp, 208
+                        add              rsp, 16
+                        add              rsp, 32
                                                                                         jmp   n724_save_restore_α
 .Lx839_240:
-                        mov              qword ptr [rsp + 32], rax
-                        mov              qword ptr [rsp + 40], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n713_deref_α
 #-----------------------------------------------------------------------------------------------------------------------
 n713_deref_α:
-                        mov              rdi, qword ptr [rsp + 32]                      # d
-                        mov              rsi, qword ptr [rsp + 40]                      # d
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 16]                      # subscript
+                        mov              rsi, qword ptr [rsp + 24]                      # d
                         call             rt_deref@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx840_240
-                        add              rsp, 208
+                        add              rsp, 16
+                        add              rsp, 48
                                                                                         jmp   n724_save_restore_α
 .Lx840_240:
-                        mov              qword ptr [rsp + 48], rax
-                        mov              qword ptr [rsp + 56], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n714_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n714_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052688]                    # i
                         mov              rdx, qword ptr [1879052696]
-                        mov              qword ptr [rsp + 64], rax                      # result
-                        mov              qword ptr [rsp + 72], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n715_subscript_α
 #-----------------------------------------------------------------------------------------------------------------------
 n715_subscript_α:
-                        mov              rdi, qword ptr [rsp + 48]                      # base
-                        mov              rsi, qword ptr [rsp + 56]                      # base
-                        mov              rdx, qword ptr [rsp + 64]                      # idx
-                        mov              rcx, qword ptr [rsp + 72]                      # idx
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 32]                      # deref
+                        mov              rsi, qword ptr [rsp + 40]                      # base
+                        mov              rdx, qword ptr [rsp + 16]                      # var
+                        mov              rcx, qword ptr [rsp + 24]                      # idx
                         call             rt_subscript_var@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx842_240
-                        add              rsp, 208
+                        add              rsp, 16
+                        add              rsp, 80
                                                                                         jmp   n724_save_restore_α
 .Lx842_240:
-                        mov              qword ptr [rsp + 80], rax
-                        mov              qword ptr [rsp + 88], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n716_deref_α
 #-----------------------------------------------------------------------------------------------------------------------
 n716_deref_α:
-                        mov              rdi, qword ptr [rsp + 80]                      # d
-                        mov              rsi, qword ptr [rsp + 88]                      # d
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 16]                      # subscript
+                        mov              rsi, qword ptr [rsp + 24]                      # d
                         call             rt_deref@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx843_240
-                        add              rsp, 208
+                        add              rsp, 16
+                        add              rsp, 96
                                                                                         jmp   n724_save_restore_α
 .Lx843_240:
-                        mov              qword ptr [rsp + 96], rax
-                        mov              qword ptr [rsp + 104], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n717_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n717_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052736]                    # indent
                         mov              rdx, qword ptr [1879052744]
-                        mov              qword ptr [rsp + 128], rax                     # result
-                        mov              qword ptr [rsp + 136], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n718_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
 n718_lit_integer_α:
-                        mov              qword ptr [rsp + 144], 3                       # result
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 3                         # result
                         mov              rax, qword ptr [rip + .Lx845_0]
-                        mov              qword ptr [rsp + 152], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n719_binop_α
 .Lx845_0:
                         .quad            2
 #-----------------------------------------------------------------------------------------------------------------------
 n719_binop_α:
-                        mov              eax, dword ptr [rsp + 128]
-                        cmp              eax, 3
-                                                                                        jne   .Lx846_0
-                        mov              rax, qword ptr [rsp + 136]
-                        mov              rcx, 2
-                        add              rax, rcx
-                        mov              qword ptr [rsp + 112], 3
-                        mov              qword ptr [rsp + 120], rax
-                                                                                        jmp   n720_lit_string_α
-.Lx846_0:
-                        mov              rdi, qword ptr [rsp + 128]
-                        mov              rsi, qword ptr [rsp + 136]
-                        mov              rdx, qword ptr [rsp + 144]
-                        mov              rcx, qword ptr [rsp + 152]
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 32]                      # var
+                        mov              rsi, qword ptr [rsp + 40]
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_integer
+                        mov              rcx, qword ptr [rsp + 24]
                         call             rt_add@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx846_240
-                        add              rsp, 208
+                        add              rsp, 16
+                        add              rsp, 144
                                                                                         jmp   n724_save_restore_α
 .Lx846_240:
-                        mov              qword ptr [rsp + 112], rax
-                        mov              qword ptr [rsp + 120], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n720_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n720_lit_string_α:
-                        mov              qword ptr [rsp + 176], 2                       # result
-                        mov              dword ptr [rsp + 180], 1
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 1
                         mov              rax, qword ptr [rip + .Lx847_0]
-                        mov              qword ptr [rsp + 184], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n721_var_α
 .Lx847_0:
                         .quad            .Lx847_0_s
@@ -8519,23 +6065,38 @@ n720_lit_string_α:
                         .string          ")"
 #-----------------------------------------------------------------------------------------------------------------------
 n721_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052752]                    # suffix
                         mov              rdx, qword ptr [1879052760]
-                        mov              qword ptr [rsp + 192], rax                     # result
-                        mov              qword ptr [rsp + 200], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n722_binop_α
 #-----------------------------------------------------------------------------------------------------------------------
 n722_binop_α:
-                        mov              rdi, qword ptr [rsp + 176]                     # a
-                        mov              rsi, qword ptr [rsp + 184]                     # a
-                        mov              rdx, qword ptr [rsp + 192]                     # b
-                        mov              rcx, qword ptr [rsp + 200]                     # b
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 32]                      # lit_string
+                        mov              rsi, qword ptr [rsp + 40]                      # a
+                        mov              rdx, qword ptr [rsp + 16]                      # var
+                        mov              rcx, qword ptr [rsp + 24]                      # b
                         call             str_concat_d@PLT
-                        mov              qword ptr [rsp + 160], rax
-                        mov              qword ptr [rsp + 168], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n723_call_α
 #-----------------------------------------------------------------------------------------------------------------------
 n723_call_α:
+                        sub              rsp, 16
+                        mov              edi, 0                                         # idx
+                        mov              rsi, qword ptr [rsp + 112]                     # deref
+                        mov              rdx, qword ptr [rsp + 120]                     # v
+                        call             rt_arg_stage@PLT
+                        mov              edi, 1                                         # idx
+                        mov              rsi, qword ptr [rsp + 64]                      # binop
+                        mov              rdx, qword ptr [rsp + 72]                      # v
+                        call             rt_arg_stage@PLT
+                        mov              edi, 2                                         # idx
+                        mov              rsi, qword ptr [rsp + 16]                      # v
+                        mov              rdx, qword ptr [rsp + 24]                      # v
+                        call             rt_arg_stage@PLT
                         sub              rsp, 160
                         mov              rax, qword ptr [1879052640]                    # f
                         mov              qword ptr [rsp + 0], rax
@@ -8583,17 +6144,20 @@ n723_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx851_5
-                        mov              rax, qword ptr [rsp + 256]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 0]
                         mov              qword ptr [1879052640], rax                    # f
-                        mov              rax, qword ptr [rsp + 264]
+                        mov              rax, qword ptr [r10 + 8]
                         mov              qword ptr [1879052648], rax
-                        mov              rax, qword ptr [rsp + 272]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 16]
                         mov              qword ptr [1879052736], rax                    # indent
-                        mov              rax, qword ptr [rsp + 280]
+                        mov              rax, qword ptr [r10 + 24]
                         mov              qword ptr [1879052744], rax
-                        mov              rax, qword ptr [rsp + 320]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 32]
                         mov              qword ptr [1879052752], rax                    # suffix
-                        mov              rax, qword ptr [rsp + 328]
+                        mov              rax, qword ptr [r10 + 40]
                         mov              qword ptr [1879052760], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx851_6]
@@ -8691,80 +6255,16 @@ n723_call_α:
                                                                                         jmp   .Lx851_2
 .Lx851_5:
                         add              rsp, 160
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx851_20
-                        mov              rax, qword ptr [rsp + 96]
-                        mov              rdx, qword ptr [rsp + 104]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 0], rax
-                        mov              qword ptr [r10 + 8], rdx
-                                                                                        jmp   .Lx851_21
-.Lx851_20:
-                        mov              edi, 0                                         # idx
-                        mov              rsi, qword ptr [rsp + 96]                      # v
-                        mov              rdx, qword ptr [rsp + 104]                     # v
-                        call             rt_arg_stage@PLT
-.Lx851_21:
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx851_22
-                        mov              rax, qword ptr [rsp + 112]
-                        mov              rdx, qword ptr [rsp + 120]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 16], rax
-                        mov              qword ptr [r10 + 24], rdx
-                                                                                        jmp   .Lx851_23
-.Lx851_22:
-                        mov              edi, 1                                         # idx
-                        mov              rsi, qword ptr [rsp + 112]                     # v
-                        mov              rdx, qword ptr [rsp + 120]                     # v
-                        call             rt_arg_stage@PLT
-.Lx851_23:
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx851_24
-                        mov              rax, qword ptr [rsp + 160]
-                        mov              rdx, qword ptr [rsp + 168]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 32], rax
-                        mov              qword ptr [r10 + 40], rdx
-                                                                                        jmp   .Lx851_25
-.Lx851_24:
-                        mov              edi, 2                                         # idx
-                        mov              rsi, qword ptr [rsp + 160]                     # v
-                        mov              rdx, qword ptr [rsp + 168]                     # v
-                        call             rt_arg_stage@PLT
-.Lx851_25:
-                        mov              rdi, qword ptr [rip + .Lx851_0]                # name
-                        mov              esi, 3                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx851_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx851_3]
-                        lea              rdx, [rip + .Lx851_4]
-                                                                                        jmp   rax
-.Lx851_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx851_2
-.Lx851_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx851_2
-.Lx851_1:
-                        call             rt_faildescr@PLT
 .Lx851_2:
-                        mov              qword ptr [rsp + 6304], rax
-                        mov              qword ptr [rsp + 6312], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx851_240
+                        add              rsp, 16
                         add              rsp, 208
                                                                                         jmp   n724_save_restore_α
 .Lx851_240:
-                        add              rsp, 208
+                        add              rsp, 224
                                                                                         jmp   n724_save_restore_α
 n723_call_β:
                                                                                         jmp   n724_save_restore_α
@@ -8813,13 +6313,7 @@ n854_goto_β:
 # pp_bank        pp_node(bank, 0, '')
 #-----------------------------------------------------------------------------------------------------------------------
 n855_var_α:
-                        sub              rsp, 48
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052928]                    # bank
                         mov              rdx, qword ptr [1879052936]
                         mov              qword ptr [rsp + 0], rax                       # result
@@ -8827,18 +6321,20 @@ n855_var_α:
                                                                                         jmp   n856_lit_integer_α
 #-----------------------------------------------------------------------------------------------------------------------
 n856_lit_integer_α:
-                        mov              qword ptr [rsp + 16], 3                        # result
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 3                         # result
                         mov              rax, qword ptr [rip + .Lx865_0]
-                        mov              qword ptr [rsp + 24], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n857_lit_string_α
 .Lx865_0:
                         .quad            0
 #-----------------------------------------------------------------------------------------------------------------------
 n857_lit_string_α:
-                        mov              qword ptr [rsp + 32], 2                        # result
-                        mov              dword ptr [rsp + 36], 0
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 0
                         mov              rax, qword ptr [rip + .Lx866_0]
-                        mov              qword ptr [rsp + 40], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n858_call_α
 .Lx866_0:
                         .quad            .Lx866_0_s
@@ -8846,6 +6342,19 @@ n857_lit_string_α:
                         .string          ""
 #-----------------------------------------------------------------------------------------------------------------------
 n858_call_α:
+                        sub              rsp, 16
+                        mov              edi, 0                                         # idx
+                        mov              rsi, qword ptr [rsp + 48]                      # var
+                        mov              rdx, qword ptr [rsp + 56]                      # v
+                        call             rt_arg_stage@PLT
+                        mov              edi, 1                                         # idx
+                        mov              rsi, qword ptr [rsp + 32]                      # lit_integer
+                        mov              rdx, qword ptr [rsp + 40]                      # v
+                        call             rt_arg_stage@PLT
+                        mov              edi, 2                                         # idx
+                        mov              rsi, qword ptr [rsp + 16]                      # lit_string
+                        mov              rdx, qword ptr [rsp + 24]                      # v
+                        call             rt_arg_stage@PLT
                         sub              rsp, 160
                         mov              rax, qword ptr [1879052640]                    # f
                         mov              qword ptr [rsp + 0], rax
@@ -8893,17 +6402,20 @@ n858_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx868_5
-                        mov              rax, qword ptr [rsp + 160]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 0]
                         mov              qword ptr [1879052640], rax                    # f
-                        mov              rax, qword ptr [rsp + 168]
+                        mov              rax, qword ptr [r10 + 8]
                         mov              qword ptr [1879052648], rax
-                        mov              rax, qword ptr [rsp + 176]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 16]
                         mov              qword ptr [1879052736], rax                    # indent
-                        mov              rax, qword ptr [rsp + 184]
+                        mov              rax, qword ptr [r10 + 24]
                         mov              qword ptr [1879052744], rax
-                        mov              rax, qword ptr [rsp + 192]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 32]
                         mov              qword ptr [1879052752], rax                    # suffix
-                        mov              rax, qword ptr [rsp + 200]
+                        mov              rax, qword ptr [r10 + 40]
                         mov              qword ptr [1879052760], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx868_6]
@@ -9001,80 +6513,16 @@ n858_call_α:
                                                                                         jmp   .Lx868_2
 .Lx868_5:
                         add              rsp, 160
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx868_20
-                        mov              rax, qword ptr [rsp + 0]
-                        mov              rdx, qword ptr [rsp + 8]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 0], rax
-                        mov              qword ptr [r10 + 8], rdx
-                                                                                        jmp   .Lx868_21
-.Lx868_20:
-                        mov              edi, 0                                         # idx
-                        mov              rsi, qword ptr [rsp + 0]                       # v
-                        mov              rdx, qword ptr [rsp + 8]                       # v
-                        call             rt_arg_stage@PLT
-.Lx868_21:
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx868_22
-                        mov              rax, qword ptr [rsp + 16]
-                        mov              rdx, qword ptr [rsp + 24]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 16], rax
-                        mov              qword ptr [r10 + 24], rdx
-                                                                                        jmp   .Lx868_23
-.Lx868_22:
-                        mov              edi, 1                                         # idx
-                        mov              rsi, qword ptr [rsp + 16]                      # v
-                        mov              rdx, qword ptr [rsp + 24]                      # v
-                        call             rt_arg_stage@PLT
-.Lx868_23:
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx868_24
-                        mov              rax, qword ptr [rsp + 32]
-                        mov              rdx, qword ptr [rsp + 40]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 32], rax
-                        mov              qword ptr [r10 + 40], rdx
-                                                                                        jmp   .Lx868_25
-.Lx868_24:
-                        mov              edi, 2                                         # idx
-                        mov              rsi, qword ptr [rsp + 32]                      # v
-                        mov              rdx, qword ptr [rsp + 40]                      # v
-                        call             rt_arg_stage@PLT
-.Lx868_25:
-                        mov              rdi, qword ptr [rip + .Lx868_0]                # name
-                        mov              esi, 3                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx868_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx868_3]
-                        lea              rdx, [rip + .Lx868_4]
-                                                                                        jmp   rax
-.Lx868_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx868_2
-.Lx868_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx868_2
-.Lx868_1:
-                        call             rt_faildescr@PLT
 .Lx868_2:
-                        mov              qword ptr [rsp + 6592], rax
-                        mov              qword ptr [rsp + 6600], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx868_240
+                        add              rsp, 16
                         add              rsp, 48
                                                                                         jmp   n859_lit_string_α
 .Lx868_240:
-                        add              rsp, 48
+                        add              rsp, 64
                                                                                         jmp   n859_lit_string_α
 n858_call_β:
                                                                                         jmp   n859_lit_string_α
@@ -13317,888 +10765,14 @@ n1117_assign_β:
 #                dummy          =  init_list('bank')
 #-----------------------------------------------------------------------------------------------------------------------
 n1118_lit_string_α:
-                        sub              rsp, 6992
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
-                        mov              qword ptr [rsp + 96], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 120], 0
-                        mov              qword ptr [rsp + 128], 0
-                        mov              qword ptr [rsp + 136], 0
-                        mov              qword ptr [rsp + 144], 0
-                        mov              qword ptr [rsp + 152], 0
-                        mov              qword ptr [rsp + 160], 0
-                        mov              qword ptr [rsp + 168], 0
-                        mov              qword ptr [rsp + 176], 0
-                        mov              qword ptr [rsp + 184], 0
-                        mov              qword ptr [rsp + 192], 0
-                        mov              qword ptr [rsp + 200], 0
-                        mov              qword ptr [rsp + 208], 0
-                        mov              qword ptr [rsp + 216], 0
-                        mov              qword ptr [rsp + 224], 0
-                        mov              qword ptr [rsp + 232], 0
-                        mov              qword ptr [rsp + 240], 0
-                        mov              qword ptr [rsp + 248], 0
-                        mov              qword ptr [rsp + 256], 0
-                        mov              qword ptr [rsp + 264], 0
-                        mov              qword ptr [rsp + 272], 0
-                        mov              qword ptr [rsp + 280], 0
-                        mov              qword ptr [rsp + 288], 0
-                        mov              qword ptr [rsp + 296], 0
-                        mov              qword ptr [rsp + 304], 0
-                        mov              qword ptr [rsp + 312], 0
-                        mov              qword ptr [rsp + 320], 0
-                        mov              qword ptr [rsp + 328], 0
-                        mov              qword ptr [rsp + 336], 0
-                        mov              qword ptr [rsp + 344], 0
-                        mov              qword ptr [rsp + 352], 0
-                        mov              qword ptr [rsp + 360], 0
-                        mov              qword ptr [rsp + 368], 0
-                        mov              qword ptr [rsp + 376], 0
-                        mov              qword ptr [rsp + 384], 0
-                        mov              qword ptr [rsp + 392], 0
-                        mov              qword ptr [rsp + 400], 0
-                        mov              qword ptr [rsp + 408], 0
-                        mov              qword ptr [rsp + 416], 0
-                        mov              qword ptr [rsp + 424], 0
-                        mov              qword ptr [rsp + 432], 0
-                        mov              qword ptr [rsp + 440], 0
-                        mov              qword ptr [rsp + 448], 0
-                        mov              qword ptr [rsp + 456], 0
-                        mov              qword ptr [rsp + 464], 0
-                        mov              qword ptr [rsp + 472], 0
-                        mov              qword ptr [rsp + 480], 0
-                        mov              qword ptr [rsp + 488], 0
-                        mov              qword ptr [rsp + 496], 0
-                        mov              qword ptr [rsp + 504], 0
-                        mov              qword ptr [rsp + 512], 0
-                        mov              qword ptr [rsp + 520], 0
-                        mov              qword ptr [rsp + 528], 0
-                        mov              qword ptr [rsp + 536], 0
-                        mov              qword ptr [rsp + 544], 0
-                        mov              qword ptr [rsp + 552], 0
-                        mov              qword ptr [rsp + 560], 0
-                        mov              qword ptr [rsp + 568], 0
-                        mov              qword ptr [rsp + 576], 0
-                        mov              qword ptr [rsp + 584], 0
-                        mov              qword ptr [rsp + 592], 0
-                        mov              qword ptr [rsp + 600], 0
-                        mov              qword ptr [rsp + 608], 0
-                        mov              qword ptr [rsp + 616], 0
-                        mov              qword ptr [rsp + 624], 0
-                        mov              qword ptr [rsp + 632], 0
-                        mov              qword ptr [rsp + 640], 0
-                        mov              qword ptr [rsp + 648], 0
-                        mov              qword ptr [rsp + 656], 0
-                        mov              qword ptr [rsp + 664], 0
-                        mov              qword ptr [rsp + 672], 0
-                        mov              qword ptr [rsp + 680], 0
-                        mov              qword ptr [rsp + 688], 0
-                        mov              qword ptr [rsp + 696], 0
-                        mov              qword ptr [rsp + 704], 0
-                        mov              qword ptr [rsp + 712], 0
-                        mov              qword ptr [rsp + 720], 0
-                        mov              qword ptr [rsp + 728], 0
-                        mov              qword ptr [rsp + 736], 0
-                        mov              qword ptr [rsp + 744], 0
-                        mov              qword ptr [rsp + 752], 0
-                        mov              qword ptr [rsp + 760], 0
-                        mov              qword ptr [rsp + 768], 0
-                        mov              qword ptr [rsp + 776], 0
-                        mov              qword ptr [rsp + 784], 0
-                        mov              qword ptr [rsp + 792], 0
-                        mov              qword ptr [rsp + 800], 0
-                        mov              qword ptr [rsp + 808], 0
-                        mov              qword ptr [rsp + 816], 0
-                        mov              qword ptr [rsp + 824], 0
-                        mov              qword ptr [rsp + 832], 0
-                        mov              qword ptr [rsp + 840], 0
-                        mov              qword ptr [rsp + 848], 0
-                        mov              qword ptr [rsp + 856], 0
-                        mov              qword ptr [rsp + 864], 0
-                        mov              qword ptr [rsp + 872], 0
-                        mov              qword ptr [rsp + 880], 0
-                        mov              qword ptr [rsp + 888], 0
-                        mov              qword ptr [rsp + 896], 0
-                        mov              qword ptr [rsp + 904], 0
-                        mov              qword ptr [rsp + 912], 0
-                        mov              qword ptr [rsp + 920], 0
-                        mov              qword ptr [rsp + 928], 0
-                        mov              qword ptr [rsp + 936], 0
-                        mov              qword ptr [rsp + 944], 0
-                        mov              qword ptr [rsp + 952], 0
-                        mov              qword ptr [rsp + 960], 0
-                        mov              qword ptr [rsp + 968], 0
-                        mov              qword ptr [rsp + 976], 0
-                        mov              qword ptr [rsp + 984], 0
-                        mov              qword ptr [rsp + 992], 0
-                        mov              qword ptr [rsp + 1000], 0
-                        mov              qword ptr [rsp + 1008], 0
-                        mov              qword ptr [rsp + 1016], 0
-                        mov              qword ptr [rsp + 1024], 0
-                        mov              qword ptr [rsp + 1032], 0
-                        mov              qword ptr [rsp + 1040], 0
-                        mov              qword ptr [rsp + 1048], 0
-                        mov              qword ptr [rsp + 1056], 0
-                        mov              qword ptr [rsp + 1064], 0
-                        mov              qword ptr [rsp + 1072], 0
-                        mov              qword ptr [rsp + 1080], 0
-                        mov              qword ptr [rsp + 1088], 0
-                        mov              qword ptr [rsp + 1096], 0
-                        mov              qword ptr [rsp + 1104], 0
-                        mov              qword ptr [rsp + 1112], 0
-                        mov              qword ptr [rsp + 1120], 0
-                        mov              qword ptr [rsp + 1128], 0
-                        mov              qword ptr [rsp + 1136], 0
-                        mov              qword ptr [rsp + 1144], 0
-                        mov              qword ptr [rsp + 1152], 0
-                        mov              qword ptr [rsp + 1160], 0
-                        mov              qword ptr [rsp + 1168], 0
-                        mov              qword ptr [rsp + 1176], 0
-                        mov              qword ptr [rsp + 1184], 0
-                        mov              qword ptr [rsp + 1192], 0
-                        mov              qword ptr [rsp + 1200], 0
-                        mov              qword ptr [rsp + 1208], 0
-                        mov              qword ptr [rsp + 1216], 0
-                        mov              qword ptr [rsp + 1224], 0
-                        mov              qword ptr [rsp + 1232], 0
-                        mov              qword ptr [rsp + 1240], 0
-                        mov              qword ptr [rsp + 1248], 0
-                        mov              qword ptr [rsp + 1256], 0
-                        mov              qword ptr [rsp + 1264], 0
-                        mov              qword ptr [rsp + 1272], 0
-                        mov              qword ptr [rsp + 1280], 0
-                        mov              qword ptr [rsp + 1288], 0
-                        mov              qword ptr [rsp + 1296], 0
-                        mov              qword ptr [rsp + 1304], 0
-                        mov              qword ptr [rsp + 1312], 0
-                        mov              qword ptr [rsp + 1320], 0
-                        mov              qword ptr [rsp + 1328], 0
-                        mov              qword ptr [rsp + 1336], 0
-                        mov              qword ptr [rsp + 1344], 0
-                        mov              qword ptr [rsp + 1352], 0
-                        mov              qword ptr [rsp + 1360], 0
-                        mov              qword ptr [rsp + 1368], 0
-                        mov              qword ptr [rsp + 1376], 0
-                        mov              qword ptr [rsp + 1384], 0
-                        mov              qword ptr [rsp + 1392], 0
-                        mov              qword ptr [rsp + 1400], 0
-                        mov              qword ptr [rsp + 1408], 0
-                        mov              qword ptr [rsp + 1416], 0
-                        mov              qword ptr [rsp + 1424], 0
-                        mov              qword ptr [rsp + 1432], 0
-                        mov              qword ptr [rsp + 1440], 0
-                        mov              qword ptr [rsp + 1448], 0
-                        mov              qword ptr [rsp + 1456], 0
-                        mov              qword ptr [rsp + 1464], 0
-                        mov              qword ptr [rsp + 1472], 0
-                        mov              qword ptr [rsp + 1480], 0
-                        mov              qword ptr [rsp + 1488], 0
-                        mov              qword ptr [rsp + 1496], 0
-                        mov              qword ptr [rsp + 1504], 0
-                        mov              qword ptr [rsp + 1512], 0
-                        mov              qword ptr [rsp + 1520], 0
-                        mov              qword ptr [rsp + 1528], 0
-                        mov              qword ptr [rsp + 1536], 0
-                        mov              qword ptr [rsp + 1544], 0
-                        mov              qword ptr [rsp + 1552], 0
-                        mov              qword ptr [rsp + 1560], 0
-                        mov              qword ptr [rsp + 1568], 0
-                        mov              qword ptr [rsp + 1576], 0
-                        mov              qword ptr [rsp + 1584], 0
-                        mov              qword ptr [rsp + 1592], 0
-                        mov              qword ptr [rsp + 1600], 0
-                        mov              qword ptr [rsp + 1608], 0
-                        mov              qword ptr [rsp + 1616], 0
-                        mov              qword ptr [rsp + 1624], 0
-                        mov              qword ptr [rsp + 1632], 0
-                        mov              qword ptr [rsp + 1640], 0
-                        mov              qword ptr [rsp + 1648], 0
-                        mov              qword ptr [rsp + 1656], 0
-                        mov              qword ptr [rsp + 1664], 0
-                        mov              qword ptr [rsp + 1672], 0
-                        mov              qword ptr [rsp + 1680], 0
-                        mov              qword ptr [rsp + 1688], 0
-                        mov              qword ptr [rsp + 1696], 0
-                        mov              qword ptr [rsp + 1704], 0
-                        mov              qword ptr [rsp + 1712], 0
-                        mov              qword ptr [rsp + 1720], 0
-                        mov              qword ptr [rsp + 1728], 0
-                        mov              qword ptr [rsp + 1736], 0
-                        mov              qword ptr [rsp + 1744], 0
-                        mov              qword ptr [rsp + 1752], 0
-                        mov              qword ptr [rsp + 1760], 0
-                        mov              qword ptr [rsp + 1768], 0
-                        mov              qword ptr [rsp + 1776], 0
-                        mov              qword ptr [rsp + 1784], 0
-                        mov              qword ptr [rsp + 1792], 0
-                        mov              qword ptr [rsp + 1800], 0
-                        mov              qword ptr [rsp + 1808], 0
-                        mov              qword ptr [rsp + 1816], 0
-                        mov              qword ptr [rsp + 1824], 0
-                        mov              qword ptr [rsp + 1832], 0
-                        mov              qword ptr [rsp + 1840], 0
-                        mov              qword ptr [rsp + 1848], 0
-                        mov              qword ptr [rsp + 1856], 0
-                        mov              qword ptr [rsp + 1864], 0
-                        mov              qword ptr [rsp + 1872], 0
-                        mov              qword ptr [rsp + 1880], 0
-                        mov              qword ptr [rsp + 1888], 0
-                        mov              qword ptr [rsp + 1896], 0
-                        mov              qword ptr [rsp + 1904], 0
-                        mov              qword ptr [rsp + 1912], 0
-                        mov              qword ptr [rsp + 1920], 0
-                        mov              qword ptr [rsp + 1928], 0
-                        mov              qword ptr [rsp + 1936], 0
-                        mov              qword ptr [rsp + 1944], 0
-                        mov              qword ptr [rsp + 1952], 0
-                        mov              qword ptr [rsp + 1960], 0
-                        mov              qword ptr [rsp + 1968], 0
-                        mov              qword ptr [rsp + 1976], 0
-                        mov              qword ptr [rsp + 1984], 0
-                        mov              qword ptr [rsp + 1992], 0
-                        mov              qword ptr [rsp + 2000], 0
-                        mov              qword ptr [rsp + 2008], 0
-                        mov              qword ptr [rsp + 2016], 0
-                        mov              qword ptr [rsp + 2024], 0
-                        mov              qword ptr [rsp + 2032], 0
-                        mov              qword ptr [rsp + 2040], 0
-                        mov              qword ptr [rsp + 2048], 0
-                        mov              qword ptr [rsp + 2056], 0
-                        mov              qword ptr [rsp + 2064], 0
-                        mov              qword ptr [rsp + 2072], 0
-                        mov              qword ptr [rsp + 2080], 0
-                        mov              qword ptr [rsp + 2088], 0
-                        mov              qword ptr [rsp + 2096], 0
-                        mov              qword ptr [rsp + 2104], 0
-                        mov              qword ptr [rsp + 2112], 0
-                        mov              qword ptr [rsp + 2120], 0
-                        mov              qword ptr [rsp + 2128], 0
-                        mov              qword ptr [rsp + 2136], 0
-                        mov              qword ptr [rsp + 2144], 0
-                        mov              qword ptr [rsp + 2152], 0
-                        mov              qword ptr [rsp + 2160], 0
-                        mov              qword ptr [rsp + 2168], 0
-                        mov              qword ptr [rsp + 2176], 0
-                        mov              qword ptr [rsp + 2184], 0
-                        mov              qword ptr [rsp + 2192], 0
-                        mov              qword ptr [rsp + 2200], 0
-                        mov              qword ptr [rsp + 2208], 0
-                        mov              qword ptr [rsp + 2216], 0
-                        mov              qword ptr [rsp + 2224], 0
-                        mov              qword ptr [rsp + 2232], 0
-                        mov              qword ptr [rsp + 2240], 0
-                        mov              qword ptr [rsp + 2248], 0
-                        mov              qword ptr [rsp + 2256], 0
-                        mov              qword ptr [rsp + 2264], 0
-                        mov              qword ptr [rsp + 2272], 0
-                        mov              qword ptr [rsp + 2280], 0
-                        mov              qword ptr [rsp + 2288], 0
-                        mov              qword ptr [rsp + 2296], 0
-                        mov              qword ptr [rsp + 2304], 0
-                        mov              qword ptr [rsp + 2312], 0
-                        mov              qword ptr [rsp + 2320], 0
-                        mov              qword ptr [rsp + 2328], 0
-                        mov              qword ptr [rsp + 2336], 0
-                        mov              qword ptr [rsp + 2344], 0
-                        mov              qword ptr [rsp + 2352], 0
-                        mov              qword ptr [rsp + 2360], 0
-                        mov              qword ptr [rsp + 2368], 0
-                        mov              qword ptr [rsp + 2376], 0
-                        mov              qword ptr [rsp + 2384], 0
-                        mov              qword ptr [rsp + 2392], 0
-                        mov              qword ptr [rsp + 2400], 0
-                        mov              qword ptr [rsp + 2408], 0
-                        mov              qword ptr [rsp + 2416], 0
-                        mov              qword ptr [rsp + 2424], 0
-                        mov              qword ptr [rsp + 2432], 0
-                        mov              qword ptr [rsp + 2440], 0
-                        mov              qword ptr [rsp + 2448], 0
-                        mov              qword ptr [rsp + 2456], 0
-                        mov              qword ptr [rsp + 2464], 0
-                        mov              qword ptr [rsp + 2472], 0
-                        mov              qword ptr [rsp + 2480], 0
-                        mov              qword ptr [rsp + 2488], 0
-                        mov              qword ptr [rsp + 2496], 0
-                        mov              qword ptr [rsp + 2504], 0
-                        mov              qword ptr [rsp + 2512], 0
-                        mov              qword ptr [rsp + 2520], 0
-                        mov              qword ptr [rsp + 2528], 0
-                        mov              qword ptr [rsp + 2536], 0
-                        mov              qword ptr [rsp + 2544], 0
-                        mov              qword ptr [rsp + 2552], 0
-                        mov              qword ptr [rsp + 2560], 0
-                        mov              qword ptr [rsp + 2568], 0
-                        mov              qword ptr [rsp + 2576], 0
-                        mov              qword ptr [rsp + 2584], 0
-                        mov              qword ptr [rsp + 2592], 0
-                        mov              qword ptr [rsp + 2600], 0
-                        mov              qword ptr [rsp + 2608], 0
-                        mov              qword ptr [rsp + 2616], 0
-                        mov              qword ptr [rsp + 2624], 0
-                        mov              qword ptr [rsp + 2632], 0
-                        mov              qword ptr [rsp + 2640], 0
-                        mov              qword ptr [rsp + 2648], 0
-                        mov              qword ptr [rsp + 2656], 0
-                        mov              qword ptr [rsp + 2664], 0
-                        mov              qword ptr [rsp + 2672], 0
-                        mov              qword ptr [rsp + 2680], 0
-                        mov              qword ptr [rsp + 2688], 0
-                        mov              qword ptr [rsp + 2696], 0
-                        mov              qword ptr [rsp + 2704], 0
-                        mov              qword ptr [rsp + 2712], 0
-                        mov              qword ptr [rsp + 2720], 0
-                        mov              qword ptr [rsp + 2728], 0
-                        mov              qword ptr [rsp + 2736], 0
-                        mov              qword ptr [rsp + 2744], 0
-                        mov              qword ptr [rsp + 2752], 0
-                        mov              qword ptr [rsp + 2760], 0
-                        mov              qword ptr [rsp + 2768], 0
-                        mov              qword ptr [rsp + 2776], 0
-                        mov              qword ptr [rsp + 2784], 0
-                        mov              qword ptr [rsp + 2792], 0
-                        mov              qword ptr [rsp + 2800], 0
-                        mov              qword ptr [rsp + 2808], 0
-                        mov              qword ptr [rsp + 2816], 0
-                        mov              qword ptr [rsp + 2824], 0
-                        mov              qword ptr [rsp + 2832], 0
-                        mov              qword ptr [rsp + 2840], 0
-                        mov              qword ptr [rsp + 2848], 0
-                        mov              qword ptr [rsp + 2856], 0
-                        mov              qword ptr [rsp + 2864], 0
-                        mov              qword ptr [rsp + 2872], 0
-                        mov              qword ptr [rsp + 2880], 0
-                        mov              qword ptr [rsp + 2888], 0
-                        mov              qword ptr [rsp + 2896], 0
-                        mov              qword ptr [rsp + 2904], 0
-                        mov              qword ptr [rsp + 2912], 0
-                        mov              qword ptr [rsp + 2920], 0
-                        mov              qword ptr [rsp + 2928], 0
-                        mov              qword ptr [rsp + 2936], 0
-                        mov              qword ptr [rsp + 2944], 0
-                        mov              qword ptr [rsp + 2952], 0
-                        mov              qword ptr [rsp + 2960], 0
-                        mov              qword ptr [rsp + 2968], 0
-                        mov              qword ptr [rsp + 2976], 0
-                        mov              qword ptr [rsp + 2984], 0
-                        mov              qword ptr [rsp + 2992], 0
-                        mov              qword ptr [rsp + 3000], 0
-                        mov              qword ptr [rsp + 3008], 0
-                        mov              qword ptr [rsp + 3016], 0
-                        mov              qword ptr [rsp + 3024], 0
-                        mov              qword ptr [rsp + 3032], 0
-                        mov              qword ptr [rsp + 3040], 0
-                        mov              qword ptr [rsp + 3048], 0
-                        mov              qword ptr [rsp + 3056], 0
-                        mov              qword ptr [rsp + 3064], 0
-                        mov              qword ptr [rsp + 3072], 0
-                        mov              qword ptr [rsp + 3080], 0
-                        mov              qword ptr [rsp + 3088], 0
-                        mov              qword ptr [rsp + 3096], 0
-                        mov              qword ptr [rsp + 3104], 0
-                        mov              qword ptr [rsp + 3112], 0
-                        mov              qword ptr [rsp + 3120], 0
-                        mov              qword ptr [rsp + 3128], 0
-                        mov              qword ptr [rsp + 3136], 0
-                        mov              qword ptr [rsp + 3144], 0
-                        mov              qword ptr [rsp + 3152], 0
-                        mov              qword ptr [rsp + 3160], 0
-                        mov              qword ptr [rsp + 3168], 0
-                        mov              qword ptr [rsp + 3176], 0
-                        mov              qword ptr [rsp + 3184], 0
-                        mov              qword ptr [rsp + 3192], 0
-                        mov              qword ptr [rsp + 3200], 0
-                        mov              qword ptr [rsp + 3208], 0
-                        mov              qword ptr [rsp + 3216], 0
-                        mov              qword ptr [rsp + 3224], 0
-                        mov              qword ptr [rsp + 3232], 0
-                        mov              qword ptr [rsp + 3240], 0
-                        mov              qword ptr [rsp + 3248], 0
-                        mov              qword ptr [rsp + 3256], 0
-                        mov              qword ptr [rsp + 3264], 0
-                        mov              qword ptr [rsp + 3272], 0
-                        mov              qword ptr [rsp + 3280], 0
-                        mov              qword ptr [rsp + 3288], 0
-                        mov              qword ptr [rsp + 3296], 0
-                        mov              qword ptr [rsp + 3304], 0
-                        mov              qword ptr [rsp + 3312], 0
-                        mov              qword ptr [rsp + 3320], 0
-                        mov              qword ptr [rsp + 3328], 0
-                        mov              qword ptr [rsp + 3336], 0
-                        mov              qword ptr [rsp + 3344], 0
-                        mov              qword ptr [rsp + 3352], 0
-                        mov              qword ptr [rsp + 3360], 0
-                        mov              qword ptr [rsp + 3368], 0
-                        mov              qword ptr [rsp + 3376], 0
-                        mov              qword ptr [rsp + 3384], 0
-                        mov              qword ptr [rsp + 3392], 0
-                        mov              qword ptr [rsp + 3400], 0
-                        mov              qword ptr [rsp + 3408], 0
-                        mov              qword ptr [rsp + 3416], 0
-                        mov              qword ptr [rsp + 3424], 0
-                        mov              qword ptr [rsp + 3432], 0
-                        mov              qword ptr [rsp + 3440], 0
-                        mov              qword ptr [rsp + 3448], 0
-                        mov              qword ptr [rsp + 3456], 0
-                        mov              qword ptr [rsp + 3464], 0
-                        mov              qword ptr [rsp + 3472], 0
-                        mov              qword ptr [rsp + 3480], 0
-                        mov              qword ptr [rsp + 3488], 0
-                        mov              qword ptr [rsp + 3496], 0
-                        mov              qword ptr [rsp + 3504], 0
-                        mov              qword ptr [rsp + 3512], 0
-                        mov              qword ptr [rsp + 3520], 0
-                        mov              qword ptr [rsp + 3528], 0
-                        mov              qword ptr [rsp + 3536], 0
-                        mov              qword ptr [rsp + 3544], 0
-                        mov              qword ptr [rsp + 3552], 0
-                        mov              qword ptr [rsp + 3560], 0
-                        mov              qword ptr [rsp + 3568], 0
-                        mov              qword ptr [rsp + 3576], 0
-                        mov              qword ptr [rsp + 3584], 0
-                        mov              qword ptr [rsp + 3592], 0
-                        mov              qword ptr [rsp + 3600], 0
-                        mov              qword ptr [rsp + 3608], 0
-                        mov              qword ptr [rsp + 3616], 0
-                        mov              qword ptr [rsp + 3624], 0
-                        mov              qword ptr [rsp + 3632], 0
-                        mov              qword ptr [rsp + 3640], 0
-                        mov              qword ptr [rsp + 3648], 0
-                        mov              qword ptr [rsp + 3656], 0
-                        mov              qword ptr [rsp + 3664], 0
-                        mov              qword ptr [rsp + 3672], 0
-                        mov              qword ptr [rsp + 3680], 0
-                        mov              qword ptr [rsp + 3688], 0
-                        mov              qword ptr [rsp + 3696], 0
-                        mov              qword ptr [rsp + 3704], 0
-                        mov              qword ptr [rsp + 3712], 0
-                        mov              qword ptr [rsp + 3720], 0
-                        mov              qword ptr [rsp + 3728], 0
-                        mov              qword ptr [rsp + 3736], 0
-                        mov              qword ptr [rsp + 3744], 0
-                        mov              qword ptr [rsp + 3752], 0
-                        mov              qword ptr [rsp + 3760], 0
-                        mov              qword ptr [rsp + 3768], 0
-                        mov              qword ptr [rsp + 3776], 0
-                        mov              qword ptr [rsp + 3784], 0
-                        mov              qword ptr [rsp + 3792], 0
-                        mov              qword ptr [rsp + 3800], 0
-                        mov              qword ptr [rsp + 3808], 0
-                        mov              qword ptr [rsp + 3816], 0
-                        mov              qword ptr [rsp + 3824], 0
-                        mov              qword ptr [rsp + 3832], 0
-                        mov              qword ptr [rsp + 3840], 0
-                        mov              qword ptr [rsp + 3848], 0
-                        mov              qword ptr [rsp + 3856], 0
-                        mov              qword ptr [rsp + 3864], 0
-                        mov              qword ptr [rsp + 3872], 0
-                        mov              qword ptr [rsp + 3880], 0
-                        mov              qword ptr [rsp + 3888], 0
-                        mov              qword ptr [rsp + 3896], 0
-                        mov              qword ptr [rsp + 3904], 0
-                        mov              qword ptr [rsp + 3912], 0
-                        mov              qword ptr [rsp + 3920], 0
-                        mov              qword ptr [rsp + 3928], 0
-                        mov              qword ptr [rsp + 3936], 0
-                        mov              qword ptr [rsp + 3944], 0
-                        mov              qword ptr [rsp + 3952], 0
-                        mov              qword ptr [rsp + 3960], 0
-                        mov              qword ptr [rsp + 3968], 0
-                        mov              qword ptr [rsp + 3976], 0
-                        mov              qword ptr [rsp + 3984], 0
-                        mov              qword ptr [rsp + 3992], 0
-                        mov              qword ptr [rsp + 4000], 0
-                        mov              qword ptr [rsp + 4008], 0
-                        mov              qword ptr [rsp + 4016], 0
-                        mov              qword ptr [rsp + 4024], 0
-                        mov              qword ptr [rsp + 4032], 0
-                        mov              qword ptr [rsp + 4040], 0
-                        mov              qword ptr [rsp + 4048], 0
-                        mov              qword ptr [rsp + 4056], 0
-                        mov              qword ptr [rsp + 4064], 0
-                        mov              qword ptr [rsp + 4072], 0
-                        mov              qword ptr [rsp + 4080], 0
-                        mov              qword ptr [rsp + 4088], 0
-                        mov              qword ptr [rsp + 4096], 0
-                        mov              qword ptr [rsp + 4104], 0
-                        mov              qword ptr [rsp + 4112], 0
-                        mov              qword ptr [rsp + 4120], 0
-                        mov              qword ptr [rsp + 4128], 0
-                        mov              qword ptr [rsp + 4136], 0
-                        mov              qword ptr [rsp + 4144], 0
-                        mov              qword ptr [rsp + 4152], 0
-                        mov              qword ptr [rsp + 4160], 0
-                        mov              qword ptr [rsp + 4168], 0
-                        mov              qword ptr [rsp + 4176], 0
-                        mov              qword ptr [rsp + 4184], 0
-                        mov              qword ptr [rsp + 4192], 0
-                        mov              qword ptr [rsp + 4200], 0
-                        mov              qword ptr [rsp + 4208], 0
-                        mov              qword ptr [rsp + 4216], 0
-                        mov              qword ptr [rsp + 4224], 0
-                        mov              qword ptr [rsp + 4232], 0
-                        mov              qword ptr [rsp + 4240], 0
-                        mov              qword ptr [rsp + 4248], 0
-                        mov              qword ptr [rsp + 4256], 0
-                        mov              qword ptr [rsp + 4264], 0
-                        mov              qword ptr [rsp + 4272], 0
-                        mov              qword ptr [rsp + 4280], 0
-                        mov              qword ptr [rsp + 4288], 0
-                        mov              qword ptr [rsp + 4296], 0
-                        mov              qword ptr [rsp + 4304], 0
-                        mov              qword ptr [rsp + 4312], 0
-                        mov              qword ptr [rsp + 4320], 0
-                        mov              qword ptr [rsp + 4328], 0
-                        mov              qword ptr [rsp + 4336], 0
-                        mov              qword ptr [rsp + 4344], 0
-                        mov              qword ptr [rsp + 4352], 0
-                        mov              qword ptr [rsp + 4360], 0
-                        mov              qword ptr [rsp + 4368], 0
-                        mov              qword ptr [rsp + 4376], 0
-                        mov              qword ptr [rsp + 4384], 0
-                        mov              qword ptr [rsp + 4392], 0
-                        mov              qword ptr [rsp + 4400], 0
-                        mov              qword ptr [rsp + 4408], 0
-                        mov              qword ptr [rsp + 4416], 0
-                        mov              qword ptr [rsp + 4424], 0
-                        mov              qword ptr [rsp + 4432], 0
-                        mov              qword ptr [rsp + 4440], 0
-                        mov              qword ptr [rsp + 4448], 0
-                        mov              qword ptr [rsp + 4456], 0
-                        mov              qword ptr [rsp + 4464], 0
-                        mov              qword ptr [rsp + 4472], 0
-                        mov              qword ptr [rsp + 4480], 0
-                        mov              qword ptr [rsp + 4488], 0
-                        mov              qword ptr [rsp + 4496], 0
-                        mov              qword ptr [rsp + 4504], 0
-                        mov              qword ptr [rsp + 4512], 0
-                        mov              qword ptr [rsp + 4520], 0
-                        mov              qword ptr [rsp + 4528], 0
-                        mov              qword ptr [rsp + 4536], 0
-                        mov              qword ptr [rsp + 4544], 0
-                        mov              qword ptr [rsp + 4552], 0
-                        mov              qword ptr [rsp + 4560], 0
-                        mov              qword ptr [rsp + 4568], 0
-                        mov              qword ptr [rsp + 4576], 0
-                        mov              qword ptr [rsp + 4584], 0
-                        mov              qword ptr [rsp + 4592], 0
-                        mov              qword ptr [rsp + 4600], 0
-                        mov              qword ptr [rsp + 4608], 0
-                        mov              qword ptr [rsp + 4616], 0
-                        mov              qword ptr [rsp + 4624], 0
-                        mov              qword ptr [rsp + 4632], 0
-                        mov              qword ptr [rsp + 4640], 0
-                        mov              qword ptr [rsp + 4648], 0
-                        mov              qword ptr [rsp + 4656], 0
-                        mov              qword ptr [rsp + 4664], 0
-                        mov              qword ptr [rsp + 4672], 0
-                        mov              qword ptr [rsp + 4680], 0
-                        mov              qword ptr [rsp + 4688], 0
-                        mov              qword ptr [rsp + 4696], 0
-                        mov              qword ptr [rsp + 4704], 0
-                        mov              qword ptr [rsp + 4712], 0
-                        mov              qword ptr [rsp + 4720], 0
-                        mov              qword ptr [rsp + 4728], 0
-                        mov              qword ptr [rsp + 4736], 0
-                        mov              qword ptr [rsp + 4744], 0
-                        mov              qword ptr [rsp + 4752], 0
-                        mov              qword ptr [rsp + 4760], 0
-                        mov              qword ptr [rsp + 4768], 0
-                        mov              qword ptr [rsp + 4776], 0
-                        mov              qword ptr [rsp + 4784], 0
-                        mov              qword ptr [rsp + 4792], 0
-                        mov              qword ptr [rsp + 4800], 0
-                        mov              qword ptr [rsp + 4808], 0
-                        mov              qword ptr [rsp + 4816], 0
-                        mov              qword ptr [rsp + 4824], 0
-                        mov              qword ptr [rsp + 4832], 0
-                        mov              qword ptr [rsp + 4840], 0
-                        mov              qword ptr [rsp + 4848], 0
-                        mov              qword ptr [rsp + 4856], 0
-                        mov              qword ptr [rsp + 4864], 0
-                        mov              qword ptr [rsp + 4872], 0
-                        mov              qword ptr [rsp + 4880], 0
-                        mov              qword ptr [rsp + 4888], 0
-                        mov              qword ptr [rsp + 4896], 0
-                        mov              qword ptr [rsp + 4904], 0
-                        mov              qword ptr [rsp + 4912], 0
-                        mov              qword ptr [rsp + 4920], 0
-                        mov              qword ptr [rsp + 4928], 0
-                        mov              qword ptr [rsp + 4936], 0
-                        mov              qword ptr [rsp + 4944], 0
-                        mov              qword ptr [rsp + 4952], 0
-                        mov              qword ptr [rsp + 4960], 0
-                        mov              qword ptr [rsp + 4968], 0
-                        mov              qword ptr [rsp + 4976], 0
-                        mov              qword ptr [rsp + 4984], 0
-                        mov              qword ptr [rsp + 4992], 0
-                        mov              qword ptr [rsp + 5000], 0
-                        mov              qword ptr [rsp + 5008], 0
-                        mov              qword ptr [rsp + 5016], 0
-                        mov              qword ptr [rsp + 5024], 0
-                        mov              qword ptr [rsp + 5032], 0
-                        mov              qword ptr [rsp + 5040], 0
-                        mov              qword ptr [rsp + 5048], 0
-                        mov              qword ptr [rsp + 5056], 0
-                        mov              qword ptr [rsp + 5064], 0
-                        mov              qword ptr [rsp + 5072], 0
-                        mov              qword ptr [rsp + 5080], 0
-                        mov              qword ptr [rsp + 5088], 0
-                        mov              qword ptr [rsp + 5096], 0
-                        mov              qword ptr [rsp + 5104], 0
-                        mov              qword ptr [rsp + 5112], 0
-                        mov              qword ptr [rsp + 5120], 0
-                        mov              qword ptr [rsp + 5128], 0
-                        mov              qword ptr [rsp + 5136], 0
-                        mov              qword ptr [rsp + 5144], 0
-                        mov              qword ptr [rsp + 5152], 0
-                        mov              qword ptr [rsp + 5160], 0
-                        mov              qword ptr [rsp + 5168], 0
-                        mov              qword ptr [rsp + 5176], 0
-                        mov              qword ptr [rsp + 5184], 0
-                        mov              qword ptr [rsp + 5192], 0
-                        mov              qword ptr [rsp + 5200], 0
-                        mov              qword ptr [rsp + 5208], 0
-                        mov              qword ptr [rsp + 5216], 0
-                        mov              qword ptr [rsp + 5224], 0
-                        mov              qword ptr [rsp + 5232], 0
-                        mov              qword ptr [rsp + 5240], 0
-                        mov              qword ptr [rsp + 5248], 0
-                        mov              qword ptr [rsp + 5256], 0
-                        mov              qword ptr [rsp + 5264], 0
-                        mov              qword ptr [rsp + 5272], 0
-                        mov              qword ptr [rsp + 5280], 0
-                        mov              qword ptr [rsp + 5288], 0
-                        mov              qword ptr [rsp + 5296], 0
-                        mov              qword ptr [rsp + 5304], 0
-                        mov              qword ptr [rsp + 5312], 0
-                        mov              qword ptr [rsp + 5320], 0
-                        mov              qword ptr [rsp + 5328], 0
-                        mov              qword ptr [rsp + 5336], 0
-                        mov              qword ptr [rsp + 5344], 0
-                        mov              qword ptr [rsp + 5352], 0
-                        mov              qword ptr [rsp + 5360], 0
-                        mov              qword ptr [rsp + 5368], 0
-                        mov              qword ptr [rsp + 5376], 0
-                        mov              qword ptr [rsp + 5384], 0
-                        mov              qword ptr [rsp + 5392], 0
-                        mov              qword ptr [rsp + 5400], 0
-                        mov              qword ptr [rsp + 5408], 0
-                        mov              qword ptr [rsp + 5416], 0
-                        mov              qword ptr [rsp + 5424], 0
-                        mov              qword ptr [rsp + 5432], 0
-                        mov              qword ptr [rsp + 5440], 0
-                        mov              qword ptr [rsp + 5448], 0
-                        mov              qword ptr [rsp + 5456], 0
-                        mov              qword ptr [rsp + 5464], 0
-                        mov              qword ptr [rsp + 5472], 0
-                        mov              qword ptr [rsp + 5480], 0
-                        mov              qword ptr [rsp + 5488], 0
-                        mov              qword ptr [rsp + 5496], 0
-                        mov              qword ptr [rsp + 5504], 0
-                        mov              qword ptr [rsp + 5512], 0
-                        mov              qword ptr [rsp + 5520], 0
-                        mov              qword ptr [rsp + 5528], 0
-                        mov              qword ptr [rsp + 5536], 0
-                        mov              qword ptr [rsp + 5544], 0
-                        mov              qword ptr [rsp + 5552], 0
-                        mov              qword ptr [rsp + 5560], 0
-                        mov              qword ptr [rsp + 5568], 0
-                        mov              qword ptr [rsp + 5576], 0
-                        mov              qword ptr [rsp + 5584], 0
-                        mov              qword ptr [rsp + 5592], 0
-                        mov              qword ptr [rsp + 5600], 0
-                        mov              qword ptr [rsp + 5608], 0
-                        mov              qword ptr [rsp + 5616], 0
-                        mov              qword ptr [rsp + 5624], 0
-                        mov              qword ptr [rsp + 5632], 0
-                        mov              qword ptr [rsp + 5640], 0
-                        mov              qword ptr [rsp + 5648], 0
-                        mov              qword ptr [rsp + 5656], 0
-                        mov              qword ptr [rsp + 5664], 0
-                        mov              qword ptr [rsp + 5672], 0
-                        mov              qword ptr [rsp + 5680], 0
-                        mov              qword ptr [rsp + 5688], 0
-                        mov              qword ptr [rsp + 5696], 0
-                        mov              qword ptr [rsp + 5704], 0
-                        mov              qword ptr [rsp + 5712], 0
-                        mov              qword ptr [rsp + 5720], 0
-                        mov              qword ptr [rsp + 5728], 0
-                        mov              qword ptr [rsp + 5736], 0
-                        mov              qword ptr [rsp + 5744], 0
-                        mov              qword ptr [rsp + 5752], 0
-                        mov              qword ptr [rsp + 5760], 0
-                        mov              qword ptr [rsp + 5768], 0
-                        mov              qword ptr [rsp + 5776], 0
-                        mov              qword ptr [rsp + 5784], 0
-                        mov              qword ptr [rsp + 5792], 0
-                        mov              qword ptr [rsp + 5800], 0
-                        mov              qword ptr [rsp + 5808], 0
-                        mov              qword ptr [rsp + 5816], 0
-                        mov              qword ptr [rsp + 5824], 0
-                        mov              qword ptr [rsp + 5832], 0
-                        mov              qword ptr [rsp + 5840], 0
-                        mov              qword ptr [rsp + 5848], 0
-                        mov              qword ptr [rsp + 5856], 0
-                        mov              qword ptr [rsp + 5864], 0
-                        mov              qword ptr [rsp + 5872], 0
-                        mov              qword ptr [rsp + 5880], 0
-                        mov              qword ptr [rsp + 5888], 0
-                        mov              qword ptr [rsp + 5896], 0
-                        mov              qword ptr [rsp + 5904], 0
-                        mov              qword ptr [rsp + 5912], 0
-                        mov              qword ptr [rsp + 5920], 0
-                        mov              qword ptr [rsp + 5928], 0
-                        mov              qword ptr [rsp + 5936], 0
-                        mov              qword ptr [rsp + 5944], 0
-                        mov              qword ptr [rsp + 5952], 0
-                        mov              qword ptr [rsp + 5960], 0
-                        mov              qword ptr [rsp + 5968], 0
-                        mov              qword ptr [rsp + 5976], 0
-                        mov              qword ptr [rsp + 5984], 0
-                        mov              qword ptr [rsp + 5992], 0
-                        mov              qword ptr [rsp + 6000], 0
-                        mov              qword ptr [rsp + 6008], 0
-                        mov              qword ptr [rsp + 6016], 0
-                        mov              qword ptr [rsp + 6024], 0
-                        mov              qword ptr [rsp + 6032], 0
-                        mov              qword ptr [rsp + 6040], 0
-                        mov              qword ptr [rsp + 6048], 0
-                        mov              qword ptr [rsp + 6056], 0
-                        mov              qword ptr [rsp + 6064], 0
-                        mov              qword ptr [rsp + 6072], 0
-                        mov              qword ptr [rsp + 6080], 0
-                        mov              qword ptr [rsp + 6088], 0
-                        mov              qword ptr [rsp + 6096], 0
-                        mov              qword ptr [rsp + 6104], 0
-                        mov              qword ptr [rsp + 6112], 0
-                        mov              qword ptr [rsp + 6120], 0
-                        mov              qword ptr [rsp + 6128], 0
-                        mov              qword ptr [rsp + 6136], 0
-                        mov              qword ptr [rsp + 6144], 0
-                        mov              qword ptr [rsp + 6152], 0
-                        mov              qword ptr [rsp + 6160], 0
-                        mov              qword ptr [rsp + 6168], 0
-                        mov              qword ptr [rsp + 6176], 0
-                        mov              qword ptr [rsp + 6184], 0
-                        mov              qword ptr [rsp + 6192], 0
-                        mov              qword ptr [rsp + 6200], 0
-                        mov              qword ptr [rsp + 6208], 0
-                        mov              qword ptr [rsp + 6216], 0
-                        mov              qword ptr [rsp + 6224], 0
-                        mov              qword ptr [rsp + 6232], 0
-                        mov              qword ptr [rsp + 6240], 0
-                        mov              qword ptr [rsp + 6248], 0
-                        mov              qword ptr [rsp + 6256], 0
-                        mov              qword ptr [rsp + 6264], 0
-                        mov              qword ptr [rsp + 6272], 0
-                        mov              qword ptr [rsp + 6280], 0
-                        mov              qword ptr [rsp + 6288], 0
-                        mov              qword ptr [rsp + 6296], 0
-                        mov              qword ptr [rsp + 6304], 0
-                        mov              qword ptr [rsp + 6312], 0
-                        mov              qword ptr [rsp + 6320], 0
-                        mov              qword ptr [rsp + 6328], 0
-                        mov              qword ptr [rsp + 6336], 0
-                        mov              qword ptr [rsp + 6344], 0
-                        mov              qword ptr [rsp + 6352], 0
-                        mov              qword ptr [rsp + 6360], 0
-                        mov              qword ptr [rsp + 6368], 0
-                        mov              qword ptr [rsp + 6376], 0
-                        mov              qword ptr [rsp + 6384], 0
-                        mov              qword ptr [rsp + 6392], 0
-                        mov              qword ptr [rsp + 6400], 0
-                        mov              qword ptr [rsp + 6408], 0
-                        mov              qword ptr [rsp + 6416], 0
-                        mov              qword ptr [rsp + 6424], 0
-                        mov              qword ptr [rsp + 6432], 0
-                        mov              qword ptr [rsp + 6440], 0
-                        mov              qword ptr [rsp + 6448], 0
-                        mov              qword ptr [rsp + 6456], 0
-                        mov              qword ptr [rsp + 6464], 0
-                        mov              qword ptr [rsp + 6472], 0
-                        mov              qword ptr [rsp + 6480], 0
-                        mov              qword ptr [rsp + 6488], 0
-                        mov              qword ptr [rsp + 6496], 0
-                        mov              qword ptr [rsp + 6504], 0
-                        mov              qword ptr [rsp + 6512], 0
-                        mov              qword ptr [rsp + 6520], 0
-                        mov              qword ptr [rsp + 6528], 0
-                        mov              qword ptr [rsp + 6536], 0
-                        mov              qword ptr [rsp + 6544], 0
-                        mov              qword ptr [rsp + 6552], 0
-                        mov              qword ptr [rsp + 6560], 0
-                        mov              qword ptr [rsp + 6568], 0
-                        mov              qword ptr [rsp + 6576], 0
-                        mov              qword ptr [rsp + 6584], 0
-                        mov              qword ptr [rsp + 6592], 0
-                        mov              qword ptr [rsp + 6600], 0
-                        mov              qword ptr [rsp + 6608], 0
-                        mov              qword ptr [rsp + 6616], 0
-                        mov              qword ptr [rsp + 6624], 0
-                        mov              qword ptr [rsp + 6632], 0
-                        mov              qword ptr [rsp + 6640], 0
-                        mov              qword ptr [rsp + 6648], 0
-                        mov              qword ptr [rsp + 6656], 0
-                        mov              qword ptr [rsp + 6664], 0
-                        mov              qword ptr [rsp + 6672], 0
-                        mov              qword ptr [rsp + 6680], 0
-                        mov              qword ptr [rsp + 6688], 0
-                        mov              qword ptr [rsp + 6696], 0
-                        mov              qword ptr [rsp + 6704], 0
-                        mov              qword ptr [rsp + 6712], 0
-                        mov              qword ptr [rsp + 6720], 0
-                        mov              qword ptr [rsp + 6728], 0
-                        mov              qword ptr [rsp + 6736], 0
-                        mov              qword ptr [rsp + 6744], 0
-                        mov              qword ptr [rsp + 6752], 0
-                        mov              qword ptr [rsp + 6760], 0
-                        mov              qword ptr [rsp + 6768], 0
-                        mov              qword ptr [rsp + 6776], 0
-                        mov              qword ptr [rsp + 6784], 0
-                        mov              qword ptr [rsp + 6792], 0
-                        mov              qword ptr [rsp + 6800], 0
-                        mov              qword ptr [rsp + 6808], 0
-                        mov              qword ptr [rsp + 6816], 0
-                        mov              qword ptr [rsp + 6824], 0
-                        mov              qword ptr [rsp + 6832], 0
-                        mov              qword ptr [rsp + 6840], 0
-                        mov              qword ptr [rsp + 6848], 0
-                        mov              qword ptr [rsp + 6856], 0
-                        mov              qword ptr [rsp + 6864], 0
-                        mov              qword ptr [rsp + 6872], 0
-                        mov              qword ptr [rsp + 6880], 0
-                        mov              qword ptr [rsp + 6888], 0
-                        mov              qword ptr [rsp + 6896], 0
-                        mov              qword ptr [rsp + 6904], 0
-                        mov              qword ptr [rsp + 6912], 0
-                        mov              qword ptr [rsp + 6920], 0
-                        mov              qword ptr [rsp + 6928], 0
-                        mov              qword ptr [rsp + 6936], 0
-                        mov              qword ptr [rsp + 6944], 0
-                        mov              qword ptr [rsp + 6952], 0
-                        mov              qword ptr [rsp + 6960], 0
-                        mov              qword ptr [rsp + 6968], 0
-                        mov              qword ptr [rsp + 6976], 0
-                        mov              qword ptr [rsp + 6984], 0
-                        mov              qword ptr [rsp + 6976], 2                      # result
-                        mov              dword ptr [rsp + 6980], 4
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 4
                         mov              rax, qword ptr [rip + .Lx1602_0]
-                        mov              qword ptr [rsp + 6984], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n1119_call_α
 n1118_lit_string_β:
-                        add              rsp, 6992
+                        add              rsp, 16
                                                                                         jmp   n1121_lit_string_α
 .Lx1602_0:
                         .quad            .Lx1602_0_s
@@ -14206,6 +10780,11 @@ n1118_lit_string_β:
                         .string          "bank"
 #-----------------------------------------------------------------------------------------------------------------------
 n1119_call_α:
+                        sub              rsp, 16
+                        mov              edi, 0                                         # idx
+                        mov              rsi, qword ptr [rsp + 16]                      # lit_string
+                        mov              rdx, qword ptr [rsp + 24]                      # v
+                        call             rt_arg_stage@PLT
                         sub              rsp, 32
                         mov              rax, qword ptr [1879052304]                    # v
                         mov              qword ptr [rsp + 0], rax
@@ -14221,9 +10800,10 @@ n1119_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx1604_5
-                        mov              rax, qword ptr [rsp + 7008]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 0]
                         mov              qword ptr [1879052304], rax                    # v
-                        mov              rax, qword ptr [rsp + 7016]
+                        mov              rax, qword ptr [r10 + 8]
                         mov              qword ptr [1879052312], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx1604_6]
@@ -14257,45 +10837,13 @@ n1119_call_α:
                                                                                         jmp   .Lx1604_2
 .Lx1604_5:
                         add              rsp, 32
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx1604_20
-                        mov              rax, qword ptr [rsp + 6976]
-                        mov              rdx, qword ptr [rsp + 6984]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 0], rax
-                        mov              qword ptr [r10 + 8], rdx
-                                                                                        jmp   .Lx1604_21
-.Lx1604_20:
-                        mov              edi, 0                                         # idx
-                        mov              rsi, qword ptr [rsp + 6976]                    # v
-                        mov              rdx, qword ptr [rsp + 6984]                    # v
-                        call             rt_arg_stage@PLT
-.Lx1604_21:
-                        mov              rdi, qword ptr [rip + .Lx1604_0]               # name
-                        mov              esi, 1                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx1604_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx1604_3]
-                        lea              rdx, [rip + .Lx1604_4]
-                                                                                        jmp   rax
-.Lx1604_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx1604_2
-.Lx1604_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx1604_2
-.Lx1604_1:
-                        call             rt_faildescr@PLT
 .Lx1604_2:
-                        mov              qword ptr [rsp + 6928], rax
-                        mov              qword ptr [rsp + 6936], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx1604_240
-                        add              rsp, 6992
+                        add              rsp, 16
+                        add              rsp, 16
                                                                                         jmp   n1121_lit_string_α
 .Lx1604_240:
                                                                                         jmp   n1120_assign_α
@@ -14307,909 +10855,27 @@ n1119_call_β:
                         .string          "init_list"
 #-----------------------------------------------------------------------------------------------------------------------
 n1120_assign_α:
-                        mov              rax, qword ptr [rsp + 6928]
-                        mov              rdx, qword ptr [rsp + 6936]
+                        mov              rax, qword ptr [rsp + 0]                       # call
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052912], rax                    # dummy
                         mov              qword ptr [1879052920], rdx
-                        add              rsp, 6992
+                        add              rsp, 32
                                                                                         jmp   n1121_lit_string_α
 n1120_assign_β:
-                        add              rsp, 6992
+                        add              rsp, 32
                                                                                         jmp   n1121_lit_string_α
 #=======================================================================================================================
 #                dummy          =  stk_push_frame('BANK')
 #-----------------------------------------------------------------------------------------------------------------------
 n1121_lit_string_α:
-                        sub              rsp, 7056
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
-                        mov              qword ptr [rsp + 96], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 120], 0
-                        mov              qword ptr [rsp + 128], 0
-                        mov              qword ptr [rsp + 136], 0
-                        mov              qword ptr [rsp + 144], 0
-                        mov              qword ptr [rsp + 152], 0
-                        mov              qword ptr [rsp + 160], 0
-                        mov              qword ptr [rsp + 168], 0
-                        mov              qword ptr [rsp + 176], 0
-                        mov              qword ptr [rsp + 184], 0
-                        mov              qword ptr [rsp + 192], 0
-                        mov              qword ptr [rsp + 200], 0
-                        mov              qword ptr [rsp + 208], 0
-                        mov              qword ptr [rsp + 216], 0
-                        mov              qword ptr [rsp + 224], 0
-                        mov              qword ptr [rsp + 232], 0
-                        mov              qword ptr [rsp + 240], 0
-                        mov              qword ptr [rsp + 248], 0
-                        mov              qword ptr [rsp + 256], 0
-                        mov              qword ptr [rsp + 264], 0
-                        mov              qword ptr [rsp + 272], 0
-                        mov              qword ptr [rsp + 280], 0
-                        mov              qword ptr [rsp + 288], 0
-                        mov              qword ptr [rsp + 296], 0
-                        mov              qword ptr [rsp + 304], 0
-                        mov              qword ptr [rsp + 312], 0
-                        mov              qword ptr [rsp + 320], 0
-                        mov              qword ptr [rsp + 328], 0
-                        mov              qword ptr [rsp + 336], 0
-                        mov              qword ptr [rsp + 344], 0
-                        mov              qword ptr [rsp + 352], 0
-                        mov              qword ptr [rsp + 360], 0
-                        mov              qword ptr [rsp + 368], 0
-                        mov              qword ptr [rsp + 376], 0
-                        mov              qword ptr [rsp + 384], 0
-                        mov              qword ptr [rsp + 392], 0
-                        mov              qword ptr [rsp + 400], 0
-                        mov              qword ptr [rsp + 408], 0
-                        mov              qword ptr [rsp + 416], 0
-                        mov              qword ptr [rsp + 424], 0
-                        mov              qword ptr [rsp + 432], 0
-                        mov              qword ptr [rsp + 440], 0
-                        mov              qword ptr [rsp + 448], 0
-                        mov              qword ptr [rsp + 456], 0
-                        mov              qword ptr [rsp + 464], 0
-                        mov              qword ptr [rsp + 472], 0
-                        mov              qword ptr [rsp + 480], 0
-                        mov              qword ptr [rsp + 488], 0
-                        mov              qword ptr [rsp + 496], 0
-                        mov              qword ptr [rsp + 504], 0
-                        mov              qword ptr [rsp + 512], 0
-                        mov              qword ptr [rsp + 520], 0
-                        mov              qword ptr [rsp + 528], 0
-                        mov              qword ptr [rsp + 536], 0
-                        mov              qword ptr [rsp + 544], 0
-                        mov              qword ptr [rsp + 552], 0
-                        mov              qword ptr [rsp + 560], 0
-                        mov              qword ptr [rsp + 568], 0
-                        mov              qword ptr [rsp + 576], 0
-                        mov              qword ptr [rsp + 584], 0
-                        mov              qword ptr [rsp + 592], 0
-                        mov              qword ptr [rsp + 600], 0
-                        mov              qword ptr [rsp + 608], 0
-                        mov              qword ptr [rsp + 616], 0
-                        mov              qword ptr [rsp + 624], 0
-                        mov              qword ptr [rsp + 632], 0
-                        mov              qword ptr [rsp + 640], 0
-                        mov              qword ptr [rsp + 648], 0
-                        mov              qword ptr [rsp + 656], 0
-                        mov              qword ptr [rsp + 664], 0
-                        mov              qword ptr [rsp + 672], 0
-                        mov              qword ptr [rsp + 680], 0
-                        mov              qword ptr [rsp + 688], 0
-                        mov              qword ptr [rsp + 696], 0
-                        mov              qword ptr [rsp + 704], 0
-                        mov              qword ptr [rsp + 712], 0
-                        mov              qword ptr [rsp + 720], 0
-                        mov              qword ptr [rsp + 728], 0
-                        mov              qword ptr [rsp + 736], 0
-                        mov              qword ptr [rsp + 744], 0
-                        mov              qword ptr [rsp + 752], 0
-                        mov              qword ptr [rsp + 760], 0
-                        mov              qword ptr [rsp + 768], 0
-                        mov              qword ptr [rsp + 776], 0
-                        mov              qword ptr [rsp + 784], 0
-                        mov              qword ptr [rsp + 792], 0
-                        mov              qword ptr [rsp + 800], 0
-                        mov              qword ptr [rsp + 808], 0
-                        mov              qword ptr [rsp + 816], 0
-                        mov              qword ptr [rsp + 824], 0
-                        mov              qword ptr [rsp + 832], 0
-                        mov              qword ptr [rsp + 840], 0
-                        mov              qword ptr [rsp + 848], 0
-                        mov              qword ptr [rsp + 856], 0
-                        mov              qword ptr [rsp + 864], 0
-                        mov              qword ptr [rsp + 872], 0
-                        mov              qword ptr [rsp + 880], 0
-                        mov              qword ptr [rsp + 888], 0
-                        mov              qword ptr [rsp + 896], 0
-                        mov              qword ptr [rsp + 904], 0
-                        mov              qword ptr [rsp + 912], 0
-                        mov              qword ptr [rsp + 920], 0
-                        mov              qword ptr [rsp + 928], 0
-                        mov              qword ptr [rsp + 936], 0
-                        mov              qword ptr [rsp + 944], 0
-                        mov              qword ptr [rsp + 952], 0
-                        mov              qword ptr [rsp + 960], 0
-                        mov              qword ptr [rsp + 968], 0
-                        mov              qword ptr [rsp + 976], 0
-                        mov              qword ptr [rsp + 984], 0
-                        mov              qword ptr [rsp + 992], 0
-                        mov              qword ptr [rsp + 1000], 0
-                        mov              qword ptr [rsp + 1008], 0
-                        mov              qword ptr [rsp + 1016], 0
-                        mov              qword ptr [rsp + 1024], 0
-                        mov              qword ptr [rsp + 1032], 0
-                        mov              qword ptr [rsp + 1040], 0
-                        mov              qword ptr [rsp + 1048], 0
-                        mov              qword ptr [rsp + 1056], 0
-                        mov              qword ptr [rsp + 1064], 0
-                        mov              qword ptr [rsp + 1072], 0
-                        mov              qword ptr [rsp + 1080], 0
-                        mov              qword ptr [rsp + 1088], 0
-                        mov              qword ptr [rsp + 1096], 0
-                        mov              qword ptr [rsp + 1104], 0
-                        mov              qword ptr [rsp + 1112], 0
-                        mov              qword ptr [rsp + 1120], 0
-                        mov              qword ptr [rsp + 1128], 0
-                        mov              qword ptr [rsp + 1136], 0
-                        mov              qword ptr [rsp + 1144], 0
-                        mov              qword ptr [rsp + 1152], 0
-                        mov              qword ptr [rsp + 1160], 0
-                        mov              qword ptr [rsp + 1168], 0
-                        mov              qword ptr [rsp + 1176], 0
-                        mov              qword ptr [rsp + 1184], 0
-                        mov              qword ptr [rsp + 1192], 0
-                        mov              qword ptr [rsp + 1200], 0
-                        mov              qword ptr [rsp + 1208], 0
-                        mov              qword ptr [rsp + 1216], 0
-                        mov              qword ptr [rsp + 1224], 0
-                        mov              qword ptr [rsp + 1232], 0
-                        mov              qword ptr [rsp + 1240], 0
-                        mov              qword ptr [rsp + 1248], 0
-                        mov              qword ptr [rsp + 1256], 0
-                        mov              qword ptr [rsp + 1264], 0
-                        mov              qword ptr [rsp + 1272], 0
-                        mov              qword ptr [rsp + 1280], 0
-                        mov              qword ptr [rsp + 1288], 0
-                        mov              qword ptr [rsp + 1296], 0
-                        mov              qword ptr [rsp + 1304], 0
-                        mov              qword ptr [rsp + 1312], 0
-                        mov              qword ptr [rsp + 1320], 0
-                        mov              qword ptr [rsp + 1328], 0
-                        mov              qword ptr [rsp + 1336], 0
-                        mov              qword ptr [rsp + 1344], 0
-                        mov              qword ptr [rsp + 1352], 0
-                        mov              qword ptr [rsp + 1360], 0
-                        mov              qword ptr [rsp + 1368], 0
-                        mov              qword ptr [rsp + 1376], 0
-                        mov              qword ptr [rsp + 1384], 0
-                        mov              qword ptr [rsp + 1392], 0
-                        mov              qword ptr [rsp + 1400], 0
-                        mov              qword ptr [rsp + 1408], 0
-                        mov              qword ptr [rsp + 1416], 0
-                        mov              qword ptr [rsp + 1424], 0
-                        mov              qword ptr [rsp + 1432], 0
-                        mov              qword ptr [rsp + 1440], 0
-                        mov              qword ptr [rsp + 1448], 0
-                        mov              qword ptr [rsp + 1456], 0
-                        mov              qword ptr [rsp + 1464], 0
-                        mov              qword ptr [rsp + 1472], 0
-                        mov              qword ptr [rsp + 1480], 0
-                        mov              qword ptr [rsp + 1488], 0
-                        mov              qword ptr [rsp + 1496], 0
-                        mov              qword ptr [rsp + 1504], 0
-                        mov              qword ptr [rsp + 1512], 0
-                        mov              qword ptr [rsp + 1520], 0
-                        mov              qword ptr [rsp + 1528], 0
-                        mov              qword ptr [rsp + 1536], 0
-                        mov              qword ptr [rsp + 1544], 0
-                        mov              qword ptr [rsp + 1552], 0
-                        mov              qword ptr [rsp + 1560], 0
-                        mov              qword ptr [rsp + 1568], 0
-                        mov              qword ptr [rsp + 1576], 0
-                        mov              qword ptr [rsp + 1584], 0
-                        mov              qword ptr [rsp + 1592], 0
-                        mov              qword ptr [rsp + 1600], 0
-                        mov              qword ptr [rsp + 1608], 0
-                        mov              qword ptr [rsp + 1616], 0
-                        mov              qword ptr [rsp + 1624], 0
-                        mov              qword ptr [rsp + 1632], 0
-                        mov              qword ptr [rsp + 1640], 0
-                        mov              qword ptr [rsp + 1648], 0
-                        mov              qword ptr [rsp + 1656], 0
-                        mov              qword ptr [rsp + 1664], 0
-                        mov              qword ptr [rsp + 1672], 0
-                        mov              qword ptr [rsp + 1680], 0
-                        mov              qword ptr [rsp + 1688], 0
-                        mov              qword ptr [rsp + 1696], 0
-                        mov              qword ptr [rsp + 1704], 0
-                        mov              qword ptr [rsp + 1712], 0
-                        mov              qword ptr [rsp + 1720], 0
-                        mov              qword ptr [rsp + 1728], 0
-                        mov              qword ptr [rsp + 1736], 0
-                        mov              qword ptr [rsp + 1744], 0
-                        mov              qword ptr [rsp + 1752], 0
-                        mov              qword ptr [rsp + 1760], 0
-                        mov              qword ptr [rsp + 1768], 0
-                        mov              qword ptr [rsp + 1776], 0
-                        mov              qword ptr [rsp + 1784], 0
-                        mov              qword ptr [rsp + 1792], 0
-                        mov              qword ptr [rsp + 1800], 0
-                        mov              qword ptr [rsp + 1808], 0
-                        mov              qword ptr [rsp + 1816], 0
-                        mov              qword ptr [rsp + 1824], 0
-                        mov              qword ptr [rsp + 1832], 0
-                        mov              qword ptr [rsp + 1840], 0
-                        mov              qword ptr [rsp + 1848], 0
-                        mov              qword ptr [rsp + 1856], 0
-                        mov              qword ptr [rsp + 1864], 0
-                        mov              qword ptr [rsp + 1872], 0
-                        mov              qword ptr [rsp + 1880], 0
-                        mov              qword ptr [rsp + 1888], 0
-                        mov              qword ptr [rsp + 1896], 0
-                        mov              qword ptr [rsp + 1904], 0
-                        mov              qword ptr [rsp + 1912], 0
-                        mov              qword ptr [rsp + 1920], 0
-                        mov              qword ptr [rsp + 1928], 0
-                        mov              qword ptr [rsp + 1936], 0
-                        mov              qword ptr [rsp + 1944], 0
-                        mov              qword ptr [rsp + 1952], 0
-                        mov              qword ptr [rsp + 1960], 0
-                        mov              qword ptr [rsp + 1968], 0
-                        mov              qword ptr [rsp + 1976], 0
-                        mov              qword ptr [rsp + 1984], 0
-                        mov              qword ptr [rsp + 1992], 0
-                        mov              qword ptr [rsp + 2000], 0
-                        mov              qword ptr [rsp + 2008], 0
-                        mov              qword ptr [rsp + 2016], 0
-                        mov              qword ptr [rsp + 2024], 0
-                        mov              qword ptr [rsp + 2032], 0
-                        mov              qword ptr [rsp + 2040], 0
-                        mov              qword ptr [rsp + 2048], 0
-                        mov              qword ptr [rsp + 2056], 0
-                        mov              qword ptr [rsp + 2064], 0
-                        mov              qword ptr [rsp + 2072], 0
-                        mov              qword ptr [rsp + 2080], 0
-                        mov              qword ptr [rsp + 2088], 0
-                        mov              qword ptr [rsp + 2096], 0
-                        mov              qword ptr [rsp + 2104], 0
-                        mov              qword ptr [rsp + 2112], 0
-                        mov              qword ptr [rsp + 2120], 0
-                        mov              qword ptr [rsp + 2128], 0
-                        mov              qword ptr [rsp + 2136], 0
-                        mov              qword ptr [rsp + 2144], 0
-                        mov              qword ptr [rsp + 2152], 0
-                        mov              qword ptr [rsp + 2160], 0
-                        mov              qword ptr [rsp + 2168], 0
-                        mov              qword ptr [rsp + 2176], 0
-                        mov              qword ptr [rsp + 2184], 0
-                        mov              qword ptr [rsp + 2192], 0
-                        mov              qword ptr [rsp + 2200], 0
-                        mov              qword ptr [rsp + 2208], 0
-                        mov              qword ptr [rsp + 2216], 0
-                        mov              qword ptr [rsp + 2224], 0
-                        mov              qword ptr [rsp + 2232], 0
-                        mov              qword ptr [rsp + 2240], 0
-                        mov              qword ptr [rsp + 2248], 0
-                        mov              qword ptr [rsp + 2256], 0
-                        mov              qword ptr [rsp + 2264], 0
-                        mov              qword ptr [rsp + 2272], 0
-                        mov              qword ptr [rsp + 2280], 0
-                        mov              qword ptr [rsp + 2288], 0
-                        mov              qword ptr [rsp + 2296], 0
-                        mov              qword ptr [rsp + 2304], 0
-                        mov              qword ptr [rsp + 2312], 0
-                        mov              qword ptr [rsp + 2320], 0
-                        mov              qword ptr [rsp + 2328], 0
-                        mov              qword ptr [rsp + 2336], 0
-                        mov              qword ptr [rsp + 2344], 0
-                        mov              qword ptr [rsp + 2352], 0
-                        mov              qword ptr [rsp + 2360], 0
-                        mov              qword ptr [rsp + 2368], 0
-                        mov              qword ptr [rsp + 2376], 0
-                        mov              qword ptr [rsp + 2384], 0
-                        mov              qword ptr [rsp + 2392], 0
-                        mov              qword ptr [rsp + 2400], 0
-                        mov              qword ptr [rsp + 2408], 0
-                        mov              qword ptr [rsp + 2416], 0
-                        mov              qword ptr [rsp + 2424], 0
-                        mov              qword ptr [rsp + 2432], 0
-                        mov              qword ptr [rsp + 2440], 0
-                        mov              qword ptr [rsp + 2448], 0
-                        mov              qword ptr [rsp + 2456], 0
-                        mov              qword ptr [rsp + 2464], 0
-                        mov              qword ptr [rsp + 2472], 0
-                        mov              qword ptr [rsp + 2480], 0
-                        mov              qword ptr [rsp + 2488], 0
-                        mov              qword ptr [rsp + 2496], 0
-                        mov              qword ptr [rsp + 2504], 0
-                        mov              qword ptr [rsp + 2512], 0
-                        mov              qword ptr [rsp + 2520], 0
-                        mov              qword ptr [rsp + 2528], 0
-                        mov              qword ptr [rsp + 2536], 0
-                        mov              qword ptr [rsp + 2544], 0
-                        mov              qword ptr [rsp + 2552], 0
-                        mov              qword ptr [rsp + 2560], 0
-                        mov              qword ptr [rsp + 2568], 0
-                        mov              qword ptr [rsp + 2576], 0
-                        mov              qword ptr [rsp + 2584], 0
-                        mov              qword ptr [rsp + 2592], 0
-                        mov              qword ptr [rsp + 2600], 0
-                        mov              qword ptr [rsp + 2608], 0
-                        mov              qword ptr [rsp + 2616], 0
-                        mov              qword ptr [rsp + 2624], 0
-                        mov              qword ptr [rsp + 2632], 0
-                        mov              qword ptr [rsp + 2640], 0
-                        mov              qword ptr [rsp + 2648], 0
-                        mov              qword ptr [rsp + 2656], 0
-                        mov              qword ptr [rsp + 2664], 0
-                        mov              qword ptr [rsp + 2672], 0
-                        mov              qword ptr [rsp + 2680], 0
-                        mov              qword ptr [rsp + 2688], 0
-                        mov              qword ptr [rsp + 2696], 0
-                        mov              qword ptr [rsp + 2704], 0
-                        mov              qword ptr [rsp + 2712], 0
-                        mov              qword ptr [rsp + 2720], 0
-                        mov              qword ptr [rsp + 2728], 0
-                        mov              qword ptr [rsp + 2736], 0
-                        mov              qword ptr [rsp + 2744], 0
-                        mov              qword ptr [rsp + 2752], 0
-                        mov              qword ptr [rsp + 2760], 0
-                        mov              qword ptr [rsp + 2768], 0
-                        mov              qword ptr [rsp + 2776], 0
-                        mov              qword ptr [rsp + 2784], 0
-                        mov              qword ptr [rsp + 2792], 0
-                        mov              qword ptr [rsp + 2800], 0
-                        mov              qword ptr [rsp + 2808], 0
-                        mov              qword ptr [rsp + 2816], 0
-                        mov              qword ptr [rsp + 2824], 0
-                        mov              qword ptr [rsp + 2832], 0
-                        mov              qword ptr [rsp + 2840], 0
-                        mov              qword ptr [rsp + 2848], 0
-                        mov              qword ptr [rsp + 2856], 0
-                        mov              qword ptr [rsp + 2864], 0
-                        mov              qword ptr [rsp + 2872], 0
-                        mov              qword ptr [rsp + 2880], 0
-                        mov              qword ptr [rsp + 2888], 0
-                        mov              qword ptr [rsp + 2896], 0
-                        mov              qword ptr [rsp + 2904], 0
-                        mov              qword ptr [rsp + 2912], 0
-                        mov              qword ptr [rsp + 2920], 0
-                        mov              qword ptr [rsp + 2928], 0
-                        mov              qword ptr [rsp + 2936], 0
-                        mov              qword ptr [rsp + 2944], 0
-                        mov              qword ptr [rsp + 2952], 0
-                        mov              qword ptr [rsp + 2960], 0
-                        mov              qword ptr [rsp + 2968], 0
-                        mov              qword ptr [rsp + 2976], 0
-                        mov              qword ptr [rsp + 2984], 0
-                        mov              qword ptr [rsp + 2992], 0
-                        mov              qword ptr [rsp + 3000], 0
-                        mov              qword ptr [rsp + 3008], 0
-                        mov              qword ptr [rsp + 3016], 0
-                        mov              qword ptr [rsp + 3024], 0
-                        mov              qword ptr [rsp + 3032], 0
-                        mov              qword ptr [rsp + 3040], 0
-                        mov              qword ptr [rsp + 3048], 0
-                        mov              qword ptr [rsp + 3056], 0
-                        mov              qword ptr [rsp + 3064], 0
-                        mov              qword ptr [rsp + 3072], 0
-                        mov              qword ptr [rsp + 3080], 0
-                        mov              qword ptr [rsp + 3088], 0
-                        mov              qword ptr [rsp + 3096], 0
-                        mov              qword ptr [rsp + 3104], 0
-                        mov              qword ptr [rsp + 3112], 0
-                        mov              qword ptr [rsp + 3120], 0
-                        mov              qword ptr [rsp + 3128], 0
-                        mov              qword ptr [rsp + 3136], 0
-                        mov              qword ptr [rsp + 3144], 0
-                        mov              qword ptr [rsp + 3152], 0
-                        mov              qword ptr [rsp + 3160], 0
-                        mov              qword ptr [rsp + 3168], 0
-                        mov              qword ptr [rsp + 3176], 0
-                        mov              qword ptr [rsp + 3184], 0
-                        mov              qword ptr [rsp + 3192], 0
-                        mov              qword ptr [rsp + 3200], 0
-                        mov              qword ptr [rsp + 3208], 0
-                        mov              qword ptr [rsp + 3216], 0
-                        mov              qword ptr [rsp + 3224], 0
-                        mov              qword ptr [rsp + 3232], 0
-                        mov              qword ptr [rsp + 3240], 0
-                        mov              qword ptr [rsp + 3248], 0
-                        mov              qword ptr [rsp + 3256], 0
-                        mov              qword ptr [rsp + 3264], 0
-                        mov              qword ptr [rsp + 3272], 0
-                        mov              qword ptr [rsp + 3280], 0
-                        mov              qword ptr [rsp + 3288], 0
-                        mov              qword ptr [rsp + 3296], 0
-                        mov              qword ptr [rsp + 3304], 0
-                        mov              qword ptr [rsp + 3312], 0
-                        mov              qword ptr [rsp + 3320], 0
-                        mov              qword ptr [rsp + 3328], 0
-                        mov              qword ptr [rsp + 3336], 0
-                        mov              qword ptr [rsp + 3344], 0
-                        mov              qword ptr [rsp + 3352], 0
-                        mov              qword ptr [rsp + 3360], 0
-                        mov              qword ptr [rsp + 3368], 0
-                        mov              qword ptr [rsp + 3376], 0
-                        mov              qword ptr [rsp + 3384], 0
-                        mov              qword ptr [rsp + 3392], 0
-                        mov              qword ptr [rsp + 3400], 0
-                        mov              qword ptr [rsp + 3408], 0
-                        mov              qword ptr [rsp + 3416], 0
-                        mov              qword ptr [rsp + 3424], 0
-                        mov              qword ptr [rsp + 3432], 0
-                        mov              qword ptr [rsp + 3440], 0
-                        mov              qword ptr [rsp + 3448], 0
-                        mov              qword ptr [rsp + 3456], 0
-                        mov              qword ptr [rsp + 3464], 0
-                        mov              qword ptr [rsp + 3472], 0
-                        mov              qword ptr [rsp + 3480], 0
-                        mov              qword ptr [rsp + 3488], 0
-                        mov              qword ptr [rsp + 3496], 0
-                        mov              qword ptr [rsp + 3504], 0
-                        mov              qword ptr [rsp + 3512], 0
-                        mov              qword ptr [rsp + 3520], 0
-                        mov              qword ptr [rsp + 3528], 0
-                        mov              qword ptr [rsp + 3536], 0
-                        mov              qword ptr [rsp + 3544], 0
-                        mov              qword ptr [rsp + 3552], 0
-                        mov              qword ptr [rsp + 3560], 0
-                        mov              qword ptr [rsp + 3568], 0
-                        mov              qword ptr [rsp + 3576], 0
-                        mov              qword ptr [rsp + 3584], 0
-                        mov              qword ptr [rsp + 3592], 0
-                        mov              qword ptr [rsp + 3600], 0
-                        mov              qword ptr [rsp + 3608], 0
-                        mov              qword ptr [rsp + 3616], 0
-                        mov              qword ptr [rsp + 3624], 0
-                        mov              qword ptr [rsp + 3632], 0
-                        mov              qword ptr [rsp + 3640], 0
-                        mov              qword ptr [rsp + 3648], 0
-                        mov              qword ptr [rsp + 3656], 0
-                        mov              qword ptr [rsp + 3664], 0
-                        mov              qword ptr [rsp + 3672], 0
-                        mov              qword ptr [rsp + 3680], 0
-                        mov              qword ptr [rsp + 3688], 0
-                        mov              qword ptr [rsp + 3696], 0
-                        mov              qword ptr [rsp + 3704], 0
-                        mov              qword ptr [rsp + 3712], 0
-                        mov              qword ptr [rsp + 3720], 0
-                        mov              qword ptr [rsp + 3728], 0
-                        mov              qword ptr [rsp + 3736], 0
-                        mov              qword ptr [rsp + 3744], 0
-                        mov              qword ptr [rsp + 3752], 0
-                        mov              qword ptr [rsp + 3760], 0
-                        mov              qword ptr [rsp + 3768], 0
-                        mov              qword ptr [rsp + 3776], 0
-                        mov              qword ptr [rsp + 3784], 0
-                        mov              qword ptr [rsp + 3792], 0
-                        mov              qword ptr [rsp + 3800], 0
-                        mov              qword ptr [rsp + 3808], 0
-                        mov              qword ptr [rsp + 3816], 0
-                        mov              qword ptr [rsp + 3824], 0
-                        mov              qword ptr [rsp + 3832], 0
-                        mov              qword ptr [rsp + 3840], 0
-                        mov              qword ptr [rsp + 3848], 0
-                        mov              qword ptr [rsp + 3856], 0
-                        mov              qword ptr [rsp + 3864], 0
-                        mov              qword ptr [rsp + 3872], 0
-                        mov              qword ptr [rsp + 3880], 0
-                        mov              qword ptr [rsp + 3888], 0
-                        mov              qword ptr [rsp + 3896], 0
-                        mov              qword ptr [rsp + 3904], 0
-                        mov              qword ptr [rsp + 3912], 0
-                        mov              qword ptr [rsp + 3920], 0
-                        mov              qword ptr [rsp + 3928], 0
-                        mov              qword ptr [rsp + 3936], 0
-                        mov              qword ptr [rsp + 3944], 0
-                        mov              qword ptr [rsp + 3952], 0
-                        mov              qword ptr [rsp + 3960], 0
-                        mov              qword ptr [rsp + 3968], 0
-                        mov              qword ptr [rsp + 3976], 0
-                        mov              qword ptr [rsp + 3984], 0
-                        mov              qword ptr [rsp + 3992], 0
-                        mov              qword ptr [rsp + 4000], 0
-                        mov              qword ptr [rsp + 4008], 0
-                        mov              qword ptr [rsp + 4016], 0
-                        mov              qword ptr [rsp + 4024], 0
-                        mov              qword ptr [rsp + 4032], 0
-                        mov              qword ptr [rsp + 4040], 0
-                        mov              qword ptr [rsp + 4048], 0
-                        mov              qword ptr [rsp + 4056], 0
-                        mov              qword ptr [rsp + 4064], 0
-                        mov              qword ptr [rsp + 4072], 0
-                        mov              qword ptr [rsp + 4080], 0
-                        mov              qword ptr [rsp + 4088], 0
-                        mov              qword ptr [rsp + 4096], 0
-                        mov              qword ptr [rsp + 4104], 0
-                        mov              qword ptr [rsp + 4112], 0
-                        mov              qword ptr [rsp + 4120], 0
-                        mov              qword ptr [rsp + 4128], 0
-                        mov              qword ptr [rsp + 4136], 0
-                        mov              qword ptr [rsp + 4144], 0
-                        mov              qword ptr [rsp + 4152], 0
-                        mov              qword ptr [rsp + 4160], 0
-                        mov              qword ptr [rsp + 4168], 0
-                        mov              qword ptr [rsp + 4176], 0
-                        mov              qword ptr [rsp + 4184], 0
-                        mov              qword ptr [rsp + 4192], 0
-                        mov              qword ptr [rsp + 4200], 0
-                        mov              qword ptr [rsp + 4208], 0
-                        mov              qword ptr [rsp + 4216], 0
-                        mov              qword ptr [rsp + 4224], 0
-                        mov              qword ptr [rsp + 4232], 0
-                        mov              qword ptr [rsp + 4240], 0
-                        mov              qword ptr [rsp + 4248], 0
-                        mov              qword ptr [rsp + 4256], 0
-                        mov              qword ptr [rsp + 4264], 0
-                        mov              qword ptr [rsp + 4272], 0
-                        mov              qword ptr [rsp + 4280], 0
-                        mov              qword ptr [rsp + 4288], 0
-                        mov              qword ptr [rsp + 4296], 0
-                        mov              qword ptr [rsp + 4304], 0
-                        mov              qword ptr [rsp + 4312], 0
-                        mov              qword ptr [rsp + 4320], 0
-                        mov              qword ptr [rsp + 4328], 0
-                        mov              qword ptr [rsp + 4336], 0
-                        mov              qword ptr [rsp + 4344], 0
-                        mov              qword ptr [rsp + 4352], 0
-                        mov              qword ptr [rsp + 4360], 0
-                        mov              qword ptr [rsp + 4368], 0
-                        mov              qword ptr [rsp + 4376], 0
-                        mov              qword ptr [rsp + 4384], 0
-                        mov              qword ptr [rsp + 4392], 0
-                        mov              qword ptr [rsp + 4400], 0
-                        mov              qword ptr [rsp + 4408], 0
-                        mov              qword ptr [rsp + 4416], 0
-                        mov              qword ptr [rsp + 4424], 0
-                        mov              qword ptr [rsp + 4432], 0
-                        mov              qword ptr [rsp + 4440], 0
-                        mov              qword ptr [rsp + 4448], 0
-                        mov              qword ptr [rsp + 4456], 0
-                        mov              qword ptr [rsp + 4464], 0
-                        mov              qword ptr [rsp + 4472], 0
-                        mov              qword ptr [rsp + 4480], 0
-                        mov              qword ptr [rsp + 4488], 0
-                        mov              qword ptr [rsp + 4496], 0
-                        mov              qword ptr [rsp + 4504], 0
-                        mov              qword ptr [rsp + 4512], 0
-                        mov              qword ptr [rsp + 4520], 0
-                        mov              qword ptr [rsp + 4528], 0
-                        mov              qword ptr [rsp + 4536], 0
-                        mov              qword ptr [rsp + 4544], 0
-                        mov              qword ptr [rsp + 4552], 0
-                        mov              qword ptr [rsp + 4560], 0
-                        mov              qword ptr [rsp + 4568], 0
-                        mov              qword ptr [rsp + 4576], 0
-                        mov              qword ptr [rsp + 4584], 0
-                        mov              qword ptr [rsp + 4592], 0
-                        mov              qword ptr [rsp + 4600], 0
-                        mov              qword ptr [rsp + 4608], 0
-                        mov              qword ptr [rsp + 4616], 0
-                        mov              qword ptr [rsp + 4624], 0
-                        mov              qword ptr [rsp + 4632], 0
-                        mov              qword ptr [rsp + 4640], 0
-                        mov              qword ptr [rsp + 4648], 0
-                        mov              qword ptr [rsp + 4656], 0
-                        mov              qword ptr [rsp + 4664], 0
-                        mov              qword ptr [rsp + 4672], 0
-                        mov              qword ptr [rsp + 4680], 0
-                        mov              qword ptr [rsp + 4688], 0
-                        mov              qword ptr [rsp + 4696], 0
-                        mov              qword ptr [rsp + 4704], 0
-                        mov              qword ptr [rsp + 4712], 0
-                        mov              qword ptr [rsp + 4720], 0
-                        mov              qword ptr [rsp + 4728], 0
-                        mov              qword ptr [rsp + 4736], 0
-                        mov              qword ptr [rsp + 4744], 0
-                        mov              qword ptr [rsp + 4752], 0
-                        mov              qword ptr [rsp + 4760], 0
-                        mov              qword ptr [rsp + 4768], 0
-                        mov              qword ptr [rsp + 4776], 0
-                        mov              qword ptr [rsp + 4784], 0
-                        mov              qword ptr [rsp + 4792], 0
-                        mov              qword ptr [rsp + 4800], 0
-                        mov              qword ptr [rsp + 4808], 0
-                        mov              qword ptr [rsp + 4816], 0
-                        mov              qword ptr [rsp + 4824], 0
-                        mov              qword ptr [rsp + 4832], 0
-                        mov              qword ptr [rsp + 4840], 0
-                        mov              qword ptr [rsp + 4848], 0
-                        mov              qword ptr [rsp + 4856], 0
-                        mov              qword ptr [rsp + 4864], 0
-                        mov              qword ptr [rsp + 4872], 0
-                        mov              qword ptr [rsp + 4880], 0
-                        mov              qword ptr [rsp + 4888], 0
-                        mov              qword ptr [rsp + 4896], 0
-                        mov              qword ptr [rsp + 4904], 0
-                        mov              qword ptr [rsp + 4912], 0
-                        mov              qword ptr [rsp + 4920], 0
-                        mov              qword ptr [rsp + 4928], 0
-                        mov              qword ptr [rsp + 4936], 0
-                        mov              qword ptr [rsp + 4944], 0
-                        mov              qword ptr [rsp + 4952], 0
-                        mov              qword ptr [rsp + 4960], 0
-                        mov              qword ptr [rsp + 4968], 0
-                        mov              qword ptr [rsp + 4976], 0
-                        mov              qword ptr [rsp + 4984], 0
-                        mov              qword ptr [rsp + 4992], 0
-                        mov              qword ptr [rsp + 5000], 0
-                        mov              qword ptr [rsp + 5008], 0
-                        mov              qword ptr [rsp + 5016], 0
-                        mov              qword ptr [rsp + 5024], 0
-                        mov              qword ptr [rsp + 5032], 0
-                        mov              qword ptr [rsp + 5040], 0
-                        mov              qword ptr [rsp + 5048], 0
-                        mov              qword ptr [rsp + 5056], 0
-                        mov              qword ptr [rsp + 5064], 0
-                        mov              qword ptr [rsp + 5072], 0
-                        mov              qword ptr [rsp + 5080], 0
-                        mov              qword ptr [rsp + 5088], 0
-                        mov              qword ptr [rsp + 5096], 0
-                        mov              qword ptr [rsp + 5104], 0
-                        mov              qword ptr [rsp + 5112], 0
-                        mov              qword ptr [rsp + 5120], 0
-                        mov              qword ptr [rsp + 5128], 0
-                        mov              qword ptr [rsp + 5136], 0
-                        mov              qword ptr [rsp + 5144], 0
-                        mov              qword ptr [rsp + 5152], 0
-                        mov              qword ptr [rsp + 5160], 0
-                        mov              qword ptr [rsp + 5168], 0
-                        mov              qword ptr [rsp + 5176], 0
-                        mov              qword ptr [rsp + 5184], 0
-                        mov              qword ptr [rsp + 5192], 0
-                        mov              qword ptr [rsp + 5200], 0
-                        mov              qword ptr [rsp + 5208], 0
-                        mov              qword ptr [rsp + 5216], 0
-                        mov              qword ptr [rsp + 5224], 0
-                        mov              qword ptr [rsp + 5232], 0
-                        mov              qword ptr [rsp + 5240], 0
-                        mov              qword ptr [rsp + 5248], 0
-                        mov              qword ptr [rsp + 5256], 0
-                        mov              qword ptr [rsp + 5264], 0
-                        mov              qword ptr [rsp + 5272], 0
-                        mov              qword ptr [rsp + 5280], 0
-                        mov              qword ptr [rsp + 5288], 0
-                        mov              qword ptr [rsp + 5296], 0
-                        mov              qword ptr [rsp + 5304], 0
-                        mov              qword ptr [rsp + 5312], 0
-                        mov              qword ptr [rsp + 5320], 0
-                        mov              qword ptr [rsp + 5328], 0
-                        mov              qword ptr [rsp + 5336], 0
-                        mov              qword ptr [rsp + 5344], 0
-                        mov              qword ptr [rsp + 5352], 0
-                        mov              qword ptr [rsp + 5360], 0
-                        mov              qword ptr [rsp + 5368], 0
-                        mov              qword ptr [rsp + 5376], 0
-                        mov              qword ptr [rsp + 5384], 0
-                        mov              qword ptr [rsp + 5392], 0
-                        mov              qword ptr [rsp + 5400], 0
-                        mov              qword ptr [rsp + 5408], 0
-                        mov              qword ptr [rsp + 5416], 0
-                        mov              qword ptr [rsp + 5424], 0
-                        mov              qword ptr [rsp + 5432], 0
-                        mov              qword ptr [rsp + 5440], 0
-                        mov              qword ptr [rsp + 5448], 0
-                        mov              qword ptr [rsp + 5456], 0
-                        mov              qword ptr [rsp + 5464], 0
-                        mov              qword ptr [rsp + 5472], 0
-                        mov              qword ptr [rsp + 5480], 0
-                        mov              qword ptr [rsp + 5488], 0
-                        mov              qword ptr [rsp + 5496], 0
-                        mov              qword ptr [rsp + 5504], 0
-                        mov              qword ptr [rsp + 5512], 0
-                        mov              qword ptr [rsp + 5520], 0
-                        mov              qword ptr [rsp + 5528], 0
-                        mov              qword ptr [rsp + 5536], 0
-                        mov              qword ptr [rsp + 5544], 0
-                        mov              qword ptr [rsp + 5552], 0
-                        mov              qword ptr [rsp + 5560], 0
-                        mov              qword ptr [rsp + 5568], 0
-                        mov              qword ptr [rsp + 5576], 0
-                        mov              qword ptr [rsp + 5584], 0
-                        mov              qword ptr [rsp + 5592], 0
-                        mov              qword ptr [rsp + 5600], 0
-                        mov              qword ptr [rsp + 5608], 0
-                        mov              qword ptr [rsp + 5616], 0
-                        mov              qword ptr [rsp + 5624], 0
-                        mov              qword ptr [rsp + 5632], 0
-                        mov              qword ptr [rsp + 5640], 0
-                        mov              qword ptr [rsp + 5648], 0
-                        mov              qword ptr [rsp + 5656], 0
-                        mov              qword ptr [rsp + 5664], 0
-                        mov              qword ptr [rsp + 5672], 0
-                        mov              qword ptr [rsp + 5680], 0
-                        mov              qword ptr [rsp + 5688], 0
-                        mov              qword ptr [rsp + 5696], 0
-                        mov              qword ptr [rsp + 5704], 0
-                        mov              qword ptr [rsp + 5712], 0
-                        mov              qword ptr [rsp + 5720], 0
-                        mov              qword ptr [rsp + 5728], 0
-                        mov              qword ptr [rsp + 5736], 0
-                        mov              qword ptr [rsp + 5744], 0
-                        mov              qword ptr [rsp + 5752], 0
-                        mov              qword ptr [rsp + 5760], 0
-                        mov              qword ptr [rsp + 5768], 0
-                        mov              qword ptr [rsp + 5776], 0
-                        mov              qword ptr [rsp + 5784], 0
-                        mov              qword ptr [rsp + 5792], 0
-                        mov              qword ptr [rsp + 5800], 0
-                        mov              qword ptr [rsp + 5808], 0
-                        mov              qword ptr [rsp + 5816], 0
-                        mov              qword ptr [rsp + 5824], 0
-                        mov              qword ptr [rsp + 5832], 0
-                        mov              qword ptr [rsp + 5840], 0
-                        mov              qword ptr [rsp + 5848], 0
-                        mov              qword ptr [rsp + 5856], 0
-                        mov              qword ptr [rsp + 5864], 0
-                        mov              qword ptr [rsp + 5872], 0
-                        mov              qword ptr [rsp + 5880], 0
-                        mov              qword ptr [rsp + 5888], 0
-                        mov              qword ptr [rsp + 5896], 0
-                        mov              qword ptr [rsp + 5904], 0
-                        mov              qword ptr [rsp + 5912], 0
-                        mov              qword ptr [rsp + 5920], 0
-                        mov              qword ptr [rsp + 5928], 0
-                        mov              qword ptr [rsp + 5936], 0
-                        mov              qword ptr [rsp + 5944], 0
-                        mov              qword ptr [rsp + 5952], 0
-                        mov              qword ptr [rsp + 5960], 0
-                        mov              qword ptr [rsp + 5968], 0
-                        mov              qword ptr [rsp + 5976], 0
-                        mov              qword ptr [rsp + 5984], 0
-                        mov              qword ptr [rsp + 5992], 0
-                        mov              qword ptr [rsp + 6000], 0
-                        mov              qword ptr [rsp + 6008], 0
-                        mov              qword ptr [rsp + 6016], 0
-                        mov              qword ptr [rsp + 6024], 0
-                        mov              qword ptr [rsp + 6032], 0
-                        mov              qword ptr [rsp + 6040], 0
-                        mov              qword ptr [rsp + 6048], 0
-                        mov              qword ptr [rsp + 6056], 0
-                        mov              qword ptr [rsp + 6064], 0
-                        mov              qword ptr [rsp + 6072], 0
-                        mov              qword ptr [rsp + 6080], 0
-                        mov              qword ptr [rsp + 6088], 0
-                        mov              qword ptr [rsp + 6096], 0
-                        mov              qword ptr [rsp + 6104], 0
-                        mov              qword ptr [rsp + 6112], 0
-                        mov              qword ptr [rsp + 6120], 0
-                        mov              qword ptr [rsp + 6128], 0
-                        mov              qword ptr [rsp + 6136], 0
-                        mov              qword ptr [rsp + 6144], 0
-                        mov              qword ptr [rsp + 6152], 0
-                        mov              qword ptr [rsp + 6160], 0
-                        mov              qword ptr [rsp + 6168], 0
-                        mov              qword ptr [rsp + 6176], 0
-                        mov              qword ptr [rsp + 6184], 0
-                        mov              qword ptr [rsp + 6192], 0
-                        mov              qword ptr [rsp + 6200], 0
-                        mov              qword ptr [rsp + 6208], 0
-                        mov              qword ptr [rsp + 6216], 0
-                        mov              qword ptr [rsp + 6224], 0
-                        mov              qword ptr [rsp + 6232], 0
-                        mov              qword ptr [rsp + 6240], 0
-                        mov              qword ptr [rsp + 6248], 0
-                        mov              qword ptr [rsp + 6256], 0
-                        mov              qword ptr [rsp + 6264], 0
-                        mov              qword ptr [rsp + 6272], 0
-                        mov              qword ptr [rsp + 6280], 0
-                        mov              qword ptr [rsp + 6288], 0
-                        mov              qword ptr [rsp + 6296], 0
-                        mov              qword ptr [rsp + 6304], 0
-                        mov              qword ptr [rsp + 6312], 0
-                        mov              qword ptr [rsp + 6320], 0
-                        mov              qword ptr [rsp + 6328], 0
-                        mov              qword ptr [rsp + 6336], 0
-                        mov              qword ptr [rsp + 6344], 0
-                        mov              qword ptr [rsp + 6352], 0
-                        mov              qword ptr [rsp + 6360], 0
-                        mov              qword ptr [rsp + 6368], 0
-                        mov              qword ptr [rsp + 6376], 0
-                        mov              qword ptr [rsp + 6384], 0
-                        mov              qword ptr [rsp + 6392], 0
-                        mov              qword ptr [rsp + 6400], 0
-                        mov              qword ptr [rsp + 6408], 0
-                        mov              qword ptr [rsp + 6416], 0
-                        mov              qword ptr [rsp + 6424], 0
-                        mov              qword ptr [rsp + 6432], 0
-                        mov              qword ptr [rsp + 6440], 0
-                        mov              qword ptr [rsp + 6448], 0
-                        mov              qword ptr [rsp + 6456], 0
-                        mov              qword ptr [rsp + 6464], 0
-                        mov              qword ptr [rsp + 6472], 0
-                        mov              qword ptr [rsp + 6480], 0
-                        mov              qword ptr [rsp + 6488], 0
-                        mov              qword ptr [rsp + 6496], 0
-                        mov              qword ptr [rsp + 6504], 0
-                        mov              qword ptr [rsp + 6512], 0
-                        mov              qword ptr [rsp + 6520], 0
-                        mov              qword ptr [rsp + 6528], 0
-                        mov              qword ptr [rsp + 6536], 0
-                        mov              qword ptr [rsp + 6544], 0
-                        mov              qword ptr [rsp + 6552], 0
-                        mov              qword ptr [rsp + 6560], 0
-                        mov              qword ptr [rsp + 6568], 0
-                        mov              qword ptr [rsp + 6576], 0
-                        mov              qword ptr [rsp + 6584], 0
-                        mov              qword ptr [rsp + 6592], 0
-                        mov              qword ptr [rsp + 6600], 0
-                        mov              qword ptr [rsp + 6608], 0
-                        mov              qword ptr [rsp + 6616], 0
-                        mov              qword ptr [rsp + 6624], 0
-                        mov              qword ptr [rsp + 6632], 0
-                        mov              qword ptr [rsp + 6640], 0
-                        mov              qword ptr [rsp + 6648], 0
-                        mov              qword ptr [rsp + 6656], 0
-                        mov              qword ptr [rsp + 6664], 0
-                        mov              qword ptr [rsp + 6672], 0
-                        mov              qword ptr [rsp + 6680], 0
-                        mov              qword ptr [rsp + 6688], 0
-                        mov              qword ptr [rsp + 6696], 0
-                        mov              qword ptr [rsp + 6704], 0
-                        mov              qword ptr [rsp + 6712], 0
-                        mov              qword ptr [rsp + 6720], 0
-                        mov              qword ptr [rsp + 6728], 0
-                        mov              qword ptr [rsp + 6736], 0
-                        mov              qword ptr [rsp + 6744], 0
-                        mov              qword ptr [rsp + 6752], 0
-                        mov              qword ptr [rsp + 6760], 0
-                        mov              qword ptr [rsp + 6768], 0
-                        mov              qword ptr [rsp + 6776], 0
-                        mov              qword ptr [rsp + 6784], 0
-                        mov              qword ptr [rsp + 6792], 0
-                        mov              qword ptr [rsp + 6800], 0
-                        mov              qword ptr [rsp + 6808], 0
-                        mov              qword ptr [rsp + 6816], 0
-                        mov              qword ptr [rsp + 6824], 0
-                        mov              qword ptr [rsp + 6832], 0
-                        mov              qword ptr [rsp + 6840], 0
-                        mov              qword ptr [rsp + 6848], 0
-                        mov              qword ptr [rsp + 6856], 0
-                        mov              qword ptr [rsp + 6864], 0
-                        mov              qword ptr [rsp + 6872], 0
-                        mov              qword ptr [rsp + 6880], 0
-                        mov              qword ptr [rsp + 6888], 0
-                        mov              qword ptr [rsp + 6896], 0
-                        mov              qword ptr [rsp + 6904], 0
-                        mov              qword ptr [rsp + 6912], 0
-                        mov              qword ptr [rsp + 6920], 0
-                        mov              qword ptr [rsp + 6928], 0
-                        mov              qword ptr [rsp + 6936], 0
-                        mov              qword ptr [rsp + 6944], 0
-                        mov              qword ptr [rsp + 6952], 0
-                        mov              qword ptr [rsp + 6960], 0
-                        mov              qword ptr [rsp + 6968], 0
-                        mov              qword ptr [rsp + 6976], 0
-                        mov              qword ptr [rsp + 6984], 0
-                        mov              qword ptr [rsp + 6992], 0
-                        mov              qword ptr [rsp + 7000], 0
-                        mov              qword ptr [rsp + 7008], 0
-                        mov              qword ptr [rsp + 7016], 0
-                        mov              qword ptr [rsp + 7024], 0
-                        mov              qword ptr [rsp + 7032], 0
-                        mov              qword ptr [rsp + 7040], 0
-                        mov              qword ptr [rsp + 7048], 0
-                        mov              qword ptr [rsp + 7040], 2                      # result
-                        mov              dword ptr [rsp + 7044], 4
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 4
                         mov              rax, qword ptr [rip + .Lx1606_0]
-                        mov              qword ptr [rsp + 7048], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n1122_call_α
 n1121_lit_string_β:
-                        add              rsp, 7056
+                        add              rsp, 16
                                                                                         jmp   n1124_call_α
 .Lx1606_0:
                         .quad            .Lx1606_0_s
@@ -15217,6 +10883,11 @@ n1121_lit_string_β:
                         .string          "BANK"
 #-----------------------------------------------------------------------------------------------------------------------
 n1122_call_α:
+                        sub              rsp, 16
+                        mov              edi, 0                                         # idx
+                        mov              rsi, qword ptr [rsp + 16]                      # lit_string
+                        mov              rdx, qword ptr [rsp + 24]                      # v
+                        call             rt_arg_stage@PLT
                         sub              rsp, 32
                         mov              rax, qword ptr [1879052304]                    # v
                         mov              qword ptr [rsp + 0], rax
@@ -15232,9 +10903,10 @@ n1122_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx1608_5
-                        mov              rax, qword ptr [rsp + 7072]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 0]
                         mov              qword ptr [1879052304], rax                    # v
-                        mov              rax, qword ptr [rsp + 7080]
+                        mov              rax, qword ptr [r10 + 8]
                         mov              qword ptr [1879052312], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx1608_6]
@@ -15268,45 +10940,13 @@ n1122_call_α:
                                                                                         jmp   .Lx1608_2
 .Lx1608_5:
                         add              rsp, 32
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx1608_20
-                        mov              rax, qword ptr [rsp + 7040]
-                        mov              rdx, qword ptr [rsp + 7048]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 0], rax
-                        mov              qword ptr [r10 + 8], rdx
-                                                                                        jmp   .Lx1608_21
-.Lx1608_20:
-                        mov              edi, 0                                         # idx
-                        mov              rsi, qword ptr [rsp + 7040]                    # v
-                        mov              rdx, qword ptr [rsp + 7048]                    # v
-                        call             rt_arg_stage@PLT
-.Lx1608_21:
-                        mov              rdi, qword ptr [rip + .Lx1608_0]               # name
-                        mov              esi, 1                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx1608_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx1608_3]
-                        lea              rdx, [rip + .Lx1608_4]
-                                                                                        jmp   rax
-.Lx1608_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx1608_2
-.Lx1608_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx1608_2
-.Lx1608_1:
-                        call             rt_faildescr@PLT
 .Lx1608_2:
-                        mov              qword ptr [rsp + 6992], rax
-                        mov              qword ptr [rsp + 7000], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx1608_240
-                        add              rsp, 7056
+                        add              rsp, 16
+                        add              rsp, 16
                                                                                         jmp   n1124_call_α
 .Lx1608_240:
                                                                                         jmp   n1123_assign_α
@@ -15318,14 +10958,14 @@ n1122_call_β:
                         .string          "stk_push_frame"
 #-----------------------------------------------------------------------------------------------------------------------
 n1123_assign_α:
-                        mov              rax, qword ptr [rsp + 6992]
-                        mov              rdx, qword ptr [rsp + 7000]
+                        mov              rax, qword ptr [rsp + 0]                       # call
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052912], rax                    # dummy
                         mov              qword ptr [1879052920], rdx
-                        add              rsp, 7056
+                        add              rsp, 32
                                                                                         jmp   n1124_call_α
 n1123_assign_β:
-                        add              rsp, 7056
+                        add              rsp, 32
                                                                                         jmp   n1124_call_α
 #=======================================================================================================================
 #                t0             =  TIME()
@@ -15627,928 +11267,14 @@ n1131_match_replace_α:
 #                dummy          =  stk_push_frame('ROOT')
 #-----------------------------------------------------------------------------------------------------------------------
 n1132_lit_string_α:
-                        sub              rsp, 7312
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
-                        mov              qword ptr [rsp + 96], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 120], 0
-                        mov              qword ptr [rsp + 128], 0
-                        mov              qword ptr [rsp + 136], 0
-                        mov              qword ptr [rsp + 144], 0
-                        mov              qword ptr [rsp + 152], 0
-                        mov              qword ptr [rsp + 160], 0
-                        mov              qword ptr [rsp + 168], 0
-                        mov              qword ptr [rsp + 176], 0
-                        mov              qword ptr [rsp + 184], 0
-                        mov              qword ptr [rsp + 192], 0
-                        mov              qword ptr [rsp + 200], 0
-                        mov              qword ptr [rsp + 208], 0
-                        mov              qword ptr [rsp + 216], 0
-                        mov              qword ptr [rsp + 224], 0
-                        mov              qword ptr [rsp + 232], 0
-                        mov              qword ptr [rsp + 240], 0
-                        mov              qword ptr [rsp + 248], 0
-                        mov              qword ptr [rsp + 256], 0
-                        mov              qword ptr [rsp + 264], 0
-                        mov              qword ptr [rsp + 272], 0
-                        mov              qword ptr [rsp + 280], 0
-                        mov              qword ptr [rsp + 288], 0
-                        mov              qword ptr [rsp + 296], 0
-                        mov              qword ptr [rsp + 304], 0
-                        mov              qword ptr [rsp + 312], 0
-                        mov              qword ptr [rsp + 320], 0
-                        mov              qword ptr [rsp + 328], 0
-                        mov              qword ptr [rsp + 336], 0
-                        mov              qword ptr [rsp + 344], 0
-                        mov              qword ptr [rsp + 352], 0
-                        mov              qword ptr [rsp + 360], 0
-                        mov              qword ptr [rsp + 368], 0
-                        mov              qword ptr [rsp + 376], 0
-                        mov              qword ptr [rsp + 384], 0
-                        mov              qword ptr [rsp + 392], 0
-                        mov              qword ptr [rsp + 400], 0
-                        mov              qword ptr [rsp + 408], 0
-                        mov              qword ptr [rsp + 416], 0
-                        mov              qword ptr [rsp + 424], 0
-                        mov              qword ptr [rsp + 432], 0
-                        mov              qword ptr [rsp + 440], 0
-                        mov              qword ptr [rsp + 448], 0
-                        mov              qword ptr [rsp + 456], 0
-                        mov              qword ptr [rsp + 464], 0
-                        mov              qword ptr [rsp + 472], 0
-                        mov              qword ptr [rsp + 480], 0
-                        mov              qword ptr [rsp + 488], 0
-                        mov              qword ptr [rsp + 496], 0
-                        mov              qword ptr [rsp + 504], 0
-                        mov              qword ptr [rsp + 512], 0
-                        mov              qword ptr [rsp + 520], 0
-                        mov              qword ptr [rsp + 528], 0
-                        mov              qword ptr [rsp + 536], 0
-                        mov              qword ptr [rsp + 544], 0
-                        mov              qword ptr [rsp + 552], 0
-                        mov              qword ptr [rsp + 560], 0
-                        mov              qword ptr [rsp + 568], 0
-                        mov              qword ptr [rsp + 576], 0
-                        mov              qword ptr [rsp + 584], 0
-                        mov              qword ptr [rsp + 592], 0
-                        mov              qword ptr [rsp + 600], 0
-                        mov              qword ptr [rsp + 608], 0
-                        mov              qword ptr [rsp + 616], 0
-                        mov              qword ptr [rsp + 624], 0
-                        mov              qword ptr [rsp + 632], 0
-                        mov              qword ptr [rsp + 640], 0
-                        mov              qword ptr [rsp + 648], 0
-                        mov              qword ptr [rsp + 656], 0
-                        mov              qword ptr [rsp + 664], 0
-                        mov              qword ptr [rsp + 672], 0
-                        mov              qword ptr [rsp + 680], 0
-                        mov              qword ptr [rsp + 688], 0
-                        mov              qword ptr [rsp + 696], 0
-                        mov              qword ptr [rsp + 704], 0
-                        mov              qword ptr [rsp + 712], 0
-                        mov              qword ptr [rsp + 720], 0
-                        mov              qword ptr [rsp + 728], 0
-                        mov              qword ptr [rsp + 736], 0
-                        mov              qword ptr [rsp + 744], 0
-                        mov              qword ptr [rsp + 752], 0
-                        mov              qword ptr [rsp + 760], 0
-                        mov              qword ptr [rsp + 768], 0
-                        mov              qword ptr [rsp + 776], 0
-                        mov              qword ptr [rsp + 784], 0
-                        mov              qword ptr [rsp + 792], 0
-                        mov              qword ptr [rsp + 800], 0
-                        mov              qword ptr [rsp + 808], 0
-                        mov              qword ptr [rsp + 816], 0
-                        mov              qword ptr [rsp + 824], 0
-                        mov              qword ptr [rsp + 832], 0
-                        mov              qword ptr [rsp + 840], 0
-                        mov              qword ptr [rsp + 848], 0
-                        mov              qword ptr [rsp + 856], 0
-                        mov              qword ptr [rsp + 864], 0
-                        mov              qword ptr [rsp + 872], 0
-                        mov              qword ptr [rsp + 880], 0
-                        mov              qword ptr [rsp + 888], 0
-                        mov              qword ptr [rsp + 896], 0
-                        mov              qword ptr [rsp + 904], 0
-                        mov              qword ptr [rsp + 912], 0
-                        mov              qword ptr [rsp + 920], 0
-                        mov              qword ptr [rsp + 928], 0
-                        mov              qword ptr [rsp + 936], 0
-                        mov              qword ptr [rsp + 944], 0
-                        mov              qword ptr [rsp + 952], 0
-                        mov              qword ptr [rsp + 960], 0
-                        mov              qword ptr [rsp + 968], 0
-                        mov              qword ptr [rsp + 976], 0
-                        mov              qword ptr [rsp + 984], 0
-                        mov              qword ptr [rsp + 992], 0
-                        mov              qword ptr [rsp + 1000], 0
-                        mov              qword ptr [rsp + 1008], 0
-                        mov              qword ptr [rsp + 1016], 0
-                        mov              qword ptr [rsp + 1024], 0
-                        mov              qword ptr [rsp + 1032], 0
-                        mov              qword ptr [rsp + 1040], 0
-                        mov              qword ptr [rsp + 1048], 0
-                        mov              qword ptr [rsp + 1056], 0
-                        mov              qword ptr [rsp + 1064], 0
-                        mov              qword ptr [rsp + 1072], 0
-                        mov              qword ptr [rsp + 1080], 0
-                        mov              qword ptr [rsp + 1088], 0
-                        mov              qword ptr [rsp + 1096], 0
-                        mov              qword ptr [rsp + 1104], 0
-                        mov              qword ptr [rsp + 1112], 0
-                        mov              qword ptr [rsp + 1120], 0
-                        mov              qword ptr [rsp + 1128], 0
-                        mov              qword ptr [rsp + 1136], 0
-                        mov              qword ptr [rsp + 1144], 0
-                        mov              qword ptr [rsp + 1152], 0
-                        mov              qword ptr [rsp + 1160], 0
-                        mov              qword ptr [rsp + 1168], 0
-                        mov              qword ptr [rsp + 1176], 0
-                        mov              qword ptr [rsp + 1184], 0
-                        mov              qword ptr [rsp + 1192], 0
-                        mov              qword ptr [rsp + 1200], 0
-                        mov              qword ptr [rsp + 1208], 0
-                        mov              qword ptr [rsp + 1216], 0
-                        mov              qword ptr [rsp + 1224], 0
-                        mov              qword ptr [rsp + 1232], 0
-                        mov              qword ptr [rsp + 1240], 0
-                        mov              qword ptr [rsp + 1248], 0
-                        mov              qword ptr [rsp + 1256], 0
-                        mov              qword ptr [rsp + 1264], 0
-                        mov              qword ptr [rsp + 1272], 0
-                        mov              qword ptr [rsp + 1280], 0
-                        mov              qword ptr [rsp + 1288], 0
-                        mov              qword ptr [rsp + 1296], 0
-                        mov              qword ptr [rsp + 1304], 0
-                        mov              qword ptr [rsp + 1312], 0
-                        mov              qword ptr [rsp + 1320], 0
-                        mov              qword ptr [rsp + 1328], 0
-                        mov              qword ptr [rsp + 1336], 0
-                        mov              qword ptr [rsp + 1344], 0
-                        mov              qword ptr [rsp + 1352], 0
-                        mov              qword ptr [rsp + 1360], 0
-                        mov              qword ptr [rsp + 1368], 0
-                        mov              qword ptr [rsp + 1376], 0
-                        mov              qword ptr [rsp + 1384], 0
-                        mov              qword ptr [rsp + 1392], 0
-                        mov              qword ptr [rsp + 1400], 0
-                        mov              qword ptr [rsp + 1408], 0
-                        mov              qword ptr [rsp + 1416], 0
-                        mov              qword ptr [rsp + 1424], 0
-                        mov              qword ptr [rsp + 1432], 0
-                        mov              qword ptr [rsp + 1440], 0
-                        mov              qword ptr [rsp + 1448], 0
-                        mov              qword ptr [rsp + 1456], 0
-                        mov              qword ptr [rsp + 1464], 0
-                        mov              qword ptr [rsp + 1472], 0
-                        mov              qword ptr [rsp + 1480], 0
-                        mov              qword ptr [rsp + 1488], 0
-                        mov              qword ptr [rsp + 1496], 0
-                        mov              qword ptr [rsp + 1504], 0
-                        mov              qword ptr [rsp + 1512], 0
-                        mov              qword ptr [rsp + 1520], 0
-                        mov              qword ptr [rsp + 1528], 0
-                        mov              qword ptr [rsp + 1536], 0
-                        mov              qword ptr [rsp + 1544], 0
-                        mov              qword ptr [rsp + 1552], 0
-                        mov              qword ptr [rsp + 1560], 0
-                        mov              qword ptr [rsp + 1568], 0
-                        mov              qword ptr [rsp + 1576], 0
-                        mov              qword ptr [rsp + 1584], 0
-                        mov              qword ptr [rsp + 1592], 0
-                        mov              qword ptr [rsp + 1600], 0
-                        mov              qword ptr [rsp + 1608], 0
-                        mov              qword ptr [rsp + 1616], 0
-                        mov              qword ptr [rsp + 1624], 0
-                        mov              qword ptr [rsp + 1632], 0
-                        mov              qword ptr [rsp + 1640], 0
-                        mov              qword ptr [rsp + 1648], 0
-                        mov              qword ptr [rsp + 1656], 0
-                        mov              qword ptr [rsp + 1664], 0
-                        mov              qword ptr [rsp + 1672], 0
-                        mov              qword ptr [rsp + 1680], 0
-                        mov              qword ptr [rsp + 1688], 0
-                        mov              qword ptr [rsp + 1696], 0
-                        mov              qword ptr [rsp + 1704], 0
-                        mov              qword ptr [rsp + 1712], 0
-                        mov              qword ptr [rsp + 1720], 0
-                        mov              qword ptr [rsp + 1728], 0
-                        mov              qword ptr [rsp + 1736], 0
-                        mov              qword ptr [rsp + 1744], 0
-                        mov              qword ptr [rsp + 1752], 0
-                        mov              qword ptr [rsp + 1760], 0
-                        mov              qword ptr [rsp + 1768], 0
-                        mov              qword ptr [rsp + 1776], 0
-                        mov              qword ptr [rsp + 1784], 0
-                        mov              qword ptr [rsp + 1792], 0
-                        mov              qword ptr [rsp + 1800], 0
-                        mov              qword ptr [rsp + 1808], 0
-                        mov              qword ptr [rsp + 1816], 0
-                        mov              qword ptr [rsp + 1824], 0
-                        mov              qword ptr [rsp + 1832], 0
-                        mov              qword ptr [rsp + 1840], 0
-                        mov              qword ptr [rsp + 1848], 0
-                        mov              qword ptr [rsp + 1856], 0
-                        mov              qword ptr [rsp + 1864], 0
-                        mov              qword ptr [rsp + 1872], 0
-                        mov              qword ptr [rsp + 1880], 0
-                        mov              qword ptr [rsp + 1888], 0
-                        mov              qword ptr [rsp + 1896], 0
-                        mov              qword ptr [rsp + 1904], 0
-                        mov              qword ptr [rsp + 1912], 0
-                        mov              qword ptr [rsp + 1920], 0
-                        mov              qword ptr [rsp + 1928], 0
-                        mov              qword ptr [rsp + 1936], 0
-                        mov              qword ptr [rsp + 1944], 0
-                        mov              qword ptr [rsp + 1952], 0
-                        mov              qword ptr [rsp + 1960], 0
-                        mov              qword ptr [rsp + 1968], 0
-                        mov              qword ptr [rsp + 1976], 0
-                        mov              qword ptr [rsp + 1984], 0
-                        mov              qword ptr [rsp + 1992], 0
-                        mov              qword ptr [rsp + 2000], 0
-                        mov              qword ptr [rsp + 2008], 0
-                        mov              qword ptr [rsp + 2016], 0
-                        mov              qword ptr [rsp + 2024], 0
-                        mov              qword ptr [rsp + 2032], 0
-                        mov              qword ptr [rsp + 2040], 0
-                        mov              qword ptr [rsp + 2048], 0
-                        mov              qword ptr [rsp + 2056], 0
-                        mov              qword ptr [rsp + 2064], 0
-                        mov              qword ptr [rsp + 2072], 0
-                        mov              qword ptr [rsp + 2080], 0
-                        mov              qword ptr [rsp + 2088], 0
-                        mov              qword ptr [rsp + 2096], 0
-                        mov              qword ptr [rsp + 2104], 0
-                        mov              qword ptr [rsp + 2112], 0
-                        mov              qword ptr [rsp + 2120], 0
-                        mov              qword ptr [rsp + 2128], 0
-                        mov              qword ptr [rsp + 2136], 0
-                        mov              qword ptr [rsp + 2144], 0
-                        mov              qword ptr [rsp + 2152], 0
-                        mov              qword ptr [rsp + 2160], 0
-                        mov              qword ptr [rsp + 2168], 0
-                        mov              qword ptr [rsp + 2176], 0
-                        mov              qword ptr [rsp + 2184], 0
-                        mov              qword ptr [rsp + 2192], 0
-                        mov              qword ptr [rsp + 2200], 0
-                        mov              qword ptr [rsp + 2208], 0
-                        mov              qword ptr [rsp + 2216], 0
-                        mov              qword ptr [rsp + 2224], 0
-                        mov              qword ptr [rsp + 2232], 0
-                        mov              qword ptr [rsp + 2240], 0
-                        mov              qword ptr [rsp + 2248], 0
-                        mov              qword ptr [rsp + 2256], 0
-                        mov              qword ptr [rsp + 2264], 0
-                        mov              qword ptr [rsp + 2272], 0
-                        mov              qword ptr [rsp + 2280], 0
-                        mov              qword ptr [rsp + 2288], 0
-                        mov              qword ptr [rsp + 2296], 0
-                        mov              qword ptr [rsp + 2304], 0
-                        mov              qword ptr [rsp + 2312], 0
-                        mov              qword ptr [rsp + 2320], 0
-                        mov              qword ptr [rsp + 2328], 0
-                        mov              qword ptr [rsp + 2336], 0
-                        mov              qword ptr [rsp + 2344], 0
-                        mov              qword ptr [rsp + 2352], 0
-                        mov              qword ptr [rsp + 2360], 0
-                        mov              qword ptr [rsp + 2368], 0
-                        mov              qword ptr [rsp + 2376], 0
-                        mov              qword ptr [rsp + 2384], 0
-                        mov              qword ptr [rsp + 2392], 0
-                        mov              qword ptr [rsp + 2400], 0
-                        mov              qword ptr [rsp + 2408], 0
-                        mov              qword ptr [rsp + 2416], 0
-                        mov              qword ptr [rsp + 2424], 0
-                        mov              qword ptr [rsp + 2432], 0
-                        mov              qword ptr [rsp + 2440], 0
-                        mov              qword ptr [rsp + 2448], 0
-                        mov              qword ptr [rsp + 2456], 0
-                        mov              qword ptr [rsp + 2464], 0
-                        mov              qword ptr [rsp + 2472], 0
-                        mov              qword ptr [rsp + 2480], 0
-                        mov              qword ptr [rsp + 2488], 0
-                        mov              qword ptr [rsp + 2496], 0
-                        mov              qword ptr [rsp + 2504], 0
-                        mov              qword ptr [rsp + 2512], 0
-                        mov              qword ptr [rsp + 2520], 0
-                        mov              qword ptr [rsp + 2528], 0
-                        mov              qword ptr [rsp + 2536], 0
-                        mov              qword ptr [rsp + 2544], 0
-                        mov              qword ptr [rsp + 2552], 0
-                        mov              qword ptr [rsp + 2560], 0
-                        mov              qword ptr [rsp + 2568], 0
-                        mov              qword ptr [rsp + 2576], 0
-                        mov              qword ptr [rsp + 2584], 0
-                        mov              qword ptr [rsp + 2592], 0
-                        mov              qword ptr [rsp + 2600], 0
-                        mov              qword ptr [rsp + 2608], 0
-                        mov              qword ptr [rsp + 2616], 0
-                        mov              qword ptr [rsp + 2624], 0
-                        mov              qword ptr [rsp + 2632], 0
-                        mov              qword ptr [rsp + 2640], 0
-                        mov              qword ptr [rsp + 2648], 0
-                        mov              qword ptr [rsp + 2656], 0
-                        mov              qword ptr [rsp + 2664], 0
-                        mov              qword ptr [rsp + 2672], 0
-                        mov              qword ptr [rsp + 2680], 0
-                        mov              qword ptr [rsp + 2688], 0
-                        mov              qword ptr [rsp + 2696], 0
-                        mov              qword ptr [rsp + 2704], 0
-                        mov              qword ptr [rsp + 2712], 0
-                        mov              qword ptr [rsp + 2720], 0
-                        mov              qword ptr [rsp + 2728], 0
-                        mov              qword ptr [rsp + 2736], 0
-                        mov              qword ptr [rsp + 2744], 0
-                        mov              qword ptr [rsp + 2752], 0
-                        mov              qword ptr [rsp + 2760], 0
-                        mov              qword ptr [rsp + 2768], 0
-                        mov              qword ptr [rsp + 2776], 0
-                        mov              qword ptr [rsp + 2784], 0
-                        mov              qword ptr [rsp + 2792], 0
-                        mov              qword ptr [rsp + 2800], 0
-                        mov              qword ptr [rsp + 2808], 0
-                        mov              qword ptr [rsp + 2816], 0
-                        mov              qword ptr [rsp + 2824], 0
-                        mov              qword ptr [rsp + 2832], 0
-                        mov              qword ptr [rsp + 2840], 0
-                        mov              qword ptr [rsp + 2848], 0
-                        mov              qword ptr [rsp + 2856], 0
-                        mov              qword ptr [rsp + 2864], 0
-                        mov              qword ptr [rsp + 2872], 0
-                        mov              qword ptr [rsp + 2880], 0
-                        mov              qword ptr [rsp + 2888], 0
-                        mov              qword ptr [rsp + 2896], 0
-                        mov              qword ptr [rsp + 2904], 0
-                        mov              qword ptr [rsp + 2912], 0
-                        mov              qword ptr [rsp + 2920], 0
-                        mov              qword ptr [rsp + 2928], 0
-                        mov              qword ptr [rsp + 2936], 0
-                        mov              qword ptr [rsp + 2944], 0
-                        mov              qword ptr [rsp + 2952], 0
-                        mov              qword ptr [rsp + 2960], 0
-                        mov              qword ptr [rsp + 2968], 0
-                        mov              qword ptr [rsp + 2976], 0
-                        mov              qword ptr [rsp + 2984], 0
-                        mov              qword ptr [rsp + 2992], 0
-                        mov              qword ptr [rsp + 3000], 0
-                        mov              qword ptr [rsp + 3008], 0
-                        mov              qword ptr [rsp + 3016], 0
-                        mov              qword ptr [rsp + 3024], 0
-                        mov              qword ptr [rsp + 3032], 0
-                        mov              qword ptr [rsp + 3040], 0
-                        mov              qword ptr [rsp + 3048], 0
-                        mov              qword ptr [rsp + 3056], 0
-                        mov              qword ptr [rsp + 3064], 0
-                        mov              qword ptr [rsp + 3072], 0
-                        mov              qword ptr [rsp + 3080], 0
-                        mov              qword ptr [rsp + 3088], 0
-                        mov              qword ptr [rsp + 3096], 0
-                        mov              qword ptr [rsp + 3104], 0
-                        mov              qword ptr [rsp + 3112], 0
-                        mov              qword ptr [rsp + 3120], 0
-                        mov              qword ptr [rsp + 3128], 0
-                        mov              qword ptr [rsp + 3136], 0
-                        mov              qword ptr [rsp + 3144], 0
-                        mov              qword ptr [rsp + 3152], 0
-                        mov              qword ptr [rsp + 3160], 0
-                        mov              qword ptr [rsp + 3168], 0
-                        mov              qword ptr [rsp + 3176], 0
-                        mov              qword ptr [rsp + 3184], 0
-                        mov              qword ptr [rsp + 3192], 0
-                        mov              qword ptr [rsp + 3200], 0
-                        mov              qword ptr [rsp + 3208], 0
-                        mov              qword ptr [rsp + 3216], 0
-                        mov              qword ptr [rsp + 3224], 0
-                        mov              qword ptr [rsp + 3232], 0
-                        mov              qword ptr [rsp + 3240], 0
-                        mov              qword ptr [rsp + 3248], 0
-                        mov              qword ptr [rsp + 3256], 0
-                        mov              qword ptr [rsp + 3264], 0
-                        mov              qword ptr [rsp + 3272], 0
-                        mov              qword ptr [rsp + 3280], 0
-                        mov              qword ptr [rsp + 3288], 0
-                        mov              qword ptr [rsp + 3296], 0
-                        mov              qword ptr [rsp + 3304], 0
-                        mov              qword ptr [rsp + 3312], 0
-                        mov              qword ptr [rsp + 3320], 0
-                        mov              qword ptr [rsp + 3328], 0
-                        mov              qword ptr [rsp + 3336], 0
-                        mov              qword ptr [rsp + 3344], 0
-                        mov              qword ptr [rsp + 3352], 0
-                        mov              qword ptr [rsp + 3360], 0
-                        mov              qword ptr [rsp + 3368], 0
-                        mov              qword ptr [rsp + 3376], 0
-                        mov              qword ptr [rsp + 3384], 0
-                        mov              qword ptr [rsp + 3392], 0
-                        mov              qword ptr [rsp + 3400], 0
-                        mov              qword ptr [rsp + 3408], 0
-                        mov              qword ptr [rsp + 3416], 0
-                        mov              qword ptr [rsp + 3424], 0
-                        mov              qword ptr [rsp + 3432], 0
-                        mov              qword ptr [rsp + 3440], 0
-                        mov              qword ptr [rsp + 3448], 0
-                        mov              qword ptr [rsp + 3456], 0
-                        mov              qword ptr [rsp + 3464], 0
-                        mov              qword ptr [rsp + 3472], 0
-                        mov              qword ptr [rsp + 3480], 0
-                        mov              qword ptr [rsp + 3488], 0
-                        mov              qword ptr [rsp + 3496], 0
-                        mov              qword ptr [rsp + 3504], 0
-                        mov              qword ptr [rsp + 3512], 0
-                        mov              qword ptr [rsp + 3520], 0
-                        mov              qword ptr [rsp + 3528], 0
-                        mov              qword ptr [rsp + 3536], 0
-                        mov              qword ptr [rsp + 3544], 0
-                        mov              qword ptr [rsp + 3552], 0
-                        mov              qword ptr [rsp + 3560], 0
-                        mov              qword ptr [rsp + 3568], 0
-                        mov              qword ptr [rsp + 3576], 0
-                        mov              qword ptr [rsp + 3584], 0
-                        mov              qword ptr [rsp + 3592], 0
-                        mov              qword ptr [rsp + 3600], 0
-                        mov              qword ptr [rsp + 3608], 0
-                        mov              qword ptr [rsp + 3616], 0
-                        mov              qword ptr [rsp + 3624], 0
-                        mov              qword ptr [rsp + 3632], 0
-                        mov              qword ptr [rsp + 3640], 0
-                        mov              qword ptr [rsp + 3648], 0
-                        mov              qword ptr [rsp + 3656], 0
-                        mov              qword ptr [rsp + 3664], 0
-                        mov              qword ptr [rsp + 3672], 0
-                        mov              qword ptr [rsp + 3680], 0
-                        mov              qword ptr [rsp + 3688], 0
-                        mov              qword ptr [rsp + 3696], 0
-                        mov              qword ptr [rsp + 3704], 0
-                        mov              qword ptr [rsp + 3712], 0
-                        mov              qword ptr [rsp + 3720], 0
-                        mov              qword ptr [rsp + 3728], 0
-                        mov              qword ptr [rsp + 3736], 0
-                        mov              qword ptr [rsp + 3744], 0
-                        mov              qword ptr [rsp + 3752], 0
-                        mov              qword ptr [rsp + 3760], 0
-                        mov              qword ptr [rsp + 3768], 0
-                        mov              qword ptr [rsp + 3776], 0
-                        mov              qword ptr [rsp + 3784], 0
-                        mov              qword ptr [rsp + 3792], 0
-                        mov              qword ptr [rsp + 3800], 0
-                        mov              qword ptr [rsp + 3808], 0
-                        mov              qword ptr [rsp + 3816], 0
-                        mov              qword ptr [rsp + 3824], 0
-                        mov              qword ptr [rsp + 3832], 0
-                        mov              qword ptr [rsp + 3840], 0
-                        mov              qword ptr [rsp + 3848], 0
-                        mov              qword ptr [rsp + 3856], 0
-                        mov              qword ptr [rsp + 3864], 0
-                        mov              qword ptr [rsp + 3872], 0
-                        mov              qword ptr [rsp + 3880], 0
-                        mov              qword ptr [rsp + 3888], 0
-                        mov              qword ptr [rsp + 3896], 0
-                        mov              qword ptr [rsp + 3904], 0
-                        mov              qword ptr [rsp + 3912], 0
-                        mov              qword ptr [rsp + 3920], 0
-                        mov              qword ptr [rsp + 3928], 0
-                        mov              qword ptr [rsp + 3936], 0
-                        mov              qword ptr [rsp + 3944], 0
-                        mov              qword ptr [rsp + 3952], 0
-                        mov              qword ptr [rsp + 3960], 0
-                        mov              qword ptr [rsp + 3968], 0
-                        mov              qword ptr [rsp + 3976], 0
-                        mov              qword ptr [rsp + 3984], 0
-                        mov              qword ptr [rsp + 3992], 0
-                        mov              qword ptr [rsp + 4000], 0
-                        mov              qword ptr [rsp + 4008], 0
-                        mov              qword ptr [rsp + 4016], 0
-                        mov              qword ptr [rsp + 4024], 0
-                        mov              qword ptr [rsp + 4032], 0
-                        mov              qword ptr [rsp + 4040], 0
-                        mov              qword ptr [rsp + 4048], 0
-                        mov              qword ptr [rsp + 4056], 0
-                        mov              qword ptr [rsp + 4064], 0
-                        mov              qword ptr [rsp + 4072], 0
-                        mov              qword ptr [rsp + 4080], 0
-                        mov              qword ptr [rsp + 4088], 0
-                        mov              qword ptr [rsp + 4096], 0
-                        mov              qword ptr [rsp + 4104], 0
-                        mov              qword ptr [rsp + 4112], 0
-                        mov              qword ptr [rsp + 4120], 0
-                        mov              qword ptr [rsp + 4128], 0
-                        mov              qword ptr [rsp + 4136], 0
-                        mov              qword ptr [rsp + 4144], 0
-                        mov              qword ptr [rsp + 4152], 0
-                        mov              qword ptr [rsp + 4160], 0
-                        mov              qword ptr [rsp + 4168], 0
-                        mov              qword ptr [rsp + 4176], 0
-                        mov              qword ptr [rsp + 4184], 0
-                        mov              qword ptr [rsp + 4192], 0
-                        mov              qword ptr [rsp + 4200], 0
-                        mov              qword ptr [rsp + 4208], 0
-                        mov              qword ptr [rsp + 4216], 0
-                        mov              qword ptr [rsp + 4224], 0
-                        mov              qword ptr [rsp + 4232], 0
-                        mov              qword ptr [rsp + 4240], 0
-                        mov              qword ptr [rsp + 4248], 0
-                        mov              qword ptr [rsp + 4256], 0
-                        mov              qword ptr [rsp + 4264], 0
-                        mov              qword ptr [rsp + 4272], 0
-                        mov              qword ptr [rsp + 4280], 0
-                        mov              qword ptr [rsp + 4288], 0
-                        mov              qword ptr [rsp + 4296], 0
-                        mov              qword ptr [rsp + 4304], 0
-                        mov              qword ptr [rsp + 4312], 0
-                        mov              qword ptr [rsp + 4320], 0
-                        mov              qword ptr [rsp + 4328], 0
-                        mov              qword ptr [rsp + 4336], 0
-                        mov              qword ptr [rsp + 4344], 0
-                        mov              qword ptr [rsp + 4352], 0
-                        mov              qword ptr [rsp + 4360], 0
-                        mov              qword ptr [rsp + 4368], 0
-                        mov              qword ptr [rsp + 4376], 0
-                        mov              qword ptr [rsp + 4384], 0
-                        mov              qword ptr [rsp + 4392], 0
-                        mov              qword ptr [rsp + 4400], 0
-                        mov              qword ptr [rsp + 4408], 0
-                        mov              qword ptr [rsp + 4416], 0
-                        mov              qword ptr [rsp + 4424], 0
-                        mov              qword ptr [rsp + 4432], 0
-                        mov              qword ptr [rsp + 4440], 0
-                        mov              qword ptr [rsp + 4448], 0
-                        mov              qword ptr [rsp + 4456], 0
-                        mov              qword ptr [rsp + 4464], 0
-                        mov              qword ptr [rsp + 4472], 0
-                        mov              qword ptr [rsp + 4480], 0
-                        mov              qword ptr [rsp + 4488], 0
-                        mov              qword ptr [rsp + 4496], 0
-                        mov              qword ptr [rsp + 4504], 0
-                        mov              qword ptr [rsp + 4512], 0
-                        mov              qword ptr [rsp + 4520], 0
-                        mov              qword ptr [rsp + 4528], 0
-                        mov              qword ptr [rsp + 4536], 0
-                        mov              qword ptr [rsp + 4544], 0
-                        mov              qword ptr [rsp + 4552], 0
-                        mov              qword ptr [rsp + 4560], 0
-                        mov              qword ptr [rsp + 4568], 0
-                        mov              qword ptr [rsp + 4576], 0
-                        mov              qword ptr [rsp + 4584], 0
-                        mov              qword ptr [rsp + 4592], 0
-                        mov              qword ptr [rsp + 4600], 0
-                        mov              qword ptr [rsp + 4608], 0
-                        mov              qword ptr [rsp + 4616], 0
-                        mov              qword ptr [rsp + 4624], 0
-                        mov              qword ptr [rsp + 4632], 0
-                        mov              qword ptr [rsp + 4640], 0
-                        mov              qword ptr [rsp + 4648], 0
-                        mov              qword ptr [rsp + 4656], 0
-                        mov              qword ptr [rsp + 4664], 0
-                        mov              qword ptr [rsp + 4672], 0
-                        mov              qword ptr [rsp + 4680], 0
-                        mov              qword ptr [rsp + 4688], 0
-                        mov              qword ptr [rsp + 4696], 0
-                        mov              qword ptr [rsp + 4704], 0
-                        mov              qword ptr [rsp + 4712], 0
-                        mov              qword ptr [rsp + 4720], 0
-                        mov              qword ptr [rsp + 4728], 0
-                        mov              qword ptr [rsp + 4736], 0
-                        mov              qword ptr [rsp + 4744], 0
-                        mov              qword ptr [rsp + 4752], 0
-                        mov              qword ptr [rsp + 4760], 0
-                        mov              qword ptr [rsp + 4768], 0
-                        mov              qword ptr [rsp + 4776], 0
-                        mov              qword ptr [rsp + 4784], 0
-                        mov              qword ptr [rsp + 4792], 0
-                        mov              qword ptr [rsp + 4800], 0
-                        mov              qword ptr [rsp + 4808], 0
-                        mov              qword ptr [rsp + 4816], 0
-                        mov              qword ptr [rsp + 4824], 0
-                        mov              qword ptr [rsp + 4832], 0
-                        mov              qword ptr [rsp + 4840], 0
-                        mov              qword ptr [rsp + 4848], 0
-                        mov              qword ptr [rsp + 4856], 0
-                        mov              qword ptr [rsp + 4864], 0
-                        mov              qword ptr [rsp + 4872], 0
-                        mov              qword ptr [rsp + 4880], 0
-                        mov              qword ptr [rsp + 4888], 0
-                        mov              qword ptr [rsp + 4896], 0
-                        mov              qword ptr [rsp + 4904], 0
-                        mov              qword ptr [rsp + 4912], 0
-                        mov              qword ptr [rsp + 4920], 0
-                        mov              qword ptr [rsp + 4928], 0
-                        mov              qword ptr [rsp + 4936], 0
-                        mov              qword ptr [rsp + 4944], 0
-                        mov              qword ptr [rsp + 4952], 0
-                        mov              qword ptr [rsp + 4960], 0
-                        mov              qword ptr [rsp + 4968], 0
-                        mov              qword ptr [rsp + 4976], 0
-                        mov              qword ptr [rsp + 4984], 0
-                        mov              qword ptr [rsp + 4992], 0
-                        mov              qword ptr [rsp + 5000], 0
-                        mov              qword ptr [rsp + 5008], 0
-                        mov              qword ptr [rsp + 5016], 0
-                        mov              qword ptr [rsp + 5024], 0
-                        mov              qword ptr [rsp + 5032], 0
-                        mov              qword ptr [rsp + 5040], 0
-                        mov              qword ptr [rsp + 5048], 0
-                        mov              qword ptr [rsp + 5056], 0
-                        mov              qword ptr [rsp + 5064], 0
-                        mov              qword ptr [rsp + 5072], 0
-                        mov              qword ptr [rsp + 5080], 0
-                        mov              qword ptr [rsp + 5088], 0
-                        mov              qword ptr [rsp + 5096], 0
-                        mov              qword ptr [rsp + 5104], 0
-                        mov              qword ptr [rsp + 5112], 0
-                        mov              qword ptr [rsp + 5120], 0
-                        mov              qword ptr [rsp + 5128], 0
-                        mov              qword ptr [rsp + 5136], 0
-                        mov              qword ptr [rsp + 5144], 0
-                        mov              qword ptr [rsp + 5152], 0
-                        mov              qword ptr [rsp + 5160], 0
-                        mov              qword ptr [rsp + 5168], 0
-                        mov              qword ptr [rsp + 5176], 0
-                        mov              qword ptr [rsp + 5184], 0
-                        mov              qword ptr [rsp + 5192], 0
-                        mov              qword ptr [rsp + 5200], 0
-                        mov              qword ptr [rsp + 5208], 0
-                        mov              qword ptr [rsp + 5216], 0
-                        mov              qword ptr [rsp + 5224], 0
-                        mov              qword ptr [rsp + 5232], 0
-                        mov              qword ptr [rsp + 5240], 0
-                        mov              qword ptr [rsp + 5248], 0
-                        mov              qword ptr [rsp + 5256], 0
-                        mov              qword ptr [rsp + 5264], 0
-                        mov              qword ptr [rsp + 5272], 0
-                        mov              qword ptr [rsp + 5280], 0
-                        mov              qword ptr [rsp + 5288], 0
-                        mov              qword ptr [rsp + 5296], 0
-                        mov              qword ptr [rsp + 5304], 0
-                        mov              qword ptr [rsp + 5312], 0
-                        mov              qword ptr [rsp + 5320], 0
-                        mov              qword ptr [rsp + 5328], 0
-                        mov              qword ptr [rsp + 5336], 0
-                        mov              qword ptr [rsp + 5344], 0
-                        mov              qword ptr [rsp + 5352], 0
-                        mov              qword ptr [rsp + 5360], 0
-                        mov              qword ptr [rsp + 5368], 0
-                        mov              qword ptr [rsp + 5376], 0
-                        mov              qword ptr [rsp + 5384], 0
-                        mov              qword ptr [rsp + 5392], 0
-                        mov              qword ptr [rsp + 5400], 0
-                        mov              qword ptr [rsp + 5408], 0
-                        mov              qword ptr [rsp + 5416], 0
-                        mov              qword ptr [rsp + 5424], 0
-                        mov              qword ptr [rsp + 5432], 0
-                        mov              qword ptr [rsp + 5440], 0
-                        mov              qword ptr [rsp + 5448], 0
-                        mov              qword ptr [rsp + 5456], 0
-                        mov              qword ptr [rsp + 5464], 0
-                        mov              qword ptr [rsp + 5472], 0
-                        mov              qword ptr [rsp + 5480], 0
-                        mov              qword ptr [rsp + 5488], 0
-                        mov              qword ptr [rsp + 5496], 0
-                        mov              qword ptr [rsp + 5504], 0
-                        mov              qword ptr [rsp + 5512], 0
-                        mov              qword ptr [rsp + 5520], 0
-                        mov              qword ptr [rsp + 5528], 0
-                        mov              qword ptr [rsp + 5536], 0
-                        mov              qword ptr [rsp + 5544], 0
-                        mov              qword ptr [rsp + 5552], 0
-                        mov              qword ptr [rsp + 5560], 0
-                        mov              qword ptr [rsp + 5568], 0
-                        mov              qword ptr [rsp + 5576], 0
-                        mov              qword ptr [rsp + 5584], 0
-                        mov              qword ptr [rsp + 5592], 0
-                        mov              qword ptr [rsp + 5600], 0
-                        mov              qword ptr [rsp + 5608], 0
-                        mov              qword ptr [rsp + 5616], 0
-                        mov              qword ptr [rsp + 5624], 0
-                        mov              qword ptr [rsp + 5632], 0
-                        mov              qword ptr [rsp + 5640], 0
-                        mov              qword ptr [rsp + 5648], 0
-                        mov              qword ptr [rsp + 5656], 0
-                        mov              qword ptr [rsp + 5664], 0
-                        mov              qword ptr [rsp + 5672], 0
-                        mov              qword ptr [rsp + 5680], 0
-                        mov              qword ptr [rsp + 5688], 0
-                        mov              qword ptr [rsp + 5696], 0
-                        mov              qword ptr [rsp + 5704], 0
-                        mov              qword ptr [rsp + 5712], 0
-                        mov              qword ptr [rsp + 5720], 0
-                        mov              qword ptr [rsp + 5728], 0
-                        mov              qword ptr [rsp + 5736], 0
-                        mov              qword ptr [rsp + 5744], 0
-                        mov              qword ptr [rsp + 5752], 0
-                        mov              qword ptr [rsp + 5760], 0
-                        mov              qword ptr [rsp + 5768], 0
-                        mov              qword ptr [rsp + 5776], 0
-                        mov              qword ptr [rsp + 5784], 0
-                        mov              qword ptr [rsp + 5792], 0
-                        mov              qword ptr [rsp + 5800], 0
-                        mov              qword ptr [rsp + 5808], 0
-                        mov              qword ptr [rsp + 5816], 0
-                        mov              qword ptr [rsp + 5824], 0
-                        mov              qword ptr [rsp + 5832], 0
-                        mov              qword ptr [rsp + 5840], 0
-                        mov              qword ptr [rsp + 5848], 0
-                        mov              qword ptr [rsp + 5856], 0
-                        mov              qword ptr [rsp + 5864], 0
-                        mov              qword ptr [rsp + 5872], 0
-                        mov              qword ptr [rsp + 5880], 0
-                        mov              qword ptr [rsp + 5888], 0
-                        mov              qword ptr [rsp + 5896], 0
-                        mov              qword ptr [rsp + 5904], 0
-                        mov              qword ptr [rsp + 5912], 0
-                        mov              qword ptr [rsp + 5920], 0
-                        mov              qword ptr [rsp + 5928], 0
-                        mov              qword ptr [rsp + 5936], 0
-                        mov              qword ptr [rsp + 5944], 0
-                        mov              qword ptr [rsp + 5952], 0
-                        mov              qword ptr [rsp + 5960], 0
-                        mov              qword ptr [rsp + 5968], 0
-                        mov              qword ptr [rsp + 5976], 0
-                        mov              qword ptr [rsp + 5984], 0
-                        mov              qword ptr [rsp + 5992], 0
-                        mov              qword ptr [rsp + 6000], 0
-                        mov              qword ptr [rsp + 6008], 0
-                        mov              qword ptr [rsp + 6016], 0
-                        mov              qword ptr [rsp + 6024], 0
-                        mov              qword ptr [rsp + 6032], 0
-                        mov              qword ptr [rsp + 6040], 0
-                        mov              qword ptr [rsp + 6048], 0
-                        mov              qword ptr [rsp + 6056], 0
-                        mov              qword ptr [rsp + 6064], 0
-                        mov              qword ptr [rsp + 6072], 0
-                        mov              qword ptr [rsp + 6080], 0
-                        mov              qword ptr [rsp + 6088], 0
-                        mov              qword ptr [rsp + 6096], 0
-                        mov              qword ptr [rsp + 6104], 0
-                        mov              qword ptr [rsp + 6112], 0
-                        mov              qword ptr [rsp + 6120], 0
-                        mov              qword ptr [rsp + 6128], 0
-                        mov              qword ptr [rsp + 6136], 0
-                        mov              qword ptr [rsp + 6144], 0
-                        mov              qword ptr [rsp + 6152], 0
-                        mov              qword ptr [rsp + 6160], 0
-                        mov              qword ptr [rsp + 6168], 0
-                        mov              qword ptr [rsp + 6176], 0
-                        mov              qword ptr [rsp + 6184], 0
-                        mov              qword ptr [rsp + 6192], 0
-                        mov              qword ptr [rsp + 6200], 0
-                        mov              qword ptr [rsp + 6208], 0
-                        mov              qword ptr [rsp + 6216], 0
-                        mov              qword ptr [rsp + 6224], 0
-                        mov              qword ptr [rsp + 6232], 0
-                        mov              qword ptr [rsp + 6240], 0
-                        mov              qword ptr [rsp + 6248], 0
-                        mov              qword ptr [rsp + 6256], 0
-                        mov              qword ptr [rsp + 6264], 0
-                        mov              qword ptr [rsp + 6272], 0
-                        mov              qword ptr [rsp + 6280], 0
-                        mov              qword ptr [rsp + 6288], 0
-                        mov              qword ptr [rsp + 6296], 0
-                        mov              qword ptr [rsp + 6304], 0
-                        mov              qword ptr [rsp + 6312], 0
-                        mov              qword ptr [rsp + 6320], 0
-                        mov              qword ptr [rsp + 6328], 0
-                        mov              qword ptr [rsp + 6336], 0
-                        mov              qword ptr [rsp + 6344], 0
-                        mov              qword ptr [rsp + 6352], 0
-                        mov              qword ptr [rsp + 6360], 0
-                        mov              qword ptr [rsp + 6368], 0
-                        mov              qword ptr [rsp + 6376], 0
-                        mov              qword ptr [rsp + 6384], 0
-                        mov              qword ptr [rsp + 6392], 0
-                        mov              qword ptr [rsp + 6400], 0
-                        mov              qword ptr [rsp + 6408], 0
-                        mov              qword ptr [rsp + 6416], 0
-                        mov              qword ptr [rsp + 6424], 0
-                        mov              qword ptr [rsp + 6432], 0
-                        mov              qword ptr [rsp + 6440], 0
-                        mov              qword ptr [rsp + 6448], 0
-                        mov              qword ptr [rsp + 6456], 0
-                        mov              qword ptr [rsp + 6464], 0
-                        mov              qword ptr [rsp + 6472], 0
-                        mov              qword ptr [rsp + 6480], 0
-                        mov              qword ptr [rsp + 6488], 0
-                        mov              qword ptr [rsp + 6496], 0
-                        mov              qword ptr [rsp + 6504], 0
-                        mov              qword ptr [rsp + 6512], 0
-                        mov              qword ptr [rsp + 6520], 0
-                        mov              qword ptr [rsp + 6528], 0
-                        mov              qword ptr [rsp + 6536], 0
-                        mov              qword ptr [rsp + 6544], 0
-                        mov              qword ptr [rsp + 6552], 0
-                        mov              qword ptr [rsp + 6560], 0
-                        mov              qword ptr [rsp + 6568], 0
-                        mov              qword ptr [rsp + 6576], 0
-                        mov              qword ptr [rsp + 6584], 0
-                        mov              qword ptr [rsp + 6592], 0
-                        mov              qword ptr [rsp + 6600], 0
-                        mov              qword ptr [rsp + 6608], 0
-                        mov              qword ptr [rsp + 6616], 0
-                        mov              qword ptr [rsp + 6624], 0
-                        mov              qword ptr [rsp + 6632], 0
-                        mov              qword ptr [rsp + 6640], 0
-                        mov              qword ptr [rsp + 6648], 0
-                        mov              qword ptr [rsp + 6656], 0
-                        mov              qword ptr [rsp + 6664], 0
-                        mov              qword ptr [rsp + 6672], 0
-                        mov              qword ptr [rsp + 6680], 0
-                        mov              qword ptr [rsp + 6688], 0
-                        mov              qword ptr [rsp + 6696], 0
-                        mov              qword ptr [rsp + 6704], 0
-                        mov              qword ptr [rsp + 6712], 0
-                        mov              qword ptr [rsp + 6720], 0
-                        mov              qword ptr [rsp + 6728], 0
-                        mov              qword ptr [rsp + 6736], 0
-                        mov              qword ptr [rsp + 6744], 0
-                        mov              qword ptr [rsp + 6752], 0
-                        mov              qword ptr [rsp + 6760], 0
-                        mov              qword ptr [rsp + 6768], 0
-                        mov              qword ptr [rsp + 6776], 0
-                        mov              qword ptr [rsp + 6784], 0
-                        mov              qword ptr [rsp + 6792], 0
-                        mov              qword ptr [rsp + 6800], 0
-                        mov              qword ptr [rsp + 6808], 0
-                        mov              qword ptr [rsp + 6816], 0
-                        mov              qword ptr [rsp + 6824], 0
-                        mov              qword ptr [rsp + 6832], 0
-                        mov              qword ptr [rsp + 6840], 0
-                        mov              qword ptr [rsp + 6848], 0
-                        mov              qword ptr [rsp + 6856], 0
-                        mov              qword ptr [rsp + 6864], 0
-                        mov              qword ptr [rsp + 6872], 0
-                        mov              qword ptr [rsp + 6880], 0
-                        mov              qword ptr [rsp + 6888], 0
-                        mov              qword ptr [rsp + 6896], 0
-                        mov              qword ptr [rsp + 6904], 0
-                        mov              qword ptr [rsp + 6912], 0
-                        mov              qword ptr [rsp + 6920], 0
-                        mov              qword ptr [rsp + 6928], 0
-                        mov              qword ptr [rsp + 6936], 0
-                        mov              qword ptr [rsp + 6944], 0
-                        mov              qword ptr [rsp + 6952], 0
-                        mov              qword ptr [rsp + 6960], 0
-                        mov              qword ptr [rsp + 6968], 0
-                        mov              qword ptr [rsp + 6976], 0
-                        mov              qword ptr [rsp + 6984], 0
-                        mov              qword ptr [rsp + 6992], 0
-                        mov              qword ptr [rsp + 7000], 0
-                        mov              qword ptr [rsp + 7008], 0
-                        mov              qword ptr [rsp + 7016], 0
-                        mov              qword ptr [rsp + 7024], 0
-                        mov              qword ptr [rsp + 7032], 0
-                        mov              qword ptr [rsp + 7040], 0
-                        mov              qword ptr [rsp + 7048], 0
-                        mov              qword ptr [rsp + 7056], 0
-                        mov              qword ptr [rsp + 7064], 0
-                        mov              qword ptr [rsp + 7072], 0
-                        mov              qword ptr [rsp + 7080], 0
-                        mov              qword ptr [rsp + 7088], 0
-                        mov              qword ptr [rsp + 7096], 0
-                        mov              qword ptr [rsp + 7104], 0
-                        mov              qword ptr [rsp + 7112], 0
-                        mov              qword ptr [rsp + 7120], 0
-                        mov              qword ptr [rsp + 7128], 0
-                        mov              qword ptr [rsp + 7136], 0
-                        mov              qword ptr [rsp + 7144], 0
-                        mov              qword ptr [rsp + 7152], 0
-                        mov              qword ptr [rsp + 7160], 0
-                        mov              qword ptr [rsp + 7168], 0
-                        mov              qword ptr [rsp + 7176], 0
-                        mov              qword ptr [rsp + 7184], 0
-                        mov              qword ptr [rsp + 7192], 0
-                        mov              qword ptr [rsp + 7200], 0
-                        mov              qword ptr [rsp + 7208], 0
-                        mov              qword ptr [rsp + 7216], 0
-                        mov              qword ptr [rsp + 7224], 0
-                        mov              qword ptr [rsp + 7232], 0
-                        mov              qword ptr [rsp + 7240], 0
-                        mov              qword ptr [rsp + 7248], 0
-                        mov              qword ptr [rsp + 7256], 0
-                        mov              qword ptr [rsp + 7264], 0
-                        mov              qword ptr [rsp + 7272], 0
-                        mov              qword ptr [rsp + 7280], 0
-                        mov              qword ptr [rsp + 7288], 0
-                        mov              qword ptr [rsp + 7296], 0
-                        mov              qword ptr [rsp + 7304], 0
-                        mov              qword ptr [rsp + 7296], 2                      # result
-                        mov              dword ptr [rsp + 7300], 4
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 4
                         mov              rax, qword ptr [rip + .Lx1622_0]
-                        mov              qword ptr [rsp + 7304], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n1133_call_α
 n1132_lit_string_β:
-                        add              rsp, 7312
+                        add              rsp, 16
                                                                                         jmp   n1135_var_α
 .Lx1622_0:
                         .quad            .Lx1622_0_s
@@ -16556,6 +11282,11 @@ n1132_lit_string_β:
                         .string          "ROOT"
 #-----------------------------------------------------------------------------------------------------------------------
 n1133_call_α:
+                        sub              rsp, 16
+                        mov              edi, 0                                         # idx
+                        mov              rsi, qword ptr [rsp + 16]                      # lit_string
+                        mov              rdx, qword ptr [rsp + 24]                      # v
+                        call             rt_arg_stage@PLT
                         sub              rsp, 32
                         mov              rax, qword ptr [1879052304]                    # v
                         mov              qword ptr [rsp + 0], rax
@@ -16571,9 +11302,10 @@ n1133_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx1624_5
-                        mov              rax, qword ptr [rsp + 7328]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 0]
                         mov              qword ptr [1879052304], rax                    # v
-                        mov              rax, qword ptr [rsp + 7336]
+                        mov              rax, qword ptr [r10 + 8]
                         mov              qword ptr [1879052312], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx1624_6]
@@ -16607,45 +11339,13 @@ n1133_call_α:
                                                                                         jmp   .Lx1624_2
 .Lx1624_5:
                         add              rsp, 32
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx1624_20
-                        mov              rax, qword ptr [rsp + 7296]
-                        mov              rdx, qword ptr [rsp + 7304]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 0], rax
-                        mov              qword ptr [r10 + 8], rdx
-                                                                                        jmp   .Lx1624_21
-.Lx1624_20:
-                        mov              edi, 0                                         # idx
-                        mov              rsi, qword ptr [rsp + 7296]                    # v
-                        mov              rdx, qword ptr [rsp + 7304]                    # v
-                        call             rt_arg_stage@PLT
-.Lx1624_21:
-                        mov              rdi, qword ptr [rip + .Lx1624_0]               # name
-                        mov              esi, 1                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx1624_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx1624_3]
-                        lea              rdx, [rip + .Lx1624_4]
-                                                                                        jmp   rax
-.Lx1624_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx1624_2
-.Lx1624_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx1624_2
-.Lx1624_1:
-                        call             rt_faildescr@PLT
 .Lx1624_2:
-                        mov              qword ptr [rsp + 7248], rax
-                        mov              qword ptr [rsp + 7256], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx1624_240
-                        add              rsp, 7312
+                        add              rsp, 16
+                        add              rsp, 16
                                                                                         jmp   n1135_var_α
 .Lx1624_240:
                                                                                         jmp   n1134_assign_α
@@ -16657,14 +11357,14 @@ n1133_call_β:
                         .string          "stk_push_frame"
 #-----------------------------------------------------------------------------------------------------------------------
 n1134_assign_α:
-                        mov              rax, qword ptr [rsp + 7248]
-                        mov              rdx, qword ptr [rsp + 7256]
+                        mov              rax, qword ptr [rsp + 0]                       # call
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052912], rax                    # dummy
                         mov              qword ptr [1879052920], rdx
-                        add              rsp, 7312
+                        add              rsp, 32
                                                                                         jmp   n1135_var_α
 n1134_assign_β:
-                        add              rsp, 7312
+                        add              rsp, 32
                                                                                         jmp   n1135_var_α
 #=======================================================================================================================
 #                item           group                         :F(parse_fail)
@@ -16898,6 +11598,7 @@ n1138_match_end_α:
 #                dummy          =  stk_pop_into_parent()      :(loop)
 #-----------------------------------------------------------------------------------------------------------------------
 n1139_call_α:
+                        sub              rsp, 16
                         sub              rsp, 64
                         mov              rax, qword ptr [1879052368]                    # child
                         mov              qword ptr [rsp + 0], rax
@@ -16969,28 +11670,14 @@ n1139_call_α:
                                                                                         jmp   .Lx1633_2
 .Lx1633_5:
                         add              rsp, 64
-                        mov              rdi, qword ptr [rip + .Lx1633_0]               # name
-                        mov              esi, 0                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx1633_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx1633_3]
-                        lea              rdx, [rip + .Lx1633_4]
-                                                                                        jmp   rax
-.Lx1633_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx1633_2
-.Lx1633_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx1633_2
-.Lx1633_1:
-                        call             rt_faildescr@PLT
 .Lx1633_2:
-                        mov              qword ptr [rsp + 7648], rax
-                        mov              qword ptr [rsp + 7656], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
-                                                                                        je    n1126_var_α
+                                                                                        jne   .Lx1633_240
+                        add              rsp, 16
+                                                                                        jmp   n1126_var_α
+.Lx1633_240:
                                                                                         jmp   n1140_assign_α
 n1139_call_β:
                                                                                         jmp   n1126_var_α
@@ -17000,12 +11687,14 @@ n1139_call_β:
                         .string          "stk_pop_into_parent"
 #-----------------------------------------------------------------------------------------------------------------------
 n1140_assign_α:
-                        mov              rax, qword ptr [rsp + 7648]
-                        mov              rdx, qword ptr [rsp + 7656]
+                        mov              rax, qword ptr [rsp + 0]                       # call
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052912], rax                    # dummy
                         mov              qword ptr [1879052920], rdx
+                        add              rsp, 16
                                                                                         jmp   n1126_var_α
 n1140_assign_β:
+                        add              rsp, 16
                                                                                         jmp   n1126_var_α
 #=======================================================================================================================
 # parse_fail     OUTPUT         =  'Parse failed on: ' item
@@ -17070,6 +11759,7 @@ n1144_assign_β:
 #                dummy          =  stk_pop_into_parent()      :(loop)
 #-----------------------------------------------------------------------------------------------------------------------
 n1145_call_α:
+                        sub              rsp, 16
                         sub              rsp, 64
                         mov              rax, qword ptr [1879052368]                    # child
                         mov              qword ptr [rsp + 0], rax
@@ -17141,28 +11831,14 @@ n1145_call_α:
                                                                                         jmp   .Lx1640_2
 .Lx1640_5:
                         add              rsp, 64
-                        mov              rdi, qword ptr [rip + .Lx1640_0]               # name
-                        mov              esi, 0                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx1640_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx1640_3]
-                        lea              rdx, [rip + .Lx1640_4]
-                                                                                        jmp   rax
-.Lx1640_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx1640_2
-.Lx1640_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx1640_2
-.Lx1640_1:
-                        call             rt_faildescr@PLT
 .Lx1640_2:
-                        mov              qword ptr [rsp + 7728], rax
-                        mov              qword ptr [rsp + 7736], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
-                                                                                        je    n1126_var_α
+                                                                                        jne   .Lx1640_240
+                        add              rsp, 16
+                                                                                        jmp   n1126_var_α
+.Lx1640_240:
                                                                                         jmp   n1146_assign_α
 n1145_call_β:
                                                                                         jmp   n1126_var_α
@@ -17172,12 +11848,14 @@ n1145_call_β:
                         .string          "stk_pop_into_parent"
 #-----------------------------------------------------------------------------------------------------------------------
 n1146_assign_α:
-                        mov              rax, qword ptr [rsp + 7728]
-                        mov              rdx, qword ptr [rsp + 7736]
+                        mov              rax, qword ptr [rsp + 0]                       # call
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052912], rax                    # dummy
                         mov              qword ptr [1879052920], rdx
+                        add              rsp, 16
                                                                                         jmp   n1126_var_α
 n1146_assign_β:
+                        add              rsp, 16
                                                                                         jmp   n1126_var_α
 #=======================================================================================================================
 # all_done       t1             =  TIME()
@@ -17310,980 +11988,14 @@ n1154_assign_β:
 #                dummy          =  stk_pop_final('bank')
 #-----------------------------------------------------------------------------------------------------------------------
 n1155_lit_string_α:
-                        sub              rsp, 7728
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
-                        mov              qword ptr [rsp + 96], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 120], 0
-                        mov              qword ptr [rsp + 128], 0
-                        mov              qword ptr [rsp + 136], 0
-                        mov              qword ptr [rsp + 144], 0
-                        mov              qword ptr [rsp + 152], 0
-                        mov              qword ptr [rsp + 160], 0
-                        mov              qword ptr [rsp + 168], 0
-                        mov              qword ptr [rsp + 176], 0
-                        mov              qword ptr [rsp + 184], 0
-                        mov              qword ptr [rsp + 192], 0
-                        mov              qword ptr [rsp + 200], 0
-                        mov              qword ptr [rsp + 208], 0
-                        mov              qword ptr [rsp + 216], 0
-                        mov              qword ptr [rsp + 224], 0
-                        mov              qword ptr [rsp + 232], 0
-                        mov              qword ptr [rsp + 240], 0
-                        mov              qword ptr [rsp + 248], 0
-                        mov              qword ptr [rsp + 256], 0
-                        mov              qword ptr [rsp + 264], 0
-                        mov              qword ptr [rsp + 272], 0
-                        mov              qword ptr [rsp + 280], 0
-                        mov              qword ptr [rsp + 288], 0
-                        mov              qword ptr [rsp + 296], 0
-                        mov              qword ptr [rsp + 304], 0
-                        mov              qword ptr [rsp + 312], 0
-                        mov              qword ptr [rsp + 320], 0
-                        mov              qword ptr [rsp + 328], 0
-                        mov              qword ptr [rsp + 336], 0
-                        mov              qword ptr [rsp + 344], 0
-                        mov              qword ptr [rsp + 352], 0
-                        mov              qword ptr [rsp + 360], 0
-                        mov              qword ptr [rsp + 368], 0
-                        mov              qword ptr [rsp + 376], 0
-                        mov              qword ptr [rsp + 384], 0
-                        mov              qword ptr [rsp + 392], 0
-                        mov              qword ptr [rsp + 400], 0
-                        mov              qword ptr [rsp + 408], 0
-                        mov              qword ptr [rsp + 416], 0
-                        mov              qword ptr [rsp + 424], 0
-                        mov              qword ptr [rsp + 432], 0
-                        mov              qword ptr [rsp + 440], 0
-                        mov              qword ptr [rsp + 448], 0
-                        mov              qword ptr [rsp + 456], 0
-                        mov              qword ptr [rsp + 464], 0
-                        mov              qword ptr [rsp + 472], 0
-                        mov              qword ptr [rsp + 480], 0
-                        mov              qword ptr [rsp + 488], 0
-                        mov              qword ptr [rsp + 496], 0
-                        mov              qword ptr [rsp + 504], 0
-                        mov              qword ptr [rsp + 512], 0
-                        mov              qword ptr [rsp + 520], 0
-                        mov              qword ptr [rsp + 528], 0
-                        mov              qword ptr [rsp + 536], 0
-                        mov              qword ptr [rsp + 544], 0
-                        mov              qword ptr [rsp + 552], 0
-                        mov              qword ptr [rsp + 560], 0
-                        mov              qword ptr [rsp + 568], 0
-                        mov              qword ptr [rsp + 576], 0
-                        mov              qword ptr [rsp + 584], 0
-                        mov              qword ptr [rsp + 592], 0
-                        mov              qword ptr [rsp + 600], 0
-                        mov              qword ptr [rsp + 608], 0
-                        mov              qword ptr [rsp + 616], 0
-                        mov              qword ptr [rsp + 624], 0
-                        mov              qword ptr [rsp + 632], 0
-                        mov              qword ptr [rsp + 640], 0
-                        mov              qword ptr [rsp + 648], 0
-                        mov              qword ptr [rsp + 656], 0
-                        mov              qword ptr [rsp + 664], 0
-                        mov              qword ptr [rsp + 672], 0
-                        mov              qword ptr [rsp + 680], 0
-                        mov              qword ptr [rsp + 688], 0
-                        mov              qword ptr [rsp + 696], 0
-                        mov              qword ptr [rsp + 704], 0
-                        mov              qword ptr [rsp + 712], 0
-                        mov              qword ptr [rsp + 720], 0
-                        mov              qword ptr [rsp + 728], 0
-                        mov              qword ptr [rsp + 736], 0
-                        mov              qword ptr [rsp + 744], 0
-                        mov              qword ptr [rsp + 752], 0
-                        mov              qword ptr [rsp + 760], 0
-                        mov              qword ptr [rsp + 768], 0
-                        mov              qword ptr [rsp + 776], 0
-                        mov              qword ptr [rsp + 784], 0
-                        mov              qword ptr [rsp + 792], 0
-                        mov              qword ptr [rsp + 800], 0
-                        mov              qword ptr [rsp + 808], 0
-                        mov              qword ptr [rsp + 816], 0
-                        mov              qword ptr [rsp + 824], 0
-                        mov              qword ptr [rsp + 832], 0
-                        mov              qword ptr [rsp + 840], 0
-                        mov              qword ptr [rsp + 848], 0
-                        mov              qword ptr [rsp + 856], 0
-                        mov              qword ptr [rsp + 864], 0
-                        mov              qword ptr [rsp + 872], 0
-                        mov              qword ptr [rsp + 880], 0
-                        mov              qword ptr [rsp + 888], 0
-                        mov              qword ptr [rsp + 896], 0
-                        mov              qword ptr [rsp + 904], 0
-                        mov              qword ptr [rsp + 912], 0
-                        mov              qword ptr [rsp + 920], 0
-                        mov              qword ptr [rsp + 928], 0
-                        mov              qword ptr [rsp + 936], 0
-                        mov              qword ptr [rsp + 944], 0
-                        mov              qword ptr [rsp + 952], 0
-                        mov              qword ptr [rsp + 960], 0
-                        mov              qword ptr [rsp + 968], 0
-                        mov              qword ptr [rsp + 976], 0
-                        mov              qword ptr [rsp + 984], 0
-                        mov              qword ptr [rsp + 992], 0
-                        mov              qword ptr [rsp + 1000], 0
-                        mov              qword ptr [rsp + 1008], 0
-                        mov              qword ptr [rsp + 1016], 0
-                        mov              qword ptr [rsp + 1024], 0
-                        mov              qword ptr [rsp + 1032], 0
-                        mov              qword ptr [rsp + 1040], 0
-                        mov              qword ptr [rsp + 1048], 0
-                        mov              qword ptr [rsp + 1056], 0
-                        mov              qword ptr [rsp + 1064], 0
-                        mov              qword ptr [rsp + 1072], 0
-                        mov              qword ptr [rsp + 1080], 0
-                        mov              qword ptr [rsp + 1088], 0
-                        mov              qword ptr [rsp + 1096], 0
-                        mov              qword ptr [rsp + 1104], 0
-                        mov              qword ptr [rsp + 1112], 0
-                        mov              qword ptr [rsp + 1120], 0
-                        mov              qword ptr [rsp + 1128], 0
-                        mov              qword ptr [rsp + 1136], 0
-                        mov              qword ptr [rsp + 1144], 0
-                        mov              qword ptr [rsp + 1152], 0
-                        mov              qword ptr [rsp + 1160], 0
-                        mov              qword ptr [rsp + 1168], 0
-                        mov              qword ptr [rsp + 1176], 0
-                        mov              qword ptr [rsp + 1184], 0
-                        mov              qword ptr [rsp + 1192], 0
-                        mov              qword ptr [rsp + 1200], 0
-                        mov              qword ptr [rsp + 1208], 0
-                        mov              qword ptr [rsp + 1216], 0
-                        mov              qword ptr [rsp + 1224], 0
-                        mov              qword ptr [rsp + 1232], 0
-                        mov              qword ptr [rsp + 1240], 0
-                        mov              qword ptr [rsp + 1248], 0
-                        mov              qword ptr [rsp + 1256], 0
-                        mov              qword ptr [rsp + 1264], 0
-                        mov              qword ptr [rsp + 1272], 0
-                        mov              qword ptr [rsp + 1280], 0
-                        mov              qword ptr [rsp + 1288], 0
-                        mov              qword ptr [rsp + 1296], 0
-                        mov              qword ptr [rsp + 1304], 0
-                        mov              qword ptr [rsp + 1312], 0
-                        mov              qword ptr [rsp + 1320], 0
-                        mov              qword ptr [rsp + 1328], 0
-                        mov              qword ptr [rsp + 1336], 0
-                        mov              qword ptr [rsp + 1344], 0
-                        mov              qword ptr [rsp + 1352], 0
-                        mov              qword ptr [rsp + 1360], 0
-                        mov              qword ptr [rsp + 1368], 0
-                        mov              qword ptr [rsp + 1376], 0
-                        mov              qword ptr [rsp + 1384], 0
-                        mov              qword ptr [rsp + 1392], 0
-                        mov              qword ptr [rsp + 1400], 0
-                        mov              qword ptr [rsp + 1408], 0
-                        mov              qword ptr [rsp + 1416], 0
-                        mov              qword ptr [rsp + 1424], 0
-                        mov              qword ptr [rsp + 1432], 0
-                        mov              qword ptr [rsp + 1440], 0
-                        mov              qword ptr [rsp + 1448], 0
-                        mov              qword ptr [rsp + 1456], 0
-                        mov              qword ptr [rsp + 1464], 0
-                        mov              qword ptr [rsp + 1472], 0
-                        mov              qword ptr [rsp + 1480], 0
-                        mov              qword ptr [rsp + 1488], 0
-                        mov              qword ptr [rsp + 1496], 0
-                        mov              qword ptr [rsp + 1504], 0
-                        mov              qword ptr [rsp + 1512], 0
-                        mov              qword ptr [rsp + 1520], 0
-                        mov              qword ptr [rsp + 1528], 0
-                        mov              qword ptr [rsp + 1536], 0
-                        mov              qword ptr [rsp + 1544], 0
-                        mov              qword ptr [rsp + 1552], 0
-                        mov              qword ptr [rsp + 1560], 0
-                        mov              qword ptr [rsp + 1568], 0
-                        mov              qword ptr [rsp + 1576], 0
-                        mov              qword ptr [rsp + 1584], 0
-                        mov              qword ptr [rsp + 1592], 0
-                        mov              qword ptr [rsp + 1600], 0
-                        mov              qword ptr [rsp + 1608], 0
-                        mov              qword ptr [rsp + 1616], 0
-                        mov              qword ptr [rsp + 1624], 0
-                        mov              qword ptr [rsp + 1632], 0
-                        mov              qword ptr [rsp + 1640], 0
-                        mov              qword ptr [rsp + 1648], 0
-                        mov              qword ptr [rsp + 1656], 0
-                        mov              qword ptr [rsp + 1664], 0
-                        mov              qword ptr [rsp + 1672], 0
-                        mov              qword ptr [rsp + 1680], 0
-                        mov              qword ptr [rsp + 1688], 0
-                        mov              qword ptr [rsp + 1696], 0
-                        mov              qword ptr [rsp + 1704], 0
-                        mov              qword ptr [rsp + 1712], 0
-                        mov              qword ptr [rsp + 1720], 0
-                        mov              qword ptr [rsp + 1728], 0
-                        mov              qword ptr [rsp + 1736], 0
-                        mov              qword ptr [rsp + 1744], 0
-                        mov              qword ptr [rsp + 1752], 0
-                        mov              qword ptr [rsp + 1760], 0
-                        mov              qword ptr [rsp + 1768], 0
-                        mov              qword ptr [rsp + 1776], 0
-                        mov              qword ptr [rsp + 1784], 0
-                        mov              qword ptr [rsp + 1792], 0
-                        mov              qword ptr [rsp + 1800], 0
-                        mov              qword ptr [rsp + 1808], 0
-                        mov              qword ptr [rsp + 1816], 0
-                        mov              qword ptr [rsp + 1824], 0
-                        mov              qword ptr [rsp + 1832], 0
-                        mov              qword ptr [rsp + 1840], 0
-                        mov              qword ptr [rsp + 1848], 0
-                        mov              qword ptr [rsp + 1856], 0
-                        mov              qword ptr [rsp + 1864], 0
-                        mov              qword ptr [rsp + 1872], 0
-                        mov              qword ptr [rsp + 1880], 0
-                        mov              qword ptr [rsp + 1888], 0
-                        mov              qword ptr [rsp + 1896], 0
-                        mov              qword ptr [rsp + 1904], 0
-                        mov              qword ptr [rsp + 1912], 0
-                        mov              qword ptr [rsp + 1920], 0
-                        mov              qword ptr [rsp + 1928], 0
-                        mov              qword ptr [rsp + 1936], 0
-                        mov              qword ptr [rsp + 1944], 0
-                        mov              qword ptr [rsp + 1952], 0
-                        mov              qword ptr [rsp + 1960], 0
-                        mov              qword ptr [rsp + 1968], 0
-                        mov              qword ptr [rsp + 1976], 0
-                        mov              qword ptr [rsp + 1984], 0
-                        mov              qword ptr [rsp + 1992], 0
-                        mov              qword ptr [rsp + 2000], 0
-                        mov              qword ptr [rsp + 2008], 0
-                        mov              qword ptr [rsp + 2016], 0
-                        mov              qword ptr [rsp + 2024], 0
-                        mov              qword ptr [rsp + 2032], 0
-                        mov              qword ptr [rsp + 2040], 0
-                        mov              qword ptr [rsp + 2048], 0
-                        mov              qword ptr [rsp + 2056], 0
-                        mov              qword ptr [rsp + 2064], 0
-                        mov              qword ptr [rsp + 2072], 0
-                        mov              qword ptr [rsp + 2080], 0
-                        mov              qword ptr [rsp + 2088], 0
-                        mov              qword ptr [rsp + 2096], 0
-                        mov              qword ptr [rsp + 2104], 0
-                        mov              qword ptr [rsp + 2112], 0
-                        mov              qword ptr [rsp + 2120], 0
-                        mov              qword ptr [rsp + 2128], 0
-                        mov              qword ptr [rsp + 2136], 0
-                        mov              qword ptr [rsp + 2144], 0
-                        mov              qword ptr [rsp + 2152], 0
-                        mov              qword ptr [rsp + 2160], 0
-                        mov              qword ptr [rsp + 2168], 0
-                        mov              qword ptr [rsp + 2176], 0
-                        mov              qword ptr [rsp + 2184], 0
-                        mov              qword ptr [rsp + 2192], 0
-                        mov              qword ptr [rsp + 2200], 0
-                        mov              qword ptr [rsp + 2208], 0
-                        mov              qword ptr [rsp + 2216], 0
-                        mov              qword ptr [rsp + 2224], 0
-                        mov              qword ptr [rsp + 2232], 0
-                        mov              qword ptr [rsp + 2240], 0
-                        mov              qword ptr [rsp + 2248], 0
-                        mov              qword ptr [rsp + 2256], 0
-                        mov              qword ptr [rsp + 2264], 0
-                        mov              qword ptr [rsp + 2272], 0
-                        mov              qword ptr [rsp + 2280], 0
-                        mov              qword ptr [rsp + 2288], 0
-                        mov              qword ptr [rsp + 2296], 0
-                        mov              qword ptr [rsp + 2304], 0
-                        mov              qword ptr [rsp + 2312], 0
-                        mov              qword ptr [rsp + 2320], 0
-                        mov              qword ptr [rsp + 2328], 0
-                        mov              qword ptr [rsp + 2336], 0
-                        mov              qword ptr [rsp + 2344], 0
-                        mov              qword ptr [rsp + 2352], 0
-                        mov              qword ptr [rsp + 2360], 0
-                        mov              qword ptr [rsp + 2368], 0
-                        mov              qword ptr [rsp + 2376], 0
-                        mov              qword ptr [rsp + 2384], 0
-                        mov              qword ptr [rsp + 2392], 0
-                        mov              qword ptr [rsp + 2400], 0
-                        mov              qword ptr [rsp + 2408], 0
-                        mov              qword ptr [rsp + 2416], 0
-                        mov              qword ptr [rsp + 2424], 0
-                        mov              qword ptr [rsp + 2432], 0
-                        mov              qword ptr [rsp + 2440], 0
-                        mov              qword ptr [rsp + 2448], 0
-                        mov              qword ptr [rsp + 2456], 0
-                        mov              qword ptr [rsp + 2464], 0
-                        mov              qword ptr [rsp + 2472], 0
-                        mov              qword ptr [rsp + 2480], 0
-                        mov              qword ptr [rsp + 2488], 0
-                        mov              qword ptr [rsp + 2496], 0
-                        mov              qword ptr [rsp + 2504], 0
-                        mov              qword ptr [rsp + 2512], 0
-                        mov              qword ptr [rsp + 2520], 0
-                        mov              qword ptr [rsp + 2528], 0
-                        mov              qword ptr [rsp + 2536], 0
-                        mov              qword ptr [rsp + 2544], 0
-                        mov              qword ptr [rsp + 2552], 0
-                        mov              qword ptr [rsp + 2560], 0
-                        mov              qword ptr [rsp + 2568], 0
-                        mov              qword ptr [rsp + 2576], 0
-                        mov              qword ptr [rsp + 2584], 0
-                        mov              qword ptr [rsp + 2592], 0
-                        mov              qword ptr [rsp + 2600], 0
-                        mov              qword ptr [rsp + 2608], 0
-                        mov              qword ptr [rsp + 2616], 0
-                        mov              qword ptr [rsp + 2624], 0
-                        mov              qword ptr [rsp + 2632], 0
-                        mov              qword ptr [rsp + 2640], 0
-                        mov              qword ptr [rsp + 2648], 0
-                        mov              qword ptr [rsp + 2656], 0
-                        mov              qword ptr [rsp + 2664], 0
-                        mov              qword ptr [rsp + 2672], 0
-                        mov              qword ptr [rsp + 2680], 0
-                        mov              qword ptr [rsp + 2688], 0
-                        mov              qword ptr [rsp + 2696], 0
-                        mov              qword ptr [rsp + 2704], 0
-                        mov              qword ptr [rsp + 2712], 0
-                        mov              qword ptr [rsp + 2720], 0
-                        mov              qword ptr [rsp + 2728], 0
-                        mov              qword ptr [rsp + 2736], 0
-                        mov              qword ptr [rsp + 2744], 0
-                        mov              qword ptr [rsp + 2752], 0
-                        mov              qword ptr [rsp + 2760], 0
-                        mov              qword ptr [rsp + 2768], 0
-                        mov              qword ptr [rsp + 2776], 0
-                        mov              qword ptr [rsp + 2784], 0
-                        mov              qword ptr [rsp + 2792], 0
-                        mov              qword ptr [rsp + 2800], 0
-                        mov              qword ptr [rsp + 2808], 0
-                        mov              qword ptr [rsp + 2816], 0
-                        mov              qword ptr [rsp + 2824], 0
-                        mov              qword ptr [rsp + 2832], 0
-                        mov              qword ptr [rsp + 2840], 0
-                        mov              qword ptr [rsp + 2848], 0
-                        mov              qword ptr [rsp + 2856], 0
-                        mov              qword ptr [rsp + 2864], 0
-                        mov              qword ptr [rsp + 2872], 0
-                        mov              qword ptr [rsp + 2880], 0
-                        mov              qword ptr [rsp + 2888], 0
-                        mov              qword ptr [rsp + 2896], 0
-                        mov              qword ptr [rsp + 2904], 0
-                        mov              qword ptr [rsp + 2912], 0
-                        mov              qword ptr [rsp + 2920], 0
-                        mov              qword ptr [rsp + 2928], 0
-                        mov              qword ptr [rsp + 2936], 0
-                        mov              qword ptr [rsp + 2944], 0
-                        mov              qword ptr [rsp + 2952], 0
-                        mov              qword ptr [rsp + 2960], 0
-                        mov              qword ptr [rsp + 2968], 0
-                        mov              qword ptr [rsp + 2976], 0
-                        mov              qword ptr [rsp + 2984], 0
-                        mov              qword ptr [rsp + 2992], 0
-                        mov              qword ptr [rsp + 3000], 0
-                        mov              qword ptr [rsp + 3008], 0
-                        mov              qword ptr [rsp + 3016], 0
-                        mov              qword ptr [rsp + 3024], 0
-                        mov              qword ptr [rsp + 3032], 0
-                        mov              qword ptr [rsp + 3040], 0
-                        mov              qword ptr [rsp + 3048], 0
-                        mov              qword ptr [rsp + 3056], 0
-                        mov              qword ptr [rsp + 3064], 0
-                        mov              qword ptr [rsp + 3072], 0
-                        mov              qword ptr [rsp + 3080], 0
-                        mov              qword ptr [rsp + 3088], 0
-                        mov              qword ptr [rsp + 3096], 0
-                        mov              qword ptr [rsp + 3104], 0
-                        mov              qword ptr [rsp + 3112], 0
-                        mov              qword ptr [rsp + 3120], 0
-                        mov              qword ptr [rsp + 3128], 0
-                        mov              qword ptr [rsp + 3136], 0
-                        mov              qword ptr [rsp + 3144], 0
-                        mov              qword ptr [rsp + 3152], 0
-                        mov              qword ptr [rsp + 3160], 0
-                        mov              qword ptr [rsp + 3168], 0
-                        mov              qword ptr [rsp + 3176], 0
-                        mov              qword ptr [rsp + 3184], 0
-                        mov              qword ptr [rsp + 3192], 0
-                        mov              qword ptr [rsp + 3200], 0
-                        mov              qword ptr [rsp + 3208], 0
-                        mov              qword ptr [rsp + 3216], 0
-                        mov              qword ptr [rsp + 3224], 0
-                        mov              qword ptr [rsp + 3232], 0
-                        mov              qword ptr [rsp + 3240], 0
-                        mov              qword ptr [rsp + 3248], 0
-                        mov              qword ptr [rsp + 3256], 0
-                        mov              qword ptr [rsp + 3264], 0
-                        mov              qword ptr [rsp + 3272], 0
-                        mov              qword ptr [rsp + 3280], 0
-                        mov              qword ptr [rsp + 3288], 0
-                        mov              qword ptr [rsp + 3296], 0
-                        mov              qword ptr [rsp + 3304], 0
-                        mov              qword ptr [rsp + 3312], 0
-                        mov              qword ptr [rsp + 3320], 0
-                        mov              qword ptr [rsp + 3328], 0
-                        mov              qword ptr [rsp + 3336], 0
-                        mov              qword ptr [rsp + 3344], 0
-                        mov              qword ptr [rsp + 3352], 0
-                        mov              qword ptr [rsp + 3360], 0
-                        mov              qword ptr [rsp + 3368], 0
-                        mov              qword ptr [rsp + 3376], 0
-                        mov              qword ptr [rsp + 3384], 0
-                        mov              qword ptr [rsp + 3392], 0
-                        mov              qword ptr [rsp + 3400], 0
-                        mov              qword ptr [rsp + 3408], 0
-                        mov              qword ptr [rsp + 3416], 0
-                        mov              qword ptr [rsp + 3424], 0
-                        mov              qword ptr [rsp + 3432], 0
-                        mov              qword ptr [rsp + 3440], 0
-                        mov              qword ptr [rsp + 3448], 0
-                        mov              qword ptr [rsp + 3456], 0
-                        mov              qword ptr [rsp + 3464], 0
-                        mov              qword ptr [rsp + 3472], 0
-                        mov              qword ptr [rsp + 3480], 0
-                        mov              qword ptr [rsp + 3488], 0
-                        mov              qword ptr [rsp + 3496], 0
-                        mov              qword ptr [rsp + 3504], 0
-                        mov              qword ptr [rsp + 3512], 0
-                        mov              qword ptr [rsp + 3520], 0
-                        mov              qword ptr [rsp + 3528], 0
-                        mov              qword ptr [rsp + 3536], 0
-                        mov              qword ptr [rsp + 3544], 0
-                        mov              qword ptr [rsp + 3552], 0
-                        mov              qword ptr [rsp + 3560], 0
-                        mov              qword ptr [rsp + 3568], 0
-                        mov              qword ptr [rsp + 3576], 0
-                        mov              qword ptr [rsp + 3584], 0
-                        mov              qword ptr [rsp + 3592], 0
-                        mov              qword ptr [rsp + 3600], 0
-                        mov              qword ptr [rsp + 3608], 0
-                        mov              qword ptr [rsp + 3616], 0
-                        mov              qword ptr [rsp + 3624], 0
-                        mov              qword ptr [rsp + 3632], 0
-                        mov              qword ptr [rsp + 3640], 0
-                        mov              qword ptr [rsp + 3648], 0
-                        mov              qword ptr [rsp + 3656], 0
-                        mov              qword ptr [rsp + 3664], 0
-                        mov              qword ptr [rsp + 3672], 0
-                        mov              qword ptr [rsp + 3680], 0
-                        mov              qword ptr [rsp + 3688], 0
-                        mov              qword ptr [rsp + 3696], 0
-                        mov              qword ptr [rsp + 3704], 0
-                        mov              qword ptr [rsp + 3712], 0
-                        mov              qword ptr [rsp + 3720], 0
-                        mov              qword ptr [rsp + 3728], 0
-                        mov              qword ptr [rsp + 3736], 0
-                        mov              qword ptr [rsp + 3744], 0
-                        mov              qword ptr [rsp + 3752], 0
-                        mov              qword ptr [rsp + 3760], 0
-                        mov              qword ptr [rsp + 3768], 0
-                        mov              qword ptr [rsp + 3776], 0
-                        mov              qword ptr [rsp + 3784], 0
-                        mov              qword ptr [rsp + 3792], 0
-                        mov              qword ptr [rsp + 3800], 0
-                        mov              qword ptr [rsp + 3808], 0
-                        mov              qword ptr [rsp + 3816], 0
-                        mov              qword ptr [rsp + 3824], 0
-                        mov              qword ptr [rsp + 3832], 0
-                        mov              qword ptr [rsp + 3840], 0
-                        mov              qword ptr [rsp + 3848], 0
-                        mov              qword ptr [rsp + 3856], 0
-                        mov              qword ptr [rsp + 3864], 0
-                        mov              qword ptr [rsp + 3872], 0
-                        mov              qword ptr [rsp + 3880], 0
-                        mov              qword ptr [rsp + 3888], 0
-                        mov              qword ptr [rsp + 3896], 0
-                        mov              qword ptr [rsp + 3904], 0
-                        mov              qword ptr [rsp + 3912], 0
-                        mov              qword ptr [rsp + 3920], 0
-                        mov              qword ptr [rsp + 3928], 0
-                        mov              qword ptr [rsp + 3936], 0
-                        mov              qword ptr [rsp + 3944], 0
-                        mov              qword ptr [rsp + 3952], 0
-                        mov              qword ptr [rsp + 3960], 0
-                        mov              qword ptr [rsp + 3968], 0
-                        mov              qword ptr [rsp + 3976], 0
-                        mov              qword ptr [rsp + 3984], 0
-                        mov              qword ptr [rsp + 3992], 0
-                        mov              qword ptr [rsp + 4000], 0
-                        mov              qword ptr [rsp + 4008], 0
-                        mov              qword ptr [rsp + 4016], 0
-                        mov              qword ptr [rsp + 4024], 0
-                        mov              qword ptr [rsp + 4032], 0
-                        mov              qword ptr [rsp + 4040], 0
-                        mov              qword ptr [rsp + 4048], 0
-                        mov              qword ptr [rsp + 4056], 0
-                        mov              qword ptr [rsp + 4064], 0
-                        mov              qword ptr [rsp + 4072], 0
-                        mov              qword ptr [rsp + 4080], 0
-                        mov              qword ptr [rsp + 4088], 0
-                        mov              qword ptr [rsp + 4096], 0
-                        mov              qword ptr [rsp + 4104], 0
-                        mov              qword ptr [rsp + 4112], 0
-                        mov              qword ptr [rsp + 4120], 0
-                        mov              qword ptr [rsp + 4128], 0
-                        mov              qword ptr [rsp + 4136], 0
-                        mov              qword ptr [rsp + 4144], 0
-                        mov              qword ptr [rsp + 4152], 0
-                        mov              qword ptr [rsp + 4160], 0
-                        mov              qword ptr [rsp + 4168], 0
-                        mov              qword ptr [rsp + 4176], 0
-                        mov              qword ptr [rsp + 4184], 0
-                        mov              qword ptr [rsp + 4192], 0
-                        mov              qword ptr [rsp + 4200], 0
-                        mov              qword ptr [rsp + 4208], 0
-                        mov              qword ptr [rsp + 4216], 0
-                        mov              qword ptr [rsp + 4224], 0
-                        mov              qword ptr [rsp + 4232], 0
-                        mov              qword ptr [rsp + 4240], 0
-                        mov              qword ptr [rsp + 4248], 0
-                        mov              qword ptr [rsp + 4256], 0
-                        mov              qword ptr [rsp + 4264], 0
-                        mov              qword ptr [rsp + 4272], 0
-                        mov              qword ptr [rsp + 4280], 0
-                        mov              qword ptr [rsp + 4288], 0
-                        mov              qword ptr [rsp + 4296], 0
-                        mov              qword ptr [rsp + 4304], 0
-                        mov              qword ptr [rsp + 4312], 0
-                        mov              qword ptr [rsp + 4320], 0
-                        mov              qword ptr [rsp + 4328], 0
-                        mov              qword ptr [rsp + 4336], 0
-                        mov              qword ptr [rsp + 4344], 0
-                        mov              qword ptr [rsp + 4352], 0
-                        mov              qword ptr [rsp + 4360], 0
-                        mov              qword ptr [rsp + 4368], 0
-                        mov              qword ptr [rsp + 4376], 0
-                        mov              qword ptr [rsp + 4384], 0
-                        mov              qword ptr [rsp + 4392], 0
-                        mov              qword ptr [rsp + 4400], 0
-                        mov              qword ptr [rsp + 4408], 0
-                        mov              qword ptr [rsp + 4416], 0
-                        mov              qword ptr [rsp + 4424], 0
-                        mov              qword ptr [rsp + 4432], 0
-                        mov              qword ptr [rsp + 4440], 0
-                        mov              qword ptr [rsp + 4448], 0
-                        mov              qword ptr [rsp + 4456], 0
-                        mov              qword ptr [rsp + 4464], 0
-                        mov              qword ptr [rsp + 4472], 0
-                        mov              qword ptr [rsp + 4480], 0
-                        mov              qword ptr [rsp + 4488], 0
-                        mov              qword ptr [rsp + 4496], 0
-                        mov              qword ptr [rsp + 4504], 0
-                        mov              qword ptr [rsp + 4512], 0
-                        mov              qword ptr [rsp + 4520], 0
-                        mov              qword ptr [rsp + 4528], 0
-                        mov              qword ptr [rsp + 4536], 0
-                        mov              qword ptr [rsp + 4544], 0
-                        mov              qword ptr [rsp + 4552], 0
-                        mov              qword ptr [rsp + 4560], 0
-                        mov              qword ptr [rsp + 4568], 0
-                        mov              qword ptr [rsp + 4576], 0
-                        mov              qword ptr [rsp + 4584], 0
-                        mov              qword ptr [rsp + 4592], 0
-                        mov              qword ptr [rsp + 4600], 0
-                        mov              qword ptr [rsp + 4608], 0
-                        mov              qword ptr [rsp + 4616], 0
-                        mov              qword ptr [rsp + 4624], 0
-                        mov              qword ptr [rsp + 4632], 0
-                        mov              qword ptr [rsp + 4640], 0
-                        mov              qword ptr [rsp + 4648], 0
-                        mov              qword ptr [rsp + 4656], 0
-                        mov              qword ptr [rsp + 4664], 0
-                        mov              qword ptr [rsp + 4672], 0
-                        mov              qword ptr [rsp + 4680], 0
-                        mov              qword ptr [rsp + 4688], 0
-                        mov              qword ptr [rsp + 4696], 0
-                        mov              qword ptr [rsp + 4704], 0
-                        mov              qword ptr [rsp + 4712], 0
-                        mov              qword ptr [rsp + 4720], 0
-                        mov              qword ptr [rsp + 4728], 0
-                        mov              qword ptr [rsp + 4736], 0
-                        mov              qword ptr [rsp + 4744], 0
-                        mov              qword ptr [rsp + 4752], 0
-                        mov              qword ptr [rsp + 4760], 0
-                        mov              qword ptr [rsp + 4768], 0
-                        mov              qword ptr [rsp + 4776], 0
-                        mov              qword ptr [rsp + 4784], 0
-                        mov              qword ptr [rsp + 4792], 0
-                        mov              qword ptr [rsp + 4800], 0
-                        mov              qword ptr [rsp + 4808], 0
-                        mov              qword ptr [rsp + 4816], 0
-                        mov              qword ptr [rsp + 4824], 0
-                        mov              qword ptr [rsp + 4832], 0
-                        mov              qword ptr [rsp + 4840], 0
-                        mov              qword ptr [rsp + 4848], 0
-                        mov              qword ptr [rsp + 4856], 0
-                        mov              qword ptr [rsp + 4864], 0
-                        mov              qword ptr [rsp + 4872], 0
-                        mov              qword ptr [rsp + 4880], 0
-                        mov              qword ptr [rsp + 4888], 0
-                        mov              qword ptr [rsp + 4896], 0
-                        mov              qword ptr [rsp + 4904], 0
-                        mov              qword ptr [rsp + 4912], 0
-                        mov              qword ptr [rsp + 4920], 0
-                        mov              qword ptr [rsp + 4928], 0
-                        mov              qword ptr [rsp + 4936], 0
-                        mov              qword ptr [rsp + 4944], 0
-                        mov              qword ptr [rsp + 4952], 0
-                        mov              qword ptr [rsp + 4960], 0
-                        mov              qword ptr [rsp + 4968], 0
-                        mov              qword ptr [rsp + 4976], 0
-                        mov              qword ptr [rsp + 4984], 0
-                        mov              qword ptr [rsp + 4992], 0
-                        mov              qword ptr [rsp + 5000], 0
-                        mov              qword ptr [rsp + 5008], 0
-                        mov              qword ptr [rsp + 5016], 0
-                        mov              qword ptr [rsp + 5024], 0
-                        mov              qword ptr [rsp + 5032], 0
-                        mov              qword ptr [rsp + 5040], 0
-                        mov              qword ptr [rsp + 5048], 0
-                        mov              qword ptr [rsp + 5056], 0
-                        mov              qword ptr [rsp + 5064], 0
-                        mov              qword ptr [rsp + 5072], 0
-                        mov              qword ptr [rsp + 5080], 0
-                        mov              qword ptr [rsp + 5088], 0
-                        mov              qword ptr [rsp + 5096], 0
-                        mov              qword ptr [rsp + 5104], 0
-                        mov              qword ptr [rsp + 5112], 0
-                        mov              qword ptr [rsp + 5120], 0
-                        mov              qword ptr [rsp + 5128], 0
-                        mov              qword ptr [rsp + 5136], 0
-                        mov              qword ptr [rsp + 5144], 0
-                        mov              qword ptr [rsp + 5152], 0
-                        mov              qword ptr [rsp + 5160], 0
-                        mov              qword ptr [rsp + 5168], 0
-                        mov              qword ptr [rsp + 5176], 0
-                        mov              qword ptr [rsp + 5184], 0
-                        mov              qword ptr [rsp + 5192], 0
-                        mov              qword ptr [rsp + 5200], 0
-                        mov              qword ptr [rsp + 5208], 0
-                        mov              qword ptr [rsp + 5216], 0
-                        mov              qword ptr [rsp + 5224], 0
-                        mov              qword ptr [rsp + 5232], 0
-                        mov              qword ptr [rsp + 5240], 0
-                        mov              qword ptr [rsp + 5248], 0
-                        mov              qword ptr [rsp + 5256], 0
-                        mov              qword ptr [rsp + 5264], 0
-                        mov              qword ptr [rsp + 5272], 0
-                        mov              qword ptr [rsp + 5280], 0
-                        mov              qword ptr [rsp + 5288], 0
-                        mov              qword ptr [rsp + 5296], 0
-                        mov              qword ptr [rsp + 5304], 0
-                        mov              qword ptr [rsp + 5312], 0
-                        mov              qword ptr [rsp + 5320], 0
-                        mov              qword ptr [rsp + 5328], 0
-                        mov              qword ptr [rsp + 5336], 0
-                        mov              qword ptr [rsp + 5344], 0
-                        mov              qword ptr [rsp + 5352], 0
-                        mov              qword ptr [rsp + 5360], 0
-                        mov              qword ptr [rsp + 5368], 0
-                        mov              qword ptr [rsp + 5376], 0
-                        mov              qword ptr [rsp + 5384], 0
-                        mov              qword ptr [rsp + 5392], 0
-                        mov              qword ptr [rsp + 5400], 0
-                        mov              qword ptr [rsp + 5408], 0
-                        mov              qword ptr [rsp + 5416], 0
-                        mov              qword ptr [rsp + 5424], 0
-                        mov              qword ptr [rsp + 5432], 0
-                        mov              qword ptr [rsp + 5440], 0
-                        mov              qword ptr [rsp + 5448], 0
-                        mov              qword ptr [rsp + 5456], 0
-                        mov              qword ptr [rsp + 5464], 0
-                        mov              qword ptr [rsp + 5472], 0
-                        mov              qword ptr [rsp + 5480], 0
-                        mov              qword ptr [rsp + 5488], 0
-                        mov              qword ptr [rsp + 5496], 0
-                        mov              qword ptr [rsp + 5504], 0
-                        mov              qword ptr [rsp + 5512], 0
-                        mov              qword ptr [rsp + 5520], 0
-                        mov              qword ptr [rsp + 5528], 0
-                        mov              qword ptr [rsp + 5536], 0
-                        mov              qword ptr [rsp + 5544], 0
-                        mov              qword ptr [rsp + 5552], 0
-                        mov              qword ptr [rsp + 5560], 0
-                        mov              qword ptr [rsp + 5568], 0
-                        mov              qword ptr [rsp + 5576], 0
-                        mov              qword ptr [rsp + 5584], 0
-                        mov              qword ptr [rsp + 5592], 0
-                        mov              qword ptr [rsp + 5600], 0
-                        mov              qword ptr [rsp + 5608], 0
-                        mov              qword ptr [rsp + 5616], 0
-                        mov              qword ptr [rsp + 5624], 0
-                        mov              qword ptr [rsp + 5632], 0
-                        mov              qword ptr [rsp + 5640], 0
-                        mov              qword ptr [rsp + 5648], 0
-                        mov              qword ptr [rsp + 5656], 0
-                        mov              qword ptr [rsp + 5664], 0
-                        mov              qword ptr [rsp + 5672], 0
-                        mov              qword ptr [rsp + 5680], 0
-                        mov              qword ptr [rsp + 5688], 0
-                        mov              qword ptr [rsp + 5696], 0
-                        mov              qword ptr [rsp + 5704], 0
-                        mov              qword ptr [rsp + 5712], 0
-                        mov              qword ptr [rsp + 5720], 0
-                        mov              qword ptr [rsp + 5728], 0
-                        mov              qword ptr [rsp + 5736], 0
-                        mov              qword ptr [rsp + 5744], 0
-                        mov              qword ptr [rsp + 5752], 0
-                        mov              qword ptr [rsp + 5760], 0
-                        mov              qword ptr [rsp + 5768], 0
-                        mov              qword ptr [rsp + 5776], 0
-                        mov              qword ptr [rsp + 5784], 0
-                        mov              qword ptr [rsp + 5792], 0
-                        mov              qword ptr [rsp + 5800], 0
-                        mov              qword ptr [rsp + 5808], 0
-                        mov              qword ptr [rsp + 5816], 0
-                        mov              qword ptr [rsp + 5824], 0
-                        mov              qword ptr [rsp + 5832], 0
-                        mov              qword ptr [rsp + 5840], 0
-                        mov              qword ptr [rsp + 5848], 0
-                        mov              qword ptr [rsp + 5856], 0
-                        mov              qword ptr [rsp + 5864], 0
-                        mov              qword ptr [rsp + 5872], 0
-                        mov              qword ptr [rsp + 5880], 0
-                        mov              qword ptr [rsp + 5888], 0
-                        mov              qword ptr [rsp + 5896], 0
-                        mov              qword ptr [rsp + 5904], 0
-                        mov              qword ptr [rsp + 5912], 0
-                        mov              qword ptr [rsp + 5920], 0
-                        mov              qword ptr [rsp + 5928], 0
-                        mov              qword ptr [rsp + 5936], 0
-                        mov              qword ptr [rsp + 5944], 0
-                        mov              qword ptr [rsp + 5952], 0
-                        mov              qword ptr [rsp + 5960], 0
-                        mov              qword ptr [rsp + 5968], 0
-                        mov              qword ptr [rsp + 5976], 0
-                        mov              qword ptr [rsp + 5984], 0
-                        mov              qword ptr [rsp + 5992], 0
-                        mov              qword ptr [rsp + 6000], 0
-                        mov              qword ptr [rsp + 6008], 0
-                        mov              qword ptr [rsp + 6016], 0
-                        mov              qword ptr [rsp + 6024], 0
-                        mov              qword ptr [rsp + 6032], 0
-                        mov              qword ptr [rsp + 6040], 0
-                        mov              qword ptr [rsp + 6048], 0
-                        mov              qword ptr [rsp + 6056], 0
-                        mov              qword ptr [rsp + 6064], 0
-                        mov              qword ptr [rsp + 6072], 0
-                        mov              qword ptr [rsp + 6080], 0
-                        mov              qword ptr [rsp + 6088], 0
-                        mov              qword ptr [rsp + 6096], 0
-                        mov              qword ptr [rsp + 6104], 0
-                        mov              qword ptr [rsp + 6112], 0
-                        mov              qword ptr [rsp + 6120], 0
-                        mov              qword ptr [rsp + 6128], 0
-                        mov              qword ptr [rsp + 6136], 0
-                        mov              qword ptr [rsp + 6144], 0
-                        mov              qword ptr [rsp + 6152], 0
-                        mov              qword ptr [rsp + 6160], 0
-                        mov              qword ptr [rsp + 6168], 0
-                        mov              qword ptr [rsp + 6176], 0
-                        mov              qword ptr [rsp + 6184], 0
-                        mov              qword ptr [rsp + 6192], 0
-                        mov              qword ptr [rsp + 6200], 0
-                        mov              qword ptr [rsp + 6208], 0
-                        mov              qword ptr [rsp + 6216], 0
-                        mov              qword ptr [rsp + 6224], 0
-                        mov              qword ptr [rsp + 6232], 0
-                        mov              qword ptr [rsp + 6240], 0
-                        mov              qword ptr [rsp + 6248], 0
-                        mov              qword ptr [rsp + 6256], 0
-                        mov              qword ptr [rsp + 6264], 0
-                        mov              qword ptr [rsp + 6272], 0
-                        mov              qword ptr [rsp + 6280], 0
-                        mov              qword ptr [rsp + 6288], 0
-                        mov              qword ptr [rsp + 6296], 0
-                        mov              qword ptr [rsp + 6304], 0
-                        mov              qword ptr [rsp + 6312], 0
-                        mov              qword ptr [rsp + 6320], 0
-                        mov              qword ptr [rsp + 6328], 0
-                        mov              qword ptr [rsp + 6336], 0
-                        mov              qword ptr [rsp + 6344], 0
-                        mov              qword ptr [rsp + 6352], 0
-                        mov              qword ptr [rsp + 6360], 0
-                        mov              qword ptr [rsp + 6368], 0
-                        mov              qword ptr [rsp + 6376], 0
-                        mov              qword ptr [rsp + 6384], 0
-                        mov              qword ptr [rsp + 6392], 0
-                        mov              qword ptr [rsp + 6400], 0
-                        mov              qword ptr [rsp + 6408], 0
-                        mov              qword ptr [rsp + 6416], 0
-                        mov              qword ptr [rsp + 6424], 0
-                        mov              qword ptr [rsp + 6432], 0
-                        mov              qword ptr [rsp + 6440], 0
-                        mov              qword ptr [rsp + 6448], 0
-                        mov              qword ptr [rsp + 6456], 0
-                        mov              qword ptr [rsp + 6464], 0
-                        mov              qword ptr [rsp + 6472], 0
-                        mov              qword ptr [rsp + 6480], 0
-                        mov              qword ptr [rsp + 6488], 0
-                        mov              qword ptr [rsp + 6496], 0
-                        mov              qword ptr [rsp + 6504], 0
-                        mov              qword ptr [rsp + 6512], 0
-                        mov              qword ptr [rsp + 6520], 0
-                        mov              qword ptr [rsp + 6528], 0
-                        mov              qword ptr [rsp + 6536], 0
-                        mov              qword ptr [rsp + 6544], 0
-                        mov              qword ptr [rsp + 6552], 0
-                        mov              qword ptr [rsp + 6560], 0
-                        mov              qword ptr [rsp + 6568], 0
-                        mov              qword ptr [rsp + 6576], 0
-                        mov              qword ptr [rsp + 6584], 0
-                        mov              qword ptr [rsp + 6592], 0
-                        mov              qword ptr [rsp + 6600], 0
-                        mov              qword ptr [rsp + 6608], 0
-                        mov              qword ptr [rsp + 6616], 0
-                        mov              qword ptr [rsp + 6624], 0
-                        mov              qword ptr [rsp + 6632], 0
-                        mov              qword ptr [rsp + 6640], 0
-                        mov              qword ptr [rsp + 6648], 0
-                        mov              qword ptr [rsp + 6656], 0
-                        mov              qword ptr [rsp + 6664], 0
-                        mov              qword ptr [rsp + 6672], 0
-                        mov              qword ptr [rsp + 6680], 0
-                        mov              qword ptr [rsp + 6688], 0
-                        mov              qword ptr [rsp + 6696], 0
-                        mov              qword ptr [rsp + 6704], 0
-                        mov              qword ptr [rsp + 6712], 0
-                        mov              qword ptr [rsp + 6720], 0
-                        mov              qword ptr [rsp + 6728], 0
-                        mov              qword ptr [rsp + 6736], 0
-                        mov              qword ptr [rsp + 6744], 0
-                        mov              qword ptr [rsp + 6752], 0
-                        mov              qword ptr [rsp + 6760], 0
-                        mov              qword ptr [rsp + 6768], 0
-                        mov              qword ptr [rsp + 6776], 0
-                        mov              qword ptr [rsp + 6784], 0
-                        mov              qword ptr [rsp + 6792], 0
-                        mov              qword ptr [rsp + 6800], 0
-                        mov              qword ptr [rsp + 6808], 0
-                        mov              qword ptr [rsp + 6816], 0
-                        mov              qword ptr [rsp + 6824], 0
-                        mov              qword ptr [rsp + 6832], 0
-                        mov              qword ptr [rsp + 6840], 0
-                        mov              qword ptr [rsp + 6848], 0
-                        mov              qword ptr [rsp + 6856], 0
-                        mov              qword ptr [rsp + 6864], 0
-                        mov              qword ptr [rsp + 6872], 0
-                        mov              qword ptr [rsp + 6880], 0
-                        mov              qword ptr [rsp + 6888], 0
-                        mov              qword ptr [rsp + 6896], 0
-                        mov              qword ptr [rsp + 6904], 0
-                        mov              qword ptr [rsp + 6912], 0
-                        mov              qword ptr [rsp + 6920], 0
-                        mov              qword ptr [rsp + 6928], 0
-                        mov              qword ptr [rsp + 6936], 0
-                        mov              qword ptr [rsp + 6944], 0
-                        mov              qword ptr [rsp + 6952], 0
-                        mov              qword ptr [rsp + 6960], 0
-                        mov              qword ptr [rsp + 6968], 0
-                        mov              qword ptr [rsp + 6976], 0
-                        mov              qword ptr [rsp + 6984], 0
-                        mov              qword ptr [rsp + 6992], 0
-                        mov              qword ptr [rsp + 7000], 0
-                        mov              qword ptr [rsp + 7008], 0
-                        mov              qword ptr [rsp + 7016], 0
-                        mov              qword ptr [rsp + 7024], 0
-                        mov              qword ptr [rsp + 7032], 0
-                        mov              qword ptr [rsp + 7040], 0
-                        mov              qword ptr [rsp + 7048], 0
-                        mov              qword ptr [rsp + 7056], 0
-                        mov              qword ptr [rsp + 7064], 0
-                        mov              qword ptr [rsp + 7072], 0
-                        mov              qword ptr [rsp + 7080], 0
-                        mov              qword ptr [rsp + 7088], 0
-                        mov              qword ptr [rsp + 7096], 0
-                        mov              qword ptr [rsp + 7104], 0
-                        mov              qword ptr [rsp + 7112], 0
-                        mov              qword ptr [rsp + 7120], 0
-                        mov              qword ptr [rsp + 7128], 0
-                        mov              qword ptr [rsp + 7136], 0
-                        mov              qword ptr [rsp + 7144], 0
-                        mov              qword ptr [rsp + 7152], 0
-                        mov              qword ptr [rsp + 7160], 0
-                        mov              qword ptr [rsp + 7168], 0
-                        mov              qword ptr [rsp + 7176], 0
-                        mov              qword ptr [rsp + 7184], 0
-                        mov              qword ptr [rsp + 7192], 0
-                        mov              qword ptr [rsp + 7200], 0
-                        mov              qword ptr [rsp + 7208], 0
-                        mov              qword ptr [rsp + 7216], 0
-                        mov              qword ptr [rsp + 7224], 0
-                        mov              qword ptr [rsp + 7232], 0
-                        mov              qword ptr [rsp + 7240], 0
-                        mov              qword ptr [rsp + 7248], 0
-                        mov              qword ptr [rsp + 7256], 0
-                        mov              qword ptr [rsp + 7264], 0
-                        mov              qword ptr [rsp + 7272], 0
-                        mov              qword ptr [rsp + 7280], 0
-                        mov              qword ptr [rsp + 7288], 0
-                        mov              qword ptr [rsp + 7296], 0
-                        mov              qword ptr [rsp + 7304], 0
-                        mov              qword ptr [rsp + 7312], 0
-                        mov              qword ptr [rsp + 7320], 0
-                        mov              qword ptr [rsp + 7328], 0
-                        mov              qword ptr [rsp + 7336], 0
-                        mov              qword ptr [rsp + 7344], 0
-                        mov              qword ptr [rsp + 7352], 0
-                        mov              qword ptr [rsp + 7360], 0
-                        mov              qword ptr [rsp + 7368], 0
-                        mov              qword ptr [rsp + 7376], 0
-                        mov              qword ptr [rsp + 7384], 0
-                        mov              qword ptr [rsp + 7392], 0
-                        mov              qword ptr [rsp + 7400], 0
-                        mov              qword ptr [rsp + 7408], 0
-                        mov              qword ptr [rsp + 7416], 0
-                        mov              qword ptr [rsp + 7424], 0
-                        mov              qword ptr [rsp + 7432], 0
-                        mov              qword ptr [rsp + 7440], 0
-                        mov              qword ptr [rsp + 7448], 0
-                        mov              qword ptr [rsp + 7456], 0
-                        mov              qword ptr [rsp + 7464], 0
-                        mov              qword ptr [rsp + 7472], 0
-                        mov              qword ptr [rsp + 7480], 0
-                        mov              qword ptr [rsp + 7488], 0
-                        mov              qword ptr [rsp + 7496], 0
-                        mov              qword ptr [rsp + 7504], 0
-                        mov              qword ptr [rsp + 7512], 0
-                        mov              qword ptr [rsp + 7520], 0
-                        mov              qword ptr [rsp + 7528], 0
-                        mov              qword ptr [rsp + 7536], 0
-                        mov              qword ptr [rsp + 7544], 0
-                        mov              qword ptr [rsp + 7552], 0
-                        mov              qword ptr [rsp + 7560], 0
-                        mov              qword ptr [rsp + 7568], 0
-                        mov              qword ptr [rsp + 7576], 0
-                        mov              qword ptr [rsp + 7584], 0
-                        mov              qword ptr [rsp + 7592], 0
-                        mov              qword ptr [rsp + 7600], 0
-                        mov              qword ptr [rsp + 7608], 0
-                        mov              qword ptr [rsp + 7616], 0
-                        mov              qword ptr [rsp + 7624], 0
-                        mov              qword ptr [rsp + 7632], 0
-                        mov              qword ptr [rsp + 7640], 0
-                        mov              qword ptr [rsp + 7648], 0
-                        mov              qword ptr [rsp + 7656], 0
-                        mov              qword ptr [rsp + 7664], 0
-                        mov              qword ptr [rsp + 7672], 0
-                        mov              qword ptr [rsp + 7680], 0
-                        mov              qword ptr [rsp + 7688], 0
-                        mov              qword ptr [rsp + 7696], 0
-                        mov              qword ptr [rsp + 7704], 0
-                        mov              qword ptr [rsp + 7712], 0
-                        mov              qword ptr [rsp + 7720], 0
-                        mov              qword ptr [rsp + 7712], 2                      # result
-                        mov              dword ptr [rsp + 7716], 4
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 4
                         mov              rax, qword ptr [rip + .Lx1651_0]
-                        mov              qword ptr [rsp + 7720], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n1156_call_α
 n1155_lit_string_β:
-                        add              rsp, 7728
+                        add              rsp, 16
                                                                                         jmp   n1158_call_α
 .Lx1651_0:
                         .quad            .Lx1651_0_s
@@ -18291,6 +12003,11 @@ n1155_lit_string_β:
                         .string          "bank"
 #-----------------------------------------------------------------------------------------------------------------------
 n1156_call_α:
+                        sub              rsp, 16
+                        mov              edi, 0                                         # idx
+                        mov              rsi, qword ptr [rsp + 16]                      # lit_string
+                        mov              rdx, qword ptr [rsp + 24]                      # v
+                        call             rt_arg_stage@PLT
                         sub              rsp, 48
                         mov              rax, qword ptr [1879052432]                    # var
                         mov              qword ptr [rsp + 0], rax
@@ -18310,9 +12027,10 @@ n1156_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx1653_5
-                        mov              rax, qword ptr [rsp + 7760]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 0]
                         mov              qword ptr [1879052432], rax                    # var
-                        mov              rax, qword ptr [rsp + 7768]
+                        mov              rax, qword ptr [r10 + 8]
                         mov              qword ptr [1879052440], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx1653_6]
@@ -18354,45 +12072,13 @@ n1156_call_α:
                                                                                         jmp   .Lx1653_2
 .Lx1653_5:
                         add              rsp, 48
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx1653_20
-                        mov              rax, qword ptr [rsp + 7712]
-                        mov              rdx, qword ptr [rsp + 7720]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 0], rax
-                        mov              qword ptr [r10 + 8], rdx
-                                                                                        jmp   .Lx1653_21
-.Lx1653_20:
-                        mov              edi, 0                                         # idx
-                        mov              rsi, qword ptr [rsp + 7712]                    # v
-                        mov              rdx, qword ptr [rsp + 7720]                    # v
-                        call             rt_arg_stage@PLT
-.Lx1653_21:
-                        mov              rdi, qword ptr [rip + .Lx1653_0]               # name
-                        mov              esi, 1                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx1653_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx1653_3]
-                        lea              rdx, [rip + .Lx1653_4]
-                                                                                        jmp   rax
-.Lx1653_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx1653_2
-.Lx1653_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx1653_2
-.Lx1653_1:
-                        call             rt_faildescr@PLT
 .Lx1653_2:
-                        mov              qword ptr [rsp + 7664], rax
-                        mov              qword ptr [rsp + 7672], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx1653_240
-                        add              rsp, 7728
+                        add              rsp, 16
+                        add              rsp, 16
                                                                                         jmp   n1158_call_α
 .Lx1653_240:
                                                                                         jmp   n1157_assign_α
@@ -18404,19 +12090,20 @@ n1156_call_β:
                         .string          "stk_pop_final"
 #-----------------------------------------------------------------------------------------------------------------------
 n1157_assign_α:
-                        mov              rax, qword ptr [rsp + 7664]
-                        mov              rdx, qword ptr [rsp + 7672]
+                        mov              rax, qword ptr [rsp + 0]                       # call
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052912], rax                    # dummy
                         mov              qword ptr [1879052920], rdx
-                        add              rsp, 7728
+                        add              rsp, 32
                                                                                         jmp   n1158_call_α
 n1157_assign_β:
-                        add              rsp, 7728
+                        add              rsp, 32
                                                                                         jmp   n1158_call_α
 #=======================================================================================================================
 #                dummy          =  pp_bank()                  :(END)
 #-----------------------------------------------------------------------------------------------------------------------
 n1158_call_α:
+                        sub              rsp, 16
                         sub              rsp, 16
                         mov              rax, qword ptr [1879052800]                    # pp_bank
                         mov              qword ptr [rsp + 0], rax
@@ -18452,28 +12139,14 @@ n1158_call_α:
                                                                                         jmp   .Lx1656_2
 .Lx1656_5:
                         add              rsp, 16
-                        mov              rdi, qword ptr [rip + .Lx1656_0]               # name
-                        mov              esi, 0                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx1656_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx1656_3]
-                        lea              rdx, [rip + .Lx1656_4]
-                                                                                        jmp   rax
-.Lx1656_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx1656_2
-.Lx1656_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx1656_2
-.Lx1656_1:
-                        call             rt_faildescr@PLT
 .Lx1656_2:
-                        mov              qword ptr [rsp + 7936], rax
-                        mov              qword ptr [rsp + 7944], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
-                                                                                        je    main_γ
+                                                                                        jne   .Lx1656_240
+                        add              rsp, 16
+                                                                                        jmp   main_γ
+.Lx1656_240:
                                                                                         jmp   n1159_assign_α
 n1158_call_β:
                                                                                         jmp   main_γ
@@ -18483,12 +12156,14 @@ n1158_call_β:
                         .string          "pp_bank"
 #-----------------------------------------------------------------------------------------------------------------------
 n1159_assign_α:
-                        mov              rax, qword ptr [rsp + 7936]
-                        mov              rdx, qword ptr [rsp + 7944]
+                        mov              rax, qword ptr [rsp + 0]                       # call
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052912], rax                    # dummy
                         mov              qword ptr [1879052920], rdx
+                        add              rsp, 16
                                                                                         jmp   main_γ
 n1159_assign_β:
+                        add              rsp, 16
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
 n1160_match_assign_save_α:
@@ -20806,337 +14481,22 @@ n1304_goto_β:
 # push_list      dummy          =  stk_push_frame(v)
 #-----------------------------------------------------------------------------------------------------------------------
 n1305_var_α:
-                        sub              rsp, 2560
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
-                        mov              qword ptr [rsp + 96], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 120], 0
-                        mov              qword ptr [rsp + 128], 0
-                        mov              qword ptr [rsp + 136], 0
-                        mov              qword ptr [rsp + 144], 0
-                        mov              qword ptr [rsp + 152], 0
-                        mov              qword ptr [rsp + 160], 0
-                        mov              qword ptr [rsp + 168], 0
-                        mov              qword ptr [rsp + 176], 0
-                        mov              qword ptr [rsp + 184], 0
-                        mov              qword ptr [rsp + 192], 0
-                        mov              qword ptr [rsp + 200], 0
-                        mov              qword ptr [rsp + 208], 0
-                        mov              qword ptr [rsp + 216], 0
-                        mov              qword ptr [rsp + 224], 0
-                        mov              qword ptr [rsp + 232], 0
-                        mov              qword ptr [rsp + 240], 0
-                        mov              qword ptr [rsp + 248], 0
-                        mov              qword ptr [rsp + 256], 0
-                        mov              qword ptr [rsp + 264], 0
-                        mov              qword ptr [rsp + 272], 0
-                        mov              qword ptr [rsp + 280], 0
-                        mov              qword ptr [rsp + 288], 0
-                        mov              qword ptr [rsp + 296], 0
-                        mov              qword ptr [rsp + 304], 0
-                        mov              qword ptr [rsp + 312], 0
-                        mov              qword ptr [rsp + 320], 0
-                        mov              qword ptr [rsp + 328], 0
-                        mov              qword ptr [rsp + 336], 0
-                        mov              qword ptr [rsp + 344], 0
-                        mov              qword ptr [rsp + 352], 0
-                        mov              qword ptr [rsp + 360], 0
-                        mov              qword ptr [rsp + 368], 0
-                        mov              qword ptr [rsp + 376], 0
-                        mov              qword ptr [rsp + 384], 0
-                        mov              qword ptr [rsp + 392], 0
-                        mov              qword ptr [rsp + 400], 0
-                        mov              qword ptr [rsp + 408], 0
-                        mov              qword ptr [rsp + 416], 0
-                        mov              qword ptr [rsp + 424], 0
-                        mov              qword ptr [rsp + 432], 0
-                        mov              qword ptr [rsp + 440], 0
-                        mov              qword ptr [rsp + 448], 0
-                        mov              qword ptr [rsp + 456], 0
-                        mov              qword ptr [rsp + 464], 0
-                        mov              qword ptr [rsp + 472], 0
-                        mov              qword ptr [rsp + 480], 0
-                        mov              qword ptr [rsp + 488], 0
-                        mov              qword ptr [rsp + 496], 0
-                        mov              qword ptr [rsp + 504], 0
-                        mov              qword ptr [rsp + 512], 0
-                        mov              qword ptr [rsp + 520], 0
-                        mov              qword ptr [rsp + 528], 0
-                        mov              qword ptr [rsp + 536], 0
-                        mov              qword ptr [rsp + 544], 0
-                        mov              qword ptr [rsp + 552], 0
-                        mov              qword ptr [rsp + 560], 0
-                        mov              qword ptr [rsp + 568], 0
-                        mov              qword ptr [rsp + 576], 0
-                        mov              qword ptr [rsp + 584], 0
-                        mov              qword ptr [rsp + 592], 0
-                        mov              qword ptr [rsp + 600], 0
-                        mov              qword ptr [rsp + 608], 0
-                        mov              qword ptr [rsp + 616], 0
-                        mov              qword ptr [rsp + 624], 0
-                        mov              qword ptr [rsp + 632], 0
-                        mov              qword ptr [rsp + 640], 0
-                        mov              qword ptr [rsp + 648], 0
-                        mov              qword ptr [rsp + 656], 0
-                        mov              qword ptr [rsp + 664], 0
-                        mov              qword ptr [rsp + 672], 0
-                        mov              qword ptr [rsp + 680], 0
-                        mov              qword ptr [rsp + 688], 0
-                        mov              qword ptr [rsp + 696], 0
-                        mov              qword ptr [rsp + 704], 0
-                        mov              qword ptr [rsp + 712], 0
-                        mov              qword ptr [rsp + 720], 0
-                        mov              qword ptr [rsp + 728], 0
-                        mov              qword ptr [rsp + 736], 0
-                        mov              qword ptr [rsp + 744], 0
-                        mov              qword ptr [rsp + 752], 0
-                        mov              qword ptr [rsp + 760], 0
-                        mov              qword ptr [rsp + 768], 0
-                        mov              qword ptr [rsp + 776], 0
-                        mov              qword ptr [rsp + 784], 0
-                        mov              qword ptr [rsp + 792], 0
-                        mov              qword ptr [rsp + 800], 0
-                        mov              qword ptr [rsp + 808], 0
-                        mov              qword ptr [rsp + 816], 0
-                        mov              qword ptr [rsp + 824], 0
-                        mov              qword ptr [rsp + 832], 0
-                        mov              qword ptr [rsp + 840], 0
-                        mov              qword ptr [rsp + 848], 0
-                        mov              qword ptr [rsp + 856], 0
-                        mov              qword ptr [rsp + 864], 0
-                        mov              qword ptr [rsp + 872], 0
-                        mov              qword ptr [rsp + 880], 0
-                        mov              qword ptr [rsp + 888], 0
-                        mov              qword ptr [rsp + 896], 0
-                        mov              qword ptr [rsp + 904], 0
-                        mov              qword ptr [rsp + 912], 0
-                        mov              qword ptr [rsp + 920], 0
-                        mov              qword ptr [rsp + 928], 0
-                        mov              qword ptr [rsp + 936], 0
-                        mov              qword ptr [rsp + 944], 0
-                        mov              qword ptr [rsp + 952], 0
-                        mov              qword ptr [rsp + 960], 0
-                        mov              qword ptr [rsp + 968], 0
-                        mov              qword ptr [rsp + 976], 0
-                        mov              qword ptr [rsp + 984], 0
-                        mov              qword ptr [rsp + 992], 0
-                        mov              qword ptr [rsp + 1000], 0
-                        mov              qword ptr [rsp + 1008], 0
-                        mov              qword ptr [rsp + 1016], 0
-                        mov              qword ptr [rsp + 1024], 0
-                        mov              qword ptr [rsp + 1032], 0
-                        mov              qword ptr [rsp + 1040], 0
-                        mov              qword ptr [rsp + 1048], 0
-                        mov              qword ptr [rsp + 1056], 0
-                        mov              qword ptr [rsp + 1064], 0
-                        mov              qword ptr [rsp + 1072], 0
-                        mov              qword ptr [rsp + 1080], 0
-                        mov              qword ptr [rsp + 1088], 0
-                        mov              qword ptr [rsp + 1096], 0
-                        mov              qword ptr [rsp + 1104], 0
-                        mov              qword ptr [rsp + 1112], 0
-                        mov              qword ptr [rsp + 1120], 0
-                        mov              qword ptr [rsp + 1128], 0
-                        mov              qword ptr [rsp + 1136], 0
-                        mov              qword ptr [rsp + 1144], 0
-                        mov              qword ptr [rsp + 1152], 0
-                        mov              qword ptr [rsp + 1160], 0
-                        mov              qword ptr [rsp + 1168], 0
-                        mov              qword ptr [rsp + 1176], 0
-                        mov              qword ptr [rsp + 1184], 0
-                        mov              qword ptr [rsp + 1192], 0
-                        mov              qword ptr [rsp + 1200], 0
-                        mov              qword ptr [rsp + 1208], 0
-                        mov              qword ptr [rsp + 1216], 0
-                        mov              qword ptr [rsp + 1224], 0
-                        mov              qword ptr [rsp + 1232], 0
-                        mov              qword ptr [rsp + 1240], 0
-                        mov              qword ptr [rsp + 1248], 0
-                        mov              qword ptr [rsp + 1256], 0
-                        mov              qword ptr [rsp + 1264], 0
-                        mov              qword ptr [rsp + 1272], 0
-                        mov              qword ptr [rsp + 1280], 0
-                        mov              qword ptr [rsp + 1288], 0
-                        mov              qword ptr [rsp + 1296], 0
-                        mov              qword ptr [rsp + 1304], 0
-                        mov              qword ptr [rsp + 1312], 0
-                        mov              qword ptr [rsp + 1320], 0
-                        mov              qword ptr [rsp + 1328], 0
-                        mov              qword ptr [rsp + 1336], 0
-                        mov              qword ptr [rsp + 1344], 0
-                        mov              qword ptr [rsp + 1352], 0
-                        mov              qword ptr [rsp + 1360], 0
-                        mov              qword ptr [rsp + 1368], 0
-                        mov              qword ptr [rsp + 1376], 0
-                        mov              qword ptr [rsp + 1384], 0
-                        mov              qword ptr [rsp + 1392], 0
-                        mov              qword ptr [rsp + 1400], 0
-                        mov              qword ptr [rsp + 1408], 0
-                        mov              qword ptr [rsp + 1416], 0
-                        mov              qword ptr [rsp + 1424], 0
-                        mov              qword ptr [rsp + 1432], 0
-                        mov              qword ptr [rsp + 1440], 0
-                        mov              qword ptr [rsp + 1448], 0
-                        mov              qword ptr [rsp + 1456], 0
-                        mov              qword ptr [rsp + 1464], 0
-                        mov              qword ptr [rsp + 1472], 0
-                        mov              qword ptr [rsp + 1480], 0
-                        mov              qword ptr [rsp + 1488], 0
-                        mov              qword ptr [rsp + 1496], 0
-                        mov              qword ptr [rsp + 1504], 0
-                        mov              qword ptr [rsp + 1512], 0
-                        mov              qword ptr [rsp + 1520], 0
-                        mov              qword ptr [rsp + 1528], 0
-                        mov              qword ptr [rsp + 1536], 0
-                        mov              qword ptr [rsp + 1544], 0
-                        mov              qword ptr [rsp + 1552], 0
-                        mov              qword ptr [rsp + 1560], 0
-                        mov              qword ptr [rsp + 1568], 0
-                        mov              qword ptr [rsp + 1576], 0
-                        mov              qword ptr [rsp + 1584], 0
-                        mov              qword ptr [rsp + 1592], 0
-                        mov              qword ptr [rsp + 1600], 0
-                        mov              qword ptr [rsp + 1608], 0
-                        mov              qword ptr [rsp + 1616], 0
-                        mov              qword ptr [rsp + 1624], 0
-                        mov              qword ptr [rsp + 1632], 0
-                        mov              qword ptr [rsp + 1640], 0
-                        mov              qword ptr [rsp + 1648], 0
-                        mov              qword ptr [rsp + 1656], 0
-                        mov              qword ptr [rsp + 1664], 0
-                        mov              qword ptr [rsp + 1672], 0
-                        mov              qword ptr [rsp + 1680], 0
-                        mov              qword ptr [rsp + 1688], 0
-                        mov              qword ptr [rsp + 1696], 0
-                        mov              qword ptr [rsp + 1704], 0
-                        mov              qword ptr [rsp + 1712], 0
-                        mov              qword ptr [rsp + 1720], 0
-                        mov              qword ptr [rsp + 1728], 0
-                        mov              qword ptr [rsp + 1736], 0
-                        mov              qword ptr [rsp + 1744], 0
-                        mov              qword ptr [rsp + 1752], 0
-                        mov              qword ptr [rsp + 1760], 0
-                        mov              qword ptr [rsp + 1768], 0
-                        mov              qword ptr [rsp + 1776], 0
-                        mov              qword ptr [rsp + 1784], 0
-                        mov              qword ptr [rsp + 1792], 0
-                        mov              qword ptr [rsp + 1800], 0
-                        mov              qword ptr [rsp + 1808], 0
-                        mov              qword ptr [rsp + 1816], 0
-                        mov              qword ptr [rsp + 1824], 0
-                        mov              qword ptr [rsp + 1832], 0
-                        mov              qword ptr [rsp + 1840], 0
-                        mov              qword ptr [rsp + 1848], 0
-                        mov              qword ptr [rsp + 1856], 0
-                        mov              qword ptr [rsp + 1864], 0
-                        mov              qword ptr [rsp + 1872], 0
-                        mov              qword ptr [rsp + 1880], 0
-                        mov              qword ptr [rsp + 1888], 0
-                        mov              qword ptr [rsp + 1896], 0
-                        mov              qword ptr [rsp + 1904], 0
-                        mov              qword ptr [rsp + 1912], 0
-                        mov              qword ptr [rsp + 1920], 0
-                        mov              qword ptr [rsp + 1928], 0
-                        mov              qword ptr [rsp + 1936], 0
-                        mov              qword ptr [rsp + 1944], 0
-                        mov              qword ptr [rsp + 1952], 0
-                        mov              qword ptr [rsp + 1960], 0
-                        mov              qword ptr [rsp + 1968], 0
-                        mov              qword ptr [rsp + 1976], 0
-                        mov              qword ptr [rsp + 1984], 0
-                        mov              qword ptr [rsp + 1992], 0
-                        mov              qword ptr [rsp + 2000], 0
-                        mov              qword ptr [rsp + 2008], 0
-                        mov              qword ptr [rsp + 2016], 0
-                        mov              qword ptr [rsp + 2024], 0
-                        mov              qword ptr [rsp + 2032], 0
-                        mov              qword ptr [rsp + 2040], 0
-                        mov              qword ptr [rsp + 2048], 0
-                        mov              qword ptr [rsp + 2056], 0
-                        mov              qword ptr [rsp + 2064], 0
-                        mov              qword ptr [rsp + 2072], 0
-                        mov              qword ptr [rsp + 2080], 0
-                        mov              qword ptr [rsp + 2088], 0
-                        mov              qword ptr [rsp + 2096], 0
-                        mov              qword ptr [rsp + 2104], 0
-                        mov              qword ptr [rsp + 2112], 0
-                        mov              qword ptr [rsp + 2120], 0
-                        mov              qword ptr [rsp + 2128], 0
-                        mov              qword ptr [rsp + 2136], 0
-                        mov              qword ptr [rsp + 2144], 0
-                        mov              qword ptr [rsp + 2152], 0
-                        mov              qword ptr [rsp + 2160], 0
-                        mov              qword ptr [rsp + 2168], 0
-                        mov              qword ptr [rsp + 2176], 0
-                        mov              qword ptr [rsp + 2184], 0
-                        mov              qword ptr [rsp + 2192], 0
-                        mov              qword ptr [rsp + 2200], 0
-                        mov              qword ptr [rsp + 2208], 0
-                        mov              qword ptr [rsp + 2216], 0
-                        mov              qword ptr [rsp + 2224], 0
-                        mov              qword ptr [rsp + 2232], 0
-                        mov              qword ptr [rsp + 2240], 0
-                        mov              qword ptr [rsp + 2248], 0
-                        mov              qword ptr [rsp + 2256], 0
-                        mov              qword ptr [rsp + 2264], 0
-                        mov              qword ptr [rsp + 2272], 0
-                        mov              qword ptr [rsp + 2280], 0
-                        mov              qword ptr [rsp + 2288], 0
-                        mov              qword ptr [rsp + 2296], 0
-                        mov              qword ptr [rsp + 2304], 0
-                        mov              qword ptr [rsp + 2312], 0
-                        mov              qword ptr [rsp + 2320], 0
-                        mov              qword ptr [rsp + 2328], 0
-                        mov              qword ptr [rsp + 2336], 0
-                        mov              qword ptr [rsp + 2344], 0
-                        mov              qword ptr [rsp + 2352], 0
-                        mov              qword ptr [rsp + 2360], 0
-                        mov              qword ptr [rsp + 2368], 0
-                        mov              qword ptr [rsp + 2376], 0
-                        mov              qword ptr [rsp + 2384], 0
-                        mov              qword ptr [rsp + 2392], 0
-                        mov              qword ptr [rsp + 2400], 0
-                        mov              qword ptr [rsp + 2408], 0
-                        mov              qword ptr [rsp + 2416], 0
-                        mov              qword ptr [rsp + 2424], 0
-                        mov              qword ptr [rsp + 2432], 0
-                        mov              qword ptr [rsp + 2440], 0
-                        mov              qword ptr [rsp + 2448], 0
-                        mov              qword ptr [rsp + 2456], 0
-                        mov              qword ptr [rsp + 2464], 0
-                        mov              qword ptr [rsp + 2472], 0
-                        mov              qword ptr [rsp + 2480], 0
-                        mov              qword ptr [rsp + 2488], 0
-                        mov              qword ptr [rsp + 2496], 0
-                        mov              qword ptr [rsp + 2504], 0
-                        mov              qword ptr [rsp + 2512], 0
-                        mov              qword ptr [rsp + 2520], 0
-                        mov              qword ptr [rsp + 2528], 0
-                        mov              qword ptr [rsp + 2536], 0
-                        mov              qword ptr [rsp + 2544], 0
-                        mov              qword ptr [rsp + 2552], 0
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052304]                    # v
                         mov              rdx, qword ptr [1879052312]
-                        mov              qword ptr [rsp + 2544], rax                    # result
-                        mov              qword ptr [rsp + 2552], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1306_call_α
 n1305_var_β:
-                        add              rsp, 2560
+                        add              rsp, 16
                                                                                         jmp   n1308_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1306_call_α:
+                        sub              rsp, 16
+                        mov              edi, 0                                         # idx
+                        mov              rsi, qword ptr [rsp + 16]                      # var
+                        mov              rdx, qword ptr [rsp + 24]                      # v
+                        call             rt_arg_stage@PLT
                         sub              rsp, 32
                         mov              rax, qword ptr [1879052304]                    # v
                         mov              qword ptr [rsp + 0], rax
@@ -21152,9 +14512,10 @@ n1306_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx1829_5
-                        mov              rax, qword ptr [rsp + 2576]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 0]
                         mov              qword ptr [1879052304], rax                    # v
-                        mov              rax, qword ptr [rsp + 2584]
+                        mov              rax, qword ptr [r10 + 8]
                         mov              qword ptr [1879052312], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx1829_6]
@@ -21188,45 +14549,13 @@ n1306_call_α:
                                                                                         jmp   .Lx1829_2
 .Lx1829_5:
                         add              rsp, 32
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx1829_20
-                        mov              rax, qword ptr [rsp + 2544]
-                        mov              rdx, qword ptr [rsp + 2552]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 0], rax
-                        mov              qword ptr [r10 + 8], rdx
-                                                                                        jmp   .Lx1829_21
-.Lx1829_20:
-                        mov              edi, 0                                         # idx
-                        mov              rsi, qword ptr [rsp + 2544]                    # v
-                        mov              rdx, qword ptr [rsp + 2552]                    # v
-                        call             rt_arg_stage@PLT
-.Lx1829_21:
-                        mov              rdi, qword ptr [rip + .Lx1829_0]               # name
-                        mov              esi, 1                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx1829_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx1829_3]
-                        lea              rdx, [rip + .Lx1829_4]
-                                                                                        jmp   rax
-.Lx1829_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx1829_2
-.Lx1829_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx1829_2
-.Lx1829_1:
-                        call             rt_faildescr@PLT
 .Lx1829_2:
-                        mov              qword ptr [rsp + 2496], rax
-                        mov              qword ptr [rsp + 2504], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx1829_240
-                        add              rsp, 2560
+                        add              rsp, 16
+                        add              rsp, 16
                                                                                         jmp   n1308_lit_string_α
 .Lx1829_240:
                                                                                         jmp   n1307_assign_α
@@ -21238,14 +14567,14 @@ n1306_call_β:
                         .string          "stk_push_frame"
 #-----------------------------------------------------------------------------------------------------------------------
 n1307_assign_α:
-                        mov              rax, qword ptr [rsp + 2496]
-                        mov              rdx, qword ptr [rsp + 2504]
+                        mov              rax, qword ptr [rsp + 0]                       # call
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052912], rax                    # dummy
                         mov              qword ptr [1879052920], rdx
-                        add              rsp, 2560
+                        add              rsp, 32
                                                                                         jmp   n1308_lit_string_α
 n1307_assign_β:
-                        add              rsp, 2560
+                        add              rsp, 32
                                                                                         jmp   n1308_lit_string_α
 #=======================================================================================================================
 #                push_list      =  .dummy                     :(NRETURN)
@@ -21440,369 +14769,22 @@ n1320_goto_β:
 # push_item      dummy          =  stk_push_item(v)
 #-----------------------------------------------------------------------------------------------------------------------
 n1321_var_α:
-                        sub              rsp, 2816
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
-                        mov              qword ptr [rsp + 96], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 120], 0
-                        mov              qword ptr [rsp + 128], 0
-                        mov              qword ptr [rsp + 136], 0
-                        mov              qword ptr [rsp + 144], 0
-                        mov              qword ptr [rsp + 152], 0
-                        mov              qword ptr [rsp + 160], 0
-                        mov              qword ptr [rsp + 168], 0
-                        mov              qword ptr [rsp + 176], 0
-                        mov              qword ptr [rsp + 184], 0
-                        mov              qword ptr [rsp + 192], 0
-                        mov              qword ptr [rsp + 200], 0
-                        mov              qword ptr [rsp + 208], 0
-                        mov              qword ptr [rsp + 216], 0
-                        mov              qword ptr [rsp + 224], 0
-                        mov              qword ptr [rsp + 232], 0
-                        mov              qword ptr [rsp + 240], 0
-                        mov              qword ptr [rsp + 248], 0
-                        mov              qword ptr [rsp + 256], 0
-                        mov              qword ptr [rsp + 264], 0
-                        mov              qword ptr [rsp + 272], 0
-                        mov              qword ptr [rsp + 280], 0
-                        mov              qword ptr [rsp + 288], 0
-                        mov              qword ptr [rsp + 296], 0
-                        mov              qword ptr [rsp + 304], 0
-                        mov              qword ptr [rsp + 312], 0
-                        mov              qword ptr [rsp + 320], 0
-                        mov              qword ptr [rsp + 328], 0
-                        mov              qword ptr [rsp + 336], 0
-                        mov              qword ptr [rsp + 344], 0
-                        mov              qword ptr [rsp + 352], 0
-                        mov              qword ptr [rsp + 360], 0
-                        mov              qword ptr [rsp + 368], 0
-                        mov              qword ptr [rsp + 376], 0
-                        mov              qword ptr [rsp + 384], 0
-                        mov              qword ptr [rsp + 392], 0
-                        mov              qword ptr [rsp + 400], 0
-                        mov              qword ptr [rsp + 408], 0
-                        mov              qword ptr [rsp + 416], 0
-                        mov              qword ptr [rsp + 424], 0
-                        mov              qword ptr [rsp + 432], 0
-                        mov              qword ptr [rsp + 440], 0
-                        mov              qword ptr [rsp + 448], 0
-                        mov              qword ptr [rsp + 456], 0
-                        mov              qword ptr [rsp + 464], 0
-                        mov              qword ptr [rsp + 472], 0
-                        mov              qword ptr [rsp + 480], 0
-                        mov              qword ptr [rsp + 488], 0
-                        mov              qword ptr [rsp + 496], 0
-                        mov              qword ptr [rsp + 504], 0
-                        mov              qword ptr [rsp + 512], 0
-                        mov              qword ptr [rsp + 520], 0
-                        mov              qword ptr [rsp + 528], 0
-                        mov              qword ptr [rsp + 536], 0
-                        mov              qword ptr [rsp + 544], 0
-                        mov              qword ptr [rsp + 552], 0
-                        mov              qword ptr [rsp + 560], 0
-                        mov              qword ptr [rsp + 568], 0
-                        mov              qword ptr [rsp + 576], 0
-                        mov              qword ptr [rsp + 584], 0
-                        mov              qword ptr [rsp + 592], 0
-                        mov              qword ptr [rsp + 600], 0
-                        mov              qword ptr [rsp + 608], 0
-                        mov              qword ptr [rsp + 616], 0
-                        mov              qword ptr [rsp + 624], 0
-                        mov              qword ptr [rsp + 632], 0
-                        mov              qword ptr [rsp + 640], 0
-                        mov              qword ptr [rsp + 648], 0
-                        mov              qword ptr [rsp + 656], 0
-                        mov              qword ptr [rsp + 664], 0
-                        mov              qword ptr [rsp + 672], 0
-                        mov              qword ptr [rsp + 680], 0
-                        mov              qword ptr [rsp + 688], 0
-                        mov              qword ptr [rsp + 696], 0
-                        mov              qword ptr [rsp + 704], 0
-                        mov              qword ptr [rsp + 712], 0
-                        mov              qword ptr [rsp + 720], 0
-                        mov              qword ptr [rsp + 728], 0
-                        mov              qword ptr [rsp + 736], 0
-                        mov              qword ptr [rsp + 744], 0
-                        mov              qword ptr [rsp + 752], 0
-                        mov              qword ptr [rsp + 760], 0
-                        mov              qword ptr [rsp + 768], 0
-                        mov              qword ptr [rsp + 776], 0
-                        mov              qword ptr [rsp + 784], 0
-                        mov              qword ptr [rsp + 792], 0
-                        mov              qword ptr [rsp + 800], 0
-                        mov              qword ptr [rsp + 808], 0
-                        mov              qword ptr [rsp + 816], 0
-                        mov              qword ptr [rsp + 824], 0
-                        mov              qword ptr [rsp + 832], 0
-                        mov              qword ptr [rsp + 840], 0
-                        mov              qword ptr [rsp + 848], 0
-                        mov              qword ptr [rsp + 856], 0
-                        mov              qword ptr [rsp + 864], 0
-                        mov              qword ptr [rsp + 872], 0
-                        mov              qword ptr [rsp + 880], 0
-                        mov              qword ptr [rsp + 888], 0
-                        mov              qword ptr [rsp + 896], 0
-                        mov              qword ptr [rsp + 904], 0
-                        mov              qword ptr [rsp + 912], 0
-                        mov              qword ptr [rsp + 920], 0
-                        mov              qword ptr [rsp + 928], 0
-                        mov              qword ptr [rsp + 936], 0
-                        mov              qword ptr [rsp + 944], 0
-                        mov              qword ptr [rsp + 952], 0
-                        mov              qword ptr [rsp + 960], 0
-                        mov              qword ptr [rsp + 968], 0
-                        mov              qword ptr [rsp + 976], 0
-                        mov              qword ptr [rsp + 984], 0
-                        mov              qword ptr [rsp + 992], 0
-                        mov              qword ptr [rsp + 1000], 0
-                        mov              qword ptr [rsp + 1008], 0
-                        mov              qword ptr [rsp + 1016], 0
-                        mov              qword ptr [rsp + 1024], 0
-                        mov              qword ptr [rsp + 1032], 0
-                        mov              qword ptr [rsp + 1040], 0
-                        mov              qword ptr [rsp + 1048], 0
-                        mov              qword ptr [rsp + 1056], 0
-                        mov              qword ptr [rsp + 1064], 0
-                        mov              qword ptr [rsp + 1072], 0
-                        mov              qword ptr [rsp + 1080], 0
-                        mov              qword ptr [rsp + 1088], 0
-                        mov              qword ptr [rsp + 1096], 0
-                        mov              qword ptr [rsp + 1104], 0
-                        mov              qword ptr [rsp + 1112], 0
-                        mov              qword ptr [rsp + 1120], 0
-                        mov              qword ptr [rsp + 1128], 0
-                        mov              qword ptr [rsp + 1136], 0
-                        mov              qword ptr [rsp + 1144], 0
-                        mov              qword ptr [rsp + 1152], 0
-                        mov              qword ptr [rsp + 1160], 0
-                        mov              qword ptr [rsp + 1168], 0
-                        mov              qword ptr [rsp + 1176], 0
-                        mov              qword ptr [rsp + 1184], 0
-                        mov              qword ptr [rsp + 1192], 0
-                        mov              qword ptr [rsp + 1200], 0
-                        mov              qword ptr [rsp + 1208], 0
-                        mov              qword ptr [rsp + 1216], 0
-                        mov              qword ptr [rsp + 1224], 0
-                        mov              qword ptr [rsp + 1232], 0
-                        mov              qword ptr [rsp + 1240], 0
-                        mov              qword ptr [rsp + 1248], 0
-                        mov              qword ptr [rsp + 1256], 0
-                        mov              qword ptr [rsp + 1264], 0
-                        mov              qword ptr [rsp + 1272], 0
-                        mov              qword ptr [rsp + 1280], 0
-                        mov              qword ptr [rsp + 1288], 0
-                        mov              qword ptr [rsp + 1296], 0
-                        mov              qword ptr [rsp + 1304], 0
-                        mov              qword ptr [rsp + 1312], 0
-                        mov              qword ptr [rsp + 1320], 0
-                        mov              qword ptr [rsp + 1328], 0
-                        mov              qword ptr [rsp + 1336], 0
-                        mov              qword ptr [rsp + 1344], 0
-                        mov              qword ptr [rsp + 1352], 0
-                        mov              qword ptr [rsp + 1360], 0
-                        mov              qword ptr [rsp + 1368], 0
-                        mov              qword ptr [rsp + 1376], 0
-                        mov              qword ptr [rsp + 1384], 0
-                        mov              qword ptr [rsp + 1392], 0
-                        mov              qword ptr [rsp + 1400], 0
-                        mov              qword ptr [rsp + 1408], 0
-                        mov              qword ptr [rsp + 1416], 0
-                        mov              qword ptr [rsp + 1424], 0
-                        mov              qword ptr [rsp + 1432], 0
-                        mov              qword ptr [rsp + 1440], 0
-                        mov              qword ptr [rsp + 1448], 0
-                        mov              qword ptr [rsp + 1456], 0
-                        mov              qword ptr [rsp + 1464], 0
-                        mov              qword ptr [rsp + 1472], 0
-                        mov              qword ptr [rsp + 1480], 0
-                        mov              qword ptr [rsp + 1488], 0
-                        mov              qword ptr [rsp + 1496], 0
-                        mov              qword ptr [rsp + 1504], 0
-                        mov              qword ptr [rsp + 1512], 0
-                        mov              qword ptr [rsp + 1520], 0
-                        mov              qword ptr [rsp + 1528], 0
-                        mov              qword ptr [rsp + 1536], 0
-                        mov              qword ptr [rsp + 1544], 0
-                        mov              qword ptr [rsp + 1552], 0
-                        mov              qword ptr [rsp + 1560], 0
-                        mov              qword ptr [rsp + 1568], 0
-                        mov              qword ptr [rsp + 1576], 0
-                        mov              qword ptr [rsp + 1584], 0
-                        mov              qword ptr [rsp + 1592], 0
-                        mov              qword ptr [rsp + 1600], 0
-                        mov              qword ptr [rsp + 1608], 0
-                        mov              qword ptr [rsp + 1616], 0
-                        mov              qword ptr [rsp + 1624], 0
-                        mov              qword ptr [rsp + 1632], 0
-                        mov              qword ptr [rsp + 1640], 0
-                        mov              qword ptr [rsp + 1648], 0
-                        mov              qword ptr [rsp + 1656], 0
-                        mov              qword ptr [rsp + 1664], 0
-                        mov              qword ptr [rsp + 1672], 0
-                        mov              qword ptr [rsp + 1680], 0
-                        mov              qword ptr [rsp + 1688], 0
-                        mov              qword ptr [rsp + 1696], 0
-                        mov              qword ptr [rsp + 1704], 0
-                        mov              qword ptr [rsp + 1712], 0
-                        mov              qword ptr [rsp + 1720], 0
-                        mov              qword ptr [rsp + 1728], 0
-                        mov              qword ptr [rsp + 1736], 0
-                        mov              qword ptr [rsp + 1744], 0
-                        mov              qword ptr [rsp + 1752], 0
-                        mov              qword ptr [rsp + 1760], 0
-                        mov              qword ptr [rsp + 1768], 0
-                        mov              qword ptr [rsp + 1776], 0
-                        mov              qword ptr [rsp + 1784], 0
-                        mov              qword ptr [rsp + 1792], 0
-                        mov              qword ptr [rsp + 1800], 0
-                        mov              qword ptr [rsp + 1808], 0
-                        mov              qword ptr [rsp + 1816], 0
-                        mov              qword ptr [rsp + 1824], 0
-                        mov              qword ptr [rsp + 1832], 0
-                        mov              qword ptr [rsp + 1840], 0
-                        mov              qword ptr [rsp + 1848], 0
-                        mov              qword ptr [rsp + 1856], 0
-                        mov              qword ptr [rsp + 1864], 0
-                        mov              qword ptr [rsp + 1872], 0
-                        mov              qword ptr [rsp + 1880], 0
-                        mov              qword ptr [rsp + 1888], 0
-                        mov              qword ptr [rsp + 1896], 0
-                        mov              qword ptr [rsp + 1904], 0
-                        mov              qword ptr [rsp + 1912], 0
-                        mov              qword ptr [rsp + 1920], 0
-                        mov              qword ptr [rsp + 1928], 0
-                        mov              qword ptr [rsp + 1936], 0
-                        mov              qword ptr [rsp + 1944], 0
-                        mov              qword ptr [rsp + 1952], 0
-                        mov              qword ptr [rsp + 1960], 0
-                        mov              qword ptr [rsp + 1968], 0
-                        mov              qword ptr [rsp + 1976], 0
-                        mov              qword ptr [rsp + 1984], 0
-                        mov              qword ptr [rsp + 1992], 0
-                        mov              qword ptr [rsp + 2000], 0
-                        mov              qword ptr [rsp + 2008], 0
-                        mov              qword ptr [rsp + 2016], 0
-                        mov              qword ptr [rsp + 2024], 0
-                        mov              qword ptr [rsp + 2032], 0
-                        mov              qword ptr [rsp + 2040], 0
-                        mov              qword ptr [rsp + 2048], 0
-                        mov              qword ptr [rsp + 2056], 0
-                        mov              qword ptr [rsp + 2064], 0
-                        mov              qword ptr [rsp + 2072], 0
-                        mov              qword ptr [rsp + 2080], 0
-                        mov              qword ptr [rsp + 2088], 0
-                        mov              qword ptr [rsp + 2096], 0
-                        mov              qword ptr [rsp + 2104], 0
-                        mov              qword ptr [rsp + 2112], 0
-                        mov              qword ptr [rsp + 2120], 0
-                        mov              qword ptr [rsp + 2128], 0
-                        mov              qword ptr [rsp + 2136], 0
-                        mov              qword ptr [rsp + 2144], 0
-                        mov              qword ptr [rsp + 2152], 0
-                        mov              qword ptr [rsp + 2160], 0
-                        mov              qword ptr [rsp + 2168], 0
-                        mov              qword ptr [rsp + 2176], 0
-                        mov              qword ptr [rsp + 2184], 0
-                        mov              qword ptr [rsp + 2192], 0
-                        mov              qword ptr [rsp + 2200], 0
-                        mov              qword ptr [rsp + 2208], 0
-                        mov              qword ptr [rsp + 2216], 0
-                        mov              qword ptr [rsp + 2224], 0
-                        mov              qword ptr [rsp + 2232], 0
-                        mov              qword ptr [rsp + 2240], 0
-                        mov              qword ptr [rsp + 2248], 0
-                        mov              qword ptr [rsp + 2256], 0
-                        mov              qword ptr [rsp + 2264], 0
-                        mov              qword ptr [rsp + 2272], 0
-                        mov              qword ptr [rsp + 2280], 0
-                        mov              qword ptr [rsp + 2288], 0
-                        mov              qword ptr [rsp + 2296], 0
-                        mov              qword ptr [rsp + 2304], 0
-                        mov              qword ptr [rsp + 2312], 0
-                        mov              qword ptr [rsp + 2320], 0
-                        mov              qword ptr [rsp + 2328], 0
-                        mov              qword ptr [rsp + 2336], 0
-                        mov              qword ptr [rsp + 2344], 0
-                        mov              qword ptr [rsp + 2352], 0
-                        mov              qword ptr [rsp + 2360], 0
-                        mov              qword ptr [rsp + 2368], 0
-                        mov              qword ptr [rsp + 2376], 0
-                        mov              qword ptr [rsp + 2384], 0
-                        mov              qword ptr [rsp + 2392], 0
-                        mov              qword ptr [rsp + 2400], 0
-                        mov              qword ptr [rsp + 2408], 0
-                        mov              qword ptr [rsp + 2416], 0
-                        mov              qword ptr [rsp + 2424], 0
-                        mov              qword ptr [rsp + 2432], 0
-                        mov              qword ptr [rsp + 2440], 0
-                        mov              qword ptr [rsp + 2448], 0
-                        mov              qword ptr [rsp + 2456], 0
-                        mov              qword ptr [rsp + 2464], 0
-                        mov              qword ptr [rsp + 2472], 0
-                        mov              qword ptr [rsp + 2480], 0
-                        mov              qword ptr [rsp + 2488], 0
-                        mov              qword ptr [rsp + 2496], 0
-                        mov              qword ptr [rsp + 2504], 0
-                        mov              qword ptr [rsp + 2512], 0
-                        mov              qword ptr [rsp + 2520], 0
-                        mov              qword ptr [rsp + 2528], 0
-                        mov              qword ptr [rsp + 2536], 0
-                        mov              qword ptr [rsp + 2544], 0
-                        mov              qword ptr [rsp + 2552], 0
-                        mov              qword ptr [rsp + 2560], 0
-                        mov              qword ptr [rsp + 2568], 0
-                        mov              qword ptr [rsp + 2576], 0
-                        mov              qword ptr [rsp + 2584], 0
-                        mov              qword ptr [rsp + 2592], 0
-                        mov              qword ptr [rsp + 2600], 0
-                        mov              qword ptr [rsp + 2608], 0
-                        mov              qword ptr [rsp + 2616], 0
-                        mov              qword ptr [rsp + 2624], 0
-                        mov              qword ptr [rsp + 2632], 0
-                        mov              qword ptr [rsp + 2640], 0
-                        mov              qword ptr [rsp + 2648], 0
-                        mov              qword ptr [rsp + 2656], 0
-                        mov              qword ptr [rsp + 2664], 0
-                        mov              qword ptr [rsp + 2672], 0
-                        mov              qword ptr [rsp + 2680], 0
-                        mov              qword ptr [rsp + 2688], 0
-                        mov              qword ptr [rsp + 2696], 0
-                        mov              qword ptr [rsp + 2704], 0
-                        mov              qword ptr [rsp + 2712], 0
-                        mov              qword ptr [rsp + 2720], 0
-                        mov              qword ptr [rsp + 2728], 0
-                        mov              qword ptr [rsp + 2736], 0
-                        mov              qword ptr [rsp + 2744], 0
-                        mov              qword ptr [rsp + 2752], 0
-                        mov              qword ptr [rsp + 2760], 0
-                        mov              qword ptr [rsp + 2768], 0
-                        mov              qword ptr [rsp + 2776], 0
-                        mov              qword ptr [rsp + 2784], 0
-                        mov              qword ptr [rsp + 2792], 0
-                        mov              qword ptr [rsp + 2800], 0
-                        mov              qword ptr [rsp + 2808], 0
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052304]                    # v
                         mov              rdx, qword ptr [1879052312]
-                        mov              qword ptr [rsp + 2800], rax                    # result
-                        mov              qword ptr [rsp + 2808], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1322_call_α
 n1321_var_β:
-                        add              rsp, 2816
+                        add              rsp, 16
                                                                                         jmp   n1324_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1322_call_α:
+                        sub              rsp, 16
+                        mov              edi, 0                                         # idx
+                        mov              rsi, qword ptr [rsp + 16]                      # var
+                        mov              rdx, qword ptr [rsp + 24]                      # v
+                        call             rt_arg_stage@PLT
                         sub              rsp, 48
                         mov              rax, qword ptr [1879052304]                    # v
                         mov              qword ptr [rsp + 0], rax
@@ -21822,9 +14804,10 @@ n1322_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx1848_5
-                        mov              rax, qword ptr [rsp + 2848]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 0]
                         mov              qword ptr [1879052304], rax                    # v
-                        mov              rax, qword ptr [rsp + 2856]
+                        mov              rax, qword ptr [r10 + 8]
                         mov              qword ptr [1879052312], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx1848_6]
@@ -21866,45 +14849,13 @@ n1322_call_α:
                                                                                         jmp   .Lx1848_2
 .Lx1848_5:
                         add              rsp, 48
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx1848_20
-                        mov              rax, qword ptr [rsp + 2800]
-                        mov              rdx, qword ptr [rsp + 2808]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 0], rax
-                        mov              qword ptr [r10 + 8], rdx
-                                                                                        jmp   .Lx1848_21
-.Lx1848_20:
-                        mov              edi, 0                                         # idx
-                        mov              rsi, qword ptr [rsp + 2800]                    # v
-                        mov              rdx, qword ptr [rsp + 2808]                    # v
-                        call             rt_arg_stage@PLT
-.Lx1848_21:
-                        mov              rdi, qword ptr [rip + .Lx1848_0]               # name
-                        mov              esi, 1                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx1848_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx1848_3]
-                        lea              rdx, [rip + .Lx1848_4]
-                                                                                        jmp   rax
-.Lx1848_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx1848_2
-.Lx1848_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx1848_2
-.Lx1848_1:
-                        call             rt_faildescr@PLT
 .Lx1848_2:
-                        mov              qword ptr [rsp + 2752], rax
-                        mov              qword ptr [rsp + 2760], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx1848_240
-                        add              rsp, 2816
+                        add              rsp, 16
+                        add              rsp, 16
                                                                                         jmp   n1324_lit_string_α
 .Lx1848_240:
                                                                                         jmp   n1323_assign_α
@@ -21916,14 +14867,14 @@ n1322_call_β:
                         .string          "stk_push_item"
 #-----------------------------------------------------------------------------------------------------------------------
 n1323_assign_α:
-                        mov              rax, qword ptr [rsp + 2752]
-                        mov              rdx, qword ptr [rsp + 2760]
+                        mov              rax, qword ptr [rsp + 0]                       # call
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052912], rax                    # dummy
                         mov              qword ptr [1879052920], rdx
-                        add              rsp, 2816
+                        add              rsp, 32
                                                                                         jmp   n1324_lit_string_α
 n1323_assign_β:
-                        add              rsp, 2816
+                        add              rsp, 32
                                                                                         jmp   n1324_lit_string_α
 #=======================================================================================================================
 #                push_item      =  .dummy                     :(NRETURN)
@@ -22118,6 +15069,7 @@ n1336_goto_β:
 # pop_list       dummy          =  stk_pop_into_parent()
 #-----------------------------------------------------------------------------------------------------------------------
 n1337_call_α:
+                        sub              rsp, 16
                         sub              rsp, 64
                         mov              rax, qword ptr [1879052368]                    # child
                         mov              qword ptr [rsp + 0], rax
@@ -22189,28 +15141,14 @@ n1337_call_α:
                                                                                         jmp   .Lx1866_2
 .Lx1866_5:
                         add              rsp, 64
-                        mov              rdi, qword ptr [rip + .Lx1866_0]               # name
-                        mov              esi, 0                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx1866_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx1866_3]
-                        lea              rdx, [rip + .Lx1866_4]
-                                                                                        jmp   rax
-.Lx1866_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx1866_2
-.Lx1866_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx1866_2
-.Lx1866_1:
-                        call             rt_faildescr@PLT
 .Lx1866_2:
-                        mov              qword ptr [rsp + 3216], rax
-                        mov              qword ptr [rsp + 3224], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
-                                                                                        je    n1339_lit_string_α
+                                                                                        jne   .Lx1866_240
+                        add              rsp, 16
+                                                                                        jmp   n1339_lit_string_α
+.Lx1866_240:
                                                                                         jmp   n1338_assign_α
 n1337_call_β:
                                                                                         jmp   n1339_lit_string_α
@@ -22220,12 +15158,14 @@ n1337_call_β:
                         .string          "stk_pop_into_parent"
 #-----------------------------------------------------------------------------------------------------------------------
 n1338_assign_α:
-                        mov              rax, qword ptr [rsp + 3216]
-                        mov              rdx, qword ptr [rsp + 3224]
+                        mov              rax, qword ptr [rsp + 0]                       # call
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052912], rax                    # dummy
                         mov              qword ptr [1879052920], rdx
+                        add              rsp, 16
                                                                                         jmp   n1339_lit_string_α
 n1338_assign_β:
+                        add              rsp, 16
                                                                                         jmp   n1339_lit_string_α
 #=======================================================================================================================
 #                pop_list       =  .dummy                     :(NRETURN)
@@ -22362,423 +15302,24 @@ n1347_goto_β:
 # pop_final      dummy          =  stk_pop_final(v)
 #-----------------------------------------------------------------------------------------------------------------------
 n1348_var_α:
-                        sub              rsp, 3232
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
-                        mov              qword ptr [rsp + 96], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 120], 0
-                        mov              qword ptr [rsp + 128], 0
-                        mov              qword ptr [rsp + 136], 0
-                        mov              qword ptr [rsp + 144], 0
-                        mov              qword ptr [rsp + 152], 0
-                        mov              qword ptr [rsp + 160], 0
-                        mov              qword ptr [rsp + 168], 0
-                        mov              qword ptr [rsp + 176], 0
-                        mov              qword ptr [rsp + 184], 0
-                        mov              qword ptr [rsp + 192], 0
-                        mov              qword ptr [rsp + 200], 0
-                        mov              qword ptr [rsp + 208], 0
-                        mov              qword ptr [rsp + 216], 0
-                        mov              qword ptr [rsp + 224], 0
-                        mov              qword ptr [rsp + 232], 0
-                        mov              qword ptr [rsp + 240], 0
-                        mov              qword ptr [rsp + 248], 0
-                        mov              qword ptr [rsp + 256], 0
-                        mov              qword ptr [rsp + 264], 0
-                        mov              qword ptr [rsp + 272], 0
-                        mov              qword ptr [rsp + 280], 0
-                        mov              qword ptr [rsp + 288], 0
-                        mov              qword ptr [rsp + 296], 0
-                        mov              qword ptr [rsp + 304], 0
-                        mov              qword ptr [rsp + 312], 0
-                        mov              qword ptr [rsp + 320], 0
-                        mov              qword ptr [rsp + 328], 0
-                        mov              qword ptr [rsp + 336], 0
-                        mov              qword ptr [rsp + 344], 0
-                        mov              qword ptr [rsp + 352], 0
-                        mov              qword ptr [rsp + 360], 0
-                        mov              qword ptr [rsp + 368], 0
-                        mov              qword ptr [rsp + 376], 0
-                        mov              qword ptr [rsp + 384], 0
-                        mov              qword ptr [rsp + 392], 0
-                        mov              qword ptr [rsp + 400], 0
-                        mov              qword ptr [rsp + 408], 0
-                        mov              qword ptr [rsp + 416], 0
-                        mov              qword ptr [rsp + 424], 0
-                        mov              qword ptr [rsp + 432], 0
-                        mov              qword ptr [rsp + 440], 0
-                        mov              qword ptr [rsp + 448], 0
-                        mov              qword ptr [rsp + 456], 0
-                        mov              qword ptr [rsp + 464], 0
-                        mov              qword ptr [rsp + 472], 0
-                        mov              qword ptr [rsp + 480], 0
-                        mov              qword ptr [rsp + 488], 0
-                        mov              qword ptr [rsp + 496], 0
-                        mov              qword ptr [rsp + 504], 0
-                        mov              qword ptr [rsp + 512], 0
-                        mov              qword ptr [rsp + 520], 0
-                        mov              qword ptr [rsp + 528], 0
-                        mov              qword ptr [rsp + 536], 0
-                        mov              qword ptr [rsp + 544], 0
-                        mov              qword ptr [rsp + 552], 0
-                        mov              qword ptr [rsp + 560], 0
-                        mov              qword ptr [rsp + 568], 0
-                        mov              qword ptr [rsp + 576], 0
-                        mov              qword ptr [rsp + 584], 0
-                        mov              qword ptr [rsp + 592], 0
-                        mov              qword ptr [rsp + 600], 0
-                        mov              qword ptr [rsp + 608], 0
-                        mov              qword ptr [rsp + 616], 0
-                        mov              qword ptr [rsp + 624], 0
-                        mov              qword ptr [rsp + 632], 0
-                        mov              qword ptr [rsp + 640], 0
-                        mov              qword ptr [rsp + 648], 0
-                        mov              qword ptr [rsp + 656], 0
-                        mov              qword ptr [rsp + 664], 0
-                        mov              qword ptr [rsp + 672], 0
-                        mov              qword ptr [rsp + 680], 0
-                        mov              qword ptr [rsp + 688], 0
-                        mov              qword ptr [rsp + 696], 0
-                        mov              qword ptr [rsp + 704], 0
-                        mov              qword ptr [rsp + 712], 0
-                        mov              qword ptr [rsp + 720], 0
-                        mov              qword ptr [rsp + 728], 0
-                        mov              qword ptr [rsp + 736], 0
-                        mov              qword ptr [rsp + 744], 0
-                        mov              qword ptr [rsp + 752], 0
-                        mov              qword ptr [rsp + 760], 0
-                        mov              qword ptr [rsp + 768], 0
-                        mov              qword ptr [rsp + 776], 0
-                        mov              qword ptr [rsp + 784], 0
-                        mov              qword ptr [rsp + 792], 0
-                        mov              qword ptr [rsp + 800], 0
-                        mov              qword ptr [rsp + 808], 0
-                        mov              qword ptr [rsp + 816], 0
-                        mov              qword ptr [rsp + 824], 0
-                        mov              qword ptr [rsp + 832], 0
-                        mov              qword ptr [rsp + 840], 0
-                        mov              qword ptr [rsp + 848], 0
-                        mov              qword ptr [rsp + 856], 0
-                        mov              qword ptr [rsp + 864], 0
-                        mov              qword ptr [rsp + 872], 0
-                        mov              qword ptr [rsp + 880], 0
-                        mov              qword ptr [rsp + 888], 0
-                        mov              qword ptr [rsp + 896], 0
-                        mov              qword ptr [rsp + 904], 0
-                        mov              qword ptr [rsp + 912], 0
-                        mov              qword ptr [rsp + 920], 0
-                        mov              qword ptr [rsp + 928], 0
-                        mov              qword ptr [rsp + 936], 0
-                        mov              qword ptr [rsp + 944], 0
-                        mov              qword ptr [rsp + 952], 0
-                        mov              qword ptr [rsp + 960], 0
-                        mov              qword ptr [rsp + 968], 0
-                        mov              qword ptr [rsp + 976], 0
-                        mov              qword ptr [rsp + 984], 0
-                        mov              qword ptr [rsp + 992], 0
-                        mov              qword ptr [rsp + 1000], 0
-                        mov              qword ptr [rsp + 1008], 0
-                        mov              qword ptr [rsp + 1016], 0
-                        mov              qword ptr [rsp + 1024], 0
-                        mov              qword ptr [rsp + 1032], 0
-                        mov              qword ptr [rsp + 1040], 0
-                        mov              qword ptr [rsp + 1048], 0
-                        mov              qword ptr [rsp + 1056], 0
-                        mov              qword ptr [rsp + 1064], 0
-                        mov              qword ptr [rsp + 1072], 0
-                        mov              qword ptr [rsp + 1080], 0
-                        mov              qword ptr [rsp + 1088], 0
-                        mov              qword ptr [rsp + 1096], 0
-                        mov              qword ptr [rsp + 1104], 0
-                        mov              qword ptr [rsp + 1112], 0
-                        mov              qword ptr [rsp + 1120], 0
-                        mov              qword ptr [rsp + 1128], 0
-                        mov              qword ptr [rsp + 1136], 0
-                        mov              qword ptr [rsp + 1144], 0
-                        mov              qword ptr [rsp + 1152], 0
-                        mov              qword ptr [rsp + 1160], 0
-                        mov              qword ptr [rsp + 1168], 0
-                        mov              qword ptr [rsp + 1176], 0
-                        mov              qword ptr [rsp + 1184], 0
-                        mov              qword ptr [rsp + 1192], 0
-                        mov              qword ptr [rsp + 1200], 0
-                        mov              qword ptr [rsp + 1208], 0
-                        mov              qword ptr [rsp + 1216], 0
-                        mov              qword ptr [rsp + 1224], 0
-                        mov              qword ptr [rsp + 1232], 0
-                        mov              qword ptr [rsp + 1240], 0
-                        mov              qword ptr [rsp + 1248], 0
-                        mov              qword ptr [rsp + 1256], 0
-                        mov              qword ptr [rsp + 1264], 0
-                        mov              qword ptr [rsp + 1272], 0
-                        mov              qword ptr [rsp + 1280], 0
-                        mov              qword ptr [rsp + 1288], 0
-                        mov              qword ptr [rsp + 1296], 0
-                        mov              qword ptr [rsp + 1304], 0
-                        mov              qword ptr [rsp + 1312], 0
-                        mov              qword ptr [rsp + 1320], 0
-                        mov              qword ptr [rsp + 1328], 0
-                        mov              qword ptr [rsp + 1336], 0
-                        mov              qword ptr [rsp + 1344], 0
-                        mov              qword ptr [rsp + 1352], 0
-                        mov              qword ptr [rsp + 1360], 0
-                        mov              qword ptr [rsp + 1368], 0
-                        mov              qword ptr [rsp + 1376], 0
-                        mov              qword ptr [rsp + 1384], 0
-                        mov              qword ptr [rsp + 1392], 0
-                        mov              qword ptr [rsp + 1400], 0
-                        mov              qword ptr [rsp + 1408], 0
-                        mov              qword ptr [rsp + 1416], 0
-                        mov              qword ptr [rsp + 1424], 0
-                        mov              qword ptr [rsp + 1432], 0
-                        mov              qword ptr [rsp + 1440], 0
-                        mov              qword ptr [rsp + 1448], 0
-                        mov              qword ptr [rsp + 1456], 0
-                        mov              qword ptr [rsp + 1464], 0
-                        mov              qword ptr [rsp + 1472], 0
-                        mov              qword ptr [rsp + 1480], 0
-                        mov              qword ptr [rsp + 1488], 0
-                        mov              qword ptr [rsp + 1496], 0
-                        mov              qword ptr [rsp + 1504], 0
-                        mov              qword ptr [rsp + 1512], 0
-                        mov              qword ptr [rsp + 1520], 0
-                        mov              qword ptr [rsp + 1528], 0
-                        mov              qword ptr [rsp + 1536], 0
-                        mov              qword ptr [rsp + 1544], 0
-                        mov              qword ptr [rsp + 1552], 0
-                        mov              qword ptr [rsp + 1560], 0
-                        mov              qword ptr [rsp + 1568], 0
-                        mov              qword ptr [rsp + 1576], 0
-                        mov              qword ptr [rsp + 1584], 0
-                        mov              qword ptr [rsp + 1592], 0
-                        mov              qword ptr [rsp + 1600], 0
-                        mov              qword ptr [rsp + 1608], 0
-                        mov              qword ptr [rsp + 1616], 0
-                        mov              qword ptr [rsp + 1624], 0
-                        mov              qword ptr [rsp + 1632], 0
-                        mov              qword ptr [rsp + 1640], 0
-                        mov              qword ptr [rsp + 1648], 0
-                        mov              qword ptr [rsp + 1656], 0
-                        mov              qword ptr [rsp + 1664], 0
-                        mov              qword ptr [rsp + 1672], 0
-                        mov              qword ptr [rsp + 1680], 0
-                        mov              qword ptr [rsp + 1688], 0
-                        mov              qword ptr [rsp + 1696], 0
-                        mov              qword ptr [rsp + 1704], 0
-                        mov              qword ptr [rsp + 1712], 0
-                        mov              qword ptr [rsp + 1720], 0
-                        mov              qword ptr [rsp + 1728], 0
-                        mov              qword ptr [rsp + 1736], 0
-                        mov              qword ptr [rsp + 1744], 0
-                        mov              qword ptr [rsp + 1752], 0
-                        mov              qword ptr [rsp + 1760], 0
-                        mov              qword ptr [rsp + 1768], 0
-                        mov              qword ptr [rsp + 1776], 0
-                        mov              qword ptr [rsp + 1784], 0
-                        mov              qword ptr [rsp + 1792], 0
-                        mov              qword ptr [rsp + 1800], 0
-                        mov              qword ptr [rsp + 1808], 0
-                        mov              qword ptr [rsp + 1816], 0
-                        mov              qword ptr [rsp + 1824], 0
-                        mov              qword ptr [rsp + 1832], 0
-                        mov              qword ptr [rsp + 1840], 0
-                        mov              qword ptr [rsp + 1848], 0
-                        mov              qword ptr [rsp + 1856], 0
-                        mov              qword ptr [rsp + 1864], 0
-                        mov              qword ptr [rsp + 1872], 0
-                        mov              qword ptr [rsp + 1880], 0
-                        mov              qword ptr [rsp + 1888], 0
-                        mov              qword ptr [rsp + 1896], 0
-                        mov              qword ptr [rsp + 1904], 0
-                        mov              qword ptr [rsp + 1912], 0
-                        mov              qword ptr [rsp + 1920], 0
-                        mov              qword ptr [rsp + 1928], 0
-                        mov              qword ptr [rsp + 1936], 0
-                        mov              qword ptr [rsp + 1944], 0
-                        mov              qword ptr [rsp + 1952], 0
-                        mov              qword ptr [rsp + 1960], 0
-                        mov              qword ptr [rsp + 1968], 0
-                        mov              qword ptr [rsp + 1976], 0
-                        mov              qword ptr [rsp + 1984], 0
-                        mov              qword ptr [rsp + 1992], 0
-                        mov              qword ptr [rsp + 2000], 0
-                        mov              qword ptr [rsp + 2008], 0
-                        mov              qword ptr [rsp + 2016], 0
-                        mov              qword ptr [rsp + 2024], 0
-                        mov              qword ptr [rsp + 2032], 0
-                        mov              qword ptr [rsp + 2040], 0
-                        mov              qword ptr [rsp + 2048], 0
-                        mov              qword ptr [rsp + 2056], 0
-                        mov              qword ptr [rsp + 2064], 0
-                        mov              qword ptr [rsp + 2072], 0
-                        mov              qword ptr [rsp + 2080], 0
-                        mov              qword ptr [rsp + 2088], 0
-                        mov              qword ptr [rsp + 2096], 0
-                        mov              qword ptr [rsp + 2104], 0
-                        mov              qword ptr [rsp + 2112], 0
-                        mov              qword ptr [rsp + 2120], 0
-                        mov              qword ptr [rsp + 2128], 0
-                        mov              qword ptr [rsp + 2136], 0
-                        mov              qword ptr [rsp + 2144], 0
-                        mov              qword ptr [rsp + 2152], 0
-                        mov              qword ptr [rsp + 2160], 0
-                        mov              qword ptr [rsp + 2168], 0
-                        mov              qword ptr [rsp + 2176], 0
-                        mov              qword ptr [rsp + 2184], 0
-                        mov              qword ptr [rsp + 2192], 0
-                        mov              qword ptr [rsp + 2200], 0
-                        mov              qword ptr [rsp + 2208], 0
-                        mov              qword ptr [rsp + 2216], 0
-                        mov              qword ptr [rsp + 2224], 0
-                        mov              qword ptr [rsp + 2232], 0
-                        mov              qword ptr [rsp + 2240], 0
-                        mov              qword ptr [rsp + 2248], 0
-                        mov              qword ptr [rsp + 2256], 0
-                        mov              qword ptr [rsp + 2264], 0
-                        mov              qword ptr [rsp + 2272], 0
-                        mov              qword ptr [rsp + 2280], 0
-                        mov              qword ptr [rsp + 2288], 0
-                        mov              qword ptr [rsp + 2296], 0
-                        mov              qword ptr [rsp + 2304], 0
-                        mov              qword ptr [rsp + 2312], 0
-                        mov              qword ptr [rsp + 2320], 0
-                        mov              qword ptr [rsp + 2328], 0
-                        mov              qword ptr [rsp + 2336], 0
-                        mov              qword ptr [rsp + 2344], 0
-                        mov              qword ptr [rsp + 2352], 0
-                        mov              qword ptr [rsp + 2360], 0
-                        mov              qword ptr [rsp + 2368], 0
-                        mov              qword ptr [rsp + 2376], 0
-                        mov              qword ptr [rsp + 2384], 0
-                        mov              qword ptr [rsp + 2392], 0
-                        mov              qword ptr [rsp + 2400], 0
-                        mov              qword ptr [rsp + 2408], 0
-                        mov              qword ptr [rsp + 2416], 0
-                        mov              qword ptr [rsp + 2424], 0
-                        mov              qword ptr [rsp + 2432], 0
-                        mov              qword ptr [rsp + 2440], 0
-                        mov              qword ptr [rsp + 2448], 0
-                        mov              qword ptr [rsp + 2456], 0
-                        mov              qword ptr [rsp + 2464], 0
-                        mov              qword ptr [rsp + 2472], 0
-                        mov              qword ptr [rsp + 2480], 0
-                        mov              qword ptr [rsp + 2488], 0
-                        mov              qword ptr [rsp + 2496], 0
-                        mov              qword ptr [rsp + 2504], 0
-                        mov              qword ptr [rsp + 2512], 0
-                        mov              qword ptr [rsp + 2520], 0
-                        mov              qword ptr [rsp + 2528], 0
-                        mov              qword ptr [rsp + 2536], 0
-                        mov              qword ptr [rsp + 2544], 0
-                        mov              qword ptr [rsp + 2552], 0
-                        mov              qword ptr [rsp + 2560], 0
-                        mov              qword ptr [rsp + 2568], 0
-                        mov              qword ptr [rsp + 2576], 0
-                        mov              qword ptr [rsp + 2584], 0
-                        mov              qword ptr [rsp + 2592], 0
-                        mov              qword ptr [rsp + 2600], 0
-                        mov              qword ptr [rsp + 2608], 0
-                        mov              qword ptr [rsp + 2616], 0
-                        mov              qword ptr [rsp + 2624], 0
-                        mov              qword ptr [rsp + 2632], 0
-                        mov              qword ptr [rsp + 2640], 0
-                        mov              qword ptr [rsp + 2648], 0
-                        mov              qword ptr [rsp + 2656], 0
-                        mov              qword ptr [rsp + 2664], 0
-                        mov              qword ptr [rsp + 2672], 0
-                        mov              qword ptr [rsp + 2680], 0
-                        mov              qword ptr [rsp + 2688], 0
-                        mov              qword ptr [rsp + 2696], 0
-                        mov              qword ptr [rsp + 2704], 0
-                        mov              qword ptr [rsp + 2712], 0
-                        mov              qword ptr [rsp + 2720], 0
-                        mov              qword ptr [rsp + 2728], 0
-                        mov              qword ptr [rsp + 2736], 0
-                        mov              qword ptr [rsp + 2744], 0
-                        mov              qword ptr [rsp + 2752], 0
-                        mov              qword ptr [rsp + 2760], 0
-                        mov              qword ptr [rsp + 2768], 0
-                        mov              qword ptr [rsp + 2776], 0
-                        mov              qword ptr [rsp + 2784], 0
-                        mov              qword ptr [rsp + 2792], 0
-                        mov              qword ptr [rsp + 2800], 0
-                        mov              qword ptr [rsp + 2808], 0
-                        mov              qword ptr [rsp + 2816], 0
-                        mov              qword ptr [rsp + 2824], 0
-                        mov              qword ptr [rsp + 2832], 0
-                        mov              qword ptr [rsp + 2840], 0
-                        mov              qword ptr [rsp + 2848], 0
-                        mov              qword ptr [rsp + 2856], 0
-                        mov              qword ptr [rsp + 2864], 0
-                        mov              qword ptr [rsp + 2872], 0
-                        mov              qword ptr [rsp + 2880], 0
-                        mov              qword ptr [rsp + 2888], 0
-                        mov              qword ptr [rsp + 2896], 0
-                        mov              qword ptr [rsp + 2904], 0
-                        mov              qword ptr [rsp + 2912], 0
-                        mov              qword ptr [rsp + 2920], 0
-                        mov              qword ptr [rsp + 2928], 0
-                        mov              qword ptr [rsp + 2936], 0
-                        mov              qword ptr [rsp + 2944], 0
-                        mov              qword ptr [rsp + 2952], 0
-                        mov              qword ptr [rsp + 2960], 0
-                        mov              qword ptr [rsp + 2968], 0
-                        mov              qword ptr [rsp + 2976], 0
-                        mov              qword ptr [rsp + 2984], 0
-                        mov              qword ptr [rsp + 2992], 0
-                        mov              qword ptr [rsp + 3000], 0
-                        mov              qword ptr [rsp + 3008], 0
-                        mov              qword ptr [rsp + 3016], 0
-                        mov              qword ptr [rsp + 3024], 0
-                        mov              qword ptr [rsp + 3032], 0
-                        mov              qword ptr [rsp + 3040], 0
-                        mov              qword ptr [rsp + 3048], 0
-                        mov              qword ptr [rsp + 3056], 0
-                        mov              qword ptr [rsp + 3064], 0
-                        mov              qword ptr [rsp + 3072], 0
-                        mov              qword ptr [rsp + 3080], 0
-                        mov              qword ptr [rsp + 3088], 0
-                        mov              qword ptr [rsp + 3096], 0
-                        mov              qword ptr [rsp + 3104], 0
-                        mov              qword ptr [rsp + 3112], 0
-                        mov              qword ptr [rsp + 3120], 0
-                        mov              qword ptr [rsp + 3128], 0
-                        mov              qword ptr [rsp + 3136], 0
-                        mov              qword ptr [rsp + 3144], 0
-                        mov              qword ptr [rsp + 3152], 0
-                        mov              qword ptr [rsp + 3160], 0
-                        mov              qword ptr [rsp + 3168], 0
-                        mov              qword ptr [rsp + 3176], 0
-                        mov              qword ptr [rsp + 3184], 0
-                        mov              qword ptr [rsp + 3192], 0
-                        mov              qword ptr [rsp + 3200], 0
-                        mov              qword ptr [rsp + 3208], 0
-                        mov              qword ptr [rsp + 3216], 0
-                        mov              qword ptr [rsp + 3224], 0
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052304]                    # v
                         mov              rdx, qword ptr [1879052312]
-                        mov              qword ptr [rsp + 3216], rax                    # result
-                        mov              qword ptr [rsp + 3224], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1349_call_α
 n1348_var_β:
-                        add              rsp, 3232
+                        add              rsp, 16
                                                                                         jmp   n1351_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1349_call_α:
+                        sub              rsp, 16
+                        mov              edi, 0                                         # idx
+                        mov              rsi, qword ptr [rsp + 16]                      # var
+                        mov              rdx, qword ptr [rsp + 24]                      # v
+                        call             rt_arg_stage@PLT
                         sub              rsp, 48
-                        mov              rax, qword ptr [1879052432]                    # var
+                        mov              rax, qword ptr [1879052432]
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [1879052440]
                         mov              qword ptr [rsp + 8], rax
@@ -22796,9 +15337,10 @@ n1349_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx1881_5
-                        mov              rax, qword ptr [rsp + 3264]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 0]
                         mov              qword ptr [1879052432], rax                    # var
-                        mov              rax, qword ptr [rsp + 3272]
+                        mov              rax, qword ptr [r10 + 8]
                         mov              qword ptr [1879052440], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx1881_6]
@@ -22840,45 +15382,13 @@ n1349_call_α:
                                                                                         jmp   .Lx1881_2
 .Lx1881_5:
                         add              rsp, 48
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx1881_20
-                        mov              rax, qword ptr [rsp + 3216]
-                        mov              rdx, qword ptr [rsp + 3224]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 0], rax
-                        mov              qword ptr [r10 + 8], rdx
-                                                                                        jmp   .Lx1881_21
-.Lx1881_20:
-                        mov              edi, 0                                         # idx
-                        mov              rsi, qword ptr [rsp + 3216]                    # v
-                        mov              rdx, qword ptr [rsp + 3224]                    # v
-                        call             rt_arg_stage@PLT
-.Lx1881_21:
-                        mov              rdi, qword ptr [rip + .Lx1881_0]               # name
-                        mov              esi, 1                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx1881_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx1881_3]
-                        lea              rdx, [rip + .Lx1881_4]
-                                                                                        jmp   rax
-.Lx1881_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx1881_2
-.Lx1881_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx1881_2
-.Lx1881_1:
-                        call             rt_faildescr@PLT
 .Lx1881_2:
-                        mov              qword ptr [rsp + 3168], rax
-                        mov              qword ptr [rsp + 3176], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx1881_240
-                        add              rsp, 3232
+                        add              rsp, 16
+                        add              rsp, 16
                                                                                         jmp   n1351_lit_string_α
 .Lx1881_240:
                                                                                         jmp   n1350_assign_α
@@ -22890,14 +15400,14 @@ n1349_call_β:
                         .string          "stk_pop_final"
 #-----------------------------------------------------------------------------------------------------------------------
 n1350_assign_α:
-                        mov              rax, qword ptr [rsp + 3168]
-                        mov              rdx, qword ptr [rsp + 3176]
+                        mov              rax, qword ptr [rsp + 0]                       # call
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052912], rax                    # dummy
                         mov              qword ptr [1879052920], rdx
-                        add              rsp, 3232
+                        add              rsp, 32
                                                                                         jmp   n1351_lit_string_α
 n1350_assign_β:
-                        add              rsp, 3232
+                        add              rsp, 32
                                                                                         jmp   n1351_lit_string_α
 #=======================================================================================================================
 #                pop_final      =  .dummy                     :(NRETURN)
@@ -23777,568 +16287,26 @@ n1404_assign_β:
 #                r              =  r ', ' node_repr(stk_c[f][i])
 #-----------------------------------------------------------------------------------------------------------------------
 n1405_var_α:
-                        sub              rsp, 4352
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
-                        mov              qword ptr [rsp + 96], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 120], 0
-                        mov              qword ptr [rsp + 128], 0
-                        mov              qword ptr [rsp + 136], 0
-                        mov              qword ptr [rsp + 144], 0
-                        mov              qword ptr [rsp + 152], 0
-                        mov              qword ptr [rsp + 160], 0
-                        mov              qword ptr [rsp + 168], 0
-                        mov              qword ptr [rsp + 176], 0
-                        mov              qword ptr [rsp + 184], 0
-                        mov              qword ptr [rsp + 192], 0
-                        mov              qword ptr [rsp + 200], 0
-                        mov              qword ptr [rsp + 208], 0
-                        mov              qword ptr [rsp + 216], 0
-                        mov              qword ptr [rsp + 224], 0
-                        mov              qword ptr [rsp + 232], 0
-                        mov              qword ptr [rsp + 240], 0
-                        mov              qword ptr [rsp + 248], 0
-                        mov              qword ptr [rsp + 256], 0
-                        mov              qword ptr [rsp + 264], 0
-                        mov              qword ptr [rsp + 272], 0
-                        mov              qword ptr [rsp + 280], 0
-                        mov              qword ptr [rsp + 288], 0
-                        mov              qword ptr [rsp + 296], 0
-                        mov              qword ptr [rsp + 304], 0
-                        mov              qword ptr [rsp + 312], 0
-                        mov              qword ptr [rsp + 320], 0
-                        mov              qword ptr [rsp + 328], 0
-                        mov              qword ptr [rsp + 336], 0
-                        mov              qword ptr [rsp + 344], 0
-                        mov              qword ptr [rsp + 352], 0
-                        mov              qword ptr [rsp + 360], 0
-                        mov              qword ptr [rsp + 368], 0
-                        mov              qword ptr [rsp + 376], 0
-                        mov              qword ptr [rsp + 384], 0
-                        mov              qword ptr [rsp + 392], 0
-                        mov              qword ptr [rsp + 400], 0
-                        mov              qword ptr [rsp + 408], 0
-                        mov              qword ptr [rsp + 416], 0
-                        mov              qword ptr [rsp + 424], 0
-                        mov              qword ptr [rsp + 432], 0
-                        mov              qword ptr [rsp + 440], 0
-                        mov              qword ptr [rsp + 448], 0
-                        mov              qword ptr [rsp + 456], 0
-                        mov              qword ptr [rsp + 464], 0
-                        mov              qword ptr [rsp + 472], 0
-                        mov              qword ptr [rsp + 480], 0
-                        mov              qword ptr [rsp + 488], 0
-                        mov              qword ptr [rsp + 496], 0
-                        mov              qword ptr [rsp + 504], 0
-                        mov              qword ptr [rsp + 512], 0
-                        mov              qword ptr [rsp + 520], 0
-                        mov              qword ptr [rsp + 528], 0
-                        mov              qword ptr [rsp + 536], 0
-                        mov              qword ptr [rsp + 544], 0
-                        mov              qword ptr [rsp + 552], 0
-                        mov              qword ptr [rsp + 560], 0
-                        mov              qword ptr [rsp + 568], 0
-                        mov              qword ptr [rsp + 576], 0
-                        mov              qword ptr [rsp + 584], 0
-                        mov              qword ptr [rsp + 592], 0
-                        mov              qword ptr [rsp + 600], 0
-                        mov              qword ptr [rsp + 608], 0
-                        mov              qword ptr [rsp + 616], 0
-                        mov              qword ptr [rsp + 624], 0
-                        mov              qword ptr [rsp + 632], 0
-                        mov              qword ptr [rsp + 640], 0
-                        mov              qword ptr [rsp + 648], 0
-                        mov              qword ptr [rsp + 656], 0
-                        mov              qword ptr [rsp + 664], 0
-                        mov              qword ptr [rsp + 672], 0
-                        mov              qword ptr [rsp + 680], 0
-                        mov              qword ptr [rsp + 688], 0
-                        mov              qword ptr [rsp + 696], 0
-                        mov              qword ptr [rsp + 704], 0
-                        mov              qword ptr [rsp + 712], 0
-                        mov              qword ptr [rsp + 720], 0
-                        mov              qword ptr [rsp + 728], 0
-                        mov              qword ptr [rsp + 736], 0
-                        mov              qword ptr [rsp + 744], 0
-                        mov              qword ptr [rsp + 752], 0
-                        mov              qword ptr [rsp + 760], 0
-                        mov              qword ptr [rsp + 768], 0
-                        mov              qword ptr [rsp + 776], 0
-                        mov              qword ptr [rsp + 784], 0
-                        mov              qword ptr [rsp + 792], 0
-                        mov              qword ptr [rsp + 800], 0
-                        mov              qword ptr [rsp + 808], 0
-                        mov              qword ptr [rsp + 816], 0
-                        mov              qword ptr [rsp + 824], 0
-                        mov              qword ptr [rsp + 832], 0
-                        mov              qword ptr [rsp + 840], 0
-                        mov              qword ptr [rsp + 848], 0
-                        mov              qword ptr [rsp + 856], 0
-                        mov              qword ptr [rsp + 864], 0
-                        mov              qword ptr [rsp + 872], 0
-                        mov              qword ptr [rsp + 880], 0
-                        mov              qword ptr [rsp + 888], 0
-                        mov              qword ptr [rsp + 896], 0
-                        mov              qword ptr [rsp + 904], 0
-                        mov              qword ptr [rsp + 912], 0
-                        mov              qword ptr [rsp + 920], 0
-                        mov              qword ptr [rsp + 928], 0
-                        mov              qword ptr [rsp + 936], 0
-                        mov              qword ptr [rsp + 944], 0
-                        mov              qword ptr [rsp + 952], 0
-                        mov              qword ptr [rsp + 960], 0
-                        mov              qword ptr [rsp + 968], 0
-                        mov              qword ptr [rsp + 976], 0
-                        mov              qword ptr [rsp + 984], 0
-                        mov              qword ptr [rsp + 992], 0
-                        mov              qword ptr [rsp + 1000], 0
-                        mov              qword ptr [rsp + 1008], 0
-                        mov              qword ptr [rsp + 1016], 0
-                        mov              qword ptr [rsp + 1024], 0
-                        mov              qword ptr [rsp + 1032], 0
-                        mov              qword ptr [rsp + 1040], 0
-                        mov              qword ptr [rsp + 1048], 0
-                        mov              qword ptr [rsp + 1056], 0
-                        mov              qword ptr [rsp + 1064], 0
-                        mov              qword ptr [rsp + 1072], 0
-                        mov              qword ptr [rsp + 1080], 0
-                        mov              qword ptr [rsp + 1088], 0
-                        mov              qword ptr [rsp + 1096], 0
-                        mov              qword ptr [rsp + 1104], 0
-                        mov              qword ptr [rsp + 1112], 0
-                        mov              qword ptr [rsp + 1120], 0
-                        mov              qword ptr [rsp + 1128], 0
-                        mov              qword ptr [rsp + 1136], 0
-                        mov              qword ptr [rsp + 1144], 0
-                        mov              qword ptr [rsp + 1152], 0
-                        mov              qword ptr [rsp + 1160], 0
-                        mov              qword ptr [rsp + 1168], 0
-                        mov              qword ptr [rsp + 1176], 0
-                        mov              qword ptr [rsp + 1184], 0
-                        mov              qword ptr [rsp + 1192], 0
-                        mov              qword ptr [rsp + 1200], 0
-                        mov              qword ptr [rsp + 1208], 0
-                        mov              qword ptr [rsp + 1216], 0
-                        mov              qword ptr [rsp + 1224], 0
-                        mov              qword ptr [rsp + 1232], 0
-                        mov              qword ptr [rsp + 1240], 0
-                        mov              qword ptr [rsp + 1248], 0
-                        mov              qword ptr [rsp + 1256], 0
-                        mov              qword ptr [rsp + 1264], 0
-                        mov              qword ptr [rsp + 1272], 0
-                        mov              qword ptr [rsp + 1280], 0
-                        mov              qword ptr [rsp + 1288], 0
-                        mov              qword ptr [rsp + 1296], 0
-                        mov              qword ptr [rsp + 1304], 0
-                        mov              qword ptr [rsp + 1312], 0
-                        mov              qword ptr [rsp + 1320], 0
-                        mov              qword ptr [rsp + 1328], 0
-                        mov              qword ptr [rsp + 1336], 0
-                        mov              qword ptr [rsp + 1344], 0
-                        mov              qword ptr [rsp + 1352], 0
-                        mov              qword ptr [rsp + 1360], 0
-                        mov              qword ptr [rsp + 1368], 0
-                        mov              qword ptr [rsp + 1376], 0
-                        mov              qword ptr [rsp + 1384], 0
-                        mov              qword ptr [rsp + 1392], 0
-                        mov              qword ptr [rsp + 1400], 0
-                        mov              qword ptr [rsp + 1408], 0
-                        mov              qword ptr [rsp + 1416], 0
-                        mov              qword ptr [rsp + 1424], 0
-                        mov              qword ptr [rsp + 1432], 0
-                        mov              qword ptr [rsp + 1440], 0
-                        mov              qword ptr [rsp + 1448], 0
-                        mov              qword ptr [rsp + 1456], 0
-                        mov              qword ptr [rsp + 1464], 0
-                        mov              qword ptr [rsp + 1472], 0
-                        mov              qword ptr [rsp + 1480], 0
-                        mov              qword ptr [rsp + 1488], 0
-                        mov              qword ptr [rsp + 1496], 0
-                        mov              qword ptr [rsp + 1504], 0
-                        mov              qword ptr [rsp + 1512], 0
-                        mov              qword ptr [rsp + 1520], 0
-                        mov              qword ptr [rsp + 1528], 0
-                        mov              qword ptr [rsp + 1536], 0
-                        mov              qword ptr [rsp + 1544], 0
-                        mov              qword ptr [rsp + 1552], 0
-                        mov              qword ptr [rsp + 1560], 0
-                        mov              qword ptr [rsp + 1568], 0
-                        mov              qword ptr [rsp + 1576], 0
-                        mov              qword ptr [rsp + 1584], 0
-                        mov              qword ptr [rsp + 1592], 0
-                        mov              qword ptr [rsp + 1600], 0
-                        mov              qword ptr [rsp + 1608], 0
-                        mov              qword ptr [rsp + 1616], 0
-                        mov              qword ptr [rsp + 1624], 0
-                        mov              qword ptr [rsp + 1632], 0
-                        mov              qword ptr [rsp + 1640], 0
-                        mov              qword ptr [rsp + 1648], 0
-                        mov              qword ptr [rsp + 1656], 0
-                        mov              qword ptr [rsp + 1664], 0
-                        mov              qword ptr [rsp + 1672], 0
-                        mov              qword ptr [rsp + 1680], 0
-                        mov              qword ptr [rsp + 1688], 0
-                        mov              qword ptr [rsp + 1696], 0
-                        mov              qword ptr [rsp + 1704], 0
-                        mov              qword ptr [rsp + 1712], 0
-                        mov              qword ptr [rsp + 1720], 0
-                        mov              qword ptr [rsp + 1728], 0
-                        mov              qword ptr [rsp + 1736], 0
-                        mov              qword ptr [rsp + 1744], 0
-                        mov              qword ptr [rsp + 1752], 0
-                        mov              qword ptr [rsp + 1760], 0
-                        mov              qword ptr [rsp + 1768], 0
-                        mov              qword ptr [rsp + 1776], 0
-                        mov              qword ptr [rsp + 1784], 0
-                        mov              qword ptr [rsp + 1792], 0
-                        mov              qword ptr [rsp + 1800], 0
-                        mov              qword ptr [rsp + 1808], 0
-                        mov              qword ptr [rsp + 1816], 0
-                        mov              qword ptr [rsp + 1824], 0
-                        mov              qword ptr [rsp + 1832], 0
-                        mov              qword ptr [rsp + 1840], 0
-                        mov              qword ptr [rsp + 1848], 0
-                        mov              qword ptr [rsp + 1856], 0
-                        mov              qword ptr [rsp + 1864], 0
-                        mov              qword ptr [rsp + 1872], 0
-                        mov              qword ptr [rsp + 1880], 0
-                        mov              qword ptr [rsp + 1888], 0
-                        mov              qword ptr [rsp + 1896], 0
-                        mov              qword ptr [rsp + 1904], 0
-                        mov              qword ptr [rsp + 1912], 0
-                        mov              qword ptr [rsp + 1920], 0
-                        mov              qword ptr [rsp + 1928], 0
-                        mov              qword ptr [rsp + 1936], 0
-                        mov              qword ptr [rsp + 1944], 0
-                        mov              qword ptr [rsp + 1952], 0
-                        mov              qword ptr [rsp + 1960], 0
-                        mov              qword ptr [rsp + 1968], 0
-                        mov              qword ptr [rsp + 1976], 0
-                        mov              qword ptr [rsp + 1984], 0
-                        mov              qword ptr [rsp + 1992], 0
-                        mov              qword ptr [rsp + 2000], 0
-                        mov              qword ptr [rsp + 2008], 0
-                        mov              qword ptr [rsp + 2016], 0
-                        mov              qword ptr [rsp + 2024], 0
-                        mov              qword ptr [rsp + 2032], 0
-                        mov              qword ptr [rsp + 2040], 0
-                        mov              qword ptr [rsp + 2048], 0
-                        mov              qword ptr [rsp + 2056], 0
-                        mov              qword ptr [rsp + 2064], 0
-                        mov              qword ptr [rsp + 2072], 0
-                        mov              qword ptr [rsp + 2080], 0
-                        mov              qword ptr [rsp + 2088], 0
-                        mov              qword ptr [rsp + 2096], 0
-                        mov              qword ptr [rsp + 2104], 0
-                        mov              qword ptr [rsp + 2112], 0
-                        mov              qword ptr [rsp + 2120], 0
-                        mov              qword ptr [rsp + 2128], 0
-                        mov              qword ptr [rsp + 2136], 0
-                        mov              qword ptr [rsp + 2144], 0
-                        mov              qword ptr [rsp + 2152], 0
-                        mov              qword ptr [rsp + 2160], 0
-                        mov              qword ptr [rsp + 2168], 0
-                        mov              qword ptr [rsp + 2176], 0
-                        mov              qword ptr [rsp + 2184], 0
-                        mov              qword ptr [rsp + 2192], 0
-                        mov              qword ptr [rsp + 2200], 0
-                        mov              qword ptr [rsp + 2208], 0
-                        mov              qword ptr [rsp + 2216], 0
-                        mov              qword ptr [rsp + 2224], 0
-                        mov              qword ptr [rsp + 2232], 0
-                        mov              qword ptr [rsp + 2240], 0
-                        mov              qword ptr [rsp + 2248], 0
-                        mov              qword ptr [rsp + 2256], 0
-                        mov              qword ptr [rsp + 2264], 0
-                        mov              qword ptr [rsp + 2272], 0
-                        mov              qword ptr [rsp + 2280], 0
-                        mov              qword ptr [rsp + 2288], 0
-                        mov              qword ptr [rsp + 2296], 0
-                        mov              qword ptr [rsp + 2304], 0
-                        mov              qword ptr [rsp + 2312], 0
-                        mov              qword ptr [rsp + 2320], 0
-                        mov              qword ptr [rsp + 2328], 0
-                        mov              qword ptr [rsp + 2336], 0
-                        mov              qword ptr [rsp + 2344], 0
-                        mov              qword ptr [rsp + 2352], 0
-                        mov              qword ptr [rsp + 2360], 0
-                        mov              qword ptr [rsp + 2368], 0
-                        mov              qword ptr [rsp + 2376], 0
-                        mov              qword ptr [rsp + 2384], 0
-                        mov              qword ptr [rsp + 2392], 0
-                        mov              qword ptr [rsp + 2400], 0
-                        mov              qword ptr [rsp + 2408], 0
-                        mov              qword ptr [rsp + 2416], 0
-                        mov              qword ptr [rsp + 2424], 0
-                        mov              qword ptr [rsp + 2432], 0
-                        mov              qword ptr [rsp + 2440], 0
-                        mov              qword ptr [rsp + 2448], 0
-                        mov              qword ptr [rsp + 2456], 0
-                        mov              qword ptr [rsp + 2464], 0
-                        mov              qword ptr [rsp + 2472], 0
-                        mov              qword ptr [rsp + 2480], 0
-                        mov              qword ptr [rsp + 2488], 0
-                        mov              qword ptr [rsp + 2496], 0
-                        mov              qword ptr [rsp + 2504], 0
-                        mov              qword ptr [rsp + 2512], 0
-                        mov              qword ptr [rsp + 2520], 0
-                        mov              qword ptr [rsp + 2528], 0
-                        mov              qword ptr [rsp + 2536], 0
-                        mov              qword ptr [rsp + 2544], 0
-                        mov              qword ptr [rsp + 2552], 0
-                        mov              qword ptr [rsp + 2560], 0
-                        mov              qword ptr [rsp + 2568], 0
-                        mov              qword ptr [rsp + 2576], 0
-                        mov              qword ptr [rsp + 2584], 0
-                        mov              qword ptr [rsp + 2592], 0
-                        mov              qword ptr [rsp + 2600], 0
-                        mov              qword ptr [rsp + 2608], 0
-                        mov              qword ptr [rsp + 2616], 0
-                        mov              qword ptr [rsp + 2624], 0
-                        mov              qword ptr [rsp + 2632], 0
-                        mov              qword ptr [rsp + 2640], 0
-                        mov              qword ptr [rsp + 2648], 0
-                        mov              qword ptr [rsp + 2656], 0
-                        mov              qword ptr [rsp + 2664], 0
-                        mov              qword ptr [rsp + 2672], 0
-                        mov              qword ptr [rsp + 2680], 0
-                        mov              qword ptr [rsp + 2688], 0
-                        mov              qword ptr [rsp + 2696], 0
-                        mov              qword ptr [rsp + 2704], 0
-                        mov              qword ptr [rsp + 2712], 0
-                        mov              qword ptr [rsp + 2720], 0
-                        mov              qword ptr [rsp + 2728], 0
-                        mov              qword ptr [rsp + 2736], 0
-                        mov              qword ptr [rsp + 2744], 0
-                        mov              qword ptr [rsp + 2752], 0
-                        mov              qword ptr [rsp + 2760], 0
-                        mov              qword ptr [rsp + 2768], 0
-                        mov              qword ptr [rsp + 2776], 0
-                        mov              qword ptr [rsp + 2784], 0
-                        mov              qword ptr [rsp + 2792], 0
-                        mov              qword ptr [rsp + 2800], 0
-                        mov              qword ptr [rsp + 2808], 0
-                        mov              qword ptr [rsp + 2816], 0
-                        mov              qword ptr [rsp + 2824], 0
-                        mov              qword ptr [rsp + 2832], 0
-                        mov              qword ptr [rsp + 2840], 0
-                        mov              qword ptr [rsp + 2848], 0
-                        mov              qword ptr [rsp + 2856], 0
-                        mov              qword ptr [rsp + 2864], 0
-                        mov              qword ptr [rsp + 2872], 0
-                        mov              qword ptr [rsp + 2880], 0
-                        mov              qword ptr [rsp + 2888], 0
-                        mov              qword ptr [rsp + 2896], 0
-                        mov              qword ptr [rsp + 2904], 0
-                        mov              qword ptr [rsp + 2912], 0
-                        mov              qword ptr [rsp + 2920], 0
-                        mov              qword ptr [rsp + 2928], 0
-                        mov              qword ptr [rsp + 2936], 0
-                        mov              qword ptr [rsp + 2944], 0
-                        mov              qword ptr [rsp + 2952], 0
-                        mov              qword ptr [rsp + 2960], 0
-                        mov              qword ptr [rsp + 2968], 0
-                        mov              qword ptr [rsp + 2976], 0
-                        mov              qword ptr [rsp + 2984], 0
-                        mov              qword ptr [rsp + 2992], 0
-                        mov              qword ptr [rsp + 3000], 0
-                        mov              qword ptr [rsp + 3008], 0
-                        mov              qword ptr [rsp + 3016], 0
-                        mov              qword ptr [rsp + 3024], 0
-                        mov              qword ptr [rsp + 3032], 0
-                        mov              qword ptr [rsp + 3040], 0
-                        mov              qword ptr [rsp + 3048], 0
-                        mov              qword ptr [rsp + 3056], 0
-                        mov              qword ptr [rsp + 3064], 0
-                        mov              qword ptr [rsp + 3072], 0
-                        mov              qword ptr [rsp + 3080], 0
-                        mov              qword ptr [rsp + 3088], 0
-                        mov              qword ptr [rsp + 3096], 0
-                        mov              qword ptr [rsp + 3104], 0
-                        mov              qword ptr [rsp + 3112], 0
-                        mov              qword ptr [rsp + 3120], 0
-                        mov              qword ptr [rsp + 3128], 0
-                        mov              qword ptr [rsp + 3136], 0
-                        mov              qword ptr [rsp + 3144], 0
-                        mov              qword ptr [rsp + 3152], 0
-                        mov              qword ptr [rsp + 3160], 0
-                        mov              qword ptr [rsp + 3168], 0
-                        mov              qword ptr [rsp + 3176], 0
-                        mov              qword ptr [rsp + 3184], 0
-                        mov              qword ptr [rsp + 3192], 0
-                        mov              qword ptr [rsp + 3200], 0
-                        mov              qword ptr [rsp + 3208], 0
-                        mov              qword ptr [rsp + 3216], 0
-                        mov              qword ptr [rsp + 3224], 0
-                        mov              qword ptr [rsp + 3232], 0
-                        mov              qword ptr [rsp + 3240], 0
-                        mov              qword ptr [rsp + 3248], 0
-                        mov              qword ptr [rsp + 3256], 0
-                        mov              qword ptr [rsp + 3264], 0
-                        mov              qword ptr [rsp + 3272], 0
-                        mov              qword ptr [rsp + 3280], 0
-                        mov              qword ptr [rsp + 3288], 0
-                        mov              qword ptr [rsp + 3296], 0
-                        mov              qword ptr [rsp + 3304], 0
-                        mov              qword ptr [rsp + 3312], 0
-                        mov              qword ptr [rsp + 3320], 0
-                        mov              qword ptr [rsp + 3328], 0
-                        mov              qword ptr [rsp + 3336], 0
-                        mov              qword ptr [rsp + 3344], 0
-                        mov              qword ptr [rsp + 3352], 0
-                        mov              qword ptr [rsp + 3360], 0
-                        mov              qword ptr [rsp + 3368], 0
-                        mov              qword ptr [rsp + 3376], 0
-                        mov              qword ptr [rsp + 3384], 0
-                        mov              qword ptr [rsp + 3392], 0
-                        mov              qword ptr [rsp + 3400], 0
-                        mov              qword ptr [rsp + 3408], 0
-                        mov              qword ptr [rsp + 3416], 0
-                        mov              qword ptr [rsp + 3424], 0
-                        mov              qword ptr [rsp + 3432], 0
-                        mov              qword ptr [rsp + 3440], 0
-                        mov              qword ptr [rsp + 3448], 0
-                        mov              qword ptr [rsp + 3456], 0
-                        mov              qword ptr [rsp + 3464], 0
-                        mov              qword ptr [rsp + 3472], 0
-                        mov              qword ptr [rsp + 3480], 0
-                        mov              qword ptr [rsp + 3488], 0
-                        mov              qword ptr [rsp + 3496], 0
-                        mov              qword ptr [rsp + 3504], 0
-                        mov              qword ptr [rsp + 3512], 0
-                        mov              qword ptr [rsp + 3520], 0
-                        mov              qword ptr [rsp + 3528], 0
-                        mov              qword ptr [rsp + 3536], 0
-                        mov              qword ptr [rsp + 3544], 0
-                        mov              qword ptr [rsp + 3552], 0
-                        mov              qword ptr [rsp + 3560], 0
-                        mov              qword ptr [rsp + 3568], 0
-                        mov              qword ptr [rsp + 3576], 0
-                        mov              qword ptr [rsp + 3584], 0
-                        mov              qword ptr [rsp + 3592], 0
-                        mov              qword ptr [rsp + 3600], 0
-                        mov              qword ptr [rsp + 3608], 0
-                        mov              qword ptr [rsp + 3616], 0
-                        mov              qword ptr [rsp + 3624], 0
-                        mov              qword ptr [rsp + 3632], 0
-                        mov              qword ptr [rsp + 3640], 0
-                        mov              qword ptr [rsp + 3648], 0
-                        mov              qword ptr [rsp + 3656], 0
-                        mov              qword ptr [rsp + 3664], 0
-                        mov              qword ptr [rsp + 3672], 0
-                        mov              qword ptr [rsp + 3680], 0
-                        mov              qword ptr [rsp + 3688], 0
-                        mov              qword ptr [rsp + 3696], 0
-                        mov              qword ptr [rsp + 3704], 0
-                        mov              qword ptr [rsp + 3712], 0
-                        mov              qword ptr [rsp + 3720], 0
-                        mov              qword ptr [rsp + 3728], 0
-                        mov              qword ptr [rsp + 3736], 0
-                        mov              qword ptr [rsp + 3744], 0
-                        mov              qword ptr [rsp + 3752], 0
-                        mov              qword ptr [rsp + 3760], 0
-                        mov              qword ptr [rsp + 3768], 0
-                        mov              qword ptr [rsp + 3776], 0
-                        mov              qword ptr [rsp + 3784], 0
-                        mov              qword ptr [rsp + 3792], 0
-                        mov              qword ptr [rsp + 3800], 0
-                        mov              qword ptr [rsp + 3808], 0
-                        mov              qword ptr [rsp + 3816], 0
-                        mov              qword ptr [rsp + 3824], 0
-                        mov              qword ptr [rsp + 3832], 0
-                        mov              qword ptr [rsp + 3840], 0
-                        mov              qword ptr [rsp + 3848], 0
-                        mov              qword ptr [rsp + 3856], 0
-                        mov              qword ptr [rsp + 3864], 0
-                        mov              qword ptr [rsp + 3872], 0
-                        mov              qword ptr [rsp + 3880], 0
-                        mov              qword ptr [rsp + 3888], 0
-                        mov              qword ptr [rsp + 3896], 0
-                        mov              qword ptr [rsp + 3904], 0
-                        mov              qword ptr [rsp + 3912], 0
-                        mov              qword ptr [rsp + 3920], 0
-                        mov              qword ptr [rsp + 3928], 0
-                        mov              qword ptr [rsp + 3936], 0
-                        mov              qword ptr [rsp + 3944], 0
-                        mov              qword ptr [rsp + 3952], 0
-                        mov              qword ptr [rsp + 3960], 0
-                        mov              qword ptr [rsp + 3968], 0
-                        mov              qword ptr [rsp + 3976], 0
-                        mov              qword ptr [rsp + 3984], 0
-                        mov              qword ptr [rsp + 3992], 0
-                        mov              qword ptr [rsp + 4000], 0
-                        mov              qword ptr [rsp + 4008], 0
-                        mov              qword ptr [rsp + 4016], 0
-                        mov              qword ptr [rsp + 4024], 0
-                        mov              qword ptr [rsp + 4032], 0
-                        mov              qword ptr [rsp + 4040], 0
-                        mov              qword ptr [rsp + 4048], 0
-                        mov              qword ptr [rsp + 4056], 0
-                        mov              qword ptr [rsp + 4064], 0
-                        mov              qword ptr [rsp + 4072], 0
-                        mov              qword ptr [rsp + 4080], 0
-                        mov              qword ptr [rsp + 4088], 0
-                        mov              qword ptr [rsp + 4096], 0
-                        mov              qword ptr [rsp + 4104], 0
-                        mov              qword ptr [rsp + 4112], 0
-                        mov              qword ptr [rsp + 4120], 0
-                        mov              qword ptr [rsp + 4128], 0
-                        mov              qword ptr [rsp + 4136], 0
-                        mov              qword ptr [rsp + 4144], 0
-                        mov              qword ptr [rsp + 4152], 0
-                        mov              qword ptr [rsp + 4160], 0
-                        mov              qword ptr [rsp + 4168], 0
-                        mov              qword ptr [rsp + 4176], 0
-                        mov              qword ptr [rsp + 4184], 0
-                        mov              qword ptr [rsp + 4192], 0
-                        mov              qword ptr [rsp + 4200], 0
-                        mov              qword ptr [rsp + 4208], 0
-                        mov              qword ptr [rsp + 4216], 0
-                        mov              qword ptr [rsp + 4224], 0
-                        mov              qword ptr [rsp + 4232], 0
-                        mov              qword ptr [rsp + 4240], 0
-                        mov              qword ptr [rsp + 4248], 0
-                        mov              qword ptr [rsp + 4256], 0
-                        mov              qword ptr [rsp + 4264], 0
-                        mov              qword ptr [rsp + 4272], 0
-                        mov              qword ptr [rsp + 4280], 0
-                        mov              qword ptr [rsp + 4288], 0
-                        mov              qword ptr [rsp + 4296], 0
-                        mov              qword ptr [rsp + 4304], 0
-                        mov              qword ptr [rsp + 4312], 0
-                        mov              qword ptr [rsp + 4320], 0
-                        mov              qword ptr [rsp + 4328], 0
-                        mov              qword ptr [rsp + 4336], 0
-                        mov              qword ptr [rsp + 4344], 0
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052656]                    # r
                         mov              rdx, qword ptr [1879052664]
-                        mov              qword ptr [rsp + 4160], rax                    # result
-                        mov              qword ptr [rsp + 4168], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1406_lit_string_α
 n1405_var_β:
-                        add              rsp, 4352
+                        add              rsp, 16
                                                                                         jmp   n1418_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1406_lit_string_α:
-                        mov              qword ptr [rsp + 4176], 2                      # result
-                        mov              dword ptr [rsp + 4180], 2
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 2
                         mov              rax, qword ptr [rip + .Lx1946_0]
-                        mov              qword ptr [rsp + 4184], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n1407_binop_α
 n1406_lit_string_β:
-                        add              rsp, 4352
+                        add              rsp, 16
+                        add              rsp, 16
                                                                                         jmp   n1418_var_α
 .Lx1946_0:
                         .quad            .Lx1946_0_s
@@ -24346,117 +16314,142 @@ n1406_lit_string_β:
                         .string          ", "
 #-----------------------------------------------------------------------------------------------------------------------
 n1407_binop_α:
-                        mov              rdi, qword ptr [rsp + 4160]                    # a
-                        mov              rsi, qword ptr [rsp + 4168]                    # a
-                        mov              rdx, qword ptr [rsp + 4176]                    # b
-                        mov              rcx, qword ptr [rsp + 4184]                    # b
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 32]                      # var
+                        mov              rsi, qword ptr [rsp + 40]                      # a
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_string
+                        mov              rcx, qword ptr [rsp + 24]                      # b
                         call             str_concat_d@PLT
-                        mov              qword ptr [rsp + 4144], rax
-                        mov              qword ptr [rsp + 4152], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1408_var_α
 n1407_binop_β:
-                        add              rsp, 4352
+                        add              rsp, 16
+                        add              rsp, 32
                                                                                         jmp   n1418_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1408_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052880]                    # stk_c
                         mov              rdx, qword ptr [1879052888]
-                        mov              qword ptr [rsp + 4240], rax                    # result
-                        mov              qword ptr [rsp + 4248], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1409_var_α
 n1408_var_β:
-                        add              rsp, 4352
+                        add              rsp, 16
+                        add              rsp, 48
                                                                                         jmp   n1418_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1409_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052640]                    # f
                         mov              rdx, qword ptr [1879052648]
-                        mov              qword ptr [rsp + 4256], rax                    # result
-                        mov              qword ptr [rsp + 4264], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1410_subscript_α
 n1409_var_β:
-                        add              rsp, 4352
+                        add              rsp, 16
+                        add              rsp, 64
                                                                                         jmp   n1418_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1410_subscript_α:
-                        mov              rdi, qword ptr [rsp + 4240]                    # base
-                        mov              rsi, qword ptr [rsp + 4248]                    # base
-                        mov              rdx, qword ptr [rsp + 4256]                    # idx
-                        mov              rcx, qword ptr [rsp + 4264]                    # idx
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 32]                      # var
+                        mov              rsi, qword ptr [rsp + 40]                      # base
+                        mov              rdx, qword ptr [rsp + 16]                      # idx
+                        mov              rcx, qword ptr [rsp + 24]                      # idx
                         call             rt_subscript_var@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx1950_240
-                        add              rsp, 4352
+                        add              rsp, 16
+                        add              rsp, 80
                                                                                         jmp   n1418_var_α
 .Lx1950_240:
-                        mov              qword ptr [rsp + 4272], rax
-                        mov              qword ptr [rsp + 4280], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1411_deref_α
 n1410_subscript_β:
-                        add              rsp, 4352
+                        add              rsp, 16
+                        add              rsp, 80
                                                                                         jmp   n1418_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1411_deref_α:
-                        mov              rdi, qword ptr [rsp + 4272]                    # d
-                        mov              rsi, qword ptr [rsp + 4280]                    # d
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 16]                      # subscript
+                        mov              rsi, qword ptr [rsp + 24]                      # d
                         call             rt_deref@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx1951_240
-                        add              rsp, 4352
+                        add              rsp, 16
+                        add              rsp, 96
                                                                                         jmp   n1418_var_α
 .Lx1951_240:
-                        mov              qword ptr [rsp + 4288], rax
-                        mov              qword ptr [rsp + 4296], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1412_var_α
 n1411_deref_β:
-                        add              rsp, 4352
+                        add              rsp, 16
+                        add              rsp, 96
                                                                                         jmp   n1418_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1412_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052688]                    # i
                         mov              rdx, qword ptr [1879052696]
-                        mov              qword ptr [rsp + 4304], rax                    # result
-                        mov              qword ptr [rsp + 4312], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1413_subscript_α
 n1412_var_β:
-                        add              rsp, 4352
+                        add              rsp, 16
+                        add              rsp, 112
                                                                                         jmp   n1418_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1413_subscript_α:
-                        mov              rdi, qword ptr [rsp + 4288]                    # base
-                        mov              rsi, qword ptr [rsp + 4296]                    # base
-                        mov              rdx, qword ptr [rsp + 4304]                    # idx
-                        mov              rcx, qword ptr [rsp + 4312]                    # idx
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 32]                      # deref
+                        mov              rsi, qword ptr [rsp + 40]                      # base
+                        mov              rdx, qword ptr [rsp + 16]                      # var
+                        mov              rcx, qword ptr [rsp + 24]                      # idx
                         call             rt_subscript_var@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx1953_240
-                        add              rsp, 4352
+                        add              rsp, 16
+                        add              rsp, 128
                                                                                         jmp   n1418_var_α
 .Lx1953_240:
-                        mov              qword ptr [rsp + 4320], rax
-                        mov              qword ptr [rsp + 4328], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1414_deref_α
 n1413_subscript_β:
-                        add              rsp, 4352
+                        add              rsp, 16
+                        add              rsp, 128
                                                                                         jmp   n1418_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1414_deref_α:
-                        mov              rdi, qword ptr [rsp + 4320]                    # d
-                        mov              rsi, qword ptr [rsp + 4328]                    # d
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 16]                      # subscript
+                        mov              rsi, qword ptr [rsp + 24]                      # d
                         call             rt_deref@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx1954_240
-                        add              rsp, 4352
+                        add              rsp, 16
+                        add              rsp, 144
                                                                                         jmp   n1418_var_α
 .Lx1954_240:
-                        mov              qword ptr [rsp + 4336], rax
-                        mov              qword ptr [rsp + 4344], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1415_call_α
 n1414_deref_β:
-                        add              rsp, 4352
+                        add              rsp, 16
+                        add              rsp, 144
                                                                                         jmp   n1418_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1415_call_α:
+                        sub              rsp, 16
+                        mov              edi, 0                                         # idx
+                        mov              rsi, qword ptr [rsp + 16]                      # deref
+                        mov              rdx, qword ptr [rsp + 24]                      # v
+                        call             rt_arg_stage@PLT
                         sub              rsp, 112
                         mov              rax, qword ptr [1879052640]                    # f
                         mov              qword ptr [rsp + 0], rax
@@ -24492,9 +16485,10 @@ n1415_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx1956_5
-                        mov              rax, qword ptr [rsp + 4448]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 0]
                         mov              qword ptr [1879052640], rax                    # f
-                        mov              rax, qword ptr [rsp + 4456]
+                        mov              rax, qword ptr [r10 + 8]
                         mov              qword ptr [1879052648], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx1956_6]
@@ -24568,45 +16562,13 @@ n1415_call_α:
                                                                                         jmp   .Lx1956_2
 .Lx1956_5:
                         add              rsp, 112
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx1956_20
-                        mov              rax, qword ptr [rsp + 4336]
-                        mov              rdx, qword ptr [rsp + 4344]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 0], rax
-                        mov              qword ptr [r10 + 8], rdx
-                                                                                        jmp   .Lx1956_21
-.Lx1956_20:
-                        mov              edi, 0                                         # idx
-                        mov              rsi, qword ptr [rsp + 4336]                    # v
-                        mov              rdx, qword ptr [rsp + 4344]                    # v
-                        call             rt_arg_stage@PLT
-.Lx1956_21:
-                        mov              rdi, qword ptr [rip + .Lx1956_0]               # name
-                        mov              esi, 1                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx1956_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx1956_3]
-                        lea              rdx, [rip + .Lx1956_4]
-                                                                                        jmp   rax
-.Lx1956_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx1956_2
-.Lx1956_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx1956_2
-.Lx1956_1:
-                        call             rt_faildescr@PLT
 .Lx1956_2:
-                        mov              qword ptr [rsp + 4192], rax
-                        mov              qword ptr [rsp + 4200], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx1956_240
-                        add              rsp, 4352
+                        add              rsp, 16
+                        add              rsp, 160
                                                                                         jmp   n1418_var_α
 .Lx1956_240:
                                                                                         jmp   n1416_binop_α
@@ -24618,27 +16580,29 @@ n1415_call_β:
                         .string          "node_repr"
 #-----------------------------------------------------------------------------------------------------------------------
 n1416_binop_α:
-                        mov              rdi, qword ptr [rsp + 4144]                    # a
-                        mov              rsi, qword ptr [rsp + 4152]                    # a
-                        mov              rdx, qword ptr [rsp + 4192]                    # b
-                        mov              rcx, qword ptr [rsp + 4200]                    # b
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 144]                     # binop
+                        mov              rsi, qword ptr [rsp + 152]                     # a
+                        mov              rdx, qword ptr [rsp + 16]                      # call
+                        mov              rcx, qword ptr [rsp + 24]                      # b
                         call             str_concat_d@PLT
-                        mov              qword ptr [rsp + 4128], rax
-                        mov              qword ptr [rsp + 4136], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1417_assign_α
 n1416_binop_β:
-                        add              rsp, 4352
+                        add              rsp, 16
+                        add              rsp, 176
                                                                                         jmp   n1418_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1417_assign_α:
-                        mov              rax, qword ptr [rsp + 4128]
-                        mov              rdx, qword ptr [rsp + 4136]
+                        mov              rax, qword ptr [rsp + 0]                       # binop
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052656], rax                    # r
                         mov              qword ptr [1879052664], rdx
-                        add              rsp, 4352
+                        add              rsp, 192
                                                                                         jmp   n1418_var_α
 n1417_assign_β:
-                        add              rsp, 4352
+                        add              rsp, 192
                                                                                         jmp   n1418_var_α
 #=======================================================================================================================
 #                i              =  i                          :(nr_lp)
@@ -25106,637 +17070,22 @@ n1447_assign_β:
 # pp_frame       r              =  node_repr(f)
 #-----------------------------------------------------------------------------------------------------------------------
 n1448_var_α:
-                        sub              rsp, 4960
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
-                        mov              qword ptr [rsp + 96], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 120], 0
-                        mov              qword ptr [rsp + 128], 0
-                        mov              qword ptr [rsp + 136], 0
-                        mov              qword ptr [rsp + 144], 0
-                        mov              qword ptr [rsp + 152], 0
-                        mov              qword ptr [rsp + 160], 0
-                        mov              qword ptr [rsp + 168], 0
-                        mov              qword ptr [rsp + 176], 0
-                        mov              qword ptr [rsp + 184], 0
-                        mov              qword ptr [rsp + 192], 0
-                        mov              qword ptr [rsp + 200], 0
-                        mov              qword ptr [rsp + 208], 0
-                        mov              qword ptr [rsp + 216], 0
-                        mov              qword ptr [rsp + 224], 0
-                        mov              qword ptr [rsp + 232], 0
-                        mov              qword ptr [rsp + 240], 0
-                        mov              qword ptr [rsp + 248], 0
-                        mov              qword ptr [rsp + 256], 0
-                        mov              qword ptr [rsp + 264], 0
-                        mov              qword ptr [rsp + 272], 0
-                        mov              qword ptr [rsp + 280], 0
-                        mov              qword ptr [rsp + 288], 0
-                        mov              qword ptr [rsp + 296], 0
-                        mov              qword ptr [rsp + 304], 0
-                        mov              qword ptr [rsp + 312], 0
-                        mov              qword ptr [rsp + 320], 0
-                        mov              qword ptr [rsp + 328], 0
-                        mov              qword ptr [rsp + 336], 0
-                        mov              qword ptr [rsp + 344], 0
-                        mov              qword ptr [rsp + 352], 0
-                        mov              qword ptr [rsp + 360], 0
-                        mov              qword ptr [rsp + 368], 0
-                        mov              qword ptr [rsp + 376], 0
-                        mov              qword ptr [rsp + 384], 0
-                        mov              qword ptr [rsp + 392], 0
-                        mov              qword ptr [rsp + 400], 0
-                        mov              qword ptr [rsp + 408], 0
-                        mov              qword ptr [rsp + 416], 0
-                        mov              qword ptr [rsp + 424], 0
-                        mov              qword ptr [rsp + 432], 0
-                        mov              qword ptr [rsp + 440], 0
-                        mov              qword ptr [rsp + 448], 0
-                        mov              qword ptr [rsp + 456], 0
-                        mov              qword ptr [rsp + 464], 0
-                        mov              qword ptr [rsp + 472], 0
-                        mov              qword ptr [rsp + 480], 0
-                        mov              qword ptr [rsp + 488], 0
-                        mov              qword ptr [rsp + 496], 0
-                        mov              qword ptr [rsp + 504], 0
-                        mov              qword ptr [rsp + 512], 0
-                        mov              qword ptr [rsp + 520], 0
-                        mov              qword ptr [rsp + 528], 0
-                        mov              qword ptr [rsp + 536], 0
-                        mov              qword ptr [rsp + 544], 0
-                        mov              qword ptr [rsp + 552], 0
-                        mov              qword ptr [rsp + 560], 0
-                        mov              qword ptr [rsp + 568], 0
-                        mov              qword ptr [rsp + 576], 0
-                        mov              qword ptr [rsp + 584], 0
-                        mov              qword ptr [rsp + 592], 0
-                        mov              qword ptr [rsp + 600], 0
-                        mov              qword ptr [rsp + 608], 0
-                        mov              qword ptr [rsp + 616], 0
-                        mov              qword ptr [rsp + 624], 0
-                        mov              qword ptr [rsp + 632], 0
-                        mov              qword ptr [rsp + 640], 0
-                        mov              qword ptr [rsp + 648], 0
-                        mov              qword ptr [rsp + 656], 0
-                        mov              qword ptr [rsp + 664], 0
-                        mov              qword ptr [rsp + 672], 0
-                        mov              qword ptr [rsp + 680], 0
-                        mov              qword ptr [rsp + 688], 0
-                        mov              qword ptr [rsp + 696], 0
-                        mov              qword ptr [rsp + 704], 0
-                        mov              qword ptr [rsp + 712], 0
-                        mov              qword ptr [rsp + 720], 0
-                        mov              qword ptr [rsp + 728], 0
-                        mov              qword ptr [rsp + 736], 0
-                        mov              qword ptr [rsp + 744], 0
-                        mov              qword ptr [rsp + 752], 0
-                        mov              qword ptr [rsp + 760], 0
-                        mov              qword ptr [rsp + 768], 0
-                        mov              qword ptr [rsp + 776], 0
-                        mov              qword ptr [rsp + 784], 0
-                        mov              qword ptr [rsp + 792], 0
-                        mov              qword ptr [rsp + 800], 0
-                        mov              qword ptr [rsp + 808], 0
-                        mov              qword ptr [rsp + 816], 0
-                        mov              qword ptr [rsp + 824], 0
-                        mov              qword ptr [rsp + 832], 0
-                        mov              qword ptr [rsp + 840], 0
-                        mov              qword ptr [rsp + 848], 0
-                        mov              qword ptr [rsp + 856], 0
-                        mov              qword ptr [rsp + 864], 0
-                        mov              qword ptr [rsp + 872], 0
-                        mov              qword ptr [rsp + 880], 0
-                        mov              qword ptr [rsp + 888], 0
-                        mov              qword ptr [rsp + 896], 0
-                        mov              qword ptr [rsp + 904], 0
-                        mov              qword ptr [rsp + 912], 0
-                        mov              qword ptr [rsp + 920], 0
-                        mov              qword ptr [rsp + 928], 0
-                        mov              qword ptr [rsp + 936], 0
-                        mov              qword ptr [rsp + 944], 0
-                        mov              qword ptr [rsp + 952], 0
-                        mov              qword ptr [rsp + 960], 0
-                        mov              qword ptr [rsp + 968], 0
-                        mov              qword ptr [rsp + 976], 0
-                        mov              qword ptr [rsp + 984], 0
-                        mov              qword ptr [rsp + 992], 0
-                        mov              qword ptr [rsp + 1000], 0
-                        mov              qword ptr [rsp + 1008], 0
-                        mov              qword ptr [rsp + 1016], 0
-                        mov              qword ptr [rsp + 1024], 0
-                        mov              qword ptr [rsp + 1032], 0
-                        mov              qword ptr [rsp + 1040], 0
-                        mov              qword ptr [rsp + 1048], 0
-                        mov              qword ptr [rsp + 1056], 0
-                        mov              qword ptr [rsp + 1064], 0
-                        mov              qword ptr [rsp + 1072], 0
-                        mov              qword ptr [rsp + 1080], 0
-                        mov              qword ptr [rsp + 1088], 0
-                        mov              qword ptr [rsp + 1096], 0
-                        mov              qword ptr [rsp + 1104], 0
-                        mov              qword ptr [rsp + 1112], 0
-                        mov              qword ptr [rsp + 1120], 0
-                        mov              qword ptr [rsp + 1128], 0
-                        mov              qword ptr [rsp + 1136], 0
-                        mov              qword ptr [rsp + 1144], 0
-                        mov              qword ptr [rsp + 1152], 0
-                        mov              qword ptr [rsp + 1160], 0
-                        mov              qword ptr [rsp + 1168], 0
-                        mov              qword ptr [rsp + 1176], 0
-                        mov              qword ptr [rsp + 1184], 0
-                        mov              qword ptr [rsp + 1192], 0
-                        mov              qword ptr [rsp + 1200], 0
-                        mov              qword ptr [rsp + 1208], 0
-                        mov              qword ptr [rsp + 1216], 0
-                        mov              qword ptr [rsp + 1224], 0
-                        mov              qword ptr [rsp + 1232], 0
-                        mov              qword ptr [rsp + 1240], 0
-                        mov              qword ptr [rsp + 1248], 0
-                        mov              qword ptr [rsp + 1256], 0
-                        mov              qword ptr [rsp + 1264], 0
-                        mov              qword ptr [rsp + 1272], 0
-                        mov              qword ptr [rsp + 1280], 0
-                        mov              qword ptr [rsp + 1288], 0
-                        mov              qword ptr [rsp + 1296], 0
-                        mov              qword ptr [rsp + 1304], 0
-                        mov              qword ptr [rsp + 1312], 0
-                        mov              qword ptr [rsp + 1320], 0
-                        mov              qword ptr [rsp + 1328], 0
-                        mov              qword ptr [rsp + 1336], 0
-                        mov              qword ptr [rsp + 1344], 0
-                        mov              qword ptr [rsp + 1352], 0
-                        mov              qword ptr [rsp + 1360], 0
-                        mov              qword ptr [rsp + 1368], 0
-                        mov              qword ptr [rsp + 1376], 0
-                        mov              qword ptr [rsp + 1384], 0
-                        mov              qword ptr [rsp + 1392], 0
-                        mov              qword ptr [rsp + 1400], 0
-                        mov              qword ptr [rsp + 1408], 0
-                        mov              qword ptr [rsp + 1416], 0
-                        mov              qword ptr [rsp + 1424], 0
-                        mov              qword ptr [rsp + 1432], 0
-                        mov              qword ptr [rsp + 1440], 0
-                        mov              qword ptr [rsp + 1448], 0
-                        mov              qword ptr [rsp + 1456], 0
-                        mov              qword ptr [rsp + 1464], 0
-                        mov              qword ptr [rsp + 1472], 0
-                        mov              qword ptr [rsp + 1480], 0
-                        mov              qword ptr [rsp + 1488], 0
-                        mov              qword ptr [rsp + 1496], 0
-                        mov              qword ptr [rsp + 1504], 0
-                        mov              qword ptr [rsp + 1512], 0
-                        mov              qword ptr [rsp + 1520], 0
-                        mov              qword ptr [rsp + 1528], 0
-                        mov              qword ptr [rsp + 1536], 0
-                        mov              qword ptr [rsp + 1544], 0
-                        mov              qword ptr [rsp + 1552], 0
-                        mov              qword ptr [rsp + 1560], 0
-                        mov              qword ptr [rsp + 1568], 0
-                        mov              qword ptr [rsp + 1576], 0
-                        mov              qword ptr [rsp + 1584], 0
-                        mov              qword ptr [rsp + 1592], 0
-                        mov              qword ptr [rsp + 1600], 0
-                        mov              qword ptr [rsp + 1608], 0
-                        mov              qword ptr [rsp + 1616], 0
-                        mov              qword ptr [rsp + 1624], 0
-                        mov              qword ptr [rsp + 1632], 0
-                        mov              qword ptr [rsp + 1640], 0
-                        mov              qword ptr [rsp + 1648], 0
-                        mov              qword ptr [rsp + 1656], 0
-                        mov              qword ptr [rsp + 1664], 0
-                        mov              qword ptr [rsp + 1672], 0
-                        mov              qword ptr [rsp + 1680], 0
-                        mov              qword ptr [rsp + 1688], 0
-                        mov              qword ptr [rsp + 1696], 0
-                        mov              qword ptr [rsp + 1704], 0
-                        mov              qword ptr [rsp + 1712], 0
-                        mov              qword ptr [rsp + 1720], 0
-                        mov              qword ptr [rsp + 1728], 0
-                        mov              qword ptr [rsp + 1736], 0
-                        mov              qword ptr [rsp + 1744], 0
-                        mov              qword ptr [rsp + 1752], 0
-                        mov              qword ptr [rsp + 1760], 0
-                        mov              qword ptr [rsp + 1768], 0
-                        mov              qword ptr [rsp + 1776], 0
-                        mov              qword ptr [rsp + 1784], 0
-                        mov              qword ptr [rsp + 1792], 0
-                        mov              qword ptr [rsp + 1800], 0
-                        mov              qword ptr [rsp + 1808], 0
-                        mov              qword ptr [rsp + 1816], 0
-                        mov              qword ptr [rsp + 1824], 0
-                        mov              qword ptr [rsp + 1832], 0
-                        mov              qword ptr [rsp + 1840], 0
-                        mov              qword ptr [rsp + 1848], 0
-                        mov              qword ptr [rsp + 1856], 0
-                        mov              qword ptr [rsp + 1864], 0
-                        mov              qword ptr [rsp + 1872], 0
-                        mov              qword ptr [rsp + 1880], 0
-                        mov              qword ptr [rsp + 1888], 0
-                        mov              qword ptr [rsp + 1896], 0
-                        mov              qword ptr [rsp + 1904], 0
-                        mov              qword ptr [rsp + 1912], 0
-                        mov              qword ptr [rsp + 1920], 0
-                        mov              qword ptr [rsp + 1928], 0
-                        mov              qword ptr [rsp + 1936], 0
-                        mov              qword ptr [rsp + 1944], 0
-                        mov              qword ptr [rsp + 1952], 0
-                        mov              qword ptr [rsp + 1960], 0
-                        mov              qword ptr [rsp + 1968], 0
-                        mov              qword ptr [rsp + 1976], 0
-                        mov              qword ptr [rsp + 1984], 0
-                        mov              qword ptr [rsp + 1992], 0
-                        mov              qword ptr [rsp + 2000], 0
-                        mov              qword ptr [rsp + 2008], 0
-                        mov              qword ptr [rsp + 2016], 0
-                        mov              qword ptr [rsp + 2024], 0
-                        mov              qword ptr [rsp + 2032], 0
-                        mov              qword ptr [rsp + 2040], 0
-                        mov              qword ptr [rsp + 2048], 0
-                        mov              qword ptr [rsp + 2056], 0
-                        mov              qword ptr [rsp + 2064], 0
-                        mov              qword ptr [rsp + 2072], 0
-                        mov              qword ptr [rsp + 2080], 0
-                        mov              qword ptr [rsp + 2088], 0
-                        mov              qword ptr [rsp + 2096], 0
-                        mov              qword ptr [rsp + 2104], 0
-                        mov              qword ptr [rsp + 2112], 0
-                        mov              qword ptr [rsp + 2120], 0
-                        mov              qword ptr [rsp + 2128], 0
-                        mov              qword ptr [rsp + 2136], 0
-                        mov              qword ptr [rsp + 2144], 0
-                        mov              qword ptr [rsp + 2152], 0
-                        mov              qword ptr [rsp + 2160], 0
-                        mov              qword ptr [rsp + 2168], 0
-                        mov              qword ptr [rsp + 2176], 0
-                        mov              qword ptr [rsp + 2184], 0
-                        mov              qword ptr [rsp + 2192], 0
-                        mov              qword ptr [rsp + 2200], 0
-                        mov              qword ptr [rsp + 2208], 0
-                        mov              qword ptr [rsp + 2216], 0
-                        mov              qword ptr [rsp + 2224], 0
-                        mov              qword ptr [rsp + 2232], 0
-                        mov              qword ptr [rsp + 2240], 0
-                        mov              qword ptr [rsp + 2248], 0
-                        mov              qword ptr [rsp + 2256], 0
-                        mov              qword ptr [rsp + 2264], 0
-                        mov              qword ptr [rsp + 2272], 0
-                        mov              qword ptr [rsp + 2280], 0
-                        mov              qword ptr [rsp + 2288], 0
-                        mov              qword ptr [rsp + 2296], 0
-                        mov              qword ptr [rsp + 2304], 0
-                        mov              qword ptr [rsp + 2312], 0
-                        mov              qword ptr [rsp + 2320], 0
-                        mov              qword ptr [rsp + 2328], 0
-                        mov              qword ptr [rsp + 2336], 0
-                        mov              qword ptr [rsp + 2344], 0
-                        mov              qword ptr [rsp + 2352], 0
-                        mov              qword ptr [rsp + 2360], 0
-                        mov              qword ptr [rsp + 2368], 0
-                        mov              qword ptr [rsp + 2376], 0
-                        mov              qword ptr [rsp + 2384], 0
-                        mov              qword ptr [rsp + 2392], 0
-                        mov              qword ptr [rsp + 2400], 0
-                        mov              qword ptr [rsp + 2408], 0
-                        mov              qword ptr [rsp + 2416], 0
-                        mov              qword ptr [rsp + 2424], 0
-                        mov              qword ptr [rsp + 2432], 0
-                        mov              qword ptr [rsp + 2440], 0
-                        mov              qword ptr [rsp + 2448], 0
-                        mov              qword ptr [rsp + 2456], 0
-                        mov              qword ptr [rsp + 2464], 0
-                        mov              qword ptr [rsp + 2472], 0
-                        mov              qword ptr [rsp + 2480], 0
-                        mov              qword ptr [rsp + 2488], 0
-                        mov              qword ptr [rsp + 2496], 0
-                        mov              qword ptr [rsp + 2504], 0
-                        mov              qword ptr [rsp + 2512], 0
-                        mov              qword ptr [rsp + 2520], 0
-                        mov              qword ptr [rsp + 2528], 0
-                        mov              qword ptr [rsp + 2536], 0
-                        mov              qword ptr [rsp + 2544], 0
-                        mov              qword ptr [rsp + 2552], 0
-                        mov              qword ptr [rsp + 2560], 0
-                        mov              qword ptr [rsp + 2568], 0
-                        mov              qword ptr [rsp + 2576], 0
-                        mov              qword ptr [rsp + 2584], 0
-                        mov              qword ptr [rsp + 2592], 0
-                        mov              qword ptr [rsp + 2600], 0
-                        mov              qword ptr [rsp + 2608], 0
-                        mov              qword ptr [rsp + 2616], 0
-                        mov              qword ptr [rsp + 2624], 0
-                        mov              qword ptr [rsp + 2632], 0
-                        mov              qword ptr [rsp + 2640], 0
-                        mov              qword ptr [rsp + 2648], 0
-                        mov              qword ptr [rsp + 2656], 0
-                        mov              qword ptr [rsp + 2664], 0
-                        mov              qword ptr [rsp + 2672], 0
-                        mov              qword ptr [rsp + 2680], 0
-                        mov              qword ptr [rsp + 2688], 0
-                        mov              qword ptr [rsp + 2696], 0
-                        mov              qword ptr [rsp + 2704], 0
-                        mov              qword ptr [rsp + 2712], 0
-                        mov              qword ptr [rsp + 2720], 0
-                        mov              qword ptr [rsp + 2728], 0
-                        mov              qword ptr [rsp + 2736], 0
-                        mov              qword ptr [rsp + 2744], 0
-                        mov              qword ptr [rsp + 2752], 0
-                        mov              qword ptr [rsp + 2760], 0
-                        mov              qword ptr [rsp + 2768], 0
-                        mov              qword ptr [rsp + 2776], 0
-                        mov              qword ptr [rsp + 2784], 0
-                        mov              qword ptr [rsp + 2792], 0
-                        mov              qword ptr [rsp + 2800], 0
-                        mov              qword ptr [rsp + 2808], 0
-                        mov              qword ptr [rsp + 2816], 0
-                        mov              qword ptr [rsp + 2824], 0
-                        mov              qword ptr [rsp + 2832], 0
-                        mov              qword ptr [rsp + 2840], 0
-                        mov              qword ptr [rsp + 2848], 0
-                        mov              qword ptr [rsp + 2856], 0
-                        mov              qword ptr [rsp + 2864], 0
-                        mov              qword ptr [rsp + 2872], 0
-                        mov              qword ptr [rsp + 2880], 0
-                        mov              qword ptr [rsp + 2888], 0
-                        mov              qword ptr [rsp + 2896], 0
-                        mov              qword ptr [rsp + 2904], 0
-                        mov              qword ptr [rsp + 2912], 0
-                        mov              qword ptr [rsp + 2920], 0
-                        mov              qword ptr [rsp + 2928], 0
-                        mov              qword ptr [rsp + 2936], 0
-                        mov              qword ptr [rsp + 2944], 0
-                        mov              qword ptr [rsp + 2952], 0
-                        mov              qword ptr [rsp + 2960], 0
-                        mov              qword ptr [rsp + 2968], 0
-                        mov              qword ptr [rsp + 2976], 0
-                        mov              qword ptr [rsp + 2984], 0
-                        mov              qword ptr [rsp + 2992], 0
-                        mov              qword ptr [rsp + 3000], 0
-                        mov              qword ptr [rsp + 3008], 0
-                        mov              qword ptr [rsp + 3016], 0
-                        mov              qword ptr [rsp + 3024], 0
-                        mov              qword ptr [rsp + 3032], 0
-                        mov              qword ptr [rsp + 3040], 0
-                        mov              qword ptr [rsp + 3048], 0
-                        mov              qword ptr [rsp + 3056], 0
-                        mov              qword ptr [rsp + 3064], 0
-                        mov              qword ptr [rsp + 3072], 0
-                        mov              qword ptr [rsp + 3080], 0
-                        mov              qword ptr [rsp + 3088], 0
-                        mov              qword ptr [rsp + 3096], 0
-                        mov              qword ptr [rsp + 3104], 0
-                        mov              qword ptr [rsp + 3112], 0
-                        mov              qword ptr [rsp + 3120], 0
-                        mov              qword ptr [rsp + 3128], 0
-                        mov              qword ptr [rsp + 3136], 0
-                        mov              qword ptr [rsp + 3144], 0
-                        mov              qword ptr [rsp + 3152], 0
-                        mov              qword ptr [rsp + 3160], 0
-                        mov              qword ptr [rsp + 3168], 0
-                        mov              qword ptr [rsp + 3176], 0
-                        mov              qword ptr [rsp + 3184], 0
-                        mov              qword ptr [rsp + 3192], 0
-                        mov              qword ptr [rsp + 3200], 0
-                        mov              qword ptr [rsp + 3208], 0
-                        mov              qword ptr [rsp + 3216], 0
-                        mov              qword ptr [rsp + 3224], 0
-                        mov              qword ptr [rsp + 3232], 0
-                        mov              qword ptr [rsp + 3240], 0
-                        mov              qword ptr [rsp + 3248], 0
-                        mov              qword ptr [rsp + 3256], 0
-                        mov              qword ptr [rsp + 3264], 0
-                        mov              qword ptr [rsp + 3272], 0
-                        mov              qword ptr [rsp + 3280], 0
-                        mov              qword ptr [rsp + 3288], 0
-                        mov              qword ptr [rsp + 3296], 0
-                        mov              qword ptr [rsp + 3304], 0
-                        mov              qword ptr [rsp + 3312], 0
-                        mov              qword ptr [rsp + 3320], 0
-                        mov              qword ptr [rsp + 3328], 0
-                        mov              qword ptr [rsp + 3336], 0
-                        mov              qword ptr [rsp + 3344], 0
-                        mov              qword ptr [rsp + 3352], 0
-                        mov              qword ptr [rsp + 3360], 0
-                        mov              qword ptr [rsp + 3368], 0
-                        mov              qword ptr [rsp + 3376], 0
-                        mov              qword ptr [rsp + 3384], 0
-                        mov              qword ptr [rsp + 3392], 0
-                        mov              qword ptr [rsp + 3400], 0
-                        mov              qword ptr [rsp + 3408], 0
-                        mov              qword ptr [rsp + 3416], 0
-                        mov              qword ptr [rsp + 3424], 0
-                        mov              qword ptr [rsp + 3432], 0
-                        mov              qword ptr [rsp + 3440], 0
-                        mov              qword ptr [rsp + 3448], 0
-                        mov              qword ptr [rsp + 3456], 0
-                        mov              qword ptr [rsp + 3464], 0
-                        mov              qword ptr [rsp + 3472], 0
-                        mov              qword ptr [rsp + 3480], 0
-                        mov              qword ptr [rsp + 3488], 0
-                        mov              qword ptr [rsp + 3496], 0
-                        mov              qword ptr [rsp + 3504], 0
-                        mov              qword ptr [rsp + 3512], 0
-                        mov              qword ptr [rsp + 3520], 0
-                        mov              qword ptr [rsp + 3528], 0
-                        mov              qword ptr [rsp + 3536], 0
-                        mov              qword ptr [rsp + 3544], 0
-                        mov              qword ptr [rsp + 3552], 0
-                        mov              qword ptr [rsp + 3560], 0
-                        mov              qword ptr [rsp + 3568], 0
-                        mov              qword ptr [rsp + 3576], 0
-                        mov              qword ptr [rsp + 3584], 0
-                        mov              qword ptr [rsp + 3592], 0
-                        mov              qword ptr [rsp + 3600], 0
-                        mov              qword ptr [rsp + 3608], 0
-                        mov              qword ptr [rsp + 3616], 0
-                        mov              qword ptr [rsp + 3624], 0
-                        mov              qword ptr [rsp + 3632], 0
-                        mov              qword ptr [rsp + 3640], 0
-                        mov              qword ptr [rsp + 3648], 0
-                        mov              qword ptr [rsp + 3656], 0
-                        mov              qword ptr [rsp + 3664], 0
-                        mov              qword ptr [rsp + 3672], 0
-                        mov              qword ptr [rsp + 3680], 0
-                        mov              qword ptr [rsp + 3688], 0
-                        mov              qword ptr [rsp + 3696], 0
-                        mov              qword ptr [rsp + 3704], 0
-                        mov              qword ptr [rsp + 3712], 0
-                        mov              qword ptr [rsp + 3720], 0
-                        mov              qword ptr [rsp + 3728], 0
-                        mov              qword ptr [rsp + 3736], 0
-                        mov              qword ptr [rsp + 3744], 0
-                        mov              qword ptr [rsp + 3752], 0
-                        mov              qword ptr [rsp + 3760], 0
-                        mov              qword ptr [rsp + 3768], 0
-                        mov              qword ptr [rsp + 3776], 0
-                        mov              qword ptr [rsp + 3784], 0
-                        mov              qword ptr [rsp + 3792], 0
-                        mov              qword ptr [rsp + 3800], 0
-                        mov              qword ptr [rsp + 3808], 0
-                        mov              qword ptr [rsp + 3816], 0
-                        mov              qword ptr [rsp + 3824], 0
-                        mov              qword ptr [rsp + 3832], 0
-                        mov              qword ptr [rsp + 3840], 0
-                        mov              qword ptr [rsp + 3848], 0
-                        mov              qword ptr [rsp + 3856], 0
-                        mov              qword ptr [rsp + 3864], 0
-                        mov              qword ptr [rsp + 3872], 0
-                        mov              qword ptr [rsp + 3880], 0
-                        mov              qword ptr [rsp + 3888], 0
-                        mov              qword ptr [rsp + 3896], 0
-                        mov              qword ptr [rsp + 3904], 0
-                        mov              qword ptr [rsp + 3912], 0
-                        mov              qword ptr [rsp + 3920], 0
-                        mov              qword ptr [rsp + 3928], 0
-                        mov              qword ptr [rsp + 3936], 0
-                        mov              qword ptr [rsp + 3944], 0
-                        mov              qword ptr [rsp + 3952], 0
-                        mov              qword ptr [rsp + 3960], 0
-                        mov              qword ptr [rsp + 3968], 0
-                        mov              qword ptr [rsp + 3976], 0
-                        mov              qword ptr [rsp + 3984], 0
-                        mov              qword ptr [rsp + 3992], 0
-                        mov              qword ptr [rsp + 4000], 0
-                        mov              qword ptr [rsp + 4008], 0
-                        mov              qword ptr [rsp + 4016], 0
-                        mov              qword ptr [rsp + 4024], 0
-                        mov              qword ptr [rsp + 4032], 0
-                        mov              qword ptr [rsp + 4040], 0
-                        mov              qword ptr [rsp + 4048], 0
-                        mov              qword ptr [rsp + 4056], 0
-                        mov              qword ptr [rsp + 4064], 0
-                        mov              qword ptr [rsp + 4072], 0
-                        mov              qword ptr [rsp + 4080], 0
-                        mov              qword ptr [rsp + 4088], 0
-                        mov              qword ptr [rsp + 4096], 0
-                        mov              qword ptr [rsp + 4104], 0
-                        mov              qword ptr [rsp + 4112], 0
-                        mov              qword ptr [rsp + 4120], 0
-                        mov              qword ptr [rsp + 4128], 0
-                        mov              qword ptr [rsp + 4136], 0
-                        mov              qword ptr [rsp + 4144], 0
-                        mov              qword ptr [rsp + 4152], 0
-                        mov              qword ptr [rsp + 4160], 0
-                        mov              qword ptr [rsp + 4168], 0
-                        mov              qword ptr [rsp + 4176], 0
-                        mov              qword ptr [rsp + 4184], 0
-                        mov              qword ptr [rsp + 4192], 0
-                        mov              qword ptr [rsp + 4200], 0
-                        mov              qword ptr [rsp + 4208], 0
-                        mov              qword ptr [rsp + 4216], 0
-                        mov              qword ptr [rsp + 4224], 0
-                        mov              qword ptr [rsp + 4232], 0
-                        mov              qword ptr [rsp + 4240], 0
-                        mov              qword ptr [rsp + 4248], 0
-                        mov              qword ptr [rsp + 4256], 0
-                        mov              qword ptr [rsp + 4264], 0
-                        mov              qword ptr [rsp + 4272], 0
-                        mov              qword ptr [rsp + 4280], 0
-                        mov              qword ptr [rsp + 4288], 0
-                        mov              qword ptr [rsp + 4296], 0
-                        mov              qword ptr [rsp + 4304], 0
-                        mov              qword ptr [rsp + 4312], 0
-                        mov              qword ptr [rsp + 4320], 0
-                        mov              qword ptr [rsp + 4328], 0
-                        mov              qword ptr [rsp + 4336], 0
-                        mov              qword ptr [rsp + 4344], 0
-                        mov              qword ptr [rsp + 4352], 0
-                        mov              qword ptr [rsp + 4360], 0
-                        mov              qword ptr [rsp + 4368], 0
-                        mov              qword ptr [rsp + 4376], 0
-                        mov              qword ptr [rsp + 4384], 0
-                        mov              qword ptr [rsp + 4392], 0
-                        mov              qword ptr [rsp + 4400], 0
-                        mov              qword ptr [rsp + 4408], 0
-                        mov              qword ptr [rsp + 4416], 0
-                        mov              qword ptr [rsp + 4424], 0
-                        mov              qword ptr [rsp + 4432], 0
-                        mov              qword ptr [rsp + 4440], 0
-                        mov              qword ptr [rsp + 4448], 0
-                        mov              qword ptr [rsp + 4456], 0
-                        mov              qword ptr [rsp + 4464], 0
-                        mov              qword ptr [rsp + 4472], 0
-                        mov              qword ptr [rsp + 4480], 0
-                        mov              qword ptr [rsp + 4488], 0
-                        mov              qword ptr [rsp + 4496], 0
-                        mov              qword ptr [rsp + 4504], 0
-                        mov              qword ptr [rsp + 4512], 0
-                        mov              qword ptr [rsp + 4520], 0
-                        mov              qword ptr [rsp + 4528], 0
-                        mov              qword ptr [rsp + 4536], 0
-                        mov              qword ptr [rsp + 4544], 0
-                        mov              qword ptr [rsp + 4552], 0
-                        mov              qword ptr [rsp + 4560], 0
-                        mov              qword ptr [rsp + 4568], 0
-                        mov              qword ptr [rsp + 4576], 0
-                        mov              qword ptr [rsp + 4584], 0
-                        mov              qword ptr [rsp + 4592], 0
-                        mov              qword ptr [rsp + 4600], 0
-                        mov              qword ptr [rsp + 4608], 0
-                        mov              qword ptr [rsp + 4616], 0
-                        mov              qword ptr [rsp + 4624], 0
-                        mov              qword ptr [rsp + 4632], 0
-                        mov              qword ptr [rsp + 4640], 0
-                        mov              qword ptr [rsp + 4648], 0
-                        mov              qword ptr [rsp + 4656], 0
-                        mov              qword ptr [rsp + 4664], 0
-                        mov              qword ptr [rsp + 4672], 0
-                        mov              qword ptr [rsp + 4680], 0
-                        mov              qword ptr [rsp + 4688], 0
-                        mov              qword ptr [rsp + 4696], 0
-                        mov              qword ptr [rsp + 4704], 0
-                        mov              qword ptr [rsp + 4712], 0
-                        mov              qword ptr [rsp + 4720], 0
-                        mov              qword ptr [rsp + 4728], 0
-                        mov              qword ptr [rsp + 4736], 0
-                        mov              qword ptr [rsp + 4744], 0
-                        mov              qword ptr [rsp + 4752], 0
-                        mov              qword ptr [rsp + 4760], 0
-                        mov              qword ptr [rsp + 4768], 0
-                        mov              qword ptr [rsp + 4776], 0
-                        mov              qword ptr [rsp + 4784], 0
-                        mov              qword ptr [rsp + 4792], 0
-                        mov              qword ptr [rsp + 4800], 0
-                        mov              qword ptr [rsp + 4808], 0
-                        mov              qword ptr [rsp + 4816], 0
-                        mov              qword ptr [rsp + 4824], 0
-                        mov              qword ptr [rsp + 4832], 0
-                        mov              qword ptr [rsp + 4840], 0
-                        mov              qword ptr [rsp + 4848], 0
-                        mov              qword ptr [rsp + 4856], 0
-                        mov              qword ptr [rsp + 4864], 0
-                        mov              qword ptr [rsp + 4872], 0
-                        mov              qword ptr [rsp + 4880], 0
-                        mov              qword ptr [rsp + 4888], 0
-                        mov              qword ptr [rsp + 4896], 0
-                        mov              qword ptr [rsp + 4904], 0
-                        mov              qword ptr [rsp + 4912], 0
-                        mov              qword ptr [rsp + 4920], 0
-                        mov              qword ptr [rsp + 4928], 0
-                        mov              qword ptr [rsp + 4936], 0
-                        mov              qword ptr [rsp + 4944], 0
-                        mov              qword ptr [rsp + 4952], 0
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052640]                    # f
                         mov              rdx, qword ptr [1879052648]
-                        mov              qword ptr [rsp + 4944], rax                    # result
-                        mov              qword ptr [rsp + 4952], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1449_call_α
 n1448_var_β:
-                        add              rsp, 4960
+                        add              rsp, 16
                                                                                         jmp   n1451_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1449_call_α:
+                        sub              rsp, 16
+                        mov              edi, 0                                         # idx
+                        mov              rsi, qword ptr [rsp + 16]                      # var
+                        mov              rdx, qword ptr [rsp + 24]                      # v
+                        call             rt_arg_stage@PLT
                         sub              rsp, 112
                         mov              rax, qword ptr [1879052640]                    # f
                         mov              qword ptr [rsp + 0], rax
@@ -25772,9 +17121,10 @@ n1449_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx1995_5
-                        mov              rax, qword ptr [rsp + 5056]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 0]
                         mov              qword ptr [1879052640], rax                    # f
-                        mov              rax, qword ptr [rsp + 5064]
+                        mov              rax, qword ptr [r10 + 8]
                         mov              qword ptr [1879052648], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx1995_6]
@@ -25848,45 +17198,13 @@ n1449_call_α:
                                                                                         jmp   .Lx1995_2
 .Lx1995_5:
                         add              rsp, 112
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx1995_20
-                        mov              rax, qword ptr [rsp + 4944]
-                        mov              rdx, qword ptr [rsp + 4952]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 0], rax
-                        mov              qword ptr [r10 + 8], rdx
-                                                                                        jmp   .Lx1995_21
-.Lx1995_20:
-                        mov              edi, 0                                         # idx
-                        mov              rsi, qword ptr [rsp + 4944]                    # v
-                        mov              rdx, qword ptr [rsp + 4952]                    # v
-                        call             rt_arg_stage@PLT
-.Lx1995_21:
-                        mov              rdi, qword ptr [rip + .Lx1995_0]               # name
-                        mov              esi, 1                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx1995_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx1995_3]
-                        lea              rdx, [rip + .Lx1995_4]
-                                                                                        jmp   rax
-.Lx1995_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx1995_2
-.Lx1995_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx1995_2
-.Lx1995_1:
-                        call             rt_faildescr@PLT
 .Lx1995_2:
-                        mov              qword ptr [rsp + 4896], rax
-                        mov              qword ptr [rsp + 4904], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx1995_240
-                        add              rsp, 4960
+                        add              rsp, 16
+                        add              rsp, 16
                                                                                         jmp   n1451_lit_string_α
 .Lx1995_240:
                                                                                         jmp   n1450_assign_α
@@ -25898,14 +17216,14 @@ n1449_call_β:
                         .string          "node_repr"
 #-----------------------------------------------------------------------------------------------------------------------
 n1450_assign_α:
-                        mov              rax, qword ptr [rsp + 4896]
-                        mov              rdx, qword ptr [rsp + 4904]
+                        mov              rax, qword ptr [rsp + 0]                       # call
+                        mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052656], rax                    # r
                         mov              qword ptr [1879052664], rdx
-                        add              rsp, 4960
+                        add              rsp, 32
                                                                                         jmp   n1451_lit_string_α
 n1450_assign_β:
-                        add              rsp, 4960
+                        add              rsp, 32
                                                                                         jmp   n1451_lit_string_α
 #=======================================================================================================================
 #                pad            =  DUPL(' ', indent)
@@ -26865,183 +18183,176 @@ n1508_assign_β:
 #                pp_node(stk_c[f][i], indent + 2, ',')
 #-----------------------------------------------------------------------------------------------------------------------
 n1509_var_α:
-                        sub              rsp, 176
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
-                        mov              qword ptr [rsp + 96], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 120], 0
-                        mov              qword ptr [rsp + 128], 0
-                        mov              qword ptr [rsp + 136], 0
-                        mov              qword ptr [rsp + 144], 0
-                        mov              qword ptr [rsp + 152], 0
-                        mov              qword ptr [rsp + 160], 0
-                        mov              qword ptr [rsp + 168], 0
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052880]                    # stk_c
                         mov              rdx, qword ptr [1879052888]
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1510_var_α
 n1509_var_β:
-                        add              rsp, 176
+                        add              rsp, 16
                                                                                         jmp   n1521_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1510_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052640]                    # f
                         mov              rdx, qword ptr [1879052648]
-                        mov              qword ptr [rsp + 16], rax                      # result
-                        mov              qword ptr [rsp + 24], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1511_subscript_α
 n1510_var_β:
-                        add              rsp, 176
+                        add              rsp, 16
+                        add              rsp, 16
                                                                                         jmp   n1521_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1511_subscript_α:
-                        mov              rdi, qword ptr [rsp + 0]                       # base
-                        mov              rsi, qword ptr [rsp + 8]                       # base
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 32]                      # var
+                        mov              rsi, qword ptr [rsp + 40]                      # base
                         mov              rdx, qword ptr [rsp + 16]                      # idx
                         mov              rcx, qword ptr [rsp + 24]                      # idx
                         call             rt_subscript_var@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx2068_240
-                        add              rsp, 176
+                        add              rsp, 16
+                        add              rsp, 32
                                                                                         jmp   n1521_var_α
 .Lx2068_240:
-                        mov              qword ptr [rsp + 32], rax
-                        mov              qword ptr [rsp + 40], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1512_deref_α
 n1511_subscript_β:
-                        add              rsp, 176
+                        add              rsp, 16
+                        add              rsp, 32
                                                                                         jmp   n1521_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1512_deref_α:
-                        mov              rdi, qword ptr [rsp + 32]                      # d
-                        mov              rsi, qword ptr [rsp + 40]                      # d
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 16]                      # subscript
+                        mov              rsi, qword ptr [rsp + 24]                      # d
                         call             rt_deref@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx2069_240
-                        add              rsp, 176
+                        add              rsp, 16
+                        add              rsp, 48
                                                                                         jmp   n1521_var_α
 .Lx2069_240:
-                        mov              qword ptr [rsp + 48], rax
-                        mov              qword ptr [rsp + 56], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1513_var_α
 n1512_deref_β:
-                        add              rsp, 176
+                        add              rsp, 16
+                        add              rsp, 48
                                                                                         jmp   n1521_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1513_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052688]                    # i
                         mov              rdx, qword ptr [1879052696]
-                        mov              qword ptr [rsp + 64], rax                      # result
-                        mov              qword ptr [rsp + 72], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1514_subscript_α
 n1513_var_β:
-                        add              rsp, 176
+                        add              rsp, 16
+                        add              rsp, 64
                                                                                         jmp   n1521_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1514_subscript_α:
-                        mov              rdi, qword ptr [rsp + 48]                      # base
-                        mov              rsi, qword ptr [rsp + 56]                      # base
-                        mov              rdx, qword ptr [rsp + 64]                      # idx
-                        mov              rcx, qword ptr [rsp + 72]                      # idx
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 32]                      # deref
+                        mov              rsi, qword ptr [rsp + 40]                      # base
+                        mov              rdx, qword ptr [rsp + 16]                      # var
+                        mov              rcx, qword ptr [rsp + 24]                      # idx
                         call             rt_subscript_var@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx2071_240
-                        add              rsp, 176
+                        add              rsp, 16
+                        add              rsp, 80
                                                                                         jmp   n1521_var_α
 .Lx2071_240:
-                        mov              qword ptr [rsp + 80], rax
-                        mov              qword ptr [rsp + 88], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1515_deref_α
 n1514_subscript_β:
-                        add              rsp, 176
+                        add              rsp, 16
+                        add              rsp, 80
                                                                                         jmp   n1521_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1515_deref_α:
-                        mov              rdi, qword ptr [rsp + 80]                      # d
-                        mov              rsi, qword ptr [rsp + 88]                      # d
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 16]                      # subscript
+                        mov              rsi, qword ptr [rsp + 24]                      # d
                         call             rt_deref@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx2072_240
-                        add              rsp, 176
+                        add              rsp, 16
+                        add              rsp, 96
                                                                                         jmp   n1521_var_α
 .Lx2072_240:
-                        mov              qword ptr [rsp + 96], rax
-                        mov              qword ptr [rsp + 104], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1516_var_α
 n1515_deref_β:
-                        add              rsp, 176
+                        add              rsp, 16
+                        add              rsp, 96
                                                                                         jmp   n1521_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1516_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052736]                    # indent
                         mov              rdx, qword ptr [1879052744]
-                        mov              qword ptr [rsp + 128], rax                     # result
-                        mov              qword ptr [rsp + 136], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1517_lit_integer_α
 n1516_var_β:
-                        add              rsp, 176
+                        add              rsp, 16
+                        add              rsp, 112
                                                                                         jmp   n1521_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1517_lit_integer_α:
-                        mov              qword ptr [rsp + 144], 3                       # result
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 3                         # result
                         mov              rax, qword ptr [rip + .Lx2074_0]
-                        mov              qword ptr [rsp + 152], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n1518_binop_α
 n1517_lit_integer_β:
-                        add              rsp, 176
+                        add              rsp, 16
+                        add              rsp, 128
                                                                                         jmp   n1521_var_α
 .Lx2074_0:
                         .quad            2
 #-----------------------------------------------------------------------------------------------------------------------
 n1518_binop_α:
-                        mov              eax, dword ptr [rsp + 128]
-                        cmp              eax, 3
-                                                                                        jne   .Lx2075_0
-                        mov              rax, qword ptr [rsp + 136]
-                        mov              rcx, 2
-                        add              rax, rcx
-                        mov              qword ptr [rsp + 112], 3
-                        mov              qword ptr [rsp + 120], rax
-                                                                                        jmp   n1519_lit_string_α
-.Lx2075_0:
-                        mov              rdi, qword ptr [rsp + 128]
-                        mov              rsi, qword ptr [rsp + 136]
-                        mov              rdx, qword ptr [rsp + 144]
-                        mov              rcx, qword ptr [rsp + 152]
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 32]                      # var
+                        mov              rsi, qword ptr [rsp + 40]
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_integer
+                        mov              rcx, qword ptr [rsp + 24]
                         call             rt_add@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx2075_240
-                        add              rsp, 176
+                        add              rsp, 16
+                        add              rsp, 144
                                                                                         jmp   n1521_var_α
 .Lx2075_240:
-                        mov              qword ptr [rsp + 112], rax
-                        mov              qword ptr [rsp + 120], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1519_lit_string_α
 n1518_binop_β:
-                        add              rsp, 176
+                        add              rsp, 16
+                        add              rsp, 144
                                                                                         jmp   n1521_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1519_lit_string_α:
-                        mov              qword ptr [rsp + 160], 2                       # result
-                        mov              dword ptr [rsp + 164], 1
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 1
                         mov              rax, qword ptr [rip + .Lx2076_0]
-                        mov              qword ptr [rsp + 168], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n1520_call_α
 n1519_lit_string_β:
-                        add              rsp, 176
+                        add              rsp, 16
+                        add              rsp, 160
                                                                                         jmp   n1521_var_α
 .Lx2076_0:
                         .quad            .Lx2076_0_s
@@ -27049,6 +18360,19 @@ n1519_lit_string_β:
                         .string          ","
 #-----------------------------------------------------------------------------------------------------------------------
 n1520_call_α:
+                        sub              rsp, 16
+                        mov              edi, 0                                         # idx
+                        mov              rsi, qword ptr [rsp + 80]                      # deref
+                        mov              rdx, qword ptr [rsp + 88]                      # v
+                        call             rt_arg_stage@PLT
+                        mov              edi, 1                                         # idx
+                        mov              rsi, qword ptr [rsp + 32]                      # binop
+                        mov              rdx, qword ptr [rsp + 40]                      # v
+                        call             rt_arg_stage@PLT
+                        mov              edi, 2                                         # idx
+                        mov              rsi, qword ptr [rsp + 16]                      # lit_string
+                        mov              rdx, qword ptr [rsp + 24]                      # v
+                        call             rt_arg_stage@PLT
                         sub              rsp, 160
                         mov              rax, qword ptr [1879052640]                    # f
                         mov              qword ptr [rsp + 0], rax
@@ -27096,17 +18420,20 @@ n1520_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx2078_5
-                        mov              rax, qword ptr [rsp + 256]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 0]
                         mov              qword ptr [1879052640], rax                    # f
-                        mov              rax, qword ptr [rsp + 264]
+                        mov              rax, qword ptr [r10 + 8]
                         mov              qword ptr [1879052648], rax
-                        mov              rax, qword ptr [rsp + 272]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 16]
                         mov              qword ptr [1879052736], rax                    # indent
-                        mov              rax, qword ptr [rsp + 280]
+                        mov              rax, qword ptr [r10 + 24]
                         mov              qword ptr [1879052744], rax
-                        mov              rax, qword ptr [rsp + 320]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 32]
                         mov              qword ptr [1879052752], rax                    # suffix
-                        mov              rax, qword ptr [rsp + 328]
+                        mov              rax, qword ptr [r10 + 40]
                         mov              qword ptr [1879052760], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx2078_6]
@@ -27204,80 +18531,16 @@ n1520_call_α:
                                                                                         jmp   .Lx2078_2
 .Lx2078_5:
                         add              rsp, 160
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx2078_20
-                        mov              rax, qword ptr [rsp + 96]
-                        mov              rdx, qword ptr [rsp + 104]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 0], rax
-                        mov              qword ptr [r10 + 8], rdx
-                                                                                        jmp   .Lx2078_21
-.Lx2078_20:
-                        mov              edi, 0                                         # idx
-                        mov              rsi, qword ptr [rsp + 96]                      # v
-                        mov              rdx, qword ptr [rsp + 104]                     # v
-                        call             rt_arg_stage@PLT
-.Lx2078_21:
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx2078_22
-                        mov              rax, qword ptr [rsp + 112]
-                        mov              rdx, qword ptr [rsp + 120]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 16], rax
-                        mov              qword ptr [r10 + 24], rdx
-                                                                                        jmp   .Lx2078_23
-.Lx2078_22:
-                        mov              edi, 1                                         # idx
-                        mov              rsi, qword ptr [rsp + 112]                     # v
-                        mov              rdx, qword ptr [rsp + 120]                     # v
-                        call             rt_arg_stage@PLT
-.Lx2078_23:
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx2078_24
-                        mov              rax, qword ptr [rsp + 160]
-                        mov              rdx, qword ptr [rsp + 168]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 32], rax
-                        mov              qword ptr [r10 + 40], rdx
-                                                                                        jmp   .Lx2078_25
-.Lx2078_24:
-                        mov              edi, 2                                         # idx
-                        mov              rsi, qword ptr [rsp + 160]                     # v
-                        mov              rdx, qword ptr [rsp + 168]                     # v
-                        call             rt_arg_stage@PLT
-.Lx2078_25:
-                        mov              rdi, qword ptr [rip + .Lx2078_0]               # name
-                        mov              esi, 3                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx2078_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx2078_3]
-                        lea              rdx, [rip + .Lx2078_4]
-                                                                                        jmp   rax
-.Lx2078_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx2078_2
-.Lx2078_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx2078_2
-.Lx2078_1:
-                        call             rt_faildescr@PLT
 .Lx2078_2:
-                        mov              qword ptr [rsp + 6032], rax
-                        mov              qword ptr [rsp + 6040], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx2078_240
+                        add              rsp, 16
                         add              rsp, 176
                                                                                         jmp   n1521_var_α
 .Lx2078_240:
-                        add              rsp, 176
+                        add              rsp, 192
                                                                                         jmp   n1521_var_α
 n1520_call_β:
                                                                                         jmp   n1521_var_α
@@ -27313,187 +18576,176 @@ n1522_assign_β:
 # pp_wlast       pp_node(stk_c[f][i], indent + 2, ')' suffix) :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
 n1523_var_α:
-                        sub              rsp, 208
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
-                        mov              qword ptr [rsp + 96], 0
-                        mov              qword ptr [rsp + 104], 0
-                        mov              qword ptr [rsp + 112], 0
-                        mov              qword ptr [rsp + 120], 0
-                        mov              qword ptr [rsp + 128], 0
-                        mov              qword ptr [rsp + 136], 0
-                        mov              qword ptr [rsp + 144], 0
-                        mov              qword ptr [rsp + 152], 0
-                        mov              qword ptr [rsp + 160], 0
-                        mov              qword ptr [rsp + 168], 0
-                        mov              qword ptr [rsp + 176], 0
-                        mov              qword ptr [rsp + 184], 0
-                        mov              qword ptr [rsp + 192], 0
-                        mov              qword ptr [rsp + 200], 0
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052880]                    # stk_c
                         mov              rdx, qword ptr [1879052888]
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1524_var_α
 n1523_var_β:
-                        add              rsp, 208
+                        add              rsp, 16
                                                                                         jmp   n1192_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1524_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052640]                    # f
                         mov              rdx, qword ptr [1879052648]
-                        mov              qword ptr [rsp + 16], rax                      # result
-                        mov              qword ptr [rsp + 24], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1525_subscript_α
 n1524_var_β:
-                        add              rsp, 208
+                        add              rsp, 16
+                        add              rsp, 16
                                                                                         jmp   n1192_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1525_subscript_α:
-                        mov              rdi, qword ptr [rsp + 0]                       # base
-                        mov              rsi, qword ptr [rsp + 8]                       # base
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 32]                      # var
+                        mov              rsi, qword ptr [rsp + 40]                      # base
                         mov              rdx, qword ptr [rsp + 16]                      # idx
                         mov              rcx, qword ptr [rsp + 24]                      # idx
                         call             rt_subscript_var@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx2083_240
-                        add              rsp, 208
+                        add              rsp, 16
+                        add              rsp, 32
                                                                                         jmp   n1192_save_restore_α
 .Lx2083_240:
-                        mov              qword ptr [rsp + 32], rax
-                        mov              qword ptr [rsp + 40], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1526_deref_α
 n1525_subscript_β:
-                        add              rsp, 208
+                        add              rsp, 16
+                        add              rsp, 32
                                                                                         jmp   n1192_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1526_deref_α:
-                        mov              rdi, qword ptr [rsp + 32]                      # d
-                        mov              rsi, qword ptr [rsp + 40]                      # d
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 16]                      # subscript
+                        mov              rsi, qword ptr [rsp + 24]                      # d
                         call             rt_deref@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx2084_240
-                        add              rsp, 208
+                        add              rsp, 16
+                        add              rsp, 48
                                                                                         jmp   n1192_save_restore_α
 .Lx2084_240:
-                        mov              qword ptr [rsp + 48], rax
-                        mov              qword ptr [rsp + 56], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1527_var_α
 n1526_deref_β:
-                        add              rsp, 208
+                        add              rsp, 16
+                        add              rsp, 48
                                                                                         jmp   n1192_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1527_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052688]                    # i
                         mov              rdx, qword ptr [1879052696]
-                        mov              qword ptr [rsp + 64], rax                      # result
-                        mov              qword ptr [rsp + 72], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1528_subscript_α
 n1527_var_β:
-                        add              rsp, 208
+                        add              rsp, 16
+                        add              rsp, 64
                                                                                         jmp   n1192_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1528_subscript_α:
-                        mov              rdi, qword ptr [rsp + 48]                      # base
-                        mov              rsi, qword ptr [rsp + 56]                      # base
-                        mov              rdx, qword ptr [rsp + 64]                      # idx
-                        mov              rcx, qword ptr [rsp + 72]                      # idx
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 32]                      # deref
+                        mov              rsi, qword ptr [rsp + 40]                      # base
+                        mov              rdx, qword ptr [rsp + 16]                      # var
+                        mov              rcx, qword ptr [rsp + 24]                      # idx
                         call             rt_subscript_var@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx2086_240
-                        add              rsp, 208
+                        add              rsp, 16
+                        add              rsp, 80
                                                                                         jmp   n1192_save_restore_α
 .Lx2086_240:
-                        mov              qword ptr [rsp + 80], rax
-                        mov              qword ptr [rsp + 88], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1529_deref_α
 n1528_subscript_β:
-                        add              rsp, 208
+                        add              rsp, 16
+                        add              rsp, 80
                                                                                         jmp   n1192_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1529_deref_α:
-                        mov              rdi, qword ptr [rsp + 80]                      # d
-                        mov              rsi, qword ptr [rsp + 88]                      # d
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 16]                      # subscript
+                        mov              rsi, qword ptr [rsp + 24]                      # d
                         call             rt_deref@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx2087_240
-                        add              rsp, 208
+                        add              rsp, 16
+                        add              rsp, 96
                                                                                         jmp   n1192_save_restore_α
 .Lx2087_240:
-                        mov              qword ptr [rsp + 96], rax
-                        mov              qword ptr [rsp + 104], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1530_var_α
 n1529_deref_β:
-                        add              rsp, 208
+                        add              rsp, 16
+                        add              rsp, 96
                                                                                         jmp   n1192_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1530_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052736]                    # indent
                         mov              rdx, qword ptr [1879052744]
-                        mov              qword ptr [rsp + 128], rax                     # result
-                        mov              qword ptr [rsp + 136], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1531_lit_integer_α
 n1530_var_β:
-                        add              rsp, 208
+                        add              rsp, 16
+                        add              rsp, 112
                                                                                         jmp   n1192_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1531_lit_integer_α:
-                        mov              qword ptr [rsp + 144], 3                       # result
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 3                         # result
                         mov              rax, qword ptr [rip + .Lx2089_0]
-                        mov              qword ptr [rsp + 152], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n1532_binop_α
 n1531_lit_integer_β:
-                        add              rsp, 208
+                        add              rsp, 16
+                        add              rsp, 128
                                                                                         jmp   n1192_save_restore_α
 .Lx2089_0:
                         .quad            2
 #-----------------------------------------------------------------------------------------------------------------------
 n1532_binop_α:
-                        mov              eax, dword ptr [rsp + 128]
-                        cmp              eax, 3
-                                                                                        jne   .Lx2090_0
-                        mov              rax, qword ptr [rsp + 136]
-                        mov              rcx, 2
-                        add              rax, rcx
-                        mov              qword ptr [rsp + 112], 3
-                        mov              qword ptr [rsp + 120], rax
-                                                                                        jmp   n1533_lit_string_α
-.Lx2090_0:
-                        mov              rdi, qword ptr [rsp + 128]
-                        mov              rsi, qword ptr [rsp + 136]
-                        mov              rdx, qword ptr [rsp + 144]
-                        mov              rcx, qword ptr [rsp + 152]
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 32]                      # var
+                        mov              rsi, qword ptr [rsp + 40]
+                        mov              rdx, qword ptr [rsp + 16]                      # lit_integer
+                        mov              rcx, qword ptr [rsp + 24]
                         call             rt_add@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx2090_240
-                        add              rsp, 208
+                        add              rsp, 16
+                        add              rsp, 144
                                                                                         jmp   n1192_save_restore_α
 .Lx2090_240:
-                        mov              qword ptr [rsp + 112], rax
-                        mov              qword ptr [rsp + 120], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1533_lit_string_α
 n1532_binop_β:
-                        add              rsp, 208
+                        add              rsp, 16
+                        add              rsp, 144
                                                                                         jmp   n1192_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1533_lit_string_α:
-                        mov              qword ptr [rsp + 176], 2                       # result
-                        mov              dword ptr [rsp + 180], 1
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 1
                         mov              rax, qword ptr [rip + .Lx2091_0]
-                        mov              qword ptr [rsp + 184], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n1534_var_α
 n1533_lit_string_β:
-                        add              rsp, 208
+                        add              rsp, 16
+                        add              rsp, 160
                                                                                         jmp   n1192_save_restore_α
 .Lx2091_0:
                         .quad            .Lx2091_0_s
@@ -27501,29 +18753,46 @@ n1533_lit_string_β:
                         .string          ")"
 #-----------------------------------------------------------------------------------------------------------------------
 n1534_var_α:
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052752]                    # suffix
                         mov              rdx, qword ptr [1879052760]
-                        mov              qword ptr [rsp + 192], rax                     # result
-                        mov              qword ptr [rsp + 200], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1535_binop_α
 n1534_var_β:
-                        add              rsp, 208
+                        add              rsp, 16
+                        add              rsp, 176
                                                                                         jmp   n1192_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1535_binop_α:
-                        mov              rdi, qword ptr [rsp + 176]                     # a
-                        mov              rsi, qword ptr [rsp + 184]                     # a
-                        mov              rdx, qword ptr [rsp + 192]                     # b
-                        mov              rcx, qword ptr [rsp + 200]                     # b
+                        sub              rsp, 16
+                        mov              rdi, qword ptr [rsp + 32]                      # lit_string
+                        mov              rsi, qword ptr [rsp + 40]                      # a
+                        mov              rdx, qword ptr [rsp + 16]                      # var
+                        mov              rcx, qword ptr [rsp + 24]                      # b
                         call             str_concat_d@PLT
-                        mov              qword ptr [rsp + 160], rax
-                        mov              qword ptr [rsp + 168], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1536_call_α
 n1535_binop_β:
-                        add              rsp, 208
+                        add              rsp, 16
+                        add              rsp, 192
                                                                                         jmp   n1192_save_restore_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1536_call_α:
+                        sub              rsp, 16
+                        mov              edi, 0                                         # idx
+                        mov              rsi, qword ptr [rsp + 112]                     # deref
+                        mov              rdx, qword ptr [rsp + 120]                     # v
+                        call             rt_arg_stage@PLT
+                        mov              edi, 1                                         # idx
+                        mov              rsi, qword ptr [rsp + 64]                      # binop
+                        mov              rdx, qword ptr [rsp + 72]                      # v
+                        call             rt_arg_stage@PLT
+                        mov              edi, 2                                         # idx
+                        mov              rsi, qword ptr [rsp + 16]                      # v
+                        mov              rdx, qword ptr [rsp + 24]                      # v
+                        call             rt_arg_stage@PLT
                         sub              rsp, 160
                         mov              rax, qword ptr [1879052640]                    # f
                         mov              qword ptr [rsp + 0], rax
@@ -27571,17 +18840,20 @@ n1536_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx2095_5
-                        mov              rax, qword ptr [rsp + 256]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 0]
                         mov              qword ptr [1879052640], rax                    # f
-                        mov              rax, qword ptr [rsp + 264]
+                        mov              rax, qword ptr [r10 + 8]
                         mov              qword ptr [1879052648], rax
-                        mov              rax, qword ptr [rsp + 272]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 16]
                         mov              qword ptr [1879052736], rax                    # indent
-                        mov              rax, qword ptr [rsp + 280]
+                        mov              rax, qword ptr [r10 + 24]
                         mov              qword ptr [1879052744], rax
-                        mov              rax, qword ptr [rsp + 320]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 32]
                         mov              qword ptr [1879052752], rax                    # suffix
-                        mov              rax, qword ptr [rsp + 328]
+                        mov              rax, qword ptr [r10 + 40]
                         mov              qword ptr [1879052760], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx2095_6]
@@ -27679,80 +18951,16 @@ n1536_call_α:
                                                                                         jmp   .Lx2095_2
 .Lx2095_5:
                         add              rsp, 160
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx2095_20
-                        mov              rax, qword ptr [rsp + 96]
-                        mov              rdx, qword ptr [rsp + 104]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 0], rax
-                        mov              qword ptr [r10 + 8], rdx
-                                                                                        jmp   .Lx2095_21
-.Lx2095_20:
-                        mov              edi, 0                                         # idx
-                        mov              rsi, qword ptr [rsp + 96]                      # v
-                        mov              rdx, qword ptr [rsp + 104]                     # v
-                        call             rt_arg_stage@PLT
-.Lx2095_21:
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx2095_22
-                        mov              rax, qword ptr [rsp + 112]
-                        mov              rdx, qword ptr [rsp + 120]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 16], rax
-                        mov              qword ptr [r10 + 24], rdx
-                                                                                        jmp   .Lx2095_23
-.Lx2095_22:
-                        mov              edi, 1                                         # idx
-                        mov              rsi, qword ptr [rsp + 112]                     # v
-                        mov              rdx, qword ptr [rsp + 120]                     # v
-                        call             rt_arg_stage@PLT
-.Lx2095_23:
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx2095_24
-                        mov              rax, qword ptr [rsp + 160]
-                        mov              rdx, qword ptr [rsp + 168]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 32], rax
-                        mov              qword ptr [r10 + 40], rdx
-                                                                                        jmp   .Lx2095_25
-.Lx2095_24:
-                        mov              edi, 2                                         # idx
-                        mov              rsi, qword ptr [rsp + 160]                     # v
-                        mov              rdx, qword ptr [rsp + 168]                     # v
-                        call             rt_arg_stage@PLT
-.Lx2095_25:
-                        mov              rdi, qword ptr [rip + .Lx2095_0]               # name
-                        mov              esi, 3                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx2095_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx2095_3]
-                        lea              rdx, [rip + .Lx2095_4]
-                                                                                        jmp   rax
-.Lx2095_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx2095_2
-.Lx2095_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx2095_2
-.Lx2095_1:
-                        call             rt_faildescr@PLT
 .Lx2095_2:
-                        mov              qword ptr [rsp + 6304], rax
-                        mov              qword ptr [rsp + 6312], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx2095_240
+                        add              rsp, 16
                         add              rsp, 208
                                                                                         jmp   n1192_save_restore_α
 .Lx2095_240:
-                        add              rsp, 208
+                        add              rsp, 224
                                                                                         jmp   n1192_save_restore_α
 n1536_call_β:
                                                                                         jmp   n1192_save_restore_α
@@ -27799,41 +19007,39 @@ n1543_goto_β:
 # pp_bank        pp_node(bank, 0, '')
 #-----------------------------------------------------------------------------------------------------------------------
 n1544_var_α:
-                        sub              rsp, 48
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
+                        sub              rsp, 16
                         mov              rax, qword ptr [1879052928]                    # bank
                         mov              rdx, qword ptr [1879052936]
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n1545_lit_integer_α
 n1544_var_β:
-                        add              rsp, 48
+                        add              rsp, 16
                                                                                         jmp   n1548_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n1545_lit_integer_α:
-                        mov              qword ptr [rsp + 16], 3                        # result
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 3                         # result
                         mov              rax, qword ptr [rip + .Lx2104_0]
-                        mov              qword ptr [rsp + 24], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n1546_lit_string_α
 n1545_lit_integer_β:
-                        add              rsp, 48
+                        add              rsp, 16
+                        add              rsp, 16
                                                                                         jmp   n1548_lit_string_α
 .Lx2104_0:
                         .quad            0
 #-----------------------------------------------------------------------------------------------------------------------
 n1546_lit_string_α:
-                        mov              qword ptr [rsp + 32], 2                        # result
-                        mov              dword ptr [rsp + 36], 0
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 0
                         mov              rax, qword ptr [rip + .Lx2105_0]
-                        mov              qword ptr [rsp + 40], rax
+                        mov              qword ptr [rsp + 8], rax
                                                                                         jmp   n1547_call_α
 n1546_lit_string_β:
-                        add              rsp, 48
+                        add              rsp, 16
+                        add              rsp, 32
                                                                                         jmp   n1548_lit_string_α
 .Lx2105_0:
                         .quad            .Lx2105_0_s
@@ -27841,6 +19047,19 @@ n1546_lit_string_β:
                         .string          ""
 #-----------------------------------------------------------------------------------------------------------------------
 n1547_call_α:
+                        sub              rsp, 16
+                        mov              edi, 0                                         # idx
+                        mov              rsi, qword ptr [rsp + 48]                      # var
+                        mov              rdx, qword ptr [rsp + 56]                      # v
+                        call             rt_arg_stage@PLT
+                        mov              edi, 1                                         # idx
+                        mov              rsi, qword ptr [rsp + 32]                      # lit_integer
+                        mov              rdx, qword ptr [rsp + 40]                      # v
+                        call             rt_arg_stage@PLT
+                        mov              edi, 2                                         # idx
+                        mov              rsi, qword ptr [rsp + 16]                      # lit_string
+                        mov              rdx, qword ptr [rsp + 24]                      # v
+                        call             rt_arg_stage@PLT
                         sub              rsp, 160
                         mov              rax, qword ptr [1879052640]                    # f
                         mov              qword ptr [rsp + 0], rax
@@ -27888,17 +19107,20 @@ n1547_call_α:
                         call             rt_proc_call_open_slim@PLT
                         test             rax, rax
                                                                                         je    .Lx2107_5
-                        mov              rax, qword ptr [rsp + 160]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 0]
                         mov              qword ptr [1879052640], rax                    # f
-                        mov              rax, qword ptr [rsp + 168]
+                        mov              rax, qword ptr [r10 + 8]
                         mov              qword ptr [1879052648], rax
-                        mov              rax, qword ptr [rsp + 176]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 16]
                         mov              qword ptr [1879052736], rax                    # indent
-                        mov              rax, qword ptr [rsp + 184]
+                        mov              rax, qword ptr [r10 + 24]
                         mov              qword ptr [1879052744], rax
-                        mov              rax, qword ptr [rsp + 192]
+                        lea              r10, [rip + g_call_args]
+                        mov              rax, qword ptr [r10 + 32]
                         mov              qword ptr [1879052752], rax                    # suffix
-                        mov              rax, qword ptr [rsp + 200]
+                        mov              rax, qword ptr [r10 + 40]
                         mov              qword ptr [1879052760], rax
                         call             rt_proc_open_fn@PLT
                         lea              rcx, [rip + .Lx2107_6]
@@ -27996,80 +19218,16 @@ n1547_call_α:
                                                                                         jmp   .Lx2107_2
 .Lx2107_5:
                         add              rsp, 160
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx2107_20
-                        mov              rax, qword ptr [rsp + 0]
-                        mov              rdx, qword ptr [rsp + 8]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 0], rax
-                        mov              qword ptr [r10 + 8], rdx
-                                                                                        jmp   .Lx2107_21
-.Lx2107_20:
-                        mov              edi, 0                                         # idx
-                        mov              rsi, qword ptr [rsp + 0]                       # v
-                        mov              rdx, qword ptr [rsp + 8]                       # v
-                        call             rt_arg_stage@PLT
-.Lx2107_21:
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx2107_22
-                        mov              rax, qword ptr [rsp + 16]
-                        mov              rdx, qword ptr [rsp + 24]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 16], rax
-                        mov              qword ptr [r10 + 24], rdx
-                                                                                        jmp   .Lx2107_23
-.Lx2107_22:
-                        mov              edi, 1                                         # idx
-                        mov              rsi, qword ptr [rsp + 16]                      # v
-                        mov              rdx, qword ptr [rsp + 24]                      # v
-                        call             rt_arg_stage@PLT
-.Lx2107_23:
-                        lea              r11, [rip + g_gc_pending]
-                        mov              eax, dword ptr [r11 + 0]
-                        test             eax, eax
-                                                                                        jne   .Lx2107_24
-                        mov              rax, qword ptr [rsp + 32]
-                        mov              rdx, qword ptr [rsp + 40]
-                        lea              r10, [rip + g_call_args]
-                        mov              qword ptr [r10 + 32], rax
-                        mov              qword ptr [r10 + 40], rdx
-                                                                                        jmp   .Lx2107_25
-.Lx2107_24:
-                        mov              edi, 2                                         # idx
-                        mov              rsi, qword ptr [rsp + 32]                      # v
-                        mov              rdx, qword ptr [rsp + 40]                      # v
-                        call             rt_arg_stage@PLT
-.Lx2107_25:
-                        mov              rdi, qword ptr [rip + .Lx2107_0]               # name
-                        mov              esi, 3                                         # nargs
-                        call             rt_proc_call_open@PLT
-                        test             rax, rax
-                                                                                        je    .Lx2107_1
-                        call             rt_proc_open_fn@PLT
-                        lea              rcx, [rip + .Lx2107_3]
-                        lea              rdx, [rip + .Lx2107_4]
-                                                                                        jmp   rax
-.Lx2107_3:
-                        call             rt_proc_call_epilogue_γ@PLT
-                                                                                        jmp   .Lx2107_2
-.Lx2107_4:
-                        call             rt_proc_call_epilogue_ω@PLT
-                                                                                        jmp   .Lx2107_2
-.Lx2107_1:
-                        call             rt_faildescr@PLT
 .Lx2107_2:
-                        mov              qword ptr [rsp + 6592], rax
-                        mov              qword ptr [rsp + 6600], rdx
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx2107_240
+                        add              rsp, 16
                         add              rsp, 48
                                                                                         jmp   n1548_lit_string_α
 .Lx2107_240:
-                        add              rsp, 48
+                        add              rsp, 64
                                                                                         jmp   n1548_lit_string_α
 n1547_call_β:
                                                                                         jmp   n1548_lit_string_α
