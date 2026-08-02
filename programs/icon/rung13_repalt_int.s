@@ -7,28 +7,30 @@ main:
                         push             rsi
                         call             core_lib_init@PLT
                         xor              esi, esi
-                        call             main_α
-                        xor              eax, eax
-                        add              rsp, 24
-                        ret
+                                                                                        jmp   main_α
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
-                        .global          main_α
-                        .global          main_β
-                        .global          main_γ
-                        .global          main_ω
-                        sub              rsp, 152
-                        mov              rdi, rsp
-                        mov              ecx, 152
-                        xor              eax, eax
-                        rep stosb
-                        mov              [rsp + 144], rbp
-                        mov              rbp, rsp
 main_α_body:
+                        push             rbp
+                        mov              rbp, rsp
+                        sub              rsp, 8
                         mov              qword ptr [rbp + 64], 0
 #-----------------------------------------------------------------------------------------------------------------------
 n0_lit_integer_α:
-                        mov              qword ptr [rbp + 80], 6
+                        sub              rsp, 96
+                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
+                        mov              qword ptr [rsp + 8], 0
+                        mov              qword ptr [rsp + 16], 0
+                        mov              qword ptr [rsp + 24], 0
+                        mov              qword ptr [rsp + 32], 0
+                        mov              qword ptr [rsp + 40], 0
+                        mov              qword ptr [rsp + 48], 0
+                        mov              qword ptr [rsp + 56], 0
+                        mov              qword ptr [rsp + 64], 0
+                        mov              qword ptr [rsp + 72], 0
+                        mov              qword ptr [rsp + 80], 0
+                        mov              qword ptr [rsp + 88], 0
+                        mov              qword ptr [rbp + 80], 3                        # result
                         mov              rax, qword ptr [rip + .Lx6_0]
                         mov              qword ptr [rbp + 88], rax
                                                                                         jmp   n1_repalt_α
@@ -37,7 +39,7 @@ n0_lit_integer_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n1_repalt_α:
                         mov              qword ptr [rbp + 112], 0
-                                                                                        jmp   n3_lit_integer_α
+                                                                                        jmp   n4_lit_integer_α
 n1_repalt_ry:
                         mov              rax, qword ptr [rbp + 128]
                         mov              qword ptr [rbp + 96], rax
@@ -57,63 +59,62 @@ n2_limit_α:
                         mov              rax, qword ptr [rbp + 64]
                         mov              rcx, qword ptr [rbp + 88]
                         cmp              rax, rcx
-                                                                                        jge   main_ω
+                                                                                        jl    .Lx12_240
+                        add              rsp, 96
+                                                                                        jmp   main_ω
+.Lx12_240:
                         inc              qword ptr [rbp + 64]
                         mov              rax, qword ptr [rbp + 96]
                         mov              qword ptr [rbp + 48], rax
                         mov              rax, qword ptr [rbp + 104]
                         mov              qword ptr [rbp + 56], rax
-                                                                                        jmp   n4_call_builtin_icon_α
+                                                                                        jmp   n3_call_builtin_icon_α
 n2_limit_β:
                                                                                         jmp   n1_repalt_β
 #-----------------------------------------------------------------------------------------------------------------------
-n3_lit_integer_α:
-                        mov              qword ptr [rbp + 128], 6
-                        mov              rax, qword ptr [rip + .Lx13_0]
-                        mov              qword ptr [rbp + 136], rax
-                                                                                        jmp   n1_repalt_ry
-n3_lit_integer_β:
-                                                                                        jmp   n1_repalt_rt
-.Lx13_0:
-                        .quad            1
-#-----------------------------------------------------------------------------------------------------------------------
-n4_call_builtin_icon_α:
+n3_call_builtin_icon_α:
                         mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 16], rax
                         mov              rax, qword ptr [rbp + 56]
                         mov              qword ptr [rbp + 24], rax
                         .section         .rodata
-.Lrkfn15:               .string          "write"
+.Lrkfn14:               .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lrkfn15]
-                        lea              rsi, [rbp + 16]
-                        mov              edx, 1
+                        lea              rdi, [rip + .Lrkfn14]                          # fn
+                        lea              rsi, [rbp + 16]                                # args
+                        mov              edx, 1                                         # nargs
                         call             rt_call_arr@PLT
                         mov              qword ptr [rbp + 0], rax
                         mov              qword ptr [rbp + 8], rdx
-                        cmp              eax, 99
+                        cmp              eax, 104
                                                                                         je    n1_repalt_β
                                                                                         jmp   n1_repalt_β
-n4_call_builtin_icon_β:
+n3_call_builtin_icon_β:
                                                                                         jmp   n1_repalt_β
+#-----------------------------------------------------------------------------------------------------------------------
+n4_lit_integer_α:
+                        mov              qword ptr [rbp + 128], 3                       # result
+                        mov              rax, qword ptr [rip + .Lx15_0]
+                        mov              qword ptr [rbp + 136], rax
+                                                                                        jmp   n1_repalt_ry
+n4_lit_integer_β:
+                                                                                        jmp   n1_repalt_rt
+.Lx15_0:
+                        .quad            1
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
-                        mov              eax, 1
-                        xor              edx, edx
                         mov              rsp, rbp
-                        mov              rbp, [rsp + 144]
-                        add              rsp, 152
-                        ret
+                        pop              rbp
+                        xor              edi, edi
+                        call             exit@PLT
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
                         mov              rsp, rbp
-                        mov              eax, 99
-                        xor              edx, edx
-                        mov              rbp, [rsp + 144]
-                        add              rsp, 152
-                        ret
+                        pop              rbp
+                        mov              edi, 1
+                        call             exit@PLT
                         .section         .note.GNU-stack,"",@progbits
