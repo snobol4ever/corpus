@@ -18,7 +18,22 @@ main_α_body:
 #  'B2' ? ('A' | 'B') . OUTPUT ('1' | '2' | '3') . OUTPUT
 #-----------------------------------------------------------------------------------------------------------------------
 n0_lit_string_α:
-                        sub              rsp, 304
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 2
+                        mov              rax, qword ptr [rip + .Lx15_0]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n1_match_head_α
+n0_lit_string_β:
+                        add              rsp, 16
+                                                                                        jmp   main_γ
+.Lx15_0:
+                        .quad            .Lx15_0_s
+.Lx15_0_s:
+                        .string          "B2"
+#-----------------------------------------------------------------------------------------------------------------------
+n1_match_head_α:
+                        sub              rsp, 288
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -55,27 +70,8 @@ n0_lit_string_α:
                         mov              qword ptr [rsp + 264], 0
                         mov              qword ptr [rsp + 272], 0
                         mov              qword ptr [rsp + 280], 0
-                        mov              qword ptr [rsp + 288], 0
-                        mov              qword ptr [rsp + 296], 0
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 2
-                        mov              rax, qword ptr [rip + .Lx15_0]
-                        mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n1_match_head_α
-n0_lit_string_β:
-                        add              rsp, 16
-                        add              rsp, 304
-                                                                                        jmp   main_γ
-.Lx15_0:
-                        .quad            .Lx15_0_s
-.Lx15_0_s:
-                        .string          "B2"
-#-----------------------------------------------------------------------------------------------------------------------
-n1_match_head_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 288]                     # lit_string
+                        mov              rsi, qword ptr [rsp + 296]
                         mov              qword ptr [rsp + 64], r13                      # outer_Σ
                         mov              qword ptr [rsp + 72], r14                      # outer_δ
                         mov              qword ptr [rsp + 80], r15                      # outer_Δ

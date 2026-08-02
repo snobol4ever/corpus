@@ -35,7 +35,22 @@ main_α_body:
 #  '(A!(C:D))' ? POS(0) BAL . X RPOS(0)   :F(N1)
 #-----------------------------------------------------------------------------------------------------------------------
 n0_lit_string_α:
-                        sub              rsp, 224
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 9
+                        mov              rax, qword ptr [rip + .Lx56_0]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n1_match_head_α
+n0_lit_string_β:
+                        add              rsp, 16
+                                                                                        jmp   n46_lit_string_α
+.Lx56_0:
+                        .quad            .Lx56_0_s
+.Lx56_0_s:
+                        .string          "(A!(C:D))"
+#-----------------------------------------------------------------------------------------------------------------------
+n1_match_head_α:
+                        sub              rsp, 208
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -62,27 +77,8 @@ n0_lit_string_α:
                         mov              qword ptr [rsp + 184], 0
                         mov              qword ptr [rsp + 192], 0
                         mov              qword ptr [rsp + 200], 0
-                        mov              qword ptr [rsp + 208], 0
-                        mov              qword ptr [rsp + 216], 0
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 9
-                        mov              rax, qword ptr [rip + .Lx56_0]
-                        mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n1_match_head_α
-n0_lit_string_β:
-                        add              rsp, 16
-                        add              rsp, 224
-                                                                                        jmp   n46_lit_string_α
-.Lx56_0:
-                        .quad            .Lx56_0_s
-.Lx56_0_s:
-                        .string          "(A!(C:D))"
-#-----------------------------------------------------------------------------------------------------------------------
-n1_match_head_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 208]                     # lit_string
+                        mov              rsi, qword ptr [rsp + 216]
                         mov              qword ptr [rsp + 64], r13                      # outer_Σ
                         mov              qword ptr [rsp + 72], r14                      # outer_δ
                         mov              qword ptr [rsp + 80], r15                      # outer_Δ
@@ -280,7 +276,22 @@ n7_assign_β:
 # T2 '(AB)+(CD)' ? POS(0) BAL . Y RPOS(0)  :F(N2)
 #-----------------------------------------------------------------------------------------------------------------------
 n8_lit_string_α:
-                        sub              rsp, 384
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 9
+                        mov              rax, qword ptr [rip + .Lx67_0]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n9_match_head_α
+n8_lit_string_β:
+                        add              rsp, 16
+                                                                                        jmp   n50_lit_string_α
+.Lx67_0:
+                        .quad            .Lx67_0_s
+.Lx67_0_s:
+                        .string          "(AB)+(CD)"
+#-----------------------------------------------------------------------------------------------------------------------
+n9_match_head_α:
+                        sub              rsp, 368
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -327,27 +338,8 @@ n8_lit_string_α:
                         mov              qword ptr [rsp + 344], 0
                         mov              qword ptr [rsp + 352], 0
                         mov              qword ptr [rsp + 360], 0
-                        mov              qword ptr [rsp + 368], 0
-                        mov              qword ptr [rsp + 376], 0
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 9
-                        mov              rax, qword ptr [rip + .Lx67_0]
-                        mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n9_match_head_α
-n8_lit_string_β:
-                        add              rsp, 16
-                        add              rsp, 384
-                                                                                        jmp   n50_lit_string_α
-.Lx67_0:
-                        .quad            .Lx67_0_s
-.Lx67_0_s:
-                        .string          "(AB)+(CD)"
-#-----------------------------------------------------------------------------------------------------------------------
-n9_match_head_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 368]                     # lit_string
+                        mov              rsi, qword ptr [rsp + 376]
                         mov              qword ptr [rsp + 240], r13                     # outer_Σ
                         mov              qword ptr [rsp + 248], r14                     # outer_δ
                         mov              qword ptr [rsp + 256], r15                     # outer_Δ
@@ -545,7 +537,22 @@ n15_assign_β:
 # T3 '9395' ? POS(0) BAL . Z RPOS(0)       :F(N3)
 #-----------------------------------------------------------------------------------------------------------------------
 n16_lit_string_α:
-                        sub              rsp, 656
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 4
+                        mov              rax, qword ptr [rip + .Lx78_0]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n17_match_head_α
+n16_lit_string_β:
+                        add              rsp, 16
+                                                                                        jmp   n54_lit_string_α
+.Lx78_0:
+                        .quad            .Lx78_0_s
+.Lx78_0_s:
+                        .string          "9395"
+#-----------------------------------------------------------------------------------------------------------------------
+n17_match_head_α:
+                        sub              rsp, 640
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -626,27 +633,8 @@ n16_lit_string_α:
                         mov              qword ptr [rsp + 616], 0
                         mov              qword ptr [rsp + 624], 0
                         mov              qword ptr [rsp + 632], 0
-                        mov              qword ptr [rsp + 640], 0
-                        mov              qword ptr [rsp + 648], 0
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 4
-                        mov              rax, qword ptr [rip + .Lx78_0]
-                        mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n17_match_head_α
-n16_lit_string_β:
-                        add              rsp, 16
-                        add              rsp, 656
-                                                                                        jmp   n54_lit_string_α
-.Lx78_0:
-                        .quad            .Lx78_0_s
-.Lx78_0_s:
-                        .string          "9395"
-#-----------------------------------------------------------------------------------------------------------------------
-n17_match_head_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 640]                     # lit_string
+                        mov              rsi, qword ptr [rsp + 648]
                         mov              qword ptr [rsp + 512], r13                     # outer_Σ
                         mov              qword ptr [rsp + 520], r14                     # outer_δ
                         mov              qword ptr [rsp + 528], r15                     # outer_Δ

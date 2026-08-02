@@ -59,7 +59,18 @@ n1_assign_β:
 #         subject POS(0) 'H'  :f(e001)
 #-----------------------------------------------------------------------------------------------------------------------
 n2_var_α:
-                        sub              rsp, 176
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052288]                    # subject
+                        mov              rdx, qword ptr [1879052296]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n3_match_head_α
+n2_var_β:
+                        add              rsp, 16
+                                                                                        jmp   n11_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n3_match_head_α:
+                        sub              rsp, 160
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -80,23 +91,8 @@ n2_var_α:
                         mov              qword ptr [rsp + 136], 0
                         mov              qword ptr [rsp + 144], 0
                         mov              qword ptr [rsp + 152], 0
-                        mov              qword ptr [rsp + 160], 0
-                        mov              qword ptr [rsp + 168], 0
-                        sub              rsp, 16
-                        mov              rax, qword ptr [1879052288]                    # subject
-                        mov              rdx, qword ptr [1879052296]
-                        mov              qword ptr [rsp + 0], rax                       # result
-                        mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n3_match_head_α
-n2_var_β:
-                        add              rsp, 16
-                        add              rsp, 176
-                                                                                        jmp   n11_lit_string_α
-#-----------------------------------------------------------------------------------------------------------------------
-n3_match_head_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 160]                     # var
+                        mov              rsi, qword ptr [rsp + 168]
                         mov              qword ptr [rsp + 96], r13                      # outer_Σ
                         mov              qword ptr [rsp + 104], r14                     # outer_δ
                         mov              qword ptr [rsp + 112], r15                     # outer_Δ
@@ -360,7 +356,18 @@ n14_assign_β:
 #         subject 'EL' POS(3)  :f(e002)
 #-----------------------------------------------------------------------------------------------------------------------
 n15_var_α:
-                        sub              rsp, 368
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052288]                    # subject
+                        mov              rdx, qword ptr [1879052296]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n16_match_head_α
+n15_var_β:
+                        add              rsp, 16
+                                                                                        jmp   n24_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n16_match_head_α:
+                        sub              rsp, 352
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -405,23 +412,8 @@ n15_var_α:
                         mov              qword ptr [rsp + 328], 0
                         mov              qword ptr [rsp + 336], 0
                         mov              qword ptr [rsp + 344], 0
-                        mov              qword ptr [rsp + 352], 0
-                        mov              qword ptr [rsp + 360], 0
-                        sub              rsp, 16
-                        mov              rax, qword ptr [1879052288]                    # subject
-                        mov              rdx, qword ptr [1879052296]
-                        mov              qword ptr [rsp + 0], rax                       # result
-                        mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n16_match_head_α
-n15_var_β:
-                        add              rsp, 16
-                        add              rsp, 368
-                                                                                        jmp   n24_lit_string_α
-#-----------------------------------------------------------------------------------------------------------------------
-n16_match_head_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 352]                     # var
+                        mov              rsi, qword ptr [rsp + 360]
                         mov              qword ptr [rsp + 288], r13                     # outer_Σ
                         mov              qword ptr [rsp + 296], r14                     # outer_δ
                         mov              qword ptr [rsp + 304], r15                     # outer_Δ
@@ -688,7 +680,18 @@ n27_assign_β:
 #         subject POS(2) 'H'  :s(e003)
 #-----------------------------------------------------------------------------------------------------------------------
 n28_var_α:
-                        sub              rsp, 560
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052288]                    # subject
+                        mov              rdx, qword ptr [1879052296]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n29_match_head_α
+n28_var_β:
+                        add              rsp, 16
+                                                                                        jmp   n37_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n29_match_head_α:
+                        sub              rsp, 544
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -757,23 +760,8 @@ n28_var_α:
                         mov              qword ptr [rsp + 520], 0
                         mov              qword ptr [rsp + 528], 0
                         mov              qword ptr [rsp + 536], 0
-                        mov              qword ptr [rsp + 544], 0
-                        mov              qword ptr [rsp + 552], 0
-                        sub              rsp, 16
-                        mov              rax, qword ptr [1879052288]                    # subject
-                        mov              rdx, qword ptr [1879052296]
-                        mov              qword ptr [rsp + 0], rax                       # result
-                        mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n29_match_head_α
-n28_var_β:
-                        add              rsp, 16
-                        add              rsp, 560
-                                                                                        jmp   n37_lit_string_α
-#-----------------------------------------------------------------------------------------------------------------------
-n29_match_head_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 544]                     # var
+                        mov              rsi, qword ptr [rsp + 552]
                         mov              qword ptr [rsp + 480], r13                     # outer_Σ
                         mov              qword ptr [rsp + 488], r14                     # outer_δ
                         mov              qword ptr [rsp + 496], r15                     # outer_Δ

@@ -156,6 +156,41 @@ n6_assign_β:
 #         X  ANY('123456789')  FENCE(SPAN(digits) | '') . N
 #-----------------------------------------------------------------------------------------------------------------------
 n7_var_α:
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052304]                    # X
+                        mov              rdx, qword ptr [1879052312]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n8_var_α
+n7_var_β:
+                        add              rsp, 16
+                                                                                        jmp   n19_var_α
+#-----------------------------------------------------------------------------------------------------------------------
+n8_var_α:
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052288]                    # digits
+                        mov              rdx, qword ptr [1879052296]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n9_coerce_string_α
+n8_var_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n19_var_α
+#-----------------------------------------------------------------------------------------------------------------------
+n9_coerce_string_α:
+                        sub              rsp, 16
+                        lea              rdi, [rsp + 16]                                # var
+                        lea              rsi, [rsp + 0]                                 # result
+                        mov              rdx, 12320956                                  # codes
+                        call             rt_coerce_str_d@PLT
+                                                                                        jmp   n10_match_head_α
+n9_coerce_string_β:
+                        add              rsp, 16
+                        add              rsp, 32
+                                                                                        jmp   n19_var_α
+#-----------------------------------------------------------------------------------------------------------------------
+n10_match_head_α:
                         sub              rsp, 400
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
@@ -207,44 +242,16 @@ n7_var_α:
                         mov              qword ptr [rsp + 376], 0
                         mov              qword ptr [rsp + 384], 0
                         mov              qword ptr [rsp + 392], 0
-                        mov              rax, qword ptr [1879052304]                    # X
-                        mov              rdx, qword ptr [1879052312]
-                        mov              qword ptr [rsp + 384], rax                     # result
-                        mov              qword ptr [rsp + 392], rdx
-                                                                                        jmp   n8_var_α
-n7_var_β:
-                        add              rsp, 400
-                                                                                        jmp   n19_var_α
-#-----------------------------------------------------------------------------------------------------------------------
-n8_var_α:
-                        mov              rax, qword ptr [1879052288]                    # digits
-                        mov              rdx, qword ptr [1879052296]
-                        mov              qword ptr [rsp + 368], rax                     # result
-                        mov              qword ptr [rsp + 376], rdx
-                                                                                        jmp   n9_coerce_string_α
-n8_var_β:
-                        add              rsp, 400
-                                                                                        jmp   n19_var_α
-#-----------------------------------------------------------------------------------------------------------------------
-n9_coerce_string_α:
-                        lea              rdi, [rsp + 368]                               # in
-                        lea              rsi, [rsp + 352]                               # out
-                        mov              rdx, 12320956                                  # codes
-                        call             rt_coerce_str_d@PLT
-                                                                                        jmp   n10_match_head_α
-n9_coerce_string_β:
-                        add              rsp, 400
-                                                                                        jmp   n19_var_α
-#-----------------------------------------------------------------------------------------------------------------------
-n10_match_head_α:
+                        mov              rdi, qword ptr [rsp + 432]                     # var
+                        mov              rsi, qword ptr [rsp + 440]
+                        mov              qword ptr [rsp + 384], rdi
+                        mov              qword ptr [rsp + 392], rsi
                         mov              qword ptr [rsp + 208], r13                     # outer_Σ
                         mov              qword ptr [rsp + 216], r14                     # outer_δ
                         mov              qword ptr [rsp + 224], r15                     # outer_Δ
                         lea              rcx, [rip + g_cap_gen]
                         mov              eax, dword ptr [rcx + 0]
                         mov              qword ptr [rsp + 232], rax                     # cap_gen
-                        mov              rdi, qword ptr [rsp + 384]                     # lo
-                        mov              rsi, qword ptr [rsp + 392]                     # hi
                         call             rt_match_enter@PLT
                         mov              r13, rax
                         mov              r15, rdx
@@ -295,7 +302,7 @@ n10_match_head_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rsp + 232]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        add              rsp, 400
+                        add              rsp, 448
                                                                                         jmp   n19_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n11_match_sequence_α:
@@ -371,7 +378,7 @@ n12_match_release_α:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rsp + 232]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        add              rsp, 400
+                        add              rsp, 448
                                                                                         jmp   n19_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n13_match_assign_save_α:

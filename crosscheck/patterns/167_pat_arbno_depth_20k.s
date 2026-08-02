@@ -137,7 +137,18 @@ n5_assign_β:
 #  S ? POS(0) ARBNO('a') 'b' RPOS(0)                            :S(Y)F(N)
 #-----------------------------------------------------------------------------------------------------------------------
 n6_var_α:
-                        sub              rsp, 368
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052288]                    # S
+                        mov              rdx, qword ptr [1879052296]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n7_match_head_α
+n6_var_β:
+                        add              rsp, 16
+                                                                                        jmp   n19_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n7_match_head_α:
+                        sub              rsp, 352
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -182,23 +193,8 @@ n6_var_α:
                         mov              qword ptr [rsp + 328], 0
                         mov              qword ptr [rsp + 336], 0
                         mov              qword ptr [rsp + 344], 0
-                        mov              qword ptr [rsp + 352], 0
-                        mov              qword ptr [rsp + 360], 0
-                        sub              rsp, 16
-                        mov              rax, qword ptr [1879052288]                    # S
-                        mov              rdx, qword ptr [1879052296]
-                        mov              qword ptr [rsp + 0], rax                       # result
-                        mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n7_match_head_α
-n6_var_β:
-                        add              rsp, 16
-                        add              rsp, 368
-                                                                                        jmp   n19_lit_string_α
-#-----------------------------------------------------------------------------------------------------------------------
-n7_match_head_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 352]                     # var
+                        mov              rsi, qword ptr [rsp + 360]
                         mov              qword ptr [rsp + 200], rbp                     # old_rbp
                         mov              rbp, rsp                                       # stmt_base
                         mov              qword ptr [rbp + 208], r13                     # outer_Σ

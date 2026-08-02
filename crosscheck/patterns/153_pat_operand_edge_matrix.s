@@ -406,6 +406,45 @@ n15_assign_β:
 # 	'EXCEPTIONS ARE AS TRUE AS RULES' BREAKX(V) . OUTPUT 'AS'
 #-----------------------------------------------------------------------------------------------------------------------
 n16_lit_string_α:
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 31
+                        mov              rax, qword ptr [rip + .Lx150_0]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n17_var_α
+n16_lit_string_β:
+                        add              rsp, 16
+                                                                                        jmp   n26_lit_string_α
+.Lx150_0:
+                        .quad            .Lx150_0_s
+.Lx150_0_s:
+                        .string          "EXCEPTIONS ARE AS TRUE AS RULES"
+#-----------------------------------------------------------------------------------------------------------------------
+n17_var_α:
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052288]                    # V
+                        mov              rdx, qword ptr [1879052296]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n18_coerce_string_α
+n17_var_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n26_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n18_coerce_string_α:
+                        sub              rsp, 16
+                        lea              rdi, [rsp + 16]                                # var
+                        lea              rsi, [rsp + 0]                                 # result
+                        mov              rdx, 4587590                                   # codes
+                        call             rt_coerce_str_d@PLT
+                                                                                        jmp   n19_match_head_α
+n18_coerce_string_β:
+                        add              rsp, 16
+                        add              rsp, 32
+                                                                                        jmp   n26_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n19_match_head_α:
                         sub              rsp, 480
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
@@ -467,48 +506,16 @@ n16_lit_string_α:
                         mov              qword ptr [rsp + 456], 0
                         mov              qword ptr [rsp + 464], 0
                         mov              qword ptr [rsp + 472], 0
-                        mov              qword ptr [rsp + 464], 2                       # result
-                        mov              dword ptr [rsp + 468], 31
-                        mov              rax, qword ptr [rip + .Lx150_0]
-                        mov              qword ptr [rsp + 472], rax
-                                                                                        jmp   n17_var_α
-n16_lit_string_β:
-                        add              rsp, 480
-                                                                                        jmp   n26_lit_string_α
-.Lx150_0:
-                        .quad            .Lx150_0_s
-.Lx150_0_s:
-                        .string          "EXCEPTIONS ARE AS TRUE AS RULES"
-#-----------------------------------------------------------------------------------------------------------------------
-n17_var_α:
-                        mov              rax, qword ptr [1879052288]                    # V
-                        mov              rdx, qword ptr [1879052296]
-                        mov              qword ptr [rsp + 448], rax                     # result
-                        mov              qword ptr [rsp + 456], rdx
-                                                                                        jmp   n18_coerce_string_α
-n17_var_β:
-                        add              rsp, 480
-                                                                                        jmp   n26_lit_string_α
-#-----------------------------------------------------------------------------------------------------------------------
-n18_coerce_string_α:
-                        lea              rdi, [rsp + 448]                               # in
-                        lea              rsi, [rsp + 432]                               # out
-                        mov              rdx, 4587590                                   # codes
-                        call             rt_coerce_str_d@PLT
-                                                                                        jmp   n19_match_head_α
-n18_coerce_string_β:
-                        add              rsp, 480
-                                                                                        jmp   n26_lit_string_α
-#-----------------------------------------------------------------------------------------------------------------------
-n19_match_head_α:
+                        mov              rdi, qword ptr [rsp + 512]                     # lit_string
+                        mov              rsi, qword ptr [rsp + 520]
+                        mov              qword ptr [rsp + 464], rdi
+                        mov              qword ptr [rsp + 472], rsi
                         mov              qword ptr [rsp + 336], r13                     # outer_Σ
                         mov              qword ptr [rsp + 344], r14                     # outer_δ
                         mov              qword ptr [rsp + 352], r15                     # outer_Δ
                         lea              rcx, [rip + g_cap_gen]
                         mov              eax, dword ptr [rcx + 0]
                         mov              qword ptr [rsp + 360], rax                     # cap_gen
-                        mov              rdi, qword ptr [rsp + 464]                     # lo
-                        mov              rsi, qword ptr [rsp + 472]                     # hi
                         call             rt_match_enter@PLT
                         mov              r13, rax
                         mov              r15, rdx
@@ -559,7 +566,7 @@ n19_match_head_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rsp + 360]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        add              rsp, 480
+                        add              rsp, 528
                                                                                         jmp   n26_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n20_match_sequence_α:
@@ -635,7 +642,7 @@ n21_match_release_α:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rsp + 360]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        add              rsp, 480
+                        add              rsp, 528
                                                                                         jmp   n26_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
 n22_match_lit_α:
@@ -2496,6 +2503,45 @@ n91_assign_β:
 # 	'abcde' RPOS(N) LEN(1) . W
 #-----------------------------------------------------------------------------------------------------------------------
 n92_lit_string_α:
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 5
+                        mov              rax, qword ptr [rip + .Lx261_0]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n93_var_α
+n92_lit_string_β:
+                        add              rsp, 16
+                                                                                        jmp   n102_var_α
+.Lx261_0:
+                        .quad            .Lx261_0_s
+.Lx261_0_s:
+                        .string          "abcde"
+#-----------------------------------------------------------------------------------------------------------------------
+n93_var_α:
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052336]                    # N
+                        mov              rdx, qword ptr [1879052344]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n94_coerce_integer_α
+n93_var_β:
+                        add              rsp, 16
+                        add              rsp, 16
+                                                                                        jmp   n102_var_α
+#-----------------------------------------------------------------------------------------------------------------------
+n94_coerce_integer_α:
+                        sub              rsp, 16
+                        lea              rdi, [rsp + 16]                                # var
+                        lea              rsi, [rsp + 0]                                 # result
+                        mov              rdx, 12189881                                  # codes
+                        call             rt_coerce_int_d@PLT
+                                                                                        jmp   n95_match_head_α
+n94_coerce_integer_β:
+                        add              rsp, 16
+                        add              rsp, 32
+                                                                                        jmp   n102_var_α
+#-----------------------------------------------------------------------------------------------------------------------
+n95_match_head_α:
                         sub              rsp, 1856
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
@@ -2729,48 +2775,16 @@ n92_lit_string_α:
                         mov              qword ptr [rsp + 1832], 0
                         mov              qword ptr [rsp + 1840], 0
                         mov              qword ptr [rsp + 1848], 0
-                        mov              qword ptr [rsp + 1840], 2                      # result
-                        mov              dword ptr [rsp + 1844], 5
-                        mov              rax, qword ptr [rip + .Lx261_0]
-                        mov              qword ptr [rsp + 1848], rax
-                                                                                        jmp   n93_var_α
-n92_lit_string_β:
-                        add              rsp, 1856
-                                                                                        jmp   n102_var_α
-.Lx261_0:
-                        .quad            .Lx261_0_s
-.Lx261_0_s:
-                        .string          "abcde"
-#-----------------------------------------------------------------------------------------------------------------------
-n93_var_α:
-                        mov              rax, qword ptr [1879052336]                    # N
-                        mov              rdx, qword ptr [1879052344]
-                        mov              qword ptr [rsp + 1824], rax                    # result
-                        mov              qword ptr [rsp + 1832], rdx
-                                                                                        jmp   n94_coerce_integer_α
-n93_var_β:
-                        add              rsp, 1856
-                                                                                        jmp   n102_var_α
-#-----------------------------------------------------------------------------------------------------------------------
-n94_coerce_integer_α:
-                        lea              rdi, [rsp + 1824]                              # in
-                        lea              rsi, [rsp + 1808]                              # out
-                        mov              rdx, 12189881                                  # codes
-                        call             rt_coerce_int_d@PLT
-                                                                                        jmp   n95_match_head_α
-n94_coerce_integer_β:
-                        add              rsp, 1856
-                                                                                        jmp   n102_var_α
-#-----------------------------------------------------------------------------------------------------------------------
-n95_match_head_α:
+                        mov              rdi, qword ptr [rsp + 1888]                    # lit_string
+                        mov              rsi, qword ptr [rsp + 1896]
+                        mov              qword ptr [rsp + 1840], rdi
+                        mov              qword ptr [rsp + 1848], rsi
                         mov              qword ptr [rsp + 1712], r13                    # outer_Σ
                         mov              qword ptr [rsp + 1720], r14                    # outer_δ
                         mov              qword ptr [rsp + 1728], r15                    # outer_Δ
                         lea              rcx, [rip + g_cap_gen]
                         mov              eax, dword ptr [rcx + 0]
                         mov              qword ptr [rsp + 1736], rax                    # cap_gen
-                        mov              rdi, qword ptr [rsp + 1840]                    # lo
-                        mov              rsi, qword ptr [rsp + 1848]                    # hi
                         call             rt_match_enter@PLT
                         mov              r13, rax
                         mov              r15, rdx
@@ -2821,7 +2835,7 @@ n95_match_head_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rsp + 1736]                    # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        add              rsp, 1856
+                        add              rsp, 1904
                                                                                         jmp   n102_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n96_match_sequence_α:
@@ -2897,7 +2911,7 @@ n97_match_release_α:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rsp + 1736]                    # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        add              rsp, 1856
+                        add              rsp, 1904
                                                                                         jmp   n102_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n98_match_assign_save_α:

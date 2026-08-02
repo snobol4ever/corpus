@@ -535,7 +535,18 @@ n28_assign_β:
 #         BIG POS(0) LEN(10) . HEAD10
 #-----------------------------------------------------------------------------------------------------------------------
 n29_var_α:
-                        sub              rsp, 720
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052288]                    # BIG
+                        mov              rdx, qword ptr [1879052296]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n30_match_head_α
+n29_var_β:
+                        add              rsp, 16
+                                                                                        jmp   n38_var_α
+#-----------------------------------------------------------------------------------------------------------------------
+n30_match_head_α:
+                        sub              rsp, 704
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -624,23 +635,8 @@ n29_var_α:
                         mov              qword ptr [rsp + 680], 0
                         mov              qword ptr [rsp + 688], 0
                         mov              qword ptr [rsp + 696], 0
-                        mov              qword ptr [rsp + 704], 0
-                        mov              qword ptr [rsp + 712], 0
-                        sub              rsp, 16
-                        mov              rax, qword ptr [1879052288]                    # BIG
-                        mov              rdx, qword ptr [1879052296]
-                        mov              qword ptr [rsp + 0], rax                       # result
-                        mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n30_match_head_α
-n29_var_β:
-                        add              rsp, 16
-                        add              rsp, 720
-                                                                                        jmp   n38_var_α
-#-----------------------------------------------------------------------------------------------------------------------
-n30_match_head_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 704]                     # var
+                        mov              rsi, qword ptr [rsp + 712]
                         mov              qword ptr [rsp + 592], r13                     # outer_Σ
                         mov              qword ptr [rsp + 600], r14                     # outer_δ
                         mov              qword ptr [rsp + 608], r15                     # outer_Δ
@@ -867,7 +863,18 @@ n39_assign_β:
 #         BIG RTAB(10) REM . TAIL10
 #-----------------------------------------------------------------------------------------------------------------------
 n40_var_α:
-                        sub              rsp, 192
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052288]                    # BIG
+                        mov              rdx, qword ptr [1879052296]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n41_match_head_α
+n40_var_β:
+                        add              rsp, 16
+                                                                                        jmp   n49_var_α
+#-----------------------------------------------------------------------------------------------------------------------
+n41_match_head_α:
+                        sub              rsp, 176
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -890,23 +897,8 @@ n40_var_α:
                         mov              qword ptr [rsp + 152], 0
                         mov              qword ptr [rsp + 160], 0
                         mov              qword ptr [rsp + 168], 0
-                        mov              qword ptr [rsp + 176], 0
-                        mov              qword ptr [rsp + 184], 0
-                        sub              rsp, 16
-                        mov              rax, qword ptr [1879052288]                    # BIG
-                        mov              rdx, qword ptr [1879052296]
-                        mov              qword ptr [rsp + 0], rax                       # result
-                        mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n41_match_head_α
-n40_var_β:
-                        add              rsp, 16
-                        add              rsp, 192
-                                                                                        jmp   n49_var_α
-#-----------------------------------------------------------------------------------------------------------------------
-n41_match_head_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 176]                     # var
+                        mov              rsi, qword ptr [rsp + 184]
                         mov              qword ptr [rsp + 64], r13                      # outer_Σ
                         mov              qword ptr [rsp + 72], r14                      # outer_δ
                         mov              qword ptr [rsp + 80], r15                      # outer_Δ
