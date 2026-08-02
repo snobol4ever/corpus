@@ -298,13 +298,13 @@ n19_lit_string_α:
                         mov              dword ptr [rsp + 4], 2
                         mov              rax, qword ptr [rip + .Lx33_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n20_match_head_α
+                                                                                        jmp   n20_match_begin_α
 .Lx33_0:
                         .quad            .Lx33_0_s
 .Lx33_0_s:
                         .string          "AB"
 #-----------------------------------------------------------------------------------------------------------------------
-n20_match_head_α:
+n20_match_begin_α:
                         mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, qword ptr [rsp + 8]
                         add              rsp, 16
@@ -335,7 +335,7 @@ n20_match_head_α:
 .Lx35_0:
                         mov              r14d, dword ptr [rbp + 16]
                                                                                         jmp   n21_match_defer_α
-n20_match_head_β:
+n20_match_begin_β:
                         add              dword ptr [rbp + 16], 1
                         mov              eax, dword ptr [rbp + 16]
                         cmp              eax, r15d
@@ -399,9 +399,9 @@ n21_match_defer_α:
                         lea              rcx, [rip + g_scan_hit_start]
                         mov              rax, qword ptr [rcx]
                         mov              dword ptr [rbp + 16], eax
-                                                                                        jmp   n22_match_release_α
+                                                                                        jmp   n22_match_end_α
 .Lx36_5:
-                                                                                        jmp   n20_match_head_β
+                                                                                        jmp   n20_match_begin_β
 .Lx36_0:
                         push             r14
                         push             r15
@@ -437,19 +437,19 @@ n21_match_defer_α:
                         mov              edi, r14d                                      # cur_delta
                         call             rt_defer_close@PLT
                         test             eax, eax
-                                                                                        js    n20_match_head_β
+                                                                                        js    n20_match_begin_β
                         mov              r14d, eax
                         lea              rax, [rip + .Lx36_6]
                         sub              rsp, 8
                         push             rax
-                                                                                        jmp   n22_match_release_α
+                                                                                        jmp   n22_match_end_α
 .Lx36_6:
                         add              rsp, 16
-                                                                                        jmp   n20_match_head_β
+                                                                                        jmp   n20_match_begin_β
 n21_match_defer_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
-n22_match_release_α:
+n22_match_end_α:
                         mov              rax, qword ptr [rbp + 24]
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax

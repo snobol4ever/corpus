@@ -23,7 +23,7 @@ n0_lit_string_α:
                         mov              dword ptr [rsp + 4], 3
                         mov              rax, qword ptr [rip + .Lx11_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n1_match_head_α
+                                                                                        jmp   n1_match_begin_α
 n0_lit_string_β:
                         add              rsp, 16
                                                                                         jmp   main_γ
@@ -32,7 +32,7 @@ n0_lit_string_β:
 .Lx11_0_s:
                         .string          "AXB"
 #-----------------------------------------------------------------------------------------------------------------------
-n1_match_head_α:
+n1_match_begin_α:
                         sub              rsp, 224
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
@@ -91,7 +91,7 @@ n1_match_head_α:
 .Lx13_0:
                         mov              r14d, dword ptr [rsp + 0]
                                                                                         jmp   n2_match_sequence_α
-n1_match_head_β:
+n1_match_begin_β:
                         add              dword ptr [rsp + 0], 1
                         mov              eax, dword ptr [rsp + 0]
                         cmp              eax, r15d
@@ -126,13 +126,13 @@ n1_match_head_β:
 n2_match_sequence_α:
                                                                                         jmp   n10_match_lit_α
 n2_match_sequence_as:
-                                                                                        jmp   n3_match_release_α
+                                                                                        jmp   n3_match_end_α
 n2_match_sequence_β:
                                                                                         jmp   n4_match_alternate_β
 n2_match_sequence_af:
-                                                                                        jmp   n1_match_head_β
+                                                                                        jmp   n1_match_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
-n3_match_release_α:
+n3_match_end_α:
                         mov              r10, qword ptr [1879048192]
 .Lx17_9:
                         sub              r10, 24
@@ -221,7 +221,7 @@ n4_match_alternate_s1:
 .Lx19_41:
                                                                                         jmp   n5_match_lit_β
 n4_match_alternate_as:
-                                                                                        jmp   n3_match_release_α
+                                                                                        jmp   n3_match_end_α
 n4_match_alternate_β:
                         mov              rax, qword ptr [rsp + 200]
                                                                                         jmp   rax
@@ -313,16 +313,16 @@ n10_match_lit_α:
                         mov              eax, r14d
                         add              eax, 1
                         cmp              eax, r15d
-                                                                                        jg    n1_match_head_β
+                                                                                        jg    n1_match_begin_β
                         movsxd           rcx, r14d
                         movzx            eax, byte ptr [r13+rcx]
                         cmp              eax, 65
-                                                                                        jne   n1_match_head_β
+                                                                                        jne   n1_match_begin_β
                         add              r14d, 1
                                                                                         jmp   n7_match_assign_save_α
 n10_match_lit_β:
                         sub              r14d, 1
-                                                                                        jmp   n1_match_head_β
+                                                                                        jmp   n1_match_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                                                                                         jmp   main_ω

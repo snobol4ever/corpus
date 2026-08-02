@@ -96,9 +96,9 @@ n4_var_α:
                         mov              rdx, qword ptr [1879052296]
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n5_match_head_α
+                                                                                        jmp   n5_match_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
-n5_match_head_α:
+n5_match_begin_α:
                         mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, qword ptr [rsp + 8]
                         add              rsp, 16
@@ -129,7 +129,7 @@ n5_match_head_α:
 .Lx19_0:
                         mov              r14d, dword ptr [rbp + 16]
                                                                                         jmp   n6_match_patref_α
-n5_match_head_β:
+n5_match_begin_β:
                         add              dword ptr [rbp + 16], 1
                         mov              eax, dword ptr [rbp + 16]
                         cmp              eax, r15d
@@ -186,9 +186,9 @@ n6_match_patref_α:
                         lea              rcx, [rip + g_scan_hit_start]
                         mov              rax, qword ptr [rcx]
                         mov              dword ptr [rbp + 16], eax
-                                                                                        jmp   n7_match_release_α
+                                                                                        jmp   n7_match_end_α
 .Lx20_5:
-                                                                                        jmp   n5_match_head_β
+                                                                                        jmp   n5_match_begin_β
 .Lx20_0:
                         push             r14
                         push             r15
@@ -224,19 +224,19 @@ n6_match_patref_α:
                         mov              edi, r14d                                      # cur_delta
                         call             rt_defer_close@PLT
                         test             eax, eax
-                                                                                        js    n5_match_head_β
+                                                                                        js    n5_match_begin_β
                         mov              r14d, eax
                         lea              rax, [rip + .Lx20_6]
                         sub              rsp, 8
                         push             rax
-                                                                                        jmp   n7_match_release_α
+                                                                                        jmp   n7_match_end_α
 .Lx20_6:
                         add              rsp, 16
-                                                                                        jmp   n5_match_head_β
+                                                                                        jmp   n5_match_begin_β
 n6_match_patref_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
-n7_match_release_α:
+n7_match_end_α:
                         mov              rax, qword ptr [rbp + 24]
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax

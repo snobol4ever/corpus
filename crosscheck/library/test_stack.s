@@ -4521,12 +4521,12 @@ n263_var_α:
                         mov              rdx, qword ptr [1879052488]
                         mov              qword ptr [rsp + 2416], rax                    # result
                         mov              qword ptr [rsp + 2424], rdx
-                                                                                        jmp   n264_match_head_α
+                                                                                        jmp   n264_match_begin_α
 n263_var_β:
                         add              rsp, 2560
                                                                                         jmp   n284_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n264_match_head_α:
+n264_match_begin_α:
                         mov              qword ptr [rsp + 2240], r13                    # outer_Σ
                         mov              qword ptr [rsp + 2248], r14                    # outer_δ
                         mov              qword ptr [rsp + 2256], r15                    # outer_Δ
@@ -4556,7 +4556,7 @@ n264_match_head_α:
 .Lx435_0:
                         mov              r14d, dword ptr [rsp + 0]
                                                                                         jmp   n265_match_sequence_α
-n264_match_head_β:
+n264_match_begin_β:
                         add              dword ptr [rsp + 0], 1
                         mov              eax, dword ptr [rsp + 0]
                         cmp              eax, r15d
@@ -4591,13 +4591,13 @@ n264_match_head_β:
 n265_match_sequence_α:
                                                                                         jmp   n281_match_assign_save_α
 n265_match_sequence_as:
-                                                                                        jmp   n266_match_release_α
+                                                                                        jmp   n266_match_end_α
 n265_match_sequence_β:
                                                                                         jmp   n279_match_assign_cond_β
 n265_match_sequence_af:
-                                                                                        jmp   n264_match_head_β
+                                                                                        jmp   n264_match_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
-n266_match_release_α:
+n266_match_end_α:
                         mov              r10, qword ptr [1879048192]
 .Lx439_9:
                         sub              r10, 24
@@ -5128,7 +5128,7 @@ n279_match_assign_cond_α:
                         mov              qword ptr [r10 + 16], rdx
                         add              r10, 24
                         mov              qword ptr [1879048192], r10
-                                                                                        jmp   n266_match_release_α
+                                                                                        jmp   n266_match_end_α
 n279_match_assign_cond_β:
                         mov              rax, qword ptr [1879048192]
                         sub              rax, 24
@@ -5156,7 +5156,7 @@ n281_match_assign_save_α:
                                                                                         jmp   n282_match_break_α
 n281_match_assign_save_β:
                         add              rsp, 16
-                                                                                        jmp   n264_match_head_β
+                                                                                        jmp   n264_match_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
 n282_match_break_α:
                         sub              rsp, 16
@@ -5166,7 +5166,7 @@ n282_match_break_α:
                                                                                         jl    .Lx465_237
                         add              rsp, 16
                         add              rsp, 16
-                                                                                        jmp   n264_match_head_β
+                                                                                        jmp   n264_match_begin_β
 .Lx465_237:
                         movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 32
@@ -5176,7 +5176,7 @@ n282_match_break_α:
                                                                                         jl    .Lx465_238
                         add              rsp, 16
                         add              rsp, 16
-                                                                                        jmp   n264_match_head_β
+                                                                                        jmp   n264_match_begin_β
 .Lx465_238:
                         movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 32
@@ -5186,7 +5186,7 @@ n282_match_break_α:
                                                                                         jl    .Lx465_239
                         add              rsp, 16
                         add              rsp, 16
-                                                                                        jmp   n264_match_head_β
+                                                                                        jmp   n264_match_begin_β
 .Lx465_239:
                         movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 32
@@ -5196,7 +5196,7 @@ n282_match_break_α:
                                                                                         jl    .Lx465_240
                         add              rsp, 16
                         add              rsp, 16
-                                                                                        jmp   n264_match_head_β
+                                                                                        jmp   n264_match_begin_β
 .Lx465_240:
                         movzx            esi, byte ptr [r13+rcx]
                         cmp              esi, 32
@@ -5211,7 +5211,7 @@ n282_match_break_β:
                         mov              r14d, dword ptr [rsp + 0]
                         add              rsp, 16
                         add              rsp, 16
-                                                                                        jmp   n264_match_head_β
+                                                                                        jmp   n264_match_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
 n283_match_assign_cond_α:
                         mov              eax, dword ptr [rsp + 16]

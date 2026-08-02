@@ -651,9 +651,9 @@ n26_var_α:
                         mov              rdx, qword ptr [1879052328]
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n27_match_head_α
+                                                                                        jmp   n27_match_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
-n27_match_head_α:
+n27_match_begin_α:
                         mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, qword ptr [rsp + 8]
                         add              rsp, 16
@@ -684,7 +684,7 @@ n27_match_head_α:
 .Lx55_0:
                         mov              r14d, dword ptr [rbp + 176]
                                                                                         jmp   n28_match_sequence_α
-n27_match_head_β:
+n27_match_begin_β:
                         add              dword ptr [rbp + 176], 1
                         mov              eax, dword ptr [rbp + 176]
                         cmp              eax, r15d
@@ -721,13 +721,13 @@ n28_match_sequence_α:
                         mov              dword ptr [rbp + 256], r14d
                                                                                         jmp   n37_lit_integer_α
 n28_match_sequence_as:
-                                                                                        jmp   n29_match_release_α
+                                                                                        jmp   n29_match_end_α
 n28_match_sequence_β:
                                                                                         jmp   n35_match_rpos_β
 n28_match_sequence_af:
-                                                                                        jmp   n27_match_head_β
+                                                                                        jmp   n27_match_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
-n29_match_release_α:
+n29_match_end_α:
                         mov              rax, qword ptr [rbp + 184]
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
@@ -850,7 +850,7 @@ n35_match_rpos_α:
                         sub              ecx, eax
                         cmp              r14d, ecx
                                                                                         jne   n36_match_defer_β
-                                                                                        jmp   n29_match_release_α
+                                                                                        jmp   n29_match_end_α
 n35_match_rpos_β:
                                                                                         jmp   n36_match_defer_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -884,7 +884,7 @@ n36_match_defer_α:
 .Lx66_4:
                                                                                         jmp   n34_lit_integer_α
 .Lx66_5:
-                                                                                        jmp   n27_match_head_β
+                                                                                        jmp   n27_match_begin_β
 .Lx66_0:
                         push             r14
                         push             r15
@@ -920,7 +920,7 @@ n36_match_defer_α:
                         mov              edi, r14d                                      # cur_delta
                         call             rt_defer_close@PLT
                         test             eax, eax
-                                                                                        js    n27_match_head_β
+                                                                                        js    n27_match_begin_β
                         mov              r14d, eax
                         lea              rax, [rip + .Lx66_6]
                         sub              rsp, 8
@@ -928,7 +928,7 @@ n36_match_defer_α:
                                                                                         jmp   n34_lit_integer_α
 .Lx66_6:
                         add              rsp, 16
-                                                                                        jmp   n27_match_head_β
+                                                                                        jmp   n27_match_begin_β
 n36_match_defer_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
@@ -938,17 +938,17 @@ n37_lit_integer_α:
                         mov              qword ptr [rsp + 280], rax
                                                                                         jmp   n38_match_pos_α
 n37_lit_integer_β:
-                                                                                        jmp   n27_match_head_β
+                                                                                        jmp   n27_match_begin_β
 .Lx67_0:
                         .quad            0
 #-----------------------------------------------------------------------------------------------------------------------
 n38_match_pos_α:
                         mov              rax, 0
                         cmp              r14d, eax
-                                                                                        jne   n27_match_head_β
+                                                                                        jne   n27_match_begin_β
                                                                                         jmp   n36_match_defer_α
 n38_match_pos_β:
-                                                                                        jmp   n27_match_head_β
+                                                                                        jmp   n27_match_begin_β
 #=======================================================================================================================
 # NO      OUTPUT = 'fail'
 #-----------------------------------------------------------------------------------------------------------------------

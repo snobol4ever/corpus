@@ -435,12 +435,12 @@ n24_var_α:
                         mov              rdx, qword ptr [1879052328]
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n25_match_head_α
+                                                                                        jmp   n25_match_begin_α
 n24_var_β:
                         add              rsp, 16
                                                                                         jmp   n47_lit_string_α
 #-----------------------------------------------------------------------------------------------------------------------
-n25_match_head_α:
+n25_match_begin_α:
                         sub              rsp, 544
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
@@ -539,7 +539,7 @@ n25_match_head_α:
 .Lx87_0:
                         mov              r14d, dword ptr [rsp + 0]
                                                                                         jmp   n26_match_sequence_α
-n25_match_head_β:
+n25_match_begin_β:
                         add              dword ptr [rsp + 0], 1
                         mov              eax, dword ptr [rsp + 0]
                         cmp              eax, r15d
@@ -574,13 +574,13 @@ n25_match_head_β:
 n26_match_sequence_α:
                                                                                         jmp   n46_match_lit_α
 n26_match_sequence_as:
-                                                                                        jmp   n27_match_release_α
+                                                                                        jmp   n27_match_end_α
 n26_match_sequence_β:
                                                                                         jmp   n42_match_lit_β
 n26_match_sequence_af:
-                                                                                        jmp   n25_match_head_β
+                                                                                        jmp   n25_match_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
-n27_match_release_α:
+n27_match_end_α:
                         mov              r10, qword ptr [1879048192]
 .Lx91_9:
                         sub              r10, 24
@@ -875,7 +875,7 @@ n42_match_lit_α:
                         cmp              eax, 100
                                                                                         jne   n45_match_assign_cond_β
                         add              r14d, 2
-                                                                                        jmp   n27_match_release_α
+                                                                                        jmp   n27_match_end_α
 n42_match_lit_β:
                         sub              r14d, 2
                                                                                         jmp   n45_match_assign_cond_β
@@ -966,19 +966,19 @@ n46_match_lit_α:
                         mov              eax, r14d
                         add              eax, 2
                         cmp              eax, r15d
-                                                                                        jg    n25_match_head_β
+                                                                                        jg    n25_match_begin_β
                         movsxd           rcx, r14d
                         movzx            eax, byte ptr [r13+rcx]
                         cmp              eax, 97
-                                                                                        jne   n25_match_head_β
+                                                                                        jne   n25_match_begin_β
                         movzx            eax, byte ptr [r13+rcx+1]
                         cmp              eax, 98
-                                                                                        jne   n25_match_head_β
+                                                                                        jne   n25_match_begin_β
                         add              r14d, 2
                                                                                         jmp   n43_match_assign_save_α
 n46_match_lit_β:
                         sub              r14d, 2
-                                                                                        jmp   n25_match_head_β
+                                                                                        jmp   n25_match_begin_β
 #=======================================================================================================================
 # bad     OUTPUT = 'MATCH FAILED'                                     :(END)
 #-----------------------------------------------------------------------------------------------------------------------

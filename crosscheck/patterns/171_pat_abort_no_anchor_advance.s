@@ -48,13 +48,13 @@ n0_lit_string_α:
                         mov              dword ptr [rsp + 4], 2
                         mov              rax, qword ptr [rip + .Lx14_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n1_match_head_α
+                                                                                        jmp   n1_match_begin_α
 .Lx14_0:
                         .quad            .Lx14_0_s
 .Lx14_0_s:
                         .string          "1A"
 #-----------------------------------------------------------------------------------------------------------------------
-n1_match_head_α:
+n1_match_begin_α:
                         mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, qword ptr [rsp + 8]
                         add              rsp, 16
@@ -85,7 +85,7 @@ n1_match_head_α:
 .Lx16_0:
                         mov              r14d, dword ptr [rbp + 16]
                                                                                         jmp   n2_match_alternate_α
-n1_match_head_β:
+n1_match_begin_β:
                         add              dword ptr [rbp + 16], 1
                         mov              eax, dword ptr [rbp + 16]
                         cmp              eax, r15d
@@ -140,7 +140,7 @@ n2_match_alternate_s1:
 .Lx18_41:
                                                                                         jmp   n6_match_sequence_β
 n2_match_alternate_as:
-                                                                                        jmp   n3_match_release_α
+                                                                                        jmp   n3_match_end_α
 n2_match_alternate_β:
                         mov              rax, qword ptr [rbp + 104]
                                                                                         jmp   rax
@@ -149,9 +149,9 @@ n2_match_alternate_af:
                         mov              rax, qword ptr [rbp + 112]
                                                                                         jmp   rax
 .Lx18_19:
-                                                                                        jmp   n1_match_head_β
+                                                                                        jmp   n1_match_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
-n3_match_release_α:
+n3_match_end_α:
                         mov              rax, qword ptr [rbp + 24]
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax

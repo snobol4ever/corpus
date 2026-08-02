@@ -952,9 +952,9 @@ n38_var_α:
                         mov              rdx, qword ptr [1879052328]
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n39_match_head_α
+                                                                                        jmp   n39_match_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
-n39_match_head_α:
+n39_match_begin_α:
                         mov              rdi, qword ptr [rsp + 0]
                         mov              rsi, qword ptr [rsp + 8]
                         add              rsp, 16
@@ -985,7 +985,7 @@ n39_match_head_α:
 .Lx67_0:
                         mov              r14d, dword ptr [rbp + 176]
                                                                                         jmp   n40_match_sequence_α
-n39_match_head_β:
+n39_match_begin_β:
                         add              dword ptr [rbp + 176], 1
                         mov              eax, dword ptr [rbp + 176]
                         cmp              eax, r15d
@@ -1022,13 +1022,13 @@ n40_match_sequence_α:
                         mov              dword ptr [rbp + 256], r14d
                                                                                         jmp   n49_lit_integer_α
 n40_match_sequence_as:
-                                                                                        jmp   n41_match_release_α
+                                                                                        jmp   n41_match_end_α
 n40_match_sequence_β:
                                                                                         jmp   n47_match_rpos_β
 n40_match_sequence_af:
-                                                                                        jmp   n39_match_head_β
+                                                                                        jmp   n39_match_begin_β
 #-----------------------------------------------------------------------------------------------------------------------
-n41_match_release_α:
+n41_match_end_α:
                         mov              rax, qword ptr [rbp + 184]
                         lea              rcx, [rip + g_patstk_sp]
                         mov              qword ptr [rcx + 0], rax
@@ -1151,7 +1151,7 @@ n47_match_rpos_α:
                         sub              ecx, eax
                         cmp              r14d, ecx
                                                                                         jne   n48_match_defer_β
-                                                                                        jmp   n41_match_release_α
+                                                                                        jmp   n41_match_end_α
 n47_match_rpos_β:
                                                                                         jmp   n48_match_defer_β
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1185,7 +1185,7 @@ n48_match_defer_α:
 .Lx78_4:
                                                                                         jmp   n46_lit_integer_α
 .Lx78_5:
-                                                                                        jmp   n39_match_head_β
+                                                                                        jmp   n39_match_begin_β
 .Lx78_0:
                         push             r14
                         push             r15
@@ -1221,7 +1221,7 @@ n48_match_defer_α:
                         mov              edi, r14d                                      # cur_delta
                         call             rt_defer_close@PLT
                         test             eax, eax
-                                                                                        js    n39_match_head_β
+                                                                                        js    n39_match_begin_β
                         mov              r14d, eax
                         lea              rax, [rip + .Lx78_6]
                         sub              rsp, 8
@@ -1229,7 +1229,7 @@ n48_match_defer_α:
                                                                                         jmp   n46_lit_integer_α
 .Lx78_6:
                         add              rsp, 16
-                                                                                        jmp   n39_match_head_β
+                                                                                        jmp   n39_match_begin_β
 n48_match_defer_β:
                                                                                         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
@@ -1239,17 +1239,17 @@ n49_lit_integer_α:
                         mov              qword ptr [rsp + 280], rax
                                                                                         jmp   n50_match_pos_α
 n49_lit_integer_β:
-                                                                                        jmp   n39_match_head_β
+                                                                                        jmp   n39_match_begin_β
 .Lx79_0:
                         .quad            0
 #-----------------------------------------------------------------------------------------------------------------------
 n50_match_pos_α:
                         mov              rax, 0
                         cmp              r14d, eax
-                                                                                        jne   n39_match_head_β
+                                                                                        jne   n39_match_begin_β
                                                                                         jmp   n48_match_defer_α
 n50_match_pos_β:
-                                                                                        jmp   n39_match_head_β
+                                                                                        jmp   n39_match_begin_β
 #=======================================================================================================================
 # NOM     OUTPUT = 'no match (seals held all paths)'
 #-----------------------------------------------------------------------------------------------------------------------
