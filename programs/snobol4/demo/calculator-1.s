@@ -509,7 +509,18 @@ n66_goto_β:
 # DRF     nm POS(0) ANY(&LCASE) RPOS(0)           :F(DRF_n)
 #-----------------------------------------------------------------------------------------------------------------------
 n67_var_α:
-                        sub              rsp, 464
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052336]                    # nm
+                        mov              rdx, qword ptr [1879052344]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n68_match_head_α
+n67_var_β:
+                        add              rsp, 16
+                                                                                        jmp   n81_var_α
+#-----------------------------------------------------------------------------------------------------------------------
+n68_match_head_α:
+                        sub              rsp, 448
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -566,23 +577,8 @@ n67_var_α:
                         mov              qword ptr [rsp + 424], 0
                         mov              qword ptr [rsp + 432], 0
                         mov              qword ptr [rsp + 440], 0
-                        mov              qword ptr [rsp + 448], 0
-                        mov              qword ptr [rsp + 456], 0
-                        sub              rsp, 16
-                        mov              rax, qword ptr [1879052336]                    # nm
-                        mov              rdx, qword ptr [1879052344]
-                        mov              qword ptr [rsp + 0], rax                       # result
-                        mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n68_match_head_α
-n67_var_β:
-                        add              rsp, 16
-                        add              rsp, 464
-                                                                                        jmp   n81_var_α
-#-----------------------------------------------------------------------------------------------------------------------
-n68_match_head_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 448]                     # var
+                        mov              rsi, qword ptr [rsp + 456]
                         mov              qword ptr [rsp + 360], rbp                     # old_rbp
                         mov              rbp, rsp                                       # stmt_base
                         mov              qword ptr [rbp + 368], r13                     # outer_Σ
