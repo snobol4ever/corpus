@@ -55,8 +55,7 @@ n2_assign_α:
                         mov              qword ptr [1879052296], rdx
                                                                                         jmp   n3_statement_end_α
 n2_assign_β:
-                        add              rsp, 16
-                                                                                        jmp   n4_statement_begin_α
+                                                                                        jmp   n3_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n3_statement_end_α:
                         add              rsp, 16
@@ -277,8 +276,7 @@ n12_assign_α:
                         call             NV_SET_fn@PLT
                                                                                         jmp   n13_statement_end_α
 n12_assign_β:
-                        add              rsp, 16
-                                                                                        jmp   n21_statement_begin_α
+                                                                                        jmp   n13_statement_end_α
 .Lx89_0:
                         .quad            .Lx89_0_s
 .Lx89_0_s:
@@ -369,8 +367,7 @@ n19_assign_α:
                         call             NV_SET_fn@PLT
                                                                                         jmp   n20_statement_end_α
 n19_assign_β:
-                        add              rsp, 16
-                                                                                        jmp   n21_statement_begin_α
+                                                                                        jmp   n20_statement_end_α
 .Lx99_0:
                         .quad            .Lx99_0_s
 .Lx99_0_s:
@@ -412,8 +409,7 @@ n23_assign_α:
                         mov              qword ptr [1879052296], rdx
                                                                                         jmp   n24_statement_end_α
 n23_assign_β:
-                        add              rsp, 16
-                                                                                        jmp   n25_statement_begin_α
+                                                                                        jmp   n24_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n24_statement_end_α:
                         add              rsp, 16
@@ -658,8 +654,7 @@ n33_assign_α:
                         call             NV_SET_fn@PLT
                                                                                         jmp   n34_statement_end_α
 n33_assign_β:
-                        add              rsp, 16
-                                                                                        jmp   n43_statement_begin_α
+                                                                                        jmp   n34_statement_end_α
 .Lx122_0:
                         .quad            .Lx122_0_s
 .Lx122_0_s:
@@ -771,8 +766,7 @@ n41_assign_α:
                         call             NV_SET_fn@PLT
                                                                                         jmp   n42_statement_end_α
 n41_assign_β:
-                        add              rsp, 16
-                                                                                        jmp   n43_statement_begin_α
+                                                                                        jmp   n42_statement_end_α
 .Lx134_0:
                         .quad            .Lx134_0_s
 .Lx134_0_s:
@@ -814,8 +808,7 @@ n45_assign_α:
                         mov              qword ptr [1879052296], rdx
                                                                                         jmp   n46_statement_end_α
 n45_assign_β:
-                        add              rsp, 16
-                                                                                        jmp   n47_statement_begin_α
+                                                                                        jmp   n46_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n46_statement_end_α:
                         add              rsp, 16

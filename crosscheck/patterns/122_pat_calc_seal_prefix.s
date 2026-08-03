@@ -305,17 +305,13 @@ n22_call_α:
                         add              rsp, 16
                         cmp              eax, 104
                                                                                         jne   .Lx71_240
-                        add              rsp, 16
-                        add              rsp, 16
-                                                                                        jmp   n25_statement_begin_α
+                                                                                        jmp   n24_statement_end_α
 .Lx71_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n23_assign_α
 n22_call_β:
-                        add              rsp, 16
-                        add              rsp, 16
-                                                                                        jmp   n25_statement_begin_α
+                                                                                        jmp   n24_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n23_assign_α:
                         mov              rax, qword ptr [rsp + 0]                       # call

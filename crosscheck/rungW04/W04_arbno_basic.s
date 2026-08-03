@@ -68,8 +68,7 @@ n4_assign_α:
                         mov              qword ptr [1879052296], rdx
                                                                                         jmp   n5_statement_end_α
 n4_assign_β:
-                        add              rsp, 16
-                                                                                        jmp   n6_statement_begin_α
+                                                                                        jmp   n5_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n5_statement_end_α:
                         add              rsp, 16

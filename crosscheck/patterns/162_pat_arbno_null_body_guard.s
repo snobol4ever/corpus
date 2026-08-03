@@ -245,8 +245,7 @@ n8_assign_α:
                         call             NV_SET_fn@PLT
                                                                                         jmp   n9_statement_end_α
 n8_assign_β:
-                        add              rsp, 16
-                                                                                        jmp   n10_statement_begin_α
+                                                                                        jmp   n9_statement_end_α
 .Lx89_0:
                         .quad            .Lx89_0_s
 .Lx89_0_s:
@@ -526,8 +525,7 @@ n18_assign_α:
                         call             NV_SET_fn@PLT
                                                                                         jmp   n19_statement_end_α
 n18_assign_β:
-                        add              rsp, 16
-                                                                                        jmp   n20_statement_begin_α
+                                                                                        jmp   n19_statement_end_α
 .Lx106_0:
                         .quad            .Lx106_0_s
 .Lx106_0_s:
@@ -1880,8 +1878,7 @@ n59_assign_α:
                         call             NV_SET_fn@PLT
                                                                                         jmp   n60_statement_end_α
 n59_assign_β:
-                        add              rsp, 16
-                                                                                        jmp   n10_statement_begin_α
+                                                                                        jmp   n60_statement_end_α
 .Lx169_0:
                         .quad            .Lx169_0_s
 .Lx169_0_s:
@@ -1938,8 +1935,7 @@ n66_assign_α:
                         call             NV_SET_fn@PLT
                                                                                         jmp   n67_statement_end_α
 n66_assign_β:
-                        add              rsp, 16
-                                                                                        jmp   n20_statement_begin_α
+                                                                                        jmp   n67_statement_end_α
 .Lx178_0:
                         .quad            .Lx178_0_s
 .Lx178_0_s:

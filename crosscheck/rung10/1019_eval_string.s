@@ -88,17 +88,13 @@ n6_call_α:
                         add              rsp, 16
                         cmp              eax, 104
                                                                                         jne   .Lx37_240
-                        add              rsp, 16
-                        add              rsp, 16
-                                                                                        jmp   n9_statement_begin_α
+                                                                                        jmp   n8_statement_end_α
 .Lx37_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n7_assign_α
 n6_call_β:
-                        add              rsp, 16
-                        add              rsp, 16
-                                                                                        jmp   n9_statement_begin_α
+                                                                                        jmp   n8_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n7_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # call
@@ -147,17 +143,13 @@ n11_call_α:
                         add              rsp, 16
                         cmp              eax, 104
                                                                                         jne   .Lx45_240
-                        add              rsp, 16
-                        add              rsp, 16
-                                                                                        jmp   n14_statement_begin_α
+                                                                                        jmp   n13_statement_end_α
 .Lx45_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n12_assign_α
 n11_call_β:
-                        add              rsp, 16
-                        add              rsp, 16
-                                                                                        jmp   n14_statement_begin_α
+                                                                                        jmp   n13_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n12_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # call
@@ -209,17 +201,13 @@ n16_call_α:
                         add              rsp, 16
                         cmp              eax, 104
                                                                                         jne   .Lx53_240
-                        add              rsp, 16
-                        add              rsp, 16
-                                                                                        jmp   n19_statement_begin_α
+                                                                                        jmp   n18_statement_end_α
 .Lx53_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n17_assign_α
 n16_call_β:
-                        add              rsp, 16
-                        add              rsp, 16
-                                                                                        jmp   n19_statement_begin_α
+                                                                                        jmp   n18_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n17_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # call

@@ -499,17 +499,13 @@ n55_call_α:
                         add              rsp, 16
                         cmp              eax, 104
                                                                                         jne   .Lx180_240
-                        add              rsp, 16
-                        add              rsp, 16
-                                                                                        jmp   n58_statement_begin_α
+                                                                                        jmp   n57_statement_end_α
 .Lx180_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n56_assign_α
 n55_call_β:
-                        add              rsp, 16
-                        add              rsp, 16
-                                                                                        jmp   n58_statement_begin_α
+                                                                                        jmp   n57_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n56_assign_α:
                         mov              rax, qword ptr [rsp + 0]                       # call
@@ -726,9 +722,7 @@ n75_assign_var_α:
                         call             rt_assign_var@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx212_240
-                        add              rsp, 16
-                        add              rsp, 48
-                                                                                        jmp   n77_statement_begin_α
+                                                                                        jmp   n76_statement_end_α
 .Lx212_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx

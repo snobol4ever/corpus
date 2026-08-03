@@ -125,9 +125,7 @@ n5_binop_α:
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n6_assign_α
 n5_binop_β:
-                        add              rsp, 16
-                        add              rsp, 64
-                                                                                        jmp   n8_statement_begin_α
+                                                                                        jmp   n7_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n6_assign_α:
                         mov              rax, qword ptr [rsp + 0]                       # binop
@@ -136,8 +134,7 @@ n6_assign_α:
                         mov              qword ptr [1879052296], rdx
                                                                                         jmp   n7_statement_end_α
 n6_assign_β:
-                        add              rsp, 80
-                                                                                        jmp   n8_statement_begin_α
+                                                                                        jmp   n7_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n7_statement_end_α:
                         add              rsp, 80

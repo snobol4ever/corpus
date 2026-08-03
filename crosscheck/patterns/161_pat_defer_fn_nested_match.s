@@ -35,9 +35,7 @@ n3_binop_α:
                         call             rt_add@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx25_240
-                        add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n6_statement_begin_α
+                                                                                        jmp   n5_statement_end_α
 .Lx25_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
@@ -1512,9 +1510,7 @@ n118_binop_α:
                         call             rt_add@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx226_240
-                        add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n121_statement_begin_α
+                                                                                        jmp   n120_statement_end_α
 .Lx226_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
@@ -1656,9 +1652,7 @@ n127_match_begin_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rbp + 168]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        mov              rbp, qword ptr [rbp + 120]                     # old_rbp
-                        add              rsp, 192
-                                                                                        jmp   n131_statement_begin_α
+                                                                                        jmp   n130_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n128_match_lit_α:
                         mov              eax, r14d

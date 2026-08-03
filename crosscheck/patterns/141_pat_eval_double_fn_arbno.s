@@ -1384,17 +1384,13 @@ n135_call_α:
                         add              rsp, 16
                         cmp              eax, 104
                                                                                         jne   .Lx232_240
-                        add              rsp, 16
-                        add              rsp, 80
-                                                                                        jmp   n126_save_restore_α
+                                                                                        jmp   n137_statement_end_α
 .Lx232_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n136_assign_α
 n135_call_β:
-                        add              rsp, 16
-                        add              rsp, 80
-                                                                                        jmp   n126_save_restore_α
+                                                                                        jmp   n137_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n136_assign_α:
                         mov              rax, qword ptr [rsp + 0]                       # call

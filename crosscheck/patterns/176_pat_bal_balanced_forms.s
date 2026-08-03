@@ -268,9 +268,7 @@ n9_binop_α:
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n10_assign_α
 n9_binop_β:
-                        add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n12_statement_begin_α
+                                                                                        jmp   n11_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n10_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # binop
@@ -279,8 +277,7 @@ n10_assign_α:
                         call             NV_SET_fn@PLT
                                                                                         jmp   n11_statement_end_α
 n10_assign_β:
-                        add              rsp, 48
-                                                                                        jmp   n12_statement_begin_α
+                                                                                        jmp   n11_statement_end_α
 .Lx90_0:
                         .quad            .Lx90_0_s
 .Lx90_0_s:
@@ -565,9 +562,7 @@ n21_binop_α:
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n22_assign_α
 n21_binop_β:
-                        add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n24_statement_begin_α
+                                                                                        jmp   n23_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n22_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # binop
@@ -576,8 +571,7 @@ n22_assign_α:
                         call             NV_SET_fn@PLT
                                                                                         jmp   n23_statement_end_α
 n22_assign_β:
-                        add              rsp, 48
-                                                                                        jmp   n24_statement_begin_α
+                                                                                        jmp   n23_statement_end_α
 .Lx109_0:
                         .quad            .Lx109_0_s
 .Lx109_0_s:
@@ -1273,8 +1267,7 @@ n60_assign_α:
                         call             NV_SET_fn@PLT
                                                                                         jmp   n61_statement_end_α
 n60_assign_β:
-                        add              rsp, 16
-                                                                                        jmp   n12_statement_begin_α
+                                                                                        jmp   n61_statement_end_α
 .Lx165_0:
                         .quad            .Lx165_0_s
 .Lx165_0_s:
@@ -1326,8 +1319,7 @@ n66_assign_α:
                         call             NV_SET_fn@PLT
                                                                                         jmp   n67_statement_end_α
 n66_assign_β:
-                        add              rsp, 16
-                                                                                        jmp   n24_statement_begin_α
+                                                                                        jmp   n67_statement_end_α
 .Lx173_0:
                         .quad            .Lx173_0_s
 .Lx173_0_s:

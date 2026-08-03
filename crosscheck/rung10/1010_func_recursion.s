@@ -215,9 +215,7 @@ n16_binop_α:
                         call             rt_mul@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx43_240
-                        add              rsp, 16
-                        add              rsp, 80
-                                                                                        jmp   n19_save_restore_α
+                                                                                        jmp   n18_statement_end_α
 .Lx43_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
@@ -480,9 +478,7 @@ n67_binop_α:
                         call             rt_mul@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx98_240
-                        add              rsp, 16
-                        add              rsp, 80
-                                                                                        jmp   n70_save_restore_α
+                                                                                        jmp   n69_statement_end_α
 .Lx98_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
@@ -1776,9 +1772,7 @@ n208_binop_α:
                         call             rt_mul@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx384_240
-                        add              rsp, 16
-                        add              rsp, 80
-                                                                                        jmp   n211_save_restore_α
+                                                                                        jmp   n210_statement_end_α
 .Lx384_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
@@ -2045,9 +2039,7 @@ n235_binop_α:
                         call             rt_mul@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx422_240
-                        add              rsp, 16
-                        add              rsp, 80
-                                                                                        jmp   n211_save_restore_α
+                                                                                        jmp   n237_statement_end_α
 .Lx422_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx

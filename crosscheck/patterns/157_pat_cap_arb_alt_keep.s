@@ -138,8 +138,7 @@ n2_match_begin_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rsp + 88]                      # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        add              rsp, 240
-                                                                                        jmp   n6_statement_begin_α
+                                                                                        jmp   n5_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n3_match_sequence_α:
                                                                                         jmp   n41_match_lit_α
@@ -299,9 +298,7 @@ n11_binop_α:
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n12_assign_α
 n11_binop_β:
-                        add              rsp, 16
-                        add              rsp, 64
-                                                                                        jmp   n14_statement_begin_α
+                                                                                        jmp   n13_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n12_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # binop
@@ -310,8 +307,7 @@ n12_assign_α:
                         call             NV_SET_fn@PLT
                                                                                         jmp   n13_statement_end_α
 n12_assign_β:
-                        add              rsp, 80
-                                                                                        jmp   n14_statement_begin_α
+                                                                                        jmp   n13_statement_end_α
 .Lx60_0:
                         .quad            .Lx60_0_s
 .Lx60_0_s:
@@ -472,8 +468,7 @@ n16_match_begin_β:
                         mov              rsi, r15                                       # len
                         mov              rdx, qword ptr [rsp + 408]                     # cap_gen
                         call             rt_match_ctx_restore@PLT
-                        add              rsp, 544
-                                                                                        jmp   n20_statement_begin_α
+                                                                                        jmp   n19_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n17_match_sequence_α:
                                                                                         jmp   n34_match_lit_α

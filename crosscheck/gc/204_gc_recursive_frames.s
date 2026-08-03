@@ -748,13 +748,11 @@ n102_call_α:
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx162_240
-                        add              rsp, 16
-                        add              rsp, 16
-                                                                                        jmp   n105_statement_begin_α
+                                                                                        jmp   n104_statement_end_α
 .Lx162_240:
                                                                                         jmp   n103_assign_α
 n102_call_β:
-                                                                                        jmp   n105_statement_begin_α
+                                                                                        jmp   n104_statement_end_α
 .Lx162_0:
                         .quad            .Lx162_0_s
 .Lx162_0_s:

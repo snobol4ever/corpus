@@ -701,13 +701,11 @@ n67_call_α:
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx139_240
-                        add              rsp, 16
-                        add              rsp, 176
-                                                                                        jmp   n70_statement_begin_α
+                                                                                        jmp   n69_statement_end_α
 .Lx139_240:
                                                                                         jmp   n68_assign_α
 n67_call_β:
-                                                                                        jmp   n70_statement_begin_α
+                                                                                        jmp   n69_statement_end_α
 .Lx139_0:
                         .quad            .Lx139_0_s
 .Lx139_0_s:
