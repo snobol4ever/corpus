@@ -147,7 +147,7 @@ n6_match_begin_β:
                         call             rt_match_ctx_restore@PLT
                         lea              rsp, [rbp + -8]                                # whack
                         pop              rbp
-                        add              rsp, 304
+                        add              rsp, 240
                                                                                         jmp   n14_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
 n7_match_assign_save_α:
@@ -251,8 +251,8 @@ n10_match_end_α:
                         lea              rsp, [rbp + -8]                                # whack
                         pop              rbp
                         mov              eax, r10d
-                        mov              dword ptr [rsp + 64], eax                      # match_start
-                        mov              qword ptr [rsp + 88], r11                      # match_end
+                        mov              dword ptr [rsp + 48], eax                      # match_start
+                        mov              qword ptr [rsp + 72], r11                      # match_end
                                                                                         jmp   n11_lit_string_α
                         mov              r12, qword ptr [rbp + -40]                     # cas_base
                         mov              qword ptr [1879048192], r12
@@ -265,7 +265,7 @@ n10_match_end_α:
                         call             rt_match_ctx_restore@PLT
                         lea              rsp, [rbp + -8]                                # whack
                         pop              rbp
-                        add              rsp, 256
+                        add              rsp, 240
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 n11_lit_string_α:
@@ -282,10 +282,10 @@ n11_lit_string_α:
 #-----------------------------------------------------------------------------------------------------------------------
 n12_match_replace_α:
                         mov              rdi, qword ptr [rip + .Lx39_0]                 # name
-                        mov              rsi, qword ptr [rsp + 240]                     # sub_lo
-                        mov              rdx, qword ptr [rsp + 248]                     # sub_hi
-                        mov              ecx, dword ptr [rsp + 80]                      # start
-                        mov              r8, qword ptr [rsp + 104]                      # end
+                        mov              rsi, qword ptr [rsp + 224]                     # sub_lo
+                        mov              rdx, qword ptr [rsp + 232]                     # sub_hi
+                        mov              ecx, dword ptr [rsp + 64]                      # start
+                        mov              r8, qword ptr [rsp + 88]                       # end
                         lea              r9, [rsp + 0]                                  # lit_string
                         call             rt_match_replace@PLT
                                                                                         jmp   .Lx39_1
@@ -297,7 +297,7 @@ n12_match_replace_α:
                                                                                         jmp   n13_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n13_statement_end_α:
-                        add              rsp, 272
+                        add              rsp, 256
                                                                                         jmp   n14_statement_begin_α
 #=======================================================================================================================
 #         OUTPUT = X
