@@ -86,38 +86,18 @@ proc_PAT$1_α_body:
                         mov              qword ptr [rbp + 112], rax
 #-----------------------------------------------------------------------------------------------------------------------
 n4_match_lit_α:
-                        sub              rsp, 96
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
                         mov              eax, r14d
                         add              eax, 1
                         cmp              eax, r15d
-                                                                                        jle   .Lx11_239
-                        add              rsp, 96
-                                                                                        jmp   proc_PAT$1_scanfail
-.Lx11_239:
+                                                                                        jg    proc_PAT$1_scanfail
                         movsxd           rcx, r14d
                         movzx            eax, byte ptr [r13+rcx]
                         cmp              eax, 40
-                                                                                        je    .Lx11_240
-                        add              rsp, 96
-                                                                                        jmp   proc_PAT$1_scanfail
-.Lx11_240:
+                                                                                        jne   proc_PAT$1_scanfail
                         add              r14d, 1
                                                                                         jmp   n5_match_fence1_α
 n4_match_lit_β:
                         sub              r14d, 1
-                        add              rsp, 96
                                                                                         jmp   proc_PAT$1_scanfail
 #-----------------------------------------------------------------------------------------------------------------------
 n5_match_fence1_α:
@@ -136,23 +116,15 @@ n6_match_lit_α:
                         mov              eax, r14d
                         add              eax, 1
                         cmp              eax, r15d
-                                                                                        jle   .Lx15_239
-                        add              rsp, 96
-                                                                                        jmp   proc_PAT$1_scanfail
-.Lx15_239:
+                                                                                        jg    proc_PAT$1_scanfail
                         movsxd           rcx, r14d
                         movzx            eax, byte ptr [r13+rcx]
                         cmp              eax, 41
-                                                                                        je    .Lx15_240
-                        add              rsp, 96
-                                                                                        jmp   proc_PAT$1_scanfail
-.Lx15_240:
+                                                                                        jne   proc_PAT$1_scanfail
                         add              r14d, 1
-                        add              rsp, 96
                                                                                         jmp   proc_PAT$1_scanhit
 n6_match_lit_β:
                         sub              r14d, 1
-                        add              rsp, 96
                                                                                         jmp   proc_PAT$1_scanfail
 #-----------------------------------------------------------------------------------------------------------------------
 n7_match_alternate_α:

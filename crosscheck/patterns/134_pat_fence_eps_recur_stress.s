@@ -86,31 +86,14 @@ proc_PAT$1_α_body:
                         mov              qword ptr [rbp + 112], rax
 #-----------------------------------------------------------------------------------------------------------------------
 n4_match_len_α:
-                        sub              rsp, 96
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
                         mov              eax, r14d
                         add              eax, 1
                         cmp              eax, r15d
-                                                                                        jle   .Lx9_240
-                        add              rsp, 96
-                                                                                        jmp   proc_PAT$1_scanfail
-.Lx9_240:
+                                                                                        jg    proc_PAT$1_scanfail
                         add              r14d, 1
                                                                                         jmp   n5_match_fence1_α
 n4_match_len_β:
                         sub              r14d, 1
-                        add              rsp, 96
                                                                                         jmp   proc_PAT$1_scanfail
 #-----------------------------------------------------------------------------------------------------------------------
 n5_match_fence1_α:

@@ -220,7 +220,15 @@ n13_statement_begin_α:
                                                                                         jmp   n14_var_α
 #-----------------------------------------------------------------------------------------------------------------------
 n14_var_α:
-                        sub              rsp, 416
+                        sub              rsp, 16
+                        mov              rax, qword ptr [1879052304]                    # s
+                        mov              rdx, qword ptr [1879052312]
+                        mov              qword ptr [rsp + 0], rax                       # result
+                        mov              qword ptr [rsp + 8], rdx
+                                                                                        jmp   n15_match_begin_α
+#-----------------------------------------------------------------------------------------------------------------------
+n15_match_begin_α:
+                        sub              rsp, 400
                         mov              qword ptr [rsp + 0], 0                         # stmt_claim
                         mov              qword ptr [rsp + 8], 0
                         mov              qword ptr [rsp + 16], 0
@@ -271,19 +279,8 @@ n14_var_α:
                         mov              qword ptr [rsp + 376], 0
                         mov              qword ptr [rsp + 384], 0
                         mov              qword ptr [rsp + 392], 0
-                        mov              qword ptr [rsp + 400], 0
-                        mov              qword ptr [rsp + 408], 0
-                        sub              rsp, 16
-                        mov              rax, qword ptr [1879052304]                    # s
-                        mov              rdx, qword ptr [1879052312]
-                        mov              qword ptr [rsp + 0], rax                       # result
-                        mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n15_match_begin_α
-#-----------------------------------------------------------------------------------------------------------------------
-n15_match_begin_α:
-                        mov              rdi, qword ptr [rsp + 0]
-                        mov              rsi, qword ptr [rsp + 8]
-                        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 400]                     # var
+                        mov              rsi, qword ptr [rsp + 408]
                         mov              qword ptr [rsp + 152], rbp                     # old_rbp
                         mov              rbp, rsp                                       # stmt_base
                         mov              qword ptr [rbp + 160], r13                     # outer_Σ
