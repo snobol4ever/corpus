@@ -1204,9 +1204,7 @@ n124_binop_α:
                         call             rt_add@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx157_240
-                        add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n104_statement_begin_α
+                                                                                        jmp   n126_statement_end_α
 .Lx157_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
@@ -1659,13 +1657,11 @@ n188_call_α:
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx301_240
-                        add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n190_statement_begin_α
+                                                                                        jmp   n189_statement_end_α
 .Lx301_240:
                                                                                         jmp   n189_statement_end_α
 n188_call_β:
-                                                                                        jmp   n190_statement_begin_α
+                                                                                        jmp   n189_statement_end_α
 .Lx301_0:
                         .quad            .Lx301_0_s
 .Lx301_0_s:
@@ -1794,13 +1790,11 @@ n193_call_α:
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx309_240
-                        add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n195_statement_begin_α
+                                                                                        jmp   n194_statement_end_α
 .Lx309_240:
                                                                                         jmp   n194_statement_end_α
 n193_call_β:
-                                                                                        jmp   n195_statement_begin_α
+                                                                                        jmp   n194_statement_end_α
 .Lx309_0:
                         .quad            .Lx309_0_s
 .Lx309_0_s:
@@ -1929,13 +1923,11 @@ n198_call_α:
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx317_240
-                        add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n200_statement_begin_α
+                                                                                        jmp   n199_statement_end_α
 .Lx317_240:
                                                                                         jmp   n199_statement_end_α
 n198_call_β:
-                                                                                        jmp   n200_statement_begin_α
+                                                                                        jmp   n199_statement_end_α
 .Lx317_0:
                         .quad            .Lx317_0_s
 .Lx317_0_s:
@@ -2064,13 +2056,11 @@ n203_call_α:
                         mov              qword ptr [rsp + 8], rdx
                         cmp              eax, 104
                                                                                         jne   .Lx325_240
-                        add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n205_statement_begin_α
+                                                                                        jmp   n204_statement_end_α
 .Lx325_240:
                                                                                         jmp   n204_statement_end_α
 n203_call_β:
-                                                                                        jmp   n205_statement_begin_α
+                                                                                        jmp   n204_statement_end_α
 .Lx325_0:
                         .quad            .Lx325_0_s
 .Lx325_0_s:
@@ -3167,9 +3157,7 @@ n255_binop_α:
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n256_assign_α
 n255_binop_β:
-                        add              rsp, 16
-                        add              rsp, 80
-                                                                                        jmp   n258_statement_begin_α
+                                                                                        jmp   n257_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n256_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # binop
@@ -3178,8 +3166,7 @@ n256_assign_α:
                         call             NV_SET_fn@PLT
                                                                                         jmp   n257_statement_end_α
 n256_assign_β:
-                        add              rsp, 96
-                                                                                        jmp   n258_statement_begin_α
+                                                                                        jmp   n257_statement_end_α
 .Lx409_0:
                         .quad            .Lx409_0_s
 .Lx409_0_s:
@@ -3342,17 +3329,13 @@ n268_binop_α:
                         call             rt_add@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx428_240
-                        add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n249_statement_begin_α
+                                                                                        jmp   n270_statement_end_α
 .Lx428_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
                                                                                         jmp   n269_assign_α
 n268_binop_β:
-                        add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n249_statement_begin_α
+                                                                                        jmp   n270_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n269_assign_α:
                         mov              rax, qword ptr [rsp + 0]                       # binop
@@ -3361,8 +3344,7 @@ n269_assign_α:
                         mov              qword ptr [1879052360], rdx
                                                                                         jmp   n270_statement_end_α
 n269_assign_β:
-                        add              rsp, 48
-                                                                                        jmp   n249_statement_begin_α
+                                                                                        jmp   n270_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
 n270_statement_end_α:
                         add              rsp, 48

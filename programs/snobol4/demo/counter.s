@@ -110,9 +110,7 @@ n11_binop_α:
                         call             rt_add@PLT
                         cmp              eax, 104
                                                                                         jne   .Lx38_240
-                        add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n14_statement_begin_α
+                                                                                        jmp   n13_statement_end_α
 .Lx38_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
