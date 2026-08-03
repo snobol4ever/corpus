@@ -9004,23 +9004,11 @@ proc_PAT$4_α_body:
                         mov              qword ptr [rbp + 96], rax
 #-----------------------------------------------------------------------------------------------------------------------
 n1450_match_assign_save_α:
-                        sub              rsp, 80
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
                         sub              rsp, 16
                         mov              dword ptr [rsp + 0], r14d
                                                                                         jmp   n1451_match_sequence_α
 n1450_match_assign_save_β:
                         add              rsp, 16
-                        add              rsp, 80
                                                                                         jmp   proc_PAT$4_scanfail
 #-----------------------------------------------------------------------------------------------------------------------
 n1451_match_sequence_α:
@@ -9033,7 +9021,7 @@ n1451_match_sequence_af:
                                                                                         jmp   n1450_match_assign_save_β
 #-----------------------------------------------------------------------------------------------------------------------
 n1452_match_assign_cond_α:
-                        mov              eax, dword ptr [rsp + 16]
+                        mov              eax, dword ptr [rsp + 0]
                         lea              rcx, [rip + .S7]
                         mov              r10, qword ptr [1879048192]
                         mov              qword ptr [r10 + 0], rcx
@@ -9044,7 +9032,7 @@ n1452_match_assign_cond_α:
                         mov              qword ptr [r10 + 16], rdx
                         add              r10, 24
                         mov              qword ptr [1879048192], r10
-                        add              rsp, 80
+                        add              rsp, 16
                                                                                         jmp   proc_PAT$4_scanhit
 n1452_match_assign_cond_β:
                         mov              rax, qword ptr [1879048192]
