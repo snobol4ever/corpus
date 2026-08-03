@@ -13,436 +13,487 @@ main:
 main_α:
 main_α_body:
 #-----------------------------------------------------------------------------------------------------------------------
-n0_statement_α:
-                                                                                        jmp   n1_lit_string_α
+n0_statement_begin_α:
+                                                                                        jmp   n1_statement_end_α
+#-----------------------------------------------------------------------------------------------------------------------
+n1_statement_end_α:
+                                                                                        jmp   n2_statement_begin_α
 #=======================================================================================================================
 #         LGT('abc', 'xyz')          :f(e001)
 #-----------------------------------------------------------------------------------------------------------------------
-n1_lit_string_α:
+n2_statement_begin_α:
+                                                                                        jmp   n3_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n3_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 3
-                        mov              rax, qword ptr [rip + .Lx51_0]
+                        mov              rax, qword ptr [rip + .Lx72_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n2_lit_string_α
-.Lx51_0:
-                        .quad            .Lx51_0_s
-.Lx51_0_s:
+                                                                                        jmp   n4_lit_string_α
+.Lx72_0:
+                        .quad            .Lx72_0_s
+.Lx72_0_s:
                         .string          "abc"
 #-----------------------------------------------------------------------------------------------------------------------
-n2_lit_string_α:
+n4_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 3
-                        mov              rax, qword ptr [rip + .Lx52_0]
+                        mov              rax, qword ptr [rip + .Lx73_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n3_cmp_test_α
-.Lx52_0:
-                        .quad            .Lx52_0_s
-.Lx52_0_s:
+                                                                                        jmp   n5_cmp_test_α
+.Lx73_0:
+                        .quad            .Lx73_0_s
+.Lx73_0_s:
                         .string          "xyz"
 #-----------------------------------------------------------------------------------------------------------------------
-n3_cmp_test_α:
+n5_cmp_test_α:
                         sub              rsp, 16
                         lea              rdi, [rsp + 32]                                # lit_string
                         lea              rsi, [rsp + 16]                                # b
                         call             rt_cmp_d@PLT
                         test             eax, eax
-                                                                                        jg    .Lx54_240
+                                                                                        jg    .Lx75_240
                         add              rsp, 16
                         add              rsp, 32
-                                                                                        jmp   n8_statement_α
-.Lx54_240:
-                                                                                        jmp   n4_statement_α
+                                                                                        jmp   n11_statement_begin_α
+.Lx75_240:
+                                                                                        jmp   n6_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
-n4_statement_α:
+n6_statement_end_α:
                         add              rsp, 48
-                                                                                        jmp   n5_lit_string_α
+                                                                                        jmp   n7_statement_begin_α
 #=======================================================================================================================
 #         OUTPUT = 'FAIL 914/001: LGT(abc,xyz) should fail'   :(END)
 #-----------------------------------------------------------------------------------------------------------------------
-n5_lit_string_α:
+n7_statement_begin_α:
+                                                                                        jmp   n8_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n8_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 38
-                        mov              rax, qword ptr [rip + .Lx57_0]
+                        mov              rax, qword ptr [rip + .Lx80_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n6_assign_α
-.Lx57_0:
-                        .quad            .Lx57_0_s
-.Lx57_0_s:
+                                                                                        jmp   n9_assign_α
+.Lx80_0:
+                        .quad            .Lx80_0_s
+.Lx80_0_s:
                         .string          "FAIL 914/001: LGT(abc,xyz) should fail"
 #-----------------------------------------------------------------------------------------------------------------------
-n6_assign_α:
+n9_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # lit_string
                         mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx58_0]                 # name
+                        mov              rdi, qword ptr [rip + .Lx81_0]                 # name
                         call             NV_SET_fn@PLT
-                                                                                        jmp   n7_statement_α
-.Lx58_0:
-                        .quad            .Lx58_0_s
-.Lx58_0_s:
+                                                                                        jmp   n10_statement_end_α
+.Lx81_0:
+                        .quad            .Lx81_0_s
+.Lx81_0_s:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
-n7_statement_α:
+n10_statement_end_α:
                         add              rsp, 16
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
-n8_statement_α:
-                                                                                        jmp   n9_lit_string_α
+n11_statement_begin_α:
+                                                                                        jmp   n12_statement_end_α
+#-----------------------------------------------------------------------------------------------------------------------
+n12_statement_end_α:
+                                                                                        jmp   n13_statement_begin_α
 #=======================================================================================================================
 #         LGT('abc', 'abc')          :f(e002)
 #-----------------------------------------------------------------------------------------------------------------------
-n9_lit_string_α:
+n13_statement_begin_α:
+                                                                                        jmp   n14_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n14_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 3
-                        mov              rax, qword ptr [rip + .Lx63_0]
+                        mov              rax, qword ptr [rip + .Lx90_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n10_lit_string_α
-.Lx63_0:
-                        .quad            .Lx63_0_s
-.Lx63_0_s:
+                                                                                        jmp   n15_lit_string_α
+.Lx90_0:
+                        .quad            .Lx90_0_s
+.Lx90_0_s:
                         .string          "abc"
 #-----------------------------------------------------------------------------------------------------------------------
-n10_lit_string_α:
+n15_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 3
-                        mov              rax, qword ptr [rip + .Lx64_0]
+                        mov              rax, qword ptr [rip + .Lx91_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n11_cmp_test_α
-.Lx64_0:
-                        .quad            .Lx64_0_s
-.Lx64_0_s:
+                                                                                        jmp   n16_cmp_test_α
+.Lx91_0:
+                        .quad            .Lx91_0_s
+.Lx91_0_s:
                         .string          "abc"
 #-----------------------------------------------------------------------------------------------------------------------
-n11_cmp_test_α:
+n16_cmp_test_α:
                         sub              rsp, 16
                         lea              rdi, [rsp + 32]                                # lit_string
                         lea              rsi, [rsp + 16]                                # b
                         call             rt_cmp_d@PLT
                         test             eax, eax
-                                                                                        jg    .Lx66_240
+                                                                                        jg    .Lx93_240
                         add              rsp, 16
                         add              rsp, 32
-                                                                                        jmp   n16_statement_α
-.Lx66_240:
-                                                                                        jmp   n12_statement_α
+                                                                                        jmp   n22_statement_begin_α
+.Lx93_240:
+                                                                                        jmp   n17_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
-n12_statement_α:
+n17_statement_end_α:
                         add              rsp, 48
-                                                                                        jmp   n13_lit_string_α
+                                                                                        jmp   n18_statement_begin_α
 #=======================================================================================================================
 #         OUTPUT = 'FAIL 914/002: LGT(abc,abc) should fail'   :(END)
 #-----------------------------------------------------------------------------------------------------------------------
-n13_lit_string_α:
+n18_statement_begin_α:
+                                                                                        jmp   n19_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n19_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 38
-                        mov              rax, qword ptr [rip + .Lx69_0]
+                        mov              rax, qword ptr [rip + .Lx98_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n14_assign_α
-.Lx69_0:
-                        .quad            .Lx69_0_s
-.Lx69_0_s:
+                                                                                        jmp   n20_assign_α
+.Lx98_0:
+                        .quad            .Lx98_0_s
+.Lx98_0_s:
                         .string          "FAIL 914/002: LGT(abc,abc) should fail"
 #-----------------------------------------------------------------------------------------------------------------------
-n14_assign_α:
+n20_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # lit_string
                         mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx70_0]                 # name
+                        mov              rdi, qword ptr [rip + .Lx99_0]                 # name
                         call             NV_SET_fn@PLT
-                                                                                        jmp   n15_statement_α
-.Lx70_0:
-                        .quad            .Lx70_0_s
-.Lx70_0_s:
+                                                                                        jmp   n21_statement_end_α
+.Lx99_0:
+                        .quad            .Lx99_0_s
+.Lx99_0_s:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
-n15_statement_α:
+n21_statement_end_α:
                         add              rsp, 16
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
-n16_statement_α:
-                                                                                        jmp   n17_lit_string_α
+n22_statement_begin_α:
+                                                                                        jmp   n23_statement_end_α
+#-----------------------------------------------------------------------------------------------------------------------
+n23_statement_end_α:
+                                                                                        jmp   n24_statement_begin_α
 #=======================================================================================================================
 #         LGT('xyz', 'abc')          :s(e003)
 #-----------------------------------------------------------------------------------------------------------------------
-n17_lit_string_α:
+n24_statement_begin_α:
+                                                                                        jmp   n25_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n25_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 3
-                        mov              rax, qword ptr [rip + .Lx75_0]
+                        mov              rax, qword ptr [rip + .Lx108_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n18_lit_string_α
-.Lx75_0:
-                        .quad            .Lx75_0_s
-.Lx75_0_s:
-                        .string          "xyz"
-#-----------------------------------------------------------------------------------------------------------------------
-n18_lit_string_α:
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 3
-                        mov              rax, qword ptr [rip + .Lx76_0]
-                        mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n19_cmp_test_α
-.Lx76_0:
-                        .quad            .Lx76_0_s
-.Lx76_0_s:
-                        .string          "abc"
-#-----------------------------------------------------------------------------------------------------------------------
-n19_cmp_test_α:
-                        sub              rsp, 16
-                        lea              rdi, [rsp + 32]                                # lit_string
-                        lea              rsi, [rsp + 16]                                # b
-                        call             rt_cmp_d@PLT
-                        test             eax, eax
-                                                                                        jg    .Lx78_240
-                        add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n41_lit_string_α
-.Lx78_240:
-                                                                                        jmp   n20_statement_α
-#-----------------------------------------------------------------------------------------------------------------------
-n20_statement_α:
-                                                                                        jmp   n21_statement_α
-#-----------------------------------------------------------------------------------------------------------------------
-n21_statement_α:
-                        add              rsp, 48
-                                                                                        jmp   n22_lit_string_α
-#=======================================================================================================================
-#         LGT('', 'abc')             :f(e004)
-#-----------------------------------------------------------------------------------------------------------------------
-n22_lit_string_α:
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 0
-                        mov              rax, qword ptr [rip + .Lx83_0]
-                        mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n23_lit_string_α
-.Lx83_0:
-                        .quad            .Lx83_0_s
-.Lx83_0_s:
-                        .string          ""
-#-----------------------------------------------------------------------------------------------------------------------
-n23_lit_string_α:
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 3
-                        mov              rax, qword ptr [rip + .Lx84_0]
-                        mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n24_cmp_test_α
-.Lx84_0:
-                        .quad            .Lx84_0_s
-.Lx84_0_s:
-                        .string          "abc"
-#-----------------------------------------------------------------------------------------------------------------------
-n24_cmp_test_α:
-                        sub              rsp, 16
-                        lea              rdi, [rsp + 32]                                # lit_string
-                        lea              rsi, [rsp + 16]                                # b
-                        call             rt_cmp_d@PLT
-                        test             eax, eax
-                                                                                        jg    .Lx86_240
-                        add              rsp, 16
-                        add              rsp, 32
-                                                                                        jmp   n29_statement_α
-.Lx86_240:
-                                                                                        jmp   n25_statement_α
-#-----------------------------------------------------------------------------------------------------------------------
-n25_statement_α:
-                        add              rsp, 48
                                                                                         jmp   n26_lit_string_α
-#=======================================================================================================================
-#         OUTPUT = 'FAIL 914/004: LGT(null,abc) should fail'  :(END)
+.Lx108_0:
+                        .quad            .Lx108_0_s
+.Lx108_0_s:
+                        .string          "xyz"
 #-----------------------------------------------------------------------------------------------------------------------
 n26_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 39
-                        mov              rax, qword ptr [rip + .Lx89_0]
-                        mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n27_assign_α
-.Lx89_0:
-                        .quad            .Lx89_0_s
-.Lx89_0_s:
-                        .string          "FAIL 914/004: LGT(null,abc) should fail"
-#-----------------------------------------------------------------------------------------------------------------------
-n27_assign_α:
-                        mov              rsi, qword ptr [rsp + 0]                       # lit_string
-                        mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx90_0]                 # name
-                        call             NV_SET_fn@PLT
-                                                                                        jmp   n28_statement_α
-.Lx90_0:
-                        .quad            .Lx90_0_s
-.Lx90_0_s:
-                        .string          "OUTPUT"
-#-----------------------------------------------------------------------------------------------------------------------
-n28_statement_α:
-                        add              rsp, 16
-                                                                                        jmp   main_γ
-#-----------------------------------------------------------------------------------------------------------------------
-n29_statement_α:
-                                                                                        jmp   n30_lit_string_α
-#=======================================================================================================================
-#         LGT('abc', '')             :s(e005)
-#-----------------------------------------------------------------------------------------------------------------------
-n30_lit_string_α:
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 3
-                        mov              rax, qword ptr [rip + .Lx95_0]
+                        mov              rax, qword ptr [rip + .Lx109_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n31_lit_string_α
-.Lx95_0:
-                        .quad            .Lx95_0_s
-.Lx95_0_s:
+                                                                                        jmp   n27_cmp_test_α
+.Lx109_0:
+                        .quad            .Lx109_0_s
+.Lx109_0_s:
                         .string          "abc"
 #-----------------------------------------------------------------------------------------------------------------------
-n31_lit_string_α:
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], 2                         # result
-                        mov              dword ptr [rsp + 4], 0
-                        mov              rax, qword ptr [rip + .Lx96_0]
-                        mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n32_cmp_test_α
-.Lx96_0:
-                        .quad            .Lx96_0_s
-.Lx96_0_s:
-                        .string          ""
-#-----------------------------------------------------------------------------------------------------------------------
-n32_cmp_test_α:
+n27_cmp_test_α:
                         sub              rsp, 16
                         lea              rdi, [rsp + 32]                                # lit_string
                         lea              rsi, [rsp + 16]                                # b
                         call             rt_cmp_d@PLT
                         test             eax, eax
-                                                                                        jg    .Lx98_240
+                                                                                        jg    .Lx111_240
                         add              rsp, 16
                         add              rsp, 32
-                                                                                        jmp   n38_lit_string_α
-.Lx98_240:
-                                                                                        jmp   n33_statement_α
+                                                                                        jmp   n57_statement_begin_α
+.Lx111_240:
+                                                                                        jmp   n28_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
-n33_statement_α:
-                                                                                        jmp   n34_statement_α
+n28_statement_end_α:
+                                                                                        jmp   n29_statement_begin_α
 #-----------------------------------------------------------------------------------------------------------------------
-n34_statement_α:
+n29_statement_begin_α:
+                                                                                        jmp   n30_statement_end_α
+#-----------------------------------------------------------------------------------------------------------------------
+n30_statement_end_α:
                         add              rsp, 48
-                                                                                        jmp   n35_lit_string_α
+                                                                                        jmp   n31_statement_begin_α
+#=======================================================================================================================
+#         LGT('', 'abc')             :f(e004)
+#-----------------------------------------------------------------------------------------------------------------------
+n31_statement_begin_α:
+                                                                                        jmp   n32_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n32_lit_string_α:
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 0
+                        mov              rax, qword ptr [rip + .Lx120_0]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n33_lit_string_α
+.Lx120_0:
+                        .quad            .Lx120_0_s
+.Lx120_0_s:
+                        .string          ""
+#-----------------------------------------------------------------------------------------------------------------------
+n33_lit_string_α:
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 3
+                        mov              rax, qword ptr [rip + .Lx121_0]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n34_cmp_test_α
+.Lx121_0:
+                        .quad            .Lx121_0_s
+.Lx121_0_s:
+                        .string          "abc"
+#-----------------------------------------------------------------------------------------------------------------------
+n34_cmp_test_α:
+                        sub              rsp, 16
+                        lea              rdi, [rsp + 32]                                # lit_string
+                        lea              rsi, [rsp + 16]                                # b
+                        call             rt_cmp_d@PLT
+                        test             eax, eax
+                                                                                        jg    .Lx123_240
+                        add              rsp, 16
+                        add              rsp, 32
+                                                                                        jmp   n40_statement_begin_α
+.Lx123_240:
+                                                                                        jmp   n35_statement_end_α
+#-----------------------------------------------------------------------------------------------------------------------
+n35_statement_end_α:
+                        add              rsp, 48
+                                                                                        jmp   n36_statement_begin_α
+#=======================================================================================================================
+#         OUTPUT = 'FAIL 914/004: LGT(null,abc) should fail'  :(END)
+#-----------------------------------------------------------------------------------------------------------------------
+n36_statement_begin_α:
+                                                                                        jmp   n37_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n37_lit_string_α:
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 39
+                        mov              rax, qword ptr [rip + .Lx128_0]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n38_assign_α
+.Lx128_0:
+                        .quad            .Lx128_0_s
+.Lx128_0_s:
+                        .string          "FAIL 914/004: LGT(null,abc) should fail"
+#-----------------------------------------------------------------------------------------------------------------------
+n38_assign_α:
+                        mov              rsi, qword ptr [rsp + 0]                       # lit_string
+                        mov              rdx, qword ptr [rsp + 8]                       # val
+                        mov              rdi, qword ptr [rip + .Lx129_0]                # name
+                        call             NV_SET_fn@PLT
+                                                                                        jmp   n39_statement_end_α
+.Lx129_0:
+                        .quad            .Lx129_0_s
+.Lx129_0_s:
+                        .string          "OUTPUT"
+#-----------------------------------------------------------------------------------------------------------------------
+n39_statement_end_α:
+                        add              rsp, 16
+                                                                                        jmp   main_γ
+#-----------------------------------------------------------------------------------------------------------------------
+n40_statement_begin_α:
+                                                                                        jmp   n41_statement_end_α
+#-----------------------------------------------------------------------------------------------------------------------
+n41_statement_end_α:
+                                                                                        jmp   n42_statement_begin_α
+#=======================================================================================================================
+#         LGT('abc', '')             :s(e005)
+#-----------------------------------------------------------------------------------------------------------------------
+n42_statement_begin_α:
+                                                                                        jmp   n43_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n43_lit_string_α:
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 3
+                        mov              rax, qword ptr [rip + .Lx138_0]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n44_lit_string_α
+.Lx138_0:
+                        .quad            .Lx138_0_s
+.Lx138_0_s:
+                        .string          "abc"
+#-----------------------------------------------------------------------------------------------------------------------
+n44_lit_string_α:
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], 2                         # result
+                        mov              dword ptr [rsp + 4], 0
+                        mov              rax, qword ptr [rip + .Lx139_0]
+                        mov              qword ptr [rsp + 8], rax
+                                                                                        jmp   n45_cmp_test_α
+.Lx139_0:
+                        .quad            .Lx139_0_s
+.Lx139_0_s:
+                        .string          ""
+#-----------------------------------------------------------------------------------------------------------------------
+n45_cmp_test_α:
+                        sub              rsp, 16
+                        lea              rdi, [rsp + 32]                                # lit_string
+                        lea              rsi, [rsp + 16]                                # b
+                        call             rt_cmp_d@PLT
+                        test             eax, eax
+                                                                                        jg    .Lx141_240
+                        add              rsp, 16
+                        add              rsp, 32
+                                                                                        jmp   n53_statement_begin_α
+.Lx141_240:
+                                                                                        jmp   n46_statement_end_α
+#-----------------------------------------------------------------------------------------------------------------------
+n46_statement_end_α:
+                                                                                        jmp   n47_statement_begin_α
+#-----------------------------------------------------------------------------------------------------------------------
+n47_statement_begin_α:
+                                                                                        jmp   n48_statement_end_α
+#-----------------------------------------------------------------------------------------------------------------------
+n48_statement_end_α:
+                        add              rsp, 48
+                                                                                        jmp   n49_statement_begin_α
 #=======================================================================================================================
 #         OUTPUT = 'PASS 914_lgt (5/5)'
 #-----------------------------------------------------------------------------------------------------------------------
-n35_lit_string_α:
+n49_statement_begin_α:
+                                                                                        jmp   n50_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n50_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 18
-                        mov              rax, qword ptr [rip + .Lx103_0]
+                        mov              rax, qword ptr [rip + .Lx150_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n36_assign_α
-.Lx103_0:
-                        .quad            .Lx103_0_s
-.Lx103_0_s:
+                                                                                        jmp   n51_assign_α
+.Lx150_0:
+                        .quad            .Lx150_0_s
+.Lx150_0_s:
                         .string          "PASS 914_lgt (5/5)"
 #-----------------------------------------------------------------------------------------------------------------------
-n36_assign_α:
+n51_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # lit_string
                         mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx104_0]                # name
+                        mov              rdi, qword ptr [rip + .Lx151_0]                # name
                         call             NV_SET_fn@PLT
-                                                                                        jmp   n37_statement_α
-.Lx104_0:
-                        .quad            .Lx104_0_s
-.Lx104_0_s:
+                                                                                        jmp   n52_statement_end_α
+.Lx151_0:
+                        .quad            .Lx151_0_s
+.Lx151_0_s:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
-n37_statement_α:
+n52_statement_end_α:
                         add              rsp, 16
                                                                                         jmp   main_γ
 #=======================================================================================================================
 #         OUTPUT = 'FAIL 914/005: LGT(abc,null) should succeed' :(END)
 #-----------------------------------------------------------------------------------------------------------------------
-n38_lit_string_α:
+n53_statement_begin_α:
+                                                                                        jmp   n54_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n54_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 42
-                        mov              rax, qword ptr [rip + .Lx107_0]
+                        mov              rax, qword ptr [rip + .Lx156_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n39_assign_α
-.Lx107_0:
-                        .quad            .Lx107_0_s
-.Lx107_0_s:
+                                                                                        jmp   n55_assign_α
+.Lx156_0:
+                        .quad            .Lx156_0_s
+.Lx156_0_s:
                         .string          "FAIL 914/005: LGT(abc,null) should succeed"
 #-----------------------------------------------------------------------------------------------------------------------
-n39_assign_α:
+n55_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # lit_string
                         mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx108_0]                # name
+                        mov              rdi, qword ptr [rip + .Lx157_0]                # name
                         call             NV_SET_fn@PLT
-                                                                                        jmp   n40_statement_α
-.Lx108_0:
-                        .quad            .Lx108_0_s
-.Lx108_0_s:
+                                                                                        jmp   n56_statement_end_α
+.Lx157_0:
+                        .quad            .Lx157_0_s
+.Lx157_0_s:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
-n40_statement_α:
+n56_statement_end_α:
                         add              rsp, 16
                                                                                         jmp   main_γ
 #=======================================================================================================================
 #         OUTPUT = 'FAIL 914/003: LGT(xyz,abc) should succeed' :(END)
 #-----------------------------------------------------------------------------------------------------------------------
-n41_lit_string_α:
+n57_statement_begin_α:
+                                                                                        jmp   n58_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n58_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 41
-                        mov              rax, qword ptr [rip + .Lx111_0]
+                        mov              rax, qword ptr [rip + .Lx162_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n42_assign_α
-.Lx111_0:
-                        .quad            .Lx111_0_s
-.Lx111_0_s:
+                                                                                        jmp   n59_assign_α
+.Lx162_0:
+                        .quad            .Lx162_0_s
+.Lx162_0_s:
                         .string          "FAIL 914/003: LGT(xyz,abc) should succeed"
 #-----------------------------------------------------------------------------------------------------------------------
-n42_assign_α:
+n59_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # lit_string
                         mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx112_0]                # name
+                        mov              rdi, qword ptr [rip + .Lx163_0]                # name
                         call             NV_SET_fn@PLT
-                                                                                        jmp   n43_statement_α
-.Lx112_0:
-                        .quad            .Lx112_0_s
-.Lx112_0_s:
+                                                                                        jmp   n60_statement_end_α
+.Lx163_0:
+                        .quad            .Lx163_0_s
+.Lx163_0_s:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
-n43_statement_α:
+n60_statement_end_α:
                         add              rsp, 16
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
-n44_goto_α:
-                                                                                        jmp   n8_statement_α
-n44_goto_β:
+n61_goto_α:
+                                                                                        jmp   n11_statement_begin_α
+n61_goto_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n45_goto_α:
-                                                                                        jmp   n16_statement_α
-n45_goto_β:
+n62_goto_α:
+                                                                                        jmp   n22_statement_begin_α
+n62_goto_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n46_goto_α:
-                                                                                        jmp   n21_statement_α
-n46_goto_β:
+n63_goto_α:
+                                                                                        jmp   n29_statement_begin_α
+n63_goto_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n47_goto_α:
-                                                                                        jmp   n29_statement_α
-n47_goto_β:
+n64_goto_α:
+                                                                                        jmp   n40_statement_begin_α
+n64_goto_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
-n48_goto_α:
-                                                                                        jmp   n34_statement_α
-n48_goto_β:
+n65_goto_α:
+                                                                                        jmp   n47_statement_begin_α
+n65_goto_β:
                                                                                         jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:

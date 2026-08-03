@@ -6,30 +6,33 @@ proc_LBL__DONE_α_body:
 #=======================================================================================================================
 # DONE	OUTPUT = 'done'
 #-----------------------------------------------------------------------------------------------------------------------
-n0_lit_string_α:
+n0_statement_begin_α:
+                                                                                        jmp   n1_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n1_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 4
-                        mov              rax, qword ptr [rip + .Lx3_0]
+                        mov              rax, qword ptr [rip + .Lx6_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n1_assign_α
-.Lx3_0:
-                        .quad            .Lx3_0_s
-.Lx3_0_s:
+                                                                                        jmp   n2_assign_α
+.Lx6_0:
+                        .quad            .Lx6_0_s
+.Lx6_0_s:
                         .string          "done"
 #-----------------------------------------------------------------------------------------------------------------------
-n1_assign_α:
+n2_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # lit_string
                         mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx4_0]                  # name
+                        mov              rdi, qword ptr [rip + .Lx7_0]                  # name
                         call             NV_SET_fn@PLT
-                                                                                        jmp   n2_statement_α
-.Lx4_0:
-                        .quad            .Lx4_0_s
-.Lx4_0_s:
+                                                                                        jmp   n3_statement_end_α
+.Lx7_0:
+                        .quad            .Lx7_0_s
+.Lx7_0_s:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
-n2_statement_α:
+n3_statement_end_α:
                         add              rsp, 16
                                                                                         jmp   proc_LBL__DONE_γ
 #-----------------------------------------------------------------------------------------------------------------------
@@ -105,62 +108,71 @@ main_α_body:
 #=======================================================================================================================
 # 	S = 'L OUTPUT = N; N = LT(N,10) N + 1 :S(L)F(DONE)'
 #-----------------------------------------------------------------------------------------------------------------------
-n7_lit_string_α:
+n10_statement_begin_α:
+                                                                                        jmp   n11_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n11_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 45
-                        mov              rax, qword ptr [rip + .Lx22_0]
+                        mov              rax, qword ptr [rip + .Lx31_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n8_assign_α
-.Lx22_0:
-                        .quad            .Lx22_0_s
-.Lx22_0_s:
+                                                                                        jmp   n12_assign_α
+.Lx31_0:
+                        .quad            .Lx31_0_s
+.Lx31_0_s:
                         .string          "L OUTPUT = N; N = LT(N,10) N + 1 :S(L)F(DONE)"
 #-----------------------------------------------------------------------------------------------------------------------
-n8_assign_α:
+n12_assign_α:
                         mov              rax, qword ptr [rsp + 0]                       # lit_string
                         mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052288], rax                    # S
                         mov              qword ptr [1879052296], rdx
-                                                                                        jmp   n9_statement_α
+                                                                                        jmp   n13_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
-n9_statement_α:
+n13_statement_end_α:
                         add              rsp, 16
-                                                                                        jmp   n10_lit_integer_α
+                                                                                        jmp   n14_statement_begin_α
 #=======================================================================================================================
 # 	N = 8
 #-----------------------------------------------------------------------------------------------------------------------
-n10_lit_integer_α:
+n14_statement_begin_α:
+                                                                                        jmp   n15_lit_integer_α
+#-----------------------------------------------------------------------------------------------------------------------
+n15_lit_integer_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 3                         # result
-                        mov              rax, qword ptr [rip + .Lx26_0]
+                        mov              rax, qword ptr [rip + .Lx37_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n11_assign_α
-.Lx26_0:
+                                                                                        jmp   n16_assign_α
+.Lx37_0:
                         .quad            8
 #-----------------------------------------------------------------------------------------------------------------------
-n11_assign_α:
+n16_assign_α:
                         mov              rax, qword ptr [rsp + 0]                       # lit_integer
                         mov              rdx, qword ptr [rsp + 8]
                         mov              qword ptr [1879052304], rax                    # N
                         mov              qword ptr [1879052312], rdx
-                                                                                        jmp   n12_statement_α
+                                                                                        jmp   n17_statement_end_α
 #-----------------------------------------------------------------------------------------------------------------------
-n12_statement_α:
+n17_statement_end_α:
                         add              rsp, 16
-                                                                                        jmp   n13_var_α
+                                                                                        jmp   n18_statement_begin_α
 #=======================================================================================================================
 # 	CODE(S)	:(L)
 #-----------------------------------------------------------------------------------------------------------------------
-n13_var_α:
+n18_statement_begin_α:
+                                                                                        jmp   n19_var_α
+#-----------------------------------------------------------------------------------------------------------------------
+n19_var_α:
                         sub              rsp, 16
                         mov              rax, qword ptr [1879052288]                    # S
                         mov              rdx, qword ptr [1879052296]
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n14_call_α
+                                                                                        jmp   n20_call_α
 #-----------------------------------------------------------------------------------------------------------------------
-n14_call_α:
+n20_call_α:
                         sub              rsp, 16
                         sub              rsp, 16
                         mov              r10, qword ptr [rsp + 32]
@@ -168,85 +180,88 @@ n14_call_α:
                         mov              qword ptr [rsp + 0], r10
                         mov              qword ptr [rsp + 8], r11
                         .section         .rodata
-.Lbynamefnzd11:         .string          "CODE"
+.Lbynamefnzd15:         .string          "CODE"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rdi, [rip + .Lbynamefnzd11]                    # fn
+                        lea              rdi, [rip + .Lbynamefnzd15]                    # fn
                         lea              rsi, [rsp + 0]                                 # args
                         mov              edx, 1                                         # nargs
                         call             rt_call_arr@PLT
                         add              rsp, 16
                         cmp              eax, 104
-                                                                                        jne   .Lx31_240
+                                                                                        jne   .Lx44_240
                         add              rsp, 16
                         add              rsp, 16
-                                                                                        jmp   n17_goto_deferred_α
-.Lx31_240:
+                                                                                        jmp   n23_goto_deferred_α
+.Lx44_240:
                         mov              qword ptr [rsp + 0], rax                       # result
                         mov              qword ptr [rsp + 8], rdx
-                                                                                        jmp   n15_statement_α
-n14_call_β:
+                                                                                        jmp   n21_statement_end_α
+n20_call_β:
                         add              rsp, 16
                         add              rsp, 16
-                                                                                        jmp   n17_goto_deferred_α
+                                                                                        jmp   n23_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n15_statement_α:
-                                                                                        jmp   n16_goto_deferred_α
+n21_statement_end_α:
+                                                                                        jmp   n22_goto_deferred_α
 #-----------------------------------------------------------------------------------------------------------------------
-n16_goto_deferred_α:
-                        mov              rdi, qword ptr [rip + .Lx35_0]                 # name
+n22_goto_deferred_α:
+                        mov              rdi, qword ptr [rip + .Lx48_0]                 # name
                         call             rt_goto_transfer@PLT
-                                                                                        jmp   .Lx35_1
-.Lx35_0:
-                        .quad            .Lx35_0_s
-.Lx35_0_s:
+                                                                                        jmp   .Lx48_1
+.Lx48_0:
+                        .quad            .Lx48_0_s
+.Lx48_0_s:
                         .string          "L"
-.Lx35_1:
+.Lx48_1:
                         add              rsp, 32
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
-n17_goto_deferred_α:
-                        mov              rdi, qword ptr [rip + .Lx37_0]                 # name
+n23_goto_deferred_α:
+                        mov              rdi, qword ptr [rip + .Lx50_0]                 # name
                         call             rt_goto_transfer@PLT
-                                                                                        jmp   .Lx37_1
-.Lx37_0:
-                        .quad            .Lx37_0_s
-.Lx37_0_s:
+                                                                                        jmp   .Lx50_1
+.Lx50_0:
+                        .quad            .Lx50_0_s
+.Lx50_0_s:
                         .string          "L"
-.Lx37_1:
+.Lx50_1:
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
-n18_goto_α:
-                                                                                        jmp   n19_lit_string_α
-n18_goto_β:
+n24_goto_α:
+                                                                                        jmp   n25_statement_begin_α
+n24_goto_β:
                                                                                         jmp   main_ω
 #=======================================================================================================================
 # DONE	OUTPUT = 'done'
 #-----------------------------------------------------------------------------------------------------------------------
-n19_lit_string_α:
+n25_statement_begin_α:
+                                                                                        jmp   n26_lit_string_α
+#-----------------------------------------------------------------------------------------------------------------------
+n26_lit_string_α:
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], 2                         # result
                         mov              dword ptr [rsp + 4], 4
-                        mov              rax, qword ptr [rip + .Lx39_0]
+                        mov              rax, qword ptr [rip + .Lx54_0]
                         mov              qword ptr [rsp + 8], rax
-                                                                                        jmp   n20_assign_α
-.Lx39_0:
-                        .quad            .Lx39_0_s
-.Lx39_0_s:
+                                                                                        jmp   n27_assign_α
+.Lx54_0:
+                        .quad            .Lx54_0_s
+.Lx54_0_s:
                         .string          "done"
 #-----------------------------------------------------------------------------------------------------------------------
-n20_assign_α:
+n27_assign_α:
                         mov              rsi, qword ptr [rsp + 0]                       # lit_string
                         mov              rdx, qword ptr [rsp + 8]                       # val
-                        mov              rdi, qword ptr [rip + .Lx40_0]                 # name
+                        mov              rdi, qword ptr [rip + .Lx55_0]                 # name
                         call             NV_SET_fn@PLT
-                                                                                        jmp   n21_statement_α
-.Lx40_0:
-                        .quad            .Lx40_0_s
-.Lx40_0_s:
+                                                                                        jmp   n28_statement_end_α
+.Lx55_0:
+                        .quad            .Lx55_0_s
+.Lx55_0_s:
                         .string          "OUTPUT"
 #-----------------------------------------------------------------------------------------------------------------------
-n21_statement_α:
+n28_statement_end_α:
                         add              rsp, 16
                                                                                         jmp   main_γ
 #-----------------------------------------------------------------------------------------------------------------------
