@@ -449,25 +449,11 @@ proc_PAT$3_α_body:
                         mov              qword ptr [rbp + 112], rax
 #-----------------------------------------------------------------------------------------------------------------------
 n35_match_assign_save_α:
-                        sub              rsp, 96
-                        mov              qword ptr [rsp + 0], 0                         # stmt_claim
-                        mov              qword ptr [rsp + 8], 0
-                        mov              qword ptr [rsp + 16], 0
-                        mov              qword ptr [rsp + 24], 0
-                        mov              qword ptr [rsp + 32], 0
-                        mov              qword ptr [rsp + 40], 0
-                        mov              qword ptr [rsp + 48], 0
-                        mov              qword ptr [rsp + 56], 0
-                        mov              qword ptr [rsp + 64], 0
-                        mov              qword ptr [rsp + 72], 0
-                        mov              qword ptr [rsp + 80], 0
-                        mov              qword ptr [rsp + 88], 0
                         sub              rsp, 16
                         mov              dword ptr [rsp + 0], r14d
                                                                                         jmp   n36_match_alternate_α
 n35_match_assign_save_β:
                         add              rsp, 16
-                        add              rsp, 96
                                                                                         jmp   proc_PAT$3_scanfail
 #-----------------------------------------------------------------------------------------------------------------------
 n36_match_alternate_α:
@@ -515,7 +501,7 @@ n37_match_assign_cond_α:
                         mov              qword ptr [r10 + 16], rdx
                         add              r10, 24
                         mov              qword ptr [1879048192], r10
-                        add              rsp, 96
+                        add              rsp, 16
                                                                                         jmp   proc_PAT$3_scanhit
 n37_match_assign_cond_β:
                         mov              rax, qword ptr [1879048192]
